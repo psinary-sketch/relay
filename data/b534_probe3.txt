@@ -1,0 +1,21 @@
+### b534 PRE-SEAL PROBE 3 (DECLARED on the face: the literal-order ContDiff casts) -- source
+import SIDEExplicitFormula.PowerWindow
+
+example (f : ℝ → ℝ) (h : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f) : ContDiff ℝ 2 f := by
+  have h' : ContDiff ℝ ((2 : ℕ) : WithTop ℕ∞) f := h.of_le (by exact_mod_cast le_top)
+  exact_mod_cast h'
+example (f : ℝ → ℝ) (h : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f) : ContDiff ℝ 4 f := by
+  have h' : ContDiff ℝ ((4 : ℕ) : WithTop ℕ∞) f := h.of_le (by exact_mod_cast le_top)
+  exact_mod_cast h'
+example (f : ℝ → ℝ) (h : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f) : ContDiff ℝ 2 f :=
+  h.of_le (WithTop.coe_le_coe.mpr le_top)
+
+### output
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe3.lean:4:63: error: mod_cast has type
+  ?m.48 ≤ ⊤
+but is expected to have type
+  2 ≤ ↑⊤
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe3.lean:7:63: error: mod_cast has type
+  ?m.48 ≤ ⊤
+but is expected to have type
+  4 ≤ ↑⊤

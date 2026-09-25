@@ -1,0 +1,18 @@
+    (a) ### **THE FERRY`S NEW NAME `window` WAS ALREADY TAKEN IN THE NAMESPACE**: b524 declared `B321.window` and
+        `B321.window_contDiff`, and the reads before the seal did not search the namespace for the names the ferry mints.
+        Attempt 1 failed in `window`, `window_contDiff`, `window_support` and their dependents `kWindow`, `kWindow_classK`,
+        `kWindow_term`; the three were renamed `pwWindow`, `pwWindow_contDiff`, `pwWindow_support` for attempt 2 (`kWindow`
+        keeps the ferry`s name). The kernel tool`s theorem list and `AxiomCheckLimit.lean` were edited for the rename AFTER
+        install, so the installed AxiomCheck file`s sha in `b534_install.json` is the draft`s, not the committed file`s.
+    (b) ### **ATTEMPT 1 FAILED IN THREE FURTHER DECLARATIONS, EACH ONCE**: `Kp_kill` (`Finset.mem_image_of_mem _` inferred
+        `Complex.re` as the function; given explicitly), `mem_sT` (no `DecidablePred` outside `classical`; the proof now
+        opens it), `zeroSide_eventually_neg` (`summable_of_ne_finset_zero``s summation filter left a metavariable; the
+        `have` now states its type). No declaration failed at attempt 2; the halt rule did not fire.
+    (c) ### **PROBE 2 FOUND A CAST THAT DID NOT ELABORATE**: `h.of_le (by exact_mod_cast le_top)` fails for a literal order
+        (`ContDiff ℝ 2`, `ContDiff ℝ 4`), though it works for a variable `n : ℕ`; a third probe, declared on the face, found
+        `h.of_le (WithTop.coe_le_coe.mpr le_top)` and the draft uses it.
+    (d) ### **ATTEMPT 2 RAN IN 27.8 s FOR THE WHOLE MODULE**, fast enough to doubt; it is not taken on its exit code: the log
+        carries no `sorry`, the olean was written, and the profile reads all 89 theorems as the standard three on the
+        whole string -- a failed declaration would elaborate with `sorryAx` and fail that match.
+    (e) ### **THE FIRST ROW WRITE WAS REFUSED**: the title cell carried `|P_j(w)|`, which the ledger reads as cell boundaries;
+        `corr_row.py` refused before writing (12 cells, not 6). The cell now writes `‖P_j(w)‖`; the second write is the row.

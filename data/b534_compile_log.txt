@@ -1,0 +1,134 @@
+### run at (UTC) : 2026-09-25T19:37:54Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\PowerLimit.olean SIDEExplicitFormula\PowerLimit.lean
+exit 1 ; 29.6 s
+--- stdout ---
+SIDEExplicitFormula\PowerLimit.lean:105:4: error: `SIDEExplicitFormula.B321.window` has already been declared
+SIDEExplicitFormula\PowerLimit.lean:109:35: error: Application type mismatch: The argument
+  a
+has type
+  List ℝ
+but is expected to have type
+  ℝ
+in the application
+  window a
+SIDEExplicitFormula\PowerLimit.lean:109:58: error: Application type mismatch: The argument
+  a
+has type
+  List ℝ
+but is expected to have type
+  ℝ
+in the application
+  window a
+SIDEExplicitFormula\PowerLimit.lean:111:8: error: `SIDEExplicitFormula.B321.window_contDiff` has already been declared
+SIDEExplicitFormula\PowerLimit.lean:117:29: error: Application type mismatch: The argument
+  a
+has type
+  List ℝ
+but is expected to have type
+  ℝ
+in the application
+  window a
+SIDEExplicitFormula\PowerLimit.lean:124:31: error(lean.unknownIdentifier): Unknown identifier `window_support`
+SIDEExplicitFormula\PowerLimit.lean:123:40: error: Application type mismatch: The argument
+  a
+has type
+  List ℝ
+of sort `Type` but is expected to have type
+  ContDiff ℝ 4 ?m.24
+of sort `Prop` in the application
+  window_contDiff a
+SIDEExplicitFormula\PowerLimit.lean:132:29: error: Application type mismatch: The argument
+  a
+has type
+  List ℝ
+of sort `Type` but is expected to have type
+  ContDiff ℝ 4 ?m.83
+of sort `Prop` in the application
+  window_contDiff a
+SIDEExplicitFormula\PowerLimit.lean:130:107: error: unsolved goals
+a : List ℝ
+g0 : ℝ → ℝ
+L : ℝ
+hev : ∀ (x : ℝ), g0 (-x) = g0 x
+hsm : ContDiff ℝ (↑⊤) g0
+hs : Function.support g0 ⊆ Set.Icc (-L) L
+j : ℕ
+z : ℂ
+hpw : ContDiff ℝ (↑⊤) (power g0 j)
+⊢ Zeta23.paperFT (kWindow a g0 j) z =
+    polyEvalFull a (-(I * z)) * polyEvalFull a (I * z) * Zeta23.paperFT (phiC g0) z ^ 2 ^ (j + 1)
+SIDEExplicitFormula\PowerLimit.lean:373:89: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ killSet Z g0 M
+but is expected to have type
+  vOf ρ ∈ killSet Z g0 M
+in the application
+  (mem_KF H).mpr hρ
+SIDEExplicitFormula\PowerLimit.lean:373:2: error: Tactic `apply` failed: could not unify the conclusion of `Finset.prod_eq_zero
+  (Finset.mem_image_of_mem re ((mem_KF H).mpr sorry))`
+  ∏ j ∈ Finset.image re (KF H), ?m.34 j = 0
+with the goal
+  ∏ x ∈ Xr H, (Polynomial.aeval (vOf ρ)) (Polynomial.X - Polynomial.C x) = 0
+
+Note: The full type of `Finset.prod_eq_zero (Finset.mem_image_of_mem re ((mem_KF H).mpr sorry))` is
+  ?m.34 (vOf ρ).re = 0 → ∏ j ∈ Finset.image re (KF H), ?m.34 j = 0
+
+Z : Zeta23.ZeroConfig
+g0 : ℝ → ℝ
+L M : ℝ
+H : PWSetup Z g0 L M
+ρ : ℂ
+hρ : ρ ∈ killSet Z g0 M
+⊢ ∏ x ∈ Xr H, (Polynomial.aeval (vOf ρ)) (Polynomial.X - Polynomial.C x) = 0
+SIDEExplicitFormula\PowerLimit.lean:510:9: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SIDEExplicitFormula\PowerLimit.lean:1011:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula\PowerLimit.lean:1051:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula\PowerLimit.lean:1078:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun x => x ∈ Zeta23.zetaZeroConfig.carrier
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SIDEExplicitFormula\PowerLimit.lean:1111:16: error: typeclass instance problem is stuck
+  SummationFilter.HasSupport ?m.359
+
+Note: Lean will not try to resolve this typeclass instance problem because the second type argument to `SummationFilter.HasSupport` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+SIDEExplicitFormula\PowerLimit.lean:1167:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula\PowerLimit.lean:1211:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PowerLimit.lean:1221:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PowerLimit.lean:1211:8: warning: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PowerLimit.lean:1221:8: warning: '(rw [← Complex.ofReal_natCast]; exact Complex.zero_le_real.mpr (Nat.cast_nonneg _))' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+--- stderr ---
+

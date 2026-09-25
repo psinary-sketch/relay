@@ -1,0 +1,238 @@
+====================================================================================================================================
+b534 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE MODULE: `SIDEExplicitFormula/PowerLimit.lean` (NEW), `AxiomCheckLimit.lean` (NEW); `PowerWindow.lean` a
+### comment-only note after `nodes_distinct_nonreal` (install refused a non-comment difference), its olean rebuilt once:
+  exit 0 ; 81.9 s
+  attempt 1 : exit 1 ; 13 error lines ; 29.6 s ; declarations failing : ['Kp_kill', 'kWindow', 'kWindow_classK', 'kWindow_term', 'mem_sT', 'window', 'window_contDiff', 'window_support', 'zeroSide_eventually_neg']
+  attempt 2 : exit 0 ; 0 error lines ; 27.8 s ; declarations failing : NONE
+  ### halted (two failures, renames followed) : NONE
+  ### renamed between attempts (defect (a)) : {'window': 'pwWindow', 'window_contDiff': 'pwWindow_contDiff', 'window_support': 'pwWindow_support'}
+
+### THE GRADED STATEMENTS, FROM THE SOURCE (declaration line to its := or its first equation):
+
+theorem paperFT_conj_of_real (g : ℝ → ℝ) (z : ℂ) :
+    conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) (-z)
+  -> DERIVES -- the model`s identity for every real g (continuity and compact support dropped)
+
+theorem paperFT_neg_of_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :
+    Zeta23.paperFT (phiC g) (-z) = Zeta23.paperFT (phiC g) z
+  -> DERIVES -- the model`s evenness of the transform, as ordered (PairTerm`s phiC_FT_neg, named)
+
+theorem zero_term_real {g : ℝ → ℝ} (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) :
+    Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z =
+      Zeta23.paperFT (phiC g) z * Zeta23.paperFT (phiC g) (-z)
+  -> DERIVES -- the model`s product g^(z) g^(-z), under the model`s hypotheses
+
+theorem paperFT_polyOpFull (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ a.length g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    Zeta23.paperFT (phiC (polyOpFull a g)) z = polyEvalFull a (-(I * z)) * Zeta23.paperFT (phiC g) z
+  -> DERIVES -- the model`s factor polyEvalFull a (-(I z)), for g C^(length a) supported in [-L, L] (READING (4))
+
+theorem polyOpFull_support (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    Function.support (polyOpFull a g) ⊆ Set.Icc (-L) L
+  -> DERIVES -- the support unchanged, as ordered
+
+theorem polyOpFull_contDiff (a : List ℝ) {g : ℝ → ℝ} (hg : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g) :
+    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (polyOpFull a g)
+  -> DERIVES -- smooth in, smooth out, as ordered
+
+theorem kWindow_classK (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0)
+    (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) : classK (kWindow a g0 j)
+  -> DERIVES -- the model`s membership, through classK_of_real_even as ordered
+
+theorem kWindow_term (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hev : ∀ x, g0 (-x) = g0 x)
+    (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0) (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) (z : ℂ) :
+    Zeta23.paperFT (kWindow a g0 j) z =
+      polyEvalFull a (-(I * z)) * polyEvalFull a (I * z) * (Zeta23.paperFT (phiC g0) z) ^ (2 ^ (j + 1))
+  -> DERIVES -- the model`s term at every complex z, the ferry`s at z = gammaOf rho (READING (5), stronger)
+
+theorem nodes_distinct (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) :
+    ∀ ρ ∈ tieSet Z g M, ∀ ρ' ∈ tieSet Z g M, vOf ρ = vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ
+  -> DERIVES -- the model`s statement on T, proved by real algebra (through v_eq_iff, for all rho)
+
+theorem tie_term_neg (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ)
+    (hQ : ∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ))
+    {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) :
+    (Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)).re = -(Nf H ρ * M ^ (2 ^ (j + 1)))
+  -> DERIVES -- the model`s real part -N_rho M^(2^(j+1)), for any S with the node property, which coeffs_exist supplies for every j (READING (6))
+
+theorem rest_term_small (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hB : ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (ρ : ℂ) :
+    ‖Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)‖ ≤
+      B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * offScore g0 ρ ^ (2 ^ (j + 1))
+  -> DERIVES -- the model`s bound with C_P^2 (1 + |w|)^(2d) read as B^2 (1 + |w|)^(2D), for any S with the bound, which coeffs_exist supplies; the offScore < M part in fR_bound
+
+theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+    Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *
+      (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))
+  -> DERIVES -- the model`s summability with j_0 = D (READING (7))
+
+theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :
+    Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)
+  -> DERIVES -- the model`s limit, by Tannery`s theorem, for the family coeffs_exist supplies
+
+theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ)
+    (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) :
+    ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0
+  -> DERIVES -- the model`s statement, under PWSetup and a tie zero
+
+theorem h2_sign_imp_rh_strip : h2_sign → rh_strip
+  -> DERIVES -- the model`s statement exactly
+
+theorem rh_strip_imp_h2_sign : rh_strip → h2_sign
+  -> DERIVES -- the model`s statement exactly
+
+theorem h2_sign_iff_rh_strip : h2_sign ↔ rh_strip
+  -> DERIVES -- the model`s statement exactly
+
+theorem h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh
+  -> DERIVES -- the model`s statement exactly
+
+theorem ch_iff_h2_sign_of_seam : rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign)
+  -> DERIVES -- the model`s statement exactly
+
+### THE DEFINITIONS, WHOLE:
+
+def polyOpFull (a : List ℝ) (g : ℝ → ℝ) : ℝ → ℝ :=
+  fun u => ∑ p ∈ Finset.range a.length, polyCoef a p * iteratedDeriv p g u
+
+def polyEvalFull (a : List ℝ) (w : ℂ) : ℂ := ∑ p ∈ Finset.range a.length, (polyCoef a p : ℂ) * w ^ p
+
+def pwWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) : ℝ → ℝ := polyOpFull a (power g0 j)
+
+def kWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) : ℝ → ℂ :=
+  Zeta23.EF.weilTest (phiC (pwWindow a g0 j)) (phiC (pwWindow a g0 j))
+
+def vOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) ^ 2
+
+def wOf (ρ : ℂ) : ℂ := -(I * Zeta23.gammaOf ρ)
+
+def Kp (H : PWSetup Z g0 L M) : Polynomial ℝ := ∏ x ∈ Xr H, (Polynomial.X - Polynomial.C x)
+
+def cE (H : PWSetup Z g0 L M) : ℝ := 1 + ∑ ρ ∈ TF H, 1 / |ρ.re - 1 / 2|
+
+def Ep (H : PWSetup Z g0 L M) : Polynomial ℝ := 1 + Polynomial.C (cE H) * Polynomial.X
+
+def VF (H : PWSetup Z g0 L M) : Finset ℂ := (TF H).image vOf
+
+def Xval (H : PWSetup Z g0 L M) (j : ℕ) (ρ : ℂ) : ℂ :=
+  (Polynomial.aeval (vOf ρ) (Kp H)) ^ 2 * (1 - (cE H : ℂ) ^ 2 * vOf ρ) *
+    (Zeta23.paperFT (phiC g0) (Zeta23.gammaOf ρ)) ^ (2 ^ (j + 1))
+
+def rT (H : PWSetup Z g0 L M) (j : ℕ) (v : ℂ) : ℂ :=
+  if v.im = 0 then 1 else if 0 < v.im then sqrtC (Yv H j v) else conj (sqrtC (conj (Yv H j v)))
+
+def Pof (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) : Polynomial ℝ :=
+  Q.comp (Polynomial.X ^ 2) * (Kp H).comp (Polynomial.X ^ 2) * Ep H
+
+def coeffList (P : Polynomial ℝ) : List ℝ := (List.range (P.natDegree + 1)).map P.coeff
+
+def zeroSideNeg : Prop :=
+  ∀ (g0 : ℝ → ℝ) (L M : ℝ), PWSetup Zeta23.zetaZeroConfig g0 L M → ∀ ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M,
+    ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0
+
+### THE PROFILE (AxiomCheckLimit.lean):
+  'SIDEExplicitFormula.B321.paperFT_conj_of_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_neg_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zero_term_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_polyOpFull' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.polyOpFull_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.polyOpFull_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.pwWindow_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.pwWindow_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.kWindow_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.kWindow_term' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.wOf_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.wOf_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gammaOf_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.vOf_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.vOf_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.v_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.nodes_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.reflect_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.reflect_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gammaOf_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.vOf_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_conj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.offScore_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_of_sq_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.tie_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.PWSetup.c4' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.PWSetup.tfin' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.PWSetup.kfin' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.mem_TF' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.mem_KF' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cE_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cE_big' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.aeval_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.aeval_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.aeval_X_sq_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.aeval_Ep' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Ep_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Pof_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Pof_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.polyEvalFull_coeffList' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.vOf_real_of_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Kp_kill' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Kp_tie_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Efac_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gHat_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Xval_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Xval_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Nf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Xval_real_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rep_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.XV_node' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.XV_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.sqrtC_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.norm_sqrtC' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.XV_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.norm_Yv' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Yv_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Yv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Yv_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rT_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rT_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rT_sq_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.VF_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.poly_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.fixed_poly_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.coeffs_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.term_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.tie_term_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.kill_term_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rest_term_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ceil_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.Aw_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zero_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.weighted_finite_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.weighted_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.dominant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.fR_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.fR_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rest_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.mem_sT' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zeroSide_eventually_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zeroSideNeg_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rh_strip_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_iff_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### whole-string standard three : 89 of 89
+  ### #check h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip
+  ### #check h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh → SIDEExplicitFormula.B321.h2_sign_imp_rh
+  ### #check rh_strip_imp_rh : SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop
+  ### #check zeroSideNeg : SIDEExplicitFormula.B321.zeroSideNeg : Prop
+  ### #check nodes_distinct_nonreal : SIDEExplicitFormula.B321.nodes_distinct_nonreal : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Prop
+  ### #check nodes_distinct : SIDEExplicitFormula.B321.nodes_distinct : ∀ (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ), ∀ ρ ∈ SIDEExplicitFormula.B321.tieSet Z g M, ∀ ρ' ∈ SIDEExplicitFormula.B321.tieSet Z g M, SIDEExplicitFormula.B321.vOf ρ = SIDEExplicitFormula.B321.vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ
+
+### THE REFLECTION CLOSURE RESOLVES TO A THEOREM: `Zeta23.ZeroConfig.reflect_mem` (a field), instantiated for
+### `zetaZeroConfig` from `Zeta23.zetaSeam` via `Zeta23.zeta_reflect_zero`; no hypothesis hreflZ is added.
+### THE SEAM, UNCHANGED: `rh_strip_imp_rh` a Prop; the left half-plane ABSENT from Mathlib by name (b533).
+====================================================================================================================================

@@ -1,0 +1,303 @@
+theorem paperFT_conj_of_real (g : ℝ → ℝ) (z : ℂ) :
+    conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) (-z)
+
+theorem paperFT_neg_of_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :
+    Zeta23.paperFT (phiC g) (-z) = Zeta23.paperFT (phiC g) z
+
+theorem zero_term_real {g : ℝ → ℝ} (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) :
+    Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z =
+      Zeta23.paperFT (phiC g) z * Zeta23.paperFT (phiC g) (-z)
+
+def polyOpFull (a : List ℝ) (g : ℝ → ℝ) : ℝ → ℝ
+
+def polyEvalFull (a : List ℝ) (w : ℂ) : ℂ
+
+theorem paperFT_polyOpFull (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ a.length g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    Zeta23.paperFT (phiC (polyOpFull a g)) z = polyEvalFull a (-(I * z)) * Zeta23.paperFT (phiC g) z
+
+theorem polyOpFull_support (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    Function.support (polyOpFull a g) ⊆ Set.Icc (-L) L
+
+theorem polyOpFull_contDiff (a : List ℝ) {g : ℝ → ℝ} (hg : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g) :
+    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (polyOpFull a g)
+
+def pwWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) : ℝ → ℝ
+
+def kWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) : ℝ → ℂ
+
+theorem pwWindow_contDiff (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0)
+    (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) :
+    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (pwWindow a g0 j)
+
+theorem pwWindow_support (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) :
+    Function.support (pwWindow a g0 j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+
+theorem kWindow_classK (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0)
+    (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) : classK (kWindow a g0 j)
+
+theorem kWindow_term (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hev : ∀ x, g0 (-x) = g0 x)
+    (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0) (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) (z : ℂ) :
+    Zeta23.paperFT (kWindow a g0 j) z =
+      polyEvalFull a (-(I * z)) * polyEvalFull a (I * z) * (Zeta23.paperFT (phiC g0) z) ^ (2 ^ (j + 1))
+
+def vOf (ρ : ℂ) : ℂ
+
+def wOf (ρ : ℂ) : ℂ
+
+theorem wOf_eq (ρ : ℂ) : wOf ρ = -(ρ - 1 / 2)
+
+theorem wOf_sq (ρ : ℂ) : wOf ρ ^ 2 = vOf ρ
+
+theorem norm_wOf (ρ : ℂ) : ‖wOf ρ‖ = ‖Zeta23.gammaOf ρ‖
+
+theorem gammaOf_sq (ρ : ℂ) : Zeta23.gammaOf ρ ^ 2 = -vOf ρ
+
+theorem vOf_re (ρ : ℂ) : (vOf ρ).re = (ρ.re - 1 / 2) ^ 2 - ρ.im ^ 2
+
+theorem vOf_im (ρ : ℂ) : (vOf ρ).im = 2 * (ρ.re - 1 / 2) * ρ.im
+
+theorem v_eq_iff (ρ ρ' : ℂ) (h : vOf ρ = vOf ρ') : ρ' = ρ ∨ ρ' = 1 - ρ
+
+theorem nodes_distinct (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) :
+    ∀ ρ ∈ tieSet Z g M, ∀ ρ' ∈ tieSet Z g M, vOf ρ = vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ
+
+theorem reflect_re (ρ : ℂ) : (Zeta23.reflect ρ).re = 1 - ρ.re
+
+theorem reflect_im (ρ : ℂ) : (Zeta23.reflect ρ).im = ρ.im
+
+theorem gammaOf_reflect (ρ : ℂ) : Zeta23.gammaOf (Zeta23.reflect ρ) = conj (Zeta23.gammaOf ρ)
+
+theorem vOf_reflect (ρ : ℂ) : vOf (Zeta23.reflect ρ) = conj (vOf ρ)
+
+theorem paperFT_conj_eq {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :
+    Zeta23.paperFT (phiC g) (conj z) = conj (Zeta23.paperFT (phiC g) z)
+
+theorem offScore_reflect {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (ρ : ℂ) :
+    offScore g (Zeta23.reflect ρ) = offScore g ρ
+
+theorem paperFT_of_sq_eq {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) {z z' : ℂ} (h : z' ^ 2 = z ^ 2) :
+    Zeta23.paperFT (phiC g) z' = Zeta23.paperFT (phiC g) z
+
+theorem tie_reflect (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) {M : ℝ} {ρ : ℂ}
+    (h : ρ ∈ tieSet Z g M) : Zeta23.reflect ρ ∈ tieSet Z g M
+
+structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) : Prop
+
+theorem PWSetup.c4 (H : PWSetup Z g0 L M) : ContDiff ℝ 4 g0
+
+theorem PWSetup.tfin (H : PWSetup Z g0 L M) : (tieSet Z g0 M).Finite
+
+theorem PWSetup.kfin (H : PWSetup Z g0 L M) : (killSet Z g0 M).Finite
+
+def TF (H : PWSetup Z g0 L M) : Finset ℂ
+
+def KF (H : PWSetup Z g0 L M) : Finset ℂ
+
+def Xr (H : PWSetup Z g0 L M) : Finset ℝ
+
+def Kp (H : PWSetup Z g0 L M) : Polynomial ℝ
+
+def cE (H : PWSetup Z g0 L M) : ℝ
+
+def Ep (H : PWSetup Z g0 L M) : Polynomial ℝ
+
+def VF (H : PWSetup Z g0 L M) : Finset ℂ
+
+theorem mem_TF (H : PWSetup Z g0 L M) {ρ : ℂ} : ρ ∈ TF H ↔ ρ ∈ tieSet Z g0 M
+
+theorem mem_KF (H : PWSetup Z g0 L M) {ρ : ℂ} : ρ ∈ KF H ↔ ρ ∈ killSet Z g0 M
+
+theorem cE_pos (H : PWSetup Z g0 L M) : 0 < cE H
+
+theorem cE_big (H : PWSetup Z g0 L M) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : 1 < cE H * |ρ.re - 1 / 2|
+
+theorem aeval_real (Q : Polynomial ℝ) (x : ℝ) : Polynomial.aeval (x : ℂ) Q = ((Q.eval x : ℝ) : ℂ)
+
+theorem aeval_conj (Q : Polynomial ℝ) (x : ℂ) : Polynomial.aeval (conj x) Q = conj (Polynomial.aeval x Q)
+
+theorem aeval_X_sq_comp (Q : Polynomial ℝ) (w : ℂ) :
+    Polynomial.aeval w (Q.comp (Polynomial.X ^ 2)) = Polynomial.aeval (w ^ 2) Q
+
+def Pof (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) : Polynomial ℝ
+
+theorem aeval_Ep (H : PWSetup Z g0 L M) (w : ℂ) : Polynomial.aeval w (Ep H) = 1 + (cE H : ℂ) * w
+
+theorem Ep_prod (H : PWSetup Z g0 L M) (w : ℂ) :
+    Polynomial.aeval w (Ep H) * Polynomial.aeval (-w) (Ep H) = 1 - (cE H : ℂ) ^ 2 * w ^ 2
+
+theorem Pof_eval (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (w : ℂ) :
+    Polynomial.aeval w (Pof H Q) =
+      Polynomial.aeval (w ^ 2) Q * Polynomial.aeval (w ^ 2) (Kp H) * Polynomial.aeval w (Ep H)
+
+theorem Pof_prod (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (w : ℂ) :
+    Polynomial.aeval w (Pof H Q) * Polynomial.aeval (-w) (Pof H Q) =
+      (Polynomial.aeval (w ^ 2) Q) ^ 2 * (Polynomial.aeval (w ^ 2) (Kp H)) ^ 2 * (1 - (cE H : ℂ) ^ 2 * w ^ 2)
+
+def coeffList (P : Polynomial ℝ) : List ℝ
+
+theorem polyEvalFull_coeffList (P : Polynomial ℝ) (w : ℂ) :
+    polyEvalFull (coeffList P) w = Polynomial.aeval w P
+
+theorem vOf_real_of_on (ρ : ℂ) (h : ρ.re = 1 / 2) : (((vOf ρ).re : ℝ) : ℂ) = vOf ρ
+
+theorem Kp_kill (H : PWSetup Z g0 L M) {ρ : ℂ} (hρ : ρ ∈ killSet Z g0 M) :
+    Polynomial.aeval (vOf ρ) (Kp H) = 0
+
+theorem Kp_tie_ne (H : PWSetup Z g0 L M) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) :
+    Polynomial.aeval (vOf ρ) (Kp H) ≠ 0
+
+theorem Efac_ne (H : PWSetup Z g0 L M) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : (1 - (cE H : ℂ) ^ 2 * vOf ρ) ≠ 0
+
+theorem gHat_ne (H : PWSetup Z g0 L M) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) :
+    Zeta23.paperFT (phiC g0) (Zeta23.gammaOf ρ) ≠ 0
+
+def Xval (H : PWSetup Z g0 L M) (j : ℕ) (ρ : ℂ) : ℂ
+
+theorem Xval_ne (H : PWSetup Z g0 L M) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : Xval H j ρ ≠ 0
+
+def Nf (H : PWSetup Z g0 L M) (ρ : ℂ) : ℝ
+
+theorem Xval_norm (H : PWSetup Z g0 L M) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) :
+    ‖Xval H j ρ‖ = Nf H ρ * M ^ (2 ^ (j + 1))
+
+theorem Nf_pos (H : PWSetup Z g0 L M) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : 0 < Nf H ρ
+
+theorem Xval_real_neg (H : PWSetup Z g0 L M) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) (hρim : ρ.im = 0) :
+    Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)
+
+def rep (H : PWSetup Z g0 L M) (v : ℂ) : ℂ
+
+theorem rep_spec (H : PWSetup Z g0 L M) {v : ℂ} (hv : v ∈ VF H) : rep H v ∈ tieSet Z g0 M ∧ vOf (rep H v) = v
+
+def XV (H : PWSetup Z g0 L M) (j : ℕ) (v : ℂ) : ℂ
+
+theorem XV_node (H : PWSetup Z g0 L M) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : XV H j (vOf ρ) = Xval H j ρ
+
+theorem XV_conj (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : XV H j (conj v) = conj (XV H j v)
+
+def sqrtC (y : ℂ) : ℂ
+
+theorem sqrtC_sq {y : ℂ} (hy : y ≠ 0) : sqrtC y ^ 2 = y
+
+theorem norm_sqrtC {y : ℂ} (hy : ‖y‖ = 1) : ‖sqrtC y‖ = 1
+
+def Yv (H : PWSetup Z g0 L M) (j : ℕ) (v : ℂ) : ℂ
+
+theorem XV_ne (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : XV H j v ≠ 0
+
+theorem norm_Yv (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : ‖Yv H j v‖ = 1
+
+theorem Yv_ne (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : Yv H j v ≠ 0
+
+theorem Yv_mul (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) :
+    Yv H j v * XV H j v = -(‖XV H j v‖ : ℂ)
+
+theorem Yv_conj (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : Yv H j (conj v) = conj (Yv H j v)
+
+def rT (H : PWSetup Z g0 L M) (j : ℕ) (v : ℂ) : ℂ
+
+theorem rT_conj (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : rT H j (conj v) = conj (rT H j v)
+
+theorem rT_norm (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) : ‖rT H j v‖ ≤ 1
+
+theorem rT_sq_mul (H : PWSetup Z g0 L M) (j : ℕ) {v : ℂ} (hv : v ∈ VF H) (him : v.im ≠ 0) :
+    rT H j v ^ 2 * XV H j v = -(‖XV H j v‖ : ℂ)
+
+theorem VF_conj (H : PWSetup Z g0 L M) : ∀ w ∈ VF H, conj w ∈ VF H
+
+theorem poly_norm_le (Q : Polynomial ℝ) {n : ℕ} {C : ℝ} (hdeg : Q.natDegree < n) (hC : ∀ i, |Q.coeff i| ≤ C)
+    (x : ℂ) : ‖Polynomial.aeval x Q‖ ≤ n * C * (1 + ‖x‖) ^ n
+
+theorem fixed_poly_bound (Q : Polynomial ℝ) :
+    ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ x : ℂ, ‖Polynomial.aeval x Q‖ ≤ B * (1 + ‖x‖) ^ D
+
+theorem coeffs_exist (H : PWSetup Z g0 L M) (hne : (tieSet Z g0 M).Nonempty) :
+    ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ j : ℕ, ∃ Q : Polynomial ℝ,
+      (∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) ∧
+      ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D
+
+theorem term_eq (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) (ρ : ℂ) :
+    Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ) =
+      (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ
+
+theorem tie_term_neg (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ)
+    (hQ : ∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ))
+    {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) :
+    (Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)).re = -(Nf H ρ * M ^ (2 ^ (j + 1)))
+
+theorem kill_term_zero (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ killSet Z g0 M) :
+    Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ) = 0
+
+theorem rest_term_small (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hB : ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (ρ : ℂ) :
+    ‖Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)‖ ≤
+      B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * offScore g0 ρ ^ (2 ^ (j + 1))
+
+theorem ceil_weight (x t : ℝ) (hx : 0 ≤ x) (htx : |t| ≤ x) : (1 + |((⌈t⌉ : ℤ) : ℝ)|) ^ 4 ≤ 128 * (1 + x ^ 4)
+
+def Aw (_H : PWSetup Z g0 L M) : ℝ
+
+theorem Aw_nonneg (H : PWSetup Z g0 L M) : 0 ≤ Aw H
+
+theorem zero_weight (H : PWSetup Z g0 L M) (B : ℝ) (D : ℕ) (ρ : ℂ) (hρ : ρ ∈ Z.carrier) :
+    B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)) * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤
+      128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))
+
+theorem weighted_finite_bound (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+    (hBf : 0 ≤ Bf) (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf)
+    (s : Finset ℂ) (hsZ : ∀ ρ ∈ s, ρ ∈ Z.carrier) :
+    (∑ ρ ∈ s, (Z.mult ρ : ℝ) * f ρ) ≤ 3 * A₀ * Bf * zeta3Sum
+
+theorem weighted_summable (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+    (hBf : 0 ≤ Bf) (hf0 : ∀ ρ ∈ Z.carrier, 0 ≤ f ρ)
+    (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf) :
+    Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ)
+
+theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+    Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *
+      (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))
+
+def fR (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (j : ℕ)
+    (x : Zeta23.zetaZeroConfig.carrier) : ℂ
+
+theorem fR_norm_le (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ)
+    (x : Zeta23.zetaZeroConfig.carrier) (hT : (x : ℂ) ∉ tieSet Zeta23.zetaZeroConfig g0 M) :
+    ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤
+      (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))
+
+theorem fR_bound (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (hj : D ≤ j)
+    (x : Zeta23.zetaZeroConfig.carrier) :
+    ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤
+      (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))
+
+theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :
+    Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)
+
+def sT (H : PWSetup Zeta23.zetaZeroConfig g0 L M) : Finset Zeta23.zetaZeroConfig.carrier
+
+theorem mem_sT (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (x : Zeta23.zetaZeroConfig.carrier) :
+    x ∈ sT H ↔ (x : ℂ) ∈ tieSet Zeta23.zetaZeroConfig g0 M
+
+theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ)
+    (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) :
+    ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0
+
+def zeroSideNeg : Prop
+
+theorem zeroSideNeg_holds : zeroSideNeg
+
+theorem h2_sign_imp_rh_strip_of (hneg : zeroSideNeg) : h2_sign → rh_strip
+
+theorem h2_sign_imp_rh_strip : h2_sign → rh_strip
+
+theorem rh_strip_imp_h2_sign : rh_strip → h2_sign
+
+theorem h2_sign_iff_rh_strip : h2_sign ↔ rh_strip
+
+theorem h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh
+
+theorem ch_iff_h2_sign_of_seam : rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign)

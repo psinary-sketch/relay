@@ -1,0 +1,193 @@
+### b534 PRE-SEAL PROBE 2 (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.PowerWindow
+import Mathlib.Analysis.Normed.Group.Tannery
+
+open Complex MeasureTheory Filter Topology
+open scoped ComplexConjugate ComplexOrder
+
+#check @tendsto_tsum_of_dominated_convergence
+#check @Complex.norm_natCast
+#check @div_le_div_of_nonneg_right
+#check @Filter.tendsto_atTop_mono
+#check @div_mul_cancel₀
+#check @Summable.mul_left
+#check @dist_zero_right
+#check @one_div_mul_cancel
+#check @Real.norm_of_nonneg
+#check @norm_ne_zero_iff
+#check @map_ne_zero
+#check @Complex.ofReal_pow
+#check @Complex.ofReal_neg
+#check @Finset.sum_neg_distrib
+#check @Nat.pow_le_pow_right
+#check @Polynomial.natDegree_zero
+#check @tsum_congr
+#check @div_le_one
+#check @Complex.abs_re_le_norm
+#check @Filter.eventually_atTop
+#check @Filter.Tendsto.const_mul
+#check @Filter.Tendsto.congr
+#check @Complex.add_re
+#check @Finset.card_pos
+#check @Nat.cast_pos
+#check @div_pow
+#check @Complex.I_sq
+#check @neg_sq
+#check @norm_sum_le
+#check @nsmul_eq_mul
+#check @Finset.sum_const
+#check @Finset.card_range
+#check @Finset.mem_image_of_mem
+#check @Finset.mem_image
+#check @Finset.mem_map
+#check @Finset.sum_map
+#check @Function.Embedding.subtype
+#check @Complex.conj_conj
+#check @Complex.conj_ofReal
+#check @Complex.conj_re
+#check @Complex.conj_im
+#check @Complex.mul_re
+#check @Complex.mul_im
+#check @Complex.div_ofNat_im
+#check @Complex.ofReal_re
+#check @Complex.ofReal_im
+#check @Complex.ofReal_zero
+#check @mul_neg_of_neg_of_pos
+#check @mul_neg_of_pos_of_neg
+#check @abs_of_neg
+#check @List.getElem_map
+#check @List.getElem_range
+#check @List.length_map
+#check @List.length_range
+#check @Polynomial.aeval_eq_sum_range
+#check @Classical.choose_spec
+#check @SIDEExplicitFormula.B321.polyCoef
+#check @SIDEExplicitFormula.B321.real_even_interpolant
+#check @SIDEExplicitFormula.B321.plateau_dominant
+#check @SIDEExplicitFormula.B321.plateau_support_Icc
+#check @SIDEExplicitFormula.B321.kWin_classK
+example (f : ℝ → ℝ) (h : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f) : ContDiff ℝ 2 f := h.of_le (by exact_mod_cast le_top)
+example (f : ℝ → ℝ) (h : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f) : ContDiff ℝ 4 f := h.of_le (by exact_mod_cast le_top)
+example (x : ℂ) : ((2 : ℕ) : ℂ) * (x / 2) = x := by push_cast; ring
+
+### output
+@tendsto_tsum_of_dominated_convergence : ∀ {α : Type u_1} {β : Type u_2} {G : Type u_3} {𝓕 : Filter α}
+  [inst : NormedAddCommGroup G] [CompleteSpace G] {f : α → β → G} {g : β → G} {bound : β → ℝ},
+  Summable bound →
+    (∀ (k : β), Tendsto (fun x => f x k) 𝓕 (𝓝 (g k))) →
+      (∀ᶠ (n : α) in 𝓕, ∀ (k : β), ‖f n k‖ ≤ bound k) → Tendsto (fun x => ∑' (k : β), f x k) 𝓕 (𝓝 (∑' (k : β), g k))
+Complex.norm_natCast : ∀ (n : ℕ), ‖↑n‖ = ↑n
+@div_le_div_of_nonneg_right : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀]
+  [MulPosReflectLT G₀] {a b c : G₀}, a ≤ b → 0 ≤ c → a / c ≤ b / c
+@tendsto_atTop_mono : ∀ {α : Type u_1} {β : Type u_2} [inst : Preorder β] {l : Filter α} {f g : α → β},
+  (∀ (n : α), f n ≤ g n) → Tendsto f l atTop → Tendsto g l atTop
+@div_mul_cancel₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] {b : G₀} (a : G₀), b ≠ 0 → a / b * b = a
+@Summable.mul_left : ∀ {ι : Type u_1} {α : Type u_2} {L : SummationFilter ι} [inst : NonUnitalNonAssocSemiring α]
+  [inst_1 : TopologicalSpace α] [IsTopologicalSemiring α] {f : ι → α} (a : α),
+  Summable f L → Summable (fun i => a * f i) L
+@dist_zero_right : ∀ {E : Type u_1} [inst : SeminormedAddGroup E] (a : E), dist a 0 = ‖a‖
+@one_div_mul_cancel : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] {a : G₀}, a ≠ 0 → 1 / a * a = 1
+@Real.norm_of_nonneg : ∀ {r : ℝ}, 0 ≤ r → ‖r‖ = r
+@norm_ne_zero_iff : ∀ {E : Type u_1} [inst : NormedAddGroup E] {a : E}, ‖a‖ ≠ 0 ↔ a ≠ 0
+@map_ne_zero : ∀ {G₀ : Type u_1} {M₀' : Type u_2} {F : Type u_3} [inst : GroupWithZero G₀]
+  [inst_1 : MulZeroOneClass M₀'] [Nontrivial M₀'] [inst_3 : FunLike F G₀ M₀'] [MonoidWithZeroHomClass F G₀ M₀'] (f : F)
+  {a : G₀}, f a ≠ 0 ↔ a ≠ 0
+ofReal_pow : ∀ (r : ℝ) (n : ℕ), ↑(r ^ n) = ↑r ^ n
+ofReal_neg : ∀ (r : ℝ), ↑(-r) = -↑r
+@Finset.sum_neg_distrib : ∀ {ι : Type u_1} {G : Type u_2} {s : Finset ι} [inst : SubtractionCommMonoid G] (f : ι → G),
+  ∑ x ∈ s, -f x = -∑ x ∈ s, f x
+@Nat.pow_le_pow_right : ∀ {n : ℕ}, n > 0 → ∀ {i j : ℕ}, i ≤ j → n ^ i ≤ n ^ j
+@Polynomial.natDegree_zero : ∀ {R : Type u_1} [inst : Semiring R], Polynomial.natDegree 0 = 0
+@tsum_congr : ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α]
+  {L : SummationFilter β} {f g : β → α}, (∀ (b : β), f b = g b) → ∑'[L] (b : β), f b = ∑'[L] (b : β), g b
+@div_le_one : ∀ {α : Type u_1} [inst : Semifield α] [inst_1 : PartialOrder α] [PosMulReflectLT α] {a b : α},
+  0 < b → (a / b ≤ 1 ↔ a ≤ b)
+abs_re_le_norm : ∀ (z : ℂ), |z.re| ≤ ‖z‖
+@eventually_atTop : ∀ {α : Type u_1} [inst : Preorder α] [IsDirectedOrder α] {p : α → Prop} [Nonempty α],
+  (∀ᶠ (x : α) in atTop, p x) ↔ ∃ a, ∀ (b : α), a ≤ b → p b
+@Tendsto.const_mul : ∀ {M : Type u_1} [inst : TopologicalSpace M] [inst_1 : Mul M] [SeparatelyContinuousMul M]
+  {α : Type u_2} {f : α → M} {x : Filter α} {a : M} (b : M),
+  Tendsto f x (𝓝 a) → Tendsto (fun x => b * f x) x (𝓝 (b * a))
+@Tendsto.congr : ∀ {α : Type u_1} {β : Type u_2} {f₁ f₂ : α → β} {l₁ : Filter α} {l₂ : Filter β},
+  (∀ (x : α), f₁ x = f₂ x) → Tendsto f₁ l₁ l₂ → Tendsto f₂ l₁ l₂
+add_re : ∀ (z w : ℂ), (z + w).re = z.re + w.re
+@Finset.card_pos : ∀ {α : Type u_1} {s : Finset α}, 0 < s.card ↔ s.Nonempty
+@Nat.cast_pos : ∀ {α : Type u_1} [inst : Semiring α] [inst_1 : PartialOrder α] [IsOrderedRing α] [Nontrivial α] {n : ℕ},
+  0 < ↑n ↔ 0 < n
+@div_pow : ∀ {α : Type u_1} [inst : DivisionCommMonoid α] (a b : α) (n : ℕ), (a / b) ^ n = a ^ n / b ^ n
+I_sq : I ^ 2 = -1
+@neg_sq : ∀ {R : Type u_1} [inst : Monoid R] [inst_1 : HasDistribNeg R] (a : R), (-a) ^ 2 = a ^ 2
+@norm_sum_le : ∀ {ι : Type u_1} {E : Type u_2} [inst : SeminormedAddCommGroup E] (s : Finset ι) (f : ι → E),
+  ‖∑ i ∈ s, f i‖ ≤ ∑ i ∈ s, ‖f i‖
+@nsmul_eq_mul : ∀ {α : Type u_1} [inst : NonAssocSemiring α] (n : ℕ) (a : α), n • a = ↑n * a
+@Finset.sum_const : ∀ {ι : Type u_1} {M : Type u_2} {s : Finset ι} [inst : AddCommMonoid M] (b : M),
+  ∑ _x ∈ s, b = s.card • b
+Finset.card_range : ∀ (n : ℕ), (Finset.range n).card = n
+@Finset.mem_image_of_mem : ∀ {α : Type u_1} {β : Type u_2} [inst : DecidableEq β] {s : Finset α} (f : α → β) {a : α},
+  a ∈ s → f a ∈ Finset.image f s
+@Finset.mem_image : ∀ {α : Type u_1} {β : Type u_2} [inst : DecidableEq β] {f : α → β} {s : Finset α} {b : β},
+  b ∈ Finset.image f s ↔ ∃ a ∈ s, f a = b
+@Finset.mem_map : ∀ {α : Type u_1} {β : Type u_2} {f : α ↪ β} {s : Finset α} {b : β},
+  b ∈ Finset.map f s ↔ ∃ a ∈ s, f a = b
+@Finset.sum_map : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι) (e : ι ↪ κ)
+  (f : κ → M), ∑ x ∈ Finset.map e s, f x = ∑ x ∈ s, f (e x)
+@Function.Embedding.subtype : {α : Sort u_1} → (p : α → Prop) → Subtype p ↪ α
+@conj_conj : ∀ {R : Type u_1} [inst : CommSemiring R] [inst_1 : StarRing R] (x : R),
+  (starRingEnd R) ((starRingEnd R) x) = x
+conj_ofReal : ∀ (r : ℝ), (starRingEnd ℂ) ↑r = ↑r
+conj_re : ∀ (z : ℂ), ((starRingEnd ℂ) z).re = z.re
+conj_im : ∀ (z : ℂ), ((starRingEnd ℂ) z).im = -z.im
+mul_re : ∀ (z w : ℂ), (z * w).re = z.re * w.re - z.im * w.im
+mul_im : ∀ (z w : ℂ), (z * w).im = z.re * w.im + z.im * w.re
+div_ofNat_im : ∀ (z : ℂ) (n : ℕ) [inst : n.AtLeastTwo], (z / OfNat.ofNat n).im = z.im / OfNat.ofNat n
+ofReal_re : ∀ (r : ℝ), (↑r).re = r
+ofReal_im : ∀ (r : ℝ), (↑r).im = 0
+ofReal_zero : ↑0 = 0
+@mul_neg_of_neg_of_pos : ∀ {α : Type u_1} [inst : MulZeroClass α] {a b : α} [inst_1 : Preorder α] [MulPosStrictMono α],
+  a < 0 → 0 < b → a * b < 0
+@mul_neg_of_pos_of_neg : ∀ {α : Type u_1} [inst : MulZeroClass α] {a b : α} [inst_1 : Preorder α] [PosMulStrictMono α],
+  0 < a → b < 0 → a * b < 0
+@abs_of_neg : ∀ {α : Type u_1} [inst : Lattice α] [inst_1 : AddGroup α] {a : α} [AddLeftMono α], a < 0 → |a| = -a
+@List.getElem_map : ∀ {α : Type u_1} {β : Type u_2} (f : α → β) {l : List α} {i : ℕ} {h : i < (List.map f l).length},
+  (List.map f l)[i] = f l[i]
+@List.getElem_range : ∀ {j n : ℕ} (h : j < (List.range n).length), (List.range n)[j] = j
+@List.length_map : ∀ {α : Type u_1} {β : Type u_2} {as : List α} (f : α → β), (List.map f as).length = as.length
+@List.length_range : ∀ {n : ℕ}, (List.range n).length = n
+@Polynomial.aeval_eq_sum_range : ∀ {R : Type u_1} {S : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring S]
+  [inst_2 : Algebra R S] {p : Polynomial R} (x : S),
+  (Polynomial.aeval x) p = ∑ i ∈ Finset.range (p.natDegree + 1), p.coeff i • x ^ i
+@Classical.choose_spec : ∀ {α : Sort u_1} {p : α → Prop} (h : ∃ x, p x), p (Classical.choose h)
+SIDEExplicitFormula.B321.polyCoef : List ℝ → ℕ → ℝ
+SIDEExplicitFormula.B321.real_even_interpolant : ∀ (s : Finset ℂ),
+  (∀ w ∈ s, (starRingEnd ℂ) w ∈ s) →
+    ∃ C,
+      ∀ (r : ℂ → ℂ),
+        (∀ w ∈ s, r ((starRingEnd ℂ) w) = (starRingEnd ℂ) (r w)) →
+          (∀ w ∈ s, ‖r w‖ ≤ 1) →
+            ∃ Q,
+              (∀ w ∈ s, Polynomial.eval w (Polynomial.map (algebraMap ℝ ℂ) Q) = r w) ∧
+                Q.degree < ↑s.card ∧ ∀ (j : ℕ), |Q.coeff j| ≤ C
+SIDEExplicitFormula.B321.plateau_dominant : ∀ (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1),
+  ∀ ρ₁ ∈ Z.carrier,
+    ρ₁.re ≠ 1 / 2 →
+      ∃ L,
+        ∃ (hL : 0 < L),
+          ∃ ρs ∈ Z.carrier,
+            ρs.re ≠ 1 / 2 ∧
+              0 < SIDEExplicitFormula.B321.offScore (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL) ρs ∧
+                ∀ ρ ∈ Z.carrier,
+                  ρ.re ≠ 1 / 2 →
+                    SIDEExplicitFormula.B321.offScore (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL) ρ ≤
+                      SIDEExplicitFormula.B321.offScore (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL) ρs
+SIDEExplicitFormula.B321.plateau_support_Icc : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L),
+  Function.support (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL) ⊆ Set.Icc (-L) L
+SIDEExplicitFormula.B321.kWin_classK : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ → HasCompactSupport φ → SIDEExplicitFormula.B321.classK (SIDEExplicitFormula.B321.kWin γ₀ φ)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe2.lean:68:95: error: mod_cast has type
+  ?m.36 ≤ ⊤
+but is expected to have type
+  2 ≤ ↑⊤
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe2.lean:69:95: error: mod_cast has type
+  ?m.36 ≤ ⊤
+but is expected to have type
+  4 ≤ ↑⊤

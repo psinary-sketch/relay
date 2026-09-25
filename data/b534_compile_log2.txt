@@ -1,0 +1,45 @@
+### run at (UTC) : 2026-09-25T19:41:34Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\PowerLimit.olean SIDEExplicitFormula\PowerLimit.lean
+exit 0 ; 27.7 s
+--- stdout ---
+SIDEExplicitFormula\PowerLimit.lean:510:9: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SIDEExplicitFormula\PowerLimit.lean:1011:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula\PowerLimit.lean:1051:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula\PowerLimit.lean:1171:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula\PowerLimit.lean:1215:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PowerLimit.lean:1225:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PowerLimit.lean:1215:8: warning: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PowerLimit.lean:1225:8: warning: '(rw [← Complex.ofReal_natCast]; exact Complex.zero_le_real.mpr (Nat.cast_nonneg _))' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+--- stderr ---
+

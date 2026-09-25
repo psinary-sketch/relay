@@ -1,0 +1,285 @@
+### b534 PRE-SEAL PROBE 1 (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.PowerWindow
+
+open Complex MeasureTheory Filter Topology
+open scoped ComplexConjugate ComplexOrder
+
+-- kernel
+#check @SIDEExplicitFormula.B321.phiC_FT_neg
+#check @SIDEExplicitFormula.B321.plateau_contDiff
+#check @SIDEExplicitFormula.B321.plateau_even
+#check @SIDEExplicitFormula.B321.plateau_hasCompactSupport
+#check @SIDEExplicitFormula.B321.paperFT_decay
+#check @SIDEExplicitFormula.B321.paperFT_decay_zero
+#check @SIDEExplicitFormula.B321.ch_iff_rh
+#check @SIDEExplicitFormula.B321.conservationHypothesis
+#check @SIDEExplicitFormula.B321.h2_sign_imp_ch_iff
+#check @SIDEExplicitFormula.B321.rh_imp_h2_sign
+#check @SIDEExplicitFormula.B321.h2_sign_imp_rh
+#check @SIDEExplicitFormula.B321.zeroSide
+#check @SIDEExplicitFormula.B321.b321_identity
+#check @SIDEExplicitFormula.B321.HCount
+#check @SIDEExplicitFormula.B321.zeta3Sum
+#check @SIDEExplicitFormula.B321.summable_zeta3
+#check @SIDEExplicitFormula.B321.gammaOf_re'
+#check @SIDEExplicitFormula.B321.gammaOf_im'
+#check @SIDEExplicitFormula.B321.fiber_count
+#check @Zeta23.RvM.zetaZeroConfig_local_count
+#check @Zeta23.ZeroConfig.reflect_mem
+#check @Zeta23.ZeroConfig.one_le_mult
+#check @Zeta23.ZeroConfig.N
+#check @Zeta23.zeta_reflect_zero
+#check @Zeta23.zetaSeam
+#check @Zeta23.zetaZeroConfig_carrier
+#check @Zeta23.reflect
+-- Mathlib: algebra and complex
+#check @sq_eq_sq_iff_eq_or_eq_neg
+#check @mul_div_cancel_left₀
+#check @mul_div_assoc
+#check @Complex.norm_conj
+#check @Complex.conj_mul'
+#check @Complex.norm_exp
+#check @Complex.log_re
+#check @Complex.exp_log
+#check @Complex.exp_nat_mul
+#check @Complex.div_ofNat_re
+#check @Complex.re_ofReal_mul
+#check @Complex.im_ofReal_mul
+#check @Complex.conj_eq_iff_re
+#check @Complex.conj_eq_iff_im
+#check @Complex.nonneg_iff
+#check @Complex.le_def
+#check @Complex.re_sum
+#check @Complex.ofReal_natCast
+#check @Complex.coe_algebraMap
+#check @Complex.conjAe
+#check @Complex.re_le_norm
+#check @Complex.norm_real
+#check @Complex.real_smul
+#check @map_prod
+#check @map_div₀
+#check @map_ofNat
+-- Mathlib: polynomials
+#check @Polynomial.aeval_comp
+#check @Polynomial.aeval_X
+#check @Polynomial.aeval_C
+#check @Polynomial.aeval_eq_sum_range
+#check @Polynomial.aeval_eq_sum_range'
+#check @Polynomial.aeval_def
+#check @Polynomial.eval_map
+#check @Polynomial.aeval_algHom_apply
+#check @Polynomial.aeval_algebraMap_apply_eq_algebraMap_eval
+#check @Polynomial.induction_on'
+#check @Polynomial.aeval_monomial
+#check @Polynomial.coeff_eq_zero_of_natDegree_lt
+#check @Polynomial.degree_le_natDegree
+#check @Polynomial.natDegree_lt_iff_degree_lt
+-- Mathlib: sums, limits
+#check @summable_of_sum_le
+#check @Summable.of_norm_bounded
+#check @tsum_eq_sum
+#check @summable_of_ne_finset_zero
+#check @tsum_add
+#check @Summable.tsum_add
+#check @tsum_div_const
+#check @tendsto_tsum_of_dominated_convergence
+#check @tendsto_pow_atTop_nhds_zero_of_lt_one
+#check @Nat.tendsto_pow_atTop_atTop_of_one_lt
+#check @tendsto_add_atTop_nat
+#check @squeeze_zero_norm
+#check @norm_tsum_le_tsum_norm
+#check @Metric.tendsto_atTop
+#check @Even.pow_pos
+#check @Nat.even_pow
+#check @Nat.lt_two_pow_self
+#check @pow_le_pow_right₀
+#check @pow_le_pow_left₀
+#check @pow_le_pow_of_le_one
+#check @Finset.prod_eq_zero
+#check @Finset.prod_ne_zero_iff
+#check @Finset.mem_subtype
+#check @Finset.sum_pos
+#check @Finset.single_le_sum
+#check @Set.Finite.mem_toFinset
+#check @Int.ceil_eq_iff
+#check @List.getD_eq_getElem
+#check @exists_pow_lt_of_lt_one
+example (f : ℝ → ℝ) (h : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f) (n : ℕ) : ContDiff ℝ n f := h.of_le (by exact_mod_cast le_top)
+example (c : ℝ) : (algebraMap ℝ ℂ c) = (c : ℂ) := rfl
+example (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :
+    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL) :=
+  SIDEExplicitFormula.B321.plateau_contDiff F L hF0 hF1 hL ⊤
+
+### output
+@SIDEExplicitFormula.B321.phiC_FT_neg : ∀ {φ : ℝ → ℝ},
+  (∀ (x : ℝ), φ (-x) = φ x) →
+    ∀ (z : ℂ),
+      Zeta23.paperFT (SIDEExplicitFormula.B321.phiC φ) (-z) = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC φ) z
+SIDEExplicitFormula.B321.plateau_contDiff : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (n : ℕ∞),
+  ContDiff ℝ (↑n) (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL)
+SIDEExplicitFormula.B321.plateau_even : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ),
+  SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL (-x) = SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL x
+SIDEExplicitFormula.B321.plateau_hasCompactSupport : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L),
+  HasCompactSupport (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL)
+SIDEExplicitFormula.B321.paperFT_decay : ∀ (p : ℕ) {g : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ (↑p) g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      ∀ (z : ℂ),
+        ‖Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z‖ * ‖z‖ ^ p ≤
+          (∫ (u : ℝ), |iteratedDeriv p g u|) * Real.exp (L * |z.im|)
+@SIDEExplicitFormula.B321.paperFT_decay_zero : ∀ {g : ℝ → ℝ} {L : ℝ},
+  Continuous g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      ∀ (z : ℂ), ‖Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z‖ ≤ (∫ (u : ℝ), |g u|) * Real.exp (L * |z.im|)
+SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+SIDEExplicitFormula.B321.conservationHypothesis : Prop
+SIDEExplicitFormula.B321.h2_sign_imp_ch_iff : SIDEExplicitFormula.B321.h2_sign_imp_ch ↔
+  SIDEExplicitFormula.B321.h2_sign_imp_rh
+SIDEExplicitFormula.B321.rh_imp_h2_sign : RiemannHypothesis → SIDEExplicitFormula.B321.h2_sign
+SIDEExplicitFormula.B321.h2_sign_imp_rh : Prop
+SIDEExplicitFormula.B321.zeroSide : (ℝ → ℂ) → ℂ
+SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ),
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      (∀ (x : ℝ), k (-x) = k x) →
+        SIDEExplicitFormula.B321.zeroSide k =
+          SIDEExplicitFormula.B321.b321Norm *
+            (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k +
+              SIDEExplicitFormula.B321.archTerm k)
+SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop
+SIDEExplicitFormula.B321.zeta3Sum : ℝ
+SIDEExplicitFormula.B321.summable_zeta3 : Summable fun m => 1 / (1 + |↑m|) ^ 3
+SIDEExplicitFormula.B321.gammaOf_re' : ∀ (ρ : ℂ), (Zeta23.gammaOf ρ).re = ρ.im
+SIDEExplicitFormula.B321.gammaOf_im' : ∀ (ρ : ℂ), (Zeta23.gammaOf ρ).im = -(ρ.re - 1 / 2)
+SIDEExplicitFormula.B321.fiber_count : ∀ (Z : Zeta23.ZeroConfig) (s : Finset ℂ),
+  (∀ ρ ∈ s, ρ ∈ Z.carrier) → ∀ (m : ℤ), ∑ ρ ∈ s with ⌈ρ.im⌉ = m, ↑(Z.mult ρ) ≤ ↑(Z.N (↑m - 1) ↑m)
+Zeta23.RvM.zetaZeroConfig_local_count : ∃ A₀,
+  1 ≤ A₀ ∧ ∀ (t : ℝ), ↑(Zeta23.zetaZeroConfig.N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+Zeta23.ZeroConfig.reflect_mem : ∀ (self : Zeta23.ZeroConfig), ∀ ρ ∈ self.carrier, Zeta23.reflect ρ ∈ self.carrier
+Zeta23.ZeroConfig.one_le_mult : ∀ (self : Zeta23.ZeroConfig), ∀ ρ ∈ self.carrier, 1 ≤ self.mult ρ
+Zeta23.ZeroConfig.N : Zeta23.ZeroConfig → ℝ → ℝ → ℕ
+Zeta23.zeta_reflect_zero : ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → Zeta23.IsNontrivialZero (Zeta23.reflect ρ)
+Zeta23.zetaSeam : Zeta23.ZetaSeam
+Zeta23.zetaZeroConfig_carrier : Zeta23.zetaZeroConfig.carrier = {ρ | Zeta23.IsNontrivialZero ρ}
+Zeta23.reflect : ℂ → ℂ
+@sq_eq_sq_iff_eq_or_eq_neg : ∀ {R : Type u_1} [inst : CommRing R] [NoZeroDivisors R] {a b : R},
+  a ^ 2 = b ^ 2 ↔ a = b ∨ a = -b
+@mul_div_cancel_left₀ : ∀ {M₀ : Type u_1} [inst : CommMonoidWithZero M₀] [inst_1 : Div M₀] [MulDivCancelClass M₀]
+  (b : M₀) {a : M₀}, a ≠ 0 → a * b / a = b
+@mul_div_assoc : ∀ {G : Type u_1} [inst : DivInvMonoid G] (a b c : G), a * b / c = a * (b / c)
+norm_conj : ∀ (z : ℂ), ‖(starRingEnd ℂ) z‖ = ‖z‖
+conj_mul' : ∀ (z : ℂ), (starRingEnd ℂ) z * z = ↑‖z‖ ^ 2
+norm_exp : ∀ (z : ℂ), ‖cexp z‖ = Real.exp z.re
+log_re : ∀ (x : ℂ), (log x).re = Real.log ‖x‖
+@exp_log : ∀ {x : ℂ}, x ≠ 0 → cexp (log x) = x
+exp_nat_mul : ∀ (x : ℂ) (n : ℕ), cexp (↑n * x) = cexp x ^ n
+div_ofNat_re : ∀ (z : ℂ) (n : ℕ) [inst : n.AtLeastTwo], (z / OfNat.ofNat n).re = z.re / OfNat.ofNat n
+re_ofReal_mul : ∀ (r : ℝ) (z : ℂ), (↑r * z).re = r * z.re
+im_ofReal_mul : ∀ (r : ℝ) (z : ℂ), (↑r * z).im = r * z.im
+@conj_eq_iff_re : ∀ {z : ℂ}, (starRingEnd ℂ) z = z ↔ ↑z.re = z
+@conj_eq_iff_im : ∀ {z : ℂ}, (starRingEnd ℂ) z = z ↔ z.im = 0
+@nonneg_iff : ∀ {z : ℂ}, 0 ≤ z ↔ 0 ≤ z.re ∧ 0 = z.im
+@Complex.le_def : ∀ {z w : ℂ}, z ≤ w ↔ z.re ≤ w.re ∧ z.im = w.im
+@re_sum : ∀ {α : Type u_1} (s : Finset α) (f : α → ℂ), (∑ i ∈ s, f i).re = ∑ i ∈ s, (f i).re
+ofReal_natCast : ∀ (n : ℕ), ↑↑n = ↑n
+coe_algebraMap : ⇑(algebraMap ℝ ℂ) = ofReal
+conjAe : Gal(ℂ/ℝ)
+re_le_norm : ∀ (z : ℂ), z.re ≤ ‖z‖
+norm_real : ∀ (r : ℝ), ‖↑r‖ = ‖r‖
+@real_smul : ∀ {x : ℝ} {z : ℂ}, x • z = ↑x * z
+@map_prod : ∀ {ι : Type u_1} {M : Type u_2} {N : Type u_3} [inst : CommMonoid M] [inst_1 : CommMonoid N] {G : Type u_4}
+  [inst_2 : FunLike G M N] [MonoidHomClass G M N] (g : G) (f : ι → M) (s : Finset ι),
+  g (∏ x ∈ s, f x) = ∏ x ∈ s, g (f x)
+@map_div₀ : ∀ {G₀ : Type u_1} {G₀' : Type u_2} {F : Type u_3} [inst : GroupWithZero G₀] [inst_1 : GroupWithZero G₀']
+  [inst_2 : FunLike F G₀ G₀'] [MonoidWithZeroHomClass F G₀ G₀'] (f : F) (a b : G₀), f (a / b) = f a / f b
+@map_ofNat : ∀ {R : Type u_1} {S : Type u_2} {F : Type u_3} [inst : NonAssocSemiring R] [inst_1 : NonAssocSemiring S]
+  [inst_2 : FunLike F R S] [RingHomClass F R S] (f : F) (n : ℕ) [inst_4 : n.AtLeastTwo],
+  f (OfNat.ofNat n) = OfNat.ofNat n
+@Polynomial.aeval_comp : ∀ {R : Type u_1} [inst : CommSemiring R] {p q : Polynomial R} {A : Type u_2}
+  [inst_1 : Semiring A] [inst_2 : Algebra R A] (x : A),
+  (Polynomial.aeval x) (p.comp q) = (Polynomial.aeval ((Polynomial.aeval x) q)) p
+@Polynomial.aeval_X : ∀ {R : Type u_1} {A : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring A]
+  [inst_2 : Algebra R A] (x : A), (Polynomial.aeval x) Polynomial.X = x
+@Polynomial.aeval_C : ∀ {R : Type u_1} {A : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring A]
+  [inst_2 : Algebra R A] (x : A) (r : R), (Polynomial.aeval x) (Polynomial.C r) = (algebraMap R A) r
+@Polynomial.aeval_eq_sum_range : ∀ {R : Type u_1} {S : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring S]
+  [inst_2 : Algebra R S] {p : Polynomial R} (x : S),
+  (Polynomial.aeval x) p = ∑ i ∈ Finset.range (p.natDegree + 1), p.coeff i • x ^ i
+@Polynomial.aeval_eq_sum_range' : ∀ {R : Type u_1} {S : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring S]
+  [inst_2 : Algebra R S] {p : Polynomial R} {n : ℕ},
+  p.natDegree < n → ∀ (x : S), (Polynomial.aeval x) p = ∑ i ∈ Finset.range n, p.coeff i • x ^ i
+@Polynomial.aeval_def : ∀ {R : Type u_1} {A : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring A]
+  [inst_2 : Algebra R A] (x : A) (p : Polynomial R), (Polynomial.aeval x) p = Polynomial.eval₂ (algebraMap R A) x p
+@Polynomial.eval_map : ∀ {R : Type u_1} {S : Type u_2} [inst : Semiring R] {p : Polynomial R} [inst_1 : Semiring S]
+  (f : R →+* S) (x : S), Polynomial.eval x (Polynomial.map f p) = Polynomial.eval₂ f x p
+@Polynomial.aeval_algHom_apply : ∀ {R : Type u_1} {A : Type u_2} {B : Type u_3} [inst : CommSemiring R]
+  [inst_1 : Semiring A] [inst_2 : Semiring B] [inst_3 : Algebra R A] [inst_4 : Algebra R B] {F : Type u_4}
+  [inst_5 : FunLike F A B] [AlgHomClass F R A B] (f : F) (x : A) (p : Polynomial R),
+  (Polynomial.aeval (f x)) p = f ((Polynomial.aeval x) p)
+@Polynomial.aeval_algebraMap_apply_eq_algebraMap_eval : ∀ {R : Type u_1} {A : Type u_2} [inst : CommSemiring R]
+  [inst_1 : Semiring A] [inst_2 : Algebra R A] (x : R) (p : Polynomial R),
+  (Polynomial.aeval ((algebraMap R A) x)) p = (algebraMap R A) (Polynomial.eval x p)
+@Polynomial.induction_on' : ∀ {R : Type u_1} [inst : Semiring R] {motive : Polynomial R → Prop} (p : Polynomial R),
+  (∀ (p q : Polynomial R), motive p → motive q → motive (p + q)) →
+    (∀ (n : ℕ) (a : R), motive ((Polynomial.monomial n) a)) → motive p
+@Polynomial.aeval_monomial : ∀ {R : Type u_1} {A : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring A]
+  [inst_2 : Algebra R A] (x : A) {n : ℕ} {r : R},
+  (Polynomial.aeval x) ((Polynomial.monomial n) r) = (algebraMap R A) r * x ^ n
+@Polynomial.coeff_eq_zero_of_natDegree_lt : ∀ {R : Type u_1} [inst : Semiring R] {p : Polynomial R} {n : ℕ},
+  p.natDegree < n → p.coeff n = 0
+@Polynomial.degree_le_natDegree : ∀ {R : Type u_1} [inst : Semiring R] {p : Polynomial R}, p.degree ≤ ↑p.natDegree
+@Polynomial.natDegree_lt_iff_degree_lt : ∀ {R : Type u_1} {n : ℕ} [inst : Semiring R] {p : Polynomial R},
+  p ≠ 0 → (p.natDegree < n ↔ p.degree < ↑n)
+@summable_of_sum_le : ∀ {ι : Type u_1} {f : ι → ℝ} {c : ℝ}, 0 ≤ f → (∀ (u : Finset ι), ∑ x ∈ u, f x ≤ c) → Summable f
+@Summable.of_norm_bounded : ∀ {ι : Type u_1} {E : Type u_2} [inst : SeminormedAddCommGroup E] [CompleteSpace E]
+  {f : ι → E} {g : ι → ℝ}, Summable g → (∀ (i : ι), ‖f i‖ ≤ g i) → Summable f
+@tsum_eq_sum : ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] {f : β → α}
+  {L : SummationFilter β} [L.LeAtTop] {s : Finset β}, (∀ b ∉ s, f b = 0) → ∑'[L] (b : β), f b = ∑ b ∈ s, f b
+@summable_of_ne_finset_zero : ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α]
+  {L : SummationFilter β} {f : β → α} {s : Finset β}, (∀ b ∉ s, f b = 0) → ∀ [L.HasSupport], Summable f L
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe1.lean:81:8: error(lean.unknownIdentifier): Unknown identifier `tsum_add`
+@Summable.tsum_add : ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α]
+  {f g : β → α} {L : SummationFilter β} [T2Space α] [ContinuousAdd α] [L.NeBot],
+  Summable f L → Summable g L → ∑'[L] (b : β), (f b + g b) = ∑'[L] (b : β), f b + ∑'[L] (b : β), g b
+@tsum_div_const : ∀ {ι : Type u_1} {α : Type u_2} {L : SummationFilter ι} [inst : DivisionSemiring α]
+  [inst_1 : TopologicalSpace α] [IsTopologicalSemiring α] {f : ι → α} {a : α} [T2Space α],
+  ∑'[L] (x : ι), f x / a = (∑'[L] (x : ι), f x) / a
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe1.lean:84:8: error(lean.unknownIdentifier): Unknown identifier `tendsto_tsum_of_dominated_convergence`
+@tendsto_pow_atTop_nhds_zero_of_lt_one : ∀ {𝕜 : Type u_1} [inst : Semifield 𝕜] [inst_1 : LinearOrder 𝕜]
+  [IsStrictOrderedRing 𝕜] [ExistsAddOfLE 𝕜] [Archimedean 𝕜] [inst_5 : TopologicalSpace 𝕜] [OrderTopology 𝕜] {r : 𝕜},
+  0 ≤ r → r < 1 → Tendsto (fun n => r ^ n) atTop (𝓝 0)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b534/Probe1.lean:86:8: error(lean.unknownIdentifier): Unknown constant `Nat.tendsto_pow_atTop_atTop_of_one_lt`
+tendsto_add_atTop_nat : ∀ (k : ℕ), Tendsto (fun a => a + k) atTop atTop
+@squeeze_zero_norm : ∀ {α : Type u_1} {E : Type u_2} [inst : SeminormedAddGroup E] {f : α → E} {a : α → ℝ}
+  {t₀ : Filter α}, (∀ (n : α), ‖f n‖ ≤ a n) → Tendsto a t₀ (𝓝 0) → Tendsto f t₀ (𝓝 0)
+@norm_tsum_le_tsum_norm : ∀ {ι : Type u_1} {E : Type u_2} [inst : SeminormedAddCommGroup E] {f : ι → E},
+  (Summable fun i => ‖f i‖) → ‖∑' (i : ι), f i‖ ≤ ∑' (i : ι), ‖f i‖
+@Metric.tendsto_atTop : ∀ {α : Type u_1} {β : Type u_2} [inst : PseudoMetricSpace α] [Nonempty β]
+  [inst_2 : SemilatticeSup β] {u : β → α} {a : α}, Tendsto u atTop (𝓝 a) ↔ ∀ ε > 0, ∃ N, ∀ n ≥ N, dist (u n) a < ε
+@Even.pow_pos : ∀ {R : Type u_1} [inst : Semiring R] [inst_1 : LinearOrder R] [IsStrictOrderedRing R] {a : R} {n : ℕ}
+  [ExistsAddOfLE R], Even n → a ≠ 0 → 0 < a ^ n
+@Nat.even_pow : ∀ {m n : ℕ}, Even (m ^ n) ↔ Even m ∧ n ≠ 0
+@Nat.lt_two_pow_self : ∀ {n : ℕ}, n < 2 ^ n
+@pow_le_pow_right₀ : ∀ {M₀ : Type u_1} [inst : MonoidWithZero M₀] [inst_1 : Preorder M₀] {a : M₀} {m n : ℕ}
+  [ZeroLEOneClass M₀] [PosMulMono M₀], 1 ≤ a → m ≤ n → a ^ m ≤ a ^ n
+@pow_le_pow_left₀ : ∀ {M₀ : Type u_1} [inst : MonoidWithZero M₀] [inst_1 : Preorder M₀] {a b : M₀} [PosMulMono M₀]
+  [MulPosMono M₀], 0 ≤ a → a ≤ b → ∀ (n : ℕ), a ^ n ≤ b ^ n
+@pow_le_pow_of_le_one : ∀ {M₀ : Type u_1} [inst : MonoidWithZero M₀] [inst_1 : Preorder M₀] {a : M₀} [PosMulMono M₀],
+  0 ≤ a → a ≤ 1 → ∀ {m n : ℕ}, m ≤ n → a ^ n ≤ a ^ m
+@Finset.prod_eq_zero : ∀ {ι : Type u_1} {M₀ : Type u_2} [inst : CommMonoidWithZero M₀] {f : ι → M₀} {s : Finset ι}
+  {i : ι}, i ∈ s → f i = 0 → ∏ j ∈ s, f j = 0
+@Finset.prod_ne_zero_iff : ∀ {ι : Type u_1} {M₀ : Type u_2} [inst : CommMonoidWithZero M₀] {f : ι → M₀} {s : Finset ι}
+  [Nontrivial M₀] [NoZeroDivisors M₀], ∏ x ∈ s, f x ≠ 0 ↔ ∀ a ∈ s, f a ≠ 0
+@Finset.mem_subtype : ∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : Subtype p},
+  a ∈ Finset.subtype p s ↔ ↑a ∈ s
+@Finset.sum_pos : ∀ {ι : Type u_1} {M : Type u_2} [inst : AddCommMonoid M] [inst_1 : Preorder M]
+  [IsOrderedCancelAddMonoid M] {f : ι → M} {s : Finset ι} [AddLeftStrictMono M],
+  (∀ i ∈ s, 0 < f i) → s.Nonempty → 0 < ∑ i ∈ s, f i
+@Finset.single_le_sum : ∀ {ι : Type u_1} {N : Type u_2} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N}
+  {s : Finset ι} [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → ∀ {a : ι}, a ∈ s → f a ≤ ∑ x ∈ s, f x
+@Set.Finite.mem_toFinset : ∀ {α : Type u_1} {s : Set α} {a : α} (hs : s.Finite), a ∈ hs.toFinset ↔ a ∈ s
+@Int.ceil_eq_iff : ∀ {R : Type u_1} [inst : Ring R] [inst_1 : LinearOrder R] [inst_2 : FloorRing R] {z : ℤ} {a : R},
+  ⌈a⌉ = z ↔ ↑z - 1 < a ∧ a ≤ ↑z
+@List.getD_eq_getElem : ∀ {α : Type u_1} (l : List α) (d : α) {n : ℕ} (hn : n < l.length), l.getD n d = l[n]
+@exists_pow_lt_of_lt_one : ∀ {K : Type u_1} [inst : Semifield K] [inst_1 : LinearOrder K] [IsStrictOrderedRing K]
+  [Archimedean K] {x y : K} [ExistsAddOfLE K], 0 < x → y < 1 → ∃ n, y ^ n < x

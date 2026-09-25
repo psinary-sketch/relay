@@ -1,0 +1,62 @@
+========================================================================================================
+b534 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S SIX.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- L7a-L7d theorems std3 and none failing at an attempt numbered 2 or later ; failures per declaration {'Kp_kill': [1], 'kWindow': [1], 'kWindow_classK': [1], 'kWindow_term': [1], 'mem_sT': [1], 'pwWindow': [1], 'pwWindow_contDiff': [1], 'pwWindow_support': [1], 'zeroSide_eventually_neg': [1]}.
+  **(N2)** ### **HELD, VACUOUS.** -- halted NONE: no lemma halted, so the conditional holds vacuously.
+  **(N3)** ### **HELD.** -- h2_sign_iff_rh_strip std3 True ; `SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip`.
+  **(N4)** ### **HELD.** -- `SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop` ; no theorem head of PowerLimit.lean ends in it.
+  **(N5)** ### **HELD.** -- blobs working / at f42102f / at HEAD : {'RestBound.lean': ['fe1dcd47c3be', 'fe1dcd47c3be', 'fe1dcd47c3be'], 'RHChain.lean': ['889bc3cccc64', '889bc3cccc64', '889bc3cccc64'], 'H2Bridge.lean': ['3b8bcac50e79', '3b8bcac50e79', '3b8bcac50e79']}.
+  **(N6)** ### **HELD.** -- ERRATA.md working / at b8cce57 / at HEAD : ['7f0c17ef2e51', '7f0c17ef2e51', '7f0c17ef2e51'] ; b534 Zenodo files : NONE ; deposit tree clean ; the ceiling sentence in the trail : PRINTED.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- halted NONE ; first clean attempt 2.
+  **(S2)** ### **HELD.** -- h2_sign_iff_rh_strip std3 : True.
+  **(S3)** ### **HELD.** -- attempt 1 failing : ['Kp_kill', 'kWindow', 'kWindow_classK', 'kWindow_term', 'mem_sT', 'window', 'window_contDiff', 'window_support', 'zeroSide_eventually_neg'].
+
+### ### **THE NAVIGATOR`S : HELD 6 ; REFUTED 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+
+### THE GRADES (READING (11)).
+  `paperFT_conj_of_real` DERIVES -- the model`s identity for every real g (continuity and compact support dropped)
+  `paperFT_neg_of_even` DERIVES -- the model`s evenness of the transform, as ordered (PairTerm`s phiC_FT_neg, named)
+  `zero_term_real` DERIVES -- the model`s product g^(z) g^(-z), under the model`s hypotheses
+  `paperFT_polyOpFull` DERIVES -- the model`s factor polyEvalFull a (-(I z)), for g C^(length a) supported in [-L, L] (READING (4))
+  `polyOpFull_support` DERIVES -- the support unchanged, as ordered
+  `polyOpFull_contDiff` DERIVES -- smooth in, smooth out, as ordered
+  `kWindow_classK` DERIVES -- the model`s membership, through classK_of_real_even as ordered
+  `kWindow_term` DERIVES -- the model`s term at every complex z, the ferry`s at z = gammaOf rho (READING (5), stronger)
+  `nodes_distinct` DERIVES -- the model`s statement on T, proved by real algebra (through v_eq_iff, for all rho)
+  `tie_term_neg` DERIVES -- the model`s real part -N_rho M^(2^(j+1)), for any S with the node property, which coeffs_exist supplies for every j (READING (6))
+  `rest_term_small` DERIVES -- the model`s bound with C_P^2 (1 + |w|)^(2d) read as B^2 (1 + |w|)^(2D), for any S with the bound, which coeffs_exist supplies; the offScore < M part in fR_bound
+  `dominant_summable` DERIVES -- the model`s summability with j_0 = D (READING (7))
+  `rest_tendsto_zero` DERIVES -- the model`s limit, by Tannery`s theorem, for the family coeffs_exist supplies
+  `zeroSide_eventually_neg` DERIVES -- the model`s statement, under PWSetup and a tie zero
+  `h2_sign_imp_rh_strip` DERIVES -- the model`s statement exactly
+  `rh_strip_imp_h2_sign` DERIVES -- the model`s statement exactly
+  `h2_sign_iff_rh_strip` DERIVES -- the model`s statement exactly
+  `h2_sign_imp_rh_of_seam` DERIVES -- the model`s statement exactly
+  `ch_iff_h2_sign_of_seam` DERIVES -- the model`s statement exactly
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **THE FERRY`S NEW NAME `window` WAS ALREADY TAKEN IN THE NAMESPACE**: b524 declared `B321.window` and
+        `B321.window_contDiff`, and the reads before the seal did not search the namespace for the names the ferry mints.
+        Attempt 1 failed in `window`, `window_contDiff`, `window_support` and their dependents `kWindow`, `kWindow_classK`,
+        `kWindow_term`; the three were renamed `pwWindow`, `pwWindow_contDiff`, `pwWindow_support` for attempt 2 (`kWindow`
+        keeps the ferry`s name). The kernel tool`s theorem list and `AxiomCheckLimit.lean` were edited for the rename AFTER
+        install, so the installed AxiomCheck file`s sha in `b534_install.json` is the draft`s, not the committed file`s.
+    (b) ### **ATTEMPT 1 FAILED IN THREE FURTHER DECLARATIONS, EACH ONCE**: `Kp_kill` (`Finset.mem_image_of_mem _` inferred
+        `Complex.re` as the function; given explicitly), `mem_sT` (no `DecidablePred` outside `classical`; the proof now
+        opens it), `zeroSide_eventually_neg` (`summable_of_ne_finset_zero``s summation filter left a metavariable; the
+        `have` now states its type). No declaration failed at attempt 2; the halt rule did not fire.
+    (c) ### **PROBE 2 FOUND A CAST THAT DID NOT ELABORATE**: `h.of_le (by exact_mod_cast le_top)` fails for a literal order
+        (`ContDiff ℝ 2`, `ContDiff ℝ 4`), though it works for a variable `n : ℕ`; a third probe, declared on the face, found
+        `h.of_le (WithTop.coe_le_coe.mpr le_top)` and the draft uses it.
+    (d) ### **ATTEMPT 2 RAN IN 27.8 s FOR THE WHOLE MODULE**, fast enough to doubt; it is not taken on its exit code: the log
+        carries no `sorry`, the olean was written, and the profile reads all 89 theorems as the standard three on the
+        whole string -- a failed declaration would elaborate with `sorryAx` and fail that match.
+    (e) ### **THE FIRST ROW WRITE WAS REFUSED**: the title cell carried `|P_j(w)|`, which the ledger reads as cell boundaries;
+        `corr_row.py` refused before writing (12 cells, not 6). The cell now writes `‖P_j(w)‖`; the second write is the row.
+========================================================================================================

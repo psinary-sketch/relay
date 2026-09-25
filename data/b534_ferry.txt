@@ -1,0 +1,106 @@
+RULING (R144) BEGIN
+
+RULING (R144), the author's, ratified by this paste and
+strikeable: THE SECOND ACT OF THE ATTEMPT, WITH TWO
+CORRECTIONS TO THE ROUTE.
+
+(1) Defect (d) of b533 (relay data/b533_defects.txt): the
+hypothesis `Function.support g ⊆ Set.Icc (-L) L` carried by
+power_contDiff and paperFT_power (PowerWindow.lean:140,
+:146-148) is L3's standing window context, as the seat read
+it. The reading is ratified and the DERIVES grades stand.
+The sealed face is not edited; a note citing this ruling is
+appended beside it.
+
+(2) The nodes caveat (b533's closing: "(γ−iδ)² is real when
+γ = 0 ... the kernel's zero configuration doesn't record
+that") is resolved inside the kernel, not by a Mathlib fact.
+Two changes. The interpolation variable is v_ρ := (ρ − 1/2)²
+= −(gammaOf ρ)², and distinctness needs no non-reality:
+v_ρ = v_ρ' forces ρ' − 1/2 = ±(ρ − 1/2), so ρ' ∈ {ρ, 1 − ρ},
+by real algebra. And the window's operator may carry odd
+orders: for a REAL window h, not necessarily even, the zero
+term is ĥ(z)·ĥ(−z) (conj(ĥ(conj z)) = ĥ(−z) for real h),
+and classK_of_real_even (PowerWindow.lean:52-53) already
+admits every real C² compactly supported h. With h =
+P(D)-type, ĥ(z) = P(−iz)·ĝ(z) by paperFT_iteratedDeriv, so
+the term is P(w)P(−w)·ĝ(z)² with w = −iz, w² = v_ρ. A real
+tie node (a real zero of the strip, if the configuration
+holds one) has v* = δ² > 0 and ĝ(z*) real; the factor
+E(w) = 1 + c·w with c² > 1/v* contributes E(w*)E(−w*) =
+1 − c²v* < 0 and makes that term negative with no phase to
+set. The Prop nodes_distinct_nonreal (:416-418) stays as
+written and unproved, superseded by nodes_distinct below;
+a note beside it says so.
+
+(3) L7 and L8 are ordered as b534, with the halt rule of
+(R143)(5) unchanged: two attempts per lemma, then a Prop
+with its blocker printed, and the act continues. The act
+closes with whatever compiled; a halted L7 or L8 is a named
+work-order.
+
+(4) The seam (R143)(4) stays a Prop. The left half-plane
+statement is ABSENT from Mathlib by name (b533); nothing in
+this act proves it or assumes it. What b534 can reach is
+h2_sign ↔ rh_strip; the composite h2_sign → RiemannHypothesis
+is compiled as an implication FROM the seam Prop, so the
+converse of Weil's criterion rests, in this kernel, on one
+named classical fact and nothing else.
+
+(5) The act after b534 is the update act: the erratum's
+filing, the three (R110) rows, the ceiling's wording, each
+in the words b534's outcome allows; and the span since
+b525's fold reaches nine at b534, so the fold is that act's
+business too, not this one's.
+
+RULING (R144) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b534 - W-ORD-WEIL-CONVERSE f4, THE POWER-WINDOW ROUTE, ACT TWO OF TWO: THE LIMIT AND THE ASSEMBLY, under (R144).
+
+Read before anything: SIDEExplicitFormula/PowerWindow.lean whole, at f42102f (paperFT_conj_of_real_even :33, zero_term_sq :38, classK_of_real_even :52, power :121, power_support :129, power_contDiff :140, paperFT_power :146, polyOp :162, polyEval :166, paperFT_polyOp :191, plateau_support_Icc :247, plateau_nonneg :261, base_nonzero_at :274, offScore :328, off_finite_above :331, dominant_exists :368, plateau_dominant :385, tieSet :398, killSet :401, tieSet_finite :403, killSet_finite :407, tieSet_nonempty :411, nodes_distinct_nonreal :416, real_even_interpolant :425, rh_strip :481, rh_imp_rh_strip :483, rh_strip_imp_rh :493); RHChain.lean:19-63 (rh_imp_h2_sign, whose proof uses RiemannHypothesis at one line, RH_implies_on_line, and nothing else from RH); B321Identity.lean:24-26 and :44-46; RestBound.lean:192 (fiber_count), :207-210 (finite_rest_bound) and its unit-interval grouping; DecayBound.lean:46-47, :63-64; Zeta23/ExplicitFormula.lean:205-207; Zeta23/RvM/LocalCount.lean:310-311. Every lemma names what it consumes; an unresolved name is printed with its #check and that lemma stops.
+
+Conventions as (R143)'s ferry states them, plus: w_ρ := −I * gammaOf ρ, so w_ρ = −(ρ − 1/2) and w_ρ² = (ρ − 1/2)² =: v_ρ; for on-line ρ = 1/2 + iγ, v_ρ = −γ² (real, ≤ 0); for a real off-line ρ = 1/2 + δ, v_ρ = δ² > 0; otherwise v_ρ is not real. The module is SIDEExplicitFormula/PowerWindow.lean continued, or a second module PowerLimit.lean importing it - the seat's choice, declared in the header. All declarations `theorem`, never `lemma` [procedural].
+
+L7a - THE ZERO TERM OF A REAL WINDOW.
+theorem paperFT_conj_of_real : for g : R -> R continuous with compact support (no evenness) and every z, conj (paperFT (phiC g) (conj z)) = paperFT (phiC g) (-z).
+theorem zero_term_real : paperFT (weilTest (phiC g) (phiC g)) z = paperFT (phiC g) z * paperFT (phiC g) (-z), from paperFT_weilTest and the above. zero_term_sq (:38) becomes its even special case; leave zero_term_sq as it is.
+
+L7b - THE FULL OPERATOR. polyOpFull (a : List R) (g) := SUM_p a_p * iteratedDeriv p g (all orders), polyEvalFull a w := SUM_p a_p * w^p, and
+theorem paperFT_polyOpFull : paperFT (phiC (polyOpFull a g)) z = polyEvalFull a (-(I * z)) * paperFT (phiC g) z, for g ContDiff R a.length with compact support, from paperFT_iteratedDeriv. polyOpFull_support (support unchanged), polyOpFull_contDiff (smooth in, smooth out), and polyOpFull is real by construction. b533's polyOp (:162) stays; do not rewrite it.
+
+L7c - THE TERM OF THE POWER WINDOW. For a real even g_0 (the plateau), j : N, and a real coefficient list a, define window a g_0 j := polyOpFull a (power g_0 j) and kWindow := weilTest (phiC (window ...)) (phiC (window ...)). Then
+theorem kWindow_classK : classK (kWindow a g_0 j) (classK_of_real_even with polyOpFull_contDiff, power_contDiff, polyOpFull_support, power_support).
+theorem kWindow_term : paperFT (kWindow a g_0 j) (gammaOf ρ) = polyEvalFull a (w_ρ) * polyEvalFull a (-w_ρ) * (paperFT (phiC g_0) (gammaOf ρ))^(2^(j+1)), from zero_term_real, paperFT_polyOpFull, paperFT_power, and paperFT (phiC g_0) (-z) = paperFT (phiC g_0) z for even g_0 (PowerWindow has this inside paperFT_conj_of_real_even's route; name it paperFT_neg_of_even if it is not already a theorem).
+
+L7d - THE COEFFICIENTS. Fix Z = zetaZeroConfig, g_0 = plateau F L at the width plateau_dominant gives for the off-line ρ_1, ρ_s the dominant zero, M := offScore g_0 ρ_s > 0, T := tieSet Z g_0 M (finite, nonempty), Kset := killSet Z g_0 M (finite). Define
+nodes_distinct : ∀ ρ ρ' ∈ T, v_ρ = v_ρ' → ρ' = ρ ∨ ρ' = 1 − ρ — PROVED, by real algebra on (ρ − 1/2)² = (ρ' − 1/2)². Under it, choose representatives: repT := a Finset of T with one element per pair {ρ, 1 − ρ} (Finset.image of v over T, then a choice of preimage - or work directly with the Finset V := T.image v, which is what the interpolant sees).
+V := (T.image v) : Finset C - conjugation-closed, and the closure comes from the REFLECTION ρ ↦ 1 − conj ρ, not from conjugation of ρ: v_(reflect ρ) = (1/2 − conj ρ)² = conj (v_ρ), gammaOf (reflect ρ) = conj (gammaOf ρ) (one line from Defs.lean:121 and :124), so offScore g_0 (reflect ρ) = offScore g_0 ρ for real even g_0 (paperFT_conj_of_real_even), and T is reflect-closed whenever the carrier is. The carrier's reflection closure is the kernel's H-symm (Zeta23/Statement.lean:92-94, ZetaSeam.reflect_zero, "established from Mathlib elsewhere in the repository" per :85-88): cite the theorem that instantiates it for zetaZeroConfig by name; if it resolves to no theorem, print ABSENT and add it as a hypothesis `hreflZ` to every theorem below that needs it, declared at the top of the record.
+X := (Kset.image v) : Finset C, all real, all ≤ 0.
+K(v) := PROD_{x ∈ X} (v − x), a real polynomial; K(v_ρ) ≠ 0 for ρ ∈ T (v_ρ ∉ X: a tie node is not real or is positive, a kill node is real ≤ 0; if some ρ ∈ T has v_ρ = 0 that would need ρ = 1/2 in the carrier with re = 1/2, contradicting ρ.re ≠ 1/2 - print the one-line reason).
+hasReal := ∃ ρ ∈ T, v_ρ is real (equivalently ρ.im = 0); c := if hasReal then 2 / sqrt(min over the real tie nodes of v) else 0; E(w) := 1 + c w. Then E(w)E(−w) = 1 − c²w², negative at every real tie node, nonzero at every non-real one.
+For each j, the phase targets: for ρ ∈ T with v_ρ not real, X_ρ,j := K(v_ρ)² (1 − c² v_ρ) (paperFT (phiC g_0) (gammaOf ρ))^(2^(j+1)) ≠ 0, θ its argument, target r_j(v_ρ) := I * exp(−I θ/2) (unit modulus), and r_j(conj v_ρ) := conj (r_j(v_ρ)) - consistent because X at the conjugate node is conj X (g_0 real even, K and E real). For ρ ∈ T with v_ρ real, target r_j(v_ρ) := 1. Then real_even_interpolant (:425) on V with r_j gives S_j : Polynomial R, degree < V.card, coefficients bounded by C_V independent of j.
+P_j(w) := S_j(w²) * K(w²) * E(w), a real polynomial of degree d := 2 (V.card − 1) + 2 X.card + 1 at most, independent of j, with coefficients bounded by a constant C_P independent of j (products of bounded lists). a_j := its coefficient list.
+theorem tie_term_neg : for ρ ∈ T, the term polyEvalFull a_j (w_ρ) * polyEvalFull a_j (−w_ρ) * (paperFT (phiC g_0) (gammaOf ρ))^(2^(j+1)) equals −|X_ρ,j| when v_ρ is not real and equals X_ρ,j < 0 when it is; in both cases its real part is −N_ρ · M^(2^(j+1)) with N_ρ := |K(v_ρ)² (1 − c² v_ρ)| > 0 independent of j. (The modulus of the base power is M^(2^(j+1)) because offScore g_0 ρ = M on T.)
+theorem rest_term_small : for ρ ∈ carrier \ T, ‖term_j(ρ)‖ ≤ C_P² (1 + ‖w_ρ‖)^(2d) · (offScore g_0 ρ)^(2^(j+1)), and offScore g_0 ρ < M (off-line: dominance and ρ ∉ T; on-line: either ρ ∈ Kset and K(v_ρ) = 0 so the term is 0, or offScore < M by Kset's definition).
+
+L7e - THE LIMIT.
+theorem dominant_summable : for some j_0, the family ρ ↦ mult ρ · C_P² (1 + ‖w_ρ‖)^(2d) (offScore g_0 ρ / M)^(2^(j_0+1)) is summable over the carrier. Route: paperFT_decay at p = 4 with |Im gammaOf ρ| ≤ 1/2 gives offScore g_0 ρ ≤ A e^{L/2} ‖gammaOf ρ‖^(−4); choose j_0 with 4 · 2^(j_0+1) ≥ 2d + 4 so the bound is ≤ const · (1 + |Im ρ|)^(−4) for ‖gammaOf ρ‖ ≥ 1 and bounded on the rest (finitely many zeros there); group by unit intervals with fiber_count and the local count as finite_rest_bound does, and compare with SUM_m log(|m| + 3) (1 + |m|)^(−4) ≤ SUM_m (1 + |m|)^(−3) (summable_zeta3, RestBound.lean:177).
+theorem rest_tendsto_zero : Tendsto (fun j => SUM'_{ρ ∈ carrier \ T} mult ρ · term_j(ρ) / M^(2^(j+1))) atTop (nhds 0), by tendsto_tsum_of_dominated_convergence with the dominant of dominant_summable (valid for j ≥ j_0, ratios < 1 so each summand tends to 0).
+theorem zeroSide_eventually_neg : ∃ j, (zeroSide (kWindow a_j g_0 j)).re < 0. Route: zeroSide = (finite sum over T) + (tsum over the complement) after the split (tsum_subtype or Finset-complement split; summability of the whole from dominant_summable and tie-finiteness); the T part's real part is −(SUM_T mult · N_ρ) M^(2^(j+1)), a negative constant times M^(2^(j+1)); the rest is o(M^(2^(j+1))) by rest_tendsto_zero; so for j large the real part is negative.
+
+L8 - THE ASSEMBLY.
+theorem h2_sign_imp_rh_strip : h2_sign → rh_strip. By contradiction: an off-line ρ_1 in the carrier; plateau_dominant; L7d, L7e give j with (zeroSide k).re < 0 for k = kWindow a_j g_0 j ∈ classK; b321_identity with b321Norm = 1 gives (poleTerm k − primeSum k + archTerm k).re < 0; ComplexOrder's 0 ≤ z needs 0 ≤ z.re (Complex.le_def / Complex.nonneg_iff — print the name used); contradiction with h2_sign k.
+theorem rh_strip_imp_h2_sign : rh_strip → h2_sign, by the proof of rh_imp_h2_sign (RHChain.lean:19-63) with its one use of RH_implies_on_line replaced by the strip hypothesis at ρ.2 (via zetaZeroConfig_carrier as that proof already does). Do not edit RHChain.lean; write the new theorem beside it.
+theorem h2_sign_iff_rh_strip : h2_sign ↔ rh_strip.
+theorem h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh (unfold both; compose). Then `example : h2_sign_imp_ch ↔ h2_sign_imp_rh := h2_sign_imp_ch_iff` stays as b532 left it; add `theorem ch_iff_h2_sign_of_seam : rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign)` from ch_iff_rh, rh_imp_h2_sign, and h2_sign_imp_rh_of_seam.
+#print axioms on every new theorem. If L8 compiles, print the statements of h2_sign_iff_rh_strip, h2_sign_imp_rh_of_seam and rh_strip_imp_rh verbatim, one after the other, as the act's last three lines before the seal.
+
+NOT THIS ACT: the seam's proof; any edit to ERRATA.md; any (R110) edit; the ceiling's wording; the fold.
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) L7a–L7d compile at the standard three, at attempt one or two. (N2) If any lemma halts, it is inside L7e - dominant_summable or the tsum split - and not inside L7d; the blocker is printed with the goal state. (N3) If L8 compiles, `#print axioms h2_sign_iff_rh_strip` prints the standard three and its statement, read, is h2_sign ↔ rh_strip with h2_sign as H2Sign.lean:29-31 and rh_strip as PowerWindow.lean:481, no hypothesis added. (N4) rh_strip_imp_rh remains a Prop; no theorem in this act has it as a conclusion. (N5) not_f4_needs, HMax, RHChain.lean, H2Bridge.lean untouched. (N6) nothing deposits; ERRATA.md untouched; nothing written at Zenodo; h2 where the deposit left it until this act's own statements say otherwise, and the ceiling sentence printed unchanged with the note that the update act follows.
+
+Foreground compiles [procedural]. Record, correspondence rows, trail record in the house form; the span since b525's fold is b526–b534, nine, and the fold is the act after's. Nothing deposits.
+
+FERRY END (part 1 of 1)
