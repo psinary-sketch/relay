@@ -1,0 +1,22 @@
+### run at (UTC) : 2026-09-25T17:17:05Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean AxiomCheckBridge.lean
+exit 0 ; 517.9 s
+--- stdout ---
+'SIDEExplicitFormula.B321.balance_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_imp_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_imp_ch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_imp_config' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_ch_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop
+SIDEExplicitFormula.B321.conservationHypothesis : Prop
+def SIDEExplicitFormula.B321.conservationHypothesis : Prop :=
+∀ (σ : ℝ),
+  (∃ t,
+      riemannZeta { re := σ, im := t } = 0 ∧ (¬∃ n, { re := σ, im := t } = -2 * (↑n + 1)) ∧ { re := σ, im := t } ≠ 1) →
+    ∃ p, ∃ (_ : Nat.Prime p), ↑p ^ (-σ) = ↑p ^ (-(1 - σ))
+def SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop :=
+SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.conservationHypothesis
+--- stderr ---
+

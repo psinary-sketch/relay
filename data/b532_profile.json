@@ -1,0 +1,30 @@
+{
+ "lines": [
+  "'SIDEExplicitFormula.B321.balance_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.ch_imp_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.rh_imp_ch' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.ch_imp_config' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.ch_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.h2_sign_imp_ch_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ ],
+ "exit": 0,
+ "sorry": false,
+ "std3": {
+  "SIDEExplicitFormula.B321.balance_lemma": true,
+  "SIDEExplicitFormula.B321.ch_imp_rh": true,
+  "SIDEExplicitFormula.B321.rh_imp_ch": true,
+  "SIDEExplicitFormula.B321.ch_iff_rh": true,
+  "SIDEExplicitFormula.B321.ch_imp_config": true,
+  "SIDEExplicitFormula.B321.ch_imp_h2_sign": true,
+  "SIDEExplicitFormula.B321.h2_sign_imp_ch_iff": true
+ },
+ "checks": {
+  "h2_sign_imp_ch": "SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop",
+  "conservationHypothesis": "SIDEExplicitFormula.B321.conservationHypothesis : Prop"
+ },
+ "prints": {
+  "conservationHypothesis": "def SIDEExplicitFormula.B321.conservationHypothesis : Prop :=\n∀ (σ : ℝ),\n  (∃ t,\n      riemannZeta { re := σ, im := t } = 0 ∧ (¬∃ n, { re := σ, im := t } = -2 * (↑n + 1)) ∧ { re := σ, im := t } ≠ 1) →\n    ∃ p, ∃ (_ : Nat.Prime p), ↑p ^ (-σ) = ↑p ^ (-(1 - σ))",
+  "h2_sign_imp_ch": "def SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop :=\nSIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.conservationHypothesis"
+ }
+}

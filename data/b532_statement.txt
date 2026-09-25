@@ -1,0 +1,20 @@
+def conservationHypothesis : Prop :=
+
+def conservationHypothesisConfig : Prop :=
+
+theorem balance_lemma (p : ℕ) (hp : Nat.Prime p) (σ : ℝ) :
+    (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ)) ↔ σ = 1 / 2 :=
+
+theorem ch_imp_rh : conservationHypothesis → RiemannHypothesis :=
+
+theorem rh_imp_ch : RiemannHypothesis → conservationHypothesis :=
+
+theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis :=
+
+theorem ch_imp_config : conservationHypothesis → conservationHypothesisConfig :=
+
+theorem ch_imp_h2_sign : conservationHypothesis → h2_sign :=
+
+def h2_sign_imp_ch : Prop :=
+
+theorem h2_sign_imp_ch_iff : h2_sign_imp_ch ↔ h2_sign_imp_rh :=

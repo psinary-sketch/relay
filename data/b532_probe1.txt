@@ -1,0 +1,37 @@
+### b532 PRE-SEAL PROBE 1 (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.RHChain
+
+open Complex
+
+#print RiemannHypothesis
+#check @Real.rpow_lt_rpow_left_iff
+#check @Nat.Prime.one_lt
+#check @Nat.prime_two
+#check @Complex.eta
+#check @Zeta23.IsNontrivialZero.not_trivial
+#check @Zeta23.zetaZeroConfig_carrier
+#check @SIDEExplicitFormula.B321.rh_imp_h2_sign
+#check @SIDEExplicitFormula.B321.h2_sign
+#check @SIDEExplicitFormula.B321.h2_sign_imp_rh
+#check @lt_trichotomy
+#check @Nat.one_lt_cast
+example : Prop :=
+  ∀ σ : ℝ, (∃ t : ℝ, riemannZeta (⟨σ, t⟩ : ℂ) = 0 ∧ ¬ (∃ n : ℕ, (⟨σ, t⟩ : ℂ) = -2 * ((n : ℂ) + 1)) ∧ (⟨σ, t⟩ : ℂ) ≠ 1) →
+    ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ))
+example : Prop :=
+  ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-ρ.re) = (p : ℝ) ^ (-(1 - ρ.re))
+### output
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+@Real.rpow_lt_rpow_left_iff : ∀ {x y z : ℝ}, 1 < x → (x ^ y < x ^ z ↔ y < z)
+@Nat.Prime.one_lt : ∀ {p : ℕ}, Nat.Prime p → 1 < p
+Nat.prime_two : Nat.Prime 2
+eta : ∀ (z : ℂ), { re := z.re, im := z.im } = z
+@Zeta23.IsNontrivialZero.not_trivial : ∀ {ρ : ℂ}, Zeta23.IsNontrivialZero ρ → (¬∃ n, ρ = -2 * (↑n + 1)) ∧ ρ ≠ 1
+Zeta23.zetaZeroConfig_carrier : Zeta23.zetaZeroConfig.carrier = {ρ | Zeta23.IsNontrivialZero ρ}
+SIDEExplicitFormula.B321.rh_imp_h2_sign : RiemannHypothesis → SIDEExplicitFormula.B321.h2_sign
+SIDEExplicitFormula.B321.h2_sign : Prop
+SIDEExplicitFormula.B321.h2_sign_imp_rh : Prop
+@lt_trichotomy : ∀ {α : Type u_1} [inst : LinearOrder α] (a b : α), a < b ∨ a = b ∨ b < a
+@Nat.one_lt_cast : ∀ {α : Type u_1} [inst : AddMonoidWithOne α] [inst_1 : PartialOrder α] [AddLeftMono α]
+  [ZeroLEOneClass α] [CharZero α] {n : ℕ}, 1 < ↑n ↔ 1 < n

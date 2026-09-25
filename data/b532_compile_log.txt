@@ -1,0 +1,12 @@
+### run at (UTC) : 2026-09-25T17:08:12Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\H2Bridge.olean SIDEExplicitFormula\H2Bridge.lean
+exit 0 ; 209.4 s
+--- stdout ---
+SIDEExplicitFormula\H2Bridge.lean:56:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\H2Bridge.lean:56:6: warning: '(congr 1; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+--- stderr ---
+

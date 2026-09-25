@@ -1,0 +1,23 @@
+### b532 PRE-SEAL PROBE 2 (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.RHChain
+
+#check @ne_of_lt
+#check @ne_of_gt
+#check @absurd
+#check @Nat.cast_ofNat
+#print SIDEExplicitFormula.B321.h2_sign_imp_rh
+#print SIDEExplicitFormula.B321.h2_sign
+example (σ : ℝ) (h : σ = 1 / 2) (p : ℕ) : (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ)) := by
+  rw [h]
+  norm_num
+### output
+@ne_of_lt : ∀ {α : Type u_1} [inst : Preorder α] {a b : α}, a < b → a ≠ b
+@ne_of_gt : ∀ {α : Type u_1} [inst : Preorder α] {a b : α}, b < a → a ≠ b
+@absurd : {a : Prop} → {b : Sort u_1} → a → ¬a → b
+@Nat.cast_ofNat : ∀ {R : Type u_1} {n : ℕ} [inst : NatCast R] [inst_1 : n.AtLeastTwo], ↑(OfNat.ofNat n) = OfNat.ofNat n
+def SIDEExplicitFormula.B321.h2_sign_imp_rh : Prop :=
+SIDEExplicitFormula.B321.h2_sign → RiemannHypothesis
+def SIDEExplicitFormula.B321.h2_sign : Prop :=
+∀ (k : ℝ → ℂ),
+  SIDEExplicitFormula.B321.classK k →
+    0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k

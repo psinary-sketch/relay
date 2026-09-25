@@ -1,0 +1,80 @@
+========================================================================================================================
+b532 -- THE EXTRACT: DEPOSITED SENTENCES NAMING THE FERRY`S SUBJECTS.
+========================================================================================================================
+  monograph md5 e90e2d06d5cadc059c62c29a849e9f8c ; Zenodo 21539167 serves md5:e90e2d06d5cadc059c62c29a849e9f8c ; MATCH True
+
+### M -- monograph v1.1.2 (A_Place_to_Stand.md) ; 2408 sentences ; rows 27
+    yields : Route 3 17 ; ConservationHypothesis 10 ; ConservationBridge 12 ; register 2 0 ; the open premise 2 ; reduction machine-verified 0 ; W: conservation hypothesis 0 ; W: open premise 4 ; W: R2 0 ; W: 27.3 register 2 3
+### K -- kernel record 21520474 as b493 banked it (listing line 36) ; 17 sentences ; rows 1
+    yields : Route 3 0 ; ConservationHypothesis 0 ; ConservationBridge 1 ; register 2 0 ; the open premise 0 ; reduction machine-verified 0 ; W: conservation hypothesis 0 ; W: open premise 0 ; W: R2 0
+### R -- SIDE-kernel README at v1.5 (0e5233f) ; 78 sentences ; rows 0
+    yields : Route 3 0 ; ConservationHypothesis 0 ; ConservationBridge 0 ; register 2 0 ; the open premise 0 ; reduction machine-verified 0 ; W: conservation hypothesis 0 ; W: open premise 0 ; W: R2 0
+### Z21520474 -- Zenodo 21520474 as b499 fetched it back ; 17 sentences ; rows 2
+    yields : Route 3 0 ; ConservationHypothesis 0 ; ConservationBridge 1 ; register 2 0 ; the open premise 0 ; reduction machine-verified 1 ; W: conservation hypothesis 0 ; W: open premise 0 ; W: R2 0
+### Z21539068 -- Zenodo 21539068 as b499 fetched it back ; 17 sentences ; rows 0
+    yields : Route 3 0 ; ConservationHypothesis 0 ; ConservationBridge 0 ; register 2 0 ; the open premise 0 ; reduction machine-verified 0 ; W: conservation hypothesis 0 ; W: open premise 0 ; W: R2 0
+### Z21539167 -- Zenodo 21539167 as b499 fetched it back ; 28 sentences ; rows 1
+    yields : Route 3 0 ; ConservationHypothesis 1 ; ConservationBridge 1 ; register 2 0 ; the open premise 0 ; reduction machine-verified 0 ; W: conservation hypothesis 0 ; W: open premise 0 ; W: R2 0
+
+M-01       ## The Proof in One Page                 Route 3,ConservationBridge
+    The sorry-free core (`Kernel/`, `Bridge/`, `MetaKernel.lean`) carries three independent route terminals — `structural_exhaustiveness_proved` (Route 1), `SpectralCannonFull.spectral_cannon` (Route 2), and `ConservationBridge.riemann_hypothesis` (Route 3) — each depending only on `{propext, Classical.choice, Quot.sound}` (see §25.8 Kernel Concordance).
+M-02       ## How This Monograph Is Organized       Route 3,ConservationBridge
+    The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation of Spectra via `ConservationBridge.riemann_hypothesis`).
+M-03       ## How This Monograph Is Organized       W: open premise
+    **The one open premise** (§27.3).
+M-04       ## How This Monograph Is Organized       Route 3,ConservationHypothesis
+    The five registers of the single premise the proof routes through — the universality hypothesis of `silence_universal`, the ConservationHypothesis of Route 3, the totality of realization through places, the balance-to-positivity distance at the multiplicative place, and the spectral-realization distance — are gathered as one in §27.3.
+M-05       ## 2.3 Five Independent Derivations      Route 3
+    **Route 3 (Topological).** The Möbius bundle over the critical strip has a twist at σ = 1/2 and nowhere else.
+M-06       ## 25.1 What It Is                       Route 3,ConservationBridge
+    **Deposit (current: v1.5 = `0e5233f`; concept DOI [10.5281/zenodo.19674312](https://doi.org/10.5281/zenodo.19674312), covering the v1.0 → v1.5 lineage; see §25.8):** the three route terminals `structural_exhaustiveness_proved` (Route 1, `Bridge/TheBridgeComplete.lean`), `SpectralCannonFull.spectral_cannon` (Route 2, `Kernel/SpectralCannonFull.lean`), and `ConservationBridge.riemann_hypothesis` (Route 3, `Bridge/ConservationBridge.lean`) — plus the perpendicular-crossing chain (`Kernel/PerpendicularCrossing.lean`), the product-formula chain (`ProductFormula_Prime.lean`, `ProductFormula_Int.lean`, `ProductFormula_Rat.lean`), the seven Voice files (`Kernel/Voice{1..7}.lean`), and `MetaKernel.lean` — compile against Mathlib at 0 sorry and 0 custom axioms; see §25.8 Kernel Concordance.
+M-07       ## 25.2 What It Proves                   Route 3,ConservationHypothesis,ConservationBridge
+    This is one of the building blocks of Route 3 (§25.5): `Bridge/ConservationBridge.lean` chains `ConservationHypothesis` through Voice 1's `balance_theorem` to produce `Integration.StructuralExhaustiveness`, then applies `rh_from_structural_exhaustiveness` to reach `RiemannHypothesis`.
+M-08       ## 25.3 The Architecture in Precedent    Route 3
+    Three routes compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own.
+M-09       ## 25.5 The Three Compiled Routes        Route 3,ConservationHypothesis,ConservationBridge
+    **Route 3 — Conservation.** `Bridge/ConservationBridge.lean` defines `ConservationHypothesis` as the proposition that every ξ-zero forces the Euler balance equation at some prime — the Lean expression of the programme's one counted premise (§27.3), stated at the multiplicative place.
+M-10       # The Third Identity Element and Riemann ConservationHypothesis
+    ``` theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis ```
+M-11       ## 25.5 The Three Compiled Routes        Route 3,ConservationBridge
+    | ConservationBridge.lean | Route 3 — RH from Conservation + balance | 0 sorry, 0 axioms |
+M-12       ## 25.6 Canonical Reading Order          Route 3,ConservationBridge
+    `ConservationBridge.lean` — Route 3 assembled.
+M-13       ## 25.7 The Mathlib Infrastructure Front ConservationHypothesis,ConservationBridge
+    `ConservationHypothesis` in `ConservationBridge.lean` is the programme's one counted premise (§27.3) — open, and as of kernel v1.3 stated identically in kernel and prose (every ξ-zero forces the Euler balance at some prime).
+M-14       ## 25.7 The Mathlib Infrastructure Front Route 3
+    The kernel's Route 3 closes the chain from the premise to `RiemannHypothesis` in Lean directly.
+M-15       ## 25.8 Kernel Concordance               Route 3,ConservationHypothesis
+    The Route 3 row's statement changed with the W-7 existential weakening of `ConservationHypothesis`; its axiom profile is unmoved, as are all the others.
+M-16       ## 25.8 Kernel Concordance               Route 3,ConservationBridge
+    | Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/ConservationBridge.lean` | propext, Classical.choice, Quot.sound |
+M-17       ## 25.8 Kernel Concordance               Route 3,ConservationHypothesis,ConservationBridge
+    **On Route 3.** The clean status for `ConservationBridge.riemann_hypothesis` certifies the Lean implication `ConservationHypothesis → RiemannHypothesis` — exactly what the table row claims and nothing more.
+M-18       ## 26.1 The Axiom Journey                Route 3
+    The method's continuation past the Day-1 kernel — aimed at the Route 3 interface — is reported in §27.3: two statements closed, the third pinned to a goal state and bracketed by a theorem-pair.
+M-19       ## 27.2 What the Programme Produced      ConservationBridge
+    **The Lean kernel.** The sorry-free core (`Kernel/`, `Bridge/`, `MetaKernel.lean`) compiles the three route terminals — `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon`, `ConservationBridge.riemann_hypothesis` — at zero unproved assertions and zero custom axioms; each depends only on `{propext, Classical.choice, Quot.sound}` (§25.8 Kernel Concordance).
+M-20       ## 27.3 The One Premise                  Route 3,ConservationHypothesis,W: 27.3 register 2
+    Second: the proposition named `ConservationHypothesis` in the kernel's Route 3 (§25.5, §25.7) — every ξ-zero forces the Euler balance equation at some prime.
+M-21       ## 27.3 The One Premise                  W: 27.3 register 2
+    As of kernel v1.3 the compiled form and the prose say the same sentence (the definition was weakened from the universal to the existential form in July 2026, making the compiled conditional strictly stronger).
+M-22       ## 27.3 The One Premise                  W: 27.3 register 2
+    This proposition is the premise itself, stated at the multiplicative place: Chapter 13's Conservation of Spectra Theorem — the s-darkness of the product formula — is the unconditional conservation *certificate* that shapes and motivates it, but does not discharge it; the premise's current research home is the Balance-and-Positivity analysis in the programme corpus, and its ledger is this section.
+M-23       ## 28.1 Formalization                    ConservationHypothesis,ConservationBridge
+    The Lean kernel formalizes three routes to σ = 1/2: the structural route via `Bridge.StructuralExhaustiveness`, the codimension route via the Spectral Cannon chain, and the Conservation route via `ConservationBridge.riemann_hypothesis` taking `ConservationHypothesis` to `RiemannHypothesis`.
+M-24       ## 28.1 Formalization                    Route 3,W: open premise
+    The manuscripts prove the mathematics that connects them: Conservation of Spectra from Tate's thesis (Chapter 13) — the certificate that motivates Route 3's hypothesis, which is itself the one open premise of §27.3, not its discharge; exhaustiveness from Ostrowski (Chapter 15), the Mechanism Theorem from I+D+S (Chapter 10).
+M-25       ## Appendix G: Bibliography              ConservationHypothesis
+    W-7 enacted: the kernel's `ConservationHypothesis` weakened to the existential (SIDE-kernel v1.3 = `0bc21c0`, SHA-triple verified), aligning def, prose, and `PoissonExhaustion`; §25.5 / §25.7 / §25.8 / §28.1 reconciled — the Chapter 13 theorem is the premise's *certificate*, not its discharge, and the "not an open assumption" sentence of §25.8 is corrected; the §25.8 concordance re-profiled on a clean tree at v1.3.
+M-26       ## Appendix G: Bibliography              the open premise,W: open premise
+    No claim about the open premise changed: h2 and the disclaimed C₅-output register stand exactly as before; the premise remains RH-equivalent and open.
+M-27       ## Appendix G: Bibliography              the open premise,W: open premise
+    v5.10.2 (2026-07-24, W-ORD-R3-RECAST): **step (9)'s combination-argument tail recast into the identity/sign split**, meaning-preserving (claim unchanged — the corpus's position was always RH under the open premise h2).
+K-01                                                ConservationBridge
+    The seven-class catalogue and its exhaustiveness structure; the seven Voice files carrying the per-class exclusion algebra; the product-formula conservation chain (prime, integer, and rational levels); the perpendicular-crossing chain; the formation count; and three independent route terminals: structural_exhaustiveness_proved (the catalogue conjunction), SpectralCannonFull.spectral_cannon (the derivative of xi purely imaginary on the critical line), and ConservationBridge.riemann_hypothesis (the compiled exclusion syllogism, whose input is the conservation clause the manuscript's Chapter 13 develops — every zero of xi forces the Euler balance through the places of Q — stated in five equivalent registers with full ancestry at Section 27.3, in the criterion lineage of Weil and Li).
+Z21520474-01                                          reduction machine-verified
+    SIDE-kernel: the machine-verified architecture of the SIDE reduction of the Riemann Hypothesis to a single located clause.
+Z21520474-02                                          ConservationBridge
+    The seven-class catalogue and its exhaustiveness structure; the seven Voice files carrying the per-class exclusion algebra; the product-formula conservation chain (prime, integer, and rational levels); the perpendicular-crossing chain; the formation count; and three independent route terminals: structural_exhaustiveness_proved (the catalogue conjunction), SpectralCannonFull.spectral_cannon (the derivative of xi purely imaginary on the critical line), and ConservationBridge.riemann_hypothesis (the compiled exclusion syllogism, whose input is the conservation clause the manuscript's Chapter 13 develops — every zero of xi forces the Euler balance through the places of Q — stated in five equivalent registers with full ancestry at Section 27.3, in the criterion lineage of Weil and Li).
+Z21539167-01                                          ConservationHypothesis,ConservationBridge
+    A skeptic can run lake build at the pinned kernel commit (SIDE-kernel v1.5 = 0e5233f) and #print axioms at the named route theorems (structural_exhaustiveness_proved; SpectralCannonFull.spectral_cannon; ConservationBridge.riemann_hypothesis — the third is the compiled implication from the named interface ConservationHypothesis, whose mathematics is the manuscript's Chapter 13 territory and whose ledger is §27.3).

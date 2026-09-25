@@ -1,0 +1,50 @@
+====================================================================================================================================
+b532 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### COMPONENT 1: `b532_rows.txt` (counts per record, RESTS rows in full with replacements, STANDS reasons).
+### COMPONENT 2: `b532_erratum_draft.md` -- DRAFT, NOT FILED.
+
+### COMPONENT 3 -- THE BRIDGE: `SIDEExplicitFormula/H2Bridge.lean`.
+  attempt 1 : exit 0 ; 0 error lines ; 209.4 s
+
+### THE STATEMENTS, FROM THE DECLARATION LINE TO ITS := :
+def conservationHypothesis : Prop :=
+
+def conservationHypothesisConfig : Prop :=
+
+theorem balance_lemma (p : ℕ) (hp : Nat.Prime p) (σ : ℝ) :
+    (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ)) ↔ σ = 1 / 2 :=
+
+theorem ch_imp_rh : conservationHypothesis → RiemannHypothesis :=
+
+theorem rh_imp_ch : RiemannHypothesis → conservationHypothesis :=
+
+theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis :=
+
+theorem ch_imp_config : conservationHypothesis → conservationHypothesisConfig :=
+
+theorem ch_imp_h2_sign : conservationHypothesis → h2_sign :=
+
+def h2_sign_imp_ch : Prop :=
+
+theorem h2_sign_imp_ch_iff : h2_sign_imp_ch ↔ h2_sign_imp_rh :=
+
+### THE PROFILE (AxiomCheckBridge.lean):
+  'SIDEExplicitFormula.B321.balance_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ch_imp_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rh_imp_ch' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ch_imp_config' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ch_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_imp_ch_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### whole-string standard three : 7 of 7
+  ### #check : {'h2_sign_imp_ch': 'SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop', 'conservationHypothesis': 'SIDEExplicitFormula.B321.conservationHypothesis : Prop'}
+  ### #print conservationHypothesis : def SIDEExplicitFormula.B321.conservationHypothesis : Prop := ∀ (σ : ℝ), (∃ t, riemannZeta { re := σ, im := t } = 0 ∧ (¬∃ n, { re := σ, im := t } = -2 * (↑n + 1)) ∧ { re := σ, im := t } ≠ 1) → ∃ p, ∃ (_ : Nat.Prime p), ↑p ^ (-σ) = ↑p ^ (-(1 - σ))
+  ### #print h2_sign_imp_ch : def SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop := SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.conservationHypothesis
+
+### COMPONENT 4.
+  (a) FACES_LEDGER R2 : {"added": 719, "prefix": true}
+  (b) The terminal table shows the Route 3 terminal ConservationBridge.riemann_hypothesis in CONFLICT: that is two claims under (R40), not one claim graded twice -- DERIVES against "R2 implies RH" (FACES_LEDGER.md row R2) and ENCODES-CONCLUSION against "h2_sign -> RH" (b531).
+  (c) THE CEILING SENTENCE THE RECORD MAY USE UNTIL THE AUTHOR RULES : "RH and Weil positivity on classK are one Prop apart in the kernel, RH → h2_sign compiled, h2_sign → RH compiled to its last step; the deposit`s Route 3 premise is RH restated, E-2026-09-25-1 drafted."
+====================================================================================================================================

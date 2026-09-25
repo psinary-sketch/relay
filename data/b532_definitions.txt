@@ -1,0 +1,50 @@
+def conservationHypothesis : Prop :=
+  ∀ σ : ℝ, (∃ t : ℝ, riemannZeta (⟨σ, t⟩ : ℂ) = 0 ∧ ¬ (∃ n : ℕ, (⟨σ, t⟩ : ℂ) = -2 * ((n : ℂ) + 1)) ∧ (⟨σ, t⟩ : ℂ) ≠ 1) →
+    ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ))
+
+def conservationHypothesisConfig : Prop :=
+  ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-ρ.re) = (p : ℝ) ^ (-(1 - ρ.re))
+
+theorem balance_lemma (p : ℕ) (hp : Nat.Prime p) (σ : ℝ) :
+    (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ)) ↔ σ = 1 / 2 := by
+  have h1 : (1 : ℝ) < p := by exact_mod_cast hp.one_lt
+  constructor
+  · intro h
+    rcases lt_trichotomy (-σ) (-(1 - σ)) with hlt | heq | hgt
+    · exact absurd h (ne_of_lt ((Real.rpow_lt_rpow_left_iff h1).mpr hlt))
+    · linarith
+    · exact absurd h (ne_of_gt ((Real.rpow_lt_rpow_left_iff h1).mpr hgt))
+  · intro h
+    rw [h]
+    first
+    | norm_num
+    | (congr 1; ring)
+
+theorem ch_imp_rh : conservationHypothesis → RiemannHypothesis := by
+  intro h s hs hnt hne
+  obtain ⟨p, hp, hbal⟩ := h s.re ⟨s.im, by rwa [Complex.eta], by rwa [Complex.eta], by rwa [Complex.eta]⟩
+  exact (balance_lemma p hp s.re).mp hbal
+
+theorem rh_imp_ch : RiemannHypothesis → conservationHypothesis := by
+  intro hRH σ ⟨t, hz, hnt, hne⟩
+  have hσ : σ = 1 / 2 := hRH ⟨σ, t⟩ hz hnt hne
+  exact ⟨2, Nat.prime_two, (balance_lemma 2 Nat.prime_two σ).mpr hσ⟩
+
+theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis := ⟨ch_imp_rh, rh_imp_ch⟩
+
+theorem ch_imp_config : conservationHypothesis → conservationHypothesisConfig := by
+  intro h ρ hρ
+  have hρ' : Zeta23.IsNontrivialZero ρ := by
+    rw [Zeta23.zetaZeroConfig_carrier] at hρ
+    exact hρ
+  have hnt := Zeta23.IsNontrivialZero.not_trivial hρ'
+  exact h ρ.re ⟨ρ.im, by rw [Complex.eta]; exact hρ'.1, by rw [Complex.eta]; exact hnt.1,
+    by rw [Complex.eta]; exact hnt.2⟩
+
+theorem ch_imp_h2_sign : conservationHypothesis → h2_sign := fun h => rh_imp_h2_sign (ch_imp_rh h)
+
+def h2_sign_imp_ch : Prop := h2_sign → conservationHypothesis
+
+theorem h2_sign_imp_ch_iff : h2_sign_imp_ch ↔ h2_sign_imp_rh := by
+  unfold h2_sign_imp_ch h2_sign_imp_rh
+  exact ⟨fun h hs => ch_imp_rh (h hs), fun h hs => rh_imp_ch (h hs)⟩
