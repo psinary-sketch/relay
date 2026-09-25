@@ -1,0 +1,154 @@
+====================================================================================================
+ACT b523 -- THE REGISTRATION FACE. ### THE WITNESS`S THREE CAVEATS PRICED, UNDER (R132).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT ALONE, UNDER (R132)(5)**, and
+### shuts at its close; the kernel lane takes (f)(i) on variant (B) after it.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R132) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) b522`s reading entered in (R127)(2)`s words,
+### not a statement about RH or zeta, the object column unchanged; (2) the witness HELD, NOT ANNOUNCED, until its three
+### caveats are priced -- the strip caveat sharpened: Davenport-Heilbronn zeros with real part above 1 exist for class
+### number above 1, so the tail must allow real part up to an explicit sigma_max; (3) (R118)(1)`s bar MET IN FORM, NOT
+### YET IN SUBSTANCE; it lifts, if at all, at this act`s close by its numbers; (4) (N3)`s refutation stands: G, not (d);
+### (5) the lane opens for b523 and shuts at its close. ### Ruling and part 1 of 1, received IN FULL, banked verbatim as
+### `b523_ferry.txt`. ### **THIS ACT CONFERS NO GRADE, COMPILES NOTHING, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- sigma_max.** `eta(sigma) = SUM_{n>=2} r(n) n^{-sigma}` bounded by `r(n)` counted exactly to
+### `N0 = 10^6` with b325`s own counter, IMPORTED, and above `N0` by `r(n) <= 2 a(n)`, `a(n) = SUM_{d|n} (d/23)` -- "the
+### divisor-type bound the decomposition gives": the three reduced forms of disc -23 represent `n` together `2 a(n)`
+### times, checked to 20000, and `r <= 2a` checked to `N0` -- with `SUM_{n>N0} a(n) n^{-sigma} = zeta L - partial`
+### (mpmath). ### `sigma_max` is the least `sigma` by bisection with the bound below 2, ROUNDED UP to 1e-3. ### The
+### positive control: the bank`s largest real part, 0.9533, below it.
+### **READING (2) -- THE SIGMA RE-PRICING** is b521`s closed form `tail_s(W, s)` at `s_max = sigma_max - 1/2` in place of
+### `1/2`, the bare main-term count, window variant (B) at p = 7; "the 33 cells re-read" are b522`s banked cells: bound
+### `B_sigma = E_u + E_k + E_round + tail_sigma`, negative beyond bound iff `|r| <= B_sigma` and `P - PR + A < -B_sigma`.
+### **READING (3) -- S(t).** ### **NO SOURCE IS CITED**: `Z_Q0` is not an L-function -- it is 2/3 of `zeta_K + L(psi) +
+### L(psi-bar)`, with no Euler product -- so a Backlund bound for a degree-two L-function of conductor 23 does not count
+### its zeros. ### The crude bound is PROVED IN THE TOOL`S DOCSTRING AND THE REPORT from the argument principle on the
+### box, Backlund`s sign-change count by Jensen, and Rademacher`s Phragmen-Lindelof for `(s-1) Z(s)` between
+### `Re s = -eta` and `1 + eta`: `N(T) <= M0(T) + E(T)`. ### Two constants are CHECKED NUMERICALLY, not proved in closed
+### form, and are said so: the Gamma-ratio sup `G` (grid to 1e4, Stirling`s remainder beyond) and the Stirling pad 0.01
+### on `|M_exact - M0|`. ### The parameters `eta` in {0.1, ..., 0.5} and `sigma1 = sigma_max + 0.25 k`, k = 0..12, are
+### those with the least `E(150)`. ### The full tail, by parts: `2 [INT f dM0 + f(150)(M0(150) + E(150) - N_bank(150)) +
+### e1 INT f/t]`, `N_bank(150) = 180` a lower bound for `N(150)`, `f` the allowance at `s_max`, decreasing above 150.
+### **READING (4) -- THE REACH.** (R131)(2)`s per-width reach is PRINTED per cell under the full bound and is NOT A
+### FILTER: the ferry orders b522`s 33 cells re-read against the new bound. ### Where the tail exceeds `B'`, the cell`s
+### verification is the tail majorant`s, VERIFIED-EST-TAIL in (R130)(1)`s words, and the report says so.
+### **READING (5) -- THE SHORTFALL`S RATIO** is b522`s banked u > 1200 ESTIMATE over the margin
+### `-(P - PR + A) - B_full`, at each of b522`s negative cells.
+### **READING (6) -- "SURVIVE ALL THREE"**: negative beyond the full bound (READING (3)) AND a margin above the shortfall
+### ESTIMATE.
+### **READING (7) -- THE VERDICT**: the seat prints MET IN SUBSTANCE BY THE NUMBERS iff at least one cell survives all
+### three -- (R118)(1)`s condition is "a window ... at which Q0`s margin is negative on a bank that closes" -- and NOT MET
+### otherwise. ### The seat lifts nothing and writes no sentence into step (9); the navigator`s ruling follows.
+### **READING (8) -- THE SCORING.** (N1): `1.2 <= sigma_max <= 2.5`. (N2): at least 12 of the 24 negative under
+### READING (2). (N3): fewer than 4 lost between READING (2) and READING (3). (N4): the narrowest cell surviving all
+### three is at or above a = 40 -- REFUTED if none survives.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `tools/b523_caveats.py sigma` -> `b523_sigma.json`.
+### (3) `tools/b523_caveats.py count` -> `b523_count.json`.
+### (2)-(4) `tools/b523_caveats.py reread` -> `b523_reread.json`; every run`s output -> `b523_run_log.txt`.
+### (5) `tools/b523_report.py` -> `b523_report.txt`, `b523_results.json`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b521`s and b522`s tools and banks; b325`s form header
+### (`x^2 + xy + 6y^2`, h(-23) = 3); the bank`s counts below 150 (146 on-line, 17 off-line pairs, 180 zeros, largest
+### real part 0.9533); that mpmath 1.3.0 is installed. ### **NO sigma, NO COUNT BOUND AND NO TAIL WAS COMPUTED BEFORE THE
+### SEAL.** ### The act`s tools are written before the seal and NOT RUN.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### Two sieves to 10^6, 65 parameter pairs, 33 closed-form tails: minutes.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **sigma_max LIES BETWEEN 1.2 AND 2.5.**
+### **(N2)** ### **AT LEAST 12 OF THE 24 CELLS SURVIVE THE RE-PRICED TAIL.**
+### **(N3)** ### **THE S(t) BOUND COSTS FEWER THAN 4 FURTHER CELLS.**
+### **(N4)** ### **THE NARROWEST SURVIVING WIDTH IS AT OR ABOVE a = 40.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **sigma_max LIES BETWEEN 1.4 AND 1.9.**
+### **(S2)** ### **ALL 24 NEGATIVE CELLS SURVIVE ALL THREE** (b522`s margins are of order 1 to 10^2 against bounds near
+### 1e-7).
+### **(S3)** ### **THE SHORTFALL`S RATIO TO THE MARGIN IS BELOW 1e-6 AT ALL 24.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R132-ENTERED`
+### `G-SIGMA-BRACKETED` `G-FORMS-FIXTURE` `G-SIGMA-CONTROL` `G-COUNT-CONSTANTS-RECOMPUTED` `G-COUNT-CONTROLS`
+### `G-STIRLING-PAD` `G-NO-CITATION-SAID` `G-ALLOWANCE-DECREASING` `G-TAILS-ORDERED` `G-BOUNDS-RECOMPUTED`
+### `G-REREAD-RECOUNTED` `G-REACH-PRINTED-NOT-FILTERED` `G-SHORTFALL-RATIO-PRINTED` `G-SURVIVORS-RECOUNTED`
+### `G-VERDICT-BY-COUNT` `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-PRIORBANK-UNCHANGED` holds every prior act`s
+### bank unchanged, with no exception.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b523_*` `relay/tools/b523_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b523_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b523_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b523_registration_2026-09-25.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b523_span*.json` `relay/data/b523_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b523.zip`
+###   (outside every repository) `relay/data/b523_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b523_caveats.py` `b523_report.py` `b523_reg_gate.py` `b523_regspec.py`
+### `b523_record.py` `b523_checks.py` `b523_closing.py`.
+### ### **NO INSTRUMENT IS EDITED.** ### b521`s, b325`s and b511`s tools are imported; none is rewritten.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs; the kernel is not
+### touched. ### (f)(i) is not stated here. ### No zero of zeta or of Z_Q0 is added or moved; the Q0 bank is not
+### extended; no prior bank is rewritten. ### **(R118)(1)`S BAR IS NOT LIFTED BY THE SEAT AND STEP (9) IS NOT WRITTEN.**
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ### Nothing deposits.
+### ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The
+### four lists stay OPEN. ### Nothing is claimed of the kernel either way. ### **AND NO CELL OF THIS ACT IS A
+### STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 0dc6563e673f80d289fac2fc797173d49b451b11abe5f2e426551c36c0c3648f
+### bytes locked : 12751
+### locked at (UTC) : 2026-09-25T04:45:51Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b523_registration_2026-09-25.txt`.**
+====================================================================================================
