@@ -1,0 +1,46 @@
+========================================================================================================
+b519 -- THE CLOSING RECORD. ### **THREE VARIANTS OF THE TWO-PROPERTY WINDOW, UNDER (R128).**
+========================================================================================================
+    fixtures : (A) xi met ; (A) q met ; (B) xi met ; (B) q met ; (C) xi met ; (C) q met
+    (A) Q0 VERIFIED-EST 119 ; negative NONE ; pair negative 119 of 119 ; widest ratio -6.0440e-02 ; xi positive 96 of 96 verified
+    (B) Q0 VERIFIED-EST 119 ; negative NONE ; pair negative 119 of 119 ; widest ratio -4.1563e-01 ; xi positive 62 of 62 verified
+    (C) Q0 VERIFIED-EST 119 ; negative NONE ; pair negative 119 of 119 ; widest ratio -4.7787e-06 ; xi positive 0 of 0 verified
+    the witness at Q0 : NONE ; (B)`s realized growth over b518`s at the widest cell 1.1482
+    (N1) REFUTED (N2) HELD (N3) REFUTED (N4) HELD, vacuous on (C) ; (S1) HELD (S2) REFUTED (S3) HELD
+
+### THIS ACT`S OWN DEFECTS -- FIVE (the desk).
+    (a) ### **THE FACE`S FIRST (S3) PREDICTED AN ARTIFACT COUNT** ("SIX FIXTURES"); the satisfiability check found it, the lock
+        gate read 7 of 8 and **THE SEAL REFUSED AND WROTE NOTHING** (`b519_seal_refused.txt`). ### (S3) was reworded without the
+        count before any component ran, and the whole lock chain re-run: 8 of 8, sealed. ### The chain had been issued as one
+        command after the gate -- the seal`s own refusal, not the command, stopped it.
+    (b) ### **THE PLATEAU`S CUMULATIVE SUM WAS WRITTEN WITH ABOUT 170 TERMS WHERE AT MOST m + 1 ARE NON-ZERO**, and the first
+        fixture run -- variant (C) priced at about 2.7 hours an object -- was STOPPED before it wrote anything. ### Repaired
+        by clamping into the spline`s support; the repair proved equal to the first form to 5.6e-16 at three widths for both
+        plateau variants, its negative control differing by 0.5 (`b519_cdf_equivalence.json`); the first tool banked as
+        `b519_window_first.py.txt`. ### A timing probe of one `k(x)` per variant is declared as this defect`s diagnosis.
+    (c) ### **THE PRICE WAS UNDERSTATED** -- "several minutes" for a run the repaired tool still takes the better part of an
+        hour, variant (C)`s nine-order spline under a six-order notch polynomial the cost.
+    (d) ### **THE KNOT PROBE IS ONE-SIDED AT A FINITE STEP** (carried): the printed jumps of h, h` and h`` are 2 eps times
+        the next derivative, scaled here by the notch polynomial; h```s jump is the probe`s positive control.
+    (e) ### **THE RECORD'S FIRST (N4) PREDICATE WAS STRICTER THAN THE REGISTERED READING** -- it required at least one
+        VERIFIED-EST xi cell per variant, which READING (9) does not; variant (C) verifies none (every cell short by at most
+        1.70x). ### Aligned to the reading before the desk or the suite ran on it: (N4) is scored HELD and said VACUOUS on (C)
+        in the same sentence.
+
+### THE COMMITS, THE MIRROR, THE CENSUSES.
+    post-push : ### ### **ARMS RUN : 55. ### LIVE PASSING : 55. ### LIVE FAILING : 0 .**
+      relay                local f55c93530715 ; remote f55c93530715 ; AGREE
+      PLACE-papers         local 10f9125c4d1a ; remote 10f9125c4d1a ; AGREE
+      SIDE-global-section  local 813327770751 ; remote 813327770751 ; AGREE
+      SIDE-explicit-formula local ffc09da7c82b ; remote ffc09da7c82b ; AGREE
+    mirror : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE NUMERICAL LANE IS SHUT; THE KERNEL LANE REOPENS FOR (f)(i)** (R128)(4) -- with no variant the witness, the
+        window it states is the best measured, (B) EDGE-WEIGHTED, at -4.16e-01 of the rest at the widest cell.
+    (b) ### **NOTCHES AMPLIFY THE FAR ZEROS** by the notch polynomial more than they suppress the near ones: (A) -6.0e-02,
+        (C) -4.8e-06 against b518`s -2.57e-01.
+    (c) ### **W-ORD-H2-BRIDGE HEADS K1**; h2_sign is Weil`s positivity criterion on classK, and the record says so in those words.
+========================================================================================================
