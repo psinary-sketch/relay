@@ -169,6 +169,13 @@
    "reads": "the row and the trail -- each theorem beside DERIVES, and no other grade word in the record"
   },
   {
+   "name": "G-TABLE-ROWS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the regenerated terminal table -- a row per theorem, DERIVES, its statement read, PROFILED"
+  },
+  {
    "name": "G-N1-SCORED",
    "live": true,
    "neg": true,
@@ -309,6 +316,13 @@
    "reads": "the harness itself -- the positive control is RUN on every arm"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -330,14 +344,11 @@
    "reads": "the suite`s own text -- b472`s repair, carried"
   }
  ],
- "run": 47,
+ "run": 49,
  "live_failing": [],
  "defective": [],
  "neg_failures": 0,
  "declared": 49,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD",
-  "G-TABLE-ROWS"
- ],
+ "deferred": [],
  "stray": []
 }

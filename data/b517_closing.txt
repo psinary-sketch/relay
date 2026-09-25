@@ -1,0 +1,34 @@
+========================================================================================================
+b517 -- THE CLOSING RECORD. ### **(d), THE GROWTH BOUND, COMPILED, UNDER (R126).**
+========================================================================================================
+    'SIDEExplicitFormula.B321.paperFT_growth' depends on axioms: [propext, Classical.choice, Quot.sound] ; 'SIDEExplicitFormula.B321.paperFT_growth_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+    attempts 1, the first to succeed 1 ; paperFT_growth 24 lines ; vendored lemmas NONE ; definitions ['Zeta23.gammaOf', 'Zeta23.paperFT']
+    the table post-push : paperFT_growth DERIVES PROFILED via relay:data/b517_profile.json ; paperFT_growth_at DERIVES PROFILED via relay:data/b517_profile.json
+    (N1) HELD (N2) HELD (N3) HELD ; (S1) HELD (S2) HELD (S3) HELD, read post-push
+
+### THIS ACT`S OWN DEFECTS -- THREE (the desk).
+    (a) ### **THE FIRST VENDORED-REFERENCE READ COUNTED THE IMPORT LINE** -- `Zeta23.Defs`, a module name, read as a name
+        to resolve, resolving to no declaration. ### Repaired to skip `import` lines in the act`s tool and the suite`s
+        helper alike, before the suite first ran; the first read banked as `b517_read_first.json`. ### Its verdict on
+        (N3) did not change: no vendored lemma in either read.
+    (b) ### **ONE `<;> ring` FALLBACK NEVER RAN** -- the linter says so in the compile run file (line 33); `simp` closed
+        the goal alone. ### Dead code carried in the module, not a proof step.
+    (c) ### **THE PRICE SAID "A FEW MINUTES"; THE COLD COMPILE TOOK 586.0 s** -- the import of `Zeta23.Defs` is lighter
+        than b513`s, but the Mathlib it pulls was not warm; the profile ran in 23.9 s.
+
+### THE COMMITS, THE MIRROR, THE CENSUSES.
+    post-push : ### ### **ARMS RUN : 49. ### LIVE PASSING : 49. ### LIVE FAILING : 0 .**
+      relay                local 2e92ec8162d7 ; remote 2e92ec8162d7 ; AGREE
+      PLACE-papers         local 2ba2cd29187e ; remote 2ba2cd29187e ; AGREE
+      SIDE-global-section  local 5bb7a8ed3b0a ; remote 5bb7a8ed3b0a ; AGREE
+      SIDE-explicit-formula local ffc09da7c82b ; remote ffc09da7c82b ; AGREE
+    mirror : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE KERNEL LANE IS SHUT; THE NUMERICAL LANE REOPENS FOR THE TWO-PROPERTY WINDOW** (R126)(1),(3): the zero factor
+        applied to the cosine window, real, the numerical candidate for (f)(i).
+    (b) ### **(d) IS COMPILED; (f) STAYS PRICED AT WEEKS**, its four lemmas as b516 lists them.
+    (c) ### **THE WEEK`S HONEST SUMMARY, (R126)(2)**: the programme built and corrected instruments; it did not move a statement about zeta.
+========================================================================================================
