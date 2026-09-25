@@ -1,0 +1,49 @@
+============================================================================================================================
+b516 -- THE COMPONENTS, AS THEY RAN.
+============================================================================================================================
+
+### COMPONENT 1 -- THE TWO TABLE WORK-ORDERS IN `tools/terminal_table.py` (THE THIRD RUN, AFTER TWO REPAIRS):
+  short ledger-only rows dropped beside a qualified twin : 16
+    SIDE-explicit-formula / EF_lit_zetaZeroConfig
+    SIDE-explicit-formula / h2_sign_imp_cell
+    SIDE-explicit-formula / rh_imp_cell_form
+    SIDE-explicit-formula / rh_imp_h2_sign
+    SIDE-global-section / alt2_does_not_imply_stepsI
+    SIDE-global-section / arrival_depth_is_dead
+    SIDE-global-section / control_neg
+    SIDE-global-section / naive_product_differs
+    SIDE-global-section / transfer_nonvacuous
+    SIDE-kernel / cr_forces_half
+    SIDE-kernel / topological_constant
+    SIDE-lv-conservation / certifiedInput_not_zeroRealizing
+    SIDE-lv-conservation / goalState_of_h1_h2
+    SIDE-lv-conservation / lowFinset_mem_iff
+    SIDE-lv-conservation / partialPositivity_finiteRange
+    SIDE-simplicity / transversal_generic_empty
+  rows profiled from a banked JSON : 5
+    SIDE-explicit-formula / SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json
+    SIDE-explicit-formula / SIDEExplicitFormula.B321.h2_sign_imp_cell <- data/b513_profile.json
+    SIDE-explicit-formula / SIDEExplicitFormula.B321.rh_imp_cell_form <- data/b513_profile.json
+    SIDE-explicit-formula / SIDEExplicitFormula.B321.rh_imp_h2_sign <- data/b513_profile.json
+    SIDE-explicit-formula / Zeta23.WeilEF.EF_lit_zetaZeroConfig <- data/b509_profile.json
+  the diff against b515`s close : rows added 0 ; gone 16 ; grade-or-profile changed 5
+
+### THE RUNS, BANKED -- the first two read b456`s ABSENT search as profiles (defect (a)):
+  b516_table_first_run.txt : ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **8** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.h2_si
+  b516_table_second_run.txt : ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **8** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.h2_si
+
+### COMPONENT 2 -- THE FOLD:
+  {"span": {"lo": 508, "hi": 515, "acts": 8, "tool_reads": 9, "filed_by": 507}, "columns": {"OBJECT": 0, "MODEL": 8, "RECORD": 0}, "writes": [{"file": "FINDINGS.md", "before": 508760, "added": 10384, "after": 519144, "prefix": true, "bom": true, "removed": 0}, {"file": "THE_FINDINGS_AS_THEY_STAND.md", "before": 40356, "added": 998, "after": 41354, "prefix": true, "bom": true, "removed": 0}], "markers": {"heading": 1, "digest": 1}, "table": {"gone": 16, "added": 0, "changed": 5}}
+  verdict strings 12 matched 12 ; defects 29 ; rulings 8 matched 8
+
+### THE classK READING (READING (8)), FROM H2Sign.lean AT THE KERNEL`S HEAD:
+  def classK (k : ℝ → ℂ) : Prop :=
+    (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+      ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+  def tilde (g : ℝ → ℂ) : ℝ → ℂ := fun u => conj (g (-u))
+  def weilTest (f g : ℝ → ℂ) : ℝ → ℂ := f ⋆[ContinuousLinearMap.mul ℝ ℂ] tilde g
+  h = i phi (not real)           max|Im h| 1.00e+00 ; k even-defect 0.00e+00 ; ADMITTED True
+  h = exp(i gamma u) phi         max|Im h| 9.73e-01 ; k even-defect 1.96e+00 ; ADMITTED False
+  h = cos(gamma u) phi (real)    max|Im h| 0.00e+00 ; k even-defect 0.00e+00 ; ADMITTED True
+  ### classK admits complex-valued h: its generating h has type R -> C, and the binding constraint is that k = h * h~ be even, which for a Hermitian k means k real
+============================================================================================================================

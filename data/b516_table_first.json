@@ -14,7 +14,7 @@
  "registry_table_line": 692,
  "counts": {
   "rows": 1015,
-  "not_profiled": 373,
+  "not_profiled": 370,
   "ungraded": 952,
   "conflict": 8,
   "encodes": 6,
@@ -113,6 +113,21 @@
     "SIDE-explicit-formula",
     "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
     "data/b509_profile.json"
+   ],
+   [
+    "SIDE-kernel",
+    "ConservationBridge.riemann_hypothesis",
+    "data/b456_profile.json"
+   ],
+   [
+    "SIDE-kernel",
+    "SpectralCannonFull.spectral_cannon",
+    "data/b456_profile.json"
+   ],
+   [
+    "SIDE-kernel",
+    "structural_exhaustiveness_proved",
+    "data/b456_profile.json"
    ]
   ]
  },
@@ -18715,9 +18730,9 @@
    "statement": "theorem riemann_hypothesis\n    (h_cons : ConservationHypothesis) : RiemannHypothesis",
    "statement_file": "Bridge/ConservationBridge.lean",
    "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_state": "PROFILED",
+   "profile_source": "relay:data/b456_profile.json",
    "grade": "DERIVES",
    "grade_cells": [
     {
@@ -18926,9 +18941,9 @@
    "statement": "theorem spectral_cannon (t : ℝ) :\n    (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0",
    "statement_file": "Kernel/SpectralCannonFull.lean",
    "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_state": "PROFILED",
+   "profile_source": "relay:data/b456_profile.json",
    "grade": "UNGRADED",
    "grade_cells": [],
    "conflict": null
@@ -19777,9 +19792,9 @@
    "statement": "theorem structural_exhaustiveness_proved\n    (h_cons : ConservationHypothesis) : StructuralExhaustiveness",
    "statement_file": "Bridge/ConservationBridge.lean",
    "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_state": "PROFILED",
+   "profile_source": "relay:data/b456_profile.json",
    "grade": "UNGRADED",
    "grade_cells": [],
    "conflict": null

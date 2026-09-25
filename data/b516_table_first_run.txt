@@ -35,7 +35,7 @@
   ### THE MATCHER IS `b378_terminals.py`S, ### **IMPORTED AND NOT COPIED.**
     fixtures, both dialects, both polarities : ### **ALL PASS** (7 cases)
 
-  ### THE TWO TABLE WORK-ORDERS OF (R123)(2), b516 -- FIXTURES, BOTH POLARITIES : ### **ALL PASS** (12 cases)
+  ### THE TWO TABLE WORK-ORDERS OF (R123)(2), b516 -- FIXTURES, BOTH POLARITIES : ### **ALL PASS** (8 cases)
       dedup DROPS a ledger-only short name beside its qualified twin           PASS
       dedup KEEPS a short name with no qualified twin                          PASS
       dedup KEEPS a short name present by its own artefact                     PASS
@@ -44,19 +44,15 @@
       json READS a whole dialect line                                          PASS
       json READS a nested no-axiom line                                        PASS
       json REFUSES an unquoted name and a line that is not the dialect         PASS
-      json REFUSES a quotation its bank marks not printed against its ref      PASS
-      json READS the same line where the bank marks it printed                 PASS
-      json REFUSES a line quoted from a document at a file and line            PASS
-      json READS the act`s own printed line beside it                          PASS
-  banked profile JSONs read (committed, relay HEAD) : 9 ; names profiled there : 6
+  banked profile JSONs read (committed, relay HEAD) : 9 ; names profiled there : 9
 
   ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **16** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/rh_imp_cell_form', 'SIDE-explicit-formula/rh_imp_h2_sign', 'SIDE-global-section/alt2_does_not_imply_stepsI', 'SIDE-global-section/arrival_depth_is_dead', 'SIDE-global-section/control_neg', 'SIDE-global-section/naive_product_differs', 'SIDE-global-section/transfer_nonvacuous', 'SIDE-kernel/cr_forces_half', 'SIDE-kernel/topological_constant', 'SIDE-lv-conservation/certifiedInput_not_zeroRealizing']
-  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **5** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.h2_sign_imp_cell <- data/b513_profile.json', 'SIDEExplicitFormula.B321.rh_imp_cell_form <- data/b513_profile.json', 'SIDEExplicitFormula.B321.rh_imp_h2_sign <- data/b513_profile.json', 'Zeta23.WeilEF.EF_lit_zetaZeroConfig <- data/b509_profile.json']
+  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **8** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.h2_sign_imp_cell <- data/b513_profile.json', 'SIDEExplicitFormula.B321.rh_imp_cell_form <- data/b513_profile.json', 'SIDEExplicitFormula.B321.rh_imp_h2_sign <- data/b513_profile.json', 'Zeta23.WeilEF.EF_lit_zetaZeroConfig <- data/b509_profile.json', 'ConservationBridge.riemann_hypothesis <- data/b456_profile.json', 'SpectralCannonFull.spectral_cannon <- data/b456_profile.json', 'structural_exhaustiveness_proved <- data/b456_profile.json']
 
   ### THE COUNTS.
   ----------------------------------------------------------------------------------------------------
     rows (repo, name)                                  : ### **1015**
-    NOT PROFILED                                       : ### **373**
+    NOT PROFILED                                       : ### **370**
     UNGRADED                                           : ### **952**
     CONFLICT                                           : ### **8**
     ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **6**
@@ -65,7 +61,15 @@
 
   ### THE DIFF AGAINST THE PRIOR RUN.
   ----------------------------------------------------------------------------------------------------
-    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 0
+    rows added : 0 ; rows gone : 16 ; grade-or-profile changed : 8
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.b321_identity : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.h2_sign_imp_cell : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.rh_imp_cell_form : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.rh_imp_h2_sign : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / Zeta23.WeilEF.EF_lit_zetaZeroConfig : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-kernel / ConservationBridge.riemann_hypothesis : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-kernel / SpectralCannonFull.spectral_cannon : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-kernel / structural_exhaustiveness_proved : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
 
   written: data/terminal_table.json, data/terminal_table.md
 ========================================================================================================

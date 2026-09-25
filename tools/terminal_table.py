@@ -342,6 +342,104 @@ def prints_at(repo, ref):
     return files, src, out
 
 
+# =====================================================================================================
+# ### ### **THE TWO TABLE WORK-ORDERS OF (R123)(2), EXECUTED AT b516 UNDER (R125)(4).**
+# =====================================================================================================
+BANKED_RE = re.compile(r'(?:^|/)b(\d{3,4})_[A-Za-z_]*profiles?[A-Za-z_]*\.json$')
+
+
+def profiles_from_obj(obj):
+    """### ### **W-ORD-TABLE-PROFILE-JSON.** ### Every STRING anywhere in a banked JSON that is a line of the captured-stdout
+    ### dialect -- `'Name' depends on axioms: [...]` or `'Name' does not depend on any axioms` -- read as a profile of Name.
+    ### A string that is not a whole line of that dialect is not a profile, however close it looks."""
+    out = {}
+    stack = [obj]
+    while stack:
+        x = stack.pop()
+        if isinstance(x, dict):
+            # ### ### **A QUOTATION THE BANK ITSELF MARKS AS NOT PRINTED AGAINST ITS REF IS NOT A PROFILE** (b516`s first run
+            # ### read b456`s `printed_against_0e5233f: false` lines -- quoted from a deposit note -- as profiles of SIDE-kernel).
+            if any(k.startswith('printed_against') and v is False for k, v in x.items()):
+                continue
+            # ### ### **A RECORD CARRYING A `file` AND A `line` IS A QUOTATION OF A DOCUMENT AT AN ADDRESS, NOT THE ACT`S OWN
+            # ### PRINTED OUTPUT** (b516`s second run: b456`s bank, whose verdict is ABSENT, quotes the same lines from reports).
+            if 'file' in x and 'line' in x:
+                continue
+            stack.extend(x.values())
+        elif isinstance(x, list):
+            stack.extend(x)
+        elif isinstance(x, str):
+            for m in PRINT_OUT.finditer(x.strip()):
+                out[m.group(1)] = m.group(2).strip()
+    return out
+
+
+def banked_profiles():
+    """### relay's COMMITTED `data/*_profile*.json` banks, read as committed blobs at relay's HEAD; the LATEST act's bank wins."""
+    files = [f for f in gs(ROOT, 'ls-files', 'data/*_profile*.json').split(NL) if f.strip() and BANKED_RE.search(f)]
+    files.sort(key=lambda f: int(BANKED_RE.search(f).group(1)))
+    got = {}
+    for f in files:
+        r = git(ROOT, 'show', 'HEAD:' + f)
+        if r.returncode != 0:
+            continue
+        try:
+            obj = json.loads(r.stdout)
+        except Exception:
+            continue
+        for n, p in profiles_from_obj(obj).items():
+            got[n] = dict(profile=p, file=f)
+    return got, files
+
+
+def dedup_pop(pop):
+    """### ### **W-ORD-TABLE-SHORTNAME-DEDUP.** ### A LEDGER-ONLY name with no namespace is dropped when a QUALIFIED name of the
+    ### same repository, present by its own artefact, ends in the same segment. ### A qualified ledger-only name, or a short
+    ### name with no qualified twin, is kept. Returns (kept, dropped)."""
+    qual = set()
+    for n, at in pop.items():
+        if '.' in n and any(v.get('kind') != 'ledger-only' for v in at.values()):
+            qual.add(B378.split(n)[1])
+    kept, dropped = {}, []
+    for n, at in pop.items():
+        if '.' not in n and all(v.get('kind') == 'ledger-only' for v in at.values()) and n in qual:
+            dropped.append(n)
+            continue
+        kept[n] = at
+    return kept, sorted(dropped)
+
+
+def workorder_fixtures():
+    """### BOTH POLARITIES, ON SYNTHETIC INPUT WRITTEN HERE AND DRAWN FROM NO BANK. ### The tool HALTS if one fails."""
+    cases = []
+    pop = {'A.B.foo': {'HEAD': dict(kind='source')}, 'foo': {'HEAD': dict(kind='ledger-only')},
+           'bar': {'HEAD': dict(kind='ledger-only')}, 'baz': {'HEAD': dict(kind='source')},
+           'Q.baz': {'HEAD': dict(kind='source')}, 'C.D.qux': {'HEAD': dict(kind='ledger-only')}, 'qux': {'HEAD': dict(kind='ledger-only')}}
+    kept, dropped = dedup_pop(pop)
+    cases.append(('dedup DROPS a ledger-only short name beside its qualified twin', dropped == ['foo'] or 'foo' in dropped))
+    cases.append(('dedup KEEPS a short name with no qualified twin', 'bar' in kept))
+    cases.append(('dedup KEEPS a short name present by its own artefact', 'baz' in kept))
+    cases.append(('dedup KEEPS a short name whose twin is itself ledger-only', 'qux' in kept))
+    cases.append(('dedup drops exactly one here', dropped == ['foo']))
+    good = {'lines': ["'X.y' depends on axioms: [propext, Classical.choice, Quot.sound]"], 'n': {'deep': ["'Z.w' does not depend on any axioms"]}}
+    bad = {'lines': ["X.y depends on axioms: [propext]", "the profile of 'X.y' depends on axioms: [propext]"]}
+    pg, pb = profiles_from_obj(good), profiles_from_obj(bad)
+    cases.append(('json READS a whole dialect line', pg.get('X.y') == 'depends on axioms: [propext, Classical.choice, Quot.sound]'))
+    cases.append(('json READS a nested no-axiom line', pg.get('Z.w') == 'does not depend on any axioms'))
+    cases.append(('json REFUSES an unquoted name and a line that is not the dialect', pb == {}))
+    q = {'tag': [{'text': "'K.t' depends on axioms: [propext]", 'printed_against_abc': False},
+                 {'text': "'K.u' depends on axioms: [propext]", 'printed_against_abc': True}]}
+    pq = profiles_from_obj(q)
+    cases.append(('json REFUSES a quotation its bank marks not printed against its ref', 'K.t' not in pq))
+    cases.append(('json READS the same line where the bank marks it printed', 'K.u' in pq))
+    qa = {'elsewhere': [{'file': 'report.md', 'line': 7, 'text': "'K.v' depends on axioms: [propext]"}], 'lines': ["'K.w' depends on axioms: [propext]"]}
+    pa = profiles_from_obj(qa)
+    cases.append(('json REFUSES a line quoted from a document at a file and line', 'K.v' not in pa))
+    cases.append(('json READS the act`s own printed line beside it', 'K.w' in pa))
+    return all(ok for _, ok in cases), cases
+
+
+
 def statement(repo, ref, name):
     """### ### **THE STATEMENT AS THE SOURCE FILE PRINTS IT, FROM THE DECLARATION LINE UP TO `:=`.**
 
@@ -499,6 +597,18 @@ def build():
         return None
     rec('')
 
+    wok, wcases = workorder_fixtures()
+    rec('  ### THE TWO TABLE WORK-ORDERS OF (R123)(2), b516 -- FIXTURES, BOTH POLARITIES : ### **%s** (%d cases)'
+        % ('ALL PASS' if wok else '### FAILED', len(wcases)))
+    for what, okc in wcases:
+        rec('      %-72s %s' % (what, 'PASS' if okc else '### FAIL'))
+    if not wok:
+        rec('    ### ### **HALT. ### A WORK-ORDER THAT FAILS ITS OWN FIXTURES WRITES NOTHING.**')
+        return None
+    BANKED, banked_files = banked_profiles()
+    rec('  banked profile JSONs read (committed, relay HEAD) : %d ; names profiled there : %d' % (len(banked_files), len(BANKED)))
+    rec('')
+    DEDUP, FROMJSON = [], []
     rows, unresolved_names, seen = [], [], set()
     for name, path in repos:
         head = gs(path, 'rev-parse', 'HEAD')
@@ -532,6 +642,8 @@ def build():
                                                         profile=None)
                     break
 
+        pop, dropped = dedup_pop(pop)
+        DEDUP.extend((name, d) for d in dropped)
         for n in sorted(pop):
             key = (name, n)
             if key in seen:
@@ -542,6 +654,10 @@ def build():
             src_ref = refs[0][0] if refs[0][0] in at else (refs[-1][0] if refs[-1][0] in at else None)
             st = statement(path, dict(refs).get(src_ref, head), n) if src_ref else None
             profile = next((at[l]['profile'] for l, _ in refs if l in at and at[l]['profile']), None)
+            psrc = 'kernel tree' if profile else None
+            if not profile and n in BANKED:
+                profile, psrc = BANKED[n]['profile'], 'relay:' + BANKED[n]['file']
+                FROMJSON.append((name, n, BANKED[n]['file']))
             _, last = B378.split(n)
             mine = [c for c in by_name.get(n, []) + by_name.get('~' + last, [])]
             uniq, seencell = [], set()
@@ -562,6 +678,7 @@ def build():
                 statement_state=('RESOLVED' if st else 'UNRESOLVED'),
                 profile=(profile or 'NOT PROFILED'),
                 profile_state=('PROFILED' if profile else 'NOT PROFILED'),
+                profile_source=psrc,
                 grade=(distinct[0] if len(distinct) == 1 else
                        ('CONFLICT' if len(distinct) > 1 else 'UNGRADED')),
                 grade_cells=[dict(grade=c['grade'], ledger=c['ledger'], line=c['line'],
@@ -575,9 +692,14 @@ def build():
             continue
         unresolved_names.append(n)
 
+    rec('  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **%d** %s'
+        % (len(DEDUP), ['%s/%s' % x for x in DEDUP][:12]))
+    rec('  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **%d** %s'
+        % (len(FROMJSON), ['%s <- %s' % (x[1], x[2]) for x in FROMJSON][:12]))
+    rec('')
     return dict(named=len(named), repos=len(repos), rows=rows, loose_cells=len(loose),
                 v2_cells=len(v2), v3_cells=len(v3),
-                unresolved_names=unresolved_names, ledgers=len(ledger_files()),
+                unresolved_names=unresolved_names, ledgers=len(ledger_files()), dedup=DEDUP, fromjson=FROMJSON,
                 cells=len(cells), pins_named=len(pins), pin_line=pin_line)
 
 
@@ -624,6 +746,8 @@ def emit(R):
                                conflict=len(conf), encodes=len(enc),
                                ledger_names_unresolved=len(R['unresolved_names']),
                                statement_unresolved=len(unst)),
+                   workorders_b516=dict(shortname_dedup=[list(x) for x in R['dedup']],
+                                        profile_json=[list(x) for x in R['fromjson']]),
                    unresolved_names=R['unresolved_names'], rows=rows)
     io.open(os.path.join(D, 'terminal_table.json'), 'w', encoding='utf-8',
             newline=NL).write(json.dumps(payload, indent=1, ensure_ascii=False))

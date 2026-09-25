@@ -1,0 +1,30 @@
+{
+ "definition": "def classK (k : ℝ → ℂ) : Prop :=\n  (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧\n    ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h",
+ "tilde": "def tilde (g : ℝ → ℂ) : ℝ → ℂ := fun u => conj (g (-u))",
+ "weilTest": "def weilTest (f g : ℝ → ℂ) : ℝ → ℂ := f ⋆[ContinuousLinearMap.mul ℝ ℂ] tilde g",
+ "h_type": true,
+ "cases": [
+  {
+   "case": "h = i phi (not real)",
+   "h_imag_max": 1.0,
+   "k_even_defect": 0.0,
+   "k_imag_rel": 0.0,
+   "admitted": true
+  },
+  {
+   "case": "h = exp(i gamma u) phi",
+   "h_imag_max": 0.9729688235203414,
+   "k_even_defect": 1.9645618096984736,
+   "k_imag_rel": 0.9822809048492368,
+   "admitted": false
+  },
+  {
+   "case": "h = cos(gamma u) phi (real)",
+   "h_imag_max": 0.0,
+   "k_even_defect": 0.0,
+   "k_imag_rel": 0.0,
+   "admitted": true
+  }
+ ],
+ "reading": "classK admits complex-valued h: its generating h has type R -> C, and the binding constraint is that k = h * h~ be even, which for a Hermitian k means k real"
+}
