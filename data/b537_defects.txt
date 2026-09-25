@@ -1,0 +1,13 @@
+    (a) ### **A GLOB DELETE AFTER AN UNCHAINED cd, REFUSED BY THE AUTHOR**: the first read of b534's mirror was written as
+        `mkdir -p "$TEMP/m534"; cd "$TEMP/m534"; rm -rf *; unzip ...`. With `;` in place of `&&`, a failed cd would have run
+        `rm -rf *` in whatever directory was current. The author refused the call before it ran; nothing was deleted. Re-run as
+        `D=$(mktemp -d) && cd "$D" && unzip ...`, unpacked at /tmp/tmp.g5JUpjTi0f and left for the OS. The standing rule the
+        author gave is filed in the seat's memory: a delete runs only on an explicit absolute path verified with && in the same
+        command, never a bare glob; a guard deny is a defect, not worked around. No rm is run in this act.
+    (b) ### **THE HEAD BLOCK WENT TO THE MANIFEST`S END, NOT ITS HEAD**: `b537_mirror.py head` chose its line separator by
+        finding a CRLF in the staged MANIFEST. The builder joins its lines with LF and Out-File ends the file with one CRLF,
+        so the whole MANIFEST split as one line and the block was written after it. The zip was valid (all three clauses
+        CLEAN, banked as `b537_mirror_verify_first.txt`, `b537_mirror_first.json`) but the ceiling was not at the head. The
+        `rehead` repair recovered the builder`s text byte for byte (all before the first CRLF, plus it), re-inserted the block
+        under the title with LF, and updated this act`s own zip entry a second time; re-verified CLEAN on all three clauses.
+        The head printed from inside the zip, not from the tool`s own write, is what caught it.

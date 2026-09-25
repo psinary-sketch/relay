@@ -1,0 +1,34 @@
+========================================================================================================
+b537 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S FOUR.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- PLACE-papers HEAD 7c1c2dabc4d5 = remote 7c1c2dabc4d5 ; FINDINGS.md EQUAL ; REGISTRY.md EQUAL ; ERRATA.md EQUAL ; README.md EQUAL.
+  **(N2)** ### **HELD.** -- the sentence once in the MANIFEST, above its table ; equal to README`s (R146)(2) sentence : True.
+  **(N3)** ### **HELD.** -- v0.1 full True ; v0.2 full True ; the not-claimed line True.
+  **(N4)** ### **HELD.** -- deposit tree clean ; b537 tools naming the platform`s address NONE ; token hits in b537 files 0.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- ROSTER: 42 files, unchanged since 2026-09-07.
+  **(S2)** ### **HELD.** -- mirror_verify on the final zip, the head block in place.
+  **(S3)** ### **HELD.** -- git status of tools/mirror_prevbuild.json after the build : ''.
+
+### ### **THE NAVIGATOR`S : HELD 4 ; REFUTED 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **A GLOB DELETE AFTER AN UNCHAINED cd, REFUSED BY THE AUTHOR**: the first read of b534's mirror was written as
+        `mkdir -p "$TEMP/m534"; cd "$TEMP/m534"; rm -rf *; unzip ...`. With `;` in place of `&&`, a failed cd would have run
+        `rm -rf *` in whatever directory was current. The author refused the call before it ran; nothing was deleted. Re-run as
+        `D=$(mktemp -d) && cd "$D" && unzip ...`, unpacked at /tmp/tmp.g5JUpjTi0f and left for the OS. The standing rule the
+        author gave is filed in the seat's memory: a delete runs only on an explicit absolute path verified with && in the same
+        command, never a bare glob; a guard deny is a defect, not worked around. No rm is run in this act.
+    (b) ### **THE HEAD BLOCK WENT TO THE MANIFEST`S END, NOT ITS HEAD**: `b537_mirror.py head` chose its line separator by
+        finding a CRLF in the staged MANIFEST. The builder joins its lines with LF and Out-File ends the file with one CRLF,
+        so the whole MANIFEST split as one line and the block was written after it. The zip was valid (all three clauses
+        CLEAN, banked as `b537_mirror_verify_first.txt`, `b537_mirror_first.json`) but the ceiling was not at the head. The
+        `rehead` repair recovered the builder`s text byte for byte (all before the first CRLF, plus it), re-inserted the block
+        under the title with LF, and updated this act`s own zip entry a second time; re-verified CLEAN on all three clauses.
+        The head printed from inside the zip, not from the tool`s own write, is what caught it.
+========================================================================================================

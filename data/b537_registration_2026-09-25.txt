@@ -1,0 +1,157 @@
+====================================================================================================
+ACT b537 -- THE REGISTRATION FACE. ### THE MIRROR EXPORT AND THE MEMORY REFRESH, UNDER (R147).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **NO KERNEL LANE OPENS AT THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R147) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: the author`s word under (R145)(7) is given; the
+### mirror export is built in (R69)`s form carrying the standing after b536, the seat`s memory entry for b533-b536 is
+### written, and the two work-orders of (R147)(4) are named in OPEN_TRAILS, not started. ### Ruling and part 1 of 1,
+### received IN FULL, banked verbatim as `b537_ferry.txt`. ### **NOTHING DEPOSITS; NOTHING AT ZENODO IS WRITTEN OR READ;
+### NOTHING IN THIS ACT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE EXPORT, IN TWO STEPS.** `tools/mirror_build.ps1` (CARRIED, UNEDITED) is run once with
+### `-DateTag 2026-09-25-b537`. Its staging directory `%TEMP%\mirror-build-2026-09-25-b537` and its zip
+### `D:\MY-DOwnloads\mirror-refresh-2026-09-25-b537.zip` were verified ABSENT before the seal and are verified ABSENT again,
+### by absolute path, in the same command that runs it, so its two delete branches cannot fire (the standing rule of this
+### act, (C)). Then `tools/b537_mirror.py head` writes THE HEAD BLOCK into the staged MANIFEST directly under its title
+### line and updates that one entry of THIS act`s zip in place (`Compress-Archive -Update`); no prior zip is touched. The
+### block carries no "@ `" and no line opening with "|", so the verifier`s HEAD and ROW parses read the builder`s lines
+### and no other. `tools/mirror_verify.py` is run on the final zip, all three clauses, from PLACE-papers.
+### **READING (2) -- THE ROSTER.** "Every document the last export carried" is `tools/mirror_roster.json`, which b534`s
+### export carried name for name; "any document added since it" is read from `git diff --name-status 3b5532a HEAD` in
+### PLACE-papers, status A: NONE was found before the seal, and the record lists the result by name or says NONE. The four
+### living ledgers stand at the MANIFEST`s head in the roster`s own order (README first, then FINDINGS, REGISTRY,
+### OPEN_TRAILS, SPIRAL_MAP); the roster is not reordered -- the builder is not edited.
+### **READING (3) -- THE HEAD BLOCK.** (a) The ceiling sentence of (R146)(2), read from relay `data/b536_ferry.txt`
+### between `reads, supportable: "` and `" Not supportable`, quoted ONCE with its ruling number. (b) The last commit of
+### each of the five repositories -- relay, PLACE-papers, SIDE-global-section, SIDE-explicit-formula, SIDE-kernel -- local
+### HEAD and `ls-remote origin main`, both full, read at build time; relay`s is b536`s closing, since this act commits
+### after the build. (c) Beside SIDE-explicit-formula`s line, `v0.1` and `v0.2` with their full peeled SHAs read by
+### `ls-remote --tags`.
+### **READING (4) -- (N1)`S "READ BACK FROM THE REMOTE".** PLACE-papers` local HEAD is checked equal to `ls-remote origin
+### main`; then the md5 of `git show HEAD:<file>` for FINDINGS, REGISTRY, ERRATA and README is compared with the MANIFEST`s
+### row. No fetch is made. The files are LF in index and tree (`git ls-files --eol`, read before the seal).
+### **READING (5) -- THE MEMORY.** ONE NEW file in the seat`s memory directory, `project_criterion_b533_b536.md`, in the
+### seat`s memory form (frontmatter name, description, metadata type project; the fact; **Why:** and **How to apply:**
+### lines), and ONE index line appended at the end of its `MEMORY.md`. No earlier entry file is edited. It states the
+### ceiling sentence of (R146)(2) verbatim, both tags with their full SHAs, and one line: "Not claimed: RH proved; h2_sign
+### proved; the earliest Lean formalization of Weil`s criterion." A byte copy is banked as `data/b537_memory_entry.md`.
+### **READING (6) -- THE WORK-ORDERS.** Inside this act`s ONE append to OPEN_TRAILS, two entries headed
+### `W-ORD-SEAM-UPSTREAM` and `W-ORD-REGISTER-DEPTH`, each quoting its trigger from (R147)(4) and citing where it starts:
+### `SIDE-explicit-formula/SIDEExplicitFormula/Seam.lean:25` (`zeta_zero_re_nonpos` at v0.2) and relay
+### `data/b512_closing.txt:5-7` (b512`s register table). Both OPEN, neither started.
+### **READING (7) -- THE SCORING.** (N1) by READING (4), each of the four equal. (N2): the head block`s quoted sentence
+### equals READING (3)(a)`s, character for character, and appears once. (N3): the memory entry carries both full SHAs and
+### the not-claimed line. (N4): the deposit tree clean; no Zenodo call; the token scan 0.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `mirror_build.ps1 -DateTag 2026-09-25-b537`; `tools/b537_mirror.py head | verify | bank`. (2) The memory entry,
+### written by the Write tool, and `tools/b537_record.py memory` banks its copy and hashes. (3) `tools/b537_record.py
+### workorders | components | desk | trail`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ OR DONE BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b534`s export `mirror-refresh-2026-09-25-b534.zip`, its MANIFEST
+### head and tail, unpacked at `/tmp/tmp.g5JUpjTi0f` and left for the OS; (R69) at OPEN_TRAILS.md:6981-6995;
+### the memory index and its last two entries (b533, b534); README.md:106-116; REGISTRY.md:945-952; ERRATA.md:477-525;
+### FINDINGS.md from :4594 to its end, by headings; Seam.lean:20-30; b512_closing.txt:5-7; `mirror_build.ps1` whole;
+### `mirror_verify.py` :1-40 and :140-190; `git diff --name-status 3b5532a HEAD` and `git ls-files --eol` in PLACE-papers.
+### ### **DONE BEFORE THE SEAL, ON THE AUTHOR`S DIRECT WORD IN THIS SESSION:** a first read of b534`s zip was written with
+### a glob delete after an unchained `cd` and REFUSED by the author before it ran; nothing was deleted. It is defect (a),
+### banked as `data/b537_defects.txt`. The author`s standing rule -- a delete runs only on an explicit absolute path verified
+### with && in the same command, never a bare glob; a guard deny is a defect, not worked around -- is filed in the seat`s
+### memory as `feedback_delete_only_verified_absolute_path.md` with one index line. ### The hashes of every memory file were
+### banked AFTER that write and BEFORE the seal as `data/b537_memory_before.json`. ### **NO rm IS RUN IN THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED LINE.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **THE MANIFEST`S md5 FOR FINDINGS, REGISTRY, ERRATA AND README EQUAL THE md5 AT THE REMOTE-READ HEADS.**
+### **(N2)** ### **THE MANIFEST HEAD CARRIES (R146)(2)`S SENTENCE CHARACTER FOR CHARACTER.**
+### **(N3)** ### **THE MEMORY ENTRY NAMES BOTH TAGS WITH THEIR FULL SHAs AND THE NOT-CLAIMED LINE.**
+### **(N4)** ### **NOTHING DEPOSITS; THE TOKEN APPEARS NOWHERE.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE BUILDER`S ROSTER LINE READS UNCHANGED, WITH NO ADDED AND NO REMOVED NAME.**
+### **(S2)** ### **mirror_verify READS CLEAN ON ALL THREE CLAUSES ON THE FINAL ZIP, THE HEAD BLOCK IN PLACE.**
+### **(S3)** ### **THE BUILDER`S STATE FILE tools/mirror_prevbuild.json SHOWS NO CHANGE TO GIT AFTER THE BUILD.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R147-ENTERED`
+### `G-BUILD-PATHS-ABSENT` `G-ZIP-HASHED` `G-VERIFY-THREE-CLAUSES` `G-ADDITIONS-LISTED` `G-MANIFEST-CEILING-ONCE`
+### `G-MANIFEST-REPOS` `G-MANIFEST-TAGS` `G-MANIFEST-BUILDER-LINES-KEPT` `G-MEMORY-ENTRY-FORM` `G-MEMORY-INDEX-APPENDED`
+### `G-MEMORY-EARLIER-UNTOUCHED` `G-WORKORDERS-ENTERED` `G-DELETE-FREE` `G-NO-ZENODO-CALL`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN` `G-LANE-CLOSED`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-UNTOUCHED` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-PRIORBANK-UNCHANGED` holds every prior act`s bank unchanged, with no exception. ### The ferry scan carries no
+### (R81) flag; its arm reads the count off the banked scan and requires 0 hits. ### `G-DELETE-FREE` reads this act`s own
+### tools for a delete call of any kind. ### `G-NO-ZENODO-CALL` reads the act`s tools for the platform`s address.
+### `G-NOH2-MOVED` reads the trail`s own words: `h2` is where the deposit left it. ### No arm is scored post-push only.
+### **EVERY POSITIVE CONTROL IS POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b537_*` `relay/tools/b537_*` |
+### | `tools/mirror_build.ps1` (CARRIED, UNEDITED) | `%TEMP%\mirror-build-2026-09-25-b537\*` (NEW, untracked)
+###   `D:\MY-DOwnloads\mirror-refresh-2026-09-25-b537.zip` (NEW, outside any repository)
+###   `relay/tools/mirror_prevbuild.json` (its state, rewritten every run; READING (S3)) |
+### | `tools/b537_mirror.py head` | the staged `MANIFEST.md` and that one entry of this act`s zip |
+### | the Write tool | the seat`s memory: `project_criterion_b533_b536.md` (NEW) and one line appended to `MEMORY.md` |
+### | `tools/b537_record.py` | `PLACE-papers/OPEN_TRAILS.md` (ONE append: the two work-orders and this act`s record) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED; the suite`s regeneration) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b537_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b537_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b537_registration_2026-09-25.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b537_span*.json` `relay/data/b537_span_notes*.txt` |
+### ### The act`s tools, named: `b537_mirror.py` `b537_record.py` `b537_reg_gate.py` `b537_regspec.py` `b537_checks.py`
+### `b537_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED.** ### No kernel file, no correspondence row, no other PLACE-papers document.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NO KERNEL LANE OPENS.** ### Nothing deposits; nothing at Zenodo is written or read. ### No tag is made. ### No
+### grade is conferred or moved; no row is written. ### No ERRATA, FINDINGS, README, REGISTRY or SPIRAL_MAP write. ### No
+### prior zip is removed or rewritten. ### No zero of zeta or of Z_Q0 is added or moved; no prior bank is rewritten. ### Row
+### U1 is unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN. ### No rm is run.
+### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 54e555918e72e8d939d03357f96f7e22ec50a5d320e7efd8cb54bf89a4e21867
+### bytes locked : 13967
+### locked at (UTC) : 2026-09-25T21:29:42Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b537_registration_2026-09-25.txt`.**
+====================================================================================================
