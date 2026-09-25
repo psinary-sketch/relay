@@ -1,0 +1,10 @@
+    (a) ### **THE PROFILE READ A WRAPPED AXIOM LINE AS ITS FIRST PHYSICAL LINE**: Lean's pretty-printer wrapped
+        `mellin_Phi_eq_zero_of_re_le_one`'s `depends on axioms: [propext, Classical.choice, Quot.sound]` over three lines,
+        and `b538_kernel.py profile`, carried from b536, kept one physical line per theorem -- so it read `[propext,` and
+        printed 10 of 11 within the standard three. The raw log was read by hand, the parser now joins an opened list to its
+        `]`, and the re-run reads 11 of 11 (the first profile kept as `b538_profile_first.json`). No axiom changed.
+    (b) ### **TWO ARMS DEFECTIVE ON THE SUITE`S FIRST TRIAL, REPAIRED BEFORE ANY COMMIT**: `G-MELLIN-PRINTED` looked for the
+        probe`s `in Ioi 0`, where the profile run (no `open Set`) prints `in Set.Ioi 0`, and its positive control renamed
+        `def mellin` to `def mellinX`, which still contains the needle; `G-CENSUS-ENTERED` accepted a grade cell of `** **`.
+        The needle now matches the profile`s own print, the control breaks the integrand, and a grade cell must open with a
+        non-space; the re-run reads every control as it should.

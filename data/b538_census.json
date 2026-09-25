@@ -1,0 +1,52 @@
+{
+ "rows": [
+  {
+   "reg": "R1",
+   "face": "SIDE-lv-conservation/SIDELvConservation/RegisterPentagon.lean:106-107 at v0.10.0 (restating SIDE-kernel v1.5 `Kernel/SilenceTheorem.lean:26-44`)",
+   "statable": "yes (b538; b512: NOT STATABLE)",
+   "grade": "FALSE-AS-STATED",
+   "thm": "`not_register1` (RegisterDepth.lean:60) -- 'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+   "missing": "`essential` is an uninterpreted Prop field, so the register quantifies over interfaces it cannot distinguish (Bool, identity action, essential := True refutes it); the kernel`s own `silence_universal` takes universality per interface and is untouched (`silence_universal_restated`, 'SIDEExplicitFormula.RegisterDepth.silence_universal_restated' does not depend on any axioms)"
+  },
+  {
+   "reg": "R2",
+   "face": "SIDE-lv-conservation/SIDELvConservation/RegisterPentagon.lean:127-130 at v0.10.0 (restating SIDE-kernel `Bridge/ConservationBridge.lean:26-29`)",
+   "statable": "yes (graded at b531-b532)",
+   "grade": "EQUIVALENT-REWORDING",
+   "thm": "`ch_iff_rh` (SIDE-explicit-formula `H2Bridge.lean:71`) -- 'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound] (relay `data/b532_profile_log.txt`)",
+   "missing": "--"
+  },
+  {
+   "reg": "R3",
+   "face": "SIDE-lv-conservation/SIDELvConservation/RegisterPentagon.lean:139-140 at v0.10.0",
+   "statable": "yes (b538; b512: NOT STATABLE)",
+   "grade": "UNDECIDED",
+   "thm": "none decides it at every s or refutes it at one; partial: `register3_of_one_lt_re` (RegisterDepth.lean:241, INTERFACES on lv`s h1) -- 'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "missing": "to decide it: (i) per-class exclusion at re s ≤ 1, class by class, and (ii) whether the seven couplings jointly pin Φ to Phi (a Hamburger-type uniqueness); none of the seven pins Φ alone (`data/b538_couplings.txt`)"
+  },
+  {
+   "reg": "R4",
+   "face": "SIDE-lv-conservation/SIDELvConservation/RegisterPentagon.lean:152-153 and :158-159 at v0.10.0; in the Weil form, `h2_sign`",
+   "statable": "yes, in the Weil form (b536)",
+   "grade": "EQUIVALENT-DEEP",
+   "thm": "`h2_sign_iff_rh` (SIDE-explicit-formula `Seam.lean:101`, v0.2) -- 'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound] (relay `data/b536_profile_log.txt`)",
+   "missing": "-- (lv`s literal faces are predicates on an abstract stream `lam`; their RH content is the manuscript`s identification of `lam` with Li`s coefficients)"
+  },
+  {
+   "reg": "R5-output",
+   "face": "SIDE-lv-conservation/SIDELvConservation/RegisterPentagon.lean:189-195 at v0.10.0",
+   "statable": "yes (b538; b512: NOT STATABLE)",
+   "grade": "TRUE-AS-STATED (a SHELL)",
+   "thm": "`register5_output_holds` (RegisterDepth.lean:297) -- 'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "missing": "it asks only that the REAL PARTS of the nontrivial zeros be enumerated; the constant pairing 1 and the diagonal operator witness it. Missing: the ordinates, and a self-adjoint operator on a Hilbert space whose spectrum they are"
+  },
+  {
+   "reg": "lv`s h2",
+   "face": "`mellin Phi (s / 2) ≠ 0`, the hypothesis of `goalState_sevenClasses_of_h2` (SIDE-lv-conservation/SIDELvConservation/RegisterPentagon.lean:215 at v0.10.0), Phi at `T1_MellinFactorization.lean:26`",
+   "statable": "yes (b538)",
+   "grade": "FALSE-AS-STATED at every s with re s ≤ 1, the critical strip included",
+   "thm": "`mellin_Phi_eq_zero_of_re_le_one` (RegisterDepth.lean:101) -- 'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]; `lv_h2_false_on_strip` -- 'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "missing": "the sentence names the Mellin INTEGRAL where it means its continuation: Mathlib`s `mellin` is a Bochner integral, 0 where the integrand is not integrable, and `Phi` grows like t^(-1/2)/2 at 0, so the integral is 0 on re s ≤ 1. The object meant is `completedRiemannZeta`, equal to it on 1 < re s alone (`T2_SDarkness.lean:72-74`); the corrected face is `lvh2_corrected_iff` : (strip, off the line, completedRiemannZeta s ≠ 0) ↔ rh_strip -- 'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound] -- and rh_strip ↔ RiemannHypothesis stands compiled at v0.2"
+  }
+ ]
+}

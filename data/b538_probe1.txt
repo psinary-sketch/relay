@@ -1,0 +1,110 @@
+### b538 PRE-SEAL PROBE 1 -- source
+import SIDEExplicitFormula.Seam
+
+open Complex HurwitzZeta MeasureTheory Set
+
+#print mellin
+#print RiemannHypothesis
+#print SIDEExplicitFormula.B321.rh_strip
+#check @MeasureTheory.integral_undef
+#check @HurwitzZeta.evenKernel_functional_equation
+#check @HurwitzZeta.evenKernel_eq_cosKernel_of_zero
+#check @HurwitzZeta.hasSum_int_evenKernel
+#check @HurwitzZeta.evenKernel_def
+#check @le_hasSum
+#check @intervalIntegrable_rpow'
+#check @integrableOn_Ioo_rpow_iff
+#check @integrableOn_Ioi_rpow_iff
+#check @MeasureTheory.IntegrableOn.mono_set
+#check @MeasureTheory.Integrable.mono'
+#check @MeasureTheory.Integrable.mono
+#check @riemannZeta_def_of_ne_zero
+#check @Complex.Gammaℝ_ne_zero_of_re_pos
+#check @completedRiemannZeta
+#check @Set.Countable.exists_eq_range
+#check @Set.Countable.image
+#check @Set.Countable.mono
+#check @Zeta23.zetaZeroConfig_carrier
+#check @Zeta23.IsNontrivialZero
+#check @differentiableAt_riemannZeta
+#check @AnalyticOnNhd.eqOn_zero_of_preconnected_of_eventuallyEq_zero
+#check @AnalyticAt.eventually_eq_zero_or_eventually_ne_zero
+#check @Differentiable.analyticOnNhd
+#check @DifferentiableOn.analyticOnNhd
+#check @isConnected_compl_singleton_of_one_lt_rank
+#check @Set.Countable.of_isDiscrete
+#check @countable_of_isolated_right
+#check @TopologicalSpace.separableSpace_iff_countable
+#check @Set.countable_setOf_finite_subset
+#check @riemannZeta_two
+#check @riemannZeta_ne_zero_of_one_lt_re
+#check @Complex.cpow_def_of_ne_zero
+#check @Complex.norm_cpow_eq_rpow_re_of_pos
+#check @Real.rpow_natCast
+#check @HurwitzZeta.cosKernel
+#check @SIDEExplicitFormula.B321.zeta_zero_re_nonpos
+### output
+def mellin.{u_1} : {E : Type u_1} → [inst : NormedAddCommGroup E] → [NormedSpace ℂ E] → (ℝ → E) → ℂ → E :=
+fun {E} [NormedAddCommGroup E] [NormedSpace ℂ E] f s => ∫ (t : ℝ) in Ioi 0, ↑t ^ (s - 1) • f t
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+def SIDEExplicitFormula.B321.rh_strip : Prop :=
+∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2
+@integral_undef : ∀ {α : Type u_1} {G : Type u_2} [inst : NormedAddCommGroup G] [inst_1 : NormedSpace ℝ G]
+  {m : MeasurableSpace α} {μ : Measure α} {f : α → G}, ¬Integrable f μ → ∫ (a : α), f a ∂μ = 0
+evenKernel_functional_equation : ∀ (a : UnitAddCircle) (x : ℝ), evenKernel a x = 1 / x ^ (1 / 2) * cosKernel a (1 / x)
+evenKernel_eq_cosKernel_of_zero : evenKernel 0 = cosKernel 0
+hasSum_int_evenKernel : ∀ (a : ℝ) {t : ℝ},
+  0 < t → HasSum (fun n => Real.exp (-Real.pi * (↑n + a) ^ 2 * t)) (evenKernel (↑a) t)
+evenKernel_def : ∀ (a x : ℝ),
+  ↑(evenKernel (↑a) x) = cexp (-↑Real.pi * ↑a ^ 2 * ↑x) * jacobiTheta₂ (↑a * I * ↑x) (I * ↑x)
+@le_hasSum : ∀ {ι : Type u_1} {α : Type u_2} {L : SummationFilter ι} [inst : AddCommMonoid α] [inst_1 : Preorder α]
+  [IsOrderedAddMonoid α] [inst_3 : TopologicalSpace α] [OrderClosedTopology α] {f : ι → α} {a : α} [L.NeBot]
+  [L.LeAtTop], HasSum f a L → ∀ (i : ι), (∀ (j : ι), j ≠ i → 0 ≤ f j) → f i ≤ a
+probe_b538_1.lean:14:8: error(lean.unknownIdentifier): Unknown identifier `intervalIntegrable_rpow'`
+probe_b538_1.lean:15:8: error(lean.unknownIdentifier): Unknown identifier `integrableOn_Ioo_rpow_iff`
+@integrableOn_Ioi_rpow_iff : ∀ {s t : ℝ}, 0 < t → (IntegrableOn (fun x => x ^ s) (Ioi t) volume ↔ s < -1)
+@IntegrableOn.mono_set : ∀ {α : Type u_1} {ε : Type u_2} {mα : MeasurableSpace α} {f : α → ε} {s t : Set α}
+  {μ : Measure α} [inst : TopologicalSpace ε] [inst_1 : ContinuousENorm ε],
+  IntegrableOn f t μ → s ⊆ t → IntegrableOn f s μ
+@Integrable.mono' : ∀ {α : Type u_1} {β : Type u_2} {m : MeasurableSpace α} {μ : Measure α}
+  [inst : NormedAddCommGroup β] {f : α → β} {g : α → ℝ},
+  Integrable g μ → AEStronglyMeasurable f μ → (∀ᵐ (a : α) ∂μ, ‖f a‖ ≤ g a) → Integrable f μ
+@Integrable.mono : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} {m : MeasurableSpace α} {μ : Measure α}
+  [inst : NormedAddCommGroup β] [inst_1 : NormedAddCommGroup γ] {f : α → β} {g : α → γ},
+  Integrable g μ → AEStronglyMeasurable f μ → (∀ᵐ (a : α) ∂μ, ‖f a‖ ≤ ‖g a‖) → Integrable f μ
+@riemannZeta_def_of_ne_zero : ∀ {s : ℂ}, s ≠ 0 → riemannZeta s = completedRiemannZeta s / s.Gammaℝ
+@Gammaℝ_ne_zero_of_re_pos : ∀ {s : ℂ}, 0 < s.re → s.Gammaℝ ≠ 0
+completedRiemannZeta : ℂ → ℂ
+@Countable.exists_eq_range : ∀ {α : Type u_1} {s : Set α}, s.Countable → s.Nonempty → ∃ f, s = range f
+@Countable.image : ∀ {α : Type u_1} {β : Type u_2} {s : Set α}, s.Countable → ∀ (f : α → β), (f '' s).Countable
+@Countable.mono : ∀ {α : Type u_1} {s₁ s₂ : Set α}, s₁ ⊆ s₂ → s₂.Countable → s₁.Countable
+Zeta23.zetaZeroConfig_carrier : Zeta23.zetaZeroConfig.carrier = {ρ | Zeta23.IsNontrivialZero ρ}
+Zeta23.IsNontrivialZero : ℂ → Prop
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@AnalyticOnNhd.eqOn_zero_of_preconnected_of_eventuallyEq_zero : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜]
+  {E : Type u_2} [inst_1 : NormedAddCommGroup E] [inst_2 : NormedSpace 𝕜 E] {F : Type u_3}
+  [inst_3 : NormedAddCommGroup F] [inst_4 : NormedSpace 𝕜 F] {f : E → F} {U : Set E},
+  AnalyticOnNhd 𝕜 f U → IsPreconnected U → ∀ {z₀ : E}, z₀ ∈ U → f =ᶠ[nhds z₀] 0 → EqOn f 0 U
+@AnalyticAt.eventually_eq_zero_or_eventually_ne_zero : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜]
+  {E : Type u_2} [inst_1 : NormedAddCommGroup E] [inst_2 : NormedSpace 𝕜 E] {f : 𝕜 → E} {z₀ : 𝕜},
+  AnalyticAt 𝕜 f z₀ → (∀ᶠ (z : 𝕜) in nhds z₀, f z = 0) ∨ ∀ᶠ (z : 𝕜) in nhdsWithin z₀ {z₀}ᶜ, f z ≠ 0
+probe_b538_1.lean:31:8: error(lean.unknownIdentifier): Unknown constant `Differentiable.analyticOnNhd`
+@DifferentiableOn.analyticOnNhd : ∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace ℂ E]
+  [CompleteSpace E] {s : Set ℂ} {f : ℂ → E}, DifferentiableOn ℂ f s → IsOpen s → AnalyticOnNhd ℂ f s
+@isConnected_compl_singleton_of_one_lt_rank : ∀ {E : Type u_1} [inst : AddCommGroup E] [inst_1 : Module ℝ E]
+  [inst_2 : TopologicalSpace E] [ContinuousAdd E] [ContinuousSMul ℝ E],
+  1 < Module.rank ℝ E → ∀ (x : E), IsConnected {x}ᶜ
+probe_b538_1.lean:34:8: error(lean.unknownIdentifier): Unknown constant `Set.Countable.of_isDiscrete`
+probe_b538_1.lean:35:8: error(lean.unknownIdentifier): Unknown identifier `countable_of_isolated_right`
+@TopologicalSpace.separableSpace_iff_countable : ∀ {α : Type u_1} [t : TopologicalSpace α] [DiscreteTopology α],
+  TopologicalSpace.SeparableSpace α ↔ Countable α
+probe_b538_1.lean:37:8: warning: `Set.countable_setOf_finite_subset` has been deprecated: Use `Set.countable_ofPred_finite_subset` instead
+@countable_setOf_finite_subset : ∀ {α : Type u_1} {s : Set α}, s.Countable → {t | t.Finite ∧ t ⊆ s}.Countable
+probe_b538_1.lean:38:8: error(lean.unknownIdentifier): Unknown identifier `riemannZeta_two`
+@riemannZeta_ne_zero_of_one_lt_re : ∀ {s : ℂ}, 1 < s.re → riemannZeta s ≠ 0
+@cpow_def_of_ne_zero : ∀ {x : ℂ}, x ≠ 0 → ∀ (y : ℂ), x ^ y = cexp (log x * y)
+@norm_cpow_eq_rpow_re_of_pos : ∀ {x : ℝ}, 0 < x → ∀ (y : ℂ), ‖↑x ^ y‖ = x ^ y.re
+Real.rpow_natCast : ∀ (x : ℝ) (n : ℕ), x ^ ↑n = x ^ n
+cosKernel : UnitAddCircle → ℝ → ℝ
+SIDEExplicitFormula.B321.zeta_zero_re_nonpos : ∀ (z : ℂ), riemannZeta z = 0 → z.re ≤ 0 → ∃ n, z = -2 * (↑n + 1)

@@ -1,0 +1,14 @@
+### b538 PRE-SEAL PROBE 3 -- source
+import SIDEExplicitFormula.Seam
+import Mathlib.Analysis.SpecialFunctions.Integrability.Basic
+import Mathlib.Topology.DiscreteSubset
+
+open Complex HurwitzZeta MeasureTheory Set Filter Topology
+
+#check @intervalIntegral.integrableOn_Ioo_rpow_iff
+#check @Cardinal.one_lt_two
+example : TopologicalSpace.SeparableSpace ({z : ℂ | z ≠ 1} : Set ℂ) := inferInstance
+### output
+@intervalIntegral.integrableOn_Ioo_rpow_iff : ∀ {s t : ℝ},
+  0 < t → (IntegrableOn (fun x => x ^ s) (Ioo 0 t) volume ↔ -1 < s)
+Cardinal.one_lt_two : 1 < 2

@@ -1,0 +1,103 @@
+RULING (R148) BEGIN
+
+RULING (R148), the author's, ratified by this paste and
+strikeable: W-ORD-REGISTER-DEPTH RUNS AS A READ WITH SMALL
+COMPILES, AND EACH REGISTER IS GRADED BY WHAT ITS OWN LEAN
+STATEMENT SAYS.
+
+(1) The five registers of §27.3 are read from their compiled
+faces, not from the prose. The faces are
+SIDE-lv-conservation SIDELvConservation/RegisterPentagon.lean
+(HEAD 2f71068; the seat names the tag it reads at, v0.9.0 or
+later): Register1_universalityHypothesis :106-107, Register2
+(the verbatim ConservationHypothesis, :109 onward),
+Register3_totalityThroughPlaces :139-140, Register4_positivity
+:152-153 and Register4_channelInequality :158-159,
+Register5_output_HilbertPolya :189-195; GoalState :82-83; and
+lv's own h2, the hypothesis `mellin Phi (s / 2) ≠ 0` of
+goalState_sevenClasses_of_h2 (:215) with Phi at
+T1_MellinFactorization.lean:26. R2 and R4 are graded already:
+R2 is RH restated (ch_iff_rh, H2Bridge.lean:71); R4 in the
+Weil form is h2_sign, equivalent to RH (h2_sign_iff_rh,
+Seam.lean, v0.2). This act reads R1, R3, R5 and lv's h2.
+
+(2) Each face gets one of five grades, relative to RH:
+EQUIVALENT-DEEP (a theorem stands between it and RH, as R4);
+EQUIVALENT-REWORDING (a short lemma, as R2); FALSE-AS-STATED
+(its negation compiles); TRUE-AS-STATED (it compiles
+unconditionally, so it carries no RH content — a SHELL under
+the corpus's own word); or UNDECIDED (neither compiles in two
+attempts, with what is missing named). A face graded
+FALSE-AS-STATED or TRUE-AS-STATED is not a defect of the
+mathematics §27.3 describes; it is a defect of the Lean
+sentence that was meant to carry it, and the record says
+what the sentence is missing.
+
+(3) The navigator read the faces this afternoon and
+registers four readings before the compile, each refutable:
+(a) R1 quantifies over every Interface with `essential`, and
+`essential` is an uninterpreted Prop field
+(SIDE-kernel Kernel/SilenceTheorem.lean:33-37), while
+is_universal requires a constant action (:42-44); an
+interface on Bool with the identity action and essential :=
+True refutes it — reading: FALSE-AS-STATED. (b) Mathlib's
+mellin is a Bochner integral, zero where the integrand is
+not integrable; Phi(t) = (θ(t) − 1)/2 grows like 1/(2√t) as
+t → 0 (θ(t) = t^(−1/2) θ(1/t) and θ ≥ 1), so t^(s/2 − 1) Phi(t)
+is not integrable at 0 when re s ≤ 1, and mellin Phi (s/2) =
+0 there — reading: lv's h2 is FALSE at every s with re s ≤ 1,
+so goalState_sevenClasses_of_h2 is vacuous on the critical
+strip, and the correct analytic object is
+completedRiemannZeta, which T2_SDarkness.lean:72-74 equates
+with the Mellin factor on re s > 1 alone. (c) R3's two sides
+quantify over arbitrary Φ satisfying couplings; whether
+either side is about zeta's zeros depends on whether the
+seven couplings (CouplingsAtPhi.lean:188-190) pin Φ to Phi —
+reading: not decided by the navigator; the seat reads the
+seven definitions and decides. (d) R5-output asks for real
+PARTS σ of zeros (is_xi_zero, Kernel/XiDef.lean:34-38) to lie
+in the range of a sequence, with a pairing and a T that the
+constant pairing 1 and the diagonal T satisfy; the real
+parts of zeta's zeros form a countable set — reading:
+TRUE-AS-STATED, a SHELL; the Hilbert–Pólya content (the
+ordinates as a self-adjoint spectrum) is what it is missing.
+
+(4) What this act does not do: edit any deposited kernel;
+file any erratum; write at Zenodo; touch the ceiling. If (b)
+compiles, it touches deposited sentences (lv-conservation's
+own description and THE_UNCONDITIONAL_SURROUND §6's
+sentence that goal ⇐ h1 ∧ h2 with h2 the open node), and the act after reads them against it on the
+author's word, as b532 read Route 3's.
+
+(5) The owed pointer is discharged here: this act's
+OPEN_TRAILS record carries one line pointing to relay
+data/b537_closing_addendum.txt, and the seat's memory entry
+is marked DISCHARGED.
+
+RULING (R148) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b538 - W-ORD-REGISTER-DEPTH: R1, R3, R5 AND LV'S h2 GRADED BY THEIR OWN STATEMENTS, under (R148).
+
+Read before anything, and cite each by path and line in the record: SIDE-lv-conservation at the tag you read (print it) — RegisterPentagon.lean:82-83, :106-107, :139-140, :152-159, :189-195, :206-230; T3_StepNineBridge.lean:44-58; CouplingsAtPhi.lean the seven coupling definitions and :188-190; T1_MellinFactorization.lean:26-35; T2_SDarkness.lean:72-74, :109-111. SIDE-kernel at v1.5 = 0e5233f — Kernel/SilenceTheorem.lean:26-44, :74-78; Kernel/XiDef.lean:34-38. Check that lv's verbatim restatements match the v1.5 text byte for byte and print the result (lv restates from v1.3). relay data/b512_closing.txt:5-7 (the table's STATABLE row). Print Mathlib's `mellin` definition by #print.
+
+Module: SIDE-explicit-formula SIDEExplicitFormula/RegisterDepth.lean, importing Seam, header in the house form naming this act and (R148). The federation rule bars a Lake dependency on lv or SIDE-kernel, so every face is restated verbatim in this module with its source path, line and pin in the docstring, as lv's pentagon does [procedural].
+
+COMPONENT 1 - R1. Restate ConfigurationSpace, Interface, Interface.is_universal and Register1_universalityHypothesis verbatim. Then attempt theorem not_register1 : ¬ Register1_universalityHypothesis, by the Bool interface of (R148)(3)(a). If it compiles, R1 is FALSE-AS-STATED, and the record names what the sentence is missing: `essential` carries no content, so the register quantifies over interfaces it cannot distinguish. Also compile theorem silence_universal_restated as a check that the kernel's theorem itself is untouched by this (it takes the hypothesis per interface, not universally).
+
+COMPONENT 2 - LV'S h2. Restate Phi verbatim (Mathlib's evenKernel). Attempt theorem mellin_Phi_eq_zero_of_re_le_one : ∀ s : ℂ, s.re ≤ 1 → mellin Phi (s / 2) = 0. Route: MeasureTheory.integral_undef; non-integrability on (0, 1] from a lower bound ‖t^(s/2 − 1) • Phi t‖ ≥ c t^((s.re − 3)/2) for small t, the bound from Mathlib's evenKernel functional equation (#check the name the checkout offers: evenKernel_functional_equation or its current form) and evenKernel 0 x ≥ 1 for x > 0 (the n = 0 term; #check or prove from the sum's positivity); and the non-integrability of t^a on (0, 1] for a ≤ −1 (#check intervalIntegrable_rpow' / integrableOn_Ioo_rpow_iff or the current name). Then theorem lv_h2_false_on_strip : ∀ s : ℂ, 0 < s.re → s.re < 1 → ¬ (mellin Phi (s / 2) ≠ 0). Halt rule: two attempts on mellin_Phi_eq_zero_of_re_le_one, then state it as a Prop with the blocker printed, grade UNDECIDED, and continue. Beside it, compile the corrected face as a check: theorem lvh2_corrected_iff : (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1/2 → completedRiemannZeta s ≠ 0) ↔ rh_strip — or its nearest compilable form, printed; the seat may need Zeta23's carrier and completedRiemannZeta's zeros in the strip agreeing with riemannZeta's (#check riemannZeta_def_of_ne_zero or completedRiemannZeta relation, and Gammaℝ nonvanishing on re > 0). If lvh2_corrected_iff does not compile in two attempts, state it as a Prop and continue.
+
+COMPONENT 3 - R3. Restate the seven couplings, sevenClasses, PerClassExcludes, CombinationsExclude and Register3_totalityThroughPlaces verbatim. Read the seven definitions and print, for each, whether it constrains Φ pointwise to Phi's values, up to a family, or not at all. Then decide R3 by compiling one of: register3_holds : ∀ s, Register3_totalityThroughPlaces s (if some Φ' meeting all seven has a Mellin factor nonzero at every s, exhibit it; if Phi itself serves because its Mellin factor is nonzero at the s in question, say at which s); not_register3_at : ∃ s, ¬ Register3 s; or, if both fail, UNDECIDED with the missing piece named. Grade relative to RH per (R148)(2). Note in the record that if Component 2's theorem compiled, every PerClassExcludes C s and CombinationsExclude witnessed by Phi is false for re s ≤ 1, and say what that does to R3's hypothesis side.
+
+COMPONENT 4 - R5. Restate Register5_output_HilbertPolya and is_xi_zero verbatim. Attempt theorem register5_output_holds : Register5_output_HilbertPolya, with pairing := fun _ _ => 1, T := fun i j => if i = j then spectrum i else 0, and spectrum a surjection from ℕ onto {σ | is_xi_zero σ} ∪ {0} — from the countability of the real parts of zeta's zeros (from Zeta23's zetaZeroConfig: its carrier is countable by the local count, or by the zeros' isolation; #check the name used; if countability is not reachable in two attempts, state it as the one Prop the theorem consumes and compile register5_output_of_countable). If it compiles, R5-output is TRUE-AS-STATED, a SHELL, and the record names what it is missing: the ordinates, and a self-adjoint operator on a Hilbert space whose spectrum they are.
+
+COMPONENT 5 - THE CENSUS. One table, five rows (R1–R5) plus lv's h2, columns: face (path:line at pin), statable here (yes/no, this act), grade per (R148)(2), the theorem that decides it (name, #print axioms line), what the sentence is missing (for FALSE-AS-STATED and TRUE-AS-STATED rows). Correspondence rows for every new theorem, graded by statement-read. The table goes in FINDINGS as one entry titled by its objects: "The five registers of §27.3 and lv-conservation's h2, graded by their Lean statements against RH". b512's table is cited and not edited.
+
+COMPONENT 6 - THE POINTER. One line in this act's OPEN_TRAILS record pointing to relay data/b537_closing_addendum.txt; the seat's memory entry feedback_mirror_after_last_push.md marked DISCHARGED with this act's number. If a mirror is built at this act, it is built after the act's last PLACE-papers push (standing order, b537).
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) not_register1 compiles at attempt one or two, standard three or fewer. (N2) mellin_Phi_eq_zero_of_re_le_one compiles at attempt one or two; if it halts, the blocker is the lower bound on evenKernel near 0, not the integral_undef step. (N3) R5-output compiles as TRUE-AS-STATED, conditionally on countability at worst. (N4) R3 is graded by a compiled theorem in one direction or the other, not UNDECIDED. (N5) the census has no blank grade cell. (N6) no deposited kernel is edited; nothing filed to ERRATA; nothing at Zenodo; the ceiling unchanged; nothing deposits.
+
+Foreground compiles [procedural]. Delete commands only on a verified absolute path in the same command (standing rule). #print axioms on every new theorem; grade by statement. Record, correspondence rows, trail record in the house form. Nothing deposits.
+
+FERRY END (part 1 of 1)

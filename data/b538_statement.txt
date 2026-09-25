@@ -1,0 +1,72 @@
+structure ConfigurationSpace
+
+structure Interface (C : ConfigurationSpace) (R : Type)
+
+def Interface.is_universal {C : ConfigurationSpace} {R : Type}
+    (I : Interface C R) : Prop
+
+def factors_through {C : ConfigurationSpace} {R V : Type}
+    (M : C.α → V) (I : Interface C R) : Prop
+
+def Interface.kappa_zero {C : ConfigurationSpace} {R : Type}
+    (I : Interface C R) : Prop
+
+def Register1_universalityHypothesis : Prop
+
+theorem not_register1 : ¬ Register1_universalityHypothesis
+
+theorem silence_universal_restated
+    {C : ConfigurationSpace} {R : Type}
+    (I : Interface C R)
+    (h_univ : I.is_universal) :
+    I.kappa_zero
+
+def Phi : ℝ → ℂ
+
+theorem one_le_evenKernel_zero {x : ℝ} (hx : 0 < x) : 1 ≤ evenKernel 0 x
+
+theorem rpow_le_evenKernel_zero {t : ℝ} (ht : 0 < t) : t ^ (-(1 / 2 : ℝ)) ≤ evenKernel 0 t
+
+theorem mellin_Phi_eq_zero_of_re_le_one : ∀ s : ℂ, s.re ≤ 1 → mellin Phi (s / 2) = 0
+
+theorem lv_h2_false_on_strip : ∀ s : ℂ, 0 < s.re → s.re < 1 → ¬ (mellin Phi (s / 2) ≠ 0)
+
+theorem lvh2_corrected_iff :
+    (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip
+
+abbrev Coupling
+
+def PerClassExcludes (C : Coupling) (s : ℂ) : Prop
+
+def CombinationsExclude (𝒞 : Set Coupling) (s : ℂ) : Prop
+
+def C1_realness : Coupling
+
+def C2_halfplane_nonvanishing : Coupling
+
+def C3_theta_transformation : Coupling
+
+def C4_modularity : Coupling
+
+def C5_input : Coupling
+
+def C6_holomorphic_extension : Coupling
+
+def C7_order : Coupling
+
+def sevenClasses : Set Coupling
+
+def Register3_totalityThroughPlaces (s : ℂ) : Prop
+
+theorem register3_of_one_lt_re (h1 : ∀ C ∈ sevenClasses, C Phi) :
+    ∀ s : ℂ, 1 < s.re → Register3_totalityThroughPlaces s
+
+def is_xi_zero (sigma : Real) : Prop
+
+def Register5_output_HilbertPolya : Prop
+
+theorem zeta_zeros_countable : {z : ℂ | z ≠ 1 ∧ riemannZeta z = 0}.Countable
+
+theorem xi_zero_re_countable : {σ : ℝ | is_xi_zero σ}.Countable
+
+theorem register5_output_holds : Register5_output_HilbertPolya

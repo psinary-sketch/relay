@@ -1,0 +1,39 @@
+b538 -- LV`S VERBATIM RESTATEMENTS AGAINST SIDE-kernel v1.5 = 0e5233f, BYTE FOR BYTE (and v1.3 = 0bc21c0: both files IDENTICAL to v1.5 by git diff)
+
+### ConfigurationSpace : BYTE-IDENTICAL True ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True
+  v1.5  : structure ConfigurationSpace where
+  v1.5  :   α : Type
+  v1.5  :   nonempty : Nonempty α
+  lv    : structure ConfigurationSpace where
+  lv    :   α : Type
+  lv    :   nonempty : Nonempty α
+
+### Interface : BYTE-IDENTICAL False ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True
+  v1.5  : structure Interface (C : ConfigurationSpace) (R : Type) where
+  v1.5  :   /-- The action of the interface: each configuration produces an output. -/
+  v1.5  :   action : C.α → R
+  v1.5  :   /-- Whether removing the interface destroys the system. -/
+  v1.5  :   essential : Prop
+  lv    : structure Interface (C : ConfigurationSpace) (R : Type) where
+  lv    :   action : C.α → R
+  lv    :   essential : Prop
+
+### Interface.is_universal : BYTE-IDENTICAL False ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True
+  v1.5  : def Interface.is_universal {C : ConfigurationSpace} {R : Type}
+  v1.5  :     (I : Interface C R) : Prop :=
+  v1.5  :   ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂
+  lv    : def Interface.is_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) : Prop :=
+  lv    :   ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂
+
+### is_xi_zero : BYTE-IDENTICAL False ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True
+  v1.5  : def is_xi_zero (sigma : Real) : Prop :=
+  v1.5  :   Exists (fun t : Real =>
+  v1.5  :     riemannZeta (⟨sigma, t⟩ : ℂ) = 0 /\
+  v1.5  :     (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) /\
+  v1.5  :     (⟨sigma, t⟩ : ℂ) ≠ 1)
+  lv    : def is_xi_zero (sigma : Real) : Prop :=
+  lv    :   Exists (fun t : Real =>
+  lv    :     riemannZeta (⟨sigma, t⟩ : ℂ) = 0 ∧
+  lv    :     (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) ∧
+  lv    :     (⟨sigma, t⟩ : ℂ) ≠ 1)
+

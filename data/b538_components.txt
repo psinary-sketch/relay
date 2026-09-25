@@ -1,0 +1,55 @@
+====================================================================================================================================
+b538 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE PINS : SIDE-lv-conservation v0.10.0 (peeled 93c27ec; HEAD 2f71068, the cited files byte-identical) ; SIDE-kernel v1.5 = 0e5233f
+### THE BYTE CHECK : ConfigurationSpace : BYTE-IDENTICAL True ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True ; Interface : BYTE-IDENTICAL False ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True ; Interface.is_universal : BYTE-IDENTICAL False ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True ; is_xi_zero : BYTE-IDENTICAL False ; IDENTICAL AFTER dropping field docstrings, joining lines and reading `/\` as `∧` : True
+
+### COMPONENTS 1, 2, 4 -- THE MODULE: `SIDEExplicitFormula/RegisterDepth.lean` (NEW).
+  attempt 1 : exit 0 ; 0 error lines ; 68.6 s ; failing NONE
+  profile :
+    'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms
+    'SIDEExplicitFormula.RegisterDepth.silence_universal_restated' does not depend on any axioms
+    'SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  #check not_register1 : SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis @SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀ {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type} (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero @SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x @SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ}, 0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t
+  #check silence_universal_restated : SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀ {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type} (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero @SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x @SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ}, 0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t
+  #check one_le_evenKernel_zero : SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x @SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ}, 0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t
+  #check rpow_le_evenKernel_zero : SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ}, 0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t
+  #check mellin_Phi_eq_zero_of_re_le_one : SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ), s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+  #check lv_h2_false_on_strip : SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ), 0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0
+  #check lvh2_corrected_iff : SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ), 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ SIDEExplicitFormula.B321.rh_strip
+  #check register3_of_one_lt_re : SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : (∀ C ∈ SIDEExplicitFormula.RegisterDepth.sevenClasses, C SIDEExplicitFormula.RegisterDepth.Phi) → ∀ (s : ℂ), 1 < s.re → SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces s
+  #check zeta_zeros_countable : SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable : {z | z ≠ 1 ∧ riemannZeta z = 0}.Countable
+  #check xi_zero_re_countable : SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable : {σ | SIDEExplicitFormula.RegisterDepth.is_xi_zero σ}.Countable
+  #check register5_output_holds : SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+
+### COMPONENT 3 -- THE COUPLINGS:
+    C1_realness                 CouplingsAtPhi.lean:67        UP TO A FAMILY  -- Im Φ = 0 pointwise; Re Φ free -- every real-valued Φ
+    C2_halfplane_nonvanishing   CouplingsAtPhi.lean:72-73     UP TO A FAMILY  -- a condition on mellin Φ on 1 < re s, not on the values of Φ
+    C3_theta_transformation     CouplingsAtPhi.lean:79-80     UP TO A FAMILY  -- Φ on (0,1) fixed by Φ on [1,∞), which stays free
+    C4_modularity               CouplingsAtPhi.lean:108-113   UP TO A FAMILY  -- Φ = (F(i t) - 1)/2 for some F holomorphic on ℍ with the T- and S-laws; no growth condition at the cusps, so F is not pinned
+    C5_input                    CouplingsAtPhi.lean:120-122   UP TO A FAMILY  -- 2Φ + 1 a heat trace of some non-negative spectrum μ; μ free
+    C6_holomorphic_extension    CouplingsAtPhi.lean:144-146   UP TO A FAMILY  -- Φ the restriction of a function holomorphic on 0 < re z
+    C7_order                    CouplingsAtPhi.lean:182-185   UP TO A FAMILY  -- the completed Mellin transform of Φ extends to an entire function of order ≤ 1 growth
+  
+    ### POINTWISE TO PHI : 0 of 7 ; UP TO A FAMILY : 7 of 7 ; NOT AT ALL : 0 of 7.
+    ### Whether the seven JOINTLY pin Φ to Phi (a Hamburger-type uniqueness) is not decided here.
+
+### COMPONENT 5 -- THE CENSUS: FINDINGS.md:4787
+  R1 : FALSE-AS-STATED -- `not_register1` (RegisterDepth.lean:60) -- 'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms
+  R2 : EQUIVALENT-REWORDING -- `ch_iff_rh` (SIDE-explicit-formula `H2Bridge.lean:71`) -- 'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound] (relay `data/b532_profile_log.txt`)
+  R3 : UNDECIDED -- none decides it at every s or refutes it at one; partial: `register3_of_one_lt_re` (RegisterDepth.lean:241, INTERFACES on lv`s h1) -- 'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+  R4 : EQUIVALENT-DEEP -- `h2_sign_iff_rh` (SIDE-explicit-formula `Seam.lean:101`, v0.2) -- 'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound] (relay `data/b536_profile_log.txt`)
+  R5-output : TRUE-AS-STATED (a SHELL) -- `register5_output_holds` (RegisterDepth.lean:297) -- 'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  lv`s h2 : FALSE-AS-STATED at every s with re s ≤ 1, the critical strip included -- `mellin_Phi_eq_zero_of_re_le_one` (RegisterDepth.lean:101) -- 'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]; `lv_h2_false_on_strip` -- 'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+### COMPONENT 6 -- THE POINTER: {"path": "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_mirror_after_last_push.md", "sha256": "7212e14390244813c7b2e10078438aadada4fc04c268f0d2308fdd74a26bef51", "discharged": true, "owed_text_kept": true}
+====================================================================================================================================

@@ -4,17 +4,17 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 246,
- "grade_cells_loose_v1": 1194,
- "grade_cells_v2": 326,
- "grade_cells_v3": 255,
+ "grade_cells": 258,
+ "grade_cells_loose_v1": 1218,
+ "grade_cells_v2": 338,
+ "grade_cells_v3": 267,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 1216,
-  "not_profiled": 378,
+  "rows": 1228,
+  "not_profiled": 390,
   "ungraded": 1096,
   "conflict": 12,
   "encodes": 8,
@@ -93,6 +93,18 @@
    ],
    [
     "SIDE-explicit-formula",
+    "lv_h2_false_on_strip"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "lvh2_corrected_iff"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   [
+    "SIDE-explicit-formula",
     "nearInt_ge"
    ],
    [
@@ -101,7 +113,15 @@
    ],
    [
     "SIDE-explicit-formula",
+    "not_register1"
+   ],
+   [
+    "SIDE-explicit-formula",
     "off_finite_above"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "one_le_evenKernel_zero"
    ],
    [
     "SIDE-explicit-formula",
@@ -185,6 +205,14 @@
    ],
    [
     "SIDE-explicit-formula",
+    "register3_of_one_lt_re"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "register5_output_holds"
+   ],
+   [
+    "SIDE-explicit-formula",
     "rest_bound"
    ],
    [
@@ -225,7 +253,15 @@
    ],
    [
     "SIDE-explicit-formula",
+    "rpow_le_evenKernel_zero"
+   ],
+   [
+    "SIDE-explicit-formula",
     "selfConv_im_zero"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "silence_universal_restated"
    ],
    [
     "SIDE-explicit-formula",
@@ -234,6 +270,10 @@
    [
     "SIDE-explicit-formula",
     "weilTest_even_of_even"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "xi_zero_re_countable"
    ],
    [
     "SIDE-explicit-formula",
@@ -250,6 +290,10 @@
    [
     "SIDE-explicit-formula",
     "zeta_zero_re_nonpos"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "zeta_zeros_countable"
    ],
    [
     "SIDE-global-section",
@@ -2499,7 +2543,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Finset",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2529,8 +2573,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "Register5_output_HilbertPolya",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "def Register5_output_HilbertPolya : Prop",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "INTERFACES",
+   "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
+     "line": 1266,
+     "act": null,
+     "quote": "egative spectrum, μₙ = n², whose heat trace is the kernel*; `Register5_output_HilbertPolya`, INTERFACES, **disclaimed**: *an operator self-adjoint w.r.t. a positiv"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Aw_nonneg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2553,7 +2628,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Efac_ne",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2576,7 +2651,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Ep_prod",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2599,7 +2674,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Kp_kill",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2622,7 +2697,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Kp_tie_ne",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2645,7 +2720,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Nf_pos",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2668,7 +2743,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.PWSetup.c4",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2691,7 +2766,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.PWSetup.kfin",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2714,7 +2789,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.PWSetup.tfin",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2737,7 +2812,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Pof_eval",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2760,7 +2835,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Pof_prod",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2783,7 +2858,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.VF_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2806,7 +2881,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.XV_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2829,7 +2904,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.XV_ne",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2852,7 +2927,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.XV_node",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2875,7 +2950,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Xval_ne",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2898,7 +2973,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Xval_norm",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2921,7 +2996,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Xval_real_neg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2944,7 +3019,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Yv_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2967,7 +3042,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Yv_mul",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2990,7 +3065,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.Yv_ne",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3013,7 +3088,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.aeval_Ep",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3036,7 +3111,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.aeval_X_sq_comp",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3059,7 +3134,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.aeval_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3082,7 +3157,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.aeval_real",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3105,7 +3180,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.b321_identity",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3128,7 +3203,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.balance_lemma",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3151,7 +3226,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.base_nonzero_at",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3182,7 +3257,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cE_big",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3205,7 +3280,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cE_pos",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3228,7 +3303,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ceil_weight",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3251,7 +3326,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_iff_h2_sign",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3282,7 +3357,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3320,7 +3395,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_iff_rh",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3343,7 +3418,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_imp_config",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3366,7 +3441,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_imp_h2_sign",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3389,7 +3464,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_imp_rh",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3412,7 +3487,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.classK_of_real_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3443,7 +3518,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.coeffs_exist",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3466,7 +3541,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWinC_FT",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3489,7 +3564,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWinC_FT_near_far",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3512,7 +3587,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWin_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3535,7 +3610,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWin_support_Icc",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3558,7 +3633,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosh_le_exp_abs",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3581,7 +3656,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.dominant_exists",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3612,7 +3687,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.dominant_summable",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3643,7 +3718,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.f4_needs_of_half_le",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3666,7 +3741,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.fR_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3689,7 +3764,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.fR_norm_le",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3712,7 +3787,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.farFT_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3735,7 +3810,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.fiber_count",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3758,7 +3833,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.finite_rest_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3781,7 +3856,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.fixed_poly_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3804,7 +3879,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gHat_ne",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3827,7 +3902,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_im'",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3850,7 +3925,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_re'",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3873,7 +3948,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_reflect",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3896,7 +3971,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_reflect_rhoZero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3919,7 +3994,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_rhoZero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3942,7 +4017,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_sq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3965,7 +4040,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_iff_rh",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3996,7 +4071,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_iff_rh_strip",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4041,7 +4116,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_cell",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4079,7 +4154,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_ch_holds",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4110,7 +4185,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_ch_iff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4133,7 +4208,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4164,7 +4239,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4212,7 +4287,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4243,7 +4318,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4266,7 +4341,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.hasCompactSupport_of_Icc",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4289,7 +4364,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ibp_step",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4312,7 +4387,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.iteratedDeriv_even_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4335,7 +4410,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWin_FT",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4358,7 +4433,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWin_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4381,7 +4456,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWin_classK",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4412,7 +4487,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWindow_classK",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4443,7 +4518,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWindow_term",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4474,7 +4549,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.killSet_finite",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4497,7 +4572,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kill_term_zero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4520,7 +4595,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.mem_KF",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4543,7 +4618,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.mem_TF",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4566,7 +4641,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.mem_sT",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4589,7 +4664,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.nearInt_ge",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4620,7 +4695,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.nearPair_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4643,7 +4718,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.neg_one_pow_mul_iz_pow",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4666,7 +4741,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.nodes_distinct",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4697,7 +4772,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.norm_Yv",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4720,7 +4795,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.norm_sqrtC",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4743,7 +4818,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.norm_wOf",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4766,7 +4841,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.not_f4_needs",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4789,7 +4864,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.offScore_reflect",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4812,7 +4887,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.off_finite_above",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4843,7 +4918,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pairTwo_factored",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4874,7 +4949,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pairTwo_near_far",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4905,7 +4980,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pair_algebra",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4928,7 +5003,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pair_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4959,7 +5034,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pair_near_sign",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -4990,7 +5065,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_conj_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5013,7 +5088,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_conj_of_real",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5044,7 +5119,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_conj_of_real_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5075,7 +5150,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_decay",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5098,7 +5173,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_decay_re",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5121,7 +5196,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_decay_zero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5144,7 +5219,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_growth",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5182,7 +5257,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_growth_at",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5220,7 +5295,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_iteratedDeriv",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5243,7 +5318,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_neg_of_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5274,7 +5349,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_ofReal_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5297,7 +5372,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_of_sq_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5320,7 +5395,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_polyOp",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5351,7 +5426,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_polyOpFull",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5382,7 +5457,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_power",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5420,7 +5495,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_second_order",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5443,7 +5518,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_sum",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5466,7 +5541,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_window",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5497,7 +5572,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_window_zero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5528,7 +5603,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.phiC_FT_imag",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5551,7 +5626,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.phiC_FT_neg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5574,7 +5649,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.phiC_selfConv",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5597,7 +5672,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_apply_abs",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5620,7 +5695,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_contDiff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5643,7 +5718,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_dominant",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5666,7 +5741,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_eq_one",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5689,7 +5764,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5712,7 +5787,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_hasCompactSupport",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5735,7 +5810,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_integral_pos",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5758,7 +5833,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_nonneg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5781,7 +5856,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_support_Icc",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5804,7 +5879,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.polyEvalFull_coeffList",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5827,7 +5902,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.polyOpFull_contDiff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5858,7 +5933,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.polyOpFull_support",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5889,7 +5964,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.polyOp_contDiff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5912,7 +5987,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.polyOp_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5935,7 +6010,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.polyOp_support",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5958,7 +6033,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.poly_norm_le",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -5981,7 +6056,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.power_contDiff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6012,7 +6087,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.power_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6035,7 +6110,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.power_support",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6066,7 +6141,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pwWindow_contDiff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6089,7 +6164,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pwWindow_support",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6112,7 +6187,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rT_conj",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6135,7 +6210,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rT_norm",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6158,7 +6233,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rT_sq_mul",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6181,7 +6256,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.real_even_interpolant",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6212,7 +6287,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.realizedGrowth_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6235,7 +6310,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.realizedGrowth_ge_one",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6266,7 +6341,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.realizedGrowth_le_exp",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6289,7 +6364,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.reflect_im",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6312,7 +6387,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.reflect_re",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6335,7 +6410,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rep_spec",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6358,7 +6433,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.restR_nonneg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6381,7 +6456,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6426,7 +6501,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_bound_closed",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6457,7 +6532,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_bound_zeta",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6502,7 +6577,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_le_of_finite",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6525,7 +6600,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_tendsto_zero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6556,7 +6631,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_term_small",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6587,7 +6662,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_cell_form",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6625,7 +6700,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_ch",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6648,7 +6723,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_h2_sign",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6686,7 +6761,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_rh_strip",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6724,7 +6799,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_strip_imp_h2_sign",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6755,7 +6830,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_strip_imp_rh_holds",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6786,7 +6861,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.selfConv_contDiff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6809,7 +6884,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.selfConv_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6832,7 +6907,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.selfConv_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6855,7 +6930,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.selfConv_im_zero",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6886,7 +6961,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.selfConv_support",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6909,7 +6984,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.sqrtC_sq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6932,7 +7007,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.summable_zeta3",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6955,7 +7030,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.support_deriv_Icc",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -6978,7 +7053,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.support_iteratedDeriv_Icc",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7001,7 +7076,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.term_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7024,7 +7099,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.tieSet_finite",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7047,7 +7122,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.tieSet_nonempty",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7070,7 +7145,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.tie_reflect",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7093,7 +7168,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.tie_term_neg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7124,7 +7199,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.two_delta_lt_one",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7147,7 +7222,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.vOf_im",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7170,7 +7245,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.vOf_re",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7193,7 +7268,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.vOf_real_of_on",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7216,7 +7291,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.vOf_reflect",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7239,7 +7314,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.v_eq_iff",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7262,7 +7337,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.wOf_eq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7285,7 +7360,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.wOf_sq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7308,7 +7383,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weight_ineq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7331,7 +7406,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weighted_finite_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7354,7 +7429,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weighted_summable",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7377,7 +7452,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weilTest_even_of_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7408,7 +7483,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weilTest_ofReal_even",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7431,7 +7506,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weilTest_phiC",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7454,7 +7529,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.windowSlope_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7477,7 +7552,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.window_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7500,7 +7575,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.window_decay_re",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7523,7 +7598,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zeroSideNeg_holds",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7546,7 +7621,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zeroSide_eventually_neg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7577,7 +7652,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zero_term_bound",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7600,7 +7675,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zero_term_real",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7631,7 +7706,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zero_term_sq",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7662,7 +7737,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zero_weight",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7685,7 +7760,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zeta3Sum_nonneg",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7708,7 +7783,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zeta_zero_re_nonpos",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7738,8 +7813,356 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem lv_h2_false_on_strip : ∀ s : ℂ, 0 < s.re → s.re < 1 → ¬ (mellin Phi (s / 2) ≠ 0)",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "zero` DERIVES ; `mellin_Phi_eq_zero_of_re_le_one` DERIVES ; `lv_h2_false_on_strip` DERIVES ; `lvh2_corrected_iff` DERIVES ; `register3_of_one_lt_re` I"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem lvh2_corrected_iff :\n    (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "ro_of_re_le_one` DERIVES ; `lv_h2_false_on_strip` DERIVES ; `lvh2_corrected_iff` DERIVES ; `register3_of_one_lt_re` INTERFACES on lv`s h1_complete_a"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem mellin_Phi_eq_zero_of_re_le_one : ∀ s : ℂ, s.re ≤ 1 → mellin Phi (s / 2) = 0",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "nKernel_zero` DERIVES ; `rpow_le_evenKernel_zero` DERIVES ; `mellin_Phi_eq_zero_of_re_le_one` DERIVES ; `lv_h2_false_on_strip` DERIVES ; `lvh2_corrected_iff` DER"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.not_register1",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem not_register1 : ¬ Register1_universalityHypothesis",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "`not_register1` DERIVES ; `silence_universal_restated` DERIVES ; `one_le_evenKernel"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem one_le_evenKernel_zero {x : ℝ} (hx : 0 < x) : 1 ≤ evenKernel 0 x",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "register1` DERIVES ; `silence_universal_restated` DERIVES ; `one_le_evenKernel_zero` DERIVES ; `rpow_le_evenKernel_zero` DERIVES ; `mellin_Phi_eq_zero_o"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem register3_of_one_lt_re (h1 : ∀ C ∈ sevenClasses, C Phi) :\n    ∀ s : ℂ, 1 < s.re → Register3_totalityThroughPlaces s",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "INTERFACES",
+   "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4795,
+     "act": "b538",
+     "quote": "none decides it at every s or refutes it at one; partial: `register3_of_one_lt_re` (RegisterDepth.lean:241, INTERFACES on lv`s h1) -- 'SIDEExplicitFormula.RegisterDepth.register3"
+    },
+    {
+     "grade": "INTERFACES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "h2_false_on_strip` DERIVES ; `lvh2_corrected_iff` DERIVES ; `register3_of_one_lt_re` INTERFACES on lv`s h1_complete_at_Phi ; `zeta_zeros_countable` DERIVES"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.register5_output_holds",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem register5_output_holds : Register5_output_HilbertPolya",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "zeros_countable` DERIVES ; `xi_zero_re_countable` DERIVES ; `register5_output_holds` DERIVES -- each by statement-read against its claim: not_register1"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem rpow_le_evenKernel_zero {t : ℝ} (ht : 0 < t) : t ^ (-(1 / 2 : ℝ)) ≤ evenKernel 0 t",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "rsal_restated` DERIVES ; `one_le_evenKernel_zero` DERIVES ; `rpow_le_evenKernel_zero` DERIVES ; `mellin_Phi_eq_zero_of_re_le_one` DERIVES ; `lv_h2_false_"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.silence_universal_restated",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem silence_universal_restated\n    {C : ConfigurationSpace} {R : Type}\n    (I : Interface C R)\n    (h_univ : I.is_universal) :\n    I.kappa_zero",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "`not_register1` DERIVES ; `silence_universal_restated` DERIVES ; `one_le_evenKernel_zero` DERIVES ; `rpow_le_evenKernel_ze"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem xi_zero_re_countable : {σ : ℝ | is_xi_zero σ}.Countable",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "lv`s h1_complete_at_Phi ; `zeta_zeros_countable` DERIVES ; `xi_zero_re_countable` DERIVES ; `register5_output_holds` DERIVES -- each by statement-rea"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable",
+   "head": "81ae1758f28e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem zeta_zeros_countable : {z : ℂ | z ≠ 1 ∧ riemannZeta z = 0}.Countable",
+   "statement_file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 460,
+     "act": "b538",
+     "quote": "ster3_of_one_lt_re` INTERFACES on lv`s h1_complete_at_Phi ; `zeta_zeros_countable` DERIVES ; `xi_zero_re_countable` DERIVES ; `register5_output_holds`"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "Zeta23.EF.EF_lit",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7762,7 +8185,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Zeta23.WeilEF.EF_lit_zeta",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7785,7 +8208,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7823,7 +8246,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "farSmall",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -7906,7 +8329,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "rh_strip_imp_rh",
-   "head": "5c72cad24303",
+   "head": "81ae1758f28e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,

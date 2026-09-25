@@ -1,0 +1,56 @@
+{
+ "lines": [
+  "'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+  "'SIDEExplicitFormula.RegisterDepth.silence_universal_restated' does not depend on any axioms",
+  "'SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext,",
+  "'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ ],
+ "exit": 0,
+ "sorry": false,
+ "std3": {
+  "SIDEExplicitFormula.RegisterDepth.not_register1": false,
+  "SIDEExplicitFormula.RegisterDepth.silence_universal_restated": false,
+  "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero": true,
+  "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero": true,
+  "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one": false,
+  "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip": true,
+  "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff": true,
+  "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re": true,
+  "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable": true,
+  "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable": true,
+  "SIDEExplicitFormula.RegisterDepth.register5_output_holds": true
+ },
+ "within_std3": {
+  "SIDEExplicitFormula.RegisterDepth.not_register1": true,
+  "SIDEExplicitFormula.RegisterDepth.silence_universal_restated": true,
+  "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero": true,
+  "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero": true,
+  "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one": false,
+  "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip": true,
+  "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff": true,
+  "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re": true,
+  "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable": true,
+  "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable": true,
+  "SIDEExplicitFormula.RegisterDepth.register5_output_holds": true
+ },
+ "checks": {
+  "not_register1": "SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis\n@SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀\n  {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type}\n  (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero\n@SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x\n@SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ},\n  0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t",
+  "silence_universal_restated": "SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀\n  {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type}\n  (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero\n@SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x\n@SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ},\n  0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t",
+  "one_le_evenKernel_zero": "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x\n@SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ},\n  0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t",
+  "rpow_le_evenKernel_zero": "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ},\n  0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t",
+  "mellin_Phi_eq_zero_of_re_le_one": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),\n  s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0",
+  "lv_h2_false_on_strip": "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ),\n  0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0",
+  "lvh2_corrected_iff": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),\n    0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔\n  SIDEExplicitFormula.B321.rh_strip",
+  "register3_of_one_lt_re": "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : (∀ C ∈ SIDEExplicitFormula.RegisterDepth.sevenClasses,\n    C SIDEExplicitFormula.RegisterDepth.Phi) →\n  ∀ (s : ℂ), 1 < s.re → SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces s",
+  "zeta_zeros_countable": "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable : {z | z ≠ 1 ∧ riemannZeta z = 0}.Countable",
+  "xi_zero_re_countable": "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable : {σ | SIDEExplicitFormula.RegisterDepth.is_xi_zero σ}.Countable",
+  "register5_output_holds": "SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya"
+ }
+}

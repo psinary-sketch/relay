@@ -1,0 +1,180 @@
+====================================================================================================
+ACT b538 -- THE REGISTRATION FACE. ### W-ORD-REGISTER-DEPTH: R1, R3, R5 AND LV`S h2 GRADED BY THEIR OWN LEAN
+### STATEMENTS, UNDER (R148).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **THE KERNEL LANE OPENS FOR THIS ACT**, and shuts at its close.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R148) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: W-ORD-REGISTER-DEPTH runs as a read with small
+### compiles; R1, R3, R5 of §27.3 and lv-conservation`s own h2 are each restated verbatim from their compiled faces and
+### graded by what the Lean sentence says, relative to RH, in the five grades of (R148)(2). R2 and R4 are cited as graded.
+### Ruling and part 1 of 1, received IN FULL, banked verbatim as `b538_ferry.txt`. ### **NOTHING DEPOSITS; NO DEPOSITED
+### KERNEL IS EDITED; NOTHING IS FILED TO ERRATA; NOTHING AT ZENODO; THE CEILING IS UNCHANGED; NOTHING HERE PROVES RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE PINS.** lv-conservation is read at tag `v0.10.0` (peeled `93c27ec`), the latest tag and later than
+### v0.9.0; HEAD `2f71068` is untagged, and every lv file this act cites is byte-identical between `v0.10.0` and HEAD
+### (`git diff --stat`, read before the seal). SIDE-kernel is read at `v1.5` = `0e5233f`; `Kernel/SilenceTheorem.lean` and
+### `Kernel/XiDef.lean` are identical between v1.3 = `0bc21c0` (lv`s cited pin) and v1.5.
+### **READING (2) -- "VERBATIM" AND THE BYTE CHECK.** The byte check of lv`s restatements against v1.5 is banked before the
+### seal as `b538_restatement_compare.txt`: `ConfigurationSpace` is byte-identical; `Interface`, `Interface.is_universal`
+### and `is_xi_zero` differ from v1.5 only by dropped field docstrings, a joined line and `/\` written `∧`, and are
+### identical after those. This module restates the KERNEL`s v1.5 text where lv restates the kernel (`is_xi_zero` with
+### `/\`, `is_universal` on two lines), dropping only `Interface``s field docstrings, and lv`s text where the face is lv`s own.
+### **READING (3) -- THE MODULE.** A NEW `SIDEExplicitFormula/RegisterDepth.lean` importing `Seam` and, outside Seam`s
+### closure, Mathlib`s `Analysis.SpecialFunctions.Integrability.Basic` (for `intervalIntegral.integrableOn_Ioo_rpow_iff`)
+### and `Topology.DiscreteSubset` (for `discreteTopology_subtype_iff`); a NEW `AxiomCheckRegisterDepth.lean`. Namespace
+### `SIDEExplicitFormula.RegisterDepth`, lv`s T3 names under `RegisterDepth.T3` so the R3 face reads as lv writes it.
+### No other kernel file is touched.
+### **READING (4) -- THE THEOREMS AND WHAT EACH DECIDES.** `not_register1` (R1); `silence_universal_restated` (the kernel`s
+### theorem, untouched); `one_le_evenKernel_zero` and `rpow_le_evenKernel_zero` (the bound near 0, from
+### `hasSum_int_evenKernel`, `le_hasSum` and `evenKernel_functional_equation`); `mellin_Phi_eq_zero_of_re_le_one` and
+### `lv_h2_false_on_strip` (lv`s h2); `lvh2_corrected_iff` (the corrected face against `B321.rh_strip`);
+### `register3_of_one_lt_re` (R3 on `1 < re s`, on lv`s h1 as a named premise); `zeta_zeros_countable`,
+### `xi_zero_re_countable` and `register5_output_holds` (R5). ### The ferry`s `register5_output_of_countable` is written
+### only if countability halts.
+### **READING (5) -- R3, READ BEFORE THE COMPILE.** No coupling of the seven pins Φ pointwise: C1 constrains only Im Φ; C2
+### is a condition on the Mellin transform; C3 fixes Φ on (0,1) from Φ on [1,∞), which stays free; C4, C5, C6, C7 each
+### admit families. So R3 at `re s ≤ 1` turns on (i) per-class exclusion there, class by class, and (ii) whether the seven
+### JOINTLY pin Φ to Phi -- a Hamburger-type uniqueness. The compile decides R3 on `1 < re s` only, INTERFACES on lv`s
+### `h1_complete_at_Phi` (compiled in lv, carried as a premise under the federation rule). ### The seat`s further
+### observation -- that C3 alone forces non-integrability for every Φ at `1/2 ≤ re s ≤ 1`, so R3 holds there vacuously --
+### is recorded NOT COMPILED. If no compiled theorem decides R3 at every `s` or refutes it at some `s`, R3 is UNDECIDED
+### with (i) and (ii) named.
+### **READING (6) -- THE GRADES.** Per (R148)(2), relative to RH. lv`s h2 is a face at each `s`: FALSE-AS-STATED at every `s`
+### with `re s ≤ 1` if `mellin_Phi_eq_zero_of_re_le_one` compiles; its corrected face (completedRiemannZeta) is graded
+### against `rh_strip`, and `rh_strip ↔ RiemannHypothesis` stands compiled at v0.2 (`rh_imp_rh_strip`,
+### `rh_strip_imp_rh_holds`). R2: EQUIVALENT-REWORDING (`ch_iff_rh`, `H2Bridge.lean:71`). R4: EQUIVALENT-DEEP in the Weil
+### form (`h2_sign_iff_rh`, `Seam.lean`, v0.2); lv`s literal R4 face is parametric in an abstract stream `lam` and is noted so.
+### **READING (7) -- ATTEMPTS AND THE HALT RULE**, as b536`s READING (9): an attempt is one foreground whole-module run of
+### `lake env lean -o` on `RegisterDepth.lean`; a theorem failing in two attempts is stated as a Prop `<name>_blocked` with
+### its blocker printed and graded UNDECIDED where it decides a register; the rest continue.
+### **READING (8) -- THE ROW AND THE CENSUS.** One correspondence row: each compiled theorem DERIVES by statement-read
+### against its claim, `register3_of_one_lt_re` INTERFACES on lv`s h1. The census is one FINDINGS entry titled
+### "The five registers of §27.3 and lv-conservation's h2, graded by their Lean statements against RH": the five
+### registers and lv`s h2, each with its face, statable-here, grade, deciding theorem with its `#print axioms` line, and
+### what the sentence is missing. b512`s table (`relay/data/b512_closing.txt:5-7`) is cited, not edited.
+### **READING (9) -- THE POINTER.** This act`s OPEN_TRAILS record carries ONE line pointing to relay
+### `data/b537_closing_addendum.txt`; the seat`s memory entry `feedback_mirror_after_last_push.md` has its OWED bullet
+### marked DISCHARGED at b538. No mirror is built at this act.
+### **READING (10) -- THE SCORING.** (N1) `not_register1` compiles at attempt one or two, its axioms the standard three or
+### fewer. (N2) `mellin_Phi_eq_zero_of_re_le_one` compiles at attempt one or two, or, if halted, its blocker lies in
+### `rpow_le_evenKernel_zero` and not in the `integral_undef` step. (N3) `register5_output_holds` compiles, or
+### `register5_output_of_countable` does. (N4) R3`s grade in the census is decided by a compiled theorem, not UNDECIDED.
+### (N5) every grade cell of the census is filled. (N6) the deposited kernels untouched, ERRATA untouched, no Zenodo call,
+### README and REGISTRY untouched, the deposit tree clean, the token scan 0.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `tools/b538_kernel.py install | compile | statement | profile`. (2) `tools/b538_record.py couplings | census |
+### rows | findings | pointer | components | desk | trail`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** lv at v0.10.0: `RegisterPentagon.lean` :1-240;
+### `T3_StepNineBridge.lean` :1-12, :40-110; `T1_MellinFactorization.lean` :1-40; `T2_SDarkness.lean` :60-115;
+### `CouplingsAtPhi.lean` :60-192 and its header; SIDE-kernel at 0e5233f: `Kernel/SilenceTheorem.lean` :20-90,
+### `Kernel/XiDef.lean` :30-40, `Bridge/ConservationBridge.lean` :26-29 at 0bc21c0; relay `data/b512_closing.txt:5-7`;
+### `Seam.lean` :1-19 and its tail; `AxiomCheckSeam.lean`; `H2Bridge.lean:71`; Mathlib`s
+### `Analysis/SpecialFunctions/Integrability/Basic.lean` :20-80 and `Topology/DiscreteSubset.lean` :45-70.
+### ### **THE PROBES WERE RUN BEFORE THE SEAL** under (R141)(2): `#check` and `#print`, `#print mellin` among them, and
+### three one-line `example`s of instances and casts, elaborating no proof of the module; banked as `b538_probe1.txt`,
+### `b538_probe2.txt`, `b538_probe3.txt`; the probe files were moved out of the kernel tree into the scratchpad, not deleted.
+### ### **THE BYTE CHECK WAS RUN BEFORE THE SEAL**: `b538_restatement_compare.txt`. ### The module is drafted in the
+### scratchpad and NOT RUN.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED LINE.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **not_register1 COMPILES AT ATTEMPT ONE OR TWO, STANDARD THREE OR FEWER.**
+### **(N2)** ### **mellin_Phi_eq_zero_of_re_le_one COMPILES AT ATTEMPT ONE OR TWO; IF IT HALTS, THE BLOCKER IS THE LOWER BOUND.**
+### **(N3)** ### **R5-OUTPUT COMPILES AS TRUE-AS-STATED, CONDITIONALLY ON COUNTABILITY AT WORST.**
+### **(N4)** ### **R3 IS GRADED BY A COMPILED THEOREM IN ONE DIRECTION OR THE OTHER, NOT UNDECIDED.**
+### **(N5)** ### **THE CENSUS HAS NO BLANK GRADE CELL.**
+### **(N6)** ### **NO DEPOSITED KERNEL EDITED; NOTHING FILED TO ERRATA; NOTHING AT ZENODO; THE CEILING UNCHANGED; NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **mellin_Phi_eq_zero_of_re_le_one COMPILES, AT ATTEMPT TWO AT THE LATEST.**
+### **(S2)** ### **R3 IS GRADED UNDECIDED: NO COMPILED THEOREM DECIDES IT AT EVERY s OR REFUTES IT AT ONE.**
+### **(S3)** ### **zeta_zeros_countable COMPILES, SO R5-OUTPUT HOLDS WITH NO COUNTABILITY PREMISE.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R148-ENTERED`
+### `G-READS-PINNED` `G-RESTATEMENTS-COMPARED` `G-FACES-VERBATIM` `G-INSTALLED-FROM-DRAFT` `G-ATTEMPTS-BANKED`
+### `G-MODULE-NO-SORRY` `G-PROFILE-WHOLE-STRING` `G-PROBES-BANKED` `G-HALTS-RECORDED` `G-MELLIN-PRINTED`
+### `G-R1-GRADED` `G-LVH2-GRADED` `G-R3-GRADED` `G-R5-GRADED` `G-COUPLINGS-READ` `G-CENSUS-ENTERED`
+### `G-ROWS-GRADED` `G-TABLE-ROW` `G-LINES-KEPT` `G-POINTER-DISCHARGED` `G-B512-UNEDITED` `G-CEILING-UNCHANGED`
+### `G-DEPOSITED-KERNELS-UNTOUCHED` `G-NO-ZENODO-CALL` `G-DELETE-FREE`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-N5-SCORED` `G-N6-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN` `G-LANE-SHUT`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-PRIORBANK-UNCHANGED` holds every prior act`s bank unchanged, with no exception. ### The ferry scan`s one (R81) flag
+### is INFORMATIONAL and declared here; its arm reads the count off the banked scan and requires 0 hits.
+### `G-DELETE-FREE` reads this act`s own tools for a delete call of any kind. ### `G-NO-ZENODO-CALL` reads the act`s tools
+### for the platform`s address. ### `G-NOH2-MOVED` reads the trail`s own words: `h2` is where the deposit left it.
+### No arm is scored post-push only. ### **EVERY POSITIVE CONTROL IS POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b538_*` `relay/tools/b538_*` |
+### | `tools/b538_kernel.py install` | `SIDE-explicit-formula/SIDEExplicitFormula/RegisterDepth.lean`
+###   `SIDE-explicit-formula/AxiomCheckRegisterDepth.lean` (both NEW) |
+### | `lake env lean -o` | `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/RegisterDepth.*` (untracked) |
+### | `tools/b538_record.py` | `PLACE-papers/FINDINGS.md` (ONE append: the census entry)
+###   `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### | the Edit tool | the seat`s memory: `feedback_mirror_after_last_push.md` (its OWED bullet marked DISCHARGED) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b538_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b538_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b538_registration_2026-09-25.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b538_span*.json` `relay/data/b538_span_notes*.txt` |
+### ### The act`s tools, named: `b538_kernel.py` `b538_record.py` `b538_reg_gate.py` `b538_regspec.py` `b538_checks.py`
+### `b538_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED.** ### No vendored file, no earlier kernel module, no lv file, no SIDE-kernel file.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing deposits; nothing at Zenodo is written or read. ### No tag is
+### made. ### No mirror zip is built. ### No ERRATA entry; no README or REGISTRY write; the ceiling unchanged. ### No
+### deposited sentence is read against the result at this act ((R148)(4): the act after, on the author`s word). ### No
+### zero of zeta or of Z_Q0 is added or moved; no prior bank is rewritten. ### **NO GRADE IS MOVED ON ANY OTHER ROW.**
+### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN. ### No rm is run.
+### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : c8945de57fd61080221f750c1c9ba7631392d62c65a28de42580bc3246004cc2
+### bytes locked : 16234
+### locked at (UTC) : 2026-09-25T22:22:17Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b538_registration_2026-09-25.txt`.**
+====================================================================================================

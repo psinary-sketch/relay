@@ -8,10 +8,10 @@
   ledgers read : ### **97**  (including the archive`s split looms -- b494 found the
   ### 2026-07-26 census there, and ### **A SPLIT MOVES A LEDGER, IT DOES NOT RETIRE IT**)
   ### THE GRADE-CELL MATCHER, BOTH VERSIONS, YIELD PRINTED.
-    v1 LOOSE (any name on any line carrying a grade word) : 1194 cells, 820 names
-    v2 WINDOWED (every name within 120 chars of a grade)  : 326 cells, 196 names
-    v3 NEAREST (each grade attaches to its NEAREST name)   : 255 cells, 137 names
-    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 246 cells, 137 names**
+    v1 LOOSE (any name on any line carrying a grade word) : 1218 cells, 842 names
+    v2 WINDOWED (every name within 120 chars of a grade)  : 338 cells, 207 names
+    v3 NEAREST (each grade attaches to its NEAREST name)   : 267 cells, 148 names
+    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 258 cells, 148 names**
     ### ### **v1 AND v2 ARE DISCARDED AND THEIR YIELDS ARE PRINTED ANYWAY** -- b381`s
     ### rule, that a matcher is never replaced silently. ### These ledgers carry
     ### 2,000-character re-grade paragraphs naming a dozen keystones and using three
@@ -48,15 +48,15 @@
       json READS the same line where the bank marks it printed                 PASS
       json REFUSES a line quoted from a document at a file and line            PASS
       json READS the act`s own printed line beside it                          PASS
-  banked profile JSONs read (committed, relay HEAD) : 18 ; names profiled there : 202
+  banked profile JSONs read (committed, relay HEAD) : 20 ; names profiled there : 213
 
-  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **71** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/base_nonzero_at', 'SIDE-explicit-formula/ch_iff_h2_sign', 'SIDE-explicit-formula/ch_iff_h2_sign_of_seam', 'SIDE-explicit-formula/classK_of_real_even', 'SIDE-explicit-formula/dominant_exists', 'SIDE-explicit-formula/dominant_summable', 'SIDE-explicit-formula/h2_sign_iff_rh', 'SIDE-explicit-formula/h2_sign_iff_rh_strip', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/h2_sign_imp_ch_holds', 'SIDE-explicit-formula/h2_sign_imp_rh_holds']
-  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **201** ['SIDEExplicitFormula.B321.Aw_nonneg <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Efac_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Ep_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_kill <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_tie_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Nf_pos <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.c4 <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.kfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.tfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_eval <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.VF_conj <- data/b534_profile.json']
+  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **82** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/base_nonzero_at', 'SIDE-explicit-formula/ch_iff_h2_sign', 'SIDE-explicit-formula/ch_iff_h2_sign_of_seam', 'SIDE-explicit-formula/classK_of_real_even', 'SIDE-explicit-formula/dominant_exists', 'SIDE-explicit-formula/dominant_summable', 'SIDE-explicit-formula/h2_sign_iff_rh', 'SIDE-explicit-formula/h2_sign_iff_rh_strip', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/h2_sign_imp_ch_holds', 'SIDE-explicit-formula/h2_sign_imp_rh_holds']
+  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **212** ['SIDEExplicitFormula.B321.Aw_nonneg <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Efac_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Ep_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_kill <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_tie_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Nf_pos <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.c4 <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.kfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.tfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_eval <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.VF_conj <- data/b534_profile.json']
 
   ### THE COUNTS.
   ----------------------------------------------------------------------------------------------------
-    rows (repo, name)                                  : ### **1216**
-    NOT PROFILED                                       : ### **378**
+    rows (repo, name)                                  : ### **1228**
+    NOT PROFILED                                       : ### **379**
     UNGRADED                                           : ### **1096**
     CONFLICT                                           : ### **12**
     ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **8**
@@ -65,7 +65,18 @@
 
   ### THE DIFF AGAINST THE PRIOR RUN.
   ----------------------------------------------------------------------------------------------------
-    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 0
+    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 11
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.not_register1 : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : INTERFACES|NOT PROFILED -> INTERFACES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.register5_output_holds : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.silence_universal_restated : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable : DERIVES|NOT PROFILED -> DERIVES|PROFILED
 
   written: data/terminal_table.json, data/terminal_table.md
 ========================================================================================================

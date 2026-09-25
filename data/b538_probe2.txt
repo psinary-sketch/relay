@@ -1,0 +1,64 @@
+### b538 PRE-SEAL PROBE 2 -- source
+import SIDEExplicitFormula.Seam
+import Mathlib.Analysis.SpecialFunctions.Integrability.Basic
+import Mathlib.Topology.DiscreteSubset
+
+open Complex HurwitzZeta MeasureTheory Set Filter Topology
+
+#check @integrableOn_Ioo_rpow_iff
+#check @discreteTopology_subtype_iff
+#check @Filter.inf_principal_eq_bot
+#check @Set.countable_coe_iff
+#check @Complex.rank_real_complex
+#check @isOpen_compl_singleton
+#check @DifferentiableAt.differentiableWithinAt
+#check @Real.rpow_le_rpow_of_exponent_ge
+#check @Real.rpow_le_rpow_of_nonpos
+#check @Real.rpow_add
+#check @Real.rpow_neg
+#check @Real.rpow_mul
+#check @Measurable.pow_const
+#check @MeasureTheory.ae_restrict_mem
+#check @MeasureTheory.Integrable.norm
+#check @MeasureTheory.Integrable.const_mul
+#check @Complex.norm_real
+#check @Real.norm_of_nonneg
+#check @Set.Ioo_subset_Ioi_self
+#check @Complex.Gammaℝ
+example : ((0:ℝ) : UnitAddCircle) = 0 := rfl
+example : (1 : Cardinal) < 2 := one_lt_two
+example : TopologicalSpace.SeparableSpace ({z : ℂ | z ≠ 1} : Set ℂ) := inferInstance
+### output
+probe_b538_2.lean:7:8: error(lean.unknownIdentifier): Unknown identifier `integrableOn_Ioo_rpow_iff`
+@discreteTopology_subtype_iff : ∀ {Y : Type u_1} [inst : TopologicalSpace Y] {S : Set Y},
+  DiscreteTopology ↑S ↔ ∀ x ∈ S, 𝓝[≠] x ⊓ 𝓟 S = ⊥
+@inf_principal_eq_bot : ∀ {α : Type u_1} {f : Filter α} {s : Set α}, f ⊓ 𝓟 s = ⊥ ↔ sᶜ ∈ f
+@countable_coe_iff : ∀ {α : Type u_1} {s : Set α}, Countable ↑s ↔ s.Countable
+rank_real_complex : Module.rank ℝ ℂ = 2
+@isOpen_compl_singleton : ∀ {X : Type u_1} [inst : TopologicalSpace X] [T1Space X] {x : X}, IsOpen {x}ᶜ
+@DifferentiableAt.differentiableWithinAt : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {E : Type u_2}
+  [inst_1 : AddCommGroup E] [inst_2 : Module 𝕜 E] [inst_3 : TopologicalSpace E] {F : Type u_3} [inst_4 : AddCommGroup F]
+  [inst_5 : Module 𝕜 F] [inst_6 : TopologicalSpace F] {f : E → F} {x : E} {s : Set E},
+  DifferentiableAt 𝕜 f x → DifferentiableWithinAt 𝕜 f s x
+@Real.rpow_le_rpow_of_exponent_ge : ∀ {x y z : ℝ}, 0 < x → x ≤ 1 → z ≤ y → x ^ y ≤ x ^ z
+@Real.rpow_le_rpow_of_nonpos : ∀ {x y z : ℝ}, 0 < x → x ≤ y → z ≤ 0 → y ^ z ≤ x ^ z
+@Real.rpow_add : ∀ {x : ℝ}, 0 < x → ∀ (y z : ℝ), x ^ (y + z) = x ^ y * x ^ z
+@Real.rpow_neg : ∀ {x : ℝ}, 0 ≤ x → ∀ (y : ℝ), x ^ (-y) = (x ^ y)⁻¹
+@Real.rpow_mul : ∀ {x : ℝ}, 0 ≤ x → ∀ (y z : ℝ), x ^ (y * z) = (x ^ y) ^ z
+@Measurable.pow_const : ∀ {β : Type u_1} {γ : Type u_2} {α : Type u_3} [inst : MeasurableSpace β]
+  [inst_1 : MeasurableSpace γ] [inst_2 : Pow β γ] [MeasurablePow β γ] {m : MeasurableSpace α} {f : α → β},
+  Measurable f → ∀ (c : γ), Measurable fun x => f x ^ c
+@ae_restrict_mem : ∀ {α : Type u_1} {m0 : MeasurableSpace α} {μ : Measure α} {s : Set α},
+  MeasurableSet s → ∀ᵐ (x : α) ∂μ.restrict s, x ∈ s
+@Integrable.norm : ∀ {α : Type u_1} {β : Type u_2} {m : MeasurableSpace α} {μ : Measure α} [inst : NormedAddCommGroup β]
+  {f : α → β}, Integrable f μ → Integrable (fun a => ‖f a‖) μ
+@Integrable.const_mul : ∀ {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {𝕜 : Type u_2} [inst : NormedRing 𝕜]
+  {f : α → 𝕜}, Integrable f μ → ∀ (c : 𝕜), Integrable (fun x => c * f x) μ
+norm_real : ∀ (r : ℝ), ‖↑r‖ = ‖r‖
+@Real.norm_of_nonneg : ∀ {r : ℝ}, 0 ≤ r → ‖r‖ = r
+@Ioo_subset_Ioi_self : ∀ {α : Type u_1} [inst : Preorder α] {a b : α}, Ioo b a ⊆ Ioi b
+Gammaℝ : ℂ → ℂ
+probe_b538_2.lean:28:32: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddLeftStrictMono Cardinal.{u_1}
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
