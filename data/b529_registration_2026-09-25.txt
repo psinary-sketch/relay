@@ -1,0 +1,199 @@
+====================================================================================================
+ACT b529 -- THE REGISTRATION FACE. ### (f)(ii), THE PAIR`S TERM, AS FAR AS IT DERIVES, UNDER (R139).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE KERNEL LANE OPENS FOR THIS ACT ALONE, UNDER (R139)(4)**, and shuts at
+### its close.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R139) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) b528 entered -- xi positive beyond its estimated
+### bound at 46 of 46 widths to 60 on the kernel`s plateau, Q0 within reach at none, (N2) and (N3) REFUTED as ordered, the
+### four defects entered, D3`s roundoff floor added to W-ORD-SMOOTH-TAIL; (2) the finding about windows entered -- an
+### instance is chosen by its transform at the bank`s height, not by its smoothness class; (3) CHOICE (c): (f)(ii) for every
+### C^4 phi >= 0 with the realized G as hypothesis, instance-free; Q0`s witness stays on the order-7 B-spline;
+### W-ORD-BSPLINE-INSTANCE filed by the author; route (a) noted as capped at a = 64 and not taken; (4) the kernel lane for
+### b529. ### Ruling and part 1 of 1, received IN FULL, banked verbatim as `b529_ferry.txt`. ### **NOTHING DEPOSITS AND
+### NOTHING IN THIS ACT IS A STATEMENT ABOUT RH OR ABOUT THE ZEROS OF ZETA.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE MODULE.** A NEW kernel file `SIDEExplicitFormula/PairTerm.lean`, importing
+### `SIDEExplicitFormula.TwoPropertyWindow`, and a NEW `AxiomCheckPair.lean`; b524`s module and every earlier AxiomCheck file
+### are NOT edited (their bytes at 334f0ed stand). ### No vendored `Zeta23` file is touched.
+### **READING (2) -- THE PAIR.** `term(rho) = paperFT k (gammaOf rho)`, each of multiplicity one; `rho_0 = 1/2 + delta +
+### i gamma_0` (`rhoZero`) and its mirror `1 - conj rho_0` (the kernel`s `Zeta23.reflect`); the pair`s term `pairTwo` is the
+### sum of those TWO terms, as the ferry words it. Its images are `gamma_0 - i delta` and `gamma_0 + i delta`. ### b524`s
+### `pairTerm` and `fConst = 4` count FOUR images (the conjugates too); for a real window `paperFT k` is even, so the four
+### are twice this pair, and this act`s constant is `c = pairConst = 2`. b524`s `f_pair_hypothesis` is left as it stands.
+### **READING (3) -- COMPONENT 1.** `pairTwo_factored`, for EVERY real phi C^4 with compact support: the pair`s term equals
+### `(delta^2 + 2 i gamma_0 delta)^2 C(gamma_0 - i delta) C(-gamma_0 + i delta) + (delta^2 - 2 i gamma_0 delta)^2 C(gamma_0 +
+### i delta) C(-gamma_0 - i delta)`, `C` the transform of `cos(gamma_0 .) phi` -- the four values the ferry names, `-gamma_0 +
+### i delta` and `gamma_0 + i delta` the mirrors of `gamma_0 - i delta` and `-gamma_0 - i delta`; its proof uses the kernel`s
+### `paperFT (weilTest f g) z = f^(z) conj(g^(conj z))` (Zeta23.EF.paperFT_weilTest) and b524`s factorisation.
+### `pairTwo_near_far` names the near and far factors: each of the four values is `(N + F)/2` or `(N + conj F)/2`, the NEAR
+### factor `N = nearInt phi delta = INT phi(u) cosh(delta u) du` times the constant 1/2 and the FAR factor `F = farFT =
+### phi^(2 gamma_0 - i delta)`. ### **THIS IDENTIFICATION NEEDS phi EVEN** (`hev : forall x, phi (-x) = phi x`), a hypothesis
+### the ferry`s words imply and do not print: for a non-even phi the near factor is `INT phi e^{delta u}` on one side and
+### `INT phi e^{-delta u}` on the other. Both named instances -- the kernel`s plateau and the order-7 B-spline -- are even.
+### `pairTwo_factored` itself carries no evenness.
+### **READING (4) -- COMPONENT 2.** `nearInt_ge`: from phi >= 0 (continuous, compact support), `INT phi <= INT phi cosh(delta
+### u)`; with `INT phi > 0` both are positive. `realizedGrowth_eq`: b524`s `realizedGrowth phi delta` IS `nearInt phi delta /
+### INT phi`, by `rfl`; `realizedGrowth_ge_one` follows. "The near-factor product at the pair" is `nearPair gamma_0 delta N`,
+### the pair`s term with `F = 0`; `nearPair_eq` proves it equal to `N^2 delta^2 (delta^2 - 4 gamma_0^2) / 2` and
+### `pair_near_sign` fixes its sign: negative for `0 < delta < 2 gamma_0`, phi >= 0, `INT phi > 0`.
+### **READING (5) -- COMPONENT 3.** The named hypothesis is `farSmall gamma_0 phi delta eps : Prop := |farFT gamma_0 phi
+### delta| <= eps * nearInt phi delta` -- "smaller in modulus than eps times the near factor", read as `<=` (weaker than `<`,
+### so a theorem under it is stronger) and against N, since the near factor N/2 and the far factor F/2 carry the same 1/2.
+### ### **THE SLOPE CARRIES THE FAR FACTOR AT delta = 0**: `windowSlope = -2 gamma_0 C(gamma_0)`, `C(gamma_0) = (phi^(2
+### gamma_0) + INT phi)/2`, so `pair_bound` takes the SAME named Prop at 0 as well (`farSmall gamma_0 phi 0 eps`). ### Its
+### other hypotheses: phi even, >= 0, C^4, compact support, `INT phi > 0`; `gamma_0 > 0`, `delta > 0`, `eps >= 0`, and `eps` <=
+### c`. ### `pairConst = 2`; `pairEps eps delta gamma_0 = pairConst - (2 (1 - (2 eps + eps^2)) - delta^2 / (2 gamma_0^2) (1 +
+### (2 eps + eps^2))) / (1 + eps)^2`, zero at `eps = 0` as `delta / gamma_0 -> 0`. ### The conclusion: `(pairTwo gamma_0 phi
+### delta).re <= -(pairConst - pairEps eps delta gamma_0) * delta^2 * |windowSlope gamma_0 phi|^2 * realizedGrowth phi
+### delta ^ 2`. ### Lean`s own `#print` of `pairConst` and `pairEps`, and `#check @farSmall` (a Prop), are banked.
+### **READING (6) -- AN ATTEMPT** is one whole-module run of `lake env lean -o ... PairTerm.lean` under (R134)(2) (a host stop
+### is attempt 0 and not counted; a stop the seat causes counts); the draft is written in the scratchpad before the seal and
+### NOT RUN, installed after the seal (the draft`s sha256 banked); every repair is an edit of the installed module. ### **NO
+### PROBE FILE IS RUN**: every Lean run of the module is an attempt. ### No compile is wrapped in `timeout`.
+### **READING (7) -- COMPONENT 3`S NUMBER.** `tools/b529_values.py` evaluates the named hypothesis at Q0`s B-spline instance
+### at a = 34: the window of b522 (`b521_tail.PWindow(34.0, 'q', 7)`, IMPORTED), gamma_0 = 16.290216, delta = beta - 1/2 of
+### b514`s `PAIR`. ### b522`s bank carries G (`growth`) and the pair`s term (`pair`, four images), not the far factor; F is
+### computed by the bank`s own generator and G is checked against the banked value. ### Printed: `eps_delta = |F| / N` (the
+### ferry`s hypothesis at delta), `eps_zero = |phi^(2 gamma_0)| / INT phi` (the same Prop at 0), their maximum `eps`,
+### `pairEps` at that eps, `c - eps``, the right-hand side, and the instance`s pair term (half b522`s banked four-image `pair`)
+### beside it. ### The B-spline of order 7 is C^5, even, >= 0 and of integral 1, so it meets `pair_bound``s hypotheses
+### other than `farSmall`; it is NOT a kernel object (W-ORD-BSPLINE-INSTANCE), and the number is a number, not a theorem.
+### **READING (8) -- THE GRADES, BY STATEMENT-READ, AND THE TABLE.** Component 1 (`pairTwo_factored`, `pairTwo_near_far`)
+### and Component 2 (`nearInt_ge`, `realizedGrowth_ge_one`, `pair_near_sign`) DERIVES; Component 3 (`pair_bound`)
+### INTERFACES on the named hypothesis `farSmall`. ### The grades are written in this act`s correspondence row (the terminal
+### table reads grades there) and the trail record; W-ORD-WEIL-CONVERSE`s table is re-printed IN THE TRAIL RECORD with f2
+### marked `DERIVES (Components 1, 2) / INTERFACES (Component 3, on farSmall)` and f3, f4 OPEN, unchanged. ### FINDINGS.md
+### is not written (its tables are a fold`s). ### The terminal table is regenerated by the suite through `AxiomCheckPair.lean`.
+### **READING (9) -- THE SCORING.** (N1): the module compiles with no error at an attempt numbered at most 3 AND every theorem
+### of Components 1 and 2 (`pairTwo_factored`, `pairTwo_near_far`, `nearInt_ge`, `realizedGrowth_eq`, `realizedGrowth_ge_one`,
+### `nearPair_eq`, `pair_near_sign`) is the standard three on the whole string. (N2): `eps_delta < 0.1` (the ferry`s
+### hypothesis as worded, at delta); `eps_zero` printed beside it and not scored. (N3): the vendored lemmas the module cites
+### (`b529_read.json`) are a subset of those b524`s module cited (`b524_read.json`: `Zeta23.EF.weilTest_contDiff`,
+### `Zeta23.EF.weilTest_hasCompactSupport`).
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `tools/b529_kernel.py install`, then `compile` (each attempt), `statement`, `read` -> `b529_install.json`,
+### `b529_attempts.json`, `b529_attempt<n>.lean`, `b529_compile_log*.txt`, `b529_statement.txt`, `b529_definitions.txt`,
+### `b529_read.json`.
+### (2) `tools/b529_kernel.py profile` -> `b529_profile.json`, `b529_profile_log*.txt`.
+### (3) `tools/b529_values.py` -> `b529_values.json`.
+### (4) `tools/b529_record.py` -> the components bank, the desk, the trail; the correspondence row by `corr_row.py`; the
+### terminal table by the suite.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** the kernel`s `TwoPropertyWindow.lean`, `AxiomCheckWindow.lean`,
+### `B321Identity.lean` (zeroSide), `Zeta23/Defs.lean` (paperFT, gammaOf, reflect) and `Zeta23/ExplicitFormula.lean`
+### (paperFT_weilTest, paperFT_tilde) at 334f0ed; Mathlib at the pin, for lemma names (Complex.two_cos, Complex.two_cosh,
+### Complex.normSq_add_mul_I, Complex.sq_norm, Complex.norm_conj, Complex.re_le_norm, Complex.re_ofReal_mul,
+### Complex.norm_of_nonneg, Complex.conj_conj, integral_conj, integral_ofReal, integral_neg_eq_self, integral_mono,
+### Real.one_le_cosh, mul_self_le_mul_self); `b524_read.json`, `b527_read.json`; b522`s tools (`b521_tail.py`,
+### `b519_window.py`, `b514_window.py`) for the window`s definition, and ONE ROW of `b522_cells.jsonl` (a = 34: `growth`
+### 1.3607, `growth_bound` 4.9449, `pair` -403.70). ### **FROM THAT ROW, BY HAND:** delta = log(4.9449)/log(34) = 0.453
+### (b514 gives beta = 0.95326), and the near-factor product `N^2 delta^2 (delta^2 - 4 gamma_0^2)` at N = G = 1.3607 is about
+### -404, beside the banked four-image `pair` -403.70 -- the arithmetic that fixed `c = 2` for two images. ### **AND A HAND
+### PRICE OF eps, NO CODE RUN**: from the window`s closed form `sinc(zW) sinc(zh/2)^7` at z = 2 gamma_0 - i delta, |F| is of
+### order 6e-5 against N = 1.36, eps of order 5e-5. ### **THE MODULE AND ITS AXIOM CHECK ARE DRAFTED BEFORE THE SEAL AND NOT
+### RUN**; no Lean process was started in this act before the seal, and `b529_values.py` was not run before the seal.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### One warm import of `TwoPropertyWindow` per attempt (b527: 66.7 s) and the module`s own elaboration; attempts unknown.
+### ### **THE DRAFT CITES `Zeta23.EF.paperFT_weilTest`, WHICH b524`S MODULE DID NOT**: the transform of `k = weilTest h h`
+### at the pair`s images is not reachable from b524`s lemmas without it. ### By READING (9) (N3) is therefore expected
+### REFUTED by the draft as sealed, and the face says so before the compile.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **COMPONENTS 1 AND 2 COMPILE STANDARD THREE WITHIN THREE ATTEMPTS.**
+### **(N2)** ### **COMPONENT 3`S HYPOTHESIS, EVALUATED AT Q0`S B-SPLINE INSTANCE AT a = 34, HOLDS WITH epsilon BELOW 0.1.**
+### **(N3)** ### **NO VENDORED LEMMA BEYOND b524`S IS NEEDED.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE MODULE COMPILES CLEAN WITHIN TWO ATTEMPTS.**
+### **(S2)** ### **EVERY THEOREM OF THE MODULE IN THE AXIOM CHECK IS THE STANDARD THREE** (19 of 19).
+### **(S3)** ### **eps, THE LARGER OF eps_delta AND eps_zero, IS BELOW 1e-3 AT a = 34.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R139-ENTERED`
+### `G-INSTALLED-FROM-DRAFT` `G-ATTEMPTS-BANKED` `G-MODULE-NO-SORRY` `G-PROFILE-WHOLE-STRING` `G-STATEMENTS-PRINTED`
+### `G-PRIOR-MODULES-UNTOUCHED` `G-FARSMALL-A-PROP` `G-CONSTANTS-PRINTED` `G-VENDORED-REFS-READ` `G-HYPOTHESIS-VALUE`
+### `G-GRADES-BY-READING` `G-F2-MARKED` `G-TABLE-ROW`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-PRIORBANK-UNCHANGED` holds every prior act`s
+### bank unchanged, with no exception.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b529_*` `relay/tools/b529_*` |
+### | `tools/b529_kernel.py install` | `SIDE-explicit-formula/SIDEExplicitFormula/PairTerm.lean`
+###   `SIDE-explicit-formula/AxiomCheckPair.lean` (both NEW, the draft installed) |
+### | `lake env lean -o` | `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/PairTerm.*`
+###   (build artefacts, untracked) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b529_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b529_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b529_registration_2026-09-25.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b529_span*.json` `relay/data/b529_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b529.zip`
+###   (outside every repository) `relay/data/b529_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b529_kernel.py` `b529_values.py` `b529_record.py` `b529_reg_gate.py`
+### `b529_regspec.py` `b529_checks.py` `b529_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED**; `b521_tail.py`, `b519_window.py` and `b514_window.py` are IMPORTED by
+### `b529_values.py`, never copied or edited. ### No vendored `Zeta23` file and no existing kernel module is touched.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### The kernel is not tagged. ### (f)(iii) and (f)(iv) are not attempted;
+### `farSmall` is stated and not proved; W-ORD-BSPLINE-INSTANCE is not taken. ### No zero of zeta or of Z_Q0 is added or
+### moved; no prior bank is rewritten. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside
+### it. ### Nothing deposits. ### **NO GRADE IS MOVED ON ANY OTHER CORPUS ROW**; the three grades of READING (8) are this
+### act`s own rows. ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN.
+### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 723488c8e23b5262db8efb65995621f7f816ecf0724c921d96218dd4177a6a1d
+### bytes locked : 18330
+### locked at (UTC) : 2026-09-25T13:41:50Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b529_registration_2026-09-25.txt`.**
+====================================================================================================

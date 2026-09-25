@@ -1,0 +1,238 @@
+{
+ "decls": [
+  {
+   "name": "phiC",
+   "head": "def phiC (φ : ℝ → ℝ) : ℝ → ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "nearInt",
+   "head": "def nearInt (φ : ℝ → ℝ) (δ : ℝ) : ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "farFT",
+   "head": "def farFT (γ₀ : ℝ) (φ : ℝ → ℝ) (δ : ℝ) : ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "rhoZero",
+   "head": "def rhoZero (γ₀ δ : ℝ) : ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "pairTwo",
+   "head": "def pairTwo (γ₀ : ℝ) (φ : ℝ → ℝ) (δ : ℝ) : ℂ :=",
+   "lines": 3
+  },
+  {
+   "name": "gammaOf_rhoZero",
+   "head": "theorem gammaOf_rhoZero (γ₀ δ : ℝ) : Zeta23.gammaOf (rhoZero γ₀ δ) = (γ₀ : ℂ) - I * δ :=",
+   "lines": 4
+  },
+  {
+   "name": "gammaOf_reflect_rhoZero",
+   "head": "theorem gammaOf_reflect_rhoZero (γ₀ δ : ℝ) :\n    Zeta23.gammaOf (Zeta23.reflect (rhoZero γ₀ δ)) = (γ₀ : ℂ) + I * δ :=",
+   "lines": 11
+  },
+  {
+   "name": "paperFT_ofReal_conj",
+   "head": "theorem paperFT_ofReal_conj (f : ℝ → ℝ) (z : ℂ) :\n    conj (Zeta23.paperFT (phiC f) z) = Zeta23.paperFT (phiC f) (-conj z) :=",
+   "lines": 8
+  },
+  {
+   "name": "kWin_FT",
+   "head": "theorem kWin_FT (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) :\n    Zeta23.paperFT (kWin γ₀ φ) z = Zeta23.paperFT (windowC γ₀ φ) z * Zeta23.paperFT (windowC γ₀ φ) (-z) :=",
+   "lines": 10
+  },
+  {
+   "name": "pairTwo_factored",
+   "head": "theorem pairTwo_factored (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :\n    pairTwo γ₀ φ δ =\n      ((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2 *\n          (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ)) +\n      ((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2 *\n          (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ)) :=",
+   "lines": 21
+  },
+  {
+   "name": "phiC_exp_integrable",
+   "head": "theorem phiC_exp_integrable {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (z : ℂ) :\n    Integrable (fun u : ℝ => (φ u : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) :=",
+   "lines": 7
+  },
+  {
+   "name": "cosWinC_FT",
+   "head": "theorem cosWinC_FT (γ₀ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (z : ℂ) :\n    Zeta23.paperFT (cosWinC γ₀ φ) z =\n      (Zeta23.paperFT (phiC φ) (z + γ₀) + Zeta23.paperFT (phiC φ) (z - γ₀)) / 2 :=",
+   "lines": 27
+  },
+  {
+   "name": "phiC_FT_neg",
+   "head": "theorem phiC_FT_neg {φ : ℝ → ℝ} (hev : ∀ x, φ (-x) = φ x) (z : ℂ) :\n    Zeta23.paperFT (phiC φ) (-z) = Zeta23.paperFT (phiC φ) z :=",
+   "lines": 9
+  },
+  {
+   "name": "phiC_FT_zero",
+   "head": "theorem phiC_FT_zero (φ : ℝ → ℝ) : Zeta23.paperFT (phiC φ) 0 = ((∫ u, φ u : ℝ) : ℂ) :=",
+   "lines": 3
+  },
+  {
+   "name": "nearInt_zero",
+   "head": "theorem nearInt_zero (φ : ℝ → ℝ) : nearInt φ 0 = ∫ u, φ u :=",
+   "lines": 2
+  },
+  {
+   "name": "phiC_FT_imag",
+   "head": "theorem phiC_FT_imag {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :\n    Zeta23.paperFT (phiC φ) (I * δ) = (nearInt φ δ : ℂ) :=",
+   "lines": 24
+  },
+  {
+   "name": "farFT_conj",
+   "head": "theorem farFT_conj (γ₀ : ℝ) {φ : ℝ → ℝ} (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :\n    conj (farFT γ₀ φ δ) = Zeta23.paperFT (phiC φ) (2 * (γ₀ : ℂ) + I * δ) :=",
+   "lines": 10
+  },
+  {
+   "name": "cosWinC_FT_near_far",
+   "head": "theorem cosWinC_FT_near_far (γ₀ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ)\n    (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :\n    Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) = ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2 ∧\n    Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ) = ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2 ∧\n    Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) = ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2 ∧\n    Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ) = ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2 :=",
+   "lines": 25
+  },
+  {
+   "name": "pairTwo_near_far",
+   "head": "theorem pairTwo_near_far (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ)\n    (hev : ∀ x, φ (-x) = φ x) :\n    pairTwo γ₀ φ δ =\n      (((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2) ^ 2 +\n      (((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2) ^ 2 :=",
+   "lines": 8
+  },
+  {
+   "name": "nearInt_ge",
+   "head": "theorem nearInt_ge {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x) (δ : ℝ) :\n    (∫ u, φ u) ≤ nearInt φ δ :=",
+   "lines": 10
+  },
+  {
+   "name": "nearInt_pos",
+   "head": "theorem nearInt_pos {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)\n    (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 0 < nearInt φ δ :=",
+   "lines": 3
+  },
+  {
+   "name": "realizedGrowth_eq",
+   "head": "theorem realizedGrowth_eq (φ : ℝ → ℝ) (δ : ℝ) : realizedGrowth φ δ = nearInt φ δ / ∫ u, φ u :=",
+   "lines": 1
+  },
+  {
+   "name": "realizedGrowth_ge_one",
+   "head": "theorem realizedGrowth_ge_one {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)\n    (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 1 ≤ realizedGrowth φ δ :=",
+   "lines": 4
+  },
+  {
+   "name": "nearPair",
+   "head": "def nearPair (γ₀ δ N : ℝ) : ℂ :=",
+   "lines": 2
+  },
+  {
+   "name": "nearPair_eq",
+   "head": "theorem nearPair_eq (γ₀ δ N : ℝ) : nearPair γ₀ δ N = ((N ^ 2 * δ ^ 2 * (δ ^ 2 - 4 * γ₀ ^ 2) / 2 : ℝ) : ℂ) :=",
+   "lines": 4
+  },
+  {
+   "name": "nearPair_neg",
+   "head": "theorem nearPair_neg (γ₀ δ N : ℝ) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) (hN : 0 < N) : (nearPair γ₀ δ N).re < 0 :=",
+   "lines": 6
+  },
+  {
+   "name": "pair_near_sign",
+   "head": "theorem pair_near_sign (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)\n    (hpos : 0 < ∫ u, φ u) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) : (nearPair γ₀ δ (nearInt φ δ)).re < 0 :=",
+   "lines": 3
+  },
+  {
+   "name": "farSmall",
+   "head": "def farSmall (γ₀ : ℝ) (φ : ℝ → ℝ) (δ ε : ℝ) : Prop :=",
+   "lines": 1
+  },
+  {
+   "name": "pairConst",
+   "head": "def pairConst : ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "pairEps",
+   "head": "def pairEps (ε δ γ₀ : ℝ) : ℝ :=",
+   "lines": 2
+  },
+  {
+   "name": "cross_bound",
+   "head": "theorem cross_bound (N ε : ℝ) (G : ℂ) (hN : 0 ≤ N) (hG : ‖G‖ ≤ ε * N) :\n    ‖2 * (N : ℂ) * G + G ^ 2‖ ≤ (2 * ε + ε ^ 2) * N ^ 2 :=",
+   "lines": 10
+  },
+  {
+   "name": "weight_norm_plus",
+   "head": "theorem weight_norm_plus (γ₀ δ : ℝ) : ‖((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2‖ = δ ^ 4 + 4 * γ₀ ^ 2 * δ ^ 2 :=",
+   "lines": 6
+  },
+  {
+   "name": "weight_norm_minus",
+   "head": "theorem weight_norm_minus (γ₀ δ : ℝ) : ‖((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2‖ = δ ^ 4 + 4 * γ₀ ^ 2 * δ ^ 2 :=",
+   "lines": 6
+  },
+  {
+   "name": "pair_algebra",
+   "head": "theorem pair_algebra (γ δ ε N S : ℝ) (F sl : ℂ) (hγ : 0 < γ) (hε : 0 ≤ ε) (hS : 0 < S) (hSN : S ≤ N)\n    (hF : ‖F‖ ≤ ε * N) (hsl : ‖sl‖ ≤ γ * (1 + ε) * S) (hc : pairEps ε δ γ ≤ pairConst) :\n    ((((δ : ℂ) ^ 2 + 2 * I * γ * δ) * ((N : ℂ) + F) / 2) ^ 2 +\n      (((δ : ℂ) ^ 2 - 2 * I * γ * δ) * ((N : ℂ) + conj F) / 2) ^ 2).re ≤\n      -(pairConst - pairEps ε δ γ) * δ ^ 2 * ‖sl‖ ^ 2 * (N / S) ^ 2 :=",
+   "lines": 61
+  },
+  {
+   "name": "windowSlope_bound",
+   "head": "theorem windowSlope_bound (γ₀ ε : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ)\n    (hγ : 0 < γ₀) (hS : 0 ≤ ∫ u, φ u) (hfar0 : farSmall γ₀ φ 0 ε) :\n    ‖windowSlope γ₀ φ‖ ≤ γ₀ * (1 + ε) * ∫ u, φ u :=",
+   "lines": 19
+  },
+  {
+   "name": "pair_bound",
+   "head": "theorem pair_bound (γ₀ δ ε : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ)\n    (hev : ∀ x, φ (-x) = φ x) (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u)\n    (hγ : 0 < γ₀) (hδ : 0 < δ) (hε : 0 ≤ ε)\n    (hfar : farSmall γ₀ φ δ ε) (hfar0 : farSmall γ₀ φ 0 ε) (hc : pairEps ε δ γ₀ ≤ pairConst) :\n    (pairTwo γ₀ φ δ).re ≤\n      -(pairConst - pairEps ε δ γ₀) * δ ^ 2 * ‖windowSlope γ₀ φ‖ ^ 2 * realizedGrowth φ δ ^ 2 :=",
+   "lines": 10
+  }
+ ],
+ "refs": [
+  {
+   "name": "Zeta23.EF.paperFT_weilTest",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.gammaOf",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.paperFT",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.reflect",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  }
+ ],
+ "b524_lemma_refs": [
+  "Zeta23.EF.weilTest_contDiff",
+  "Zeta23.EF.weilTest_hasCompactSupport"
+ ],
+ "lemma_refs": [
+  "Zeta23.EF.paperFT_weilTest"
+ ],
+ "def_refs": [
+  "Zeta23.gammaOf",
+  "Zeta23.paperFT",
+  "Zeta23.reflect"
+ ],
+ "lemmas_beyond_b524": [
+  "Zeta23.EF.paperFT_weilTest"
+ ],
+ "module_lines": 448
+}

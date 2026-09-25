@@ -1,0 +1,30 @@
+========================================================================================================
+b529 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- first clean attempt : 2 (at most 3) ; Components 1 and 2 std3 : 7 of 7.
+  **(N2)** ### **HELD.** -- eps_delta = |F| / N = 3.9238e-05 against 0.1 (eps_zero 5.3465e-08 beside it, not scored).
+  **(N3)** ### **REFUTED.** -- vendored lemmas cited ['Zeta23.EF.paperFT_weilTest'] ; beyond b524`s ['Zeta23.EF.paperFT_weilTest'] (declared on the face in (C2) before the compile).
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- first clean attempt 2 against 2.
+  **(S2)** ### **HELD.** -- every theorem in the axiom check std3 : 19 of 19.
+  **(S3)** ### **HELD.** -- eps 3.9238e-05 against 1e-3.
+
+### ### **THE NAVIGATOR`S : HELD 2 ; REFUTED 1.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **ATTEMPT 0 WAS STOPPED BY THE HOST** (low memory while the session was idle; lake had loaded no Lean for 26 min on
+        a machine with 1.2 GB free). No verdict; recorded under (R134)(2) with its note, b529_attempt0_stopped_by_host.txt.
+        ### Resumed by the author's ferry in the foreground as attempt 1.
+    (b) ### **ATTEMPT 1: THREE ERRORS, EACH THE SEAT'S.** (i) `rw [← integral_ofReal]` could not find its pattern: the lemma's
+        cast is RCLike's, the goal's `Complex.ofReal` -- repaired by stating the equation as a `have` checked by defeq.
+        (ii) a trailing `ring` after a rewrite that already closed the goal. (iii) `Real.one_le_cosh` is NOT IN THE IMPORT
+        CLOSURE: the pre-seal read grepped Mathlib's source for the NAME and did not check its module was imported
+        (`Trigonometric/DerivHyp`) -- repaired from `Real.cosh_sq` and `Real.cosh_pos` by nlinarith. Attempt 2 clean, 35.5 s.
+    (c) ### **COMPONENT 3'S CROSS-CHECK SHARES ITS ROUTE**: the near/far formula and the instrument's khat both read the same
+        `phihat`, so their agreement (|diff| 0.0) checks the transcription of Component 1's formula, not phihat. Said beside it.
+========================================================================================================

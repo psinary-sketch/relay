@@ -1,0 +1,194 @@
+====================================================================================================================================
+b529 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE INSTALL:
+{
+ "PairTerm.lean": {
+  "prior_sha": null,
+  "draft_sha": "7d84bdea9f932b56c294369594f0444c3bba7406c7e576c6c18ca313e0ab76ea",
+  "installed_sha": "7d84bdea9f932b56c294369594f0444c3bba7406c7e576c6c18ca313e0ab76ea"
+ },
+ "AxiomCheckPair.lean": {
+  "prior_sha": null,
+  "draft_sha": "1cdd382bfe3a22391a977b704cde10039fa2a6394d20e6d48daacfbc39c182e3",
+  "installed_sha": "1cdd382bfe3a22391a977b704cde10039fa2a6394d20e6d48daacfbc39c182e3"
+ }
+}
+
+### THE ATTEMPTS (READING (6)):
+  attempt 1 : exit 1 ; 3 error lines ; 653.2 s
+      SIDEExplicitFormula\PairTerm.lean:193:30: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      SIDEExplicitFormula\PairTerm.lean:247:4: error: No goals to be solved
+      SIDEExplicitFormula\PairTerm.lean:270:70: error(lean.unknownIdentifier): Unknown constant `Real.one_le_cosh`
+  attempt 2 : exit 0 ; 0 error lines ; 35.5 s
+
+### THE STATEMENTS, FROM THE DECLARATION LINE TO ITS := :
+def phiC (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+def nearInt (φ : ℝ → ℝ) (δ : ℝ) : ℝ :=
+
+def farFT (γ₀ : ℝ) (φ : ℝ → ℝ) (δ : ℝ) : ℂ :=
+
+def rhoZero (γ₀ δ : ℝ) : ℂ :=
+
+def pairTwo (γ₀ : ℝ) (φ : ℝ → ℝ) (δ : ℝ) : ℂ :=
+
+theorem gammaOf_rhoZero (γ₀ δ : ℝ) : Zeta23.gammaOf (rhoZero γ₀ δ) = (γ₀ : ℂ) - I * δ :=
+
+theorem gammaOf_reflect_rhoZero (γ₀ δ : ℝ) :
+    Zeta23.gammaOf (Zeta23.reflect (rhoZero γ₀ δ)) = (γ₀ : ℂ) + I * δ :=
+
+theorem paperFT_ofReal_conj (f : ℝ → ℝ) (z : ℂ) :
+    conj (Zeta23.paperFT (phiC f) z) = Zeta23.paperFT (phiC f) (-conj z) :=
+
+theorem kWin_FT (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) :
+    Zeta23.paperFT (kWin γ₀ φ) z = Zeta23.paperFT (windowC γ₀ φ) z * Zeta23.paperFT (windowC γ₀ φ) (-z) :=
+
+theorem pairTwo_factored (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :
+    pairTwo γ₀ φ δ =
+      ((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2 *
+          (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ)) +
+      ((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2 *
+          (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ)) :=
+
+theorem phiC_exp_integrable {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (z : ℂ) :
+    Integrable (fun u : ℝ => (φ u : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) :=
+
+theorem cosWinC_FT (γ₀ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (z : ℂ) :
+    Zeta23.paperFT (cosWinC γ₀ φ) z =
+      (Zeta23.paperFT (phiC φ) (z + γ₀) + Zeta23.paperFT (phiC φ) (z - γ₀)) / 2 :=
+
+theorem phiC_FT_neg {φ : ℝ → ℝ} (hev : ∀ x, φ (-x) = φ x) (z : ℂ) :
+    Zeta23.paperFT (phiC φ) (-z) = Zeta23.paperFT (phiC φ) z :=
+
+theorem phiC_FT_zero (φ : ℝ → ℝ) : Zeta23.paperFT (phiC φ) 0 = ((∫ u, φ u : ℝ) : ℂ) :=
+
+theorem nearInt_zero (φ : ℝ → ℝ) : nearInt φ 0 = ∫ u, φ u :=
+
+theorem phiC_FT_imag {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :
+    Zeta23.paperFT (phiC φ) (I * δ) = (nearInt φ δ : ℂ) :=
+
+theorem farFT_conj (γ₀ : ℝ) {φ : ℝ → ℝ} (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :
+    conj (farFT γ₀ φ δ) = Zeta23.paperFT (phiC φ) (2 * (γ₀ : ℂ) + I * δ) :=
+
+theorem cosWinC_FT_near_far (γ₀ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ)
+    (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :
+    Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) = ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2 ∧
+    Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ) = ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2 ∧
+    Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) = ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2 ∧
+    Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ) = ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2 :=
+
+theorem pairTwo_near_far (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ)
+    (hev : ∀ x, φ (-x) = φ x) :
+    pairTwo γ₀ φ δ =
+      (((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2) ^ 2 +
+      (((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2) ^ 2 :=
+
+theorem nearInt_ge {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x) (δ : ℝ) :
+    (∫ u, φ u) ≤ nearInt φ δ :=
+
+theorem nearInt_pos {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)
+    (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 0 < nearInt φ δ :=
+
+theorem realizedGrowth_eq (φ : ℝ → ℝ) (δ : ℝ) : realizedGrowth φ δ = nearInt φ δ / ∫ u, φ u :=
+
+theorem realizedGrowth_ge_one {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)
+    (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 1 ≤ realizedGrowth φ δ :=
+
+def nearPair (γ₀ δ N : ℝ) : ℂ :=
+
+theorem nearPair_eq (γ₀ δ N : ℝ) : nearPair γ₀ δ N = ((N ^ 2 * δ ^ 2 * (δ ^ 2 - 4 * γ₀ ^ 2) / 2 : ℝ) : ℂ) :=
+
+theorem nearPair_neg (γ₀ δ N : ℝ) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) (hN : 0 < N) : (nearPair γ₀ δ N).re < 0 :=
+
+theorem pair_near_sign (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)
+    (hpos : 0 < ∫ u, φ u) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) : (nearPair γ₀ δ (nearInt φ δ)).re < 0 :=
+
+def farSmall (γ₀ : ℝ) (φ : ℝ → ℝ) (δ ε : ℝ) : Prop :=
+
+def pairConst : ℝ :=
+
+def pairEps (ε δ γ₀ : ℝ) : ℝ :=
+
+theorem cross_bound (N ε : ℝ) (G : ℂ) (hN : 0 ≤ N) (hG : ‖G‖ ≤ ε * N) :
+    ‖2 * (N : ℂ) * G + G ^ 2‖ ≤ (2 * ε + ε ^ 2) * N ^ 2 :=
+
+theorem weight_norm_plus (γ₀ δ : ℝ) : ‖((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2‖ = δ ^ 4 + 4 * γ₀ ^ 2 * δ ^ 2 :=
+
+theorem weight_norm_minus (γ₀ δ : ℝ) : ‖((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2‖ = δ ^ 4 + 4 * γ₀ ^ 2 * δ ^ 2 :=
+
+theorem pair_algebra (γ δ ε N S : ℝ) (F sl : ℂ) (hγ : 0 < γ) (hε : 0 ≤ ε) (hS : 0 < S) (hSN : S ≤ N)
+    (hF : ‖F‖ ≤ ε * N) (hsl : ‖sl‖ ≤ γ * (1 + ε) * S) (hc : pairEps ε δ γ ≤ pairConst) :
+    ((((δ : ℂ) ^ 2 + 2 * I * γ * δ) * ((N : ℂ) + F) / 2) ^ 2 +
+      (((δ : ℂ) ^ 2 - 2 * I * γ * δ) * ((N : ℂ) + conj F) / 2) ^ 2).re ≤
+      -(pairConst - pairEps ε δ γ) * δ ^ 2 * ‖sl‖ ^ 2 * (N / S) ^ 2 :=
+
+theorem windowSlope_bound (γ₀ ε : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ)
+    (hγ : 0 < γ₀) (hS : 0 ≤ ∫ u, φ u) (hfar0 : farSmall γ₀ φ 0 ε) :
+    ‖windowSlope γ₀ φ‖ ≤ γ₀ * (1 + ε) * ∫ u, φ u :=
+
+theorem pair_bound (γ₀ δ ε : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ)
+    (hev : ∀ x, φ (-x) = φ x) (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u)
+    (hγ : 0 < γ₀) (hδ : 0 < δ) (hε : 0 ≤ ε)
+    (hfar : farSmall γ₀ φ δ ε) (hfar0 : farSmall γ₀ φ 0 ε) (hc : pairEps ε δ γ₀ ≤ pairConst) :
+    (pairTwo γ₀ φ δ).re ≤
+      -(pairConst - pairEps ε δ γ₀) * δ ^ 2 * ‖windowSlope γ₀ φ‖ ^ 2 * realizedGrowth φ δ ^ 2 :=
+
+### THE PROFILE (AxiomCheckPair.lean):
+  'SIDEExplicitFormula.B321.pairTwo_factored' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.pairTwo_near_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.nearInt_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.realizedGrowth_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.realizedGrowth_ge_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.nearPair_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.pair_near_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.pair_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.windowSlope_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.kWin_FT' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cosWinC_FT' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cosWinC_FT_near_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.phiC_FT_imag' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.phiC_FT_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.farFT_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_ofReal_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gammaOf_rhoZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gammaOf_reflect_rhoZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### whole-string standard three : 19 of 19
+  ### #check : SIDEExplicitFormula.B321.farSmall : ℝ → (ℝ → ℝ) → ℝ → ℝ → Prop
+  ### #print pairConst : def SIDEExplicitFormula.B321.pairConst : ℝ := 2
+  ### #print pairEps : def SIDEExplicitFormula.B321.pairEps : ℝ → ℝ → ℝ → ℝ := fun ε δ γ₀ =>   SIDEExplicitFormula.B321.pairConst -     (2 * (1 - (2 * ε + ε ^ 2)) - δ ^ 2 / (2 * γ₀ ^ 2) * (1 + (2 * ε + ε ^ 2))) / (1 + ε) ^ 2
+  ### #print farSmall : def SIDEExplicitFormula.B321.farSmall : ℝ → (ℝ → ℝ) → ℝ → ℝ → Prop := fun γ₀ φ δ ε => ‖SIDEExplicitFormula.B321.farFT γ₀ φ δ‖ ≤ ε * SIDEExplicitFormula.B321.nearInt φ δ
+  ### #print nearInt : def SIDEExplicitFormula.B321.nearInt : (ℝ → ℝ) → ℝ → ℝ := fun φ δ => ∫ (u : ℝ), φ u * Real.cosh (δ * u)
+  ### #print farFT : def SIDEExplicitFormula.B321.farFT : ℝ → (ℝ → ℝ) → ℝ → ℂ := fun γ₀ φ δ => Zeta23.paperFT (SIDEExplicitFormula.B321.phiC φ) (2 * ↑γ₀ - Complex.I * ↑δ)
+  ### #print nearPair : def SIDEExplicitFormula.B321.nearPair : ℝ → ℝ → ℝ → ℂ := fun γ₀ δ N => ((↑δ ^ 2 + 2 * Complex.I * ↑γ₀ * ↑δ) * ↑N / 2) ^ 2 + ((↑δ ^ 2 - 2 * Complex.I * ↑γ₀ * ↑δ) * ↑N / 2) ^ 2
+  ### #print pairTwo : def SIDEExplicitFormula.B321.pairTwo : ℝ → (ℝ → ℝ) → ℝ → ℂ := fun γ₀ φ δ =>   Zeta23.paperFT (SIDEExplicitFormula.B321.kWin γ₀ φ) (Zeta23.gammaOf (SIDEExplicitFormula.B321.rhoZero γ₀ δ)) +     Zeta23.paperFT (SIDEExplicitFormula.B321.kWin γ₀ φ)       (Zeta23.gammaOf (Zeta23.reflect (SIDEExplicitFormula.B321.rhoZero γ₀ δ)))
+  ### #print rhoZero : def SIDEExplicitFormula.B321.rhoZero : ℝ → ℝ → ℂ := fun γ₀ δ => 1 / 2 + ↑δ + ↑γ₀ * Complex.I
+
+### THE VENDORED REFERENCES (N3): lemmas ['Zeta23.EF.paperFT_weilTest'] ; b524`s ['Zeta23.EF.weilTest_contDiff', 'Zeta23.EF.weilTest_hasCompactSupport'] ; BEYOND b524`s ['Zeta23.EF.paperFT_weilTest']
+
+### COMPONENT 3`S NUMBER (READING (7)), Q0`s B-spline instance, a = 34.0, p = 7:
+  gamma0                   16.290216
+  delta                    0.4532604747946607
+  S                        1.0
+  N                        1.3606979993624688
+  absF                     5.3390471084569955e-05
+  absF0                    5.3464565082522793e-08
+  eps_delta                3.923756124399766e-05
+  eps_zero                 5.3464565082522793e-08
+  eps                      3.923756124399766e-05
+  G                        1.3606979993624688
+  bank_growth              1.3606979993624688
+  slope                    -16.290215129050686
+  pairEps                  0.0007009720741331105
+  c_minus_eps              1.999299027925867
+  rhs                      -201.81367242382368
+  pairTwo_khat             [-201.84830021311058, 0.0]
+  pairTwo_formula          [-201.84830021311058, 0.0]
+  bank_pair_half           -201.8482857430942
+  near_pair                -201.8453779529211
+  bound_holds_on_instance  True
+  ### the formula and the instrument`s khat share phihat: their agreement checks the transcription of Component 1,
+  ### not phihat. ### b522`s banked pair is at the zero`s own ordinate, the kernel`s pairTwo at gamma_0.
+====================================================================================================================================

@@ -1,0 +1,10 @@
+    (a) ### **ATTEMPT 0 WAS STOPPED BY THE HOST** (low memory while the session was idle; lake had loaded no Lean for 26 min on
+        a machine with 1.2 GB free). No verdict; recorded under (R134)(2) with its note, b529_attempt0_stopped_by_host.txt.
+        ### Resumed by the author's ferry in the foreground as attempt 1.
+    (b) ### **ATTEMPT 1: THREE ERRORS, EACH THE SEAT'S.** (i) `rw [← integral_ofReal]` could not find its pattern: the lemma's
+        cast is RCLike's, the goal's `Complex.ofReal` -- repaired by stating the equation as a `have` checked by defeq.
+        (ii) a trailing `ring` after a rewrite that already closed the goal. (iii) `Real.one_le_cosh` is NOT IN THE IMPORT
+        CLOSURE: the pre-seal read grepped Mathlib's source for the NAME and did not check its module was imported
+        (`Trigonometric/DerivHyp`) -- repaired from `Real.cosh_sq` and `Real.cosh_pos` by nlinarith. Attempt 2 clean, 35.5 s.
+    (c) ### **COMPONENT 3'S CROSS-CHECK SHARES ITS ROUTE**: the near/far formula and the instrument's khat both read the same
+        `phihat`, so their agreement (|diff| 0.0) checks the transcription of Component 1's formula, not phihat. Said beside it.

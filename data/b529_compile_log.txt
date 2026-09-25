@@ -1,0 +1,69 @@
+### run at (UTC) : 2026-09-25T14:32:26Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\PairTerm.olean SIDEExplicitFormula\PairTerm.lean
+exit 1 ; 653.2 s
+--- stdout ---
+SIDEExplicitFormula\PairTerm.lean:73:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:74:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:73:6: warning: '(simp [map_add, map_mul, Complex.conj_ofReal, Complex.conj_I]; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:74:6: warning: 'simp [map_add, map_mul, Complex.conj_ofReal, Complex.conj_I]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:193:30: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(∫ (x : ?m.79), ?m.84 x ∂?m.81)
+in the target expression
+  ∫ (a : ℝ), ↑(φ a) * cexp (I * (I * ↑δ) * ↑a) + ↑(φ a) * cexp (I * -(I * ↑δ) * ↑a) =
+    2 * ↑(∫ (u : ℝ), φ u * Real.cosh (δ * u))
+
+φ : ℝ → ℝ
+hc : Continuous φ
+hs : HasCompactSupport φ
+hev : ∀ (x : ℝ), φ (-x) = φ x
+δ : ℝ
+hn : Zeta23.paperFT (phiC φ) (-(I * ↑δ)) = Zeta23.paperFT (phiC φ) (I * ↑δ)
+i1 : Integrable (fun u => ↑(φ u) * cexp (I * (I * ↑δ) * ↑u)) volume
+i2 : Integrable (fun u => ↑(φ u) * cexp (I * -(I * ↑δ) * ↑u)) volume
+⊢ ∫ (a : ℝ), ↑(φ a) * cexp (I * (I * ↑δ) * ↑a) + ↑(φ a) * cexp (I * -(I * ↑δ) * ↑a) =
+    2 * ↑(∫ (u : ℝ), φ u * Real.cosh (δ * u))
+SIDEExplicitFormula\PairTerm.lean:216:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:217:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:216:6: warning: '(simp [map_sub, map_mul, Complex.conj_ofReal, Complex.conj_I]; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:217:6: warning: 'simp [map_sub, map_mul, Complex.conj_ofReal, Complex.conj_I]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:247:4: error: No goals to be solved
+SIDEExplicitFormula\PairTerm.lean:270:70: error(lean.unknownIdentifier): Unknown constant `Real.one_le_cosh`
+SIDEExplicitFormula\PairTerm.lean:322:32: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SIDEExplicitFormula\PairTerm.lean:322:88: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:322:88: warning: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:400:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:400:6: warning: '(field_simp; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:434:19: warning: Variable name `hδ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hδ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+--- stderr ---
+

@@ -1,0 +1,110 @@
+def phiC (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+def nearInt (φ : ℝ → ℝ) (δ : ℝ) : ℝ :=
+
+def farFT (γ₀ : ℝ) (φ : ℝ → ℝ) (δ : ℝ) : ℂ :=
+
+def rhoZero (γ₀ δ : ℝ) : ℂ :=
+
+def pairTwo (γ₀ : ℝ) (φ : ℝ → ℝ) (δ : ℝ) : ℂ :=
+
+theorem gammaOf_rhoZero (γ₀ δ : ℝ) : Zeta23.gammaOf (rhoZero γ₀ δ) = (γ₀ : ℂ) - I * δ :=
+
+theorem gammaOf_reflect_rhoZero (γ₀ δ : ℝ) :
+    Zeta23.gammaOf (Zeta23.reflect (rhoZero γ₀ δ)) = (γ₀ : ℂ) + I * δ :=
+
+theorem paperFT_ofReal_conj (f : ℝ → ℝ) (z : ℂ) :
+    conj (Zeta23.paperFT (phiC f) z) = Zeta23.paperFT (phiC f) (-conj z) :=
+
+theorem kWin_FT (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) :
+    Zeta23.paperFT (kWin γ₀ φ) z = Zeta23.paperFT (windowC γ₀ φ) z * Zeta23.paperFT (windowC γ₀ φ) (-z) :=
+
+theorem pairTwo_factored (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :
+    pairTwo γ₀ φ δ =
+      ((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2 *
+          (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ)) +
+      ((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2 *
+          (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ)) :=
+
+theorem phiC_exp_integrable {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (z : ℂ) :
+    Integrable (fun u : ℝ => (φ u : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) :=
+
+theorem cosWinC_FT (γ₀ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (z : ℂ) :
+    Zeta23.paperFT (cosWinC γ₀ φ) z =
+      (Zeta23.paperFT (phiC φ) (z + γ₀) + Zeta23.paperFT (phiC φ) (z - γ₀)) / 2 :=
+
+theorem phiC_FT_neg {φ : ℝ → ℝ} (hev : ∀ x, φ (-x) = φ x) (z : ℂ) :
+    Zeta23.paperFT (phiC φ) (-z) = Zeta23.paperFT (phiC φ) z :=
+
+theorem phiC_FT_zero (φ : ℝ → ℝ) : Zeta23.paperFT (phiC φ) 0 = ((∫ u, φ u : ℝ) : ℂ) :=
+
+theorem nearInt_zero (φ : ℝ → ℝ) : nearInt φ 0 = ∫ u, φ u :=
+
+theorem phiC_FT_imag {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :
+    Zeta23.paperFT (phiC φ) (I * δ) = (nearInt φ δ : ℂ) :=
+
+theorem farFT_conj (γ₀ : ℝ) {φ : ℝ → ℝ} (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :
+    conj (farFT γ₀ φ δ) = Zeta23.paperFT (phiC φ) (2 * (γ₀ : ℂ) + I * δ) :=
+
+theorem cosWinC_FT_near_far (γ₀ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ)
+    (hev : ∀ x, φ (-x) = φ x) (δ : ℝ) :
+    Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) = ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2 ∧
+    Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ) = ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2 ∧
+    Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) = ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2 ∧
+    Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ) = ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2 :=
+
+theorem pairTwo_near_far (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ)
+    (hev : ∀ x, φ (-x) = φ x) :
+    pairTwo γ₀ φ δ =
+      (((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2) ^ 2 +
+      (((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2) ^ 2 :=
+
+theorem nearInt_ge {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x) (δ : ℝ) :
+    (∫ u, φ u) ≤ nearInt φ δ :=
+
+theorem nearInt_pos {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)
+    (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 0 < nearInt φ δ :=
+
+theorem realizedGrowth_eq (φ : ℝ → ℝ) (δ : ℝ) : realizedGrowth φ δ = nearInt φ δ / ∫ u, φ u :=
+
+theorem realizedGrowth_ge_one {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)
+    (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 1 ≤ realizedGrowth φ δ :=
+
+def nearPair (γ₀ δ N : ℝ) : ℂ :=
+
+theorem nearPair_eq (γ₀ δ N : ℝ) : nearPair γ₀ δ N = ((N ^ 2 * δ ^ 2 * (δ ^ 2 - 4 * γ₀ ^ 2) / 2 : ℝ) : ℂ) :=
+
+theorem nearPair_neg (γ₀ δ N : ℝ) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) (hN : 0 < N) : (nearPair γ₀ δ N).re < 0 :=
+
+theorem pair_near_sign (γ₀ δ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x)
+    (hpos : 0 < ∫ u, φ u) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) : (nearPair γ₀ δ (nearInt φ δ)).re < 0 :=
+
+def farSmall (γ₀ : ℝ) (φ : ℝ → ℝ) (δ ε : ℝ) : Prop :=
+
+def pairConst : ℝ :=
+
+def pairEps (ε δ γ₀ : ℝ) : ℝ :=
+
+theorem cross_bound (N ε : ℝ) (G : ℂ) (hN : 0 ≤ N) (hG : ‖G‖ ≤ ε * N) :
+    ‖2 * (N : ℂ) * G + G ^ 2‖ ≤ (2 * ε + ε ^ 2) * N ^ 2 :=
+
+theorem weight_norm_plus (γ₀ δ : ℝ) : ‖((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2‖ = δ ^ 4 + 4 * γ₀ ^ 2 * δ ^ 2 :=
+
+theorem weight_norm_minus (γ₀ δ : ℝ) : ‖((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2‖ = δ ^ 4 + 4 * γ₀ ^ 2 * δ ^ 2 :=
+
+theorem pair_algebra (γ δ ε N S : ℝ) (F sl : ℂ) (hγ : 0 < γ) (hε : 0 ≤ ε) (hS : 0 < S) (hSN : S ≤ N)
+    (hF : ‖F‖ ≤ ε * N) (hsl : ‖sl‖ ≤ γ * (1 + ε) * S) (hc : pairEps ε δ γ ≤ pairConst) :
+    ((((δ : ℂ) ^ 2 + 2 * I * γ * δ) * ((N : ℂ) + F) / 2) ^ 2 +
+      (((δ : ℂ) ^ 2 - 2 * I * γ * δ) * ((N : ℂ) + conj F) / 2) ^ 2).re ≤
+      -(pairConst - pairEps ε δ γ) * δ ^ 2 * ‖sl‖ ^ 2 * (N / S) ^ 2 :=
+
+theorem windowSlope_bound (γ₀ ε : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ)
+    (hγ : 0 < γ₀) (hS : 0 ≤ ∫ u, φ u) (hfar0 : farSmall γ₀ φ 0 ε) :
+    ‖windowSlope γ₀ φ‖ ≤ γ₀ * (1 + ε) * ∫ u, φ u :=
+
+theorem pair_bound (γ₀ δ ε : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ)
+    (hev : ∀ x, φ (-x) = φ x) (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u)
+    (hγ : 0 < γ₀) (hδ : 0 < δ) (hε : 0 ≤ ε)
+    (hfar : farSmall γ₀ φ δ ε) (hfar0 : farSmall γ₀ φ 0 ε) (hc : pairEps ε δ γ₀ ≤ pairConst) :
+    (pairTwo γ₀ φ δ).re ≤
+      -(pairConst - pairEps ε δ γ₀) * δ ^ 2 * ‖windowSlope γ₀ φ‖ ^ 2 * realizedGrowth φ δ ^ 2 :=

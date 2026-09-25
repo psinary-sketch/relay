@@ -1,0 +1,14 @@
+### (3) tools/b529_values.py
+### b529 -- THE NAMED HYPOTHESIS AT Q0`S B-SPLINE INSTANCE, a = 34, p = 7
+  gamma_0 16.290216 ; the pair`s zero 0.95326 + 16.29022 i ; delta 0.45326
+  S = phi^(0) 1.000000000000000 ; N = phi^(i delta) 1.3606979994 ; phi^(-i delta) 1.3606979994 (even: equal)
+  F = phi^(2 gamma_0 - i delta) = 1.1303e-05 -5.2180e-05 i ; |F| 5.3390e-05
+  phi^(2 gamma_0) = -5.3465e-08 +0.0000e+00 i ; |.| 5.3465e-08
+  ### eps_delta = |F| / N = 3.9238e-05 ; eps_zero = |phi^(2 gamma_0)| / S = 5.3465e-08 ; eps = 3.9238e-05 ; BELOW 0.1 : True
+  G = N / S 1.3606979994 ; b522`s banked growth 1.3606979994 ; |diff| 0.0e+00
+  slope (the instrument`s, -2 gamma_0 C(gamma_0)) -16.2902151291
+  pairEps(eps, delta, gamma_0) = 0.000701 ; c = 2 ; c - eps` = 1.999299 ; eps` <= c : True
+  ### the bound -(c - eps`) delta^2 slope^2 G^2 = -201.8137
+  the pair`s term, two images: Component 1`s near/far formula -201.8483002131 +0.0e+00 i ; the instrument`s khat -201.8483002131 +0.0e+00 i ; |diff| 0.0e+00
+  b522`s banked pair (four images) -403.6965714862 ; half -201.8482857431 ; the near-factor product alone -201.8454
+  ### the pair`s term <= the bound on this instance : True

@@ -1,0 +1,51 @@
+### run at (UTC) : 2026-09-25T14:34:12Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\PairTerm.olean SIDEExplicitFormula\PairTerm.lean
+exit 0 ; 35.3 s
+--- stdout ---
+SIDEExplicitFormula\PairTerm.lean:73:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:74:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:73:6: warning: '(simp [map_add, map_mul, Complex.conj_ofReal, Complex.conj_I]; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:74:6: warning: 'simp [map_add, map_mul, Complex.conj_ofReal, Complex.conj_I]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:218:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:219:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:218:6: warning: '(simp [map_sub, map_mul, Complex.conj_ofReal, Complex.conj_I]; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:219:6: warning: 'simp [map_sub, map_mul, Complex.conj_ofReal, Complex.conj_I]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:325:32: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+SIDEExplicitFormula\PairTerm.lean:325:88: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:325:88: warning: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:403:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\PairTerm.lean:403:6: warning: '(field_simp; ring)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\PairTerm.lean:437:19: warning: Variable name `hδ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hδ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+--- stderr ---
+
