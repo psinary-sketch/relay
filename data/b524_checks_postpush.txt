@@ -1,7 +1,7 @@
 ========================================================================================================
-b524 -- THE SUITE. ### **PRE-PUSH READING.** ### every arm exercised on both controls.
+b524 -- THE SUITE. ### **POST-PUSH READING.** ### every arm exercised on both controls.
 ========================================================================================================
-  arms in the (G2) block : 52 ; run here : 52 ; deferred : 1
+  arms in the (G2) block : 52 ; run here : 52 ; deferred : 0
   arm                                        LIVE  NEG   POS   verdict
   --------------------------------------------------------------------------------------------
   G-RECEIPT-IN-FULL                          PASS  PASS  FAIL  OK
@@ -27,6 +27,7 @@ b524 -- THE SUITE. ### **PRE-PUSH READING.** ### every arm exercised on both con
   G-ARMS-DECLARED-EQ-RUN                     PASS  PASS  FAIL  OK
   G-ARMS-NO-SUBSTRING-VERDICT                PASS  PASS  FAIL  OK
   G-ARMS-NO-LIVE-LIMB                        PASS  PASS  FAIL  OK
+  G-MIRROR-TAGGED-BUILD                      PASS  PASS  FAIL  OK
   G-MUSTFAIL                                 PASS  PASS  FAIL  OK
   G-ARTEFACTS-NOT-COMMITTED                  PASS  PASS  FAIL  OK
   G-PUSHED-PREDICATE-THREE-CLAUSED           PASS  PASS  FAIL  OK
@@ -55,11 +56,10 @@ b524 -- THE SUITE. ### **PRE-PUSH READING.** ### every arm exercised on both con
   G-N4-SCORED                                PASS  PASS  FAIL  OK
   G-SEAT-EXPECTATIONS-SCORED                 PASS  PASS  FAIL  OK
   G-PRIORBANK-UNCHANGED                      PASS  PASS  FAIL  OK
-  G-MIRROR-TAGGED-BUILD                      DEFERRED TO POST-PUSH
 
   ### files written that NO (W) GLOB COVERS : 0 
   ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit 0.
-  ###   rows added 10 ; rows gone 0 ; grade-or-profile changed 0
+  ###   rows added 0 ; rows gone 0 ; grade-or-profile changed 0
   ### G-PRIORBANK-UNCHANGED checked 4025 prior banks by time, none excepted.
   ### ### **VACUOUS ON THE LIVE SOURCE (NO Q0 CELL READ) : NONE.** ### each refused its injected defective cell.
   ### ### **THE b475 LOG EXCEPTION STAYS RETIRED.** ### b481-b489 excused
@@ -68,7 +68,7 @@ b524 -- THE SUITE. ### **PRE-PUSH READING.** ### every arm exercised on both con
   ### b491 read the log COMPLETE. ### **AN EXCEPTION IS A CLAIM ABOUT THE WORLD AND
   ### DECAYS LIKE ONE.** ### b487`s second exclusion is not carried either: it was
   ### b485`s bank, which (R97) directed b487 to append to. ### The arm runs at FULL WIDTH.
-  ### ### **ARMS RUN : 51. ### LIVE PASSING : 51. ### LIVE FAILING : 0 .**
+  ### ### **ARMS RUN : 52. ### LIVE PASSING : 52. ### LIVE FAILING : 0 .**
   ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
   ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
 ========================================================================================================

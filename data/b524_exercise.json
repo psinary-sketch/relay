@@ -162,6 +162,13 @@
    "reads": "the harness itself -- the positive control is RUN on every arm"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -240,8 +247,8 @@
   },
   {
    "name": "G-PROP-NOT-PROVED",
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the module`s text -- f_pair_hypothesis a def of type Prop, and no theorem states it"
   },
@@ -289,8 +296,8 @@
   },
   {
    "name": "G-TABLE-ROW",
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the regenerated terminal table -- a row per graded theorem, DERIVES, PROFILED"
   },
@@ -358,16 +365,11 @@
    "reads": "file times against the face, no exception"
   }
  ],
- "run": 51,
- "live_failing": [
-  "G-PROP-NOT-PROVED",
-  "G-TABLE-ROW"
- ],
+ "run": 52,
+ "live_failing": [],
  "defective": [],
- "neg_failures": 2,
+ "neg_failures": 0,
  "declared": 52,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD"
- ],
+ "deferred": [],
  "stray": []
 }
