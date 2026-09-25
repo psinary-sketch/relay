@@ -1,0 +1,49 @@
+========================================================================================================
+b534 -- THE CLOSING RECORD. ### **f4, THE POWER-WINDOW ROUTE, ACT TWO OF TWO: THE LIMIT AND THE ASSEMBLY, UNDER (R144).**
+========================================================================================================
+    the module : attempt 1 exit 1, 13 errors, 29.6 s, failing ['Kp_kill', 'kWindow', 'kWindow_classK', 'kWindow_term', 'mem_sT', 'window', 'window_contDiff', 'window_support', 'zeroSide_eventually_neg'] ; attempt 2 exit 0, 0 errors, 27.8 s, failing NONE ; std3 89 of 89 ; halted NONE
+    row 383 : `paperFT_conj_of_real` DERIVES ; `paperFT_neg_of_even` DERIVES ; `zero_term_real` DERIVES ; `paperFT_polyOpFull` DERIVES ; `polyOpFull_support` DERIVES ; `polyOpFull_contDiff` DERIVES ; `kWindow_classK` DERIVES ; `kWindow_term` DERIVES ; `nodes_distinct` DERIVES ; `tie_term_neg` DERIVES ; `rest_term_small` DERIVES ; `dominant_summable` DERIVES ; `rest_tendsto_zero` DERIVES ; `zeroSide_eventually_neg` DERIVES ; `h2_sign_imp_rh_strip` DERIVES ; `rh_strip_imp_h2_sign` DERIVES ; `h2_sign_iff_rh_strip` DERIVES ; `h2_sign_imp_rh_of_seam` DERIVES ; `ch_iff_h2_sign_of_seam` DERIVES -- each by statement-read against the ferry`s model statement; zeroSideNeg stated and proved, no grade; rh_strip_imp_rh and nodes_distinct_nonreal STATED, no grade
+    the three statements : SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip | SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh → SIDEExplicitFormula.B321.h2_sign_imp_rh | SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop
+    (N1) HELD (N2) HELD VACUOUS (N3) HELD (N4) HELD (N5) HELD (N6) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+    (a) ### **THE FERRY`S NEW NAME `window` WAS ALREADY TAKEN IN THE NAMESPACE**: b524 declared `B321.window` and
+        `B321.window_contDiff`, and the reads before the seal did not search the namespace for the names the ferry mints.
+        Attempt 1 failed in `window`, `window_contDiff`, `window_support` and their dependents `kWindow`, `kWindow_classK`,
+        `kWindow_term`; the three were renamed `pwWindow`, `pwWindow_contDiff`, `pwWindow_support` for attempt 2 (`kWindow`
+        keeps the ferry`s name). The kernel tool`s theorem list and `AxiomCheckLimit.lean` were edited for the rename AFTER
+        install, so the installed AxiomCheck file`s sha in `b534_install.json` is the draft`s, not the committed file`s.
+    (b) ### **ATTEMPT 1 FAILED IN THREE FURTHER DECLARATIONS, EACH ONCE**: `Kp_kill` (`Finset.mem_image_of_mem _` inferred
+        `Complex.re` as the function; given explicitly), `mem_sT` (no `DecidablePred` outside `classical`; the proof now
+        opens it), `zeroSide_eventually_neg` (`summable_of_ne_finset_zero``s summation filter left a metavariable; the
+        `have` now states its type). No declaration failed at attempt 2; the halt rule did not fire.
+    (c) ### **PROBE 2 FOUND A CAST THAT DID NOT ELABORATE**: `h.of_le (by exact_mod_cast le_top)` fails for a literal order
+        (`ContDiff ℝ 2`, `ContDiff ℝ 4`), though it works for a variable `n : ℕ`; a third probe, declared on the face, found
+        `h.of_le (WithTop.coe_le_coe.mpr le_top)` and the draft uses it.
+    (d) ### **ATTEMPT 2 RAN IN 27.8 s FOR THE WHOLE MODULE**, fast enough to doubt; it is not taken on its exit code: the log
+        carries no `sorry`, the olean was written, and the profile reads all 89 theorems as the standard three on the
+        whole string -- a failed declaration would elaborate with `sorryAx` and fail that match.
+    (e) ### **THE FIRST ROW WRITE WAS REFUSED**: the title cell carried `|P_j(w)|`, which the ledger reads as cell boundaries;
+        `corr_row.py` refused before writing (12 cells, not 6). The cell now writes `‖P_j(w)‖`; the second write is the row.
+
+### THE COMMITS, THE MIRROR, THE CENSUSES.
+    pre-push : ### ### **ARMS RUN : 54. ### LIVE PASSING : 54. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 55. ### LIVE PASSING : 55. ### LIVE FAILING : 0 .**
+      relay                  local 50e8aea7c6b9 ; remote 50e8aea7c6b9 ; AGREE
+      PLACE-papers           local 3b5532a4d4f6 ; remote 3b5532a4d4f6 ; AGREE
+      SIDE-global-section    local 6cf8056dbcd0 ; remote 6cf8056dbcd0 ; AGREE
+      SIDE-explicit-formula  local baed4df861da ; remote baed4df861da ; AGREE
+      SIDE-kernel            local 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+    mirror : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE KERNEL LANE IS SHUT.** The f4 attempt closes with h2_sign <-> rh_strip compiled and h2_sign -> RH compiled
+        from the seam Prop rh_strip_imp_rh; the seam (the left half-plane: zeros with re <= 0 are the trivial zeros) is ABSENT
+        from Mathlib by name and is not attempted (R144)(4).
+    (b) ### **THE UPDATE ACT IS NEXT (R144)(5)**: E-2026-09-25-1`s filing, the three (R110) rows, the ceiling`s wording, each in
+        the words this outcome allows; and the fold of b526-b534 (span nine).
+    (c) ### **THE CEILING SENTENCE, PRINTED UNCHANGED IN THE TRAIL**, now reads "h2_sign -> RH compiled to its last step" beside a
+        kernel that compiles h2_sign -> RH from the seam Prop; its next wording is the author`s.
+========================================================================================================
