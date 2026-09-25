@@ -553,10 +553,10 @@ ARMS = [
     ('G-PROFILE-WHOLE-STRING', 'the profile run file -- each theorem`s line equal to the standard-three string',
      lambda S: all([l.strip() for l in S['plog'].split(NL) if l.startswith("'%s%s'" % (NS, n))] == [STD3 % (NS + n)] for n in THMS)
      and all((S['prof'].get('std3') or {}).get(NS + n) is True for n in THMS),
-     lambda S: put(S, 'plog', S['plog'].replace(STD3 % (NS + 'plateau_contDiff'), (STD3 % (NS + 'plateau_contDiff')).replace(', Quot.sound', ', sorryAx')))),
+     lambda S: put(S, 'plog', S['plog'].replace(STD3 % (NS + 'pair_bound'), (STD3 % (NS + 'pair_bound')).replace(', Quot.sound', ', sorryAx')))),
     ('G-STATEMENTS-PRINTED', 'the banked statements against the module -- each theorem from its line to its `:=`, recomputed',
      lambda S: bool(heads(S['mod'])) and all(h in S['stmt'] for h in heads(S['mod'])),
-     lambda S: put(S, 'stmt', S['stmt'].replace('theorem plateau_even', 'theorem ghost'))),
+     lambda S: put(S, 'stmt', S['stmt'].replace('theorem pairTwo_factored', 'theorem ghost'))),
     ('G-LANE-SHUT', 'the trail`s own record -- the kernel lane shut, said', lambda S: 'kernel lane shuts at this act' in trail(S),
      lambda S: put(S, 'ot', S['ot'].replace(NL, ' ').replace('kernel lane shuts at this act', 'lane stays open'))),
     ('G-PRIORBANK-UNCHANGED', 'file times against the face, no exception', lambda S: S['noprior'], lambda S: put(S, 'noprior', False)),
