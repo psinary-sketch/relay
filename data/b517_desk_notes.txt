@@ -1,0 +1,28 @@
+========================================================================================================
+b517 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- profiles ["'SIDEExplicitFormula.B321.paperFT_growth' depends on axioms: [propext, Classical.choice, Quot.sound]", "'SIDEExplicitFormula.B321.paperFT_growth_at' depends on axioms: [propext, Classical.choice, Quot.sound]"] ; sorry in Lean`s output False ; attempts 1, the first to succeed 1.
+  **(N2)** ### **HELD.** -- paperFT_growth is 24 lines by READING (4), against 40.
+  **(N3)** ### **HELD.** -- vendored lemmas referenced : NONE ; vendored definitions : ['Zeta23.gammaOf', 'Zeta23.paperFT'].
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- the first compile attempt`s verdict: True.
+  **(S2)** ### **HELD.** -- 24 lines, against 30.
+  **(S3)** ### **SCORED POST-PUSH.** -- the table rows are read after the push (G-TABLE-ROWS); the closing record carries the word.
+
+### ### **THE NAVIGATOR`S : HELD 3 ; REFUTED 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 2 ; REFUTED 0 ; POST-PUSH 1.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **THE FIRST VENDORED-REFERENCE READ COUNTED THE IMPORT LINE** -- `Zeta23.Defs`, a module name, read as a name
+        to resolve, resolving to no declaration. ### Repaired to skip `import` lines in the act`s tool and the suite`s
+        helper alike, before the suite first ran; the first read banked as `b517_read_first.json`. ### Its verdict on
+        (N3) did not change: no vendored lemma in either read.
+    (b) ### **ONE `<;> ring` FALLBACK NEVER RAN** -- the linter says so in the compile run file (line 33); `simp` closed
+        the goal alone. ### Dead code carried in the module, not a proof step.
+    (c) ### **THE PRICE SAID "A FEW MINUTES"; THE COLD COMPILE TOOK 586.0 s** -- the import of `Zeta23.Defs` is lighter
+        than b513`s, but the Mathlib it pulls was not warm; the profile ran in 23.9 s.
+========================================================================================================

@@ -1,0 +1,139 @@
+====================================================================================================
+ACT b517 -- THE REGISTRATION FACE. ### (d), THE GROWTH BOUND, COMPILED, UNDER (R126).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE KERNEL LANE OPENS FOR THIS ACT ALONE, UNDER (R126)(3)**, and shuts at
+### its close; the numerical lane reopens after it for the two-property window.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R126) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) the class shapes the converse, the
+### two-property window for (f)(i) is REAL; (2) the fold`s object column is empty, and the trail says the week`s honest
+### summary in (R126)(2)`s words. ### Ruling and part 1 of 1, received IN FULL, banked verbatim as `b517_ferry.txt`.
+### ### **THIS ACT PROVES A BOUND ON A TRANSFORM. IT MOVES h2 NOT AT ALL, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE MODULE.** A new module `SIDEExplicitFormula/GrowthBound.lean`, importing `Zeta23.Defs` alone
+### (where `paperFT` and `gammaOf` are defined); no prior module of the kernel is edited. ### "Integrable" is Mathlib`s
+### `Integrable h`; "support in [-L, L]" is `Function.support h ⊆ Set.Icc (-L) L`. ### It holds exactly two theorems,
+### `paperFT_growth` and `paperFT_growth_at`.
+### **READING (2) -- THE COROLLARY** is stated at every complex `rho`, at `gammaOf rho`, with `exp (L * |Re rho - 1/2|)`;
+### no zero hypothesis is needed, and at an off-line zero, where `Re rho ≠ 1/2`, it is (R124)(2)`s growth.
+### **READING (3) -- "ATTEMPT"** is every Lean invocation that elaborates `GrowthBound.lean` to produce its olean, a
+### failed one counted, each banked by `run_clock`; the profile run is not an attempt.
+### **READING (4) -- "THE PROOF UNDER 40 LINES"** counts `paperFT_growth` from its `theorem` line to the last line of its
+### tactic block, docstring excluded; the corollary`s count is printed beside it and not scored.
+### **READING (5) -- (N3)`S "VENDORED LEMMA"**: every `Zeta23.` name in the module`s text is read off and resolved in
+### the vendored tree to its declaration keyword; (N3) holds iff none is a `theorem` or `lemma`. ### A vendored
+### DEFINITION is not a lemma; `gammaOf``s definition, which the corollary unfolds, is printed as such.
+### **READING (6) -- THE TABLE ROW AND ITS GRADE.** A NEW kernel file `AxiomCheckGrowth.lean` prints both theorems and
+### doubles as the profile run; b510`s and b513`s AxiomCheck files are not touched. ### The grade written is DERIVES,
+### each of its model statement -- (d) as (R124)(2) words it, and its form at a zero -- in this act`s correspondence
+### row and trail record, each name beside its own grade: **TWO GRADES, CONFERRED BY THE ORDER.** ### The table is read
+### post-push; the profile reaches it through b516`s banked-JSON reader from `b517_profile.json`.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `GrowthBound.lean` written into the kernel; `tools/b517_kernel.py compile`, `statement`, `read`.
+### (2) `AxiomCheckGrowth.lean` written into the kernel; `tools/b517_kernel.py profile` -> `b517_profile.json`;
+###     the grades in the row and the trail; the table read post-push.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** `Zeta23/Defs.lean`s `paperFT`, `gammaOf` and imports; a `git
+### grep` of the kernel`s Mathlib for `Complex.norm_exp`, `norm_integral_le_integral_norm`, `integral_mono_of_nonneg`,
+### `Filter.Eventually.of_forall`, `integral_mul_const`, `Integrable.norm`, `Integrable.mul_const`, `mem_mulSupport`,
+### `inv_le_mabs` and `mabs_le` (the `to_additive` sources of `Function.mem_support`, `neg_le_abs`, `abs_le`). ###
+### **THE MODULE WAS DRAFTED IN THE SEAT`S SCRATCHPAD BEFORE THE SEAL.** ### NO LEAN FILE WAS WRITTEN INTO THE KERNEL
+### AND NOTHING WAS COMPILED BEFORE THE SEAL.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### The compile, cold a few minutes (b513: 281 s, importing more), in the background; the profile under a minute warm.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **STD3 WITHIN TWO ATTEMPTS.**
+### **(N2)** ### **THE PROOF UNDER 40 LINES.**
+### **(N3)** ### **NO VENDORED LEMMA BEYOND paperFT`S DEFINITION IS NEEDED.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE FIRST COMPILE ATTEMPT SUCCEEDS.**
+### **(S2)** ### **paperFT_growth`S PROOF IS UNDER 30 LINES.**
+### **(S3)** ### **BOTH TABLE ROWS READ PROFILED POST-PUSH, THROUGH THE BANKED-JSON READER.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R126-ENTERED`
+### `G-SUMMARY-CONVEYED` `G-RULE9-THEOREM` `G-VENDORED-UNTOUCHED` `G-TWO-THEOREMS` `G-PROFILE-WHOLE-STRING`
+### `G-NO-SORRY` `G-STATEMENT-PRINTED` `G-PROOF-LENGTH` `G-ATTEMPTS-COUNTED` `G-VENDORED-REFS`
+### `G-GRADES-WRITTEN` `G-TABLE-ROWS` `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-KERNEL-UNTAGGED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` and `G-TABLE-ROWS` are scored ### **POST-PUSH ONLY**: the mirror is built after the push,
+### and the table reads committed trees and banks.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b517_*` `relay/tools/b517_*` |
+### | the component, by hand | `SIDE-explicit-formula/SIDEExplicitFormula/GrowthBound.lean` (NEW)
+###   `SIDE-explicit-formula/AxiomCheckGrowth.lean` (NEW) |
+### | `lake env lean -o` | `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/GrowthBound.olean`
+###   (a build artefact, ignored, never committed) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b517_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b517_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b517_registration_2026-09-24.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b517_span*.json` `relay/data/b517_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b517.zip`
+###   (outside every repository) `relay/data/b517_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b517_kernel.py` `b517_reg_gate.py` `b517_regspec.py` `b517_record.py`
+### `b517_checks.py` `b517_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED, AND NO VENDORED MODULE, NO PRIOR PROGRAMME MODULE, NO AxiomCheck FILE OF AN
+### EARLIER ACT AND NOT THE LAKEFILE IS TOUCHED.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE KERNEL LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing is proved beyond the two theorems; (f) is not
+### attempted. ### No chain is run and no cell computed. ### The kernel is not tagged; `REGISTRY.md` is not written.
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ### Nothing deposits. ###
+### The two grades READING (6) names are the only grades written, and no grade name is minted. ### Row U1 is unedited.
+### ### `h2` stays where the deposit left it. ### The four lists stay OPEN.
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 08d2c53e44ca4637b317bac10b63e05eb683fa01f05f2706b243181c6565efd7
+### bytes locked : 11139
+### locked at (UTC) : 2026-09-25T00:56:23Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b517_registration_2026-09-24.txt`.**
+====================================================================================================

@@ -1,0 +1,39 @@
+{
+ "decls": [
+  {
+   "name": "paperFT_growth",
+   "head": "theorem paperFT_growth (h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L)\n    (z : ℂ) : ‖Zeta23.paperFT h z‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |z.im|) :=",
+   "lines": 24
+  },
+  {
+   "name": "paperFT_growth_at",
+   "head": "theorem paperFT_growth_at (h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L)\n    (ρ : ℂ) : ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|) :=",
+   "lines": 7
+  }
+ ],
+ "refs": [
+  {
+   "name": "Zeta23.gammaOf",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.paperFT",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  }
+ ],
+ "lemma_refs": [],
+ "def_refs": [
+  "Zeta23.gammaOf",
+  "Zeta23.paperFT"
+ ]
+}

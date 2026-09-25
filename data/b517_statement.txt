@@ -1,0 +1,5 @@
+theorem paperFT_growth (h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L)
+    (z : ℂ) : ‖Zeta23.paperFT h z‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |z.im|) :=
+
+theorem paperFT_growth_at (h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L)
+    (ρ : ℂ) : ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|) :=

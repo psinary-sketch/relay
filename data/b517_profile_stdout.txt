@@ -1,0 +1,9 @@
+$ lake env lean AxiomCheckGrowth.lean
+exit 0 ; 23.9 s
+--- stdout ---
+'SIDEExplicitFormula.B321.paperFT_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_growth_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+--- stderr ---
+
+### banked : D:\relay\data\b517_profile_log.txt
+### whole-string standard three : {'SIDEExplicitFormula.B321.paperFT_growth': True, 'SIDEExplicitFormula.B321.paperFT_growth_at': True}

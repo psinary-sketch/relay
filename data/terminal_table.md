@@ -1069,5 +1069,5 @@
 
 ## NAMES A LEDGER CITES THAT RESOLVE IN NO REPOSITORY AT ANY REF
 
-`A_METHODOLOGY`, `DDecidable`, `DERIVES`, `E2even`, `ENGINE`, `Grade.le`, `INTERFACES`, `INVARIANCE_BARRIERS`, `MATCHES`, `R4_positivity`, `R5_output`, `RiemannHypothesis`, `SteaneLabeling`, `decide`, `derivGrade`, `exactly_c1_derives`, `h_conserved`, `no_onLine_double_iff_transversal`, `sorryAx`
+`A_METHODOLOGY`, `DDecidable`, `DERIVES`, `E2even`, `ENGINE`, `Grade.le`, `INTERFACES`, `INVARIANCE_BARRIERS`, `MATCHES`, `R4_positivity`, `R5_output`, `RiemannHypothesis`, `SteaneLabeling`, `decide`, `derivGrade`, `exactly_c1_derives`, `h_conserved`, `no_onLine_double_iff_transversal`, `paperFT_growth`, `paperFT_growth_at`, `sorryAx`
 
