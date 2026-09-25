@@ -1,0 +1,30 @@
+### run at (UTC) : 2026-09-25T06:42:39Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\TwoPropertyWindow.olean SIDEExplicitFormula\TwoPropertyWindow.lean
+exit 1 ; 48.3 s
+--- stdout ---
+SIDEExplicitFormula\TwoPropertyWindow.lean:63:2: error: Type mismatch
+  ContDiffBump.contDiff (plateauBump F L hF0 hF1 hL)
+has type
+  ContDiff ℝ ↑?m.25 ↑(plateauBump F L hF0 hF1 hL)
+but is expected to have type
+  ContDiff ℝ n (plateau F L hF0 hF1 hL)
+SIDEExplicitFormula\TwoPropertyWindow.lean:109:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:109:4: warning: 'fun_prop' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:179:4: error: Type mismatch
+  Continuous.comp continuous_ofReal (ContDiff.continuous_deriv hF le_rfl)
+has type
+  Continuous (ofReal ∘ deriv F)
+but is expected to have type
+  Continuous fun t => deriv ?m.109 t
+SIDEExplicitFormula\TwoPropertyWindow.lean:215:4: error: Type mismatch
+  Continuous.comp continuous_ofReal (ContDiff.continuous_deriv hdg le_rfl)
+has type
+  Continuous (ofReal ∘ deriv (deriv g))
+but is expected to have type
+  Continuous fun t => deriv (deriv ?m.202) t
+--- stderr ---
+

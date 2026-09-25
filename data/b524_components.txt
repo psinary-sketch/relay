@@ -1,0 +1,153 @@
+====================================================================================================================================
+b524 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE INSTALL:
+{
+ "TwoPropertyWindow.lean": {
+  "draft_sha": "03b3ca7e533d4b52feb63ff54038f8af47b8644c16e97a138213c2adaf961fba",
+  "installed_sha": "03b3ca7e533d4b52feb63ff54038f8af47b8644c16e97a138213c2adaf961fba"
+ },
+ "AxiomCheckWindow.lean": {
+  "draft_sha": "0f2df4027e4b1eefcddfcb91fdb160b8e1c36d4ddf67e0066fa44880abae0fcd",
+  "installed_sha": "0f2df4027e4b1eefcddfcb91fdb160b8e1c36d4ddf67e0066fa44880abae0fcd"
+ }
+}
+
+### ATTEMPT 0 -- STOPPED BY HOST ((R134)(2): not an attempt; no verdict from Lean):
+    b524 -- ATTEMPT 1 STOPPED BY THE HOST, NOT BY LEAN.
+    ### `python tools/b524_kernel.py compile` was launched once (lake 01:22:15, lean.exe 01:30:55 local), was moved to the
+    ### background at its 600 s tool timeout, and was then stopped by Claude Code because the system was critically low on
+    ### memory while the session was idle. ### No compile log was written (run_clock writes on completion), so there is NO
+    ### Lean verdict for attempt 1: no error lines, no exit code, no profile. ### Its source is banked as b524_attempt1.lean
+    ### (the installed draft, sha256 03b3ca7e533d4b52feb63ff54038f8af47b8644c16e97a138213c2adaf961fba); b524_attempts.json
+    ### was not written, so the next run the tool makes will also be numbered attempt 1 unless the seat records this one.
+    ### ### After the stop: no lean.exe or lake.exe process remains; the kernel holds the two installed files, untracked.
+    ### ### Not restarted by the seat: the host's instruction is to restart only when asked.
+    ### (R134)(2): recorded as STOPPED BY HOST, attempt 0; its source renamed b524_attempt0_stopped.lean.
+
+### THE ATTEMPTS (READING (4): each a whole-module run of lake env lean -o), numbered from the foreground run:
+  attempt 1 : exit 1 ; 3 error lines ; 687.7 s ; source sha 03b3ca7e533d4b52
+      SIDEExplicitFormula\TwoPropertyWindow.lean:63:2: error: Type mismatch
+      SIDEExplicitFormula\TwoPropertyWindow.lean:179:4: error: Type mismatch
+      SIDEExplicitFormula\TwoPropertyWindow.lean:215:4: error: Type mismatch
+  attempt 2 : exit 1 ; 3 error lines ; 48.4 s ; source sha 03b3ca7e533d4b52
+      SIDEExplicitFormula\TwoPropertyWindow.lean:63:2: error: Type mismatch
+      SIDEExplicitFormula\TwoPropertyWindow.lean:179:4: error: Type mismatch
+      SIDEExplicitFormula\TwoPropertyWindow.lean:215:4: error: Type mismatch
+  attempt 3 : exit 0 ; 0 error lines ; 68.5 s ; source sha a317ae203b6245ea
+
+### THE STATEMENTS, FROM THE DECLARATION LINE TO ITS := :
+def plateauBump (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ContDiffBump (0 : ℝ) where
+  rIn :=
+
+def plateau (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ℝ → ℝ :=
+
+theorem plateau_contDiff (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (n : ℕ∞) :
+    ContDiff ℝ n (plateau F L hF0 hF1 hL) :=
+
+theorem plateau_even (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) :
+    plateau F L hF0 hF1 hL (-x) = plateau F L hF0 hF1 hL x :=
+
+theorem plateau_hasCompactSupport (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :
+    HasCompactSupport (plateau F L hF0 hF1 hL) :=
+
+theorem plateau_eq_one (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) (hx : |x| ≤ (1 - F) * L) :
+    plateau F L hF0 hF1 hL x = 1 :=
+
+def b519Plateau (a : ℝ) (ha : 1 < a) : ℝ → ℝ :=
+
+def cosWin (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℝ :=
+
+def window (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℝ :=
+
+def windowC (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+def cosWinC (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+def kWin (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+theorem cosWin_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} {n : WithTop ℕ∞} (hφ : ContDiff ℝ n φ) :
+    ContDiff ℝ n (cosWin γ₀ φ) :=
+
+theorem cosWin_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :
+    HasCompactSupport (cosWin γ₀ φ) :=
+
+theorem window_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) : ContDiff ℝ 2 (window γ₀ φ) :=
+
+theorem window_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :
+    HasCompactSupport (window γ₀ φ) :=
+
+theorem windowC_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) : ContDiff ℝ 2 (windowC γ₀ φ) :=
+
+theorem windowC_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :
+    HasCompactSupport (windowC γ₀ φ) :=
+
+theorem weilTest_ofReal_even (f : ℝ → ℝ) (x : ℝ) :
+    Zeta23.EF.weilTest (fun u => (f u : ℂ)) (fun u => (f u : ℂ)) (-x) =
+      Zeta23.EF.weilTest (fun u => (f u : ℂ)) (fun u => (f u : ℂ)) x :=
+
+theorem kWin_classK (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :
+    classK (kWin γ₀ φ) :=
+
+theorem hasDerivAt_expIz (z : ℂ) (x : ℝ) :
+    HasDerivAt (fun t : ℝ => Complex.exp (Complex.I * z * (t : ℂ)))
+      (Complex.I * z * Complex.exp (Complex.I * z * (x : ℂ))) x :=
+
+theorem ibp_step (F : ℝ → ℝ) (hF : ContDiff ℝ 1 F) (hFs : HasCompactSupport F) (z : ℂ) :
+    (∫ u, ((deriv F u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) =
+      -(Complex.I * z) * ∫ u, ((F u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ)) :=
+
+theorem paperFT_second_order (g : ℝ → ℝ) (hg : ContDiff ℝ 2 g) (hgs : HasCompactSupport g) (c : ℝ) (z : ℂ) :
+    Zeta23.paperFT (fun u => ((c * g u + deriv (deriv g) u : ℝ) : ℂ)) z =
+      ((c : ℂ) - z ^ 2) * Zeta23.paperFT (fun u => (g u : ℂ)) z :=
+
+theorem paperFT_window (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) :
+    Zeta23.paperFT (windowC γ₀ φ) z = ((γ₀ : ℂ) ^ 2 - z ^ 2) * Zeta23.paperFT (cosWinC γ₀ φ) z :=
+
+theorem paperFT_window_zero (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :
+    Zeta23.paperFT (windowC γ₀ φ) (γ₀ : ℂ) = 0 :=
+
+def realizedGrowth (φ : ℝ → ℝ) (δ : ℝ) : ℝ :=
+
+def windowSlope (γ₀ : ℝ) (φ : ℝ → ℝ) : ℂ :=
+
+def fConst : ℝ :=
+
+def pairTerm (γ₀ : ℝ) (φ : ℝ → ℝ) (β : ℝ) : ℂ :=
+
+def f_pair_hypothesis (γ₀ : ℝ) (φ : ℝ → ℝ) (β : ℝ) : Prop :=
+
+### THE READ (vendored references):
+  Zeta23.EF.tilde                      -> ['def in Zeta23/Defs.lean', 'def in Zeta23/ExplicitFormula.lean']
+  Zeta23.EF.weilTest                   -> ['def in Zeta23/ExplicitFormula.lean']
+  Zeta23.EF.weilTest_contDiff          -> ['theorem in Zeta23/ExplicitFormula.lean']
+  Zeta23.EF.weilTest_hasCompactSupport -> ['theorem in Zeta23/ExplicitFormula.lean']
+  Zeta23.gammaOf                       -> ['def in Zeta23/Defs.lean']
+  Zeta23.paperFT                       -> ['def in Zeta23/Defs.lean']
+  ### vendored lemmas referenced : ['Zeta23.EF.weilTest_contDiff', 'Zeta23.EF.weilTest_hasCompactSupport'] ; beyond b513`s : ['Zeta23.EF.weilTest_contDiff', 'Zeta23.EF.weilTest_hasCompactSupport']
+
+### THE PROFILE (AxiomCheckWindow.lean):
+  'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ibp_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.weilTest_ofReal_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### whole-string standard three : {'SIDEExplicitFormula.B321.kWin_classK': True, 'SIDEExplicitFormula.B321.paperFT_window_zero': True, 'SIDEExplicitFormula.B321.paperFT_window': True, 'SIDEExplicitFormula.B321.paperFT_second_order': True, 'SIDEExplicitFormula.B321.ibp_step': True, 'SIDEExplicitFormula.B321.weilTest_ofReal_even': True, 'SIDEExplicitFormula.B321.plateau_contDiff': True, 'SIDEExplicitFormula.B321.plateau_even': True, 'SIDEExplicitFormula.B321.plateau_hasCompactSupport': True, 'SIDEExplicitFormula.B321.plateau_eq_one': True}
+  ### #check : SIDEExplicitFormula.B321.f_pair_hypothesis : ℝ → (ℝ → ℝ) → ℝ → Prop
+def SIDEExplicitFormula.B321.realizedGrowth : (ℝ → ℝ) → ℝ → ℝ :=
+fun φ δ => (∫ (u : ℝ), φ u * Real.cosh (δ * u)) / ∫ (u : ℝ), φ u
+  ### #print : def SIDEExplicitFormula.B321.realizedGrowth : (ℝ → ℝ) → ℝ → ℝ :=
+fun φ δ => (∫ (u : ℝ), φ u * Real.cosh (δ * u)) / ∫ (u : ℝ), φ u
+
+### THE GRADES, BY STATEMENT-READ (READING (6)):
+  (i) kWin_classK : DERIVES
+  (ii) paperFT_window_zero : DERIVES
+  (iii) paperFT_window : DERIVES
+  f_pair_hypothesis : STATED, NOT PROVED -- no grade.
+====================================================================================================================================

@@ -1,0 +1,12 @@
+### run at (UTC) : 2026-09-25T06:44:08Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\TwoPropertyWindow.olean SIDEExplicitFormula\TwoPropertyWindow.lean
+exit 0 ; 68.5 s
+--- stdout ---
+SIDEExplicitFormula\TwoPropertyWindow.lean:109:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:109:4: warning: 'fun_prop' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+--- stderr ---
+

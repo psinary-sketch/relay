@@ -1,0 +1,239 @@
+{
+ "decls": [
+  {
+   "name": "plateauBump",
+   "head": "def plateauBump (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ContDiffBump (0 : ℝ) where\n  rIn :=",
+   "lines": 5
+  },
+  {
+   "name": "plateau",
+   "head": "def plateau (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ℝ → ℝ :=",
+   "lines": 2
+  },
+  {
+   "name": "plateau_contDiff",
+   "head": "theorem plateau_contDiff (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (n : ℕ∞) :\n    ContDiff ℝ n (plateau F L hF0 hF1 hL) :=",
+   "lines": 3
+  },
+  {
+   "name": "plateau_even",
+   "head": "theorem plateau_even (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) :\n    plateau F L hF0 hF1 hL (-x) = plateau F L hF0 hF1 hL x :=",
+   "lines": 3
+  },
+  {
+   "name": "plateau_hasCompactSupport",
+   "head": "theorem plateau_hasCompactSupport (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :\n    HasCompactSupport (plateau F L hF0 hF1 hL) :=",
+   "lines": 3
+  },
+  {
+   "name": "plateau_eq_one",
+   "head": "theorem plateau_eq_one (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) (hx : |x| ≤ (1 - F) * L) :\n    plateau F L hF0 hF1 hL x = 1 :=",
+   "lines": 5
+  },
+  {
+   "name": "b519Plateau",
+   "head": "def b519Plateau (a : ℝ) (ha : 1 < a) : ℝ → ℝ :=",
+   "lines": 2
+  },
+  {
+   "name": "cosWin",
+   "head": "def cosWin (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "window",
+   "head": "def window (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℝ :=",
+   "lines": 2
+  },
+  {
+   "name": "windowC",
+   "head": "def windowC (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "cosWinC",
+   "head": "def cosWinC (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "kWin",
+   "head": "def kWin (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "cosWin_contDiff",
+   "head": "theorem cosWin_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} {n : WithTop ℕ∞} (hφ : ContDiff ℝ n φ) :\n    ContDiff ℝ n (cosWin γ₀ φ) :=",
+   "lines": 6
+  },
+  {
+   "name": "cosWin_hasCompactSupport",
+   "head": "theorem cosWin_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :\n    HasCompactSupport (cosWin γ₀ φ) :=",
+   "lines": 4
+  },
+  {
+   "name": "window_contDiff",
+   "head": "theorem window_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) : ContDiff ℝ 2 (window γ₀ φ) :=",
+   "lines": 9
+  },
+  {
+   "name": "window_hasCompactSupport",
+   "head": "theorem window_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :\n    HasCompactSupport (window γ₀ φ) :=",
+   "lines": 5
+  },
+  {
+   "name": "windowC_contDiff",
+   "head": "theorem windowC_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) : ContDiff ℝ 2 (windowC γ₀ φ) :=",
+   "lines": 2
+  },
+  {
+   "name": "windowC_hasCompactSupport",
+   "head": "theorem windowC_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :\n    HasCompactSupport (windowC γ₀ φ) :=",
+   "lines": 3
+  },
+  {
+   "name": "weilTest_ofReal_even",
+   "head": "theorem weilTest_ofReal_even (f : ℝ → ℝ) (x : ℝ) :\n    Zeta23.EF.weilTest (fun u => (f u : ℂ)) (fun u => (f u : ℂ)) (-x) =\n      Zeta23.EF.weilTest (fun u => (f u : ℂ)) (fun u => (f u : ℂ)) x :=",
+   "lines": 12
+  },
+  {
+   "name": "kWin_classK",
+   "head": "theorem kWin_classK (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :\n    classK (kWin γ₀ φ) :=",
+   "lines": 8
+  },
+  {
+   "name": "hasDerivAt_expIz",
+   "head": "theorem hasDerivAt_expIz (z : ℂ) (x : ℝ) :\n    HasDerivAt (fun t : ℝ => Complex.exp (Complex.I * z * (t : ℂ)))\n      (Complex.I * z * Complex.exp (Complex.I * z * (x : ℂ))) x :=",
+   "lines": 7
+  },
+  {
+   "name": "ibp_step",
+   "head": "theorem ibp_step (F : ℝ → ℝ) (hF : ContDiff ℝ 1 F) (hFs : HasCompactSupport F) (z : ℂ) :\n    (∫ u, ((deriv F u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) =\n      -(Complex.I * z) * ∫ u, ((F u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ)) :=",
+   "lines": 31
+  },
+  {
+   "name": "paperFT_second_order",
+   "head": "theorem paperFT_second_order (g : ℝ → ℝ) (hg : ContDiff ℝ 2 g) (hgs : HasCompactSupport g) (c : ℝ) (z : ℂ) :\n    Zeta23.paperFT (fun u => ((c * g u + deriv (deriv g) u : ℝ) : ℂ)) z =\n      ((c : ℂ) - z ^ 2) * Zeta23.paperFT (fun u => (g u : ℂ)) z :=",
+   "lines": 31
+  },
+  {
+   "name": "paperFT_window",
+   "head": "theorem paperFT_window (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) :\n    Zeta23.paperFT (windowC γ₀ φ) z = ((γ₀ : ℂ) ^ 2 - z ^ 2) * Zeta23.paperFT (cosWinC γ₀ φ) z :=",
+   "lines": 6
+  },
+  {
+   "name": "paperFT_window_zero",
+   "head": "theorem paperFT_window_zero (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :\n    Zeta23.paperFT (windowC γ₀ φ) (γ₀ : ℂ) = 0 :=",
+   "lines": 4
+  },
+  {
+   "name": "realizedGrowth",
+   "head": "def realizedGrowth (φ : ℝ → ℝ) (δ : ℝ) : ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "windowSlope",
+   "head": "def windowSlope (γ₀ : ℝ) (φ : ℝ → ℝ) : ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "fConst",
+   "head": "def fConst : ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "pairTerm",
+   "head": "def pairTerm (γ₀ : ℝ) (φ : ℝ → ℝ) (β : ℝ) : ℂ :=",
+   "lines": 5
+  },
+  {
+   "name": "f_pair_hypothesis",
+   "head": "def f_pair_hypothesis (γ₀ : ℝ) (φ : ℝ → ℝ) (β : ℝ) : Prop :=",
+   "lines": 3
+  }
+ ],
+ "refs": [
+  {
+   "name": "Zeta23.EF.tilde",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.weilTest",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.weilTest_contDiff",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.weilTest_hasCompactSupport",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.gammaOf",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.paperFT",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  }
+ ],
+ "b513_refs": [
+  "Zeta23.EF.paperFT_weilTest",
+  "Zeta23.EF.weilTest",
+  "Zeta23.IsNontrivialZero",
+  "Zeta23.RH_implies_on_line",
+  "Zeta23.gammaOf",
+  "Zeta23.paperFT",
+  "Zeta23.zetaZeroConfig.mult",
+  "Zeta23.zetaZeroConfig_carrier"
+ ],
+ "lemma_refs": [
+  "Zeta23.EF.weilTest_contDiff",
+  "Zeta23.EF.weilTest_hasCompactSupport"
+ ],
+ "def_refs": [
+  "Zeta23.EF.tilde",
+  "Zeta23.EF.weilTest",
+  "Zeta23.gammaOf",
+  "Zeta23.paperFT"
+ ],
+ "lemmas_beyond_b513": [
+  "Zeta23.EF.weilTest_contDiff",
+  "Zeta23.EF.weilTest_hasCompactSupport"
+ ],
+ "module_lines": 281
+}

@@ -1,0 +1,39 @@
+========================================================================================================
+b524 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S FOUR.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **REFUTED.** -- first clean attempt : 3 (against 2) ; (ii) std3 True ; (iii) std3 True.
+  **(N2)** ### **REFUTED.** -- the module theorems (i)`s proof cites : ['weilTest_ofReal_even', 'windowC_contDiff', 'windowC_hasCompactSupport'] (allowed: the window`s ContDiff and support lemmas).
+  **(N3)** ### **REFUTED.** -- vendored lemmas beyond b513`s : ['Zeta23.EF.weilTest_contDiff', 'Zeta23.EF.weilTest_hasCompactSupport'].
+  **(N4)** ### **HELD.** -- #check : SIDEExplicitFormula.B321.f_pair_hypothesis : ℝ → (ℝ → ℝ) → ℝ → Prop def SIDEExplicitFormula.B321.realizedGrowth : (ℝ → ℝ) → ℝ → ℝ := fun φ δ => (∫ (u : ℝ), φ u  ; #print shows the integral : True.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- first clean attempt 3, every theorem std3 : {'SIDEExplicitFormula.B321.kWin_classK': True, 'SIDEExplicitFormula.B321.paperFT_window_zero': True, 'SIDEExplicitFormula.B321.paperFT_window': True, 'SIDEExplicitFormula.B321.paperFT_second_order': True, 'SIDEExplicitFormula.B321.ibp_step': True, 'SIDEExplicitFormula.B321.weilTest_ofReal_even': True, 'SIDEExplicitFormula.B321.plateau_contDiff': True, 'SIDEExplicitFormula.B321.plateau_even': True, 'SIDEExplicitFormula.B321.plateau_hasCompactSupport': True, 'SIDEExplicitFormula.B321.plateau_eq_one': True}.
+  **(S2)** ### **HELD.** -- (N2) refuted.
+  **(S3)** ### **HELD.** -- (N3) refuted.
+
+### ### **THE NAVIGATOR`S : HELD 1 ; REFUTED 3.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **ATTEMPT 2 RAN ON THE UNREPAIRED SOURCE.** The seat`s repair script printed a `ℂ` to the Windows console
+        (cp1252), raised before it wrote the file, and the compile was not chained on the repair`s success -- so attempt
+        2 is attempt 1`s source again (identical sha256), the same three errors in 48 s. ### It is a run of the module and
+        is counted as an attempt under READING (4); the repair was re-applied with UTF-8 output, diffed, and attempt 3 ran.
+    (b) ### **THE PROFILE`S #check CAPTURE RAN ON INTO THE #print LINES** (no blank line between them in Lean`s output),
+        so (N4)`s "ends in Prop" test would have misread it; the scorer reads the `#check` line alone. ### Repaired
+        before the desk ran.
+    (c) ### **A HEREDOC COLLAPSED BACKSLASHES AGAIN** in an edit script for the record tool (the recorded trap); its
+        assertion failed and nothing was written; the edits were made with the editor instead.
+    ### Attempt 1`s two elaboration faults -- `ContDiffBump.contDiff` is stated for `n : ℕ∞`, and `(deriv F t : ℂ)`
+    ### elaborates `deriv` into `ℂ` -- are the attempt`s errors, repaired for attempt 3, and are in the components.
+    (d) ### **TWO ARMS FAILED LIVE AT THE FIRST SUITE RUN.** `G-PROP-NOT-PROVED`'s pattern `[^:]*` could not cross the
+        colons inside the def's binders, so it could not find the `: Prop :=` it tests for -- an arm defect, the
+        pattern repaired to run to the line's end. `G-TABLE-ROW` read a table in which the three theorems resolved in
+        NO repository: the table resolves names through git refs and tracked profile banks, so it cannot see an
+        uncommitted module -- not a defect of the module, an ordering fact; the suite was re-run after the local
+        commits and before the push. Also: the suite generator's attempt-source glob caught
+        `b524_attempt0_stopped.lean`, repaired to the numbered names.
+========================================================================================================

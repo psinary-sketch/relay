@@ -1,0 +1,19 @@
+### run at (UTC) : 2026-09-25T06:44:37Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean AxiomCheckWindow.lean
+exit 0 ; 21.3 s
+--- stdout ---
+'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ibp_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weilTest_ofReal_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.f_pair_hypothesis : ℝ → (ℝ → ℝ) → ℝ → Prop
+def SIDEExplicitFormula.B321.realizedGrowth : (ℝ → ℝ) → ℝ → ℝ :=
+fun φ δ => (∫ (u : ℝ), φ u * Real.cosh (δ * u)) / ∫ (u : ℝ), φ u
+--- stderr ---
+
