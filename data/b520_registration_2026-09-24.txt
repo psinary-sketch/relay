@@ -1,0 +1,139 @@
+====================================================================================================
+ACT b520 -- THE REGISTRATION FACE. ### VARIANT (B) WIDENED PAST THE LADDER, UNDER (R129).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT ALONE, UNDER (R129)(3)**, and
+### shuts at its close; the kernel lane reopens after it for (f)(i) on variant (B).
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R129) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) the design is settled and the missing
+### dimension is width -- sign from a zero on the line, dominance from width, not from design; (2) the window of (f)(i)
+### is variant (B). ### Ruling and part 1 of 1, received IN FULL, banked verbatim as `b520_ferry.txt`.
+### ### **THIS ACT CONFERS NO GRADE, COMPILES NOTHING, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE WINDOW** is b519`s variant (B) exactly -- the C^4 plateau, ramp fraction 0.25, inner order-5
+### B-spline, the zero factor at `gamma_0` -- and its cell is `b519_window.cell(a, 'B')`, IMPORTED, not copied. ### It was
+### fixtured at b519 under (R125)(2); widening changes `L = log a` alone, and **NO NEW FIXTURE IS RUN**.
+### **READING (2) -- THE GRID**: "from the ladder`s top to a = 60 in steps of one in a" is `a = 15, 16, ..., 60`, the first
+### integer above the ladder`s top `sqrt 200`, which b519 already measured.
+### **READING (3) -- THE REACH.** The cell`s bound `B = E_u + E_k + E_tail + E_round` CONTAINS the tail, so "the tail
+### against the cell`s bound" is read as `E_tail` against `B' = E_u + E_k + E_round`; for Q0 the prime channel`s table
+### `LAMQ` (n to 4096) also ends the reach where `a^2` exceeds it. ### **ONE PASS IN INCREASING WIDTH**: the first width
+### where `E_tail > B'` (or the table runs out) ENDS that object`s reach -- its quantities there and beyond are NOT BANKED,
+### only the error terms that decided the stop. ### The four named widths 20, 30, 45, 60 are printed with both terms,
+### or as NOT READ past the reach.
+### **READING (4) -- "(R114)`S GRID RULE ... WITH nv PRINTED PER CELL"**: the transform is closed form and no v-grid
+### enters; each banked cell carries `nv` as NONE with that note, as b511 through b519 read the rule.
+### **READING (5) -- THE COLUMNS** are b519`s: `P - PR + A`, the split, the pair`s ratio to the rest SIGNED, the realized
+### growth `G = INT phi cosh(delta u) du` against (d)`s `e^{delta L}` and their fraction; VERIFIED-EST iff `|r| <= B`; the
+### u > 1200 shortfall printed and kept OUT of `B`.
+### **READING (6) -- THE READING** is (R127)(2)`s: a VERIFIED-EST Q0 cell with `P - PR + A < -B` is the witness
+### construction `h2_sign_imp_rh` names, exhibited at one rho and for that rho alone, its width and growth banked as (f)`s
+### numerical target; otherwise the ratio at the widest cell read.
+### **READING (7) -- THE SCORING.** (N1): the narrowest read width where Q0`s pair ratio is `<= -1` exists and lies in
+### `[20, 45]`. (N2): at that width `G >= e^{delta L} / 2` -- REFUTED if there is no such width. (N3): xi`s `P - PR + A > B`
+### at every VERIFIED-EST xi cell within reach, said VACUOUS in the same sentence where none verifies. (N4): Q0`s reach,
+### the last width read, is at least 45.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (0)-(2) `tools/b520_widen.py run` -> `b520_reach.json`, `b520_cells.jsonl`, `b520_run_log.txt`.
+### (3) `tools/b520_report.py` -> `b520_report.txt`, `b520_results.json`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b519`s tools, face and banks; the instrument`s structural limits --
+### `LAMQ`s length (n to 4096), the atlas bank`s top (9877.78), the u-grids` reach (600, 1200). ### **THE SEAT REASONED
+### BEFORE THE SEAL**, from the closed form and no number: for the plateau `G / e^{delta L}` falls roughly as
+### `e^{-delta R} / (2 delta W)`, below one half past `delta W` near 1. ### **THE ACT`S TOOLS ARE WRITTEN BEFORE THE SEAL
+### AND NOT RUN.** ### NO CELL WAS COMPUTED AND NO WIDTH SCANNED BEFORE THE SEAL.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### 46 widths, both objects: the prime channel grows with `a^2` (about 4000 terms at a = 60), so up to an hour.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **THE PAIR`S RATIO TO THE REST CROSSES -1 AT SOME WIDTH BETWEEN a = 20 AND a = 45.**
+### **(N2)** ### **THE REALIZED GROWTH AT THAT WIDTH IS WITHIN A FACTOR OF TWO OF (d)`S.**
+### **(N3)** ### **XI`S QUANTITY IS POSITIVE AT EVERY VERIFIED CELL WITHIN ITS REACH.**
+### **(N4)** ### **THE INSTRUMENT`S REACH FOR Q0 IS AT LEAST a = 45.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE PAIR`S RATIO REACHES -1 WITHIN Q0`S REACH.**
+### **(S2)** ### **(N2) IS REFUTED: `G / e^{delta L}` STAYS BELOW ONE HALF AT EVERY WIDTH READ.**
+### **(S3)** ### **Q0`S REACH IS THE WHOLE GRID, TO a = 60.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R129-ENTERED`
+### `G-WINDOW-IS-B` `G-GRID-AS-READ` `G-REACH-RECOMPUTED` `G-PAST-REACH-UNBANKED` `G-NV-PRINTED`
+### `G-SPLIT-SUMS` `G-RATIO-RECOMPUTED` `G-VERIFIED-RECOUNTED` `G-BOUND-FORM` `G-SHORTFALL-PRINTED`
+### `G-GROWTH-RECOMPUTED` `G-SIGNS-RECOUNTED` `G-CROSSING-RECOMPUTED` `G-READING-WORDS` `G-N1-SCORED`
+### `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-NOPRIORBANK` holds every prior act`s
+### bank unchanged, with no exception.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b520_*` `relay/tools/b520_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b520_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b520_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b520_registration_2026-09-24.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b520_span*.json` `relay/data/b520_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b520.zip`
+###   (outside every repository) `relay/data/b520_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b520_widen.py` `b520_report.py` `b520_reg_gate.py` `b520_regspec.py`
+### `b520_record.py` `b520_checks.py` `b520_closing.py`.
+### ### **NO INSTRUMENT IS EDITED.** ### b519`s, b514`s, b511`s, b325`s tools and the atlas are imported; none is rewritten.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs; the kernel is not
+### touched. ### (f)(i) is not stated here. ### No zero of zeta or of Z_Q0 is added or moved; no prior bank is rewritten.
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ### Nothing deposits. ###
+### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The four
+### lists stay OPEN. ### Nothing is claimed of the kernel either way. ### **AND NO CELL OF THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 2ad2b00c5b8ca301dca60a3c3e62c87682b935a2a6be74b42cbdaf9708864521
+### bytes locked : 11297
+### locked at (UTC) : 2026-09-25T03:18:43Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b520_registration_2026-09-24.txt`.**
+====================================================================================================

@@ -1,0 +1,193 @@
+====================================================================================================================================
+b520 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+====================================================================================================================================
+b520 -- VARIANT (B) WIDENED PAST THE LADDER: a = 15 TO 60 WITHIN REACH.
+====================================================================================================================================
+### COMPONENT 0 -- THE REACH: Q0 None (stopped at {'a': 15.0, 'why': 'E_tail > B`', 'Etail': 0.00010861886469505964, 'Bprime': 1.3770039180928568e-07, 'Eu': 1.2164491636212915e-10, 'Ek': 9.094947017729282e-13, 'Eround': 1.3757783739822177e-07, 'shortfall': 1.564540548965721e-11, 'tail_over_Bprime': 788.8057780220132, 'lamq_ok': True}) ; xi 60.0 (stopped at None) ; LAMQ to n = 4096.
+  a=20 q   NOT READ (past its reach)
+  a=20 xi  E_tail 9.749e-19 against B` 1.431e-11 -- within ; shortfall ESTIMATE 1.79e-12
+  a=30 q   NOT READ (past its reach)
+  a=30 xi  E_tail 2.125e-19 against B` 5.039e-12 -- within ; shortfall ESTIMATE 3.90e-13
+  a=45 q   NOT READ (past its reach)
+  a=45 xi  E_tail 5.501e-20 against B` 1.743e-12 -- within ; shortfall ESTIMATE 1.01e-13
+  a=60 q   NOT READ (past its reach)
+  a=60 xi  E_tail 2.295e-20 against B` 1.440e-12 -- within ; shortfall ESTIMATE 4.22e-14
+
+### COMPONENT 1 -- Q0. ### VERIFIED-EST iff |r| <= B ; nv: none, closed-form transform ; the shortfall an ESTIMATE outside B.
+  a      P - PR + A    s  |r|       B         VER  pair          others        on-line       pair / rest   G        e^dL     G/e^dL  
+  ### VERIFIED-EST 0 of 0 read ; P - PR + A negative beyond B : NONE ; positive 0 ; undecided NONE
+  ### the narrowest negative width : None ; realized growth there None of (d)`s None
+  ### the pair`s ratio to the rest reaches -1 first at : None (realized fraction there None) ; at the widest cell read (a = None) None
+  ### shortfall ESTIMATE above B at : NONE
+
+### COMPONENT 2 -- XI. ### VERIFIED-EST iff |r| <= B ; nv: none, closed-form transform ; the shortfall an ESTIMATE outside B.
+  a      P - PR + A    s  |r|       B         VER  pair          others        on-line       pair / rest   G        e^dL     G/e^dL  
+  15.0   +6.261901e+01 +  4.36e-11  4.90e-11  YES  +2.523930e-07 +0.000000e+00 +6.261901e+01 +4.030612e-09 1.2046   3.4125   0.3530  
+  16.0   +1.224037e+02 +  2.73e-11  3.07e-11  YES  +2.524895e-07 +0.000000e+00 +1.224037e+02 +2.062760e-09 1.2151   3.5138   0.3458  
+  17.0   +1.133923e+02 +  2.37e-11  2.62e-11  YES  +2.526913e-07 +0.000000e+00 +1.133923e+02 +2.228469e-09 1.2252   3.6117   0.3392  
+  18.0   +8.576192e+01 +  2.35e-11  2.65e-11  YES  +2.526542e-07 +0.000000e+00 +8.576192e+01 +2.945995e-09 1.2350   3.7065   0.3332  
+  19.0   +6.590088e+01 +  1.72e-11  2.12e-11  YES  +2.525284e-07 +0.000000e+00 +6.590088e+01 +3.831942e-09 1.2444   3.7985   0.3276  
+  20.0   +4.483496e+01 +  1.08e-11  1.43e-11  YES  +2.525071e-07 +0.000000e+00 +4.483496e+01 +5.631925e-09 1.2536   3.8878   0.3225  
+  21.0   +2.966427e+01 +  8.06e-12  1.17e-11  YES  +2.525721e-07 +0.000000e+00 +2.966427e+01 +8.514353e-09 1.2626   3.9747   0.3177  
+  22.0   +2.964697e+01 +  8.91e-12  1.06e-11  YES  +2.526197e-07 +0.000000e+00 +2.964697e+01 +8.520929e-09 1.2713   4.0594   0.3132  
+  23.0   +3.566892e+01 +  8.82e-12  9.84e-12  YES  +2.526104e-07 +0.000000e+00 +3.566892e+01 +7.082087e-09 1.2798   4.1421   0.3090  
+  24.0   +3.611026e+01 +  7.48e-12  1.02e-11  YES  +2.525750e-07 +0.000000e+00 +3.611026e+01 +6.994550e-09 1.2880   4.2227   0.3050  
+  25.0   +3.133380e+01 +  5.72e-12  9.06e-12  YES  +2.525537e-07 +0.000000e+00 +3.133380e+01 +8.060106e-09 1.2961   4.3016   0.3013  
+  26.0   +2.855741e+01 +  3.90e-12  7.45e-12  YES  +2.525578e-07 +0.000000e+00 +2.855741e+01 +8.843861e-09 1.3039   4.3788   0.2978  
+  27.0   +3.222662e+01 +  2.45e-12  4.65e-12  YES  +2.525745e-07 +0.000000e+00 +3.222662e+01 +7.837449e-09 1.3116   4.4543   0.2945  
+  28.0   +4.104436e+01 +  2.56e-12  4.30e-12  YES  +2.525876e-07 +0.000000e+00 +4.104436e+01 +6.154014e-09 1.3192   4.5283   0.2913  
+  29.0   +5.041768e+01 +  2.92e-12  5.00e-12  YES  +2.525898e-07 +0.000000e+00 +5.041768e+01 +5.009945e-09 1.3265   4.6009   0.2883  
+  30.0   +5.597665e+01 +  3.68e-12  5.04e-12  YES  +2.525839e-07 +0.000000e+00 +5.597665e+01 +4.512309e-09 1.3337   4.6722   0.2855  
+  31.0   +5.557856e+01 +  3.77e-12  5.42e-12  YES  +2.525764e-07 +0.000000e+00 +5.557856e+01 +4.544493e-09 1.3408   4.7422   0.2827  
+  32.0   +4.949931e+01 +  3.32e-12  5.45e-12  YES  +2.525718e-07 +0.000000e+00 +4.949931e+01 +5.102531e-09 1.3477   4.8109   0.2801  
+  33.0   +3.958790e+01 +  1.69e-12  4.65e-12  YES  +2.525715e-07 +0.000000e+00 +3.958790e+01 +6.380018e-09 1.3545   4.8785   0.2777  
+  34.0   +2.822997e+01 +  7.71e-13  3.49e-12  YES  +2.525741e-07 +0.000000e+00 +2.822997e+01 +8.947020e-09 1.3612   4.9449   0.2753  
+  35.0   +1.759665e+01 +  4.48e-13  2.84e-12  YES  +2.525773e-07 +0.000000e+00 +1.759665e+01 +1.435371e-08 1.3678   5.0103   0.2730  
+  36.0   +9.248201e+00 +  9.57e-13  2.60e-12  YES  +2.525795e-07 +0.000000e+00 +9.248201e+00 +2.731120e-08 1.3742   5.0747   0.2708  
+  37.0   +4.016737e+00 +  1.31e-12  2.61e-12  YES  +2.525801e-07 +0.000000e+00 +4.016737e+00 +6.288191e-08 1.3806   5.1381   0.2687  
+  38.0   +2.069023e+00 +  1.73e-12  2.62e-12  YES  +2.525794e-07 +0.000000e+00 +2.069023e+00 +1.220767e-07 1.3868   5.2006   0.2667  
+  39.0   +3.064162e+00 +  2.07e-12  3.10e-12  YES  +2.525783e-07 +0.000000e+00 +3.064162e+00 +8.242981e-08 1.3929   5.2622   0.2647  
+  40.0   +6.336257e+00 +  2.26e-12  3.72e-12  YES  +2.525771e-07 +0.000000e+00 +6.336257e+00 +3.986220e-08 1.3990   5.3229   0.2628  
+  41.0   +1.106187e+01 +  1.82e-12  3.47e-12  YES  +2.525765e-07 +0.000000e+00 +1.106187e+01 +2.283308e-08 1.4049   5.3828   0.2610  
+  42.0   +1.639605e+01 +  1.20e-12  2.86e-12  YES  +2.525763e-07 +0.000000e+00 +1.639605e+01 +1.540470e-08 1.4108   5.4420   0.2592  
+  43.0   +2.157061e+01 +  8.74e-13  2.30e-12  YES  +2.525765e-07 +0.000000e+00 +2.157061e+01 +1.170929e-08 1.4165   5.5003   0.2575  
+  44.0   +2.596498e+01 +  8.10e-13  2.27e-12  YES  +2.525769e-07 +0.000000e+00 +2.596498e+01 +9.727599e-09 1.4222   5.5579   0.2559  
+  45.0   +2.915827e+01 +  2.10e-13  1.74e-12  YES  +2.525773e-07 +0.000000e+00 +2.915827e+01 +8.662289e-09 1.4278   5.6148   0.2543  
+  46.0   +3.095562e+01 +  1.39e-13  1.73e-12  YES  +2.525776e-07 +0.000000e+00 +3.095562e+01 +8.159346e-09 1.4333   5.6710   0.2527  
+  47.0   +3.138043e+01 +  3.16e-13  2.13e-12  YES  +2.525777e-07 +0.000000e+00 +3.138043e+01 +8.048893e-09 1.4388   5.7266   0.2512  
+  48.0   +3.063252e+01 +  2.56e-13  1.82e-12  YES  +2.525777e-07 +0.000000e+00 +3.063252e+01 +8.245410e-09 1.4442   5.7815   0.2498  
+  49.0   +2.902363e+01 +  6.43e-13  2.28e-12  YES  +2.525776e-07 +0.000000e+00 +2.902363e+01 +8.702482e-09 1.4495   5.8358   0.2484  
+  50.0   +2.690549e+01 +  4.26e-13  2.06e-12  YES  +2.525775e-07 +0.000000e+00 +2.690549e+01 +9.387582e-09 1.4547   5.8895   0.2470  
+  51.0   +2.460428e+01 +  8.88e-13  2.34e-12  YES  +2.525774e-07 +0.000000e+00 +2.460428e+01 +1.026559e-08 1.4599   5.9426   0.2457  
+  52.0   +2.237174e+01 +  6.36e-13  2.20e-12  YES  +2.525773e-07 +0.000000e+00 +2.237174e+01 +1.129002e-08 1.4650   5.9951   0.2444  
+  53.0   +2.035995e+01 +  2.31e-13  2.37e-12  YES  +2.525773e-07 +0.000000e+00 +2.035995e+01 +1.240559e-08 1.4701   6.0471   0.2431  
+  54.0   +1.862156e+01 +  5.08e-13  2.30e-12  YES  +2.525773e-07 +0.000000e+00 +1.862156e+01 +1.356370e-08 1.4751   6.0985   0.2419  
+  55.0   +1.713046e+01 +  3.84e-13  1.92e-12  YES  +2.525773e-07 +0.000000e+00 +1.713046e+01 +1.474434e-08 1.4800   6.1495   0.2407  
+  56.0   +1.581361e+01 +  4.44e-14  1.93e-12  YES  +2.525773e-07 +0.000000e+00 +1.581360e+01 +1.597215e-08 1.4849   6.1999   0.2395  
+  57.0   +1.458393e+01 +  6.84e-13  1.79e-12  YES  +2.525773e-07 +0.000000e+00 +1.458393e+01 +1.731888e-08 1.4897   6.2498   0.2384  
+  58.0   +1.336635e+01 +  6.38e-13  1.52e-12  YES  +2.525774e-07 +0.000000e+00 +1.336635e+01 +1.889651e-08 1.4945   6.2993   0.2372  
+  59.0   +1.211358e+01 +  7.28e-13  1.80e-12  YES  +2.525774e-07 +0.000000e+00 +1.211358e+01 +2.085076e-08 1.4992   6.3483   0.2362  
+  60.0   +1.081212e+01 +  3.22e-13  1.44e-12  YES  +2.525774e-07 +0.000000e+00 +1.081212e+01 +2.336057e-08 1.5039   6.3968   0.2351  
+  ### VERIFIED-EST 46 of 46 read ; P - PR + A negative beyond B : NONE ; positive 46 ; undecided NONE
+  ### the narrowest negative width : None ; realized growth there None of (d)`s None
+  ### the pair`s ratio to the rest reaches -1 first at : None (realized fraction there None) ; at the widest cell read (a = 60.0) 2.336057173673004e-08
+  ### shortfall ESTIMATE above B at : NONE
+
+### COMPONENT 3 -- THE READING, IN (R127)(2)`S WORDS:
+    no Q0 cell is negative beyond its bound on a closing bank: the two-property window is not yet the witness; no Q0 cell was read -- the instrument`s reach ended at a = 15.0, the tail bound 789 times the rest of the cell`s bound -- so no ratio at a widest cell is printed
+    ### Nothing is claimed of the kernel either way.
+====================================================================================================================================
+
+### THE REACH SCAN, EVERY WIDTH (error terms only):
+  a=15    q E_tail 1.09e-04 B` 1.38e-07 (7.9e+02) lamq True ; xi E_tail 3.27e-18 B` 4.90e-11 (6.7e-08) lamq True
+  a=16    xi E_tail 2.47e-18 B` 3.07e-11 (8.0e-08) lamq True
+  a=17    xi E_tail 1.90e-18 B` 2.62e-11 (7.3e-08) lamq True
+  a=18    xi E_tail 1.50e-18 B` 2.65e-11 (5.6e-08) lamq True
+  a=19    xi E_tail 1.20e-18 B` 2.12e-11 (5.7e-08) lamq True
+  a=20    xi E_tail 9.75e-19 B` 1.43e-11 (6.8e-08) lamq True
+  a=21    xi E_tail 8.03e-19 B` 1.17e-11 (6.8e-08) lamq True
+  a=22    xi E_tail 6.69e-19 B` 1.06e-11 (6.3e-08) lamq True
+  a=23    xi E_tail 5.64e-19 B` 9.84e-12 (5.7e-08) lamq True
+  a=24    xi E_tail 4.80e-19 B` 1.02e-11 (4.7e-08) lamq True
+  a=25    xi E_tail 4.12e-19 B` 9.06e-12 (4.5e-08) lamq True
+  a=26    xi E_tail 3.56e-19 B` 7.45e-12 (4.8e-08) lamq True
+  a=27    xi E_tail 3.10e-19 B` 4.65e-12 (6.7e-08) lamq True
+  a=28    xi E_tail 2.72e-19 B` 4.30e-12 (6.3e-08) lamq True
+  a=29    xi E_tail 2.40e-19 B` 5.00e-12 (4.8e-08) lamq True
+  a=30    xi E_tail 2.13e-19 B` 5.04e-12 (4.2e-08) lamq True
+  a=31    xi E_tail 1.89e-19 B` 5.42e-12 (3.5e-08) lamq True
+  a=32    xi E_tail 1.70e-19 B` 5.45e-12 (3.1e-08) lamq True
+  a=33    xi E_tail 1.53e-19 B` 4.65e-12 (3.3e-08) lamq True
+  a=34    xi E_tail 1.38e-19 B` 3.49e-12 (4.0e-08) lamq True
+  a=35    xi E_tail 1.25e-19 B` 2.84e-12 (4.4e-08) lamq True
+  a=36    xi E_tail 1.14e-19 B` 2.60e-12 (4.4e-08) lamq True
+  a=37    xi E_tail 1.04e-19 B` 2.61e-12 (4.0e-08) lamq True
+  a=38    xi E_tail 9.49e-20 B` 2.62e-12 (3.6e-08) lamq True
+  a=39    xi E_tail 8.71e-20 B` 3.10e-12 (2.8e-08) lamq True
+  a=40    xi E_tail 8.02e-20 B` 3.72e-12 (2.2e-08) lamq True
+  a=41    xi E_tail 7.40e-20 B` 3.47e-12 (2.1e-08) lamq True
+  a=42    xi E_tail 6.85e-20 B` 2.86e-12 (2.4e-08) lamq True
+  a=43    xi E_tail 6.35e-20 B` 2.30e-12 (2.8e-08) lamq True
+  a=44    xi E_tail 5.91e-20 B` 2.27e-12 (2.6e-08) lamq True
+  a=45    xi E_tail 5.50e-20 B` 1.74e-12 (3.2e-08) lamq True
+  a=46    xi E_tail 5.13e-20 B` 1.73e-12 (3.0e-08) lamq True
+  a=47    xi E_tail 4.80e-20 B` 2.13e-12 (2.3e-08) lamq True
+  a=48    xi E_tail 4.50e-20 B` 1.82e-12 (2.5e-08) lamq True
+  a=49    xi E_tail 4.22e-20 B` 2.28e-12 (1.9e-08) lamq True
+  a=50    xi E_tail 3.96e-20 B` 2.06e-12 (1.9e-08) lamq True
+  a=51    xi E_tail 3.73e-20 B` 2.34e-12 (1.6e-08) lamq True
+  a=52    xi E_tail 3.52e-20 B` 2.20e-12 (1.6e-08) lamq True
+  a=53    xi E_tail 3.32e-20 B` 2.37e-12 (1.4e-08) lamq True
+  a=54    xi E_tail 3.14e-20 B` 2.30e-12 (1.4e-08) lamq True
+  a=55    xi E_tail 2.97e-20 B` 1.92e-12 (1.5e-08) lamq True
+  a=56    xi E_tail 2.81e-20 B` 1.93e-12 (1.5e-08) lamq True
+  a=57    xi E_tail 2.67e-20 B` 1.79e-12 (1.5e-08) lamq True
+  a=58    xi E_tail 2.54e-20 B` 1.52e-12 (1.7e-08) lamq True
+  a=59    xi E_tail 2.41e-20 B` 1.80e-12 (1.3e-08) lamq True
+  a=60    xi E_tail 2.29e-20 B` 1.44e-12 (1.6e-08) lamq True
+
+### A DECLARED POST-RUN READ OF A PRIOR BANK (defect (a)): b519`s variant-(B) Q0 cells, E_tail against B` at the ladder`s widths:
+  widths where E_tail > B` : 119 of 119
+  a=1.300000   E_tail 3.82e+07 ; B` 3.31e+02 ; ratio 1.16e+05 ; P - PR + A over B 3.6e-01
+  a=4.123106   E_tail 1.16e-01 ; B` 7.85e-07 ; ratio 1.47e+05 ; P - PR + A over B 5.0e+04
+  a=6.557439   E_tail 4.97e-03 ; B` 3.12e-07 ; ratio 1.59e+04 ; P - PR + A over B 3.6e+05
+  a=8.888194   E_tail 9.94e-04 ; B` 1.59e-07 ; ratio 6.26e+03 ; P - PR + A over B 1.3e+06
+  a=11.000000  E_tail 3.75e-04 ; B` 1.56e-07 ; ratio 2.41e+03 ; P - PR + A over B 1.3e+06
+  a=12.767145  E_tail 2.02e-04 ; B` 1.47e-07 ; ratio 1.37e+03 ; P - PR + A over B 3.4e+06
+  a=14.106736  E_tail 1.37e-04 ; B` 1.35e-07 ; ratio 1.01e+03 ; P - PR + A over B 3.2e+06
+
+### THE RUN LOG:
+[23:18:52] a=15 ; open q False xi True ; tail/B` q 7.89e+02 xi 6.68e-08 ; elapsed 3 s
+[23:18:55] a=16 ; open q False xi True ; tail/B` q - xi 8.04e-08 ; elapsed 5 s
+[23:18:58] a=17 ; open q False xi True ; tail/B` q - xi 7.28e-08 ; elapsed 8 s
+[23:19:01] a=18 ; open q False xi True ; tail/B` q - xi 5.65e-08 ; elapsed 12 s
+[23:19:05] a=19 ; open q False xi True ; tail/B` q - xi 5.66e-08 ; elapsed 15 s
+[23:19:09] a=20 ; open q False xi True ; tail/B` q - xi 6.81e-08 ; elapsed 19 s
+[23:19:13] a=21 ; open q False xi True ; tail/B` q - xi 6.84e-08 ; elapsed 24 s
+[23:19:18] a=22 ; open q False xi True ; tail/B` q - xi 6.29e-08 ; elapsed 28 s
+[23:19:24] a=23 ; open q False xi True ; tail/B` q - xi 5.73e-08 ; elapsed 34 s
+[23:19:30] a=24 ; open q False xi True ; tail/B` q - xi 4.68e-08 ; elapsed 40 s
+[23:19:36] a=25 ; open q False xi True ; tail/B` q - xi 4.54e-08 ; elapsed 47 s
+[23:19:43] a=26 ; open q False xi True ; tail/B` q - xi 4.78e-08 ; elapsed 54 s
+[23:19:50] a=27 ; open q False xi True ; tail/B` q - xi 6.67e-08 ; elapsed 61 s
+[23:19:58] a=28 ; open q False xi True ; tail/B` q - xi 6.32e-08 ; elapsed 69 s
+[23:20:05] a=29 ; open q False xi True ; tail/B` q - xi 4.80e-08 ; elapsed 76 s
+[23:20:13] a=30 ; open q False xi True ; tail/B` q - xi 4.22e-08 ; elapsed 83 s
+[23:20:20] a=31 ; open q False xi True ; tail/B` q - xi 3.49e-08 ; elapsed 91 s
+[23:20:28] a=32 ; open q False xi True ; tail/B` q - xi 3.11e-08 ; elapsed 99 s
+[23:20:37] a=33 ; open q False xi True ; tail/B` q - xi 3.28e-08 ; elapsed 108 s
+[23:20:46] a=34 ; open q False xi True ; tail/B` q - xi 3.95e-08 ; elapsed 117 s
+[23:20:55] a=35 ; open q False xi True ; tail/B` q - xi 4.39e-08 ; elapsed 126 s
+[23:21:05] a=36 ; open q False xi True ; tail/B` q - xi 4.37e-08 ; elapsed 136 s
+[23:21:15] a=37 ; open q False xi True ; tail/B` q - xi 3.98e-08 ; elapsed 146 s
+[23:21:26] a=38 ; open q False xi True ; tail/B` q - xi 3.62e-08 ; elapsed 157 s
+[23:21:37] a=39 ; open q False xi True ; tail/B` q - xi 2.81e-08 ; elapsed 168 s
+[23:21:49] a=40 ; open q False xi True ; tail/B` q - xi 2.15e-08 ; elapsed 179 s
+[23:22:01] a=41 ; open q False xi True ; tail/B` q - xi 2.13e-08 ; elapsed 192 s
+[23:22:13] a=42 ; open q False xi True ; tail/B` q - xi 2.40e-08 ; elapsed 204 s
+[23:22:26] a=43 ; open q False xi True ; tail/B` q - xi 2.76e-08 ; elapsed 217 s
+[23:22:40] a=44 ; open q False xi True ; tail/B` q - xi 2.60e-08 ; elapsed 231 s
+[23:22:54] a=45 ; open q False xi True ; tail/B` q - xi 3.16e-08 ; elapsed 245 s
+[23:23:09] a=46 ; open q False xi True ; tail/B` q - xi 2.97e-08 ; elapsed 259 s
+[23:23:24] a=47 ; open q False xi True ; tail/B` q - xi 2.25e-08 ; elapsed 274 s
+[23:23:39] a=48 ; open q False xi True ; tail/B` q - xi 2.47e-08 ; elapsed 290 s
+[23:23:56] a=49 ; open q False xi True ; tail/B` q - xi 1.85e-08 ; elapsed 306 s
+[23:24:13] a=50 ; open q False xi True ; tail/B` q - xi 1.92e-08 ; elapsed 323 s
+[23:24:30] a=51 ; open q False xi True ; tail/B` q - xi 1.59e-08 ; elapsed 341 s
+[23:24:48] a=52 ; open q False xi True ; tail/B` q - xi 1.60e-08 ; elapsed 359 s
+[23:25:07] a=53 ; open q False xi True ; tail/B` q - xi 1.40e-08 ; elapsed 378 s
+[23:25:28] a=54 ; open q False xi True ; tail/B` q - xi 1.37e-08 ; elapsed 399 s
+[23:25:52] a=55 ; open q False xi True ; tail/B` q - xi 1.55e-08 ; elapsed 423 s
+[23:26:16] a=56 ; open q False xi True ; tail/B` q - xi 1.46e-08 ; elapsed 447 s
+[23:26:41] a=57 ; open q False xi True ; tail/B` q - xi 1.49e-08 ; elapsed 471 s
+[23:27:07] a=58 ; open q False xi True ; tail/B` q - xi 1.67e-08 ; elapsed 498 s
+[23:27:33] a=59 ; open q False xi True ; tail/B` q - xi 1.34e-08 ; elapsed 524 s
+[23:28:00] a=60 ; open q False xi True ; tail/B` q - xi 1.59e-08 ; elapsed 551 s
+### REACH : Q0 None (stop {'a': 15.0, 'why': 'E_tail > B`', 'Etail': 0.00010861886469505964, 'Bprime': 1.3770039180928568e-07, 'Eu': 1.2164491636212915e-10, 'Ek': 9.094947017729282e-13, 'Eround': 1.3757783739822177e-07, 'shortfall': 1.564540548965721e-11, 'tail_over_Bprime': 788.8057780220132, 'lamq_ok': True}) ; xi 60.0 (stop None)
+  a=20 xi  E_tail 9.749e-19 against B` 1.431e-11 (within)
+  a=30 xi  E_tail 2.125e-19 against B` 5.039e-12 (within)
+  a=45 xi  E_tail 5.501e-20 against B` 1.743e-12 (within)
+  a=60 xi  E_tail 2.295e-20 against B` 1.440e-12 (within)
+====================================================================================================================================
