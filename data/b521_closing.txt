@@ -1,0 +1,49 @@
+========================================================================================================
+b521 -- THE CLOSING RECORD. ### **Q0`S TAIL TIGHTENED, THEN THE WIDTH PASS RE-RUN, UNDER (R130).**
+========================================================================================================
+    notes : b518_components.txt 12 of 119 re-marked, prefix proved True ; b519_components.txt 252 of 357 re-marked, prefix proved True
+    least p : 7 ; new tail below b519`s old majorant at 108 of 119 widths ; validity fixture and control True
+    reach : Q0 None (stopped at a = 15.0, tail / B` 9.12) at p = 7 ; xi cited from b520, positive 46 of 46
+    Q0 : 0 cells read
+    reading : no Q0 cell is negative beyond its bound on a closing bank: the two-property window is not yet the witness; no Q0 cell was read -- the reach ended at a = 15.0, the tail bound 9.12 times the rest of the cell`s bound
+    (N1) HELD (N2) HELD (N3) REFUTED (N4) REFUTED ; (S1) REFUTED (S2) REFUTED (S3) HELD
+
+### THIS ACT`S OWN DEFECTS -- FIVE (the desk).
+    (a) ### **THE PRE-SEAL PRICE HAD THE NUMBER AND THE FACE DID NOT READ IT AGAINST ITS OWN REACH RULE.** ### The pricing
+        banked before the seal found the closed-form tail below B` at a = 15 only from p = 9; the face then registered the
+        least p AT a = 60 (READING (3)) and b520`s reach rule unchanged (READING (7)) -- the first width where E_tail > B`
+        ENDS the reach, in increasing width from a = 15. ### The tail FALLS with width at fixed p (the ramp factor
+        (8p/L)^(2p) outruns cosh(W/2) on this grid), so the least p at a = 60 is 7, and at p = 7 the pass stops at its first
+        width (E_tail / B` = 9.12). ### NO Q0 CELL OF THIS ACT IS READ. ### The seat`s (S1) carried the same wrong direction
+        ("the tail grows with width"). ### The rule is the registered one and is not changed after the run; no pass at
+        another p is run in its place. ### This is b520`s defect (a) again, one step later: a price taken, and not read
+        against the reading it priced.
+    (b) ### **THE REPORT ASSUMED THE CELL FILE** and crashed when the pass wrote none (the reach ended at the first width);
+        repaired to read a missing file as no cell, before the desk or the suite ran on it. ### b520`s no-cell species,
+        one line earlier in the same tool shape.
+    (c) ### **(R130)(1)`S PREMISE HOLDS AT FEWER CELLS THAN ITS WORDS**: the note re-marks, as READING (0) specified, only
+        cells whose tail exceeded B` -- 12 of b518`s 119 and 252 of b519`s 357 (A 14, B 119, C 119). ### b520 had read
+        b519`s variant (B) only. ### Found here; the notes say the counts; nothing else of either bank is touched.
+    (d) ### **(R130)(2)`S GROWTH CLAIM DOES NOT HOLD ON THIS GRID**: the majorant`s e^{L/2} growth is its large-a
+        asymptote; for a in [15, 60] at every p scanned (5 to 9) both the new tail and b519`s old majorant FALL with
+        width. ### Printed in Component 0; the ruling is quoted, not amended.
+    (e) ### **THE SUITE GENERATOR`S BLANKET RENAME HIT THE CITATION**: `b520_results` -> `b521_results` turned xi`s
+        citation of b520 into a read of this act`s own results, and the first suite run died on it (KeyError). ### Repaired
+        in the generated suite before any verdict was taken; the citation reads b520`s bank again.
+
+### THE COMMITS, THE MIRROR, THE CENSUSES.
+    post-push : ### ### **ARMS RUN : 65. ### LIVE PASSING : 65. ### LIVE FAILING : 0 .**
+      relay                local 07d62f51981b ; remote 07d62f51981b ; AGREE
+      PLACE-papers         local c7457ad34283 ; remote c7457ad34283 ; AGREE
+      SIDE-global-section  local 0093529be138 ; remote 0093529be138 ; AGREE
+      SIDE-explicit-formula local ffc09da7c82b ; remote ffc09da7c82b ; AGREE
+    mirror : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE NUMERICAL LANE IS SHUT; THE KERNEL LANE REOPENS FOR (f)(i) ON VARIANT (B)** (R130)(4).
+    (b) ### **AT p = 7 THE CLOSED-FORM TAIL IS BELOW B` FROM a = 30 TO 60 AND ABOVE IT AT a = 15**: the tail falls with width,
+        so b520`s increasing-width stop rule ends at the grid`s first width; the priced order at a = 15 is p = 9 (pre-seal).
+    (c) ### **XI STAYS POSITIVE TO a = 60** on variant (B), cited from b520.
+========================================================================================================
