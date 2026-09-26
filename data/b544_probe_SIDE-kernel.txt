@@ -1,0 +1,81 @@
+b544 -- THE AXIOM PROBE of SIDE-kernel at HEAD 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164 (pin v1.5) ; exit 0 ; 656.8 s
+import Bridge.SIDEBridge
+import Bridge.TheBridgeComplete
+import Bridge.Voice3_FE
+import Bridge.Voice6_CR
+import Kernel.AnalyticBridge
+import Kernel.Focus
+import Kernel.PerpendicularCrossing
+import Kernel.SchwarzDischarge
+import Kernel.SpectralCannon
+import Kernel.SpectralCannonFull
+import Kernel.ThomBridge
+import Kernel.Voice1Ext
+
+#print axioms SIDEBridge.xi_none_produces
+#print axioms SIDEBridge.side_exclusion_bridge
+#print axioms voice2_schwarz_symmetry
+#print axioms voice3_fe_zeros
+#print axioms voice4_modular
+#print axioms voice5_spectral_real_on_half
+#print axioms voice6_differentiable
+#print axioms voice7_zero_symmetry
+#print axioms fe_symmetry
+#print axioms fe_forces_half
+#print axioms zeta_differentiable
+#print axioms zeta_continuous
+#print axioms AnalyticBridge.zeta_analyticAt
+#print axioms AnalyticBridge.simple_iff_order_one
+#print axioms Focus.focus
+#print axioms Focus.euler_closing
+#print axioms Focus.fe_symmetry
+#print axioms PerpendicularCrossing.proved_infrastructure
+#print axioms schwarz_reflection_completedZeta₀
+#print axioms SpectralCannon.deriv_fe
+#print axioms SpectralCannon.deriv_at_half
+#print axioms SpectralCannonFull.hasDerivAt_zeta_line
+#print axioms SpectralCannonFull.schwarz_deriv
+#print axioms SpectralCannonFull.spectral_cannon
+#print axioms ThomBridge.antisymmetry
+#print axioms ThomBridge.im_odd
+#print axioms ThomBridge.focus_from_antisymmetry
+#print axioms ThomBridge.c1_closing
+#print axioms ThomBridge.c4_closing
+#print axioms Voice1Ext.hasDerivAt_zeta_imag
+#print axioms Voice1Ext.simplicity_forward
+#print axioms Voice1Ext.simplicity_backward
+#print axioms Voice1Ext.simplicity_iff
+---
+'SIDEBridge.xi_none_produces' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEBridge.side_exclusion_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'voice2_schwarz_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'voice3_fe_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
+'voice4_modular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'voice5_spectral_real_on_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'voice6_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'voice7_zero_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'fe_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'fe_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'zeta_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'zeta_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AnalyticBridge.zeta_analyticAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AnalyticBridge.simple_iff_order_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Focus.focus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Focus.euler_closing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Focus.fe_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerpendicularCrossing.proved_infrastructure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'schwarz_reflection_completedZeta₀' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpectralCannon.deriv_fe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpectralCannon.deriv_at_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpectralCannonFull.hasDerivAt_zeta_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpectralCannonFull.schwarz_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThomBridge.antisymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThomBridge.im_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThomBridge.focus_from_antisymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThomBridge.c1_closing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThomBridge.c4_closing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Voice1Ext.hasDerivAt_zeta_imag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Voice1Ext.simplicity_forward' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Voice1Ext.simplicity_backward' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Voice1Ext.simplicity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

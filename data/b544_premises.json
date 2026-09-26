@@ -1,0 +1,4909 @@
+{
+ "props": [
+  "Alt2",
+  "Alternates",
+  "BalanceContradiction",
+  "Bijective",
+  "Blind",
+  "BlockInputs",
+  "ChebyshevMertens",
+  "ClassClear",
+  "CombinationsExclude",
+  "CompletesLine",
+  "ConservationHypothesis",
+  "Dealigned",
+  "DealignedAt",
+  "Determined",
+  "EDifficultyTop",
+  "EF_lit",
+  "EF_paper",
+  "Essential",
+  "Exhaustive",
+  "ExplicitFormulaDecomp",
+  "ExplicitFormulaPaper",
+  "GammaFacts",
+  "GoalState",
+  "HCount",
+  "HMax",
+  "HStrip",
+  "HasSimplePolesOn",
+  "HolomorphicOn",
+  "InTail",
+  "Independent",
+  "Injective",
+  "IsAllDark",
+  "IsAllStructural",
+  "IsDark",
+  "IsDecidable",
+  "IsEvenFn",
+  "IsMultipleZero",
+  "IsMultipleZeroReal",
+  "IsNontrivialZero",
+  "IsSign",
+  "IsSimpleZero",
+  "IsSimpleZeroReal",
+  "LocalCount",
+  "MVHilbert",
+  "NonInvarianceWitness",
+  "NoneProduces",
+  "NonnegStream",
+  "NontrivialInterface",
+  "NontrivialZeroExistsInStrip",
+  "NotDiv",
+  "OffLineOrNonSimple",
+  "OffLineZero",
+  "OutputStageExhaustiveness",
+  "PWSetup",
+  "PaperInputs",
+  "PerClassExcludes",
+  "PosDefOn",
+  "Proper",
+  "RHHypothesis",
+  "RealizesXiZeros",
+  "RectangleBorderIntegrable",
+  "Register1_universalityHypothesis",
+  "Register2_conservationHypothesis",
+  "Register3_totalityThroughPlaces",
+  "Register4_channelInequality",
+  "Register4_positivity",
+  "Register5_output_HilbertPolya",
+  "RespectsI",
+  "RiemannVonMangoldt",
+  "SatisfiesCWeil",
+  "Silent",
+  "SimplicityHypothesis",
+  "StepsI",
+  "StepsMI",
+  "StructuralExhaustiveness",
+  "StructuralWitness",
+  "Surjective",
+  "Symmetric",
+  "TailBoundPremise",
+  "TailHyp",
+  "TailInputs",
+  "TaperProfile",
+  "ThmA_statement",
+  "ThmB_statement",
+  "ThmC_statement",
+  "TwoThreePrimal",
+  "TypeD",
+  "Universal",
+  "Valid",
+  "VerifiedZerosTo",
+  "ZetaSeam",
+  "admissible",
+  "cell_form",
+  "cell_imp_h2",
+  "cell_imp_li",
+  "cell_imp_rh",
+  "class1_deriv_excluded",
+  "classK",
+  "conservation",
+  "conservationHypothesis",
+  "conservationHypothesisConfig",
+  "cr_minimal_codim",
+  "cross_class_produces_offline",
+  "domainFault",
+  "eval",
+  "f4_needs",
+  "f_pair_hypothesis",
+  "factorsDark",
+  "factors_through",
+  "farSmall",
+  "finiteInstanceIdentity",
+  "h2_imp_li",
+  "h2_imp_rh",
+  "h2_sign",
+  "h2_sign_aim",
+  "h2_sign_imp_ch",
+  "h2_sign_imp_rh",
+  "hasBrightAccess",
+  "iIndist",
+  "identity",
+  "isConserved",
+  "isDark",
+  "isDetermined",
+  "isSilent",
+  "isSquarefree",
+  "is_two_three_smooth",
+  "is_universal",
+  "is_xi_zero",
+  "kappa",
+  "kappa_zero",
+  "le",
+  "li_form",
+  "li_imp_cell",
+  "li_imp_h2",
+  "li_imp_rh",
+  "meta_meta",
+  "meta_ostrowski_conjecture",
+  "nodes_distinct_nonreal",
+  "placeRequiring",
+  "primitiveAccessible",
+  "rh_form",
+  "rh_imp_cell",
+  "rh_imp_h2",
+  "rh_imp_li",
+  "rh_strip",
+  "rh_strip_imp_rh",
+  "s_dark",
+  "self_adjoint_constraint",
+  "silence_principle",
+  "solves",
+  "topological_rests",
+  "zeroSideNeg"
+ ],
+ "proved": {
+  "OutputStageExhaustiveness": "output_stage_exhaustiveness_proved",
+  "StructuralExhaustiveness": "structural_exhaustiveness_proved",
+  "isConserved": "xi_conserved",
+  "isSilent": "product_formula_is_silent",
+  "is_universal": "product_formula_universal",
+  "kappa_zero": "product_formula_kappa_zero",
+  "isDetermined": "xi_determined",
+  "zeroSideNeg": "zeroSideNeg_holds",
+  "Register5_output_HilbertPolya": "register5_output_holds",
+  "rh_strip_imp_rh": "rh_strip_imp_rh_holds",
+  "h2_sign_imp_rh": "h2_sign_imp_rh_holds",
+  "h2_sign_imp_ch": "h2_sign_imp_ch_holds",
+  "ZetaSeam": "zetaSeam"
+ },
+ "rows": [
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 65,
+   "full": "SIDEBridge.xi_none_produces",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h_rh",
+     "type": "RHHypothesis",
+     "prop": "RHHypothesis",
+     "proved": null
+    },
+    {
+     "binder": "h_simp",
+     "type": "SimplicityHypothesis",
+     "prop": "SimplicityHypothesis",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: RHHypothesis, SimplicityHypothesis",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 89,
+   "full": "SIDEBridge.side_exclusion_bridge",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h_rh",
+     "type": "RHHypothesis",
+     "prop": "RHHypothesis",
+     "proved": null
+    },
+    {
+     "binder": "h_simp",
+     "type": "SimplicityHypothesis",
+     "prop": "SimplicityHypothesis",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: RHHypothesis, SimplicityHypothesis",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 40,
+   "full": "voice2_schwarz_symmetry",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 45,
+   "full": "voice3_fe_zeros",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 53,
+   "full": "voice4_modular",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 59,
+   "full": "voice5_spectral_real_on_half",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 65,
+   "full": "voice6_differentiable",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 70,
+   "full": "voice7_zero_symmetry",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/Voice3_FE.lean",
+   "line": 6,
+   "full": "fe_symmetry",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/Voice3_FE.lean",
+   "line": 10,
+   "full": "fe_forces_half",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/Voice6_CR.lean",
+   "line": 6,
+   "full": "zeta_differentiable",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/Voice6_CR.lean",
+   "line": 10,
+   "full": "zeta_continuous",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/AnalyticBridge.lean",
+   "line": 9,
+   "full": "AnalyticBridge.zeta_analyticAt",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/AnalyticBridge.lean",
+   "line": 13,
+   "full": "AnalyticBridge.simple_iff_order_one",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Focus.lean",
+   "line": 16,
+   "full": "Focus.focus",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Focus.lean",
+   "line": 30,
+   "full": "Focus.euler_closing",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Focus.lean",
+   "line": 34,
+   "full": "Focus.fe_symmetry",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/PerpendicularCrossing.lean",
+   "line": 147,
+   "full": "PerpendicularCrossing.proved_infrastructure",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SchwarzDischarge.lean",
+   "line": 42,
+   "full": "schwarz_reflection_completedZeta₀",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SpectralCannon.lean",
+   "line": 17,
+   "full": "SpectralCannon.deriv_fe",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SpectralCannon.lean",
+   "line": 36,
+   "full": "SpectralCannon.deriv_at_half",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SpectralCannonFull.lean",
+   "line": 19,
+   "full": "SpectralCannonFull.hasDerivAt_zeta_line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SpectralCannonFull.lean",
+   "line": 34,
+   "full": "SpectralCannonFull.schwarz_deriv",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SpectralCannonFull.lean",
+   "line": 65,
+   "full": "SpectralCannonFull.spectral_cannon",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 11,
+   "full": "ThomBridge.antisymmetry",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 26,
+   "full": "ThomBridge.im_odd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 32,
+   "full": "ThomBridge.focus_from_antisymmetry",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 39,
+   "full": "ThomBridge.c1_closing",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 43,
+   "full": "ThomBridge.c4_closing",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 25,
+   "full": "Voice1Ext.hasDerivAt_zeta_imag",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 36,
+   "full": "Voice1Ext.simplicity_forward",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 45,
+   "full": "Voice1Ext.simplicity_backward",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 56,
+   "full": "Voice1Ext.simplicity_iff",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/CodimProbe.lean",
+   "line": 50,
+   "full": "focus_on_critical_line",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/CodimProbe.lean",
+   "line": 67,
+   "full": "euler_closing",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/CodimProbe.lean",
+   "line": 71,
+   "full": "zeros_in_strip",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 31,
+   "full": "techne_kernel_foundation3.local_structure_witness",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 37,
+   "full": "techne_kernel_foundation3.local_collapse",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 44,
+   "full": "techne_kernel_foundation3.global_structure_witness",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 49,
+   "full": "techne_kernel_foundation3.entire_and_symmetric",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild10.lean",
+   "line": 29,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild11.lean",
+   "line": 41,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild12.lean",
+   "line": 33,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild13.lean",
+   "line": 33,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild14.lean",
+   "line": 33,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild2.lean",
+   "line": 87,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild3.lean",
+   "line": 59,
+   "full": "schwarz_v2",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild4.lean",
+   "line": 63,
+   "full": "schwarz_v3",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild4.lean",
+   "line": 93,
+   "full": "schwarz_v4",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild5.lean",
+   "line": 90,
+   "full": "schwarz_v5",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild6.lean",
+   "line": 40,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild7.lean",
+   "line": 29,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild8.lean",
+   "line": 39,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzBuild9.lean",
+   "line": 29,
+   "full": "schwarz_discharge",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzReflection_PR.lean",
+   "line": 78,
+   "full": "completedRiemannZeta₀_conj",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzReflection_PR.lean",
+   "line": 129,
+   "full": "completedRiemannZeta₀_im_eq_zero_on_half",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzReflection_PR.lean",
+   "line": 140,
+   "full": "completedRiemannZeta₀_conj_eq_self_on_half",
+   "profile": null,
+   "profile_class": "NOT PROFILED AT THE PIN (closure: legacy/ is outside the build: no library target)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 46,
+   "full": "SIDEExplicitFormula.B321.paperFT_iteratedDeriv",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 63,
+   "full": "SIDEExplicitFormula.B321.paperFT_decay",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 87,
+   "full": "SIDEExplicitFormula.B321.paperFT_decay_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 98,
+   "full": "SIDEExplicitFormula.B321.paperFT_decay_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 114,
+   "full": "SIDEExplicitFormula.B321.window_decay_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/GrowthBound.lean",
+   "line": 23,
+   "full": "SIDEExplicitFormula.B321.paperFT_growth",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/GrowthBound.lean",
+   "line": 50,
+   "full": "SIDEExplicitFormula.B321.paperFT_growth_at",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 80,
+   "full": "SIDEExplicitFormula.B321.paperFT_ofReal_conj",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 90,
+   "full": "SIDEExplicitFormula.B321.kWin_FT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 105,
+   "full": "SIDEExplicitFormula.B321.pairTwo_factored",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 138,
+   "full": "SIDEExplicitFormula.B321.cosWinC_FT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 167,
+   "full": "SIDEExplicitFormula.B321.phiC_FT_neg",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 178,
+   "full": "SIDEExplicitFormula.B321.phiC_FT_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 186,
+   "full": "SIDEExplicitFormula.B321.phiC_FT_imag",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 212,
+   "full": "SIDEExplicitFormula.B321.farFT_conj",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PairTerm.lean",
+   "line": 224,
+   "full": "SIDEExplicitFormula.B321.cosWinC_FT_near_far",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 36,
+   "full": "SIDEExplicitFormula.B321.paperFT_conj_of_real",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 41,
+   "full": "SIDEExplicitFormula.B321.paperFT_neg_of_even",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 46,
+   "full": "SIDEExplicitFormula.B321.zero_term_real",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT",
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 63,
+   "full": "SIDEExplicitFormula.B321.paperFT_polyOpFull",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 127,
+   "full": "SIDEExplicitFormula.B321.kWindow_term",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 215,
+   "full": "SIDEExplicitFormula.B321.paperFT_conj_eq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 224,
+   "full": "SIDEExplicitFormula.B321.paperFT_of_sq_eq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 428,
+   "full": "SIDEExplicitFormula.B321.gHat_ne",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Z g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hρ",
+     "type": "ρ ∈ tieSet Z g0 M",
+     "prop": "tieSet",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, tieSet",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 736,
+   "full": "SIDEExplicitFormula.B321.term_eq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Z g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 749,
+   "full": "SIDEExplicitFormula.B321.tie_term_neg",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Z g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hQ",
+     "type": "∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)",
+     "prop": "Xval",
+     "proved": null
+    },
+    {
+     "binder": "hρ",
+     "type": "ρ ∈ tieSet Z g0 M",
+     "prop": "tieSet",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, Xval, tieSet",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 756,
+   "full": "SIDEExplicitFormula.B321.kill_term_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Z g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hρ",
+     "type": "ρ ∈ killSet Z g0 M",
+     "prop": "killSet",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, killSet",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 764,
+   "full": "SIDEExplicitFormula.B321.rest_term_small",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Z g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hB",
+     "type": "∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D",
+     "prop": "Pof",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, Pof",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 949,
+   "full": "SIDEExplicitFormula.B321.dominant_summable",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Zeta23.zetaZeroConfig g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 969,
+   "full": "SIDEExplicitFormula.B321.fR_norm_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Zeta23.zetaZeroConfig g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hB",
+     "type": "∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D",
+     "prop": "Pof",
+     "proved": null
+    },
+    {
+     "binder": "hT",
+     "type": "(x : ℂ) ∉ tieSet Zeta23.zetaZeroConfig g0 M",
+     "prop": "tieSet",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, Pof, tieSet",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 986,
+   "full": "SIDEExplicitFormula.B321.fR_bound",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Zeta23.zetaZeroConfig g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hB",
+     "type": "∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D",
+     "prop": "Pof",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, Pof",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1025,
+   "full": "SIDEExplicitFormula.B321.rest_tendsto_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Zeta23.zetaZeroConfig g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hB",
+     "type": "∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D",
+     "prop": "Pof",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, Pof",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1075,
+   "full": "SIDEExplicitFormula.B321.mem_sT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Zeta23.zetaZeroConfig g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1082,
+   "full": "SIDEExplicitFormula.B321.zeroSide_eventually_neg",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "H",
+     "type": "PWSetup Zeta23.zetaZeroConfig g0 L M",
+     "prop": "PWSetup",
+     "proved": null
+    },
+    {
+     "binder": "hρs",
+     "type": "ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M",
+     "prop": "tieSet",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: PWSetup, tieSet",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 33,
+   "full": "SIDEExplicitFormula.B321.paperFT_conj_of_real_even",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 38,
+   "full": "SIDEExplicitFormula.B321.zero_term_sq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT",
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 47,
+   "full": "SIDEExplicitFormula.B321.weilTest_even_of_even",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 52,
+   "full": "SIDEExplicitFormula.B321.classK_of_real_even",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 64,
+   "full": "SIDEExplicitFormula.B321.weilTest_phiC",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 78,
+   "full": "SIDEExplicitFormula.B321.selfConv_im_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 86,
+   "full": "SIDEExplicitFormula.B321.phiC_selfConv",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 146,
+   "full": "SIDEExplicitFormula.B321.paperFT_power",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 168,
+   "full": "SIDEExplicitFormula.B321.paperFT_sum",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 191,
+   "full": "SIDEExplicitFormula.B321.paperFT_polyOp",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 274,
+   "full": "SIDEExplicitFormula.B321.base_nonzero_at",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 84,
+   "full": "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 91,
+   "full": "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 101,
+   "full": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "mellin Phi"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 143,
+   "full": "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "mellin Phi"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 149,
+   "full": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 267,
+   "full": "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 67,
+   "full": "SIDEExplicitFormula.B321.cosWin_bound",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 77,
+   "full": "SIDEExplicitFormula.B321.window_bound",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 86,
+   "full": "SIDEExplicitFormula.B321.kWin_bound",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 150,
+   "full": "SIDEExplicitFormula.B321.zero_term_bound",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 207,
+   "full": "SIDEExplicitFormula.B321.finite_rest_bound",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hcount",
+     "type": "HCount Z A₀",
+     "prop": "HCount",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: HCount",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 275,
+   "full": "SIDEExplicitFormula.B321.rest_le_of_finite",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h",
+     "type": "∀ s : Finset ℂ, (∀ ρ ∈ s, ρ ∈ Z.carrier) → (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ R",
+     "prop": "gammaOf",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: gammaOf",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 314,
+   "full": "SIDEExplicitFormula.B321.rest_bound_zeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 25,
+   "full": "SIDEExplicitFormula.B321.zeta_zero_re_nonpos",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "line": 177,
+   "full": "SIDEExplicitFormula.B321.weilTest_ofReal_even",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "line": 244,
+   "full": "SIDEExplicitFormula.B321.paperFT_second_order",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "line": 277,
+   "full": "SIDEExplicitFormula.B321.paperFT_window",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "line": 285,
+   "full": "SIDEExplicitFormula.B321.paperFT_window_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 126,
+   "full": "Zeta23.EF.paperFT_ofReal_eq_fourier",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 140,
+   "full": "Zeta23.EF.integrable_paperFT_ofReal",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 149,
+   "full": "Zeta23.EF.paper_inversion",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 195,
+   "full": "Zeta23.EF.paperFT_tilde",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 205,
+   "full": "Zeta23.EF.paperFT_weilTest",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT",
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 254,
+   "full": "Zeta23.EF.weilTest_contDiff",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 261,
+   "full": "Zeta23.EF.weilTest_hasCompactSupport",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 267,
+   "full": "Zeta23.EF.tsupport_weilTest_subset",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "weilTest"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 281,
+   "full": "Zeta23.EF.gamma_term",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 296,
+   "full": "Zeta23.EF.integrable_paperFT_mul_cexp",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 304,
+   "full": "Zeta23.EF.integrable_paperFT_mul_cos",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 312,
+   "full": "Zeta23.EF.k_add_k_neg",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 354,
+   "full": "Zeta23.EF.prime_term",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 391,
+   "full": "Zeta23.EF.integrable_inversion_kernel",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 411,
+   "full": "Zeta23.EF.integral_k_mul_weight",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 426,
+   "full": "Zeta23.EF.integrable_paperFT_mul_weightFT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 573,
+   "full": "Zeta23.EF.pole_term",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 645,
+   "full": "Zeta23.EF.integrable_paperFT_mul_PiX",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 666,
+   "full": "Zeta23.EF.paperFT_mul_PX_eq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 677,
+   "full": "Zeta23.EF.integrable_paperFT_mul_PX",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 684,
+   "full": "Zeta23.EF.integrable_paperFT_mul_nuX",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 697,
+   "full": "Zeta23.EF.literatureRHS_eq_integral_nu",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 719,
+   "full": "Zeta23.EF.prop_EF_of_lit",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hEF",
+     "type": "EF_lit Z",
+     "prop": "EF_lit",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: EF_lit",
+   "zeta": [
+    "paperFT",
+    "weilTest"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula/Bridge.lean",
+   "line": 96,
+   "full": "Zeta23.EF.norm_paperFT_mul_one_add_sq_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ExplicitFormula/Bridge.lean",
+   "line": 174,
+   "full": "Zeta23.EF.integrable_paperFT_mul_mu",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hΓ",
+     "type": "GammaFacts",
+     "prop": "GammaFacts",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: GammaFacts",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 184,
+   "full": "analyticAt_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 189,
+   "full": "differentiableAt_deriv_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 193,
+   "full": "riemannZetaResidue",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 504,
+   "full": "riemannZetaLogDerivResidue",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 542,
+   "full": "riemannZetaLogDerivResidueBigO",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1117,
+   "full": "HolomorphicOn_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1178,
+   "full": "Zeta0EqZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1208,
+   "full": "DerivZeta0EqDerivZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1430,
+   "full": "ZetaUpperBnd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1827,
+   "full": "ZetaDerivUpperBnd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1881,
+   "full": "riemannZeta_isBigO_near_one_horizontal",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1894,
+   "full": "ZetaNear1BndFilter",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1901,
+   "full": "ZetaNear1BndExact",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1949,
+   "full": "norm_zeta_product_ge_one",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1958,
+   "full": "ZetaLowerBound1_aux1",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1964,
+   "full": "ZetaLowerBound1",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1972,
+   "full": "ZetaLowerBound2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1981,
+   "full": "ZetaLowerBound3_aux2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 1999,
+   "full": "ZetaLowerBound3_aux5",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2005,
+   "full": "ZetaLowerBound3",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2087,
+   "full": "ZetaInvBound1",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2121,
+   "full": "ZetaInvBound2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2214,
+   "full": "Zeta_eq_int_derivZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2239,
+   "full": "Zeta_diff_Bnd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2278,
+   "full": "ZetaInvBnd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2358,
+   "full": "ZetaLowerBnd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2485,
+   "full": "ZetaZeroFree",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2511,
+   "full": "LogDerivZetaBnd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2569,
+   "full": "ZetaNoZerosOn1Line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2575,
+   "full": "ZetaCont",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2582,
+   "full": "ZetaNoZerosInBox",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2690,
+   "full": "LogDerivZetaHoloOn",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2699,
+   "full": "LogDerivZetaHolcSmallT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2737,
+   "full": "LogDerivZetaHolcLargeT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2791,
+   "full": "dlog_riemannZeta_bdd_on_vertical_lines_generalized",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2839,
+   "full": "triv_bound_zeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 3021,
+   "full": "LogDerivZetaBndUnif",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "ζ (Zeta23 notation)"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 43,
+   "full": "Zeta23.paperFT_def",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 58,
+   "full": "Zeta23.paperFT_ofReal_eq_fourier",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 70,
+   "full": "Zeta23.fourier_eq_paperFT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 96,
+   "full": "Zeta23.norm_paperFT_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 109,
+   "full": "Zeta23.paperFT_deriv",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 135,
+   "full": "Zeta23.paperFT_deriv_deriv",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 155,
+   "full": "Zeta23.norm_paperFT_mul_sq_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Poisson/PaperFT.lean",
+   "line": 172,
+   "full": "Zeta23.norm_paperFT_le_div",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 48,
+   "full": "Zeta23.RvM.analyticAt_completedRiemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 57,
+   "full": "Zeta23.RvM.completedRiemannZeta_eq_Gammaℝ_mul",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 62,
+   "full": "Zeta23.RvM.completedRiemannZeta_eq_zero_iff_of_re_pos",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 69,
+   "full": "Zeta23.RvM.completedRiemannZeta_ne_zero_of_one_le_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 74,
+   "full": "Zeta23.RvM.completedRiemannZeta_ne_zero_of_re_nonpos",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 81,
+   "full": "Zeta23.RvM.completedRiemannZeta_eq_zero_iff",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta",
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 97,
+   "full": "Zeta23.RvM.analyticOrderNatAt_completedRiemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 114,
+   "full": "Zeta23.RvM.rectangleIntegral'_logDeriv_completedZeta_eq_Ncount",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta",
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 54,
+   "full": "Zeta23.RvM.riemannZeta_zeros_finite_of_isCompact",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 66,
+   "full": "Zeta23.RvM.comp_affine_analyticAt",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 310,
+   "full": "Zeta23.RvM.zetaZeroConfig_local_count",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 59,
+   "full": "Zeta23.RvM.analyticOnNhd_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 72,
+   "full": "Zeta23.RvM.norm_riemannZeta_le_of_re_pos",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 94,
+   "full": "Zeta23.RvM.riemannZeta_linear_growth",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 118,
+   "full": "Zeta23.RvM.zeta_growth",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 125,
+   "full": "Zeta23.RvM.zeta_growth_quarter",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 135,
+   "full": "Zeta23.RvM.zeta_growth_right_at",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 159,
+   "full": "Zeta23.RvM.zeta_growth_right",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 167,
+   "full": "Zeta23.RvM.norm_riemannZeta_sub_one_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 214,
+   "full": "Zeta23.RvM.norm_riemannZeta_ge_of_two_le_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 232,
+   "full": "Zeta23.RvM.zeta_lower_bound_two",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 239,
+   "full": "Zeta23.RvM.riemannZeta_ne_zero_of_two_le_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 243,
+   "full": "Zeta23.RvM.norm_riemannZeta_le_of_two_le_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 116,
+   "full": "Zeta23.zetaZeros_carrier",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 142,
+   "full": "Zeta23.IsNontrivialZero.not_trivial",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 153,
+   "full": "Zeta23.RH_implies_on_line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 46,
+   "full": "Zeta23.riemannZeta_analyticOnNhd_compl_one",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 56,
+   "full": "Zeta23.analyticOrderAt_riemannZeta_ne_top",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 66,
+   "full": "Zeta23.ZetaSeam.one_le_mult_holds",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 79,
+   "full": "Zeta23.riemannZeta_zeros_locallyFinite",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 107,
+   "full": "Zeta23.ZetaSeam.finite_window_holds",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 124,
+   "full": "Zeta23.ZetaSeam.of_reflect",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h₁",
+     "type": "∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ)",
+     "prop": "reflect",
+     "proved": null
+    },
+    {
+     "binder": "h₂",
+     "type": "∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ",
+     "prop": "reflect",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: reflect, reflect",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 44,
+   "full": "Zeta23.zetaZeroConfig_carrier",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig",
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 45,
+   "full": "Zeta23.zetaZeroConfig_mult",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 47,
+   "full": "Zeta23.zetaZeroConfig_N",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 49,
+   "full": "Zeta23.zetaZeroConfig_N0star",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 51,
+   "full": "Zeta23.zetaZeroConfig_N0s",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 53,
+   "full": "Zeta23.zetaZeroConfig_Nd",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Contour.lean",
+   "line": 47,
+   "full": "Zeta23.WeilEF.rectangle_identity",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta",
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 46,
+   "full": "Zeta23.WeilEF.Hfn_apply",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 108,
+   "full": "Zeta23.WeilEF.norm_logDeriv_zeta_le_of_one_lt_re",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 133,
+   "full": "Zeta23.WeilEF.continuous_logDeriv_zeta_line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 150,
+   "full": "Zeta23.WeilEF.integrable_mul_logDeriv_zeta_of_decay",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 165,
+   "full": "Zeta23.WeilEF.integrable_Hfn_mul_logDeriv_zeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 304,
+   "full": "Zeta23.WeilEF.completedZeta_ne_zero_on_horizontals",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 353,
+   "full": "Zeta23.WeilEF.logDeriv_completedZeta_line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 385,
+   "full": "Zeta23.WeilEF.verticals_eq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLineAssembly.lean",
+   "line": 55,
+   "full": "Zeta23.WeilEF.full_line_identity",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hs",
+     "type": "ZetaSeam",
+     "prop": "ZetaSeam",
+     "proved": "zetaSeam"
+    }
+   ],
+   "state": "PREMISE: ZetaSeam (PROVED: zetaSeam)",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 99,
+   "full": "Zeta23.WeilEF.isNontrivialZero_of_mem_closedBall",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 117,
+   "full": "Zeta23.WeilEF.sum_mult_six_windows",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hLC",
+     "type": "Tail.LocalCount (fun ρ : zetaZeroConfig.carrier => (ρ : ℂ).im) (fun ρ : zetaZeroConfig.carrier => zetaZeroConfig.mult ρ) A₀",
+     "prop": "LocalCount",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: LocalCount",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 163,
+   "full": "Zeta23.WeilEF.card_le_sum_mult",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 175,
+   "full": "Zeta23.WeilEF.good_heights_at",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 346,
+   "full": "Zeta23.WeilEF.good_heights",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Horizontal.lean",
+   "line": 43,
+   "full": "Zeta23.WeilEF.horizontal_vanish",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Landau.lean",
+   "line": 528,
+   "full": "Zeta23.WeilEF.zeta_logDeriv_partial_fraction",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Main.lean",
+   "line": 286,
+   "full": "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "zetaZeroConfig"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 70,
+   "full": "Zeta23.WeilEF.Hfn_line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 84,
+   "full": "Zeta23.WeilEF.tilted_inversion",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 100,
+   "full": "Zeta23.WeilEF.integrand_eq_tsum",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 115,
+   "full": "Zeta23.WeilEF.per_n_line_integral",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 177,
+   "full": "Zeta23.WeilEF.line_integral_swap",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 238,
+   "full": "Zeta23.WeilEF.prime_side_line",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 513,
+   "full": "Zeta23.WeilEF.differentiable_paperFT",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 595,
+   "full": "Zeta23.WeilEF.norm_paperFT_le_uniform",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/VerticalLine.lean",
+   "line": 659,
+   "full": "Zeta23.WeilEF.gamma_line_shift",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 67,
+   "full": "Zeta23.WeilEF.completedZeta_eventuallyEq_mul",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 77,
+   "full": "Zeta23.WeilEF.analyticAt_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 83,
+   "full": "Zeta23.WeilEF.logDeriv_completedZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 94,
+   "full": "Zeta23.WeilEF.logDeriv_completedZeta_one_sub",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 111,
+   "full": "Zeta23.WeilEF.completedZeta_zeros_strip",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta",
+    "completedRiemannZeta",
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/ZeroSumLimit.lean",
+   "line": 42,
+   "full": "Zeta23.WeilEF.zero_sum_limit",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hs",
+     "type": "ZetaSeam",
+     "prop": "ZetaSeam",
+     "proved": "zetaSeam"
+    }
+   ],
+   "state": "PREMISE: ZetaSeam (PROVED: zetaSeam)",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 179,
+   "full": "Zeta23.WeilEF.EF_zero_sum_summable_gen",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 257,
+   "full": "Zeta23.WeilEF.EF_zero_sum_summable",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "hs",
+     "type": "ZetaSeam",
+     "prop": "ZetaSeam",
+     "proved": "zetaSeam"
+    }
+   ],
+   "state": "PREMISE: ZetaSeam (PROVED: zetaSeam)",
+   "zeta": [
+    "paperFT"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 56,
+   "full": "Zeta23.zeta_conj_of_one_lt_re",
+   "profile": null,
+   "profile_class": "PRIVATE DECLARATION (not printable by name)",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 78,
+   "full": "Zeta23.riemannZeta_conj",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 160,
+   "full": "Zeta23.analyticOrderAt_zeta_conj",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 240,
+   "full": "Zeta23.analyticOrderAt_zeta_one_sub",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 294,
+   "full": "Zeta23.zeta_reflect_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 330,
+   "full": "Zeta23.zeta_mult_reflect",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "IsNontrivialZero"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7FiniteTypeFalse.lean",
+   "line": 34,
+   "full": "SIDELvConservation.one_le_norm_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7FiniteTypeFalse.lean",
+   "line": 68,
+   "full": "SIDELvConservation.C7_finite_type_false",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 75,
+   "full": "SIDELvConservation.completedRiemannZeta₀_eq_half_mellin",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 82,
+   "full": "SIDELvConservation.norm_completedRiemannZeta₀_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 94,
+   "full": "SIDELvConservation.norm_f_modif_of_one_lt",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 105,
+   "full": "SIDELvConservation.norm_f_modif_of_mem_Ioo",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 146,
+   "full": "SIDELvConservation.norm_f_modif_ioi_one_integral_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 264,
+   "full": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 380,
+   "full": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/DirichletC7Order.lean",
+   "line": 89,
+   "full": "SIDELvConservation.norm_f_modif_a_of_one_lt",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/DirichletC7Order.lean",
+   "line": 142,
+   "full": "SIDELvConservation.norm_f_modif_a_ioi_one_integral_le",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "evenKernel"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/GammaBounds.lean",
+   "line": 59,
+   "full": "Complex.norm_riemannZeta_le_tsum",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/GammaBounds.lean",
+   "line": 79,
+   "full": "Complex.norm_completedZeta₀_le_of_re_eq_two",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/GammaBounds.lean",
+   "line": 131,
+   "full": "Complex.norm_completedZeta₀_le_of_re_eq_neg_one",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta₀"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 207,
+   "full": "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h1",
+     "type": "∀ C ∈ 𝒞, C Phi",
+     "prop": "Phi",
+     "proved": null
+    },
+    {
+     "binder": "h2",
+     "type": "mellin Phi (s / 2) ≠ 0",
+     "prop": "Phi",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: Phi, Phi",
+   "zeta": [
+    "mellin Phi"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 215,
+   "full": "SIDELvConservation.RegisterPentagon.goalState_sevenClasses_of_h2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h2",
+     "type": "mellin Phi (s / 2) ≠ 0",
+     "prop": "Phi",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: Phi",
+   "zeta": [
+    "mellin Phi"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T1_MellinFactorization.lean",
+   "line": 36,
+   "full": "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T2_SDarkness.lean",
+   "line": 72,
+   "full": "SIDELvConservation.completedRiemannZeta_eq_mellinPhi",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta",
+    "mellin Phi"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T2_SDarkness.lean",
+   "line": 109,
+   "full": "SIDELvConservation.T2d_zero_iff_mellinPhi_zero",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta",
+    "mellin Phi"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T3_StepNineBridge.lean",
+   "line": 121,
+   "full": "SIDELvConservation.T3.T3prime_shared_witness",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [
+    {
+     "binder": "h1",
+     "type": "∀ C ∈ 𝒞, C Phi",
+     "prop": "Phi",
+     "proved": null
+    },
+    {
+     "binder": "h2",
+     "type": "mellin Phi (s / 2) ≠ 0",
+     "prop": "Phi",
+     "proved": null
+    }
+   ],
+   "state": "PREMISE: Phi, Phi",
+   "zeta": [
+    "mellin Phi"
+   ],
+   "t0": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/ZeroCarrier.lean",
+   "line": 43,
+   "full": "SIDELvConservation.PartialPositivity.xiCarrier_eq_mul_completed",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "completedRiemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/ZeroCarrier.lean",
+   "line": 52,
+   "full": "SIDELvConservation.PartialPositivity.xiCarrier_zeta_form",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/ZeroCarrier.lean",
+   "line": 60,
+   "full": "SIDELvConservation.PartialPositivity.xiCarrier_eq_zero_iff_riemannZeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/ZeroCarrier.lean",
+   "line": 131,
+   "full": "SIDELvConservation.PartialPositivity.finite_strip_box_riemannZeta_zeros",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-spinor-calibration-mathlib",
+   "pin": "v0.1.0",
+   "file": "SIDESpinorCalibrationMathlib/CalibrationZeta.lean",
+   "line": 34,
+   "full": "CalibrationZeta.zeta_neg_one",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  },
+  {
+   "repo": "SIDE-spinor-calibration-mathlib",
+   "pin": "v0.1.0",
+   "file": "SIDESpinorCalibrationMathlib/CalibrationZeta.lean",
+   "line": 43,
+   "full": "CalibrationZeta.calibration_zeta",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "profile_class": "std3-or-fewer",
+   "premises": [],
+   "state": "PREMISE-FREE",
+   "zeta": [
+    "riemannZeta"
+   ],
+   "t0": true
+  }
+ ],
+ "counts": {
+  "zeta_terminals": 295,
+  "profiled": 270,
+  "std3": 270,
+  "t0": 245,
+  "with_premise": 25
+ },
+ "premise_props": [
+  "EF_lit",
+  "GammaFacts",
+  "HCount",
+  "LocalCount",
+  "PWSetup",
+  "Phi",
+  "Pof",
+  "RHHypothesis",
+  "SimplicityHypothesis",
+  "Xval",
+  "ZetaSeam",
+  "gammaOf",
+  "killSet",
+  "reflect",
+  "tieSet"
+ ]
+}
