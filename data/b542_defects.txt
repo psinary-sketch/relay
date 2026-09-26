@@ -22,3 +22,9 @@
         SIDE-global-section`s HEAD had moved by this act`s own ledger commit. A WORKING-HEAD pin is the census-time commit: the arm now
         requires it to be an ancestor of HEAD, and equal to HEAD in every repository but the ledger`s. Repaired in a second b542 relay
         commit; the census and its bank are unchanged.
+    (h) THE POST-PUSH RUN PRINTED "PRE-PUSH READING". The carried pushed-predicate (b472) also requires the HEAD commit to carry
+        data/b542_components.txt, and HEAD was the suite-repair commit of (g), which does not. The run came after the push (origin/main
+        equal to HEAD, read back) and wrote over the pre-push bank; its bytes are banked verbatim as b542_checks_postpush.txt, and the
+        committed pre-push bank was restored from HEAD. The predicate is carried and not edited here. ### The committed pre-push
+        bank is the FIRST pre-push run (62 of 63, G-PINS-RESOLVED failing, committed with the repair of (g)); the repaired pre-push
+        run read 63 of 63 on the console and its bytes were overwritten by the post-push run before they were banked.
