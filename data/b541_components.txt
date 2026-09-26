@@ -1,0 +1,154 @@
+====================================================================================================================================
+b541 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE READS:
+  the live monograph : day1/A_Place_to_Stand.md:19  **v5.13, 2026-07-27**
+    md5 bb86aa65025b49d2547016ef5000a31e ; 2267 lines
+  the deposited copy : outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md  md5 e90e2d06d5cadc059c62c29a849e9f8c
+    b532`s bank (data/b532_extract.txt) : monograph md5 e90e2d06d5cadc059c62c29a849e9f8c ; Zenodo 21539167 serves md5:e90e2d06d5cadc059c62c29a849e9f8c ; MATCH True
+  
+  the RH-anchor, fresh #check at SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (exit 0):
+    SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+    SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+    SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+    SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+      s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+    SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+        0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+      SIDEExplicitFormula.B321.rh_strip
+    SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+    SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ),
+      ContDiff ℝ 2 k →
+        HasCompactSupport k →
+          (∀ (x : ℝ), k (-x) = k x) →
+            SIDEExplicitFormula.B321.zeroSide k =
+              SIDEExplicitFormula.B321.b321Norm *
+                (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k +
+                  SIDEExplicitFormula.B321.archTerm k)
+    @SIDEExplicitFormula.B321.not_f4_needs : ∀ {δ : ℝ}, δ < 1 / 2 → ¬SIDEExplicitFormula.B321.f4_needs δ
+
+### COMPONENT 1 -- THE FILING : {"bullet_line": 284, "prior_lines_kept": true, "append": {"file": "ERRATA.md", "before": 95756, "added": 6375, "prefix": true}, "entry_lines": [581, 610], "entry_equals_draft": true, "backticks_outside_code": 0}
+### COMPONENT 2 -- THE TIER-LAW LINE AND THE R5 FINDING : {"map": {"file": "phase1.5\\method\\THE_LOAD_BEARING_MAP.md", "before": 23355, "added": 741, "prefix": true}, "findings": {"file": "FINDINGS.md", "before": 563153, "added": 1022, "prefix": true, "heading_line": 4830}}
+
+### COMPONENT 3 -- THE CENSUS : run 1 {'yields': {'route': 67, 'register': 26, 'h1/h2': 20, 'goal state': 6, 'machine-verified': 9, 'reduction': 16, 'complete': 28, 'compiled': 35, 'exhaustive': 71, 'one open premise': 4, 'named terminal': 94}, 'read': 2600, 'selected': 282, 'act_one': 172} ; run 2 {'yields': {'route': 67, 'register': 26, 'h1/h2': 20, 'goal state': 6, 'machine-verified': 9, 'reduction': 16, 'complete': 28, 'compiled': 35, 'exhaustive': 71, 'one open premise': 4, 'named terminal': 94}, 'read': 2600, 'selected': 282, 'act_one': 172} ; agree True
+  halt : {'line': 1698, 'first_act_two': 1708, 'section': '## 26.1 The Axiom Journey', 'act_one_live': 172, 'act_two_live': 110, 'deposit_act_one': 182, 'deposit_total': 248}
+  counts {'STANDS': 165, 'RESTS': 22, 'EXCEEDS': 0} ; by erratum {'E-2026-09-25-5': 19, 'E-2026-09-25-1': 3} ; tiers {'T0': 17, 'T1-open': 0, 'T1-lit': 0, 'T2': 79, 'T3': 0, 'T4': 91} ; defaults 74
+  Chapter 14 : {'line': 825, 'selected': False, 'sentence': 'The universality hypothesis is load-bearing: removing it from the proof leaves an unsolved goal.'}
+  68     58           RESTS   T2      E-2026-09-25-5                           The Lean kernel provides machine-checked redundancy, not necessity.
+  117    107          RESTS   T2      E-2026-09-25-5                           **Formal verification:** the Lean 4 kernel verifies the proof's logical structure — the three route terminals 
+  117    107          STANDS  T2      -                                        The sorry-free core (`Kernel/`, `Bridge/`, `MetaKernel.lean`) carries three independent route terminals — `str
+  125    LIVE-SOLE    RESTS   T2      E-2026-09-25-5                           *The proof has one architecture applied through several layers — seven mechanism classes, five identification 
+  203    LIVE-SOLE    STANDS  T2      -                                        The value σ = 1/2 is identified by five **convergent** routes *[corrected 2026-08-10 · convergent-identificati
+  215    213          STANDS  T4      -                                        These five routes share no assumptions beyond the axioms of ℤ and the definition of ξ(s).
+  215    213          STANDS  T4      -                                        No route references any other.
+  720    718          STANDS  T4      -                                        A reader who wants the destination before the route may read Chapter 19 first.
+  825    823          STANDS  T2      -                                        The Silence Principle is compiled in Kernel/SilenceTheorem.lean as the theorem silence_universal: every univer
+  825    823          STANDS  T2      -                                        The RH proof uses two specific instances (product formula, distributive law); ten additional instances across 
+  825    823          RESTS   T2      E-2026-09-25-5                           This hypothesis is one of five registers of a single premise; see §27.3.
+  827    825          STANDS  T0      -                                        (In Lean, the distributive law is Mathlib's `mul_add`: a theorem of ring theory, not of complex analysis.
+  1125   1123         STANDS  T4      -                                        The five PATHS each independently identify σ = 1/2 — they are routes to the destination.
+  1168   1166         STANDS  T0      -                                        What is ξ-specific is the ledger's sign structure: the prime side is nonnegative, Λ(n) ≥ 0 (`ArithmeticFunctio
+  1349   1347         RESTS   T0      E-2026-09-25-5                           This result is formally verified in Lean 4 as `spectral_cannon`: Re(ξ'(1/2 + it)) = 0 for all real t, compiled
+  1395   LIVE-SOLE    STANDS  T2      -                                        Of these, C₁ derives — the perpendicular-crossing reduction, compiled std3 (the derivative engine) — and the r
+  1421   1419         STANDS  T4      -                                        This chapter presents them in their own right — the fifth independent route to σ = 1/2, using only level-set g
+  1451   1449         STANDS  T4      -                                        The R-curve path provides a fifth independent route to σ = 1/2, using level-set geometry and logarithmic deriv
+  1503   LIVE-SOLE    RESTS   T0      E-2026-09-25-5                           **The geometric clause (canonical statement).** A zero ρ = ½ + iγ is simple iff ξ'(ρ) ≠ 0; by the perpendicula
+  1503   LIVE-SOLE    STANDS  T2      -                                        The mechanism catalogue reduces it per-class — C₁ derives, the reductions std3-clean (§22.5) — and leaves the 
+  1503   LIVE-SOLE    STANDS  T2      -                                        The five lines of the table are convergent *evidence* for this clause, not a proof of it: a proportion (Conrey
+  1530   1524         RESTS   T2      E-2026-09-25-5                           **Deposit (current: v1.5 = `0e5233f`; concept DOI [10.5281/zenodo.19674312](https://doi.org/10.5281/zenodo.196
+  1532   1526         STANDS  T2      -                                        The three classical theorems mathematically supporting n₃ = 2 (elliptic regularity for ∂̄ and the Identity The
+  1534   1528         STANDS  T0      -                                        The CartanBBridge module also realigns the file with current Mathlib API (April 2026): `AnalyticOn.contDiffOn`
+  1538   1532         RESTS   T2      E-2026-09-25-5                           The kernel formalizes three independent routes to σ = 1/2, each compiled separately.
+  1538   1532         RESTS   T2      E-2026-09-25-5                           The kernel realizes this signature directly — three routes, three theorems, one conclusion.
+  1544   1538         RESTS   T2      E-2026-09-25-5                           **The Product Formula.** Three files — `ProductFormula_Prime.lean`, `ProductFormula_Int.lean`, `ProductFormula
+  1544   1538         STANDS  T0      -                                        Proved using Mathlib's `padicNorm`, `padicValRat`, and `Finset.prod`.
+  1551   1545         STANDS  T2      -                                        | Voice2 | C₁ | `c2_forces_half` |
+  1552   1546         STANDS  T2      -                                        | Voice3 | C₃ | `reflect_fixed_iff` |
+  1553   1547         STANDS  T2      -                                        | Voice3b | C₆ | `cr_forces_half` |
+  1554   1548         STANDS  T2      -                                        | Voice5 | C₄ | `modular_forces_half` |
+  1555   1549         STANDS  T2      -                                        | Voice6 | C₅ | `self_adjoint_forces_half` |
+  1556   1550         STANDS  T2      -                                        | Voice7 | C₇ | `topological_no_sigma_preference` |
+  1558   1552         STANDS  T2      -                                        **The Formation Count.** `decide` verifies 2 + 3 + 2 + 0 = 7 (the canonical `SIDEKernel.formation`, axiom-free
+  1560   1554         RESTS   T0      E-2026-09-25-5                           **The Perpendicular Crossing Probe.** `Kernel/PerpendicularCrossing.lean` proves that the derivative of the co
+  1560   1554         STANDS  T2      -                                        The perpendicular crossing is proved by path differentiation of the FOCUS identity (the `schwarz_deriv` axiom,
+  1562   1556         STANDS  T2      -                                        **The RH-reduction theorem.** `Integration.lean` defines the proposition `Integration.StructuralExhaustiveness
+  1567   1561         STANDS  T2      -                                        This is one of the building blocks of Route 3 (§25.5): `Bridge/ConservationBridge.lean` chains `ConservationHy
+  1567   1561         STANDS  T2      -                                        Route 1's `Bridge.StructuralExhaustiveness` is a different proposition — the structural three-conjunct (seven 
+  1571   1565         STANDS  T4      -                                        The standard pattern for major theorems with formal-verification components: the mathematical proof in the man
+  1573   1567         STANDS  T2      -                                        Three routes compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimensi
+  1577   1571         RESTS   T2      E-2026-09-25-5                           The kernel's core is a three-file chain proving the product formula ∏_v |x|_v = 1 from prime powers (`ProductF
+  1579   1573         STANDS  T2      -                                        ## 25.5 The Three Compiled Routes
+  1581   1575         RESTS   T2      E-2026-09-25-5                           The kernel formalizes three routes to σ = 1/2.
+  1581   1575         STANDS  T2      -                                        Each is independently compiled.
+  1583   1577         STANDS  T2      -                                        **Route 1 — Structural Exhaustion.** `Bridge/TheBridgeComplete.lean` defines `StructuralExhaustiveness` as the
+  1589   1583         STANDS  T2      -                                        The conjunction is proved unconditionally as `structural_exhaustiveness_proved`.
+  1589   1583         STANDS  T2      -                                        The route uses `MechanismClass` enumeration and per-class algebraic exclusion.
+  1591   1585         STANDS  T0      -                                        **Route 2 — Codimension / Spectral Cannon.** A second compiled chain through `Kernel/SchwarzDischarge.lean`, `
+  1597   1591         RESTS   T0      E-2026-09-25-5                           This route uses complex analysis on ξ directly.
+  1599   1593         RESTS   T2      E-2026-09-25-1                           **Route 3 — Conservation.** `Bridge/ConservationBridge.lean` defines `ConservationHypothesis` as the propositi
+  1605   1599         STANDS  T2      -                                        by combining Conservation with Voice 1's `balance_theorem` and `Integration.lean`'s direct-form proposition `∀
+  1607   1601         RESTS   T2      E-2026-09-25-5                           **Three routes, three theorems, one conclusion.**
+  1609   1603         STANDS  T2      -                                        For each mechanism class, `produces_offline` is defined as the algebraic signature that class would imprint at
+  1613   1607         STANDS  T2      -                                        | C₁ Schwarz | ∃ σ ≠ 1/2, σ = 1 − σ | `voice2_conjugation` |
+  1614   1608         STANDS  T2      -                                        | C₂ Euler | ∃ σ ≠ 1/2, −σ = −(1 − σ) | `voice1_balance` |
+  1615   1609         STANDS  T2      -                                        | C₃ Functional eq | ∃ σ ≠ 1/2, (1 − σ) = σ | `voice3_reflect_fixed` |
+  1616   1610         STANDS  T2      -                                        | C₄ Modular | ∃ σ ≠ 1/2, 1 − σ = σ | `voice4_S_fixed` |
+  1617   1611         STANDS  T2      -                                        | C₅ Spectral | ∃ σ ≠ 1/2, σ − 1/2 = 0 | `voice5_spectral_offset` |
+  1618   1612         STANDS  T2      -                                        | C₆ Cauchy-Riemann | ∃ σ ≠ 1/2, zero_codimension σ = 1 | `cr_forces_half` (count of active real constraints; 
+  1619   1613         STANDS  T2      -                                        | C₇ Hadamard | ∃ σ, hadamard_contrib σ ≠ hadamard_contrib(1/2) | `voice7_sigma_neutral` |
+  1629   1623         STANDS  T2      -                                        | TheBridgeComplete.lean | Route 1 — structural exhaustiveness proved | 0 sorry, 0 axioms |
+  1630   1624         STANDS  T2      -                                        | ConservationBridge.lean | Route 3 — RH from Conservation + balance | 0 sorry, 0 axioms |
+  1632   1626         STANDS  T4      -                                        The per-class completability census — which mechanism classes complete to standalone compiled routes and which
+  1636   1630         STANDS  T2      -                                        For a reader who wants the kernel's three routes in the shortest path through Lean source, six files suffice:
+  1638   1632         STANDS  T2      -                                        `Formation.lean` — the architecture.
+  1639   1633         STANDS  T2      -                                        `Voice1.lean` — the balance theorem.
+  1640   1634         STANDS  T2      -                                        `PoissonExhaustion.lean` — Ostrowski's classification as a `Place` type, per-place contribution, every place f
+  1641   1635         STANDS  T2      -                                        `TheBridgeComplete.lean` — Route 1 assembled.
+  1642   1636         STANDS  T0      -                                        `Voice3b.lean` and `PerpendicularCrossing.lean` — Route 2 assembled.
+  1642   1636         STANDS  T0      -                                        The Spectral Cannon's three theorems compiled: pure imaginary derivative, Cauchy-Riemann transversality, perpe
+  1643   1637         STANDS  T2      -                                        `ConservationBridge.lean` — Route 3 assembled.
+  1645   1639         RESTS   T2      E-2026-09-25-5                           A reader who verifies these six files has verified three independent routes to σ = 1/2 in Lean: the structural
+  1649   1643         RESTS   T2      E-2026-09-25-5                           Together they formalize the three independent routes to σ = 1/2 described in §25.5.
+  1651   1645         STANDS  T4      -                                        The mathematical arguments are ZFC-valid and presented in Parts I–IV and the Phase 1.5 companion papers; the P
+  1653   1647         RESTS   T2      E-2026-09-25-1                           `ConservationHypothesis` in `ConservationBridge.lean` is the programme's one counted premise (§27.3) — open, a
+  1653   1647         RESTS   T2      E-2026-09-25-1                           The kernel's Route 3 closes the chain from the premise to `RiemannHypothesis` in Lean directly.
+  1659   1653         STANDS  T0      -                                        A clean entry reads `[propext, Classical.choice, Quot.sound]` — the three axioms of classical Mathlib — and no
+  1659   1653         STANDS  T2      -                                        The Route 3 row's statement changed with the W-7 existential weakening of `ConservationHypothesis`; its axiom 
+  1661   LIVE-SOLE    STANDS  T2      -                                        Deposit lineage: v1.1 (`e0a8ba0`) → v1.2 (`b1407b2`, `native_decide` cleared) → v1.3 (`0bc21c0`, W-7 existenti
+  1661   1655         STANDS  T2      -                                        Every one preserves the axiom profiles in this table (`{propext, Classical.choice, Quot.sound}` / axiom-free);
+  1661   1655         STANDS  T2      -                                        The refinements sharpen the source's honesty, not the compiled claims.
+  1663   LIVE-SOLE    STANDS  T4      -                                        It is **not an index of the deposit’s claims**: a sentence elsewhere in the deposited line that asserts someth
+  1663   LIVE-SOLE    STANDS  T4      -                                        Deposited sentences found to assert a machine check, name no Lean terminal, and have no row in this table are 
+  1663   LIVE-SOLE    STANDS  T4      -                                        See also the *On Route 1* and *On Route 3* notes below, which read two of this table’s rows per conjunct.
+  1667   1659         STANDS  T2      -                                        | Route 1 — structural exhaustiveness, unconditional in Lean | `structural_exhaustiveness_proved` | `Bridge/Th
+  1668   1660         STANDS  T0      -                                        | Route 2 — perpendicular crossing: the completed-ζ derivative is imaginary on the line, ∀t | `SpectralCannonF
+  1669   1661         STANDS  T2      -                                        | Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/Conservatio
+  1670   1662         STANDS  T2      -                                        | Structural exhaustiveness yields RH | `techne_kernel_integration.rh_from_structural_exhaustiveness` | `Kerne
+  1671   1663         STANDS  T2      -                                        | Structural exhaustiveness is equivalent to RH | `techne_kernel_integration.structural_exhaustiveness_iff_rh`
+  1672   1664         STANDS  T2      -                                        | The formation count 2 + 3 + 2 + 0 = 7 | `SIDEKernel.formation` | `Kernel/Core.lean` | (none) |
+  1673   1665         STANDS  T2      -                                        | Inter-mechanism-class independence — no pair of classes conspires | `techne_kernel_cross_exclusion.all_pairs
+  1679   LIVE-SOLE    STANDS  T0      -                                        | The construction era's global-section certificates: the finite-place models (charts, towers, sector arithmet
+  1681   1667         STANDS  T2      -                                        Its terminals — `all_pairs_excluded` (all pairs), `cross_class_exclusion` (per pair), and `coupling_strength_z
+  1681   1667         STANDS  T2      -                                        This inter-class independence result is distinct from the additive–multiplicative conspiracy exclusion of the 
+  1683   1669         STANDS  T2      -                                        **On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski
+  1683   1669         STANDS  T2      -                                        Read per conjunct: the catalogue completeness `Fintype.card MechanismClass = 7` is `decide`; the Ostrowski con
+  1683   1669         STANDS  T2      -                                        Of the last two conjuncts, **C₆ now derives at model level** (W-ORD-ROUTE1-A, C₆; 2026-07-22): the former `zer
+  1685   1671         STANDS  T2      -                                        **On Route 3.** The clean status for `ConservationBridge.riemann_hypothesis` certifies the Lean implication `C
+  1685   1671         STANDS  T2      -                                        Route 1 carries no such argument and is unconditional within Lean, as stated.
+  1687   1673         STANDS  T0      -                                        **Closure.** Across `Kernel/`, `Bridge/`, and `MetaKernel.lean` there are zero `axiom` declarations, zero `sor
+  1687   1673         STANDS  T0      -                                        Those are the only three sources of a non-standard axiom, so every declaration in the core — not only the term
+  1689   1675         STANDS  T0      -                                        **Route 2 housing.** The canonical Route 2 terminal is `SpectralCannonFull.spectral_cannon`, and it is the sol
+  DEPOSIT-SOLE 127          RESTS   T2      E-2026-09-25-5                           The three routes are the machine verification.
+  DEPOSIT-SOLE 129          STANDS  T2      -                                        The Lean kernel's `SIDESystem` typeclass, the Silence Principle compiled as `silence_universal` (with coupled-
+  DEPOSIT-SOLE 201          RESTS   T2      E-2026-09-25-5                           The value σ = 1/2 is identified by five independent routes, each using different mathematical machinery (disti
+  DEPOSIT-SOLE 203          STANDS  T4      -                                        **Route 1 (Algebraic).** The balance equation p^(−σ) = p^(−(1−σ)) is pure algebra.
+  DEPOSIT-SOLE 205          STANDS  T4      -                                        **Route 2 (Analytic).** The functional equation ξ(s) = ξ(1−s) has its reflection axis at σ = 1/2.
+  DEPOSIT-SOLE 207          STANDS  T4      -                                        **Route 3 (Topological).** The Möbius bundle over the critical strip has a twist at σ = 1/2 and nowhere else.
+  DEPOSIT-SOLE 209          STANDS  T4      -                                        **Route 4 (Arithmetic).** The conductor-discriminant formula for quadratic fields associates seven fields to t
+  DEPOSIT-SOLE 211          STANDS  T4      -                                        **Route 5 (Spectral).** The Hermitian matrix M = vv† constructed from the Trivium vector has eigenvalues {0⁶, 
+  DEPOSIT-SOLE 1655         STANDS  T2      -                                        Deposit lineage: v1.1 (`e0a8ba0`) → v1.2 (`b1407b2`, `native_decide` cleared) → v1.3 (`0bc21c0`, W-7 existenti
+
+### COMPONENT 4 -- E-2026-09-25-5 : {"rows": 19, "backticks": 0, "backticks_outside_code": 0}
+### COMPONENT 5 -- THE CHAPTER TIER MAP : {"file": "FINDINGS.md", "before": 564175, "added": 6165, "prefix": true, "heading_line": 4834}
+====================================================================================================================================

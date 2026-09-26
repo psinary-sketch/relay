@@ -1,0 +1,26 @@
+b541 -- THE READS PRINTED BEFORE ANY WRITE
+
+the live monograph : day1/A_Place_to_Stand.md:19  **v5.13, 2026-07-27**
+  md5 bb86aa65025b49d2547016ef5000a31e ; 2267 lines
+the deposited copy : outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md  md5 e90e2d06d5cadc059c62c29a849e9f8c
+  b532`s bank (data/b532_extract.txt) : monograph md5 e90e2d06d5cadc059c62c29a849e9f8c ; Zenodo 21539167 serves md5:e90e2d06d5cadc059c62c29a849e9f8c ; MATCH True
+
+the RH-anchor, fresh #check at SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (exit 0):
+  SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+  SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+  SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+  SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+    s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+  SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+      0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+    SIDEExplicitFormula.B321.rh_strip
+  SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+  SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ),
+    ContDiff ℝ 2 k →
+      HasCompactSupport k →
+        (∀ (x : ℝ), k (-x) = k x) →
+          SIDEExplicitFormula.B321.zeroSide k =
+            SIDEExplicitFormula.B321.b321Norm *
+              (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k +
+                SIDEExplicitFormula.B321.archTerm k)
+  @SIDEExplicitFormula.B321.not_f4_needs : ∀ {δ : ℝ}, δ < 1 / 2 → ¬SIDEExplicitFormula.B321.f4_needs δ
