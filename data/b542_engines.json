@@ -1,0 +1,25 @@
+{
+ "engines": [
+  {
+   "repo": "SIDE-interfaces",
+   "pin": "v0.1.3",
+   "file": "Interfaces/ConnectionRequiresStructure.lean",
+   "line": 41,
+   "statement": "theorem parametric_mechanism_theorem\n    {A B : Type} [Fintype A]\n    (P : B -> Real) (f : A -> B) (a0 : A)\n    (h_no_mechanism : ∀ a : A, P (f a) = P (f a0)) :\n    kappa P f a0 = 0 :=",
+   "takes_zero": false,
+   "kind": "NEITHER",
+   "reason": "stated over abstract types (a function P, a map f, a point a0 / a type X, a predicate P, a catalogue)"
+  },
+  {
+   "repo": "SIDE-effects",
+   "pin": "afa9ccf",
+   "file": "SIDEEffects/Phase15/SIDEFramework.lean",
+   "line": 45,
+   "statement": "theorem SIDE_exclusion\n    {X : Type u} {P : X → Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    ¬ (P x) :=",
+   "takes_zero": false,
+   "kind": "NEITHER",
+   "reason": "stated over abstract types (a function P, a map f, a point a0 / a type X, a predicate P, a catalogue)"
+  }
+ ],
+ "any_takes_zero": false
+}

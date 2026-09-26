@@ -1,0 +1,49 @@
+{
+ "rows": [
+  {
+   "number": 388,
+   "name": "Zeta23.ZetaSeam.one_le_mult_holds",
+   "exit": 0,
+   "stdout": "--- CORRESPONDENCE ROW WRITER (b194) ---\n  ledger      : CORRESPONDENCE.md\n  cells given : 6\n  cells on disk after write-back read : 6\n  VERDICT     : WRITTEN, verified by read-back\n  ### and that means the CELLS SURVIVED. It does not mean they are true.\n",
+   "stderr": "",
+   "cells": [
+    "388",
+    "**AN INHERITED CONSTRAINT AT A ZERO OF ZETA** (b542, under (R152)): `theorem ZetaSeam.one_le_mult_holds : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ :=` -- class none of C1-C7: the order of vanishing at a zero is at least one; grade by statement DERIVES; does not force re = 1/2. Read at SIDE-explicit-formula `81ae175` (the vendored Zeta23, pin v1.0).",
+    "`SIDE-explicit-formula/Zeta23/Statement/Seam.lean` : `Zeta23.ZetaSeam.one_le_mult_holds`",
+    "[propext, Classical.choice, Quot.sound] (`#print axioms` probe, b542)",
+    "INHERITS-kind (R152)(3); DERIVES by statement-read against \"a zero of zeta inherits the constraint\"",
+    "No other grade moved; nothing deposits; nothing at Zenodo written; no kernel edited."
+   ]
+  },
+  {
+   "number": 389,
+   "name": "Zeta23.zeta_reflect_zero",
+   "exit": 0,
+   "stdout": "--- CORRESPONDENCE ROW WRITER (b194) ---\n  ledger      : CORRESPONDENCE.md\n  cells given : 6\n  cells on disk after write-back read : 6\n  VERDICT     : WRITTEN, verified by read-back\n  ### and that means the CELLS SURVIVED. It does not mean they are true.\n",
+   "stderr": "",
+   "cells": [
+    "389",
+    "**AN INHERITED CONSTRAINT AT A ZERO OF ZETA** (b542, under (R152)): `theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) :=` -- class C3 (functional equation): 1 − conj ρ is a zero (reflect ρ = 1 − conj ρ, Defs.lean:124); grade by statement DERIVES; does not force re = 1/2. Read at SIDE-explicit-formula `81ae175` (the vendored Zeta23, pin v1.0).",
+    "`SIDE-explicit-formula/Zeta23/ZetaReflect.lean` : `Zeta23.zeta_reflect_zero`",
+    "[propext, Classical.choice, Quot.sound] (`#print axioms` probe, b542)",
+    "INHERITS-kind (R152)(3); DERIVES by statement-read against \"a zero of zeta inherits the constraint\"",
+    "No other grade moved; nothing deposits; nothing at Zenodo written; no kernel edited."
+   ]
+  },
+  {
+   "number": 390,
+   "name": "Zeta23.zeta_mult_reflect",
+   "exit": 0,
+   "stdout": "--- CORRESPONDENCE ROW WRITER (b194) ---\n  ledger      : CORRESPONDENCE.md\n  cells given : 6\n  cells on disk after write-back read : 6\n  VERDICT     : WRITTEN, verified by read-back\n  ### and that means the CELLS SURVIVED. It does not mean they are true.\n",
+   "stderr": "",
+   "cells": [
+    "390",
+    "**AN INHERITED CONSTRAINT AT A ZERO OF ZETA** (b542, under (R152)): `theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ :=` -- class C3 (functional equation): 1 − conj ρ is a zero, its multiplicity twin; grade by statement DERIVES; does not force re = 1/2. Read at SIDE-explicit-formula `81ae175` (the vendored Zeta23, pin v1.0).",
+    "`SIDE-explicit-formula/Zeta23/ZetaReflect.lean` : `Zeta23.zeta_mult_reflect`",
+    "[propext, Classical.choice, Quot.sound] (`#print axioms` probe, b542)",
+    "INHERITS-kind (R152)(3); DERIVES by statement-read against \"a zero of zeta inherits the constraint\"",
+    "No other grade moved; nothing deposits; nothing at Zenodo written; no kernel edited."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4473 @@
+{
+ "v3": {
+  "rows": 235,
+  "decls": 5293,
+  "digest": "39745dcde31d352736f347604a7d3362d9f8d409044e795309d11cea40129e72"
+ },
+ "run4": {
+  "rows": 235,
+  "decls": 5293,
+  "digest": "39745dcde31d352736f347604a7d3362d9f8d409044e795309d11cea40129e72",
+  "rounds": 4
+ },
+ "lineage_equal": true,
+ "needles": [
+  "IsNontrivialZero",
+  "is_xi_zero",
+  "riemannZeta _ = 0",
+  "completedRiemannZeta _ = 0",
+  "completedRiemannZeta₀ _ = 0",
+  "zetaZeroConfig",
+  "ZeroLoc",
+  "mellin Phi",
+  "zero structure field",
+  "docstring \"zero of\""
+ ],
+ "widenings": [
+  "(a) ≠ 0 and Zeta23`s local ζ",
+  "(b) derived names, fixed point"
+ ],
+ "derived_public": [
+  "ConservationHypothesis",
+  "ExplicitFormulaDecomp",
+  "IsNontrivialZero",
+  "NontrivialZero",
+  "NontrivialZeroExistsInStrip",
+  "OffLineOrNonSimple",
+  "OffLineZero",
+  "RHHypothesis",
+  "RealizesXiZeros",
+  "Register2_conservationHypothesis",
+  "Register5_output_HilbertPolya",
+  "RiemannHypothesis",
+  "SimplicityHypothesis",
+  "StructuralExhaustiveness",
+  "TailBoundPremise",
+  "VerifiedZerosTo",
+  "ZeroLoc",
+  "ZetaSeam",
+  "cell_imp_rh",
+  "conservationHypothesis",
+  "conservationHypothesisConfig",
+  "h2_imp_rh",
+  "h2_sign_imp_ch",
+  "h2_sign_imp_rh",
+  "is_xi_zero",
+  "li_imp_rh",
+  "rh_form",
+  "rh_imp_cell",
+  "rh_imp_h2",
+  "rh_imp_li",
+  "rh_strip",
+  "rh_strip_imp_rh",
+  "zeroSideNeg",
+  "zerosIn",
+  "zetaZeroConfig",
+  "zetaZeros"
+ ],
+ "derived_private_count": 21,
+ "yields": {
+  "is_xi_zero": 14,
+  "via is_xi_zero": 11,
+  "docstring \"zero of\"": 22,
+  "via ConservationHypothesis": 3,
+  "via StructuralExhaustiveness": 6,
+  "via RiemannHypothesis": 20,
+  "completedRiemannZeta₀ _ = 0": 20,
+  "via OffLineOrNonSimple": 6,
+  "via RHHypothesis": 2,
+  "via SimplicityHypothesis": 2,
+  "riemannZeta _ = 0": 31,
+  "via OffLineZero": 1,
+  "zero structure field": 2,
+  "via zetaZeroConfig": 25,
+  "zetaZeroConfig": 26,
+  "via conservationHypothesis": 8,
+  "via conservationHypothesisConfig": 1,
+  "via h2_sign_imp_ch": 2,
+  "via h2_sign_imp_rh": 3,
+  "via zeroSideNeg": 2,
+  "via rh_strip": 7,
+  "via rh_strip_imp_rh": 3,
+  "mellin Phi": 7,
+  "completedRiemannZeta _ = 0": 9,
+  "via Register5_output_HilbertPolya": 2,
+  "via rh_form": 6,
+  "IsNontrivialZero": 19,
+  "via IsNontrivialZero": 18,
+  "via zerosIn": 8,
+  "via ZetaSeam": 11,
+  "via zetaZeros": 16,
+  "via NontrivialZero": 10,
+  "via ExplicitFormulaDecomp": 1,
+  "via TailBoundPremise": 1,
+  "via VerifiedZerosTo": 1,
+  "via Register2_conservationHypothesis": 1,
+  "via NontrivialZeroExistsInStrip": 1,
+  "via RealizesXiZeros": 1,
+  "ZeroLoc": 2,
+  "via ZeroLoc": 1,
+  "via (a TECHNE-Core name)": 31
+ },
+ "pins": [
+  {
+   "repo": "SIDE-kernel",
+   "cited": "v1.5",
+   "sha": "0e5233f011533d09e4799107394c216a915028a1",
+   "head": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+   "live": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+   "live_eq_head": true,
+   "map_line": 49,
+   "local": true,
+   "rows": 33
+  },
+  {
+   "repo": "SIDE-interfaces",
+   "cited": "v0.1.3",
+   "sha": "7c917a62c1c5df3ebf3e8b725a5fb415dc686391",
+   "head": "cbdcd5fcc4e52ac4a2c81f2d549b64c9fb281044",
+   "live": "cbdcd5fcc4e52ac4a2c81f2d549b64c9fb281044",
+   "live_eq_head": true,
+   "map_line": 82,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-effects",
+   "cited": "afa9ccf",
+   "sha": "afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd",
+   "head": "ef4cff776f8918761bdb08d9e23f684b0abd5875",
+   "live": "ef4cff776f8918761bdb08d9e23f684b0abd5875",
+   "live_eq_head": true,
+   "map_line": 81,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-archimedean",
+   "cited": "v0.1.0",
+   "sha": "8019d9dfee87f761f93493513365130fbafdaa17",
+   "head": "8019d9dfee87f761f93493513365130fbafdaa17",
+   "live": "8019d9dfee87f761f93493513365130fbafdaa17",
+   "live_eq_head": true,
+   "map_line": 107,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-frobenius",
+   "cited": "v0.1.0",
+   "sha": "2efe9f2f865583b8d35c9106d883cd6a45d3d158",
+   "head": "2efe9f2f865583b8d35c9106d883cd6a45d3d158",
+   "live": "2efe9f2f865583b8d35c9106d883cd6a45d3d158",
+   "live_eq_head": true,
+   "map_line": 108,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-rcurve",
+   "cited": "v0.1.0",
+   "sha": "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+   "head": "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+   "live": "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+   "live_eq_head": true,
+   "map_line": 109,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-spinor",
+   "cited": "v0.1.0",
+   "sha": "b235bc6235b5887fc89a8af3fbec3b96b84016e3",
+   "head": "520abe7a6b7d63bff104fd9838f3179d7d1117d0",
+   "live": "520abe7a6b7d63bff104fd9838f3179d7d1117d0",
+   "live_eq_head": true,
+   "map_line": 110,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-simplicity",
+   "cited": "v0.1.0",
+   "sha": "54ba4f38b7298a9f22d13a6943307c7368309abe",
+   "head": "54ba4f38b7298a9f22d13a6943307c7368309abe",
+   "live": "54ba4f38b7298a9f22d13a6943307c7368309abe",
+   "live_eq_head": true,
+   "map_line": 111,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-window",
+   "cited": "v0.4.0",
+   "sha": "1bd2865e88646f18f1a1abfa2935afac35ae9aef",
+   "head": "3dab5f4249f4a29bdd51391fc2f8e1119c0f4c09",
+   "live": "3dab5f4249f4a29bdd51391fc2f8e1119c0f4c09",
+   "live_eq_head": true,
+   "map_line": 112,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-global-section",
+   "cited": "WORKING-HEAD",
+   "sha": "502f0a7a67462eab83a0f10eee5ea74be67957dd",
+   "head": "502f0a7a67462eab83a0f10eee5ea74be67957dd",
+   "live": "502f0a7a67462eab83a0f10eee5ea74be67957dd",
+   "live_eq_head": true,
+   "map_line": null,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-li-map",
+   "cited": "WORKING-HEAD",
+   "sha": "b515e6b62c154fafc2199aee8865a1bd1f038b98",
+   "head": "b515e6b62c154fafc2199aee8865a1bd1f038b98",
+   "live": "b515e6b62c154fafc2199aee8865a1bd1f038b98",
+   "live_eq_head": true,
+   "map_line": null,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-trivium",
+   "cited": "WORKING-HEAD",
+   "sha": "1aac3a9e19393f04b97f316ae6ab128225cde5fe",
+   "head": "1aac3a9e19393f04b97f316ae6ab128225cde5fe",
+   "live": "1aac3a9e19393f04b97f316ae6ab128225cde5fe",
+   "live_eq_head": true,
+   "map_line": 83,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "cited": "v0.4.0",
+   "sha": "68ec127a150b9d14c2a9d66dfb9b0ae3fdb27b8e",
+   "head": "858cbf69c169e6bb783951f0e6c0cc1f1534cb13",
+   "live": "858cbf69c169e6bb783951f0e6c0cc1f1534cb13",
+   "live_eq_head": true,
+   "map_line": 125,
+   "local": true,
+   "rows": 2
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "cited": "WORKING-HEAD",
+   "sha": "81ae1758f28e280f4e924e8acd76b4b76ae4ac9d",
+   "head": "81ae1758f28e280f4e924e8acd76b4b76ae4ac9d",
+   "live": "81ae1758f28e280f4e924e8acd76b4b76ae4ac9d",
+   "live_eq_head": true,
+   "map_line": 485,
+   "local": true,
+   "rows": 127
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "cited": "v0.10.0",
+   "sha": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+   "head": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23",
+   "live": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23",
+   "live_eq_head": true,
+   "map_line": 86,
+   "local": true,
+   "rows": 29
+  },
+  {
+   "repo": "SIDE-meta",
+   "cited": "v0.3",
+   "sha": "6bb7b23b4e6c6e2d14f067b7fce6e3a25f0b90e0",
+   "head": "6bb7b23b4e6c6e2d14f067b7fce6e3a25f0b90e0",
+   "live": "6bb7b23b4e6c6e2d14f067b7fce6e3a25f0b90e0",
+   "live_eq_head": true,
+   "map_line": 85,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-bijection",
+   "cited": "v0.2.0",
+   "sha": "a26f6f1c5dea844e062de759a6975dfc3f85b2c9",
+   "head": "a26f6f1c5dea844e062de759a6975dfc3f85b2c9",
+   "live": "a26f6f1c5dea844e062de759a6975dfc3f85b2c9",
+   "live_eq_head": true,
+   "map_line": 84,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "cited": "v0.3",
+   "sha": "8eb0d5ad0b331a0bf1a8160003d396648727a55a",
+   "head": "936cd65de384725b908d49c11512b6806800f135",
+   "live": "936cd65de384725b908d49c11512b6806800f135",
+   "live_eq_head": true,
+   "map_line": 87,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-omega-b",
+   "cited": "v0.1",
+   "sha": "9c80279b69764f16a0419211039639acf022de65",
+   "head": "9c80279b69764f16a0419211039639acf022de65",
+   "live": "9c80279b69764f16a0419211039639acf022de65",
+   "live_eq_head": true,
+   "map_line": 94,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "cited": "v0.4",
+   "sha": "06b61c3afe80e52122f44e6df60eaab07ea5a426",
+   "head": "2e76426dc4b0c3d36c58ec592cf568ba8666ae00",
+   "live": "2e76426dc4b0c3d36c58ec592cf568ba8666ae00",
+   "live_eq_head": true,
+   "map_line": 95,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-coupling",
+   "cited": "v0.1",
+   "sha": "4ab0bf58145aa623e3104a8b060e3d3dc2c78c07",
+   "head": "42b5e4e5a1f958b8c4505b2086cf3752e15451e6",
+   "live": "42b5e4e5a1f958b8c4505b2086cf3752e15451e6",
+   "live_eq_head": true,
+   "map_line": 96,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-class-coupling",
+   "cited": "v0.1",
+   "sha": "b6a6e869304d9a2541b56a1d3d9459d77528ed25",
+   "head": "b6a6e869304d9a2541b56a1d3d9459d77528ed25",
+   "live": "b6a6e869304d9a2541b56a1d3d9459d77528ed25",
+   "live_eq_head": true,
+   "map_line": 97,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-formation-arithmetic",
+   "cited": "v0.1",
+   "sha": "7ac35d8986f1f621c66727013037c454d702b799",
+   "head": "ef0fcf1e99679085eb8264419287e3cc95a40f83",
+   "live": "ef0fcf1e99679085eb8264419287e3cc95a40f83",
+   "live_eq_head": true,
+   "map_line": 98,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-residual-bridge",
+   "cited": "v0.1",
+   "sha": "b473d4b0cc23cb3eb494f8ef7caa5773825f5ee1",
+   "head": "5aa5ab72af411b2c5c72d70ebeedf49d0a183a6e",
+   "live": "5aa5ab72af411b2c5c72d70ebeedf49d0a183a6e",
+   "live_eq_head": true,
+   "map_line": 99,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "cited": "v0.1",
+   "sha": "f0fcc40e5c11df74ed544320f619d95e6f75e2b2",
+   "head": "5d0a34109fd017af847b8b4a9408b92bb2b67890",
+   "live": "5d0a34109fd017af847b8b4a9408b92bb2b67890",
+   "live_eq_head": true,
+   "map_line": 158,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-constants",
+   "cited": "545dde2",
+   "sha": "545dde2671c2a4f9404a84bc17af84dfe8bf49a6",
+   "head": "545dde2671c2a4f9404a84bc17af84dfe8bf49a6",
+   "live": "545dde2671c2a4f9404a84bc17af84dfe8bf49a6",
+   "live_eq_head": true,
+   "map_line": 126,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-spinor-calibration",
+   "cited": "WORKING-HEAD",
+   "sha": "1d219d8a773f279714e186fbbd07b89d47d1a679",
+   "head": "1d219d8a773f279714e186fbbd07b89d47d1a679",
+   "live": "1d219d8a773f279714e186fbbd07b89d47d1a679",
+   "live_eq_head": true,
+   "map_line": 18,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-spinor-calibration-mathlib",
+   "cited": "v0.1.0",
+   "sha": "21b36aa99dca421f7b298db07a8021c727ab76d0",
+   "head": "21b36aa99dca421f7b298db07a8021c727ab76d0",
+   "live": "21b36aa99dca421f7b298db07a8021c727ab76d0",
+   "live_eq_head": true,
+   "map_line": 115,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-dark-interface",
+   "cited": "WORKING-HEAD",
+   "sha": "f4a1ea613d319c877d0e2985964a075a1c5e2dc8",
+   "head": "f4a1ea613d319c877d0e2985964a075a1c5e2dc8",
+   "live": "f4a1ea613d319c877d0e2985964a075a1c5e2dc8",
+   "live_eq_head": true,
+   "map_line": 257,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-silence-principle",
+   "cited": "WORKING-HEAD",
+   "sha": "667c2548777585876a2f3208029595b06a062619",
+   "head": "667c2548777585876a2f3208029595b06a062619",
+   "live": "667c2548777585876a2f3208029595b06a062619",
+   "live_eq_head": true,
+   "map_line": 257,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "cited": "WORKING-HEAD",
+   "sha": "6a4f4829cf219839f33c6af9d665687b93af772e",
+   "head": "6a4f4829cf219839f33c6af9d665687b93af772e",
+   "live": "6a4f4829cf219839f33c6af9d665687b93af772e",
+   "live_eq_head": true,
+   "map_line": 257,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "cited": "WORKING-HEAD",
+   "sha": "e0a2aec8b88293c75494001f8b4d6a30154262c1",
+   "head": "e0a2aec8b88293c75494001f8b4d6a30154262c1",
+   "live": "e0a2aec8b88293c75494001f8b4d6a30154262c1",
+   "live_eq_head": true,
+   "map_line": 259,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-compression",
+   "cited": "WORKING-HEAD",
+   "sha": "e9a5a368d14aeb63ae970acb84fc135838b9f6d2",
+   "head": "e9a5a368d14aeb63ae970acb84fc135838b9f6d2",
+   "live": "e9a5a368d14aeb63ae970acb84fc135838b9f6d2",
+   "live_eq_head": true,
+   "map_line": 257,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-yang-mills-formation",
+   "cited": "v0.1.1",
+   "sha": "73e9e2c3e962d1b39af385f9e681ed9c9473b3d1",
+   "head": "73e9e2c3e962d1b39af385f9e681ed9c9473b3d1",
+   "live": "73e9e2c3e962d1b39af385f9e681ed9c9473b3d1",
+   "live_eq_head": true,
+   "map_line": 88,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-bsd-formation-transfer",
+   "cited": "v0.1.1",
+   "sha": "34917669160dc6d4e4054710e5307d56cc80b55b",
+   "head": "34917669160dc6d4e4054710e5307d56cc80b55b",
+   "live": "34917669160dc6d4e4054710e5307d56cc80b55b",
+   "live_eq_head": true,
+   "map_line": 88,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "SIDE-bsd-multiplicity",
+   "cited": "v0.1.1",
+   "sha": "d77ce309e6bd7b4b1120db7c6de1dd8cab7f0de5",
+   "head": "d77ce309e6bd7b4b1120db7c6de1dd8cab7f0de5",
+   "live": "d77ce309e6bd7b4b1120db7c6de1dd8cab7f0de5",
+   "live_eq_head": true,
+   "map_line": 88,
+   "local": true,
+   "rows": 0
+  },
+  {
+   "repo": "TECHNE-Core",
+   "cited": "WORKING-HEAD",
+   "sha": "29208f635b1349dcba1cc76e59b3e3fa07f4f574",
+   "head": "29208f635b1349dcba1cc76e59b3e3fa07f4f574",
+   "live": "29208f635b1349dcba1cc76e59b3e3fa07f4f574",
+   "live_eq_head": true,
+   "map_line": null,
+   "local": true,
+   "rows": 33
+  }
+ ],
+ "not_read": [
+  [
+   "SIDE-interface-split",
+   "SPIRAL_MAP.md:274 -- removed at b390, a future kernel; ls-remote NOT FOUND"
+  ],
+  [
+   "SIDE-orchestrator-<a>-<b>",
+   "SPIRAL_MAP.md:160 -- a naming convention, not a repository"
+  ]
+ ],
+ "candidates": 235,
+ "residue": [
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Focus.lean",
+   "line": 16,
+   "name": "focus",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "the imaginary part of completedRiemannZeta₀ on the line equals 0 -- a value, not a zero",
+   "statement": "theorem focus (t : Real) :\n    (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/SpectralCannonFull.lean",
+   "line": 65,
+   "name": "spectral_cannon",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "the real part of the derivative of completedRiemannZeta₀ on the line equals 0 -- a value",
+   "statement": "theorem spectral_cannon (t : ℝ) :\n    (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 32,
+   "name": "focus_from_antisymmetry",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "the imaginary part of completedRiemannZeta₀ on the line -- a value",
+   "statement": "theorem focus_from_antisymmetry (t : Real) :\n    (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 39,
+   "name": "c1_closing",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "the imaginary part of completedRiemannZeta₀ on the line -- a value",
+   "statement": "theorem c1_closing : ∀ t : Real,\n    (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 36,
+   "name": "simplicity_forward",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "a zero of the derivative, not of the function",
+   "statement": "theorem simplicity_forward (t₀ : ℝ) :\n    deriv completedRiemannZeta₀ ⟨1/2, t₀⟩ = 0 →\n    deriv (fun t : ℝ => completedRiemannZeta₀ ⟨1/2, t⟩) t₀ = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 45,
+   "name": "simplicity_backward",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "a zero of the derivative, not of the function",
+   "statement": "theorem simplicity_backward (t₀ : ℝ) :\n    deriv (fun t : ℝ => completedRiemannZeta₀ ⟨1/2, t⟩) t₀ = 0 →\n    deriv completedRiemannZeta₀ ⟨1/2, t₀⟩ = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice1Ext.lean",
+   "line": 56,
+   "name": "simplicity_iff",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "a zero of the derivative, not of the function",
+   "statement": "theorem simplicity_iff (t₀ : ℝ) :\n    deriv completedRiemannZeta₀ ⟨1/2, t₀⟩ = 0 ↔\n    deriv (fun t : ℝ => completedRiemannZeta₀ ⟨1/2, t⟩) t₀ = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/CodimProbe.lean",
+   "line": 50,
+   "name": "focus_on_critical_line",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "legacy/: the imaginary part on the line -- a value",
+   "statement": "theorem focus_on_critical_line (t : Real) :\n    (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/SchwarzReflection_PR.lean",
+   "line": 129,
+   "name": "completedRiemannZeta₀_im_eq_zero_on_half",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "reason": "legacy/: the imaginary part on the line -- a value",
+   "statement": "theorem completedRiemannZeta₀_im_eq_zero_on_half (t : ℝ) :\n    (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 :="
+  },
+  {
+   "repo": "SIDE-global-section",
+   "pin": "HEAD",
+   "file": "Core/AggregationCircularityShadow.lean",
+   "line": 64,
+   "name": "Grp",
+   "needles": [
+    "zero structure field"
+   ],
+   "reason": "a group`s additive identity field named zero",
+   "statement": "structure Grp (α : Type) where\n  add : α → α → α\n  neg : α → α\n  zero : α\n  add_assoc : ∀ a b c, add (add a b) c = add a (add b c)\n  zero_add : ∀ a, add zero a = a\n  neg_add : ∀ a, add (neg a) a = zero\n  add_neg : ∀ a, add a (neg a) = zero"
+  },
+  {
+   "repo": "SIDE-global-section",
+   "pin": "HEAD",
+   "file": "Core/AggregationCircularityShadow.lean",
+   "line": 165,
+   "name": "boolGrp",
+   "needles": [
+    "zero structure field"
+   ],
+   "reason": "a group`s additive identity field named zero",
+   "statement": "def boolGrp : Grp Bool where\n  add := Bool.xor\n  neg := fun b => b\n  zero := false\n  add_assoc := by decide\n  zero_add := by decide\n  neg_add := by decide\n  add_neg := by decide"
+  }
+ ],
+ "rows": [
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/ConservationBridge.lean",
+   "line": 26,
+   "end_line": 29,
+   "kw": "def",
+   "name": "ConservationHypothesis",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def ConservationHypothesis : Prop :=\n  ∀ (σ : ℝ), is_xi_zero σ →\n  ∃ (p : Nat) (hp : Nat.Prime p),\n  (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ))",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/ConservationBridge.lean",
+   "line": 34,
+   "end_line": 37,
+   "kw": "theorem",
+   "name": "conservation_activates_balance",
+   "needles": [
+    "docstring \"zero of\"",
+    "is_xi_zero",
+    "via ConservationHypothesis",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "INHERITS-shaped for C2 (the Euler balance at the zero`s real part) only under ConservationHypothesis, which is RH restated (ch_iff_rh); its conclusion is about sigma, not about xi",
+   "statement": "theorem conservation_activates_balance\n    (h_cons : ConservationHypothesis) (σ : ℝ) (h : is_xi_zero σ) :\n    ∃ (p : Nat) (hp : Nat.Prime p),\n    (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ)) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/ConservationBridge.lean",
+   "line": 46,
+   "end_line": 47,
+   "kw": "theorem",
+   "name": "structural_exhaustiveness_proved",
+   "needles": [
+    "via ConservationHypothesis",
+    "via StructuralExhaustiveness"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "",
+   "statement": "theorem structural_exhaustiveness_proved\n    (h_cons : ConservationHypothesis) : StructuralExhaustiveness :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/ConservationBridge.lean",
+   "line": 53,
+   "end_line": 54,
+   "kw": "theorem",
+   "name": "riemann_hypothesis",
+   "needles": [
+    "via ConservationHypothesis",
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "Route 3",
+   "statement": "theorem riemann_hypothesis\n    (h_cons : ConservationHypothesis) : RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 15,
+   "end_line": 17,
+   "kw": "def",
+   "name": "OffLineOrNonSimple",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def OffLineOrNonSimple (s : ℂ) : Prop :=\n  completedRiemannZeta₀ s = 0 ∧ 0 < s.re ∧ s.re < 1 ∧\n  (s.re ≠ 1 / 2 ∨ deriv completedRiemannZeta₀ s = 0)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 21,
+   "end_line": 23,
+   "kw": "def",
+   "name": "C1",
+   "needles": [
+    "via OffLineOrNonSimple"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def C1 : MechanismClass ℂ OffLineOrNonSimple :=\n  { name := \"Balance\"\n    produces := fun s => s.re ≠ 1 / 2 }",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 26,
+   "end_line": 28,
+   "kw": "def",
+   "name": "C2",
+   "needles": [
+    "via OffLineOrNonSimple"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def C2 : MechanismClass ℂ OffLineOrNonSimple :=\n  { name := \"Conjugation\"\n    produces := fun s => s.re ≠ 1 / 2 }",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 31,
+   "end_line": 33,
+   "kw": "def",
+   "name": "C_simple",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0",
+    "via OffLineOrNonSimple"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def C_simple : MechanismClass ℂ OffLineOrNonSimple :=\n  { name := \"Simplicity\"\n    produces := fun s => s.re = 1 / 2 ∧ deriv completedRiemannZeta₀ s = 0 }",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 35,
+   "end_line": 35,
+   "kw": "def",
+   "name": "voice_classes",
+   "needles": [
+    "via OffLineOrNonSimple"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def voice_classes : List (MechanismClass ℂ OffLineOrNonSimple) := [C1, C2, C_simple]",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 37,
+   "end_line": 49,
+   "kw": "def",
+   "name": "xi_catalogue",
+   "needles": [
+    "via OffLineOrNonSimple"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def xi_catalogue : ExhaustiveCatalogue ℂ OffLineOrNonSimple :=\n  { classes := voice_classes\n    covers_all := by\n      intro s hs\n      obtain ⟨hz, hlo, hhi, h_bad⟩ := hs\n      rcases h_bad with h_off | h_deriv\n      -- Case 1: off-line zero. C1 produces it.\n      · exact ⟨C1, List.Mem.head _, h_off⟩\n      -- Case 2: deriv = 0 on the line. Need s.re = 1/2.\n      · by_cases h12 : s.re = 1 / 2\n        · exact ⟨C_simple, List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _)),\n            ⟨h12, h_deriv⟩⟩\n        · exact ⟨C1, List.Mem.head _, h12⟩ }",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 54,
+   "end_line": 56,
+   "kw": "def",
+   "name": "RHHypothesis",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def RHHypothesis : Prop :=\n  ∀ (s : ℂ), completedRiemannZeta₀ s = 0 →\n  0 < s.re → s.re < 1 → s.re = 1 / 2",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 59,
+   "end_line": 61,
+   "kw": "def",
+   "name": "SimplicityHypothesis",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def SimplicityHypothesis : Prop :=\n  ∀ (s : ℂ), completedRiemannZeta₀ s = 0 →\n  s.re = 1 / 2 → deriv completedRiemannZeta₀ s ≠ 0",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 65,
+   "end_line": 70,
+   "kw": "theorem",
+   "name": "xi_none_produces",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0",
+    "via OffLineOrNonSimple",
+    "via RHHypothesis",
+    "via SimplicityHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "under RHHypothesis and SimplicityHypothesis; object completedRiemannZeta₀",
+   "statement": "theorem xi_none_produces\n    (h_rh : RHHypothesis) (h_simp : SimplicityHypothesis)\n    (s : ℂ)\n    (hs : completedRiemannZeta₀ s = 0)\n    (hlo : 0 < s.re) (hhi : s.re < 1) :\n    NoneProduces ℂ OffLineOrNonSimple xi_catalogue.classes s :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 89,
+   "end_line": 94,
+   "kw": "theorem",
+   "name": "side_exclusion_bridge",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0",
+    "via RHHypothesis",
+    "via SimplicityHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "re = 1/2 is taken from RHHypothesis (RH restated for completedRiemannZeta₀), not derived",
+   "statement": "theorem side_exclusion_bridge\n    (h_rh : RHHypothesis) (h_simp : SimplicityHypothesis)\n    (s : ℂ)\n    (hs : completedRiemannZeta₀ s = 0)\n    (hlo : 0 < s.re) (hhi : s.re < 1) :\n    s.re = 1 / 2 ∧ deriv completedRiemannZeta₀ s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 45,
+   "end_line": 47,
+   "kw": "theorem",
+   "name": "voice3_fe_zeros",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "OBJ",
+   "note": "the constraint is C3`s (1 − s is a zero), stated of completedRiemannZeta₀",
+   "statement": "theorem voice3_fe_zeros (s : Complex)\n    (h : completedRiemannZeta₀ s = 0) :\n    completedRiemannZeta₀ (1 - s) = 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 70,
+   "end_line": 72,
+   "kw": "theorem",
+   "name": "voice7_zero_symmetry",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "OBJ",
+   "note": "the same statement as voice3_fe_zeros under C7`s name: C3`s constraint, not the Hadamard product",
+   "statement": "theorem voice7_zero_symmetry (s : Complex)\n    (h : completedRiemannZeta₀ s = 0) :\n    completedRiemannZeta₀ (1 - s) = 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Bridge/Voice3_FE.lean",
+   "line": 10,
+   "end_line": 12,
+   "kw": "theorem",
+   "name": "fe_forces_half",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "VAC",
+   "note": "both sides are 0 by the two hypotheses; object completedRiemannZeta₀; the name says forces, the statement does not",
+   "statement": "theorem fe_forces_half (s : Complex) (h1 : completedRiemannZeta₀ s = 0)\n    (h2 : completedRiemannZeta₀ (1 - s) = 0) :\n    completedRiemannZeta₀ s = completedRiemannZeta₀ (1 - s) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/AnalyticBridge.lean",
+   "line": 13,
+   "end_line": 15,
+   "kw": "theorem",
+   "name": "simple_iff_order_one",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "CHAR",
+   "note": "object completedRiemannZeta₀",
+   "statement": "theorem simple_iff_order_one (s : ℂ) (hs : completedRiemannZeta₀ s = 0) :\n    deriv completedRiemannZeta₀ s ≠ 0 ↔\n    analyticOrderAt completedRiemannZeta₀ s = 1 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Focus.lean",
+   "line": 30,
+   "end_line": 31,
+   "kw": "theorem",
+   "name": "euler_closing",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "riemannZeta s ≠ 0 for 1 ≤ re s (Mathlib)",
+   "statement": "theorem euler_closing (s : ℂ) (hs : 1 ≤ s.re) :\n    riemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Integration.lean",
+   "line": 212,
+   "end_line": 213,
+   "kw": "def",
+   "name": "StructuralExhaustiveness",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def StructuralExhaustiveness : Prop :=\n  ∀ (sigma : Real), is_xi_zero sigma → sigma = 1 / 2",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Integration.lean",
+   "line": 221,
+   "end_line": 223,
+   "kw": "theorem",
+   "name": "rh_from_structural_exhaustiveness",
+   "needles": [
+    "via RiemannHypothesis",
+    "via StructuralExhaustiveness"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "",
+   "statement": "theorem rh_from_structural_exhaustiveness\n    (h : StructuralExhaustiveness) :\n    RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Integration.lean",
+   "line": 240,
+   "end_line": 242,
+   "kw": "theorem",
+   "name": "structural_exhaustiveness_from_rh",
+   "needles": [
+    "via RiemannHypothesis",
+    "via StructuralExhaustiveness"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "",
+   "statement": "theorem structural_exhaustiveness_from_rh\n    (h : RiemannHypothesis) :\n    StructuralExhaustiveness :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Integration.lean",
+   "line": 252,
+   "end_line": 253,
+   "kw": "theorem",
+   "name": "structural_exhaustiveness_iff_rh",
+   "needles": [
+    "via RiemannHypothesis",
+    "via StructuralExhaustiveness"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "StructuralExhaustiveness is RH restated",
+   "statement": "theorem structural_exhaustiveness_iff_rh :\n    StructuralExhaustiveness ↔ RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/PerpendicularCrossing.lean",
+   "line": 147,
+   "end_line": 162,
+   "kw": "theorem",
+   "name": "proved_infrastructure",
+   "needles": [
+    "completedRiemannZeta₀ _ = 0",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "its H3 conjunct; the other conjuncts are values of completedRiemannZeta₀",
+   "statement": "theorem proved_infrastructure :\n    -- H1: FOCUS\n    (∀ t : Real, (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0)\n    ∧\n    -- H2: FE derivative\n    (∀ s : ℂ, deriv completedRiemannZeta₀ s =\n              -(deriv completedRiemannZeta₀ (1 - s)))\n    ∧\n    -- H3: Euler closing\n    (∀ s : ℂ, 1 ≤ s.re → riemannZeta s ≠ 0)\n    ∧\n    -- H4: Antisymmetry\n    (∀ sigma t : Real,\n      completedRiemannZeta₀ ⟨1 - sigma, t⟩ =\n      (starRingEnd ℂ) (completedRiemannZeta₀ ⟨sigma, t⟩))\n    :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/ThomBridge.lean",
+   "line": 43,
+   "end_line": 43,
+   "kw": "theorem",
+   "name": "c4_closing",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "a zero-free half-plane under C4`s name, not a constraint at a zero",
+   "statement": "theorem c4_closing : ∀ s : ℂ, 1 ≤ s.re → riemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice3b.lean",
+   "line": 87,
+   "end_line": 90,
+   "kw": "inductive",
+   "name": "RealConstraint",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "inductive RealConstraint\n  | re_vanishes\n  | im_vanishes\n  deriving DecidableEq, Fintype",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice3b.lean",
+   "line": 183,
+   "end_line": 185,
+   "kw": "theorem",
+   "name": "offLine_of_codim_two",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "NEITHER",
+   "reason": "ALG",
+   "note": "its conclusion is sigma ≠ 1/2",
+   "statement": "theorem offLine_of_codim_two (sigma : Real)\n    (h_codim2 : zero_codimension sigma = 2) :\n    Not (sigma = 1 / 2) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/Voice6.lean",
+   "line": 92,
+   "end_line": 93,
+   "kw": "theorem",
+   "name": "c6_rests_at_half",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "NEITHER",
+   "reason": "ALG",
+   "note": "",
+   "statement": "theorem c6_rests_at_half :\n    self_adjoint_constraint (1 / 2 : Real) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/XiDef.lean",
+   "line": 34,
+   "end_line": 38,
+   "kw": "def",
+   "name": "is_xi_zero",
+   "needles": [
+    "docstring \"zero of\"",
+    "is_xi_zero",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def is_xi_zero (sigma : Real) : Prop :=\n  Exists (fun t : Real =>\n    riemannZeta (⟨sigma, t⟩ : ℂ) = 0 /\\\n    (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) /\\\n    (⟨sigma, t⟩ : ℂ) ≠ 1)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/XiDef.lean",
+   "line": 41,
+   "end_line": 42,
+   "kw": "def",
+   "name": "OffLineZero",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def OffLineZero (sigma : Real) : Prop :=\n  is_xi_zero sigma /\\ Not (sigma = 1 / 2)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "Kernel/XiDef.lean",
+   "line": 46,
+   "end_line": 48,
+   "kw": "theorem",
+   "name": "rh_implies_mathlib_rh",
+   "needles": [
+    "via OffLineZero",
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "its hypothesis is RH restated through OffLineZero",
+   "statement": "theorem rh_implies_mathlib_rh\n    (our_rh : forall sigma : Real, Not (OffLineZero sigma)) :\n    RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/CodimProbe.lean",
+   "line": 67,
+   "end_line": 67,
+   "kw": "theorem",
+   "name": "euler_closing",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "legacy/",
+   "statement": "theorem euler_closing (s : ℂ) (hs : 1 ≤ s.re) : riemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "file": "legacy/CodimProbe.lean",
+   "line": 71,
+   "end_line": 74,
+   "kw": "theorem",
+   "name": "zeros_in_strip",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "LOC",
+   "note": "legacy/",
+   "statement": "theorem zeros_in_strip (s : ℂ) (hs : riemannZeta s = 0)\n    (h_not_trivial : ¬∃ n : Nat, s = -2 * (↑n + 1))\n    (h_ne_one : s ≠ 1) :\n    0 < s.re ∧ s.re < 1 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "pin": "v0.4.0",
+   "file": "SIDEGRHTransfer/CharacterSymmetry.lean",
+   "line": 66,
+   "end_line": 68,
+   "kw": "theorem",
+   "name": "paired_reflection_axis_invariant_iff",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "FORCES",
+   "reason": "FORCES",
+   "note": "an iff; its forward direction: if reflection keeps every point with re = sigma at re = sigma, sigma = 1/2 -- algebra, no zero in the statement (a docstring row); class: C3 for L-functions",
+   "statement": "theorem paired_reflection_axis_invariant_iff\n    {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :\n    (∀ ρ : ℂ, ρ.re = σ → (1 - ρ).re = σ) ↔ σ = 1 / 2 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "pin": "v0.4.0",
+   "file": "SIDEGRHTransfer/CharacterTransfer.lean",
+   "line": 76,
+   "end_line": 82,
+   "kw": "theorem",
+   "name": "twisted_balance_at_unramified_prime",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "FORCES",
+   "reason": "FORCES",
+   "note": "an iff; the twisted Euler balance forces s = 1/2 -- algebra about a real s, no zero in the statement (a docstring row); class: C2 for L-functions",
+   "statement": "theorem twisted_balance_at_unramified_prime\n    {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n)\n    (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n)\n    (s : ℝ) :\n    ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-s)\n      = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - s))\n    ↔ s = 1 / 2 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/B321Identity.lean",
+   "line": 24,
+   "end_line": 26,
+   "kw": "def",
+   "name": "zeroSide",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def zeroSide (k : ℝ → ℂ) : ℂ :=\n  ∑' ρ : Zeta23.zetaZeroConfig.carrier,\n    (Zeta23.zetaZeroConfig.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 33,
+   "end_line": 35,
+   "kw": "def",
+   "name": "conservationHypothesis",
+   "needles": [
+    "docstring \"zero of\"",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def conservationHypothesis : Prop :=\n  ∀ σ : ℝ, (∃ t : ℝ, riemannZeta (⟨σ, t⟩ : ℂ) = 0 ∧ ¬ (∃ n : ℕ, (⟨σ, t⟩ : ℂ) = -2 * ((n : ℂ) + 1)) ∧ (⟨σ, t⟩ : ℂ) ≠ 1) →\n    ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ))",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 38,
+   "end_line": 39,
+   "kw": "def",
+   "name": "conservationHypothesisConfig",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def conservationHypothesisConfig : Prop :=\n  ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-ρ.re) = (p : ℝ) ^ (-(1 - ρ.re))",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 59,
+   "end_line": 59,
+   "kw": "theorem",
+   "name": "ch_imp_rh",
+   "needles": [
+    "via RiemannHypothesis",
+    "via conservationHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem ch_imp_rh : conservationHypothesis → RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 65,
+   "end_line": 65,
+   "kw": "theorem",
+   "name": "rh_imp_ch",
+   "needles": [
+    "via RiemannHypothesis",
+    "via conservationHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem rh_imp_ch : RiemannHypothesis → conservationHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 71,
+   "end_line": 71,
+   "kw": "theorem",
+   "name": "ch_iff_rh",
+   "needles": [
+    "via RiemannHypothesis",
+    "via conservationHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 74,
+   "end_line": 74,
+   "kw": "theorem",
+   "name": "ch_imp_config",
+   "needles": [
+    "via conservationHypothesis",
+    "via conservationHypothesisConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem ch_imp_config : conservationHypothesis → conservationHypothesisConfig :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 84,
+   "end_line": 84,
+   "kw": "theorem",
+   "name": "ch_imp_h2_sign",
+   "needles": [
+    "via conservationHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem ch_imp_h2_sign : conservationHypothesis → h2_sign :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 88,
+   "end_line": 88,
+   "kw": "def",
+   "name": "h2_sign_imp_ch",
+   "needles": [
+    "via conservationHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def h2_sign_imp_ch : Prop := h2_sign → conservationHypothesis",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 91,
+   "end_line": 91,
+   "kw": "theorem",
+   "name": "h2_sign_imp_ch_iff",
+   "needles": [
+    "via h2_sign_imp_ch",
+    "via h2_sign_imp_rh"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_imp_ch_iff : h2_sign_imp_ch ↔ h2_sign_imp_rh :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 949,
+   "end_line": 951,
+   "kw": "theorem",
+   "name": "dominant_summable",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :\n    Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *\n      (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)))) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 964,
+   "end_line": 967,
+   "kw": "def",
+   "name": "fR",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def fR (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (j : ℕ)\n    (x : Zeta23.zetaZeroConfig.carrier) : ℂ :=\n  if (x : ℂ) ∈ tieSet Zeta23.zetaZeroConfig g0 M then 0 else\n    (Zeta23.zetaZeroConfig.mult x : ℂ) * Zeta23.paperFT (kWindow (coeffList (Pof H (Q j))) g0 j) (Zeta23.gammaOf x)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 969,
+   "end_line": 973,
+   "kw": "theorem",
+   "name": "fR_norm_le",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem fR_norm_le (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)\n    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ)\n    (x : Zeta23.zetaZeroConfig.carrier) (hT : (x : ℂ) ∉ tieSet Zeta23.zetaZeroConfig g0 M) :\n    ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤\n      (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1))) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 986,
+   "end_line": 990,
+   "kw": "theorem",
+   "name": "fR_bound",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem fR_bound (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)\n    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (hj : D ≤ j)\n    (x : Zeta23.zetaZeroConfig.carrier) :\n    ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤\n      (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1))) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1025,
+   "end_line": 1027,
+   "kw": "theorem",
+   "name": "rest_tendsto_zero",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)\n    (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :\n    Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1072,
+   "end_line": 1073,
+   "kw": "def",
+   "name": "sT",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def sT (H : PWSetup Zeta23.zetaZeroConfig g0 L M) : Finset Zeta23.zetaZeroConfig.carrier :=\n  (TF H).subtype (· ∈ Zeta23.zetaZeroConfig.carrier)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1075,
+   "end_line": 1076,
+   "kw": "theorem",
+   "name": "mem_sT",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem mem_sT (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (x : Zeta23.zetaZeroConfig.carrier) :\n    x ∈ sT H ↔ (x : ℂ) ∈ tieSet Zeta23.zetaZeroConfig g0 M :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1082,
+   "end_line": 1084,
+   "kw": "theorem",
+   "name": "zeroSide_eventually_neg",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ)\n    (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) :\n    ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1159,
+   "end_line": 1161,
+   "kw": "def",
+   "name": "zeroSideNeg",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def zeroSideNeg : Prop :=\n  ∀ (g0 : ℝ → ℝ) (L M : ℝ), PWSetup Zeta23.zetaZeroConfig g0 L M → ∀ ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M,\n    ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1163,
+   "end_line": 1163,
+   "kw": "theorem",
+   "name": "zeroSideNeg_holds",
+   "needles": [
+    "via zeroSideNeg"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zeroSideNeg_holds : zeroSideNeg :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1167,
+   "end_line": 1167,
+   "kw": "theorem",
+   "name": "h2_sign_imp_rh_strip_of",
+   "needles": [
+    "via rh_strip",
+    "via zeroSideNeg"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_imp_rh_strip_of (hneg : zeroSideNeg) : h2_sign → rh_strip :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1193,
+   "end_line": 1193,
+   "kw": "theorem",
+   "name": "h2_sign_imp_rh_strip",
+   "needles": [
+    "via rh_strip"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_imp_rh_strip : h2_sign → rh_strip :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1197,
+   "end_line": 1197,
+   "kw": "theorem",
+   "name": "rh_strip_imp_h2_sign",
+   "needles": [
+    "via rh_strip"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem rh_strip_imp_h2_sign : rh_strip → h2_sign :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1233,
+   "end_line": 1233,
+   "kw": "theorem",
+   "name": "h2_sign_iff_rh_strip",
+   "needles": [
+    "via rh_strip"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_iff_rh_strip : h2_sign ↔ rh_strip :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1236,
+   "end_line": 1236,
+   "kw": "theorem",
+   "name": "h2_sign_imp_rh_of_seam",
+   "needles": [
+    "via h2_sign_imp_rh",
+    "via rh_strip_imp_rh"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1240,
+   "end_line": 1240,
+   "kw": "theorem",
+   "name": "ch_iff_h2_sign_of_seam",
+   "needles": [
+    "via conservationHypothesis",
+    "via rh_strip_imp_rh"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem ch_iff_h2_sign_of_seam : rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 368,
+   "end_line": 372,
+   "kw": "theorem",
+   "name": "dominant_exists",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2)\n    (hpos : 0 < offScore g ρ₁) :\n    ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧\n      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 483,
+   "end_line": 483,
+   "kw": "def",
+   "name": "rh_strip",
+   "needles": [
+    "docstring \"zero of\"",
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 485,
+   "end_line": 485,
+   "kw": "theorem",
+   "name": "rh_imp_rh_strip",
+   "needles": [
+    "via RiemannHypothesis",
+    "via rh_strip"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 495,
+   "end_line": 495,
+   "kw": "def",
+   "name": "rh_strip_imp_rh",
+   "needles": [
+    "via RiemannHypothesis",
+    "via rh_strip"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def rh_strip_imp_rh : Prop := rh_strip → RiemannHypothesis",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RHChain.lean",
+   "line": 24,
+   "end_line": 24,
+   "kw": "theorem",
+   "name": "rh_imp_h2_sign",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RHChain.lean",
+   "line": 66,
+   "end_line": 67,
+   "kw": "theorem",
+   "name": "rh_imp_cell_form",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "",
+   "statement": "theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :\n    RiemannHypothesis → cell_form F W :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RHChain.lean",
+   "line": 83,
+   "end_line": 83,
+   "kw": "def",
+   "name": "h2_sign_imp_rh",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def h2_sign_imp_rh : Prop := h2_sign → RiemannHypothesis",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 101,
+   "end_line": 101,
+   "kw": "theorem",
+   "name": "mellin_Phi_eq_zero_of_re_le_one",
+   "needles": [
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem mellin_Phi_eq_zero_of_re_le_one : ∀ s : ℂ, s.re ≤ 1 → mellin Phi (s / 2) = 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 143,
+   "end_line": 143,
+   "kw": "theorem",
+   "name": "lv_h2_false_on_strip",
+   "needles": [
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem lv_h2_false_on_strip : ∀ s : ℂ, 0 < s.re → s.re < 1 → ¬ (mellin Phi (s / 2) ≠ 0) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 149,
+   "end_line": 150,
+   "kw": "theorem",
+   "name": "lvh2_corrected_iff",
+   "needles": [
+    "completedRiemannZeta _ = 0",
+    "via rh_strip"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem lvh2_corrected_iff :\n    (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 250,
+   "end_line": 254,
+   "kw": "def",
+   "name": "is_xi_zero",
+   "needles": [
+    "is_xi_zero",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def is_xi_zero (sigma : Real) : Prop :=\n  Exists (fun t : Real =>\n    riemannZeta (⟨sigma, t⟩ : ℂ) = 0 /\\\n    (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) /\\\n    (⟨sigma, t⟩ : ℂ) ≠ 1)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 257,
+   "end_line": 263,
+   "kw": "def",
+   "name": "Register5_output_HilbertPolya",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def Register5_output_HilbertPolya : Prop :=\n  ∃ (spectrum : ℕ → ℝ) (pairing : ℕ → ℕ → ℝ) (T : ℕ → ℕ → ℝ),\n    (∀ i j, pairing i j = pairing j i) ∧\n    (∀ i, 0 < pairing i i) ∧\n    (∀ i j, pairing i i * T i j = pairing j j * T j i) ∧\n    (∀ n, T n n = spectrum n) ∧\n    (∀ σ : ℝ, is_xi_zero σ → ∃ n : ℕ, spectrum n = σ)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 267,
+   "end_line": 267,
+   "kw": "theorem",
+   "name": "zeta_zeros_countable",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zeta_zeros_countable : {z : ℂ | z ≠ 1 ∧ riemannZeta z = 0}.Countable :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 289,
+   "end_line": 289,
+   "kw": "theorem",
+   "name": "xi_zero_re_countable",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem xi_zero_re_countable : {σ : ℝ | is_xi_zero σ}.Countable :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 297,
+   "end_line": 297,
+   "kw": "theorem",
+   "name": "register5_output_holds",
+   "needles": [
+    "via Register5_output_HilbertPolya"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem register5_output_holds : Register5_output_HilbertPolya :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 24,
+   "end_line": 24,
+   "kw": "def",
+   "name": "rh_form",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def rh_form : Prop := RiemannHypothesis",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 29,
+   "end_line": 31,
+   "kw": "def",
+   "name": "liCoeff",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def liCoeff (n : ℕ) : ℝ :=\n  ∑' ρ : {ρ : ℂ // ρ ∈ Zeta23.zetaZeroConfig.carrier ∧ 0 < ρ.im},\n    (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (2 * (1 - (1 - 1 / (ρ : ℂ)) ^ n).re)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 57,
+   "end_line": 57,
+   "kw": "def",
+   "name": "rh_imp_h2",
+   "needles": [
+    "via rh_form"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def rh_imp_h2 : Prop := rh_form → h2_sign",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 58,
+   "end_line": 58,
+   "kw": "def",
+   "name": "h2_imp_rh",
+   "needles": [
+    "via rh_form"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def h2_imp_rh : Prop := h2_sign → rh_form",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 59,
+   "end_line": 59,
+   "kw": "def",
+   "name": "rh_imp_li",
+   "needles": [
+    "via rh_form"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def rh_imp_li : Prop := rh_form → li_form",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 60,
+   "end_line": 60,
+   "kw": "def",
+   "name": "li_imp_rh",
+   "needles": [
+    "via rh_form"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def li_imp_rh : Prop := li_form → rh_form",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 64,
+   "end_line": 64,
+   "kw": "def",
+   "name": "cell_imp_rh",
+   "needles": [
+    "via rh_form"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "line": 65,
+   "end_line": 65,
+   "kw": "def",
+   "name": "rh_imp_cell",
+   "needles": [
+    "via rh_form"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 314,
+   "end_line": 316,
+   "kw": "theorem",
+   "name": "rest_bound_zeta",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem rest_bound_zeta (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ)\n    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₀ : ℂ) :\n    ∃ A₀ : ℝ, 1 ≤ A₀ ∧ restSum Zeta23.zetaZeroConfig γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 389,
+   "end_line": 389,
+   "kw": "def",
+   "name": "HMax",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def HMax (Z : Zeta23.ZeroConfig) : Prop := ∃ ρ ∈ Z.carrier, ∀ ρ' ∈ Z.carrier, ρ'.re ≤ ρ.re",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 25,
+   "end_line": 25,
+   "kw": "theorem",
+   "name": "zeta_zero_re_nonpos",
+   "needles": [
+    "docstring \"zero of\"",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "LOC",
+   "note": "",
+   "statement": "theorem zeta_zero_re_nonpos : ∀ z : ℂ, riemannZeta z = 0 → z.re ≤ 0 → ∃ n : ℕ, z = -2 * (n + 1) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 84,
+   "end_line": 84,
+   "kw": "theorem",
+   "name": "rh_strip_imp_rh_holds",
+   "needles": [
+    "via rh_strip_imp_rh"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem rh_strip_imp_rh_holds : rh_strip_imp_rh :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 98,
+   "end_line": 98,
+   "kw": "theorem",
+   "name": "h2_sign_imp_rh_holds",
+   "needles": [
+    "via h2_sign_imp_rh"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_imp_rh_holds : h2_sign_imp_rh :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 101,
+   "end_line": 101,
+   "kw": "theorem",
+   "name": "h2_sign_iff_rh",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 104,
+   "end_line": 104,
+   "kw": "theorem",
+   "name": "h2_sign_imp_ch_holds",
+   "needles": [
+    "via h2_sign_imp_ch"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem h2_sign_imp_ch_holds : h2_sign_imp_ch :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "line": 107,
+   "end_line": 107,
+   "kw": "theorem",
+   "name": "ch_iff_h2_sign",
+   "needles": [
+    "via conservationHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem ch_iff_h2_sign : conservationHypothesis ↔ h2_sign :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2485,
+   "end_line": 2490,
+   "kw": "lemma",
+   "name": "ZetaZeroFree",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "lemma ZetaZeroFree :\n    ∃ (A : ℝ) (_ : A ∈ Ioc 0 (1 / 2)),\n    ∀ (σ : ℝ)\n    (t : ℝ) (_ : 3 < |t|)\n    (_ : σ ∈ Ico (1 - A / (Real.log |t|) ^ 9) 1),\n    ζ (σ + t * I) ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2569,
+   "end_line": 2569,
+   "kw": "lemma",
+   "name": "ZetaNoZerosOn1Line",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "lemma ZetaNoZerosOn1Line (t : ℝ) : ζ (1 + t * I) ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2582,
+   "end_line": 2584,
+   "kw": "lemma",
+   "name": "ZetaNoZerosInBox",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "lemma ZetaNoZerosInBox (T : ℝ) :\n    ∃ (σ : ℝ) (_ : σ < 1), ∀ (t : ℝ) (_ : |t| ≤ T)\n    (σ' : ℝ) (_ : σ' ≥ σ), ζ (σ' + t * I) ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 2690,
+   "end_line": 2692,
+   "kw": "lemma",
+   "name": "LogDerivZetaHoloOn",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma LogDerivZetaHoloOn {S : Set ℂ} (s_ne_one : 1 ∉ S)\n    (nonzero : ∀ s ∈ S, ζ s ≠ 0) :\n    HolomorphicOn (fun s ↦ ζ' s / ζ s) S :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 62,
+   "end_line": 63,
+   "kw": "lemma",
+   "name": "completedRiemannZeta_eq_zero_iff_of_re_pos",
+   "needles": [
+    "completedRiemannZeta _ = 0",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ZSET",
+   "note": "",
+   "statement": "lemma completedRiemannZeta_eq_zero_iff_of_re_pos {s : ℂ} (hs : 0 < s.re) :\n    completedRiemannZeta s = 0 ↔ riemannZeta s = 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 69,
+   "end_line": 70,
+   "kw": "lemma",
+   "name": "completedRiemannZeta_ne_zero_of_one_le_re",
+   "needles": [
+    "completedRiemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "lemma completedRiemannZeta_ne_zero_of_one_le_re {s : ℂ} (hs : 1 ≤ s.re) :\n    completedRiemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 74,
+   "end_line": 75,
+   "kw": "lemma",
+   "name": "completedRiemannZeta_ne_zero_of_re_nonpos",
+   "needles": [
+    "completedRiemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "lemma completedRiemannZeta_ne_zero_of_re_nonpos {s : ℂ} (hs : s.re ≤ 0) :\n    completedRiemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 81,
+   "end_line": 82,
+   "kw": "lemma",
+   "name": "completedRiemannZeta_eq_zero_iff",
+   "needles": [
+    "IsNontrivialZero",
+    "completedRiemannZeta _ = 0",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ZSET",
+   "note": "",
+   "statement": "lemma completedRiemannZeta_eq_zero_iff {s : ℂ} :\n    completedRiemannZeta s = 0 ↔ IsNontrivialZero s :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 114,
+   "end_line": 118,
+   "kw": "theorem",
+   "name": "rectangleIntegral'_logDeriv_completedZeta_eq_Ncount",
+   "needles": [
+    "IsNontrivialZero",
+    "docstring \"zero of\"",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem rectangleIntegral'_logDeriv_completedZeta_eq_Ncount {T₁ T₂ : ℝ} (hT₁ : 0 < T₁)\n    (hT : T₁ ≤ T₂) (hgood₁ : ∀ ρ, IsNontrivialZero ρ → ρ.im ≠ T₁)\n    (hgood₂ : ∀ ρ, IsNontrivialZero ρ → ρ.im ≠ T₂) :\n    RectangleIntegral' (logDeriv completedRiemannZeta) (-1 + T₁ * I) (2 + T₂ * I)\n      = (Ncount T₁ T₂ : ℂ) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 54,
+   "end_line": 55,
+   "kw": "theorem",
+   "name": "riemannZeta_zeros_finite_of_isCompact",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem riemannZeta_zeros_finite_of_isCompact {K : Set ℂ} (hK : IsCompact K) :\n    (K ∩ {ρ : ℂ | ρ ≠ 1 ∧ riemannZeta ρ = 0}).Finite :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 109,
+   "end_line": 109,
+   "kw": "def",
+   "name": "NhalfR",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def NhalfR (t : ℝ) : ℝ := ∑ᶠ ρ ∈ zetaZeroConfig.window t (t + 1) ∩ {ρ | 1/2 ≤ ρ.re}, (zeroMult ρ : ℝ)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 310,
+   "end_line": 311,
+   "kw": "theorem",
+   "name": "zetaZeroConfig_local_count",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zetaZeroConfig_local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,\n    (zetaZeroConfig.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/RvM/ZetaGrowth.lean",
+   "line": 239,
+   "end_line": 239,
+   "kw": "theorem",
+   "name": "riemannZeta_ne_zero_of_two_le_re",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "theorem riemannZeta_ne_zero_of_two_le_re {s : ℂ} (hs : 2 ≤ s.re) : riemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 54,
+   "end_line": 54,
+   "kw": "def",
+   "name": "IsNontrivialZero",
+   "needles": [
+    "IsNontrivialZero",
+    "docstring \"zero of\"",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 62,
+   "end_line": 62,
+   "kw": "def",
+   "name": "zerosIn",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def zerosIn (T₁ T₂ : ℝ) : Set ℂ := {ρ | IsNontrivialZero ρ ∧ T₁ < ρ.im ∧ ρ.im ≤ T₂}",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 65,
+   "end_line": 65,
+   "kw": "def",
+   "name": "Ncount",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def Ncount (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ zerosIn T₁ T₂, zeroMult ρ",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 68,
+   "end_line": 68,
+   "kw": "def",
+   "name": "Ndist",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def Ndist (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂).ncard",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 72,
+   "end_line": 72,
+   "kw": "def",
+   "name": "N0",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def N0 (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2}, zeroMult ρ",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 75,
+   "end_line": 75,
+   "kw": "def",
+   "name": "N0star",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def N0star (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2}).ncard",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 78,
+   "end_line": 78,
+   "kw": "def",
+   "name": "N0simple",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def N0simple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} ∩ {ρ | zeroMult ρ = 1}).ncard",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 81,
+   "end_line": 81,
+   "kw": "def",
+   "name": "Nsimple",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def Nsimple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | zeroMult ρ = 1}).ncard",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 91,
+   "end_line": 99,
+   "kw": "structure",
+   "name": "ZetaSeam",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "structure ZetaSeam : Prop where\n  /-- H-fin: at a nontrivial zero the analytic order is finite and ≥ 1. -/\n  one_le_mult : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ\n  /-- H-symm (set): ρ ↦ 1 − conj ρ preserves nontrivial zeros. -/\n  reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ)\n  /-- H-symm (multiplicity). -/\n  mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ\n  /-- local finiteness: finitely many nontrivial zeros with T₁ < γ ≤ T₂. -/\n  finite_window : ∀ T₁ T₂ : ℝ, ({ρ | IsNontrivialZero ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 104,
+   "end_line": 111,
+   "kw": "def",
+   "name": "zetaZeros",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via ZetaSeam"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def zetaZeros (hs : ZetaSeam) : ZeroConfig where\n  carrier := {ρ | IsNontrivialZero ρ}\n  mult := zeroMult\n  one_le_mult := hs.one_le_mult\n  strip := fun _ h => ⟨h.2.1.le, h.2.2.le⟩\n  reflect_mem := hs.reflect_zero\n  mult_reflect := hs.mult_reflect\n  finite_window := hs.finite_window",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 116,
+   "end_line": 116,
+   "kw": "lemma",
+   "name": "zetaZeros_carrier",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_carrier : (zetaZeros hs).carrier = {ρ | IsNontrivialZero ρ} :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 117,
+   "end_line": 117,
+   "kw": "lemma",
+   "name": "zetaZeros_mult",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_mult : (zetaZeros hs).mult = zeroMult :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 118,
+   "end_line": 118,
+   "kw": "lemma",
+   "name": "zetaZeros_simple",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_simple : (zetaZeros hs).simple = {ρ | zeroMult ρ = 1} :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 120,
+   "end_line": 120,
+   "kw": "lemma",
+   "name": "zetaZeros_window",
+   "needles": [
+    "via zerosIn",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "lemma zetaZeros_window : (zetaZeros hs).window T₁ T₂ = zerosIn T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 123,
+   "end_line": 123,
+   "kw": "lemma",
+   "name": "zetaZeros_N",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_N : (zetaZeros hs).N T₁ T₂ = Ncount T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 125,
+   "end_line": 125,
+   "kw": "lemma",
+   "name": "zetaZeros_Nd",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_Nd : (zetaZeros hs).Nd T₁ T₂ = Ndist T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 127,
+   "end_line": 127,
+   "kw": "lemma",
+   "name": "zetaZeros_N0",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_N0 : (zetaZeros hs).N0 T₁ T₂ = N0 T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 129,
+   "end_line": 129,
+   "kw": "lemma",
+   "name": "zetaZeros_N0star",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_N0star : (zetaZeros hs).N0star T₁ T₂ = N0star T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 131,
+   "end_line": 131,
+   "kw": "lemma",
+   "name": "zetaZeros_N0s",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_N0s : (zetaZeros hs).N0s T₁ T₂ = N0simple T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 133,
+   "end_line": 133,
+   "kw": "lemma",
+   "name": "zetaZeros_Ns",
+   "needles": [
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeros_Ns : (zetaZeros hs).Ns T₁ T₂ = Nsimple T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 142,
+   "end_line": 143,
+   "kw": "lemma",
+   "name": "IsNontrivialZero.not_trivial",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "LOC",
+   "note": "",
+   "statement": "lemma IsNontrivialZero.not_trivial {ρ : ℂ} (h : IsNontrivialZero ρ) :\n    (¬∃ n : ℕ, ρ = -2 * (n + 1)) ∧ ρ ≠ 1 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 153,
+   "end_line": 154,
+   "kw": "theorem",
+   "name": "RH_implies_on_line",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "",
+   "statement": "theorem RH_implies_on_line (hRH : RiemannHypothesis) {ρ : ℂ} (h : IsNontrivialZero ρ) :\n    ρ.re = 1 / 2 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 160,
+   "end_line": 161,
+   "kw": "theorem",
+   "name": "RH_implies_all_on_line",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "",
+   "statement": "theorem RH_implies_all_on_line (hRH : RiemannHypothesis) (T₁ T₂ : ℝ) :\n    N0 T₁ T₂ = Ncount T₁ T₂ ∧ N0star T₁ T₂ = Ndist T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement.lean",
+   "line": 173,
+   "end_line": 175,
+   "kw": "theorem",
+   "name": "trivial_chain",
+   "needles": [
+    "via ZetaSeam"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem trivial_chain (hs : ZetaSeam) (T₁ T₂ : ℝ) :\n    N0simple T₁ T₂ ≤ N0star T₁ T₂ ∧ N0star T₁ T₂ ≤ N0 T₁ T₂ ∧ N0 T₁ T₂ ≤ Ncount T₁ T₂ ∧\n    N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 66,
+   "end_line": 66,
+   "kw": "theorem",
+   "name": "ZetaSeam.one_le_mult_holds",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via ZetaSeam"
+   ],
+   "kind": "INHERITS",
+   "reason": "INHERITS",
+   "note": "class none of C1-C7: the order of vanishing at a zero is at least one; grade by statement DERIVES; does not force re = 1/2",
+   "statement": "theorem ZetaSeam.one_le_mult_holds : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 79,
+   "end_line": 80,
+   "kw": "lemma",
+   "name": "riemannZeta_zeros_locallyFinite",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma riemannZeta_zeros_locallyFinite (z : ℂ) :\n    ∃ t ∈ 𝓝 z, (t ∩ {ρ : ℂ | ρ ≠ 1 ∧ riemannZeta ρ = 0}).Finite :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 107,
+   "end_line": 108,
+   "kw": "theorem",
+   "name": "ZetaSeam.finite_window_holds",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via ZetaSeam"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem ZetaSeam.finite_window_holds (T₁ T₂ : ℝ) :\n    ({ρ | IsNontrivialZero ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 124,
+   "end_line": 126,
+   "kw": "theorem",
+   "name": "ZetaSeam.of_reflect",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via ZetaSeam"
+   ],
+   "kind": "NEITHER",
+   "reason": "SEAM",
+   "note": "",
+   "statement": "theorem ZetaSeam.of_reflect\n    (h₁ : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ))\n    (h₂ : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ) : ZetaSeam :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 38,
+   "end_line": 38,
+   "kw": "theorem",
+   "name": "zetaSeam",
+   "needles": [
+    "via ZetaSeam"
+   ],
+   "kind": "NEITHER",
+   "reason": "SEAM",
+   "note": "",
+   "statement": "theorem zetaSeam : ZetaSeam :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 42,
+   "end_line": 42,
+   "kw": "def",
+   "name": "zetaZeroConfig",
+   "needles": [
+    "via zetaZeros",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 44,
+   "end_line": 44,
+   "kw": "lemma",
+   "name": "zetaZeroConfig_carrier",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeroConfig_carrier : zetaZeroConfig.carrier = {ρ | IsNontrivialZero ρ} :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 45,
+   "end_line": 45,
+   "kw": "lemma",
+   "name": "zetaZeroConfig_mult",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeroConfig_mult : zetaZeroConfig.mult = zeroMult :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 47,
+   "end_line": 47,
+   "kw": "lemma",
+   "name": "zetaZeroConfig_N",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeroConfig_N (T₁ T₂ : ℝ) : zetaZeroConfig.N T₁ T₂ = Ncount T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 49,
+   "end_line": 49,
+   "kw": "lemma",
+   "name": "zetaZeroConfig_N0star",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeroConfig_N0star (T₁ T₂ : ℝ) : zetaZeroConfig.N0star T₁ T₂ = N0star T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 51,
+   "end_line": 51,
+   "kw": "lemma",
+   "name": "zetaZeroConfig_N0s",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeroConfig_N0s (T₁ T₂ : ℝ) : zetaZeroConfig.N0s T₁ T₂ = N0simple T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 53,
+   "end_line": 53,
+   "kw": "lemma",
+   "name": "zetaZeroConfig_Nd",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "@[simp] lemma zetaZeroConfig_Nd (T₁ T₂ : ℝ) : zetaZeroConfig.Nd T₁ T₂ = Ndist T₁ T₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 63,
+   "end_line": 63,
+   "kw": "theorem",
+   "name": "zerosIn_finite",
+   "needles": [
+    "via zerosIn"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zerosIn_finite (T₁ T₂ : ℝ) : (zerosIn T₁ T₂).Finite :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/Tail/Count.lean",
+   "line": 411,
+   "end_line": 414,
+   "kw": "lemma",
+   "name": "sum_mult_le_of_windows",
+   "needles": [
+    "docstring \"zero of\""
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma sum_mult_le_of_windows {ι : Type*} (s : Finset ι) (m : ι → ℕ) (key : ι → ℕ) (K : ℕ)\n    {C : ℝ} (hkey : ∀ ρ ∈ s, key ρ < K)\n    (hcount : ∀ j < K, ∑ ρ ∈ s with key ρ = j, (m ρ : ℝ) ≤ C) :\n    ∑ ρ ∈ s, (m ρ : ℝ) ≤ K * C :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Contour.lean",
+   "line": 47,
+   "end_line": 55,
+   "kw": "theorem",
+   "name": "rectangle_identity",
+   "needles": [
+    "IsNontrivialZero",
+    "completedRiemannZeta _ = 0",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem rectangle_identity {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)\n    {c : ℝ} (hc1 : 1 < c) (hc2 : c ≤ 3/2) {R : ℝ} (hR : 7 ≤ R)\n    (hgood : ∀ s : ℂ, (s.im = R ∨ s.im = -R) → 1 - c ≤ s.re → s.re ≤ c →\n      completedRiemannZeta s ≠ 0) :\n    ∃ Z : Finset ℂ,\n      ((Z : Set ℂ) = {ρ : ℂ | IsNontrivialZero ρ ∧ -R < ρ.im ∧ ρ.im < R}) ∧\n      RectangleIntegral' (fun s => Hfn k s * logDeriv completedRiemannZeta s)\n          ((1 - c : ℝ) - R * I) ((c : ℝ) + R * I)\n        = (∑ ρ ∈ Z, (zeroMult ρ : ℂ) * Hfn k ρ) - Hfn k 0 - Hfn k 1 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLine.lean",
+   "line": 304,
+   "end_line": 306,
+   "kw": "theorem",
+   "name": "completedZeta_ne_zero_on_horizontals",
+   "needles": [
+    "completedRiemannZeta _ = 0",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "theorem completedZeta_ne_zero_on_horizontals {c : ℝ} (hc1 : 1 < c) (hc2 : c ≤ 3 / 2) {R : ℝ}\n    (hζ : ∀ s : ℂ, (s.im = R ∨ s.im = -R) → 1 / 2 ≤ s.re → s.re ≤ 2 → riemannZeta s ≠ 0) :\n    ∀ s : ℂ, (s.im = R ∨ s.im = -R) → 1 - c ≤ s.re → s.re ≤ c → completedRiemannZeta s ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/FullLineAssembly.lean",
+   "line": 55,
+   "end_line": 60,
+   "kw": "theorem",
+   "name": "full_line_identity",
+   "needles": [
+    "via ZetaSeam",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem full_line_identity (hs : ZetaSeam) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k)\n    (hkc : HasCompactSupport k) {c : ℝ} (hc1 : 1 < c) (hc2 : c ≤ 3/2) :\n    (1 / (2 * Real.pi) : ℂ) * ∫ t : ℝ, (Hfn k ((c:ℂ) + t * I) + Hfn k (1 - c - t * I))\n        * logDeriv completedRiemannZeta ((c:ℂ) + t * I)\n      = (∑' ρ : (zetaZeros hs).carrier, ((zetaZeros hs).mult ρ : ℂ) * Hfn k ρ)\n        - Hfn k 0 - Hfn k 1 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 99,
+   "end_line": 100,
+   "kw": "lemma",
+   "name": "isNontrivialZero_of_mem_closedBall",
+   "needles": [
+    "IsNontrivialZero",
+    "docstring \"zero of\"",
+    "riemannZeta _ = 0",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "LOC",
+   "note": "",
+   "statement": "lemma isNontrivialZero_of_mem_closedBall {t r : ℝ} (hr : r < 2) {ρ : ℂ}\n    (hρ : ρ ∈ Metric.closedBall (2 + t * I) r) (hz : riemannZeta ρ = 0) : IsNontrivialZero ρ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 117,
+   "end_line": 122,
+   "kw": "lemma",
+   "name": "sum_mult_six_windows",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma sum_mult_six_windows {A₀ : ℝ}\n    (hLC : Tail.LocalCount (fun ρ : zetaZeroConfig.carrier => (ρ : ℂ).im)\n      (fun ρ : zetaZeroConfig.carrier => zetaZeroConfig.mult ρ) A₀)\n    {a : ℤ} (F : Finset zetaZeroConfig.carrier)\n    (hF : ∀ ρ ∈ F, (a : ℝ) < (ρ : ℂ).im ∧ (ρ : ℂ).im ≤ (a : ℝ) + 6) :\n    ∑ ρ ∈ F, (zetaZeroConfig.mult ρ : ℝ) ≤ 6 * (A₀ * Real.log (|(a : ℝ)| + 9)) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 163,
+   "end_line": 164,
+   "kw": "lemma",
+   "name": "card_le_sum_mult",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma card_le_sum_mult (F : Finset zetaZeroConfig.carrier) :\n    (F.card : ℝ) ≤ ∑ ρ ∈ F, (zetaZeroConfig.mult ρ : ℝ) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 175,
+   "end_line": 178,
+   "kw": "theorem",
+   "name": "good_heights_at",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "theorem good_heights_at : ∃ C : ℝ, 0 < C ∧ ∀ j : ℕ, 7 ≤ j →\n    ∃ R : ℝ, (j : ℝ) ≤ R ∧ R ≤ (j : ℝ) + 1 ∧\n    ∀ s : ℂ, (s.im = R ∨ s.im = -R) → 1 / 2 ≤ s.re → s.re ≤ 2 →\n      riemannZeta s ≠ 0 ∧ ‖logDeriv riemannZeta s‖ ≤ C * (Real.log ((j : ℝ) + 3)) ^ 2 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 346,
+   "end_line": 349,
+   "kw": "theorem",
+   "name": "good_heights",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "FREE",
+   "note": "",
+   "statement": "theorem good_heights : ∃ Cg : ℝ, 0 < Cg ∧ ∃ R : ℕ → ℝ, ∀ j : ℕ,\n    (j : ℝ) + 7 ≤ R j ∧ R j ≤ (j : ℝ) + 8 ∧\n    ∀ s : ℂ, (s.im = R j ∨ s.im = -R j) → 1 / 2 ≤ s.re → s.re ≤ 2 →\n      riemannZeta s ≠ 0 ∧ ‖logDeriv riemannZeta s‖ ≤ Cg * (Real.log ((j : ℝ) + 10)) ^ 2 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Horizontal.lean",
+   "line": 43,
+   "end_line": 51,
+   "kw": "theorem",
+   "name": "horizontal_vanish",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem horizontal_vanish {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)\n    {c : ℝ} (hc1 : 1 < c) (hc2 : c ≤ 3/2) {Cg : ℝ} (hCg : 0 < Cg) {R : ℕ → ℝ}\n    (hR : ∀ j : ℕ, (j : ℝ) + 7 ≤ R j ∧ R j ≤ (j : ℝ) + 8 ∧\n      ∀ s : ℂ, (s.im = R j ∨ s.im = -R j) → 1/2 ≤ s.re → s.re ≤ 2 →\n        riemannZeta s ≠ 0 ∧ ‖logDeriv riemannZeta s‖ ≤ Cg * (Real.log ((j : ℝ) + 10)) ^ 2) :\n    Tendsto (fun j : ℕ => HIntegral (fun s => Hfn k s * logDeriv completedRiemannZeta s)\n        (1 - c) c (R j)) atTop (𝓝 0)\n    ∧ Tendsto (fun j : ℕ => HIntegral (fun s => Hfn k s * logDeriv completedRiemannZeta s)\n        (1 - c) c (-(R j))) atTop (𝓝 0) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Landau.lean",
+   "line": 528,
+   "end_line": 534,
+   "kw": "theorem",
+   "name": "zeta_logDeriv_partial_fraction",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zeta_logDeriv_partial_fraction : ∃ C : ℝ, 0 < C ∧ ∀ t : ℝ, 6 ≤ |t| →\n    ∃ Z : Finset ℂ,\n      (↑Z = {ρ ∈ Metric.closedBall (2 + t * I) (22/25 * (91/50)) | riemannZeta ρ = 0}) ∧\n      ((∑ ρ ∈ Z, (analyticOrderNatAt riemannZeta ρ : ℝ)) ≤ C * Real.log (|t| + 3)) ∧\n      ∀ s ∈ Metric.closedBall (2 + t * I) (3/2), riemannZeta s ≠ 0 →\n        ‖logDeriv riemannZeta s - ∑ ρ ∈ Z, (analyticOrderNatAt riemannZeta ρ : ℂ) / (s - ρ)‖\n          ≤ C * Real.log (|t| + 3) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Main.lean",
+   "line": 67,
+   "end_line": 67,
+   "kw": "theorem",
+   "name": "EF_lit_zeta",
+   "needles": [
+    "via ZetaSeam",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/Main.lean",
+   "line": 286,
+   "end_line": 286,
+   "kw": "theorem",
+   "name": "EF_lit_zetaZeroConfig",
+   "needles": [
+    "via zetaZeroConfig",
+    "zetaZeroConfig"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 83,
+   "end_line": 85,
+   "kw": "theorem",
+   "name": "logDeriv_completedZeta",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem logDeriv_completedZeta (s : ℂ) (hs1 : s ≠ 1)\n    (hζ : riemannZeta s ≠ 0) (hstrip : 0 < s.re) :\n    logDeriv completedRiemannZeta s = logDeriv Complex.Gammaℝ s + logDeriv riemannZeta s :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 111,
+   "end_line": 113,
+   "kw": "theorem",
+   "name": "completedZeta_zeros_strip",
+   "needles": [
+    "IsNontrivialZero",
+    "completedRiemannZeta _ = 0",
+    "via IsNontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ZSET",
+   "note": "",
+   "statement": "theorem completedZeta_zeros_strip {ρ : ℂ} (h : 0 < ρ.re) (h' : ρ.re < 1) :\n    (completedRiemannZeta ρ = 0 ↔ IsNontrivialZero ρ) ∧\n    analyticOrderAt completedRiemannZeta ρ = analyticOrderAt riemannZeta ρ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/ZeroSumLimit.lean",
+   "line": 42,
+   "end_line": 47,
+   "kw": "theorem",
+   "name": "zero_sum_limit",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero",
+    "via ZetaSeam",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zero_sum_limit (hs : ZetaSeam) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)\n    {R : ℕ → ℝ} (hR : ∀ j : ℕ, (j : ℝ) + 7 ≤ R j ∧ R j ≤ (j : ℝ) + 8)\n    {Z : ℕ → Finset ℂ}\n    (hZ : ∀ j : ℕ, ((Z j : Set ℂ) = {ρ : ℂ | IsNontrivialZero ρ ∧ -R j < ρ.im ∧ ρ.im < R j})) :\n    Tendsto (fun j : ℕ => ∑ ρ ∈ Z j, (zeroMult ρ : ℂ) * Hfn k ρ) atTop\n      (𝓝 (∑' ρ : (zetaZeros hs).carrier, ((zetaZeros hs).mult ρ : ℂ) * Hfn k ρ)) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 247,
+   "end_line": 249,
+   "kw": "theorem",
+   "name": "zero_sum_inv_sq",
+   "needles": [
+    "via ZetaSeam",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem zero_sum_inv_sq (hs : ZetaSeam) :\n    Summable (fun ρ : (zetaZeros hs).carrier =>\n      (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 257,
+   "end_line": 260,
+   "kw": "theorem",
+   "name": "EF_zero_sum_summable",
+   "needles": [
+    "via ZetaSeam",
+    "via zetaZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem EF_zero_sum_summable (hs : ZetaSeam) {k : ℝ → ℂ}\n    (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) :\n    Summable (fun ρ : (zetaZeros hs).carrier =>\n      ((zetaZeros hs).mult ρ : ℂ) * paperFT k (gammaOf ρ)) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 294,
+   "end_line": 294,
+   "kw": "theorem",
+   "name": "zeta_reflect_zero",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero"
+   ],
+   "kind": "INHERITS",
+   "reason": "INHERITS",
+   "note": "class C3 (functional equation): 1 − conj ρ is a zero (reflect ρ = 1 − conj ρ, Defs.lean:124); grade by statement DERIVES; does not force re = 1/2",
+   "statement": "theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 330,
+   "end_line": 330,
+   "kw": "theorem",
+   "name": "zeta_mult_reflect",
+   "needles": [
+    "IsNontrivialZero",
+    "via IsNontrivialZero"
+   ],
+   "kind": "INHERITS",
+   "reason": "INHERITS",
+   "note": "class C3 (functional equation): 1 − conj ρ is a zero, its multiplicity twin; grade by statement DERIVES; does not force re = 1/2",
+   "statement": "theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 42,
+   "end_line": 42,
+   "kw": "def",
+   "name": "NontrivialZero",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def NontrivialZero : Type := {z : ℂ // riemannZeta z = 0 ∧ 0 < z.re ∧ z.re < 1}",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 45,
+   "end_line": 46,
+   "kw": "def",
+   "name": "blTerm",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "noncomputable def blTerm (z : NontrivialZero) (n : ℕ) : ℝ :=\n  (1 - (1 - 1 / (z.1 : ℂ)) ^ n).re",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 51,
+   "end_line": 52,
+   "kw": "lemma",
+   "name": "blTerm_nonneg_of_onLine",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) :\n    0 ≤ blTerm z n :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 76,
+   "end_line": 77,
+   "kw": "def",
+   "name": "VerifiedZerosTo",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def VerifiedZerosTo (T : ℝ) : Prop :=\n  ∀ z : NontrivialZero, |z.1.im| ≤ T → z.1.re = 1 / 2",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 88,
+   "end_line": 91,
+   "kw": "def",
+   "name": "ExplicitFormulaDecomp",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def ExplicitFormulaDecomp (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)\n    (T : ℝ) : Prop :=\n  (∀ z : NontrivialZero, z ∈ low ↔ |z.1.im| ≤ T) ∧\n  (∀ n : ℕ, 1 ≤ n → lam n = (∑ z ∈ low, blTerm z n) + tail n)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 107,
+   "end_line": 107,
+   "kw": "lemma",
+   "name": "finite_setOf_abs_im_le",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "lemma finite_setOf_abs_im_le (T : ℝ) : {z : NontrivialZero | |z.1.im| ≤ T}.Finite :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 114,
+   "end_line": 115,
+   "kw": "def",
+   "name": "lowFinset",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "noncomputable def lowFinset (T : ℝ) : Finset NontrivialZero :=\n  (finite_setOf_abs_im_le T).toFinset",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 118,
+   "end_line": 118,
+   "kw": "lemma",
+   "name": "mem_lowFinset",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "lemma mem_lowFinset {T : ℝ} (z : NontrivialZero) : z ∈ lowFinset T ↔ |z.1.im| ≤ T :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 123,
+   "end_line": 124,
+   "kw": "lemma",
+   "name": "lowFinset_mem_iff",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEFEQ",
+   "note": "",
+   "statement": "lemma lowFinset_mem_iff (T : ℝ) :\n    ∀ z : NontrivialZero, z ∈ lowFinset T ↔ |z.1.im| ≤ T :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 131,
+   "end_line": 132,
+   "kw": "def",
+   "name": "TailBoundPremise",
+   "needles": [
+    "via NontrivialZero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def TailBoundPremise (low : Finset NontrivialZero) (tail : ℕ → ℝ) (T : ℝ) : Prop :=\n  ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → - (∑ z ∈ low, blTerm z n) ≤ tail n",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/PartialPositivity.lean",
+   "line": 140,
+   "end_line": 144,
+   "kw": "theorem",
+   "name": "partialPositivity_finiteRange",
+   "needles": [
+    "via ExplicitFormulaDecomp",
+    "via NontrivialZero",
+    "via TailBoundPremise",
+    "via VerifiedZerosTo"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem partialPositivity_finiteRange\n    (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)\n    (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)\n    (hTail : TailBoundPremise low tail T) :\n    ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 117,
+   "end_line": 121,
+   "kw": "def",
+   "name": "is_xi_zero",
+   "needles": [
+    "is_xi_zero",
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def is_xi_zero (sigma : Real) : Prop :=\n  Exists (fun t : Real =>\n    riemannZeta (⟨sigma, t⟩ : ℂ) = 0 ∧\n    (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) ∧\n    (⟨sigma, t⟩ : ℂ) ≠ 1)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 127,
+   "end_line": 130,
+   "kw": "def",
+   "name": "Register2_conservationHypothesis",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def Register2_conservationHypothesis : Prop :=\n  ∀ (σ : ℝ), is_xi_zero σ →\n  ∃ (p : Nat) (hp : Nat.Prime p),\n  (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ))",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 189,
+   "end_line": 195,
+   "kw": "def",
+   "name": "Register5_output_HilbertPolya",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def Register5_output_HilbertPolya : Prop :=\n  ∃ (spectrum : ℕ → ℝ) (pairing : ℕ → ℕ → ℝ) (T : ℕ → ℕ → ℝ),\n    (∀ i j, pairing i j = pairing j i) ∧\n    (∀ i, 0 < pairing i i) ∧\n    (∀ i j, pairing i i * T i j = pairing j j * T j i) ∧\n    (∀ n, T n n = spectrum n) ∧\n    (∀ σ : ℝ, is_xi_zero σ → ∃ n : ℕ, spectrum n = σ)",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 207,
+   "end_line": 209,
+   "kw": "theorem",
+   "name": "goalState_of_h1_h2",
+   "needles": [
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem goalState_of_h1_h2 (𝒞 : Set T3.Coupling) (s : ℂ)\n    (h1 : ∀ C ∈ 𝒞, C Phi) (h2 : mellin Phi (s / 2) ≠ 0) :\n    GoalState 𝒞 s :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 215,
+   "end_line": 216,
+   "kw": "theorem",
+   "name": "goalState_sevenClasses_of_h2",
+   "needles": [
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem goalState_sevenClasses_of_h2 (s : ℂ) (h2 : mellin Phi (s / 2) ≠ 0) :\n    GoalState sevenClasses s :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 241,
+   "end_line": 243,
+   "kw": "theorem",
+   "name": "R2_conservationHypothesis_to_RH",
+   "needles": [
+    "via Register2_conservationHypothesis",
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem R2_conservationHypothesis_to_RH\n    (kernelBridge : Register2_conservationHypothesis → RiemannHypothesis)\n    (h : Register2_conservationHypothesis) : RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 266,
+   "end_line": 269,
+   "kw": "theorem",
+   "name": "R4_positivity_to_RH",
+   "needles": [
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem R4_positivity_to_RH\n    {lam : ℕ → ℝ}\n    (liCriterion : Register4_positivity lam → RiemannHypothesis)\n    (h : Register4_positivity lam) : RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 284,
+   "end_line": 286,
+   "kw": "theorem",
+   "name": "R5_output_HilbertPolya_to_RH",
+   "needles": [
+    "via Register5_output_HilbertPolya",
+    "via RiemannHypothesis"
+   ],
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "",
+   "statement": "theorem R5_output_HilbertPolya_to_RH\n    (hpBridge : Register5_output_HilbertPolya → RiemannHypothesis)\n    (h : Register5_output_HilbertPolya) : RiemannHypothesis :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 303,
+   "end_line": 304,
+   "kw": "def",
+   "name": "RealizesXiZeros",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def RealizesXiZeros (spectrum : ℕ → ℝ) : Prop :=\n  ∀ σ : ℝ, is_xi_zero σ → ∃ n : ℕ, spectrum n = σ",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 312,
+   "end_line": 313,
+   "kw": "def",
+   "name": "NontrivialZeroExistsInStrip",
+   "needles": [
+    "is_xi_zero",
+    "via is_xi_zero"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def NontrivialZeroExistsInStrip : Prop :=\n  ∃ σ : ℝ, is_xi_zero σ ∧ 0 < σ ∧ σ < 1",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 342,
+   "end_line": 344,
+   "kw": "theorem",
+   "name": "certifiedInput_not_zeroRealizing",
+   "needles": [
+    "via NontrivialZeroExistsInStrip",
+    "via RealizesXiZeros"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem certifiedInput_not_zeroRealizing\n    (nontrivialZeroInStrip : NontrivialZeroExistsInStrip) :\n    ¬ RealizesXiZeros certifiedInputSpectrum :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T2_SDarkness.lean",
+   "line": 72,
+   "end_line": 74,
+   "kw": "theorem",
+   "name": "completedRiemannZeta_eq_mellinPhi",
+   "needles": [
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem completedRiemannZeta_eq_mellinPhi\n    (s : ℂ) (hs : 1 < s.re) :\n    completedRiemannZeta s = mellin Phi (s / 2) :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T2_SDarkness.lean",
+   "line": 109,
+   "end_line": 111,
+   "kw": "theorem",
+   "name": "T2d_zero_iff_mellinPhi_zero",
+   "needles": [
+    "completedRiemannZeta _ = 0",
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem T2d_zero_iff_mellinPhi_zero\n    (s : ℂ) (hs : 1 < s.re) :\n    completedRiemannZeta s = 0 ↔ mellin Phi (s / 2) = 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T3_StepNineBridge.lean",
+   "line": 48,
+   "end_line": 48,
+   "kw": "def",
+   "name": "ZeroLoc",
+   "needles": [
+    "ZeroLoc"
+   ],
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "",
+   "statement": "def ZeroLoc (Φ : ℝ → ℂ) : Set ℂ := {s | mellin Φ (s / 2) = 0}",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T3_StepNineBridge.lean",
+   "line": 63,
+   "end_line": 65,
+   "kw": "theorem",
+   "name": "T3a_zeroLoc_is_function_of_Phi",
+   "needles": [
+    "ZeroLoc",
+    "via ZeroLoc"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem T3a_zeroLoc_is_function_of_Phi\n    (Φ₁ Φ₂ : ℝ → ℂ) (h : Φ₁ = Φ₂) :\n    ZeroLoc Φ₁ = ZeroLoc Φ₂ :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/T3_StepNineBridge.lean",
+   "line": 121,
+   "end_line": 125,
+   "kw": "theorem",
+   "name": "T3prime_shared_witness",
+   "needles": [
+    "mellin Phi"
+   ],
+   "kind": "NEITHER",
+   "reason": "MELLIN",
+   "note": "",
+   "statement": "theorem T3prime_shared_witness\n    (𝒞 : Set Coupling) (s : ℂ)\n    (h1 : ∀ C ∈ 𝒞, C Phi)\n    (h2 : mellin Phi (s / 2) ≠ 0) :\n    ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/ZeroCarrier.lean",
+   "line": 60,
+   "end_line": 61,
+   "kw": "lemma",
+   "name": "xiCarrier_eq_zero_iff_riemannZeta",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ZSET",
+   "note": "",
+   "statement": "lemma xiCarrier_eq_zero_iff_riemannZeta {s : ℂ} (h0 : 0 < s.re) (h1 : s.re < 1) :\n    xiCarrier s = 0 ↔ riemannZeta s = 0 :=",
+   "private": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "file": "SIDELvConservation/ZeroCarrier.lean",
+   "line": 131,
+   "end_line": 132,
+   "kw": "theorem",
+   "name": "finite_strip_box_riemannZeta_zeros",
+   "needles": [
+    "riemannZeta _ = 0"
+   ],
+   "kind": "NEITHER",
+   "reason": "ANAL",
+   "note": "",
+   "statement": "theorem finite_strip_box_riemannZeta_zeros (T : ℝ) :\n    {s : ℂ | 0 < s.re ∧ s.re < 1 ∧ |s.im| ≤ T ∧ riemannZeta s = 0}.Finite :=",
+   "private": false
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/ArtinSkeleton.lean",
+   "line": 34,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "theorem: (a GRH-form proposition) → (a conjecture proposition)",
+   "statement": "(shape) theorem: (a GRH-form proposition) → (a conjecture proposition)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/ArtinSkeleton.lean",
+   "line": 48,
+   "kw": "abbrev",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "abbrev: an alias of a zero-location type",
+   "statement": "(shape) abbrev: an alias of a zero-location type",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/CramerSkeleton.lean",
+   "line": 50,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "TRIV",
+   "note": "theorem: (a GRH-form proposition) → True",
+   "statement": "(shape) theorem: (a GRH-form proposition) → True",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 46,
+   "kw": "structure",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "structure: a real parameter with a zeta-zero predicate as a field",
+   "statement": "(shape) structure: a real parameter with a zeta-zero predicate as a field",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 50,
+   "kw": "instance",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "instance: on-target sigma = 1/2 and off-target sigma ≠ 1/2 on that type",
+   "statement": "(shape) instance: on-target sigma = 1/2 and off-target sigma ≠ 1/2 on that type",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 69,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a class-production predicate defined as False",
+   "statement": "(shape) def: a class-production predicate defined as False",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 75,
+   "kw": "instance",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "instance: a system whose production field is that False predicate",
+   "statement": "(shape) instance: a system whose production field is that False predicate",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 90,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: an exhaustiveness proposition",
+   "statement": "(shape) def: an exhaustiveness proposition",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 94,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: every location is on target (a BOTH-shaped definiens)",
+   "statement": "(shape) def: every location is on target (a BOTH-shaped definiens)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 100,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a class exclusion discharged by unfolding the False predicate",
+   "statement": "(shape) def: a class exclusion discharged by unfolding the False predicate",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 114,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "theorem: (an exhaustiveness proposition) → (every location on target)",
+   "statement": "(shape) theorem: (an exhaustiveness proposition) → (every location on target)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DedekindZeta.lean",
+   "line": 167,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "theorem: (a second exhaustiveness proposition) → (every location on target)",
+   "statement": "(shape) theorem: (a second exhaustiveness proposition) → (every location on target)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 44,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a zero predicate whose body names no L-function (∃ t, ∃ a True witness, sigma ≠ 1/2 → False)",
+   "statement": "(shape) def: a zero predicate whose body names no L-function (∃ t, ∃ a True witness, sigma ≠ 1/2 → False)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 59,
+   "kw": "structure",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "structure: a real parameter with a zeta-zero field standing in for an L-function zero",
+   "statement": "(shape) structure: a real parameter with a zeta-zero field standing in for an L-function zero",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 66,
+   "kw": "instance",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "instance: on-target and off-target predicates as above",
+   "statement": "(shape) instance: on-target and off-target predicates as above",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 85,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a class-production predicate defined as False",
+   "statement": "(shape) def: a class-production predicate defined as False",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 90,
+   "kw": "instance",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "instance: a system whose production field is that False predicate",
+   "statement": "(shape) instance: a system whose production field is that False predicate",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 105,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: an exhaustiveness proposition",
+   "statement": "(shape) def: an exhaustiveness proposition",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 111,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: every location is on target (a BOTH-shaped definiens)",
+   "statement": "(shape) def: every location is on target (a BOTH-shaped definiens)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 117,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a class exclusion discharged by unfolding the False predicate",
+   "statement": "(shape) def: a class exclusion discharged by unfolding the False predicate",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 131,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "theorem: (an exhaustiveness proposition) → (every location on target)",
+   "statement": "(shape) theorem: (an exhaustiveness proposition) → (every location on target)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/DirichletGRH.lean",
+   "line": 187,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "theorem: (a second exhaustiveness proposition) → (every location on target)",
+   "statement": "(shape) theorem: (a second exhaustiveness proposition) → (every location on target)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/KernelBridge.lean",
+   "line": 66,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "ZSET",
+   "note": "theorem: two zero-at-real-part predicates are equivalent",
+   "statement": "(shape) theorem: two zero-at-real-part predicates are equivalent",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/KernelBridge.lean",
+   "line": 83,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "theorem: (SIDE-kernel`s RH-restated premise) → (an exhaustiveness proposition)",
+   "statement": "(shape) theorem: (SIDE-kernel`s RH-restated premise) → (an exhaustiveness proposition)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/KernelBridge.lean",
+   "line": 95,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PREM",
+   "note": "theorem: (SIDE-kernel`s RH-restated premise) → (a local RH proposition)",
+   "statement": "(shape) theorem: (SIDE-kernel`s RH-restated premise) → (a local RH proposition)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 53,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a nontrivial zeta zero at real part sigma",
+   "statement": "(shape) def: a nontrivial zeta zero at real part sigma",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 63,
+   "kw": "structure",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "structure: a real parameter with that zero predicate as a field",
+   "statement": "(shape) structure: a real parameter with that zero predicate as a field",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 67,
+   "kw": "instance",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "instance: on-target and off-target predicates as above",
+   "statement": "(shape) instance: on-target and off-target predicates as above",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 83,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a class-production predicate defined as False",
+   "statement": "(shape) def: a class-production predicate defined as False",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 86,
+   "kw": "instance",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "instance: a system whose production field is that False predicate",
+   "statement": "(shape) instance: a system whose production field is that False predicate",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 105,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: every location is on target (a BOTH-shaped definiens)",
+   "statement": "(shape) def: every location is on target (a BOTH-shaped definiens)",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 110,
+   "kw": "def",
+   "kind": "NEITHER",
+   "reason": "DEF",
+   "note": "def: a class exclusion discharged by unfolding the False predicate",
+   "statement": "(shape) def: a class exclusion discharged by unfolding the False predicate",
+   "private": true
+  },
+  {
+   "repo": "TECHNE-Core",
+   "pin": "WORKING-HEAD",
+   "file": "TECHNE/Core/Instance/Xi.lean",
+   "line": 123,
+   "kw": "theorem",
+   "kind": "NEITHER",
+   "reason": "PROP",
+   "note": "theorem: (an exhaustiveness proposition) → (every location on target)",
+   "statement": "(shape) theorem: (an exhaustiveness proposition) → (every location on target)",
+   "private": true
+  }
+ ],
+ "kinds": {
+  "INHERITS": 3,
+  "FORCES": 2,
+  "BOTH": 0,
+  "NEITHER": 219
+ },
+ "per_repo": {
+  "SIDE-kernel": {
+   "rows": 33,
+   "INHERITS": 0,
+   "FORCES": 0,
+   "BOTH": 0,
+   "NEITHER": 33
+  },
+  "SIDE-grh-transfer": {
+   "rows": 2,
+   "INHERITS": 0,
+   "FORCES": 2,
+   "BOTH": 0,
+   "NEITHER": 0
+  },
+  "SIDE-explicit-formula": {
+   "rows": 127,
+   "INHERITS": 3,
+   "FORCES": 0,
+   "BOTH": 0,
+   "NEITHER": 124
+  },
+  "SIDE-lv-conservation": {
+   "rows": 29,
+   "INHERITS": 0,
+   "FORCES": 0,
+   "BOTH": 0,
+   "NEITHER": 29
+  },
+  "TECHNE-Core": {
+   "rows": 33,
+   "INHERITS": 0,
+   "FORCES": 0,
+   "BOTH": 0,
+   "NEITHER": 33
+  }
+ }
+}

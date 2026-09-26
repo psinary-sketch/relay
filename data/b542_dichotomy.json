@@ -1,0 +1,126 @@
+{
+ "table": [
+  {
+   "cls": "C1_schwarz",
+   "inherits_constraint": "conj ρ is a zero (R152)(4)",
+   "inherits_cell": "ABSENT: no census statement concludes that conj ρ is a zero; the kernel`s c1_closing is a value statement (RESIDUE)",
+   "inherits_row": "ABSENT",
+   "forces_constraint": "σ = 1 − σ (conjugation fixed point)",
+   "forces_cell": "c1_exclusion (TheBridgeComplete.lean:167) through produces_offline :158 `.C1_schwarz => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ = 1 - σ`",
+   "forces_grade": "FORCES by reading, algebra about σ, names no zero (outside the census)",
+   "same_constraint": false,
+   "inherits_t0": false
+  },
+  {
+   "cls": "C2_euler",
+   "inherits_constraint": "the Euler balance at ρ.re (R152)(4)",
+   "inherits_cell": "CONDITIONAL: conservation_activates_balance concludes the balance only under ConservationHypothesis, RH restated (ch_iff_rh) -- NEITHER, not T0",
+   "inherits_row": "ConservationBridge.lean:34 conservation_activates_balance (NEITHER, PREM)",
+   "forces_constraint": "−σ = −(1 − σ) (the balance exponent)",
+   "forces_cell": "c2_exclusion (TheBridgeComplete.lean:171) through produces_offline :159 `.C2_euler => ∃ σ : Real, σ ≠ 1 / 2 ∧ -σ = -(1 - σ)`",
+   "forces_grade": "FORCES by reading, algebra about σ, names no zero (outside the census)",
+   "same_constraint": true,
+   "inherits_t0": false
+  },
+  {
+   "cls": "C3_functional_eq",
+   "inherits_constraint": "1 − conj ρ is a zero (R152)(4)",
+   "inherits_cell": "zeta_reflect_zero and zeta_mult_reflect (Zeta23, about zeta): INHERITS; the kernel`s own voice3_fe_zeros is INHERITS-SHAPE ON completedRiemannZeta₀",
+   "inherits_row": "Zeta23/ZetaReflect.lean:294 zeta_reflect_zero",
+   "forces_constraint": "1 − σ = σ (reflection fixed point)",
+   "forces_cell": "c3_exclusion (TheBridgeComplete.lean:175) through produces_offline :160 `.C3_functional_eq => ∃ σ : Real, σ ≠ 1 / 2 ∧ (1 - σ) = σ`",
+   "forces_grade": "FORCES by reading, algebra about σ, names no zero (outside the census)",
+   "same_constraint": false,
+   "inherits_t0": true
+  },
+  {
+   "cls": "C4_modular",
+   "inherits_constraint": "as the kernel states it",
+   "inherits_cell": "ABSENT: the kernel`s c4_closing is a zero-free half-plane (re ≥ 1), not a constraint at a zero",
+   "inherits_row": "ABSENT",
+   "forces_constraint": "1 − σ = σ (the S-action fixed point)",
+   "forces_cell": "c4_exclusion (TheBridgeComplete.lean:179) through produces_offline :161 `.C4_modular => ∃ σ : Real, σ ≠ 1 / 2 ∧ 1 - σ = σ`",
+   "forces_grade": "FORCES by reading, algebra about σ, names no zero (outside the census)",
+   "same_constraint": false,
+   "inherits_t0": false
+  },
+  {
+   "cls": "C5_spectral",
+   "inherits_constraint": "as the kernel states it",
+   "inherits_cell": "ABSENT: Register5_output is a definition; register5_output_holds holds trivially (b538) and constrains no zero",
+   "inherits_row": "ABSENT",
+   "forces_constraint": "σ − 1/2 = 0 (the spectral offset)",
+   "forces_cell": "c5_exclusion (TheBridgeComplete.lean:183) through produces_offline :162 `.C5_spectral => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ - 1 / 2 = 0`",
+   "forces_grade": "FORCES by reading, algebra about σ, names no zero (outside the census)",
+   "same_constraint": false,
+   "inherits_t0": false
+  },
+  {
+   "cls": "C6_cauchy_riemann",
+   "inherits_constraint": "the Cauchy–Riemann equations at ρ (R152)(4)",
+   "inherits_cell": "ABSENT: TheBridgeComplete.lean:239-242 names xi-faithfulness MANUSCRIPT-RESIDENT",
+   "inherits_row": "ABSENT",
+   "forces_constraint": "zero_codimension σ = 1 (model level)",
+   "forces_cell": "c6_exclusion (TheBridgeComplete.lean:187) through produces_offline :163 `.C6_cauchy_riemann => ∃ σ : Real, σ ≠ 1 / 2 ∧ techne_kernel_voice3b.zero_codimension σ = 1`",
+   "forces_grade": "FORCES by reading, algebra about σ, names no zero (outside the census)",
+   "same_constraint": false,
+   "inherits_t0": false
+  },
+  {
+   "cls": "C7_hadamard",
+   "inherits_constraint": "ρ appears in the Hadamard product (R152)(4)",
+   "inherits_cell": "ABSENT: voice7_zero_symmetry states C3`s constraint on completedRiemannZeta₀ under C7`s name; ZetaSeam.one_le_mult_holds is the order of vanishing, not the product",
+   "inherits_row": "ABSENT",
+   "forces_constraint": "hadamard_contrib σ = hadamard_contrib (1/2), hadamard_contrib := 0",
+   "forces_cell": "c7_exclusion (TheBridgeComplete.lean:194) through produces_offline :165 `.C7_hadamard => ∃ σ : Real, hadamard_contrib σ ≠ hadamard_contrib (1 / 2)`",
+   "forces_grade": "FORCES by reading, T2 (definition-encoded: hadamard_contrib := 0)",
+   "same_constraint": false,
+   "inherits_t0": false
+  }
+ ],
+ "stop_fired": [],
+ "forces_read": {
+  "C1_schwarz": {
+   "produces_offline_line": 158,
+   "produces_offline": "| .C1_schwarz => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ = 1 - σ",
+   "exclusion_line": 167,
+   "exclusion": "theorem c1_exclusion : ¬ produces_offline .C1_schwarz := by"
+  },
+  "C2_euler": {
+   "produces_offline_line": 159,
+   "produces_offline": "| .C2_euler => ∃ σ : Real, σ ≠ 1 / 2 ∧ -σ = -(1 - σ)",
+   "exclusion_line": 171,
+   "exclusion": "theorem c2_exclusion : ¬ produces_offline .C2_euler := by"
+  },
+  "C3_functional_eq": {
+   "produces_offline_line": 160,
+   "produces_offline": "| .C3_functional_eq => ∃ σ : Real, σ ≠ 1 / 2 ∧ (1 - σ) = σ",
+   "exclusion_line": 175,
+   "exclusion": "theorem c3_exclusion : ¬ produces_offline .C3_functional_eq := by"
+  },
+  "C4_modular": {
+   "produces_offline_line": 161,
+   "produces_offline": "| .C4_modular => ∃ σ : Real, σ ≠ 1 / 2 ∧ 1 - σ = σ",
+   "exclusion_line": 179,
+   "exclusion": "theorem c4_exclusion : ¬ produces_offline .C4_modular := by"
+  },
+  "C5_spectral": {
+   "produces_offline_line": 162,
+   "produces_offline": "| .C5_spectral => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ - 1 / 2 = 0",
+   "exclusion_line": 183,
+   "exclusion": "theorem c5_exclusion : ¬ produces_offline .C5_spectral := by"
+  },
+  "C6_cauchy_riemann": {
+   "produces_offline_line": 163,
+   "produces_offline": "| .C6_cauchy_riemann => ∃ σ : Real, σ ≠ 1 / 2 ∧ techne_kernel_voice3b.zero_codimension σ = 1",
+   "exclusion_line": 187,
+   "exclusion": "theorem c6_exclusion : ¬ produces_offline .C6_cauchy_riemann := by"
+  },
+  "C7_hadamard": {
+   "produces_offline_line": 165,
+   "produces_offline": "| .C7_hadamard => ∃ σ : Real, hadamard_contrib σ ≠ hadamard_contrib (1 / 2)",
+   "exclusion_line": 194,
+   "exclusion": "theorem c7_exclusion : ¬ produces_offline .C7_hadamard := by"
+  }
+ }
+}

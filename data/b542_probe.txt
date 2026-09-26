@@ -1,0 +1,11 @@
+b542 -- THE AXIOM PROBE (a scratch file; nothing else compiled)
+SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d ; exit 0
+import Zeta23.ZetaReflect
+import Zeta23.Statement.Seam
+
+#print axioms Zeta23.zeta_reflect_zero
+#print axioms Zeta23.zeta_mult_reflect
+#print axioms Zeta23.ZetaSeam.one_le_mult_holds
+'Zeta23.zeta_reflect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.zeta_mult_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZetaSeam.one_le_mult_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
