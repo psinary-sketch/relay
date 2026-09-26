@@ -1,0 +1,152 @@
+b547 -- THE CHECKOUT`S VERIFIED NUMERICS (READING (11)): Mathlib 51e6992efd06126df61a496bebf8f49482a4e129 ; 8302 files
+
+### interval arithmetic (a named facility) : 2 ; needle (?i)interval[_ ]?arith|IntervalArith|\bIntervalArithmetic\b
+  Mathlib/Algebra/Order/Interval/Basic.lean:16 # Interval arithmetic
+  Mathlib/Order/Interval/Basic.lean:16 interval arithmetic.
+
+### norm_num extension files (Mathlib/Tactic/NormNum/*) : 26 ; needle the directory listing
+  Mathlib/Tactic/NormNum/Abs.lean:0 (file)
+  Mathlib/Tactic/NormNum/Basic.lean:0 (file)
+  Mathlib/Tactic/NormNum/BigOperators.lean:0 (file)
+  Mathlib/Tactic/NormNum/Core.lean:0 (file)
+  Mathlib/Tactic/NormNum/DivMod.lean:0 (file)
+  Mathlib/Tactic/NormNum/Eq.lean:0 (file)
+  Mathlib/Tactic/NormNum/GCD.lean:0 (file)
+  Mathlib/Tactic/NormNum/Ineq.lean:0 (file)
+  Mathlib/Tactic/NormNum/Inv.lean:0 (file)
+  Mathlib/Tactic/NormNum/Irrational.lean:0 (file)
+  Mathlib/Tactic/NormNum/IsCoprime.lean:0 (file)
+  Mathlib/Tactic/NormNum/IsSquare.lean:0 (file)
+  Mathlib/Tactic/NormNum/LegendreSymbol.lean:0 (file)
+  Mathlib/Tactic/NormNum/ModEq.lean:0 (file)
+  Mathlib/Tactic/NormNum/NatFactorial.lean:0 (file)
+  Mathlib/Tactic/NormNum/NatFib.lean:0 (file)
+  Mathlib/Tactic/NormNum/NatLog.lean:0 (file)
+  Mathlib/Tactic/NormNum/NatSqrt.lean:0 (file)
+  Mathlib/Tactic/NormNum/OfScientific.lean:0 (file)
+  Mathlib/Tactic/NormNum/Ordinal.lean:0 (file)
+  Mathlib/Tactic/NormNum/Parity.lean:0 (file)
+  Mathlib/Tactic/NormNum/Pow.lean:0 (file)
+  Mathlib/Tactic/NormNum/PowMod.lean:0 (file)
+  Mathlib/Tactic/NormNum/Prime.lean:0 (file)
+  Mathlib/Tactic/NormNum/RealSqrt.lean:0 (file)
+  Mathlib/Tactic/NormNum/Result.lean:0 (file)
+
+### exp numeric bounds : 40 ; needle \b(?:Real\.)?exp_one_(?:lt|gt)_d9\b|\bexp_bound\b|\bexp_approx\b|\bexp_bound\x27|\bexpNear\b
+  Mathlib/Analysis/Complex/Exponential.lean:377 theorem exp_bound {x : ℂ} (hx : ‖x‖ ≤ 1) {n : ℕ} (hn : 0 < n) :
+  Mathlib/Analysis/Complex/Exponential.lean:407 theorem exp_bound' {x : ℂ} {n : ℕ} (hx : ‖x‖ / n.succ ≤ 1 / 2) :
+  Mathlib/Analysis/Complex/Exponential.lean:445 (exp_bound hx (by decide))
+  Mathlib/Analysis/Complex/Exponential.lean:453 (exp_bound hx (by decide))
+  Mathlib/Analysis/Complex/Exponential.lean:517 nonrec theorem exp_bound {x : ℝ} (hx : |x| ≤ 1) {n : ℕ} (hn : 0 < n) :
+  Mathlib/Analysis/Complex/Exponential.lean:520 convert exp_bound hxc hn <;>
+  Mathlib/Analysis/Complex/Exponential.lean:523 theorem exp_bound' {x : ℝ} (h1 : 0 ≤ x) (h2 : x ≤ 1) {n : ℕ} (hn : 0 < n) :
+  Mathlib/Analysis/Complex/Exponential.lean:528 have h' := Real.exp_bound h4 hn
+  Mathlib/Analysis/Complex/Exponential.lean:545 of the previous (see `expNear_succ`), with `expNear n x r ⟶ exp x` as `n ⟶ ∞`,
+  Mathlib/Analysis/Complex/Exponential.lean:547 noncomputable def expNear (n : ℕ) (x r : ℝ) : ℝ :=
+  Mathlib/Analysis/Complex/Exponential.lean:551 theorem expNear_zero (x r) : expNear 0 x r = r := by simp [expNear]
+  Mathlib/Analysis/Complex/Exponential.lean:554 theorem expNear_succ (n x r) : expNear (n + 1) x r = expNear n x (1 + x / (n + 1) * r) := by
+  Mathlib/Analysis/Complex/Exponential.lean:555 simp [expNear, range_add_one, mul_add, add_left_comm, add_assoc, pow_succ, div_eq_mul_inv,
+  Mathlib/Analysis/Complex/Exponential.lean:559 theorem expNear_sub (n x r₁ r₂) : expNear n x r₁ -
+  Mathlib/Analysis/Complex/Exponential.lean:560 expNear n x r₂ = x ^ n / n.factorial * (r₁ - r₂) := by
+  Mathlib/Analysis/Complex/Exponential.lean:561 simp [expNear, mul_sub]
+  Mathlib/Analysis/Complex/Exponential.lean:564 |exp x - expNear m x 0| ≤ |x| ^ m / m.factorial * ((m + 1) / m) := by
+  Mathlib/Analysis/Complex/Exponential.lean:565 simp only [expNear, mul_zero, add_zero]
+  Mathlib/Analysis/Complex/Exponential.lean:566 convert! exp_bound (n := m) h ?_ using 1
+  Mathlib/Analysis/Complex/Exponential.lean:572 (h : |exp x - expNear m x a₂| ≤ |x| ^ m / m.factorial * b₂) :
+  Mathlib/Analysis/Complex/Exponential.lean:573 |exp x - expNear n x a₁| ≤ |x| ^ n / n.factorial * b₁ := by
+  Mathlib/Analysis/Complex/Exponential.lean:585 |exp x - expNear n x a| ≤ |x| ^ n / n.factorial * b := by
+  Mathlib/Analysis/Complex/Exponential.lean:590 (h : |exp 1 - expNear m 1 ((a₁ - 1) * rm)| ≤ |1| ^ m / m.factorial * (b₁ * rm)) :
+  Mathlib/Analysis/Complex/Exponential.lean:591 |exp 1 - expNear n 1 a₁| ≤ |1| ^ n / n.factorial * b₁ := by
+  Mathlib/Analysis/Complex/Exponential.lean:598 theorem exp_approx_start (x a b : ℝ) (h : |exp x - expNear 0 x a| ≤ |x| ^ 0 / Nat.factorial 0 * b) :
+  Mathlib/Analysis/Complex/Exponential.lean:607 exp x ≤ _ := exp_bound' h1.le h2.le zero_lt_three
+  Mathlib/Analysis/Complex/Exponential.lean:670 grw [Real.exp_bound' (x := x / 2) (by grind) (by grind) (n := 3) (by simp)]
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:35 theorem exp_one_gt_d9 : 2.7182818283 < exp 1 :=
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:38 theorem exp_one_lt_d9 : exp 1 < 2.7182818286 :=
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:42 lt_trans (by norm_num) exp_one_gt_d9
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:45 lt_trans exp_one_lt_d9 (by norm_num)
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:55 grw [← exp_one_gt_d9]
+  Mathlib/Analysis/Complex/Trigonometric.lean:558 grw [exp_bound (by simpa) (by simp), exp_bound (by simpa) (by simp)]
+  Mathlib/Analysis/Complex/Trigonometric.lean:574 grw [exp_bound (by simpa) (by simp), exp_bound (by simpa) (by simp)]
+  Mathlib/Analysis/SpecialFunctions/Exp.lean:84 convert! exp_bound hx.out.le hn using 1
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:287 · linarith [exp_one_gt_d9]
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:288 rw [sub_pos, div_lt_one] <;> exact exp_one_gt_d9.trans' (by norm_num)
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:367 exact (exp_one_lt_d9.le.trans <| by norm_num).trans (cast_le.2 hN₃)
+  Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean:106 have := rpow_lt_rpow (exp_pos _).le exp_one_lt_d9 (by simp : (0 : ℝ) < 107 / 60)
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:449 exact (lt_trans Real.exp_one_lt_d9 (by norm_num)).trans_le
+
+### pi numeric bounds : 20 ; needle \bpi_(?:gt|lt)_d(?:2|4|6|20)\b|\bpi_gt_three\b|\bpi_(?:gt|lt)_[0-9]+
+  Mathlib/Analysis/Real/Pi/Bounds.lean:16 numerical bounds on `π` such as `pi_gt_d2` and `pi_lt_d2` (more precise versions are given, too).
+  Mathlib/Analysis/Real/Pi/Bounds.lean:151 theorem pi_gt_three : 3 < π := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:159 theorem pi_gt_d2 : 3.14 < π := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:163 theorem pi_lt_d2 : π < 3.15 := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:167 theorem pi_gt_d4 : 3.1415 < π := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:172 theorem pi_lt_d4 : π < 3.1416 := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:178 theorem pi_gt_d6 : 3.141592 < π := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:184 theorem pi_lt_d6 : π < 3.141593 := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:190 theorem pi_gt_d20 : 3.14159265358979323846 < π := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:206 theorem pi_lt_d20 : π < 3.14159265358979323847 := by
+  Mathlib/Analysis/Real/Pi/Bounds.lean:223 Int.floor_eq_iff.mpr ⟨pi_gt_three.le, by exact_mod_cast pi_lt_four⟩
+  Mathlib/Analysis/Real/Pi/Bounds.lean:226 Int.ceil_eq_iff.mpr ⟨by exact_mod_cast pi_gt_three, pi_lt_four.le⟩
+  Mathlib/Analysis/Real/Pi/Bounds.lean:229 refine round_eq _ |>.trans <| Int.floor_eq_iff.mpr ⟨by grind [pi_gt_three], ?_⟩
+  Mathlib/Analysis/Real/Pi/Bounds.lean:230 grw [pi_lt_d2]
+  Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean:45 exact pi_gt_three
+  Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean:60 exact pi_gt_three
+  Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean:279 nlinarith [Real.pi_gt_three]
+  Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean:282 linarith [Real.pi_gt_three]
+  Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean:351 linarith [Real.pi_gt_three]
+  Mathlib/Tactic/Rify.lean:86 linarith [pi_gt_three]
+
+### log numeric bounds : 11 ; needle \blog_two_(?:near_10|gt_d9|lt_d9)\b
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:71 theorem log_two_near_10 : |log 2 - 287209 / 414355| ≤ 1 / 10 ^ 10 := by
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:83 theorem log_two_gt_d9 : 0.6931471803 < log 2 :=
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:84 lt_of_lt_of_le (by norm_num1) (sub_le_comm.1 (abs_sub_le_iff.1 log_two_near_10).2)
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:86 theorem log_two_lt_d9 : log 2 < 0.6931471808 :=
+  Mathlib/Analysis/Complex/ExponentialBounds.lean:87 lt_of_le_of_lt (sub_le_iff_le_add.1 (abs_sub_le_iff.1 log_two_near_10).1) (by norm_num)
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:283 linarith only [log_two_lt_d9.le]
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:301 nlinarith [log_two_lt_d9, log_two_gt_d9]
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:355 · exact log_two_gt_d9.trans_le' (by norm_num1)
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:410 · exact log_two_gt_d9.le.trans' (by norm_num1)
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:456 · exact log_two_gt_d9.trans_le' (by norm_num1)
+  Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean:462 linarith [log_two_lt_d9]
+
+### a tactic that evaluates a definite integral : 29 ; needle (?i)integral[_ ]?(?:tactic|eval|norm_num)|norm_num[^\n]{0,40}integral
+  Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean:95 theorem betaIntegral_eval_one_right {u : ℂ} (hu : 0 < re u) : betaIntegral u 1 = 1 / u := by
+  Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean:199 theorem betaIntegral_eval_nat_add_one_right {u : ℂ} (hu : 0 < re u) (n : ℕ) :
+  Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean:203 rw [Nat.cast_zero, zero_add, betaIntegral_eval_one_right hu, Nat.factorial_zero, Nat.cast_one]
+  Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean:235 rw [GammaSeq, betaIntegral_eval_nat_add_one_right hs n, ← mul_div_assoc]
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/ChebyshevGauss.lean:123 case pos hi => rw [hi, Nat.cast_zero, integral_eval_T_real_measureT_zero, sumZeroes_T_zero hn]
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/ChebyshevGauss.lean:129 rw [integral_eval_T_real_measureT_of_ne_zero (by grind), sumZeroes_T_of_not_dvd this]
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:27 * `integral_eval_T_real_mul_evalT_real_measureT_of_ne`:
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:29 * `integral_eval_T_real_mul_self_measureT_zero`:
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:31 * `integral_eval_T_real_mul_self_measureT_of_ne_zero`:
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:96 theorem integral_eval_T_real_measureT_zero :
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:100 theorem integral_eval_T_real_measureT_of_ne_zero {n : ℤ} (hn : n ≠ 0) :
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:117 theorem integral_eval_T_real_mul_eval_T_real_measureT (n m : ℤ) :
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:131 theorem integral_eval_T_real_mul_eval_T_real_measureT_of_ne {n m : ℕ} (h : n ≠ m) :
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:133 rw [integral_eval_T_real_mul_eval_T_real_measureT,
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:134 integral_eval_T_real_measureT_of_ne_zero (by grind),
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:135 integral_eval_T_real_measureT_of_ne_zero (by grind)]
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:138 theorem integral_eval_T_real_mul_self_measureT_zero :
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:141 exact integral_eval_T_real_measureT_zero
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:145 rw [integral_eval_T_real_mul_eval_T_real_measureT,
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:146 integral_eval_T_real_measureT_of_ne_zero (by grind), sub_self,
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean:147 integral_eval_T_real_measureT_zero, zero_add]
+  Mathlib/MeasureTheory/Integral/Pi.lean:151 lemma integral_eval [∀ i, NormedAddCommGroup (X i)] [∀ i, NormedSpace ℝ (X i)]
+  Mathlib/Probability/BrownianMotion/Basic.lean:111 lemma IsPreBrownianReal.integral_eval (hB : IsPreBrownianReal B P) (t : ℝ≥0) :
+  Mathlib/Probability/BrownianMotion/Basic.lean:227 · rw [integral_const_mul, hB.integral_eval, mul_zero]
+  Mathlib/Probability/BrownianMotion/Basic.lean:240 · rw [integral_sub, hB.integral_eval, hB.integral_eval, sub_zero]
+  Mathlib/Probability/BrownianMotion/Basic.lean:282 · rw [integral_const_mul, hB.integral_eval, mul_zero]
+  Mathlib/Probability/BrownianMotion/GaussianProjectiveFamily.lean:139 lemma integral_eval_projectiveFamily (I : Finset ℝ≥0) (s : I) :
+  Mathlib/Probability/BrownianMotion/GaussianProjectiveFamily.lean:163 integral_eval_projectiveFamily,
+  Mathlib/Probability/Distributions/Gaussian/Multivariate.lean:78 · simp [integral_smul_const, integral_eval]
+
+### Taylor remainder with an explicit bound : 9 ; needle \btaylor_mean_remainder(?:_lagrange|_bound)?\b
+  Mathlib/Analysis/Calculus/Taylor.lean:33 * `taylor_mean_remainder`: Taylor's theorem with the general form of the remainder term
+  Mathlib/Analysis/Calculus/Taylor.lean:34 * `taylor_mean_remainder_lagrange`: Taylor's theorem with the Lagrange remainder
+  Mathlib/Analysis/Calculus/Taylor.lean:301 theorem taylor_mean_remainder {f : ℝ → ℝ} {g g' : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ} (hx : x₀ ≠ x)
+  Mathlib/Analysis/Calculus/Taylor.lean:330 theorem taylor_mean_remainder_lagrange {f : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ} (hx : x₀ ≠ x)
+  Mathlib/Analysis/Calculus/Taylor.lean:340 rcases taylor_mean_remainder hx hf hf' gcont (fun y _ => monomial_has_deriv_aux y x _) hg' with
+  Mathlib/Analysis/Calculus/Taylor.lean:357 obtain ⟨x', h1, h2⟩ := taylor_mean_remainder_lagrange hx hf.of_succ (hd.mono Ioo_subset_Icc_self)
+  Mathlib/Analysis/Calculus/Taylor.lean:380 rcases taylor_mean_remainder hx hf hf' gcont gdiff fun _ _ => by simp with ⟨y, hy, h⟩
+  Mathlib/Analysis/Calculus/Taylor.lean:390 theorem taylor_mean_remainder_bound {f : ℝ → E} {a b C x : ℝ} {n : ℕ} (hab : a ≤ b)
+  Mathlib/Analysis/Calculus/Taylor.lean:442 refine taylor_mean_remainder_bound hab hf hx fun y => ?_

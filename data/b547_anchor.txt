@@ -1,0 +1,13 @@
+b547 -- THE CENSUS THEOREMS, FRESH #check at SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (tree clean; exit 0; 998 s)
+  SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+  SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+  SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+    s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+  SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+      0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+    SIDEExplicitFormula.B321.rh_strip
+  SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : (∀ C ∈ SIDEExplicitFormula.RegisterDepth.sevenClasses,
+      C SIDEExplicitFormula.RegisterDepth.Phi) →
+    ∀ (s : ℂ), 1 < s.re → SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces s
+  SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+  SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis

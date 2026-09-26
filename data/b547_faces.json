@@ -1,0 +1,75 @@
+{
+ "write": {
+  "file": "phase2\\method\\FACES_OF_H2_AT_FINITE_INSTANCE.md",
+  "before": 15797,
+  "added": 3283,
+  "prefix": true,
+  "heading_line": 190
+ },
+ "rows": [
+  {
+   "named": "`RegisterPentagon` (the five faces, statement-only)",
+   "pin": "SIDE-lv-conservation `v0.10.0`, `RegisterPentagon.lean`",
+   "grade": "STRUCTURE",
+   "tier": "T2",
+   "reason": "its faces include R1 false as stated and R5-output a theorem; `goalState_sevenClasses_of_h2` is vacuous on the strip (b538)",
+   "against": "CARRIED -- T2 at THE_LOAD_BEARING_MAP.md:104 (b539)"
+  },
+  {
+   "named": "`certifiedInput_not_zeroRealizing`",
+   "pin": "SIDE-lv-conservation `v0.10.0`, `RegisterPentagon.lean`:342",
+   "grade": "INTERFACES",
+   "tier": "T1-lit",
+   "reason": "under the hypothesis `NontrivialZeroExistsInStrip` (a literature fact not compiled), the certified {n²} spectrum realizes no zero",
+   "against": "CARRIED -- T1-lit at relay data/b540_tiers.json, PATHS :140"
+  },
+  {
+   "named": "`h1_complete_at_Phi`",
+   "pin": "cited \"at SIDE-kernel v1.5 = 0e5233f\"; it is SIDE-lv-conservation`s, `CouplingsAtPhi.lean`:418 at v0.6.0 = `c80bdc2` and at v0.10.0 (SIDE-kernel v1.5 declares no such name)",
+   "grade": "DERIVES",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the eight coupling facts of Mathlib`s theta-kernel function `Phi`; nothing about where the zeros are",
+   "against": "CARRIED -- T0 at THE_LOAD_BEARING_MAP.md:103 (b539)"
+  },
+  {
+   "named": "the open R3 `sorry` (`T3_perClass_to_combinations`)",
+   "pin": "SIDE-lv-conservation `v0.10.0`, `T3_StepNineBridge.lean`:92 (its `sorry` at :108)",
+   "grade": "OPEN",
+   "tier": "T2",
+   "reason": "logic over abstract couplings; the pin carries its one `sorry`",
+   "against": "CARRIED -- T2 at relay data/b540_tiers.json, PATHS :293"
+  },
+  {
+   "named": "the sector-forcing positivity (measured)",
+   "pin": "relay `36345da`, reports/2026-08-18-w-attempt-2-sitting-7.md",
+   "grade": "MEASURED, exact",
+   "tier": "T3",
+   "reason": "numerical, exact pivots; the report carries \"THE PAIRING IS POSITIVE-DEFINITE ON THE CONSTRAINED CLASS\"",
+   "against": "NEW"
+  },
+  {
+   "named": "the h = 1 instance (measured)",
+   "pin": "relay `df3c426`, reports/2026-08-18-mirror-h1-limit.md",
+   "grade": "MEASURED, 95/95 exact",
+   "tier": "T3",
+   "reason": "numerical, exact; the report carries \"95/95 EXACT\"",
+   "against": "NEW"
+  },
+  {
+   "named": "the ledger`s missing `Z` (measured)",
+   "pin": "relay `7386b47`, reports/2026-08-18-w-attempt-2-sitting-16.md",
+   "grade": "MEASURED",
+   "tier": "T3",
+   "reason": "the report carries \"`Z` IS ABSENT -- THE OBJECT HAS NO LEFT-HAND SIDE\"",
+   "against": "NEW"
+  },
+  {
+   "named": "the one-place limit`s E₁ positivity at proof grade",
+   "pin": "the sittings 20-21 report",
+   "grade": "a proof-grade reading",
+   "tier": "T4",
+   "reason": "no terminal names it; manuscript-resident",
+   "against": "NEW"
+  }
+ ]
+}

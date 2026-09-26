@@ -1,0 +1,714 @@
+{
+ "head": "51e6992efd06126df61a496bebf8f49482a4e129",
+ "files": 8302,
+ "counts": {
+  "interval arithmetic (a named facility)": 2,
+  "norm_num extension files (Mathlib/Tactic/NormNum/*)": 26,
+  "exp numeric bounds": 40,
+  "pi numeric bounds": 20,
+  "log numeric bounds": 11,
+  "a tactic that evaluates a definite integral": 29,
+  "Taylor remainder with an explicit bound": 9
+ },
+ "hits": {
+  "interval arithmetic (a named facility)": [
+   {
+    "file": "Mathlib/Algebra/Order/Interval/Basic.lean",
+    "line": 16,
+    "text": "# Interval arithmetic"
+   },
+   {
+    "file": "Mathlib/Order/Interval/Basic.lean",
+    "line": 16,
+    "text": "interval arithmetic."
+   }
+  ],
+  "norm_num extension files (Mathlib/Tactic/NormNum/*)": [
+   {
+    "file": "Mathlib/Tactic/NormNum/Abs.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Basic.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/BigOperators.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Core.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/DivMod.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Eq.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/GCD.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Ineq.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Inv.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Irrational.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/IsCoprime.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/IsSquare.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/LegendreSymbol.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/ModEq.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/NatFactorial.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/NatFib.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/NatLog.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/NatSqrt.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/OfScientific.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Ordinal.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Parity.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Pow.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/PowMod.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Prime.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/RealSqrt.lean",
+    "line": 0,
+    "text": "(file)"
+   },
+   {
+    "file": "Mathlib/Tactic/NormNum/Result.lean",
+    "line": 0,
+    "text": "(file)"
+   }
+  ],
+  "exp numeric bounds": [
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 377,
+    "text": "theorem exp_bound {x : ℂ} (hx : ‖x‖ ≤ 1) {n : ℕ} (hn : 0 < n) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 407,
+    "text": "theorem exp_bound' {x : ℂ} {n : ℕ} (hx : ‖x‖ / n.succ ≤ 1 / 2) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 445,
+    "text": "(exp_bound hx (by decide))"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 453,
+    "text": "(exp_bound hx (by decide))"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 517,
+    "text": "nonrec theorem exp_bound {x : ℝ} (hx : |x| ≤ 1) {n : ℕ} (hn : 0 < n) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 520,
+    "text": "convert exp_bound hxc hn <;>"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 523,
+    "text": "theorem exp_bound' {x : ℝ} (h1 : 0 ≤ x) (h2 : x ≤ 1) {n : ℕ} (hn : 0 < n) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 528,
+    "text": "have h' := Real.exp_bound h4 hn"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 545,
+    "text": "of the previous (see `expNear_succ`), with `expNear n x r ⟶ exp x` as `n ⟶ ∞`,"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 547,
+    "text": "noncomputable def expNear (n : ℕ) (x r : ℝ) : ℝ :="
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 551,
+    "text": "theorem expNear_zero (x r) : expNear 0 x r = r := by simp [expNear]"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 554,
+    "text": "theorem expNear_succ (n x r) : expNear (n + 1) x r = expNear n x (1 + x / (n + 1) * r) := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 555,
+    "text": "simp [expNear, range_add_one, mul_add, add_left_comm, add_assoc, pow_succ, div_eq_mul_inv,"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 559,
+    "text": "theorem expNear_sub (n x r₁ r₂) : expNear n x r₁ -"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 560,
+    "text": "expNear n x r₂ = x ^ n / n.factorial * (r₁ - r₂) := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 561,
+    "text": "simp [expNear, mul_sub]"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 564,
+    "text": "|exp x - expNear m x 0| ≤ |x| ^ m / m.factorial * ((m + 1) / m) := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 565,
+    "text": "simp only [expNear, mul_zero, add_zero]"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 566,
+    "text": "convert! exp_bound (n := m) h ?_ using 1"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 572,
+    "text": "(h : |exp x - expNear m x a₂| ≤ |x| ^ m / m.factorial * b₂) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 573,
+    "text": "|exp x - expNear n x a₁| ≤ |x| ^ n / n.factorial * b₁ := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 585,
+    "text": "|exp x - expNear n x a| ≤ |x| ^ n / n.factorial * b := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 590,
+    "text": "(h : |exp 1 - expNear m 1 ((a₁ - 1) * rm)| ≤ |1| ^ m / m.factorial * (b₁ * rm)) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 591,
+    "text": "|exp 1 - expNear n 1 a₁| ≤ |1| ^ n / n.factorial * b₁ := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 598,
+    "text": "theorem exp_approx_start (x a b : ℝ) (h : |exp x - expNear 0 x a| ≤ |x| ^ 0 / Nat.factorial 0 * b) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 607,
+    "text": "exp x ≤ _ := exp_bound' h1.le h2.le zero_lt_three"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 670,
+    "text": "grw [Real.exp_bound' (x := x / 2) (by grind) (by grind) (n := 3) (by simp)]"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 35,
+    "text": "theorem exp_one_gt_d9 : 2.7182818283 < exp 1 :="
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 38,
+    "text": "theorem exp_one_lt_d9 : exp 1 < 2.7182818286 :="
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 42,
+    "text": "lt_trans (by norm_num) exp_one_gt_d9"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 45,
+    "text": "lt_trans exp_one_lt_d9 (by norm_num)"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 55,
+    "text": "grw [← exp_one_gt_d9]"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Trigonometric.lean",
+    "line": 558,
+    "text": "grw [exp_bound (by simpa) (by simp), exp_bound (by simpa) (by simp)]"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Trigonometric.lean",
+    "line": 574,
+    "text": "grw [exp_bound (by simpa) (by simp), exp_bound (by simpa) (by simp)]"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
+    "line": 84,
+    "text": "convert! exp_bound hx.out.le hn using 1"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 287,
+    "text": "· linarith [exp_one_gt_d9]"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 288,
+    "text": "rw [sub_pos, div_lt_one] <;> exact exp_one_gt_d9.trans' (by norm_num)"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 367,
+    "text": "exact (exp_one_lt_d9.le.trans <| by norm_num).trans (cast_le.2 hN₃)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+    "line": 106,
+    "text": "have := rpow_lt_rpow (exp_pos _).le exp_one_lt_d9 (by simp : (0 : ℝ) < 107 / 60)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 449,
+    "text": "exact (lt_trans Real.exp_one_lt_d9 (by norm_num)).trans_le"
+   }
+  ],
+  "pi numeric bounds": [
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 16,
+    "text": "numerical bounds on `π` such as `pi_gt_d2` and `pi_lt_d2` (more precise versions are given, too)."
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 151,
+    "text": "theorem pi_gt_three : 3 < π := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 159,
+    "text": "theorem pi_gt_d2 : 3.14 < π := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 163,
+    "text": "theorem pi_lt_d2 : π < 3.15 := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 167,
+    "text": "theorem pi_gt_d4 : 3.1415 < π := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 172,
+    "text": "theorem pi_lt_d4 : π < 3.1416 := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 178,
+    "text": "theorem pi_gt_d6 : 3.141592 < π := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 184,
+    "text": "theorem pi_lt_d6 : π < 3.141593 := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 190,
+    "text": "theorem pi_gt_d20 : 3.14159265358979323846 < π := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 206,
+    "text": "theorem pi_lt_d20 : π < 3.14159265358979323847 := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 223,
+    "text": "Int.floor_eq_iff.mpr ⟨pi_gt_three.le, by exact_mod_cast pi_lt_four⟩"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 226,
+    "text": "Int.ceil_eq_iff.mpr ⟨by exact_mod_cast pi_gt_three, pi_lt_four.le⟩"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 229,
+    "text": "refine round_eq _ |>.trans <| Int.floor_eq_iff.mpr ⟨by grind [pi_gt_three], ?_⟩"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+    "line": 230,
+    "text": "grw [pi_lt_d2]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean",
+    "line": 45,
+    "text": "exact pi_gt_three"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean",
+    "line": 60,
+    "text": "exact pi_gt_three"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+    "line": 279,
+    "text": "nlinarith [Real.pi_gt_three]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+    "line": 282,
+    "text": "linarith [Real.pi_gt_three]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+    "line": 351,
+    "text": "linarith [Real.pi_gt_three]"
+   },
+   {
+    "file": "Mathlib/Tactic/Rify.lean",
+    "line": 86,
+    "text": "linarith [pi_gt_three]"
+   }
+  ],
+  "log numeric bounds": [
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 71,
+    "text": "theorem log_two_near_10 : |log 2 - 287209 / 414355| ≤ 1 / 10 ^ 10 := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 83,
+    "text": "theorem log_two_gt_d9 : 0.6931471803 < log 2 :="
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 84,
+    "text": "lt_of_lt_of_le (by norm_num1) (sub_le_comm.1 (abs_sub_le_iff.1 log_two_near_10).2)"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 86,
+    "text": "theorem log_two_lt_d9 : log 2 < 0.6931471808 :="
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/ExponentialBounds.lean",
+    "line": 87,
+    "text": "lt_of_le_of_lt (sub_le_iff_le_add.1 (abs_sub_le_iff.1 log_two_near_10).1) (by norm_num)"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 283,
+    "text": "linarith only [log_two_lt_d9.le]"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 301,
+    "text": "nlinarith [log_two_lt_d9, log_two_gt_d9]"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 355,
+    "text": "· exact log_two_gt_d9.trans_le' (by norm_num1)"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 410,
+    "text": "· exact log_two_gt_d9.le.trans' (by norm_num1)"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 456,
+    "text": "· exact log_two_gt_d9.trans_le' (by norm_num1)"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
+    "line": 462,
+    "text": "linarith [log_two_lt_d9]"
+   }
+  ],
+  "a tactic that evaluates a definite integral": [
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+    "line": 95,
+    "text": "theorem betaIntegral_eval_one_right {u : ℂ} (hu : 0 < re u) : betaIntegral u 1 = 1 / u := by"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+    "line": 199,
+    "text": "theorem betaIntegral_eval_nat_add_one_right {u : ℂ} (hu : 0 < re u) (n : ℕ) :"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+    "line": 203,
+    "text": "rw [Nat.cast_zero, zero_add, betaIntegral_eval_one_right hu, Nat.factorial_zero, Nat.cast_one]"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+    "line": 235,
+    "text": "rw [GammaSeq, betaIntegral_eval_nat_add_one_right hs n, ← mul_div_assoc]"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/ChebyshevGauss.lean",
+    "line": 123,
+    "text": "case pos hi => rw [hi, Nat.cast_zero, integral_eval_T_real_measureT_zero, sumZeroes_T_zero hn]"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/ChebyshevGauss.lean",
+    "line": 129,
+    "text": "rw [integral_eval_T_real_measureT_of_ne_zero (by grind), sumZeroes_T_of_not_dvd this]"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 27,
+    "text": "* `integral_eval_T_real_mul_evalT_real_measureT_of_ne`:"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 29,
+    "text": "* `integral_eval_T_real_mul_self_measureT_zero`:"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 31,
+    "text": "* `integral_eval_T_real_mul_self_measureT_of_ne_zero`:"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 96,
+    "text": "theorem integral_eval_T_real_measureT_zero :"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 100,
+    "text": "theorem integral_eval_T_real_measureT_of_ne_zero {n : ℤ} (hn : n ≠ 0) :"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 117,
+    "text": "theorem integral_eval_T_real_mul_eval_T_real_measureT (n m : ℤ) :"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 131,
+    "text": "theorem integral_eval_T_real_mul_eval_T_real_measureT_of_ne {n m : ℕ} (h : n ≠ m) :"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 133,
+    "text": "rw [integral_eval_T_real_mul_eval_T_real_measureT,"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 134,
+    "text": "integral_eval_T_real_measureT_of_ne_zero (by grind),"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 135,
+    "text": "integral_eval_T_real_measureT_of_ne_zero (by grind)]"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 138,
+    "text": "theorem integral_eval_T_real_mul_self_measureT_zero :"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 141,
+    "text": "exact integral_eval_T_real_measureT_zero"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 145,
+    "text": "rw [integral_eval_T_real_mul_eval_T_real_measureT,"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 146,
+    "text": "integral_eval_T_real_measureT_of_ne_zero (by grind), sub_self,"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Orthogonality.lean",
+    "line": 147,
+    "text": "integral_eval_T_real_measureT_zero, zero_add]"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Integral/Pi.lean",
+    "line": 151,
+    "text": "lemma integral_eval [∀ i, NormedAddCommGroup (X i)] [∀ i, NormedSpace ℝ (X i)]"
+   },
+   {
+    "file": "Mathlib/Probability/BrownianMotion/Basic.lean",
+    "line": 111,
+    "text": "lemma IsPreBrownianReal.integral_eval (hB : IsPreBrownianReal B P) (t : ℝ≥0) :"
+   },
+   {
+    "file": "Mathlib/Probability/BrownianMotion/Basic.lean",
+    "line": 227,
+    "text": "· rw [integral_const_mul, hB.integral_eval, mul_zero]"
+   },
+   {
+    "file": "Mathlib/Probability/BrownianMotion/Basic.lean",
+    "line": 240,
+    "text": "· rw [integral_sub, hB.integral_eval, hB.integral_eval, sub_zero]"
+   },
+   {
+    "file": "Mathlib/Probability/BrownianMotion/Basic.lean",
+    "line": 282,
+    "text": "· rw [integral_const_mul, hB.integral_eval, mul_zero]"
+   },
+   {
+    "file": "Mathlib/Probability/BrownianMotion/GaussianProjectiveFamily.lean",
+    "line": 139,
+    "text": "lemma integral_eval_projectiveFamily (I : Finset ℝ≥0) (s : I) :"
+   },
+   {
+    "file": "Mathlib/Probability/BrownianMotion/GaussianProjectiveFamily.lean",
+    "line": 163,
+    "text": "integral_eval_projectiveFamily,"
+   },
+   {
+    "file": "Mathlib/Probability/Distributions/Gaussian/Multivariate.lean",
+    "line": 78,
+    "text": "· simp [integral_smul_const, integral_eval]"
+   }
+  ],
+  "Taylor remainder with an explicit bound": [
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 33,
+    "text": "* `taylor_mean_remainder`: Taylor's theorem with the general form of the remainder term"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 34,
+    "text": "* `taylor_mean_remainder_lagrange`: Taylor's theorem with the Lagrange remainder"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 301,
+    "text": "theorem taylor_mean_remainder {f : ℝ → ℝ} {g g' : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ} (hx : x₀ ≠ x)"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 330,
+    "text": "theorem taylor_mean_remainder_lagrange {f : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ} (hx : x₀ ≠ x)"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 340,
+    "text": "rcases taylor_mean_remainder hx hf hf' gcont (fun y _ => monomial_has_deriv_aux y x _) hg' with"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 357,
+    "text": "obtain ⟨x', h1, h2⟩ := taylor_mean_remainder_lagrange hx hf.of_succ (hd.mono Ioo_subset_Icc_self)"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 380,
+    "text": "rcases taylor_mean_remainder hx hf hf' gcont gdiff fun _ _ => by simp with ⟨y, hy, h⟩"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 390,
+    "text": "theorem taylor_mean_remainder_bound {f : ℝ → E} {a b C x : ℝ} {n : ℕ} (hab : a ≤ b)"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Taylor.lean",
+    "line": 442,
+    "text": "refine taylor_mean_remainder_bound hab hf hx fun y => ?_"
+   }
+  ]
+ }
+}

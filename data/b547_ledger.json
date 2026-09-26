@@ -1,0 +1,97 @@
+{
+ "status": "WRITTEN",
+ "detail": "block <!-- b547 update -->: mark 1 time(s); append-only working=True blob=True",
+ "tiers": [
+  {
+   "row": "R1",
+   "terminals": "`Register1_universalityHypothesis` (lv v0.7.0 = `2d86182`); `not_register1` (SIDE-explicit-formula `81ae175`)",
+   "tier": "T2",
+   "reason": "false as stated (`not_register1`); the census`s first depth"
+  },
+  {
+   "row": "R2",
+   "terminals": "`Register2_conservationHypothesis`; `ConservationBridge.riemann_hypothesis` (SIDE-kernel v1.3); `ch_iff_rh` (SIDE-explicit-formula `81ae175`)",
+   "tier": "T2",
+   "reason": "RH restated -- ENCODES-CONCLUSION under (R151)(2); the row`s clause \"the converse is not compiled\" is stale: `ch_iff_rh` compiles both directions"
+  },
+  {
+   "row": "R3",
+   "terminals": "NOT COMPILED as a face; `register3_of_one_lt_re` on re s > 1 (SIDE-explicit-formula `81ae175`)",
+   "tier": "T4",
+   "reason": "undecided on the strip (FINDINGS.md:4787); no terminal carries the face there"
+  },
+  {
+   "row": "R4",
+   "terminals": "`Register4_positivity` (lv v0.7.0); `partialPositivity_finiteRange` (v0.8.0); `lam_add` (SIDE-li-map `73cee42`); the Weil form `h2_sign_iff_rh` (SIDE-explicit-formula `81ae175`)",
+   "tier": "T1-lit",
+   "reason": "the row`s face is the Li form, a literature theorem not compiled; its Weil form is T0 and the RH-anchor`s head"
+  },
+  {
+   "row": "R5",
+   "terminals": "`Register5_input` / `Register5_output_HilbertPolya` (lv v0.7.0); `register5_output_holds` (SIDE-explicit-formula `81ae175`); `certifiedInput_not_zeroRealizing` (lv v0.9.0)",
+   "tier": "T2",
+   "reason": "the output face holds outright, so `R5_output_HilbertPolya_to_RH` ENCODES its conclusion (R151)(2); the marker is T1-lit"
+  },
+  {
+   "row": "F1",
+   "terminals": "relay `data/b321_the_window_opened.txt`, `data/b326_the_reach.txt`",
+   "tier": "T3",
+   "reason": "a measured control; no theorem"
+  },
+  {
+   "row": "F2",
+   "terminals": "relay `data/b320_the_lawful_function.txt`, `data/b321_the_window_opened.txt`; Connes–Consani Theorems 1 and 4.7 imported",
+   "tier": "T3",
+   "reason": "measured margins; the source`s inequality and equality are imported, not compiled"
+  },
+  {
+   "row": "F3",
+   "terminals": "BALANCE_AND_POSITIVITY :297, :410, :427; `internal/bench/li_bench.py`",
+   "tier": "T3",
+   "reason": "the bench, two radii; the finite-range certificate is R4`s"
+  },
+  {
+   "row": "F4",
+   "terminals": "THE_RESIDUE_OF_RH :65, :67, :90",
+   "tier": "T4",
+   "reason": "named only; no terminal"
+  },
+  {
+   "row": "F5",
+   "terminals": "relay `data/b309_the_scaling_trace.txt`, `data/b310_the_smear_collapses.txt`, `data/b311_the_identitys_neighbourhood.txt`",
+   "tier": "T3",
+   "reason": "measured and derived at definitions; the row names three zero-axiom terminals without naming them"
+  },
+  {
+   "row": "F6",
+   "terminals": "THE_TWO_RADIUS_FAMILY_AND_THE_ANNIHILATION_BOUNDARY (Tier C), quoting b293-b296",
+   "tier": "T3",
+   "reason": "measured and derived, the finite side; the archimedean member imported"
+  },
+  {
+   "row": "F7",
+   "terminals": "relay `data/b325_the_negative_control.txt`, `data/b326_the_reach.txt`",
+   "tier": "T3",
+   "reason": "measured on the Epstein control"
+  },
+  {
+   "row": "L1",
+   "terminals": "Lagarias math/0404394v4 (pinned); relay `data/b327_bridge_run.txt`",
+   "tier": "T4",
+   "reason": "imported and derived as a bar; no compiled terminal carries the bridge (W-ORD-LI-WEIL-BRIDGE)"
+  }
+ ],
+ "rpair_lines": [
+  "- **R1–R2** (:42) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R1 as compiled is false (`not_register1`), so no discharge of R1 exists to carry to R2. The row above is not rewritten.",
+  "- **R1–R3** (:43) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R1 as compiled is false (`not_register1`), so no discharge of R1 exists to carry to R3. The row above is not rewritten.",
+  "- **R1–R4** (:44) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R1 as compiled is false (`not_register1`), so no discharge of R1 exists to carry to R4. The row above is not rewritten.",
+  "- **R1–R5** (:45) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair both facts bear directly: R1 cannot be discharged, and R5-output is discharged without RH. The row above is not rewritten.",
+  "- **R2–R3** (:54) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R3 is undecided on the strip, so no compiled transfer holds. The row above is not rewritten.",
+  "- **R2–R4** (:55) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair the two compiled forms are each equivalent to RH (`ch_iff_rh`, `h2_sign_iff_rh`), so the transfer holds here, through RH; the five-way sentence does not. The row above is not rewritten.",
+  "- **R2–R5** (:56) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R5-output as compiled holds outright (`register5_output_holds`) without RH, while R2 does not. The row above is not rewritten.",
+  "- **R3–R4** (:65) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R3 is undecided on the strip, so no compiled transfer holds. The row above is not rewritten.",
+  "- **R3–R5** (:66) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R5-output as compiled holds outright (`register5_output_holds`) without RH, while R3 does not. The row above is not rewritten.",
+  "- **R4–R5** (:75) -- the STATED relation quotes the deposit's *\"A reader who discharges any one of them discharges all five.\"* In compiled form that sentence does not hold: `register5_output_holds` discharges R5-output without RH, and `not_register1` shows R1 cannot be discharged at all (SIDE-explicit-formula `81ae175`); the deposited sentence rests on E-2026-09-25-6. For this pair: R5-output as compiled holds outright (`register5_output_holds`) without RH, while R4 does not. The row above is not rewritten."
+ ],
+ "heading_line": 490
+}
