@@ -1,0 +1,2148 @@
+{
+ "act_two": 110,
+ "first_line": 1708,
+ "b541_act_two": 110,
+ "past_halt": 8,
+ "past_in_rows": 8,
+ "rows": [
+  {
+   "line": 1708,
+   "dep_line": 1694,
+   "section": "## 26.1 The Axiom Journey",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "The last axiom (`schwarz_deriv`, in the perpendicular crossing probe) fell when path differentiation of the FOCUS identity revealed that the derivative inherits the functional equation's symmetry — another fact about ξ(s) that formalization forced us to discover.",
+   "grade": "RESTS",
+   "tier": "T0",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-5",
+   "carried": "",
+   "reason": "a dated record inaccurate at its own date: the compiled fact is about Mathlib`s completedRiemannZeta₀ (spectral_cannon, deriv_fe), not ξ -- E-5`s kind",
+   "replacement": "The last axiom (schwarz_deriv, in the perpendicular crossing probe) fell when path differentiation of the FOCUS identity showed that the derivative of Mathlib's completedRiemannZeta₀ inherits the functional equation's symmetry -- a fact about completedRiemannZeta₀, the entire part of the completed zeta; the same fact for ξ′ is not compiled.",
+   "vocab_move": ""
+  },
+  {
+   "line": 1708,
+   "dep_line": 1694,
+   "section": "## 26.1 The Axiom Journey",
+   "hits": [
+    "route",
+    "goal state"
+   ],
+   "sentence": "The method's continuation past the Day-1 kernel — aimed at the Route 3 interface — is reported in §27.3: two statements closed, the third pinned to a goal state and bracketed by a theorem-pair.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-1"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "M-18",
+   "reason": "b532 M-18, listed in E-2026-09-25-1",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 1763,
+   "dep_line": 1749,
+   "section": "## 27.1 The Research Arc",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "The n₃ = 2 enumeration was elevated to a Lean-verified `output_stage_card` via CartanBBridge; the three classical theorems mathematically supporting n₃ = 2 (elliptic regularity for ∂̄, the Identity Theorem, and the Stein property of ℂ) remain manuscript-resident, with the first two formalized against Mathlib and the third set aside as open per the loom ruling 2026-06-15.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the research arc, accurate to its date: output_stage_card is at v1.5 Bridge/CartanBBridge.lean:79",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1775,
+   "dep_line": 1761,
+   "section": "## 27.2 What the Programme Produced",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "**The SIDE method.** Exhaustive mechanism enumeration, formalized as a ZFC proof method, with the four conditions named and the historical instances catalogued.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the method`s statement",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1779,
+   "dep_line": 1765,
+   "section": "## 27.2 What the Programme Produced",
+   "hits": [
+    "route",
+    "named terminal"
+   ],
+   "sentence": "**The Lean kernel.** The sorry-free core (`Kernel/`, `Bridge/`, `MetaKernel.lean`) compiles the three route terminals — `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon`, `ConservationBridge.riemann_hypothesis` — at zero unproved assertions and zero custom axioms; each depends only on `{propext, Classical.choice, Quot.sound}` (§25.8 Kernel Concordance).",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "M-19",
+   "reason": "b532 M-19: route terminals and their profiles, as compiled",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register"
+   ],
+   "sentence": "**The five registers.** First: the *universality hypothesis* carried by the Universal Silence Theorem.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "carried": "",
+   "reason": "register 1 as a register of the premise: as stated it is false (not_register1, b538)",
+   "replacement": "The five registers. First: the universality hypothesis carried by the Universal Silence Theorem -- stated for every essential interface, as the register states it, it is false (not_register1); what Chapter 14 uses is the hypothesis at each interface.",
+   "vocab_move": ""
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "Chapter 14 states it plainly — the hypothesis is load-bearing; removing it from the proof of `silence_universal` leaves an unsolved goal — and the SIDE-kernel deposit description repeats the disclosure in its own voice.",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "what Chapter 14 and silence_universal state",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "route"
+   ],
+   "sentence": "Second: the proposition named `ConservationHypothesis` in the kernel's Route 3 (§25.5, §25.7) — every ξ-zero forces the Euler balance equation at some prime.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-1"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "M-20",
+   "reason": "b532 M-20, listed in E-2026-09-25-1",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "compiled"
+   ],
+   "sentence": "As of kernel v1.3 the compiled form and the prose say the same sentence (the definition was weakened from the universal to the existential form in July 2026, making the compiled conditional strictly stronger).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "M-21",
+   "reason": "b532 M-21 STANDS; a dated \"as of\" record, printed STANDS-AS-HISTORY under (R153)(2)",
+   "replacement": "",
+   "vocab_move": true
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "machine-verified"
+   ],
+   "sentence": "This is distinct from the Mechanism Theorem of Chapter 10, which is established — derived within ZFC from the I+D+S conditions and carried in machine-checked forms; what remains open is not the theorem but this totality premise it consumes.",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the Mechanism Theorem compiles as logic over abstract types (b542: SIDE_exclusion); the open part named as the premise",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "machine-verified"
+   ],
+   "sentence": "The input-stage spectral coupling is certifiable — the fixed witness Φ is the heat trace of a self-adjoint spectrum, machine-checked — while the output-stage claim, that the zeros themselves are the spectrum of a self-adjoint operator with a positive pairing, is the Hilbert–Pólya realization, which this programme explicitly disclaims asserting.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the input stage certified; the Hilbert–Pólya realization disclaimed, as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1793,
+   "dep_line": 1779,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register"
+   ],
+   "sentence": "Over ℚ the realization space is infinite-dimensional, no positive pairing is known, and the distance between the two stages is this same premise in its fifth register.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "carried": "",
+   "reason": "the fifth register`s compiled output face holds outright (register5_output_holds), so it is not the premise in any register",
+   "replacement": "Over ℚ the realization space is infinite-dimensional and no positive pairing is known; the fifth register's compiled output face holds outright (register5_output_holds), so the Hilbert–Pólya content lies beyond that face, and the distance between the two stages is not one register of an equivalent premise.",
+   "vocab_move": ""
+  },
+  {
+   "line": 1793,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "On the detection side, the crossing wall is surveyed closed to weightings: no mollifier of the ζ-integral and no smoothing of the Li coefficients shifts the detection threshold — it is monotone in the zero height (`detection_threshold_mono`, std3, SIDE-lv-conservation) and so pinned by the zeros alone; the only weighting that reaches the centre is a zero-side test function, which *is* this same pairing.",
+   "grade": "STANDS",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "detection_threshold_mono at lv word-pairing-interface c5ef4bc (ZeroActingPartial.lean:105): N₀ monotone -- live line only",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1793,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register"
+   ],
+   "sentence": "The construction era (2026-08, W-CONSTRUCTION-1) supplies new coordinates for registers 4–5: the built object's E₁-pairing is positive and proved; its identity with Weil's ledger is STATED as file E's Prop (the closure protocol's step-one object, not claimed); the wall is unchanged — \"the space is the wall\" now has a built neighbor that is not it (SIDE-global-section v0.1.0, §25.8).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated era record (2026-08)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1795,
+   "dep_line": 1781,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register"
+   ],
+   "sentence": "These are one premise in five registers: kernel-theoretic, formal-interface, category-shaped, analytic, and spectral-geometric.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "carried": "",
+   "reason": "the registers stand at four depths (b538), not one premise",
+   "replacement": "These registers stand at different depths (b538): the first is false as stated (not_register1); the second is RH restated (ch_iff_rh); the third is undecided; the fourth, in its Weil form, is equivalent to RH (h2_sign_iff_rh); the fifth's compiled face holds outright (register5_output_holds).",
+   "vocab_move": ""
+  },
+  {
+   "line": 1797,
+   "dep_line": 1783,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register"
+   ],
+   "sentence": "**The ancestry of the sharpest form.** The channel inequality is not new terrain, and this monograph cites its line: Li (1997) proved λ_n ≥ 0 for all n equivalent to RH; Bombieri and Lagarias (1999) generalized the criterion, gave the arithmetic formula, exhibited the decomposition of λ_n into an archimedean and a non-archimedean part (their Theorem 2), and showed that even a subexponential lower bound λ_n ≥ −c·e^(εn) suffices (their Corollary 1(c)); Oesterlé (unpublished) proved the asymptotic under RH; Voros (2004–06) proved the full dichotomy — RH holds if and only if the coefficients grow tamely as ½·n(log n − 1 + γ − log 2π), and fails if and only if they oscillate with exponentially growing amplitude — established the archimedean channel's asymptotic *unconditionally* to all orders, and computed the detection threshold: an off-line zero at height T registers in the sequence only for n ≳ 2T², so that with zeros verified beyond height 10⁹, no computation below n ≈ 10¹⁸ can bear on the Hypothesis; Lagarias (2007) bounded the arithmetic channel under GRH.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "citations of the literature",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1797,
+   "dep_line": 1783,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "machine-verified"
+   ],
+   "sentence": "The programme's channel decomposition λ = λ_A + λ_Z, developed independently, reconstructs this line exactly — the convergence is method-validation of the kind the SIDE framework treats as signal, and the programme's contribution is scoped accordingly: the machine-checked linearity of the decomposition, its localization at the fixed witness of T1, and the coupling architecture below.",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the linearity compiled; the scope stated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1799,
+   "dep_line": 1785,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "compiled"
+   ],
+   "sentence": "**The compiled shape.** In July 2026 the premise was taken to the compiler, by the programme's own method — the axiom journey of Chapter 26, in which each assumption, forced into formal statement, revealed whether it was a theorem awaiting proof.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated record (July 2026)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1801,
+   "dep_line": 1787,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "goal state"
+   ],
+   "sentence": "The formalization then did what formalization is for: it pinned the remaining content to a single goal state.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-4"
+   ],
+   "subject": "E-2026-09-25-4",
+   "carried": "",
+   "reason": "listed in E-2026-09-25-4 (deposited :1787)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1806,
+   "dep_line": 1792,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "compiled"
+   ],
+   "sentence": "**The unrestricted commutation is false**: a concrete two-predicate instance is compiled as a theorem — the countermodel (T3″).",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the countermodel T3″ compiled",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1808,
+   "dep_line": 1794,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "**What remains, exactly.** The bracket's two obligations are h1 — the per-class constraints of Chapter 15, instantiated at the fixed witness — and h2 — nonvanishing of the transform at the point in question.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-4"
+   ],
+   "subject": "E-2026-09-25-4",
+   "carried": "",
+   "reason": "listed in E-2026-09-25-4 (deposited :1794)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1808,
+   "dep_line": 1794,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "h1/h2",
+    "machine-verified",
+    "complete",
+    "named terminal"
+   ],
+   "sentence": "As of SIDE-lv-conservation v0.6.0, **h1 is complete at the witness**: all eight coupling discharges are machine-checked at Φ with clean profiles — realness (C₁), half-plane Mellin nonvanishing (C₂), the theta inversion (C₃), modularity (C₄), the heat-trace input of the spectral class (C₅-input), holomorphy on the right half-plane (C₆), the entire completion (C₇-entirety), and the order-≤1 growth bound (C₇-order, discharged in-kernel by reading the growth off the theta-Mellin representation directly, with no complex Stirling apparatus and no Phragmén–Lindelöf — both priced, neither owed) — and conjoined in the named theorem `h1_complete_at_Phi`.",
+   "grade": "STANDS",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "h1_complete_at_Phi at v0.6.0 c80bdc2",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1808,
+   "dep_line": 1794,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "At v0.4.0 the kernel's own `C4_modularity` definition was carried forward from the C₃ shape — the theta *inversion* formula in a conditional wrapper, with a spurious real-parameter periodicity antecedent — and a strength audit of the kernel against itself (the programme's E₀ check, turned on its own definitions) found it under-strength: it did not state modularity, it restated inversion.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated record (v0.4.0)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1808,
+   "dep_line": 1794,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register"
+   ],
+   "sentence": "C₅-output remains the disclaimed fifth register, never to be claimed.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "carried": "",
+   "reason": "the fifth register`s compiled output face holds outright (register5_output_holds): the disclaimer disclaims a theorem, (R151)(3)",
+   "replacement": "C₅-output's compiled face holds outright (register5_output_holds); what the programme disclaims is the Hilbert–Pólya realization, which that face does not state.",
+   "vocab_move": ""
+  },
+  {
+   "line": 1808,
+   "dep_line": 1794,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "The obligation h2 is, in each of the classical faces, the theorem itself: positivity of the Weil functional, λ_n ≥ 0, or the number-field shadow of the positivity that closes this proof-shape over function fields.",
+   "grade": "STANDS",
+   "tier": "T1-open",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "h2_sign ↔ RiemannHypothesis compiled (h2_sign_iff_rh): the Weil-positivity face is the theorem itself",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1808,
+   "dep_line": 1794,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "goal state"
+   ],
+   "sentence": "The premise is RH-equivalent, and this monograph does not obscure that; what the architecture has achieved is its localization — from \"somewhere in the argument\" to one named proposition, one goal state, one file and line, with the certifiable surround discharged and counted.",
+   "grade": "RESTS",
+   "tier": "T1-open",
+   "errata": [
+    "E-2026-09-25-4"
+   ],
+   "subject": "E-2026-09-25-4",
+   "carried": "",
+   "reason": "listed in E-2026-09-25-4 (deposited :1794, its second row)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": 1796,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register",
+    "h1/h2",
+    "compiled"
+   ],
+   "sentence": "**The registers, compiled.** After h1 completed at the witness, the programme took the *register structure itself* to the compiler.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated record",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": 1796,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register",
+    "goal state"
+   ],
+   "sentence": "SIDE-lv-conservation now carries, with clean profiles: the **register pentagon** (`RegisterPentagon`, v0.7.0) — the five faces R1–R5 and the goal state as Prop-level objects with graded edges (DERIVES / INTERFACES-with-named-premise / NOT-COMPILED) — compiling the *structure* of the one-premise-in-five-registers claim while deliberately **not** compiling the cross-register equivalences, since to compile \"discharge one and you discharge all five\" would be to compile RH-equivalence itself.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "accurate to its date (v0.7.0); compiling the cross-register relations at b538 found the registers at four depths",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register",
+    "named terminal"
+   ],
+   "sentence": "The fourth register's door stands **ajar**: `partialPositivity_finiteRange` (v0.8.0) certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with the on-line term's nonnegativity proved — a certificate reaching exactly to where discrimination would begin, and no further; it is not RH, the all-n tail is open.",
+   "grade": "STANDS",
+   "tier": "T1-lit",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "partialPositivity_finiteRange under named premises, which the next sentence names -- live line only",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": 1796,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register",
+    "named terminal"
+   ],
+   "sentence": "At v0.10.0 the fourth register's door opens a further notch: the **finite-set conjunct** of that certificate's explicit-formula premise — that the nontrivial ζ-zeros with |Im| ≤ T form a genuine finite set — is now itself **proved** (`lowFinset` constructed, `lowFinset_mem_iff` DERIVES via an entire ξ-carrier and analytic isolated zeros), replacing an assumed clause; the decomposition conjunct (Guinand–Weil) and the tail premise remain named and open, so the all-n tail remains exactly as before.",
+   "grade": "STANDS",
+   "tier": "T1-lit",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "lowFinset_mem_iff at v0.10.0; the decomposition and tail premises named open",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": 1796,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register",
+    "compiled",
+    "named terminal"
+   ],
+   "sentence": "And the fifth register's distance now carries a **compiled boundary marker**: `certifiedInput_not_zeroRealizing` (v0.9.0) proves that the certified {n²} heat-trace input spectrum is *not* a zero-realizing spectrum — the C₅ input/output distance made compiled, a negative that names the distance without shortening it, with Hilbert–Pólya disclaimed exactly as before (the deeper ordinate form held as a dated residue).",
+   "grade": "STANDS",
+   "tier": "T1-lit",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "certifiedInput_not_zeroRealizing, under a zero existing in the strip",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": 1796,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "None of this discharges h2.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1810,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "h1/h2",
+    "compiled"
+   ],
+   "sentence": "The compiled interface, its function-field anatomy, and the decoupling live in the kernel (held branch); none of it discharges h2, and the existence of the pairing is disclaimed exactly as before.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "held branch; nothing discharges h2 -- live line only",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1812,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "exhaustive",
+    "named terminal"
+   ],
+   "sentence": "Unconditionally verified, with clean profiles at pinned public commits, are: the structural exhaustiveness of the seven-class catalogue over the places of ℚ; the s-darkness of the product formula, from prime powers through the conservation certificate; the perpendicular-crossing chain; the five checkpoint identifications of σ = 1/2 in five machineries — **convergent, not independent** *[corrected 2026-08-10 · convergent-identification ruling]*; the Mellin factorization and its exhaustion statements; the bracket pair; and the eight coupling discharges at the fixed witness, conjoined in `h1_complete_at_Phi`.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-5",
+   "carried": "",
+   "reason": "names the product-formula chain \"through the conservation certificate\" (no kernel holds it) and the perpendicular crossing (about completedRiemannZeta₀): E-5`s kinds -- live line only",
+   "replacement": "Verified at pinned public commits with clean profiles are: the seven-class catalogue's count and its per-class algebra about σ, with Ostrowski's classification of the places of ℚ; the product formula for integers and rationals (ProductFormula_Int.lean, ProductFormula_Rat.lean); the derivative of completedRiemannZeta₀ imaginary on the line; the five checkpoint identifications of σ = 1/2, convergent, not independent; the Mellin factorization and its exhaustion statements; the bracket pair; and the eight coupling discharges at the fixed witness, conjoined in h1_complete_at_Phi.",
+   "vocab_move": ""
+  },
+  {
+   "line": 1814,
+   "dep_line": 1800,
+   "section": "## 27.3 The Realization-Totality Premise: Every ξ-Zero Force",
+   "hits": [
+    "register",
+    "h1/h2",
+    "goal state",
+    "complete"
+   ],
+   "sentence": "**The count.** One premise; five registers, here unified; one goal state, at a cited line of a public kernel; two theorems bracketing it; a discharge path within the programme — the per-class constraints instantiated at the fixed witness, with h1 now complete at that witness (all eight discharged) — and its classical faces outside it, with their ancestry cited.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-4"
+   ],
+   "subject": "E-2026-09-25-4",
+   "carried": "",
+   "reason": "listed in E-2026-09-25-4 (deposited :1800)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1823,
+   "dep_line": 1809,
+   "section": "## 28.1 Formalization",
+   "hits": [
+    "route",
+    "named terminal"
+   ],
+   "sentence": "The Lean kernel formalizes three routes to σ = 1/2: the structural route via `Bridge.StructuralExhaustiveness`, the codimension route via the Spectral Cannon chain, and the Conservation route via `ConservationBridge.riemann_hypothesis` taking `ConservationHypothesis` to `RiemannHypothesis`.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-1"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "M-23",
+   "reason": "b532 M-23, listed in E-2026-09-25-1",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 1823,
+   "dep_line": 1809,
+   "section": "## 28.1 Formalization",
+   "hits": [
+    "route"
+   ],
+   "sentence": "Each route compiles independently with zero `sorry` and zero custom axioms.",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "each terminal compiles",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1823,
+   "dep_line": 1809,
+   "section": "## 28.1 Formalization",
+   "hits": [
+    "route",
+    "exhaustive",
+    "one open premise"
+   ],
+   "sentence": "The manuscripts prove the mathematics that connects them: Conservation of Spectra from Tate's thesis (Chapter 13) — the certificate that motivates Route 3's hypothesis, which is itself the one open premise of §27.3, not its discharge; exhaustiveness from Ostrowski (Chapter 15), the Mechanism Theorem from I+D+S (Chapter 10).",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-1"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "M-24",
+   "reason": "b532 M-24, listed in E-2026-09-25-1",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 1825,
+   "dep_line": 1811,
+   "section": "## 28.1 Formalization",
+   "hits": [
+    "route",
+    "compiled"
+   ],
+   "sentence": "The kernel grows route by route, each route independently compiled, the convergence at σ = 1/2 made progressively more direct at the Lean level.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "",
+   "reason": "the route terminals do not converge on the zeros` location: Route 3`s premise is RH restated",
+   "replacement": "The kernel grows route by route, each route terminal compiled separately; they bear on σ = 1/2 as algebra about σ (Route 1), a fact about completedRiemannZeta₀ on the line (Route 2), and an implication from a premise that is RH restated (Route 3).",
+   "vocab_move": ""
+  },
+  {
+   "line": 1829,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 28.2 The Simplicity Circle",
+   "hits": [
+    "reduction"
+   ],
+   "sentence": "Part IV establishes one result and reduces a second.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1829,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 28.2 The Simplicity Circle",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "The derivative-level search (§22.5): the same exhaustive catalogue Part III uses to exclude off-line zeros, applied one level down to ξ'(ρ) = 0; the per-class reductions compile (C₁ derives), reducing the double-zero question to a single joint step — the geometric clause (§24.4).",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "per-class reductions compiled (C₁ derives), the joint step named",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1831,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 28.2 The Simplicity Circle",
+   "hits": [
+    "reduction"
+   ],
+   "sentence": "The derivative-level search reduces double-zero exclusion to the geometric clause.",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1831,
+   "dep_line": "LIVE-SOLE",
+   "section": "## 28.2 The Simplicity Circle",
+   "hits": [
+    "route",
+    "reduction"
+   ],
+   "sentence": "The simplicity route is therefore a **second strategy carried under its own open clause** — not a second proof, and not a reduction to an *unrelated* open conjecture: its clause is the derivative-level counterpart of Part III's arithmetic clause, a distinct wall with its own 𝔽_q anchor and ℚ-obstruction (§24.4; §ANNEX D).",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a second strategy under its own open clause, as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1843,
+   "dep_line": 1829,
+   "section": "## 28.4 The E-Difficulty Conjecture",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "TYPE I problems (determined, symmetric, with structurally independent constraint classes) are decidable by exhaustive enumeration.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "stated under the conjecture`s heading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1851,
+   "dep_line": 1837,
+   "section": "## 28.5 The Domain Ostrowskis",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "Each now has a domain Ostrowski — a classification theorem certifying exhaustiveness:",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a manuscript reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1884,
+   "dep_line": 1870,
+   "section": "## 28.6 The Proof's Logical Structure",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "The proof is a syllogism (§10.4): all properties trace to the specification (Determination); the mechanism catalogue is exhaustive (Ostrowski); no catalogued mechanism produces off-line zeros (per-class exclusion); therefore no off-line zeros exist.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the method`s statement; census note: no compiled INHERITS row about ξ exists for any class (b542) -- a note, not an erratum",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1900,
+   "dep_line": 1886,
+   "section": "## 29.1 The Circle",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "The seven dimensions match the formation count of ξ — a count forced by the specification chain and proved exhaustive by Ostrowski's classification of the places of ℚ.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a manuscript reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1902,
+   "dep_line": 1888,
+   "section": "## 29.1 The Circle",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "The exhaustive catalogue certifying that no structural consequence was missed.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a manuscript reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1904,
+   "dep_line": 1890,
+   "section": "## 29.1 The Circle",
+   "hits": [
+    "complete"
+   ],
+   "sentence": "What is new is the proof that the enumeration is complete.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a manuscript reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1930,
+   "dep_line": 1916,
+   "section": "## Appendix A: Complete Theorem Catalogue",
+   "hits": [
+    "complete"
+   ],
+   "sentence": "## Appendix A: Complete Theorem Catalogue",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a heading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1969,
+   "dep_line": 1955,
+   "section": "# Verify zero sorry in compiled files",
+   "hits": [
+    "compiled"
+   ],
+   "sentence": "# Verify zero sorry in compiled files",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "no sorry term in Kernel/ or Bridge/ code at v1.5",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 1971,
+   "dep_line": 1957,
+   "section": "# Expected output: empty for compiled files.",
+   "hits": [
+    "compiled"
+   ],
+   "sentence": "# Expected output: empty for compiled files.",
+   "grade": "RESTS",
+   "tier": "T4",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "carried": "",
+   "reason": "at v1.5 the grep prints lines from doc comments that mention the word (G-SORRY-GREP counts them)",
+   "replacement": "# Expected output: lines from doc comments that mention the word sorry; no sorry term in the compiled code.",
+   "vocab_move": ""
+  },
+  {
+   "line": 2029,
+   "dep_line": 2015,
+   "section": "## Appendix E: Glossary",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "**Domain Ostrowski** — A completeness theorem certifying that a structural enumeration is exhaustive.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a definition",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2063,
+   "dep_line": 2049,
+   "section": "## Appendix E: Glossary",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "**SIDE** — Symmetry, Independence, Determination, Exhaustiveness: the four conditions for the exclusion principle.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a definition",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2069,
+   "dep_line": 2055,
+   "section": "## Appendix E: Glossary",
+   "hits": [
+    "complete"
+   ],
+   "sentence": "**Specification** — The complete mathematical definition of a determined system.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a definition",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2088,
+   "dep_line": 2074,
+   "section": "## Appendix F: The Valence Dichotomy",
+   "hits": [
+    "complete"
+   ],
+   "sentence": "No other values of the valence occur — the dichotomy is complete.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a manuscript reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2179,
+   "dep_line": 2165,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "h1/h2"
+   ],
+   "sentence": "v5.7 (2026-07-16): the fulcrum reframe. §27.3 rewritten — the premise's registers extended from four to five (the spectral-realization distance added, with the function-field anatomy scoped to the correspondence-ring positivity, Weil 1948 / Mattuck–Tate 1958); the sharpest form's ancestry cited (Li 1997; Bombieri–Lagarias 1999; Oesterlé, unpublished; Voros 2006, including the unconditional archimedean asymptotic and the ≈ 2T² detection threshold; Lagarias 2007); the measured-channel status updated to n = 300 with the calibration statement; h1's status updated to everything-but-C₄ at SIDE-lv-conservation v0.4.0.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the version log, dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2181,
+   "dep_line": 2167,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "h1/h2",
+    "machine-verified",
+    "complete",
+    "named terminal"
+   ],
+   "sentence": "v5.8 (2026-07-17): h1 complete at the witness. §27.3's \"What remains\" updated — h1 moves from everything-but-C₄ (SIDE-lv-conservation v0.4.0) to **complete at the witness** (v0.6.0 = `c80bdc2`, SHA-triple verified): all eight coupling facts machine-checked at the fixed Φ and conjoined in the named theorem `h1_complete_at_Phi`, clean profile `{propext, Classical.choice, Quot.sound}`.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; v0.6.0 = c80bdc2 verified",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2181,
+   "dep_line": 2167,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "The C₄ discharge is told honestly and in full: at v0.4.0 the kernel's own `C4_modularity` definition was under-strength — carried forward from the C₃ inversion shape with a spurious real-parameter periodicity antecedent — as an E₀ strength audit of the kernel against itself found; the definition was **strengthened first** (Fork B) to assert a holomorphic upper-half-plane lift satisfying both PSL₂(ℤ) generator laws (S-inversion and T-translation), then discharged with the witness F ≔ `jacobiTheta`.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2181,
+   "dep_line": 2167,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "complete"
+   ],
+   "sentence": "The \"seven coupling discharges\" / \"seven-eighths discharged\" counts of §27.3 become eight / complete accordingly.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2181,
+   "dep_line": 2167,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "h1/h2"
+   ],
+   "sentence": "No claim about the open premise changed: h2 and the disclaimed C₅-output register stand exactly as before; the premise remains RH-equivalent and open.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "M-26",
+   "reason": "b532 M-26 STANDS; the version log, printed STANDS-AS-HISTORY under (R153)(2)",
+   "replacement": "",
+   "vocab_move": true
+  },
+  {
+   "line": 2183,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "goal state",
+    "compiled",
+    "named terminal"
+   ],
+   "sentence": "v5.9 (2026-07-19): §27.3 — *the registers, compiled.* A new paragraph records the compiled layer that landed after the v0.6.0 deposit: the **register pentagon** (`RegisterPentagon`, SIDE-lv-conservation v0.7.0 = `2d86182`) compiling the five-face-plus-goal-state STRUCTURE with graded edges — never the cross-register equivalences (the W-2 trap); the fourth register's **finite-range positivity certificate** (`partialPositivity_finiteRange`, SIDE-lv-conservation v0.8.0 = `6efa9e5`, λ_n ≥ 0 to Voros's ≈ 2T² threshold — a certificate, not RH); and the fifth register's **compiled boundary marker** (`certifiedInput_not_zeroRealizing`, SIDE-lv-conservation v0.9.0 = `e3d08b6`, SHA-triple verified — the certified {n²} input spectrum is not a zero-realizing spectrum, the C₅ distance made compiled, Hilbert–Pólya disclaimed as before, the deeper ordinate form held as a dated residue).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; v0.7.0 = 2d86182, v0.8.0 = 6efa9e5, v0.9.0 = e3d08b6 verified",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2183,
+   "dep_line": 2169,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "h1/h2",
+    "complete",
+    "compiled"
+   ],
+   "sentence": "No fundamental changed — h1 complete, h2 open, the five registers, and the disclaimed C₅-output all stand exactly as in v5.8; this is additive currency of the compiled layer, making §27.3 agree with the kernel through lv-conservation v0.9.0.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2185,
+   "dep_line": 2171,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "route"
+   ],
+   "sentence": "Profiles in the §25.8 concordance are unmoved; the \"On Route 1\" note now describes the deposited (not merely live) state.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2185,
+   "dep_line": 2171,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "Filed as `ERRATA.md` **E-2026-07-23-1** (the deposited v1.1.1 carries the slip); surfaced by the K1 C₆ de-encoding.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; E-2026-07-23-1 is in ERRATA",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2185,
+   "dep_line": 2171,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "**(2) Criterion + verified surround sweep:** the retired \"two-leg architecture\" phrasing (§27.3) and the \"verifies the proof end-to-end\" framing (executive) re-stated as **criterion + verified surround / composing under the named premise h2** (2026-07-21 vocabulary ruling; the concept unchanged, the label clarified). §26 axiom-journey narrative kept (retrospective history, not a live claim).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2185,
+   "dep_line": 2171,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "route"
+   ],
+   "sentence": "**(3) Kernel-lineage note (§25.8):** records the live kernel advancing to tag v1.4 = `f374174` plus five post-v1.4 comment-and-content children (spectral docstring `78f9b5a`, Route-1 docstring `dca1ad3`, C₆ de-encode `e4ea219`, C₇ relabel `5be31be`, V3B repair `0e5233f`), all profiles unmoved; the concordance and deposit stay at v1.3.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; v1.4 = f374174 and the five children verified",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2189,
+   "dep_line": 2175,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "compiled",
+    "named terminal"
+   ],
+   "sentence": "v5.10.1 (2026-07-24, W-ORD-P1-FINSET currency): additive two-line update to §27.3's *the registers, compiled* paragraph — at SIDE-lv-conservation **v0.10.0 = `93c27ec`** the **finite-set conjunct** of the fourth register's explicit-formula premise is now proved (`lowFinset` constructed, `lowFinset_mem_iff` DERIVES via an entire ξ-carrier + analytic isolated zeros), replacing one assumed clause; the decomposition conjunct (Guinand–Weil) and `TailBoundPremise` remain named and open — **the all-n tail is unchanged, RH untouched.** Deposited lv terminals byte-preserved (purely additive diff; `partialPositivity_finiteRange` axiom profile unmoved).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; v0.10.0 = 93c27ec verified",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2191,
+   "dep_line": 2177,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "v5.10.2 (2026-07-24, W-ORD-R3-RECAST): **step (9)'s combination-argument tail recast into the identity/sign split**, meaning-preserving (claim unchanged — the corpus's position was always RH under the open premise h2).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "M-27",
+   "reason": "b532 M-27 STANDS; the version log, printed STANDS-AS-HISTORY under (R153)(2)",
+   "replacement": "",
+   "vocab_move": true
+  },
+  {
+   "line": 2191,
+   "dep_line": 2177,
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "compiled",
+    "named terminal"
+   ],
+   "sentence": "The ξ-specific ingredient is named at its two altitudes — `Λ(n) ≥ 0` (`ArithmeticFunction.vonMangoldt_nonneg`, analytic leg) with its compiled shadow `LiLinearMap.lam_nonneg_of_nonneg` (SIDE-li-map) — with the exact boundary stated (B3: Λ≥0 yields the σ=1 edge, never the critical-line center), no growth-class framing (B2), localization claimed and nothing more; citations to the sign-layer survey §ANNEX B.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; vonMangoldt_nonneg and lam_nonneg_of_nonneg resolve (b541)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2193,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "compiled"
+   ],
+   "sentence": "The *registers, compiled* paragraph gains a **fifth-register refinement** (F6, from the B2/W-SIGN-6 result): the missing object is now **typed and decomposed** — positivity free (certified {n²} + finite-range inhabitant), the Conservation seal orthogonal, the irreducible content a zero-realizing operator whose pairing extends the certified inequality past the rigid 2T² threshold; edge secured, centre typed, disclaimer standing, the compiled interface kernel-resident on a held branch.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2193,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "h1/h2",
+    "complete"
+   ],
+   "sentence": "One wording naturalization (\"the all-n tail is the open gap\" → \"the all-n tail is open\"). §27.3's calibrated body otherwise verbatim; h1 complete, h2 open, the five registers, and the disclaimed C₅-output all stand.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2195,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "reduction",
+    "compiled"
+   ],
+   "sentence": "v5.12 (2026-07-26, R-2 season — F7 the two-clause accounting): **E-2026-07-26** — prior text (§7.2, Ch 22 intro, §22.5, §24.4, §28.2) framed the simplicity of the zeros as \"proved by the same logic as RH\" / \"a second proof\" / \"100% simple (structural).\" Corrected: the derivative-level catalogue *reduces* simplicity per-class — C₁ derives, std3-compiled (the derivative engine) — and leaves a joint step, the **geometric clause** (uniform transversality), carried openly: a second **distinct** open premise alongside the arithmetic clause (§27.3), with a different 𝔽_q anchor (Katz–Sarnak monodromy vs Weil positivity) and a different ℚ-obstruction (missing family vs missing C×C geometry).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2195,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "compiled",
+    "named terminal"
+   ],
+   "sentence": "Evidence-cited to W-TRANSVERSAL (the two-wall verdict) + the derivative-engine season (C₁ compiled) + the Davenport–Heilbronn/Epstein multiplicity map (every located off-line zero simple, incl. the new t≈176.70, doubly-sourced). §24.4 becomes the geometric clause's **canonical address** — the convergence table reframed as five convergent-**evidence** rows, none as proof; §27.3 stays the arithmetic clause's home, gaining a one-line cross-pointer to the second clause and the 2(a) crossing-side note (`detection_threshold_mono`, the crossing wall surveyed closed to weightings).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2197,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "register",
+    "h1/h2"
+   ],
+   "sentence": "**R1 §27.3 fifth register:** h2's residual named as a single object — a *positive space on the zeros* (the chiasmus: positivity free without the zeros ⟂ the operator free given positivity, de Branges; \"the space is the wall\"); the object characterized from the constraint set (the wanted poster) and typed on the held branch as `XRealization`; the residue's tower address (Level-2-persistent).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2197,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "**R3 §25.8-adjacent:** new held-branch terminals cited at pin (`XRealization`, `SimplicityFamilySpec`, `detection_threshold_mono`, `escape_kind_discriminates`; SIDE-lv-conservation `word-pairing-interface` @ `c5ef4bc`, not merged, nothing deposited).",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated; word-pairing-interface @ c5ef4bc present",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2197,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix G: Bibliography",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "**h2 stays OPEN; the disclaimer unchanged; no claim in Parts I–III changed; nothing deposits, staged Zenodo waves do not inherit until separately ruled.**",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "dated",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": 115,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "Four classical theorems certify the decomposition is exhaustive.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the declared default reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": 115,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "This is the proof's foundation — exhaustive catalogue, per-class exclusion, no exceptions.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the declared default reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": 121,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "The two strategies share the exhaustive catalogue and Conservation of Spectra.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the declared default reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": 123,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "route",
+    "compiled"
+   ],
+   "sentence": "**Three compiled routes** (Part V, Chapter 25).",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a label; the route terminals compile (as b541 read deposited :123`s label)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": 123,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "route",
+    "compiled",
+    "exhaustive",
+    "named terminal"
+   ],
+   "sentence": "The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation of Spectra via `ConservationBridge.riemann_hypothesis`).",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-1"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "M-02",
+   "reason": "b532 M-02, listed in E-2026-09-25-1",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 2219,
+   "dep_line": 123,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "route"
+   ],
+   "sentence": "Three routes, three theorems, one conclusion.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "",
+   "reason": "the :2219 copy of deposited :123 (E-5 lists the :1607 copy only)",
+   "replacement": "Three route terminals, three theorems -- not one conclusion: Route 3's conclusion is its premise restated (ch_iff_rh).",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": 125,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "one open premise"
+   ],
+   "sentence": "**The one open premise** (§27.3).",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "M-03",
+   "reason": "b532 M-03",
+   "replacement": "",
+   "vocab_move": false
+  },
+  {
+   "line": 2219,
+   "dep_line": 125,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "route",
+    "register",
+    "named terminal"
+   ],
+   "sentence": "The five registers of the single premise the proof routes through — the universality hypothesis of `silence_universal`, the ConservationHypothesis of Route 3, the totality of realization through places, the balance-to-positivity distance at the multiplicative place, and the spectral-realization distance — are gathered as one in §27.3.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-1",
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "M-04",
+   "reason": "b532 M-04, listed in E-2026-09-25-1 (register 2); beyond b532`s scope, the registers stand at four depths (b538) -- E-6",
+   "replacement": "These registers stand at different depths (b538): the first is false as stated (not_register1); the second is RH restated (ch_iff_rh); the third is undecided; the fourth, in its Weil form, is equivalent to RH (h2_sign_iff_rh); the fifth's compiled face holds outright (register5_output_holds).",
+   "vocab_move": false
+  },
+  {
+   "line": 2219,
+   "dep_line": 129,
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "exhaustive"
+   ],
+   "sentence": "The SIDE framework — exhaustive enumeration certified by a domain completeness theorem, per-class exclusion, inter-class independence — applies to any system that is Determined (fully specified, no free parameters), Symmetric (equipped with a structural involution), and possesses Independent structural constraints.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the declared default reading",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2219,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Appendix H: How This Monograph Is Organized",
+   "hits": [
+    "compiled",
+    "named terminal"
+   ],
+   "sentence": "The Lean kernel's `SIDESystem` typeclass, the Silence Principle compiled as `silence_universal` (with coupled-system instances in `MetaKernel.lean`), and the claim-type classification validated against the test set of *A_METHODOLOGY_FOR_DETERMINED_SYSTEMS (corpus copy: `phase1.5/method/A_METHODOLOGY.md`)* are components of a research programme that continues beyond this theorem.",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as compiled -- live line only",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2233,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route",
+    "complete"
+   ],
+   "sentence": "**First**, they verify that the list is complete and that no item on it produces an off-line zero — that is Route 1.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-14-1",
+   "carried": "",
+   "reason": "Route 1`s per-class exclusion is algebra about σ and names no zero (b542): the list`s items are not shown to produce no off-line zero -- live line only",
+   "replacement": "First, they verify the catalogue's count and, for each class, algebra showing that its stated constraint on a real σ forces σ = 1/2; the step from a zero of ξ to that constraint is not compiled (b542) -- that is Route 1.",
+   "vocab_move": ""
+  },
+  {
+   "line": 2233,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route"
+   ],
+   "sentence": "**Second**, they verify a geometric fact about the function's derivative on the line — Route 2.",
+   "grade": "STANDS",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the derivative of completedRiemannZeta₀ on the line (the function named plainly)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2233,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route"
+   ],
+   "sentence": "**Third**, they verify that the conservation interface yields the same conclusion — Route 3.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "",
+   "reason": "the conservation interface yields RH from a premise that is RH restated -- live line only",
+   "replacement": "Third, they verify that the conservation interface yields RH from a premise that is RH restated (ch_iff_rh) -- Route 3.",
+   "vocab_move": ""
+  },
+  {
+   "line": 2233,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route"
+   ],
+   "sentence": "Three routes, verified independently, reaching one conclusion.",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "E-2026-09-25-1",
+   "carried": "",
+   "reason": "the three do not reach one conclusion but under a premise equivalent to RH -- live line only",
+   "replacement": "Three route terminals, verified separately; only under a premise equivalent to RH do they reach one conclusion.",
+   "vocab_move": ""
+  },
+  {
+   "line": 2235,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route"
+   ],
+   "sentence": "**What the kernels do not do is prove the Riemann Hypothesis.** Each route composes under one premise that no kernel discharges.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2235,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "register"
+   ],
+   "sentence": "The monograph names that premise openly at §27.3 and gathers its five registers there.",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as said",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2235,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "reduction"
+   ],
+   "sentence": "**The machine checks the reduction; the premise stays open.**",
+   "grade": "STANDS",
+   "tier": "T1-open",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "h2_sign ↔ RiemannHypothesis compiled",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2237,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "h1/h2",
+    "machine-verified",
+    "reduction"
+   ],
+   "sentence": "> ### **THE `h2` REGISTER, VERBATIM:** ### ***Supportable: RH reduced to a single located clause, reduction machine-verified.",
+   "grade": "STANDS",
+   "tier": "T1-open",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the reduction compiled (h2_sign_iff_rh)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2241,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route",
+    "exhaustive",
+    "named terminal"
+   ],
+   "sentence": "| Route 1 — structural exhaustiveness, unconditional in Lean | `SIDE-kernel` — **DEPOSIT-PIN `v1.5` = `0e5233f`** (concept DOI `10.5281/zenodo.19674312`, version `…21520474`); **WORKING-HEAD `v1.7` = `5e668b4`, `main`** — ### **LIVE (work continued)** | `structural_exhaustiveness_proved` (`Bridge/TheBridgeComplete.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | `lake env lean AxiomCheck_v1_3.lean`; `#print axioms structural_exhaustiveness_proved` |",
+   "grade": "RESTS",
+   "tier": "T2",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "carried": "",
+   "reason": "the terminal and profile stand; the pin cell says v1.7 = 5e668b4, but tag v1.7 is 2957e7d (2026-07-30) and 5e668b4 is a later main commit (2026-08-05)",
+   "replacement": "| Route 1 — structural exhaustiveness, unconditional in Lean | SIDE-kernel — DEPOSIT-PIN v1.5 = 0e5233f; WORKING-HEAD main = 5e668b4 at 2026-08-12 (tag v1.7 = 2957e7d) | structural_exhaustiveness_proved | {propext, Classical.choice, Quot.sound} | COMPILED |",
+   "vocab_move": ""
+  },
+  {
+   "line": 2242,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route",
+    "named terminal"
+   ],
+   "sentence": "| Route 2 — the completed-ζ derivative is imaginary on the line, ∀t | same | `SpectralCannonFull.spectral_cannon` (`Kernel/SpectralCannonFull.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |",
+   "grade": "STANDS",
+   "tier": "T0",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as the terminal states",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2243,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "route",
+    "named terminal"
+   ],
+   "sentence": "| Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the row states the implication, as b532`s M-16 (its §25.8 twin) was read",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2244,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "exhaustive",
+    "named terminal"
+   ],
+   "sentence": "| structural exhaustiveness yields RH | same | `techne_kernel_integration.rh_from_structural_exhaustiveness` (`Kernel/Integration.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as the terminal states (Integration`s proposition is RH restated, named so at :1562)",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2245,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "exhaustive",
+    "named terminal"
+   ],
+   "sentence": "| structural exhaustiveness is equivalent to RH | same | `techne_kernel_integration.structural_exhaustiveness_iff_rh` (`Kernel/Integration.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as the terminal states",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2246,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "| the formation count 2 + 3 + 2 + 0 = 7 | same | `SIDEKernel.formation` (`Kernel/Core.lean`) | as §25.8 reports | ### **COMPILED** | as above |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as the terminal states",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2247,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "| pairwise class exclusion | same | `techne_kernel_cross_exclusion.all_pairs_excluded` | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "as the terminal states",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2248,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "register",
+    "named terminal"
+   ],
+   "sentence": "| the register pentagon (§27.3, structure only) | `SIDE-lv-conservation` — DEPOSIT-PIN as cited per row; **WORKING-HEAD `2f71068`, `main`, tag `v0.10.0`** — ### **LIVE** | `RegisterPentagon` at `v0.7.0` = `2d86182` | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED — STRUCTURE ONLY**, never the cross-register equivalences | `#print axioms RegisterPentagon` |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "structure only, as said; b538 compiled the cross-register relations and found four depths",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2249,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "| the finite-range positivity certificate | same | `partialPositivity_finiteRange` at `v0.8.0` = `6efa9e5` | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | `#print axioms partialPositivity_finiteRange` |",
+   "grade": "STANDS",
+   "tier": "T1-lit",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "compiled, under its named premises",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2250,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "register",
+    "h1/h2",
+    "one open premise"
+   ],
+   "sentence": "| ### **`h2`, the one open premise** | ### **NONE — no kernel discharges it** | — | — | ### **MANUSCRIPT-RESIDENT** — §27.3, five registers | ### **read §27.3; there is no terminal to point at, and that is the honest state** |",
+   "grade": "STANDS",
+   "tier": "T1-open",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "the row that was right: no kernel discharges h2",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2260,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "*Provenance: `phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md` (at filing `THE_SIGN_RECONCILIATION.md`; filename aligned to its H1 2026-08-17), 2026-08-12.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated provenance record",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2262,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "register"
+   ],
+   "sentence": "### ERA ANNOTATION (2026-08-14) — bearing on the sign-face registers",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated era annotation",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2264,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "**(2)** The `−2` orphan is **solved as `W_pole`** — the prior verdict that it was a determined orphan with no mechanism is **withdrawn**.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated era annotation",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2264,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "h1/h2"
+   ],
+   "sentence": "**(3)** The Day-1 row is repaired to *pole + arch*. ### **`h2` — the sign of `W_∞ − W_2` — IS UNCHANGED BY ALL OF THIS.** *The reconciliation removed a suspected convention gap; it did not move the premise.*",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated era annotation",
+   "replacement": "",
+   "vocab_move": ""
+  },
+  {
+   "line": 2266,
+   "dep_line": "LIVE-SOLE",
+   "section": "## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ",
+   "hits": [
+    "named terminal"
+   ],
+   "sentence": "*Provenance: `phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md` (at filing `THE_SIGN_RECONCILIATION.md`; filename aligned to its H1 2026-08-17), 2026-08-12/13.",
+   "grade": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "carried": "",
+   "reason": "a dated provenance record",
+   "replacement": "",
+   "vocab_move": ""
+  }
+ ],
+ "supplementary": [
+  {
+   "name": "Appendix A row 1",
+   "line": 1934,
+   "sentence": "| 1 | s-Darkness of product formula | Conservation of Spectra | Proved (ZFC), Lean-verified |",
+   "grade": "STANDS",
+   "tier": "T2",
+   "errata": [],
+   "subject": "",
+   "reason": "the product formula compiled for integers and rationals (ProductFormula_Int.lean, ProductFormula_Rat.lean at v1.5); its s-reading is (∏)^s = 1^s",
+   "replacement": ""
+  },
+  {
+   "name": "Appendix A row 13",
+   "line": 1946,
+   "sentence": "| 13 | GRH for Dirichlet L-functions | Chapter 21 | Proved (from RH via twist cancellation) |",
+   "grade": "RESTS",
+   "tier": "T4",
+   "errata": [
+    "E-2026-09-25-6"
+   ],
+   "subject": "",
+   "reason": "GRH does not follow from RH by any theorem the corpus or the literature holds; Chapter 20 carries it under the analogous premise",
+   "replacement": "| 13 | GRH for Dirichlet L-functions | Chapter 21 | Carried by the same method under the analogous premise for L-functions; not a consequence of RH |"
+  },
+  {
+   "name": "Appendix A row 15",
+   "line": 1948,
+   "sentence": "| 15 | Seven mechanism classes, none producing off-line zeros | Critical Resolve Book III | Verified (systematic enumeration) |",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "reason": "names no terminal; the enumeration is the manuscript`s (b542: the compiled per-class exclusion is algebra about σ)",
+   "replacement": ""
+  },
+  {
+   "name": "Appendix C build line",
+   "line": 1967,
+   "sentence": "lake build Kernel.Root",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "reason": "Kernel/Root.lean is a module of the Kernel library at v1.5 (lakefile.lean globs .submodules `Kernel)",
+   "replacement": ""
+  },
+  {
+   "name": "Appendix C axiom grep",
+   "line": 1977,
+   "sentence": "grep -r \"^axiom \" --include=\"*.lean\" . | grep -v \".lake/\"",
+   "grade": "STANDS",
+   "tier": "T4",
+   "errata": [],
+   "subject": "",
+   "reason": "no line of any .lean file at v1.5 begins \"axiom \"",
+   "replacement": ""
+  }
+ ],
+ "counts": {
+  "STANDS": 54,
+  "STANDS-AS-HISTORY": 33,
+  "RESTS": 23,
+  "EXCEEDS": 0
+ },
+ "by_erratum": {
+  "E-2026-09-25-6": 15,
+  "E-2026-09-25-1": 6,
+  "E-2026-09-25-4": 4
+ },
+ "s273": {
+  "rows": [
+   [
+    1793,
+    [
+     "E-2026-09-25-6"
+    ]
+   ],
+   [
+    1793,
+    [
+     "E-2026-09-25-1"
+    ]
+   ],
+   [
+    1793,
+    [
+     "E-2026-09-25-6"
+    ]
+   ],
+   [
+    1795,
+    [
+     "E-2026-09-25-6"
+    ]
+   ],
+   [
+    1801,
+    [
+     "E-2026-09-25-4"
+    ]
+   ],
+   [
+    1808,
+    [
+     "E-2026-09-25-4"
+    ]
+   ],
+   [
+    1808,
+    [
+     "E-2026-09-25-6"
+    ]
+   ],
+   [
+    1808,
+    [
+     "E-2026-09-25-4"
+    ]
+   ],
+   [
+    1812,
+    [
+     "E-2026-09-25-6"
+    ]
+   ],
+   [
+    1814,
+    [
+     "E-2026-09-25-4"
+    ]
+   ]
+  ],
+  "ids": [
+   "E-2026-09-25-1",
+   "E-2026-09-25-4",
+   "E-2026-09-25-6"
+  ]
+ },
+ "tiers": {
+  "T0": 8,
+  "T1-open": 5,
+  "T1-lit": 4,
+  "T2": 45,
+  "T3": 0,
+  "T4": 48
+ },
+ "vocab_moves": [
+  [
+   1793,
+   "M-21"
+  ],
+  [
+   2181,
+   "M-26"
+  ],
+  [
+   2191,
+   "M-27"
+  ]
+ ]
+}

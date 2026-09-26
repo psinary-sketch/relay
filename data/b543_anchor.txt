@@ -1,0 +1,10 @@
+b543 -- THE RH-ANCHOR, FRESH #check at SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (exit 0)
+  SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+  SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+  SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+  SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+  SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+      0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+    SIDEExplicitFormula.B321.rh_strip
+  SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ),
+    0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0

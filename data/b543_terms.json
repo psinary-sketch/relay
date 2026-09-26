@@ -1,0 +1,289 @@
+{
+ "terms": [
+  {
+   "terminal": "structural_exhaustiveness_proved",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Bridge/TheBridgeComplete.lean",
+    "line": 249,
+    "statement": "theorem structural_exhaustiveness_proved :\n    StructuralExhaustiveness :="
+   },
+   "earlier": {
+    "bank": "b539",
+    "vocab": "tier",
+    "value": "T2"
+   },
+   "earlier_in_bank": true,
+   "now": "T2",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "SpectralCannonFull.spectral_cannon",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Kernel/SpectralCannonFull.lean",
+    "line": 65,
+    "statement": "theorem spectral_cannon (t : ℝ) :\n    (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 := by"
+   },
+   "earlier": {
+    "bank": "b539",
+    "vocab": "tier",
+    "value": "T0"
+   },
+   "earlier_in_bank": true,
+   "now": "T0",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "ConservationBridge.riemann_hypothesis",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Bridge/ConservationBridge.lean",
+    "line": 53,
+    "statement": "theorem riemann_hypothesis\n    (h_cons : ConservationHypothesis) : RiemannHypothesis :="
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (PREM)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (PREM)",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "rh_from_structural_exhaustiveness",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Kernel/Integration.lean",
+    "line": 221,
+    "statement": "theorem rh_from_structural_exhaustiveness\n    (h : StructuralExhaustiveness) :\n    RiemannHypothesis := by"
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (PREM)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (PREM)",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "structural_exhaustiveness_iff_rh",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Kernel/Integration.lean",
+    "line": 252,
+    "statement": "theorem structural_exhaustiveness_iff_rh :\n    StructuralExhaustiveness ↔ RiemannHypothesis :="
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (PROP)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (PROP)",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "SIDEKernel.formation",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Kernel/Core.lean",
+    "line": 53,
+    "statement": "theorem formation : 2 + 3 + 2 + 0 = 7 := by decide"
+   },
+   "earlier": {
+    "bank": "b539",
+    "vocab": "tier",
+    "value": "T2"
+   },
+   "earlier_in_bank": true,
+   "now": "T2",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "all_pairs_excluded",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Bridge/CrossClassExclusion.lean",
+    "line": 80,
+    "statement": "theorem all_pairs_excluded :\n    ∀ c1 c2 : MechanismClass, ¬ cross_class_produces_offline c1 c2 :="
+   },
+   "earlier": {
+    "bank": "b541",
+    "vocab": "tier",
+    "value": "T2"
+   },
+   "earlier_in_bank": true,
+   "now": "T2",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "silence_universal",
+   "repo": "SIDE-kernel",
+   "pin": "v1.5",
+   "sha": "0e5233f",
+   "found": {
+    "file": "Kernel/SilenceTheorem.lean",
+    "line": 74,
+    "statement": "theorem silence_universal\n    {C : ConfigurationSpace} {R : Type}\n    (I : Interface C R)\n    (h_univ : I.is_universal) :\n    I.kappa_zero := by"
+   },
+   "earlier": {
+    "bank": "b539",
+    "vocab": "tier",
+    "value": "T2"
+   },
+   "earlier_in_bank": true,
+   "now": "T2",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "h1_complete_at_Phi",
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "sha": "93c27ec",
+   "found": {
+    "file": "SIDELvConservation/CouplingsAtPhi.lean",
+    "line": 418,
+    "statement": "theorem h1_complete_at_Phi :\n    C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧\n      C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧\n      C7_entirety Phi ∧ C7_order Phi :="
+   },
+   "earlier": {
+    "bank": "b540:294",
+    "vocab": "tier",
+    "value": "T0"
+   },
+   "earlier_in_bank": true,
+   "now": "T0",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "RegisterPentagon",
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "sha": "93c27ec",
+   "found": {
+    "file": "SIDELvConservation/RegisterPentagon.lean",
+    "line": 73,
+    "statement": "namespace RegisterPentagon\n\nopen Complex\n\n/-! ### The goal state (pentagon centre) — verbatim from PinnedGoal.lean:17-19 / T3:97 -/\n\n/-- The T3 bridge target: a single `Φ` witnessing every coupling in `𝒞` with non-vanishing\nMellin factor at `s/2`.  Verbatim restatement of `CombinationsExclude`\n(`T3_StepNineBridge.lean:57-58`) and the `PinnedGoal`/`T3:97` goal. -/\ndef GoalState (𝒞 : Set T3.Coupling) (s : ℂ) : Prop :="
+   },
+   "earlier": {
+    "bank": "b539",
+    "vocab": "tier",
+    "value": "T2"
+   },
+   "earlier_in_bank": true,
+   "now": "T2",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "partialPositivity_finiteRange",
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "sha": "93c27ec",
+   "found": {
+    "file": "SIDELvConservation/PartialPositivity.lean",
+    "line": 140,
+    "statement": "theorem partialPositivity_finiteRange\n    (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)\n    (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)\n    (hTail : TailBoundPremise low tail T) :\n    ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n := by"
+   },
+   "earlier": {
+    "bank": "b540:304",
+    "vocab": "tier",
+    "value": "T1-lit"
+   },
+   "earlier_in_bank": true,
+   "now": "T1-lit",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "certifiedInput_not_zeroRealizing",
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "sha": "93c27ec",
+   "found": {
+    "file": "SIDELvConservation/RegisterPentagon.lean",
+    "line": 342,
+    "statement": "theorem certifiedInput_not_zeroRealizing\n    (nontrivialZeroInStrip : NontrivialZeroExistsInStrip) :\n    ¬ RealizesXiZeros certifiedInputSpectrum := by"
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (ANAL)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (ANAL)",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "lowFinset_mem_iff",
+   "repo": "SIDE-lv-conservation",
+   "pin": "v0.10.0",
+   "sha": "93c27ec",
+   "found": {
+    "file": "SIDELvConservation/PartialPositivity.lean",
+    "line": 123,
+    "statement": "lemma lowFinset_mem_iff (T : ℝ) :\n    ∀ z : NontrivialZero, z ∈ lowFinset T ↔ |z.1.im| ≤ T :="
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (DEFEQ)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (DEFEQ)",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "register5_output_holds",
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "sha": "81ae175",
+   "found": {
+    "file": "SIDEExplicitFormula/RegisterDepth.lean",
+    "line": 297,
+    "statement": "theorem register5_output_holds : Register5_output_HilbertPolya := by"
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (ANAL)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (ANAL)",
+   "word": "CARRIED"
+  },
+  {
+   "terminal": "h2_sign_iff_rh",
+   "repo": "SIDE-explicit-formula",
+   "pin": "HEAD",
+   "sha": "81ae175",
+   "found": {
+    "file": "SIDEExplicitFormula/Seam.lean",
+    "line": 101,
+    "statement": "theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩"
+   },
+   "earlier": {
+    "bank": "b542",
+    "vocab": "kind",
+    "value": "NEITHER (PROP)"
+   },
+   "earlier_in_bank": true,
+   "now": "NEITHER (PROP)",
+   "word": "CARRIED"
+  }
+ ]
+}
