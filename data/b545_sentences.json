@@ -1,0 +1,1641 @@
+{
+ "read": 602,
+ "numerals": 13,
+ "selected": 77,
+ "rows": 78,
+ "yields": {
+  "h2": 11,
+  "registers": 20,
+  "pentagon": 7,
+  "Route 3": 4,
+  "goal state": 1,
+  "the open clause": 6,
+  "the joint": 20,
+  "a named terminal": 37
+ },
+ "graded": [
+  {
+   "line": 21,
+   "sentence": "That distance **is** the open clause: RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n (§II, §III).",
+   "clause": "",
+   "hits": [
+    "the open clause"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the Li form of the joint: Li`s criterion under the channel split, a literature theorem (Bombieri–Lagarias 1999; Appendix C.3, C.7); `R4_positivity_to_RH` INTERFACES on it",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 21,
+   "sentence": "The complete argument is the monograph *A Place To Stand* (concept DOI 10.5281/zenodo.19675355); the clause is carried openly as open (§27.3, the totality/positivity register).",
+   "clause": "",
+   "hits": [
+    "registers",
+    "the open clause"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-open",
+   "grounds": "",
+   "reason": "the clause is open: in its Weil form it is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`) and not proved",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 23,
+   "sentence": "*Kernel currency (2026-07-24 deposit): SIDE-lv-conservation has advanced to v0.10.0 = `93c27ec`, version DOI 10.5281/zenodo.21539068 (concept 21433177) — the certificates this paper rests on (`blTerm_nonneg_of_onLine`, `partialPositivity_finiteRange` with the Voros N₀(T) ≈ 2T² cutoff, `RegisterPentagon`, `h1_complete_at_Phi`, `C7_order_at_Phi`, `C7_finite_type_false`) hold through v0.10.0 with profiles unmoved; the dated pins in the version notes above are landing-historical.",
+   "clause": "",
+   "hits": [
+    "registers",
+    "pentagon",
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_finite_type_false",
+    "C7_order_at_Phi",
+    "blTerm_nonneg_of_onLine",
+    "h1_complete_at_Phi",
+    "partialPositivity_finiteRange"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "a dated currency note, accurate to its date and since: the six named terminals are SAME at v0.10.0 (this act`s tier table); the lowest tier among them is T2 (`RegisterPentagon`)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 23,
+   "sentence": "The all-n tail of the clause remains the open gap — no premise advanced.*",
+   "clause": "",
+   "hits": [
+    "the open clause"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the certificate covers n ≤ N₀(T); the all-n statement is the Li form, T1-lit and open",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 25,
+   "sentence": "**Sign-layer map.** The clause this paper localizes has its state-of-the-field survey in `PATHS_TO_THE_CRITICAL_LINE §ANNEX B` — the proven partial paths (A1–A10), the obstructions (B1–B5), and the **B3 boundary**: Λ(n) ≥ 0 reaches the σ = 1 edge (de la Vallée Poussin), never the critical-line centre.",
+   "clause": "",
+   "hits": [
+    "the open clause"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "a pointer to PATHS §ANNEX B; the B3 boundary is classical (de la Vallée Poussin)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 25,
+   "sentence": "The clause's ingredient is two-altitude (`ArithmeticFunction.vonMangoldt_nonneg` / the `LiLinearMap.lam_nonneg_of_nonneg` shadow, SIDE-li-map `b515e6b`).",
+   "clause": "",
+   "hits": [
+    "the open clause",
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_nonneg_of_nonneg"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "`lam_nonneg_of_nonneg` (SIDE-li-map b515e6b, PrimeLedgerPositivity.lean:68) is stream-level over integers; the sentence calls it a shadow",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 68,
+   "sentence": "One half of that residue is now settled in-kernel: on-line zeros can never break Li positivity, because for Re ρ = 1/2 each Bombieri–Lagarias term is nonnegative — `‖1 − 1/ρ‖ = 1`, so `Re[1 − (1 − 1/ρ)ⁿ] ≥ 0` (`PartialPositivity.blTerm_nonneg_of_onLine`, SIDE-lv-conservation `v0.8.0` = `6efa9e5`, profile `{propext, Classical.choice, Quot.sound}`).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "blTerm_nonneg_of_onLine"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `blTerm_nonneg_of_onLine` states the Li term`s sign for a zero already on the line",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 72,
+   "sentence": "The universality hypothesis carried by silence_universal, the named ConservationHypothesis of the kernel's Route 3, the one premise of the reduction analysis, and the balance→positivity distance identified here are four registers of a single open joint — and with the C₅ input/output distance of §D.2, five.",
+   "clause": "the registers clause",
+   "hits": [
+    "registers",
+    "Route 3",
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-3, E-2026-09-25-6",
+   "reason": "the registers stand at four depths (b538): R1, stated for every essential interface, is false (`not_register1`); R2 is RH restated (`ch_iff_rh`); R3 is undecided (FINDINGS.md:4787); R4, in its Weil form, is equivalent to RH (`h2_sign_iff_rh`); R5`s compiled output face holds outright (`register5_output_holds`) -- SIDE-explicit-formula 81ae175; they are not four registers of one open joint",
+   "rectification": "The universality hypothesis carried by silence_universal, the named ConservationHypothesis of the kernel's Route 3, the one premise of the reduction analysis, and the balance→positivity distance identified here stand at different depths, and with the C₅ input/output distance of §D.2 they are five: the first, stated for every essential interface, is false (`not_register1`); the second is RH restated (`ch_iff_rh`); the third is undecided (FINDINGS.md:4787); the fourth, in its Weil form, is equivalent to RH (`h2_sign_iff_rh`); the fifth's compiled output face holds outright (`register5_output_holds`) -- all at SIDE-explicit-formula `81ae175`, `h2_sign_iff_rh` also at v0.2 = `5c72cad`.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "not_register1",
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 72,
+   "sentence": "The universality hypothesis carried by silence_universal, the named ConservationHypothesis of the kernel's Route 3, the one premise of the reduction analysis, and the balance→positivity distance identified here are four registers of a single open joint — and with the C₅ input/output distance of §D.2, five.",
+   "clause": "the Route 3 clause",
+   "hits": [
+    "registers",
+    "Route 3",
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-1",
+   "reason": "`ConservationHypothesis` is RH restated (`ch_iff_rh`); Route 3 formalizes RH ⇒ RH, its terminal ENCODES-CONCLUSION (T2)",
+   "rectification": "The named ConservationHypothesis of the kernel's Route 3 is RH restated (`ch_iff_rh`, SIDE-explicit-formula `81ae175`), so Route 3 formalizes RH ⇒ RH; as a register it is RH itself, by a rewording lemma.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "ch_iff_rh"
+   ]
+  },
+  {
+   "line": 72,
+   "sentence": "Those five are now a single compiled object: `RegisterPentagon` (SIDE-lv-conservation `v0.7.0` = `2d86182`) carries the five faces (R1 universality, R2 conservation, R3 totality-through-places, R4 positivity, R5 input/output) with the goal-state Prop and graded edges — compiling the STRUCTURE of \"one premise in five registers,\" **never the cross-register equivalences** (that would encode RH-equivalence).",
+   "clause": "",
+   "hits": [
+    "registers",
+    "pentagon",
+    "goal state"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-6",
+   "reason": "`RegisterPentagon` compiles five faces as Prop definitions with graded edges; the registers stand at four depths (b538): R1, stated for every essential interface, is false (`not_register1`); R2 is RH restated (`ch_iff_rh`); R3 is undecided (FINDINGS.md:4787); R4, in its Weil form, is equivalent to RH (`h2_sign_iff_rh`); R5`s compiled output face holds outright (`register5_output_holds`) -- SIDE-explicit-formula 81ae175",
+   "rectification": "`RegisterPentagon` (SIDE-lv-conservation `v0.7.0` = `2d86182`, carried to `v0.10.0`) carries the five faces (R1 universality, R2 conservation, R3 totality-through-places, R4 positivity, R5 input/output) with the goal-state Prop and graded edges, and the faces stand at different depths -- R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R3 undecided, R4 in its Weil form equivalent to RH (`h2_sign_iff_rh`), R5's output face a theorem (`register5_output_holds`), at SIDE-explicit-formula `81ae175`; the cross-register equivalences are not compiled, and the one equivalence to RH the corpus compiles is the Weil form's.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "not_register1",
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 72,
+   "sentence": "This paper's home is the **R4 positivity face**: its `R4_channelDecomposition` edge is exactly the `lam_add` channel-additivity §B.1 already rests on (DERIVES, axiom-free, SIDE-li-map `73cee42`), and its `R4_positivity_to_RH` edge is exactly the Li-criterion equivalence below (INTERFACES, Li's criterion as named premise).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "R4_channelDecomposition",
+    "R4_positivity_to_RH",
+    "lam_add"
+   ],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the fresh probe prints `lam_add` at 73cee42 with [propext, Quot.sound] (relay data/b545_probes.txt), as §B.1 :150 prints it, so \"axiom-free\" does not hold; the edge `R4_channelDecomposition` takes additivity as its hypothesis `lam_additive`",
+   "rectification": "This paper's home is the **R4 positivity face**: its `R4_channelDecomposition` edge takes channel additivity as its hypothesis `lam_additive` (RegisterPentagon.lean:253 at SIDE-lv-conservation `v0.10.0`), the additivity that `lam_add` proves at SIDE-li-map `73cee42` over integer streams (DERIVES, profile [propext, Quot.sound], §B.1 :150 and fresh at b545), and its `R4_positivity_to_RH` edge is the Li-criterion equivalence (INTERFACES, Li's criterion as named premise, T1-lit).",
+   "flag": "READING (12)",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 72,
+   "sentence": "On the present bench the joint takes its sharpest form: **RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n** (notation of §III).",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the Li form of the joint, a classical statement: Li`s criterion under the channel split (R155)(3)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 72,
+   "sentence": "The joint is one inequality between two exactly computable channels.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the Li form; the two channels are computed on the bench",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 99,
+   "sentence": "Nothing in these measurements is new as verification of λ_n > 0 (Keiper's computations long precede this range); what is new is the exact channel instrument and the measured structure of the joint.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T3",
+   "grounds": "",
+   "reason": "numerical channel values at two radii; Keiper`s priority stated",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 109,
+   "sentence": "The archimedean-channel input for each Λ(s, χ) — the order ≤ 1 growth of the completed Dirichlet L-function, both parities, over the whole plane — is a pinned terminal, `SIDELvConservation.exists_norm_completedLFunction_le_exp` (SIDE-lv-conservation `v0.5.0` = `1767bd6`, profile `{propext, Classical.choice, Quot.sound}`): the χ-side assumes no more of its Hadamard input than the ζ-side does.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "exists_norm_completedLFunction_le_exp"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `exists_norm_completedLFunction_le_exp` bounds the growth of Mathlib`s `completedLFunction`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 131,
+   "sentence": "The catalogue's exhaustiveness over place-indexed structures is certified; that every zero-sourcing mechanism factors through the places, and that place-level exclusion reflects to mechanism level, is the same single joint in yet another register, and this note's contribution is to have given that joint a bench, a measured shape, and a name.",
+   "clause": "",
+   "hits": [
+    "registers",
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T4",
+   "grounds": "E-2026-09-14-1, E-2026-09-25-6",
+   "reason": "the catalogue`s certified exhaustiveness is a `decide` count (`structural_exhaustiveness_proved`, E-2026-09-14-1); the factoring through the places is R3, undecided (FINDINGS.md:4787), and the registers stand at different depths",
+   "rectification": "The catalogue's exhaustiveness over place-indexed structures is certified as a count (`structural_exhaustiveness_proved`: `Fintype.card MechanismClass = 7` by `decide`, E-2026-09-14-1); that every zero-sourcing mechanism factors through the places, and that place-level exclusion reflects to mechanism level, is the third register, which b538's census records undecided (FINDINGS.md:4787) -- the registers stand at different depths (`not_register1`, `ch_iff_rh`, `h2_sign_iff_rh`, `register5_output_holds`, SIDE-explicit-formula `81ae175`) -- and this note's contribution is to have given the fourth, the balance→positivity distance, a bench, a measured shape, and a name.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "not_register1",
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 146,
+   "sentence": "The premise, in the four registers established in §IV: the universality hypothesis of `silence_universal`; Route 3's `ConservationHypothesis`; the one premise of the reduction analysis; the balance→positivity distance.",
+   "clause": "",
+   "hits": [
+    "registers",
+    "Route 3",
+    "a named terminal"
+   ],
+   "terminals": [
+    "silence_universal"
+   ],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-1, E-2026-09-25-6",
+   "reason": "the registers stand at four depths (b538): R1, stated for every essential interface, is false (`not_register1`); R2 is RH restated (`ch_iff_rh`); R3 is undecided (FINDINGS.md:4787); R4, in its Weil form, is equivalent to RH (`h2_sign_iff_rh`); R5`s compiled output face holds outright (`register5_output_holds`) -- SIDE-explicit-formula 81ae175; the registers paragraph is at §II (:72), not §IV",
+   "rectification": "The premise`s neighbourhood, in the registers of §II (:72), which stand at different depths: the universality hypothesis of `silence_universal`, false in its universal form (`not_register1`); Route 3's `ConservationHypothesis`, RH restated (`ch_iff_rh`); the one premise of the reduction analysis; the balance→positivity distance, whose Weil form is equivalent to RH (`h2_sign_iff_rh`) -- SIDE-explicit-formula `81ae175`.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "not_register1"
+   ]
+  },
+  {
+   "line": 150,
+   "sentence": "Profiles (`#print axioms`, pin `73cee42`, clean tree, 2026-07-13): `binom_self_zero`, `S_zero` axiom-free; `S_succ` `[propext]`; `S_add`, `S_zero_fun`, `lam_add`, `lam_zero`, `lam_one` `[propext, Quot.sound]`.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "S_add",
+    "S_succ",
+    "S_zero",
+    "S_zero_fun",
+    "binom_self_zero",
+    "lam_add",
+    "lam_one",
+    "lam_zero"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the dated profile record (2026-07-13), equal to the fresh probe at 73cee42 (relay data/b545_probes.txt)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 188,
+   "sentence": "**What this instrument provides.** Exactly one thing, and it is the thing the channel decomposition rests on: **`lam_add` certifies that the Li map is linear in the coefficient stream**, so the split λ_n = λ_A(n) + λ_Z(n) is *exact and machine-checked as an identity of the map*, not an approximation or a rearrangement to be re-derived per n.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_add"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the machine-checked identity is the Li map`s linearity over integer streams, as the sentence says (an identity of the map); B.6(2) :355 says the kernel does not know ζ",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 188,
+   "sentence": "`lam_one` pins the base case (λ₁ = η₁).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_one"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "`lam_one : lam η 1 = η 1` at 73cee42, fresh",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 253,
+   "sentence": "**What this bracket says, and it is the shape of the work.** `T3` — the general per-class-to-joint bridge — is a **∀∃ ⟹ ∃∀ commutation with no free witness**, and it carries the one `sorry`.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "B.2 at v0.2.0 (R155)(5): the one `sorry` stands at v0.10.0 (T3_StepNineBridge.lean:108)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 256,
+   "sentence": "- **h2 : mellin Phi (s / 2) ≠ 0** — that Φ's Mellin factor does not vanish at the off-line s in question.",
+   "clause": "",
+   "hits": [
+    "h2"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "B.2`s statement of lv`s h2 as the bracket states it at v0.2.0 -- what the hypothesis is, accurately; that it is false at every s with re s ≤ 1 is b538`s (`lv_h2_false_on_strip`)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 258,
+   "sentence": "**Discharge the premise = supply h1 and h2 for the seven classes at T1's Φ.** `T3″` is the proof that this route is not optional: without the shared witness the bridge is unprovable, so Determination is doing real work, and h1 is where it does it.",
+   "clause": "",
+   "hits": [
+    "h2"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-3",
+   "reason": "h2 at Φ is false at every s with re s ≤ 1 (`lv_h2_false_on_strip`), so it cannot be supplied on the strip; the premise`s open form is `h2_sign` (`h2_sign_iff_rh`)",
+   "rectification": "Discharge the premise = supply the premise in its open form: h1 is supplied at T1's Φ (`h1_complete_at_Phi`, v0.6.0), and h2 as stated at Φ is false at every s with re s ≤ 1 (`lv_h2_false_on_strip`), because the Mellin integral of Φ is zero there (`mellin_Phi_eq_zero_of_re_le_one`); the open form is the completedRiemannZeta nonvanishing off the line (`lvh2_corrected_iff`), and in the Weil form `h2_sign` (`h2_sign_iff_rh`) -- SIDE-explicit-formula `81ae175`.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "h2_sign_iff_rh",
+    "lv_h2_false_on_strip",
+    "lvh2_corrected_iff",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ]
+  },
+  {
+   "line": 274,
+   "sentence": "Then h2 is the analytic content: `mellin Phi (s/2) ≠ 0` for s off the critical line.",
+   "clause": "",
+   "hits": [
+    "h2"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-3",
+   "reason": "as stated at Φ, h2 is C₂ where T1 holds (re s > 1) and false on the strip (`lv_h2_false_on_strip`); the next sentence`s continuation clause says where the content lies",
+   "rectification": "Then h2, as stated, is `mellin Phi (s/2) ≠ 0` for s off the critical line: where T1 holds (re s > 1) it is C₂ at Φ (`C2_halfplane_nonvanishing_at_Phi`), and on the strip it is false (`lv_h2_false_on_strip`, SIDE-explicit-formula `81ae175`); the analytic content is its completedRiemannZeta form (`lvh2_corrected_iff`), which is where the next sentence's continuation clause points.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "lv_h2_false_on_strip",
+    "lvh2_corrected_iff"
+   ]
+  },
+  {
+   "line": 274,
+   "sentence": "**Note what the bench does not hide: h2 is not a bookkeeping obligation — it is RH-strength on the convergence half-plane, and outside it the T1 identity itself needs continuation.** The seven-class instantiation buys the *joint* step (T3′); it does not buy h2.",
+   "clause": "",
+   "hits": [
+    "h2",
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "graded STANDS by the ruling (R155)(4), which quotes its continuation clause; it anticipated b538`s `mellin_Phi_eq_zero_of_re_le_one`",
+   "rectification": "",
+   "flag": "RULING (R155)(4); READING (6)`s flag",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 283,
+   "sentence": "Taylor coefficients η_j at s = 1 by circle quadrature, η_j = (1/(M·r^j))·Σ_k f(1 + r·ω^k)·ω^(−jk), ω = e^(2πi/M); then λ(n) = n·Σ_{j=1..n} C(n−1, j−1)·η_j per channel, and λ_n = λ_A(n) + λ_Z(n) — the split whose *linearity* is the kernel-certified fact of §B.1 (`lam_add`).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_add"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the method; `lam_add` is the linearity it cites",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 337,
+   "sentence": "That is the whole of the measured tension in the joint, and it sits at the first coefficient.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T3",
+   "grounds": "",
+   "reason": "under B.4`s in-place CORRECTION (2026-07-13, :334): retained as the record of a range read too short",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 343,
+   "sentence": "| SIDE-li-map (Li linear map, `lam_add`; = pentagon R4_channelDecomposition) | `73cee42` (public) | build exit 0; profiles at pin, clean tree, 2026-07-13 |",
+   "clause": "",
+   "hits": [
+    "pentagon",
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_add"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the pin row; `lam_add` at 73cee42, profiles at the pin equal to the fresh probe",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 345,
+   "sentence": "| SIDE-lv-conservation (ARM-2 instruments) | `h1_complete_at_Phi` `v0.6.0`=`c80bdc2` · `RegisterPentagon` `v0.7.0`=`2d86182` · `PartialPositivity.{partialPositivity_finiteRange, blTerm_nonneg_of_onLine}` and `exists_norm_completedLFunction_le_exp` `v0.5.0`=`1767bd6` · `C7_finite_type_false` `v0.5.1`=`bc4751e` | all `{propext, Classical.choice, Quot.sound}`; deposited at v0.8.0, DOI `10.5281/zenodo.21436280` (concept `21433177`). Grades: h1/Dirichlet/countermodel DERIVES; partial-positivity INTERFACES (three named premises), finite-range certificate NOT RH; pentagon STRUCTURE (R4 home face) |",
+   "clause": "",
+   "hits": [
+    "registers",
+    "pentagon",
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_finite_type_false",
+    "exists_norm_completedLFunction_le_exp",
+    "h1_complete_at_Phi"
+   ],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the pin cell groups `PartialPositivity.{partialPositivity_finiteRange, blTerm_nonneg_of_onLine}` with `v0.5.0`=`1767bd6`, where the module does not exist; both are at `v0.8.0` = `6efa9e5` (§II :68, the v0.9.4 log)",
+   "rectification": "| SIDE-lv-conservation (ARM-2 instruments) | `h1_complete_at_Phi` `v0.6.0`=`c80bdc2` · `RegisterPentagon` `v0.7.0`=`2d86182` · `PartialPositivity.{partialPositivity_finiteRange, blTerm_nonneg_of_onLine}` `v0.8.0`=`6efa9e5` · `exists_norm_completedLFunction_le_exp` `v0.5.0`=`1767bd6` · `C7_finite_type_false` `v0.5.1`=`bc4751e` | the grades and profiles as the row gives them; the pin cell corrected (`PartialPositivity` is absent at `1767bd6`) |",
+   "flag": "defect (b)",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 346,
+   "sentence": "| SIDE-kernel (route terminals, `ConservationHypothesis`) | `b1407b2` = tag `v1.2` | `#print axioms` 2026-07-10, `DEPOSIT_v1_2_NOTES.md`. *Both facts (W-7, 2026-07-16):* the v1.2 profiles here stand as pinned history; `ConservationHypothesis` was since weakened universal → existential at **`v1.3 = 0bc21c0`** (SHA-triple), and the route terminals re-profiled clean on a clean tree (`{propext, Classical.choice, Quot.sound}`, unmoved). The premise is unchanged in content — the def now matches the prose (§25.5, \"at some prime\"). **DOI (additive):** kernel v1.3 version `10.5281/zenodo.21417776`, concept `10.5281/zenodo.19674312`. |",
+   "clause": "",
+   "hits": [
+    "Route 3"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "a pin record with dated profiles (2026-07-10; W-7, 2026-07-16), accurate to its dates; Route 3`s premise is RH restated (`ch_iff_rh`), which the row does not contradict",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 354,
+   "sentence": "Separately, and since this bench was built, a finite range is now **derived, not measured**: `PartialPositivity.partialPositivity_finiteRange` (SIDE-lv-conservation `v0.8.0` = `6efa9e5`) *proves* λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T² from verified zeros to height T, the Bombieri–Lagarias explicit-formula decomposition, and the Voros tail bound — a proof, not a table.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "partialPositivity_finiteRange"
+   ],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "`partialPositivity_finiteRange` INTERFACES on its three named premises, as said",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 354,
+   "sentence": "Second — and this is the point §C.6 makes — its cutoff N₀(T) ≈ 2T² is *exactly* Voros's detection threshold: the certificate proves positivity up to precisely where an off-line zero could first register, and no further.",
+   "clause": "",
+   "hits": [
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the certificate`s cutoff is Voros`s threshold (C.7.3)",
+   "rectification": "",
+   "flag": "OFF-SUBJECT (the verb \"register\")",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 355,
+   "sentence": "**The Li kernel does not know what ζ is.** `lam_add` certifies the linearity of the Li map over `Nat → Int` streams.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_add"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "`lam_add` over `Nat → Int` streams, as said",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 356,
+   "sentence": "**T3 is open.** The general per-class-to-joint bridge carries one `sorry`, and `T3″` proves the unrestricted version false.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "at v0.10.0 the one `sorry` stands (T3_StepNineBridge.lean:108) and T3″ is compiled",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 356,
+   "sentence": "Only `T3′` closes it, and only under h1 and h2 — which are the premise, restated, not a proof of it.",
+   "clause": "",
+   "hits": [
+    "h2"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-3",
+   "reason": "h2 at Φ is false on the strip (`lv_h2_false_on_strip`), so it is not the premise restated",
+   "rectification": "Only `T3′` closes it, and only under h1 and h2: h1 holds at Φ (`h1_complete_at_Phi`), and h2 at Φ is false at every s with re s ≤ 1 (`lv_h2_false_on_strip`, SIDE-explicit-formula `81ae175`), so T3′ closes nothing on the strip; the premise restated is the completedRiemannZeta form (`lvh2_corrected_iff`), equivalent to RH on the strip.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "lv_h2_false_on_strip",
+    "lvh2_corrected_iff"
+   ]
+  },
+  {
+   "line": 357,
+   "sentence": "**h2 is not bookkeeping.** `mellin Phi (s/2) ≠ 0` off the critical line is RH-strength on the half-plane where T1 holds; the seven-class instantiation buys the joint step, not this.",
+   "clause": "",
+   "hits": [
+    "h2",
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "graded STANDS by the ruling (R155)(4): B.6 item 4, credited (FINDINGS)",
+   "rectification": "",
+   "flag": "RULING (R155)(4); READING (6)`s flag",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 360,
+   "sentence": "The premise remains open, and the honest form of the joint is the one this keystone already carries: RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n.*",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the Li form of the joint",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 369,
+   "sentence": "The seven classes of Appendix B.3 are now **stated as `Coupling` predicates** — `(ℝ → ℂ) → Prop`, the exact type `T3prime_shared_witness` consumes — and two are **proved at the fixed witness Φ**.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "T3prime_shared_witness"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "C.1 (second sitting): two classes proved at Φ then, eight since (`h1_complete_at_Phi`, v0.6.0); `T3prime_shared_witness` is T2",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 381,
+   "sentence": "| **C₁** realness | `∀ t : ℝ, (Φ t).im = 0` | **PROVED** — `C1_realness_at_Phi`, no `sorryAx` |",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C1_realness_at_Phi"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C1_realness_at_Phi`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 382,
+   "sentence": "| **C₂** half-plane Mellin nonvanishing | `∀ s, 1 < s.re → mellin Φ (s/2) ≠ 0` | **PROVED** — `C2_halfplane_nonvanishing_at_Phi`, no `sorryAx`. Route: `completedRiemannZeta_eq_mellinPhi` (T1/T2) ⇒ `riemannZeta_ne_zero_of_one_lt_re` + `Gammaℝ_ne_zero_of_re_pos` |",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C2_halfplane_nonvanishing_at_Phi",
+    "completedRiemannZeta_eq_mellinPhi"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C2_halfplane_nonvanishing_at_Phi`, via `completedRiemannZeta_eq_mellinPhi` and Mathlib`s nonvanishing for re s > 1",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 387,
+   "sentence": "| **C₇** order-≤1 completed continuation | entire `G` extending the Mellin factor, `‖G s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2))` (true order ≤ 1) | **PROVED** (`C7_order_at_Phi`, `v0.4.0` = `0d2d74c`) — entirety via `differentiable_completedZeta₀`; order-≤1 growth via the theta-Mellin route (E.2). The bound shown corrects the false finite-type `‖G s‖ ≤ C·e^{A‖s‖}` (v0.3.1, W-8 STOP) |",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_order_at_Phi"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C7_order_at_Phi`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 395,
+   "sentence": "The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 = 0.53102…, and Mathlib's available bound is `one_half_lt_eulerMascheroniConstant` (½ < γ), which is **not sharp enough**.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "n_one_binding_instance"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "C.1`s record, OPEN at its date; discharged at v0.4.1 (E.3 :613)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 429,
+   "sentence": "- **A computable split at s = 1, and its fusion fact.** The programme's split is not S_∞/S_NA over places; it is a split of **log ξ at s = 1** into f_A(s) = log s + logΓ(s/2) − (s/2)log π and f_Z(s) = log((s−1)ζ(s)), giving λ_n = λ_A(n) + λ_Z(n) by the **linearity of the Li map** — machine-checked as `lam_add` (SIDE-li-map `73cee42`).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "lam_add"
+   ],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "`lam_add`, stream-level",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 430,
+   "sentence": "- **The inter-channel form of the joint.** RH ⟺ λ_Z(n) ≥ −λ_A(n) ∀n is an exact restatement of Li's criterion under the above split.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "C.3: Li`s criterion under the split, classical; the model of a verification record (R155)(5)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 451,
+   "sentence": "**The growth-class statement's correct citation is Bombieri–Lagarias 1999, Corollary 1(c)** — *a subexponential lower bound on λ_n already implies RH* — **which subsumes any polynomial-bound reformulation.** This matters: it means a \"stiffness\"/growth-class reformulation of the joint is not merely *implied by* the classical literature, it is a **weakening** of a corollary already in it.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "literature (C.5), verified via Voros at C.7.2",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 467,
+   "sentence": "This survives the arrival of the compiled certificate intact, and in fact the certificate makes the point exact rather than approximate: `partialPositivity_finiteRange` *proves* λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T², but 2T² is precisely the detection threshold above — so the certificate proves positivity in exactly the range where positivity cannot discriminate, and stops where discrimination would begin.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "partialPositivity_finiteRange"
+   ],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "`partialPositivity_finiteRange`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 469,
+   "sentence": "**Consequence.** The discharge path runs through the kernel (h1: the seven couplings at Φ; h2: the Mellin nonvanishing), **not** through the bench.",
+   "clause": "",
+   "hits": [
+    "h2"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-3",
+   "reason": "the kernel`s h2 at Φ is false on the strip (`lv_h2_false_on_strip`); the obligation is `h2_sign` (`h2_sign_iff_rh`)",
+   "rectification": "Consequence. The discharge path does not run through the bench; it does not run through the kernel's h1 ∧ h2 at Φ either, since h2 at Φ is false at every s with re s ≤ 1 (`lv_h2_false_on_strip`); the obligation is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula `81ae175`).",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "h2_sign_iff_rh",
+    "lv_h2_false_on_strip"
+   ]
+  },
+  {
+   "line": 496,
+   "sentence": "**Any polynomial-bound or \"stiffness\"/growth-class reformulation of the joint is therefore strictly weaker than a corollary published in 1999** — a polynomial lower bound is far stronger than −c·e^{εn}, so establishing one would be establishing *more* than is needed, and *nothing new is gained by the reformulation itself*.",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "C.7.2, literature verified via Voros",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 496,
+   "sentence": "This is now verified, not conjectured, and it governs: **no keystone may present a growth-class form of the joint as a contribution.**",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "C.7.2",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 505,
+   "sentence": "**Caveat — RESOLVED 2026-07-13 (sixth sitting).** As first extracted, the clause read \"|Im ρ| ≲ n/2\" — **no radical** — which is *not* consistent with the same sentence's own conclusion.",
+   "clause": "",
+   "hits": [
+    "the open clause"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "a caveat recorded and resolved (C.7.3)",
+   "rectification": "",
+   "flag": "OFF-SUBJECT (\"the clause\" of Voros`s sentence)",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 546,
+   "sentence": "## D.2 The C₅ input/output split, and the fifth register",
+   "clause": "",
+   "hits": [
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "a heading; the claims beneath are graded row by row",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 553,
+   "sentence": "**The gap between them is the premise's fifth register.** §IV of this paper lists four registers of one open joint (the universality hypothesis of `silence_universal`; Route 3's `ConservationHypothesis`; the one premise of the reduction analysis; the balance→positivity distance).",
+   "clause": "",
+   "hits": [
+    "registers",
+    "Route 3",
+    "the joint",
+    "a named terminal"
+   ],
+   "terminals": [
+    "silence_universal"
+   ],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-1, E-2026-09-25-6",
+   "reason": "the registers stand at four depths (b538): R1, stated for every essential interface, is false (`not_register1`); R2 is RH restated (`ch_iff_rh`); R3 is undecided (FINDINGS.md:4787); R4, in its Weil form, is equivalent to RH (`h2_sign_iff_rh`); R5`s compiled output face holds outright (`register5_output_holds`) -- SIDE-explicit-formula 81ae175; the registers paragraph is at §II (:72), not §IV",
+   "rectification": "The gap between them is the distance the pentagon's R5 face records. §II of this paper (:72) lists the registers, which stand at different depths: the universality hypothesis of `silence_universal`, false in its universal form (`not_register1`); Route 3's `ConservationHypothesis`, RH restated (`ch_iff_rh`); the one premise of the reduction analysis; the balance→positivity distance, equivalent to RH in its Weil form (`h2_sign_iff_rh`); and the R5 output face as compiled holds outright (`register5_output_holds`) -- SIDE-explicit-formula `81ae175` -- so the gap is not one register of an equivalent premise.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "not_register1",
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 553,
+   "sentence": "It is the **R5 input/output face** of the compiled `RegisterPentagon` (§II; SIDE-lv-conservation `v0.7.0` = `2d86182`) — where the pentagon records C₅-input as certified and C₅-output as the disclaimed Hilbert–Pólya edge (`R5_output_HilbertPolya_to_RH`, INTERFACES — **DISCLAIMED**, the bridge named but never asserted, closing over 𝔽_q and open over ℚ exactly as below).",
+   "clause": "",
+   "hits": [
+    "registers",
+    "pentagon",
+    "a named terminal"
+   ],
+   "terminals": [
+    "R5_output_HilbertPolya_to_RH"
+   ],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-6",
+   "reason": "`R5_output_HilbertPolya_to_RH` INTERFACES on a premise that is RH restated, since `Register5_output_HilbertPolya` holds outright (`register5_output_holds`) -- (R151)(2)",
+   "rectification": "It is the R5 input/output face of the compiled `RegisterPentagon` (SIDE-lv-conservation `v0.7.0` = `2d86182`): C₅-input is certified (`C5_input_at_Phi`), and the edge `R5_output_HilbertPolya_to_RH` INTERFACES on a premise that is RH restated, since `Register5_output_HilbertPolya` holds outright (`register5_output_holds`, SIDE-explicit-formula `81ae175`); what the programme disclaims is a Hilbert–Pólya realisation, which that face does not state.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 565,
+   "sentence": "(ii) **The formation-distance statement**: naming the C₅ input/output gap as the premise's fifth register, and observing that it *coincides* over 𝔽_q and is *open* over ℚ.",
+   "clause": "",
+   "hits": [
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-6",
+   "reason": "the fifth register`s compiled output face holds outright (`register5_output_holds`)",
+   "rectification": "(ii) The formation-distance statement: naming the C₅ input/output gap, and observing that the two stages coincide over 𝔽_q and not over ℚ; the fifth register's compiled output face holds outright (`register5_output_holds`, SIDE-explicit-formula `81ae175`), so the gap is not the premise in a fifth register.",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 571,
+   "sentence": "- **The critical-line census** (`phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md`): the two-axis (path × status) census places this joint as the **II.7 Li / positivity** row — RH ⟺ λ_n ≥ 0, sharpest form λ_Z(n) ≥ −λ_A(n) — and records `partialPositivity_finiteRange` there as a finite-range interface, alongside the census's **two compiled negatives** (the T3″ commutation countermodel and `C7_finite_type_false`).",
+   "clause": "",
+   "hits": [
+    "the joint",
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_finite_type_false",
+    "partialPositivity_finiteRange"
+   ],
+   "verdict": "STANDS",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "PATHS II.7; `partialPositivity_finiteRange` T1-lit, `C7_finite_type_false` T0",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 571,
+   "sentence": "The census is the register in which the bench's joint takes its place among the other paths to σ = 1/2.",
+   "clause": "",
+   "hits": [
+    "registers",
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "a cross-reference to PATHS",
+   "rectification": "",
+   "flag": "OFF-SUBJECT (a figure of speech)",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 597,
+   "sentence": "**PROVED at Φ** (`C7_entirety_at_Phi`), with `G = completedRiemannZeta₀`, via `differentiable_completedZeta₀` + `completedRiemannZeta_eq` + T1/T2's `completedRiemannZeta_eq_mellinPhi`.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_entirety_at_Phi",
+    "completedRiemannZeta_eq_mellinPhi"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C7_entirety_at_Phi`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 598,
+   "sentence": "**PROVED at Φ** (`C7_order_at_Phi`, W-8), via `exists_norm_completedRiemannZeta₀_le_exp`.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_order_at_Phi",
+    "exists_norm_completedRiemannZeta₀_le_exp"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C7_order_at_Phi`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 600,
+   "sentence": "**That refutation is now itself compiled**: `SIDELvConservation.C7_finite_type_false` (SIDE-lv-conservation `v0.5.1` = `bc4751e`, profile `{propext, Classical.choice, Quot.sound}`) is the in-kernel countermodel that the finite-exponential-type form is false of the forced witness — the second compiled negative of the census (with the T3″ commutation countermodel), the prose refutation turned into a terminal.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_finite_type_false"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C7_finite_type_false`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 613,
+   "sentence": "| ~~`n_one_binding_instance` (γ + 2 ≥ ln 4π)~~ | **DISCHARGED 2026-07-17** — γ ≥ 0.53102 proved in-kernel (`v0.4.1`); no longer open |",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "n_one_binding_instance"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `n_one_binding_instance`, γ ≥ 0.53102 about Mathlib`s `eulerMascheroniConstant`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 614,
+   "sentence": "| **C₅-output** | **not open — DISCLAIMED.** The Hilbert–Pólya realisation; never to be claimed. Its distance from C₅-input is the premise's fifth register (Appendix D) |",
+   "clause": "",
+   "hits": [
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "RESTS",
+   "tier": "T2",
+   "grounds": "E-2026-09-25-6",
+   "reason": "the fifth register`s compiled output face holds outright (`register5_output_holds`)",
+   "rectification": "| **C₅-output** | **not open.** Its compiled face holds outright (`register5_output_holds`, SIDE-explicit-formula `81ae175`); what is disclaimed is the Hilbert–Pólya realisation, which that face does not state |",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": [
+    "register5_output_holds"
+   ]
+  },
+  {
+   "line": 616,
+   "sentence": "None of it touches h2, and none of it advances the premise.",
+   "clause": "",
+   "hits": [
+    "h2"
+   ],
+   "terminals": [],
+   "verdict": "STANDS",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "true of the couplings; lv`s h2 is the hypothesis they do not touch",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 618,
+   "sentence": "Its history: the finite-exponential-type form (`C·exp(A·‖s‖)`) was **false of the forced witness** and was corrected to the true order form `‖G s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2))` at `v0.3.1` (2026-07-14, W-8 sitting-1 STOP); that true statement is now **proved** in-kernel via the theta-Mellin route (E.2), `C7_order_at_Phi` sorry-free, profile `{propext, Classical.choice, Quot.sound}`.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_order_at_Phi"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C7_order_at_Phi`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 620,
+   "sentence": "The eighth and last class, **C₄ (modularity)**, is discharged — `C4_modularity_at_Phi` with witness F ≔ `jacobiTheta`, and all eight facts are conjoined in the named theorem `h1_complete_at_Phi` (profile `{propext, Classical.choice, Quot.sound}`).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C4_modularity_at_Phi",
+    "h1_complete_at_Phi"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `C4_modularity_at_Phi`, `h1_complete_at_Phi`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 620,
+   "sentence": "The γ-bound `n_one_binding_instance` also landed (`v0.4.1`; γ ≥ 0.53102).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "n_one_binding_instance"
+   ],
+   "verdict": "STANDS",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "T0, not RH-anchor: `n_one_binding_instance`",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 620,
+   "sentence": "What remains untouched is exactly what always was: **h2** (the Mellin nonvanishing) and the disclaimed **C₅-output** register.",
+   "clause": "",
+   "hits": [
+    "h2",
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "a dated bracket-note (2026-07-17): the pass left h2 and C₅-output untouched, as it says (b543 read the monograph`s like sentence so)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 626,
+   "sentence": "*v0.9.4 (2026-07-19): **ARM 2 refinement pass (spectral / RH-cascade).** The partial-positivity interface lands where this paper's whole argument pointed: §B.6.1's \"positivity is measured, never derived\" and §C.6's detection-threshold reading are upgraded — finite-range Li positivity λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T² is now a **compiled certificate** (`PartialPositivity.partialPositivity_finiteRange`, SIDE-lv-conservation `v0.8.0` = `6efa9e5`), a proof rather than a measurement — and its cutoff N₀(T) ≈ 2T² is exactly Voros's detection threshold, so the certificate reaches precisely to where discrimination begins and no further (the all-n tail stays the open gap; still NOT RH).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "partialPositivity_finiteRange"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 626,
+   "sentence": "The on-line-term nonnegativity is **proved** (`blTerm_nonneg_of_onLine`), landed at §II.",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "blTerm_nonneg_of_onLine"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 626,
+   "sentence": "The four registers of §IV together with the C₅ fifth register of §D.2 are named as the five faces of the compiled `RegisterPentagon` (`v0.7.0` = `2d86182`) — STRUCTURE, never the cross-register equivalences; its R4 face is this paper's home register and its R4_channelDecomposition edge is the `lam_add` §B.1 already rests on. §E.2's prose \"finite-exponential-type, provably false of the forced witness\" gains its compiled terminal `C7_finite_type_false` (`v0.5.1` = `bc4751e`). §IV's family run gains the χ-side order terminal `exists_norm_completedLFunction_le_exp` (`v0.5.0`).",
+   "clause": "",
+   "hits": [
+    "registers",
+    "pentagon",
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_finite_type_false",
+    "exists_norm_completedLFunction_le_exp",
+    "lam_add"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the version history (its \"§IV\" names the registers paragraph at §II, :72)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 626,
+   "sentence": "No premise advanced; the joint stands exactly as before, now with one leg carrying a finite-range certificate instead of a measurement.*",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T1-lit",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 628,
+   "sentence": "*v0.9.3 (2026-07-17): **h1 complete at Φ — C₄ discharged.** The E.3 ledger is superseded (bracket-note added, `v0.6.0` = `c80bdc2`): all eight coupling facts of Chapter 15 are now discharged at the fixed witness and conjoined in `h1_complete_at_Phi` (clean `{propext, Classical.choice, Quot.sound}`).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "h1_complete_at_Phi"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 628,
+   "sentence": "The γ-bound `n_one_binding_instance` also landed (`v0.4.1`).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "n_one_binding_instance"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 628,
+   "sentence": "The E.3 Open table's C₄ and γ rows are struck. h2 and the disclaimed C₅-output register stand exactly as before; the premise is unchanged and open.*",
+   "clause": "",
+   "hits": [
+    "h2",
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 630,
+   "sentence": "*v0.9.2 (2026-07-15): **Appendix E — C₇-order is PROVED at Φ.** The corrected order-≤1 growth bound `‖G s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2))` is discharged in-kernel (`C7_order_at_Phi`, sorry-free, profile `{propext, Classical.choice, Quot.sound}`) at SIDE-lv-conservation **tag `v0.4.0` = `0d2d74c`** (SHA-triple verified).",
+   "clause": "",
+   "hits": [
+    "a named terminal"
+   ],
+   "terminals": [
+    "C7_order_at_Phi"
+   ],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T0",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 638,
+   "sentence": "**The gap between them is the premise's FIFTH REGISTER**: over 𝔽_q the two coincide (Weil 1948 supplies the output from Hodge-index/Castelnuovo positivity on C × C), over ℚ they do not.",
+   "clause": "",
+   "hits": [
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "the version history (b543 read the monograph`s version log so)",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 640,
+   "sentence": "Consequence, now verified rather than conjectured: **no keystone may present a growth-class/\"stiffness\" form of the joint as a contribution** — it is strictly weaker than a 1999 corollary.*",
+   "clause": "",
+   "hits": [
+    "the joint"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "the version history",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 660,
+   "sentence": "**b324 asked whether that margin and this record's `M(n) := λ_Z(n) + λ_A(n) = λ_n` are one object in two registers, and the answer is UNDECIDED.** The two are indexed differently (a test-function width against a coefficient index), decompose differently (archimedean-minus-square against zero-plus-archimedean), and **only this record's margin contains the zeros**.",
+   "clause": "",
+   "hits": [
+    "registers"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "grounds": "",
+   "reason": "b324`s dated record (2026-09-04), accurate to its date",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  },
+  {
+   "line": 660,
+   "sentence": "The monograph names *positivity of the Weil functional* and *λ_n ≥ 0* as two classical faces of the one obligation h2 — but it also records that the register pentagon **deliberately does not compile the cross-register equivalences**, \"since to compile 'discharge one and you discharge all five' would be to compile RH-equivalence itself.\"",
+   "clause": "",
+   "hits": [
+    "h2",
+    "registers",
+    "pentagon"
+   ],
+   "terminals": [],
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "grounds": "",
+   "reason": "b324`s record of what the monograph says, accurate to its date; the monograph`s own sentence rests on E-2026-09-25-6",
+   "rectification": "",
+   "flag": "",
+   "kind": "SELECTED",
+   "anchor_cited": []
+  }
+ ],
+ "supplementary": [
+  {
+   "line": 41,
+   "sentence": "| Σ_ρ h(γ_ρ) | Spectral | the target side | ≥ 0 ⟺ RH |",
+   "verdict": "STANDS",
+   "tier": "T0",
+   "reason": "the target side`s sign is RH in the Weil form: `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`; Seam.lean:101 at `81ae175`), the RH-anchor`s head -- this row`s T0 reference (R155)(3), entered in COMPONENT 3`s block",
+   "flag": "RH-ANCHOR",
+   "kind": "SUPPLEMENTARY",
+   "rectification": "",
+   "grounds": "",
+   "anchor_cited": []
+  },
+  {
+   "line": 42,
+   "sentence": "| W_∞ (digamma/Γ) | Functional-equation / archimedean | archimedean place | positive (provable) |",
+   "verdict": "STANDS",
+   "tier": "T4",
+   "reason": "with its 2026-08-28 annotation beside it (:57-65): the positive quantity is W_pole + W_∞ (R155)(5)",
+   "flag": "",
+   "kind": "SUPPLEMENTARY",
+   "rectification": "",
+   "grounds": "",
+   "anchor_cited": []
+  },
+  {
+   "line": 251,
+   "sentence": "**Sorry census at the pin** (`git show c8e3d31:<file>`): `SIDELvConservation/T3_StepNineBridge.lean` — **1** (`T3`, disclosed above); `PinnedGoal.lean` — 1 (the pinned goal record). All other files: 0. **`T3` is open by construction, not by oversight.**",
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T2",
+   "reason": "B.2`s sorry census at v0.2.0 (R155)(5); the one `sorry` stands at v0.10.0",
+   "flag": "",
+   "kind": "SUPPLEMENTARY",
+   "rectification": "",
+   "grounds": "",
+   "anchor_cited": []
+  },
+  {
+   "line": 516,
+   "sentence": "### C.7.4 The record, now standing on checks actually run",
+   "verdict": "STANDS",
+   "tier": "T4",
+   "reason": "C.3-C.7`s literature chain, the model of a verification record (R155)(5): every link carries the check that produced it (:527)",
+   "flag": "",
+   "kind": "SUPPLEMENTARY",
+   "rectification": "",
+   "grounds": "",
+   "anchor_cited": []
+  },
+  {
+   "line": 591,
+   "sentence": "**Phragmén–Lindelöf is a maximum principle, not a source of order bounds.** It converts growth *control* into boundedness on a strip; it cannot manufacture the control, and it supplies neither of the two ingredients C₇ needs. Having the theorem and not the inputs is precisely the situation in which a formalisation *looks* one step away and is not. *(Superseded by the discharge — see the note below E.2; retained as the honest pricing of record at the seventh sitting.)*",
+   "verdict": "STANDS-AS-HISTORY",
+   "tier": "T4",
+   "reason": "Appendix E`s pricing of the Hadamard input (R155)(5), superseded by the discharge at v0.4.0, as its own parenthesis says",
+   "flag": "",
+   "kind": "SUPPLEMENTARY",
+   "rectification": "",
+   "grounds": "",
+   "anchor_cited": []
+  },
+  {
+   "line": 117,
+   "sentence": "**Theorem (Fano two-darkness).** Let arbitrary real values be assigned to the seven points of the Fano plane. Then every statistic of degree at most two in the point values — means, variances, and correlations of triple-sums — takes exactly the same value over the seven lines as over the twenty-eight non-line triples.",
+   "verdict": "STANDS",
+   "tier": "T0",
+   "reason": "compiled: `FanoTwoDarkness.second_moment` with `first_moment` and the design counts, SIDE-fano-darkness `0f6ce5b` (public, untagged), [propext, Quot.sound] or fewer, fresh -- in the integer-valued form; the real-valued form follows from the polynomial identity and is not compiled; the Correspondence row is in the tier block",
+   "flag": "",
+   "kind": "SUPPLEMENTARY",
+   "rectification": "",
+   "grounds": "",
+   "anchor_cited": []
+  }
+ ],
+ "counts": {
+  "STANDS": 41,
+  "STANDS-AS-HISTORY": 22,
+  "RESTS": 15,
+  "EXCEEDS": 0
+ },
+ "counts_supp": {
+  "STANDS": 4,
+  "STANDS-AS-HISTORY": 2,
+  "RESTS": 0,
+  "EXCEEDS": 0
+ },
+ "tiers": {
+  "T0": 17,
+  "T1-open": 1,
+  "T1-lit": 12,
+  "T2": 36,
+  "T3": 2,
+  "T4": 10
+ },
+ "tiers_supp": {
+  "T0": 2,
+  "T1-open": 0,
+  "T1-lit": 0,
+  "T2": 1,
+  "T3": 0,
+  "T4": 3
+ },
+ "rests_by_ground": {
+  "E-2026-09-25-3, E-2026-09-25-6": 1,
+  "E-2026-09-25-1": 1,
+  "E-2026-09-25-6": 4,
+  "BALPOS`s own (no filed subject)": 2,
+  "E-2026-09-14-1, E-2026-09-25-6": 1,
+  "E-2026-09-25-1, E-2026-09-25-6": 2,
+  "E-2026-09-25-3": 4
+ },
+ "rectifications": 15,
+ "anchor_tier_refs": 1,
+ "anchor_cited_in_rect": [
+  "ch_iff_rh",
+  "h2_sign_iff_rh",
+  "lv_h2_false_on_strip",
+  "lvh2_corrected_iff",
+  "mellin_Phi_eq_zero_of_re_le_one",
+  "not_register1",
+  "register5_output_holds"
+ ],
+ "rect_rows_citing_anchor": 13,
+ "off_subject": 3
+}

@@ -1,0 +1,265 @@
+b545 -- THE FANO SEARCH (READING (10)): 45 repositories (37 in b542`s enumeration, 8 outside it: SIDE-carrier-spec, SIDE-class-number-anomaly, SIDE-cosmo, SIDE-dirichlet-mod-24, SIDE-fano-darkness, SIDE-formation-procedure, SIDE-local-cosmic-interface, SIDE-quaternionic-dark-sector)
+  needles: Fano ; PG(2,2) ; triple ; line with Fin 7 ; secondMoment ; 2-(7,3,1) design
+  revisions read 148 ; .lean files read 2332 ; hits (distinct file+text per repository) 245
+  SIDE-class-number-anomaly            3
+  SIDE-cosmo                           20
+  SIDE-cubit-axis                      6
+  SIDE-dirichlet-mod-24                1
+  SIDE-explicit-formula                2
+  SIDE-fano-darkness                   31
+  SIDE-global-section                  4
+  SIDE-kernel                          19
+  SIDE-lv-conservation                 1
+  SIDE-meta                            10
+  SIDE-orchestrator                    26
+  SIDE-quaternionic-dark-sector        4
+  SIDE-structural-error-correction     13
+  SIDE-substrate-cluster               66
+  SIDE-t7-topology-cmb                 13
+  SIDE-trivium                         11
+  TECHNE-Core                          15
+  SIDE-class-number-anomaly HEAD (2203b88) SIDEClassNumberAnomaly/Basic.lean:24 [triple] Theorems: 17 (v0.2 adds triple_identification_diagonal; LV-H-2).  sorry: 0.  axioms: 0.
+  SIDE-class-number-anomaly HEAD (2203b88) SIDEClassNumberAnomaly/Basic.lean:176 [triple] **Theorem 5.3 (Triple Identification, Diagonal).**
+  SIDE-class-number-anomaly HEAD (2203b88) SIDEClassNumberAnomaly/Basic.lean:204 [triple] theorem triple_identification_diagonal :
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo.lean:2 [Fano] import SIDECosmo.FanoPlane
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo.lean:3 [Fano] import SIDECosmo.FanoFormation
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoFormation.lean:2 [Fano] import SIDECosmo.FanoPlane
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoFormation.lean:6 [Fano] /-! # Bridge: Formation ↔ Fano
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoFormation.lean:9 [Fano] /-! ## Identification: Formation total = Fano points -/
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoFormation.lean:16 [Fano] /-! ## Coupling via Fano lines -/
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoFormation.lean:20 [Fano] /-- Two mechanism classes are coupled if they share a Fano line. -/
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoPlane.lean:5 [Fano] /-! # The Fano Plane PG(2, 𝔽₂)
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoPlane.lean:23 [line with Fin 7] def linesThrough (pt : Fin 7) : Nat :=
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/FanoPlane.lean:34 [line with Fin 7] theorem three_lines_per_point : ∀ pt : Fin 7, linesThrough pt = 3 := by decide
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:1 [Fano] import SIDECosmo.FanoFormation
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:11 [Fano] [[7,1,3]] code parameters n, k, d certified from the Fano / formation substrate
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:12 [Fano] already compiled in this project (`FormationPhaseSpace.lean`, `FanoPlane.lean`,
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:13 [Fano] `FanoFormation.lean`). Every proof is `by decide` or definitional — axioms
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:18 [Fano] k_classical = 4 (`xi_visible`, = 2²), the Fano incidence geometry (the Hamming
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:28 [Fano] laid along the Singer / {0,1,3}-difference-set cycle so that the Fano lines of
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:29 [Fano] `FanoPlane.lean` (`fanoLine 0 = (0,1,3)`, cyclically shifted) are exactly the
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:30 [triple] weight-3 zero-sum triples. Column i = αⁱ in 𝔽₈ ≅ 𝔽₂³, with α³ = α + 1. -/
+  SIDE-cosmo HEAD (c5cba30) SIDECosmo/SteaneExemplar.lean:65 [Fano] /-- **d ≤ 3**: a weight-3 zero-sum relation exists — the Fano line {0,1,3}
+  SIDE-cosmo v0.2 (a54e59c) SIDECosmo/FanoPlane.lean:34 [line with Fin 7] theorem three_lines_per_point : ∀ pt : Fin 7, linesThrough pt = 3 := by native_decide
+  SIDE-cubit-axis HEAD (e0a2aec) SIDECubitAxis/Basic.lean:11 [Fano] SIDE-steane-arithmetic   — vertex Hamming (3, 3, 1), Fano plane
+  SIDE-cubit-axis HEAD (e0a2aec) SIDECubitAxis/Basic.lean:159 [Fano] def steaneN : Nat := 7   -- physical qubits = Fano points
+  SIDE-cubit-axis HEAD (e0a2aec) SIDECubitAxis/Basic.lean:161 [Fano] def steaneD : Nat := 3   -- code distance = Fano line size
+  SIDE-cubit-axis HEAD (e0a2aec) SIDECubitAxis/Basic.lean:163 [Fano] /-- Theorem 6.1.  Steane physical qubits = cubit non-trivial vertices = Fano points. -/
+  SIDE-cubit-axis HEAD (e0a2aec) SIDECubitAxis/Basic.lean:166 [Fano] /-- Theorem 6.2.  Steane distance = formationN2 (transformation stages = Fano line size). -/
+  SIDE-cubit-axis HEAD (e0a2aec) SIDECubitAxis/Basic.lean:198 [Fano] * non-trivial cubit elements = 7 = Fano points = Trivium fields = Steane n
+  SIDE-dirichlet-mod-24 HEAD (597b086) SIDEDirichletMod24/Basic.lean:265 [Fano] Fano plane vertices (Steane), and matter-as-remainder. -/
+  SIDE-explicit-formula HEAD (81ae175) Zeta23/Defs.lean:28 [2-(7,3,1) design] Design (ζ-free abstract layer): nothing in this file mentions
+  SIDE-explicit-formula HEAD (81ae175) Zeta23/Tail/RankOne.lean:31 [2-(7,3,1) design] Design (avoiding Schatten-norm machinery): the trace norm of a Hermitian
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:2 [Fano] # Fano Two-Darkness — the incidence certificate
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:6 [Fano] The Fano plane on the seven programme discriminants {-3,-2,-1,2,3,6,-6},
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:13 [triple] * `point_triple_count`  — every point lies in exactly 15 of the 35 triples
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:14 [triple] * `pair_triple_count`   — every pair lies in exactly 5 of the 35 triples
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:15 [triple] * `lines_are_triples`   — the 7 lines are among the 35 triples
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:19 [triple] first and second moments of triple-sums over the 7 lines equal those over the
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:20 [triple] 28 non-line triples for ANY point values, because both depend on the values
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:28 [Fano] namespace FanoTwoDarkness
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:33 [Fano] /-- The seven Fano lines under d1·d2 ≡ d3 (mod squares):
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:35 [triple] → index triples (sorted): -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:45 [triple] /-- All 35 unordered triples of distinct points, as sorted index triples. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:46 [triple] def triples : List (Point × Point × Point) :=
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:52 [triple] /-- Membership of a point in a triple. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:60 [triple] /-- There are exactly 7 lines and 35 triples. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:61 [triple] theorem counts : lines.length = 7 ∧ triples.length = 35 := by decide
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:63 [triple] /-- Every line is one of the triples (sorted form). -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:64 [triple] theorem lines_are_triples : ∀ l ∈ lines, l ∈ triples := by decide
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:66 [2-(7,3,1) design] /-- 2-design, point regularity: every point lies on exactly 3 lines. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:70 [2-(7,3,1) design] /-- 2-design, pair balance (λ = 1): every pair of distinct points lies on
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:75 [triple] /-- Every point lies in exactly 15 of the 35 triples. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:76 [triple] theorem point_triple_count :
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:77 [triple] ∀ p : Point, (triples.filter (mem p)).length = 15 := by decide
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:79 [triple] /-- Every pair of distinct points lies in exactly 5 of the 35 triples. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:80 [triple] theorem pair_triple_count :
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:81 [triple] ∀ p q : Point, p ≠ q → (triples.filter (mem2 p q)).length = 5 := by decide
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:84 [triple] triples; a pair in 5 − 1 = 4. With 28 non-lines: 12/28 = 3/7 and
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:94 [Fano,triple] triple-sums over the 7 Fano lines equal those over the 28 non-line triples
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:108 [Fano] two-darkness theorem: no second-order statistic separates the Fano
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:109 [triple] lines from the non-line triples. -/
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:110 [secondMoment] theorem second_moment (x0 x1 x2 x3 x4 x5 x6 : Int) :
+  SIDE-fano-darkness HEAD (0f6ce5b) FanoTwoDarkness.lean:116 [Fano] end FanoTwoDarkness
+  SIDE-global-section HEAD (2e43315) Core/CoherenceShadow.lean:12 [triple] the triple 900 = 4·9·25), with the Bézout data computed longhand in the
+  SIDE-global-section HEAD (2e43315) Core/GroupRingGlue.lean:13 [triple] The group-ring ℤ[ℤ/3] as integer triples (coefficients of [0], [1], [2]) with its
+  SIDE-global-section HEAD (2e43315) Interfaces/LocalLimit.lean:4 [2-(7,3,1) design] cecd0c4d56). DESIGN: the abstract Hilbert-space content is PROVED here (no sorry);
+  SIDE-global-section HEAD (2e43315) Interfaces/PadicFourier.lean:7 [2-(7,3,1) design] DESIGN: the character is a PARAMETER carrying exactly the two properties FILE A
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:5 [Fano] # FanoSteane: The Arithmetic-to-Quantum Chain
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:7 [Fano] Complete pipeline from {2,3}-smooth pairs through Fano plane
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:73 [Fano] -- SECTION 2: Fano plane incidence
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:76 [triple,line with Fin 7] /-- The 7 lines of PG(2, 𝔽₂), each a triple of points (Fin 7). -/
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:83 [line with Fin 7] def lines_through (p : Fin 7) : Nat :=
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:87 [line with Fin 7] theorem fano_incidence : ∀ p : Fin 7, lines_through p = 3 := by
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:146 [Fano] -- Fano: each point on exactly 3 lines
+  SIDE-kernel HEAD (0256e9e) Bridge/FanoSteane.lean:147 [line with Fin 7] (∀ p : Fin 7, lines_through p = 3) ∧
+  SIDE-kernel HEAD (0256e9e) Kernel/Cascade/InvarianceBarrier.lean:21 [2-(7,3,1) design] of the kernel by design.
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:28 [Fano] T.5  The seven discriminants carry Fano plane (PG(2,𝔽₂)) incidence
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:406 [Fano,triple] /-- The 7 Fano lines (triples whose F2-vectors sum to zero). -/
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:407 [Fano] inductive FanoLine where
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:411 [Fano] /-- T.5a: There are exactly 7 Fano lines. -/
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:412 [Fano] theorem fano_lines_seven : Fintype.card FanoLine = 7 := by decide
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:428 [Fano] /-- T.5c: Fano parameters (7, 7, 3). -/
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:431 [Fano] Fintype.card FanoLine = 7 ∧
+  SIDE-kernel HEAD (0256e9e) Kernel/Trivium.lean:466 [Fano] ∧ Fintype.card FanoLine = 7
+  SIDE-kernel HEAD (0256e9e) Kernel/Voice7Witness.lean:35 [triple] TRIPLE-ROLE / CROSS-LINK. The single Epstein object here serves three
+  SIDE-kernel HEAD (0256e9e) Kernel/Voice7Witness.lean:112 [triple] discriminator and with W-6-EXT-A (triple-role). -/
+  SIDE-lv-conservation HEAD (2f71068) SIDELvConservation/AxiomCheck_v0_10_0.lean:15 [2-(7,3,1) design] --  the one intended sorry; excluded here by design.)
+  SIDE-meta HEAD (6bb7b23) SIDEMeta/Meta/Kappa.lean:86 [Fano] across the corpus (Trivium fields, Fano plane, Steane code, Klein
+  SIDE-meta HEAD (6bb7b23) SIDEMeta/Meta/MechanismClasses.lean:76 [Fano] classes, Trivium discriminants, Fano points, Steane qubits, and 𝕋₇
+  SIDE-meta HEAD (6bb7b23) SIDEMeta/Meta/MechanismClasses.lean:78 [Fano] (Trivium fields, Fano points, Steane qubits, 𝕋₇ strips) does form a
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:19 [Fano] (3) The seven points of the Fano plane PG(2, 𝔽₂).
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:23 [Fano] The five sevens are one structural seven, mediated by the Fano plane
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:29 [Fano] • Trivium discriminants ↔ Fano points (PG(2, 𝔽₂))  — TECHNE.Core T.39
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:30 [Fano] • Fano plane ↔ Steane code [[7, 1, 3]]              — TECHNE.Core T.40
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:31 [Fano] • Fano plane ↔ 𝕋₇ Möbius strips                     — Klein topology
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:156 [Fano] Together with TECHNE.Core T.39 (Trivium discriminants ↔ Fano points) and
+  SIDE-meta v0.1 (e262713) SIDEMeta/Meta/ConvergentSeven.lean:157 [Fano] T.40 (Fano ↔ Steane), this closes the four-fold convergent-seven on the
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:43 [triple] def PairedElement.toTriple : PairedElement → Triple
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:52 [triple] Configs: non-zero Triples (7 elements).
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:54 [triple] `generates p c` holds iff `c.val = p.toTriple`. -/
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:56 [triple] Config := { t : Triple // inSubstrate t = true }
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:58 [triple] generates p c := c.val = p.toTriple
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:70 [triple] (1) `have hp' : diagonal = p.toTriple := hp` — definitional unfolding
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:74 [triple] Triple inequality decidable to False -/
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Spiraling.lean:78 [triple] have hp' : diagonal = p.toTriple := hp
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:11 [triple] Triple, inSubstrate, hammingWeight, antipode, diagonal,
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:29 [triple] structure Triple where
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:35 [triple] def zero : Triple := ⟨false, false, false⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:36 [triple] def diagonal : Triple := ⟨true, true, true⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:37 [triple] def inSubstrate (t : Triple) : Bool := t.x || t.y || t.z
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:39 [triple] def hammingWeight (t : Triple) : Nat :=
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:42 [triple] def antipode (t : Triple) : Triple := ⟨!t.x, !t.y, !t.z⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:44 [triple] def e1 : Triple := ⟨true, false, false⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:45 [triple] def e2 : Triple := ⟨false, true, false⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:46 [triple] def e3 : Triple := ⟨false, false, true⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:47 [triple] def f1 : Triple := ⟨false, true, true⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:48 [triple] def f2 : Triple := ⟨true, false, true⟩
+  SIDE-orchestrator HEAD (5d0a341) SIDEOrchestrator/Vendored.lean:49 [triple] def f3 : Triple := ⟨true, true, false⟩
+  SIDE-orchestrator v0.1 (f0fcc40) SIDEOrchestrator/Spiraling.lean:75 [triple] -- hp : diagonalConfig.val = p.toTriple
+  SIDE-orchestrator v0.1 (f0fcc40) SIDEOrchestrator/Spiraling.lean:76 [triple] -- after `cases p`, p.toTriple becomes a specific Triple, none of which
+  SIDE-orchestrator v0.1 (f0fcc40) SIDEOrchestrator/Spiraling.lean:79 [triple] simp_all [diagonalConfig, PairedElement.toTriple, diagonal,
+  SIDE-orchestrator v0.1 (f0fcc40) SIDEOrchestrator/Spiraling.lean:94 [triple] primitiveAccessible Z2_3_Substrate ⟨p.toTriple, by
+  SIDE-orchestrator v0.1 (f0fcc40) SIDEOrchestrator/Spiraling.lean:95 [triple] cases p <;> simp [PairedElement.toTriple, inSubstrate, e1, e2, e3, f1, f2, f3]⟩ := by
+  SIDE-quaternionic-dark-sector HEAD (e860142) SIDEQuaternionicDarkSector/Basic.lean:11 [Fano] - Non-zero count is 7 (the Fano plane PG(2, 𝔽₂))
+  SIDE-quaternionic-dark-sector HEAD (e860142) SIDEQuaternionicDarkSector/Basic.lean:17 [Fano] - 77 = 7 × 11 (Fano count × necessity ceiling)
+  SIDE-quaternionic-dark-sector HEAD (e860142) SIDEQuaternionicDarkSector/Basic.lean:94 [Fano] /-- 77 factors as Fano count (7) times necessity ceiling (11). -/
+  SIDE-quaternionic-dark-sector HEAD (e860142) SIDEQuaternionicDarkSector/Basic.lean:159 [Fano] The three weight strata sum to seven (the Fano count) and to eight
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/Basic.lean:56 [Fano] /-- Theorem 1.1.  Formation total = 7 (Trivium count, Fano points). -/
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:4 [Fano] The de-alignment condition for Fano-structured modules.
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:6 [Fano] The seven lines of the Fano plane are the minimum-weight logical
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:13 [2-(7,3,1) design] This module states the design condition — each line's three positions
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:31 [triple] /-- A line is an unordered triple of positions, carried as three indices. -/
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:38 [2-(7,3,1) design] block of a 2-(7,3,1) design satisfies. -/
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:82 [2-(7,3,1) design] /-- The converse direction, as the design diagnostic: if two positions of a
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:93 [Fano] /-! ### Decidability over the Fano incidence structure
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:98 [Fano] /-- The seven lines of the Fano plane on positions `0..6`, in the standard
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:100 [line with Fin 7] def fanoLines : Fin 7 → Line (Fin 7) := fun i =>
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:125 [line with Fin 7] def onLine (L : Line (Fin 7)) (p : Fin 7) : Bool :=
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:135 [Fano] /-- **`fanoLines` really is the Fano plane.** Every pair of distinct
+  SIDE-structural-error-correction HEAD (6a4f482) SIDEStructuralErrorCorrection/DeAlignment.lean:136 [2-(7,3,1) design] positions lies on exactly one line — the 2-(7,3,1) property, verified
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster.lean:5 [Fano] canonical labelings: Trivium quadratic discriminants, Fano plane
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster.lean:11 [Fano] import SIDESubstrateCluster.FanoLabeling
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:14 [Fano] Trivium quadratic discriminants, Fano plane points, Steane code basis
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:22 [Fano] Trivium / Fano / Steane / 𝕋₇).
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:26 [Fano] • `FanoLabeling.lean`    — substrate ↔ Fano points
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:39 [Fano] import SIDESubstrateCluster.FanoLabeling
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:47 [Fano] of the {2,3}-cluster: Trivium discriminants, Fano points, Steane
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:52 [Fano] (∀ s : Substrate, s.toFano.weight     = s.weight) ∧
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:63 [Fano] composing through substrate.  For example, Trivium ↔ Fano via
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:64 [Fano] `d.toSubstrate.toFano` and `f.toSubstrate.toTrivium`.  The
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:67 [Fano] /-- Direct bijection Trivium ↔ Fano via substrate. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:68 [Fano] def TriviumDisc.toFano (d : TriviumDisc) : FanoPoint :=
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:69 [Fano] d.toSubstrate.toFano
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:71 [Fano] /-- Direct bijection Fano ↔ Trivium via substrate. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:72 [Fano] def FanoPoint.toTrivium (f : FanoPoint) : TriviumDisc :=
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:76 [Fano] d.toFano.toTrivium = d := by
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:79 [Fano] theorem fano_to_trivium_right_inv (f : FanoPoint) :
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Cluster.lean:80 [Fano] f.toTrivium.toFano = f := by
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:8 [Fano] SIDESubstrateCluster/FanoLabeling.lean
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:10 [Fano] # Fano Labeling of the Substrate
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:13 [Fano] ((ℤ/2)³ \ {0}) and the points of the Fano plane PG(2, 𝔽₂), per
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:18 [Fano] Each Fano point [x : y : z] over 𝔽₂ has exactly one nonzero
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:20 [Fano] seven Fano points are:
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:26 [Fano] The bijection to substrate identifies each Fano point with the
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:31 [Fano] • Canonical bijection `Substrate.toFano : Substrate → FanoPoint`
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:32 [Fano] • Inverse `FanoPoint.toSubstrate`
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:43 [Fano] /-! ## The Fano plane points -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:45 [Fano] /-- Points of the Fano plane PG(2, 𝔽₂), indexed by their unique
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:47 [Fano] inductive FanoPoint where
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:57 [Fano] /-- Enumeration of Fano points in canonical (weight-ascending) order. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:58 [Fano] def FanoPoint.all : List FanoPoint :=
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:61 [Fano] /-- The Fano plane point cardinality. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:62 [Fano] theorem fano_count : FanoPoint.all.length = 7 := by rfl
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:66 [Fano] /-- Canonical map from substrate to Fano points by matching bit pattern. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:67 [Fano] def Substrate.toFano : Substrate → FanoPoint
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:77 [Fano] def FanoPoint.toSubstrate : FanoPoint → Substrate
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:89 [Fano] s.toFano.toSubstrate = s := by
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:92 [Fano] theorem fano_to_substrate_right_inv (f : FanoPoint) :
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:93 [Fano] f.toSubstrate.toFano = f := by
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:98 [Fano] /-- Hamming weight on Fano points by projective bit pattern. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:99 [Fano] def FanoPoint.weight : FanoPoint → Nat
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:105 [Fano] s.toFano.weight = s.weight := by
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:108 [Fano] theorem weight_preserved_fano_to_substrate (f : FanoPoint) :
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:112 [Fano] /-- **Test 1 passes for the substrate–Fano pair.** -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:114 [Fano] (∀ s : Substrate, s.toFano.weight = s.weight) ∧
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/FanoLabeling.lean:115 [Fano] (∀ f : FanoPoint, f.toSubstrate.weight = f.weight) :=
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/MuClassifier.lean:27 [triple] /-- An S3-invariant assignment is a function of weight: a triple
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:16 [triple] structure Triple where
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:22 [triple] def zero : Triple := ⟨false, false, false⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:23 [triple] def diagonal : Triple := ⟨true, true, true⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:25 [triple] def inSubstrate (t : Triple) : Bool := t.x || t.y || t.z
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:27 [triple] def hammingWeight (t : Triple) : Nat :=
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:30 [triple] def antipode (t : Triple) : Triple := ⟨!t.x, !t.y, !t.z⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:34 [triple] theorem antipode_involutive (t : Triple) : antipode (antipode t) = t := by
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:43 [triple] def e1 : Triple := ⟨true, false, false⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:44 [triple] def e2 : Triple := ⟨false, true, false⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:45 [triple] def e3 : Triple := ⟨false, false, true⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:46 [triple] def f1 : Triple := ⟨false, true, true⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:47 [triple] def f2 : Triple := ⟨true, false, true⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:48 [triple] def f3 : Triple := ⟨true, true, false⟩
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/PairingObstruction.lean:72 [triple] def unpairedElements : List Triple := [diagonal]
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Substrate.lean:31 [Fano] • Fano plane PG(2, 𝔽₂) points
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/Substrate.lean:80 [Fano] labeling (Trivium / Fano / Steane / 𝕋₇) realizes this substrate. -/
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/T7Labeling.lean:14 [Fano] 𝕋₇, per klein_trivium.pdf (Seven Möbius Strips on a Fano Frame).
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/TriviumLabeling.lean:20 [triple] to a subset of these generators, read as a binary triple:
+  SIDE-substrate-cluster HEAD (2e76426) SIDESubstrateCluster/TriviumLabeling.lean:83 [triple] the binary-triple encoding of generators {−1, 2, 3}. -/
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:9 [Fano] - Fano plane PG(2, 𝔽₂): 7 points, 7 lines, 3 points per line,
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:12 [Fano] - 7 Möbius strips on the Fano frame (non-orientable identifications)
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:16 [Fano] - |GL(3, 𝔽₂)| = 168 = 24 × 7 = (Trivium modulus) × (Fano count)
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:37 [Fano] /-! ## §1. Fano Plane Combinatorics PG(2, 𝔽₂) -/
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:68 [Fano] /-- Non-zero elements of (ℤ/2)³ = Fano points. -/
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:75 [Fano] /-! ## §3. Seven Möbius Strips on the Fano Frame -/
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:116 [Fano] /-! ## §6. Fano Collinearity Spectrum
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:118 [Fano] The Fano collinearity graph (point-to-point, adjacent iff on common line)
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:136 [Fano] /-- 77 = (Fano count) × (necessity ceiling). -/
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:193 [Fano] "Matched-arc search at the Fano-predicted angular separations " ++
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:214 [Fano] The route #1 falsifier ("Matched-arc search at the Fano-predicted angular
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:223 [Fano] at the common Fano scale): **EXECUTED — Outcome D (marginal-null), global
+  SIDE-t7-topology-cmb HEAD (936cd65) SIDET7TopologyCMB/Basic.lean:228 [Fano] (order 168) is transitive on the Fano lines, so the seven distinct scales are not
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:168 [triple] The seven non-zero triples (a, b, c) ∈ (ℤ/2)³ are:
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:175 [triple] /-- The (ℤ/2)³ exponent triple for each discriminant. -/
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:176 [triple] def QuadraticDiscriminant.toExponentTriple :
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:186 [triple] /-- Recover the discriminant from its exponent triple. -/
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:187 [triple] def discriminantFromExponentTriple :
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:200 [triple] theorem exponent_triple_nonzero (d : QuadraticDiscriminant) :
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:201 [triple] d.toExponentTriple ≠ (0, 0, 0) := by
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:204 [triple] /-- The exponent-triple encoding is injective on QuadraticDiscriminant. -/
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:205 [triple] theorem exponent_triple_injective :
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:206 [triple] Function.Injective QuadraticDiscriminant.toExponentTriple := by
+  SIDE-trivium HEAD (1aac3a9) Trivium/Bijection.lean:208 [triple] cases d1 <;> cases d2 <;> simp_all [QuadraticDiscriminant.toExponentTriple]
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Compose.lean:72 [triple] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/GeneticCode.lean:6 [triple] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/GeneticCode.lean:139 [triple] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/Polytopes4D.lean:71 [triple] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:6 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:9 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:29 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:139 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:140 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:141 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/SteaneCode.lean:162 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/YangMillsCode.lean:9 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/Instance/YangMillsCode.lean:136 [Fano] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/SIDE.lean:36 [2-(7,3,1) design] (private: module and shape only)
+  TECHNE-Core HEAD (29208f6) TECHNE/Core/UniversalDarkness.lean:36 [2-(7,3,1) design] (private: module and shape only)

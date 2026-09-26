@@ -1,0 +1,90 @@
+b545 -- THE VANILLA PROBES (READINGS (10) AND (12)): each file at its pin fed to `lean +leanprover/lean4:v4.29.0-rc8 --stdin`
+
+### SIDE-li-map 73cee42 (73cee42ad65d264584bd45ee07ea8daf9dbf2313) LiLinearMap.lean ; its toolchain file: leanprover/lean4:v4.29.0-rc8 ; exit 0
+  'LiLinearMap.lam_add' depends on axioms: [propext, Quot.sound]
+  'LiLinearMap.lam_one' depends on axioms: [propext, Quot.sound]
+  LiLinearMap.lam_add : ∀ (η η' : Nat → Int) (n : Nat),
+    LiLinearMap.lam (fun j => η j + η' j) n = LiLinearMap.lam η n + LiLinearMap.lam η' n
+  LiLinearMap.lam_one : ∀ (η : Nat → Int), LiLinearMap.lam η 1 = η 1
+
+### SIDE-fano-darkness 0f6ce5b (0f6ce5b131fe4e5c350989c2e9fb57cead09a7fb) FanoTwoDarkness.lean ; its toolchain file: leanprover/lean4:v4.29.0-rc8 ; exit 0
+  'FanoTwoDarkness.second_moment' depends on axioms: [propext, Quot.sound]
+  'FanoTwoDarkness.first_moment' depends on axioms: [propext, Quot.sound]
+  'FanoTwoDarkness.point_line_count' depends on axioms: [propext]
+  'FanoTwoDarkness.pair_line_count' depends on axioms: [propext]
+  'FanoTwoDarkness.point_triple_count' does not depend on any axioms
+  'FanoTwoDarkness.pair_triple_count' does not depend on any axioms
+  'FanoTwoDarkness.frequency_match' does not depend on any axioms
+  'FanoTwoDarkness.counts' depends on axioms: [propext]
+  'FanoTwoDarkness.lines_are_triples' depends on axioms: [propext]
+  FanoTwoDarkness.second_moment : ∀ (x0 x1 x2 x3 x4 x5 x6 : Int),
+    4 *
+        (FanoTwoDarkness.sq (x1 + x2 + x3) + FanoTwoDarkness.sq (x0 + x2 + x4) + FanoTwoDarkness.sq (x2 + x5 + x6) +
+                FanoTwoDarkness.sq (x0 + x1 + x5) +
+              FanoTwoDarkness.sq (x1 + x4 + x6) +
+            FanoTwoDarkness.sq (x0 + x3 + x6) +
+          FanoTwoDarkness.sq (x3 + x4 + x5)) =
+      FanoTwoDarkness.sq (x0 + x1 + x2) + FanoTwoDarkness.sq (x0 + x1 + x3) + FanoTwoDarkness.sq (x0 + x1 + x4) +
+                                                        FanoTwoDarkness.sq (x0 + x1 + x6) +
+                                                      FanoTwoDarkness.sq (x0 + x2 + x3) +
+                                                    FanoTwoDarkness.sq (x0 + x2 + x5) +
+                                                  FanoTwoDarkness.sq (x0 + x2 + x6) +
+                                                FanoTwoDarkness.sq (x0 + x3 + x4) +
+                                              FanoTwoDarkness.sq (x0 + x3 + x5) +
+                                            FanoTwoDarkness.sq (x0 + x4 + x5) +
+                                          FanoTwoDarkness.sq (x0 + x4 + x6) +
+                                        FanoTwoDarkness.sq (x0 + x5 + x6) +
+                                      FanoTwoDarkness.sq (x1 + x2 + x4) +
+                                    FanoTwoDarkness.sq (x1 + x2 + x5) +
+                                  FanoTwoDarkness.sq (x1 + x2 + x6) +
+                                FanoTwoDarkness.sq (x1 + x3 + x4) +
+                              FanoTwoDarkness.sq (x1 + x3 + x5) +
+                            FanoTwoDarkness.sq (x1 + x3 + x6) +
+                          FanoTwoDarkness.sq (x1 + x4 + x5) +
+                        FanoTwoDarkness.sq (x1 + x5 + x6) +
+                      FanoTwoDarkness.sq (x2 + x3 + x4) +
+                    FanoTwoDarkness.sq (x2 + x3 + x5) +
+                  FanoTwoDarkness.sq (x2 + x3 + x6) +
+                FanoTwoDarkness.sq (x2 + x4 + x5) +
+              FanoTwoDarkness.sq (x2 + x4 + x6) +
+            FanoTwoDarkness.sq (x3 + x4 + x6) +
+          FanoTwoDarkness.sq (x3 + x5 + x6) +
+        FanoTwoDarkness.sq (x4 + x5 + x6)
+  FanoTwoDarkness.first_moment : ∀ (x0 x1 x2 x3 x4 x5 x6 : Int),
+    4 *
+        (x1 + x2 + x3 + (x0 + x2 + x4) + (x2 + x5 + x6) + (x0 + x1 + x5) + (x1 + x4 + x6) + (x0 + x3 + x6) +
+          (x3 + x4 + x5)) =
+      x0 + x1 + x2 + (x0 + x1 + x3) + (x0 + x1 + x4) + (x0 + x1 + x6) + (x0 + x2 + x3) + (x0 + x2 + x5) + (x0 + x2 + x6) +
+                                                (x0 + x3 + x4) +
+                                              (x0 + x3 + x5) +
+                                            (x0 + x4 + x5) +
+                                          (x0 + x4 + x6) +
+                                        (x0 + x5 + x6) +
+                                      (x1 + x2 + x4) +
+                                    (x1 + x2 + x5) +
+                                  (x1 + x2 + x6) +
+                                (x1 + x3 + x4) +
+                              (x1 + x3 + x5) +
+                            (x1 + x3 + x6) +
+                          (x1 + x4 + x5) +
+                        (x1 + x5 + x6) +
+                      (x2 + x3 + x4) +
+                    (x2 + x3 + x5) +
+                  (x2 + x3 + x6) +
+                (x2 + x4 + x5) +
+              (x2 + x4 + x6) +
+            (x3 + x4 + x6) +
+          (x3 + x5 + x6) +
+        (x4 + x5 + x6)
+  FanoTwoDarkness.point_line_count : ∀ (p : FanoTwoDarkness.Point),
+    (List.filter (FanoTwoDarkness.mem p) FanoTwoDarkness.lines).length = 3
+  FanoTwoDarkness.pair_line_count : ∀ (p q : FanoTwoDarkness.Point),
+    p ≠ q → (List.filter (FanoTwoDarkness.mem2 p q) FanoTwoDarkness.lines).length = 1
+  FanoTwoDarkness.point_triple_count : ∀ (p : FanoTwoDarkness.Point),
+    (List.filter (FanoTwoDarkness.mem p) FanoTwoDarkness.triples).length = 15
+  FanoTwoDarkness.pair_triple_count : ∀ (p q : FanoTwoDarkness.Point),
+    p ≠ q → (List.filter (FanoTwoDarkness.mem2 p q) FanoTwoDarkness.triples).length = 5
+  FanoTwoDarkness.frequency_match : 3 * 28 = 12 * 7 ∧ 1 * 28 = 4 * 7 ∧ 15 * 7 = 3 * 35 ∧ 5 * 7 = 1 * 35
+  FanoTwoDarkness.counts : FanoTwoDarkness.lines.length = 7 ∧ FanoTwoDarkness.triples.length = 35
+  FanoTwoDarkness.lines_are_triples : ∀ (l : FanoTwoDarkness.Point × FanoTwoDarkness.Point × FanoTwoDarkness.Point),
+    l ∈ FanoTwoDarkness.lines → l ∈ FanoTwoDarkness.triples

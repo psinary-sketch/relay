@@ -1,0 +1,1122 @@
+b545 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### BALANCE_AND_POSITIVITY.md : 664 lines ; md5 3d0654eb860f24bb63fd13a42a624c3c ; headings:
+  :1 # Balance and Positivity
+  :13 ## The Euler Class in the Weil Explicit Formula
+  :29 ## I. The alignment
+  :53 ## II. Balance and positivity are different strengths
+  :57 ### ERA ANNOTATION (2026-08-28, b235, support-voice) — the sign-arrangement repair, applied
+  :76 ## III. The channel bench
+  :103 ## IV. The family run
+  :113 ## V. Fano two-darkness
+  :127 ## VI. What this note does and does not establish
+  :142 # Appendix B — The Research Bench
+  :148 ## B.1 Instrument — the Li linear map (SIDE-li-map, pin `73cee42`)
+  :192 ## B.2 Instrument — the Mellin factorization and its fixed witness (SIDE-lv-conservation, pin `c8e3d31` = tag `v0.2.0`)
+  :260 ## B.3 Instrument — the seven per-class constraints (monograph Ch. 15 §15.2), as objects to instantiate
+  :276 ## B.4 Instrument — the Li channel computation, extended past n = 60
+  :339 ## B.5 Bench pins, in one block
+  :350 ## B.6 What this bench does NOT provide
+  :365 # Appendix C — Bench extension, kernel discharge, and the literature verification (2026-07-13, second sitting)
+  :367 ## C.1 The couplings, in Lean — C₁ and C₂ discharged at Φ
+  :397 ## C.2 Bench extension to n = 300 — **λ_Z goes negative**
+  :416 ## C.3 Literature verification — **what is classical, and what the channel form adds**
+  :437 ## C.4 What this sitting did not do
+  :445 ## Appendix C — Addendum (2026-07-13, third sitting): citations sharpened, and the detection threshold
+  :447 ### C.5 Citation corrections to C.3 — with their verification status stated
+  :457 ### C.6 The detection threshold — why no measurement on this bench can bear on the Hypothesis
+  :473 ## Appendix C — Verification upgrade (2026-07-13, fourth sitting): the three flagged citations, read at source
+  :477 ### C.7.1 The channel split is Voros §4's S_n / S̄_n, per Bombieri–Lagarias Theorem 2 — **VERIFIED**
+  :489 ### C.7.2 Bombieri–Lagarias Corollary 1(c) — **VERIFIED VIA VOROS'S CITATION; PRIMARY PAYWALLED**
+  :498 ### C.7.3 The detection threshold — **VERIFIED**, with one extraction caveat stated
+  :516 ### C.7.4 The record, now standing on checks actually run
+  :532 # Appendix D — The function-field face at the fixed witness
+  :536 ## D.1 The classical anatomy — all of it classical
+  :546 ## D.2 The C₅ input/output split, and the fifth register
+  :561 ## D.3 The honesty labels, drawn exactly
+  :567 ## D.4 Cross-references
+  :578 # Appendix E — C₇ split, and the price of the Hadamard input (2026-07-13, seventh sitting)
+  :580 ## E.1 The Mathlib hunt, and its clean miss
+  :593 ## E.2 The split (SIDE-lv-conservation — C₇-entirety at `v0.3.0` = `e26a9fc`; **C₇-order PROVED at `v0.4.0`** = `0d2d74c`)
+  :604 ## E.3 The coupling ledger (**`v0.4.0`** = `0d2d74c`)
+  :624 ## Version History
+  :650 <!-- b324 cross-reference -->
+
+### phase1.5/spectral/BALANCE_AND_POSITIVITY.md -- the Role paragraph -- the purpose statement, printed before any edit
+  :21 **Role.** This record *presents* the **sign core** of the proof — the balance→positivity distance, the one place where the catalogue's certificate for the Euler class (*balance*: p^(−σ) = p^(−(1−σ)) ⟺ σ = 1/2) falls strictly short of what the Weil/Li explicit formula requires (*positivity* of the assembled prime sum). That distance **is** the open clause: RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n (§II, §III). The complete argument is the monograph *A Place To Stand* (concept DOI 10.5281/zenodo.19675355); the clause is carried openly as open (§27.3, the totality/positivity register).
+  :22 
+  :23 *Kernel currency (2026-07-24 deposit): SIDE-lv-conservation has advanced to v0.10.0 = `93c27ec`, version DOI 10.5281/zenodo.21539068 (concept 21433177) — the certificates this paper rests on (`blTerm_nonneg_of_onLine`, `partialPositivity_finiteRange` with the Voros N₀(T) ≈ 2T² cutoff, `RegisterPentagon`, `h1_complete_at_Phi`, `C7_order_at_Phi`, `C7_finite_type_false`) hold through v0.10.0 with profiles unmoved; the dated pins in the version notes above are landing-historical. The sign layer's compiled discriminator `Voice7Witness.hadamard_does_not_enforce_online` (SIDE-kernel `691295b`, axiom-
+  :24 
+  :25 **Sign-layer map.** The clause this paper localizes has its state-of-the-field survey in `PATHS_TO_THE_CRITICAL_LINE §ANNEX B` — the proven partial paths (A1–A10), the obstructions (B1–B5), and the **B3 boundary**: Λ(n) ≥ 0 reaches the σ = 1 edge (de la Vallée Poussin), never the critical-line centre. This paper supplies the *localization*; §ANNEX B supplies the *survey*. The clause's ingredient is two-altitude (`ArithmeticFunction.vonMangoldt_nonneg` / the `LiLinearMap.lam_nonneg_of_nonneg` shadow, SIDE-li-map `b515e6b`).
+  :26 
+  :27 ---
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md -- the map`s BALPOS row, its keystone set, and its appendix
+  :16 ## The keystone set (14 graded Correspondence tables)
+  :17 
+  :18 MONO (`day1/A_Place_to_Stand` §25.8) · SIMP (`SIMPLICITY_OF_RIEMANN_ZEROS`) · GRH (`GRH_CASCADE`) · FOUND (`FOUNDATIONS_OF_THE_SIDE_PROGRAMME`) · SURR (`THE_UNCONDITIONAL_SURROUND`) · LIC (`EXHAUSTIVENESS_LICENSE`) · RCURVE (`R_CURVE_CRITERION`) · PATHS (`PATHS_TO_THE_CRITICAL_LINE`) · ENGINE (`EXCLUSION_ENGINE`) · DOM (`DOMAIN_OSTROWSKI_UNIVERSALITY`) · IFACE (`INTERFACE_CONSERVATION`) · SEVEN (`SEVEN_DISCRIMINANTS`) · CNA (`CLASS_NUMBER_ANOMALY`) · BALPOS (`BALANCE_AND_POSITIVITY`). Day-1 companions name terminals in prose; the §25.8 concordance is their carrier.
+  :24 | **1** | `h1_complete_at_Phi` (the surround; goal ⇐ h1 ∧ h2, only h2 open) | lv v0.6.0 `c80bdc2` | **DERIVES** | SURR · SIMP · RCURVE · PATHS · DOM · BALPOS — **6** |
+  :25 | **1** | `RegisterPentagon` (+ R1–R5 faces) | v0.7.0 `2d86182` | **STRUCTURE** (R3 edge NOT-COMPILED) | SIMP · SURR · PATHS · DOM · IFACE · BALPOS — **6** |
+  :41 **All fourteen premises are named explicitly at every citation site — none is a promissory note.** The master premise **`h2`** (= realization-totality / `covers_all` / `ConservationHypothesis`, gathered as five registers in MONO §27.3) is named at MONO · SURR · RCURVE · PATHS · DOM · SIMP · FOUND · GRH · BALPOS — explicit everywhere. The others: `ConservationHypothesis` (Route 3 antecedent, existential since W-7) · `I.is_universal` (silence) · Li's criterion (R4→RH, not in Mathlib) · the derivative-h2 = the simplicity conjecture · `ExplicitFormulaDecomp` · `TailBoundPremise` · `VerifiedZerosTo
+  :56 | **FOUND · DOM · GRH · BALPOS** | **DOWNSTREAM-OF-H2** | RH/GRH terminals compose under h2, named openly; the DERIVES rows are the surround, RH/GRH the downstream edge |
+  :103 | 1 | `h1_complete_at_Phi` | lv v0.6.0 `c80bdc2` | DERIVES | **T0** | DERIVES at lv v0.6.0 `c80bdc2`; its statement (the eight couplings at `Phi`) unfolds to facts about Mathlib`s `evenKernel` and `mellin`, no premise; T0 by criterion, NOT in (R149)(1)`s list. The map`s claim cell "only h2 open" is T2: it rests on lv`s h2, FALSE-AS-STATED at re s ≤ 1 | lv v0.6.0 `CouplingsAtPhi.lean:417` docstring; SURR Correspondence `:184` |
+  :104 | 1 | `RegisterPentagon` | v0.7.0 `2d86182` | STRUCTURE (R3 edge NOT-COMPILED) | **T2** | STRUCTURE at lv v0.7.0 `2d86182`; its faces include R1 FALSE-AS-STATED, R5-output TRUE-AS-STATED and `goalState_sevenClasses_of_h2`, vacuous on the strip (b538) | SURR Correspondence `:185` |
+  :105 | 1 | `conservation_of_spectra` | kernel v1.2 `b1407b2` | DERIVES | **T2** | DERIVES of `∀ s : ℤ, (1 : ℚ) ^ s = 1` (`one_zpow`) at SIDE-kernel v1.2 -- a STIPULATION: the conservation reading is carried by the namespace (SURR Correspondence `:178`) | SURR Correspondence `:178` |
+  :106 | 4 | `SIDEKernel.formation` | v1.2 | DERIVES (axiom-free) | **T2** | `2 + 3 + 2 + 0 = 7` by `decide` at SIDE-kernel v1.2 `Kernel/Core.lean:53` -- arithmetic alone; the classification is carried by the identifier | SURR Correspondence `:180` (axiom-free) |
+  :107 | 4 | `C7_finite_type_false` | v0.5.1 `bc4751e` | DERIVES | **T0** | DERIVES at lv v0.5.1 `bc4751e`: `¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C * exp (A * ‖s‖)` -- Mathlib`s object, no premise; T0 by criterion, NOT in (R149)(1)`s list | SURR Correspondence `:189` |
+  :108 | 4 | `partialPositivity_finiteRange` | v0.8.0 `6efa9e5` | INTERFACES (3 named: VerifiedZerosTo · ExplicitFormulaDecomp · TailBound) | **T4** | INTERFACES at lv v0.8.0 `6efa9e5` on `VerifiedZerosTo T` (numerical), `ExplicitFormulaDecomp` and `TailBoundPremise` (classical, Mathlib-absent, not compiled); none is T0 or h2_sign, so the weakest link is a premise with no terminal (T1 if the author counts named classical premises as "named and open") | SURR Correspondence `:187` |
+  :109 | 4 | `blTerm_nonneg_of_onLine` | v0.8.0 `6efa9e5` | DERIVES | **T0** | DERIVES at lv v0.8.0 `6efa9e5`: for a zero of Mathlib`s `riemannZeta` with re = 1/2, `0 ≤ (1 - (1 - 1/ρ)^n).re` -- Mathlib`s objects, no premise; T0 by criterion, NOT in (R149)(1)`s list | SURR Correspondence `:186` |
+  :126 **What `h1_complete_at_Phi` certifies after b538.** That Mathlib`s theta-kernel function `Phi = (evenKernel 0 − 1)/2` satisfies the eight coupling facts of Ch. 15 -- realness, Mellin nonvanishing on re s > 1, theta inversion, the modular laws, the heat trace of {n²}, holomorphy, and the entire order-≤1 completion. It certifies nothing about zeros in the strip: the witness`s Mellin integral vanishes at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`), so h1 ∧ h2 at Phi holds at no s of the strip, and the ledger`s h1 is complete at a witness that witnesses nothing there.
+  :134 **The RH-anchor, `(R150)`(2).** The anchor is the subset of T0 that bears on where zeta`s zeros are: **`h2_sign_iff_rh`** (SIDE-explicit-formula v0.2 = `5c72cad`), **ranked here at the head of the hub terminals**; then `ch_iff_rh`; the register census theorems `not_register1`, `mellin_Phi_eq_zero_of_re_le_one`, `lvh2_corrected_iff`, `register5_output_holds`; `b321_identity`; `not_f4_needs`. T0 is a tier -- a theorem stated against Mathlib`s own objects, standard three, no premise, statement read -- and the anchor is a subset of it; `(R149)`(1) conflated the two, and b539`s (N1) was refuted by 
+  :144 **T1 split, `(R150)`(3).** `partialPositivity_finiteRange` is **T1-lit**, not T4: it INTERFACES on literature theorems not yet compiled (Bombieri–Lagarias`s decomposition `ExplicitFormulaDecomp`, Voros`s tail bound `TailBoundPremise`) and on the numerical `VerifiedZerosTo T`; it becomes T0 when they compile and nothing else changes. T4 is for a claim with no terminal at all. No ranked terminal is T1-open. `ConservationBridge.riemann_hypothesis` stays **T2**: its premise is RH restated by the rewording lemma `ch_iff_rh`, so it is ENCODES-CONCLUSION per `(R149)`(2)`s own list (the reading is fla
+  :145 
+  :146 **Corrected counts over the twelve ranked terminals:** T0 5 · T1-open 0 · T1-lit 1 · T2 6 · T3 0 · T4 0.
+  :150 ### The tier law, (R151)(2), 2026-09-25 (appended by b541; the lines above are unedited)
+  :151 
+  :152 - **`(R151)`(2), 2026-09-25:** T1-open requires the premise to be **EQUIVALENT-DEEP** to RH in the sense of b538's census -- a theorem stands between it and RH -- and `h2_sign` is the one such premise the corpus holds. A premise **EQUIVALENT-REWORDING** (`ConservationHypothesis`, by `ch_iff_rh`; `Register5_output_HilbertPolya → RiemannHypothesis`, since `Register5_output_HilbertPolya` is a theorem, `register5_output_holds`) makes its terminal ENCODES-CONCLUSION and **T2**; b540's readings of Route 3 and of `R5_output_HilbertPolya_to_RH` stand, and `(R150)`(3)'s parenthesis is corrected by it.
+
+### FINDINGS.md -- CP-2 and CP-3
+  :4955 ## The T0 inventory of the federation: every premise-free terminal at the standard three, by subject -- about zeta, about arithmetic or logic, about a programme-defined type
+  :4956 
+  :4957 *Filed at b544 on the author's ruling `(R154)`(4): CP-2. The 5293 declarations of b542's enumeration, regenerated at b542's pins (relay `data/b544_decls.json`), each classified by the subject of its statement; the ZETA terminals probed fresh by `#print axioms` (relay `data/b544_probe_*.txt`), their hypotheses read. Bank: relay `data/b544_t0.json`, `data/b544_premises.json`.*
+  :5272 ## The inequality index: every compiled inequality about zeta or about test windows, with what it forces; the equality-shaped statements marked E
+  :5273 
+  :5274 *Filed at b544 on the author's ruling `(R154)`(4): CP-3, the compiled census of the monograph's step (9) identity/sign split and of PATHS §ANNEX B's rows. The rows: every ZETA declaration and every declaration of the window modules. I marks: ≤, <, ≥, >, Nonneg, Summable, Tendsto to 𝓝 0, IsBigO, ≠ 0; E: ↔, ∈, Finite, card, =, other shape. Bank: relay `data/b544_index.json`; the mark is a column of the terminal table.*
+  :5275 
+  :5276 **The count.** 562 rows: I 176 (about zeta 117; naming a zero 55) · E 386.
+  :5457 **The I rows that name a zero** (55). One concludes re = 1/2: `SIDEBridge.side_exclusion_bridge`, whose hypotheses include `RHHypothesis`, RH restated for completedRiemannZeta₀ (SIDEBridge.lean), so its conclusion is its hypothesis's, not an inequality's. The others bound a quantity over the zeros (a count, a sum, a term's sign on the line, the zero side of a test window, a nonvanishing near a zero) and none bears on location.
+
+### OPEN_TRAILS.md -- the Li-to-Weil trail and b544`s CP-3 line
+  :3548 | **1** | `W-ORD-LI-WEIL-BRIDGE` | **RESULT or RULING** | b324's bridging statement, given its ID here: *a formula carrying the archimedean margin `W_infinity(f) - Tr(theta(f) S)` at a lawful test function to the Li margin `lambda_n` at an index `n`, or a proof that no such formula exists.* Sharpened by b327's read: the archimedean distribution is one on both families (the deposit's channel is the archimedean place plus the pole constant, DIFFERENT, constituent quoted); what is owed is a relation between the compressed square on the Sonin family and the finite-place channel on the Li family, o
+  :4698 **The trails’ triggers, restated with the one that fired.** `W-ORD-LI-WEIL-BRIDGE` — **THE AUTHOR’S WORD**, and it **fired again** with the b400 ferry; answered **TWO OBJECTS ON THEIR FAMILIES, ONE QUESTION AT THE WINDOW**, and the row stays open on `(Q400)`. `W-ORD-DISCRIMINATING-FAMILY` and `W-ORD-LI-FAMILY-CONTROL` — unchanged, and neither can fire while the instrument lane is PARKED under (R4); **a block on the work is not an absence of a trigger.** `W-ORD-E0-RANK-PROPAGATION` — unchanged, trigger **THE AUTHOR’S WORD**; this act moves no grade.
+  :11097 **CP-3 -- FIRED at b544.** Bank: relay `data/b544_index.json`, `data/b544_ei.json`. 562 rows, I 176, E 386; no I row concludes re = 1/2.
+
+### phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md -- the b539 tier table
+  :209 <!-- b539 (R149) TIER TABLE, 2026-09-25 -->
+  :210 
+  :211 ### Correspondence, tiered under (R149) -- 2026-09-25, b539 (a new table beneath the old, row for row; the table above is unedited)
+  :212 
+  :213 *Appended by b539 under `(R149)`(2)-(4): one row per row of the Correspondence table at `:175-189`, each with its claim as stated there, its terminal at its pin, the status cell`s grade kept, the tier of `(R149)`(2) with its reason, and E-2026-09-25-3 (relay `data/b539_erratum_draft.md`, DRAFT, NOT FILED) where the row rests on lv`s h2 or on `covers_all`. **No byte above this block changes.***
+
+### FACES_LEDGER.md -- the F3 and L1 rows
+  :22 | F3 | F3 -- the Li margin: M(n) := λ_Z(n) + λ_A(n) = λ_n, the margin in λ_Z(n) ≥ −λ_A(n) | the fourth, at the bench | INTERNAL -- `phase1.5/spectral/BALANCE_AND_POSITIVITY.md` lines 297, 410, 427; `internal/bench/li_bench.py`. DEPOSITED -- section 27.3 (the inequality; the finite-range certificate, see R4) | MEASURED -- the keystone: *"M(n) := λ_Z(n) + λ_A(n) = λ_n is the margin"*; the bench to n = 300: the margin *"nevertheless stays positive throughout 1 ≤ n ≤ 300"* (minimum at n = 1, λ₁ = 0.0230957089661) while *"λ_Z(n) < 0 for n ∈ [156, 186] ∪ [247, 287]"*. The split, in the keystone's ow
+  :28 | L1 | L1 -- the Li-to-Weil bridge: the Li coefficients as the Weil functional on the Li test family G_n(s) = 1 − (1 − 1/s)^n; the deposit's archimedean channel against the archimedean place; the Li margin against the Sonin margin | the fourth, at two families -- the Li family (indexed by a coefficient n) and the Sonin family (indexed by a width a) | IMPORTED -- J. C. Lagarias, *Li coefficients for automorphic L-functions*, arXiv:math/0404394v4, pinned by this act (sha256 `86f3d3c4…`, 423379 bytes), restating Bombieri–Lagarias 1999 (its [4]; not obtainable by this seat). INTERNAL -- `phase1.5/
+
+### SIDE-explicit-formula 81ae175 (HEAD) SIDEExplicitFormula/RegisterDepth.lean:1-313
+  :1 /-
+  :2 SIDE-explicit-formula -- SIDEExplicitFormula/RegisterDepth.lean
+  :3 THIS PROGRAMME'S WORK (act b538, ruling (R148)) -- NOT VENDORED. SPIRAL_MAP section 7 rule 9 applies here in full:
+  :4 `theorem`, never `lemma`.
+  :5 
+  :6 W-ORD-REGISTER-DEPTH. The registers R1, R3, R5 of §27.3 and SIDE-lv-conservation's own h2, each read from its
+  :7 compiled face and graded by what its Lean sentence says, relative to RH. The federation rule bars a Lake dependency
+  :8 on SIDE-lv-conservation or SIDE-kernel, so every face is restated VERBATIM here, with its source path, line and pin
+  :9 in its docstring (lv at tag v0.10.0 = 93c27ec, identical at HEAD 2f71068 for every file cited; SIDE-kernel at
+  :10 v1.5 = 0e5233f). Where lv restates the kernel, the kernel's v1.5 text is used (relay data/b538_restatement_compare.txt).
+  :11 Nothing here edits a deposited kernel; nothing here proves RH or h2_sign.
+  :12 -/
+  :13 import SIDEExplicitFormula.Seam
+  :14 import Mathlib.Analysis.SpecialFunctions.Integrability.Basic
+  :15 import Mathlib.Topology.DiscreteSubset
+  :16 
+  :17 open Complex HurwitzZeta MeasureTheory Set Filter Topology
+  :18 
+  :19 noncomputable section
+  :20 
+  :21 namespace SIDEExplicitFormula
+  :22 namespace RegisterDepth
+  :23 
+  :24 /-! ## R1 -- the universality hypothesis. SIDE-kernel v1.5 = 0e5233f, `Kernel/SilenceTheorem.lean`. -/
+  :25 
+  :26 /-- `ConfigurationSpace` -- verbatim, `Kernel/SilenceTheorem.lean:26-28` (SIDE-kernel v1.5 = 0e5233f). -/
+  :27 structure ConfigurationSpace where
+  :28   α : Type
+  :29   nonempty : Nonempty α
+  :30 
+  :31 /-- `Interface` -- verbatim, `Kernel/SilenceTheorem.lean:33-37` (SIDE-kernel v1.5 = 0e5233f), field docstrings
+  :32 dropped. -/
+  :33 structure Interface (C : ConfigurationSpace) (R : Type) where
+  :34   action : C.α → R
+  :35   essential : Prop
+  :36 
+  :37 /-- `Interface.is_universal` -- verbatim, `Kernel/SilenceTheorem.lean:42-44` (SIDE-kernel v1.5 = 0e5233f). -/
+  :38 def Interface.is_universal {C : ConfigurationSpace} {R : Type}
+  :39     (I : Interface C R) : Prop :=
+  :40   ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂
+  :41 
+  :42 /-- `factors_through` -- verbatim, `Kernel/SilenceTheorem.lean:49-51` (SIDE-kernel v1.5 = 0e5233f). -/
+  :43 def factors_through {C : ConfigurationSpace} {R V : Type}
+  :44     (M : C.α → V) (I : Interface C R) : Prop :=
+  :45   ∃ f : R → V, ∀ c : C.α, M c = f (I.action c)
+  :46 
+  :47 /-- `Interface.kappa_zero` -- verbatim, `Kernel/SilenceTheorem.lean:58-61` (SIDE-kernel v1.5 = 0e5233f). -/
+  :48 def Interface.kappa_zero {C : ConfigurationSpace} {R : Type}
+  :49     (I : Interface C R) : Prop :=
+  :50   ∀ V : Type, ∀ M : C.α → V, factors_through M I →
+  :51     ∀ c₁ c₂ : C.α, M c₁ = M c₂
+  :52 
+  :53 /-- **R1 face** -- verbatim, lv `SIDELvConservation/RegisterPentagon.lean:106-107` (v0.10.0). -/
+  :54 def Register1_universalityHypothesis : Prop :=
+  :55   ∀ (C : ConfigurationSpace) (R : Type) (I : Interface C R), I.essential → I.is_universal
+  :56 
+  :57 /-- **R1 is FALSE AS STATED.** The interface on `Bool` with the identity action and `essential := True` is essential
+  :58 and not universal: `essential` is an uninterpreted `Prop` field, so the register quantifies over interfaces it cannot
+  :59 distinguish ((R148)(3)(a)). -/
+  :60 theorem not_register1 : ¬ Register1_universalityHypothesis := by
+  :61   intro h
+  :62   have h2 : (true : Bool) = false :=
+  :63     h ⟨Bool, ⟨true⟩⟩ Bool ⟨id, True⟩ trivial true false
+  :64   exact Bool.noConfusion h2
+  :65 
+  :66 /-- The kernel's `silence_universal` (`Kernel/SilenceTheorem.lean:74-84`, SIDE-kernel v1.5), restated with its own
+  :67 proof: it takes universality PER INTERFACE, so `not_register1` does not touch it. -/
+  :68 theorem silence_universal_restated
+  :69     {C : ConfigurationSpace} {R : Type}
+  :70     (I : Interface C R)
+  :71     (h_univ : I.is_universal) :
+  :72     I.kappa_zero := by
+  :73   intro V M h_factors c₁ c₂
+  :74   obtain ⟨f, hf⟩ := h_factors
+  :75   rw [hf c₁, hf c₂]
+  :76   rw [h_univ c₁ c₂]
+  :77 
+  :78 /-! ## lv's h2. `SIDELvConservation/T1_MellinFactorization.lean:26` (v0.10.0). -/
+  :79 
+  :80 /-- `Phi` -- verbatim, lv `SIDELvConservation/T1_MellinFactorization.lean:26` (v0.10.0). -/
+  :81 def Phi : ℝ → ℂ := fun t => ((evenKernel 0 t : ℂ) - 1) / 2
+  :82 
+  :83 /-- The `n = 0` term of the even theta kernel: `1 ≤ evenKernel 0 x` for `x > 0` (`hasSum_int_evenKernel`). -/
+  :84 theorem one_le_evenKernel_zero {x : ℝ} (hx : 0 < x) : 1 ≤ evenKernel 0 x := by
+  :85   have h := hasSum_int_evenKernel (0 : ℝ) hx
+  :86   rw [show ((0 : ℝ) : UnitAddCircle) = 0 from rfl] at h
+  :87   have h1 := le_hasSum h 0 (fun j _ => (Real.exp_pos _).le)
+  :88   simpa using h1
+  :89 
+  :90 /-- The lower bound near 0 from the functional equation: `t ^ (-1/2) ≤ evenKernel 0 t` for `t > 0`. -/
+  :91 theorem rpow_le_evenKernel_zero {t : ℝ} (ht : 0 < t) : t ^ (-(1 / 2 : ℝ)) ≤ evenKernel 0 t := by
+  :92   have hfe := evenKernel_functional_equation 0 t
+  :93   rw [← evenKernel_eq_cosKernel_of_zero] at hfe
+  :94   have h1 := one_le_evenKernel_zero (one_div_pos.mpr ht)
+  :95   rw [hfe, Real.rpow_neg ht.le, ← one_div]
+  :96   calc 1 / t ^ (1 / 2 : ℝ) = 1 / t ^ (1 / 2 : ℝ) * 1 := by ring
+  :97     _ ≤ 1 / t ^ (1 / 2 : ℝ) * evenKernel 0 (1 / t) := by gcongr
+  :98 
+  :99 /-- **lv's h2 is FALSE for `re s ≤ 1`.** Mathlib's `mellin` is a Bochner integral, zero where the integrand is not
+  :100 integrable; near 0, `‖t ^ (s/2 - 1) • Phi t‖ ≥ t ^ (-1) / 4`, and `t ^ (-1)` is not integrable on `(0, 1/4)`. -/
+  :101 theorem mellin_Phi_eq_zero_of_re_le_one : ∀ s : ℂ, s.re ≤ 1 → mellin Phi (s / 2) = 0 := by
+  :102   intro s hs
+  :103   unfold mellin
+  :104   apply MeasureTheory.integral_undef
+  :105   intro hint
+  :106   have hsub : IntegrableOn (fun t : ℝ => (t : ℂ) ^ (s / 2 - 1) • Phi t) (Ioo 0 (1 / 4)) :=
+  :107     IntegrableOn.mono_set hint Ioo_subset_Ioi_self
+  :108   have hg : IntegrableOn (fun t : ℝ => t ^ (-1 : ℝ)) (Ioo 0 (1 / 4)) := by
+  :109     refine Integrable.mono' (hsub.norm.const_mul 4) ((measurable_id.pow_const _).aestronglyMeasurable) ?_
+  :110     filter_upwards [ae_restrict_mem measurableSet_Ioo] with t ht
+  :111     obtain ⟨ht0, ht1⟩ := ht
+  :112     have htle : t ≤ 1 := by linarith
+  :113     obtain ⟨a, ha⟩ : ∃ a : ℝ, a = t ^ (-(1 / 2 : ℝ)) := ⟨_, rfl⟩
+  :114     have hE : a ≤ evenKernel 0 t := ha ▸ rpow_le_evenKernel_zero ht0
+  :115     have ha2 : 2 ≤ a := by
+  :116       have h4 : (1 / 4 : ℝ) ^ (-(1 / 2 : ℝ)) ≤ t ^ (-(1 / 2 : ℝ)) :=
+  :117         Real.rpow_le_rpow_of_nonpos ht0 ht1.le (by norm_num)
+  :118       have h4' : (1 / 4 : ℝ) ^ (-(1 / 2 : ℝ)) = 2 := by
+  :119         rw [show (1 / 4 : ℝ) = (1 / 2) ^ (2 : ℝ) by norm_num, ← Real.rpow_mul (by norm_num)]
+  :120         norm_num
+  :121       linarith
+  :122     have hpow : a ≤ t ^ ((s / 2 - 1).re) := by
+  :123       have hre : (s / 2 - 1).re = s.re / 2 - 1 := by simp
+  :124       rw [hre, ha]
+  :125       exact Real.rpow_le_rpow_of_exponent_ge ht0 htle (by linarith)
+  :126     have hPhi : (evenKernel 0 t - 1) / 2 ≤ ‖Phi t‖ := by
+  :127       have e : Phi t = (((evenKernel 0 t - 1) / 2 : ℝ) : ℂ) := by
+  :128         simp only [Phi]; push_cast; try ring
+  :129       rw [e, Complex.norm_real, Real.norm_eq_abs]
+  :130       exact le_abs_self _
+  :131     have hsq : t ^ (-1 : ℝ) = a * a := by
+  :132       rw [ha, ← Real.rpow_add ht0]; norm_num
+  :133     rw [norm_smul, Complex.norm_cpow_eq_rpow_re_of_pos ht0, Real.norm_of_nonneg (Real.rpow_nonneg ht0.le _), hsq]
+  :134     have hN : a / 4 ≤ ‖Phi t‖ := by linarith
+  :135     have ha0 : 0 ≤ a := by linarith
+  :136     calc a * a = 4 * (a * (a / 4)) := by ring
+  :137       _ ≤ 4 * (t ^ ((s / 2 - 1).re) * ‖Phi t‖) := by gcongr
+  :138   have := (intervalIntegral.integrableOn_Ioo_rpow_iff (by norm_num : (0 : ℝ) < 1 / 4)).mp hg
+  :139   norm_num at this
+  :140 
+  :141 /-- **lv's h2 on the critical strip** -- the hypothesis `mellin Phi (s / 2) ≠ 0` of lv's
+  :142 `goalState_sevenClasses_of_h2` (`RegisterPentagon.lean:215`, v0.10.0) is false at every `s` with `0 < re s < 1`. -/
+  :143 theorem lv_h2_false_on_strip : ∀ s : ℂ, 0 < s.re → s.re < 1 → ¬ (mellin Phi (s / 2) ≠ 0) := by
+  :144   intro s _ h1 h
+  :145   exact h (mellin_Phi_eq_zero_of_re_le_one s h1.le)
+  :146 
+  :147 /-- **The corrected face.** With `completedRiemannZeta` in place of the Mellin factor, the strip statement is exactly
+  :148 `rh_strip` (RH on the kernel's zero configuration). -/
+  :149 theorem lvh2_corrected_iff :
+  :150     (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip := by
+  :151   constructor
+  :152   · intro h ρ hρ
+  :153     rw [Zeta23.zetaZeroConfig_carrier] at hρ
+  :154     have hρ' : Zeta23.IsNontrivialZero ρ := hρ
+  :155     unfold Zeta23.IsNontrivialZero at hρ'
+  :156     obtain ⟨hz, h0, h1⟩ := hρ'
+  :157     by_contra hne
+  :158     apply h ρ h0 h1 hne
+  :159     have hρ0 : ρ ≠ 0 := by
+  :160       intro e; rw [e] at h0; simp at h0
+  :161     rw [riemannZeta_def_of_ne_zero hρ0] at hz
+  :162     exact (div_eq_zero_iff.mp hz).resolve_right (Complex.Gammaℝ_ne_zero_of_re_pos h0)
+  :163   · intro h s h0 h1 hne hΛ
+  :164     apply hne
+  :165     apply h s
+  :166     rw [Zeta23.zetaZeroConfig_carrier]
+  :167     show Zeta23.IsNontrivialZero s
+  :168     unfold Zeta23.IsNontrivialZero
+  :169     have hs0 : s ≠ 0 := by
+  :170       intro e; rw [e] at h0; simp at h0
+  :171     refine ⟨?_, h0, h1⟩
+  :172     rw [riemannZeta_def_of_ne_zero hs0, hΛ, zero_div]
+  :173 
+  :174 /-! ## R3 -- totality through places. lv `T3_StepNineBridge.lean`, `CouplingsAtPhi.lean`, `RegisterPentagon.lean`
+  :175 (v0.10.0). -/
+  :176 
+  :177 namespace T3
+  :178 
+  :179 /-- `Coupling` -- verbatim, lv `SIDELvConservation/T3_StepNineBridge.lean:44` (v0.10.0). -/
+  :180 abbrev Coupling := (ℝ → ℂ) → Prop
+  :181 
+  :182 /-- `PerClassExcludes` -- verbatim, lv `SIDELvConservation/T3_StepNineBridge.lean:52-53` (v0.10.0). -/
+  :183 def PerClassExcludes (C : Coupling) (s : ℂ) : Prop :=
+  :184   ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0
+  :185 
+  :186 /-- `CombinationsExclude` -- verbatim, lv `SIDELvConservation/T3_StepNineBridge.lean:57-58` (v0.10.0). -/
+  :187 def CombinationsExclude (𝒞 : Set Coupling) (s : ℂ) : Prop :=
+  :188   ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+  :189 
+  :190 end T3
+  :191 
+  :192 open T3
+  :193 
+  :194 /-- `C1_realness` -- verbatim, lv `SIDELvConservation/CouplingsAtPhi.lean:67` (v0.10.0). -/
+  :195 def C1_realness : Coupling := fun (Φ : ℝ → ℂ) => ∀ t : ℝ, (Φ t).im = 0
+  :196 
+  :197 /-- `C2_halfplane_nonvanishing` -- verbatim, lv `CouplingsAtPhi.lean:72-73` (v0.10.0). -/
+  :198 def C2_halfplane_nonvanishing : Coupling := fun (Φ : ℝ → ℂ) =>
+  :199   ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0
+  :200 
+  :201 /-- `C3_theta_transformation` -- verbatim, lv `CouplingsAtPhi.lean:79-80` (v0.10.0). -/
+  :202 def C3_theta_transformation : Coupling := fun (Φ : ℝ → ℂ) =>
+  :203   ∀ t : ℝ, 0 < t → Φ (1 / t) = Real.sqrt t * Φ t + (Real.sqrt t - 1) / 2
+  :204 
+  :205 /-- `C4_modularity` -- verbatim, lv `CouplingsAtPhi.lean:108-113` (v0.10.0). -/
+  :206 def C4_modularity : Coupling := fun (Φ : ℝ → ℂ) =>
+  :207   ∃ F : ℂ → ℂ,
+  :208     (∀ τ : ℂ, 0 < τ.im → DifferentiableAt ℂ F τ) ∧
+  :209     (∀ t : ℝ, 0 < t → F (Complex.I * t) = 2 * Φ t + 1) ∧
+  :210     (∀ τ : ℂ, F (2 + τ) = F τ) ∧
+  :211     (∀ τ : ℂ, 0 < τ.im → F (-1 / τ) = (-Complex.I * τ) ^ (1 / 2 : ℂ) * F τ)
+  :212 
+  :213 /-- `C5_input` -- verbatim, lv `CouplingsAtPhi.lean:120-122` (v0.10.0). -/
+  :214 def C5_input : Coupling := fun (Φ : ℝ → ℂ) =>
+  :215   ∃ μ : ℤ → ℝ, (∀ n : ℤ, 0 ≤ μ n) ∧
+  :216     ∀ t : ℝ, 0 < t → HasSum (fun n : ℤ => ((Real.exp (-Real.pi * μ n * t) : ℝ) : ℂ)) (2 * Φ t + 1)
+  :217 
+  :218 /-- `C6_holomorphic_extension` -- verbatim, lv `CouplingsAtPhi.lean:144-146` (v0.10.0). -/
+  :219 def C6_holomorphic_extension : Coupling := fun (Φ : ℝ → ℂ) =>
+  :220   ∃ F : ℂ → ℂ, (∀ z : ℂ, 0 < z.re → DifferentiableAt ℂ F z) ∧
+  :221     ∀ t : ℝ, 0 < t → F (t : ℂ) = Φ t
+  :222 
+  :223 /-- `C7_order` -- verbatim, lv `CouplingsAtPhi.lean:182-185` (v0.10.0). -/
+  :224 def C7_order : Coupling := fun (Φ : ℝ → ℂ) =>
+  :225   ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+  :226     (∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)) ∧
+  :227     ∃ A C : ℝ, ∀ s : ℂ, ‖G s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+  :228 
+  :229 /-- `sevenClasses` -- verbatim, lv `CouplingsAtPhi.lean:188-190` (v0.10.0). -/
+  :230 def sevenClasses : Set Coupling :=
+  :231   {C1_realness, C2_halfplane_nonvanishing, C3_theta_transformation, C4_modularity,
+  :232    C5_input, C6_holomorphic_extension, C7_order}
+  :233 
+  :234 /-- **R3 face** -- verbatim, lv `SIDELvConservation/RegisterPentagon.lean:139-140` (v0.10.0). -/
+  :235 def Register3_totalityThroughPlaces (s : ℂ) : Prop :=
+  :236   (∀ C ∈ sevenClasses, T3.PerClassExcludes C s) → T3.CombinationsExclude sevenClasses s
+  :237 
+  :238 /-- **R3 on the convergence half-plane, on lv's h1.** For `1 < re s`, `Phi` itself witnesses the conclusion, given
+  :239 `h1 : ∀ C ∈ sevenClasses, C Phi` -- compiled in lv as `h1_complete_at_Phi` (v0.10.0), carried here as a named premise
+  :240 under the federation rule. -/
+  :241 theorem register3_of_one_lt_re (h1 : ∀ C ∈ sevenClasses, C Phi) :
+  :242     ∀ s : ℂ, 1 < s.re → Register3_totalityThroughPlaces s := by
+  :243   intro s hs _
+  :244   refine ⟨Phi, h1, ?_⟩
+  :245   exact h1 C2_halfplane_nonvanishing (by simp [sevenClasses]) s hs
+  :246 
+  :247 /-! ## R5 -- the Hilbert–Pólya output schema. -/
+  :248 
+  :249 /-- `is_xi_zero` -- verbatim, `Kernel/XiDef.lean:34-38` (SIDE-kernel v1.5 = 0e5233f). -/
+  :250 def is_xi_zero (sigma : Real) : Prop :=
+  :251   Exists (fun t : Real =>
+  :252     riemannZeta (⟨sigma, t⟩ : ℂ) = 0 /\
+  :253     (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) /\
+  :254     (⟨sigma, t⟩ : ℂ) ≠ 1)
+  :255 
+  :256 /-- **R5 output face** -- verbatim, lv `SIDELvConservation/RegisterPentagon.lean:189-195` (v0.10.0). -/
+  :257 def Register5_output_HilbertPolya : Prop :=
+  :258   ∃ (spectrum : ℕ → ℝ) (pairing : ℕ → ℕ → ℝ) (T : ℕ → ℕ → ℝ),
+  :259     (∀ i j, pairing i j = pairing j i) ∧
+  :260     (∀ i, 0 < pairing i i) ∧
+  :261     (∀ i j, pairing i i * T i j = pairing j j * T j i) ∧
+  :262     (∀ n, T n n = spectrum n) ∧
+  :263     (∀ σ : ℝ, is_xi_zero σ → ∃ n : ℕ, spectrum n = σ)
+  :264 
+  :265 /-- The zeros of zeta off the pole form a countable set: each is isolated (zeta is analytic on `{1}ᶜ`, connected, and
+  :266 not identically zero there since `ζ 2 ≠ 0`), and a discrete subset of `ℂ` is countable. -/
+  :267 theorem zeta_zeros_countable : {z : ℂ | z ≠ 1 ∧ riemannZeta z = 0}.Countable := by
+  :268   set Z : Set ℂ := {z : ℂ | z ≠ 1 ∧ riemannZeta z = 0} with hZ
+  :269   have hA : AnalyticOnNhd ℂ riemannZeta {(1 : ℂ)}ᶜ :=
+  :270     DifferentiableOn.analyticOnNhd (fun z hz => (differentiableAt_riemannZeta hz).differentiableWithinAt)
+  :271       isOpen_compl_singleton
+  :272   have hconn : IsPreconnected ({(1 : ℂ)}ᶜ : Set ℂ) :=
+  :273     (isConnected_compl_singleton_of_one_lt_rank (by rw [Complex.rank_real_complex]; exact Cardinal.one_lt_two)
+  :274       (1 : ℂ)).isPreconnected
+  :275   have hdisc : DiscreteTopology Z := by
+  :276     rw [discreteTopology_subtype_iff]
+  :277     intro x hx
+  :278     rw [Filter.inf_principal_eq_bot]
+  :279     rcases (hA x hx.1).eventually_eq_zero_or_eventually_ne_zero with h | h
+  :280     · exfalso
+  :281       have heq := hA.eqOn_zero_of_preconnected_of_eventuallyEq_zero hconn hx.1 h
+  :282       have h2 : (2 : ℂ) ∈ ({(1 : ℂ)}ᶜ : Set ℂ) := by norm_num
+  :283       exact riemannZeta_ne_zero_of_one_lt_re (by norm_num : (1 : ℝ) < (2 : ℂ).re) (heq h2)
+  :284     · filter_upwards [h] with w hw hwZ
+  :285       exact hw hwZ.2
+  :286   exact Set.countable_coe_iff.mp (TopologicalSpace.separableSpace_iff_countable.mp inferInstance)
+  :287 
+  :288 /-- The real parts of the nontrivial zeros are countable. -/
+  :289 theorem xi_zero_re_countable : {σ : ℝ | is_xi_zero σ}.Countable := by
+  :290   refine (zeta_zeros_countable.image Complex.re).mono ?_
+  :291   rintro σ ⟨t, hz, _, h1⟩
+  :292   exact ⟨⟨σ, t⟩, ⟨h1, hz⟩, rfl⟩
+  :293 
+  :294 /-- **R5-output is TRUE AS STATED.** The constant pairing `1`, the diagonal operator and an enumeration of the
+  :295 countably many real parts witness the schema: it carries no RH content, a SHELL; what it is missing is the ordinates,
+  :296 and a self-adjoint operator on a Hilbert space whose spectrum they are. -/
+  :297 theorem register5_output_holds : Register5_output_HilbertPolya := by
+  :298   obtain ⟨f, hf⟩ := (xi_zero_re_countable.union (Set.countable_singleton (0 : ℝ))).exists_eq_range
+  :299     ⟨0, Or.inr rfl⟩
+  :300   refine ⟨f, fun _ _ => 1, fun i j => if i = j then f i else 0, fun _ _ => rfl, fun _ => one_pos, ?_, ?_, ?_⟩
+  :301   · intro i j
+  :302     by_cases h : i = j
+  :303     · subst h; rfl
+  :304     · simp [h, Ne.symm h]
+  :305   · intro n; simp
+  :306   · intro σ hσ
+  :307     have : σ ∈ Set.range f := hf ▸ Or.inl hσ
+  :308     obtain ⟨n, hn⟩ := this
+  :309     exact ⟨n, hn⟩
+  :310 
+  :311 end RegisterDepth
+  :312 end SIDEExplicitFormula
+  :313 
+
+### SIDE-explicit-formula 81ae175 (HEAD) SIDEExplicitFormula/H2Bridge.lean:1-97
+  :1 /-
+  :2 SIDE-explicit-formula -- SIDEExplicitFormula/H2Bridge.lean
+  :3 THIS PROGRAMME'S WORK (act b532, ruling (R142)(4); W-ORD-H2-BRIDGE) -- NOT VENDORED.
+  :4 SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+  :5 
+  :6 THE BRIDGE, IN ITS TRIVIAL DIRECTION. The deposit's Route 3 premise, `ConservationBridge.ConservationHypothesis`
+  :7 (SIDE-kernel v1.5 = 0e5233f, Bridge/ConservationBridge.lean), is restated here word for word in Mathlib's objects
+  :8 (`conservationHypothesis`): every real part `sigma` of a nontrivial zero of `riemannZeta` (not a trivial zero, not the
+  :9 pole) admits a prime `p` with `p ^ (-sigma) = p ^ (-(1 - sigma))`. SIDE-kernel's `is_xi_zero` and `prime_as_real` are
+  :10 unfolded; the two kernels cannot import each other (Lean v4.29.0-rc8 / Mathlib e960b84 against v4.33.0-rc2 / 51e6992),
+  :11 so the identity of this restatement with the deposited one is a statement-read, not a kernel fact.
+  :12 
+  :13 `balance_lemma` is SIDE-kernel's `techne_kernel_voice1.balance_theorem`, ported: for a prime `p`,
+  :14 `p ^ (-sigma) = p ^ (-(1 - sigma)) ↔ sigma = 1 / 2`. So `ch_iff_rh`: THE PREMISE IS RH RESTATED. `ch_imp_h2_sign`
+  :15 composes with b513's `rh_imp_h2_sign`: both objects called h2 live in this kernel with the implication between them.
+  :16 The converse `h2_sign_imp_ch` is a Prop, NOT PROVED, and `h2_sign_imp_ch_iff` shows it is b513's `h2_sign_imp_rh` --
+  :17 Weil's converse, W-ORD-WEIL-CONVERSE, open at f4. `conservationHypothesisConfig` is the premise over the kernel's zero
+  :18 configuration; it follows from the verbatim form (`ch_imp_config`), and the reverse would need the classical fact that
+  :19 every nontrivial zero lies in the open strip, which Zeta23 records as not in the kernel. Nothing here is a statement
+  :20 about the zeros of zeta or about RH beyond these implications.
+  :21 -/
+  :22 import SIDEExplicitFormula.RHChain
+  :23 
+  :24 open Complex
+  :25 
+  :26 noncomputable section
+  :27 
+  :28 namespace SIDEExplicitFormula
+  :29 namespace B321
+  :30 
+  :31 /-- **The deposit's Route 3 premise, restated word for word:** every real part `sigma` of a nontrivial zero of
+  :32 `riemannZeta` admits a prime `p` with `p ^ (-sigma) = p ^ (-(1 - sigma))`. -/
+  :33 def conservationHypothesis : Prop :=
+  :34   ∀ σ : ℝ, (∃ t : ℝ, riemannZeta (⟨σ, t⟩ : ℂ) = 0 ∧ ¬ (∃ n : ℕ, (⟨σ, t⟩ : ℂ) = -2 * ((n : ℂ) + 1)) ∧ (⟨σ, t⟩ : ℂ) ≠ 1) →
+  :35     ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ))
+  :36 
+  :37 /-- The same premise over the kernel's zero configuration. -/
+  :38 def conservationHypothesisConfig : Prop :=
+  :39   ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-ρ.re) = (p : ℝ) ^ (-(1 - ρ.re))
+  :40 
+  :41 /-- **The balance lemma** (SIDE-kernel's `balance_theorem`, ported): at a prime, the Euler balance holds iff
+  :42 `sigma = 1 / 2`. -/
+  :43 theorem balance_lemma (p : ℕ) (hp : Nat.Prime p) (σ : ℝ) :
+  :44     (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ)) ↔ σ = 1 / 2 := by
+  :45   have h1 : (1 : ℝ) < p := by exact_mod_cast hp.one_lt
+  :46   constructor
+  :47   · intro h
+  :48     rcases lt_trichotomy (-σ) (-(1 - σ)) with hlt | heq | hgt
+  :49     · exact absurd h (ne_of_lt ((Real.rpow_lt_rpow_left_iff h1).mpr hlt))
+  :50     · linarith
+  :51     · exact absurd h (ne_of_gt ((Real.rpow_lt_rpow_left_iff h1).mpr hgt))
+  :52   · intro h
+  :53     rw [h]
+  :54     first
+  :55     | norm_num
+  :56     | (congr 1; ring)
+  :57 
+  :58 /-- **The premise gives RH.** -/
+  :59 theorem ch_imp_rh : conservationHypothesis → RiemannHypothesis := by
+  :60   intro h s hs hnt hne
+  :61   obtain ⟨p, hp, hbal⟩ := h s.re ⟨s.im, by rwa [Complex.eta], by rwa [Complex.eta], by rwa [Complex.eta]⟩
+  :62   exact (balance_lemma p hp s.re).mp hbal
+  :63 
+  :64 /-- **RH gives the premise back**, at the prime 2. -/
+  :65 theorem rh_imp_ch : RiemannHypothesis → conservationHypothesis := by
+  :66   intro hRH σ ⟨t, hz, hnt, hne⟩
+  :67   have hσ : σ = 1 / 2 := hRH ⟨σ, t⟩ hz hnt hne
+  :68   exact ⟨2, Nat.prime_two, (balance_lemma 2 Nat.prime_two σ).mpr hσ⟩
+  :69 
+  :70 /-- **THE PREMISE IS RH RESTATED.** -/
+  :71 theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis := ⟨ch_imp_rh, rh_imp_ch⟩
+  :72 
+  :73 /-- The verbatim premise gives the premise over the kernel's zero configuration. -/
+  :74 theorem ch_imp_config : conservationHypothesis → conservationHypothesisConfig := by
+  :75   intro h ρ hρ
+  :76   have hρ' : Zeta23.IsNontrivialZero ρ := by
+  :77     rw [Zeta23.zetaZeroConfig_carrier] at hρ
+  :78     exact hρ
+  :79   have hnt := Zeta23.IsNontrivialZero.not_trivial hρ'
+  :80   exact h ρ.re ⟨ρ.im, by rw [Complex.eta]; exact hρ'.1, by rw [Complex.eta]; exact hnt.1,
+  :81     by rw [Complex.eta]; exact hnt.2⟩
+  :82 
+  :83 /-- **THE BRIDGE, compiled:** the deposit's Route 3 premise implies `h2_sign`, through RH. -/
+  :84 theorem ch_imp_h2_sign : conservationHypothesis → h2_sign := fun h => rh_imp_h2_sign (ch_imp_rh h)
+  :85 
+  :86 /-- **The converse, a Prop, NOT PROVED:** `h2_sign` implies the Route 3 premise. By `h2_sign_imp_ch_iff` it is
+  :87 b513's `h2_sign_imp_rh` -- Weil's converse, W-ORD-WEIL-CONVERSE, compiled to f3 and open at f4. -/
+  :88 def h2_sign_imp_ch : Prop := h2_sign → conservationHypothesis
+  :89 
+  :90 /-- The converse is exactly f4's target. -/
+  :91 theorem h2_sign_imp_ch_iff : h2_sign_imp_ch ↔ h2_sign_imp_rh := by
+  :92   unfold h2_sign_imp_ch h2_sign_imp_rh
+  :93   exact ⟨fun h hs => ch_imp_rh (h hs), fun h hs => rh_imp_ch (h hs)⟩
+  :94 
+  :95 end B321
+  :96 end SIDEExplicitFormula
+  :97 
+
+### SIDE-explicit-formula 81ae175 (HEAD) SIDEExplicitFormula/Seam.lean:1-111
+  :1 /-
+  :2 SIDE-explicit-formula -- SIDEExplicitFormula/Seam.lean
+  :3 THIS PROGRAMME'S WORK (act b536, ruling (R146)(1)-(2)) -- NOT VENDORED. SPIRAL_MAP section 7 rule 9 applies here in full:
+  :4 `theorem`, never `lemma`.
+  :5 
+  :6 THE SEAM, FROM MATHLIB'S FUNCTIONAL EQUATION. A zero of zeta with real part at most 0 is a trivial zero
+  :7 (`zeta_zero_re_nonpos`): for s = 1 - z, Mathlib's `riemannZeta_one_sub` writes zeta(z) as
+  :8 2 (2 pi)^(-s) Gamma(s) cos(pi s / 2) zeta(s); for Re s >= 1 every factor but the cosine is nonzero
+  :9 (`Complex.cpow_ne_zero_iff`, `Complex.Gamma_ne_zero`, `riemannZeta_ne_zero_of_one_le_re`), so cos(pi s / 2) = 0,
+  :10 s is an odd integer (`Complex.cos_eq_zero_iff`) and z = 1 - s an even integer at most 0, not 0 (`riemannZeta_zero`).
+  :11 With it the seam `rh_strip_imp_rh` of PowerWindow.lean holds, RHChain's `h2_sign_imp_rh` and H2Bridge's `h2_sign_imp_ch`
+  :12 are inhabited, and `h2_sign ↔ RiemannHypothesis` and `conservationHypothesis ↔ h2_sign` hold with no hypothesis.
+  :13 Nothing here proves RH or h2_sign: these are equivalences between open statements.
+  :14 -/
+  :15 import SIDEExplicitFormula.PowerLimit
+  :16 
+  :17 open Complex
+  :18 
+  :19 noncomputable section
+  :20 
+  :21 namespace SIDEExplicitFormula
+  :22 namespace B321
+  :23 
+  :24 /-- **The seam's classical fact:** a zero of zeta with real part at most 0 is a trivial zero. -/
+  :25 theorem zeta_zero_re_nonpos : ∀ z : ℂ, riemannZeta z = 0 → z.re ≤ 0 → ∃ n : ℕ, z = -2 * (n + 1) := by
+  :26   intro z hz hre
+  :27   have hz0 : z ≠ 0 := by
+  :28     rintro rfl
+  :29     rw [riemannZeta_zero] at hz
+  :30     norm_num at hz
+  :31   set s : ℂ := 1 - z with hsdef
+  :32   have h1s : 1 - s = z := by
+  :33     rw [hsdef]
+  :34     ring
+  :35   have hsre : 1 ≤ s.re := by
+  :36     rw [hsdef, Complex.sub_re, Complex.one_re]
+  :37     linarith
+  :38   have hsn : ∀ n : ℕ, s ≠ -(n : ℂ) := by
+  :39     intro n h
+  :40     have h2 := congrArg Complex.re h
+  :41     rw [Complex.neg_re, Complex.natCast_re] at h2
+  :42     have : (0 : ℝ) ≤ n := Nat.cast_nonneg n
+  :43     linarith
+  :44   have hs1 : s ≠ 1 := by
+  :45     intro h
+  :46     apply hz0
+  :47     rw [← h1s, h, sub_self]
+  :48   have key := riemannZeta_one_sub hsn hs1
+  :49   rw [h1s, hz] at key
+  :50   have hpi : (Real.pi : ℂ) ≠ 0 := Complex.ofReal_ne_zero.mpr Real.pi_ne_zero
+  :51   have hA : (2 * (Real.pi : ℂ)) ^ (-s) ≠ 0 := Complex.cpow_ne_zero_iff.mpr (Or.inl (mul_ne_zero two_ne_zero hpi))
+  :52   have hG : Complex.Gamma s ≠ 0 := Complex.Gamma_ne_zero hsn
+  :53   have hZ : riemannZeta s ≠ 0 := riemannZeta_ne_zero_of_one_le_re hsre
+  :54   have hc : Complex.cos ((Real.pi : ℂ) * s / 2) = 0 := by
+  :55     by_contra hc
+  :56     exact mul_ne_zero (mul_ne_zero (mul_ne_zero (mul_ne_zero two_ne_zero hA) hG) hc) hZ key.symm
+  :57   obtain ⟨k, hk⟩ := Complex.cos_eq_zero_iff.mp hc
+  :58   have hs_eq : s = 2 * (k : ℂ) + 1 := by
+  :59     have h2 : (Real.pi : ℂ) * s = (Real.pi : ℂ) * (2 * (k : ℂ) + 1) := by linear_combination 2 * hk
+  :60     exact mul_left_cancel₀ hpi h2
+  :61   have hzk : z = -2 * (k : ℂ) := by
+  :62     rw [← h1s, hs_eq]
+  :63     ring
+  :64   have hzre : z.re = -2 * (k : ℝ) := by
+  :65     rw [hzk]
+  :66     simp
+  :67   have hk0 : (0 : ℤ) ≤ k := by
+  :68     have : (0 : ℝ) ≤ k := by linarith
+  :69     exact_mod_cast this
+  :70   have hkne : k ≠ 0 := by
+  :71     rintro rfl
+  :72     apply hz0
+  :73     rw [hzk]
+  :74     simp
+  :75   obtain ⟨n, hn⟩ := Int.eq_ofNat_of_zero_le (show (0 : ℤ) ≤ k - 1 by omega)
+  :76   refine ⟨n, ?_⟩
+  :77   have hkn : (k : ℂ) = (n : ℂ) + 1 := by
+  :78     have hk1 : k = (n : ℤ) + 1 := by omega
+  :79     rw [hk1]
+  :80     simp
+  :81   rw [hzk, hkn]
+  :82 
+  :83 /-- **The seam, closed:** RH on the kernel's configuration is Mathlib's RiemannHypothesis. -/
+  :84 theorem rh_strip_imp_rh_holds : rh_strip_imp_rh := by
+  :85   intro hstrip s hz hnt _h1
+  :86   rcases le_or_gt 1 s.re with h | h
+  :87   · exact absurd hz (riemannZeta_ne_zero_of_one_le_re h)
+  :88   · rcases le_or_gt s.re 0 with h' | h'
+  :89     · exact absurd (zeta_zero_re_nonpos s hz h') hnt
+  :90     · have hmem : s ∈ Zeta23.zetaZeroConfig.carrier := by
+  :91         rw [Zeta23.zetaZeroConfig_carrier]
+  :92         show Zeta23.IsNontrivialZero s
+  :93         unfold Zeta23.IsNontrivialZero
+  :94         exact ⟨hz, h', h⟩
+  :95       exact hstrip s hmem
+  :96 
+  :97 /-- RHChain.lean:83's Prop, inhabited. -/
+  :98 theorem h2_sign_imp_rh_holds : h2_sign_imp_rh := h2_sign_imp_rh_of_seam rh_strip_imp_rh_holds
+  :99 
+  :100 /-- **Weil positivity on classK is Mathlib's RiemannHypothesis**, both directions, no hypothesis. -/
+  :101 theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+  :102 
+  :103 /-- H2Bridge.lean:88's Prop, inhabited. -/
+  :104 theorem h2_sign_imp_ch_holds : h2_sign_imp_ch := h2_sign_imp_ch_iff.mpr h2_sign_imp_rh_holds
+  :105 
+  :106 /-- The deposit's Route 3 premise and Weil positivity on classK, equivalent, unconditionally. -/
+  :107 theorem ch_iff_h2_sign : conservationHypothesis ↔ h2_sign := ch_iff_h2_sign_of_seam rh_strip_imp_rh_holds
+  :108 
+  :109 end B321
+  :110 end SIDEExplicitFormula
+  :111 
+
+### SIDE-explicit-formula 81ae175 (HEAD) SIDEExplicitFormula/PowerLimit.lean:1233-1244
+  :1233 theorem h2_sign_iff_rh_strip : h2_sign ↔ rh_strip := ⟨h2_sign_imp_rh_strip, rh_strip_imp_h2_sign⟩
+  :1234 
+  :1235 /-- **L8, (R144)(4):** `h2_sign → RiemannHypothesis`, compiled FROM the seam Prop. -/
+  :1236 theorem h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh :=
+  :1237   fun hseam h2 => hseam (h2_sign_imp_rh_strip h2)
+  :1238 
+  :1239 /-- **L8:** the deposit's premise and Weil positivity, equivalent FROM the seam Prop. -/
+  :1240 theorem ch_iff_h2_sign_of_seam : rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign) :=
+  :1241   fun hseam => ⟨fun hch => rh_imp_h2_sign (ch_iff_rh.mp hch),
+  :1242     fun h2 => ch_iff_rh.mpr (h2_sign_imp_rh_of_seam hseam h2)⟩
+  :1243 
+  :1244 -- b532`s equivalence stays as it was left (a check, not a declaration).
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/PartialPositivity.lean:1-154
+  :1 import SIDELvConservation.RegisterPentagon
+  :2 import SIDELvConservation.ZeroCarrier
+  :3 import Mathlib.Topology.Algebra.InfiniteSum.Basic
+  :4 
+  :5 /-!
+  :6 # Partial-positivity interface — DISCHARGED (item (iv))
+  :7 
+  :8 The ξ-pattern interface that certifies **finite-range** Li positivity from verified zeros,
+  :9 hanging on the pentagon's R4 face (`RegisterPentagon.Register4_positivity`).  It does **not**
+  :10 close RH — the all-n tail is the open gap.  Grade: **INTERFACES**, three named premises
+  :11 (one external-computation + two classical, neither in Mathlib), no `sorry`.
+  :12 
+  :13 Classical shape (Bombieri–Lagarias 1999; Voros 2004–06): `λ_n = Σ_ρ Re[1 − (1 − 1/ρ)^n]`;
+  :14 an off-line zero at height `H` registers in `λ_n` only for `n ≳ 2H²` (`|Im ρ| ≲ √(n/2)` — the
+  :15 census-resolved constant, BALANCE_AND_POSITIVITY C.6/C.8, screened not recalled).  Hence
+  :16 zeros verified on the line up to `T` certify `λ_n ≥ 0` for `n ≤ N₀(T) ≈ 2T²`.
+  :17 
+  :18 ## Refinement at discharge (screened, stated, reported — not silent)
+  :19 
+  :20 The sitting-one statement used the unordered `∑' z, blTerm z n`.  **The Li series is
+  :21 conditionally, not absolutely, convergent** (its terms `~ n/ρ` are not absolutely summable
+  :22 over the zeros), so `∑'` (which is `0` off absolute summability) is the wrong object and the
+  :23 head/tail split is not rigorous through it.  The honest refinement, which discharges cleanly:
+  :24 the **head is a finite `Finset` of the `|Im| ≤ T` zeros** (only finitely many), and the **tail
+  :25 is an abstract real value `tail n` the explicit-formula premise provides** — encapsulating the
+  :26 conditional convergence as classical premise content rather than falsely asserting absolute
+  :27 summability.  Separately, the **on-line-term nonnegativity is PROVED** (`blTerm_nonneg_of_onLine`,
+  :28 below) — for `Re ρ = 1/2`, `|1 − 1/ρ| = 1`, so `(1−1/ρ)^n` lies on the unit circle and
+  :29 `Re[1 − unit] = 1 − cos ≥ 0` — so it is a lemma, not a premise (one fewer assumed clause).
+  :30 
+  :31 **`li_bench300`'s role** (docstring, not a kernel object): the `n = 300` numeric measurement
+  :32 sits far inside `N₀(T)` for any verified `T ≥ 10^6` (`N₀(10^6) = 2×10^12 ≫ 300`), so the bench
+  :33 is a checkable *instance* of the compiled finite-range result — not its frontier.
+  :34 -/
+  :35 
+  :36 namespace SIDELvConservation
+  :37 namespace PartialPositivity
+  :38 
+  :39 open Complex
+  :40 
+  :41 /-- Nontrivial zeros of ζ in the critical strip — the index for the explicit-formula sum. -/
+  :42 def NontrivialZero : Type := {z : ℂ // riemannZeta z = 0 ∧ 0 < z.re ∧ z.re < 1}
+  :43 
+  :44 /-- The Bombieri–Lagarias summand at a nontrivial zero `ρ`: `Re[1 − (1 − 1/ρ)^n]`. -/
+  :45 noncomputable def blTerm (z : NontrivialZero) (n : ℕ) : ℝ :=
+  :46   (1 - (1 - 1 / (z.1 : ℂ)) ^ n).re
+  :47 
+  :48 /-- **On-line-term nonnegativity — PROVED** (C.1; slims the explicit-formula premise).
+  :49 For a zero on the critical line (`Re ρ = 1/2`), `|1 − 1/ρ| = 1`, so `(1 − 1/ρ)^n` lies on the
+  :50 unit circle and `Re[1 − (1 − 1/ρ)^n] = 1 − cos(·) ≥ 0`. -/
+  :51 lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) :
+  :52     0 ≤ blTerm z n := by
+  :53   have hz0 : z.1 ≠ 0 := by
+  :54     intro hc; rw [hc] at h; norm_num at h
+  :55   have hnsq : Complex.normSq (z.1 - 1) = Complex.normSq z.1 := by
+  :56     simp only [Complex.normSq_apply, Complex.sub_re, Complex.sub_im, Complex.one_re,
+  :57       Complex.one_im, h]; ring
+  :58   have hns1 : Complex.normSq (1 - 1 / z.1) = 1 := by
+  :59     rw [show (1 : ℂ) - 1 / z.1 = (z.1 - 1) / z.1 by field_simp, map_div₀, hnsq,
+  :60       div_self (Complex.normSq_pos.mpr hz0).ne']
+  :61   have hnsn : Complex.normSq ((1 - 1 / z.1) ^ n) = 1 := by
+  :62     rw [map_pow, hns1, one_pow]
+  :63   have hre : ((1 - 1 / z.1) ^ n).re ≤ 1 := by
+  :64     have he : Complex.normSq ((1 - 1 / z.1) ^ n)
+  :65         = ((1 - 1 / z.1) ^ n).re ^ 2 + ((1 - 1 / z.1) ^ n).im ^ 2 := by
+  :66       rw [Complex.normSq_apply]; ring
+  :67     have hsq : ((1 - 1 / z.1) ^ n).re ^ 2 ≤ 1 := by
+  :68       nlinarith [hnsn, he, sq_nonneg ((1 - 1 / z.1) ^ n).im]
+  :69     nlinarith [hsq, sq_nonneg (((1 - 1 / z.1) ^ n).re - 1)]
+  :70   simp only [blTerm, Complex.sub_re, Complex.one_re]; linarith
+  :71 
+  :72 /-- **`VerifiedZerosTo T` — the external-computation premise (ξ-pattern).**  Every nontrivial
+  :73 zero with `|Im| ≤ T` lies on the critical line.  Interfaces the computational record (ζ-zeros
+  :74 verified on the line past height `10^9` by independent computations, e.g. Platt–Trudgian).
+  :75 A NAMED PREMISE; never claimed proved here. -/
+  :76 def VerifiedZerosTo (T : ℝ) : Prop :=
+  :77   ∀ z : NontrivialZero, |z.1.im| ≤ T → z.1.re = 1 / 2
+  :78 
+  :79 /-- **`N₀ T = ⌊2·T²⌋` — the detection threshold** (off-line zero at height `H` registers in
+  :80 `λ_n` only for `n ≳ 2H²`; `|Im ρ| ≲ √(n/2)`; Voros; census C.6/C.8). -/
+  :81 noncomputable def N₀ (T : ℝ) : ℕ := ⌊2 * T ^ 2⌋₊
+  :82 
+  :83 /-- **`ExplicitFormulaDecomp lam low tail T` — classical named premise** (Bombieri–Lagarias /
+  :84 Guinand–Weil; **NOT in Mathlib**), refined form: `low` is exactly the finite set of `|Im| ≤ T`
+  :85 zeros, and for each `n` the Li coefficient splits as the finite head sum over `low` plus the
+  :86 tail value `tail n`.  The tail's (conditional) convergence is encapsulated here as premise
+  :87 data; never claimed proved. -/
+  :88 def ExplicitFormulaDecomp (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)
+  :89     (T : ℝ) : Prop :=
+  :90   (∀ z : NontrivialZero, z ∈ low ↔ |z.1.im| ≤ T) ∧
+  :91   (∀ n : ℕ, 1 ≤ n → lam n = (∑ z ∈ low, blTerm z n) + tail n)
+  :92 
+  :93 /-! ### The finite-set conjunct — DISCHARGED (W-ORD-P1-FINSET).
+  :94 
+  :95 The first conjunct of `ExplicitFormulaDecomp` need no longer be assumed with an opaque `low`: the
+  :96 finite set of `|Im| ≤ T` nontrivial zeros is **constructed** (`lowFinset`) and its membership
+  :97 characterization is **proved** (`lowFinset_mem_iff`, exactly that first conjunct at
+  :98 `low := lowFinset T`).  Chain: `ZeroCarrier.finite_strip_box_riemannZeta_zeros` (entire ξ-carrier
+  :99 `s(s−1)Λ₀+1` ⟹ isolated zeros ⟹ finite in the compact strip box) transferred to the
+  :100 `NontrivialZero` subtype along the injective coercion.  This replaces one assumed clause with a
+  :101 theorem; the decomposition conjunct, `TailBoundPremise`, and `VerifiedZerosTo` stay assumed, and
+  :102 RH is untouched.  The deposited `ExplicitFormulaDecomp` / `partialPositivity_finiteRange`
+  :103 signatures are unchanged — a caller now *supplies* the conjunct instead of assuming it. -/
+  :104 
+  :105 /-- Finitely many nontrivial ζ-zeros have `|Im| ≤ T` — the subtype transfer of
+  :106 `finite_strip_box_riemannZeta_zeros` along the injective coercion `NontrivialZero → ℂ`. -/
+  :107 lemma finite_setOf_abs_im_le (T : ℝ) : {z : NontrivialZero | |z.1.im| ≤ T}.Finite := by
+  :108   refine (Set.Finite.preimage (Subtype.val_injective.injOn)
+  :109     (finite_strip_box_riemannZeta_zeros T)).subset ?_
+  :110   intro z hz
+  :111   exact ⟨z.2.2.1, z.2.2.2, hz, z.2.1⟩
+  :112 
+  :113 /-- **`lowFinset T`** — the genuine finite `Finset` of nontrivial ζ-zeros with `|Im| ≤ T`. -/
+  :114 noncomputable def lowFinset (T : ℝ) : Finset NontrivialZero :=
+  :115   (finite_setOf_abs_im_le T).toFinset
+  :116 
+  :117 /-- Membership characterization for the constructed `lowFinset`. -/
+  :118 lemma mem_lowFinset {T : ℝ} (z : NontrivialZero) : z ∈ lowFinset T ↔ |z.1.im| ≤ T := by
+  :119   simp only [lowFinset, Set.Finite.mem_toFinset, Set.mem_setOf_eq]
+  :120 
+  :121 /-- **The finite-set conjunct of `ExplicitFormulaDecomp`, PROVED** at `low := lowFinset T`:
+  :122 `lowFinset T` is exactly the set of `|Im| ≤ T` nontrivial zeros. -/
+  :123 lemma lowFinset_mem_iff (T : ℝ) :
+  :124     ∀ z : NontrivialZero, z ∈ lowFinset T ↔ |z.1.im| ≤ T :=
+  :125   fun z => mem_lowFinset z
+  :126 
+  :127 /-- **`TailBoundPremise low tail T` — classical detection-threshold named premise** (Voros;
+  :128 **NOT in Mathlib**).  For `n ≤ N₀(T)`, the tail is bounded below by the negative of the finite
+  :129 head sum — high zeros do not overwhelm the sign below the threshold `n ≳ 2T²`.  Never claimed
+  :130 proved. -/
+  :131 def TailBoundPremise (low : Finset NontrivialZero) (tail : ℕ → ℝ) (T : ℝ) : Prop :=
+  :132   ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → - (∑ z ∈ low, blTerm z n) ≤ tail n
+  :133 
+  :134 /-- **INTERFACES — finite-range Li positivity, DISCHARGED.**  From `VerifiedZerosTo T`, the
+  :135 explicit-formula decomposition, and the tail bound: for `1 ≤ n ≤ N₀(T)`, `0 ≤ λ_n` — i.e.
+  :136 `RegisterPentagon.Register4_positivity` restricted to the certified range.  Every `|Im| ≤ T`
+  :137 zero is on the line (`VerifiedZerosTo`), so the finite head is a sum of proved-nonnegative
+  :138 terms (`blTerm_nonneg_of_onLine`); the tail is `≥ −head`; hence `λ_n = head + tail ≥ 0`.  This
+  :139 is NOT a proof of RH — the all-n tail is the open gap. -/
+  :140 theorem partialPositivity_finiteRange
+  :141     (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)
+  :142     (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)
+  :143     (hTail : TailBoundPremise low tail T) :
+  :144     ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n := by
+  :145   intro n hn hn0
+  :146   have hhead : 0 ≤ ∑ z ∈ low, blTerm z n := by
+  :147     refine Finset.sum_nonneg (fun z hz => ?_)
+  :148     exact blTerm_nonneg_of_onLine z n (hV z ((hEF.1 z).mp hz))
+  :149   have htail := hTail n hn hn0
+  :150   rw [hEF.2 n hn]; linarith
+  :151 
+  :152 end PartialPositivity
+  :153 end SIDELvConservation
+  :154 
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/C7FiniteTypeFalse.lean:68-72
+  :68 theorem C7_finite_type_false :
+  :69     ¬ ∃ C A : ℝ, ∀ s : ℂ, ‖completedRiemannZeta₀ s‖ ≤ C * Real.exp (A * ‖s‖) := by
+  :70   rintro ⟨C, A, hCA⟩
+  :71   set C' := max C 1 with hC'def
+  :72   set A' := max A 0 with hA'def
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/DirichletC7Order.lean:771-776
+  :771 theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N]
+  :772     (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) :
+  :773     ∃ A C : ℝ, ∀ s : ℂ,
+  :774       ‖DirichletCharacter.completedLFunction χ s‖
+  :775         ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2))) := by
+  :776   rcases χ.even_or_odd with hp | hp
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:60-200
+  :60 open T3
+  :61 
+  :62 /-! ## The seven couplings (Ch. 15 §15.2), as predicates on the Mellin integrand -/
+  :63 
+  :64 /-- **C₁ (Schwarz reflection / realness).**  The integrand is real-valued: its imaginary part
+  :65 vanishes identically.  This is the Φ-side content of "real coefficients" — the source of the
+  :66 reflection symmetry `Λ(s̄) = conj (Λ s)`. -/
+  :67 def C1_realness : Coupling := fun (Φ : ℝ → ℂ) => ∀ t : ℝ, (Φ t).im = 0
+  :68 
+  :69 /-- **C₂ (Euler / multiplicative).**  The Mellin factor does not vanish on the convergence
+  :70 half-plane.  This is the Φ-side content of the Euler product: absolute convergence and
+  :71 non-vanishing for `1 < re s`. -/
+  :72 def C2_halfplane_nonvanishing : Coupling := fun (Φ : ℝ → ℂ) =>
+  :73   ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0
+  :74 
+  :75 /-- **C₃ (functional equation / theta transformation).**  The integrand obeys the theta
+  :76 inversion law `Φ (1/t) = √t · Φ t + (correction)`, which is what pushes the functional
+  :77 equation `Λ(1 - s) = Λ(s)` through the Mellin transform.  Stated here in the weak form that
+  :78 the transformation exists with a real Jacobian factor. -/
+  :79 def C3_theta_transformation : Coupling := fun (Φ : ℝ → ℂ) =>
+  :80   ∀ t : ℝ, 0 < t → Φ (1 / t) = Real.sqrt t * Φ t + (Real.sqrt t - 1) / 2
+  :81 
+  :82 /-- **C₄ (modular / PSL₂(ℤ)) — STRENGTHENED** (2026-07-17, C₄ Fork B; W-7-style def change).
+  :83 `Φ` is the real-ray restriction of a holomorphic function `F` on the upper half-plane that is
+  :84 covariant under the two generators of `PSL₂(ℤ) = ⟨S, T | S² = (ST)³ = I⟩`:
+  :85 
+  :86   (i)   `F` holomorphic on `ℍ` (`0 < im τ`);
+  :87   (ii)  ray restriction: `F (I·t) = 2·Φ t + 1` for `t > 0`  — via `evenKernel_def`, `2Φ+1 = evenKernel 0`;
+  :88   (iii) **T-law**: `F (2 + τ) = F τ`  — a GENUINELY NEW fact, *not* implied by C₃; C₃ is only the
+  :89         S-law's real-ray shadow, and the modular translation lives in the upper-half-plane variable τ
+  :90         (`jacobiTheta(2+τ) = jacobiTheta τ`), not as the real-`t` identity `Φ(t+2)=Φ(t)`;
+  :91   (iv)  **S-law**, in the library's exact branch form: `F (-1/τ) = (-I·τ)^(1/2) · F τ` on `ℍ`.
+  :92 
+  :93 Together the four clauses state *"Φ is the ray-restriction of a holomorphic PSL₂(ℤ)-generator-covariant
+  :94 function"* — the modular STRUCTURE that Chapter 15 §15.3's per-class argument consumes, at the kernel's
+  :95 share of the two-leg split. The spectral MATHEMATICS the manuscript's C₄ rests on (the Eisenstein/Maass
+  :96 decomposition of `L²(PSL₂(ℤ)\ℍ)`, both spectra confined to `σ = ½`, Selberg) is the **manuscript leg**,
+  :97 cited there, not re-formalized here (that would be Fork C — half-integral-weight modular forms as a
+  :98 typeclass, absent from Mathlib at the pin, and not the kernel's share).
+  :99 
+  :100 **Superseded under-strength form** (through v0.5.1):
+  :101 `∀ t>0, (Φ(t+2)=Φ(t)) → Φ(1/t) = √t·Φ t + (√t−1)/2`.
+  :102 The C₄ sitting-one screen (2026-07-17) found this was `C3_theta_transformation`'s formula in a
+  :103 conditional wrapper: its conclusion was already C₃'s, and its antecedent `Φ(t+2)=Φ(t)` was a spurious
+  :104 real-`t` translation (not the modular T-law) and **unused** in any discharge — a one-line discharge of
+  :105 it certified nothing about the modular class (E0, turned on our own kernel). **Both facts:** the old
+  :106 form was *true at Φ* but *under-strength*; this form carries the modular content. Discharge at `Φ` (with
+  :107 `F := jacobiTheta`) is C₄ Fork B, sitting B2. -/
+  :108 def C4_modularity : Coupling := fun (Φ : ℝ → ℂ) =>
+  :109   ∃ F : ℂ → ℂ,
+  :110     (∀ τ : ℂ, 0 < τ.im → DifferentiableAt ℂ F τ) ∧
+  :111     (∀ t : ℝ, 0 < t → F (Complex.I * t) = 2 * Φ t + 1) ∧
+  :112     (∀ τ : ℂ, F (2 + τ) = F τ) ∧
+  :113     (∀ τ : ℂ, 0 < τ.im → F (-1 / τ) = (-Complex.I * τ) ^ (1 / 2 : ℂ) * F τ)
+  :114 
+  :115 /-- **C₅-INPUT (spectral self-adjointness — the certifiable half).**  The integrand is the heat
+  :116 trace of a real, non-negative spectrum: there is `μ : ℤ → ℝ` with `μ n ≥ 0` and
+  :117 `∑_{n : ℤ} exp (-π · μ n · t) = 2 Φ t + 1` for `t > 0`.  This is the SPECTRAL INPUT: the existence
+  :118 of a non-negative spectrum whose heat trace is the kernel.  It is certifiable, and it is certified
+  :119 below at `Phi` (with `μ n = n²`). -/
+  :120 def C5_input : Coupling := fun (Φ : ℝ → ℂ) =>
+  :121   ∃ μ : ℤ → ℝ, (∀ n : ℤ, 0 ≤ μ n) ∧
+  :122     ∀ t : ℝ, 0 < t → HasSum (fun n : ℤ => ((Real.exp (-Real.pi * μ n * t) : ℝ) : ℂ)) (2 * Φ t + 1)
+  :123 
+  :124 /-- **C₅-OUTPUT (the spectral realisation — DISCLAIMED, never claimed).**  That the spectrum of
+  :125 C₅-input is the spectrum *of a self-adjoint operator whose eigenvalues are the zeta zeros* — the
+  :126 Hilbert–Pólya assertion.  **This programme explicitly DISCLAIMS it** (EXCLUSION_ENGINE, Misreadings:
+  :127 the spectral kernels disclaim Hilbert–Pólya rather than rest on it), and NO theorem in this file
+  :128 claims it at `Phi` or anywhere else.
+  :129 
+  :130 It is stated only so that the gap between input and output has a name.  **That gap is the premise's
+  :131 FIFTH REGISTER** (BALANCE_AND_POSITIVITY §IV lists four; this is the fifth): over `𝔽_q` the input's
+  :132 positivity and the output's coincide — Weil's 1948 proof supplies the operator-side positivity from
+  :133 the Hodge-index/Castelnuovo inequality on `C × C` — while over `ℚ` the coincidence is exactly what
+  :134 is missing.  The formation distance between `C5_input` and `C5_output` IS the premise, in spectral
+  :135 coordinates.  See BALANCE_AND_POSITIVITY, "The function-field face at the fixed witness". -/
+  :136 def C5_output : Coupling := fun (Φ : ℝ → ℂ) =>
+  :137   ∃ (H : Type) (_ : ∀ _ : H, ℝ), ∃ μ : ℤ → ℝ, (∀ n : ℤ, 0 ≤ μ n) ∧
+  :138     (∀ t : ℝ, 0 < t → HasSum (fun n : ℤ => ((Real.exp (-Real.pi * μ n * t) : ℝ) : ℂ)) (2 * Φ t + 1)) ∧
+  :139     ∀ n : ℤ, ∃ ρ : ℂ, ρ.re = 1 / 2 ∧ ρ.im ^ 2 = μ n
+  :140 
+  :141 /-- **C₆ (Cauchy–Riemann / local analyticity).**  The integrand extends holomorphically to the
+  :142 right half-plane `0 < re z`: there is `F : ℂ → ℂ`, differentiable on `{z | 0 < re z}`, agreeing
+  :143 with `Φ` on the positive reals. -/
+  :144 def C6_holomorphic_extension : Coupling := fun (Φ : ℝ → ℂ) =>
+  :145   ∃ F : ℂ → ℂ, (∀ z : ℂ, 0 < z.re → DifferentiableAt ℂ F z) ∧
+  :146     ∀ t : ℝ, 0 < t → F (t : ℂ) = Φ t
+  :147 
+  :148 /-- **C₇-ENTIRETY (Hadamard, the certifiable half).**  The *completed* Mellin transform of `Φ`
+  :149 agrees on the convergence half-plane with an **entire** function: adding back the principal parts
+  :150 at `s = 0` and `s = 1` gives a function with no poles anywhere.  This is the analytic-continuation
+  :151 half of the Hadamard input — it says the object Hadamard would factor *exists as an entire
+  :152 function*.  PROVED at `Phi` below (`G = completedRiemannZeta₀`, via T1 + Mathlib's
+  :153 `differentiable_completedZeta₀`). -/
+  :154 def C7_entirety : Coupling := fun (Φ : ℝ → ℂ) =>
+  :155   ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+  :156     ∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)
+  :157 
+  :158 /-- **C₇-ORDER (Hadamard, the open half).**  That entire completion has **order ≤ 1** — the
+  :159 maximal-type growth `‖G s‖ ≤ C · exp (A · ‖s‖ · log (‖s‖ + 2))`.  This is the actual growth of the
+  :160 completed zeta (the Γ factor forces `exp(½‖s‖ log‖s‖)` on the real axis), it implies order ≤ 1, and
+  :161 it is exactly the hypothesis the **genus-1** Hadamard factorisation consumes — the one that bounds
+  :162 the zero-counting function and gives the product its shape.  **Entirety alone does not give it**, and
+  :163 this is where the class's real content sits.
+  :164 
+  :165 CORRECTION (2026-07-14 — W-8 sitting-1 STOP, `OPEN_TRAILS`).  This conjunct previously read
+  :166 `∃ C A, ‖G s‖ ≤ C · exp (A · ‖s‖)` and was mislabelled "order ≤ 1".  That is **finite exponential
+  :167 type**, and it is **provably false** of the forced witness `G = completedRiemannZeta₀`: (i) along the
+  :168 positive real axis `‖G σ‖ ~ exp(½ σ log σ)` (the Γ factor), which beats `C · exp(A σ)` for *every*
+  :169 fixed `A`; (ii) `G` carries the nontrivial zeros of ζ, `n(T) ~ (T/2π) log T` — superlinear — so by
+  :170 Jensen it cannot be of finite exponential type.  **Genus-1 Hadamard consumes order ≤ 1, not finite
+  :171 type.**  The statement is corrected to the true order form, which complex Stirling delivers directly.
+  :172 
+  :173 OPEN, and priced honestly.  Its true cost is two classical ingredients, **neither of which is in
+  :174 Mathlib at this pin**:
+  :175   (1) **Stirling control of the Γ factor** — a bound `‖Γ(s/2)‖ ≤ exp (A‖s‖ log‖s‖)`-type estimate.
+  :176       Mathlib has no `Gamma/Stirling` file and no norm bound on `Complex.Gamma` at all.
+  :177   (2) **Finite order of ζ in the strip** — polynomial growth of `ζ` on vertical lines, then
+  :178       Phragmén–Lindelöf to fill the strip.  Mathlib HAS `PhragmenLindelof.vertical_strip`, but that
+  :179       is a *maximum principle*: it converts growth control into boundedness.  It cannot supply (1),
+  :180       and it cannot manufacture an order bound from entirety.
+  :181 Formalising C₇-order is therefore a Γ-asymptotics project, not a corollary of what exists. -/
+  :182 def C7_order : Coupling := fun (Φ : ℝ → ℂ) =>
+  :183   ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+  :184     (∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)) ∧
+  :185     ∃ A C : ℝ, ∀ s : ℂ, ‖G s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+  :186 
+  :187 /-- The seven classes, as the family `𝒞` that `T3prime_shared_witness` consumes. -/
+  :188 def sevenClasses : Set Coupling :=
+  :189   {C1_realness, C2_halfplane_nonvanishing, C3_theta_transformation, C4_modularity,
+  :190    C5_input, C6_holomorphic_extension, C7_order}
+  :191 -- NOTE: `C5_output` is deliberately NOT in `sevenClasses`: it is the disclaimed half.
+  :192 
+  :193 /-! ## Discharges at the fixed witness `Phi` -/
+  :194 
+  :195 /-- **C₁ at Φ — PROVED.**  `Phi t = ((evenKernel 0 t : ℂ) - 1) / 2` with `evenKernel 0 t : ℝ`,
+  :196 so the imaginary part is zero by construction. -/
+  :197 theorem C1_realness_at_Phi : C1_realness Phi := by
+  :198   intro t
+  :199   simp [C1_realness, Phi]
+  :200 
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:197-200
+  :197 theorem C1_realness_at_Phi : C1_realness Phi := by
+  :198   intro t
+  :199   simp [C1_realness, Phi]
+  :200 
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:205-207
+  :205 theorem C2_halfplane_nonvanishing_at_Phi : C2_halfplane_nonvanishing Phi := by
+  :206   intro s hs hzero
+  :207   -- Transport the vanishing back to the completed zeta.
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:222-224
+  :222 theorem C6_holomorphic_extension_at_Phi : C6_holomorphic_extension Phi := by
+  :223   refine ⟨fun z => (jacobiTheta₂ 0 (Complex.I * z) - 1) / 2, ?_, ?_⟩
+  :224   · intro z hz
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:243-245
+  :243 theorem C3_theta_transformation_at_Phi : C3_theta_transformation Phi := by
+  :244   intro t ht
+  :245   have hK : evenKernel 0 (1 / t) = Real.sqrt t * evenKernel 0 t := by
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:262-264
+  :262 theorem C5_input_at_Phi : C5_input Phi := by
+  :263   refine ⟨fun n : ℤ => (n : ℝ) ^ 2, fun n => sq_nonneg _, ?_⟩
+  :264   intro t ht
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:277-279
+  :277 theorem C7_entirety_at_Phi : C7_entirety Phi := by
+  :278   refine ⟨completedRiemannZeta₀, differentiable_completedZeta₀, ?_⟩
+  :279   intro s hs
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:298-300
+  :298 theorem C7_order_at_Phi : C7_order Phi := by
+  :299   -- PROVED (W-8, in-kernel theta-Mellin route; no complex Stirling, no Phragmén–Lindelöf).
+  :300   -- Witness `completedRiemannZeta₀`: entirety + half-plane identity reuse C7_entirety_at_Phi's proof;
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:315-317
+  :315 theorem C4_modularity_at_Phi : C4_modularity Phi := by
+  :316   refine ⟨jacobiTheta, fun τ hτ => differentiableAt_jacobiTheta hτ, ?_, jacobiTheta_two_add, ?_⟩
+  :317   · intro t ht
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:362-364
+  :362 theorem n_one_binding_instance :
+  :363     Real.eulerMascheroniConstant + 2 ≥ Real.log (4 * Real.pi) := by
+  :364   -- γ > eulerMascheroniSeq 12 = harmonic 12 − log 13, with harmonic 12 = 86021/27720.
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/CouplingsAtPhi.lean:405-427
+  :405   4. `C4_modularity`             — the **strengthened** PSL₂(ℤ) modularity of the
+  :406                                     ℍ-lift (S-inversion + T-translation laws), Fork B,
+  :407                                     witnessed by `jacobiTheta`;
+  :408   5. `C5_input`                  — the spectral heat-trace INPUT register;
+  :409   6. `C6_holomorphic_extension`  — holomorphy of the completed object;
+  :410   7. `C7_entirety`               — entirety (order-side, whole-plane);
+  :411   8. `C7_order`                  — the order ≤ 1 maximal-type growth bound.
+  :412 
+  :413 Ledger note.  C₅-**OUTPUT** (the Hilbert–Pólya spectral realization) is DISCLAIMED
+  :414 and lies OUTSIDE this count — it is the cited fifth-register premise, not a coupling
+  :415 proven here.  This theorem is the `h1` leg of the T3′ bracket; `h2` (nonvanishing of
+  :416 the Mellin transform at the operative point) remains the outstanding obligation.
+  :417 Each conjunct's own `#print axioms` is `{propext, Classical.choice, Quot.sound}`. -/
+  :418 theorem h1_complete_at_Phi :
+  :419     C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧
+  :420       C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧
+  :421       C7_entirety Phi ∧ C7_order Phi :=
+  :422   ⟨C1_realness_at_Phi, C2_halfplane_nonvanishing_at_Phi, C3_theta_transformation_at_Phi,
+  :423     C4_modularity_at_Phi, C5_input_at_Phi, C6_holomorphic_extension_at_Phi,
+  :424     C7_entirety_at_Phi, C7_order_at_Phi⟩
+  :425 
+  :426 end SIDELvConservation
+  :427 
+
+### SIDE-lv-conservation 93c27ec (v0.10.0) SIDELvConservation/T3_StepNineBridge.lean:44-70
+  :44 abbrev Coupling := (ℝ → ℂ) → Prop
+  :45 
+  :46 /-- The zero-location set of `s ↦ mellin Φ (s / 2)`.  Manifestly a
+  :47 function of `Φ`. -/
+  :48 def ZeroLoc (Φ : ℝ → ℂ) : Set ℂ := {s | mellin Φ (s / 2) = 0}
+  :49 
+  :50 /-- Per-class exclusion at `s`: coupling `C` is consistent with a `Φ`
+  :51 whose Mellin factor has *no* zero at `s`. -/
+  :52 def PerClassExcludes (C : Coupling) (s : ℂ) : Prop :=
+  :53   ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0
+  :54 
+  :55 /-- Combinations exclude at `s`: the joint constraint over a family of
+  :56 couplings is consistent with a `Φ` whose Mellin factor has no zero at `s`. -/
+  :57 def CombinationsExclude (𝒞 : Set Coupling) (s : ℂ) : Prop :=
+  :58   ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+  :59 
+  :60 /-- **T3a.**  The zero-location set is a function of `Φ`.  Restatement of
+  :61 Mathlib's `mellin` definition: `Φ` is the sole input to
+  :62 `s ↦ mellin Φ (s / 2)`; therefore its zero-set is determined by `Φ`. -/
+  :63 theorem T3a_zeroLoc_is_function_of_Phi
+  :64     (Φ₁ Φ₂ : ℝ → ℂ) (h : Φ₁ = Φ₂) :
+  :65     ZeroLoc Φ₁ = ZeroLoc Φ₂ := by
+  :66   subst h; rfl
+  :67 
+  :68 /-- **T3b.**  If a single `Φ` satisfies every coupling in `𝒞` and has no
+  :69 zero at `s`, then combined exclusion at `s` holds.  Trivial existential
+  :70 extraction — the substantive content is *finding* such a `Φ`. -/
+
+### SIDE-li-map 73cee42 (73cee42) LiLinearMap.lean:50-80
+  :50 /-- The Li linear map over an abstract coefficient stream η. -/
+  :51 def lam (η : Nat → Int) (n : Nat) : Int :=
+  :52   n * S (fun j => (binom (n-1) (n-j) : Int) * η j) n
+  :53 
+  :54 /-- CHANNEL ADDITIVITY: the Li map is additive in the coefficient stream.
+  :55     Instance: λ_n = λ_A(n) + λ_Z(n) for the archimedean / pole+Euler split. -/
+  :56 theorem lam_add (η η' : Nat → Int) (n : Nat) :
+  :57     lam (fun j => η j + η' j) n = lam η n + lam η' n := by
+  :58   unfold lam
+  :59   have h : S (fun j => (binom (n-1) (n-j) : Int) * (η j + η' j)) n
+  :60          = S (fun j => (binom (n-1) (n-j) : Int) * η j) n
+  :61          + S (fun j => (binom (n-1) (n-j) : Int) * η' j) n := by
+  :62     have hs := S_add (fun j => (binom (n-1) (n-j) : Int) * η j)
+  :63                      (fun j => (binom (n-1) (n-j) : Int) * η' j) n
+  :64     rw [← hs]
+  :65     congr 1; funext j; exact Int.mul_add _ _ _
+  :66   rw [h]; exact Int.mul_add _ _ _
+  :67 
+  :68 /-- The zero stream maps to zero at every n. -/
+  :69 theorem lam_zero (n : Nat) : lam (fun _ => 0) n = 0 := by
+  :70   unfold lam
+  :71   have h : (fun j => (binom (n-1) (n-j) : Int) * 0) = (fun _ => (0 : Int)) := by
+  :72     funext j; exact Int.mul_zero _
+  :73   rw [h, S_zero_fun, Int.mul_zero]
+  :74 
+  :75 /-- λ_1 = η_1: the first Li coefficient is the first Taylor coefficient. -/
+  :76 theorem lam_one (η : Nat → Int) : lam η 1 = η 1 := by
+  :77   unfold lam S
+  :78   simp [binom]
+  :79 
+  :80 end LiLinearMap
+
+### SIDE-kernel 691295b (691295b) Kernel/Voice7Witness.lean:128-150
+  :128 
+  :129     This is what C₇'s presence provably CANNOT do -- the faithful
+  :130     de-encode filed as W-ORD-C7-WITNESS. It does NOT positively de-encode
+  :131     `hadamard_contrib`/`topological_contribution` (the σ-neutrality shape
+  :132     `∀σ, g σ = g(1/2)` has no non-vacuous model); it compiles the
+  :133     necessary-not-sufficient argument instead. Kin to
+  :134     `SieveCeilingWitness.dh_sieve_ceiling`. -/
+  :135 theorem hadamard_does_not_enforce_online :
+  :136     ¬ ∃ D : Config → Prop, RespectsI hadIndist D ∧ ∀ z, D z ↔ allOnLine z :=
+  :137   sieve_ceiling_of_witness hadIndist hadamard_witness
+  :138 
+  :139 /-- The same terminal via the generalized blind-reading route
+  :140     (`SieveCeilingBridge.blind_sieve_ceiling`): a blind (dark) Hadamard/FE
+  :141     observable plus a separating pair (the Epstein off-line datum) yields
+  :142     the ceiling. Demonstrates reuse of the second in-repo kin; the
+  :143     induced relation `obsRel hadObs` is def-eq to `hadIndist`. -/
+  :144 theorem hadamard_does_not_enforce_online' :
+  :145     ¬ ∃ D : Config → Prop,
+  :146       RespectsI (SieveCeilingBridge.obsRel hadObs) D ∧ ∀ z, D z ↔ allOnLine z :=
+  :147   SieveCeilingBridge.blind_sieve_ceiling hadObs_blind
+  :148     ⟨Config.ideal, Config.epstein, trivial, id⟩
+  :149 
+  :150 end Voice7Witness
+
+### relay data/b539_sentences.json -- lv-conservation`s deposited description, as b539 banked it
+  [STANDS] lv 21539068 title -- relay data/b499_fetchback_21539068.json metadata.title :: "SIDE-lv-conservation: the Conservation-route growth interface and the h1-complete coupling ledger for the SIDE reduction of the Riemann Hypothesis"
+  [RESTS] lv 21539068 description -- relay data/b499_fetchback_21539068.json metadata.description :: "Rather than leaving that clause as prose, this kernel fixes it as one compiled goal state and machine-checks everything provable around it: what is established, what is certified in finite range, what is bracketed as false, and exactly where the open mathematics begins."
+  [STANDS] lv 21539068 description -- relay data/b499_fetchback_21539068.json metadata.description :: "WHAT IT CONTAINS. h1_complete_at_Phi — all eight per-class coupling facts of the manuscript's Chapter 15, machine-checked at the fixed Mellin witness Phi and conjoined (the catalogue side complete at the witness)."
+  [RESTS] lv 21539068 description -- relay data/b499_fetchback_21539068.json metadata.description :: "The one deliberately open obligation is the clause itself; the kernel's docstrings and the manuscript's Sections 25.8 and 27.3 state its exact location and status."

@@ -1,0 +1,198 @@
+====================================================================================================================================
+b545 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE PURPOSE STATEMENT (BALANCE_AND_POSITIVITY.md:21-27), PRINTED BEFORE ANY EDIT:
+    :260 ## B.3 Instrument — the seven per-class constraints (monograph Ch. 15 §15.2), as objects to instantiate
+    :21 **Role.** This record *presents* the **sign core** of the proof — the balance→positivity distance, the one place where the catalogue's certificate for the Euler class (*balance*: p^(−σ) = p^(−(1−σ)) ⟺ σ = 1/2) falls strictly short of what the Weil/Li explicit formula requires (*positivity* of the assembled prime sum). That distance **is** the open clause: RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n (§II, §III). The complete argument is the monograph *A Place To Stand* (concept DOI 10.5281/zenodo.19675355); the clause is carried openly as open (§27.3, the totality/positivity register).
+    :22 
+    :23 *Kernel currency (2026-07-24 deposit): SIDE-lv-conservation has advanced to v0.10.0 = `93c27ec`, version DOI 10.5281/zenodo.21539068 (concept 21433177) — the certificates this paper rests on (`blTerm_nonneg_of_onLine`, `partialPositivity_finiteRange` with the Voros N₀(T) ≈ 2T² cutoff, `RegisterPentagon`, `h1_complete_at_Phi`, `C7_order_at_Phi`, `C7_finite_type_false`) hold through v0.10.0 with profiles unmoved; the dated pins in the version notes above are landing-historical. The sign layer's compiled discriminator `Voice7Witness.hadamard_does_not_enforce_online` (SIDE-kernel `691295b`, axiom-
+    :24 
+    :25 **Sign-layer map.** The clause this paper localizes has its state-of-the-field survey in `PATHS_TO_THE_CRITICAL_LINE §ANNEX B` — the proven partial paths (A1–A10), the obstructions (B1–B5), and the **B3 boundary**: Λ(n) ≥ 0 reaches the σ = 1 edge (de la Vallée Poussin), never the critical-line centre. This paper supplies the *localization*; §ANNEX B supplies the *survey*. The clause's ingredient is two-altitude (`ArithmeticFunction.vonMangoldt_nonneg` / the `LiLinearMap.lam_nonneg_of_nonneg` shadow, SIDE-li-map `b515e6b`).
+    :26 
+
+### THE RH-ANCHOR:
+  b545 -- THE RH-ANCHOR, FRESH #check at SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (tree clean; exit 0)
+    SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+    SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip
+    SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+    SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+    SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+    SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+        0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+      SIDEExplicitFormula.B321.rh_strip
+    SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ),
+      0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0
+    SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+      s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+
+### THE PROBES:
+  ### SIDE-li-map 73cee42 (73cee42ad65d264584bd45ee07ea8daf9dbf2313) LiLinearMap.lean ; its toolchain file: leanprover/lean4:v4.29.0-rc8 ; exit 0
+    'LiLinearMap.lam_add' depends on axioms: [propext, Quot.sound]
+    'LiLinearMap.lam_one' depends on axioms: [propext, Quot.sound]
+  ### SIDE-fano-darkness 0f6ce5b (0f6ce5b131fe4e5c350989c2e9fb57cead09a7fb) FanoTwoDarkness.lean ; its toolchain file: leanprover/lean4:v4.29.0-rc8 ; exit 0
+    'FanoTwoDarkness.second_moment' depends on axioms: [propext, Quot.sound]
+    'FanoTwoDarkness.first_moment' depends on axioms: [propext, Quot.sound]
+    'FanoTwoDarkness.point_line_count' depends on axioms: [propext]
+    'FanoTwoDarkness.pair_line_count' depends on axioms: [propext]
+    'FanoTwoDarkness.point_triple_count' does not depend on any axioms
+    'FanoTwoDarkness.pair_triple_count' does not depend on any axioms
+    'FanoTwoDarkness.frequency_match' does not depend on any axioms
+    'FanoTwoDarkness.counts' depends on axioms: [propext]
+    'FanoTwoDarkness.lines_are_triples' depends on axioms: [propext]
+
+### COMPONENT 1 -- THE TIERS:
+  b545 -- COMPONENT 1: B.5 (BALANCE_AND_POSITIVITY.md:339-348) TIERED, ROW FOR ROW; each terminal re-read at its pin
+  
+  ### :343 | SIDE-li-map (Li linear map, `lam_add`; = pentagon R4_channelDecomposition) | `73cee42` (public) | build exit 0; profiles at pin, clean tree, 2026-07
+    LiLinearMap.lam_add                                                    SIDE-li-map@73cee42 / HEAD  SAME  T2 | CARRIED | depends on axioms: [propext, Quot.sound] | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem lam_add (η η' : Nat → Int) (n : Nat) : lam (fun j => η j + η' j) n = lam η n + lam η' n
+    SIDELvConservation.RegisterPentagon.R4_channelDecomposition            SIDE-lv-conservation@2d86182 / v0.10.0  SAME  T2 | NEW | not probed (b544 probed ZETA terminals; subject PROGRAMME-TY | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem R4_channelDecomposition {lam : (ℕ → ℤ) → ℕ → ℤ} (lam_additive : ∀ (η η' : ℕ → ℤ) (n : ℕ), lam (fun j => η j + η' j) n = lam η n + lam η' n) (lam_A lam_Z : ℕ → ℤ) (n : ℕ) : lam (fun j => lam_A j + lam_Z j) n = lam lam_A n + lam lam_Z n
+  
+  ### :344 | SIDE-lv-conservation (T1/T2/T3 bracket) | `c8e3d31` = tag `v0.2.0` | statements read at pin; sorry census: T3 = 1 (disclosed), PinnedGoal = 1. **DOI
+    SIDELvConservation.completedRiemannZeta_eq_mellinPhi                   SIDE-lv-conservation@c8e3d31 / v0.10.0  SAME  T0 | CARRIED | depends on axioms: [propext, Classical.choice, Quot.sound] ( | E/I E (=)
+        statement: theorem completedRiemannZeta_eq_mellinPhi (s : ℂ) (hs : 1 < s.re) : completedRiemannZeta s = mellin Phi (s / 2)
+    SIDELvConservation.T3.T3prime_shared_witness                           SIDE-lv-conservation@c8e3d31 / v0.10.0  SAME  T2 | CARRIED | depends on axioms: [propext, Classical.choice, Quot.sound] ( | E/I I (≠ 0)
+        statement: theorem T3prime_shared_witness (𝒞 : Set Coupling) (s : ℂ) (h1 : ∀ C ∈ 𝒞, C Phi) (h2 : mellin Phi (s / 2) ≠ 0) : ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+    SIDELvConservation.T3.T3doubleprime_general_commutation_fails          SIDE-lv-conservation@c8e3d31 / v0.10.0  SAME  T2 | CARRIED | not probed (b544 probed ZETA terminals) | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem T3doubleprime_general_commutation_fails : ¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+    SIDELvConservation.T3.T3_perClass_to_combinations                      SIDE-lv-conservation@c8e3d31 / v0.10.0  SAME  T2 | CARRIED | not probed; it carries `sorryAx` by its own `sorry` | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) (h : ∀ C ∈ 𝒞, PerClassExcludes C s) : CombinationsExclude 𝒞 s
+  
+  ### :345 | SIDE-lv-conservation (ARM-2 instruments) | `h1_complete_at_Phi` `v0.6.0`=`c80bdc2` · `RegisterPentagon` `v0.7.0`=`2d86182` · `PartialPositivity.{par
+    SIDELvConservation.h1_complete_at_Phi                                  SIDE-lv-conservation@c80bdc2 / v0.10.0  SAME  T0 | CARRIED | SURR Correspondence :184, as the map cites it | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem h1_complete_at_Phi : C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧ C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧ C7_entirety Phi ∧ C7_order Phi
+    RegisterPentagon (module)                                              SIDE-lv-conservation@2d86182 / v0.10.0  FILE CHANGED  T2 | CARRIED | SURR Correspondence :185, as the map cites it | E/I not indexed (not in b542`s enumeration)
+        statement: (a module: its faces and edges)
+    SIDELvConservation.PartialPositivity.partialPositivity_finiteRange     SIDE-lv-conservation@6efa9e5 / v0.10.0  SAME  T1-lit | CARRIED | SURR Correspondence :187, as the map cites it | E/I I (≤)
+        statement: theorem partialPositivity_finiteRange (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ) (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T) (hTail : TailBoundPremise low tail T) : ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n
+    SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine           SIDE-lv-conservation@6efa9e5 / v0.10.0  SAME  T0 | CARRIED | SURR Correspondence :186, as the map cites it | E/I I (≤)
+        statement: lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) : 0 ≤ blTerm z n
+    SIDELvConservation.exists_norm_completedLFunction_le_exp               SIDE-lv-conservation@1767bd6 / v0.10.0  SAME  T0 | CARRIED | SURR Correspondence :188, as the map cites it | E/I not indexed (b544 subject ARITHMETIC-OR-LOGIC)
+        statement: theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) : ∃ A C : ℝ, ∀ s : ℂ, ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+    SIDELvConservation.C7_finite_type_false                                SIDE-lv-conservation@bc4751e / v0.10.0  SAME  T0 | CARRIED | depends on axioms: [propext, Classical.choice, Quot.sound] ( | E/I I (≤)
+        statement: theorem C7_finite_type_false : ¬ ∃ C A : ℝ, ∀ s : ℂ, ‖completedRiemannZeta₀ s‖ ≤ C * Real.exp (A * ‖s‖)
+  
+  ### :346 | SIDE-kernel (route terminals, `ConservationHypothesis`) | `b1407b2` = tag `v1.2` | `#print axioms` 2026-07-10, `DEPOSIT_v1_2_NOTES.md`. *Both facts 
+    ConservationBridge.riemann_hypothesis                                  SIDE-kernel@v1.2 / v1.5  SAME  T2 | CARRIED | relay data/b532_profile_log.txt, as the map cites it | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis
+    structural_exhaustiveness_proved                                       SIDE-kernel@v1.2 / v1.5  SAME  T2 | CARRIED | not probed (b544: subject PROGRAMME-TYPE) | E/I not indexed (b544 subject PROGRAMME-TYPE)
+        statement: theorem structural_exhaustiveness_proved : StructuralExhaustiveness
+    SpectralCannonFull.spectral_cannon                                     SIDE-kernel@v1.2 / v1.5  SAME  T0 | CARRIED | depends on axioms: [propext, Classical.choice, Quot.sound] ( | E/I E (=)
+        statement: theorem spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0
+  
+  ### :347 | Monograph Ch. 15 §15.2 (the seven classes) | `day1/A_Place_to_Stand.md` (manuscript v5.8 / Zenodo v1.1.1) | read 2026-07-13; version DOI `10.5281/ze
+    day1/A_Place_to_Stand.md Chapter 15 (manuscript v5.8 / Zenodo v1.1.1)  @ /   --  T4 | MOVED (T2 -> T4) | -- | E/I --
+        statement: --
+  
+  ### :348 | Li channel computation | `internal/bench/li_bench.py` | dps 260, M 4096, r ∈ {0.85, 0.75}, n ≤ 130; two-radius agreement ≥ 215 digits |
+    internal/bench/li_bench.py (dps 260, M 4096, r ∈ {0.85, 0.75}, n ≤ 130 @ /   --  T3 | NEW | -- | E/I --
+        statement: --
+  
+  ### THE FANO CORRESPONDENCE ROW (READING (10), COMPILED): FanoTwoDarkness.second_moment at SIDE-fano-darkness -- SAME
+    FanoTwoDarkness.second_moment                 depends on axioms: [propext, Quot.sound]
+    FanoTwoDarkness.first_moment                  depends on axioms: [propext, Quot.sound]
+    FanoTwoDarkness.point_line_count              depends on axioms: [propext]
+    FanoTwoDarkness.pair_line_count               depends on axioms: [propext]
+    FanoTwoDarkness.point_triple_count            does not depend on any axioms
+    FanoTwoDarkness.pair_triple_count             does not depend on any axioms
+    FanoTwoDarkness.frequency_match               does not depend on any axioms
+    FanoTwoDarkness.counts                        depends on axioms: [propext]
+    FanoTwoDarkness.lines_are_triples             depends on axioms: [propext]
+  
+    counts: {"rows": {"T0": 0, "T1-open": 0, "T1-lit": 0, "T2": 4, "T3": 1, "T4": 1}, "terminals": {"T0": 6, "T1-open": 0, "T1-lit": 1, "T2": 8, "T3": 1, "T4": 1}, "carried": {"CARRIED": 14, "MOVED": 1, "NEW": 2}, "same": {"SAME": 14, "DIFFERENT": 0, "SAME FILE": 0, "FILE CHANGED": 1, "ABSENT AT ONE PIN": 0, "--": 2}}
+
+### COMPONENT 2 -- THE SENTENCES : yields {'h2': 11, 'registers': 20, 'pentagon': 7, 'Route 3': 4, 'goal state': 1, 'the open clause': 6, 'the joint': 20, 'a named terminal': 37} ; read 602 ; selected 77 ; rows 78 ; counts {'STANDS': 41, 'STANDS-AS-HISTORY': 22, 'RESTS': 15, 'EXCEEDS': 0} ; supplementary {'STANDS': 4, 'STANDS-AS-HISTORY': 2, 'RESTS': 0, 'EXCEEDS': 0} ; RESTS by ground {'E-2026-09-25-3, E-2026-09-25-6': 1, 'E-2026-09-25-1': 1, 'E-2026-09-25-6': 4, 'BALPOS`s own (no filed subject)': 2, 'E-2026-09-14-1, E-2026-09-25-6': 1, 'E-2026-09-25-1, E-2026-09-25-6': 2, 'E-2026-09-25-3': 4}
+  :21   SELECTED      STANDS             T1-lit  That distance **is** the open clause: RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n (§II, §III).
+  :21   SELECTED      STANDS             T1-open The complete argument is the monograph *A Place To Stand* (concept DOI 10.5281/zenodo.19675355); the clause is
+  :23   SELECTED      STANDS-AS-HISTORY  T2      *Kernel currency (2026-07-24 deposit): SIDE-lv-conservation has advanced to v0.10.0 = `93c27ec`, version DOI 1
+  :23   SELECTED      STANDS             T1-lit  The all-n tail of the clause remains the open gap — no premise advanced.*
+  :25   SELECTED      STANDS             T4      **Sign-layer map.** The clause this paper localizes has its state-of-the-field survey in `PATHS_TO_THE_CRITICA
+  :25   SELECTED      STANDS             T2      The clause's ingredient is two-altitude (`ArithmeticFunction.vonMangoldt_nonneg` / the `LiLinearMap.lam_nonneg
+  :68   SELECTED      STANDS             T0      One half of that residue is now settled in-kernel: on-line zeros can never break Li positivity, because for Re
+  :72   SELECTED      RESTS              T2      The universality hypothesis carried by silence_universal, the named ConservationHypothesis of the kernel's Rou
+  :72   SELECTED      RESTS              T2      The universality hypothesis carried by silence_universal, the named ConservationHypothesis of the kernel's Rou
+  :72   SELECTED      RESTS              T2      Those five are now a single compiled object: `RegisterPentagon` (SIDE-lv-conservation `v0.7.0` = `2d86182`) ca
+  :72   SELECTED      RESTS              T2      This paper's home is the **R4 positivity face**: its `R4_channelDecomposition` edge is exactly the `lam_add` c
+  :72   SELECTED      STANDS             T1-lit  On the present bench the joint takes its sharpest form: **RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n** (notation of §II
+  :72   SELECTED      STANDS             T1-lit  The joint is one inequality between two exactly computable channels.
+  :99   SELECTED      STANDS             T3      Nothing in these measurements is new as verification of λ_n > 0 (Keiper's computations long precede this range
+  :109  SELECTED      STANDS             T0      The archimedean-channel input for each Λ(s, χ) — the order ≤ 1 growth of the completed Dirichlet L-function, b
+  :131  SELECTED      RESTS              T4      The catalogue's exhaustiveness over place-indexed structures is certified; that every zero-sourcing mechanism 
+  :146  SELECTED      RESTS              T2      The premise, in the four registers established in §IV: the universality hypothesis of `silence_universal`; Rou
+  :150  SELECTED      STANDS-AS-HISTORY  T2      Profiles (`#print axioms`, pin `73cee42`, clean tree, 2026-07-13): `binom_self_zero`, `S_zero` axiom-free; `S_
+  :188  SELECTED      STANDS             T2      **What this instrument provides.** Exactly one thing, and it is the thing the channel decomposition rests on: 
+  :188  SELECTED      STANDS             T2      `lam_one` pins the base case (λ₁ = η₁).
+  :253  SELECTED      STANDS-AS-HISTORY  T2      **What this bracket says, and it is the shape of the work.** `T3` — the general per-class-to-joint bridge — is
+  :256  SELECTED      STANDS-AS-HISTORY  T2      - **h2 : mellin Phi (s / 2) ≠ 0** — that Φ's Mellin factor does not vanish at the off-line s in question.
+  :258  SELECTED      RESTS              T2      **Discharge the premise = supply h1 and h2 for the seven classes at T1's Φ.** `T3″` is the proof that this rou
+  :274  SELECTED      RESTS              T2      Then h2 is the analytic content: `mellin Phi (s/2) ≠ 0` for s off the critical line.
+  :274  SELECTED      STANDS             T2      **Note what the bench does not hide: h2 is not a bookkeeping obligation — it is RH-strength on the convergence
+  :283  SELECTED      STANDS             T2      Taylor coefficients η_j at s = 1 by circle quadrature, η_j = (1/(M·r^j))·Σ_k f(1 + r·ω^k)·ω^(−jk), ω = e^(2πi/
+  :337  SELECTED      STANDS-AS-HISTORY  T3      That is the whole of the measured tension in the joint, and it sits at the first coefficient.
+  :343  SELECTED      STANDS             T2      | SIDE-li-map (Li linear map, `lam_add`; = pentagon R4_channelDecomposition) | `73cee42` (public) | build exit
+  :345  SELECTED      RESTS              T2      | SIDE-lv-conservation (ARM-2 instruments) | `h1_complete_at_Phi` `v0.6.0`=`c80bdc2` · `RegisterPentagon` `v0.
+  :346  SELECTED      STANDS-AS-HISTORY  T2      | SIDE-kernel (route terminals, `ConservationHypothesis`) | `b1407b2` = tag `v1.2` | `#print axioms` 2026-07-1
+  :354  SELECTED      STANDS             T1-lit  Separately, and since this bench was built, a finite range is now **derived, not measured**: `PartialPositivit
+  :354  SELECTED      STANDS             T1-lit  Second — and this is the point §C.6 makes — its cutoff N₀(T) ≈ 2T² is *exactly* Voros's detection threshold: t
+  :355  SELECTED      STANDS             T2      **The Li kernel does not know what ζ is.** `lam_add` certifies the linearity of the Li map over `Nat → Int` st
+  :356  SELECTED      STANDS             T2      **T3 is open.** The general per-class-to-joint bridge carries one `sorry`, and `T3″` proves the unrestricted v
+  :356  SELECTED      RESTS              T2      Only `T3′` closes it, and only under h1 and h2 — which are the premise, restated, not a proof of it.
+  :357  SELECTED      STANDS             T2      **h2 is not bookkeeping.** `mellin Phi (s/2) ≠ 0` off the critical line is RH-strength on the half-plane where
+  :360  SELECTED      STANDS             T1-lit  The premise remains open, and the honest form of the joint is the one this keystone already carries: RH ⟺ λ_Z(
+  :369  SELECTED      STANDS-AS-HISTORY  T2      The seven classes of Appendix B.3 are now **stated as `Coupling` predicates** — `(ℝ → ℂ) → Prop`, the exact ty
+  :381  SELECTED      STANDS             T0      | **C₁** realness | `∀ t : ℝ, (Φ t).im = 0` | **PROVED** — `C1_realness_at_Phi`, no `sorryAx` |
+  :382  SELECTED      STANDS             T0      | **C₂** half-plane Mellin nonvanishing | `∀ s, 1 < s.re → mellin Φ (s/2) ≠ 0` | **PROVED** — `C2_halfplane_no
+  :387  SELECTED      STANDS             T0      | **C₇** order-≤1 completed continuation | entire `G` extending the Mellin factor, `‖G s‖ ≤ C·exp(A·‖s‖·log(‖s
+  :395  SELECTED      STANDS-AS-HISTORY  T0      The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 
+  :429  SELECTED      STANDS             T2      - **A computable split at s = 1, and its fusion fact.** The programme's split is not S_∞/S_NA over places; it 
+  :430  SELECTED      STANDS             T1-lit  - **The inter-channel form of the joint.** RH ⟺ λ_Z(n) ≥ −λ_A(n) ∀n is an exact restatement of Li's criterion 
+  :451  SELECTED      STANDS             T4      **The growth-class statement's correct citation is Bombieri–Lagarias 1999, Corollary 1(c)** — *a subexponentia
+  :467  SELECTED      STANDS             T1-lit  This survives the arrival of the compiled certificate intact, and in fact the certificate makes the point exac
+  :469  SELECTED      RESTS              T2      **Consequence.** The discharge path runs through the kernel (h1: the seven couplings at Φ; h2: the Mellin nonv
+  :496  SELECTED      STANDS             T4      **Any polynomial-bound or "stiffness"/growth-class reformulation of the joint is therefore strictly weaker tha
+  :496  SELECTED      STANDS             T4      This is now verified, not conjectured, and it governs: **no keystone may present a growth-class form of the jo
+  :505  SELECTED      STANDS-AS-HISTORY  T4      **Caveat — RESOLVED 2026-07-13 (sixth sitting).** As first extracted, the clause read "|Im ρ| ≲ n/2" — **no ra
+  :546  SELECTED      STANDS             T4      ## D.2 The C₅ input/output split, and the fifth register
+  :553  SELECTED      RESTS              T2      **The gap between them is the premise's fifth register.** §IV of this paper lists four registers of one open j
+  :553  SELECTED      RESTS              T2      It is the **R5 input/output face** of the compiled `RegisterPentagon` (§II; SIDE-lv-conservation `v0.7.0` = `2
+  :565  SELECTED      RESTS              T2      (ii) **The formation-distance statement**: naming the C₅ input/output gap as the premise's fifth register, and
+  :571  SELECTED      STANDS             T1-lit  - **The critical-line census** (`phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md`): the two-axis (path × status)
+  :571  SELECTED      STANDS             T4      The census is the register in which the bench's joint takes its place among the other paths to σ = 1/2.
+  :597  SELECTED      STANDS             T0      **PROVED at Φ** (`C7_entirety_at_Phi`), with `G = completedRiemannZeta₀`, via `differentiable_completedZeta₀` 
+  :598  SELECTED      STANDS             T0      **PROVED at Φ** (`C7_order_at_Phi`, W-8), via `exists_norm_completedRiemannZeta₀_le_exp`.
+  :600  SELECTED      STANDS             T0      **That refutation is now itself compiled**: `SIDELvConservation.C7_finite_type_false` (SIDE-lv-conservation `v
+  :613  SELECTED      STANDS             T0      | ~~`n_one_binding_instance` (γ + 2 ≥ ln 4π)~~ | **DISCHARGED 2026-07-17** — γ ≥ 0.53102 proved in-kernel (`v0
+  :614  SELECTED      RESTS              T2      | **C₅-output** | **not open — DISCLAIMED.** The Hilbert–Pólya realisation; never to be claimed. Its distance 
+  :616  SELECTED      STANDS             T2      None of it touches h2, and none of it advances the premise.
+  :618  SELECTED      STANDS             T0      Its history: the finite-exponential-type form (`C·exp(A·‖s‖)`) was **false of the forced witness** and was cor
+  :620  SELECTED      STANDS             T0      The eighth and last class, **C₄ (modularity)**, is discharged — `C4_modularity_at_Phi` with witness F ≔ `jacob
+  :620  SELECTED      STANDS             T0      The γ-bound `n_one_binding_instance` also landed (`v0.4.1`; γ ≥ 0.53102).
+  :620  SELECTED      STANDS-AS-HISTORY  T2      What remains untouched is exactly what always was: **h2** (the Mellin nonvanishing) and the disclaimed **C₅-ou
+  :626  SELECTED      STANDS-AS-HISTORY  T1-lit  *v0.9.4 (2026-07-19): **ARM 2 refinement pass (spectral / RH-cascade).** The partial-positivity interface land
+  :626  SELECTED      STANDS-AS-HISTORY  T0      The on-line-term nonnegativity is **proved** (`blTerm_nonneg_of_onLine`), landed at §II.
+  :626  SELECTED      STANDS-AS-HISTORY  T2      The four registers of §IV together with the C₅ fifth register of §D.2 are named as the five faces of the compi
+  :626  SELECTED      STANDS-AS-HISTORY  T1-lit  No premise advanced; the joint stands exactly as before, now with one leg carrying a finite-range certificate 
+  :628  SELECTED      STANDS-AS-HISTORY  T0      *v0.9.3 (2026-07-17): **h1 complete at Φ — C₄ discharged.** The E.3 ledger is superseded (bracket-note added, 
+  :628  SELECTED      STANDS-AS-HISTORY  T0      The γ-bound `n_one_binding_instance` also landed (`v0.4.1`).
+  :628  SELECTED      STANDS-AS-HISTORY  T2      The E.3 Open table's C₄ and γ rows are struck. h2 and the disclaimed C₅-output register stand exactly as befor
+  :630  SELECTED      STANDS-AS-HISTORY  T0      *v0.9.2 (2026-07-15): **Appendix E — C₇-order is PROVED at Φ.** The corrected order-≤1 growth bound `‖G s‖ ≤ C
+  :638  SELECTED      STANDS-AS-HISTORY  T2      **The gap between them is the premise's FIFTH REGISTER**: over 𝔽_q the two coincide (Weil 1948 supplies the ou
+  :640  SELECTED      STANDS-AS-HISTORY  T4      Consequence, now verified rather than conjectured: **no keystone may present a growth-class/"stiffness" form o
+  :660  SELECTED      STANDS-AS-HISTORY  T4      **b324 asked whether that margin and this record's `M(n) := λ_Z(n) + λ_A(n) = λ_n` are one object in two regis
+  :660  SELECTED      STANDS-AS-HISTORY  T2      The monograph names *positivity of the Weil functional* and *λ_n ≥ 0* as two classical faces of the one obliga
+  :41   SUPPLEMENTARY STANDS             T0      | Σ_ρ h(γ_ρ) | Spectral | the target side | ≥ 0 ⟺ RH |
+  :42   SUPPLEMENTARY STANDS             T4      | W_∞ (digamma/Γ) | Functional-equation / archimedean | archimedean place | positive (provable) |
+  :251  SUPPLEMENTARY STANDS-AS-HISTORY  T2      **Sorry census at the pin** (`git show c8e3d31:<file>`): `SIDELvConservation/T3_StepNineBridge.lean` — **1** (
+  :516  SUPPLEMENTARY STANDS             T4      ### C.7.4 The record, now standing on checks actually run
+  :591  SUPPLEMENTARY STANDS-AS-HISTORY  T4      **Phragmén–Lindelöf is a maximum principle, not a source of order bounds.** It converts growth *control* into 
+  :117  SUPPLEMENTARY STANDS             T0      **Theorem (Fano two-darkness).** Let arbitrary real values be assigned to the seven points of the Fano plane. 
+
+### THE WRITES : tiers {"file": "phase1.5\\spectral\\BALANCE_AND_POSITIVITY.md", "before": 93093, "added": 9018, "prefix": true, "heading_line": 668} ; sentences {"file": "phase1.5\\spectral\\BALANCE_AND_POSITIVITY.md", "before": 102111, "added": 18362, "prefix": true, "heading_line": 704, "rests_written": 15} ; joint {"file": "phase1.5\\spectral\\BALANCE_AND_POSITIVITY.md", "before": 120473, "added": 2110, "prefix": true, "heading_line": 764} ; credit {"findings": {"file": "FINDINGS.md", "before": 661159, "added": 2923, "prefix": true, "heading_line": 5461}, "surr": {"file": "phase1.5\\proofs\\THE_UNCONDITIONAL_SURROUND.md", "before": 41482, "added": 456, "prefix": true}, "surr_line": 244} ; findings {"file": "FINDINGS.md", "before": 664082, "added": 4697, "prefix": true, "heading_line": 5478}
+
+### COMPONENT 5 -- THE FANO SEARCH : repositories 45 ; revisions 148 ; files 2332 ; hits 245 ; by repository {'SIDE-class-number-anomaly': 3, 'SIDE-cosmo': 20, 'SIDE-cubit-axis': 6, 'SIDE-dirichlet-mod-24': 1, 'SIDE-explicit-formula': 2, 'SIDE-fano-darkness': 31, 'SIDE-global-section': 4, 'SIDE-kernel': 19, 'SIDE-lv-conservation': 1, 'SIDE-meta': 10, 'SIDE-orchestrator': 26, 'SIDE-quaternionic-dark-sector': 4, 'SIDE-structural-error-correction': 13, 'SIDE-substrate-cluster': 66, 'SIDE-t7-topology-cmb': 13, 'SIDE-trivium': 11, 'TECHNE-Core': 15}
+  every hit : relay data/b545_fano_search.txt
+### THE UNDECLARED READ : relay data/b545_fano_lsremote.txt
+### THE BRANCHES : see data/b545_branches.txt
+====================================================================================================================================

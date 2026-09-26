@@ -1,0 +1,39 @@
+====================================================================================================
+b545_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b545_registration_2026-09-26.txt
+  bytes/lines  : 22302 / 223
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE, NOT TYPED:**
+      ARMS      73
+      READINGS  14
+      EXPECT    9
+      BARS      0
+      PREFACE   0
+
+  clauses emitted : 60
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 11**
+      work-orders filed                                              demand 1    cap 2
+      keystones edited or annotated                                  demand 2    cap 2
+      expectations registered                                        demand 9    cap 9
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 14   cap 14
+      author rulings ratified and entered                            demand 1    cap 1
+      addendum slots declared in the write list                      demand 1    cap 1
+      PLACE-papers documents written at all                          demand 4    cap 4
+      gate arms declared                                             demand 73   cap 73
+      new `relay` act-tool files named on this face                  demand 5    cap 5
+  written : b545_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : e60e45b5dabcebc735b668180c8592d3306acbb04b5903788e96bd84e7e55c50  (b545_registration_2026-09-26.txt)

@@ -1,0 +1,2780 @@
+{
+ "repos": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-explicit-formula",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation",
+  "TECHNE-Core"
+ ],
+ "outside_b542": [
+  "SIDE-carrier-spec",
+  "SIDE-class-number-anomaly",
+  "SIDE-cosmo",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-fano-darkness",
+  "SIDE-formation-procedure",
+  "SIDE-local-cosmic-interface",
+  "SIDE-quaternionic-dark-sector"
+ ],
+ "revisions": 148,
+ "files": 2332,
+ "hits": [
+  {
+   "repo": "SIDE-class-number-anomaly",
+   "rev": "HEAD",
+   "sha": "2203b88",
+   "file": "SIDEClassNumberAnomaly/Basic.lean",
+   "line": 24,
+   "needles": [
+    "triple"
+   ],
+   "text": "Theorems: 17 (v0.2 adds triple_identification_diagonal; LV-H-2).  sorry: 0.  axioms: 0."
+  },
+  {
+   "repo": "SIDE-class-number-anomaly",
+   "rev": "HEAD",
+   "sha": "2203b88",
+   "file": "SIDEClassNumberAnomaly/Basic.lean",
+   "line": 176,
+   "needles": [
+    "triple"
+   ],
+   "text": "**Theorem 5.3 (Triple Identification, Diagonal).**"
+  },
+  {
+   "repo": "SIDE-class-number-anomaly",
+   "rev": "HEAD",
+   "sha": "2203b88",
+   "file": "SIDEClassNumberAnomaly/Basic.lean",
+   "line": 204,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem triple_identification_diagonal :"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo.lean",
+   "line": 2,
+   "needles": [
+    "Fano"
+   ],
+   "text": "import SIDECosmo.FanoPlane"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo.lean",
+   "line": 3,
+   "needles": [
+    "Fano"
+   ],
+   "text": "import SIDECosmo.FanoFormation"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoFormation.lean",
+   "line": 2,
+   "needles": [
+    "Fano"
+   ],
+   "text": "import SIDECosmo.FanoPlane"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoFormation.lean",
+   "line": 6,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! # Bridge: Formation ↔ Fano"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoFormation.lean",
+   "line": 9,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ## Identification: Formation total = Fano points -/"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoFormation.lean",
+   "line": 16,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ## Coupling via Fano lines -/"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoFormation.lean",
+   "line": 20,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Two mechanism classes are coupled if they share a Fano line. -/"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoPlane.lean",
+   "line": 5,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! # The Fano Plane PG(2, 𝔽₂)"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoPlane.lean",
+   "line": 23,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "def linesThrough (pt : Fin 7) : Nat :="
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/FanoPlane.lean",
+   "line": 34,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "theorem three_lines_per_point : ∀ pt : Fin 7, linesThrough pt = 3 := by decide"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 1,
+   "needles": [
+    "Fano"
+   ],
+   "text": "import SIDECosmo.FanoFormation"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 11,
+   "needles": [
+    "Fano"
+   ],
+   "text": "[[7,1,3]] code parameters n, k, d certified from the Fano / formation substrate"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 12,
+   "needles": [
+    "Fano"
+   ],
+   "text": "already compiled in this project (`FormationPhaseSpace.lean`, `FanoPlane.lean`,"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 13,
+   "needles": [
+    "Fano"
+   ],
+   "text": "`FanoFormation.lean`). Every proof is `by decide` or definitional — axioms"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 18,
+   "needles": [
+    "Fano"
+   ],
+   "text": "k_classical = 4 (`xi_visible`, = 2²), the Fano incidence geometry (the Hamming"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 28,
+   "needles": [
+    "Fano"
+   ],
+   "text": "laid along the Singer / {0,1,3}-difference-set cycle so that the Fano lines of"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 29,
+   "needles": [
+    "Fano"
+   ],
+   "text": "`FanoPlane.lean` (`fanoLine 0 = (0,1,3)`, cyclically shifted) are exactly the"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 30,
+   "needles": [
+    "triple"
+   ],
+   "text": "weight-3 zero-sum triples. Column i = αⁱ in 𝔽₈ ≅ 𝔽₂³, with α³ = α + 1. -/"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "HEAD",
+   "sha": "c5cba30",
+   "file": "SIDECosmo/SteaneExemplar.lean",
+   "line": 65,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- **d ≤ 3**: a weight-3 zero-sum relation exists — the Fano line {0,1,3}"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "rev": "v0.2",
+   "sha": "a54e59c",
+   "file": "SIDECosmo/FanoPlane.lean",
+   "line": 34,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "theorem three_lines_per_point : ∀ pt : Fin 7, linesThrough pt = 3 := by native_decide"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "rev": "HEAD",
+   "sha": "e0a2aec",
+   "file": "SIDECubitAxis/Basic.lean",
+   "line": 11,
+   "needles": [
+    "Fano"
+   ],
+   "text": "SIDE-steane-arithmetic   — vertex Hamming (3, 3, 1), Fano plane"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "rev": "HEAD",
+   "sha": "e0a2aec",
+   "file": "SIDECubitAxis/Basic.lean",
+   "line": 159,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def steaneN : Nat := 7   -- physical qubits = Fano points"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "rev": "HEAD",
+   "sha": "e0a2aec",
+   "file": "SIDECubitAxis/Basic.lean",
+   "line": 161,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def steaneD : Nat := 3   -- code distance = Fano line size"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "rev": "HEAD",
+   "sha": "e0a2aec",
+   "file": "SIDECubitAxis/Basic.lean",
+   "line": 163,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Theorem 6.1.  Steane physical qubits = cubit non-trivial vertices = Fano points. -/"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "rev": "HEAD",
+   "sha": "e0a2aec",
+   "file": "SIDECubitAxis/Basic.lean",
+   "line": 166,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Theorem 6.2.  Steane distance = formationN2 (transformation stages = Fano line size). -/"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "rev": "HEAD",
+   "sha": "e0a2aec",
+   "file": "SIDECubitAxis/Basic.lean",
+   "line": 198,
+   "needles": [
+    "Fano"
+   ],
+   "text": "* non-trivial cubit elements = 7 = Fano points = Trivium fields = Steane n"
+  },
+  {
+   "repo": "SIDE-dirichlet-mod-24",
+   "rev": "HEAD",
+   "sha": "597b086",
+   "file": "SIDEDirichletMod24/Basic.lean",
+   "line": 265,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Fano plane vertices (Steane), and matter-as-remainder. -/"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "rev": "HEAD",
+   "sha": "81ae175",
+   "file": "Zeta23/Defs.lean",
+   "line": 28,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "Design (ζ-free abstract layer): nothing in this file mentions"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "rev": "HEAD",
+   "sha": "81ae175",
+   "file": "Zeta23/Tail/RankOne.lean",
+   "line": 31,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "Design (avoiding Schatten-norm machinery): the trace norm of a Hermitian"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 2,
+   "needles": [
+    "Fano"
+   ],
+   "text": "# Fano Two-Darkness — the incidence certificate"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 6,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The Fano plane on the seven programme discriminants {-3,-2,-1,2,3,6,-6},"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 13,
+   "needles": [
+    "triple"
+   ],
+   "text": "* `point_triple_count`  — every point lies in exactly 15 of the 35 triples"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 14,
+   "needles": [
+    "triple"
+   ],
+   "text": "* `pair_triple_count`   — every pair lies in exactly 5 of the 35 triples"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 15,
+   "needles": [
+    "triple"
+   ],
+   "text": "* `lines_are_triples`   — the 7 lines are among the 35 triples"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 19,
+   "needles": [
+    "triple"
+   ],
+   "text": "first and second moments of triple-sums over the 7 lines equal those over the"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 20,
+   "needles": [
+    "triple"
+   ],
+   "text": "28 non-line triples for ANY point values, because both depend on the values"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 28,
+   "needles": [
+    "Fano"
+   ],
+   "text": "namespace FanoTwoDarkness"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 33,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- The seven Fano lines under d1·d2 ≡ d3 (mod squares):"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 35,
+   "needles": [
+    "triple"
+   ],
+   "text": "→ index triples (sorted): -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 45,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- All 35 unordered triples of distinct points, as sorted index triples. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 46,
+   "needles": [
+    "triple"
+   ],
+   "text": "def triples : List (Point × Point × Point) :="
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 52,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- Membership of a point in a triple. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 60,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- There are exactly 7 lines and 35 triples. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 61,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem counts : lines.length = 7 ∧ triples.length = 35 := by decide"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 63,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- Every line is one of the triples (sorted form). -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 64,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem lines_are_triples : ∀ l ∈ lines, l ∈ triples := by decide"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 66,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "/-- 2-design, point regularity: every point lies on exactly 3 lines. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 70,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "/-- 2-design, pair balance (λ = 1): every pair of distinct points lies on"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 75,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- Every point lies in exactly 15 of the 35 triples. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 76,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem point_triple_count :"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 77,
+   "needles": [
+    "triple"
+   ],
+   "text": "∀ p : Point, (triples.filter (mem p)).length = 15 := by decide"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 79,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- Every pair of distinct points lies in exactly 5 of the 35 triples. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 80,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem pair_triple_count :"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 81,
+   "needles": [
+    "triple"
+   ],
+   "text": "∀ p q : Point, p ≠ q → (triples.filter (mem2 p q)).length = 5 := by decide"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 84,
+   "needles": [
+    "triple"
+   ],
+   "text": "triples; a pair in 5 − 1 = 4. With 28 non-lines: 12/28 = 3/7 and"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 94,
+   "needles": [
+    "Fano",
+    "triple"
+   ],
+   "text": "triple-sums over the 7 Fano lines equal those over the 28 non-line triples"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 108,
+   "needles": [
+    "Fano"
+   ],
+   "text": "two-darkness theorem: no second-order statistic separates the Fano"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 109,
+   "needles": [
+    "triple"
+   ],
+   "text": "lines from the non-line triples. -/"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 110,
+   "needles": [
+    "secondMoment"
+   ],
+   "text": "theorem second_moment (x0 x1 x2 x3 x4 x5 x6 : Int) :"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "rev": "HEAD",
+   "sha": "0f6ce5b",
+   "file": "FanoTwoDarkness.lean",
+   "line": 116,
+   "needles": [
+    "Fano"
+   ],
+   "text": "end FanoTwoDarkness"
+  },
+  {
+   "repo": "SIDE-global-section",
+   "rev": "HEAD",
+   "sha": "2e43315",
+   "file": "Core/CoherenceShadow.lean",
+   "line": 12,
+   "needles": [
+    "triple"
+   ],
+   "text": "the triple 900 = 4·9·25), with the Bézout data computed longhand in the"
+  },
+  {
+   "repo": "SIDE-global-section",
+   "rev": "HEAD",
+   "sha": "2e43315",
+   "file": "Core/GroupRingGlue.lean",
+   "line": 13,
+   "needles": [
+    "triple"
+   ],
+   "text": "The group-ring ℤ[ℤ/3] as integer triples (coefficients of [0], [1], [2]) with its"
+  },
+  {
+   "repo": "SIDE-global-section",
+   "rev": "HEAD",
+   "sha": "2e43315",
+   "file": "Interfaces/LocalLimit.lean",
+   "line": 4,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "cecd0c4d56). DESIGN: the abstract Hilbert-space content is PROVED here (no sorry);"
+  },
+  {
+   "repo": "SIDE-global-section",
+   "rev": "HEAD",
+   "sha": "2e43315",
+   "file": "Interfaces/PadicFourier.lean",
+   "line": 7,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "DESIGN: the character is a PARAMETER carrying exactly the two properties FILE A"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 5,
+   "needles": [
+    "Fano"
+   ],
+   "text": "# FanoSteane: The Arithmetic-to-Quantum Chain"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 7,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Complete pipeline from {2,3}-smooth pairs through Fano plane"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 73,
+   "needles": [
+    "Fano"
+   ],
+   "text": "-- SECTION 2: Fano plane incidence"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 76,
+   "needles": [
+    "triple",
+    "line with Fin 7"
+   ],
+   "text": "/-- The 7 lines of PG(2, 𝔽₂), each a triple of points (Fin 7). -/"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 83,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "def lines_through (p : Fin 7) : Nat :="
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 87,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "theorem fano_incidence : ∀ p : Fin 7, lines_through p = 3 := by"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 146,
+   "needles": [
+    "Fano"
+   ],
+   "text": "-- Fano: each point on exactly 3 lines"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 147,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "(∀ p : Fin 7, lines_through p = 3) ∧"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Cascade/InvarianceBarrier.lean",
+   "line": 21,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "of the kernel by design."
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 28,
+   "needles": [
+    "Fano"
+   ],
+   "text": "T.5  The seven discriminants carry Fano plane (PG(2,𝔽₂)) incidence"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 406,
+   "needles": [
+    "Fano",
+    "triple"
+   ],
+   "text": "/-- The 7 Fano lines (triples whose F2-vectors sum to zero). -/"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 407,
+   "needles": [
+    "Fano"
+   ],
+   "text": "inductive FanoLine where"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 411,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- T.5a: There are exactly 7 Fano lines. -/"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 412,
+   "needles": [
+    "Fano"
+   ],
+   "text": "theorem fano_lines_seven : Fintype.card FanoLine = 7 := by decide"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 428,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- T.5c: Fano parameters (7, 7, 3). -/"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 431,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Fintype.card FanoLine = 7 ∧"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Trivium.lean",
+   "line": 466,
+   "needles": [
+    "Fano"
+   ],
+   "text": "∧ Fintype.card FanoLine = 7"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Voice7Witness.lean",
+   "line": 35,
+   "needles": [
+    "triple"
+   ],
+   "text": "TRIPLE-ROLE / CROSS-LINK. The single Epstein object here serves three"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "rev": "HEAD",
+   "sha": "0256e9e",
+   "file": "Kernel/Voice7Witness.lean",
+   "line": 112,
+   "needles": [
+    "triple"
+   ],
+   "text": "discriminator and with W-6-EXT-A (triple-role). -/"
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "rev": "HEAD",
+   "sha": "2f71068",
+   "file": "SIDELvConservation/AxiomCheck_v0_10_0.lean",
+   "line": 15,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "--  the one intended sorry; excluded here by design.)"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "HEAD",
+   "sha": "6bb7b23",
+   "file": "SIDEMeta/Meta/Kappa.lean",
+   "line": 86,
+   "needles": [
+    "Fano"
+   ],
+   "text": "across the corpus (Trivium fields, Fano plane, Steane code, Klein"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "HEAD",
+   "sha": "6bb7b23",
+   "file": "SIDEMeta/Meta/MechanismClasses.lean",
+   "line": 76,
+   "needles": [
+    "Fano"
+   ],
+   "text": "classes, Trivium discriminants, Fano points, Steane qubits, and 𝕋₇"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "HEAD",
+   "sha": "6bb7b23",
+   "file": "SIDEMeta/Meta/MechanismClasses.lean",
+   "line": 78,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(Trivium fields, Fano points, Steane qubits, 𝕋₇ strips) does form a"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 19,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(3) The seven points of the Fano plane PG(2, 𝔽₂)."
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 23,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The five sevens are one structural seven, mediated by the Fano plane"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 29,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• Trivium discriminants ↔ Fano points (PG(2, 𝔽₂))  — TECHNE.Core T.39"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 30,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• Fano plane ↔ Steane code [[7, 1, 3]]              — TECHNE.Core T.40"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 31,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• Fano plane ↔ 𝕋₇ Möbius strips                     — Klein topology"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 156,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Together with TECHNE.Core T.39 (Trivium discriminants ↔ Fano points) and"
+  },
+  {
+   "repo": "SIDE-meta",
+   "rev": "v0.1",
+   "sha": "e262713",
+   "file": "SIDEMeta/Meta/ConvergentSeven.lean",
+   "line": 157,
+   "needles": [
+    "Fano"
+   ],
+   "text": "T.40 (Fano ↔ Steane), this closes the four-fold convergent-seven on the"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 43,
+   "needles": [
+    "triple"
+   ],
+   "text": "def PairedElement.toTriple : PairedElement → Triple"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 52,
+   "needles": [
+    "triple"
+   ],
+   "text": "Configs: non-zero Triples (7 elements)."
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 54,
+   "needles": [
+    "triple"
+   ],
+   "text": "`generates p c` holds iff `c.val = p.toTriple`. -/"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 56,
+   "needles": [
+    "triple"
+   ],
+   "text": "Config := { t : Triple // inSubstrate t = true }"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 58,
+   "needles": [
+    "triple"
+   ],
+   "text": "generates p c := c.val = p.toTriple"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 70,
+   "needles": [
+    "triple"
+   ],
+   "text": "(1) `have hp' : diagonal = p.toTriple := hp` — definitional unfolding"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 74,
+   "needles": [
+    "triple"
+   ],
+   "text": "Triple inequality decidable to False -/"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 78,
+   "needles": [
+    "triple"
+   ],
+   "text": "have hp' : diagonal = p.toTriple := hp"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 11,
+   "needles": [
+    "triple"
+   ],
+   "text": "Triple, inSubstrate, hammingWeight, antipode, diagonal,"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 29,
+   "needles": [
+    "triple"
+   ],
+   "text": "structure Triple where"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 35,
+   "needles": [
+    "triple"
+   ],
+   "text": "def zero : Triple := ⟨false, false, false⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 36,
+   "needles": [
+    "triple"
+   ],
+   "text": "def diagonal : Triple := ⟨true, true, true⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 37,
+   "needles": [
+    "triple"
+   ],
+   "text": "def inSubstrate (t : Triple) : Bool := t.x || t.y || t.z"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 39,
+   "needles": [
+    "triple"
+   ],
+   "text": "def hammingWeight (t : Triple) : Nat :="
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 42,
+   "needles": [
+    "triple"
+   ],
+   "text": "def antipode (t : Triple) : Triple := ⟨!t.x, !t.y, !t.z⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 44,
+   "needles": [
+    "triple"
+   ],
+   "text": "def e1 : Triple := ⟨true, false, false⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 45,
+   "needles": [
+    "triple"
+   ],
+   "text": "def e2 : Triple := ⟨false, true, false⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 46,
+   "needles": [
+    "triple"
+   ],
+   "text": "def e3 : Triple := ⟨false, false, true⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 47,
+   "needles": [
+    "triple"
+   ],
+   "text": "def f1 : Triple := ⟨false, true, true⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 48,
+   "needles": [
+    "triple"
+   ],
+   "text": "def f2 : Triple := ⟨true, false, true⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "HEAD",
+   "sha": "5d0a341",
+   "file": "SIDEOrchestrator/Vendored.lean",
+   "line": 49,
+   "needles": [
+    "triple"
+   ],
+   "text": "def f3 : Triple := ⟨true, true, false⟩"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "v0.1",
+   "sha": "f0fcc40",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 75,
+   "needles": [
+    "triple"
+   ],
+   "text": "-- hp : diagonalConfig.val = p.toTriple"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "v0.1",
+   "sha": "f0fcc40",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 76,
+   "needles": [
+    "triple"
+   ],
+   "text": "-- after `cases p`, p.toTriple becomes a specific Triple, none of which"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "v0.1",
+   "sha": "f0fcc40",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 79,
+   "needles": [
+    "triple"
+   ],
+   "text": "simp_all [diagonalConfig, PairedElement.toTriple, diagonal,"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "v0.1",
+   "sha": "f0fcc40",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 94,
+   "needles": [
+    "triple"
+   ],
+   "text": "primitiveAccessible Z2_3_Substrate ⟨p.toTriple, by"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "rev": "v0.1",
+   "sha": "f0fcc40",
+   "file": "SIDEOrchestrator/Spiraling.lean",
+   "line": 95,
+   "needles": [
+    "triple"
+   ],
+   "text": "cases p <;> simp [PairedElement.toTriple, inSubstrate, e1, e2, e3, f1, f2, f3]⟩ := by"
+  },
+  {
+   "repo": "SIDE-quaternionic-dark-sector",
+   "rev": "HEAD",
+   "sha": "e860142",
+   "file": "SIDEQuaternionicDarkSector/Basic.lean",
+   "line": 11,
+   "needles": [
+    "Fano"
+   ],
+   "text": "- Non-zero count is 7 (the Fano plane PG(2, 𝔽₂))"
+  },
+  {
+   "repo": "SIDE-quaternionic-dark-sector",
+   "rev": "HEAD",
+   "sha": "e860142",
+   "file": "SIDEQuaternionicDarkSector/Basic.lean",
+   "line": 17,
+   "needles": [
+    "Fano"
+   ],
+   "text": "- 77 = 7 × 11 (Fano count × necessity ceiling)"
+  },
+  {
+   "repo": "SIDE-quaternionic-dark-sector",
+   "rev": "HEAD",
+   "sha": "e860142",
+   "file": "SIDEQuaternionicDarkSector/Basic.lean",
+   "line": 94,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- 77 factors as Fano count (7) times necessity ceiling (11). -/"
+  },
+  {
+   "repo": "SIDE-quaternionic-dark-sector",
+   "rev": "HEAD",
+   "sha": "e860142",
+   "file": "SIDEQuaternionicDarkSector/Basic.lean",
+   "line": 159,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The three weight strata sum to seven (the Fano count) and to eight"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 56,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Theorem 1.1.  Formation total = 7 (Trivium count, Fano points). -/"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 4,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The de-alignment condition for Fano-structured modules."
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 6,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The seven lines of the Fano plane are the minimum-weight logical"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 13,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "This module states the design condition — each line's three positions"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 31,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- A line is an unordered triple of positions, carried as three indices. -/"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 38,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "block of a 2-(7,3,1) design satisfies. -/"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 82,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "/-- The converse direction, as the design diagnostic: if two positions of a"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 93,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ### Decidability over the Fano incidence structure"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 98,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- The seven lines of the Fano plane on positions `0..6`, in the standard"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 100,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "def fanoLines : Fin 7 → Line (Fin 7) := fun i =>"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 125,
+   "needles": [
+    "line with Fin 7"
+   ],
+   "text": "def onLine (L : Line (Fin 7)) (p : Fin 7) : Bool :="
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 135,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- **`fanoLines` really is the Fano plane.** Every pair of distinct"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "rev": "HEAD",
+   "sha": "6a4f482",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 136,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "positions lies on exactly one line — the 2-(7,3,1) property, verified"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster.lean",
+   "line": 5,
+   "needles": [
+    "Fano"
+   ],
+   "text": "canonical labelings: Trivium quadratic discriminants, Fano plane"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster.lean",
+   "line": 11,
+   "needles": [
+    "Fano"
+   ],
+   "text": "import SIDESubstrateCluster.FanoLabeling"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 14,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Trivium quadratic discriminants, Fano plane points, Steane code basis"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 22,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Trivium / Fano / Steane / 𝕋₇)."
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 26,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• `FanoLabeling.lean`    — substrate ↔ Fano points"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 39,
+   "needles": [
+    "Fano"
+   ],
+   "text": "import SIDESubstrateCluster.FanoLabeling"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 47,
+   "needles": [
+    "Fano"
+   ],
+   "text": "of the {2,3}-cluster: Trivium discriminants, Fano points, Steane"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 52,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(∀ s : Substrate, s.toFano.weight     = s.weight) ∧"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 63,
+   "needles": [
+    "Fano"
+   ],
+   "text": "composing through substrate.  For example, Trivium ↔ Fano via"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 64,
+   "needles": [
+    "Fano"
+   ],
+   "text": "`d.toSubstrate.toFano` and `f.toSubstrate.toTrivium`.  The"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 67,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Direct bijection Trivium ↔ Fano via substrate. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 68,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def TriviumDisc.toFano (d : TriviumDisc) : FanoPoint :="
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 69,
+   "needles": [
+    "Fano"
+   ],
+   "text": "d.toSubstrate.toFano"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 71,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Direct bijection Fano ↔ Trivium via substrate. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 72,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def FanoPoint.toTrivium (f : FanoPoint) : TriviumDisc :="
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 76,
+   "needles": [
+    "Fano"
+   ],
+   "text": "d.toFano.toTrivium = d := by"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 79,
+   "needles": [
+    "Fano"
+   ],
+   "text": "theorem fano_to_trivium_right_inv (f : FanoPoint) :"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Cluster.lean",
+   "line": 80,
+   "needles": [
+    "Fano"
+   ],
+   "text": "f.toTrivium.toFano = f := by"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 8,
+   "needles": [
+    "Fano"
+   ],
+   "text": "SIDESubstrateCluster/FanoLabeling.lean"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 10,
+   "needles": [
+    "Fano"
+   ],
+   "text": "# Fano Labeling of the Substrate"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 13,
+   "needles": [
+    "Fano"
+   ],
+   "text": "((ℤ/2)³ \\ {0}) and the points of the Fano plane PG(2, 𝔽₂), per"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 18,
+   "needles": [
+    "Fano"
+   ],
+   "text": "Each Fano point [x : y : z] over 𝔽₂ has exactly one nonzero"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 20,
+   "needles": [
+    "Fano"
+   ],
+   "text": "seven Fano points are:"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 26,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The bijection to substrate identifies each Fano point with the"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 31,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• Canonical bijection `Substrate.toFano : Substrate → FanoPoint`"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 32,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• Inverse `FanoPoint.toSubstrate`"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 43,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ## The Fano plane points -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 45,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Points of the Fano plane PG(2, 𝔽₂), indexed by their unique"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 47,
+   "needles": [
+    "Fano"
+   ],
+   "text": "inductive FanoPoint where"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 57,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Enumeration of Fano points in canonical (weight-ascending) order. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 58,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def FanoPoint.all : List FanoPoint :="
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 61,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- The Fano plane point cardinality. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 62,
+   "needles": [
+    "Fano"
+   ],
+   "text": "theorem fano_count : FanoPoint.all.length = 7 := by rfl"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 66,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Canonical map from substrate to Fano points by matching bit pattern. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 67,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def Substrate.toFano : Substrate → FanoPoint"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 77,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def FanoPoint.toSubstrate : FanoPoint → Substrate"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 89,
+   "needles": [
+    "Fano"
+   ],
+   "text": "s.toFano.toSubstrate = s := by"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 92,
+   "needles": [
+    "Fano"
+   ],
+   "text": "theorem fano_to_substrate_right_inv (f : FanoPoint) :"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 93,
+   "needles": [
+    "Fano"
+   ],
+   "text": "f.toSubstrate.toFano = f := by"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 98,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Hamming weight on Fano points by projective bit pattern. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 99,
+   "needles": [
+    "Fano"
+   ],
+   "text": "def FanoPoint.weight : FanoPoint → Nat"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 105,
+   "needles": [
+    "Fano"
+   ],
+   "text": "s.toFano.weight = s.weight := by"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 108,
+   "needles": [
+    "Fano"
+   ],
+   "text": "theorem weight_preserved_fano_to_substrate (f : FanoPoint) :"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 112,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- **Test 1 passes for the substrate–Fano pair.** -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 114,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(∀ s : Substrate, s.toFano.weight = s.weight) ∧"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/FanoLabeling.lean",
+   "line": 115,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(∀ f : FanoPoint, f.toSubstrate.weight = f.weight) :="
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/MuClassifier.lean",
+   "line": 27,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- An S3-invariant assignment is a function of weight: a triple"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 16,
+   "needles": [
+    "triple"
+   ],
+   "text": "structure Triple where"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 22,
+   "needles": [
+    "triple"
+   ],
+   "text": "def zero : Triple := ⟨false, false, false⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 23,
+   "needles": [
+    "triple"
+   ],
+   "text": "def diagonal : Triple := ⟨true, true, true⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 25,
+   "needles": [
+    "triple"
+   ],
+   "text": "def inSubstrate (t : Triple) : Bool := t.x || t.y || t.z"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 27,
+   "needles": [
+    "triple"
+   ],
+   "text": "def hammingWeight (t : Triple) : Nat :="
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 30,
+   "needles": [
+    "triple"
+   ],
+   "text": "def antipode (t : Triple) : Triple := ⟨!t.x, !t.y, !t.z⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 34,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem antipode_involutive (t : Triple) : antipode (antipode t) = t := by"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 43,
+   "needles": [
+    "triple"
+   ],
+   "text": "def e1 : Triple := ⟨true, false, false⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 44,
+   "needles": [
+    "triple"
+   ],
+   "text": "def e2 : Triple := ⟨false, true, false⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 45,
+   "needles": [
+    "triple"
+   ],
+   "text": "def e3 : Triple := ⟨false, false, true⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 46,
+   "needles": [
+    "triple"
+   ],
+   "text": "def f1 : Triple := ⟨false, true, true⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 47,
+   "needles": [
+    "triple"
+   ],
+   "text": "def f2 : Triple := ⟨true, false, true⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 48,
+   "needles": [
+    "triple"
+   ],
+   "text": "def f3 : Triple := ⟨true, true, false⟩"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/PairingObstruction.lean",
+   "line": 72,
+   "needles": [
+    "triple"
+   ],
+   "text": "def unpairedElements : List Triple := [diagonal]"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Substrate.lean",
+   "line": 31,
+   "needles": [
+    "Fano"
+   ],
+   "text": "• Fano plane PG(2, 𝔽₂) points"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/Substrate.lean",
+   "line": 80,
+   "needles": [
+    "Fano"
+   ],
+   "text": "labeling (Trivium / Fano / Steane / 𝕋₇) realizes this substrate. -/"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/T7Labeling.lean",
+   "line": 14,
+   "needles": [
+    "Fano"
+   ],
+   "text": "𝕋₇, per klein_trivium.pdf (Seven Möbius Strips on a Fano Frame)."
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/TriviumLabeling.lean",
+   "line": 20,
+   "needles": [
+    "triple"
+   ],
+   "text": "to a subset of these generators, read as a binary triple:"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "rev": "HEAD",
+   "sha": "2e76426",
+   "file": "SIDESubstrateCluster/TriviumLabeling.lean",
+   "line": 83,
+   "needles": [
+    "triple"
+   ],
+   "text": "the binary-triple encoding of generators {−1, 2, 3}. -/"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 9,
+   "needles": [
+    "Fano"
+   ],
+   "text": "- Fano plane PG(2, 𝔽₂): 7 points, 7 lines, 3 points per line,"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 12,
+   "needles": [
+    "Fano"
+   ],
+   "text": "- 7 Möbius strips on the Fano frame (non-orientable identifications)"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 16,
+   "needles": [
+    "Fano"
+   ],
+   "text": "- |GL(3, 𝔽₂)| = 168 = 24 × 7 = (Trivium modulus) × (Fano count)"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 37,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ## §1. Fano Plane Combinatorics PG(2, 𝔽₂) -/"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 68,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- Non-zero elements of (ℤ/2)³ = Fano points. -/"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 75,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ## §3. Seven Möbius Strips on the Fano Frame -/"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 116,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-! ## §6. Fano Collinearity Spectrum"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 118,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The Fano collinearity graph (point-to-point, adjacent iff on common line)"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 136,
+   "needles": [
+    "Fano"
+   ],
+   "text": "/-- 77 = (Fano count) × (necessity ceiling). -/"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 193,
+   "needles": [
+    "Fano"
+   ],
+   "text": "\"Matched-arc search at the Fano-predicted angular separations \" ++"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 214,
+   "needles": [
+    "Fano"
+   ],
+   "text": "The route #1 falsifier (\"Matched-arc search at the Fano-predicted angular"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 223,
+   "needles": [
+    "Fano"
+   ],
+   "text": "at the common Fano scale): **EXECUTED — Outcome D (marginal-null), global"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "rev": "HEAD",
+   "sha": "936cd65",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 228,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(order 168) is transitive on the Fano lines, so the seven distinct scales are not"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 168,
+   "needles": [
+    "triple"
+   ],
+   "text": "The seven non-zero triples (a, b, c) ∈ (ℤ/2)³ are:"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 175,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- The (ℤ/2)³ exponent triple for each discriminant. -/"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 176,
+   "needles": [
+    "triple"
+   ],
+   "text": "def QuadraticDiscriminant.toExponentTriple :"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 186,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- Recover the discriminant from its exponent triple. -/"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 187,
+   "needles": [
+    "triple"
+   ],
+   "text": "def discriminantFromExponentTriple :"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 200,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem exponent_triple_nonzero (d : QuadraticDiscriminant) :"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 201,
+   "needles": [
+    "triple"
+   ],
+   "text": "d.toExponentTriple ≠ (0, 0, 0) := by"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 204,
+   "needles": [
+    "triple"
+   ],
+   "text": "/-- The exponent-triple encoding is injective on QuadraticDiscriminant. -/"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 205,
+   "needles": [
+    "triple"
+   ],
+   "text": "theorem exponent_triple_injective :"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 206,
+   "needles": [
+    "triple"
+   ],
+   "text": "Function.Injective QuadraticDiscriminant.toExponentTriple := by"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "rev": "HEAD",
+   "sha": "1aac3a9",
+   "file": "Trivium/Bijection.lean",
+   "line": 208,
+   "needles": [
+    "triple"
+   ],
+   "text": "cases d1 <;> cases d2 <;> simp_all [QuadraticDiscriminant.toExponentTriple]"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Compose.lean",
+   "line": 72,
+   "needles": [
+    "triple"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/GeneticCode.lean",
+   "line": 6,
+   "needles": [
+    "triple"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/GeneticCode.lean",
+   "line": 139,
+   "needles": [
+    "triple"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/Polytopes4D.lean",
+   "line": 71,
+   "needles": [
+    "triple"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 6,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 9,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 29,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 139,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 140,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 141,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/SteaneCode.lean",
+   "line": 162,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/YangMillsCode.lean",
+   "line": 9,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/Instance/YangMillsCode.lean",
+   "line": 136,
+   "needles": [
+    "Fano"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/SIDE.lean",
+   "line": 36,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "(private: module and shape only)"
+  },
+  {
+   "repo": "TECHNE-Core",
+   "rev": "HEAD",
+   "sha": "29208f6",
+   "file": "TECHNE/Core/UniversalDarkness.lean",
+   "line": 36,
+   "needles": [
+    "2-(7,3,1) design"
+   ],
+   "text": "(private: module and shape only)"
+  }
+ ],
+ "by_repo": {
+  "SIDE-class-number-anomaly": 3,
+  "SIDE-cosmo": 20,
+  "SIDE-cubit-axis": 6,
+  "SIDE-dirichlet-mod-24": 1,
+  "SIDE-explicit-formula": 2,
+  "SIDE-fano-darkness": 31,
+  "SIDE-global-section": 4,
+  "SIDE-kernel": 19,
+  "SIDE-lv-conservation": 1,
+  "SIDE-meta": 10,
+  "SIDE-orchestrator": 26,
+  "SIDE-quaternionic-dark-sector": 4,
+  "SIDE-structural-error-correction": 13,
+  "SIDE-substrate-cluster": 66,
+  "SIDE-t7-topology-cmb": 13,
+  "SIDE-trivium": 11,
+  "TECHNE-Core": 15
+ }
+}

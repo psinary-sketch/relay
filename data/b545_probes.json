@@ -1,0 +1,29 @@
+{
+ "SIDE-li-map": {
+  "pin": "73cee42",
+  "full": "73cee42ad65d264584bd45ee07ea8daf9dbf2313",
+  "exit": 0,
+  "profiles": {
+   "LiLinearMap.lam_add": "depends on axioms: [propext, Quot.sound]",
+   "LiLinearMap.lam_one": "depends on axioms: [propext, Quot.sound]"
+  },
+  "toolchain": "leanprover/lean4:v4.29.0-rc8"
+ },
+ "SIDE-fano-darkness": {
+  "pin": "0f6ce5b",
+  "full": "0f6ce5b131fe4e5c350989c2e9fb57cead09a7fb",
+  "exit": 0,
+  "profiles": {
+   "FanoTwoDarkness.second_moment": "depends on axioms: [propext, Quot.sound]",
+   "FanoTwoDarkness.first_moment": "depends on axioms: [propext, Quot.sound]",
+   "FanoTwoDarkness.point_line_count": "depends on axioms: [propext]",
+   "FanoTwoDarkness.pair_line_count": "depends on axioms: [propext]",
+   "FanoTwoDarkness.point_triple_count": "does not depend on any axioms",
+   "FanoTwoDarkness.pair_triple_count": "does not depend on any axioms",
+   "FanoTwoDarkness.frequency_match": "does not depend on any axioms",
+   "FanoTwoDarkness.counts": "depends on axioms: [propext]",
+   "FanoTwoDarkness.lines_are_triples": "depends on axioms: [propext]"
+  },
+  "toolchain": "leanprover/lean4:v4.29.0-rc8"
+ }
+}

@@ -1,0 +1,491 @@
+{
+ "table": "BALANCE_AND_POSITIVITY.md:339-348",
+ "rows": [
+  {
+   "line": 343,
+   "object": "SIDE-li-map (Li linear map, `lam_add`; = pentagon R4_channelDecomposition)",
+   "tier": "T2",
+   "terminals": [
+    {
+     "line": 343,
+     "object": "SIDE-li-map (Li linear map, `lam_add`; = pentagon R4_channelDecomposition)",
+     "repo": "SIDE-li-map",
+     "row_pin": "73cee42",
+     "now_pin": "HEAD",
+     "terminal": "LiLinearMap.lam_add",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T2",
+     "reason": "linearity of the Li map over `Nat → Int` streams; the reading as λ_A + λ_Z of log ξ is manuscript-resident (the file`s own header)",
+     "earlier": [
+      "T2",
+      "relay data/b540_tiers.json, PATHS :139"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "depends on axioms: [propext, Quot.sound]",
+     "where_row": "LiLinearMap.lean:56",
+     "where_now": "LiLinearMap.lean:56",
+     "same": "SAME",
+     "statement": "theorem lam_add (η η' : Nat → Int) (n : Nat) : lam (fun j => η j + η' j) n = lam η n + lam η' n"
+    },
+    {
+     "line": 343,
+     "object": "SIDE-li-map (Li linear map, `lam_add`; = pentagon R4_channelDecomposition)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "2d86182",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.RegisterPentagon.R4_channelDecomposition",
+     "kind": "theorem",
+     "grade": "DERIVES (the pentagon`s edge)",
+     "tier": "T2",
+     "reason": "INTERFACES on its own hypothesis `lam_additive` over an arbitrary `lam`: the additivity is assumed there, not imported from SIDE-li-map; STRUCTURE",
+     "earlier": null,
+     "carried": "NEW",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "not probed (b544 probed ZETA terminals; subject PROGRAMME-TYPE)",
+     "where_row": "SIDELvConservation/RegisterPentagon.lean:248",
+     "where_now": "SIDELvConservation/RegisterPentagon.lean:253",
+     "same": "SAME",
+     "statement": "theorem R4_channelDecomposition {lam : (ℕ → ℤ) → ℕ → ℤ} (lam_additive : ∀ (η η' : ℕ → ℤ) (n : ℕ), lam (fun j => η j + η' j) n = lam η n + lam η' n) (lam_A lam_Z : ℕ → ℤ) (n : ℕ) : lam (fun j => lam_A j + lam_Z j) n = lam lam_A n + lam lam_Z n"
+    }
+   ]
+  },
+  {
+   "line": 344,
+   "object": "SIDE-lv-conservation (T1/T2/T3 bracket)",
+   "tier": "T2",
+   "terminals": [
+    {
+     "line": 344,
+     "object": "SIDE-lv-conservation (T1/T2/T3 bracket)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "c8e3d31",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.completedRiemannZeta_eq_mellinPhi",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T0",
+     "reason": "T0, not RH-anchor: `completedRiemannZeta s = mellin Phi (s / 2)` for 1 < re s -- Mathlib`s objects, `Phi` built from Mathlib`s `evenKernel`; says nothing about where the zeros are",
+     "earlier": [
+      "T0",
+      "relay data/b544_t0.json (CP-2, PREMISE-FREE)"
+     ],
+     "carried": "CARRIED",
+     "ei": "E (=)",
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound] (b544 probe bank)",
+     "where_row": "SIDELvConservation/T2_SDarkness.lean:72",
+     "where_now": "SIDELvConservation/T2_SDarkness.lean:72",
+     "same": "SAME",
+     "statement": "theorem completedRiemannZeta_eq_mellinPhi (s : ℂ) (hs : 1 < s.re) : completedRiemannZeta s = mellin Phi (s / 2)"
+    },
+    {
+     "line": 344,
+     "object": "SIDE-lv-conservation (T1/T2/T3 bracket)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "c8e3d31",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.T3.T3prime_shared_witness",
+     "kind": "theorem",
+     "grade": "INTERFACES on h1, h2",
+     "tier": "T2",
+     "reason": "its hypothesis h2 is lv`s h2, `mellin Phi (s / 2) ≠ 0`, false at every s with re s ≤ 1 (`lv_h2_false_on_strip`)",
+     "earlier": [
+      "T2",
+      "relay data/b540_tiers.json, PATHS :293 (the bracket)"
+     ],
+     "carried": "CARRIED",
+     "ei": "I (≠ 0)",
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound] (b544 probe bank)",
+     "where_row": "SIDELvConservation/T3_StepNineBridge.lean:121",
+     "where_now": "SIDELvConservation/T3_StepNineBridge.lean:121",
+     "same": "SAME",
+     "statement": "theorem T3prime_shared_witness (𝒞 : Set Coupling) (s : ℂ) (h1 : ∀ C ∈ 𝒞, C Phi) (h2 : mellin Phi (s / 2) ≠ 0) : ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0"
+    },
+    {
+     "line": 344,
+     "object": "SIDE-lv-conservation (T1/T2/T3 bracket)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "c8e3d31",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.T3.T3doubleprime_general_commutation_fails",
+     "kind": "theorem",
+     "grade": "DERIVES (a countermodel)",
+     "tier": "T2",
+     "reason": "logic over abstract couplings: the unrestricted ∀∃ ⟹ ∃∀ fails at s = 3",
+     "earlier": [
+      "T2",
+      "relay data/b540_tiers.json, PATHS :293 (the bracket)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "not probed (b544 probed ZETA terminals)",
+     "where_row": "SIDELvConservation/T3_StepNineBridge.lean:137",
+     "where_now": "SIDELvConservation/T3_StepNineBridge.lean:137",
+     "same": "SAME",
+     "statement": "theorem T3doubleprime_general_commutation_fails : ¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0"
+    },
+    {
+     "line": 344,
+     "object": "SIDE-lv-conservation (T1/T2/T3 bracket)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "c8e3d31",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.T3.T3_perClass_to_combinations",
+     "kind": "theorem",
+     "grade": "OPEN (one `sorry`, disclosed)",
+     "tier": "T2",
+     "reason": "logic over abstract couplings; the pin carries its one `sorry` (T3_StepNineBridge.lean:108 at v0.10.0)",
+     "earlier": [
+      "T2",
+      "relay data/b540_tiers.json, PATHS :293 (the bracket)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "not probed; it carries `sorryAx` by its own `sorry`",
+     "where_row": "SIDELvConservation/T3_StepNineBridge.lean:92",
+     "where_now": "SIDELvConservation/T3_StepNineBridge.lean:92",
+     "same": "SAME",
+     "statement": "theorem T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) (h : ∀ C ∈ 𝒞, PerClassExcludes C s) : CombinationsExclude 𝒞 s"
+    }
+   ]
+  },
+  {
+   "line": 345,
+   "object": "SIDE-lv-conservation (ARM-2 instruments)",
+   "tier": "T2",
+   "terminals": [
+    {
+     "line": 345,
+     "object": "SIDE-lv-conservation (ARM-2 instruments)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "c80bdc2",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.h1_complete_at_Phi",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T0",
+     "reason": "T0, not RH-anchor: the eight coupling facts of Mathlib`s theta-kernel function `Phi`; nothing about where the zeros are, and h1 ∧ h2 at `Phi` holds at no s of the strip",
+     "earlier": [
+      "T0",
+      "THE_LOAD_BEARING_MAP.md:103 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "SURR Correspondence :184, as the map cites it",
+     "where_row": "SIDELvConservation/CouplingsAtPhi.lean:418",
+     "where_now": "SIDELvConservation/CouplingsAtPhi.lean:418",
+     "same": "SAME",
+     "statement": "theorem h1_complete_at_Phi : C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧ C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧ C7_entirety Phi ∧ C7_order Phi"
+    },
+    {
+     "line": 345,
+     "object": "SIDE-lv-conservation (ARM-2 instruments)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "2d86182",
+     "now_pin": "v0.10.0",
+     "terminal": "RegisterPentagon (module)",
+     "kind": "module",
+     "grade": "STRUCTURE (R3 edge NOT-COMPILED)",
+     "tier": "T2",
+     "reason": "its faces include R1 FALSE-AS-STATED, R5-output a theorem and `goalState_sevenClasses_of_h2`, vacuous on the strip (b538)",
+     "earlier": [
+      "T2",
+      "THE_LOAD_BEARING_MAP.md:104 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (not in b542`s enumeration)",
+     "profile": "SURR Correspondence :185, as the map cites it",
+     "where_row": "RegisterPentagon.lean blob c5b428a8bd",
+     "where_now": "blob 6c8c9c32d9",
+     "same": "FILE CHANGED",
+     "statement": "(a module: its faces and edges)"
+    },
+    {
+     "line": 345,
+     "object": "SIDE-lv-conservation (ARM-2 instruments)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "6efa9e5",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange",
+     "kind": "theorem",
+     "grade": "INTERFACES (3 named)",
+     "tier": "T1-lit",
+     "reason": "INTERFACES on `ExplicitFormulaDecomp` and `TailBoundPremise` (literature, not compiled) and the numerical `VerifiedZerosTo T`; B.5`s cell groups it with v0.5.0 = 1767bd6, where the module does not exist -- it is at v0.8.0 = 6efa9e5",
+     "earlier": [
+      "T1-lit",
+      "THE_LOAD_BEARING_MAP.md:144 (b540)"
+     ],
+     "carried": "CARRIED",
+     "ei": "I (≤)",
+     "profile": "SURR Correspondence :187, as the map cites it",
+     "where_row": "SIDELvConservation/PartialPositivity.lean:105",
+     "where_now": "SIDELvConservation/PartialPositivity.lean:140",
+     "same": "SAME",
+     "statement": "theorem partialPositivity_finiteRange (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ) (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T) (hTail : TailBoundPremise low tail T) : ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n"
+    },
+    {
+     "line": 345,
+     "object": "SIDE-lv-conservation (ARM-2 instruments)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "6efa9e5",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine",
+     "kind": "lemma",
+     "grade": "DERIVES",
+     "tier": "T0",
+     "reason": "T0, not RH-anchor: for a zero of Mathlib`s `riemannZeta` with re = 1/2, `0 ≤ (1 - (1 - 1/ρ)^n).re`; nothing about where the zeros are",
+     "earlier": [
+      "T0",
+      "THE_LOAD_BEARING_MAP.md:109 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "I (≤)",
+     "profile": "SURR Correspondence :186, as the map cites it",
+     "where_row": "SIDELvConservation/PartialPositivity.lean:50",
+     "where_now": "SIDELvConservation/PartialPositivity.lean:51",
+     "same": "SAME",
+     "statement": "lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) : 0 ≤ blTerm z n"
+    },
+    {
+     "line": 345,
+     "object": "SIDE-lv-conservation (ARM-2 instruments)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "1767bd6",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.exists_norm_completedLFunction_le_exp",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T0",
+     "reason": "T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedLFunction`, no premise but `χ ≠ 1`",
+     "earlier": [
+      "T0",
+      "THE_LOAD_BEARING_MAP.md:113 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject ARITHMETIC-OR-LOGIC)",
+     "profile": "SURR Correspondence :188, as the map cites it",
+     "where_row": "SIDELvConservation/DirichletC7Order.lean:771",
+     "where_now": "SIDELvConservation/DirichletC7Order.lean:771",
+     "same": "SAME",
+     "statement": "theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) : ∃ A C : ℝ, ∀ s : ℂ, ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))"
+    },
+    {
+     "line": 345,
+     "object": "SIDE-lv-conservation (ARM-2 instruments)",
+     "repo": "SIDE-lv-conservation",
+     "row_pin": "bc4751e",
+     "now_pin": "v0.10.0",
+     "terminal": "SIDELvConservation.C7_finite_type_false",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T0",
+     "reason": "T0, not RH-anchor: `¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C * exp (A * ‖s‖)`; nothing about where the zeros are",
+     "earlier": [
+      "T0",
+      "THE_LOAD_BEARING_MAP.md:107 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "I (≤)",
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound] (b544 probe bank)",
+     "where_row": "SIDELvConservation/C7FiniteTypeFalse.lean:68",
+     "where_now": "SIDELvConservation/C7FiniteTypeFalse.lean:68",
+     "same": "SAME",
+     "statement": "theorem C7_finite_type_false : ¬ ∃ C A : ℝ, ∀ s : ℂ, ‖completedRiemannZeta₀ s‖ ≤ C * Real.exp (A * ‖s‖)"
+    }
+   ]
+  },
+  {
+   "line": 346,
+   "object": "SIDE-kernel (route terminals, `ConservationHypothesis`)",
+   "tier": "T2",
+   "terminals": [
+    {
+     "line": 346,
+     "object": "SIDE-kernel (route terminals, `ConservationHypothesis`)",
+     "repo": "SIDE-kernel",
+     "row_pin": "v1.2",
+     "now_pin": "v1.5",
+     "terminal": "ConservationBridge.riemann_hypothesis",
+     "kind": "theorem",
+     "grade": "INTERFACES on `ConservationHypothesis`",
+     "tier": "T2",
+     "reason": "its premise is RH restated (`ch_iff_rh`), EQUIVALENT-REWORDING under (R151)(2): ENCODES-CONCLUSION",
+     "earlier": [
+      "T2",
+      "THE_LOAD_BEARING_MAP.md:115 (b539), (R151)(2) at :152 (b541)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "relay data/b532_profile_log.txt, as the map cites it",
+     "where_row": "Bridge/ConservationBridge.lean:36",
+     "where_now": "Bridge/ConservationBridge.lean:53",
+     "same": "SAME",
+     "statement": "theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis"
+    },
+    {
+     "line": 346,
+     "object": "SIDE-kernel (route terminals, `ConservationHypothesis`)",
+     "repo": "SIDE-kernel",
+     "row_pin": "v1.2",
+     "now_pin": "v1.5",
+     "terminal": "structural_exhaustiveness_proved",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T2",
+     "reason": "its catalogue conjunct is `Fintype.card MechanismClass = 7` by `decide` (E-2026-09-14-1) and C₇ is a disclosed stand-in",
+     "earlier": [
+      "T2",
+      "THE_LOAD_BEARING_MAP.md:122 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "not indexed (b544 subject PROGRAMME-TYPE)",
+     "profile": "not probed (b544: subject PROGRAMME-TYPE)",
+     "where_row": "Bridge/TheBridgeComplete.lean:188",
+     "where_now": "Bridge/TheBridgeComplete.lean:249",
+     "same": "SAME",
+     "statement": "theorem structural_exhaustiveness_proved : StructuralExhaustiveness"
+    },
+    {
+     "line": 346,
+     "object": "SIDE-kernel (route terminals, `ConservationHypothesis`)",
+     "repo": "SIDE-kernel",
+     "row_pin": "v1.2",
+     "now_pin": "v1.5",
+     "terminal": "SpectralCannonFull.spectral_cannon",
+     "kind": "theorem",
+     "grade": "DERIVES",
+     "tier": "T0",
+     "reason": "T0, not RH-anchor: `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0`, a fact about the line",
+     "earlier": [
+      "T0",
+      "THE_LOAD_BEARING_MAP.md:112 (b539)"
+     ],
+     "carried": "CARRIED",
+     "ei": "E (=)",
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound] (b544 probe bank)",
+     "where_row": "Kernel/SpectralCannonFull.lean:58",
+     "where_now": "Kernel/SpectralCannonFull.lean:65",
+     "same": "SAME",
+     "statement": "theorem spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0"
+    }
+   ]
+  },
+  {
+   "line": 347,
+   "object": "Monograph Ch. 15 §15.2 (the seven classes)",
+   "tier": "T4",
+   "terminals": [
+    {
+     "line": 347,
+     "object": "Monograph Ch. 15 §15.2 (the seven classes)",
+     "repo": "",
+     "row_pin": "",
+     "now_pin": "",
+     "terminal": "day1/A_Place_to_Stand.md Chapter 15 (manuscript v5.8 / Zenodo v1.1.1)",
+     "kind": "manuscript",
+     "grade": "read 2026-07-13",
+     "tier": "T4",
+     "reason": "the row pins the chapter`s text as the source of the seven classes: manuscript-resident, no terminal. b541 tiered the chapter`s own claim (exhaustive by Ostrowski, Route 1`s terminal) T2; this row names no terminal",
+     "earlier": [
+      "T2",
+      "FINDINGS.md:4865 (b541`s chapter tier map, Chapter 15)"
+     ],
+     "carried": "MOVED (T2 -> T4)",
+     "ei": "--",
+     "profile": "--",
+     "where_row": "--",
+     "where_now": "--",
+     "same": "--",
+     "statement": "--"
+    }
+   ]
+  },
+  {
+   "line": 348,
+   "object": "Li channel computation",
+   "tier": "T3",
+   "terminals": [
+    {
+     "line": 348,
+     "object": "Li channel computation",
+     "repo": "",
+     "row_pin": "",
+     "now_pin": "",
+     "terminal": "internal/bench/li_bench.py (dps 260, M 4096, r ∈ {0.85, 0.75}, n ≤ 130)",
+     "kind": "script",
+     "grade": "two-radius agreement ≥ 215 digits",
+     "tier": "T3",
+     "reason": "numerical, verified by two-radius agreement; its bank the script (C.2`s extension, li_bench300.py, to n = 300)",
+     "earlier": null,
+     "carried": "NEW",
+     "ei": "--",
+     "profile": "--",
+     "where_row": "--",
+     "where_now": "--",
+     "same": "--",
+     "statement": "--"
+    }
+   ]
+  }
+ ],
+ "fano": {
+  "terminal": "FanoTwoDarkness.second_moment",
+  "repo": "SIDE-fano-darkness",
+  "pin": "0f6ce5b",
+  "full_sha": "0f6ce5b131fe4e5c350989c2e9fb57cead09a7fb",
+  "tier": "T0",
+  "grade": "DERIVES",
+  "reason": "the second-moment identity for integer point values, `4 · Σ_lines (sum)² = Σ_non-lines (sum)²` over the seven lines and the twenty-eight non-line triples (the triples read by hand: exactly the 7 and the 28); with `first_moment`, `point_line_count`, `pair_line_count`, `point_triple_count`, `pair_triple_count`. §V states real values; the real-valued form follows from the integer polynomial identity and is not compiled",
+  "carried": "NEW",
+  "ei": "not indexed (not in b542`s enumeration)",
+  "profiles": {
+   "FanoTwoDarkness.second_moment": "depends on axioms: [propext, Quot.sound]",
+   "FanoTwoDarkness.first_moment": "depends on axioms: [propext, Quot.sound]",
+   "FanoTwoDarkness.point_line_count": "depends on axioms: [propext]",
+   "FanoTwoDarkness.pair_line_count": "depends on axioms: [propext]",
+   "FanoTwoDarkness.point_triple_count": "does not depend on any axioms",
+   "FanoTwoDarkness.pair_triple_count": "does not depend on any axioms",
+   "FanoTwoDarkness.frequency_match": "does not depend on any axioms",
+   "FanoTwoDarkness.counts": "depends on axioms: [propext]",
+   "FanoTwoDarkness.lines_are_triples": "depends on axioms: [propext]"
+  },
+  "where_row": "FanoTwoDarkness.lean:110",
+  "where_now": "FanoTwoDarkness.lean:110",
+  "same": "SAME",
+  "statement": "theorem second_moment (x0 x1 x2 x3 x4 x5 x6 : Int) : 4 * ( sq (x1+x2+x3) + sq (x0+x2+x4) + sq (x2+x5+x6) + sq (x0+x1+x5) + sq (x1+x4+x6) + sq (x0+x3+x6) + sq (x3+x4+x5) ) = ( sq (x0+x1+x2) + sq (x0+x1+x3) + sq (x0+x1+x4) + sq (x0+x1+x6) + sq (x0+x2+x3) + sq (x0+x2+x5) + sq (x0+x2+x6) + sq (x0+x3+x4) + sq (x0+x3+x5) + sq (x0+x4+x5) + sq (x0+x4+x6) + sq (x0+x5+x6) + sq (x1+x2+x4) + sq (x1+x2+x5) + sq (x1+x2+x6) + sq (x1+x3+x4) + sq (x1+x3+x5) + sq (x1+x3+x6) + sq (x1+x4+x5) + sq (x1+x5+x6) + sq (x2+x3+x4) + sq (x2+x3+x5) + sq (x2+x3+x6) + sq (x2+x4+x5) + sq (x2+x4+x6) + sq (x3+x4+x6) + sq (x3+x5+x6) + sq (x4+x5+x6) )"
+ },
+ "counts": {
+  "rows": {
+   "T0": 0,
+   "T1-open": 0,
+   "T1-lit": 0,
+   "T2": 4,
+   "T3": 1,
+   "T4": 1
+  },
+  "terminals": {
+   "T0": 6,
+   "T1-open": 0,
+   "T1-lit": 1,
+   "T2": 8,
+   "T3": 1,
+   "T4": 1
+  },
+  "carried": {
+   "CARRIED": 14,
+   "MOVED": 1,
+   "NEW": 2
+  },
+  "same": {
+   "SAME": 14,
+   "DIFFERENT": 0,
+   "SAME FILE": 0,
+   "FILE CHANGED": 1,
+   "ABSENT AT ONE PIN": 0,
+   "--": 2
+  }
+ },
+ "fano_compiled": true,
+ "fano_hits": 245
+}
