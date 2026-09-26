@@ -1,0 +1,61 @@
+====================================================================================================================================
+b548 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE COST, ESTIMATED BEFORE RUNNING (the face, READING (6)): about 950 s per object and order, about 9,500 s for the sweep.
+### THE CELLS BANKED : Q0 255 ; xi 255 ; Component 1 16
+### THE CALLS : every sweep call foreground and under 600 s; the per-cell cumulative seconds are in each jsonl row (`seconds`).
+
+### COMPONENT 1 -- data/b548_interference.txt
+        on  ordinate    22.763692  contribution +4.804165e+01
+        on  ordinate    21.884967  contribution +3.934920e+01
+        on  ordinate    14.630460  contribution +3.254669e+01
+        on  ordinate    23.869325  contribution +3.224634e+01
+        on  ordinate    11.804404  contribution +3.143982e+01
+        on  ordinate    12.971841  contribution +3.127720e+01
+        on  ordinate    26.636667  contribution +3.109246e+01
+        on  ordinate    28.436422  contribution +1.504334e+01
+  
+  ### (d) H1, clause by clause
+    H1.1  at 36-38 the rest is positive and exceeds |pair|                      : HOLDS
+    H1.2  at 34-35 and 39-41 the rest does not exceed |pair|                    : HOLDS
+    H1.3  the excess at 36-38 carried by at most five zeros (k* <= 5)           : HOLDS  (k* {36.0: 1, 37.0: 1, 38.0: 1})
+    H1.4  those zeros` contributions peak at 36-38 (above 34-35 and 39-41)      : FAILS  ({36.0: False, 37.0: False, 38.0: True})
+    REFUTER 1  the pair changes sign (or is positive) in 36-38                  : does not fire
+    REFUTER 2  the excess spread over more than five zeros, none dominant       : does not fire
+    REFUTER 3  pair + rest fails to reproduce the banked quantity to the floor  : does not fire
+    ### H1 IS REFUTED OR FAILS IN PART, AS THE ROWS SAY
+  
+  ### the swing across 34-41 (READING, printed beside the clauses; it scores nothing): the six contributors that move most
+    kind ordinate              34         35         36         37         38         39         40         41
+    off    29.551761     -44.849    -21.060    +17.566    +53.724    +74.032    +73.023    +53.361    +23.314
+    on     23.869325     +48.056    +48.327    +45.252    +39.574    +32.246    +24.271    +16.566     +9.879
+    on     21.884967     +57.210    +55.137    +51.146    +45.716    +39.349    +32.536    +25.720    +19.279
+    on     26.142140     +27.544    +17.774     +8.968     +2.805     +0.115     +0.890     +4.471     +9.800
+    on     25.158944     +26.925    +16.794     +8.242     +2.495     +0.083     +0.905     +4.376     +9.615
+    on     26.636667      +8.405    +16.648    +24.276    +29.410    +31.092    +29.300    +24.748    +18.585
+    the rest          +390.298   +402.021   +426.994   +445.552   +444.797   +421.472   +380.278   +330.465
+    the pair          -403.697   -407.612   -411.459   -415.242   -418.976   -422.673   -426.338   -429.970
+    ### a caveat on H1.3, printed with it: the excess at 36-38 is 4-7 % of the rest, below the largest single contributor, so k* = 1 follows from the excess being small, not from one zero carrying it.
+
+### COMPONENT 2 -- data/b548_h2.txt
+  b548 -- H2 OF (R158)(3), CLAUSE BY CLAUSE (every row READING)
+  
+    H2.xi.1  at xi, F >= 0 at every cell above its floor (no F < -E_round), every n      : HOLDS  (F < -floor at {3: 0, 5: 0, 7: 0, 9: 0, 11: 0} ; NEGATIVE {3: 0, 5: 0, 7: 0, 9: 0, 11: 0})
+    H2.xi.2  at xi, min over a at the largest a, or monotone beyond a = 20, per n         : FAILS  (n=3 min at a=38, largest False, monotone False ; n=5 min at a=38, largest False, monotone False ; n=7 min at a=38, largest False, monotone False ; n=9 min at a=38, largest False, monotone False ; n=11 min at a=38, largest False, monotone False)
+    H2.q.1   at Q0, for each n >= 7 the minimum over a is negative beyond its floor         : HOLDS  (n=7 min -266.111 at a=60 ; n=9 min -244.526 at a=60 ; n=11 min -225.650 at a=59)
+    H2.q.2   at Q0, the smallest negative width decreases as n increases (n = 7, 9, 11)     : FAILS  (smallest NEGATIVE width per n {3: 24.0, 5: 25.0, 7: 26.0, 9: 26.0, 11: 42.0})
+    REFUTER 1  xi shows a negative cell above its floor                                  : does not fire
+    REFUTER 2  Q0`s smallest negative width does not decrease with n                    : FIRES
+    REFUTER 3  n = 3 or 5 shows negativity at Q0                                        : FIRES  (NEGATIVE cells n=3 37, n=5 33 ; statuses n=3 {'VERIFIED-EST-TAIL': 51}, n=5 {'VERIFIED-EST-TAIL': 51})
+    ### H2 IS REFUTED, AS THE ROWS SAY
+  
+    ### Q0`s smallest NEGATIVE width per n : n=3 a=24.0 (in reach None) ; n=5 a=25.0 (in reach None) ; n=7 a=26.0 (in reach 34.0) ; n=9 a=26.0 (in reach 26.0) ; n=11 a=42.0 (in reach 42.0)
+    ### caveat printed with REFUTER 3: every Q0 cell at n = 3 and 5 lies outside the reach (E_tail > B`), so their NEGATIVE signs are
+    ### decided under the tail ESTIMATE (VERIFIED-EST-TAIL), as b522`s order-7 cells beyond a = 34 were before b523 priced them.
+    ### caveat printed with H2.xi.1: at n = 3 xi`s cells are UNVERIFIED (|r| > B by at most 1.167 x); positive beyond B at all 51.
+### b548_field.json : {"file": "FINDINGS.md", "before": 686180, "added": 2548, "prefix": true, "heading_line": 5601}
+### b548_findings.json : {"write": {"file": "FINDINGS.md", "before": 688728, "added": 4714, "prefix": true, "heading_line": 5613}, "pointer": {"file": "FINDINGS.md", "before": 693442, "added": 433, "prefix": true, "line": 5649}}
+### b548_field_sources.json : {"zhu": {"url": "https://arxiv.org/abs/2608.24827", "title": "Weil positivity in compact windows: a finite reduction, certified two-sided bounds, and a Landau-Widom decay law", "author": "Xuefeng Zhu", "dates": "Submitted on 25 Aug 2026 (v1); last revised 2 Sep 2026 (v2)", "claim_sentence": "We prove by certified computation that Q(f) >= 8.9e-18 ||f||^2 for all supp f in [-0.8,0.8], i.e. autocorrelation support 1.6, 2.3 times the classical range.", "scope_sentence": "We show why the positivity route cannot reach RH unassisted: any one-stroke certificate must resolve frequencies up to 2 pi e^{A_L}, A_L ~ 4e^L, a doubly exponential threshold that no pointwise bound on the prime comb lowers, while the spectral margin collapses at the Landau-Widom rate.", "first_sentence": "Weil's criterion states that the Riemann Hypothesis (RH) is equivalent to the non-negativity of an explicit quadratic form Q(f) on test functions.", "fetch_note": "fetched once through the harness fetch tool at 2026-09-26; a second call to the same address, asking for the abstract character for character, was served from the tool's 15-minute cache; the text is as the tool returned it (plain-text rendering, not checked against the PDF)"}, "liu": {"url": "https://www.alphaxiv.org/abs/2609.weil-positivity-riemann-zeta-bounds", "author": "Vincent Liu", "affiliation": "AI-Native Mathematical Research Lab", "submitted": "2026-09-15", "status": "NAVIGATOR-READ", "provenance": "the identifier is not an arXiv number and the venue hosts non-arXiv preprints; recorded at that URL as the navigator read it, not fetched by the seat, and carrying no more weight than that", "source": "(R158)(4)"}, "zenodo": [{"record": "18510861", "url": "https://zenodo.org/records/18510861", "title": "A Mirror-Global-Period Approach to the Weil Criterion for the Riemann Zeta Function", "author": "Bastos, Carlos Alberto Terêncio de", "date": "2026-02-06"}, {"record": "18409497", "url": "https://zenodo.org/records/18409497", "title": "Admissible Closure of the Weil Explicit Formula and Closure of the Riemann Hypothesis", "author": "Harlow, Jim", "date": "2026-01-27"}], "zenodo_note": "public record pages read without the token, title, author and date only; nothing written at Zenodo; neither engaged beyond those three fields", "addresses": 3}
+### THE BRANCHES : see data/b548_branches.txt
+====================================================================================================================================

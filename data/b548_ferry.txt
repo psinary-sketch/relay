@@ -1,0 +1,92 @@
+RULING (R158) BEGIN
+
+RULING (R158), the author's, ratified by this paste and
+strikeable: TWO BENCH READINGS AT Q0 AND ξ, HYPOTHESES FIXED
+BEFORE COMPUTATION; THE FIELD ENTRY'S SOURCES REPAIRED.
+
+(1) THE ACT IS A BENCH ACT, graded READING throughout. It
+consumes the existing Q0 bank (the 180 zeros below 150 with
+the tail estimate as b522–b523 banked them) and the ξ bank
+(the 10,000-zero chain bank), the window family of b519–b522
+(order-n B-spline windows of half-width a, the transform by
+hhat_exact), and the fixture floors of (R125)(2). Nothing
+about ζ's zeros is claimed; every cell carries its
+VERIFIED-EST or VERIFIED-EST-TAIL status and its floor.
+
+(2) READING ONE, the rest-term interference at Q0. b546
+read from b522's bank that at order 7 the quantity is
+negative at widths 34–35 and 39–60 and positive at 36–38.
+Hypothesis H1, fixed before any computation: at each width
+in 36–38 the rest of the zero sum — the sum over every zero
+in the Q0 bank other than the pair at γ₀ = 16.290216 and its
+orbit — is positive and exceeds the pair term's magnitude,
+and at 34–35 and 39–41 it does not; and the rest's excess at
+36–38 is carried by a small number of zeros (at most five)
+whose window transforms peak there. H1 is refuted if the
+pair term itself changes sign in 36–38, or if the rest's
+excess is spread across more than five zeros with none
+dominant, or if the sum of pair and rest does not reproduce
+the banked quantity to the fixture floor.
+
+(3) READING TWO, the functional swept in width and order.
+The functional F(a, n) := P − PR + A on the order-n window of
+half-width a, at ξ and at Q0, for a from 10 to 60 in steps
+of 1 and n in {3, 5, 7, 9, 11}. Hypothesis H2, fixed before
+computation: at ξ, F(a, n) ≥ 0 at every cell above its floor
+(the positive control), and the minimum over a of F at fixed
+n is attained at the largest a computed or is monotone in a
+beyond a = 20; at Q0, for each n ≥ 7 the minimum over a is
+negative beyond its floor, and the smallest width at which
+F is negative decreases as n increases (the power-window
+route's prediction: a higher order detects at a smaller base
+width). H2 is refuted if ξ shows a negative cell above its
+floor, or if Q0's smallest negative width does not decrease
+with n, or if n = 3 or 5 shows negativity at Q0 (which would
+say the order-7 threshold of b522 was an artefact of order).
+The finite-difference derivative ∂F/∂a is banked beside F
+and its sign changes listed; no stationary point is called a
+finding.
+
+(4) THE FIELD ENTRY'S SOURCES, repaired by append at
+FINDINGS :5575. The Liu preprint the navigator read is at
+https://www.alphaxiv.org/abs/2609.weil-positivity-riemann-zeta-bounds
+(author given there as Vincent Liu, "AI-Native Mathematical
+Research Lab", submitted 2026-09-15); the identifier is not
+an arXiv number and the venue hosts non-arXiv preprints, so
+the entry marks it NAVIGATOR-READ at that URL with its
+provenance stated and no more weight than that. The
+arXiv paper the seat found, Zhu, "Weil positivity in compact
+windows: a finite reduction, certified two-sided bounds, and
+a Landau–Widom decay law", arXiv:2608.24827, is the
+peer-venue reference for the restricted-window line; its
+abstract is fetched and quoted, and it heads the entry. The
+two Zenodo records are completed: 18510861, de Bastos,
+"A Mirror-Global-Period Approach to the Weil Criterion for
+the Riemann Zeta Function", 2026-02-06; 18409497, "Admissible
+Closure of the Weil Explicit Formula and Closure of the
+Riemann Hypothesis", author and date read from the record by
+the seat. None is engaged beyond title, author and date.
+
+(5) THE_RESIDUE_OF_RH is the act after this one.
+
+RULING (R158) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b548 - THE BENCH: THE REST-TERM INTERFERENCE AT Q0 AND THE FUNCTIONAL SWEPT IN WIDTH AND ORDER; THE FIELD ENTRY'S SOURCES REPAIRED, under (R158).
+
+Read before anything, and cite by path and line: relay data/b522_* (the witness bank: the window definition, the order, hhat_exact, the per-width table, the floors), data/b523_* (the audit, the tail estimate E(T) and the σ_max survival), data/b519_* (the edge-weighted plateau and the family definitions), data/b506_* (the Q0 bank of 180 zeros and its bank format), the chain bank of ξ zeros (name the file), tools/hhat_exact and the ladder's window code (name the files and print the window definition verbatim, since b535's correction found the witness used an indicator convolved with a B-spline — use exactly the b522 family so the cells are comparable); (R125)(2) on fixture floors and (R131)(2) on per-width reach; FINDINGS :5529 (the detection-geometries entry) and :5575 (the field entry).
+
+COMPONENT 1 - READING ONE. (a) Recompute the banked quantity at order 7 for widths 30 to 45 from the Q0 bank and confirm it matches b522's table to the floor (print both columns; a mismatch stops the component). (b) Split the zero side at each width into the pair term (the orbit of γ₀ = 16.290216) and the rest (every other banked zero plus the tail estimate), and print pair, rest, their sum, and the banked quantity, with the floor. (c) For widths 36–38, rank the rest's contributors by magnitude and print the top ten zeros with their ordinates and contributions; say whether at most five carry the excess. (d) Score H1 per (R158)(2), each clause by a printed row. Bank as data/b548_interference.txt.
+
+COMPONENT 2 - READING TWO. (a) For n in {3, 5, 7, 9, 11} and a from 10 to 60, compute F(a, n) at ξ from the chain bank and at Q0 from the Q0 bank with its tail estimate, each cell with its status and floor per (R125)(2) and its reach per (R131)(2); print the two tables. (b) Compute the finite-difference ∂F/∂a and list its sign changes per n. (c) Score H2 per (R158)(3), each clause by a printed row; print for Q0 the smallest negative width per n. (d) Bank as data/b548_sweep_xi.txt and data/b548_sweep_q0.txt. Compute time: the b522 run's per-width cost is banked; print the estimate before running and split the sweep across foreground calls under the 600 s limit, banking each n as it completes, so a memory stop loses at most one order's worth.
+
+COMPONENT 3 - THE FIELD ENTRY. Append to FINDINGS :5575 per (R158)(4): fetch Zhu's abstract (arXiv:2608.24827) and quote its claim sentence and its scope sentence; record the alphaXiv URL for Liu with the provenance note; read the two Zenodo records' metadata pages (title, author, date) and complete them; nothing else fetched.
+
+COMPONENT 4 - THE FINDINGS ENTRY for the act, titled by its objects: "The bench at Q0 and ξ: the rest-term interference at widths 36–38 and the functional swept in width and order", graded READING, carrying H1's and H2's scores clause by clause, the descriptive paragraph of what the tables show, and the statement that nothing about ζ's zeros is claimed. The detection-geometries entry (:5529) gains one appended line pointing to this act's sweep as its bench.
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) the recomputed order-7 quantity matches b522's table to the floor at every width 30–45. (N2) H1's central clause holds: at 36–38 the rest exceeds the pair in magnitude with the opposite sign, and at most five zeros carry the excess. (N3) at ξ no cell is negative above its floor for any n. (N4) at Q0 the smallest negative width decreases from n = 7 to n = 11, and n = 3 and 5 show no negativity above the floor. (N5) Zhu's abstract is fetched and quoted; the alphaXiv record is marked NAVIGATOR-READ with the provenance note. (N6) nothing at Zenodo; no kernel edited; nothing deposits.
+
+Foreground runs under the 600 s limit, split as Component 2 says [procedural]. Delete commands on verified absolute paths or explicit branch names in the same command (standing rule); push-b547 branches deleted by name after --merged lists them. Record, correspondence rows (READING), trail record in the house form. Nothing deposits.
+
+FERRY END (part 1 of 1)

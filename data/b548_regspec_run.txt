@@ -1,0 +1,41 @@
+====================================================================================================
+b548_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b548_registration_2026-09-26.txt
+  bytes/lines  : 15302 / 157
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE, NOT TYPED:**
+      ARMS      66
+      READINGS  11
+      EXPECT    9
+      BARS      0
+      PREFACE   0
+
+  clauses emitted : 60
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 13**
+      platform calls of any kind                                     demand 2    cap 2
+      chains run, or channel values computed                         demand 526  cap 526
+      lanes opened                                                   demand 1    cap 1
+      addresses resolved or documents fetched                        demand 3    cap 3
+      expectations registered                                        demand 9    cap 9
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 11   cap 11
+      author rulings ratified and entered                            demand 1    cap 1
+      addendum slots declared in the write list                      demand 1    cap 1
+      PLACE-papers documents written at all                          demand 2    cap 2
+      gate arms declared                                             demand 66   cap 66
+      new `relay` act-tool files named on this face                  demand 5    cap 5
+  written : b548_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 98032a16c2523303688e22dadc647def12c2319c3a3de47cc0c69d35b076acef  (b548_registration_2026-09-26.txt)

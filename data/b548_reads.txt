@@ -1,0 +1,356 @@
+b548 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### tools/b521_tail.py:44-128 -- PWindow and cell_q -- the window and the cell, verbatim
+  :44 class PWindow(B19.VWindow):
+  :45     """### variant (B) with the ramp's B-spline order p."""
+  :46 
+  :47     def __init__(self, a, obj, p):
+  :48         B19.VWindow.__init__(self, a, obj, 'B')
+  :49         self.m = p
+  :50         self.h = 2.0 * self.R / p
+  :51         ks = np.linspace(-self.R, self.R, p + 1)
+  :52         self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :53         self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, p, self.R)
+  :54 
+  :55 
+  :56 def F_int(t, k):
+  :57     return t ** (k + 1) / (k + 1) * (math.log(CDEN * t) - 1.0 / (k + 1))
+  :58 
+  :59 
+  :60 def consts(W, s):
+  :61     kap = 1.0 + (W.g0 ** 2 + s * s) / TOP ** 2
+  :62     Ks = kap * math.cosh(s * W.W) * math.cosh(s * W.h / 2.0) ** W.m / W.W
+  :63     mu = lambda q: 0.5 * (1.0 + (1.0 - W.g0 / TOP) ** (-q))
+  :64     c1 = Ks * mu(1)
+  :65     c2 = Ks * mu(W.m + 1) * (2.0 / W.h) ** W.m
+  :66     t2 = W.g0 + 2.0 / W.h
+  :67     return c1, c2, t2
+  :68 
+  :69 
+  :70 def allowance(W, t, s):
+  :71     """### the per-zero bound on |k-hat(t - is)| for t >= T, |s| <= s -- the pointwise form of the closed-form tail."""
+  :72     c1, c2, t2 = consts(W, s)
+  :73     return (c1 * t) ** 2 if t < t2 else (c2 * t ** (1 - W.m)) ** 2
+  :74 
+  :75 
+  :76 def tail_s(W, s):
+  :77     c1, c2, t2 = consts(W, s)
+  :78     tot = 0.0
+  :79     if t2 > TOP:
+  :80         tot += c1 ** 2 * (F_int(t2, 2) - F_int(TOP, 2))
+  :81     lo = max(TOP, t2)
+  :82     k = 2 - 2 * W.m
+  :83     tot += c2 ** 2 * (0.0 - F_int(lo, k))
+  :84     return 2.0 * tot / math.pi
+  :85 
+  :86 
+  :87 def new_tail(W):
+  :88     on = tail_s(W, 0.0)
+  :89     total = tail_s(W, 0.5)
+  :90     return dict(on=on, off=total - on, total=total)
+  :91 
+  :92 
+  :93 def cell_q(a, p):
+  :94     """### b519's cell for Q0 alone, the window at order p, the tail replaced by the new closed form (the old printed beside)."""
+  :95     W = PWindow(a, 'q', p)
+  :96     kz = 'qd'
+  :97     Hb, Hh, Hw = W.khat(F.U_BASE).real, W.khat(F.U_HALF).real, W.khat(F.U_WIDE).real
+  :98     A = F.arch(Hb, F.U_BASE, F.KER[kz + '_base'])
+  :99     Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+  :100     PR, PRabs = F.prime_channel_q(W, QL)
+  :101     PR2, _ = F.prime_channel_q(W, QH)
+  :102     G = F.GQ
+  :103     zt = 2.0 * W.khat(G).real
+  :104     Zon = float(np.sum(zt))
+  :105     offterms, pair = [], None
+  :106     for b, gg in F.OFFQ:
+  :107         t = float(sum(W.khat(B14.gamma_of(r)).real for r in B14.images(b, gg)))
+  :108         offterms.append(t)
+  :109         if (b, gg) == B19.PAIR:
+  :110             pair = t
+  :111     others = float(np.sum(offterms)) - pair
+  :112     nt = new_tail(W)
+  :113     Etail = nt['total']
+  :114     dk = np.abs(2.0 * (W.khat(G + F.DELTA_Q).real - W.khat(G).real))
+  :115     P = float((W.khat(0.5j) + W.khat(-0.5j)).real)
+  :116     Z = Zon + float(np.sum(offterms))
+  :117     r = Z - (P - PR + A)
+  :118     Ek = abs(PR - PR2)
+  :119     Aabs = float(np.trapezoid(np.abs(Hb * F.KER[kz + '_base']), F.U_BASE) / (2.0 * math.pi))
+  :120     Eround = 4.0 * F.EPS * (float(np.sum(np.abs(zt))) + float(np.sum(np.abs(offterms))) + Aabs + PRabs) + float(np.sum(dk))
+  :121     B = Eu + Ek + Etail + Eround
+  :122     gr, bound = W.growth()
+  :123     rest = Z - pair
+  :124     return dict(a=a, p=p, gamma0=G0, A=A, PR=PR, P=P, Z=Z, Z_on=Zon, pair=pair, others=others, on_rest=Zon, rest=rest,
+  :125                 ratio=pair / rest if rest else None, m=A - PR, h2=P - PR + A, r=r, B=B, Bprime=Eu + Ek + Eround, Eu=Eu, Ek=Ek,
+  :126                 Etail=Etail, tail_on=nt['on'], tail_off=nt['off'], Etail_old=B19.tail(W, 150.0, 'q'), Eround=Eround,
+  :127                 shortfall=B19.shortfall(W, kz), verified=bool(abs(r) <= B), growth=gr, growth_bound=bound, growth_fraction=gr / bound,
+  :128                 nv=None, nv_note='closed-form transform: no v-grid -- (R114)`s rule has no object, as b511-b520 read it')
+
+### tools/b519_window.py:185-245 -- b519`s cell, the xi branch
+  :185 def shortfall(W, kz):
+  :186     K1200 = float(abs(F.KER[kz + '_wide'][-1]))
+  :187     u = np.geomspace(1200.0, 1200.0 * 1e8, 200001)
+  :188     return float(2.0 * np.trapezoid(majorant(W, u) * K1200 * np.log(u) / math.log(1200.0), u) / (2.0 * math.pi))
+  :189 
+  :190 
+  :191 def cell(a, variant):
+  :192     out = dict(a=a, variant=variant)
+  :193     for obj in ('xi', 'q'):
+  :194         W = VWindow(a, obj, variant)
+  :195         kz = 'z' if obj == 'xi' else 'qd'
+  :196         Hb, Hh, Hw = W.khat(F.U_BASE).real, W.khat(F.U_HALF).real, W.khat(F.U_WIDE).real
+  :197         A = F.arch(Hb, F.U_BASE, F.KER[kz + '_base'])
+  :198         Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+  :199         chan = F.prime_channel_xi if obj == 'xi' else F.prime_channel_q
+  :200         PR, PRabs = chan(W, QL)
+  :201         PR2, _ = chan(W, QH)
+  :202         if obj == 'xi':
+  :203             G = F.GAM
+  :204             zt = 2.0 * W.khat(G).real
+  :205             Zon = float(np.sum(zt))
+  :206             ip = int(np.argmin(np.abs(G - G0['xi'])))
+  :207             pair, others, offterms, on_rest = float(zt[ip]), 0.0, [], Zon - float(zt[ip])
+  :208             Etail = tail(W, float(G[-1]), 'xi')
+  :209             dk = np.abs(2.0 * (W.khat(G * (1 + F.DELTA_XI)).real - W.khat(G).real))
+  :210             pair_kind = 'ON-LINE'
+  :211         else:
+  :212             G = F.GQ
+  :213             zt = 2.0 * W.khat(G).real
+  :214             Zon = float(np.sum(zt))
+  :215             offterms, pair = [], None
+  :216             for b, gg in F.OFFQ:
+  :217                 t = float(sum(W.khat(B14.gamma_of(r)).real for r in B14.images(b, gg)))
+  :218                 offterms.append(t)
+  :219                 if (b, gg) == PAIR:
+  :220                     pair = t
+  :221             others = float(np.sum(offterms)) - pair
+  :222             on_rest = Zon
+  :223             Etail = tail(W, 150.0, 'q')
+  :224             dk = np.abs(2.0 * (W.khat(G + F.DELTA_Q).real - W.khat(G).real))
+  :225             pair_kind = 'OFF-LINE'
+  :226         P = float((W.khat(0.5j) + W.khat(-0.5j)).real)
+  :227         Z = Zon + float(np.sum(offterms))
+  :228         r = Z - (P - PR + A)
+  :229         Ek = abs(PR - PR2)
+  :230         Aabs = float(np.trapezoid(np.abs(Hb * F.KER[kz + '_base']), F.U_BASE) / (2.0 * math.pi))
+  :231         Eround = 4.0 * F.EPS * (float(np.sum(np.abs(zt))) + float(np.sum(np.abs(offterms))) + Aabs + PRabs) + float(np.sum(dk))
+  :232         B = Eu + Ek + Etail + Eround
+  :233         rest = Z - pair
+  :234         gr, bound = W.growth()
+  :235         out[obj] = dict(gamma0=G0[obj], gammas=W.gs, A=A, PR=PR, P=P, Z=Z, Z_on=Zon, pair=pair, pair_kind=pair_kind, others=others,
+  :236                         on_rest=on_rest, rest=rest, ratio=pair / rest if rest else None, m=A - PR, h2=P - PR + A, r=r, B=B,
+  :237                         Eu=Eu, Ek=Ek, Etail=Etail, Eround=Eround, shortfall=shortfall(W, kz), verified=bool(abs(r) <= B),
+  :238                         slope=W.slope(), growth=gr, growth_bound=bound, growth_fraction=gr / bound, growth_k=gr * gr,
+  :239                         growth_k_bound=bound * bound)
+  :240     return out
+  :241 
+  :242 
+  :243 def fixture():
+  :244     res = []
+  :245     for variant in VARIANTS:
+
+### tools/b511_families.py:36-56 -- the banks
+  :36 if hasattr(sys.stdout, 'reconfigure'):
+  :37     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+  :38 
+  :39 import carto_atlas as AT        # noqa: E402
+  :40 import b325_epstein as EP       # noqa: E402
+  :41 import b503_zero as BZ          # noqa: E402
+  :42 
+  :43 EXPS = (1.0, 0.5, 0.25)
+  :44 KER = np.load(os.path.join(D, 'b504_kernels.npz'))
+  :45 U_BASE = np.linspace(-AT.UMAX, AT.UMAX, AT.NU)
+  :46 U_HALF = np.linspace(-AT.UMAX, AT.UMAX, 2 * AT.NU - 1)
+  :47 U_WIDE = np.linspace(-2 * AT.UMAX, 2 * AT.UMAX, 2 * AT.NU - 1)
+  :48 GAM = np.asarray(AT.GAM, dtype=np.float64)                  # xi: 10,000 ordinates, float-accurate
+  :49 LIB = json.loads(io.open(os.path.join(D, 'b326_epstein_zeros.json'), encoding='utf-8').read())
+  :50 GQ = np.sort(np.array([z['gamma_a'] for z in LIB['zeros']], dtype=np.float64))   # Q0 on-line, complete below 150 (b506)
+  :51 C2 = json.loads(io.open(os.path.join(D, 'b506_c2_results.json'), encoding='utf-8').read())
+  :52 OFFQ = [tuple(z['rho']) for z in C2['found'] if z.get('rho') and z['col'] == 'R']  # Q0's 17 off-line zeros, sigma > 1/2
+  :53 DELTA_XI = 2.0 * EPS               # the xi bank's relative ordinate precision (float-accurate)
+  :54 DELTA_Q = 6.1e-11                  # the Q0 bank's largest distance to its Newton zeros (b506)
+  :55 
+  :56 
+
+### tools/b326_closure.py:116-146 -- hhat_exact
+  :116 def hhat_exact(v, w, G, block=128):
+  :117     """### ROUTE ONE (product form): hhat(g) = -(2 sin(g dv/2) / g^2) SUM_j beta_j sin(g (v_j + dv/2))."""
+  :118     v, dv, beta = _segments(v, w)
+  :119     mid = v[:-1] + dv / 2.0
+  :120     G = np.atleast_1d(np.asarray(G, dtype=np.float64))
+  :121     out = np.empty(G.size)
+  :122     for i in range(0, G.size, block):
+  :123         g = G[i:i + block]
+  :124         S = np.sin(np.outer(g, mid)) @ beta
+  :125         gs = np.where(np.abs(g) < 1e-9, 1.0, g)
+  :126         out[i:i + block] = -2.0 * np.sin(gs * dv / 2.0) / (gs * gs) * S
+  :127     # ### at g = 0 the closed form is 0/0; the limit is INT w dv, for which the trapezoid rule is EXACT on
+  :128     # ### a piecewise-linear w. ### The u-grids of this act contain u = 0.
+  :129     out[np.abs(G) < 1e-9] = float(np.trapezoid(np.asarray(w, dtype=np.float64), v))
+  :130     return out
+  :131 
+  :132 
+  :133 def mellin_exact(v, w, C, block=128):
+  :134     """### ROUTE TWO (telescoped complex form): INT w e^{c v} dv = -(1/c^2) SUM_j beta_j (e^{c v_{j+1}} - e^{c v_j}),
+  :135     ### for complex `c`; `hhat(g)` is its real part at `c = i g`, and `f~(rho)` is its value at `c = rho - 1/2`."""
+  :136     v, dv, beta = _segments(v, w)
+  :137     C = np.atleast_1d(np.asarray(C, dtype=np.complex128))
+  :138     out = np.empty(C.size, dtype=np.complex128)
+  :139     for i in range(0, C.size, block):
+  :140         c = C[i:i + block]
+  :141         E = np.exp(np.outer(c, v))
+  :142         D = E[:, 1:] - E[:, :-1]
+  :143         out[i:i + block] = -(D @ beta.astype(np.complex128)) / (c * c)
+  :144     return out
+  :145 
+  :146 
+
+### tools/b522_reach.py:1-55 -- b522`s run
+  :1 # -*- coding: utf-8 -*-
+  :2 """b522_reach.py -- VARIANT (B) AT p = 7, THE REACH READ PER WIDTH. ### `python tools/b522_reach.py run`
+  :3 
+  :4 ### (R131)(2): a width is WITHIN REACH iff E_tail <= B' = E_u + E_k + E_round AT THAT WIDTH (and a^2 within Q0`s LAMQ);
+  :5 ### widths outside are banked as their error terms and NOT READ. ### (R131)(3): variant (B) at p = 7 on a = 15..60, every
+  :6 ### width computed, no stop. ### The cell is b521`s `cell_q(a, 7)`, IMPORTED, not copied -- the closed-form tail, the
+  :7 ### completed bank, the exact transform.
+  :8 """
+  :9 import io
+  :10 import json
+  :11 import os
+  :12 import sys
+  :13 import time
+  :14 
+  :15 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  :16 D, T_ = os.path.join(ROOT, 'data'), os.path.join(ROOT, 'tools')
+  :17 sys.path.insert(0, T_)
+  :18 import b521_tail as B21   # noqa: E402
+  :19 
+  :20 NL = chr(10)
+  :21 P = 7
+  :22 GRID = [float(a) for a in range(15, 61)]
+  :23 ERR = ('a', 'p', 'Etail', 'tail_on', 'tail_off', 'Bprime', 'Eu', 'Ek', 'Eround', 'shortfall')
+  :24 if hasattr(sys.stdout, 'reconfigure'):
+  :25     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+  :26 
+  :27 
+  :28 def run():
+  :29     out = os.path.join(D, 'b522_cells.jsonl')
+  :30     if os.path.exists(out):
+  :31         os.remove(out)
+  :32     table = []
+  :33     t0 = time.time()
+  :34     for a in GRID:
+  :35         c = B21.cell_q(a, P)
+  :36         lamq_ok = a * a <= B21.LAMQ_TOP
+  :37         inside = c['Etail'] <= c['Bprime'] and lamq_ok
+  :38         row = {k: c[k] for k in ERR}
+  :39         row.update(lamq_ok=lamq_ok, tail_over_Bprime=c['Etail'] / c['Bprime'], within=inside)
+  :40         table.append(row)
+  :41         if inside:
+  :42             c['tail_share'] = c['Etail'] / c['B']
+  :43             with io.open(out, 'a', encoding='utf-8', newline=NL) as fh:
+  :44                 fh.write(json.dumps(c) + NL)
+  :45         print('[%s] a=%-4.0f E_tail %.3e ; B` %.3e ; %s ; elapsed %.0f s'
+  :46               % (time.strftime('%H:%M:%S'), a, c['Etail'], c['Bprime'], 'IN' if inside else 'OUT', time.time() - t0), flush=True)
+  :47     res = dict(p=P, grid=[GRID[0], GRID[-1]], lamq_top=B21.LAMQ_TOP, within=[r['a'] for r in table if r['within']],
+  :48                outside=[r['a'] for r in table if not r['within']], table=table)
+  :49     io.open(os.path.join(D, 'b522_reach.json'), 'w', encoding='utf-8', newline=NL).write(json.dumps(res, indent=1) + NL)
+  :50     print('### WITHIN REACH : %d of %d ; outside : %s' % (len(res['within']), len(GRID), res['outside']))
+  :51     return 0
+  :52 
+  :53 
+  :54 if __name__ == '__main__':
+  :55     sys.exit({'run': run}[sys.argv[1]]())
+
+### OPEN_TRAILS.md:10173-10178 -- (R125)
+  :10173 **(R125) ratified.** (1) b515 is entered as the sign half of (f): the zero at γ₀ turns the pair negative, and the factor
+  :10174 (γ₀² − t²) that makes it amplifies every zero far from γ₀, so the pair is about 1e-4 of the low zeros; the witness is the
+  :10175 product of both properties — (γ₀² − z²) applied to a window band-limited near γ₀ — the shape of the classical converse,
+  :10176 reached by measurement. (2) **A fixture floor is priced in the quantity's own scale: eps times the sum of the magnitudes
+  :10177 of the terms the closed form adds** — filed with this fold; b515's NOT CLEAN verdict on `G-FIXTURE-BAR` stands. (3)
+  :10178 `W-ORD-WEIL-CONVERSE` is priced at the fold in lemmas: (d) one lemma from the integral; (f) four lemmas, research-grade,
+
+### OPEN_TRAILS.md:10344-10350 -- (R131)
+  :10344 **(R131) ratified.** (1) b521's result stands. The tail falls with width on a = 15 … 60 at every order scanned, so
+  :10345 **(R130)(2)'s claim that the majorant grows like e^{L/2} on this grid is refuted by the record, and is so marked here**;
+  :10346 the increasing-width stop rule, which stops at the narrowest width where the tail is largest, **is retired**. (2) The
+  :10347 reach is read per width: a width is within reach iff E_tail ≤ B′ at that width. (3) Choice (B): variant (B) at p = 7
+  :10348 under (2); p = 9 not run. (4) The numerical lane opened for this act and shuts at its close; the kernel lane takes
+  :10349 (f)(i) on variant (B) after it.
+  :10350 
+
+### OPEN_TRAILS.md:10388-10394 -- b523`s verdict
+  :10388 
+  :10389 **COMPONENT 4 — the u > 1200 shortfall** against the margin: largest ratio 1.7e-19.
+  :10390 
+  :10391 **COMPONENT 5 — 24 of b522's 24 negative cells survive all three re-pricings, VERIFIED-EST under the full bound;
+  :10392 the narrowest at a = 34.0.** Under the full tail no re-read width is inside (R131)(2)'s reach, so every survivor is
+  :10393 VERIFIED-EST-TAIL: the sign is decided beyond the tail majorant's bound, by margins from 1.2 to 266 against bounds at
+  :10394 most 1.18e-06. **The verdict the numbers give on (R118)(1)'s bar: MET IN SUBSTANCE.** The seat lifts nothing and writes no
+
+### FINDINGS.md:5529-5531 -- the detection-geometries entry
+  :5529 ## Two detection geometries for one obligation: the Weil-side width and order at Q0 against the Li-side index threshold
+  :5530 
+  :5531 *Filed at b546 on the author's ruling `(R156)`(4). Graded READING: an observation read from the banks, not a theorem. Banks: relay `data/b522_results.json`, `data/b522_reach.json`, `data/b522_cells.jsonl`, `data/b523_results.json`, `data/b506_c2_results.json`; Voros's sentences from BALANCE_AND_POSITIVITY.md:500 and :507. Nothing about ζ’s zeros is claimed.*
+
+### FINDINGS.md:5575-5580 -- the field entry
+  :5575 ## Weil's criterion in the field, September 2026: certified window bounds, claimed proofs on the deposit venue, and the programme's compiled harness beside them
+  :5576 
+  :5577 *Filed at b547 on the author's ruling `(R157)`(5). Field-context layer (R157)(1): what the field holds on Weil's criterion beside what the programme holds. Search bank: relay `data/b547_field_search.txt`.*
+  :5578 
+  :5579 **The certified-window preprint.** Named by the ruling: Liu, *"Certified Weil Positivity Beyond the Unit Window"*, September 2026 -- computer-assisted coercive lower bounds for the Weil form on two compact windows, half-widths 1 and 17/16, by interval arithmetic, with the stated disclaimers that formal proof-assistant verification is not yet done and that no monotonicity in the window width is established. **NAVIGATOR-READ:** one web search by that title (2026-09-26) returned no record with that
+  :5580 
+
+### the window at a = 34, p = 7, its own note: plateau: indicator of [-W, W] (W = 3.085565) convolved with the order-7 B-spline of half-width R = 0.440795
+### the xi bank: tools/e16/zeta_ordinates.npy, first 10000 ordinates, last 9877.782657
+### the Q0 bank: 146 on-line ordinates (last 149.718008), 17 off-line zeros
+
+### relay data/b522_run_log.txt (the per-width cost)
+  [00:09:46] a=15   E_tail 1.522e-06 ; B` 1.669e-07 ; OUT ; elapsed 3 s
+  [00:09:49] a=16   E_tail 1.095e-06 ; B` 1.312e-07 ; OUT ; elapsed 6 s
+  [00:09:52] a=17   E_tail 8.101e-07 ; B` 1.205e-07 ; OUT ; elapsed 10 s
+  [00:09:56] a=18   E_tail 6.141e-07 ; B` 1.328e-07 ; OUT ; elapsed 13 s
+  [00:10:00] a=19   E_tail 4.755e-07 ; B` 1.343e-07 ; OUT ; elapsed 18 s
+  [00:10:05] a=20   E_tail 3.750e-07 ; B` 1.320e-07 ; OUT ; elapsed 22 s
+  [00:10:10] a=21   E_tail 3.005e-07 ; B` 1.117e-07 ; OUT ; elapsed 27 s
+  [00:10:15] a=22   E_tail 2.443e-07 ; B` 8.938e-08 ; OUT ; elapsed 32 s
+  [00:10:21] a=23   E_tail 2.012e-07 ; B` 1.102e-07 ; OUT ; elapsed 38 s
+  [00:10:27] a=24   E_tail 1.676e-07 ; B` 1.190e-07 ; OUT ; elapsed 44 s
+  [00:10:33] a=25   E_tail 1.411e-07 ; B` 1.102e-07 ; OUT ; elapsed 51 s
+  [00:10:40] a=26   E_tail 1.198e-07 ; B` 8.997e-08 ; OUT ; elapsed 58 s
+  [00:10:48] a=27   E_tail 1.027e-07 ; B` 9.009e-08 ; OUT ; elapsed 65 s
+  [00:10:56] a=28   E_tail 8.863e-08 ; B` 1.053e-07 ; IN ; elapsed 74 s
+  [00:11:05] a=29   E_tail 7.706e-08 ; B` 1.104e-07 ; IN ; elapsed 82 s
+  [00:11:14] a=30   E_tail 6.743e-08 ; B` 1.056e-07 ; IN ; elapsed 91 s
+  [00:11:24] a=31   E_tail 5.937e-08 ; B` 9.684e-08 ; IN ; elapsed 102 s
+  [00:11:35] a=32   E_tail 5.255e-08 ; B` 8.289e-08 ; IN ; elapsed 113 s
+  [00:11:47] a=33   E_tail 4.676e-08 ; B` 7.496e-08 ; IN ; elapsed 125 s
+  [00:12:00] a=34   E_tail 4.180e-08 ; B` 6.884e-08 ; IN ; elapsed 138 s
+  [00:12:18] a=35   E_tail 3.753e-08 ; B` 6.764e-08 ; IN ; elapsed 155 s
+  [00:12:34] a=36   E_tail 3.384e-08 ; B` 7.044e-08 ; IN ; elapsed 172 s
+  [00:12:52] a=37   E_tail 3.062e-08 ; B` 6.924e-08 ; IN ; elapsed 189 s
+  [00:13:08] a=38   E_tail 2.782e-08 ; B` 6.989e-08 ; IN ; elapsed 206 s
+  [00:13:26] a=39   E_tail 2.535e-08 ; B` 8.042e-08 ; IN ; elapsed 224 s
+  [00:13:45] a=40   E_tail 2.318e-08 ; B` 8.818e-08 ; IN ; elapsed 243 s
+  [00:14:05] a=41   E_tail 2.125e-08 ; B` 9.267e-08 ; IN ; elapsed 262 s
+  [00:14:29] a=42   E_tail 1.954e-08 ; B` 9.271e-08 ; IN ; elapsed 286 s
+  [00:14:54] a=43   E_tail 1.802e-08 ; B` 9.166e-08 ; IN ; elapsed 311 s
+  [00:15:17] a=44   E_tail 1.666e-08 ; B` 8.486e-08 ; IN ; elapsed 334 s
+  [00:15:41] a=45   E_tail 1.543e-08 ; B` 7.822e-08 ; IN ; elapsed 358 s
+  [00:16:06] a=46   E_tail 1.433e-08 ; B` 7.182e-08 ; IN ; elapsed 383 s
+  [00:16:34] a=47   E_tail 1.333e-08 ; B` 7.004e-08 ; IN ; elapsed 411 s
+  [00:17:04] a=48   E_tail 1.243e-08 ; B` 7.647e-08 ; IN ; elapsed 441 s
+  [00:17:34] a=49   E_tail 1.161e-08 ; B` 8.222e-08 ; IN ; elapsed 471 s
+  [00:18:05] a=50   E_tail 1.087e-08 ; B` 8.503e-08 ; IN ; elapsed 502 s
+  [00:18:37] a=51   E_tail 1.019e-08 ; B` 8.289e-08 ; IN ; elapsed 534 s
+  [00:19:11] a=52   E_tail 9.572e-09 ; B` 7.642e-08 ; IN ; elapsed 568 s
+  [00:19:47] a=53   E_tail 9.004e-09 ; B` 6.864e-08 ; IN ; elapsed 604 s
+  [00:20:23] a=54   E_tail 8.482e-09 ; B` 6.301e-08 ; IN ; elapsed 640 s
+  [00:21:03] a=55   E_tail 8.002e-09 ; B` 6.174e-08 ; IN ; elapsed 680 s
+  [00:21:46] a=56   E_tail 7.560e-09 ; B` 6.264e-08 ; IN ; elapsed 723 s
+  [00:22:27] a=57   E_tail 7.152e-09 ; B` 6.523e-08 ; IN ; elapsed 764 s
+  [00:23:06] a=58   E_tail 6.774e-09 ; B` 6.742e-08 ; IN ; elapsed 804 s
+  [00:23:52] a=59   E_tail 6.424e-09 ; B` 6.879e-08 ; IN ; elapsed 850 s
+  [00:24:44] a=60   E_tail 6.100e-09 ; B` 6.817e-08 ; IN ; elapsed 902 s
+  ### WITHIN REACH : 33 of 46 ; outside : [15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0]

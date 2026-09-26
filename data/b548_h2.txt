@@ -1,0 +1,15 @@
+b548 -- H2 OF (R158)(3), CLAUSE BY CLAUSE (every row READING)
+
+  H2.xi.1  at xi, F >= 0 at every cell above its floor (no F < -E_round), every n      : HOLDS  (F < -floor at {3: 0, 5: 0, 7: 0, 9: 0, 11: 0} ; NEGATIVE {3: 0, 5: 0, 7: 0, 9: 0, 11: 0})
+  H2.xi.2  at xi, min over a at the largest a, or monotone beyond a = 20, per n         : FAILS  (n=3 min at a=38, largest False, monotone False ; n=5 min at a=38, largest False, monotone False ; n=7 min at a=38, largest False, monotone False ; n=9 min at a=38, largest False, monotone False ; n=11 min at a=38, largest False, monotone False)
+  H2.q.1   at Q0, for each n >= 7 the minimum over a is negative beyond its floor         : HOLDS  (n=7 min -266.111 at a=60 ; n=9 min -244.526 at a=60 ; n=11 min -225.650 at a=59)
+  H2.q.2   at Q0, the smallest negative width decreases as n increases (n = 7, 9, 11)     : FAILS  (smallest NEGATIVE width per n {3: 24.0, 5: 25.0, 7: 26.0, 9: 26.0, 11: 42.0})
+  REFUTER 1  xi shows a negative cell above its floor                                  : does not fire
+  REFUTER 2  Q0`s smallest negative width does not decrease with n                    : FIRES
+  REFUTER 3  n = 3 or 5 shows negativity at Q0                                        : FIRES  (NEGATIVE cells n=3 37, n=5 33 ; statuses n=3 {'VERIFIED-EST-TAIL': 51}, n=5 {'VERIFIED-EST-TAIL': 51})
+  ### H2 IS REFUTED, AS THE ROWS SAY
+
+  ### Q0`s smallest NEGATIVE width per n : n=3 a=24.0 (in reach None) ; n=5 a=25.0 (in reach None) ; n=7 a=26.0 (in reach 34.0) ; n=9 a=26.0 (in reach 26.0) ; n=11 a=42.0 (in reach 42.0)
+  ### caveat printed with REFUTER 3: every Q0 cell at n = 3 and 5 lies outside the reach (E_tail > B`), so their NEGATIVE signs are
+  ### decided under the tail ESTIMATE (VERIFIED-EST-TAIL), as b522`s order-7 cells beyond a = 34 were before b523 priced them.
+  ### caveat printed with H2.xi.1: at n = 3 xi`s cells are UNVERIFIED (|r| > B by at most 1.167 x); positive beyond B at all 51.

@@ -1,0 +1,17 @@
+    (a) READING (3)'s k* test is weak where the excess is small: at 36-38 the excess is 4-7 % of the rest, below the largest
+        single contributor, so k* = 1 follows from the excess's size, not from one zero carrying it. H1.3 is scored as registered and
+        the caveat is printed beside it (data/b548_interference.txt, FINDINGS act entry); it is not re-scored.
+    (b) READING (7) registered "one fetch of Zhu's arXiv abstract page". The harness fetch tool was called twice on that one address:
+        the first call returned a summary mixing quoted fragments with paraphrase; the second, asking for the abstract character
+        for character, was served from the tool's 15-minute cache of the same address. The quoted sentences come from the second
+        call. Addresses resolved: 3, within the cap; tool calls to arXiv: 2.
+    (c) The xi cell at order 3 does not verify: |r| exceeds B by 1.12-1.17 at all 51 widths, r positive, B led by E_u (the arch
+        quadrature's half/wide comparison). The instrument's error budget underprices the order-3 quadrature; the cells are printed
+        UNVERIFIED and scored as decided by sign only (F > B at every one). No repair was attempted inside this act.
+    (d) The cost estimate (about 950 s per object and order) was right in total (about 9,300 s by the banked per-cell seconds) but
+        wrong per order: roughly 90-130 s at order 3 and 2,000-2,500 s at order 11. Order 11 at xi took five foreground calls.
+    (e) The --merged listing before the branch deletions was teed to /tmp/b548_merged.txt, outside the scratchpad and the write
+        list; it holds only the two branch listings. The deletion record itself is data/b548_branches.txt.
+    (f) Found, not caused: relay data/b546_scores.json carries an uncommitted one-line change (its "written" list gains
+        OPEN_TRAILS.md), file time 2026-09-26 15:23, after b546's commit ce0cccfb and before this act's face. It is not in
+        this act's write list; b548 neither stages nor reverts it. For the author's word.

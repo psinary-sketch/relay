@@ -1,0 +1,164 @@
+====================================================================================================
+ACT b548 -- THE REGISTRATION FACE. ### THE BENCH AT Q0 AND XI, AND THE FIELD ENTRY`S SOURCES, UNDER (R158).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **A NUMERICAL LANE OPENS FOR THIS ACT AND SHUTS AT ITS CLOSE; NO KERNEL LANE.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R158) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: a bench act graded READING throughout -- reading one, the
+### rest-term interference at Q0 (H1); reading two, the functional swept in width and order at Q0 and at xi (H2); the field
+### entry`s sources repaired; THE_RESIDUE_OF_RH next. Ruling and part 1 of 1, received IN FULL, banked verbatim as
+### `b548_ferry.txt`. ### **NOTHING DEPOSITS; NOTHING AT ZENODO IS WRITTEN; NO KERNEL IS EDITED; NO BYTE ABOVE AN APPENDED BLOCK
+### CHANGES; NOTHING ABOUT ZETA`S ZEROS IS CLAIMED.** ### The ferry scan carries no (R81) flag and no hit.
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE FAMILY, EXACTLY b522`S.** The cell is `tools/b521_tail.py` `cell_q(a, p)`, IMPORTED: the window
+### `PWindow(a, obj, p)` -- variant (B) of `tools/b519_window.py`, "plateau: indicator of [-W, W] convolved with the order-p
+### B-spline of half-width R" (its own `order_note`) -- its transform `khat` in closed form (the exact transform of b504, the
+### lineage of `hhat_exact` at `tools/b326_closure.py:116`), the arch kernels of `data/b504_kernels.npz`, the prime channel at
+### Gauss-Legendre orders 40 and 60. The ferry`s "order n" is this p. The Q0 bank is `tools/b511_families.py` GQ (the on-line
+### ordinates of `data/b326_epstein_zeros.json`, complete below 150) and OFFQ (the 17 off-line zeros of `data/b506_c2_results.json`),
+### with b521`s closed-form tail `new_tail`. The xi bank is `tools/e16/zeta_ordinates.npy`, its first 10,000 ordinates (carto_atlas
+### GAM), with b519`s xi branch: the tail `B19.tail(W, GAM[-1], 'xi')`. For xi at order p the cell is b519`s xi branch on
+### `PWindow(a, 'xi', p)`, written in this act`s tool as `cell_xi(a, p)` line for line; its equality to b519`s own cell at p = 10
+### variant (B)`s window is not claimed (b519 used order 10 for (B)); the xi family is b522`s window construction at each p.
+### **READING (2) -- A CELL`S SIGN, STATUS, FLOOR AND REACH.** b522`s rule, carried: a cell is VERIFIED-EST iff |r| <= B (r = Z -
+### (P - PR + A), B = E_u + E_k + E_tail + E_round); its sign is NEGATIVE iff h2 = P - PR + A < -B, POSITIVE iff h2 > B, else
+### UNDECIDED. The (R125)(2) floor -- eps times the sum of the magnitudes of the terms -- is E_round and prints beside. The reach
+### (R131)(2): IN iff E_tail <= B` = E_u + E_k + E_round; a decided cell outside reach is VERIFIED-EST-TAIL.
+### **READING (3) -- H1`S TERMS.** The pair is b522`s `pair` (the orbit of the off-line zero at 16.290216); the rest is Z - pair
+### (every other banked zero), with E_tail its tail bound printed beside. "The rest exceeds the pair in magnitude" is rest >
+### |pair|. The excess is rest - |pair|. **"Carried by at most five zeros"**: k* is the least k such that removing the k largest
+### positive contributors from the rest leaves rest - |pair| <= 0; the clause holds iff k* <= 5 at each of 36-38; "whose
+### transforms peak there" holds iff each of those k* zeros` contributions is larger at 36-38 than at 34-35 and 39-41 on the
+### width grid. A contributor is one on-line ordinate or one off-line zero`s orbit.
+### **READING (4) -- THE MATCH OF COMPONENT 1 (a).** The recomputed h2 at p = 7, a = 30..45, is compared with `data/b522_cells.jsonl`
+### h2 cell by cell; the match holds iff |difference| <= that cell`s floor (E_round). A mismatch stops Component 1 and is printed.
+### **READING (5) -- THE SWEEP.** p in {3, 5, 7, 9, 11}, a = 10..60 step 1, at Q0 and at xi: 510 cells. H2`s clauses are scored on
+### decided cells. "The minimum over a is attained at the largest a computed, or is monotone in a beyond a = 20" is read on h2 at
+### xi per p. "The smallest negative width" at Q0 per p is the least a whose cell is NEGATIVE. The finite difference dF/da is
+### h2(a+1) - h2(a); its sign changes print per p and object, and none is called a finding.
+### **READING (6) -- THE COST, PRINTED BEFORE RUNNING.** b522`s run log: p = 7 at Q0 over a = 15..60, 902 s, 52 s at a = 60. The
+### estimate: about 950 s per object and order over a = 10..60, so about 9,500 s for the sweep and about 250 s for Component 1.
+### Runs are foreground, each call a chunk of widths under 600 s; every cell appends to its bank as it completes, so a stop loses
+### at most the cell in flight. A call the harness moves to the background is watched from the foreground until it ends.
+### **READING (7) -- THE FIELD ENTRY`S SOURCES.** One fetch of Zhu`s arXiv abstract page (arXiv:2608.24827), its claim sentence and
+### scope sentence quoted verbatim; the alphaXiv URL for Liu recorded with the ruling`s provenance, NAVIGATOR-READ, not fetched;
+### the two Zenodo records` public metadata pages (18510861, 18409497) read for title, author and date only, without the token --
+### (R158)(4) orders it, and (N6)`s "nothing at Zenodo" is read as nothing written there. Nothing else is fetched. The block is
+### appended at FINDINGS`s end, naming :5575.
+### **READING (8) -- THE ACT`S ENTRY AND THE POINTER.** One FINDINGS entry graded READING with H1 and H2 scored clause by clause;
+### one appended line naming :5529 and pointing to this act`s sweep. "Correspondence rows (READING)" are the entry`s table rows,
+### graded READING; no SIDE-global-section correspondence row is written.
+### **READING (9) -- THE BRANCHES.** push-b547 and push-b547-closing (relay) and push-b547 (PLACE-papers), each listed by `git
+### branch --merged main` and deleted by `git branch -d` with its full name, chained by `&&`.
+### **READING (10) -- MEMORY.** Under (R157)(6) the seat`s memory is not refreshed at this act.
+### **READING (11) -- THE SCORING.** (N1) READING (4)`s match. (N2) H1`s central clause at 36-38. (N3) xi cells NEGATIVE: none.
+### (N4) Q0`s smallest negative width at p = 7, 9, 11 and NEGATIVE cells at p = 3, 5. (N5) the quotes and the NAVIGATOR-READ line.
+### (N6) the written files` committed bytes a prefix of their new bytes; nothing at Zenodo written; kernels clean; nothing deposits.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### `tools/b548_record.py reads | interference | sweep <obj> <p> <a_lo> <a_hi> | sweep_report | field | findings | components |
+### desk | trail`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** relay data/b522_run_log.txt, b522_components.txt (head), b522_results.json,
+### b522_reach.json (head), b522_cells.jsonl (head), b523_results.json, b523_sigma.json, b506_c2_results.json (the found zeros);
+### tools b522_reach.py, b521_tail.py (PWindow, the tail, cell_q), b519_window.py (VWindow, cell, tail), b511_families.py (the banks),
+### carto_atlas.py (GAM), the location of hhat_exact; the b519 and b520 run logs` timings; OPEN_TRAILS.md :10173-10178 ((R125)) and
+### :10344-10350 ((R131)), :10388-10394 (b523). ### **NO CELL WAS COMPUTED FOR THIS ACT BEFORE THE SEAL**, and no web request made.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED LINE.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **THE RECOMPUTED ORDER-7 QUANTITY MATCHES b522`S TABLE TO THE FLOOR AT EVERY WIDTH 30-45.**
+### **(N2)** ### **AT 36-38 THE REST EXCEEDS THE PAIR IN MAGNITUDE WITH THE OPPOSITE SIGN, AND AT MOST FIVE ZEROS CARRY THE EXCESS.**
+### **(N3)** ### **AT XI NO CELL IS NEGATIVE ABOVE ITS FLOOR FOR ANY ORDER.**
+### **(N4)** ### **AT Q0 THE SMALLEST NEGATIVE WIDTH DECREASES FROM p = 7 TO p = 11; p = 3 AND 5 SHOW NO NEGATIVITY.**
+### **(N5)** ### **ZHU`S ABSTRACT IS FETCHED AND QUOTED; THE ALPHAXIV RECORD IS NAVIGATOR-READ WITH THE PROVENANCE NOTE.**
+### **(N6)** ### **NOTHING AT ZENODO; NO KERNEL EDITED; NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE RECOMPUTATION MATCHES b522 EXACTLY (DIFFERENCE 0) AT EVERY WIDTH 30-45.**
+### **(S2)** ### **AT 36-38 THE PAIR IS NEGATIVE AND THE REST POSITIVE, AND k* EXCEEDS FIVE AT ONE OR MORE OF THE THREE WIDTHS.**
+### **(S3)** ### **AT Q0, p = 3 SHOWS NO NEGATIVE CELL.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits, 0 flags) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R158-ENTERED` `G-READS-CITED`
+### `G-MATCH-B522` `G-SPLIT-SUMS` `G-CONTRIBUTORS` `G-H1-SCORED` `G-INTERFERENCE-BANK`
+### `G-SWEEP-COMPLETE` `G-CELL-RULE` `G-DIFFERENCES` `G-H2-SCORED` `G-SWEEP-BANKS` `G-COST-PRINTED`
+### `G-FIELD-REPAIR` `G-ZHU-QUOTED` `G-LIU-PROVENANCE` `G-ZENODO-METADATA` `G-GEOMETRY-POINTER`
+### `G-FINDINGS-ACT` `G-BRANCHES-DELETED` `G-MEMORY-UNREFRESHED`
+### `G-LINES-KEPT` `G-MONOGRAPH-UNTOUCHED` `G-ERRATA-UNTOUCHED` `G-CEILING-UNCHANGED`
+### `G-KERNELS-UNTOUCHED` `G-NO-ZENODO-CALL` `G-DELETE-FREE` `G-TECHNE-SHAPE-ONLY`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-N5-SCORED` `G-N6-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN` `G-LANE-CLOSED`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-UNTOUCHED` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-PRIORBANK-UNCHANGED` holds every prior act`s bank unchanged, with no exception. ### `G-DELETE-FREE` reads this act`s own
+### tools for a delete call of any kind (the branch deletion is the seat`s command, READING (9)). ### `G-NO-ZENODO-CALL` reads the
+### act`s tools for the platform`s address (the two metadata reads are the seat`s fetches, READING (7), and write nothing).
+### `G-MEMORY-UNREFRESHED` reads the memory directory`s file times against this face. ### `G-NOH2-MOVED` reads the trail`s own
+### words: `h2` is where the deposit left it. ### No arm is scored post-push only.
+### **EVERY POSITIVE CONTROL IS POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b548_*` `relay/tools/b548_*` |
+### | `tools/b548_record.py` | `PLACE-papers/FINDINGS.md` (THREE appends: the field entry`s sources, the act`s entry, the pointer line)
+###   `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) -- the suite`s regeneration | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b548_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b548_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b548_registration_2026-09-26.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b548_span*.json` `relay/data/b548_span_notes*.txt` |
+### | the seat`s branch command, READING (9) | the refs `push-b547` and `push-b547-closing` |
+### ### The act`s tools, named: `b548_record.py` `b548_reg_gate.py` `b548_regspec.py` `b548_checks.py` `b548_closing.py`.
+### ### No kernel file, no SIDE-global-section correspondence row, no ERRATA byte, no monograph byte, no keystone byte, no README,
+### REGISTRY or SPIRAL_MAP write, no TECHNE-Core write, no memory file, nothing written at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NO KERNEL LANE OPENS; THE NUMERICAL LANE SHUTS AT THE CLOSE.** ### Nothing deposits; nothing at Zenodo is written.
+### ### No tag is made. ### No mirror zip is built. ### No kernel builds; no Lean runs. ### No erratum is drafted or filed. ### No
+### keystone byte changes. ### No grade on any existing row is moved; every row of this act is READING. ### No zero of zeta or of
+### Z_Q0 is added or moved; no prior bank is rewritten. ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The
+### four lists stay OPEN. ### No rm is run. ### No fetch of a repository is run.
+### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH OR ABOUT ZETA`S ZEROS.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 98032a16c2523303688e22dadc647def12c2319c3a3de47cc0c69d35b076acef
+### bytes locked : 15302
+### locked at (UTC) : 2026-09-26T20:45:59Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b548_registration_2026-09-26.txt`.**
+====================================================================================================
