@@ -423,8 +423,14 @@ def population_ok(S):
 def pins_ok(S):
     ok = bool(S['cj'].get('pins'))
     for p in S['cj'].get('pins', []):
-        cited = p['cited'] if p['cited'] != 'WORKING-HEAD' else 'HEAD'
-        ok = ok and R.g(p['repo'], 'rev-parse', cited + '^{commit}').strip() == p['sha'] and p['live_eq_head'] and p['local']
+        ok = ok and p['live_eq_head'] and p['local']
+        if p['cited'] != 'WORKING-HEAD':
+            ok = ok and R.g(p['repo'], 'rev-parse', p['cited'] + '^{commit}').strip() == p['sha']
+        else:
+            # ### a WORKING-HEAD pin is the census-time HEAD: an ancestor of HEAD now, and equal to it but where this act commits (the ledger)
+            anc = subprocess.run(['git', '-C', R.rpath(p['repo']), 'merge-base', '--is-ancestor', p['sha'], 'HEAD']).returncode == 0
+            same = R.g(p['repo'], 'rev-parse', 'HEAD').strip() == p['sha']
+            ok = ok and anc and (same or p['repo'] == 'SIDE-global-section')
     return ok
 
 

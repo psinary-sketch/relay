@@ -135,8 +135,8 @@
   },
   {
    "name": "G-PINS-RESOLVED",
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "every pin rev-parsed HERE; every repository live-equal at the census"
   },
@@ -443,9 +443,11 @@
   }
  ],
  "run": 63,
- "live_failing": [],
+ "live_failing": [
+  "G-PINS-RESOLVED"
+ ],
  "defective": [],
- "neg_failures": 0,
+ "neg_failures": 1,
  "declared": 63,
  "deferred": [],
  "stray": []
