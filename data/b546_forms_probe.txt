@@ -1,0 +1,35 @@
+b546 -- THE TWO FORMS, FRESH `#print axioms` (READING (9)), one repository per foreground run
+
+### SIDE-li-map 73cee42 LiLinearMap.lean by stdin (leanprover/lean4:v4.29.0-rc8) ; exit 0 ; 56 s
+  'LiLinearMap.lam_add' depends on axioms: [propext, Quot.sound]
+  LiLinearMap.lam_add : ∀ (η η' : Nat → Int) (n : Nat),
+    LiLinearMap.lam (fun j => η j + η' j) n = LiLinearMap.lam η n + LiLinearMap.lam η' n
+
+### SIDE-explicit-formula HEAD 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (tree clean) ; exit 0 ; 832 s
+  'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+
+### SIDE-lv-conservation HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 (tree clean) ; exit 0 ; 904 s
+  'SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine' depends on axioms: [propext,
+   Classical.choice,
+   Quot.sound]
+  'SIDELvConservation.PartialPositivity.partialPositivity_finiteRange' depends on axioms: [propext,
+   Classical.choice,
+   Quot.sound]
+  'SIDELvConservation.PartialPositivity.lowFinset_mem_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀
+    (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ),
+    (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n
+  SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ)
+    (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ),
+    SIDELvConservation.PartialPositivity.VerifiedZerosTo T →
+      SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T →
+        SIDELvConservation.PartialPositivity.TailBoundPremise low tail T →
+          ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n
+  SIDELvConservation.PartialPositivity.lowFinset_mem_iff : ∀ (T : ℝ)
+    (z : SIDELvConservation.PartialPositivity.NontrivialZero),
+    z ∈ SIDELvConservation.PartialPositivity.lowFinset T ↔ |(↑z).im| ≤ T
+  statement h2_sign_iff_rh                   {'5c72cad': 'SAME', 'HEAD': 'SAME'}
+  statement blTerm_nonneg_of_onLine          {'v0.8.0': 'SAME', 'v0.10.0': 'SAME', 'HEAD': 'SAME'}
+  statement partialPositivity_finiteRange    {'v0.8.0': 'SAME', 'v0.10.0': 'SAME', 'HEAD': 'SAME'}
+  statement lowFinset_mem_iff                {'v0.8.0': 'ABSENT', 'v0.10.0': 'SAME', 'HEAD': 'SAME'}

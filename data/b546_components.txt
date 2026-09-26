@@ -1,0 +1,99 @@
+====================================================================================================================================
+b546 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+### COMPONENT 1 -- THE EIGHT : {"count_union": 5700, "count_old_here": 5293, "count_old_b544": 5293, "count_eight": 407, "subjects_old_b544": {"ARITHMETIC-OR-LOGIC": 1900, "PROGRAMME-TYPE": 3044, "ZETA": 349}, "subjects_old_union": {"ARITHMETIC-OR-LOGIC": 1899, "PROGRAMME-TYPE": 3045, "ZETA": 349}, "subjects_eight": {"PROGRAMME-TYPE": 298, "ARITHMETIC-OR-LOGIC": 109}, "per_repo_eight": {"SIDE-carrier-spec": {"PROGRAMME-TYPE": 23, "ARITHMETIC-OR-LOGIC": 21}, "SIDE-class-number-anomaly": {"ARITHMETIC-OR-LOGIC": 9, "PROGRAMME-TYPE": 16}, "SIDE-cosmo": {"ARITHMETIC-OR-LOGIC": 15, "PROGRAMME-TYPE": 40}, "SIDE-dirichlet-mod-24": {"ARITHMETIC-OR-LOGIC": 33, "PROGRAMME-TYPE": 27}, "SIDE-fano-darkness": {"ARITHMETIC-OR-LOGIC": 6, "PROGRAMME-TYPE": 9}, "SIDE-formation-procedure": {"ARITHMETIC-OR-LOGIC": 8, "PROGRAMME-TYPE": 91}, "SIDE-local-cosmic-interface": {"ARITHMETIC-OR-LOGIC": 9, "PROGRAMME-TYPE": 47}, "SIDE-quaternionic-dark-sector": {"PROGRAMME-TYPE": 45, "ARITHMETIC-OR-LOGIC": 8}}, "moved": [{"repo": "SIDE-compression", "file": "SIDECompression/Basic.lean", "line": 166, "was": "ARITHMETIC-OR-LOGIC", "now": "PROGRAMME-TYPE", "name": "SIDECompression.xi_formation_total_seven"}], "heads": {"SIDE-carrier-spec": {"head": "b3916ccea33a4aba341192d71eb238ddcd6fef82", "tags": ["v0.2.0", "v0.3.0", "v0.4.0", "v0.4.1"], "clean": true}, "SIDE-class-number-anomaly": {"head": "2203b88a2008c474e13743af1c60bb997a5f3ee2", "tags": ["v0.2"], "clean": true}, "SIDE-cosmo": {"head": "c5cba30ce201af2d619498ef087969e729293969", "tags": ["v0.2", "v0.3"], "clean": true}, "SIDE-dirichlet-mod-24": {"head": "597b0869107c2bc863f41ef4dd22b183f4bd79cf", "tags": ["v0.1.0"], "clean": true}, "SIDE-fano-darkness": {"head": "0f6ce5b131fe4e5c350989c2e9fb57cead09a7fb", "tags": [], "clean": true}, "SIDE-formation-procedure": {"head": "65ace65a034082a8fda04be25e8d0c1d7b9908c0", "tags": ["v0.1.0"], "clean": true}, "SIDE-local-cosmic-interface": {"head": "7a62cedbb956ee377cbc991c3fcecd9336d06fe9", "tags": ["v0.1.0"], "clean": true}, "SIDE-quaternionic-dark-sector": {"head": "e860142a5381db4b97b5207b0546ae8f4573e8d9", "tags": ["v0.1.0"], "clean": true}}, "seconds": 33.3, "masked": 0}
+### b546_probe_eight.json : {"component": "probe_eight", "zeta_rows": 0, "verdict": "VACUOUS -- the eight add no ZETA row, so nothing is probed"}
+### b546_premises.json : {"component": "premises", "zeta_rows": 0, "verdict": "VACUOUS -- the eight add no ZETA row, so nothing is tested for premises"}
+### b546_index.json : {"component": "index", "zeta_rows": 0, "verdict": "VACUOUS -- the eight add no ZETA row, so nothing is marked E/I"}
+### b546_amend.json : {"cp2": {"file": "FINDINGS.md", "before": 668779, "added": 2923, "prefix": true, "heading_line": 5498}, "cp3": {"file": "FINDINGS.md", "before": 671702, "added": 586, "prefix": true, "heading_line": 5521}, "new_totals": {"ZETA": 349, "ARITHMETIC-OR-LOGIC": 2008, "PROGRAMME-TYPE": 3343}, "aol_eight": 41, "aol_eight_t0": ["FanoTwoDarkness.counts", "FanoTwoDarkness.frequency_match", "FanoTwoDarkness.first_moment", "FanoTwoDarkness.second_moment"], "moved_why": {"SIDECompression.xi_formation_total_seven": ["formationTotal"]}}
+### b546_spiral.json : {"file": "SPIRAL_MAP.md", "before": 59229, "added": 2945, "prefix": true, "heading_line": 504, "rows": 8}
+
+### COMPONENT 2 -- THE PROBES:
+  b546 -- THE TWO FORMS, FRESH `#print axioms` (READING (9)), one repository per foreground run
+  
+  ### SIDE-li-map 73cee42 LiLinearMap.lean by stdin (leanprover/lean4:v4.29.0-rc8) ; exit 0 ; 56 s
+    'LiLinearMap.lam_add' depends on axioms: [propext, Quot.sound]
+    LiLinearMap.lam_add : ∀ (η η' : Nat → Int) (n : Nat),
+      LiLinearMap.lam (fun j => η j + η' j) n = LiLinearMap.lam η n + LiLinearMap.lam η' n
+  
+  ### SIDE-explicit-formula HEAD 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d (tree clean) ; exit 0 ; 832 s
+    'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+  
+  ### SIDE-lv-conservation HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 (tree clean) ; exit 0 ; 904 s
+    'SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine' depends on axioms: [propext,
+     Classical.choice,
+     Quot.sound]
+    'SIDELvConservation.PartialPositivity.partialPositivity_finiteRange' depends on axioms: [propext,
+     Classical.choice,
+     Quot.sound]
+    'SIDELvConservation.PartialPositivity.lowFinset_mem_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀
+      (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ),
+      (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n
+    SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ)
+      (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ),
+      SIDELvConservation.PartialPositivity.VerifiedZerosTo T →
+        SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T →
+          SIDELvConservation.PartialPositivity.TailBoundPremise low tail T →
+            ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n
+    SIDELvConservation.PartialPositivity.lowFinset_mem_iff : ∀ (T : ℝ)
+      (z : SIDELvConservation.PartialPositivity.NontrivialZero),
+      z ∈ SIDELvConservation.PartialPositivity.lowFinset T ↔ |(↑z).im| ≤ T
+    statement h2_sign_iff_rh                   {'5c72cad': 'SAME', 'HEAD': 'SAME'}
+    statement blTerm_nonneg_of_onLine          {'v0.8.0': 'SAME', 'v0.10.0': 'SAME', 'HEAD': 'SAME'}
+    statement partialPositivity_finiteRange    {'v0.8.0': 'SAME', 'v0.10.0': 'SAME', 'HEAD': 'SAME'}
+    statement lowFinset_mem_iff                {'v0.8.0': 'ABSENT', 'v0.10.0': 'SAME', 'HEAD': 'SAME'}
+### THE MATHLIB SEARCH : {"Li coefficient (an identifier)": 0, "Li (the word, in any text)": 25, "Keiper": 0, "logDeriv of the completed zeta": 0, "deriv of the completed zeta": 0, "riemannZeta at 1 (pole / residue / constant term)": 104, "xi / riemannXi": 0, "Stieltjes constants": 386, "Taylor coefficients of zeta": 0, "explicit formula / Guinand / Weil": 33, "riemannZeta at 1, v2 (a zeta function on the line)": 133, "Stieltjes constants, v2": 0, "explicit formula, v2 (with zeta, primes or von Mangoldt)": 1}
+### THE ENTRY : {"file": "FINDINGS.md", "before": 675847, "added": 3846, "prefix": true, "heading_line": 5545}
+### COMPONENT 3 -- THE CREDIT : {"findings": {"file": "FINDINGS.md", "before": 672288, "added": 418, "prefix": true}, "balpos": {"file": "phase1.5\\spectral\\BALANCE_AND_POSITIVITY.md", "before": 122583, "added": 420, "prefix": true}, "before": {"find_5461": "## BALANCE_AND_POSITIVITY Appendix B.6(4), 2026-07-13, read against b538: an earlier finding that anticipated the register census", "find_tail": ["**The index is unchanged.** Its rows are the ZETA declarations and the window modules; the eight add no ZETA declaration and carry no window file, so the index keeps its 562 rows (I 176, E 386), and its one I row concluding re = 1/2 stays `SIDEBridge.side_exclusion_bridge`, under `RHHypothesis`. The E/I mark had no row of the eight to read -- VACUOUS, and said so (relay `data/b546_index.json`).", ""], "bal_274": "**The work-shape, precisely.** For each Cᵢ: write it as a predicate on `ℝ → ℂ` (a `Coupling`), and prove `Cᵢ Phi` — where `Phi t = ((evenKernel 0 t : ℂ) − 1)/2`. Seven proofs, one witness. That collec", "bal_357": "4. **h2 is not bookkeeping.** `mellin Phi (s/2) ≠ 0` off the critical line is RH-strength on the half-plane where T1 holds; the seven-class instantiation buys the joint step, not this.", "bal_tail": ["*Filed by b545. No byte above this block changes; no grade on a line above it moves; nothing here is a statement about RH.*", ""]}, "after": {"find_5461": "## BALANCE_AND_POSITIVITY Appendix B.6(4), 2026-07-13, read against b538: an earlier finding that anticipated the register census", "find_line": 5527, "bal_274": "**The work-shape, precisely.** For each Cᵢ: write it as a predicate on `ℝ → ℂ` (a `Coupling`), and prove `Cᵢ Phi` — where `Phi t = ((evenKernel 0 t : ℂ) − 1)/2`. Seven proofs, one witness. That collec", "bal_357": "4. **h2 is not bookkeeping.** `mellin Phi (s/2) ≠ 0` off the critical line is RH-strength on the half-plane where T1 holds; the seven-class instantiation buys the joint step, not this.", "bal_line": 776}}
+### COMPONENT 4 -- THE GEOMETRIES : {"write": {"file": "FINDINGS.md", "before": 672706, "added": 3141, "prefix": true, "heading_line": 5529}, "p": 7, "gamma0": [16.290216], "z0": [0.9532604747946607, 16.290215720390393], "top": [0.874305660726971, 137.88555701699448], "n0": 530.742274653312, "ntop": 38024.85366777367, "neg": [34.0, 35.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0, 60.0], "pos": [28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 36.0, 37.0, 38.0], "within": [28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0, 60.0], "outside": [15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0], "narrowest": 34.0, "survivors": 24, "voros500": "> **\"Sₙ can only reliably signal a zero violating RH up to a height |Im ρ| ≲ n/2; so vice-versa, since such zeros are now known to require |Im ρ| ≳ 10⁹, they could only be detected by Sₙ for n ≳ 10¹⁸\"**", "voros507": "> **\"Sₙ can only reliably signal a zero violating RH up to a height |Im ρ| ≲ √(n/2)\"**"}
+  a  15.0  tail/B`      9.121  within False
+  a  16.0  tail/B`      8.347  within False
+  a  17.0  tail/B`      6.720  within False
+  a  18.0  tail/B`      4.624  within False
+  a  19.0  tail/B`      3.541  within False
+  a  20.0  tail/B`      2.840  within False
+  a  21.0  tail/B`      2.691  within False
+  a  22.0  tail/B`      2.734  within False
+  a  23.0  tail/B`      1.826  within False
+  a  24.0  tail/B`      1.408  within False
+  a  25.0  tail/B`      1.280  within False
+  a  26.0  tail/B`      1.332  within False
+  a  27.0  tail/B`      1.140  within False
+  a  28.0  tail/B`      0.842  within True
+  a  29.0  tail/B`      0.698  within True
+  a  30.0  tail/B`      0.639  within True
+  a  31.0  tail/B`      0.613  within True
+  a  32.0  tail/B`      0.634  within True
+  a  33.0  tail/B`      0.624  within True
+  a  34.0  tail/B`      0.607  within True
+  a  35.0  tail/B`      0.555  within True
+  a  36.0  tail/B`      0.480  within True
+  a  37.0  tail/B`      0.442  within True
+  a  38.0  tail/B`      0.398  within True
+  a  39.0  tail/B`      0.315  within True
+  a  40.0  tail/B`      0.263  within True
+  a  41.0  tail/B`      0.229  within True
+  a  42.0  tail/B`      0.211  within True
+  a  43.0  tail/B`      0.197  within True
+  a  44.0  tail/B`      0.196  within True
+  a  45.0  tail/B`      0.197  within True
+  a  46.0  tail/B`      0.200  within True
+  a  47.0  tail/B`      0.190  within True
+  a  48.0  tail/B`      0.163  within True
+  a  49.0  tail/B`      0.141  within True
+  a  50.0  tail/B`      0.128  within True
+  a  51.0  tail/B`      0.123  within True
+  a  52.0  tail/B`      0.125  within True
+  a  53.0  tail/B`      0.131  within True
+  a  54.0  tail/B`      0.135  within True
+  a  55.0  tail/B`      0.130  within True
+  a  56.0  tail/B`      0.121  within True
+  a  57.0  tail/B`      0.110  within True
+  a  58.0  tail/B`      0.100  within True
+  a  59.0  tail/B`      0.093  within True
+  a  60.0  tail/B`      0.089  within True
+### COMPONENT 5 -- held at the seal (READING (12)); released on the author`s word (data/b546_author_word.txt); the line is in the trail: - **Research-arc line, 2026-09-26 (a brainstorm, queued; not an act; `(R156)`(5)).** Source: https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-looks-back-in-time-finds-our-ancient-universe-wasnt-as-pure-as-we-thought -- bears on two Phase 2 objects: SIDE-cosmo`s Ω_b = 4/81 (Størmer) and the T₇ CMB pre-registered null. The cascade`s focus does not move.
+### THE BRANCHES : see data/b546_branches.txt
+====================================================================================================================================

@@ -1,0 +1,269 @@
+b546 -- THE MATHLIB SEARCH (READING (9)): the checkout SIDE-explicit-formula builds against, 51e6992efd06126df61a496bebf8f49482a4e129 ; 8302 .lean files under Mathlib/
+
+### Li coefficient (an identifier) : 0 hits ; needle (?<![A-Za-z])(?:li|Li)(?:Coeff|Coefficient|_coeff|Criterion|_criterion|Seq|Number)\w*|\bliCoeff
+
+### Li (the word, in any text) : 25 hits ; needle (?<![A-Za-z])Li(?![A-Za-z])
+  Mathlib/Algebra/DirectSum/Internal.lean:4 Authors: Eric Wieser, Kevin Buzzard, Jujian Zhang, Fangming Li
+  Mathlib/Algebra/Module/SpanRank.lean:4 Authors: Wanyi He, Jiedong Jiang, Xuchun Li, Christian Merten, Jingting Wang, Andrew Yang
+  Mathlib/AlgebraicGeometry/Stalk.lean:4 Authors: Andrew Yang, Fangming Li
+  Mathlib/Analysis/Calculus/Gradient/Basic.lean:4 Authors: Ziyu Wang, Chenyi Li, Sébastien Gouëzel, Penghao Yu, Zhipeng Cao
+  Mathlib/Analysis/Convex/Strong.lean:2 Copyright (c) 2023 Yaël Dillies, Chenyi Li. All rights reserved.
+  Mathlib/Analysis/Convex/Strong.lean:4 Authors: Chenyi Li, Ziyu Wang, Yaël Dillies
+  Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean:17 involves the dilogarithm, this can be seen as computing special values of `Li₂`.
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Meromorphic.lean:2 Copyright (c) 2026 Xuanji Li. All rights reserved.
+  Mathlib/Analysis/SpecialFunctions/Trigonometric/Meromorphic.lean:4 Authors: Xuanji Li
+  Mathlib/Geometry/Euclidean/Sphere/Power.lean:4 Authors: Manuel Candales, Benjamin Davidson, Li Jiale
+  Mathlib/Order/KrullDimension.lean:4 Authors: Jujian Zhang, Fangming Li, Joachim Breitner
+  Mathlib/Order/RelSeries.lean:4 Authors: Jujian Zhang, Fangming Li
+  Mathlib/RingTheory/GradedAlgebra/Basic.lean:4 Authors: Eric Wieser, Kevin Buzzard, Jujian Zhang, Fangming Li
+  Mathlib/RingTheory/GradedAlgebra/Noetherian.lean:2 Copyright (c) 2023 Fangming Li. All rights reserved.
+  Mathlib/RingTheory/GradedAlgebra/Noetherian.lean:4 Authors: Fangming Li
+  Mathlib/RingTheory/GradedAlgebra/Homogeneous/Subsemiring.lean:4 Authors: Jujian Zhang, Fangming Li
+  Mathlib/RingTheory/KrullDimension/Basic.lean:4 Authors: Fangming Li, Jujian Zhang
+  Mathlib/RingTheory/KrullDimension/Field.lean:4 Authors: Fangming Li, Jujian Zhang
+  Mathlib/RingTheory/Polynomial/HilbertPoly.lean:2 Copyright (c) 2024 Fangming Li. All rights reserved.
+  Mathlib/RingTheory/Polynomial/HilbertPoly.lean:4 Authors: Fangming Li, Jujian Zhang
+  Mathlib/Topology/KrullDimension.lean:4 Authors: Jujian Zhang, Fangming Li, Alessandro D'Angelo
+  Mathlib/Topology/Algebra/ClopenNhdofOne.lean:4 Authors: Nailin Guan, Yi Song, Xuchun Li, Bryan Wang
+  Mathlib/Topology/Algebra/OpenSubgroup.lean:4 Authors: Johan Commelin, Nailin Guan, Yi Song, Xuchun Li
+  Mathlib/Topology/Spectral/Basic.lean:2 Copyright (c) 2025 Fangming Li. All rights reserved.
+  Mathlib/Topology/Spectral/Basic.lean:4 Authors: Fangming Li, Panagiotis Angelinos
+
+### Keiper : 0 hits ; needle (?i)keiper
+
+### logDeriv of the completed zeta : 0 hits ; needle logDeriv[^\n]{0,60}completedRiemannZeta|logDeriv[^\n]{0,60}riemannZeta|logDeriv[^\n]{0,40}(?:Λ|xi)
+
+### deriv of the completed zeta : 0 hits ; needle deriv[^\n]{0,40}completedRiemannZeta
+
+### riemannZeta at 1 (pole / residue / constant term) : 104 hits ; needle riemannZeta_residue|tendsto_riemannZeta_sub_one_div|riemannZeta_one\b|zeta_sub_one|residue[^\n]{0,40}riemannZeta|riemannZeta[^\n]{0,60}eulerMascheroni|eulerMascheroni[^\n]{0,60}riemannZeta
+  Mathlib/NumberTheory/Cyclotomic/Discriminant.lean:41 theorem discr_zeta_eq_discr_zeta_sub_one (hζ : IsPrimitiveRoot ζ n) :
+  Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean:130 theorem powerBasis_gen_mem_adjoin_zeta_sub_one :
+  Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean:139 exact PowerBasis.adjoin_eq_top_of_gen_mem_adjoin (hζ.powerBasis_gen_mem_adjoin_zeta_sub_one _)
+  Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean:539 theorem norm_zeta_sub_one_of_isPrimePow (hn : IsPrimePow n) [IsCyclotomicExtension {n} K L]
+  Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean:564 theorem norm_zeta_sub_one_of_prime_ne_two [Fact p.Prime]
+  Mathlib/NumberTheory/FLT/Three.lean:215 .of_not_isUnit hζ.zeta_sub_one_prime'.not_isUnit S'.hc
+  Mathlib/NumberTheory/FLT/Three.lean:282 rw [pow_dvd_iff_le_emultiplicity, emultiplicity_pow hζ.zeta_sub_one_prime',
+  Mathlib/NumberTheory/FLT/Three.lean:333 emultiplicity_mul hζ.zeta_sub_one_prime', emultiplicity_mul hζ.zeta_sub_one_prime',
+  Mathlib/NumberTheory/FLT/Three.lean:398 hζ.zeta_sub_one_prime'.ne_zero, S.hb, not_false_eq_true]
+  Mathlib/NumberTheory/FLT/Three.lean:408 simp only [mul_eq_mul_left_iff, hζ.zeta_sub_one_prime'.ne_zero, or_false] at hk
+  Mathlib/NumberTheory/FLT/Three.lean:422 suffices p_lam : p ∣ λ from hp.associated_of_dvd hζ.zeta_sub_one_prime' p_lam
+  Mathlib/NumberTheory/FLT/Three.lean:432 suffices p_lam : p ∣ λ from hp.associated_of_dvd hζ.zeta_sub_one_prime' p_lam
+  Mathlib/NumberTheory/FLT/Three.lean:445 suffices p_lam : p ∣ λ from hp.associated_of_dvd hζ.zeta_sub_one_prime' p_lam
+  Mathlib/NumberTheory/FLT/Three.lean:485 apply hζ.zeta_sub_one_prime'.pow_dvd_of_dvd_mul_left _ S.lambda_not_dvd_z
+  Mathlib/NumberTheory/FLT/Three.lean:486 apply hζ.zeta_sub_one_prime'.pow_dvd_of_dvd_mul_left _ S.lambda_not_dvd_y
+  Mathlib/NumberTheory/FLT/Three.lean:490 simp only [mul_dvd_mul_iff_right hζ.zeta_sub_one_prime'.ne_zero] at h
+  Mathlib/NumberTheory/FLT/Three.lean:523 · exact lambda_not_dvd_w _ <| hζ.zeta_sub_one_prime'.dvd_of_dvd_pow h
+  Mathlib/NumberTheory/FLT/Three.lean:524 · simp [hζ.zeta_sub_one_prime'.ne_zero]
+  Mathlib/NumberTheory/FLT/Three.lean:559 simp only [mul_eq_mul_left_iff, pow_eq_zero_iff', hζ.zeta_sub_one_prime'.ne_zero, ne_eq,
+  Mathlib/NumberTheory/FLT/Three.lean:642 (mul_ne_zero hζ.zeta_sub_one_prime'.ne_zero S.u₂.isUnit.ne_zero) (Units.isUnit η).ne_zero
+  Mathlib/NumberTheory/FLT/Three.lean:709 hc := fun h ↦ S.X_ne_zero <| by simpa [hζ.zeta_sub_one_prime'.ne_zero] using h
+  Mathlib/NumberTheory/FLT/Three.lean:723 simp only [mul_eq_mul_left_iff, pow_eq_zero_iff', hζ.zeta_sub_one_prime'.ne_zero, ne_eq,
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:22 * `tendsto_riemannZeta_sub_one_div`: the limit of `ζ s - 1 / (s - 1)`, at the filter of punctured
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:316 lemma tendsto_riemannZeta_sub_one_div_nhds_right :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:342 theorem _root_.tendsto_riemannZeta_sub_one_div :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:350 from (tendsto_nhds_unique this tendsto_riemannZeta_sub_one_div_nhds_right) ▸ hC
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:369 apply riemannZeta_residue_one.sub
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:378 tendsto_riemannZeta_sub_one_div.isBigO_one (F := F)
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:401 lemma tendsto_riemannZeta_sub_one_div_Gammaℝ :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:404 have := tendsto_riemannZeta_sub_one_div.add tendsto_Gamma_term_aux
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:418 lemma riemannZeta_one : riemannZeta 1 = (γ - log (4 * π)) / 2 := by
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:422 exact tendsto_nhds_unique this ZetaAsymptotics.tendsto_riemannZeta_sub_one_div_Gammaℝ
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:427 (riemannZeta_one ▸ div_one (_ : ℂ) ▸ Gammaℝ_one ▸ riemannZeta_def_of_ne_zero one_ne_zero).symm
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:432 Note that `s = 1` is _not_ a pole of `Λ₀`, so this statement (unlike `riemannZeta_one`) is
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:444 simpa only [riemannZeta_one, ← ofReal_ne_zero, ofReal_log (by positivity : 0 ≤ 4 * π),
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:461 rw [riemannZeta_one, ofReal_div, ofReal_sub, ofReal_log (by positivity : (0 : ℝ) ≤ 4 * π)]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:485 filter_upwards [eventually_nhdsWithin_iff.1 <| riemannZeta_residue_one.eventually_ne one_ne_zero]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:557 · convert tendsto_nhdsWithin_congr ?_ tendsto_riemannZeta_sub_one_div <;>
+  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:191 refine .mul (f := fun s ↦ ∏ p ∈ N.primeFactors, _) ?_ riemannZeta_residue_one
+  Mathlib/NumberTheory/LSeries/Nonvanishing.lean:185 · simpa only [G, continuousAt_update_same] using riemannZeta_residue_one
+  Mathlib/NumberTheory/LSeries/RiemannZeta.lean:242 lemma riemannZeta_residue_one : Tendsto (fun s ↦ (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1) := by
+  Mathlib/NumberTheory/LSeries/RiemannZeta.lean:248 refine (tendsto_nhdsWithin_mono_left ?_ riemannZeta_residue_one).congr' ?_
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:54 exact hζ.discr_zeta_eq_discr_zeta_sub_one.symm
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:59 exact hζ.discr_zeta_eq_discr_zeta_sub_one.symm
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:68 exact hζ.discr_zeta_eq_discr_zeta_sub_one.symm
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:76 rw [hζ.discr_zeta_eq_discr_zeta_sub_one.symm]
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:257 See `zeta_sub_one_prime` for a general statement. -/
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:258 theorem zeta_sub_one_prime_of_ne_two [IsCyclotomicExtension {p ^ (k + 1)} ℚ K]
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:276 See `zeta_sub_one_prime` for a general statement. -/
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:277 theorem zeta_sub_one_prime_of_two_pow [IsCyclotomicExtension {2 ^ (k + 1)} ℚ K]
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:302 theorem zeta_sub_one_prime [IsCyclotomicExtension {p ^ (k + 1)} ℚ K]
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:306 apply hζ.zeta_sub_one_prime_of_two_pow
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:307 · apply hζ.zeta_sub_one_prime_of_ne_two htwo
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:310 theorem zeta_sub_one_prime' [h : IsCyclotomicExtension {p} ℚ K] (hζ : IsPrimitiveRoot ζ p) :
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:312 convert! zeta_sub_one_prime (k := 0) (by simpa only [zero_add, pow_one])
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean:318 simpa only [subOneIntegralPowerBasisOfPrimePow_gen] using! hζ.zeta_sub_one_prime
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean:59 instance isPrime_span_zeta_sub_one : IsPrime (span {hζ.toInteger - 1}) := by
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean:61 · exact hζ.zeta_sub_one_prime
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean:62 · exact Prime.ne_zero hζ.zeta_sub_one_prime
+  Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean:64 theorem associated_norm_zeta_sub_one : Associated (Algebra.norm ℤ (hζ.toInteger - 1)) (p : ℤ) := by
+  ... 44 more (all in data/b546_mathlib.json)
+
+### xi / riemannXi : 0 hits ; needle riemannXi|RiemannXi|\bxi\b[^\n]{0,30}[Zz]eta
+
+### Stieltjes constants : 386 hits ; needle (?i)stieltjes
+  Mathlib/Analysis/Calculus/Monotone.lean:20 theorems. Let `μ` be the Stieltjes measure associated to `f`. Then, almost everywhere,
+  Mathlib/Analysis/Calculus/Monotone.lean:27 Stieltjes measure satisfies `μ [x, y] = f (y^+) - f (x^-)` (the right and left limits of `f` at `y`
+  Mathlib/Analysis/Calculus/Monotone.lean:65 /-- A Stieltjes function is almost everywhere differentiable, with derivative equal to the
+  Mathlib/Analysis/Calculus/Monotone.lean:66 Radon-Nikodym derivative of the associated Stieltjes measure with respect to Lebesgue. -/
+  Mathlib/Analysis/Calculus/Monotone.lean:67 theorem StieltjesFunction.ae_hasDerivAt (f : StieltjesFunction ℝ) :
+  Mathlib/Analysis/Calculus/Monotone.lean:69 /- Denote by `μ` the Stieltjes measure associated to `f`.
+  Mathlib/Analysis/Calculus/Monotone.lean:85 simp only [comp_apply, StieltjesFunction.measure_Icc, Real.volume_Icc, Classical.not_not.1 h''x]
+  Mathlib/Analysis/Calculus/Monotone.lean:96 simp only [comp_apply, StieltjesFunction.measure_Icc, Real.volume_Icc]
+  Mathlib/Analysis/Calculus/Monotone.lean:132 Radon-Nikodym derivative of the associated Stieltjes measure with respect to Lebesgue. -/
+  Mathlib/Analysis/Calculus/Monotone.lean:134 ∀ᵐ x, HasDerivAt f (rnDeriv hf.stieltjesFunction.measure volume x).toReal x := by
+  Mathlib/Analysis/Calculus/Monotone.lean:135 /- We already know that the Stieltjes function associated to `f` (i.e., `g : x ↦ f (x^+)`) is
+  Mathlib/Analysis/Calculus/Monotone.lean:139 filter_upwards [hf.stieltjesFunction.ae_hasDerivAt,
+  Mathlib/Analysis/Calculus/Monotone.lean:141 have A : hf.stieltjesFunction x = f x := by
+  Mathlib/Analysis/Calculus/Monotone.lean:150 (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+  Mathlib/Analysis/Calculus/Monotone.lean:152 have : Tendsto (fun y => (hf.stieltjesFunction (y + -1 * (y - x) ^ 2) - f x) / (y - x)) (𝓝[>] x)
+  Mathlib/Analysis/Calculus/Monotone.lean:153 (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+  Mathlib/Analysis/Calculus/Monotone.lean:176 (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+  Mathlib/Analysis/Calculus/Monotone.lean:178 have : Tendsto (fun y => (hf.stieltjesFunction (y + -1 * (y - x) ^ 2) - f x) / (y - x)) (𝓝[<] x)
+  Mathlib/Analysis/Calculus/Monotone.lean:179 (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+  Mathlib/MeasureTheory/Measure/ResolventTransform.lean:23 namely the case `𝕜 = ℝ` and `A = ℂ` is the Stieltjes transform, and the case `𝕜 = A = ℂ` is the
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:13 # Stieltjes measures on the real line
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:21 * `StieltjesFunction R` is a structure containing a function from `R → ℝ`, together with the
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:22 assertions that it is monotone and right-continuous. To `f : StieltjesFunction R`, one associates
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:27 * `Monotone.stieltjesFunction`: to a monotone function `f`, associate the Stieltjes function
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:28 equal to the right limit of `f`. This makes it possible to associate a Stieltjes measure to
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:33 We define Stieltjes functions over any conditionally complete dense linear order, to be able
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:40 Note that the theory of Stieltjes measures is not completely satisfactory when there is a bot
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:41 element `x`: any Stieltjes measure gives zero mass to `{x}` in this case, so the Dirac mass at `x`
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:42 is not representable as a Stieltjes measure.
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:61 `StieltjesFunction.outer_Ioc`. -/
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:107 /-! ### Basic properties of Stieltjes functions -/
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:109 /-- Bundled monotone right-continuous real functions, used to construct Stieltjes measures. -/
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:110 structure StieltjesFunction where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:118 namespace StieltjesFunction
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:124 instance instCoeFun : CoeFun (StieltjesFunction R) fun _ => R → ℝ :=
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:127 initialize_simps_projections StieltjesFunction (toFun → apply)
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:129 @[ext] lemma ext {f g : StieltjesFunction R} (h : ∀ x, f x = g x) : f = g := by
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:130 exact (StieltjesFunction.mk.injEq ..).mpr (funext h)
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:132 variable (f : StieltjesFunction R)
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:141 (f : StieltjesFunction R) (x : R) : Function.rightLim f x = f x := by
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:146 (f : StieltjesFunction R) (x : R) : ⨅ r : Ioi x, f r = f x := by
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:150 theorem iInf_rat_gt_eq (f : StieltjesFunction ℝ) (x : ℝ) :
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:158 /-- The identity of `ℝ` as a Stieltjes function, used to construct Lebesgue measure. -/
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:160 protected def id : StieltjesFunction ℝ where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:166 theorem id_leftLim (x : ℝ) : leftLim StieltjesFunction.id x = x :=
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:170 /-- A constant function is a Stieltjes function. -/
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:171 protected def const (c : ℝ) : StieltjesFunction R where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:176 instance instInhabited : Inhabited (StieltjesFunction R) :=
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:177 ⟨StieltjesFunction.const R 0⟩
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:179 @[simp] lemma const_apply (c : ℝ) (x : R) : (StieltjesFunction.const R c) x = c := rfl
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:181 /-- The sum of two Stieltjes functions is a Stieltjes function. -/
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:182 protected def add (f g : StieltjesFunction R) : StieltjesFunction R where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:187 instance : AddZeroClass (StieltjesFunction R) where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:188 add := StieltjesFunction.add
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:189 zero := StieltjesFunction.const R 0
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:193 instance : AddCommMonoid (StieltjesFunction R) where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:197 __ := StieltjesFunction.instAddZeroClass
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:199 instance : Module ℝ≥0 (StieltjesFunction R) where
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:211 @[simp] lemma zero_apply (x : R) : (0 : StieltjesFunction R) x = 0 := rfl
+  Mathlib/MeasureTheory/Measure/Stieltjes.lean:213 @[simp] lemma add_apply (f g : StieltjesFunction R) (x : R) : (f + g) x = f x + g x := rfl
+  ... 326 more (all in data/b546_mathlib.json)
+
+### Taylor coefficients of zeta : 0 hits ; needle (?i)taylor[^\n]{0,40}zeta|iteratedDeriv[^\n]{0,40}(?:riemannZeta|completedRiemannZeta)
+
+### explicit formula / Guinand / Weil : 33 hits ; needle (?i)explicit formula|explicitFormula|guinand|weil[^\n]{0,30}(?:formula|criterion|explicit)
+  Mathlib/Analysis/Calculus/ContDiff/Comp.lean:74 write down an explicit formula for the `n`-th derivative of `g ∘ f` in terms of derivatives of
+  Mathlib/Analysis/Complex/Polynomial/GaussLucas.lean:57 This version provides explicit formulas for the coefficients of the convex combination.
+  Mathlib/Analysis/Fourier/FourierTransformDeriv.lean:69 explicit formula for the `n`-th derivative of the Fourier integral of `f`, as the Fourier
+  Mathlib/Analysis/Real/Pi/Irrational.lean:135 The second base case for the induction on `n`, giving an explicit formula for `I 1 θ`.
+  Mathlib/Analysis/Real/Pi/Wallis.lean:18 obtain an explicit formula for this integral, which is rational if `n` is odd and a rational
+  Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean:65 Explicit formula for `toCircle j`. Note that this is "evil" because it uses `ZMod.val`. Where
+  Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean:198 /-- Explicit formula for the Beta function when second argument is a positive integer. -/
+  Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean:52 /-- Explicit formula for the norm of the Gaussian function along the vertical
+  Mathlib/Combinatorics/Enumerative/Catalan/Basic.lean:30 * `catalan_eq_centralBinom_div`: The explicit formula for the Catalan number using the central
+  Mathlib/Data/Nat/Choose/Central.lean:132 /-- A crucial lemma to ensure that Catalan numbers can be defined via their explicit formula
+  Mathlib/FieldTheory/Finite/Trace.lean:20 - `algebraMap_trace_eq_sum_pow`: an explicit formula for the trace map:
+  Mathlib/FieldTheory/Finite/Trace.lean:22 - `algebraMap_norm_eq_prod_pow`: an explicit formula for the norm map:
+  Mathlib/FieldTheory/Finite/Trace.lean:48 /-- An explicit formula for the trace map: `trace[L/K](x) = ∑ i < [L:K], x ^ ((#K) ^ i)`. -/
+  Mathlib/FieldTheory/Finite/Trace.lean:58 /-- An explicit formula for the norm map: `norm[L/K](x) = ∏ i < [L:K], x ^ ((#K) ^ i)`. -/
+  Mathlib/FieldTheory/Finite/Trace.lean:68 /-- An explicit formula for the norm map: `norm[L/K](x) = x ^ (∑ i < [L:K], (#K) ^ i)`. -/
+  Mathlib/Geometry/Manifold/Instances/Icc.lean:144 -- explicit formulas.
+  Mathlib/Geometry/Manifold/VectorField/LieBracket.lean:841 space Lie bracket, given by an explicit formula). Pulling back this Lie bracket in `M` gives
+  Mathlib/GroupTheory/Exponent.lean:271 explicit formula. -/
+  Mathlib/GroupTheory/Exponent.lean:275 if you don't need the explicit formula. -/]
+  Mathlib/NumberTheory/Modular.lean:820 /-- Explicit formula for the image of `ModularGroup.fdo` in `ℂ`. -/
+  Mathlib/NumberTheory/Modular.lean:827 /-- Explicit formula for the image of `ModularGroup.fd` in `ℂ`. -/
+  Mathlib/NumberTheory/ZetaValues.lean:269 theory, to obtain an explicit formula for `∑ (n:ℤ), 1 / n ^ k * fourier n x`. -/
+  Mathlib/NumberTheory/ZetaValues.lean:464 /-- Explicit formula for `L(χ, 3)`, where `χ` is the unique nontrivial Dirichlet character modulo 4.
+  Mathlib/NumberTheory/Harmonic/GammaDeriv.lean:30 /-- Explicit formula for the derivative of the Gamma function at positive integers, in terms of
+  Mathlib/NumberTheory/Harmonic/GammaDeriv.lean:174 /-- Explicit formula for the derivative of the complex Gamma function at positive integers, in
+  Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean:200 /-- Explicit formula for `ζ (2 * k)`, for `k ∈ ℕ` with `k ≠ 0`, in terms of the Bernoulli number
+  Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean:214 /-- Explicit formula for `ζ (2 * k)`, for `k ∈ ℕ`, in terms of the Bernoulli number
+  Mathlib/NumberTheory/LSeries/ZMod.lean:205 /-- Explicit formula for the L-function of `𝓕 Φ`, where `𝓕` is the discrete Fourier transform. -/
+  Mathlib/NumberTheory/LSeries/ZMod.lean:268 /-- Explicit formula for `LFunction Φ 0` when `Φ` is even. -/
+  Mathlib/RingTheory/Polynomial/Chebyshev.lean:58 * Add explicit formula involving square roots for Chebyshev polynomials
+  Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean:60 `pow_sub_one_mul_geom_sum_eq_pow_sub_one_mul_geom_sum` gives an explicit formula for the unit. -/
+  Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean:124 `pow_sub_one_eq_geom_sum_mul_geom_sum_inv_mul_pow_sub_one` for the explicit formula of the
+  Mathlib/Topology/Instances/AddCircle/Real.lean:74 Explicit formula for `toCircle j`. Note that this is "evil" because it uses `ZMod.val`. Where
+
+### riemannZeta at 1, v2 (a zeta function on the line) : 133 hits ; needle (?:riemannZeta|completedRiemannZeta|hurwitzZeta|LSeries)[^\n]{0,80}(?:residue|sub_one|one_sub|eulerMascheroni|tendsto|pole|\(1\)|_one\b)|(?:residue|eulerMascheroni|pole)[^\n]{0,80}(?:riemannZeta|completedRiemannZeta)
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:22 * `tendsto_riemannZeta_sub_one_div`: the limit of `ζ s - 1 / (s - 1)`, at the filter of punctured
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:316 lemma tendsto_riemannZeta_sub_one_div_nhds_right :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:342 theorem _root_.tendsto_riemannZeta_sub_one_div :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:350 from (tendsto_nhds_unique this tendsto_riemannZeta_sub_one_div_nhds_right) ▸ hC
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:369 apply riemannZeta_residue_one.sub
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:375 lemma _root_.isBigO_riemannZeta_sub_one_div {F : Type*} [Norm F] [One F] [NormOneClass F] :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:378 tendsto_riemannZeta_sub_one_div.isBigO_one (F := F)
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:401 lemma tendsto_riemannZeta_sub_one_div_Gammaℝ :
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:404 have := tendsto_riemannZeta_sub_one_div.add tendsto_Gamma_term_aux
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:418 lemma riemannZeta_one : riemannZeta 1 = (γ - log (4 * π)) / 2 := by
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:419 have := (HurwitzZeta.tendsto_hurwitzZetaEven_sub_one_div_nhds_one 0).mono_left
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:422 exact tendsto_nhds_unique this ZetaAsymptotics.tendsto_riemannZeta_sub_one_div_Gammaℝ
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:426 lemma completedRiemannZeta_one : completedRiemannZeta 1 = (γ - log (4 * π)) / 2 :=
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:427 (riemannZeta_one ▸ div_one (_ : ℂ) ▸ Gammaℝ_one ▸ riemannZeta_def_of_ne_zero one_ne_zero).symm
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:432 Note that `s = 1` is _not_ a pole of `Λ₀`, so this statement (unlike `riemannZeta_one`) is
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:435 lemma completedRiemannZeta₀_one : completedRiemannZeta₀ 1 = (γ - log (4 * ↑π)) / 2 + 1 := by
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:438 rw [← this, completedRiemannZeta_one]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:444 simpa only [riemannZeta_one, ← ofReal_ne_zero, ofReal_log (by positivity : 0 ≤ 4 * π),
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:461 rw [riemannZeta_one, ofReal_div, ofReal_sub, ofReal_log (by positivity : (0 : ℝ) ≤ 4 * π)]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:484 lemma riemannZeta_eventually_ne_zero_nhds_one : ∀ᶠ s in 𝓝 1, riemannZeta s ≠ 0 := by
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:485 filter_upwards [eventually_nhdsWithin_iff.1 <| riemannZeta_residue_one.eventually_ne one_ne_zero]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:489 rw [← completedRiemannZeta₀_one_sub]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:490 simp [completedRiemannZeta₀_one]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:514 simpa [completedRiemannZeta₀_zero, hasDerivAt_Gamma_one.deriv, field]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:539 lemma riemannZeta₀_one : riemannZeta₀ 1 = γ := by simp [riemannZeta₀]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:542 lemma riemannZeta₁_one : riemannZeta₁ 1 = 1 := by simp [riemannZeta₁]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:557 · convert tendsto_nhdsWithin_congr ?_ tendsto_riemannZeta_sub_one_div <;>
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:564 lemma riemannZeta₁_ne_zero_of_near_one : ∀ᶠ s in 𝓝 1, riemannZeta₁ s ≠ 0 := by
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:566 simpa using (differentiable_riemannZeta₁.continuous.continuousAt (x := 1)).tendsto
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:569 lemma deriv_riemannZeta₁_one : deriv riemannZeta₁ 1 = γ := by
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:624 riemannZeta₁_ne_zero_of_near_one.filter_mono nhdsWithin_le_nhds]
+  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean:652 riemannZeta₁_ne_zero_of_near_one.filter_mono nhdsWithin_le_nhds] with s hs
+  Mathlib/NumberTheory/LSeries/Convergence.lean:114 lemma LSeries.abscissaOfAbsConv_le_one_of_isBigO_one {f : ℕ → ℂ} (h : f =O[atTop] fun _ ↦ (1 : ℝ)) :
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:63 lemma not_LSeriesSummable_moebius_at_one : ¬ LSeriesSummable ↗μ 1 := by
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:74 exact not_LSeriesSummable_moebius_at_one <| LSeriesSummable.of_re_le_re (by simpa) H
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:139 LSeries.mul_delta <| by rw [cast_one, map_one]
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:176 lemma not_LSeriesSummable_at_one {N : ℕ} (hN : N ≠ 0) (χ : DirichletCharacter ℂ N) :
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:190 LSeriesSummable_of_bounded_of_one_lt_re (fun _ _ ↦ χ.norm_le_one _) hs
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:198 exact not_LSeriesSummable_at_one hN χ <| LSeriesSummable.of_re_le_re (by simp [h]) H
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:218 lemma LSeries.mul_mu_eq_one {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ}
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:232 fun h ↦ by simpa [h] using LSeries.mul_mu_eq_one χ hs
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:250 lemma LSeries.abscissaOfAbsConv_one : abscissaOfAbsConv 1 = 1 :=
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:314 lemma LSeriesHasSum_one {s : ℂ} (hs : 1 < s.re) : LSeriesHasSum 1 s (riemannZeta s) :=
+  Mathlib/NumberTheory/LSeries/Dirichlet.lean:342 simpa [LSeries.abscissaOfAbsConv_one] using (by exact_mod_cast hx : (1 : EReal) < x)
+  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:191 refine .mul (f := fun s ↦ ∏ p ∈ N.primeFactors, _) ?_ riemannZeta_residue_one
+  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:289 · simp [completedLFunction_modOne_eq, completedRiemannZeta_one_sub, rootNumber_modOne]
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:34 * ` hurwitzZeta_residue_one` shows that the residue at `s = 1` equals `1`
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:36 * `hurwitzZeta_one_sub` and `expZeta_one_sub`: functional equations `s ↔ 1 - s`.
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:82 lemma hurwitzZeta_residue_one (a : UnitAddCircle) :
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:85 refine (hurwitzZetaEven_residue_one a).add ((Tendsto.mul ?_ ?_).mono_left nhdsWithin_le_nhds)
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:86 exacts [tendsto_id.sub_const _, (differentiable_hurwitzZetaOdd a).continuous.tendsto _]
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:88 lemma differentiableAt_hurwitzZeta_sub_one_div (a : UnitAddCircle) :
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:91 exact (differentiableAt_hurwitzZetaEven_sub_one_div a).add (differentiable_hurwitzZetaOdd a 1)
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:96 lemma tendsto_hurwitzZeta_sub_one_div_nhds_one (a : UnitAddCircle) :
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:99 refine (tendsto_hurwitzZetaEven_sub_one_div_nhds_one a).add
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:100 (differentiable_hurwitzZetaOdd a 1).continuousAt.tendsto
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:156 lemma hurwitzZeta_one_sub (a : UnitAddCircle) {s : ℂ}
+  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean:160 rw [hurwitzZeta, hurwitzZetaEven_one_sub a hs hs', hurwitzZetaOdd_one_sub a hs,
+  Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean:603 theorem hurwitzZetaEven_neg_two_mul_nat_add_one (a : UnitAddCircle) (n : ℕ) :
+  Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean:621 lemma hurwitzZetaEven_residue_one (a : UnitAddCircle) :
+  ... 73 more (all in data/b546_mathlib.json)
+
+### Stieltjes constants, v2 : 0 hits ; needle (?i)stieltjes[ _]?const
+
+### explicit formula, v2 (with zeta, primes or von Mangoldt) : 1 hits ; needle (?i)guinand|weil[^\n]{0,30}(?:formula|criterion|explicit)|explicit formula[^\n]{0,80}(?:zeta|prime|L-function|mangoldt)|(?:zeta|prime|mangoldt)[^\n]{0,80}explicit formula
+  Mathlib/NumberTheory/LSeries/ZMod.lean:205 /-- Explicit formula for the L-function of `𝓕 Φ`, where `𝓕` is the discrete Fourier transform. -/

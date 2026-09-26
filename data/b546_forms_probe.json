@@ -1,0 +1,87 @@
+{
+ "SIDE-li-map": {
+  "head": "73cee42",
+  "clean": true,
+  "exit": 0,
+  "seconds": 55.6,
+  "profiles": {
+   "LiLinearMap.lam_add": "depends on axioms: [propext, Quot.sound]"
+  }
+ },
+ "SIDE-explicit-formula": {
+  "head": "81ae1758f28e280f4e924e8acd76b4b76ae4ac9d",
+  "clean": true,
+  "exit": 0,
+  "seconds": 832.4,
+  "profiles": {
+   "SIDEExplicitFormula.B321.h2_sign_iff_rh": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+  }
+ },
+ "SIDE-lv-conservation": {
+  "head": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23",
+  "clean": true,
+  "exit": 0,
+  "seconds": 904.0,
+  "profiles": {
+   "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "SIDELvConservation.PartialPositivity.lowFinset_mem_iff": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+  }
+ },
+ "statements": [
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "h2_sign_iff_rh",
+   "statements": {
+    "5c72cad": "theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis ",
+    "HEAD": "theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis "
+   },
+   "same": {
+    "5c72cad": true,
+    "HEAD": true
+   }
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "blTerm_nonneg_of_onLine",
+   "statements": {
+    "v0.8.0": "lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) : 0 ≤ blTerm z n ",
+    "v0.10.0": "lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) : 0 ≤ blTerm z n ",
+    "HEAD": "lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) : 0 ≤ blTerm z n "
+   },
+   "same": {
+    "v0.8.0": true,
+    "v0.10.0": true,
+    "HEAD": true
+   }
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "partialPositivity_finiteRange",
+   "statements": {
+    "v0.8.0": "theorem partialPositivity_finiteRange (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ) (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T) (hTail : TailBoundPremise low tail T) : ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n ",
+    "v0.10.0": "theorem partialPositivity_finiteRange (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ) (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T) (hTail : TailBoundPremise low tail T) : ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n ",
+    "HEAD": "theorem partialPositivity_finiteRange (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ) (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T) (hTail : TailBoundPremise low tail T) : ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n "
+   },
+   "same": {
+    "v0.8.0": true,
+    "v0.10.0": true,
+    "HEAD": true
+   }
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "lowFinset_mem_iff",
+   "statements": {
+    "v0.8.0": null,
+    "v0.10.0": "lemma lowFinset_mem_iff (T : ℝ) : ∀ z : NontrivialZero, z ∈ lowFinset T ↔ |z.1.im| ≤ T ",
+    "HEAD": "lemma lowFinset_mem_iff (T : ℝ) : ∀ z : NontrivialZero, z ∈ lowFinset T ↔ |z.1.im| ≤ T "
+   },
+   "same": {
+    "v0.8.0": null,
+    "v0.10.0": true,
+    "HEAD": true
+   }
+  }
+ ]
+}

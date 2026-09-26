@@ -1,0 +1,3504 @@
+{
+ "head": "51e6992efd06126df61a496bebf8f49482a4e129",
+ "files": 8302,
+ "needles": [
+  [
+   "Li coefficient (an identifier)",
+   "(?<![A-Za-z])(?:li|Li)(?:Coeff|Coefficient|_coeff|Criterion|_criterion|Seq|Number)\\w*|\\bliCoeff"
+  ],
+  [
+   "Li (the word, in any text)",
+   "(?<![A-Za-z])Li(?![A-Za-z])"
+  ],
+  [
+   "Keiper",
+   "(?i)keiper"
+  ],
+  [
+   "logDeriv of the completed zeta",
+   "logDeriv[^\\n]{0,60}completedRiemannZeta|logDeriv[^\\n]{0,60}riemannZeta|logDeriv[^\\n]{0,40}(?:Λ|xi)"
+  ],
+  [
+   "deriv of the completed zeta",
+   "deriv[^\\n]{0,40}completedRiemannZeta"
+  ],
+  [
+   "riemannZeta at 1 (pole / residue / constant term)",
+   "riemannZeta_residue|tendsto_riemannZeta_sub_one_div|riemannZeta_one\\b|zeta_sub_one|residue[^\\n]{0,40}riemannZeta|riemannZeta[^\\n]{0,60}eulerMascheroni|eulerMascheroni[^\\n]{0,60}riemannZeta"
+  ],
+  [
+   "xi / riemannXi",
+   "riemannXi|RiemannXi|\\bxi\\b[^\\n]{0,30}[Zz]eta"
+  ],
+  [
+   "Stieltjes constants",
+   "(?i)stieltjes"
+  ],
+  [
+   "Taylor coefficients of zeta",
+   "(?i)taylor[^\\n]{0,40}zeta|iteratedDeriv[^\\n]{0,40}(?:riemannZeta|completedRiemannZeta)"
+  ],
+  [
+   "explicit formula / Guinand / Weil",
+   "(?i)explicit formula|explicitFormula|guinand|weil[^\\n]{0,30}(?:formula|criterion|explicit)"
+  ],
+  [
+   "riemannZeta at 1, v2 (a zeta function on the line)",
+   "(?:riemannZeta|completedRiemannZeta|hurwitzZeta|LSeries)[^\\n]{0,80}(?:residue|sub_one|one_sub|eulerMascheroni|tendsto|pole|\\(1\\)|_one\\b)|(?:residue|eulerMascheroni|pole)[^\\n]{0,80}(?:riemannZeta|completedRiemannZeta)"
+  ],
+  [
+   "Stieltjes constants, v2",
+   "(?i)stieltjes[ _]?const"
+  ],
+  [
+   "explicit formula, v2 (with zeta, primes or von Mangoldt)",
+   "(?i)guinand|weil[^\\n]{0,30}(?:formula|criterion|explicit)|explicit formula[^\\n]{0,80}(?:zeta|prime|L-function|mangoldt)|(?:zeta|prime|mangoldt)[^\\n]{0,80}explicit formula"
+  ]
+ ],
+ "hits": {
+  "Li coefficient (an identifier)": [],
+  "Li (the word, in any text)": [
+   {
+    "file": "Mathlib/Algebra/DirectSum/Internal.lean",
+    "line": 4,
+    "text": "Authors: Eric Wieser, Kevin Buzzard, Jujian Zhang, Fangming Li"
+   },
+   {
+    "file": "Mathlib/Algebra/Module/SpanRank.lean",
+    "line": 4,
+    "text": "Authors: Wanyi He, Jiedong Jiang, Xuchun Li, Christian Merten, Jingting Wang, Andrew Yang"
+   },
+   {
+    "file": "Mathlib/AlgebraicGeometry/Stalk.lean",
+    "line": 4,
+    "text": "Authors: Andrew Yang, Fangming Li"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Gradient/Basic.lean",
+    "line": 4,
+    "text": "Authors: Ziyu Wang, Chenyi Li, Sébastien Gouëzel, Penghao Yu, Zhipeng Cao"
+   },
+   {
+    "file": "Mathlib/Analysis/Convex/Strong.lean",
+    "line": 2,
+    "text": "Copyright (c) 2023 Yaël Dillies, Chenyi Li. All rights reserved."
+   },
+   {
+    "file": "Mathlib/Analysis/Convex/Strong.lean",
+    "line": 4,
+    "text": "Authors: Chenyi Li, Ziyu Wang, Yaël Dillies"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean",
+    "line": 17,
+    "text": "involves the dilogarithm, this can be seen as computing special values of `Li₂`."
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Meromorphic.lean",
+    "line": 2,
+    "text": "Copyright (c) 2026 Xuanji Li. All rights reserved."
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Meromorphic.lean",
+    "line": 4,
+    "text": "Authors: Xuanji Li"
+   },
+   {
+    "file": "Mathlib/Geometry/Euclidean/Sphere/Power.lean",
+    "line": 4,
+    "text": "Authors: Manuel Candales, Benjamin Davidson, Li Jiale"
+   },
+   {
+    "file": "Mathlib/Order/KrullDimension.lean",
+    "line": 4,
+    "text": "Authors: Jujian Zhang, Fangming Li, Joachim Breitner"
+   },
+   {
+    "file": "Mathlib/Order/RelSeries.lean",
+    "line": 4,
+    "text": "Authors: Jujian Zhang, Fangming Li"
+   },
+   {
+    "file": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+    "line": 4,
+    "text": "Authors: Eric Wieser, Kevin Buzzard, Jujian Zhang, Fangming Li"
+   },
+   {
+    "file": "Mathlib/RingTheory/GradedAlgebra/Noetherian.lean",
+    "line": 2,
+    "text": "Copyright (c) 2023 Fangming Li. All rights reserved."
+   },
+   {
+    "file": "Mathlib/RingTheory/GradedAlgebra/Noetherian.lean",
+    "line": 4,
+    "text": "Authors: Fangming Li"
+   },
+   {
+    "file": "Mathlib/RingTheory/GradedAlgebra/Homogeneous/Subsemiring.lean",
+    "line": 4,
+    "text": "Authors: Jujian Zhang, Fangming Li"
+   },
+   {
+    "file": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+    "line": 4,
+    "text": "Authors: Fangming Li, Jujian Zhang"
+   },
+   {
+    "file": "Mathlib/RingTheory/KrullDimension/Field.lean",
+    "line": 4,
+    "text": "Authors: Fangming Li, Jujian Zhang"
+   },
+   {
+    "file": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean",
+    "line": 2,
+    "text": "Copyright (c) 2024 Fangming Li. All rights reserved."
+   },
+   {
+    "file": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean",
+    "line": 4,
+    "text": "Authors: Fangming Li, Jujian Zhang"
+   },
+   {
+    "file": "Mathlib/Topology/KrullDimension.lean",
+    "line": 4,
+    "text": "Authors: Jujian Zhang, Fangming Li, Alessandro D'Angelo"
+   },
+   {
+    "file": "Mathlib/Topology/Algebra/ClopenNhdofOne.lean",
+    "line": 4,
+    "text": "Authors: Nailin Guan, Yi Song, Xuchun Li, Bryan Wang"
+   },
+   {
+    "file": "Mathlib/Topology/Algebra/OpenSubgroup.lean",
+    "line": 4,
+    "text": "Authors: Johan Commelin, Nailin Guan, Yi Song, Xuchun Li"
+   },
+   {
+    "file": "Mathlib/Topology/Spectral/Basic.lean",
+    "line": 2,
+    "text": "Copyright (c) 2025 Fangming Li. All rights reserved."
+   },
+   {
+    "file": "Mathlib/Topology/Spectral/Basic.lean",
+    "line": 4,
+    "text": "Authors: Fangming Li, Panagiotis Angelinos"
+   }
+  ],
+  "Keiper": [],
+  "logDeriv of the completed zeta": [],
+  "deriv of the completed zeta": [],
+  "riemannZeta at 1 (pole / residue / constant term)": [
+   {
+    "file": "Mathlib/NumberTheory/Cyclotomic/Discriminant.lean",
+    "line": 41,
+    "text": "theorem discr_zeta_eq_discr_zeta_sub_one (hζ : IsPrimitiveRoot ζ n) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "line": 130,
+    "text": "theorem powerBasis_gen_mem_adjoin_zeta_sub_one :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "line": 139,
+    "text": "exact PowerBasis.adjoin_eq_top_of_gen_mem_adjoin (hζ.powerBasis_gen_mem_adjoin_zeta_sub_one _)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "line": 539,
+    "text": "theorem norm_zeta_sub_one_of_isPrimePow (hn : IsPrimePow n) [IsCyclotomicExtension {n} K L]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "line": 564,
+    "text": "theorem norm_zeta_sub_one_of_prime_ne_two [Fact p.Prime]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 215,
+    "text": ".of_not_isUnit hζ.zeta_sub_one_prime'.not_isUnit S'.hc"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 282,
+    "text": "rw [pow_dvd_iff_le_emultiplicity, emultiplicity_pow hζ.zeta_sub_one_prime',"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 333,
+    "text": "emultiplicity_mul hζ.zeta_sub_one_prime', emultiplicity_mul hζ.zeta_sub_one_prime',"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 398,
+    "text": "hζ.zeta_sub_one_prime'.ne_zero, S.hb, not_false_eq_true]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 408,
+    "text": "simp only [mul_eq_mul_left_iff, hζ.zeta_sub_one_prime'.ne_zero, or_false] at hk"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 422,
+    "text": "suffices p_lam : p ∣ λ from hp.associated_of_dvd hζ.zeta_sub_one_prime' p_lam"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 432,
+    "text": "suffices p_lam : p ∣ λ from hp.associated_of_dvd hζ.zeta_sub_one_prime' p_lam"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 445,
+    "text": "suffices p_lam : p ∣ λ from hp.associated_of_dvd hζ.zeta_sub_one_prime' p_lam"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 485,
+    "text": "apply hζ.zeta_sub_one_prime'.pow_dvd_of_dvd_mul_left _ S.lambda_not_dvd_z"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 486,
+    "text": "apply hζ.zeta_sub_one_prime'.pow_dvd_of_dvd_mul_left _ S.lambda_not_dvd_y"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 490,
+    "text": "simp only [mul_dvd_mul_iff_right hζ.zeta_sub_one_prime'.ne_zero] at h"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 523,
+    "text": "· exact lambda_not_dvd_w _ <| hζ.zeta_sub_one_prime'.dvd_of_dvd_pow h"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 524,
+    "text": "· simp [hζ.zeta_sub_one_prime'.ne_zero]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 559,
+    "text": "simp only [mul_eq_mul_left_iff, pow_eq_zero_iff', hζ.zeta_sub_one_prime'.ne_zero, ne_eq,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 642,
+    "text": "(mul_ne_zero hζ.zeta_sub_one_prime'.ne_zero S.u₂.isUnit.ne_zero) (Units.isUnit η).ne_zero"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 709,
+    "text": "hc := fun h ↦ S.X_ne_zero <| by simpa [hζ.zeta_sub_one_prime'.ne_zero] using h"
+   },
+   {
+    "file": "Mathlib/NumberTheory/FLT/Three.lean",
+    "line": 723,
+    "text": "simp only [mul_eq_mul_left_iff, pow_eq_zero_iff', hζ.zeta_sub_one_prime'.ne_zero, ne_eq,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 22,
+    "text": "* `tendsto_riemannZeta_sub_one_div`: the limit of `ζ s - 1 / (s - 1)`, at the filter of punctured"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 316,
+    "text": "lemma tendsto_riemannZeta_sub_one_div_nhds_right :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 342,
+    "text": "theorem _root_.tendsto_riemannZeta_sub_one_div :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 350,
+    "text": "from (tendsto_nhds_unique this tendsto_riemannZeta_sub_one_div_nhds_right) ▸ hC"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 369,
+    "text": "apply riemannZeta_residue_one.sub"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 378,
+    "text": "tendsto_riemannZeta_sub_one_div.isBigO_one (F := F)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 401,
+    "text": "lemma tendsto_riemannZeta_sub_one_div_Gammaℝ :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 404,
+    "text": "have := tendsto_riemannZeta_sub_one_div.add tendsto_Gamma_term_aux"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 418,
+    "text": "lemma riemannZeta_one : riemannZeta 1 = (γ - log (4 * π)) / 2 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 422,
+    "text": "exact tendsto_nhds_unique this ZetaAsymptotics.tendsto_riemannZeta_sub_one_div_Gammaℝ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 427,
+    "text": "(riemannZeta_one ▸ div_one (_ : ℂ) ▸ Gammaℝ_one ▸ riemannZeta_def_of_ne_zero one_ne_zero).symm"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 432,
+    "text": "Note that `s = 1` is _not_ a pole of `Λ₀`, so this statement (unlike `riemannZeta_one`) is"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 444,
+    "text": "simpa only [riemannZeta_one, ← ofReal_ne_zero, ofReal_log (by positivity : 0 ≤ 4 * π),"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 461,
+    "text": "rw [riemannZeta_one, ofReal_div, ofReal_sub, ofReal_log (by positivity : (0 : ℝ) ≤ 4 * π)]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 485,
+    "text": "filter_upwards [eventually_nhdsWithin_iff.1 <| riemannZeta_residue_one.eventually_ne one_ne_zero]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 557,
+    "text": "· convert tendsto_nhdsWithin_congr ?_ tendsto_riemannZeta_sub_one_div <;>"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    "line": 191,
+    "text": "refine .mul (f := fun s ↦ ∏ p ∈ N.primeFactors, _) ?_ riemannZeta_residue_one"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "line": 185,
+    "text": "· simpa only [G, continuousAt_update_same] using riemannZeta_residue_one"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 242,
+    "text": "lemma riemannZeta_residue_one : Tendsto (fun s ↦ (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1) := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 248,
+    "text": "refine (tendsto_nhdsWithin_mono_left ?_ riemannZeta_residue_one).congr' ?_"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 54,
+    "text": "exact hζ.discr_zeta_eq_discr_zeta_sub_one.symm"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 59,
+    "text": "exact hζ.discr_zeta_eq_discr_zeta_sub_one.symm"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 68,
+    "text": "exact hζ.discr_zeta_eq_discr_zeta_sub_one.symm"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 76,
+    "text": "rw [hζ.discr_zeta_eq_discr_zeta_sub_one.symm]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 257,
+    "text": "See `zeta_sub_one_prime` for a general statement. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 258,
+    "text": "theorem zeta_sub_one_prime_of_ne_two [IsCyclotomicExtension {p ^ (k + 1)} ℚ K]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 276,
+    "text": "See `zeta_sub_one_prime` for a general statement. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 277,
+    "text": "theorem zeta_sub_one_prime_of_two_pow [IsCyclotomicExtension {2 ^ (k + 1)} ℚ K]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 302,
+    "text": "theorem zeta_sub_one_prime [IsCyclotomicExtension {p ^ (k + 1)} ℚ K]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 306,
+    "text": "apply hζ.zeta_sub_one_prime_of_two_pow"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 307,
+    "text": "· apply hζ.zeta_sub_one_prime_of_ne_two htwo"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 310,
+    "text": "theorem zeta_sub_one_prime' [h : IsCyclotomicExtension {p} ℚ K] (hζ : IsPrimitiveRoot ζ p) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 312,
+    "text": "convert! zeta_sub_one_prime (k := 0) (by simpa only [zero_add, pow_one])"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "line": 318,
+    "text": "simpa only [subOneIntegralPowerBasisOfPrimePow_gen] using! hζ.zeta_sub_one_prime"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 59,
+    "text": "instance isPrime_span_zeta_sub_one : IsPrime (span {hζ.toInteger - 1}) := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 61,
+    "text": "· exact hζ.zeta_sub_one_prime"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 62,
+    "text": "· exact Prime.ne_zero hζ.zeta_sub_one_prime"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 64,
+    "text": "theorem associated_norm_zeta_sub_one : Associated (Algebra.norm ℤ (hζ.toInteger - 1)) (p : ℤ) := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 77,
+    "text": "theorem zeta_sub_one_dvd_intCast_iff {n : ℤ} :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 79,
+    "text": "have h := associated_norm_zeta_sub_one p k hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 83,
+    "text": "theorem absNorm_span_zeta_sub_one : absNorm (span {hζ.toInteger - 1}) = p := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 85,
+    "text": "span_singleton_eq_span_singleton.mpr <| associated_norm_zeta_sub_one p k hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 87,
+    "text": "theorem p_mem_span_zeta_sub_one : (p : 𝓞 K) ∈ span {hζ.toInteger - 1} := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 89,
+    "text": "exact (absNorm_span_zeta_sub_one ..).symm"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 91,
+    "text": "theorem span_zeta_sub_one_ne_bot : span {hζ.toInteger - 1} ≠ ⊥ :="
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 92,
+    "text": "(Submodule.ne_bot_iff _).mpr ⟨p, p_mem_span_zeta_sub_one p k hζ, NeZero.natCast_ne p (𝓞 K)⟩"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 94,
+    "text": "instance liesOver_span_zeta_sub_one : (span {hζ.toInteger - 1}).LiesOver 𝒑 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 98,
+    "text": "exact p_mem_span_zeta_sub_one p k hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 100,
+    "text": "theorem inertiaDeg_span_zeta_sub_one : inertiaDeg (span {hζ.toInteger - 1}) ℤ = 1 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 103,
+    "text": "absNorm_span_zeta_sub_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 106,
+    "text": "theorem map_eq_span_zeta_sub_one_pow :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 115,
+    "text": "((associated_norm_zeta_sub_one p k hζ).symm.map (algebraMap ℤ (𝓞 K))),"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 124,
+    "text": "theorem ramificationIdx_span_zeta_sub_one :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 126,
+    "text": "have h := isPrime_span_zeta_sub_one p k hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 129,
+    "text": "IsDedekindDomain.ramificationIdx_eq_multiplicity 𝒑, map_eq_span_zeta_sub_one_pow p k hζ,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 130,
+    "text": "multiplicity_pow_self (span_zeta_sub_one_ne_bot p k hζ) (isUnit_iff.not.mpr h.ne_top)]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 141,
+    "text": "have := liesOver_span_zeta_sub_one p k hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 144,
+    "text": "inertiaDeg_span_zeta_sub_one,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 145,
+    "text": "ramificationIdx_span_zeta_sub_one, mul_one, ← Nat.totient_prime_pow_succ hp.out,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 149,
+    "text": "theorem eq_span_zeta_sub_one_of_liesOver (P : Ideal (𝓞 K)) [hP₁ : P.IsPrime] [hP₂ : P.LiesOver 𝒑] :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 153,
+    "text": "⟨isPrime_span_zeta_sub_one p k hζ, liesOver_span_zeta_sub_one p k hζ⟩"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 160,
+    "text": "rw [eq_span_zeta_sub_one_of_liesOver p k K hK.zeta_spec P, inertiaDeg_span_zeta_sub_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 165,
+    "text": "rw [eq_span_zeta_sub_one_of_liesOver p k K hK.zeta_spec P, ramificationIdx_span_zeta_sub_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 172,
+    "text": "inertiaDeg_span_zeta_sub_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 179,
+    "text": "ramificationIdx_span_zeta_sub_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 187,
+    "text": "instance isPrime_span_zeta_sub_one' : IsPrime (span {hζ.toInteger - 1}) := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 189,
+    "text": "exact isPrime_span_zeta_sub_one p 0 hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 193,
+    "text": "theorem two_not_mem_span_zeta_sub_one' (h : 2 < p) : (2 : 𝓞 K) ∉ span {hζ.toInteger - 1} := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 209,
+    "text": "theorem associated_zeta_sub_one_pow_prime :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 223,
+    "text": "theorem isCoprime_of_not_zeta_sub_one_dvd {x : 𝓞 K} (hx : ¬ hζ.toInteger - 1 ∣ x) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 226,
+    "text": "(associated_zeta_sub_one_pow_prime p hζ), ← span_singleton_pow,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 229,
+    "text": "hζ.zeta_sub_one_prime').irreducible.gcd_eq_one_iff, dvd_span_singleton, mem_span_singleton]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 231,
+    "text": "theorem inertiaDeg_span_zeta_sub_one' : inertiaDeg (span {hζ.toInteger - 1}) ℤ = 1 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 233,
+    "text": "exact inertiaDeg_span_zeta_sub_one p 0 hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 235,
+    "text": "theorem ramificationIdx_span_zeta_sub_one' :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 238,
+    "text": "rw [ramificationIdx_span_zeta_sub_one p 0 hζ, pow_zero, one_mul]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 242,
+    "text": "theorem zeta_sub_one_dvd_intCast_iff' {n : ℤ} :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 245,
+    "text": "exact zeta_sub_one_dvd_intCast_iff p 0 hζ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 255,
+    "text": "theorem eq_span_zeta_sub_one_of_liesOver' (P : Ideal (𝓞 K)) [hP₁ : P.IsPrime] [hP₂ : P.LiesOver 𝒑] :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 258,
+    "text": "exact eq_span_zeta_sub_one_of_liesOver p 0 K hζ P"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 263,
+    "text": "rw [eq_span_zeta_sub_one_of_liesOver' p K hK.zeta_spec P, inertiaDeg_span_zeta_sub_one']"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "line": 268,
+    "text": "rw [eq_span_zeta_sub_one_of_liesOver' p K hK.zeta_spec P, ramificationIdx_span_zeta_sub_one']"
+   }
+  ],
+  "xi / riemannXi": [],
+  "Stieltjes constants": [
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 20,
+    "text": "theorems. Let `μ` be the Stieltjes measure associated to `f`. Then, almost everywhere,"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 27,
+    "text": "Stieltjes measure satisfies `μ [x, y] = f (y^+) - f (x^-)` (the right and left limits of `f` at `y`"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 65,
+    "text": "/-- A Stieltjes function is almost everywhere differentiable, with derivative equal to the"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 66,
+    "text": "Radon-Nikodym derivative of the associated Stieltjes measure with respect to Lebesgue. -/"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 67,
+    "text": "theorem StieltjesFunction.ae_hasDerivAt (f : StieltjesFunction ℝ) :"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 69,
+    "text": "/- Denote by `μ` the Stieltjes measure associated to `f`."
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 85,
+    "text": "simp only [comp_apply, StieltjesFunction.measure_Icc, Real.volume_Icc, Classical.not_not.1 h''x]"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 96,
+    "text": "simp only [comp_apply, StieltjesFunction.measure_Icc, Real.volume_Icc]"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 132,
+    "text": "Radon-Nikodym derivative of the associated Stieltjes measure with respect to Lebesgue. -/"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 134,
+    "text": "∀ᵐ x, HasDerivAt f (rnDeriv hf.stieltjesFunction.measure volume x).toReal x := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 135,
+    "text": "/- We already know that the Stieltjes function associated to `f` (i.e., `g : x ↦ f (x^+)`) is"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 139,
+    "text": "filter_upwards [hf.stieltjesFunction.ae_hasDerivAt,"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 141,
+    "text": "have A : hf.stieltjesFunction x = f x := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 150,
+    "text": "(𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 152,
+    "text": "have : Tendsto (fun y => (hf.stieltjesFunction (y + -1 * (y - x) ^ 2) - f x) / (y - x)) (𝓝[>] x)"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 153,
+    "text": "(𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 176,
+    "text": "(𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 178,
+    "text": "have : Tendsto (fun y => (hf.stieltjesFunction (y + -1 * (y - x) ^ 2) - f x) / (y - x)) (𝓝[<] x)"
+   },
+   {
+    "file": "Mathlib/Analysis/Calculus/Monotone.lean",
+    "line": 179,
+    "text": "(𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/ResolventTransform.lean",
+    "line": 23,
+    "text": "namely the case `𝕜 = ℝ` and `A = ℂ` is the Stieltjes transform, and the case `𝕜 = A = ℂ` is the"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 13,
+    "text": "# Stieltjes measures on the real line"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 21,
+    "text": "* `StieltjesFunction R` is a structure containing a function from `R → ℝ`, together with the"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 22,
+    "text": "assertions that it is monotone and right-continuous. To `f : StieltjesFunction R`, one associates"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 27,
+    "text": "* `Monotone.stieltjesFunction`: to a monotone function `f`, associate the Stieltjes function"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 28,
+    "text": "equal to the right limit of `f`. This makes it possible to associate a Stieltjes measure to"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 33,
+    "text": "We define Stieltjes functions over any conditionally complete dense linear order, to be able"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 40,
+    "text": "Note that the theory of Stieltjes measures is not completely satisfactory when there is a bot"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 41,
+    "text": "element `x`: any Stieltjes measure gives zero mass to `{x}` in this case, so the Dirac mass at `x`"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 42,
+    "text": "is not representable as a Stieltjes measure."
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 61,
+    "text": "`StieltjesFunction.outer_Ioc`. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 107,
+    "text": "/-! ### Basic properties of Stieltjes functions -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 109,
+    "text": "/-- Bundled monotone right-continuous real functions, used to construct Stieltjes measures. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 110,
+    "text": "structure StieltjesFunction where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 118,
+    "text": "namespace StieltjesFunction"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 124,
+    "text": "instance instCoeFun : CoeFun (StieltjesFunction R) fun _ => R → ℝ :="
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 127,
+    "text": "initialize_simps_projections StieltjesFunction (toFun → apply)"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 129,
+    "text": "@[ext] lemma ext {f g : StieltjesFunction R} (h : ∀ x, f x = g x) : f = g := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 130,
+    "text": "exact (StieltjesFunction.mk.injEq ..).mpr (funext h)"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 132,
+    "text": "variable (f : StieltjesFunction R)"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 141,
+    "text": "(f : StieltjesFunction R) (x : R) : Function.rightLim f x = f x := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 146,
+    "text": "(f : StieltjesFunction R) (x : R) : ⨅ r : Ioi x, f r = f x := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 150,
+    "text": "theorem iInf_rat_gt_eq (f : StieltjesFunction ℝ) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 158,
+    "text": "/-- The identity of `ℝ` as a Stieltjes function, used to construct Lebesgue measure. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 160,
+    "text": "protected def id : StieltjesFunction ℝ where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 166,
+    "text": "theorem id_leftLim (x : ℝ) : leftLim StieltjesFunction.id x = x :="
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 170,
+    "text": "/-- A constant function is a Stieltjes function. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 171,
+    "text": "protected def const (c : ℝ) : StieltjesFunction R where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 176,
+    "text": "instance instInhabited : Inhabited (StieltjesFunction R) :="
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 177,
+    "text": "⟨StieltjesFunction.const R 0⟩"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 179,
+    "text": "@[simp] lemma const_apply (c : ℝ) (x : R) : (StieltjesFunction.const R c) x = c := rfl"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 181,
+    "text": "/-- The sum of two Stieltjes functions is a Stieltjes function. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 182,
+    "text": "protected def add (f g : StieltjesFunction R) : StieltjesFunction R where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 187,
+    "text": "instance : AddZeroClass (StieltjesFunction R) where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 188,
+    "text": "add := StieltjesFunction.add"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 189,
+    "text": "zero := StieltjesFunction.const R 0"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 193,
+    "text": "instance : AddCommMonoid (StieltjesFunction R) where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 197,
+    "text": "__ := StieltjesFunction.instAddZeroClass"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 199,
+    "text": "instance : Module ℝ≥0 (StieltjesFunction R) where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 211,
+    "text": "@[simp] lemma zero_apply (x : R) : (0 : StieltjesFunction R) x = 0 := rfl"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 213,
+    "text": "@[simp] lemma add_apply (f g : StieltjesFunction R) (x : R) : (f + g) x = f x + g x := rfl"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 216,
+    "text": "at `x` is a Stieltjes function, i.e., it is monotone and right-continuous. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 217,
+    "text": "noncomputable def _root_.Monotone.stieltjesFunction [OrderTopology R]"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 218,
+    "text": "{f : R → ℝ} (hf : Monotone f) : StieltjesFunction R where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 247,
+    "text": "theorem _root_.Monotone.stieltjesFunction_eq"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 249,
+    "text": "hf.stieltjesFunction x = rightLim f x :="
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 252,
+    "text": "theorem countable_leftLim_ne [OrderTopology R] (f : StieltjesFunction R) :"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 259,
+    "text": "/-! ### The outer measure associated to a Stieltjes function -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 316,
+    "text": "/-- The Stieltjes outer measure associated to a Stieltjes function. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 513,
+    "text": "/-! ### The measure associated to a Stieltjes function -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 517,
+    "text": "/-- The measure associated to a Stieltjes function, giving mass `f b - f a` to the"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 528,
+    "text": "rw [StieltjesFunction.measure]"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 539,
+    "text": "rw [StieltjesFunction.measure]"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 735,
+    "text": "lemma eq_of_measure_of_tendsto_atBot (g : StieltjesFunction R) {l : ℝ}"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 747,
+    "text": "lemma eq_of_measure_of_eq (g : StieltjesFunction R) {y : R}"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 770,
+    "text": "lemma measure_const (c : ℝ) : (StieltjesFunction.const R c).measure = 0 := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 779,
+    "text": "lemma measure_zero : (0 : StieltjesFunction R).measure = 0 := measure_const 0"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 782,
+    "text": "lemma measure_add (f g : StieltjesFunction R) : (f + g).measure = f.measure + g.measure := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 795,
+    "text": "lemma measure_smul (c : ℝ≥0) (f : StieltjesFunction R) : (c • f).measure = c • f.measure := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    "line": 808,
+    "text": "end StieltjesFunction"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 11,
+    "text": "public import Mathlib.MeasureTheory.Measure.Stieltjes"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 18,
+    "text": "Haar measure on inner product spaces) coincides with the Stieltjes measure associated"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 53,
+    "text": "inner product space) coincides with the Stieltjes measure coming from the identity function. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 54,
+    "text": "theorem volume_eq_stieltjes_id : (volume : Measure ℝ) = StieltjesFunction.id.measure := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 55,
+    "text": "have : IsAddLeftInvariant StieltjesFunction.id.measure :="
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 60,
+    "text": "sub_sub_sub_cancel_right, StieltjesFunction.measure_Ioo, StieltjesFunction.id_leftLim,"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 61,
+    "text": "StieltjesFunction.id_apply, id, preimage_const_add_Ioo]⟩"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 62,
+    "text": "have A : StieltjesFunction.id.measure (stdOrthonormalBasis ℝ ℝ).toBasis.parallelepiped = 1 := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 63,
+    "text": "change StieltjesFunction.id.measure (parallelepiped (stdOrthonormalBasis ℝ ℝ)) = 1"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 65,
+    "text": "simp only [H, StieltjesFunction.measure_Icc, StieltjesFunction.id_apply, id, tsub_zero,"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 66,
+    "text": "StieltjesFunction.id_leftLim, sub_neg_eq_add, zero_add, ENNReal.ofReal_one]"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 68,
+    "text": "rw [addHaarMeasure_unique StieltjesFunction.id.measure"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 72,
+    "text": "theorem volume_val (s) : volume s = StieltjesFunction.id.measure s := by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "line": 73,
+    "text": "simp [volume_eq_stieltjes_id]"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 9,
+    "text": "public import Mathlib.MeasureTheory.Measure.Stieltjes"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 16,
+    "text": "# Vector valued Stieltjes measure associated to a bounded variation function"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 27,
+    "text": "dominated by a finite measure. For this, we can use the Stieltjes measure associated to the"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 45,
+    "text": "/-- The Stieltjes function associated to a bounded variation function. It is given by"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 47,
+    "text": "Using right limits ensures the right continuity, which is used to construct Stieltjes measures. -/"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 48,
+    "text": "@[simps] noncomputable def stieltjesFunctionRightLim"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 49,
+    "text": "(hf : BoundedVariationOn f univ) (x₀ : α) : StieltjesFunction α where"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 61,
+    "text": "if h : Nonempty α then (hf.stieltjesFunctionRightLim h.some).measure else 0"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 68,
+    "text": "apply StieltjesFunction.isFiniteMeasure_of_forall_abs_le"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 88,
+    "text": "simp only [BoundedVariationOn.measureAux, h'α, ↓reduceDIte, StieltjesFunction.measure_Ioc,"
+   },
+   {
+    "file": "Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean",
+    "line": 89,
+    "text": "BoundedVariationOn.stieltjesFunctionRightLim_apply]"
+   },
+   {
+    "file": "Mathlib/Probability/CDF.lean",
+    "line": 37,
+    "text": "to have more structure on Stieltjes functions first. Right now, if `f` is a Stieltjes function,"
+   },
+   {
+    "file": "Mathlib/Probability/CDF.lean",
+    "line": 38,
+    "text": "`2 • f` makes no sense. We could define Stieltjes functions as a submodule."
+   },
+   {
+    "file": "Mathlib/Probability/CDF.lean",
+    "line": 57,
+    "text": "def cdf (μ : Measure ℝ) : StieltjesFunction ℝ :="
+   },
+   {
+    "file": "Mathlib/Probability/CDF.lean",
+    "line": 87,
+    "text": "simp only [StieltjesFunction.measure_univ _ (tendsto_cdf_atBot μ) (tendsto_cdf_atTop μ), sub_zero,"
+   },
+   {
+    "file": "Mathlib/Probability/CDF.lean",
+    "line": 93,
+    "text": "rw [StieltjesFunction.measure_Iic _ (tendsto_cdf_atBot μ), sub_zero, ofReal_cdf]"
+   },
+   {
+    "file": "Mathlib/Probability/CDF.lean",
+    "line": 97,
+    "text": "lemma cdf_measure_stieltjesFunction (f : StieltjesFunction ℝ) (hf0 : Tendsto f atBot (𝓝 0))"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 10,
+    "text": "public import Mathlib.Probability.Kernel.Disintegration.MeasurableStieltjes"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 16,
+    "text": "A function `f : α × β → StieltjesFunction ℝ` is called a conditional kernel CDF of `κ` with respect"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 28,
+    "text": "* `ProbabilityTheory.IsCondKernelCDF`: a function `f : α × β → StieltjesFunction ℝ` is called"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 33,
+    "text": "* `ProbabilityTheory.IsCondKernelCDF.toKernel`: from a function `f : α × β → StieltjesFunction ℝ`"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 39,
+    "text": "satisfies the properties of a Stieltjes function for `(ν a)`-almost all `b : β`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 43,
+    "text": "* `ProbabilityTheory.isCondKernelCDF_stieltjesOfMeasurableRat`: if `f : α × β → ℚ → ℝ` has the"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 44,
+    "text": "property `IsRatCondKernelCDF`, then `stieltjesOfMeasurableRat f` is a function"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 45,
+    "text": "`α × β → StieltjesFunction ℝ` with the property `IsCondKernelCDF`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 61,
+    "text": "section stieltjesOfMeasurableRat"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 68,
+    "text": "Also the `ℚ → ℝ` function `f (a, b)` should satisfy the properties of a Stieltjes function for"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 73,
+    "text": "isRatStieltjesPoint_ae (a : α) : ∀ᵐ b ∂(ν a), IsRatStieltjesPoint f (a, b)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 80,
+    "text": "filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.mono"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 84,
+    "text": "filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.tendsto_atTop_one"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 88,
+    "text": "filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.tendsto_atBot_zero"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 92,
+    "text": "filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.iInf_rat_gt_eq"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 94,
+    "text": "lemma stieltjesOfMeasurableRat_ae_eq (hf : IsRatCondKernelCDF f κ ν) (a : α) (q : ℚ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 95,
+    "text": "(fun b ↦ stieltjesOfMeasurableRat f hf.measurable (a, b) q) =ᵐ[ν a] fun b ↦ f (a, b) q := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 96,
+    "text": "filter_upwards [hf.isRatStieltjesPoint_ae a] with a ha"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 97,
+    "text": "rw [stieltjesOfMeasurableRat_eq, toRatCDF_of_isRatStieltjesPoint ha]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 99,
+    "text": "lemma setIntegral_stieltjesOfMeasurableRat_rat (hf : IsRatCondKernelCDF f κ ν) (a : α) (q : ℚ)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 101,
+    "text": "∫ b in s, stieltjesOfMeasurableRat f hf.measurable (a, b) q ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 104,
+    "text": "filter_upwards [stieltjesOfMeasurableRat_ae_eq hf a q] with b hb using fun _ ↦ hb"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 106,
+    "text": "lemma setLIntegral_stieltjesOfMeasurableRat_rat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 108,
+    "text": "∫⁻ b in s, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) q) ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 111,
+    "text": "· rw [setIntegral_stieltjesOfMeasurableRat_rat hf a q hs, ofReal_measureReal]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 113,
+    "text": "rw [integrable_congr (stieltjesOfMeasurableRat_ae_eq hf a q)]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 115,
+    "text": "· exact ae_of_all _ (fun x ↦ stieltjesOfMeasurableRat_nonneg _ _ _)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 117,
+    "text": "lemma setLIntegral_stieltjesOfMeasurableRat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 119,
+    "text": "∫⁻ b in s, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) x) ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 121,
+    "text": "-- We have the result for `x : ℚ` thanks to `setLIntegral_stieltjesOfMeasurableRat_rat`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 136,
+    "text": "have h : ∫⁻ b in s, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) x) ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 138,
+    "text": "ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) r) ∂(ν a) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 140,
+    "text": "simp_rw [← measure_stieltjesOfMeasurableRat_Iic]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 155,
+    "text": "rw [setLIntegral_stieltjesOfMeasurableRat_rat hf a _ hs]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 158,
+    "text": "simp_rw [← measure_stieltjesOfMeasurableRat_Iic]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 162,
+    "text": "exact (measurable_stieltjesOfMeasurableRat hf.measurable _).comp measurable_prodMk_left"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 163,
+    "text": "simp_rw [setLIntegral_stieltjesOfMeasurableRat_rat hf _ _ hs]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 173,
+    "text": "lemma lintegral_stieltjesOfMeasurableRat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 175,
+    "text": "∫⁻ b, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) x) ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 177,
+    "text": "rw [← setLIntegral_univ, setLIntegral_stieltjesOfMeasurableRat hf _ _ MeasurableSet.univ]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 179,
+    "text": "lemma integrable_stieltjesOfMeasurableRat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 181,
+    "text": "Integrable (fun b ↦ stieltjesOfMeasurableRat f hf.measurable (a, b) x) (ν a) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 182,
+    "text": "have : (fun b ↦ stieltjesOfMeasurableRat f hf.measurable (a, b) x)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 183,
+    "text": "= fun b ↦ (ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) x)).toReal := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 186,
+    "text": "exact stieltjesOfMeasurableRat_nonneg _ _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 190,
+    "text": "exact (measurable_stieltjesOfMeasurableRat hf.measurable x).comp measurable_prodMk_left"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 191,
+    "text": "· rw [lintegral_stieltjesOfMeasurableRat hf]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 194,
+    "text": "lemma setIntegral_stieltjesOfMeasurableRat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 196,
+    "text": "∫ b in s, stieltjesOfMeasurableRat f hf.measurable (a, b) x ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 200,
+    "text": "· exact setIntegral_nonneg hs (fun _ _ ↦ stieltjesOfMeasurableRat_nonneg _ _ _)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 202,
+    "text": "rw [ofReal_integral_eq_lintegral_ofReal, setLIntegral_stieltjesOfMeasurableRat hf _ _ hs]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 203,
+    "text": "· exact (integrable_stieltjesOfMeasurableRat hf _ _).restrict"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 204,
+    "text": "· exact ae_of_all _ (fun _ ↦ stieltjesOfMeasurableRat_nonneg _ _ _)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 206,
+    "text": "lemma integral_stieltjesOfMeasurableRat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 208,
+    "text": "∫ b, stieltjesOfMeasurableRat f hf.measurable (a, b) x ∂(ν a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 210,
+    "text": "rw [← setIntegral_univ, setIntegral_stieltjesOfMeasurableRat hf _ _ MeasurableSet.univ]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 212,
+    "text": "end stieltjesOfMeasurableRat"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 376,
+    "text": "lemma IsRatCondKernelCDFAux.isRatStieltjesPoint_ae (hf : IsRatCondKernelCDFAux f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 378,
+    "text": "∀ᵐ t ∂(ν a), IsRatStieltjesPoint f (a, t) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 387,
+    "text": "isRatStieltjesPoint_ae := hf.isRatStieltjesPoint_ae"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 395,
+    "text": "variable {f : α × β → StieltjesFunction ℝ}"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 397,
+    "text": "/-- A function `f : α × β → StieltjesFunction ℝ` is called a conditional kernel CDF of `κ` with"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 401,
+    "text": "structure IsCondKernelCDF (f : α × β → StieltjesFunction ℝ) (κ : Kernel α (β × ℝ))"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 417,
+    "text": "{f : α × β → StieltjesFunction ℝ} (hf : IsCondKernelCDF f κ ν) (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 422,
+    "text": "{f : α × β → StieltjesFunction ℝ} (hf : IsCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 429,
+    "text": "{f : α × β → StieltjesFunction ℝ} (hf : IsCondKernelCDF f κ ν) (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 433,
+    "text": "lemma isCondKernelCDF_stieltjesOfMeasurableRat {f : α × β → ℚ → ℝ} (hf : IsRatCondKernelCDF f κ ν)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 435,
+    "text": "IsCondKernelCDF (stieltjesOfMeasurableRat f hf.measurable) κ ν where"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 436,
+    "text": "measurable := measurable_stieltjesOfMeasurableRat hf.measurable"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 437,
+    "text": "integrable := integrable_stieltjesOfMeasurableRat hf"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 438,
+    "text": "tendsto_atTop_one := tendsto_stieltjesOfMeasurableRat_atTop hf.measurable"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 439,
+    "text": "tendsto_atBot_zero := tendsto_stieltjesOfMeasurableRat_atBot hf.measurable"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 440,
+    "text": "setIntegral a _ hs x := setIntegral_stieltjesOfMeasurableRat hf a x hs"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 446,
+    "text": "variable {_ : MeasurableSpace β} {f : α × β → StieltjesFunction ℝ}"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 449,
+    "text": "/-- A function `f : α × β → StieltjesFunction ℝ` with the property `IsCondKernelCDF f κ ν` gives a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 452,
+    "text": "def IsCondKernelCDF.toKernel (f : α × β → StieltjesFunction ℝ) (hf : IsCondKernelCDF f κ ν) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 455,
+    "text": "measurable' := StieltjesFunction.measurable_measure hf.measurable"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean",
+    "line": 474,
+    "text": "variable {f : α × β → StieltjesFunction ℝ}"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 24,
+    "text": "`α × β → StieltjesFunction ℝ` (which is `α × β → ℝ → ℝ` with additional properties) from a function"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 27,
+    "text": "`condCDF : α → StieltjesFunction ℝ`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 31,
+    "text": "* `ProbabilityTheory.condCDF ρ : α → StieltjesFunction ℝ`: the conditional cdf of"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 32,
+    "text": "`ρ : Measure (α × ℝ)`. A `StieltjesFunction ℝ` is a function `ℝ → ℝ` which is monotone and"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 239,
+    "text": "/-- Conditional cdf of the measure given the value on `α`, as a Stieltjes function. -/"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 240,
+    "text": "noncomputable def condCDF (ρ : Measure (α × ℝ)) (a : α) : StieltjesFunction ℝ :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 241,
+    "text": "stieltjesOfMeasurableRat (fun a r ↦ (preCDF ρ r a).toReal) measurable_preCDF' a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 243,
+    "text": "lemma condCDF_eq_stieltjesOfMeasurableRat_unit_prod (ρ : Measure (α × ℝ)) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 244,
+    "text": "condCDF ρ a = stieltjesOfMeasurableRat (fun (p : Unit × α) r ↦ (preCDF ρ r p.2).toReal)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 247,
+    "text": "rw [condCDF, ← stieltjesOfMeasurableRat_unit_prod]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 252,
+    "text": "simp_rw [condCDF_eq_stieltjesOfMeasurableRat_unit_prod ρ]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 253,
+    "text": "exact isCondKernelCDF_stieltjesOfMeasurableRat (isRatCondKernelCDF_preCDF ρ)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 257,
+    "text": "stieltjesOfMeasurableRat_nonneg _ a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 261,
+    "text": "stieltjesOfMeasurableRat_le_one _ _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 265,
+    "text": "Tendsto (condCDF ρ a) atBot (𝓝 0) := tendsto_stieltjesOfMeasurableRat_atBot _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 269,
+    "text": "Tendsto (condCDF ρ a) atTop (𝓝 1) := tendsto_stieltjesOfMeasurableRat_atTop _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 273,
+    "text": "simp_rw [condCDF_eq_stieltjesOfMeasurableRat_unit_prod ρ]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 274,
+    "text": "exact stieltjesOfMeasurableRat_ae_eq (isRatCondKernelCDF_preCDF ρ) () r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 284,
+    "text": "measurable_stieltjesOfMeasurableRat _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 288,
+    "text": "StronglyMeasurable fun a ↦ condCDF ρ a x := stronglyMeasurable_stieltjesOfMeasurableRat _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/CondCDF.lean",
+    "line": 320,
+    "text": "exact StieltjesFunction.measure_univ _ (tendsto_condCDF_atBot ρ a) (tendsto_condCDF_atTop ρ a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 9,
+    "text": "public import Mathlib.MeasureTheory.Measure.Stieltjes"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 14,
+    "text": "# Measurable parametric Stieltjes functions"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 16,
+    "text": "We provide tools to build a measurable function `α → StieltjesFunction ℝ` with limits 0 at -∞"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 18,
+    "text": "Stieltjes functions are cumulative distribution functions (CDF) of transition kernels."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 19,
+    "text": "The reason for going through `ℚ` instead of defining directly a Stieltjes function is that since"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 25,
+    "text": "monotonicity, limits at +-∞ and a continuity property. We define `IsRatStieltjesPoint f a` to state"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 27,
+    "text": "and `IsRatStieltjesPoint f a` for all `a`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 28,
+    "text": "The function `α → StieltjesFunction ℝ` obtained by extending `f` by continuity from the right is"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 29,
+    "text": "then called `IsMeasurableRatCDF.stieltjesFunction`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 31,
+    "text": "In applications, we will often only have `IsRatStieltjesPoint f a` almost surely with respect to"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 33,
+    "text": "`toRatCDF (f : α → ℚ → ℝ) := fun a q ↦ if IsRatStieltjesPoint f a then f a q else defaultRatCDF q`,"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 36,
+    "text": "Finally, we define `stieltjesOfMeasurableRat`, composition of `toRatCDF` and"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 37,
+    "text": "`IsMeasurableRatCDF.stieltjesFunction`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 41,
+    "text": "* `stieltjesOfMeasurableRat`: turn a measurable function `f : α → ℚ → ℝ` into a measurable"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 42,
+    "text": "function `α → StieltjesFunction ℝ`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 52,
+    "text": "/-- A measurable function `α → StieltjesFunction ℝ` with limits 0 at -∞ and 1 at +∞ gives a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 53,
+    "text": "measurable function `α → Measure ℝ` by taking `StieltjesFunction.measure` at each point. -/"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 54,
+    "text": "lemma StieltjesFunction.measurable_measure {α : Type*} {_ : MeasurableSpace α}"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 55,
+    "text": "{f : α → StieltjesFunction ℝ} (hf : ∀ q, Measurable fun a ↦ f a q)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 62,
+    "text": "simp_rw [forall_mem_range, StieltjesFunction.measure_Iic (f _) (hf_bot _), sub_zero]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 73,
+    "text": "/-- `a : α` is a Stieltjes point for `f : α → ℚ → ℝ` if `f a` is monotone with limit 0 at -∞"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 75,
+    "text": "structure IsRatStieltjesPoint (f : α → ℚ → ℝ) (a : α) : Prop where"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 81,
+    "text": "lemma isRatStieltjesPoint_unit_prod_iff (f : α → ℚ → ℝ) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 82,
+    "text": "IsRatStieltjesPoint (fun p : Unit × α ↦ f p.2) ((), a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 83,
+    "text": "↔ IsRatStieltjesPoint f a := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 87,
+    "text": "lemma measurableSet_isRatStieltjesPoint [MeasurableSpace α] (hf : Measurable f) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 88,
+    "text": "MeasurableSet {a | IsRatStieltjesPoint f a} := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 104,
+    "text": "suffices {a | IsRatStieltjesPoint f a}"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 115,
+    "text": "lemma IsRatStieltjesPoint.ite {f g : α → ℚ → ℝ} {a : α} (p : α → Prop) [DecidablePred p]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 116,
+    "text": "(hf : p a → IsRatStieltjesPoint f a) (hg : ¬ p a → IsRatStieltjesPoint g a) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 117,
+    "text": "IsRatStieltjesPoint (fun a ↦ if p a then f a else g a) a where"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 131,
+    "text": "A function with these properties can be extended to a measurable function `α → StieltjesFunction ℝ`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 132,
+    "text": "See `ProbabilityTheory.IsMeasurableRatCDF.stieltjesFunction`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 135,
+    "text": "isRatStieltjesPoint : ∀ a, IsRatStieltjesPoint f a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 140,
+    "text": "Monotone.le_of_tendsto (hf.isRatStieltjesPoint a).mono"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 141,
+    "text": "(hf.isRatStieltjesPoint a).tendsto_atBot_zero q"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 145,
+    "text": "Monotone.ge_of_tendsto (hf.isRatStieltjesPoint a).mono"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 146,
+    "text": "(hf.isRatStieltjesPoint a).tendsto_atTop_one q"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 149,
+    "text": "Tendsto (f a) atTop (𝓝 1) := (hf.isRatStieltjesPoint a).tendsto_atTop_one"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 152,
+    "text": "Tendsto (f a) atBot (𝓝 0) := (hf.isRatStieltjesPoint a).tendsto_atBot_zero"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 156,
+    "text": "⨅ r : Ioi q, f a r = f a q := (hf.isRatStieltjesPoint a).iInf_rat_gt_eq q"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 221,
+    "text": "lemma isRatStieltjesPoint_defaultRatCDF (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 222,
+    "text": "IsRatStieltjesPoint (fun (_ : α) ↦ defaultRatCDF) a where"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 230,
+    "text": "isRatStieltjesPoint := isRatStieltjesPoint_defaultRatCDF"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 240,
+    "text": "/-- Turn a function `f : α → ℚ → ℝ` into another with the property `IsRatStieltjesPoint f a`"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 243,
+    "text": "Mainly useful when `f` satisfies the property `IsRatStieltjesPoint f a` almost everywhere with"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 247,
+    "text": "if IsRatStieltjesPoint f a then f a else defaultRatCDF"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 249,
+    "text": "lemma toRatCDF_of_isRatStieltjesPoint {a : α} (h : IsRatStieltjesPoint f a) (q : ℚ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 256,
+    "text": "rw [isRatStieltjesPoint_unit_prod_iff]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 261,
+    "text": "Measurable.ite (measurableSet_isRatStieltjesPoint hf) hf measurable_const"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 265,
+    "text": "isRatStieltjesPoint a := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 267,
+    "text": "exact IsRatStieltjesPoint.ite (IsRatStieltjesPoint f) id"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 268,
+    "text": "(fun _ ↦ isRatStieltjesPoint_defaultRatCDF a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 273,
+    "text": "section IsMeasurableRatCDF.stieltjesFunction"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 275,
+    "text": "/-- Auxiliary definition for `IsMeasurableRatCDF.stieltjesFunction`: turn `f : α → ℚ → ℝ` into"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 277,
+    "text": "noncomputable irreducible_def IsMeasurableRatCDF.stieltjesFunctionAux (f : α → ℚ → ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 281,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunctionAux_def' (f : α → ℚ → ℝ) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 282,
+    "text": "IsMeasurableRatCDF.stieltjesFunctionAux f a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 284,
+    "text": "ext t; exact IsMeasurableRatCDF.stieltjesFunctionAux_def f a t"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 286,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunctionAux_unit_prod {f : α → ℚ → ℝ} (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 287,
+    "text": "IsMeasurableRatCDF.stieltjesFunctionAux (fun (p : Unit × α) ↦ f p.2) ((), a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 288,
+    "text": "= IsMeasurableRatCDF.stieltjesFunctionAux f a := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 289,
+    "text": "simp_rw [IsMeasurableRatCDF.stieltjesFunctionAux_def']"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 295,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunctionAux_eq (a : α) (r : ℚ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 296,
+    "text": "IsMeasurableRatCDF.stieltjesFunctionAux f a r = f a r := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 297,
+    "text": "rw [← hf.iInf_rat_gt_eq a r, IsMeasurableRatCDF.stieltjesFunctionAux]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 307,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunctionAux_nonneg (a : α) (r : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 308,
+    "text": "0 ≤ IsMeasurableRatCDF.stieltjesFunctionAux f a r := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 312,
+    "text": "rw [IsMeasurableRatCDF.stieltjesFunctionAux_def]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 315,
+    "text": "lemma IsMeasurableRatCDF.monotone_stieltjesFunctionAux (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 316,
+    "text": "Monotone (IsMeasurableRatCDF.stieltjesFunctionAux f a) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 321,
+    "text": "simp_rw [IsMeasurableRatCDF.stieltjesFunctionAux_def]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 327,
+    "text": "lemma IsMeasurableRatCDF.continuousWithinAt_stieltjesFunctionAux_Ici (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 328,
+    "text": "ContinuousWithinAt (IsMeasurableRatCDF.stieltjesFunctionAux f a) (Ici x) x := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 330,
+    "text": "convert! Monotone.tendsto_nhdsGT (monotone_stieltjesFunctionAux hf a) x"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 332,
+    "text": "have h' : ⨅ r : Ioi x, stieltjesFunctionAux f a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 333,
+    "text": "= ⨅ r : { r' : ℚ // x < r' }, stieltjesFunctionAux f a r := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 334,
+    "text": "refine Real.iInf_Ioi_eq_iInf_rat_gt x ?_ (monotone_stieltjesFunctionAux hf a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 337,
+    "text": "exact stieltjesFunctionAux_nonneg hf a u"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 339,
+    "text": "⨅ r : { r' : ℚ // x < r' }, stieltjesFunctionAux f a r ="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 342,
+    "text": "exact stieltjesFunctionAux_eq hf a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 345,
+    "text": "rw [stieltjesFunctionAux_def]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 348,
+    "text": "to a function `α → StieltjesFunction ℝ`. -/"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 349,
+    "text": "noncomputable def IsMeasurableRatCDF.stieltjesFunction (a : α) : StieltjesFunction ℝ where"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 350,
+    "text": "toFun := stieltjesFunctionAux f a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 351,
+    "text": "mono' := monotone_stieltjesFunctionAux hf a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 352,
+    "text": "right_continuous' x := continuousWithinAt_stieltjesFunctionAux_Ici hf a x"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 354,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunction_eq (a : α) (r : ℚ) : hf.stieltjesFunction a r = f a r :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 355,
+    "text": "stieltjesFunctionAux_eq hf a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 357,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunction_nonneg (a : α) (r : ℝ) : 0 ≤ hf.stieltjesFunction a r :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 358,
+    "text": "stieltjesFunctionAux_nonneg hf a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 360,
+    "text": "lemma IsMeasurableRatCDF.stieltjesFunction_le_one (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 361,
+    "text": "hf.stieltjesFunction a x ≤ 1 := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 363,
+    "text": "rw [← StieltjesFunction.iInf_rat_gt_eq]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 364,
+    "text": "simp_rw [IsMeasurableRatCDF.stieltjesFunction_eq]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 369,
+    "text": "lemma IsMeasurableRatCDF.tendsto_stieltjesFunction_atBot (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 370,
+    "text": "Tendsto (hf.stieltjesFunction a) atBot (𝓝 0) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 381,
+    "text": "((hf.tendsto_atBot_zero a).comp hqs_tendsto) (stieltjesFunction_nonneg hf a) fun x ↦ ?_"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 382,
+    "text": "rw [Function.comp_apply, ← stieltjesFunction_eq hf]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 383,
+    "text": "exact (hf.stieltjesFunction a).mono (h_exists x).choose_spec.1.le"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 385,
+    "text": "lemma IsMeasurableRatCDF.tendsto_stieltjesFunction_atTop (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 386,
+    "text": "Tendsto (hf.stieltjesFunction a) atTop (𝓝 1) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 396,
+    "text": "tendsto_const_nhds ?_ (stieltjesFunction_le_one hf a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 398,
+    "text": "rw [Function.comp_apply, ← stieltjesFunction_eq hf]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 399,
+    "text": "exact (hf.stieltjesFunction a).mono (le_of_lt (h_exists x).choose_spec.2)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 401,
+    "text": "lemma IsMeasurableRatCDF.measurable_stieltjesFunction (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 402,
+    "text": "Measurable fun a ↦ hf.stieltjesFunction a x := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 403,
+    "text": "have : (fun a ↦ hf.stieltjesFunction a x) = fun a ↦ ⨅ r : { r' : ℚ // x < r' }, f a ↑r := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 405,
+    "text": "rw [← StieltjesFunction.iInf_rat_gt_eq]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 407,
+    "text": "rw [stieltjesFunction_eq]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 411,
+    "text": "lemma IsMeasurableRatCDF.stronglyMeasurable_stieltjesFunction (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 412,
+    "text": "StronglyMeasurable fun a ↦ hf.stieltjesFunction a x :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 413,
+    "text": "(measurable_stieltjesFunction hf x).stronglyMeasurable"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 417,
+    "text": "lemma IsMeasurableRatCDF.measure_stieltjesFunction_Iic (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 418,
+    "text": "(hf.stieltjesFunction a).measure (Iic x) = ENNReal.ofReal (hf.stieltjesFunction a x) := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 419,
+    "text": "rw [← sub_zero (hf.stieltjesFunction a x)]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 420,
+    "text": "exact (hf.stieltjesFunction a).measure_Iic (tendsto_stieltjesFunction_atBot hf a) _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 422,
+    "text": "lemma IsMeasurableRatCDF.measure_stieltjesFunction_univ (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 423,
+    "text": "(hf.stieltjesFunction a).measure univ = 1 := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 425,
+    "text": "exact StieltjesFunction.measure_univ _ (tendsto_stieltjesFunction_atBot hf a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 426,
+    "text": "(tendsto_stieltjesFunction_atTop hf a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 428,
+    "text": "instance IsMeasurableRatCDF.instIsProbabilityMeasure_stieltjesFunction (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 429,
+    "text": "IsProbabilityMeasure (hf.stieltjesFunction a).measure :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 430,
+    "text": "⟨measure_stieltjesFunction_univ hf a⟩"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 432,
+    "text": "lemma IsMeasurableRatCDF.measurable_measure_stieltjesFunction :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 433,
+    "text": "Measurable fun a ↦ (hf.stieltjesFunction a).measure := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 434,
+    "text": "apply_rules [StieltjesFunction.measurable_measure, measurable_stieltjesFunction,"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 435,
+    "text": "tendsto_stieltjesFunction_atBot, tendsto_stieltjesFunction_atTop]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 439,
+    "text": "end IsMeasurableRatCDF.stieltjesFunction"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 441,
+    "text": "section stieltjesOfMeasurableRat"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 445,
+    "text": "/-- Turn a measurable function `f : α → ℚ → ℝ` into a measurable function `α → StieltjesFunction ℝ`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 446,
+    "text": "Composition of `toRatCDF` and `IsMeasurableRatCDF.stieltjesFunction`. -/"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 448,
+    "text": "def stieltjesOfMeasurableRat (f : α → ℚ → ℝ) (hf : Measurable f) : α → StieltjesFunction ℝ :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 449,
+    "text": "(isMeasurableRatCDF_toRatCDF hf).stieltjesFunction"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 451,
+    "text": "lemma stieltjesOfMeasurableRat_eq (hf : Measurable f) (a : α) (r : ℚ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 452,
+    "text": "stieltjesOfMeasurableRat f hf a r = toRatCDF f a r :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 453,
+    "text": "IsMeasurableRatCDF.stieltjesFunction_eq _ a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 455,
+    "text": "lemma stieltjesOfMeasurableRat_unit_prod (hf : Measurable f) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 456,
+    "text": "stieltjesOfMeasurableRat (fun (p : Unit × α) ↦ f p.2) (hf.comp measurable_snd) ((), a)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 457,
+    "text": "= stieltjesOfMeasurableRat f hf a := by"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 458,
+    "text": "simp_rw [stieltjesOfMeasurableRat, IsMeasurableRatCDF.stieltjesFunction,"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 459,
+    "text": "← IsMeasurableRatCDF.stieltjesFunctionAux_unit_prod a]"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 465,
+    "text": "lemma stieltjesOfMeasurableRat_nonneg (hf : Measurable f) (a : α) (r : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 466,
+    "text": "0 ≤ stieltjesOfMeasurableRat f hf a r := IsMeasurableRatCDF.stieltjesFunction_nonneg _ a r"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 468,
+    "text": "lemma stieltjesOfMeasurableRat_le_one (hf : Measurable f) (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 469,
+    "text": "stieltjesOfMeasurableRat f hf a x ≤ 1 := IsMeasurableRatCDF.stieltjesFunction_le_one _ a x"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 471,
+    "text": "lemma tendsto_stieltjesOfMeasurableRat_atBot (hf : Measurable f) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 472,
+    "text": "Tendsto (stieltjesOfMeasurableRat f hf a) atBot (𝓝 0) :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 473,
+    "text": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atBot _ a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 475,
+    "text": "lemma tendsto_stieltjesOfMeasurableRat_atTop (hf : Measurable f) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 476,
+    "text": "Tendsto (stieltjesOfMeasurableRat f hf a) atTop (𝓝 1) :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 477,
+    "text": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atTop _ a"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 479,
+    "text": "lemma measurable_stieltjesOfMeasurableRat (hf : Measurable f) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 480,
+    "text": "Measurable fun a ↦ stieltjesOfMeasurableRat f hf a x :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 481,
+    "text": "IsMeasurableRatCDF.measurable_stieltjesFunction _ x"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 483,
+    "text": "lemma stronglyMeasurable_stieltjesOfMeasurableRat (hf : Measurable f) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 484,
+    "text": "StronglyMeasurable fun a ↦ stieltjesOfMeasurableRat f hf a x :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 485,
+    "text": "IsMeasurableRatCDF.stronglyMeasurable_stieltjesFunction _ x"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 489,
+    "text": "lemma measure_stieltjesOfMeasurableRat_Iic (hf : Measurable f) (a : α) (x : ℝ) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 490,
+    "text": "(stieltjesOfMeasurableRat f hf a).measure (Iic x)"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 491,
+    "text": "= ENNReal.ofReal (stieltjesOfMeasurableRat f hf a x) :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 492,
+    "text": "IsMeasurableRatCDF.measure_stieltjesFunction_Iic _ _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 494,
+    "text": "lemma measure_stieltjesOfMeasurableRat_univ (hf : Measurable f) (a : α) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 495,
+    "text": "(stieltjesOfMeasurableRat f hf a).measure univ = 1 :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 496,
+    "text": "IsMeasurableRatCDF.measure_stieltjesFunction_univ _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 498,
+    "text": "instance instIsProbabilityMeasure_stieltjesOfMeasurableRat"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 500,
+    "text": "IsProbabilityMeasure (stieltjesOfMeasurableRat f hf a).measure :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 501,
+    "text": "IsMeasurableRatCDF.instIsProbabilityMeasure_stieltjesFunction _ _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 503,
+    "text": "lemma measurable_measure_stieltjesOfMeasurableRat (hf : Measurable f) :"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 504,
+    "text": "Measurable fun a ↦ (stieltjesOfMeasurableRat f hf a).measure :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 505,
+    "text": "IsMeasurableRatCDF.measurable_measure_stieltjesFunction _"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/MeasurableStieltjes.lean",
+    "line": 509,
+    "text": "end stieltjesOfMeasurableRat"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/StandardBorel.lean",
+    "line": 32,
+    "text": "* Extend that function to `(α × β) → StieltjesFunction ℝ`. See the file `MeasurableStieltjes.lean`."
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/StandardBorel.lean",
+    "line": 33,
+    "text": "* Finally obtain from the measurable Stieltjes function a measure on `ℝ` for each element of `α × β`"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/StandardBorel.lean",
+    "line": 127,
+    "text": "def condKernelCDF (κ : Kernel α (γ × ℝ)) [IsFiniteKernel κ] : α × γ → StieltjesFunction ℝ :="
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/StandardBorel.lean",
+    "line": 128,
+    "text": "stieltjesOfMeasurableRat (fun (p : α × γ) q ↦ density κ (fst κ) p.1 p.2 (Iic q))"
+   },
+   {
+    "file": "Mathlib/Probability/Kernel/Disintegration/StandardBorel.lean",
+    "line": 133,
+    "text": "isCondKernelCDF_stieltjesOfMeasurableRat (isRatCondKernelCDF_density_Iic κ)"
+   }
+  ],
+  "Taylor coefficients of zeta": [],
+  "explicit formula / Guinand / Weil": [
+   {
+    "file": "Mathlib/Analysis/Calculus/ContDiff/Comp.lean",
+    "line": 74,
+    "text": "write down an explicit formula for the `n`-th derivative of `g ∘ f` in terms of derivatives of"
+   },
+   {
+    "file": "Mathlib/Analysis/Complex/Polynomial/GaussLucas.lean",
+    "line": 57,
+    "text": "This version provides explicit formulas for the coefficients of the convex combination."
+   },
+   {
+    "file": "Mathlib/Analysis/Fourier/FourierTransformDeriv.lean",
+    "line": 69,
+    "text": "explicit formula for the `n`-th derivative of the Fourier integral of `f`, as the Fourier"
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Irrational.lean",
+    "line": 135,
+    "text": "The second base case for the induction on `n`, giving an explicit formula for `I 1 θ`."
+   },
+   {
+    "file": "Mathlib/Analysis/Real/Pi/Wallis.lean",
+    "line": 18,
+    "text": "obtain an explicit formula for this integral, which is rational if `n` is odd and a rational"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+    "line": 65,
+    "text": "Explicit formula for `toCircle j`. Note that this is \"evil\" because it uses `ZMod.val`. Where"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+    "line": 198,
+    "text": "/-- Explicit formula for the Beta function when second argument is a positive integer. -/"
+   },
+   {
+    "file": "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean",
+    "line": 52,
+    "text": "/-- Explicit formula for the norm of the Gaussian function along the vertical"
+   },
+   {
+    "file": "Mathlib/Combinatorics/Enumerative/Catalan/Basic.lean",
+    "line": 30,
+    "text": "* `catalan_eq_centralBinom_div`: The explicit formula for the Catalan number using the central"
+   },
+   {
+    "file": "Mathlib/Data/Nat/Choose/Central.lean",
+    "line": 132,
+    "text": "/-- A crucial lemma to ensure that Catalan numbers can be defined via their explicit formula"
+   },
+   {
+    "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+    "line": 20,
+    "text": "- `algebraMap_trace_eq_sum_pow`: an explicit formula for the trace map:"
+   },
+   {
+    "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+    "line": 22,
+    "text": "- `algebraMap_norm_eq_prod_pow`: an explicit formula for the norm map:"
+   },
+   {
+    "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+    "line": 48,
+    "text": "/-- An explicit formula for the trace map: `trace[L/K](x) = ∑ i < [L:K], x ^ ((#K) ^ i)`. -/"
+   },
+   {
+    "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+    "line": 58,
+    "text": "/-- An explicit formula for the norm map: `norm[L/K](x) = ∏ i < [L:K], x ^ ((#K) ^ i)`. -/"
+   },
+   {
+    "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+    "line": 68,
+    "text": "/-- An explicit formula for the norm map: `norm[L/K](x) = x ^ (∑ i < [L:K], (#K) ^ i)`. -/"
+   },
+   {
+    "file": "Mathlib/Geometry/Manifold/Instances/Icc.lean",
+    "line": 144,
+    "text": "-- explicit formulas."
+   },
+   {
+    "file": "Mathlib/Geometry/Manifold/VectorField/LieBracket.lean",
+    "line": 841,
+    "text": "space Lie bracket, given by an explicit formula). Pulling back this Lie bracket in `M` gives"
+   },
+   {
+    "file": "Mathlib/GroupTheory/Exponent.lean",
+    "line": 271,
+    "text": "explicit formula. -/"
+   },
+   {
+    "file": "Mathlib/GroupTheory/Exponent.lean",
+    "line": 275,
+    "text": "if you don't need the explicit formula. -/]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Modular.lean",
+    "line": 820,
+    "text": "/-- Explicit formula for the image of `ModularGroup.fdo` in `ℂ`. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Modular.lean",
+    "line": 827,
+    "text": "/-- Explicit formula for the image of `ModularGroup.fd` in `ℂ`. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/ZetaValues.lean",
+    "line": 269,
+    "text": "theory, to obtain an explicit formula for `∑ (n:ℤ), 1 / n ^ k * fourier n x`. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/ZetaValues.lean",
+    "line": 464,
+    "text": "/-- Explicit formula for `L(χ, 3)`, where `χ` is the unique nontrivial Dirichlet character modulo 4."
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/GammaDeriv.lean",
+    "line": 30,
+    "text": "/-- Explicit formula for the derivative of the Gamma function at positive integers, in terms of"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/GammaDeriv.lean",
+    "line": 174,
+    "text": "/-- Explicit formula for the derivative of the complex Gamma function at positive integers, in"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 200,
+    "text": "/-- Explicit formula for `ζ (2 * k)`, for `k ∈ ℕ` with `k ≠ 0`, in terms of the Bernoulli number"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 214,
+    "text": "/-- Explicit formula for `ζ (2 * k)`, for `k ∈ ℕ`, in terms of the Bernoulli number"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 205,
+    "text": "/-- Explicit formula for the L-function of `𝓕 Φ`, where `𝓕` is the discrete Fourier transform. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 268,
+    "text": "/-- Explicit formula for `LFunction Φ 0` when `Φ` is even. -/"
+   },
+   {
+    "file": "Mathlib/RingTheory/Polynomial/Chebyshev.lean",
+    "line": 58,
+    "text": "* Add explicit formula involving square roots for Chebyshev polynomials"
+   },
+   {
+    "file": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "line": 60,
+    "text": "`pow_sub_one_mul_geom_sum_eq_pow_sub_one_mul_geom_sum` gives an explicit formula for the unit. -/"
+   },
+   {
+    "file": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "line": 124,
+    "text": "`pow_sub_one_eq_geom_sum_mul_geom_sum_inv_mul_pow_sub_one` for the explicit formula of the"
+   },
+   {
+    "file": "Mathlib/Topology/Instances/AddCircle/Real.lean",
+    "line": 74,
+    "text": "Explicit formula for `toCircle j`. Note that this is \"evil\" because it uses `ZMod.val`. Where"
+   }
+  ],
+  "riemannZeta at 1, v2 (a zeta function on the line)": [
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 22,
+    "text": "* `tendsto_riemannZeta_sub_one_div`: the limit of `ζ s - 1 / (s - 1)`, at the filter of punctured"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 316,
+    "text": "lemma tendsto_riemannZeta_sub_one_div_nhds_right :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 342,
+    "text": "theorem _root_.tendsto_riemannZeta_sub_one_div :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 350,
+    "text": "from (tendsto_nhds_unique this tendsto_riemannZeta_sub_one_div_nhds_right) ▸ hC"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 369,
+    "text": "apply riemannZeta_residue_one.sub"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 375,
+    "text": "lemma _root_.isBigO_riemannZeta_sub_one_div {F : Type*} [Norm F] [One F] [NormOneClass F] :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 378,
+    "text": "tendsto_riemannZeta_sub_one_div.isBigO_one (F := F)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 401,
+    "text": "lemma tendsto_riemannZeta_sub_one_div_Gammaℝ :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 404,
+    "text": "have := tendsto_riemannZeta_sub_one_div.add tendsto_Gamma_term_aux"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 418,
+    "text": "lemma riemannZeta_one : riemannZeta 1 = (γ - log (4 * π)) / 2 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 419,
+    "text": "have := (HurwitzZeta.tendsto_hurwitzZetaEven_sub_one_div_nhds_one 0).mono_left"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 422,
+    "text": "exact tendsto_nhds_unique this ZetaAsymptotics.tendsto_riemannZeta_sub_one_div_Gammaℝ"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 426,
+    "text": "lemma completedRiemannZeta_one : completedRiemannZeta 1 = (γ - log (4 * π)) / 2 :="
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 427,
+    "text": "(riemannZeta_one ▸ div_one (_ : ℂ) ▸ Gammaℝ_one ▸ riemannZeta_def_of_ne_zero one_ne_zero).symm"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 432,
+    "text": "Note that `s = 1` is _not_ a pole of `Λ₀`, so this statement (unlike `riemannZeta_one`) is"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 435,
+    "text": "lemma completedRiemannZeta₀_one : completedRiemannZeta₀ 1 = (γ - log (4 * ↑π)) / 2 + 1 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 438,
+    "text": "rw [← this, completedRiemannZeta_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 444,
+    "text": "simpa only [riemannZeta_one, ← ofReal_ne_zero, ofReal_log (by positivity : 0 ≤ 4 * π),"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 461,
+    "text": "rw [riemannZeta_one, ofReal_div, ofReal_sub, ofReal_log (by positivity : (0 : ℝ) ≤ 4 * π)]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 484,
+    "text": "lemma riemannZeta_eventually_ne_zero_nhds_one : ∀ᶠ s in 𝓝 1, riemannZeta s ≠ 0 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 485,
+    "text": "filter_upwards [eventually_nhdsWithin_iff.1 <| riemannZeta_residue_one.eventually_ne one_ne_zero]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 489,
+    "text": "rw [← completedRiemannZeta₀_one_sub]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 490,
+    "text": "simp [completedRiemannZeta₀_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 514,
+    "text": "simpa [completedRiemannZeta₀_zero, hasDerivAt_Gamma_one.deriv, field]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 539,
+    "text": "lemma riemannZeta₀_one : riemannZeta₀ 1 = γ := by simp [riemannZeta₀]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 542,
+    "text": "lemma riemannZeta₁_one : riemannZeta₁ 1 = 1 := by simp [riemannZeta₁]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 557,
+    "text": "· convert tendsto_nhdsWithin_congr ?_ tendsto_riemannZeta_sub_one_div <;>"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 564,
+    "text": "lemma riemannZeta₁_ne_zero_of_near_one : ∀ᶠ s in 𝓝 1, riemannZeta₁ s ≠ 0 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 566,
+    "text": "simpa using (differentiable_riemannZeta₁.continuous.continuousAt (x := 1)).tendsto"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 569,
+    "text": "lemma deriv_riemannZeta₁_one : deriv riemannZeta₁ 1 = γ := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 624,
+    "text": "riemannZeta₁_ne_zero_of_near_one.filter_mono nhdsWithin_le_nhds]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean",
+    "line": 652,
+    "text": "riemannZeta₁_ne_zero_of_near_one.filter_mono nhdsWithin_le_nhds] with s hs"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Convergence.lean",
+    "line": 114,
+    "text": "lemma LSeries.abscissaOfAbsConv_le_one_of_isBigO_one {f : ℕ → ℂ} (h : f =O[atTop] fun _ ↦ (1 : ℝ)) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 63,
+    "text": "lemma not_LSeriesSummable_moebius_at_one : ¬ LSeriesSummable ↗μ 1 := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 74,
+    "text": "exact not_LSeriesSummable_moebius_at_one <| LSeriesSummable.of_re_le_re (by simpa) H"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 139,
+    "text": "LSeries.mul_delta <| by rw [cast_one, map_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 176,
+    "text": "lemma not_LSeriesSummable_at_one {N : ℕ} (hN : N ≠ 0) (χ : DirichletCharacter ℂ N) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 190,
+    "text": "LSeriesSummable_of_bounded_of_one_lt_re (fun _ _ ↦ χ.norm_le_one _) hs"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 198,
+    "text": "exact not_LSeriesSummable_at_one hN χ <| LSeriesSummable.of_re_le_re (by simp [h]) H"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 218,
+    "text": "lemma LSeries.mul_mu_eq_one {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ}"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 232,
+    "text": "fun h ↦ by simpa [h] using LSeries.mul_mu_eq_one χ hs"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 250,
+    "text": "lemma LSeries.abscissaOfAbsConv_one : abscissaOfAbsConv 1 = 1 :="
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 314,
+    "text": "lemma LSeriesHasSum_one {s : ℂ} (hs : 1 < s.re) : LSeriesHasSum 1 s (riemannZeta s) :="
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+    "line": 342,
+    "text": "simpa [LSeries.abscissaOfAbsConv_one] using (by exact_mod_cast hx : (1 : EReal) < x)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    "line": 191,
+    "text": "refine .mul (f := fun s ↦ ∏ p ∈ N.primeFactors, _) ?_ riemannZeta_residue_one"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    "line": 289,
+    "text": "· simp [completedLFunction_modOne_eq, completedRiemannZeta_one_sub, rootNumber_modOne]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 34,
+    "text": "* ` hurwitzZeta_residue_one` shows that the residue at `s = 1` equals `1`"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 36,
+    "text": "* `hurwitzZeta_one_sub` and `expZeta_one_sub`: functional equations `s ↔ 1 - s`."
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 82,
+    "text": "lemma hurwitzZeta_residue_one (a : UnitAddCircle) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 85,
+    "text": "refine (hurwitzZetaEven_residue_one a).add ((Tendsto.mul ?_ ?_).mono_left nhdsWithin_le_nhds)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 86,
+    "text": "exacts [tendsto_id.sub_const _, (differentiable_hurwitzZetaOdd a).continuous.tendsto _]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 88,
+    "text": "lemma differentiableAt_hurwitzZeta_sub_one_div (a : UnitAddCircle) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 91,
+    "text": "exact (differentiableAt_hurwitzZetaEven_sub_one_div a).add (differentiable_hurwitzZetaOdd a 1)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 96,
+    "text": "lemma tendsto_hurwitzZeta_sub_one_div_nhds_one (a : UnitAddCircle) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 99,
+    "text": "refine (tendsto_hurwitzZetaEven_sub_one_div_nhds_one a).add"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 100,
+    "text": "(differentiable_hurwitzZetaOdd a 1).continuousAt.tendsto"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 156,
+    "text": "lemma hurwitzZeta_one_sub (a : UnitAddCircle) {s : ℂ}"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+    "line": 160,
+    "text": "rw [hurwitzZeta, hurwitzZetaEven_one_sub a hs hs', hurwitzZetaOdd_one_sub a hs,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 603,
+    "text": "theorem hurwitzZetaEven_neg_two_mul_nat_add_one (a : UnitAddCircle) (n : ℕ) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 621,
+    "text": "lemma hurwitzZetaEven_residue_one (a : UnitAddCircle) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 630,
+    "text": "lemma differentiableAt_hurwitzZetaEven_sub_one_div (a : UnitAddCircle) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 647,
+    "text": "lemma tendsto_hurwitzZetaEven_sub_one_div_nhds_one (a : UnitAddCircle) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 650,
+    "text": "simpa using (differentiableAt_hurwitzZetaEven_sub_one_div a).continuousAt.tendsto"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 658,
+    "text": "(differentiableAt_hurwitzZetaEven_sub_one_div a).fun_sub"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 659,
+    "text": "(differentiableAt_hurwitzZetaEven_sub_one_div b) using"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 678,
+    "text": "refine (hasSum_int_hurwitzZetaEven a hs).nat_add_neg_add_one.congr_fun fun n ↦ ?_"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+    "line": 760,
+    "text": "lemma hurwitzZetaEven_one_sub (a : UnitAddCircle) {s : ℂ}"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean",
+    "line": 498,
+    "text": "refine (hasSum_int_hurwitzZetaOdd a hs).nat_add_neg_add_one.congr_fun fun n ↦ ?_"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean",
+    "line": 547,
+    "text": "theorem hurwitzZetaOdd_neg_two_mul_nat_sub_one (a : UnitAddCircle) (n : ℕ) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean",
+    "line": 558,
+    "text": "lemma hurwitzZetaOdd_one_sub (a : UnitAddCircle) {s : ℂ} (hs : ∀ (n : ℕ), s ≠ -n) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 124,
+    "text": "theorem hurwitzZetaEven_one_sub_two_mul_nat (hk : k ≠ 0) (hx : x ∈ Icc (0 : ℝ) 1) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 136,
+    "text": "rw [hurwitzZetaEven_one_sub _ h1 (Or.inr h2), ← Gammaℂ, cosZeta_two_mul_nat' hk hx, ← mul_assoc,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 156,
+    "text": "hurwitzZetaOdd_one_sub _ h1, ← Gammaℂ, sinZeta_two_mul_nat_add_one' hk hx, ← mul_assoc,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 167,
+    "text": "private lemma hurwitzZeta_one_sub_two_mul_nat (hk : k ≠ 0) (hx : x ∈ Icc (0 : ℝ) 1) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 171,
+    "text": "rw [hurwitzZeta, this, add_zero, hurwitzZetaEven_one_sub_two_mul_nat hk hx]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 174,
+    "text": "hurwitzZetaOdd_neg_two_mul_nat_sub_one]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 183,
+    "text": "simpa using hurwitzZetaEven_neg_two_mul_nat_add_one x k"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 194,
+    "text": "· exact_mod_cast hurwitzZeta_one_sub_two_mul_nat (by lia : n + 1 ≠ 0) hx"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    "line": 243,
+    "text": "· rw [Nat.cast_zero, neg_zero, riemannZeta_zero, zero_add, zero_add, div_one,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Injectivity.lean",
+    "line": 57,
+    "text": "lemma LSeries.tendsto_cpow_mul_atTop {f : ℕ → ℂ} {n : ℕ} (h : ∀ m ≤ n, f m = 0)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Injectivity.lean",
+    "line": 124,
+    "text": "lemma LSeries.tendsto_atTop {f : ℕ → ℂ} (ha : abscissaOfAbsConv f < ⊤) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Injectivity.lean",
+    "line": 131,
+    "text": "convert! LSeries.tendsto_cpow_mul_atTop (n := 0) (fun _ hm ↦ Nat.le_zero.mp hm ▸ hF₀) ha' using 1"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Injectivity.lean",
+    "line": 171,
+    "text": "simpa using! LSeries.tendsto_cpow_mul_atTop (fun m hm ↦ ih m <| lt_succ_of_le hm) <|"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "line": 185,
+    "text": "· simpa only [G, continuousAt_update_same] using riemannZeta_residue_one"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "line": 191,
+    "text": "have := riemannZeta_neg_two_mul_nat_add_one 0"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "line": 285,
+    "text": "lemma norm_LSeries_product_ge_one {x : ℝ} (hx : 0 < x) (y : ℝ) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "line": 307,
+    "text": "/-- A variant of `DirichletCharacter.norm_LSeries_product_ge_one` in terms of the L-functions. -/"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "line": 314,
+    "text": "exact norm_LSeries_product_ge_one χ hx y"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    "line": 31,
+    "text": "See `ArithmeticFunction.vonMangoldt.LSeries_residueClass_eq`."
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    "line": 238,
+    "text": "lemma LSeries_residueClass_eq (ha : IsUnit a) {s : ℂ} (hs : 1 < s.re) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    "line": 239,
+    "text": "LSeries ↗(residueClass a) s ="
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    "line": 310,
+    "text": "simp only [LSeries_residueClass_eq ha hs, LFunctionResidueClassAux]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    "line": 348,
+    "text": "lemma LSeries_residueClass_lower_bound (ha : IsUnit a) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    "line": 395,
+    "text": "obtain ⟨C', hC'⟩ := LSeries_residueClass_lower_bound ha"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 35,
+    "text": "* `completedRiemannZeta₀_one_sub`, `completedRiemannZeta_one_sub`, and `riemannZeta_one_sub` :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 100,
+    "text": "theorem completedRiemannZeta₀_one_sub (s : ℂ) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 106,
+    "text": "theorem completedRiemannZeta_one_sub (s : ℂ) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 111,
+    "text": "lemma completedRiemannZeta_residue_one :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 169,
+    "text": "· rw [riemannZeta_eq_completedRiemannZeta₀ hs, Gamma_add_one (s / 2) (by grind)]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 173,
+    "text": "theorem riemannZeta_neg_two_mul_nat_add_one (n : ℕ) : riemannZeta (-2 * (n + 1)) = 0 :="
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 174,
+    "text": "hurwitzZetaEven_neg_two_mul_nat_add_one 0 n"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 178,
+    "text": "theorem riemannZeta_one_sub {s : ℂ} (hs : ∀ n : ℕ, s ≠ -n) (hs' : s ≠ 1) :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 180,
+    "text": "rw [riemannZeta, hurwitzZetaEven_one_sub 0 hs (Or.inr hs'), cosZeta_zero, hurwitzZetaEven_zero]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 242,
+    "text": "lemma riemannZeta_residue_one : Tendsto (fun s ↦ (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1) := by"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 243,
+    "text": "exact hurwitzZetaEven_residue_one 0"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+    "line": 248,
+    "text": "refine (tendsto_nhdsWithin_mono_left ?_ riemannZeta_residue_one).congr' ?_"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 30,
+    "text": "* `LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div` : assume that `f : ℕ → ℂ` satisfies that"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 211,
+    "text": "-- See `LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₃` for the strategy of proof"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 213,
+    "text": "private theorem LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₁"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 225,
+    "text": "private theorem LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₂ {s T ε : ℝ} {S : ℝ → ℂ}"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 252,
+    "text": "private theorem LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₃"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 258,
+    "text": "(LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₁"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 294,
+    "text": "rw [h₃, mul_one, mul_comm l, LSeries_eq_mul_integral _ zero_le_one (by rwa [ofReal_re])"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 329,
+    "text": "-- The second part is bounded using `LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₂`"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 333,
+    "text": "exact LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₂ h₀ hε hs hT₁"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 336,
+    "text": "theorem LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 346,
+    "text": "LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₃ hlim hfS zero_lt_one"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 357,
+    "text": "obtain ⟨C, hC₁, hC₂⟩ := LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₃ hlim hfS hε"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 362,
+    "text": "theorem LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_and_nonneg (f : ℕ → ℝ) {l : ℝ}"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 366,
+    "text": "refine LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div (f := fun n ↦ f n)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    "line": 369,
+    "text": "· refine LSeriesSummable_of_sum_norm_bigO_and_nonneg ?_ hf' zero_le_one hs"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZetaZeros.lean",
+    "line": 41,
+    "text": "private lemma riemannZetaZeros_codiscreteWithin_compl_one :"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZetaZeros.lean",
+    "line": 50,
+    "text": "have := riemannZetaZeros_codiscreteWithin_compl_one"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZetaZeros.lean",
+    "line": 55,
+    "text": "· exact riemannZeta_eventually_ne_zero_nhds_one.filter_mono nhdsWithin_le_nhds"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZetaZeros.lean",
+    "line": 74,
+    "text": "isClosed_riemannZetaZeros.tendsto_coe_cofinite_of_isDiscrete isDiscrete_riemannZetaZeros"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 128,
+    "text": "(differentiableAt_hurwitzZeta_sub_one_div (toAddCircle j)).const_mul (Φ j)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 142,
+    "text": "refine tendsto_const_nhds.mul (.mul ?_ <| hurwitzZeta_residue_one _)"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 234,
+    "text": "· rw [hurwitzZeta_one_sub _ hs (Or.inr hs')]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 235,
+    "text": "· rw [hurwitzZeta_one_sub _ hs (Or.inl <| toAddCircle_eq_zero.not.mpr hj)]"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 278,
+    "text": "simp only [LFunction_def_even hΦ, hurwitzZetaEven_neg_two_mul_nat_add_one, mul_zero,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 284,
+    "text": "simp only [LFunction_def_odd hΦ, hurwitzZetaOdd_neg_two_mul_nat_sub_one, mul_zero, ← neg_mul,"
+   },
+   {
+    "file": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
+    "line": 178,
+    "text": "rw [G2_eq_tsum_cexp, riemannZeta_two, ← tsum_pow_div_one_sub_eq_tsum_sigma"
+   },
+   {
+    "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+    "line": 77,
+    "text": "refine LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_and_nonneg _ ?_"
+   }
+  ],
+  "Stieltjes constants, v2": [],
+  "explicit formula, v2 (with zeta, primes or von Mangoldt)": [
+   {
+    "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    "line": 205,
+    "text": "/-- Explicit formula for the L-function of `𝓕 Φ`, where `𝓕` is the discrete Fourier transform. -/"
+   }
+  ]
+ },
+ "counts": {
+  "Li coefficient (an identifier)": 0,
+  "Li (the word, in any text)": 25,
+  "Keiper": 0,
+  "logDeriv of the completed zeta": 0,
+  "deriv of the completed zeta": 0,
+  "riemannZeta at 1 (pole / residue / constant term)": 104,
+  "xi / riemannXi": 0,
+  "Stieltjes constants": 386,
+  "Taylor coefficients of zeta": 0,
+  "explicit formula / Guinand / Weil": 33,
+  "riemannZeta at 1, v2 (a zeta function on the line)": 133,
+  "Stieltjes constants, v2": 0,
+  "explicit formula, v2 (with zeta, primes or von Mangoldt)": 1
+ }
+}
