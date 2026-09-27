@@ -1,0 +1,19 @@
+b550 -- COMPONENT 5 (d)-(e): THE STEMS; THE READING OF §37 (READINGS (11)-(12))
+
+### (d) banned stems in THE_IDENTITY_CHAIN.md, counted per stem, none listed, none edited: {'gap': 0, 'blind': 0}
+
+### (e) the b522 window, as b549 read it (relay data/b549_diagonal.txt):
+  ### read: L = ln a ; R = F_RAMP·L/2 = L/8 (F_RAMP = 0.25) ; W = L − R = 7L/8 ; h = 2R/p ; φ̂(z) = sinc(zW)·sinc(zh/2)^p, so
+  ### φ = 1[−W,W]/(2W) ⋆ (the order-p B-spline of half-width R), supported on [−L, L] = [−ln a, ln a] AT EVERY p; the test
+  ### function is k̂ = ĝ², ĝ(z) = (γ₀² − z²)·½(φ̂(z − γ₀) + φ̂(z + γ₀)).
+
+### the three expressions, side by side:
+  the bench (b521`s cell, tools/b521_tail.py:125)          ratio=pair / rest if rest else None, m=A - PR, h2=P - PR + A, r=r, B=B, Bprime=Eu + Ek + Eround, Eu=Eu, Ek=Ek,
+  file E (Interfaces/FiniteInstanceIdentity.lean:219)     T.value + Q.value = W.wInf - W.wPrimes
+  §38`s sides (THE_IDENTITY_CHAIN.md:3086,3088)                 **LEFT**, per the executed **RULE M-1** (b239): `T.value := Tr_full + E2 + Δ₋`, plus `Q.value := Θ_q` | inserting one to help the columns meet is the named crime.** **RIGHT**: the adopted `A − PR` at the
+  h2_sign (SIDE-explicit-formula v0.2, H2Sign.lean:29-30) def h2_sign : Prop := ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  §37`s mapping (THE_IDENTITY_CHAIN.md:3041)               > convention, THE SIGN OF `A − PR`.** ### **It discharges nothing — *"None of this discharges h2"* —
+
+### READ: F = P − PR + A (the bench) ; file E`s right side W.wInf − W.wPrimes, adopted as A − PR at the atlas`s convention (§38) ;
+### h2_sign = 0 ≤ P − PR + A over every classK k. So F and file E`s adopted right side share A − PR and differ by the pole term P;
+### F at a ladder window is h2_sign`s quantity at one test function. VERDICT (N4) : HOLDS

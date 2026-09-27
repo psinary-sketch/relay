@@ -1,0 +1,69 @@
+part A: mathlib4 cecd0c4d56a6410638a13491d566104756f892bf dirty=[] toolchain leanprover/lean4:v4.30.0-rc1 ; SIDE-global-section 2e43315ab4238c9644395fafeb22ce6d09a3dca9 start 22:09:10
+'GlobalSection.F_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GlobalSection.inner_F_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b550_iface_a.lean:291:5: warning: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'LocalLimit.inner_map_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.radical_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.no_unimodular_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.eigenvector_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.nested_projection_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.real_no_compact_open_addSubgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.general_p_no_fixed_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.proj4_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.proj4_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.compression_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.hullMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.hull_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.hull_iSup_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.hull_compression_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LocalLimit.inner_sum_general' depends on axioms: [propext]
+'LocalLimit.quotient_general' depends on axioms: [propext]
+'LocalLimit.ball_pullback_general' depends on axioms: [propext]
+'LocalLimit.transform_shift_general' depends on axioms: [propext]
+'FiniteInstanceIdentity.finiteInstanceIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+FiniteInstanceIdentity.DiagonalCell : Type
+'FiniteInstanceIdentity.DiagonalCell' depends on axioms: [propext, Quot.sound]
+FiniteInstanceIdentity.ArchimedeanE1Trace : FiniteInstanceIdentity.DiagonalCell → Type
+'FiniteInstanceIdentity.ArchimedeanE1Trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+FiniteInstanceIdentity.QuotientTrace : FiniteInstanceIdentity.DiagonalCell → Type
+'FiniteInstanceIdentity.QuotientTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+FiniteInstanceIdentity.WeilLedger : FiniteInstanceIdentity.DiagonalCell → Type
+'FiniteInstanceIdentity.WeilLedger' depends on axioms: [propext, Classical.choice, Quot.sound]
+@FiniteInstanceIdentity.finiteInstanceIdentity : {cell : FiniteInstanceIdentity.DiagonalCell} →
+  FiniteInstanceIdentity.ArchimedeanE1Trace cell →
+    FiniteInstanceIdentity.QuotientTrace cell → FiniteInstanceIdentity.WeilLedger cell → Prop
+'FiniteInstanceIdentity.finiteInstanceIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+GlobalSection.GlobalSectionData : Type 1
+'GlobalSection.GlobalSectionData' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LocalLimit.proj4 : {H : Type u_1} →
+  [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → (H →ₗ[ℂ] H) → ℂ → H → H
+'LocalLimit.proj4' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LocalLimit.proj4_eigen : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  (F : H →ₗ[ℂ] H),
+  (∀ (y : H), F (F (F (F y))) = y) →
+    ∀ (lam : ℂ), lam ^ 4 = 1 → ∀ (x : H), F (LocalLimit.proj4 F lam x) = lam • LocalLimit.proj4 F lam x
+'LocalLimit.proj4_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LocalLimit.proj4_sum : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] (F : H →ₗ[ℂ] H)
+  (x : H),
+  LocalLimit.proj4 F 1 x + LocalLimit.proj4 F Complex.I x + LocalLimit.proj4 F (-1) x +
+      LocalLimit.proj4 F (-Complex.I) x =
+    x
+'LocalLimit.proj4_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LocalLimit.inner_map_self_of_fixed : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  (F : H →ₗᵢ[ℂ] H) (x : H), F x = x → ⟪x, F x⟫_ℂ = ↑‖x‖ ^ 2
+'LocalLimit.inner_map_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LocalLimit.radical_zero : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  (F : H →ₗᵢ[ℂ] H) (S : Submodule ℂ H), (∀ z ∈ S, ∃ y ∈ S, F y = z) → ∀ x ∈ S, (∀ y ∈ S, ⟪x, F y⟫_ℂ = 0) → x = 0
+'LocalLimit.radical_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LocalLimit.eigenvector_of_commute : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  (A F : H →ₗ[ℂ] H), (∀ (x : H), A (F x) = F (A x)) → ∀ (lam : ℂ) (x : H), F x = lam • x → F (A x) = lam • A x
+'LocalLimit.eigenvector_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+LocalLimit.real_no_compact_open_addSubgroup : ∀ (H : AddSubgroup ℝ), IsOpen ↑H → ¬IsCompact ↑H
+'LocalLimit.real_no_compact_open_addSubgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	10m30.755s
+user	0m0.015s
+sys	0m0.015s
+exit 0

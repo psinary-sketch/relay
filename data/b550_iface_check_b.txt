@@ -1,0 +1,21 @@
+part B: mathlib4 01fc2203e2ae900a6dd6c4dff84325dce49698eb dirty=[] toolchain leanprover/lean4:v4.29.0 ; SIDE-global-section 2e43315ab4238c9644395fafeb22ce6d09a3dca9 start 22:19:55
+'RestrictedTensorLayer1.Ftensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RestrictedTensorLayer1.parityTensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RestrictedTensorLayer1.tensorFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+RestrictedTensorLayer1.Ftensor_sq : ∀ (A B : RestrictedTensorLayer1.FactorData)
+  (x : RestrictedTensorLayer1.Carrier A B),
+  (RestrictedTensorLayer1.Ftensor A B) ((RestrictedTensorLayer1.Ftensor A B) x) =
+    (RestrictedTensorLayer1.parityTensor A B) x
+'RestrictedTensorLayer1.Ftensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+RestrictedTensorLayer1.parityTensor_sq : ∀ (A B : RestrictedTensorLayer1.FactorData)
+  (x : RestrictedTensorLayer1.Carrier A B),
+  (RestrictedTensorLayer1.parityTensor A B) ((RestrictedTensorLayer1.parityTensor A B) x) = x
+'RestrictedTensorLayer1.parityTensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+RestrictedTensorLayer1.tensorFactor : RestrictedTensorLayer1.FactorData →
+  RestrictedTensorLayer1.FactorData → RestrictedTensorLayer1.FactorData
+'RestrictedTensorLayer1.tensorFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	25m34.386s
+user	0m0.000s
+sys	0m0.015s
+exit 0

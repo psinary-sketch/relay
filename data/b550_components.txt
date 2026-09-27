@@ -1,0 +1,295 @@
+====================================================================================================================================
+b550 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b550_tag.txt
+  ### b550 READING (1) -- THE TAG, the seat's command, 2026-09-27T02:49:40Z
+  ### before: HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; status (tracked) [] ; local tag: [] ; remote tag: []
+  ### local: tag object 416ec76a14fe9c3f0788aeac876069020d11ac22 ; peeled 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23
+    push: To https://github.com/psinary-sketch/SIDE-lv-conservation.git
+    push:  * [new tag]         v0.11.0 -> v0.11.0
+  ### remote read-back (ls-remote):
+    2f71068ac356a15a3f43fea073aa8fe4ae4fbf23	refs/heads/main
+    416ec76a14fe9c3f0788aeac876069020d11ac22	refs/tags/v0.11.0
+    2f71068ac356a15a3f43fea073aa8fe4ae4fbf23	refs/tags/v0.11.0^{}
+  ### after: HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; status (tracked) []
+
+### relay data/b550_tiers.txt
+  b550 -- COMPONENT 5 (a)-(b): THE TERMINALS OF THE_IDENTITY_CHAIN, TIERED (READINGS (7)-(10))
+  
+  ### AllPrints at HEAD against AXIOM_PRINTS.txt: 614 lines fresh, 614 banked, equal True
+  
+    terminal                                                         kind       fresh profile                      tier grade      E/I disp     named tag`s tree / first added
+    FiniteInstanceIdentity.DiagonalCell                              structure  Quot.sound, propext                T2   SHELL      —   CARRIED        present / 706a81b
+    FiniteInstanceIdentity.ArchimedeanE1Trace                        structure  Classical.choice, Quot.sound, prop T2   SHELL      —   CARRIED  yes   present / 706a81b
+    FiniteInstanceIdentity.QuotientTrace                             structure  Classical.choice, Quot.sound, prop T2   SHELL      —   CARRIED  yes   present / 706a81b
+    FiniteInstanceIdentity.WeilLedger                                structure  Classical.choice, Quot.sound, prop T2   SHELL      —   CARRIED  yes   present / 706a81b
+    FiniteInstanceIdentity.finiteInstanceIdentity                    def        Classical.choice, Quot.sound, prop T2   ENCODES    —   CARRIED  yes   present / 706a81b
+    GlobalSection.GlobalSectionData                                  structure  Classical.choice, Quot.sound, prop T2   SHELL      —   CARRIED  yes   present / 706a81b
+    LocalLimit.proj4                                                 def        Classical.choice, Quot.sound, prop T0   DEFINITION —   CARRIED  yes   ABSENT / 9be26b5
+    LocalLimit.proj4_eigen                                           theorem    Classical.choice, Quot.sound, prop T0   DERIVES    E   CARRIED  yes   ABSENT / 9be26b5
+    LocalLimit.proj4_sum                                             theorem    Classical.choice, Quot.sound, prop T0   DERIVES    E   CARRIED  yes   ABSENT / 9be26b5
+    LocalLimit.inner_map_self_of_fixed                               theorem    Classical.choice, Quot.sound, prop T0   DERIVES    E   CARRIED  yes   present / 706a81b
+    LocalLimit.radical_zero                                          theorem    Classical.choice, Quot.sound, prop T0   DERIVES    E   CARRIED  yes   present / 706a81b
+    LocalLimit.eigenvector_of_commute                                theorem    Classical.choice, Quot.sound, prop T0   DERIVES    E   CARRIED  yes   present / 706a81b
+    LocalLimit.real_no_compact_open_addSubgroup                      theorem    Classical.choice, Quot.sound, prop T0   DERIVES    E   CARRIED  yes   present / 706a81b
+    RestrictedTensorLayer1.Ftensor_sq                                theorem    Classical.choice, Quot.sound, prop T2   ENCODES    E   CARRIED        ABSENT / e514ba5
+    RestrictedTensorLayer1.parityTensor_sq                           theorem    Classical.choice, Quot.sound, prop T2   ENCODES    E   CARRIED        ABSENT / e514ba5
+    RestrictedTensorLayer1.tensorFactor                              def        Classical.choice, Quot.sound, prop T2   SHELL      —   CARRIED        ABSENT / e514ba5
+    AlternationShadow.flip_alternates_at_0                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 76d5182
+    AlternationShadow.const1_fails_at_0                              theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 76d5182
+    AlternationShadow.signs_distinct                                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 76d5182
+    AlternationShadow.alternates_neg                                 theorem    axiom-free                         T2   ENCODES    I   CARRIED  yes   ABSENT / 76d5182
+    AlternationShadow.alternates_both                                theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 76d5182
+    AlternationShadow.alternates_both'                               theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 76d5182
+    AlternationShadow.both_values_survive_global_sign                theorem    axiom-free                         T2   ENCODES    I   CARRIED  yes   ABSENT / 76d5182
+    InvolutionScalarShadow.both_signs_satisfy                        theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 31fe391
+    InvolutionScalarShadow.others_fail                               theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 31fe391
+    InvolutionScalarShadow.signs_distinct                            theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 31fe391
+    InvolutionScalarShadow.nat_sq_one                                theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 31fe391
+    InvolutionScalarShadow.int_sq_one                                theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 31fe391
+    InvolutionScalarShadow.int_sq_one_of                             theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 31fe391
+    SectorNonvanishingShadow.arrival_rhs_zero                        theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.arrival_dim_zero                        theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.arrival_shape                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.banked_place2_cells                     theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.banked_odd_cells                        theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.pos_of_four_mul_pos                     theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.odd_rhs_pos                             theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.place2_rhs_pos                          theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.odd_sector_pos                          theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1c09ea0
+    SectorNonvanishingShadow.place2_sector_pos                       theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1c09ea0
+    SignTransferShadow.control_pos                                   theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.control_neg                                   theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.signs_distinct                                theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.eq_of_mul_pos                                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.transfer                                      theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.transfer_symm                                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.neg_is_sign                                   theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.sq_pos                                        theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.flip_alternates                               theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.flip_is_sign                                  theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.flip_pos                                      theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / bb99f59
+    SignTransferShadow.transfer_nonvacuous                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / bb99f59
+    LadderOrientationShadow.mul_one                                  theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.mul_comm                                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.mul_left_comm                            theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.u4_distinct_one_m1                       theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.u4_distinct_i_mi                         theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.control_i_not_mi                         theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.ladder_form                              theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.ladder_form_mi                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.alt2_of_stepsI                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.alt2_of_stepsMI                          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.bad_alt2                                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.bad_not_stepsI                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.alt2_does_not_imply_stepsI               theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / a5d6031
+    LadderOrientationShadow.stepsI_of_alt2                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.stepsMI_of_alt2                          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.ladder_up_to_orientation                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.ipow_stepsI                              theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.ipow_alt2                                theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.bad_first_step_is_mi                     theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.ipow_first_step_is_i                     theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.orientations_differ                      theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / a5d6031
+    LadderOrientationShadow.measured_rank1                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 356010f
+    LadderOrientationShadow.measured_rank2                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 356010f
+    LadderOrientationShadow.measured_stepsMI                         theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 356010f
+    LadderOrientationShadow.measured_alt2                            theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 356010f
+    LadderOrientationShadow.measured_is_ladder                       theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 356010f
+    LadderOrientationShadow.measured_not_stepsI                      theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 356010f
+    AggregationCircularityShadow.identity_iff_forced                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4969b1b
+    AggregationCircularityShadow.unique                              theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4969b1b
+    AggregationCircularityShadow.cweil_determines                    theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 4969b1b
+    AggregationCircularityShadow.cweil_inhabited                     theorem    axiom-free                         T2   ENCODES    I   CARRIED  yes   ABSENT / 4969b1b
+    AggregationCircularityShadow.cweil_is_the_assumption             theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 4969b1b
+    AggregationCircularityShadow.underdetermined_without_cweil       theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 4969b1b
+    AggregationCircularityShadow.boolGrp                             def        axiom-free                         T2   SHELL      —   CARRIED        ABSENT / 4969b1b
+    AggregationCircularityShadow.boolGrp_has_two_elements            theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4969b1b
+    AggregationCircularityShadow.underdetermined_bool                theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4969b1b
+    StatedChoiceShadow.arrival_depth_is_dead                         theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / b8b3159
+    StatedChoiceShadow.level_one_fails_at_two                        theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / b8b3159
+    StatedChoiceShadow.chosen_level_positive                         theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / b8b3159
+    StatedChoiceShadow.chosen_level_is_lowest                        theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / b8b3159
+    StatedChoiceShadow.deviation_can_be_nonzero                      theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / b8b3159
+    StatedChoiceShadow.c0_deviation_is_zero                          theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / b8b3159
+    StatedChoiceShadow.level_is_a_function                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / b8b3159
+    TraceFactorizationShadow.inactive_factor_is_one                  theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1935ebf
+    TraceFactorizationShadow.active_factor_is_not_forced             theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1935ebf
+    TraceFactorizationShadow.product_is_over_the_active_set          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1935ebf
+    TraceFactorizationShadow.naive_product_differs                   theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1935ebf
+    TraceFactorizationShadow.product_positive_here                   theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1935ebf
+    TraceFactorizationShadow.zero_factor_kills_positivity            theorem    axiom-free                         T2   ENCODES    I   CARRIED        ABSENT / 1935ebf
+    TraceFactorizationShadow.state_is_sign_blind                     theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 1935ebf
+    TraceFactorizationShadow.state_sees_non_unit_scalars             theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 1935ebf
+    FoldedMirrorShadow.even_signal_is_palindromic                    theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.odd_signal_is_not_palindromic                 theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.conv_even_of_even                             theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.conv_not_even_witness                         theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.autocorr_even_of_even                         theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.autocorr_even_even_when_signal_is_not         theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.conv_eq_corr_of_even                          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.conv_ne_corr_witness                          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.two_ended_eq_two_times_one_sided              theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.fBad_is_not_even                              theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.fGood_is_even_at_one                          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.fold_fails_for_fBad                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.fold_holds_for_fGood                          theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    FoldedMirrorShadow.fold_needs_evenness                           theorem    axiom-free                         T2   ENCODES    E   CARRIED        ABSENT / 4a3d127
+    B270.absorb_2_2                                                  theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 854eb51
+    B298.boundary_value_at_cell_2_2_on_member_radii_neg1_0           theorem    axiom-free                         T2   ENCODES    E   CARRIED  yes   ABSENT / 3ae8aed
+  
+  ### the statements, fresh:
+    FiniteInstanceIdentity.DiagonalCell : Type
+    FiniteInstanceIdentity.ArchimedeanE1Trace : FiniteInstanceIdentity.DiagonalCell → Type
+    FiniteInstanceIdentity.QuotientTrace : FiniteInstanceIdentity.DiagonalCell → Type
+    FiniteInstanceIdentity.WeilLedger : FiniteInstanceIdentity.DiagonalCell → Type
+    @FiniteInstanceIdentity.finiteInstanceIdentity : {cell : FiniteInstanceIdentity.DiagonalCell} → FiniteInstanceIdentity.ArchimedeanE1Trace cell → FiniteInstanceIdentity.QuotientTrace cell → FiniteInstanceIdentity.WeilLedger cell → Prop
+    GlobalSection.GlobalSectionData : Type 1
+    @LocalLimit.proj4 : {H : Type u_1} → [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → (H →ₗ[ℂ] H) → ℂ → H → H
+    @LocalLimit.proj4_eigen : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] (F : H →ₗ[ℂ] H), (∀ (y : H), F (F (F (F y))) = y) → ∀ (lam : ℂ), lam ^ 4 = 1 → ∀ (x : H), F (LocalLimit.proj4 F lam x) = lam • LocalLimit.proj4 F lam x
+    @LocalLimit.proj4_sum : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] (F : H →ₗ[ℂ] H) (x : H), LocalLimit.proj4 F 1 x + LocalLimit.proj4 F Complex.I x + LocalLimit.proj4 F (-1) x + LocalLimit.proj4 F (-Complex.I) x = x
+    @LocalLimit.inner_map_self_of_fixed : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] (F : H →ₗᵢ[ℂ] H) (x : H), F x = x → ⟪x, F x⟫_ℂ = ↑‖x‖ ^ 2
+    @LocalLimit.radical_zero : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] (F : H →ₗᵢ[ℂ] H) (S : Submodule ℂ H), (∀ z ∈ S, ∃ y ∈ S, F y = z) → ∀ x ∈ S, (∀ y ∈ S, ⟪x, F y⟫_ℂ = 0) → x = 0
+    @LocalLimit.eigenvector_of_commute : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] (A F : H →ₗ[ℂ] H), (∀ (x : H), A (F x) = F (A x)) → ∀ (lam : ℂ) (x : H), F x = lam • x → F (A x) = lam • A x
+    LocalLimit.real_no_compact_open_addSubgroup : ∀ (H : AddSubgroup ℝ), IsOpen ↑H → ¬IsCompact ↑H
+    RestrictedTensorLayer1.Ftensor_sq : ∀ (A B : RestrictedTensorLayer1.FactorData) (x : RestrictedTensorLayer1.Carrier A B), (RestrictedTensorLayer1.Ftensor A B) ((RestrictedTensorLayer1.Ftensor A B) x) = (RestrictedTensorLayer1.parityTensor A B) x
+    RestrictedTensorLayer1.parityTensor_sq : ∀ (A B : RestrictedTensorLayer1.FactorData) (x : RestrictedTensorLayer1.Carrier A B), (RestrictedTensorLayer1.parityTensor A B) ((RestrictedTensorLayer1.parityTensor A B) x) = x
+    RestrictedTensorLayer1.tensorFactor : RestrictedTensorLayer1.FactorData → RestrictedTensorLayer1.FactorData → RestrictedTensorLayer1.FactorData
+    AlternationShadow.flip_alternates_at_0 : AlternationShadow.flip 1 = -AlternationShadow.flip 0
+    AlternationShadow.const1_fails_at_0 : AlternationShadow.const1 1 ≠ -AlternationShadow.const1 0
+    AlternationShadow.signs_distinct : 1 ≠ -1
+    AlternationShadow.alternates_neg : ∀ (s : Nat → Int), AlternationShadow.Alternates s → AlternationShadow.Alternates fun i => -s i
+    AlternationShadow.alternates_both : ∀ (s : Nat → Int), AlternationShadow.Alternates s → s 0 = 1 → (∃ i, s i = 1) ∧ ∃ i, s i = -1
+    AlternationShadow.alternates_both' : ∀ (s : Nat → Int), AlternationShadow.Alternates s → s 0 = -1 → (∃ i, s i = 1) ∧ ∃ i, s i = -1
+    AlternationShadow.both_values_survive_global_sign : ∀ (s : Nat → Int), AlternationShadow.Alternates s → s 0 = 1 ∨ s 0 = -1 → ((∃ i, s i = 1) ∧ ∃ i, s i = -1) ∧ (∃ i, (fun j => -s j) i = 1) ∧ ∃ i, (fun j => -s j) i = -1
+    InvolutionScalarShadow.both_signs_satisfy : 1 * 1 = 1 ∧ -1 * -1 = 1
+    InvolutionScalarShadow.others_fail : 0 * 0 ≠ 1 ∧ 2 * 2 ≠ 1 ∧ -2 * -2 ≠ 1
+    InvolutionScalarShadow.signs_distinct : 1 ≠ -1
+    InvolutionScalarShadow.nat_sq_one : ∀ (m : Nat), m * m = 1 → m = 1
+    InvolutionScalarShadow.int_sq_one : ∀ (c : Int), c * c = 1 → c = 1 ∨ c = -1
+    InvolutionScalarShadow.int_sq_one_of : ∀ (c : Int), c = 1 ∨ c = -1 → c * c = 1
+    SectorNonvanishingShadow.arrival_rhs_zero : 2 * 0 = 0
+    SectorNonvanishingShadow.arrival_dim_zero : ∀ (d : Nat), 4 * d = 2 * 0 → d = 0
+    SectorNonvanishingShadow.arrival_shape : 0 + 0 + (0 + 1) + 0 = 1
+    SectorNonvanishingShadow.banked_place2_cells : 4 * 0 = 2 * 0 ∧ 4 * 2 = 4 * 2 ∧ 4 * 12 = 8 * 6 ∧ 4 * 56 = 16 * 14
+    SectorNonvanishingShadow.banked_odd_cells : 4 * 1 = 2 * 2 ∧ 4 * 4 = 4 * 4 ∧ 4 * 16 = 8 * 8 ∧ 4 * 169 = 26 * 26
+    SectorNonvanishingShadow.pos_of_four_mul_pos : ∀ (d : Nat), 0 < 4 * d → 0 < d
+    SectorNonvanishingShadow.odd_rhs_pos : ∀ (m : Nat), 0 < (2 * m + 2) * (2 * m + 2)
+    SectorNonvanishingShadow.place2_rhs_pos : ∀ (t : Nat), 0 < (4 * t + 4) * (4 * t + 2)
+    SectorNonvanishingShadow.odd_sector_pos : ∀ (m d : Nat), 4 * d = (2 * m + 2) * (2 * m + 2) → 0 < d
+    SectorNonvanishingShadow.place2_sector_pos : ∀ (t d : Nat), 4 * d = (4 * t + 4) * (4 * t + 2) → 0 < d
+    SignTransferShadow.control_pos : 0 < 1 * 1
+    SignTransferShadow.control_neg : ¬0 < 1 * -1
+    SignTransferShadow.signs_distinct : 1 ≠ -1
+    @SignTransferShadow.eq_of_mul_pos : ∀ {x y : Int}, SignTransferShadow.IsSign x → SignTransferShadow.IsSign y → 0 < x * y → x = y
+    SignTransferShadow.transfer : ∀ (a b : Nat → Int), (∀ (k : Nat), SignTransferShadow.IsSign (a k)) → (∀ (k : Nat), SignTransferShadow.IsSign (b k)) → (∀ (k : Nat), 0 < a k * b k) → SignTransferShadow.Alternates b → SignTransferShadow.Alternates a
+    SignTransferShadow.transfer_symm : ∀ (a b : Nat → Int), (∀ (k : Nat), SignTransferShadow.IsSign (a k)) → (∀ (k : Nat), SignTransferShadow.IsSign (b k)) → (∀ (k : Nat), 0 < a k * b k) → SignTransferShadow.Alternates a → SignTransferShadow.Alternates b
+    @SignTransferShadow.neg_is_sign : ∀ {x : Int}, SignTransferShadow.IsSign x → SignTransferShadow.IsSign (-x)
+    @SignTransferShadow.sq_pos : ∀ {x : Int}, SignTransferShadow.IsSign x → 0 < x * x
+    SignTransferShadow.flip_alternates : SignTransferShadow.Alternates SignTransferShadow.flip
+    SignTransferShadow.flip_is_sign : ∀ (k : Nat), SignTransferShadow.IsSign (SignTransferShadow.flip k)
+    SignTransferShadow.flip_pos : ∀ (k : Nat), 0 < SignTransferShadow.flip k * SignTransferShadow.flip k
+    SignTransferShadow.transfer_nonvacuous : SignTransferShadow.Alternates SignTransferShadow.flip
+    LadderOrientationShadow.mul_one : ∀ (x : LadderOrientationShadow.U4), LadderOrientationShadow.mul x LadderOrientationShadow.U4.one = x
+    LadderOrientationShadow.mul_comm : ∀ (x y : LadderOrientationShadow.U4), LadderOrientationShadow.mul x y = LadderOrientationShadow.mul y x
+    LadderOrientationShadow.mul_left_comm : ∀ (x y z : LadderOrientationShadow.U4), LadderOrientationShadow.mul x (LadderOrientationShadow.mul y z) = LadderOrientationShadow.mul y (LadderOrientationShadow.mul x z)
+    LadderOrientationShadow.u4_distinct_one_m1 : LadderOrientationShadow.U4.one ≠ LadderOrientationShadow.U4.m1
+    LadderOrientationShadow.u4_distinct_i_mi : LadderOrientationShadow.U4.i ≠ LadderOrientationShadow.U4.mi
+    LadderOrientationShadow.control_i_not_mi : LadderOrientationShadow.mul LadderOrientationShadow.U4.i LadderOrientationShadow.U4.one ≠ LadderOrientationShadow.mul LadderOrientationShadow.U4.mi LadderOrientationShadow.U4.one
+    LadderOrientationShadow.ladder_form : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.StepsI c → ∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.ipow k)
+    LadderOrientationShadow.ladder_form_mi : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.StepsMI c → ∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.impow k)
+    LadderOrientationShadow.alt2_of_stepsI : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.StepsI c → LadderOrientationShadow.Alt2 c
+    LadderOrientationShadow.alt2_of_stepsMI : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.StepsMI c → LadderOrientationShadow.Alt2 c
+    LadderOrientationShadow.bad_alt2 : LadderOrientationShadow.Alt2 LadderOrientationShadow.bad
+    LadderOrientationShadow.bad_not_stepsI : ¬LadderOrientationShadow.StepsI LadderOrientationShadow.bad
+    LadderOrientationShadow.alt2_does_not_imply_stepsI : ∃ c, LadderOrientationShadow.Alt2 c ∧ ¬LadderOrientationShadow.StepsI c
+    LadderOrientationShadow.stepsI_of_alt2 : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.Alt2 c → c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.i (c 0) → LadderOrientationShadow.StepsI c
+    LadderOrientationShadow.stepsMI_of_alt2 : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.Alt2 c → c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.mi (c 0) → LadderOrientationShadow.StepsMI c
+    LadderOrientationShadow.ladder_up_to_orientation : ∀ (c : Nat → LadderOrientationShadow.U4), LadderOrientationShadow.Alt2 c → c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.i (c 0) ∨ c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.mi (c 0) → (∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.ipow k)) ∨ ∀ (k : Nat), c k = LadderOrientationShado
+    LadderOrientationShadow.ipow_stepsI : LadderOrientationShadow.StepsI LadderOrientationShadow.ipow
+    LadderOrientationShadow.ipow_alt2 : LadderOrientationShadow.Alt2 LadderOrientationShadow.ipow
+    LadderOrientationShadow.bad_first_step_is_mi : LadderOrientationShadow.bad 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.mi (LadderOrientationShadow.bad 0)
+    LadderOrientationShadow.ipow_first_step_is_i : LadderOrientationShadow.ipow 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.i (LadderOrientationShadow.ipow 0)
+    LadderOrientationShadow.orientations_differ : LadderOrientationShadow.ipow 1 ≠ LadderOrientationShadow.impow 1
+    LadderOrientationShadow.measured_rank1 : LadderOrientationShadow.measured 1 = LadderOrientationShadow.U4.i
+    LadderOrientationShadow.measured_rank2 : LadderOrientationShadow.measured 2 = LadderOrientationShadow.U4.one
+    LadderOrientationShadow.measured_stepsMI : LadderOrientationShadow.StepsMI LadderOrientationShadow.measured
+    LadderOrientationShadow.measured_alt2 : LadderOrientationShadow.Alt2 LadderOrientationShadow.measured
+    LadderOrientationShadow.measured_is_ladder : ∀ (k : Nat), LadderOrientationShadow.measured k = LadderOrientationShadow.mul (LadderOrientationShadow.measured 0) (LadderOrientationShadow.impow k)
+    LadderOrientationShadow.measured_not_stepsI : ¬LadderOrientationShadow.StepsI LadderOrientationShadow.measured
+    @AggregationCircularityShadow.identity_iff_forced : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) (t q x : α), AggregationCircularityShadow.identity G t q x ↔ q = AggregationCircularityShadow.forced G t x
+    @AggregationCircularityShadow.unique : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) (t q1 q2 x : α), AggregationCircularityShadow.identity G t q1 x → AggregationCircularityShadow.identity G t q2 x → q1 = q2
+    @AggregationCircularityShadow.cweil_determines : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) {Cell : Type} (t x : Cell → α) (agg : AggregationCircularityShadow.Aggregation Cell α), AggregationCircularityShadow.SatisfiesCWeil G agg t x ↔ ∀ (c : Cell), agg c = AggregationCircularityShadow.forced G (t c) (x c)
+    @AggregationCircularityShadow.cweil_inhabited : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) {Cell : Type} (t x : Cell → α), AggregationCircularityShadow.SatisfiesCWeil G (fun c => AggregationCircularityShadow.forced G (t c) (x c)) t x
+    @AggregationCircularityShadow.cweil_is_the_assumption : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) {Cell : Type} (t x : Cell → α) (agg : AggregationCircularityShadow.Aggregation Cell α), AggregationCircularityShadow.SatisfiesCWeil G agg t x → ∀ (c : Cell), AggregationCircularityShadow.identity G (t c) (agg c) (x c)
+    @AggregationCircularityShadow.underdetermined_without_cweil : ∀ {α Cell : Type} (c0 : Cell) (u v : α), u ≠ v → ∃ a b, a ≠ b
+    AggregationCircularityShadow.boolGrp : AggregationCircularityShadow.Grp Bool
+    AggregationCircularityShadow.boolGrp_has_two_elements : false ≠ true
+    @AggregationCircularityShadow.underdetermined_bool : ∀ {Cell : Type} (c0 : Cell), ∃ a b, a ≠ b
+    StatedChoiceShadow.arrival_depth_is_dead : StatedChoiceShadow.d1 2 1 = 0
+    StatedChoiceShadow.level_one_fails_at_two : ¬0 < StatedChoiceShadow.d1 2 1
+    StatedChoiceShadow.chosen_level_positive : ∀ (p : Nat), p ∈ StatedChoiceShadow.stated → 0 < StatedChoiceShadow.d1 p (StatedChoiceShadow.level p)
+    StatedChoiceShadow.chosen_level_is_lowest : (∀ (p : Nat), p ∈ StatedChoiceShadow.stated → p ≠ 2 → 0 < StatedChoiceShadow.d1 p 1) ∧ StatedChoiceShadow.d1 2 1 = 0
+    StatedChoiceShadow.deviation_can_be_nonzero : StatedChoiceShadow.devSum [1, 2, 1] = 1
+    StatedChoiceShadow.c0_deviation_is_zero : StatedChoiceShadow.devSum (List.map (fun x => 1) StatedChoiceShadow.stated) = 0
+    StatedChoiceShadow.level_is_a_function : ∀ (p a b : Nat), a = StatedChoiceShadow.level p → b = StatedChoiceShadow.level p → a = b
+    TraceFactorizationShadow.inactive_factor_is_one : TraceFactorizationShadow.factor TraceFactorizationShadow.active TraceFactorizationShadow.fac 5 = 1
+    TraceFactorizationShadow.active_factor_is_not_forced : TraceFactorizationShadow.factor TraceFactorizationShadow.active TraceFactorizationShadow.fac 2 = 3
+    TraceFactorizationShadow.product_is_over_the_active_set : TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active TraceFactorizationShadow.fac = 15
+    TraceFactorizationShadow.naive_product_differs : TraceFactorizationShadow.naiveProd TraceFactorizationShadow.places TraceFactorizationShadow.fac ≠ TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active TraceFactorizationShadow.fac
+    TraceFactorizationShadow.product_positive_here : 0 < TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active TraceFactorizationShadow.fac
+    TraceFactorizationShadow.zero_factor_kills_positivity : ¬0 < TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active fun v => if v = 2 then 0 else 5
+    TraceFactorizationShadow.state_is_sign_blind : ∀ (b : Int), TraceFactorizationShadow.stateOf 1 b = TraceFactorizationShadow.stateOf (-1) b
+    TraceFactorizationShadow.state_sees_non_unit_scalars : TraceFactorizationShadow.stateOf 2 3 ≠ TraceFactorizationShadow.stateOf 1 3
+    FoldedMirrorShadow.even_signal_is_palindromic : List.reverse FoldedMirrorShadow.wEven = FoldedMirrorShadow.wEven
+    FoldedMirrorShadow.odd_signal_is_not_palindromic : (List.reverse FoldedMirrorShadow.wOdd == FoldedMirrorShadow.wOdd) = false
+    FoldedMirrorShadow.conv_even_of_even : List.reverse (FoldedMirrorShadow.conv FoldedMirrorShadow.wEven FoldedMirrorShadow.wEven) = FoldedMirrorShadow.conv FoldedMirrorShadow.wEven FoldedMirrorShadow.wEven
+    FoldedMirrorShadow.conv_not_even_witness : (List.reverse (FoldedMirrorShadow.conv FoldedMirrorShadow.wOdd FoldedMirrorShadow.wOdd) == FoldedMirrorShadow.conv FoldedMirrorShadow.wOdd FoldedMirrorShadow.wOdd) = false
+    FoldedMirrorShadow.autocorr_even_of_even : List.reverse (FoldedMirrorShadow.corr FoldedMirrorShadow.wEven) = FoldedMirrorShadow.corr FoldedMirrorShadow.wEven
+    FoldedMirrorShadow.autocorr_even_even_when_signal_is_not : List.reverse (FoldedMirrorShadow.corr FoldedMirrorShadow.wOdd) = FoldedMirrorShadow.corr FoldedMirrorShadow.wOdd
+    FoldedMirrorShadow.conv_eq_corr_of_even : FoldedMirrorShadow.conv FoldedMirrorShadow.wEven FoldedMirrorShadow.wEven = FoldedMirrorShadow.corr FoldedMirrorShadow.wEven
+    FoldedMirrorShadow.conv_ne_corr_witness : (FoldedMirrorShadow.conv FoldedMirrorShadow.wOdd FoldedMirrorShadow.wOdd == FoldedMirrorShadow.corr FoldedMirrorShadow.wOdd) = false
+    FoldedMirrorShadow.two_ended_eq_two_times_one_sided : ∀ (T : Int → Nat), FoldedMirrorShadow.IsEvenFn T → ∀ (S : List Int), FoldedMirrorShadow.twoEnded T S = FoldedMirrorShadow.oneSided T S + FoldedMirrorShadow.oneSided T S
+    FoldedMirrorShadow.fBad_is_not_even : (FoldedMirrorShadow.fBad (-1) == FoldedMirrorShadow.fBad 1) = false
+    FoldedMirrorShadow.fGood_is_even_at_one : FoldedMirrorShadow.fGood (-1) = FoldedMirrorShadow.fGood 1
+    FoldedMirrorShadow.fold_fails_for_fBad : (FoldedMirrorShadow.twoEnded FoldedMirrorShadow.fBad [1] == FoldedMirrorShadow.oneSided FoldedMirrorShadow.fBad [1] + FoldedMirrorShadow.oneSided FoldedMirrorShadow.fBad [1]) = false
+    FoldedMirrorShadow.fold_holds_for_fGood : FoldedMirrorShadow.twoEnded FoldedMirrorShadow.fGood [1] = FoldedMirrorShadow.oneSided FoldedMirrorShadow.fGood [1] + FoldedMirrorShadow.oneSided FoldedMirrorShadow.fGood [1]
+    FoldedMirrorShadow.fold_needs_evenness : ∃ T S, (FoldedMirrorShadow.twoEnded T S == FoldedMirrorShadow.oneSided T S + FoldedMirrorShadow.oneSided T S) = false
+    B270.absorb_2_2 : B270.absorbs 2 2 = true
+    B298.boundary_value_at_cell_2_2_on_member_radii_neg1_0 : B298.inMember 2 2 (-1) 0 B298.w = true ∧ B298.inMember 2 2 0 0 B298.w = false ∧ B298.classSize 2 2 = 3 ∧ B298.pairTimesClass 2 2 B298.w = 4
+  
+  ### terminals 118 (Interfaces 16, Core 102) ; tiers {'T0': 7, 'T1-open': 0, 'T1-lit': 0, 'T2': 111, 'T3': 0, 'T4': 0} ; grades {'DERIVES': 6, 'DEFINITION': 1, 'ENCODES': 104, 'SHELL': 7} ; E/I {'E': 91, 'I': 18, '—': 9} ; dispositions {'CARRIED': 118, 'MOVED': 0}
+  ### the document names 26 of them; named but not in the set: NONE
+  ### document-named terminals absent from the tree of v0.1.0 (706a81b): 17 -- LocalLimit.proj4 (first 9be26b5), LocalLimit.proj4_eigen (first 9be26b5), LocalLimit.proj4_sum (first 9be26b5), AlternationShadow.alternates_neg (first 76d5182), AlternationShadow.both_values_survive_global_sign (first 76d5182), InvolutionScalarShadow.int_sq_one (first 31fe391), LadderOrientationShadow.alt2_does_not_imply_stepsI (first a5d6031), LadderOrientationShadow.measured_not_stepsI (first 356010f), AggregationCircularityShadow.cweil_determines (first 4969b1b), AggregationCircularityShadow.cweil_inhabited (first 4969b1b), AggregationCircularityShadow.cweil_is_the_assumption (first 4969b1b), AggregationCircularityShadow.underdetermined_without_cweil (first 4969b1b), StatedChoiceShadow.arrival_depth_is_dead (first b8b3159), StatedChoiceShadow.deviation_can_be_nonzero (first b8b3159), TraceFactorizationShadow.state_is_sign_blind (first 1935ebf), B270.absorb_2_2 (first 854eb51), B298.boundary_value_at_cell_2_2_on_member_radii_neg1_0 (first 3ae8aed)
+  ### the order`s wording: the Core shadows sit in correspondence rows 81-89 (FoldedMirrorShadow at 89, RestrictedTensorLayer1 at 80), and AggregationCircularityShadow has no correspondence row; its nine terminals print in AXIOM_PRINTS.txt:367-375.
+
+### relay data/b550_reading37.txt
+  b550 -- COMPONENT 5 (d)-(e): THE STEMS; THE READING OF §37 (READINGS (11)-(12))
+  
+  ### (d) banned stems in THE_IDENTITY_CHAIN.md, counted per stem, none listed, none edited: {'gap': 0, 'blind': 0}
+  
+  ### (e) the b522 window, as b549 read it (relay data/b549_diagonal.txt):
+    ### read: L = ln a ; R = F_RAMP·L/2 = L/8 (F_RAMP = 0.25) ; W = L − R = 7L/8 ; h = 2R/p ; φ̂(z) = sinc(zW)·sinc(zh/2)^p, so
+    ### φ = 1[−W,W]/(2W) ⋆ (the order-p B-spline of half-width R), supported on [−L, L] = [−ln a, ln a] AT EVERY p; the test
+    ### function is k̂ = ĝ², ĝ(z) = (γ₀² − z²)·½(φ̂(z − γ₀) + φ̂(z + γ₀)).
+  
+  ### the three expressions, side by side:
+    the bench (b521`s cell, tools/b521_tail.py:125)          ratio=pair / rest if rest else None, m=A - PR, h2=P - PR + A, r=r, B=B, Bprime=Eu + Ek + Eround, Eu=Eu, Ek=Ek,
+    file E (Interfaces/FiniteInstanceIdentity.lean:219)     T.value + Q.value = W.wInf - W.wPrimes
+    §38`s sides (THE_IDENTITY_CHAIN.md:3086,3088)                 **LEFT**, per the executed **RULE M-1** (b239): `T.value := Tr_full + E2 + Δ₋`, plus `Q.value := Θ_q` | inserting one to help the columns meet is the named crime.** **RIGHT**: the adopted `A − PR` at the
+    h2_sign (SIDE-explicit-formula v0.2, H2Sign.lean:29-30) def h2_sign : Prop := ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+    §37`s mapping (THE_IDENTITY_CHAIN.md:3041)               > convention, THE SIGN OF `A − PR`.** ### **It discharges nothing — *"None of this discharges h2"* —
+  
+  ### READ: F = P − PR + A (the bench) ; file E`s right side W.wInf − W.wPrimes, adopted as A − PR at the atlas`s convention (§38) ;
+  ### h2_sign = 0 ≤ P − PR + A over every classK k. So F and file E`s adopted right side share A − PR and differ by the pole term P;
+  ### F at a ladder window is h2_sign`s quantity at one test function. VERDICT (N4) : HOLDS
+
+### b550_tag.json : {"remote_peeled": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "remote_tag": "416ec76a14fe9c3f0788aeac876069020d11ac22", "remote_main": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "local_peeled": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "before_head": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "before_clean": true, "after_head": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "after_clean": true, "live": {"tag": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "head": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23", "clean": true, "annotated": "tag"}, "n1": true}
+### b550_pin_lines.json : {"residue": {"note": "already written by the first run of this command, which then refused its FINDINGS append"}, "residue_line": 247, "findings": {"file": "FINDINGS.md", "before": 700635, "added": 357, "prefix": true}, "findings_line": 5679}
+### b550_order_lines.json : {"write": {"file": "FINDINGS.md", "before": 700992, "added": 1145, "prefix": true}, "l1": 5681, "l2": 5683, "widths": {"3": 24.0, "5": 25.0, "7": 26.0, "9": 26.0, "11": 42.0}, "tails": {"3": {"VERIFIED-EST-TAIL": 51}, "5": {"VERIFIED-EST-TAIL": 51}}}
+### b550_trails.json : {"power": {"note": "already written by the first run of this command, which then refused its second append"}, "power_line": 11195, "bridge": {"file": "OPEN_TRAILS.md", "before": 1334441, "added": 1526, "prefix": true}, "bridge_line": 11203, "h3": "Hypothesis H3, fixed before any reading: at Q0, for each b in {4, 5, 6}, F(n·b, n) is negative from some n on and its magnitude grows with n across the orders banked; at ξ, F(n·b, n) is nonnegative at every such cell above its floor. H3 is refuted if any Q0 diagonal returns to positive after going negative, or if any ξ diagonal cell is negative above its floor.", "price_lines": ["### THE RE-PARAMETRIZED SWEEP, PRICED (not run, not filed):", "  (P1) a window class for the route`s family: φ_n = the n-th convolution power of a fixed base (an indicator, or the base the", "       route`s PowerWindow fixes), its transform in closed form (sinc(βz)^n), and the cos-modulation and γ₀-factor kept;", "  (P2) its majorant and closed-form zero-side tail -- b521`s constants divide by the plateau half-width W, which this family", "       lacks, so the tail constants are re-derived, not imported;", "  (P3) a fixture at one cell (closed form against quadrature) before any sweep;", "  (P4) the sweep. b548`s banked per-cell seconds: Q0 5202 s, ξ 4085 s over 255 cells each (total 9287 s). A sweep over the same", "       51 supports and five orders costs about that, since a cell`s cost is set by its support (the prime channel`s range) and", "       its order; the ruling`s diagonal alone, 14 cells per object (b ∈ {4, 5, 6}, n·b <= 60), costs about Q0 332 s and ξ 262 s", "       at b548`s cost for the same (n, a). (P1)-(P3) are tool work of about one act; (P4) runs in foreground chunks."], "premise_lines": ["### THE FORM DIFFERS, and where: the Weil premise of residue_irreducible is `inequalityToPositivity` (with the pairing`s own", "### lv requires ['require mathlib from git'] ; lv toolchain leanprover/lean4:v4.29.1, Mathlib 5e932f9 ; explicit-formula toolchain leanprover/lean4:v4.33.0-rc2, Mathlib 51e6992 -- lv does not import explicit-formula."]}
+### b550_findings.json : {"reading": {"file": "FINDINGS.md", "before": 702137, "added": 1565, "prefix": true}, "reading_line": 5685, "act": {"file": "FINDINGS.md", "before": 703702, "added": 2018, "prefix": true}, "act_line": 5695}
+### b550_identity_block.json : {"file": "phase2/method/THE_IDENTITY_CHAIN.md", "before": 217283, "added": 4238, "prefix": true, "heading_line": 3170}
+### THE BRANCHES : see data/b550_branches.txt
+====================================================================================================================================

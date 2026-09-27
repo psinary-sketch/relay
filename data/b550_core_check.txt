@@ -1,0 +1,193 @@
+HEAD 2e43315ab4238c9644395fafeb22ce6d09a3dca9 dirty=[] (re-run: the first run missed alternates_both' -- a regex on the print line stopped at its apostrophe)
+AlternationShadow.flip_alternates_at_0 : AlternationShadow.flip 1 = -AlternationShadow.flip 0
+AlternationShadow.const1_fails_at_0 : AlternationShadow.const1 1 ≠ -AlternationShadow.const1 0
+AlternationShadow.signs_distinct : 1 ≠ -1
+AlternationShadow.alternates_neg : ∀ (s : Nat → Int),
+  AlternationShadow.Alternates s → AlternationShadow.Alternates fun i => -s i
+AlternationShadow.alternates_both : ∀ (s : Nat → Int),
+  AlternationShadow.Alternates s → s 0 = 1 → (∃ i, s i = 1) ∧ ∃ i, s i = -1
+AlternationShadow.alternates_both' : ∀ (s : Nat → Int),
+  AlternationShadow.Alternates s → s 0 = -1 → (∃ i, s i = 1) ∧ ∃ i, s i = -1
+AlternationShadow.both_values_survive_global_sign : ∀ (s : Nat → Int),
+  AlternationShadow.Alternates s →
+    s 0 = 1 ∨ s 0 = -1 → ((∃ i, s i = 1) ∧ ∃ i, s i = -1) ∧ (∃ i, (fun j => -s j) i = 1) ∧ ∃ i, (fun j => -s j) i = -1
+InvolutionScalarShadow.both_signs_satisfy : 1 * 1 = 1 ∧ -1 * -1 = 1
+InvolutionScalarShadow.others_fail : 0 * 0 ≠ 1 ∧ 2 * 2 ≠ 1 ∧ -2 * -2 ≠ 1
+InvolutionScalarShadow.signs_distinct : 1 ≠ -1
+InvolutionScalarShadow.nat_sq_one : ∀ (m : Nat), m * m = 1 → m = 1
+InvolutionScalarShadow.int_sq_one : ∀ (c : Int), c * c = 1 → c = 1 ∨ c = -1
+InvolutionScalarShadow.int_sq_one_of : ∀ (c : Int), c = 1 ∨ c = -1 → c * c = 1
+SectorNonvanishingShadow.arrival_rhs_zero : 2 * 0 = 0
+SectorNonvanishingShadow.arrival_dim_zero : ∀ (d : Nat), 4 * d = 2 * 0 → d = 0
+SectorNonvanishingShadow.arrival_shape : 0 + 0 + (0 + 1) + 0 = 1
+SectorNonvanishingShadow.banked_place2_cells : 4 * 0 = 2 * 0 ∧ 4 * 2 = 4 * 2 ∧ 4 * 12 = 8 * 6 ∧ 4 * 56 = 16 * 14
+SectorNonvanishingShadow.banked_odd_cells : 4 * 1 = 2 * 2 ∧ 4 * 4 = 4 * 4 ∧ 4 * 16 = 8 * 8 ∧ 4 * 169 = 26 * 26
+SectorNonvanishingShadow.pos_of_four_mul_pos : ∀ (d : Nat), 0 < 4 * d → 0 < d
+SectorNonvanishingShadow.odd_rhs_pos : ∀ (m : Nat), 0 < (2 * m + 2) * (2 * m + 2)
+SectorNonvanishingShadow.place2_rhs_pos : ∀ (t : Nat), 0 < (4 * t + 4) * (4 * t + 2)
+SectorNonvanishingShadow.odd_sector_pos : ∀ (m d : Nat), 4 * d = (2 * m + 2) * (2 * m + 2) → 0 < d
+SectorNonvanishingShadow.place2_sector_pos : ∀ (t d : Nat), 4 * d = (4 * t + 4) * (4 * t + 2) → 0 < d
+SignTransferShadow.control_pos : 0 < 1 * 1
+SignTransferShadow.control_neg : ¬0 < 1 * -1
+SignTransferShadow.signs_distinct : 1 ≠ -1
+@SignTransferShadow.eq_of_mul_pos : ∀ {x y : Int},
+  SignTransferShadow.IsSign x → SignTransferShadow.IsSign y → 0 < x * y → x = y
+SignTransferShadow.transfer : ∀ (a b : Nat → Int),
+  (∀ (k : Nat), SignTransferShadow.IsSign (a k)) →
+    (∀ (k : Nat), SignTransferShadow.IsSign (b k)) →
+      (∀ (k : Nat), 0 < a k * b k) → SignTransferShadow.Alternates b → SignTransferShadow.Alternates a
+SignTransferShadow.transfer_symm : ∀ (a b : Nat → Int),
+  (∀ (k : Nat), SignTransferShadow.IsSign (a k)) →
+    (∀ (k : Nat), SignTransferShadow.IsSign (b k)) →
+      (∀ (k : Nat), 0 < a k * b k) → SignTransferShadow.Alternates a → SignTransferShadow.Alternates b
+@SignTransferShadow.neg_is_sign : ∀ {x : Int}, SignTransferShadow.IsSign x → SignTransferShadow.IsSign (-x)
+@SignTransferShadow.sq_pos : ∀ {x : Int}, SignTransferShadow.IsSign x → 0 < x * x
+SignTransferShadow.flip_alternates : SignTransferShadow.Alternates SignTransferShadow.flip
+SignTransferShadow.flip_is_sign : ∀ (k : Nat), SignTransferShadow.IsSign (SignTransferShadow.flip k)
+SignTransferShadow.flip_pos : ∀ (k : Nat), 0 < SignTransferShadow.flip k * SignTransferShadow.flip k
+SignTransferShadow.transfer_nonvacuous : SignTransferShadow.Alternates SignTransferShadow.flip
+LadderOrientationShadow.mul_one : ∀ (x : LadderOrientationShadow.U4),
+  LadderOrientationShadow.mul x LadderOrientationShadow.U4.one = x
+LadderOrientationShadow.mul_comm : ∀ (x y : LadderOrientationShadow.U4),
+  LadderOrientationShadow.mul x y = LadderOrientationShadow.mul y x
+LadderOrientationShadow.mul_left_comm : ∀ (x y z : LadderOrientationShadow.U4),
+  LadderOrientationShadow.mul x (LadderOrientationShadow.mul y z) =
+    LadderOrientationShadow.mul y (LadderOrientationShadow.mul x z)
+LadderOrientationShadow.u4_distinct_one_m1 : LadderOrientationShadow.U4.one ≠ LadderOrientationShadow.U4.m1
+LadderOrientationShadow.u4_distinct_i_mi : LadderOrientationShadow.U4.i ≠ LadderOrientationShadow.U4.mi
+LadderOrientationShadow.control_i_not_mi : LadderOrientationShadow.mul LadderOrientationShadow.U4.i
+    LadderOrientationShadow.U4.one ≠
+  LadderOrientationShadow.mul LadderOrientationShadow.U4.mi LadderOrientationShadow.U4.one
+LadderOrientationShadow.ladder_form : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.StepsI c →
+    ∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.ipow k)
+LadderOrientationShadow.ladder_form_mi : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.StepsMI c →
+    ∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.impow k)
+LadderOrientationShadow.alt2_of_stepsI : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.StepsI c → LadderOrientationShadow.Alt2 c
+LadderOrientationShadow.alt2_of_stepsMI : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.StepsMI c → LadderOrientationShadow.Alt2 c
+LadderOrientationShadow.bad_alt2 : LadderOrientationShadow.Alt2 LadderOrientationShadow.bad
+LadderOrientationShadow.bad_not_stepsI : ¬LadderOrientationShadow.StepsI LadderOrientationShadow.bad
+LadderOrientationShadow.alt2_does_not_imply_stepsI : ∃ c,
+  LadderOrientationShadow.Alt2 c ∧ ¬LadderOrientationShadow.StepsI c
+LadderOrientationShadow.stepsI_of_alt2 : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.Alt2 c →
+    c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.i (c 0) → LadderOrientationShadow.StepsI c
+LadderOrientationShadow.stepsMI_of_alt2 : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.Alt2 c →
+    c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.mi (c 0) → LadderOrientationShadow.StepsMI c
+LadderOrientationShadow.ladder_up_to_orientation : ∀ (c : Nat → LadderOrientationShadow.U4),
+  LadderOrientationShadow.Alt2 c →
+    c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.i (c 0) ∨
+        c 1 = LadderOrientationShadow.mul LadderOrientationShadow.U4.mi (c 0) →
+      (∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.ipow k)) ∨
+        ∀ (k : Nat), c k = LadderOrientationShadow.mul (c 0) (LadderOrientationShadow.impow k)
+LadderOrientationShadow.ipow_stepsI : LadderOrientationShadow.StepsI LadderOrientationShadow.ipow
+LadderOrientationShadow.ipow_alt2 : LadderOrientationShadow.Alt2 LadderOrientationShadow.ipow
+LadderOrientationShadow.bad_first_step_is_mi : LadderOrientationShadow.bad 1 =
+  LadderOrientationShadow.mul LadderOrientationShadow.U4.mi (LadderOrientationShadow.bad 0)
+LadderOrientationShadow.ipow_first_step_is_i : LadderOrientationShadow.ipow 1 =
+  LadderOrientationShadow.mul LadderOrientationShadow.U4.i (LadderOrientationShadow.ipow 0)
+LadderOrientationShadow.orientations_differ : LadderOrientationShadow.ipow 1 ≠ LadderOrientationShadow.impow 1
+LadderOrientationShadow.measured_rank1 : LadderOrientationShadow.measured 1 = LadderOrientationShadow.U4.i
+LadderOrientationShadow.measured_rank2 : LadderOrientationShadow.measured 2 = LadderOrientationShadow.U4.one
+LadderOrientationShadow.measured_stepsMI : LadderOrientationShadow.StepsMI LadderOrientationShadow.measured
+LadderOrientationShadow.measured_alt2 : LadderOrientationShadow.Alt2 LadderOrientationShadow.measured
+LadderOrientationShadow.measured_is_ladder : ∀ (k : Nat),
+  LadderOrientationShadow.measured k =
+    LadderOrientationShadow.mul (LadderOrientationShadow.measured 0) (LadderOrientationShadow.impow k)
+LadderOrientationShadow.measured_not_stepsI : ¬LadderOrientationShadow.StepsI LadderOrientationShadow.measured
+@AggregationCircularityShadow.identity_iff_forced : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) (t q x : α),
+  AggregationCircularityShadow.identity G t q x ↔ q = AggregationCircularityShadow.forced G t x
+@AggregationCircularityShadow.unique : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) (t q1 q2 x : α),
+  AggregationCircularityShadow.identity G t q1 x → AggregationCircularityShadow.identity G t q2 x → q1 = q2
+@AggregationCircularityShadow.cweil_determines : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) {Cell : Type}
+  (t x : Cell → α) (agg : AggregationCircularityShadow.Aggregation Cell α),
+  AggregationCircularityShadow.SatisfiesCWeil G agg t x ↔
+    ∀ (c : Cell), agg c = AggregationCircularityShadow.forced G (t c) (x c)
+@AggregationCircularityShadow.cweil_inhabited : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α) {Cell : Type}
+  (t x : Cell → α),
+  AggregationCircularityShadow.SatisfiesCWeil G (fun c => AggregationCircularityShadow.forced G (t c) (x c)) t x
+@AggregationCircularityShadow.cweil_is_the_assumption : ∀ {α : Type} (G : AggregationCircularityShadow.Grp α)
+  {Cell : Type} (t x : Cell → α) (agg : AggregationCircularityShadow.Aggregation Cell α),
+  AggregationCircularityShadow.SatisfiesCWeil G agg t x →
+    ∀ (c : Cell), AggregationCircularityShadow.identity G (t c) (agg c) (x c)
+@AggregationCircularityShadow.underdetermined_without_cweil : ∀ {α Cell : Type} (c0 : Cell) (u v : α),
+  u ≠ v → ∃ a b, a ≠ b
+AggregationCircularityShadow.boolGrp : AggregationCircularityShadow.Grp Bool
+AggregationCircularityShadow.boolGrp_has_two_elements : false ≠ true
+@AggregationCircularityShadow.underdetermined_bool : ∀ {Cell : Type} (c0 : Cell), ∃ a b, a ≠ b
+StatedChoiceShadow.arrival_depth_is_dead : StatedChoiceShadow.d1 2 1 = 0
+StatedChoiceShadow.level_one_fails_at_two : ¬0 < StatedChoiceShadow.d1 2 1
+StatedChoiceShadow.chosen_level_positive : ∀ (p : Nat),
+  p ∈ StatedChoiceShadow.stated → 0 < StatedChoiceShadow.d1 p (StatedChoiceShadow.level p)
+StatedChoiceShadow.chosen_level_is_lowest : (∀ (p : Nat),
+    p ∈ StatedChoiceShadow.stated → p ≠ 2 → 0 < StatedChoiceShadow.d1 p 1) ∧
+  StatedChoiceShadow.d1 2 1 = 0
+StatedChoiceShadow.deviation_can_be_nonzero : StatedChoiceShadow.devSum [1, 2, 1] = 1
+StatedChoiceShadow.c0_deviation_is_zero : StatedChoiceShadow.devSum (List.map (fun x => 1) StatedChoiceShadow.stated) =
+  0
+StatedChoiceShadow.level_is_a_function : ∀ (p a b : Nat),
+  a = StatedChoiceShadow.level p → b = StatedChoiceShadow.level p → a = b
+TraceFactorizationShadow.inactive_factor_is_one : TraceFactorizationShadow.factor TraceFactorizationShadow.active
+    TraceFactorizationShadow.fac 5 =
+  1
+TraceFactorizationShadow.active_factor_is_not_forced : TraceFactorizationShadow.factor TraceFactorizationShadow.active
+    TraceFactorizationShadow.fac 2 =
+  3
+TraceFactorizationShadow.product_is_over_the_active_set : TraceFactorizationShadow.stateProd
+    TraceFactorizationShadow.places TraceFactorizationShadow.active TraceFactorizationShadow.fac =
+  15
+TraceFactorizationShadow.naive_product_differs : TraceFactorizationShadow.naiveProd TraceFactorizationShadow.places
+    TraceFactorizationShadow.fac ≠
+  TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active
+    TraceFactorizationShadow.fac
+TraceFactorizationShadow.product_positive_here : 0 <
+  TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active
+    TraceFactorizationShadow.fac
+TraceFactorizationShadow.zero_factor_kills_positivity : ¬0 <
+    TraceFactorizationShadow.stateProd TraceFactorizationShadow.places TraceFactorizationShadow.active fun v =>
+      if v = 2 then 0 else 5
+TraceFactorizationShadow.state_is_sign_blind : ∀ (b : Int),
+  TraceFactorizationShadow.stateOf 1 b = TraceFactorizationShadow.stateOf (-1) b
+TraceFactorizationShadow.state_sees_non_unit_scalars : TraceFactorizationShadow.stateOf 2 3 ≠
+  TraceFactorizationShadow.stateOf 1 3
+FoldedMirrorShadow.even_signal_is_palindromic : List.reverse FoldedMirrorShadow.wEven = FoldedMirrorShadow.wEven
+FoldedMirrorShadow.odd_signal_is_not_palindromic : (List.reverse FoldedMirrorShadow.wOdd == FoldedMirrorShadow.wOdd) =
+  false
+FoldedMirrorShadow.conv_even_of_even : List.reverse
+    (FoldedMirrorShadow.conv FoldedMirrorShadow.wEven FoldedMirrorShadow.wEven) =
+  FoldedMirrorShadow.conv FoldedMirrorShadow.wEven FoldedMirrorShadow.wEven
+FoldedMirrorShadow.conv_not_even_witness : (List.reverse
+      (FoldedMirrorShadow.conv FoldedMirrorShadow.wOdd FoldedMirrorShadow.wOdd) ==
+    FoldedMirrorShadow.conv FoldedMirrorShadow.wOdd FoldedMirrorShadow.wOdd) =
+  false
+FoldedMirrorShadow.autocorr_even_of_even : List.reverse (FoldedMirrorShadow.corr FoldedMirrorShadow.wEven) =
+  FoldedMirrorShadow.corr FoldedMirrorShadow.wEven
+FoldedMirrorShadow.autocorr_even_even_when_signal_is_not : List.reverse
+    (FoldedMirrorShadow.corr FoldedMirrorShadow.wOdd) =
+  FoldedMirrorShadow.corr FoldedMirrorShadow.wOdd
+FoldedMirrorShadow.conv_eq_corr_of_even : FoldedMirrorShadow.conv FoldedMirrorShadow.wEven FoldedMirrorShadow.wEven =
+  FoldedMirrorShadow.corr FoldedMirrorShadow.wEven
+FoldedMirrorShadow.conv_ne_corr_witness : (FoldedMirrorShadow.conv FoldedMirrorShadow.wOdd FoldedMirrorShadow.wOdd ==
+    FoldedMirrorShadow.corr FoldedMirrorShadow.wOdd) =
+  false
+FoldedMirrorShadow.two_ended_eq_two_times_one_sided : ∀ (T : Int → Nat),
+  FoldedMirrorShadow.IsEvenFn T →
+    ∀ (S : List Int),
+      FoldedMirrorShadow.twoEnded T S = FoldedMirrorShadow.oneSided T S + FoldedMirrorShadow.oneSided T S
+FoldedMirrorShadow.fBad_is_not_even : (FoldedMirrorShadow.fBad (-1) == FoldedMirrorShadow.fBad 1) = false
+FoldedMirrorShadow.fGood_is_even_at_one : FoldedMirrorShadow.fGood (-1) = FoldedMirrorShadow.fGood 1
+FoldedMirrorShadow.fold_fails_for_fBad : (FoldedMirrorShadow.twoEnded FoldedMirrorShadow.fBad [1] ==
+    FoldedMirrorShadow.oneSided FoldedMirrorShadow.fBad [1] + FoldedMirrorShadow.oneSided FoldedMirrorShadow.fBad [1]) =
+  false
+FoldedMirrorShadow.fold_holds_for_fGood : FoldedMirrorShadow.twoEnded FoldedMirrorShadow.fGood [1] =
+  FoldedMirrorShadow.oneSided FoldedMirrorShadow.fGood [1] + FoldedMirrorShadow.oneSided FoldedMirrorShadow.fGood [1]
+FoldedMirrorShadow.fold_needs_evenness : ∃ T S,
+  (FoldedMirrorShadow.twoEnded T S == FoldedMirrorShadow.oneSided T S + FoldedMirrorShadow.oneSided T S) = false
+B270.absorb_2_2 : B270.absorbs 2 2 = true
+B298.boundary_value_at_cell_2_2_on_member_radii_neg1_0 : B298.inMember 2 2 (-1) 0 B298.w = true ∧
+  B298.inMember 2 2 0 0 B298.w = false ∧ B298.classSize 2 2 = 3 ∧ B298.pairTimesClass 2 2 B298.w = 4
+exit 0
