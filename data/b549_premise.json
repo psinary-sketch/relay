@@ -1,0 +1,47 @@
+{
+ "statement": "residue_irreducible : ∀ {lam_A lam_Z lam : ℕ → ℝ} {low : Finset SIDELvConservation.PartialPositivity.NontrivialZero} {tail : ℕ → ℝ} {T : ℝ} (hZero : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), (∀ (n : ℕ), lam n = lam_A n + lam_Z n) → SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) → (Register4_positivity lam → RiemannHypothesis) → ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum ∧ PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T) ∧ ∀ (ledger : ℕ → ℝ), ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis",
+ "premises": [
+  [
+   "hZero",
+   "NontrivialZeroExistsInStrip"
+  ],
+  [
+   "hdecomp",
+   "∀ n, lam n = lam_A n + lam_Z n"
+  ],
+  [
+   "hV",
+   "VerifiedZerosTo T"
+  ],
+  [
+   "hEF",
+   "ExplicitFormulaDecomp lam low tail T"
+  ],
+  [
+   "hTail",
+   "TailBoundPremise low tail T"
+  ],
+  [
+   "inequalityToPositivity",
+   "Register4_channelInequality lam_A lam_Z → Register4_positivity lam"
+  ],
+  [
+   "liCriterion",
+   "Register4_positivity lam → RiemannHypothesis"
+  ]
+ ],
+ "match": [],
+ "requires": [
+  "require mathlib from git"
+ ],
+ "manifests": {
+  "SIDE-lv-conservation": {
+   "mathlib": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+   "toolchain": "leanprover/lean4:v4.29.1"
+  },
+  "SIDE-explicit-formula": {
+   "mathlib": "51e6992efd06126df61a496bebf8f49482a4e129",
+   "toolchain": "leanprover/lean4:v4.33.0-rc2"
+  }
+ }
+}

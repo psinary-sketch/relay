@@ -1,0 +1,518 @@
+{
+ "rows": [
+  {
+   "result": "The interface (§6)",
+   "terminals": [
+    "zeroActingPairing_to_RH",
+    "distinctFromInput_discharged"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [
+    "distinctFromInput_discharged"
+   ],
+   "tiers": [
+    "T1-lit"
+   ]
+  },
+  {
+   "result": "DH-exclusion — clause (3) load-bearing (§2)",
+   "terminals": [
+    "signNeutral_not_eulerConsuming",
+    "zeroActingPairing_ledger_not_signNeutral",
+    "dhModelLedger_no_pairing"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  },
+  {
+   "result": "The edge lemma (§2)",
+   "terminals": [
+    "edge_drift_nonneg",
+    "edge_drift_neg_for_signNeutral"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  },
+  {
+   "result": "The 𝔽_q anatomy (§6)",
+   "terminals": [
+    "transfer_obstruction_is_the_two_geometric_clauses",
+    "exactly_two_clauses_obstruct"
+   ],
+   "stated": "axiom-free",
+   "fresh_union": "axiom-free",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  },
+  {
+   "result": "The finite-range inhabitant (§6)",
+   "terminals": [
+    "certifiedPartialInhabitant",
+    "coverage_boundary_exact",
+    "partial_mono"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T1-lit",
+    "T2"
+   ]
+  },
+  {
+   "result": "Positivity is free (§6)",
+   "terminals": [
+    "positivity_free_obstruction_is_zeroRealization"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T1-lit"
+   ]
+  },
+  {
+   "result": "The realization ledger (§6)",
+   "terminals": [
+    "no_asset_realizes_zeroSpectrum",
+    "location_owned_spectrum_not"
+   ],
+   "stated": "axiom-free",
+   "fresh_union": "axiom-free",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  },
+  {
+   "result": "The residue, compiled (§7)",
+   "terminals": [
+    "residue_irreducible"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T1-lit"
+   ]
+  },
+  {
+   "result": "The X-realization spec (§6)",
+   "terminals": [
+    "XRealization",
+    "xRealization_to_zeroActingPairing",
+    "xRealization_to_RH"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T1-lit",
+    "T2"
+   ]
+  },
+  {
+   "result": "The family spec + residual (§8)",
+   "terminals": [
+    "SimplicityFamilySpec",
+    "simplicityFamily_generic_not_universal"
+   ],
+   "stated": "axiom-free",
+   "fresh_union": "axiom-free",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  },
+  {
+   "result": "The barrier extension (§7)",
+   "terminals": [
+    "detection_threshold_mono"
+   ],
+   "stated": "std3",
+   "fresh_union": "std3",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  },
+  {
+   "result": "The escape-kind invariant (§8)",
+   "terminals": [
+    "escape_kind_discriminates",
+    "horizon_kind_shared"
+   ],
+   "stated": "axiom-free",
+   "fresh_union": "axiom-free",
+   "disposition": "CARRIED",
+   "smaller": [],
+   "tiers": [
+    "T2"
+   ]
+  }
+ ],
+ "terminals": [
+  {
+   "terminal": "zeroActingPairing_to_RH",
+   "row": "The interface (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:69",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 dirty=[] start 20:22:24 @zeroActingPairing_to_RH : ∀ {lam_A lam_Z ledger lam : ℕ → ℝ}, (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) → (Register4_positivity lam → RiemannHypothesis) → ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis",
+   "tier": "T1-lit",
+   "reason": "concludes Mathlib`s `RiemannHypothesis` through the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled"
+  },
+  {
+   "terminal": "distinctFromInput_discharged",
+   "row": "The interface (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:81",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "distinctFromInput_discharged : ∀ (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum",
+   "tier": "T1-lit",
+   "reason": "rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled"
+  },
+  {
+   "terminal": "signNeutral_not_eulerConsuming",
+   "row": "DH-exclusion — clause (3) load-bearing (§2)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:104",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "@signNeutral_not_eulerConsuming : ∀ {ledger : ℕ → ℝ} {p : ℕ}, SignNeutralLedger ledger p → ¬∀ (m : ℕ), 0 ≤ ledger m",
+   "tier": "T2",
+   "reason": "arithmetic on an abstract ledger ℕ → ℝ; no premise about zeta"
+  },
+  {
+   "terminal": "zeroActingPairing_ledger_not_signNeutral",
+   "row": "DH-exclusion — clause (3) load-bearing (§2)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:113",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "@zeroActingPairing_ledger_not_signNeutral : ∀ {lam_A lam_Z ledger : ℕ → ℝ} {p : ℕ}, ZeroActingPairing lam_A lam_Z ledger → ¬SignNeutralLedger ledger p",
+   "tier": "T2",
+   "reason": "about the typed specification and an abstract ledger; no premise about zeta"
+  },
+  {
+   "terminal": "dhModelLedger_no_pairing",
+   "row": "DH-exclusion — clause (3) load-bearing (§2)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:137",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "@dhModelLedger_no_pairing : ∀ {lam_A lam_Z : ℕ → ℝ}, ZeroActingPairing lam_A lam_Z dhModelLedger → False",
+   "tier": "T2",
+   "reason": "about a model ledger and the typed specification; no premise about zeta"
+  },
+  {
+   "terminal": "edge_drift_nonneg",
+   "row": "The edge lemma (§2)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:162",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "@edge_drift_nonneg : ∀ {ledger : ℕ → ℝ} {w : ℕ → ℕ → ℝ} {N n : ℕ}, (∀ (m : ℕ), 0 ≤ ledger m) → (∀ (m : ℕ), 0 ≤ w m n) → 0 ≤ driftSum ledger w N n",
+   "tier": "T2",
+   "reason": "a sum of non-negative terms over abstract sequences"
+  },
+  {
+   "terminal": "edge_drift_neg_for_signNeutral",
+   "row": "The edge lemma (§2)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:172",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "edge_drift_neg_for_signNeutral : ∃ w N n, (∀ (m : ℕ), 0 ≤ w m n) ∧ driftSum dhModelLedger w N n < 0",
+   "tier": "T2",
+   "reason": "an explicit witness over the model ledger"
+  },
+  {
+   "terminal": "transfer_obstruction_is_the_two_geometric_clauses",
+   "row": "The 𝔽_q anatomy (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:245",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "transfer_obstruction_is_the_two_geometric_clauses : transfersToRationals PairingClause.zeroActing = false ∧ transfersToRationals PairingClause.yieldsInequality = false ∧ transfersToRationals PairingClause.eulerConsuming = true ∧ transfersToRationals PairingClause.distinctFromInput = true",
+   "tier": "T2",
+   "reason": "a model-level enumeration (a Bool table on four clauses)"
+  },
+  {
+   "terminal": "exactly_two_clauses_obstruct",
+   "row": "The 𝔽_q anatomy (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:253",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "exactly_two_clauses_obstruct : (List.filter (fun c => !transfersToRationals c) [PairingClause.zeroActing, PairingClause.yieldsInequality, PairingClause.eulerConsuming, PairingClause.distinctFromInput]).length = 2",
+   "tier": "T2",
+   "reason": "a count over the same model-level table"
+  },
+  {
+   "terminal": "certifiedPartialInhabitant",
+   "row": "The finite-range inhabitant (§6)",
+   "loc": "SIDELvConservation/ZeroActingPartial.lean:67",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "certifiedPartialInhabitant : ∀ (T : ℝ) (lam_A lam_Z lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), (∀ (n : ℕ), lam n = lam_A n + lam_Z n) → SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T)",
+   "tier": "T1-lit",
+   "reason": "rests on `VerifiedZerosTo`, `ExplicitFormulaDecomp` and `TailBoundPremise`, named premises stating literature and numerical facts not compiled"
+  },
+  {
+   "terminal": "coverage_boundary_exact",
+   "row": "The finite-range inhabitant (§6)",
+   "loc": "SIDELvConservation/ZeroActingPartial.lean:80",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "coverage_boundary_exact : ∀ (T : ℝ), SIDELvConservation.PartialPositivity.N₀ T = ⌊2 * T ^ 2⌋₊",
+   "tier": "T2",
+   "reason": "`N₀ T = ⌊2T²⌋₊` by `rfl`: arithmetic; the reading is carried by the identifier"
+  },
+  {
+   "terminal": "partial_mono",
+   "row": "The finite-range inhabitant (§6)",
+   "loc": "SIDELvConservation/ZeroActingPartial.lean:40",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "@partial_mono : ∀ {lam_A lam_Z : ℕ → ℝ} {N M : ℕ}, M ≤ N → PartialChannelInequality lam_A lam_Z N → PartialChannelInequality lam_A lam_Z M",
+   "tier": "T2",
+   "reason": "monotonicity of a finite-range Prop over abstract sequences"
+  },
+  {
+   "terminal": "positivity_free_obstruction_is_zeroRealization",
+   "row": "Positivity is free (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:270",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "positivity_free_obstruction_is_zeroRealization : ∀ (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), (∃ pairing T, (∀ (i j : ℕ), pairing i j = pairing j i) ∧ (∀ (i : ℕ), 0 < pairing i i) ∧ (∀ (i j : ℕ), pairing i i * T i j = pairing j j * T j i) ∧ ∀ (n : ℕ), T n n = SIDELvConservation.RegisterPentagon.certifiedInputSpectrum n) ∧ ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum",
+   "tier": "T1-lit",
+   "reason": "rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled"
+  },
+  {
+   "terminal": "no_asset_realizes_zeroSpectrum",
+   "row": "The realization ledger (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:330",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "no_asset_realizes_zeroSpectrum : ∀ (a : RealizationAsset), assetRealizes a ≠ RealizesWhat.zeroSpectrum",
+   "tier": "T2",
+   "reason": "a model-level enumeration of the programme`s assets"
+  },
+  {
+   "terminal": "location_owned_spectrum_not",
+   "row": "The realization ledger (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:336",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "location_owned_spectrum_not : assetRealizes RealizationAsset.berryKeatingIndicial = RealizesWhat.location ∧ ∀ (a : RealizationAsset), assetRealizes a ≠ RealizesWhat.zeroSpectrum",
+   "tier": "T2",
+   "reason": "the same enumeration"
+  },
+  {
+   "terminal": "residue_irreducible",
+   "row": "The residue, compiled (§7)",
+   "loc": "SIDELvConservation/ZeroActingPartial.lean:130",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "residue_irreducible : ∀ {lam_A lam_Z lam : ℕ → ℝ} {low : Finset SIDELvConservation.PartialPositivity.NontrivialZero} {tail : ℕ → ℝ} {T : ℝ} (hZero : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), (∀ (n : ℕ), lam n = lam_A n + lam_Z n) → SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) → (Register4_positivity lam → RiemannHypothesis) → ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum ∧ PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T) ∧ ∀ (ledger : ℕ → ℝ), ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis",
+   "tier": "T1-lit",
+   "reason": "rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled, on `VerifiedZerosTo`, `ExplicitFormulaDecomp`, `TailBoundPremise`, and on the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled"
+  },
+  {
+   "terminal": "XRealization",
+   "row": "The X-realization spec (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:357",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "XRealization : (ℕ → ℝ) → (ℕ → ℝ) → (ℕ → ℝ) → Prop",
+   "tier": "T2",
+   "reason": "a typed specification (STRUCTURE), no instance"
+  },
+  {
+   "terminal": "xRealization_to_zeroActingPairing",
+   "row": "The X-realization spec (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:369",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "xRealization_to_zeroActingPairing : ∀ {lam_A lam_Z ledger : ℕ → ℝ} (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), XRealization lam_A lam_Z ledger → ZeroActingPairing lam_A lam_Z ledger",
+   "tier": "T1-lit",
+   "reason": "rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled"
+  },
+  {
+   "terminal": "xRealization_to_RH",
+   "row": "The X-realization spec (§6)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:379",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "xRealization_to_RH : ∀ {lam_A lam_Z ledger lam : ℕ → ℝ} (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) → (Register4_positivity lam → RiemannHypothesis) → XRealization lam_A lam_Z ledger → RiemannHypothesis",
+   "tier": "T1-lit",
+   "reason": "rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled and on the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled"
+  },
+  {
+   "terminal": "SimplicityFamilySpec",
+   "row": "The family spec + residual (§8)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:394",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "SimplicityFamilySpec : (ℕ → Prop) → Prop",
+   "tier": "T2",
+   "reason": "a typed specification (STRUCTURE), no instance"
+  },
+  {
+   "terminal": "simplicityFamily_generic_not_universal",
+   "row": "The family spec + residual (§8)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:404",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "simplicityFamily_generic_not_universal : ∃ simpleAt, SimplicityFamilySpec simpleAt ∧ ¬∀ (n : ℕ), simpleAt n",
+   "tier": "T2",
+   "reason": "an explicit witness over an abstract predicate on ℕ"
+  },
+  {
+   "terminal": "detection_threshold_mono",
+   "row": "The barrier extension (§7)",
+   "loc": "SIDELvConservation/ZeroActingPartial.lean:105",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "std3",
+   "statement": "@detection_threshold_mono : ∀ {T₁ T₂ : ℝ}, 0 ≤ T₁ → T₁ ≤ T₂ → SIDELvConservation.PartialPositivity.N₀ T₁ ≤ SIDELvConservation.PartialPositivity.N₀ T₂",
+   "tier": "T2",
+   "reason": "monotonicity of `⌊2T²⌋₊` in T: arithmetic; the reading is carried by the identifier"
+  },
+  {
+   "terminal": "escape_kind_discriminates",
+   "row": "The escape-kind invariant (§8)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:436",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "escape_kind_discriminates : wallEscapeKind Wall.signPositivity ≠ wallEscapeKind Wall.derivativeTransversality",
+   "tier": "T2",
+   "reason": "a model-level enumeration (two wall kinds)"
+  },
+  {
+   "terminal": "horizon_kind_shared",
+   "row": "The escape-kind invariant (§8)",
+   "loc": "SIDELvConservation/ZeroActingPairing.lean:441",
+   "main": 1,
+   "tip": 1,
+   "tag": 0,
+   "profile": "axiom-free",
+   "statement": "horizon_kind_shared : wallEscapeKind Wall.signPositivity = wallEscapeKind Wall.detectionThreshold",
+   "tier": "T2",
+   "reason": "the same enumeration"
+  }
+ ],
+ "tier_counts": {
+  "T0": 0,
+  "T1-open": 0,
+  "T1-lit": 7,
+  "T2": 17,
+  "T3": 0,
+  "T4": 0
+ },
+ "disp_counts": {
+  "CARRIED": 12,
+  "MOVED": 0
+ },
+ "second": [
+  {
+   "row": "the residue, compiled (§7)",
+   "disposition": "CARRIED",
+   "tier": "T1-lit"
+  },
+  {
+   "row": "the 𝔽_q anatomy (§6)",
+   "disposition": "CARRIED",
+   "tier": "T2"
+  },
+  {
+   "row": "the realization ledger (§6)",
+   "disposition": "CARRIED",
+   "tier": "T2"
+  },
+  {
+   "row": "the finite-range inhabitant (§6)",
+   "disposition": "CARRIED",
+   "tier": "T1-lit"
+  },
+  {
+   "row": "the eight further rows above",
+   "disposition": "CARRIED",
+   "tier": "as the first table"
+  },
+  {
+   "row": "the zero-acting positive pairing`s EXISTENCE",
+   "disposition": "CARRIED",
+   "tier": "no terminal (RESEARCH-REACH, disclaimed); annotated by appended line"
+  },
+  {
+   "row": "`h2`, the one open premise",
+   "disposition": "MOVED",
+   "tier": "T1-open as premise; the equivalence T0 ((R159)(5))"
+  }
+ ],
+ "identical": true,
+ "check_ok": true,
+ "check_head": "HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 dirty=[] start 20:22:24"
+}

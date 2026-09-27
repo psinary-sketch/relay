@@ -1,0 +1,674 @@
+b549 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### phase1.5/proofs/THE_RESIDUE_OF_RH.md:1-211 -- THE_RESIDUE_OF_RH.md entire (§§1-8, the two Correspondence tables, every era and currency annotation)
+  :1 # The Residue of the Riemann Hypothesis
+  :2 
+  :3 **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER K** — *declared 2026-08-26 (b190); basis: the census test: external-reader results + a Correspondence table naming terminals.*
+  :4 
+  :5 > ### **b186's SYNTHESIS/NOTES/LEDGER SCHEME IS RETIRED, 2026-08-26 (b190).** *Reason: it was invented beside an author-ruled standing standard and its “SYNTHESIS” class spanned Tier K and Tier C at once —* ### **collapsing the very distinction the standing taxonomy exists to enforce.** *The retired line is left below, not deleted.*
+  :6 
+  :7 **DOCUMENT CLASS: SYNTHESIS** — *declared 2026-08-26 (b186); basis: content and position; ### NO PURPOSE STATEMENT — the absence is the finding.*
+  :8 
+  :9 **PURPOSE:** *what remains open in the Riemann Hypothesis, stated exactly and compiled; for a reader who wants the residue rather than the claim.* — *### added 2026-08-26 (b187) from this document's own content; nothing else edited.*
+  :10 
+  :11 ## What Remains Open, Stated Exactly — and Compiled
+  :12 
+  :13 *J. York Seale*
+  :14 
+  :15 *ORCID: 0009-0008-7993-0310*
+  :16 
+  :17 *v1.1 — 2026-07-27 (the substrate season absorbed; author-approved; joined the W-1.5 keystone set)*
+  :18 
+  :19 ---
+  :20 
+  :21 **Role.** This record *presents and synthesizes* the programme's sign-layer frontier — it is **the sign-frontier's synthesis**, the one place the season's whole arc is assembled into a single statement of what remains open. It is not a proof of RH and claims none; taking each result in order, it strips every removable layer from the premise on which RH, in this programme's architecture, still turns, until what is left is stated exactly and, where it can be, compiled. Its constituent findings live in their home records (BALANCE_AND_POSITIVITY, PATHS §ANNEX B/C, the held-branch kernel); this record is where they become one picture. The programme's own frame for the whole is its standing disclaimer, quoted here as this paper's frame:
+  :22 
+  :23 > *The existence of the zero-acting positive pairing — a self-adjoint operator whose spectrum realizes the ζ-zeros — is disclaimed. It closes over function fields (Weil 1948) and is open over ℚ. Nothing in this record is proven on the zeros.*
+  :24 
+  :25 Everything below composes, as everywhere in the corpus, under the one open premise `h2` (monograph §27.3). The reader who wants the destination first may read §7.
+  :26 
+  :27 ---
+  :28 
+  :29 ## 1. The two-channel anatomy
+  :30 
+  :31 The Li–Keiper coefficients `λ_n = Σ_ρ [1 − (1 − 1/ρ)^n]` satisfy Bombieri–Lagarias' criterion: RH holds **iff** `λ_n ≥ 0` for every `n`. The programme's decomposition splits each coefficient into two independently computable channels,
+  :32 
+  :33 `λ_n = λ_A(n) + λ_Z(n)`,
+  :34 
+  :35 the **archimedean** channel `λ_A` — from the Γ-factor, zero-free, growing unconditionally as `(n/2)(log n + γ − log 2π − 1)` (Voros) — and the **arithmetic** channel `λ_Z` — the pole-and-Euler contribution, where the nontrivial zeros live. In this form RH is the single inequality
+  :36 
+  :37 `λ_Z(n) ≥ −λ_A(n)` for every `n`.
+  :38 
+  :39 The arithmetic channel splits again: `λ_Z = D + E`, a smooth prime-ledger **drift** `D` and a **zero-oscillation** `E` carried by the nontrivial zeros. The whole of the question is the second term.
+  :40 
+  :41 ## 2. The drift is the edge: the Davenport–Heilbronn contrast
+  :42 
+  :43 The prime ledger of `ζ` is non-negative: the von Mangoldt function `Λ(n) ≥ 0`. That non-negativity forces the drift `D` non-negative — the σ = 1 edge of the strip (de la Vallée Poussin's classical zero-free region), in two-channel language. This is compiled as an actual lemma (`edge_drift_nonneg`), together with its **break**: for a *sign-neutral* ledger — the Davenport–Heilbronn coefficient signature, period-sum zero, sign-changing — the drift is *not* forced non-negative (`edge_drift_neg_for_signNeutral`), and Davenport–Heilbronn indeed violates RH. The drift positivity is `ζ`-specific and reaches only the edge; it says nothing about `E`.
+  :44 
+  :45 ## 3. The wall is universal: the character survey
+  :46 
+  :47 One might hope some other family carries a positivity that reaches further. It does not. Across the Dirichlet character families — real and complex `χ` — the same boundary holds: every positive-ledger route yields the σ = 1 edge and never the critical-line centre; every sign-changing family is Davenport–Heilbronn-like. No number-field character family gives a critical-line closure that transfers to ℚ. The one genuine positive *pairing* reaching the centre is Weil's, over function fields — non-transferable, for want of the geometry ℚ lacks. The wall (the survey names it B3) is universal.
+  :48 
+  :49 ## 4. The coherence characterization
+  :50 
+  :51 The drift can be measured. The coherence functional `C[L](N) = (1/N) Σ_{n≤N} λ_Z^L(n)` isolates `ζ` (`C ≈ 1`) from every sign-changing or sign-neutral family (`C ≈ 0`) — but it is a *ledger-coherence* functional, not an RH discriminator: three RH-true Dirichlet L-functions cluster with RH-false Davenport–Heilbronn near 0, because RH-truth lives past feasible `N`. The sharpest test is a family with a **positive ledger but RH false**: the Epstein zeta of a class-number-3 form (disc −23, representation numbers `r_Q ≥ 0`, off-line zeros). *(Prediction, on record before the run: `C[Z_Q]` drifts like `ζ`, bounded away from 0 — because the drift is the edge, and the edge is not RH.)* The computation confirms it: `C[Z_Q] ≈ 0.65–1.2` across `N = 10–120` (doubly-sourced, two DFT radii agreeing to 66 digits), bounded away from 0 and clustering near 1 — indistinguishable from `ζ` (`C ≈ 0.9–1.3`), wh
+  :52 
+  :53 ## 5. The E-characterization: what could bound the oscillation
+  :54 
+  :55 If the drift is the edge, the centre is entirely the zero-oscillation `E`. Written per zero with `w = 1 − 1/ρ`, an off-line quadruple contributes `4 − 2 Re(wⁿ + w⁻ⁿ)`: on the line `|w| = 1`, bounded and non-negative; off the line one term grows as `exp(nε/2γ²)` and drives `E → −∞`. Enumerating what could bound `E` by `λ_A`: the functional equation structures the oscillation but does not cancel the off-line growth; zero-density bounds cap the *count* of off-line zeros but not a single zero's exponential contribution (the edge again); and the only shape that reaches the centre is the **positivity of a quadratic pairing on the zeros** — the Weil-functional / Hilbert–Pólya form. The second ingredient is named: a positive pairing on the zeros.
+  :56 
+  :57 **The discriminator anatomy, completed.** The two codimension-2 coincidences the object faces — off-line (`Re ξ = Im ξ = 0`) and double (`ξ = ξ′ = 0`) — have *different* discriminators. The **arithmetic** clause discriminates by **Euler-consumption**: Davenport–Heilbronn lacks the Euler product, so it has off-line zeros (its ledger sign-neutral, failing `eulerConsuming`). The **geometric** clause (transversality = simplicity) does **not**: the off-line zeros of the Euler-product-less families are nonetheless *simple*, now witnessed across **two** RH-false families — Davenport–Heilbronn (`|D′(ρ)|` = 1.26, 0.92, 0.65, and a fourth at t≈176.70, doubly-sourced) and the **class-number-3 Epstein `Z_Q` (disc −23)**, whose off-line zeros this programme located by its own instrument (argument-principle winding, doubly-sourced, then pinned): `ρ ≈ 0.9533 + 16.290 i`, `|Z_Q′|` = 3.91, **simple**. Ev
+  :58 
+  :59 ## 6. The decomposition: what the pairing must be, and what it need not
+  :60 
+  :61 Naming the object is not enough; the season took it apart. The type of a *zero-acting positive pairing* is compiled as an interface (`ZeroActingPairing`) — a self-adjoint operator, positive-definite pairing, whose spectrum realizes the ξ-zeros, that yields the two-channel inequality, consumes a non-negative Euler ledger, and is distinct from the certified input. Two results decompose it:
+  :62 
+  :63 - **The 𝔽_q anatomy.** Over a function field the type is *inhabited* (Weil). Clause by clause, the obstruction to transferring that witness to ℚ is concentrated in exactly two geometric clauses — the self-adjoint operator and the positive pairing (Hilbert–Pólya and Weil positivity); the two arithmetic clauses transfer cleanly (`transfer_obstruction_is_the_two_geometric_clauses`). The unbuilt object is now *characterized* from the constraint set — a wanted poster: forced to be infinite-dimensional, with a weight-1 middle cohomology carrying the ordinates, a Frobenius-flow whose generator's spectrum is the ordinates, a Poincaré-duality polarization (the functional equation) that must be positive on the FE-even class, a Frobenius point-count trace (the Euler ledger), at the metaplectic altitude, with a radius-zero ℤ/2-monodromy fixed locus at the critical line. The constraint set pins every
+  :64 - **Positivity is free — and free three ways at the metaplectic altitude.** The certified `{n²}` input already carries the positive-definite, self-adjoint structure — realizing the *wrong* spectrum (`positivity_free_obstruction_is_zeroRealization`); the inequality is certified to the Voros threshold `N₀(T) ≈ 2T²` (`certifiedPartialInhabitant`). A Level-2 survey confirms positivity is *not* the obstruction from three independent sides: theta / weight-½ (input positive-definiteness), the Selberg trace formula (`Σ|ĝ(r_j)|² ≥ 0`), and Waldspurger (`L(f⊗χ_d, ½) = |c|² ≥ 0`). The **Selberg near-miss** is decisive: the trace formula furnishes *three* of the four interface clauses — self-adjointness, positivity, and distinct-from-input — and fails **only** the realization of the *right* spectrum (its zeros are a Laplacian's, because the geometry hands it a self-adjoint operator and `ζ` has no su
+  :65 - **The inverse-spectral route confirms the address.** De Branges–Krein inverse theory hands over the self-adjoint operator directly — multiplication by the variable on a de Branges space `B(E)` — **given** that `E` (built from `ξ`) is a Hermite–Biehler function. But HB-membership is **RH-equivalent**, and the de Branges reproducing-kernel positivity is exactly the zero-side pairing positivity; a positivity condition of de Branges' own program was shown to fail (Conrey–Li 2000). So the operator is *free given the positive space*, and the space's existence *is* the open clause — a **located circularity** at the zero-side positivity, the same address, from the operator side.
+  :66 
+  :67 **The residue's final compression — the chiasmus.** Two eras' results cross. The sign season proved *positivity is free without the zeros* — the certified structure is positive-definite but realizes the wrong spectrum (`positivity_free_obstruction_is_zeroRealization`). The inverse-spectral converse proves *the operator is free given the positivity* — multiplication on `B(E)` is self-adjoint once `E ∈ HB` (de Branges; the located circularity above). The two cross at one object, **the positive space on the zeros**: positivity has no zeros, the operator has no space, and the space is exactly what neither supplies. **The space is the wall.**
+  :68 
+  :69 **THE ERA'S READING, ADDED 2026-08-05 (consolidation pass; annotation, no figure moved).** Read in the light of the keystone (INDEX_ARITY v0.16), the decomposition above sits under **five vocabularies at their own grades** — exclusion · barrier · supplier · determinacy · extremal-selection — of which the supplier vocabulary is what §6's pairing belongs to: the wanted object is a **pair-index positivity**, and every setting where line-confinement is *proved* supplies one. **And the currency null bounds what §6 can ask for:** a statistic that prices the approach to the pairing must contain the zeros' REAL PARTS, and the enumerated ζ-side candidates are either the pairing whose positivity is the open premise or take placement as an input — so **the currency is definable only after the crossing, not before it** (F.2026-08-05, author-ruled; the enumeration explicitly NOT shown exhaustive). Bo
+  :70 
+  :71 ## 7. The residue, compiled: the conjunction theorem
+  :72 
+  :73 What remains is stated exactly, and it is compiled. The residue is a **conjunction of two individually-free clauses**, and the theorem `residue_irreducible` establishes:
+  :74 
+  :75 - **clause 1 (zero-realization) is free** — a positive self-adjoint operator with a discrete spectrum exists (the certified input), but it does not realize the ζ-zeros;
+  :76 - **clause 2 (the inequality) is free to a threshold** — the two-channel inequality is certified to `N₀(T)`, but not for all `n`;
+  :77 - **only the conjunction is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion).
+  :78 
+  :79 Neither clause alone is hard; their join is the whole of RH. The detection threshold `N₀(T) ≈ 2T²` that separates the certified range from the open tail is rigid — the `γ²` of `|ρ|²`, forced by the functional equation; no mollifier moves it within the Li framework. So the residue is precisely this: **a self-adjoint operator whose spectrum realizes the zeros, whose pairing extends the certified inequality past a rigid threshold — the conjunction of two clauses that are, apart, each already met.** This is the residue of the Riemann Hypothesis, and it is the E-Difficulty account's first concrete instance: the difficulty is located exactly at the conjunction. The residue has a **tower address** — it persists at the metaplectic altitude (Level 2): the topological/orientation layer that afflicts the naive coordinate dissolves there, and what survives is the positivity of the pairing on the FE-
+  :80 
+  :81 The disclaimer stands. Nothing here is proven on the zeros; the fifth register is held open, now with a sharper statement of what it holds.
+  :82 
+  :83 ## 8. What this frontier opens
+  :84 
+  :85 Stating the residue exactly opens four extensions, none of them a claim on RH:
+  :86 
+  :87 - **The coherence functional as a graded invariant.** `C[L]` measures ledger-positivity across the Selberg class — the same value for `ζ` (RH-true) and Epstein `Z_Q` (RH-false), and near 0 for sign-changing families. A classification of L-functions by their `C`-value is now draftable: an invariant that sees the edge cleanly and cannot detect the centre by construction.
+  :88 - **The conjunction as an E-Difficulty case study.** `residue_irreducible` is the first *compiled* instance of difficulty located at a conjunction of individually-free clauses. The shape generalizes: for other determined systems, the same structure theorem asks whether the residual difficulty factors into clauses each already met apart.
+  :89 - **The rigid threshold as a barrier theorem.** The `2T²` detection exponent's rigidity under mollification is formalizable — a statement of which mollifier classes provably cannot shift the exponent within the Li framework, a barrier result in the spirit of the natural-proofs and relativization barriers.
+  :90 - **The realization-candidate map.** The field's routes to the object are graded against the interface, and all stall at the realization clause: mathematically — Deninger (postulates the cohomology), Connes–Consani (reduces RH to a Weil positivity left open), Bost–Connes (realizes the Euler product, the wrong spectrum); physically — every proposal is **permitted, not forced**: Berry–Keating `H=xp` gives the *average* counting, the primon gas is input-side, quantum-chaos is a statistical surrogate, and the trapped-ion experiments *measure* the zeros from a drive engineered using `ζ` (a fit, not a forcing). The programme's own arithmetic-forces-*code* results reach the substrate, not the spectrum; the forced-code→forced-spectrum distance *is* this wall. This map, together with the held branch, is the field-facing statement of the wall — ready the day the publication posture opens, and not 
+  :91 - **The difficulty structure replicates across derivative levels.** The same conjunction — per-class compiled plus an open totality clause — recurs at ξ′: the derivative-level catalogue excludes the double-zero coincidence `ξ(ρ)=ξ′(ρ)=0` per class (C₁ compiled from the perpendicular crossing), and its joint step is *uniform transversality* — the simplicity conjecture. This is the E-Difficulty account's **second concrete instance on the same system, one level down**, and it is *same structure, different content*: level 0's clause is arithmetic (the Euler sign clause), the derivative clause is geometric (transversality). Difficulty-at-the-conjunction is a feature of the object across its derivative levels. The two are the **same shape but distinct walls, now mapped to their floor** — tower-siblings at *different* addresses (the sign wall at the positivity layer, the derivative wall at the 
+  :92 
+  :93 ---
+  :94 
+  :95 ## Correspondence
+  :96 
+  :97 The seven branch artifacts and the edge lemma, at their pins with `#print axioms` profiles, read from the merged branch `word-pairing-interface` (SIDE-lv-conservation; **merged by fast-forward, nothing deposited**).
+  :98 
+  :99 | Result | Terminal(s) | Profile |
+  :100 |:--|:--|:--|
+  :101 | The interface (§6) | `zeroActingPairing_to_RH`; `distinctFromInput_discharged` | `{propext, Classical.choice, Quot.sound}` |
+  :102 | DH-exclusion — clause (3) load-bearing (§2) | `signNeutral_not_eulerConsuming`; `zeroActingPairing_ledger_not_signNeutral`; `dhModelLedger_no_pairing` | `{propext, Classical.choice, Quot.sound}` |
+  :103 | The edge lemma (§2) | `edge_drift_nonneg`; `edge_drift_neg_for_signNeutral` | `{propext, Classical.choice, Quot.sound}` |
+  :104 | The 𝔽_q anatomy (§6) | `transfer_obstruction_is_the_two_geometric_clauses`; `exactly_two_clauses_obstruct` | axiom-free |
+  :105 | The finite-range inhabitant (§6) | `certifiedPartialInhabitant`; `coverage_boundary_exact`; `partial_mono` | `{propext, Classical.choice, Quot.sound}` |
+  :106 | Positivity is free (§6) | `positivity_free_obstruction_is_zeroRealization` | `{propext, Classical.choice, Quot.sound}` |
+  :107 | The realization ledger (§6) | `no_asset_realizes_zeroSpectrum`; `location_owned_spectrum_not` | axiom-free |
+  :108 | The residue, compiled (§7) | `residue_irreducible` | `{propext, Classical.choice, Quot.sound}` |
+  :109 | The X-realization spec (§6) | `XRealization`; `xRealization_to_zeroActingPairing`; `xRealization_to_RH` | `{propext, Classical.choice, Quot.sound}` |
+  :110 | The family spec + residual (§8) | `SimplicityFamilySpec`; `simplicityFamily_generic_not_universal` | axiom-free |
+  :111 | The barrier extension (§7) | `detection_threshold_mono` | `{propext, Classical.choice, Quot.sound}` |
+  :112 | The escape-kind invariant (§8) | `escape_kind_discriminates`; `horizon_kind_shared` | axiom-free |
+  :113 
+  :114 *Branch pin cited at review; profiles read by `#print axioms`, never asserted. The disclaimer above is the paper's frame: the existence of the zero-acting positive pairing is disclaimed, open over ℚ, and nothing here shortens it.*
+  :115 
+  :116 
+  :117 ---
+  :118 
+  :119 ### **CORRESPONDENCE AT THE STANDARD** *(annotation added 2026-08-12, W-CONSOLIDATION act 3b; the table above is PRESERVED UNCHANGED — this adds the three columns the standard requires and does not rewrite a row)*
+  :120 
+  :121 **WHAT THE EXISTING TABLE ALREADY HAS:** result · terminal(s) · axiom profile — **twelve rows, all profiled by `#print axioms`, none asserted.**
+  :122 **WHAT THE STANDARD ADDS:** the **kernel at a DEPOSIT pin**, a **status by the three grades**, and a **`VERIFY-BY` pointer**.
+  :123 
+  :124 | claim | kernel | fully-qualified terminal | axiom profile | status | `VERIFY-BY` |
+  :125 |:--|:--|:--|:--|:--|:--|
+  :126 | the residue, compiled (§7) | `SIDE-lv-conservation`, branch `word-pairing-interface` | `residue_irreducible` | `{propext, Classical.choice, Quot.sound}` | ### **MERGED BY FAST-FORWARD — NOT DEPOSITED** | `git -C SIDE-lv-conservation checkout word-pairing-interface && lake build`, then `#print axioms residue_irreducible` |
+  :127 | the 𝔽_q anatomy (§6) | same branch | `exactly_two_clauses_obstruct` | axiom-free | ### **MERGED-BRANCH** | as above |
+  :128 | the realization ledger (§6) | same branch | `no_asset_realizes_zeroSpectrum` | axiom-free | ### **MERGED-BRANCH** | as above |
+  :129 | the finite-range inhabitant (§6) | same branch | `certifiedPartialInhabitant` | `{propext, Classical.choice, Quot.sound}` | ### **MERGED-BRANCH** | as above |
+  :130 | the eight further rows above | same branch | as tabulated | as tabulated | ### **MERGED-BRANCH** | as above |
+  :131 | ### **the zero-acting positive pairing's EXISTENCE** | ### **NONE — no kernel exists** | — | — | ### **RESEARCH-REACH.** *Disclaimed in this paper's own frame: "closes over function fields (Weil 1948) and is open over ℚ."* | ### **no verification exists to point at; the row says so** |
+  :132 | ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |
+  :133 
+  :134 > ### **0 BLANK CELLS. Every row that has no kernel says so in words rather than leaving a gap.**
+  :135 >
+  :136 > ### **THE STATUS THE EXISTING TABLE'S PREAMBLE ALREADY CARRIED, NOW IN THE STATUS COLUMN WHERE IT IS UNMISSABLE: every compiled row is on a HELD, UNMERGED BRANCH. *"not merged, nothing deposited."*** **A reader who checks out `main` will not find these terminals.**
+  :137 
+  :138 #### **ERA ANNOTATIONS** *(2026-08-12; provenance-kept, no §1–§8 text altered)*
+  :139 
+  :140 | era finding | what it touches here |
+  :141 |:--|:--|
+  :142 | ### **the sign reconciliation** (2026-08-12) | ### **`W_∞` is NOT sign-definite** — the archimedean kernel `Re ψ(1/4+iu/2) − log π` crosses zero at `u = 2π`. §1's two-channel anatomy is untouched; what changes is that Day-1's *"positive (provable)"* attribution for `W_∞` alone is repaired to **pole-plus-archimedean**. |
+  :143 | ### **the sealed `S1`–`S6` inventory** (2026-08-12) | the Euler class's specification, with the placement-carrier localized to **`S4`** by the Epstein witness — **§2's Davenport–Heilbronn contrast is the same witness, reached from the other side** |
+  :144 | ### **`S6` + the crossing filing** (2026-08-12) | the residue's internal name restated: *"how does a structure valid only at `Re s > 1` speak about `Re s = 1/2`"* — **offered beside §7, not substituted for it** |
+  :145 | ### **one cited pin fails** | ### **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited merged branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. NO SUBSTITUTE PIN IS OFFERED, because none can be verified to be the intended one.]**, flagged `UNREPRODUCIBLE-AS-CITED` at its site in `OPEN_TRAILS`** — not a citation in this document, but it names this document's merged-branch work |
+  :146 
+  :147 **Nothing in §§1–8 is rewritten. `h2` unchanged.**
+  :148 
+  :149 
+  :150 ### ERA ANNOTATION (2026-08-12) — bearing on the residue's statement
+  :151 
+  :152 > **A sixth specification was missing from the Euler inventory, and it renames the residue.** The Euler product converges only on `Re s > 1`; every nontrivial zero lies in the critical strip. **The product has no valid expression at any zero it is supposed to constrain**, and uniqueness of analytic continuation means the information nonetheless determines `ζ` everywhere. So the residue is not an information gap but a **language gap**: *how does a structure valid only on `Re s > 1` speak about `Re s = 1/2`?*
+  :153 
+  :154 *Provenance: `phase2/method/THE_EULER_SPECIFICATION.md` §§5–7, 2026-08-12. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+  :155 
+  :156 <!-- b324 cross-reference -->
+  :157 
+  :158 ---
+  :159 
+  :160 **Cross-reference, appended 2026-09-04 (b324). Nothing above this line is edited.**
+  :161 
+  :162 The archimedean instrument arc **b314–b322** is folded at `FINDINGS.md` § *THE ARCHIMEDEAN INSTRUMENT ARC, b314–b322 — THE FOLD*, with its own keystone at the relay (`data/b323_the_fold.txt`).
+  :163 
+  :164 **b324 read this record against that arc and found the two objects DIFFERENT.** This record's space is *"the positive space on the zeros"* — defined by the requirement that a self-adjoint operator's spectrum realize the ζ-zeros. The arc's constructed space is Connes–Consani's `S(1,1)`, defined by two homogeneous vanishing conditions on a function and its transform, **with no operator and no zeros in the definition at all**. They differ at the first constituent walked — the ambient — and at every one after it.
+  :165 
+  :166 **So the arc did not move the wall this record names, and b324 does not claim it did.** The arc built an instrument *inside* a source this record had already graded: its realization-candidate map places *"Connes–Consani (reduces RH to a Weil positivity left open)"* among the routes that stall at the realization clause. That grading stands unchanged.
+  :167 
+  :168 *Filed by b324. No grade moved; no claim of this record altered.*
+  :169 
+  :170 <!-- b454 CURRENCY ANNOTATION, 2026-09-14 -->
+  :171 
+  :172 #### **CURRENCY ANNOTATION** *(2026-09-14, b454; existing text preserved apart from the state terms named here)*
+  :173 
+  :174 > ### **3 LINE(S) MOVED FROM HELD TO MERGED: EACH BRANCH WAS FAST-FORWARDED INTO `main`.** *The originals, preserved verbatim:*
+  :175 
+  :176 > - line `97` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state terms `from the held branch` → `from the merged branch` · `**not merged, nothing deposited**` → `**merged by fast-forward, nothing deposited**`) — *The seven branch artifacts and the edge lemma, at their pins with `#print axioms` profiles, read from the held branch `word-pairing-interface` (SIDE-lv-conservation; **not merged, nothing deposited**).*
+  :177 > - line `126` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state terms `### **HELD-BRANCH — NOT MERGED, NOT DEPOSITED**` → `### **MERGED BY FAST-FORWARD — NOT DEPOSITED**`) — *| the residue, compiled (§7) | `SIDE-lv-conservation`, branch `word-pairing-interface` | `residue_irreducible` | `{propext, Classical.choice, Quot.sound}` | ### **HELD-BRANCH — NOT MERGED, NOT DEPOSITED** | `git -C SIDE-lv-conservation checkout word-pairing-interface && lake build`, then `#print axioms residue_irreducible` |*
+  :178 > - line `145` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state terms `The cited held branch` → `The cited merged branch`) — *| ### **one cited pin fails** | ### **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited held branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. NO SUBSTITUTE PIN IS OFFERED, because none can be verified to be the intended one.]**, flagged `UNREPRODUCIBLE-AS-CITED` at its site in `OPEN_TRAILS`** — not a citation in this document, but it names this document's held-branch work |*
+  :179 
+  :180 > ### **WHY.** *`(R63)(a)` as amended by `(R64)(1)`: a line calling a merged branch held is a currency defect. The branch was fast-forwarded, so there is no merge commit; the tip on `main`’s first-parent line is cited. Only the state terms changed on each line; no line was removed; no grade, claim or correspondence row moved.*
+  :181 
+  :182 <!-- b454 ERA ANNOTATION, 2026-09-14 -->
+  :183 
+  :184 ### ERA ANNOTATION (2026-09-14, b454) — bearing on the sign-face registers
+  :185 
+  :186 > the **five faces** compiled as a structure, with R4 identified as the sign face and R5 as the realization face, and the cross-register equivalences deliberately **not** claimed
+  :187 
+  :188 *Provenance: `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:3476`, a ledger line before b450, added under `(R63)(b)` as amended by `(R64)(2)`. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+  :189 
+  :190 <!-- b456 CURRENCY ANNOTATION, 2026-09-14 -->
+  :191 
+  :192 #### **CURRENCY ANNOTATION** *(2026-09-14, b456; existing text preserved apart from the state term named here)*
+  :193 
+  :194 > ### **1 LINE: A STATE TERM b454’S TABLE DID NOT NAME, ON A LINE `(R63)(a)` NAMED.** *The line as it stood, preserved verbatim:*
+  :195 
+  :196 > - line `145` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state term `held-branch work` → `merged-branch work`) — *| ### **one cited pin fails** | ### **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited merged branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. NO SUBSTITUTE PIN IS OFFERED, because none can be verified to be the intended one.]**, flagged `UNREPRODUCIBLE-AS-CITED` at its site in `OPEN_TRAILS`** — not a citation in this document, but it names this document's held-branch work |*
+  :197 
+  :198 > ### **WHY.** *`(R63)(a)`, as amended by `(R64)(1)`, named this line as calling a merged branch held; b454 changed the first such term on it and left this one, and b456 completes it. Only the state term changed; no line was removed; no grade, claim or correspondence row moved.*
+  :199 
+  :200 <!-- b457 CURRENCY ANNOTATION, 2026-09-14 -->
+  :201 
+  :202 #### **CURRENCY ANNOTATION** *(2026-09-14, b457; existing text preserved apart from the state term named here)*
+  :203 
+  :204 > ### **THE STATUS CELLS OF THE SAME BRANCH, UNDER RULING `(R68)`.** *The lines as they stood, preserved verbatim:*
+  :205 
+  :206 > - line `127` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state term `### **HELD-BRANCH**` → `### **MERGED-BRANCH**`) — *| the 𝔽_q anatomy (§6) | same branch | `exactly_two_clauses_obstruct` | axiom-free | ### **HELD-BRANCH** | as above |*
+  :207 > - line `128` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state term `### **HELD-BRANCH**` → `### **MERGED-BRANCH**`) — *| the realization ledger (§6) | same branch | `no_asset_realizes_zeroSpectrum` | axiom-free | ### **HELD-BRANCH** | as above |*
+  :208 > - line `129` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state term `### **HELD-BRANCH**` → `### **MERGED-BRANCH**`) — *| the finite-range inhabitant (§6) | same branch | `certifiedPartialInhabitant` | `{propext, Classical.choice, Quot.sound}` | ### **HELD-BRANCH** | as above |*
+  :209 > - line `130` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state term `### **HELD-BRANCH**` → `### **MERGED-BRANCH**`) — *| the eight further rows above | same branch | as tabulated | as tabulated | ### **HELD-BRANCH** | as above |*
+  :210 
+  :211 > ### **WHY.** *`(R68)`, the author’s: these cells take the same term as line `145` (b456), merged-branch. Only the state term changed on each line; no line was removed; no grade, claim or correspondence row moved. `EXHAUSTIVENESS_LICENSE.md:9` is left, dated at its own version, as ruled.*
+
+### D:/SIDE-lv-conservation/SIDELvConservation/ZeroActingPairing.lean:34-92 -- SIDE-lv-conservation main 2f71068
+  :34 namespace SIDELvConservation
+  :35 namespace RegisterPentagon
+  :36 
+  :37 /-- The four typed requirements the B1 survey earned, bundled into the center-object's type.
+  :38 
+  :39 `lam_A`, `lam_Z` are the two Li channels; `ledger` is the Euler ledger (the von Mangoldt
+  :40 `Λ ≥ 0` for `ζ`; the sign-neutral periodic `a_n` for Davenport–Heilbronn). -/
+  :41 structure ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop where
+  :42   /-- (1) **zero-acting** — the pairing's spectrum realizes the ξ-zeros: the R5-output schema
+  :43   (a positive-definite symmetric pairing, a self-adjoint operator, and a zero-realizing
+  :44   diagonal). DISCLAIMED as an existence claim; here a typed requirement of the object. -/
+  :45   zeroActing : Register5_output_HilbertPolya
+  :46   /-- (2) **positive-on-FE-even ⟹ the channel inequality** — the Weil-criterion direction as a
+  :47   named premise: a positive pairing on the FE-even (functional-equation-symmetric) test class
+  :48   yields the two-channel inequality `−λ_A ≤ λ_Z`. -/
+  :49   yieldsInequality : Register5_output_HilbertPolya → Register4_channelInequality lam_A lam_Z
+  :50   /-- (3) **Euler-consuming** — the DH-breaking clause (the Epstein test formalized): a valid
+  :51   pairing requires the Euler ledger non-negative, so a *sign-neutral* ledger (Davenport–
+  :52   Heilbronn, period-sum 0) admits none. The requirement, not a theorem. -/
+  :53   eulerConsuming : ∀ m, 0 ≤ ledger m
+  :54   /-- (4) **distinct-from-input** — the certified `{n²}` input spectrum is *not* zero-realizing
+  :55   (`certifiedInput_not_zeroRealizing`): this pairing is not the input spectrum. -/
+  :56   distinctFromInput : ¬ RealizesXiZeros certifiedInputSpectrum
+  :57 
+  :58 /-- **INTERFACES (native step) — ZeroActingPairing → the two-channel inequality.** Unfolds the
+  :59 `yieldsInequality` field against the `zeroActing` witness carried by the object. -/
+  :60 theorem zeroActingPairing_to_channelInequality {lam_A lam_Z ledger : ℕ → ℝ}
+  :61     (P : ZeroActingPairing lam_A lam_Z ledger) :
+  :62     Register4_channelInequality lam_A lam_Z :=
+  :63   P.yieldsInequality P.zeroActing
+  :64 
+  :65 /-- **INTERFACES — ZeroActingPairing → RiemannHypothesis** (the compiled CONDITIONAL). Chain:
+  :66 the pairing yields the channel inequality (native), the inequality gives Li-positivity (named
+  :67 premise), and Li's criterion gives RH (named classical premise, Bombieri–Lagarias 1999). The
+  :68 **existence** of a `ZeroActingPairing` is disclaimed — this theorem never produces one. -/
+  :69 theorem zeroActingPairing_to_RH {lam_A lam_Z ledger lam : ℕ → ℝ}
+  :70     (inequalityToPositivity :
+  :71       Register4_channelInequality lam_A lam_Z → Register4_positivity lam)
+  :72     (liCriterion : Register4_positivity lam → RiemannHypothesis)
+  :73     (P : ZeroActingPairing lam_A lam_Z ledger) :
+  :74     RiemannHypothesis :=
+  :75   liCriterion (inequalityToPositivity (zeroActingPairing_to_channelInequality P))
+  :76 
+  :77 /-- **The distinct-from-input clause is dischargeable** (not open): the certified `{n²}` input
+  :78 spectrum genuinely fails to realize the zeros, given a nontrivial zero exists in the strip.
+  :79 So `distinctFromInput` is a *typing* constraint the object satisfies by the compiled negative,
+  :80 not an added open premise. -/
+  :81 theorem distinctFromInput_discharged
+  :82     (nontrivialZeroInStrip : NontrivialZeroExistsInStrip) :
+  :83     ¬ RealizesXiZeros certifiedInputSpectrum :=
+  :84   certifiedInput_not_zeroRealizing nontrivialZeroInStrip
+  :85 
+  :86 /-! ## The DH-exclusion lemma — clause (3) made demonstrably load-bearing
+  :87 
+  :88 Pre-merge gate (2026-07-25). The salt-check flagged `eulerConsuming` as a genuine but *typing-only*
+  :89 clause. This section discharges that: a **sign-neutral** ledger — the Davenport–Heilbronn coefficient
+  :90 signature (period-sum zero, sign-changing, no Euler product hence no `Λ ≥ 0`) — provably cannot
+  :91 satisfy `eulerConsuming`, so no `ZeroActingPairing` admits one. Clause (3) is the compiled Epstein
+  :92 discriminator at interface level. C₄ precedent: *strengthen-then-discharge*. -/
+
+### D:/SIDE-lv-conservation/SIDELvConservation/ZeroActingPartial.lean:110-146 -- SIDE-lv-conservation main 2f71068
+  :110 
+  :111 /-! ## Item 1 (W-SIGN-6) — the conjunction as theorem: the residue is irreducible by structure
+  :112 
+  :113 Formalizes W-SIGN-6's result: *each clause individually free; the conjunction is RH.* The theorem
+  :114 bundles three **compiled** facts and lets their juxtaposition state the irreducibility — it derives
+  :115 the structure, it does not define "conjunction = RH". The E-Difficulty programme's first real
+  :116 instance: the difficulty is located at the conjunction, not at either clause. -/
+  :117 
+  :118 /-- **The residue is irreducible by structure.** Neither clause of `ZeroActingPairing` alone yields RH:
+  :119 * **clause 1 is free** — a positive self-adjoint operator with a discrete spectrum exists (the certified
+  :120   `{n²}` input, `positivity_free_obstruction_is_zeroRealization`) that does **not** realize the ζ-zeros
+  :121   (first conjunct here);
+  :122 * **clause 2 is free** — the finite-range inequality holds to the fixed threshold `N₀(T)` (the certified
+  :123   partial inhabitant, second conjunct) and does not reach all `n`;
+  :124 * **only the conjunction implies RH** — the full `ZeroActingPairing`, both clauses jointly over the
+  :125   ζ-zeros, gives RH through the named classical premises (the Weil direction `inequalityToPositivity`;
+  :126   Li's criterion `liCriterion`) — third conjunct.
+  :127 So the difficulty is exactly the conjunction. Derives from the compiled pieces (C-3, A2,
+  :128 `zeroActingPairing_to_RH`); the equivalence is not encoded — the `⟹ RH` is the compiled conditional,
+  :129 the freeness are witnessed facts. -/
+  :130 theorem residue_irreducible
+  :131     {lam_A lam_Z lam : ℕ → ℝ} {low : Finset NontrivialZero} {tail : ℕ → ℝ} {T : ℝ}
+  :132     (hZero : NontrivialZeroExistsInStrip)
+  :133     (hdecomp : ∀ n, lam n = lam_A n + lam_Z n)
+  :134     (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)
+  :135     (hTail : TailBoundPremise low tail T)
+  :136     (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam)
+  :137     (liCriterion : Register4_positivity lam → RiemannHypothesis) :
+  :138     (¬ RealizesXiZeros certifiedInputSpectrum)
+  :139     ∧ PartialChannelInequality lam_A lam_Z (N₀ T)
+  :140     ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis) :=
+  :141   ⟨certifiedInput_not_zeroRealizing hZero,
+  :142    certifiedPartialInhabitant T lam_A lam_Z lam low tail hdecomp hV hEF hTail,
+  :143    fun _ P => zeroActingPairing_to_RH inequalityToPositivity liCriterion P⟩
+  :144 
+  :145 end RegisterPentagon
+  :146 end SIDELvConservation
+
+### the 25 terminals in three trees (git grep of a declaration line): main 2f71068, the tip 5a14205, the tag v0.10.0
+  zeroActingPairing_to_RH                              main SIDELvConservation/ZeroActingPairing.lean:69 ; tip 1 ; tag 0
+  distinctFromInput_discharged                         main SIDELvConservation/ZeroActingPairing.lean:81 ; tip 1 ; tag 0
+  signNeutral_not_eulerConsuming                       main SIDELvConservation/ZeroActingPairing.lean:104 ; tip 1 ; tag 0
+  zeroActingPairing_ledger_not_signNeutral             main SIDELvConservation/ZeroActingPairing.lean:113 ; tip 1 ; tag 0
+  dhModelLedger_no_pairing                             main SIDELvConservation/ZeroActingPairing.lean:137 ; tip 1 ; tag 0
+  edge_drift_nonneg                                    main SIDELvConservation/ZeroActingPairing.lean:162 ; tip 1 ; tag 0
+  edge_drift_neg_for_signNeutral                       main SIDELvConservation/ZeroActingPairing.lean:172 ; tip 1 ; tag 0
+  transfer_obstruction_is_the_two_geometric_clauses    main SIDELvConservation/ZeroActingPairing.lean:245 ; tip 1 ; tag 0
+  exactly_two_clauses_obstruct                         main SIDELvConservation/ZeroActingPairing.lean:253 ; tip 1 ; tag 0
+  certifiedPartialInhabitant                           main SIDELvConservation/ZeroActingPartial.lean:67 ; tip 1 ; tag 0
+  coverage_boundary_exact                              main SIDELvConservation/ZeroActingPartial.lean:80 ; tip 1 ; tag 0
+  partial_mono                                         main SIDELvConservation/ZeroActingPartial.lean:40 ; tip 1 ; tag 0
+  positivity_free_obstruction_is_zeroRealization       main SIDELvConservation/ZeroActingPairing.lean:270 ; tip 1 ; tag 0
+  no_asset_realizes_zeroSpectrum                       main SIDELvConservation/ZeroActingPairing.lean:330 ; tip 1 ; tag 0
+  location_owned_spectrum_not                          main SIDELvConservation/ZeroActingPairing.lean:336 ; tip 1 ; tag 0
+  residue_irreducible                                  main SIDELvConservation/ZeroActingPartial.lean:130 ; tip 1 ; tag 0
+  XRealization                                         main SIDELvConservation/ZeroActingPairing.lean:357 ; tip 1 ; tag 0
+  xRealization_to_zeroActingPairing                    main SIDELvConservation/ZeroActingPairing.lean:369 ; tip 1 ; tag 0
+  xRealization_to_RH                                   main SIDELvConservation/ZeroActingPairing.lean:379 ; tip 1 ; tag 0
+  SimplicityFamilySpec                                 main SIDELvConservation/ZeroActingPairing.lean:394 ; tip 1 ; tag 0
+  simplicityFamily_generic_not_universal               main SIDELvConservation/ZeroActingPairing.lean:404 ; tip 1 ; tag 0
+  detection_threshold_mono                             main SIDELvConservation/ZeroActingPartial.lean:105 ; tip 1 ; tag 0
+  escape_kind_discriminates                            main SIDELvConservation/ZeroActingPairing.lean:436 ; tip 1 ; tag 0
+  horizon_kind_shared                                  main SIDELvConservation/ZeroActingPairing.lean:441 ; tip 1 ; tag 0
+  the two files, diff 5a14205..2f71068 : NONE (byte-identical)
+  5a14205 is an ancestor of main : True ; of v0.10.0 : False
+  v0.10.0 = 93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f
+
+### D:/SIDE-explicit-formula/SIDEExplicitFormula/H2Sign.lean:22-31 -- SIDE-explicit-formula v0.2 = 5c72cad
+  :22 /-- The class K: even, `C²`, compactly supported, and of the form `h ⋆ h~` with `h` `C²` and
+  :23 compactly supported. -/
+  :24 def classK (k : ℝ → ℂ) : Prop :=
+  :25   (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+  :26     ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+  :27 
+  :28 /-- **h2, as one Prop:** for every `k` in K, `0 ≤ P(k) - PR(k) + A(k)`. -/
+  :29 def h2_sign : Prop :=
+  :30   ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  :31 
+
+### D:/SIDE-explicit-formula/SIDEExplicitFormula/Seam.lean:99-101 -- SIDE-explicit-formula v0.2
+  :99 
+  :100 /-- **Weil positivity on classK is Mathlib's RiemannHypothesis**, both directions, no hypothesis. -/
+  :101 theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+
+### FINDINGS.md:5529-5531 -- the detection-geometries entry
+  :5529 ## Two detection geometries for one obligation: the Weil-side width and order at Q0 against the Li-side index threshold
+  :5530 
+  :5531 *Filed at b546 on the author's ruling `(R156)`(4). Graded READING: an observation read from the banks, not a theorem. Banks: relay `data/b522_results.json`, `data/b522_reach.json`, `data/b522_cells.jsonl`, `data/b523_results.json`, `data/b506_c2_results.json`; Voros's sentences from BALANCE_AND_POSITIVITY.md:500 and :507. Nothing about ζ’s zeros is claimed.*
+
+### FINDINGS.md:5613-5615 -- b548`s entry
+  :5613 ## The bench at Q0 and ξ: the rest-term interference at widths 36–38 and the functional swept in width and order
+  :5614 
+  :5615 *Filed at b548 on the author's ruling `(R158)`. Graded READING throughout: readings of the benches, not theorems. Banks: relay `data/b548_interference.txt`, `data/b548_sweep_q0.txt`, `data/b548_sweep_xi.txt`, `data/b548_h2.txt`, `data/b548_sweep.json` (cells in `data/b548_sweep_q.jsonl`, `data/b548_sweep_xi.jsonl`). The family is b522's: `tools/b521_tail.py` `PWindow(a, obj, p)`, an indicator of [−W, W] convolved with the order-p B-spline, its transform in closed form; the Q0 bank is the 180-zero bank below 150 with its tail estimate, the ξ bank the first 10,000 ordinates. A cell is NEGATIVE iff F < −B, POSITIVE iff F > B; VERIFIED-EST iff |r| ≤ B; the floor is E_round ((R125)(2)); the reach is E_tail ≤ B′ ((R131)(2)). **Nothing about ζ’s zeros is claimed.**
+
+### FINDINGS.md:5649-5649 -- b548`s pointer
+  :5649 *Appended at b548 to the detection-geometries entry (`FINDINGS.md`:5529): its bench is the sweep of the act at `FINDINGS.md`:5613 (relay `data/b548_sweep_q0.txt`, `data/b548_sweep_xi.txt`) -- F(a, n) at Q0 and ξ for n ∈ {3, 5, 7, 9, 11}, a = 10…60; the smallest negative width at Q0 is 24, 25, 26, 26, 42 at n = 3, 5, 7, 9, 11, so on this family the width at which the Weil side detects does not fall with the order. READING.*
+
+### relay data/b548_interference.txt : 78 lines ; its summary lines:
+
+### relay data/b548_sweep_xi.txt : 294 lines ; its summary lines:
+  :6 ### n = 3 : 51 cells
+  :59   ### n = 3 : min F +1.624709e-01 at a = 38 ; at the largest a NO ; monotone beyond a = 20 NO ; NEGATIVE cells 0 ; F < -floor at 0 cells
+  :60   ### n = 3 : smallest NEGATIVE width None (in reach None) ; statuses {'UNVERIFIED': 51} ; max |r|/B 1.167
+  :61   ### n = 3 : dF/da sign changes at a = [11, 14, 17, 23, 30, 38, 48] (READING; no stationary point is called a finding)
+  :63 ### n = 5 : 51 cells
+  :116   ### n = 5 : min F +2.069023e+00 at a = 38 ; at the largest a NO ; monotone beyond a = 20 NO ; NEGATIVE cells 0 ; F < -floor at 0 cells
+  :117   ### n = 5 : smallest NEGATIVE width None (in reach None) ; statuses {'VERIFIED-EST': 51} ; max |r|/B 0.998
+  :118   ### n = 5 : dF/da sign changes at a = [11, 14, 16, 22, 24, 26, 30, 38, 47] (READING; no stationary point is called a finding)
+  :120 ### n = 7 : 51 cells
+  :173   ### n = 7 : min F +6.984097e+00 at a = 38 ; at the largest a NO ; monotone beyond a = 20 NO ; NEGATIVE cells 0 ; F < -floor at 0 cells
+  :174   ### n = 7 : smallest NEGATIVE width None (in reach None) ; statuses {'VERIFIED-EST': 51} ; max |r|/B 0.549
+  :175   ### n = 7 : dF/da sign changes at a = [11, 14, 16, 21, 24, 26, 31, 38, 47] (READING; no stationary point is called a finding)
+  :177 ### n = 9 : 51 cells
+  :230   ### n = 9 : min F +1.364612e+01 at a = 38 ; at the largest a NO ; monotone beyond a = 20 NO ; NEGATIVE cells 0 ; F < -floor at 0 cells
+  :231   ### n = 9 : smallest NEGATIVE width None (in reach None) ; statuses {'VERIFIED-EST': 51} ; max |r|/B 0.467
+  :232   ### n = 9 : dF/da sign changes at a = [11, 14, 16, 21, 23, 26, 31, 38, 47, 55, 59] (READING; no stationary point is called a finding)
+  :234 ### n = 11 : 51 cells
+  :287   ### n = 11 : min F +2.130369e+01 at a = 38 ; at the largest a NO ; monotone beyond a = 20 NO ; NEGATIVE cells 0 ; F < -floor at 0 cells
+  :288   ### n = 11 : smallest NEGATIVE width None (in reach None) ; statuses {'VERIFIED-EST': 51} ; max |r|/B 0.811
+  :289   ### n = 11 : dF/da sign changes at a = [11, 14, 16, 21, 23, 26, 30, 38, 47, 54, 59] (READING; no stationary point is called a finding)
+
+### relay data/b548_sweep_q0.txt : 291 lines ; its summary lines:
+  :6 ### n = 3 : 51 cells
+  :59   ### n = 3 : min F -3.541815e+02 at a = 60 ; at the largest a YES ; monotone beyond a = 20 NO ; NEGATIVE cells 37 ; F < -floor at 37 cells
+  :60   ### n = 3 : smallest NEGATIVE width 24.0 (in reach None) ; statuses {'VERIFIED-EST-TAIL': 51} ; max |r|/B 0.044
+  :61   ### n = 3 : dF/da sign changes at a = [12, 13, 15, 17, 18, 20, 27, 31] (READING; no stationary point is called a finding)
+  :63 ### n = 5 : 51 cells
+  :116   ### n = 5 : min F -2.972516e+02 at a = 60 ; at the largest a YES ; monotone beyond a = 20 NO ; NEGATIVE cells 33 ; F < -floor at 33 cells
+  :117   ### n = 5 : smallest NEGATIVE width 25.0 (in reach None) ; statuses {'VERIFIED-EST-TAIL': 51} ; max |r|/B 0.034
+  :118   ### n = 5 : dF/da sign changes at a = [12, 13, 15, 17, 19, 21, 26, 30, 35, 36, 45, 51] (READING; no stationary point is called a finding)
+  :120 ### n = 7 : 51 cells
+  :173   ### n = 7 : min F -2.661109e+02 at a = 60 ; at the largest a YES ; monotone beyond a = 20 NO ; NEGATIVE cells 26 ; F < -floor at 26 cells
+  :174   ### n = 7 : smallest NEGATIVE width 26.0 (in reach 34.0) ; statuses {'VERIFIED-EST-TAIL': 18, 'VERIFIED-EST': 33} ; max |r|/B 0.030
+  :175   ### n = 7 : dF/da sign changes at a = [12, 13, 15, 17, 19, 21, 26, 30, 34, 37, 45, 51] (READING; no stationary point is called a finding)
+  :177 ### n = 9 : 51 cells
+  :230   ### n = 9 : min F -2.445261e+02 at a = 60 ; at the largest a YES ; monotone beyond a = 20 NO ; NEGATIVE cells 21 ; F < -floor at 21 cells
+  :231   ### n = 9 : smallest NEGATIVE width 26.0 (in reach 26.0) ; statuses {'VERIFIED-EST-TAIL': 3, 'VERIFIED-EST': 48} ; max |r|/B 0.045
+  :232   ### n = 9 : dF/da sign changes at a = [12, 13, 15, 17, 18, 21, 26, 30, 34, 38, 45, 51] (READING; no stationary point is called a finding)
+  :234 ### n = 11 : 51 cells
+  :287   ### n = 11 : min F -2.256496e+02 at a = 59 ; at the largest a NO ; monotone beyond a = 20 NO ; NEGATIVE cells 18 ; F < -floor at 18 cells
+  :288   ### n = 11 : smallest NEGATIVE width 42.0 (in reach 42.0) ; statuses {'VERIFIED-EST': 51} ; max |r|/B 0.001
+  :289   ### n = 11 : dF/da sign changes at a = [12, 13, 15, 17, 18, 21, 26, 30, 34, 38, 45, 51, 59] (READING; no stationary point is called a finding)
+
+### relay data/b548_h2.txt : 16 lines ; its summary lines:
+
+### tools/b521_tail.py:44-53 -- PWindow -- variant (B) at order p
+  :44 class PWindow(B19.VWindow):
+  :45     """### variant (B) with the ramp's B-spline order p."""
+  :46 
+  :47     def __init__(self, a, obj, p):
+  :48         B19.VWindow.__init__(self, a, obj, 'B')
+  :49         self.m = p
+  :50         self.h = 2.0 * self.R / p
+  :51         ks = np.linspace(-self.R, self.R, p + 1)
+  :52         self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :53         self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, p, self.R)
+
+### tools/b519_window.py:67-135 -- VWindow: the plateau window, phihat, ghat, khat -- the window definition verbatim
+  :67 class VWindow(B14.MWindow):
+  :68     def __init__(self, a, obj, variant):
+  :69         self.variant, self.obj = variant, obj
+  :70         self.gs = [G0[obj]] + (notches(obj) if variant in ('A', 'C') else [])
+  :71         self.coef = poly_coeffs(self.gs)
+  :72         self.plateau = variant in ('B', 'C')
+  :73         if not self.plateau:
+  :74             B14.MWindow.__init__(self, a, G0[obj], 10)
+  :75             self.order_note = 'B-spline of order 10 on [-L, L]'
+  :76         else:
+  :77             m = 5 if variant == 'B' else 9
+  :78             self.a, self.g0, self.m = a, float(G0[obj]), m
+  :79             self.L = math.log(a)
+  :80             self.R = F_RAMP * self.L / 2.0            # ### each ramp spans 2R; two ramps span 4R = F_RAMP * 2L
+  :81             self.W = self.L - self.R
+  :82             self.h = 2.0 * self.R / m                  # ### the inner B-spline's knot spacing
+  :83             self.half = self.L
+  :84             ks = np.linspace(-self.R, self.R, m + 1)
+  :85             self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :86             self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, m, self.R)
+  :87 
+  :88     # ### the base bump phi and its transform
+  :89     def phihat(self, z):
+  :90         z = np.asarray(z, dtype=complex)
+  :91         if not self.plateau:
+  :92             return B14.MWindow.phihat(self, z)
+  :93         return csinc(z * self.W) * csinc(z * self.h / 2.0) ** self.m
+  :94 
+  :95     def phi_d(self, t, d=0):
+  :96         if not self.plateau:
+  :97             return B14.MWindow.phi_d(self, t, d)
+  :98         t = np.asarray(t, dtype=float)
+  :99         if d == 0:
+  :100             return (self.cdf(t + self.W) - self.cdf(t - self.W)) / (2.0 * self.W)
+  :101 
+  :102         def psi(u, e):
+  :103             y = (u + self.R) / self.h
+  :104             return (F.nbs(self.m, y) if e == 0 else F.dnbs(self.m, e, y)) / (self.h ** (e + 1))
+  :105         return (psi(t + self.W, d - 1) - psi(t - self.W, d - 1)) / (2.0 * self.W)
+  :106 
+  :107     def cdf(self, u):
+  :108         """### INT_{-inf}^u psi, psi the inner order-m B-spline: 0 below its support, 1 above it, and inside it
+  :109         ### SUM_{j=0}^{m} N_{m+1}(y - j) with y clamped into [0, m] (b519`s repair: the first form summed about 170 terms,
+  :110         ### all but m+1 of them zero, and priced the fixture of variant (C) at hours)."""
+  :111         y = np.clip((np.asarray(u, dtype=float) + self.R) / self.h, 0.0, float(self.m))
+  :112         return sum(F.nbs(self.m + 1, y - j) for j in range(0, self.m + 1))
+  :113 
+  :114     def cdf_slow(self, u):
+  :115         """### the first form, kept so the repair can be proved equal to it."""
+  :116         y = (np.asarray(u, dtype=float) + self.R) / self.h
+  :117         return sum(F.nbs(self.m + 1, y - j) for j in range(0, 4 * self.m + 8 + int(4 * self.W / self.h)))
+  :118 
+  :119     # ### the window
+  :120     def ghat_cos(self, z):
+  :121         z = np.asarray(z, dtype=complex)
+  :122         return 0.5 * (self.phihat(z - self.g0) + self.phihat(z + self.g0))
+  :123 
+  :124     def poly(self, z):
+  :125         p = np.ones_like(np.asarray(z, dtype=complex))
+  :126         for g in self.gs:
+  :127             p = p * (g * g - z * z)
+  :128         return p
+  :129 
+  :130     def ghat(self, z):
+  :131         z = np.asarray(z, dtype=complex)
+  :132         return self.poly(z) * self.ghat_cos(z)
+  :133 
+  :134     def khat(self, z):
+  :135         return self.ghat(z) ** 2
+
+### tools/b519_window.py:32-32 -- F_RAMP
+  :32 F_RAMP = 0.25                      # ### READING (1): the two ramps together occupy one quarter of the support [-L, L]
+
+### tools/e16/carto_atlas.py:8-25 -- the instrument constants: NU, UMAX and the decay assumption
+  :8 
+  :9 INSTRUMENT CONSTANTS -- COMMITTED HERE, BEFORE ANY ANSWER IS SEEN
+  :10 (per the undefined-requirement loom line: grid choices are instrument constants):
+  :11     NV      = 4001      v-grid points on [-log a, log a]
+  :12     NU      = 12001     u-grid points
+  :13     UMAX    = 600.0     u-range; hhat decays faster than any polynomial,
+  :14                         the psi-kernel grows like log u, so the tail is negligible
+  :15     TOL     = 1e-3      E2 pass tolerance on the explicit-formula residual
+  :16     NGAM    = 10000     banked verified ordinates
+  :17 Truncation bound for the zero side is computed and printed, not assumed.
+  :18 
+  :19 Explicit formula, even test function, standard normalisation:
+  :20     sum_gamma hhat(gamma)  =  hhat(i/2) + hhat(-i/2)  -  PRIME  +  ARCH   [sign fixed BY the E2 calibration]
+  :21 """
+  :22 import math, os, sys, json, time
+  :23 import numpy as np
+  :24 
+  :25 NV, NU, UMAX, TOL, NGAM = 4001, 12001, 600.0, 1e-3, 10000
+
+### tools/e16/carto_atlas.py:33-40 -- the xi kernel
+  :33 def kernel(U):
+  :34     """Re psi(1/4 + i u/2) - log pi, cached."""
+  :35     global _KERN
+  :36     if _KERN is None:
+  :37         from mpmath import mp, digamma, mpc, re as mre
+  :38         mp.dps = 15
+  :39         _KERN = np.array([float(mre(digamma(mpc(0.25, uu / 2.0)))) for uu in U]) - math.log(math.pi)
+  :40     return _KERN
+
+### tools/b326_windows.py:220-229 -- the Q0 kernel (qd)
+  :220 def kernel_q_derived(U):
+  :221     """### `2 Re psi(1/2 + i u) - 2 log(2 pi / sqrt23)` -- registration section (1), this act's own
+  :222     ### code: `2 Re(gamma_Q'/gamma_Q)` on the line."""
+  :223     key = ('q', U.size, float(U[0]), float(U[-1]))
+  :224     if key not in _KCACHE:
+  :225         from mpmath import mp, digamma, mpc, re as mre
+  :226         mp.dps = 15
+  :227         _KCACHE[key] = (2.0 * np.array([float(mre(digamma(mpc(0.5, uu)))) for uu in U])
+  :228                         - 2.0 * math.log(2.0 * math.pi / math.sqrt(DISC)))
+  :229     return _KCACHE[key]
+
+### tools/b511_families.py:44-47 -- the three u-grids
+  :44 KER = np.load(os.path.join(D, 'b504_kernels.npz'))
+  :45 U_BASE = np.linspace(-AT.UMAX, AT.UMAX, AT.NU)
+  :46 U_HALF = np.linspace(-AT.UMAX, AT.UMAX, 2 * AT.NU - 1)
+  :47 U_WIDE = np.linspace(-2 * AT.UMAX, 2 * AT.UMAX, 2 * AT.NU - 1)
+
+### tools/b511_families.py:193-194 -- arch
+  :193 def arch(H, U, K):
+  :194     return float(np.trapezoid(H * K, U) / (2.0 * math.pi))
+
+### tools/b548_record.py:78-102 -- cell_xi -- the quadrature budget E_u at :84
+  :78 def cell_xi(a, p):
+  :79     """### b519`s xi branch (tools/b519_window.py cell, obj == 'xi'), line for line, on b521`s PWindow(a, 'xi', p)."""
+  :80     W = B21.PWindow(a, 'xi', p)
+  :81     kz = 'z'
+  :82     Hb, Hh, Hw = W.khat(F.U_BASE).real, W.khat(F.U_HALF).real, W.khat(F.U_WIDE).real
+  :83     A = F.arch(Hb, F.U_BASE, F.KER[kz + '_base'])
+  :84     Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+  :85     PR, PRabs = F.prime_channel_xi(W, B19.QL)
+  :86     PR2, _ = F.prime_channel_xi(W, B19.QH)
+  :87     G = F.GAM
+  :88     zt = 2.0 * W.khat(G).real
+  :89     Zon = float(np.sum(zt))
+  :90     ip = int(np.argmin(np.abs(G - B19.G0['xi'])))
+  :91     pair = float(zt[ip])
+  :92     Etail = B19.tail(W, float(G[-1]), 'xi')
+  :93     dk = np.abs(2.0 * (W.khat(G * (1 + F.DELTA_XI)).real - W.khat(G).real))
+  :94     P = float((W.khat(0.5j) + W.khat(-0.5j)).real)
+  :95     Z = Zon
+  :96     r = Z - (P - PR + A)
+  :97     Ek = abs(PR - PR2)
+  :98     Aabs = float(np.trapezoid(np.abs(Hb * F.KER[kz + '_base']), F.U_BASE) / (2.0 * math.pi))
+  :99     Eround = 4.0 * F.EPS * (float(np.sum(np.abs(zt))) + Aabs + PRabs) + float(np.sum(dk))
+  :100     B = Eu + Ek + Etail + Eround
+  :101     return dict(a=a, p=p, A=A, PR=PR, P=P, Z=Z, pair=pair, rest=Z - pair, h2=P - PR + A, r=r, B=B, Bprime=Eu + Ek + Eround, Eu=Eu, Ek=Ek,
+  :102                 Etail=Etail, Eround=Eround, verified=bool(abs(r) <= B))
+
+### tools/b519_window.py:160-180 -- phi_bound, majorant, tail -- the order-p majorant
+  :160 def phi_bound(W, x, s):
+  :161     x = np.abs(np.asarray(x, dtype=float))
+  :162     b = (math.cosh(s * W.h / 2.0) * np.minimum(1.0, 1.0 / np.maximum(x * W.h / 2.0, 1e-300))) ** W.m
+  :163     if W.plateau:
+  :164         b = b * math.cosh(s * W.W) * np.minimum(1.0, 1.0 / np.maximum(x * W.W, 1e-300))
+  :165     return b
+  :166 
+  :167 
+  :168 def majorant(W, t, s=0.0):
+  :169     t = np.asarray(t, dtype=float)
+  :170     p = np.ones_like(t)
+  :171     for g in W.gs:
+  :172         p = p * (g * g + t * t + s * s)
+  :173     return (p * 0.5 * (phi_bound(W, t - W.g0, s) + phi_bound(W, t + W.g0, s))) ** 2
+  :174 
+  :175 
+  :176 def tail(W, top, obj):
+  :177     t = np.geomspace(top, top * 1e8, 200001)
+  :178     if obj == 'xi':
+  :179         dens, s = np.log(t / (2 * math.pi)) / (2 * math.pi), 0.0
+  :180     else:
+
+### relay data/b546_scores.json -- the working-tree diff
+  diff --git a/data/b546_scores.json b/data/b546_scores.json
+  index 24df997b..ba0eb0b2 100644
+  --- a/data/b546_scores.json
+  +++ b/data/b546_scores.json
+  @@ -23,6 +23,7 @@
+    },
+    "written": [
+     "FINDINGS.md",
+  +  "OPEN_TRAILS.md",
+     "SPIRAL_MAP.md",
+     "phase1.5/spectral/BALANCE_AND_POSITIVITY.md"
+    ],
+  file time 2026-09-26 15:23:39 ; b546 commits: ce0cccfb 2026-09-26 15:20:01 -0400 ; 9e06a910 2026-09-26 15:23:54 -0400
+  PLACE-papers 37b36b3 (b546) files: FINDINGS.md, OPEN_TRAILS.md, SPIRAL_MAP.md, phase1.5/spectral/BALANCE_AND_POSITIVITY.md
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md:66-71 -- THE_LOAD_BEARING_MAP`s RESIDUE rows
+  :66 **The completion gap — one coherent cluster was never a named wave target: the `phase1.5/proofs/` RH-proof cluster.** These carry the older "Compiled + axiom-profile" table form; their load-bearing rows were graded by later ARM/CASCADE passes, but content rows stayed pre-rubric:
+  :67 
+  :68 | keystone | state | owed re-grade (RUN from the correspondence union at pin; filed here) |
+  :69 |:--|:--|:--|
+  :70 | **THE_RESIDUE_OF_RH** | no grade column (Result/Terminal/Profile) | held branch `word-pairing-interface`, research-frontier — its terminals are the residue markers; grade **DERIVES** (compiled structure) / **INTERFACES-DISCLAIMED** (the HP/zero-realization row) — *filed, not written into the enshrined table* |
+  :71 | **HELD_RESIDUE_v1_1** | ungraded appended rows | a held un-landed change-spec; grades apply when the author lands v1.1 |
+
+### data/b506_c2_results.json:5550-5560 -- the b506 bank`s found zero near t = 16.290 (its σ)
+  :5550     0.94875,
+  :5551     0.979375,
+  :5552     16.28125,
+  :5553     16.3125
+  :5554    ],
+  :5555    "rho": [
+  :5556     0.9532604747946607,
+  :5557     16.290215720390393
+  :5558    ],
+  :5559    "inside": true,
+  :5560    "absz": 6.96779132619755e-40,
+
+### archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:2296-2304 -- the Epstein C-run §4 draws on (provenance epstein_crun2.py)
+  :2296 **ITEM 1 — EPSTEIN C-RUN: prediction confirmed, doubly-sourced (66 digits).** Prediction registered before the run: `C[Z_Q disc−23]` drifts like ζ despite Z_Q being RH-FALSE (positive ledger `r_Q≥0` ⟹ drift ⟹ edge, RH-independent). **Result** (own Cauchy-DFT / incomplete-gamma theta-transform of the Epstein completed L; two radii r=0.6, 0.5 agree to `max|Δη|<2.44e-66`):
+  :2297 
+  :2298 | C[L](N) | N=10 | 25 | 50 | 100 | 120 |
+  :2299 |:--|:--|:--|:--|:--|:--|
+  :2300 | ζ (RH-true, Λ≥0) | 1.273 | 1.003 | 1.030 | 0.895 | 0.982 |
+  :2301 | **Epstein Z_Q disc−23 (RH-FALSE, r_Q≥0)** | **0.650** | **1.201** | **1.160** | **0.833** | **1.167** |
+  :2302 | DH (RH-FALSE, sign-neutral) | −0.130 | 0.120 | 0.208 | −0.032 | −0.017 |
+  :2303 
+  :2304 **FINDING (before interpretation):** C[Epstein] ∈ [0.65, 1.20], bounded away from 0, clustering ~1 — indistinguishable from ζ; DH sits at ~0. **INTERPRETATION:** the coherence functional measures **ledger-positivity, not RH-truth** — confirmed from a third independent side. The decisive case is decided: a positive ledger produces the drift *even when RH is false* (Epstein h=3). C reaches the edge for every positive-ledger L (RH-true or false), never the centre. This closes W-COH-1's characterization: C is NOT ζ-specific but positive-ledger-specific; W-COH-1 read C[ζ]~1 as unique only because its test families (DH, χ) had sign-neutral/changing ledgers. Comparative row added; provenance `epstein_crun2.py`.
+
+### phase1.5/spectral/THE_COHERENCE_INVARIANT.md:25-38 -- the coherence table
+  :25 ## 2. The computed exemplars
+  :26 
+  :27 Every row doubly-sourced (two DFT radii); the Epstein row's two radii agree to 66 digits.
+  :28 
+  :29 | L-function | ledger | RH | `C[L]` (N = 10 … 200) |
+  :30 |:--|:--|:--|:--|
+  :31 | ζ | `Λ(n) ≥ 0` | true | **≈ 0.85 – 1.27** (bounded from 0) |
+  :32 | Rankin–Selberg Δ×Δ̃ | `≥ 0` | true (GRH) | positive (ledger `≥ 0`; full value a bounded follow) |
+  :33 | **Epstein `Z_Q`, disc −23 (h = 3)** | **`r_Q ≥ 0`** | **FALSE** | **≈ 0.65 – 1.20** (bounded from 0) |
+  :34 | Davenport–Heilbronn | sign-neutral (period-sum 0) | FALSE | **≈ −0.13 … 0.21** (at 0) |
+  :35 | χ₅ real (quadratic) | sign-changing | true | ≈ −0.16 … 0.17 (at 0) |
+  :36 | χ₅ complex (order 4) | sign-changing | true | ≈ −0.09 … 0.18 (at 0) |
+  :37 | χ₃ real (quadratic) | sign-changing | true | ≈ −0.04 … 0.17 (at 0) |
+  :38 
+

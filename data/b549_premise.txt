@@ -1,0 +1,36 @@
+b549 -- COMPONENT 1 (b): THE PREMISES OF residue_irreducible (READING (4))
+
+### the fresh #check (lv main 2f71068):
+  residue_irreducible : ∀ {lam_A lam_Z lam : ℕ → ℝ} {low : Finset SIDELvConservation.PartialPositivity.NontrivialZero} {tail : ℕ → ℝ} {T : ℝ} (hZero : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), (∀ (n : ℕ), lam n = lam_A n + lam_Z n) → SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) → (Register4_positivity lam → RiemannHypothesis) → ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum ∧ PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T) ∧ ∀ (ledger : ℕ → ℝ), ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis
+
+### its premises, by name and type:
+  hZero                    : NontrivialZeroExistsInStrip
+  hdecomp                  : ∀ n, lam n = lam_A n + lam_Z n
+  hV                       : VerifiedZerosTo T
+  hEF                      : ExplicitFormulaDecomp lam low tail T
+  hTail                    : TailBoundPremise low tail T
+  inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+  liCriterion              : Register4_positivity lam → RiemannHypothesis
+
+### beside them, at SIDE-explicit-formula v0.2 = 5c72cad:
+  H2Sign.lean:29-30  def h2_sign : Prop := ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  Seam.lean:101      theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+
+### a premise whose type is one of h2_sign / h2_sign → RiemannHypothesis / RiemannHypothesis → h2_sign : NONE
+### THE FORM DIFFERS, and where: the Weil premise of residue_irreducible is `inequalityToPositivity` (with the pairing`s own
+### field `yieldsInequality`), a map between Li-channel Props on sequences ℕ → ℝ that the theorem leaves arbitrary; h2_sign is a
+### Prop over classK test functions k : ℝ → ℂ built from ζ`s pole term, prime sum and arch term. No premise names h2_sign, and
+### the lam of the Li premises is not tied to ζ inside the theorem.
+### lv requires ['require mathlib from git'] ; lv toolchain leanprover/lean4:v4.29.1, Mathlib 5e932f9 ; explicit-formula toolchain leanprover/lean4:v4.33.0-rc2, Mathlib 51e6992 -- lv does not import explicit-formula.
+
+### THE DISCHARGE, PRICED IN LEMMAS (not attempted):
+  route W (the Weil form, bypassing Li): (W1) a classK field for the pairing -- a sibling specification of ZeroActingPairing whose
+      positivity clause is stated on classK test functions (the present fields are Li-channel and carry no test function);
+      (W2) that field implies h2_sign, by unfolding; (W3) compose with h2_sign_iff_rh.mp to RiemannHypothesis. W3 is one line; W1
+      is the item of substance; the join needs the two kernels on one toolchain and one Mathlib (lv bumped to explicit-formula`s,
+      or the specification restated in explicit-formula).
+  route L (the Li form, as stated): (L1) ζ`s Li channels as definitions (Mathlib 51e6992 has no Li coefficient, b546) with the
+      decomposition at ζ; (L2) Li`s criterion for ζ, Bombieri-Lagarias 1999 -- not compiled, the lemma of substance; (L3) the Weil
+      direction inequalityToPositivity at ζ`s channels. h2_sign_iff_rh discharges none of L1-L3: it concludes RH from h2_sign, and
+      no premise of the Li route has h2_sign as its hypothesis.
+### so the discharge is not immediate: route W costs three lemmas and a toolchain join; route L costs the Li instance.

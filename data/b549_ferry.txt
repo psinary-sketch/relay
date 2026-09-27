@@ -1,0 +1,127 @@
+RULING (R159) BEGIN
+
+RULING (R159), the author's, ratified by this paste and
+strikeable: b548'S TWO READINGS ENTERED AT THEIR WEIGHT; THE
+NAVIGATOR'S PARAMETRIZATION DEFECT IN H2 RECORDED; THE TWO
+DECISIONS TAKEN; THE_RESIDUE_OF_RH TIERED AS THE CASCADE'S
+ACT FIVE.
+
+(1) READING ONE, at its weight. H1's "at most five zeros"
+clause scored k* = 1 because the excess at widths 36–38 is
+4–7% of the rest, and one zero's contribution exceeds that
+margin; the clause as written cannot distinguish a carried
+excess from a diffuse one, and the peak clause fails at 36
+and 37. The reading that stands is the one the bank shows:
+the pair term is negative at every width from 30 to 45; the
+rest is positive at every width; the sign of the quantity at
+36–38 is the rest overtaking the pair by a small margin; and
+the largest single movement in the rest across 34–38 is the
+off-line zero at t = 29.551761 (σ = 0.798), from −44.8 at
+a = 34 to +74.0 at a = 38. Whether that zero's term is what
+opens and closes the positive window is not decided by k*
+and is entered as the question the next bench reading
+carries, not as a finding.
+
+(2) READING TWO, at its weight, and the navigator's defect.
+H2's Q0 clause was written in the wrong variable. The
+power-window route (PowerWindow, PowerLimit) fixes the base
+window and raises it to the n-th convolution power, so the
+support grows with n; b548's sweep held the total half-width
+a fixed while n rose, which narrows the base factor to a/n.
+The refutation is of the clause as written, not of the
+route, and the clause is the navigator's defect, recorded as
+such at the b548 entry by appended line. The route's own
+variable can be read from the banked tables without a new
+computation if the order-n window of half-width a is the
+n-fold self-convolution of an indicator of half-width a/n:
+then the cells F(n·b, n) at fixed base half-width b are the
+route's sequence. Hypothesis H3, fixed before any reading:
+at Q0, for each b in {4, 5, 6}, F(n·b, n) is negative from
+some n on and its magnitude grows with n across the orders
+banked; at ξ, F(n·b, n) is nonnegative at every such cell
+above its floor. H3 is refuted if any Q0 diagonal returns to
+positive after going negative, or if any ξ diagonal cell is
+negative above its floor. If the window family is not the
+self-convolution family, the diagonal is not the route's
+variable, the component says so and stops, and the
+re-parametrized sweep is priced as a bench act.
+
+(3) THE ORDER-3 BUDGET IS REPAIRED, not waived. A positive
+control that does not verify is a bank defect whether or not
+its sign is in doubt. The quadrature error term's dependence
+on the window's smoothness (the order-3 spline is C¹; the
+transform decays one power slower than order 5's) is read
+from the tool, the budget exponent is made order-dependent,
+and ξ at order 3 is recomputed under the repaired budget and
+banked beside the b548 cells, not over them. If the repaired
+budget still fails at any order-3 cell, the cells stay
+UNVERIFIED and the reason is printed.
+
+(4) THE STRAY CHANGE in relay data/b546_scores.json is
+printed as a diff before anything is done with it. If the
+diff is b546's own score line written after b546's commit,
+it is committed in a housekeeping commit named for b546 with
+the diff quoted in the message; if it is anything else, it
+is reverted and the diff is quoted in the b549 record. It
+is not left unstaged a second act.
+
+(5) THE_RESIDUE_OF_RH is tiered as act five of the cascade.
+Its twelve-row Correspondence table cites the merged branch
+word-pairing-interface of SIDE-lv-conservation (fast-forward
+tip 5a14205 on main); every terminal is re-read at v0.10.0
+and graded CARRIED or MOVED. Two rows of its second table
+carry the cascade's weight. The row "h2, the one open
+premise — NONE — MANUSCRIPT-RESIDENT, monograph §27.3,
+register 4, no terminal" is MOVED: h2 in its Weil form has a
+terminal, h2_sign (SIDE-explicit-formula v0.2,
+H2Sign.lean:29–31), and its equivalence to Mathlib's
+RiemannHypothesis is the theorem h2_sign_iff_rh; the row
+gains an appended line saying so and naming the tier
+(T1-open as premise; the equivalence T0). The row "the
+zero-acting positive pairing's EXISTENCE — NONE — no kernel
+exists — RESEARCH-REACH" is CARRIED and gains an appended
+line distinguishing the pairing's criterion, which is
+compiled, from the pairing's existence, which is not
+touched: h2_sign_iff_rh says positivity of the Weil form on
+classK is RH; it constructs no operator and realizes no
+spectrum. §7's "only the conjunction is RH" [quoted verbatim;
+stem in source text] is re-read in that light as a reading, not an edit: clause 2 in full (the
+inequality for every test function) is RH by the compiled
+criterion, so the residue is clause 2 past its certified
+range, and clause 1 (realization) is one candidate supplier
+of clause 2 and not a separate necessity. The reading is
+entered in FINDINGS and pointed to from the document's back
+matter; §§1–8 are not edited; the edition waits for CP-7 as
+(R157)(2) says.
+
+(6) The document's 2026-08-12 annotation uses a banned stem
+("language gap") [quoted verbatim; stem in source text] in
+existing text. It is not edited; the
+occurrence is listed in the act's record for the edition.
+
+(7) The remaining nine tables follow; the next named is
+THE_IDENTITY_CHAIN.
+
+RULING (R159) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b549 - THE CASCADE, ACT FIVE: THE_RESIDUE_OF_RH TIERED, THE h2 ROW MOVED, THE PAIRING ROW DISTINGUISHED; b548'S READINGS ENTERED AT THEIR WEIGHT; THE ORDER-3 BUDGET REPAIRED; THE STRAY CHANGE SETTLED, under (R159).
+
+Read before anything, whole, and cite by path and line: THE_RESIDUE_OF_RH.md entire (§§1–8; the two Correspondence tables; every era and currency annotation); SIDE-lv-conservation at v0.10.0, the modules holding residue_irreducible, zeroActingPairing_to_RH, certifiedPartialInhabitant, detection_threshold_mono, escape_kind_discriminates, edge_drift_nonneg, positivity_free_obstruction_is_zeroRealization, no_asset_realizes_zeroSpectrum, transfer_obstruction_is_the_two_geometric_clauses, XRealization and xRealization_to_RH (statements printed verbatim from a fresh #check; #print axioms each); H2Sign.lean:29–31 and Seam.lean's h2_sign_iff_rh at v0.2; FINDINGS :5613 (b548's entry), :5529 and :5649; relay data/b548_interference.txt, data/b548_sweep_xi.txt, data/b548_sweep_q0.txt; tools/hhat_exact and the window code (print the window definition verbatim and say whether the order-n window of half-width a equals the n-fold self-convolution of an indicator of half-width a/n); the quadrature error tool and the line where its budget exponent is set; relay data/b546_scores.json's working-tree diff; THE_LOAD_BEARING_MAP's RESIDUE rows; the b506 bank's row for the zero near t = 16.290 (its σ) and the coherence banks §4 cites (name the files).
+
+COMPONENT 1 - THE RESIDUE TIERED. (a) Tier every terminal of both Correspondence tables, re-read at v0.10.0 with statement and profile printed: CARRIED / MOVED; any terminal not found on main at 5a14205's line is a printed defect of the row. (b) Read residue_irreducible's statement for the named premises it takes; if one of them is the Weil criterion in a form h2_sign_iff_rh matches, print both statements side by side and price the discharge in lemmas, not attempted; if the form differs, say where. (c) Append the two lines of (R159)(5) to the h2 row and the pairing-existence row of the second table, as appended rows beneath the table, dated, the table unchanged. (d) Check §5's "ρ ≈ 0.9533 + 16.290 i" against the b506 bank's σ for that zero and print both; check §4's C[Z_Q] range against the banks it came from (print file and lines). (e) List the banned-stem occurrence of (R159)(6) with its line, unedited. (f) Tier §1's Li form (T1-lit per (R156)(1)) and §7's "Weil-criterion direction; Li's criterion" sentence: read it for what it now means and print the reading in one sentence.
+
+COMPONENT 2 - b548'S READINGS AT THEIR WEIGHT. (a) Append to FINDINGS :5613 the (R159)(1) reading and the (R159)(2) defect line, each dated and attributed (the defect the navigator's). (b) If the window family is the self-convolution family: read the diagonals F(n·b, n) for b in {4, 5, 6} and n in {3, 5, 7, 9, 11} where n·b ≤ 60 from the two b548 sweep banks (no new computation), print the two diagonal tables with status and floor, and score H3 per (R159)(2) clause by clause. If not: print the definition, say in one sentence why the diagonal is not the route's variable, and price the re-parametrized sweep from b548's banked per-cell cost. Bank as data/b549_diagonal.txt.
+
+COMPONENT 3 - THE ORDER-3 BUDGET. Print the budget exponent line; state the smoothness dependence the tool assumes and what order 3 has; repair the exponent to depend on the order; recompute ξ at order 3, a from 10 to 60, in foreground chunks under 600 s; bank as data/b549_sweep_xi_n3.txt beside b548's file; print how many of the 51 cells now verify. The Q0 order-3 cells are re-scored under the repaired budget from their banked values without recomputation and printed.
+
+COMPONENT 4 - THE STRAY CHANGE. git diff on data/b546_scores.json printed; then per (R159)(4).
+
+COMPONENT 5 - THE FINDINGS ENTRIES. One entry titled by its objects: "The cascade, act five: THE_RESIDUE_OF_RH tiered, the h2 row given its terminal, the pairing's criterion distinguished from its existence" — counts per tier and disposition, the §7 reading of (R159)(5) in the descriptive voice, the next keystone named (THE_IDENTITY_CHAIN). One appended line at :5529 pointing to the diagonal reading if it ran.
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) every terminal of the twelve rows is found on main at v0.10.0 and CARRIED; the two rows of (R159)(5) are the ones MOVED or annotated. (N2) residue_irreducible takes the Weil criterion as an abstract named premise (a Prop or hypothesis structure) rather than in classK/weilTest form, so the discharge is priced and not immediate; print the statement either way. (N3) the window family is the self-convolution family and the diagonals read: at Q0, F(n·b, n) is negative from n = 7 on for b = 5 and 6 and stays negative; at ξ every diagonal cell is nonnegative. (N4) under an order-dependent budget, all 51 ξ order-3 cells verify. (N5) the b546_scores.json diff is b546's own score line and is committed as housekeeping. (N6) §5's σ for the zero near 16.290 matches the bank to three decimals. (N7) no byte above any appended block changes; nothing at Zenodo; no kernel edited; nothing deposits.
+
+Foreground runs under the 600 s limit, chunked as Component 3 says [procedural]. Delete commands on verified absolute paths or explicit branch names in the same command (standing rule); push-b548 branches deleted by name after --merged lists them. Record, correspondence rows, trail record in the house form. Nothing deposits.
+
+FERRY END (part 1 of 1)

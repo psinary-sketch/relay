@@ -1,0 +1,73 @@
+b549 -- COMPONENT 2 (b): THE WINDOW FAMILY (READING (8))
+
+### the definition, verbatim:
+### tools/b521_tail.py:44-53 -- PWindow
+  :44 class PWindow(B19.VWindow):
+  :45     """### variant (B) with the ramp's B-spline order p."""
+  :46 
+  :47     def __init__(self, a, obj, p):
+  :48         B19.VWindow.__init__(self, a, obj, 'B')
+  :49         self.m = p
+  :50         self.h = 2.0 * self.R / p
+  :51         ks = np.linspace(-self.R, self.R, p + 1)
+  :52         self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :53         self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, p, self.R)
+
+### tools/b519_window.py:77-93 -- VWindow`s plateau branch and phihat
+  :77             m = 5 if variant == 'B' else 9
+  :78             self.a, self.g0, self.m = a, float(G0[obj]), m
+  :79             self.L = math.log(a)
+  :80             self.R = F_RAMP * self.L / 2.0            # ### each ramp spans 2R; two ramps span 4R = F_RAMP * 2L
+  :81             self.W = self.L - self.R
+  :82             self.h = 2.0 * self.R / m                  # ### the inner B-spline's knot spacing
+  :83             self.half = self.L
+  :84             ks = np.linspace(-self.R, self.R, m + 1)
+  :85             self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :86             self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, m, self.R)
+  :87 
+  :88     # ### the base bump phi and its transform
+  :89     def phihat(self, z):
+  :90         z = np.asarray(z, dtype=complex)
+  :91         if not self.plateau:
+  :92             return B14.MWindow.phihat(self, z)
+  :93         return csinc(z * self.W) * csinc(z * self.h / 2.0) ** self.m
+
+### tools/b519_window.py:120-135 -- ghat_cos, poly, ghat, khat
+  :120     def ghat_cos(self, z):
+  :121         z = np.asarray(z, dtype=complex)
+  :122         return 0.5 * (self.phihat(z - self.g0) + self.phihat(z + self.g0))
+  :123 
+  :124     def poly(self, z):
+  :125         p = np.ones_like(np.asarray(z, dtype=complex))
+  :126         for g in self.gs:
+  :127             p = p * (g * g - z * z)
+  :128         return p
+  :129 
+  :130     def ghat(self, z):
+  :131         z = np.asarray(z, dtype=complex)
+  :132         return self.poly(z) * self.ghat_cos(z)
+  :133 
+  :134     def khat(self, z):
+  :135         return self.ghat(z) ** 2
+
+### read: L = ln a ; R = F_RAMP·L/2 = L/8 (F_RAMP = 0.25) ; W = L − R = 7L/8 ; h = 2R/p ; φ̂(z) = sinc(zW)·sinc(zh/2)^p, so
+### φ = 1[−W,W]/(2W) ⋆ (the order-p B-spline of half-width R), supported on [−L, L] = [−ln a, ln a] AT EVERY p; the test
+### function is k̂ = ĝ², ĝ(z) = (γ₀² − z²)·½(φ̂(z − γ₀) + φ̂(z + γ₀)).
+### the n-fold self-convolution of an indicator of half-width a/n has transform sinc(z·a/n)^n and support [−a, a], growing
+### with the base; the family`s support is ln a, fixed in p, and its base factor carries a plateau of half-width 7L/8 that
+### no power of one indicator has.
+### VERDICT : THE FAMILY IS NOT THE SELF-CONVOLUTION FAMILY.
+### IN ONE SENTENCE: raising p in b522`s family only smooths the two ramps of a fixed plateau on [−ln a, ln a], while the
+### route raises a fixed base to its n-th convolution power so that the support grows as n times the base; so F(n·b, n) is
+### not the route`s sequence, and the diagonal is not read. H3 : NOT SCORABLE (READING (8)).
+
+### THE RE-PARAMETRIZED SWEEP, PRICED (not run, not filed):
+  (P1) a window class for the route`s family: φ_n = the n-th convolution power of a fixed base (an indicator, or the base the
+       route`s PowerWindow fixes), its transform in closed form (sinc(βz)^n), and the cos-modulation and γ₀-factor kept;
+  (P2) its majorant and closed-form zero-side tail -- b521`s constants divide by the plateau half-width W, which this family
+       lacks, so the tail constants are re-derived, not imported;
+  (P3) a fixture at one cell (closed form against quadrature) before any sweep;
+  (P4) the sweep. b548`s banked per-cell seconds: Q0 5202 s, ξ 4085 s over 255 cells each (total 9287 s). A sweep over the same
+       51 supports and five orders costs about that, since a cell`s cost is set by its support (the prime channel`s range) and
+       its order; the ruling`s diagonal alone, 14 cells per object (b ∈ {4, 5, 6}, n·b <= 60), costs about Q0 332 s and ξ 262 s
+       at b548`s cost for the same (n, a). (P1)-(P3) are tool work of about one act; (P4) runs in foreground chunks.

@@ -1,0 +1,17 @@
+    (a) The seat miscounted the terminals: the reads bank's header (data/b549_reads.txt:316) says "the 25 terminals", and the face's
+        draft said "25 terminals" at its line 84 until the regspec counter read it as an artifact-count prediction and the line was
+        reworded before the seal. The twelve rows name 24 terminals; every bank written after the seal counts 24.
+    (b) The first step-zero pins run hard-failed on relay (ls-remote UNRESOLVED); an ls-remote by hand resolved at once and the
+        re-run read 0. Both runs are kept (b549_pins_stepzero_first.txt, b549_pins_stepzero_rerun.txt); the step-zero bank is the re-run.
+    (c) The heredoc backslash trap, again: the first gen549s.py was written by a quoted heredoc and its regex lost a backslash
+        ("unterminated character set"); it failed before writing anything and was repaired by an edit.
+    (d) The first FINDINGS append refused itself for unbalanced backticks: "NAVIGATOR`S" (upper-case S) and "ζ`s" escape the
+        possessive rewrite. Nothing was written; both were changed to ’ and the append re-run.
+    (e) The fresh #check ran 26 min 26 s in the foreground; the harness moved it to the background at 600 s, and it was watched
+        from the foreground by a tasklist loop until it ended (exit 0). Two file searches (the coherence banks) outran the 120 s
+        default and were moved likewise; one `import carto_atlas` probe failed on its module path and read nothing.
+    (f) The order names two trees: "re-read at v0.10.0" and "on main at 5a14205's line". The terminals are on main and at the tip
+        and in no tree of the tag, which predates the branch; (N1) is scored on both clauses as the face registered, and its tag
+        clause fails -- a defect of the pin the order names, not of the rows.
+    (g) (R159)(6) names one occurrence of the banned stem (:152, "language ..."); the scan finds three -- :134 once, :152 twice --
+        all listed for the edition, none edited.

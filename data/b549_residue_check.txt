@@ -1,0 +1,143 @@
+HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 dirty=[] start 20:22:24
+@zeroActingPairing_to_RH : ∀ {lam_A lam_Z ledger lam : ℕ → ℝ},
+  (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) →
+    (Register4_positivity lam → RiemannHypothesis) → ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis
+'SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+distinctFromInput_discharged : ∀
+  (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip),
+  ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum
+'SIDELvConservation.RegisterPentagon.distinctFromInput_discharged' does not depend on any axioms
+@signNeutral_not_eulerConsuming : ∀ {ledger : ℕ → ℝ} {p : ℕ}, SignNeutralLedger ledger p → ¬∀ (m : ℕ), 0 ≤ ledger m
+'SIDELvConservation.RegisterPentagon.signNeutral_not_eulerConsuming' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@zeroActingPairing_ledger_not_signNeutral : ∀ {lam_A lam_Z ledger : ℕ → ℝ} {p : ℕ},
+  ZeroActingPairing lam_A lam_Z ledger → ¬SignNeutralLedger ledger p
+'SIDELvConservation.RegisterPentagon.zeroActingPairing_ledger_not_signNeutral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@dhModelLedger_no_pairing : ∀ {lam_A lam_Z : ℕ → ℝ}, ZeroActingPairing lam_A lam_Z dhModelLedger → False
+'SIDELvConservation.RegisterPentagon.dhModelLedger_no_pairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@edge_drift_nonneg : ∀ {ledger : ℕ → ℝ} {w : ℕ → ℕ → ℝ} {N n : ℕ},
+  (∀ (m : ℕ), 0 ≤ ledger m) → (∀ (m : ℕ), 0 ≤ w m n) → 0 ≤ driftSum ledger w N n
+'SIDELvConservation.RegisterPentagon.edge_drift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+edge_drift_neg_for_signNeutral : ∃ w N n, (∀ (m : ℕ), 0 ≤ w m n) ∧ driftSum dhModelLedger w N n < 0
+'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+transfer_obstruction_is_the_two_geometric_clauses : transfersToRationals PairingClause.zeroActing = false ∧
+  transfersToRationals PairingClause.yieldsInequality = false ∧
+    transfersToRationals PairingClause.eulerConsuming = true ∧
+      transfersToRationals PairingClause.distinctFromInput = true
+'SIDELvConservation.RegisterPentagon.transfer_obstruction_is_the_two_geometric_clauses' does not depend on any axioms
+exactly_two_clauses_obstruct : (List.filter (fun c => !transfersToRationals c)
+      [PairingClause.zeroActing, PairingClause.yieldsInequality, PairingClause.eulerConsuming,
+        PairingClause.distinctFromInput]).length =
+  2
+'SIDELvConservation.RegisterPentagon.exactly_two_clauses_obstruct' does not depend on any axioms
+certifiedPartialInhabitant : ∀ (T : ℝ) (lam_A lam_Z lam : ℕ → ℝ)
+  (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ),
+  (∀ (n : ℕ), lam n = lam_A n + lam_Z n) →
+    SIDELvConservation.PartialPositivity.VerifiedZerosTo T →
+      SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T →
+        SIDELvConservation.PartialPositivity.TailBoundPremise low tail T →
+          PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T)
+'SIDELvConservation.RegisterPentagon.certifiedPartialInhabitant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+coverage_boundary_exact : ∀ (T : ℝ), SIDELvConservation.PartialPositivity.N₀ T = ⌊2 * T ^ 2⌋₊
+'SIDELvConservation.RegisterPentagon.coverage_boundary_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+@partial_mono : ∀ {lam_A lam_Z : ℕ → ℝ} {N M : ℕ},
+  M ≤ N → PartialChannelInequality lam_A lam_Z N → PartialChannelInequality lam_A lam_Z M
+'SIDELvConservation.RegisterPentagon.partial_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+positivity_free_obstruction_is_zeroRealization : ∀
+  (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip),
+  (∃ pairing T,
+      (∀ (i j : ℕ), pairing i j = pairing j i) ∧
+        (∀ (i : ℕ), 0 < pairing i i) ∧
+          (∀ (i j : ℕ), pairing i i * T i j = pairing j j * T j i) ∧
+            ∀ (n : ℕ), T n n = SIDELvConservation.RegisterPentagon.certifiedInputSpectrum n) ∧
+    ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum
+'SIDELvConservation.RegisterPentagon.positivity_free_obstruction_is_zeroRealization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+no_asset_realizes_zeroSpectrum : ∀ (a : RealizationAsset), assetRealizes a ≠ RealizesWhat.zeroSpectrum
+'SIDELvConservation.RegisterPentagon.no_asset_realizes_zeroSpectrum' does not depend on any axioms
+location_owned_spectrum_not : assetRealizes RealizationAsset.berryKeatingIndicial = RealizesWhat.location ∧
+  ∀ (a : RealizationAsset), assetRealizes a ≠ RealizesWhat.zeroSpectrum
+'SIDELvConservation.RegisterPentagon.location_owned_spectrum_not' does not depend on any axioms
+residue_irreducible : ∀ {lam_A lam_Z lam : ℕ → ℝ} {low : Finset SIDELvConservation.PartialPositivity.NontrivialZero}
+  {tail : ℕ → ℝ} {T : ℝ} (hZero : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip),
+  (∀ (n : ℕ), lam n = lam_A n + lam_Z n) →
+    SIDELvConservation.PartialPositivity.VerifiedZerosTo T →
+      SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T →
+        SIDELvConservation.PartialPositivity.TailBoundPremise low tail T →
+          (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) →
+            (Register4_positivity lam → RiemannHypothesis) →
+              ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros
+                    SIDELvConservation.RegisterPentagon.certifiedInputSpectrum ∧
+                PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T) ∧
+                  ∀ (ledger : ℕ → ℝ), ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis
+'SIDELvConservation.RegisterPentagon.residue_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+XRealization : (ℕ → ℝ) → (ℕ → ℝ) → (ℕ → ℝ) → Prop
+'SIDELvConservation.RegisterPentagon.XRealization' depends on axioms: [propext, Classical.choice, Quot.sound]
+xRealization_to_zeroActingPairing : ∀ {lam_A lam_Z ledger : ℕ → ℝ}
+  (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip),
+  XRealization lam_A lam_Z ledger → ZeroActingPairing lam_A lam_Z ledger
+'SIDELvConservation.RegisterPentagon.xRealization_to_zeroActingPairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+xRealization_to_RH : ∀ {lam_A lam_Z ledger lam : ℕ → ℝ}
+  (nontrivialZeroInStrip : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip),
+  (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) →
+    (Register4_positivity lam → RiemannHypothesis) → XRealization lam_A lam_Z ledger → RiemannHypothesis
+'SIDELvConservation.RegisterPentagon.xRealization_to_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+SimplicityFamilySpec : (ℕ → Prop) → Prop
+'SIDELvConservation.RegisterPentagon.SimplicityFamilySpec' does not depend on any axioms
+simplicityFamily_generic_not_universal : ∃ simpleAt, SimplicityFamilySpec simpleAt ∧ ¬∀ (n : ℕ), simpleAt n
+'SIDELvConservation.RegisterPentagon.simplicityFamily_generic_not_universal' does not depend on any axioms
+@detection_threshold_mono : ∀ {T₁ T₂ : ℝ},
+  0 ≤ T₁ → T₁ ≤ T₂ → SIDELvConservation.PartialPositivity.N₀ T₁ ≤ SIDELvConservation.PartialPositivity.N₀ T₂
+'SIDELvConservation.RegisterPentagon.detection_threshold_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+escape_kind_discriminates : wallEscapeKind Wall.signPositivity ≠ wallEscapeKind Wall.derivativeTransversality
+'SIDELvConservation.RegisterPentagon.escape_kind_discriminates' does not depend on any axioms
+horizon_kind_shared : wallEscapeKind Wall.signPositivity = wallEscapeKind Wall.detectionThreshold
+'SIDELvConservation.RegisterPentagon.horizon_kind_shared' does not depend on any axioms
+structure SIDELvConservation.RegisterPentagon.ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop
+number of parameters: 3
+fields:
+  SIDELvConservation.RegisterPentagon.ZeroActingPairing.zeroActing : Register5_output_HilbertPolya
+  SIDELvConservation.RegisterPentagon.ZeroActingPairing.yieldsInequality : Register5_output_HilbertPolya →
+      Register4_channelInequality lam_A lam_Z
+  SIDELvConservation.RegisterPentagon.ZeroActingPairing.eulerConsuming : ∀ (m : ℕ), 0 ≤ ledger m
+  SIDELvConservation.RegisterPentagon.ZeroActingPairing.distinctFromInput : ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros
+        SIDELvConservation.RegisterPentagon.certifiedInputSpectrum
+constructor:
+  SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk {lam_A lam_Z ledger : ℕ → ℝ}
+    (zeroActing : Register5_output_HilbertPolya)
+    (yieldsInequality : Register5_output_HilbertPolya → Register4_channelInequality lam_A lam_Z)
+    (eulerConsuming : ∀ (m : ℕ), 0 ≤ ledger m)
+    (distinctFromInput :
+      ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum) :
+    ZeroActingPairing lam_A lam_Z ledger
+structure SIDELvConservation.RegisterPentagon.XRealization (lam_A lam_Z ledger : ℕ → ℝ) : Prop
+number of parameters: 3
+fields:
+  SIDELvConservation.RegisterPentagon.XRealization.handsOverOperator : Register5_output_HilbertPolya
+  SIDELvConservation.RegisterPentagon.XRealization.selfProductPositivity : Register5_output_HilbertPolya →
+      Register4_channelInequality lam_A lam_Z
+  SIDELvConservation.RegisterPentagon.XRealization.pointCountLedger : ∀ (m : ℕ), 0 ≤ ledger m
+constructor:
+  SIDELvConservation.RegisterPentagon.XRealization.mk {lam_A lam_Z ledger : ℕ → ℝ}
+    (handsOverOperator : Register5_output_HilbertPolya)
+    (selfProductPositivity : Register5_output_HilbertPolya → Register4_channelInequality lam_A lam_Z)
+    (pointCountLedger : ∀ (m : ℕ), 0 ≤ ledger m) : XRealization lam_A lam_Z ledger
+
+real	26m25.827s
+user	0m0.046s
+sys	0m0.000s
+exit 0

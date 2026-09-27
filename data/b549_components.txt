@@ -1,0 +1,255 @@
+====================================================================================================================================
+b549 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b549_tiers.txt
+  b549 -- COMPONENT 1 (a): THE RESIDUE`S TERMINALS, TIERED (READINGS (1)-(3)); the #check bank: HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 dirty=[] start 20:22:24 ; exit 0
+  
+  ### the two files holding every terminal, 5a14205..2f71068 : byte-identical
+  
+    terminal                                            main:line                                   tip tag  profile      tier    reason
+    zeroActingPairing_to_RH                             SIDELvConservation/ZeroActingPairing.lean:69 1   0    std3         T1-lit  concludes Mathlib`s `RiemannHypothesis` through the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled
+    distinctFromInput_discharged                        SIDELvConservation/ZeroActingPairing.lean:81 1   0    axiom-free   T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled
+      ### ROW "The interface (§6)" : stated std3 ; fresh union std3 ; CARRIED ; a terminal`s own profile below the row`s: distinctFromInput_discharged
+    signNeutral_not_eulerConsuming                      SIDELvConservation/ZeroActingPairing.lean:104 1   0    std3         T2      arithmetic on an abstract ledger ℕ → ℝ; no premise about zeta
+    zeroActingPairing_ledger_not_signNeutral            SIDELvConservation/ZeroActingPairing.lean:113 1   0    std3         T2      about the typed specification and an abstract ledger; no premise about zeta
+    dhModelLedger_no_pairing                            SIDELvConservation/ZeroActingPairing.lean:137 1   0    std3         T2      about a model ledger and the typed specification; no premise about zeta
+      ### ROW "DH-exclusion — clause (3) load-bearing (§2)" : stated std3 ; fresh union std3 ; CARRIED
+    edge_drift_nonneg                                   SIDELvConservation/ZeroActingPairing.lean:162 1   0    std3         T2      a sum of non-negative terms over abstract sequences
+    edge_drift_neg_for_signNeutral                      SIDELvConservation/ZeroActingPairing.lean:172 1   0    std3         T2      an explicit witness over the model ledger
+      ### ROW "The edge lemma (§2)" : stated std3 ; fresh union std3 ; CARRIED
+    transfer_obstruction_is_the_two_geometric_clauses   SIDELvConservation/ZeroActingPairing.lean:245 1   0    axiom-free   T2      a model-level enumeration (a Bool table on four clauses)
+    exactly_two_clauses_obstruct                        SIDELvConservation/ZeroActingPairing.lean:253 1   0    axiom-free   T2      a count over the same model-level table
+      ### ROW "The 𝔽_q anatomy (§6)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+    certifiedPartialInhabitant                          SIDELvConservation/ZeroActingPartial.lean:67 1   0    std3         T1-lit  rests on `VerifiedZerosTo`, `ExplicitFormulaDecomp` and `TailBoundPremise`, named premises stating literature and numerical facts not compiled
+    coverage_boundary_exact                             SIDELvConservation/ZeroActingPartial.lean:80 1   0    std3         T2      `N₀ T = ⌊2T²⌋₊` by `rfl`: arithmetic; the reading is carried by the identifier
+    partial_mono                                        SIDELvConservation/ZeroActingPartial.lean:40 1   0    std3         T2      monotonicity of a finite-range Prop over abstract sequences
+      ### ROW "The finite-range inhabitant (§6)" : stated std3 ; fresh union std3 ; CARRIED
+    positivity_free_obstruction_is_zeroRealization      SIDELvConservation/ZeroActingPairing.lean:270 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled
+      ### ROW "Positivity is free (§6)" : stated std3 ; fresh union std3 ; CARRIED
+    no_asset_realizes_zeroSpectrum                      SIDELvConservation/ZeroActingPairing.lean:330 1   0    axiom-free   T2      a model-level enumeration of the programme`s assets
+    location_owned_spectrum_not                         SIDELvConservation/ZeroActingPairing.lean:336 1   0    axiom-free   T2      the same enumeration
+      ### ROW "The realization ledger (§6)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+    residue_irreducible                                 SIDELvConservation/ZeroActingPartial.lean:130 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled, on `VerifiedZerosTo`, `ExplicitFormulaDecomp`, `TailBoundPremise`, and on the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled
+      ### ROW "The residue, compiled (§7)" : stated std3 ; fresh union std3 ; CARRIED
+    XRealization                                        SIDELvConservation/ZeroActingPairing.lean:357 1   0    std3         T2      a typed specification (STRUCTURE), no instance
+    xRealization_to_zeroActingPairing                   SIDELvConservation/ZeroActingPairing.lean:369 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled
+    xRealization_to_RH                                  SIDELvConservation/ZeroActingPairing.lean:379 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled and on the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled
+      ### ROW "The X-realization spec (§6)" : stated std3 ; fresh union std3 ; CARRIED
+    SimplicityFamilySpec                                SIDELvConservation/ZeroActingPairing.lean:394 1   0    axiom-free   T2      a typed specification (STRUCTURE), no instance
+    simplicityFamily_generic_not_universal              SIDELvConservation/ZeroActingPairing.lean:404 1   0    axiom-free   T2      an explicit witness over an abstract predicate on ℕ
+      ### ROW "The family spec + residual (§8)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+    detection_threshold_mono                            SIDELvConservation/ZeroActingPartial.lean:105 1   0    std3         T2      monotonicity of `⌊2T²⌋₊` in T: arithmetic; the reading is carried by the identifier
+      ### ROW "The barrier extension (§7)" : stated std3 ; fresh union std3 ; CARRIED
+    escape_kind_discriminates                           SIDELvConservation/ZeroActingPairing.lean:436 1   0    axiom-free   T2      a model-level enumeration (two wall kinds)
+    horizon_kind_shared                                 SIDELvConservation/ZeroActingPairing.lean:441 1   0    axiom-free   T2      the same enumeration
+      ### ROW "The escape-kind invariant (§8)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+  
+  ### the terminals: 24 ; on main 24 ; at the tip 24 ; in the tag`s tree 0
+  ### tiers : T0 0 · T1-open 0 · T1-lit 7 · T2 17 · T3 0 · T4 0
+  ### first table, rows : CARRIED 12 · MOVED 0
+  ### the second table (:124-132):
+    the residue, compiled (§7)                       CARRIED  T1-lit
+    the 𝔽_q anatomy (§6)                             CARRIED  T2
+    the realization ledger (§6)                      CARRIED  T2
+    the finite-range inhabitant (§6)                 CARRIED  T1-lit
+    the eight further rows above                     CARRIED  as the first table
+    the zero-acting positive pairing`s EXISTENCE     CARRIED  no terminal (RESEARCH-REACH, disclaimed); annotated by appended line
+    `h2`, the one open premise                       MOVED    T1-open as premise; the equivalence T0 ((R159)(5))
+
+### relay data/b549_premise.txt
+  b549 -- COMPONENT 1 (b): THE PREMISES OF residue_irreducible (READING (4))
+  
+  ### the fresh #check (lv main 2f71068):
+    residue_irreducible : ∀ {lam_A lam_Z lam : ℕ → ℝ} {low : Finset SIDELvConservation.PartialPositivity.NontrivialZero} {tail : ℕ → ℝ} {T : ℝ} (hZero : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip), (∀ (n : ℕ), lam n = lam_A n + lam_Z n) → SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → (Register4_channelInequality lam_A lam_Z → Register4_positivity lam) → (Register4_positivity lam → RiemannHypothesis) → ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum ∧ PartialChannelInequality lam_A lam_Z (SIDELvConservation.PartialPositivity.N₀ T) ∧ ∀ (ledger : ℕ → ℝ), ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis
+  
+  ### its premises, by name and type:
+    hZero                    : NontrivialZeroExistsInStrip
+    hdecomp                  : ∀ n, lam n = lam_A n + lam_Z n
+    hV                       : VerifiedZerosTo T
+    hEF                      : ExplicitFormulaDecomp lam low tail T
+    hTail                    : TailBoundPremise low tail T
+    inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+    liCriterion              : Register4_positivity lam → RiemannHypothesis
+  
+  ### beside them, at SIDE-explicit-formula v0.2 = 5c72cad:
+    H2Sign.lean:29-30  def h2_sign : Prop := ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+    Seam.lean:101      theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+  
+  ### a premise whose type is one of h2_sign / h2_sign → RiemannHypothesis / RiemannHypothesis → h2_sign : NONE
+  ### THE FORM DIFFERS, and where: the Weil premise of residue_irreducible is `inequalityToPositivity` (with the pairing`s own
+  ### field `yieldsInequality`), a map between Li-channel Props on sequences ℕ → ℝ that the theorem leaves arbitrary; h2_sign is a
+  ### Prop over classK test functions k : ℝ → ℂ built from ζ`s pole term, prime sum and arch term. No premise names h2_sign, and
+  ### the lam of the Li premises is not tied to ζ inside the theorem.
+  ### lv requires ['require mathlib from git'] ; lv toolchain leanprover/lean4:v4.29.1, Mathlib 5e932f9 ; explicit-formula toolchain leanprover/lean4:v4.33.0-rc2, Mathlib 51e6992 -- lv does not import explicit-formula.
+  
+  ### THE DISCHARGE, PRICED IN LEMMAS (not attempted):
+    route W (the Weil form, bypassing Li): (W1) a classK field for the pairing -- a sibling specification of ZeroActingPairing whose
+        positivity clause is stated on classK test functions (the present fields are Li-channel and carry no test function);
+        (W2) that field implies h2_sign, by unfolding; (W3) compose with h2_sign_iff_rh.mp to RiemannHypothesis. W3 is one line; W1
+        is the item of substance; the join needs the two kernels on one toolchain and one Mathlib (lv bumped to explicit-formula`s,
+        or the specification restated in explicit-formula).
+    route L (the Li form, as stated): (L1) ζ`s Li channels as definitions (Mathlib 51e6992 has no Li coefficient, b546) with the
+        decomposition at ζ; (L2) Li`s criterion for ζ, Bombieri-Lagarias 1999 -- not compiled, the lemma of substance; (L3) the Weil
+        direction inequalityToPositivity at ζ`s channels. h2_sign_iff_rh discharges none of L1-L3: it concludes RH from h2_sign, and
+        no premise of the Li route has h2_sign as its hypothesis.
+  ### so the discharge is not immediate: route W costs three lemmas and a toolchain join; route L costs the Li instance.
+
+### relay data/b549_residue_reads.txt
+  b549 -- COMPONENT 1 (d)-(f): THE σ, THE C-RANGE, THE STEM, THE LI FORM (READINGS (6), (7))
+  
+  ### (d) §5 at THE_RESIDUE_OF_RH.md:57 says "ρ ≈ 0.9533 + 16.290 i"; relay data/b506_c2_results.json:5555 (found) σ = 0.9532604747946607, t = 16.290215720390393
+      σ to three decimals: bank 0.953, document 0.953 -- MATCH ; to four: bank 0.9533, document 0.9533
+  ### (d) §4 at THE_RESIDUE_OF_RH.md:51 says C[Z_Q] ≈ 0.65–1.2 across N = 10–120, ζ ≈ 0.9–1.3, DH ≈ −0.13 … 0.21; the source table,
+      archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:2298-2302 (provenance epstein_crun2.py, named by the loom; not found in relay or PLACE-papers):
+      :2300 zeta     [1.273, 1.003, 1.03, 0.895, 0.982]  min 0.895 max 1.273
+      :2301 epstein  [0.65, 1.201, 1.16, 0.833, 1.167]  min 0.650 max 1.201
+      :2302 dh       [-0.13, 0.12, 0.208, -0.032, -0.017]  min -0.130 max 0.208
+      Epstein MATCH ; ζ MATCH ; DH MATCH
+  
+  ### (e) the banned stems (tools/banned_terms.py STEMS ['gap', 'blind']) in THE_RESIDUE_OF_RH.md, every occurrence, UNEDITED:
+      :134 col 92  "gap"  ...  says so in words rather than leaving a gap.** ...
+      :152 col 412  "gap"  ... e. So the residue is not an information gap but a **language ga ...
+      :152 col 433  "gap"  ... not an information gap but a **language gap**: *how does a stru ...
+      ### (R159)(6) names the 2026-08-12 annotation`s "language gap" (:152); the scan finds 3 occurrences on 2 lines.
+  
+  ### (f) §1 (:31) states Li`s form, "RH holds iff λ_n ≥ 0 for every n" (Bombieri–Lagarias): T1-lit, per (R156)(1).
+  ### (f) §7 (:77), the reading in one sentence: §7`s "the named classical premises (the Weil-criterion direction; Li`s criterion)" names, in the compiled residue, the two uncompiled premises `inequalityToPositivity` and `liCriterion` (T1-lit), and since b536 it names one of two routes from positivity to RH: the Weil direction also has its own compiled form, `h2_sign_iff_rh` (T0), which reaches RiemannHypothesis on classK test functions without Li`s criterion, but which no premise of `residue_irreducible` takes.
+
+### relay data/b549_diagonal.txt
+  b549 -- COMPONENT 2 (b): THE WINDOW FAMILY (READING (8))
+  
+  ### the definition, verbatim:
+  ### tools/b521_tail.py:44-53 -- PWindow
+    :44 class PWindow(B19.VWindow):
+    :45     """### variant (B) with the ramp's B-spline order p."""
+    :46 
+    :47     def __init__(self, a, obj, p):
+    :48         B19.VWindow.__init__(self, a, obj, 'B')
+    :49         self.m = p
+    :50         self.h = 2.0 * self.R / p
+    :51         ks = np.linspace(-self.R, self.R, p + 1)
+    :52         self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+    :53         self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, p, self.R)
+  
+  ### tools/b519_window.py:77-93 -- VWindow`s plateau branch and phihat
+    :77             m = 5 if variant == 'B' else 9
+    :78             self.a, self.g0, self.m = a, float(G0[obj]), m
+    :79             self.L = math.log(a)
+    :80             self.R = F_RAMP * self.L / 2.0            # ### each ramp spans 2R; two ramps span 4R = F_RAMP * 2L
+    :81             self.W = self.L - self.R
+    :82             self.h = 2.0 * self.R / m                  # ### the inner B-spline's knot spacing
+    :83             self.half = self.L
+    :84             ks = np.linspace(-self.R, self.R, m + 1)
+    :85             self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+    :86             self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, m, self.R)
+    :87 
+    :88     # ### the base bump phi and its transform
+    :89     def phihat(self, z):
+    :90         z = np.asarray(z, dtype=complex)
+    :91         if not self.plateau:
+    :92             return B14.MWindow.phihat(self, z)
+    :93         return csinc(z * self.W) * csinc(z * self.h / 2.0) ** self.m
+  
+  ### tools/b519_window.py:120-135 -- ghat_cos, poly, ghat, khat
+    :120     def ghat_cos(self, z):
+    :121         z = np.asarray(z, dtype=complex)
+    :122         return 0.5 * (self.phihat(z - self.g0) + self.phihat(z + self.g0))
+    :123 
+    :124     def poly(self, z):
+    :125         p = np.ones_like(np.asarray(z, dtype=complex))
+    :126         for g in self.gs:
+    :127             p = p * (g * g - z * z)
+    :128         return p
+    :129 
+    :130     def ghat(self, z):
+    :131         z = np.asarray(z, dtype=complex)
+    :132         return self.poly(z) * self.ghat_cos(z)
+    :133 
+    :134     def khat(self, z):
+    :135         return self.ghat(z) ** 2
+  
+  ### read: L = ln a ; R = F_RAMP·L/2 = L/8 (F_RAMP = 0.25) ; W = L − R = 7L/8 ; h = 2R/p ; φ̂(z) = sinc(zW)·sinc(zh/2)^p, so
+  ### φ = 1[−W,W]/(2W) ⋆ (the order-p B-spline of half-width R), supported on [−L, L] = [−ln a, ln a] AT EVERY p; the test
+  ### function is k̂ = ĝ², ĝ(z) = (γ₀² − z²)·½(φ̂(z − γ₀) + φ̂(z + γ₀)).
+  ### the n-fold self-convolution of an indicator of half-width a/n has transform sinc(z·a/n)^n and support [−a, a], growing
+  ### with the base; the family`s support is ln a, fixed in p, and its base factor carries a plateau of half-width 7L/8 that
+  ### no power of one indicator has.
+  ### VERDICT : THE FAMILY IS NOT THE SELF-CONVOLUTION FAMILY.
+  ### IN ONE SENTENCE: raising p in b522`s family only smooths the two ramps of a fixed plateau on [−ln a, ln a], while the
+  ### route raises a fixed base to its n-th convolution power so that the support grows as n times the base; so F(n·b, n) is
+  ### not the route`s sequence, and the diagonal is not read. H3 : NOT SCORABLE (READING (8)).
+  
+  ### THE RE-PARAMETRIZED SWEEP, PRICED (not run, not filed):
+    (P1) a window class for the route`s family: φ_n = the n-th convolution power of a fixed base (an indicator, or the base the
+         route`s PowerWindow fixes), its transform in closed form (sinc(βz)^n), and the cos-modulation and γ₀-factor kept;
+    (P2) its majorant and closed-form zero-side tail -- b521`s constants divide by the plateau half-width W, which this family
+         lacks, so the tail constants are re-derived, not imported;
+    (P3) a fixture at one cell (closed form against quadrature) before any sweep;
+    (P4) the sweep. b548`s banked per-cell seconds: Q0 5202 s, ξ 4085 s over 255 cells each (total 9287 s). A sweep over the same
+         51 supports and five orders costs about that, since a cell`s cost is set by its support (the prime channel`s range) and
+         its order; the ruling`s diagonal alone, 14 cells per object (b ∈ {4, 5, 6}, n·b <= 60), costs about Q0 332 s and ξ 262 s
+         at b548`s cost for the same (n, a). (P1)-(P3) are tool work of about one act; (P4) runs in foreground chunks.
+
+### relay data/b549_budget_control.txt
+  b549 -- COMPONENT 3: THE BUDGET`S ASSUMPTION, THE KERNEL BOUND, THE CONTROL (READING (9))
+  
+  ### tools/e16/carto_atlas.py:12-14 -- the assumption the budget carries
+    :12     NU      = 12001     u-grid points
+    :13     UMAX    = 600.0     u-range; hhat decays faster than any polynomial,
+    :14                         the psi-kernel grows like log u, so the tail is negligible
+  
+  ### tools/b548_record.py:84-84 -- the budget line: E_u = |A_half - A| + |A_wide - A|
+    :84     Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+  
+  ### tools/b511_families.py:45-47 -- the grids: the wide grid doubles the range at the same step
+    :45 U_BASE = np.linspace(-AT.UMAX, AT.UMAX, AT.NU)
+    :46 U_HALF = np.linspace(-AT.UMAX, AT.UMAX, 2 * AT.NU - 1)
+    :47 U_WIDE = np.linspace(-2 * AT.UMAX, 2 * AT.UMAX, 2 * AT.NU - 1)
+  
+  ### THE ASSUMPTION AND WHAT ORDER p HAS: the budget treats the two grid differences as the whole quadrature error, which is
+  ### right when k-hat is negligible past 2·UMAX -- "hhat decays faster than any polynomial" (carto_atlas.py:13), true of the
+  ### smooth bump the constants were set for. The order-p window has φ-hat ~ |z|^-(p+1) (a plateau ⋆ an order-p B-spline: the
+  ### order-3 spline is C¹), ĝ ~ |z|^(1-p) after the γ₀-factor, k-hat = ĝ² ~ |z|^(2-2p): |u|^-4 at order 3, |u|^-8 at order 5.
+  ### The wide difference measures the piece on [UMAX, 2·UMAX] and misses the piece past 2·UMAX; for |u|^-4 the missed piece is
+  ### about 1/7 of the measured one, which is the 1.12-1.17 excess of |r| over B b548 banked at order 3.
+  ### THE REPAIR: E_arch = (1/π) ∫_{2·UMAX}^∞ M_p(u)·κ·log u du, M_p b519`s majorant at the window`s order p -- the exponent now
+  ### depends on the order -- added beside B, never in place of it.
+  
+  ### the kernel bound |K| <= 1·log u, xi: banked wide grid |u| in [600, 1200] worst ratio 0.7408 ; mpmath at 61 points in [1200, 1e+11] worst 0.9280 -- HOLDS
+  ### the kernel bound |K| <= 2·log u, q: banked wide grid |u| in [600, 1200] worst ratio 0.9619 ; mpmath at 61 points in [1200, 1e+11] worst 0.9894 -- HOLDS
+  
+  ### CONTROL a = 14, ξ, p = 3 : the four-fold grid`s added piece (|u| in [1200, 2400], step 0.10) +4.324e-06 ; E_arch 4.844e-05 ; |piece| <= E_arch True ; b548`s |r| - B 4.926e-06 ; E_arch covers it True
+  ### CONTROL a = 38, ξ, p = 3 : the four-fold grid`s added piece (|u| in [1200, 2400], step 0.10) +2.112e-07 ; E_arch 3.718e-06 ; |piece| <= E_arch True ; b548`s |r| - B 2.382e-07 ; E_arch covers it True
+
+### relay data/b549_stray.txt
+  b549 -- COMPONENT 4: THE STRAY CHANGE (READING (10))
+  
+  ### git diff -- data/b546_scores.json (relay working tree):
+    diff --git a/data/b546_scores.json b/data/b546_scores.json
+    index 24df997b..ba0eb0b2 100644
+    --- a/data/b546_scores.json
+    +++ b/data/b546_scores.json
+    @@ -23,6 +23,7 @@
+      },
+      "written": [
+       "FINDINGS.md",
+    +  "OPEN_TRAILS.md",
+       "SPIRAL_MAP.md",
+       "phase1.5/spectral/BALANCE_AND_POSITIVITY.md"
+      ],
+  
+  ### the file time 2026-09-26 15:23:39 ; b546`s main commit ce0cccfb 15:20:01 ; its closing commit 9e06a910 15:23:54 ; between them True
+  ### the new "written" list ['FINDINGS.md', 'OPEN_TRAILS.md', 'SPIRAL_MAP.md', 'phase1.5/spectral/BALANCE_AND_POSITIVITY.md'] ; the files of b546`s PLACE-papers commit 37b36b3 ['FINDINGS.md', 'OPEN_TRAILS.md', 'SPIRAL_MAP.md', 'phase1.5/spectral/BALANCE_AND_POSITIVITY.md'] ; equal True
+  ### the changed lines ['+  "OPEN_TRAILS.md",']
+  ### VERDICT : b546`S OWN SCORE LINE, written after b546`s main commit -- COMMITTED ALONE IN A COMMIT NAMED FOR b546, the diff quoted
+
+### relay data/b549_sweep_xi_n3.txt (its verdict lines)
+  ### ξ order 3 : cells 51 ; VERIFY under the repair 51 of 51 ; still UNVERIFIED NONE ; every value but the budget equal to b548`s True
+  ### E_arch against b548`s excess |r| - B: covers it at 51 of 51 cells
+  ### THE Q0 ORDER-3 CELLS, RE-SCORED FROM THEIR BANKED VALUES (relay data/b548_sweep_q.jsonl), E_arch added, no cell recomputed:
+  ### Q0 order 3 : 51 cells ; changed in sign, reach or status : NONE
+### b549_findings.json : {"lines": {"file": "FINDINGS.md", "before": 693875, "added": 1877, "prefix": true}, "r1_line": [5651], "r2_line": [5653], "act": {"file": "FINDINGS.md", "before": 695752, "added": 4883, "prefix": true, "heading_line": 5655}}
+### b549_residue_rows.json : {"file": "phase1.5/proofs/THE_RESIDUE_OF_RH.md", "before": 33188, "added": 3994, "prefix": true, "heading_line": 215}
+### THE BRANCHES : see data/b549_branches.txt
+====================================================================================================================================

@@ -1,0 +1,29 @@
+b549 -- COMPONENT 3: THE BUDGET`S ASSUMPTION, THE KERNEL BOUND, THE CONTROL (READING (9))
+
+### tools/e16/carto_atlas.py:12-14 -- the assumption the budget carries
+  :12     NU      = 12001     u-grid points
+  :13     UMAX    = 600.0     u-range; hhat decays faster than any polynomial,
+  :14                         the psi-kernel grows like log u, so the tail is negligible
+
+### tools/b548_record.py:84-84 -- the budget line: E_u = |A_half - A| + |A_wide - A|
+  :84     Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+
+### tools/b511_families.py:45-47 -- the grids: the wide grid doubles the range at the same step
+  :45 U_BASE = np.linspace(-AT.UMAX, AT.UMAX, AT.NU)
+  :46 U_HALF = np.linspace(-AT.UMAX, AT.UMAX, 2 * AT.NU - 1)
+  :47 U_WIDE = np.linspace(-2 * AT.UMAX, 2 * AT.UMAX, 2 * AT.NU - 1)
+
+### THE ASSUMPTION AND WHAT ORDER p HAS: the budget treats the two grid differences as the whole quadrature error, which is
+### right when k-hat is negligible past 2·UMAX -- "hhat decays faster than any polynomial" (carto_atlas.py:13), true of the
+### smooth bump the constants were set for. The order-p window has φ-hat ~ |z|^-(p+1) (a plateau ⋆ an order-p B-spline: the
+### order-3 spline is C¹), ĝ ~ |z|^(1-p) after the γ₀-factor, k-hat = ĝ² ~ |z|^(2-2p): |u|^-4 at order 3, |u|^-8 at order 5.
+### The wide difference measures the piece on [UMAX, 2·UMAX] and misses the piece past 2·UMAX; for |u|^-4 the missed piece is
+### about 1/7 of the measured one, which is the 1.12-1.17 excess of |r| over B b548 banked at order 3.
+### THE REPAIR: E_arch = (1/π) ∫_{2·UMAX}^∞ M_p(u)·κ·log u du, M_p b519`s majorant at the window`s order p -- the exponent now
+### depends on the order -- added beside B, never in place of it.
+
+### the kernel bound |K| <= 1·log u, xi: banked wide grid |u| in [600, 1200] worst ratio 0.7408 ; mpmath at 61 points in [1200, 1e+11] worst 0.9280 -- HOLDS
+### the kernel bound |K| <= 2·log u, q: banked wide grid |u| in [600, 1200] worst ratio 0.9619 ; mpmath at 61 points in [1200, 1e+11] worst 0.9894 -- HOLDS
+
+### CONTROL a = 14, ξ, p = 3 : the four-fold grid`s added piece (|u| in [1200, 2400], step 0.10) +4.324e-06 ; E_arch 4.844e-05 ; |piece| <= E_arch True ; b548`s |r| - B 4.926e-06 ; E_arch covers it True
+### CONTROL a = 38, ξ, p = 3 : the four-fold grid`s added piece (|u| in [1200, 2400], step 0.10) +2.112e-07 ; E_arch 3.718e-06 ; |piece| <= E_arch True ; b548`s |r| - B 2.382e-07 ; E_arch covers it True

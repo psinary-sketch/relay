@@ -1,0 +1,53 @@
+b549 -- COMPONENT 1 (a): THE RESIDUE`S TERMINALS, TIERED (READINGS (1)-(3)); the #check bank: HEAD 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 dirty=[] start 20:22:24 ; exit 0
+
+### the two files holding every terminal, 5a14205..2f71068 : byte-identical
+
+  terminal                                            main:line                                   tip tag  profile      tier    reason
+  zeroActingPairing_to_RH                             SIDELvConservation/ZeroActingPairing.lean:69 1   0    std3         T1-lit  concludes Mathlib`s `RiemannHypothesis` through the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled
+  distinctFromInput_discharged                        SIDELvConservation/ZeroActingPairing.lean:81 1   0    axiom-free   T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled
+    ### ROW "The interface (§6)" : stated std3 ; fresh union std3 ; CARRIED ; a terminal`s own profile below the row`s: distinctFromInput_discharged
+  signNeutral_not_eulerConsuming                      SIDELvConservation/ZeroActingPairing.lean:104 1   0    std3         T2      arithmetic on an abstract ledger ℕ → ℝ; no premise about zeta
+  zeroActingPairing_ledger_not_signNeutral            SIDELvConservation/ZeroActingPairing.lean:113 1   0    std3         T2      about the typed specification and an abstract ledger; no premise about zeta
+  dhModelLedger_no_pairing                            SIDELvConservation/ZeroActingPairing.lean:137 1   0    std3         T2      about a model ledger and the typed specification; no premise about zeta
+    ### ROW "DH-exclusion — clause (3) load-bearing (§2)" : stated std3 ; fresh union std3 ; CARRIED
+  edge_drift_nonneg                                   SIDELvConservation/ZeroActingPairing.lean:162 1   0    std3         T2      a sum of non-negative terms over abstract sequences
+  edge_drift_neg_for_signNeutral                      SIDELvConservation/ZeroActingPairing.lean:172 1   0    std3         T2      an explicit witness over the model ledger
+    ### ROW "The edge lemma (§2)" : stated std3 ; fresh union std3 ; CARRIED
+  transfer_obstruction_is_the_two_geometric_clauses   SIDELvConservation/ZeroActingPairing.lean:245 1   0    axiom-free   T2      a model-level enumeration (a Bool table on four clauses)
+  exactly_two_clauses_obstruct                        SIDELvConservation/ZeroActingPairing.lean:253 1   0    axiom-free   T2      a count over the same model-level table
+    ### ROW "The 𝔽_q anatomy (§6)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+  certifiedPartialInhabitant                          SIDELvConservation/ZeroActingPartial.lean:67 1   0    std3         T1-lit  rests on `VerifiedZerosTo`, `ExplicitFormulaDecomp` and `TailBoundPremise`, named premises stating literature and numerical facts not compiled
+  coverage_boundary_exact                             SIDELvConservation/ZeroActingPartial.lean:80 1   0    std3         T2      `N₀ T = ⌊2T²⌋₊` by `rfl`: arithmetic; the reading is carried by the identifier
+  partial_mono                                        SIDELvConservation/ZeroActingPartial.lean:40 1   0    std3         T2      monotonicity of a finite-range Prop over abstract sequences
+    ### ROW "The finite-range inhabitant (§6)" : stated std3 ; fresh union std3 ; CARRIED
+  positivity_free_obstruction_is_zeroRealization      SIDELvConservation/ZeroActingPairing.lean:270 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled
+    ### ROW "Positivity is free (§6)" : stated std3 ; fresh union std3 ; CARRIED
+  no_asset_realizes_zeroSpectrum                      SIDELvConservation/ZeroActingPairing.lean:330 1   0    axiom-free   T2      a model-level enumeration of the programme`s assets
+  location_owned_spectrum_not                         SIDELvConservation/ZeroActingPairing.lean:336 1   0    axiom-free   T2      the same enumeration
+    ### ROW "The realization ledger (§6)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+  residue_irreducible                                 SIDELvConservation/ZeroActingPartial.lean:130 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled, on `VerifiedZerosTo`, `ExplicitFormulaDecomp`, `TailBoundPremise`, and on the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled
+    ### ROW "The residue, compiled (§7)" : stated std3 ; fresh union std3 ; CARRIED
+  XRealization                                        SIDELvConservation/ZeroActingPairing.lean:357 1   0    std3         T2      a typed specification (STRUCTURE), no instance
+  xRealization_to_zeroActingPairing                   SIDELvConservation/ZeroActingPairing.lean:369 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled
+  xRealization_to_RH                                  SIDELvConservation/ZeroActingPairing.lean:379 1   0    std3         T1-lit  rests on the named premise `NontrivialZeroExistsInStrip`, a literature fact not compiled and on the Weil direction (channel inequality to Li positivity) and Li`s criterion (Bombieri-Lagarias 1999), named premises, neither compiled
+    ### ROW "The X-realization spec (§6)" : stated std3 ; fresh union std3 ; CARRIED
+  SimplicityFamilySpec                                SIDELvConservation/ZeroActingPairing.lean:394 1   0    axiom-free   T2      a typed specification (STRUCTURE), no instance
+  simplicityFamily_generic_not_universal              SIDELvConservation/ZeroActingPairing.lean:404 1   0    axiom-free   T2      an explicit witness over an abstract predicate on ℕ
+    ### ROW "The family spec + residual (§8)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+  detection_threshold_mono                            SIDELvConservation/ZeroActingPartial.lean:105 1   0    std3         T2      monotonicity of `⌊2T²⌋₊` in T: arithmetic; the reading is carried by the identifier
+    ### ROW "The barrier extension (§7)" : stated std3 ; fresh union std3 ; CARRIED
+  escape_kind_discriminates                           SIDELvConservation/ZeroActingPairing.lean:436 1   0    axiom-free   T2      a model-level enumeration (two wall kinds)
+  horizon_kind_shared                                 SIDELvConservation/ZeroActingPairing.lean:441 1   0    axiom-free   T2      the same enumeration
+    ### ROW "The escape-kind invariant (§8)" : stated axiom-free ; fresh union axiom-free ; CARRIED
+
+### the terminals: 24 ; on main 24 ; at the tip 24 ; in the tag`s tree 0
+### tiers : T0 0 · T1-open 0 · T1-lit 7 · T2 17 · T3 0 · T4 0
+### first table, rows : CARRIED 12 · MOVED 0
+### the second table (:124-132):
+  the residue, compiled (§7)                       CARRIED  T1-lit
+  the 𝔽_q anatomy (§6)                             CARRIED  T2
+  the realization ledger (§6)                      CARRIED  T2
+  the finite-range inhabitant (§6)                 CARRIED  T1-lit
+  the eight further rows above                     CARRIED  as the first table
+  the zero-acting positive pairing`s EXISTENCE     CARRIED  no terminal (RESEARCH-REACH, disclaimed); annotated by appended line
+  `h2`, the one open premise                       MOVED    T1-open as premise; the equivalence T0 ((R159)(5))
