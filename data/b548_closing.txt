@@ -1,0 +1,51 @@
+========================================================================================================
+b548 -- THE CLOSING RECORD. ### **THE BENCH AT Q0 AND XI, UNDER (R158); GRADED READING.**
+========================================================================================================
+    Component 1 : match against b522 at 30-45 True ; k* {'36.0': 1, '37.0': 1, '38.0': 1} ; H1 {'c1': True, 'c1b': True, 'c2': True, 'c3': False, 'ref1': False, 'ref2': False, 'ref3': False}
+    Component 2 : cells Q0 255 xi 255 ; smallest negative width at Q0 {'3': 24.0, '5': 25.0, '7': 26.0, '9': 26.0, '11': 42.0} ; H2 x1 True x2 {'3': False, '5': False, '7': False, '9': False, '11': False} q1 {'7': True, '9': True, '11': True} q2 False ref3 True
+    xi statuses : {'3': {'UNVERIFIED': 51}, '5': {'VERIFIED-EST': 51}, '7': {'VERIFIED-EST': 51}, '9': {'VERIFIED-EST': 51}, '11': {'VERIFIED-EST': 51}}
+    the field sources : FINDINGS.md:5601 ; the act : FINDINGS.md:5613 ; the pointer from :5529 at FINDINGS.md:5649 ; next THE_RESIDUE_OF_RH
+    the branches : Deleted branch push-b547 (was 91cbda06). ; Deleted branch push-b547-closing (was f272e2e0). ; Deleted branch push-b547 (was 2549901).
+    the token : hits 0 over 48 files and 2 commits
+    (N1) HELD (N2) HELD (N3) HELD (N4) REFUTED (N5) HELD (N6) HELD ; (S1) HELD (S2) REFUTED (S3) REFUTED
+
+### THIS ACT`S OWN DEFECTS (the desk).
+    (a) READING (3)'s k* test is weak where the excess is small: at 36-38 the excess is 4-7 % of the rest, below the largest
+        single contributor, so k* = 1 follows from the excess's size, not from one zero carrying it. H1.3 is scored as registered and
+        the caveat is printed beside it (data/b548_interference.txt, FINDINGS act entry); it is not re-scored.
+    (b) READING (7) registered "one fetch of Zhu's arXiv abstract page". The harness fetch tool was called twice on that one address:
+        the first call returned a summary mixing quoted fragments with paraphrase; the second, asking for the abstract character
+        for character, was served from the tool's 15-minute cache of the same address. The quoted sentences come from the second
+        call. Addresses resolved: 3, within the cap; tool calls to arXiv: 2.
+    (c) The xi cell at order 3 does not verify: |r| exceeds B by 1.12-1.17 at all 51 widths, r positive, B led by E_u (the arch
+        quadrature's half/wide comparison). The instrument's error budget underprices the order-3 quadrature; the cells are printed
+        UNVERIFIED and scored as decided by sign only (F > B at every one). No repair was attempted inside this act.
+    (d) The cost estimate (about 950 s per object and order) was right in total (about 9,300 s by the banked per-cell seconds) but
+        wrong per order: roughly 90-130 s at order 3 and 2,000-2,500 s at order 11. Order 11 at xi took five foreground calls.
+    (e) The --merged listing before the branch deletions was teed to /tmp/b548_merged.txt, outside the scratchpad and the write
+        list; it holds only the two branch listings. The deletion record itself is data/b548_branches.txt.
+    (f) Found, not caused: relay data/b546_scores.json carries an uncommitted one-line change (its "written" list gains
+        OPEN_TRAILS.md), file time 2026-09-26 15:23, after b546's commit ce0cccfb and before this act's face. It is not in
+        this act's write list; b548 neither stages nor reverts it. For the author's word.
+
+### THE COMMITS, THE CENSUSES. ### NO MIRROR ZIP AT THIS ACT.
+    pre-push : ### ### **ARMS RUN : 66. ### LIVE PASSING : 66. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 66. ### LIVE PASSING : 66. ### LIVE FAILING : 0 .**
+      relay                  local 8f6cb3516799 ; remote 8f6cb3516799 ; AGREE
+      PLACE-papers           local 69993245e625 ; remote 69993245e625 ; AGREE
+      SIDE-global-section    local 2e43315ab423 ; remote 2e43315ab423 ; AGREE
+      SIDE-explicit-formula  local 81ae1758f28e ; remote 81ae1758f28e ; AGREE
+      SIDE-kernel            local 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation   local 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-li-map            local b515e6b62c15 ; remote b515e6b62c15 ; AGREE
+      SIDE-fano-darkness     local 0f6ce5b131fe ; remote 0f6ce5b131fe ; AGREE
+    the HELD commit 6eada6a : its files in the pushed tree : 0 of 2
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT**: THE_RESIDUE_OF_RH (CP-1), then the remaining tables, then CP-1b.
+    (b) ### **FOR THE AUTHOR**: xi at order 3 does not verify on this instrument (|r| > B by up to 1.17; defect (c)).
+    (c) ### **FOR THE AUTHOR**: relay data/b546_scores.json carries an uncommitted change found at this act (defect (f)).
+    (d) Under (R157)(6) the seat`s memory is not refreshed at this act.
+========================================================================================================
