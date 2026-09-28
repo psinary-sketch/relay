@@ -4,21 +4,21 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 271,
- "grade_cells_loose_v1": 1255,
- "grade_cells_v2": 354,
- "grade_cells_v3": 280,
+ "grade_cells": 275,
+ "grade_cells_loose_v1": 1263,
+ "grade_cells_v2": 360,
+ "grade_cells_v3": 284,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 1229,
-  "not_profiled": 380,
-  "ungraded": 1094,
+  "rows": 1230,
+  "not_profiled": 381,
+  "ungraded": 1093,
   "conflict": 12,
   "encodes": 10,
-  "ledger_names_unresolved": 21,
+  "ledger_names_unresolved": 22,
   "statement_unresolved": 10
  },
  "workorders_b516": {
@@ -326,6 +326,10 @@
    [
     "SIDE-grh-transfer",
     "balance_theorem"
+   ],
+   [
+    "SIDE-grh-transfer",
+    "grh_structural_exhaustiveness_proved"
    ],
    [
     "SIDE-kernel",
@@ -1435,6 +1439,7 @@
   "MATCHES",
   "R4_positivity",
   "R5_output",
+  "R_CURVE_CRITERION",
   "RiemannHypothesis",
   "SIMPLICITY_OF_RIEMANN_ZEROS",
   "SteaneLabeling",
@@ -27207,8 +27212,16 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "UNGRADED",
-   "grade_cells": [],
+   "grade": "INTERFACES",
+   "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 5830,
+     "act": null,
+     "quote": "their weakest link: T0 5 · T1-open 0 · T1-lit 0 · T2 5 · T2-INTERFACES 1 · T3 0 · T4 2; dispositions CARRIED 13 · MOVED 0. The composite `grh_structural_exhaustiveness_proved` concludes a Prop in which no character occurs (T2); `twiste"
+    }
+   ],
    "conflict": null,
    "zeta_row": false,
    "ei": "—"
@@ -27711,6 +27724,40 @@
    "profile_source": null,
    "grade": "UNGRADED",
    "grade_cells": [],
+   "conflict": null,
+   "zeta_row": false,
+   "ei": "—"
+  },
+  {
+   "repo": "SIDE-kernel",
+   "name": "ConservationHypothesis",
+   "head": "0256e9e1297f",
+   "pin": "v1.5",
+   "pin_sha": "0e5233f01153",
+   "pin_cell": "### **`v1.5` = `0e5233f`** — the deposited wave; concept DOI `10.5281/zenodo.19674312`, version DOI `10.5281/zenodo.21520474`",
+   "refs": [
+    "v1.5",
+    "HEAD"
+   ],
+   "present_at": [
+    "v1.5"
+   ],
+   "statement": "def ConservationHypothesis : Prop",
+   "statement_file": "Bridge/ConservationBridge.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "INTERFACES",
+   "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 5812,
+     "act": "b555",
+     "quote": "ence_universal` on `I.is_universal`; the route terminals on `ConservationHypothesis` before E-2026-09-25-1 showed it RH restated -- is **T2-INTERFACES**: the premise's truth is the programme's to establish, so"
+    }
+   ],
    "conflict": null,
    "zeta_row": false,
    "ei": "—"
@@ -28805,6 +28852,13 @@
    "profile_source": null,
    "grade": "INTERFACES",
    "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 5830,
+     "act": null,
+     "quote": "0); of the six `paired_*` lemmas one is T0 and five are T2; `silence_universal` is T2-INTERFACES. The tier block is at `GRH_CASCADE.md`:437; the reading at"
+    },
     {
      "grade": "INTERFACES",
      "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
@@ -31820,6 +31874,13 @@
    "profile_source": null,
    "grade": "INTERFACES",
    "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 5830,
+     "act": null,
+     "quote": "0); of the six `paired_*` lemmas one is T0 and five are T2; `silence_universal` is T2-INTERFACES. The tier block is at `GRH_CASCADE.md`:437; the reading at"
+    },
     {
      "grade": "INTERFACES",
      "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
