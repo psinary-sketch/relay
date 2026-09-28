@@ -1,0 +1,292 @@
+b552 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### data/b551_defects.txt:11-14 -- b551`s defect (d), the Stormer clash
+  :11     (d) The census probe for SIDE-kernel's Kernel lib imports every glob module at once, and two of them (Kernel.Stormer and
+  :12         Kernel.StormerTest) both declare Stormer.divideOut, so the probe fails on a clash with no object file missing. A defect
+  :13         of the probe's design (READING (3)); the cell says so, and SIDE-kernel's `lake build --no-build` is YES.
+  :14     (e) The trial build's first line prints "manifest mathlib" empty: a grep written for the older manifest's layout. The rev is
+
+### data/b551_defects.txt:24-31 -- b551`s defect (j), row 391`s grade cell
+  :24     (j) Row 391's grade cell quotes b550's tier-table words beside a backticked name ("ENCODES 8 and SHELL 1 (`boolGrp`)") while
+  :25         saying it confers no rubric grade. tools/terminal_table.py reads a grade word and a backticked name in one cell as a
+  :26         grade, so the regenerated federation table now reads AggregationCircularityShadow.boolGrp as CONFLICT (ENCODES at
+  :27         CORRESPONDENCE.md:464, SHELL at :464); before the row it read UNGRADED. The first pre-push
+  :28         suite run printed "grade-or-profile changed 1"; the banked run diffs against that one and prints 0; the row itself is in
+  :29         data/terminal_table.json (boolGrp, grade CONFLICT). The row
+  :30         is committed and pushed (SIDE-global-section b4c9ebe) and the ledger is append-only, so it is not rewritten here.
+  :31         ### FOR THE AUTHOR: whether a later row or a table exception should settle it. No grade was meant to move.
+
+### D:/SIDE-global-section/CORRESPONDENCE.md:464-464 -- SIDE-global-section CORRESPONDENCE.md row 391
+  :464 | 391 | THE AGGREGATION’S FREEDOM, AND WHY C-WEIL CANNOT NARROW IT (b220; the row the ledger lacked, written at b551 under (R161)(4)): File E’s identity `T.value + Q.value = W.wInf - W.wPrimes` at a cell determines the quotient value uniquely; an aggregation satisfies C-WEIL iff it returns that forced value at every cell; such an aggregation exists; the proof that the identity holds for it is the C-WEIL hypothesis returned unchanged; without C-WEIL more than one aggregation is admitted, shown on Bool under XOR. ### **THE FILE DEFINES NO AGGREGATION** -- `agg` is a variable throughout and nothing is written into File E. | `Core/AggregationCircularityShadow.lean` -- 9 printed terminals: `ident
+
+### tools/corr_row.py:57-58 -- corr_row.py: the six cells, the heads (the grade is the fifth cell)
+  :57 NCELLS = 6
+  :58 HEADS = ['statement', 'terminal(s)', 'axiom print', 'grade', 'status']
+
+### tools/terminal_table.py:43-43 -- terminal_table.py: the grade words
+  :43 GRADE_RE = re.compile(r'\b(DERIVES|INTERFACES|SHELL|ENCODES-CONCLUSION|ENCODES)\b')
+
+### tools/terminal_table.py:187-215 -- terminal_table.py: the grade parser (tight)
+  :187 def grade_cells_v3():
+  :188     """### ### **VERSION 3, KEPT SO ITS YIELD CAN BE RE-RUN.** ### Nearest-name attachment, but
+  :189     ### BLIND TO COMPOUND VERDICTS: it read `ENCODES-CONCLUSION \ SHELL` as two cells."""
+  :190     cells = []
+  :191     for label, path in ledger_files():
+  :192         text = read(path)
+  :193         for i, ln in enumerate(text.split(NL), 1):
+  :194             if not GRADE_RE.search(ln):
+  :195                 continue
+  :196             for off, seg in _segments(ln):
+  :197                 gs_ = [(m.start(), m.end(), m.group(1)) for m in GRADE_RE.finditer(seg)]
+  :198                 names = _names_on(seg)
+  :199                 if not gs_ or not names:
+  :200                     continue
+  :201                 for g0, g1, gr in gs_:
+  :202                     best, bd = None, None
+  :203                     for a0, b0, nm in names:
+  :204                         d = abs((g0 - b0) if g0 >= b0 else (a0 - g1))
+  :205                         if d <= WINDOW and (bd is None or d < bd):
+  :206                             best, bd = nm, d
+  :207                     if best is not None:
+  :208                         cells.append(dict(name=best, grade=gr, ledger=label, line=i))
+  :209     return cells
+  :210 
+  :211 
+  :212 def grade_cells_v2():
+  :213     """### ### **VERSION 2, KEPT SO ITS YIELD CAN BE RE-RUN AND NOT MERELY RECALLED.**
+  :214     ### Every name within `WINDOW` of a grade takes that grade. ### Discarded: proximity is not
+  :215     ### attachment, and this made the relation a CROSS PRODUCT inside a crowded line."""
+
+### tools/terminal_table.py:670-686 -- terminal_table.py: the CONFLICT rule -- distinct grades over every cell naming the terminal
+  :670             rows.append(dict(
+  :671                 repo=name, name=n, head=head[:12],
+  :672                 pin=(pin or None), pin_sha=(pin_sha[:12] if pin_sha else None),
+  :673                 pin_cell=(pinrec.get('cell') if pinrec else None),
+  :674                 refs=[l for l, _ in refs],
+  :675                 present_at=sorted(at),
+  :676                 statement=(st['text'] if st else None),
+  :677                 statement_file=(st['file'] if st else None),
+  :678                 statement_state=('RESOLVED' if st else 'UNRESOLVED'),
+  :679                 profile=(profile or 'NOT PROFILED'),
+  :680                 profile_state=('PROFILED' if profile else 'NOT PROFILED'),
+  :681                 profile_source=psrc,
+  :682                 grade=(distinct[0] if len(distinct) == 1 else
+  :683                        ('CONFLICT' if len(distinct) > 1 else 'UNGRADED')),
+  :684                 grade_cells=[dict(grade=c['grade'], ledger=c['ledger'], line=c['line'],
+  :685                                   act=c['act'], quote=c['quote']) for c in uniq],
+  :686                 conflict=(sorted(distinct) if len(distinct) > 1 else None)))
+
+### data/b548_interference.txt:1-21 -- b548`s order-7 table at widths 30-45 (per-zero terms in b548_interference.jsonl)
+  :1 b548 -- READING ONE: THE REST-TERM INTERFERENCE AT Q0, p = 7 (H1 of (R158)(2)); every row READING
+  :2 
+  :3 ### (a)-(b) the recomputed quantity against b522, and the split. floor = E_round ((R125)(2)); B the full bound.
+  :4   a    h2 (recomputed)     h2 (b522)          |diff|      floor(E_round)  match   pair              rest              pair+rest         B          sign
+  :5   30   +1.5492815719e+02  +1.5492815719e+02  0.000e+00  1.056e-07       YES     -3.8759124445e+02  +5.4251940165e+02  +1.5492815719e+02  1.73e-07  POS
+  :6   31   +1.2303066301e+02  +1.2303066301e+02  0.000e+00  9.684e-08       YES     -3.9165853294e+02  +5.1468919595e+02  +1.2303066301e+02  1.56e-07  POS
+  :7   32   +6.2056135414e+01  +6.2056135414e+01  0.000e+00  8.289e-08       YES     -3.9570006678e+02  +4.5775620219e+02  +6.2056135414e+01  1.35e-07  POS
+  :8   33   +8.9553249529e+00  +8.9553249529e+00  0.000e+00  7.496e-08       YES     -3.9971913289e+02  +4.0867445784e+02  +8.9553249528e+00  1.22e-07  POS
+  :9   34   -1.3398674835e+01  -1.3398674835e+01  0.000e+00  6.884e-08       YES     -4.0369657149e+02  +3.9029789665e+02  -1.3398674835e+01  1.11e-07  NEG
+  :10   35   -5.5908208263e+00  -5.5908208263e+00  0.000e+00  6.764e-08       YES     -4.0761217558e+02  +4.0202135475e+02  -5.5908208264e+00  1.05e-07  NEG
+  :11   36   +1.5535921462e+01  +1.5535921462e+01  0.000e+00  7.044e-08       YES     -4.1145855327e+02  +4.2699447473e+02  +1.5535921462e+01  1.04e-07  POS
+  :12   37   +3.0310211765e+01  +3.0310211765e+01  0.000e+00  6.923e-08       YES     -4.1524222674e+02  +4.4555243850e+02  +3.0310211765e+01  9.99e-08  POS
+  :13   38   +2.5820255659e+01  +2.5820255659e+01  0.000e+00  6.989e-08       YES     -4.1897647792e+02  +4.4479673358e+02  +2.5820255659e+01  9.77e-08  POS
+  :14   39   -1.2014203449e+00  -1.2014203449e+00  0.000e+00  8.042e-08       YES     -4.2267311940e+02  +4.2147169905e+02  -1.2014203450e+00  1.06e-07  NEG
+  :15   40   -4.6059734522e+01  -4.6059734522e+01  0.000e+00  8.818e-08       YES     -4.2633789878e+02  +3.8027816425e+02  -4.6059734522e+01  1.11e-07  NEG
+  :16   41   -9.9505911433e+01  -9.9505911433e+01  0.000e+00  9.267e-08       YES     -4.2997042454e+02  +3.3046451311e+02  -9.9505911433e+01  1.14e-07  NEG
+  :17   42   -1.5118192999e+02  -1.5118192999e+02  0.000e+00  9.271e-08       YES     -4.3356693184e+02  +2.8238500185e+02  -1.5118192999e+02  1.12e-07  NEG
+  :18   43   -1.9236459792e+02  -1.9236459792e+02  0.000e+00  9.166e-08       YES     -4.3712356575e+02  +2.4475896782e+02  -1.9236459792e+02  1.10e-07  NEG
+  :19   44   -2.1769667846e+02  -2.1769667846e+02  0.000e+00  8.486e-08       YES     -4.4063855870e+02  +2.2294188024e+02  -2.1769667846e+02  1.02e-07  NEG
+  :20   45   -2.2581523025e+02  -2.2581523025e+02  0.000e+00  7.822e-08       YES     -4.4411279536e+02  +2.1829756511e+02  -2.2581523025e+02  9.37e-08  NEG
+  :21 
+
+### data/b548_interference.txt:64-77 -- b548`s six movers across 34-41, the pair, the rest
+  :64   REFUTER 3  pair + rest fails to reproduce the banked quantity to the floor  : does not fire
+  :65   ### H1 IS REFUTED OR FAILS IN PART, AS THE ROWS SAY
+  :66 
+  :67 ### the swing across 34-41 (READING, printed beside the clauses; it scores nothing): the six contributors that move most
+  :68   kind ordinate              34         35         36         37         38         39         40         41
+  :69   off    29.551761     -44.849    -21.060    +17.566    +53.724    +74.032    +73.023    +53.361    +23.314
+  :70   on     23.869325     +48.056    +48.327    +45.252    +39.574    +32.246    +24.271    +16.566     +9.879
+  :71   on     21.884967     +57.210    +55.137    +51.146    +45.716    +39.349    +32.536    +25.720    +19.279
+  :72   on     26.142140     +27.544    +17.774     +8.968     +2.805     +0.115     +0.890     +4.471     +9.800
+  :73   on     25.158944     +26.925    +16.794     +8.242     +2.495     +0.083     +0.905     +4.376     +9.615
+  :74   on     26.636667      +8.405    +16.648    +24.276    +29.410    +31.092    +29.300    +24.748    +18.585
+  :75   the rest          +390.298   +402.021   +426.994   +445.552   +444.797   +421.472   +380.278   +330.465
+  :76   the pair          -403.697   -407.612   -411.459   -415.242   -418.976   -422.673   -426.338   -429.970
+  :77   ### a caveat on H1.3, printed with it: the excess at 36-38 is 4-7 % of the rest, below the largest single contributor, so k* = 1 follows from the excess being small, not from one zero carrying it.
+
+### data/b522_report.txt:1-52 -- b522 under (R131): the reach per width, 15-60, and the functional per width from 28
+  :1 ====================================================================================================================================
+  :2 b522 -- VARIANT (B) AT p = 7, THE REACH READ PER WIDTH.
+  :3 ====================================================================================================================================
+  :4 ### COMPONENT 0 -- THE REACH TABLE (R131)(2): IN iff E_tail <= B` = E_u + E_k + E_round at that width, a^2 within LAMQ (n to 4096).
+  :5   a     E_tail      B`          tail/B`    reach
+  :6   15    1.522e-06   1.669e-07   9.121e+00  OUT
+  :7   16    1.095e-06   1.312e-07   8.347e+00  OUT
+  :8   17    8.101e-07   1.205e-07   6.720e+00  OUT
+  :9   18    6.141e-07   1.328e-07   4.624e+00  OUT
+  :10   19    4.755e-07   1.343e-07   3.541e+00  OUT
+  :11   20    3.750e-07   1.320e-07   2.840e+00  OUT
+  :12   21    3.005e-07   1.117e-07   2.691e+00  OUT
+  :13   22    2.443e-07   8.938e-08   2.734e+00  OUT
+  :14   23    2.012e-07   1.102e-07   1.826e+00  OUT
+  :15   24    1.676e-07   1.190e-07   1.408e+00  OUT
+  :16   25    1.411e-07   1.102e-07   1.280e+00  OUT
+  :17   26    1.198e-07   8.997e-08   1.332e+00  OUT
+  :18   27    1.027e-07   9.009e-08   1.140e+00  OUT
+  :19   28    8.863e-08   1.053e-07   8.421e-01  IN
+  :20   29    7.706e-08   1.104e-07   6.981e-01  IN
+  :21   30    6.743e-08   1.056e-07   6.387e-01  IN
+  :22   31    5.937e-08   9.684e-08   6.130e-01  IN
+  :23   32    5.255e-08   8.289e-08   6.340e-01  IN
+  :24   33    4.676e-08   7.496e-08   6.237e-01  IN
+  :25   34    4.180e-08   6.884e-08   6.072e-01  IN
+  :26   35    3.753e-08   6.764e-08   5.548e-01  IN
+  :27   36    3.384e-08   7.044e-08   4.804e-01  IN
+  :28   37    3.062e-08   6.924e-08   4.423e-01  IN
+  :29   38    2.782e-08   6.989e-08   3.980e-01  IN
+  :30   39    2.535e-08   8.042e-08   3.152e-01  IN
+  :31   40    2.318e-08   8.818e-08   2.628e-01  IN
+  :32   41    2.125e-08   9.267e-08   2.293e-01  IN
+  :33   42    1.954e-08   9.271e-08   2.108e-01  IN
+  :34   43    1.802e-08   9.166e-08   1.966e-01  IN
+  :35   44    1.666e-08   8.486e-08   1.963e-01  IN
+  :36   45    1.543e-08   7.822e-08   1.973e-01  IN
+  :37   46    1.433e-08   7.182e-08   1.995e-01  IN
+  :38   47    1.333e-08   7.004e-08   1.904e-01  IN
+  :39   48    1.243e-08   7.647e-08   1.626e-01  IN
+  :40   49    1.161e-08   8.222e-08   1.413e-01  IN
+  :41   50    1.087e-08   8.503e-08   1.279e-01  IN
+  :42   51    1.019e-08   8.289e-08   1.230e-01  IN
+  :43   52    9.572e-09   7.642e-08   1.253e-01  IN
+  :44   53    9.004e-09   6.864e-08   1.312e-01  IN
+  :45   54    8.482e-09   6.301e-08   1.346e-01  IN
+  :46   55    8.002e-09   6.174e-08   1.296e-01  IN
+  :47   56    7.560e-09   6.264e-08   1.207e-01  IN
+  :48   57    7.152e-09   6.523e-08   1.096e-01  IN
+  :49   58    6.774e-09   6.742e-08   1.005e-01  IN
+  :50   59    6.424e-09   6.879e-08   9.339e-02  IN
+  :51   60    6.100e-09   6.817e-08   8.948e-02  IN
+  :52   ### WITHIN REACH : 33 of 46 ; OUT at : [15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0]
+
+### relay data/b506_c2_results.json `found` -- the off-line zeros of Q0 in the rectangle, t < 150 (17):
+  σ 0.9532604748  γ 16.2902157204
+  σ 0.7979971572  γ 29.5517610986
+  σ 0.6636516789  γ 33.6501005825
+  σ 0.8099915315  γ 43.8586643650
+  σ 0.7823785767  γ 46.9609936699
+  σ 0.8086599715  γ 61.6879037688
+  σ 0.8498790995  γ 64.4348289403
+  σ 0.7136405424  γ 75.0812041827
+  σ 0.7957690258  γ 79.5985496649
+  σ 0.7304981576  γ 89.5181059789
+  σ 0.8117833479  γ 92.1517737189
+  σ 0.6054364222  γ 93.0812684018
+  σ 0.9515046580  γ 107.3992911019
+  σ 0.8230214294  γ 110.1974329688
+  σ 0.8394283850  γ 124.7754381000
+  σ 0.6665341525  γ 127.6228367238
+  σ 0.8743056607  γ 137.8855570170
+
+### relay data/b546_geometry.json : narrowest 34.0 ; neg [34.0, 35.0, 39.0, 40.0, 41.0, 42.0] ; keys ['gamma0', 'n0', 'narrowest', 'neg', 'ntop', 'outside', 'p', 'pos', 'reach', 'survivors', 'top', 'voros500', 'voros507', 'within', 'write', 'z0'] (no per-zero width)
+
+### data/b240_first_face_off.txt:27-34 -- b240`s six diagonal cells
+  :27   a^2      L              R            |L - R|        combined bar      separation / bar
+  :28   2        6.094519      -1.990528     8.085046e+00   7.452637e-01      10.85
+  :29   3        5.104067      -2.015384     7.119451e+00   5.042320e-01      14.12
+  :30   4        4.711349      -2.035817     6.747167e+00   3.991934e-01      16.90
+  :31   8        3.915534      -2.086520     6.002054e+00   2.671918e-01      22.46
+  :32   9        3.949318      -2.097219     6.046537e+00   2.492805e-01      24.26
+  :33   12       3.731639      -2.119732     5.851371e+00   2.034462e-01      28.76
+  :34 
+
+### D:/SIDE-explicit-formula/Zeta23/ExplicitFormula.lean:90-100 -- EF_lit (SIDE-explicit-formula 81ae175)
+  :90   + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+  :91 
+  :92 /-- **H-EF, literature form** ([eq:EFstd]; [IK04, Thm 5.12] specialised to ζ / [Wei52] / [Bom00]):
+  :93 for every `k ∈ C_c²(ℝ)` with `h(z) := ∫ k(u)e^{izu}du`,
+  :94 `Σ_ρ m_ρ h(γ_ρ) = literatureRHS k`, the zero sum converging absolutely (paper: "here absolutely
+  :95 convergent since h(r) ≪_k (1+|r|)^{-2} on |Im r| ≤ 1/2").  It is a hypothesis
+  :96 (structure field in Hypotheses.lean), never a Lean axiom. -/
+  :97 def EF_lit (Z : ZeroConfig) : Prop :=
+  :98   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+  :99     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+  :100     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+
+### D:/SIDE-explicit-formula/Zeta23/ExplicitFormula.lean:204-207 -- paperFT_weilTest`s hypotheses
+  :204 /-- App. A: `h_{f⋆g̃}(z) = h_f(z) · conj(h_g(conj z))` for all complex z. -/
+  :205 theorem paperFT_weilTest {f g : ℝ → ℂ} (hf : Continuous f) (hg : Continuous g)
+  :206     (hfs : HasCompactSupport f) (hgs : HasCompactSupport g) (z : ℂ) :
+  :207     paperFT (weilTest f g) z = paperFT f z * conj (paperFT g (conj z)) := by
+
+### D:/SIDE-explicit-formula/SIDEExplicitFormula/H2Sign.lean:22-30 -- classK and h2_sign
+  :22 /-- The class K: even, `C²`, compactly supported, and of the form `h ⋆ h~` with `h` `C²` and
+  :23 compactly supported. -/
+  :24 def classK (k : ℝ → ℂ) : Prop :=
+  :25   (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+  :26     ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+  :27 
+  :28 /-- **h2, as one Prop:** for every `k` in K, `0 ≤ P(k) - PR(k) + A(k)`. -/
+  :29 def h2_sign : Prop :=
+  :30   ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+
+### phase1.5/spectral/BALANCE_AND_POSITIVITY.md:70-70 -- BALPOS: Li`s criterion named
+  :70 Two classical faces name what the upgraded certificate would be. Li's criterion (Bombieri–Lagarias): RH ⟺ λ_n = Σ_ρ [1 − (1 − 1/ρ)^n] ≥ 0 for all n ≥ 1. Connes' trace formulation: the prime sum as a trace on the adele class space, with positivity as trace-positivity. Both are RH-equivalent restatements of the same missing property; both are the Euler class's positivity in different clothing.
+
+### phase1.5/spectral/BALANCE_AND_POSITIVITY.md:422-422 -- BALPOS: the Bombieri-Lagarias citation and the coefficient formula
+  :422 1. **Li's criterion and its general form.** Bombieri & Lagarias, *Complements to Li's Criterion for the Riemann Hypothesis*, **J. Number Theory 77 (1999) 274–287**: RH ⟺ λ_n ≥ 0 for all n ≥ 1, with λ_n = Σ_ρ [1 − (1 − 1/ρ)ⁿ]. They show the criterion follows from general inequalities for an arbitrary multiset of complex numbers — **it is not specific to zeta** — give an arithmetic formula for λ_n via the **Guinand–Weil explicit formula**, and relate the positivity of λ_n to **Weil's criterion**.
+
+### phase1.5/spectral/BALANCE_AND_POSITIVITY.md:498-514 -- BALPOS C.7.3: the detection threshold (Voros)
+  :498 ### C.7.3 The detection threshold — **VERIFIED**, with one extraction caveat stated
+  :499 
+  :500 > **"Sₙ can only reliably signal a zero violating RH up to a height |Im ρ| ≲ n/2; so vice-versa, since such zeros are now known to require |Im ρ| ≳ 10⁹, they could only be detected by Sₙ for n ≳ 10¹⁸"**
+  :501 > — Voros, §4 (closing paragraphs).
+  :502 
+  :503 **Status upgraded: VERIFIED at source.** The operative conclusion — **n ≳ 10¹⁸** — is Voros's own sentence, quoted directly, and it is what governs this bench.
+  :504 
+  :505 **Caveat — RESOLVED 2026-07-13 (sixth sitting).** As first extracted, the clause read "|Im ρ| ≲ n/2" — **no radical** — which is *not* consistent with the same sentence's own conclusion. **An independent PDF-route extraction of arXiv math/0506326 (2026-07-13, separate session) renders the passage with the radical present:**
+  :506 
+  :507 > **"Sₙ can only reliably signal a zero violating RH up to a height |Im ρ| ≲ √(n/2)"**
+  :508 
+  :509 **Resolution: the ar5iv/LaTeX extraction dropped the radical.** The quadratic form is confirmed by two independent lines of evidence:
+  :510 
+  :511 1. **A second extraction route** (PDF, separate session) recovers `√(n/2)` — the radical is in the paper.
+  :512 2. **Internal consistency, checkable without the paper.** The radical form inverts to **n ≳ 2T²**; at the verification height T ≈ 10⁹ this gives **2·(10⁹)² = 2 × 10¹⁸ ≈ 10¹⁸** — *exactly the figure Voros states in the same sentence*. The radical-free reading inverts to n ≳ 2T = **2 × 10⁹**, which is **nine orders of magnitude below the paper's own conclusion** and therefore cannot be what the sentence says.
+  :513 
+  :514 **The functional form is therefore quadratic — n ≳ 2T², as the bench supplied — and the flag is cleared.** Both the form and the conclusion now stand on checks that were run: the second route for the text, and the arithmetic for the consistency. Nothing in Appendices B–D changes as a result; the threshold was already governing at the 10¹⁸ figure, which was quoted correctly throughout.
+
+### SIDE-kernel Kernel/Stormer.lean (HEAD 0256e9e): namespace and divideOut
+  :3 namespace Stormer
+  :13 def divideOut (n p : Nat) : Nat := divideOutFuel n n p
+
+### SIDE-kernel Kernel/StormerTest.lean (HEAD 0256e9e): namespace and divideOut
+  :3 namespace Stormer
+  :6 def divideOut (n p : Nat) : Nat :=
+
+### OPEN_TRAILS.md:11230-11245 -- OPEN_TRAILS: the toolchain item priced by trial (b551)
+  :11230 ### `W-ORD-LI-WEIL-BRIDGE` -- THE TOOLCHAIN ITEM PRICED BY TRIAL (the item at :11203), appended 2026-09-27, b551, under the author's ruling (R161)(5)
+  :11231 
+  :11232 **The toolchain item, priced by trial, not merged.** The older kernel, SIDE-lv-conservation (`lean-toolchain` `v4.29.1`, Mathlib `5e932f9`), was moved on a branch, `toolchain-trial-b551` (tip `f22ff35`, pushed by name and HELD), to the newer kernel's exact `lean-toolchain` and manifest -- SIDE-explicit-formula's `v4.33.0-rc2` and Mathlib `51e6992`, 3421 Mathlib commits later (relay `data/b551_trial_revs.txt`) -- and `lake build` ran once (exit 1). No source line was edited; the lakefile still names `5e932f9`.
+  :11233 
+  :11234 **The price: 1 error in 1 module** (relay `data/b551_trial.txt`):
+  :11235 
+  :11236 - `SIDELvConservation/GammaBounds.lean`: 1 -- the leading error: error: SIDELvConservation/GammaBounds.lean:177:8: Tactic ’rewrite’ failed: Did not find an occurrence of the pattern
+  :11237 
+  :11238 The count is a floor, not the whole price: 11 of the library's 25 modules import the failed module and were not attempted (`AxiomCheck_v0_10_0`, `C7FiniteTypeFalse`, `C7OrderBounds`, `CompositionBarrier`, `CouplingsAtPhi`, `DirichletC7Order`, `PartialPositivity`, `QWantedPoster`, `RegisterPentagon`, `ZeroActingPairing`, `ZeroActingPartial`), so their errors, if any, are unmeasured. No Mathlib module was compiled; the copied packages were accepted as built.
+  :11239 
+  :11240 *Appended beneath the toolchain item at :11203; nothing above changes. The merge is not done at this act; main of SIDE-lv-conservation is untouched.*
+  :11241 
+  :11242 ### b551 — the toolchains under (R161): the federation census; the Interfaces pin completed; SIDE-global-section tagged v0.2.0; the Weil-side alignment trialled on a branch
+  :11243 
+  :11244 **(R161) ratified.** (1) The toolchains put in order once, before THE_KEYSTONE_CENSUS. (2) The census: forty-five repositories, seven columns, every cell printed. (3) The Interfaces pin completed at D:\mathlib4 `cecd0c4`, not substituted. (4) SIDE-global-section tagged `v0.2.0` at `2e43315`; its SPIRAL_MAP row; the AggregationCircularityShadow row; the numbering note. (5) The Weil-side alignment trialled on `toolchain-trial-b551`, HELD, not merged. (6) THE_KEYSTONE_CENSUS next.
+  :11245 
+
+### OPEN_TRAILS.md:3544-3550 -- OPEN_TRAILS: the owed-bridges table, W-ORD-LI-WEIL-BRIDGE at :3548
+  :3544 ## THE FACES LEDGER'S OWED BRIDGES — **THREE TRAILS, BY ID** *(filed 2026-09-05, b327; cross-filed from `FACES_LEDGER.md`, its cascade section)*
+  :3545 
+  :3546 | | trail | species | what is owed | price, as the record states it | trigger |
+  :3547 |:--|:--|:--|:--|:--|:--|
+  :3548 | **1** | `W-ORD-LI-WEIL-BRIDGE` | **RESULT or RULING** | b324's bridging statement, given its ID here: *a formula carrying the archimedean margin `W_infinity(f) - Tr(theta(f) S)` at a lawful test function to the Li margin `lambda_n` at an index `n`, or a proof that no such formula exists.* Sharpened by b327's read: the archimedean distribution is one on both families (the deposit's channel is the archimedean place plus the pole constant, DIFFERENT, constituent quoted); what is owed is a relation between the compressed square on the Sonin family and the finite-place channel on the Li family, or its impossibility. **b399: the first half of what was owed is now REFUTED, not merely absent.** `(
+  :3549 | **2** | `W-ORD-DISCRIMINATING-FAMILY` | **CONSTRUCTION** | the family that would let the instrument say no on the Epstein function: a lawful seed whose transform changes sign across `beta` and `1 - beta`, so that the off-line four-term sums on `g conv g^#` need not come out positive (b326, Component 4). | priced at b326 at one act, not built | **when an act needs the instrument to say NO on a candidate function** — and it cannot fire while the instrument lane is PARKED under (R4), which is a block on the work and not an absence of a trigger (b398) |
+  :3550 | **3** | `W-ORD-LI-FAMILY-CONTROL` | **CONTROL** | the explicit formula closed on the Li family through the corpus's own channels: the zero side over the atlas's 10000 ordinates against `S_inf(n) - S_f(n) + 1`, with `S_inf` by a third route (the atlas's kernel against `G_n` on the line); its conditionally convergent `u`-tail and the `O(n log T / T)` zero tail bounded and registered first. | priced at b327 at one act, not run | **when an act asserts, or depends on, the explicit formula closing on the Li family** — and it cannot fire while the instrument lane is PARKED under (R4) (b398) |
+

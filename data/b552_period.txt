@@ -1,0 +1,38 @@
+b552 -- COMPONENT 2: READING THREE -- THE PERIOD IN ln a AT Q0, ORDER 7 (H4 of (R162)(2)); every row READING
+
+### the population: b548`s per-width terms (data/b548_interference.jsonl), widths 30.0-45.0 (16 widths), one term per off-line orbit; widths 46-60 are not banked per zero and are not computed
+### the grid floor: the largest step in ln a is ln(31/30) = 0.0328; an orbit whose π/γ is not above it is BELOW FLOOR
+
+  γ             π/γ      changes  at a                                              spacings in ln a (ratio to π/γ)                          mean-ratio agrees  status
+  29.551761     0.1063   3        31.93, 35.54, 41.77                               0.1071 (1.01), 0.1614 (1.52)                              1.26       no      IN
+  33.650101     0.0934   4        32.75, 34.50, 40.16, 42.51                        0.0522 (0.56), 0.1521 (1.63), 0.0569 (0.61)               0.93       no      IN
+  43.858664     0.0716   7        30.26, 32.72, 34.43, 37.27, 39.25, 42.39, 44.66   0.0782 (1.09), 0.0511 (0.71), 0.0791 (1.10), 0.0518 (0.7  0.91       no      IN
+  46.960994     0.0669   7        30.38, 32.72, 34.19, 36.73, 38.41, 41.29, 43.19   0.0741 (1.11), 0.0440 (0.66), 0.0717 (1.07), 0.0446 (0.6  0.88       no      IN
+  61.687904     0.0509   11       30.32, 32.46, 33.43, 35.44, 36.24, 37.69, 38.46,  0.0681 (1.34), 0.0293 (0.58), 0.0586 (1.15), 0.0222 (0.4  0.64       no      IN
+  64.434829     0.0488   12       31.15, 32.52, 34.53, 35.51, 37.14, 38.25, 39.67,  0.0430 (0.88), 0.0599 (1.23), 0.0282 (0.58), 0.0447 (0.9  0.66       no      IN
+  75.081204     0.0418   8        30.01, 31.11, 36.67, 37.13, 38.67, 39.23, 43.69,  0.0360 (0.86), 0.1644 (3.93), 0.0126 (0.30), 0.0404 (0.9  1.33       no      IN
+  79.598550     0.0395   14       30.22, 31.61, 32.27, 33.74, 34.19, 35.75, 36.16,  0.0449 (1.14), 0.0209 (0.53), 0.0444 (1.12), 0.0134 (0.3  0.75       no      IN
+  89.518106     0.0351   6        30.69, 31.37, 33.67, 34.24, 35.80, 36.30          0.0219 (0.62), 0.0709 (2.02), 0.0168 (0.48), 0.0445 (1.2  0.96       no      IN
+  92.151774     0.0341   13       30.24, 32.32, 33.29, 34.79, 35.53, 37.64, 38.32,  0.0665 (1.95), 0.0296 (0.87), 0.0440 (1.29), 0.0210 (0.6  0.94       no      IN
+  93.081268     0.0338   8        34.93, 35.11, 39.98, 40.03, 41.94, 42.11, 43.96,  0.0050 (0.15), 0.1299 (3.85), 0.0011 (0.03), 0.0467 (1.3  0.98       no      IN
+  107.399291    0.0293   3        39.00, 42.25, 44.84                               0.0802 (2.74), 0.0594 (2.03)                              2.39       no      BELOW FLOOR
+  110.197433    0.0285   4        33.47, 37.45, 41.60, 44.83                        0.1123 (3.94), 0.1050 (3.68), 0.0750 (2.63)               3.42       no      BELOW FLOOR
+  124.775438    0.0252   7        30.76, 31.74, 36.04, 38.24, 40.74, 42.32, 44.38   0.0313 (1.24), 0.1268 (5.04), 0.0594 (2.36), 0.0634 (2.5  2.43       no      BELOW FLOOR
+  127.622837    0.0246   5        35.62, 37.35, 40.99, 42.10, 44.72                 0.0475 (1.93), 0.0931 (3.78), 0.0267 (1.08), 0.0604 (2.4  2.31       no      BELOW FLOOR
+  137.885557    0.0228   4        30.32, 37.82, 41.09, 43.80                        0.2209 (9.70), 0.0831 (3.65), 0.0639 (2.80)               5.38       no      BELOW FLOOR
+
+### the 29.551761 orbit across the widths: 30:+94.17, 31:+50.00, 32:-3.65, 33:-39.86, 34:-44.85, 35:-21.06, 36:+17.57, 37:+53.72, 38:+74.03, 39:+73.02, 40:+53.36, 41:+23.31, 42:-6.95, 43:-28.78, 44:-37.17, 45:-31.50
+### its largest value at a = 30 (+94.167)
+### the 16.290216 pair across the widths: 30:-387.6, 31:-391.7, 32:-395.7, 33:-399.7, 34:-403.7, 35:-407.6, 36:-411.5, 37:-415.2, 38:-419.0, 39:-422.7, 40:-426.3, 41:-430.0, 42:-433.6, 43:-437.1, 44:-440.6, 45:-444.1
+### the pair`s local minima inside the range: NONE (it falls at every step: True)
+
+### H4, clause by clause:
+  H4.1  in the population (11 orbits), every consecutive spacing within 15 % of π/γ for a majority : FAILS (11 of 11 disagree: 29.55, 33.65, 43.86, 46.96, 61.69, 64.43, 75.08, 79.60, 89.52, 92.15, 93.08)
+  H4.2  the 29.551761 term at a maximum within 35-39                                  : FAILS (a = 30)
+        beside it, the ruling`s own word ("at a crest"): the term`s local maxima inside the range at a = [38.0] ; one within 35-39: True (scores nothing; the sealed face reads "largest value")
+  H4.3  the 16.290216 pair in a trough at 36-38                                         : FAILS -- the pair has no local minimum in the banked range; it falls monotonically
+  REFUTER 1  spacings off by more than 15 % for a majority                              : fires
+  REFUTER 2  the 29.55 term not at a maximum within 35-39                               : fires
+### H4 IS REFUTED
+### the 29.551761 orbit alone (N2): spacings 0.1071, 0.1614 against π/γ 0.1063 -- every one within 15 %: False ; the mean 0.1343 (ratio 1.26)
+### a caveat printed with it: the spacings of many orbits alternate short-long (e.g. γ = 43.86); consecutive pairs of spacings are not each π/γ. This reading does not say why; no model is fitted.

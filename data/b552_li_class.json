@@ -1,0 +1,51 @@
+{
+ "ef_lit": "def EF_lit (Z : ZeroConfig) : Prop :=\n  ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →\n    Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧\n    ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k",
+ "weiltest": "theorem paperFT_weilTest {f g : ℝ → ℂ} (hf : Continuous f) (hg : Continuous g)\n    (hfs : HasCompactSupport f) (hgs : HasCompactSupport g) (z : ℂ) :\n    paperFT (weilTest f g) z = paperFT f z * conj (paperFT g (conj z)) := by",
+ "classK": "/-- The class K: even, `C²`, compactly supported, and of the form `h ⋆ h~` with `h` `C²` and\ncompactly supported. -/\ndef classK (k : ℝ → ℂ) : Prop :=\n  (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧\n    ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h\n\n/-- **h2, as one Prop:** for every `k` in K, `0 ≤ P(k) - PR(k) + A(k)`. -/\ndef h2_sign : Prop :=\n  ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k",
+ "li": "1. **Li's criterion and its general form.** Bombieri & Lagarias, *Complements to Li's Criterion for the Riemann Hypothesis*, **J. Number Theory 77 (1999) 274–287**: RH ⟺ λ_n ≥ 0 for all n ≥ 1, with λ_n = Σ_ρ [1 − (1 − 1/ρ)ⁿ]. They show the criterion follows from general inequalities for an arbitrary multiset of complex numbers — **it is not specific to zeta** — give an arithmetic formula for λ_n via the **Guinand–Weil explicit formula**, and relate the positivity of λ_n to **Weil's criterion**.",
+ "quotes_test_function": false,
+ "reading": [
+  "h_n(ρ) = 1 − (1 − 1/ρ)^n = 1 − ((ρ − 1)/ρ)^n is rational in ρ with its only pole at ρ = 0 (order n).",
+  "Written in the ordinate, ρ = 1/2 + i z, the pole sits at z = i/2: h_n is not entire in z. The transform of a compactly supported function is entire (Paley-Wiener, classical), so the Li test function is NOT compactly supported.",
+  "Under z -> −z, (ρ − 1)/ρ becomes its reciprocal on the line; h_n(−z) ≠ h_n(z) for n ≥ 1, so the test function is NOT even.",
+  "As |ρ| -> ∞, h_n(ρ) = n/ρ + O(1/ρ²): the zero sum of h_n does not converge absolutely (Σ 1/|γ| diverges); the literature sums ρ and 1 − ρ together.",
+  "Smoothness is not read from the banks: no bank states the test function itself."
+ ],
+ "classes": [
+  [
+   "EF_lit (Zeta23/ExplicitFormula.lean:97-100)",
+   "compact (HasCompactSupport k)",
+   "none required",
+   "C² (ContDiff ℝ 2 k)",
+   "the zero sum is part of the conclusion (Summable)"
+  ],
+  [
+   "classK (H2Sign.lean:24-26)",
+   "compact (HasCompactSupport k)",
+   "even (k (-x) = k x)",
+   "C², and k = h ⋆ h~ with h C², compact",
+   "inherits EF_lit`s"
+  ],
+  [
+   "the Li test function (BALPOS :422`s formula, read)",
+   "NOT compact (a pole of h_n at ρ = 0)",
+   "NOT even",
+   "NOT ESTABLISHED FROM THE BANKS",
+   "NOT absolute (h_n ~ n/ρ)"
+  ]
+ ],
+ "compact_required": true,
+ "classK_even_compact": true,
+ "in_classK": false,
+ "admitted": false,
+ "h5": true,
+ "n4": true,
+ "one_sided": "NOT ESTABLISHED",
+ "trail": {
+  "file": "OPEN_TRAILS.md",
+  "before": 1342110,
+  "added": 962,
+  "prefix": true,
+  "line": 11265
+ }
+}

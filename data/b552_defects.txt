@@ -1,0 +1,30 @@
+    (a) The face read H4.2 ("the 29.55 term at a maximum within 35-39"; the ruling`s hypothesis says "at a crest") as "its largest
+        value over the banked widths". On that reading it FAILS: the largest banked value is at a = 30, the range`s edge. The term
+        has a crest -- a local maximum -- at a = 38, inside 35-39, printed beside the clause and scoring nothing. H4 is REFUTED
+        either way, by its first clause.
+    (b) The pending terminal table was not b550-b551`s alone: the last committed table is b544`s (deb2a187), so the housekeeping
+        commit carries every regeneration since (b545-b551). Its subject is the ruling`s; its body states the span. The diff also
+        shows a second CONFLICT that predates b551: R5_output_HilbertPolya_to_RH (SIDE-lv-conservation), ENCODES-CONCLUSION ->
+        CONFLICT. ### FOR THE AUTHOR.
+    (c) (R162)(1)(b) expected row 392 to clear boolGrp`s CONFLICT on regeneration. tools/terminal_table.py marks CONFLICT whenever
+        the cells naming a terminal carry distinct grades, and row 391`s ENCODES and SHELL cells stay in an append-only ledger, so
+        the new SHELL cell (CORRESPONDENCE.md:465) joins them and the grade stays CONFLICT. The seat read the rule before the seal and
+        registered (S1). Row 392 is written as ordered. ### FOR THE AUTHOR: clearing it needs either a rule in the tool (a later row
+        supersedes, or an exception list) -- an instrument edit -- or leaving the conflict standing with row 392 as its answer.
+    (d) "the tool`s README": neither corr_row.py nor terminal_table.py had a README in relay. The line is the first line of a new
+        file, tools/corr_row.README.md.
+    (e) H4 is posed over widths 30-60; b548 banks per-zero terms at 30-45 only. Reading Three scores on 30-45 and says so; no wider
+        width is computed.
+    (f) H6 asks for "(R131)`s per-zero detection width"; (R131)`s run (b522) banks one detection width for the functional as a whole
+        and none per zero. H6 and (N5) are NOT SCORABLE; the seventeen zeros are printed with σ, γ and 1/(σ - 1/2).
+    (g) (N4)`s "one-sided in log x" is in no bank and no source is fetched at this act: printed NOT ESTABLISHED; (N4) scored on its
+        other clauses.
+    (h) Importing tools/terminal_table.py prints three SyntaxWarnings (invalid escape sequences at :189, :302, :577) -- the tool`s
+        own, pre-existing, unedited here.
+    (i) The face declared the checkouts measured by `du -s`. MSYS `du` took about 15-25 minutes per checkout on the HDD; after the
+        first (SIDE-kernel, 4801746 KiB) the seat stopped the run (the loop, then its orphaned du.exe) and sized every checkout
+        as the sum of its file lengths through .NET instead (data/b552_size.txt), about 2 minutes each. The two measures differ:
+        on SIDE-kernel's clone the file-length sum is 4684706 KiB against du's 4801746 (du counts allocated blocks, about 2.5 %
+        more). The price quotes the file-length figure; data/b552_du.txt keeps the stopped run.
+    (j) The suite's first pre-push run crashed: its source key `table` (boolGrp's live row) is reassigned by the carried frame to
+        the terminal table's markdown after regeneration. Renamed `boolrow`; the run before the rename banked nothing.
