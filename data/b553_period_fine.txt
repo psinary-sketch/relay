@@ -1,0 +1,30 @@
+b553 -- COMPONENT 4: READING SEVEN -- THE PERIOD AT THE OBJECT`S RESOLUTION (H7 of (R163)(4)); the ladder`s own code, no zero sum, no tail
+
+### the grid: ln a from ln 30 to ln 60, step 0.005 (140 points); the orbit term: 4 images, khat of b521`s PWindow at p = 7
+### the control (integer widths 30-45, fresh against b548`s banked column): largest |difference| 0.000e+00
+
+### the crest orbit: σ 0.797997, γ 29.551761, x = γ − g0 = 13.261545, δ = 0.297997 ; the term`s sign over 30-60: MIXED (min -46.81, max 94.17) ; monotone False
+    sign changes: 5 at a = 31.927, 35.563, 41.754, 46.674, 54.617
+    in 30-45: 3
+    derived: mean spacing 4π/(7x) = 0.13537 ; full period 8π/(7x) = 0.27074 ; π/γ = 0.10631
+    spacing 0.10786  predicted (short 0.10807 / long 0.16267)
+    spacing 0.16049  predicted (short 0.10989 / long 0.16085)
+    spacing 0.11139  predicted (short 0.11161 / long 0.15913)
+    spacing 0.15715  predicted (short 0.11320 / long 0.15754)
+    full periods: 0.26835, 0.27188, 0.26854 ; ratios to 8π/(7x): 0.9912, 1.0042, 0.9919
+    mean spacing 0.13422 ; ratio to 4π/(7x) 0.9915 ; ratio to π/γ 1.2626
+    control at integer widths: 30: +94.1670 (bank +94.1670), 31: +50.0047 (bank +50.0047), 32: -3.6491 (bank -3.6491), 33: -39.8595 (bank -39.8595), 34: -44.8487 (bank -44.8487), 35: -21.0604 (bank -21.0604), 36: +17.5663 (bank +17.5663), 37: +53.7239 (bank +53.7239), 38: +74.0322 (bank +74.0322), 39: +73.0226 (bank +73.0226), 40: +53.3612 (bank +53.3612), 41: +23.3138 (bank +23.3138), 42: -6.9542 (bank -6.9542), 43: -28.7783 (bank -28.7783), 44: -37.1741 (bank -37.1741), 45: -31.5008 (bank -31.5008)
+
+### the pair orbit: σ 0.953260, γ 16.290216, x = γ − g0 = -0.000000, δ = 0.453260 ; the term`s sign over 30-60: NEG (min -492.9, max -387.6) ; monotone True
+    sign changes: 0 at a = 
+    in 30-45: 0
+    control at integer widths: 30: -387.5912 (bank -387.5912), 31: -391.6585 (bank -391.6585), 32: -395.7001 (bank -395.7001), 33: -399.7191 (bank -399.7191), 34: -403.6966 (bank -403.6966), 35: -407.6122 (bank -407.6122), 36: -411.4586 (bank -411.4586), 37: -415.2422 (bank -415.2422), 38: -418.9765 (bank -418.9765), 39: -422.6731 (bank -422.6731), 40: -426.3379 (bank -426.3379), 41: -429.9704 (bank -429.9704), 42: -433.5669 (bank -433.5669), 43: -437.1236 (bank -437.1236), 44: -440.6386 (bank -440.6386), 45: -444.1128 (bank -444.1128)
+
+### H7, clause by clause:
+  H7.1 (29.551761)  every full period within 3 % of 8π/(7x)                        : HOLDS
+  H7.1 (16.290216)  the derived spacing does not exist (prediction (b)); sign changes 0        : NOT SCORABLE on spacing
+  H7.2  the 16.290216 term has at least two sign changes in 30-45                  : FAILS (0)
+  REFUTER 1  a spacing off the derivation by more than 3 %                           : does not fire
+  REFUTER 2  the 16.29 term monotone on the fine grid                                 : fires (monotone True)
+### H7 IS REFUTED
+### the banked "monotone fall" of the pair (b552): the fine grid finds the term without a sign change -- a property of the term, not of the bank`s column.

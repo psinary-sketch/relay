@@ -1,0 +1,28 @@
+SIDE-explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d dirty=[] toolchain leanprover/lean4:v4.33.0-rc2 ; lake env lean on a scratch file importing SIDEExplicitFormula.PowerLimit ; start 2026-09-28T02:52:13Z
+@SIDEExplicitFormula.B321.rest_term_small : ∀ {Z : Zeta23.ZeroConfig} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) →
+    ∀ (j : ℕ) (ρ : ℂ),
+      ‖Zeta23.paperFT
+            (SIDEExplicitFormula.B321.kWindow (SIDEExplicitFormula.B321.coeffList (SIDEExplicitFormula.B321.Pof H Q)) g0
+              j)
+            (Zeta23.gammaOf ρ)‖ ≤
+        B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ρ‖) ^ (2 * D) * SIDEExplicitFormula.B321.offScore g0 ρ ^ 2 ^ (j + 1)
+@SIDEExplicitFormula.B321.dominant_summable : ∀ {g0 : ℝ → ℝ} {L M : ℝ},
+  SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M →
+    ∀ (B : ℝ) (D : ℕ),
+      Summable fun ρ =>
+        ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+          (B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ↑ρ‖) ^ (2 * D) *
+            (SIDEExplicitFormula.B321.offScore g0 ↑ρ / M) ^ 2 ^ (D + 1))
+@SIDEExplicitFormula.B321.rest_tendsto_zero : ∀ {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (j : ℕ) (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) →
+    Filter.Tendsto
+      (fun j => ∑' (x : ↑Zeta23.zetaZeroConfig.carrier), SIDEExplicitFormula.B321.fR H Q j x / ↑M ^ 2 ^ (j + 1))
+      Filter.atTop (nhds 0)
+
+real	21m59.597s
+user	0m0.000s
+sys	0m0.000s
+exit 0

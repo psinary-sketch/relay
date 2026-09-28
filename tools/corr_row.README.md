@@ -1,1 +1,2 @@
 b552 (2026-09-28), under the author's ruling (R162)(1)(b): a grade cell carries a grade or the word NONE and no quotation. Row 391 of SIDE-global-section's CORRESPONDENCE.md quoted another table's grade words beside a name, and tools/terminal_table.py read the quotation as two grades.
+b553 (2026-09-28), under the author's ruling (R163)(1): a grade cell reading "SUPERSEDES row N: <grade>" replaces row N's grade for tools/terminal_table.py (its rule `supersede`) and is itself the terminal's grade; the ledger stays append-only.

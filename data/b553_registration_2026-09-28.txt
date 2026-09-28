@@ -1,0 +1,224 @@
+====================================================================================================
+ACT b553 -- THE REGISTRATION FACE. ### THE CASCADE, ACT SEVEN: THE_KEYSTONE_CENSUS RE-RUN LIVE; THE SUPERSESSION RULE; THE
+### OLDER CONFLICT; THE PER-ZERO CORRECTION; H4 RESTATED AS H7 FROM THE PRINTED TRANSFORM; THE BRIDGE RE-ROUTED IN PRICE,
+### UNDER (R163).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **NO KERNEL LANE OPENS: NO `.lean` BYTE IS WRITTEN. THE NUMERICAL LANE IS
+### READING SEVEN`S CLOSED-FORM EVALUATIONS ALONE -- NO ZERO SUM, NO TAIL ESTIMATE.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R163) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** Ruling and part 1 of 1, received IN FULL, banked verbatim
+### as `b553_ferry.txt`. ### **NOTHING DEPOSITS; NOTHING AT ZENODO IS WRITTEN; NO `.lean` FILE IS EDITED; NO BYTE ABOVE AN
+### APPENDED BLOCK CHANGES; NOTHING ABOUT ZETA`S ZEROS IS CLAIMED.** ### The ferry scan carries no (R81) flag and no hit.
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE SUPERSESSION RULE.** `tools/terminal_table.py` gains a rule, the instrument edit (R163)(1) orders: a grade
+### cell of SIDE-global-section`s CORRESPONDENCE.md whose text carries `SUPERSEDES row N: <grade>` removes, for the terminal it
+### names, every grade cell read from row N`s line of that ledger; the superseding cell is read as before and so carries the
+### grade. Nothing else in the tool changes. THE TEST: every row`s grade printed before and after the edit (the table
+### regenerated each time), the CONFLICT list before and after, and the set of terminals whose grade changed. Row 393 is written
+### through `relay/tools/corr_row.py` with the grade cell `SUPERSEDES row 391: SHELL -- `boolGrp``. The rule is appended to
+### `tools/corr_row.README.md`. The tool change is committed alone in relay, its message quoting the test.
+### **READING (2) -- THE OLDER CONFLICT.** R5_output_HilbertPolya_to_RH`s cells printed with ledger, line and act as the table
+### reads them. (R163)(2)`s first branch applies iff the later cell is b538`s register census against an earlier ENCODES or
+### INTERFACES cell; its second iff the cells grade different statements under the name. If neither applies, that is printed,
+### no row is written, and the case is carried to the author; the neighbouring terminal `register5_output_holds` (whose cells
+### include b538`s) is printed beside, since the ruling`s wording names it.
+### **READING (3) -- THE CORRECTION.** An appended line at FINDINGS.md`s end naming :5533 (the sentence "The detection width is
+### read per zero (R131)", in the entry at :5529); an appended line at OPEN_TRAILS.md`s end naming b546`s trail record. Each
+### attributes the sentence to the navigator and records that H6 is carried unscored.
+### **READING (4) -- READING SEVEN: THE TRANSFORM, PRINTED BEFORE THE HYPOTHESIS.** The ladder`s orbit term, as b521`s cell
+### evaluates it (tools/b521_tail.py:106-107): `sum(W.khat(B14.gamma_of(r)).real for r in B14.images(b, gg))`, with
+### `images(b, gg) = (b+iγ, b−iγ, 1−b+iγ, 1−b−iγ)` and `gamma_of(ρ) = (ρ − 1/2)/i` (tools/b514_window.py:90-95), so the arguments
+### are z = ±γ ∓ iδ, δ = b − 1/2; the window is `PWindow(a, 'q', 7)` (b521_tail.py:45-53; b522 imports it at P = 7), and
+### (tools/b519_window.py:59-66, 76-93, 120-135), verbatim in the code`s own terms:
+###     khat(z) = ghat(z)**2 ;  ghat(z) = poly(z) * ghat_cos(z) ;  poly(z) = (g0*g0 - z*z)  [gs = [g0] for variant B] ;
+###     ghat_cos(z) = 0.5 * (phihat(z - g0) + phihat(z + g0)) ;  phihat(z) = csinc(z*W) * csinc(z*h/2.0)**m ;  csinc(w) = sin(w)/w ;
+###     L = ln a ; R = F_RAMP*L/2 = L/8 ; W = L - R = 7L/8 ; h = 2R/m = L/28 ; m = p = 7 ; g0 = 16.290216.
+### THE DERIVATION, FROM THAT FORMULA ALONE, BEFORE ANY EVALUATION. khat is even and real on the real axis, so the four images
+### give 4 Re khat(γ − iδ). Write x = γ − g0. The dominant piece of ghat_cos is phihat(z − g0) = csinc((x − iδ)W)·(ramp), the
+### other piece is smaller by about (x/(γ + g0))², and the ramp factor csinc(z h/2)^7 varies slowly (h = L/28). Squared,
+### sin²((x − iδ)W) has real part ½ − ½ cosh(2δW) cos(2xW); its division by ((x − iδ)W)² and the factor (g0² − z²)² turn the
+### cosine`s phase slowly and do not remove the ½. So:
+###   (a) FOR AN ORBIT WITH γ ≠ g0 (the 29.551761 orbit, x = 13.261545, δ = 0.297997): the term is a NON-OSCILLATING PART (the ½)
+###       PLUS an oscillation in W at angular rate 2x, i.e. in L at rate 7x/4. Its sign changes fall where cos(2xW + phase) =
+###       sech(2δW): TWO PER PERIOD, AT ALTERNATING SHORT AND LONG SPACINGS, whose PAIR (a full period) is 8π/(7x) in ln a and whose
+###       MEAN is 4π/(7x) = 0.13537 -- not π/γ = 0.10631. The short and long spacings are 2θ/(7x/4) and (2π − 2θ)/(7x/4), θ =
+###       arccos(sech(2δW)), printed per crossing.
+###   (b) FOR THE PAIR ORBIT (γ = g0 = 16.290216, δ = 0.453260): x = 0, so phihat(z − g0) = csinc(−iδW)·(ramp) = sinh(δW)/(δW)·
+###       (ramp), real and positive, with no oscillation; the factor (g0² − z²)² = (2i g0 δ + δ²)² is real part −4g0²δ² + δ⁴ < 0.
+###       The dominant part is therefore NEGATIVE AND DOES NOT OSCILLATE; the other piece, phihat(z + g0), oscillates at 2g0 but
+###       is smaller by a factor of order (δ/(2g0))² and cannot reverse the sign. PREDICTED: NO SIGN CHANGE.
+### This derivation is fixed here; the evaluation follows the seal.
+### **READING (5) -- H7 SCORED.** The fine grid: ln a from ln 30 to ln 60 in steps of 0.005, the orbit terms evaluated by the
+### ladder`s own code (b521_tail.PWindow, b514_window.images and gamma_of, IMPORTED); sign changes located by linear
+### interpolation between grid points. H7.1 (the ruling`s "change sign at the derived spacing to within 3%"): for each orbit
+### with at least three sign changes, EVERY FULL PERIOD (the distance from a sign change to the next-but-one) within 3 % of
+### 8π/(7x); each single spacing printed against its short or long prediction beside. For the pair orbit the derived spacing
+### does not exist (prediction (b)); its clause is scored on its count. H7.2: the 16.290216 term has at least two sign changes
+### in 30-45. The ruling`s refuters: a spacing off by more than 3 %, or the 16.29 term monotone on the fine grid -- both
+### printed, with the term`s monotonicity. A CONTROL: at the integer widths 30-45 the fine code reproduces b548`s banked
+### column for both orbits (data/b548_interference.jsonl), difference printed.
+### **READING (6) -- THE BRIDGE IN LEMMAS.** The three PowerLimit statements printed from a fresh `#check` (`lake env lean` in
+### SIDE-explicit-formula on a scratch file importing SIDEExplicitFormula.PowerLimit; a read, not a build). The truncation route
+### written as a numbered list of lemmas and definitions, each with what it rests on; the toolchain forward written as the
+### same kind of list. The routes are compared by inclusion: the forward carries the Li test function to lv, where it is
+### still outside every compiled explicit-formula class, so it needs the truncation route`s items as well. Appended beneath
+### :11265; not attempted.
+### **READING (7) -- THE CENSUS`S §0 TEST, REBUILT.** No §0 detector is banked in relay (b375`s tool reconciles three different
+### tests and is not it). Rebuilt exactly as §0 operationalises it: the population is every tracked `.md` file; (i) an
+### `Abstract` heading or the word ORCID anywhere; (ii) a heading matching `correspondence`; size floor 6 KiB; every `day1/`
+### file is CONCORDANCE-CARRIED; then §0`s own removal of logs (the four v0.1 named, and any file whose name marks it a log
+### copy). (iii), cited by its cluster`s spine or the trunk, which §0 does not operationalise, is read as: its file stem appears
+### in REGISTRY.md, SPIRAL_MAP.md, README.md or a clusters/ file; a document failing (iii) is a KEYSTONE-CANDIDATE. Retired
+### trees (archive/, heritage/, outputs/) are SUPPORT. ### **THE CONTROL:** the detector run at 0d4a6fe~1 (the tree v0.1
+### counted). Seen before this seal: it reproduces v0.1`s raw 20 and Day-1`s 9 exactly, and gives 57 candidates and 100 support
+### against v0.1`s 62 and 101; the difference is printed, not closed. The v0.1 sixteen all pass (iii) as read here.
+### **READING (8) -- PIN ANCESTRY.** Every backticked 7-40 hex token in every live keystone is a cited pin. Each distinct pin is
+### tested against every local repository (the forty-five, relay, PLACE-papers): FOUND in a repository iff it resolves to a
+### commit there; ANCESTOR iff an ancestor of that repository`s HEAD; else NOT-ANCESTOR, with whether any branch or tag reaches it;
+### ABSENT iff found nowhere. The line-based attribution (the nearest repository name before it) is printed beside. The five
+### v0.1 named pins are re-tested whether still cited or not.
+### **READING (9) -- ANOMALY 1 AND §9.** SIDE-kernel`s HEAD, latest tag and REGISTRY`s pins for it printed; its present status
+### stated. §9`s required line annotated as superseded (lv`s main carries the residue terminals since the fast-forward to
+### 2f71068, tagged v0.11.0 at b550) by an appended block.
+### **READING (10) -- THE v0.2 SECTION.** Appended at the census`s end, dated 2026-09-28: the counts beside v0.1`s, the live
+### KEYSTONE list with Correspondence presence and the cascade`s tier mark, the entrants since 2026-08-12, the ancestry
+### result, Anomaly 1`s status, the §9 note, the remaining roster. The roster`s order is the census`s own (§2): cited pins
+### descending, ties in v0.1`s order. Tiered by the cascade: THE_UNCONDITIONAL_SURROUND, PATHS_TO_THE_CRITICAL_LINE,
+### THE_RESIDUE_OF_RH among the keystones (the other tiered documents are not keystones by §0). The document stays Tier C.
+### **READING (11) -- THE ENTRY AND THE RECORD.** A FINDINGS entry, titled as the ferry titles it; this act`s trail record.
+### **READING (12) -- THE BRANCHES.** push-b552 and push-b552-closing (relay), push-b552 (PLACE-papers), push-b552
+### (SIDE-global-section), each listed by `git branch --merged main` and deleted by `git branch -d`, chained by `&&`.
+### toolchain-trial-b551 kept.
+### **READING (13) -- MEMORY.** Under (R157)(6) the seat`s memory is not refreshed at this act.
+### **READING (14) -- THE HOUSEKEEPING.** The terminal table committed at the close as "housekeeping: terminal table regenerated
+### at b553".
+### **READING (15) -- THE SCORING.** (N1) boolGrp SHELL after the edit and no other terminal`s grade changed. (N2) its three
+### clauses: one statement under one name; the later cell b538`s; a superseding row written. (N3) its clauses: the derived
+### spacing is π/γ; no non-oscillating part; both orbits confirmed to 3 %; the 16.29 term with two sign changes in 30-45 -- all
+### must hold. (N4) READING (6)`s inclusion. (N5) the live KEYSTONE count above 16 and entrants since 2026-08-12 at least four.
+### (N6) bd2ae1a found in no local repository. (N7) no `.lean` byte on any kernel`s main; nothing at Zenodo; nothing deposits;
+### the trial worktree at f22ff35, tracked tree clean.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### `tools/b553_record.py reads | table_before | supersede_test | row393 | readme | older_conflict | corrections | period_fine |
+### powerlimit_read | bridge | census | ancestry | anomaly | census_v02 | findings | components | desk | trail`. The tool edit, the
+### commits, pushes and branch commands are the seat`s.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** the terminal table`s CONFLICT rows and their cells (terminal_table.json);
+### terminal_table.py`s parser and CONFLICT line; THE_KEYSTONE_CENSUS.md whole; b375`s population tool; the §0 test run
+### exploratorily at 0d4a6fe~1 and at HEAD (the raw lists, the (iii) citations of the sixteen and of the new passes); a prototype
+### pin extractor over the sixteen; the ladder`s window code (b514, b519, b521) and b522`s P; FINDINGS :5529-5533 and b546`s
+### ferry; REGISTRY`s SIDE-kernel rows; SIDE-kernel`s tags and HEAD; OPEN_TRAILS :11265. ### **NO EVALUATION OF THE TRANSFORM,
+### NO `lake` RUN, NO EDIT, NO ROW, NO LINE BEFORE THIS SEAL**, and no web request made.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED LINE.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **THE SUPERSESSION RULE CLEARS boolGrp`S CONFLICT AND CHANGES NO OTHER TERMINAL`S GRADE.**
+### **(N2)** ### **R5_output_HilbertPolya_to_RH`S TWO CELLS ARE ONE STATEMENT UNDER ONE NAME AND THE LATER IS b538`S; A
+### SUPERSEDING ROW IS WRITTEN.**
+### **(N3)** ### **THE DERIVED SPACING IS π/γ WITH NO NON-OSCILLATING PART FOR THE PLATEAU PIECE, THE FINE GRID CONFIRMS IT TO 3 %
+### FOR BOTH ORBITS, AND THE 16.29 TERM HAS AT LEAST TWO SIGN CHANGES IN 30-45.**
+### **(N4)** ### **THE TRUNCATION ROUTE INSIDE SIDE-explicit-formula PRICES BELOW THE TOOLCHAIN FORWARD IN LEMMAS.**
+### **(N5)** ### **THE LIVE KEYSTONE COUNT EXCEEDS 16 AND FOUR OR MORE ENTERED THE CLASS SINCE 2026-08-12.**
+### **(N6)** ### **AT LEAST ONE OF THE FIVE NAMED PIN FAILURES IS UNCHANGED (bd2ae1a STILL RESOLVES NOWHERE).**
+### **(N7)** ### **NO KERNEL .lean EDITED; NOTHING AT ZENODO; NOTHING DEPOSITS; THE TRIAL WORKTREE UNTOUCHED.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE 29.551761 ORBIT`S FINE-GRID SPACINGS ALTERNATE SHORT AND LONG, AND ITS MEAN SPACING IS WITHIN 3 % OF
+### 4π/(7x) = 0.13537, NOT OF π/γ.**
+### **(S2)** ### **THE 16.290216 ORBIT TERM HAS NO SIGN CHANGE ON THE FINE GRID OVER 30-60.**
+### **(S3)** ### **THE NEXT UNTIERED KEYSTONE IN THE CENSUS`S ORDER IS SIMPLICITY_OF_RIEMANN_ZEROS.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits, 0 flags) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R163-ENTERED` `G-READS-CITED`
+### `G-SUPERSEDE-EDIT-CONFINED` `G-SUPERSEDE-TEST` `G-ROW-393` `G-CORR-APPEND-ONLY` `G-README-RULE` `G-TOOL-COMMIT-ALONE`
+### `G-OLDER-CONFLICT-READ` `G-CORRECTION-LINES` `G-PERIOD-CONTROL` `G-PERIOD-FINE` `G-H7-SCORED` `G-DERIVATION-FIRST`
+### `G-POWERLIMIT-FRESH` `G-BRIDGE-PRICED` `G-CENSUS-CONTROL` `G-CENSUS-LIVE` `G-ANCESTRY` `G-ANOMALY-READ`
+### `G-CENSUS-V02` `G-ROSTER-NEXT` `G-FINDINGS-ENTRY`
+### `G-BRANCHES-DELETED` `G-MEMORY-UNREFRESHED` `G-TRIAL-UNTOUCHED`
+### `G-LINES-KEPT` `G-MONOGRAPH-UNTOUCHED` `G-ERRATA-UNTOUCHED` `G-CEILING-UNCHANGED`
+### `G-KERNEL-SOURCES-UNTOUCHED` `G-NO-ZENODO-CALL` `G-DELETE-FREE` `G-TECHNE-SHAPE-ONLY`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-N5-SCORED` `G-N6-SCORED` `G-N7-SCORED`
+### `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN` `G-LANE-CLOSED`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-INSTRUMENTS-EDITED-AS-ORDERED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-INSTRUMENTS-UNEDITED` IS NOT CARRIED FORWARD UNDER THAT NAME: this act edits `terminal_table.py` by order;
+### `G-INSTRUMENTS-EDITED-AS-ORDERED` reads that the edit touches that tool alone and every other relay tool is unmodified.
+### `G-PRIORBANK-UNCHANGED` holds every prior act`s bank unchanged, with no exception. ### `G-DELETE-FREE` reads this act`s own
+### tools for a delete call of any kind. ### `G-NO-ZENODO-CALL` reads the act`s tools for the platform`s address. ###
+### `G-MEMORY-UNREFRESHED` reads the memory directory`s file times against this face. ### `G-NOH2-MOVED` reads the trail`s own
+### words. ### No arm is scored post-push only. ### **EVERY POSITIVE CONTROL IS POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b553_*` `relay/tools/b553_*` |
+### | the seat`s instrument edit, READING (1) | `relay/tools/terminal_table.py` (the supersession rule) |
+### | `tools/b553_record.py` | `PLACE-papers/FINDINGS.md` (appends: the correction line, the act`s entry)
+###   `PLACE-papers/OPEN_TRAILS.md` (appends: the correction line, the bridge price beneath :11265, this act`s record)
+###   `PLACE-papers/phase2/method/THE_KEYSTONE_CENSUS.md` (appends: the §9 block, the v0.2 section)
+###   `relay/tools/corr_row.README.md` (an appended line) |
+### | `tools/corr_row.py` (CARRIED, SHARED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (row 393; a row for READING
+###   (2) only if its first branch applies) |
+### | `tools/terminal_table.py` -- run by the seat and by the suite | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b553_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b553_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b553_registration_2026-09-28.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b553_span*.json` `relay/data/b553_span_notes*.txt` |
+### | the seat`s branch commands, READING (12) | the refs `push-b552`, `push-b552-closing`, `push-b553`, `push-b553-closing` |
+### ### The act`s tools, named: `b553_record.py` `b553_reg_gate.py` `b553_regspec.py` `b553_checks.py` `b553_closing.py`.
+### ### No `.lean` file anywhere, no ERRATA byte, no monograph byte, no README, REGISTRY, SPIRAL_MAP, FACES_LEDGER or
+### LOAD_BEARING_MAP write, no TECHNE-Core write, no memory file, nothing written at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NO KERNEL LANE OPENS.** ### Nothing deposits; nothing at Zenodo is written. ### No tag is made. ### No mirror zip is
+### built. ### No build runs; the `#check` of READING (6) is a read. ### No branch is merged. ### No erratum is drafted or filed.
+### ### No keystone byte changes above its appended block; THE_KEYSTONE_CENSUS stays Tier C. ### No grade on any row is moved
+### except boolGrp`s, by the ordered rule, and no grade name is minted. ### No zero of zeta or of Z_Q0 is added or moved; no
+### prior bank is rewritten; no zero sum is evaluated. ### Row U1 is unedited. ### `h2` stays where the deposit left it. ###
+### The four lists stay OPEN. ### No rm is run. ### No repository is fetched from a network remote; the pins, the ritual`s
+### pushes and the `ls-remote` read-backs excepted.
+### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH OR ABOUT ZETA`S ZEROS.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : fc1635325f39e4b1f90f8a5ca2ab744228b69f138fd72e2954b98171d5c8088c
+### bytes locked : 21581
+### locked at (UTC) : 2026-09-28T02:51:53Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b553_registration_2026-09-28.txt`.**
+====================================================================================================

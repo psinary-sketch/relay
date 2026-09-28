@@ -1,0 +1,436 @@
+b553 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### tools/terminal_table.py:670-686 -- terminal_table.py AT HEAD BEFORE THE EDIT: the CONFLICT rule
+  :670             rows.append(dict(
+  :671                 repo=name, name=n, head=head[:12],
+  :672                 pin=(pin or None), pin_sha=(pin_sha[:12] if pin_sha else None),
+  :673                 pin_cell=(pinrec.get('cell') if pinrec else None),
+  :674                 refs=[l for l, _ in refs],
+  :675                 present_at=sorted(at),
+  :676                 statement=(st['text'] if st else None),
+  :677                 statement_file=(st['file'] if st else None),
+  :678                 statement_state=('RESOLVED' if st else 'UNRESOLVED'),
+  :679                 profile=(profile or 'NOT PROFILED'),
+  :680                 profile_state=('PROFILED' if profile else 'NOT PROFILED'),
+  :681                 profile_source=psrc,
+  :682                 grade=(distinct[0] if len(distinct) == 1 else
+  :683                        ('CONFLICT' if len(distinct) > 1 else 'UNGRADED')),
+  :684                 grade_cells=[dict(grade=c['grade'], ledger=c['ledger'], line=c['line'],
+  :685                                   act=c['act'], quote=c['quote']) for c in uniq],
+  :686                 conflict=(sorted(distinct) if len(distinct) > 1 else None)))
+
+### tools/terminal_table.py:234-262 -- terminal_table.py AT HEAD BEFORE THE EDIT: the grade parser
+  :234 def grade_cells(loose=False):
+  :235     """### ### **EVERY GRADE CELL: `(name, grade, ledger, line, quote)`.**
+  :236 
+  :237     ### ### **TIGHT (the one used):** ### the name and the grade word lie in the SAME table cell
+  :238     ### (or the same non-table line) and ### **WITHIN 120 CHARACTERS OF EACH OTHER**, so the pairing
+  :239     ### is a local one a reader can see. ### **LOOSE (printed for its yield only):** ### version 1.
+  :240     ### ### **THE QUOTE IS THE PAIRING'S OWN NEIGHBOURHOOD**, so a disagreement can be READ.
+  :241     """
+  :242     cells = []
+  :243     for label, path in ledger_files():
+  :244         text = read(path)
+  :245         if not text:
+  :246             continue
+  :247         for i, ln in enumerate(text.split(NL), 1):
+  :248             if not GRADE_RE.search(ln):
+  :249                 continue
+  :250             act = ACT_RE.search(ln)
+  :251             act = ('b' + act.group(1)) if act else None
+  :252             if loose:
+  :253                 grades = sorted(set(GRADE_RE.findall(ln)), key=lambda x: -len(x))
+  :254                 for _, _, nm in _names_on(ln):
+  :255                     cells.append(dict(name=nm, grade=grades[0], ledger=label, line=i,
+  :256                                       act=act, quote=ln.strip()[:400]))
+  :257                 continue
+  :258             for off, seg in _segments(ln):
+  :259                 gs_ = [(m.start(), m.end(), m.group(1)) for m in GRADE_RE.finditer(seg)]
+  :260                 if not gs_:
+  :261                     continue
+  :262                 names = _names_on(seg)
+
+### D:/SIDE-global-section/CORRESPONDENCE.md:464-464 -- CORRESPONDENCE.md row 391
+  :464 | 391 | THE AGGREGATION’S FREEDOM, AND WHY C-WEIL CANNOT NARROW IT (b220; the row the ledger lacked, written at b551 under (R161)(4)): File E’s identity `T.value + Q.value = W.wInf - W.wPrimes` at a cell determines the quotient value uniquely; an aggregation satisfies C-WEIL iff it returns that forced value at every cell; such an aggregation exists; the proof that the identity holds for it is the C-WEIL hypothesis returned unchanged; without C-WEIL more than one aggregation is admitted, shown on Bool under XOR. ### **THE FILE DEFINES NO AGGREGATION** -- `agg` is a variable throughout and nothing is written into File E. | `Core/AggregationCircularityShadow.lean` -- 9 printed terminals: `ident
+
+### D:/SIDE-global-section/CORRESPONDENCE.md:465-465 -- CORRESPONDENCE.md row 392
+  :465 | 392 | boolGrp’S GRADE RESTATED WHERE THE TABLE READS ONE (b552, under (R162)(1)(b)): row 391 quoted the tier-table words of b550 beside this name while conferring none, and `relay/tools/terminal_table.py` read the quotation as two grades. This row restates the tier word b550 gave the definition, alone in the grade cell. | `Core/AggregationCircularityShadow.lean` -- the definition `boolGrp : Grp Bool` (Bool under XOR) | *does not depend on any axioms* -- `AXIOM_PRINTS.txt`:373, re-run at b550 equal to the bank | SHELL -- `boolGrp` | Written 2026-09-28 (b552) through `relay/tools/corr_row.py`. Row 391 stands unedited above. |
+
+### tools/corr_row.README.md:1-1 -- corr_row.README.md
+  :1 b552 (2026-09-28), under the author's ruling (R162)(1)(b): a grade cell carries a grade or the word NONE and no quotation. Row 391 of SIDE-global-section's CORRESPONDENCE.md quoted another table's grade words beside a name, and tools/terminal_table.py read the quotation as two grades.
+
+### FINDINGS.md:5529-5533 -- the detection-geometries entry; :5533 carries "read per zero (R131)"
+  :5529 ## Two detection geometries for one obligation: the Weil-side width and order at Q0 against the Li-side index threshold
+  :5530 
+  :5531 *Filed at b546 on the author's ruling `(R156)`(4). Graded READING: an observation read from the banks, not a theorem. Banks: relay `data/b522_results.json`, `data/b522_reach.json`, `data/b522_cells.jsonl`, `data/b523_results.json`, `data/b506_c2_results.json`; Voros's sentences from BALANCE_AND_POSITIVITY.md:500 and :507. Nothing about ζ’s zeros is claimed.*
+  :5532 
+  :5533 **The Weil side, at Q0 (the Epstein control, disc −23, h = 3), read from b522 and b523.** The window's order p = 7; the ordinate γ₀ = 16.290216 (the Q0 zero there: σ = 0.953260, t = 16.290216, from the completed bank). Widths in reach (the tail within the quadrature bound): 28-60; out of reach: 15-27. The Q0 quantity is negative beyond its bound at widths 34-35, 39-60 (24 widths) and positive at 28-33, 36-38; the narrowest negative width is a = 34, and b523's audit keeps all 24 negative cells under the full bound. **The negative widths do not form one run from a = 34: the widths 36-38 are positive.** The detection width is read per zero (R131); b522's bank carries one off-line pair, so it sh
+
+### OPEN_TRAILS b546`s record at :[11124]
+### data/b546_ferry.txt:55-62 -- b546`s ferry: "with the detection width read per zero (R131)"
+  :55 programme holds two instruments on the same obligation. On
+  :56 the Weil side, b522's witness at Q0 (the Epstein control,
+  :57 x² + xy + 6y², disc −23, h = 3) shows the pair at ordinate
+  :58 γ₀ = 16.290216 detected by a window of order 7 from width
+  :59 a = 34, with the detection width read per zero (R131), and
+  :60 the power-window route (b533–b534) shows the dominant term
+  :61 winning as the order grows at fixed base width, with the
+  :62 cost governed by the zero's distance from the line and the
+
+### tools/b521_tail.py:45-53 -- the ladder`s window and orbit term
+  :45     """### variant (B) with the ramp's B-spline order p."""
+  :46 
+  :47     def __init__(self, a, obj, p):
+  :48         B19.VWindow.__init__(self, a, obj, 'B')
+  :49         self.m = p
+  :50         self.h = 2.0 * self.R / p
+  :51         ks = np.linspace(-self.R, self.R, p + 1)
+  :52         self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :53         self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, p, self.R)
+
+### tools/b521_tail.py:95-107 -- the ladder`s window and orbit term
+  :95     W = PWindow(a, 'q', p)
+  :96     kz = 'qd'
+  :97     Hb, Hh, Hw = W.khat(F.U_BASE).real, W.khat(F.U_HALF).real, W.khat(F.U_WIDE).real
+  :98     A = F.arch(Hb, F.U_BASE, F.KER[kz + '_base'])
+  :99     Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+  :100     PR, PRabs = F.prime_channel_q(W, QL)
+  :101     PR2, _ = F.prime_channel_q(W, QH)
+  :102     G = F.GQ
+  :103     zt = 2.0 * W.khat(G).real
+  :104     Zon = float(np.sum(zt))
+  :105     offterms, pair = [], None
+  :106     for b, gg in F.OFFQ:
+  :107         t = float(sum(W.khat(B14.gamma_of(r)).real for r in B14.images(b, gg)))
+
+### tools/b519_window.py:59-66 -- the ladder`s window and orbit term
+  :59 def csinc(w):
+  :60     w = np.asarray(w, dtype=complex)
+  :61     out = np.ones_like(w)
+  :62     nz = np.abs(w) > 1e-12
+  :63     out[nz] = np.sin(w[nz]) / w[nz]
+  :64     return out
+  :65 
+  :66 
+
+### tools/b519_window.py:76-93 -- the ladder`s window and orbit term
+  :76         else:
+  :77             m = 5 if variant == 'B' else 9
+  :78             self.a, self.g0, self.m = a, float(G0[obj]), m
+  :79             self.L = math.log(a)
+  :80             self.R = F_RAMP * self.L / 2.0            # ### each ramp spans 2R; two ramps span 4R = F_RAMP * 2L
+  :81             self.W = self.L - self.R
+  :82             self.h = 2.0 * self.R / m                  # ### the inner B-spline's knot spacing
+  :83             self.half = self.L
+  :84             ks = np.linspace(-self.R, self.R, m + 1)
+  :85             self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+  :86             self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, m, self.R)
+  :87 
+  :88     # ### the base bump phi and its transform
+  :89     def phihat(self, z):
+  :90         z = np.asarray(z, dtype=complex)
+  :91         if not self.plateau:
+  :92             return B14.MWindow.phihat(self, z)
+  :93         return csinc(z * self.W) * csinc(z * self.h / 2.0) ** self.m
+
+### tools/b519_window.py:120-135 -- the ladder`s window and orbit term
+  :120     def ghat_cos(self, z):
+  :121         z = np.asarray(z, dtype=complex)
+  :122         return 0.5 * (self.phihat(z - self.g0) + self.phihat(z + self.g0))
+  :123 
+  :124     def poly(self, z):
+  :125         p = np.ones_like(np.asarray(z, dtype=complex))
+  :126         for g in self.gs:
+  :127             p = p * (g * g - z * z)
+  :128         return p
+  :129 
+  :130     def ghat(self, z):
+  :131         z = np.asarray(z, dtype=complex)
+  :132         return self.poly(z) * self.ghat_cos(z)
+  :133 
+  :134     def khat(self, z):
+  :135         return self.ghat(z) ** 2
+
+### tools/b514_window.py:90-95 -- the ladder`s window and orbit term
+  :90 def gamma_of(rho):
+  :91     return (rho - 0.5) / 1j
+  :92 
+  :93 
+  :94 def images(b, gg):
+  :95     return (complex(b, gg), complex(b, -gg), complex(1 - b, gg), complex(1 - b, -gg))
+
+### tools/b522_reach.py:21-21 -- the ladder`s window and orbit term
+  :21 P = 7
+
+### data/b548_interference.txt:64-77 -- b548`s banked columns (the 29.55 orbit; the pair)
+  :64   REFUTER 3  pair + rest fails to reproduce the banked quantity to the floor  : does not fire
+  :65   ### H1 IS REFUTED OR FAILS IN PART, AS THE ROWS SAY
+  :66 
+  :67 ### the swing across 34-41 (READING, printed beside the clauses; it scores nothing): the six contributors that move most
+  :68   kind ordinate              34         35         36         37         38         39         40         41
+  :69   off    29.551761     -44.849    -21.060    +17.566    +53.724    +74.032    +73.023    +53.361    +23.314
+  :70   on     23.869325     +48.056    +48.327    +45.252    +39.574    +32.246    +24.271    +16.566     +9.879
+  :71   on     21.884967     +57.210    +55.137    +51.146    +45.716    +39.349    +32.536    +25.720    +19.279
+  :72   on     26.142140     +27.544    +17.774     +8.968     +2.805     +0.115     +0.890     +4.471     +9.800
+  :73   on     25.158944     +26.925    +16.794     +8.242     +2.495     +0.083     +0.905     +4.376     +9.615
+  :74   on     26.636667      +8.405    +16.648    +24.276    +29.410    +31.092    +29.300    +24.748    +18.585
+  :75   the rest          +390.298   +402.021   +426.994   +445.552   +444.797   +421.472   +380.278   +330.465
+  :76   the pair          -403.697   -407.612   -411.459   -415.242   -418.976   -422.673   -426.338   -429.970
+  :77   ### a caveat on H1.3, printed with it: the excess at 36-38 is 4-7 % of the rest, below the largest single contributor, so k* = 1 follows from the excess being small, not from one zero carrying it.
+
+### OPEN_TRAILS.md:11265-11267 -- OPEN_TRAILS: the bridge`s leading item (b552)
+  :11265 ### `W-ORD-LI-WEIL-BRIDGE` (the row at :3548, the items at :11203) -- ITS LEADING ITEM, appended 2026-09-28, b552, under the author's ruling (R162)(2), READING FIVE
+  :11266 
+  :11267 **The leading item, before every lemma already priced:** the explicit formula on a class wider than EF_lit's. EF_lit (`Zeta23/ExplicitFormula.lean`:97-100) quantifies over `k` with `ContDiff ℝ 2 k` and `HasCompactSupport k`; `classK` (`H2Sign.lean`:24-26) adds evenness and the `h ⋆ h~` form. The Li test function, read from the coefficient formula BALPOS quotes (:422), has a transform with a pole at ρ = 0, so it is not compactly supported (Paley-Wiener), not even, and its zero sum converges only with ρ and 1 − ρ taken together (relay `data/b552_li_class.txt`). So λ_n is not a value of EF_lit as compiled: the bridge first needs the explicit formula for a non-compact, one-sided-or-not, conditio
+
+### phase2/method/THE_KEYSTONE_CENSUS.md:1-237 -- THE_KEYSTONE_CENSUS.md entire (v0.1)
+  :1 # THE KEYSTONE CENSUS — ACT 3a
+  :2 
+  :3 **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER C** — *declared 2026-08-26 (b190); basis: it organizes documents into keystone classes.*
+  :4 
+  :5 > ### **b186's SYNTHESIS/NOTES/LEDGER SCHEME IS RETIRED, 2026-08-26 (b190).** *Reason: it was invented beside an author-ruled standing standard and its “SYNTHESIS” class spanned Tier K and Tier C at once —* ### **collapsing the very distinction the standing taxonomy exists to enforce.** *The retired line is left below, not deleted.*
+  :6 
+  :7 **DOCUMENT CLASS (K/C/N/E — the AUTHOR-RULED standard, 2026-07-28): TIER C** — *declared 2026-08-26 (b189); basis: it organizes documents into keystone classes with an operationalised test; its own head says “READ-ONLY, ZERO EDITS”.*
+  :8 **PURPOSE:** *the census of the corpus’s keystones, with the class test defined before counting so the count is reproducible; for a reader asking which documents carry terminals.* — *### added 2026-08-26 (b189) from this document’s own content.*
+  :9 
+  :10 **Method register · v0.1 · 2026-08-12 · READ-ONLY, ZERO EDITS · federation read LIVE**
+  :11 
+  :12 ## §0 — THE CATEGORY, DEFINED BEFORE COUNTING *(so the count is reproducible)*
+  :13 
+  :14 | class | test |
+  :15 |:--|:--|
+  :16 | ### **KEYSTONE** | (i) states results for external readers **and** (ii) closes with a Correspondence table naming its terminals **and** (iii) is cited by its cluster's spine or the trunk |
+  :17 | ### **KEYSTONE-CANDIDATE** | (i) + (iii), **fails (ii)** |
+  :18 | ### **CONCORDANCE-CARRIED** | ### **Day-1's prose-terminal architecture — its own class, NOT a failure of (ii).** *The nine deposited companions name their terminals in prose and in `§25.8 Kernel Concordance`; that is a different architecture, not a missing table.* |
+  :19 | **SUPPORT** | working papers, notes, consults, **logs** |
+  :20 
+  :21 **OPERATIONALISED:** (i) = an `Abstract` heading or an ORCID block · (ii) = a heading matching `correspondence` · size floor `6 KB`.
+  :22 
+  :23 ---
+  :24 
+  :25 ## §1 — THE FEDERATION, READ LIVE — **TWO ANOMALIES THE CORPUS DOES NOT RECORD**
+  :26 
+  :27 **43 repositories enumerated and read on disk. Nothing recalled.**
+  :28 
+  :29 > ### **ANOMALY 1 — THE KERNEL HAS ADVANCED TWO TAGS PAST WHAT THE CORPUS CALLS CURRENT.**
+  :30 >
+  :31 > | | |
+  :32 > |:--|:--|
+  :33 > | **live** | `SIDE-kernel` **HEAD `5e668b4`**, branch `main`, ### **latest tag `v1.7`**, last commit **2026-08-05**, 8 tags |
+  :34 > | **what the corpus says** | *"the current deposit is **v1.5 = `0e5233f`**"* — carried in `A_Place_to_Stand`, `REGISTRY`, and this era's own filings |
+  :35 >
+  :36 > ### **`v1.5` IS NOT THE HEAD AND IS NOT THE LATEST TAG. Whether `v1.5` remains the correct DEPOSIT pin while `v1.7` is merely the working head is exactly what the manifest law decides — and it has not been decided. Stated, not assessed.**
+  :37 
+  :38 > ### **ANOMALY 2 — `SIDE-effects` IS NOT ON `main`.** *Branch **`w-ladder-skeleton`**, HEAD `a0dc376`, latest tag `phase-1.5-module-1-v2`.* ### **Three corpus pins cite it. All three are ancestors of that branch's HEAD — so the citations are sound, but they are sound against a branch the corpus never names.**
+  :39 
+  :40 ### **PIN ANCESTRY — 62 CITED PINS CHECKED LIVE AGAINST THEIR REPOS**
+  :41 
+  :42 | repo | pins | ANCESTOR | ### **NOT-ANCESTOR** | ### **ABSENT** |
+  :43 |:--|--:|--:|--:|--:|
+  :44 | ### **`SIDE-kernel`** | 20 | 16 | ### **2** | ### **2** |
+  :45 | ### **`SIDE-lv-conservation`** | 18 | 17 | 0 | ### **1** |
+  :46 | 20 further repos | 24 | ### **24** | 0 | 0 |
+  :47 
+  :48 > ### **FIVE PINS FAIL, AND THEY ARE NAMED:** `SIDE-kernel` **`2152047` ABSENT** · **`c66f3c5` ABSENT** · **`27a3ae7` NOT-ANCESTOR** · **`3b2e8d6` NOT-ANCESTOR** · `SIDE-lv-conservation` **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited held branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. NO SUBSTITUTE PIN IS OFFERED, because none can be verified to be the intended one.]** ABSENT**.
+  :49 >
+  :50 > ### **"ABSENT" MEANS THE OBJECT IS NOT IN THE REPOSITORY ON DISK — the pin cannot be resolved at all. "NOT-ANCESTOR" means the commit exists but is not reachable from `HEAD`: a rewritten, abandoned, or force-replaced line.**
+  :51 >
+  :52 > ### **THESE ARE STATED, NOT ASSESSED, PER THE CHARTER. Act 3's second half is where each is adjudicated — and this census has just supplied its first five work items, by name.**
+  :53 >
+  :54 > **The other 57 pins resolve and are ancestors of their repo's `HEAD`.** ### **The pin naming of act 3's mechanical half is what made this check possible at all: an unnamed hash cannot be ancestry-tested.**
+  :55 
+  :56 ---
+  :57 
+  :58 ## §2 — THE CLASSIFICATION
+  :59 
+  :60 | class | count |
+  :61 |:--|--:|
+  :62 | ### **KEYSTONE** | ### **16** |
+  :63 | ### **CONCORDANCE-CARRIED** (Day-1) | ### **9** |
+  :64 | **KEYSTONE-CANDIDATE** | ### **62** |
+  :65 | SUPPORT (≥ 6 KB) | 101 |
+  :66 
+  :67 > **The detector returned 20 for KEYSTONE. FOUR ARE REMOVED BY THE CATEGORY'S OWN DEFINITION** — `OPEN_TRAILS`, `FINDINGS`, `VERIFICATION_LOOM` and `internal/CONVERGENCE` are **logs**, which §0 assigns to SUPPORT. ### **The corrected figure is 16, and the correction is recorded rather than the raw number being carried.**
+  :68 
+  :69 ### **THE SIXTEEN KEYSTONES** *(last content update = git log, **excluding the 2026-08-12 pin-naming pass** — see §4)*
+  :70 
+  :71 | document | phase | last content update | pins |
+  :72 |:--|:--|:--|--:|
+  :73 | `PATHS_TO_THE_CRITICAL_LINE` | 1.5/proofs | 2026-08-10 | ### **19** |
+  :74 | `THE_UNCONDITIONAL_SURROUND` | 1.5/proofs | 2026-08-09 | 15 |
+  :75 | `SIMPLICITY_OF_RIEMANN_ZEROS` | 1.5/simplicity | 2026-08-09 | 13 |
+  :76 | `GRH_CASCADE` | 1.5/spectral | ### **2026-07-25** | 11 |
+  :77 | `R_CURVE_CRITERION` | 1.5/rcurve | ### **2026-07-26** | 9 |
+  :78 | `INDEX_ARITY_AT_THE_CRITICAL_LINE` | 1.5/proofs | 2026-08-08 | 5 |
+  :79 | `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` | 1.5/structural | 2026-07-31 | 5 |
+  :80 | `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` | 2/method | ### **2026-07-23** | 4 |
+  :81 | `INVARIANCE_BARRIERS` | 1.5/method | 2026-08-02 | 2 |
+  :82 | `SILENCE_STAGES_DEALIGNMENT` | 2/quantum | 2026-07-29 | 2 |
+  :83 | `TECHNE_TOOLKIT` | 1.5/method | 2026-07-31 | 1 |
+  :84 | `E_DIFFICULTY_THEOREM` | 2/method | 2026-07-31 | 1 |
+  :85 | `REPARAMETERIZATION_BARRIERS_v0_1` | 2/method | 2026-08-06 | 1 |
+  :86 | `ENUMERA` | 1.5/method | 2026-08-10 | 0 |
+  :87 | `EXHAUSTIVENESS_LICENSE` | 1.5/method | 2026-07-27 | 0 |
+  :88 | `THE_RESIDUE_OF_RH` | 1.5/proofs | 2026-08-05 | 0 |
+  :89 
+  :90 ---
+  :91 
+  :92 ## §3 — THE THREE QUESTIONS
+  :93 
+  :94 ### **(a) CLUSTERS HOLDING MULTIPLE KEYSTONES**
+  :95 
+  :96 | cluster | keystones | its spine |
+  :97 |:--|--:|:--|
+  :98 | ### **`phase1.5/proofs`** | ### **4** — `PATHS`, `THE_UNCONDITIONAL_SURROUND`, `INDEX_ARITY`, `THE_RESIDUE_OF_RH` | ### **NONE** — no synthesis names this cluster |
+  :99 | ### **`phase1.5/method`** | ### **4** — `INVARIANCE_BARRIERS`, `TECHNE_TOOLKIT`, `ENUMERA`, `EXHAUSTIVENESS_LICENSE` | `METHODOLOGY_CLUSTER_SYNTHESIS` (2026-05-19) |
+  :100 | ### **`phase2/method`** | ### **3** — `ADDITIVE_MULTIPLICATIVE_CONSPIRACY`, `E_DIFFICULTY_THEOREM`, `REPARAMETERIZATION_BARRIERS` | `FOUNDATIONS_CLUSTER_SYNTHESIS` (2026-05-19), partially |
+  :101 | `1.5/spectral` · `1.5/simplicity` · `1.5/structural` · `1.5/rcurve` · `2/quantum` | 1 each | `RH_CASCADE`, — , `FOUNDATIONS`, — , `CUBIT_TRIVIUM` |
+  :102 
+  :103 ### **(b) SPINE / KEYSTONE MISMATCHES — STATED AS STRUCTURE**
+  :104 
+  :105 > ### **`phase1.5/proofs` HOLDS FOUR KEYSTONES AND HAS NO SPINE. It is the densest keystone cluster in the corpus and the only one with no synthesis naming it.** *That is a structural fact about how the work was made — the proofs cluster grew continuously and never had a moment where a synthesis would have been written.*
+  :106 >
+  :107 > ### **CONVERSELY, FOUR "CLUSTER SYNTHESES" HAVE NO KEYSTONE CLUSTER AT ALL:** `MATTER_COSMOLOGY`, `THEORY_SPACE_PHYSICS`, `PHILOSOPHY_COGNITION`, `IDENTITY_FORMATION_BIJECTION` — *their subject matter lives in `phase2/` directories that produced no document meeting (i)+(ii).*
+  :108 >
+  :109 > ### **AND A COUNT CORRECTION: THE CENSUS SAID "15 CLUSTER SYNTHESES". SEVEN OF THE FIFTEEN ARE NOT SYNTHESES** — four `*_SIDE_CONSULT` files (Carmichael, Collatz, Mahler, Singmaster), plus `PLANCHEREL_RESTRICTION_PROOF_OBLIGATION`, `ELEVEN_TWELFTHS_FINDINGS_NOTE`, and `THE_CALIBRATION_IS_A_FROBENIUS_NUMBER`. ### **THE TRUE SYNTHESIS COUNT IS EIGHT.**
+  :110 
+  :111 ### **(c) THE CURRENCY PICTURE — ACT 3b's WORK-LIST, READY**
+  :112 
+  :113 **Which keystones predate the construction/sign era, and what touches each:**
+  :114 
+  :115 | keystone | last update | ### **era finding that bears on it** *(named, NOT assessed)* |
+  :116 |:--|:--|:--|
+  :117 | ### **`ADDITIVE_MULTIPLICATIVE_CONSPIRACY`** | ### **2026-07-23** | ### **`Q2`'s no-class-point verdict + the `n₄ = 0` reconciliation** — the conspiracy's site is the interface, and this keystone is the corpus's own treatment of it |
+  :118 | ### **`GRH_CASCADE`** | ### **2026-07-25** | the anchor-standing law; **`LE-K-6` open**; road item (7) |
+  :119 | ### **`R_CURVE_CRITERION`** | ### **2026-07-26** | ### **five cited pins, one of which (`bd2ae1a`) is ABSENT from `SIDE-lv-conservation`** |
+  :120 | `EXHAUSTIVENESS_LICENSE` | 2026-07-27 | the `S2` Ostrowski seal as re-stated in the sealed inventory |
+  :121 | `SILENCE_STAGES_DEALIGNMENT` | 2026-07-29 | the `Silence`↔`STANDARD-AT-TEXT` kinship; the four-failed-sweeps empirical law |
+  :122 | `TECHNE_TOOLKIT` · `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` · `E_DIFFICULTY_THEOREM` | 2026-07-31 | ### **the E-Difficulty cross-link verdict (`DISTINCT`; `κ` NOT claimed)** — filed 2026-08-12, after all three |
+  :123 | ### **`INVARIANCE_BARRIERS`** | 2026-08-02 | ### **Face E / keyhole (i)+(iv) as used by the `S`-table; the `T3` Tier-1 scope** |
+  :124 | `THE_RESIDUE_OF_RH` | 2026-08-05 | ### **the sign-face registers, the sealed `S1`–`S6` table, the crossing filing** — the whole Euler-specification arc postdates it |
+  :125 | `REPARAMETERIZATION_BARRIERS_v0_1` | 2026-08-06 | the two-kinds windows verdict |
+  :126 | `INDEX_ARITY` · `SIMPLICITY` · `THE_UNCONDITIONAL_SURROUND` · `PATHS` · `ENUMERA` | 2026-08-08 → 08-10 | ### **the sign reconciliation (2026-08-12): `W_∞` is NOT sign-definite, and the Day-1 §I attribution is repaired to pole-plus-archimedean** |
+  :127 
+  :128 > ### **EVERY ONE OF THE SIXTEEN PREDATES AT LEAST ONE ERA FINDING THAT NAMES ITS SUBJECT. Three predate the entire Euler-specification arc.**
+  :129 
+  :130 ---
+  :131 
+  :132 ## §4 — THE SPINE CHECK *(item 4)*
+  :133 
+  :134 **All eight true syntheses read.**
+  :135 
+  :136 | verdict | count | evidence |
+  :137 |:--|--:|:--|
+  :138 | ### **SPINE-COMPLETE** | ### **0** | — |
+  :139 | **SPINE-PARTIAL** | 0 | — |
+  :140 | ### **SPINE-STALE** | ### **8 of 8** | ### **NOT ONE SYNTHESIS CITES A SINGLE PIN. Zero pins across all fifteen files in `clusters/`.** And every synthesis is dated **2026-05-19** or **2026-06-05** — *before the July deposits, before the kernel reached `v1.7`, before the whole construction and sign era.* |
+  :141 
+  :142 > ### **THE SYNTHESES NAME KERNELS BY REPO NAME AND NEVER AT A PIN.** *`FOUNDATIONS_CLUSTER_SYNTHESIS` names 19 distinct `SIDE-*` repos and pins none of them; `MATTER_COSMOLOGY` names 11; `CUBIT_TRIVIUM` names 10.*
+  :143 >
+  :144 > ### **STATED AS STRUCTURE AND NOT AS LACK: the syntheses were written in May, when naming a repo WAS naming the object — the tag lineages that make a pin meaningful did not exist yet.** *`SIDE-kernel` had a fraction of its eight tags; `SIDE-lv-conservation` had a fraction of its thirteen.* ### **The syntheses are stale because the federation grew a version dimension after they were written, not because they were written carelessly.**
+  :145 >
+  :146 > ### **CONSTELLATION-MAP CONSEQUENCE: no existing synthesis can serve as a constellation spine as written. Each needs its kernels pinned before it can carry that role — and that is a bounded, mechanical task of exactly the same kind act 3's mechanical half just completed.**
+  :147 
+  :148 ---
+  :149 
+  :150 ## §5 — A CONTAMINATION THIS CENSUS CAUSED AND CORRECTED
+  :151 
+  :152 > ### **ACT 3's MECHANICAL HALF TOUCHED 25 FILES ON 2026-08-12. `git log -1` THEREFORE REPORTED 2026-08-12 AS THE "LAST CONTENT UPDATE" FOR EVERY ONE OF THEM — INCLUDING NINE OF THE SIXTEEN KEYSTONES.**
+  :153 >
+  :154 > ### **THE COLUMN THIS ACT NEEDED WAS DESTROYED BY THE ACT IMMEDIATELY BEFORE IT.** *Corrected by walking back through each file's log and skipping the pin-naming commit; §2's table carries the true dates.*
+  :155 >
+  :156 > ### **THE RULE THIS EARNS: a mechanical pass over many files destroys every subsequent "when was this last touched" query. Either record the dates BEFORE the pass, or carry the pass's commit signature so it can be skipped afterwards.** *Act 3's second half will touch many more files than its first half did — and it should stamp its commits so this correction never has to be made by hand again.*
+  :157 
+  :158 ---
+  :159 
+  :160 **ZERO EDITS MADE TO ANY CENSUSED DOCUMENT. `h2` UNCHANGED. Nothing deposits.**
+  :161 
+  :162 ### **THE NATURAL NEXT RULING, AS THE CHARTER ANTICIPATES:** *which keystones get the correspondence institution first.* ### **The census's own answer, offered and not taken: `THE_RESIDUE_OF_RH` and `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` are the two whose subject matter the era moved most, and `phase1.5/proofs` is the cluster that would gain a spine it has never had.**
+  :163 
+  :164 ---
+  :165 
+  :166 # **ACT 3c — THE COVERAGE RECONCILIATION** *(2026-08-12; phase read per document from `REGISTRY`'s own rows, not per directory)*
+  :167 
+  :168 ## §6 — **THE README NAMES FIVE PHASES. `REGISTRY` IMPLEMENTS THREE.**
+  :169 
+  :170 **The README rubric, verbatim:** *"**Phase 1** (the `day1/` tree) is the deposited line. **Phase 1.1** refines deposited content without adding results. **Phase 1.2** is the Riemann-paths work and its checkpoint kernels. **Phase 1.5** is the cascade of implications from the deposited theorem. **Phase 2** applies the method to problems other than RH."*
+  :171 
+  :172 **`REGISTRY`'s own top-level sections, enumerated:** `DAY 1: The RH Proof Package` · `PHASE 1.5: RH-Adjacent` (**1.5A–1.5H**) · `PHASE 2: Other Domains` (**2A–2G**) · `SUPPORT TIER: Cluster Syntheses + Consults`.
+  :173 
+  :174 > ### **THERE IS NO `PHASE 1.1` SECTION AND NO `PHASE 1.2` SECTION IN `REGISTRY`.** *Named, not judged — this is a structure finding, and both phases turn out to be real things that are not document sets.*
+  :175 
+  :176 | phase | how it actually exists |
+  :177 |:--|:--|
+  :178 | **Phase 1** | ### **`DAY 1`, 9 documents, `CONCORDANCE-CARRIED`** |
+  :179 | ### **Phase 1.1** | ### **AN EVENT, NOT A DOCUMENT SET.** *`REGISTRY`'s Day-1 deposit history is its only home: "`v1.0.1` \| 2026-04-28 \| **Phase 1.1 deposit-defense pass close**".* **A pass over deposited content that by definition added no results has no documents of its own — which is exactly what the rubric says it is.** |
+  :180 | ### **Phase 1.2** | ### **REAL DOCUMENTS, FILED UNDER A 1.5 HEADING.** *`REGISTRY`'s version log: "**Phase 1.2 census presentations** … the four proof-presentations `1.5a-1..4` (**`THE_PROOF`, `MECHANISM_EXCLUSION`, `IDS_TO_RH`, `INTEGRATED_PROOF`**) each gained a pin-currency note".* ### **Those four sit under `1.5A: Alternative Proof Presentations`.** |
+  :181 | **Phase 1.5** | `1.5A`–`1.5H`, the bulk — 128 documents by directory |
+  :182 | **Phase 2** | `2A`–`2G`, 49 documents |
+  :183 | ### **`REGISTRY`-SILENT** | ### **`internal/` (6 files, 2.5 MB) and `meta/` (5 files) have NO `REGISTRY` section of any kind.** *Working logs and process records. Named, not judged — and the release-architecture ruling already scoped them census-only.* |
+  :184 
+  :185 > ### **THE RECONCILIATION IN ONE LINE: the rubric's five phases and the registry's three are not in conflict. `1.1` is a pass, `1.2` is four documents filed under `1.5A`, and the registry is organised by where things live rather than by when they were done.**
+  :186 
+  :187 ## §7 — **PHASE 1.2's CHECKPOINT KERNELS, MATCHED TO THEIR CITERS** *(read live 2026-08-12)*
+  :188 
+  :189 | checkpoint kernel | DEPOSIT-PIN / WORKING-HEAD *(live)* | keystones citing it |
+  :190 |:--|:--|:--|
+  :191 | `SIDE-archimedean` | `v0.1.0`, HEAD `8019d9d`, `main` | `PATHS_TO_THE_CRITICAL_LINE` · `THE_UNCONDITIONAL_SURROUND` |
+  :192 | `SIDE-frobenius` | `v0.1.0`, HEAD `2efe9f2`, `main` | `PATHS` · `THE_UNCONDITIONAL_SURROUND` |
+  :193 | `SIDE-spinor` | `v0.1.0`, HEAD `520abe7`, `main` | `PATHS` · `THE_UNCONDITIONAL_SURROUND` |
+  :194 | `SIDE-rcurve` | `v0.1.0`, HEAD `d5f33b4`, `main` | `PATHS` · `THE_UNCONDITIONAL_SURROUND` · ### **`R_CURVE_CRITERION`** |
+  :195 | `SIDE-simplicity` | `v0.1.0`, HEAD `54ba4f3`, `main` | `SIMPLICITY_OF_RIEMANN_ZEROS` |
+  :196 | ### **`SIDE-interfaces`** | `v0.2`, HEAD `cbdcd5f`, `main`, 5 tags | ### **NO KEYSTONE CITES IT** — it is cited by `EXCLUSION_ENGINE`, a `KEYSTONE-CANDIDATE`. *Structure, not lack: the interface work's home document has no correspondence table yet.* |
+  :197 
+  :198 > ### **EVERY CHECKPOINT KERNEL IS AT ITS `v0.1.0`/`v0.2` TAG WITH `HEAD` EQUAL TO THAT TAG'S COMMIT — the 1.2 line is FROZEN, and `DEPOSIT-PIN` and `WORKING-HEAD` COINCIDE for all six.** *That is the opposite of `SIDE-kernel`'s situation and is worth recording: where work stopped, the two columns agree; where work continued, they diverged.*
+  :199 >
+  :200 > ### **AND TWO KEYSTONES CARRY THE WHOLE 1.2 CHECKPOINT SET: `PATHS_TO_THE_CRITICAL_LINE` and `THE_UNCONDITIONAL_SURROUND` cite four of the six each.**
+  :201 
+  :202 **DATED ANNOTATION, NOT A REWRITE:** ### **the five-voice re-grade's finding — *three of the five identifications are one map* — bears on `PATHS`'s five-path presentation.** *Recorded here beside the checkpoint table; `PATHS` §-text is not altered by this act.*
+  :203 
+  :204 ## §8 — **THE REPO RECONCILIATION: 48 ACCOUNT, 45 LOCAL, 3 EXPLAINED, ZERO ORPHANS**
+  :205 
+  :206 **Read live via `gh repo list psinary-sketch` and the local `.git` enumeration.**
+  :207 
+  :208 | name on account, not at `D:\` root | classification |
+  :209 |:--|:--|
+  :210 | `PLACE-papers` | ### **PRESENT, DIFFERENT PATH** — cloned at `D:\MY-DOwnloads\PLACE-papers`. Not missing. |
+  :211 | `TECHNE-Core` | ### **PRIVATE-NOT-CLONED, BY STANDING RULE** — TECHNE-Core stays private; the partition discipline is why it is not here. |
+  :212 | `glassbead-game` | ### **NOT CLONED, BY DESIGN** — the publication-partition boundary. |
+  :213 
+  :214 > ### **ON `D:`, NOT ON THE ACCOUNT: ZERO. Every local repository has a remote.**
+  :215 >
+  :216 > ### **AND THE FIRST-CLASS QUESTION, ANSWERED CLEAN: NO KERNEL CITED BY ANY KEYSTONE IS ABSENT FROM `D:`.** *All six checkpoint kernels, `SIDE-kernel`, `SIDE-lv-conservation`, `SIDE-effects` and every other cited repo were read live this era.* ### **The class this era spent an act eliminating — a citation the executor cannot check — does not exist at repository level. It existed at HASH level, and act 3b found exactly one instance (`bd2ae1a`).**
+  :217 
+  :218 ## §9 — **THE KEYSTONE TABLE, WITH PHASE MEMBERSHIP**
+  :219 
+  :220 | phase | keystones | release-readiness, per phase |
+  :221 |:--|--:|:--|
+  :222 | **Phase 1** *(Day-1)* | ### **0 keystones, 9 `CONCORDANCE-CARRIED`** | ### **DEPOSITED ALREADY.** The line is out; the correspondence question is architectural, not blocking |
+  :223 | **Phase 1.2** *(under `1.5A`)* | 0 of the 16 — the four presentations are `KEYSTONE-CANDIDATE` | ### **FROZEN AND CONSISTENT** — all six checkpoint kernels at tag, both columns agreeing |
+  :224 | ### **Phase 1.5** | ### **12 of 16** | ### **BLOCKED ON ONE THING, AND IT IS NAMED BELOW** |
+  :225 | **Phase 2** | 4 of 16 | ### **GATED BY THE CONSTELLATION RULING**, not by integrity |
+  :226 
+  :227 ### **THE BRANCH-RESIDENT FINDING, PROPAGATED AS A REQUIRED LINE**
+  :228 
+  :229 > ### **REQUIRED IN ANY SPINE OR RELEASE NOTE FOR `phase1.5/proofs`, AND NOT OPTIONAL:**
+  :230 >
+  :231 > ### **"`THE_RESIDUE_OF_RH`'s compiled terminals live on the HELD, UNMERGED branch `word-pairing-interface` of `SIDE-lv-conservation`. They are not on `main` and nothing is deposited. A reader who checks out the default branch will not find them."**
+  :232 >
+  :233 > **This is the paper's own preamble — *"not merged, nothing deposited"* — raised to a release-blocking line.** ### **It is the single thing standing between `phase1.5/proofs` and release-readiness, and it is a DISCLOSURE requirement, not a repair: the branch is sound, the terminals compile, and the only defect would be letting a reader assume otherwise.**
+  :234 
+  :235 ---
+  :236 
+  :237 **READ-ONLY EXCEPT THIS ARTIFACT. `h2` UNCHANGED. Nothing deposits.**
+
+### the act-3 detector: none banked in relay (tools/b375_population.py reconciles three tests and is not it); rebuilt in this file (census) as §0 operationalises it
+
+### REGISTRY.md rows naming SIDE-kernel with a version:
+  :95   **Cite by named terminal, not by count.** Last verified tag **`v1.2`** = commit `b1407b2` (build 2026-07-10, 3593 jobs, exit 0; `main` HEAD `ce5d7bd` adds the deposit-notes file only). *(Currency note 2026-08-22, b90: `main` has since moved to `0256e9e` (the
+  :173 | 1.5c-12 | Interface Conservation: Hodge & κ-Bimodality Census | `phase1.5/spectral/INTERFACE_CONSERVATION.md` | v0.1.1 | ● | **RECLASSIFIED → cross-domain cluster** | 4,747 — **RECLASSIFIED WHOLE → cross-domain cluster (kin 1.5c-14), 2026-07-24 (R-4 Pass 2c 
+  :214 | 1.5g-4 | The R-Curve Criterion: Monotonicity as the Fifth Path to σ = 1/2 | `phase1.5/rcurve/R_CURVE_CRITERION.md` | v0.2.1 | ○ | READY (paper of record) | ~5,900 — **R-4 Pass 7 (2026-07-25): CONFIRMED R-curve PAPER OF RECORD** (verdict c). Absorbed the trio
+  :226 | 1.5h-8 | Invariance Barriers in Analytic Number Theory | `phase1.5/method/INVARIANCE_BARRIERS.md` | v1.3 | ◇-boundary + ◇-debt | READY (landed at the author's read 2026-08-02) | ~10,100 | v1.2 (2026-07-31, author-ratified R1–R6): T5 corrected to form-level (
+  :483 | 2026-07-10 | Gate finding: SIDE-kernel v1.1 Zenodo deposit (DOI 10.5281/zenodo.19937590, tag e0a8ba0) uses `by native_decide` at the formation site (`Kernel/Core.lean:49-53`) and transitively in Route 1's `structural_exhaustiveness_proved` (via `seven_classe
+  :499 | 1.5a-5 | Paths to the Critical Line | `phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md` | v0.6 | ○ | REVIEW | ~3,300 | SIDE-archimedean v0.1.0 (`SIDEArchimedean.archimedean_forces_half`); SIDE-frobenius v0.1.0 (`SIDEFrobenius.indicial_forces_half`); SIDE-rcurv
+  :505 | 1.5a-6 | The Unconditional Surround of ξ | `phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md` | v0.4 | ○ | REVIEW | ~3,200 | SIDE-kernel v1.2 (open field `techne_kernel.ExhaustiveCatalogue.covers_all`; `techne_kernel.SIDE_exclusion` axiom-free; seven voices `te
+  :509 Row **1.5b-6** (`phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md`): version corrected **v1.0 → v1.1** on the consolidated lineage (v1.1 pass 2026-07-11 — heading fix, C-index harmonization to the kernel enumeration, verb scoping, instrument citations, mutua
+### SIDE-kernel HEAD 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164 (2026-08-21 04:08:27 -0400) ; tags by date: v1.7 v1.6 v1.5 v1.4 v1.3 v1.2 v1.1 v1.0 ; describe: v1.7
