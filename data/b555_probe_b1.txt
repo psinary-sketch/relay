@@ -1,0 +1,17 @@
+SIDE-bsd-formation-transfer 7425d73 = 7425d7371f0cd77aeaad74f2e5cb88fcc1a6dd5c ; git show 7425d73:SIDEBSDFormationTransfer/Basic.lean ; checkout HEAD 34917669160d branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: DIFF
+names: ['SIDEBSDFormationTransfer.formation_preserved', 'SIDEBSDFormationTransfer.both_interfaces_dark', 'SIDEBSDFormationTransfer.all_seven_transfer']
+start 2026-09-28T20:19:03Z
+SIDEBSDFormationTransfer.formation_preserved : SIDEBSDFormationTransfer.n1_BSD = SIDEBSDFormationTransfer.n1_xi ∧
+  SIDEBSDFormationTransfer.n2_BSD = SIDEBSDFormationTransfer.n2_xi ∧
+    SIDEBSDFormationTransfer.n3_BSD = SIDEBSDFormationTransfer.n3_xi ∧
+      SIDEBSDFormationTransfer.n4_BSD = SIDEBSDFormationTransfer.n4_xi
+SIDEBSDFormationTransfer.both_interfaces_dark : SIDEBSDFormationTransfer.n4_BSD = 0 ∧ SIDEBSDFormationTransfer.n4_xi = 0
+SIDEBSDFormationTransfer.all_seven_transfer : ∀ (c : SIDEBSDFormationTransfer.MechanismClass),
+  SIDEBSDFormationTransfer.transfers c = true
+'SIDEBSDFormationTransfer.formation_preserved' does not depend on any axioms
+'SIDEBSDFormationTransfer.both_interfaces_dark' does not depend on any axioms
+'SIDEBSDFormationTransfer.all_seven_transfer' does not depend on any axioms
+real 2.7 s
+exit 0

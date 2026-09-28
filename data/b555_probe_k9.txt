@@ -1,0 +1,9 @@
+SIDE-kernel v1.2 = b1407b2231c650d6d938cfa649f589fd388f669c ; git show v1.2:Bridge/LocalZeta.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('Kernel/Core.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['neg_eq_neg_one_sub_iff']
+start 2026-09-28T20:23:01Z
+@neg_eq_neg_one_sub_iff : ∀ {α : Type u_1} [inst : Field α] [CharZero α] (s : α), -s = -(1 - s) ↔ s = 1 / 2
+'neg_eq_neg_one_sub_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 233.1 s
+exit 0

@@ -1,0 +1,166 @@
+{
+ "rows": [
+  {
+   "line": 381,
+   "claim": "GRH structural exhaustiveness — seven character-twisted classes, none produces an off-line zero",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "terminal_cell": "`SIDEGRHTransfer.grh_structural_exhaustiveness_proved` (via `seven_classes_chi`, `c1_chi_exclusion`…`c7_chi_exclusion`, `none_produce_chi`, `ostrowski_exhaustive_chi`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled; structural-exhaustiveness analog; full Mathlib-GRH bridge open. Row-note: χ and χ̄ are typed-but-unused parameters of the composite terminal (disclosed in the kernel source); the character content is certified by the twisted-balance and paired-voice rows below, and `voice1_balance_chi` itself contains no character (signature-level real algebra).",
+   "names": [
+    "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+    "SIDEGRHTransfer.seven_classes_chi",
+    "SIDEGRHTransfer.none_produce_chi",
+    "SIDEGRHTransfer.ostrowski_exhaustive_chi",
+    "SIDEGRHTransfer.c1_chi_exclusion",
+    "SIDEGRHTransfer.c2_chi_exclusion",
+    "SIDEGRHTransfer.c3_chi_exclusion",
+    "SIDEGRHTransfer.c4_chi_exclusion",
+    "SIDEGRHTransfer.c5_chi_exclusion",
+    "SIDEGRHTransfer.c6_chi_exclusion",
+    "SIDEGRHTransfer.c7_chi_exclusion"
+   ]
+  },
+  {
+   "line": 382,
+   "claim": "Character-insensitive balance",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "terminal_cell": "`SIDEGRHTransfer.twisted_balance_at_unramified_prime`; `twisted_balance_at_half`; `voice1_balance_chi`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled (genuine Mathlib content: prime-unit norm-one; honest unramified hypothesis)",
+   "names": [
+    "SIDEGRHTransfer.twisted_balance_at_unramified_prime",
+    "SIDEGRHTransfer.twisted_balance_at_half",
+    "SIDEGRHTransfer.voice1_balance_chi"
+   ]
+  },
+  {
+   "line": 383,
+   "claim": "Paired-voice chorus (Symmetry/FE for complex χ)",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "terminal_cell": "`SIDEGRHTransfer.paired_reflection_axis_invariant_iff`; `paired_conjugation_real_axis_agree_iff`; `paired_cr_minimal_codim_axis_iff`; `paired_modular_S_fixed_iff`; `paired_spectral_offset_zero_iff`; `paired_topological_no_sigma_preference`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled (genuine Mathlib content)",
+   "names": [
+    "SIDEGRHTransfer.paired_reflection_axis_invariant_iff",
+    "SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff",
+    "SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff",
+    "SIDEGRHTransfer.paired_modular_S_fixed_iff",
+    "SIDEGRHTransfer.paired_spectral_offset_zero_iff",
+    "SIDEGRHTransfer.paired_topological_no_sigma_preference"
+   ]
+  },
+  {
+   "line": 384,
+   "claim": "Mechanism Theorem (RH-side engine)",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`ECondition.type_I_has_ostrowski`",
+   "profile_cell": "`{propext, Quot.sound}`",
+   "status": "DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12)",
+   "names": [
+    "ECondition.type_I_has_ostrowski"
+   ]
+  },
+  {
+   "line": 385,
+   "claim": "Universal Silence",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`SilenceTheorem.silence_universal`",
+   "profile_cell": "axiom-free (none)",
+   "status": "INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here.",
+   "names": [
+    "SilenceTheorem.silence_universal"
+   ]
+  },
+  {
+   "line": 386,
+   "claim": "Domain Ostrowski bridge",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`ostrowski_exhaustive` (`Bridge/OstrowskiBridge.lean`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled (Mathlib bridge)",
+   "names": [
+    "ostrowski_exhaustive"
+   ]
+  },
+  {
+   "line": 387,
+   "claim": "Per-prime balance at zeros",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`neg_eq_neg_one_sub_iff` (`Bridge/LocalZeta.lean`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled (Mathlib bridge)",
+   "names": [
+    "neg_eq_neg_one_sub_iff"
+   ]
+  },
+  {
+   "line": 388,
+   "claim": "Additive–multiplicative conspiracy exclusion (Twin / Goldbach / Sophie Germain)",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `crt_exhaustiveness`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`.",
+   "status": "**DERIVES** — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318 jobs, exit 0. **Scope: for positive-modulus structural couplings** — the constructors carry positivity hypotheses (`0 < q`, `0 < m`), author-accepted 2026-07-13, degenerate zero-modulus cases released as singletons. Upgraded from proof-partial after the W-4 discharge landed at `a2741",
+   "names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+    "SIDEEffects.Phase15.Module1.crt_exhaustiveness"
+   ]
+  },
+  {
+   "line": 389,
+   "claim": "Landau-Siegel exclusion",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Classical reduction (trivial-after-GRH)",
+   "names": []
+  },
+  {
+   "line": 390,
+   "claim": "Artin primitive root",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Classical reduction (Hooley 1967)",
+   "names": []
+  },
+  {
+   "line": 391,
+   "claim": "BSD formation placement",
+   "kernel": "SIDE-bsd-formation-transfer v0.1.0",
+   "terminal_cell": "`SIDEBSDFormationTransfer.formation_preserved` (with `both_interfaces_dark`, `all_seven_transfer`)",
+   "profile_cell": "axiom-free (none)",
+   "status": "**SHELL — work-order (W-5 family).** PULLED as a citation per author ruling (2026-07-13): `formation_preserved` is `decide` over hand-assigned constants (`n1_BSD`…`n4_BSD`) — it *records* the formation assignment, it does not derive it. Ш-finiteness and full BSD remain open (`True`-stubs). Row retained as audit record.",
+   "names": [
+    "SIDEBSDFormationTransfer.formation_preserved",
+    "SIDEBSDFormationTransfer.both_interfaces_dark",
+    "SIDEBSDFormationTransfer.all_seven_transfer"
+   ]
+  },
+  {
+   "line": 392,
+   "claim": "Yang-Mills mass-gap placement",
+   "kernel": "SIDE-yang-mills-formation v0.1.0",
+   "terminal_cell": "`SIDEYangMillsFormation.mass_gap_equals_n3_certification` (with `silence_boundary_at_output_stage`)",
+   "profile_cell": "axiom-free (none)",
+   "status": "**SHELL — work-order (W-5 family).** PULLED as a citation per author ruling (2026-07-13): `mass_gap_equals_n3_certification` proves that `mass_gap_is_n3_domain_ostrowski`, a `Bool` defined as `true`, equals `true` — the canonical shell shape. The mass-gap theorem is open. Row retained as audit record.",
+   "names": [
+    "SIDEYangMillsFormation.mass_gap_equals_n3_certification",
+    "SIDEYangMillsFormation.silence_boundary_at_output_stage"
+   ]
+  },
+  {
+   "line": 393,
+   "claim": "ABC qualitative tightening",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`SIDEEffects.Phase15.Module1.no_type_d_conspiracies`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`.",
+   "status": "**DERIVES** at `a27415d` — same terminal as the conspiracy-exclusion row above; **scope: for positive-modulus structural couplings**. Effective ABC content research-reach.",
+   "names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies"
+   ]
+  }
+ ],
+ "count": 13,
+ "audit_line": 395
+}

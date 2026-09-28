@@ -1,0 +1,25 @@
+b555 -- COMPONENT 4 (a): THE MATHLIB AND ZETA23 SEARCH (READING (8))
+
+### SIDE-explicit-formula v0.2 -- Mathlib checkout D:\SIDE-explicit-formula\.lake\packages\mathlib ; HEAD 51e6992efd06 ; equal to the manifest rev: True
+  (a) lines matching RiemannHypothesis: 1 ; declarations named with it: 1
+      HEAD:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185:def RiemannHypothesis : Prop :=
+  (b) lines naming DirichletCharacter or LFunction with `1 / 2` or `re =`: 3
+      HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:40:  `completedLFunction χ s = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s`.
+      HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:285:    completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+      HEAD:Mathlib/NumberTheory/LSeries/Nonvanishing.lean:385:theorem LFunction_ne_zero_of_re_eq_one {s : ℂ} (hs : s.re = 1) (hχs : χ ≠ 1 ∨ s ≠ 1) :
+  (c) declarations named like an explicit formula: 0
+
+### SIDE-lv-conservation v0.11.0 -- Mathlib checkout D:\SIDE-lv-conservation\.lake\packages\mathlib ; HEAD 5e932f97dd25 ; equal to the manifest rev: True
+  (a) lines matching RiemannHypothesis: 1 ; declarations named with it: 1
+      HEAD:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:160:def RiemannHypothesis : Prop :=
+  (b) lines naming DirichletCharacter or LFunction with `1 / 2` or `re =`: 3
+      HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:40:  `completedLFunction χ s = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s`.
+      HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:285:    completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+      HEAD:Mathlib/NumberTheory/LSeries/Nonvanishing.lean:385:theorem LFunction_ne_zero_of_re_eq_one {s : ℂ} (hs : s.re = 1) (hχs : χ ≠ 1 ∨ s ≠ 1) :
+  (c) declarations named like an explicit formula: 0
+
+### Zeta23 (SIDE-explicit-formula 5c72cad): EF_lit at Zeta23/ExplicitFormula.lean:97, over a ZeroConfig, its right side `literatureRHS`
+    :86-90 def literatureRHS (k : ℝ → ℂ) : ℂ := paperFT k (I / 2) + paperFT k (-I / 2) - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n)) + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+    :80 def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π
+    Zeta23/WeilEF/Main.lean:286 theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+### EF_lit`s right side is fixed to ζ (the untwisted von Mangoldt sum and ζ`s gamma factor at 1/4 + ir/2): True

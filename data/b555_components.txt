@@ -1,0 +1,401 @@
+====================================================================================================================================
+b555 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b555_tiers.txt
+  b555 -- COMPONENT 3 (a): GRH_CASCADE`S CORRESPONDENCE, RE-READ AT PIN (READING (4))
+  
+  ### the table (PLACE-papers 0c748da, :381-393): 13 rows -- the ruling says "twelve"; 11 name a terminal, 2 name none
+  ### the probes (relay data/b555_probe_<id>.txt):
+      b1  SIDE-bsd-formation-transfer  7425d73  SIDEBSDFormationTransfer/Basic.lean      mode vanilla exit 0     2.7 s errors 0 manifest-equal True imports NONE
+      e1  SIDE-effects                 a27415d  SIDEEffects/Phase15/Module1.lean         mode lake    exit 0  2037.8 s errors 0 manifest-equal True imports [['SIDEEffects/Phase15/SIDEFramework.lean', 'SAME']]
+      g2  SIDE-grh-transfer            858cbf6  SIDEGRHTransfer/GRHBridge.lean           mode lake    exit 0   368.8 s errors 0 manifest-equal True imports [['SIDEGRHTransfer/CharacterTransfer.lean', 'SAME'], ['SIDEGRHTransfer/CharacterSymmetry.lean', 'SAME'], ['SIDEGRHTransfer/CharacterCodim.lean', 'SAME'], ['SIDEGRHTransfer/CharacterModular.lean', 'SAME'], ['SIDEGRHTransfer/CharacterSpectral.lean', 'SAME'], ['SIDEGRHTransfer/CharacterTopological.lean', 'SAME'], ['SIDEGRHTransfer/Voice7Vendored.lean', 'SAME'], ['SIDEGRHTransfer/Voice6Vendored.lean', 'SAME'], ['SIDEGRHTransfer/Voice5Vendored.lean', 'SAME'], ['SIDEGRHTransfer/Voice3bVendored.lean', 'SAME'], ['SIDEGRHTransfer/Voice2Vendored.lean', 'SAME'], ['SIDEGRHTransfer/Voice3Vendored.lean', 'SAME'], ['SIDEGRHTransfer/Voice1Vendored.lean', 'SAME']]
+      k6  SIDE-kernel                  v1.2     MetaKernel.lean                          mode lake    exit 0    12.5 s errors 0 manifest-equal True imports NONE
+      k7  SIDE-kernel                  v1.2     Kernel/SilenceTheorem.lean               mode lake    exit 0   233.6 s errors 0 manifest-equal True imports NONE
+      k8  SIDE-kernel                  v1.2     Bridge/OstrowskiBridge.lean              mode lake    exit 0    37.0 s errors 0 manifest-equal True imports [['Kernel/Core.lean', 'SAME']]
+      k9  SIDE-kernel                  v1.2     Bridge/LocalZeta.lean                    mode lake    exit 0   233.1 s errors 0 manifest-equal True imports [['Kernel/Core.lean', 'SAME']]
+      y1  SIDE-yang-mills-formation    79e4f45  SIDEYangMillsFormation/Basic.lean        mode vanilla exit 0     1.2 s errors 0 manifest-equal True imports NONE
+  
+  ### SIDE-effects: branch main ; HEAD ef4cff7 ; tracked tree clean ; local branches ['*', 'main', 'push-b372', 'push-b386', 'w-ladder-skeleton', 'w4-recovery-2026-07-13']
+      oleans present: ['SIDEEffects.olean', 'SIDEEffects/ExhaustivenessLicense.olean', 'SIDEEffects/Milestones.olean', 'SIDEEffects/Phase15/Module1.olean', 'SIDEEffects/Phase15/SIDEFramework.olean', 'SIDEEffects/Structural.olean']
+      a27415d: {'resolves': True, 'full': 'a27415d1aa0ce6f6d87c47bb59fd72791190af35', 'ancestor_of_head': True, 'phase15_vs_head': 'SAME', 'module1_sorry': 0, 'date': '2026-07-13 18:42:45 -0400 W-4 discharge + W-2 shell withdrawal: recovered from an uncommitted tree, screened, author-accepted'}
+      c66f3c5: {'resolves': True, 'full': 'c66f3c590adfaf26e1c07997253ecade41f58b36', 'ancestor_of_head': True, 'phase15_vs_head': 'DIFF', 'module1_sorry': 7, 'date': "2026-05-13 22:05:43 -0400 AGENTS.md: strip '19 theorems' and '7 sorries' count anchors; categorize named theorem list"}
+      lake-manifest and lean-toolchain equal between a27415d and HEAD: True
+  
+  ### THE COMPOSITE: `@SIDEGRHTransfer.grh_structural_exhaustiveness_proved : ∀ {n : ℕ} [inst : NeZero n] (χ χbar : DirichletCharacter ℂ n), SIDEGRHTransfer.GRHStructuralExhaustiveness χ χbar`
+      its Prop, GRHBridge.lean at 858cbf6: def GRHStructuralExhaustiveness {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) : Prop :=
+      (Fintype.card MechanismClass = 7) ∧ (∀ c : MechanismClass, ¬ produces_offline_chi c) ∧ (∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃ p : ℕ, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p), f.IsEquiv (Rat.AbsoluteValue.padic p))
+      ### χ or χbar in the body: False -- NO CHARACTER VALUE ENTERS THE CONCLUSION
+  
+  ### silence_universal`S PREMISE: `def Interface.is_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) : Prop := ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂`
+  
+  ### :381 SIDEGRHTransfer.grh_structural_exhaustiveness_proved [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.grh_structural_exhaustiveness_proved : ∀ {n : ℕ} [inst : NeZero n] (χ χbar : DirichletCharacter ℂ n), SIDEGRHTransfer.GRHStructuralExhaustiveness χ χbar
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- the composite: `GRHStructuralExhaustiveness χ χbar`, whose body is a count of the kernel`s own classes, the class exclusions over programme-defined σ-predicates, and Ostrowski -- χ and χbar occur nowhere in it (printed); Route 1`s shape (b540)
+      earlier   : T2 (relay data/b540_tiers.json) ; E/I (b544) : not indexed
+      conclusion: GRHStructuralExhaustiveness χ χbar, a Prop in which no character occurs
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.seven_classes_chi [858cbf6 FOUND via g2]
+      statement : SIDEGRHTransfer.seven_classes_chi : Fintype.card SIDEGRHTransfer.MechanismClass = 7
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- the cardinality of the kernel`s own inductive type is 7 (`decide`)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: Fintype.card MechanismClass = 7
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.none_produce_chi [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.none_produce_chi : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (c : SIDEGRHTransfer.MechanismClass), ¬SIDEGRHTransfer.produces_offline_chi c
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; the exclusions over `produces_offline_chi`, a predicate the kernel defines on σ
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ∀ c, ¬ produces_offline_chi c
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.ostrowski_exhaustive_chi [858cbf6 FOUND via g2]
+      statement : SIDEGRHTransfer.ostrowski_exhaustive_chi : ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃ p, Nat.Prime p ∧ ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: Ostrowski`s classification of the absolute values of ℚ, from Mathlib; no character
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: every nontrivial |·| on ℚ is real or p-adic
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c1_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c1_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C1_schwarz
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; over `conjugate_re σ := σ` and `reflect_re σ := 1 − σ`
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C1_schwarz
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c2_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c2_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C2_euler
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: χ and χbar typed and unused; no σ ≠ 1/2 with −σ = −(1 − σ) -- the balance identity over ℝ
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C2_euler
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c3_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c3_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C3_functional_eq
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: χ and χbar typed and unused; no σ ≠ 1/2 is fixed by ρ ↦ 1 − ρ on real parts -- a fact about ℂ
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C3_functional_eq
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c4_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c4_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C4_modular
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; over `S_action σ := 1 − σ`, a definition
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C4_modular
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c5_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c5_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C5_spectral
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; over `spectral_offset σ := σ − 1/2`, a definition
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C5_spectral
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c6_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c6_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C6_cauchy_riemann
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; over `cr_minimal_codim`, defined through `zero_codimension`
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C6_cauchy_riemann
+      disposition: CARRIED
+  
+  ### :381 SIDEGRHTransfer.c7_chi_exclusion [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.c7_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C7_hadamard
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; over `topological_contribution σ := 0`, a constant
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ¬ produces_offline_chi .C7_hadamard
+      disposition: CARRIED
+  
+  ### :382 SIDEGRHTransfer.twisted_balance_at_unramified_prime [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.twisted_balance_at_unramified_prime : ∀ {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p), ¬p ∣ n → ∀ (s : ℝ), ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-s) = ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 - s)) ↔ s = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: ‖χ(p)‖·p^(−s) = ‖χ(p)‖·p^(−(1−s)) ↔ s = 1/2 at a prime p ∤ n, through Mathlib`s norm-one value of a Dirichlet character at a unit -- the character enters
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: the twisted balance at an unramified prime forces s = 1/2
+      disposition: CARRIED
+  
+  ### :382 SIDEGRHTransfer.twisted_balance_at_half [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.twisted_balance_at_half : ∀ {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p), ¬p ∣ n → ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 / 2)) = ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 - 1 / 2))
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: the twisted balance holds at s = 1/2, by the lemma above
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: the twisted balance holds at s = 1/2
+      disposition: CARRIED
+  
+  ### :382 SIDEGRHTransfer.voice1_balance_chi [858cbf6 FOUND via g2]
+      statement : SIDEGRHTransfer.voice1_balance_chi : ∀ (σ : ℝ), -σ = -(1 - σ) ↔ σ = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: the balance exponent`s identity −σ = −(1 − σ) ↔ σ = 1/2 over ℝ; no prime, zero or character enters (the row`s own note)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: −σ = −(1 − σ) ↔ σ = 1/2
+      disposition: CARRIED
+  
+  ### :383 SIDEGRHTransfer.paired_reflection_axis_invariant_iff [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.paired_reflection_axis_invariant_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), (∀ (ρ : ℂ), ρ.re = σ → (1 - ρ).re = σ) ↔ σ = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: χ and χbar typed and unused; (∀ ρ : ℂ, ρ.re = σ → (1 − ρ).re = σ) ↔ σ = 1/2 -- a fact about ℂ
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ρ ↦ 1 − ρ preserves the real part σ iff σ = 1/2
+      disposition: CARRIED
+  
+  ### :383 SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.conjugate_re σ = SIDEGRHTransfer.reflect_re σ ↔ σ = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; `conjugate_re σ = reflect_re σ ↔ σ = 1/2` over two definitions (σ and 1 − σ)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: conjugate_re σ = reflect_re σ iff σ = 1/2
+      disposition: CARRIED
+  
+  ### :383 SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.cr_minimal_codim σ ↔ σ = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; `cr_minimal_codim σ ↔ σ = 1/2` over a definition
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: cr_minimal_codim σ iff σ = 1/2
+      disposition: CARRIED
+  
+  ### :383 SIDEGRHTransfer.paired_modular_S_fixed_iff [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.paired_modular_S_fixed_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.S_action σ = σ ↔ σ = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; `S_action σ = σ ↔ σ = 1/2`, S_action defined as 1 − σ
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: S_action σ = σ iff σ = 1/2
+      disposition: CARRIED
+  
+  ### :383 SIDEGRHTransfer.paired_spectral_offset_zero_iff [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.paired_spectral_offset_zero_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.spectral_offset σ = 0 ↔ σ = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; `spectral_offset σ = 0 ↔ σ = 1/2`, the offset defined as σ − 1/2
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: spectral_offset σ = 0 iff σ = 1/2
+      disposition: CARRIED
+  
+  ### :383 SIDEGRHTransfer.paired_topological_no_sigma_preference [858cbf6 FOUND via g2]
+      statement : @SIDEGRHTransfer.paired_topological_no_sigma_preference : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.topological_contribution σ = SIDEGRHTransfer.topological_contribution (1 / 2)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T2 -- χ and χbar typed and unused; vacuous: `topological_contribution` is the constant 0
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: topological_contribution σ = topological_contribution (1/2)
+      disposition: CARRIED
+  
+  ### :384 ECondition.type_I_has_ostrowski [v1.2 FOUND via k6]
+      statement : ECondition.type_I_has_ostrowski : ∀ (Domain : Type) [Fintype Domain] (target : Prop) (produces : Domain → Prop), (∀ (d : Domain), ¬produces d) → (target → ∃ d, produces d) → ¬target
+      profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+      tier      : T2 -- modus tollens over an abstract `Domain` whose `[Fintype Domain]` is never used -- logic alone; the Mechanism Theorem reading is carried by the name (b539)
+      earlier   : T0 (relay data/b539_tiers.json) ; E/I (b544) : not indexed
+      conclusion: ¬ target from ∀ d, ¬ produces d and target → ∃ d, produces d
+      disposition: CARRIED
+  
+  ### :385 SilenceTheorem.silence_universal [v1.2 FOUND via k7]
+      statement : @SilenceTheorem.silence_universal : ∀ {C : SilenceTheorem.ConfigurationSpace} {R : Type} (I : SilenceTheorem.Interface C R), I.is_universal → I.kappa_zero
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      tier      : T2-INTERFACES -- INTERFACES on `I.is_universal` (∀ c₁ c₂, I.action c₁ = I.action c₂), a programme structure`s property that the manuscript asserts: T2-INTERFACES under (R165)(3); its universal form, R1, is FALSE-AS-STATED (not_register1, b538)
+      earlier   : T4 (relay data/b539_tiers.json) ; E/I (b544) : not indexed
+      conclusion: a universal interface has κ = 0
+      disposition: CARRIED
+  
+  ### :386 ostrowski_exhaustive [v1.2 FOUND via k8]
+      statement : ostrowski_exhaustive : ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃! p, ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: Mathlib`s Ostrowski theorem (`Rat.AbsoluteValue.equiv_real_or_padic`) restated
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: every nontrivial |·| on ℚ is real or a unique p-adic
+      disposition: CARRIED
+  
+  ### :387 neg_eq_neg_one_sub_iff [v1.2 FOUND via k9]
+      statement : @neg_eq_neg_one_sub_iff : ∀ {α : Type u_1} [inst : Field α] [CharZero α] (s : α), -s = -(1 - s) ↔ s = 1 / 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: in any field of characteristic 0, −s = −(1 − s) ↔ s = 1/2 -- the balance exponent`s identity; no prime or zero enters
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: −s = −(1 − s) ↔ s = 1/2 in a field of characteristic 0
+      disposition: CARRIED
+  
+  ### :388 SIDEEffects.Phase15.Module1.no_type_d_conspiracies [a27415d FOUND via e1]
+      statement : SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: the type of structural couplings no modular coupling realizes is empty, by the periodic lift -- residues, divisibility and coprimality over ℕ with Mathlib`s `ZMod`; scope: the constructors carry 0 < q, 0 < m (positive modulus)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: IsEmpty TypeD
+      disposition: CARRIED
+  
+  ### :388 SIDEEffects.Phase15.Module1.crt_exhaustiveness [a27415d FOUND via e1]
+      statement : SIDEEffects.Phase15.Module1.crt_exhaustiveness : ∀ (sc : SIDEEffects.Phase15.Module1.StructuralCoupling), ∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: every structural coupling agrees pointwise with some modular coupling (the periodic lift); positive-modulus scope
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ∀ sc, ∃ m, ∀ n, sc.eval n ↔ m.eval n
+      disposition: CARRIED
+  
+  ### :391 SIDEBSDFormationTransfer.formation_preserved [7425d73 FOUND via b1]
+      statement : SIDEBSDFormationTransfer.formation_preserved : SIDEBSDFormationTransfer.n1_BSD = SIDEBSDFormationTransfer.n1_xi ∧ SIDEBSDFormationTransfer.n2_BSD = SIDEBSDFormationTransfer.n2_xi ∧ SIDEBSDFormationTransfer.n3_BSD = SIDEBSDFormationTransfer.n3_xi ∧ SIDEBSDFormationTransfer.n4_BSD = SIDEBSDFormationTransfer.n4_xi
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      tier      : T2 -- SHELL: `decide` over hand-assigned constants n1_BSD…n4_BSD -- it records the assignment
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: n_i(BSD) = n_i(ξ), i = 1..4, for assigned constants
+      disposition: CARRIED
+  
+  ### :391 SIDEBSDFormationTransfer.both_interfaces_dark [7425d73 FOUND via b1]
+      statement : SIDEBSDFormationTransfer.both_interfaces_dark : SIDEBSDFormationTransfer.n4_BSD = 0 ∧ SIDEBSDFormationTransfer.n4_xi = 0
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      tier      : T2 -- SHELL: `decide` over assigned constants
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: n4_BSD = 0 ∧ n4_xi = 0
+      disposition: CARRIED
+  
+  ### :391 SIDEBSDFormationTransfer.all_seven_transfer [7425d73 FOUND via b1]
+      statement : SIDEBSDFormationTransfer.all_seven_transfer : ∀ (c : SIDEBSDFormationTransfer.MechanismClass), SIDEBSDFormationTransfer.transfers c = true
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      tier      : T2 -- SHELL: `decide` over a Bool table the file defines
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: ∀ c, transfers c = true
+      disposition: CARRIED
+  
+  ### :392 SIDEYangMillsFormation.mass_gap_equals_n3_certification [79e4f45 FOUND via y1]
+      statement : SIDEYangMillsFormation.mass_gap_equals_n3_certification : SIDEYangMillsFormation.mass_gap_is_n3_domain_ostrowski = true
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      tier      : T2 -- SHELL: a `Bool` defined as `true` equals `true` (`decide`)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: mass_gap_is_n3_domain_ostrowski = true
+      disposition: CARRIED
+  
+  ### :392 SIDEYangMillsFormation.silence_boundary_at_output_stage [79e4f45 FOUND via y1]
+      statement : SIDEYangMillsFormation.silence_boundary_at_output_stage : SIDEYangMillsFormation.mass_gap_silence_boundary_stage = 3
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      tier      : T2 -- SHELL: an assigned constant equals 3 (`decide`)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: mass_gap_silence_boundary_stage = 3
+      disposition: CARRIED
+  
+  ### :393 SIDEEffects.Phase15.Module1.no_type_d_conspiracies [a27415d FOUND via e1]
+      statement : SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      tier      : T0 -- T0, not RH-anchor: the type of structural couplings no modular coupling realizes is empty, by the periodic lift -- residues, divisibility and coprimality over ℕ with Mathlib`s `ZMod`; scope: the constructors carry 0 < q, 0 < m (positive modulus)
+      earlier   : none banked ; E/I (b544) : not indexed
+      conclusion: IsEmpty TypeD
+      disposition: CARRIED
+  
+  ### TIERS OVER THE 32 TERMINALS: T0 12 · T1-open 0 · T1-lit 0 · T2 19 · T2-INTERFACES 1 · T3 0 · T4 0
+  ### ROW TIERS (the weakest link; no terminal T4) OVER THE 13 ROWS: T0 5 · T1-open 0 · T1-lit 0 · T2 5 · T2-INTERFACES 1 · T3 0 · T4 2
+  ### DISPOSITIONS: CARRIED 13 · MOVED 0
+  
+  ### (N1)/(N2), terminal by terminal: fresh tier against the tier named
+      SIDEGRHTransfer.grh_structural_exhaustiveness_proved           T2             T2             agrees
+      SIDEGRHTransfer.twisted_balance_at_unramified_prime            T0             T0             agrees
+      SilenceTheorem.silence_universal                               T2-INTERFACES  T2-INTERFACES  agrees
+      ECondition.type_I_has_ostrowski                                T2             T2             agrees
+      ostrowski_exhaustive                                           T0             T0             agrees
+      neg_eq_neg_one_sub_iff                                         T0             T0             agrees
+      SIDEEffects.Phase15.Module1.no_type_d_conspiracies             T0             T0             agrees
+      SIDEBSDFormationTransfer.formation_preserved                   T2             T2             agrees
+      SIDEYangMillsFormation.mass_gap_equals_n3_certification        T2             T2             agrees
+      SIDEGRHTransfer.paired_reflection_axis_invariant_iff           T0             T0             agrees
+      SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff         T2             T0             DIFFERS
+      SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff               T2             T0             DIFFERS
+      SIDEGRHTransfer.paired_modular_S_fixed_iff                     T2             T0             DIFFERS
+      SIDEGRHTransfer.paired_spectral_offset_zero_iff                T2             T0             DIFFERS
+      SIDEGRHTransfer.paired_topological_no_sigma_preference         T2             T0             DIFFERS
+  
+  ### each row`s conclusion in one line:
+      :381 GRHStructuralExhaustiveness χ χbar, a Prop in which no character occurs ; Fintype.card MechanismClass = 7 ; ∀ c, ¬ produces_offline_chi c ; every nontrivial |·| on ℚ is real or p-adic ; ¬ produces_offline_chi .C1_schwarz ; ¬ produces_offline_chi .C2_euler ; ¬ produces_offline_chi .C3_functional_eq ; ¬ produces_offline_chi .C4_modular ; ¬ produces_offline_chi .C5_spectral ; ¬ produces_offline_chi .C6_cauchy_riemann ; ¬ produces_offline_chi .C7_hadamard
+      :382 the twisted balance at an unramified prime forces s = 1/2 ; the twisted balance holds at s = 1/2 ; −σ = −(1 − σ) ↔ σ = 1/2
+      :383 ρ ↦ 1 − ρ preserves the real part σ iff σ = 1/2 ; conjugate_re σ = reflect_re σ iff σ = 1/2 ; cr_minimal_codim σ iff σ = 1/2 ; S_action σ = σ iff σ = 1/2 ; spectral_offset σ = 0 iff σ = 1/2 ; topological_contribution σ = topological_contribution (1/2)
+      :384 ¬ target from ∀ d, ¬ produces d and target → ∃ d, produces d
+      :385 a universal interface has κ = 0
+      :386 every nontrivial |·| on ℚ is real or a unique p-adic
+      :387 −s = −(1 − s) ↔ s = 1/2 in a field of characteristic 0
+      :388 IsEmpty TypeD ; ∀ sc, ∃ m, ∀ n, sc.eval n ↔ m.eval n
+      :389 (no terminal)
+      :390 (no terminal)
+      :391 n_i(BSD) = n_i(ξ), i = 1..4, for assigned constants ; n4_BSD = 0 ∧ n4_xi = 0 ; ∀ c, transfers c = true
+      :392 mass_gap_is_n3_domain_ostrowski = true ; mass_gap_silence_boundary_stage = 3
+      :393 IsEmpty TypeD
+
+### relay data/b555_stems.txt
+  b555 -- COMPONENT 3 (c): THE BANNED-STEM COUNT OVER GRH_CASCADE.md (READING (6)); no edit
+  
+  ### the document at PLACE-papers 0c748da (before this act`s append); per stem: {'gap': 9, 'blind': 0} ; live uses: {'gap': 0, 'blind': 0}
+      :39   gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...- **Yang-Mills mass gap, full BSD / $\Sha$-finiteness** — theorem open; no genuine kernel pro...
+      :39   gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...i$ (both interfaces dark) in `SIDE-bsd-formation-transfer`; YM's mass-gap-as-n3-domain-Ostrowski placement (output stage 3) in `SIDE-yang-mills...
+      :39   gap    gapped       QUOTED KERNEL IDENTIFIER                     ...placement (output stage 3) in `SIDE-yang-mills-formation`. The prior `gapped := True` (SIDE-effects) and `ym_massless := False` (MetaKernel) stubs...
+      :268  gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...Yang-Mills mass-gap theorem is open — no genuine kernel proves it; `SIDE-yang-mills-forma...
+      :268  gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...tion` genuinely verifies only the formation-level placement (the mass gap as the n3 domain-Ostrowski / output-stage-3 certification), not the t...
+      :268  gap    gapped       QUOTED KERNEL IDENTIFIER                     ...wski / output-stage-3 certification), not the theorem, and the prior `gapped := True` / `ym_massless := False` stubs are retired. Landau-Siegel an...
+      :392  gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...| Yang-Mills mass-gap placement | SIDE-yang-mills-formation v0.1.0 | `SIDEYangMillsFormatio...
+      :392  gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...efined as `true`, equals `true` — the canonical shell shape. The mass-gap theorem is open. Row retained as audit record. |...
+      :415  gap    gap          CLAY / BIBLIOGRAPHY CITATION                 ...au-Siegel and Artin as classical reductions from GRH; Yang-Mills mass gap and full BSD open at the theorem level (formation-level placements ge...
+
+### relay data/b555_shells.txt
+  b555 -- COMPONENT 3 (d): THE STRUCTURAL.LEAN SHELLS SEARCHED IN GRH_CASCADE (READING (7), (R165)(6))
+  
+  ### the patterns: ['grh_exclusion', 'no_ls_zero', 'Structural.lean', 'LandauSiegel.', 'GRH.grh'] ; over the document at PLACE-papers 0c748da, rows and body: 0 hit(s)
+      NONE
+  ### SIDE-effects c66f3c5 Structural.lean: {'grh_exclusion': {'declared': True, 'lines': [115, 273]}, 'no_ls_zero': {'declared': True, 'lines': [136, 275]}}
+  ### SIDE-effects a27415d Structural.lean: {'grh_exclusion': {'declared': False, 'lines': [79]}, 'no_ls_zero': {'declared': False, 'lines': [84]}}
+  ### SIDE-effects HEAD Structural.lean: {'grh_exclusion': {'declared': False, 'lines': [79]}, 'no_ls_zero': {'declared': False, 'lines': [84]}}
+  ### NO ROW OR BODY SENTENCE OF GRH_CASCADE CITES EITHER SHELL; no defect, no ERRATA candidate.
+
+### relay data/b555_search.txt
+  b555 -- COMPONENT 4 (a): THE MATHLIB AND ZETA23 SEARCH (READING (8))
+  
+  ### SIDE-explicit-formula v0.2 -- Mathlib checkout D:\SIDE-explicit-formula\.lake\packages\mathlib ; HEAD 51e6992efd06 ; equal to the manifest rev: True
+    (a) lines matching RiemannHypothesis: 1 ; declarations named with it: 1
+        HEAD:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185:def RiemannHypothesis : Prop :=
+    (b) lines naming DirichletCharacter or LFunction with `1 / 2` or `re =`: 3
+        HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:40:  `completedLFunction χ s = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s`.
+        HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:285:    completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+        HEAD:Mathlib/NumberTheory/LSeries/Nonvanishing.lean:385:theorem LFunction_ne_zero_of_re_eq_one {s : ℂ} (hs : s.re = 1) (hχs : χ ≠ 1 ∨ s ≠ 1) :
+    (c) declarations named like an explicit formula: 0
+  
+  ### SIDE-lv-conservation v0.11.0 -- Mathlib checkout D:\SIDE-lv-conservation\.lake\packages\mathlib ; HEAD 5e932f97dd25 ; equal to the manifest rev: True
+    (a) lines matching RiemannHypothesis: 1 ; declarations named with it: 1
+        HEAD:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:160:def RiemannHypothesis : Prop :=
+    (b) lines naming DirichletCharacter or LFunction with `1 / 2` or `re =`: 3
+        HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:40:  `completedLFunction χ s = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s`.
+        HEAD:Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:285:    completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+        HEAD:Mathlib/NumberTheory/LSeries/Nonvanishing.lean:385:theorem LFunction_ne_zero_of_re_eq_one {s : ℂ} (hs : s.re = 1) (hχs : χ ≠ 1 ∨ s ≠ 1) :
+    (c) declarations named like an explicit formula: 0
+  
+  ### Zeta23 (SIDE-explicit-formula 5c72cad): EF_lit at Zeta23/ExplicitFormula.lean:97, over a ZeroConfig, its right side `literatureRHS`
+      :86-90 def literatureRHS (k : ℝ → ℂ) : ℂ := paperFT k (I / 2) + paperFT k (-I / 2) - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n)) + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+      :80 def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π
+      Zeta23/WeilEF/Main.lean:286 theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  ### EF_lit`s right side is fixed to ζ (the untwisted von Mangoldt sum and ζ`s gamma factor at 1/4 + ir/2): True
+
+### relay data/b555_cost.txt
+  b555 -- COMPONENT 4 (b): THE ζ-SIDE ARC`S COST, MEASURED (READING (9)) -- SIDE-explicit-formula v0.2 = 5c72cad
+  
+    TwoPropertyWindow.lean acts b518,b524,b527     theorems  18 ; naming a ζ object (RE-INSTANTIATED)   0 ; over abstract objects (REUSED)  18
+    PairTerm.lean          acts b529               theorems  27 ; naming a ζ object (RE-INSTANTIATED)   0 ; over abstract objects (REUSED)  27
+    DecayBound.lean        acts b530               theorems   9 ; naming a ζ object (RE-INSTANTIATED)   0 ; over abstract objects (REUSED)   9
+    RestBound.lean         acts b530               theorems  21 ; naming a ζ object (RE-INSTANTIATED)   1 ; over abstract objects (REUSED)  20
+    H2Bridge.lean          acts b532               theorems   7 ; naming a ζ object (RE-INSTANTIATED)   5 ; over abstract objects (REUSED)   2
+    PowerWindow.lean       acts b533               theorems  34 ; naming a ζ object (RE-INSTANTIATED)   1 ; over abstract objects (REUSED)  33
+    PowerLimit.lean        acts b534               theorems  89 ; naming a ζ object (RE-INSTANTIATED)  12 ; over abstract objects (REUSED)  77
+    Seam.lean              acts b536               theorems   6 ; naming a ζ object (RE-INSTANTIATED)   6 ; over abstract objects (REUSED)   0
+  
+  ### THE ARC: 211 theorems ; RE-INSTANTIATED 25 ; REUSED 186
+  ### the ζ objects the rule reads: zetaZeroConfig|riemannZeta|completedRiemannZeta|RiemannHypothesis|EF_lit|h2_sign|rh_strip|zetaSeam|ZetaSeam
+  ### the trails` own "N of N [profile]" counts, read at each act`s record: {'b529': [('46', '46')], 'b530': [], 'b532': [('7', '7')], 'b533': [('2', '2'), ('34', '34')], 'b534': [('89', '89')], 'b536': []}
+  ### the vendored Zeta23 at 5c72cad (the ζ explicit formula`s own development, outside b526-b536): 57 modules, 739 theorems -- X1`s reference weight, printed beside and not counted
+
+### b555_h8.json : {"file": "FINDINGS.md", "before": 722597, "added": 1093, "prefix": true, "line": 5810, "numbers": {"turns_negative": 33.194254748897386, "second": [35.314137669668185, 38.96141523737684], "stays_negative": 38.96141523737684, "floor": 1.4941732449037917, "crest": [50.37261357093787, 55.38076832583594, -462.2053289206582]}}
+### b555_t3dp.json : {"file": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md", "before": 123003, "added": 292, "prefix": true, "line": 778}
+### b555_clause.json : {"clause": {"file": "FINDINGS.md", "before": 723690, "added": 692, "prefix": true, "line": 5812}, "defect_o": {"file": "OPEN_TRAILS.md", "before": 1357584, "added": 303, "prefix": true, "line": 11371, "b554": 11356}}
+### b555_block.json : {"file": "phase1.5/spectral/GRH_CASCADE.md", "before": 58078, "added": 4395, "prefix": true, "line": 437}
+### b555_weil.json : {"file": "OPEN_TRAILS.md", "before": 1357887, "added": 2798, "prefix": true, "line": 11373, "new": 6, "reinst": 25, "reused": 186, "arc": 211, "chi": 31, "n6": false}
+### b555_reading.json : {"findings": {"file": "FINDINGS.md", "before": 724382, "added": 2405, "prefix": true, "line": 5814}, "pointer": {"file": "phase1.5/spectral/GRH_CASCADE.md", "before": 62473, "added": 260, "prefix": true, "line": 465}}
+### b555_findings.json : {"file": "FINDINGS.md", "before": 726787, "added": 2227, "prefix": true, "line": 5826, "next": "R_CURVE_CRITERION", "remaining": ["R_CURVE_CRITERION", "INDEX_ARITY_AT_THE_CRITICAL_LINE", "FOUNDATIONS_OF_THE_SIDE_PROGRAMME", "TECHNE_TOOLKIT", "ADDITIVE_MULTIPLICATIVE_CONSPIRACY", "SILENCE_STAGES_DEALIGNMENT", "EXHAUSTIVENESS_LICENSE", "INVARIANCE_BARRIERS", "REPARAMETERIZATION_BARRIERS_v0_1", "E_DIFFICULTY_THEOREM", "ENUMERA"]}
+### THE PROBES : relay data/b555_probe_<id>.txt and data/b555_probes.jsonl
+### THE BRANCHES : see data/b555_branches.txt
+====================================================================================================================================

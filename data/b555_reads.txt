@@ -1,0 +1,494 @@
+b555 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### data/b554_sign_pattern.txt:11-43 -- relay data/b554_sign_pattern.txt -- the floor derivation, per interval
+  :11 ### THE FLOOR, PER INTERVAL: floor = max(B(a_i), B(a_i+1)) + (h²/8)·M, M = max |2·ON[three nodes]| over the nearest triples inside 30-60
+  :12     a_i  a_i+1  h          M (2nd div. diff.)   h²M/8        max B        floor
+  :13     30   31     0.032790   9.927326e+03        1.3342e+00   1.730e-07    1.3342e+00
+  :14     31   32     0.031749   1.185875e+04        1.4942e+00   1.562e-07    1.4942e+00
+  :15     32   33     0.030772   1.185875e+04        1.4036e+00   1.354e-07    1.4036e+00
+  :16     33   34     0.029853   1.082100e+04        1.2055e+00   1.217e-07    1.2055e+00
+  :17     34   35     0.028988   7.890211e+03        8.2875e-01   1.106e-07    8.2875e-01
+  :18     35   36     0.028171   4.072296e+03        4.0397e-01   1.052e-07    4.0397e-01
+  :19     36   37     0.027399   2.563502e+03        2.4055e-01   1.043e-07    2.4055e-01
+  :20     37   38     0.026668   2.877715e+03        2.5583e-01   9.986e-08    2.5583e-01
+  :21     38   39     0.025975   2.877715e+03        2.4271e-01   1.058e-07    2.4271e-01
+  :22     39   40     0.025318   2.421329e+03        1.9401e-01   1.114e-07    1.9401e-01
+  :23     40   41     0.024693   3.964914e+03        3.0219e-01   1.139e-07    3.0219e-01
+  :24     41   42     0.024098   3.964914e+03        2.8780e-01   1.139e-07    2.8780e-01
+  :25     42   43     0.023530   2.335017e+03        1.6161e-01   1.123e-07    1.6161e-01
+  :26     43   44     0.022990   8.007970e+03        5.2904e-01   1.097e-07    5.2904e-01
+  :27     44   45     0.022473   1.256588e+04        7.9327e-01   1.015e-07    7.9327e-01
+  :28     45   46     0.021979   1.424297e+04        8.6005e-01   9.365e-08    8.6005e-01
+  :29     46   47     0.021506   1.424297e+04        8.2345e-01   8.615e-08    8.2345e-01
+  :30     47   48     0.021053   1.259440e+04        6.9780e-01   8.891e-08    6.9780e-01
+  :31     48   49     0.020619   8.341203e+03        4.4329e-01   9.384e-08    4.4329e-01
+  :32     49   50     0.020203   2.850669e+03        1.4544e-01   9.590e-08    1.4544e-01
+  :33     50   51     0.019803   6.539255e+03        3.2054e-01   9.590e-08    3.2054e-01
+  :34     51   52     0.019418   8.865711e+03        4.1787e-01   9.308e-08    4.1787e-01
+  :35     52   53     0.019048   9.402386e+03        4.2644e-01   8.599e-08    4.2644e-01
+  :36     53   54     0.018692   9.402386e+03        4.1064e-01   7.764e-08    4.1064e-01
+  :37     54   55     0.018349   8.454815e+03        3.5583e-01   7.150e-08    3.5583e-01
+  :38     55   56     0.018019   6.509550e+03        2.6418e-01   7.020e-08    2.6418e-01
+  :39     56   57     0.017700   4.100487e+03        1.6057e-01   7.238e-08    1.6057e-01
+  :40     57   58     0.017392   1.714971e+03        6.4842e-02   7.420e-08    6.4842e-02
+  :41     58   59     0.017094   1.591462e+03        5.8132e-02   7.521e-08    5.8132e-02
+  :42     59   60     0.016807   1.591462e+03        5.6194e-02   7.521e-08    5.6194e-02
+  :43 
+
+### data/b554_sign_pattern.txt:77-86 -- relay data/b554_sign_pattern.txt -- the sign pattern and the two positive intervals
+  :77 ### THE SIGN PATTERN OVER 30-60 (POS: Q > floor ; NEG: Q < -floor ; UND: |Q| <= floor):
+  :78     POS  ln a 3.4011973817 - 3.5023768112   a 30.000000 - 33.194255
+  :79     NEG  ln a 3.5023768112 - 3.5642833843   a 33.194255 - 35.314138
+  :80     POS  ln a 3.5642833843 - 3.6625718035   a 35.314138 - 38.961415
+  :81     NEG  ln a 3.6625718035 - 4.0943445622   a 38.961415 - 60.000000
+  :82 ### POSITIVE INTERVALS ABOVE THE FLOOR: 2
+  :83     ln a [3.4011973817, 3.5023768112]   a [30.000000, 33.194255]
+  :84     ln a [3.5642833843, 3.6625718035]   a [35.314138, 38.961415]
+  :85 ### UNDECIDED INTERVALS (|Q| <= floor): 0
+  :86 
+
+### data/b554_sign_pattern.txt:87-90 -- relay data/b554_sign_pattern.txt -- the crest table
+  :87 ### THE 29.551761 CRESTS AT a >= 38, with the pair there (golden section to 1e-9 in ln a):
+  :88     a 38.447464 (ln 3.64929275) : 29.55 term +76.2261 ; pair -420.6347 ; other off-line orbits +10.2610 ; ON +350.7132 ; Q +16.5655 ; floor 2.43e-01
+  :89     a 50.372614 (ln 3.91944765) : 29.55 term +55.3808 ; pair -462.2053 ; other off-line orbits -1.8199 ; ON +262.2414 ; Q -146.4030 ; floor 3.21e-01
+  :90 
+
+### FINDINGS.md:4805-4811 -- FINDINGS.md:4805 -- the tier law`s first statement (b539, (R149))
+  :4805 ## The cascade, act one: the anchor tier, the hub terminals tiered, THE_UNCONDITIONAL_SURROUND §6 and lv-conservation's description read against the register census
+  :4806 
+  :4807 *Filed at b539 on the author`s ruling `(R149)`. The anchor tier, the load-bearing map`s ranked terminals, and the sentences of THE_UNCONDITIONAL_SURROUND and of lv-conservation`s deposited description that carry the h2 frame, read against the register census (`FINDINGS.md:4787`). Sources: relay `data/b539_anchor.json`, `data/b539_tiers.json`, `data/b539_sentences.json`, `data/b539_erratum_draft.md`.*
+  :4808 
+  :4809 **The anchor tier, fresh.** All 8 anchor theorems of `(R149)`(1) re-profiled at SIDE-explicit-formula `81ae175`, each line equal to its bank; R3 carried UNDECIDED.
+  :4810 
+  :4811 **The hub terminals tiered** (THE_LOAD_BEARING_MAP, appendix at line 81): over the map`s twelve ranked terminals, T0 **5** · T1 **0** · T2 **6** · T3 **0** · T4 **1**. The T0 rows meet the criterion by their statements -- `h1_complete_at_Phi`, `C7_finite_type_false`, `blTerm_nonneg_of_onLine`, `spectral_cannon`, the order-≤1 inputs -- and none is in `(R149)`(1)`s list, which the map does not rank; whether the list widens is the author`s. `ConservationBridge.riemann_hypothesis` and `goalState_sevenClasses_of_h2` are T2.
+
+### FINDINGS.md:4819-4823 -- FINDINGS.md:4819 -- the tier law corrected (b540, (R150)): T1 split
+  :4819 ## The cascade, act two: the tier law corrected, PATHS_TO_THE_CRITICAL_LINE tiered against the RH-anchor
+  :4820 
+  :4821 *Filed at b540 on the author`s ruling `(R150)`. Sources: relay `data/b540_tiers.json`, `data/b540_sentences.json`, `data/b540_file.json`, `data/b540_erratum_draft.md`.*
+  :4822 
+  :4823 **E-2026-09-25-3 is FILED** (ERRATA.md:540-578, in the DEPOSIT-FACING list at :283). **The tier and the RH-anchor are two things**: T0 is a tier, the RH-anchor its subset bearing on where zeta`s zeros are, `h2_sign_iff_rh` at its head; the map`s five T0 terminals outside it each carry the sentence that they say nothing about the zeros` location. **T1 splits** into T1-open and T1-lit; `partialPositivity_finiteRange` is T1-lit. Corrected counts: the map`s twelve {'T0': 5, 'T1-open': 0, 'T1-lit': 1, 'T2': 6, 'T3': 0, 'T4': 0}; SURR`s table {'T0': 3, 'T1-open': 0, 'T1-lit': 1, 'T2': 7, 'T3': 0, 'T4': 4}.
+
+### phase1.5/spectral/BALANCE_AND_POSITIVITY.md:678-678 -- BALANCE_AND_POSITIVITY.md:678 -- b545`s line grading T3doubleprime at T2
+  :678 |  | `SIDELvConservation.T3.T3doubleprime_general_commutation_fails` | SIDE-lv-conservation `c8e3d31` → `v0.10.0` | SAME | DERIVES (a countermodel) | **T2** | logic over abstract couplings: the unrestricted ∀∃ ⟹ ∃∀ fails at s = 3 | CARRIED -- T2 at relay data/b540_tiers.json, PATHS :293 (the bracket) | not indexed (b544 subject PROGRAMME-TYPE) |
+
+### phase1.5/spectral/GRH_CASCADE.md:25-25 -- GRH_CASCADE.md -- the Role paragraph
+  :25 **Role.** This record *presents* the **transfer** facet — the seven-class mechanism catalogue, character-twisted, carries the RH argument to every Dirichlet L(s, χ) because |χ(p)| = 1 at every unramified prime (character-uniform exclusion). The transfer runs **under the same clause**: GRH inherits the identical open premise as RH (§27.3; the full Mathlib-GRH statement is the open bridge), and the downstream cascade (Landau–Siegel, Artin) follows as *classical reductions* once GRH is established. Complete argument: the monograph (concept DOI 10.5281/zenodo.19675355).
+
+### phase1.5/spectral/GRH_CASCADE.md:29-43 -- GRH_CASCADE.md -- the Status block
+  :29 ## Status (reframed 2026-06-16)
+  :30 
+  :31 This document was reframed off the earlier "kernel-skeleton verified via `KernelSeventeen.lean`" framing. A subsequent audit found the cited KernelSeventeen sections were propositional templates — opaque-Prop hypotheses or `True`-valued stubs — not verified transfers; `KernelSeventeen.lean` was an early closure-example scaffold, not a research kernel, and is no longer cited as a verifier. The structural-argument substance (the character-insensitivity exposition) is preserved; per-problem verification anchors are now the federated SIDE-* kernels, with honest open / classical-reduction status where no kernel exists.
+  :32 
+  :33 Verification status of the cascade's claims:
+  :34 
+  :35 - **GRH** — the structural-exhaustiveness analog (seven character-twisted mechanism classes, the $(\chi, \bar\chi)$-paired voice chorus) is kernel-verified in `SIDE-grh-transfer`: real exclusions over `DirichletCharacter ℂ n`, 7-of-7 voices, AxiomCheck clean. The full Mathlib-GRH-statement bridge is open. The cascade's load-bearing magnitude argument is otherwise argument-supported (monograph Ch. 20).
+  :36 - **Landau-Siegel** — classical reduction (trivial-after-GRH); no dedicated kernel.
+  :37 - **Artin** — classical reduction (Hooley 1967, conditional on GRH); no kernel.
+  :38 - **Additive–multiplicative conspiracy (internally classified Type D; Twin / Goldbach / Sophie Germain)** — coordination between additive and multiplicative structure beyond what CRT explains; the structural exclusion is genuine in `SIDE-effects` `Phase15/Module1.lean : no_type_d_conspiracies` (CRT exhaustiveness); the analytic existence statements are open milestones — the twin-prime, Goldbach, and Sophie Germain analytic milestones (M3–M5).
+  :39 - **Yang-Mills mass gap, full BSD / $\Sha$-finiteness** — theorem open; no genuine kernel proves either. Each has a genuine formation-level kernel that verifies only the placement, not the theorem: BSD's tuple analogy $(2,3,2,0)=7$ matching $\xi$ (both interfaces dark) in `SIDE-bsd-formation-transfer`; YM's mass-gap-as-n3-domain-Ostrowski placement (output stage 3) in `SIDE-yang-mills-formation`. The prior `gapped := True` (SIDE-effects) and `ym_massless := False` (MetaKernel) stubs are retired.
+  :40 
+  :41 REGISTRY placement remains the author's decision. Open reconciliations are tracked in the programme's verification ledger: the monograph's GRH-symmetry statement is loose for complex χ; and the GRH exhaustiveness/exclusion architecture transfer, the complex-χ paired-voice completion, and the Landau-Siegel (trivial-after-GRH) dependency remain open reconciliation items.
+  :42 
+  :43 In the criterion + verified-surround grammar shared with the direct RH route, the cascade's structural exhaustiveness reduces to a single carried-open premise — `h2`, realization-totality at the ξ interface — carried openly: the federated kernels compile the exclusion *structure* (per-class exclusions, the transport to the joint conclusion, and the certifiable surround `h1`, the eight couplings at Φ, complete), while `h2` is the criterion the whole cascade rests on, exactly as RH itself does. The criterion and the verified surround are the standing grammar — the kernel verifies the surround (the structure), the manuscript supplies the criterion (the exhaustiveness) — and every step of the ca
+
+### phase1.5/spectral/GRH_CASCADE.md:47-49 -- GRH_CASCADE.md -- the Abstract
+  :47 ## Abstract
+  :48 
+  :49 The Riemann Hypothesis — established in the monograph and verified at the architecture level in SIDE-kernel (v1.2, tag on commit `b1407b2`; citable deposit v1.1, Zenodo DOI 10.5281/zenodo.19937590) — extends to a cascade of consequences via a single structural fact: Dirichlet characters $\chi$ satisfy $|\chi(p)| = 1$ at every prime where the Euler product is active. The character twist is magnitude-preserving; the balance equation $p^{-\sigma} = p^{-(1-\sigma)}$ at zeros of $L(s, \chi)$ is character-insensitive. Consequence: the seven mechanism classes of $\xi(s)$ transfer to $L(s, \chi)$ for every Dirichlet character $\chi$, yielding the **Generalized Riemann Hypothesis** (GRH). The cascade
+
+### phase1.5/spectral/GRH_CASCADE.md:53-67 -- GRH_CASCADE.md -- §I
+  :53 ## I. The Cascade Architecture
+  :54 
+  :55 **A note on scope.** The monograph argues the discharge of these claims — the character-insensitivity magnitude argument and the per-class analyses. This paper presents the cascade with per-claim verification status carried explicitly: the Status block above and the Correspondence section below attach, to each claim, the kernel that verifies it or its honest absence. Structural-exhaustiveness for GRH is verified in `SIDE-grh-transfer`; the full Mathlib-GRH bridge is open; Landau-Siegel and Artin are labeled as classical reductions. The claims stand as stated; the certificates attach.
+  :56 
+  :57 The Riemann Hypothesis is the foundational result. The cascade extends RH through three connected consequences:
+  :58 
+  :59 **(1) RH** (kernel-verified). All non-trivial zeros of $\zeta(s)$ lie on the critical line $\sigma = 1/2$. The proof: SIDE Exclusion across seven mechanism classes for the formation tuple $(n_1, n_2, n_3, n_4) = (2, 3, 2, 0)$ of $\xi(s)$. SIDE-kernel v1.2 (tag on commit `b1407b2`) verifies this at the architecture level: every route terminal — `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon`, `ConservationBridge.riemann_hypothesis` — reports `{propext, Classical.choice, Quot.sound}` under `#print axioms`, and the formation certificate `SIDEKernel.formation` is axiom-free. The citable deposit remains v1.1 (Zenodo DOI 10.5281/zenodo.19937590); the v1.1→v1.2 axiom-profil
+  :60 
+  :61 **(2) GRH** (structural-exhaustiveness analog kernel-verified in `SIDE-grh-transfer`). All non-trivial zeros of every Dirichlet $L$-function $L(s, \chi)$ lie on $\sigma = 1/2$. The proof: the same seven mechanism classes for $\xi(s)$ apply to $L(s, \chi)$ because Dirichlet characters satisfy $|\chi(p)| = 1$ at unramified primes; the balance equation that forces $\sigma = 1/2$ depends only on the magnitude $p^{-\sigma}$ and is character-insensitive. `SIDE-grh-transfer` verifies the seven character-twisted exclusions over `DirichletCharacter ℂ n` (the $(\chi, \bar\chi)$-paired voice chorus, 7-of-7 voices); the magnitude-insensitivity of the balance is the load-bearing argument (monograph Ch. 2
+  :62 
+  :63 **(3) Landau-Siegel zeros excluded.** No real zero of $L(s, \chi)$ exists near $\sigma = 1$. The proof: a Landau-Siegel zero carries the balance constraint AND $\sigma > 3/4$. The balance forces $\sigma = 1/2$; this is incompatible with $\sigma > 3/4$. The exclusion is immediate from GRH — a classical reduction (trivial-after-GRH), with no dedicated kernel.
+  :64 
+  :65 **(4) Artin's primitive root conjecture** (unconditional). Hooley (1967) proved GRH $\Rightarrow$ Artin. With GRH established, Artin's conjecture becomes unconditional. This is Hooley's classical reduction (conditional on GRH); no kernel encodes it.
+  :66 
+  :67 The cascade chain: **RH → GRH → no Landau-Siegel zeros → Artin's primitive root conjecture (unconditional).**
+
+### phase1.5/spectral/GRH_CASCADE.md:139-145 -- GRH_CASCADE.md -- §III.3 and its transport paragraph
+  :139 ### III.3 The exclusion conclusion
+  :140 
+  :141 By SIDE Exclusion applied to the seven mechanism classes for $L(s, \chi)$: no mechanism class produces an off-line zero. The formation count remains 7, $n_4 = 0$ holds (the dark interfaces between mechanism classes are preserved under character twist by magnitude-insensitivity). By the Mechanism Theorem — the RH-side engine `MetaKernel` / `Kernel/SilenceTheorem.lean` (`type_I_has_ostrowski`, `silence_universal`), transported to $L(s, \chi)$ by the character-insensitivity argument — no off-line zero exists. The transport carries its weight at one step: the move from per-class exclusion to the joint conclusion — no *combination* of classes produces an off-line zero — is exactly the bracketed s
+  :142 
+  :143 **Correspondence (transport edge, graded).** DERIVES — the transport itself, the move from per-class exclusion to the joint conclusion (goal ⇐ h1 ∧ h2), is compiled as `RegisterPentagon.goalState_of_h1_h2` at **SIDE-lv-conservation v0.7.0 = `2d86182`** (`{propext, Classical.choice, Quot.sound}`; concept DOI 10.5281/zenodo.21433177, v0.8.0 version DOI 10.5281/zenodo.21436280), native via `T3.T3prime_shared_witness`. The five register faces R1..R5 formalize §27.3's "one premise in five registers" as STRUCTURE — the register scaffold, never the cross-register equivalences. Two compiled negatives seal the "no combination of classes produces an off-line zero" reading: the unrestricted-commutation
+  :144 
+  :145 All non-trivial zeros of $L(s, \chi)$ lie on $\sigma = 1/2$. GRH holds for every Dirichlet character $\chi$. The result is character-uniform: the same proof works for every $\chi$ because $|\chi(p)| = 1$ at every unramified prime. The structural-exhaustiveness form of this conclusion is what `SIDE-grh-transfer` verifies; the full Mathlib-GRH statement (all non-trivial zeros of the analytic $L(s,\chi)$ on the critical line) is the open bridge.
+
+### phase1.5/spectral/GRH_CASCADE.md:375-395 -- GRH_CASCADE.md -- the Correspondence rows and the kernel-audit line
+  :375 ## Correspondence
+  :376 
+  :377 Every load-bearing claim of the cascade, matched to the kernel that verifies it, the fully-qualified theorem, and its `#print axioms` profile read from the kernel on D: (2026-07-11). `{propext, Classical.choice, Quot.sound}` is clean classical Mathlib; a shorter profile or "axiom-free (none)" carries even less; where no kernel exists the Status is a classical reduction or research-reach, never blank.
+  :378 
+  :379 | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+  :380 |:--|:--|:--|:--|:--|
+  :381 | GRH structural exhaustiveness — seven character-twisted classes, none produces an off-line zero | SIDE-grh-transfer v0.5.0 | `SIDEGRHTransfer.grh_structural_exhaustiveness_proved` (via `seven_classes_chi`, `c1_chi_exclusion`…`c7_chi_exclusion`, `none_produce_chi`, `ostrowski_exhaustive_chi`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled; structural-exhaustiveness analog; full Mathlib-GRH bridge open. Row-note: χ and χ̄ are typed-but-unused parameters of the composite terminal (disclosed in the kernel source); the character content is certified by the twisted-balance and paired-voice rows below, and `voice1_balance_chi` itself contains no character (signature-level real a
+  :382 | Character-insensitive balance | SIDE-grh-transfer v0.5.0 | `SIDEGRHTransfer.twisted_balance_at_unramified_prime`; `twisted_balance_at_half`; `voice1_balance_chi` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled (genuine Mathlib content: prime-unit norm-one; honest unramified hypothesis) |
+  :383 | Paired-voice chorus (Symmetry/FE for complex χ) | SIDE-grh-transfer v0.5.0 | `SIDEGRHTransfer.paired_reflection_axis_invariant_iff`; `paired_conjugation_real_axis_agree_iff`; `paired_cr_minimal_codim_axis_iff`; `paired_modular_S_fixed_iff`; `paired_spectral_offset_zero_iff`; `paired_topological_no_sigma_preference` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled (genuine Mathlib content) |
+  :384 | Mechanism Theorem (RH-side engine) | SIDE-kernel v1.2 | `ECondition.type_I_has_ostrowski` | `{propext, Quot.sound}` | DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12) |
+  :385 | Universal Silence | SIDE-kernel v1.2 | `SilenceTheorem.silence_universal` | axiom-free (none) | INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here. |
+  :386 | Domain Ostrowski bridge | SIDE-kernel v1.2 | `ostrowski_exhaustive` (`Bridge/OstrowskiBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled (Mathlib bridge) |
+  :387 | Per-prime balance at zeros | SIDE-kernel v1.2 | `neg_eq_neg_one_sub_iff` (`Bridge/LocalZeta.lean`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled (Mathlib bridge) |
+  :388 | Additive–multiplicative conspiracy exclusion (Twin / Goldbach / Sophie Germain) | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `crt_exhaustiveness`) | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 83
+  :389 | Landau-Siegel exclusion | (none) | — | — | Classical reduction (trivial-after-GRH) |
+  :390 | Artin primitive root | (none) | — | — | Classical reduction (Hooley 1967) |
+  :391 | BSD formation placement | SIDE-bsd-formation-transfer v0.1.0 | `SIDEBSDFormationTransfer.formation_preserved` (with `both_interfaces_dark`, `all_seven_transfer`) | axiom-free (none) | **SHELL — work-order (W-5 family).** PULLED as a citation per author ruling (2026-07-13): `formation_preserved` is `decide` over hand-assigned constants (`n1_BSD`…`n4_BSD`) — it *records* the formation assignment, it does not derive it. Ш-finiteness and full BSD remain open (`True`-stubs). Row retained as audit record. |
+  :392 | Yang-Mills mass-gap placement | SIDE-yang-mills-formation v0.1.0 | `SIDEYangMillsFormation.mass_gap_equals_n3_certification` (with `silence_boundary_at_output_stage`) | axiom-free (none) | **SHELL — work-order (W-5 family).** PULLED as a citation per author ruling (2026-07-13): `mass_gap_equals_n3_certification` proves that `mass_gap_is_n3_domain_ostrowski`, a `Bool` defined as `true`, equals `true` — the canonical shell shape. The mass-gap theorem is open. Row retained as audit record. |
+  :393 | ABC qualitative tightening | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** at `a27415d` — same terminal as the conspiracy-exclusion row above; **scope: for positive-modulus structural couplings**. Effective ABC content research-reach. |
+  :394 
+  :395 *Kernels audited at: SIDE-kernel `ce5d7bd` (v1.2 = `b1407b2`); SIDE-grh-transfer `858cbf6` (v0.5.0); SIDE-effects `a27415d` (W-4 discharge merged 2026-07-13; prior pin `c66f3c5`); SIDE-bsd-formation-transfer `7425d73` (v0.1.0); SIDE-yang-mills-formation `79e4f45` (v0.1.0).*
+
+### phase1.5/spectral/GRH_CASCADE.md:421-433 -- GRH_CASCADE.md -- the b394 annotation
+  :421 <!-- b394 RECONCILIATION ANNOTATION, 2026-09-09 -->
+  :422 
+  :423 #### **RECONCILIATION ANNOTATION** *(2026-09-09, b394; existing text preserved apart from the two version strings named here)*
+  :424 
+  :425 > ### **TWO CITATIONS OF `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` WERE MOVED FROM `v0.1` TO `v0.2.4`.** *The originals, preserved:*
+  :426 
+  :427 > - line `234` — *- **FOUNDATIONS_OF_THE_SIDE_PROGRAMME v0.1** — Silence Principle, Compression Theorem, Mechanism Theorem. The character-insensitivity argument is one *
+  :428 > - line `330` — *FOUNDATIONS_OF_THE_SIDE_PROGRAMME v0.1. *The Silence Cascade: From Dark Interfaces to the Decidability Boundary.**
+  :429 
+  :430 > ### **WHY.** *`REGISTRY.md`’s row `1.5f-4` records a version reconciliation past `v0.1`, and its table now carries `v0.2.4`. This paper kept the pre-update form — the **corrected-but-unpropagated** species `b391` found in the registry’s own bundle label. **A correction that does not propagate is a correction in one place and a defect everywhere else.** `v0.1` is in the cited document’s own lineage, so this is a **supersession moved forward**, not a phantom repaired.*
+  :431 
+  :432 > ### **WHAT WAS NOT DONE.** *No grade moved, no claim withdrawn, no correspondence row edited, no other string on either line changed, and no line deleted.*
+  :433 
+
+### GRH_CASCADE.md read entire: 434 lines
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/GRHBridge.lean:48-58 -- GRHBridge.lean at 858cbf6 -- seven_classes_chi
+  :48 
+  :49 theorem seven_classes_chi : Fintype.card MechanismClass = 7 := by decide
+  :50 /-- Voice1 (Euler-balance) σ-axis algebra — the character-independent
+  :51     core. Mirrors `voice1_balance` in `TheBridgeComplete.lean`. The
+  :52     χ-paired lifting (via magnitude cancellation against Mathlib's
+  :53     `DirichletCharacter.unit_norm_eq_one`) is in `CharacterTransfer`. -/
+  :54 theorem voice1_balance_chi (σ : ℝ) :
+  :55     -σ = -(1 - σ) ↔ σ = 1 / 2 := by
+  :56   constructor
+  :57   · intro h; linarith
+  :58   · intro h; rw [h]; ring
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/GRHBridge.lean:107-117 -- GRHBridge.lean at 858cbf6 -- none_produce_chi
+  :107 
+  :108 theorem none_produce_chi {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) :
+  :109     ∀ c : MechanismClass, ¬ produces_offline_chi c := by
+  :110   intro c
+  :111   cases c
+  :112   · exact c1_chi_exclusion χ χbar
+  :113   · exact c2_chi_exclusion χ χbar
+  :114   · exact c3_chi_exclusion χ χbar
+  :115   · exact c4_chi_exclusion χ χbar
+  :116   · exact c5_chi_exclusion χ χbar
+  :117   · exact c6_chi_exclusion χ χbar
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/GRHBridge.lean:132-142 -- GRHBridge.lean at 858cbf6 -- GRHStructuralExhaustiveness
+  :132     paired-form convention from the v0.4.0 chorus). -/
+  :133 def GRHStructuralExhaustiveness {n : ℕ} [NeZero n]
+  :134     (χ χbar : DirichletCharacter ℂ n) : Prop :=
+  :135   (Fintype.card MechanismClass = 7) ∧
+  :136   (∀ c : MechanismClass, ¬ produces_offline_chi c) ∧
+  :137   (∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial →
+  :138     f.IsEquiv Rat.AbsoluteValue.real ∨
+  :139     ∃ p : ℕ, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),
+  :140       f.IsEquiv (Rat.AbsoluteValue.padic p))
+  :141 
+  :142 /-- **The composite GRH theorem (SIDE structural exhaustiveness form).**
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/GRHBridge.lean:144-150 -- GRHBridge.lean at 858cbf6 -- grh_structural_exhaustiveness_proved
+  :144     `TheBridgeComplete.lean`. -/
+  :145 theorem grh_structural_exhaustiveness_proved
+  :146     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) :
+  :147     GRHStructuralExhaustiveness χ χbar :=
+  :148   ⟨seven_classes_chi, none_produce_chi χ χbar, ostrowski_exhaustive_chi⟩
+  :149 
+  :150 end SIDEGRHTransfer
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterTransfer.lean:76-102 -- CharacterTransfer.lean at 858cbf6 -- the twisted_balance lemmas
+  :76 theorem twisted_balance_at_unramified_prime
+  :77     {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n)
+  :78     (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n)
+  :79     (s : ℝ) :
+  :80     ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-s)
+  :81       = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - s))
+  :82     ↔ s = 1 / 2 := by
+  :83   -- Step 1: prime + unramified ⇒ (p : ZMod n) is a unit (Mathlib).
+  :84   have hu : IsUnit ((p : ZMod n)) := ZMod.isUnit_prime_of_not_dvd hp hpn
+  :85   -- Step 2: magnitude at a unit is 1 (Mathlib's `unit_norm_eq_one`,
+  :86   -- proved internally via `pow_card_eq_one'` — the root-of-unity step).
+  :87   have hχ : ‖χ ((p : ZMod n))‖ = 1 := by
+  :88     rw [← hu.unit_spec]
+  :89     exact χ.unit_norm_eq_one hu.unit
+  :90   -- Step 3: substitute, reduce to Voice1's balance_theorem.
+  :91   rw [hχ, one_mul, one_mul]
+  :92   exact balance_theorem p hp s
+  :93 
+  :94 /-- Corollary: at σ = 1/2, the twisted Euler balance holds. -/
+  :95 theorem twisted_balance_at_half
+  :96     {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n)
+  :97     (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n) :
+  :98     ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 / 2 : ℝ))
+  :99       = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - 1 / 2 : ℝ)) :=
+  :100   (twisted_balance_at_unramified_prime χ p hp hpn (1 / 2)).mpr rfl
+  :101 
+  :102 end SIDEGRHTransfer
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterSymmetry.lean:66-69 -- CharacterSymmetry.lean at 858cbf6 -- a paired_* lemma
+  :66 theorem paired_reflection_axis_invariant_iff
+  :67     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :
+  :68     (∀ ρ : ℂ, ρ.re = σ → (1 - ρ).re = σ) ↔ σ = 1 / 2 := by
+  :69   constructor
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterSymmetry.lean:86-89 -- CharacterSymmetry.lean at 858cbf6 -- a paired_* lemma
+  :86 theorem paired_conjugation_real_axis_agree_iff
+  :87     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :
+  :88     conjugate_re σ = reflect_re σ ↔ σ = 1 / 2 :=
+  :89   symmetries_agree_iff σ
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterCodim.lean:58-61 -- CharacterCodim.lean at 858cbf6 -- a paired_* lemma
+  :58 theorem paired_cr_minimal_codim_axis_iff
+  :59     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :
+  :60     cr_minimal_codim σ ↔ σ = 1 / 2 :=
+  :61   cr_minimal_iff σ
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterModular.lean:57-60 -- CharacterModular.lean at 858cbf6 -- a paired_* lemma
+  :57 theorem paired_modular_S_fixed_iff
+  :58     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :
+  :59     S_action σ = σ ↔ σ = 1 / 2 :=
+  :60   S_fixed_point σ
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterSpectral.lean:59-62 -- CharacterSpectral.lean at 858cbf6 -- a paired_* lemma
+  :59 theorem paired_spectral_offset_zero_iff
+  :60     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :
+  :61     spectral_offset σ = 0 ↔ σ = 1 / 2 :=
+  :62   offset_zero_iff σ
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/CharacterTopological.lean:72-75 -- CharacterTopological.lean at 858cbf6 -- a paired_* lemma
+  :72 theorem paired_topological_no_sigma_preference
+  :73     {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ) :
+  :74     topological_contribution σ = topological_contribution (1 / 2 : ℝ) :=
+  :75   topological_no_sigma_preference σ
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/Voice2Vendored.lean:42-43 -- Voice2Vendored.lean at 858cbf6 -- the definition conjugate_re unfolds to
+  :42 def conjugate_re (sigma : Real) : Real := sigma
+  :43 
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/Voice2Vendored.lean:48-49 -- Voice2Vendored.lean at 858cbf6 -- the definition reflect_re unfolds to
+  :48 def reflect_re (sigma : Real) : Real := 1 - sigma
+  :49 /-- **Symmetries-agree characterization.** The conjugation and
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/Voice3bVendored.lean:56-57 -- Voice3bVendored.lean at 858cbf6 -- the definition cr_minimal_codim unfolds to
+  :56 def cr_minimal_codim (sigma : Real) : Prop :=
+  :57   zero_codimension sigma = 1
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/Voice5Vendored.lean:46-47 -- Voice5Vendored.lean at 858cbf6 -- the definition S_action unfolds to
+  :46 def S_action (sigma : Real) : Real := 1 - sigma
+  :47 
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/Voice6Vendored.lean:41-42 -- Voice6Vendored.lean at 858cbf6 -- the definition spectral_offset unfolds to
+  :41 noncomputable def spectral_offset (sigma : Real) : Real := sigma - 1 / 2
+  :42 
+
+### D:/SIDE-grh-transfer/SIDEGRHTransfer/Voice7Vendored.lean:51-52 -- Voice7Vendored.lean at 858cbf6 -- the definition topological_contribution unfolds to
+  :51 def topological_contribution (_sigma : Real) : Real := 0
+  :52 
+
+### D:/SIDE-kernel/MetaKernel.lean:145-151 -- SIDE-kernel b1407b2 -- type_I_has_ostrowski
+  :145 theorem type_I_has_ostrowski (Domain : Type) [Fintype Domain]
+  :146     (target : Prop) (produces : Domain → Prop)
+  :147     (h_none : ∀ d, ¬(produces d))
+  :148     (h_target : target → ∃ d, produces d) :
+  :149     ¬target := by
+  :150   intro ht
+  :151   obtain ⟨d, hd⟩ := h_target ht
+
+### D:/SIDE-kernel/Kernel/SilenceTheorem.lean:74-80 -- SIDE-kernel b1407b2 -- silence_universal
+  :74 theorem silence_universal
+  :75     {C : ConfigurationSpace} {R : Type}
+  :76     (I : Interface C R)
+  :77     (h_univ : I.is_universal) :
+  :78     I.kappa_zero := by
+  :79   intro V M h_factors c₁ c₂
+  :80   obtain ⟨f, hf⟩ := h_factors
+
+### D:/SIDE-kernel/Kernel/SilenceTheorem.lean:42-48 -- SIDE-kernel b1407b2 -- Interface.is_universal
+  :42 def Interface.is_universal {C : ConfigurationSpace} {R : Type}
+  :43     (I : Interface C R) : Prop :=
+  :44   ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂
+  :45 
+  :46 /-- A measurement M *factors through* an interface I if M depends
+  :47     on configurations only through I's output. Formally:
+  :48     M = f ∘ I.action for some function f. -/
+
+### D:/SIDE-kernel/Bridge/OstrowskiBridge.lean:102-107 -- SIDE-kernel b1407b2 -- ostrowski_exhaustive
+  :102 theorem ostrowski_exhaustive :
+  :103     ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial →
+  :104     f.IsEquiv Rat.AbsoluteValue.real ∨
+  :105     ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p) :=
+  :106   fun f hf => Rat.AbsoluteValue.equiv_real_or_padic f hf
+  :107 
+
+### D:/SIDE-kernel/Bridge/LocalZeta.lean:4-10 -- SIDE-kernel b1407b2 -- neg_eq_neg_one_sub_iff
+  :4 theorem neg_eq_neg_one_sub_iff {α : Type*} [Field α] [CharZero α] (s : α) :
+  :5     -s = -(1 - s) <-> s = 1 / 2 := by
+  :6   constructor
+  :7   · intro h
+  :8     have h1 : s = 1 - s := neg_inj.mp h
+  :9     field_simp
+  :10     linear_combination h1
+
+### D:/SIDE-kernel/MetaKernel.lean:145-151 -- SIDE-kernel 0e5233f -- type_I_has_ostrowski
+  :145 theorem type_I_has_ostrowski (Domain : Type) [Fintype Domain]
+  :146     (target : Prop) (produces : Domain → Prop)
+  :147     (h_none : ∀ d, ¬(produces d))
+  :148     (h_target : target → ∃ d, produces d) :
+  :149     ¬target := by
+  :150   intro ht
+  :151   obtain ⟨d, hd⟩ := h_target ht
+
+### D:/SIDE-kernel/Kernel/SilenceTheorem.lean:74-80 -- SIDE-kernel 0e5233f -- silence_universal
+  :74 theorem silence_universal
+  :75     {C : ConfigurationSpace} {R : Type}
+  :76     (I : Interface C R)
+  :77     (h_univ : I.is_universal) :
+  :78     I.kappa_zero := by
+  :79   intro V M h_factors c₁ c₂
+  :80   obtain ⟨f, hf⟩ := h_factors
+
+### D:/SIDE-kernel/Kernel/SilenceTheorem.lean:42-48 -- SIDE-kernel 0e5233f -- Interface.is_universal
+  :42 def Interface.is_universal {C : ConfigurationSpace} {R : Type}
+  :43     (I : Interface C R) : Prop :=
+  :44   ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂
+  :45 
+  :46 /-- A measurement M *factors through* an interface I if M depends
+  :47     on configurations only through I's output. Formally:
+  :48     M = f ∘ I.action for some function f. -/
+
+### D:/SIDE-kernel/Bridge/OstrowskiBridge.lean:102-107 -- SIDE-kernel 0e5233f -- ostrowski_exhaustive
+  :102 theorem ostrowski_exhaustive :
+  :103     ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial →
+  :104     f.IsEquiv Rat.AbsoluteValue.real ∨
+  :105     ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p) :=
+  :106   fun f hf => Rat.AbsoluteValue.equiv_real_or_padic f hf
+  :107 
+
+### D:/SIDE-kernel/Bridge/LocalZeta.lean:4-10 -- SIDE-kernel 0e5233f -- neg_eq_neg_one_sub_iff
+  :4 theorem neg_eq_neg_one_sub_iff {α : Type*} [Field α] [CharZero α] (s : α) :
+  :5     -s = -(1 - s) <-> s = 1 / 2 := by
+  :6   constructor
+  :7   · intro h
+  :8     have h1 : s = 1 - s := neg_inj.mp h
+  :9     field_simp
+  :10     linear_combination h1
+
+### D:/SIDE-effects/SIDEEffects/Phase15/Module1.lean:146-151 -- SIDE-effects a27415d -- crt_exhaustiveness
+  :146 theorem crt_exhaustiveness (sc : StructuralCoupling) :
+  :147     ∃ m : ModularCoupling, ∀ n : ℕ, sc.eval n ↔ m.eval n :=
+  :148   ⟨to_modular sc, fun n => to_modular_correct sc n⟩
+  :149 
+  :150 def TypeD : Type :=
+  :151   { sc : StructuralCoupling //
+
+### D:/SIDE-effects/SIDEEffects/Phase15/Module1.lean:154-158 -- SIDE-effects a27415d -- no_type_d_conspiracies
+  :154 theorem no_type_d_conspiracies : IsEmpty TypeD := by
+  :155   refine ⟨fun ⟨sc, h_no_modular⟩ => ?_⟩
+  :156   exact h_no_modular (crt_exhaustiveness sc)
+  :157 
+  :158 end SIDEEffects.Phase15.Module1
+
+### SIDE-effects a27415d Milestones.lean: the sorry lines [32, 49, 63]
+### SIDE-effects a27415d Structural.lean: `grh_exclusion` at [79] ; `no_ls_zero` at [84]
+### D:/SIDE-effects/SIDEEffects/Phase15/Module1.lean:154-159 -- SIDE-effects c66f3c5 -- crt_exhaustiveness
+  :154 theorem crt_exhaustiveness (sc : StructuralCoupling) :
+  :155     ∃ m : ModularCoupling, ∀ n : ℕ, sc.eval n ↔ m.eval n :=
+  :156   ⟨to_modular sc, fun n => to_modular_correct sc n⟩
+  :157 
+  :158 /-! ## §1.6 — Type C / Type D distinction -/
+  :159 
+
+### D:/SIDE-effects/SIDEEffects/Phase15/Module1.lean:164-169 -- SIDE-effects c66f3c5 -- no_type_d_conspiracies
+  :164 theorem no_type_d_conspiracies : IsEmpty TypeD := by
+  :165   refine ⟨fun ⟨sc, h_no_modular⟩ => ?_⟩
+  :166   obtain ⟨m, hm⟩ := crt_exhaustiveness sc
+  :167   exact h_no_modular ⟨m, hm⟩
+  :168 
+  :169 end SIDEEffects.Phase15.Module1
+
+### SIDE-effects c66f3c5 Milestones.lean: the sorry lines [39, 61, 80]
+### SIDE-effects c66f3c5 Structural.lean: `grh_exclusion` at [115, 273] ; `no_ls_zero` at [136, 275]
+### D:/SIDE-bsd-formation-transfer/SIDEBSDFormationTransfer/Basic.lean:68-70 -- SIDE-bsd-formation-transfer 7425d73 -- formation_preserved
+  :68 theorem formation_preserved :
+  :69     n1_BSD = n1_xi ∧ n2_BSD = n2_xi ∧ n3_BSD = n3_xi ∧ n4_BSD = n4_xi := by
+  :70   exact ⟨by decide, by decide, by decide, by decide⟩
+
+### D:/SIDE-bsd-formation-transfer/SIDEBSDFormationTransfer/Basic.lean:43-45 -- SIDE-bsd-formation-transfer 7425d73 -- n1_BSD
+  :43 def n1_BSD : Nat := 2
+  :44 /-- Transformation: Ostrowski places of ℚ (archimedean, p-adic, global). -/
+  :45 def n2_BSD : Nat := 3
+
+### D:/SIDE-yang-mills-formation/SIDEYangMillsFormation/Basic.lean:282-284 -- SIDE-yang-mills-formation 79e4f45 -- mass_gap_equals_n3_certification
+  :282 theorem mass_gap_equals_n3_certification :
+  :283     mass_gap_is_n3_domain_ostrowski = true := by decide
+  :284 
+
+### D:/SIDE-yang-mills-formation/SIDEYangMillsFormation/Basic.lean:280-282 -- SIDE-yang-mills-formation 79e4f45 -- mass_gap_is_n3_domain_ostrowski
+  :280 def mass_gap_is_n3_domain_ostrowski : Bool := true
+  :281 
+  :282 theorem mass_gap_equals_n3_certification :
+
+### D:/SIDE-explicit-formula/Zeta23/ExplicitFormula.lean:82-90 -- Zeta23 at SIDE-explicit-formula 5c72cad -- literatureRHS (vonMangoldt; the ζ gamma factor)
+  :82 /-- Right-hand side of [eq:EFstd] (App. A, first display), VERBATIM:
+  :83 `h(i/2) + h(−i/2) − Σ_{n≥1} Λ(n) n^{-1/2} (k(log n) + k(−log n)) + (1/2π) ∫_ℝ h(r) [Re Γ'/Γ(1/4 + ir/2) − log π] dr`
+  :84 with `h := paperFT k`.  The n-sum is written over all `n : ℕ` (Λ(0) = Λ(1) = 0); for compactly supported k it
+  :85 has finite support. -/
+  :86 def literatureRHS (k : ℝ → ℂ) : ℂ :=
+  :87   paperFT k (I / 2) + paperFT k (-I / 2)
+  :88   - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+  :89       * (k (Real.log n) + k (-Real.log n))
+  :90   + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+
+### D:/SIDE-explicit-formula/Zeta23/ExplicitFormula.lean:91-101 -- Zeta23 -- EF_lit over a zero configuration, its RHS literatureRHS
+  :91 
+  :92 /-- **H-EF, literature form** ([eq:EFstd]; [IK04, Thm 5.12] specialised to ζ / [Wei52] / [Bom00]):
+  :93 for every `k ∈ C_c²(ℝ)` with `h(z) := ∫ k(u)e^{izu}du`,
+  :94 `Σ_ρ m_ρ h(γ_ρ) = literatureRHS k`, the zero sum converging absolutely (paper: "here absolutely
+  :95 convergent since h(r) ≪_k (1+|r|)^{-2} on |Im r| ≤ 1/2").  It is a hypothesis
+  :96 (structure field in Hypotheses.lean), never a Lean axiom. -/
+  :97 def EF_lit (Z : ZeroConfig) : Prop :=
+  :98   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+  :99     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+  :100     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+  :101 
+
+### D:/SIDE-explicit-formula/Zeta23/WeilEF/Main.lean:286-286 -- Zeta23 -- EF_lit instantiated at ζ
+  :286 theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+
+### OPEN_TRAILS -- b526`s record at [10481]
+  :10481 ### b526 — ξ at order 7; the kernel's φ found to be a choice; (R136) entered
+### OPEN_TRAILS -- b527`s record at [10508]
+  :10508 ### b527 — the plateau made concrete in the kernel; (R137) entered
+### OPEN_TRAILS -- b528`s record at [10534]
+  :10534 ### b528 — both objects on the kernel's plateau; every tail an ESTIMATE; (R138) entered
+### OPEN_TRAILS -- b529`s record at [10558]
+  :10558 ### b529 — (f)(ii), the pair's term, as far as it derives; (R139) entered
+### OPEN_TRAILS -- b530`s record at [10622]
+  :10622 ### b530 — f3, the other zeros bounded above, with its limit printed; (R140) entered
+### OPEN_TRAILS -- b531`s record at [10694]
+  :10694 ### b531 — the bridge read: ConservationHypothesis against h2_sign; (R141) entered
+### OPEN_TRAILS -- b532`s record at [10758]
+  :10758 ### b532 — the deposit read against b531; E-2026-09-25-1 drafted; the trivial bridge compiled; (R142) entered
+### OPEN_TRAILS -- b533`s record at [10799]
+  :10799 ### b533 — f4, the power-window route, act one of two: the window and the dominant zero; (R143) entered
+### OPEN_TRAILS -- b534`s record at [10853]
+  :10853 ### b534 — f4, the power-window route, act two of two: the limit and the assembly; (R144) entered
+### OPEN_TRAILS -- b535`s record at [10903]
+  :10903 ### b535 — the update act: the finding entered, the erratum filed, the descriptions edited, the ceiling reworded, the fold, the tag; (R145) entered
+### OPEN_TRAILS -- b536`s record at [10929]
+  :10929 ### b536 — the seam from the functional equation; h2_sign ↔ RiemannHypothesis compiled; the housekeeping, the prior art, the understandings; (R146) entered

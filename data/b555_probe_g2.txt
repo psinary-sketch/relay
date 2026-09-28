@@ -1,0 +1,88 @@
+SIDE-grh-transfer 858cbf6 = 858cbf69c169e6bb783951f0e6c0cc1f1534cb13 ; git show 858cbf6:SIDEGRHTransfer/GRHBridge.lean ; checkout HEAD 858cbf69c169 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDEGRHTransfer/CharacterTransfer.lean', 'SAME'), ('SIDEGRHTransfer/CharacterSymmetry.lean', 'SAME'), ('SIDEGRHTransfer/CharacterCodim.lean', 'SAME'), ('SIDEGRHTransfer/CharacterModular.lean', 'SAME'), ('SIDEGRHTransfer/CharacterSpectral.lean', 'SAME'), ('SIDEGRHTransfer/CharacterTopological.lean', 'SAME'), ('SIDEGRHTransfer/Voice7Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice6Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice5Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice3bVendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice2Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice3Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice1Vendored.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['SIDEGRHTransfer.grh_structural_exhaustiveness_proved', 'SIDEGRHTransfer.GRHStructuralExhaustiveness', 'SIDEGRHTransfer.seven_classes_chi', 'SIDEGRHTransfer.none_produce_chi', 'SIDEGRHTransfer.ostrowski_exhaustive_chi', 'SIDEGRHTransfer.voice1_balance_chi', 'SIDEGRHTransfer.c1_chi_exclusion', 'SIDEGRHTransfer.c2_chi_exclusion', 'SIDEGRHTransfer.c3_chi_exclusion', 'SIDEGRHTransfer.c4_chi_exclusion', 'SIDEGRHTransfer.c5_chi_exclusion', 'SIDEGRHTransfer.c6_chi_exclusion', 'SIDEGRHTransfer.c7_chi_exclusion', 'SIDEGRHTransfer.twisted_balance_at_unramified_prime', 'SIDEGRHTransfer.twisted_balance_at_half', 'SIDEGRHTransfer.paired_reflection_axis_invariant_iff', 'SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff', 'SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff', 'SIDEGRHTransfer.paired_modular_S_fixed_iff', 'SIDEGRHTransfer.paired_spectral_offset_zero_iff', 'SIDEGRHTransfer.paired_topological_no_sigma_preference']
+start 2026-09-28T20:27:45Z
+<stdin>:80:45: warning: unused variable `χ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:80:47: warning: unused variable `χbar`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:134:5: warning: unused variable `χ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:134:7: warning: unused variable `χbar`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@SIDEGRHTransfer.grh_structural_exhaustiveness_proved : ∀ {n : ℕ} [inst : NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  SIDEGRHTransfer.GRHStructuralExhaustiveness χ χbar
+@SIDEGRHTransfer.GRHStructuralExhaustiveness : {n : ℕ} →
+  [NeZero n] → DirichletCharacter ℂ n → DirichletCharacter ℂ n → Prop
+SIDEGRHTransfer.seven_classes_chi : Fintype.card SIDEGRHTransfer.MechanismClass = 7
+@SIDEGRHTransfer.none_produce_chi : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n)
+  (c : SIDEGRHTransfer.MechanismClass), ¬SIDEGRHTransfer.produces_offline_chi c
+SIDEGRHTransfer.ostrowski_exhaustive_chi : ∀ (f : AbsoluteValue ℚ ℝ),
+  f.IsNontrivial →
+    f.IsEquiv Rat.AbsoluteValue.real ∨
+      ∃ p, Nat.Prime p ∧ ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)
+SIDEGRHTransfer.voice1_balance_chi : ∀ (σ : ℝ), -σ = -(1 - σ) ↔ σ = 1 / 2
+@SIDEGRHTransfer.c1_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C1_schwarz
+@SIDEGRHTransfer.c2_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C2_euler
+@SIDEGRHTransfer.c3_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C3_functional_eq
+@SIDEGRHTransfer.c4_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C4_modular
+@SIDEGRHTransfer.c5_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C5_spectral
+@SIDEGRHTransfer.c6_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C6_cauchy_riemann
+@SIDEGRHTransfer.c7_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C7_hadamard
+@SIDEGRHTransfer.twisted_balance_at_unramified_prime : ∀ {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ)
+  (hp : Nat.Prime p),
+  ¬p ∣ n →
+    ∀ (s : ℝ),
+      ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-s) = ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 - s)) ↔
+        s = 1 / 2
+@SIDEGRHTransfer.twisted_balance_at_half : ∀ {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p),
+  ¬p ∣ n →
+    ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 / 2)) =
+      ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 - 1 / 2))
+@SIDEGRHTransfer.paired_reflection_axis_invariant_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ),
+  (∀ (ρ : ℂ), ρ.re = σ → (1 - ρ).re = σ) ↔ σ = 1 / 2
+@SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n)
+  (σ : ℝ), SIDEGRHTransfer.conjugate_re σ = SIDEGRHTransfer.reflect_re σ ↔ σ = 1 / 2
+@SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ),
+  SIDEGRHTransfer.cr_minimal_codim σ ↔ σ = 1 / 2
+@SIDEGRHTransfer.paired_modular_S_fixed_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ),
+  SIDEGRHTransfer.S_action σ = σ ↔ σ = 1 / 2
+@SIDEGRHTransfer.paired_spectral_offset_zero_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ),
+  SIDEGRHTransfer.spectral_offset σ = 0 ↔ σ = 1 / 2
+@SIDEGRHTransfer.paired_topological_no_sigma_preference : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n)
+  (σ : ℝ), SIDEGRHTransfer.topological_contribution σ = SIDEGRHTransfer.topological_contribution (1 / 2)
+'SIDEGRHTransfer.grh_structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.GRHStructuralExhaustiveness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.seven_classes_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.none_produce_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.ostrowski_exhaustive_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.voice1_balance_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c1_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c2_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c3_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c4_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c5_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c6_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.c7_chi_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.twisted_balance_at_unramified_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.twisted_balance_at_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.paired_reflection_axis_invariant_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.paired_modular_S_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.paired_spectral_offset_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEGRHTransfer.paired_topological_no_sigma_preference' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 368.8 s
+exit 0

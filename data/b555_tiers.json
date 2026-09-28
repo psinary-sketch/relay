@@ -1,0 +1,941 @@
+{
+ "rows": [
+  {
+   "line": 381,
+   "claim": "GRH structural exhaustiveness — seven character-twisted classes, none produces an off-line zero",
+   "names": [
+    "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+    "SIDEGRHTransfer.seven_classes_chi",
+    "SIDEGRHTransfer.none_produce_chi",
+    "SIDEGRHTransfer.ostrowski_exhaustive_chi",
+    "SIDEGRHTransfer.c1_chi_exclusion",
+    "SIDEGRHTransfer.c2_chi_exclusion",
+    "SIDEGRHTransfer.c3_chi_exclusion",
+    "SIDEGRHTransfer.c4_chi_exclusion",
+    "SIDEGRHTransfer.c5_chi_exclusion",
+    "SIDEGRHTransfer.c6_chi_exclusion",
+    "SIDEGRHTransfer.c7_chi_exclusion"
+   ],
+   "tiers": [
+    "T2",
+    "T2",
+    "T2",
+    "T0",
+    "T2",
+    "T0",
+    "T0",
+    "T2",
+    "T2",
+    "T2",
+    "T2"
+   ],
+   "tier": "T2",
+   "disp": "CARRIED",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "effects": false
+  },
+  {
+   "line": 382,
+   "claim": "Character-insensitive balance",
+   "names": [
+    "SIDEGRHTransfer.twisted_balance_at_unramified_prime",
+    "SIDEGRHTransfer.twisted_balance_at_half",
+    "SIDEGRHTransfer.voice1_balance_chi"
+   ],
+   "tiers": [
+    "T0",
+    "T0",
+    "T0"
+   ],
+   "tier": "T0",
+   "disp": "CARRIED",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "effects": false
+  },
+  {
+   "line": 383,
+   "claim": "Paired-voice chorus (Symmetry/FE for complex χ)",
+   "names": [
+    "SIDEGRHTransfer.paired_reflection_axis_invariant_iff",
+    "SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff",
+    "SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff",
+    "SIDEGRHTransfer.paired_modular_S_fixed_iff",
+    "SIDEGRHTransfer.paired_spectral_offset_zero_iff",
+    "SIDEGRHTransfer.paired_topological_no_sigma_preference"
+   ],
+   "tiers": [
+    "T0",
+    "T2",
+    "T2",
+    "T2",
+    "T2",
+    "T2"
+   ],
+   "tier": "T2",
+   "disp": "CARRIED",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "effects": false
+  },
+  {
+   "line": 384,
+   "claim": "Mechanism Theorem (RH-side engine)",
+   "names": [
+    "ECondition.type_I_has_ostrowski"
+   ],
+   "tiers": [
+    "T2"
+   ],
+   "tier": "T2",
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2",
+   "effects": false
+  },
+  {
+   "line": 385,
+   "claim": "Universal Silence",
+   "names": [
+    "SilenceTheorem.silence_universal"
+   ],
+   "tiers": [
+    "T2-INTERFACES"
+   ],
+   "tier": "T2-INTERFACES",
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2",
+   "effects": false
+  },
+  {
+   "line": 386,
+   "claim": "Domain Ostrowski bridge",
+   "names": [
+    "ostrowski_exhaustive"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2",
+   "effects": false
+  },
+  {
+   "line": 387,
+   "claim": "Per-prime balance at zeros",
+   "names": [
+    "neg_eq_neg_one_sub_iff"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2",
+   "effects": false
+  },
+  {
+   "line": 388,
+   "claim": "Additive–multiplicative conspiracy exclusion (Twin / Goldbach / Sophie Germain)",
+   "names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+    "SIDEEffects.Phase15.Module1.crt_exhaustiveness"
+   ],
+   "tiers": [
+    "T0",
+    "T0"
+   ],
+   "tier": "T0",
+   "disp": "CARRIED",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "effects": true
+  },
+  {
+   "line": 389,
+   "claim": "Landau-Siegel exclusion",
+   "names": [],
+   "tiers": [],
+   "tier": "T4",
+   "disp": "CARRIED",
+   "kernel": "(none)",
+   "effects": false
+  },
+  {
+   "line": 390,
+   "claim": "Artin primitive root",
+   "names": [],
+   "tiers": [],
+   "tier": "T4",
+   "disp": "CARRIED",
+   "kernel": "(none)",
+   "effects": false
+  },
+  {
+   "line": 391,
+   "claim": "BSD formation placement",
+   "names": [
+    "SIDEBSDFormationTransfer.formation_preserved",
+    "SIDEBSDFormationTransfer.both_interfaces_dark",
+    "SIDEBSDFormationTransfer.all_seven_transfer"
+   ],
+   "tiers": [
+    "T2",
+    "T2",
+    "T2"
+   ],
+   "tier": "T2",
+   "disp": "CARRIED",
+   "kernel": "SIDE-bsd-formation-transfer v0.1.0",
+   "effects": false
+  },
+  {
+   "line": 392,
+   "claim": "Yang-Mills mass-gap placement",
+   "names": [
+    "SIDEYangMillsFormation.mass_gap_equals_n3_certification",
+    "SIDEYangMillsFormation.silence_boundary_at_output_stage"
+   ],
+   "tiers": [
+    "T2",
+    "T2"
+   ],
+   "tier": "T2",
+   "disp": "CARRIED",
+   "kernel": "SIDE-yang-mills-formation v0.1.0",
+   "effects": false
+  },
+  {
+   "line": 393,
+   "claim": "ABC qualitative tightening",
+   "names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "disp": "CARRIED",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "effects": true
+  }
+ ],
+ "terms": [
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.grh_structural_exhaustiveness_proved : ∀ {n : ℕ} [inst : NeZero n] (χ χbar : DirichletCharacter ℂ n), SIDEGRHTransfer.GRHStructuralExhaustiveness χ χbar",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "the composite: `GRHStructuralExhaustiveness χ χbar`, whose body is a count of the kernel`s own classes, the class exclusions over programme-defined σ-predicates, and Ostrowski -- χ and χbar occur nowhere in it (printed); Route 1`s shape (b540)",
+   "conclusion": "GRHStructuralExhaustiveness χ χbar, a Prop in which no character occurs",
+   "earlier": [
+    "T2",
+    "b540_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.seven_classes_chi",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "SIDEGRHTransfer.seven_classes_chi : Fintype.card SIDEGRHTransfer.MechanismClass = 7",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "the cardinality of the kernel`s own inductive type is 7 (`decide`)",
+   "conclusion": "Fintype.card MechanismClass = 7",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.none_produce_chi",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.none_produce_chi : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (c : SIDEGRHTransfer.MechanismClass), ¬SIDEGRHTransfer.produces_offline_chi c",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; the exclusions over `produces_offline_chi`, a predicate the kernel defines on σ",
+   "conclusion": "∀ c, ¬ produces_offline_chi c",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.ostrowski_exhaustive_chi",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "SIDEGRHTransfer.ostrowski_exhaustive_chi : ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃ p, Nat.Prime p ∧ ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: Ostrowski`s classification of the absolute values of ℚ, from Mathlib; no character",
+   "conclusion": "every nontrivial |·| on ℚ is real or p-adic",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c1_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c1_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C1_schwarz",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; over `conjugate_re σ := σ` and `reflect_re σ := 1 − σ`",
+   "conclusion": "¬ produces_offline_chi .C1_schwarz",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c2_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c2_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C2_euler",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: χ and χbar typed and unused; no σ ≠ 1/2 with −σ = −(1 − σ) -- the balance identity over ℝ",
+   "conclusion": "¬ produces_offline_chi .C2_euler",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c3_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c3_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C3_functional_eq",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: χ and χbar typed and unused; no σ ≠ 1/2 is fixed by ρ ↦ 1 − ρ on real parts -- a fact about ℂ",
+   "conclusion": "¬ produces_offline_chi .C3_functional_eq",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c4_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c4_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C4_modular",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; over `S_action σ := 1 − σ`, a definition",
+   "conclusion": "¬ produces_offline_chi .C4_modular",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c5_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c5_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C5_spectral",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; over `spectral_offset σ := σ − 1/2`, a definition",
+   "conclusion": "¬ produces_offline_chi .C5_spectral",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c6_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c6_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C6_cauchy_riemann",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; over `cr_minimal_codim`, defined through `zero_codimension`",
+   "conclusion": "¬ produces_offline_chi .C6_cauchy_riemann",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 381,
+   "name": "SIDEGRHTransfer.c7_chi_exclusion",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.c7_chi_exclusion : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n), ¬SIDEGRHTransfer.produces_offline_chi SIDEGRHTransfer.MechanismClass.C7_hadamard",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; over `topological_contribution σ := 0`, a constant",
+   "conclusion": "¬ produces_offline_chi .C7_hadamard",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 382,
+   "name": "SIDEGRHTransfer.twisted_balance_at_unramified_prime",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.twisted_balance_at_unramified_prime : ∀ {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p), ¬p ∣ n → ∀ (s : ℝ), ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-s) = ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 - s)) ↔ s = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: ‖χ(p)‖·p^(−s) = ‖χ(p)‖·p^(−(1−s)) ↔ s = 1/2 at a prime p ∤ n, through Mathlib`s norm-one value of a Dirichlet character at a unit -- the character enters",
+   "conclusion": "the twisted balance at an unramified prime forces s = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 382,
+   "name": "SIDEGRHTransfer.twisted_balance_at_half",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.twisted_balance_at_half : ∀ {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p), ¬p ∣ n → ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 / 2)) = ‖χ ↑p‖ * SIDEGRHTransfer.prime_as_real p hp ^ (-(1 - 1 / 2))",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the twisted balance holds at s = 1/2, by the lemma above",
+   "conclusion": "the twisted balance holds at s = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 382,
+   "name": "SIDEGRHTransfer.voice1_balance_chi",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "SIDEGRHTransfer.voice1_balance_chi : ∀ (σ : ℝ), -σ = -(1 - σ) ↔ σ = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the balance exponent`s identity −σ = −(1 − σ) ↔ σ = 1/2 over ℝ; no prime, zero or character enters (the row`s own note)",
+   "conclusion": "−σ = −(1 − σ) ↔ σ = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 383,
+   "name": "SIDEGRHTransfer.paired_reflection_axis_invariant_iff",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.paired_reflection_axis_invariant_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), (∀ (ρ : ℂ), ρ.re = σ → (1 - ρ).re = σ) ↔ σ = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: χ and χbar typed and unused; (∀ ρ : ℂ, ρ.re = σ → (1 − ρ).re = σ) ↔ σ = 1/2 -- a fact about ℂ",
+   "conclusion": "ρ ↦ 1 − ρ preserves the real part σ iff σ = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 383,
+   "name": "SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.conjugate_re σ = SIDEGRHTransfer.reflect_re σ ↔ σ = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; `conjugate_re σ = reflect_re σ ↔ σ = 1/2` over two definitions (σ and 1 − σ)",
+   "conclusion": "conjugate_re σ = reflect_re σ iff σ = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 383,
+   "name": "SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.cr_minimal_codim σ ↔ σ = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; `cr_minimal_codim σ ↔ σ = 1/2` over a definition",
+   "conclusion": "cr_minimal_codim σ iff σ = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 383,
+   "name": "SIDEGRHTransfer.paired_modular_S_fixed_iff",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.paired_modular_S_fixed_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.S_action σ = σ ↔ σ = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; `S_action σ = σ ↔ σ = 1/2`, S_action defined as 1 − σ",
+   "conclusion": "S_action σ = σ iff σ = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 383,
+   "name": "SIDEGRHTransfer.paired_spectral_offset_zero_iff",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.paired_spectral_offset_zero_iff : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.spectral_offset σ = 0 ↔ σ = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; `spectral_offset σ = 0 ↔ σ = 1/2`, the offset defined as σ − 1/2",
+   "conclusion": "spectral_offset σ = 0 iff σ = 1/2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 383,
+   "name": "SIDEGRHTransfer.paired_topological_no_sigma_preference",
+   "probe": "g2",
+   "pin": "858cbf6",
+   "found": true,
+   "statement": "@SIDEGRHTransfer.paired_topological_no_sigma_preference : ∀ {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) (σ : ℝ), SIDEGRHTransfer.topological_contribution σ = SIDEGRHTransfer.topological_contribution (1 / 2)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "χ and χbar typed and unused; vacuous: `topological_contribution` is the constant 0",
+   "conclusion": "topological_contribution σ = topological_contribution (1/2)",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 384,
+   "name": "ECondition.type_I_has_ostrowski",
+   "probe": "k6",
+   "pin": "v1.2",
+   "found": true,
+   "statement": "ECondition.type_I_has_ostrowski : ∀ (Domain : Type) [Fintype Domain] (target : Prop) (produces : Domain → Prop), (∀ (d : Domain), ¬produces d) → (target → ∃ d, produces d) → ¬target",
+   "profile": "depends on axioms: [propext, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Quot.sound]",
+   "tier": "T2",
+   "reason": "modus tollens over an abstract `Domain` whose `[Fintype Domain]` is never used -- logic alone; the Mechanism Theorem reading is carried by the name (b539)",
+   "conclusion": "¬ target from ∀ d, ¬ produces d and target → ∃ d, produces d",
+   "earlier": [
+    "T0",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 385,
+   "name": "SilenceTheorem.silence_universal",
+   "probe": "k7",
+   "pin": "v1.2",
+   "found": true,
+   "statement": "@SilenceTheorem.silence_universal : ∀ {C : SilenceTheorem.ConfigurationSpace} {R : Type} (I : SilenceTheorem.Interface C R), I.is_universal → I.kappa_zero",
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2-INTERFACES",
+   "reason": "INTERFACES on `I.is_universal` (∀ c₁ c₂, I.action c₁ = I.action c₂), a programme structure`s property that the manuscript asserts: T2-INTERFACES under (R165)(3); its universal form, R1, is FALSE-AS-STATED (not_register1, b538)",
+   "conclusion": "a universal interface has κ = 0",
+   "earlier": [
+    "T4",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 386,
+   "name": "ostrowski_exhaustive",
+   "probe": "k8",
+   "pin": "v1.2",
+   "found": true,
+   "statement": "ostrowski_exhaustive : ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃! p, ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: Mathlib`s Ostrowski theorem (`Rat.AbsoluteValue.equiv_real_or_padic`) restated",
+   "conclusion": "every nontrivial |·| on ℚ is real or a unique p-adic",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 387,
+   "name": "neg_eq_neg_one_sub_iff",
+   "probe": "k9",
+   "pin": "v1.2",
+   "found": true,
+   "statement": "@neg_eq_neg_one_sub_iff : ∀ {α : Type u_1} [inst : Field α] [CharZero α] (s : α), -s = -(1 - s) ↔ s = 1 / 2",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: in any field of characteristic 0, −s = −(1 − s) ↔ s = 1/2 -- the balance exponent`s identity; no prime or zero enters",
+   "conclusion": "−s = −(1 − s) ↔ s = 1/2 in a field of characteristic 0",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 388,
+   "name": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+   "probe": "e1",
+   "pin": "a27415d",
+   "found": true,
+   "statement": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the type of structural couplings no modular coupling realizes is empty, by the periodic lift -- residues, divisibility and coprimality over ℕ with Mathlib`s `ZMod`; scope: the constructors carry 0 < q, 0 < m (positive modulus)",
+   "conclusion": "IsEmpty TypeD",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 388,
+   "name": "SIDEEffects.Phase15.Module1.crt_exhaustiveness",
+   "probe": "e1",
+   "pin": "a27415d",
+   "found": true,
+   "statement": "SIDEEffects.Phase15.Module1.crt_exhaustiveness : ∀ (sc : SIDEEffects.Phase15.Module1.StructuralCoupling), ∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: every structural coupling agrees pointwise with some modular coupling (the periodic lift); positive-modulus scope",
+   "conclusion": "∀ sc, ∃ m, ∀ n, sc.eval n ↔ m.eval n",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 391,
+   "name": "SIDEBSDFormationTransfer.formation_preserved",
+   "probe": "b1",
+   "pin": "7425d73",
+   "found": true,
+   "statement": "SIDEBSDFormationTransfer.formation_preserved : SIDEBSDFormationTransfer.n1_BSD = SIDEBSDFormationTransfer.n1_xi ∧ SIDEBSDFormationTransfer.n2_BSD = SIDEBSDFormationTransfer.n2_xi ∧ SIDEBSDFormationTransfer.n3_BSD = SIDEBSDFormationTransfer.n3_xi ∧ SIDEBSDFormationTransfer.n4_BSD = SIDEBSDFormationTransfer.n4_xi",
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "SHELL: `decide` over hand-assigned constants n1_BSD…n4_BSD -- it records the assignment",
+   "conclusion": "n_i(BSD) = n_i(ξ), i = 1..4, for assigned constants",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 391,
+   "name": "SIDEBSDFormationTransfer.both_interfaces_dark",
+   "probe": "b1",
+   "pin": "7425d73",
+   "found": true,
+   "statement": "SIDEBSDFormationTransfer.both_interfaces_dark : SIDEBSDFormationTransfer.n4_BSD = 0 ∧ SIDEBSDFormationTransfer.n4_xi = 0",
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "SHELL: `decide` over assigned constants",
+   "conclusion": "n4_BSD = 0 ∧ n4_xi = 0",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 391,
+   "name": "SIDEBSDFormationTransfer.all_seven_transfer",
+   "probe": "b1",
+   "pin": "7425d73",
+   "found": true,
+   "statement": "SIDEBSDFormationTransfer.all_seven_transfer : ∀ (c : SIDEBSDFormationTransfer.MechanismClass), SIDEBSDFormationTransfer.transfers c = true",
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "SHELL: `decide` over a Bool table the file defines",
+   "conclusion": "∀ c, transfers c = true",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 392,
+   "name": "SIDEYangMillsFormation.mass_gap_equals_n3_certification",
+   "probe": "y1",
+   "pin": "79e4f45",
+   "found": true,
+   "statement": "SIDEYangMillsFormation.mass_gap_equals_n3_certification : SIDEYangMillsFormation.mass_gap_is_n3_domain_ostrowski = true",
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "SHELL: a `Bool` defined as `true` equals `true` (`decide`)",
+   "conclusion": "mass_gap_is_n3_domain_ostrowski = true",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 392,
+   "name": "SIDEYangMillsFormation.silence_boundary_at_output_stage",
+   "probe": "y1",
+   "pin": "79e4f45",
+   "found": true,
+   "statement": "SIDEYangMillsFormation.silence_boundary_at_output_stage : SIDEYangMillsFormation.mass_gap_silence_boundary_stage = 3",
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "SHELL: an assigned constant equals 3 (`decide`)",
+   "conclusion": "mass_gap_silence_boundary_stage = 3",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  },
+  {
+   "row": 393,
+   "name": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+   "probe": "e1",
+   "pin": "a27415d",
+   "found": true,
+   "statement": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the type of structural couplings no modular coupling realizes is empty, by the periodic lift -- residues, divisibility and coprimality over ℕ with Mathlib`s `ZMod`; scope: the constructors carry 0 < q, 0 < m (positive modulus)",
+   "conclusion": "IsEmpty TypeD",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": []
+  }
+ ],
+ "term_tiers": {
+  "T0": 12,
+  "T1-open": 0,
+  "T1-lit": 0,
+  "T2": 19,
+  "T2-INTERFACES": 1,
+  "T3": 0,
+  "T4": 0
+ },
+ "row_tiers": {
+  "T0": 5,
+  "T1-open": 0,
+  "T1-lit": 0,
+  "T2": 5,
+  "T2-INTERFACES": 1,
+  "T3": 0,
+  "T4": 2
+ },
+ "disp": {
+  "CARRIED": 13,
+  "MOVED": 0
+ },
+ "count": 13,
+ "effects": {
+  "branch": "main",
+  "head": "ef4cff776f8918761bdb08d9e23f684b0abd5875",
+  "dirty": "",
+  "branches": [
+   "*",
+   "main",
+   "push-b372",
+   "push-b386",
+   "w-ladder-skeleton",
+   "w4-recovery-2026-07-13"
+  ],
+  "oleans": [
+   "SIDEEffects.olean",
+   "SIDEEffects/ExhaustivenessLicense.olean",
+   "SIDEEffects/Milestones.olean",
+   "SIDEEffects/Phase15/Module1.olean",
+   "SIDEEffects/Phase15/SIDEFramework.olean",
+   "SIDEEffects/Structural.olean"
+  ],
+  "a27415d": {
+   "resolves": true,
+   "full": "a27415d1aa0ce6f6d87c47bb59fd72791190af35",
+   "ancestor_of_head": true,
+   "phase15_vs_head": "SAME",
+   "module1_sorry": 0,
+   "date": "2026-07-13 18:42:45 -0400 W-4 discharge + W-2 shell withdrawal: recovered from an uncommitted tree, screened, author-accepted"
+  },
+  "c66f3c5": {
+   "resolves": true,
+   "full": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+   "ancestor_of_head": true,
+   "phase15_vs_head": "DIFF",
+   "module1_sorry": 7,
+   "date": "2026-05-13 22:05:43 -0400 AGENTS.md: strip '19 theorems' and '7 sorries' count anchors; categorize named theorem list"
+  },
+  "manifest_a27415d_vs_head": true
+ },
+ "chi_in_body": false,
+ "composite_body": "(Fintype.card MechanismClass = 7) ∧ (∀ c : MechanismClass, ¬ produces_offline_chi c) ∧ (∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃ p : ℕ, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p), f.IsEquiv (Rat.AbsoluteValue.padic p))",
+ "silence_premise": "def Interface.is_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) : Prop := ∀ c₁ c₂ : C.α, I.action c₁ = I.action c₂",
+ "n_cmp": {
+  "SIDEGRHTransfer.grh_structural_exhaustiveness_proved": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "SIDEGRHTransfer.twisted_balance_at_unramified_prime": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SilenceTheorem.silence_universal": [
+   "T2-INTERFACES",
+   [
+    "T2-INTERFACES"
+   ]
+  ],
+  "ECondition.type_I_has_ostrowski": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "ostrowski_exhaustive": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "neg_eq_neg_one_sub_iff": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEEffects.Phase15.Module1.no_type_d_conspiracies": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEBSDFormationTransfer.formation_preserved": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "SIDEYangMillsFormation.mass_gap_equals_n3_certification": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "SIDEGRHTransfer.paired_reflection_axis_invariant_iff": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff": [
+   "T2",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff": [
+   "T2",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEGRHTransfer.paired_modular_S_fixed_iff": [
+   "T2",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEGRHTransfer.paired_spectral_offset_zero_iff": [
+   "T2",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEGRHTransfer.paired_topological_no_sigma_preference": [
+   "T2",
+   [
+    "T0"
+   ]
+  ]
+ },
+ "probes": {
+  "b1": {
+   "exit": 0,
+   "seconds": 2.7,
+   "errors": 0
+  },
+  "y1": {
+   "exit": 0,
+   "seconds": 1.2,
+   "errors": 0
+  },
+  "k7": {
+   "exit": 0,
+   "seconds": 233.6,
+   "errors": 0
+  },
+  "k9": {
+   "exit": 0,
+   "seconds": 233.1,
+   "errors": 0
+  },
+  "k8": {
+   "exit": 0,
+   "seconds": 37.0,
+   "errors": 0
+  },
+  "k6": {
+   "exit": 0,
+   "seconds": 12.5,
+   "errors": 0
+  },
+  "g2": {
+   "exit": 0,
+   "seconds": 368.8,
+   "errors": 0
+  },
+  "e1": {
+   "exit": 0,
+   "seconds": 2037.8,
+   "errors": 0
+  }
+ }
+}
