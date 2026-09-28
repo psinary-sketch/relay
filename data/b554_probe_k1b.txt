@@ -1,0 +1,9 @@
+SIDE-kernel v1.5 = 0e5233f011533d09e4799107394c216a915028a1 ; git show v1.5:Kernel/SpectralCannonFull.lean ; checkout HEAD 0256e9e1297f ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.0-rc8
+repo-local imports (pin vs checkout HEAD): [('Kernel/SchwarzDischarge.lean', 'SAME'), ('Kernel/SpectralCannon.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['SpectralCannonFull.spectral_cannon']
+start 2026-09-28T17:36:40Z
+SpectralCannonFull.spectral_cannon : ∀ (t : ℝ), (deriv completedRiemannZeta₀ { re := 1 / 2, im := t }).re = 0
+'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 316.1 s
+exit 0

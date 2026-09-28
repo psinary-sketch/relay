@@ -1,0 +1,29 @@
+b554 -- COMPONENT 5: THE PRICES, AS APPENDED
+
+### SIDE-kernel read fresh: {'head': '0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164', 'v17': '2957e7d67d367316e427cd801e08502448151691', 'v15': '0e5233f011533d09e4799107394c216a915028a1', 'latest': 'v1.7'}
+
+### OPEN_TRAILS.md:11332
+    ### `W-ORD-DETECTION-REGION` (priced at :11151) -- RE-PRICED FROM THE CLOSED FORM, appended 2026-09-28, b554, under the author's ruling (R164)(5)
+    
+    **The closed-form route, in lemmas** (each marked compiled, generalising a compiled one, or new; and its weight):
+    
+    - **C1** the plateau-ramp window of the ladder (the indicator of [-W, W] convolved with the order-p B-spline of half-width R) defined in the kernel, with its transform in closed form: φ̂(z) = sinc(zW)·sinc(zh/2)^p up to its normalisation -- the transform of an indicator and of a convolution power -- *new; of substance*
+    - **C2** that window in `classK`: `ContDiff ℝ 4`, even, compactly supported, for p ≥ 6 (a B-spline of order p is C^(p-2)) -- *new; of substance*
+    - **C3** the orbit term in closed form at an arbitrary zero (σ, γ): 4·Re k̂(γ − iδ) as `pairTwo_factored` (PairTerm.lean) gives it at the window's own ordinate γ₀, extended to γ ≠ γ₀ -- *generalises `pairTwo_factored`; moderate*
+    - **C4** an explicit lower bound on the orbit term's magnitude and its sign from C1 and C3 (for the pair orbit the near part is compiled, `pair_near_sign`; the far part is `farSmall`, a Prop not proved -- `pair_bound` INTERFACES on it) -- *new (the far part); moderate*
+    - **C5** the on-line bound B(a, p) on every other zero's term: `rest_bound_zeta` (RestBound.lean, hypothesis-free) for the pair's orbit; for another orbit its exclusion set changes -- and at the bench's widths the compiled constant exceeds the measured rest by about 1e16 (b530), so the statement's region is empty there unless the bound is tightened -- *generalises `rest_bound_zeta`; of substance if tightened*
+    - **C6** the assembly: the orbit term negative and larger than C5's bound forces the zero side, hence the quantity, negative -- *new; short*
+    
+    **The PowerLimit finite-j₀ route, in the same terms** (the compiled pieces it consumes: `tie_term_neg`, `rest_term_small`, `dominant_summable`, `zeroSide_eventually_neg`, SIDE-explicit-formula `81ae175`):
+    
+    - **P1** the explicit j₀ inequality: the rest's sum below the tie term's magnitude for every j ≥ j₀, j₀ explicit in (L, M, B, D) and the zero's (γ, δ) -- the finite-j form of `zeroSide_eventually_neg` (:1082), from `tie_term_neg` (:749), `rest_term_small` (:764) and `dominant_summable` (:949) -- *new; of substance*
+    - **P2** the power window's support as a function of j and the base width, giving L₀ -- *new; short*
+    - **P3** the region R(L₀) of (γ, δ) where P1 and P2 meet -- *new; short*
+
+### OPEN_TRAILS.md:11352
+    *Appended 2026-09-28 by b554, under the author's ruling `(R164)`(6), to the bridge price at :11290 -- THE PAIRING HAZARD:* the Li test function's zero sum converges with ρ paired against 1 − ρ̄ (h_n decays only like n/ρ); the compiled Weil form's zero sum is absolutely convergent on `classK`; PowerLimit's summability lemmas (`dominant_summable`, `rest_tendsto_zero`) are absolute and would need a paired form for the Li channel. The difference is structural between the two criteria, and is recorded as such.
+
+### OPEN_TRAILS.md:11354
+    *Appended 2026-09-28 by b554, under the author's ruling `(R164)`(7) -- ANOMALY 1 ROUTED TO CP-5 (the deposit reconciliation):* SIDE-kernel HEAD `0256e9e`, latest tag `v1.7` = `2957e7d`, deposit pin `v1.5` = `0e5233f`, read fresh at b554 (relay `data/b554_prices.txt`). Nothing is decided here.
+
+### the cheaper: PowerLimit -- fewer new lemmas of substance (1 against 3)

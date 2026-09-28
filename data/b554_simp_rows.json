@@ -1,0 +1,260 @@
+{
+ "rows": [
+  {
+   "line": 435,
+   "claim": "Ch. 1 — perpendicular crossing: $\\mathrm{Re}\\,\\xi'(1/2+it) = 0$",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`SpectralCannonFull.spectral_cannon`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled (derivative-imaginary on the line — an A of a sub-RH proposition, not off-line exclusion; the docstring label-correction `78f9b5a` rode post-v1.4, content/profile unchanged, grade holds through v1.4)",
+   "names": [
+    "SpectralCannonFull.spectral_cannon"
+   ],
+   "branch": false
+  },
+  {
+   "line": 436,
+   "claim": "Derivative-level catalogue — honest per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives)",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited)",
+   "terminal_cell": "`SIDEDerivative.exactly_c1_derives`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled — the honest count, **not** an exclusion verdict ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).**",
+   "names": [
+    "SIDEDerivative.exactly_c1_derives"
+   ],
+   "branch": true
+  },
+  {
+   "line": 437,
+   "claim": "C₁ derivative reduction — on the line, a double zero ⇔ Im ξ′(ρ)=0",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`",
+   "terminal_cell": "`SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled — consumes the perpendicular crossing (Re ξ′=0); concrete hypothesis is `spectral_cannon` @ `691295b`, cross-referenced not re-proven ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).**",
+   "names": [
+    "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero"
+   ],
+   "branch": true
+  },
+  {
+   "line": 438,
+   "claim": "The joint step — not-double ⇔ transversality (uniform = simplicity)",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`",
+   "terminal_cell": "`SIDEDerivative.no_onLine_double_iff_transversal`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES** — the derivative h2 = the simplicity conjecture, carried openly (named premise, never encoded) ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).**",
+   "names": [
+    "SIDEDerivative.no_onLine_double_iff_transversal"
+   ],
+   "branch": true
+  },
+  {
+   "line": 439,
+   "claim": "Ch. 1 — perpendicular gradients at simple zeros",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`PerpendicularCrossing.perpendicular_gradients` (with `PerpendicularCrossing.proved_infrastructure`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled",
+   "names": [
+    "PerpendicularCrossing.perpendicular_gradients",
+    "PerpendicularCrossing.proved_infrastructure"
+   ],
+   "branch": false
+  },
+  {
+   "line": 440,
+   "claim": "Ch. 1 — reduction RH $\\iff$ off-line non-intersection",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Manuscript-resident (ZFC-level equivalence)",
+   "names": [],
+   "branch": false
+  },
+  {
+   "line": 441,
+   "claim": "Ch. 2 — codimension argument: transversality generically empty",
+   "kernel": "SIDE-simplicity v0.1.0",
+   "terminal_cell": "`SIDESimplicity.transversal_generic_empty` (with `codim_exceeds_curve`, `codim_margin`, `no_tuning`)",
+   "profile_cell": "`{propext, Quot.sound}`; `no_tuning` axiom-free",
+   "status": "Compiled (structural core; the analytic identification of the five contributions is manuscript-resident)",
+   "names": [
+    "SIDESimplicity.transversal_generic_empty",
+    "SIDESimplicity.codim_exceeds_curve",
+    "SIDESimplicity.codim_margin",
+    "SIDESimplicity.no_tuning"
+   ],
+   "branch": false
+  },
+  {
+   "line": 442,
+   "claim": "Ch. 3 — trace-formula multiplicity-one structure",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`PerpendicularCrossing.simplicity_from_trace_structure`; `PerpendicularCrossing.multiplicity_from_identity`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Structural implication compiled; the full explicit-formula/trace closure is an argument, not a proved theorem (research-reach)",
+   "names": [
+    "PerpendicularCrossing.simplicity_from_trace_structure",
+    "PerpendicularCrossing.multiplicity_from_identity"
+   ],
+   "branch": false
+  },
+  {
+   "line": 443,
+   "claim": "Ch. 4 — Hadamard **input**: ξ has order ≤ 1",
+   "kernel": "SIDE-lv-conservation v0.4.0 = `0d2d74c`",
+   "terminal_cell": "`SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}` (no `sorryAx`)",
+   "status": "**DERIVES** — the growth bound `‖Λ₀ s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2))` that licenses the genus-1 product (upgraded 2026-07-16). *This row is the corpus template for order-≤1 citations.*",
+   "names": [
+    "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp"
+   ],
+   "branch": false
+  },
+  {
+   "line": 444,
+   "claim": "Ch. 4 — Hadamard **factorization step**: order-≤1 growth ⟹ genus-1 product",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "**Classical** (Hadamard 1893) — Hadamard's theorem is not in the kernel, and not in Mathlib at these pins; it consumes the row above as input. The upgrade certifies the *input*, not this step. The genus-1 factorization itself is now a **named corpus finding — Mathlib-absent-with-ingredient-named** (K3, 2026-07-23; the C₇ faithful-witness research item, PATHS §ANNEX A).",
+   "names": [],
+   "branch": false
+  },
+  {
+   "line": 445,
+   "claim": "Ch. 4 — $\\mathbb{Q}$-independence of $\\{\\log p\\}$ / RMT super-repulsion",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Research-reach / computational (instruments: `phase1.5/simplicity/CONVERGENT_ARGUMENTS_SIMPLICITY.md`, `phase1.5/simplicity/ALL_ZEROS_SIMPLE.md`)",
+   "names": [],
+   "branch": false
+  },
+  {
+   "line": 446,
+   "claim": "Ch. 1 — the RH-positivity route (cross-ref; **not** a simplicity witness): finite-range Li positivity $\\lambda_n \\geq 0$ for $1 \\leq n \\leq N_0(T) \\approx 2T^2$",
+   "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+   "terminal_cell": "`SIDELvConservation.PartialPositivity.partialPositivity_finiteRange` (on-line nonnegativity proved: `blTerm_nonneg_of_onLine`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES — three named premises** (`VerifiedZerosTo T`; `ExplicitFormulaDecomp`, Bombieri–Lagarias; `TailBoundPremise`, Voros $n \\gtrsim 2T^2$). Bears on RH via Li's criterion, **not on simplicity**; a finite-range certificate, **NOT RH** (the all-$n$ tail is open; cutoff $N_0(T) \\approx 2T^2$ = Voros's detection threshold). Developed in the Balance-and-Positivity keystone (`phase1.5/spectral/",
+   "names": [
+    "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange",
+    "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine"
+   ],
+   "branch": false
+  },
+  {
+   "line": 447,
+   "claim": "Ch. 5 — Conservation of Spectra",
+   "kernel": "SIDE-kernel v1.2 · SIDE-lv-conservation v0.2.0",
+   "terminal_cell": "`ProductFormula.conservation_of_spectra`; `SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin`; `SIDELvConservation.T2b_mellin_exhaustion`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled",
+   "names": [
+    "ProductFormula.conservation_of_spectra",
+    "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin",
+    "SIDELvConservation.T2b_mellin_exhaustion"
+   ],
+   "branch": false
+  },
+  {
+   "line": 448,
+   "claim": "Ch. 6 — Epstein: the joint-resultant / one-jaw exception fails by countermodel",
+   "kernel": "SIDE-lv-conservation v0.2.0",
+   "terminal_cell": "`SIDELvConservation.T3.T3doubleprime_general_commutation_fails`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled (countermodel)",
+   "names": [
+    "SIDELvConservation.T3.T3doubleprime_general_commutation_fails"
+   ],
+   "branch": false
+  },
+  {
+   "line": 449,
+   "claim": "Ch. 7 — GRH transfer (structural exhaustiveness for χ)",
+   "kernel": "SIDE-grh-transfer v0.5.0",
+   "terminal_cell": "`SIDEGRHTransfer.grh_structural_exhaustiveness_proved`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled — structural-exhaustiveness form, not GRH",
+   "names": [
+    "SIDEGRHTransfer.grh_structural_exhaustiveness_proved"
+   ],
+   "branch": false
+  },
+  {
+   "line": 450,
+   "claim": "Ch. 7 — Dirichlet Hadamard **input**: completed $L$ has order ≤ 1 (χ ≠ 1, both parities)",
+   "kernel": "SIDE-lv-conservation v0.5.0 = `1767bd6`",
+   "terminal_cell": "`SIDELvConservation.exists_norm_completedLFunction_le_exp`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — the χ-side analogue of the Ch. 4 order-input; the GRH transfer assumes no more of its Hadamard input than the ζ-side does",
+   "names": [
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp"
+   ],
+   "branch": false
+  },
+  {
+   "line": 451,
+   "claim": "Ch. 2/3/7 — seven-mechanism count 2 + 3 + 2 + 0 = 7",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`SIDEKernel.formation`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled",
+   "names": [
+    "SIDEKernel.formation"
+   ],
+   "branch": false
+  },
+  {
+   "line": 452,
+   "claim": "Ch. 2 — $n_3 = 2$ output scales",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`CartanBridge.formation_n_3_eq_two`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "Count compiled; the Stein / Cousin-I pillar (T3) is set aside **open** per SIDE-kernel `f18e143` (loom ruling 2026-06-15)",
+   "names": [
+    "CartanBridge.formation_n_3_eq_two"
+   ],
+   "branch": false
+  },
+  {
+   "line": 453,
+   "claim": "Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness",
+   "kernel": "SIDE-lv-conservation v0.6.0 = `c80bdc2`",
+   "terminal_cell": "`SIDELvConservation.h1_complete_at_Phi`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open** (the single carried-open premise)",
+   "names": [
+    "SIDELvConservation.h1_complete_at_Phi"
+   ],
+   "branch": false
+  },
+  {
+   "line": 454,
+   "claim": "Ch. 8 — the premise in five registers (structure only)",
+   "kernel": "SIDE-lv-conservation v0.7.0 = `2d86182`",
+   "terminal_cell": "`SIDELvConservation.RegisterPentagon.goalState_of_h1_h2` (the goal-state theorem inside the pentagon namespace; faces R1..R5 + graded edges are that namespace's other declarations)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}` — **printed at `2d86182` by `#print axioms`, 2026-08-09**",
+   "status": "**STRUCTURE compiled** — the five register faces and the goal-state Prop; the cross-register equivalences are **NOT-COMPILED** (compiling them would encode RH-equivalence, the W-2 trap)",
+   "names": [
+    "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2"
+   ],
+   "branch": false
+  },
+  {
+   "line": 455,
+   "claim": "Ch. 4 — the finite-exponential-type growth form is false of the forced witness (compiled negative)",
+   "kernel": "SIDE-lv-conservation v0.5.1 = `bc4751e`",
+   "terminal_cell": "`SIDELvConservation.C7_finite_type_false`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES (compiled negative)** — brackets the order-≤1 input row above; one of the census's two compiled negatives (with the Ch. 6 T3″ countermodel)",
+   "names": [
+    "SIDELvConservation.C7_finite_type_false"
+   ],
+   "branch": false
+  }
+ ],
+ "audit_line": 457,
+ "count": 21
+}

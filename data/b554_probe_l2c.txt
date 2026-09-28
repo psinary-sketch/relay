@@ -1,0 +1,13 @@
+SIDE-lv-conservation v0.8.0 = 6efa9e54dadf7461beb7850fc034d6045dea0e32 ; git show v0.8.0:SIDELvConservation/PartialPositivity.lean ; checkout HEAD 2f71068ac356 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/RegisterPentagon.lean', 'DIFF'), ('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: DIFF
+names: ['SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine']
+start 2026-09-28T18:08:06Z
+SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀
+  (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ),
+  (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n
+'SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 23.2 s
+exit 0

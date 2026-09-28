@@ -1,0 +1,22 @@
+SIDE-grh-transfer v0.5.0 = bfd2af70fee1e05503232b1cdd55f375a0d01d6d ; git show v0.5.0:SIDEGRHTransfer/GRHBridge.lean ; checkout HEAD 858cbf69c169 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): [('SIDEGRHTransfer/CharacterTransfer.lean', 'SAME'), ('SIDEGRHTransfer/CharacterSymmetry.lean', 'SAME'), ('SIDEGRHTransfer/CharacterCodim.lean', 'SAME'), ('SIDEGRHTransfer/CharacterModular.lean', 'SAME'), ('SIDEGRHTransfer/CharacterSpectral.lean', 'SAME'), ('SIDEGRHTransfer/CharacterTopological.lean', 'SAME'), ('SIDEGRHTransfer/Voice7Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice6Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice5Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice3bVendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice2Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice3Vendored.lean', 'SAME'), ('SIDEGRHTransfer/Voice1Vendored.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['SIDEGRHTransfer.grh_structural_exhaustiveness_proved']
+start 2026-09-28T17:06:11Z
+<stdin>:80:45: warning: unused variable `χ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:80:47: warning: unused variable `χbar`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:134:5: warning: unused variable `χ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:134:7: warning: unused variable `χbar`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@SIDEGRHTransfer.grh_structural_exhaustiveness_proved : ∀ {n : ℕ} [inst : NeZero n] (χ χbar : DirichletCharacter ℂ n),
+  SIDEGRHTransfer.GRHStructuralExhaustiveness χ χbar
+'SIDEGRHTransfer.grh_structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 503.3 s
+exit 0

@@ -1,0 +1,11 @@
+SIDE-lv-conservation v0.7.0 = 2d86182ba78c5ab514362259054543cdde4680dd ; git show v0.7.0:SIDELvConservation/RegisterPentagon.lean ; checkout HEAD 2f71068ac356 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: DIFF
+names: ['SIDELvConservation.RegisterPentagon.goalState_of_h1_h2']
+start 2026-09-28T18:06:03Z
+SIDELvConservation.RegisterPentagon.goalState_of_h1_h2 : ∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ),
+  (∀ C ∈ 𝒞, C SIDELvConservation.Phi) →
+    mellin SIDELvConservation.Phi (s / 2) ≠ 0 → SIDELvConservation.RegisterPentagon.GoalState 𝒞 s
+'SIDELvConservation.RegisterPentagon.goalState_of_h1_h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 23.0 s
+exit 0

@@ -1,0 +1,17 @@
+SIDE-simplicity v0.1.0 = 54ba4f38b7298a9f22d13a6943307c7368309abe ; git show v0.1.0:SIDESimplicity/Codimension.lean ; checkout HEAD 54ba4f38b729 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+names: ['SIDESimplicity.transversal_generic_empty', 'SIDESimplicity.codim_exceeds_curve', 'SIDESimplicity.codim_margin', 'SIDESimplicity.no_tuning']
+start 2026-09-28T16:17:46Z
+SIDESimplicity.transversal_generic_empty : ∀ (curveDim obstrCodim : ℤ),
+  curveDim = 1 → 2 ≤ obstrCodim → curveDim - obstrCodim < 0
+SIDESimplicity.codim_exceeds_curve : SIDESimplicity.curveDim < SIDESimplicity.numSources
+SIDESimplicity.codim_margin : ∀ (lost : ℤ),
+  0 ≤ lost → lost ≤ 3 → SIDESimplicity.curveDim < SIDESimplicity.numSources - lost
+SIDESimplicity.no_tuning : SIDESimplicity.freeParameters = 0
+'SIDESimplicity.transversal_generic_empty' depends on axioms: [propext, Quot.sound]
+'SIDESimplicity.codim_exceeds_curve' depends on axioms: [propext, Quot.sound]
+'SIDESimplicity.codim_margin' depends on axioms: [propext, Quot.sound]
+'SIDESimplicity.no_tuning' does not depend on any axioms
+real 2903.5 s
+exit 0

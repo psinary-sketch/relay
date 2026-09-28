@@ -1,0 +1,18 @@
+SIDE-kernel 27a3ae7 = 27a3ae7b2f491a23ed3eb442be795dac2d7e9654 ; the worktree D:/wt-b554-deriv at 27a3ae7 (git -C D:/wt-b554-deriv rev-parse HEAD = 27a3ae7b2f491a23ed3eb442be795dac2d7e9654) ; checkout HEAD 0256e9e1297f ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.0-rc8
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: DIFF
+names: ['SIDEDerivative.exactly_c1_derives', 'SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero', 'SIDEDerivative.no_onLine_double_iff_transversal']
+start 2026-09-28T16:00:10Z
+SIDEDerivative.exactly_c1_derives : (List.filter
+      (fun c => decide (SIDEDerivative.derivGrade c = SIDEDerivative.Grade.derives))
+      [SIDEDerivative.DerivClass.c1, SIDEDerivative.DerivClass.c2, SIDEDerivative.DerivClass.c3,
+        SIDEDerivative.DerivClass.c4, SIDEDerivative.DerivClass.c5, SIDEDerivative.DerivClass.c6,
+        SIDEDerivative.DerivClass.c7]).length =
+  1
+@SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero : ∀ {z : ℂ}, z.re = 0 → (z = 0 ↔ z.im = 0)
+@SIDEDerivative.no_onLine_double_iff_transversal : ∀ {z : ℂ}, z.re = 0 → (z ≠ 0 ↔ z.im ≠ 0)
+'SIDEDerivative.exactly_c1_derives' does not depend on any axioms
+'SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEDerivative.no_onLine_double_iff_transversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 1056.0 s
+exit 0

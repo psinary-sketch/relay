@@ -1,0 +1,9 @@
+SIDE-lv-conservation v0.5.1 = bc4751ee7e8cdd1846baafd990b2b1b26e1c50ae ; git show v0.5.1:SIDELvConservation/C7FiniteTypeFalse.lean ; checkout HEAD 2f71068ac356 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['SIDELvConservation.C7_finite_type_false']
+start 2026-09-28T18:02:45Z
+SIDELvConservation.C7_finite_type_false : ¬∃ C A, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * ‖s‖)
+'SIDELvConservation.C7_finite_type_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 30.9 s
+exit 0

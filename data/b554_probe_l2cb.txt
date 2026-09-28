@@ -1,0 +1,13 @@
+SIDE-lv-conservation v0.11.0 = 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; git show v0.11.0:SIDELvConservation/PartialPositivity.lean ; checkout HEAD 2f71068ac356 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/RegisterPentagon.lean', 'SAME'), ('SIDELvConservation/ZeroCarrier.lean', 'SAME'), ('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine']
+start 2026-09-28T18:08:30Z
+SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀
+  (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ),
+  (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n
+'SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 25.5 s
+exit 0

@@ -1,0 +1,21 @@
+SIDE-kernel v1.2 = b1407b2231c650d6d938cfa649f589fd388f669c ; git show v1.2:Kernel/PerpendicularCrossing.lean ; checkout HEAD 0256e9e1297f ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.0-rc8
+repo-local imports (pin vs checkout HEAD): [('Kernel/SpectralCannon.lean', 'SAME'), ('Kernel/Focus.lean', 'SAME'), ('Kernel/ThomBridge.lean', 'SAME'), ('Kernel/SchwarzDischarge.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['PerpendicularCrossing.perpendicular_gradients', 'PerpendicularCrossing.proved_infrastructure', 'PerpendicularCrossing.simplicity_from_trace_structure', 'PerpendicularCrossing.multiplicity_from_identity']
+start 2026-09-28T17:41:56Z
+PerpendicularCrossing.perpendicular_gradients : ∀ (c₁ : ℝ), 0 * c₁ + -c₁ * 0 = 0
+PerpendicularCrossing.proved_infrastructure : (∀ (t : ℝ), (completedRiemannZeta₀ { re := 1 / 2, im := t }).im = 0) ∧
+  (∀ (s : ℂ), deriv completedRiemannZeta₀ s = -deriv completedRiemannZeta₀ (1 - s)) ∧
+    (∀ (s : ℂ), 1 ≤ s.re → riemannZeta s ≠ 0) ∧
+      ∀ (sigma t : ℝ),
+        completedRiemannZeta₀ { re := 1 - sigma, im := t } =
+          (starRingEnd ℂ) (completedRiemannZeta₀ { re := sigma, im := t })
+PerpendicularCrossing.simplicity_from_trace_structure : ∀ m ≥ 1,
+  ∀ (R : ℕ → ℕ), (∀ (n : ℕ), m * n = R n) → R 1 = 1 → m = 1
+PerpendicularCrossing.multiplicity_from_identity : ∀ (m R : ℕ), m = R → R = 1 → m = 1
+'PerpendicularCrossing.perpendicular_gradients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerpendicularCrossing.proved_infrastructure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerpendicularCrossing.simplicity_from_trace_structure' does not depend on any axioms
+'PerpendicularCrossing.multiplicity_from_identity' does not depend on any axioms
+real 256.4 s
+exit 0

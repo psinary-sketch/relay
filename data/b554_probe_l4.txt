@@ -1,0 +1,10 @@
+SIDE-lv-conservation v0.2.0 = c8e3d3104946b603ed0f4c0b7f6a3765965062e4 ; git show v0.2.0:SIDELvConservation/T2_SDarkness.lean ; checkout HEAD 2f71068ac356 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/T1_MellinFactorization.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+names: ['SIDELvConservation.T2b_mellin_exhaustion']
+start 2026-09-28T18:01:06Z
+SIDELvConservation.T2b_mellin_exhaustion : ∀ (Φ : ℝ → ℂ) (s : ℂ),
+  mellin Φ s = ∫ (t : ℝ) in Set.Ioi 0, ↑t ^ (s - 1) • Φ t
+'SIDELvConservation.T2b_mellin_exhaustion' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 23.1 s
+exit 0

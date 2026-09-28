@@ -1,0 +1,1096 @@
+{
+ "rows": [
+  {
+   "line": 435,
+   "claim": "Ch. 1 — perpendicular crossing: $\\mathrm{Re}\\,\\xi'(1/2+it) = 0$",
+   "names": [
+    "SpectralCannonFull.spectral_cannon"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2"
+  },
+  {
+   "line": 436,
+   "claim": "Derivative-level catalogue — honest per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives)",
+   "names": [
+    "SIDEDerivative.exactly_c1_derives"
+   ],
+   "tiers": [
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": true,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited)"
+  },
+  {
+   "line": 437,
+   "claim": "C₁ derivative reduction — on the line, a double zero ⇔ Im ξ′(ρ)=0",
+   "names": [
+    "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": true,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`"
+  },
+  {
+   "line": 438,
+   "claim": "The joint step — not-double ⇔ transversality (uniform = simplicity)",
+   "names": [
+    "SIDEDerivative.no_onLine_double_iff_transversal"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": true,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`"
+  },
+  {
+   "line": 439,
+   "claim": "Ch. 1 — perpendicular gradients at simple zeros",
+   "names": [
+    "PerpendicularCrossing.perpendicular_gradients",
+    "PerpendicularCrossing.proved_infrastructure"
+   ],
+   "tiers": [
+    "T2",
+    "T0"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2"
+  },
+  {
+   "line": 440,
+   "claim": "Ch. 1 — reduction RH $\\iff$ off-line non-intersection",
+   "names": [],
+   "tiers": [],
+   "tier": "T4",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "(none)"
+  },
+  {
+   "line": 441,
+   "claim": "Ch. 2 — codimension argument: transversality generically empty",
+   "names": [
+    "SIDESimplicity.transversal_generic_empty",
+    "SIDESimplicity.codim_exceeds_curve",
+    "SIDESimplicity.codim_margin",
+    "SIDESimplicity.no_tuning"
+   ],
+   "tiers": [
+    "T2",
+    "T2",
+    "T2",
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-simplicity v0.1.0"
+  },
+  {
+   "line": 442,
+   "claim": "Ch. 3 — trace-formula multiplicity-one structure",
+   "names": [
+    "PerpendicularCrossing.simplicity_from_trace_structure",
+    "PerpendicularCrossing.multiplicity_from_identity"
+   ],
+   "tiers": [
+    "T2",
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2"
+  },
+  {
+   "line": 443,
+   "claim": "Ch. 4 — Hadamard **input**: ξ has order ≤ 1",
+   "names": [
+    "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.4.0 = `0d2d74c`"
+  },
+  {
+   "line": 444,
+   "claim": "Ch. 4 — Hadamard **factorization step**: order-≤1 growth ⟹ genus-1 product",
+   "names": [],
+   "tiers": [],
+   "tier": "T4",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "(none)"
+  },
+  {
+   "line": 445,
+   "claim": "Ch. 4 — $\\mathbb{Q}$-independence of $\\{\\log p\\}$ / RMT super-repulsion",
+   "names": [],
+   "tiers": [],
+   "tier": "T4",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "(none)"
+  },
+  {
+   "line": 446,
+   "claim": "Ch. 1 — the RH-positivity route (cross-ref; **not** a simplicity witness): finite-range Li positivity $\\lambda_n \\geq 0$ for $1 \\leq n \\leq N_0(T) \\approx 2T^2$",
+   "names": [
+    "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange",
+    "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine"
+   ],
+   "tiers": [
+    "T1-lit",
+    "T0"
+   ],
+   "tier": "T1-lit",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`"
+  },
+  {
+   "line": 447,
+   "claim": "Ch. 5 — Conservation of Spectra",
+   "names": [
+    "ProductFormula.conservation_of_spectra",
+    "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin",
+    "SIDELvConservation.T2b_mellin_exhaustion"
+   ],
+   "tiers": [
+    "T2",
+    "T0",
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2 · SIDE-lv-conservation v0.2.0"
+  },
+  {
+   "line": 448,
+   "claim": "Ch. 6 — Epstein: the joint-resultant / one-jaw exception fails by countermodel",
+   "names": [
+    "SIDELvConservation.T3.T3doubleprime_general_commutation_fails"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.2.0"
+  },
+  {
+   "line": 449,
+   "claim": "Ch. 7 — GRH transfer (structural exhaustiveness for χ)",
+   "names": [
+    "SIDEGRHTransfer.grh_structural_exhaustiveness_proved"
+   ],
+   "tiers": [
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-grh-transfer v0.5.0"
+  },
+  {
+   "line": 450,
+   "claim": "Ch. 7 — Dirichlet Hadamard **input**: completed $L$ has order ≤ 1 (χ ≠ 1, both parities)",
+   "names": [
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.5.0 = `1767bd6`"
+  },
+  {
+   "line": 451,
+   "claim": "Ch. 2/3/7 — seven-mechanism count 2 + 3 + 2 + 0 = 7",
+   "names": [
+    "SIDEKernel.formation"
+   ],
+   "tiers": [
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2"
+  },
+  {
+   "line": 452,
+   "claim": "Ch. 2 — $n_3 = 2$ output scales",
+   "names": [
+    "CartanBridge.formation_n_3_eq_two"
+   ],
+   "tiers": [
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-kernel v1.2"
+  },
+  {
+   "line": 453,
+   "claim": "Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness",
+   "names": [
+    "SIDELvConservation.h1_complete_at_Phi"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.6.0 = `c80bdc2`"
+  },
+  {
+   "line": 454,
+   "claim": "Ch. 8 — the premise in five registers (structure only)",
+   "names": [
+    "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2"
+   ],
+   "tiers": [
+    "T2"
+   ],
+   "tier": "T2",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.7.0 = `2d86182`"
+  },
+  {
+   "line": 455,
+   "claim": "Ch. 4 — the finite-exponential-type growth form is false of the forced witness (compiled negative)",
+   "names": [
+    "SIDELvConservation.C7_finite_type_false"
+   ],
+   "tiers": [
+    "T0"
+   ],
+   "tier": "T0",
+   "branch": false,
+   "disp": "CARRIED",
+   "kernel": "SIDE-lv-conservation v0.5.1 = `bc4751e`"
+  }
+ ],
+ "terms": [
+  {
+   "row": 435,
+   "name": "SpectralCannonFull.spectral_cannon",
+   "pin": "v1.2",
+   "probe": "k1",
+   "second": "k1b",
+   "found": true,
+   "statement": "SpectralCannonFull.spectral_cannon : ∀ (t : ℝ), (deriv completedRiemannZeta₀ { re := 1 / 2, im := t }).re = 0",
+   "statement2": "SpectralCannonFull.spectral_cannon : ∀ (t : ℝ), (deriv completedRiemannZeta₀ { re := 1 / 2, im := t }).re = 0",
+   "same2": true,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` for every real t -- Mathlib`s object; a fact about the line, not about where the zeros are",
+   "conclusion": "Re of the derivative of completedRiemannZeta₀ is 0 on the line",
+   "earlier": [
+    "T0",
+    "b539_tiers.json"
+   ],
+   "ei": "E (=)",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 436,
+   "name": "SIDEDerivative.exactly_c1_derives",
+   "pin": "27a3ae7",
+   "probe": "kd",
+   "second": null,
+   "found": true,
+   "statement": "SIDEDerivative.exactly_c1_derives : (List.filter (fun c => decide (SIDEDerivative.derivGrade c = SIDEDerivative.Grade.derives)) [SIDEDerivative.DerivClass.c1, SIDEDerivative.DerivClass.c2, SIDEDerivative.DerivClass.c3, SIDEDerivative.DerivClass.c4, SIDEDerivative.DerivClass.c5, SIDEDerivative.DerivClass.c6, SIDEDerivative.DerivClass.c7]).length = 1",
+   "statement2": null,
+   "same2": null,
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "a count over a grade map the file itself defines (`derivGrade`) -- a stipulation; the per-class reading is carried by the map`s names",
+   "conclusion": "a list filter over a stipulated grade map has length 1",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": true
+  },
+  {
+   "row": 437,
+   "name": "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero",
+   "pin": "27a3ae7",
+   "probe": "kd",
+   "second": null,
+   "found": true,
+   "statement": "@SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero : ∀ {z : ℂ}, z.re = 0 → (z = 0 ↔ z.im = 0)",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: for a complex z with Re z = 0, z = 0 ↔ Im z = 0 -- a fact about ℂ; its instance at ξ′(ρ) is `spectral_cannon``s conclusion, cross-referenced and not composed in Lean",
+   "conclusion": "for complex z with Re z = 0: z = 0 iff Im z = 0",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": true
+  },
+  {
+   "row": 438,
+   "name": "SIDEDerivative.no_onLine_double_iff_transversal",
+   "pin": "27a3ae7",
+   "probe": "kd",
+   "second": null,
+   "found": true,
+   "statement": "@SIDEDerivative.no_onLine_double_iff_transversal : ∀ {z : ℂ}, z.re = 0 → (z ≠ 0 ↔ z.im ≠ 0)",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: for a complex z with Re z = 0, z ≠ 0 ↔ Im z ≠ 0 -- a fact about ℂ; the simplicity conjecture the row names is not a hypothesis of the statement",
+   "conclusion": "for complex z with Re z = 0: z ≠ 0 iff Im z ≠ 0",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": true
+  },
+  {
+   "row": 439,
+   "name": "PerpendicularCrossing.perpendicular_gradients",
+   "pin": "v1.2",
+   "probe": "k2",
+   "second": null,
+   "found": true,
+   "statement": "PerpendicularCrossing.perpendicular_gradients : ∀ (c₁ : ℝ), 0 * c₁ + -c₁ * 0 = 0",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "vacuous: `(0 : ℝ) * c₁ + (-c₁) * 0 = 0` by `ring`; the gradient reading is in the comments, not the statement",
+   "conclusion": "0·c₁ + (−c₁)·0 = 0 for a real c₁",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 439,
+   "name": "PerpendicularCrossing.proved_infrastructure",
+   "pin": "v1.2",
+   "probe": "k2",
+   "second": null,
+   "found": true,
+   "statement": "PerpendicularCrossing.proved_infrastructure : (∀ (t : ℝ), (completedRiemannZeta₀ { re := 1 / 2, im := t }).im = 0) ∧ (∀ (s : ℂ), deriv completedRiemannZeta₀ s = -deriv completedRiemannZeta₀ (1 - s)) ∧ (∀ (s : ℂ), 1 ≤ s.re → riemannZeta s ≠ 0) ∧ ∀ (sigma t : ℝ), completedRiemannZeta₀ { re := 1 - sigma, im := t } = (starRingEnd ℂ) (completedRiemannZeta₀ { re := sigma, im := t })",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: four facts about Mathlib`s `completedRiemannZeta₀` and `riemannZeta` (realness on the line, the derivative`s antisymmetry, nonvanishing for 1 ≤ re s, the reflection)",
+   "conclusion": "completedRiemannZeta₀ real on the line; its derivative antisymmetric; ζ ≠ 0 for re s ≥ 1; the reflection",
+   "earlier": null,
+   "ei": "I (≤)",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 441,
+   "name": "SIDESimplicity.transversal_generic_empty",
+   "pin": "v0.1.0",
+   "probe": "s1",
+   "second": null,
+   "found": true,
+   "statement": "SIDESimplicity.transversal_generic_empty : ∀ (curveDim obstrCodim : ℤ), curveDim = 1 → 2 ≤ obstrCodim → curveDim - obstrCodim < 0",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Quot.sound]",
+   "tier": "T2",
+   "reason": "integer arithmetic (`omega`): curveDim = 1 and 2 ≤ obstrCodim give curveDim − obstrCodim < 0; the transversality reading is carried by the names",
+   "conclusion": "1 − c < 0 for integers with 2 ≤ c",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 441,
+   "name": "SIDESimplicity.codim_exceeds_curve",
+   "pin": "v0.1.0",
+   "probe": "s1",
+   "second": null,
+   "found": true,
+   "statement": "SIDESimplicity.codim_exceeds_curve : SIDESimplicity.curveDim < SIDESimplicity.numSources",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Quot.sound]",
+   "tier": "T2",
+   "reason": "integer arithmetic over two defined constants (1 < 5)",
+   "conclusion": "1 < 5 for the defined constants",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 441,
+   "name": "SIDESimplicity.codim_margin",
+   "pin": "v0.1.0",
+   "probe": "s1",
+   "second": null,
+   "found": true,
+   "statement": "SIDESimplicity.codim_margin : ∀ (lost : ℤ), 0 ≤ lost → lost ≤ 3 → SIDESimplicity.curveDim < SIDESimplicity.numSources - lost",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Quot.sound]",
+   "tier": "T2",
+   "reason": "integer arithmetic (`omega`): 1 < 5 − lost for 0 ≤ lost ≤ 3",
+   "conclusion": "1 < 5 − lost for 0 ≤ lost ≤ 3",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 441,
+   "name": "SIDESimplicity.no_tuning",
+   "pin": "v0.1.0",
+   "probe": "s1",
+   "second": null,
+   "found": true,
+   "statement": "SIDESimplicity.no_tuning : SIDESimplicity.freeParameters = 0",
+   "statement2": null,
+   "same2": null,
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "definitional (`rfl`): a defined constant equals 0",
+   "conclusion": "freeParameters = 0 by definition",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 442,
+   "name": "PerpendicularCrossing.simplicity_from_trace_structure",
+   "pin": "v1.2",
+   "probe": "k2",
+   "second": null,
+   "found": true,
+   "statement": "PerpendicularCrossing.simplicity_from_trace_structure : ∀ m ≥ 1, ∀ (R : ℕ → ℕ), (∀ (n : ℕ), m * n = R n) → R 1 = 1 → m = 1",
+   "statement2": null,
+   "same2": null,
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "vacuous: the hypotheses stipulate the conclusion (m·n = R n for all n and R 1 = 1 give m = 1) over ℕ",
+   "conclusion": "m = 1 for naturals with m·n = R n for all n and R 1 = 1",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 442,
+   "name": "PerpendicularCrossing.multiplicity_from_identity",
+   "pin": "v1.2",
+   "probe": "k2",
+   "second": null,
+   "found": true,
+   "statement": "PerpendicularCrossing.multiplicity_from_identity : ∀ (m R : ℕ), m = R → R = 1 → m = 1",
+   "statement2": null,
+   "same2": null,
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "vacuous: m = R and R = 1 give m = 1 over ℕ",
+   "conclusion": "m = 1 for naturals with m = R and R = 1",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 443,
+   "name": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
+   "pin": "v0.4.0",
+   "probe": "l1",
+   "second": null,
+   "found": true,
+   "statement": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp : ∃ A C, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedRiemannZeta₀`, no premise",
+   "conclusion": "‖completedRiemannZeta₀ s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2)) for some C, A",
+   "earlier": [
+    "T2",
+    "b539_tiers.json"
+   ],
+   "ei": "I (≤)",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 446,
+   "name": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange",
+   "pin": "v0.8.0",
+   "probe": "l2",
+   "second": "l2b",
+   "found": true,
+   "statement": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n",
+   "statement2": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n",
+   "same2": true,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T1-lit",
+   "reason": "INTERFACES on `ExplicitFormulaDecomp` (Bombieri–Lagarias) and `TailBoundPremise` (Voros), literature theorems not compiled, and the numerical `VerifiedZerosTo T` (b540, (R150)(3))",
+   "conclusion": "0 ≤ λ_n for 1 ≤ n ≤ N₀(T), under the three premises",
+   "earlier": [
+    "T2",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 446,
+   "name": "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine",
+   "pin": "v0.8.0",
+   "probe": "l2c",
+   "second": "l2cb",
+   "found": true,
+   "statement": "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀ (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ), (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n",
+   "statement2": "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀ (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ), (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n",
+   "same2": true,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `0 ≤ Re[1 − (1 − 1/ρ)^n]` at a zero of Mathlib`s `riemannZeta` in the strip with Re ρ = 1/2 -- a fact about on-line zeros, not about where the zeros are",
+   "conclusion": "Re[1 − (1 − 1/ρ)^n] ≥ 0 at an on-line nontrivial zero ρ",
+   "earlier": [
+    "T2",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 447,
+   "name": "ProductFormula.conservation_of_spectra",
+   "pin": "v1.2",
+   "probe": "k3",
+   "second": null,
+   "found": true,
+   "statement": "ProductFormula.conservation_of_spectra : ∀ (s : ℤ), 1 ^ s = 1",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "a stipulation: `∀ s : ℤ, (1 : ℚ) ^ s = 1` (`one_zpow`); the conservation reading is carried by the name (b539)",
+   "conclusion": "1^s = 1 in ℚ for every integer s",
+   "earlier": [
+    "T0",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 447,
+   "name": "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin",
+   "pin": "v0.2.0",
+   "probe": "l3",
+   "second": null,
+   "found": true,
+   "statement": "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin : ∃ Φ, ∀ (s : ℂ), 1 < s.re → completedRiemannZeta s = mellin Φ (s / 2)",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `completedRiemannZeta s = mellin Φ (s / 2)` for 1 < re s -- Mathlib`s objects",
+   "conclusion": "completedRiemannZeta s = mellin Φ (s/2) for re s > 1, some Φ",
+   "earlier": null,
+   "ei": "I (<)",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 447,
+   "name": "SIDELvConservation.T2b_mellin_exhaustion",
+   "pin": "v0.2.0",
+   "probe": "l4",
+   "second": null,
+   "found": true,
+   "statement": "SIDELvConservation.T2b_mellin_exhaustion : ∀ (Φ : ℝ → ℂ) (s : ℂ), mellin Φ s = ∫ (t : ℝ) in Set.Ioi 0, ↑t ^ (s - 1) • Φ t",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "definitional (`rfl`): Mathlib`s `mellin` unfolded (b540)",
+   "conclusion": "mellin Φ s equals its defining integral",
+   "earlier": [
+    "T2",
+    "b540_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 448,
+   "name": "SIDELvConservation.T3.T3doubleprime_general_commutation_fails",
+   "pin": "v0.2.0",
+   "probe": "l5",
+   "second": null,
+   "found": true,
+   "statement": "SIDELvConservation.T3.T3doubleprime_general_commutation_fails : ¬∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: a countermodel against Mathlib`s `mellin`: the unrestricted ∀∃ ⟹ ∃∀ over couplings fails at s = 3 -- a true fact of logic, neither ENCODES, SHELL, FALSE-AS-STATED nor vacuous; b545 carried it at T2",
+   "conclusion": "the unrestricted ∀∃ ⟹ ∃∀ commutation is false",
+   "earlier": [
+    "T2",
+    "b545_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 449,
+   "name": "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+   "pin": "v0.5.0",
+   "probe": "g1",
+   "second": null,
+   "found": true,
+   "statement": "@SIDEGRHTransfer.grh_structural_exhaustiveness_proved : ∀ {n : ℕ} [inst : NeZero n] (χ χbar : DirichletCharacter ℂ n), SIDEGRHTransfer.GRHStructuralExhaustiveness χ χbar",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "the χ-family catalogue, χ typed but unused -- Route 1`s shape (b540)",
+   "conclusion": "GRHStructuralExhaustiveness χ χ̄: seven classes, none producing, Ostrowski-exhaustive",
+   "earlier": [
+    "T2",
+    "b540_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 450,
+   "name": "SIDELvConservation.exists_norm_completedLFunction_le_exp",
+   "pin": "v0.5.0",
+   "probe": "l6",
+   "second": null,
+   "found": true,
+   "statement": "@SIDELvConservation.exists_norm_completedLFunction_le_exp : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N), χ ≠ 1 → ∃ A C, ∀ (s : ℂ), ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedLFunction`, no premise but χ ≠ 1",
+   "conclusion": "‖completedLFunction χ s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2)) for χ ≠ 1",
+   "earlier": [
+    "T2",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 451,
+   "name": "SIDEKernel.formation",
+   "pin": "v1.2",
+   "probe": "k4",
+   "second": null,
+   "found": true,
+   "statement": "SIDEKernel.formation : 2 + 3 + 2 + 0 = 7",
+   "statement2": null,
+   "same2": null,
+   "profile": "does not depend on any axioms",
+   "row_profile": "does not depend on any axioms",
+   "tier": "T2",
+   "reason": "`2 + 3 + 2 + 0 = 7` by `decide` -- arithmetic alone; the classification is carried by the identifier (b539)",
+   "conclusion": "2 + 3 + 2 + 0 = 7",
+   "earlier": [
+    "T0",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 452,
+   "name": "CartanBridge.formation_n_3_eq_two",
+   "pin": "v1.2",
+   "probe": "k5",
+   "second": null,
+   "found": true,
+   "statement": "CartanBridge.formation_n_3_eq_two : CartanBridge.n_3 = 2",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "the cardinality of a type the kernel defines (`OutputStageClass`) is 2 -- a count of its own constructors; the classification reading is carried by the name",
+   "conclusion": "Fintype.card OutputStageClass = 2",
+   "earlier": null,
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 453,
+   "name": "SIDELvConservation.h1_complete_at_Phi",
+   "pin": "v0.6.0",
+   "probe": "l7",
+   "second": null,
+   "found": true,
+   "statement": "SIDELvConservation.h1_complete_at_Phi : SIDELvConservation.C1_realness SIDELvConservation.Phi ∧ SIDELvConservation.C2_halfplane_nonvanishing SIDELvConservation.Phi ∧ SIDELvConservation.C3_theta_transformation SIDELvConservation.Phi ∧ SIDELvConservation.C4_modularity SIDELvConservation.Phi ∧ SIDELvConservation.C5_input SIDELvConservation.Phi ∧ SIDELvConservation.C6_holomorphic_extension SIDELvConservation.Phi ∧ SIDELvConservation.C7_entirety SIDELvConservation.Phi ∧ SIDELvConservation.C7_order SIDELvConservation.Phi",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the eight coupling facts of `Phi`, lv`s theta-kernel function built from Mathlib`s `evenKernel`; no premise (b539, b545); the row`s \"only h2 open\" rests on lv`s h2, FALSE-AS-STATED on the strip",
+   "conclusion": "the eight couplings hold at Phi",
+   "earlier": [
+    "T0",
+    "b539_tiers.json"
+   ],
+   "ei": "not indexed",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 454,
+   "name": "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2",
+   "pin": "v0.7.0",
+   "probe": "l8",
+   "second": "l8b",
+   "found": true,
+   "statement": "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2 : ∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ), (∀ C ∈ 𝒞, C SIDELvConservation.Phi) → mellin SIDELvConservation.Phi (s / 2) ≠ 0 → SIDELvConservation.RegisterPentagon.GoalState 𝒞 s",
+   "statement2": "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2 : ∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ), (∀ C ∈ 𝒞, C SIDELvConservation.Phi) → mellin SIDELvConservation.Phi (s / 2) ≠ 0 → SIDELvConservation.RegisterPentagon.GoalState 𝒞 s",
+   "same2": true,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T2",
+   "reason": "INTERFACES on lv`s h2, `mellin Phi (s / 2) ≠ 0`, which is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, b538) -- vacuous on the strip",
+   "conclusion": "GoalState 𝒞 s from h1 at Phi and mellin Phi (s/2) ≠ 0",
+   "earlier": null,
+   "ei": "E (other shape)",
+   "moved": [],
+   "branch": false
+  },
+  {
+   "row": 455,
+   "name": "SIDELvConservation.C7_finite_type_false",
+   "pin": "v0.5.1",
+   "probe": "l9",
+   "second": null,
+   "found": true,
+   "statement": "SIDELvConservation.C7_finite_type_false : ¬∃ C A, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * ‖s‖)",
+   "statement2": null,
+   "same2": null,
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C * exp (A * ‖s‖)`",
+   "conclusion": "completedRiemannZeta₀ is not of finite exponential type",
+   "earlier": [
+    "T2",
+    "b539_tiers.json"
+   ],
+   "ei": "I (≤)",
+   "moved": [],
+   "branch": false
+  }
+ ],
+ "term_tiers": {
+  "T0": 11,
+  "T1-open": 0,
+  "T1-lit": 1,
+  "T2": 14,
+  "T3": 0,
+  "T4": 0
+ },
+ "row_tiers": {
+  "T0": 8,
+  "T1-open": 0,
+  "T1-lit": 1,
+  "T2": 9,
+  "T3": 0,
+  "T4": 3
+ },
+ "disp": {
+  "CARRIED": 21,
+  "MOVED": 0
+ },
+ "n5": {
+  "SpectralCannonFull.spectral_cannon": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "PerpendicularCrossing.perpendicular_gradients": [
+   "T2",
+   [
+    "T0"
+   ]
+  ],
+  "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDELvConservation.exists_norm_completedLFunction_le_exp": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDELvConservation.C7_finite_type_false": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDELvConservation.T2b_mellin_exhaustion": [
+   "T2",
+   [
+    "T0"
+   ]
+  ],
+  "SIDELvConservation.T3.T3doubleprime_general_commutation_fails": [
+   "T0",
+   [
+    "T0"
+   ]
+  ],
+  "SIDEKernel.formation": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "CartanBridge.formation_n_3_eq_two": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "SIDEGRHTransfer.grh_structural_exhaustiveness_proved": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "SIDESimplicity.transversal_generic_empty": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "PerpendicularCrossing.simplicity_from_trace_structure": [
+   "T2",
+   [
+    "T2"
+   ]
+  ],
+  "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange": [
+   "T1-lit",
+   [
+    "T1-lit"
+   ]
+  ],
+  "SIDELvConservation.h1_complete_at_Phi": [
+   "T0",
+   [
+    "T1-open",
+    "T2"
+   ]
+  ],
+  "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2": [
+   "T2",
+   [
+    "T1-open",
+    "T2"
+   ]
+  ]
+ },
+ "n5_ok": false,
+ "branch_ok": true,
+ "carries": [],
+ "count": 21,
+ "probes": {
+  "kd": {
+   "exit": 0,
+   "seconds": 1056.0,
+   "errors": 0
+  },
+  "s1": {
+   "exit": 0,
+   "seconds": 2903.5,
+   "errors": 0
+  },
+  "g1": {
+   "exit": 0,
+   "seconds": 503.3,
+   "errors": 0
+  },
+  "k4": {
+   "exit": 0,
+   "seconds": 333.2,
+   "errors": 0
+  },
+  "k3": {
+   "exit": 0,
+   "seconds": 112.0,
+   "errors": 0
+  },
+  "k1": {
+   "exit": 0,
+   "seconds": 873.0,
+   "errors": 0
+  },
+  "k1b": {
+   "exit": 0,
+   "seconds": 316.1,
+   "errors": 0
+  },
+  "k2": {
+   "exit": 0,
+   "seconds": 256.4,
+   "errors": 0
+  },
+  "k5": {
+   "exit": 0,
+   "seconds": 21.8,
+   "errors": 0
+  },
+  "l3": {
+   "exit": 0,
+   "seconds": 869.2,
+   "errors": 0
+  },
+  "l4": {
+   "exit": 0,
+   "seconds": 23.1,
+   "errors": 0
+  },
+  "l5": {
+   "exit": 0,
+   "seconds": 41.0,
+   "errors": 0
+  },
+  "l1": {
+   "exit": 0,
+   "seconds": 32.3,
+   "errors": 0
+  },
+  "l9": {
+   "exit": 0,
+   "seconds": 30.9,
+   "errors": 0
+  },
+  "l6": {
+   "exit": 0,
+   "seconds": 128.8,
+   "errors": 0
+  },
+  "l7": {
+   "exit": 0,
+   "seconds": 32.7,
+   "errors": 0
+  },
+  "l8": {
+   "exit": 0,
+   "seconds": 23.0,
+   "errors": 0
+  },
+  "l8b": {
+   "exit": 0,
+   "seconds": 20.0,
+   "errors": 0
+  },
+  "l2": {
+   "exit": 0,
+   "seconds": 25.7,
+   "errors": 0
+  },
+  "l2b": {
+   "exit": 0,
+   "seconds": 25.1,
+   "errors": 0
+  },
+  "l2c": {
+   "exit": 0,
+   "seconds": 23.2,
+   "errors": 0
+  },
+  "l2cb": {
+   "exit": 0,
+   "seconds": 25.5,
+   "errors": 0
+  }
+ }
+}

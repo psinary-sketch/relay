@@ -1,0 +1,12 @@
+SIDE-lv-conservation v0.2.0 = c8e3d3104946b603ed0f4c0b7f6a3765965062e4 ; git show v0.2.0:SIDELvConservation/T1_MellinFactorization.lean ; checkout HEAD 2f71068ac356 ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain leanprover/lean4:v4.29.1
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+names: ['SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin']
+start 2026-09-28T17:46:36Z
+SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin : ∃ Φ,
+  ∀ (s : ℂ), 1 < s.re → completedRiemannZeta s = mellin Φ (s / 2)
+'SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 869.2 s
+exit 0
