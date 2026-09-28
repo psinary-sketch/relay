@@ -1,0 +1,69 @@
+========================================================================================================
+b551 -- THE CLOSING RECORD. ### **THE TOOLCHAINS, UNDER (R161).**
+========================================================================================================
+    the census : 45 repositories ; distinct Mathlib revs among non-VANILLA 7 ; not building from cache 7 (SIDE-interfaces, SIDE-effects, SIDE-spinor, SIDE-trivium, SIDE-explicit-formula, SIDE-lv-conservation, SIDE-cosmo) ; runs 60, all guarded True
+    the Interfaces pin : the olean built (exit 0) ; FiniteInstanceIdentity exit 0, prints equal True ; GlobalSection exit 0, prints equal True ; LocalLimit exit 0, prints equal True ; RestrictedTensorLayer1 exit 0, prints equal True
+    the tag : SIDE-global-section v0.2.0 -> remote peeled 2e43315ab423 ; remote main at read-back 2e43315ab423 ; row 391 (CORRESPONDENCE.md) ; SPIRAL_MAP :523 ; THE_IDENTITY_CHAIN :3212
+    the trial : toolchain-trial-b551 at f22ff354d5f1 ; exit 1 ; errors 1 in 1 module(s) ['SIDELvConservation/GammaBounds.lean'] ; not attempted downstream 11 of 25 ; Mathlib modules compiled 0
+    OPEN_TRAILS : the price :11230 ; FINDINGS : the entry :5715 ; next THE_KEYSTONE_CENSUS
+    the branches : Deleted branch push-b550 (was 0dd0a285). ; Deleted branch push-b550-closing (was ffee83ff). ; Deleted branch push-b550 (was 812cbe2).
+    the token : hits 0 over 68 files and 4 commits
+    (N1) HELD (N2) HELD (N3) HELD (N4) HELD (N5) HELD (N6) HELD ; (S1) HELD (S2) HELD (S3) HELD
+    (N6) read literally, its first clause ("main of every repository unchanged"): REFUTED -- SIDE-global-section`s main moved by row 391, as (R161)(4) ordered.
+
+### THIS ACT`S OWN DEFECTS (the desk).
+    (a) The numbering line appended to THE_IDENTITY_CHAIN.md (:3212) first said "the tier block's rows 81-89"; the tier block at
+        :3170 does not carry that wording -- b550's act entry does (FINDINGS.md:5699). Caught before the commit and corrected in
+        the act's own uncommitted line and in the tool that writes it; no committed byte changed.
+    (b) The FINDINGS entry's first append (:5715) read "1 errors in 1 modules" and omitted that 11 of the library's 25 modules
+        import the failed module and were not attempted, so the error count is a floor; and it did not say the stale targets are
+        the repositories' own modules. Caught before the commit: the act's own uncommitted append was cut back to the length its
+        bank recorded (b551_findings.json "before") and re-appended from the repaired writer. No committed byte changed.
+    (c) Component 2's build (the one module at D:\mathlib4, 16:06-16:26 UTC) ran while Component 1's census was still running (to
+        22:45 UTC), both in the background on the same HDD. The four elaborations waited for the census. Components finished in
+        order; the overlap is declared, not hidden.
+    (d) The census probe for SIDE-kernel's Kernel lib imports every glob module at once, and two of them (Kernel.Stormer and
+        Kernel.StormerTest) both declare Stormer.divideOut, so the probe fails on a clash with no object file missing. A defect
+        of the probe's design (READING (3)); the cell says so, and SIDE-kernel's `lake build --no-build` is YES.
+    (e) The trial build's first line prints "manifest mathlib" empty: a grep written for the older manifest's layout. The rev is
+        in the branch's manifest and in data/b551_trial_revs.txt.
+    (f) The first banking of data/b551_iface_cost.txt printed the missing module's own imports as [] (a filter that missed
+        `public import`). Rewritten before the build started; the build's start line postdates it.
+    (g) Two generator heredocs collapsed a backslash before the seal (a regex in gen551s.py, a path in a regspec note that became
+        a tab). Both repaired, and every face gate re-run, before the lock.
+    (h) The order's wording: "all four Interfaces files" -- the directory holds six and README.md:26 says five; the order's four
+        (b550's) were elaborated. (N3)'s "three of four" -- all four elaborate. (N6)'s "main of every repository unchanged"
+        conflicts with (R161)(4)'s row, which moves SIDE-global-section's main by one commit (CORRESPONDENCE.md only).
+    (i) One foreground poll of the census log ran past 600 s and was moved to the background by the host; it only read a file.
+    (j) Row 391's grade cell quotes b550's tier-table words beside a backticked name ("ENCODES 8 and SHELL 1 (`boolGrp`)") while
+        saying it confers no rubric grade. tools/terminal_table.py reads a grade word and a backticked name in one cell as a
+        grade, so the regenerated federation table now reads AggregationCircularityShadow.boolGrp as CONFLICT (ENCODES at
+        CORRESPONDENCE.md:464, SHELL at :464); before the row it read UNGRADED. The first pre-push
+        suite run printed "grade-or-profile changed 1"; the banked run diffs against that one and prints 0; the row itself is in
+        data/terminal_table.json (boolGrp, grade CONFLICT). The row
+        is committed and pushed (SIDE-global-section b4c9ebe) and the ledger is append-only, so it is not rewritten here.
+        ### FOR THE AUTHOR: whether a later row or a table exception should settle it. No grade was meant to move.
+
+### THE COMMITS, THE CENSUSES. ### NO MIRROR ZIP AT THIS ACT.
+    pre-push : ### ### **ARMS RUN : 80. ### LIVE PASSING : 80. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 80. ### LIVE PASSING : 80. ### LIVE FAILING : 0 .**
+      relay                  local 43f85ae792a4 ; remote 43f85ae792a4 ; AGREE
+      PLACE-papers           local a6565c8e4c30 ; remote a6565c8e4c30 ; AGREE
+      SIDE-global-section    local b4c9ebe68c90 ; remote b4c9ebe68c90 ; AGREE
+      SIDE-explicit-formula  local 81ae1758f28e ; remote 81ae1758f28e ; AGREE
+      SIDE-kernel            local 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation   local 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-li-map            local b515e6b62c15 ; remote b515e6b62c15 ; AGREE
+      SIDE-fano-darkness     local 0f6ce5b131fe ; remote 0f6ce5b131fe ; AGREE
+      lv toolchain-trial-b551 local f22ff354d5f1 ; remote f22ff354d5f1 ; AGREE (HELD, not merged)
+    the HELD commit 6eada6a : its files in the pushed tree : 0 of 2
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT**: THE_KEYSTONE_CENSUS.
+    (b) ### **FOR THE AUTHOR**: row 391`s grade cell makes tools/terminal_table.py read AggregationCircularityShadow.boolGrp as CONFLICT (defect (j)); a later row or a table exception is the author`s to choose.
+    (c) ### **FOR THE AUTHOR**: the alignment`s price is a floor -- GammaBounds.lean:177 fails at Mathlib 51e6992 and 11 of 25 modules downstream were not attempted; toolchain-trial-b551 is HELD.
+    (d) ### **FOR THE AUTHOR**: seven non-VANILLA repositories do not build from cache at HEAD, each on its own stale module(s); SIDE-explicit-formula and SIDE-lv-conservation among them.
+    (e) Under (R157)(6) the seat`s memory is not refreshed at this act.
+========================================================================================================
