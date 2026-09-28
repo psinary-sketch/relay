@@ -129,6 +129,33 @@ def kernels():
 # =====================================================================================================
 # ### THE LEDGERS
 # =====================================================================================================
+SUPERSEDE_RE = re.compile(r'SUPERSEDES row (\d+):')
+CORR_LABEL = 'SIDE-global-section/CORRESPONDENCE.md'
+
+
+def corr_row_lines():
+    """### row number -> its line in SIDE-global-section`s CORRESPONDENCE.md."""
+    out = {}
+    for i, ln in enumerate(read(os.path.join(SIDE, 'CORRESPONDENCE.md')).split(NL), 1):
+        m = re.match(r'^\|\s*(\d+)\s*\|', ln)
+        if m:
+            out[int(m.group(1))] = i
+    return out
+
+
+def supersede(cells):
+    """### ### **THE SUPERSESSION RULE (b553, the author`s ruling (R163)(1)).** ### The ledger admits appends and no edits, so a
+    ### correction could not clear a CONFLICT under the distinct-grades rule. ### A CORRESPONDENCE.md grade cell reading
+    ### `SUPERSEDES row N: <grade>` removes, for the terminal it names, every grade cell read from row N`s line of that ledger;
+    ### the superseding cell stays and so carries the grade. ### Every other cell is read as before."""
+    rows = [int(m.group(1)) for c in cells if c['ledger'] == CORR_LABEL for m in [SUPERSEDE_RE.search(c.get('quote') or '')] if m]
+    if not rows:
+        return cells
+    lines = corr_row_lines()
+    gone = set(lines[n] for n in rows if n in lines)
+    return [c for c in cells if not (c['ledger'] == CORR_LABEL and c['line'] in gone)]
+
+
 def ledger_files():
     """### ### **EVERY LEDGER, INCLUDING THE ARCHIVE'S SPLIT LOOMS.** ### b494 found the 2026-07-26
     ### census in the archive, not the live loom: ### **A SPLIT MOVES A LEDGER, IT DOES NOT RETIRE
@@ -666,6 +693,7 @@ def build():
                 if k not in seencell:
                     seencell.add(k)
                     uniq.append(c)
+            uniq = supersede(uniq)
             distinct = sorted(set(c['grade'] for c in uniq))
             rows.append(dict(
                 repo=name, name=n, head=head[:12],
