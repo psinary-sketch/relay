@@ -1,0 +1,14 @@
+b551 -- COMPONENT 4 (c): THE TRIAL BUILD, READ (READING (10))
+
+### worktree D:/trial-b551-lv ; branch toolchain-trial-b551 at f22ff354d5f1ef7ace687df77946ab897fbdda7e ; toolchain leanprover/lean4:v4.33.0-rc2 ; manifest mathlib  ; guard HTTPS_PROXY=http://127.0.0.1:9 GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T23:23:25Z
+### exit 1 ; real	62m33.922s
+### Lake`s warnings about the manifest: ["warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it"]
+### ### **ERRORS: 1 IN 1 MODULE.**
+    SIDELvConservation/GammaBounds.lean                             1  error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+### failed build targets (Lake`s ✖ lines): ['SIDELvConservation.GammaBounds']
+### error lines without a source position: ['error: Lean exited with code 1', 'error: build failed']
+### the library`s modules: 25 ; reported by Lake (built, replayed or failed): 12 ; NOT REPORTED (not attempted, or up to date and silent): ['SIDELvConservation.AxiomCheck_D2', 'SIDELvConservation.AxiomCheck_LeadLaw', 'SIDELvConservation.AxiomCheck_v0_10_0', 'SIDELvConservation.C7FiniteTypeFalse', 'SIDELvConservation.C7OrderBounds', 'SIDELvConservation.CompositionBarrier', 'SIDELvConservation.CouplingsAtPhi', 'SIDELvConservation.DirichletC7Order', 'SIDELvConservation.PartialPositivity', 'SIDELvConservation.QWantedPoster', 'SIDELvConservation.RegisterPentagon', 'SIDELvConservation.ZeroActingPairing', 'SIDELvConservation.ZeroActingPartial']
+### of those, importing a failed module (transitively, by the library`s own import lines): 11 -- ['SIDELvConservation.AxiomCheck_v0_10_0', 'SIDELvConservation.C7FiniteTypeFalse', 'SIDELvConservation.C7OrderBounds', 'SIDELvConservation.CompositionBarrier', 'SIDELvConservation.CouplingsAtPhi', 'SIDELvConservation.DirichletC7Order', 'SIDELvConservation.PartialPositivity', 'SIDELvConservation.QWantedPoster', 'SIDELvConservation.RegisterPentagon', 'SIDELvConservation.ZeroActingPairing', 'SIDELvConservation.ZeroActingPartial'] ; the rest: ['SIDELvConservation.AxiomCheck_D2', 'SIDELvConservation.AxiomCheck_LeadLaw']
+### Mathlib modules Lake named as built or building: 0 []
+### the branch toolchain-trial-b551 at f22ff354d5f1 ; its files against main: ['lake-manifest.json', 'lean-toolchain']
+### the older kernel`s main: 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; tracked status []

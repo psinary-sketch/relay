@@ -1,0 +1,374 @@
+====================================================================================================================================
+b551 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b551_toolchains.txt
+  b551 -- COMPONENT 1: THE FEDERATION TOOLCHAIN CENSUS (READINGS (1)-(6)), every repository at HEAD, every cell printed
+  
+  ### the network guard on every lake run: ALL_PROXY=http://127.0.0.1:9, GIT_ALLOW_PROTOCOL=file, HTTPS_PROXY=http://127.0.0.1:9, HTTP_PROXY=http://127.0.0.1:9, all_proxy=http://127.0.0.1:9, http_proxy=http://127.0.0.1:9, https_proxy=http://127.0.0.1:9
+  
+  repository | lean-toolchain | Mathlib rev | checkout on D: | oleans (lake env lean, roots) | lake build from cache | SPIRAL_MAP pin
+  SIDE-kernel | leanprover/lean4:v4.29.0-rc8 | e960b84129b3 | yes (own .lake/packages) | NOT COMPLETE BY THE PROBE: Kernel -> PROBE CLASH, no object file missing: Kernel.Stormer and Kernel.StormerTest both declare Stormer.divideOut and cannot be imported together | YES | v1.5 (SPIRAL_MAP.md:49) ; at the pin: same toolchain and rev as HEAD
+  SIDE-interfaces | leanprover/lean4:v4.29.0-rc8 | 698d2b68b870 | yes (own .lake/packages) | COMPLETE (1 root) ; ROOT ABSENT: Kernel (Kernel.lean) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: Interfaces.InterfaceSplit (OWN) | v0.1.3 (SPIRAL_MAP.md:82) ; at the pin: same toolchain and rev as HEAD
+  SIDE-effects | leanprover/lean4:v4.30.0-rc2 | 5450b53e5ddc | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDEEffects.ExhaustivenessLicense (OWN) | afa9ccf (SPIRAL_MAP.md:81) ; at the pin: same toolchain and rev as HEAD
+  SIDE-archimedean | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:107) ; at the pin: same toolchain and rev as HEAD
+  SIDE-frobenius | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:108) ; at the pin: same toolchain and rev as HEAD
+  SIDE-rcurve | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:109) ; at the pin: same toolchain and rev as HEAD
+  SIDE-spinor | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDESpinor (OWN) | v0.1.0 (SPIRAL_MAP.md:110) ; at the pin: same toolchain and rev as HEAD
+  SIDE-simplicity | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:111) ; at the pin: same toolchain and rev as HEAD
+  SIDE-window | leanprover/lean4:v4.29.1 | VANILLA | n/a | n/a (VANILLA) | YES | v0.4.0 (SPIRAL_MAP.md:112) ; at the pin: same toolchain and rev as HEAD
+  SIDE-global-section | leanprover/lean4:v4.29.1 | NO MANIFEST; declared cecd0c4d56 (README.md:29) | elsewhere: D:\mathlib4 | census: 1 missing (Mathlib.LinearAlgebra.TensorProduct.Finiteness) ; after Component 2: olean built True ; FiniteInstanceIdentity elaborates, GlobalSection elaborates, LocalLimit elaborates, RestrictedTensorLayer1 elaborates | NO LAKEFILE | NONE
+  SIDE-li-map | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | NO LAKEFILE | NONE
+  SIDE-trivium | leanprover/lean4:v4.29.0-rc8 | 698d2b68b870 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: Trivium (OWN) | NONE
+  SIDE-grh-transfer | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.4.0 (SPIRAL_MAP.md:125) ; at the pin: same toolchain and rev as HEAD
+  SIDE-explicit-formula | leanprover/lean4:v4.33.0-rc2 | 51e6992efd06 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDEExplicitFormula.GrowthBound, SIDEExplicitFormula.B321Identity (OWN) | NONE
+  SIDE-lv-conservation | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDELvConservation.RegisterPentagon (OWN) | v0.10.0 (SPIRAL_MAP.md:86) ; at the pin: same toolchain and rev as HEAD
+  SIDE-meta | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.3 (SPIRAL_MAP.md:85) ; at the pin: same toolchain and rev as HEAD
+  SIDE-bijection | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.2.0 (SPIRAL_MAP.md:84) ; at the pin: same toolchain and rev as HEAD
+  SIDE-t7-topology-cmb | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.3 (SPIRAL_MAP.md:87) ; at the pin: same toolchain and rev as HEAD
+  SIDE-omega-b | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:94) ; at the pin: same toolchain and rev as HEAD
+  SIDE-substrate-cluster | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.4 (SPIRAL_MAP.md:95) ; at the pin: same toolchain and rev as HEAD
+  SIDE-coupling | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:96) ; at the pin: same toolchain and rev as HEAD
+  SIDE-class-coupling | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:97) ; at the pin: same toolchain and rev as HEAD
+  SIDE-formation-arithmetic | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:98) ; at the pin: same toolchain and rev as HEAD
+  SIDE-residual-bridge | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:99) ; at the pin: same toolchain and rev as HEAD
+  SIDE-orchestrator | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:158) ; at the pin: same toolchain and rev as HEAD
+  SIDE-constants | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | NO LAKEFILE | 545dde2 (SPIRAL_MAP.md:126)
+  SIDE-spinor-calibration | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+  SIDE-spinor-calibration-mathlib | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:115) ; at the pin: same toolchain and rev as HEAD
+  SIDE-dark-interface | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+  SIDE-silence-principle | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+  SIDE-structural-error-correction | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+  SIDE-cubit-axis | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+  SIDE-compression | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+  SIDE-yang-mills-formation | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD
+  SIDE-bsd-formation-transfer | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD
+  SIDE-bsd-multiplicity | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD
+  TECHNE-Core (private) | leanprover/lean4:v4.29.0 | 8f1377de1fe0 | yes (own .lake/packages) | COMPLETE (2 roots) | YES | NONE
+  SIDE-carrier-spec | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | b3916cc (SPIRAL_MAP.md:510)
+  SIDE-class-number-anomaly | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 2203b88 (SPIRAL_MAP.md:511)
+  SIDE-cosmo | leanprover/lean4:v4.30.0-rc2 | 5450b53e5ddc | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDECosmo (OWN) | c5cba30 (SPIRAL_MAP.md:512)
+  SIDE-dirichlet-mod-24 | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 597b086 (SPIRAL_MAP.md:513)
+  SIDE-fano-darkness | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | NO LAKEFILE | 0f6ce5b (SPIRAL_MAP.md:514)
+  SIDE-formation-procedure | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 65ace65 (SPIRAL_MAP.md:515)
+  SIDE-local-cosmic-interface | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 7a62ced (SPIRAL_MAP.md:516)
+  SIDE-quaternionic-dark-sector | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | e860142 (SPIRAL_MAP.md:517)
+  
+  ### rows 45 ; VANILLA 28 ; non-VANILLA 17
+  ### ### **DISTINCT MATHLIB REVS AMONG NON-VANILLA REPOSITORIES : 7**
+      5e932f97dd : SIDE-archimedean, SIDE-frobenius, SIDE-rcurve, SIDE-spinor, SIDE-simplicity, SIDE-grh-transfer, SIDE-lv-conservation, SIDE-spinor-calibration-mathlib, SIDE-carrier-spec
+      698d2b68b8 : SIDE-interfaces, SIDE-trivium
+      5450b53e5d : SIDE-effects, SIDE-cosmo
+      e960b84129 : SIDE-kernel
+      cecd0c4d56 : SIDE-global-section
+      51e6992efd : SIDE-explicit-formula
+      8f1377de1f : TECHNE-Core (private)
+  ### non-VANILLA repositories whose `lake build --no-build` is not YES : 7 -- SIDE-interfaces; SIDE-effects; SIDE-spinor; SIDE-trivium; SIDE-explicit-formula; SIDE-lv-conservation; SIDE-cosmo
+  ### non-VANILLA with no lakefile (no cache build exists to run) : SIDE-global-section
+  ### VANILLA repositories whose `lake build --no-build` is not YES : 0 -- NONE
+  ### the runs: 60, the guard on every one True
+  ### the older and newer Weil-side kernels: SIDE-lv-conservation 5e932f97dd25 ; SIDE-explicit-formula 51e6992efd06
+
+### relay data/b551_iface_cost.txt
+  b551 -- COMPONENT 2 (a): THE COST, PRINTED BEFORE THE BUILD (READING (7))
+  
+  ### D:\mathlib4 HEAD cecd0c4d56a6410638a13491d566104756f892bf ; toolchain leanprover/lean4:v4.30.0-rc1 ; tracked tree clean True
+  ### the four files` Mathlib imports: ['Mathlib.Analysis.InnerProductSpace.Adjoint', 'Mathlib.Analysis.InnerProductSpace.Projection.Basic', 'Mathlib.Analysis.InnerProductSpace.Projection.Submodule', 'Mathlib.Analysis.InnerProductSpace.TensorProduct', 'Mathlib.Analysis.SpecialFunctions.Complex.Circle', 'Mathlib.Data.Rat.Defs', 'Mathlib.Data.Real.Basic', 'Mathlib.LinearAlgebra.PiTensorProduct', 'Mathlib.NumberTheory.Padics.PadicNumbers', 'Mathlib.Topology.Algebra.OpenSubgroup']
+  ### their closure, read from source: 2086 modules ; with no olean: 1 -- ['Mathlib.LinearAlgebra.TensorProduct.Finiteness']
+  ### all six files` closure: 2280 modules ; with no olean: 1 -- ['Mathlib.LinearAlgebra.TensorProduct.Finiteness']
+  ### ### **THE COST: 1 module to compile at cecd0c4 -- Mathlib.LinearAlgebra.TensorProduct.Finiteness.**
+  ### its own imports: ['Mathlib.LinearAlgebra.DFinsupp', 'Mathlib.RingTheory.Finiteness.Basic', 'Mathlib.LinearAlgebra.TensorProduct.Map']
+  ### each of them has an olean: True
+
+### relay data/b551_iface.txt
+  b551 -- COMPONENT 2 (b)-(c): THE OLEAN BUILT, THE FOUR FILES ELABORATED AT cecd0c4 (READING (7))
+  
+  ### the build: mathlib4 cecd0c4d56a6410638a13491d566104756f892bf dirty=[] toolchain leanprover/lean4:v4.30.0-rc1 guard HTTPS_PROXY=http://127.0.0.1:9 GIT_ALLOW_PROTOCOL=file start 2026-09-27T16:06:20Z ; exit 0 ; real	20m3.409s ; the olean now present: True
+  ### D:\mathlib4 HEAD cecd0c4d56a6410638a13491d566104756f892bf ; tracked tree clean True
+  
+  ### FiniteInstanceIdentity : exit 0 ; real	6m0.220s ; fresh prints 1 ; bank prints 1 ; LINE FOR LINE EQUAL True
+      header: mathlib4 cecd0c4d56a6410638a13491d566104756f892bf dirty=[] toolchain leanprover/lean4:v4.30.0-rc1 ; SIDE-global-section 2e43315ab4238c9644395fafeb22ce6d09a3dca9 ; file Interfaces/FiniteInstanceIdentity.lean alone ; guard GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T22:46:40Z
+      fresh: 'FiniteInstanceIdentity.finiteInstanceIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'FiniteInstanceIdentity.finiteInstanceIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### GlobalSection : exit 0 ; real	4m28.432s ; fresh prints 2 ; bank prints 2 ; LINE FOR LINE EQUAL True
+      header: mathlib4 cecd0c4d56a6410638a13491d566104756f892bf dirty=[] toolchain leanprover/lean4:v4.30.0-rc1 ; SIDE-global-section 2e43315ab4238c9644395fafeb22ce6d09a3dca9 ; file Interfaces/GlobalSection.lean alone ; guard GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T22:52:43Z
+      fresh: 'GlobalSection.F_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'GlobalSection.inner_F_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'GlobalSection.F_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'GlobalSection.inner_F_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### LocalLimit : exit 0 ; real	0m46.672s ; fresh prints 18 ; bank prints 18 ; LINE FOR LINE EQUAL True
+      header: mathlib4 cecd0c4d56a6410638a13491d566104756f892bf dirty=[] toolchain leanprover/lean4:v4.30.0-rc1 ; SIDE-global-section 2e43315ab4238c9644395fafeb22ce6d09a3dca9 ; file Interfaces/LocalLimit.lean alone ; guard GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T22:57:13Z
+      fresh: 'LocalLimit.inner_map_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.radical_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.no_unimodular_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.eigenvector_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.nested_projection_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.real_no_compact_open_addSubgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.general_p_no_fixed_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.proj4_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.proj4_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.compression_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.hullMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.hull_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.hull_iSup_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.hull_compression_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'LocalLimit.inner_sum_general' depends on axioms: [propext]
+      fresh: 'LocalLimit.quotient_general' depends on axioms: [propext]
+      fresh: 'LocalLimit.ball_pullback_general' depends on axioms: [propext]
+      fresh: 'LocalLimit.transform_shift_general' depends on axioms: [propext]
+      bank : 'LocalLimit.inner_map_self_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.radical_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.no_unimodular_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.eigenvector_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.nested_projection_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.real_no_compact_open_addSubgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.general_p_no_fixed_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.proj4_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.proj4_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.compression_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.hullMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.hull_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.hull_iSup_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.hull_compression_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'LocalLimit.inner_sum_general' depends on axioms: [propext]
+      bank : 'LocalLimit.quotient_general' depends on axioms: [propext]
+      bank : 'LocalLimit.ball_pullback_general' depends on axioms: [propext]
+      bank : 'LocalLimit.transform_shift_general' depends on axioms: [propext]
+  ### RestrictedTensorLayer1 : exit 0 ; real	0m32.828s ; fresh prints 3 ; bank prints 3 ; LINE FOR LINE EQUAL True
+      header: mathlib4 cecd0c4d56a6410638a13491d566104756f892bf dirty=[] toolchain leanprover/lean4:v4.30.0-rc1 ; SIDE-global-section 2e43315ab4238c9644395fafeb22ce6d09a3dca9 ; file Interfaces/RestrictedTensorLayer1.lean alone ; guard GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T22:58:01Z
+      fresh: 'RestrictedTensorLayer1.Ftensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'RestrictedTensorLayer1.parityTensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      fresh: 'RestrictedTensorLayer1.tensorFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'RestrictedTensorLayer1.Ftensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'RestrictedTensorLayer1.parityTensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      bank : 'RestrictedTensorLayer1.tensorFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+  
+  ### RestrictedTensorLayer1 at cecd0c4: ELABORATES
+  ### the three other files elaborate: True
+
+### relay data/b551_tag.txt
+  ### b551 READING (8) -- THE TAG, the seat's command, 2026-09-27T23:00:00Z
+  ### before: HEAD 2e43315ab4238c9644395fafeb22ce6d09a3dca9 ; status (tracked) [] ; local tag: [] ; remote tag: []
+  ### local: tag object 368b33ad63f0bdea10adc8226153b1958712ab1c ; peeled 2e43315ab4238c9644395fafeb22ce6d09a3dca9
+      push: To https://github.com/psinary-sketch/SIDE-global-section.git
+      push:  * [new tag]         v0.2.0 -> v0.2.0
+  ### remote read-back (ls-remote):
+      2e43315ab4238c9644395fafeb22ce6d09a3dca9	refs/heads/main
+      368b33ad63f0bdea10adc8226153b1958712ab1c	refs/tags/v0.2.0
+      2e43315ab4238c9644395fafeb22ce6d09a3dca9	refs/tags/v0.2.0^{}
+  ### after: HEAD 2e43315ab4238c9644395fafeb22ce6d09a3dca9 ; status (tracked) []
+
+### relay data/b551_trial_revs.txt
+  b551 -- COMPONENT 4 (a): THE TWO REVS AND THE DISTANCE (READING (10)), read in D:/SIDE-explicit-formula/.lake/packages/mathlib (holds both; not shallow: false)
+  ### SIDE-lv-conservation (v0.11.0 = 2f71068) : lean-toolchain leanprover/lean4:v4.29.1 ; Mathlib 5e932f97dd25535344f80f9dd8da3aab83df0fe6 (2026-04-17 11:50:38 +0200)
+  ### SIDE-explicit-formula (v0.2 = 5c72cad) : lean-toolchain leanprover/lean4:v4.33.0-rc2 ; Mathlib 51e6992efd06126df61a496bebf8f49482a4e129 (2026-08-03 14:29:46 +0000)
+  ### rev-list --count 5e932f9..51e6992 : 3421
+  ### rev-list --count 51e6992..5e932f9 : 1
+  ### merge-base : 8a178386ffc0f5fef0b77738bb5449d50efeea95
+  ### the one commit on the older side not in the newer: 5e932f97dd 2026-04-17 11:50:38 +0200 chore: bump toolchain to v4.29.1
+  ### THE OLDER KERNEL: SIDE-lv-conservation ; THE NEWER: SIDE-explicit-formula ; the direction is toward 51e6992.
+  ### the kernels' mains: lv 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; explicit-formula 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d
+  ### lake-manifest.json and lean-toolchain, SIDE-explicit-formula v0.2 (5c72cad) against main (81ae175): 0 diff lines
+  ### lake-manifest.json and lean-toolchain, SIDE-lv-conservation v0.11.0 against main: 0 diff lines
+
+### relay data/b551_trial_diff.txt
+  b551 -- COMPONENT 4 (b): THE TRIAL BRANCH`S TWO FILES, AGAINST THE OLDER KERNEL`S MAIN (2f71068ac356a15a3f43fea073aa8fe4ae4fbf23)
+  ### the name kept: sideLvConservation (the newer kernel`s was Zeta23)
+  
+   lake-manifest.json | 99 +++++++++++++++++++++++++++++++++---------------------
+   lean-toolchain     |  2 +-
+   2 files changed, 61 insertions(+), 40 deletions(-)
+  
+  diff --git a/lake-manifest.json b/lake-manifest.json
+  index 4f03720..bac020d 100644
+  --- a/lake-manifest.json
+  +++ b/lake-manifest.json
+  @@ -1,95 +1,116 @@
+  -{"version": "1.1.0",
+  +{
+  + "version": "1.2.0",
+    "packagesDir": ".lake/packages",
+  - "packages":
+  - [{"url": "https://github.com/leanprover-community/mathlib4",
+  -   "type": "git",
+  -   "subDir": null,
+  -   "scope": "",
+  -   "rev": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  -   "name": "mathlib",
+  -   "manifestFile": "lake-manifest.json",
+  -   "inputRev": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  -   "inherited": false,
+  -   "configFile": "lakefile.lean"},
+  -  {"url": "https://github.com/leanprover-community/plausible",
+  + "packages": [
+  +  {
+  +   "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "83e90935a17ca19ebe4b7893c7f7066e266f50d3",
+  +   "rev": "123d15766ba49356c02ebad2a4462dfe12d79899",
+      "name": "plausible",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"},
+  -  {"url": "https://github.com/leanprover-community/LeanSearchClient",
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+  +   "rev": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+      "name": "LeanSearchClient",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"},
+  -  {"url": "https://github.com/leanprover-community/import-graph",
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "48d5698bc464786347c1b0d859b18f938420f060",
+  +   "rev": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+      "name": "importGraph",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"},
+  -  {"url": "https://github.com/leanprover-community/ProofWidgets4",
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "4dd0959c44d1af0462bd604d0f87c5781307d709",
+  +   "rev": "222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+      "name": "proofwidgets",
+      "manifestFile": "lake-manifest.json",
+  -   "inputRev": "v0.0.95+lean-v4.29.1",
+  +   "inputRev": "main",
+      "inherited": true,
+  -   "configFile": "lakefile.lean"},
+  -  {"url": "https://github.com/leanprover-community/aesop",
+  +   "configFile": "lakefile.lean"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "7152850e7b216a0d409701617721b6e469d34bf6",
+  +   "rev": "7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+      "name": "aesop",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"},
+  -  {"url": "https://github.com/leanprover-community/quote4",
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "707efb56d0696634e9e965523a1bbe9ac6ce141d",
+  +   "rev": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+      "name": "Qq",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"},
+  -  {"url": "https://github.com/leanprover-community/batteries",
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+  -   "rev": "756e3321fd3b02a85ffda19fef789916223e578c",
+  +   "rev": "76e1c118b0700b4ceafe99532e887d6431625e1a",
+      "name": "batteries",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"},
+  -  {"url": "https://github.com/leanprover/lean4-cli",
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+  -   "rev": "7802da01beb530bf051ab657443f9cd9bc3e1a29",
+  +   "rev": "1319485273bf87833fa472afbcefdedecb16b45f",
+      "name": "Cli",
+      "manifestFile": "lake-manifest.json",
+  -   "inputRev": "v4.29.0",
+  +   "inputRev": "v4.33.0-rc2",
+      "inherited": true,
+  -   "configFile": "lakefile.toml"}],
+  +   "configFile": "lakefile.toml"
+  +  },
+  +  {
+  +   "url": "https://github.com/leanprover-community/mathlib4",
+  +   "type": "git",
+  +   "subDir": null,
+  +   "scope": "",
+  +   "rev": "51e6992efd06126df61a496bebf8f49482a4e129",
+  +   "name": "mathlib",
+  +   "manifestFile": "lake-manifest.json",
+  +   "inputRev": "51e6992efd06126df61a496bebf8f49482a4e129",
+  +   "inherited": false,
+  +   "configFile": "lakefile.lean"
+  +  }
+  + ],
+    "name": "sideLvConservation",
+  - "lakeDir": ".lake"}
+  + "lakeDir": ".lake"
+  +}
+  \ No newline at end of file
+  diff --git a/lean-toolchain b/lean-toolchain
+  index 33e0c08..c084c7f 100644
+  --- a/lean-toolchain
+  +++ b/lean-toolchain
+  @@ -1 +1 @@
+  -leanprover/lean4:v4.29.1
+  +leanprover/lean4:v4.33.0-rc2
+
+### relay data/b551_trial.txt
+  b551 -- COMPONENT 4 (c): THE TRIAL BUILD, READ (READING (10))
+  
+  ### worktree D:/trial-b551-lv ; branch toolchain-trial-b551 at f22ff354d5f1ef7ace687df77946ab897fbdda7e ; toolchain leanprover/lean4:v4.33.0-rc2 ; manifest mathlib  ; guard HTTPS_PROXY=http://127.0.0.1:9 GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T23:23:25Z
+  ### exit 1 ; real	62m33.922s
+  ### Lake`s warnings about the manifest: ["warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it"]
+  ### ### **ERRORS: 1 IN 1 MODULE.**
+      SIDELvConservation/GammaBounds.lean                             1  error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ### failed build targets (Lake`s ✖ lines): ['SIDELvConservation.GammaBounds']
+  ### error lines without a source position: ['error: Lean exited with code 1', 'error: build failed']
+  ### the library`s modules: 25 ; reported by Lake (built, replayed or failed): 12 ; NOT REPORTED (not attempted, or up to date and silent): ['SIDELvConservation.AxiomCheck_D2', 'SIDELvConservation.AxiomCheck_LeadLaw', 'SIDELvConservation.AxiomCheck_v0_10_0', 'SIDELvConservation.C7FiniteTypeFalse', 'SIDELvConservation.C7OrderBounds', 'SIDELvConservation.CompositionBarrier', 'SIDELvConservation.CouplingsAtPhi', 'SIDELvConservation.DirichletC7Order', 'SIDELvConservation.PartialPositivity', 'SIDELvConservation.QWantedPoster', 'SIDELvConservation.RegisterPentagon', 'SIDELvConservation.ZeroActingPairing', 'SIDELvConservation.ZeroActingPartial']
+  ### of those, importing a failed module (transitively, by the library`s own import lines): 11 -- ['SIDELvConservation.AxiomCheck_v0_10_0', 'SIDELvConservation.C7FiniteTypeFalse', 'SIDELvConservation.C7OrderBounds', 'SIDELvConservation.CompositionBarrier', 'SIDELvConservation.CouplingsAtPhi', 'SIDELvConservation.DirichletC7Order', 'SIDELvConservation.PartialPositivity', 'SIDELvConservation.QWantedPoster', 'SIDELvConservation.RegisterPentagon', 'SIDELvConservation.ZeroActingPairing', 'SIDELvConservation.ZeroActingPartial'] ; the rest: ['SIDELvConservation.AxiomCheck_D2', 'SIDELvConservation.AxiomCheck_LeadLaw']
+  ### Mathlib modules Lake named as built or building: 0 []
+  ### the branch toolchain-trial-b551 at f22ff354d5f1 ; its files against main: ['lake-manifest.json', 'lean-toolchain']
+  ### the older kernel`s main: 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; tracked status []
+
+### b551_tag.json : {"remote_peeled": "2e43315ab4238c9644395fafeb22ce6d09a3dca9", "remote_tag": "368b33ad63f0bdea10adc8226153b1958712ab1c", "remote_main": "2e43315ab4238c9644395fafeb22ce6d09a3dca9", "local_peeled": "2e43315ab4238c9644395fafeb22ce6d09a3dca9", "before_head": "2e43315ab4238c9644395fafeb22ce6d09a3dca9", "before_clean": true, "after_head": "2e43315ab4238c9644395fafeb22ce6d09a3dca9", "after_clean": true, "annotated": "tag", "n4": true}
+### b551_rows.json : {"number": 391, "cells": ["391", "THE AGGREGATION’S FREEDOM, AND WHY C-WEIL CANNOT NARROW IT (b220; the row the ledger lacked, written at b551 under (R161)(4)): File E’s identity `T.value + Q.value = W.wInf - W.wPrimes` at a cell determines the quotient value uniquely; an aggregation satisfies C-WEIL iff it returns that forced value at every cell; such an aggregation exists; the proof that the identity holds for it is the C-WEIL hypothesis returned unchanged; without C-WEIL more than one aggregation is admitted, shown on Bool under XOR. ### **THE FILE DEFINES NO AGGREGATION** -- `agg` is a variable throughout and nothing is written into File E.", "`Core/AggregationCircularityShadow.lean` -- 9 printed terminals: `identity_iff_forced`, `unique`, `cweil_determines`, `cweil_inhabited`, `cweil_is_the_assumption`, `underdetermined_without_cweil`, `boolGrp`, `boolGrp_has_two_elements`, `underdetermined_bool`", "all 9 print *does not depend on any axioms* (every one) -- `AXIOM_PRINTS.txt` lines 367–375, re-run from `AllPrints.lean` at b550 at HEAD `2e43315`, equal to the bank (relay `data/b550_allprints_run.txt`)", "no rubric grade is conferred by this row: b550 read these terminals in its tier table (relay `data/b550_tiers.txt`) as T2, ENCODES 8 and SHELL 1 (`boolGrp`), in that table’s vocabulary", "Row written 2026-09-27 (b551) under (R161)(4), through `relay/tools/corr_row.py`. The module entered at b220 (`4969b1b`) with no row; the Core shadows of rows 81–89 are the other eight modules (b550 defect (f)). Nothing re-proved, nothing re-graded."], "rc": 0, "stdout": "--- CORRESPONDENCE ROW WRITER (b194) ---\n  ledger      : CORRESPONDENCE.md\n  cells given : 6\n  cells on disk after write-back read : 6\n  VERDICT     : WRITTEN, verified by read-back\n  ### and that means the CELLS SURVIVED. It does not mean they are true.\n", "rtl1_note": null}
+### b551_spiral.json : {"file": "SPIRAL_MAP.md", "before": 62174, "added": 1023, "prefix": true, "line": 523}
+### b551_idc.json : {"file": "phase2/method/THE_IDENTITY_CHAIN.md", "before": 221521, "added": 679, "prefix": true, "line": 3212, "rows": [[81, ["SectorNonvanishingShadow"]], [82, ["InvolutionScalarShadow"]], [83, ["AlternationShadow"]], [84, ["SignTransferShadow"]], [85, ["LadderOrientationShadow"]], [86, ["LadderOrientationShadow"]], [87, ["StatedChoiceShadow"]], [88, ["TraceFactorizationShadow"]], [89, ["FoldedMirrorShadow"]]]}
+### b551_price.json : {"file": "OPEN_TRAILS.md", "before": 1337856, "added": 1534, "prefix": true, "line": 11230}
+### b551_findings.json : {"file": "FINDINGS.md", "before": 706063, "added": 2710, "prefix": true, "line": 5715}
+### THE BRANCHES : see data/b551_branches.txt
+====================================================================================================================================

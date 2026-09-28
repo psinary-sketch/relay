@@ -1,0 +1,458 @@
+{
+ "table": [
+  {
+   "repo": "SIDE-kernel",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "e960b84129b3",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "NOT COMPLETE BY THE PROBE: Kernel -> PROBE CLASH, no object file missing: Kernel.Stormer and Kernel.StormerTest both declare Stormer.divideOut and cannot be imported together",
+   "cache": "YES",
+   "pin": "v1.5 (SPIRAL_MAP.md:49) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-interfaces",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "698d2b68b870",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root) ; ROOT ABSENT: Kernel (Kernel.lean)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: Interfaces.InterfaceSplit (OWN)",
+   "pin": "v0.1.3 (SPIRAL_MAP.md:82) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-effects",
+   "toolchain": "leanprover/lean4:v4.30.0-rc2",
+   "rev": "5450b53e5ddc",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDEEffects.ExhaustivenessLicense (OWN)",
+   "pin": "afa9ccf (SPIRAL_MAP.md:81) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-archimedean",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "v0.1.0 (SPIRAL_MAP.md:107) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-frobenius",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "v0.1.0 (SPIRAL_MAP.md:108) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-rcurve",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "v0.1.0 (SPIRAL_MAP.md:109) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-spinor",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDESpinor (OWN)",
+   "pin": "v0.1.0 (SPIRAL_MAP.md:110) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-simplicity",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "v0.1.0 (SPIRAL_MAP.md:111) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-window",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.4.0 (SPIRAL_MAP.md:112) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-global-section",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "NO MANIFEST; declared cecd0c4d56 (README.md:29)",
+   "checkout": "elsewhere: D:\\mathlib4",
+   "oleans": "census: 1 missing (Mathlib.LinearAlgebra.TensorProduct.Finiteness) ; after Component 2: olean built True ; FiniteInstanceIdentity elaborates, GlobalSection elaborates, LocalLimit elaborates, RestrictedTensorLayer1 elaborates",
+   "cache": "NO LAKEFILE",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-li-map",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "NO LAKEFILE",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-trivium",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "698d2b68b870",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: Trivium (OWN)",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "v0.4.0 (SPIRAL_MAP.md:125) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "toolchain": "leanprover/lean4:v4.33.0-rc2",
+   "rev": "51e6992efd06",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDEExplicitFormula.GrowthBound, SIDEExplicitFormula.B321Identity (OWN)",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDELvConservation.RegisterPentagon (OWN)",
+   "pin": "v0.10.0 (SPIRAL_MAP.md:86) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-meta",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.3 (SPIRAL_MAP.md:85) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-bijection",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.2.0 (SPIRAL_MAP.md:84) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-t7-topology-cmb",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.3 (SPIRAL_MAP.md:87) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-omega-b",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1 (SPIRAL_MAP.md:94) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-substrate-cluster",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.4 (SPIRAL_MAP.md:95) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-coupling",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1 (SPIRAL_MAP.md:96) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-class-coupling",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1 (SPIRAL_MAP.md:97) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-formation-arithmetic",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1 (SPIRAL_MAP.md:98) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-residual-bridge",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1 (SPIRAL_MAP.md:99) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-orchestrator",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1 (SPIRAL_MAP.md:158) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-constants",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "NO LAKEFILE",
+   "pin": "545dde2 (SPIRAL_MAP.md:126)"
+  },
+  {
+   "repo": "SIDE-spinor-calibration",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-spinor-calibration-mathlib",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "v0.1.0 (SPIRAL_MAP.md:115) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-dark-interface",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-silence-principle",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-structural-error-correction",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-cubit-axis",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-compression",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-yang-mills-formation",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-bsd-formation-transfer",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "SIDE-bsd-multiplicity",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD"
+  },
+  {
+   "repo": "TECHNE-Core (private)",
+   "toolchain": "leanprover/lean4:v4.29.0",
+   "rev": "8f1377de1fe0",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (2 roots)",
+   "cache": "YES",
+   "pin": "NONE"
+  },
+  {
+   "repo": "SIDE-carrier-spec",
+   "toolchain": "leanprover/lean4:v4.29.1",
+   "rev": "5e932f97dd25",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "YES",
+   "pin": "b3916cc (SPIRAL_MAP.md:510)"
+  },
+  {
+   "repo": "SIDE-class-number-anomaly",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "2203b88 (SPIRAL_MAP.md:511)"
+  },
+  {
+   "repo": "SIDE-cosmo",
+   "toolchain": "leanprover/lean4:v4.30.0-rc2",
+   "rev": "5450b53e5ddc",
+   "checkout": "yes (own .lake/packages)",
+   "oleans": "COMPLETE (1 root)",
+   "cache": "NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDECosmo (OWN)",
+   "pin": "c5cba30 (SPIRAL_MAP.md:512)"
+  },
+  {
+   "repo": "SIDE-dirichlet-mod-24",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "597b086 (SPIRAL_MAP.md:513)"
+  },
+  {
+   "repo": "SIDE-fano-darkness",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "NO LAKEFILE",
+   "pin": "0f6ce5b (SPIRAL_MAP.md:514)"
+  },
+  {
+   "repo": "SIDE-formation-procedure",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "65ace65 (SPIRAL_MAP.md:515)"
+  },
+  {
+   "repo": "SIDE-local-cosmic-interface",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "7a62ced (SPIRAL_MAP.md:516)"
+  },
+  {
+   "repo": "SIDE-quaternionic-dark-sector",
+   "toolchain": "leanprover/lean4:v4.29.0-rc8",
+   "rev": "VANILLA",
+   "checkout": "n/a",
+   "oleans": "n/a (VANILLA)",
+   "cache": "YES",
+   "pin": "e860142 (SPIRAL_MAP.md:517)"
+  }
+ ],
+ "groups": {
+  "e960b84129": [
+   "SIDE-kernel"
+  ],
+  "698d2b68b8": [
+   "SIDE-interfaces",
+   "SIDE-trivium"
+  ],
+  "5450b53e5d": [
+   "SIDE-effects",
+   "SIDE-cosmo"
+  ],
+  "5e932f97dd": [
+   "SIDE-archimedean",
+   "SIDE-frobenius",
+   "SIDE-rcurve",
+   "SIDE-spinor",
+   "SIDE-simplicity",
+   "SIDE-grh-transfer",
+   "SIDE-lv-conservation",
+   "SIDE-spinor-calibration-mathlib",
+   "SIDE-carrier-spec"
+  ],
+  "cecd0c4d56": [
+   "SIDE-global-section"
+  ],
+  "51e6992efd": [
+   "SIDE-explicit-formula"
+  ],
+  "8f1377de1f": [
+   "TECHNE-Core (private)"
+  ]
+ },
+ "distinct": 7,
+ "fails": [
+  "SIDE-interfaces",
+  "SIDE-effects",
+  "SIDE-spinor",
+  "SIDE-trivium",
+  "SIDE-explicit-formula",
+  "SIDE-lv-conservation",
+  "SIDE-cosmo"
+ ],
+ "nolakefile": [
+  "SIDE-global-section"
+ ],
+ "vanilla_fails": [],
+ "runs": 60,
+ "guarded": true
+}

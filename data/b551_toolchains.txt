@@ -1,0 +1,65 @@
+b551 -- COMPONENT 1: THE FEDERATION TOOLCHAIN CENSUS (READINGS (1)-(6)), every repository at HEAD, every cell printed
+
+### the network guard on every lake run: ALL_PROXY=http://127.0.0.1:9, GIT_ALLOW_PROTOCOL=file, HTTPS_PROXY=http://127.0.0.1:9, HTTP_PROXY=http://127.0.0.1:9, all_proxy=http://127.0.0.1:9, http_proxy=http://127.0.0.1:9, https_proxy=http://127.0.0.1:9
+
+repository | lean-toolchain | Mathlib rev | checkout on D: | oleans (lake env lean, roots) | lake build from cache | SPIRAL_MAP pin
+SIDE-kernel | leanprover/lean4:v4.29.0-rc8 | e960b84129b3 | yes (own .lake/packages) | NOT COMPLETE BY THE PROBE: Kernel -> PROBE CLASH, no object file missing: Kernel.Stormer and Kernel.StormerTest both declare Stormer.divideOut and cannot be imported together | YES | v1.5 (SPIRAL_MAP.md:49) ; at the pin: same toolchain and rev as HEAD
+SIDE-interfaces | leanprover/lean4:v4.29.0-rc8 | 698d2b68b870 | yes (own .lake/packages) | COMPLETE (1 root) ; ROOT ABSENT: Kernel (Kernel.lean) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: Interfaces.InterfaceSplit (OWN) | v0.1.3 (SPIRAL_MAP.md:82) ; at the pin: same toolchain and rev as HEAD
+SIDE-effects | leanprover/lean4:v4.30.0-rc2 | 5450b53e5ddc | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDEEffects.ExhaustivenessLicense (OWN) | afa9ccf (SPIRAL_MAP.md:81) ; at the pin: same toolchain and rev as HEAD
+SIDE-archimedean | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:107) ; at the pin: same toolchain and rev as HEAD
+SIDE-frobenius | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:108) ; at the pin: same toolchain and rev as HEAD
+SIDE-rcurve | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:109) ; at the pin: same toolchain and rev as HEAD
+SIDE-spinor | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDESpinor (OWN) | v0.1.0 (SPIRAL_MAP.md:110) ; at the pin: same toolchain and rev as HEAD
+SIDE-simplicity | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:111) ; at the pin: same toolchain and rev as HEAD
+SIDE-window | leanprover/lean4:v4.29.1 | VANILLA | n/a | n/a (VANILLA) | YES | v0.4.0 (SPIRAL_MAP.md:112) ; at the pin: same toolchain and rev as HEAD
+SIDE-global-section | leanprover/lean4:v4.29.1 | NO MANIFEST; declared cecd0c4d56 (README.md:29) | elsewhere: D:\mathlib4 | census: 1 missing (Mathlib.LinearAlgebra.TensorProduct.Finiteness) ; after Component 2: olean built True ; FiniteInstanceIdentity elaborates, GlobalSection elaborates, LocalLimit elaborates, RestrictedTensorLayer1 elaborates | NO LAKEFILE | NONE
+SIDE-li-map | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | NO LAKEFILE | NONE
+SIDE-trivium | leanprover/lean4:v4.29.0-rc8 | 698d2b68b870 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: Trivium (OWN) | NONE
+SIDE-grh-transfer | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.4.0 (SPIRAL_MAP.md:125) ; at the pin: same toolchain and rev as HEAD
+SIDE-explicit-formula | leanprover/lean4:v4.33.0-rc2 | 51e6992efd06 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDEExplicitFormula.GrowthBound, SIDEExplicitFormula.B321Identity (OWN) | NONE
+SIDE-lv-conservation | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDELvConservation.RegisterPentagon (OWN) | v0.10.0 (SPIRAL_MAP.md:86) ; at the pin: same toolchain and rev as HEAD
+SIDE-meta | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.3 (SPIRAL_MAP.md:85) ; at the pin: same toolchain and rev as HEAD
+SIDE-bijection | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.2.0 (SPIRAL_MAP.md:84) ; at the pin: same toolchain and rev as HEAD
+SIDE-t7-topology-cmb | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.3 (SPIRAL_MAP.md:87) ; at the pin: same toolchain and rev as HEAD
+SIDE-omega-b | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:94) ; at the pin: same toolchain and rev as HEAD
+SIDE-substrate-cluster | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.4 (SPIRAL_MAP.md:95) ; at the pin: same toolchain and rev as HEAD
+SIDE-coupling | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:96) ; at the pin: same toolchain and rev as HEAD
+SIDE-class-coupling | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:97) ; at the pin: same toolchain and rev as HEAD
+SIDE-formation-arithmetic | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:98) ; at the pin: same toolchain and rev as HEAD
+SIDE-residual-bridge | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:99) ; at the pin: same toolchain and rev as HEAD
+SIDE-orchestrator | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1 (SPIRAL_MAP.md:158) ; at the pin: same toolchain and rev as HEAD
+SIDE-constants | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | NO LAKEFILE | 545dde2 (SPIRAL_MAP.md:126)
+SIDE-spinor-calibration | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+SIDE-spinor-calibration-mathlib | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | v0.1.0 (SPIRAL_MAP.md:115) ; at the pin: same toolchain and rev as HEAD
+SIDE-dark-interface | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+SIDE-silence-principle | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+SIDE-structural-error-correction | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+SIDE-cubit-axis | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+SIDE-compression | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | NONE
+SIDE-yang-mills-formation | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD
+SIDE-bsd-formation-transfer | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD
+SIDE-bsd-multiplicity | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | v0.1.1 (SPIRAL_MAP.md:88) ; at the pin: same toolchain and rev as HEAD
+TECHNE-Core (private) | leanprover/lean4:v4.29.0 | 8f1377de1fe0 | yes (own .lake/packages) | COMPLETE (2 roots) | YES | NONE
+SIDE-carrier-spec | leanprover/lean4:v4.29.1 | 5e932f97dd25 | yes (own .lake/packages) | COMPLETE (1 root) | YES | b3916cc (SPIRAL_MAP.md:510)
+SIDE-class-number-anomaly | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 2203b88 (SPIRAL_MAP.md:511)
+SIDE-cosmo | leanprover/lean4:v4.30.0-rc2 | 5450b53e5ddc | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale: SIDECosmo (OWN) | c5cba30 (SPIRAL_MAP.md:512)
+SIDE-dirichlet-mod-24 | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 597b086 (SPIRAL_MAP.md:513)
+SIDE-fano-darkness | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | NO LAKEFILE | 0f6ce5b (SPIRAL_MAP.md:514)
+SIDE-formation-procedure | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 65ace65 (SPIRAL_MAP.md:515)
+SIDE-local-cosmic-interface | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | 7a62ced (SPIRAL_MAP.md:516)
+SIDE-quaternionic-dark-sector | leanprover/lean4:v4.29.0-rc8 | VANILLA | n/a | n/a (VANILLA) | YES | e860142 (SPIRAL_MAP.md:517)
+
+### rows 45 ; VANILLA 28 ; non-VANILLA 17
+### ### **DISTINCT MATHLIB REVS AMONG NON-VANILLA REPOSITORIES : 7**
+    5e932f97dd : SIDE-archimedean, SIDE-frobenius, SIDE-rcurve, SIDE-spinor, SIDE-simplicity, SIDE-grh-transfer, SIDE-lv-conservation, SIDE-spinor-calibration-mathlib, SIDE-carrier-spec
+    698d2b68b8 : SIDE-interfaces, SIDE-trivium
+    5450b53e5d : SIDE-effects, SIDE-cosmo
+    e960b84129 : SIDE-kernel
+    cecd0c4d56 : SIDE-global-section
+    51e6992efd : SIDE-explicit-formula
+    8f1377de1f : TECHNE-Core (private)
+### non-VANILLA repositories whose `lake build --no-build` is not YES : 7 -- SIDE-interfaces; SIDE-effects; SIDE-spinor; SIDE-trivium; SIDE-explicit-formula; SIDE-lv-conservation; SIDE-cosmo
+### non-VANILLA with no lakefile (no cache build exists to run) : SIDE-global-section
+### VANILLA repositories whose `lake build --no-build` is not YES : 0 -- NONE
+### the runs: 60, the guard on every one True
+### the older and newer Weil-side kernels: SIDE-lv-conservation 5e932f97dd25 ; SIDE-explicit-formula 51e6992efd06

@@ -1,0 +1,76 @@
+{
+ "exit": "1",
+ "header": "worktree D:/trial-b551-lv ; branch toolchain-trial-b551 at f22ff354d5f1ef7ace687df77946ab897fbdda7e ; toolchain leanprover/lean4:v4.33.0-rc2 ; manifest mathlib  ; guard HTTPS_PROXY=http://127.0.0.1:9 GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T23:23:25Z",
+ "real": [
+  "real\t62m33.922s"
+ ],
+ "lib_modules": 25,
+ "reported": [
+  "SIDELvConservation.FieldLayer",
+  "SIDELvConservation.GammaBounds",
+  "SIDELvConservation.Genus5",
+  "SIDELvConservation.Genus5Confinement",
+  "SIDELvConservation.LeadLaw",
+  "SIDELvConservation.SaltCheck_LeadLaw",
+  "SIDELvConservation.Smoke",
+  "SIDELvConservation.T1_MellinFactorization",
+  "SIDELvConservation.T2_SDarkness",
+  "SIDELvConservation.T3_StepNineBridge",
+  "SIDELvConservation.TwoSidesIdentity",
+  "SIDELvConservation.ZeroCarrier"
+ ],
+ "not_reported": [
+  "SIDELvConservation.AxiomCheck_D2",
+  "SIDELvConservation.AxiomCheck_LeadLaw",
+  "SIDELvConservation.AxiomCheck_v0_10_0",
+  "SIDELvConservation.C7FiniteTypeFalse",
+  "SIDELvConservation.C7OrderBounds",
+  "SIDELvConservation.CompositionBarrier",
+  "SIDELvConservation.CouplingsAtPhi",
+  "SIDELvConservation.DirichletC7Order",
+  "SIDELvConservation.PartialPositivity",
+  "SIDELvConservation.QWantedPoster",
+  "SIDELvConservation.RegisterPentagon",
+  "SIDELvConservation.ZeroActingPairing",
+  "SIDELvConservation.ZeroActingPartial"
+ ],
+ "downstream": [
+  "SIDELvConservation.AxiomCheck_v0_10_0",
+  "SIDELvConservation.C7FiniteTypeFalse",
+  "SIDELvConservation.C7OrderBounds",
+  "SIDELvConservation.CompositionBarrier",
+  "SIDELvConservation.CouplingsAtPhi",
+  "SIDELvConservation.DirichletC7Order",
+  "SIDELvConservation.PartialPositivity",
+  "SIDELvConservation.QWantedPoster",
+  "SIDELvConservation.RegisterPentagon",
+  "SIDELvConservation.ZeroActingPairing",
+  "SIDELvConservation.ZeroActingPartial"
+ ],
+ "modules": [
+  {
+   "file": "SIDELvConservation/GammaBounds.lean",
+   "errors": 1,
+   "leading": "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+  }
+ ],
+ "total": 1,
+ "failed_targets": [
+  "SIDELvConservation.GammaBounds"
+ ],
+ "mathlib_compiled": [],
+ "warnings": [
+  "warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it"
+ ],
+ "other_errors": [
+  "error: Lean exited with code 1",
+  "error: build failed"
+ ],
+ "lv_main": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23",
+ "lv_status": "",
+ "branch_tip": "f22ff354d5f1ef7ace687df77946ab897fbdda7e",
+ "branch_files": [
+  "lake-manifest.json",
+  "lean-toolchain"
+ ]
+}

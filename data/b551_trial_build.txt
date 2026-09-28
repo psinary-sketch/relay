@@ -1,0 +1,78 @@
+worktree D:/trial-b551-lv ; branch toolchain-trial-b551 at f22ff354d5f1ef7ace687df77946ab897fbdda7e ; toolchain leanprover/lean4:v4.33.0-rc2 ; manifest mathlib  ; guard HTTPS_PROXY=http://127.0.0.1:9 GIT_ALLOW_PROTOCOL=file ; start 2026-09-27T23:23:25Z
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+✖ [8697/8722] Building SIDELvConservation.GammaBounds (2034s)
+trace: .> LEAN_PATH=D:\trial-b551-lv\.lake\packages\Cli\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\batteries\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\Qq\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\aesop\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\importGraph\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\plausible\.lake\build\lib\lean;D:\trial-b551-lv\.lake\packages\mathlib\.lake\build\lib\lean;D:\trial-b551-lv\.lake\build\lib\lean d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\bin\lean.exe D:\trial-b551-lv\SIDELvConservation\GammaBounds.lean -o D:\trial-b551-lv\.lake\build\lib\lean\SIDELvConservation\GammaBounds.olean -i D:\trial-b551-lv\.lake\build\lib\lean\SIDELvConservation\GammaBounds.ilean -c D:\trial-b551-lv\.lake\build\ir\SIDELvConservation\GammaBounds.c --setup D:\trial-b551-lv\.lake\build\ir\SIDELvConservation\GammaBounds.setup.json --json
+error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -1 / 2 * t
+in the target expression
+  (fun x => rexp (-1 / 2 * x)) t = rexp (-t / 2)
+
+a : ℝ
+ha : 1 ≤ a
+hc0 : 0 ≤ a - 1
+C : ℝ := (2 * (a - 1) / rexp 1) ^ (a - 1)
+hC : C = (2 * (a - 1) / rexp 1) ^ (a - 1)
+hmax : ∀ (t : ℝ), 0 < t → t ^ (a - 1) * rexp (-t / 2) ≤ C
+hdom : ∀ t ∈ Ioi 0, rexp (-t) * t ^ (a - 1) ≤ C * rexp (-t / 2)
+h : IntegrableOn (fun x => rexp (-1 / 2 * x)) (Ioi 0) volume
+t : ℝ
+x✝ : t ∈ Ioi 0
+⊢ (fun x => rexp (-1 / 2 * x)) t = rexp (-t / 2)
+error: Lean exited with code 1
+✔ [8698/8722] Built SIDELvConservation.T1_MellinFactorization (2034s)
+✔ [8700/8722] Built SIDELvConservation.ZeroCarrier (2034s)
+✔ [8703/8722] Built SIDELvConservation.Smoke (2034s)
+✔ [8704/8722] Built SIDELvConservation.T2_SDarkness (117s)
+⚠ [8705/8722] Built SIDELvConservation.T3_StepNineBridge (19s)
+warning: SIDELvConservation/T3_StepNineBridge.lean:92:8: declaration uses `sorry`
+✔ [8714/8722] Built SIDELvConservation.Genus5 (2614s)
+✔ [8715/8722] Built SIDELvConservation.Genus5Confinement (2614s)
+✔ [8716/8722] Built SIDELvConservation.TwoSidesIdentity (2614s)
+⚠ [8717/8722] Built SIDELvConservation.FieldLayer (2614s)
+warning: SIDELvConservation/FieldLayer.lean:78:13: `Polynomial.finset_sum_coeff` has been deprecated: Use `Polynomial.finsetSum_coeff` instead
+ℹ [8718/8722] Built SIDELvConservation.AxiomCheck_D2 (100s)
+info: SIDELvConservation/AxiomCheck_D2.lean:8:0: 'SIDELvConservation.Genus5.genus_mod_four' depends on axioms: [propext, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:9:0: 'SIDELvConservation.Genus5.genus_one_forces' depends on axioms: [propext, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:10:0: 'SIDELvConservation.Genus5.genus_five_forces' depends on axioms: [propext, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:11:0: 'SIDELvConservation.Genus5.classification' depends on axioms: [propext, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:14:0: 'SIDELvConservation.Genus5Confinement.e8_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:15:0: 'SIDELvConservation.Genus5Confinement.quad_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:16:0: 'SIDELvConservation.Genus5Confinement.w16_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:17:0: 'SIDELvConservation.Genus5Confinement.golay_five_roots_in_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:18:0: 'SIDELvConservation.Genus5Confinement.golay_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:21:0: 'SIDELvConservation.TwoSides.heine_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:22:0: 'SIDELvConservation.TwoSides.heine_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:23:0: 'SIDELvConservation.TwoSides.heine_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:24:0: 'SIDELvConservation.TwoSides.ladder_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:25:0: 'SIDELvConservation.TwoSides.two_sides_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:26:0: 'SIDELvConservation.TwoSides.heine_three_degenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_D2.lean:27:0: 'SIDELvConservation.TwoSides.vandermonde_square_is_load_bearing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [8719/8722] Built SIDELvConservation.LeadLaw (101s)
+✔ [8720/8722] Built SIDELvConservation.SaltCheck_LeadLaw (34s)
+ℹ [8721/8722] Built SIDELvConservation.AxiomCheck_LeadLaw (362s)
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:8:0: 'SIDELvConservation.FieldLayer.top_coeff_of_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:9:0: 'SIDELvConservation.FieldLayer.norml_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:10:0: 'SIDELvConservation.LeadLaw.v_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:11:0: 'SIDELvConservation.LeadLaw.v_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:12:0: 'SIDELvConservation.LeadLaw.leadingCoeff_hOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:13:0: 'SIDELvConservation.LeadLaw.ptTop_eq_p_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:14:0: 'SIDELvConservation.LeadLaw.norml_top_eq_ptTop' depends on axioms: [propext, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:15:0: 'SIDELvConservation.LeadLaw.lead_law_of_top_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:16:0: 'SIDELvConservation.LeadLaw.lead_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:17:0: 'SIDELvConservation.SaltCheckLeadLaw.expansion_exists_of_palindromic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: SIDELvConservation/AxiomCheck_LeadLaw.lean:18:0: 'SIDELvConservation.SaltCheckLeadLaw.hg_is_load_bearing' depends on axioms: [propext, Classical.choice, Quot.sound]
+Some required targets logged failures:
+- SIDELvConservation.GammaBounds
+error: build failed
+
+real	62m33.922s
+user	0m0.015s
+sys	0m0.047s
+exit 1
+end 2026-09-28T00:25:59Z

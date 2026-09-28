@@ -1,0 +1,91 @@
+RULING (R161) BEGIN
+
+RULING (R161), the author's, ratified by this paste and
+strikeable: THE TOOLCHAINS ALIGNED — A FEDERATION TOOLCHAIN
+CENSUS, THE INTERFACES PIN COMPLETED, SIDE-GLOBAL-SECTION
+TAGGED, AND THE ALIGNMENT OF THE TWO WEIL-SIDE KERNELS
+TRIALLED ON A BRANCH; THE CASCADE PAUSES ONE ACT.
+
+(1) WHY THIS ACT COMES BEFORE THE_KEYSTONE_CENSUS. b549
+found residue_irreducible and h2_sign_iff_rh on different
+Mathlib pins; b550 found the Interfaces pin of
+SIDE-global-section incomplete on D: (one olean missing at
+cecd0c4) and one module elaborating at a different checkout
+alone; SPIRAL_MAP cites no pin for that repository. CP-1b
+reads every citer of every moved terminal, and a citer that
+cannot be elaborated at its own pin cannot be read as
+compiled. So the toolchains are put in order once, as a
+census with the facts printed, before the cascade continues.
+
+(2) THE CENSUS. For every SIDE-* repository on D: (the 37
+of b542 plus the eight of b546): the lean-toolchain line;
+the Mathlib rev from lake-manifest (or VANILLA if none);
+whether a checkout of that rev exists on D: and whether its
+oleans are complete for the modules the repository imports
+(tested by `lake env lean` on each root module, not by
+directory listing); whether `lake build` succeeds from the
+cache; and the tag or SHA at which SPIRAL_MAP pins it (or
+NONE). One table, banked, every cell printed. Repositories
+that are VANILLA are so marked and need no alignment.
+
+(3) THE INTERFACES PIN IS COMPLETED, not substituted: the
+missing olean at D:\mathlib4 cecd0c4 is built there (cost
+printed before the build; background if over 600 s), and
+all four Interfaces files of SIDE-global-section are then
+elaborated at the declared pin with their prints compared
+to the bank. If RestrictedTensorLayer1 does not elaborate at
+cecd0c4, that is a defect of the file's declared pin,
+printed, and the file's own v4.29.0 print stands as its
+pin with a correspondence-row note; the pin is not moved to
+make it pass.
+
+(4) SIDE-GLOBAL-SECTION IS TAGGED v0.2.0 at 2e43315,
+annotated, peeled SHA read back from the remote, as the
+counterpart of (R160)(1); SPIRAL_MAP gains an appended row
+with that pin; the missing correspondence row for
+AggregationCircularityShadow is added through the
+repository's committed writer, and the row numbering 81–89
+is recorded at the IDENTITY_CHAIN tier block by appended
+line.
+
+(5) THE WEIL-SIDE ALIGNMENT IS TRIALLED, NOT MERGED. The
+two kernels are SIDE-explicit-formula (v0.2 = 5c72cad) and
+SIDE-lv-conservation (v0.11.0 = 2f71068). The census prints
+their two Mathlib revs and the commit distance between
+them. The direction is toward the newer rev. On a branch of
+the older kernel named toolchain-trial-b551, the manifest is
+moved to the newer rev and `lake build` is run once, with
+the leading error per module printed and counted; no source
+line is edited on the branch beyond the manifest and
+toolchain files. The branch is pushed by name and HELD; main
+is untouched. The result is the price of the alignment in
+errors by module, entered under W-ORD-LI-WEIL-BRIDGE's
+toolchain item at OPEN_TRAILS :11203. If the build is clean,
+that is printed and the merge is still not done at this
+act.
+
+(6) THE_KEYSTONE_CENSUS is the act after this one.
+
+RULING (R161) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b551 - THE TOOLCHAINS: THE FEDERATION TOOLCHAIN CENSUS; THE INTERFACES PIN COMPLETED; SIDE-GLOBAL-SECTION TAGGED; THE WEIL-SIDE ALIGNMENT TRIALLED ON A BRANCH, under (R161).
+
+Read before anything, and cite by path and line: b542's enumeration tool and repository list plus b546's eight (the 45 names); each repository's lean-toolchain and lake-manifest.json (print rev lines); SPIRAL_MAP's kernel table pin columns; b550's defect (a) record (the missing olean, the split run, the v4.29.0 print); SIDE-global-section's correspondence writer at :490-equivalent (name the tool) and rows 81–89; OPEN_TRAILS :11203; the Mathlib checkouts on D: (print `git -C <checkout> rev-parse HEAD` for each).
+
+COMPONENT 1 - THE CENSUS, per (R161)(2). Bank as data/b551_toolchains.txt: one row per repository with the seven columns; VANILLA rows marked. Print the table whole. Print the set of distinct Mathlib revs in use and, for each, which repositories share it.
+
+COMPONENT 2 - THE INTERFACES PIN, per (R161)(3). Print the missing module name and the estimated build cost; build it at cecd0c4; elaborate all four Interfaces files there; compare prints to the bank line by line; print the RestrictedTensorLayer1 outcome and act per the ruling.
+
+COMPONENT 3 - THE TAG AND THE ROWS, per (R161)(4). git tag -a v0.2.0 at 2e43315, push, ls-remote peeled SHA printed beside local; SPIRAL_MAP row appended; the AggregationCircularityShadow row written by the committed tool (print the row); the numbering note appended at THE_IDENTITY_CHAIN.md's tier block.
+
+COMPONENT 4 - THE TRIAL, per (R161)(5). Print the two revs and `git -C <mathlib> rev-list --count old..new`. Branch toolchain-trial-b551 on the older kernel; change lake-manifest and lean-toolchain to the newer kernel's exact lines (print the diff); `lake build` once in the background if over 600 s, watched from the foreground; count errors per module and print the leading error line of each; push the branch by name; print `git status` of main unchanged. Enter the price at OPEN_TRAILS :11203 by append.
+
+COMPONENT 5 - THE FINDINGS ENTRY, titled by its objects: "The toolchains: the federation census, the Interfaces pin completed, SIDE-global-section tagged, the Weil-side alignment trialled" — the distinct-rev count, the repositories that fail to build from cache (named), the trial's error count by module, the next keystone named (THE_KEYSTONE_CENSUS).
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) the federation uses more than three distinct Mathlib revs among non-VANILLA repositories; print the count. (N2) at least one non-VANILLA repository does not build from cache at its own pin without a network fetch; name it or print none. (N3) the missing olean builds at cecd0c4 and three of four Interfaces files elaborate there; RestrictedTensorLayer1's outcome is printed either way. (N4) v0.2.0's peeled SHA equals 2e43315. (N5) the trial build of the older kernel at the newer rev produces errors in at least one module (the navigator expects Mathlib renames in the mellin/zeta API); print the count and the leading line per module. (N6) main of every repository unchanged; no kernel source line edited on any main; nothing at Zenodo; nothing deposits.
+
+Foreground runs under the 600 s limit; builds in the background, watched from the foreground [procedural]. Delete commands on verified absolute paths or explicit branch names in the same command (standing rule); push-b550 branches deleted by name after --merged lists them; toolchain-trial-b551 is kept. Record, correspondence rows, trail record in the house form. Nothing deposits.
+
+FERRY END (part 1 of 1)
