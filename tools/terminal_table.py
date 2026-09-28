@@ -14,6 +14,13 @@
 ### ### TREE.** ### A dirty working file is not what a pin cites.
 ###
 ### This module is SHARED and not act-stemmed, because (R107) has the closing suite re-run it.
+###
+### ### **THE SYNONYM MAP (b554, the author`s ruling (R164)(2)(a)), APPLIED BEFORE THE CONFLICT TEST:**
+###     ENCODES-CONCLUSION            -> ENCODES
+###     ENCODES-CONCLUSION-or-SHELL   -> ENCODES      (this tool`s compound string `ENCODES-CONCLUSION \\ SHELL`)
+###     INTERFACES-on-named-premise   -> INTERFACES   (the grade pattern already reads the word INTERFACES alone)
+### A terminal whose cells carry one grade string keeps that string; cells whose mapped grades agree read the
+### mapped grade; CONFLICT only where the mapped grades still differ.
 """
 import io
 import json
@@ -154,6 +161,17 @@ def supersede(cells):
     lines = corr_row_lines()
     gone = set(lines[n] for n in rows if n in lines)
     return [c for c in cells if not (c['ledger'] == CORR_LABEL and c['line'] in gone)]
+
+
+SYNONYMS = {'ENCODES-CONCLUSION': 'ENCODES',
+            'ENCODES-CONCLUSION ' + chr(92) + ' SHELL': 'ENCODES',
+            'INTERFACES-on-named-premise': 'INTERFACES'}
+
+
+def synonym(grade):
+    """### ### **THE SYNONYM MAP (b554, the author`s ruling (R164)(2)(a)).** ### One verdict in two vocabularies is one
+    ### verdict: the map is applied before the conflict test and nowhere else."""
+    return SYNONYMS.get(grade, grade)
 
 
 def ledger_files():
@@ -568,6 +586,7 @@ def build():
     rec('=' * 104)
     rec('(R107) K0 -- THE TERMINAL TABLE. ### **GENERATED; NO GRADE CONFERRED, NONE MOVED.**')
     rec('=' * 104)
+    rec('  ### THE SYNONYM MAP (b554, (R164)(2)(a)), applied before the conflict test : %s' % SYNONYMS)
     rec('  `SIDE-*` directories on D:\\      : ### **%d**' % len(named))
     rec('  of those, carrying a `.git`      : ### **%d**  (b378`s own predicate)' % len(repos))
     rec('  ### **BOTH FIGURES ARE PRINTED** -- a roster counted one way is a roster with a')
@@ -695,6 +714,7 @@ def build():
                     uniq.append(c)
             uniq = supersede(uniq)
             distinct = sorted(set(c['grade'] for c in uniq))
+            mapped = sorted(set(synonym(c['grade']) for c in uniq))
             rows.append(dict(
                 repo=name, name=n, head=head[:12],
                 pin=(pin or None), pin_sha=(pin_sha[:12] if pin_sha else None),
@@ -708,10 +728,10 @@ def build():
                 profile_state=('PROFILED' if profile else 'NOT PROFILED'),
                 profile_source=psrc,
                 grade=(distinct[0] if len(distinct) == 1 else
-                       ('CONFLICT' if len(distinct) > 1 else 'UNGRADED')),
+                       ('UNGRADED' if not distinct else ('CONFLICT' if len(mapped) > 1 else mapped[0]))),
                 grade_cells=[dict(grade=c['grade'], ledger=c['ledger'], line=c['line'],
                                   act=c['act'], quote=c['quote']) for c in uniq],
-                conflict=(sorted(distinct) if len(distinct) > 1 else None)))
+                conflict=(sorted(distinct) if len(mapped) > 1 else None)))
 
     # ### names a ledger cites that resolve in NO repository at ANY ref
     declared = set(r['name'] for r in rows) | set(B378.split(r['name'])[1] for r in rows)
