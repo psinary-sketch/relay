@@ -1,0 +1,652 @@
+{
+ "Zeta23.Analytic.RectangleLogDeriv": {},
+ "Zeta23.Analytic.Stirling": {},
+ "Zeta23.Assembly.Inputs": {},
+ "Zeta23.Defs": {
+  "the pole terms: PiX, \"pole\", h(±i/2)": [
+   [
+    60,
+    "def PiX (X : ℝ) (τ : ℝ) : ℝ :="
+   ],
+   [
+    69,
+    "def nuX (X : ℝ) (τ : ℝ) : ℝ := mu τ + PiX X τ + PX X τ"
+   ]
+  ],
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    55,
+    "def mu (τ : ℝ) : ℝ :="
+   ],
+   [
+    56,
+    "(1 / (2 * Real.pi)) * (Complex.digamma (1 / 4 + Complex.I * τ / 2)).re"
+   ],
+   [
+    69,
+    "def nuX (X : ℝ) (τ : ℝ) : ℝ := mu τ + PiX X τ + PX X τ"
+   ]
+  ],
+  "log π with no log N": [
+   [
+    57,
+    "- Real.log Real.pi / (2 * Real.pi)"
+   ]
+  ],
+  "the prime sum with no character: PX, nuX, Λ n": [
+   [
+    65,
+    "def PX (X : ℝ) (τ : ℝ) : ℝ :="
+   ],
+   [
+    66,
+    "-(1 / Real.pi) * ∑ n ∈ Finset.Ioc 0 ⌊X⌋₊, (Λ n) / Real.sqrt n * Real.cos (τ * Real.log n)"
+   ],
+   [
+    69,
+    "def nuX (X : ℝ) (τ : ℝ) : ℝ := mu τ + PiX X τ + PX X τ"
+   ],
+   [
+    224,
+    "∫ τ : ℝ, P.phiHatR T (τ - P.tau T k) * P.phiHatR T (τ - P.tau T l) * nuX (P.X T) τ"
+   ]
+  ]
+ },
+ "Zeta23.Defs.Counting": {},
+ "Zeta23.ExplicitFormula": {
+  "the pole terms: PiX, \"pole\", h(±i/2)": [
+   [
+    41,
+    "paperFT k (I / 2) + paperFT k (-I / 2)"
+   ],
+   [
+    376,
+    "theorem half_add_I_mul_ne_zero (τ : ℝ) : (1 / 2 : ℂ) + I * τ ≠ 0 := by"
+   ],
+   [
+    379,
+    "theorem half_sub_I_mul_ne_zero (τ : ℝ) : (1 / 2 : ℂ) - I * τ ≠ 0 := by"
+   ],
+   [
+    463,
+    "= ((2 * ((((Real.exp L : ℝ) : ℂ) ^ ((1 / 2 : ℂ) + I * τ) - 1) / ((1 / 2 : ℂ) + I * τ)).re : ℝ) : ℂ) := by"
+   ],
+   [
+    512,
+    "paperFT k (I / 2) + paperFT k (-I / 2)"
+   ],
+   [
+    513,
+    "= ∫ τ : ℝ, paperFT k τ * (PiX (Real.exp L) τ : ℂ) := by"
+   ],
+   [
+    520,
+    "have hI1 : Integrable (fun u : ℝ => k u * cexp (I * (I / 2) * u)) :="
+   ],
+   [
+    522,
+    "have hI2 : Integrable (fun u : ℝ => k u * cexp (I * (-I / 2) * u)) :="
+   ],
+   [
+    525,
+    "have step1 : paperFT k (I / 2) + paperFT k (-I / 2)"
+   ],
+   [
+    533,
+    "have ha : I * (I / 2) * (u : ℂ) = ((-u / 2 : ℝ) : ℂ) := by"
+   ],
+   [
+    535,
+    "have hb : I * (-I / 2) * (u : ℂ) = ((u / 2 : ℝ) : ℂ) := by"
+   ],
+   [
+    556,
+    "((2 * ((((Real.exp L : ℝ) : ℂ) ^ ((1 / 2 : ℂ) + I * τ) - 1) / ((1 / 2 : ℂ) + I * τ)).re : ℝ) : ℂ) := by"
+   ],
+   [
+    565,
+    "((2 * ((((Real.exp L : ℝ) : ℂ) ^ ((1 / 2 : ℂ) + I * τ) - 1) / ((1 / 2 : ℂ) + I * τ)).re : ℝ) : ℂ)) := by"
+   ],
+   [
+    576,
+    "simp only [PiX]"
+   ],
+   [
+    583,
+    "Integrable (fun τ : ℝ => paperFT k τ * (PiX (Real.exp L) τ : ℂ)) := by"
+   ],
+   [
+    589,
+    "((2 * ((((Real.exp L : ℝ) : ℂ) ^ ((1 / 2 : ℂ) + I * τ) - 1) / ((1 / 2 : ℂ) + I * τ)).re : ℝ) : ℂ)) := by"
+   ],
+   [
+    599,
+    "simp only [PiX, Pi.add_apply]"
+   ],
+   [
+    638,
+    "have hPiP : Integrable (fun τ : ℝ => paperFT k τ * (PiX (Real.exp L) τ : ℂ)"
+   ]
+  ],
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    37,
+    "def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π"
+   ],
+   [
+    44,
+    "+ (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)"
+   ],
+   [
+    226,
+    "(1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)"
+   ],
+   [
+    227,
+    "= ∫ τ : ℝ, paperFT k τ * (mu τ : ℂ) := by"
+   ],
+   [
+    230,
+    "simp only [gammaBracket, mu]"
+   ],
+   [
+    621,
+    "(hμ : Integrable (fun τ : ℝ => paperFT k τ * (mu τ : ℂ))) :"
+   ],
+   [
+    634,
+    "(hμ : Integrable (fun τ : ℝ => paperFT k τ * (mu τ : ℂ))) :"
+   ],
+   [
+    655,
+    "(hμ : Integrable (fun τ : ℝ => paperFT (weilTest f g) τ * (mu τ : ℂ))) :"
+   ]
+  ],
+  "log π with no log N": [
+   [
+    37,
+    "def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π"
+   ]
+  ],
+  "the prime sum with no character: PX, nuX, Λ n": [
+   [
+    42,
+    "- ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)"
+   ],
+   [
+    56,
+    "Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)"
+   ],
+   [
+    276,
+    "((Λ n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n)) = 0 := by"
+   ],
+   [
+    297,
+    "-(∑' n : ℕ, ((Λ n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n)))"
+   ],
+   [
+    298,
+    "= ∫ τ : ℝ, paperFT k τ * (PX (Real.exp L) τ : ℂ) := by"
+   ],
+   [
+    304,
+    "have step1 : ∑ n ∈ S, ((Λ n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n))"
+   ],
+   [
+    305,
+    "= ∑ n ∈ S, ((Λ n / Real.sqrt n : ℝ) : ℂ) *"
+   ],
+   [
+    311,
+    "have step2 : (fun τ : ℝ => paperFT k τ * (PX (Real.exp L) τ : ℂ))"
+   ],
+   [
+    312,
+    "= fun τ : ℝ => ∑ n ∈ S, (-(1 / π) * ((Λ n / Real.sqrt n : ℝ) : ℂ)) *"
+   ],
+   [
+    315,
+    "simp only [PX, ← hS]"
+   ],
+   [
+    604,
+    "(fun τ : ℝ => paperFT k τ * (PX (Real.exp L) τ : ℂ))"
+   ],
+   [
+    605,
+    "= fun τ : ℝ => ∑ n ∈ Finset.Ioc 0 ⌊Real.exp L⌋₊, (-(1 / π) * ((Λ n / Real.sqrt n : ℝ) : ℂ)) *"
+   ],
+   [
+    608,
+    "simp only [PX]"
+   ],
+   [
+    615,
+    "Integrable (fun τ : ℝ => paperFT k τ * (PX (Real.exp L) τ : ℂ)) := by"
+   ],
+   [
+    622,
+    "Integrable (fun τ : ℝ => paperFT k τ * (nuX (Real.exp L) τ : ℂ)) := by"
+   ],
+   [
+    625,
+    "simp only [nuX, Pi.add_apply]"
+   ],
+   [
+    635,
+    "literatureRHS k = ∫ τ : ℝ, paperFT k τ * (nuX (Real.exp L) τ : ℂ) := by"
+   ],
+   [
+    639,
+    "+ paperFT k τ * (PX (Real.exp L) τ : ℂ)) := hPi.add hP"
+   ],
+   [
+    644,
+    "simp only [nuX]"
+   ],
+   [
+    657,
+    "Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧"
+   ],
+   [
+    658,
+    "Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ) := by"
+   ],
+   [
+    674,
+    "have hreal : (fun τ : ℝ => paperFT (weilTest f g) τ * (nuX (Real.exp L) τ : ℂ))"
+   ],
+   [
+    675,
+    "= fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ) := by"
+   ]
+  ],
+  "literatureRHS (ζ`s explicit-formula right-hand side)": [
+   [
+    40,
+    "def literatureRHS (k : ℝ → ℂ) : ℂ :="
+   ],
+   [
+    50,
+    "∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k"
+   ],
+   [
+    635,
+    "literatureRHS k = ∫ τ : ℝ, paperFT k τ * (nuX (Real.exp L) τ : ℂ) := by"
+   ],
+   [
+    640,
+    "unfold literatureRHS"
+   ]
+  ]
+ },
+ "Zeta23.ExplicitFormula.Bridge": {
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    80,
+    "∃ K₂ : ℝ, 0 ≤ K₂ ∧ ∀ τ : ℝ, |mu τ| ≤ K₂ * (1 + |τ|) ^ (1 / 2 : ℝ) := by"
+   ],
+   [
+    98,
+    "calc |mu τ| ≤ max M 0 := this.trans (le_max_left _ _)"
+   ],
+   [
+    123,
+    "have hmu : |mu τ| ≤ |C| + (1 / (2 * π)) * (Real.log |τ| + |Real.log (2 * π)|) := by"
+   ],
+   [
+    124,
+    "have htri : |mu τ| ≤ |mu τ - 1 / (2 * π) * Real.log (|τ| / (2 * π))|"
+   ],
+   [
+    126,
+    "have := abs_add_le (mu τ - 1 / (2 * π) * Real.log (|τ| / (2 * π)))"
+   ],
+   [
+    129,
+    "calc |mu τ| ≤ C / τ ^ 2 + |1 / (2 * π) * Real.log (|τ| / (2 * π))| := by linarith"
+   ],
+   [
+    134,
+    "calc |mu τ| ≤ |C| + (1 / (2 * π)) * (Real.log |τ| + |Real.log (2 * π)|) := hmu"
+   ],
+   [
+    144,
+    "(hΓ : GammaFacts) : Integrable (fun τ : ℝ => paperFT k τ * (mu τ : ℂ)) := by"
+   ],
+   [
+    149,
+    "have hmeas : AEStronglyMeasurable (fun τ : ℝ => paperFT k τ * (mu τ : ℂ)) :="
+   ],
+   [
+    158,
+    "have h2 : |mu τ| ≤ K₂ * (1 + |τ|) ^ (1 / 2 : ℝ) := hmu τ"
+   ],
+   [
+    165,
+    "calc ‖paperFT k τ‖ * |mu τ|"
+   ]
+  ]
+ },
+ "Zeta23.FromPNTPlus.Auxiliary": {},
+ "Zeta23.FromPNTPlus.EulerMaclaurin": {},
+ "Zeta23.FromPNTPlus.Fourier": {},
+ "Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic": {},
+ "Zeta23.FromPNTPlus.Rectangle": {},
+ "Zeta23.FromPNTPlus.ResidueCalcOnRectangles": {},
+ "Zeta23.FromPNTPlus.Sobolev": {},
+ "Zeta23.FromPNTPlus.StrongPNTPrefix": {},
+ "Zeta23.FromPNTPlus.Tactic.AdditiveCombination": {},
+ "Zeta23.GammaFacts": {
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    31,
+    "theorem mu_even (τ : ℝ) : mu (-τ) = mu τ := by"
+   ],
+   [
+    32,
+    "unfold mu"
+   ],
+   [
+    67,
+    "theorem mu_smooth : ContDiff ℝ ∞ mu := by"
+   ],
+   [
+    77,
+    "have h4' : AnalyticAt ℝ Complex.digamma (1 / 4 + Complex.I * (τ : ℂ) / 2) :="
+   ],
+   [
+    79,
+    "have h4 : ContDiffAt ℝ ∞ Complex.digamma (1 / 4 + Complex.I * (τ : ℂ) / 2) :="
+   ],
+   [
+    82,
+    "(fun τ : ℝ => Complex.digamma (1 / 4 + Complex.I * (τ : ℂ) / 2)) τ :="
+   ],
+   [
+    85,
+    "(fun τ : ℝ => (Complex.digamma (1 / 4 + Complex.I * (τ : ℂ) / 2)).re) τ :="
+   ],
+   [
+    87,
+    "have h7 : ContDiffAt ℝ ∞ mu τ := by"
+   ]
+  ]
+ },
+ "Zeta23.GammaFacts.Mu": {
+  "the pole terms: PiX, \"pole\", h(±i/2)": [
+   [
+    351,
+    "set zA : ℂ := (1 / 4 : ℂ) + (Complex.I / 2) * (τ : ℂ) with hzA"
+   ],
+   [
+    362,
+    "have hginner : HasDerivAt (fun x : ℝ => (1 / 4 : ℂ) + (Complex.I / 2) * (x : ℂ))"
+   ],
+   [
+    363,
+    "(Complex.I / 2) τ := by"
+   ],
+   [
+    365,
+    "have h2 := (h1.const_mul (Complex.I / 2)).const_add ((1 / 4 : ℂ))"
+   ],
+   [
+    368,
+    "(fun x : ℝ => Complex.digamma ((1 / 4 : ℂ) + (Complex.I / 2) * (x : ℂ)))"
+   ],
+   [
+    369,
+    "((Complex.I / 2) • deriv Complex.digamma zA) τ := by"
+   ],
+   [
+    373,
+    "(fun x : ℝ => (Complex.digamma ((1 / 4 : ℂ) + (Complex.I / 2) * (x : ℂ))).re)"
+   ],
+   [
+    374,
+    "(((Complex.I / 2) • deriv Complex.digamma zA).re) τ :="
+   ],
+   [
+    377,
+    "(1 / (2 * Real.pi) * (((Complex.I / 2) • deriv Complex.digamma zA).re)) τ := by"
+   ],
+   [
+    380,
+    "1 / (2 * Real.pi) * (Complex.digamma ((1 / 4 : ℂ) + (Complex.I / 2) * (x : ℂ))).re"
+   ],
+   [
+    385,
+    "= (1 / 4 : ℂ) + (Complex.I / 2) * (x : ℂ) from by ring]"
+   ],
+   [
+    426,
+    "have hval : |(((Complex.I / 2) • deriv Complex.digamma zA).re)|"
+   ],
+   [
+    428,
+    "calc |(((Complex.I / 2) • deriv Complex.digamma zA).re)|"
+   ],
+   [
+    429,
+    "≤ ‖(Complex.I / 2) • deriv Complex.digamma zA‖ := Complex.abs_re_le_norm _"
+   ],
+   [
+    430,
+    "_ = ‖Complex.I / 2‖ * ‖deriv Complex.digamma zA‖ := norm_smul _ _"
+   ],
+   [
+    439,
+    "calc 1 / (2 * Real.pi) * |(((Complex.I / 2) • deriv Complex.digamma zA).re)|"
+   ]
+  ],
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    120,
+    "Zeta23.mu τ = (1 / (2 * Real.pi))"
+   ],
+   [
+    123,
+    "unfold Zeta23.mu"
+   ],
+   [
+    129,
+    "theorem mu_monotoneOn : MonotoneOn Zeta23.mu (Set.Ici (0 : ℝ)) := by"
+   ],
+   [
+    142,
+    "theorem mu_zero_le (τ : ℝ) : Zeta23.mu 0 ≤ Zeta23.mu τ := by"
+   ],
+   [
+    146,
+    "· have h1 : Zeta23.mu τ = Zeta23.mu (-τ) := (heven τ).symm"
+   ],
+   [
+    151,
+    "theorem neg_one_lt_mu_zero : (-1 : ℝ) < Zeta23.mu 0 := by"
+   ],
+   [
+    348,
+    "theorem mu_deriv_bound : ∃ C : ℝ, ∀ τ : ℝ, 1 ≤ |τ| → |deriv Zeta23.mu τ| ≤ C / |τ| := by"
+   ],
+   [
+    376,
+    "have hmuD : HasDerivAt Zeta23.mu"
+   ],
+   [
+    379,
+    "have h5 : Zeta23.mu = fun x : ℝ =>"
+   ],
+   [
+    383,
+    "unfold Zeta23.mu"
+   ]
+  ],
+  "log π with no log N": [
+   [
+    122,
+    "- Real.log Real.pi / (2 * Real.pi) := by"
+   ],
+   [
+    174,
+    "have hlogπ : Real.log Real.pi < 1.4 := by"
+   ],
+   [
+    175,
+    "have h1 : Real.log Real.pi < Real.log 4 := Real.log_lt_log Real.pi_pos hπ4"
+   ],
+   [
+    188,
+    "- Real.log Real.pi / (2 * Real.pi)"
+   ],
+   [
+    189,
+    "= (-Real.eulerMascheroniConstant - 4 + S - Real.log Real.pi) * (1 / (2 * Real.pi)) := by"
+   ],
+   [
+    193,
+    "< -Real.eulerMascheroniConstant - 4 + S - Real.log Real.pi := by"
+   ],
+   [
+    198,
+    "_ < (-Real.eulerMascheroniConstant - 4 + S - Real.log Real.pi) * (1 / (2 * Real.pi)) :="
+   ],
+   [
+    378,
+    "have h4 := (hre.const_mul (1 / (2 * Real.pi))).sub_const (Real.log Real.pi / (2 * Real.pi))"
+   ],
+   [
+    381,
+    "- Real.log Real.pi / (2 * Real.pi) := by"
+   ]
+  ]
+ },
+ "Zeta23.GammaFacts.Series": {},
+ "Zeta23.GammaFacts.StirlingVert": {
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    601,
+    "|Zeta23.mu τ - (1 / (2 * Real.pi)) * Real.log (|τ| / (2 * Real.pi))| ≤ C / τ ^ 2 := by"
+   ],
+   [
+    615,
+    "have key : Zeta23.mu τ - (1 / (2 * Real.pi)) * Real.log (|τ| / (2 * Real.pi))"
+   ]
+  ],
+  "log π with no log N": [
+   [
+    611,
+    "have hlogs : Real.log (|τ| / (2 * Real.pi)) = Real.log |τ / 2| - Real.log Real.pi := by"
+   ]
+  ]
+ },
+ "Zeta23.Hypotheses": {
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    62,
+    "even : ∀ τ : ℝ, mu (-τ) = mu τ"
+   ],
+   [
+    63,
+    "smooth : ContDiff ℝ ∞ mu"
+   ],
+   [
+    64,
+    "monotoneOn : MonotoneOn mu (Ici 0)"
+   ],
+   [
+    65,
+    "mu_zero_le : ∀ τ : ℝ, mu 0 ≤ mu τ"
+   ],
+   [
+    66,
+    "neg_one_lt_mu_zero : -1 < mu 0"
+   ],
+   [
+    68,
+    "|mu τ - (1 / (2 * Real.pi)) * Real.log (|τ| / (2 * Real.pi))| ≤ C / τ ^ 2"
+   ],
+   [
+    69,
+    "deriv_bound : ∃ C : ℝ, ∀ τ : ℝ, 1 ≤ |τ| → |deriv mu τ| ≤ C / |τ|"
+   ],
+   [
+    71,
+    "|(∫ τ in T..(2 * T), mu τ) - T * ell1 T / (2 * Real.pi)| ≤ C / T"
+   ],
+   [
+    73,
+    "|(∫ τ in T..(2 * T), mu τ ^ 2) - T * ell1 T ^ 2 / (4 * Real.pi ^ 2)|"
+   ]
+  ],
+  "the prime sum with no character: PX, nuX, Λ n": [
+   [
+    22,
+    "Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧"
+   ],
+   [
+    23,
+    "Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)"
+   ],
+   [
+    37,
+    "cheb1a : ∃ C : ℝ, ∀ x : ℝ, 2 ≤ x → ∑ n ∈ Finset.Ioc 0 ⌊x⌋₊, Λ n ≤ C * x"
+   ],
+   [
+    39,
+    "∑ n ∈ Finset.Ioc 0 ⌊x⌋₊, Λ n / Real.sqrt n ≤ 3 * Real.sqrt x"
+   ],
+   [
+    41,
+    "∑ n ∈ Finset.Ioc 0 ⌊x⌋₊, Λ n / (Real.sqrt n * Real.log n) ≤ C * Real.sqrt x / Real.log x"
+   ],
+   [
+    42,
+    "cheb1d : ∃ C : ℝ, ∀ x : ℝ, 2 ≤ x → ∑ n ∈ Finset.Ioc 0 ⌊x⌋₊, Λ n ^ 2 ≤ C * x * Real.log x"
+   ],
+   [
+    44,
+    "|∑ n ∈ Finset.Ioc 0 ⌊x⌋₊, Λ n ^ 2 / n - Real.log x ^ 2 / 2| ≤ C * Real.log x"
+   ],
+   [
+    46,
+    "|∑ n ∈ Finset.Ioc 0 ⌊x⌋₊, Λ n ^ 2 / n * (Real.log x - Real.log n) - Real.log x ^ 3 / 6|"
+   ]
+  ]
+ },
+ "Zeta23.LinAlg": {},
+ "Zeta23.LinAlg.HermitianPosPart": {},
+ "Zeta23.LinAlg.Inertia": {},
+ "Zeta23.LinAlg.PosIndex": {},
+ "Zeta23.LinAlg.RankTrace": {},
+ "Zeta23.LinAlg.Sylvester": {},
+ "Zeta23.LinAlg.VonNeumann": {},
+ "Zeta23.LinAlg.Weyl": {},
+ "Zeta23.Poisson.PaperFT": {},
+ "Zeta23.Prelude.InstancePriorities": {},
+ "Zeta23.RvM.Halving": {},
+ "Zeta23.Tail": {},
+ "Zeta23.Tail.Basic": {},
+ "Zeta23.Tail.Count": {},
+ "Zeta23.Tail.Grid": {},
+ "Zeta23.Tail.RankOne": {},
+ "Zeta23.WeilEF.GammaRBracket": {
+  "ζ`s Γ bracket: mu, gammaBracket, digamma at 1/4": [
+   [
+    86,
+    "= (((Complex.digamma (1/4 + t/2 * I)).re - Real.log Real.pi : ℝ) : ℂ) := by"
+   ]
+  ],
+  "log π with no log N": [
+   [
+    42,
+    "logDeriv Complex.Gammaℝ s = -((Real.log Real.pi : ℝ) : ℂ) / 2 + (1 / 2) * Complex.digamma (s / 2) := by"
+   ],
+   [
+    86,
+    "= (((Complex.digamma (1/4 + t/2 * I)).re - Real.log Real.pi : ℝ) : ℂ) := by"
+   ]
+  ]
+ }
+}

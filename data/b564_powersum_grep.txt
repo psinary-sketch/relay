@@ -1,0 +1,213 @@
+b564 -- READING (4) (V4): THE POWER-SUM SEARCH IN THE MATHLIB CHECKOUT AT 51e6992e
+
+### the Mathlib checkout -- 8302 .lean files under D:\SIDE-explicit-formula\.lake\packages\mathlib\Mathlib, case-insensitive
+  query Turán                              regex Tur[aá]n                                                     files    3  lines   152
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:11: public import Mathlib.Combinatorics.SimpleGraph.Extremal.Turan
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:50: `completeMultipartiteGraph (const (Fin r) (Fin t))` (or `turanGraph (r * t) r`), it is convenient
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:53: See `completeEquipartiteGraph.completeMultipartiteGraph`, `completeEquipartiteGraph.turanGraph`
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:55: `completeMultipartiteGraph`, `turanGraph`.
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:211: This is isomorphic to a corresponding `completeMultipartiteGraph` and `turanGraph`. The difference
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:214: See `completeEquipartiteGraph.completeMultipartiteGraph`, `completeEquipartiteGraph.turanGraph`. -/
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:231: /-- A `completeEquipartiteGraph` is isomorphic to a corresponding `turanGraph`.
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:235: def completeEquipartiteGraph.turanGraph :
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:236: completeEquipartiteGraph r t ≃g turanGraph (r * t) r where
+      Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:260: rw [turanGraph_adj, Equiv.coe_fn_mk, Nat.mul_add_mod_self_right, Nat.mod_eq_of_lt v.1.prop,
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:14: # Turán's theorem
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:16: In this file we prove Turán's theorem, the first important result of extremal graph theory,
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:18: `r`-partite graph with part sizes as equal as possible (`turanGraph n r`).
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:23: show that the graph is isomorphic to the Turán graph for the given parameters.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:25: For the reverse direction we first show that a Turán-maximal graph exists, then transfer
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:26: the property through `turanGraph n r` using the isomorphism provided by the forward direction.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:30: * `SimpleGraph.IsTuranMaximal`: `G.IsTuranMaximal r` means that `G` has the most number of edges for
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:32: * `SimpleGraph.turanGraph n r`: The canonical `r + 1`-cliquefree Turán graph on `n` vertices.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:33: * `SimpleGraph.IsTuranMaximal.finpartition`: The result of Zykov symmetrisation, a finpartition of
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:35: * `SimpleGraph.IsTuranMaximal.nonempty_iso_turanGraph`: The forward direction, an isomorphism
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:36: between `G` satisfying `G.IsTuranMaximal r` and `turanGraph n r`.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:37: * `isTuranMaximal_of_iso`: the reverse direction, `G.IsTuranMaximal r` given the isomorphism.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:38: * `isTuranMaximal_iff_nonempty_iso_turanGraph`: Turán's theorem in full.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:42: * https://en.wikipedia.org/wiki/Turán%27s_theorem
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:54: /-- An `r + 1`-cliquefree graph is `r`-Turán-maximal if any other `r + 1`-cliquefree graph on
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:56: def IsTuranMaximal (r : ℕ) : Prop := G.IsExtremal (CliqueFree · (r + 1))
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:62: /-- The canonical `r + 1`-cliquefree Turán graph on `n` vertices. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:63: def turanGraph (n r : ℕ) : SimpleGraph (Fin n) where Adj v w := v % r ≠ w % r
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:65: lemma turanGraph_adj {v w} : (turanGraph n r).Adj v w ↔ v % r ≠ w % r :=
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:68: instance : DecidableRel (turanGraph n r).Adj :=
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:72: lemma turanGraph_zero : turanGraph n 0 = ⊤ := by simp [turanGraph, Fin.val_inj, Top.top]
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:75: theorem turanGraph_eq_top : turanGraph n r = ⊤ ↔ r = 0 ∨ n ≤ r := by
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:76: simp_rw [SimpleGraph.ext_iff, funext_iff, turanGraph, top_adj, eq_iff_iff, not_iff_not]
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:85: theorem turanGraph_cliqueFree (hr : 0 < r) : (turanGraph n r).CliqueFree (r + 1) := by
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:93: /-- An `r + 1`-cliquefree Turán-maximal graph is _not_ `r`-cliquefree
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:95: theorem not_cliqueFree_of_isTuranMaximal (hn : r ≤ card V) (hG : G.IsTuranMaximal r) :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:105: lemma exists_isTuranMaximal (hr : 0 < r) :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:106: ∃ H : SimpleGraph V, ∃ _ : DecidableRel H.Adj, H.IsTuranMaximal r := by
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:107: simpa [IsTuranMaximal, exists_isExtremal_iff_exists] using ⟨⊥, cliqueFree_bot (by lia)⟩
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:111: namespace IsTuranMaximal
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:115: /-- In a Turán-maximal graph, non-adjacent vertices have the same degree. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:116: lemma degree_eq_of_not_adj (h : G.IsTuranMaximal r) (hn : ¬G.Adj s t) :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:118: rw [IsTuranMaximal, IsExtremal] at h; contrapose! h; intro cf
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:127: /-- In a Turán-maximal graph, non-adjacency is transitive. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:128: lemma not_adj_trans (h : G.IsTuranMaximal r) (hts : ¬G.Adj t s) (hsu : ¬G.Adj s u) :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:133: rw [IsTuranMaximal, IsExtremal] at h; contrapose! h; intro cf
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:156: variable (h : G.IsTuranMaximal r)
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:159: /-- In a Turán-maximal graph, non-adjacency is an equivalence relation. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:165: /-- The non-adjacency setoid over the vertices of a Turán-maximal graph
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:196: /-- The parts of a Turán-maximal graph form an equipartition. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:205: rw [IsTuranMaximal, IsExtremal]; push Not; intro cf
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:227: /-- There are `min n r` parts in a graph on `n` vertices satisfying `G.IsTuranMaximal r`.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:238: rw [IsTuranMaximal, IsExtremal]; push Not; rintro -
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:251: /-- **Turán's theorem**, forward direction.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:253: Any `r + 1`-cliquefree Turán-maximal graph on `n` vertices is isomorphic to `turanGraph n r`. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:254: theorem nonempty_iso_turanGraph :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:255: Nonempty (G ≃g turanGraph (card V) r) := by
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:260: simp_rw [turanGraph_adj, Equiv.trans_apply, Equiv.subtypeUnivEquiv_symm_apply]
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:270: end IsTuranMaximal
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:272: /-- **Turán's theorem**, reverse direction.
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:274: Any graph isomorphic to `turanGraph n r` is itself Turán-maximal if `0 < r`. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:275: theorem isTuranMaximal_of_iso (f : G ≃g turanGraph n r) (hr : 0 < r) : G.IsTuranMaximal r := by
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:276: obtain ⟨J, _, j⟩ := exists_isTuranMaximal (V := V) hr
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:277: obtain ⟨g⟩ := j.nonempty_iso_turanGraph
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:279: use (turanGraph_cliqueFree (n := n) hr).comap f.isContained,
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:282: /-- Turán-maximality with `0 < r` transfers across graph isomorphisms. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:283: theorem IsTuranMaximal.iso {W : Type*} [Fintype W] {H : SimpleGraph W}
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:284: [DecidableRel H.Adj] (h : G.IsTuranMaximal r) (f : G ≃g H) (hr : 0 < r) : H.IsTuranMaximal r :=
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:285: isTuranMaximal_of_iso (h.nonempty_iso_turanGraph.some.comp f.symm) hr
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:287: /-- For `0 < r`, `turanGraph n r` is Turán-maximal. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:288: theorem isTuranMaximal_turanGraph (hr : 0 < r) : (turanGraph n r).IsTuranMaximal r :=
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:289: isTuranMaximal_of_iso Iso.refl hr
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:291: /-- **Turán's theorem**. `turanGraph n r` is, up to isomorphism, the unique
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:292: `r + 1`-cliquefree Turán-maximal graph on `n` vertices. -/
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:293: theorem isTuranMaximal_iff_nonempty_iso_turanGraph (hr : 0 < r) :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:294: G.IsTuranMaximal r ↔ Nonempty (G ≃g turanGraph (card V) r) :=
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:295: ⟨fun h ↦ h.nonempty_iso_turanGraph, fun h ↦ isTuranMaximal_of_iso h.some hr⟩
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:299: lemma isExtremal_top_free_iff_isTuranMaximal :
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:300: G.IsExtremal (⊤ : SimpleGraph α).Free ↔ G.IsTuranMaximal (card α - 1) := by
+      Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean:301: simp_rw [IsTuranMaximal, IsExtremal,
+      ... 72 more lines, their files: ['Mathlib/Combinatorics/SimpleGraph/Extremal/Turan.lean', 'Mathlib/Combinatorics/SimpleGraph/Extremal/TuranDensity.lean']
+  query powerSum                           regex powerSum|power_sum                                           files    2  lines     5
+      Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean:338: section PowerSum
+      Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean:369: end PowerSum
+      Mathlib/SetTheory/Cardinal/Defs.lean:453: theorem lift_power_sum {ι : Type u} (a : Cardinal.{v}) (f : ι → Cardinal.{v}) :
+      Mathlib/SetTheory/Cardinal/Defs.lean:464: theorem power_sum {ι : Type u} (a : Cardinal.{max u v}) (f : ι → Cardinal.{max u v}) :
+      Mathlib/SetTheory/Cardinal/Defs.lean:466: simpa [← lift_umax] using lift_power_sum a f
+  query power sum                          regex power[- ]sums?\b                                             files    3  lines    11
+      Mathlib/NumberTheory/Bernoulli.lean:424: /- Over `ZMod p`, the nonzero `l`-th power sum equals the negative indicator of `(p - 1) ∣ l`. -/
+      Mathlib/NumberTheory/Bernoulli.lean:619: /- Rearranges the Faulhaber identity and power-sum congruence to isolate
+      Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean:16: power sum, and monomial symmetric `MvPolynomial`s. We also prove some basic facts about them.
+      Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean:38: + `psum σ R n` is the degree-`n` power sum in `MvPolynomial σ R`, i.e. the sum of monomials
+      Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean:342: /-- The degree-`n` power sum symmetric `MvPolynomial σ R`.
+      Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean:17: This file defines `MvPolynomial` power sums as a means of implementing Newton's identities. The
+      Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean:34: symmetric polynomial in terms of lower-degree elementary symmetric polynomials and power sums.
+      Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean:36: * `MvPolynomial.psum_eq_mul_esymm_sub_sum`: a recurrence relation for the degree-`k` power sum
+      Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean:37: in terms of lower-degree elementary symmetric polynomials and power sums.
+      Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean:224: in terms of lower degree elementary symmetric polynomials and power sums. -/
+      Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean:248: the elementary symmetric polynomials and would like to calculate the values of the power sums. -/
+  query sum of powers                      regex sums? of (?:the )?(?:n-?th )?powers                          files    7  lines    11
+      Mathlib/Algebra/DirectSum/Internal.lean:301: /-- A direct sum of powers of a submodule of an algebra has a multiplicative structure. -/
+      Mathlib/Algebra/Order/Chebyshev.lean:118: /-- Special case of **Jensen's inequality** for sums of powers. -/
+      Mathlib/Algebra/Order/Chebyshev.lean:161: /-- Special case of **Jensen's inequality** for sums of powers. -/
+      Mathlib/Analysis/Analytic/Inverse.lean:364: expression for `∑_{k<n+1} aᵏ Qₖ` in terms of a sum of powers of the same sum one step before,
+      Mathlib/Analysis/Analytic/Inverse.lean:425: expression for `∑_{k<n+1} aᵏ Qₖ` in terms of a sum of powers of the same sum one step before,
+      Mathlib/Data/Nat/Factorization/Defs.lean:153: /-- For nonzero `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+      Mathlib/Data/Nat/Factorization/Defs.lean:272: /-- For coprime `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+      Mathlib/Data/Nat/Factorization/Defs.lean:278: /-- For coprime `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+      Mathlib/RingTheory/PowerSeries/Exp.lean:37: * `PowerSeries.exp_pow_sum`: Formula for the sum of powers of `exp`.
+      Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean:13: We gather miscellaneous results about units given by sums of powers of roots of unit, the so-called
+      Mathlib/RingTheory/UniqueFactorizationDomain/Finsupp.lean:50: /-- For nonzero `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+  query Dirichlet approximation            regex Dirichlet[’\']?s? approximation|exists_int_int_abs_mul_sub_le|dirichlet_approx files    2  lines    15
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:17: **Dirichlet's approximation theorem** and its important consequence that when $\xi$ is an
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:30: The main results are three variants of Dirichlet's approximation theorem:
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:31: * `Real.exists_int_int_abs_mul_sub_le`, which states that for all real `ξ` and natural `0 < n`,
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:70: Diophantine approximation, Dirichlet's approximation theorem, continued fraction
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:81: ### Dirichlet's approximation theorem
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:90: /-- *Dirichlet's approximation theorem:*
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:95: theorem exists_int_int_abs_mul_sub_le (ξ : ℝ) {n : ℕ} (n_pos : 0 < n) :
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:131: /-- *Dirichlet's approximation theorem:*
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:137: obtain ⟨j, k, hk₀, hk₁, h⟩ := exists_int_int_abs_mul_sub_le ξ n_pos
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:142: /-- *Dirichlet's approximation theorem:*
+      Mathlib/NumberTheory/DiophantineApproximation/Basic.lean:149: obtain ⟨j, k, hk₀, hk₁, h⟩ := exists_int_int_abs_mul_sub_le ξ n_pos
+      Mathlib/NumberTheory/WellApproximable.lean:48: * `NormedAddCommGroup.exists_norm_nsmul_le`: a general version of Dirichlet's approximation theorem
+      Mathlib/NumberTheory/WellApproximable.lean:49: * `AddCircle.exists_norm_nsmul_le`: Dirichlet's approximation theorem
+      Mathlib/NumberTheory/WellApproximable.lean:319: /-- A general version of **Dirichlet's approximation theorem**.
+      Mathlib/NumberTheory/WellApproximable.lean:354: /-- **Dirichlet's approximation theorem**
+  query Kronecker                          regex Kronecker                                                    files   14  lines   381
+      Mathlib/Analysis/InnerProductSpace/Orthonormal.lean:79: product equals Kronecker delta.) -/
+      Mathlib/Analysis/InnerProductSpace/Orthonormal.lean:104: equals Kronecker delta.) -/
+      Mathlib/Analysis/Matrix/Order.lean:204: section kronecker
+      Mathlib/Analysis/Matrix/Order.lean:210: open scoped Kronecker
+      Mathlib/Analysis/Matrix/Order.lean:212: /-- The kronecker product of two positive semi-definite matrices is positive semi-definite. -/
+      Mathlib/Analysis/Matrix/Order.lean:213: theorem PosSemidef.kronecker {x : Matrix n n 𝕜} {y : Matrix m m 𝕜}
+      Mathlib/Analysis/Matrix/Order.lean:219: simpa [mul_kronecker_mul, ← conjTranspose_kronecker, star_eq_conjTranspose] using
+      Mathlib/Analysis/Matrix/Order.lean:223: /-- The kronecker of two positive definite matrices is positive definite. -/
+      Mathlib/Analysis/Matrix/Order.lean:224: theorem PosDef.kronecker {x : Matrix n n 𝕜} {y : Matrix m m 𝕜}
+      Mathlib/Analysis/Matrix/Order.lean:228: exact hx.posSemidef.kronecker hy.posSemidef |>.posDef_iff_isUnit.mpr <|
+      Mathlib/Analysis/Matrix/Order.lean:229: hx.isUnit.kronecker hy.isUnit
+      Mathlib/Analysis/Matrix/Order.lean:231: end kronecker
+      Mathlib/Analysis/Matrix/Order.lean:248: rw [star_dotProduct_hadamard_mulVec_eq_kronecker]
+      Mathlib/Analysis/Matrix/Order.lean:249: exact (hAs.kronecker hBs).dotProduct_mulVec_nonneg _
+      Mathlib/Analysis/Matrix/Order.lean:266: rw [star_dotProduct_hadamard_mulVec_eq_kronecker]
+      Mathlib/Analysis/Matrix/Order.lean:267: exact (hAs.kronecker hBs).dotProduct_mulVec_pos <| by simpa
+      Mathlib/LinearAlgebra/Basis/Basic.lean:155: /-- Given a basis, the `i`th element of the dual basis evaluates to the Kronecker delta on the
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:230: section kronecker
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:233: open scoped Kronecker
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:235: /-- The invertible kronecker matrix of invertible matrices. -/
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:236: protected def kronecker (x : GL n R) (y : GL m R) : GL (n × m) R where
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:239: val_inv := by simp only [← mul_kronecker_mul, Units.mul_inv, one_kronecker_one]
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:240: inv_val := by simp only [← mul_kronecker_mul, Units.inv_mul, one_kronecker_one]
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:242: theorem _root_.Matrix.IsUnit.kronecker {x : Matrix n n R} {y : Matrix m m R}
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:244: GeneralLinearGroup.kronecker hx.unit hy.unit |>.isUnit
+      Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:246: end kronecker
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:8: public import Mathlib.LinearAlgebra.Matrix.Kronecker
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:20: (Kronecker) construction, and the divisibility obstruction `4 ∣ n`.
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:34: open scoped Kronecker
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:85: /-- The Kronecker product of two Hadamard matrices is Hadamard. -/
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:86: theorem IsHadamard.kronecker {A : Matrix m m R} {B : Matrix n n R}
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:91: simp [conjTranspose_kronecker', mul_apply, mul_assoc, ← Finset.sum_product']
+      Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:100: simp [conjTranspose_kronecker', mul_apply, mul_assoc, ← Finset.sum_product']
+      Mathlib/LinearAlgebra/Matrix/IsDiag.lean:8: public import Mathlib.LinearAlgebra.Matrix.Kronecker
+      Mathlib/LinearAlgebra/Matrix/IsDiag.lean:35: open Matrix Kronecker
+      Mathlib/LinearAlgebra/Matrix/IsDiag.lean:126: theorem IsDiag.kronecker [MulZeroClass α] {A : Matrix m m α} {B : Matrix n n α} (hA : A.IsDiag)
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:13: # Kronecker product of matrices
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:15: This defines the [Kronecker product](https://en.wikipedia.org/wiki/Kronecker_product).
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:19: * `Matrix.kroneckerMap`: A generalization of the Kronecker product: given a map `f : α → β → γ`
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:22: `kroneckerMap f A B (i₁, i₂) (j₁, j₂) = f (A i₁ j₁) (B i₁ j₂)`.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:23: * `Matrix.kroneckerMapBilinear`: when `f` is bilinear, so is `kroneckerMap f`.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:27: * `Matrix.kronecker`: An alias of `kroneckerMap (*)`. Prefer using the notation.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:28: * `Matrix.kroneckerBilinear`: `Matrix.kronecker` is bilinear
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:30: * `Matrix.kroneckerTMul`: An alias of `kroneckerMap (⊗ₜ)`. Prefer using the notation.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:31: * `Matrix.kroneckerTMulBilinear`: `Matrix.kroneckerTMul` is bilinear
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:35: These require `open Kronecker`:
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:37: * `A ⊗ₖ B` for `kroneckerMap (*) A B`. Lemmas about this notation use the token `kronecker`.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:38: * `A ⊗ₖₜ B` and `A ⊗ₖₜ[R] B` for `kroneckerMap (⊗ₜ) A B`.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:39: Lemmas about this notation use the token `kroneckerTMul`.
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:52: section KroneckerMap
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:55: def kroneckerMap (f : α → β → γ) (A : Matrix l m α) (B : Matrix n p β) : Matrix (l × n) (m × p) γ :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:58: -- TODO: set as an equation lemma for `kroneckerMap`, see https://github.com/leanprover-community/mathlib4/pull/3024
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:60: theorem kroneckerMap_apply (f : α → β → γ) (A : Matrix l m α) (B : Matrix n p β) (i j) :
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:61: kroneckerMap f A B i j = f (A i.1 j.1) (B i.2 j.2) :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:64: theorem kroneckerMap_transpose (f : α → β → γ) (A : Matrix l m α) (B : Matrix n p β) :
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:65: kroneckerMap f Aᵀ Bᵀ = (kroneckerMap f A B)ᵀ :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:68: theorem kroneckerMap_map_left (f : α' → β → γ) (g : α → α') (A : Matrix l m α) (B : Matrix n p β) :
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:69: kroneckerMap f (A.map g) B = kroneckerMap (fun a b => f (g a) b) A B :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:72: theorem kroneckerMap_map_right (f : α → β' → γ) (g : β → β') (A : Matrix l m α) (B : Matrix n p β) :
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:73: kroneckerMap f A (B.map g) = kroneckerMap (fun a b => f a (g b)) A B :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:76: theorem kroneckerMap_map (f : α → β → γ) (g : γ → γ') (A : Matrix l m α) (B : Matrix n p β) :
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:77: (kroneckerMap f A B).map g = kroneckerMap (fun a b => g (f a b)) A B :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:80: theorem kroneckerMap_submatrix_left
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:82: kroneckerMap f (A.submatrix r c) B =
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:83: (kroneckerMap f A B).submatrix (.map r id) (.map c id) :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:86: theorem kroneckerMap_submatrix_right
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:88: kroneckerMap f A (B.submatrix r c) =
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:89: (kroneckerMap f A B).submatrix (.map id r) (.map id c) :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:92: theorem kroneckerMap_submatrix_submatrix
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:95: kroneckerMap f (A.submatrix r c) (B.submatrix r' c') =
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:96: (kroneckerMap f A B).submatrix (.map r r') (.map c c') :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:100: theorem kroneckerMap_zero_left [Zero α] [Zero γ] (f : α → β → γ) (hf : ∀ b, f 0 b = 0)
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:101: (B : Matrix n p β) : kroneckerMap f (0 : Matrix l m α) B = 0 :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:105: theorem kroneckerMap_zero_right [Zero β] [Zero γ] (f : α → β → γ) (hf : ∀ a, f a 0 = 0)
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:106: (A : Matrix l m α) : kroneckerMap f A (0 : Matrix n p β) = 0 :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:109: theorem kroneckerMap_add_left [Add α] [Add γ] (f : α → β → γ)
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:111: kroneckerMap f (A₁ + A₂) B = kroneckerMap f A₁ B + kroneckerMap f A₂ B :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:114: theorem kroneckerMap_add_right [Add β] [Add γ] (f : α → β → γ)
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:116: kroneckerMap f A (B₁ + B₂) = kroneckerMap f A B₁ + kroneckerMap f A B₂ :=
+      Mathlib/LinearAlgebra/Matrix/Kronecker.lean:119: theorem kroneckerMap_smul_left [SMul R α] [SMul R γ] (f : α → β → γ) (r : R)
+      ... 301 more lines, their files: ['Mathlib/LinearAlgebra/Matrix/Kronecker.lean', 'Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean', 'Mathlib/LinearAlgebra/Matrix/Vec.lean', 'Mathlib/LinearAlgebra/TensorProduct/Matrix.lean', 'Mathlib/LinearAlgebra/UnitaryGroup.lean', 'Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean', 'Mathlib/RingTheory/MatrixAlgebra.lean', 'Mathlib/Topology/Category/Profinite/Nobeling/Span.lean']

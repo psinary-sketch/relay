@@ -1,0 +1,18 @@
+<stdin>:111:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+<stdin>:123:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Finset.Ico ?a (?b + 1)
+in the target expression
+  χ ↑0 + ∑ x ∈ Finset.Ico 1 ⌊x⌋₊.succ, χ ↑x = χ ↑0 + ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ ↑n
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+h1 : χ ≠ 1
+x : ℝ
+⊢ χ ↑0 + ∑ x ∈ Finset.Ico 1 ⌊x⌋₊.succ, χ ↑x = χ ↑0 + ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ ↑n

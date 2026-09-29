@@ -1,0 +1,28 @@
+@SIDEExplicitFormula.GRHWeil.chi_reflect_zero : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {ρ : ℂ},
+        SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ →
+          SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ (Zeta23.reflect ρ)
+@SIDEExplicitFormula.GRHWeil.chi_mult_reflect : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {ρ : ℂ},
+        SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ →
+          SIDEExplicitFormula.GRHWeil.zeroMultChi χ (Zeta23.reflect ρ) = SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ
+@SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ (w : ℂ),
+        analyticOrderAt (DirichletCharacter.completedLFunction χ⁻¹) (1 - w) =
+          analyticOrderAt (DirichletCharacter.completedLFunction χ) w
+@SIDEExplicitFormula.GRHWeil.finite_window_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (T₁ T₂ : ℝ), ({ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+@SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (ρ : ℂ),
+  ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier ↔
+    (starRingEnd ℂ) ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ⁻¹ ⋯ ⋯).carrier
+@SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → ∀ (x : ℝ), ‖SIDEExplicitFormula.GRHWeil.charPartialSum χ x‖ ≤ ↑N + 1

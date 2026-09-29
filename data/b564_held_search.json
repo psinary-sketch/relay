@@ -1,0 +1,1468 @@
+{
+ "LFunction on the strip by its series": {
+  "regex": "(?-i:LFunction_eq_LSeries|LFunction_eq_tsum|LFunction_eq_sum|LFunction_eq_integral)",
+  "files": 4,
+  "lines": 14,
+  "hits": [
+   [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    30,
+    "* `LFunction_eq_LSeries`: if `1 < re s` then the `LFunction` coincides with the naive `LSeries`."
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    75,
+    "lemma LFunction_eq_LSeries (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < re s) :"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    77,
+    "ZMod.LFunction_eq_LSeries χ hs"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    85,
+    "exact LFunction_eq_LSeries χ hz"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+    144,
+    "· simpa [LFunction_eq_LSeries _ ht] using LSeries_changeLevel hMN χ ht"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    155,
+    "simp only [ne_eq, hs', not_false_eq_true, Function.update_of_ne, B.χ.LFunction_eq_LSeries hs]"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    312,
+    "rw [LFunctionTrivChar, DirichletCharacter.LFunction_eq_LSeries 1 h₀,"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    313,
+    "χ.LFunction_eq_LSeries h₁, (χ ^ 2).LFunction_eq_LSeries h₂]"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    401,
+    "fun hs ↦ LFunction_eq_LSeries χ hs ▸ LSeries_ne_zero_of_one_lt_re χ hs"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    44,
+    "simple pole at `s = 1`); see `DirichletCharacter.LFunction_eq_LSeries`"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+    242,
+    "simp only [deriv_LFunction_eq_deriv_LSeries _ hs, LFunction_eq_LSeries _ hs, neg_mul, ← mul_neg,"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    39,
+    "* `ZMod.LFunction_eq_LSeries`: if `1 < re s` then the `LFunction` coincides with the naive"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    93,
+    "lemma LFunction_eq_LSeries (Φ : ZMod N → ℂ) {s : ℂ} (hs : 1 < re s) :"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/ZMod.lean",
+    156,
+    "LFunction_eq_LSeries _ hs, LSeries]"
+   ]
+  ]
+ },
+ "L-series as the summatory integral": {
+  "regex": "(?-i:LSeries_eq_mul_integral)",
+  "files": 1,
+  "lines": 10,
+  "hits": [
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    26,
+    "* `LSeries_eq_mul_integral` : for `f : ℕ → ℂ`, if the partial sums `∑ k ∈ Icc 1 n, f k` are"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    98,
+    "private theorem LSeries_eq_mul_integral_aux {f : ℕ → ℂ} (hf : f 0 = 0) {r : ℝ} (hr : 0 ≤ r) {s : ℂ}"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    137,
+    "theorem LSeries_eq_mul_integral (f : ℕ → ℂ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    145,
+    "rw [← LSeries_congr fun _ ↦ if_neg _, LSeries_eq_mul_integral_aux (if_pos rfl) hr hs hS] <;>"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    148,
+    "/-- A version of `LSeries_eq_mul_integral` where we use the stronger condition that the partial sums"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    150,
+    "theorem LSeries_eq_mul_integral' (f : ℕ → ℂ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    153,
+    "LSeries_eq_mul_integral _ hr hs (LSeriesSummable_of_sum_norm_bigO hO hr hs) <|"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    159,
+    "theorem LSeries_eq_mul_integral_of_nonneg (f : ℕ → ℝ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    163,
+    "LSeries_eq_mul_integral' _ hr hs <| hO.congr_left fun _ ↦ by simp [abs_of_nonneg (hf _)]"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/SumCoeff.lean",
+    294,
+    "rw [h₃, mul_one, mul_comm l, LSeries_eq_mul_integral _ zero_le_one (by rwa [ofReal_re])"
+   ]
+  ]
+ },
+ "convergence off absolute convergence": {
+  "regex": "(?-i:abscissaOfConv\\b|LSeries_converges|LSeriesConverges|conditionally)",
+  "files": 81,
+  "lines": 250,
+  "hits": [
+   [
+    "Mathlib/Algebra/Order/Archimedean/Hom.lean",
+    16,
+    "conditionally complete."
+   ],
+   [
+    "Mathlib/Algebra/Order/Archimedean/Real/Basic.lean",
+    17,
+    "# The real numbers are an Archimedean floor ring, and a conditionally complete linear order."
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    15,
+    "axioms of the reals (field, conditionally complete, linearly ordered) that there is an isomorphism"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    20,
+    "We show all conditionally complete linear ordered fields are"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    26,
+    "ordered field to a conditionally complete linear ordered field. Various bundlings are available."
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    31,
+    "from an archimedean linear ordered field to a conditionally complete linear ordered field."
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    33,
+    "between two conditionally complete linearly ordered fields."
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    41,
+    "reals, conditionally complete, ordered field, uniqueness"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    54,
+    "/-- A field which is both linearly ordered and conditionally complete with respect to the order."
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    62,
+    "/-- Any conditionally complete linearly ordered field is archimedean. -/"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    77,
+    "The idea is that a conditionally complete linear ordered field is fully characterized by its copy of"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    162,
+    "/-- The induced order-preserving function from a linear ordered field to a conditionally complete"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    283,
+    "/-- The isomorphism of ordered rings between two conditionally complete linearly ordered fields. -/"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    310,
+    "conditionally complete linear ordered field. -/"
+   ],
+   [
+    "Mathlib/Algebra/Order/CompleteField.lean",
+    314,
+    "/-- There is a unique ordered ring isomorphism between two conditionally complete linear ordered"
+   ],
+   [
+    "Mathlib/Algebra/Order/Nonneg/Lattice.lean",
+    49,
+    "protected noncomputable abbrev conditionallyCompleteLinearOrder [ConditionallyCompleteLinearOrder α]"
+   ],
+   [
+    "Mathlib/Algebra/Order/Nonneg/Lattice.lean",
+    62,
+    "protected noncomputable abbrev conditionallyCompleteLinearOrderBot"
+   ],
+   [
+    "Mathlib/Algebra/Order/Nonneg/Lattice.lean",
+    65,
+    "{ Nonneg.orderBot, Nonneg.conditionallyCompleteLinearOrder with"
+   ],
+   [
+    "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+    527,
+    "-- `map` is a ring-hom unconditionally, and theoretically the definition could be replaced,"
+   ],
+   [
+    "Mathlib/Algebra/Tropical/BigOperators.lean",
+    123,
+    "as it is simply not true on conditionally complete lattices! -/"
+   ],
+   [
+    "Mathlib/Analysis/Complex/AbelLimit.lean",
+    17,
+    "known to converge conditionally at 1, Abel's limit theorem gives the value at 1 as the limit of the"
+   ],
+   [
+    "Mathlib/Analysis/Convex/Gauge.lean",
+    90,
+    "but, the real infimum of the empty set in Lean being defined as `0`, it holds unconditionally). -/"
+   ],
+   [
+    "Mathlib/Analysis/InnerProductSpace/l2Space.lean",
+    495,
+    "converges unconditionally. -/"
+   ],
+   [
+    "Mathlib/Analysis/Normed/Group/InfiniteSum.lean",
+    78,
+    "/-- A version of the **direct comparison test** for conditionally convergent series."
+   ],
+   [
+    "Mathlib/Analysis/Normed/Module/FiniteDimension.lean",
+    609,
+    "/-- In a finite-dimensional vector space over `ℝ`, the series `∑ x, ‖f x‖` is unconditionally"
+   ],
+   [
+    "Mathlib/Analysis/Normed/Module/FiniteDimension.lean",
+    610,
+    "summable if and only if the series `∑ x, f x` is unconditionally summable. One implication holds in"
+   ],
+   [
+    "Mathlib/Analysis/PSeries.lean",
+    350,
+    "/-- Harmonic series is not unconditionally summable. -/"
+   ],
+   [
+    "Mathlib/Analysis/PSeries.lean",
+    356,
+    "/-- Harmonic series is not unconditionally summable. -/"
+   ],
+   [
+    "Mathlib/Analysis/Seminorm.lean",
+    566,
+    "/-- `Seminorm 𝕜 E` is a conditionally complete lattice."
+   ],
+   [
+    "Mathlib/Analysis/Seminorm.lean",
+    575,
+    "conditionallyCompleteLatticeOfLatticeOfsSup (Seminorm 𝕜 E) Seminorm.isLUB_sSup"
+   ],
+   [
+    "Mathlib/Analysis/SpecificLimits/Normed.lean",
+    854,
+    "-- TODO: generalize to conditionally-convergent sums"
+   ],
+   [
+    "Mathlib/CategoryTheory/Limits/Sifted.lean",
+    60,
+    "- it applies unconditionally (which can be a performance drain),"
+   ],
+   [
+    "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+    32,
+    "* An alternate definition in terms of limits, unconditionally equivalent to the original one:"
+   ],
+   [
+    "Mathlib/Combinatorics/Matroid/Circuit.lean",
+    49,
+    "These make the useful statement `e ∈ M.fundCircuit e I ⊆ insert e I` true unconditionally."
+   ],
+   [
+    "Mathlib/Combinatorics/Matroid/Minor/Delete.lean",
+    23,
+    "whereas `M ＼ D`, being defined as `M ↾ (M.E \\ D)`, satisfies `M ＼ D ≤r M` unconditionally."
+   ],
+   [
+    "Mathlib/Combinatorics/Matroid/Rank/Cardinal.lean",
+    43,
+    "which have a more unconditionally strong API,"
+   ],
+   [
+    "Mathlib/Data/EReal/Basic.lean",
+    17,
+    "`WithBot (WithTop L)` completes a conditionally complete linear order `L`."
+   ],
+   [
+    "Mathlib/Data/Int/Bitwise.lean",
+    177,
+    "/-- Defines a function from `ℤ` conditionally, if it is defined for odd and even integers separately"
+   ],
+   [
+    "Mathlib/Data/Int/ConditionallyCompleteOrder.lean",
+    12,
+    "## `ℤ` forms a conditionally complete linear order"
+   ],
+   [
+    "Mathlib/Data/Int/ConditionallyCompleteOrder.lean",
+    14,
+    "The integers form a conditionally complete linear order."
+   ],
+   [
+    "Mathlib/Data/NNReal/Defs.lean",
+    19,
+    "* the order on `ℝ≥0` is the restriction of the order on `ℝ`; these relations define a conditionally"
+   ],
+   [
+    "Mathlib/Data/NNReal/Defs.lean",
+    23,
+    "these operations together with `0 = ⟨0, _⟩` and `1 = ⟨1, _⟩` turn `ℝ≥0` into a conditionally"
+   ],
+   [
+    "Mathlib/Data/NNReal/Defs.lean",
+    450,
+    "fast_instance% Nonneg.conditionallyCompleteLinearOrderBot 0"
+   ],
+   [
+    "Mathlib/Data/Real/Basic.lean",
+    20,
+    "and a conditionally complete linear order,"
+   ],
+   [
+    "Mathlib/Data/Real/Pointwise.lean",
+    23,
+    "This is true more generally for conditionally complete linear order whose default value is `0`. We"
+   ],
+   [
+    "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+    24,
+    "A locally finite Borel measure on a second countable conditionally complete linear order is"
+   ],
+   [
+    "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+    32,
+    "Countable supremums and infimums of measurable functions to conditionally complete linear orders"
+   ],
+   [
+    "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+    35,
+    "Countable liminfs and limsups of measurable functions to conditionally complete linear orders"
+   ],
+   [
+    "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+    443,
+    "`α` is a conditionally complete linear order with no top element,"
+   ],
+   [
+    "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+    458,
+    "`α` is a conditionally complete linear order with no top element,"
+   ],
+   [
+    "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+    1003,
+    "true in general conditionally complete linear orders because of issues with empty sets or sets"
+   ],
+   [
+    "Mathlib/MeasureTheory/Function/AEMeasurableOrder.lean",
+    20,
+    "Note that it should be enough to assume that the space is a conditionally complete linear order,"
+   ],
+   [
+    "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    17,
+    "generally this notion for `f : R → ℝ` where `R` is a conditionally complete dense linear order."
+   ],
+   [
+    "Mathlib/MeasureTheory/Measure/Stieltjes.lean",
+    33,
+    "We define Stieltjes functions over any conditionally complete dense linear order, to be able"
+   ],
+   [
+    "Mathlib/MeasureTheory/VectorMeasure/Integral.lean",
+    67,
+    "unconditionally convergent."
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    36,
+    "Fourier series which are only conditionally convergent, which is difficult to approach using the"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+    76,
+    "conditionally convergent."
+   ],
+   [
+    "Mathlib/Order/Bounds/Basic.lean",
+    706,
+    "in complete and conditionally complete lattices but let automation fill automatically the"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    12,
+    "/-! # Subtypes of conditionally complete linear orders"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    14,
+    "In this file we give conditions on a subset of a conditionally complete linear order, to ensure that"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    15,
+    "the subtype is itself conditionally complete."
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    121,
+    "/-- For a nonempty subset of a conditionally complete linear order to be a conditionally complete"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    139,
+    "/-- The `sSup` function on a nonempty `OrdConnected` set `s` in a conditionally complete linear"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    149,
+    "/-- The `sInf` function on a nonempty `OrdConnected` set `s` in a conditionally complete linear"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    159,
+    "/-- A nonempty `OrdConnected` set in a conditionally complete linear order is naturally a"
+   ],
+   [
+    "Mathlib/Order/CompleteLatticeIntervals.lean",
+    160,
+    "conditionally complete linear order. -/"
+   ],
+   [
+    "Mathlib/Order/CompleteLattice/Basic.lean",
+    56,
+    "-- We will generalize this to conditionally complete lattices in `csSup_singleton`."
+   ],
+   [
+    "Mathlib/Order/CompleteLattice/Basic.lean",
+    129,
+    "See `csSup_eq_of_forall_le_of_forall_lt_exists_gt` for a version in conditionally complete"
+   ],
+   [
+    "Mathlib/Order/CompleteLattice/Basic.lean",
+    134,
+    "See `csInf_eq_of_forall_ge_of_forall_gt_exists_lt` for a version in conditionally complete"
+   ],
+   [
+    "Mathlib/Order/CompleteLattice/Basic.lean",
+    378,
+    "-- We generalize this to conditionally complete lattices in `ciSup_const` and `ciInf_const`."
+   ],
+   [
+    "Mathlib/Order/CompleteLattice/Basic.lean",
+    411,
+    "See `ciSup_eq_of_forall_le_of_forall_lt_exists_gt` for a version in conditionally complete"
+   ],
+   [
+    "Mathlib/Order/CompleteLattice/Basic.lean",
+    416,
+    "See `ciInf_eq_of_forall_ge_of_forall_gt_exists_lt` for a version in conditionally complete"
+   ],
+   [
+    "Mathlib/Order/CompletePartialOrder.lean",
+    100,
+    "/-- A complete partial order is an conditionally complete partial order. -/"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    13,
+    "# Theory of conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    15,
+    "A conditionally complete lattice is a lattice in which every non-empty bounded subset `s`"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    22,
+    "most useful properties of `sSup` and `sInf` in conditionally complete lattices."
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    24,
+    "To differentiate the statements between complete lattices and conditionally complete"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    27,
+    "while `csInf_le` is the same statement in conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    157,
+    "/-- A complete lattice is a conditionally complete lattice, as there are no restrictions"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    389,
+    "instance Pi.conditionallyCompleteLattice {ι : Type*} {α : ι → Type*}"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    547,
+    "### Lemmas about a conditionally complete linear order with bottom element"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    570,
+    "/-- In conditionally complete orders with a bottom element, the nonempty condition can be omitted"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    578,
+    "/-- In conditionally complete orders with a bottom element, the nonempty condition can be omitted"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    632,
+    "/-- The `sSup` of a non-empty set is its least upper bound for a conditionally"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    675,
+    "/-- The `sInf` of a bounded-below set is its greatest lower bound for a conditionally"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    752,
+    "/-! A monotone function into a conditionally complete lattice preserves the ordering properties of"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    900,
+    "also inherit the structure of conditionally complete lattices. Furthermore, we show"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    902,
+    "complete lattice. Note that for `α` a conditionally complete lattice, `sSup` and `sInf` both return"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    911,
+    "/-- Adding a top element to a conditionally complete lattice"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    912,
+    "gives a conditionally complete lattice -/"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    914,
+    "/-- Adding a bottom element to a conditionally complete lattice"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    915,
+    "gives a conditionally complete lattice -/]"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+    916,
+    "noncomputable instance WithTop.conditionallyCompleteLattice {α : Type*}"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    13,
+    "# Definitions of conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    15,
+    "A conditionally complete lattice is a lattice in which every non-empty bounded subset `s`"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    22,
+    "most useful properties of `sSup` and `sInf` in conditionally complete lattices."
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    24,
+    "To differentiate the statements between complete lattices and conditionally complete"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    27,
+    "while `csInf_le` is the same statement in conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    37,
+    "/-- A conditionally complete lattice is a lattice in which"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    56,
+    "/-- A conditionally complete linear order is a linear order in which"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    84,
+    "/-- A conditionally complete linear order with `Bot` is a linear order with least element, in which"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    112,
+    "__ := conditionallyCompleteLatticeOfsSup my_T ..."
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    128,
+    "__ := conditionallyCompleteLatticeOfsInf my_T ..."
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    131,
+    "def conditionallyCompleteLatticeOfsSup (α : Type*) [H1 : PartialOrder α] [H2 : SupSet α]"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    145,
+    "/-- A version of `conditionallyCompleteLatticeOfsSup` when we already know that `α` is a lattice."
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    149,
+    "/-- A version of `conditionallyCompleteLatticeOfsInf` when we already know that `α` is a lattice."
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    152,
+    "def conditionallyCompleteLatticeOfLatticeOfsSup (α : Type*) [H1 : Lattice α] [SupSet α]"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    156,
+    "conditionallyCompleteLatticeOfsSup α"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    162,
+    "/-- A well-founded linear order is conditionally complete, with a bottom element. -/"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    163,
+    "noncomputable abbrev WellFoundedLT.conditionallyCompleteLinearOrderBot (α : Type*)"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Defs.lean",
+    171,
+    "conditionallyCompleteLatticeOfLatticeOfsInf _ fun s _ hn ↦ by"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean",
+    12,
+    "# Indexed sup / inf in conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean",
+    14,
+    "This file proves lemmas about `iSup` and `iInf` for functions valued in a conditionally complete,"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean",
+    518,
+    "### Lemmas about a conditionally complete linear order with bottom element"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean",
+    545,
+    "/-- In conditionally complete orders with a bottom element, the nonempty condition can be omitted"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean",
+    557,
+    "/-- In conditionally complete orders with a bottom element, the nonempty condition can be omitted"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Basic.lean",
+    13,
+    "/-! # Basic results on conditionally complete partial orders"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Basic.lean",
+    15,
+    "This file contains some basic results on conditionally complete partial orders, and is intended"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Basic.lean",
+    16,
+    "to parallel the API for conditionally complete lattices where possible. For the reason, the"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Defs.lean",
+    14,
+    "This file defines *conditionally complete partial orders* with suprema, infima or both. These are"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Defs.lean",
+    27,
+    "in particular it is *not* a conditionally complete *lattice*, and indeed it is a lattice if and only"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Indexed.lean",
+    12,
+    "# Indexed sup / inf in conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Indexed.lean",
+    14,
+    "This file proves lemmas about `iSup` and `iInf` for functions valued in a conditionally complete"
+   ],
+   [
+    "Mathlib/Order/ConditionallyCompletePartialOrder/Indexed.lean",
+    15,
+    "partial order, as opposed to a conditionally complete lattice."
+   ],
+   [
+    "Mathlib/Order/Copy.lean",
+    252,
+    "/-- A function to create a provable equal copy of a conditionally complete lattice"
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    12,
+    "# `Filter.atTop` and `Filter.atBot` in (conditionally) complete lattices"
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    40,
+    "if the codomain of `f` is a conditionally complete linear order or a complete lattice, see below."
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    56,
+    "if the codomain of `f` is a conditionally complete linear order or a complete lattice, see below."
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    68,
+    "if the codomain of `f` is a conditionally complete linear order or a complete lattice, see below."
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    80,
+    "if the codomain of `f` is a conditionally complete linear order or a complete lattice, see below."
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    87,
+    "/-- If `f` is a monotone function taking values in a conditionally complete linear order"
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    99,
+    "/-- If `f` is a monotone function taking values in a conditionally complete linear order"
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    107,
+    "/-- If `f` is an antitone function taking values in a conditionally complete linear order"
+   ],
+   [
+    "Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean",
+    115,
+    "/-- If `f` is an antitone function taking values in a conditionally complete linear order"
+   ],
+   [
+    "Mathlib/Order/Filter/Defs.lean",
+    410,
+    "versions on conditionally complete lattices with additional assumptions. We have to be careful in"
+   ],
+   [
+    "Mathlib/Order/Filter/IsBounded.lean",
+    525,
+    "in complete and conditionally complete lattices but let automation fill automatically the"
+   ],
+   [
+    "Mathlib/Order/Interval/Set/OrdConnectedLinear.lean",
+    24,
+    "conditionally complete linear orders."
+   ],
+   [
+    "Mathlib/Order/IsNormal.lean",
+    227,
+    "let := WellFoundedLT.conditionallyCompleteLinearOrderBot α"
+   ],
+   [
+    "Mathlib/Order/IsNormal.lean",
+    228,
+    "let := WellFoundedLT.conditionallyCompleteLinearOrderBot β"
+   ],
+   [
+    "Mathlib/Order/IsNormal.lean",
+    251,
+    "let := WellFoundedLT.conditionallyCompleteLinearOrderBot α"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    15,
+    "Defines the liminf/limsup of a function taking values in a conditionally complete lattice, with"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    18,
+    "We define `limsSup f` (`limsInf f`) where `f` is a filter taking values in a conditionally complete"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    28,
+    "So one cannot use this `inf sup ...` definition in conditionally complete lattices, and one has"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    31,
+    "In conditionally complete lattices, the definition is only useful for filters which are eventually"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    998,
+    "/-- Writing a liminf as a supremum of infimum, in a (possibly non-complete) conditionally complete"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    1039,
+    "/-- Writing a liminf as a supremum of infimum, in a (possibly non-complete) conditionally complete"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    1077,
+    "/-- Writing a limsup as an infimum of supremum, in a (possibly non-complete) conditionally complete"
+   ],
+   [
+    "Mathlib/Order/LiminfLimsup.lean",
+    1088,
+    "/-- Writing a limsup as an infimum of supremum, in a (possibly non-complete) conditionally complete"
+   ],
+   [
+    "Mathlib/Order/OrdContinuous.lean",
+    39,
+    "complete lattices and conditionally complete lattices. -/"
+   ],
+   [
+    "Mathlib/Order/OrdContinuous.lean",
+    43,
+    "complete lattices and conditionally complete lattices. -/]"
+   ],
+   [
+    "Mathlib/Order/PartialSups.lean",
+    23,
+    "element, and makes sense in conditionally-complete lattices (where indexed suprema over sets are"
+   ],
+   [
+    "Mathlib/Order/SemiconjSup.lean",
+    25,
+    "see `Function.sSup_div_semiconj`.  In the case of a conditionally complete lattice, a similar"
+   ],
+   [
+    "Mathlib/Order/SemiconjSup.lean",
+    113,
+    "/-- Consider two actions `f₁ f₂ : G → α → α` of a group on a conditionally complete lattice by order"
+   ],
+   [
+    "Mathlib/Order/SuccPred/CompleteLinearOrder.lean",
+    13,
+    "# Relation between `IsSuccPrelimit` and `iSup` in (conditionally) complete linear orders."
+   ],
+   [
+    "Mathlib/Order/SuccPred/CompleteLinearOrder.lean",
+    82,
+    "/-- Every conditionally complete linear order with well-founded `<` is a successor order, by setting"
+   ],
+   [
+    "Mathlib/Order/WellFounded.lean",
+    117,
+    "`WellFoundedLT.conditionallyCompleteLinearOrderBot` and using `Inf` instead. -/"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    18,
+    "Two σ-algebras `m₁` and `m₂` are conditionally independent given a third σ-algebra `m'` if for all"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    45,
+    "* `ProbabilityTheory.iCondIndepSets.iCondIndep`: if π-systems are conditionally independent as sets"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    46,
+    "of sets, then the measurable space structures they generate are conditionally independent."
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    82,
+    "/-- A family of sets of sets `π : ι → Set (Set Ω)` is conditionally independent given `m'` with"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    91,
+    "/-- Two sets of sets `s₁, s₂` are conditionally independent given `m'` with respect to a measure"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    98,
+    "/-- A family of measurable space structures (i.e. of σ-algebras) is conditionally independent given"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    100,
+    "measurable sets they define is independent. `m : ι → MeasurableSpace Ω` is conditionally independent"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    111,
+    "/-- Two measurable space structures (or σ-algebras) `m₁, m₂` are conditionally independent given"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    125,
+    "/-- A family of sets is conditionally independent if the family of measurable space structures they"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    126,
+    "generate is conditionally independent. For a set `s`, the generated measurable space has measurable"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    132,
+    "/-- Two sets are conditionally independent if the two measurable space structures they generate are"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    133,
+    "conditionally independent. For a set `s`, the generated measurable space structure has measurable"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    140,
+    "spaces, each with a measurable space structure, is conditionally independent if the family of"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    141,
+    "measurable space structures they generate on `Ω` is conditionally independent. For a function `g`"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    149,
+    "/-- Two functions are conditionally independent if the two measurable space structures they generate"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    150,
+    "are conditionally independent. For a function `f` with codomain having measurable space structure"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    153,
+    "We use the notation `X ⟂ᵢ[Z, hZ; μ] Y` to write that `X` and `Y` are conditionally independent"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    610,
+    "/-- The σ-algebras generated by conditionally independent pi-systems are conditionally independent."
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    761,
+    "/-- Two random variables are conditionally independent iff they satisfy the almost sure equality"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    778,
+    "/-- Two random variables are conditionally independent iff they satisfy the almost sure equality"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    793,
+    "/-- Two random variables are conditionally independent with respect to `m'` iff the law of"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    812,
+    "/-- Two random variables `f, g` are conditionally independent given a third `k` iff the"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    862,
+    "/-- Two random variables `f, g` are conditionally independent given a third `k` iff the"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    916,
+    "/-- If `f` is a family of mutually conditionally independent random variables"
+   ],
+   [
+    "Mathlib/Probability/Independence/Conditional.lean",
+    918,
+    "by `f i` for `i ∈ S` is conditionally independent of the tuple `(f i)_i` for `i ∈ T`. -/"
+   ],
+   [
+    "Mathlib/Probability/Independence/ZeroOne.lean",
+    354,
+    "conditionally independent sequence of sub-σ-algebras has conditional probability 0 or 1. -/"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    43,
+    "A related notion to sub-Gaussian random variables is that of conditionally sub-Gaussian random"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    44,
+    "variables. A random variable `X` is conditionally sub-Gaussian in the sense of (v) with respect to"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    50,
+    "independence definitions), we express both sub-Gaussian and conditionally sub-Gaussian properties"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    59,
+    "* `HasCondSubgaussianMGF`: a random variable `X` has a conditionally sub-Gaussian moment-generating"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    540,
+    "/-- A random variable `X` has a conditionally sub-Gaussian moment-generating function"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    875,
+    "a sub-sigma-algebra `m` and `Y` is conditionally sub-Gaussian with parameter `cY` with respect to"
+   ],
+   [
+    "Mathlib/Probability/Moments/SubGaussian.lean",
+    905,
+    "`Y i` is conditionally sub-Gaussian with parameter `cY i` with respect to `ℱ (i - 1)`."
+   ],
+   [
+    "Mathlib/SetTheory/Cardinal/Cofinality/Club.lean",
+    97,
+    "WellFoundedLT.toOrderBot WellFoundedLT.conditionallyCompleteLinearOrderBot"
+   ],
+   [
+    "Mathlib/SetTheory/Cardinal/Cofinality/Enum.lean",
+    166,
+    "let := WellFoundedLT.conditionallyCompleteLinearOrderBot α"
+   ],
+   [
+    "Mathlib/SetTheory/Cardinal/Order.lean",
+    379,
+    "WellFoundedLT.conditionallyCompleteLinearOrderBot _"
+   ],
+   [
+    "Mathlib/SetTheory/Cardinal/SchroederBernstein.lean",
+    114,
+    "See `Cardinal.conditionallyCompleteLinearOrderBot` for (one of) the lattice instances. -/"
+   ],
+   [
+    "Mathlib/SetTheory/Cardinal/SchroederBernstein.lean",
+    144,
+    "`Cardinal.conditionallyCompleteLinearOrderBot` for (one of) the lattice"
+   ],
+   [
+    "Mathlib/SetTheory/Ordinal/Basic.lean",
+    51,
+    "A conditionally complete linear order with bot structure is registered on ordinals, where `⊥` is"
+   ],
+   [
+    "Mathlib/SetTheory/Ordinal/Basic.lean",
+    583,
+    "WellFoundedLT.conditionallyCompleteLinearOrderBot _"
+   ],
+   [
+    "Mathlib/SetTheory/Ordinal/Family.lean",
+    213,
+    "-- TODO: generalize to conditionally complete lattices."
+   ],
+   [
+    "Mathlib/SetTheory/Ordinal/Family.lean",
+    227,
+    "-- TODO: generalize to conditionally complete lattices"
+   ],
+   [
+    "Mathlib/Tactic/ComputeAsymptotics/Multiseries/Defs.lean",
+    812,
+    "* If `basis = []`, i.e. `ms` is just a real number, `Approximates` holds unconditionally."
+   ],
+   [
+    "Mathlib/Tactic/Continuity.lean",
+    21,
+    "is applied unconditionally. Thus a lemma should preserve provability: if the goal can be proven,"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
+    28,
+    "conditionally-summable sequences which are not unconditionally summable)."
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
+    41,
+    "`∏' n : ℕ, (1 : ℝ) / 2` unconditionally exists and is equal to `0`. More strikingly,"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
+    42,
+    "the product `∏' n : ℕ, (n : ℝ)` unconditionally exists and is equal to `0`, because one"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
+    101,
+    "convergent with respect to the conditional summation filter is in fact unconditionally summable."
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Group.lean",
+    361,
+    "/-- Product divergence test: if `f` is unconditionally multipliable, then `f x` tends to one along"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Group.lean",
+    363,
+    "@[to_additive /-- Series divergence test: if `f` is unconditionally summable, then `f x` tends to"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+    17,
+    "`f` is unconditionally summable if and only if `f a` tends to zero on the cofinite filter on `α`"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+    90,
+    "function that tends to one on the filter of cofinite sets. Then `f` is unconditionally"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+    93,
+    "be a function that tends to zero on the filter of cofinite sets. Then `f` is unconditionally"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+    100,
+    "is unconditionally multipliable if and only if it tends to one on the filter of cofinite sets. -/"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+    102,
+    "`f : α → G` is unconditionally summable if and only if it tends to zero on the filter of cofinite"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/Order.lean",
+    279,
+    "conditionally complete linear order, such as `ℝ`, `ℝ≥0`, `ℝ≥0∞`, because it is then easy to check"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/SummationFilter.lean",
+    39,
+    "so that any unconditionally-summable function is `L`-summable with the same sum. -/"
+   ],
+   [
+    "Mathlib/Topology/Algebra/InfiniteSum/SummationFilter.lean",
+    166,
+    "/-- **Unconditional summation**: a function on `β` is said to be *unconditionally summable* if its"
+   ],
+   [
+    "Mathlib/Topology/EMetricSpace/BoundedVariation.lean",
+    47,
+    "that the sets one uses are nonempty and bounded above as these are only conditionally complete."
+   ],
+   [
+    "Mathlib/Topology/FiberBundle/Basic.lean",
+    342,
+    "/-- If `E` is a fiber bundle over a conditionally complete linear order,"
+   ],
+   [
+    "Mathlib/Topology/MetricSpace/Bounded.lean",
+    360,
+    "/-- In a pseudometric space with a conditionally complete linear order such that the order and the"
+   ],
+   [
+    "Mathlib/Topology/MetricSpace/GromovHausdorffRealized.lean",
+    255,
+    "infimum and supremum on `ℝ`, which is only conditionally complete, we will need all the time"
+   ],
+   [
+    "Mathlib/Topology/MetricSpace/HausdorffDistance.lean",
+    559,
+    "`sInf` and `sSup` on `ℝ` (which is only conditionally complete), we use the notions in `ℝ≥0∞`"
+   ],
+   [
+    "Mathlib/Topology/Order/Basic.lean",
+    795,
+    "the function is between conditionally complete linear orders with order topologies. -/"
+   ],
+   [
+    "Mathlib/Topology/Order/Basic.lean",
+    817,
+    "the function is between conditionally complete linear orders with order topologies. -/"
+   ],
+   [
+    "Mathlib/Topology/Order/Basic.lean",
+    823,
+    "the function is between conditionally complete linear orders with order topologies. -/"
+   ],
+   [
+    "Mathlib/Topology/Order/Compact.lean",
+    16,
+    "In this file we prove that a closed interval in a conditionally complete linear ordered type with"
+   ],
+   [
+    "Mathlib/Topology/Order/Compact.lean",
+    50,
+    "conditionally complete linear orders with order topology and products (finite or infinite)"
+   ],
+   [
+    "Mathlib/Topology/Order/Compact.lean",
+    77,
+    "/-- A closed interval in a conditionally complete linear order is compact. -/"
+   ],
+   [
+    "Mathlib/Topology/Order/Compact.lean",
+    469,
+    "conditionally complete linear order, and `K : Set β` is a compact set, then"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    19,
+    "some point of `s`. We also prove that intervals in a dense conditionally complete order are"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    191,
+    "* `IsPreconnected.mem_intervals`: any preconnected set `s` in a conditionally complete linear order"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    234,
+    "/-- A bounded connected subset of a conditionally complete linear order includes the open interval"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    258,
+    "/-- A preconnected set in a conditionally complete linear order is either one of the intervals"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    309,
+    "conditionally complete linear order is preconnected."
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    431,
+    "/-- A closed interval in a densely ordered conditionally complete linear order is preconnected. -/"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    513,
+    "/-- In a dense conditionally complete linear order, the set of preconnected sets is exactly"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    533,
+    "/-- This lemma characterizes when a subset `s` of a densely ordered conditionally complete linear"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    782,
+    "/-- Suppose `α` is equipped with a conditionally complete linear dense order and `f : α → δ` is"
+   ],
+   [
+    "Mathlib/Topology/Order/IntermediateValue.lean",
+    839,
+    "/-- Suppose `α` is equipped with a conditionally complete linear dense order and `f : α → δ` is"
+   ],
+   [
+    "Mathlib/Topology/Order/IsLUB.lean",
+    213,
+    "/-- This is an analogue of `Dense.continuous_sup` for functions taking values in a conditionally"
+   ],
+   [
+    "Mathlib/Topology/Order/IsLUB.lean",
+    226,
+    "/-- This is an analogue of `Dense.continuous_inf` for functions taking values in a conditionally"
+   ],
+   [
+    "Mathlib/Topology/Order/IsLUB.lean",
+    238,
+    "/-- A closed interval in a conditionally complete linear order is compact."
+   ],
+   [
+    "Mathlib/Topology/Order/IsNormal.lean",
+    29,
+    "WellFoundedLT.toOrderBot WellFoundedLT.conditionallyCompleteLinearOrderBot in"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    496,
+    "/-- An antitone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    546,
+    "/-- A continuous antitone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    557,
+    "/-- An antitone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    566,
+    "/-- A continuous antitone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    576,
+    "/-- A monotone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    585,
+    "/-- A continuous monotone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    596,
+    "/-- A monotone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/LiminfLimsup.lean",
+    605,
+    "/-- A continuous monotone function between (conditionally) complete linear ordered spaces sends a"
+   ],
+   [
+    "Mathlib/Topology/Order/MonotoneConvergence.lean",
+    15,
+    "statement for (conditionally) complete lattices that use `⨆ x, f x` instead of `IsLUB`."
+   ],
+   [
+    "Mathlib/Topology/Order/OrderClosed.lean",
+    404,
+    "-- TODO: we're missing some to_dual tags for conditionally complete lattices"
+   ]
+  ]
+ },
+ "bounded partial sums of a character": {
+  "regex": "(?-i:(?:DirichletCharacter|MulChar)\\.\\w*(?:sum_range|sum_Icc|partial|norm_sum|sum_le|bounded)\\w*)",
+  "files": 0,
+  "lines": 0,
+  "hits": []
+ },
+ "Dirichlet test for series": {
+  "regex": "(?-i:cauchySeq_series_mul_of_tendsto_zero_of_bounded|Monotone\\.cauchySeq_series_mul|Antitone\\.cauchySeq_series_mul)",
+  "files": 1,
+  "lines": 5,
+  "hits": [
+   [
+    "Mathlib/Analysis/SpecificLimits/Normed.lean",
+    722,
+    "theorem Monotone.cauchySeq_series_mul_of_tendsto_zero_of_bounded (hfa : Monotone f)"
+   ],
+   [
+    "Mathlib/Analysis/SpecificLimits/Normed.lean",
+    741,
+    "theorem Antitone.cauchySeq_series_mul_of_tendsto_zero_of_bounded (hfa : Antitone f)"
+   ],
+   [
+    "Mathlib/Analysis/SpecificLimits/Normed.lean",
+    748,
+    "convert! (hfa'.cauchySeq_series_mul_of_tendsto_zero_of_bounded hf0' hzb).neg"
+   ],
+   [
+    "Mathlib/Analysis/SpecificLimits/Normed.lean",
+    760,
+    "exact hfa.cauchySeq_series_mul_of_tendsto_zero_of_bounded hf0 norm_sum_neg_one_pow_le"
+   ],
+   [
+    "Mathlib/Analysis/SpecificLimits/Normed.lean",
+    773,
+    "exact hfa.cauchySeq_series_mul_of_tendsto_zero_of_bounded hf0 norm_sum_neg_one_pow_le"
+   ]
+  ]
+ },
+ "growth of LFunction in vertical strips": {
+  "regex": "(?-i:LFunction\\w*(?:isBigO|IsBigO|bound|Bound|growth))",
+  "files": 1,
+  "lines": 6,
+  "hits": [
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    316,
+    "lemma LFunctionTrivChar_isBigO_near_one_horizontal :"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    334,
+    "lemma LFunction_isBigO_horizontal {y : ℝ} (hy : y ≠ 0 ∨ χ ≠ 1) :"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    342,
+    "private lemma LFunction_isBigO_horizontal_of_eq_zero {y : ℝ} (hy : y ≠ 0 ∨ χ ≠ 1)"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    373,
+    "have H := (LFunctionTrivChar_isBigO_near_one_horizontal (N := N)).pow 3 |>.mul <|"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    374,
+    "(χ.LFunction_isBigO_horizontal_of_eq_zero hz₁ Hz).pow 4 |>.mul <|"
+   ],
+   [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    375,
+    "LFunction_isBigO_horizontal _ hz₂"
+   ]
+  ]
+ }
+}

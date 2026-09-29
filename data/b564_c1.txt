@@ -1,0 +1,59 @@
+b564 -- READING (6): PART (c1) -- THE FRONTIER`S SECOND MODULE: ZetaBounds`s χ-ANALOGUES, IN ITS ORDER
+
+### the branch grh-weil-b564 at 6ec71b3, cut from v0.7 = 1e4a007 ; the file SIDEExplicitFormula/Chi/ZetaBounds.lean (sha256 at the tip 7e65d6b38a72ee65)
+
+### THE ELABORATION ATTEMPTS (`lake env lean --stdin` against the scratchpad oleans; the index line, then the errors):
+    c_1 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 e2de04cbb541a32ff4eed3fe1a6e1e3a11e0b6d9df68f17aa2bcb4bfd1684eab exit 0 elapsed 27 s errors 0 at 2026-09-29T22:17:46Z
+    c_2 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 d9c116b7778f109bf5956cec4bb648da072371dc612a4f78c839ead43823e274 exit 1 elapsed 27 s errors 1 at 2026-09-29T22:21:58Z
+        | <stdin>:123:58: error(lean.unknownIdentifier): Unknown constant `Nat.Icc_succ_left`
+    c_3 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 78ec59fd825aaca3fd00fb22f028c38b70ba107cda822d8b9f7a5deb679ddb72 exit 1 elapsed 26 s errors 1 at 2026-09-29T22:22:44Z
+        | <stdin>:123:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    c_4 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 b0644e2e7f60ca8d6f204ccb52d8d60f4641de5330c7661a4ef16295235b7810 exit 0 elapsed 25 s errors 0 at 2026-09-29T22:23:21Z
+### the part closed at attempt 4 of four
+
+### THE DECLARATIONS (11), AS THE TIP STATES THEM (first lines), AND LEAN`S PRINT OF EACH:
+      43 | theorem analyticAt_LFunction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) : AnalyticAt ℂ (LFunction χ) s  ['propext', 'Classical.choice', 'Quot.sound']
+      47 | theorem differentiableAt_deriv_LFunction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :                   ['propext', 'Classical.choice', 'Quot.sound']
+      52 | theorem LFunction_bddAbove_near_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                                ['propext', 'Classical.choice', 'Quot.sound']
+      59 | theorem continuousAt_neg_logDeriv_LFunction_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+      65 | theorem LFunction_logDeriv_bddAbove_near_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                       ['propext', 'Classical.choice', 'Quot.sound']
+      80 | theorem LFunction_logDeriv_isBigO_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                              ['propext', 'Classical.choice', 'Quot.sound']
+      85 | def charPartialSum (χ : DirichletCharacter ℂ N) (x : ℝ) : ℂ := ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ (n : ZMod N)         ['propext', 'Classical.choice', 'Quot.sound']
+      88 | theorem sum_range_block_char_eq_zero {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (k : ℕ) :                       ['propext', 'Classical.choice', 'Quot.sound']
+     107 | theorem norm_sum_range_char_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (m : ℕ) :                             ['propext', 'Classical.choice', 'Quot.sound']
+     124 | theorem norm_charPartialSum_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (x : ℝ) :                             ['propext', 'Classical.choice', 'Quot.sound']
+     142 | def LFunction0 (χ : DirichletCharacter ℂ N) (M : ℕ) (s : ℂ) : ℂ :=                                             ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 11 OF 11 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### THE ζ-ORIGINAL`S ζ-NAMING DECLARATIONS IN ORDER AND THEIR χ-ANALOGUES HERE:
+    analyticAt_riemannZeta (:184)             -> analyticAt_LFunction
+    differentiableAt_deriv_riemannZeta (:189) -> differentiableAt_deriv_LFunction
+    riemannZetaResidue (:193)                 -> LFunction_bddAbove_near_one (no pole for χ ≠ 1)
+    riemannZetaLogDerivResidue (:504)         -> LFunction_logDeriv_bddAbove_near_one (with continuousAt_neg_logDeriv_LFunction_one)
+    riemannZetaLogDerivResidueBigO (:542)     -> LFunction_logDeriv_isBigO_one
+    riemannZeta0 (:548)                       -> LFunction0 (with charPartialSum), the Abel-summation form
+    riemannZeta0_apply (:557)                 -> definitional (LFunction0 is written in the applied form)
+    HasDerivAtZeta0 (:1095)                   -> ### HELD, NOT ATTEMPTED: the four attempts were spent; its first
+                                                 consumed fact, the bound on the partial sums of χ, compiled here
+                                                 (norm_charPartialSum_le, via sum_range_block_char_eq_zero and
+                                                 norm_sum_range_char_le)
+    Zeta0EqZeta (:1178) and all after it      -> not attempted
+
+### THE HELD POINT AND WHAT IT NEEDS: s -> LFunction0 χ M s differentiable on 0 < re s (the derivative under the
+### integral over (M, oo), the analogue of ZetaBounds`s own hasDerivAt_Zeta0Integral for the kernel S_χ), then its
+### agreement with LFunction χ there (identity theorem from agreement on re s > 1). The rev`s search (relay
+### data/b564_held_search.txt):
+    LFunction on the strip by its series         files   4 lines   14
+    L-series as the summatory integral           files   1 lines   10
+    convergence off absolute convergence         files  81 lines  250
+    bounded partial sums of a character          files   0 lines    0
+    Dirichlet test for series                    files   1 lines    5
+    growth of LFunction in vertical strips       files   1 lines    6
+### read: LFunction_eq_LSeries holds for 1 < re s only (DirichletContinuation.lean :75); LSeries_eq_mul_integral
+### (SumCoeff.lean :137) needs LSeriesSummable, which fails for χ on re s <= 1; no bound on the partial sums of a
+### character by name (so it was proved here); the Dirichlet test holds in general form (SpecificLimits/Normed.lean
+### :722); LFunction`s big-O lemmas are horizontal at re s = 1 (Nonvanishing.lean :316, :334); the `conditionally`
+### hits are order theory, read by file. ### THE READING: the rev holds no representation of LFunction χ on
+### 0 < re s by its partial sums; the analytic tools the analogue would use it holds in general form. The module is
+### HELD at the analogue of HasDerivAtZeta0 by its four attempts, the fact it would establish being the one the rev
+### lacks. ### ITS KIND: THE GROWTH SIDE -- not archimedean and not the Euler side`s logarithmic-derivative expansion.

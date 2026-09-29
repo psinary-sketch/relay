@@ -1,0 +1,105 @@
+b564 -- COMPONENT 4: THE IMPORT DAG OF ZETA23 AND THE ζ-SPECIFIC FRONTIER, UNDER (R174)(5)
+
+### READ TWICE: the b562 bank`s import column (relay data/b562_zeta23_modules.txt) and the `import Zeta23.*` lines of the
+### files at v0.7 = 1e4a007. Modules: bank 57, files 57. ### EDGES DISAGREEING: NONE
+
+    module                                                         class       depth its Zeta23 imports (from the file)
+    Zeta23.Defs                                                    GENERIC     0     (none)
+    Zeta23.FromPNTPlus.Auxiliary                                   GENERIC     0     (none)
+    Zeta23.FromPNTPlus.EulerMaclaurin                              GENERIC     0     (none)
+    Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic GENERIC     0     (none)
+    Zeta23.FromPNTPlus.Rectangle                                   GENERIC     0     (none)
+    Zeta23.FromPNTPlus.Sobolev                                     GENERIC     0     (none)
+    Zeta23.FromPNTPlus.Tactic.AdditiveCombination                  GENERIC     0     (none)
+    Zeta23.LinAlg.PosIndex                                         GENERIC     0     (none)
+    Zeta23.Prelude.InstancePriorities                              GENERIC     0     (none)
+    Zeta23.Tail.Basic                                              GENERIC     0     (none)
+    Zeta23.Defs.Counting                                           GENERIC     1     Zeta23.Defs
+    Zeta23.ExplicitFormula                                         GENERIC     1     Zeta23.Defs
+    Zeta23.FromPNTPlus.Fourier                                     GENERIC     1     Zeta23.FromPNTPlus.Sobolev
+    Zeta23.FromPNTPlus.ResidueCalcOnRectangles                     GENERIC     1     Zeta23.FromPNTPlus.Rectangle, Zeta23.FromPNTPlus.Tactic.AdditiveCombination
+    Zeta23.FromPNTPlus.StrongPNTPrefix                             GENERIC     1     Zeta23.Prelude.InstancePriorities
+    Zeta23.GammaFacts                                              GENERIC     1     Zeta23.Defs
+    Zeta23.Hypotheses                                              GENERIC     1     Zeta23.Defs
+    Zeta23.LinAlg.HermitianPosPart                                 GENERIC     1     Zeta23.LinAlg.PosIndex
+    Zeta23.LinAlg.VonNeumann                                       GENERIC     1     Zeta23.LinAlg.PosIndex
+    Zeta23.Poisson.PaperFT                                         GENERIC     1     Zeta23.Defs
+    Zeta23.Tail.Count                                              GENERIC     1     Zeta23.Tail.Basic
+    Zeta23.Tail.Grid                                               GENERIC     1     Zeta23.Tail.Basic
+    Zeta23.Analytic.RectangleLogDeriv                              GENERIC     2     Zeta23.FromPNTPlus.ResidueCalcOnRectangles
+    Zeta23.ExplicitFormula.Bridge                                  GENERIC     2     Zeta23.ExplicitFormula, Zeta23.Hypotheses, Zeta23.Poisson.PaperFT
+    Zeta23.FromPNTPlus.ZetaBounds                                  ζ-SPECIFIC  2     Zeta23.FromPNTPlus.Auxiliary, Zeta23.FromPNTPlus.Fourier, Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic, Zeta23.FromPNTPlus.ResidueCalcOnRectangles, Zeta23.FromPNTPlus.EulerMaclaurin
+    Zeta23.GammaFacts.Series                                       GENERIC     2     Zeta23.GammaFacts
+    Zeta23.LinAlg.RankTrace                                        GENERIC     2     Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.VonNeumann, Zeta23.LinAlg.HermitianPosPart
+    Zeta23.LinAlg.Sylvester                                        GENERIC     2     Zeta23.LinAlg.HermitianPosPart
+    Zeta23.RvM.Halving                                             GENERIC     2     Zeta23.Defs.Counting
+    Zeta23.Statement                                               ζ-SPECIFIC  2     Zeta23.Hypotheses, Zeta23.Defs.Counting
+    Zeta23.Analytic.Stirling                                       GENERIC     3     Zeta23.GammaFacts.Series
+    Zeta23.LinAlg.Inertia                                          GENERIC     3     Zeta23.LinAlg.Sylvester
+    Zeta23.LinAlg.Weyl                                             GENERIC     3     Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.Sylvester
+    Zeta23.RvM.ZetaGrowth                                          ζ-SPECIFIC  3     Zeta23.FromPNTPlus.ZetaBounds
+    Zeta23.Statement.Seam                                          ζ-SPECIFIC  3     Zeta23.Statement
+    Zeta23.Tail.RankOne                                            GENERIC     3     Zeta23.LinAlg.Sylvester
+    Zeta23.WeilEF.GammaRBracket                                    GENERIC     3     Zeta23.GammaFacts.Series
+    Zeta23.WeilEF.XiLogDeriv                                       ζ-SPECIFIC  3     Zeta23.Statement
+    Zeta23.ZetaReflect                                             ζ-SPECIFIC  3     Zeta23.Statement
+    Zeta23.GammaFacts.Mu                                           GENERIC     4     Zeta23.Analytic.Stirling
+    Zeta23.LinAlg                                                  GENERIC     4     Zeta23.LinAlg.HermitianPosPart, Zeta23.LinAlg.Inertia, Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.RankTrace, Zeta23.LinAlg.Sylvester, Zeta23.LinAlg.VonNeumann, Zeta23.LinAlg.Weyl
+    Zeta23.Statement.SeamClosed                                    ζ-SPECIFIC  4     Zeta23.Statement.Seam, Zeta23.ZetaReflect
+    Zeta23.WeilEF.Landau                                           ζ-SPECIFIC  4     Zeta23.RvM.ZetaGrowth, Zeta23.FromPNTPlus.StrongPNTPrefix, Zeta23.Statement
+    Zeta23.Assembly.Inputs                                         GENERIC     5     Zeta23.LinAlg, Zeta23.Defs
+    Zeta23.GammaFacts.StirlingVert                                 GENERIC     5     Zeta23.GammaFacts.Mu
+    Zeta23.RvM.CountByIntegral                                     ζ-SPECIFIC  5     Zeta23.Analytic.RectangleLogDeriv, Zeta23.Statement.SeamClosed
+    Zeta23.RvM.LocalCount                                          ζ-SPECIFIC  5     Zeta23.Prelude.InstancePriorities, Zeta23.Statement.SeamClosed, Zeta23.Defs.Counting, Zeta23.FromPNTPlus.StrongPNTPrefix, Zeta23.RvM.ZetaGrowth, Zeta23.RvM.Halving
+    Zeta23.Tail                                                    GENERIC     6     Zeta23.Defs, Zeta23.Assembly.Inputs, Zeta23.Tail.Basic, Zeta23.Tail.Grid, Zeta23.Tail.Count, Zeta23.Tail.RankOne
+    Zeta23.WeilEF.VerticalLine                                     ζ-SPECIFIC  6     Zeta23.WeilEF.XiLogDeriv, Zeta23.GammaFacts.StirlingVert, Zeta23.ExplicitFormula, Zeta23.ExplicitFormula.Bridge, Zeta23.WeilEF.GammaRBracket, Zeta23.Poisson.PaperFT
+    Zeta23.WeilEF.GoodHeights                                      ζ-SPECIFIC  7     Zeta23.WeilEF.Landau, Zeta23.RvM.LocalCount, Zeta23.Tail
+    Zeta23.WeilEF.ZeroSummability                                  ζ-SPECIFIC  7     Zeta23.Tail, Zeta23.RvM.LocalCount, Zeta23.ExplicitFormula, Zeta23.Poisson.PaperFT
+    Zeta23.WeilEF.Contour                                          ζ-SPECIFIC  8     Zeta23.WeilEF.VerticalLine, Zeta23.WeilEF.GoodHeights, Zeta23.Analytic.RectangleLogDeriv, Zeta23.RvM.CountByIntegral, Zeta23.Statement.SeamClosed
+    Zeta23.WeilEF.FullLine                                         ζ-SPECIFIC  9     Zeta23.WeilEF.Contour
+    Zeta23.WeilEF.ZeroSumLimit                                     ζ-SPECIFIC  9     Zeta23.WeilEF.Contour, Zeta23.WeilEF.ZeroSummability
+    Zeta23.WeilEF.Horizontal                                       ζ-SPECIFIC  10    Zeta23.WeilEF.FullLine
+    Zeta23.WeilEF.FullLineAssembly                                 ζ-SPECIFIC  11    Zeta23.WeilEF.FullLine, Zeta23.WeilEF.Horizontal, Zeta23.WeilEF.ZeroSumLimit
+    Zeta23.WeilEF.Main                                             ζ-SPECIFIC  12    Zeta23.WeilEF.ZeroSummability, Zeta23.WeilEF.FullLineAssembly
+
+### ### **ζ-SPECIFIC 19 ; GENERIC 38 ; FILES 57**
+
+### THE FRONTIER: the ζ-specific modules none of whose Zeta23 imports is ζ-specific.
+  Zeta23.Statement                         depth 2 ; KIND THE CONFIGURATION INSTANCE -- it defines IsNontrivialZero and zeroMult from riemannZeta, the seam structure ZetaSeam and zetaZeros, which builds ZeroConfig from zeta`s zeros
+      imports (Zeta23): Zeta23.Hypotheses, Zeta23.Defs.Counting
+      what it consumes from Mathlib about ζ (identifiers of its comment-stripped code; the Mathlib line where the name is declared):
+        riemannZeta                                  Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121
+  Zeta23.FromPNTPlus.ZetaBounds            depth 2 ; KIND THE GROWTH SIDE -- bounds on zeta and zeta` in vertical strips through the Euler-Maclaurin form riemannZeta0, the lower bounds near re s = 1 and the zero-free region, the log-derivative bounds
+      imports (Zeta23): Zeta23.FromPNTPlus.Auxiliary, Zeta23.FromPNTPlus.Fourier, Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic, Zeta23.FromPNTPlus.ResidueCalcOnRectangles, Zeta23.FromPNTPlus.EulerMaclaurin
+      what it consumes from Mathlib about ζ (identifiers of its comment-stripped code; the Mathlib line where the name is declared):
+        HolomorphicOn_riemannZeta                    declared in this module or not a Mathlib name
+        HolomorphicOn_riemannZeta0                   declared in this module or not a Mathlib name
+        LSeries_one_eq_riemannZeta                   Mathlib/NumberTheory/LSeries/Dirichlet.lean:309
+        LSeries_vonMangoldt_eq_deriv_riemannZeta_div Mathlib/NumberTheory/LSeries/Dirichlet.lean:436
+        analyticAt_riemannZeta                       declared in this module or not a Mathlib name
+        differentiableAt_deriv_riemannZeta           declared in this module or not a Mathlib name
+        differentiableAt_riemannZeta                 Mathlib/NumberTheory/LSeries/RiemannZeta.lean:139
+        dlog_riemannZeta_bdd_on_vertical_lines_generalized declared in this module or not a Mathlib name
+        riemannZeta                                  Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121
+        riemannZeta0                                 declared in this module or not a Mathlib name
+        riemannZeta0_apply                           declared in this module or not a Mathlib name
+        riemannZeta0_zero_aux                        declared in this module or not a Mathlib name
+        riemannZetaLogDerivResidue                   declared in this module or not a Mathlib name
+        riemannZetaLogDerivResidueBigO               declared in this module or not a Mathlib name
+        riemannZetaResidue                           declared in this module or not a Mathlib name
+        riemannZeta_isBigO_near_one_horizontal       declared in this module or not a Mathlib name
+        riemannZeta_ne_zero_of_one_le_re             Mathlib/NumberTheory/LSeries/Nonvanishing.lean:411
+        riemannZeta_ne_zero_of_one_lt_re             Mathlib/NumberTheory/LSeries/Dirichlet.lean:328
+        riemannZeta_residue_one                      Mathlib/NumberTheory/LSeries/RiemannZeta.lean:242
+        zeta_eq_tsum_one_div_nat_cpow                Mathlib/NumberTheory/LSeries/RiemannZeta.lean:207
+        zeta_holc                                    NOT LOCATED by the declaration scan
+        zeta_residue_on_U                            NOT LOCATED by the declaration scan
+
+### IMPORT ORDER (READING (5)): by depth, then the configuration instance first, then by name.
+### pairs of frontier modules with no import path between them: [('Zeta23.FromPNTPlus.ZetaBounds', 'Zeta23.Statement')]
+### of these, at equal depth (a TIE the DAG does not break; broken by the face`s rule): [('Zeta23.FromPNTPlus.ZetaBounds', 'Zeta23.Statement')]
+### the order: Zeta23.Statement -> Zeta23.FromPNTPlus.ZetaBounds
+
+### H16c: the frontier`s count 2 (the ruling`s cap four) ; its earliest member Zeta23.Statement (THE CONFIGURATION INSTANCE) ; archimedean modules at the frontier: NONE
+### ### **H16c : HELD** -- the earliest member is set by the face`s tie rule, printed above
+### (N4) : HELD

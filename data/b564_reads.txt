@@ -1,0 +1,144 @@
+b564 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+### SIDE-explicit-formula v0.7 = 1e4a007 ; main at step zero 1e4a007 ; Mathlib rev 51e6992e
+
+### LiWeil.lean @1e4a007 -- the header`s first line and the imports
+        2 | SIDE-explicit-formula -- SIDEExplicitFormula/LiWeil.lean
+       19 | import SIDEExplicitFormula.Seam
+### LiWeilSym.lean @1e4a007 -- the header`s first line and the imports
+        2 | SIDE-explicit-formula -- SIDEExplicitFormula/LiWeilSym.lean
+       24 | import SIDEExplicitFormula.LiWeilExchange
+### GRHWeil.lean @1e4a007 -- the header`s first line and the imports
+        2 | SIDE-explicit-formula -- SIDEExplicitFormula/GRHWeil.lean
+       28 | import SIDEExplicitFormula.LiWeil
+### GRHWeil.lean:84 @1e4a007 -- isPrimitive_inv
+       84 | theorem isPrimitive_inv {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) : χ⁻¹.IsPrimitive := by
+### GRHWeil.lean:89 @1e4a007 -- gammaFactor_ne_zero_of_re_pos
+       89 | theorem gammaFactor_ne_zero_of_re_pos (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
+### GRHWeil.lean:120 @1e4a007 -- LFunction_zero_re_nonpos
+      120 | theorem LFunction_zero_re_nonpos {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {s : ℂ}
+      121 |     (hs : LFunction χ s = 0) (hre : s.re ≤ 0) : IsTrivialPoint χ s := by
+### GRHWeil.lean:185 @1e4a007 -- LFunction_inv_conj
+      185 | theorem LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+      186 |     LFunction χ⁻¹ (conj s) = conj (LFunction χ s) := by
+### GRHWeil.lean:209 @1e4a007 -- LFunction_zero_iff_conj
+      209 | theorem LFunction_zero_iff_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+      210 |     LFunction χ s = 0 ↔ LFunction χ⁻¹ (conj s) = 0 := by
+### GRHWeil.lean:215 @1e4a007 -- analyticOrderAt_LFunction_inv_conj
+      215 | theorem analyticOrderAt_LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (w : ℂ) :
+      216 |     analyticOrderAt (LFunction χ⁻¹) (conj w) = analyticOrderAt (LFunction χ) w := by
+### Zeta23/Defs.lean:136 @1e4a007 -- ZeroConfig
+      136 | structure ZeroConfig where
+      137 |   /-- the set 𝒵 of distinct zeros -/
+      138 |   carrier : Set ℂ
+      139 |   /-- multiplicity m_ρ (value irrelevant off carrier) -/
+      140 |   mult : ℂ → ℕ
+      141 |   one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+      142 |   strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+      143 |   reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+      144 |   mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+      145 |   /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+      146 |   finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+### Zeta23/Defs.lean:124 @1e4a007 -- reflect
+      124 | def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+### Zeta23/Defs.lean:121 @1e4a007 -- gammaOf
+      121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+### Zeta23/Statement.lean:54 @1e4a007 -- IsNontrivialZero
+       54 | def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+### Zeta23/Statement.lean:59 @1e4a007 -- zeroMult
+       59 | def zeroMult (ρ : ℂ) : ℕ := (analyticOrderAt riemannZeta ρ).toNat
+### Zeta23/Statement.lean:91 @1e4a007 -- ZetaSeam
+       91 | structure ZetaSeam : Prop where
+       92 |   /-- H-fin: at a nontrivial zero the analytic order is finite and ≥ 1. -/
+       93 |   one_le_mult : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ
+       94 |   /-- H-symm (set): ρ ↦ 1 − conj ρ preserves nontrivial zeros. -/
+       95 |   reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ)
+       96 |   /-- H-symm (multiplicity). -/
+       97 |   mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ
+       98 |   /-- local finiteness: finitely many nontrivial zeros with T₁ < γ ≤ T₂. -/
+       99 |   finite_window : ∀ T₁ T₂ : ℝ, ({ρ | IsNontrivialZero ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+### Zeta23/Statement.lean:104 @1e4a007 -- zetaZeros
+      104 | def zetaZeros (hs : ZetaSeam) : ZeroConfig where
+      105 |   carrier := {ρ | IsNontrivialZero ρ}
+      106 |   mult := zeroMult
+      107 |   one_le_mult := hs.one_le_mult
+      108 |   strip := fun _ h => ⟨h.2.1.le, h.2.2.le⟩
+      109 |   reflect_mem := hs.reflect_zero
+      110 |   mult_reflect := hs.mult_reflect
+      111 |   finite_window := hs.finite_window
+### Zeta23/Statement/SeamClosed.lean:38 @1e4a007 -- zetaSeam
+       38 | theorem zetaSeam : ZetaSeam := ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect
+### Zeta23/Statement/SeamClosed.lean:42 @1e4a007 -- zetaZeroConfig
+       42 | def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam
+### Zeta23/ZetaReflect.lean:132 @1e4a007 -- analyticOrderAt_conj_conj
+      132 | theorem analyticOrderAt_conj_conj (f : ℂ → ℂ) (w : ℂ) :
+      133 |     analyticOrderAt (fun z => conj (f (conj z))) (conj w) = analyticOrderAt f w := by
+### Zeta23/ZetaReflect.lean:240 @1e4a007 -- analyticOrderAt_zeta_one_sub
+      240 | theorem analyticOrderAt_zeta_one_sub {w : ℂ} (h0 : 0 < w.re) (h1 : w.re < 1) :
+      241 |     analyticOrderAt riemannZeta (1 - w) = analyticOrderAt riemannZeta w := by
+### Zeta23/ZetaReflect.lean:294 @1e4a007 -- zeta_reflect_zero
+      294 | theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) := by
+### Zeta23/ZetaReflect.lean:330 @1e4a007 -- zeta_mult_reflect
+      330 | theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by
+### Zeta23/WeilEF/Main.lean:286 @1e4a007 -- EF_lit_zetaZeroConfig
+      286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+### relay data/b562_zeta23_modules.txt sha256 3cc59bc498a7a5c399c14b3961080263daadd6c172ea3d4d3311a270eaeeef73 (74 lines)
+### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:61 @ml -- LFunction
+       61 | noncomputable def LFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.LFunction χ s
+### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:98 @ml -- differentiable_LFunction
+       98 | lemma differentiable_LFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) :
+       99 |     Differentiable ℂ (LFunction χ) :=
+### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:207 @ml -- gammaFactor
+      207 | noncomputable def gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ) :=
+      208 |   if χ.Even then Gammaℝ s else Gammaℝ (s + 1)
+### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:250 @ml -- differentiable_completedLFunction
+      250 | lemma differentiable_completedLFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) :
+      251 |     Differentiable ℂ (completedLFunction χ) := by
+### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:259 @ml -- LFunction_eq_completed_div_gammaFactor
+      259 | lemma LFunction_eq_completed_div_gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ)
+      260 |     (h : s ≠ 0 ∨ N ≠ 1) : LFunction χ s = completedLFunction χ s / gammaFactor χ s := by
+### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:272 @ml -- rootNumber
+      272 | noncomputable def rootNumber (χ : DirichletCharacter ℂ N) : ℂ :=
+      273 |   gaussSum χ stdAddChar / I ^ (if χ.Even then 0 else 1) / N ^ (1 / 2 : ℂ)
+### DirichletContinuation.lean:284 -- IsPrimitive.completedLFunction_one_sub
+      284 | theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) :
+      285 |     completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+### Mathlib/NumberTheory/LSeries/Nonvanishing.lean @51e6992e:398 @ml -- LFunction_ne_zero_of_one_le_re
+      398 | theorem LFunction_ne_zero_of_one_le_re ⦃s : ℂ⦄ (hχs : χ ≠ 1 ∨ s ≠ 1) (hs : 1 ≤ s.re) :
+      399 |     LFunction χ s ≠ 0 :=
+
+### FINDINGS.md (b536`s prior-art entry, its form and its search list) :4729-:4750
+     4730 | ## The prior-art search for Weil's criterion in Lean, b536, 2026-09-25 — dated and refutable
+     4732 | *Filed at b536 on the author's ruling `(R146)`(4), before any sentence claims novelty. Sources: relay `data/b536_priorart_grep.txt` (the greps), `data/b536_priorart_readme_main.md` (the README, fetched by the seat).*
+     4734 | **(1) The explicit formula is Zeta23's.** `SIDE-explicit-formula/NOTICE` lines 1-3:
+     4736 | ```
+     4737 | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+     4738 | Copyright 2026 Anthropic, PBC
+     4740 | ```
+     4742 | vendored byte-identical at v1.0 = `3635e748`; its files deriving from PrimeNumberTheoremAnd carry their upstream notices (NOTICE lines 6-10).
+     4744 | **(2) Zeta23 carries no positivity criterion, read from the files.** `grep -i criterion` over `Zeta23/`: **0 files**. `grep -i positiv`: 32 files, 334 lines, every hit the `positivity` tactic, the word "positive", or positive-definiteness of a Hermitian form in `Zeta23/LinAlg/` (Inertia, PosIndex, Sylvester, Weyl) — none a positivity statement about zeros. Zeta23 defines Weil's form `W(f,g)` (`Zet
+     4746 | **(3) The Mathlib checkout** (`.lake/packages/mathlib`, case-insensitive): **"weil" — 14 files**, every hit line an author name (Felix Weilacher), the substring of "Henstock-Kurzweil", or the Mordell-Weil theorem (`Mathlib/GroupTheory/Descent.lean:46-47`); lines outside those three: 0. **"explicit formula" — 22 files**, every one a closed form (derivatives, Catalan numbers, ζ(2k), traces and norms
+     4748 | **(4) Related prior art, found.** github.com/peter941221/Connes-Weil-RH-Proof, its README fetched by the seat: *"The Riemann hypothesis is **not proved** here. The output skeleton still > contains five explicit project axioms, listed in >"*; *"The negative sign is formal. The positive sign is the open C3 theorem."*; its item 2, `exists_healthyDetectorData_of_sourceNontrivialZero_right`, states tha
+     4750 | **The sentence, in its corrected form (the search found related prior art):** The explicit formula is Zeta23's. A public repository, github.com/peter941221/Connes-Weil-RH-Proof (README fetched by b536, 2026-09-25), states in Lean, on its own test class, an off-line-zero detector (`exists_healthyDetectorData_of_sourceNontrivialZero_right`, "The negative sign is formal") inside the same contradictio
+### FINDINGS.md (the field entry`s lineage) :5575-:5575
+     5575 | ## Weil's criterion in the field, September 2026: certified window bounds, claimed proofs on the deposit venue, and the programme's compiled harness beside them
+### FINDINGS.md (the field entry`s lineage) :5601-:5601
+     5601 | ## The field entry's sources, repaired: Zhu's abstract quoted, the Liu record's provenance, the two Zenodo records completed (to FINDINGS.md:5575)
+### FINDINGS.md (the field entry`s lineage) :6064-:6064
+     6064 | *Appended 2026-09-29 by b561 to the field entry (:5575) and its sources block (:5601), under `(R171)`(1) -- THE PROGRAMME’S LI FORM BESIDE THE FIELD:* beside the field’s Weil-criterion records the programme now holds the Li form’s forward half compiled (`rh_imp_li_nonneg`, SIDE-explicit-formula v0.4 = `941503b`, `LiWeil.lean`) and its converse T1-lit, priced (V1)-(V4); the Weil form compiled both 
+### OPEN_TRAILS.md (b562`s trail line) :11577-:11577
+    11577 | **The table:** regenerated at this act, its line for `li_identity_of_exchange` reads **CONFLICT** (INTERFACES / SHELL), not SHELL: row 397 removes row 395’s cell, but b560’s entry at FINDINGS.md:6048 grades the terminal INTERFACES, and the supersession form reaches CORRESPONDENCE rows alone (`supersede`, relay `tools/terminal_table.py`:153). The tool is unedited, and the conflict is left for the a
+### OPEN_TRAILS.md :11523-:11523
+    11523 | *Appended 2026-09-29 by b560, under the author’s ruling `(R170)`(4), to the LI-WEIL-BRIDGE entry (:3548; the truncation route at :11290) -- THE WORK-ORDER’S LINE UPDATED:* of the truncation route T1-T9 (:11294-:11302), at SIDE-explicit-formula v0.4 = `941503b` (`LiWeil.lean`): **T3, T4, T5 COMPILED** (the bump family; `truncMember_classEF`, every member in EF_lit’s class; `truncMember_EF`, EF_lit 
+### OPEN_TRAILS.md :11542-:11542
+    11542 | *Appended 2026-09-29 by b561, under the author’s ruling `(R171)`(4), to the LI-WEIL-BRIDGE work-order (:3548; b560’s line at :11523) -- THE CONSUMER READ:* The residue theorem’s premise `inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam` maps the channel inequality (−λ_A(n) ≤ λ_Z(n) for n ≥ 1) to positivity (0 ≤ λ(n) for n ≥ 1) for sequences the theorem le
+### OPEN_TRAILS.md :11544-:11544
+    11544 | *Appended 2026-09-29 by b561, under the author’s ruling `(R171)`(3), to the LI-WEIL-BRIDGE work-order (:3548; b560’s line at :11523) -- THE WORK-ORDER’S LINE UPDATED:* of the truncation route (:11294-:11302) and b560’s (D1)-(D6), at SIDE-explicit-formula v0.5 = `2df46d7` (`LiWeilExchange.lean`): **T1 / (D1) COMPILED** (`blTransform_holds`); **(D2) COMPILED** (`truncMember_transform_tendsto`, zero 
+### OPEN_TRAILS.md :11565-:11565
+    11565 | *Appended 2026-09-29 by b562, under the author’s ruling `(R172)`(4), to the W-ORD-GRH-WEIL entry (:11373; the critical path’s row :11425) -- ACT ONE’S LINE AND THE LEADING ITEM:* at SIDE-explicit-formula v0.6 = `de1f175` (`GRHWeil.lean`): **the statement layer, the seam and the pairing COMPILED** (19 declarations, the standard three); **the χ-explicit formula NOT BUILT -- the held point**. **THE L
+### OPEN_TRAILS.md :11590-:11590
+    11590 | *Appended 2026-09-29 by b563, under the author’s ruling `(R173)`(4), to the LI-WEIL-BRIDGE work-order (:3548; b562’s (X2) line at :11563) -- (X2) LANDED AT v0.7:* at SIDE-explicit-formula v0.7 = `1e4a007` (`LiWeilSym.lean`): **(D1’)-(D4’) COMPILED, `LiLimitExchangeSym n` DISCHARGED, `li_identity_sym` DERIVES** -- LiCoeff n as the δ → 0⁺ limit of EF_lit’s literature right-hand side at the symmetric
+### CORRESPONDENCE row 397 : | 397 | **li_identity_of_exchange’S GRADE UNDER THE SUPERSESSION RULE** (b562, under (R172)(1)(a)): its premise `LiLimitExchange n` is false as stated for n ≥ 1 on b561’s reading (relay data/b561_decay_read.txt (7)), so the conditional certifies nothing; this row’s grade cell replaces row 395’s for this terminal alone; row 395 stands unedited above. | `SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean` -- `SIDEExplicitFormula.LiWeil.li_identity_of_exchange` (its docstring marked at `61e3551`) | [propext, Classical.choice, Quot.sound] (relay data/b560_e0.txt; unchanged at v0.6, data/b562_do
+### README.md (the ceiling of (R146)(2)) :115-:115
+      115 | *(Reworded under the author's ruling `(R146)`(2), 2026-09-25, b536, beside the `(R145)`(2) sentence above, which stays: the seam compiled.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the deposit's Route 3 clause is RH restated by a compiled ten-line lem
+### REGISTRY.md (the ceiling of (R146)(2)) :950-:950
+      950 | **THE CEILING LINE, `(R146)`(2), filed b536, 2026-09-25 — pinned at `SIDE-explicit-formula` tag `v0.2` = `5c72cad24303f23d92256ebd466d3a3d32424a4b` (the peeled SHA read back from the remote; a tag is not a deposit):** *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the de

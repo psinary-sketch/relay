@@ -1,0 +1,51 @@
+b564 -- READING (3): THE POSITIVE CONTROL -- THE PRIOR-ART AND POWER-SUM REGEXES OVER THE KERNEL`S OWN TREE AT v0.7
+
+### CONTROL: SIDEExplicitFormula/ (the programme`s tree) -- 19 .lean files under D:\SIDE-explicit-formula\SIDEExplicitFormula, case-insensitive
+  query Keiper                             regex Keiper                                                       files    0  lines     0
+  query Bombieri                           regex Bombieri                                                     files    3  lines    12
+      SIDEExplicitFormula/LiWeil.lean:59: /-- The Bombieri-Lagarias term at a point: `1 - (1 - ρ⁻¹) ^ n` (BALANCE_AND_POSITIVITY.md :70, :422). -/
+      SIDEExplicitFormula/LiWeil.lean:246: /-- The coefficient as the sum of the real parts of the Bombieri-Lagarias terms, with multiplicity. -/
+      SIDEExplicitFormula/LiWeil.lean:285: The Bombieri-Lagarias test function in the kernel's variable. `paperFT k z = ∫ k u e^{i z u} du` (Defs.lean:60) and
+      SIDEExplicitFormula/LiWeil.lean:288: which is `1 - (1 - 1/ρ)^n` for `Re ρ > 0` (the Bombieri-Lagarias form). `k_n` is one-sided with a jump at `0`
+      ... 8 more lines, their files: ['SIDEExplicitFormula/LiWeil.lean', 'SIDEExplicitFormula/LiWeilExchange.lean', 'SIDEExplicitFormula/LiWeilSym.lean']
+  query Lagarias                           regex Lagarias                                                     files    3  lines    12
+      SIDEExplicitFormula/LiWeil.lean:59: /-- The Bombieri-Lagarias term at a point: `1 - (1 - ρ⁻¹) ^ n` (BALANCE_AND_POSITIVITY.md :70, :422). -/
+      SIDEExplicitFormula/LiWeil.lean:246: /-- The coefficient as the sum of the real parts of the Bombieri-Lagarias terms, with multiplicity. -/
+      SIDEExplicitFormula/LiWeil.lean:285: The Bombieri-Lagarias test function in the kernel's variable. `paperFT k z = ∫ k u e^{i z u} du` (Defs.lean:60) and
+      SIDEExplicitFormula/LiWeil.lean:288: which is `1 - (1 - 1/ρ)^n` for `Re ρ > 0` (the Bombieri-Lagarias form). `k_n` is one-sided with a jump at `0`
+      ... 8 more lines, their files: ['SIDEExplicitFormula/LiWeil.lean', 'SIDEExplicitFormula/LiWeilExchange.lean', 'SIDEExplicitFormula/LiWeilSym.lean']
+  query liCoeff                            regex liCoeff|li_coeff|LiCoeff                                     files    3  lines    21
+      SIDEExplicitFormula/LiWeil.lean:240: order). Each conjugate pair is counted from both of its members, hence the half; `LiCoeff_eq` gives the unpaired form
+      SIDEExplicitFormula/LiWeil.lean:243: def LiCoeff (n : ℕ) : ℝ :=
+      SIDEExplicitFormula/LiWeil.lean:247: theorem LiCoeff_eq (n : ℕ) :
+      SIDEExplicitFormula/LiWeil.lean:248: LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re := by
+      ... 17 more lines, their files: ['SIDEExplicitFormula/LiWeil.lean', 'SIDEExplicitFormula/LiWeilSym.lean', 'SIDEExplicitFormula/Registers.lean']
+  query Li's criterion                     regex Li['’]s criterion                                            files    1  lines     1
+      SIDEExplicitFormula/Registers.lean:33: /-- Li's criterion, single-channel: `λ_n ≥ 0` for every `n ≥ 1`. -/
+  query Li criterion                       regex \bLi criterion                                               files    0  lines     0
+  query Li coefficient                     regex \bLi coefficient                                             files    3  lines     4
+      SIDEExplicitFormula/LiWeil.lean:17: Nothing here proves RH, h2_sign or any positivity of the Li coefficients without RH.
+      SIDEExplicitFormula/LiWeil.lean:238: /-- **The Li coefficient over the genuine zero configuration:** `λ_n := (1/2) Σ_ρ m_ρ Re (pairTerm n ρ)`, the sum over
+      SIDEExplicitFormula/LiWeilExchange.lean:17: Nothing here proves RH or any positivity of the Li coefficients.
+      SIDEExplicitFormula/LiWeilSym.lean:22: Nothing here proves RH or any positivity of the Li coefficients.
+  query Li (whole word, case-sensitive read by hand) regex (?-i:\bLi\b)                                                 files    4  lines     9
+      SIDEExplicitFormula/LiWeil.lean:17: Nothing here proves RH, h2_sign or any positivity of the Li coefficients without RH.
+      SIDEExplicitFormula/LiWeil.lean:238: /-- **The Li coefficient over the genuine zero configuration:** `λ_n := (1/2) Σ_ρ m_ρ Re (pairTerm n ρ)`, the sum over
+      SIDEExplicitFormula/LiWeil.lean:303: /-- **T1, stated (a `Prop`, not proved here):** the transform of `k_n` at `gammaOf ρ` is the Li term, for `Re ρ > 0`. -/
+      SIDEExplicitFormula/LiWeil.lean:352: zero sum is absolutely convergent (EF_lit); the target is the paired (real-part) Li sum, whose unpaired terms decay only
+      ... 5 more lines, their files: ['SIDEExplicitFormula/LiWeilExchange.lean', 'SIDEExplicitFormula/LiWeilSym.lean', 'SIDEExplicitFormula/Registers.lean']
+  query (1 - 1/ρ)^n : 1 - 1 / ρ            regex 1\s*-\s*1\s*/\s*[ρrs]\b\s*\)\s*\^                            files    1  lines     1
+      SIDEExplicitFormula/LiWeil.lean:288: which is `1 - (1 - 1/ρ)^n` for `Re ρ > 0` (the Bombieri-Lagarias form). `k_n` is one-sided with a jump at `0`
+  query (1 - 1/ρ)^n : 1 - ρ⁻¹              regex 1\s*-\s*[ρrs]\s*⁻¹\s*\)\s*\^                                 files    2  lines    12
+      SIDEExplicitFormula/LiWeil.lean:13: field of the type; then `liTerm n ρ = 1 - (1 - ρ⁻¹) ^ n`, the pair `liTerm n ρ + liTerm n (conj ρ) = 2 Re (liTerm n ρ)`,
+      SIDEExplicitFormula/LiWeil.lean:59: /-- The Bombieri-Lagarias term at a point: `1 - (1 - ρ⁻¹) ^ n` (BALANCE_AND_POSITIVITY.md :70, :422). -/
+      SIDEExplicitFormula/LiWeil.lean:60: def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+      SIDEExplicitFormula/LiWeil.lean:102: have h1 : ‖(1 - ρ⁻¹) ^ n‖ = 1 := by rw [norm_pow, norm_one_sub_inv_of_re_half h, one_pow]
+      ... 8 more lines, their files: ['SIDEExplicitFormula/LiWeil.lean', 'SIDEExplicitFormula/LiWeilExchange.lean']
+  query (1 - 1/ρ)^n : (ρ - 1) / ρ          regex \(\s*[ρrs]\s*-\s*1\s*\)\s*/\s*[ρrs]\b\s*\)\s*\^              files    0  lines     0
+  query WIDENED: (1 - 1/x)^ or (1 - x⁻¹)^, any name regex \(\s*1\s*-\s*(?:1\s*/\s*[^\s()]+|[^\s()]+\s*⁻¹)\s*\)\s*\^    files    3  lines    14
+      SIDEExplicitFormula/LiWeil.lean:13: field of the type; then `liTerm n ρ = 1 - (1 - ρ⁻¹) ^ n`, the pair `liTerm n ρ + liTerm n (conj ρ) = 2 Re (liTerm n ρ)`,
+      SIDEExplicitFormula/LiWeil.lean:59: /-- The Bombieri-Lagarias term at a point: `1 - (1 - ρ⁻¹) ^ n` (BALANCE_AND_POSITIVITY.md :70, :422). -/
+      SIDEExplicitFormula/LiWeil.lean:60: def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+      SIDEExplicitFormula/LiWeil.lean:102: have h1 : ‖(1 - ρ⁻¹) ^ n‖ = 1 := by rw [norm_pow, norm_one_sub_inv_of_re_half h, one_pow]
+      ... 10 more lines, their files: ['SIDEExplicitFormula/LiWeil.lean', 'SIDEExplicitFormula/LiWeilExchange.lean', 'SIDEExplicitFormula/Registers.lean']

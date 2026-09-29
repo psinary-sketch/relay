@@ -1,0 +1,56 @@
+b564 -- READING (6): PART (a) -- THE χ-INSTANCE OF THE ZERO CONFIGURATION
+
+### the branch grh-weil-b564 at 6ec71b3, cut from v0.7 = 1e4a007 ; the file SIDEExplicitFormula/Chi/ZeroConfig.lean (sha256 at the tip e97a6bc7c38df334)
+
+### THE ELABORATION ATTEMPTS (`lake env lean --stdin` against the scratchpad oleans; the index line, then the errors):
+    a_1 file SIDEExplicitFormula/Chi/ZeroConfig.lean sha256 e97a6bc7c38df33453b386b1ef11fa1052acd4459001939d81eb2ed895456f9f exit 0 elapsed 23 s errors 0 at 2026-09-29T22:04:07Z
+### the part closed at attempt 1 of four
+
+### THE DECLARATIONS (20), AS THE TIP STATES THEM (first lines), AND LEAN`S PRINT OF EACH:
+      48 | def IsNontrivialZeroChi (χ : DirichletCharacter ℂ N) (ρ : ℂ) : Prop :=                                         ['propext', 'Classical.choice', 'Quot.sound']
+      52 | def zeroMultChi (χ : DirichletCharacter ℂ N) (ρ : ℂ) : ℕ := (analyticOrderAt (LFunction χ) ρ).toNat            ['propext', 'Classical.choice', 'Quot.sound']
+      57 | theorem LFunction_analyticOnNhd {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                                    ['propext', 'Classical.choice', 'Quot.sound']
+      62 | theorem LFunction_two_ne_zero {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : LFunction χ 2 ≠ 0 :=                 ['propext', 'Classical.choice', 'Quot.sound']
+      66 | theorem analyticOrderAt_LFunction_ne_top {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :                   ['propext', 'Classical.choice', 'Quot.sound']
+      75 | theorem one_le_zeroMultChi {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {ρ : ℂ} (h : IsNontrivialZeroChi χ ρ) :   ['propext', 'Classical.choice', 'Quot.sound']
+      89 | theorem LFunction_zeros_locallyFinite {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (z : ℂ) :                      ['propext', 'Classical.choice', 'Quot.sound']
+     103 | theorem finite_window_chi {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (T₁ T₂ : ℝ) :                              ['propext', 'Classical.choice', 'Quot.sound']
+     120 | theorem gammaFactor_inv_differentiable (ψ : DirichletCharacter ℂ N) :                                          ['propext', 'Classical.choice', 'Quot.sound']
+     132 | theorem analyticOrderAt_LFunction_eq_completed {ψ : DirichletCharacter ℂ N} (hψ : ψ ≠ 1) {w : ℂ} (hw : 0 < w.r ['propext', 'Classical.choice', 'Quot.sound']
+     146 | theorem analyticOrderAt_completed_le_one_sub {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (w ['propext', 'Classical.choice', 'Quot.sound']
+     170 | theorem analyticOrderAt_completed_one_sub {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (w :  ['propext', 'Classical.choice', 'Quot.sound']
+     178 | theorem reflect_eq_conj_one_sub (ρ : ℂ) : Zeta23.reflect ρ = conj (1 - ρ) := by                                ['propext', 'Classical.choice', 'Quot.sound']
+     183 | theorem chi_reflect_zero {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {ρ : ℂ}                ['propext', 'Classical.choice', 'Quot.sound']
+     208 | theorem chi_mult_reflect {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {ρ : ℂ}                ['propext', 'Classical.choice', 'Quot.sound']
+     225 | def chiZeroConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Zeta23.ZeroConfig where     ['propext', 'Classical.choice', 'Quot.sound']
+     234 | theorem chiZeroConfig_carrier (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+     237 | theorem chiZeroConfig_mult (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     243 | theorem chiZeroConfig_conj_mem {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (ρ : ℂ) :        ['propext', 'Classical.choice', 'Quot.sound']
+     251 | theorem chiZeroConfig_mult_conj {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (ρ : ℂ) :       ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 20 OF 20 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### EVERY FACT THE INSTANCE CONSUMES, BY NAME (Mathlib at 51e6992e; the kernel at v0.7):
+    Mathlib  differentiable_LFunction                                   Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:98
+    Mathlib  differentiable_completedLFunction                          Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:250
+    Mathlib  LFunction_eq_completed_div_gammaFactor                     Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:259
+    Mathlib  completedLFunction_one_sub                                 Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:284
+    Mathlib  Even.gammaFactor_def                                       Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:210
+    Mathlib  Odd.gammaFactor_def                                        Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:214
+    Mathlib  LFunction_ne_zero_of_one_le_re                             Mathlib/NumberTheory/LSeries/Nonvanishing.lean:398
+    Mathlib  differentiable_Gammaℝ_inv                                  Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean:89
+    Mathlib  analyticOrderAt_ne_top_of_isPreconnected                   Mathlib/Analysis/Analytic/Order.lean:627
+    Mathlib  analyticOrderAt_mul                                        Mathlib/Analysis/Analytic/Order.lean:497
+    Mathlib  analyticOrderAt_comp_of_deriv_ne_zero                      Mathlib/Analysis/Analytic/Order.lean:561
+    Mathlib  eqOn_zero_or_eventually_ne_zero_of_preconnected            Mathlib/Analysis/Analytic/IsolatedZeros.lean:219
+    Mathlib  _root_.Differentiable.analyticAt                           Mathlib/Analysis/Complex/CauchyIntegral.lean:649
+    Mathlib  DifferentiableAt.const_cpow                                Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean:111
+    kernel   ne_one_of_ne_one                                           SIDEExplicitFormula/GRHWeil.lean:81
+    kernel   isPrimitive_inv                                            SIDEExplicitFormula/GRHWeil.lean:84
+    kernel   gammaFactor_ne_zero_of_re_pos                              SIDEExplicitFormula/GRHWeil.lean:89
+    kernel   LFunction_inv_conj                                         SIDEExplicitFormula/GRHWeil.lean:185
+    kernel   LFunction_zero_iff_conj                                    SIDEExplicitFormula/GRHWeil.lean:209
+    kernel   analyticOrderAt_LFunction_inv_conj                         SIDEExplicitFormula/GRHWeil.lean:215
+### NO ROOT-NUMBER FACT CONSUMED: the one mention of rootNumber is inside the constant c(s) of the functional
+### equation (the order inequality needs c analytic, not nonzero); a second mention: False
+### ### **H16b : HELD** -- the χ-instance compiles from the rev`s LFunction facts at the standard three.
+### (S2) : HELD

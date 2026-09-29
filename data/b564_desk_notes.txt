@@ -1,0 +1,39 @@
+========================================================================================================
+b564 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### (R174)`S FOUR.
+--------------------------------------------------------------------------------------------------------
+  **(H16a)** ### **REFUTED.** -- the consumption build compiles with every generic module imported unedited (data/b564_b.txt, attempt b_2); the scan re-classifies 8 generic modules that carry ζ-specific constants (Zeta23.Defs, Zeta23.ExplicitFormula, Zeta23.ExplicitFormula.Bridge, Zeta23.GammaFacts, Zeta23.GammaFacts.Mu, Zeta23.GammaFacts.StirlingVert, Zeta23.Hypotheses, Zeta23.WeilEF.GammaRBracket): the count corrected to generic 30, ζ-specific 27.
+  **(H16b)** ### **HELD.** -- chiZeroConfig compiles from the rev`s LFunction facts at the standard three (data/b564_a.txt, attempt a_1).
+  **(H16c)** ### **HELD.** -- the frontier has 2 modules, Zeta23.Statement (THE CONFIGURATION INSTANCE), Zeta23.FromPNTPlus.ZetaBounds (THE GROWTH SIDE); the earliest under the face`s order is Zeta23.Statement (a tie at equal depth, broken by the face`s rule); no archimedean module at the frontier (data/b564_dag.txt).
+  **(H16d)** ### **HELD.** -- no Turán-type power-sum inequality by name in Mathlib at 51e6992e (data/b564_converse_price.txt).
+
+### THE NAVIGATOR`S SEVEN.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- CONFLICT 13 -> 12; the terminals whose grade changed: ['SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange CONFLICT -> SHELL'] (data/b564_trailsup_after.txt).
+  **(N2)** ### **REFUTED.** -- none in Mathlib or Zeta23; two public Lean developments formalize the objects: https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean (Li`s criterion, both directions) and https://github.com/DrMurphyIsIn/Arda (the Bombieri–Lagarias explicit formula), read, not built (data/b564_prior_art.txt).
+  **(N3)** ### **HELD.** -- H16d HELD.
+  **(N4)** ### **HELD.** -- H16c HELD.
+  **(N5)** ### **REFUTED.** -- H16b HELD; H16a REFUTED on its constants clause.
+  **(N6)** ### **REFUTED.** -- v0.8 = 6ec71b3 tagged with the χ-instance (its first clause holds); the frontier is held at HasDerivAtZeta0 (ZetaBounds.lean :1095), THE GROWTH SIDE, not archimedean or Euler-side (its second clause fails).
+  **(N7)** ### **HELD.** -- main against v0.7 ['A AxiomCheckChi.lean', 'A SIDEExplicitFormula/Chi/Generic.lean', 'A SIDEExplicitFormula/Chi/ZeroConfig.lean', 'A SIDEExplicitFormula/Chi/ZetaBounds.lean'], a fast-forward True; other kernel mains unchanged; the kept branches at their tips; nothing deposits; nothing at Zenodo.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- li_identity_of_exchange reads one cell after the line, CORRESPONDENCE :470 (row 397); no other grade moved.
+  **(S2)** ### **HELD.** -- no root-number fact consumed (data/b564_a.txt).
+  **(S3)** ### **HELD.** -- H16a refuted on its second clause while the consumption build compiles.
+
+### ### **THE NAVIGATOR`S : HELD 4 ; REFUTED 3 ; NOT SCORABLE 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+### ### **(R174) : H16a REFUTED ; H16b HELD ; H16c HELD ; H16d HELD.**
+
+### b564 -- THIS ACT`S OWN DEFECTS (the desk).
+    (a) step zero: b363_span.py first invoked with `--emit data/b564_span.json` and stdout redirected onto data/b564_span_notes.txt; the tool failed at its own write (path data/data/...), exit 1, and left the redirect file (console output, 3276 bytes). That file was removed by its verified absolute path and the tool re-run as `--emit b564`, exit 0, stdout to /dev/null.
+    (b) Component 1: `b564_record.py supline`'s first run crashed at its own print (a tuple formatted by `%`), after printing the regex and before any append; OPEN_TRAILS was read back unchanged (its last lines printed), the print fixed with str(), and the line appended on the second run at :11607.
+    (c) Component 3: `converse` guarded each OPEN_TRAILS append by its first 70 characters; the work-order line and the pointer share those 70, so after the work-order line landed (:11609) the guard refused the pointer and the run exited before its bank. The guard now keys on 200 characters and records a present line instead of re-appending; the re-run appended the pointer alone.
+    (d) Component 5's scratch-olean build of LiWeil.lean (started 21:41:43Z, `lean -o` under `lake env`) spent about 24 s of CPU in its first 19 minutes, paging. The machine carried seven `grep` processes: one this act's own (the pre-seal `liCriterion` search over D:/, moved to the background and never read), six orphans of earlier sessions (started 2026-09-23 and 2026-09-25, each 740-960 s of CPU). All seven, read-only searches, were stopped at about 22:00Z (the seat had misread the elapsed time as nearly an hour before reading the clock); no file was written by any of them.
+    (e) Two act tools not named on the face were written: tools/b564_generic_gen.py (READING (6)(b)'s generator of Chi/Generic.lean from the Lean scan) and tools/b564_axiomcheck_gen.py (the axiom-check file's generator). Both lie under the write list's stem glob relay/tools/b564_*; the face named seven act tools and the regspec clause capped the named count at seven, so the act ran nine. Neither writes outside relay/data/b564_* and the one new kernel file each generates on the branch.
+    (f) The E0 read's first grading read each premise binder's head token alone, and graded `hT : Zeta23.Tail.T₀ ≤ T` (an inequality, a domain condition) INTERFACES on `Zeta23.Tail.T₀`. The rule now reads each binder's whole type (a top-level relation makes it a domain condition); the re-run moved one theorem, chi_Tail_NII_le, to DERIVES: INTERFACES 41 -> 40. No kernel byte and no print changed.
+    (g) The Lean scan's auxiliary filter missed Lean's generated congruence lemma `Zeta23.Tail.TailHyp.K_congr_simp`, so Chi/Generic.lean instantiates it as chi_Tail_TailHyp_K_congr_simp (it compiles at the standard three, graded INTERFACES on its hygienic TailHyp binder). It is not a consumer declaration of the vendored module; it is left in the generated file as generated, and is named here.
+    (h) THE FACE`S WRITE LIST NAMED ONE KIND BY A PLACEHOLDER. Its (W) row wrote the frontier's files as `SIDE-explicit-formula/SIDEExplicitFormula/Chi/<name>.lean`, and the suite's glob reader (b558's, carried) keeps only backticked tokens of path characters, so it dropped that row and would have read Chi/ZetaBounds.lean as a kind no glob covers. The suite's reader now takes a `<...>` placeholder in a backticked path as `*`, a change to this act's own suite, declared in its docstring; the face is not re-sealed.

@@ -1,0 +1,63 @@
+b564 -- COMPONENT 3: THE CONVERSE RE-PRICED ON THE REFLECTION MAP, UNDER (R174)(4). NOTHING IS ATTEMPTED.
+
+### THE CONVERSE: forall n, 0 <= LiCoeff n -> RiemannHypothesis (LiCoeff at LiWeil.lean :243). Each item with what it
+### rests on, printed from the kernel at v0.7 = 1e4a007 or from Mathlib at 51e6992e, or marked ABSENT.
+
+  (V1) Zeta23/Defs.lean:143 -- reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+  (V1) Zeta23/Defs.lean:144 -- mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+  (V1) Zeta23/ZetaReflect.lean:294 -- theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) := by
+  (V1) Zeta23/ZetaReflect.lean:330 -- theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by
+  (V1) SIDEExplicitFormula/PowerLimit.lean:197 -- theorem reflect_re (ρ : ℂ) : (Zeta23.reflect ρ).re = 1 - ρ.re := by
+  (V2) SIDEExplicitFormula/LiWeil.lean:91 -- theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+  (V3) Zeta23/Defs.lean:146 -- finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+  (V3) SIDEExplicitFormula/PowerWindow.lean:403 -- theorem tieSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+  (V3) SIDEExplicitFormula/PowerWindow.lean:407 -- theorem killSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+
+### (V2) THE ALGEBRA, DERIVED ON THE PAGE (a derivation, not compiled). For rho = beta + i gamma, rho != 0:
+###   |1 - 1/rho|^2 = |rho - 1|^2 / |rho|^2 = ((beta - 1)^2 + gamma^2) / (beta^2 + gamma^2),
+###   |1 - 1/rho|^2 - 1 = (1 - 2 beta) / (beta^2 + gamma^2), positive exactly when beta < 1/2;
+###   reflect rho = 1 - conj rho has real part 1 - beta (reflect_re), so an off-line zero with beta > 1/2 has its
+###   reflection with 1 - beta < 1/2, and the orbit carries a member of modulus exceeding 1.
+### the kernel`s own |1 - 1/rho| lemmas (git grep at v0.7, "norm_one_sub_inv|one_sub_inv", declarations and uses): 2 lines
+      1e4a00792008:SIDEExplicitFormula/LiWeil.lean:91:theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+      1e4a00792008:SIDEExplicitFormula/LiWeil.lean:102:  have h1 : ‖(1 - ρ⁻¹) ^ n‖ = 1 := by rw [norm_pow, norm_one_sub_inv_of_re_half h, one_pow]
+### Mathlib by name ("norm_one_sub_inv|abs_one_sub_inv", git grep -c at HEAD = 51e6992e): 0 files
+### ### (V2) STATUS: the on-line equality COMPILED (LiWeil.lean :91); the strict inequality off the line ABSENT; price one lemma.
+
+### (V3) THE DOMINANT SET, DERIVED ON THE PAGE (a derivation, not compiled). |1 - 1/rho|^2 >= 1 + eta (eta > 0) forces
+###   (1 - 2 beta) >= eta (beta^2 + gamma^2), and 1 - 2 beta <= 1 on the strip, so beta^2 + gamma^2 <= 1/eta: a bounded
+###   region; finite_window gives finitely many zeros with |gamma| <= eta^(-1/2); so above any level exceeding 1 there are
+###   finitely many zeros, the supremum r_max over off-line zeros is attained, and the set where it is attained is finite.
+###   No count bound (N(T+1) - N(T)) is consumed. ### (V3) STATUS: ABSENT as a lemma; its parts compiled (finite_window;
+###   the analogue tieSet_finite for the power-window score); price one lemma.
+
+### (V4) THE POWER-SUM LEMMA. For finitely many complex z_1..z_K of modulus r > 1 with multiplicities m_k >= 1,
+###   Re sum_k m_k z_k^n <= -c r^n for infinitely many n (some c > 0) -- the Bombieri-Lagarias / Turan-type step.
+### THE SEARCH (relay data/b564_powersum_grep.txt, the Mathlib checkout at 51e6992e, case-insensitive):
+    Turán                    files   3 lines  152 : Combinatorics/SimpleGraph/CompleteMultipartite.lean, Combinatorics/SimpleGraph/Extremal/Turan.lean, Combinatorics/SimpleGraph/Extremal/TuranDensity.lean
+    powerSum                 files   2 lines    5 : RingTheory/MvPolynomial/Symmetric/Defs.lean, SetTheory/Cardinal/Defs.lean
+    power sum                files   3 lines   11 : NumberTheory/Bernoulli.lean, RingTheory/MvPolynomial/Symmetric/Defs.lean, RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean
+    sum of powers            files   7 lines   11 : Algebra/DirectSum/Internal.lean, Algebra/Order/Chebyshev.lean, Analysis/Analytic/Inverse.lean, Data/Nat/Factorization/Defs.lean, RingTheory/PowerSeries/Exp.lean, RingTheory/RootsOfUnity/CyclotomicUnits.lean, RingTheory/UniqueFactorizationDomain/Finsupp.lean
+    Dirichlet approximation  files   2 lines   15 : NumberTheory/DiophantineApproximation/Basic.lean, NumberTheory/WellApproximable.lean
+    Kronecker                files  14 lines  381 : Analysis/InnerProductSpace/Orthonormal.lean, Analysis/Matrix/Order.lean, LinearAlgebra/Basis/Basic.lean, LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean, LinearAlgebra/Matrix/HadamardMatrix.lean, LinearAlgebra/Matrix/IsDiag.lean, LinearAlgebra/Matrix/Kronecker.lean, LinearAlgebra/Matrix/NonsingularInverse.lean, LinearAlgebra/Matrix/Vec.lean, LinearAlgebra/TensorProduct/Matrix.lean, LinearAlgebra/UnitaryGroup.lean, NumberTheory/NumberField/InfinitePlace/Embeddings.lean, RingTheory/MatrixAlgebra.lean, Topology/Category/Profinite/Nobeling/Span.lean
+### THE HITS READ BY FILE: Turan -- Turan`s theorem of extremal graph theory and its density (SimpleGraph/Extremal);
+###   powerSum / power sum -- the power-sum symmetric polynomials psum and Newton`s identities, Faulhaber`s power-sum
+###   congruence over ZMod p, and a cardinal-arithmetic identity; sum of powers -- Jensen`s inequality for sums of real
+###   powers (Algebra/Order/Chebyshev), factorization multiplicities, a power-series exp identity, cyclotomic units;
+###   Dirichlet approximation -- Dirichlet`s approximation theorem (Real.exists_int_int_abs_mul_sub_le) and its
+###   normed-group form; Kronecker -- Kronecker products of matrices, the Kronecker delta, and Kronecker`s theorem on
+###   algebraic integers whose conjugates all have modulus 1 (NumberField/InfinitePlace/Embeddings). NONE bounds the real
+###   part of a sum of n-th powers of complex numbers from above or below: none is a Turan-type power-sum inequality.
+### THE MATCHER FIRES: "Turan" found Turan`s graph theorem, so the regex reads the name; the search is BY NAME, as the
+### ruling words H16d, and a power-sum inequality under another name is outside it.
+### ### **H16d : HELD** -- no Turan-type power-sum inequality by name at the rev. ### (N3) : HELD.
+### ### (V4) STATUS: ABSENT; the lemma of substance.
+
+### THE ALTERNATIVE ROUTE, BESIDE THE PRICE (not a fifth item): the public formalization of FINDINGS :6136 (a) proves
+### positivity -> RH by a Pringsheim-type argument on the Taylor coefficients of the log-derivative of xi(1/(1 - z)),
+### with no power-sum lemma; for the kernel it would first need LiCoeff identified with that coefficient (the index
+### shift n -> n + 1 and the partner conj rho against 1 - rho). Not attempted; not imported.
+
+### THE APPENDS: the work-order line and the pointer from the residue chain`s last step (OPEN_TRAILS, below).
+    workorder at OPEN_TRAILS :11609
+    pointer at OPEN_TRAILS :11611

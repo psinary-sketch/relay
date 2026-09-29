@@ -1,0 +1,25 @@
+import SIDEExplicitFormula.Chi.Generic
+import SIDEExplicitFormula.Chi.ZetaBounds
+import Lean
+open Lean Meta Elab Command
+
+-- b564 READING (7): the E0 read's premise scan. For every theorem of the three Chi modules, each explicit binder whose type
+-- is a proposition, printed with its type; the grade is read off these by relay tools/b564_record.py e0.
+run_cmd do
+  let env ← getEnv
+  let mods : Array Name := #[`SIDEExplicitFormula.Chi.ZeroConfig, `SIDEExplicitFormula.Chi.Generic,
+    `SIDEExplicitFormula.Chi.ZetaBounds]
+  for (n, ci) in env.constants.map₁.toList do
+    let some idx := env.getModuleIdxFor? n | continue
+    let m := env.header.moduleNames[idx.toNat]!
+    unless mods.contains m do continue
+    if n.isInternal then continue
+    let .thmInfo _ := ci | continue
+    let out ← liftTermElabM <| forallTelescope ci.type fun xs _ => do
+      let mut acc : Array String := #[]
+      for x in xs do
+        let d ← x.fvarId!.getDecl
+        if d.binderInfo.isExplicit && (← isProp d.type) then
+          acc := acc.push s!"{d.userName} : {← ppExpr d.type}"
+      return acc
+    logInfo m!"B564GRADE {n} nprop={out.size} {out.toList}"

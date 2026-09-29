@@ -1,0 +1,1121 @@
+====================================================================================================================================
+b564 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b564_reads.txt
+  b564 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+  ### SIDE-explicit-formula v0.7 = 1e4a007 ; main at step zero 1e4a007 ; Mathlib rev 51e6992e
+  
+  ### LiWeil.lean @1e4a007 -- the header`s first line and the imports
+          2 | SIDE-explicit-formula -- SIDEExplicitFormula/LiWeil.lean
+         19 | import SIDEExplicitFormula.Seam
+  ### LiWeilSym.lean @1e4a007 -- the header`s first line and the imports
+          2 | SIDE-explicit-formula -- SIDEExplicitFormula/LiWeilSym.lean
+         24 | import SIDEExplicitFormula.LiWeilExchange
+  ### GRHWeil.lean @1e4a007 -- the header`s first line and the imports
+          2 | SIDE-explicit-formula -- SIDEExplicitFormula/GRHWeil.lean
+         28 | import SIDEExplicitFormula.LiWeil
+  ### GRHWeil.lean:84 @1e4a007 -- isPrimitive_inv
+         84 | theorem isPrimitive_inv {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) : χ⁻¹.IsPrimitive := by
+  ### GRHWeil.lean:89 @1e4a007 -- gammaFactor_ne_zero_of_re_pos
+         89 | theorem gammaFactor_ne_zero_of_re_pos (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
+  ### GRHWeil.lean:120 @1e4a007 -- LFunction_zero_re_nonpos
+        120 | theorem LFunction_zero_re_nonpos {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {s : ℂ}
+        121 |     (hs : LFunction χ s = 0) (hre : s.re ≤ 0) : IsTrivialPoint χ s := by
+  ### GRHWeil.lean:185 @1e4a007 -- LFunction_inv_conj
+        185 | theorem LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+        186 |     LFunction χ⁻¹ (conj s) = conj (LFunction χ s) := by
+  ### GRHWeil.lean:209 @1e4a007 -- LFunction_zero_iff_conj
+        209 | theorem LFunction_zero_iff_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+        210 |     LFunction χ s = 0 ↔ LFunction χ⁻¹ (conj s) = 0 := by
+  ### GRHWeil.lean:215 @1e4a007 -- analyticOrderAt_LFunction_inv_conj
+        215 | theorem analyticOrderAt_LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (w : ℂ) :
+        216 |     analyticOrderAt (LFunction χ⁻¹) (conj w) = analyticOrderAt (LFunction χ) w := by
+  ### Zeta23/Defs.lean:136 @1e4a007 -- ZeroConfig
+        136 | structure ZeroConfig where
+        137 |   /-- the set 𝒵 of distinct zeros -/
+        138 |   carrier : Set ℂ
+        139 |   /-- multiplicity m_ρ (value irrelevant off carrier) -/
+        140 |   mult : ℂ → ℕ
+        141 |   one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+        142 |   strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+        143 |   reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+        144 |   mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+        145 |   /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+        146 |   finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+  ### Zeta23/Defs.lean:124 @1e4a007 -- reflect
+        124 | def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+  ### Zeta23/Defs.lean:121 @1e4a007 -- gammaOf
+        121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+  ### Zeta23/Statement.lean:54 @1e4a007 -- IsNontrivialZero
+         54 | def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+  ### Zeta23/Statement.lean:59 @1e4a007 -- zeroMult
+         59 | def zeroMult (ρ : ℂ) : ℕ := (analyticOrderAt riemannZeta ρ).toNat
+  ### Zeta23/Statement.lean:91 @1e4a007 -- ZetaSeam
+         91 | structure ZetaSeam : Prop where
+         92 |   /-- H-fin: at a nontrivial zero the analytic order is finite and ≥ 1. -/
+         93 |   one_le_mult : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ
+         94 |   /-- H-symm (set): ρ ↦ 1 − conj ρ preserves nontrivial zeros. -/
+         95 |   reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ)
+         96 |   /-- H-symm (multiplicity). -/
+         97 |   mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ
+         98 |   /-- local finiteness: finitely many nontrivial zeros with T₁ < γ ≤ T₂. -/
+         99 |   finite_window : ∀ T₁ T₂ : ℝ, ({ρ | IsNontrivialZero ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+  ### Zeta23/Statement.lean:104 @1e4a007 -- zetaZeros
+        104 | def zetaZeros (hs : ZetaSeam) : ZeroConfig where
+        105 |   carrier := {ρ | IsNontrivialZero ρ}
+        106 |   mult := zeroMult
+        107 |   one_le_mult := hs.one_le_mult
+        108 |   strip := fun _ h => ⟨h.2.1.le, h.2.2.le⟩
+        109 |   reflect_mem := hs.reflect_zero
+        110 |   mult_reflect := hs.mult_reflect
+        111 |   finite_window := hs.finite_window
+  ### Zeta23/Statement/SeamClosed.lean:38 @1e4a007 -- zetaSeam
+         38 | theorem zetaSeam : ZetaSeam := ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect
+  ### Zeta23/Statement/SeamClosed.lean:42 @1e4a007 -- zetaZeroConfig
+         42 | def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam
+  ### Zeta23/ZetaReflect.lean:132 @1e4a007 -- analyticOrderAt_conj_conj
+        132 | theorem analyticOrderAt_conj_conj (f : ℂ → ℂ) (w : ℂ) :
+        133 |     analyticOrderAt (fun z => conj (f (conj z))) (conj w) = analyticOrderAt f w := by
+  ### Zeta23/ZetaReflect.lean:240 @1e4a007 -- analyticOrderAt_zeta_one_sub
+        240 | theorem analyticOrderAt_zeta_one_sub {w : ℂ} (h0 : 0 < w.re) (h1 : w.re < 1) :
+        241 |     analyticOrderAt riemannZeta (1 - w) = analyticOrderAt riemannZeta w := by
+  ### Zeta23/ZetaReflect.lean:294 @1e4a007 -- zeta_reflect_zero
+        294 | theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) := by
+  ### Zeta23/ZetaReflect.lean:330 @1e4a007 -- zeta_mult_reflect
+        330 | theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by
+  ### Zeta23/WeilEF/Main.lean:286 @1e4a007 -- EF_lit_zetaZeroConfig
+        286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  ### relay data/b562_zeta23_modules.txt sha256 3cc59bc498a7a5c399c14b3961080263daadd6c172ea3d4d3311a270eaeeef73 (74 lines)
+  ### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:61 @ml -- LFunction
+         61 | noncomputable def LFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.LFunction χ s
+  ### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:98 @ml -- differentiable_LFunction
+         98 | lemma differentiable_LFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) :
+         99 |     Differentiable ℂ (LFunction χ) :=
+  ### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:207 @ml -- gammaFactor
+        207 | noncomputable def gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ) :=
+        208 |   if χ.Even then Gammaℝ s else Gammaℝ (s + 1)
+  ### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:250 @ml -- differentiable_completedLFunction
+        250 | lemma differentiable_completedLFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) :
+        251 |     Differentiable ℂ (completedLFunction χ) := by
+  ### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:259 @ml -- LFunction_eq_completed_div_gammaFactor
+        259 | lemma LFunction_eq_completed_div_gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ)
+        260 |     (h : s ≠ 0 ∨ N ≠ 1) : LFunction χ s = completedLFunction χ s / gammaFactor χ s := by
+  ### Mathlib/NumberTheory/LSeries/DirichletContinuation.lean @51e6992e:272 @ml -- rootNumber
+        272 | noncomputable def rootNumber (χ : DirichletCharacter ℂ N) : ℂ :=
+        273 |   gaussSum χ stdAddChar / I ^ (if χ.Even then 0 else 1) / N ^ (1 / 2 : ℂ)
+  ### DirichletContinuation.lean:284 -- IsPrimitive.completedLFunction_one_sub
+        284 | theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) :
+        285 |     completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+  ### Mathlib/NumberTheory/LSeries/Nonvanishing.lean @51e6992e:398 @ml -- LFunction_ne_zero_of_one_le_re
+        398 | theorem LFunction_ne_zero_of_one_le_re ⦃s : ℂ⦄ (hχs : χ ≠ 1 ∨ s ≠ 1) (hs : 1 ≤ s.re) :
+        399 |     LFunction χ s ≠ 0 :=
+  
+  ### FINDINGS.md (b536`s prior-art entry, its form and its search list) :4729-:4750
+       4730 | ## The prior-art search for Weil's criterion in Lean, b536, 2026-09-25 — dated and refutable
+       4732 | *Filed at b536 on the author's ruling `(R146)`(4), before any sentence claims novelty. Sources: relay `data/b536_priorart_grep.txt` (the greps), `data/b536_priorart_readme_main.md` (the README, fetched by the seat).*
+       4734 | **(1) The explicit formula is Zeta23's.** `SIDE-explicit-formula/NOTICE` lines 1-3:
+       4736 | ```
+       4737 | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+       4738 | Copyright 2026 Anthropic, PBC
+       4740 | ```
+       4742 | vendored byte-identical at v1.0 = `3635e748`; its files deriving from PrimeNumberTheoremAnd carry their upstream notices (NOTICE lines 6-10).
+       4744 | **(2) Zeta23 carries no positivity criterion, read from the files.** `grep -i criterion` over `Zeta23/`: **0 files**. `grep -i positiv`: 32 files, 334 lines, every hit the `positivity` tactic, the word "positive", or positive-definiteness of a Hermitian form in `Zeta23/LinAlg/` (Inertia, PosIndex, Sylvester, Weyl) — none a positivity statement about zeros. Zeta23 defines Weil's form `W(f,g)` (`Zet
+       4746 | **(3) The Mathlib checkout** (`.lake/packages/mathlib`, case-insensitive): **"weil" — 14 files**, every hit line an author name (Felix Weilacher), the substring of "Henstock-Kurzweil", or the Mordell-Weil theorem (`Mathlib/GroupTheory/Descent.lean:46-47`); lines outside those three: 0. **"explicit formula" — 22 files**, every one a closed form (derivatives, Catalan numbers, ζ(2k), traces and norms
+       4748 | **(4) Related prior art, found.** github.com/peter941221/Connes-Weil-RH-Proof, its README fetched by the seat: *"The Riemann hypothesis is **not proved** here. The output skeleton still > contains five explicit project axioms, listed in >"*; *"The negative sign is formal. The positive sign is the open C3 theorem."*; its item 2, `exists_healthyDetectorData_of_sourceNontrivialZero_right`, states tha
+       4750 | **The sentence, in its corrected form (the search found related prior art):** The explicit formula is Zeta23's. A public repository, github.com/peter941221/Connes-Weil-RH-Proof (README fetched by b536, 2026-09-25), states in Lean, on its own test class, an off-line-zero detector (`exists_healthyDetectorData_of_sourceNontrivialZero_right`, "The negative sign is formal") inside the same contradictio
+  ### FINDINGS.md (the field entry`s lineage) :5575-:5575
+       5575 | ## Weil's criterion in the field, September 2026: certified window bounds, claimed proofs on the deposit venue, and the programme's compiled harness beside them
+  ### FINDINGS.md (the field entry`s lineage) :5601-:5601
+       5601 | ## The field entry's sources, repaired: Zhu's abstract quoted, the Liu record's provenance, the two Zenodo records completed (to FINDINGS.md:5575)
+  ### FINDINGS.md (the field entry`s lineage) :6064-:6064
+       6064 | *Appended 2026-09-29 by b561 to the field entry (:5575) and its sources block (:5601), under `(R171)`(1) -- THE PROGRAMME’S LI FORM BESIDE THE FIELD:* beside the field’s Weil-criterion records the programme now holds the Li form’s forward half compiled (`rh_imp_li_nonneg`, SIDE-explicit-formula v0.4 = `941503b`, `LiWeil.lean`) and its converse T1-lit, priced (V1)-(V4); the Weil form compiled both 
+  ### OPEN_TRAILS.md (b562`s trail line) :11577-:11577
+      11577 | **The table:** regenerated at this act, its line for `li_identity_of_exchange` reads **CONFLICT** (INTERFACES / SHELL), not SHELL: row 397 removes row 395’s cell, but b560’s entry at FINDINGS.md:6048 grades the terminal INTERFACES, and the supersession form reaches CORRESPONDENCE rows alone (`supersede`, relay `tools/terminal_table.py`:153). The tool is unedited, and the conflict is left for the a
+  ### OPEN_TRAILS.md :11523-:11523
+      11523 | *Appended 2026-09-29 by b560, under the author’s ruling `(R170)`(4), to the LI-WEIL-BRIDGE entry (:3548; the truncation route at :11290) -- THE WORK-ORDER’S LINE UPDATED:* of the truncation route T1-T9 (:11294-:11302), at SIDE-explicit-formula v0.4 = `941503b` (`LiWeil.lean`): **T3, T4, T5 COMPILED** (the bump family; `truncMember_classEF`, every member in EF_lit’s class; `truncMember_EF`, EF_lit 
+  ### OPEN_TRAILS.md :11542-:11542
+      11542 | *Appended 2026-09-29 by b561, under the author’s ruling `(R171)`(4), to the LI-WEIL-BRIDGE work-order (:3548; b560’s line at :11523) -- THE CONSUMER READ:* The residue theorem’s premise `inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam` maps the channel inequality (−λ_A(n) ≤ λ_Z(n) for n ≥ 1) to positivity (0 ≤ λ(n) for n ≥ 1) for sequences the theorem le
+  ### OPEN_TRAILS.md :11544-:11544
+      11544 | *Appended 2026-09-29 by b561, under the author’s ruling `(R171)`(3), to the LI-WEIL-BRIDGE work-order (:3548; b560’s line at :11523) -- THE WORK-ORDER’S LINE UPDATED:* of the truncation route (:11294-:11302) and b560’s (D1)-(D6), at SIDE-explicit-formula v0.5 = `2df46d7` (`LiWeilExchange.lean`): **T1 / (D1) COMPILED** (`blTransform_holds`); **(D2) COMPILED** (`truncMember_transform_tendsto`, zero 
+  ### OPEN_TRAILS.md :11565-:11565
+      11565 | *Appended 2026-09-29 by b562, under the author’s ruling `(R172)`(4), to the W-ORD-GRH-WEIL entry (:11373; the critical path’s row :11425) -- ACT ONE’S LINE AND THE LEADING ITEM:* at SIDE-explicit-formula v0.6 = `de1f175` (`GRHWeil.lean`): **the statement layer, the seam and the pairing COMPILED** (19 declarations, the standard three); **the χ-explicit formula NOT BUILT -- the held point**. **THE L
+  ### OPEN_TRAILS.md :11590-:11590
+      11590 | *Appended 2026-09-29 by b563, under the author’s ruling `(R173)`(4), to the LI-WEIL-BRIDGE work-order (:3548; b562’s (X2) line at :11563) -- (X2) LANDED AT v0.7:* at SIDE-explicit-formula v0.7 = `1e4a007` (`LiWeilSym.lean`): **(D1’)-(D4’) COMPILED, `LiLimitExchangeSym n` DISCHARGED, `li_identity_sym` DERIVES** -- LiCoeff n as the δ → 0⁺ limit of EF_lit’s literature right-hand side at the symmetric
+  ### CORRESPONDENCE row 397 : | 397 | **li_identity_of_exchange’S GRADE UNDER THE SUPERSESSION RULE** (b562, under (R172)(1)(a)): its premise `LiLimitExchange n` is false as stated for n ≥ 1 on b561’s reading (relay data/b561_decay_read.txt (7)), so the conditional certifies nothing; this row’s grade cell replaces row 395’s for this terminal alone; row 395 stands unedited above. | `SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean` -- `SIDEExplicitFormula.LiWeil.li_identity_of_exchange` (its docstring marked at `61e3551`) | [propext, Classical.choice, Quot.sound] (relay data/b560_e0.txt; unchanged at v0.6, data/b562_do
+  ### README.md (the ceiling of (R146)(2)) :115-:115
+        115 | *(Reworded under the author's ruling `(R146)`(2), 2026-09-25, b536, beside the `(R145)`(2) sentence above, which stays: the seam compiled.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the deposit's Route 3 clause is RH restated by a compiled ten-line lem
+  ### REGISTRY.md (the ceiling of (R146)(2)) :950-:950
+        950 | **THE CEILING LINE, `(R146)`(2), filed b536, 2026-09-25 — pinned at `SIDE-explicit-formula` tag `v0.2` = `5c72cad24303f23d92256ebd466d3a3d32424a4b` (the peeled SHA read back from the remote; a tag is not a deposit):** *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the de
+
+### relay data/b564_trailsup_before.txt
+  b564 -- COMPONENT 1 (before): THE TABLE REGENERATED BEFORE THE TRAIL-LINE SUPERSESSION
+  
+  ### regenerated: exit 0 ; rows 1363 (committed 1363) ; rows gone NONE ; rows added NONE
+  ### the run`s header: ### THE TRAIL-LINE SUPERSESSIONS READ (b554, (R164)(2)(b)) : [(11042, 'register5_output_holds', 'PLACE-papers/OPEN_TRAILS.md')] | ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : [(6048, 'li_identity_of_exchange', 'PLACE-papers/FINDINGS.md', 6116)]
+  ### ### **CONFLICT committed 13 -> regenerated 13**
+  ### CONFLICT committed (13):
+      SIDE-bijection|SIDEBijection.identity_formation_bijection
+      SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+      SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+      SIDE-explicit-formula|farSmall
+      SIDE-explicit-formula|rh_strip_imp_rh
+      SIDE-interfaces|parametric_mechanism_theorem
+      SIDE-kernel|ConservationBridge.riemann_hypothesis
+      SIDE-kernel|Voice7Witness.hadamard_does_not_enforce_online
+      SIDE-kernel|conservation_of_spectra
+      SIDE-kernel|e_difficulty
+      SIDE-kernel|type_I_has_ostrowski
+      SIDE-lv-conservation|ExplicitFormulaDecomp
+      SIDE-lv-conservation|delta_n4_count
+  ### CONFLICT regenerated (13):
+      SIDE-bijection|SIDEBijection.identity_formation_bijection
+      SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+      SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+      SIDE-explicit-formula|farSmall
+      SIDE-explicit-formula|rh_strip_imp_rh
+      SIDE-interfaces|parametric_mechanism_theorem
+      SIDE-kernel|ConservationBridge.riemann_hypothesis
+      SIDE-kernel|Voice7Witness.hadamard_does_not_enforce_online
+      SIDE-kernel|conservation_of_spectra
+      SIDE-kernel|e_difficulty
+      SIDE-kernel|type_I_has_ostrowski
+      SIDE-lv-conservation|ExplicitFormulaDecomp
+      SIDE-lv-conservation|delta_n4_count
+  ### ### **TERMINALS WHOSE GRADE CHANGED : NONE**
+  ### committed -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+  ### regenerated -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+
+### relay data/b564_trailsup_after.txt
+  b564 -- COMPONENT 1 (after): THE TABLE REGENERATED AFTER THE TRAIL-LINE SUPERSESSION
+  
+  ### regenerated: exit 0 ; rows 1363 (committed 1363) ; rows gone NONE ; rows added NONE
+  ### the run`s header: ### THE TRAIL-LINE SUPERSESSIONS READ (b554, (R164)(2)(b)) : [(11042, 'register5_output_holds', 'PLACE-papers/OPEN_TRAILS.md'), (11577, 'li_identity_of_exchange', 'PLACE-papers/OPEN_TRAILS.md')] | ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : [(6048, 'li_identity_of_exchange', 'PLACE-papers/FINDINGS.md', 6116)]
+  ### ### **CONFLICT committed 13 -> regenerated 12**
+  ### CONFLICT committed (13):
+      SIDE-bijection|SIDEBijection.identity_formation_bijection
+      SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+      SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+      SIDE-explicit-formula|farSmall
+      SIDE-explicit-formula|rh_strip_imp_rh
+      SIDE-interfaces|parametric_mechanism_theorem
+      SIDE-kernel|ConservationBridge.riemann_hypothesis
+      SIDE-kernel|Voice7Witness.hadamard_does_not_enforce_online
+      SIDE-kernel|conservation_of_spectra
+      SIDE-kernel|e_difficulty
+      SIDE-kernel|type_I_has_ostrowski
+      SIDE-lv-conservation|ExplicitFormulaDecomp
+      SIDE-lv-conservation|delta_n4_count
+  ### CONFLICT regenerated (12):
+      SIDE-bijection|SIDEBijection.identity_formation_bijection
+      SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+      SIDE-explicit-formula|farSmall
+      SIDE-explicit-formula|rh_strip_imp_rh
+      SIDE-interfaces|parametric_mechanism_theorem
+      SIDE-kernel|ConservationBridge.riemann_hypothesis
+      SIDE-kernel|Voice7Witness.hadamard_does_not_enforce_online
+      SIDE-kernel|conservation_of_spectra
+      SIDE-kernel|e_difficulty
+      SIDE-kernel|type_I_has_ostrowski
+      SIDE-lv-conservation|ExplicitFormulaDecomp
+      SIDE-lv-conservation|delta_n4_count
+  ### ### **TERMINALS WHOSE GRADE CHANGED : ['SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange CONFLICT -> SHELL']**
+  ### committed -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+  ### regenerated -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade SHELL
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+
+### relay data/b564_ceiling.txt
+  b564 -- COMPONENT 1 (i): THE CEILING SENTENCE, APPENDED BESIDE (R146)(2)`S LINE, IN b536`S FORM
+  
+  ### the author`s sentence, read from the banked ferry: the forward half of Li's criterion and the Bombieri–Lagarias limit formula are compiled over Mathlib's zeros; the converse is T1-lit.
+  ### the paragraph: *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sentence: *the forward half of Li's criterion and the Bombieri–Lagarias limit formula are compiled over Mathlib's zeros; the converse is T1-lit.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *Li's criterion compiled* without the half named.
+  
+  ### README.md : {"file": "README.md", "after_line": 115, "before": 15671, "added": 474, "head_kept": true, "tail_kept": true, "new_line": 117}
+      the line now at :117 : *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportabl
+  ### REGISTRY.md : {"file": "REGISTRY.md", "before": 176900, "added": 474, "prefix": true, "after_line": 950, "new_line": 952}
+      the line now at :952 : *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportabl
+
+### relay data/b564_prior_art.txt
+  b564 -- COMPONENT 2: PRIOR ART FOR LI`S CRITERION AND THE BOMBIERI-LAGARIAS FORMULA, UNDER (R174)(3), b536`S FORM
+  
+  ### (i)-(ii) THE CHECKOUTS (relay data/b564_priorart_grep.txt, the hit lines there):
+      mathlib  Keiper                                               files    0 lines     0
+      mathlib  Bombieri                                             files    0 lines     0
+      mathlib  Lagarias                                             files    0 lines     0
+      mathlib  liCoeff                                              files    0 lines     0
+      mathlib  Li's criterion                                       files    0 lines     0
+      mathlib  Li criterion                                         files    0 lines     0
+      mathlib  Li coefficient                                       files    0 lines     0
+      mathlib  Li (whole word, case-sensitive read by hand)         files   19 lines    24
+      mathlib  (1 - 1/ρ)^n : 1 - 1 / ρ                              files    0 lines     0
+      mathlib  (1 - 1/ρ)^n : 1 - ρ⁻¹                                files    0 lines     0
+      mathlib  (1 - 1/ρ)^n : (ρ - 1) / ρ                            files    0 lines     0
+      mathlib  WIDENED: (1 - 1/x)^ or (1 - x⁻¹)^, any name          files    0 lines     0
+      zeta23   Keiper                                               files    0 lines     0
+      zeta23   Bombieri                                             files    0 lines     0
+      zeta23   Lagarias                                             files    0 lines     0
+      zeta23   liCoeff                                              files    0 lines     0
+      zeta23   Li's criterion                                       files    0 lines     0
+      zeta23   Li criterion                                         files    0 lines     0
+      zeta23   Li coefficient                                       files    0 lines     0
+      zeta23   Li (whole word, case-sensitive read by hand)         files    0 lines     0
+      zeta23   (1 - 1/ρ)^n : 1 - 1 / ρ                              files    0 lines     0
+      zeta23   (1 - 1/ρ)^n : 1 - ρ⁻¹                                files    0 lines     0
+      zeta23   (1 - 1/ρ)^n : (ρ - 1) / ρ                            files    0 lines     0
+      zeta23   WIDENED: (1 - 1/x)^ or (1 - x⁻¹)^, any name          files    0 lines     0
+      the Mathlib bare-`Li` hits read by hand: every one an author name or a copyright line (relay data/b564_priorart_grep.txt)
+      ### THE POSITIVE CONTROL (relay data/b564_priorart_control.txt), the same regexes over SIDEExplicitFormula/:
+        query Keiper                             regex Keiper                                                       files    0  lines     0
+        query Bombieri                           regex Bombieri                                                     files    3  lines    12
+        query Lagarias                           regex Lagarias                                                     files    3  lines    12
+        query liCoeff                            regex liCoeff|li_coeff|LiCoeff                                     files    3  lines    21
+        query Li's criterion                     regex Li['’]s criterion                                            files    1  lines     1
+        query Li criterion                       regex \bLi criterion                                               files    0  lines     0
+        query Li coefficient                     regex \bLi coefficient                                             files    3  lines     4
+        query Li (whole word, case-sensitive read by hand) regex (?-i:\bLi\b)                                                 files    4  lines     9
+        query (1 - 1/ρ)^n : 1 - 1 / ρ            regex 1\s*-\s*1\s*/\s*[ρrs]\b\s*\)\s*\^                            files    1  lines     1
+        query (1 - 1/ρ)^n : 1 - ρ⁻¹              regex 1\s*-\s*[ρrs]\s*⁻¹\s*\)\s*\^                                 files    2  lines    12
+        query (1 - 1/ρ)^n : (ρ - 1) / ρ          regex \(\s*[ρrs]\s*-\s*1\s*\)\s*/\s*[ρrs]\b\s*\)\s*\^              files    0  lines     0
+        query WIDENED: (1 - 1/x)^ or (1 - x⁻¹)^, any name regex \(\s*1\s*-\s*(?:1\s*/\s*[^\s()]+|[^\s()]+\s*⁻¹)\s*\)\s*\^    files    3  lines    14
+      ### Keiper, `Li criterion` and the (rho - 1)/rho spelling carry NO positive control in the kernel: their zeros
+      ### are a search that could not have been shown to fire, not an absence.
+  
+  ### (iii) GITHUB BY NAME, through `gh` (authenticated as the corpus`s account): code search and repository search
+      code  "Li's criterion"                           lang lean 2026-09-29T21:47:31Z rc 0 hits   0
+      code  "Li's criterion"                           lang ANY  2026-09-29T21:47:32Z rc 0 hits  20
+      code  "Li criterion"                             lang lean 2026-09-29T21:47:33Z rc 0 hits   0
+      code  "Li criterion"                             lang ANY  2026-09-29T21:47:33Z rc 0 hits   4
+      code  "Keiper"                                   lang lean 2026-09-29T21:47:34Z rc 0 hits   0
+      code  "Keiper"                                   lang ANY  2026-09-29T21:47:36Z rc 0 hits 100
+      code  "Bombieri-Lagarias"                        lang lean 2026-09-29T21:47:36Z rc 0 hits   0
+      code  "Bombieri-Lagarias"                        lang ANY  2026-09-29T21:47:37Z rc 0 hits   1
+      code  "Bombieri Lagarias"                        lang lean 2026-09-29T21:47:37Z rc 0 hits   0
+      code  "Bombieri Lagarias"                        lang ANY  2026-09-29T21:47:38Z rc 0 hits   0
+      code  "liCoeff"                                  lang lean 2026-09-29T21:48:51Z rc 0 hits   0 (refused first at 2026-09-29T21:47:38Z: rate limit; retried)
+      code  "liCoeff"                                  lang ANY  2026-09-29T21:48:52Z rc 0 hits   5 (refused first at 2026-09-29T21:47:39Z: rate limit; retried)
+      code  "li_coeff"                                 lang lean 2026-09-29T21:48:53Z rc 0 hits   0 (refused first at 2026-09-29T21:47:39Z: rate limit; retried)
+      code  "li_coeff"                                 lang ANY  2026-09-29T21:48:53Z rc 0 hits   0 (refused first at 2026-09-29T21:47:39Z: rate limit; retried)
+      code  "Li coefficient"                           lang lean 2026-09-29T21:48:53Z rc 0 hits   0 (refused first at 2026-09-29T21:47:40Z: rate limit; retried)
+      code  "Li coefficient"                           lang ANY  2026-09-29T21:48:54Z rc 0 hits  17 (refused first at 2026-09-29T21:47:40Z: rate limit; retried)
+      code  "Li coefficients"                          lang lean 2026-09-29T21:48:55Z rc 0 hits   0 (refused first at 2026-09-29T21:47:40Z: rate limit; retried)
+      code  "Li coefficients"                          lang ANY  2026-09-29T21:48:55Z rc 0 hits   5 (refused first at 2026-09-29T21:47:41Z: rate limit; retried)
+      code  "keiper_li"                                lang lean 2026-09-29T21:48:56Z rc 0 hits   0 (refused first at 2026-09-29T21:47:41Z: rate limit; retried)
+      code  "keiper_li"                                lang ANY  2026-09-29T21:48:56Z rc 0 hits   3 (refused first at 2026-09-29T21:47:42Z: rate limit; retried)
+      code  "LiCriterion"                              lang lean 2026-09-29T21:50:47Z rc 0 hits   0 (refused first at 2026-09-29T21:48:57Z: rate limit; retried)
+      code  "LiCriterion"                              lang ANY  2026-09-29T21:50:47Z rc 0 hits   2 (refused first at 2026-09-29T21:48:57Z: rate limit; retried)
+      code  "li_criterion"                             lang lean 2026-09-29T21:50:48Z rc 0 hits   0 (refused first at 2026-09-29T21:48:57Z: rate limit; retried)
+      code  "li_criterion"                             lang ANY  2026-09-29T21:50:49Z rc 0 hits  11 (refused first at 2026-09-29T21:48:58Z: rate limit; retried)
+      repos Li's criterion                             lang -    2026-09-29T21:47:44Z rc 0 hits   2
+      repos Li criterion Riemann                       lang -    2026-09-29T21:47:44Z rc 0 hits   0
+      repos Keiper Li                                  lang -    2026-09-29T21:47:45Z rc 0 hits   1
+      repos Bombieri Lagarias                          lang -    2026-09-29T21:47:45Z rc 0 hits   0
+      repos Li coefficients Riemann hypothesis         lang -    2026-09-29T21:47:46Z rc 0 hits   0
+      repos Riemann hypothesis Lean                    lang -    2026-09-29T21:47:47Z rc 0 hits  10
+      repos Riemann hypothesis formalization           lang -    2026-09-29T21:47:47Z rc 0 hits   5
+      repos Li criterion Lean                          lang -    2026-09-29T21:47:48Z rc 0 hits   0
+      repos Li criterion Coq                           lang -    2026-09-29T21:47:49Z rc 0 hits   0
+      repos Li criterion Isabelle                      lang -    2026-09-29T21:47:49Z rc 0 hits   0
+      ### .lean paths among ALL code hits: 0. ### THE CODE-SEARCH ROUTE MISSES A KNOWN POSITIVE: Bulka`s
+      ### comparator/Challenge.lean carries "Li`s criterion" and "Bombieri-Lagarias" in its text, and neither query
+      ### returned it; its zeros for Lean files are not evidence of absence. The repository search found it.
+      the repository hits naming a formalization, by description:
+        [Li's criterion] https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean (Lean, updated 2026-09-05T22:22:07Z) -- Li's criterion for the Riemann Hypothesis, formalized in Lean 4 / Mathlib (Palomar comparator bundle)
+        [Li's criterion] https://github.com/opooladz/psgd_kron_contraction (Python, updated 2025-02-15T02:48:59Z) -- joint learning of Xilin Li's criterion 3 as well as Madeleine Udell's contraction factor on the Lie group
+        [Keiper Li] https://github.com/Wilbertz/Keiper-Li (Mathematica, updated 2025-08-11T11:44:21Z) -- This repository contain code related to my experiments with Keiper-Li coefficients.
+        [Riemann hypothesis Lean] https://github.com/bridgerlogan9/riemann-hypothesis-lean (Lean, updated 2026-04-10T09:33:39Z) -- Formal proof of the Riemann Hypothesis via the Zeta Resonator in Lean 4
+        [Riemann hypothesis Lean] https://github.com/Arimacose/Riemann-Hypothesis-Lean (Lean, updated 2026-08-27T05:46:55Z) -- Lean 4 formalization, research notes, and rigorous numerical certificates for CvS reductions in Riemann-hypothesis resea
+        [Riemann hypothesis Lean] https://github.com/GlitcharchiTect/Riemann-Hypothesis-Lean (Lean, updated 2026-06-02T14:27:58Z) -- main.lean
+        [Riemann hypothesis Lean] https://github.com/artifish26/riemann-hypothesis-lean (Lean, updated 2026-08-25T15:11:03Z) -- 
+        [Riemann hypothesis Lean] https://github.com/riemann-hypothesis-lean/riemann-hypothesis-lean (, updated 2026-03-23T22:42:39Z) -- Exploración de la Hipótesis de Riemann en Lean 4
+        [Riemann hypothesis Lean] https://github.com/GlitcharchiTect/Riemann-Hypothesis-LeaNn (, updated 2026-06-02T14:28:59Z) -- 
+        [Riemann hypothesis Lean] https://github.com/riemann-hypothesis-lean/riemann-hypothesis-lean4 (Lean, updated 2026-03-23T23:03:16Z) -- Exploración de la Hipótesis de Riemann en Lean 4 - Teorema -0+0=1
+        [Riemann hypothesis Lean] https://github.com/maomao8412/riemann-hypothesis-lean4 (, updated 2026-08-16T01:35:37Z) -- Lean4 formal verification of the Riemann Hypothesis and Simple Zeros Conjecture proof
+        [Riemann hypothesis Lean] https://github.com/merchantmoh-debug/Riemann-Hypothesis-Lean-4-Solution (Python, updated 2026-08-22T09:15:27Z) -- In for a penny, in for a pound.
+        [Riemann hypothesis Lean] https://github.com/lihaiquan1981/The-Successful-Mathematical-Derivation-of-the-Riemann-Hypothesis-LEAN (Lean, updated 2026-09-21T15:10:25Z) -- [※Lean formalization passed full verification with third-party independent reproduction: zero sorry, three standard axio
+        [Riemann hypothesis formalization] https://github.com/alejandrozu/RiemannHypothesis-Formalization (Lean, updated 2026-08-12T00:00:51Z) -- Derivative of Tristen Harr’s Lean 4/Mathlib project, extended with a formalized xi–Lagarias equivalence and reusable com
+        [Riemann hypothesis formalization] https://github.com/codegod100/rh (Lean, updated 2026-02-10T23:11:29Z) -- Riemann Hypothesis formalization in Lean4 - proof stub with multiple approaches
+        [Riemann hypothesis formalization] https://github.com/beanapologist/RH (Lean, updated 2026-05-08T15:39:43Z) -- A geometrically grounded reduction of the Riemann Hypothesis formalized in Lean4
+        [Riemann hypothesis formalization] https://github.com/aidilamrym-ops/riemann-hypothesis-formalization (Lean, updated 2026-09-24T15:01:01Z) -- Automated Formal Verification of the Riemann Hypothesis Skeleton via Lean 4 and Z3 SMT Tribunal
+        [Riemann hypothesis formalization] https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean (Lean, updated 2026-09-05T22:22:07Z) -- Li's criterion for the Riemann Hypothesis, formalized in Lean 4 / Mathlib (Palomar comparator bundle)
+  
+  ### (iv) THE WEB SEARCHES (arXiv, the Lean Zulip archive, the open web), each with its query, date and URLs:
+      [2026-09-29] formalization "Li's criterion" Riemann hypothesis Lean OR Coq OR Isabelle OR HOL ; domains ANY ; 9 URLs
+          https://arxiv.org/pdf/2101.05257
+          https://afm.episciences.org/15954/pdf
+          https://www.researchgate.net/publication/344608505_Formalising_Mathematics_-_in_Praxis_A_Mathematician's_First_Experiences_with_IsabelleHOL_and_the_Why_and_How_of_Getting_Started
+          https://github.com/Vilin97/lean-pool/pull/495
+          https://arxiv.org/pdf/2601.07444
+          https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean/issues/1
+          https://arxiv.org/html/2503.00959
+          https://arxiv.org/pdf/1912.03028
+          https://arxiv.org/pdf/1602.03292
+          READ: https://github.com/Vilin97/lean-pool/pull/495 (by gh: MERGED 2026-09-28, created 2026-09-21, 'Import Li's criterion for the Riemann Hypothesis')
+          READ: https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean (by gh: README, comparator/Challenge.lean, formalization.yaml at 35df682f)
+      [2026-09-29] arxiv formalized Li criterion Keiper-Li coefficients proof assistant ; domains ANY ; 10 URLs
+          https://dl.acm.org/doi/10.1145/3637529.3637530
+          https://arxiv.org/pdf/2211.08993
+          https://en.wikipedia.org/wiki/Li%27s_criterion
+          https://arxiv.org/pdf/1907.01903
+          https://arxiv.org/pdf/2204.01036
+          https://arxiv.org/abs/1907.01903
+          https://arxiv.org/pdf/math/0402168
+          https://www.tandfonline.com/doi/abs/10.1080/10652469.2025.2517721
+          https://en.wikipedia.org/wiki/Li's_criterion
+          https://arxiv.org/abs/2211.08993
+          NOTE: no title or snippet names a formalization in a proof assistant
+      [2026-09-29] leanprover zulip "Li's criterion" OR "Li criterion" Riemann ; domains ANY ; 10 URLs
+          https://arxiv.org/pdf/1304.7895
+          https://arxiv.org/pdf/math/0404213
+          https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean/issues/1
+          https://leanprover-community.github.io/archive/stream/116395-maths/topic/thoughts.20on.20elliptic.20curves.html
+          https://en.wikipedia.org/wiki/Li%27s_criterion
+          https://arxiv.org/pdf/1602.03292
+          https://link.springer.com/article/10.1007/s11040-005-7584-9
+          https://github.com/leanprover/lean-eval-submissions/issues/1723
+          https://github.com/leanprover/lean-eval-submissions/issues/1721
+          https://github.com/leanprover/lean-eval-submissions/issues/1724
+          NOTE: the Zulip archive hit is a thread on elliptic curves (its title); the lean-eval-submissions issues name the Lagarias ELEMENTARY criterion (the harmonic-number criterion of Lagarias 2002), not Li's criterion or the Bombieri-Lagarias formula, by their titles
+      [2026-09-29] Bombieri-Lagarias explicit formula Li coefficients formalized Lean Mathlib ; domains ANY ; 10 URLs
+          https://github.com/DrMurphyIsIn/Arda/pull/562
+          https://en.wikipedia.org/wiki/Li%27s_criterion
+          https://www.numdam.org/item/10.5802/aif.2311.pdf
+          https://link.springer.com/article/10.1007/s11253-014-0940-9
+          https://arxiv.org/pdf/math/0406312
+          https://arxiv.org/pdf/1304.7895
+          https://arxiv.org/abs/1304.7895
+          https://arxiv.org/pdf/1506.01755
+          https://arxiv.org/pdf/1505.01544
+          https://link.springer.com/article/10.1007/s10231-020-01062-6
+          READ: https://github.com/DrMurphyIsIn/Arda/pull/562 (by gh: MERGED 2026-09-19; the statement file telperion/missions/rh/lean/Statements/RH_bl_explicit_formula.lean; the node toml; the proof module telperion/examples/rvm_bridge/lean/E6Bridge27.lean at acfb0ee5)
+      [2026-09-29] Li criterion Riemann hypothesis Lean formalization ; domains leanprover-community.github.io, leanprover.zulipchat.com ; 9 URLs
+          https://arxiv.org/pdf/1703.02844
+          https://arxiv.org/pdf/1602.03292
+          https://arxiv.org/pdf/math/0506326
+          https://arxiv.org/pdf/math/0404213
+          https://arxiv.org/pdf/1304.7895
+          https://arxiv.org/pdf/math-ph/0505052
+          https://arxiv.org/pdf/2503.00959
+          https://arxiv.org/pdf/1404.7276
+          https://arxiv.org/pdf/1403.4484
+          NOTE: the domain filter returned no page of either Zulip host; the archive is reached here only as far as the search engine indexes it -- the Zulip search is NOT CONCLUSIVE
+      [2026-09-29] Li's criterion formal verification Lean Mathlib Riemann hypothesis equivalence ; domains arxiv.org ; 10 URLs
+          https://arxiv.org/html/2607.28632
+          https://arxiv.org/pdf/math-ph/0505052
+          https://arxiv.org/abs/math-ph/0505052
+          https://arxiv.org/pdf/1602.03292
+          https://arxiv.org/pdf/2605.26379
+          https://arxiv.org/pdf/0808.0640
+          https://arxiv.org/pdf/2609.22298
+          https://arxiv.org/html/math/0402168v5
+          https://arxiv.org/html/2311.06294v3
+          https://arxiv.org/pdf/2609.04279
+          NOTE: the search tool's summary carried the sentence 'Li's finite-level criteria are equivalences or sufficient conditions, and elementary statements have been formalized in Lean' with no URL attached to it; it is NOT attributed to any listed page and NOT read -- recorded as an unattributed snippet
+  
+  ### THE HITS THAT ARE FORMALIZATIONS, READ FOR THEIR STATEMENTS (the fetched files banked as relay data/b564_fetched_*):
+    (a) https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean @35df682f3b709ffe5fbcfdd452dfa964bd622b87 -- comparator/Challenge.lean (b564_fetched_bulka_Challenge.lean.txt):
+          49 | def riemannXi (s : ℂ) : ℂ :=
+          50 |   (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+          53 | def phi (f : ℂ → ℂ) (z : ℂ) : ℂ := f (1 / (1 - z))
+          56 | def logDeriv (φ : ℂ → ℂ) (z : ℂ) : ℂ := deriv φ z / φ z
+          61 | def taylorCoeff (f : ℂ → ℂ) (n : ℕ) : ℂ :=
+          62 |   (deriv^[n] (logDeriv (phi f))) 0 / n.factorial
+          65 | def NontrivialZero : Type := {ρ : ℂ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}
+          74 | theorem li_criterion :
+          75 |     RiemannHypothesis ↔ (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) := by
+          89 | theorem li_coefficients_eq_zero_sum (n : ℕ) :
+          90 |     Summable (fun ρ : NontrivialZero =>
+          91 |         (analyticOrderNatAt riemannXi ρ.val : ℂ) *
+          92 |           ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+          94 |     taylorCoeff riemannXi n
+          95 |       = (2⁻¹ : ℂ) * ∑' ρ : NontrivialZero,
+          97 |             ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+          98 |               + (1 - (1 - 1 / ρ.val) ^ ((n : ℤ) + 1))) := by
+        formalization.yaml 101 | sorry_count: 0
+        formalization.yaml 103 | axioms: [propext, Classical.choice, Quot.sound]
+        formalization.yaml 107 | sorry_count: 0
+        formalization.yaml 108 | axioms: [propext, Classical.choice, Quot.sound]
+        formalization.yaml 113 | sorry_count: 0
+        formalization.yaml 114 | axioms: [propext, Classical.choice, Quot.sound]
+        formalization.yaml 151 | reviewers: ["Nicholas Bulka"]
+        formalization.yaml 153 | The maintainer directed and reviewed the development as it was produced. No external
+    (b) https://github.com/DrMurphyIsIn/Arda @acfb0ee57108a185c484409cd91ac5621ce2d13e -- the node statement (b564_fetched_arda_RH_bl_explicit_formula.lean.txt) and its proof module
+        telperion/examples/rvm_bridge/lean/E6Bridge27.lean (b564_fetched_arda_E6Bridge27.lean.txt):
+        arda_RH_bl_   34 | theorem bl_explicit_formula (n : ℕ) (hn : 0 < n) :
+        arda_RH_bl_   35 |     Tendsto (BombieriLagarias.liZeroSum n) atTop
+        arda_RH_bl_   36 |       (𝓝 (BombieriLagarias.archSide n + BombieriLagarias.finiteSide n)) := by sorry
+        arda_RH_bl_   37 | 
+        arda_E6Brid   31 | theorem bl_explicit_formula (n : ℕ) (hn : 0 < n) :
+        arda_E6Brid   32 |     Tendsto (BombieriLagarias.liZeroSum n) atTop
+        arda_E6Brid   33 |       (𝓝 (BombieriLagarias.archSide n + BombieriLagarias.finiteSide n)) :=
+        arda_E6Brid   34 |   RvMBridge25.bl_explicit_formula_of_two RvMBridge23.local_count_sum RvMBridge24.stripDerivBound n hn
+  
+  ### THE COMPARISON, ONE PARAGRAPH. Two public Lean 4 / Mathlib developments formalize the objects. (a) Bulka`s li-criterion-rh-equivalence-lean (created 2026-09-05, main 35df682f; imported into Vilin97/lean-pool by PR #495, merged 2026-09-28) states li_criterion : RiemannHypothesis <-> (forall n, 0 <= (taylorCoeff riemannXi n).re), the coefficient being the n-th Taylor coefficient at 0 of the log-derivative of xi(1/(1-z)) (Li`s lambda_{n+1}), BOTH DIRECTIONS, and li_coefficients_eq_zero_sum : that coefficient equals (1/2) times the sum over the strip zeros, with multiplicity analyticOrderNatAt riemannXi, of the symmetric pair (1 - (1 - 1/rho)^{-(n+1)}) + (1 - (1 - 1/rho)^{n+1}), with summability; its README and formalization.yaml report the standard three and no sorry (read, not built here). The kernel`s LiCoeff n is defined directly as (1/2) the tsum over Mathlib`s strip zeros of mult * Re(pairTerm n rho), the pairing with conj rho, multiplicity analyticOrderAt riemannZeta: the same zero-side object up to the index shift and the choice of partner (1 - rho against conj rho), with no Taylor coefficient; the kernel holds the forward half (rh_imp_li_nonneg) and not the converse, which Bulka`s ReverseDirection proves by a Pringsheim-type argument, not a Turan-type power-sum lemma. (b) Arda`s telperion node RH_bl_explicit_formula (PR #562, merged 2026-09-19; the node marked proved 2026-09-21 by E6Bridge27.bl_explicit_formula at main acfb0ee5, by its own record, read, not built here) states Tendsto (liZeroSum n) atTop (nhds (archSide n + finiteSide n)) for n >= 1: the zero side as the limit of symmetric HEIGHT windows, the arithmetic side as the Bombieri-Lagarias residue closed forms (S_inf(n) with gamma, log pi, zeta(j); S_f(n) with the eta_j of -zeta`/zeta at 1). li_identity_sym states LiCoeff n as the delta -> 0+ limit of EF_lit`s literature right-hand side (the prime sum and the Gamma term of Zeta23`s explicit formula) at the symmetric smoothed members of the Bombieri-Lagarias test function: the same identity`s two sides, reached by a different limit (a family of test functions in EF_lit`s class, the zero side absolutely summed, rather than height windows of the unsmoothed kernel) and with the arithmetic side left as EF_lit`s integral and prime series rather than evaluated in closed form. No sentence here claims priority for either side.
+  
+  ### (N2) -- ### **REFUTED**: two formalizations found in public Lean repositories (a) and (b); none in Mathlib at 51e6992e
+  ### or in Zeta23 at v0.7. Neither was built or audited by this act; their claims are their own records`.
+
+### relay data/b564_converse_price.txt
+  b564 -- COMPONENT 3: THE CONVERSE RE-PRICED ON THE REFLECTION MAP, UNDER (R174)(4). NOTHING IS ATTEMPTED.
+  
+  ### THE CONVERSE: forall n, 0 <= LiCoeff n -> RiemannHypothesis (LiCoeff at LiWeil.lean :243). Each item with what it
+  ### rests on, printed from the kernel at v0.7 = 1e4a007 or from Mathlib at 51e6992e, or marked ABSENT.
+  
+    (V1) Zeta23/Defs.lean:143 -- reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+    (V1) Zeta23/Defs.lean:144 -- mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+    (V1) Zeta23/ZetaReflect.lean:294 -- theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) := by
+    (V1) Zeta23/ZetaReflect.lean:330 -- theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by
+    (V1) SIDEExplicitFormula/PowerLimit.lean:197 -- theorem reflect_re (ρ : ℂ) : (Zeta23.reflect ρ).re = 1 - ρ.re := by
+    (V2) SIDEExplicitFormula/LiWeil.lean:91 -- theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+    (V3) Zeta23/Defs.lean:146 -- finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+    (V3) SIDEExplicitFormula/PowerWindow.lean:403 -- theorem tieSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (V3) SIDEExplicitFormula/PowerWindow.lean:407 -- theorem killSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+  
+  ### (V2) THE ALGEBRA, DERIVED ON THE PAGE (a derivation, not compiled). For rho = beta + i gamma, rho != 0:
+  ###   |1 - 1/rho|^2 = |rho - 1|^2 / |rho|^2 = ((beta - 1)^2 + gamma^2) / (beta^2 + gamma^2),
+  ###   |1 - 1/rho|^2 - 1 = (1 - 2 beta) / (beta^2 + gamma^2), positive exactly when beta < 1/2;
+  ###   reflect rho = 1 - conj rho has real part 1 - beta (reflect_re), so an off-line zero with beta > 1/2 has its
+  ###   reflection with 1 - beta < 1/2, and the orbit carries a member of modulus exceeding 1.
+  ### the kernel`s own |1 - 1/rho| lemmas (git grep at v0.7, "norm_one_sub_inv|one_sub_inv", declarations and uses): 2 lines
+        1e4a00792008:SIDEExplicitFormula/LiWeil.lean:91:theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+        1e4a00792008:SIDEExplicitFormula/LiWeil.lean:102:  have h1 : ‖(1 - ρ⁻¹) ^ n‖ = 1 := by rw [norm_pow, norm_one_sub_inv_of_re_half h, one_pow]
+  ### Mathlib by name ("norm_one_sub_inv|abs_one_sub_inv", git grep -c at HEAD = 51e6992e): 0 files
+  ### ### (V2) STATUS: the on-line equality COMPILED (LiWeil.lean :91); the strict inequality off the line ABSENT; price one lemma.
+  
+  ### (V3) THE DOMINANT SET, DERIVED ON THE PAGE (a derivation, not compiled). |1 - 1/rho|^2 >= 1 + eta (eta > 0) forces
+  ###   (1 - 2 beta) >= eta (beta^2 + gamma^2), and 1 - 2 beta <= 1 on the strip, so beta^2 + gamma^2 <= 1/eta: a bounded
+  ###   region; finite_window gives finitely many zeros with |gamma| <= eta^(-1/2); so above any level exceeding 1 there are
+  ###   finitely many zeros, the supremum r_max over off-line zeros is attained, and the set where it is attained is finite.
+  ###   No count bound (N(T+1) - N(T)) is consumed. ### (V3) STATUS: ABSENT as a lemma; its parts compiled (finite_window;
+  ###   the analogue tieSet_finite for the power-window score); price one lemma.
+  
+  ### (V4) THE POWER-SUM LEMMA. For finitely many complex z_1..z_K of modulus r > 1 with multiplicities m_k >= 1,
+  ###   Re sum_k m_k z_k^n <= -c r^n for infinitely many n (some c > 0) -- the Bombieri-Lagarias / Turan-type step.
+  ### THE SEARCH (relay data/b564_powersum_grep.txt, the Mathlib checkout at 51e6992e, case-insensitive):
+      Turán                    files   3 lines  152 : Combinatorics/SimpleGraph/CompleteMultipartite.lean, Combinatorics/SimpleGraph/Extremal/Turan.lean, Combinatorics/SimpleGraph/Extremal/TuranDensity.lean
+      powerSum                 files   2 lines    5 : RingTheory/MvPolynomial/Symmetric/Defs.lean, SetTheory/Cardinal/Defs.lean
+      power sum                files   3 lines   11 : NumberTheory/Bernoulli.lean, RingTheory/MvPolynomial/Symmetric/Defs.lean, RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean
+      sum of powers            files   7 lines   11 : Algebra/DirectSum/Internal.lean, Algebra/Order/Chebyshev.lean, Analysis/Analytic/Inverse.lean, Data/Nat/Factorization/Defs.lean, RingTheory/PowerSeries/Exp.lean, RingTheory/RootsOfUnity/CyclotomicUnits.lean, RingTheory/UniqueFactorizationDomain/Finsupp.lean
+      Dirichlet approximation  files   2 lines   15 : NumberTheory/DiophantineApproximation/Basic.lean, NumberTheory/WellApproximable.lean
+      Kronecker                files  14 lines  381 : Analysis/InnerProductSpace/Orthonormal.lean, Analysis/Matrix/Order.lean, LinearAlgebra/Basis/Basic.lean, LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean, LinearAlgebra/Matrix/HadamardMatrix.lean, LinearAlgebra/Matrix/IsDiag.lean, LinearAlgebra/Matrix/Kronecker.lean, LinearAlgebra/Matrix/NonsingularInverse.lean, LinearAlgebra/Matrix/Vec.lean, LinearAlgebra/TensorProduct/Matrix.lean, LinearAlgebra/UnitaryGroup.lean, NumberTheory/NumberField/InfinitePlace/Embeddings.lean, RingTheory/MatrixAlgebra.lean, Topology/Category/Profinite/Nobeling/Span.lean
+  ### THE HITS READ BY FILE: Turan -- Turan`s theorem of extremal graph theory and its density (SimpleGraph/Extremal);
+  ###   powerSum / power sum -- the power-sum symmetric polynomials psum and Newton`s identities, Faulhaber`s power-sum
+  ###   congruence over ZMod p, and a cardinal-arithmetic identity; sum of powers -- Jensen`s inequality for sums of real
+  ###   powers (Algebra/Order/Chebyshev), factorization multiplicities, a power-series exp identity, cyclotomic units;
+  ###   Dirichlet approximation -- Dirichlet`s approximation theorem (Real.exists_int_int_abs_mul_sub_le) and its
+  ###   normed-group form; Kronecker -- Kronecker products of matrices, the Kronecker delta, and Kronecker`s theorem on
+  ###   algebraic integers whose conjugates all have modulus 1 (NumberField/InfinitePlace/Embeddings). NONE bounds the real
+  ###   part of a sum of n-th powers of complex numbers from above or below: none is a Turan-type power-sum inequality.
+  ### THE MATCHER FIRES: "Turan" found Turan`s graph theorem, so the regex reads the name; the search is BY NAME, as the
+  ### ruling words H16d, and a power-sum inequality under another name is outside it.
+  ### ### **H16d : HELD** -- no Turan-type power-sum inequality by name at the rev. ### (N3) : HELD.
+  ### ### (V4) STATUS: ABSENT; the lemma of substance.
+  
+  ### THE ALTERNATIVE ROUTE, BESIDE THE PRICE (not a fifth item): the public formalization of FINDINGS :6136 (a) proves
+  ### positivity -> RH by a Pringsheim-type argument on the Taylor coefficients of the log-derivative of xi(1/(1 - z)),
+  ### with no power-sum lemma; for the kernel it would first need LiCoeff identified with that coefficient (the index
+  ### shift n -> n + 1 and the partner conj rho against 1 - rho). Not attempted; not imported.
+  
+  ### THE APPENDS: the work-order line and the pointer from the residue chain`s last step (OPEN_TRAILS, below).
+      workorder at OPEN_TRAILS :11609
+      pointer at OPEN_TRAILS :11611
+
+### relay data/b564_dag.txt
+  b564 -- COMPONENT 4: THE IMPORT DAG OF ZETA23 AND THE ζ-SPECIFIC FRONTIER, UNDER (R174)(5)
+  
+  ### READ TWICE: the b562 bank`s import column (relay data/b562_zeta23_modules.txt) and the `import Zeta23.*` lines of the
+  ### files at v0.7 = 1e4a007. Modules: bank 57, files 57. ### EDGES DISAGREEING: NONE
+  
+      module                                                         class       depth its Zeta23 imports (from the file)
+      Zeta23.Defs                                                    GENERIC     0     (none)
+      Zeta23.FromPNTPlus.Auxiliary                                   GENERIC     0     (none)
+      Zeta23.FromPNTPlus.EulerMaclaurin                              GENERIC     0     (none)
+      Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic GENERIC     0     (none)
+      Zeta23.FromPNTPlus.Rectangle                                   GENERIC     0     (none)
+      Zeta23.FromPNTPlus.Sobolev                                     GENERIC     0     (none)
+      Zeta23.FromPNTPlus.Tactic.AdditiveCombination                  GENERIC     0     (none)
+      Zeta23.LinAlg.PosIndex                                         GENERIC     0     (none)
+      Zeta23.Prelude.InstancePriorities                              GENERIC     0     (none)
+      Zeta23.Tail.Basic                                              GENERIC     0     (none)
+      Zeta23.Defs.Counting                                           GENERIC     1     Zeta23.Defs
+      Zeta23.ExplicitFormula                                         GENERIC     1     Zeta23.Defs
+      Zeta23.FromPNTPlus.Fourier                                     GENERIC     1     Zeta23.FromPNTPlus.Sobolev
+      Zeta23.FromPNTPlus.ResidueCalcOnRectangles                     GENERIC     1     Zeta23.FromPNTPlus.Rectangle, Zeta23.FromPNTPlus.Tactic.AdditiveCombination
+      Zeta23.FromPNTPlus.StrongPNTPrefix                             GENERIC     1     Zeta23.Prelude.InstancePriorities
+      Zeta23.GammaFacts                                              GENERIC     1     Zeta23.Defs
+      Zeta23.Hypotheses                                              GENERIC     1     Zeta23.Defs
+      Zeta23.LinAlg.HermitianPosPart                                 GENERIC     1     Zeta23.LinAlg.PosIndex
+      Zeta23.LinAlg.VonNeumann                                       GENERIC     1     Zeta23.LinAlg.PosIndex
+      Zeta23.Poisson.PaperFT                                         GENERIC     1     Zeta23.Defs
+      Zeta23.Tail.Count                                              GENERIC     1     Zeta23.Tail.Basic
+      Zeta23.Tail.Grid                                               GENERIC     1     Zeta23.Tail.Basic
+      Zeta23.Analytic.RectangleLogDeriv                              GENERIC     2     Zeta23.FromPNTPlus.ResidueCalcOnRectangles
+      Zeta23.ExplicitFormula.Bridge                                  GENERIC     2     Zeta23.ExplicitFormula, Zeta23.Hypotheses, Zeta23.Poisson.PaperFT
+      Zeta23.FromPNTPlus.ZetaBounds                                  ζ-SPECIFIC  2     Zeta23.FromPNTPlus.Auxiliary, Zeta23.FromPNTPlus.Fourier, Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic, Zeta23.FromPNTPlus.ResidueCalcOnRectangles, Zeta23.FromPNTPlus.EulerMaclaurin
+      Zeta23.GammaFacts.Series                                       GENERIC     2     Zeta23.GammaFacts
+      Zeta23.LinAlg.RankTrace                                        GENERIC     2     Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.VonNeumann, Zeta23.LinAlg.HermitianPosPart
+      Zeta23.LinAlg.Sylvester                                        GENERIC     2     Zeta23.LinAlg.HermitianPosPart
+      Zeta23.RvM.Halving                                             GENERIC     2     Zeta23.Defs.Counting
+      Zeta23.Statement                                               ζ-SPECIFIC  2     Zeta23.Hypotheses, Zeta23.Defs.Counting
+      Zeta23.Analytic.Stirling                                       GENERIC     3     Zeta23.GammaFacts.Series
+      Zeta23.LinAlg.Inertia                                          GENERIC     3     Zeta23.LinAlg.Sylvester
+      Zeta23.LinAlg.Weyl                                             GENERIC     3     Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.Sylvester
+      Zeta23.RvM.ZetaGrowth                                          ζ-SPECIFIC  3     Zeta23.FromPNTPlus.ZetaBounds
+      Zeta23.Statement.Seam                                          ζ-SPECIFIC  3     Zeta23.Statement
+      Zeta23.Tail.RankOne                                            GENERIC     3     Zeta23.LinAlg.Sylvester
+      Zeta23.WeilEF.GammaRBracket                                    GENERIC     3     Zeta23.GammaFacts.Series
+      Zeta23.WeilEF.XiLogDeriv                                       ζ-SPECIFIC  3     Zeta23.Statement
+      Zeta23.ZetaReflect                                             ζ-SPECIFIC  3     Zeta23.Statement
+      Zeta23.GammaFacts.Mu                                           GENERIC     4     Zeta23.Analytic.Stirling
+      Zeta23.LinAlg                                                  GENERIC     4     Zeta23.LinAlg.HermitianPosPart, Zeta23.LinAlg.Inertia, Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.RankTrace, Zeta23.LinAlg.Sylvester, Zeta23.LinAlg.VonNeumann, Zeta23.LinAlg.Weyl
+      Zeta23.Statement.SeamClosed                                    ζ-SPECIFIC  4     Zeta23.Statement.Seam, Zeta23.ZetaReflect
+      Zeta23.WeilEF.Landau                                           ζ-SPECIFIC  4     Zeta23.RvM.ZetaGrowth, Zeta23.FromPNTPlus.StrongPNTPrefix, Zeta23.Statement
+      Zeta23.Assembly.Inputs                                         GENERIC     5     Zeta23.LinAlg, Zeta23.Defs
+      Zeta23.GammaFacts.StirlingVert                                 GENERIC     5     Zeta23.GammaFacts.Mu
+      Zeta23.RvM.CountByIntegral                                     ζ-SPECIFIC  5     Zeta23.Analytic.RectangleLogDeriv, Zeta23.Statement.SeamClosed
+      Zeta23.RvM.LocalCount                                          ζ-SPECIFIC  5     Zeta23.Prelude.InstancePriorities, Zeta23.Statement.SeamClosed, Zeta23.Defs.Counting, Zeta23.FromPNTPlus.StrongPNTPrefix, Zeta23.RvM.ZetaGrowth, Zeta23.RvM.Halving
+      Zeta23.Tail                                                    GENERIC     6     Zeta23.Defs, Zeta23.Assembly.Inputs, Zeta23.Tail.Basic, Zeta23.Tail.Grid, Zeta23.Tail.Count, Zeta23.Tail.RankOne
+      Zeta23.WeilEF.VerticalLine                                     ζ-SPECIFIC  6     Zeta23.WeilEF.XiLogDeriv, Zeta23.GammaFacts.StirlingVert, Zeta23.ExplicitFormula, Zeta23.ExplicitFormula.Bridge, Zeta23.WeilEF.GammaRBracket, Zeta23.Poisson.PaperFT
+      Zeta23.WeilEF.GoodHeights                                      ζ-SPECIFIC  7     Zeta23.WeilEF.Landau, Zeta23.RvM.LocalCount, Zeta23.Tail
+      Zeta23.WeilEF.ZeroSummability                                  ζ-SPECIFIC  7     Zeta23.Tail, Zeta23.RvM.LocalCount, Zeta23.ExplicitFormula, Zeta23.Poisson.PaperFT
+      Zeta23.WeilEF.Contour                                          ζ-SPECIFIC  8     Zeta23.WeilEF.VerticalLine, Zeta23.WeilEF.GoodHeights, Zeta23.Analytic.RectangleLogDeriv, Zeta23.RvM.CountByIntegral, Zeta23.Statement.SeamClosed
+      Zeta23.WeilEF.FullLine                                         ζ-SPECIFIC  9     Zeta23.WeilEF.Contour
+      Zeta23.WeilEF.ZeroSumLimit                                     ζ-SPECIFIC  9     Zeta23.WeilEF.Contour, Zeta23.WeilEF.ZeroSummability
+      Zeta23.WeilEF.Horizontal                                       ζ-SPECIFIC  10    Zeta23.WeilEF.FullLine
+      Zeta23.WeilEF.FullLineAssembly                                 ζ-SPECIFIC  11    Zeta23.WeilEF.FullLine, Zeta23.WeilEF.Horizontal, Zeta23.WeilEF.ZeroSumLimit
+      Zeta23.WeilEF.Main                                             ζ-SPECIFIC  12    Zeta23.WeilEF.ZeroSummability, Zeta23.WeilEF.FullLineAssembly
+  
+  ### ### **ζ-SPECIFIC 19 ; GENERIC 38 ; FILES 57**
+  
+  ### THE FRONTIER: the ζ-specific modules none of whose Zeta23 imports is ζ-specific.
+    Zeta23.Statement                         depth 2 ; KIND THE CONFIGURATION INSTANCE -- it defines IsNontrivialZero and zeroMult from riemannZeta, the seam structure ZetaSeam and zetaZeros, which builds ZeroConfig from zeta`s zeros
+        imports (Zeta23): Zeta23.Hypotheses, Zeta23.Defs.Counting
+        what it consumes from Mathlib about ζ (identifiers of its comment-stripped code; the Mathlib line where the name is declared):
+          riemannZeta                                  Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121
+    Zeta23.FromPNTPlus.ZetaBounds            depth 2 ; KIND THE GROWTH SIDE -- bounds on zeta and zeta` in vertical strips through the Euler-Maclaurin form riemannZeta0, the lower bounds near re s = 1 and the zero-free region, the log-derivative bounds
+        imports (Zeta23): Zeta23.FromPNTPlus.Auxiliary, Zeta23.FromPNTPlus.Fourier, Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic, Zeta23.FromPNTPlus.ResidueCalcOnRectangles, Zeta23.FromPNTPlus.EulerMaclaurin
+        what it consumes from Mathlib about ζ (identifiers of its comment-stripped code; the Mathlib line where the name is declared):
+          HolomorphicOn_riemannZeta                    declared in this module or not a Mathlib name
+          HolomorphicOn_riemannZeta0                   declared in this module or not a Mathlib name
+          LSeries_one_eq_riemannZeta                   Mathlib/NumberTheory/LSeries/Dirichlet.lean:309
+          LSeries_vonMangoldt_eq_deriv_riemannZeta_div Mathlib/NumberTheory/LSeries/Dirichlet.lean:436
+          analyticAt_riemannZeta                       declared in this module or not a Mathlib name
+          differentiableAt_deriv_riemannZeta           declared in this module or not a Mathlib name
+          differentiableAt_riemannZeta                 Mathlib/NumberTheory/LSeries/RiemannZeta.lean:139
+          dlog_riemannZeta_bdd_on_vertical_lines_generalized declared in this module or not a Mathlib name
+          riemannZeta                                  Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121
+          riemannZeta0                                 declared in this module or not a Mathlib name
+          riemannZeta0_apply                           declared in this module or not a Mathlib name
+          riemannZeta0_zero_aux                        declared in this module or not a Mathlib name
+          riemannZetaLogDerivResidue                   declared in this module or not a Mathlib name
+          riemannZetaLogDerivResidueBigO               declared in this module or not a Mathlib name
+          riemannZetaResidue                           declared in this module or not a Mathlib name
+          riemannZeta_isBigO_near_one_horizontal       declared in this module or not a Mathlib name
+          riemannZeta_ne_zero_of_one_le_re             Mathlib/NumberTheory/LSeries/Nonvanishing.lean:411
+          riemannZeta_ne_zero_of_one_lt_re             Mathlib/NumberTheory/LSeries/Dirichlet.lean:328
+          riemannZeta_residue_one                      Mathlib/NumberTheory/LSeries/RiemannZeta.lean:242
+          zeta_eq_tsum_one_div_nat_cpow                Mathlib/NumberTheory/LSeries/RiemannZeta.lean:207
+          zeta_holc                                    NOT LOCATED by the declaration scan
+          zeta_residue_on_U                            NOT LOCATED by the declaration scan
+  
+  ### IMPORT ORDER (READING (5)): by depth, then the configuration instance first, then by name.
+  ### pairs of frontier modules with no import path between them: [('Zeta23.FromPNTPlus.ZetaBounds', 'Zeta23.Statement')]
+  ### of these, at equal depth (a TIE the DAG does not break; broken by the face`s rule): [('Zeta23.FromPNTPlus.ZetaBounds', 'Zeta23.Statement')]
+  ### the order: Zeta23.Statement -> Zeta23.FromPNTPlus.ZetaBounds
+  
+  ### H16c: the frontier`s count 2 (the ruling`s cap four) ; its earliest member Zeta23.Statement (THE CONFIGURATION INSTANCE) ; archimedean modules at the frontier: NONE
+  ### ### **H16c : HELD** -- the earliest member is set by the face`s tie rule, printed above
+  ### (N4) : HELD
+
+### relay data/b564_a.txt
+  b564 -- READING (6): PART (a) -- THE χ-INSTANCE OF THE ZERO CONFIGURATION
+  
+  ### the branch grh-weil-b564 at 6ec71b3, cut from v0.7 = 1e4a007 ; the file SIDEExplicitFormula/Chi/ZeroConfig.lean (sha256 at the tip e97a6bc7c38df334)
+  
+  ### THE ELABORATION ATTEMPTS (`lake env lean --stdin` against the scratchpad oleans; the index line, then the errors):
+      a_1 file SIDEExplicitFormula/Chi/ZeroConfig.lean sha256 e97a6bc7c38df33453b386b1ef11fa1052acd4459001939d81eb2ed895456f9f exit 0 elapsed 23 s errors 0 at 2026-09-29T22:04:07Z
+  ### the part closed at attempt 1 of four
+  
+  ### THE DECLARATIONS (20), AS THE TIP STATES THEM (first lines), AND LEAN`S PRINT OF EACH:
+        48 | def IsNontrivialZeroChi (χ : DirichletCharacter ℂ N) (ρ : ℂ) : Prop :=                                         ['propext', 'Classical.choice', 'Quot.sound']
+        52 | def zeroMultChi (χ : DirichletCharacter ℂ N) (ρ : ℂ) : ℕ := (analyticOrderAt (LFunction χ) ρ).toNat            ['propext', 'Classical.choice', 'Quot.sound']
+        57 | theorem LFunction_analyticOnNhd {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                                    ['propext', 'Classical.choice', 'Quot.sound']
+        62 | theorem LFunction_two_ne_zero {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : LFunction χ 2 ≠ 0 :=                 ['propext', 'Classical.choice', 'Quot.sound']
+        66 | theorem analyticOrderAt_LFunction_ne_top {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :                   ['propext', 'Classical.choice', 'Quot.sound']
+        75 | theorem one_le_zeroMultChi {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {ρ : ℂ} (h : IsNontrivialZeroChi χ ρ) :   ['propext', 'Classical.choice', 'Quot.sound']
+        89 | theorem LFunction_zeros_locallyFinite {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (z : ℂ) :                      ['propext', 'Classical.choice', 'Quot.sound']
+       103 | theorem finite_window_chi {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (T₁ T₂ : ℝ) :                              ['propext', 'Classical.choice', 'Quot.sound']
+       120 | theorem gammaFactor_inv_differentiable (ψ : DirichletCharacter ℂ N) :                                          ['propext', 'Classical.choice', 'Quot.sound']
+       132 | theorem analyticOrderAt_LFunction_eq_completed {ψ : DirichletCharacter ℂ N} (hψ : ψ ≠ 1) {w : ℂ} (hw : 0 < w.r ['propext', 'Classical.choice', 'Quot.sound']
+       146 | theorem analyticOrderAt_completed_le_one_sub {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (w ['propext', 'Classical.choice', 'Quot.sound']
+       170 | theorem analyticOrderAt_completed_one_sub {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (w :  ['propext', 'Classical.choice', 'Quot.sound']
+       178 | theorem reflect_eq_conj_one_sub (ρ : ℂ) : Zeta23.reflect ρ = conj (1 - ρ) := by                                ['propext', 'Classical.choice', 'Quot.sound']
+       183 | theorem chi_reflect_zero {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {ρ : ℂ}                ['propext', 'Classical.choice', 'Quot.sound']
+       208 | theorem chi_mult_reflect {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {ρ : ℂ}                ['propext', 'Classical.choice', 'Quot.sound']
+       225 | def chiZeroConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Zeta23.ZeroConfig where     ['propext', 'Classical.choice', 'Quot.sound']
+       234 | theorem chiZeroConfig_carrier (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+       237 | theorem chiZeroConfig_mult (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       243 | theorem chiZeroConfig_conj_mem {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (ρ : ℂ) :        ['propext', 'Classical.choice', 'Quot.sound']
+       251 | theorem chiZeroConfig_mult_conj {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (ρ : ℂ) :       ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 20 OF 20 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+  
+  ### EVERY FACT THE INSTANCE CONSUMES, BY NAME (Mathlib at 51e6992e; the kernel at v0.7):
+      Mathlib  differentiable_LFunction                                   Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:98
+      Mathlib  differentiable_completedLFunction                          Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:250
+      Mathlib  LFunction_eq_completed_div_gammaFactor                     Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:259
+      Mathlib  completedLFunction_one_sub                                 Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:284
+      Mathlib  Even.gammaFactor_def                                       Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:210
+      Mathlib  Odd.gammaFactor_def                                        Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:214
+      Mathlib  LFunction_ne_zero_of_one_le_re                             Mathlib/NumberTheory/LSeries/Nonvanishing.lean:398
+      Mathlib  differentiable_Gammaℝ_inv                                  Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean:89
+      Mathlib  analyticOrderAt_ne_top_of_isPreconnected                   Mathlib/Analysis/Analytic/Order.lean:627
+      Mathlib  analyticOrderAt_mul                                        Mathlib/Analysis/Analytic/Order.lean:497
+      Mathlib  analyticOrderAt_comp_of_deriv_ne_zero                      Mathlib/Analysis/Analytic/Order.lean:561
+      Mathlib  eqOn_zero_or_eventually_ne_zero_of_preconnected            Mathlib/Analysis/Analytic/IsolatedZeros.lean:219
+      Mathlib  _root_.Differentiable.analyticAt                           Mathlib/Analysis/Complex/CauchyIntegral.lean:649
+      Mathlib  DifferentiableAt.const_cpow                                Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean:111
+      kernel   ne_one_of_ne_one                                           SIDEExplicitFormula/GRHWeil.lean:81
+      kernel   isPrimitive_inv                                            SIDEExplicitFormula/GRHWeil.lean:84
+      kernel   gammaFactor_ne_zero_of_re_pos                              SIDEExplicitFormula/GRHWeil.lean:89
+      kernel   LFunction_inv_conj                                         SIDEExplicitFormula/GRHWeil.lean:185
+      kernel   LFunction_zero_iff_conj                                    SIDEExplicitFormula/GRHWeil.lean:209
+      kernel   analyticOrderAt_LFunction_inv_conj                         SIDEExplicitFormula/GRHWeil.lean:215
+  ### NO ROOT-NUMBER FACT CONSUMED: the one mention of rootNumber is inside the constant c(s) of the functional
+  ### equation (the order inequality needs c analytic, not nonzero); a second mention: False
+  ### ### **H16b : HELD** -- the χ-instance compiles from the rev`s LFunction facts at the standard three.
+  ### (S2) : HELD
+
+### relay data/b564_b.txt
+  b564 -- READING (6): PART (b) -- THE GENERIC MODULES CONSUMED BY THE χ-INSTANCE
+  
+  ### the branch grh-weil-b564 at 6ec71b3, cut from v0.7 = 1e4a007 ; the file SIDEExplicitFormula/Chi/Generic.lean (sha256 at the tip 77480b0c4a50ab7b)
+  
+  ### THE ELABORATION ATTEMPTS (`lake env lean --stdin` against the scratchpad oleans; the index line, then the errors):
+      b_1 file SIDEExplicitFormula/Chi/Generic.lean sha256 0d63a2b65f20fed828f177d025956f80ba2f2bfd03adccd16512c09a66b67d28 exit 1 elapsed 28 s errors 6 at 2026-09-29T22:17:19Z
+          | <stdin>:376:52: error: don't know how to synthesize placeholder for argument `T`
+          | <stdin>:376:50: error: don't know how to synthesize placeholder for argument `P`
+          | <stdin>:431:56: error: don't know how to synthesize placeholder for argument `T`
+          | <stdin>:431:54: error: don't know how to synthesize placeholder for argument `P`
+          | <stdin>:476:58: error: don't know how to synthesize placeholder for argument `T`
+          | <stdin>:476:56: error: don't know how to synthesize placeholder for argument `P`
+      b_2 file SIDEExplicitFormula/Chi/Generic.lean sha256 77480b0c4a50ab7b1b3be468ea4edee58dab7d64f0da28f070ab3302d94c0773 exit 0 elapsed 24 s errors 0 at 2026-09-29T22:19:21Z
+  ### the part closed at attempt 2 of four
+  
+  ### THE DECLARATIONS (91), AS THE TIP STATES THEM (first lines), AND LEAN`S PRINT OF EACH:
+        65 | def chi_Assembly_BlockInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+        70 | theorem chi_Assembly_BlockInputs_hat (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :          ['propext', 'Classical.choice', 'Quot.sound']
+        75 | theorem chi_Assembly_BlockInputs_tilde (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :        ['propext', 'Classical.choice', 'Quot.sound']
+        80 | def chi_Assembly_NII (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+        85 | def chi_Assembly_TailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+        90 | theorem chi_Assembly_TailInputs_hat (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+        95 | theorem chi_Assembly_TailInputs_theta_nonneg (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :  ['propext', 'Classical.choice', 'Quot.sound']
+       100 | theorem chi_Assembly_TailInputs_tilde (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :         ['propext', 'Classical.choice', 'Quot.sound']
+       105 | def chi_ZeroConfig_Az (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       110 | def chi_ZeroConfig_Ez (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       115 | def chi_ZeroConfig_Gsummand (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+       120 | def chi_ZeroConfig_Gz (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       125 | def chi_ZeroConfig_N (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+       130 | def chi_ZeroConfig_N0 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       135 | def chi_ZeroConfig_N0s (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                        ['propext', 'Classical.choice', 'Quot.sound']
+       140 | def chi_ZeroConfig_N0star (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                     ['propext', 'Classical.choice', 'Quot.sound']
+       145 | def chi_ZeroConfig_NIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       150 | def chi_ZeroConfig_Nd (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       155 | def chi_ZeroConfig_NonIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+       160 | def chi_ZeroConfig_Ns (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       165 | def chi_ZeroConfig_S1 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       170 | def chi_ZeroConfig_S2 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       175 | def chi_ZeroConfig_W (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+       180 | def chi_ZeroConfig_Wsummand (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+       185 | def chi_ZeroConfig_ZIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       190 | def chi_ZeroConfig_ctorIdx (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       195 | def chi_ZeroConfig_offLine (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       200 | def chi_ZeroConfig_p (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+       205 | def chi_ZeroConfig_s1 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       210 | def chi_ZeroConfig_s2 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+       215 | def chi_ZeroConfig_simple (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                     ['propext', 'Classical.choice', 'Quot.sound']
+       220 | def chi_ZeroConfig_window (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                     ['propext', 'Classical.choice', 'Quot.sound']
+       225 | theorem chi_ZeroConfig_N0star_le_Nd (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+       230 | theorem chi_ZeroConfig_Nd_le_N (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                ['propext', 'Classical.choice', 'Quot.sound']
+       235 | theorem chi_ZeroConfig_finsum_mult_mono (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+       240 | theorem chi_ZeroConfig_ncard_le_finsum_mult (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :   ['propext', 'Classical.choice', 'Quot.sound']
+       245 | theorem chi_ZeroConfig_ncard_mono (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :             ['propext', 'Classical.choice', 'Quot.sound']
+       250 | theorem chi_ZeroConfig_trivial_chain (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :          ['propext', 'Classical.choice', 'Quot.sound']
+       255 | theorem chi_ZeroConfig_window_finite (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :          ['propext', 'Classical.choice', 'Quot.sound']
+       260 | theorem chi_ZeroConfig_window_subset_carrier (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :  ['propext', 'Classical.choice', 'Quot.sound']
+       265 | def chi_EF_EF_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                             ['propext', 'Classical.choice', 'Quot.sound']
+       270 | def chi_EF_EF_paper (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                           ['propext', 'Classical.choice', 'Quot.sound']
+       275 | theorem chi_EF_prop_EF_of_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+       280 | theorem chi_EF_explicitFormulaPaper_of_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :    ['propext', 'Classical.choice', 'Quot.sound']
+       285 | def chi_ExplicitFormulaPaper (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+       290 | def chi_PaperInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                           ['propext', 'Classical.choice', 'Quot.sound']
+       295 | theorem chi_PaperInputs_EF (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       300 | theorem chi_PaperInputs_Gamma (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+       305 | theorem chi_PaperInputs_MV (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       310 | theorem chi_PaperInputs_RvM (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+       315 | theorem chi_PaperInputs_cheb (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+       320 | def chi_RiemannVonMangoldt (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+       325 | theorem chi_RiemannVonMangoldt_local_count (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :    ['propext', 'Classical.choice', 'Quot.sound']
+       330 | theorem chi_RiemannVonMangoldt_main (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+       335 | theorem chi_ZeroConfig_N_le_two_mul_half (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :      ['propext', 'Classical.choice', 'Quot.sound']
+       340 | theorem chi_ZeroConfig_reflect_mem_window (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :     ['propext', 'Classical.choice', 'Quot.sound']
+       345 | theorem chi_Tail_Gsummand_eq (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+       350 | theorem chi_Tail_LocalCount_ofWindowCount (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :     ['propext', 'Classical.choice', 'Quot.sound']
+       355 | theorem chi_Tail_NII_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                       ['propext', 'Classical.choice', 'Quot.sound']
+       360 | def chi_Tail_TailHyp (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+       365 | theorem chi_Tail_TailHyp_Az_eq_sum (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+       370 | theorem chi_Tail_TailHyp_A₀_nonneg (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+       375 | theorem chi_Tail_TailHyp_Ez_isHermitian (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+       380 | def chi_Tail_TailHyp_K (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                        ['propext', 'Classical.choice', 'Quot.sound']
+       385 | theorem chi_Tail_TailHyp_K_congr_simp (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :         ['propext', 'Classical.choice', 'Quot.sound']
+       390 | theorem chi_Tail_TailHyp_K_nonneg (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :             ['propext', 'Classical.choice', 'Quot.sound']
+       395 | theorem chi_Tail_TailHyp_L_pos (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                ['propext', 'Classical.choice', 'Quot.sound']
+       400 | theorem chi_Tail_TailHyp_T_pos (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                ['propext', 'Classical.choice', 'Quot.sound']
+       405 | theorem chi_Tail_TailHyp_hA₀ (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+       410 | theorem chi_Tail_TailHyp_hC₁ (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+       415 | theorem chi_Tail_TailHyp_hL (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+       420 | theorem chi_Tail_TailHyp_hT (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+       425 | theorem chi_Tail_TailHyp_hasSum_Ez (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+       430 | theorem chi_Tail_TailHyp_hat_Ez_isHermitian (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :   ['propext', 'Classical.choice', 'Quot.sound']
+       435 | theorem chi_Tail_TailHyp_hdecay (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :               ['propext', 'Classical.choice', 'Quot.sound']
+       440 | theorem chi_Tail_TailHyp_hloc (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+       445 | theorem chi_Tail_TailHyp_not_mem_sA_iff (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+       450 | theorem chi_Tail_TailHyp_partial_sum_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+       455 | def chi_Tail_TailHyp_sA (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                       ['propext', 'Classical.choice', 'Quot.sound']
+       460 | theorem chi_Tail_TailHyp_summable_Gsummand (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :    ['propext', 'Classical.choice', 'Quot.sound']
+       465 | theorem chi_Tail_TailHyp_summable_tail (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :        ['propext', 'Classical.choice', 'Quot.sound']
+       470 | theorem chi_Tail_TailHyp_tailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+       475 | theorem chi_Tail_TailHyp_tilde_Ez_isHermitian (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : ['propext', 'Classical.choice', 'Quot.sound']
+       480 | theorem chi_Tail_TailHyp_traceNorm_smul_Ez_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : ['propext', 'Classical.choice', 'Quot.sound']
+       485 | theorem chi_Tail_TailHyp_tsum_tail_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :         ['propext', 'Classical.choice', 'Quot.sound']
+       490 | theorem chi_Tail_eventually_NII_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+       495 | theorem chi_Tail_eventually_tailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :        ['propext', 'Classical.choice', 'Quot.sound']
+       500 | theorem chi_Tail_finite_notTail (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :               ['propext', 'Classical.choice', 'Quot.sound']
+       505 | theorem chi_Tail_norm_sq_uvec_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :              ['propext', 'Classical.choice', 'Quot.sound']
+       510 | theorem chi_Tail_norm_uvec_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+       515 | theorem chi_Tail_prop_tail (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 91 OF 91 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+  
+  ### THE CONSUMPTION BUILD: every one of the 38 generic modules imported by name, unedited (the Zeta23 blobs at the
+  ### tip against v0.7: UNCHANGED); the Lean scan`s 91 consumer declarations instantiated at chiZeroConfig (relay
+  ### data/b564_generic_leanscan.txt); the modules with no ZeroConfig-taking declaration are consumed by import alone.
+  
+  ### THE SCAN FOR riemannZeta AND THE ζ-SPECIFIC CONSTANTS (relay data/b564_generic_scan.txt, hit lines there),
+  ### read by hand -- each module carrying a marker, the lines that make it ζ-specific by the face`s definition:
+      Zeta23.Defs                        RE-CLASSIFIED ζ-SPECIFIC -- :55-:69 mu (ζ`s Γ bracket, digamma at 1/4 + iτ/2, log π), PiX (the pole of ζ), PX and nuX (the Λ(n) sum, no χ)
+      Zeta23.ExplicitFormula             RE-CLASSIFIED ζ-SPECIFIC -- :37 gammaBracket, :40-:44 literatureRHS (the pole terms paperFT k (±I/2), the Λ(n) sum, ζ`s Γ term)
+      Zeta23.ExplicitFormula.Bridge      RE-CLASSIFIED ζ-SPECIFIC -- :80-:165 bounds on mu, ζ`s Γ bracket
+      Zeta23.GammaFacts                  RE-CLASSIFIED ζ-SPECIFIC -- :31-:87 mu`s evenness and smoothness (digamma at 1/4 + iτ/2)
+      Zeta23.GammaFacts.Mu               RE-CLASSIFIED ζ-SPECIFIC -- :120-:383 mu`s monotonicity and derivative bound; log π
+      Zeta23.GammaFacts.StirlingVert     RE-CLASSIFIED ζ-SPECIFIC -- :601-:615 mu`s Stirling expansion
+      Zeta23.Hypotheses                  RE-CLASSIFIED ζ-SPECIFIC -- :62-:73 the fields on mu, :22-:46 the Λ(n) sums and nuX
+      Zeta23.WeilEF.GammaRBracket        RE-CLASSIFIED ζ-SPECIFIC -- :86 mu`s bracket (digamma(1/4 + it/2) - log π); its :42 is the generic logDeriv of Gammaℝ
+  ### riemannZeta itself named in a generic module: NONE
+  ### ### **THE COUNT CORRECTED: GENERIC 38 -> 30 ; ζ-SPECIFIC 19 -> 27** (the constants clause; the lexical rule of b562
+  ### names none of them ζ-specific, since they carry ζ`s shape under neutral names -- b562`s own bank said so of two).
+  ### H16a`s first clause (consumed without edit): HELD ; its second (no generic module names riemannZeta or a
+  ### ζ-specific constant): REFUTED by the 8 modules above.
+  ### ### **H16a : REFUTED** ### (S3) : HELD
+
+### relay data/b564_c1.txt
+  b564 -- READING (6): PART (c1) -- THE FRONTIER`S SECOND MODULE: ZetaBounds`s χ-ANALOGUES, IN ITS ORDER
+  
+  ### the branch grh-weil-b564 at 6ec71b3, cut from v0.7 = 1e4a007 ; the file SIDEExplicitFormula/Chi/ZetaBounds.lean (sha256 at the tip 7e65d6b38a72ee65)
+  
+  ### THE ELABORATION ATTEMPTS (`lake env lean --stdin` against the scratchpad oleans; the index line, then the errors):
+      c_1 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 e2de04cbb541a32ff4eed3fe1a6e1e3a11e0b6d9df68f17aa2bcb4bfd1684eab exit 0 elapsed 27 s errors 0 at 2026-09-29T22:17:46Z
+      c_2 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 d9c116b7778f109bf5956cec4bb648da072371dc612a4f78c839ead43823e274 exit 1 elapsed 27 s errors 1 at 2026-09-29T22:21:58Z
+          | <stdin>:123:58: error(lean.unknownIdentifier): Unknown constant `Nat.Icc_succ_left`
+      c_3 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 78ec59fd825aaca3fd00fb22f028c38b70ba107cda822d8b9f7a5deb679ddb72 exit 1 elapsed 26 s errors 1 at 2026-09-29T22:22:44Z
+          | <stdin>:123:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      c_4 file SIDEExplicitFormula/Chi/ZetaBounds.lean sha256 b0644e2e7f60ca8d6f204ccb52d8d60f4641de5330c7661a4ef16295235b7810 exit 0 elapsed 25 s errors 0 at 2026-09-29T22:23:21Z
+  ### the part closed at attempt 4 of four
+  
+  ### THE DECLARATIONS (11), AS THE TIP STATES THEM (first lines), AND LEAN`S PRINT OF EACH:
+        43 | theorem analyticAt_LFunction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) : AnalyticAt ℂ (LFunction χ) s  ['propext', 'Classical.choice', 'Quot.sound']
+        47 | theorem differentiableAt_deriv_LFunction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :                   ['propext', 'Classical.choice', 'Quot.sound']
+        52 | theorem LFunction_bddAbove_near_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                                ['propext', 'Classical.choice', 'Quot.sound']
+        59 | theorem continuousAt_neg_logDeriv_LFunction_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+        65 | theorem LFunction_logDeriv_bddAbove_near_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                       ['propext', 'Classical.choice', 'Quot.sound']
+        80 | theorem LFunction_logDeriv_isBigO_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) :                              ['propext', 'Classical.choice', 'Quot.sound']
+        85 | def charPartialSum (χ : DirichletCharacter ℂ N) (x : ℝ) : ℂ := ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ (n : ZMod N)         ['propext', 'Classical.choice', 'Quot.sound']
+        88 | theorem sum_range_block_char_eq_zero {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (k : ℕ) :                       ['propext', 'Classical.choice', 'Quot.sound']
+       107 | theorem norm_sum_range_char_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (m : ℕ) :                             ['propext', 'Classical.choice', 'Quot.sound']
+       124 | theorem norm_charPartialSum_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (x : ℝ) :                             ['propext', 'Classical.choice', 'Quot.sound']
+       142 | def LFunction0 (χ : DirichletCharacter ℂ N) (M : ℕ) (s : ℂ) : ℂ :=                                             ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 11 OF 11 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+  
+  ### THE ζ-ORIGINAL`S ζ-NAMING DECLARATIONS IN ORDER AND THEIR χ-ANALOGUES HERE:
+      analyticAt_riemannZeta (:184)             -> analyticAt_LFunction
+      differentiableAt_deriv_riemannZeta (:189) -> differentiableAt_deriv_LFunction
+      riemannZetaResidue (:193)                 -> LFunction_bddAbove_near_one (no pole for χ ≠ 1)
+      riemannZetaLogDerivResidue (:504)         -> LFunction_logDeriv_bddAbove_near_one (with continuousAt_neg_logDeriv_LFunction_one)
+      riemannZetaLogDerivResidueBigO (:542)     -> LFunction_logDeriv_isBigO_one
+      riemannZeta0 (:548)                       -> LFunction0 (with charPartialSum), the Abel-summation form
+      riemannZeta0_apply (:557)                 -> definitional (LFunction0 is written in the applied form)
+      HasDerivAtZeta0 (:1095)                   -> ### HELD, NOT ATTEMPTED: the four attempts were spent; its first
+                                                   consumed fact, the bound on the partial sums of χ, compiled here
+                                                   (norm_charPartialSum_le, via sum_range_block_char_eq_zero and
+                                                   norm_sum_range_char_le)
+      Zeta0EqZeta (:1178) and all after it      -> not attempted
+  
+  ### THE HELD POINT AND WHAT IT NEEDS: s -> LFunction0 χ M s differentiable on 0 < re s (the derivative under the
+  ### integral over (M, oo), the analogue of ZetaBounds`s own hasDerivAt_Zeta0Integral for the kernel S_χ), then its
+  ### agreement with LFunction χ there (identity theorem from agreement on re s > 1). The rev`s search (relay
+  ### data/b564_held_search.txt):
+      LFunction on the strip by its series         files   4 lines   14
+      L-series as the summatory integral           files   1 lines   10
+      convergence off absolute convergence         files  81 lines  250
+      bounded partial sums of a character          files   0 lines    0
+      Dirichlet test for series                    files   1 lines    5
+      growth of LFunction in vertical strips       files   1 lines    6
+  ### read: LFunction_eq_LSeries holds for 1 < re s only (DirichletContinuation.lean :75); LSeries_eq_mul_integral
+  ### (SumCoeff.lean :137) needs LSeriesSummable, which fails for χ on re s <= 1; no bound on the partial sums of a
+  ### character by name (so it was proved here); the Dirichlet test holds in general form (SpecificLimits/Normed.lean
+  ### :722); LFunction`s big-O lemmas are horizontal at re s = 1 (Nonvanishing.lean :316, :334); the `conditionally`
+  ### hits are order theory, read by file. ### THE READING: the rev holds no representation of LFunction χ on
+  ### 0 < re s by its partial sums; the analytic tools the analogue would use it holds in general form. The module is
+  ### HELD at the analogue of HasDerivAtZeta0 by its four attempts, the fact it would establish being the one the rev
+  ### lacks. ### ITS KIND: THE GROWTH SIDE -- not archimedean and not the Euler side`s logarithmic-derivative expansion.
+
+### relay data/b564_e0.txt
+  b564 -- READING (7): THE E0 READ -- EVERY DECLARATION OF SIDEExplicitFormula/Chi/*.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+  ### the prints of record: AxiomCheckChi.lean elaborated against scratch oleans built by `lean -o` from the branch tip`s
+  ### files (relay data/b564_olean_build.txt: each source`s sha256 equals its committed blob`s); the premises: relay
+  ### data/b564_grade_scan.txt (every explicit Prop binder of every theorem, from Lean`s elaborated statement).
+  ### THE RULE: a theorem is INTERFACES when an explicit Prop binder other than the instance`s own (hχ : χ.IsPrimitive,
+  ### h1 : χ ≠ 1) has a Zeta23 predicate at its head -- a premise the vendored module names (TailHyp, EF_lit, ...),
+  ### passed through the instantiation unchanged; DERIVES otherwise (its other binders are domain conditions: a zero,
+  ### a real part, a window). Definitions are ungraded and salt-checked.
+  
+      IsNontrivialZeroChi                                                      DEFINITION std3
+      zeroMultChi                                                              DEFINITION std3
+      LFunction_analyticOnNhd                                                  DERIVES    std3
+      LFunction_two_ne_zero                                                    DERIVES    std3
+      analyticOrderAt_LFunction_ne_top                                         DERIVES    std3
+      one_le_zeroMultChi                                                       DERIVES    std3
+      LFunction_zeros_locallyFinite                                            DERIVES    std3
+      finite_window_chi                                                        DERIVES    std3
+      gammaFactor_inv_differentiable                                           DERIVES    std3
+      analyticOrderAt_LFunction_eq_completed                                   DERIVES    std3
+      analyticOrderAt_completed_le_one_sub                                     DERIVES    std3
+      analyticOrderAt_completed_one_sub                                        DERIVES    std3
+      reflect_eq_conj_one_sub                                                  DERIVES    std3
+      chi_reflect_zero                                                         DERIVES    std3
+      chi_mult_reflect                                                         DERIVES    std3
+      chiZeroConfig                                                            DEFINITION std3
+      chiZeroConfig_carrier                                                    DERIVES    std3
+      chiZeroConfig_mult                                                       DERIVES    std3
+      chiZeroConfig_conj_mem                                                   DERIVES    std3
+      chiZeroConfig_mult_conj                                                  DERIVES    std3
+      Generic.chi_Assembly_BlockInputs                                         DEFINITION std3
+      Generic.chi_Assembly_BlockInputs_hat                                     INTERFACES std3  -- on self : Zeta23.Assembly.BlockInputs
+      Generic.chi_Assembly_BlockInputs_tilde                                   INTERFACES std3  -- on self : Zeta23.Assembly.BlockInputs
+      Generic.chi_Assembly_NII                                                 DEFINITION std3
+      Generic.chi_Assembly_TailInputs                                          DEFINITION std3
+      Generic.chi_Assembly_TailInputs_hat                                      INTERFACES std3  -- on self : Zeta23.Assembly.TailInputs
+      Generic.chi_Assembly_TailInputs_theta_nonneg                             INTERFACES std3  -- on self : Zeta23.Assembly.TailInputs
+      Generic.chi_Assembly_TailInputs_tilde                                    INTERFACES std3  -- on self : Zeta23.Assembly.TailInputs
+      Generic.chi_ZeroConfig_Az                                                DEFINITION std3
+      Generic.chi_ZeroConfig_Ez                                                DEFINITION std3
+      Generic.chi_ZeroConfig_Gsummand                                          DEFINITION std3
+      Generic.chi_ZeroConfig_Gz                                                DEFINITION std3
+      Generic.chi_ZeroConfig_N                                                 DEFINITION std3
+      Generic.chi_ZeroConfig_N0                                                DEFINITION std3
+      Generic.chi_ZeroConfig_N0s                                               DEFINITION std3
+      Generic.chi_ZeroConfig_N0star                                            DEFINITION std3
+      Generic.chi_ZeroConfig_NIprime                                           DEFINITION std3
+      Generic.chi_ZeroConfig_Nd                                                DEFINITION std3
+      Generic.chi_ZeroConfig_NonIprime                                         DEFINITION std3
+      Generic.chi_ZeroConfig_Ns                                                DEFINITION std3
+      Generic.chi_ZeroConfig_S1                                                DEFINITION std3
+      Generic.chi_ZeroConfig_S2                                                DEFINITION std3
+      Generic.chi_ZeroConfig_W                                                 DEFINITION std3
+      Generic.chi_ZeroConfig_Wsummand                                          DEFINITION std3
+      Generic.chi_ZeroConfig_ZIprime                                           DEFINITION std3
+      Generic.chi_ZeroConfig_ctorIdx                                           DEFINITION std3
+      Generic.chi_ZeroConfig_offLine                                           DEFINITION std3
+      Generic.chi_ZeroConfig_p                                                 DEFINITION std3
+      Generic.chi_ZeroConfig_s1                                                DEFINITION std3
+      Generic.chi_ZeroConfig_s2                                                DEFINITION std3
+      Generic.chi_ZeroConfig_simple                                            DEFINITION std3
+      Generic.chi_ZeroConfig_window                                            DEFINITION std3
+      Generic.chi_ZeroConfig_N0star_le_Nd                                      DERIVES    std3
+      Generic.chi_ZeroConfig_Nd_le_N                                           DERIVES    std3
+      Generic.chi_ZeroConfig_finsum_mult_mono                                  DERIVES    std3
+      Generic.chi_ZeroConfig_ncard_le_finsum_mult                              DERIVES    std3
+      Generic.chi_ZeroConfig_ncard_mono                                        DERIVES    std3
+      Generic.chi_ZeroConfig_trivial_chain                                     DERIVES    std3
+      Generic.chi_ZeroConfig_window_finite                                     DERIVES    std3
+      Generic.chi_ZeroConfig_window_subset_carrier                             DERIVES    std3
+      Generic.chi_EF_EF_lit                                                    DEFINITION std3
+      Generic.chi_EF_EF_paper                                                  DEFINITION std3
+      Generic.chi_EF_prop_EF_of_lit                                            INTERFACES std3  -- on hEF : Zeta23.EF.EF_lit
+      Generic.chi_EF_explicitFormulaPaper_of_lit                               INTERFACES std3  -- on hEF : Zeta23.EF.EF_lit, hΓ : Zeta23.GammaFacts
+      Generic.chi_ExplicitFormulaPaper                                         DEFINITION std3
+      Generic.chi_PaperInputs                                                  DEFINITION std3
+      Generic.chi_PaperInputs_EF                                               INTERFACES std3  -- on self : Zeta23.PaperInputs
+      Generic.chi_PaperInputs_Gamma                                            INTERFACES std3  -- on self : Zeta23.PaperInputs
+      Generic.chi_PaperInputs_MV                                               INTERFACES std3  -- on self : Zeta23.PaperInputs
+      Generic.chi_PaperInputs_RvM                                              INTERFACES std3  -- on self : Zeta23.PaperInputs
+      Generic.chi_PaperInputs_cheb                                             INTERFACES std3  -- on self : Zeta23.PaperInputs
+      Generic.chi_RiemannVonMangoldt                                           DEFINITION std3
+      Generic.chi_RiemannVonMangoldt_local_count                               INTERFACES std3  -- on self : Zeta23.RiemannVonMangoldt
+      Generic.chi_RiemannVonMangoldt_main                                      INTERFACES std3  -- on self : Zeta23.RiemannVonMangoldt
+      Generic.chi_ZeroConfig_N_le_two_mul_half                                 DERIVES    std3
+      Generic.chi_ZeroConfig_reflect_mem_window                                DERIVES    std3
+      Generic.chi_Tail_Gsummand_eq                                             DERIVES    std3
+      Generic.chi_Tail_LocalCount_ofWindowCount                                DERIVES    std3
+      Generic.chi_Tail_NII_le                                                  DERIVES    std3
+      Generic.chi_Tail_TailHyp                                                 DEFINITION std3
+      Generic.chi_Tail_TailHyp_Az_eq_sum                                       INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_A₀_nonneg                                       INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_Ez_isHermitian                                  INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_K                                               DEFINITION std3
+      Generic.chi_Tail_TailHyp_K_congr_simp                                    INTERFACES std3  -- on x._@.Zeta23.Tail.3140258659._hygCtx._hyg.19 : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_K_nonneg                                        INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_L_pos                                           INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_T_pos                                           INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hA₀                                             INTERFACES std3  -- on self : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hC₁                                             INTERFACES std3  -- on self : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hL                                              INTERFACES std3  -- on self : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hT                                              INTERFACES std3  -- on self : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hasSum_Ez                                       INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hat_Ez_isHermitian                              INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hdecay                                          INTERFACES std3  -- on self : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_hloc                                            INTERFACES std3  -- on self : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_not_mem_sA_iff                                  INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_partial_sum_le                                  INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_sA                                              DEFINITION std3
+      Generic.chi_Tail_TailHyp_summable_Gsummand                               INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_summable_tail                                   INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_tailInputs                                      INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_tilde_Ez_isHermitian                            INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le                            INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_TailHyp_tsum_tail_le                                    INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      Generic.chi_Tail_eventually_NII_le                                       DERIVES    std3
+      Generic.chi_Tail_eventually_tailInputs                                   DERIVES    std3
+      Generic.chi_Tail_finite_notTail                                          DERIVES    std3
+      Generic.chi_Tail_norm_sq_uvec_le                                         INTERFACES std3  -- on htail : Zeta23.Tail.InTail
+      Generic.chi_Tail_norm_uvec_le                                            INTERFACES std3  -- on htail : Zeta23.Tail.InTail
+      Generic.chi_Tail_prop_tail                                               INTERFACES std3  -- on H : Zeta23.Tail.TailHyp
+      analyticAt_LFunction                                                     DERIVES    std3
+      differentiableAt_deriv_LFunction                                         DERIVES    std3
+      LFunction_bddAbove_near_one                                              DERIVES    std3
+      continuousAt_neg_logDeriv_LFunction_one                                  DERIVES    std3
+      LFunction_logDeriv_bddAbove_near_one                                     DERIVES    std3
+      LFunction_logDeriv_isBigO_one                                            DERIVES    std3
+      charPartialSum                                                           DEFINITION std3
+      sum_range_block_char_eq_zero                                             DERIVES    std3
+      norm_sum_range_char_le                                                   DERIVES    std3
+      norm_charPartialSum_le                                                   DERIVES    std3
+      LFunction0                                                               DEFINITION std3
+  
+  ### THE SALT-CHECK -- Lean`s #print of each definition (no sorry; every constant a Mathlib, Zeta23 or kernel object):
+      def SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → Prop :=
+      fun {N} [NeZero N] χ ρ => DirichletCharacter.LFunction χ ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+      def SIDEExplicitFormula.GRHWeil.zeroMultChi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℕ :=
+      fun {N} [NeZero N] χ ρ => (analyticOrderAt (DirichletCharacter.LFunction χ) ρ).toNat
+      def SIDEExplicitFormula.GRHWeil.zeroMultChi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℕ :=
+      fun {N} [NeZero N] χ ρ => (analyticOrderAt (DirichletCharacter.LFunction χ) ρ).toNat
+      def SIDEExplicitFormula.GRHWeil.chiZeroConfig : {N : ℕ} →
+        [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.ZeroConfig :=
+      def SIDEExplicitFormula.GRHWeil.chiZeroConfig : {N : ℕ} →
+        [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.ZeroConfig :=
+      fun {N} [NeZero N] χ hχ h1 =>
+        { carrier := {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ},
+      def SIDEExplicitFormula.GRHWeil.charPartialSum : {N : ℕ} → DirichletCharacter ℂ N → ℝ → ℂ :=
+      fun {N} χ x => ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ ↑n
+      def SIDEExplicitFormula.GRHWeil.LFunction0 : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℂ → ℂ :=
+      fun {N} χ M s =>
+      def SIDEExplicitFormula.GRHWeil.LFunction0 : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℂ → ℂ :=
+      fun {N} χ M s =>
+        ∑ n ∈ Finset.Icc 1 M, χ ↑n / ↑n ^ s - SIDEExplicitFormula.GRHWeil.charPartialSum χ ↑M * ↑M ^ (-s) +
+          s * ∫ (x : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(s + 1))
+      (the 35 Generic definitions: each printed, each the vendored definition applied to chiZeroConfig)
+  ### ### **THE SALT-CHECK: True** (40 definitions)
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 6ec71b3):
+      chi_reflect_zero                       defenc False  | check True
+      chi_mult_reflect                       defenc False  | check True
+      analyticOrderAt_completed_one_sub      defenc False  | check True
+      finite_window_chi                      defenc False  | check True
+      chiZeroConfig_conj_mem                 defenc False  | check True
+      norm_charPartialSum_le                 defenc False  | check True
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+  ### by file and grade: Generic.lean DERIVES 16, Generic.lean INTERFACES 40, ZeroConfig.lean DERIVES 17, ZetaBounds.lean DERIVES 9
+  ### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THEOREMS 82 (DERIVES 42, INTERFACES 40, UNREAD 0) ; DEFINITIONS 40 ; PRINTED 122 OF 122 ; THE SALT-CHECK True => MERGE True**
+
+### relay data/b564_v08_push.txt
+  ### b564 -- the branch grh-weil-b564 pushed by name:
+  remote: 
+  remote: Create a pull request for 'grh-weil-b564' on GitHub by visiting:        
+  remote:      https://github.com/psinary-sketch/SIDE-explicit-formula/pull/new/grh-weil-b564        
+  remote: 
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new branch]      grh-weil-b564 -> grh-weil-b564
+  ### read back: 6ec71b30299824c6dde7ce20bfb886956a46b28f	refs/heads/grh-weil-b564
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b564 ; tip 6ec71b30299824c6dde7ce20bfb886956a46b28f ; checkout before main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     1e4a007..6ec71b3  push-b564 -> main
+  push_gated: main read back at the remote: 6ec71b30299824c6dde7ce20bfb886956a46b28f
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new tag]         v0.8 -> v0.8
+  push_gated: tag v0.8 peeled local 6ec71b30299824c6dde7ce20bfb886956a46b28f remote 6ec71b30299824c6dde7ce20bfb886956a46b28f
+  push_gated: DONE -- main and 1 tag(s) pushed and read back
+  ### read back after the gate:
+  6ec71b30299824c6dde7ce20bfb886956a46b28f	refs/heads/grh-weil-b564
+  6ec71b30299824c6dde7ce20bfb886956a46b28f	refs/heads/main
+  39458b156bf1ff418e436c85a4ceae2bfbae5775	refs/tags/v0.8
+  6ec71b30299824c6dde7ce20bfb886956a46b28f	refs/tags/v0.8^{}
+
+### relay data/b564_rowgen.txt
+  b564 -- READING (7): THE ROWGEN DIFF (rowgen.diff IMPORTED) OF THE MERGED RECORDS AGAINST CORRESPONDENCE ROW 400
+  
+  ### records: 6 ; row found: True
+      ('SIDEExplicitFormula.GRHWeil.chi_reflect_zero', ['ok'])
+
+### relay data/b564_branches.txt
+  Deleted branch push-b563 (was 5695dbbe).
+  Deleted branch push-b563-closing (was f0e92155).
+  Deleted branch push-b563 (was 0a0f958).
+  Deleted branch push-b563 (was 6fbd70e).
+  /d/relay after: 
+  /d/MY-DOwnloads/PLACE-papers after: 
+  /d/SIDE-global-section after: 
+    detection-region-b559   grh-weil-b562   grh-weil-b564   li-weil-b561   li-weil-b563 * main   push-b564
+
+### relay data/b564_scores.txt
+  b564 -- THE SCORES, READ OFF THE BANKS
+  
+      H16A  REFUTED
+      H16B  HELD
+      H16C  HELD
+      H16D  HELD
+      N1    HELD
+      N2    REFUTED
+      N3    HELD
+      N4    HELD
+      N5    REFUTED
+      N6    REFUTED
+      N7    HELD
+      S1    HELD
+      S2    HELD
+      S3    HELD
+      V08   HELD
+  ### (N6) read: v0.8 tagged with the χ-instance True ; the frontier HELD at HasDerivAtZeta0 (ZetaBounds.lean :1095) (THE GROWTH SIDE), which is neither archimedean nor the Euler side
+  ### (N7) read: main against v0.7 ['A AxiomCheckChi.lean', 'A SIDEExplicitFormula/Chi/Generic.lean', 'A SIDEExplicitFormula/Chi/ZeroConfig.lean', 'A SIDEExplicitFormula/Chi/ZetaBounds.lean'] (a fast-forward True) ; other kernel mains changed NONE ; SIDE-global-section [] ; the kept branches at their tips True
+
+### relay data/b564_supline.json -- line 11607
+### relay data/b564_fieldappend.json -- line 6136
+### relay data/b564_rows.json -- exit_act 0
+### relay data/b564_workorder.json -- line 11613
+### relay data/b564_trail.json -- line 11615

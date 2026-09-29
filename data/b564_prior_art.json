@@ -1,0 +1,17 @@
+{
+ "n2": "REFUTED",
+ "bulka": {
+  "url": "https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean",
+  "sha": "35df682f3b709ffe5fbcfdd452dfa964bd622b87",
+  "created": "2026-09-05",
+  "lean_pool_pr495_merged": "2026-09-28"
+ },
+ "arda": {
+  "url": "https://github.com/DrMurphyIsIn/Arda",
+  "sha": "acfb0ee57108a185c484409cd91ac5621ce2d13e",
+  "pr562_merged": "2026-09-19",
+  "node_proved": "2026-09-21"
+ },
+ "lean_paths_in_code_hits": 0,
+ "compare": "THE COMPARISON, ONE PARAGRAPH. Two public Lean 4 / Mathlib developments formalize the objects. (a) Bulka`s li-criterion-rh-equivalence-lean (created 2026-09-05, main 35df682f; imported into Vilin97/lean-pool by PR #495, merged 2026-09-28) states li_criterion : RiemannHypothesis <-> (forall n, 0 <= (taylorCoeff riemannXi n).re), the coefficient being the n-th Taylor coefficient at 0 of the log-derivative of xi(1/(1-z)) (Li`s lambda_{n+1}), BOTH DIRECTIONS, and li_coefficients_eq_zero_sum : that coefficient equals (1/2) times the sum over the strip zeros, with multiplicity analyticOrderNatAt riemannXi, of the symmetric pair (1 - (1 - 1/rho)^{-(n+1)}) + (1 - (1 - 1/rho)^{n+1}), with summability; its README and formalization.yaml report the standard three and no sorry (read, not built here). The kernel`s LiCoeff n is defined directly as (1/2) the tsum over Mathlib`s strip zeros of mult * Re(pairTerm n rho), the pairing with conj rho, multiplicity analyticOrderAt riemannZeta: the same zero-side object up to the index shift and the choice of partner (1 - rho against conj rho), with no Taylor coefficient; the kernel holds the forward half (rh_imp_li_nonneg) and not the converse, which Bulka`s ReverseDirection proves by a Pringsheim-type argument, not a Turan-type power-sum lemma. (b) Arda`s telperion node RH_bl_explicit_formula (PR #562, merged 2026-09-19; the node marked proved 2026-09-21 by E6Bridge27.bl_explicit_formula at main acfb0ee5, by its own record, read, not built here) states Tendsto (liZeroSum n) atTop (nhds (archSide n + finiteSide n)) for n >= 1: the zero side as the limit of symmetric HEIGHT windows, the arithmetic side as the Bombieri-Lagarias residue closed forms (S_inf(n) with gamma, log pi, zeta(j); S_f(n) with the eta_j of -zeta`/zeta at 1). li_identity_sym states LiCoeff n as the delta -> 0+ limit of EF_lit`s literature right-hand side (the prime sum and the Gamma term of Zeta23`s explicit formula) at the symmetric smoothed members of the Bombieri-Lagarias test function: the same identity`s two sides, reached by a different limit (a family of test functions in EF_lit`s class, the zero side absolutely summed, rather than height windows of the unsmoothed kernel) and with the arithmetic side left as EF_lit`s integral and prime series rather than evaluated in closed form. No sentence here claims priority for either side."
+}

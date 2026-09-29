@@ -1,0 +1,239 @@
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail nprop=6 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁,
+ ha : 0 < P.a T,
+ hEt : (P.tilde T ((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Ez P T)).IsHermitian,
+ hEh : (P.hat T ((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Ez P T)).IsHermitian]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_trivial_chain nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_reflect_mem_window nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ h : ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).window T₁ T₂]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window_subset_carrier nprop=2 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_ne_top nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_cheb nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.PaperInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hst : s ⊆ t,
+ ht : t ⊆ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).window T₁ T₂]
+B564GRADE SIDEExplicitFormula.GRHWeil.LFunction_zeros_locallyFinite nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le nprop=8 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hL : 0 < P.L T,
+ hT : 0 < T,
+ hC₁ : 0 ≤ C₁,
+ hdecay : ∀ (r y : ℝ),
+   |y| ≤ 1 / 2 →
+     ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖↑r - Complex.I * ↑y‖ ^ 2,
+ hρ : ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier,
+ htail : Zeta23.Tail.InTail T ρ.im]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_theta_nonneg nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Assembly.TailInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T θ₀]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_NII_le nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hA₀ : 1 ≤ A₀,
+ hloc : ∀ (t : ℝ), ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_local_count nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.RiemannVonMangoldt (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.finite_window_chi nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Az_eq_sum nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_LocalCount_ofWindowCount nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hA₀ : 1 ≤ A₀,
+ hloc : ∀ (t : ℝ), ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_RvM nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.PaperInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.gammaFactor_inv_differentiable nprop=0 []
+B564GRADE SIDEExplicitFormula.GRHWeil.differentiableAt_deriv_LFunction nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_EF nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.PaperInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Nd_le_N nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hEF : Zeta23.EF.EF_lit (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1),
+ hΓ : Zeta23.GammaFacts]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tilde_Ez_isHermitian nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) x0 x1 A₀ C₁,
+ hconj : ∀ (z : ℂ), x0.phiHat x1 ((starRingEnd ℂ) z) = (starRingEnd ℂ) (x0.phiHat x1 z)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tsum_tail_le nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hT nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.chi_reflect_zero nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ h : SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hloc nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.LFunction_two_ne_zero nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_partial_sum_le nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit nprop=10 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hEF : Zeta23.EF.EF_lit (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1),
+ hL : 0 < L,
+ hf : ContDiff ℝ 2 f,
+ hg : ContDiff ℝ 2 g,
+ hfs : tsupport f ⊆ Set.Icc (-(L / 2)) (L / 2),
+ hgs : tsupport g ⊆ Set.Icc (-(L / 2)) (L / 2),
+ hFk : MeasureTheory.Integrable (FourierTransform.fourier (Zeta23.EF.weilTest f g)) MeasureTheory.volume,
+ hμ : MeasureTheory.Integrable (fun τ => Zeta23.paperFT (Zeta23.EF.weilTest f g) ↑τ * ↑(Zeta23.mu τ)) MeasureTheory.volume]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0star_le_Nd nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_MV nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.PaperInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.chiZeroConfig_mult nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.continuousAt_neg_logDeriv_LFunction_one nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_tilde nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Assembly.BlockInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T]
+B564GRADE SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_le_one_sub nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le nprop=8 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hT : Zeta23.Tail.T₀ ≤ T,
+ hL : 2 ≤ P.L T,
+ hC₁ : 0 ≤ C₁,
+ hdecay : ∀ (r y : ℝ),
+   |y| ≤ 1 / 2 →
+     ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖↑r - Complex.I * ↑y‖ ^ 2,
+ hρ : ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier,
+ htail : Zeta23.Tail.InTail T ρ.im]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N_le_two_mul_half nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_NII_le nprop=5 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hA₀ : 1 ≤ A₀,
+ hloc : ∀ (t : ℝ), ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3),
+ hT : Zeta23.Tail.T₀ ≤ T]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_hat nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Assembly.TailInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T θ₀]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_Gsummand_eq nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀ nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_nonneg nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.chiZeroConfig_mult_conj nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.reflect_eq_conj_one_sub nprop=0 []
+B564GRADE SIDEExplicitFormula.GRHWeil.one_le_zeroMultChi nprop=2 [h1 : χ ≠ 1,
+ h : SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tailInputs nprop=5 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁,
+ ha : 0 < P.a T,
+ hconj : ∀ (z : ℂ), P.phiHat T ((starRingEnd ℂ) z) = (starRingEnd ℂ) (P.phiHat T z)]
+B564GRADE SIDEExplicitFormula.GRHWeil.norm_sum_range_char_le nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.LFunction_bddAbove_near_one nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_tailInputs nprop=9 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hP : P.Valid,
+ hA₀ : 1 ≤ A₀,
+ hloc : ∀ (t : ℝ), ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3),
+ hC₁ : ∀ (T : ℝ), 0 ≤ C₁ T,
+ hdecay : ∀ᶠ (T : ℝ) in Filter.atTop,
+   ∀ (r y : ℝ),
+     |y| ≤ 1 / 2 →
+       ↑r - Complex.I * ↑y ≠ 0 →
+         ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ T / ‖↑r - Complex.I * ↑y‖ ^ 2,
+ ha : ∀ᶠ (T : ℝ) in Filter.atTop, 0 < P.a T,
+ hconj : ∀ᶠ (T : ℝ) in Filter.atTop, ∀ (z : ℂ), P.phiHat T ((starRingEnd ℂ) z) = (starRingEnd ℂ) (P.phiHat T z)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_T_pos nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_Gsummand nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_eq_completed nprop=2 [hψ : ψ ≠ 1, hw : 0 < w.re]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window_finite nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_tail nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hst : s ⊆ t,
+ ht : t ⊆ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).window T₁ T₂]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hL nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁ nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.LFunction_analyticOnNhd nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_bddAbove_near_one nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_main nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.RiemannVonMangoldt (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ hs : s ⊆ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).window T₁ T₂]
+B564GRADE SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_isBigO_one nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_not_mem_sA_iff nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hasSum_Ez nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_finite_notTail nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_L_pos nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Ez_isHermitian nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) x0 x1 A₀ C₁,
+ hconj : ∀ (z : ℂ), x0.phiHat x1 ((starRingEnd ℂ) z) = (starRingEnd ℂ) (x0.phiHat x1 z)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_hat nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Assembly.BlockInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T]
+B564GRADE SIDEExplicitFormula.GRHWeil.chiZeroConfig_carrier nprop=2 [hχ : χ.IsPrimitive, h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hat_Ez_isHermitian nprop=4 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) x0 x1 A₀ C₁,
+ hconj : ∀ (z : ℂ), x0.phiHat x1 ((starRingEnd ℂ) z) = (starRingEnd ℂ) (x0.phiHat x1 z)]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hdecay nprop=5 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁,
+ a._@._internal._hyg.0 : |y| ≤ 1 / 2,
+ a._@._internal._hyg.0 : ↑r - Complex.I * ↑y ≠ 0]
+B564GRADE SIDEExplicitFormula.GRHWeil.analyticAt_LFunction nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.sum_range_block_char_eq_zero nprop=1 [h1 : χ ≠ 1]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_congr_simp nprop=8 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ e_Z : SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1 = Z,
+ e_P : P✝ = P,
+ e_T : T✝ = T,
+ e_A₀ : A₀✝ = A₀,
+ e_C₁ : C₁✝ = C₁,
+ x._@.Zeta23.Tail.3140258659._hygCtx._hyg.19 : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P✝ T✝ A₀✝ C₁✝]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le nprop=5 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ H : Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁,
+ hκ : 0 ≤ κ,
+ hM : (↑κ • (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Ez P T).IsHermitian]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_tilde nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.Assembly.TailInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T θ₀]
+B564GRADE SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_Gamma nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ self : Zeta23.PaperInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)]
+B564GRADE SIDEExplicitFormula.GRHWeil.chi_mult_reflect nprop=3 [hχ : χ.IsPrimitive,
+ h1 : χ ≠ 1,
+ h : SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ]

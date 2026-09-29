@@ -1,0 +1,129 @@
+b564 -- READING (6): PART (b) -- THE GENERIC MODULES CONSUMED BY THE χ-INSTANCE
+
+### the branch grh-weil-b564 at 6ec71b3, cut from v0.7 = 1e4a007 ; the file SIDEExplicitFormula/Chi/Generic.lean (sha256 at the tip 77480b0c4a50ab7b)
+
+### THE ELABORATION ATTEMPTS (`lake env lean --stdin` against the scratchpad oleans; the index line, then the errors):
+    b_1 file SIDEExplicitFormula/Chi/Generic.lean sha256 0d63a2b65f20fed828f177d025956f80ba2f2bfd03adccd16512c09a66b67d28 exit 1 elapsed 28 s errors 6 at 2026-09-29T22:17:19Z
+        | <stdin>:376:52: error: don't know how to synthesize placeholder for argument `T`
+        | <stdin>:376:50: error: don't know how to synthesize placeholder for argument `P`
+        | <stdin>:431:56: error: don't know how to synthesize placeholder for argument `T`
+        | <stdin>:431:54: error: don't know how to synthesize placeholder for argument `P`
+        | <stdin>:476:58: error: don't know how to synthesize placeholder for argument `T`
+        | <stdin>:476:56: error: don't know how to synthesize placeholder for argument `P`
+    b_2 file SIDEExplicitFormula/Chi/Generic.lean sha256 77480b0c4a50ab7b1b3be468ea4edee58dab7d64f0da28f070ab3302d94c0773 exit 0 elapsed 24 s errors 0 at 2026-09-29T22:19:21Z
+### the part closed at attempt 2 of four
+
+### THE DECLARATIONS (91), AS THE TIP STATES THEM (first lines), AND LEAN`S PRINT OF EACH:
+      65 | def chi_Assembly_BlockInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+      70 | theorem chi_Assembly_BlockInputs_hat (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :          ['propext', 'Classical.choice', 'Quot.sound']
+      75 | theorem chi_Assembly_BlockInputs_tilde (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :        ['propext', 'Classical.choice', 'Quot.sound']
+      80 | def chi_Assembly_NII (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+      85 | def chi_Assembly_TailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+      90 | theorem chi_Assembly_TailInputs_hat (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+      95 | theorem chi_Assembly_TailInputs_theta_nonneg (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :  ['propext', 'Classical.choice', 'Quot.sound']
+     100 | theorem chi_Assembly_TailInputs_tilde (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :         ['propext', 'Classical.choice', 'Quot.sound']
+     105 | def chi_ZeroConfig_Az (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     110 | def chi_ZeroConfig_Ez (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     115 | def chi_ZeroConfig_Gsummand (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+     120 | def chi_ZeroConfig_Gz (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     125 | def chi_ZeroConfig_N (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+     130 | def chi_ZeroConfig_N0 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     135 | def chi_ZeroConfig_N0s (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                        ['propext', 'Classical.choice', 'Quot.sound']
+     140 | def chi_ZeroConfig_N0star (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                     ['propext', 'Classical.choice', 'Quot.sound']
+     145 | def chi_ZeroConfig_NIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     150 | def chi_ZeroConfig_Nd (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     155 | def chi_ZeroConfig_NonIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+     160 | def chi_ZeroConfig_Ns (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     165 | def chi_ZeroConfig_S1 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     170 | def chi_ZeroConfig_S2 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     175 | def chi_ZeroConfig_W (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+     180 | def chi_ZeroConfig_Wsummand (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+     185 | def chi_ZeroConfig_ZIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     190 | def chi_ZeroConfig_ctorIdx (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     195 | def chi_ZeroConfig_offLine (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     200 | def chi_ZeroConfig_p (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+     205 | def chi_ZeroConfig_s1 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     210 | def chi_ZeroConfig_s2 (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                         ['propext', 'Classical.choice', 'Quot.sound']
+     215 | def chi_ZeroConfig_simple (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                     ['propext', 'Classical.choice', 'Quot.sound']
+     220 | def chi_ZeroConfig_window (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                     ['propext', 'Classical.choice', 'Quot.sound']
+     225 | theorem chi_ZeroConfig_N0star_le_Nd (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+     230 | theorem chi_ZeroConfig_Nd_le_N (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                ['propext', 'Classical.choice', 'Quot.sound']
+     235 | theorem chi_ZeroConfig_finsum_mult_mono (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+     240 | theorem chi_ZeroConfig_ncard_le_finsum_mult (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :   ['propext', 'Classical.choice', 'Quot.sound']
+     245 | theorem chi_ZeroConfig_ncard_mono (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :             ['propext', 'Classical.choice', 'Quot.sound']
+     250 | theorem chi_ZeroConfig_trivial_chain (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :          ['propext', 'Classical.choice', 'Quot.sound']
+     255 | theorem chi_ZeroConfig_window_finite (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :          ['propext', 'Classical.choice', 'Quot.sound']
+     260 | theorem chi_ZeroConfig_window_subset_carrier (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :  ['propext', 'Classical.choice', 'Quot.sound']
+     265 | def chi_EF_EF_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                             ['propext', 'Classical.choice', 'Quot.sound']
+     270 | def chi_EF_EF_paper (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                           ['propext', 'Classical.choice', 'Quot.sound']
+     275 | theorem chi_EF_prop_EF_of_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+     280 | theorem chi_EF_explicitFormulaPaper_of_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :    ['propext', 'Classical.choice', 'Quot.sound']
+     285 | def chi_ExplicitFormulaPaper (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+     290 | def chi_PaperInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                           ['propext', 'Classical.choice', 'Quot.sound']
+     295 | theorem chi_PaperInputs_EF (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     300 | theorem chi_PaperInputs_Gamma (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+     305 | theorem chi_PaperInputs_MV (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     310 | theorem chi_PaperInputs_RvM (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+     315 | theorem chi_PaperInputs_cheb (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+     320 | def chi_RiemannVonMangoldt (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+     325 | theorem chi_RiemannVonMangoldt_local_count (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :    ['propext', 'Classical.choice', 'Quot.sound']
+     330 | theorem chi_RiemannVonMangoldt_main (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+     335 | theorem chi_ZeroConfig_N_le_two_mul_half (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :      ['propext', 'Classical.choice', 'Quot.sound']
+     340 | theorem chi_ZeroConfig_reflect_mem_window (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :     ['propext', 'Classical.choice', 'Quot.sound']
+     345 | theorem chi_Tail_Gsummand_eq (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+     350 | theorem chi_Tail_LocalCount_ofWindowCount (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :     ['propext', 'Classical.choice', 'Quot.sound']
+     355 | theorem chi_Tail_NII_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                       ['propext', 'Classical.choice', 'Quot.sound']
+     360 | def chi_Tail_TailHyp (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                          ['propext', 'Classical.choice', 'Quot.sound']
+     365 | theorem chi_Tail_TailHyp_Az_eq_sum (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+     370 | theorem chi_Tail_TailHyp_A₀_nonneg (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+     375 | theorem chi_Tail_TailHyp_Ez_isHermitian (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+     380 | def chi_Tail_TailHyp_K (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                        ['propext', 'Classical.choice', 'Quot.sound']
+     385 | theorem chi_Tail_TailHyp_K_congr_simp (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :         ['propext', 'Classical.choice', 'Quot.sound']
+     390 | theorem chi_Tail_TailHyp_K_nonneg (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :             ['propext', 'Classical.choice', 'Quot.sound']
+     395 | theorem chi_Tail_TailHyp_L_pos (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                ['propext', 'Classical.choice', 'Quot.sound']
+     400 | theorem chi_Tail_TailHyp_T_pos (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                ['propext', 'Classical.choice', 'Quot.sound']
+     405 | theorem chi_Tail_TailHyp_hA₀ (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+     410 | theorem chi_Tail_TailHyp_hC₁ (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                  ['propext', 'Classical.choice', 'Quot.sound']
+     415 | theorem chi_Tail_TailHyp_hL (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+     420 | theorem chi_Tail_TailHyp_hT (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                   ['propext', 'Classical.choice', 'Quot.sound']
+     425 | theorem chi_Tail_TailHyp_hasSum_Ez (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+     430 | theorem chi_Tail_TailHyp_hat_Ez_isHermitian (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :   ['propext', 'Classical.choice', 'Quot.sound']
+     435 | theorem chi_Tail_TailHyp_hdecay (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :               ['propext', 'Classical.choice', 'Quot.sound']
+     440 | theorem chi_Tail_TailHyp_hloc (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+     445 | theorem chi_Tail_TailHyp_not_mem_sA_iff (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+     450 | theorem chi_Tail_TailHyp_partial_sum_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :       ['propext', 'Classical.choice', 'Quot.sound']
+     455 | def chi_Tail_TailHyp_sA (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                       ['propext', 'Classical.choice', 'Quot.sound']
+     460 | theorem chi_Tail_TailHyp_summable_Gsummand (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :    ['propext', 'Classical.choice', 'Quot.sound']
+     465 | theorem chi_Tail_TailHyp_summable_tail (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :        ['propext', 'Classical.choice', 'Quot.sound']
+     470 | theorem chi_Tail_TailHyp_tailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :           ['propext', 'Classical.choice', 'Quot.sound']
+     475 | theorem chi_Tail_TailHyp_tilde_Ez_isHermitian (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : ['propext', 'Classical.choice', 'Quot.sound']
+     480 | theorem chi_Tail_TailHyp_traceNorm_smul_Ez_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : ['propext', 'Classical.choice', 'Quot.sound']
+     485 | theorem chi_Tail_TailHyp_tsum_tail_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :         ['propext', 'Classical.choice', 'Quot.sound']
+     490 | theorem chi_Tail_eventually_NII_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :            ['propext', 'Classical.choice', 'Quot.sound']
+     495 | theorem chi_Tail_eventually_tailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :        ['propext', 'Classical.choice', 'Quot.sound']
+     500 | theorem chi_Tail_finite_notTail (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :               ['propext', 'Classical.choice', 'Quot.sound']
+     505 | theorem chi_Tail_norm_sq_uvec_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :              ['propext', 'Classical.choice', 'Quot.sound']
+     510 | theorem chi_Tail_norm_uvec_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                 ['propext', 'Classical.choice', 'Quot.sound']
+     515 | theorem chi_Tail_prop_tail (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :                    ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 91 OF 91 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### THE CONSUMPTION BUILD: every one of the 38 generic modules imported by name, unedited (the Zeta23 blobs at the
+### tip against v0.7: UNCHANGED); the Lean scan`s 91 consumer declarations instantiated at chiZeroConfig (relay
+### data/b564_generic_leanscan.txt); the modules with no ZeroConfig-taking declaration are consumed by import alone.
+
+### THE SCAN FOR riemannZeta AND THE ζ-SPECIFIC CONSTANTS (relay data/b564_generic_scan.txt, hit lines there),
+### read by hand -- each module carrying a marker, the lines that make it ζ-specific by the face`s definition:
+    Zeta23.Defs                        RE-CLASSIFIED ζ-SPECIFIC -- :55-:69 mu (ζ`s Γ bracket, digamma at 1/4 + iτ/2, log π), PiX (the pole of ζ), PX and nuX (the Λ(n) sum, no χ)
+    Zeta23.ExplicitFormula             RE-CLASSIFIED ζ-SPECIFIC -- :37 gammaBracket, :40-:44 literatureRHS (the pole terms paperFT k (±I/2), the Λ(n) sum, ζ`s Γ term)
+    Zeta23.ExplicitFormula.Bridge      RE-CLASSIFIED ζ-SPECIFIC -- :80-:165 bounds on mu, ζ`s Γ bracket
+    Zeta23.GammaFacts                  RE-CLASSIFIED ζ-SPECIFIC -- :31-:87 mu`s evenness and smoothness (digamma at 1/4 + iτ/2)
+    Zeta23.GammaFacts.Mu               RE-CLASSIFIED ζ-SPECIFIC -- :120-:383 mu`s monotonicity and derivative bound; log π
+    Zeta23.GammaFacts.StirlingVert     RE-CLASSIFIED ζ-SPECIFIC -- :601-:615 mu`s Stirling expansion
+    Zeta23.Hypotheses                  RE-CLASSIFIED ζ-SPECIFIC -- :62-:73 the fields on mu, :22-:46 the Λ(n) sums and nuX
+    Zeta23.WeilEF.GammaRBracket        RE-CLASSIFIED ζ-SPECIFIC -- :86 mu`s bracket (digamma(1/4 + it/2) - log π); its :42 is the generic logDeriv of Gammaℝ
+### riemannZeta itself named in a generic module: NONE
+### ### **THE COUNT CORRECTED: GENERIC 38 -> 30 ; ζ-SPECIFIC 19 -> 27** (the constants clause; the lexical rule of b562
+### names none of them ζ-specific, since they carry ζ`s shape under neutral names -- b562`s own bank said so of two).
+### H16a`s first clause (consumed without edit): HELD ; its second (no generic module names riemannZeta or a
+### ζ-specific constant): REFUTED by the 8 modules above.
+### ### **H16a : REFUTED** ### (S3) : HELD

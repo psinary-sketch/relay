@@ -1,0 +1,65 @@
+import Zeta23.Analytic.RectangleLogDeriv
+import Zeta23.Analytic.Stirling
+import Zeta23.Assembly.Inputs
+import Zeta23.Defs
+import Zeta23.Defs.Counting
+import Zeta23.ExplicitFormula
+import Zeta23.ExplicitFormula.Bridge
+import Zeta23.FromPNTPlus.Auxiliary
+import Zeta23.FromPNTPlus.EulerMaclaurin
+import Zeta23.FromPNTPlus.Fourier
+import Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Zeta23.FromPNTPlus.Rectangle
+import Zeta23.FromPNTPlus.ResidueCalcOnRectangles
+import Zeta23.FromPNTPlus.Sobolev
+import Zeta23.FromPNTPlus.StrongPNTPrefix
+import Zeta23.FromPNTPlus.Tactic.AdditiveCombination
+import Zeta23.GammaFacts
+import Zeta23.GammaFacts.Mu
+import Zeta23.GammaFacts.Series
+import Zeta23.GammaFacts.StirlingVert
+import Zeta23.Hypotheses
+import Zeta23.LinAlg
+import Zeta23.LinAlg.HermitianPosPart
+import Zeta23.LinAlg.Inertia
+import Zeta23.LinAlg.PosIndex
+import Zeta23.LinAlg.RankTrace
+import Zeta23.LinAlg.Sylvester
+import Zeta23.LinAlg.VonNeumann
+import Zeta23.LinAlg.Weyl
+import Zeta23.Poisson.PaperFT
+import Zeta23.Prelude.InstancePriorities
+import Zeta23.RvM.Halving
+import Zeta23.Tail
+import Zeta23.Tail.Basic
+import Zeta23.Tail.Count
+import Zeta23.Tail.Grid
+import Zeta23.Tail.RankOne
+import Zeta23.WeilEF.GammaRBracket
+import Lean
+open Lean Meta Elab Command
+
+/-- b564 READING (6)(b): the scan. Every constant declared in a generic Zeta23 module whose type mentions Zeta23.ZeroConfig,
+with the index of its first binder of that type (explicit or not), its kind, and its binder infos before that index. -/
+run_cmd do
+  let env ← getEnv
+  let mods : Array Name := #[`Zeta23.Analytic.RectangleLogDeriv, `Zeta23.Analytic.Stirling, `Zeta23.Assembly.Inputs, `Zeta23.Defs, `Zeta23.Defs.Counting, `Zeta23.ExplicitFormula, `Zeta23.ExplicitFormula.Bridge, `Zeta23.FromPNTPlus.Auxiliary, `Zeta23.FromPNTPlus.EulerMaclaurin, `Zeta23.FromPNTPlus.Fourier, `Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic, `Zeta23.FromPNTPlus.Rectangle, `Zeta23.FromPNTPlus.ResidueCalcOnRectangles, `Zeta23.FromPNTPlus.Sobolev, `Zeta23.FromPNTPlus.StrongPNTPrefix, `Zeta23.FromPNTPlus.Tactic.AdditiveCombination, `Zeta23.GammaFacts, `Zeta23.GammaFacts.Mu, `Zeta23.GammaFacts.Series, `Zeta23.GammaFacts.StirlingVert, `Zeta23.Hypotheses, `Zeta23.LinAlg, `Zeta23.LinAlg.HermitianPosPart, `Zeta23.LinAlg.Inertia, `Zeta23.LinAlg.PosIndex, `Zeta23.LinAlg.RankTrace, `Zeta23.LinAlg.Sylvester, `Zeta23.LinAlg.VonNeumann, `Zeta23.LinAlg.Weyl, `Zeta23.Poisson.PaperFT, `Zeta23.Prelude.InstancePriorities, `Zeta23.RvM.Halving, `Zeta23.Tail, `Zeta23.Tail.Basic, `Zeta23.Tail.Count, `Zeta23.Tail.Grid, `Zeta23.Tail.RankOne, `Zeta23.WeilEF.GammaRBracket]
+  for (n, ci) in env.constants.map₁.toList do
+    let some idx := env.getModuleIdxFor? n | continue
+    let m := env.header.moduleNames[idx.toNat]!
+    unless mods.contains m do continue
+    if n.isInternal then continue
+    unless ci.type.getUsedConstants.contains `Zeta23.ZeroConfig do continue
+    let kind := match ci with
+      | .thmInfo _ => "theorem" | .defnInfo _ => "def" | .inductInfo _ => "inductive"
+      | .ctorInfo _ => "ctor" | .recInfo _ => "rec" | .axiomInfo _ => "axiom" | .opaqueInfo _ => "opaque" | _ => "other"
+    let r ← liftTermElabM <| forallTelescope ci.type fun xs _ => do
+      let mut pos : Option Nat := none
+      let mut infos : Array String := #[]
+      for i in [0:xs.size] do
+        let d ← xs[i]!.fvarId!.getDecl
+        let t ← instantiateMVars d.type
+        if pos.isNone && t.isConstOf `Zeta23.ZeroConfig then pos := some i
+        if pos.isNone then infos := infos.push (toString d.binderInfo.isExplicit)
+      return (pos, infos)
+    logInfo m!"B564SCAN {m} {n} {kind} pos={r.1} before={r.2}"

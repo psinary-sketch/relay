@@ -1,0 +1,85 @@
+b564 -- READING (6)(c): THE MATHLIB SEARCH FOR THE HELD FACT (the checkout at 51e6992e, case-sensitive)
+
+### the Mathlib checkout -- 8302 .lean files under D:\SIDE-explicit-formula\.lake\packages\mathlib\Mathlib, case-insensitive
+  query LFunction on the strip by its series regex (?-i:LFunction_eq_LSeries|LFunction_eq_tsum|LFunction_eq_sum|LFunction_eq_integral) files    4  lines    14
+      Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:30: * `LFunction_eq_LSeries`: if `1 < re s` then the `LFunction` coincides with the naive `LSeries`.
+      Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:75: lemma LFunction_eq_LSeries (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < re s) :
+      Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:77: ZMod.LFunction_eq_LSeries χ hs
+      Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:85: exact LFunction_eq_LSeries χ hz
+      Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:144: · simpa [LFunction_eq_LSeries _ ht] using LSeries_changeLevel hMN χ ht
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:155: simp only [ne_eq, hs', not_false_eq_true, Function.update_of_ne, B.χ.LFunction_eq_LSeries hs]
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:312: rw [LFunctionTrivChar, DirichletCharacter.LFunction_eq_LSeries 1 h₀,
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:313: χ.LFunction_eq_LSeries h₁, (χ ^ 2).LFunction_eq_LSeries h₂]
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:401: fun hs ↦ LFunction_eq_LSeries χ hs ▸ LSeries_ne_zero_of_one_lt_re χ hs
+      Mathlib/NumberTheory/LSeries/PrimesInAP.lean:44: simple pole at `s = 1`); see `DirichletCharacter.LFunction_eq_LSeries`
+      Mathlib/NumberTheory/LSeries/PrimesInAP.lean:242: simp only [deriv_LFunction_eq_deriv_LSeries _ hs, LFunction_eq_LSeries _ hs, neg_mul, ← mul_neg,
+      Mathlib/NumberTheory/LSeries/ZMod.lean:39: * `ZMod.LFunction_eq_LSeries`: if `1 < re s` then the `LFunction` coincides with the naive
+      Mathlib/NumberTheory/LSeries/ZMod.lean:93: lemma LFunction_eq_LSeries (Φ : ZMod N → ℂ) {s : ℂ} (hs : 1 < re s) :
+      Mathlib/NumberTheory/LSeries/ZMod.lean:156: LFunction_eq_LSeries _ hs, LSeries]
+  query L-series as the summatory integral regex (?-i:LSeries_eq_mul_integral)                                files    1  lines    10
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:26: * `LSeries_eq_mul_integral` : for `f : ℕ → ℂ`, if the partial sums `∑ k ∈ Icc 1 n, f k` are
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:98: private theorem LSeries_eq_mul_integral_aux {f : ℕ → ℂ} (hf : f 0 = 0) {r : ℝ} (hr : 0 ≤ r) {s : ℂ}
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:137: theorem LSeries_eq_mul_integral (f : ℕ → ℂ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:145: rw [← LSeries_congr fun _ ↦ if_neg _, LSeries_eq_mul_integral_aux (if_pos rfl) hr hs hS] <;>
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:148: /-- A version of `LSeries_eq_mul_integral` where we use the stronger condition that the partial sums
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:150: theorem LSeries_eq_mul_integral' (f : ℕ → ℂ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:153: LSeries_eq_mul_integral _ hr hs (LSeriesSummable_of_sum_norm_bigO hO hr hs) <|
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:159: theorem LSeries_eq_mul_integral_of_nonneg (f : ℕ → ℝ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:163: LSeries_eq_mul_integral' _ hr hs <| hO.congr_left fun _ ↦ by simp [abs_of_nonneg (hf _)]
+      Mathlib/NumberTheory/LSeries/SumCoeff.lean:294: rw [h₃, mul_one, mul_comm l, LSeries_eq_mul_integral _ zero_le_one (by rwa [ofReal_re])
+  query convergence off absolute convergence regex (?-i:abscissaOfConv\b|LSeries_converges|LSeriesConverges|conditionally) files   81  lines   250
+      Mathlib/Algebra/Order/Archimedean/Hom.lean:16: conditionally complete.
+      Mathlib/Algebra/Order/Archimedean/Real/Basic.lean:17: # The real numbers are an Archimedean floor ring, and a conditionally complete linear order.
+      Mathlib/Algebra/Order/CompleteField.lean:15: axioms of the reals (field, conditionally complete, linearly ordered) that there is an isomorphism
+      Mathlib/Algebra/Order/CompleteField.lean:20: We show all conditionally complete linear ordered fields are
+      Mathlib/Algebra/Order/CompleteField.lean:26: ordered field to a conditionally complete linear ordered field. Various bundlings are available.
+      Mathlib/Algebra/Order/CompleteField.lean:31: from an archimedean linear ordered field to a conditionally complete linear ordered field.
+      Mathlib/Algebra/Order/CompleteField.lean:33: between two conditionally complete linearly ordered fields.
+      Mathlib/Algebra/Order/CompleteField.lean:41: reals, conditionally complete, ordered field, uniqueness
+      Mathlib/Algebra/Order/CompleteField.lean:54: /-- A field which is both linearly ordered and conditionally complete with respect to the order.
+      Mathlib/Algebra/Order/CompleteField.lean:62: /-- Any conditionally complete linearly ordered field is archimedean. -/
+      Mathlib/Algebra/Order/CompleteField.lean:77: The idea is that a conditionally complete linear ordered field is fully characterized by its copy of
+      Mathlib/Algebra/Order/CompleteField.lean:162: /-- The induced order-preserving function from a linear ordered field to a conditionally complete
+      Mathlib/Algebra/Order/CompleteField.lean:283: /-- The isomorphism of ordered rings between two conditionally complete linearly ordered fields. -/
+      Mathlib/Algebra/Order/CompleteField.lean:310: conditionally complete linear ordered field. -/
+      Mathlib/Algebra/Order/CompleteField.lean:314: /-- There is a unique ordered ring isomorphism between two conditionally complete linear ordered
+      Mathlib/Algebra/Order/Nonneg/Lattice.lean:49: protected noncomputable abbrev conditionallyCompleteLinearOrder [ConditionallyCompleteLinearOrder α]
+      Mathlib/Algebra/Order/Nonneg/Lattice.lean:62: protected noncomputable abbrev conditionallyCompleteLinearOrderBot
+      Mathlib/Algebra/Order/Nonneg/Lattice.lean:65: { Nonneg.orderBot, Nonneg.conditionallyCompleteLinearOrder with
+      Mathlib/Algebra/Polynomial/Eval/Defs.lean:527: -- `map` is a ring-hom unconditionally, and theoretically the definition could be replaced,
+      Mathlib/Algebra/Tropical/BigOperators.lean:123: as it is simply not true on conditionally complete lattices! -/
+      Mathlib/Analysis/Complex/AbelLimit.lean:17: known to converge conditionally at 1, Abel's limit theorem gives the value at 1 as the limit of the
+      Mathlib/Analysis/Convex/Gauge.lean:90: but, the real infimum of the empty set in Lean being defined as `0`, it holds unconditionally). -/
+      Mathlib/Analysis/InnerProductSpace/l2Space.lean:495: converges unconditionally. -/
+      Mathlib/Analysis/Normed/Group/InfiniteSum.lean:78: /-- A version of the **direct comparison test** for conditionally convergent series.
+      Mathlib/Analysis/Normed/Module/FiniteDimension.lean:609: /-- In a finite-dimensional vector space over `ℝ`, the series `∑ x, ‖f x‖` is unconditionally
+      Mathlib/Analysis/Normed/Module/FiniteDimension.lean:610: summable if and only if the series `∑ x, f x` is unconditionally summable. One implication holds in
+      Mathlib/Analysis/PSeries.lean:350: /-- Harmonic series is not unconditionally summable. -/
+      Mathlib/Analysis/PSeries.lean:356: /-- Harmonic series is not unconditionally summable. -/
+      Mathlib/Analysis/Seminorm.lean:566: /-- `Seminorm 𝕜 E` is a conditionally complete lattice.
+      Mathlib/Analysis/Seminorm.lean:575: conditionallyCompleteLatticeOfLatticeOfsSup (Seminorm 𝕜 E) Seminorm.isLUB_sSup
+      Mathlib/Analysis/SpecificLimits/Normed.lean:854: -- TODO: generalize to conditionally-convergent sums
+      Mathlib/CategoryTheory/Limits/Sifted.lean:60: - it applies unconditionally (which can be a performance drain),
+      Mathlib/CategoryTheory/Sites/Sheaf.lean:32: * An alternate definition in terms of limits, unconditionally equivalent to the original one:
+      Mathlib/Combinatorics/Matroid/Circuit.lean:49: These make the useful statement `e ∈ M.fundCircuit e I ⊆ insert e I` true unconditionally.
+      Mathlib/Combinatorics/Matroid/Minor/Delete.lean:23: whereas `M ＼ D`, being defined as `M ↾ (M.E \ D)`, satisfies `M ＼ D ≤r M` unconditionally.
+      Mathlib/Combinatorics/Matroid/Rank/Cardinal.lean:43: which have a more unconditionally strong API,
+      Mathlib/Data/EReal/Basic.lean:17: `WithBot (WithTop L)` completes a conditionally complete linear order `L`.
+      Mathlib/Data/Int/Bitwise.lean:177: /-- Defines a function from `ℤ` conditionally, if it is defined for odd and even integers separately
+      Mathlib/Data/Int/ConditionallyCompleteOrder.lean:12: ## `ℤ` forms a conditionally complete linear order
+      Mathlib/Data/Int/ConditionallyCompleteOrder.lean:14: The integers form a conditionally complete linear order.
+      ... 210 more lines, their files: ['Mathlib/Data/NNReal/Defs.lean', 'Mathlib/Data/Real/Basic.lean', 'Mathlib/Data/Real/Pointwise.lean', 'Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean', 'Mathlib/MeasureTheory/Function/AEMeasurableOrder.lean', 'Mathlib/MeasureTheory/Measure/Stieltjes.lean', 'Mathlib/MeasureTheory/VectorMeasure/Integral.lean', 'Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean', 'Mathlib/Order/Bounds/Basic.lean', 'Mathlib/Order/CompleteLattice/Basic.lean', 'Mathlib/Order/CompleteLatticeIntervals.lean', 'Mathlib/Order/CompletePartialOrder.lean', 'Mathlib/Order/ConditionallyCompleteLattice/Basic.lean', 'Mathlib/Order/ConditionallyCompleteLattice/Defs.lean', 'Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean', 'Mathlib/Order/ConditionallyCompletePartialOrder/Basic.lean', 'Mathlib/Order/ConditionallyCompletePartialOrder/Defs.lean', 'Mathlib/Order/ConditionallyCompletePartialOrder/Indexed.lean', 'Mathlib/Order/Copy.lean', 'Mathlib/Order/Filter/AtTopBot/CompleteLattice.lean', 'Mathlib/Order/Filter/Defs.lean', 'Mathlib/Order/Filter/IsBounded.lean', 'Mathlib/Order/Interval/Set/OrdConnectedLinear.lean', 'Mathlib/Order/IsNormal.lean', 'Mathlib/Order/LiminfLimsup.lean', 'Mathlib/Order/OrdContinuous.lean', 'Mathlib/Order/PartialSups.lean', 'Mathlib/Order/SemiconjSup.lean', 'Mathlib/Order/SuccPred/CompleteLinearOrder.lean', 'Mathlib/Order/WellFounded.lean', 'Mathlib/Probability/Independence/Conditional.lean', 'Mathlib/Probability/Independence/ZeroOne.lean', 'Mathlib/Probability/Moments/SubGaussian.lean', 'Mathlib/SetTheory/Cardinal/Cofinality/Club.lean', 'Mathlib/SetTheory/Cardinal/Cofinality/Enum.lean', 'Mathlib/SetTheory/Cardinal/Order.lean', 'Mathlib/SetTheory/Cardinal/SchroederBernstein.lean', 'Mathlib/SetTheory/Ordinal/Basic.lean', 'Mathlib/SetTheory/Ordinal/Family.lean', 'Mathlib/Tactic/ComputeAsymptotics/Multiseries/Defs.lean', 'Mathlib/Tactic/Continuity.lean', 'Mathlib/Topology/Algebra/InfiniteSum/Defs.lean', 'Mathlib/Topology/Algebra/InfiniteSum/Group.lean', 'Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean', 'Mathlib/Topology/Algebra/InfiniteSum/Order.lean', 'Mathlib/Topology/Algebra/InfiniteSum/SummationFilter.lean', 'Mathlib/Topology/EMetricSpace/BoundedVariation.lean', 'Mathlib/Topology/FiberBundle/Basic.lean', 'Mathlib/Topology/MetricSpace/Bounded.lean', 'Mathlib/Topology/MetricSpace/GromovHausdorffRealized.lean', 'Mathlib/Topology/MetricSpace/HausdorffDistance.lean', 'Mathlib/Topology/Order/Basic.lean', 'Mathlib/Topology/Order/Compact.lean', 'Mathlib/Topology/Order/IntermediateValue.lean', 'Mathlib/Topology/Order/IsLUB.lean', 'Mathlib/Topology/Order/IsNormal.lean', 'Mathlib/Topology/Order/LiminfLimsup.lean', 'Mathlib/Topology/Order/MonotoneConvergence.lean', 'Mathlib/Topology/Order/OrderClosed.lean']
+  query bounded partial sums of a character regex (?-i:(?:DirichletCharacter|MulChar)\.\w*(?:sum_range|sum_Icc|partial|norm_sum|sum_le|bounded)\w*) files    0  lines     0
+  query Dirichlet test for series          regex (?-i:cauchySeq_series_mul_of_tendsto_zero_of_bounded|Monotone\.cauchySeq_series_mul|Antitone\.cauchySeq_series_mul) files    1  lines     5
+      Mathlib/Analysis/SpecificLimits/Normed.lean:722: theorem Monotone.cauchySeq_series_mul_of_tendsto_zero_of_bounded (hfa : Monotone f)
+      Mathlib/Analysis/SpecificLimits/Normed.lean:741: theorem Antitone.cauchySeq_series_mul_of_tendsto_zero_of_bounded (hfa : Antitone f)
+      Mathlib/Analysis/SpecificLimits/Normed.lean:748: convert! (hfa'.cauchySeq_series_mul_of_tendsto_zero_of_bounded hf0' hzb).neg
+      Mathlib/Analysis/SpecificLimits/Normed.lean:760: exact hfa.cauchySeq_series_mul_of_tendsto_zero_of_bounded hf0 norm_sum_neg_one_pow_le
+      Mathlib/Analysis/SpecificLimits/Normed.lean:773: exact hfa.cauchySeq_series_mul_of_tendsto_zero_of_bounded hf0 norm_sum_neg_one_pow_le
+  query growth of LFunction in vertical strips regex (?-i:LFunction\w*(?:isBigO|IsBigO|bound|Bound|growth))       files    1  lines     6
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:316: lemma LFunctionTrivChar_isBigO_near_one_horizontal :
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:334: lemma LFunction_isBigO_horizontal {y : ℝ} (hy : y ≠ 0 ∨ χ ≠ 1) :
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:342: private lemma LFunction_isBigO_horizontal_of_eq_zero {y : ℝ} (hy : y ≠ 0 ∨ χ ≠ 1)
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:373: have H := (LFunctionTrivChar_isBigO_near_one_horizontal (N := N)).pow 3 |>.mul <|
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:374: (χ.LFunction_isBigO_horizontal_of_eq_zero hz₁ Hz).pow 4 |>.mul <|
+      Mathlib/NumberTheory/LSeries/Nonvanishing.lean:375: LFunction_isBigO_horizontal _ hz₂
