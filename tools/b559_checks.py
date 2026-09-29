@@ -143,6 +143,69 @@ def peek_by_digest(face, lockn, scan):
     return after, before
 
 
+RERUN = '--rerun-postpush' in sys.argv   # ### (R170)(3), b560: b558`s flag, carried -- one named record, no table regeneration
+
+
+def cr0(b):
+    return b.replace(b'\r\n', b'\n') if b is not None else None
+
+
+def written_by_digest(repo, rel):
+    """### (R170)(3), b560: `G-WRITELIST-KINDS``s post-push reading. A tracked file the working tree shows as modified counts
+    ### as written by the act when its bytes (CR stripped) differ by sha256 from its blob in the PUSHED tree (origin/main),
+    ### in place of its file time against the face`s -- which a checkout rewrites (b559`s defect (i))."""
+    p = os.path.join(repo, rel)
+    work = cr0(open(p, 'rb').read()) if os.path.isfile(p) else b''
+    pub = cr0(blob(repo, 'origin/main:' + rel.replace(os.sep, '/')))
+    return pub is None or hashlib.sha256(work).hexdigest() != hashlib.sha256(pub).hexdigest()
+
+
+def blob_id(b):
+    return hashlib.sha1(b'blob %d\x00' % len(b) + b).hexdigest()
+
+
+def tree_ids(repo, rev, sub):
+    out = {}
+    for l in gits(repo, 'ls-tree', '-r', rev, '--', sub).split(NL):
+        if '\t' in l:
+            meta, path = l.split('\t', 1)
+            out[path] = meta.split()[2]
+    return out
+
+
+def prior_by_digest(files, prior_rev):
+    """### (R170)(3), b560: `G-PRIORBANK-UNCHANGED``s post-push reading. Every prior bank a tree tracks is read by content:
+    ### its working bytes (CR stripped, and raw) as a git blob id against its blob at the act`s pre-act tip AND at the pushed
+    ### tree; a bank first tracked in the pushed tree is read against that tree alone; a bank no tree tracks has no digest to
+    ### read against and is read by file time, its count returned. Returns (ok, n_prior_tree, n_pushed_only, n_time, bad)."""
+    pre, pub = tree_ids(ROOT, prior_rev, 'data'), tree_ids(ROOT, 'origin/main', 'data')
+    bad, n_pre, n_pub, n_time = [], 0, 0, 0
+    # ### a prior bank that is a directory (b558_editions) is read file by file, each by its own digest.
+    exp = []
+    for f in files:
+        if os.path.isdir(os.path.join(D, f)):
+            exp += sorted(f + '/' + x for x in os.listdir(os.path.join(D, f)) if os.path.isfile(os.path.join(D, f, x)))
+        else:
+            exp.append(f)
+    for f in exp:
+        k = 'data/' + f
+        raw = open(os.path.join(D, f), 'rb').read()
+        ids = {blob_id(raw), blob_id(cr0(raw))}
+        if k in pre:
+            n_pre += 1
+            if pre[k] not in ids or pub.get(k) not in ids:
+                bad.append(f)
+        elif k in pub:
+            n_pub += 1
+            if pub[k] not in ids:
+                bad.append(f)
+        else:
+            n_time += 1
+            if not os.path.getmtime(os.path.join(D, f)) < os.path.getmtime(FACE):
+                bad.append(f)
+    return not bad, n_pre, n_pub, n_time, bad
+
+
 def is_pushed():
     return (gits(ROOT, 'rev-parse', 'origin/main') == gits(ROOT, 'rev-parse', 'HEAD')
             and gits(ROOT, 'log', '-1', '--pretty=%s').startswith('b559')
@@ -215,7 +278,7 @@ def sources():
         kinds=set(), mustfail=not os.path.exists(os.path.join(D, 'b559_mustnotexist.txt')),
         dep_clean=(gits(PP, 'status', '--porcelain', '--', 'outputs/DEPOSITED-v1.1.2') == ''),
     )
-    S['pushed'] = is_pushed()
+    S['pushed'] = RERUN or is_pushed()
     if S['pushed']:
         S['after_lock'], S['before_lock'] = peek_by_digest(S['face'], S['lock'], S['scan'])
     else:
@@ -239,16 +302,25 @@ def sources():
         for l in git(repo, 'status', '--porcelain').split(NL):
             if l.strip() and not l.lstrip().startswith('??'):
                 rel = l[3:].strip()
-                try:
-                    if os.path.getmtime(os.path.join(repo, rel)) < os.path.getmtime(FACE):
+                if S['pushed']:
+                    # ### (R170)(3), b560: after the push, by content digest against the pushed tree, not by file time.
+                    if not written_by_digest(repo, rel):
                         continue
-                except OSError:
-                    pass
+                else:
+                    try:
+                        if os.path.getmtime(os.path.join(repo, rel)) < os.path.getmtime(FACE):
+                            continue
+                    except OSError:
+                        pass
                 k.add(os.path.basename(rel))
     S['kinds'] = k
     prior = [f for f in os.listdir(D) if re.match(r'^b4[0-9][0-9]_|^b5[0-4][0-9]_|^b55[0-8]_|^b334_', f)]
     S['prior_checked'] = len(prior)
-    S['noprior'] = all(os.path.getmtime(os.path.join(D, f)) < os.path.getmtime(FACE) for f in prior)
+    if S['pushed']:
+        # ### (R170)(3), b560: after the push, by content digest against the pre-act tip and the pushed tree.
+        S['noprior'], S['prior_pre'], S['prior_pub'], S['prior_time'], S['prior_bad'] = prior_by_digest(prior, PRIOR_RELAY)
+    else:
+        S['noprior'] = all(os.path.getmtime(os.path.join(D, f)) < os.path.getmtime(FACE) for f in prior)
     return S
 
 
@@ -575,7 +647,7 @@ ARMS = [
     ('G-NODEPOSIT', 'the deposit directory tracked state', lambda S: S['dep_clean'], lambda S: put(S, 'dep_clean', False)),
     ('G-NOH2-MOVED', 'the trail`s own text -- THIS act`s record', lambda S: 'where the deposit left it' in trail(S),
      lambda S: put(S, 'ot', S['ot'].replace(TRAILH, '### b559 -'))),
-    ('G-PRIORBANK-UNCHANGED', 'file times against the face, no exception', lambda S: S['noprior'], lambda S: put(S, 'noprior', False)),
+    ('G-PRIORBANK-UNCHANGED', 'before the push file times against the face; after it content digests against the pre-act tip and the pushed tree ((R170)(3)), no exception', lambda S: S['noprior'], lambda S: put(S, 'noprior', False)),
     ('G-FOUR-LISTS-OPEN', 'the trail`s own text -- THIS act`s record', lambda S: 'the four lists stay OPEN' in trail(S),
      lambda S: put(S, 'ot', S['ot'].replace('lists stay OPEN', 'lists are closed'))),
     ('G-CORPUS-SCOPE', 'the PLACE-papers file list -- the two written documents and no other',
@@ -622,7 +694,7 @@ def regenerate():
 
 def main():
     S = sources()
-    rc_gen, gen_diff = regenerate()
+    rc_gen, gen_diff = (0, dict(rerun=True)) if RERUN else regenerate()   # ### (R170)(3): a re-run does not regenerate the table
     S['table'] = read(os.path.join(D, 'terminal_table.md'))
     g2 = S['face'][S['face'].index('### (G2) THE GATE ARMS.'):S['face'].index('### (W) THE WRITE LIST.')]
     retired = set(re.findall(r'`(G-[A-Z0-9-]+)` IS NOT CARRIED FORWARD', S['face']))
@@ -668,14 +740,25 @@ def main():
                    if not any(fnmatch.fnmatch(k, g) for g in globs_of(S['face'])))
     rec('')
     rec('  ### files written that NO (W) GLOB COVERS : %d %s' % (len(stray), stray or ''))
-    rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
-    if gen_diff.get('first_run'):
+    if not RERUN:
+        rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
+    if RERUN:
+        pass
+    elif gen_diff.get('first_run'):
         rec('  ###   ### **NO PRIOR RUN TO DIFF AGAINST -- THIS CLOSE IS THE FIRST.**')
     else:
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d'
             % (len(gen_diff.get('added') or []), len(gen_diff.get('gone') or []),
                len(gen_diff.get('changed') or [])))
-    rec('  ### G-PRIORBANK-UNCHANGED checked %d prior banks by time, none excepted.' % S['prior_checked'])
+    if S['pushed']:
+        rec('  ### G-PRIORBANK-UNCHANGED checked %d prior banks: %d by digest against the pre-act tip and the pushed tree, %d first tracked'
+            ' in the pushed tree by digest against it, %d tracked by no tree read by file time; none excepted; changed %s.'
+            % (S['prior_checked'], S['prior_pre'], S['prior_pub'], S['prior_time'], S['prior_bad'] or 'NONE'))
+        rec('  ### G-WRITELIST-KINDS read the working tree by content digest against the pushed tree ((R170)(3)).')
+    else:
+        rec('  ### G-PRIORBANK-UNCHANGED checked %d prior banks by time, none excepted.' % S['prior_checked'])
+    if RERUN:
+        rec('  ### ### **(R170)(3): A RE-RUN ON THE PUSHED ACT -- THE GENERATOR WAS NOT RE-RUN** (it writes relay`s table files).')
     rec('  ### ### **VACUOUS ARMS : %s.**' % ([a for a in VACUOUS_ARMS] or 'NONE'))
     rec('  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s.**'
         % (len(RES), len(RES) - len(fail), len(fail), fail or ''))
@@ -684,6 +767,12 @@ def main():
     ok = not fail and not defective and negfail == 0 and S['declared_eq_run']
     rec('  ### ### **VERDICT : %s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN'))
     rec('=' * 104)
+    if RERUN:
+        # ### (R170)(3): the re-run writes one named record and nothing of b559's own.
+        out = os.path.join(D, sys.argv[sys.argv.index('--rerun-postpush') + 1])
+        io.open(out, 'w', encoding='utf-8', newline=NL).write(NL.join(L) + NL)
+        print('  written: %s' % os.path.basename(out))
+        return 0 if ok else 1
     out = os.path.join(D, 'b559_checks_postpush.txt' if pushed else 'b559_checks.txt')
     io.open(out, 'w', encoding='utf-8', newline=NL).write(NL.join(L) + NL)
     json.dump(dict(exercise=EX, run=len(RES), live_failing=fail, defective=defective,
