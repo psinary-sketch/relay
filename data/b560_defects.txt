@@ -59,3 +59,7 @@
         (DEFECTIVE). The control replaced only "(E2) the per-", and "(E2)" stands again in the same block, so the mutated
         source still carried what the arm reads. The control now removes every "(E2)"; the first run is kept as
         `data/b560_checks_first.txt` and the suite re-run.
+    (l) The post-push suite's G-PRIORBANK-UNCHANGED line reads "checked 5806 prior banks: 5787 by digest ..., 0 ..., 35 by file
+        time": the three classes sum to 5822, not 5806. The count is of directory entries, and one entry, `b558_editions`, is a
+        directory read file by file (its 17 files); 5806 - 1 + 17 = 5822. The arm's reading is whole; the line's first figure
+        counts entries, the others files.
