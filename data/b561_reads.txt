@@ -1,0 +1,156 @@
+b561 -- READING (1): THE READS, PRINTED VERBATIM BY PATH AND LINE
+### SIDE-explicit-formula v0.4 = 941503b
+
+### LiWeil.lean @941503b -- every declaration (35):
+    LiWeil.lean:33   | theorem ne_one_of_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : ρ ≠ 1 := by
+    LiWeil.lean:42   | theorem conj_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : (starRingEnd ℂ) ρ ∈ zetaZeroConfig.carrier := by
+    LiWeil.lean:53   | theorem mult_conj {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) :
+    LiWeil.lean:54   |     zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ := by
+    LiWeil.lean:60   | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+    LiWeil.lean:63   | def pairTerm (n : ℕ) (ρ : ℂ) : ℂ := liTerm n ρ + liTerm n ((starRingEnd ℂ) ρ)
+    LiWeil.lean:66   | theorem liTerm_conj (n : ℕ) (ρ : ℂ) : liTerm n ((starRingEnd ℂ) ρ) = (starRingEnd ℂ) (liTerm n ρ) := by
+    LiWeil.lean:71   | theorem pairTerm_eq (n : ℕ) (ρ : ℂ) : pairTerm n ρ = ((2 * (liTerm n ρ).re : ℝ) : ℂ) := by
+    LiWeil.lean:75   | theorem pairTerm_im (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).im = 0 := by
+    LiWeil.lean:79   | theorem pairTerm_re (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).re = 2 * (liTerm n ρ).re := by
+    LiWeil.lean:83   | theorem norm_sub_one_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖ρ - 1‖ = ‖ρ‖ := by
+    LiWeil.lean:91   | theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+    LiWeil.lean:101  | theorem liTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (liTerm n ρ).re := by
+    LiWeil.lean:109  | theorem pairTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (pairTerm n ρ).re := by
+    LiWeil.lean:118  | theorem rem_bound {w : ℂ} (hw : ‖w‖ ≤ 1) : ∀ n : ℕ, ‖(1 - w) ^ n - 1 + (n : ℂ) * w‖ ≤ n * 2 ^ n * ‖w‖ ^ 2
+    LiWeil.lean:119  |   | 0 => by simp
+    LiWeil.lean:120  |   | n + 1 => by
+    LiWeil.lean:121  |     have ih := rem_bound hw n
+    LiWeil.lean:149  | theorem liTerm_re_abs_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+    LiWeil.lean:150  |     |(liTerm n ρ).re| ≤ (n + n * 2 ^ n) / ‖ρ‖ ^ 2 := by
+    LiWeil.lean:171  | def liConst (n : ℕ) : ℝ := 2 * (n + n * 2 ^ n)
+    LiWeil.lean:173  | theorem liConst_nonneg (n : ℕ) : 0 ≤ liConst n := by unfold liConst; positivity
+    LiWeil.lean:177  | theorem pairTerm_norm_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+    LiWeil.lean:178  |     ‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2 := by
+    LiWeil.lean:188  | theorem pair_summable (n : ℕ) :
+    LiWeil.lean:189  |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re) := by
+    LiWeil.lean:243  | def LiCoeff (n : ℕ) : ℝ :=
+    LiWeil.lean:244  |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+    LiWeil.lean:247  | theorem LiCoeff_eq (n : ℕ) :
+    LiWeil.lean:248  |     LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re := by
+    LiWeil.lean:257  | theorem liTerm_re_summable (n : ℕ) :
+    LiWeil.lean:258  |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re) := by
+    LiWeil.lean:267  | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+    LiWeil.lean:295  | def blPoly (n : ℕ) (y : ℝ) : ℝ := ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℝ) * y ^ j / (j.factorial : ℝ)
+    LiWeil.lean:298  | def blSmooth (n : ℕ) (u : ℝ) : ℂ := ((Real.exp (u / 2) * blPoly n u : ℝ) : ℂ)
+    LiWeil.lean:301  | def blTest (n : ℕ) (u : ℝ) : ℂ := if u < 0 then blSmooth n u else 0
+    LiWeil.lean:304  | def blTransform (n : ℕ) : Prop := ∀ ρ : ℂ, 0 < ρ.re → paperFT (blTest n) (gammaOf ρ) = liTerm n ρ
+    LiWeil.lean:307  | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+    LiWeil.lean:309  | theorem blPoly_contDiff (n : ℕ) : ContDiff ℝ 2 (blPoly n) := by
+    LiWeil.lean:313  | theorem blSmooth_contDiff (n : ℕ) : ContDiff ℝ 2 (blSmooth n) := by
+    LiWeil.lean:320  | theorem truncMember_classEF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+    LiWeil.lean:321  |     ContDiff ℝ 2 (truncMember n f) ∧ HasCompactSupport (truncMember n f) := by
+    LiWeil.lean:328  | theorem truncMember_eq (n : ℕ) {c : ℝ} (f : ContDiffBump c) (hc : c + f.rOut ≤ 0) (u : ℝ) :
+    LiWeil.lean:329  |     truncMember n f u = ((f u : ℝ) : ℂ) * blTest n u := by
+    LiWeil.lean:344  | theorem truncMember_EF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+    LiWeil.lean:345  |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)) ∧
+    LiWeil.lean:346  |     ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)
+    LiWeil.lean:347  |       = EF.literatureRHS (truncMember n f) :=
+    LiWeil.lean:355  | def LiLimitExchange (n : ℕ) : Prop :=
+    LiWeil.lean:356  |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+    LiWeil.lean:357  |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+    LiWeil.lean:358  |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+    LiWeil.lean:359  |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+    LiWeil.lean:364  | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+    LiWeil.lean:365  |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+    LiWeil.lean:366  |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+
+### Zeta23/WeilEF/ZeroSummability.lean:247 @941503b -- zero_sum_inv_sq
+      247 | theorem zero_sum_inv_sq (hs : ZetaSeam) :
+      248 |     Summable (fun ρ : (zetaZeros hs).carrier =>
+      249 |       (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+
+### Zeta23/WeilEF/ZeroSummability.lean:121 @941503b -- zero_sum_inv_sq_gen
+      121 | theorem zero_sum_inv_sq_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)
+      122 |     (hloc' : ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)) :
+      123 |     Summable (fun ρ : Z.carrier =>
+      124 |       (Z.mult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+
+### SIDEExplicitFormula/PowerLimit.lean:934 @941503b -- weighted_summable
+      934 | theorem weighted_summable (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+      935 |     (hBf : 0 ≤ Bf) (hf0 : ∀ ρ ∈ Z.carrier, 0 ≤ f ρ)
+      936 |     (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf) :
+      937 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ) := by
+
+### SIDEExplicitFormula/PowerLimit.lean:879 @941503b -- weighted_finite_bound
+      879 | theorem weighted_finite_bound (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+      880 |     (hBf : 0 ≤ Bf) (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf)
+      881 |     (s : Finset ℂ) (hsZ : ∀ ρ ∈ s, ρ ∈ Z.carrier) :
+      882 |     (∑ ρ ∈ s, (Z.mult ρ : ℝ) * f ρ) ≤ 3 * A₀ * Bf * zeta3Sum := by
+
+### SIDEExplicitFormula/PowerLimit.lean:1025 @941503b -- rest_tendsto_zero
+     1025 | theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+     1026 |     (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :
+     1027 |     Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0) := by
+
+### SIDEExplicitFormula/PowerLimit.lean:949 @941503b -- dominant_summable
+      949 | theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+      950 |     Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *
+      951 |       (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)))) := by
+
+### Zeta23/ExplicitFormula.lean:97 @941503b -- EF_lit
+       97 | def EF_lit (Z : ZeroConfig) : Prop :=
+       98 |   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+       99 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+      100 |     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+    ### the exponents: zero_sum_inv_sq sums m_ρ / (1 + ‖γ_ρ‖²) -- EXPONENT 2 in ‖γ_ρ‖; weighted_summable asks
+    ### f ρ (1 + |⌈Im ρ⌉|)^4 <= Bf -- EXPONENT 4 in the ordinate.
+
+### relay data/b560_stageD.txt :137-:176 (the obstacle, (D1)-(D6), the converse (V1)-(V4)):
+    b560_stageD.txt:137 | ### ### **STAGE D -- WHERE IT STOPS, BY LINE, AND WHAT REMAINS, PRICED IN LEMMAS** (the truncation route, OPEN_TRAILS :11294-:11302)
+    b560_stageD.txt:138 |     REACHED: the statement of the family and ONE truncation lemma -- `truncMember_classEF` (every member `ContDiff ℝ 2` with
+    b560_stageD.txt:139 |     compact support, EF_lit`s class), EF_lit applied to it (`truncMember_EF`), and the identity conditional on the exchange
+    b560_stageD.txt:140 |     (`li_identity_of_exchange`, INTERFACES). T2 (the smoothing of the jump at 0) is absorbed: the bump supported left of 0
+    b560_stageD.txt:141 |     multiplies the everywhere-smooth `e^{u/2} P_n(u)`, so the member is smooth whatever `k_n` does at 0 (`truncMember_eq`).
+    b560_stageD.txt:142 |     ### **THE OBSTACLE (LiWeil.lean, `LiLimitExchange`): THE LIMIT EXCHANGE, AND THE PAIRING HAZARD IS EXACTLY THERE.** At each
+    b560_stageD.txt:143 |     member the zero sum is absolutely convergent (EF_lit, ExplicitFormula.lean:98-99), with a dominant `C/(1 + ‖γ_ρ‖²)` whose
+    b560_stageD.txt:144 |     constant C grows with the second derivative of the member (ZeroSummability.lean:192-195: `C = 2 e^{Λ/2} ∫‖k``‖`); along a
+    b560_stageD.txt:145 |     family tending to `1_{u<0}` the bumps steepen at 0 and C is unbounded, so no dominant uniform in the family comes from
+    b560_stageD.txt:146 |     EF_lit`s own bound. The target `LiCoeff n` is a sum of real parts (the paired sum): the unpaired Li terms decay only like
+    b560_stageD.txt:147 |     `n/ρ` (`liTerm_re_abs_le` bounds the REAL part at `‖ρ‖⁻²`; the imaginary part is first order). The exchange needs the
+    b560_stageD.txt:148 |     grouped (conjugate-paired) transforms dominated uniformly in the family.
+    b560_stageD.txt:149 |     PRICED, NOT FORCED:
+    b560_stageD.txt:150 |       (D1) `blTransform` -- the transform of `k_n` is the Li term (T1): the Mellin integral of `x^{ρ-1} (log x)^{j-1}` on (0,1),
+    b560_stageD.txt:151 |            an improper integral per power -- one lemma of moderate weight.
+    b560_stageD.txt:152 |       (D2) the transform at a member converges to the transform of `k_n` at each fixed ρ (dominated convergence in u,
+    b560_stageD.txt:153 |            `|k_n(u) e^{(ρ-1/2)u}| ≤ e^{Re ρ u}|P_n(u)|` on u < 0) -- one lemma, moderate.
+    b560_stageD.txt:154 |       (D3) THE LEMMA OF SUBSTANCE: a dominant for the PAIRED truncated transforms, uniform in the family and summable over
+    b560_stageD.txt:155 |            the zeros -- an integration by parts that keeps the jump`s boundary term (`n/ρ`, first order, cancelling in
+    b560_stageD.txt:156 |            the real part) separate from a remainder `O(‖ρ‖⁻²)` uniform in the bump -- T6.
+    b560_stageD.txt:157 |       (D4) Tannery over the zeros through (D3)`s dominant (the pattern of `rest_tendsto_zero`, PowerLimit.lean:1025) -- T7.
+    b560_stageD.txt:158 |       (D5) the prime side`s limit (a finite sum for compact support; the Λ(n) n^{-1/2} (k(log n) + k(-log n)) terms converge
+    b560_stageD.txt:159 |            termwise and the family`s support grows -- the tail needs k_n`s decay e^{u/2}|u|^{n-1}) and the Γ-integral`s limit
+    b560_stageD.txt:160 |            -- T8, two lemmas.
+    b560_stageD.txt:161 |       (D6) λ_n identified with the Bombieri-Lagarias arithmetic formula in the kernel`s objects -- T9, a statement once
+    b560_stageD.txt:162 |            (D1)-(D5) are in; not re-read at source (BL 1999 is not in the relay`s banks).
+    b560_stageD.txt:163 |     ### the exchange is (D2)+(D3)+(D4); (D3) is where the pairing hazard lives and is the next act`s item if the bridge
+    b560_stageD.txt:164 |     ### continues ((R170)(7)).
+    b560_stageD.txt:165 | 
+    b560_stageD.txt:166 | ### ### **THE CONVERSE, PRICED AND NOT ATTEMPTED** (λ_n ≥ 0 for all n → RH; Bombieri-Lagarias Theorem 1, Voros`s growth):
+    b560_stageD.txt:167 |       (V1) at an off-line zero ρ₀ (Re ρ₀ ≠ 1/2) one of ρ₀, 1 - conj ρ₀ has `‖1 - 1/ρ‖ > 1`, so its term grows like
+    b560_stageD.txt:168 |            `‖1 - 1/ρ₀‖^n`: a lemma over ℂ, the reverse of `norm_one_sub_inv_of_re_half` -- light.
+    b560_stageD.txt:169 |       (V2) the phase: the real part of `-(1 - 1/ρ₀)^n` is negative and of size `‖1 - 1/ρ₀‖^n` for infinitely many n
+    b560_stageD.txt:170 |            (an argument on `n·arg(1 - 1/ρ₀)` mod 2π, Dirichlet approximation) -- moderate.
+    b560_stageD.txt:171 |       (V3) the rest of the sum bounded by a quantity of smaller exponential order: the zeros with `‖1 - 1/ρ‖` below the
+    b560_stageD.txt:172 |            largest, uniformly in n -- it needs the maximum of `‖1 - 1/ρ‖` over the zeros to be attained and the others
+    b560_stageD.txt:173 |            separated from it, a configuration estimate of the kind b559 met at the detection region -- substance.
+    b560_stageD.txt:174 |       (V4) assembled: some λ_n < 0; contraposition gives RH. BL 1999 does this for an arbitrary multiset satisfying their
+    b560_stageD.txt:175 |            growth condition; the kernel`s count bound supplies the multiset`s summability (`pair_summable`).
+    b560_stageD.txt:176 | 
+
+### relay data/b549_premise.txt:12 |   inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+### BALANCE_AND_POSITIVITY.md:764 | ### The joint's two forms at the RH-anchor: the Weil form compiled, the Li form a literature theorem -- appended 2026-09-26 by b545 beneath §II (:53-74); no byte above this block changes
+### FINDINGS.md:5478 | ## The cascade, act three: BALANCE_AND_POSITIVITY tiered, the joint in two forms, the earlier finding credited, the Fano theorem's kernel status
+### FINDINGS.md:5486 | **The joint in two forms.** The Weil form is `h2_sign`, compiled both ways against Mathlib's `RiemannHypothesis` (`h2_sign_iff_rh`, v0.2 = `5c72cad`): the T0 reference of §I's target-side row, the one T0 RH-anchor reference in the keystone. The Li form, RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n, is Li's cri
+### FINDINGS.md:5575 | ## Weil's criterion in the field, September 2026: certified window bounds, claimed proofs on the deposit venue, and the programme's compiled harness beside them
+### FINDINGS.md:5601 | ## The field entry's sources, repaired: Zhu's abstract quoted, the Liu record's provenance, the two Zenodo records completed (to FINDINGS.md:5575)
+### SIDE-explicit-formula/.githooks/pre-push:1-4 (core.hooksPath = .githooks) | #!/bin/sh / # relay pre-push hook — Rule 4 hardenings (minted 2026-08-18, author-ruled). / # (i) pushes to origin main only from push-* / repair-* branches; / # (ii) refuse any outgoing ancestry containing a HELD commit;
+    the main-from-push-* refusal at :[81] | echo "pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: $branch" >&2
+### relay/.githooks/pre-push:1-4 (core.hooksPath = .githooks) | #!/bin/sh / # relay pre-push hook — Rule 4 hardenings (minted 2026-08-18, author-ruled). / # (i) pushes to origin main only from push-* / repair-* branches; / # (ii) refuse any outgoing ancestry containing a HELD commit;
+    the main-from-push-* refusal at :[81] | echo "pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: $branch" >&2
+### relay data/b560_defects.txt (e) | (e) THE TAG REACHED THE REMOTE BEFORE main DID. The first push command chained `git push origin main 2>&1 | tail -1 &&         git push origin v0.3`: the kernel's pre-push hook refused the main push from `main` (Rule 4.10: pushes to main only         from a push-* branch), and the pipe through `tail` returned tail's exit status, so the chain went on and pushed         the tag. For the interval between the two pushes the remote carried v0.3 peeled to 04eda4a while its main was         81ae175. main was then pushed from the branch push-b560 (`data/b560_v03_push.txt`) and read back equal to v0.3'
+### the push tools in relay before this act: ['b495_push.py'] ; no standing push script

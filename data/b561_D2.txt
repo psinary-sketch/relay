@@ -1,0 +1,65 @@
+b561 -- READING (5): ITEM D2 -- the member transforms tend to the jump`s at each fixed zero, Re ρ > 0 (dominated convergence in u)
+
+### the branch li-weil-b561 from v0.4 = 941503b ; the module SIDEExplicitFormula/LiWeilExchange.lean (fed on stdin after LiWeil.lean, which has no olean)
+
+### THE ELABORATION ATTEMPTS OF THIS ITEM, each with its exit and error count (the whole module as it then stood):
+    ### stD2_1 -- exit 1, elapsed 30 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+        | <stdin>:599:4: error: unsolved goals
+        | case neg
+        | n : ℕ
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | c : ℕ → ℝ
+        | fs : (m : ℕ) → ContDiffBump (c m)
+        | hc : ∀ (m : ℕ), c m + (fs m).rOut ≤ 0
+        | h1 : ∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)
+        | g : ℝ → ℂ := fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+        | hg : g = fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+        | hF : ∀ (m : ℕ), (fun u => truncMember n (fs m) u * cexp (I * gammaOf ρ * ↑u)) = fun u => ↑(↑(fs m) u) * g u
+        | u : ℝ
+        | hu : ¬u < 0
+        | this : g u = 0
+        | ⊢ blTest n u = 0
+    ### stD2_2 -- exit 1, elapsed 29 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+        | <stdin>:605:12: error: typeclass instance problem is stuck
+        |   TopologicalSpace ?m.293
+        | Note: Lean will not try to resolve this typeclass instance problem because the type argument to `TopologicalSpace` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+        | Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as hav
+    ### stD2_3 -- exit 1, elapsed 29 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+        | <stdin>:606:6: error: Tactic `apply` failed: could not unify the conclusion of `@tendsto_const_nhds`
+        |   Tendsto (fun x => ?x) ?f (𝓝 ?x)
+        | with the goal
+        |   Tendsto (fun n => 0) atTop (𝓝 (blTest n u * cexp (I * gammaOf ρ * ↑u)))
+        | Note: The full type of `@tendsto_const_nhds` is
+        |   ∀ {X : Type ?u.141} [inst : TopologicalSpace X] {α : Type ?u.140} {x : X} {f : Filter α},
+        |     Tendsto (fun x_1 => x) f (𝓝 x)
+        | case neg
+        | n : ℕ
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | c : ℕ → ℝ
+        | fs : (m : ℕ) → ContDiffBump (c m)
+        | hc : ∀ (m : ℕ), c m + (fs m).rOut ≤ 0
+        | h1 : ∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)
+        | g : ℝ → ℂ := fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+        | hg : g = fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+        | hF : ∀ (m : ℕ), (fun u => truncMember n (fs m) u * cexp (I * gammaOf ρ * ↑u)) = fun u => ↑(↑(fs m) u) * g u
+        | u : ℝ
+        | hu : ¬u < 0
+        | this : g u = 0
+        | ⊢ Tendsto (fun n => 0) atTop (𝓝 (blTest n u * cexp (I * gammaOf ρ * ↑u)))
+    ### stD2_4 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+
+### THE DECLARATIONS OF THIS ITEM, AS THE SOURCE STATES THEM:
+      188 | theorem integrable_blTest_integrand (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+      189 |     Integrable (fun u : ℝ => blTest n u * cexp (Complex.I * gammaOf ρ * u)) := by
+      209 | theorem truncMember_transform_tendsto (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+      210 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Tendsto (fun m => (fs m) u) atTop (𝓝 1)) :
+      211 |     Tendsto (fun m => paperFT (truncMember n (fs m)) (gammaOf ρ)) atTop (𝓝 (paperFT (blTest n) (gammaOf ρ))) := by
+
+### LEAN`S PRINTS:
+    integrable_blTest_integrand : ['propext', 'Classical.choice', 'Quot.sound']
+        SIDEExplicitFormula.LiWeil.integrable_blTest_integrand : ∀ (n : ℕ) {ρ : ℂ}, 0 < ρ.re → Integrable (fun u => SIDEExplicitFormula.LiWeil.blTest n u * cexp (I * Zeta23.gammaOf ρ * ↑u)) volume
+    truncMember_transform_tendsto : ['propext', 'Classical.choice', 'Quot.sound']
+        SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto : ∀ (n : ℕ) {ρ : ℂ}, 0 < ρ.re → ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)) → Tendsto (fun m => Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ρ)) atTop (𝓝 (Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Ze
+### ### **PRINTED 2 OF 2 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

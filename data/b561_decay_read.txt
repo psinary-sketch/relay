@@ -1,0 +1,97 @@
+b561 -- READING (4): THE DECAY READ, ON THE PAGE, BEFORE ANY BUILD (COMPONENT 3)
+### The objects are v0.4's (LiWeil.lean): blSmooth n u = e^{u/2} P_n(u), blTest n = 1_{u<0} blSmooth n, truncMember n f =
+### f · blSmooth n for a bump f = ContDiffBump c, and LiLimitExchange n's family: bumps with c + rOut <= 0 tending to 1 at every
+### u < 0. Every step below is a derivation on the page; a step resting on a result not compiled in the federation says so.
+
+### (1) THE TRANSFORM AT A ZERO. paperFT k z = ∫ k(u) e^{i z u} du (Defs.lean:60) and gammaOf ρ = (ρ - 1/2)/i, so
+###     i · gammaOf ρ · u = (ρ - 1/2) u and e^{u/2} e^{(ρ-1/2)u} = e^{ρ u}. At a member f:
+###         H_f(ρ) := paperFT (truncMember n f) (gammaOf ρ) = ∫ f(u) P_n(u) e^{ρ u} du,
+###     and at the jump function (D1, blTransform): H(ρ) = ∫_{u<0} P_n(u) e^{ρ u} du = 1 - (1 - 1/ρ)^n = liTerm n ρ for Re ρ > 0.
+###     The member and P_n are real, so the paired transform at a member is H_f(ρ) + H_f(conj ρ) = 2 Re H_f(ρ), as at the jump.
+
+### (2) THE EXCESS, AND THE TRUNCATION PARAMETER. E_f(ρ) := H_f(ρ) - H(ρ) = ∫ (f(u) - 1_{u<0}) P_n(u) e^{ρ u} du. The bump is
+###     1 on [c - rIn, c + rIn] and 0 off (c - rOut, c + rOut), with c + rOut <= 0. Its RIGHT deficit lies in [c + rIn, 0]:
+###     put δ := -(c + rIn) > 0, the distance from the bump's plateau to 0. Pointwise convergence to 1 at every u < 0 forces
+###     δ_m -> 0 along the family (and c_m - rIn_m -> -∞ on the left). On the right, 1_{u<0} - f ∈ [0, 1], equal to 1 on
+###     [c + rOut, 0) and to 1 - st on the transition; write μ δ := ∫_{-δ}^{0} (1 - f(u)) du, μ ∈ (0, 1] (μ = 1/2 when
+###     c + rOut = 0, by st(1 - t) = 1 - st(t) for Mathlib's Real.smoothTransition).
+
+### (3) WHERE ‖ρ‖ δ IS SMALL. On [-δ, 0]: |e^{ρ u} - 1| <= ‖ρ‖ δ e^{‖ρ‖ δ} and |P_n(u) - n| <= δ 2^n (P_n(0) = C(n,1) = n;
+###     the coefficients C(n, j+1)/j! sum to at most 2^n). So the right part of the excess is
+###         E_right = ∫_{-δ}^{0} (f - 1) P_n e^{ρu} du = -n μ δ + r,   |r| <= δ² (2^n + 2 n ‖ρ‖)   (for ‖ρ‖ δ <= 1/2),
+###     and Re E_right <= -n μ δ / 2 < 0 once ‖ρ‖ δ <= μ/8 and δ <= n μ /(4·2^n). THE SIGN IS ONE AND THE SAME FOR EVERY ZERO in
+###     that range. The left part is ∫_{u <= c - rIn} (f - 1) P_n e^{ρ u}: of size e^{-β R} R^{n-1} at R = rIn - c -> ∞ for a zero
+###     of real part β -- it tends to 0 for each zero, uniformly on zeros with β bounded below.
+### (4) WHERE ‖ρ‖ δ IS LARGE. Integrating by parts, E_right = -n/ρ + (1/ρ) ∫ f' P_n e^{ρu} du + (terms of order 1/‖ρ‖²), and the
+###     middle term is O(1/(‖ρ‖² δ)) by a second integration by parts on the smooth transition: the excess tends back to the
+###     jump's own -n/ρ, whose real part n β/‖ρ‖² is what Stage B's bound already carries.
+### (5) THE SUPREMUM OVER THE FAMILY AT A FIXED ZERO. For a member with δ ≍ μ/(8‖ρ‖), (3) gives |2 Re E_f(ρ)| >= n μ δ ≍ n μ²/(8 ‖ρ‖),
+###     while the jump's pair is O(liConst n / ‖ρ‖²) (pairTerm_norm_le). So along any family whose δ_m passes through every scale
+###     (δ_m = 1/m does), sup_m |pair_m(ρ)| >= c_n / ‖ρ‖ for every large zero: THE UNIFORM BOUND IS OF ORDER n/‖ρ‖, NOT n/‖ρ‖². A
+###     bound C/‖ρ‖² at a member needs δ <= C'/‖ρ‖², a rate in the truncation parameter depending on the zero; a family gives
+###     each δ_m for all zeros at once, and no δ_m -> 0 meets it at every zero.
+
+### (6) AGAINST zero_sum_inv_sq's EXPONENT. zero_sum_inv_sq (ZeroSummability.lean:247) makes Σ m_ρ/(1 + ‖γ_ρ‖²) converge:
+###     exponent 2. The uniform bound (5) has exponent 1, and Σ m_ρ/‖ρ‖ DIVERGES -- by the Riemann-von Mangoldt count
+###     N(T) ≍ T log T (a literature theorem, T1-lit; the kernel carries only the upper local count
+###     zetaZeroConfig_local_count, which cannot prove a divergence). weighted_summable's exponent 4 is further off still.
+###     ### **SO (D3) IS NEITHER A PAIRING ESTIMATE ON EXISTING LEMMAS NOR A NEW SUMMABILITY LEMMA: A DOMINANT FOR THE PAIRED
+###     ### TRUNCATED TRANSFORMS UNIFORM ALONG THE FAMILY AND SUMMABLE OVER THE ZEROS DOES NOT EXIST.** The pairing does not
+###     help: the excess is REAL at leading order (-n μ δ), so pairing doubles it rather than cancelling it.
+
+### (7) THE ZERO SIDE ALONG THE FAMILY -- A DERIVATION, NOT COMPILED. The excess has one sign on the zeros with ‖ρ‖ δ <= μ/8,
+###     roughly (1/π)(μ/8δ) log(1/δ) of them (Riemann-von Mangoldt, T1-lit), so it sums to about -(n μ²/(8π)) log(1/δ). Read on
+###     the other side of EF_lit instead (truncMember_EF, compiled): the right edge moves neither the pole terms (they converge)
+###     nor the prime terms (they sit at |u| = log m >= log 2); it enters the Γ-integral only, where gammaBracket(r) grows like
+###     log|r| (Stirling; Zeta23/GammaFacts carries Stirling bounds, whose use here is not checked), and the excess, of size
+###     n δ Δ(i r δ) with Δ the transition's Laplace profile, integrates against log|r| to
+###         (n/2π) log(1/δ) ∫ Re Δ(ix) dx + O(1) = (n/2π) log(1/δ) · (2π · (-1/2)) = -(n/2) log(1/δ) + O(1)
+###     -- the Fourier integral picks the midpoint (-1/2) of the excess's jump at 0, whatever the profile. ### **SO ALONG EVERY
+###     FAMILY IN LiLimitExchange's HYPOTHESIS THE ZERO SIDE TENDS TO -∞ FOR n >= 1: LiLimitExchange n IS EXPECTED FALSE FOR
+###     n >= 1** (for n = 0, P_0 = 0 and both sides are 0). The one-sided smoothing moves the jump's midpoint into u < 0; the
+###     Bombieri-Lagarias identity holds at the jump normalised to its midpoint, k_n(0) = n/2, which no member of this family
+###     approaches from both sides. This is a derivation resting on Stirling's sharp asymptotic and (for the zero-count form)
+###     on Riemann-von Mangoldt, neither of which this act compiles; it is not a theorem of the kernel.
+
+### (8) THE SCORE. H12a: "the paired truncated transform decays at least like 1/‖ρ‖² uniformly in the truncation parameter ...
+###     refuted if the uniform bound needs a rate in the truncation parameter the family does not give" -- ### **REFUTED BY THE
+###     DERIVATION**: (5), the uniform bound is of order n/‖ρ‖; a 1/‖ρ‖² bound needs δ <= C/‖ρ‖², a rate the family does not give.
+### (9) WHAT THIS DOES TO THE PRICE. (D3) as priced at b560 does not exist; (D4) by Tannery has no dominant; b560's stated
+###     `LiLimitExchange` is, on this derivation, false for n >= 1, so `li_identity_of_exchange` is INTERFACES on a premise
+###     that cannot be discharged in the form written. Re-priced:
+###       (X1) the explicit formula on a class containing the jump normalised to its midpoint (Weil's formula for functions of
+###            bounded variation with k(0) = (k(0-) + k(0+))/2) -- the leading item at OPEN_TRAILS :11424, "the explicit formula
+###            on a class wider than EF_lit's" -- a lemma of substance, T1-lit in the literature (Weil 1952; Bombieri 2000);
+###       (X2) or two-sided families, the transition centred at 0, for which the -(n/2) log(1/δ) term cancels at leading
+###            order; the zero side still has no uniform dominant (the excess stays of order 1/‖ρ‖ per zero with signs that
+###            now alternate), so the limit is taken on EF_lit's OTHER side -- the pole terms, the prime sum (D5) and the
+###            Γ-integral converging -- and the zero side's limit is read through the identity, not by Tannery;
+###       (X3) LiLimitExchange restated for (X2)'s family and the one-sided statement's failure recorded; a Lean proof of the
+###            failure would need the Riemann-von Mangoldt lower count or Stirling's asymptotic in the kernel -- priced, not
+###            attempted.
+###     (D1) and (D2) stand as priced and valid on either family; they are attempted next, in the bank's order.
+
+### THE NUMERICAL ILLUSTRATION (scratchpad decay_num.py, mpmath 30 digits; n = 1, P_1 = 1; Mathlib`s
+### Real.smoothTransition profile, right edge at 0, width δ; ρ = 1/2 + iγ) -- AN ILLUSTRATION, NOT EVIDENCE FOR A THEOREM:
+    mu = int_0^1 (1 - st) = 0.5 (1/2 by the symmetry st(1-t) = 1 - st(t))
+         gamma      delta           2 Re E    -2 n mu delta   |rho| |2ReE|
+        14.135      1e-01        -0.088308             -0.1        1.24899
+        14.135      1e-02    -0.0099751848            -0.01       0.141085
+        14.135      1e-03   -0.00099985054           -0.001      0.0141415
+        14.135      1e-04    -9.9998604e-5          -0.0001     0.00141434
+        14.135      1e-05    -9.9999861e-6          -1.0e-5    0.000141435
+       sup over delta = k/(10|rho|), k=1..39, of |rho| |2 Re E| : 1.74197 at k = 28
+       100.000      1e-01     0.0029835521             -0.1       0.298359
+       100.000      1e-02    -0.0094475203            -0.01       0.944764
+       100.000      1e-03   -0.00099931054           -0.001      0.0999323
+       100.000      1e-04    -9.9998064e-5          -0.0001     0.00999993
+       100.000      1e-05    -9.9999856e-6          -1.0e-5     0.00100001
+       sup over delta = k/(10|rho|), k=1..39, of |rho| |2 Re E| : 1.76646 at k = 28
+      1000.000      1e-01    -1.0007477e-6             -0.1     0.00100075
+      1000.000      1e-02    0.00031174803            -0.01       0.311748
+      1000.000      1e-03   -0.00094588236           -0.001       0.945882
+      1000.000      1e-04    -9.9943502e-5          -0.0001      0.0999435
+      1000.000      1e-05     -9.999931e-6          -1.0e-5     0.00999993
+       sup over delta = k/(10|rho|), k=1..39, of |rho| |2 Re E| : 1.77026 at k = 28
+### read: for ‖ρ‖δ small, 2 Re E = -2 n μ δ to four digits (one sign); the supremum over δ of ‖ρ‖ |2 Re E| is 1.742,
+### 1.766, 1.770 at γ = 14.1, 100, 1000 -- flat in ‖ρ‖, so the uniform bound is ≈ 1.77 n/‖ρ‖, the order (5) derives.

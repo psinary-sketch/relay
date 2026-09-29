@@ -1,0 +1,606 @@
+====================================================================================================================================
+b561 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b561_reads.txt
+  b561 -- READING (1): THE READS, PRINTED VERBATIM BY PATH AND LINE
+  ### SIDE-explicit-formula v0.4 = 941503b
+  
+  ### LiWeil.lean @941503b -- every declaration (35):
+      LiWeil.lean:33   | theorem ne_one_of_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : ρ ≠ 1 := by
+      LiWeil.lean:42   | theorem conj_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : (starRingEnd ℂ) ρ ∈ zetaZeroConfig.carrier := by
+      LiWeil.lean:53   | theorem mult_conj {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) :
+      LiWeil.lean:54   |     zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ := by
+      LiWeil.lean:60   | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+      LiWeil.lean:63   | def pairTerm (n : ℕ) (ρ : ℂ) : ℂ := liTerm n ρ + liTerm n ((starRingEnd ℂ) ρ)
+      LiWeil.lean:66   | theorem liTerm_conj (n : ℕ) (ρ : ℂ) : liTerm n ((starRingEnd ℂ) ρ) = (starRingEnd ℂ) (liTerm n ρ) := by
+      LiWeil.lean:71   | theorem pairTerm_eq (n : ℕ) (ρ : ℂ) : pairTerm n ρ = ((2 * (liTerm n ρ).re : ℝ) : ℂ) := by
+      LiWeil.lean:75   | theorem pairTerm_im (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).im = 0 := by
+      LiWeil.lean:79   | theorem pairTerm_re (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).re = 2 * (liTerm n ρ).re := by
+      LiWeil.lean:83   | theorem norm_sub_one_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖ρ - 1‖ = ‖ρ‖ := by
+      LiWeil.lean:91   | theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+      LiWeil.lean:101  | theorem liTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (liTerm n ρ).re := by
+      LiWeil.lean:109  | theorem pairTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (pairTerm n ρ).re := by
+      LiWeil.lean:118  | theorem rem_bound {w : ℂ} (hw : ‖w‖ ≤ 1) : ∀ n : ℕ, ‖(1 - w) ^ n - 1 + (n : ℂ) * w‖ ≤ n * 2 ^ n * ‖w‖ ^ 2
+      LiWeil.lean:119  |   | 0 => by simp
+      LiWeil.lean:120  |   | n + 1 => by
+      LiWeil.lean:121  |     have ih := rem_bound hw n
+      LiWeil.lean:149  | theorem liTerm_re_abs_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+      LiWeil.lean:150  |     |(liTerm n ρ).re| ≤ (n + n * 2 ^ n) / ‖ρ‖ ^ 2 := by
+      LiWeil.lean:171  | def liConst (n : ℕ) : ℝ := 2 * (n + n * 2 ^ n)
+      LiWeil.lean:173  | theorem liConst_nonneg (n : ℕ) : 0 ≤ liConst n := by unfold liConst; positivity
+      LiWeil.lean:177  | theorem pairTerm_norm_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+      LiWeil.lean:178  |     ‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2 := by
+      LiWeil.lean:188  | theorem pair_summable (n : ℕ) :
+      LiWeil.lean:189  |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re) := by
+      LiWeil.lean:243  | def LiCoeff (n : ℕ) : ℝ :=
+      LiWeil.lean:244  |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+      LiWeil.lean:247  | theorem LiCoeff_eq (n : ℕ) :
+      LiWeil.lean:248  |     LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re := by
+      LiWeil.lean:257  | theorem liTerm_re_summable (n : ℕ) :
+      LiWeil.lean:258  |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re) := by
+      LiWeil.lean:267  | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+      LiWeil.lean:295  | def blPoly (n : ℕ) (y : ℝ) : ℝ := ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℝ) * y ^ j / (j.factorial : ℝ)
+      LiWeil.lean:298  | def blSmooth (n : ℕ) (u : ℝ) : ℂ := ((Real.exp (u / 2) * blPoly n u : ℝ) : ℂ)
+      LiWeil.lean:301  | def blTest (n : ℕ) (u : ℝ) : ℂ := if u < 0 then blSmooth n u else 0
+      LiWeil.lean:304  | def blTransform (n : ℕ) : Prop := ∀ ρ : ℂ, 0 < ρ.re → paperFT (blTest n) (gammaOf ρ) = liTerm n ρ
+      LiWeil.lean:307  | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+      LiWeil.lean:309  | theorem blPoly_contDiff (n : ℕ) : ContDiff ℝ 2 (blPoly n) := by
+      LiWeil.lean:313  | theorem blSmooth_contDiff (n : ℕ) : ContDiff ℝ 2 (blSmooth n) := by
+      LiWeil.lean:320  | theorem truncMember_classEF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+      LiWeil.lean:321  |     ContDiff ℝ 2 (truncMember n f) ∧ HasCompactSupport (truncMember n f) := by
+      LiWeil.lean:328  | theorem truncMember_eq (n : ℕ) {c : ℝ} (f : ContDiffBump c) (hc : c + f.rOut ≤ 0) (u : ℝ) :
+      LiWeil.lean:329  |     truncMember n f u = ((f u : ℝ) : ℂ) * blTest n u := by
+      LiWeil.lean:344  | theorem truncMember_EF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+      LiWeil.lean:345  |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)) ∧
+      LiWeil.lean:346  |     ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)
+      LiWeil.lean:347  |       = EF.literatureRHS (truncMember n f) :=
+      LiWeil.lean:355  | def LiLimitExchange (n : ℕ) : Prop :=
+      LiWeil.lean:356  |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+      LiWeil.lean:357  |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+      LiWeil.lean:358  |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+      LiWeil.lean:359  |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+      LiWeil.lean:364  | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+      LiWeil.lean:365  |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+      LiWeil.lean:366  |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+  
+  ### Zeta23/WeilEF/ZeroSummability.lean:247 @941503b -- zero_sum_inv_sq
+        247 | theorem zero_sum_inv_sq (hs : ZetaSeam) :
+        248 |     Summable (fun ρ : (zetaZeros hs).carrier =>
+        249 |       (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+  
+  ### Zeta23/WeilEF/ZeroSummability.lean:121 @941503b -- zero_sum_inv_sq_gen
+        121 | theorem zero_sum_inv_sq_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)
+        122 |     (hloc' : ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)) :
+        123 |     Summable (fun ρ : Z.carrier =>
+        124 |       (Z.mult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+  
+  ### SIDEExplicitFormula/PowerLimit.lean:934 @941503b -- weighted_summable
+        934 | theorem weighted_summable (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+        935 |     (hBf : 0 ≤ Bf) (hf0 : ∀ ρ ∈ Z.carrier, 0 ≤ f ρ)
+        936 |     (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf) :
+        937 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ) := by
+  
+  ### SIDEExplicitFormula/PowerLimit.lean:879 @941503b -- weighted_finite_bound
+        879 | theorem weighted_finite_bound (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+        880 |     (hBf : 0 ≤ Bf) (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf)
+        881 |     (s : Finset ℂ) (hsZ : ∀ ρ ∈ s, ρ ∈ Z.carrier) :
+        882 |     (∑ ρ ∈ s, (Z.mult ρ : ℝ) * f ρ) ≤ 3 * A₀ * Bf * zeta3Sum := by
+  
+  ### SIDEExplicitFormula/PowerLimit.lean:1025 @941503b -- rest_tendsto_zero
+       1025 | theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+       1026 |     (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :
+       1027 |     Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0) := by
+  
+  ### SIDEExplicitFormula/PowerLimit.lean:949 @941503b -- dominant_summable
+        949 | theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+        950 |     Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *
+        951 |       (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)))) := by
+  
+  ### Zeta23/ExplicitFormula.lean:97 @941503b -- EF_lit
+         97 | def EF_lit (Z : ZeroConfig) : Prop :=
+         98 |   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+         99 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+        100 |     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+      ### the exponents: zero_sum_inv_sq sums m_ρ / (1 + ‖γ_ρ‖²) -- EXPONENT 2 in ‖γ_ρ‖; weighted_summable asks
+      ### f ρ (1 + |⌈Im ρ⌉|)^4 <= Bf -- EXPONENT 4 in the ordinate.
+  
+  ### relay data/b560_stageD.txt :137-:176 (the obstacle, (D1)-(D6), the converse (V1)-(V4)):
+      b560_stageD.txt:137 | ### ### **STAGE D -- WHERE IT STOPS, BY LINE, AND WHAT REMAINS, PRICED IN LEMMAS** (the truncation route, OPEN_TRAILS :11294-:11302)
+      b560_stageD.txt:138 |     REACHED: the statement of the family and ONE truncation lemma -- `truncMember_classEF` (every member `ContDiff ℝ 2` with
+      b560_stageD.txt:139 |     compact support, EF_lit`s class), EF_lit applied to it (`truncMember_EF`), and the identity conditional on the exchange
+      b560_stageD.txt:140 |     (`li_identity_of_exchange`, INTERFACES). T2 (the smoothing of the jump at 0) is absorbed: the bump supported left of 0
+      b560_stageD.txt:141 |     multiplies the everywhere-smooth `e^{u/2} P_n(u)`, so the member is smooth whatever `k_n` does at 0 (`truncMember_eq`).
+      b560_stageD.txt:142 |     ### **THE OBSTACLE (LiWeil.lean, `LiLimitExchange`): THE LIMIT EXCHANGE, AND THE PAIRING HAZARD IS EXACTLY THERE.** At each
+      b560_stageD.txt:143 |     member the zero sum is absolutely convergent (EF_lit, ExplicitFormula.lean:98-99), with a dominant `C/(1 + ‖γ_ρ‖²)` whose
+      b560_stageD.txt:144 |     constant C grows with the second derivative of the member (ZeroSummability.lean:192-195: `C = 2 e^{Λ/2} ∫‖k``‖`); along a
+      b560_stageD.txt:145 |     family tending to `1_{u<0}` the bumps steepen at 0 and C is unbounded, so no dominant uniform in the family comes from
+      b560_stageD.txt:146 |     EF_lit`s own bound. The target `LiCoeff n` is a sum of real parts (the paired sum): the unpaired Li terms decay only like
+      b560_stageD.txt:147 |     `n/ρ` (`liTerm_re_abs_le` bounds the REAL part at `‖ρ‖⁻²`; the imaginary part is first order). The exchange needs the
+      b560_stageD.txt:148 |     grouped (conjugate-paired) transforms dominated uniformly in the family.
+      b560_stageD.txt:149 |     PRICED, NOT FORCED:
+      b560_stageD.txt:150 |       (D1) `blTransform` -- the transform of `k_n` is the Li term (T1): the Mellin integral of `x^{ρ-1} (log x)^{j-1}` on (0,1),
+      b560_stageD.txt:151 |            an improper integral per power -- one lemma of moderate weight.
+      b560_stageD.txt:152 |       (D2) the transform at a member converges to the transform of `k_n` at each fixed ρ (dominated convergence in u,
+      b560_stageD.txt:153 |            `|k_n(u) e^{(ρ-1/2)u}| ≤ e^{Re ρ u}|P_n(u)|` on u < 0) -- one lemma, moderate.
+      b560_stageD.txt:154 |       (D3) THE LEMMA OF SUBSTANCE: a dominant for the PAIRED truncated transforms, uniform in the family and summable over
+      b560_stageD.txt:155 |            the zeros -- an integration by parts that keeps the jump`s boundary term (`n/ρ`, first order, cancelling in
+      b560_stageD.txt:156 |            the real part) separate from a remainder `O(‖ρ‖⁻²)` uniform in the bump -- T6.
+      b560_stageD.txt:157 |       (D4) Tannery over the zeros through (D3)`s dominant (the pattern of `rest_tendsto_zero`, PowerLimit.lean:1025) -- T7.
+      b560_stageD.txt:158 |       (D5) the prime side`s limit (a finite sum for compact support; the Λ(n) n^{-1/2} (k(log n) + k(-log n)) terms converge
+      b560_stageD.txt:159 |            termwise and the family`s support grows -- the tail needs k_n`s decay e^{u/2}|u|^{n-1}) and the Γ-integral`s limit
+      b560_stageD.txt:160 |            -- T8, two lemmas.
+      b560_stageD.txt:161 |       (D6) λ_n identified with the Bombieri-Lagarias arithmetic formula in the kernel`s objects -- T9, a statement once
+      b560_stageD.txt:162 |            (D1)-(D5) are in; not re-read at source (BL 1999 is not in the relay`s banks).
+      b560_stageD.txt:163 |     ### the exchange is (D2)+(D3)+(D4); (D3) is where the pairing hazard lives and is the next act`s item if the bridge
+      b560_stageD.txt:164 |     ### continues ((R170)(7)).
+      b560_stageD.txt:165 | 
+      b560_stageD.txt:166 | ### ### **THE CONVERSE, PRICED AND NOT ATTEMPTED** (λ_n ≥ 0 for all n → RH; Bombieri-Lagarias Theorem 1, Voros`s growth):
+      b560_stageD.txt:167 |       (V1) at an off-line zero ρ₀ (Re ρ₀ ≠ 1/2) one of ρ₀, 1 - conj ρ₀ has `‖1 - 1/ρ‖ > 1`, so its term grows like
+      b560_stageD.txt:168 |            `‖1 - 1/ρ₀‖^n`: a lemma over ℂ, the reverse of `norm_one_sub_inv_of_re_half` -- light.
+      b560_stageD.txt:169 |       (V2) the phase: the real part of `-(1 - 1/ρ₀)^n` is negative and of size `‖1 - 1/ρ₀‖^n` for infinitely many n
+      b560_stageD.txt:170 |            (an argument on `n·arg(1 - 1/ρ₀)` mod 2π, Dirichlet approximation) -- moderate.
+      b560_stageD.txt:171 |       (V3) the rest of the sum bounded by a quantity of smaller exponential order: the zeros with `‖1 - 1/ρ‖` below the
+      b560_stageD.txt:172 |            largest, uniformly in n -- it needs the maximum of `‖1 - 1/ρ‖` over the zeros to be attained and the others
+      b560_stageD.txt:173 |            separated from it, a configuration estimate of the kind b559 met at the detection region -- substance.
+      b560_stageD.txt:174 |       (V4) assembled: some λ_n < 0; contraposition gives RH. BL 1999 does this for an arbitrary multiset satisfying their
+      b560_stageD.txt:175 |            growth condition; the kernel`s count bound supplies the multiset`s summability (`pair_summable`).
+      b560_stageD.txt:176 | 
+  
+  ### relay data/b549_premise.txt:12 |   inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+  ### BALANCE_AND_POSITIVITY.md:764 | ### The joint's two forms at the RH-anchor: the Weil form compiled, the Li form a literature theorem -- appended 2026-09-26 by b545 beneath §II (:53-74); no byte above this block changes
+  ### FINDINGS.md:5478 | ## The cascade, act three: BALANCE_AND_POSITIVITY tiered, the joint in two forms, the earlier finding credited, the Fano theorem's kernel status
+  ### FINDINGS.md:5486 | **The joint in two forms.** The Weil form is `h2_sign`, compiled both ways against Mathlib's `RiemannHypothesis` (`h2_sign_iff_rh`, v0.2 = `5c72cad`): the T0 reference of §I's target-side row, the one T0 RH-anchor reference in the keystone. The Li form, RH ⟺ λ_Z(n) ≥ −λ_A(n) for every n, is Li's cri
+  ### FINDINGS.md:5575 | ## Weil's criterion in the field, September 2026: certified window bounds, claimed proofs on the deposit venue, and the programme's compiled harness beside them
+  ### FINDINGS.md:5601 | ## The field entry's sources, repaired: Zhu's abstract quoted, the Liu record's provenance, the two Zenodo records completed (to FINDINGS.md:5575)
+  ### SIDE-explicit-formula/.githooks/pre-push:1-4 (core.hooksPath = .githooks) | #!/bin/sh / # relay pre-push hook — Rule 4 hardenings (minted 2026-08-18, author-ruled). / # (i) pushes to origin main only from push-* / repair-* branches; / # (ii) refuse any outgoing ancestry containing a HELD commit;
+      the main-from-push-* refusal at :[81] | echo "pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: $branch" >&2
+  ### relay/.githooks/pre-push:1-4 (core.hooksPath = .githooks) | #!/bin/sh / # relay pre-push hook — Rule 4 hardenings (minted 2026-08-18, author-ruled). / # (i) pushes to origin main only from push-* / repair-* branches; / # (ii) refuse any outgoing ancestry containing a HELD commit;
+      the main-from-push-* refusal at :[81] | echo "pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: $branch" >&2
+  ### relay data/b560_defects.txt (e) | (e) THE TAG REACHED THE REMOTE BEFORE main DID. The first push command chained `git push origin main 2>&1 | tail -1 &&         git push origin v0.3`: the kernel's pre-push hook refused the main push from `main` (Rule 4.10: pushes to main only         from a push-* branch), and the pipe through `tail` returned tail's exit status, so the chain went on and pushed         the tag. For the interval between the two pushes the remote carried v0.3 peeled to 04eda4a while its main was         81ae175. main was then pushed from the branch push-b560 (`data/b560_v03_push.txt`) and read back equal to v0.3'
+  ### the push tools in relay before this act: ['b495_push.py'] ; no standing push script
+
+### relay data/b561_decay_read.txt
+  b561 -- READING (4): THE DECAY READ, ON THE PAGE, BEFORE ANY BUILD (COMPONENT 3)
+  ### The objects are v0.4's (LiWeil.lean): blSmooth n u = e^{u/2} P_n(u), blTest n = 1_{u<0} blSmooth n, truncMember n f =
+  ### f · blSmooth n for a bump f = ContDiffBump c, and LiLimitExchange n's family: bumps with c + rOut <= 0 tending to 1 at every
+  ### u < 0. Every step below is a derivation on the page; a step resting on a result not compiled in the federation says so.
+  
+  ### (1) THE TRANSFORM AT A ZERO. paperFT k z = ∫ k(u) e^{i z u} du (Defs.lean:60) and gammaOf ρ = (ρ - 1/2)/i, so
+  ###     i · gammaOf ρ · u = (ρ - 1/2) u and e^{u/2} e^{(ρ-1/2)u} = e^{ρ u}. At a member f:
+  ###         H_f(ρ) := paperFT (truncMember n f) (gammaOf ρ) = ∫ f(u) P_n(u) e^{ρ u} du,
+  ###     and at the jump function (D1, blTransform): H(ρ) = ∫_{u<0} P_n(u) e^{ρ u} du = 1 - (1 - 1/ρ)^n = liTerm n ρ for Re ρ > 0.
+  ###     The member and P_n are real, so the paired transform at a member is H_f(ρ) + H_f(conj ρ) = 2 Re H_f(ρ), as at the jump.
+  
+  ### (2) THE EXCESS, AND THE TRUNCATION PARAMETER. E_f(ρ) := H_f(ρ) - H(ρ) = ∫ (f(u) - 1_{u<0}) P_n(u) e^{ρ u} du. The bump is
+  ###     1 on [c - rIn, c + rIn] and 0 off (c - rOut, c + rOut), with c + rOut <= 0. Its RIGHT deficit lies in [c + rIn, 0]:
+  ###     put δ := -(c + rIn) > 0, the distance from the bump's plateau to 0. Pointwise convergence to 1 at every u < 0 forces
+  ###     δ_m -> 0 along the family (and c_m - rIn_m -> -∞ on the left). On the right, 1_{u<0} - f ∈ [0, 1], equal to 1 on
+  ###     [c + rOut, 0) and to 1 - st on the transition; write μ δ := ∫_{-δ}^{0} (1 - f(u)) du, μ ∈ (0, 1] (μ = 1/2 when
+  ###     c + rOut = 0, by st(1 - t) = 1 - st(t) for Mathlib's Real.smoothTransition).
+  
+  ### (3) WHERE ‖ρ‖ δ IS SMALL. On [-δ, 0]: |e^{ρ u} - 1| <= ‖ρ‖ δ e^{‖ρ‖ δ} and |P_n(u) - n| <= δ 2^n (P_n(0) = C(n,1) = n;
+  ###     the coefficients C(n, j+1)/j! sum to at most 2^n). So the right part of the excess is
+  ###         E_right = ∫_{-δ}^{0} (f - 1) P_n e^{ρu} du = -n μ δ + r,   |r| <= δ² (2^n + 2 n ‖ρ‖)   (for ‖ρ‖ δ <= 1/2),
+  ###     and Re E_right <= -n μ δ / 2 < 0 once ‖ρ‖ δ <= μ/8 and δ <= n μ /(4·2^n). THE SIGN IS ONE AND THE SAME FOR EVERY ZERO in
+  ###     that range. The left part is ∫_{u <= c - rIn} (f - 1) P_n e^{ρ u}: of size e^{-β R} R^{n-1} at R = rIn - c -> ∞ for a zero
+  ###     of real part β -- it tends to 0 for each zero, uniformly on zeros with β bounded below.
+  ### (4) WHERE ‖ρ‖ δ IS LARGE. Integrating by parts, E_right = -n/ρ + (1/ρ) ∫ f' P_n e^{ρu} du + (terms of order 1/‖ρ‖²), and the
+  ###     middle term is O(1/(‖ρ‖² δ)) by a second integration by parts on the smooth transition: the excess tends back to the
+  ###     jump's own -n/ρ, whose real part n β/‖ρ‖² is what Stage B's bound already carries.
+  ### (5) THE SUPREMUM OVER THE FAMILY AT A FIXED ZERO. For a member with δ ≍ μ/(8‖ρ‖), (3) gives |2 Re E_f(ρ)| >= n μ δ ≍ n μ²/(8 ‖ρ‖),
+  ###     while the jump's pair is O(liConst n / ‖ρ‖²) (pairTerm_norm_le). So along any family whose δ_m passes through every scale
+  ###     (δ_m = 1/m does), sup_m |pair_m(ρ)| >= c_n / ‖ρ‖ for every large zero: THE UNIFORM BOUND IS OF ORDER n/‖ρ‖, NOT n/‖ρ‖². A
+  ###     bound C/‖ρ‖² at a member needs δ <= C'/‖ρ‖², a rate in the truncation parameter depending on the zero; a family gives
+  ###     each δ_m for all zeros at once, and no δ_m -> 0 meets it at every zero.
+  
+  ### (6) AGAINST zero_sum_inv_sq's EXPONENT. zero_sum_inv_sq (ZeroSummability.lean:247) makes Σ m_ρ/(1 + ‖γ_ρ‖²) converge:
+  ###     exponent 2. The uniform bound (5) has exponent 1, and Σ m_ρ/‖ρ‖ DIVERGES -- by the Riemann-von Mangoldt count
+  ###     N(T) ≍ T log T (a literature theorem, T1-lit; the kernel carries only the upper local count
+  ###     zetaZeroConfig_local_count, which cannot prove a divergence). weighted_summable's exponent 4 is further off still.
+  ###     ### **SO (D3) IS NEITHER A PAIRING ESTIMATE ON EXISTING LEMMAS NOR A NEW SUMMABILITY LEMMA: A DOMINANT FOR THE PAIRED
+  ###     ### TRUNCATED TRANSFORMS UNIFORM ALONG THE FAMILY AND SUMMABLE OVER THE ZEROS DOES NOT EXIST.** The pairing does not
+  ###     help: the excess is REAL at leading order (-n μ δ), so pairing doubles it rather than cancelling it.
+  
+  ### (7) THE ZERO SIDE ALONG THE FAMILY -- A DERIVATION, NOT COMPILED. The excess has one sign on the zeros with ‖ρ‖ δ <= μ/8,
+  ###     roughly (1/π)(μ/8δ) log(1/δ) of them (Riemann-von Mangoldt, T1-lit), so it sums to about -(n μ²/(8π)) log(1/δ). Read on
+  ###     the other side of EF_lit instead (truncMember_EF, compiled): the right edge moves neither the pole terms (they converge)
+  ###     nor the prime terms (they sit at |u| = log m >= log 2); it enters the Γ-integral only, where gammaBracket(r) grows like
+  ###     log|r| (Stirling; Zeta23/GammaFacts carries Stirling bounds, whose use here is not checked), and the excess, of size
+  ###     n δ Δ(i r δ) with Δ the transition's Laplace profile, integrates against log|r| to
+  ###         (n/2π) log(1/δ) ∫ Re Δ(ix) dx + O(1) = (n/2π) log(1/δ) · (2π · (-1/2)) = -(n/2) log(1/δ) + O(1)
+  ###     -- the Fourier integral picks the midpoint (-1/2) of the excess's jump at 0, whatever the profile. ### **SO ALONG EVERY
+  ###     FAMILY IN LiLimitExchange's HYPOTHESIS THE ZERO SIDE TENDS TO -∞ FOR n >= 1: LiLimitExchange n IS EXPECTED FALSE FOR
+  ###     n >= 1** (for n = 0, P_0 = 0 and both sides are 0). The one-sided smoothing moves the jump's midpoint into u < 0; the
+  ###     Bombieri-Lagarias identity holds at the jump normalised to its midpoint, k_n(0) = n/2, which no member of this family
+  ###     approaches from both sides. This is a derivation resting on Stirling's sharp asymptotic and (for the zero-count form)
+  ###     on Riemann-von Mangoldt, neither of which this act compiles; it is not a theorem of the kernel.
+  
+  ### (8) THE SCORE. H12a: "the paired truncated transform decays at least like 1/‖ρ‖² uniformly in the truncation parameter ...
+  ###     refuted if the uniform bound needs a rate in the truncation parameter the family does not give" -- ### **REFUTED BY THE
+  ###     DERIVATION**: (5), the uniform bound is of order n/‖ρ‖; a 1/‖ρ‖² bound needs δ <= C/‖ρ‖², a rate the family does not give.
+  ### (9) WHAT THIS DOES TO THE PRICE. (D3) as priced at b560 does not exist; (D4) by Tannery has no dominant; b560's stated
+  ###     `LiLimitExchange` is, on this derivation, false for n >= 1, so `li_identity_of_exchange` is INTERFACES on a premise
+  ###     that cannot be discharged in the form written. Re-priced:
+  ###       (X1) the explicit formula on a class containing the jump normalised to its midpoint (Weil's formula for functions of
+  ###            bounded variation with k(0) = (k(0-) + k(0+))/2) -- the leading item at OPEN_TRAILS :11424, "the explicit formula
+  ###            on a class wider than EF_lit's" -- a lemma of substance, T1-lit in the literature (Weil 1952; Bombieri 2000);
+  ###       (X2) or two-sided families, the transition centred at 0, for which the -(n/2) log(1/δ) term cancels at leading
+  ###            order; the zero side still has no uniform dominant (the excess stays of order 1/‖ρ‖ per zero with signs that
+  ###            now alternate), so the limit is taken on EF_lit's OTHER side -- the pole terms, the prime sum (D5) and the
+  ###            Γ-integral converging -- and the zero side's limit is read through the identity, not by Tannery;
+  ###       (X3) LiLimitExchange restated for (X2)'s family and the one-sided statement's failure recorded; a Lean proof of the
+  ###            failure would need the Riemann-von Mangoldt lower count or Stirling's asymptotic in the kernel -- priced, not
+  ###            attempted.
+  ###     (D1) and (D2) stand as priced and valid on either family; they are attempted next, in the bank's order.
+  
+  ### THE NUMERICAL ILLUSTRATION (scratchpad decay_num.py, mpmath 30 digits; n = 1, P_1 = 1; Mathlib`s
+  ### Real.smoothTransition profile, right edge at 0, width δ; ρ = 1/2 + iγ) -- AN ILLUSTRATION, NOT EVIDENCE FOR A THEOREM:
+      mu = int_0^1 (1 - st) = 0.5 (1/2 by the symmetry st(1-t) = 1 - st(t))
+           gamma      delta           2 Re E    -2 n mu delta   |rho| |2ReE|
+          14.135      1e-01        -0.088308             -0.1        1.24899
+          14.135      1e-02    -0.0099751848            -0.01       0.141085
+          14.135      1e-03   -0.00099985054           -0.001      0.0141415
+          14.135      1e-04    -9.9998604e-5          -0.0001     0.00141434
+          14.135      1e-05    -9.9999861e-6          -1.0e-5    0.000141435
+         sup over delta = k/(10|rho|), k=1..39, of |rho| |2 Re E| : 1.74197 at k = 28
+         100.000      1e-01     0.0029835521             -0.1       0.298359
+         100.000      1e-02    -0.0094475203            -0.01       0.944764
+         100.000      1e-03   -0.00099931054           -0.001      0.0999323
+         100.000      1e-04    -9.9998064e-5          -0.0001     0.00999993
+         100.000      1e-05    -9.9999856e-6          -1.0e-5     0.00100001
+         sup over delta = k/(10|rho|), k=1..39, of |rho| |2 Re E| : 1.76646 at k = 28
+        1000.000      1e-01    -1.0007477e-6             -0.1     0.00100075
+        1000.000      1e-02    0.00031174803            -0.01       0.311748
+        1000.000      1e-03   -0.00094588236           -0.001       0.945882
+        1000.000      1e-04    -9.9943502e-5          -0.0001      0.0999435
+        1000.000      1e-05     -9.999931e-6          -1.0e-5     0.00999993
+         sup over delta = k/(10|rho|), k=1..39, of |rho| |2 Re E| : 1.77026 at k = 28
+  ### read: for ‖ρ‖δ small, 2 Re E = -2 n μ δ to four digits (one sign); the supremum over δ of ‖ρ‖ |2 Re E| is 1.742,
+  ### 1.766, 1.770 at γ = 14.1, 100, 1000 -- flat in ‖ρ‖, so the uniform bound is ≈ 1.77 n/‖ρ‖, the order (5) derives.
+
+### relay data/b561_D1.txt
+  b561 -- READING (5): ITEM D1 -- blTransform DISCHARGED -- the transform of k_n at gammaOf ρ is the Li term for Re ρ > 0
+  
+  ### the branch li-weil-b561 from v0.4 = 941503b ; the module SIDEExplicitFormula/LiWeilExchange.lean (fed on stdin after LiWeil.lean, which has no olean)
+  
+  ### THE ELABORATION ATTEMPTS OF THIS ITEM, each with its exit and error count (the whole module as it then stood):
+      ### stD1_1 -- exit 1, elapsed 41 s, errors 9 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+          | <stdin>:413:9: error: don't know how to synthesize implicit argument `g`
+          |   @Integrable.mono' ℝ ℂ Real.measureSpace.toMeasurableSpace (volume.restrict (Ioi 0)) instNormedAddCommGroup
+          |     (fun x => ↑x ^ j * cexp (-(ρ * ↑x))) ?m.76 (IntegrableOn.congr_fun_ae hr ?m.69) ?m.77 ?m.78
+          | context:
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | j : ℕ
+          | hr : IntegrableOn (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) (Ioi 0) volume
+          | ⊢ ℝ → ℝ
+          | <stdin>:413:9: error: don't know how to synthesize implicit argument `g`
+          |   @IntegrableOn.congr_fun_ae ℝ ℝ Real.measureSpace.toMeasurableSpace (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) ?m.76
+          |     (Ioi 0) volume PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm hr ?m.69
+          | context:
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | j : ℕ
+          | hr : IntegrableOn (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) (Ioi 0) volume
+          | ⊢ ℝ → ℝ
+          | <stdin>:410:73: error: unsolved goals
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | j : ℕ
+          | hr : IntegrableOn (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) (Ioi 0) volume
+          | ⊢ IntegrableOn (fun x => ↑x ^ j * cexp (-(ρ * ↑x))) (Ioi 0) volume
+          | <stdin>:447:8: error: `field_simp` made no progress on the goal
+          | <stdin>:454:18: error(lean.invalidField): Invalid field `congr_fun`: The environment does not contain `And.congr_fun`, so it is not possible to project the field `congr_fun` from an expression
+          |   this
+          | of type
+          |   AEStronglyMeasurable (fun x => -↑(j + 1) / ρ * (↑x ^ j * cexp (-(ρ * ↑x)))) (volume.restrict (Ioi 0)) ∧
+          |     HasFiniteIntegral (fun x => -↑(j + 1) / ρ * (↑x ^ j * cexp (-(ρ * ↑x)))) (volume.restrict (Ioi 0))
+          | <stdin>:455:6: error: No goals to be solved
+          | <stdin>:473:40: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+          |   x ^ 0 * Real.exp (-(re ?m.1087 * x))
+          | in the target expression
+          |   ‖↑x ^ (j + 1)‖ * (‖cexp (-(ρ * ↑x))‖ / ‖ρ‖) ≤
+          |     (1 / ρ.re) ^ (j + 1) / ‖ρ‖ * ((ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x)))
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | j : ℕ
+          | hρ0 : ρ ≠ 0
+          | ih : ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+          | u : ℝ → ℂ := fun x => ↑x ^ (j + 1)
+          | hu : u = fun x => ↑x ^ (j + 1)
+          | u' : ℝ → ℂ := fun x => ↑(j + 1) * ↑x ^ j
+          | hu' : u' = fun x => ↑(j + 1) * ↑x ^ j
+          | v : ℝ → ℂ := fun x => -cexp (-(ρ * ↑x)) / ρ
+          | hv : v = fun x => -cexp (-(ρ * ↑x)) / ρ
+          | v' : ℝ → ℂ := fun x => cexp (-(ρ * ↑x))
+          | hv' : v' = fun x => cexp (-(ρ * ↑x))
+          | hdu : ∀ x ∈ Ioi 0, HasDerivAt u (u' x) x
+          | hdv : ∀ x ∈ Ioi 0, HasDerivAt v (v' x) x
+          | huv' : IntegrableOn (u * v') (Ioi 0) volume
+          | hu'v : IntegrableOn (u' * v) (Ioi 0) volume
+          | h0 : Tendsto (u * v) (𝓝[>] 0) (𝓝 0)
+          | hb : Tendsto (fun x => (ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x))) atTop (𝓝 0)
+          | hb' : Tendsto (fun x => (1 / ρ.re) ^ (j + 1) / ‖ρ‖ * ((ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x)))) atTop (𝓝 0)
+          | x : ℝ
+          | hx : 0 < x
+          | ⊢ ‖↑x ^ (j + 1)‖ * (‖cexp (-(ρ * ↑x))‖ / ‖ρ‖) ≤
+          |     (1 / ρ.re) ^ (j + 1) / ‖ρ‖ * ((ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x)))
+          | <stdin>:492:6: error: No goals to be solved
+          | <stdin>:430:10: warning: This simp argument is unused:
+          |   hρ0
+          | Hint: Omit it from the simp argument list.
+          |   [apply] simp
+          | <stdin>:521:4: error: No goals to be solved
+      ### stD1_2 -- exit 1, elapsed 29 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+          | <stdin>:442:92: error: unsolved goals
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | j : ℕ
+          | hρ0 : ρ ≠ 0
+          | ih : ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+          | u : ℝ → ℂ := fun x => ↑x ^ (j + 1)
+          | hu : u = fun x => ↑x ^ (j + 1)
+          | u' : ℝ → ℂ := fun x => ↑(j + 1) * ↑x ^ j
+          | hu' : u' = fun x => ↑(j + 1) * ↑x ^ j
+          | v : ℝ → ℂ := fun x => -cexp (-(ρ * ↑x)) / ρ
+          | hv : v = fun x => -cexp (-(ρ * ↑x)) / ρ
+          | v' : ℝ → ℂ := fun x => cexp (-(ρ * ↑x))
+          | hv' : v' = fun x => cexp (-(ρ * ↑x))
+          | hdu : ∀ x ∈ Ioi 0, HasDerivAt u (u' x) x
+          | x : ℝ
+          | a✝ : x ∈ Ioi 0
+          | h2 :
+          |   HasDerivAt (fun x => (-fun x => cexp ((-fun y => ρ * id y) x)) x / ρ)
+          |     (-(cexp ((-fun y => ρ * id y) ↑x) * -(ρ * 1)) / ρ) ↑x
+          | ⊢ cexp ((-fun y => ρ * y) ↑x) = cexp (-(ρ * ↑x))
+          | <stdin>:428:10: warning: This simp argument is unused:
+          |   hρ0
+          | Hint: Omit it from the simp argument list.
+          |   [apply] simp
+      ### stD1_3 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+  
+  ### THE DECLARATIONS OF THIS ITEM, AS THE SOURCE STATES THEM:
+         33 | theorem norm_pow_mul_cexp {ρ : ℂ} (j : ℕ) {x : ℝ} (hx : 0 < x) :
+         34 |     ‖(x : ℂ) ^ j * cexp (-(ρ * x))‖ = x ^ j * Real.exp (-(ρ.re * x)) := by
+         40 | theorem integrableOn_pow_mul_cexp {ρ : ℂ} (hρ : 0 < ρ.re) (j : ℕ) :
+         41 |     IntegrableOn (fun x : ℝ => (x : ℂ) ^ j * cexp (-(ρ * x))) (Ioi 0) := by
+         50 | theorem integral_pow_mul_cexp {ρ : ℂ} (hρ : 0 < ρ.re) :
+         51 |     ∀ j : ℕ, ∫ x in Ioi (0 : ℝ), (x : ℂ) ^ j * cexp (-(ρ * x)) = (j.factorial : ℂ) / ρ ^ (j + 1)
+         52 |   | 0 => by
+         53 |     have hρ0 : ρ ≠ 0 := fun h => by rw [h, Complex.zero_re] at hρ; exact lt_irrefl _ hρ
+        123 | theorem blPoly_neg_cast (n : ℕ) (x : ℝ) :
+        124 |     ((blPoly n (-x) : ℝ) : ℂ) = ∑ j ∈ Finset.range n, ((n.choose (j + 1) : ℂ) * (-1) ^ j / (j.factorial : ℂ)) * (x : ℂ) ^ j := by
+        132 | theorem binomial_li (n : ℕ) (ρ : ℂ) :
+        133 |     ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℂ) * (-1) ^ j / ρ ^ (j + 1) = liTerm n ρ := by
+        148 | theorem blTest_integrand (n : ℕ) (ρ : ℂ) (u : ℝ) :
+        149 |     blTest n u * cexp (Complex.I * gammaOf ρ * u) = (Iio (0 : ℝ)).indicator (fun u : ℝ => ((blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) u := by
+        163 | theorem blTransform_holds (n : ℕ) : blTransform n := by
+  
+  ### LEAN`S PRINTS:
+      norm_pow_mul_cexp : ['propext', 'Classical.choice', 'Quot.sound']
+      integrableOn_pow_mul_cexp : ['propext', 'Classical.choice', 'Quot.sound']
+      integral_pow_mul_cexp : ['propext', 'Classical.choice', 'Quot.sound']
+          @SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp : ∀ {ρ : ℂ}, 0 < ρ.re → ∀ (j : ℕ), ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+      blPoly_neg_cast : ['propext', 'Classical.choice', 'Quot.sound']
+      binomial_li : ['propext', 'Classical.choice', 'Quot.sound']
+          SIDEExplicitFormula.LiWeil.binomial_li : ∀ (n : ℕ) (ρ : ℂ), ∑ j ∈ Finset.range n, ↑(n.choose (j + 1)) * (-1) ^ j / ρ ^ (j + 1) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+      blTest_integrand : ['propext', 'Classical.choice', 'Quot.sound']
+      blTransform_holds : ['propext', 'Classical.choice', 'Quot.sound']
+          SIDEExplicitFormula.LiWeil.blTransform_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.blTransform n
+  ### ### **PRINTED 7 OF 7 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b561_D2.txt
+  b561 -- READING (5): ITEM D2 -- the member transforms tend to the jump`s at each fixed zero, Re ρ > 0 (dominated convergence in u)
+  
+  ### the branch li-weil-b561 from v0.4 = 941503b ; the module SIDEExplicitFormula/LiWeilExchange.lean (fed on stdin after LiWeil.lean, which has no olean)
+  
+  ### THE ELABORATION ATTEMPTS OF THIS ITEM, each with its exit and error count (the whole module as it then stood):
+      ### stD2_1 -- exit 1, elapsed 30 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+          | <stdin>:599:4: error: unsolved goals
+          | case neg
+          | n : ℕ
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | c : ℕ → ℝ
+          | fs : (m : ℕ) → ContDiffBump (c m)
+          | hc : ∀ (m : ℕ), c m + (fs m).rOut ≤ 0
+          | h1 : ∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)
+          | g : ℝ → ℂ := fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+          | hg : g = fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+          | hF : ∀ (m : ℕ), (fun u => truncMember n (fs m) u * cexp (I * gammaOf ρ * ↑u)) = fun u => ↑(↑(fs m) u) * g u
+          | u : ℝ
+          | hu : ¬u < 0
+          | this : g u = 0
+          | ⊢ blTest n u = 0
+      ### stD2_2 -- exit 1, elapsed 29 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+          | <stdin>:605:12: error: typeclass instance problem is stuck
+          |   TopologicalSpace ?m.293
+          | Note: Lean will not try to resolve this typeclass instance problem because the type argument to `TopologicalSpace` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+          | Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as hav
+      ### stD2_3 -- exit 1, elapsed 29 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+          | <stdin>:606:6: error: Tactic `apply` failed: could not unify the conclusion of `@tendsto_const_nhds`
+          |   Tendsto (fun x => ?x) ?f (𝓝 ?x)
+          | with the goal
+          |   Tendsto (fun n => 0) atTop (𝓝 (blTest n u * cexp (I * gammaOf ρ * ↑u)))
+          | Note: The full type of `@tendsto_const_nhds` is
+          |   ∀ {X : Type ?u.141} [inst : TopologicalSpace X] {α : Type ?u.140} {x : X} {f : Filter α},
+          |     Tendsto (fun x_1 => x) f (𝓝 x)
+          | case neg
+          | n : ℕ
+          | ρ : ℂ
+          | hρ : 0 < ρ.re
+          | c : ℕ → ℝ
+          | fs : (m : ℕ) → ContDiffBump (c m)
+          | hc : ∀ (m : ℕ), c m + (fs m).rOut ≤ 0
+          | h1 : ∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)
+          | g : ℝ → ℂ := fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+          | hg : g = fun u => blTest n u * cexp (I * gammaOf ρ * ↑u)
+          | hF : ∀ (m : ℕ), (fun u => truncMember n (fs m) u * cexp (I * gammaOf ρ * ↑u)) = fun u => ↑(↑(fs m) u) * g u
+          | u : ℝ
+          | hu : ¬u < 0
+          | this : g u = 0
+          | ⊢ Tendsto (fun n => 0) atTop (𝓝 (blTest n u * cexp (I * gammaOf ρ * ↑u)))
+      ### stD2_4 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+  
+  ### THE DECLARATIONS OF THIS ITEM, AS THE SOURCE STATES THEM:
+        188 | theorem integrable_blTest_integrand (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+        189 |     Integrable (fun u : ℝ => blTest n u * cexp (Complex.I * gammaOf ρ * u)) := by
+        209 | theorem truncMember_transform_tendsto (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+        210 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Tendsto (fun m => (fs m) u) atTop (𝓝 1)) :
+        211 |     Tendsto (fun m => paperFT (truncMember n (fs m)) (gammaOf ρ)) atTop (𝓝 (paperFT (blTest n) (gammaOf ρ))) := by
+  
+  ### LEAN`S PRINTS:
+      integrable_blTest_integrand : ['propext', 'Classical.choice', 'Quot.sound']
+          SIDEExplicitFormula.LiWeil.integrable_blTest_integrand : ∀ (n : ℕ) {ρ : ℂ}, 0 < ρ.re → Integrable (fun u => SIDEExplicitFormula.LiWeil.blTest n u * cexp (I * Zeta23.gammaOf ρ * ↑u)) volume
+      truncMember_transform_tendsto : ['propext', 'Classical.choice', 'Quot.sound']
+          SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto : ∀ (n : ℕ) {ρ : ℂ}, 0 < ρ.re → ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)) → Tendsto (fun m => Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ρ)) atTop (𝓝 (Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Ze
+  ### ### **PRINTED 2 OF 2 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b561_D3_D4.txt
+  b561 -- READING (5): ITEMS D3 AND D4 -- HELD AT THE READ, BEFORE A LINE OF (D3) WAS WRITTEN
+  
+  ### ### **(D3) HELD -- THE EARLIEST OBSTACLE.** relay `data/b561_decay_read.txt` (5)-(6): a dominant for the paired truncated
+  ### transforms uniform along the family does not exist; the uniform bound is of order n/‖ρ‖, and Σ m_ρ/‖ρ‖ diverges over the
+  ### zeros (Riemann-von Mangoldt, T1-lit). So (D3) is NEITHER a pairing estimate on existing lemmas NOR a new summability
+  ### lemma, and no line of it is written ((R171)(3): the read decides before the build).
+  ### ### **(D4) NOT REACHED** -- Tannery over the zeros needs (D3)`s dominant, which does not exist.
+  ### ### **AND THE STATED EXCHANGE**: `LiLimitExchange` (LiWeil.lean, v0.4) is, on the decay read`s (7), expected FALSE for n >= 1
+  ### (the zero side along a one-sided family tends to -∞ like -(n/2) log(1/δ)); a derivation, not a theorem of the kernel.
+  ### ### **RE-PRICED** (the decay read`s (9)): (X1) the explicit formula on a class containing the midpoint-normalised jump
+  ### (Weil`s formula for functions of bounded variation; the leading item at OPEN_TRAILS :11424) -- substance, T1-lit; (X2) a
+  ### two-sided family centred at 0 and the limit read on EF_lit`s other side ((D5) first, then the identity), no Tannery on
+  ### the zero side; (X3) LiLimitExchange restated for (X2)`s family, the one-sided failure recorded; (D5), (D6) as priced at
+  ### b560. (D1) and (D2), landed here, stand on either family.
+
+### relay data/b561_e0.txt
+  b561 -- READING (6): THE E0 READ -- EVERY DECLARATION OF LiWeilExchange.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+      norm_pow_mul_cexp              DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the norm of the integrand
+      integrableOn_pow_mul_cexp      DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- x^j e^{-ρx} integrable on (0, ∞) for Re ρ > 0
+      integral_pow_mul_cexp          DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the Gamma integral at a complex rate for natural exponents, j!/ρ^(j+1), by integration by parts
+      blPoly_neg_cast                DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- P_n(-x) as a complex finite sum
+      binomial_li                    DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- Σ_{j<n} C(n,j+1)(-1)^j ρ^{-(j+1)} = liTerm n ρ
+      blTest_integrand               DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the integrand of paperFT (blTest n) at gammaOf ρ is 1_{u<0} P_n(u) e^{ρu}
+      blTransform_holds              DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- (D1): blTransform n -- b560`s stated Prop -- holds for every n
+      integrable_blTest_integrand    DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the jump`s integrand integrable on ℝ for Re ρ > 0
+      truncMember_transform_tendsto  DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- (D2): the member transforms tend to the jump`s at each fixed ρ, Re ρ > 0 -- per zero, nothing uniform
+  ### the salt-check: no Prop is defined in the module; blTransform_holds concludes b560`s `blTransform n`, whose body is
+  ### Zeta23`s paperFT of the test function at gammaOf ρ equal to liTerm n ρ (Lean`s #print below) -- nothing encoded.
+      def SIDEExplicitFormula.LiWeil.blTransform : ℕ → Prop :=
+      fun n =>
+        ∀ (ρ : ℂ),
+          0 < ρ.re →
+            Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+      def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 2df46d7):
+      blTransform_holds              defenc False  | doc: **(D1) DISCHARGED: `blTransform n` holds** -- the transform of `k_n` at `gammaOf ρ` is `liTerm n ρ` 
+      integral_pow_mul_cexp          defenc False  | doc: **The Gamma integral at a complex rate, for natural exponents:** `∫_{x>0} x ^ j e^{-ρ x} dx = j! / ρ
+      truncMember_transform_tendsto  defenc False  | doc: **(D2):** along any family of bumps supported left of `0` and tending to `1` at every `u < 0`, the t
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+  ### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; EVERY GRADE DERIVES True ; NO DEFINITION IN THE MODULE True => MERGE True**
+
+### relay data/b561_v05_push.txt
+  remote: 
+  remote: Create a pull request for 'li-weil-b561' on GitHub by visiting:        
+  remote:      https://github.com/psinary-sketch/SIDE-explicit-formula/pull/new/li-weil-b561        
+  remote: 
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new branch]      li-weil-b561 -> li-weil-b561
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b561 ; tip 2df46d79bd59a900dde5b8ad8240faa2a0471cdc ; checkout before main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     941503b..2df46d7  push-b561 -> main
+  push_gated: main read back at the remote: 2df46d79bd59a900dde5b8ad8240faa2a0471cdc
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new tag]         v0.5 -> v0.5
+  push_gated: tag v0.5 peeled local 2df46d79bd59a900dde5b8ad8240faa2a0471cdc remote 2df46d79bd59a900dde5b8ad8240faa2a0471cdc
+  push_gated: DONE -- main and 1 tag(s) pushed and read back
+  2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/main
+  0a6a1eb4e11ade2a505f6e85b2ddb12aec4c698c	refs/tags/v0.5
+  2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/tags/v0.5^{}
+
+### relay data/b561_consumer.txt
+  b561 -- READING (7): THE CONSUMER READ -- THE THREE STATEMENTS SIDE BY SIDE
+  
+  ### (i) inequalityToPositivity, as b549 banked it (relay data/b549_premise.txt:12):
+      inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+      SIDE-lv-conservation RegisterPentagon.lean:152 | def Register4_positivity (lam : ℕ → ℝ) : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+      SIDE-lv-conservation RegisterPentagon.lean:158 | def Register4_channelInequality (lam_A lam_Z : ℕ → ℝ) : Prop := ∀ n : ℕ, 1 ≤ n → -lam_A n ≤ lam_Z n
+      SIDE-lv-conservation ZeroActingPairing.lean:69 | theorem zeroActingPairing_to_RH {lam_A lam_Z ledger lam : ℕ → ℝ} (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam) (liCriterion : Register4_positivity lam → RiemannHypothesis) (P : ZeroActingPairing lam_A lam_Z ledger) : RiemannHypothesis :=
+  ### (ii) rh_imp_li_nonneg, SIDE-explicit-formula LiWeil.lean:267:
+      theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+  ### (iii) li_identity_of_exchange, SIDE-explicit-formula LiWeil.lean:364:
+      theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+          (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+          Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+  
+  ### THE READ, ONE PARAGRAPH:
+      The residue theorem’s premise `inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam` maps the channel inequality (−λ_A(n) ≤ λ_Z(n) for n ≥ 1) to positivity (0 ≤ λ(n) for n ≥ 1) for sequences the theorem leaves arbitrary; it is arithmetic once λ = λ_A + λ_Z holds for the same sequences. Restated in SIDE-explicit-formula with λ := `LiCoeff`, the premise consumes the IDENTITY’S direction: it needs `LiCoeff n = λ_A(n) + λ_Z(n)` with λ_A and λ_Z the archimedean and finite-place channels, which is the Bombieri–Lagarias arithmetic formula -- `LiCoeff n` as the explicit formula’s value at the Bombieri–Lagarias family, `li_identity_of_exchange`’s conclusion once its exchange is discharged, the literature right-hand side split into its pole-and-Γ part and its prime part. It does not consume `rh_imp_li_nonneg`, which produces `Register4_positivity LiCoeff` FROM RH: the residue chain runs the other way, positivity → RH, through `liCriterion : Register4_positivity lam → RiemannHypothesis`, the converse direction (T1-lit, (V1)-(V4)). The restatement target is therefore the identity at the midpoint-normalised jump ((X1) or (X2) of relay `data/b561_decay_read.txt`), with λ_A and λ_Z named as `literatureRHS`’s parts at the family; not attempted.
+
+### relay data/b561_rowgen.txt
+  b561 -- READING (6): THE ROWGEN DIFF (rowgen.diff IMPORTED) OF THE MERGED RECORDS AGAINST CORRESPONDENCE ROW 396
+  
+  ### records: 3 ; row found: True
+      ('SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp', ['ok'])
+
+### relay data/b561_branches.txt
+  ### b561 READING (9), the kernel: li-weil-b560 tip 941503b836c1f3548d94b1207276f724dba3263f ; an ancestor of main: yes ; merged list:   li-weil-b560   li-weil-b561 * main   push-b561 
+  Deleted branch push-b561 (was 2df46d7).
+  Deleted branch li-weil-b560 (was 941503b).
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   ! [remote rejected] li-weil-b560 (cannot lock ref 'refs/heads/li-weil-b560': unable to resolve reference 'refs/heads/li-weil-b560')
+  error: failed to push some refs to 'https://github.com/psinary-sketch/SIDE-explicit-formula.git'
+  ### read back: local   detection-region-b559   li-weil-b561 * main  ; remote li-weil-b560 []
+  ### b561 READING (9), the ritual branches -- listed by git branch --merged main, then deleted by name (git branch -d, chained by &&)
+  ### /d/relay merged list (push-b560*):   push-b560   push-b560-closing 
+  ### /d/MY-DOwnloads/PLACE-papers merged list (push-b560*):   push-b560 
+  ### /d/SIDE-global-section merged list (push-b560*):   push-b560 
+  Deleted branch push-b560 (was ea191414).
+  Deleted branch push-b560-closing (was d3f1b1d9).
+  Deleted branch push-b560 (was 86676f5).
+  Deleted branch push-b560 (was f8b8a1e).
+  ### read back:
+  ### /d/relay push-b560*: []
+  ### /d/MY-DOwnloads/PLACE-papers push-b560*: []
+  ### /d/SIDE-global-section push-b560*: []
+  ### kept: toolchain-trial-b551 (trial worktree HEAD f22ff35), detection-region-b559 (8faf7de), li-weil-b561 (2df46d7, pushed by name)
+
+### relay data/b561_weight.json -- lines {'twoforms': 6060, 'balpos': 782, 'tier': 6062, 'field': 6064}
+### relay data/b561_consumer.json -- line 11542
+### relay data/b561_findings.json -- heading_line 6066
+### relay data/b561_rows.json -- exit 0
+### relay data/b561_workorder.json -- line 11544
+### the push tool: relay 46ced1ba push discipline: tools/push_gated.sh -- main pushed from a push-* branch and read back equal at the remote before any tag push, with pipefail, under (R
+### the push test (scratchpad push_test_out.txt):
+  === CASE 1: a refusing pre-push hook -- the script must exit 3 and the tag must be ABSENT at the remote
+  push_gated: repo /tmp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/refused ; branch push-t ; tip 674ce449751ed8ed3eea29ba3f0be21f561e33e3 ; checkout before main
+  pre-push: REFUSED (test hook)
+  error: failed to push some refs to 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/refused-remote.git'
+  push_gated: MAIN PUSH REFUSED (exit 1) -- NO TAG IS PUSHED
+      exit 3 ; remote main [] ; remote tag peeled []
+      CASE 1 ok
+  === CASE 2 (the control, b560's shape): the kernel's own hook, from main, the old chain 'git push origin main 2>&1 | tail -1 && git push origin vT'
+  error: failed to push some refs to 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/oldchain-remote.git'
+   * [new tag]         vT -> vT
+      remote main [] ; remote tag peeled [1920e4a4586326d21aafbad6e0341a66ca208af7]
+      CASE 2: DEFECT REPRODUCED -- main refused, the tag at the remote (the control behaves)
+  === CASE 3: the kernel's own hook (SIDE-explicit-formula/.githooks/pre-push), from push-t -- main reads back, then the tag
+  push_gated: repo /tmp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/permitted ; branch push-t ; tip 567610c3393165a6b53e246d70acdd7135adac66 ; checkout before main
+  To C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/permitted-remote.git
+   * [new branch]      push-t -> main
+  push_gated: main read back at the remote: 567610c3393165a6b53e246d70acdd7135adac66
+  To C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/permitted-remote.git
+   * [new tag]         vT -> vT
+  push_gated: tag vT peeled local 567610c3393165a6b53e246d70acdd7135adac66 remote 567610c3393165a6b53e246d70acdd7135adac66
+  push_gated: DONE -- main and 1 tag(s) pushed and read back
+      exit 0 ; remote main [567610c3393165a6b53e246d70acdd7135adac66] = local [567610c3393165a6b53e246d70acdd7135adac66] ; remote tag peeled [567610c3393165a6b53e246d70acdd7135adac66] = local [567610c3393165a6b53e246d70acdd7135adac66]
+      CASE 3 ok
+  === CASE 4: a branch not push-* -- refused by the script before any push (exit 2)
+  push_gated: REFUSED -- <push-branch> must be push-* or repair-* (Rule 4.10): main
+      exit 2 ; remote main [] ; remote tag []
+      CASE 4 ok
+  === CASE 5: the kernel's hook from main itself, bypassing the script -- the hook refuses (Rule 4.10)
+  pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: main
+      remote main []
+  ### TEST VERDICT : THE TAG PUSH DOES NOT RUN ON A REFUSED MAIN PUSH, AND RUNS ONLY AFTER main READS BACK

@@ -1,0 +1,26 @@
+b561 -- READING (6): THE E0 READ -- EVERY DECLARATION OF LiWeilExchange.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+
+    norm_pow_mul_cexp              DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the norm of the integrand
+    integrableOn_pow_mul_cexp      DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- x^j e^{-ρx} integrable on (0, ∞) for Re ρ > 0
+    integral_pow_mul_cexp          DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the Gamma integral at a complex rate for natural exponents, j!/ρ^(j+1), by integration by parts
+    blPoly_neg_cast                DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- P_n(-x) as a complex finite sum
+    binomial_li                    DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- Σ_{j<n} C(n,j+1)(-1)^j ρ^{-(j+1)} = liTerm n ρ
+    blTest_integrand               DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the integrand of paperFT (blTest n) at gammaOf ρ is 1_{u<0} P_n(u) e^{ρu}
+    blTransform_holds              DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- (D1): blTransform n -- b560`s stated Prop -- holds for every n
+    integrable_blTest_integrand    DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- the jump`s integrand integrable on ℝ for Re ρ > 0
+    truncMember_transform_tendsto  DERIVES   ['propext', 'Classical.choice', 'Quot.sound'] -- (D2): the member transforms tend to the jump`s at each fixed ρ, Re ρ > 0 -- per zero, nothing uniform
+### the salt-check: no Prop is defined in the module; blTransform_holds concludes b560`s `blTransform n`, whose body is
+### Zeta23`s paperFT of the test function at gammaOf ρ equal to liTerm n ρ (Lean`s #print below) -- nothing encoded.
+    def SIDEExplicitFormula.LiWeil.blTransform : ℕ → Prop :=
+    fun n =>
+      ∀ (ρ : ℂ),
+        0 < ρ.re →
+          Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+    def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+
+### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 2df46d7):
+    blTransform_holds              defenc False  | doc: **(D1) DISCHARGED: `blTransform n` holds** -- the transform of `k_n` at `gammaOf ρ` is `liTerm n ρ` 
+    integral_pow_mul_cexp          defenc False  | doc: **The Gamma integral at a complex rate, for natural exponents:** `∫_{x>0} x ^ j e^{-ρ x} dx = j! / ρ
+    truncMember_transform_tendsto  defenc False  | doc: **(D2):** along any family of bumps supported left of `0` and tending to `1` at every `u < 0`, the t
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; EVERY GRADE DERIVES True ; NO DEFINITION IN THE MODULE True => MERGE True**

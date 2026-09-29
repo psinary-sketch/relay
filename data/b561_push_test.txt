@@ -1,0 +1,31 @@
+=== CASE 1: a refusing pre-push hook -- the script must exit 3 and the tag must be ABSENT at the remote
+push_gated: repo /tmp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/refused ; branch push-t ; tip 674ce449751ed8ed3eea29ba3f0be21f561e33e3 ; checkout before main
+pre-push: REFUSED (test hook)
+error: failed to push some refs to 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/refused-remote.git'
+push_gated: MAIN PUSH REFUSED (exit 1) -- NO TAG IS PUSHED
+    exit 3 ; remote main [] ; remote tag peeled []
+    CASE 1 ok
+=== CASE 2 (the control, b560's shape): the kernel's own hook, from main, the old chain 'git push origin main 2>&1 | tail -1 && git push origin vT'
+error: failed to push some refs to 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/oldchain-remote.git'
+ * [new tag]         vT -> vT
+    remote main [] ; remote tag peeled [1920e4a4586326d21aafbad6e0341a66ca208af7]
+    CASE 2: DEFECT REPRODUCED -- main refused, the tag at the remote (the control behaves)
+=== CASE 3: the kernel's own hook (SIDE-explicit-formula/.githooks/pre-push), from push-t -- main reads back, then the tag
+push_gated: repo /tmp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/permitted ; branch push-t ; tip 567610c3393165a6b53e246d70acdd7135adac66 ; checkout before main
+To C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/permitted-remote.git
+ * [new branch]      push-t -> main
+push_gated: main read back at the remote: 567610c3393165a6b53e246d70acdd7135adac66
+To C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/dbdcce55-2b1e-48e3-b91b-3ff33125ebe5/scratchpad/push_test_1790700404/permitted-remote.git
+ * [new tag]         vT -> vT
+push_gated: tag vT peeled local 567610c3393165a6b53e246d70acdd7135adac66 remote 567610c3393165a6b53e246d70acdd7135adac66
+push_gated: DONE -- main and 1 tag(s) pushed and read back
+    exit 0 ; remote main [567610c3393165a6b53e246d70acdd7135adac66] = local [567610c3393165a6b53e246d70acdd7135adac66] ; remote tag peeled [567610c3393165a6b53e246d70acdd7135adac66] = local [567610c3393165a6b53e246d70acdd7135adac66]
+    CASE 3 ok
+=== CASE 4: a branch not push-* -- refused by the script before any push (exit 2)
+push_gated: REFUSED -- <push-branch> must be push-* or repair-* (Rule 4.10): main
+    exit 2 ; remote main [] ; remote tag []
+    CASE 4 ok
+=== CASE 5: the kernel's hook from main itself, bypassing the script -- the hook refuses (Rule 4.10)
+pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: main
+    remote main []
+### TEST VERDICT : THE TAG PUSH DOES NOT RUN ON A REFUSED MAIN PUSH, AND RUNS ONLY AFTER main READS BACK

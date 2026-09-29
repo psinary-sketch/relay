@@ -1,0 +1,129 @@
+b561 -- READING (5): ITEM D1 -- blTransform DISCHARGED -- the transform of k_n at gammaOf ρ is the Li term for Re ρ > 0
+
+### the branch li-weil-b561 from v0.4 = 941503b ; the module SIDEExplicitFormula/LiWeilExchange.lean (fed on stdin after LiWeil.lean, which has no olean)
+
+### THE ELABORATION ATTEMPTS OF THIS ITEM, each with its exit and error count (the whole module as it then stood):
+    ### stD1_1 -- exit 1, elapsed 41 s, errors 9 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+        | <stdin>:413:9: error: don't know how to synthesize implicit argument `g`
+        |   @Integrable.mono' ℝ ℂ Real.measureSpace.toMeasurableSpace (volume.restrict (Ioi 0)) instNormedAddCommGroup
+        |     (fun x => ↑x ^ j * cexp (-(ρ * ↑x))) ?m.76 (IntegrableOn.congr_fun_ae hr ?m.69) ?m.77 ?m.78
+        | context:
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | j : ℕ
+        | hr : IntegrableOn (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) (Ioi 0) volume
+        | ⊢ ℝ → ℝ
+        | <stdin>:413:9: error: don't know how to synthesize implicit argument `g`
+        |   @IntegrableOn.congr_fun_ae ℝ ℝ Real.measureSpace.toMeasurableSpace (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) ?m.76
+        |     (Ioi 0) volume PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm hr ?m.69
+        | context:
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | j : ℕ
+        | hr : IntegrableOn (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) (Ioi 0) volume
+        | ⊢ ℝ → ℝ
+        | <stdin>:410:73: error: unsolved goals
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | j : ℕ
+        | hr : IntegrableOn (fun x => x ^ ↑j * Real.exp (-ρ.re * x ^ 1)) (Ioi 0) volume
+        | ⊢ IntegrableOn (fun x => ↑x ^ j * cexp (-(ρ * ↑x))) (Ioi 0) volume
+        | <stdin>:447:8: error: `field_simp` made no progress on the goal
+        | <stdin>:454:18: error(lean.invalidField): Invalid field `congr_fun`: The environment does not contain `And.congr_fun`, so it is not possible to project the field `congr_fun` from an expression
+        |   this
+        | of type
+        |   AEStronglyMeasurable (fun x => -↑(j + 1) / ρ * (↑x ^ j * cexp (-(ρ * ↑x)))) (volume.restrict (Ioi 0)) ∧
+        |     HasFiniteIntegral (fun x => -↑(j + 1) / ρ * (↑x ^ j * cexp (-(ρ * ↑x)))) (volume.restrict (Ioi 0))
+        | <stdin>:455:6: error: No goals to be solved
+        | <stdin>:473:40: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+        |   x ^ 0 * Real.exp (-(re ?m.1087 * x))
+        | in the target expression
+        |   ‖↑x ^ (j + 1)‖ * (‖cexp (-(ρ * ↑x))‖ / ‖ρ‖) ≤
+        |     (1 / ρ.re) ^ (j + 1) / ‖ρ‖ * ((ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x)))
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | j : ℕ
+        | hρ0 : ρ ≠ 0
+        | ih : ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+        | u : ℝ → ℂ := fun x => ↑x ^ (j + 1)
+        | hu : u = fun x => ↑x ^ (j + 1)
+        | u' : ℝ → ℂ := fun x => ↑(j + 1) * ↑x ^ j
+        | hu' : u' = fun x => ↑(j + 1) * ↑x ^ j
+        | v : ℝ → ℂ := fun x => -cexp (-(ρ * ↑x)) / ρ
+        | hv : v = fun x => -cexp (-(ρ * ↑x)) / ρ
+        | v' : ℝ → ℂ := fun x => cexp (-(ρ * ↑x))
+        | hv' : v' = fun x => cexp (-(ρ * ↑x))
+        | hdu : ∀ x ∈ Ioi 0, HasDerivAt u (u' x) x
+        | hdv : ∀ x ∈ Ioi 0, HasDerivAt v (v' x) x
+        | huv' : IntegrableOn (u * v') (Ioi 0) volume
+        | hu'v : IntegrableOn (u' * v) (Ioi 0) volume
+        | h0 : Tendsto (u * v) (𝓝[>] 0) (𝓝 0)
+        | hb : Tendsto (fun x => (ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x))) atTop (𝓝 0)
+        | hb' : Tendsto (fun x => (1 / ρ.re) ^ (j + 1) / ‖ρ‖ * ((ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x)))) atTop (𝓝 0)
+        | x : ℝ
+        | hx : 0 < x
+        | ⊢ ‖↑x ^ (j + 1)‖ * (‖cexp (-(ρ * ↑x))‖ / ‖ρ‖) ≤
+        |     (1 / ρ.re) ^ (j + 1) / ‖ρ‖ * ((ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x)))
+        | <stdin>:492:6: error: No goals to be solved
+        | <stdin>:430:10: warning: This simp argument is unused:
+        |   hρ0
+        | Hint: Omit it from the simp argument list.
+        |   [apply] simp
+        | <stdin>:521:4: error: No goals to be solved
+    ### stD1_2 -- exit 1, elapsed 29 s, errors 1 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+        | <stdin>:442:92: error: unsolved goals
+        | ρ : ℂ
+        | hρ : 0 < ρ.re
+        | j : ℕ
+        | hρ0 : ρ ≠ 0
+        | ih : ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+        | u : ℝ → ℂ := fun x => ↑x ^ (j + 1)
+        | hu : u = fun x => ↑x ^ (j + 1)
+        | u' : ℝ → ℂ := fun x => ↑(j + 1) * ↑x ^ j
+        | hu' : u' = fun x => ↑(j + 1) * ↑x ^ j
+        | v : ℝ → ℂ := fun x => -cexp (-(ρ * ↑x)) / ρ
+        | hv : v = fun x => -cexp (-(ρ * ↑x)) / ρ
+        | v' : ℝ → ℂ := fun x => cexp (-(ρ * ↑x))
+        | hv' : v' = fun x => cexp (-(ρ * ↑x))
+        | hdu : ∀ x ∈ Ioi 0, HasDerivAt u (u' x) x
+        | x : ℝ
+        | a✝ : x ∈ Ioi 0
+        | h2 :
+        |   HasDerivAt (fun x => (-fun x => cexp ((-fun y => ρ * id y) x)) x / ρ)
+        |     (-(cexp ((-fun y => ρ * id y) ↑x) * -(ρ * 1)) / ρ) ↑x
+        | ⊢ cexp ((-fun y => ρ * y) ↑x) = cexp (-(ρ * ↑x))
+        | <stdin>:428:10: warning: This simp argument is unused:
+        |   hρ0
+        | Hint: Omit it from the simp argument list.
+        |   [apply] simp
+    ### stD1_3 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then LiWeilExchange.lean on stdin, branch li-weil-b561)
+
+### THE DECLARATIONS OF THIS ITEM, AS THE SOURCE STATES THEM:
+       33 | theorem norm_pow_mul_cexp {ρ : ℂ} (j : ℕ) {x : ℝ} (hx : 0 < x) :
+       34 |     ‖(x : ℂ) ^ j * cexp (-(ρ * x))‖ = x ^ j * Real.exp (-(ρ.re * x)) := by
+       40 | theorem integrableOn_pow_mul_cexp {ρ : ℂ} (hρ : 0 < ρ.re) (j : ℕ) :
+       41 |     IntegrableOn (fun x : ℝ => (x : ℂ) ^ j * cexp (-(ρ * x))) (Ioi 0) := by
+       50 | theorem integral_pow_mul_cexp {ρ : ℂ} (hρ : 0 < ρ.re) :
+       51 |     ∀ j : ℕ, ∫ x in Ioi (0 : ℝ), (x : ℂ) ^ j * cexp (-(ρ * x)) = (j.factorial : ℂ) / ρ ^ (j + 1)
+       52 |   | 0 => by
+       53 |     have hρ0 : ρ ≠ 0 := fun h => by rw [h, Complex.zero_re] at hρ; exact lt_irrefl _ hρ
+      123 | theorem blPoly_neg_cast (n : ℕ) (x : ℝ) :
+      124 |     ((blPoly n (-x) : ℝ) : ℂ) = ∑ j ∈ Finset.range n, ((n.choose (j + 1) : ℂ) * (-1) ^ j / (j.factorial : ℂ)) * (x : ℂ) ^ j := by
+      132 | theorem binomial_li (n : ℕ) (ρ : ℂ) :
+      133 |     ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℂ) * (-1) ^ j / ρ ^ (j + 1) = liTerm n ρ := by
+      148 | theorem blTest_integrand (n : ℕ) (ρ : ℂ) (u : ℝ) :
+      149 |     blTest n u * cexp (Complex.I * gammaOf ρ * u) = (Iio (0 : ℝ)).indicator (fun u : ℝ => ((blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) u := by
+      163 | theorem blTransform_holds (n : ℕ) : blTransform n := by
+
+### LEAN`S PRINTS:
+    norm_pow_mul_cexp : ['propext', 'Classical.choice', 'Quot.sound']
+    integrableOn_pow_mul_cexp : ['propext', 'Classical.choice', 'Quot.sound']
+    integral_pow_mul_cexp : ['propext', 'Classical.choice', 'Quot.sound']
+        @SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp : ∀ {ρ : ℂ}, 0 < ρ.re → ∀ (j : ℕ), ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+    blPoly_neg_cast : ['propext', 'Classical.choice', 'Quot.sound']
+    binomial_li : ['propext', 'Classical.choice', 'Quot.sound']
+        SIDEExplicitFormula.LiWeil.binomial_li : ∀ (n : ℕ) (ρ : ℂ), ∑ j ∈ Finset.range n, ↑(n.choose (j + 1)) * (-1) ^ j / ρ ^ (j + 1) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+    blTest_integrand : ['propext', 'Classical.choice', 'Quot.sound']
+    blTransform_holds : ['propext', 'Classical.choice', 'Quot.sound']
+        SIDEExplicitFormula.LiWeil.blTransform_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.blTransform n
+### ### **PRINTED 7 OF 7 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

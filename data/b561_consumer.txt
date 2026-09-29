@@ -1,0 +1,16 @@
+b561 -- READING (7): THE CONSUMER READ -- THE THREE STATEMENTS SIDE BY SIDE
+
+### (i) inequalityToPositivity, as b549 banked it (relay data/b549_premise.txt:12):
+    inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+    SIDE-lv-conservation RegisterPentagon.lean:152 | def Register4_positivity (lam : ℕ → ℝ) : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+    SIDE-lv-conservation RegisterPentagon.lean:158 | def Register4_channelInequality (lam_A lam_Z : ℕ → ℝ) : Prop := ∀ n : ℕ, 1 ≤ n → -lam_A n ≤ lam_Z n
+    SIDE-lv-conservation ZeroActingPairing.lean:69 | theorem zeroActingPairing_to_RH {lam_A lam_Z ledger lam : ℕ → ℝ} (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam) (liCriterion : Register4_positivity lam → RiemannHypothesis) (P : ZeroActingPairing lam_A lam_Z ledger) : RiemannHypothesis :=
+### (ii) rh_imp_li_nonneg, SIDE-explicit-formula LiWeil.lean:267:
+    theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+### (iii) li_identity_of_exchange, SIDE-explicit-formula LiWeil.lean:364:
+    theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+        (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+        Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+
+### THE READ, ONE PARAGRAPH:
+    The residue theorem’s premise `inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam` maps the channel inequality (−λ_A(n) ≤ λ_Z(n) for n ≥ 1) to positivity (0 ≤ λ(n) for n ≥ 1) for sequences the theorem leaves arbitrary; it is arithmetic once λ = λ_A + λ_Z holds for the same sequences. Restated in SIDE-explicit-formula with λ := `LiCoeff`, the premise consumes the IDENTITY’S direction: it needs `LiCoeff n = λ_A(n) + λ_Z(n)` with λ_A and λ_Z the archimedean and finite-place channels, which is the Bombieri–Lagarias arithmetic formula -- `LiCoeff n` as the explicit formula’s value at the Bombieri–Lagarias family, `li_identity_of_exchange`’s conclusion once its exchange is discharged, the literature right-hand side split into its pole-and-Γ part and its prime part. It does not consume `rh_imp_li_nonneg`, which produces `Register4_positivity LiCoeff` FROM RH: the residue chain runs the other way, positivity → RH, through `liCriterion : Register4_positivity lam → RiemannHypothesis`, the converse direction (T1-lit, (V1)-(V4)). The restatement target is therefore the identity at the midpoint-normalised jump ((X1) or (X2) of relay `data/b561_decay_read.txt`), with λ_A and λ_Z named as `literatureRHS`’s parts at the family; not attempted.

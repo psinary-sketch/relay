@@ -1,0 +1,155 @@
+{
+ "rows": {
+  "norm_pow_mul_cexp": {
+   "grade": "DERIVES",
+   "why": "the norm of the integrand",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "integrableOn_pow_mul_cexp": {
+   "grade": "DERIVES",
+   "why": "x^j e^{-ρx} integrable on (0, ∞) for Re ρ > 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "integral_pow_mul_cexp": {
+   "grade": "DERIVES",
+   "why": "the Gamma integral at a complex rate for natural exponents, j!/ρ^(j+1), by integration by parts",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blPoly_neg_cast": {
+   "grade": "DERIVES",
+   "why": "P_n(-x) as a complex finite sum",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "binomial_li": {
+   "grade": "DERIVES",
+   "why": "Σ_{j<n} C(n,j+1)(-1)^j ρ^{-(j+1)} = liTerm n ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blTest_integrand": {
+   "grade": "DERIVES",
+   "why": "the integrand of paperFT (blTest n) at gammaOf ρ is 1_{u<0} P_n(u) e^{ρu}",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blTransform_holds": {
+   "grade": "DERIVES",
+   "why": "(D1): blTransform n -- b560`s stated Prop -- holds for every n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "integrable_blTest_integrand": {
+   "grade": "DERIVES",
+   "why": "the jump`s integrand integrable on ℝ for Re ρ > 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "truncMember_transform_tendsto": {
+   "grade": "DERIVES",
+   "why": "(D2): the member transforms tend to the jump`s at each fixed ρ, Re ρ > 0 -- per zero, nothing uniform",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  }
+ },
+ "gate": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.LiWeil.blTransform_holds",
+   "pin": "2df46d7",
+   "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "check": "SIDEExplicitFormula.LiWeil.blTransform_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.blTransform n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(D1) DISCHARGED: `blTransform n` holds** -- the transform of `k_n` at `gammaOf ρ` is `liTerm n ρ` for `Re ρ > 0`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp",
+   "pin": "2df46d7",
+   "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "check": "@SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp : ∀ {ρ : ℂ}, 0 < ρ.re → ∀ (j : ℕ), ∫ (x : ℝ) in Ioi 0, ↑x ^ j * cexp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The Gamma integral at a complex rate, for natural exponents:** `∫_{x>0} x ^ j e^{-ρ x} dx = j! / ρ ^ (j+1)` for `Re ρ > 0`, by induction, integrating by parts on `Ioi 0`.",
+   "body1": "fun h => by rw [h, Complex.zero_re] at hρ; exact lt_irrefl _ hρ",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto",
+   "pin": "2df46d7",
+   "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "check": "SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto : ∀ (n : ℕ) {ρ : ℂ}, 0 < ρ.re → ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Tendsto (fun m => ↑(fs m) u) atTop (𝓝 1)) → Tendsto (fun m => Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ρ)) atTop (𝓝 (Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ)))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(D2):** along any family of bumps supported left of `0` and tending to `1` at every `u < 0`, the transform of the member at `gammaOf ρ` tends to the transform of `k_n`, for each fixed `ρ` with `Re ρ > 0` -- dominated convergence in `u`, the dominant `‖k_n(u) e^{i γ u}‖` since `0 ≤ f ≤ 1`",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "names": [
+  "norm_pow_mul_cexp",
+  "integrableOn_pow_mul_cexp",
+  "integral_pow_mul_cexp",
+  "blPoly_neg_cast",
+  "binomial_li",
+  "blTest_integrand",
+  "blTransform_holds",
+  "integrable_blTest_integrand",
+  "truncMember_transform_tendsto"
+ ],
+ "defs": []
+}

@@ -1,0 +1,53 @@
+========================================================================================================
+b561 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### (R171)(3)`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(H12a)** ### **REFUTED.** -- the decay read (data/b561_decay_read.txt (5), (8)): the uniform bound along the family is of order n/‖ρ‖; a 1/‖ρ‖² bound needs δ <= C/‖ρ‖², a rate the family does not give. Illustration: sup ‖ρ‖|2 Re E| = ['1.74197', '1.76646', '1.77026'].
+  **(H12b)** ### **REFUTED.** -- by its own clause: the only dominant uniform along the family is of order n/‖ρ‖, which the kernel`s count bound (zero_sum_inv_sq, exponent 2) does not make summable -- and (D3), its antecedent, does not exist.
+  **(H12c)** ### **REFUTED.** -- LiLimitExchange remains a hypothesis (and is expected false for n >= 1, the decay read`s (7)); li_identity_of_exchange stays INTERFACES; no sorryAx anywhere.
+
+### THE NAVIGATOR`S SIX.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **REFUTED.** -- H12a REFUTED.
+  **(N2)** ### **HELD.** -- (D1) True, (D2) True; (D3) HELD at the read; (D4) not reached.
+  **(N3)** ### **NOT SCORABLE.** -- its antecedent (li_identity lands) is unreached.
+  **(N4)** ### **HELD.** -- the consumer read: inequalityToPositivity consumes the identity`s direction; rh_imp_li_nonneg is the opposite direction (data/b561_consumer.txt).
+  **(N5)** ### **HELD.** -- the push test: CASE 1 (refused main push, exit 3, no tag at the remote), CASE 2 (b560`s chain, the defect reproduced) (scratchpad push_test.sh, quoted in relay 46ced1ba).
+  **(N6)** ### **HELD.** -- SIDE-explicit-formula main against 941503b: ['A'] ['AxiomCheckLiWeilExchange.lean', 'SIDEExplicitFormula/LiWeilExchange.lean'], a fast-forward True ; .lean files changed on the other mains NONE ; detection-region-b559 at 8faf7de local and remote True ; tools naming the platform NONE ; deposit clean True ; trial {'head': 'f22ff354d5f1ef7ace687df77946ab897fbdda7e', 'status': ''}.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- the decay read scored H12a REFUTED, the uniform order n/||rho||.
+  **(S2)** ### **HELD.** -- (D1) at the standard three at attempt 3.
+  **(S3)** ### **HELD.** -- CASE 3: main read back printed before the tag`s peeled read-back.
+
+### THE TAG.
+--------------------------------------------------------------------------------------------------------
+  v0.5 tag object 0a6a1eb peeled 2df46d7 (remote 2df46d7) ; main 2df46d7 (remote 2df46d7) ; li-weil-b561 2df46d7 (remote 2df46d7) ; li-weil-b560 local [], remote []
+
+### ### **THE NAVIGATOR`S : HELD 4 ; REFUTED 1 ; NOT SCORABLE 1.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+### ### **(R171)(3) : H12a REFUTED ; H12b REFUTED ; H12c REFUTED.**
+
+### THIS ACT`S OWN DEFECTS.
+### b561 -- THIS ACT'S OWN DEFECTS (the desk).
+    (a) The push tool's test first carried a control that could not show the defect: CASE 2 used a hook refusing every
+        push, so the old chain's tag push was refused too and the remote showed no tag either way. The control was rebuilt
+        on b560's own conditions (the kernel's hook, the chain run from main): main refused, the tag at the remote -- the
+        defect reproduced -- and the test re-run whole before the commit.
+    (b) The deletion of li-weil-b560 at the remote ran past 120 s and was then rejected by the remote: "! [remote rejected]
+        li-weil-b560 (cannot lock ref 'refs/heads/li-weil-b560': unable to resolve reference 'refs/heads/li-weil-b560')".
+        Read back by ls-remote afterwards, the ref is ABSENT at the remote. Whether this act's command removed it (and the
+        rejection answered a second attempt) or the ref was already gone cannot be told from this seat; the record reports
+        the absence and the ambiguity. The local deletions (push-b561, li-weil-b560) went through, after li-weil-b560's tip
+        941503b was read as an ancestor of main.
+    (c) The rowgen diff's first run flagged row 396: "PIN: row cites ['2df46d7'] but record pin is 941503b". The E0 record
+        was taken before the kernel commit, when HEAD was v0.4 and the module uncommitted, so rowgen's source-side record
+        carried v0.4's pin. The E0 record was re-run at the committed tip 2df46d7 (its grades unchanged) and the diff re-run;
+        `data/b561_rowgen.txt` is the second run's.
+    (d) The suite's first pre-push run died before scoring: the record's `scores()` read the push test's output from the
+        session scratchpad by an environment variable the suite's run did not carry. The output was banked as
+        `data/b561_push_test.txt` (the same bytes quoted in 46ced1ba's message) and `scores()` and `components` read the bank.
+        In the same stretch the closing tool's first assembly, a quoted bash heredoc, was refused by bash before Python ran
+        (the standing trap) and was rebuilt as a file.

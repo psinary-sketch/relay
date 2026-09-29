@@ -1,0 +1,20 @@
+### b561 -- THIS ACT'S OWN DEFECTS (the desk).
+    (a) The push tool's test first carried a control that could not show the defect: CASE 2 used a hook refusing every
+        push, so the old chain's tag push was refused too and the remote showed no tag either way. The control was rebuilt
+        on b560's own conditions (the kernel's hook, the chain run from main): main refused, the tag at the remote -- the
+        defect reproduced -- and the test re-run whole before the commit.
+    (b) The deletion of li-weil-b560 at the remote ran past 120 s and was then rejected by the remote: "! [remote rejected]
+        li-weil-b560 (cannot lock ref 'refs/heads/li-weil-b560': unable to resolve reference 'refs/heads/li-weil-b560')".
+        Read back by ls-remote afterwards, the ref is ABSENT at the remote. Whether this act's command removed it (and the
+        rejection answered a second attempt) or the ref was already gone cannot be told from this seat; the record reports
+        the absence and the ambiguity. The local deletions (push-b561, li-weil-b560) went through, after li-weil-b560's tip
+        941503b was read as an ancestor of main.
+    (c) The rowgen diff's first run flagged row 396: "PIN: row cites ['2df46d7'] but record pin is 941503b". The E0 record
+        was taken before the kernel commit, when HEAD was v0.4 and the module uncommitted, so rowgen's source-side record
+        carried v0.4's pin. The E0 record was re-run at the committed tip 2df46d7 (its grades unchanged) and the diff re-run;
+        `data/b561_rowgen.txt` is the second run's.
+    (d) The suite's first pre-push run died before scoring: the record's `scores()` read the push test's output from the
+        session scratchpad by an environment variable the suite's run did not carry. The output was banked as
+        `data/b561_push_test.txt` (the same bytes quoted in 46ced1ba's message) and `scores()` and `components` read the bank.
+        In the same stretch the closing tool's first assembly, a quoted bash heredoc, was refused by bash before Python ran
+        (the standing trap) and was rebuilt as a file.

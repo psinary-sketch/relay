@@ -1,0 +1,218 @@
+====================================================================================================
+ACT b561 -- THE REGISTRATION FACE. ### LANE TWO, ACT THREE: THE LI-WEIL BRIDGE AT THE LIMIT EXCHANGE -- THE
+### DECAY READ, (D1)-(D4) ATTEMPTED, HELD AT THE EARLIEST OBSTACLE; b560 ENTERED AT ITS WEIGHT; THE PUSH
+### DISCIPLINE REPAIRED; THE CONSUMER READ, UNDER (R171).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **KERNEL WORK ON THE BRANCH `li-weil-b561` OF SIDE-explicit-formula
+### FROM v0.4 = 941503b ONLY. A `main` MOVES ONLY BY FAST-FORWARD ONTO A BRANCH WHOSE EVERY NEW DECLARATION PRINTS THE
+### STANDARD THREE OR FEWER AND PASSES THE E0 GATE; NO `sorry` REACHES ANY main; NO TAG IS PUSHED BEFORE main READS
+### BACK EQUAL AT THE REMOTE.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R171) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** The ruling and part 1 of 1, received IN FULL,
+### banked verbatim as `b561_ferry.txt`. ### **NOTHING DEPOSITS; NOTHING AT ZENODO IS WRITTEN; NO BYTE ABOVE AN APPENDED
+### LINE OR BLOCK CHANGES; NO EXISTING KERNEL STATEMENT CHANGES; NO Zeta23 FILE IS EDITED; NOTHING ABOUT ZETA`S ZEROS IS
+### CLAIMED BEYOND A COMPILED STATEMENT`S OWN WORDS, AND A DERIVATION ON THE PAGE IS LABELLED AS ONE.**
+### ### The ferry scan carries no hit and no flag.
+### ### TWO READINGS OF THE ORDER`S OWN WORDS, DECLARED: (i) "the kernel`s push script": no standing push script exists --
+### b560`s pushes were the seat`s commands, the kernel`s guard is the tracked `.githooks/pre-push` (SIDE-explicit-formula
+### and relay, installed by `core.hooksPath`), and `tools/b495_push.py` is one act`s component. (R171)(2)`s script is
+### therefore written new, as `relay/tools/push_gated.sh`, and committed alone with its test. (ii) "the field-entry line
+### at :5601": FINDINGS :5601 is the heading of b548`s sources block appended to the field entry at :5575; the line is
+### appended beneath both, and the record names both lines.
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE READS, CITED.** Printed verbatim by path and line: SIDE-explicit-formula v0.4 = 941503b,
+### `SIDEExplicitFormula/LiWeil.lean` whole (every declaration`s statement: `liConst`, `LiCoeff`, `rh_imp_li_nonneg`,
+### `blPoly`, `blSmooth`, `blTest`, `truncMember`, `truncMember_classEF`, `LiLimitExchange`, `li_identity_of_exchange`);
+### relay `data/b560_stageD.txt` (D1)-(D6) and (V1)-(V4) (:150-:175); `zero_sum_inv_sq` (ZeroSummability.lean:247),
+### `weighted_summable` (PowerLimit.lean:934) with their exponents; `rest_tendsto_zero` (:1025) and `dominant_summable`
+### (:949), the dominated-convergence pattern; EF_lit`s hypotheses (relay `data/b560_reads.txt`); `inequalityToPositivity`
+### (relay `data/b549_premise.txt`:12); BALANCE_AND_POSITIVITY.md :764 (the two-forms block); FINDINGS :5478 and :5486 (the
+### two-forms entry), :5575 and :5601 (the field entry and its sources block); `.githooks/pre-push` (SIDE-explicit-formula
+### and relay) and relay `data/b560_defects.txt` (e). Banked by `b561_record.py reads` as `data/b561_reads.txt`.
+### **READING (2) -- b560 AT ITS WEIGHT (COMPONENT 1).** Appended, each printed back: a line at FINDINGS`s two-forms entry
+### (:5486, the entry at :5478), and a line beneath BALPOS :764`s block -- the Li form`s forward half is compiled
+### (`rh_imp_li_nonneg`, v0.4); the form as an equivalence is not; the tier-law line: `rh_imp_li_nonneg` is T0 (a closed
+### statement over Mathlib`s zeros, its one premise Mathlib`s `RiemannHypothesis`), composing with `h2_sign_iff_rh`; and
+### the field-entry line (the forward half compiled; the converse T1-lit, priced (V1)-(V4)).
+### **READING (3) -- THE PUSH DISCIPLINE (COMPONENT 2).** `relay/tools/push_gated.sh <repo> <push-branch> [tag ...]`, a
+### bash script with `set -euo pipefail`: it pushes `<push-branch>:main`, reads `refs/heads/main` back by `ls-remote` and
+### requires it equal to the branch tip, and only then pushes each tag and reads back its peeled SHA; on a refused push or
+### an unequal read-back it exits non-zero before any tag push. Its test, in the session scratchpad, against scratch bare
+### repositories (no network): a pre-push hook that refuses (the push exits non-zero; the tag is ABSENT at the scratch
+### remote) and one that permits (main reads back; then the tag is PRESENT, peeled equal). Committed alone in relay with
+### the test`s output quoted in the message. The kernel`s v0.5 push, if any, goes through it.
+### **READING (4) -- THE DECAY READ (COMPONENT 3).** On the page, before any build: the transform of a family member at a
+### zero, written against the transform of the jump function; the truncation parameter explicit (the right transition`s
+### width and its distance from 0); the per-zero excess estimated where `‖ρ‖` times that parameter is small and where it
+### is large; the supremum over the family at fixed ρ; set against `zero_sum_inv_sq``s exponent. The bank says whether
+### (D3) is a pairing estimate on existing lemmas, needs a new summability lemma, or is neither; it scores H12a from the
+### derivation alone, and labels any step resting on a result not compiled in the federation as such. Banked as
+### `data/b561_decay_read.txt`.
+### **READING (5) -- (D1)-(D4) (COMPONENT 4).** The branch `li-weil-b561` from v0.4 in the kernel`s own checkout, one new
+### module `SIDEExplicitFormula/LiWeilExchange.lean` and its `AxiomCheckLiWeilExchange.lean`, importing
+### `SIDEExplicitFormula.LiWeil`, new files only. In the bank`s order: (D1) `blTransform` discharged or HELD; (D2) the
+### member transforms tend to `k_n``s at each fixed ρ with `0 < Re ρ`; (D3) written only if the decay read leaves it a
+### pairing estimate or a summability lemma; (D4) only on (D3). At most four elaboration attempts per item, exit and error
+### count each; an item failing its fourth is HELD, printed by line, and the later items re-priced. `#print axioms` on
+### every new declaration. Each item banked as it lands: `data/b561_D1.txt` ... Since `LiWeil.lean` has no olean, the new
+### module is elaborated with `LiWeil.lean` concatenated ahead of it on stdin; the committed module imports it by name.
+### **READING (6) -- THE GATES.** The E0 read per new declaration (the three-grade vocabulary, the salt-check); the rowgen
+### record by rowgen`s source-side functions, imported, and its diff against this act`s correspondence row; on DERIVES and
+### the standard three, `main` fast-forwarded and pushed through `push_gated.sh` with v0.5 (annotated) gated on main`s
+### read-back; the branch pushed by name; whatever does not land stays on it.
+### **READING (7) -- THE CONSUMER READ (COMPONENT 5).** `inequalityToPositivity``s statement printed beside
+### `rh_imp_li_nonneg` and `li_identity_of_exchange`; one paragraph naming which the residue theorem`s premise would consume
+### once restated in SIDE-explicit-formula, and which direction; appended to the LI-WEIL-BRIDGE work-order, not attempted.
+### **READING (8) -- THE RECORD (COMPONENT 6).** The FINDINGS entry titled by its objects at the landing point; the
+### correspondence row through `tools/corr_row.py`; this act`s trail record; the work-order`s line; the next act named,
+### W-ORD-GRH-WEIL ((R171)(5)).
+### **READING (9) -- THE BRANCHES.** push-b560 and push-b560-closing (relay), push-b560 (PLACE-papers), push-b560
+### (SIDE-global-section), each listed by `git branch --merged main` and deleted by `git branch -d` by name, chained by
+### `&&`. li-weil-b560: its tip read as an ancestor of `main`, then deleted by name locally and at the remote.
+### toolchain-trial-b551 and detection-region-b559 kept.
+### **READING (10) -- THE HOUSEKEEPING AT CLOSE.** The terminal table committed at close as housekeeping only if it changed.
+### **READING (11) -- THE SCORING.** H12a-H12c by (R171)(3)`s words, each NOT SCORABLE where its antecedent is unreached;
+### (N1)-(N6) against the banks; the seat`s (S1)-(S3).
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### `tools/b561_record.py reads | weight | decay | item | e0 | consumer | findings | row | rowgen_diff | workorder | trail
+### | components | desk`. The push tool`s test, the branch, its commits, merges, tags, pushes and read-backs, the commits,
+### pushes and branch commands of the ritual are the seat`s.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b560`s whole record as this session wrote it (its module, banks,
+### tools, face and suite); FINDINGS :136, :5478-:5486, :5539, :5570-:5578, :5601-:5612; BALPOS :764-:772; the
+### `.githooks/pre-push` of SIDE-explicit-formula :1-:60; relay `tools/b495_push.py` :1-:40 and the relay tool list;
+### `data/b560_stageD.txt` :137-:175; the declaration lines of `rest_tendsto_zero`, `dominant_summable`,
+### `weighted_summable`, `zero_sum_inv_sq`. Nothing was elaborated.
+### ### **AND THE SEAT FORMED ITS READING OF H12a BEFORE THIS SEAL**: that at a member whose right transition has width δ
+### the excess of the member`s transform over the jump`s is about `-n μ δ` (μ a constant of the bump`s profile), of one
+### sign, for every zero with `‖ρ‖ δ` small, so that the supremum over the family at fixed ρ is of order `n/‖ρ‖`. H12a is
+### the RULING`S hypothesis, fixed before any line of this act; its word is set by READING (4)`s bank, not by this
+### paragraph. The seat`s own expectations (E) are registered on things not yet run.
+### ### **BANKS WRITTEN BEFORE THIS SEAL:** `b561_ferry.txt`, `b561_ferry_scan.txt`, the two step-zero censuses, the pins,
+### `b561_span*`. ### **NO KERNEL FILE WRITTEN, NO ELABORATION RUN, NO BRANCH MADE, NO TOOL WRITTEN, NO APPEND, NO EDIT
+### OF ANY LEDGER BEFORE THIS SEAL**, and no web request made.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED LINE.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **H12a HOLDS: THE PAIRED TRUNCATED TRANSFORM DECAYS LIKE 1/‖ρ‖² UNIFORMLY IN THE TRUNCATION PARAMETER, SO
+### (D3) IS A PAIRING ESTIMATE ON EXISTING LEMMAS AND NEEDS NO NEW SUMMABILITY LEMMA.**
+### **(N2)** ### **(D1) AND (D2) LAND; (D3) IS WHERE THE ACT IS HELD OR LANDS; IF (D3) LANDS, (D4) LANDS WITH IT.**
+### **(N3)** ### **IF li_identity LANDS, ITS PRINT IS THE STANDARD THREE AND ITS E0 GRADE DERIVES; LiLimitExchange IS THEN
+### A DISCHARGED LEMMA, NOT A HYPOTHESIS.**
+### **(N4)** ### **THE CONSUMER READ: inequalityToPositivity CONSUMES THE IDENTITY`S DIRECTION, NOT THE FORWARD INEQUALITY
+### ALONE.**
+### **(N5)** ### **THE PUSH TEST SHOWS THE TAG PUSH DOES NOT RUN ON A REFUSED MAIN PUSH.**
+### **(N6)** ### **NO EXISTING STATEMENT IN ANY KERNEL CHANGED; NOTHING AT ZENODO; NOTHING DEPOSITS; THE HELD BRANCHES
+### UNTOUCHED BEYOND THEIR RECORD LINES.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE DECAY READ SCORES H12a REFUTED: THE UNIFORM BOUND ALONG THE FAMILY IS OF ORDER n/‖ρ‖, NOT n/‖ρ‖².**
+### **(S2)** ### **(D1) COMPILES AT THE STANDARD THREE WITHIN FOUR ATTEMPTS.**
+### **(S3)** ### **THE PUSH TEST`S PERMITTING CASE PUSHES THE TAG ONLY AFTER main READS BACK EQUAL.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits, 0 flags) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `b561_reg_gate.py` -> `b561_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R171-ENTERED` `G-READS-CITED`
+### `G-WEIGHT-LINES` `G-PUSH-TOOL-ALONE` `G-PUSH-TEST-REFUSED`
+### `G-DECAY-READ-BANKED` `G-H12A-BEFORE-BUILD`
+### `G-LIWEIL561-FROM-V04` `G-EXISTING-UNCHANGED` `G-NO-SORRY-ON-MAIN` `G-ITEM-BANKS` `G-ELAB-PRINTED`
+### `G-AXIOMS-PRINTED` `G-E0-READ` `G-ROWGEN-RECORD` `G-TAG-V05-OR-HELD` `G-HELD-AT-EARLIEST`
+### `G-CONSUMER-READ`
+### `G-FINDINGS-ENTRY` `G-CORR-ROW` `G-TRAIL-RECORD` `G-WORKORDER-LINE`
+### `G-BRANCHES-DELETED` `G-TRIAL-UNTOUCHED` `G-HELD-BRANCH-KEPT`
+### `G-LINES-KEPT` `G-MONOGRAPH-UNTOUCHED` `G-ERRATA-UNTOUCHED` `G-CEILING-UNCHANGED`
+### `G-KERNEL-MAINS-UNTOUCHED` `G-NO-ZENODO-CALL` `G-DELETE-FREE` `G-TECHNE-SHAPE-ONLY`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-N5-SCORED` `G-N6-SCORED`
+### `G-SEAT-EXPECTATIONS-SCORED` `G-H12-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-INSTRUMENTS-EDITED-AS-RULED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-INSTRUMENTS-EDITED-AS-RULED` reads that no existing relay `.py` or `.sh` tool is modified against b560`s close and
+### that the one new standing tool is `push_gated.sh`, in its own commit. `G-PEEK-DECLARED`, `G-WRITELIST-KINDS` and
+### `G-PRIORBANK-UNCHANGED` read file times before the push and content digests against the pushed tree after it.
+### `G-DELETE-FREE` reads this act`s own Python tools for a delete call of any kind. `G-NO-ZENODO-CALL` reads the act`s
+### tools for the platform`s address. `G-TAG-V05-OR-HELD` reads the kernel`s refs: on a merge `main` equals the merged
+### tip and v0.5 peels to it, local and remote; on a HELD with nothing landed, no v0.5 exists and `main` is v0.4.
+### `G-KERNEL-MAINS-UNTOUCHED` reads every kernel`s `main` against its pre-act head, SIDE-explicit-formula`s read as a
+### fast-forward adding files alone and SIDE-global-section`s as the ledger row alone. No arm is scored post-push only.
+### ### **EVERY POSITIVE CONTROL IS POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b561_*` `relay/tools/b561_*` |
+### | the push discipline, READING (3) | `relay/tools/push_gated.sh` (new) |
+### | `tools/b561_record.py` | `PLACE-papers/FINDINGS.md` (appends: the weight lines, the act`s entry)
+###   `PLACE-papers/OPEN_TRAILS.md` (appends: the consumer read, the work-order`s line, this act`s record)
+###   `PLACE-papers/phase1.5/spectral/BALANCE_AND_POSITIVITY.md` (one appended line beneath :764`s block)
+###   `SIDE-global-section/CORRESPONDENCE.md` (one row, through `relay/tools/corr_row.py`) |
+### | the seat`s branch, READING (5) | in `D:/SIDE-explicit-formula` on `li-weil-b561` only:
+###   `SIDE-explicit-formula/SIDEExplicitFormula/LiWeilExchange.lean` `SIDE-explicit-formula/AxiomCheckLiWeilExchange.lean`
+###   (new files); the branch ref, local and at the remote; `main` by fast-forward alone; the tag v0.5; the checkout`s
+###   working tree while the branch is out |
+### | the suite, `tools/b561_checks.py` | `relay/data/terminal_table.md` `relay/data/terminal_table.json`
+###   `relay/data/terminal_table_prior.json` `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b561_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b561_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b561_registration_2026-09-29.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b561_span*.json` `relay/data/b561_span_notes*.txt` |
+### | `tools/b378_lockgate.py` | `relay/data/b561_lockgate.json` `relay/data/b561_lockgate_notes*.txt` |
+### | the seat`s branch commands, READING (9) | the refs `push-b560`, `push-b560-closing`, `push-b561`, `push-b561-closing`,
+###   `li-weil-b560` (local and remote) |
+### | the seat`s memory after the last push | the seat`s memory directory (one project file, the index line) |
+### ### The act`s tools, named: `b561_record.py` `b561_reg_gate.py` `b561_regspec.py` `b561_checks.py` `b561_closing.py`.
+### ### A kind of file may be written more than once (a re-run versions or overwrites its own bank). No `.lean` file on any
+### `main` but by fast-forward onto a clean branch, no Zeta23 byte, no ERRATA byte, no README, REGISTRY, FACES_LEDGER or
+### SPIRAL_MAP byte, no TECHNE-Core write, nothing at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NO `sorry` REACHES ANY `main`.** ### Nothing deposits; nothing at Zenodo is written. ### No tag is pushed before
+### main reads back equal. ### No existing kernel statement changes; no existing module is edited; no Zeta23 file is
+### edited. ### No `lake build` and no worktree: the branch is elaborated by `lake env lean` in the kernel`s own checkout.
+### ### No keystone body is edited; BALPOS gains one appended line beneath its :764 block and nothing else. ### No ledger
+### grade is edited and no grade name minted; no existing relay tool is edited. ### No work-order is started or filed;
+### lines are appended to filed entries. ### The converse is not attempted. ### No zero of zeta or of any L-function is
+### added or moved; no prior bank is rewritten. ### No erratum is drafted or filed. ### Row U1 is unedited. ### `h2` stays
+### where the deposit left it. ### The four lists stay OPEN. ### No rm is run. ### No repository is fetched from a network
+### remote; the pins, the ritual`s pushes, the branch and tag pushes, the branch deletion at the remote and the
+### `ls-remote` read-backs excepted. ### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH OR ANY ZERO BEYOND A COMPILED
+### STATEMENT`S OWN WORDS; A DERIVATION ON THE PAGE IS A DERIVATION, NOT A THEOREM.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : d0f54dfab83e9972c2cf5b071df35d5cf8b1b7f047ee13db337e5c3bbc7e341d
+### bytes locked : 20042
+### locked at (UTC) : 2026-09-29T16:44:24Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b561_registration_2026-09-29.txt`.**
+====================================================================================================
