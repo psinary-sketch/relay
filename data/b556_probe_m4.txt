@@ -1,0 +1,178 @@
+SIDE-lv-conservation 5a14205 = 5a142053c45feb31f801bcada1d8d7046dee1664 ; git show 5a14205:SIDELvConservation/ZeroActingPairing.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/RegisterPentagon.lean', 'SAME'), ('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.RegisterPentagon.escape_kind_discriminates', 'SIDELvConservation.RegisterPentagon.horizon_kind_shared', 'SIDELvConservation.RegisterPentagon.edge_drift_nonneg', 'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral']
+start 2026-09-29T01:41:25Z
+<stdin>:56:24: error: Function expected at
+  RealizesXiZeros
+but this term has type
+  ?m.6
+
+Note: Expected a function because this term is being applied to the argument
+  certifiedInputSpectrum
+
+Hint: The identifier `RealizesXiZeros` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:61:9: error: Function expected at
+  ZeroActingPairing
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  lam_A
+
+Hint: The identifier `ZeroActingPairing` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:73:9: error: Function expected at
+  ZeroActingPairing
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  lam_A
+
+Hint: The identifier `ZeroActingPairing` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:83:6: error: Function expected at
+  RealizesXiZeros
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  certifiedInputSpectrum
+
+Hint: The identifier `RealizesXiZeros` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:84:2: error(lean.unknownIdentifier): Unknown identifier `certifiedInput_not_zeroRealizing`
+<stdin>:115:9: error: Function expected at
+  ZeroActingPairing
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  lam_A
+
+Hint: The identifier `ZeroActingPairing` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:138:9: error: Function expected at
+  ZeroActingPairing
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  lam_A
+
+Hint: The identifier `ZeroActingPairing` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:276:22: error: Function expected at
+  certifiedInputSpectrum
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `certifiedInputSpectrum` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:277:8: error: Function expected at
+  RealizesXiZeros
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  certifiedInputSpectrum
+
+Hint: The identifier `RealizesXiZeros` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:279:36: error: Function expected at
+  certifiedInputSpectrum
+but this term has type
+  x✝¹
+
+Note: Expected a function because this term is being applied to the argument
+  i
+<stdin>:280:10: error(lean.unknownIdentifier): Unknown identifier `certifiedInput_not_zeroRealizing`
+<stdin>:372:4: error: Function expected at
+  ZeroActingPairing
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  lam_A
+
+Hint: The identifier `ZeroActingPairing` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+<stdin>:386:2: error: don't know how to synthesize implicit argument `ledger`
+  @zeroActingPairing_to_RH (?m.14 nontrivialZeroInStrip inequalityToPositivity liCriterion X)
+    (?m.15 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam_A lam_Z
+    (?m.16 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam inequalityToPositivity liCriterion
+    (xRealization_to_zeroActingPairing nontrivialZeroInStrip X)
+context:
+NontrivialZeroExistsInStrip : Sort u_1
+lam_A lam_Z ledger lam : ℕ → ℝ
+nontrivialZeroInStrip : NontrivialZeroExistsInStrip
+inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+liCriterion : Register4_positivity lam → RiemannHypothesis
+X : XRealization lam_A lam_Z ledger
+⊢ ℕ → ℝ
+<stdin>:386:2: error: don't know how to synthesize implicit argument `ZeroActingPairing`
+  @zeroActingPairing_to_RH (?m.14 nontrivialZeroInStrip inequalityToPositivity liCriterion X)
+    (?m.15 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam_A lam_Z
+    (?m.16 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam inequalityToPositivity liCriterion
+    (xRealization_to_zeroActingPairing nontrivialZeroInStrip X)
+context:
+NontrivialZeroExistsInStrip : Sort u_1
+lam_A lam_Z ledger lam : ℕ → ℝ
+nontrivialZeroInStrip : NontrivialZeroExistsInStrip
+inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+liCriterion : Register4_positivity lam → RiemannHypothesis
+X : XRealization lam_A lam_Z ledger
+⊢ ?m.14 nontrivialZeroInStrip inequalityToPositivity liCriterion X
+<stdin>:386:2: error: don't know how to synthesize implicit argument
+  @zeroActingPairing_to_RH (?m.14 nontrivialZeroInStrip inequalityToPositivity liCriterion X)
+    (?m.15 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam_A lam_Z
+    (?m.16 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam inequalityToPositivity liCriterion
+    (xRealization_to_zeroActingPairing nontrivialZeroInStrip X)
+context:
+NontrivialZeroExistsInStrip : Sort u_1
+lam_A lam_Z ledger lam : ℕ → ℝ
+nontrivialZeroInStrip : NontrivialZeroExistsInStrip
+inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+liCriterion : Register4_positivity lam → RiemannHypothesis
+X : XRealization lam_A lam_Z ledger
+⊢ Sort ?u.6875.23
+<stdin>:387:5: error: don't know how to synthesize implicit argument `ZeroActingPairing`
+  @xRealization_to_zeroActingPairing NontrivialZeroExistsInStrip
+    (?m.17 nontrivialZeroInStrip inequalityToPositivity liCriterion X)
+    (?m.18 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam_A lam_Z ledger nontrivialZeroInStrip ⋯
+context:
+NontrivialZeroExistsInStrip : Sort u_1
+lam_A lam_Z ledger lam : ℕ → ℝ
+nontrivialZeroInStrip : NontrivialZeroExistsInStrip
+inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+liCriterion : Register4_positivity lam → RiemannHypothesis
+X : XRealization lam_A lam_Z ledger
+⊢ ?m.17 nontrivialZeroInStrip inequalityToPositivity liCriterion X
+<stdin>:387:5: error: don't know how to synthesize implicit argument
+  @xRealization_to_zeroActingPairing NontrivialZeroExistsInStrip
+    (?m.17 nontrivialZeroInStrip inequalityToPositivity liCriterion X)
+    (?m.18 nontrivialZeroInStrip inequalityToPositivity liCriterion X) lam_A lam_Z ledger nontrivialZeroInStrip ⋯
+context:
+NontrivialZeroExistsInStrip : Sort u_1
+lam_A lam_Z ledger lam : ℕ → ℝ
+nontrivialZeroInStrip : NontrivialZeroExistsInStrip
+inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+liCriterion : Register4_positivity lam → RiemannHypothesis
+X : XRealization lam_A lam_Z ledger
+⊢ Sort ?u.6875.47
+SIDELvConservation.RegisterPentagon.escape_kind_discriminates : SIDELvConservation.RegisterPentagon.wallEscapeKind
+    SIDELvConservation.RegisterPentagon.Wall.signPositivity ≠
+  SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.derivativeTransversality
+SIDELvConservation.RegisterPentagon.horizon_kind_shared : SIDELvConservation.RegisterPentagon.wallEscapeKind
+    SIDELvConservation.RegisterPentagon.Wall.signPositivity =
+  SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.detectionThreshold
+@SIDELvConservation.RegisterPentagon.edge_drift_nonneg : ∀ {ledger : ℕ → ℝ} {w : ℕ → ℕ → ℝ} {N n : ℕ},
+  (∀ (m : ℕ), 0 ≤ ledger m) → (∀ (m : ℕ), 0 ≤ w m n) → 0 ≤ SIDELvConservation.RegisterPentagon.driftSum ledger w N n
+SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral : ∃ w N n,
+  (∀ (m : ℕ), 0 ≤ w m n) ∧
+    SIDELvConservation.RegisterPentagon.driftSum SIDELvConservation.RegisterPentagon.dhModelLedger w N n < 0
+'SIDELvConservation.RegisterPentagon.escape_kind_discriminates' does not depend on any axioms
+'SIDELvConservation.RegisterPentagon.horizon_kind_shared' does not depend on any axioms
+'SIDELvConservation.RegisterPentagon.edge_drift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 19.9 s
+exit 1

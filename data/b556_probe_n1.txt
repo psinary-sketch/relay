@@ -1,0 +1,33 @@
+SIDE-lv-conservation v0.11.0 = 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; git show v0.11.0:SIDELvConservation/LeadLaw.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/FieldLayer.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.LeadLaw.lead_law', 'SIDELvConservation.FieldLayer.top_coeff_of_expansion', 'SIDELvConservation.FieldLayer.norml_top', 'SIDELvConservation.LeadLaw.leadingCoeff_hOf']
+start 2026-09-29T01:42:05Z
+@SIDELvConservation.LeadLaw.lead_law : ∀ {K : Type u_1} [inst : Field K] (s q : K),
+  s ^ 2 = q →
+    s ≠ 0 →
+      ∀ (g : ℕ) (p : ℕ → K),
+        SIDELvConservation.FieldLayer.SelfDualFE q g p →
+          ∀ (c : ℕ → K),
+            SIDELvConservation.FieldLayer.IsExpansion g c (SIDELvConservation.FieldLayer.norml s p) →
+              1 ≤ g →
+                p 0 ≠ 0 →
+                  (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff *
+                      (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff =
+                    p 0 ^ 2
+@SIDELvConservation.FieldLayer.top_coeff_of_expansion : ∀ {K : Type u_1} [inst : Field K] (g : ℕ),
+  1 ≤ g → ∀ (c pt : ℕ → K), SIDELvConservation.FieldLayer.IsExpansion g c pt → c g = pt (2 * g)
+@SIDELvConservation.FieldLayer.norml_top : ∀ {K : Type u_1} [inst : Field K] (s q : K),
+  s ^ 2 = q →
+    s ≠ 0 →
+      ∀ (g : ℕ) (p : ℕ → K),
+        SIDELvConservation.FieldLayer.SelfDualFE q g p → SIDELvConservation.FieldLayer.norml s p (2 * g) = p 0
+@SIDELvConservation.LeadLaw.leadingCoeff_hOf : ∀ {K : Type u_1} [inst : Field K] (g : ℕ) (c : ℕ → K),
+  1 ≤ g → c g ≠ 0 → (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff = c g
+'SIDELvConservation.LeadLaw.lead_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.FieldLayer.top_coeff_of_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.FieldLayer.norml_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.LeadLaw.leadingCoeff_hOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 788.7 s
+exit 0

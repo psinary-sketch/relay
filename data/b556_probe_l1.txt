@@ -1,0 +1,25 @@
+SIDE-lv-conservation 0d2d74c = 0d2d74cd2548bc1b1c0604f4dd8b7eb76dd2f089 ; git show 0d2d74c:SIDELvConservation/C7OrderBounds.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp']
+start 2026-09-29T01:24:02Z
+<stdin>:270:18: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+<stdin>:386:18: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp : ∃ A C,
+  ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+'SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 700.7 s
+exit 0

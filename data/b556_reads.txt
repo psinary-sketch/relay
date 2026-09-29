@@ -1,0 +1,387 @@
+b556 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### R_CURVE_CRITERION.md is at `phase1.5/rcurve/R_CURVE_CRITERION.md` (PLACE-papers; not in the mirror)
+
+### phase1.5/rcurve/R_CURVE_CRITERION.md:1-13 -- R_CURVE_CRITERION -- head and the claim-status correction
+  :1 # The R-Curve Criterion: Monotonicity as the Fifth Path to σ = 1/2
+  :2 
+  :3 ## Monotonicity, the Gamma Floor, and SIDE Closure
+  :4 
+  :5 *J. York Seale*
+  :6 
+  :7 *ORCID: 0009-0008-7993-0310*
+  :8 
+  :9 *v0.2.1, May 2026 (rev. 2026-07-23)*
+  :10 
+  :11 ---
+  :12 
+  :13 > **Claim-status correction (2026-07-19, ARM 2 refinement).** This paper originally stated the Effective Dominance theorem (Chapter 5) as an *unconditional* closure — "$\mathrm{Re}(\xi'/\xi) > 0$ for all $s$ with $\sigma > 1/2$", with a "∎", and Chapter 7 read "off-line zeros do not occur". That overstated the leg the SIDE closure actually supplies. The corrected grammar, matching the census (`PATHS_TO_THE_CRITICAL_LINE` II.5): **the R-curve *equivalence* is compiled** (`SIDERCurve.monotone_unique_zero`), and the criterion's compiled structure stands as graded (Correspondence below); but **effective dominance is the criterion's open input**, resting on the exhaustiveness of the seven-class c
+
+### phase1.5/rcurve/R_CURVE_CRITERION.md:343-360 -- R_CURVE_CRITERION -- the Kernel Correspondence
+  :343 # Kernel Correspondence
+  :344 
+  :345 The compiled structure behind the criterion, graded (DERIVES / INTERFACES-with-named-premise / research-reach). Rows read from the pinned kernels; profiles are `#print axioms` on clean checkouts. Citations are additive — the version DOI rides the pin, the tag stays. SIDE-lv-conservation citations carry version DOI `10.5281/zenodo.21539068` (v0.10.0 = `93c27ec`, 2026-07-24 deposit; concept `10.5281/zenodo.21433177`).
+  :346 
+  :347 | Claim | Kernel / pin | Terminal | `#print axioms` | Grade |
+  :348 |:---|:---|:---|:---|:---|
+  :349 | R-curve equivalence: V-monotonicity ⟺ RH (Ch. 2–3) | SIDE-rcurve v0.1.0 = `d5f33b4` | `SIDERCurve.monotone_unique_zero` | `{propext, Classical.choice, Quot.sound}` *(profile re-verified 2026-07-25, AxiomCheck print; `online_zero_codim_one`/`offline_zero_codim_two` axiom-free)* | **DERIVES** — the equivalence engine is compiled; the monotonicity *closure* is research-reach |
+  :350 | Derivative-level catalogue — per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives) | SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited) | `SIDEDerivative.exactly_c1_derives` | axiom-free (none) | **DERIVES** — the honest count, not an exclusion verdict ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |
+  :351 | C₁ derivative reduction — double zero ⇔ Im ξ′(ρ)=0 on the line | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — consumes the perpendicular crossing; `spectral_cannon` @ `691295b` wired ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |
+  :352 | The joint step — not-double ⇔ transversality (uniform = simplicity) | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.no_onLine_double_iff_transversal` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — the derivative h2 = simplicity, named premise ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |
+  :353 | Hadamard genus-1 order-input (order ≤ 1 of the completed zeta, Ch. 4) | SIDE-lv-conservation v0.4.0 = `0d2d74c` | `SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — theta-Mellin route (no complex Stirling, no Phragmén–Lindelöf) |
+  :354 | On-line zero-sum nonnegativity (Ch. 4, the "+ every term" row) | SIDE-lv-conservation v0.8.0 = `6efa9e5` | `PartialPositivity.blTerm_nonneg_of_onLine` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — Re ρ = 1/2 ⟹ each Bombieri–Lagarias term ≥ 0 |
+  :355 | Finite-range Li positivity (a certificate toward effective dominance) | SIDE-lv-conservation v0.8.0 = `6efa9e5` | `PartialPositivity.partialPositivity_finiteRange` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — three named premises (`VerifiedZerosTo T`; `ExplicitFormulaDecomp`, Bombieri–Lagarias; `TailBoundPremise`, Voros n ≳ 2T²). λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T² — a finite-range certificate, **NOT RH** (the all-n tail is the open gap) |
+  :356 | Dirichlet L-function order-input (Ch. 8 extension) | SIDE-lv-conservation v0.5.0 = `1767bd6` | `SIDELvConservation.exists_norm_completedLFunction_le_exp` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — completed Dirichlet L, χ ≠ 1, both parities, whole plane |
+  :357 | Eight-coupling surround at Φ (the certifiable leg of the closure) | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open** |
+  :358 | Positivity face → RH (Ch. 5, the Lagarias interface) | SIDE-lv-conservation v0.7.0 = `2d86182` | `RegisterPentagon.R4_positivity_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — Li's criterion (Bombieri–Lagarias 1999, not in Mathlib) as explicit hypothesis |
+  :359 | Maximal-type growth excluded (brackets Voros's λ_A regime) | SIDE-lv-conservation v0.5.1 = `bc4751e` | `SIDELvConservation.C7_finite_type_false` | `{propext, Classical.choice, Quot.sound}` | **DERIVES (compiled negative)** — the finite-exponential-type form is provably false of the forced witness |
+  :360 | Effective-dominance closure (exhaustiveness premise `h2`) | (none) | — | — | **research-reach** — the census's landscape closure (II.5), carried openly as the single open premise |
+
+### phase1.5/rcurve/R_CURVE_CRITERION.md:462-474 -- R_CURVE_CRITERION -- versions and the b397 block
+  :462 *v0.1, May 2026 — consolidating P22_DEFINITIVE_REPORT (39-phase investigation, February 2026), P22_RCURVE_MONOTONICITY_REVISED (Monotonicity Formula derivation), and P22_PHASE66_SIDE_CLOSURE (SIDE closure of effective dominance).*
+  :463 
+  :464 *v0.2, 2026-07-19 — ARM 2 refinement pass (spectral / RH-cascade cluster). Claim-status correction (G3): the Effective Dominance theorem (Ch. 5) and the "off-line zeros do not occur" reading (Ch. 7) were stated as unconditional closure; both are bent to the two-leg / one-premise grammar — effective dominance is named as the criterion's open input (the exhaustiveness premise `h2`), matching the census's research-reach R-curve row (`PATHS_TO_THE_CRITICAL_LINE` II.5). A Kernel Correspondence section is added (concordance-first): the R-curve equivalence engine (`SIDERCurve.monotone_unique_zero`), the Hadamard order-inputs for ζ and Dirichlet L, the on-line-sum nonnegativity and finite-range Li p
+  :465 
+  :466 
+  :467 <!-- b397 BRANCH-RESIDENCE DISCLOSURE, 2026-09-10 -->
+  :468 
+  :469 **b397 — BRANCH-RESIDENCE DISCLOSURE.** The status cell of 3 row(s) above now discloses that its terminal sits on `SIDE-kernel/derivative-engine` and is **absent from `main`**. The record's own rule (`REGISTRY.md`, and raised to a release-blocking line in `THE_KEYSTONE_CENSUS.md`) is that branch residence *belongs in the status column where a table-reader meets it* — **a disclosure requirement, not a repair**. Nothing else in this document changed; **the pre-edit lines are preserved verbatim below.**
+  :470 
+  :471 > line 350 was: | Derivative-level catalogue — per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives) | SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited) | `SIDEDerivative.exactly_c1_derives` | axiom-free (none) | **DERIVES** — the honest count, not an exclusion verdict |
+  :472 > line 351 was: | C₁ derivative reduction — double zero ⇔ Im ξ′(ρ)=0 on the line | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — consumes the perpendicular crossing; `spectral_cannon` @ `691295b` wired |
+  :473 > line 352 was: | The joint step — not-double ⇔ transversality (uniform = simplicity) | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.no_onLine_double_iff_transversal` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — the derivative h2 = simplicity, named premise |
+  :474 
+
+### R_CURVE_CRITERION read entire: 474 lines
+
+### phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md:1-29 -- INDEX_ARITY_AT_THE_CRITICAL_LINE -- head, abstract, §1 (the reduction sentence at :29)
+  :1 # INDEX ARITY AT THE CRITICAL LINE
+  :2 
+  :3 **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER K** — *declared 2026-08-26 (b190); basis: the census test: external-reader results + a Correspondence table naming terminals.*
+  :4 
+  :5 > ### **b186's SYNTHESIS/NOTES/LEDGER SCHEME IS RETIRED, 2026-08-26 (b190).** *Reason: it was invented beside an author-ruled standing standard and its “SYNTHESIS” class spanned Tier K and Tier C at once —* ### **collapsing the very distinction the standing taxonomy exists to enforce.** *The retired line is left below, not deleted.*
+  :6 
+  :7 **DOCUMENT CLASS: SYNTHESIS** — *declared 2026-08-26 (b186); basis: content and position; ### NO PURPOSE STATEMENT — the absence is the finding.*
+  :8 
+  :9 **PURPOSE:** *instrument limits, positivity suppliers and the pair-index space on the zeros; for a reader asking what the index arity permits.* — *### added 2026-08-26 (b187) from this document's own content; nothing else edited.*
+  :10 ## Instrument Limits, Positivity Suppliers, and the Pair-Index Space on the Zeros
+  :11 
+  :12 **J. York Seale**
+  :13 ORCID: 0009-0008-7993-0310
+  :14 PLACE TO STAND Research Programme
+  :15 v0.18, 2026-08-08 (v0.1 2026-07-31; retitled at v0.1.1; fourth supplier at v0.2; landed at v0.3; fifth row at v0.4; vocabulary repair at v0.4.1; the barrier row + the Forward fold at v0.5; the stratum measurements + determinacy verdict + extremality cross-row pattern at v0.6; the fifth vocabulary adopted + the Hankel bridge at v0.7; the shadow row + the measured anatomy + the residue mechanism at v0.8; the recursion note + the additive law + the audit profile at v0.9; the one-law verdict + the density/arithmetic decomposition + the currency clause at v0.10; the era-close four-deep fold at v0.11; the control audit's corrections + the shape discriminant at v0.12; the method barrier qualified t
+  :16 
+  :17 ---
+  :18 
+  :19 ## Abstract
+  :20 
+  :21 The programme's exclusion analysis reduced the Riemann Hypothesis to a single located clause — the positive space on the zeros — with the reduction machine-verified and the residue localized. This paper characterizes the wall around that clause from both sides at compiled grade. From the failing side: six compiled negatives, each a machine-checked demonstration that a named instrument stops short of the clause, and all six of one shape — a certificate exact on a finite, local, or per-class range, together with a certified demonstration that the global statement escapes that range. From the proving side: the supplier settings where definiteness of this kind is delivered — the intersection for
+  :22 
+  :23 MSC 2020: 11M26, 03F07, 82B20.
+  :24 
+  :25 ---
+  :26 
+  :27 ## 1. The wall, named
+  :28 
+  :29 The reduction stands as follows. RH follows once one open premise holds — `h2`, the positive space on the zeros: a positive-definite pairing realized on the nontrivial zeros, equivalently realization-totality at the ξ interface, the premise that every ξ-zero forces the Euler balance at some prime (the monograph's §27.3, where the one premise is carried in five registers). The reduction itself is compiled: `ConservationBridge.riemann_hypothesis` at the standard three axioms {propext, Classical.choice, Quot.sound}. The residue analysis stripped every removable layer from the premise and found one unsupplied object — positivity without the zeros is free, the operator given the space is free, an
+
+### phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md:359-397 -- INDEX_ARITY_AT_THE_CRITICAL_LINE -- the Correspondence, its two standards and rows
+  :359 ## Correspondence
+  :360 
+  :361 Every load-bearing claim, matched to its kernel, terminal, and `#print axioms` profile read from the kernels on D: (2026-07-31; the three D-2 rows re-printed at their landed pin `2f71068` on 2026-08-05, after the landing, not carried from the working tree).
+  :362 
+  :363 **One standard added at v0.15 — PREMISES MUST BE RESOLVABLE FROM THE MIRROR.** A row's named premises are what the row rests on, so **a premise whose only definition lives in a relay report makes the row unresolvable at exactly the point this table exists to serve**: a reviewer reading the mirror meets a claim resting on a named thing and cannot find out from the mirror what the thing says. **Naming a premise is not stating it.** Where a premise is not stated elsewhere in the mirror set, its statement belongs in the row's own cell. Applied at v0.15 to the two-sides row (the Jacobi link, stated in full above); **and at v0.16 to the remaining two, so every landed row's named premises are now s
+  :364 
+  :365 **One grade added at v0.13 — OVER-HYPOTHESIZED.** A terminal is over-hypothesized when its statement carries a hypothesis its proof does not use: the statement then *understates* what the proof establishes, and any recorded axiom profile may belong to the unused hypothesis rather than to the content. It is the mirror of the statement-versus-claim shortfall — that grade measures a claim reaching past its statement, this one measures a statement reaching past its proof. **The test is a check, not a reading: delete the hypothesis and recompile.** No row of this table carries the grade; it is defined here because this is the corpus's canonical Correspondence, and its first application is recorde
+  :366 
+  :367 | Claim (as stated here) | Kernel | Terminal (fully qualified) | Axiom profile | Status |
+  :368 |:--|:--|:--|:--|:--|
+  :369 | §1 — the reduction, RH under the one open premise `h2` | SIDE-kernel v1.7 = `2957e7d` | `ConservationBridge.riemann_hypothesis` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled — the reduction, not a proof of RH; `h2` carried open |
+  :370 | N1 — finite-type growth form false | SIDE-lv-conservation v0.10.0 = `93c27ec` (version DOI 10.5281/zenodo.21539068; concept 10.5281/zenodo.21433177) | `SIDELvConservation.C7_finite_type_false` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled negative; bracketed against `exists_norm_completedRiemannZeta₀_le_exp` |
+  :371 | N2 — unrestricted per-class bridge fails | SIDE-lv-conservation v0.10.0 = `93c27ec` | `SIDELvConservation.T3.T3doubleprime_general_commutation_fails` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled countermodel; the closed half `T3.T3prime_shared_witness` stands beside it |
+  :372 | N3 — certified input not zero-realizing | SIDE-lv-conservation v0.10.0 = `93c27ec` | `SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled, under the one named classical premise (nontrivial zero in the open strip), disclosed in the statement |
+  :373 | N4 — escape-kind invariant (two walls, one form, two escapes) | SIDE-lv-conservation main = `5a14205` (landed 2026-08-02, the ratified pass) | `SIDELvConservation.RegisterPentagon.escape_kind_discriminates`; `SIDELvConservation.RegisterPentagon.horizon_kind_shared` | axiom-free (none) | Compiled — landed to the release line with the pairing-interface merge |
+  :374 | N5 — the derivability barrier | SIDE-kernel v1.7 = `2957e7d` | `InvarianceBarrier.derivability_barrier` | axiom-free (none) | Compiled (general form only; no ξ/Epstein instantiation, no RH content in the statement); instantiated at manuscript level as Theorem 3.7 of *Invariance Barriers*, **at that theorem's Tier-1 scope — a named finite toolkit T, the open class of all Euler-product-free derivations not claimed** |
+  :375 | N6 — witness architecture with the stipulated datum | SIDE-kernel v1.7 = `2957e7d` | `SieveCeilingWitness.dh_witness` | axiom-free (none) | Compiled architecture; the off-line fact is a stipulated datum from Davenport–Heilbronn 1936, not re-proven in-kernel |
+  :376 | N6 — the located disc −23 off-line zero | (none — computational record) | — | — | Doubly-sourced argument-principle computation (*The Residue of the Riemann Hypothesis* §5); manuscript-resident |
+  :377 | §3 — supplier 1, intersection-form positivity over 𝔽_q | (none — literature + control) | — | — | Weil 1948, theorem; programme control: the Face-D function-field comparison |
+  :378 | §3 — supplier 2, ferromagnetic pair coupling | (none — literature + control) | — | — | Lee–Yang 1952, theorem; programme control: the Lee–Yang comparison |
+  :379 | §3 — supplier 3, the named absence Q | (none) | — | — | OPEN — `h2`, §27.3; the arc's object; boundary-tight by Rodgers–Tao |
+  :380 | §3 — the edge reach of single-index positivity | SIDE-lv-conservation (deposited line) | `edge_drift_nonneg` with its sign-neutral break `edge_drift_neg_for_signNeutral` | see *The Residue of the Riemann Hypothesis* Correspondence | Compiled lemma + break; cited through the residue paper's table |
+  :381 | Forward — the data-arity barrier (no transport-sound composition of one-variable data derives the two-variable carrier property) | SIDE-lv-conservation main = `14720d9` (E-8 landed 2026-08-02) | `CompositionBarrier.composition_barrier`; `CompositionBarrier.barrier_witnesses` | axiom-free (none) | Compiled — the minimal witness-world schema (model-level, its anti-overclaim on its face); Face-E's sibling |
+  :382 | §3 — supplier 4's stratum measurements (the 24k ladder certificates; the W₈^m exact failures; the n = 24 matched pair; the pencil knife-edge) | (none — computational record) | — | — | Exact arithmetic end-to-end (Sturm over ℚ(√2); double-sourced solves; convention pinned on prior instances); relay `reports/2026-08-02-e3-type-ii-supplier.md`, instrument `tools/e3/` |
+  :383 | §3 — the lead law: the certificate's leading coefficient is the square of the zeta polynomial's constant term | SIDE-lv-conservation main = `2f71068` (D-2a landed 2026-08-05) | `SIDELvConservation.LeadLaw.lead_law`, on `FieldLayer.top_coeff_of_expansion`, `FieldLayer.norml_top`, `LeadLaw.leadingCoeff_hOf` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | **INTERFACES on ONE named premise.** DERIVED: the basis is monic of degree j+1; the leading coefficient is the top expansion coefficient; **the top coefficient is the top normalized coefficient** — stipulated at the first pass, derived here on a shared field layer (a field with a chosen `s`, `s² = q`); the functional 
+  :384 | §3 / Forward — the genus ≤ 5 theorem (Type II ⇒ Duursma-RH at genus ≤ 5) | SIDE-lv-conservation main = `2f71068` (D-2b, both units landed 2026-08-05) | `Genus5.classification` **jointly with** `Genus5Confinement.golay_confined`, `w16_confined`, `e8_confined` — **neither unit citable alone** (the joint-row rule) | catalogue `{propext, Quot.sound}`; confinement the standard three | **INTERFACES on named premises (three).** DERIVED: genus ≡ 1 mod 4, so genera 2–4 are empty; the Mallows–Sloane forcing to lengths 8, 16, 24; and each catalogued certificate's confinement by its own route — one linear factor · an explicit rational factorization with `r(4−r) = 1` · five IVT sign alternations capped
+  :385 | §3 — the two-sides balance (one number, two routes) | SIDE-lv-conservation main = `2f71068` (D-2c landed 2026-08-05) | `SIDELvConservation.TwoSides.heine_three`, with `heine_one`, `heine_two`, `ladder_three`, `two_sides_balance` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | **INTERFACES on one named premise, at declared instance scope.** DERIVED: the Heine/Vandermonde identity at depths 1, 2, 3 as polynomial identities in **six free variables**; three-route agreement at an explicit rational measure, with the common value certified non-zero; degeneracy detection and the Vandermonde square both salt-checked. **STIPULATED at cite — THE JACOBI LINK, STATED HERE SO THE
+  :386 | Forward — the Hankel bridge (ξ's moment Hankel forms along the dBN pencil; the flip-depth instrument d(t)) | (none — computational record) | — | — | Doubly-sourced (two precisions, s-agreement ≤ 5×10⁻¹⁴⁵; t = 0 cross-checked against explicit zero-sums over 300 zeros); relay `reports/2026-08-02-e16-hankel-bridge.md`, instrument `tools/e16/hankel_bridge.py` |
+  :387 | §3 — the residue mechanism at instance grade (lead(H) = ε²/const; the flip polynomials; the burial law) | (none — computational record) | — | — | Exact interpolation from 46 rational samples, all prior measured flips reproduced; relay `reports/2026-08-03-shadow-row-intertwiner3-genus9-mechanism.md`, instrument `tools/e3/mechanism.py` |
+  :388 | §3 — the shadow row's constituents | (none — literature) | — | — | Sine kernel PSD (classical); determinantal processes kernel-generated (Soshnikov; HKPV); Montgomery restricted-support theorem; Rudnick–Sarnak; the row-kind and belief-sentence at adoption grade (F.2026-08-03) |
+  :389 | §3 — the lead law (lead(H) = p₀², every self-dual code) | (none — proof + computational verification) | — | — | Two-line derivation (Duursma P(0) + self-dual FE); verified exactly at three pencils (constants C(n,4)⁻²); relay `2026-08-03-keystone-v08-string-construction-residue-law.md` |
+  :390 | §3 — the additive law (Ñ₃(0) = −((n+16)/16)·p₀⁴) | (none — computational, predictively verified) | — | — | Exact at n = 24, 32, 40; the n = 40 coefficient predicted before computation (mid-hunt registration) and confirmed; relay `2026-08-03-recursion-note-additive-hunt-asymptotic-audit.md`, instrument `tools/e3/additive_hunt.py` |
+  :391 | §3 — the one-law verdict + the stratum-kind index (five strata; w(56) in-bracket) | (none — computational; the out-of-sample window by exact bisection) | — | — | relay `2026-08-03-one-law-test-constant-p0-translation.md`, instruments `tools/e3/e22_window.py`, `tools/e3/n56_test.py`; the n = 56 coefficient cells flagged under-sampled, follow-up priced |
+  :392 | §3 — the density/arithmetic decomposition of the string diagonal | (none — computational, control-sourced) | — | — | The smooth-density control (identical pipeline): mean 1.1157 ± 0.0015 vs ζ 1.12 ± 0.15; relay same report, instrument `tools/e16/constant_control.py` |
+  :393 | §3 — the sum-rule verdict (the arithmetic as a sum-rule quantity) | (none — computational + Szegő/Killip–Simon at cite) | — | — | **CORRECTED against a position-matched control: Z₉ = 0.0507, Q₉ = 0.0951, ~50× the noise floor** (the density-matched figures Z₉ = 1.62 / Q₉ = 0.78 withdrawn, inflated 8–32×); relay `2026-08-03-w-sumrule-e24-entry-handoff.md` + `2026-08-05-w-control-audit.md`, instruments `tools/e16/sumrule.py`, `audit_rederive.py` |
+  :394 | §3 — the two-sides verdict (the finite identity exact; 92% pair-energy) | (none — computational; the Heine/Vandermonde identity classical) | — | — | Balance ≤ 9×10⁻³⁹⁸ at K = 12, 16 (per-object, unaffected); **Δrepulsion/Δcoeff = 92% against the position-matched control** (97% against the density-matched one; magnitudes down 45–68×); relay `2026-08-03-w-twosides.md` + the audit, instruments `tools/e16/ts_stage{1,2,3}.py`, `audit_rederive.py` |
+  :395 | §3 — the shape verdicts, K = 64 and K = 200 (INTRINSIC) | (none — computational; discriminants pre-committed; every stage checkpointed) | — | — | K=64: D = 0.649, 140× the rigid null; K=200: D = 0.6913 · small-gap 0.0513 · KS 0.0777 (117 gaps). Statistics of ζ's own unfolded gaps — no control enters them, so the audit leaves them unchanged; relay `2026-08-03-w-shape-200.md`, `2026-08-05-the-sixth-point-completion.md`, instruments `tools/e16/shape_s{1,2,3}.py` |
+  :396 | §3 — the shape discriminant (lattice 0 · GUE γ−1 · Poisson −log 2π; ζ at −0.26221) and c_ideal(L) = (γ−1)/(log L + γ−1) | (none — derivation at CONDITIONAL-ON-PAIR-CORRELATION grade + computation) | — | — | Derived via R₂ = 1 − sinc² against the lattice sum (Stirling/Glaisher + the sine-kernel integral); log 2π cancels for GUE, survives for Poisson; height-drift datum at matched L = 300 (high −0.2823 vs low −0.2453); relay `2026-08-05-e25-derive-the-constant.md`, `2026-08-05-w-control-audit.md`, instruments `audit_unfolded.py`, `audit_three_tests.py` |
+  :397 | §3 — the c-sequence rows | — | — | — | **VOID.** The relative pair-energy sequence (0.578 → 0.950) was the control's half-zero counting-convention offset through the nonlinear β-map; flat at ≈ −0.035 against a position-matched control; struck, not restated; relay `2026-08-05-w-control-audit.md` |
+
+### phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md:631-644 -- INDEX_ARITY_AT_THE_CRITICAL_LINE -- the era annotations
+  :631 ### ERA ANNOTATION (2026-08-12) — bearing on the index truncation
+  :632 
+  :633 > **Index truncation and support truncation are measured DISTINCT.** The `99%`-mass width of the Li-index window saturates near `15.71` and stops responding to `n`, while support truncation controls width exactly as `2 log a`. Three of the four windows in the corpus are the support kind in different coordinates; the index kind is the fourth and is not one of them.
+  :634 
+  :635 *Provenance: `phase2/method/THE_TECHNIQUE_SPECIFICATION.md` `T9`; `relay/data/carto_auto.jsonl`, 2026-08-12. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+  :636 
+  :637 <!-- b454 ERA ANNOTATION, 2026-09-14 -->
+  :638 
+  :639 ### ERA ANNOTATION (2026-09-14, b454) — bearing on W_inf NOT sign-definite
+  :640 
+  :641 > both sign-face annotations at grade with cite: `W_∞` not sign-definite
+  :642 
+  :643 *Provenance: `archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-through-2026-08-20c.md:2221`, a ledger line before b450, added under `(R63)(b)` as amended by `(R64)(2)`. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+  :644 
+
+### INDEX_ARITY_AT_THE_CRITICAL_LINE read entire: 644 lines
+
+### phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md:400-417 -- ADDITIVE_MULTIPLICATIVE_CONSPIRACY -- the original Correspondence and its audit line
+  :400 ## Correspondence
+  :401 
+  :402 Every load-bearing claim, matched to the kernel that verifies it, the fully-qualified theorem, and its `#print axioms` profile read from the kernel on D: (2026-07-12). No blank Status cells; placeholders and open milestones are labelled as such.
+  :403 
+  :404 **Claim–certificate calculus (EXCLUSION_ENGINE §VIII.0).** The calculus certificate-types the grades below: `no_type_d` (the row "whose entire weight is its hypothesis") is a **conditional / interface-certificate**; `no_type_d_conspiracies` is a **derivation-certificate** (scoped positive-modulus).
+  :405 
+  :406 | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+  :407 |:--|:--|:--|:--|:--|
+  :408 | Finite-modulus no-conspiracy (CRT exhaustiveness) | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `SIDEEffects.Phase15.Module1.crt_exhaustiveness`) | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318
+  :409 | The general exclusion lemma | SIDE-effects (`c66f3c5`) | `AddMult.no_type_d` | axiom-free (none) | INTERFACES — a valid logic lemma whose entire weight is its hypothesis (`∀ a, coupling a → modular a`); the hypothesis is the named premise, not the lemma. |
+  :410 | Per-conjecture instantiations | SIDE-effects (`c66f3c5`) | `no_conspiracy_twins`, `no_conspiracy_goldbach`, `no_conspiracy_sg` (over `TypeD Nat (fun _ => True) (fun _ => True)`) | — (uniformly-True predicates) | Placeholder — retired from the claim structure |
+  :411 | M3 — twin primes infinitude | SIDE-effects (`c66f3c5`) | `AddMult.twin_primes_infinite` (`Milestones.lean`) | carries `sorry` (sorryAx) | Open — the conjecture's analytic content (Hardy-Littlewood) |
+  :412 | M4 — Goldbach | SIDE-effects (`c66f3c5`) | `AddMult.goldbach` (`Milestones.lean`) | carries `sorry` (sorryAx) | Open — the conjecture's analytic content (circle method) |
+  :413 | M5 — Sophie Germain infinitude | SIDE-effects (`c66f3c5`) | `AddMult.sophie_germain_infinite` (`Milestones.lean`) | carries `sorry` (sorryAx) | Open — the conjecture's analytic content (sieve bounds) |
+  :414 | Mechanism Theorem (logical engine) | SIDE-kernel v1.2 | `ECondition.type_I_has_ostrowski` | `{propext, Quot.sound}` | DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12). *Pin currency 2026-07-23: cited at v1.2; grades hold through SIDE-kernel v1.4 = `f374174` + the C₆/C₇/V3B children, profiles unmoved.* |
+  :415 | Universal Silence | SIDE-kernel v1.2 | `SilenceTheorem.silence_universal` | axiom-free (none) | INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here. |
+  :416 
+  :417 *Kernels audited at: SIDE-effects `a27415d` (W-4 discharge merged 2026-07-13; the retired shells and the placeholder instantiations are cited at the prior pin `c66f3c5`); SIDE-kernel `ce5d7bd` (v1.2 = `b1407b2`). The milestone wrappers state their real types (§II.5/III.5/IV.5) and are proved by `sorry` at the analytic boundary — not `True`-typed shells. Correction (2026-07-13): the no-conspiracy terminal's clean profile reported on 2026-07-12 was incorrect at commit `c66f3c5` — it carries `sorryAx` transitively through `to_modular_correct` (see the corrected row).*
+
+### phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md:442-456 -- ADDITIVE_MULTIPLICATIVE_CONSPIRACY -- the 2026-08-12 table at the standard
+  :442 ### **CORRESPONDENCE AT THE STANDARD** *(annotation added 2026-08-12, W-CONSOLIDATION act 3b; existing text PRESERVED — this adds a table at the standard and rewrites nothing)*
+  :443 
+  :444 | claim | kernel | fully-qualified terminal | axiom profile | status | `VERIFY-BY` |
+  :445 |:--|:--|:--|:--|:--|:--|
+  :446 | ### **the finite-modulus no-conspiracy** (§I) | ### **`SIDE-effects`**, pin `c66f3c5`, branch ### **`w-ladder-skeleton`** *(recorded 2026-08-12; the corpus had never named the branch)* | `Module1.no_type_d_conspiracies` | ### **`0 sorry, 0 axioms`** (vanilla Lean 4, no Mathlib) | ### **COMPILED** | `git -C SIDE-effects checkout w-ladder-skeleton && lake build`, then `#print axioms Module1.no_type_d_conspiracies` |
+  :447 | **twin primes** (§II) — full statement | ### **NONE** | — | — | ### **MILESTONE-OPEN (`M3`)** — needs the Hardy–Littlewood asymptotic; **`argument-supported` structurally, quantitative solution NOT asserted** | `CASCADE_ANCHORS_CORRECTED`, `twin-primes-no-conspiracy`; **no terminal to point at** |
+  :448 | **Goldbach** (§III) — full statement | ### **NONE** | — | — | ### **MILESTONE-OPEN (`M4`)** — needs the circle method | `CASCADE_ANCHORS_CORRECTED`, `goldbach-no-conspiracy` |
+  :449 | **Sophie Germain** (§IV) — full statement | ### **NONE** | — | — | ### **MILESTONE-OPEN (`M5`)** — needs sieve bounds | `CASCADE_ANCHORS_CORRECTED`, `sophie-germain-no-conspiracy` |
+  :450 | **the Type I/II/III + Type-D classification** (§I) | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — `A_METHODOLOGY_FOR_DETERMINED_SYSTEMS` v0.5.4 | read the methodology paper's §; **no terminal** |
+  :451 | ### **`no_conspiracy` kernelization** | ### **NONE — OPEN** | — | — | ### **RESEARCH-REACH (`LE-K-6`)**, named open in `CASCADE_ANCHORS_CORRECTED` | ### **no verification exists; the row says so** |
+  :452 
+  :453 > ### **0 BLANK CELLS. Five of six rows have no kernel, and each says so in words.**
+  :454 >
+  :455 > ### **THE PAPER'S OWN STATUS LINE IS THE TABLE'S SUMMARY, AND IT WAS ALREADY EXACT: *"the classification is compiled; the conjectures are open, their shared difficulty located."***
+  :456 
+
+### phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md:457-478 -- ADDITIVE_MULTIPLICATIVE_CONSPIRACY -- the era and proofreading annotations
+  :457 #### **ERA ANNOTATION** *(2026-08-12; provenance-kept)*
+  :458 
+  :459 > ### **`Q2`'s NO-CLASS-POINT VERDICT AND THE `n₄ = 0` RECONCILIATION BEAR DIRECTLY ON THIS PAPER'S SUBJECT.** *The Type-D conspiracy's site inside `ξ`'s specification is the **internal (distributive) interface**, which `Seven_Mechanism_Classes` proves contributes **zero mechanism classes** and transmits *"density information but not placement information."***
+  :460 >
+  :461 > ### **CONSEQUENCE, STATED AND NOT FOLDED INTO THE ARGUMENT: the conspiracy is not a Fano incidence point, so the incidence structure constrains nothing about its exclusion — and this paper's TYPE II classification of the three conjectures is untouched by that, because their difficulty was already located in DENSITY content, which is exactly what the interface DOES transmit.**
+  :462 >
+  :463 > **Nothing in §§I–IV is rewritten.**
+  :464 
+  :465 <!-- b390 PROOFREADING ANNOTATION, 2026-09-09 -->
+  :466 
+  :467 #### **PROOFREADING ANNOTATION** *(2026-09-09, b390 — the first reading pass; existing text PRESERVED, nothing above this line is edited, and §§I–IV are untouched)*
+  :468 
+  :469 > ### **THIS DOCUMENT WAS READ WHOLE AGAINST THE RECORD AND IS, WITH ONE EXCEPTION, CURRENT.** *Of the twelve anchors the census and the record name for its subject, **ten are already in this document** — including both of the census work-list items (`Q2`’s no-class-point verdict and the `n₄ = 0` reconciliation, carried by the 2026-08-12 era annotation above), the `W-6` discharge at `SIDE-kernel v1.4`, and the four `CASCADE_ANCHORS_CORRECTED` grades, which agree with this paper’s rows grade for grade. Every pin this paper cites resolves, and `c66f3c5` is on `main`.*
+  :470 
+  :471 > ### **TWO ARE ADDITIONS THIS DOCUMENT DOES NOT CARRY, AND NEITHER CORRECTS IT.** *(i) The **E-Difficulty scope split** (`W-INFORMATION`, 2026-07-28, `FINDINGS.md`) separates E-Difficulty into a cross-cutting proof-architecture theorem and the Kind-B ladder, and sharpens the precondition to “**has a finite mechanism catalogue**”. The record files it **statement-grade, nothing retracted**; the trio is arithmetic, so the sharpened precondition **strengthens this paper’s standing rather than qualifying it**. Grade: **statement-grade**, as the record itself grades it. (ii) The `Q20` refinement (`formation-decomposition-type-invariant`, `FINDINGS.md`) — the formation tuple is **decomposition-dep
+  :472 
+  :473 > ### **AND ONE CLAIM THE RECORD CONTRADICTS, RECORDED HERE AND NOT REPAIRED IN PLACE.** *This paper cites the companion methodology paper as `A_METHODOLOGY_FOR_DETERMINED_SYSTEMS` **v1.2** (§VII.2, the References, the standard’s `MANUSCRIPT-RESIDENT` row, and its own provenance). **There is no `v1.2` of that document.** It is `phase1.5/method/A_METHODOLOGY.md`, whose own head reads **v0.5.4 — 2026-07-19**, and `REGISTRY.md` row `1.5h-4` agrees at `v0.5.4`.*
+  :474 
+  :475 > ### **IT IS NOT THIS PAPER’S PRIVATE DEFECT, AND THAT IS WHY IT IS ROUTED RATHER THAN FIXED HERE.** *`11` live documents carry `28` citations at `v1.2`. Repairing one of eleven would make this paper disagree with ten siblings and hide a corpus-wide citation drift inside a local tidy-up. **Routed to the author as a corpus-wide citation pass.** One of this paper’s five citations sits in a **provenance entry**, which must not be edited even by that pass: a provenance entry records what a past version said, and editing it falsifies the history it exists to keep.*
+  :476 
+  :477 > ### **NO GRADE IS MOVED, NO CLASS IS CHANGED, NO CLAIM IS WITHDRAWN, AND NO LINE IS DELETED.** *Each of those is a ruling, and a reading pass does not make rulings. Both Correspondence tables above stand exactly as they were written.*
+  :478 
+
+### ADDITIVE_MULTIPLICATIVE_CONSPIRACY read entire: 479 lines
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md:18-18 -- THE_LOAD_BEARING_MAP.md -- the abbreviations
+  :18 MONO (`day1/A_Place_to_Stand` §25.8) · SIMP (`SIMPLICITY_OF_RIEMANN_ZEROS`) · GRH (`GRH_CASCADE`) · FOUND (`FOUNDATIONS_OF_THE_SIDE_PROGRAMME`) · SURR (`THE_UNCONDITIONAL_SURROUND`) · LIC (`EXHAUSTIVENESS_LICENSE`) · RCURVE (`R_CURVE_CRITERION`) · PATHS (`PATHS_TO_THE_CRITICAL_LINE`) · ENGINE (`EXCLUSION_ENGINE`) · DOM (`DOMAIN_OSTROWSKI_UNIVERSALITY`) · IFACE (`INTERFACE_CONSERVATION`) · SEVEN (`SEVEN_DISCRIMINANTS`) · CNA (`CLASS_NUMBER_ANOMALY`) · BALPOS (`BALANCE_AND_POSITIVITY`). Day-1 companions name terminals in prose; the §25.8 concordance is their carrier.
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md:24-34 -- THE_LOAD_BEARING_MAP.md -- the ranked terminals
+  :24 | **1** | `h1_complete_at_Phi` (the surround; goal ⇐ h1 ∧ h2, only h2 open) | lv v0.6.0 `c80bdc2` | **DERIVES** | SURR · SIMP · RCURVE · PATHS · DOM · BALPOS — **6** |
+  :25 | **1** | `RegisterPentagon` (+ R1–R5 faces) | v0.7.0 `2d86182` | **STRUCTURE** (R3 edge NOT-COMPILED) | SIMP · SURR · PATHS · DOM · IFACE · BALPOS — **6** |
+  :26 | **1** | `conservation_of_spectra` (n₄=0, κ=1) | kernel v1.2 `b1407b2` | **DERIVES** | FOUND · SURR · PATHS · IFACE · SIMP · MONO — **6** |
+  :27 | 4 | `SIDEKernel.formation` (2+3+2+0=7) | v1.2 | **DERIVES** (axiom-free) | MONO · SIMP · SURR · PATHS — **4** |
+  :28 | 4 | `C7_finite_type_false` (compiled negative) | v0.5.1 `bc4751e` | **DERIVES** | SIMP · SURR · RCURVE · PATHS — **4** |
+  :29 | 4 | `partialPositivity_finiteRange` | v0.8.0 `6efa9e5` | **INTERFACES** (3 named: VerifiedZerosTo · ExplicitFormulaDecomp · TailBound) | SIMP · SURR · RCURVE · PATHS — **4** |
+  :30 | 4 | `blTerm_nonneg_of_onLine` (on-line positivity) | v0.8.0 `6efa9e5` | **DERIVES** | SURR · RCURVE · PATHS · SIMP — **4** |
+  :31 | 4 | `type_I_has_ostrowski` (Mechanism Theorem) | v1.2/v1.4 | **DERIVES** (exhaustiveness decorative) | GRH · FOUND · ENGINE · IFACE — **4** |
+  :32 | 9 | `silence_universal` | v1.2 | **INTERFACES** (`I.is_universal`) | GRH · FOUND · MONO · DOM — **3–4** |
+  :33 | 9 | `spectral_cannon` (Route 2, sub-RH ∀t) | v1.2/v1.5 | **DERIVES** | MONO · SIMP · PATHS — **3** |
+  :34 | 9 | ξ / Dirichlet order-≤1 inputs | v0.4.0 `0d2d74c` / v0.5.0 `1767bd6` | **DERIVES** | SIMP · SURR · RCURVE — **3** |
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md:53-53 -- THE_LOAD_BEARING_MAP.md -- the RCURVE row
+  :53 | **RCURVE** | **MIXED** — equivalence independent, RH-via-monotonicity downstream | `monotone_unique_zero` DERIVES; closing row "exhaustiveness premise `h2` — research-reach" |
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md:134-146 -- THE_LOAD_BEARING_MAP.md -- the tier law and the RH-anchor list
+  :134 **The RH-anchor, `(R150)`(2).** The anchor is the subset of T0 that bears on where zeta`s zeros are: **`h2_sign_iff_rh`** (SIDE-explicit-formula v0.2 = `5c72cad`), **ranked here at the head of the hub terminals**; then `ch_iff_rh`; the register census theorems `not_register1`, `mellin_Phi_eq_zero_of_re_le_one`, `lvh2_corrected_iff`, `register5_output_holds`; `b321_identity`; `not_f4_needs`. T0 is a tier -- a theorem stated against Mathlib`s own objects, standard three, no premise, statement read -- and the anchor is a subset of it; `(R149)`(1) conflated the two, and b539`s (N1) was refuted by that conflation.
+  :135 
+  :136 **The five ranked terminals that are T0 and not in the RH-anchor, each with its one clause:**
+  :137 
+  :138 - `h1_complete_at_Phi` -- **T0**: a true fact about zeta`s theta kernel `Phi` (its eight coupling facts) that says nothing about the zeros` location.
+  :139 - `C7_finite_type_false` -- **T0**: a true fact about the growth of `completedRiemannZeta₀` that says nothing about the zeros` location.
+  :140 - `blTerm_nonneg_of_onLine` -- **T0**: a true fact about the Li terms of zeros already on the line that says nothing about where the zeros are.
+  :141 - `spectral_cannon` -- **T0**: a true fact about the derivative of `completedRiemannZeta₀` on the line that says nothing about the zeros` location.
+  :142 - `ξ / Dirichlet order-≤1 inputs` -- **T0**: true growth bounds on `completedRiemannZeta₀` and `completedLFunction` that say nothing about the zeros` location.
+  :143 
+  :144 **T1 split, `(R150)`(3).** `partialPositivity_finiteRange` is **T1-lit**, not T4: it INTERFACES on literature theorems not yet compiled (Bombieri–Lagarias`s decomposition `ExplicitFormulaDecomp`, Voros`s tail bound `TailBoundPremise`) and on the numerical `VerifiedZerosTo T`; it becomes T0 when they compile and nothing else changes. T4 is for a claim with no terminal at all. No ranked terminal is T1-open. `ConservationBridge.riemann_hypothesis` stays **T2**: its premise is RH restated by the rewording lemma `ch_iff_rh`, so it is ENCODES-CONCLUSION per `(R149)`(2)`s own list (the reading is flagged for the author, since `(R150)`(3)`s parenthesis read alone would place it at T1-open).
+  :145 
+  :146 **Corrected counts over the twelve ranked terminals:** T0 5 · T1-open 0 · T1-lit 1 · T2 6 · T3 0 · T4 0.
+
+### THE_LOAD_BEARING_MAP rows naming each document: RCURVE [18, 24, 28, 29, 30, 34, 41, 53, 64] ; INDEX_ARITY [] ; ADDITIVE_MULTIPLICATIVE []
+
+### phase2/method/THE_KEYSTONE_CENSUS.md:279-279 -- THE_KEYSTONE_CENSUS.md -- v0.2`s roster
+  :279 **The cascade's remaining roster, in the census's order:** `SIMPLICITY_OF_RIEMANN_ZEROS`, `GRH_CASCADE`, `R_CURVE_CRITERION`, `INDEX_ARITY_AT_THE_CRITICAL_LINE`, `FOUNDATIONS_OF_THE_SIDE_PROGRAMME`, `TECHNE_TOOLKIT`, `ADDITIVE_MULTIPLICATIVE_CONSPIRACY`, `SILENCE_STAGES_DEALIGNMENT`, `EXHAUSTIVENESS_LICENSE`, `INVARIANCE_BARRIERS`, `REPARAMETERIZATION_BARRIERS_v0_1`, `E_DIFFICULTY_THEOREM`, `ENUMERA`. **Next:** `SIMPLICITY_OF_RIEMANN_ZEROS`.
+
+### ERRATA.md:483-492 -- ERRATA.md -- E-2026-09-25-1
+  :483 ## E-2026-09-25-1 — The deposited kernel's Route 3 premise is equivalent to RH by a ten-line lemma the kernel itself contains (DEPOSIT-FACING; RETAINED AT MONOGRAPH v1.1.2 AND SIDE-kernel v1.5) — DRAFT, NOT FILED
+  :484 
+  :485 *Appended under the heading by b536 on the author's ruling `(R146)`(3): this entry was FILED at b535, 2026-09-25, on `(R145)`(3); the heading's words "DRAFT, NOT FILED" are the draft's, retained as written.*
+  :486 
+  :487 **Drafted 2026-09-25 (b532), on the author's ruling (R142)(3), from the read banked at b531 (relay `data/b531_premise.txt`, `data/b531_components.txt`); TO BE FILED ON THE AUTHOR'S WORD AT THE PASTE AFTER.
+  :488 ### NO DEPOSIT ACTION IS TAKEN OR IMPLIED BY THIS ENTRY. NOTHING WAS WRITTEN AT ZENODO.
+  :489 ### THE RECORDS ARE IMMUTABLE AT THEIR VERSIONS AND ARE NOT ALTERED BY IT.**
+  :490 
+  :491 **Affected deposits.** *A Place to Stand*, Zenodo v1.1.2 ([10.5281/zenodo.21539167](https://doi.org/10.5281/zenodo.21539167)) — the monograph and the record description; SIDE-kernel v1.5, tag `v1.5` = commit `0e5233f` ([10.5281/zenodo.21520474](https://doi.org/10.5281/zenodo.21520474)) — the record description.
+  :492 
+
+### ERRATA.md:754-764 -- ERRATA.md -- E-2026-09-27-1
+  :754 ## E-2026-09-27-1 — PATHS_TO_THE_CRITICAL_LINE attributes the pin `bd2ae1a` to SIDE-lv-conservation; the hash is a PLACE-papers commit, the sitting record of 2026-07-25 (KEYSTONE-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+  :755 
+  :756 **Filed 2026-09-28 (b554), on the author's ruling `(R164)`(1); found at b553 (relay `data/b553_ancestry_read.txt`). Records affected: `phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md`:420, whose flag of 2026-08-12 is repeated at `phase1.5/proofs/THE_RESIDUE_OF_RH.md`:145 and `phase2/method/THE_KEYSTONE_CENSUS.md`:48. ### NO DEPOSITED ARTIFACT IS AFFECTED BY THIS ENTRY.** None of the three is in `outputs/`; each is a keystone-class or census document of the corpus.
+  :757 
+  :758 **What the line says.** PATHS :420 reads *"twist ↔ the FE action w↔1/w (SIDE-lv-conservation `bd2ae1a` [UNREPRODUCIBLE-AS-CITED (2026-08-12). … The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. …]"*: the hash attributed to SIDE-lv-conservation, and flagged as resolving nowhere.
+  :759 
+  :760 **What the hash is.** `git -C PLACE-papers show -s bd2ae1a` (relay `data/b554_bd2.txt`): commit `bd2ae1a60a74`, 2026-07-25 15:30:55 -0400, subject *"E-CHARACTERIZATION sitting (read+derive, HELD): …"* -- an ancestor of PLACE-papers `main`: True. `THE_H2_PROGRAMME_CHARTER.md`:116 names it: "the `bd2ae1a` `E`-CHARACTERIZATION sitting". The search of 2026-08-12 tested the repositories at the root of D: and every branch and tag of SIDE-lv-conservation; PLACE-papers, under `MY-DOwnloads`, was not among them.
+  :761 
+  :762 **The correction, as ruled.** The referent of `bd2ae1a` is the sitting record: the PLACE-papers commit at which the word-pairing work was reported. It is not a kernel pin. The kernel pin for the terminals that sitting reported is SIDE-lv-conservation `v0.11.0` = `2f71068`. Where PATHS :420 reads "SIDE-lv-conservation `bd2ae1a`", the attribution of record is: PLACE-papers `bd2ae1a` (the sitting record, 2026-07-25), the terminals at SIDE-lv-conservation `v0.11.0` = `2f71068`.
+  :763 
+  :764 **Scope.** The line at :420 is not edited, and the flag of 2026-08-12 stays visible at its three sites, each of which carries an appended line pointing here. The flag's other clauses -- the branch `word-pairing-interface` exists and is sound; no substitute pin was offered then -- stand as records of their date. No banked number, verdict or grade moves.
+
+### OPEN_TRAILS.md:11151 -- W-ORD-DETECTION-REGION named on the line: True
+  :11151 | **1** | `W-ORD-DETECTION-REGION` | **RESULT** | A compiled statement that positivity of `h2_sign` on every `classK` window of support at most L₀ excludes off-line zeros of ζ in an explicit region of (γ, δ) -- the programme's own theorem in the restricted-window line. It consumes four compiled pieces of PowerLimit.lean (SIDE-explicit-formula `81ae175`): `tie_term_neg` (:749, the tie term's real part is −N_ρ M^(2^(j+1))), `rest_term_small` (:764, each other term is at most B²(1+‖w‖)^(2D) offScore^(2^(j+1))), `dominant_summable` (:949, the dominant is summable over ζ’s zeros by the local count) and `zeroSide_eventually_neg` (:1082, for some j the zero side is negative). The inequality to make
+
+### OPEN_TRAILS.md:11332 -- W-ORD-DETECTION-REGION named on the line: True
+  :11332 ### `W-ORD-DETECTION-REGION` (priced at :11151) -- RE-PRICED FROM THE CLOSED FORM, appended 2026-09-28, b554, under the author's ruling (R164)(5)
+
+### OPEN_TRAILS.md:3548 -- W-ORD-LI-WEIL-BRIDGE named on the line: True
+  :3548 | **1** | `W-ORD-LI-WEIL-BRIDGE` | **RESULT or RULING** | b324's bridging statement, given its ID here: *a formula carrying the archimedean margin `W_infinity(f) - Tr(theta(f) S)` at a lawful test function to the Li margin `lambda_n` at an index `n`, or a proof that no such formula exists.* Sharpened by b327's read: the archimedean distribution is one on both families (the deposit's channel is the archimedean place plus the pole constant, DIFFERENT, constituent quoted); what is owed is a relation between the compressed square on the Sonin family and the finite-place channel on the Li family, or its impossibility. **b399: the first half of what was owed is now REFUTED, not merely absent.** `(
+
+### OPEN_TRAILS.md:11203 -- W-ORD-LI-WEIL-BRIDGE named on the line: True
+  :11203 ### `W-ORD-LI-WEIL-BRIDGE` (the row at :3548) — THREE CONSUMERS AND A TOOLCHAIN PRICE, appended 2026-09-26, b550, under the author's ruling (R160)(4)
+
+### OPEN_TRAILS.md:11230 -- W-ORD-LI-WEIL-BRIDGE named on the line: True
+  :11230 ### `W-ORD-LI-WEIL-BRIDGE` -- THE TOOLCHAIN ITEM PRICED BY TRIAL (the item at :11203), appended 2026-09-27, b551, under the author's ruling (R161)(5)
+
+### OPEN_TRAILS.md:11265 -- W-ORD-LI-WEIL-BRIDGE named on the line: True
+  :11265 ### `W-ORD-LI-WEIL-BRIDGE` (the row at :3548, the items at :11203) -- ITS LEADING ITEM, appended 2026-09-28, b552, under the author's ruling (R162)(2), READING FIVE
+
+### OPEN_TRAILS.md:11290 -- W-ORD-LI-WEIL-BRIDGE named on the line: True
+  :11290 ### `W-ORD-LI-WEIL-BRIDGE` (its leading item at :11265) -- THE BRIDGE RE-ROUTED IN PRICE, appended 2026-09-28, b553, under the author's ruling (R163)(5)
+
+### OPEN_TRAILS.md:11373 -- W-ORD-GRH-WEIL named on the line: True
+  :11373 ### `W-ORD-GRH-WEIL` -- THE χ-SIDE OF THE WEIL ARC, PRICED, appended 2026-09-28, b555, under the author's ruling (R165)(5)
+
+### OPEN_TRAILS.md:11195 -- W-ORD-POWER-SWEEP named on the line: True
+  :11195 ### `W-ORD-POWER-SWEEP` — filed 2026-09-26, b550, under the author's ruling (R160)(3)
+
+### OPEN_TRAILS.md:11152 -- W-ORD-WINDOW-CERTIFY named on the line: True
+  :11152 | **2** | `W-ORD-WINDOW-CERTIFY` | **RESULT** | A Lean-verified instance of `h2_sign` on one window: the three terms of the sign (`poleTerm`, `primeSum`, `archTerm`) at one fixed `classK` window, bounded in Lean so that their combination is positive. The checkout (Mathlib `51e6992`) holds proved decimal bounds for π (`pi_gt_d20`), log 2 (`log_two_near_10`) and exp (`exp_bound`, `expNear`), Taylor remainders, and 26 `norm_num` extension files -- none for exp, log or an integral -- and no interval arithmetic and no evaluator for a definite integral (relay `data/b547_window.txt`). | priced first, as ordered: (i) a verified quadrature lemma with an explicit error for a smooth compactly supported
+
+### OPEN_TRAILS.md:10972 -- W-ORD-SEAM-UPSTREAM named on the line: True
+  :10972 #### `W-ORD-SEAM-UPSTREAM` — OPEN, named not started, filed b537 on `(R147)`(4)
+
+### OPEN_TRAILS.md:11257 -- W-ORD-STORMER-CLASH named on the line: True
+  :11257 ### `W-ORD-STORMER-CLASH` — filed 2026-09-28, b552, under the author's ruling (R162)(1)(c)
+
+### D:/SIDE-rcurve/SIDERCurve/Criterion.lean:1-75 -- SIDE-rcurve v0.1.0 = d5f33b4 -- Criterion.lean whole
+  :1 /-
+  :2   SIDE-rcurve · Criterion.lean
+  :3   ============================
+  :4 
+  :5   The R-Curve EQUIVALENCE engine — checkpoint 1.2-D.
+  :6 
+  :7   Verifies the structural/logical core of the PROVEN Equivalence
+  :8   Chain (R_CURVE_CRITERION_v0_1, consolidating P22 Phases 1–66):
+  :9   RH ⟺ V strictly monotone on every R-curve in {σ > 1/2}.
+  :10 
+  :11   CLOSURE: the positivity Re(ξ′/ξ) > 0 driving the monotonicity is
+  :12   CLOSED via the Phase-66 SIDE closure (off-line zeros excluded from
+  :13   the seven-class catalogue, sealed by Conservation), not an open
+  :14   margin. The route shares its bottom step with the deposited proof
+  :15   (Zenodo 10.5281/zenodo.19938917); this kernel verifies the
+  :16   equivalence machinery. Conclusive checkpoint, not a flagged reach.
+  :17 
+  :18   Source: R_CURVE_CRITERION_v0_1; P22_PHASE66_SIDE_CLOSURE;
+  :19   P22_RCURVE_MONOTONICITY_REVISED.
+  :20 -/
+  :21 
+  :22 import Mathlib
+  :23 
+  :24 namespace SIDERCurve
+  :25 
+  :26 /-! ## T1 — the engine: strict monotonicity ⟹ at most one zero
+  :27 
+  :28 This is the decisive (ii)⟹(i) step. A strictly monotone V is
+  :29 injective, so it vanishes at most once. -/
+  :30 
+  :31 theorem monotone_unique_zero {V : ℝ → ℝ} (hV : StrictMono V) {a b : ℝ}
+  :32     (ha : V a = 0) (hb : V b = 0) : a = b :=
+  :33   hV.injective (ha.trans hb.symm)
+  :34 
+  :35 /-! ## T2 — the Monotonicity Formula shape  V′ = |ξ′|²/β -/
+  :36 
+  :37 theorem monotonicity_formula (α β : ℝ) (hβ : β ≠ 0) :
+  :38     α ^ 2 / β + β = (α ^ 2 + β ^ 2) / β := by
+  :39   field_simp
+  :40 /-! ## T3 — the Beta–V identity  Re(ξ′/ξ) = β/V on the curve (ξ = iV) -/
+  :41 
+  :42 theorem beta_V_re (α β V : ℝ) (hV : V ≠ 0) :
+  :43     ((↑α + ↑β * Complex.I) / (↑V * Complex.I)).re = β / V := by
+  :44   simp only [Complex.div_re, Complex.normSq_mul, Complex.normSq_I,
+  :45     Complex.normSq_ofReal, Complex.add_re, Complex.add_im, Complex.mul_re,
+  :46     Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im]
+  :47   field_simp
+  :48   ring
+  :49 
+  :50 /-! ## T4 — Singular Repulsion: positive numerator over positive β gives V′ > 0 -/
+  :51 
+  :52 theorem singular_repulsion (n β : ℝ) (hn : 0 < n) (hβ : 0 < β) : 0 < n / β :=
+  :53   div_pos hn hβ
+  :54 
+  :55 /-! ## T5 — codimension of the zero condition
+  :56 
+  :57 On-line zero: V = 0 (codim 1). Off-line zero: V = 0 ∧ β = 0
+  :58 simultaneously (codim 2). -/
+  :59 
+  :60 def zero_codim (onLine : Bool) : ℕ := if onLine then 1 else 2
+  :61 
+  :62 theorem online_zero_codim_one : zero_codim true = 1 := rfl
+  :63 
+  :64 theorem offline_zero_codim_two : zero_codim false = 2 := rfl
+  :65 
+  :66 /-! ## T6 — the headline: a second zero contradicts monotonicity
+  :67 
+  :68 An off-line zero would force V = 0 a second time on the R-curve;
+  :69 strict monotonicity forbids it. -/
+  :70 
+  :71 theorem second_zero_breaks_monotone {V : ℝ → ℝ} (hV : StrictMono V)
+  :72     {e x : ℝ} (he : V e = 0) (hx : V x = 0) (hne : x ≠ e) : False :=
+  :73   hne (hV.injective (hx.trans he.symm))
+  :74 
+  :75 end SIDERCurve
+
+### `bd2ae1a` in the batch documents: {'RCURVE': [], 'INDEX': [], 'AMC': []}

@@ -1,0 +1,32 @@
+SIDE-lv-conservation v0.11.0 = 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; git show v0.11.0:SIDELvConservation/TwoSidesIdentity.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.TwoSides.heine_three', 'SIDELvConservation.TwoSides.heine_one', 'SIDELvConservation.TwoSides.heine_two', 'SIDELvConservation.TwoSides.ladder_three', 'SIDELvConservation.TwoSides.two_sides_balance']
+start 2026-09-29T01:56:22Z
+SIDELvConservation.TwoSides.heine_three : ∀ (w1 w2 w3 x1 x2 x3 : ℚ),
+  SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3 = w1 * w2 * w3 * ((x1 - x2) * (x1 - x3) * (x2 - x3)) ^ 2
+SIDELvConservation.TwoSides.heine_one : ∀ (w1 w2 w3 x1 x2 x3 : ℚ),
+  SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 = w1 + w2 + w3
+SIDELvConservation.TwoSides.heine_two : ∀ (w1 w2 w3 x1 x2 x3 : ℚ),
+  SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 =
+    w1 * w2 * (x1 - x2) ^ 2 + w1 * w3 * (x1 - x3) ^ 2 + w2 * w3 * (x2 - x3) ^ 2
+SIDELvConservation.TwoSides.ladder_three : ∀ (w1 w2 w3 x1 x2 x3 : ℚ),
+  SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ≠ 0 →
+    SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 ≠ 0 →
+      SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ^ 3 *
+            (SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 / SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ^ 2) ^
+              2 *
+          (SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3 * SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 /
+            SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 ^ 2) =
+        SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3
+SIDELvConservation.TwoSides.two_sides_balance : SIDELvConservation.TwoSides.D3 1 2 3 0 1 2 =
+    1 * 2 * 3 * ((0 - 1) * (0 - 2) * (1 - 2)) ^ 2 ∧
+  SIDELvConservation.TwoSides.D3 1 2 3 0 1 2 ≠ 0
+'SIDELvConservation.TwoSides.heine_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.TwoSides.heine_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.TwoSides.heine_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.TwoSides.ladder_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.TwoSides.two_sides_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 30.7 s
+exit 0

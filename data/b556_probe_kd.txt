@@ -1,0 +1,19 @@
+SIDE-kernel 27a3ae7 = 27a3ae7b2f491a23ed3eb442be795dac2d7e9654 ; git show 27a3ae7:Kernel/DerivativeEngine.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['SIDEDerivative.exactly_c1_derives', 'SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero', 'SIDEDerivative.no_onLine_double_iff_transversal']
+start 2026-09-29T01:07:04Z
+SIDEDerivative.exactly_c1_derives : (List.filter
+      (fun c => decide (SIDEDerivative.derivGrade c = SIDEDerivative.Grade.derives))
+      [SIDEDerivative.DerivClass.c1, SIDEDerivative.DerivClass.c2, SIDEDerivative.DerivClass.c3,
+        SIDEDerivative.DerivClass.c4, SIDEDerivative.DerivClass.c5, SIDEDerivative.DerivClass.c6,
+        SIDEDerivative.DerivClass.c7]).length =
+  1
+@SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero : ∀ {z : ℂ}, z.re = 0 → (z = 0 ↔ z.im = 0)
+@SIDEDerivative.no_onLine_double_iff_transversal : ∀ {z : ℂ}, z.re = 0 → (z ≠ 0 ↔ z.im ≠ 0)
+'SIDEDerivative.exactly_c1_derives' does not depend on any axioms
+'SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEDerivative.no_onLine_double_iff_transversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 460.1 s
+exit 0

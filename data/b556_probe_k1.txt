@@ -1,0 +1,14 @@
+SIDE-kernel v1.7 = 2957e7d67d367316e427cd801e08502448151691 ; git show v1.7:Bridge/ConservationBridge.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('Kernel/XiDef.lean', 'SAME'), ('Kernel/PoissonExhaustion.lean', 'SAME'), ('Kernel/Integration.lean', 'SAME'), ('Kernel/Voice1.lean', 'SAME'), ('Kernel/Voice2.lean', 'SAME'), ('Kernel/Voice3.lean', 'SAME'), ('Kernel/Voice3b.lean', 'SAME'), ('Kernel/Voice5.lean', 'SAME'), ('Kernel/Voice6.lean', 'SAME'), ('Kernel/Voice7.lean', 'SAME'), ('Kernel/Layer1.lean', 'SAME'), ('Kernel/Core.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['ConservationBridge.riemann_hypothesis']
+start 2026-09-29T01:15:14Z
+ConservationBridge.riemann_hypothesis : ConservationBridge.ConservationHypothesis → RiemannHypothesis
+def ConservationBridge.ConservationHypothesis : Prop :=
+∀ (σ : ℝ), is_xi_zero σ → ∃ p, ∃ (hp : Nat.Prime p), prime_as_real p hp ^ (-σ) = prime_as_real p hp ^ (-(1 - σ))
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 515.4 s
+exit 0

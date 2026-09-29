@@ -1,0 +1,11 @@
+SIDE-kernel v1.2 = b1407b2231c650d6d938cfa649f589fd388f669c ; git show v1.2:Kernel/SilenceTheorem.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SilenceTheorem.silence_universal']
+start 2026-09-29T01:23:49Z
+@SilenceTheorem.silence_universal : ∀ {C : SilenceTheorem.ConfigurationSpace} {R : Type}
+  (I : SilenceTheorem.Interface C R), I.is_universal → I.kappa_zero
+'SilenceTheorem.silence_universal' does not depend on any axioms
+real 12.3 s
+exit 0

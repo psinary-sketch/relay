@@ -1,0 +1,11 @@
+SIDE-kernel v1.2 = b1407b2231c650d6d938cfa649f589fd388f669c ; git show v1.2:MetaKernel.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['ECondition.type_I_has_ostrowski']
+start 2026-09-29T01:14:44Z
+ECondition.type_I_has_ostrowski : ∀ (Domain : Type) [Fintype Domain] (target : Prop) (produces : Domain → Prop),
+  (∀ (d : Domain), ¬produces d) → (target → ∃ d, produces d) → ¬target
+'ECondition.type_I_has_ostrowski' depends on axioms: [propext, Quot.sound]
+real 21.3 s
+exit 0

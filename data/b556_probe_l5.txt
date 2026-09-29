@@ -1,0 +1,12 @@
+SIDE-lv-conservation 2d86182 = 2d86182ba78c5ab514362259054543cdde4680dd ; git show 2d86182:SIDELvConservation/RegisterPentagon.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.RegisterPentagon.R4_positivity_to_RH']
+start 2026-09-29T01:39:05Z
+@SIDELvConservation.RegisterPentagon.R4_positivity_to_RH : ∀ {lam : ℕ → ℝ},
+  (SIDELvConservation.RegisterPentagon.Register4_positivity lam → RiemannHypothesis) →
+    SIDELvConservation.RegisterPentagon.Register4_positivity lam → RiemannHypothesis
+'SIDELvConservation.RegisterPentagon.R4_positivity_to_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 21.6 s
+exit 0

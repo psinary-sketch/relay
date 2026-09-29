@@ -1,0 +1,229 @@
+{
+ "decls": [
+  {
+   "line": 31,
+   "kind": "theorem",
+   "name": "SIDERCurve.monotone_unique_zero",
+   "tier": "T2",
+   "reason": "a strictly monotone V : ℝ → ℝ vanishes at most once -- one direction over an abstract V; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "statement": "@SIDERCurve.monotone_unique_zero : ∀ {V : ℝ → ℝ}, StrictMono V → ∀ {a b : ℝ}, V a = 0 → V b = 0 → a = b",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 37,
+   "kind": "theorem",
+   "name": "SIDERCurve.monotonicity_formula",
+   "tier": "T2",
+   "reason": "α²/β + β = (α² + β²)/β over ℝ -- field algebra; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "statement": "SIDERCurve.monotonicity_formula : ∀ (α β : ℝ), β ≠ 0 → α ^ 2 / β + β = (α ^ 2 + β ^ 2) / β",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 42,
+   "kind": "theorem",
+   "name": "SIDERCurve.beta_V_re",
+   "tier": "T2",
+   "reason": "Re((α + βi)/(Vi)) = β/V for real α, β, V ≠ 0 -- arithmetic in ℂ; that α + βi is ξ′ and iV is ξ on the curve is carried by the identifiers",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "statement": "SIDERCurve.beta_V_re : ∀ (α β V : ℝ), V ≠ 0 → ((↑α + ↑β * Complex.I) / (↑V * Complex.I)).re = β / V",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 52,
+   "kind": "theorem",
+   "name": "SIDERCurve.singular_repulsion",
+   "tier": "T2",
+   "reason": "0 < n/β from 0 < n and 0 < β -- `div_pos`; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "statement": "SIDERCurve.singular_repulsion : ∀ (n β : ℝ), 0 < n → 0 < β → 0 < n / β",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 60,
+   "kind": "def",
+   "name": "SIDERCurve.zero_codim",
+   "tier": "T2",
+   "reason": "a definition: `if onLine then 1 else 2`",
+   "profile": "does not depend on any axioms",
+   "statement": "SIDERCurve.zero_codim : Bool → ℕ",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 62,
+   "kind": "theorem",
+   "name": "SIDERCurve.online_zero_codim_one",
+   "tier": "T2",
+   "reason": "`zero_codim true = 1` by `rfl` over a function the file defines -- a stipulation",
+   "profile": "does not depend on any axioms",
+   "statement": "SIDERCurve.online_zero_codim_one : SIDERCurve.zero_codim true = 1",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 64,
+   "kind": "theorem",
+   "name": "SIDERCurve.offline_zero_codim_two",
+   "tier": "T2",
+   "reason": "`zero_codim false = 2` by `rfl` over a function the file defines -- a stipulation",
+   "profile": "does not depend on any axioms",
+   "statement": "SIDERCurve.offline_zero_codim_two : SIDERCurve.zero_codim false = 2",
+   "xi_or_holomorphic": false
+  },
+  {
+   "line": 71,
+   "kind": "theorem",
+   "name": "SIDERCurve.second_zero_breaks_monotone",
+   "tier": "T2",
+   "reason": "a strictly monotone V has no second zero -- `monotone_unique_zero` again; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)",
+   "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "statement": "@SIDERCurve.second_zero_breaks_monotone : ∀ {V : ℝ → ℝ}, StrictMono V → ∀ {e x : ℝ}, V e = 0 → V x = 0 → x ≠ e → False",
+   "xi_or_holomorphic": false
+  }
+ ],
+ "split": {
+  "T0": 0,
+  "T1-open": 0,
+  "T1-lit": 0,
+  "T2": 8,
+  "T2-INTERFACES": 0,
+  "T3": 0,
+  "T4": 0
+ },
+ "files": [
+  "AxiomCheck.lean",
+  "SIDERCurve.lean",
+  "SIDERCurve/Criterion.lean",
+  "lakefile.lean"
+ ],
+ "pins": {
+  "a27415d": {
+   "branches": [
+    "main",
+    "push-b372",
+    "push-b386",
+    "w-ladder-skeleton",
+    "remotes/origin/HEAD -> origin/main",
+    "remotes/origin/main",
+    "remotes/origin/w-ladder-skeleton"
+   ],
+   "tags": [],
+   "date": "2026-07-13 18:42:45 -0400 W-4 discharge + W-2 shell withdrawal: recovered from an uncommitted tree, screened, author-accepted",
+   "module1_imports": [
+    "Mathlib",
+    "SIDEEffects.Phase15.SIDEFramework"
+   ]
+  },
+  "c66f3c5": {
+   "branches": [
+    "main",
+    "push-b372",
+    "push-b386",
+    "w-ladder-skeleton",
+    "w4-recovery-2026-07-13",
+    "remotes/origin/HEAD -> origin/main",
+    "remotes/origin/main",
+    "remotes/origin/w-ladder-skeleton",
+    "remotes/origin/w4-recovery-2026-07-13"
+   ],
+   "tags": [],
+   "date": "2026-05-13 22:05:43 -0400 AGENTS.md: strip '19 theorems' and '7 sorries' count anchors; categorize named theorem list",
+   "module1_imports": [
+    "Mathlib.Data.Nat.Prime.Basic",
+    "Mathlib.Data.ZMod.Basic",
+    "Mathlib.Data.Finset.Basic",
+    "SIDEEffects.Phase15.SIDEFramework"
+   ]
+  }
+ },
+ "effects_tags": {
+  "phase-1.5-module-1-v2": "444b9a2",
+  "v0.1": "afb196e"
+ },
+ "citations": {
+  "SIDE-meta": {
+   "cited": "v0.3",
+   "tags": [
+    "v0.1",
+    "v0.1.0",
+    "v0.3"
+   ],
+   "exact": "6bb7b23",
+   "nearest": [
+    "v0.3"
+   ],
+   "resolved": "pin: tag v0.3 = 6bb7b23"
+  },
+  "SIDE-silence-principle": {
+   "cited": "v0.1",
+   "tags": [
+    "v0.1.0"
+   ],
+   "exact": null,
+   "nearest": [
+    "v0.1.0"
+   ],
+   "resolved": "CITATION BY NAME WITHOUT A PIN (no tag `v0.1`; tags ['v0.1.0'])"
+  },
+  "SIDE-compression": {
+   "cited": "v0.1",
+   "tags": [
+    "v0.1.0",
+    "v0.2.0"
+   ],
+   "exact": null,
+   "nearest": [
+    "v0.1.0"
+   ],
+   "resolved": "CITATION BY NAME WITHOUT A PIN (no tag `v0.1`; tags ['v0.1.0', 'v0.2.0'])"
+  }
+ },
+ "milestones": {
+  "c66f3c5": {
+   "twin_primes_infinite": {
+    "line": [
+     37
+    ],
+    "sorry": true
+   },
+   "goldbach": {
+    "line": [
+     58
+    ],
+    "sorry": true
+   },
+   "sophie_germain_infinite": {
+    "line": [
+     78
+    ],
+    "sorry": true
+   }
+  },
+  "a27415d": {
+   "twin_primes_infinite": {
+    "line": [
+     30
+    ],
+    "sorry": true
+   },
+   "goldbach": {
+    "line": [
+     46
+    ],
+    "sorry": true
+   },
+   "sophie_germain_infinite": {
+    "line": [
+     61
+    ],
+    "sorry": true
+   }
+  }
+ },
+ "edge_drift": {
+  "93c27ec": false,
+  "14720d9": true,
+  "5a14205": true,
+  "2f71068": true
+ }
+}

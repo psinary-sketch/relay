@@ -1,0 +1,1057 @@
+{
+ "RCURVE": [
+  {
+   "line": 349,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "R-curve equivalence: V-monotonicity ⟺ RH (Ch. 2–3)",
+   "kernel": "SIDE-rcurve v0.1.0 = `d5f33b4`",
+   "terminal_cell": "`SIDERCurve.monotone_unique_zero`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}` *(profile re-verified 2026-07-25, AxiomCheck print; `online_zero_codim_one`/`offline_zero_codim_two` axiom-free)*",
+   "status": "**DERIVES** — the equivalence engine is compiled; the monotonicity *closure* is research-reach",
+   "names": [
+    "SIDERCurve.monotone_unique_zero",
+    "SIDERCurve.online_zero_codim_one",
+    "SIDERCurve.offline_zero_codim_two"
+   ],
+   "probes": [
+    [
+     "r1",
+     null
+    ],
+    [
+     "r1",
+     null
+    ],
+    [
+     "r1",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDERCurve.monotone_unique_zero"
+   ]
+  },
+  {
+   "line": 350,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Derivative-level catalogue — per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives)",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited)",
+   "terminal_cell": "`SIDEDerivative.exactly_c1_derives`",
+   "profile_cell": "axiom-free (none)",
+   "status": "**DERIVES** — the honest count, not an exclusion verdict ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).**",
+   "names": [
+    "SIDEDerivative.exactly_c1_derives"
+   ],
+   "probes": [
+    [
+     "kd",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDEDerivative.exactly_c1_derives"
+   ]
+  },
+  {
+   "line": 351,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "C₁ derivative reduction — double zero ⇔ Im ξ′(ρ)=0 on the line",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`",
+   "terminal_cell": "`SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — consumes the perpendicular crossing; `spectral_cannon` @ `691295b` wired ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).**",
+   "names": [
+    "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero"
+   ],
+   "probes": [
+    [
+     "kd",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero"
+   ]
+  },
+  {
+   "line": 352,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "The joint step — not-double ⇔ transversality (uniform = simplicity)",
+   "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`",
+   "terminal_cell": "`SIDEDerivative.no_onLine_double_iff_transversal`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES** — the derivative h2 = simplicity, named premise ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).**",
+   "names": [
+    "SIDEDerivative.no_onLine_double_iff_transversal"
+   ],
+   "probes": [
+    [
+     "kd",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDEDerivative.no_onLine_double_iff_transversal"
+   ]
+  },
+  {
+   "line": 353,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Hadamard genus-1 order-input (order ≤ 1 of the completed zeta, Ch. 4)",
+   "kernel": "SIDE-lv-conservation v0.4.0 = `0d2d74c`",
+   "terminal_cell": "`SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — theta-Mellin route (no complex Stirling, no Phragmén–Lindelöf)",
+   "names": [
+    "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp"
+   ],
+   "probes": [
+    [
+     "l1",
+     "l1t"
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp"
+   ]
+  },
+  {
+   "line": 354,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "On-line zero-sum nonnegativity (Ch. 4, the \"+ every term\" row)",
+   "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+   "terminal_cell": "`PartialPositivity.blTerm_nonneg_of_onLine`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — Re ρ = 1/2 ⟹ each Bombieri–Lagarias term ≥ 0",
+   "names": [
+    "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine"
+   ],
+   "probes": [
+    [
+     "l2",
+     "l2t"
+    ]
+   ],
+   "cell_names": [
+    "PartialPositivity.blTerm_nonneg_of_onLine"
+   ]
+  },
+  {
+   "line": 355,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Finite-range Li positivity (a certificate toward effective dominance)",
+   "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+   "terminal_cell": "`PartialPositivity.partialPositivity_finiteRange`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES** — three named premises (`VerifiedZerosTo T`; `ExplicitFormulaDecomp`, Bombieri–Lagarias; `TailBoundPremise`, Voros n ≳ 2T²). λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T² — a finite-range certificate, **NOT RH** (the all-n tail is the open gap)",
+   "names": [
+    "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange"
+   ],
+   "probes": [
+    [
+     "l2",
+     "l2t"
+    ]
+   ],
+   "cell_names": [
+    "PartialPositivity.partialPositivity_finiteRange"
+   ]
+  },
+  {
+   "line": 356,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Dirichlet L-function order-input (Ch. 8 extension)",
+   "kernel": "SIDE-lv-conservation v0.5.0 = `1767bd6`",
+   "terminal_cell": "`SIDELvConservation.exists_norm_completedLFunction_le_exp`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — completed Dirichlet L, χ ≠ 1, both parities, whole plane",
+   "names": [
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp"
+   ],
+   "probes": [
+    [
+     "l3",
+     "l3t"
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp"
+   ]
+  },
+  {
+   "line": 357,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Eight-coupling surround at Φ (the certifiable leg of the closure)",
+   "kernel": "SIDE-lv-conservation v0.6.0 = `c80bdc2`",
+   "terminal_cell": "`SIDELvConservation.h1_complete_at_Phi`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open**",
+   "names": [
+    "SIDELvConservation.h1_complete_at_Phi"
+   ],
+   "probes": [
+    [
+     "l4",
+     "l4t"
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.h1_complete_at_Phi"
+   ]
+  },
+  {
+   "line": 358,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Positivity face → RH (Ch. 5, the Lagarias interface)",
+   "kernel": "SIDE-lv-conservation v0.7.0 = `2d86182`",
+   "terminal_cell": "`RegisterPentagon.R4_positivity_to_RH`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES** — Li's criterion (Bombieri–Lagarias 1999, not in Mathlib) as explicit hypothesis",
+   "names": [
+    "SIDELvConservation.RegisterPentagon.R4_positivity_to_RH"
+   ],
+   "probes": [
+    [
+     "l5",
+     "l5t"
+    ]
+   ],
+   "cell_names": []
+  },
+  {
+   "line": 359,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Maximal-type growth excluded (brackets Voros's λ_A regime)",
+   "kernel": "SIDE-lv-conservation v0.5.1 = `bc4751e`",
+   "terminal_cell": "`SIDELvConservation.C7_finite_type_false`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "**DERIVES (compiled negative)** — the finite-exponential-type form is provably false of the forced witness",
+   "names": [
+    "SIDELvConservation.C7_finite_type_false"
+   ],
+   "probes": [
+    [
+     "l6",
+     "l6t"
+    ]
+   ],
+   "cell_names": []
+  },
+  {
+   "line": 360,
+   "table": "| Claim | Kernel / pin |",
+   "claim": "Effective-dominance closure (exhaustiveness premise `h2`)",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "**research-reach** — the census's landscape closure (II.5), carried openly as the single open premise",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  }
+ ],
+ "INDEX": [
+  {
+   "line": 369,
+   "table": "| Claim (as stated here) |",
+   "claim": "§1 — the reduction, RH under the one open premise `h2`",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`ConservationBridge.riemann_hypothesis`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled — the reduction, not a proof of RH; `h2` carried open",
+   "names": [
+    "ConservationBridge.riemann_hypothesis"
+   ],
+   "probes": [
+    [
+     "k1",
+     null
+    ]
+   ],
+   "cell_names": [
+    "ConservationBridge.riemann_hypothesis"
+   ]
+  },
+  {
+   "line": 370,
+   "table": "| Claim (as stated here) |",
+   "claim": "N1 — finite-type growth form false",
+   "kernel": "SIDE-lv-conservation v0.10.0 = `93c27ec` (version DOI 10.5281/zenodo.21539068; concept 10.5281/zenodo.21433177)",
+   "terminal_cell": "`SIDELvConservation.C7_finite_type_false`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled negative; bracketed against `exists_norm_completedRiemannZeta₀_le_exp`",
+   "names": [
+    "SIDELvConservation.C7_finite_type_false"
+   ],
+   "probes": [
+    [
+     "m1",
+     "m1t"
+    ]
+   ],
+   "cell_names": []
+  },
+  {
+   "line": 371,
+   "table": "| Claim (as stated here) |",
+   "claim": "N2 — unrestricted per-class bridge fails",
+   "kernel": "SIDE-lv-conservation v0.10.0 = `93c27ec`",
+   "terminal_cell": "`SIDELvConservation.T3.T3doubleprime_general_commutation_fails`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled countermodel; the closed half `T3.T3prime_shared_witness` stands beside it",
+   "names": [
+    "SIDELvConservation.T3.T3doubleprime_general_commutation_fails"
+   ],
+   "probes": [
+    [
+     "m2",
+     "m2t"
+    ]
+   ],
+   "cell_names": []
+  },
+  {
+   "line": 372,
+   "table": "| Claim (as stated here) |",
+   "claim": "N3 — certified input not zero-realizing",
+   "kernel": "SIDE-lv-conservation v0.10.0 = `93c27ec`",
+   "terminal_cell": "`SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled, under the one named classical premise (nontrivial zero in the open strip), disclosed in the statement",
+   "names": [
+    "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing"
+   ],
+   "probes": [
+    [
+     "m3",
+     "m3t"
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing"
+   ]
+  },
+  {
+   "line": 373,
+   "table": "| Claim (as stated here) |",
+   "claim": "N4 — escape-kind invariant (two walls, one form, two escapes)",
+   "kernel": "SIDE-lv-conservation main = `5a14205` (landed 2026-08-02, the ratified pass)",
+   "terminal_cell": "`SIDELvConservation.RegisterPentagon.escape_kind_discriminates`; `SIDELvConservation.RegisterPentagon.horizon_kind_shared`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled — landed to the release line with the pairing-interface merge",
+   "names": [
+    "SIDELvConservation.RegisterPentagon.escape_kind_discriminates",
+    "SIDELvConservation.RegisterPentagon.horizon_kind_shared"
+   ],
+   "probes": [
+    [
+     "m4",
+     "m4t"
+    ],
+    [
+     "m4",
+     "m4t"
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.RegisterPentagon.escape_kind_discriminates",
+    "SIDELvConservation.RegisterPentagon.horizon_kind_shared"
+   ]
+  },
+  {
+   "line": 374,
+   "table": "| Claim (as stated here) |",
+   "claim": "N5 — the derivability barrier",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`InvarianceBarrier.derivability_barrier`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled (general form only; no ξ/Epstein instantiation, no RH content in the statement); instantiated at manuscript level as Theorem 3.7 of *Invariance Barriers*, **at that theorem's Tier-1 scope — a named finite toolkit T, the open class of all Euler-product-free derivations not claimed**",
+   "names": [
+    "InvarianceBarrier.derivability_barrier"
+   ],
+   "probes": [
+    [
+     "k2",
+     null
+    ]
+   ],
+   "cell_names": [
+    "InvarianceBarrier.derivability_barrier"
+   ]
+  },
+  {
+   "line": 375,
+   "table": "| Claim (as stated here) |",
+   "claim": "N6 — witness architecture with the stipulated datum",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`SieveCeilingWitness.dh_witness`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled architecture; the off-line fact is a stipulated datum from Davenport–Heilbronn 1936, not re-proven in-kernel",
+   "names": [
+    "SieveCeilingWitness.dh_witness"
+   ],
+   "probes": [
+    [
+     "k3",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SieveCeilingWitness.dh_witness"
+   ]
+  },
+  {
+   "line": 376,
+   "table": "| Claim (as stated here) |",
+   "claim": "N6 — the located disc −23 off-line zero",
+   "kernel": "(none — computational record)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Doubly-sourced argument-principle computation (*The Residue of the Riemann Hypothesis* §5); manuscript-resident",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 377,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — supplier 1, intersection-form positivity over 𝔽_q",
+   "kernel": "(none — literature + control)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Weil 1948, theorem; programme control: the Face-D function-field comparison",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 378,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — supplier 2, ferromagnetic pair coupling",
+   "kernel": "(none — literature + control)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Lee–Yang 1952, theorem; programme control: the Lee–Yang comparison",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 379,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — supplier 3, the named absence Q",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "OPEN — `h2`, §27.3; the arc's object; boundary-tight by Rodgers–Tao",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 380,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the edge reach of single-index positivity",
+   "kernel": "SIDE-lv-conservation (deposited line)",
+   "terminal_cell": "`edge_drift_nonneg` with its sign-neutral break `edge_drift_neg_for_signNeutral`",
+   "profile_cell": "see *The Residue of the Riemann Hypothesis* Correspondence",
+   "status": "Compiled lemma + break; cited through the residue paper's table",
+   "names": [
+    "SIDELvConservation.RegisterPentagon.edge_drift_nonneg",
+    "SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral"
+   ],
+   "probes": [
+    [
+     "m4",
+     "m4t"
+    ],
+    [
+     "m4",
+     "m4t"
+    ]
+   ],
+   "cell_names": [
+    "edge_drift_nonneg",
+    "edge_drift_neg_for_signNeutral"
+   ]
+  },
+  {
+   "line": 381,
+   "table": "| Claim (as stated here) |",
+   "claim": "Forward — the data-arity barrier (no transport-sound composition of one-variable data derives the two-variable carrier property)",
+   "kernel": "SIDE-lv-conservation main = `14720d9` (E-8 landed 2026-08-02)",
+   "terminal_cell": "`CompositionBarrier.composition_barrier`; `CompositionBarrier.barrier_witnesses`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled — the minimal witness-world schema (model-level, its anti-overclaim on its face); Face-E's sibling",
+   "names": [
+    "SIDELvConservation.CompositionBarrier.composition_barrier",
+    "SIDELvConservation.CompositionBarrier.barrier_witnesses"
+   ],
+   "probes": [
+    [
+     "m5",
+     "m5t"
+    ],
+    [
+     "m5",
+     "m5t"
+    ]
+   ],
+   "cell_names": [
+    "CompositionBarrier.composition_barrier",
+    "CompositionBarrier.barrier_witnesses"
+   ]
+  },
+  {
+   "line": 382,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — supplier 4's stratum measurements (the 24k ladder certificates; the W₈^m exact failures; the n = 24 matched pair; the pencil knife-edge)",
+   "kernel": "(none — computational record)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Exact arithmetic end-to-end (Sturm over ℚ(√2); double-sourced solves; convention pinned on prior instances); relay `reports/2026-08-02-e3-type-ii-supplier.md`, instrument `tools/e3/`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 383,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the lead law: the certificate's leading coefficient is the square of the zeta polynomial's constant term",
+   "kernel": "SIDE-lv-conservation main = `2f71068` (D-2a landed 2026-08-05)",
+   "terminal_cell": "`SIDELvConservation.LeadLaw.lead_law`, on `FieldLayer.top_coeff_of_expansion`, `FieldLayer.norml_top`, `LeadLaw.leadingCoeff_hOf`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES on ONE named premise.** DERIVED: the basis is monic of degree j+1; the leading coefficient is the top expansion coefficient; **the top coefficient is the top normalized coefficient** — stipulated at the first pass, derived here on a shared field layer (a field with a chosen `s`, `s² = q`); the functional equation forces it to `p 0`. **STIPULATED, one — STATED HERE PER THE PREAMBLE'S RESOLVABILITY STANDARD:** Duursma's self-dual functional equation, `p(2g − i) = q^(g − i)·p(i)` for `i ≤ g`, relating the zeta polynomial's coefficient sequence across the involution — a cited datum per the Davenport–Heilbronn precedent. **Salt-checked in compiled form:** the expansion premise is sat",
+   "names": [
+    "SIDELvConservation.LeadLaw.lead_law",
+    "SIDELvConservation.FieldLayer.top_coeff_of_expansion",
+    "SIDELvConservation.FieldLayer.norml_top",
+    "SIDELvConservation.LeadLaw.leadingCoeff_hOf"
+   ],
+   "probes": [
+    [
+     "n1",
+     null
+    ],
+    [
+     "n1",
+     null
+    ],
+    [
+     "n1",
+     null
+    ],
+    [
+     "n1",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.LeadLaw.lead_law",
+    "FieldLayer.top_coeff_of_expansion",
+    "FieldLayer.norml_top",
+    "LeadLaw.leadingCoeff_hOf"
+   ]
+  },
+  {
+   "line": 384,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 / Forward — the genus ≤ 5 theorem (Type II ⇒ Duursma-RH at genus ≤ 5)",
+   "kernel": "SIDE-lv-conservation main = `2f71068` (D-2b, both units landed 2026-08-05)",
+   "terminal_cell": "`Genus5.classification` **jointly with** `Genus5Confinement.golay_confined`, `w16_confined`, `e8_confined` — **neither unit citable alone** (the joint-row rule)",
+   "profile_cell": "catalogue `{propext, Quot.sound}`; confinement the standard three",
+   "status": "**INTERFACES on named premises (three).** DERIVED: genus ≡ 1 mod 4, so genera 2–4 are empty; the Mallows–Sloane forcing to lengths 8, 16, 24; and each catalogued certificate's confinement by its own route — one linear factor · an explicit rational factorization with `r(4−r) = 1` · five IVT sign alternations capped by degree 5. **STIPULATED — STATED HERE PER THE PREAMBLE'S RESOLVABILITY STANDARD:** (1) **Mallows–Sloane**, the bound `d ≤ 4⌊n/24⌋ + 4` on the minimum distance of a Type II code of length `n`; (2) **Gleason uniqueness** at each admissible `(n, d)` — that the weight enumerator is determined by the length and minimum distance within the Gleason invariant space; (3) the certificate c",
+   "names": [
+    "SIDELvConservation.Genus5.classification",
+    "SIDELvConservation.Genus5Confinement.golay_confined",
+    "SIDELvConservation.Genus5Confinement.w16_confined",
+    "SIDELvConservation.Genus5Confinement.e8_confined"
+   ],
+   "probes": [
+    [
+     "n2",
+     null
+    ],
+    [
+     "n3",
+     null
+    ],
+    [
+     "n3",
+     null
+    ],
+    [
+     "n3",
+     null
+    ]
+   ],
+   "cell_names": [
+    "Genus5.classification",
+    "Genus5Confinement.golay_confined",
+    "w16_confined",
+    "e8_confined"
+   ]
+  },
+  {
+   "line": 385,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the two-sides balance (one number, two routes)",
+   "kernel": "SIDE-lv-conservation main = `2f71068` (D-2c landed 2026-08-05)",
+   "terminal_cell": "`SIDELvConservation.TwoSides.heine_three`, with `heine_one`, `heine_two`, `ladder_three`, `two_sides_balance`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "**INTERFACES on one named premise, at declared instance scope.** DERIVED: the Heine/Vandermonde identity at depths 1, 2, 3 as polynomial identities in **six free variables**; three-route agreement at an explicit rational measure, with the common value certified non-zero; degeneracy detection and the Vandermonde square both salt-checked. **STIPULATED at cite — THE JACOBI LINK, STATED HERE SO THE ROW IS RESOLVABLE FROM THIS PAGE:** the measure's moments `m_k` form Hankel determinants `D_j = det(m_{a+b})_{0≤a,b<j}` (with `D_0 = D_{−1} = 1`); the **Hankel-ratio coefficients** are `b_j = D_{j+1}·D_{j−1} / D_j²`; and the link stipulated is that **those `b_j` are the recurrence coefficients of the ",
+   "names": [
+    "SIDELvConservation.TwoSides.heine_three",
+    "SIDELvConservation.TwoSides.heine_one",
+    "SIDELvConservation.TwoSides.heine_two",
+    "SIDELvConservation.TwoSides.ladder_three",
+    "SIDELvConservation.TwoSides.two_sides_balance"
+   ],
+   "probes": [
+    [
+     "n4",
+     null
+    ],
+    [
+     "n4",
+     null
+    ],
+    [
+     "n4",
+     null
+    ],
+    [
+     "n4",
+     null
+    ],
+    [
+     "n4",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDELvConservation.TwoSides.heine_three",
+    "heine_one",
+    "heine_two",
+    "ladder_three",
+    "two_sides_balance"
+   ]
+  },
+  {
+   "line": 386,
+   "table": "| Claim (as stated here) |",
+   "claim": "Forward — the Hankel bridge (ξ's moment Hankel forms along the dBN pencil; the flip-depth instrument d(t))",
+   "kernel": "(none — computational record)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Doubly-sourced (two precisions, s-agreement ≤ 5×10⁻¹⁴⁵; t = 0 cross-checked against explicit zero-sums over 300 zeros); relay `reports/2026-08-02-e16-hankel-bridge.md`, instrument `tools/e16/hankel_bridge.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 387,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the residue mechanism at instance grade (lead(H) = ε²/const; the flip polynomials; the burial law)",
+   "kernel": "(none — computational record)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Exact interpolation from 46 rational samples, all prior measured flips reproduced; relay `reports/2026-08-03-shadow-row-intertwiner3-genus9-mechanism.md`, instrument `tools/e3/mechanism.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 388,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the shadow row's constituents",
+   "kernel": "(none — literature)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Sine kernel PSD (classical); determinantal processes kernel-generated (Soshnikov; HKPV); Montgomery restricted-support theorem; Rudnick–Sarnak; the row-kind and belief-sentence at adoption grade (F.2026-08-03)",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 389,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the lead law (lead(H) = p₀², every self-dual code)",
+   "kernel": "(none — proof + computational verification)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Two-line derivation (Duursma P(0) + self-dual FE); verified exactly at three pencils (constants C(n,4)⁻²); relay `2026-08-03-keystone-v08-string-construction-residue-law.md`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 390,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the additive law (Ñ₃(0) = −((n+16)/16)·p₀⁴)",
+   "kernel": "(none — computational, predictively verified)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Exact at n = 24, 32, 40; the n = 40 coefficient predicted before computation (mid-hunt registration) and confirmed; relay `2026-08-03-recursion-note-additive-hunt-asymptotic-audit.md`, instrument `tools/e3/additive_hunt.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 391,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the one-law verdict + the stratum-kind index (five strata; w(56) in-bracket)",
+   "kernel": "(none — computational; the out-of-sample window by exact bisection)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "relay `2026-08-03-one-law-test-constant-p0-translation.md`, instruments `tools/e3/e22_window.py`, `tools/e3/n56_test.py`; the n = 56 coefficient cells flagged under-sampled, follow-up priced",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 392,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the density/arithmetic decomposition of the string diagonal",
+   "kernel": "(none — computational, control-sourced)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "The smooth-density control (identical pipeline): mean 1.1157 ± 0.0015 vs ζ 1.12 ± 0.15; relay same report, instrument `tools/e16/constant_control.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 393,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the sum-rule verdict (the arithmetic as a sum-rule quantity)",
+   "kernel": "(none — computational + Szegő/Killip–Simon at cite)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "**CORRECTED against a position-matched control: Z₉ = 0.0507, Q₉ = 0.0951, ~50× the noise floor** (the density-matched figures Z₉ = 1.62 / Q₉ = 0.78 withdrawn, inflated 8–32×); relay `2026-08-03-w-sumrule-e24-entry-handoff.md` + `2026-08-05-w-control-audit.md`, instruments `tools/e16/sumrule.py`, `audit_rederive.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 394,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the two-sides verdict (the finite identity exact; 92% pair-energy)",
+   "kernel": "(none — computational; the Heine/Vandermonde identity classical)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Balance ≤ 9×10⁻³⁹⁸ at K = 12, 16 (per-object, unaffected); **Δrepulsion/Δcoeff = 92% against the position-matched control** (97% against the density-matched one; magnitudes down 45–68×); relay `2026-08-03-w-twosides.md` + the audit, instruments `tools/e16/ts_stage{1,2,3}.py`, `audit_rederive.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 395,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the shape verdicts, K = 64 and K = 200 (INTRINSIC)",
+   "kernel": "(none — computational; discriminants pre-committed; every stage checkpointed)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "K=64: D = 0.649, 140× the rigid null; K=200: D = 0.6913 · small-gap 0.0513 · KS 0.0777 (117 gaps). Statistics of ζ's own unfolded gaps — no control enters them, so the audit leaves them unchanged; relay `2026-08-03-w-shape-200.md`, `2026-08-05-the-sixth-point-completion.md`, instruments `tools/e16/shape_s{1,2,3}.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 396,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the shape discriminant (lattice 0 · GUE γ−1 · Poisson −log 2π; ζ at −0.26221) and c_ideal(L) = (γ−1)/(log L + γ−1)",
+   "kernel": "(none — derivation at CONDITIONAL-ON-PAIR-CORRELATION grade + computation)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Derived via R₂ = 1 − sinc² against the lattice sum (Stirling/Glaisher + the sine-kernel integral); log 2π cancels for GUE, survives for Poisson; height-drift datum at matched L = 300 (high −0.2823 vs low −0.2453); relay `2026-08-05-e25-derive-the-constant.md`, `2026-08-05-w-control-audit.md`, instruments `audit_unfolded.py`, `audit_three_tests.py`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 397,
+   "table": "| Claim (as stated here) |",
+   "claim": "§3 — the c-sequence rows",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "**VOID.** The relative pair-energy sequence (0.578 → 0.950) was the control's half-zero counting-convention offset through the nonlinear β-map; flat at ≈ −0.035 against a position-matched control; struck, not restated; relay `2026-08-05-w-control-audit.md`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  }
+ ],
+ "AMC": [
+  {
+   "line": 408,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "Finite-modulus no-conspiracy (CRT exhaustiveness)",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `SIDEEffects.Phase15.Module1.crt_exhaustiveness`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`.",
+   "status": "**DERIVES** — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318 jobs, exit 0. **Scope: for positive-modulus structural couplings** — the constructors carry positivity hypotheses (`0 < q`, `0 < m`), author-accepted 2026-07-13, degenerate zero-modulus cases released as singletons. Upgraded from proof-partial after the W-4 discharge landed at `a27415d`; the Milestones analytic boundary is unchanged. Rules out finite-modulus-unexplained couplings o",
+   "names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+    "SIDEEffects.Phase15.Module1.crt_exhaustiveness"
+   ],
+   "probes": [
+    [
+     "e1",
+     null
+    ],
+    [
+     "e1",
+     null
+    ]
+   ],
+   "cell_names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+    "SIDEEffects.Phase15.Module1.crt_exhaustiveness"
+   ]
+  },
+  {
+   "line": 409,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "The general exclusion lemma",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`AddMult.no_type_d`",
+   "profile_cell": "axiom-free (none)",
+   "status": "INTERFACES — a valid logic lemma whose entire weight is its hypothesis (`∀ a, coupling a → modular a`); the hypothesis is the named premise, not the lemma.",
+   "names": [
+    "AddMult.no_type_d"
+   ],
+   "probes": [
+    [
+     "e3",
+     null
+    ]
+   ],
+   "cell_names": [
+    "AddMult.no_type_d"
+   ]
+  },
+  {
+   "line": 410,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "Per-conjecture instantiations",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`no_conspiracy_twins`, `no_conspiracy_goldbach`, `no_conspiracy_sg` (over `TypeD Nat (fun _ => True) (fun _ => True)`)",
+   "profile_cell": "— (uniformly-True predicates)",
+   "status": "Placeholder — retired from the claim structure",
+   "names": [
+    "AddMult.no_conspiracy_twins",
+    "AddMult.no_conspiracy_goldbach",
+    "AddMult.no_conspiracy_sg"
+   ],
+   "probes": [
+    [
+     "e3",
+     null
+    ],
+    [
+     "e3",
+     null
+    ],
+    [
+     "e3",
+     null
+    ]
+   ],
+   "cell_names": [
+    "no_conspiracy_twins",
+    "no_conspiracy_goldbach",
+    "no_conspiracy_sg"
+   ]
+  },
+  {
+   "line": 411,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "M3 — twin primes infinitude",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`AddMult.twin_primes_infinite` (`Milestones.lean`)",
+   "profile_cell": "carries `sorry` (sorryAx)",
+   "status": "Open — the conjecture's analytic content (Hardy-Littlewood)",
+   "names": [
+    "AddMult.twin_primes_infinite"
+   ],
+   "probes": [
+    [
+     "e4",
+     null
+    ]
+   ],
+   "cell_names": [
+    "AddMult.twin_primes_infinite",
+    "Milestones.lean"
+   ]
+  },
+  {
+   "line": 412,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "M4 — Goldbach",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`AddMult.goldbach` (`Milestones.lean`)",
+   "profile_cell": "carries `sorry` (sorryAx)",
+   "status": "Open — the conjecture's analytic content (circle method)",
+   "names": [
+    "AddMult.goldbach"
+   ],
+   "probes": [
+    [
+     "e4",
+     null
+    ]
+   ],
+   "cell_names": [
+    "AddMult.goldbach",
+    "Milestones.lean"
+   ]
+  },
+  {
+   "line": 413,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "M5 — Sophie Germain infinitude",
+   "kernel": "SIDE-effects (`c66f3c5`)",
+   "terminal_cell": "`AddMult.sophie_germain_infinite` (`Milestones.lean`)",
+   "profile_cell": "carries `sorry` (sorryAx)",
+   "status": "Open — the conjecture's analytic content (sieve bounds)",
+   "names": [
+    "AddMult.sophie_germain_infinite"
+   ],
+   "probes": [
+    [
+     "e4",
+     null
+    ]
+   ],
+   "cell_names": [
+    "AddMult.sophie_germain_infinite",
+    "Milestones.lean"
+   ]
+  },
+  {
+   "line": 414,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "Mechanism Theorem (logical engine)",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`ECondition.type_I_has_ostrowski`",
+   "profile_cell": "`{propext, Quot.sound}`",
+   "status": "DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12). *Pin currency 2026-07-23: cited at v1.2; grades hold through SIDE-kernel v1.4 = `f374174` + the C₆/C₇/V3B children, profiles unmoved.*",
+   "names": [
+    "ECondition.type_I_has_ostrowski"
+   ],
+   "probes": [
+    [
+     "k6",
+     "k6t"
+    ]
+   ],
+   "cell_names": [
+    "ECondition.type_I_has_ostrowski"
+   ]
+  },
+  {
+   "line": 415,
+   "table": "| Claim | Kernel | Theorem",
+   "claim": "Universal Silence",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`SilenceTheorem.silence_universal`",
+   "profile_cell": "axiom-free (none)",
+   "status": "INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here.",
+   "names": [
+    "SilenceTheorem.silence_universal"
+   ],
+   "probes": [
+    [
+     "k7",
+     "k7t"
+    ]
+   ],
+   "cell_names": [
+    "SilenceTheorem.silence_universal"
+   ]
+  },
+  {
+   "line": 446,
+   "table": "| claim | kernel |",
+   "claim": "### **the finite-modulus no-conspiracy** (§I)",
+   "kernel": "### **`SIDE-effects`**, pin `c66f3c5`, branch ### **`w-ladder-skeleton`** *(recorded 2026-08-12; the corpus had never named the branch)*",
+   "terminal_cell": "`Module1.no_type_d_conspiracies`",
+   "profile_cell": "### **`0 sorry, 0 axioms`** (vanilla Lean 4, no Mathlib)",
+   "status": "### **COMPILED**",
+   "names": [
+    "SIDEEffects.Phase15.Module1.no_type_d_conspiracies"
+   ],
+   "probes": [
+    [
+     "e2",
+     null
+    ]
+   ],
+   "cell_names": [
+    "Module1.no_type_d_conspiracies"
+   ]
+  },
+  {
+   "line": 447,
+   "table": "| claim | kernel |",
+   "claim": "**twin primes** (§II) — full statement",
+   "kernel": "### **NONE**",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "### **MILESTONE-OPEN (`M3`)** — needs the Hardy–Littlewood asymptotic; **`argument-supported` structurally, quantitative solution NOT asserted**",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 448,
+   "table": "| claim | kernel |",
+   "claim": "**Goldbach** (§III) — full statement",
+   "kernel": "### **NONE**",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "### **MILESTONE-OPEN (`M4`)** — needs the circle method",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 449,
+   "table": "| claim | kernel |",
+   "claim": "**Sophie Germain** (§IV) — full statement",
+   "kernel": "### **NONE**",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "### **MILESTONE-OPEN (`M5`)** — needs sieve bounds",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 450,
+   "table": "| claim | kernel |",
+   "claim": "**the Type I/II/III + Type-D classification** (§I)",
+   "kernel": "### **NONE**",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "### **MANUSCRIPT-RESIDENT** — `A_METHODOLOGY_FOR_DETERMINED_SYSTEMS` v0.5.4",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  },
+  {
+   "line": 451,
+   "table": "| claim | kernel |",
+   "claim": "### **`no_conspiracy` kernelization**",
+   "kernel": "### **NONE — OPEN**",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "### **RESEARCH-REACH (`LE-K-6`)**, named open in `CASCADE_ANCHORS_CORRECTED`",
+   "names": [],
+   "probes": [],
+   "cell_names": []
+  }
+ ]
+}

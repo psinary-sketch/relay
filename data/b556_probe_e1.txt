@@ -1,0 +1,15 @@
+SIDE-effects a27415d = a27415d1aa0ce6f6d87c47bb59fd72791190af35 ; git show a27415d:SIDEEffects/Phase15/Module1.lean ; checkout HEAD ef4cff776f89 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.30.0-rc2 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDEEffects/Phase15/SIDEFramework.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDEEffects.Phase15.Module1.no_type_d_conspiracies', 'SIDEEffects.Phase15.Module1.crt_exhaustiveness']
+start 2026-09-29T02:04:25Z
+SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD
+SIDEEffects.Phase15.Module1.crt_exhaustiveness : ∀ (sc : SIDEEffects.Phase15.Module1.StructuralCoupling),
+  ∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n
+def SIDEEffects.Phase15.Module1.TypeD : Type :=
+{ sc // ¬∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n }
+'SIDEEffects.Phase15.Module1.no_type_d_conspiracies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEEffects.Phase15.Module1.crt_exhaustiveness' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 1543.7 s
+exit 0

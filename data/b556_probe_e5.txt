@@ -1,0 +1,20 @@
+SIDE-effects a27415d = a27415d1aa0ce6f6d87c47bb59fd72791190af35 ; git show a27415d:SIDEEffects/Milestones.lean ; checkout HEAD ef4cff776f89 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.30.0-rc2 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDEEffects/Structural.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['AddMult.twin_primes_infinite', 'AddMult.goldbach', 'AddMult.sophie_germain_infinite', 'AddMult.no_type_d']
+start 2026-09-29T02:04:12Z
+<stdin>:30:8: warning: declaration uses `sorry`
+<stdin>:46:8: warning: declaration uses `sorry`
+<stdin>:61:8: warning: declaration uses `sorry`
+AddMult.twin_primes_infinite : ¬∃ N, ∀ (p : ℕ), p > N → ¬(Nat.Prime p ∧ Nat.Prime (p + 2))
+AddMult.goldbach : ∀ (n : ℕ), n ≥ 4 → (∃ k, n = 2 * k) → ∃ p q, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n
+AddMult.sophie_germain_infinite : ¬∃ N, ∀ (p : ℕ), p > N → ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))
+AddMult.no_type_d : ∀ (α : Type) (coupling modular : α → Prop),
+  (∀ (a : α), coupling a → modular a) → ¬AddMult.TypeD α coupling modular
+'AddMult.twin_primes_infinite' depends on axioms: [propext, sorryAx]
+'AddMult.goldbach' depends on axioms: [propext, sorryAx]
+'AddMult.sophie_germain_infinite' depends on axioms: [propext, sorryAx]
+'AddMult.no_type_d' does not depend on any axioms
+real 12.2 s
+exit 0

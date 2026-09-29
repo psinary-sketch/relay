@@ -1,0 +1,23 @@
+SIDE-effects c66f3c5 = c66f3c590adfaf26e1c07997253ecade41f58b36 ; git show c66f3c5:SIDEEffects/Phase15/Module1.lean ; checkout HEAD ef4cff776f89 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.30.0-rc2 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDEEffects/Phase15/SIDEFramework.lean', 'SAME')]
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['SIDEEffects.Phase15.Module1.no_type_d_conspiracies', 'SIDEEffects.Phase15.Module1.crt_exhaustiveness']
+start 2026-09-29T02:30:09Z
+<stdin>:111:4: warning: declaration uses `sorry`
+<stdin>:111:4: warning: declaration uses `sorry`
+<stdin>:111:4: warning: declaration uses `sorry`
+<stdin>:125:40: warning: declaration uses `sorry`
+<stdin>:125:40: warning: declaration uses `sorry`
+<stdin>:125:40: warning: declaration uses `sorry`
+<stdin>:125:40: warning: declaration uses `sorry`
+<stdin>:121:8: warning: declaration uses `sorry`
+SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD
+SIDEEffects.Phase15.Module1.crt_exhaustiveness : ∀ (sc : SIDEEffects.Phase15.Module1.StructuralCoupling),
+  ∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n
+def SIDEEffects.Phase15.Module1.TypeD : Type :=
+{ sc // ¬∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n }
+'SIDEEffects.Phase15.Module1.no_type_d_conspiracies' depends on axioms: [propext, sorryAx, Quot.sound]
+'SIDEEffects.Phase15.Module1.crt_exhaustiveness' depends on axioms: [propext, sorryAx, Quot.sound]
+real 13.8 s
+exit 0

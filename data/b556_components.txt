@@ -1,0 +1,718 @@
+====================================================================================================================================
+b556 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b556_tiers.txt
+  b556 -- READING (3): THE CORRESPONDENCE ROWS OF THE BATCH, RE-READ AT PIN
+  
+  ### the probes (relay data/b556_probe_<id>.txt):
+      e1   SIDE-effects           a27415d  SIDEEffects/Phase15/Module1.lean             mode lake       exit 0  1543.7 s errors 0 manifest-equal True imports [['SIDEEffects/Phase15/SIDEFramework.lean', 'SAME']]
+      e2   SIDE-effects           c66f3c5  SIDEEffects/Phase15/Module1.lean             mode lake       exit 0    13.8 s errors 0 manifest-equal True imports [['SIDEEffects/Phase15/SIDEFramework.lean', 'SAME']]
+      e3   SIDE-effects           c66f3c5  SIDEEffects/Structural.lean                  mode vanilla    exit 0    64.3 s errors 0 manifest-equal True imports NONE
+      e4   SIDE-effects           c66f3c5  SIDEEffects/Milestones.lean                  mode inline:SID exit 0   373.8 s errors 0 manifest-equal True imports [['SIDEEffects/Structural.lean', 'DIFF']]
+      e5   SIDE-effects           a27415d  SIDEEffects/Milestones.lean                  mode lake       exit 0    12.2 s errors 0 manifest-equal True imports [['SIDEEffects/Structural.lean', 'SAME']]
+      k1   SIDE-kernel            v1.7     Bridge/ConservationBridge.lean               mode lake       exit 0   515.4 s errors 0 manifest-equal True imports [['Kernel/XiDef.lean', 'SAME'], ['Kernel/PoissonExhaustion.lean', 'SAME'], ['Kernel/Integration.lean', 'SAME'], ['Kernel/Voice1.lean', 'SAME'], ['Kernel/Voice2.lean', 'SAME'], ['Kernel/Voice3.lean', 'SAME'], ['Kernel/Voice3b.lean', 'SAME'], ['Kernel/Voice5.lean', 'SAME'], ['Kernel/Voice6.lean', 'SAME'], ['Kernel/Voice7.lean', 'SAME'], ['Kernel/Layer1.lean', 'SAME'], ['Kernel/Core.lean', 'SAME']]
+      k2   SIDE-kernel            v1.7     Kernel/Cascade/InvarianceBarrier.lean        mode lake       exit 0     3.5 s errors 0 manifest-equal True imports NONE
+      k3   SIDE-kernel            v1.7     Kernel/Cascade/SieveCeilingWitness.lean      mode lake       exit 0     3.1 s errors 0 manifest-equal True imports [['Kernel/Cascade/SieveCeilingSemantic.lean', 'SAME']]
+      k6   SIDE-kernel            v1.2     MetaKernel.lean                              mode lake       exit 0    21.3 s errors 0 manifest-equal True imports NONE
+      k6t  SIDE-kernel            v1.7     MetaKernel.lean                              IDENTICAL to k6 (the file and its imports byte-equal at the tag)
+      k7   SIDE-kernel            v1.2     Kernel/SilenceTheorem.lean                   mode lake       exit 0    12.3 s errors 0 manifest-equal True imports NONE
+      k7t  SIDE-kernel            v1.7     Kernel/SilenceTheorem.lean                   IDENTICAL to k7 (the file and its imports byte-equal at the tag)
+      kd   SIDE-kernel            27a3ae7  Kernel/DerivativeEngine.lean                 mode lake       exit 0   460.1 s errors 0 manifest-equal True imports NONE
+      l1   SIDE-lv-conservation   0d2d74c  SIDELvConservation/C7OrderBounds.lean        mode lake       exit 0   700.7 s errors 0 manifest-equal True imports [['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l1t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/C7OrderBounds.lean        IDENTICAL to l1 (the file and its imports byte-equal at the tag)
+      l2   SIDE-lv-conservation   6efa9e5  SIDELvConservation/PartialPositivity.lean    mode lake       exit 0    39.6 s errors 0 manifest-equal True imports [['SIDELvConservation/RegisterPentagon.lean', 'DIFF'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l2t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/PartialPositivity.lean    mode lake       exit 0    25.0 s errors 0 manifest-equal True imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/ZeroCarrier.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l3   SIDE-lv-conservation   1767bd6  SIDELvConservation/DirichletC7Order.lean     mode lake       exit 0   104.0 s errors 0 manifest-equal True imports [['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l3t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/DirichletC7Order.lean     IDENTICAL to l3 (the file and its imports byte-equal at the tag)
+      l4   SIDE-lv-conservation   c80bdc2  SIDELvConservation/CouplingsAtPhi.lean       mode lake       exit 0    28.8 s errors 0 manifest-equal True imports [['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l4t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/CouplingsAtPhi.lean       IDENTICAL to l4 (the file and its imports byte-equal at the tag)
+      l5   SIDE-lv-conservation   2d86182  SIDELvConservation/RegisterPentagon.lean     mode lake       exit 0    21.6 s errors 0 manifest-equal True imports [['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l5t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/RegisterPentagon.lean     mode lake       exit 0    21.2 s errors 0 manifest-equal True imports [['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l6   SIDE-lv-conservation   bc4751e  SIDELvConservation/C7FiniteTypeFalse.lean    mode lake       exit 0    25.7 s errors 0 manifest-equal True imports [['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      l6t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/C7FiniteTypeFalse.lean    IDENTICAL to l6 (the file and its imports byte-equal at the tag)
+      m1   SIDE-lv-conservation   93c27ec  SIDELvConservation/C7FiniteTypeFalse.lean    mode lake       exit 0    24.8 s errors 0 manifest-equal True imports [['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      m1t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/C7FiniteTypeFalse.lean    IDENTICAL to m1 (the file and its imports byte-equal at the tag)
+      m2   SIDE-lv-conservation   93c27ec  SIDELvConservation/T3_StepNineBridge.lean    mode lake       exit 0    21.1 s errors 0 manifest-equal True imports [['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME']]
+      m2t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/T3_StepNineBridge.lean    IDENTICAL to m2 (the file and its imports byte-equal at the tag)
+      m3   SIDE-lv-conservation   93c27ec  SIDELvConservation/RegisterPentagon.lean     mode lake       exit 0    21.0 s errors 0 manifest-equal True imports [['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      m3t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/RegisterPentagon.lean     IDENTICAL to m3 (the file and its imports byte-equal at the tag)
+      m4   SIDE-lv-conservation   5a14205  SIDELvConservation/ZeroActingPairing.lean    mode lake       exit 1    19.9 s errors 17 manifest-equal True imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      m4b  SIDE-lv-conservation   5a14205  SIDELvConservation/ZeroActingPairing.lean    mode inline:SID exit 143   590.0 s errors 0 manifest-equal True imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      m4c  SIDE-lv-conservation   5a14205  SIDELvConservation/ZeroActingPairing.lean    mode inline:SID exit 0   156.3 s errors 0 manifest-equal True imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      m4t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/ZeroActingPairing.lean    IDENTICAL to m4 (the file and its imports byte-equal at the tag)
+      m5   SIDE-lv-conservation   14720d9  SIDELvConservation/CompositionBarrier.lean   mode lake       exit 0    18.6 s errors 0 manifest-equal True imports [['SIDELvConservation/QWantedPoster.lean', 'SAME'], ['SIDELvConservation/ZeroActingPairing.lean', 'SAME'], ['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+      m5t  SIDE-lv-conservation   v0.11.0  SIDELvConservation/CompositionBarrier.lean   IDENTICAL to m5 (the file and its imports byte-equal at the tag)
+      n1   SIDE-lv-conservation   v0.11.0  SIDELvConservation/LeadLaw.lean              mode lake       exit 0   788.7 s errors 0 manifest-equal True imports [['SIDELvConservation/FieldLayer.lean', 'SAME']]
+      n2   SIDE-lv-conservation   v0.11.0  SIDELvConservation/Genus5.lean               mode lake       exit 0    30.0 s errors 0 manifest-equal True imports NONE
+      n3   SIDE-lv-conservation   v0.11.0  SIDELvConservation/Genus5Confinement.lean    mode lake       exit 0    37.4 s errors 0 manifest-equal True imports NONE
+      n4   SIDE-lv-conservation   v0.11.0  SIDELvConservation/TwoSidesIdentity.lean     mode lake       exit 0    30.7 s errors 0 manifest-equal True imports NONE
+      r1   SIDE-rcurve            d5f33b4  SIDERCurve/Criterion.lean                    mode lake       exit 0  1458.5 s errors 0 manifest-equal True imports NONE
+  
+  ====================================================================================================
+  ### R_CURVE_CRITERION (phase1.5/rcurve/R_CURVE_CRITERION.md at PLACE-papers 2d650c3): 12 rows; 11 name a terminal; 13 terminal readings
+  ====================================================================================================
+  
+  ### :349 SIDERCurve.monotone_unique_zero [FOUND at d5f33b4 via r1]
+      statement : @SIDERCurve.monotone_unique_zero : ∀ {V : ℝ → ℝ}, StrictMono V → ∀ {a b : ℝ}, V a = 0 → V b = 0 → a = b
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- a strictly monotone V : ℝ → ℝ vanishes at most once -- one direction over an abstract V; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)
+      earlier   : T2 (relay data/b540_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :349 SIDERCurve.online_zero_codim_one [FOUND at d5f33b4 via r1]
+      statement : SIDERCurve.online_zero_codim_one : SIDERCurve.zero_codim true = 1
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- `zero_codim true = 1` by `rfl` over a function the file defines -- a stipulation
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :349 SIDERCurve.offline_zero_codim_two [FOUND at d5f33b4 via r1]
+      statement : SIDERCurve.offline_zero_codim_two : SIDERCurve.zero_codim false = 2
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- `zero_codim false = 2` by `rfl` over a function the file defines -- a stipulation
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :350 SIDEDerivative.exactly_c1_derives [FOUND at 27a3ae7 via kd]
+      statement : SIDEDerivative.exactly_c1_derives : (List.filter (fun c => decide (SIDEDerivative.derivGrade c = SIDEDerivative.Grade.derives)) [SIDEDerivative.DerivClass.c1, SIDEDerivative.DerivClass.c2, SIDEDerivative.DerivClass.c3, SIDEDerivative.DerivClass.c4, SIDEDerivative.DerivClass.c5, SIDEDerivative.DerivClass.c6, SIDEDerivative.DerivClass.c7]).length = 1
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- a count over a grade map the file itself defines -- a stipulation (b554)
+      earlier   : T2 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :351 SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero [FOUND at 27a3ae7 via kd]
+      statement : @SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero : ∀ {z : ℂ}, z.re = 0 → (z = 0 ↔ z.im = 0)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T0 -- T0, not RH-anchor: for complex z with Re z = 0, z = 0 ↔ Im z = 0 -- a fact about ℂ (b554)
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :352 SIDEDerivative.no_onLine_double_iff_transversal [FOUND at 27a3ae7 via kd]
+      statement : @SIDEDerivative.no_onLine_double_iff_transversal : ∀ {z : ℂ}, z.re = 0 → (z ≠ 0 ↔ z.im ≠ 0)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T0 -- T0, not RH-anchor: for complex z with Re z = 0, z ≠ 0 ↔ Im z ≠ 0 -- a fact about ℂ; simplicity is not a hypothesis (b554)
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :353 SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp [FOUND at 0d2d74c via l1]
+      statement : SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp : ∃ A C, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l1t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedRiemannZeta₀`, no premise
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : I (≤)
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :354 SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine [FOUND at 6efa9e5 via l2]
+      statement : SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀ (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ), (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l2t', 'pin': 'v0.11.0', 'identical': False, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: 0 ≤ Re[1 − (1 − 1/ρ)^n] at a zero with Re ρ = 1/2 -- a fact about on-line zeros
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: PER-ZERO
+      disposition: CARRIED
+  
+  ### :355 SIDELvConservation.PartialPositivity.partialPositivity_finiteRange [FOUND at 6efa9e5 via l2]
+      statement : SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l2t', 'pin': 'v0.11.0', 'identical': False, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T1-lit -- INTERFACES on `ExplicitFormulaDecomp` (Bombieri–Lagarias) and `TailBoundPremise` (Voros), literature theorems not compiled, and the numerical `VerifiedZerosTo T` (b540, b554)
+      earlier   : T1-lit (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :356 SIDELvConservation.exists_norm_completedLFunction_le_exp [FOUND at 1767bd6 via l3]
+      statement : @SIDELvConservation.exists_norm_completedLFunction_le_exp : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N), χ ≠ 1 → ∃ A C, ∀ (s : ℂ), ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l3t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedLFunction`, no premise but χ ≠ 1
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :357 SIDELvConservation.h1_complete_at_Phi [FOUND at c80bdc2 via l4]
+      statement : SIDELvConservation.h1_complete_at_Phi : SIDELvConservation.C1_realness SIDELvConservation.Phi ∧ SIDELvConservation.C2_halfplane_nonvanishing SIDELvConservation.Phi ∧ SIDELvConservation.C3_theta_transformation SIDELvConservation.Phi ∧ SIDELvConservation.C4_modularity SIDELvConservation.Phi ∧ SIDELvConservation.C5_input SIDELvConservation.Phi ∧ SIDELvConservation.C6_holomorphic_extension SIDELvConservation.Phi ∧ SIDELvConservation.C7_entirety SIDELvConservation.Phi ∧ SIDELvConservation.C7_order SIDELvConservation.Phi
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l4t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: the eight coupling facts of lv`s theta-kernel `Phi`, built from Mathlib`s `evenKernel` (b539, b554)
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :358 SIDELvConservation.RegisterPentagon.R4_positivity_to_RH [FOUND at 2d86182 via l5]
+      statement : @SIDELvConservation.RegisterPentagon.R4_positivity_to_RH : ∀ {lam : ℕ → ℝ}, (SIDELvConservation.RegisterPentagon.Register4_positivity lam → RiemannHypothesis) → SIDELvConservation.RegisterPentagon.Register4_positivity lam → RiemannHypothesis
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l5t', 'pin': 'v0.11.0', 'identical': False, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T1-lit -- INTERFACES on Li`s criterion (`Register4_positivity lam → RiemannHypothesis`), a literature theorem not in Mathlib (b540)
+      earlier   : T1-lit (relay data/b540_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: EXPLICIT
+      disposition: CARRIED
+  
+  ### :359 SIDELvConservation.C7_finite_type_false [FOUND at bc4751e via l6]
+      statement : SIDELvConservation.C7_finite_type_false : ¬∃ C A, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * ‖s‖)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'l6t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: ¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C·exp(A‖s‖)
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : I (≤)
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### ROWS:
+      :349 CARRIED  T2             R-curve equivalence: V-monotonicity ⟺ RH (Ch. 2–3)
+      :350 CARRIED  T2             Derivative-level catalogue — per-class grade of excluding ξ(ρ)=ξ′(ρ)=0
+      :351 CARRIED  T0             C₁ derivative reduction — double zero ⇔ Im ξ′(ρ)=0 on the line
+      :352 CARRIED  T0             The joint step — not-double ⇔ transversality (uniform = simplicity)
+      :353 CARRIED  T0             Hadamard genus-1 order-input (order ≤ 1 of the completed zeta, Ch. 4)
+      :354 CARRIED  T0             On-line zero-sum nonnegativity (Ch. 4, the "+ every term" row)
+      :355 CARRIED  T1-lit         Finite-range Li positivity (a certificate toward effective dominance)
+      :356 CARRIED  T0             Dirichlet L-function order-input (Ch. 8 extension)
+      :357 CARRIED  T0             Eight-coupling surround at Φ (the certifiable leg of the closure)
+      :358 CARRIED  T1-lit         Positivity face → RH (Ch. 5, the Lagarias interface)
+      :359 CARRIED  T0             Maximal-type growth excluded (brackets Voros's λ_A regime)
+      :360 CARRIED  T4             Effective-dominance closure (exhaustiveness premise `h2`)
+  ### TIERS OVER THE 13 TERMINAL READINGS: T0 7 · T1-open 0 · T1-lit 2 · T2 4 · T2-INTERFACES 0 · T3 0 · T4 0
+  ### ROW TIERS (the weakest link; no terminal T4): T0 7 · T1-open 0 · T1-lit 2 · T2 2 · T2-INTERFACES 0 · T3 0 · T4 1
+  ### DISPOSITIONS: CARRIED 12 · MOVED 0
+  
+  ====================================================================================================
+  ### INDEX_ARITY_AT_THE_CRITICAL_LINE (phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md at PLACE-papers 2d650c3): 29 rows; 12 name a terminal; 25 terminal readings
+  ====================================================================================================
+  
+  ### :369 ConservationBridge.riemann_hypothesis [FOUND at v1.7 via k1]
+      statement : ConservationBridge.riemann_hypothesis : ConservationBridge.ConservationHypothesis → RiemannHypothesis
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- INTERFACES on `ConservationHypothesis`, which is RH restated (`ch_iff_rh`; E-2026-09-25-1): ENCODES-CONCLUSION (b539-b541)
+      earlier   : T2 (relay data/b539_tiers.json, b540_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: EXPLICIT
+      disposition: CARRIED
+  
+  ### :370 SIDELvConservation.C7_finite_type_false [FOUND at 93c27ec via m1]
+      statement : SIDELvConservation.C7_finite_type_false : ¬∃ C A, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * ‖s‖)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'm1t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: ¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C·exp(A‖s‖)
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : I (≤)
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :371 SIDELvConservation.T3.T3doubleprime_general_commutation_fails [FOUND at 93c27ec via m2]
+      statement : SIDELvConservation.T3.T3doubleprime_general_commutation_fails : ¬∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'm2t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T0 -- T0, not RH-anchor: a countermodel against Mathlib`s `mellin` at s = 3 (b554; b545`s T2 superseded at b555)
+      earlier   : T0 (relay data/b554_simp_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :372 SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing [FOUND at 93c27ec via m3]
+      statement : SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip → ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: {'probe': 'm3t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T1-lit -- INTERFACES on its one named classical premise `NontrivialZeroExistsInStrip` (∃ σ, is_xi_zero σ ∧ 0 < σ < 1), a literature theorem (Riemann`s computed zeros; Hardy 1914) not compiled -- the tier follows the premise`s kind (b540)
+      earlier   : T1-lit (relay data/b540_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: BY-DEFINITION
+      disposition: CARRIED
+  
+  ### :373 SIDELvConservation.RegisterPentagon.escape_kind_discriminates [FOUND at 5a14205 via m4c]
+      statement : SIDELvConservation.RegisterPentagon.escape_kind_discriminates : SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.signPositivity ≠ SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.derivativeTransversality
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: {'probe': 'm4t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'does not depend on any axioms'}
+      tier      : T2 -- `decide` over an enumeration the file defines (`wallEscapeKind`) -- a stipulation (b549)
+      earlier   : T2 (relay data/b549_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :373 SIDELvConservation.RegisterPentagon.horizon_kind_shared [FOUND at 5a14205 via m4c]
+      statement : SIDELvConservation.RegisterPentagon.horizon_kind_shared : SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.signPositivity = SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.detectionThreshold
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: {'probe': 'm4t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'does not depend on any axioms'}
+      tier      : T2 -- `decide` over the same enumeration (b549)
+      earlier   : T2 (relay data/b549_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :374 InvarianceBarrier.derivability_barrier [FOUND at v1.7 via k2]
+      statement : @InvarianceBarrier.derivability_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α}, agree x y → ¬P y → ¬InvarianceBarrier.Derives agree P x
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- a general schema over an abstract α with `agree`, `P` and the file`s `Derives` -- logic; the toolkit and Epstein readings are carried by names (the row: no ξ/Epstein instantiation)
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :375 SieveCeilingWitness.dh_witness [FOUND at v1.7 via k3]
+      statement : SieveCeilingWitness.dh_witness : SieveCeilingSemantic.NonInvarianceWitness SieveCeilingWitness.iIndist SieveCeilingWitness.allOnLine
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- over the file`s `Config`, `iIndist` and `allOnLine`, whose value at `.dh` is the stipulated Davenport–Heilbronn datum
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :380 SIDELvConservation.RegisterPentagon.edge_drift_nonneg [FOUND at 5a14205 via m4c]
+      statement : @SIDELvConservation.RegisterPentagon.edge_drift_nonneg : ∀ {ledger : ℕ → ℝ} {w : ℕ → ℕ → ℝ} {N n : ℕ}, (∀ (m : ℕ), 0 ≤ ledger m) → (∀ (m : ℕ), 0 ≤ w m n) → 0 ≤ SIDELvConservation.RegisterPentagon.driftSum ledger w N n
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: None)
+      at the tag: {'probe': 'm4t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T2 -- nonnegativity of the file`s `driftSum` for nonnegative ledger and weights -- over an abstract ledger (b549)
+      earlier   : T2 (relay data/b549_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :380 SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral [FOUND at 5a14205 via m4c]
+      statement : SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral : ∃ w N n, (∀ (m : ℕ), 0 ≤ w m n) ∧ SIDELvConservation.RegisterPentagon.driftSum SIDELvConservation.RegisterPentagon.dhModelLedger w N n < 0
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: None)
+      at the tag: {'probe': 'm4t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+      tier      : T2 -- a negative `driftSum` for the file`s model ledger `dhModelLedger` (b549)
+      earlier   : T2 (relay data/b549_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :381 SIDELvConservation.CompositionBarrier.composition_barrier [FOUND at 14720d9 via m5]
+      statement : SIDELvConservation.CompositionBarrier.composition_barrier : ¬SIDELvConservation.CompositionBarrier.DerivesFromCriterion SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.carrierForm
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: {'probe': 'm5t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'does not depend on any axioms'}
+      tier      : T2 -- over the file`s `SymForm` (2×2 forms) and `DerivesFromCriterion` -- the model-level schema the row names
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :381 SIDELvConservation.CompositionBarrier.barrier_witnesses [FOUND at 14720d9 via m5]
+      statement : SIDELvConservation.CompositionBarrier.barrier_witnesses : SIDELvConservation.CompositionBarrier.diagAgree SIDELvConservation.CompositionBarrier.carrierForm SIDELvConservation.CompositionBarrier.impostorForm ∧ SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.carrierForm ∧ ¬SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.impostorForm
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: {'probe': 'm5t', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'does not depend on any axioms'}
+      tier      : T2 -- two explicit `SymForm`s the file defines agree on the diagonal, one a carrier, one not
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :383 SIDELvConservation.LeadLaw.lead_law [FOUND at v0.11.0 via n1]
+      statement : @SIDELvConservation.LeadLaw.lead_law : ∀ {K : Type u_1} [inst : Field K] (s q : K), s ^ 2 = q → s ≠ 0 → ∀ (g : ℕ) (p : ℕ → K), SIDELvConservation.FieldLayer.SelfDualFE q g p → ∀ (c : ℕ → K), SIDELvConservation.FieldLayer.IsExpansion g c (SIDELvConservation.FieldLayer.norml s p) → 1 ≤ g → p 0 ≠ 0 → (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff * (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff = p 0 ^ 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- over the file`s `hOf`, `norml` and `IsExpansion` for an arbitrary p with `SelfDualFE q g p` as a hypothesis -- no literature theorem is assumed or applied; that p is a code`s zeta polynomial is carried by the names
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :383 SIDELvConservation.FieldLayer.top_coeff_of_expansion [FOUND at v0.11.0 via n1]
+      statement : @SIDELvConservation.FieldLayer.top_coeff_of_expansion : ∀ {K : Type u_1} [inst : Field K] (g : ℕ), 1 ≤ g → ∀ (c pt : ℕ → K), SIDELvConservation.FieldLayer.IsExpansion g c pt → c g = pt (2 * g)
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- the top coefficient of the file`s `IsExpansion` -- over programme-defined objects
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :383 SIDELvConservation.FieldLayer.norml_top [FOUND at v0.11.0 via n1]
+      statement : @SIDELvConservation.FieldLayer.norml_top : ∀ {K : Type u_1} [inst : Field K] (s q : K), s ^ 2 = q → s ≠ 0 → ∀ (g : ℕ) (p : ℕ → K), SIDELvConservation.FieldLayer.SelfDualFE q g p → SIDELvConservation.FieldLayer.norml s p (2 * g) = p 0
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- the top normalized coefficient of the file`s `norml` under `SelfDualFE` -- over programme-defined objects
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :383 SIDELvConservation.LeadLaw.leadingCoeff_hOf [FOUND at v0.11.0 via n1]
+      statement : @SIDELvConservation.LeadLaw.leadingCoeff_hOf : ∀ {K : Type u_1} [inst : Field K] (g : ℕ) (c : ℕ → K), 1 ≤ g → c g ≠ 0 → (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff = c g
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- Mathlib`s `leadingCoeff` of the file`s `hOf` -- over a programme-defined polynomial
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :384 SIDELvConservation.Genus5.classification [FOUND at v0.11.0 via n2]
+      statement : SIDELvConservation.Genus5.classification : ∀ (P : SIDELvConservation.Genus5.TypeIIParams), P.g ≤ 5 → 8 * P.m = 8 ∨ 8 * P.m = 16 ∨ 8 * P.m = 24
+      profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- arithmetic over the file`s structure `TypeIIParams`, whose field `MS` stipulates the Mallows–Sloane bound
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :384 SIDELvConservation.Genus5Confinement.golay_confined [FOUND at v0.11.0 via n3]
+      statement : SIDELvConservation.Genus5Confinement.golay_confined : SIDELvConservation.Genus5Confinement.Hgolay.roots.card = 5 ∧ ∀ r ∈ SIDELvConservation.Genus5Confinement.Hgolay.roots, 0 < r ∧ r < 4
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- the roots of an explicit real polynomial the file defines lie in (0, 4); that it is the Golay certificate and that (0, 4) transports to Duursma`s circle (not compiled, the row`s shortfall) are carried by names
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :384 SIDELvConservation.Genus5Confinement.w16_confined [FOUND at v0.11.0 via n3]
+      statement : SIDELvConservation.Genus5Confinement.w16_confined : ∀ (r : ℝ), SIDELvConservation.Genus5Confinement.Hw16.IsRoot r → 0 ≤ r ∧ r ≤ 4
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- as `golay_confined`, for the file`s `Hw16`
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :384 SIDELvConservation.Genus5Confinement.e8_confined [FOUND at v0.11.0 via n3]
+      statement : SIDELvConservation.Genus5Confinement.e8_confined : ∀ (r : ℝ), SIDELvConservation.Genus5Confinement.He8.IsRoot r → 0 ≤ r ∧ r ≤ 4
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- as `golay_confined`, for the file`s `He8`
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :385 SIDELvConservation.TwoSides.heine_three [FOUND at v0.11.0 via n4]
+      statement : SIDELvConservation.TwoSides.heine_three : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3 = w1 * w2 * w3 * ((x1 - x2) * (x1 - x3) * (x2 - x3)) ^ 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T0 -- T0, not RH-anchor: the Heine/Vandermonde identity at depth 3 as a polynomial identity over ℚ in six free variables -- the spectral side
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :385 SIDELvConservation.TwoSides.heine_one [FOUND at v0.11.0 via n4]
+      statement : SIDELvConservation.TwoSides.heine_one : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 = w1 + w2 + w3
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T0 -- T0, not RH-anchor: the identity at depth 1 over ℚ
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :385 SIDELvConservation.TwoSides.heine_two [FOUND at v0.11.0 via n4]
+      statement : SIDELvConservation.TwoSides.heine_two : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 = w1 * w2 * (x1 - x2) ^ 2 + w1 * w3 * (x1 - x3) ^ 2 + w2 * w3 * (x2 - x3) ^ 2
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T0 -- T0, not RH-anchor: the identity at depth 2 over ℚ
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :385 SIDELvConservation.TwoSides.ladder_three [FOUND at v0.11.0 via n4]
+      statement : SIDELvConservation.TwoSides.ladder_three : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ≠ 0 → SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 ≠ 0 → SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ^ 3 * (SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 / SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ^ 2) ^ 2 * (SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3 * SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 / SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 ^ 2) = SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- restates the Hankel-ratio definition, closed by `field_simp` -- no second route (the row`s own words)
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :385 SIDELvConservation.TwoSides.two_sides_balance [FOUND at v0.11.0 via n4]
+      statement : SIDELvConservation.TwoSides.two_sides_balance : SIDELvConservation.TwoSides.D3 1 2 3 0 1 2 = 1 * 2 * 3 * ((0 - 1) * (0 - 2) * (1 - 2)) ^ 2 ∧ SIDELvConservation.TwoSides.D3 1 2 3 0 1 2 ≠ 0
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T0 -- T0, not RH-anchor: the depth-3 identity at an explicit rational measure, the value non-zero -- a computation over ℚ
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### ROWS:
+      :369 MOVED    T2             §1 — the reduction, RH under the one open premise `h2`  -- (R166)(3)(i): the row calls the terminal "the reduction"; its premise is RH restated (E-2026-09-25-1) and the programme`s compiled reduction of RH is `h2_sign_iff_rh`
+      :370 CARRIED  T0             N1 — finite-type growth form false
+      :371 CARRIED  T0             N2 — unrestricted per-class bridge fails
+      :372 CARRIED  T1-lit         N3 — certified input not zero-realizing
+      :373 CARRIED  T2             N4 — escape-kind invariant (two walls, one form, two escapes)
+      :374 CARRIED  T2             N5 — the derivability barrier
+      :375 CARRIED  T2             N6 — witness architecture with the stipulated datum
+      :376 CARRIED  T4             N6 — the located disc −23 off-line zero
+      :377 CARRIED  T4             §3 — supplier 1, intersection-form positivity over 𝔽_q
+      :378 CARRIED  T4             §3 — supplier 2, ferromagnetic pair coupling
+      :379 CARRIED  T4             §3 — supplier 3, the named absence Q
+      :380 CARRIED  T2             §3 — the edge reach of single-index positivity
+      :381 CARRIED  T2             Forward — the data-arity barrier (no transport-sound composition of on
+      :382 CARRIED  T4             §3 — supplier 4's stratum measurements (the 24k ladder certificates; t
+      :383 CARRIED  T2             §3 — the lead law: the certificate's leading coefficient is the square
+      :384 CARRIED  T2             §3 / Forward — the genus ≤ 5 theorem (Type II ⇒ Duursma-RH at genus ≤ 
+      :385 CARRIED  T2             §3 — the two-sides balance (one number, two routes)
+      :386 CARRIED  T4             Forward — the Hankel bridge (ξ's moment Hankel forms along the dBN pen
+      :387 CARRIED  T4             §3 — the residue mechanism at instance grade (lead(H) = ε²/const; the 
+      :388 CARRIED  T4             §3 — the shadow row's constituents
+      :389 CARRIED  T4             §3 — the lead law (lead(H) = p₀², every self-dual code)
+      :390 CARRIED  T4             §3 — the additive law (Ñ₃(0) = −((n+16)/16)·p₀⁴)
+      :391 CARRIED  T4             §3 — the one-law verdict + the stratum-kind index (five strata; w(56) 
+      :392 CARRIED  T4             §3 — the density/arithmetic decomposition of the string diagonal
+      :393 CARRIED  T4             §3 — the sum-rule verdict (the arithmetic as a sum-rule quantity)
+      :394 CARRIED  T4             §3 — the two-sides verdict (the finite identity exact; 92% pair-energy
+      :395 CARRIED  T4             §3 — the shape verdicts, K = 64 and K = 200 (INTRINSIC)
+      :396 CARRIED  T4             §3 — the shape discriminant (lattice 0 · GUE γ−1 · Poisson −log 2π; ζ 
+      :397 CARRIED  T4             §3 — the c-sequence rows
+  ### TIERS OVER THE 25 TERMINAL READINGS: T0 6 · T1-open 0 · T1-lit 1 · T2 18 · T2-INTERFACES 0 · T3 0 · T4 0
+  ### ROW TIERS (the weakest link; no terminal T4): T0 2 · T1-open 0 · T1-lit 1 · T2 9 · T2-INTERFACES 0 · T3 0 · T4 17
+  ### DISPOSITIONS: CARRIED 28 · MOVED 1
+  
+  ====================================================================================================
+  ### ADDITIVE_MULTIPLICATIVE_CONSPIRACY (phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md at PLACE-papers 2d650c3): 14 rows; 9 name a terminal; 12 terminal readings
+  ====================================================================================================
+  
+  ### :408 SIDEEffects.Phase15.Module1.no_type_d_conspiracies [FOUND at a27415d via e1]
+      statement : SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- the ferry`s criterion ((R166) COMPONENT 4): `IsEmpty TypeD`, TypeD a programme-defined type over `StructuralCoupling` -- not over Mathlib types; b555 banked T0, the difference flagged for the author
+      earlier   : T0 (relay data/b555_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :408 SIDEEffects.Phase15.Module1.crt_exhaustiveness [FOUND at a27415d via e1]
+      statement : SIDEEffects.Phase15.Module1.crt_exhaustiveness : ∀ (sc : SIDEEffects.Phase15.Module1.StructuralCoupling), ∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n
+      profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+      at the tag: no tag beyond the pin
+      tier      : T2 -- the ferry`s criterion: bound variables range over the programme types `StructuralCoupling` and `ModularCoupling`; the content, per b433, is the periodic lift at the coupling`s own modulus; b555 banked T0, the difference flagged for the author
+      earlier   : T0 (relay data/b555_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :409 AddMult.no_type_d [FOUND at c66f3c5 via e3]
+      statement : AddMult.no_type_d : ∀ (α : Type) (coupling modular : α → Prop), (∀ (a : α), coupling a → modular a) → ¬AddMult.TypeD α coupling modular
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- a propositional schema over an arbitrary α with `coupling`, `modular` -- logic whose weight is its hypothesis
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :410 AddMult.no_conspiracy_twins [FOUND at c66f3c5 via e3]
+      statement : AddMult.no_conspiracy_twins : ¬AddMult.TwinFinite
+      profile   : does not depend on any axioms   (the row prints: None)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- SHELL: `TypeD Nat (fun _ => True) (fun _ => True)` refuted -- uniformly-True predicates
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :410 AddMult.no_conspiracy_goldbach [FOUND at c66f3c5 via e3]
+      statement : AddMult.no_conspiracy_goldbach : ¬AddMult.GoldbachFails
+      profile   : does not depend on any axioms   (the row prints: None)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- SHELL: as `no_conspiracy_twins`
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :410 AddMult.no_conspiracy_sg [FOUND at c66f3c5 via e3]
+      statement : AddMult.no_conspiracy_sg : ¬AddMult.SGFinite
+      profile   : does not depend on any axioms   (the row prints: None)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- SHELL: as `no_conspiracy_twins`
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :411 AddMult.twin_primes_infinite [FOUND at c66f3c5 via e4]
+      statement : AddMult.twin_primes_infinite : ¬∃ N, ∀ (p : ℕ), p > N → ¬(Nat.Prime p ∧ Nat.Prime (p + 2))
+      profile   : depends on axioms: [propext, sorryAx]   (the row prints: SORRY)
+      at the tag: no tag beyond the pin
+      tier      : T4 -- proved by `sorry` (sorryAx): the statement, over Mathlib`s `Nat.Prime`, is the open conjecture itself; it establishes nothing
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :412 AddMult.goldbach [FOUND at c66f3c5 via e4]
+      statement : AddMult.goldbach : ∀ (n : ℕ), n ≥ 4 → (∃ k, n = 2 * k) → ∃ p q, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n
+      profile   : depends on axioms: [propext, sorryAx]   (the row prints: SORRY)
+      at the tag: no tag beyond the pin
+      tier      : T4 -- proved by `sorry` (sorryAx): the statement is binary Goldbach itself
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :413 AddMult.sophie_germain_infinite [FOUND at c66f3c5 via e4]
+      statement : AddMult.sophie_germain_infinite : ¬∃ N, ∀ (p : ℕ), p > N → ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))
+      profile   : depends on axioms: [propext, sorryAx]   (the row prints: SORRY)
+      at the tag: no tag beyond the pin
+      tier      : T4 -- proved by `sorry` (sorryAx): the statement is the Sophie Germain conjecture itself
+      earlier   : none banked ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :414 ECondition.type_I_has_ostrowski [FOUND at v1.2 via k6]
+      statement : ECondition.type_I_has_ostrowski : ∀ (Domain : Type) [Fintype Domain] (target : Prop) (produces : Domain → Prop), (∀ (d : Domain), ¬produces d) → (target → ∃ d, produces d) → ¬target
+      profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+      at the tag: {'probe': 'k6t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+      tier      : T2 -- modus tollens over an abstract `Domain` whose `[Fintype Domain]` is never used -- logic alone (b539, b555)
+      earlier   : T2 (relay data/b555_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :415 SilenceTheorem.silence_universal [FOUND at v1.2 via k7]
+      statement : @SilenceTheorem.silence_universal : ∀ {C : SilenceTheorem.ConfigurationSpace} {R : Type} (I : SilenceTheorem.Interface C R), I.is_universal → I.kappa_zero
+      profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+      at the tag: {'probe': 'k7t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'profile': 'does not depend on any axioms'}
+      tier      : T2-INTERFACES -- INTERFACES on `I.is_universal`, a programme structure`s property the manuscript asserts ((R165)(3); b555)
+      earlier   : T2-INTERFACES (relay data/b555_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: CARRIED
+  
+  ### :446 SIDEEffects.Phase15.Module1.no_type_d_conspiracies [FOUND at c66f3c5 via e2]
+      statement : SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD
+      profile   : depends on axioms: [propext, sorryAx, Quot.sound]   (the row prints: does not depend on any axioms)
+      at the tag: no tag beyond the pin
+      tier      : T2 -- the ferry`s criterion ((R166) COMPONENT 4): `IsEmpty TypeD`, TypeD a programme-defined type over `StructuralCoupling` -- not over Mathlib types; b555 banked T0, the difference flagged for the author
+      earlier   : T0 (relay data/b555_tiers.json) ; E/I (b544) : not indexed
+      unused-variable warnings in the declaration: NONE
+      a zero of ζ in the conclusion: no
+      disposition: MOVED -- fresh profile depends on axioms: [propext, sorryAx, Quot.sound] against the row`s does not depend on any axioms
+  
+  ### ROWS:
+      :408 CARRIED  T2             Finite-modulus no-conspiracy (CRT exhaustiveness)
+      :409 CARRIED  T2             The general exclusion lemma
+      :410 CARRIED  T2             Per-conjecture instantiations
+      :411 CARRIED  T4             M3 — twin primes infinitude
+      :412 CARRIED  T4             M4 — Goldbach
+      :413 CARRIED  T4             M5 — Sophie Germain infinitude
+      :414 CARRIED  T2             Mechanism Theorem (logical engine)
+      :415 CARRIED  T2-INTERFACES  Universal Silence
+      :446 MOVED    T2             ### **the finite-modulus no-conspiracy** (§I)  -- no_type_d_conspiracies: fresh profile depends on axioms: [propext, sorryAx, Quot.sound] against the row`s does not depend on any axioms
+      :447 CARRIED  T4             **twin primes** (§II) — full statement
+      :448 CARRIED  T4             **Goldbach** (§III) — full statement
+      :449 CARRIED  T4             **Sophie Germain** (§IV) — full statement
+      :450 CARRIED  T4             **the Type I/II/III + Type-D classification** (§I)
+      :451 CARRIED  T4             ### **`no_conspiracy` kernelization**
+  ### TIERS OVER THE 12 TERMINAL READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 8 · T2-INTERFACES 1 · T3 0 · T4 3
+  ### ROW TIERS (the weakest link; no terminal T4): T0 0 · T1-open 0 · T1-lit 0 · T2 5 · T2-INTERFACES 1 · T3 0 · T4 8
+  ### DISPOSITIONS: CARRIED 13 · MOVED 1
+  
+  ### EVERY UNUSED-VARIABLE WARNING THE PROBES PRINTED (all declarations of the fed files): 0
+
+### relay data/b556_rcurve.txt
+  b556 -- READING (4): SIDE-rcurve v0.1.0 = d5f33b4, EVERY DECLARATION
+  
+  ### the tree`s Lean files: ['AxiomCheck.lean', 'SIDERCurve.lean', 'SIDERCurve/Criterion.lean', 'lakefile.lean']
+  ### the library`s declarations (SIDERCurve/Criterion.lean; SIDERCurve.lean and AxiomCheck.lean declare nothing): 8
+      :31  theorem  monotone_unique_zero                          T2   depends on axioms: [propext, Classical.choice, Quot.sound]
+          statement: @SIDERCurve.monotone_unique_zero : ∀ {V : ℝ → ℝ}, StrictMono V → ∀ {a b : ℝ}, V a = 0 → V b = 0 → a = b
+          about ξ on the line or a general holomorphic function: NO ; a strictly monotone V : ℝ → ℝ vanishes at most once -- one direction over an abstract V; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)
+      :37  theorem  monotonicity_formula                          T2   depends on axioms: [propext, Classical.choice, Quot.sound]
+          statement: SIDERCurve.monotonicity_formula : ∀ (α β : ℝ), β ≠ 0 → α ^ 2 / β + β = (α ^ 2 + β ^ 2) / β
+          about ξ on the line or a general holomorphic function: NO ; α²/β + β = (α² + β²)/β over ℝ -- field algebra; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)
+      :42  theorem  beta_V_re                                     T2   depends on axioms: [propext, Classical.choice, Quot.sound]
+          statement: SIDERCurve.beta_V_re : ∀ (α β V : ℝ), V ≠ 0 → ((↑α + ↑β * Complex.I) / (↑V * Complex.I)).re = β / V
+          about ξ on the line or a general holomorphic function: NO ; Re((α + βi)/(Vi)) = β/V for real α, β, V ≠ 0 -- arithmetic in ℂ; that α + βi is ξ′ and iV is ξ on the curve is carried by the identifiers
+      :52  theorem  singular_repulsion                            T2   depends on axioms: [propext, Classical.choice, Quot.sound]
+          statement: SIDERCurve.singular_repulsion : ∀ (n β : ℝ), 0 < n → 0 < β → 0 < n / β
+          about ξ on the line or a general holomorphic function: NO ; 0 < n/β from 0 < n and 0 < β -- `div_pos`; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)
+      :60  def      zero_codim                                    T2   does not depend on any axioms
+          statement: SIDERCurve.zero_codim : Bool → ℕ
+          about ξ on the line or a general holomorphic function: NO ; a definition: `if onLine then 1 else 2`
+      :62  theorem  online_zero_codim_one                         T2   does not depend on any axioms
+          statement: SIDERCurve.online_zero_codim_one : SIDERCurve.zero_codim true = 1
+          about ξ on the line or a general holomorphic function: NO ; `zero_codim true = 1` by `rfl` over a function the file defines -- a stipulation
+      :64  theorem  offline_zero_codim_two                        T2   does not depend on any axioms
+          statement: SIDERCurve.offline_zero_codim_two : SIDERCurve.zero_codim false = 2
+          about ξ on the line or a general holomorphic function: NO ; `zero_codim false = 2` by `rfl` over a function the file defines -- a stipulation
+      :71  theorem  second_zero_breaks_monotone                   T2   depends on axioms: [propext, Classical.choice, Quot.sound]
+          statement: @SIDERCurve.second_zero_breaks_monotone : ∀ {V : ℝ → ℝ}, StrictMono V → ∀ {e x : ℝ}, V e = 0 → V x = 0 → x ≠ e → False
+          about ξ on the line or a general holomorphic function: NO ; a strictly monotone V has no second zero -- `monotone_unique_zero` again; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)
+  ### THE SPLIT: {'T0': 0, 'T1-open': 0, 'T1-lit': 0, 'T2': 8, 'T2-INTERFACES': 0, 'T3': 0, 'T4': 0} ; statements about ξ on the line or a general holomorphic function: 0 -- (N3)`s exception clause is VACUOUS
+  
+  b556 -- READING (8): THE SIDE-effects PINS
+      a27415d : {'branches': ['main', 'push-b372', 'push-b386', 'w-ladder-skeleton', 'remotes/origin/HEAD -> origin/main', 'remotes/origin/main', 'remotes/origin/w-ladder-skeleton'], 'tags': [], 'date': '2026-07-13 18:42:45 -0400 W-4 discharge + W-2 shell withdrawal: recovered from an uncommitted tree, screened, author-accepted', 'module1_imports': ['Mathlib', 'SIDEEffects.Phase15.SIDEFramework']}
+      c66f3c5 : {'branches': ['main', 'push-b372', 'push-b386', 'w-ladder-skeleton', 'w4-recovery-2026-07-13', 'remotes/origin/HEAD -> origin/main', 'remotes/origin/main', 'remotes/origin/w-ladder-skeleton', 'remotes/origin/w4-recovery-2026-07-13'], 'tags': [], 'date': "2026-05-13 22:05:43 -0400 AGENTS.md: strip '19 theorems' and '7 sorries' count anchors; categorize named theorem list", 'module1_imports': ['Mathlib.Data.Nat.Prime.Basic', 'Mathlib.Data.ZMod.Basic', 'Mathlib.Data.Finset.Basic', 'SIDEEffects.Phase15.SIDEFramework']}
+      SIDE-effects tags: {'phase-1.5-module-1-v2': '444b9a2', 'v0.1': 'afb196e'}
+      Milestones.lean: {'c66f3c5': {'twin_primes_infinite': {'line': [37], 'sorry': True}, 'goldbach': {'line': [58], 'sorry': True}, 'sophie_germain_infinite': {'line': [78], 'sorry': True}}, 'a27415d': {'twin_primes_infinite': {'line': [30], 'sorry': True}, 'goldbach': {'line': [46], 'sorry': True}, 'sophie_germain_infinite': {'line': [61], 'sorry': True}}}
+  
+  b556 -- READING (9): THE NAME CITATIONS
+      SIDE-meta v0.3 : pin: tag v0.3 = 6bb7b23
+      SIDE-silence-principle v0.1 : CITATION BY NAME WITHOUT A PIN (no tag `v0.1`; tags ['v0.1.0'])
+      SIDE-compression v0.1 : CITATION BY NAME WITHOUT A PIN (no tag `v0.1`; tags ['v0.1.0', 'v0.2.0'])
+  
+  ### INDEX :380`s terminals on SIDE-lv-conservation (edge_drift_nonneg present): {'93c27ec': False, '14720d9': True, '5a14205': True, '2f71068': True}
+
+### relay data/b556_stems.txt
+  b556 -- READING (11): THE BANNED-STEM COUNT OVER THE BATCH DOCUMENTS (before this act`s appends); no edit
+  
+  ### R_CURVE_CRITERION: per stem {'gap': 1, 'blind': 0} ; live uses {'gap': 1, 'blind': 0}
+      :355  gap    gap          LIVE USE                                 ...e-range certificate, **NOT RH** (the all-n tail is the open gap) |...
+  
+  ### INDEX_ARITY_AT_THE_CRITICAL_LINE: per stem {'gap': 17, 'blind': 2} ; live uses {'gap': 17, 'blind': 2}
+      :74   gap    gap          LIVE USE                                 ...n of Q's statistical shadow, never of a proof; the register gap (density → pairing, the statistical face) guards the row ag...
+      :109  gap    gap          LIVE USE                                 ...a depth-12 meter's reach at 1.4% contrast against its local gap); the...
+      :162  gap    gaps         LIVE USE                                 ...statistics of ζ's OWN unfolded resolved gaps; the control enters only to exhibit the rigid...
+      :164  gap    gaps         LIVE USE                                 ...resolved gaps) the gaps are REPULSION-CLASS at 140× the rigid null (small...
+      :164  gap    gaps         LIVE USE                                 ...resolved gaps) the gaps are REPULSION-CLASS at 140× the rigid null (small-gap suppr...
+      :164  gap    gap          LIVE USE                                 ... the gaps are REPULSION-CLASS at 140× the rigid null (small-gap suppression...
+      :166  gap    gaps         LIVE USE                                 ...K = 200 (117 gaps, the full-power run) all three pre-committed discriminants ...
+      :167  gap    gap          LIVE USE                                 ...**D = 0.6913 · small-gap 0.0513 · KS 0.0777 against the GUE surmise** — with the con...
+      :193  gap    gap          LIVE USE                                 ...−0.2453, so the gap closes with height, not with L — the same low-height system...
+      :325  gap    gaps         LIVE USE                                 ...shape verdict of §3, intrinsic to ζ's own gaps and importing no correlation assumption....
+      :334  blind  blind        LIVE USE                                 ...s-linked to the U(1)-phase instance: **both are group-named blind spots of an observable class, and in both the escape is a s...
+      :338  gap    gap          LIVE USE                                 ...SE EXTENSION:** on the base windows alone 5938 falls in the gap between (c)'s 5865 and (a)'s 5950, where the registered rul...
+      :395  gap    gap          LIVE USE                                 ...: D = 0.649, 140× the rigid null; K=200: D = 0.6913 · small-gap 0.0513 · KS 0.0777 (117 gaps). Statistics of ζ's own unfold...
+      :395  gap    gaps         LIVE USE                                 ...null; K=200: D = 0.6913 · small-gap 0.0513 · KS 0.0777 (117 gaps). Statistics of ζ's own unfolded gaps — no control enters t...
+      :395  gap    gaps         LIVE USE                                 ...0513 · KS 0.0777 (117 gaps). Statistics of ζ's own unfolded gaps — no control enters them, so the audit leaves them unchange...
+      :513  gap    gaps         LIVE USE                                 ...statistics of ζ's own gaps and admit no control. **Voided:** the c-sequence rows and t...
+      :533  gap    gap          LIVE USE                                 ...inside the pre-committed band at 35-gap power; the depth datum; the K ~ 200 re-price). The...
+      :568  gap    gap          LIVE USE                                 ...on the row's face; the register gap guarding it. (2) THE MEASURED ANATOMY folds into §3 in...
+      :587  blind  blind        LIVE USE                                 ... (validated at t = −5..−50, monotone toward the knife-edge, blind at...
+  
+  ### ADDITIVE_MULTIPLICATIVE_CONSPIRACY: per stem {'gap': 3, 'blind': 0} ; live uses {'gap': 3, 'blind': 0}
+      :231  gap    gaps         LIVE USE                                 ...nds for representation counts; Maynard (2013) sharpened the gaps-between-primes bounds. Each technical advance is a refineme...
+      :388  gap    gaps         LIVE USE                                 ...Maynard, J. (2015). Small gaps between primes. *Annals of Mathematics* 181(1), 383–413....
+      :396  gap    gaps         LIVE USE                                 ...Zhang, Y. (2014). Bounded gaps between primes. *Annals of Mathematics* 179(3), 1121–1174....
+
+### b556_bd2.json : {"hits": {"RCURVE": [], "INDEX": [], "AMC": []}, "total": 0}
+### b556_path.json : {"trail": {"file": "OPEN_TRAILS.md", "before": 1362465, "added": 5185, "prefix": true, "line": 11407}, "pointer": {"file": "FINDINGS.md", "before": 729014, "added": 401, "prefix": true, "line": 5848}, "paragraphs": 4, "work": [["W-ORD-DETECTION-REGION", [11151, 11332]], ["W-ORD-LI-WEIL-BRIDGE", [3548, 11203, 11230, 11265, 11290]], ["W-ORD-GRH-WEIL", [11373]], ["W-ORD-POWER-SWEEP", [11195]], ["W-ORD-WINDOW-CERTIFY", [11152]], ["W-ORD-SEAM-UPSTREAM", [10972]], ["W-ORD-STORMER-CLASH", [11257]]]}
+### b556_blocks.json : {"RCURVE": {"present_before": true, "line": 477}, "INDEX": {"file": "phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md", "before": 86387, "added": 7886, "prefix": true, "line": 647}, "AMC": {"file": "phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md", "before": 49959, "added": 4884, "prefix": true, "line": 482}, "wrong": [446]}
+### b556_findings.json : {"file": "FINDINGS.md", "before": 729415, "added": 2019, "prefix": true, "line": 5850}
+### THE PROBES : relay data/b556_probe_<id>.txt and data/b556_probes.jsonl
+### THE BRANCHES : see data/b556_branches.txt
+====================================================================================================================================

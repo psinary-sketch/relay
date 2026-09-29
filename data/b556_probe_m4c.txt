@@ -1,0 +1,25 @@
+SIDE-lv-conservation 5a14205 = 5a142053c45feb31f801bcada1d8d7046dee1664 ; git show 5a14205:SIDELvConservation/ZeroActingPairing.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode inline:SIDELvConservation/RegisterPentagon.lean
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/RegisterPentagon.lean', 'SAME'), ('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: SIDELvConservation/RegisterPentagon.lean
+names: ['SIDELvConservation.RegisterPentagon.escape_kind_discriminates', 'SIDELvConservation.RegisterPentagon.horizon_kind_shared', 'SIDELvConservation.RegisterPentagon.edge_drift_nonneg', 'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral']
+start 2026-09-29T02:41:10Z
+SIDELvConservation.RegisterPentagon.escape_kind_discriminates : SIDELvConservation.RegisterPentagon.wallEscapeKind
+    SIDELvConservation.RegisterPentagon.Wall.signPositivity ≠
+  SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.derivativeTransversality
+SIDELvConservation.RegisterPentagon.horizon_kind_shared : SIDELvConservation.RegisterPentagon.wallEscapeKind
+    SIDELvConservation.RegisterPentagon.Wall.signPositivity =
+  SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.detectionThreshold
+@SIDELvConservation.RegisterPentagon.edge_drift_nonneg : ∀ {ledger : ℕ → ℝ} {w : ℕ → ℕ → ℝ} {N n : ℕ},
+  (∀ (m : ℕ), 0 ≤ ledger m) → (∀ (m : ℕ), 0 ≤ w m n) → 0 ≤ SIDELvConservation.RegisterPentagon.driftSum ledger w N n
+SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral : ∃ w N n,
+  (∀ (m : ℕ), 0 ≤ w m n) ∧
+    SIDELvConservation.RegisterPentagon.driftSum SIDELvConservation.RegisterPentagon.dhModelLedger w N n < 0
+'SIDELvConservation.RegisterPentagon.escape_kind_discriminates' does not depend on any axioms
+'SIDELvConservation.RegisterPentagon.horizon_kind_shared' does not depend on any axioms
+'SIDELvConservation.RegisterPentagon.edge_drift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 156.3 s
+exit 0

@@ -1,0 +1,17 @@
+SIDE-lv-conservation v0.11.0 = 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23 ; git show v0.11.0:SIDELvConservation/Genus5Confinement.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.Genus5Confinement.golay_confined', 'SIDELvConservation.Genus5Confinement.w16_confined', 'SIDELvConservation.Genus5Confinement.e8_confined']
+start 2026-09-29T01:55:45Z
+SIDELvConservation.Genus5Confinement.golay_confined : SIDELvConservation.Genus5Confinement.Hgolay.roots.card = 5 ∧
+  ∀ r ∈ SIDELvConservation.Genus5Confinement.Hgolay.roots, 0 < r ∧ r < 4
+SIDELvConservation.Genus5Confinement.w16_confined : ∀ (r : ℝ),
+  SIDELvConservation.Genus5Confinement.Hw16.IsRoot r → 0 ≤ r ∧ r ≤ 4
+SIDELvConservation.Genus5Confinement.e8_confined : ∀ (r : ℝ),
+  SIDELvConservation.Genus5Confinement.He8.IsRoot r → 0 ≤ r ∧ r ≤ 4
+'SIDELvConservation.Genus5Confinement.golay_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.Genus5Confinement.w16_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDELvConservation.Genus5Confinement.e8_confined' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 37.4 s
+exit 0

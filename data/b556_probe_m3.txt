@@ -1,0 +1,19 @@
+SIDE-lv-conservation 93c27ec = 93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f ; git show 93c27ec:SIDELvConservation/RegisterPentagon.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing']
+start 2026-09-29T01:41:03Z
+SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip →
+  ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum
+def SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip : Prop :=
+∃ σ, SIDELvConservation.RegisterPentagon.is_xi_zero σ ∧ 0 < σ ∧ σ < 1
+def SIDELvConservation.RegisterPentagon.RealizesXiZeros : (ℕ → ℝ) → Prop :=
+fun spectrum => ∀ (σ : ℝ), SIDELvConservation.RegisterPentagon.is_xi_zero σ → ∃ n, spectrum n = σ
+def SIDELvConservation.RegisterPentagon.certifiedInputSpectrum : ℕ → ℝ :=
+fun n => ↑n ^ 2
+'SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 21.0 s
+exit 0

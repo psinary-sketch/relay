@@ -1,0 +1,44 @@
+SIDE-lv-conservation 1767bd6 = 1767bd64241e8373fc1c100eec33714173540d4d ; git show 1767bd6:SIDELvConservation/DirichletC7Order.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.exists_norm_completedLFunction_le_exp']
+start 2026-09-29T01:36:50Z
+<stdin>:205:18: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+<stdin>:298:25: warning: This simp argument is unused:
+  ZMod.toAddCircle_eq_zero
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵Z̵M̵o̵d̵.̵t̵o̵A̵d̵d̵C̵i̵r̵c̵l̵e̵_̵e̵q̵_̵z̵e̵r̵o̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:434:25: warning: 'push_cast' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+<stdin>:567:18: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+<stdin>:738:25: warning: 'push_cast' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+@SIDELvConservation.exists_norm_completedLFunction_le_exp : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N),
+  χ ≠ 1 → ∃ A C, ∀ (s : ℂ), ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+'SIDELvConservation.exists_norm_completedLFunction_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 104.0 s
+exit 0

@@ -1,0 +1,16 @@
+SIDE-lv-conservation 14720d9 = 14720d9b15acfb12842097b42e0b03468ade97db ; git show 14720d9:SIDELvConservation/CompositionBarrier.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/QWantedPoster.lean', 'SAME'), ('SIDELvConservation/ZeroActingPairing.lean', 'SAME'), ('SIDELvConservation/RegisterPentagon.lean', 'SAME'), ('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.CompositionBarrier.composition_barrier', 'SIDELvConservation.CompositionBarrier.barrier_witnesses']
+start 2026-09-29T01:41:46Z
+SIDELvConservation.CompositionBarrier.composition_barrier : ¬SIDELvConservation.CompositionBarrier.DerivesFromCriterion
+    SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.carrierForm
+SIDELvConservation.CompositionBarrier.barrier_witnesses : SIDELvConservation.CompositionBarrier.diagAgree
+    SIDELvConservation.CompositionBarrier.carrierForm SIDELvConservation.CompositionBarrier.impostorForm ∧
+  SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.carrierForm ∧
+    ¬SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.impostorForm
+'SIDELvConservation.CompositionBarrier.composition_barrier' does not depend on any axioms
+'SIDELvConservation.CompositionBarrier.barrier_witnesses' does not depend on any axioms
+real 18.6 s
+exit 0

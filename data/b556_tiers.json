@@ -1,0 +1,2319 @@
+{
+ "RCURVE": {
+  "rows": [
+   {
+    "line": 349,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "R-curve equivalence: V-monotonicity ⟺ RH (Ch. 2–3)",
+    "names": [
+     "SIDERCurve.monotone_unique_zero",
+     "SIDERCurve.online_zero_codim_one",
+     "SIDERCurve.offline_zero_codim_two"
+    ],
+    "tiers": [
+     "T2",
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-rcurve v0.1.0 = `d5f33b4`",
+    "note": null
+   },
+   {
+    "line": 350,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Derivative-level catalogue — per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives)",
+    "names": [
+     "SIDEDerivative.exactly_c1_derives"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited)",
+    "note": null
+   },
+   {
+    "line": 351,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "C₁ derivative reduction — double zero ⇔ Im ξ′(ρ)=0 on the line",
+    "names": [
+     "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`",
+    "note": null
+   },
+   {
+    "line": 352,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "The joint step — not-double ⇔ transversality (uniform = simplicity)",
+    "names": [
+     "SIDEDerivative.no_onLine_double_iff_transversal"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel branch `derivative-engine` = `27a3ae7`",
+    "note": null
+   },
+   {
+    "line": 353,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Hadamard genus-1 order-input (order ≤ 1 of the completed zeta, Ch. 4)",
+    "names": [
+     "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.4.0 = `0d2d74c`",
+    "note": null
+   },
+   {
+    "line": 354,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "On-line zero-sum nonnegativity (Ch. 4, the \"+ every term\" row)",
+    "names": [
+     "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+    "note": null
+   },
+   {
+    "line": 355,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Finite-range Li positivity (a certificate toward effective dominance)",
+    "names": [
+     "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange"
+    ],
+    "tiers": [
+     "T1-lit"
+    ],
+    "tier": "T1-lit",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+    "note": null
+   },
+   {
+    "line": 356,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Dirichlet L-function order-input (Ch. 8 extension)",
+    "names": [
+     "SIDELvConservation.exists_norm_completedLFunction_le_exp"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.5.0 = `1767bd6`",
+    "note": null
+   },
+   {
+    "line": 357,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Eight-coupling surround at Φ (the certifiable leg of the closure)",
+    "names": [
+     "SIDELvConservation.h1_complete_at_Phi"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.6.0 = `c80bdc2`",
+    "note": null
+   },
+   {
+    "line": 358,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Positivity face → RH (Ch. 5, the Lagarias interface)",
+    "names": [
+     "SIDELvConservation.RegisterPentagon.R4_positivity_to_RH"
+    ],
+    "tiers": [
+     "T1-lit"
+    ],
+    "tier": "T1-lit",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.7.0 = `2d86182`",
+    "note": null
+   },
+   {
+    "line": 359,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Maximal-type growth excluded (brackets Voros's λ_A regime)",
+    "names": [
+     "SIDELvConservation.C7_finite_type_false"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.5.1 = `bc4751e`",
+    "note": null
+   },
+   {
+    "line": 360,
+    "table": "| Claim | Kernel / pin |",
+    "claim": "Effective-dominance closure (exhaustiveness premise `h2`)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none)",
+    "note": null
+   }
+  ],
+  "terms": [
+   {
+    "row": 349,
+    "name": "SIDERCurve.monotone_unique_zero",
+    "probe": "r1",
+    "probe_first": "r1",
+    "pin": "d5f33b4",
+    "found": true,
+    "statement": "@SIDERCurve.monotone_unique_zero : ∀ {V : ℝ → ℝ}, StrictMono V → ∀ {a b : ℝ}, V a = 0 → V b = 0 → a = b",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "a strictly monotone V : ℝ → ℝ vanishes at most once -- one direction over an abstract V; that the objects are the R-curve`s is carried by the identifiers (b540`s reading of `monotone_unique_zero`)",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T2",
+     "b540_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 349,
+    "name": "SIDERCurve.online_zero_codim_one",
+    "probe": "r1",
+    "probe_first": "r1",
+    "pin": "d5f33b4",
+    "found": true,
+    "statement": "SIDERCurve.online_zero_codim_one : SIDERCurve.zero_codim true = 1",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "`zero_codim true = 1` by `rfl` over a function the file defines -- a stipulation",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 349,
+    "name": "SIDERCurve.offline_zero_codim_two",
+    "probe": "r1",
+    "probe_first": "r1",
+    "pin": "d5f33b4",
+    "found": true,
+    "statement": "SIDERCurve.offline_zero_codim_two : SIDERCurve.zero_codim false = 2",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "`zero_codim false = 2` by `rfl` over a function the file defines -- a stipulation",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 350,
+    "name": "SIDEDerivative.exactly_c1_derives",
+    "probe": "kd",
+    "probe_first": "kd",
+    "pin": "27a3ae7",
+    "found": true,
+    "statement": "SIDEDerivative.exactly_c1_derives : (List.filter (fun c => decide (SIDEDerivative.derivGrade c = SIDEDerivative.Grade.derives)) [SIDEDerivative.DerivClass.c1, SIDEDerivative.DerivClass.c2, SIDEDerivative.DerivClass.c3, SIDEDerivative.DerivClass.c4, SIDEDerivative.DerivClass.c5, SIDEDerivative.DerivClass.c6, SIDEDerivative.DerivClass.c7]).length = 1",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "a count over a grade map the file itself defines -- a stipulation (b554)",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T2",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 351,
+    "name": "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero",
+    "probe": "kd",
+    "probe_first": "kd",
+    "pin": "27a3ae7",
+    "found": true,
+    "statement": "@SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero : ∀ {z : ℂ}, z.re = 0 → (z = 0 ↔ z.im = 0)",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: for complex z with Re z = 0, z = 0 ↔ Im z = 0 -- a fact about ℂ (b554)",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 352,
+    "name": "SIDEDerivative.no_onLine_double_iff_transversal",
+    "probe": "kd",
+    "probe_first": "kd",
+    "pin": "27a3ae7",
+    "found": true,
+    "statement": "@SIDEDerivative.no_onLine_double_iff_transversal : ∀ {z : ℂ}, z.re = 0 → (z ≠ 0 ↔ z.im ≠ 0)",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: for complex z with Re z = 0, z ≠ 0 ↔ Im z ≠ 0 -- a fact about ℂ; simplicity is not a hypothesis (b554)",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 353,
+    "name": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
+    "probe": "l1",
+    "probe_first": "l1",
+    "pin": "0d2d74c",
+    "found": true,
+    "statement": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp : ∃ A C, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedRiemannZeta₀`, no premise",
+    "zero": null,
+    "tag": {
+     "probe": "l1t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "I (≤)"
+   },
+   {
+    "row": 354,
+    "name": "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine",
+    "probe": "l2",
+    "probe_first": "l2",
+    "pin": "6efa9e5",
+    "found": true,
+    "statement": "SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine : ∀ (z : SIDELvConservation.PartialPositivity.NontrivialZero) (n : ℕ), (↑z).re = 1 / 2 → 0 ≤ SIDELvConservation.PartialPositivity.blTerm z n",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: 0 ≤ Re[1 − (1 − 1/ρ)^n] at a zero with Re ρ = 1/2 -- a fact about on-line zeros",
+    "zero": "PER-ZERO",
+    "tag": {
+     "probe": "l2t",
+     "pin": "v0.11.0",
+     "identical": false,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 355,
+    "name": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange",
+    "probe": "l2",
+    "probe_first": "l2",
+    "pin": "6efa9e5",
+    "found": true,
+    "statement": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T1-lit",
+    "reason": "INTERFACES on `ExplicitFormulaDecomp` (Bombieri–Lagarias) and `TailBoundPremise` (Voros), literature theorems not compiled, and the numerical `VerifiedZerosTo T` (b540, b554)",
+    "zero": null,
+    "tag": {
+     "probe": "l2t",
+     "pin": "v0.11.0",
+     "identical": false,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T1-lit",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 356,
+    "name": "SIDELvConservation.exists_norm_completedLFunction_le_exp",
+    "probe": "l3",
+    "probe_first": "l3",
+    "pin": "1767bd6",
+    "found": true,
+    "statement": "@SIDELvConservation.exists_norm_completedLFunction_le_exp : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N), χ ≠ 1 → ∃ A C, ∀ (s : ℂ), ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * rexp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the order-≤1 growth of Mathlib`s `completedLFunction`, no premise but χ ≠ 1",
+    "zero": null,
+    "tag": {
+     "probe": "l3t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 357,
+    "name": "SIDELvConservation.h1_complete_at_Phi",
+    "probe": "l4",
+    "probe_first": "l4",
+    "pin": "c80bdc2",
+    "found": true,
+    "statement": "SIDELvConservation.h1_complete_at_Phi : SIDELvConservation.C1_realness SIDELvConservation.Phi ∧ SIDELvConservation.C2_halfplane_nonvanishing SIDELvConservation.Phi ∧ SIDELvConservation.C3_theta_transformation SIDELvConservation.Phi ∧ SIDELvConservation.C4_modularity SIDELvConservation.Phi ∧ SIDELvConservation.C5_input SIDELvConservation.Phi ∧ SIDELvConservation.C6_holomorphic_extension SIDELvConservation.Phi ∧ SIDELvConservation.C7_entirety SIDELvConservation.Phi ∧ SIDELvConservation.C7_order SIDELvConservation.Phi",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the eight coupling facts of lv`s theta-kernel `Phi`, built from Mathlib`s `evenKernel` (b539, b554)",
+    "zero": null,
+    "tag": {
+     "probe": "l4t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 358,
+    "name": "SIDELvConservation.RegisterPentagon.R4_positivity_to_RH",
+    "probe": "l5",
+    "probe_first": "l5",
+    "pin": "2d86182",
+    "found": true,
+    "statement": "@SIDELvConservation.RegisterPentagon.R4_positivity_to_RH : ∀ {lam : ℕ → ℝ}, (SIDELvConservation.RegisterPentagon.Register4_positivity lam → RiemannHypothesis) → SIDELvConservation.RegisterPentagon.Register4_positivity lam → RiemannHypothesis",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T1-lit",
+    "reason": "INTERFACES on Li`s criterion (`Register4_positivity lam → RiemannHypothesis`), a literature theorem not in Mathlib (b540)",
+    "zero": "EXPLICIT",
+    "tag": {
+     "probe": "l5t",
+     "pin": "v0.11.0",
+     "identical": false,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T1-lit",
+     "b540_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 359,
+    "name": "SIDELvConservation.C7_finite_type_false",
+    "probe": "l6",
+    "probe_first": "l6",
+    "pin": "bc4751e",
+    "found": true,
+    "statement": "SIDELvConservation.C7_finite_type_false : ¬∃ C A, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * ‖s‖)",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: ¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C·exp(A‖s‖)",
+    "zero": null,
+    "tag": {
+     "probe": "l6t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "I (≤)"
+   }
+  ],
+  "term_tiers": {
+   "T0": 7,
+   "T1-open": 0,
+   "T1-lit": 2,
+   "T2": 4,
+   "T2-INTERFACES": 0,
+   "T3": 0,
+   "T4": 0
+  },
+  "row_tiers": {
+   "T0": 7,
+   "T1-open": 0,
+   "T1-lit": 2,
+   "T2": 2,
+   "T2-INTERFACES": 0,
+   "T3": 0,
+   "T4": 1
+  },
+  "disp": {
+   "CARRIED": 12,
+   "MOVED": 0
+  }
+ },
+ "INDEX": {
+  "rows": [
+   {
+    "line": 369,
+    "table": "| Claim (as stated here) |",
+    "claim": "§1 — the reduction, RH under the one open premise `h2`",
+    "names": [
+     "ConservationBridge.riemann_hypothesis"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "MOVED",
+    "why": [
+     "(R166)(3)(i): the row calls the terminal \"the reduction\"; its premise is RH restated (E-2026-09-25-1) and the programme`s compiled reduction of RH is `h2_sign_iff_rh`"
+    ],
+    "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+    "note": null
+   },
+   {
+    "line": 370,
+    "table": "| Claim (as stated here) |",
+    "claim": "N1 — finite-type growth form false",
+    "names": [
+     "SIDELvConservation.C7_finite_type_false"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.10.0 = `93c27ec` (version DOI 10.5281/zenodo.21539068; concept 10.5281/zenodo.21433177)",
+    "note": null
+   },
+   {
+    "line": 371,
+    "table": "| Claim (as stated here) |",
+    "claim": "N2 — unrestricted per-class bridge fails",
+    "names": [
+     "SIDELvConservation.T3.T3doubleprime_general_commutation_fails"
+    ],
+    "tiers": [
+     "T0"
+    ],
+    "tier": "T0",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.10.0 = `93c27ec`",
+    "note": null
+   },
+   {
+    "line": 372,
+    "table": "| Claim (as stated here) |",
+    "claim": "N3 — certified input not zero-realizing",
+    "names": [
+     "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing"
+    ],
+    "tiers": [
+     "T1-lit"
+    ],
+    "tier": "T1-lit",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation v0.10.0 = `93c27ec`",
+    "note": null
+   },
+   {
+    "line": 373,
+    "table": "| Claim (as stated here) |",
+    "claim": "N4 — escape-kind invariant (two walls, one form, two escapes)",
+    "names": [
+     "SIDELvConservation.RegisterPentagon.escape_kind_discriminates",
+     "SIDELvConservation.RegisterPentagon.horizon_kind_shared"
+    ],
+    "tiers": [
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation main = `5a14205` (landed 2026-08-02, the ratified pass)",
+    "note": null
+   },
+   {
+    "line": 374,
+    "table": "| Claim (as stated here) |",
+    "claim": "N5 — the derivability barrier",
+    "names": [
+     "InvarianceBarrier.derivability_barrier"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+    "note": null
+   },
+   {
+    "line": 375,
+    "table": "| Claim (as stated here) |",
+    "claim": "N6 — witness architecture with the stipulated datum",
+    "names": [
+     "SieveCeilingWitness.dh_witness"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+    "note": null
+   },
+   {
+    "line": 376,
+    "table": "| Claim (as stated here) |",
+    "claim": "N6 — the located disc −23 off-line zero",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational record)",
+    "note": null
+   },
+   {
+    "line": 377,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — supplier 1, intersection-form positivity over 𝔽_q",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — literature + control)",
+    "note": null
+   },
+   {
+    "line": 378,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — supplier 2, ferromagnetic pair coupling",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — literature + control)",
+    "note": null
+   },
+   {
+    "line": 379,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — supplier 3, the named absence Q",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none)",
+    "note": null
+   },
+   {
+    "line": 380,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the edge reach of single-index positivity",
+    "names": [
+     "SIDELvConservation.RegisterPentagon.edge_drift_nonneg",
+     "SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral"
+    ],
+    "tiers": [
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation (deposited line)",
+    "note": "the row names no commit (\"deposited line\"); read on the release line, main = v0.11.0 = 2f71068, and at 5a14205 where both are present; both are ABSENT at the deposit tag v0.10.0 = 93c27ec (printed)"
+   },
+   {
+    "line": 381,
+    "table": "| Claim (as stated here) |",
+    "claim": "Forward — the data-arity barrier (no transport-sound composition of one-variable data derives the two-variable carrier property)",
+    "names": [
+     "SIDELvConservation.CompositionBarrier.composition_barrier",
+     "SIDELvConservation.CompositionBarrier.barrier_witnesses"
+    ],
+    "tiers": [
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation main = `14720d9` (E-8 landed 2026-08-02)",
+    "note": null
+   },
+   {
+    "line": 382,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — supplier 4's stratum measurements (the 24k ladder certificates; the W₈^m exact failures; the n = 24 matched pair; the pencil knife-edge)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational record)",
+    "note": null
+   },
+   {
+    "line": 383,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the lead law: the certificate's leading coefficient is the square of the zeta polynomial's constant term",
+    "names": [
+     "SIDELvConservation.LeadLaw.lead_law",
+     "SIDELvConservation.FieldLayer.top_coeff_of_expansion",
+     "SIDELvConservation.FieldLayer.norml_top",
+     "SIDELvConservation.LeadLaw.leadingCoeff_hOf"
+    ],
+    "tiers": [
+     "T2",
+     "T2",
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation main = `2f71068` (D-2a landed 2026-08-05)",
+    "note": null
+   },
+   {
+    "line": 384,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 / Forward — the genus ≤ 5 theorem (Type II ⇒ Duursma-RH at genus ≤ 5)",
+    "names": [
+     "SIDELvConservation.Genus5.classification",
+     "SIDELvConservation.Genus5Confinement.golay_confined",
+     "SIDELvConservation.Genus5Confinement.w16_confined",
+     "SIDELvConservation.Genus5Confinement.e8_confined"
+    ],
+    "tiers": [
+     "T2",
+     "T2",
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation main = `2f71068` (D-2b, both units landed 2026-08-05)",
+    "note": null
+   },
+   {
+    "line": 385,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the two-sides balance (one number, two routes)",
+    "names": [
+     "SIDELvConservation.TwoSides.heine_three",
+     "SIDELvConservation.TwoSides.heine_one",
+     "SIDELvConservation.TwoSides.heine_two",
+     "SIDELvConservation.TwoSides.ladder_three",
+     "SIDELvConservation.TwoSides.two_sides_balance"
+    ],
+    "tiers": [
+     "T0",
+     "T0",
+     "T0",
+     "T2",
+     "T0"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-lv-conservation main = `2f71068` (D-2c landed 2026-08-05)",
+    "note": null
+   },
+   {
+    "line": 386,
+    "table": "| Claim (as stated here) |",
+    "claim": "Forward — the Hankel bridge (ξ's moment Hankel forms along the dBN pencil; the flip-depth instrument d(t))",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational record)",
+    "note": null
+   },
+   {
+    "line": 387,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the residue mechanism at instance grade (lead(H) = ε²/const; the flip polynomials; the burial law)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational record)",
+    "note": null
+   },
+   {
+    "line": 388,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the shadow row's constituents",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — literature)",
+    "note": null
+   },
+   {
+    "line": 389,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the lead law (lead(H) = p₀², every self-dual code)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — proof + computational verification)",
+    "note": null
+   },
+   {
+    "line": 390,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the additive law (Ñ₃(0) = −((n+16)/16)·p₀⁴)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational, predictively verified)",
+    "note": null
+   },
+   {
+    "line": 391,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the one-law verdict + the stratum-kind index (five strata; w(56) in-bracket)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational; the out-of-sample window by exact bisection)",
+    "note": null
+   },
+   {
+    "line": 392,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the density/arithmetic decomposition of the string diagonal",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational, control-sourced)",
+    "note": null
+   },
+   {
+    "line": 393,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the sum-rule verdict (the arithmetic as a sum-rule quantity)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational + Szegő/Killip–Simon at cite)",
+    "note": null
+   },
+   {
+    "line": 394,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the two-sides verdict (the finite identity exact; 92% pair-energy)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational; the Heine/Vandermonde identity classical)",
+    "note": null
+   },
+   {
+    "line": 395,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the shape verdicts, K = 64 and K = 200 (INTRINSIC)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — computational; discriminants pre-committed; every stage checkpointed)",
+    "note": null
+   },
+   {
+    "line": 396,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the shape discriminant (lattice 0 · GUE γ−1 · Poisson −log 2π; ζ at −0.26221) and c_ideal(L) = (γ−1)/(log L + γ−1)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "(none — derivation at CONDITIONAL-ON-PAIR-CORRELATION grade + computation)",
+    "note": null
+   },
+   {
+    "line": 397,
+    "table": "| Claim (as stated here) |",
+    "claim": "§3 — the c-sequence rows",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "—",
+    "note": null
+   }
+  ],
+  "terms": [
+   {
+    "row": 369,
+    "name": "ConservationBridge.riemann_hypothesis",
+    "probe": "k1",
+    "probe_first": "k1",
+    "pin": "v1.7",
+    "found": true,
+    "statement": "ConservationBridge.riemann_hypothesis : ConservationBridge.ConservationHypothesis → RiemannHypothesis",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "INTERFACES on `ConservationHypothesis`, which is RH restated (`ch_iff_rh`; E-2026-09-25-1): ENCODES-CONCLUSION (b539-b541)",
+    "zero": "EXPLICIT",
+    "tag": null,
+    "earlier": [
+     "T2",
+     "b539_tiers.json, b540_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 370,
+    "name": "SIDELvConservation.C7_finite_type_false",
+    "probe": "m1",
+    "probe_first": "m1",
+    "pin": "93c27ec",
+    "found": true,
+    "statement": "SIDELvConservation.C7_finite_type_false : ¬∃ C A, ∀ (s : ℂ), ‖completedRiemannZeta₀ s‖ ≤ C * rexp (A * ‖s‖)",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: ¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C·exp(A‖s‖)",
+    "zero": null,
+    "tag": {
+     "probe": "m1t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "I (≤)"
+   },
+   {
+    "row": 371,
+    "name": "SIDELvConservation.T3.T3doubleprime_general_commutation_fails",
+    "probe": "m2",
+    "probe_first": "m2",
+    "pin": "93c27ec",
+    "found": true,
+    "statement": "SIDELvConservation.T3.T3doubleprime_general_commutation_fails : ¬∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: a countermodel against Mathlib`s `mellin` at s = 3 (b554; b545`s T2 superseded at b555)",
+    "zero": null,
+    "tag": {
+     "probe": "m2t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T0",
+     "b554_simp_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 372,
+    "name": "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing",
+    "probe": "m3",
+    "probe_first": "m3",
+    "pin": "93c27ec",
+    "found": true,
+    "statement": "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing : SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip → ¬SIDELvConservation.RegisterPentagon.RealizesXiZeros SIDELvConservation.RegisterPentagon.certifiedInputSpectrum",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T1-lit",
+    "reason": "INTERFACES on its one named classical premise `NontrivialZeroExistsInStrip` (∃ σ, is_xi_zero σ ∧ 0 < σ < 1), a literature theorem (Riemann`s computed zeros; Hardy 1914) not compiled -- the tier follows the premise`s kind (b540)",
+    "zero": "BY-DEFINITION",
+    "tag": {
+     "probe": "m3t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T1-lit",
+     "b540_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 373,
+    "name": "SIDELvConservation.RegisterPentagon.escape_kind_discriminates",
+    "probe": "m4c",
+    "probe_first": "m4",
+    "pin": "5a14205",
+    "found": true,
+    "statement": "SIDELvConservation.RegisterPentagon.escape_kind_discriminates : SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.signPositivity ≠ SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.derivativeTransversality",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "`decide` over an enumeration the file defines (`wallEscapeKind`) -- a stipulation (b549)",
+    "zero": null,
+    "tag": {
+     "probe": "m4t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "does not depend on any axioms"
+    },
+    "earlier": [
+     "T2",
+     "b549_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 373,
+    "name": "SIDELvConservation.RegisterPentagon.horizon_kind_shared",
+    "probe": "m4c",
+    "probe_first": "m4",
+    "pin": "5a14205",
+    "found": true,
+    "statement": "SIDELvConservation.RegisterPentagon.horizon_kind_shared : SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.signPositivity = SIDELvConservation.RegisterPentagon.wallEscapeKind SIDELvConservation.RegisterPentagon.Wall.detectionThreshold",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "`decide` over the same enumeration (b549)",
+    "zero": null,
+    "tag": {
+     "probe": "m4t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "does not depend on any axioms"
+    },
+    "earlier": [
+     "T2",
+     "b549_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 374,
+    "name": "InvarianceBarrier.derivability_barrier",
+    "probe": "k2",
+    "probe_first": "k2",
+    "pin": "v1.7",
+    "found": true,
+    "statement": "@InvarianceBarrier.derivability_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α}, agree x y → ¬P y → ¬InvarianceBarrier.Derives agree P x",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "a general schema over an abstract α with `agree`, `P` and the file`s `Derives` -- logic; the toolkit and Epstein readings are carried by names (the row: no ξ/Epstein instantiation)",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 375,
+    "name": "SieveCeilingWitness.dh_witness",
+    "probe": "k3",
+    "probe_first": "k3",
+    "pin": "v1.7",
+    "found": true,
+    "statement": "SieveCeilingWitness.dh_witness : SieveCeilingSemantic.NonInvarianceWitness SieveCeilingWitness.iIndist SieveCeilingWitness.allOnLine",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "over the file`s `Config`, `iIndist` and `allOnLine`, whose value at `.dh` is the stipulated Davenport–Heilbronn datum",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 380,
+    "name": "SIDELvConservation.RegisterPentagon.edge_drift_nonneg",
+    "probe": "m4c",
+    "probe_first": "m4",
+    "pin": "5a14205",
+    "found": true,
+    "statement": "@SIDELvConservation.RegisterPentagon.edge_drift_nonneg : ∀ {ledger : ℕ → ℝ} {w : ℕ → ℕ → ℝ} {N n : ℕ}, (∀ (m : ℕ), 0 ≤ ledger m) → (∀ (m : ℕ), 0 ≤ w m n) → 0 ≤ SIDELvConservation.RegisterPentagon.driftSum ledger w N n",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": null,
+    "tier": "T2",
+    "reason": "nonnegativity of the file`s `driftSum` for nonnegative ledger and weights -- over an abstract ledger (b549)",
+    "zero": null,
+    "tag": {
+     "probe": "m4t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T2",
+     "b549_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 380,
+    "name": "SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral",
+    "probe": "m4c",
+    "probe_first": "m4",
+    "pin": "5a14205",
+    "found": true,
+    "statement": "SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral : ∃ w N n, (∀ (m : ℕ), 0 ≤ w m n) ∧ SIDELvConservation.RegisterPentagon.driftSum SIDELvConservation.RegisterPentagon.dhModelLedger w N n < 0",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": null,
+    "tier": "T2",
+    "reason": "a negative `driftSum` for the file`s model ledger `dhModelLedger` (b549)",
+    "zero": null,
+    "tag": {
+     "probe": "m4t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "earlier": [
+     "T2",
+     "b549_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 381,
+    "name": "SIDELvConservation.CompositionBarrier.composition_barrier",
+    "probe": "m5",
+    "probe_first": "m5",
+    "pin": "14720d9",
+    "found": true,
+    "statement": "SIDELvConservation.CompositionBarrier.composition_barrier : ¬SIDELvConservation.CompositionBarrier.DerivesFromCriterion SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.carrierForm",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "over the file`s `SymForm` (2×2 forms) and `DerivesFromCriterion` -- the model-level schema the row names",
+    "zero": null,
+    "tag": {
+     "probe": "m5t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "does not depend on any axioms"
+    },
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 381,
+    "name": "SIDELvConservation.CompositionBarrier.barrier_witnesses",
+    "probe": "m5",
+    "probe_first": "m5",
+    "pin": "14720d9",
+    "found": true,
+    "statement": "SIDELvConservation.CompositionBarrier.barrier_witnesses : SIDELvConservation.CompositionBarrier.diagAgree SIDELvConservation.CompositionBarrier.carrierForm SIDELvConservation.CompositionBarrier.impostorForm ∧ SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.carrierForm ∧ ¬SIDELvConservation.CompositionBarrier.IsCarrier SIDELvConservation.CompositionBarrier.impostorForm",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "two explicit `SymForm`s the file defines agree on the diagonal, one a carrier, one not",
+    "zero": null,
+    "tag": {
+     "probe": "m5t",
+     "pin": "v0.11.0",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "does not depend on any axioms"
+    },
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 383,
+    "name": "SIDELvConservation.LeadLaw.lead_law",
+    "probe": "n1",
+    "probe_first": "n1",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "@SIDELvConservation.LeadLaw.lead_law : ∀ {K : Type u_1} [inst : Field K] (s q : K), s ^ 2 = q → s ≠ 0 → ∀ (g : ℕ) (p : ℕ → K), SIDELvConservation.FieldLayer.SelfDualFE q g p → ∀ (c : ℕ → K), SIDELvConservation.FieldLayer.IsExpansion g c (SIDELvConservation.FieldLayer.norml s p) → 1 ≤ g → p 0 ≠ 0 → (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff * (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff = p 0 ^ 2",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "over the file`s `hOf`, `norml` and `IsExpansion` for an arbitrary p with `SelfDualFE q g p` as a hypothesis -- no literature theorem is assumed or applied; that p is a code`s zeta polynomial is carried by the names",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 383,
+    "name": "SIDELvConservation.FieldLayer.top_coeff_of_expansion",
+    "probe": "n1",
+    "probe_first": "n1",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "@SIDELvConservation.FieldLayer.top_coeff_of_expansion : ∀ {K : Type u_1} [inst : Field K] (g : ℕ), 1 ≤ g → ∀ (c pt : ℕ → K), SIDELvConservation.FieldLayer.IsExpansion g c pt → c g = pt (2 * g)",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "the top coefficient of the file`s `IsExpansion` -- over programme-defined objects",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 383,
+    "name": "SIDELvConservation.FieldLayer.norml_top",
+    "probe": "n1",
+    "probe_first": "n1",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "@SIDELvConservation.FieldLayer.norml_top : ∀ {K : Type u_1} [inst : Field K] (s q : K), s ^ 2 = q → s ≠ 0 → ∀ (g : ℕ) (p : ℕ → K), SIDELvConservation.FieldLayer.SelfDualFE q g p → SIDELvConservation.FieldLayer.norml s p (2 * g) = p 0",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "the top normalized coefficient of the file`s `norml` under `SelfDualFE` -- over programme-defined objects",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 383,
+    "name": "SIDELvConservation.LeadLaw.leadingCoeff_hOf",
+    "probe": "n1",
+    "probe_first": "n1",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "@SIDELvConservation.LeadLaw.leadingCoeff_hOf : ∀ {K : Type u_1} [inst : Field K] (g : ℕ) (c : ℕ → K), 1 ≤ g → c g ≠ 0 → (SIDELvConservation.LeadLaw.hOf g c).leadingCoeff = c g",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "Mathlib`s `leadingCoeff` of the file`s `hOf` -- over a programme-defined polynomial",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 384,
+    "name": "SIDELvConservation.Genus5.classification",
+    "probe": "n2",
+    "probe_first": "n2",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.Genus5.classification : ∀ (P : SIDELvConservation.Genus5.TypeIIParams), P.g ≤ 5 → 8 * P.m = 8 ∨ 8 * P.m = 16 ∨ 8 * P.m = 24",
+    "profile": "depends on axioms: [propext, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Quot.sound]",
+    "tier": "T2",
+    "reason": "arithmetic over the file`s structure `TypeIIParams`, whose field `MS` stipulates the Mallows–Sloane bound",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 384,
+    "name": "SIDELvConservation.Genus5Confinement.golay_confined",
+    "probe": "n3",
+    "probe_first": "n3",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.Genus5Confinement.golay_confined : SIDELvConservation.Genus5Confinement.Hgolay.roots.card = 5 ∧ ∀ r ∈ SIDELvConservation.Genus5Confinement.Hgolay.roots, 0 < r ∧ r < 4",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "the roots of an explicit real polynomial the file defines lie in (0, 4); that it is the Golay certificate and that (0, 4) transports to Duursma`s circle (not compiled, the row`s shortfall) are carried by names",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 384,
+    "name": "SIDELvConservation.Genus5Confinement.w16_confined",
+    "probe": "n3",
+    "probe_first": "n3",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.Genus5Confinement.w16_confined : ∀ (r : ℝ), SIDELvConservation.Genus5Confinement.Hw16.IsRoot r → 0 ≤ r ∧ r ≤ 4",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "as `golay_confined`, for the file`s `Hw16`",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 384,
+    "name": "SIDELvConservation.Genus5Confinement.e8_confined",
+    "probe": "n3",
+    "probe_first": "n3",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.Genus5Confinement.e8_confined : ∀ (r : ℝ), SIDELvConservation.Genus5Confinement.He8.IsRoot r → 0 ≤ r ∧ r ≤ 4",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "as `golay_confined`, for the file`s `He8`",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 385,
+    "name": "SIDELvConservation.TwoSides.heine_three",
+    "probe": "n4",
+    "probe_first": "n4",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.TwoSides.heine_three : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3 = w1 * w2 * w3 * ((x1 - x2) * (x1 - x3) * (x2 - x3)) ^ 2",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the Heine/Vandermonde identity at depth 3 as a polynomial identity over ℚ in six free variables -- the spectral side",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 385,
+    "name": "SIDELvConservation.TwoSides.heine_one",
+    "probe": "n4",
+    "probe_first": "n4",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.TwoSides.heine_one : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 = w1 + w2 + w3",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the identity at depth 1 over ℚ",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 385,
+    "name": "SIDELvConservation.TwoSides.heine_two",
+    "probe": "n4",
+    "probe_first": "n4",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.TwoSides.heine_two : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 = w1 * w2 * (x1 - x2) ^ 2 + w1 * w3 * (x1 - x3) ^ 2 + w2 * w3 * (x2 - x3) ^ 2",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the identity at depth 2 over ℚ",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 385,
+    "name": "SIDELvConservation.TwoSides.ladder_three",
+    "probe": "n4",
+    "probe_first": "n4",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.TwoSides.ladder_three : ∀ (w1 w2 w3 x1 x2 x3 : ℚ), SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ≠ 0 → SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 ≠ 0 → SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ^ 3 * (SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 / SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 ^ 2) ^ 2 * (SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3 * SIDELvConservation.TwoSides.D1 w1 w2 w3 x1 x2 x3 / SIDELvConservation.TwoSides.D2 w1 w2 w3 x1 x2 x3 ^ 2) = SIDELvConservation.TwoSides.D3 w1 w2 w3 x1 x2 x3",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "restates the Hankel-ratio definition, closed by `field_simp` -- no second route (the row`s own words)",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 385,
+    "name": "SIDELvConservation.TwoSides.two_sides_balance",
+    "probe": "n4",
+    "probe_first": "n4",
+    "pin": "v0.11.0",
+    "found": true,
+    "statement": "SIDELvConservation.TwoSides.two_sides_balance : SIDELvConservation.TwoSides.D3 1 2 3 0 1 2 = 1 * 2 * 3 * ((0 - 1) * (0 - 2) * (1 - 2)) ^ 2 ∧ SIDELvConservation.TwoSides.D3 1 2 3 0 1 2 ≠ 0",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T0",
+    "reason": "T0, not RH-anchor: the depth-3 identity at an explicit rational measure, the value non-zero -- a computation over ℚ",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   }
+  ],
+  "term_tiers": {
+   "T0": 6,
+   "T1-open": 0,
+   "T1-lit": 1,
+   "T2": 18,
+   "T2-INTERFACES": 0,
+   "T3": 0,
+   "T4": 0
+  },
+  "row_tiers": {
+   "T0": 2,
+   "T1-open": 0,
+   "T1-lit": 1,
+   "T2": 9,
+   "T2-INTERFACES": 0,
+   "T3": 0,
+   "T4": 17
+  },
+  "disp": {
+   "CARRIED": 28,
+   "MOVED": 1
+  }
+ },
+ "AMC": {
+  "rows": [
+   {
+    "line": 408,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "Finite-modulus no-conspiracy (CRT exhaustiveness)",
+    "names": [
+     "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+     "SIDEEffects.Phase15.Module1.crt_exhaustiveness"
+    ],
+    "tiers": [
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-effects (`c66f3c5`)",
+    "note": "the kernel cell names c66f3c5; the profile cell says the profile was run at a27415d, and the row is compared there; c66f3c5 printed beside it"
+   },
+   {
+    "line": 409,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "The general exclusion lemma",
+    "names": [
+     "AddMult.no_type_d"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-effects (`c66f3c5`)",
+    "note": null
+   },
+   {
+    "line": 410,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "Per-conjecture instantiations",
+    "names": [
+     "AddMult.no_conspiracy_twins",
+     "AddMult.no_conspiracy_goldbach",
+     "AddMult.no_conspiracy_sg"
+    ],
+    "tiers": [
+     "T2",
+     "T2",
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-effects (`c66f3c5`)",
+    "note": null
+   },
+   {
+    "line": 411,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "M3 — twin primes infinitude",
+    "names": [
+     "AddMult.twin_primes_infinite"
+    ],
+    "tiers": [
+     "T4"
+    ],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-effects (`c66f3c5`)",
+    "note": null
+   },
+   {
+    "line": 412,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "M4 — Goldbach",
+    "names": [
+     "AddMult.goldbach"
+    ],
+    "tiers": [
+     "T4"
+    ],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-effects (`c66f3c5`)",
+    "note": null
+   },
+   {
+    "line": 413,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "M5 — Sophie Germain infinitude",
+    "names": [
+     "AddMult.sophie_germain_infinite"
+    ],
+    "tiers": [
+     "T4"
+    ],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-effects (`c66f3c5`)",
+    "note": null
+   },
+   {
+    "line": 414,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "Mechanism Theorem (logical engine)",
+    "names": [
+     "ECondition.type_I_has_ostrowski"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel v1.2",
+    "note": null
+   },
+   {
+    "line": 415,
+    "table": "| Claim | Kernel | Theorem",
+    "claim": "Universal Silence",
+    "names": [
+     "SilenceTheorem.silence_universal"
+    ],
+    "tiers": [
+     "T2-INTERFACES"
+    ],
+    "tier": "T2-INTERFACES",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "SIDE-kernel v1.2",
+    "note": null
+   },
+   {
+    "line": 446,
+    "table": "| claim | kernel |",
+    "claim": "### **the finite-modulus no-conspiracy** (§I)",
+    "names": [
+     "SIDEEffects.Phase15.Module1.no_type_d_conspiracies"
+    ],
+    "tiers": [
+     "T2"
+    ],
+    "tier": "T2",
+    "disp": "MOVED",
+    "why": [
+     "no_type_d_conspiracies: fresh profile depends on axioms: [propext, sorryAx, Quot.sound] against the row`s does not depend on any axioms"
+    ],
+    "kernel": "### **`SIDE-effects`**, pin `c66f3c5`, branch ### **`w-ladder-skeleton`** *(recorded 2026-08-12; the corpus had never named the branch)*",
+    "note": null
+   },
+   {
+    "line": 447,
+    "table": "| claim | kernel |",
+    "claim": "**twin primes** (§II) — full statement",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "### **NONE**",
+    "note": null
+   },
+   {
+    "line": 448,
+    "table": "| claim | kernel |",
+    "claim": "**Goldbach** (§III) — full statement",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "### **NONE**",
+    "note": null
+   },
+   {
+    "line": 449,
+    "table": "| claim | kernel |",
+    "claim": "**Sophie Germain** (§IV) — full statement",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "### **NONE**",
+    "note": null
+   },
+   {
+    "line": 450,
+    "table": "| claim | kernel |",
+    "claim": "**the Type I/II/III + Type-D classification** (§I)",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "### **NONE**",
+    "note": null
+   },
+   {
+    "line": 451,
+    "table": "| claim | kernel |",
+    "claim": "### **`no_conspiracy` kernelization**",
+    "names": [],
+    "tiers": [],
+    "tier": "T4",
+    "disp": "CARRIED",
+    "why": [],
+    "kernel": "### **NONE — OPEN**",
+    "note": null
+   }
+  ],
+  "terms": [
+   {
+    "row": 408,
+    "name": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+    "probe": "e1",
+    "probe_first": "e1",
+    "pin": "a27415d",
+    "found": true,
+    "statement": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "the ferry`s criterion ((R166) COMPONENT 4): `IsEmpty TypeD`, TypeD a programme-defined type over `StructuralCoupling` -- not over Mathlib types; b555 banked T0, the difference flagged for the author",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T0",
+     "b555_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 408,
+    "name": "SIDEEffects.Phase15.Module1.crt_exhaustiveness",
+    "probe": "e1",
+    "probe_first": "e1",
+    "pin": "a27415d",
+    "found": true,
+    "statement": "SIDEEffects.Phase15.Module1.crt_exhaustiveness : ∀ (sc : SIDEEffects.Phase15.Module1.StructuralCoupling), ∃ m, ∀ (n : ℕ), sc.eval n ↔ m.eval n",
+    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "tier": "T2",
+    "reason": "the ferry`s criterion: bound variables range over the programme types `StructuralCoupling` and `ModularCoupling`; the content, per b433, is the periodic lift at the coupling`s own modulus; b555 banked T0, the difference flagged for the author",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T0",
+     "b555_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 409,
+    "name": "AddMult.no_type_d",
+    "probe": "e3",
+    "probe_first": "e3",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.no_type_d : ∀ (α : Type) (coupling modular : α → Prop), (∀ (a : α), coupling a → modular a) → ¬AddMult.TypeD α coupling modular",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "a propositional schema over an arbitrary α with `coupling`, `modular` -- logic whose weight is its hypothesis",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 410,
+    "name": "AddMult.no_conspiracy_twins",
+    "probe": "e3",
+    "probe_first": "e3",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.no_conspiracy_twins : ¬AddMult.TwinFinite",
+    "profile": "does not depend on any axioms",
+    "row_profile": null,
+    "tier": "T2",
+    "reason": "SHELL: `TypeD Nat (fun _ => True) (fun _ => True)` refuted -- uniformly-True predicates",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 410,
+    "name": "AddMult.no_conspiracy_goldbach",
+    "probe": "e3",
+    "probe_first": "e3",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.no_conspiracy_goldbach : ¬AddMult.GoldbachFails",
+    "profile": "does not depend on any axioms",
+    "row_profile": null,
+    "tier": "T2",
+    "reason": "SHELL: as `no_conspiracy_twins`",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 410,
+    "name": "AddMult.no_conspiracy_sg",
+    "probe": "e3",
+    "probe_first": "e3",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.no_conspiracy_sg : ¬AddMult.SGFinite",
+    "profile": "does not depend on any axioms",
+    "row_profile": null,
+    "tier": "T2",
+    "reason": "SHELL: as `no_conspiracy_twins`",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 411,
+    "name": "AddMult.twin_primes_infinite",
+    "probe": "e4",
+    "probe_first": "e4",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.twin_primes_infinite : ¬∃ N, ∀ (p : ℕ), p > N → ¬(Nat.Prime p ∧ Nat.Prime (p + 2))",
+    "profile": "depends on axioms: [propext, sorryAx]",
+    "row_profile": "SORRY",
+    "tier": "T4",
+    "reason": "proved by `sorry` (sorryAx): the statement, over Mathlib`s `Nat.Prime`, is the open conjecture itself; it establishes nothing",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 412,
+    "name": "AddMult.goldbach",
+    "probe": "e4",
+    "probe_first": "e4",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.goldbach : ∀ (n : ℕ), n ≥ 4 → (∃ k, n = 2 * k) → ∃ p q, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n",
+    "profile": "depends on axioms: [propext, sorryAx]",
+    "row_profile": "SORRY",
+    "tier": "T4",
+    "reason": "proved by `sorry` (sorryAx): the statement is binary Goldbach itself",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 413,
+    "name": "AddMult.sophie_germain_infinite",
+    "probe": "e4",
+    "probe_first": "e4",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "AddMult.sophie_germain_infinite : ¬∃ N, ∀ (p : ℕ), p > N → ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))",
+    "profile": "depends on axioms: [propext, sorryAx]",
+    "row_profile": "SORRY",
+    "tier": "T4",
+    "reason": "proved by `sorry` (sorryAx): the statement is the Sophie Germain conjecture itself",
+    "zero": null,
+    "tag": null,
+    "earlier": null,
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 414,
+    "name": "ECondition.type_I_has_ostrowski",
+    "probe": "k6",
+    "probe_first": "k6",
+    "pin": "v1.2",
+    "found": true,
+    "statement": "ECondition.type_I_has_ostrowski : ∀ (Domain : Type) [Fintype Domain] (target : Prop) (produces : Domain → Prop), (∀ (d : Domain), ¬produces d) → (target → ∃ d, produces d) → ¬target",
+    "profile": "depends on axioms: [propext, Quot.sound]",
+    "row_profile": "depends on axioms: [propext, Quot.sound]",
+    "tier": "T2",
+    "reason": "modus tollens over an abstract `Domain` whose `[Fintype Domain]` is never used -- logic alone (b539, b555)",
+    "zero": null,
+    "tag": {
+     "probe": "k6t",
+     "pin": "v1.7",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "depends on axioms: [propext, Quot.sound]"
+    },
+    "earlier": [
+     "T2",
+     "b555_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 415,
+    "name": "SilenceTheorem.silence_universal",
+    "probe": "k7",
+    "probe_first": "k7",
+    "pin": "v1.2",
+    "found": true,
+    "statement": "@SilenceTheorem.silence_universal : ∀ {C : SilenceTheorem.ConfigurationSpace} {R : Type} (I : SilenceTheorem.Interface C R), I.is_universal → I.kappa_zero",
+    "profile": "does not depend on any axioms",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2-INTERFACES",
+    "reason": "INTERFACES on `I.is_universal`, a programme structure`s property the manuscript asserts ((R165)(3); b555)",
+    "zero": null,
+    "tag": {
+     "probe": "k7t",
+     "pin": "v1.7",
+     "identical": true,
+     "found": true,
+     "same_statement": true,
+     "profile": "does not depend on any axioms"
+    },
+    "earlier": [
+     "T2-INTERFACES",
+     "b555_tiers.json"
+    ],
+    "moved": [],
+    "unused": [],
+    "ei": "not indexed"
+   },
+   {
+    "row": 446,
+    "name": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies",
+    "probe": "e2",
+    "probe_first": "e2",
+    "pin": "c66f3c5",
+    "found": true,
+    "statement": "SIDEEffects.Phase15.Module1.no_type_d_conspiracies : IsEmpty SIDEEffects.Phase15.Module1.TypeD",
+    "profile": "depends on axioms: [propext, sorryAx, Quot.sound]",
+    "row_profile": "does not depend on any axioms",
+    "tier": "T2",
+    "reason": "the ferry`s criterion ((R166) COMPONENT 4): `IsEmpty TypeD`, TypeD a programme-defined type over `StructuralCoupling` -- not over Mathlib types; b555 banked T0, the difference flagged for the author",
+    "zero": null,
+    "tag": null,
+    "earlier": [
+     "T0",
+     "b555_tiers.json"
+    ],
+    "moved": [
+     "fresh profile depends on axioms: [propext, sorryAx, Quot.sound] against the row`s does not depend on any axioms"
+    ],
+    "unused": [],
+    "ei": "not indexed"
+   }
+  ],
+  "term_tiers": {
+   "T0": 0,
+   "T1-open": 0,
+   "T1-lit": 0,
+   "T2": 8,
+   "T2-INTERFACES": 1,
+   "T3": 0,
+   "T4": 3
+  },
+  "row_tiers": {
+   "T0": 0,
+   "T1-open": 0,
+   "T1-lit": 0,
+   "T2": 5,
+   "T2-INTERFACES": 1,
+   "T3": 0,
+   "T4": 8
+  },
+  "disp": {
+   "CARRIED": 13,
+   "MOVED": 1
+  }
+ },
+ "unused_all": [],
+ "probes": {
+  "r1": {
+   "exit": 0,
+   "seconds": 1458.5,
+   "errors": 0,
+   "identical_to": null
+  },
+  "kd": {
+   "exit": 0,
+   "seconds": 460.1,
+   "errors": 0,
+   "identical_to": null
+  },
+  "k6": {
+   "exit": 0,
+   "seconds": 21.3,
+   "errors": 0,
+   "identical_to": null
+  },
+  "k6t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "k6"
+  },
+  "k2": {
+   "exit": 0,
+   "seconds": 3.5,
+   "errors": 0,
+   "identical_to": null
+  },
+  "k3": {
+   "exit": 0,
+   "seconds": 3.1,
+   "errors": 0,
+   "identical_to": null
+  },
+  "k1": {
+   "exit": 0,
+   "seconds": 515.4,
+   "errors": 0,
+   "identical_to": null
+  },
+  "k7": {
+   "exit": 0,
+   "seconds": 12.3,
+   "errors": 0,
+   "identical_to": null
+  },
+  "k7t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "k7"
+  },
+  "l1": {
+   "exit": 0,
+   "seconds": 700.7,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l1t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "l1"
+  },
+  "l2": {
+   "exit": 0,
+   "seconds": 39.6,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l2t": {
+   "exit": 0,
+   "seconds": 25.0,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l3": {
+   "exit": 0,
+   "seconds": 104.0,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l3t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "l3"
+  },
+  "l4": {
+   "exit": 0,
+   "seconds": 28.8,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l4t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "l4"
+  },
+  "l5": {
+   "exit": 0,
+   "seconds": 21.6,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l5t": {
+   "exit": 0,
+   "seconds": 21.2,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l6": {
+   "exit": 0,
+   "seconds": 25.7,
+   "errors": 0,
+   "identical_to": null
+  },
+  "m1": {
+   "exit": 0,
+   "seconds": 24.8,
+   "errors": 0,
+   "identical_to": null
+  },
+  "m1t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "m1"
+  },
+  "m2": {
+   "exit": 0,
+   "seconds": 21.1,
+   "errors": 0,
+   "identical_to": null
+  },
+  "m2t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "m2"
+  },
+  "m3": {
+   "exit": 0,
+   "seconds": 21.0,
+   "errors": 0,
+   "identical_to": null
+  },
+  "m3t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "m3"
+  },
+  "m4": {
+   "exit": 1,
+   "seconds": 19.9,
+   "errors": 17,
+   "identical_to": null
+  },
+  "m4t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "m4"
+  },
+  "m5": {
+   "exit": 0,
+   "seconds": 18.6,
+   "errors": 0,
+   "identical_to": null
+  },
+  "m5t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "m5"
+  },
+  "n1": {
+   "exit": 0,
+   "seconds": 788.7,
+   "errors": 0,
+   "identical_to": null
+  },
+  "n2": {
+   "exit": 0,
+   "seconds": 30.0,
+   "errors": 0,
+   "identical_to": null
+  },
+  "n3": {
+   "exit": 0,
+   "seconds": 37.4,
+   "errors": 0,
+   "identical_to": null
+  },
+  "n4": {
+   "exit": 0,
+   "seconds": 30.7,
+   "errors": 0,
+   "identical_to": null
+  },
+  "e3": {
+   "exit": 0,
+   "seconds": 64.3,
+   "errors": 0,
+   "identical_to": null
+  },
+  "e4": {
+   "exit": 0,
+   "seconds": 373.8,
+   "errors": 0,
+   "identical_to": null
+  },
+  "e5": {
+   "exit": 0,
+   "seconds": 12.2,
+   "errors": 0,
+   "identical_to": null
+  },
+  "e1": {
+   "exit": 0,
+   "seconds": 1543.7,
+   "errors": 0,
+   "identical_to": null
+  },
+  "e2": {
+   "exit": 0,
+   "seconds": 13.8,
+   "errors": 0,
+   "identical_to": null
+  },
+  "l6t": {
+   "exit": null,
+   "seconds": 0,
+   "errors": 0,
+   "identical_to": "l6"
+  },
+  "m4b": {
+   "exit": 143,
+   "seconds": 590.0,
+   "errors": 0,
+   "identical_to": null
+  },
+  "m4c": {
+   "exit": 0,
+   "seconds": 156.3,
+   "errors": 0,
+   "identical_to": null
+  }
+ }
+}

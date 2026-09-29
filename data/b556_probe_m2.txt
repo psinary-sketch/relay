@@ -1,0 +1,14 @@
+SIDE-lv-conservation 93c27ec = 93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f ; git show 93c27ec:SIDELvConservation/T3_StepNineBridge.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.T3.T3doubleprime_general_commutation_fails']
+start 2026-09-29T01:40:41Z
+<stdin>:92:8: warning: declaration uses `sorry`
+SIDELvConservation.T3.T3doubleprime_general_commutation_fails : ¬∀ (𝒞 : Set SIDELvConservation.T3.Coupling) (s : ℂ),
+    (∀ C ∈ 𝒞, ∃ Φ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 21.1 s
+exit 0

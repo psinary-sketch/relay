@@ -1,0 +1,11 @@
+SIDE-kernel v1.7 = 2957e7d67d367316e427cd801e08502448151691 ; git show v1.7:Kernel/Cascade/InvarianceBarrier.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['InvarianceBarrier.derivability_barrier']
+start 2026-09-29T01:15:06Z
+@InvarianceBarrier.derivability_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α},
+  agree x y → ¬P y → ¬InvarianceBarrier.Derives agree P x
+'InvarianceBarrier.derivability_barrier' does not depend on any axioms
+real 3.5 s
+exit 0
