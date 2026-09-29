@@ -1,0 +1,156 @@
+b563 -- READING (5): PART D3 -- (d) (D3`) -- the bound |Re H_δ(ρ)| <= C(n)/‖ρ‖², uniform in δ in (0, 1]: (d1) the cosine form, (d2) the jump side, (d3) the left edge, the assembly
+
+### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+
+### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+    (d1) ### symD3a_1 -- exit 0, elapsed 25 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+    (d2) ### symD3b_1 -- exit 1, elapsed 37 s, errors 20 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 20
+        | <stdin>:285:4: error: `field_simp` made no progress on the goal
+        | <stdin>:290:4: error: `field_simp` made no progress on the goal
+        | <stdin>:305:51: error: expected token
+        | <stdin>:320:2: error: `ring_nf` made no progress on the goal
+        | <stdin>:323:44: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+        | <stdin>:322:79: error: unsolved goals
+        | <stdin>:330:52: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+        | <stdin>:329:81: error: unsolved goals
+        | <stdin>:339:52: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+        | <stdin>:341:66: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+        | <stdin>:343:65: error: Application type mismatch: The argument
+        | <stdin>:422:91: error: linarith failed to find a contradiction
+        | <stdin>:423:4: error: linarith failed to find a contradiction
+        | <stdin>:460:4: error: `ring_nf` made no progress on the goal
+        | <stdin>:464:4: error: `ring_nf` made no progress on the goal
+        | <stdin>:468:4: error: `simp` made no progress
+        | <stdin>:474:4: error: `simp` made no progress
+        | <stdin>:479:52: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+        | <stdin>:495:35: error: No goals to be solved
+        | <stdin>:504:20: error(lean.unknownIdentifier): Unknown identifier `Ι`
+    (d2) ### symD3b_2 -- exit 1, elapsed 35 s, errors 5 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 5
+        | <stdin>:331:23: error: unsolved goals
+        | <stdin>:372:41: error: Application type mismatch: The argument
+        | <stdin>:461:25: error: unsolved goals
+        | <stdin>:465:25: error: unsolved goals
+        | <stdin>:522:80: error: Application type mismatch: The argument
+    (d2) ### symD3b_3 -- exit 0, elapsed 31 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+    (d3) ### symD3c_1 -- exit 1, elapsed 34 s, errors 2 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 2
+        | <stdin>:576:2: error: `simp` made no progress
+        | <stdin>:651:6: error: No goals to be solved
+    (d3) ### symD3c_2 -- exit 1, elapsed 35 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 1
+        | <stdin>:580:2: error: No goals to be solved
+    (d3) ### symD3c_3 -- exit 0, elapsed 32 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+    the assembly ### symD3d_1 -- exit 1, elapsed 32 s, errors 3 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 3
+        | <stdin>:965:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+        | <stdin>:999:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+        | <stdin>:1053:78: error(lean.unknownIdentifier): Unknown identifier `integral_comp_neg`
+    the assembly ### symD3d_2 -- exit 0, elapsed 32 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+      244 | def SymPairBound (n : ℕ) : Prop :=
+      245 |   ∃ C : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ∀ ρ : ℂ, 1 ≤ |ρ.im| → 0 < ρ.re → ρ.re < 1 →
+      246 |     |(paperFT (symMember n δ) (gammaOf ρ)).re| ≤ C / ‖ρ‖ ^ 2
+      249 | theorem symMember_integrand_exp (n : ℕ) (δ : ℝ) (ρ : ℂ) (u : ℝ) :
+      250 |     symMember n δ u * cexp (Complex.I * gammaOf ρ * u) = ((symCut δ u * blPoly n u : ℝ) : ℂ) * cexp (ρ * u) := by
+      265 | theorem symMember_transform_re (n : ℕ) {δ : ℝ} (hδ : 0 < δ) (ρ : ℂ) :
+      266 |     (paperFT (symMember n δ) (gammaOf ρ)).re
+      267 |       = ∫ u : ℝ, symCut δ u * blPoly n u * (Real.exp (ρ.re * u) * Real.cos (ρ.im * u)) := by
+      283 | theorem integral_mul_cos_ibp {k k' k'' : ℝ → ℝ} (a γ : ℝ) (hγ : γ ≠ 0)
+      284 |     (hk : ∀ x, HasDerivAt k (k' x) x) (hk' : ∀ x, HasDerivAt k' (k'' x) x) (hc : Continuous k'') :
+      285 |     ∫ u in (0 : ℝ)..a, k u * Real.cos (γ * u)
+      286 |       = k a * (Real.sin (γ * a) / γ) + (k' a * Real.cos (γ * a) - k' 0) / γ ^ 2
+      287 |         - (∫ u in (0 : ℝ)..a, k'' u * Real.cos (γ * u)) / γ ^ 2 := by
+      311 | theorem blPoly_contDiff_infty (n : ℕ) : ContDiff ℝ ∞ (blPoly n) := by
+      316 | def qf (n : ℕ) (β u : ℝ) : ℝ := blPoly n u * Real.exp (β * u)
+      318 | def qf1 (n : ℕ) (β u : ℝ) : ℝ := (deriv (blPoly n) u + β * blPoly n u) * Real.exp (β * u)
+      320 | def qf2 (n : ℕ) (β u : ℝ) : ℝ :=
+      321 |   (deriv (deriv (blPoly n)) u + 2 * β * deriv (blPoly n) u + β ^ 2 * blPoly n u) * Real.exp (β * u)
+      323 | theorem exp_mul_hasDerivAt (β x : ℝ) : HasDerivAt (fun u => Real.exp (β * u)) (β * Real.exp (β * x)) x := by
+      327 | theorem qf_hasDerivAt (n : ℕ) (β x : ℝ) : HasDerivAt (qf n β) (qf1 n β x) x := by
+      333 | theorem qf1_hasDerivAt (n : ℕ) (β x : ℝ) : HasDerivAt (qf1 n β) (qf2 n β x) x := by
+      340 | theorem qf_bounds (n : ℕ) : ∃ K : ℝ, 0 ≤ K ∧ ∀ β : ℝ, 0 ≤ β → β ≤ 1 → ∀ x ∈ Icc (-1 : ℝ) 1,
+      341 |     |qf1 n β x| ≤ K ∧ |qf2 n β x| ≤ K := by
+      388 | def wf (δ u : ℝ) : ℝ := Real.smoothTransition (1 / 2 - u / δ)
+      390 | def wf1 (δ u : ℝ) : ℝ := deriv Real.smoothTransition (1 / 2 - u / δ) * (-(1 / δ))
+      392 | def wf2 (δ u : ℝ) : ℝ := deriv (deriv Real.smoothTransition) (1 / 2 - u / δ) * (-(1 / δ)) * (-(1 / δ))
+      394 | theorem wf_hasDerivAt (δ x : ℝ) : HasDerivAt (wf δ) (wf1 δ x) x := by
+      398 | theorem wf1_hasDerivAt (δ x : ℝ) : HasDerivAt (wf1 δ) (wf2 δ x) x := by
+      406 | theorem jump_cos_bound (n : ℕ) : ∃ C : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ∀ β : ℝ, 0 ≤ β → β ≤ 1 → ∀ γ : ℝ, γ ≠ 0 →
+      407 |     |∫ u in (0 : ℝ)..(δ / 2), wf δ u * (qf n β u - qf n β (-u)) * Real.cos (γ * u)| ≤ C / γ ^ 2 := by
+      560 | theorem integral_mul_cexp_ibp {g : ℝ → ℂ} (hg : ContDiff ℝ ∞ g) (hs : HasCompactSupport g) {τ : ℂ} (hτ : τ ≠ 0) :
+      561 |     ∫ v : ℝ, g v * cexp (τ * v) = (-1 / τ) * ∫ v : ℝ, deriv g v * cexp (τ * v) := by
+      583 | theorem integral_mul_cexp_ibp_iter {g : ℝ → ℂ} (hg : ContDiff ℝ ∞ g) (hs : HasCompactSupport g) {τ : ℂ} (hτ : τ ≠ 0) :
+      584 |     ∀ m : ℕ, ∫ v : ℝ, g v * cexp (τ * v) = (-1 / τ) ^ m * ∫ v : ℝ, iteratedDeriv m g v * cexp (τ * v) := by
+      599 | def edgeProfile (j : ℕ) (v : ℝ) : ℂ := ((deriv Real.smoothTransition (v + 2) * v ^ j : ℝ) : ℂ)
+      601 | theorem deriv_smoothTransition_eq_zero {x : ℝ} (hx : x < 0 ∨ 1 < x) : deriv Real.smoothTransition x = 0 := by
+      612 | theorem edgeProfile_contDiff (j : ℕ) : ContDiff ℝ ∞ (edgeProfile j) := by
+      617 | theorem edgeProfile_eq_zero (j : ℕ) {v : ℝ} (hv : v < -2 ∨ -1 < v) : edgeProfile j v = 0 := by
+      622 | theorem edgeProfile_hasCompactSupport (j : ℕ) : HasCompactSupport (edgeProfile j) := by
+      628 | theorem edgeProfile_bound (j m : ℕ) : ∃ A : ℝ, ∀ τ : ℂ, 0 ≤ τ.re → τ ≠ 0 →
+      629 |     ‖∫ v : ℝ, edgeProfile j v * cexp (τ * v)‖ ≤ A / ‖τ‖ ^ m := by
+      666 | theorem integrable_cut_pow_cexp {h : ℝ → ℝ} (hc : Continuous h) (h1 : ∀ u, |h u| ≤ 1) (h0 : ∀ u, 0 ≤ u → h u = 0)
+      667 |     (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) : Integrable (fun u : ℝ => ((h u * u ^ j : ℝ) : ℂ) * cexp (τ * u)) := by
+      687 | def edgeTail (j : ℕ) (v : ℝ) : ℂ := (((Real.smoothTransition (v + 2) - 1) * v ^ j : ℝ) : ℂ)
+      689 | theorem edgeCut_abs (v : ℝ) : |Real.smoothTransition (v + 2) - 1| ≤ 1 := by
+      693 | theorem edgeTail_integrable (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) : Integrable (fun v : ℝ => edgeTail j v * cexp (τ * v)) :=
+      697 | theorem edgeTail_hasDerivAt (j : ℕ) (v : ℝ) :
+      698 |     HasDerivAt (edgeTail j) (edgeProfile j v + (j : ℂ) * (((Real.smoothTransition (v + 2) - 1) * v ^ (j - 1) : ℝ) : ℂ)) v := by
+      709 | theorem edgeTail_ibp (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) :
+      710 |     ∫ v : ℝ, edgeTail j v * cexp (τ * v)
+      711 |       = (-1 / τ) * ∫ v : ℝ, (edgeProfile j v + (j : ℂ) * (((Real.smoothTransition (v + 2) - 1) * v ^ (j - 1) : ℝ) : ℂ))
+      712 |           * cexp (τ * v) := by
+      762 | theorem edgeTail_bound (j : ℕ) : ∃ B : ℝ, 0 ≤ B ∧ ∀ τ : ℂ, 0 < τ.re → ‖∫ v : ℝ, edgeTail j v * cexp (τ * v)‖ ≤ B / ‖τ‖ ^ (j + 2) := by
+      817 | theorem left_edge_bound (n : ℕ) : ∃ C : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ∀ ρ : ℂ, 0 < ρ.re → 1 ≤ ‖ρ‖ →
+      818 |     ‖∫ u : ℝ, (((Real.smoothTransition (δ * u + 2) - 1) * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)‖ ≤ C / ‖ρ‖ ^ 2 := by
+      890 | def jumpInd (u : ℝ) : ℝ := if u < 0 then 1 else 0
+      894 | theorem symCut_split {δ : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1) (u : ℝ) :
+      895 |     symCut δ u = jumpInd u + (wf δ u - jumpInd u) + (Real.smoothTransition (δ * u + 2) - 1) := by
+      908 | theorem wf_neg (δ u : ℝ) : wf δ (-u) = 1 - wf δ u := by
+      914 | theorem wf_eq_zero {δ u : ℝ} (hδ : 0 < δ) (hu : δ / 2 ≤ u) : wf δ u = 0 := by
+      920 | theorem re_ofReal_mul_cexp (r : ℝ) (ρ : ℂ) (u : ℝ) :
+      921 |     ((r : ℂ) * cexp (ρ * u)).re = r * (Real.exp (ρ.re * u) * Real.cos (ρ.im * u)) := by
+      926 | theorem leftEdge_integrable (n : ℕ) {δ : ℝ} (hδ : 0 < δ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+      927 |     Integrable (fun u : ℝ => (((Real.smoothTransition (δ * u + 2) - 1) * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) := by
+      944 | theorem symPair_bound (n : ℕ) : SymPairBound n := by
+
+### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+    SymPairBound                       ['propext', 'Classical.choice', 'Quot.sound']
+    symMember_integrand_exp            ['propext', 'Classical.choice', 'Quot.sound']
+    symMember_transform_re             ['propext', 'Classical.choice', 'Quot.sound']
+    integral_mul_cos_ibp               ['propext', 'Classical.choice', 'Quot.sound']
+    blPoly_contDiff_infty              ['propext', 'Classical.choice', 'Quot.sound']
+    qf                                 ['propext', 'Classical.choice', 'Quot.sound']
+    qf1                                ['propext', 'Classical.choice', 'Quot.sound']
+    qf2                                ['propext', 'Classical.choice', 'Quot.sound']
+    exp_mul_hasDerivAt                 ['propext', 'Classical.choice', 'Quot.sound']
+    qf_hasDerivAt                      ['propext', 'Classical.choice', 'Quot.sound']
+    qf1_hasDerivAt                     ['propext', 'Classical.choice', 'Quot.sound']
+    qf_bounds                          ['propext', 'Classical.choice', 'Quot.sound']
+    wf                                 ['propext', 'Classical.choice', 'Quot.sound']
+    wf1                                ['propext', 'Classical.choice', 'Quot.sound']
+    wf2                                ['propext', 'Classical.choice', 'Quot.sound']
+    wf_hasDerivAt                      ['propext', 'Classical.choice', 'Quot.sound']
+    wf1_hasDerivAt                     ['propext', 'Classical.choice', 'Quot.sound']
+    jump_cos_bound                     ['propext', 'Classical.choice', 'Quot.sound']
+    integral_mul_cexp_ibp              ['propext', 'Classical.choice', 'Quot.sound']
+    integral_mul_cexp_ibp_iter         ['propext', 'Classical.choice', 'Quot.sound']
+    edgeProfile                        ['propext', 'Classical.choice', 'Quot.sound']
+    deriv_smoothTransition_eq_zero     ['propext', 'Classical.choice', 'Quot.sound']
+    edgeProfile_contDiff               ['propext', 'Classical.choice', 'Quot.sound']
+    edgeProfile_eq_zero                ['propext', 'Classical.choice', 'Quot.sound']
+    edgeProfile_hasCompactSupport      ['propext', 'Classical.choice', 'Quot.sound']
+    edgeProfile_bound                  ['propext', 'Classical.choice', 'Quot.sound']
+    integrable_cut_pow_cexp            ['propext', 'Classical.choice', 'Quot.sound']
+    edgeTail                           ['propext', 'Classical.choice', 'Quot.sound']
+    edgeCut_abs                        ['propext', 'Classical.choice', 'Quot.sound']
+    edgeTail_integrable                ['propext', 'Classical.choice', 'Quot.sound']
+    edgeTail_hasDerivAt                ['propext', 'Classical.choice', 'Quot.sound']
+    edgeTail_ibp                       ['propext', 'Classical.choice', 'Quot.sound']
+    edgeTail_bound                     ['propext', 'Classical.choice', 'Quot.sound']
+    left_edge_bound                    ['propext', 'Classical.choice', 'Quot.sound']
+    jumpInd                            ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_split                       ['propext', 'Classical.choice', 'Quot.sound']
+    wf_neg                             ['propext', 'Classical.choice', 'Quot.sound']
+    wf_eq_zero                         ['propext', 'Classical.choice', 'Quot.sound']
+    re_ofReal_mul_cexp                 ['propext', 'Classical.choice', 'Quot.sound']
+    leftEdge_integrable                ['propext', 'Classical.choice', 'Quot.sound']
+    symPair_bound                      ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 41 OF 41 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

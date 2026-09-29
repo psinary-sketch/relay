@@ -1,0 +1,37 @@
+b563 -- READING (5): PART D1 -- (a) THE SYMMETRIC FAMILY AND (D1`) -- each member in EF_lit`s class
+
+### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+
+### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+    (a) ### symD1_1 -- exit 0, elapsed 1214 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+       39 | theorem smoothTransition_one_sub (x : ℝ) : Real.smoothTransition (1 - x) = 1 - Real.smoothTransition x := by
+       48 | def symCut (δ u : ℝ) : ℝ := Real.smoothTransition (1 / 2 - u / δ) * Real.smoothTransition (δ * u + 2)
+       51 | def symMember (n : ℕ) (δ : ℝ) (u : ℝ) : ℂ := ((symCut δ u : ℝ) : ℂ) * blSmooth n u
+       53 | theorem symCut_contDiff (δ : ℝ) : ContDiff ℝ 2 (symCut δ) := by
+       58 | theorem symCut_nonneg (δ u : ℝ) : 0 ≤ symCut δ u :=
+       61 | theorem symCut_le_one (δ u : ℝ) : symCut δ u ≤ 1 :=
+       64 | theorem symCut_eq_zero_right {δ u : ℝ} (hδ : 0 < δ) (hu : δ / 2 ≤ u) : symCut δ u = 0 := by
+       71 | theorem symCut_eq_zero_left {δ u : ℝ} (hδ : 0 < δ) (hu : u ≤ -2 / δ) : symCut δ u = 0 := by
+       79 | theorem symCut_eq_one {δ u : ℝ} (hδ : 0 < δ) (h1 : -1 / δ ≤ u) (h2 : u ≤ -(δ / 2)) : symCut δ u = 1 := by
+       94 | theorem symMember_classEF (n : ℕ) {δ : ℝ} (hδ : 0 < δ) :
+       95 |     ContDiff ℝ 2 (symMember n δ) ∧ HasCompactSupport (symMember n δ) := by
+      105 | theorem symMember_EF (n : ℕ) {δ : ℝ} (hδ : 0 < δ) :
+      106 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)) ∧
+      107 |     ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)
+      108 |       = EF.literatureRHS (symMember n δ) :=
+
+### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+    smoothTransition_one_sub           ['propext', 'Classical.choice', 'Quot.sound']
+    symCut                             ['propext', 'Classical.choice', 'Quot.sound']
+    symMember                          ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_contDiff                    ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_nonneg                      ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_le_one                      ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_eq_zero_right               ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_eq_zero_left                ['propext', 'Classical.choice', 'Quot.sound']
+    symCut_eq_one                      ['propext', 'Classical.choice', 'Quot.sound']
+    symMember_classEF                  ['propext', 'Classical.choice', 'Quot.sound']
+    symMember_EF                       ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 11 OF 11 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

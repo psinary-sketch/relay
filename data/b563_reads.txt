@@ -1,0 +1,140 @@
+b563 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+### SIDE-explicit-formula v0.6 = de1f175 ; main at step zero de1f175
+
+### LiWeil.lean:243 @de1f175 -- LiCoeff
+      243 | def LiCoeff (n : ℕ) : ℝ :=
+      244 |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+### LiWeil.lean:171 @de1f175 -- liConst
+      171 | def liConst (n : ℕ) : ℝ := 2 * (n + n * 2 ^ n)
+### LiWeil.lean:295 @de1f175 -- blPoly
+      295 | def blPoly (n : ℕ) (y : ℝ) : ℝ := ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℝ) * y ^ j / (j.factorial : ℝ)
+### LiWeil.lean:298 @de1f175 -- blSmooth
+      298 | def blSmooth (n : ℕ) (u : ℝ) : ℂ := ((Real.exp (u / 2) * blPoly n u : ℝ) : ℂ)
+### LiWeil.lean:301 @de1f175 -- blTest
+      301 | def blTest (n : ℕ) (u : ℝ) : ℂ := if u < 0 then blSmooth n u else 0
+### LiWeil.lean:307 @de1f175 -- truncMember
+      307 | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+### LiWeil.lean:188 @de1f175 -- pair_summable
+      188 | theorem pair_summable (n : ℕ) :
+      189 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re) := by
+### LiWeil.lean:359 @de1f175 -- LiLimitExchange
+      359 | def LiLimitExchange (n : ℕ) : Prop :=
+      360 |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+      361 |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+      362 |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+      363 |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+### LiWeil.lean:372 @de1f175 -- li_identity_of_exchange
+      372 | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+      373 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+      374 |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+### LiWeilExchange.lean:163 @de1f175 -- blTransform_holds
+      163 | theorem blTransform_holds (n : ℕ) : blTransform n := by
+### LiWeilExchange.lean:188 @de1f175 -- integrable_blTest_integrand
+      188 | theorem integrable_blTest_integrand (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+      189 |     Integrable (fun u : ℝ => blTest n u * cexp (Complex.I * gammaOf ρ * u)) := by
+### LiWeilExchange.lean:209 @de1f175 -- truncMember_transform_tendsto
+      209 | theorem truncMember_transform_tendsto (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+      210 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Tendsto (fun m => (fs m) u) atTop (𝓝 1)) :
+      211 |     Tendsto (fun m => paperFT (truncMember n (fs m)) (gammaOf ρ)) atTop (𝓝 (paperFT (blTest n) (gammaOf ρ))) := by
+### GRHWeil.lean:1-40 @de1f175 (the module layout): the header, the import, the namespace
+        2 | SIDE-explicit-formula -- SIDEExplicitFormula/GRHWeil.lean
+        3 | THIS PROGRAMME'S WORK (act b562, ruling (R172)(4); W-ORD-GRH-WEIL, act one) -- NOT VENDORED.
+       28 | import SIDEExplicitFormula.LiWeil
+       30 | open Complex
+       31 | open scoped ComplexOrder ComplexConjugate
+       33 | noncomputable section
+       35 | namespace SIDEExplicitFormula
+       36 | namespace GRHWeil
+       38 | open DirichletCharacter
+       40 | variable {N : ℕ} [NeZero N]
+### PowerLimit.lean:949 @de1f175 -- dominant_summable
+      949 | theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+      950 |     Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *
+      951 |       (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)))) := by
+### PowerLimit.lean:1025 @de1f175 -- rest_tendsto_zero
+     1025 | theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+     1026 |     (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :
+     1027 |     Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0) := by
+### Zeta23/WeilEF/ZeroSummability.lean:247 @de1f175 -- zero_sum_inv_sq
+      247 | theorem zero_sum_inv_sq (hs : ZetaSeam) :
+      248 |     Summable (fun ρ : (zetaZeros hs).carrier =>
+      249 |       (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+### Zeta23/ExplicitFormula.lean:86 @de1f175 -- literatureRHS
+       86 | def literatureRHS (k : ℝ → ℂ) : ℂ :=
+       87 |   paperFT k (I / 2) + paperFT k (-I / 2)
+       88 |   - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+       89 |       * (k (Real.log n) + k (-Real.log n))
+       90 |   + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+### Zeta23/ExplicitFormula.lean:97 @de1f175 -- EF_lit
+       97 | def EF_lit (Z : ZeroConfig) : Prop :=
+       98 |   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+       99 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+      100 |     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+### Zeta23/WeilEF/Main.lean:286 @de1f175 -- EF_lit_zetaZeroConfig
+      286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+### Zeta23/Defs.lean:60 @de1f175 -- paperFT
+       60 | def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+### Zeta23/Defs.lean:121 @de1f175 -- gammaOf
+      121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+
+    b560_reads.txt:43 | ### Zeta23/ExplicitFormula.lean:97 @81ae175 -- EF_lit (H-EF, literature form: the hypotheses on the test function)
+    b560_reads.txt:44 |        97 | def EF_lit (Z : ZeroConfig) : Prop :=
+    b560_reads.txt:49 | ### Zeta23/WeilEF/Main.lean:286 @81ae175 -- EF_lit_zetaZeroConfig (EF_lit for the genuine instance)
+    b560_reads.txt:50 |       286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+### relay data/b562_drift.txt: sha256 bb79c0f9927d6d47e70b3653585567b989e16095ccd619727d7224034b4e207b ; 79 lines
+    b561_decay_read.txt:6 | ### (1) THE TRANSFORM AT A ZERO. paperFT k z = ∫ k(u) e^{i z u} du (Defs.lean:60) and gammaOf ρ = (ρ - 1/2)/i, so
+    b561_decay_read.txt:12 | ### (2) THE EXCESS, AND THE TRUNCATION PARAMETER. E_f(ρ) := H_f(ρ) - H(ρ) = ∫ (f(u) - 1_{u<0}) P_n(u) e^{ρ u} du. The bump is
+    b561_decay_read.txt:19 | ### (3) WHERE ‖ρ‖ δ IS SMALL. On [-δ, 0]: |e^{ρ u} - 1| <= ‖ρ‖ δ e^{‖ρ‖ δ} and |P_n(u) - n| <= δ 2^n (P_n(0) = C(n,1) = n;
+    b561_decay_read.txt:25 | ### (4) WHERE ‖ρ‖ δ IS LARGE. Integrating by parts, E_right = -n/ρ + (1/ρ) ∫ f' P_n e^{ρu} du + (terms of order 1/‖ρ‖²), and the
+    b561_decay_read.txt:28 | ### (5) THE SUPREMUM OVER THE FAMILY AT A FIXED ZERO. For a member with δ ≍ μ/(8‖ρ‖), (3) gives |2 Re E_f(ρ)| >= n μ δ ≍ n μ²/(8 ‖ρ‖),
+    b561_decay_read.txt:34 | ### (6) AGAINST zero_sum_inv_sq's EXPONENT. zero_sum_inv_sq (ZeroSummability.lean:247) makes Σ m_ρ/(1 + ‖γ_ρ‖²) converge:
+    b561_decay_read.txt:42 | ### (7) THE ZERO SIDE ALONG THE FAMILY -- A DERIVATION, NOT COMPILED. The excess has one sign on the zeros with ‖ρ‖ δ <= μ/8,
+    b561_decay_read.txt:56 | ### (8) THE SCORE. H12a: "the paired truncated transform decays at least like 1/‖ρ‖² uniformly in the truncation parameter ...
+    b561_decay_read.txt:59 | ### (9) WHAT THIS DOES TO THE PRICE. (D3) as priced at b560 does not exist; (D4) by Tannery has no dominant; b560's stated
+### BALPOS :291-:295 (the literature column) and :303-:311 (the margin column):
+    BALPOS:291 | | 1 | 0.023095708966121 | 0.02309570896612103 | 3.8e-18 |
+    BALPOS:292 | | 2 | 0.092345735228047 | 0.09234573529135263 | 6.3e-11 |
+    BALPOS:293 | | 3 | 0.20763892055432 | 0.20763892059268 | 3.8e-11 |
+    BALPOS:294 | | 4 | 0.36879047949224 | 0.36879047952 | 2.8e-11 |
+    BALPOS:295 | | 5 | 0.57554271446118 | 0.57554271443 | 3.1e-11 |
+    BALPOS:303 | | 1 | −0.554119955935 | 0.577215664902 | **0.0230957089661** | 258 |
+    BALPOS:304 | | 2 | −0.874539361735 | 0.966885096963 | 0.092345735228 | 258 |
+    BALPOS:305 | | 3 | −1.01305800766 | 1.22069692822 | 0.207638920554 | 258 |
+    BALPOS:306 | | 4 | −1.00679765238 | 1.37558813187 | 0.368790479492 | 258 |
+    BALPOS:307 | | 5 | −0.882725785736 | 1.4582685002 | 0.575542714461 | 258 |
+    BALPOS:308 | | 6 | −0.66073231493 | **1.48829832721** | 0.827566012282 | 258 |
+    BALPOS:309 | | 7 | −0.355730722668 | 1.48019084024 | 1.12446011757 | 258 |
+    BALPOS:310 | | 8 | **+0.0208999330276** | 1.44485574412 | 1.46575567715 | 257 |
+    BALPOS:311 | | 10 | 0.955535679497 | 1.3238036837 | 2.27933936319 | 257 |
+### tools/terminal_table.py at 4ab01dcd -- the supersession forms and their call site:
+    terminal_table.py:139 | SUPERSEDE_RE = re.compile(r'SUPERSEDES row (\d+):')
+    terminal_table.py:153 | def supersede(cells):
+    terminal_table.py:166 | TRAIL_SUP_RE = re.compile(r'SUPERSEDES OPEN_TRAILS :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
+    terminal_table.py:171 | def trail_directives():
+    terminal_table.py:181 | def supersede_trail(cells, name):
+    terminal_table.py:741 | uniq = supersede_trail(supersede(uniq), n)
+### FINDINGS :6048 | **What is compiled, 35 of 35 at the standard three.** Stage A: `liTerm n ρ = 1 − (1 − ρ⁻¹)ⁿ`; `pairTerm n ρ = liTerm n ρ + liTerm n (conj ρ) = 2 Re (liTerm n ρ)`; on Re ρ = 1/2, ‖1 − ρ⁻¹‖ = 1 and Re (liTerm n ρ) ≥ 0 -- algebra over ℂ (the same per-term fact stands in SIDE-lv-conservation as `blTerm_nonneg_of_onLine`, on another toolchain). Stage B: the second-order remainder ‖(1 − w)ⁿ − 1 + nw‖ ≤ 
+### the committed table (relay 4ab01dcd) for SIDEExplicitFormula.LiWeil.li_identity_of_exchange: grade CONFLICT
+    cell INTERFACES             PLACE-papers/FINDINGS.md:6048
+    cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+    cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+    cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+### the committed table: CONFLICT rows 13 of 1298
+### the remote`s refs of SIDE-explicit-formula (ls-remote origin):
+    de1f175ec02655b7b1d95f22e73004e6052cfa2e	HEAD
+    8faf7ded8754870669547c9caa54ee5f0275e7c1	refs/heads/detection-region-b559
+    de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/grh-weil-b562
+    2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/li-weil-b561
+    de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/main
+    44af277422b14970cbac2c3c3cc96ca4ffbf6f0e	refs/tags/v0.1
+    baed4df861dac05224f01dad17453648d3d7fe0a	refs/tags/v0.1^{}
+    724e11308977adcb2d853042fcf1f15530605f7e	refs/tags/v0.2
+    5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/tags/v0.2^{}
+    b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+    04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+    9b3a95b0ec1cc3ba1300739f70189d3f92f70da4	refs/tags/v0.4
+    941503b836c1f3548d94b1207276f724dba3263f	refs/tags/v0.4^{}
+    0a6a1eb4e11ade2a505f6e85b2ddb12aec4c698c	refs/tags/v0.5
+    2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/tags/v0.5^{}
+    6b5d776ad82555cb4681e9de8533fcc55c053aee	refs/tags/v0.6
+    de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/tags/v0.6^{}

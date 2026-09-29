@@ -1,0 +1,35 @@
+b563 -- READING (5): PART stmt -- (c) LiLimitExchangeSym STATED; the zero sum at each member is real
+
+### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+
+### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+    (c) ### symBC_1 -- exit 1, elapsed 32 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 1 (stdin:196, in symMember_transform_conj)
+        | <stdin>:196:117: error: unsolved goals
+    (c) ### symC_2 -- exit 0, elapsed 26 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+      194 | def LiLimitExchangeSym (n : ℕ) : Prop :=
+      195 |   Tendsto (fun δ => ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ))
+      196 |     (𝓝[>] 0) (𝓝 (LiCoeff n : ℂ))
+      198 | theorem I_gammaOf_mul (ρ : ℂ) (u : ℝ) : Complex.I * gammaOf ρ * u = (ρ - 1 / 2) * u := by
+      203 | theorem symMember_transform_conj (n : ℕ) (δ : ℝ) (ρ : ℂ) :
+      204 |     paperFT (symMember n δ) (gammaOf ((starRingEnd ℂ) ρ)) = (starRingEnd ℂ) (paperFT (symMember n δ) (gammaOf ρ)) := by
+      216 | def conjEquiv : zetaZeroConfig.carrier ≃ zetaZeroConfig.carrier where
+      217 |   toFun ρ := ⟨(starRingEnd ℂ) ρ, conj_mem ρ.2⟩
+      218 |   invFun ρ := ⟨(starRingEnd ℂ) ρ, conj_mem ρ.2⟩
+      219 |   left_inv ρ := by ext; simp
+      220 |   right_inv ρ := by ext; simp
+      224 | theorem symZeroSum_conj (n : ℕ) (δ : ℝ) :
+      225 |     (starRingEnd ℂ) (∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ))
+      226 |       = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ) := by
+      236 | theorem symZeroSum_im (n : ℕ) (δ : ℝ) :
+      237 |     (∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)).im = 0 :=
+
+### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+    LiLimitExchangeSym                 ['propext', 'Classical.choice', 'Quot.sound']
+    I_gammaOf_mul                      ['propext', 'Classical.choice', 'Quot.sound']
+    symMember_transform_conj           ['propext', 'Classical.choice', 'Quot.sound']
+    conjEquiv                          ['propext', 'Classical.choice', 'Quot.sound']
+    symZeroSum_conj                    ['propext', 'Classical.choice', 'Quot.sound']
+    symZeroSum_im                      ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 6 OF 6 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

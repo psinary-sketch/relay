@@ -1,0 +1,80 @@
+b563 -- READING (4): THE DECAY READ, ON THE PAGE, BEFORE ANY BUILD (COMPONENT 3), UNDER (R173)(4)
+### Every step below is a derivation on the page; a step resting on a result not compiled in the federation says so.
+
+### (0) THE OBJECTS. st = Mathlib`s Real.smoothTransition (0 on (-∞, 0], 1 on [1, ∞), smooth, flat at 0 and 1, and
+###     st(1 - x) = 1 - st(x) since st(x) = e(x)/(e(x) + e(1-x)) with e = expNegInvGlue). For 0 < δ <= 1 the symmetric cut
+###     s_δ(u) = st(1/2 - u/δ) · st(δu + 2): 1 on [-1/δ, -δ/2], 0 right of δ/2 and left of -2/δ; the member s_δ · e^{u/2} P_n(u).
+###     At ρ = β + iγ (0 < β < 1, |γ| >= 1): H_δ(ρ) = ∫ s_δ P_n e^{ρu} du and the jump`s H(ρ) = ∫_{u<0} P_n e^{ρu} = liTerm n ρ
+###     (blTransform_holds). THE EXCESS E_δ(ρ) := H_δ(ρ) - H(ρ) = E_J + E_L: E_J = ∫_{-δ/2}^{δ/2} g(u) P_n(u) e^{ρu} du with
+###     g := s_δ - 1_{u<0} (the left factor is 1 there, δ <= 1 <= 1/δ), and E_L = ∫_{u <= -1/δ} (st(δu + 2) - 1) P_n e^{ρu} du.
+###     THE JUMP CUT IS ODD: g(-u) = st(1/2 + u/δ) - 1 = -st(1/2 - u/δ) = -g(u) for 0 < u <= δ/2, by st(1 - x) = 1 - st(x); |g| <= 1/2.
+
+### (1) THE REAL PART IN COSINE FORM. P_n, s_δ and e^{βu} are real, so with q(u) := P_n(u) e^{βu} (real):
+###         Re E_J = ∫_{-δ/2}^{δ/2} g(u) q(u) cos(γu) du = ∫_0^{δ/2} g(u) cos(γu) (q(u) - q(-u)) du        (g odd, cos even)
+###         Im E_J = ∫_{-δ/2}^{δ/2} g(u) q(u) sin(γu) du = ∫_0^{δ/2} g(u) sin(γu) (q(u) + q(-u)) du.
+###     The member is real, so H_δ(conj ρ) = conj H_δ(ρ) and the paired transform is 2 Re H_δ(ρ): the pair reads Re E alone.
+
+### (2) THE ODD-ABOUT-THE-JUMP CANCELLATION, SHOWN. In Re E_J the jump`s value q(0) = P_n(0) = n cancels: q(u) - q(-u) vanishes
+###     at u = 0, |q(u) - q(-u)| <= 2 u K_n with K_n := sup over |v| <= 1/2 of |q`(v)| <= e^{1/2} (sup|P_n`| + sup|P_n|) on
+###     [-1/2, 1/2], a constant of n alone (β < 1). The n/ρ piece that made b561`s bound n/‖ρ‖ lives in Im E_J (q(u) + q(-u) -> 2n),
+###     which the pair discards. FOR CONTRAST, the one-sided cut g1 = st(-u/δ) - 1 on [-δ, 0] is not odd: Re E = ∫ g1 q cos(γu)
+###     keeps n ∫ g1 cos(γu) du = -n μ δ Φ(γδ) (μ = 1/2, Φ(0) = 1, Φ the cut`s cosine profile), of size n/|γ| at γδ ≍ 1 -- b561`s (5).
+
+### (3) THE ORDER IN δ AT FIXED n. From (2): |Re E_J| <= (1/2) ∫_0^{δ/2} 2 u K_n du = K_n δ²/8 -- per zero O(δ²), a fortiori
+###     O(δ). Its leading term: Re E_J ≈ Re(q`(0)) ∫_{-δ/2}^{δ/2} g(u) u du with q`(0) = P_n`(0) + β n = C(n, 2) + β n, which is
+###     n²/2 on the line β = 1/2: the n² of b562`s table (ii). SUMMED OVER THE ZEROS (a derivation resting on the zero density
+###     (1/2π) log(γ/2π), Riemann-von Mangoldt, T1-lit, not compiled): the zeros with |γ| δ <= 1 give +κ n² δ² each, those
+###     beyond give -n²/γ² each (E -> -liTerm), both summing to (n² δ/2π) log(1/δ) times coefficients whose sum is the Fourier
+###     integral of the excess at u = 0 in the midpoint sense -- g(0-) + g(0+) = -1/2 + 1/2 = 0 for the symmetric cut. SO THE
+###     log(1/δ) TERM CANCELS AND THE SUMMED EXCESS IS O(n² δ) at fixed n (for the one-sided cut the midpoint is -1/2 and the
+###     sum is b561`s -(n/2) log(1/δ)). THE BENCH CORROBORATES IT, from b562`s bank alone (relay data/b563_per_n.txt (b)):
+###     (D - T2)/(n² δ) = -0.0333, -0.0341, -0.0343 at δ = 0.1, 0.03, 0.01, the same at every n -- linear in δ, scaling as n².
+
+### (4) THE DECAY IN ‖ρ‖, UNIFORM IN δ <= 1, AT THE JUMP. Where |γ| δ <= 1: (3) gives |Re E_J| <= K_n δ²/8 <= K_n/(8γ²). Where
+###     |γ| δ >= 1: put k(u) := g(u) (q(u) - q(-u)) on [0, δ/2]; k(0) = 0, k(δ/2) = 0, k`(δ/2) = 0 (st is flat at 0), k`(0+) =
+###     2 g(0+) q`(0) = q`(0). Two integrations by parts against cos(γu):
+###         ∫_0^{δ/2} k cos(γu) du = -(k`(0+) + ∫_0^{δ/2} k`` cos(γu) du)/γ²,
+###     and ∫_0^{δ/2} |k``| <= C`_n free of δ: |g``| <= S2/δ² against |q(u) - q(-u)| <= 2 K_n u over a length δ/2; |g`| <= S1/δ
+###     against |(q(u) - q(-u))`| <= 2 K_n; |g| |(q(u) - q(-u))``| <= K`_n u. (S1, S2 the sups of |st`|, |st``|.) HENCE
+###         |Re E_J(ρ)| <= C_n / γ² <= 2 C_n / ‖ρ‖²   for every δ in (0, 1] and every ρ with 0 < β < 1, |γ| >= 1.
+
+### (5) THE LEFT EDGE, UNIFORM AS β -> 0. Put R = 1/δ >= 1, G(u) := (st(δu + 2) - 1) P_n(u) on u <= -R: G vanishes with every
+###     derivative at -R (st flat at 1), and G e^{ρu} and its derivatives vanish at -∞ for β > 0. Integrating by parts n + 1
+###     times: E_L = (-1/ρ)^{n+1} ∫ G^{(n+1)} e^{ρu} du, and G^{(n+1)} = Σ_{j=1}^{n+1} C(n+1, j) f^{(j)} P_n^{(n+1-j)} with f = st(δu + 2)
+###     (the j = 0 term dies: deg P_n = n - 1), supported on the transition [-2R, -R]. |f^{(j)}| <= S_j R^{-j}, |P_n^{(m)}| <=
+###     c_n R^{n-1-m} on |u| <= 2R, m = n + 1 - j: each term <= c`_n R^{-2}; over a length R with |e^{ρu}| <= 1:
+###         |E_L(ρ)| <= c``_n / (R ‖ρ‖^{n+1}) <= c``_n / ‖ρ‖²   for n >= 1, ‖ρ‖ >= 1, uniformly in β in (0, 1) and δ in (0, 1].
+###     (For n = 0, P_0 = 0 and every excess is 0.) No 1/‖ρ‖ piece: at β = 1/2 E_L is of size e^{-1/(2δ)} besides.
+
+### (6) THE SCORE. H15a: "the excess is O(n²·δ) at fixed n and decays like 1/‖ρ‖² uniformly in δ <= δ₀; refuted if the
+###     excess has a 1/‖ρ‖ piece that symmetry does not cancel." ### **HELD ON THE PAGE**: the paired excess 2 Re E_δ(ρ) is O(δ²)
+###     per zero and O(n²·δ) summed at fixed n ((3), the sum a derivation on the zero density), and |2 Re E_δ(ρ)| <= C(n)/‖ρ‖² for
+###     every δ in (0, 1] ((4), (5)), C(n) free of δ; the 1/‖ρ‖ piece is imaginary at leading order and cancels in the pair (2).
+###     So (D3`) reads |Re H_δ(ρ)| <= ((n + n 2^n) + C(n)) / ‖ρ‖², with liTerm_re_abs_le for the jump`s own part.
+
+### (7) WHAT THIS PRICES FOR (D3`), IN THE READ`S ORDER. (d1) the parity st(1 - x) = 1 - st(x) and the cosine form (1) --
+###     algebra and a change of variable; (d2) the jump side (4): its δ² half is elementary, its 1/γ² half needs two
+###     integrations by parts on (0, δ/2] with sup bounds on st` and st``; (d3) the left edge (5): an (n+1)-fold integration by
+###     parts with Leibniz`s rule and bounds on st`s derivatives to order n + 1 -- the heaviest item, and the one that makes
+###     the bound uniform as Re ρ -> 0, which no zero-free region in the kernel supplies otherwise.
+
+### THE ILLUSTRATION (tools/b563_decay_num.py, numpy Gauss-Legendre; AN ILLUSTRATION, NOT EVIDENCE FOR A THEOREM; relay
+### data/b563_decay_num.txt): sup over δ in [1e-3, 1] of ‖ρ‖² |2 Re E| for the symmetric member, and of ‖ρ‖ |2 Re E| for the
+### one-sided cut:
+    n 1  β 0.5   γ 14.1347     SYM sup ‖ρ‖²|2ReE| 1.371     (left edge alone 0.888    )  ONE sup ‖ρ‖|2ReE| 1.742
+    n 2  β 0.5   γ 14.1347     SYM sup ‖ρ‖²|2ReE| 3.194     (left edge alone 0.23     )  ONE sup ‖ρ‖|2ReE| 3.426
+    n 3  β 0.5   γ 14.1347     SYM sup ‖ρ‖²|2ReE| 6.428     (left edge alone 0.732    )  ONE sup ‖ρ‖|2ReE| 5.052
+    n 1  β 0.5   γ 100         SYM sup ‖ρ‖²|2ReE| 1.423     (left edge alone 0.000296 )  ONE sup ‖ρ‖|2ReE| 1.741
+    n 2  β 0.5   γ 100         SYM sup ‖ρ‖²|2ReE| 5.694     (left edge alone 0.000773 )  ONE sup ‖ρ‖|2ReE| 3.473
+    n 3  β 0.5   γ 100         SYM sup ‖ρ‖²|2ReE| 12.81     (left edge alone 0.000797 )  ONE sup ‖ρ‖|2ReE| 5.197
+    n 1  β 0.5   γ 1000        SYM sup ‖ρ‖²|2ReE| 1.423     (left edge alone 6.34e-10 )  ONE sup ‖ρ‖|2ReE| 1.745
+    n 2  β 0.5   γ 1000        SYM sup ‖ρ‖²|2ReE| 5.694     (left edge alone 5.57e-10 )  ONE sup ‖ρ‖|2ReE| 3.488
+    n 3  β 0.5   γ 1000        SYM sup ‖ρ‖²|2ReE| 12.81     (left edge alone 1.06e-09 )  ONE sup ‖ρ‖|2ReE| 5.231
+    n 1  β 0.01  γ 14.1347     SYM sup ‖ρ‖²|2ReE| 2.226     (left edge alone 2.22     )  ONE sup ‖ρ‖|2ReE| 1.77  (HYPOTHETICAL POINT)
+    n 2  β 0.01  γ 14.1347     SYM sup ‖ρ‖²|2ReE| 1.864     (left edge alone 0.449    )  ONE sup ‖ρ‖|2ReE| 3.481  (HYPOTHETICAL POINT)
+    n 3  β 0.01  γ 14.1347     SYM sup ‖ρ‖²|2ReE| 3.545     (left edge alone 1.9      )  ONE sup ‖ρ‖|2ReE| 5.132  (HYPOTHETICAL POINT)
+    n 1  β 0.01  γ 100         SYM sup ‖ρ‖²|2ReE| 0.02847   (left edge alone 0.000281 )  ONE sup ‖ρ‖|2ReE| 1.745  (HYPOTHETICAL POINT)
+    n 2  β 0.01  γ 100         SYM sup ‖ρ‖²|2ReE| 2.904     (left edge alone 0.00137  )  ONE sup ‖ρ‖|2ReE| 3.481  (HYPOTHETICAL POINT)
+    n 3  β 0.01  γ 100         SYM sup ‖ρ‖²|2ReE| 8.626     (left edge alone 0.00199  )  ONE sup ‖ρ‖|2ReE| 5.209  (HYPOTHETICAL POINT)
+### read: at β = 1/2 the symmetric sup is 1.42, 5.69, 12.81 at γ = 100 and 1000 for n = 1, 2, 3 -- flat in ‖ρ‖, near
+### 1.42 n²; the one-sided ‖ρ‖ |2 Re E| is flat near 1.74 n (b561`s 1.77 at n = 1). ### **H15a HELD.**

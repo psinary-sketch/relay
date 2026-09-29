@@ -1,0 +1,22 @@
+b563 -- READING (5): PART D2 -- (b) (D2`) -- the member transforms tend to the jump`s at each fixed zero
+
+### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+
+### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+    (b) ### symBC_1 -- exit 1, elapsed 32 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0 (its one error, stdin:196, lies in symMember_transform_conj, part (c))
+        | <stdin>:196:117: error: unsolved goals
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+      114 | theorem symMember_integrand (n : ℕ) (δ : ℝ) (ρ : ℂ) (u : ℝ) :
+      115 |     symMember n δ u * cexp (Complex.I * gammaOf ρ * u)
+      116 |       = ((symCut δ u : ℝ) : ℂ) * (blSmooth n u * cexp (Complex.I * gammaOf ρ * u)) := by
+      121 | theorem blTest_integrand_neg (n : ℕ) (ρ : ℂ) {u : ℝ} (hu : u < 0) :
+      122 |     blTest n u * cexp (Complex.I * gammaOf ρ * u) = blSmooth n u * cexp (Complex.I * gammaOf ρ * u) := by
+      129 | theorem symMember_transform_tendsto (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+      130 |     Tendsto (fun δ => paperFT (symMember n δ) (gammaOf ρ)) (𝓝[>] 0) (𝓝 (liTerm n ρ)) := by
+
+### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+    symMember_integrand                ['propext', 'Classical.choice', 'Quot.sound']
+    blTest_integrand_neg               ['propext', 'Classical.choice', 'Quot.sound']
+    symMember_transform_tendsto        ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 3 OF 3 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

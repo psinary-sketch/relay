@@ -1,0 +1,23 @@
+b563 -- READING (5): PART D4 -- (e) (D4`), THE DISCHARGE AND li_identity_sym -- the Bombieri-Lagarias arithmetic formula in limit form
+
+### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+
+### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+    (e) ### symE_1 -- exit 1, elapsed 37 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 1
+        | <stdin>:1154:106: error: failed to prove positivity/nonnegativity/nonzeroness
+    (e) ### symE_2 -- exit 0, elapsed 34 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+     1096 | theorem symMember_transform_norm_le (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+     1097 |     ∃ B : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ‖paperFT (symMember n δ) (gammaOf ρ)‖ ≤ B := by
+     1131 | theorem exchange_of_bound (n : ℕ) (hB : SymPairBound n) : LiLimitExchangeSym n := by
+     1214 | theorem liLimitExchangeSym_holds (n : ℕ) : LiLimitExchangeSym n := exchange_of_bound n (symPair_bound n)
+     1218 | theorem li_identity_sym (n : ℕ) :
+     1219 |     Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 (LiCoeff n : ℂ)) := by
+
+### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+    symMember_transform_norm_le        ['propext', 'Classical.choice', 'Quot.sound']
+    exchange_of_bound                  ['propext', 'Classical.choice', 'Quot.sound']
+    liLimitExchangeSym_holds           ['propext', 'Classical.choice', 'Quot.sound']
+    li_identity_sym                    ['propext', 'Classical.choice', 'Quot.sound']
+### ### **PRINTED 4 OF 4 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

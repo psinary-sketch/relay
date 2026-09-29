@@ -1,0 +1,882 @@
+====================================================================================================================================
+b563 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b563_reads.txt
+  b563 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+  ### SIDE-explicit-formula v0.6 = de1f175 ; main at step zero de1f175
+  
+  ### LiWeil.lean:243 @de1f175 -- LiCoeff
+        243 | def LiCoeff (n : ℕ) : ℝ :=
+        244 |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+  ### LiWeil.lean:171 @de1f175 -- liConst
+        171 | def liConst (n : ℕ) : ℝ := 2 * (n + n * 2 ^ n)
+  ### LiWeil.lean:295 @de1f175 -- blPoly
+        295 | def blPoly (n : ℕ) (y : ℝ) : ℝ := ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℝ) * y ^ j / (j.factorial : ℝ)
+  ### LiWeil.lean:298 @de1f175 -- blSmooth
+        298 | def blSmooth (n : ℕ) (u : ℝ) : ℂ := ((Real.exp (u / 2) * blPoly n u : ℝ) : ℂ)
+  ### LiWeil.lean:301 @de1f175 -- blTest
+        301 | def blTest (n : ℕ) (u : ℝ) : ℂ := if u < 0 then blSmooth n u else 0
+  ### LiWeil.lean:307 @de1f175 -- truncMember
+        307 | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+  ### LiWeil.lean:188 @de1f175 -- pair_summable
+        188 | theorem pair_summable (n : ℕ) :
+        189 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re) := by
+  ### LiWeil.lean:359 @de1f175 -- LiLimitExchange
+        359 | def LiLimitExchange (n : ℕ) : Prop :=
+        360 |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+        361 |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+        362 |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+        363 |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+  ### LiWeil.lean:372 @de1f175 -- li_identity_of_exchange
+        372 | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+        373 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+        374 |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+  ### LiWeilExchange.lean:163 @de1f175 -- blTransform_holds
+        163 | theorem blTransform_holds (n : ℕ) : blTransform n := by
+  ### LiWeilExchange.lean:188 @de1f175 -- integrable_blTest_integrand
+        188 | theorem integrable_blTest_integrand (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+        189 |     Integrable (fun u : ℝ => blTest n u * cexp (Complex.I * gammaOf ρ * u)) := by
+  ### LiWeilExchange.lean:209 @de1f175 -- truncMember_transform_tendsto
+        209 | theorem truncMember_transform_tendsto (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+        210 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Tendsto (fun m => (fs m) u) atTop (𝓝 1)) :
+        211 |     Tendsto (fun m => paperFT (truncMember n (fs m)) (gammaOf ρ)) atTop (𝓝 (paperFT (blTest n) (gammaOf ρ))) := by
+  ### GRHWeil.lean:1-40 @de1f175 (the module layout): the header, the import, the namespace
+          2 | SIDE-explicit-formula -- SIDEExplicitFormula/GRHWeil.lean
+          3 | THIS PROGRAMME'S WORK (act b562, ruling (R172)(4); W-ORD-GRH-WEIL, act one) -- NOT VENDORED.
+         28 | import SIDEExplicitFormula.LiWeil
+         30 | open Complex
+         31 | open scoped ComplexOrder ComplexConjugate
+         33 | noncomputable section
+         35 | namespace SIDEExplicitFormula
+         36 | namespace GRHWeil
+         38 | open DirichletCharacter
+         40 | variable {N : ℕ} [NeZero N]
+  ### PowerLimit.lean:949 @de1f175 -- dominant_summable
+        949 | theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+        950 |     Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) *
+        951 |       (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)))) := by
+  ### PowerLimit.lean:1025 @de1f175 -- rest_tendsto_zero
+       1025 | theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+       1026 |     (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) :
+       1027 |     Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0) := by
+  ### Zeta23/WeilEF/ZeroSummability.lean:247 @de1f175 -- zero_sum_inv_sq
+        247 | theorem zero_sum_inv_sq (hs : ZetaSeam) :
+        248 |     Summable (fun ρ : (zetaZeros hs).carrier =>
+        249 |       (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+  ### Zeta23/ExplicitFormula.lean:86 @de1f175 -- literatureRHS
+         86 | def literatureRHS (k : ℝ → ℂ) : ℂ :=
+         87 |   paperFT k (I / 2) + paperFT k (-I / 2)
+         88 |   - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+         89 |       * (k (Real.log n) + k (-Real.log n))
+         90 |   + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+  ### Zeta23/ExplicitFormula.lean:97 @de1f175 -- EF_lit
+         97 | def EF_lit (Z : ZeroConfig) : Prop :=
+         98 |   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+         99 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+        100 |     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+  ### Zeta23/WeilEF/Main.lean:286 @de1f175 -- EF_lit_zetaZeroConfig
+        286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  ### Zeta23/Defs.lean:60 @de1f175 -- paperFT
+         60 | def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+  ### Zeta23/Defs.lean:121 @de1f175 -- gammaOf
+        121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+  
+      b560_reads.txt:43 | ### Zeta23/ExplicitFormula.lean:97 @81ae175 -- EF_lit (H-EF, literature form: the hypotheses on the test function)
+      b560_reads.txt:44 |        97 | def EF_lit (Z : ZeroConfig) : Prop :=
+      b560_reads.txt:49 | ### Zeta23/WeilEF/Main.lean:286 @81ae175 -- EF_lit_zetaZeroConfig (EF_lit for the genuine instance)
+      b560_reads.txt:50 |       286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  ### relay data/b562_drift.txt: sha256 bb79c0f9927d6d47e70b3653585567b989e16095ccd619727d7224034b4e207b ; 79 lines
+      b561_decay_read.txt:6 | ### (1) THE TRANSFORM AT A ZERO. paperFT k z = ∫ k(u) e^{i z u} du (Defs.lean:60) and gammaOf ρ = (ρ - 1/2)/i, so
+      b561_decay_read.txt:12 | ### (2) THE EXCESS, AND THE TRUNCATION PARAMETER. E_f(ρ) := H_f(ρ) - H(ρ) = ∫ (f(u) - 1_{u<0}) P_n(u) e^{ρ u} du. The bump is
+      b561_decay_read.txt:19 | ### (3) WHERE ‖ρ‖ δ IS SMALL. On [-δ, 0]: |e^{ρ u} - 1| <= ‖ρ‖ δ e^{‖ρ‖ δ} and |P_n(u) - n| <= δ 2^n (P_n(0) = C(n,1) = n;
+      b561_decay_read.txt:25 | ### (4) WHERE ‖ρ‖ δ IS LARGE. Integrating by parts, E_right = -n/ρ + (1/ρ) ∫ f' P_n e^{ρu} du + (terms of order 1/‖ρ‖²), and the
+      b561_decay_read.txt:28 | ### (5) THE SUPREMUM OVER THE FAMILY AT A FIXED ZERO. For a member with δ ≍ μ/(8‖ρ‖), (3) gives |2 Re E_f(ρ)| >= n μ δ ≍ n μ²/(8 ‖ρ‖),
+      b561_decay_read.txt:34 | ### (6) AGAINST zero_sum_inv_sq's EXPONENT. zero_sum_inv_sq (ZeroSummability.lean:247) makes Σ m_ρ/(1 + ‖γ_ρ‖²) converge:
+      b561_decay_read.txt:42 | ### (7) THE ZERO SIDE ALONG THE FAMILY -- A DERIVATION, NOT COMPILED. The excess has one sign on the zeros with ‖ρ‖ δ <= μ/8,
+      b561_decay_read.txt:56 | ### (8) THE SCORE. H12a: "the paired truncated transform decays at least like 1/‖ρ‖² uniformly in the truncation parameter ...
+      b561_decay_read.txt:59 | ### (9) WHAT THIS DOES TO THE PRICE. (D3) as priced at b560 does not exist; (D4) by Tannery has no dominant; b560's stated
+  ### BALPOS :291-:295 (the literature column) and :303-:311 (the margin column):
+      BALPOS:291 | | 1 | 0.023095708966121 | 0.02309570896612103 | 3.8e-18 |
+      BALPOS:292 | | 2 | 0.092345735228047 | 0.09234573529135263 | 6.3e-11 |
+      BALPOS:293 | | 3 | 0.20763892055432 | 0.20763892059268 | 3.8e-11 |
+      BALPOS:294 | | 4 | 0.36879047949224 | 0.36879047952 | 2.8e-11 |
+      BALPOS:295 | | 5 | 0.57554271446118 | 0.57554271443 | 3.1e-11 |
+      BALPOS:303 | | 1 | −0.554119955935 | 0.577215664902 | **0.0230957089661** | 258 |
+      BALPOS:304 | | 2 | −0.874539361735 | 0.966885096963 | 0.092345735228 | 258 |
+      BALPOS:305 | | 3 | −1.01305800766 | 1.22069692822 | 0.207638920554 | 258 |
+      BALPOS:306 | | 4 | −1.00679765238 | 1.37558813187 | 0.368790479492 | 258 |
+      BALPOS:307 | | 5 | −0.882725785736 | 1.4582685002 | 0.575542714461 | 258 |
+      BALPOS:308 | | 6 | −0.66073231493 | **1.48829832721** | 0.827566012282 | 258 |
+      BALPOS:309 | | 7 | −0.355730722668 | 1.48019084024 | 1.12446011757 | 258 |
+      BALPOS:310 | | 8 | **+0.0208999330276** | 1.44485574412 | 1.46575567715 | 257 |
+      BALPOS:311 | | 10 | 0.955535679497 | 1.3238036837 | 2.27933936319 | 257 |
+  ### tools/terminal_table.py at 4ab01dcd -- the supersession forms and their call site:
+      terminal_table.py:139 | SUPERSEDE_RE = re.compile(r'SUPERSEDES row (\d+):')
+      terminal_table.py:153 | def supersede(cells):
+      terminal_table.py:166 | TRAIL_SUP_RE = re.compile(r'SUPERSEDES OPEN_TRAILS :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
+      terminal_table.py:171 | def trail_directives():
+      terminal_table.py:181 | def supersede_trail(cells, name):
+      terminal_table.py:741 | uniq = supersede_trail(supersede(uniq), n)
+  ### FINDINGS :6048 | **What is compiled, 35 of 35 at the standard three.** Stage A: `liTerm n ρ = 1 − (1 − ρ⁻¹)ⁿ`; `pairTerm n ρ = liTerm n ρ + liTerm n (conj ρ) = 2 Re (liTerm n ρ)`; on Re ρ = 1/2, ‖1 − ρ⁻¹‖ = 1 and Re (liTerm n ρ) ≥ 0 -- algebra over ℂ (the same per-term fact stands in SIDE-lv-conservation as `blTerm_nonneg_of_onLine`, on another toolchain). Stage B: the second-order remainder ‖(1 − w)ⁿ − 1 + nw‖ ≤ 
+  ### the committed table (relay 4ab01dcd) for SIDEExplicitFormula.LiWeil.li_identity_of_exchange: grade CONFLICT
+      cell INTERFACES             PLACE-papers/FINDINGS.md:6048
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+  ### the committed table: CONFLICT rows 13 of 1298
+  ### the remote`s refs of SIDE-explicit-formula (ls-remote origin):
+      de1f175ec02655b7b1d95f22e73004e6052cfa2e	HEAD
+      8faf7ded8754870669547c9caa54ee5f0275e7c1	refs/heads/detection-region-b559
+      de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/grh-weil-b562
+      2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/li-weil-b561
+      de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/main
+      44af277422b14970cbac2c3c3cc96ca4ffbf6f0e	refs/tags/v0.1
+      baed4df861dac05224f01dad17453648d3d7fe0a	refs/tags/v0.1^{}
+      724e11308977adcb2d853042fcf1f15530605f7e	refs/tags/v0.2
+      5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/tags/v0.2^{}
+      b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+      04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+      9b3a95b0ec1cc3ba1300739f70189d3f92f70da4	refs/tags/v0.4
+      941503b836c1f3548d94b1207276f724dba3263f	refs/tags/v0.4^{}
+      0a6a1eb4e11ade2a505f6e85b2ddb12aec4c698c	refs/tags/v0.5
+      2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/tags/v0.5^{}
+      6b5d776ad82555cb4681e9de8533fcc55c053aee	refs/tags/v0.6
+      de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/tags/v0.6^{}
+
+### relay data/b563_findsup_unit.txt
+  b563 -- COMPONENT 1 (i): THE FINDINGS-LINE FORM, UNIT FIXTURES ON SUPPLIED CELLS, BOTH POLARITIES
+  
+    fires: :6048 named for the terminal (qualified name) -- :6048 and the directive`s own line 9000 gone AGREES
+    fires: the short name as the table`s name                                      AGREES
+    quiet: a directive naming another terminal removes nothing                     AGREES
+    quiet: no directive at all                                                     AGREES
+    quiet on other lines: a directive for :7001 removes only its own line`s cell   AGREES
+    quiet on another ledger: FINDINGS :470 does not reach CORRESPONDENCE :470      AGREES
+  
+  ### ### **FIXTURES 6 ; AGREEING 6 : PASS**
+
+### relay data/b563_findsup_noop.txt
+  b563 -- COMPONENT 1 (ii): THE TABLE REGENERATED BEFORE THE LINE EXISTS (the parser alone) -- RECONSTRUCTED (b563 defect (d))
+  
+  ### THIS BANK IS RE-WRITTEN FROM THE RUN`S CONSOLE OUTPUT IN THE SEAT`S SESSION: the run itself banked here, and the (iii) run then
+  ### overwrote this file (the tool`s `startswith('ii')` matched 'iii'). The console showed, verbatim but for the thirteen CONFLICT
+  ### names, which the seat`s display filter hid (the committed table at relay 4ab01dcd lists the same thirteen, data/b563_findsup_after.txt
+  ### lists them as "CONFLICT before"):
+  ### regenerated: exit 0 ; rows 1298 (before 1298) ; rows gone NONE ; rows added NONE
+  ### the run`s header: ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : NONE
+  ### ### **CONFLICT before 13 -> after 13**
+  ### ### **TERMINALS WHOSE GRADE CHANGED : NONE**
+  ### before -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES             PLACE-papers/FINDINGS.md:6048
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+  ### after -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES             PLACE-papers/FINDINGS.md:6048
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+
+### relay data/b563_findsup_after.txt
+  b563 -- COMPONENT 1 (iii): THE TABLE REGENERATED AFTER THE LINE AT FINDINGS
+  
+  ### regenerated: exit 0 ; rows 1298 (before 1298) ; rows gone NONE ; rows added NONE
+  ### the run`s header: ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : [(6048, 'li_identity_of_exchange', 'PLACE-papers/FINDINGS.md', 6116)]
+  ### ### **CONFLICT before 13 -> after 13**
+  ### CONFLICT before (13):
+      SIDE-bijection|SIDEBijection.identity_formation_bijection
+      SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+      SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+      SIDE-explicit-formula|farSmall
+      SIDE-explicit-formula|rh_strip_imp_rh
+      SIDE-interfaces|parametric_mechanism_theorem
+      SIDE-kernel|ConservationBridge.riemann_hypothesis
+      SIDE-kernel|Voice7Witness.hadamard_does_not_enforce_online
+      SIDE-kernel|conservation_of_spectra
+      SIDE-kernel|e_difficulty
+      SIDE-kernel|type_I_has_ostrowski
+      SIDE-lv-conservation|ExplicitFormulaDecomp
+      SIDE-lv-conservation|delta_n4_count
+  ### CONFLICT after (13):
+      SIDE-bijection|SIDEBijection.identity_formation_bijection
+      SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+      SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+      SIDE-explicit-formula|farSmall
+      SIDE-explicit-formula|rh_strip_imp_rh
+      SIDE-interfaces|parametric_mechanism_theorem
+      SIDE-kernel|ConservationBridge.riemann_hypothesis
+      SIDE-kernel|Voice7Witness.hadamard_does_not_enforce_online
+      SIDE-kernel|conservation_of_spectra
+      SIDE-kernel|e_difficulty
+      SIDE-kernel|type_I_has_ostrowski
+      SIDE-lv-conservation|ExplicitFormulaDecomp
+      SIDE-lv-conservation|delta_n4_count
+  ### ### **TERMINALS WHOSE GRADE CHANGED : NONE**
+  ### before -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES             PLACE-papers/FINDINGS.md:6048
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+  ### after -- SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange grade CONFLICT
+      cell INTERFACES \ SHELL     PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  PLACE-papers/OPEN_TRAILS.md:11577
+      cell SHELL                  SIDE-global-section/CORRESPONDENCE.md:470
+
+### relay data/b563_per_n.txt
+  ======================================================================================================================
+  b563 -- COMPONENT 2: THE PER-n RE-SCORE OF b562`S SYMMETRIC DRIFT (R173)(2). ### FROM b562`S BANK ALONE; A RE-READING OF A MEASUREMENT, NOT A THEOREM.
+  ======================================================================================================================
+  ### the source: relay data/b562_drift.txt, sha256 bb79c0f9927d6d47e70b3653585567b989e16095ccd619727d7224034b4e207b ; parsed rows: table (i) 12, symmetric table (ii) 12
+  ### the extrapolation: the least-squares line D = a + b δ through δ = 0.1, 0.03, 0.01; Z(n, 0) = Λ_N(n) + T2(n) + a;
+  ### the floor(n) = T2(n) + eps Σ|t| + the quadrature floor (the row`s own columns, one of each per n in b562`s bank).
+  
+        n        a (δ→0)        slope b        Z(n,0)               λ_n                  Z(n,0) - λ_n    floor        ratio  within  source
+        1  +1.145549e-04  -3.308668e-02  0.023210267160811  0.023095708966121  +1.1456e-04  1.3470e-04  0.850  yes     BALPOS
+        2  +4.582363e-04  -1.323477e-01  0.092803984644144  0.092345735291353  +4.5825e-04  5.3881e-04  0.850  yes     BALPOS
+        3  +1.031094e-03  -2.977858e-01  0.208670044230589  0.207638920592680  +1.0311e-03  1.2123e-03  0.851  yes     BALPOS
+        4  +1.833213e-03  -5.294059e-01  0.370623745357635  0.368790479520000  +1.8333e-03  2.1552e-03  0.851  yes     BALPOS
+        5  +2.864709e-03  -8.272145e-01  0.578407505712605  0.575542714430000  +2.8648e-03  3.3676e-03  0.851  yes     BALPOS
+        6  +4.125733e-03  -1.191220e+00  0.831691863764435  0.827566012282000  +4.1259e-03  4.8493e-03  0.851  yes     BALPOS
+        7  +5.616470e-03  -1.621433e+00  1.130076748260122  1.124460117570000  +5.6166e-03  6.6004e-03  0.851  yes     BALPOS
+        8  +7.337136e-03  -2.117866e+00  1.473093024640439  1.465755677150000  +7.3373e-03  8.6210e-03  0.851  yes     BALPOS
+        9  +9.287984e-03  -2.680533e+00  1.860204298390819  1.850916314864618  +9.2880e-03  1.0911e-02  0.851  yes     NOT CLASSICAL (Λ_N + T2)
+       10  +1.146930e-02  -3.309451e+00  2.290808992039043  2.279339363190000  +1.1470e-02  1.3470e-02  0.851  yes     BALPOS
+       11  +1.388139e-02  -4.004636e+00  2.764242631340628  2.750361236469051  +1.3881e-02  1.6299e-02  0.852  yes     NOT CLASSICAL (Λ_N + T2)
+       12  +1.652463e-02  -4.766110e+00  3.279780425083839  3.263255794690524  +1.6525e-02  1.9397e-02  0.852  yes     NOT CLASSICAL (Λ_N + T2)
+  
+  ### ### **H15d (the δ → 0 extrapolation within floor at every n in 1..12; refuted by two or more misses): HOLDS** -- misses NONE
+  ### classical comparisons: n = [1, 2, 3, 4, 5, 6, 7, 8, 10] ; the rest against the bank`s own Λ_N + T2
+  
+  ### PRINTED BESIDE IT, NOT SCORED (the face`s READING (3)):
+  ###   (a) the member`s own sum over the bank, Λ_N(n) + D(n, δ), extrapolated: Λ_N(n) + a, against λ_n (no tail added: the
+  ###       member`s transform beyond the bank`s last ordinate is small, the jump`s is not);
+  ###   (b) (D(n, δ) - T2(n)) / (n² δ) at δ = 0.1, 0.03, 0.01 -- the drift with the jump`s tail taken off, per n² δ.
+        n    Λ_N + a - λ_n     ratio to floor     (D - T2)/(n² δ) at 0.1        0.03          0.01
+        1   -2.0144e-05        0.150            -0.033266     -0.034091     -0.034326
+        2   -8.0561e-05        0.150            -0.033266     -0.034091     -0.034326
+        3   -1.8120e-04        0.149            -0.033267     -0.034091     -0.034326
+        4   -3.2197e-04        0.149            -0.033267     -0.034091     -0.034326
+        5   -5.0277e-04        0.149            -0.033268     -0.034091     -0.034326
+        6   -7.2344e-04        0.149            -0.033268     -0.034091     -0.034326
+        7   -9.8379e-04        0.149            -0.033269     -0.034091     -0.034326
+        8   -1.2836e-03        0.149            -0.033270     -0.034091     -0.034326
+        9   -1.6229e-03        0.149            -0.033271     -0.034091     -0.034326
+       10   -2.0006e-03        0.149            -0.033273     -0.034091     -0.034326
+       11   -2.4176e-03        0.148            -0.033274     -0.034091     -0.034326
+       12   -2.8725e-03        0.148            -0.033276     -0.034091     -0.034326
+  
+  ### the literal ratio |Z(n,0) - λ_n| / floor at the classical n: [0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85]
+  ### the member`s-own ratio at the classical n: [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15]
+  ======================================================================================================================
+
+### relay data/b563_decay_read.txt
+  b563 -- READING (4): THE DECAY READ, ON THE PAGE, BEFORE ANY BUILD (COMPONENT 3), UNDER (R173)(4)
+  ### Every step below is a derivation on the page; a step resting on a result not compiled in the federation says so.
+  
+  ### (0) THE OBJECTS. st = Mathlib`s Real.smoothTransition (0 on (-∞, 0], 1 on [1, ∞), smooth, flat at 0 and 1, and
+  ###     st(1 - x) = 1 - st(x) since st(x) = e(x)/(e(x) + e(1-x)) with e = expNegInvGlue). For 0 < δ <= 1 the symmetric cut
+  ###     s_δ(u) = st(1/2 - u/δ) · st(δu + 2): 1 on [-1/δ, -δ/2], 0 right of δ/2 and left of -2/δ; the member s_δ · e^{u/2} P_n(u).
+  ###     At ρ = β + iγ (0 < β < 1, |γ| >= 1): H_δ(ρ) = ∫ s_δ P_n e^{ρu} du and the jump`s H(ρ) = ∫_{u<0} P_n e^{ρu} = liTerm n ρ
+  ###     (blTransform_holds). THE EXCESS E_δ(ρ) := H_δ(ρ) - H(ρ) = E_J + E_L: E_J = ∫_{-δ/2}^{δ/2} g(u) P_n(u) e^{ρu} du with
+  ###     g := s_δ - 1_{u<0} (the left factor is 1 there, δ <= 1 <= 1/δ), and E_L = ∫_{u <= -1/δ} (st(δu + 2) - 1) P_n e^{ρu} du.
+  ###     THE JUMP CUT IS ODD: g(-u) = st(1/2 + u/δ) - 1 = -st(1/2 - u/δ) = -g(u) for 0 < u <= δ/2, by st(1 - x) = 1 - st(x); |g| <= 1/2.
+  
+  ### (1) THE REAL PART IN COSINE FORM. P_n, s_δ and e^{βu} are real, so with q(u) := P_n(u) e^{βu} (real):
+  ###         Re E_J = ∫_{-δ/2}^{δ/2} g(u) q(u) cos(γu) du = ∫_0^{δ/2} g(u) cos(γu) (q(u) - q(-u)) du        (g odd, cos even)
+  ###         Im E_J = ∫_{-δ/2}^{δ/2} g(u) q(u) sin(γu) du = ∫_0^{δ/2} g(u) sin(γu) (q(u) + q(-u)) du.
+  ###     The member is real, so H_δ(conj ρ) = conj H_δ(ρ) and the paired transform is 2 Re H_δ(ρ): the pair reads Re E alone.
+  
+  ### (2) THE ODD-ABOUT-THE-JUMP CANCELLATION, SHOWN. In Re E_J the jump`s value q(0) = P_n(0) = n cancels: q(u) - q(-u) vanishes
+  ###     at u = 0, |q(u) - q(-u)| <= 2 u K_n with K_n := sup over |v| <= 1/2 of |q`(v)| <= e^{1/2} (sup|P_n`| + sup|P_n|) on
+  ###     [-1/2, 1/2], a constant of n alone (β < 1). The n/ρ piece that made b561`s bound n/‖ρ‖ lives in Im E_J (q(u) + q(-u) -> 2n),
+  ###     which the pair discards. FOR CONTRAST, the one-sided cut g1 = st(-u/δ) - 1 on [-δ, 0] is not odd: Re E = ∫ g1 q cos(γu)
+  ###     keeps n ∫ g1 cos(γu) du = -n μ δ Φ(γδ) (μ = 1/2, Φ(0) = 1, Φ the cut`s cosine profile), of size n/|γ| at γδ ≍ 1 -- b561`s (5).
+  
+  ### (3) THE ORDER IN δ AT FIXED n. From (2): |Re E_J| <= (1/2) ∫_0^{δ/2} 2 u K_n du = K_n δ²/8 -- per zero O(δ²), a fortiori
+  ###     O(δ). Its leading term: Re E_J ≈ Re(q`(0)) ∫_{-δ/2}^{δ/2} g(u) u du with q`(0) = P_n`(0) + β n = C(n, 2) + β n, which is
+  ###     n²/2 on the line β = 1/2: the n² of b562`s table (ii). SUMMED OVER THE ZEROS (a derivation resting on the zero density
+  ###     (1/2π) log(γ/2π), Riemann-von Mangoldt, T1-lit, not compiled): the zeros with |γ| δ <= 1 give +κ n² δ² each, those
+  ###     beyond give -n²/γ² each (E -> -liTerm), both summing to (n² δ/2π) log(1/δ) times coefficients whose sum is the Fourier
+  ###     integral of the excess at u = 0 in the midpoint sense -- g(0-) + g(0+) = -1/2 + 1/2 = 0 for the symmetric cut. SO THE
+  ###     log(1/δ) TERM CANCELS AND THE SUMMED EXCESS IS O(n² δ) at fixed n (for the one-sided cut the midpoint is -1/2 and the
+  ###     sum is b561`s -(n/2) log(1/δ)). THE BENCH CORROBORATES IT, from b562`s bank alone (relay data/b563_per_n.txt (b)):
+  ###     (D - T2)/(n² δ) = -0.0333, -0.0341, -0.0343 at δ = 0.1, 0.03, 0.01, the same at every n -- linear in δ, scaling as n².
+  
+  ### (4) THE DECAY IN ‖ρ‖, UNIFORM IN δ <= 1, AT THE JUMP. Where |γ| δ <= 1: (3) gives |Re E_J| <= K_n δ²/8 <= K_n/(8γ²). Where
+  ###     |γ| δ >= 1: put k(u) := g(u) (q(u) - q(-u)) on [0, δ/2]; k(0) = 0, k(δ/2) = 0, k`(δ/2) = 0 (st is flat at 0), k`(0+) =
+  ###     2 g(0+) q`(0) = q`(0). Two integrations by parts against cos(γu):
+  ###         ∫_0^{δ/2} k cos(γu) du = -(k`(0+) + ∫_0^{δ/2} k`` cos(γu) du)/γ²,
+  ###     and ∫_0^{δ/2} |k``| <= C`_n free of δ: |g``| <= S2/δ² against |q(u) - q(-u)| <= 2 K_n u over a length δ/2; |g`| <= S1/δ
+  ###     against |(q(u) - q(-u))`| <= 2 K_n; |g| |(q(u) - q(-u))``| <= K`_n u. (S1, S2 the sups of |st`|, |st``|.) HENCE
+  ###         |Re E_J(ρ)| <= C_n / γ² <= 2 C_n / ‖ρ‖²   for every δ in (0, 1] and every ρ with 0 < β < 1, |γ| >= 1.
+  
+  ### (5) THE LEFT EDGE, UNIFORM AS β -> 0. Put R = 1/δ >= 1, G(u) := (st(δu + 2) - 1) P_n(u) on u <= -R: G vanishes with every
+  ###     derivative at -R (st flat at 1), and G e^{ρu} and its derivatives vanish at -∞ for β > 0. Integrating by parts n + 1
+  ###     times: E_L = (-1/ρ)^{n+1} ∫ G^{(n+1)} e^{ρu} du, and G^{(n+1)} = Σ_{j=1}^{n+1} C(n+1, j) f^{(j)} P_n^{(n+1-j)} with f = st(δu + 2)
+  ###     (the j = 0 term dies: deg P_n = n - 1), supported on the transition [-2R, -R]. |f^{(j)}| <= S_j R^{-j}, |P_n^{(m)}| <=
+  ###     c_n R^{n-1-m} on |u| <= 2R, m = n + 1 - j: each term <= c`_n R^{-2}; over a length R with |e^{ρu}| <= 1:
+  ###         |E_L(ρ)| <= c``_n / (R ‖ρ‖^{n+1}) <= c``_n / ‖ρ‖²   for n >= 1, ‖ρ‖ >= 1, uniformly in β in (0, 1) and δ in (0, 1].
+  ###     (For n = 0, P_0 = 0 and every excess is 0.) No 1/‖ρ‖ piece: at β = 1/2 E_L is of size e^{-1/(2δ)} besides.
+  
+  ### (6) THE SCORE. H15a: "the excess is O(n²·δ) at fixed n and decays like 1/‖ρ‖² uniformly in δ <= δ₀; refuted if the
+  ###     excess has a 1/‖ρ‖ piece that symmetry does not cancel." ### **HELD ON THE PAGE**: the paired excess 2 Re E_δ(ρ) is O(δ²)
+  ###     per zero and O(n²·δ) summed at fixed n ((3), the sum a derivation on the zero density), and |2 Re E_δ(ρ)| <= C(n)/‖ρ‖² for
+  ###     every δ in (0, 1] ((4), (5)), C(n) free of δ; the 1/‖ρ‖ piece is imaginary at leading order and cancels in the pair (2).
+  ###     So (D3`) reads |Re H_δ(ρ)| <= ((n + n 2^n) + C(n)) / ‖ρ‖², with liTerm_re_abs_le for the jump`s own part.
+  
+  ### (7) WHAT THIS PRICES FOR (D3`), IN THE READ`S ORDER. (d1) the parity st(1 - x) = 1 - st(x) and the cosine form (1) --
+  ###     algebra and a change of variable; (d2) the jump side (4): its δ² half is elementary, its 1/γ² half needs two
+  ###     integrations by parts on (0, δ/2] with sup bounds on st` and st``; (d3) the left edge (5): an (n+1)-fold integration by
+  ###     parts with Leibniz`s rule and bounds on st`s derivatives to order n + 1 -- the heaviest item, and the one that makes
+  ###     the bound uniform as Re ρ -> 0, which no zero-free region in the kernel supplies otherwise.
+  
+  ### THE ILLUSTRATION (tools/b563_decay_num.py, numpy Gauss-Legendre; AN ILLUSTRATION, NOT EVIDENCE FOR A THEOREM; relay
+  ### data/b563_decay_num.txt): sup over δ in [1e-3, 1] of ‖ρ‖² |2 Re E| for the symmetric member, and of ‖ρ‖ |2 Re E| for the
+  ### one-sided cut:
+      n 1  β 0.5   γ 14.1347     SYM sup ‖ρ‖²|2ReE| 1.371     (left edge alone 0.888    )  ONE sup ‖ρ‖|2ReE| 1.742
+      n 2  β 0.5   γ 14.1347     SYM sup ‖ρ‖²|2ReE| 3.194     (left edge alone 0.23     )  ONE sup ‖ρ‖|2ReE| 3.426
+      n 3  β 0.5   γ 14.1347     SYM sup ‖ρ‖²|2ReE| 6.428     (left edge alone 0.732    )  ONE sup ‖ρ‖|2ReE| 5.052
+      n 1  β 0.5   γ 100         SYM sup ‖ρ‖²|2ReE| 1.423     (left edge alone 0.000296 )  ONE sup ‖ρ‖|2ReE| 1.741
+      n 2  β 0.5   γ 100         SYM sup ‖ρ‖²|2ReE| 5.694     (left edge alone 0.000773 )  ONE sup ‖ρ‖|2ReE| 3.473
+      n 3  β 0.5   γ 100         SYM sup ‖ρ‖²|2ReE| 12.81     (left edge alone 0.000797 )  ONE sup ‖ρ‖|2ReE| 5.197
+      n 1  β 0.5   γ 1000        SYM sup ‖ρ‖²|2ReE| 1.423     (left edge alone 6.34e-10 )  ONE sup ‖ρ‖|2ReE| 1.745
+      n 2  β 0.5   γ 1000        SYM sup ‖ρ‖²|2ReE| 5.694     (left edge alone 5.57e-10 )  ONE sup ‖ρ‖|2ReE| 3.488
+      n 3  β 0.5   γ 1000        SYM sup ‖ρ‖²|2ReE| 12.81     (left edge alone 1.06e-09 )  ONE sup ‖ρ‖|2ReE| 5.231
+      n 1  β 0.01  γ 14.1347     SYM sup ‖ρ‖²|2ReE| 2.226     (left edge alone 2.22     )  ONE sup ‖ρ‖|2ReE| 1.77  (HYPOTHETICAL POINT)
+      n 2  β 0.01  γ 14.1347     SYM sup ‖ρ‖²|2ReE| 1.864     (left edge alone 0.449    )  ONE sup ‖ρ‖|2ReE| 3.481  (HYPOTHETICAL POINT)
+      n 3  β 0.01  γ 14.1347     SYM sup ‖ρ‖²|2ReE| 3.545     (left edge alone 1.9      )  ONE sup ‖ρ‖|2ReE| 5.132  (HYPOTHETICAL POINT)
+      n 1  β 0.01  γ 100         SYM sup ‖ρ‖²|2ReE| 0.02847   (left edge alone 0.000281 )  ONE sup ‖ρ‖|2ReE| 1.745  (HYPOTHETICAL POINT)
+      n 2  β 0.01  γ 100         SYM sup ‖ρ‖²|2ReE| 2.904     (left edge alone 0.00137  )  ONE sup ‖ρ‖|2ReE| 3.481  (HYPOTHETICAL POINT)
+      n 3  β 0.01  γ 100         SYM sup ‖ρ‖²|2ReE| 8.626     (left edge alone 0.00199  )  ONE sup ‖ρ‖|2ReE| 5.209  (HYPOTHETICAL POINT)
+  ### read: at β = 1/2 the symmetric sup is 1.42, 5.69, 12.81 at γ = 100 and 1000 for n = 1, 2, 3 -- flat in ‖ρ‖, near
+  ### 1.42 n²; the one-sided ‖ρ‖ |2 Re E| is flat near 1.74 n (b561`s 1.77 at n = 1). ### **H15a HELD.**
+
+### relay data/b563_decay_num.txt
+  ================================================================================================================
+  b563 -- THE DECAY READ`S ILLUSTRATION. ### AN ILLUSTRATION, NOT EVIDENCE FOR A THEOREM.
+  ================================================================================================================
+  ### E = the member`s transform at gammaOf ρ minus the jump`s; 2 Re E the paired excess; δ over 31 points of [1e-3, 1].
+  ### SYM: sup_δ ‖ρ‖² |2 Re E| (jump side and left edge together) ; ONE: sup_δ ‖ρ‖ |2 Re E| of b561`s one-sided cut.
+  
+      n  β       γ            sup ‖ρ‖²|2ReE| SYM   at δ       sup ‖ρ‖²|2ReE_left| SYM   sup ‖ρ‖|2ReE| ONE   sup ‖ρ‖²|2ReE| ONE
+      1  0.5     14.1347      1.37143                1          0.887557                  1.74232             24.6426
+      2  0.5     14.1347      3.19372                1          0.230343                  3.42592             48.4547
+      3  0.5     14.1347      6.42834                1          0.732106                  5.05206             71.4541
+      1  0.5     100          1.42346                0.1995     0.000295587               1.74079             174.081
+      2  0.5     100          5.69398                0.1995     0.000773266               3.47302             347.307
+      3  0.5     100          12.8119                0.1995     0.000796771               5.19748             519.755
+      1  0.5     1000         1.4234                 0.01995    6.3415e-10                1.74463             1744.63
+      2  0.5     1000         5.69359                0.01995    5.56819e-10               3.4884              3488.4
+      3  0.5     1000         12.8106                0.01995    1.06301e-09               5.23131             5231.31
+      1  0.01    14.1347      2.22591                0.7943     2.22322                   1.77029             25.0226   (HYPOTHETICAL POINT)
+      2  0.01    14.1347      1.86374                1          0.44912                   3.48064             49.198   (HYPOTHETICAL POINT)
+      3  0.01    14.1347      3.5454                 1          1.90043                   5.13235             72.5444   (HYPOTHETICAL POINT)
+      1  0.01    100          0.0284679              0.1995     0.000281493               1.74497             174.497   (HYPOTHETICAL POINT)
+      2  0.01    100          2.90373                0.1995     0.00137041                3.48135             348.135   (HYPOTHETICAL POINT)
+      3  0.01    100          8.62579                0.1995     0.00198759                5.20917             520.917   (HYPOTHETICAL POINT)
+  
+  ### read: SYM`s sup ‖ρ‖² |2 Re E| stays of one size as γ grows at fixed n (the 1/‖ρ‖² decay, uniform in δ);
+  ### ONE`s ‖ρ‖² |2 Re E| grows with γ while its ‖ρ‖ |2 Re E| stays of one size (b561`s order n/‖ρ‖).
+  ================================================================================================================
+
+### relay data/b563_D1.txt
+  b563 -- READING (5): PART D1 -- (a) THE SYMMETRIC FAMILY AND (D1`) -- each member in EF_lit`s class
+  
+  ### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+  
+  ### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+      (a) ### symD1_1 -- exit 0, elapsed 1214 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+         39 | theorem smoothTransition_one_sub (x : ℝ) : Real.smoothTransition (1 - x) = 1 - Real.smoothTransition x := by
+         48 | def symCut (δ u : ℝ) : ℝ := Real.smoothTransition (1 / 2 - u / δ) * Real.smoothTransition (δ * u + 2)
+         51 | def symMember (n : ℕ) (δ : ℝ) (u : ℝ) : ℂ := ((symCut δ u : ℝ) : ℂ) * blSmooth n u
+         53 | theorem symCut_contDiff (δ : ℝ) : ContDiff ℝ 2 (symCut δ) := by
+         58 | theorem symCut_nonneg (δ u : ℝ) : 0 ≤ symCut δ u :=
+         61 | theorem symCut_le_one (δ u : ℝ) : symCut δ u ≤ 1 :=
+         64 | theorem symCut_eq_zero_right {δ u : ℝ} (hδ : 0 < δ) (hu : δ / 2 ≤ u) : symCut δ u = 0 := by
+         71 | theorem symCut_eq_zero_left {δ u : ℝ} (hδ : 0 < δ) (hu : u ≤ -2 / δ) : symCut δ u = 0 := by
+         79 | theorem symCut_eq_one {δ u : ℝ} (hδ : 0 < δ) (h1 : -1 / δ ≤ u) (h2 : u ≤ -(δ / 2)) : symCut δ u = 1 := by
+         94 | theorem symMember_classEF (n : ℕ) {δ : ℝ} (hδ : 0 < δ) :
+         95 |     ContDiff ℝ 2 (symMember n δ) ∧ HasCompactSupport (symMember n δ) := by
+        105 | theorem symMember_EF (n : ℕ) {δ : ℝ} (hδ : 0 < δ) :
+        106 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)) ∧
+        107 |     ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)
+        108 |       = EF.literatureRHS (symMember n δ) :=
+  
+  ### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+      smoothTransition_one_sub           ['propext', 'Classical.choice', 'Quot.sound']
+      symCut                             ['propext', 'Classical.choice', 'Quot.sound']
+      symMember                          ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_contDiff                    ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_nonneg                      ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_le_one                      ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_eq_zero_right               ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_eq_zero_left                ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_eq_one                      ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_classEF                  ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_EF                       ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 11 OF 11 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b563_D2.txt
+  b563 -- READING (5): PART D2 -- (b) (D2`) -- the member transforms tend to the jump`s at each fixed zero
+  
+  ### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+  
+  ### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+      (b) ### symBC_1 -- exit 1, elapsed 32 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0 (its one error, stdin:196, lies in symMember_transform_conj, part (c))
+          | <stdin>:196:117: error: unsolved goals
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+        114 | theorem symMember_integrand (n : ℕ) (δ : ℝ) (ρ : ℂ) (u : ℝ) :
+        115 |     symMember n δ u * cexp (Complex.I * gammaOf ρ * u)
+        116 |       = ((symCut δ u : ℝ) : ℂ) * (blSmooth n u * cexp (Complex.I * gammaOf ρ * u)) := by
+        121 | theorem blTest_integrand_neg (n : ℕ) (ρ : ℂ) {u : ℝ} (hu : u < 0) :
+        122 |     blTest n u * cexp (Complex.I * gammaOf ρ * u) = blSmooth n u * cexp (Complex.I * gammaOf ρ * u) := by
+        129 | theorem symMember_transform_tendsto (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+        130 |     Tendsto (fun δ => paperFT (symMember n δ) (gammaOf ρ)) (𝓝[>] 0) (𝓝 (liTerm n ρ)) := by
+  
+  ### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+      symMember_integrand                ['propext', 'Classical.choice', 'Quot.sound']
+      blTest_integrand_neg               ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_tendsto        ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 3 OF 3 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b563_stmt.txt
+  b563 -- READING (5): PART stmt -- (c) LiLimitExchangeSym STATED; the zero sum at each member is real
+  
+  ### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+  
+  ### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+      (c) ### symBC_1 -- exit 1, elapsed 32 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 1 (stdin:196, in symMember_transform_conj)
+          | <stdin>:196:117: error: unsolved goals
+      (c) ### symC_2 -- exit 0, elapsed 26 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+        194 | def LiLimitExchangeSym (n : ℕ) : Prop :=
+        195 |   Tendsto (fun δ => ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ))
+        196 |     (𝓝[>] 0) (𝓝 (LiCoeff n : ℂ))
+        198 | theorem I_gammaOf_mul (ρ : ℂ) (u : ℝ) : Complex.I * gammaOf ρ * u = (ρ - 1 / 2) * u := by
+        203 | theorem symMember_transform_conj (n : ℕ) (δ : ℝ) (ρ : ℂ) :
+        204 |     paperFT (symMember n δ) (gammaOf ((starRingEnd ℂ) ρ)) = (starRingEnd ℂ) (paperFT (symMember n δ) (gammaOf ρ)) := by
+        216 | def conjEquiv : zetaZeroConfig.carrier ≃ zetaZeroConfig.carrier where
+        217 |   toFun ρ := ⟨(starRingEnd ℂ) ρ, conj_mem ρ.2⟩
+        218 |   invFun ρ := ⟨(starRingEnd ℂ) ρ, conj_mem ρ.2⟩
+        219 |   left_inv ρ := by ext; simp
+        220 |   right_inv ρ := by ext; simp
+        224 | theorem symZeroSum_conj (n : ℕ) (δ : ℝ) :
+        225 |     (starRingEnd ℂ) (∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ))
+        226 |       = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ) := by
+        236 | theorem symZeroSum_im (n : ℕ) (δ : ℝ) :
+        237 |     (∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)).im = 0 :=
+  
+  ### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+      LiLimitExchangeSym                 ['propext', 'Classical.choice', 'Quot.sound']
+      I_gammaOf_mul                      ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_conj           ['propext', 'Classical.choice', 'Quot.sound']
+      conjEquiv                          ['propext', 'Classical.choice', 'Quot.sound']
+      symZeroSum_conj                    ['propext', 'Classical.choice', 'Quot.sound']
+      symZeroSum_im                      ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 6 OF 6 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b563_D3.txt
+  b563 -- READING (5): PART D3 -- (d) (D3`) -- the bound |Re H_δ(ρ)| <= C(n)/‖ρ‖², uniform in δ in (0, 1]: (d1) the cosine form, (d2) the jump side, (d3) the left edge, the assembly
+  
+  ### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+  
+  ### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+      (d1) ### symD3a_1 -- exit 0, elapsed 25 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+      (d2) ### symD3b_1 -- exit 1, elapsed 37 s, errors 20 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 20
+          | <stdin>:285:4: error: `field_simp` made no progress on the goal
+          | <stdin>:290:4: error: `field_simp` made no progress on the goal
+          | <stdin>:305:51: error: expected token
+          | <stdin>:320:2: error: `ring_nf` made no progress on the goal
+          | <stdin>:323:44: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+          | <stdin>:322:79: error: unsolved goals
+          | <stdin>:330:52: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+          | <stdin>:329:81: error: unsolved goals
+          | <stdin>:339:52: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+          | <stdin>:341:66: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+          | <stdin>:343:65: error: Application type mismatch: The argument
+          | <stdin>:422:91: error: linarith failed to find a contradiction
+          | <stdin>:423:4: error: linarith failed to find a contradiction
+          | <stdin>:460:4: error: `ring_nf` made no progress on the goal
+          | <stdin>:464:4: error: `ring_nf` made no progress on the goal
+          | <stdin>:468:4: error: `simp` made no progress
+          | <stdin>:474:4: error: `simp` made no progress
+          | <stdin>:479:52: error(lean.unknownIdentifier): Unknown identifier `blPoly_contDiff_infty`
+          | <stdin>:495:35: error: No goals to be solved
+          | <stdin>:504:20: error(lean.unknownIdentifier): Unknown identifier `Ι`
+      (d2) ### symD3b_2 -- exit 1, elapsed 35 s, errors 5 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 5
+          | <stdin>:331:23: error: unsolved goals
+          | <stdin>:372:41: error: Application type mismatch: The argument
+          | <stdin>:461:25: error: unsolved goals
+          | <stdin>:465:25: error: unsolved goals
+          | <stdin>:522:80: error: Application type mismatch: The argument
+      (d2) ### symD3b_3 -- exit 0, elapsed 31 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+      (d3) ### symD3c_1 -- exit 1, elapsed 34 s, errors 2 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 2
+          | <stdin>:576:2: error: `simp` made no progress
+          | <stdin>:651:6: error: No goals to be solved
+      (d3) ### symD3c_2 -- exit 1, elapsed 35 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 1
+          | <stdin>:580:2: error: No goals to be solved
+      (d3) ### symD3c_3 -- exit 0, elapsed 32 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+      the assembly ### symD3d_1 -- exit 1, elapsed 32 s, errors 3 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 3
+          | <stdin>:965:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+          | <stdin>:999:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+          | <stdin>:1053:78: error(lean.unknownIdentifier): Unknown identifier `integral_comp_neg`
+      the assembly ### symD3d_2 -- exit 0, elapsed 32 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+        244 | def SymPairBound (n : ℕ) : Prop :=
+        245 |   ∃ C : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ∀ ρ : ℂ, 1 ≤ |ρ.im| → 0 < ρ.re → ρ.re < 1 →
+        246 |     |(paperFT (symMember n δ) (gammaOf ρ)).re| ≤ C / ‖ρ‖ ^ 2
+        249 | theorem symMember_integrand_exp (n : ℕ) (δ : ℝ) (ρ : ℂ) (u : ℝ) :
+        250 |     symMember n δ u * cexp (Complex.I * gammaOf ρ * u) = ((symCut δ u * blPoly n u : ℝ) : ℂ) * cexp (ρ * u) := by
+        265 | theorem symMember_transform_re (n : ℕ) {δ : ℝ} (hδ : 0 < δ) (ρ : ℂ) :
+        266 |     (paperFT (symMember n δ) (gammaOf ρ)).re
+        267 |       = ∫ u : ℝ, symCut δ u * blPoly n u * (Real.exp (ρ.re * u) * Real.cos (ρ.im * u)) := by
+        283 | theorem integral_mul_cos_ibp {k k' k'' : ℝ → ℝ} (a γ : ℝ) (hγ : γ ≠ 0)
+        284 |     (hk : ∀ x, HasDerivAt k (k' x) x) (hk' : ∀ x, HasDerivAt k' (k'' x) x) (hc : Continuous k'') :
+        285 |     ∫ u in (0 : ℝ)..a, k u * Real.cos (γ * u)
+        286 |       = k a * (Real.sin (γ * a) / γ) + (k' a * Real.cos (γ * a) - k' 0) / γ ^ 2
+        287 |         - (∫ u in (0 : ℝ)..a, k'' u * Real.cos (γ * u)) / γ ^ 2 := by
+        311 | theorem blPoly_contDiff_infty (n : ℕ) : ContDiff ℝ ∞ (blPoly n) := by
+        316 | def qf (n : ℕ) (β u : ℝ) : ℝ := blPoly n u * Real.exp (β * u)
+        318 | def qf1 (n : ℕ) (β u : ℝ) : ℝ := (deriv (blPoly n) u + β * blPoly n u) * Real.exp (β * u)
+        320 | def qf2 (n : ℕ) (β u : ℝ) : ℝ :=
+        321 |   (deriv (deriv (blPoly n)) u + 2 * β * deriv (blPoly n) u + β ^ 2 * blPoly n u) * Real.exp (β * u)
+        323 | theorem exp_mul_hasDerivAt (β x : ℝ) : HasDerivAt (fun u => Real.exp (β * u)) (β * Real.exp (β * x)) x := by
+        327 | theorem qf_hasDerivAt (n : ℕ) (β x : ℝ) : HasDerivAt (qf n β) (qf1 n β x) x := by
+        333 | theorem qf1_hasDerivAt (n : ℕ) (β x : ℝ) : HasDerivAt (qf1 n β) (qf2 n β x) x := by
+        340 | theorem qf_bounds (n : ℕ) : ∃ K : ℝ, 0 ≤ K ∧ ∀ β : ℝ, 0 ≤ β → β ≤ 1 → ∀ x ∈ Icc (-1 : ℝ) 1,
+        341 |     |qf1 n β x| ≤ K ∧ |qf2 n β x| ≤ K := by
+        388 | def wf (δ u : ℝ) : ℝ := Real.smoothTransition (1 / 2 - u / δ)
+        390 | def wf1 (δ u : ℝ) : ℝ := deriv Real.smoothTransition (1 / 2 - u / δ) * (-(1 / δ))
+        392 | def wf2 (δ u : ℝ) : ℝ := deriv (deriv Real.smoothTransition) (1 / 2 - u / δ) * (-(1 / δ)) * (-(1 / δ))
+        394 | theorem wf_hasDerivAt (δ x : ℝ) : HasDerivAt (wf δ) (wf1 δ x) x := by
+        398 | theorem wf1_hasDerivAt (δ x : ℝ) : HasDerivAt (wf1 δ) (wf2 δ x) x := by
+        406 | theorem jump_cos_bound (n : ℕ) : ∃ C : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ∀ β : ℝ, 0 ≤ β → β ≤ 1 → ∀ γ : ℝ, γ ≠ 0 →
+        407 |     |∫ u in (0 : ℝ)..(δ / 2), wf δ u * (qf n β u - qf n β (-u)) * Real.cos (γ * u)| ≤ C / γ ^ 2 := by
+        560 | theorem integral_mul_cexp_ibp {g : ℝ → ℂ} (hg : ContDiff ℝ ∞ g) (hs : HasCompactSupport g) {τ : ℂ} (hτ : τ ≠ 0) :
+        561 |     ∫ v : ℝ, g v * cexp (τ * v) = (-1 / τ) * ∫ v : ℝ, deriv g v * cexp (τ * v) := by
+        583 | theorem integral_mul_cexp_ibp_iter {g : ℝ → ℂ} (hg : ContDiff ℝ ∞ g) (hs : HasCompactSupport g) {τ : ℂ} (hτ : τ ≠ 0) :
+        584 |     ∀ m : ℕ, ∫ v : ℝ, g v * cexp (τ * v) = (-1 / τ) ^ m * ∫ v : ℝ, iteratedDeriv m g v * cexp (τ * v) := by
+        599 | def edgeProfile (j : ℕ) (v : ℝ) : ℂ := ((deriv Real.smoothTransition (v + 2) * v ^ j : ℝ) : ℂ)
+        601 | theorem deriv_smoothTransition_eq_zero {x : ℝ} (hx : x < 0 ∨ 1 < x) : deriv Real.smoothTransition x = 0 := by
+        612 | theorem edgeProfile_contDiff (j : ℕ) : ContDiff ℝ ∞ (edgeProfile j) := by
+        617 | theorem edgeProfile_eq_zero (j : ℕ) {v : ℝ} (hv : v < -2 ∨ -1 < v) : edgeProfile j v = 0 := by
+        622 | theorem edgeProfile_hasCompactSupport (j : ℕ) : HasCompactSupport (edgeProfile j) := by
+        628 | theorem edgeProfile_bound (j m : ℕ) : ∃ A : ℝ, ∀ τ : ℂ, 0 ≤ τ.re → τ ≠ 0 →
+        629 |     ‖∫ v : ℝ, edgeProfile j v * cexp (τ * v)‖ ≤ A / ‖τ‖ ^ m := by
+        666 | theorem integrable_cut_pow_cexp {h : ℝ → ℝ} (hc : Continuous h) (h1 : ∀ u, |h u| ≤ 1) (h0 : ∀ u, 0 ≤ u → h u = 0)
+        667 |     (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) : Integrable (fun u : ℝ => ((h u * u ^ j : ℝ) : ℂ) * cexp (τ * u)) := by
+        687 | def edgeTail (j : ℕ) (v : ℝ) : ℂ := (((Real.smoothTransition (v + 2) - 1) * v ^ j : ℝ) : ℂ)
+        689 | theorem edgeCut_abs (v : ℝ) : |Real.smoothTransition (v + 2) - 1| ≤ 1 := by
+        693 | theorem edgeTail_integrable (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) : Integrable (fun v : ℝ => edgeTail j v * cexp (τ * v)) :=
+        697 | theorem edgeTail_hasDerivAt (j : ℕ) (v : ℝ) :
+        698 |     HasDerivAt (edgeTail j) (edgeProfile j v + (j : ℂ) * (((Real.smoothTransition (v + 2) - 1) * v ^ (j - 1) : ℝ) : ℂ)) v := by
+        709 | theorem edgeTail_ibp (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) :
+        710 |     ∫ v : ℝ, edgeTail j v * cexp (τ * v)
+        711 |       = (-1 / τ) * ∫ v : ℝ, (edgeProfile j v + (j : ℂ) * (((Real.smoothTransition (v + 2) - 1) * v ^ (j - 1) : ℝ) : ℂ))
+        712 |           * cexp (τ * v) := by
+        762 | theorem edgeTail_bound (j : ℕ) : ∃ B : ℝ, 0 ≤ B ∧ ∀ τ : ℂ, 0 < τ.re → ‖∫ v : ℝ, edgeTail j v * cexp (τ * v)‖ ≤ B / ‖τ‖ ^ (j + 2) := by
+        817 | theorem left_edge_bound (n : ℕ) : ∃ C : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ∀ ρ : ℂ, 0 < ρ.re → 1 ≤ ‖ρ‖ →
+        818 |     ‖∫ u : ℝ, (((Real.smoothTransition (δ * u + 2) - 1) * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)‖ ≤ C / ‖ρ‖ ^ 2 := by
+        890 | def jumpInd (u : ℝ) : ℝ := if u < 0 then 1 else 0
+        894 | theorem symCut_split {δ : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1) (u : ℝ) :
+        895 |     symCut δ u = jumpInd u + (wf δ u - jumpInd u) + (Real.smoothTransition (δ * u + 2) - 1) := by
+        908 | theorem wf_neg (δ u : ℝ) : wf δ (-u) = 1 - wf δ u := by
+        914 | theorem wf_eq_zero {δ u : ℝ} (hδ : 0 < δ) (hu : δ / 2 ≤ u) : wf δ u = 0 := by
+        920 | theorem re_ofReal_mul_cexp (r : ℝ) (ρ : ℂ) (u : ℝ) :
+        921 |     ((r : ℂ) * cexp (ρ * u)).re = r * (Real.exp (ρ.re * u) * Real.cos (ρ.im * u)) := by
+        926 | theorem leftEdge_integrable (n : ℕ) {δ : ℝ} (hδ : 0 < δ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+        927 |     Integrable (fun u : ℝ => (((Real.smoothTransition (δ * u + 2) - 1) * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) := by
+        944 | theorem symPair_bound (n : ℕ) : SymPairBound n := by
+  
+  ### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+      SymPairBound                       ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_integrand_exp            ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_re             ['propext', 'Classical.choice', 'Quot.sound']
+      integral_mul_cos_ibp               ['propext', 'Classical.choice', 'Quot.sound']
+      blPoly_contDiff_infty              ['propext', 'Classical.choice', 'Quot.sound']
+      qf                                 ['propext', 'Classical.choice', 'Quot.sound']
+      qf1                                ['propext', 'Classical.choice', 'Quot.sound']
+      qf2                                ['propext', 'Classical.choice', 'Quot.sound']
+      exp_mul_hasDerivAt                 ['propext', 'Classical.choice', 'Quot.sound']
+      qf_hasDerivAt                      ['propext', 'Classical.choice', 'Quot.sound']
+      qf1_hasDerivAt                     ['propext', 'Classical.choice', 'Quot.sound']
+      qf_bounds                          ['propext', 'Classical.choice', 'Quot.sound']
+      wf                                 ['propext', 'Classical.choice', 'Quot.sound']
+      wf1                                ['propext', 'Classical.choice', 'Quot.sound']
+      wf2                                ['propext', 'Classical.choice', 'Quot.sound']
+      wf_hasDerivAt                      ['propext', 'Classical.choice', 'Quot.sound']
+      wf1_hasDerivAt                     ['propext', 'Classical.choice', 'Quot.sound']
+      jump_cos_bound                     ['propext', 'Classical.choice', 'Quot.sound']
+      integral_mul_cexp_ibp              ['propext', 'Classical.choice', 'Quot.sound']
+      integral_mul_cexp_ibp_iter         ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile                        ['propext', 'Classical.choice', 'Quot.sound']
+      deriv_smoothTransition_eq_zero     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_contDiff               ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_eq_zero                ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_hasCompactSupport      ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_bound                  ['propext', 'Classical.choice', 'Quot.sound']
+      integrable_cut_pow_cexp            ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail                           ['propext', 'Classical.choice', 'Quot.sound']
+      edgeCut_abs                        ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_integrable                ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_hasDerivAt                ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_ibp                       ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_bound                     ['propext', 'Classical.choice', 'Quot.sound']
+      left_edge_bound                    ['propext', 'Classical.choice', 'Quot.sound']
+      jumpInd                            ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_split                       ['propext', 'Classical.choice', 'Quot.sound']
+      wf_neg                             ['propext', 'Classical.choice', 'Quot.sound']
+      wf_eq_zero                         ['propext', 'Classical.choice', 'Quot.sound']
+      re_ofReal_mul_cexp                 ['propext', 'Classical.choice', 'Quot.sound']
+      leftEdge_integrable                ['propext', 'Classical.choice', 'Quot.sound']
+      symPair_bound                      ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 41 OF 41 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b563_D4.txt
+  b563 -- READING (5): PART D4 -- (e) (D4`), THE DISCHARGE AND li_identity_sym -- the Bombieri-Lagarias arithmetic formula in limit form
+  
+  ### the branch li-weil-b563 at 1e4a007 from v0.6 = de1f175 ; the module SIDEExplicitFormula/LiWeilSym.lean
+  
+  ### THE ELABORATION ATTEMPTS (the module as it then stood; each run`s header line: exit, elapsed, errors), with the errors:
+      (e) ### symE_1 -- exit 1, elapsed 37 s, errors 1 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 1
+          | <stdin>:1154:106: error: failed to prove positivity/nonnegativity/nonzeroness
+      (e) ### symE_2 -- exit 0, elapsed 34 s, errors 0 (LiWeilSym.lean on stdin over the scratch oleans, branch li-weil-b563) ; ERRORS IN THIS PART`S DECLARATIONS 0
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM (the final text, the prints` subject):
+       1096 | theorem symMember_transform_norm_le (n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) :
+       1097 |     ∃ B : ℝ, ∀ δ : ℝ, 0 < δ → δ ≤ 1 → ‖paperFT (symMember n δ) (gammaOf ρ)‖ ≤ B := by
+       1131 | theorem exchange_of_bound (n : ℕ) (hB : SymPairBound n) : LiLimitExchangeSym n := by
+       1214 | theorem liLimitExchangeSym_holds (n : ℕ) : LiLimitExchangeSym n := exchange_of_bound n (symPair_bound n)
+       1218 | theorem li_identity_sym (n : ℕ) :
+       1219 |     Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 (LiCoeff n : ℂ)) := by
+  
+  ### LEAN`S PRINTS (the full-stack run, scratchpad symPrints_full.txt, first line: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)):
+      symMember_transform_norm_le        ['propext', 'Classical.choice', 'Quot.sound']
+      exchange_of_bound                  ['propext', 'Classical.choice', 'Quot.sound']
+      liLimitExchangeSym_holds           ['propext', 'Classical.choice', 'Quot.sound']
+      li_identity_sym                    ['propext', 'Classical.choice', 'Quot.sound']
+  ### ### **PRINTED 4 OF 4 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b563_e0.txt
+  b563 -- READING (6): THE E0 READ -- EVERY DECLARATION OF LiWeilSym.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+  ### the prints: the full-stack stdin run (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean, AxiomCheckLiWeilSym.lean); its header: ### symPrints_full -- exit 0, elapsed 37 s, errors 0 (LiWeil.lean, LiWeilExchange.lean, LiWeilSym.lean on stdin, branch li-weil-b563)
+  
+      smoothTransition_one_sub           DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symCut                             DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      symMember                          DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_contDiff                    DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_nonneg                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_le_one                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_eq_zero_right               DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_eq_zero_left                DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_eq_one                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_classEF                  DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_EF                       DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_integrand                DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      blTest_integrand_neg               DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_tendsto        DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      LiLimitExchangeSym                 DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      I_gammaOf_mul                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_conj           DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      conjEquiv                          DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      symZeroSum_conj                    DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symZeroSum_im                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      SymPairBound                       DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_integrand_exp            DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_re             DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      integral_mul_cos_ibp               DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      blPoly_contDiff_infty              DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      qf                                 DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      qf1                                DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      qf2                                DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      exp_mul_hasDerivAt                 DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      qf_hasDerivAt                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      qf1_hasDerivAt                     DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      qf_bounds                          DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      wf                                 DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      wf1                                DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      wf2                                DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      wf_hasDerivAt                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      wf1_hasDerivAt                     DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      jump_cos_bound                     DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      integral_mul_cexp_ibp              DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      integral_mul_cexp_ibp_iter         DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile                        DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      deriv_smoothTransition_eq_zero     DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_contDiff               DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_eq_zero                DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_hasCompactSupport      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeProfile_bound                  DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      integrable_cut_pow_cexp            DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail                           DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      edgeCut_abs                        DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_integrable                DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_hasDerivAt                DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_ibp                       DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      edgeTail_bound                     DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      left_edge_bound                    DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      jumpInd                            DEFINITION  ['propext', 'Classical.choice', 'Quot.sound']
+      symCut_split                       DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      wf_neg                             DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      wf_eq_zero                         DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      re_ofReal_mul_cexp                 DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      leftEdge_integrable                DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symPair_bound                      DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      symMember_transform_norm_le        DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      exchange_of_bound                  INTERFACES  ['propext', 'Classical.choice', 'Quot.sound']
+      liLimitExchangeSym_holds           DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+      li_identity_sym                    DERIVES     ['propext', 'Classical.choice', 'Quot.sound']
+  ### exchange_of_bound : INTERFACES on SymPairBound, a premise the module names and discharges (symPair_bound)
+  
+  ### THE SALT-CHECK -- Lean`s #print of each definition (every constant a Mathlib object or the kernel`s):
+      def SIDEExplicitFormula.LiWeil.symCut : ℝ → ℝ → ℝ :=
+      fun δ u => (1 / 2 - u / δ).smoothTransition * (δ * u + 2).smoothTransition
+      def SIDEExplicitFormula.LiWeil.symMember : ℕ → ℝ → ℝ → ℂ :=
+      fun n δ u => ↑(SIDEExplicitFormula.LiWeil.symCut δ u) * SIDEExplicitFormula.LiWeil.blSmooth n u
+      def SIDEExplicitFormula.LiWeil.LiLimitExchangeSym : ℕ → Prop :=
+      fun n =>
+      def SIDEExplicitFormula.LiWeil.symMember : ℕ → ℝ → ℝ → ℂ :=
+      fun n δ u => ↑(SIDEExplicitFormula.LiWeil.symCut δ u) * SIDEExplicitFormula.LiWeil.blSmooth n u
+      def SIDEExplicitFormula.LiWeil.LiLimitExchangeSym : ℕ → Prop :=
+      fun n =>
+        Tendsto
+          (fun δ =>
+      def SIDEExplicitFormula.LiWeil.LiLimitExchangeSym : ℕ → Prop :=
+      fun n =>
+        Tendsto
+          (fun δ =>
+            ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+              ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+      def SIDEExplicitFormula.LiWeil.conjEquiv : ↑Zeta23.zetaZeroConfig.carrier ≃ ↑Zeta23.zetaZeroConfig.carrier :=
+      { toFun := fun ρ => ⟨(starRingEnd ℂ) ↑ρ, ⋯⟩, invFun := fun ρ => ⟨(starRingEnd ℂ) ↑ρ, ⋯⟩,
+        left_inv := SIDEExplicitFormula.LiWeil.conjEquiv._proof_3,
+        right_inv := SIDEExplicitFormula.LiWeil.conjEquiv._proof_3 }
+      def SIDEExplicitFormula.LiWeil.SymPairBound : ℕ → Prop :=
+      fun n =>
+      def SIDEExplicitFormula.LiWeil.SymPairBound : ℕ → Prop :=
+      fun n =>
+        ∃ C,
+          ∀ (δ : ℝ),
+            0 < δ →
+              δ ≤ 1 →
+      def SIDEExplicitFormula.LiWeil.qf : ℕ → ℝ → ℝ → ℝ :=
+      fun n β u => SIDEExplicitFormula.LiWeil.blPoly n u * Real.exp (β * u)
+      def SIDEExplicitFormula.LiWeil.qf1 : ℕ → ℝ → ℝ → ℝ :=
+      fun n β u =>
+        (deriv (SIDEExplicitFormula.LiWeil.blPoly n) u + β * SIDEExplicitFormula.LiWeil.blPoly n u) * Real.exp (β * u)
+      def SIDEExplicitFormula.LiWeil.qf2 : ℕ → ℝ → ℝ → ℝ :=
+      def SIDEExplicitFormula.LiWeil.qf1 : ℕ → ℝ → ℝ → ℝ :=
+      fun n β u =>
+        (deriv (SIDEExplicitFormula.LiWeil.blPoly n) u + β * SIDEExplicitFormula.LiWeil.blPoly n u) * Real.exp (β * u)
+      def SIDEExplicitFormula.LiWeil.qf2 : ℕ → ℝ → ℝ → ℝ :=
+      fun n β u =>
+        (deriv (deriv (SIDEExplicitFormula.LiWeil.blPoly n)) u + 2 * β * deriv (SIDEExplicitFormula.LiWeil.blPoly n) u +
+      def SIDEExplicitFormula.LiWeil.qf2 : ℕ → ℝ → ℝ → ℝ :=
+      fun n β u =>
+        (deriv (deriv (SIDEExplicitFormula.LiWeil.blPoly n)) u + 2 * β * deriv (SIDEExplicitFormula.LiWeil.blPoly n) u +
+            β ^ 2 * SIDEExplicitFormula.LiWeil.blPoly n u) *
+          Real.exp (β * u)
+      def SIDEExplicitFormula.LiWeil.wf : ℝ → ℝ → ℝ :=
+      def SIDEExplicitFormula.LiWeil.wf : ℝ → ℝ → ℝ :=
+      fun δ u => (1 / 2 - u / δ).smoothTransition
+      def SIDEExplicitFormula.LiWeil.wf1 : ℝ → ℝ → ℝ :=
+      fun δ u => deriv Real.smoothTransition (1 / 2 - u / δ) * -(1 / δ)
+      def SIDEExplicitFormula.LiWeil.wf2 : ℝ → ℝ → ℝ :=
+      fun δ u => deriv (deriv Real.smoothTransition) (1 / 2 - u / δ) * -(1 / δ) * -(1 / δ)
+      def SIDEExplicitFormula.LiWeil.wf1 : ℝ → ℝ → ℝ :=
+      fun δ u => deriv Real.smoothTransition (1 / 2 - u / δ) * -(1 / δ)
+      def SIDEExplicitFormula.LiWeil.wf2 : ℝ → ℝ → ℝ :=
+      fun δ u => deriv (deriv Real.smoothTransition) (1 / 2 - u / δ) * -(1 / δ) * -(1 / δ)
+      def SIDEExplicitFormula.LiWeil.edgeProfile : ℕ → ℝ → ℂ :=
+      fun j v => ↑(deriv Real.smoothTransition (v + 2) * v ^ j)
+      def SIDEExplicitFormula.LiWeil.wf2 : ℝ → ℝ → ℝ :=
+      fun δ u => deriv (deriv Real.smoothTransition) (1 / 2 - u / δ) * -(1 / δ) * -(1 / δ)
+      def SIDEExplicitFormula.LiWeil.edgeProfile : ℕ → ℝ → ℂ :=
+      fun j v => ↑(deriv Real.smoothTransition (v + 2) * v ^ j)
+      def SIDEExplicitFormula.LiWeil.edgeTail : ℕ → ℝ → ℂ :=
+      fun j v => ↑(((v + 2).smoothTransition - 1) * v ^ j)
+      def SIDEExplicitFormula.LiWeil.edgeProfile : ℕ → ℝ → ℂ :=
+      fun j v => ↑(deriv Real.smoothTransition (v + 2) * v ^ j)
+      def SIDEExplicitFormula.LiWeil.edgeTail : ℕ → ℝ → ℂ :=
+      fun j v => ↑(((v + 2).smoothTransition - 1) * v ^ j)
+      def SIDEExplicitFormula.LiWeil.jumpInd : ℝ → ℝ :=
+      fun u => if u < 0 then 1 else 0
+      def SIDEExplicitFormula.LiWeil.edgeTail : ℕ → ℝ → ℂ :=
+      fun j v => ↑(((v + 2).smoothTransition - 1) * v ^ j)
+      def SIDEExplicitFormula.LiWeil.jumpInd : ℝ → ℝ :=
+      fun u => if u < 0 then 1 else 0
+      SIDEExplicitFormula.LiWeil.symPair_bound : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.SymPairBound n
+      SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchangeSym n
+      def SIDEExplicitFormula.LiWeil.jumpInd : ℝ → ℝ :=
+      fun u => if u < 0 then 1 else 0
+      SIDEExplicitFormula.LiWeil.symPair_bound : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.SymPairBound n
+      SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchangeSym n
+      SIDEExplicitFormula.LiWeil.li_identity_sym : ∀ (n : ℕ),
+        Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (𝓝[>] 0)
+  ### ### **THE SALT-CHECK: True** (symCut True, symMember True, LiLimitExchangeSym True, conjEquiv True, SymPairBound True, qf True, qf1 True, qf2 True, wf True, wf1 True, wf2 True, edgeProfile True, edgeTail True, jumpInd True)
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 1e4a007):
+      symPair_bound                  defenc False  | check True
+      liLimitExchangeSym_holds       defenc False  | check True
+      li_identity_sym                defenc False  | check True
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+  ### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THEOREMS 51 (DERIVES 50, INTERFACES 1) ; DEFINITIONS 14 ; PRINTED 65 OF 65 ; THE SALT-CHECK True => MERGE True**
+
+### relay data/b563_v07_push.txt
+  ### b563 -- the branch li-weil-b563 pushed by name:
+  remote: 
+  remote: Create a pull request for 'li-weil-b563' on GitHub by visiting:        
+  remote:      https://github.com/psinary-sketch/SIDE-explicit-formula/pull/new/li-weil-b563        
+  remote: 
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new branch]      li-weil-b563 -> li-weil-b563
+  ### read back: 1e4a0079200823cfc223acdcfa58cc0fb459e5e1	refs/heads/li-weil-b563
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b563 ; tip 1e4a0079200823cfc223acdcfa58cc0fb459e5e1 ; checkout before main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     de1f175..1e4a007  push-b563 -> main
+  push_gated: main read back at the remote: 1e4a0079200823cfc223acdcfa58cc0fb459e5e1
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new tag]         v0.7 -> v0.7
+  push_gated: tag v0.7 peeled local 1e4a0079200823cfc223acdcfa58cc0fb459e5e1 remote 1e4a0079200823cfc223acdcfa58cc0fb459e5e1
+  push_gated: DONE -- main and 1 tag(s) pushed and read back
+  ### read back after the gate:
+  1e4a0079200823cfc223acdcfa58cc0fb459e5e1	refs/heads/li-weil-b563
+  1e4a0079200823cfc223acdcfa58cc0fb459e5e1	refs/heads/main
+  6bf691ca77272c448e8624821a9513cfe31b49be	refs/tags/v0.7
+  1e4a0079200823cfc223acdcfa58cc0fb459e5e1	refs/tags/v0.7^{}
+
+### relay data/b563_rowgen.txt
+  b563 -- READING (6): THE ROWGEN DIFF (rowgen.diff IMPORTED) OF THE MERGED RECORDS AGAINST CORRESPONDENCE ROW 399
+  
+  ### records: 3 ; row found: True
+      ('SIDEExplicitFormula.LiWeil.symPair_bound', ['ok'])
+
+### relay data/b563_branches.txt
+  ### b563 READING (7): the ritual branches -- listed by git branch --merged main, then deleted by name (git branch -d, chained by &&):
+  ### /d/relay merged list (push-b562*):   push-b562   push-b562-closing 
+  ### /d/MY-DOwnloads/PLACE-papers merged list (push-b562*):   push-b562 
+  ### /d/SIDE-global-section merged list (push-b562*):   push-b562 
+  Deleted branch push-b562 (was fc10a529).
+  Deleted branch push-b562-closing (was 4ab01dcd).
+  Deleted branch push-b562 (was 4b6ffe9).
+  Deleted branch push-b562 (was 9eaec7e).
+  ### read back:
+  ### /d/relay push-b562*: []
+  ### /d/MY-DOwnloads/PLACE-papers push-b562*: []
+  ### /d/SIDE-global-section push-b562*: []
+  ### kept: toolchain-trial-b551 in its own tree D:/trial-b551-lv, untouched; in SIDE-explicit-formula detection-region-b559, li-weil-b561, grh-weil-b562 and li-weil-b563 (this act's, pushed by name). The local branch list:
+    detection-region-b559   grh-weil-b562   li-weil-b561   li-weil-b563 * main
+
+### relay data/b563_supline.json -- line 6116
+### relay data/b563_defect_a_line.json -- line 11584
+### relay data/b563_findings.json -- heading_line 6118
+### relay data/b563_rows.json -- exit_act 0
+### relay data/b563_workorder.json -- line 11590
+### relay data/b563_b562_lines.json -- h13b 11586 h13a 11588
