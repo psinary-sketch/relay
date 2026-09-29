@@ -188,6 +188,34 @@ def supersede_trail(cells, name):
     return [c for c in cells if not (c['ledger'] == TRAIL_LABEL and c['line'] in gone)]
 
 
+FIND_SUP_RE = re.compile(r'SUPERSEDES FINDINGS :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
+FIND_LABEL = 'PLACE-papers/FINDINGS.md'
+_FIND_DIRECTIVES = []
+
+
+def find_directives():
+    """### every `SUPERSEDES FINDINGS :N for <terminal>:` line in the ledgers, as (N, terminal, the ledger carrying it, its line)."""
+    if not _FIND_DIRECTIVES:
+        for label, path in ledger_files():
+            text = read(path) or ''
+            for m in FIND_SUP_RE.finditer(text):
+                _FIND_DIRECTIVES.append((int(m.group(1)), m.group(2), label, text.count(NL, 0, m.start()) + 1))
+        _FIND_DIRECTIVES.append(None)       # ### read once, even when there are none
+    return [d for d in _FIND_DIRECTIVES if d]
+
+
+def supersede_findings(cells, name):
+    """### ### **THE FINDINGS-LINE FORM (b563, the author`s ruling (R173)(3)).** ### A ledger line carrying
+    ### `SUPERSEDES FINDINGS :N for <terminal>: <grade>` removes, for that terminal alone (its short or its qualified name),
+    ### every grade cell read from FINDINGS.md`s line N. ### The directive line adds no cell for that terminal: its grade
+    ### text is the author`s words, printed in the run`s header, not a table cell -- as the trail-line form adds none."""
+    ds = [d for d in find_directives() if name == d[1] or name.endswith('.' + d[1]) or d[1].endswith('.' + name)]
+    if not ds:
+        return cells
+    gone = set(d[0] for d in ds)
+    own = set((d[2], d[3]) for d in ds)
+    return [c for c in cells if not ((c['ledger'] == FIND_LABEL and c['line'] in gone) or (c['ledger'], c['line']) in own)]
+
 SYNONYMS = {'ENCODES-CONCLUSION': 'ENCODES',
             'ENCODES-CONCLUSION ' + chr(92) + ' SHELL': 'ENCODES',
             'INTERFACES-on-named-premise': 'INTERFACES'}
@@ -613,6 +641,7 @@ def build():
     rec('=' * 104)
     rec('  ### THE SYNONYM MAP (b554, (R164)(2)(a)), applied before the conflict test : %s' % SYNONYMS)
     rec('  ### THE TRAIL-LINE SUPERSESSIONS READ (b554, (R164)(2)(b)) : %s' % (trail_directives() or 'NONE'))
+    rec('  ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : %s' % (find_directives() or 'NONE'))
     rec('  `SIDE-*` directories on D:\\      : ### **%d**' % len(named))
     rec('  of those, carrying a `.git`      : ### **%d**  (b378`s own predicate)' % len(repos))
     rec('  ### **BOTH FIGURES ARE PRINTED** -- a roster counted one way is a roster with a')
@@ -738,7 +767,7 @@ def build():
                 if k not in seencell:
                     seencell.add(k)
                     uniq.append(c)
-            uniq = supersede_trail(supersede(uniq), n)
+            uniq = supersede_findings(supersede_trail(supersede(uniq), n), n)
             distinct = sorted(set(c['grade'] for c in uniq))
             mapped = sorted(set(synonym(c['grade']) for c in uniq))
             rows.append(dict(
