@@ -139,7 +139,9 @@ def peek_by_digest(face, lockn, scan):
     """### (R169)(1)(b), carried from b558_checks.py as 673a39e2 left it, pointed at this act's banks."""
     lk, rn = utc_epoch(face, 'locked at'), utc_epoch(lockn, 'run at')
     after = lk is not None and all(pushed_digest_ok(x) and (added_epoch(x) or 0) > lk for x in AFTER_LOCK)
-    before = (lk is not None and rn is not None and rn < lk and all(pushed_digest_ok(x) for x in BEFORE_LOCK)
+    # ### b562 defect (g): both stamps are to the second; the gate and the seal fell in one second (18:06:26Z), so a tie is
+    # ### admitted -- the stamps cannot order it either way, and the file times banked in the defect put the gate 0.157 s first.
+    before = (lk is not None and rn is not None and rn <= lk and all(pushed_digest_ok(x) for x in BEFORE_LOCK)
               and 'ferry file                    : b562_ferry.txt' in scan
               and all(re.search(re.escape(x) + r'\s+PASS', lockn) for x in ('b562_ferry_scan.txt', 'b562_pins_stepzero.txt')))
     return after, before

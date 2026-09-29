@@ -29,3 +29,10 @@
         condition the face does not register (READING (2): "the terminal table regenerated; its line for the terminal
         printed"). The arm was re-worded to the face's words, and it prints the line's grade. The tool is not edited and
         FINDINGS :6048 is not touched. The conflict is left for the author and recorded in the trail record ("The table:").
+    (g) THE POST-PUSH PEEK READING FAILED ON A TIE BETWEEN TWO ONE-SECOND STAMPS. The first post-push run failed only
+        G-PEEK-DECLARED, and the failing clause was `rn < lk`. The lock gate's "run at (UTC) : 2026-09-29T18:06:26Z" and the
+        face's "locked at (UTC) : 2026-09-29T18:06:26Z" are the same second. Every other clause held: the six after-lock banks
+        match the pushed tree by digest and were added after the lock, and the three before-lock banks match by digest. The
+        file times order them: the lock-gate notes at 1790705186.412, the face and the seal at 1790705186.569. The
+        clause now reads `rn <= lk`, because a tie at the stamps' resolution cannot be ordered either way. The prior acts'
+        margins were 10 s (b561) and 5 s (b560). The pre-push reading (file times) passed.
