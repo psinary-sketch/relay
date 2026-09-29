@@ -1,0 +1,57 @@
+========================================================================================================
+b563 -- THE CLOSING RECORD. ### **LANE TWO, ACT FIVE: THE LI-WEIL BRIDGE AT THE SYMMETRIC FAMILY, UNDER (R173).**
+========================================================================================================
+    the supersession form : terminal_table.py 348a115d (the file alone) ; the line FINDINGS :6116 ; CONFLICT 13 -> 13 ; grades changed NONE
+    the table : ### the regenerated table`s line for li_identity_of_exchange: grade cell '**CONFLICT**' (lines found 1)
+    at the b562 record : OPEN_TRAILS :11584 (defect (a)) :11586 (H13b) :11588 (H13a)
+    the per-n re-score (FROM b562`S BANK ALONE) : H15d HELD ; misses NONE ; |Z(n,0) - lambda_n|/floor 0.850 .. 0.851 at the classical n
+    the decay read (before any build) : H15a HELD
+    the kernel : D1 11 decls ; D2 3 decls ; stmt 6 decls ; D3 41 decls ; D4 4 decls ; every print std3 True
+    the E0 read : 50 DERIVES, 1 INTERFACES (exchange_of_bound, on SymPairBound, discharged), 14 definitions ; the salt-check True ; the gate True
+    v0.7 : object 6bf691c peeled 1e4a007 (remote 1e4a007) = main 1e4a007 = li-weil-b563 1e4a007 ; pushed by push_gated.sh after main read back
+    the ledger lines : FINDINGS :6116 (supersession) :6118 (entry) ; OPEN_TRAILS :11590 (work-order) :11592 (record) ; row 399 exit 0
+    the branches : Deleted branch push-b562 (was fc10a529). ; Deleted branch push-b562-closing (was 4ab01dcd). ; Deleted branch push-b562 (was 4b6ffe9). ; Deleted branch push-b562 (was 9eaec7e).
+    the token : hits 0 over 77 files and 5 commits
+    H15a HELD ; H15b HELD ; H15c HELD ; H15d HELD
+    (N1) REFUTED (N2) HELD (N3) HELD (N4) HELD (N5) HELD (N6) HELD ; (S1) HELD (S2) HELD (S3) REFUTED
+
+### THIS ACT`S OWN DEFECTS (the desk).
+### b563 -- THIS ACT'S OWN DEFECTS (the desk).
+    (a) THE TURN DROPPED AT THE API AFTER THE SEAL. The face was sealed at 2026-09-29T19:34:48Z (sha256 ef56d8cbbc2417cd722ebefad6cdf833a522ff30ed8aa1518f535f3be9e79ed3; lock gate run at 19:34:42Z, 8 of 8, LOCK PERMITTED). The last completed step was the seal and its verify (SEAL INTACT). The turn then stopped at the API while the seat was reading the record-tool chain (b551 -> b560 -> b561) to build the reads bank; no act tool had been written, no bank after the seal written, no ledger or kernel byte touched. The author ordered the act resumed from Component 1 without re-sealing; resumed at 2026-09-29T19:41:58Z, the seal re-verified INTACT at that time.
+    (b) THE ELABORATION METHOD CHANGED AFTER PART (a). Part (a)'s one attempt ran in b562's form: LiWeil.lean, LiWeilExchange.lean and LiWeilSym.lean on stdin through `lake env lean`, and it took 1214 s, which would put four attempts per part far past the 600 s rule. From part (b) on, each attempt elaborated LiWeilSym.lean alone, on stdin, importing SIDEExplicitFormula.LiWeilExchange from scratch oleans: `lean -o` of LiWeil.lean and LiWeilExchange.lean at the branch tip, under `lake env`, written to the scratchpad. This is not `lake build`, and no kernel byte was written. The oleans took three tries. The first used ':' where Windows' LEAN_PATH separates with ';'; the seat stopped it, and it had written no olean. The second failed at once: SIDEExplicitFormula.Seam was not in the scratch tree. For the third, the kernel's own built SIDEExplicitFormula oleans were copied into the scratch tree (read, not written), and it built in 271 s. Each attempt after that took 25-37 s. THE PRINTS OF RECORD DO NOT REST ON THE SCRATCH OLEANS: they are one final full-stack run in part (a)'s form, with the axiom-check file appended (data/b563_e0.txt names it).
+    (c) THE FACE NAMED (D3')'S SUB-LEMMAS (d1), (d2), (d3) AS ITS ATTEMPT UNITS AND NOT THE ASSEMBLY. The seat gave the assembly (`symPair_bound`, with `symCut_split`, the symmetrisation and the three bounds) its own four attempts, a reading not declared on the face. The counts: (d1) closed at attempt 1, (d2) at 3, (d3) at 3, the assembly at 2; no unit reached a fourth. After the last attempt of part (e), one unused helper (`HasCompactSupport_tendsto_zero`) was removed and the module's header and two docstrings were brought to what had landed (the header had said (D3') and (D4') were not proved). The full-stack print run elaborates that final text.
+    (d) THE TEST TOOL BANKED ITS (iii) RUN UNDER THE (ii) NAME. `tools/b563_findsup_test.py` chose the bank name by `name.startswith('ii')`, and 'iii' matches it, so the after-line regeneration overwrote `b563_findsup_noop.txt` and `.json`. The seat's desk found it: the scores read no `b563_findsup_after.json` and printed (N1) NOT SCORABLE and CONFLICT 0 -> 0. The overwritten files were copied to `b563_findsup_after.*`, and the tool's test now reads `name == 'ii'`. The no-op bank was re-written from the run's console output in this session and is marked RECONSTRUCTED at its head. That output showed rows 1298, CONFLICT 13 -> 13, no grade changed, the header reading NONE, and the terminal's four cells unchanged; the thirteen CONFLICT names had been hidden by the seat's display filter and are the committed table's. The tool commit's quoted test (348a115d) was written from the console, before the overwrite, and stands.
+    (e) MY OWN ARM ASKED OF A SHARED RUN WHAT ONLY A PART CAN ANSWER. The suite's first pre-push run was NOT CLEAN on G-ELAB-PRINTED and G-HELD-LINE-PRINTED (the second calls the first's predicate). The arm read each part's last attempt by the run's exit code. Parts (b) and (c) were elaborated together in symBC_1, which exited 1 on one error at stdin:196. That error lies in symMember_transform_conj, a declaration of part (c). So part (b) closed at that attempt and part (c) closed at symC_2. The part banks now print each attempt's errors in the part's own declarations, with symBC_1 attributed as the seat reads it. The arm reads those own errors, and its positive control carries them. No kernel byte and no print changed.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ### ### **ARMS RUN : 80. ### LIVE PASSING : 80. ### LIVE FAILING : 0 .** (the first pre-push run NOT CLEAN, 78 of 80, defect (e))
+    post-push : ### ### **ARMS RUN : 80. ### LIVE PASSING : 80. ### LIVE FAILING : 0 .**
+      relay                        main 5695dbbeba4d ; remote 5695dbbeba4d ; AGREE
+      PLACE-papers                 main 0a0f958b8e9e ; remote 0a0f958b8e9e ; AGREE
+      SIDE-global-section          main 6fbd70eccf07 ; remote 6fbd70eccf07 ; AGREE
+      SIDE-explicit-formula        main 1e4a00792008 ; remote 1e4a00792008 ; AGREE
+      SIDE-kernel                  main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation         main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                 main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle       main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-compression             main e9a5a368d14a ; remote e9a5a368d14a ; AGREE
+      SIDE-structural-error-correction main 6a4f4829cf21 ; remote 6a4f4829cf21 ; AGREE
+      SIDE-cosmo                   main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      detection-region-b559        local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (HELD, kept)
+      li-weil-b561                 local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                 local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (pushed by name, kept)
+    the HELD commit 6eada6a : its files in the pushed tree : 0 of 2
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R173)(7)**: GRH-WEIL act two -- the 38 generic Zeta23 modules re-instantiated for L(s, chi), staged
+        by import order, held at the earliest zeta-specific dependency.
+    (b) ### **FOR THE AUTHOR**: li_identity_of_exchange still reads CONFLICT. The FINDINGS supersession removed FINDINGS :6048`s
+        cell, but b562`s own trail line at OPEN_TRAILS :11577 is read by the table as two cells (a compound and a plain one),
+        and row 397 grades SHELL. A trail-line supersession for :11577 (the b554 form) would clear it; it is not written here.
+    (c) ### **THE BRIDGE`S IDENTITY SIDE IS CLOSED IN LIMIT FORM** at v0.7 (li_identity_sym, no premise). The work-order`s
+        positivity side (the sign of the Li coefficients) is not attempted.
+    (d) At this close the suite`s regeneration of terminal_table.* is committed as housekeeping if it changed.
+========================================================================================================
