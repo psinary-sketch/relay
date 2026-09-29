@@ -1,0 +1,41 @@
+b562 -- READING (5): PART (b) -- THE SEAM -- a zero of LFunction χ with re <= 0 is a trivial point; the two forms of GRH_chi coincide
+
+### the branch grh-weil-b562 from main 61e3551 ; the module SIDEExplicitFormula/GRHWeil.lean (fed on stdin after LiWeil.lean)
+
+### THE ELABORATION ATTEMPTS OF THIS PART (the whole module as it then stood), each with its exit and error count:
+    ### grhB_1 -- exit 1, elapsed 29 s, errors 3 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+        | <stdin>:529:54: error: Application type mismatch: The argument
+        | <stdin>:530:18: error(lean.unknownIdentifier): Unknown identifier `lt_of_not_le`
+        | <stdin>:530:36: error(lean.unknownIdentifier): Unknown identifier `lt_of_not_le`
+    ### grhB_2 -- exit 1, elapsed 29 s, errors 5 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+        | <stdin>:457:57: error: unexpected token 'omit'; expected 'lemma'
+        | <stdin>:461:75: error: unexpected token 'omit'; expected 'lemma'
+        | <stdin>:467:89: error: unexpected token 'omit'; expected 'lemma'
+        | <stdin>:475:124: error: unexpected token 'omit'; expected 'lemma'
+        | <stdin>:518:43: error: unexpected token 'omit'; expected 'lemma'
+    ### grhB_3 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM:
+       81 | theorem ne_one_of_ne_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : N ≠ 1 := fun h => h1 (level_one' χ h)
+       84 | theorem isPrimitive_inv {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) : χ⁻¹.IsPrimitive := by
+       89 | theorem gammaFactor_ne_zero_of_re_pos (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
+       96 | theorem trivialPoint_of_gammaFactor_eq_zero (χ : DirichletCharacter ℂ N) {s : ℂ} (h : gammaFactor χ s = 0) :
+       97 |     IsTrivialPoint χ s := by
+      120 | theorem LFunction_zero_re_nonpos {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {s : ℂ}
+      121 |     (hs : LFunction χ s = 0) (hre : s.re ≤ 0) : IsTrivialPoint χ s := by
+      138 | theorem re_nonpos_of_trivialPoint {χ : DirichletCharacter ℂ N} {s : ℂ} (h : IsTrivialPoint χ s) : s.re ≤ 0 := by
+      145 | theorem GRH_chi_iff_trivial {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+      146 |     GRH_chi χ ↔ GRH_chi_trivial χ := by
+
+### LEAN`S PRINTS:
+    ne_one_of_ne_one                         ['propext', 'Classical.choice', 'Quot.sound']
+    isPrimitive_inv                          ['propext', 'Classical.choice', 'Quot.sound']
+    gammaFactor_ne_zero_of_re_pos            ['propext', 'Classical.choice', 'Quot.sound']
+    trivialPoint_of_gammaFactor_eq_zero      ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_zero_re_nonpos                 ['propext', 'Classical.choice', 'Quot.sound']
+    re_nonpos_of_trivialPoint                ['propext', 'Classical.choice', 'Quot.sound']
+    GRH_chi_iff_trivial                      ['propext', 'Classical.choice', 'Quot.sound']
+
+### THE FACTS THIS PART CONSUMES, BY NAME, FOUND IN ITS PROOFS: LFunction_eq_completed_div_gammaFactor yes ; completedLFunction_one_sub yes ; LFunction_ne_zero_of_one_le_re yes ; Gammaℝ_ne_zero_of_re_pos yes ; Gamma_eq_zero_iff yes ; conductor_inv yes ; level_one' yes ; isPrimitive_def yes
+### rootNumber named in a proof of this part: False
+### ### **PRINTED 7 OF 7 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

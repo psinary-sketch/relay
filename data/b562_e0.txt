@@ -1,0 +1,30 @@
+b562 -- READING (6): THE E0 READ -- EVERY DECLARATION OF GRHWeil.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+
+    parity                                   DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    IsTrivialPoint                           DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    GRH_chi                                  DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    GRH_chi_trivial                          DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    primeSum_chi                             DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    gammaBracket_chi                         DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    archTerm_chi                             DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    h2_sign_chi                              DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+    ne_one_of_ne_one                         DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    isPrimitive_inv                          DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    gammaFactor_ne_zero_of_re_pos            DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    trivialPoint_of_gammaFactor_eq_zero      DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_zero_re_nonpos                 DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    re_nonpos_of_trivialPoint                DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    GRH_chi_iff_trivial                      DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_conj_of_one_lt_re              DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_inv_conj                       DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_zero_iff_conj                  DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+    analyticOrderAt_LFunction_inv_conj       DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+### the salt-check (part (a)): GRH_chi unfolds to Mathlib`s objects: True ; no definition encodes a conclusion it is cited for; h2_sign_chi is STATED and cited for nothing proved
+
+### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at de1f175):
+    LFunction_zero_re_nonpos                 defenc False  | check True
+    GRH_chi_iff_trivial                      defenc False  | check True
+    LFunction_inv_conj                       defenc False  | check True
+    analyticOrderAt_LFunction_inv_conj       defenc False  | check True
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THE THEOREMS DERIVES (11) ; THE SALT-CHECK True => MERGE True**

@@ -1,0 +1,63 @@
+b562 -- READING (5): PART (a) -- THE STATEMENT LAYER -- GRH_chi, GRH_chi_trivial, h2_sign_chi and the χ-explicit formula`s terms
+
+### the branch grh-weil-b562 from main 61e3551 ; the module SIDEExplicitFormula/GRHWeil.lean (fed on stdin after LiWeil.lean)
+
+### THE ELABORATION ATTEMPTS OF THIS PART (the whole module as it then stood), each with its exit and error count:
+    ### grhA_1 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM:
+       47 | def parity (χ : DirichletCharacter ℂ N) : ℕ := if χ.Even then 0 else 1
+       50 | def IsTrivialPoint (χ : DirichletCharacter ℂ N) (s : ℂ) : Prop := ∃ m : ℕ, s = -((2 * m + parity χ : ℕ) : ℂ)
+       53 | def GRH_chi (χ : DirichletCharacter ℂ N) : Prop :=
+       54 |   ∀ s : ℂ, LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+       57 | def GRH_chi_trivial (χ : DirichletCharacter ℂ N) : Prop :=
+       58 |   ∀ s : ℂ, LFunction χ s = 0 → ¬ IsTrivialPoint χ s → s.re = 1 / 2
+       61 | def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+       62 |   ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) *
+       63 |     (χ (n : ZMod N) * k (Real.log n) + conj (χ (n : ZMod N)) * k (-Real.log n))
+       66 | def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+       67 |   Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + (parity χ : ℂ) / 2 + I * r / 2)).re
+       70 | def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+       71 |   (1 / (2 * Real.pi) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (gammaBracket_chi χ r : ℂ)
+       75 | def h2_sign_chi (χ : DirichletCharacter ℂ N) : Prop :=
+       76 |   ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ archTerm_chi χ k - primeSum_chi χ k
+
+### LEAN`S PRINTS:
+    parity                                   ['propext', 'Classical.choice', 'Quot.sound']
+    IsTrivialPoint                           ['propext', 'Classical.choice', 'Quot.sound']
+    GRH_chi                                  ['propext', 'Classical.choice', 'Quot.sound']
+    GRH_chi_trivial                          ['propext', 'Classical.choice', 'Quot.sound']
+    primeSum_chi                             ['propext', 'Classical.choice', 'Quot.sound']
+    gammaBracket_chi                         ['propext', 'Classical.choice', 'Quot.sound']
+    archTerm_chi                             ['propext', 'Classical.choice', 'Quot.sound']
+    h2_sign_chi                              ['propext', 'Classical.choice', 'Quot.sound']
+
+### THE SALT-CHECK -- Lean`s #print of each statement-layer definition (every constant a Mathlib object or this module`s):
+    def SIDEExplicitFormula.GRHWeil.GRH_chi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+    fun {N} [NeZero N] χ => ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+    def SIDEExplicitFormula.GRHWeil.GRH_chi_trivial : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+    fun {N} [NeZero N] χ =>
+      ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → ¬SIDEExplicitFormula.GRHWeil.IsTrivialPoint χ s → s.re = 1 / 2
+    def SIDEExplicitFormula.GRHWeil.IsTrivialPoint : {N : ℕ} → DirichletCharacter ℂ N → ℂ → Prop :=
+    fun {N} χ s => ∃ m, s = -↑(2 * m + SIDEExplicitFormula.GRHWeil.parity χ)
+    def SIDEExplicitFormula.GRHWeil.parity : {N : ℕ} → DirichletCharacter ℂ N → ℕ :=
+    fun {N} χ => if χ.Even then 0 else 1
+    def SIDEExplicitFormula.GRHWeil.primeSum_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+    fun {N} χ k =>
+      ∑' (n : ℕ),
+        ↑(ArithmeticFunction.vonMangoldt n / √↑n) * (χ ↑n * k (Real.log ↑n) + (starRingEnd ℂ) (χ ↑n) * k (-Real.log ↑n))
+    def SIDEExplicitFormula.GRHWeil.gammaBracket_chi : {N : ℕ} → DirichletCharacter ℂ N → ℝ → ℝ :=
+    fun {N} χ r => Real.log (↑N / Real.pi) + (1 / 4 + ↑(SIDEExplicitFormula.GRHWeil.parity χ) / 2 + I * ↑r / 2).digamma.re
+    def SIDEExplicitFormula.GRHWeil.archTerm_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+    fun {N} χ k => 1 / (2 * ↑Real.pi) * ∫ (r : ℝ), Zeta23.paperFT k ↑r * ↑(SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r)
+    def SIDEExplicitFormula.GRHWeil.h2_sign_chi : {N : ℕ} → DirichletCharacter ℂ N → Prop :=
+    fun {N} χ =>
+      ∀ (k : ℝ → ℂ),
+        SIDEExplicitFormula.B321.classK k →
+          0 ≤ SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+    def DirichletCharacter.LFunction : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℂ :=
+    fun {N} [NeZero N] χ s => ZMod.LFunction (⇑χ) s
+    def DirichletCharacter.gammaFactor : {N : ℕ} → DirichletCharacter ℂ N → ℂ → ℂ :=
+    fun {N} χ s => if χ.Even then s.Gammaℝ else (s + 1).Gammaℝ
+### ### **GRH_chi UNFOLDS TO MATHLIB`S DirichletCharacter.LFunction, Complex.re AND EQUALITY ON ℝ: True** (H14b)
+### ### **PRINTED 8 OF 8 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

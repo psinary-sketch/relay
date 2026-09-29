@@ -1,0 +1,78 @@
+==============================================================================================================
+b562 -- THE DRIFT ON THE BENCH (R172)(2). ### A MEASUREMENT AT xi, NOT A THEOREM; NOTHING ABOUT ZETA`S ZEROS IS CLAIMED.
+==============================================================================================================
+### the bank: tools/e16/zeta_ordinates.npy, N = 10000 ordinates, the last T = 9877.782657 ; the zeros taken as 1/2 + i gamma
+### the families (as this instrument computes them):
+###   one-sided  f(u) = st(-u/d) on [-d, 0], 1 left, 0 right ; st = Mathlib`s Real.smoothTransition
+###   symmetric  f(u) = st(1/2 - u/d) on [-d/2, d/2] ; f(u) + f(-u) = 1, f(0) = 0.500
+### the member f e^{u/2} P_n(u), its transform at gamma_rho = int f P_n e^{rho u} du ; the left edge at -infinity
+### COMPUTE COST, PRINTED BEFORE THE RUN: 10000 zeros x 2048 Gauss-Legendre nodes x 3 transition pieces (1 one-sided + 2 symmetric) x 3 deltas x 2 (the node-doubling check at d = 0.1) = 3.686e+08 complex exponentials, in chunks of 1000 zeros
+
+### (i) THE PAIRED LI SUM OVER THE BANK AGAINST BALPOS`S λ_n (BALPOS :291-:295 the literature column n <= 5; :303-:311 the margin n = 6..8, 10):
+###     the tail beyond T at on-line zeros: 2 Re liTerm ~ n^2/gamma^2, so T2(n) = n^2 (log(T/2pi) + 1)/(2 pi T) ; the face`s
+###     formula T1(n) = n (log(T/2pi) + 1)/(2 pi T) printed beside it (see the desk: the face wrote n where the order is n^2)
+      n            Lambda_N(n)          T2(n)          T1(n)          Lambda_N + T2             BALPOS λ_n   resid (T2)
+      1      0.022961009776617   1.347025e-04   1.347025e-04      0.023095712253211      0.023095708966121    3.287e-09
+      2      0.091806938470428   5.388099e-04   2.694050e-04      0.092345748376807      0.092345735291353    1.309e-08
+      3      0.206426627851305   1.212322e-03   4.041074e-04      0.207638950140657      0.207638920592680    2.955e-08
+      4      0.366635292468575   2.155240e-03   5.388099e-04      0.368790532094090      0.368790479520000    5.257e-08
+      5      0.572175234744545   3.367562e-03   6.735124e-04      0.575542796659413      0.575542714430000    8.223e-08
+      6      0.822716841504390   4.849289e-03   8.082149e-04      0.827566130661799      0.827566012282000    1.184e-07
+      7      1.117859857367764   6.600421e-03   9.429173e-04      1.124460278720905      1.124460117570000    1.612e-07
+      8      1.457134929160409   8.620959e-03   1.077620e-03      1.465755887662471      1.465755677150000    2.105e-07
+      9      1.840005414260446   1.091090e-02   1.212322e-03      1.850916314864618           (not banked)             
+     10      2.265869444590923   1.347025e-02   1.347025e-03      2.279339692250395      2.279339363190000    3.291e-07
+     11      2.734062236801091   1.629900e-02   1.481727e-03      2.750361236469051           (not banked)             
+     12      3.243858638060884   1.939716e-02   1.616430e-03      3.263255794690524           (not banked)             
+
+### (ii) THE DRIFT D(n, d) = Z(n, d) - Lambda_N(n), both families, n = 1..12 (quadrature floor: |D at 2048 nodes - D at 4096| at d = 0.1):
+  ### ONE-SIDED
+      n              d = 0.1             d = 0.03             d = 0.01     quad floor     eps sum|t|
+      1      -0.419921996924      -0.953037013377      -1.482441534783      1.270e-10      4.201e-16
+      2      -0.861854658924      -1.913056755388      -2.967086027826      2.539e-10      8.393e-16
+      3      -1.325505800581      -2.880029551471      -4.453930072669      3.808e-10      1.257e-15
+      4      -1.810586980312      -3.853925844100      -5.942970267356      5.078e-10      1.675e-15
+      5      -2.316813457151      -4.834716192370      -7.434203214437      6.347e-10      2.091e-15
+      6      -2.843904147981      -5.822371271585      -8.927625520958      7.617e-10      2.506e-15
+      7      -3.391581585204      -6.816861872850     -10.423233798456      8.886e-10      2.921e-15
+      8      -3.959571874850      -7.818158902661     -11.921024662956      1.016e-09      3.334e-15
+      9      -4.547604655120      -8.826233382497     -13.420994734964      1.142e-09      3.747e-15
+     10      -5.155413055363      -9.841056448413     -14.923140639460      1.269e-09      4.159e-15
+     11      -5.782733655478     -10.862599350634     -16.427459005897      1.396e-09      4.570e-15
+     12      -6.429306445732     -11.890833453154     -17.933946468192      1.523e-09      4.980e-15
+  ### SYMMETRIC
+      n              d = 0.1             d = 0.03             d = 0.01     quad floor     eps sum|t|
+      1      -0.003191898215      -0.000888013624      -0.000208559016      4.319e-16      1.581e-18
+      2      -0.012767673047      -0.003552056771      -0.000834236149      2.130e-15      6.325e-18
+      3      -0.028727565058      -0.007992136261      -0.001877031658      5.086e-15      1.423e-17
+      4      -0.051071975189      -0.014208263462      -0.003336945970      9.326e-15      2.530e-17
+      5      -0.079801464772      -0.022200454288      -0.005213979686      1.482e-14      3.953e-17
+      6      -0.114916755537      -0.031968729204      -0.007508133577      2.155e-14      5.693e-17
+      7      -0.156418729626      -0.043513113217      -0.010219408588      2.962e-14      7.749e-17
+      8      -0.204308429618      -0.056833635886      -0.013347805833      3.891e-14      1.012e-16
+      9      -0.258587058541      -0.071930331314      -0.016893326598      4.940e-14      1.281e-16
+     10      -0.319255979904      -0.088803238152      -0.020855972341      6.117e-14      1.582e-16
+     11      -0.386316717719      -0.107452399602      -0.025235744691      7.433e-14      1.914e-16
+     12      -0.459770956534      -0.127877863408      -0.030032645450      8.865e-14      2.278e-16
+
+### (iii) H13a -- THE ONE-SIDED SLOPE IN n (least squares of D(n, d) on n = 1..12, with intercept, and through the origin):
+    d = 0.1   slope -0.546719 (intercept +0.316605, max residual 1.898e-01) ; through 0 -0.508726 ; -(1/2) log(1/d) = -1.151293 ; off by 52.5% ; sign agrees ; clause REFUTED
+    d = 0.03  slope -0.994389 (intercept +0.104120, max residual 6.277e-02) ; through 0 -0.981894 ; -(1/2) log(1/d) = -1.753279 ; off by 43.3% ; sign agrees ; clause REFUTED
+    d = 0.01  slope -1.495596 (intercept +0.033205, max residual 2.005e-02) ; through 0 -1.491612 ; -(1/2) log(1/d) = -2.302585 ; off by 35.0% ; sign agrees ; clause REFUTED
+    ### ### **H13a (within 10% at each d, the same sign): REFUTED**
+
+### (iv) H13b -- THE SYMMETRIC FAMILY:
+    (b1) bounded in n, the bound shrinking: max_n |D| = 4.598e-01 (d=0.1), 1.279e-01 (d=0.03), 3.003e-02 (d=0.01) ; shrinking across d = 0.1, 0.03, 0.01: True
+    (b2) drift in n: the least-squares slope of D in n = -4.151e-02 (d=0.1), -1.154e-02 (d=0.03), -2.711e-03 (d=0.01)
+    (b3) the value against λ_n within floor, floor(n) = T2(n) + eps sum|terms| + quadrature floor; λ_n from BALPOS where banked, else Lambda_N + T2 (then the test is |D| <= floor):
+      d = 0.1   within floor at n = [] ; beyond floor at n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        |Z - λ_n| / floor : 1:23.70 2:23.70 3:23.70 4:23.70 5:23.70 6:23.70 7:23.70 8:23.70 9:23.70 10:23.70 11:23.70 12:23.70
+      d = 0.03  within floor at n = [] ; beyond floor at n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        |Z - λ_n| / floor : 1:6.59 2:6.59 3:6.59 4:6.59 5:6.59 6:6.59 7:6.59 8:6.59 9:6.59 10:6.59 11:6.59 12:6.59
+      d = 0.01  within floor at n = [] ; beyond floor at n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        |Z - λ_n| / floor : 1:1.55 2:1.55 3:1.55 4:1.55 5:1.55 6:1.55 7:1.55 8:1.55 9:1.55 10:1.55 11:1.55 12:1.55
+    ### ### **H13b: (b1) bounded and shrinking True ; (b3) within floor at every n: False (d=0.1), False (d=0.03), False (d=0.01)**
+
+### (v) THE SEAT`S (S3): |D_symmetric| < |D_one-sided| at every n and d: True
+### the run: 29.0 s in all ; per family and d: one-sided d=0.1 1.6 s, one-sided d=0.03 1.6 s, one-sided d=0.01 1.5 s, symmetric d=0.1 2.4 s, symmetric d=0.03 2.4 s, symmetric d=0.01 2.4 s
+==============================================================================================================

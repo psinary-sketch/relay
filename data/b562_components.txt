@@ -1,0 +1,541 @@
+====================================================================================================================================
+b562 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b562_reads.txt
+  b562 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+  ### SIDE-explicit-formula v0.5 = 2df46d7 ; Mathlib at 51e6992efd
+  
+  ### LiWeil.lean:355 @2df46d7 -- LiLimitExchange
+        355 | def LiLimitExchange (n : ℕ) : Prop :=
+        356 |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+        357 |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+        358 |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+        359 |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+  ### LiWeil.lean:364 @2df46d7 -- li_identity_of_exchange
+        364 | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+        365 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+        366 |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+  ### LiWeil.lean:307 @2df46d7 -- truncMember
+        307 | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+  ### H2Sign.lean:24-31 @2df46d7:
+         24 | def classK (k : ℝ → ℂ) : Prop :=
+         25 |   (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+         26 |     ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+         27 | 
+         28 | /-- **h2, as one Prop:** for every `k` in K, `0 ≤ P(k) - PR(k) + A(k)`. -/
+         29 | def h2_sign : Prop :=
+         30 |   ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+         31 | 
+  ### Seam.lean @2df46d7 (the template): its declarations:
+      Seam.lean:25 theorem zeta_zero_re_nonpos
+      Seam.lean:84 theorem rh_strip_imp_rh_holds
+      Seam.lean:98 theorem h2_sign_imp_rh_holds
+      Seam.lean:101 theorem h2_sign_iff_rh
+      Seam.lean:104 theorem h2_sign_imp_ch_holds
+      Seam.lean:107 theorem ch_iff_h2_sign
+      b561_decay_read.txt:42 | ### (7) THE ZERO SIDE ALONG THE FAMILY -- A DERIVATION, NOT COMPILED. The excess has one sign on the zeros with ‖ρ‖ δ <= μ/8,
+      b561_decay_read.txt:59 | ### (9) WHAT THIS DOES TO THE PRICE. (D3) as priced at b560 does not exist; (D4) by Tannery has no dominant; b560's stated
+  
+  ### THE MATHLIB CHECKOUT at the kernel`s rev, the Dirichlet L-function facts:
+      NumberTheory/LSeries/DirichletContinuation.lean:61 | noncomputable def LFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.LFunction χ s
+      NumberTheory/LSeries/DirichletContinuation.lean:207 | noncomputable def gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ) := if χ.Even then Gammaℝ s else Gammaℝ (s + 1)
+      NumberTheory/LSeries/DirichletContinuation.lean:224 | @[pp_nodot] noncomputable def completedLFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.completedLFunction χ s
+      NumberTheory/LSeries/DirichletContinuation.lean:259 | lemma LFunction_eq_completed_div_gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ) (h : s ≠ 0 ∨ N ≠ 1) : LFunction χ s = completedLFunction χ s / gammaFactor χ s := by
+      NumberTheory/LSeries/DirichletContinuation.lean:272 | noncomputable def rootNumber (χ : DirichletCharacter ℂ N) : ℂ := gaussSum χ stdAddChar / I ^ (if χ.Even then 0 else 1) / N ^ (1 / 2 : ℂ)
+      NumberTheory/LSeries/DirichletContinuation.lean:284 | theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) : completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+      NumberTheory/LSeries/DirichletContinuation.lean:110 | lemma Even.LFunction_neg_two_mul_nat {χ : DirichletCharacter ℂ N} (hχ : Even χ) (n : ℕ) [NeZero n] : LFunction χ (-(2 * n)) = 0 := by
+      NumberTheory/LSeries/DirichletContinuation.lean:116 | @[simp] lemma Odd.LFunction_neg_two_mul_nat_sub_one {χ : DirichletCharacter ℂ N} (hχ : Odd χ) (n : ℕ) : LFunction χ (-(2 * n) - 1) = 0 :=
+      NumberTheory/LSeries/DirichletContinuation.lean:75 | lemma LFunction_eq_LSeries (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < re s) : LFunction χ s = LSeries (χ ·) s :=
+      NumberTheory/LSeries/DirichletContinuation.lean:98 | lemma differentiable_LFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) : Differentiable ℂ (LFunction χ) :=
+      NumberTheory/LSeries/Nonvanishing.lean:398 | theorem LFunction_ne_zero_of_one_le_re ⦃s : ℂ⦄ (hχs : χ ≠ 1 ∨ s ≠ 1) (hs : 1 ≤ s.re) : LFunction χ s ≠ 0 :=
+      Analysis/SpecialFunctions/Gamma/Deligne.lean:66 | lemma Gammaℝ_ne_zero_of_re_pos {s : ℂ} (hs : 0 < re s) : Gammaℝ s ≠ 0 := by
+      Analysis/SpecialFunctions/Gamma/Beta.lean:447 | theorem Gamma_eq_zero_iff (s : ℂ) : Gamma s = 0 ↔ ∃ m : ℕ, s = -m := by
+      NumberTheory/DirichletCharacter/Basic.lean:405 | theorem conductor_inv (χ : DirichletCharacter R n) : χ⁻¹.conductor = χ.conductor := by
+      NumberTheory/MulChar/Lemmas.lean:79 | lemma star_apply' (χ : MulChar R ℂ) (a : R) : star (χ a) = χ⁻¹ a := by
+      ### the search for a conjugation lemma for LFunction under Mathlib/NumberTheory (regex LFunction[^\n]*conj|conj[^\n]*LFunction|starRingEnd[^\n]*LFunction): 0 files []
+      ### the search for a rootNumber nonvanishing or norm lemma under Mathlib/NumberTheory (regex rootNumber_ne_zero|norm_rootNumber|abs_rootNumber): 0 files []
+  
+  ### Zeta23`s files: 57
+  ### the chain bank tools/e16/zeta_ordinates.npy: shape (10000,) ; first [14.134725, 21.02204, 25.010858] ; the 10,000th 9877.782657
+  ### BALPOS :289-:320 (λ_n, the literature column and the margin table):
+      BALPOS:289 | | n | computed λ_n | literature | absdiff |
+      BALPOS:290 | |---:|:---|:---|:---|
+      BALPOS:291 | | 1 | 0.023095708966121 | 0.02309570896612103 | 3.8e-18 |
+      BALPOS:292 | | 2 | 0.092345735228047 | 0.09234573529135263 | 6.3e-11 |
+      BALPOS:293 | | 3 | 0.20763892055432 | 0.20763892059268 | 3.8e-11 |
+      BALPOS:294 | | 4 | 0.36879047949224 | 0.36879047952 | 2.8e-11 |
+      BALPOS:295 | | 5 | 0.57554271446118 | 0.57554271443 | 3.1e-11 |
+      BALPOS:301 | | n | λ_A(n) | λ_Z(n) | margin λ_n | agree digits |
+      BALPOS:302 | |---:|:---|:---|:---|---:|
+      BALPOS:303 | | 1 | −0.554119955935 | 0.577215664902 | **0.0230957089661** | 258 |
+      BALPOS:304 | | 2 | −0.874539361735 | 0.966885096963 | 0.092345735228 | 258 |
+      BALPOS:305 | | 3 | −1.01305800766 | 1.22069692822 | 0.207638920554 | 258 |
+      BALPOS:306 | | 4 | −1.00679765238 | 1.37558813187 | 0.368790479492 | 258 |
+      BALPOS:307 | | 5 | −0.882725785736 | 1.4582685002 | 0.575542714461 | 258 |
+      BALPOS:308 | | 6 | −0.66073231493 | **1.48829832721** | 0.827566012282 | 258 |
+      BALPOS:309 | | 7 | −0.355730722668 | 1.48019084024 | 1.12446011757 | 258 |
+      BALPOS:310 | | 8 | **+0.0208999330276** | 1.44485574412 | 1.46575567715 | 257 |
+      BALPOS:311 | | 10 | 0.955535679497 | 1.3238036837 | 2.27933936319 | 257 |
+      BALPOS:312 | | 20 | 8.09862405929 | 0.670652812799 | 8.76927687209 | 254 |
+      BALPOS:313 | | 24 | 11.7569802686 | **0.594367623933** | 12.3513478926 | 254 |
+      BALPOS:314 | | 30 | 17.8566523295 | 0.697139961284 | 18.5537922908 | 252 |
+      BALPOS:315 | | 40 | 29.3133191924 | 1.16405623139 | 30.4773754238 | 249 |
+      BALPOS:316 | | 52 | 44.704339005 | **1.51283783312** | 46.2171768381 | 244 |
+      BALPOS:317 | | 60 | 55.7598004042 | 1.37329917068 | 57.1330995749 | 241 |
+      BALPOS:318 | | 70 | 70.3235891926 | 0.870652346445 | 71.1942415391 | 237 |
+      BALPOS:319 | | 80 | 85.604088501 | 0.357632896962 | 85.961721398 | 234 |
+      BALPOS:320 | | 88 | 98.2832446919 | **0.208001172823** | 98.4912458647 | 231 |
+  ### relay data/b516_ferry.txt:18-21 ((R125)(2)) | (2) A FIXTURE FLOOR IS PRICED IN THE QUANTITY'S OWN SCALE: eps times the sum of the magnitudes of the terms the closed form adds, not an absolute figure; b515's NOT CLEAN verdict on G-FIXTURE-BAR stands as registered and the rule is the repair.
+  ### the remote`s refs of SIDE-explicit-formula (ls-remote origin):
+      2df46d79bd59a900dde5b8ad8240faa2a0471cdc	HEAD
+      8faf7ded8754870669547c9caa54ee5f0275e7c1	refs/heads/detection-region-b559
+      2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/li-weil-b561
+      2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/main
+      44af277422b14970cbac2c3c3cc96ca4ffbf6f0e	refs/tags/v0.1
+      baed4df861dac05224f01dad17453648d3d7fe0a	refs/tags/v0.1^{}
+      724e11308977adcb2d853042fcf1f15530605f7e	refs/tags/v0.2
+      5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/tags/v0.2^{}
+      b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+      04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+      9b3a95b0ec1cc3ba1300739f70189d3f92f70da4	refs/tags/v0.4
+      941503b836c1f3548d94b1207276f724dba3263f	refs/tags/v0.4^{}
+      0a6a1eb4e11ade2a505f6e85b2ddb12aec4c698c	refs/tags/v0.5
+      2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/tags/v0.5^{}
+
+### relay data/b562_doc_push.txt
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b562-doc ; tip 61e35519afd03cfe7b60fcc416ef44946114794c ; checkout before main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     2df46d7..61e3551  push-b562-doc -> main
+  push_gated: main read back at the remote: 61e35519afd03cfe7b60fcc416ef44946114794c
+  push_gated: DONE -- main and 0 tag(s) pushed and read back
+  ### the two docstring commits, each touching its docstring alone:
+  61e3551 b562 -- LiWeil.lean: li_identity_of_exchange's docstring gains the line that its premise is false as stated for n >= 1 (b561's reading), graded T2 by the superseding correspondence row, under (R172)(1)(a); the docstring alone is touched, no code line moves
+  3968ae7 b562 -- LiWeil.lean: LiLimitExchange's docstring gains the line that it is false as stated for n >= 1 (b561's reading, relay data/b561_decay_read.txt (7)), under (R172)(1)(a); the docstring alone is touched, no code line moves; the Prop is kept, not withdrawn
+  ### their diff against v0.5 (every changed line inside a docstring):
+  diff --git a/SIDEExplicitFormula/LiWeil.lean b/SIDEExplicitFormula/LiWeil.lean
+  index 218cecf..79ed484 100644
+  --- a/SIDEExplicitFormula/LiWeil.lean
+  +++ b/SIDEExplicitFormula/LiWeil.lean
+  @@ -351,7 +351,11 @@ theorem truncMember_EF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+   that tend to `1` at every `u < 0`, the zero side of EF_lit at the truncations tends to `LiCoeff n`. At each member the
+   zero sum is absolutely convergent (EF_lit); the target is the paired (real-part) Li sum, whose unpaired terms decay only
+   like `n/ρ`. A dominant for the truncated transforms uniform along the family is what the Tannery route needs, and
+  -EF_lit's own bound grows with the bump's derivatives near `0`: that is the pairing hazard, and it is not crossed here. -/
+  +EF_lit's own bound grows with the bump's derivatives near `0`: that is the pairing hazard, and it is not crossed here.
+  +**FALSE AS STATED for `n ≥ 1` (b561's reading, relay `data/b561_decay_read.txt` (7), lines 42-55):** the one-sided
+  +smoothing moves the jump's midpoint into `u < 0`, and the zero side drifts like `-(n/2) log(1/δ)` along every family in
+  +the hypothesis. That is a derivation resting on Stirling and the Riemann-von Mangoldt count, neither compiled here; it
+  +is not a theorem of this kernel. The `Prop` is kept as stated and not withdrawn (ruling (R172)(1)(a), act b562). -/
+   def LiLimitExchange (n : ℕ) : Prop :=
+     ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+       (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+  @@ -360,7 +364,11 @@ def LiLimitExchange (n : ℕ) : Prop :=
+   
+   /-- **The identity, conditional on the exchange:** if `LiLimitExchange n` holds, then along the same family the
+   literature right-hand sides of EF_lit -- the pole terms, the prime sum and the Γ-integral at the truncations -- tend to
+  -`LiCoeff n`. The step is EF_lit itself (`truncMember_EF`); the exchange is the hypothesis, not proved. -/
+  +`LiCoeff n`. The step is EF_lit itself (`truncMember_EF`); the exchange is the hypothesis, not proved.
+  +**ITS PREMISE IS FALSE AS STATED for `n ≥ 1` (b561's reading, relay `data/b561_decay_read.txt` (7), lines 42-55):**
+  +`LiLimitExchange n` fails along the one-sided families it quantifies over, so this conditional is INTERFACES on a
+  +premise false as stated, graded T2 by the superseding correspondence row (ruling (R172)(1)(a), act b562). The derivation
+  +rests on Stirling and the Riemann-von Mangoldt count, neither compiled here. -/
+   theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+       (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+       Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+  ### the prints after them against b560's prints of the same declarations: diff lines 0 (identical; 35 axiom prints)
+
+### relay data/b562_drift.txt
+  ==============================================================================================================
+  b562 -- THE DRIFT ON THE BENCH (R172)(2). ### A MEASUREMENT AT xi, NOT A THEOREM; NOTHING ABOUT ZETA`S ZEROS IS CLAIMED.
+  ==============================================================================================================
+  ### the bank: tools/e16/zeta_ordinates.npy, N = 10000 ordinates, the last T = 9877.782657 ; the zeros taken as 1/2 + i gamma
+  ### the families (as this instrument computes them):
+  ###   one-sided  f(u) = st(-u/d) on [-d, 0], 1 left, 0 right ; st = Mathlib`s Real.smoothTransition
+  ###   symmetric  f(u) = st(1/2 - u/d) on [-d/2, d/2] ; f(u) + f(-u) = 1, f(0) = 0.500
+  ### the member f e^{u/2} P_n(u), its transform at gamma_rho = int f P_n e^{rho u} du ; the left edge at -infinity
+  ### COMPUTE COST, PRINTED BEFORE THE RUN: 10000 zeros x 2048 Gauss-Legendre nodes x 3 transition pieces (1 one-sided + 2 symmetric) x 3 deltas x 2 (the node-doubling check at d = 0.1) = 3.686e+08 complex exponentials, in chunks of 1000 zeros
+  
+  ### (i) THE PAIRED LI SUM OVER THE BANK AGAINST BALPOS`S λ_n (BALPOS :291-:295 the literature column n <= 5; :303-:311 the margin n = 6..8, 10):
+  ###     the tail beyond T at on-line zeros: 2 Re liTerm ~ n^2/gamma^2, so T2(n) = n^2 (log(T/2pi) + 1)/(2 pi T) ; the face`s
+  ###     formula T1(n) = n (log(T/2pi) + 1)/(2 pi T) printed beside it (see the desk: the face wrote n where the order is n^2)
+        n            Lambda_N(n)          T2(n)          T1(n)          Lambda_N + T2             BALPOS λ_n   resid (T2)
+        1      0.022961009776617   1.347025e-04   1.347025e-04      0.023095712253211      0.023095708966121    3.287e-09
+        2      0.091806938470428   5.388099e-04   2.694050e-04      0.092345748376807      0.092345735291353    1.309e-08
+        3      0.206426627851305   1.212322e-03   4.041074e-04      0.207638950140657      0.207638920592680    2.955e-08
+        4      0.366635292468575   2.155240e-03   5.388099e-04      0.368790532094090      0.368790479520000    5.257e-08
+        5      0.572175234744545   3.367562e-03   6.735124e-04      0.575542796659413      0.575542714430000    8.223e-08
+        6      0.822716841504390   4.849289e-03   8.082149e-04      0.827566130661799      0.827566012282000    1.184e-07
+        7      1.117859857367764   6.600421e-03   9.429173e-04      1.124460278720905      1.124460117570000    1.612e-07
+        8      1.457134929160409   8.620959e-03   1.077620e-03      1.465755887662471      1.465755677150000    2.105e-07
+        9      1.840005414260446   1.091090e-02   1.212322e-03      1.850916314864618           (not banked)             
+       10      2.265869444590923   1.347025e-02   1.347025e-03      2.279339692250395      2.279339363190000    3.291e-07
+       11      2.734062236801091   1.629900e-02   1.481727e-03      2.750361236469051           (not banked)             
+       12      3.243858638060884   1.939716e-02   1.616430e-03      3.263255794690524           (not banked)             
+  
+  ### (ii) THE DRIFT D(n, d) = Z(n, d) - Lambda_N(n), both families, n = 1..12 (quadrature floor: |D at 2048 nodes - D at 4096| at d = 0.1):
+    ### ONE-SIDED
+        n              d = 0.1             d = 0.03             d = 0.01     quad floor     eps sum|t|
+        1      -0.419921996924      -0.953037013377      -1.482441534783      1.270e-10      4.201e-16
+        2      -0.861854658924      -1.913056755388      -2.967086027826      2.539e-10      8.393e-16
+        3      -1.325505800581      -2.880029551471      -4.453930072669      3.808e-10      1.257e-15
+        4      -1.810586980312      -3.853925844100      -5.942970267356      5.078e-10      1.675e-15
+        5      -2.316813457151      -4.834716192370      -7.434203214437      6.347e-10      2.091e-15
+        6      -2.843904147981      -5.822371271585      -8.927625520958      7.617e-10      2.506e-15
+        7      -3.391581585204      -6.816861872850     -10.423233798456      8.886e-10      2.921e-15
+        8      -3.959571874850      -7.818158902661     -11.921024662956      1.016e-09      3.334e-15
+        9      -4.547604655120      -8.826233382497     -13.420994734964      1.142e-09      3.747e-15
+       10      -5.155413055363      -9.841056448413     -14.923140639460      1.269e-09      4.159e-15
+       11      -5.782733655478     -10.862599350634     -16.427459005897      1.396e-09      4.570e-15
+       12      -6.429306445732     -11.890833453154     -17.933946468192      1.523e-09      4.980e-15
+    ### SYMMETRIC
+        n              d = 0.1             d = 0.03             d = 0.01     quad floor     eps sum|t|
+        1      -0.003191898215      -0.000888013624      -0.000208559016      4.319e-16      1.581e-18
+        2      -0.012767673047      -0.003552056771      -0.000834236149      2.130e-15      6.325e-18
+        3      -0.028727565058      -0.007992136261      -0.001877031658      5.086e-15      1.423e-17
+        4      -0.051071975189      -0.014208263462      -0.003336945970      9.326e-15      2.530e-17
+        5      -0.079801464772      -0.022200454288      -0.005213979686      1.482e-14      3.953e-17
+        6      -0.114916755537      -0.031968729204      -0.007508133577      2.155e-14      5.693e-17
+        7      -0.156418729626      -0.043513113217      -0.010219408588      2.962e-14      7.749e-17
+        8      -0.204308429618      -0.056833635886      -0.013347805833      3.891e-14      1.012e-16
+        9      -0.258587058541      -0.071930331314      -0.016893326598      4.940e-14      1.281e-16
+       10      -0.319255979904      -0.088803238152      -0.020855972341      6.117e-14      1.582e-16
+       11      -0.386316717719      -0.107452399602      -0.025235744691      7.433e-14      1.914e-16
+       12      -0.459770956534      -0.127877863408      -0.030032645450      8.865e-14      2.278e-16
+  
+  ### (iii) H13a -- THE ONE-SIDED SLOPE IN n (least squares of D(n, d) on n = 1..12, with intercept, and through the origin):
+      d = 0.1   slope -0.546719 (intercept +0.316605, max residual 1.898e-01) ; through 0 -0.508726 ; -(1/2) log(1/d) = -1.151293 ; off by 52.5% ; sign agrees ; clause REFUTED
+      d = 0.03  slope -0.994389 (intercept +0.104120, max residual 6.277e-02) ; through 0 -0.981894 ; -(1/2) log(1/d) = -1.753279 ; off by 43.3% ; sign agrees ; clause REFUTED
+      d = 0.01  slope -1.495596 (intercept +0.033205, max residual 2.005e-02) ; through 0 -1.491612 ; -(1/2) log(1/d) = -2.302585 ; off by 35.0% ; sign agrees ; clause REFUTED
+      ### ### **H13a (within 10% at each d, the same sign): REFUTED**
+  
+  ### (iv) H13b -- THE SYMMETRIC FAMILY:
+      (b1) bounded in n, the bound shrinking: max_n |D| = 4.598e-01 (d=0.1), 1.279e-01 (d=0.03), 3.003e-02 (d=0.01) ; shrinking across d = 0.1, 0.03, 0.01: True
+      (b2) drift in n: the least-squares slope of D in n = -4.151e-02 (d=0.1), -1.154e-02 (d=0.03), -2.711e-03 (d=0.01)
+      (b3) the value against λ_n within floor, floor(n) = T2(n) + eps sum|terms| + quadrature floor; λ_n from BALPOS where banked, else Lambda_N + T2 (then the test is |D| <= floor):
+        d = 0.1   within floor at n = [] ; beyond floor at n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          |Z - λ_n| / floor : 1:23.70 2:23.70 3:23.70 4:23.70 5:23.70 6:23.70 7:23.70 8:23.70 9:23.70 10:23.70 11:23.70 12:23.70
+        d = 0.03  within floor at n = [] ; beyond floor at n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          |Z - λ_n| / floor : 1:6.59 2:6.59 3:6.59 4:6.59 5:6.59 6:6.59 7:6.59 8:6.59 9:6.59 10:6.59 11:6.59 12:6.59
+        d = 0.01  within floor at n = [] ; beyond floor at n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          |Z - λ_n| / floor : 1:1.55 2:1.55 3:1.55 4:1.55 5:1.55 6:1.55 7:1.55 8:1.55 9:1.55 10:1.55 11:1.55 12:1.55
+      ### ### **H13b: (b1) bounded and shrinking True ; (b3) within floor at every n: False (d=0.1), False (d=0.03), False (d=0.01)**
+  
+  ### (v) THE SEAT`S (S3): |D_symmetric| < |D_one-sided| at every n and d: True
+  ### the run: 29.0 s in all ; per family and d: one-sided d=0.1 1.6 s, one-sided d=0.03 1.6 s, one-sided d=0.01 1.5 s, symmetric d=0.1 2.4 s, symmetric d=0.03 2.4 s, symmetric d=0.01 2.4 s
+  ==============================================================================================================
+
+### relay data/b562_GRH_a.txt
+  b562 -- READING (5): PART (a) -- THE STATEMENT LAYER -- GRH_chi, GRH_chi_trivial, h2_sign_chi and the χ-explicit formula`s terms
+  
+  ### the branch grh-weil-b562 from main 61e3551 ; the module SIDEExplicitFormula/GRHWeil.lean (fed on stdin after LiWeil.lean)
+  
+  ### THE ELABORATION ATTEMPTS OF THIS PART (the whole module as it then stood), each with its exit and error count:
+      ### grhA_1 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM:
+         47 | def parity (χ : DirichletCharacter ℂ N) : ℕ := if χ.Even then 0 else 1
+         50 | def IsTrivialPoint (χ : DirichletCharacter ℂ N) (s : ℂ) : Prop := ∃ m : ℕ, s = -((2 * m + parity χ : ℕ) : ℂ)
+         53 | def GRH_chi (χ : DirichletCharacter ℂ N) : Prop :=
+         54 |   ∀ s : ℂ, LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+         57 | def GRH_chi_trivial (χ : DirichletCharacter ℂ N) : Prop :=
+         58 |   ∀ s : ℂ, LFunction χ s = 0 → ¬ IsTrivialPoint χ s → s.re = 1 / 2
+         61 | def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+         62 |   ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) *
+         63 |     (χ (n : ZMod N) * k (Real.log n) + conj (χ (n : ZMod N)) * k (-Real.log n))
+         66 | def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+         67 |   Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + (parity χ : ℂ) / 2 + I * r / 2)).re
+         70 | def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+         71 |   (1 / (2 * Real.pi) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (gammaBracket_chi χ r : ℂ)
+         75 | def h2_sign_chi (χ : DirichletCharacter ℂ N) : Prop :=
+         76 |   ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ archTerm_chi χ k - primeSum_chi χ k
+  
+  ### LEAN`S PRINTS:
+      parity                                   ['propext', 'Classical.choice', 'Quot.sound']
+      IsTrivialPoint                           ['propext', 'Classical.choice', 'Quot.sound']
+      GRH_chi                                  ['propext', 'Classical.choice', 'Quot.sound']
+      GRH_chi_trivial                          ['propext', 'Classical.choice', 'Quot.sound']
+      primeSum_chi                             ['propext', 'Classical.choice', 'Quot.sound']
+      gammaBracket_chi                         ['propext', 'Classical.choice', 'Quot.sound']
+      archTerm_chi                             ['propext', 'Classical.choice', 'Quot.sound']
+      h2_sign_chi                              ['propext', 'Classical.choice', 'Quot.sound']
+  
+  ### THE SALT-CHECK -- Lean`s #print of each statement-layer definition (every constant a Mathlib object or this module`s):
+      def SIDEExplicitFormula.GRHWeil.GRH_chi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+      fun {N} [NeZero N] χ => ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+      def SIDEExplicitFormula.GRHWeil.GRH_chi_trivial : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+      fun {N} [NeZero N] χ =>
+        ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → ¬SIDEExplicitFormula.GRHWeil.IsTrivialPoint χ s → s.re = 1 / 2
+      def SIDEExplicitFormula.GRHWeil.IsTrivialPoint : {N : ℕ} → DirichletCharacter ℂ N → ℂ → Prop :=
+      fun {N} χ s => ∃ m, s = -↑(2 * m + SIDEExplicitFormula.GRHWeil.parity χ)
+      def SIDEExplicitFormula.GRHWeil.parity : {N : ℕ} → DirichletCharacter ℂ N → ℕ :=
+      fun {N} χ => if χ.Even then 0 else 1
+      def SIDEExplicitFormula.GRHWeil.primeSum_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+      fun {N} χ k =>
+        ∑' (n : ℕ),
+          ↑(ArithmeticFunction.vonMangoldt n / √↑n) * (χ ↑n * k (Real.log ↑n) + (starRingEnd ℂ) (χ ↑n) * k (-Real.log ↑n))
+      def SIDEExplicitFormula.GRHWeil.gammaBracket_chi : {N : ℕ} → DirichletCharacter ℂ N → ℝ → ℝ :=
+      fun {N} χ r => Real.log (↑N / Real.pi) + (1 / 4 + ↑(SIDEExplicitFormula.GRHWeil.parity χ) / 2 + I * ↑r / 2).digamma.re
+      def SIDEExplicitFormula.GRHWeil.archTerm_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+      fun {N} χ k => 1 / (2 * ↑Real.pi) * ∫ (r : ℝ), Zeta23.paperFT k ↑r * ↑(SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r)
+      def SIDEExplicitFormula.GRHWeil.h2_sign_chi : {N : ℕ} → DirichletCharacter ℂ N → Prop :=
+      fun {N} χ =>
+        ∀ (k : ℝ → ℂ),
+          SIDEExplicitFormula.B321.classK k →
+            0 ≤ SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+      def DirichletCharacter.LFunction : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℂ :=
+      fun {N} [NeZero N] χ s => ZMod.LFunction (⇑χ) s
+      def DirichletCharacter.gammaFactor : {N : ℕ} → DirichletCharacter ℂ N → ℂ → ℂ :=
+      fun {N} χ s => if χ.Even then s.Gammaℝ else (s + 1).Gammaℝ
+  ### ### **GRH_chi UNFOLDS TO MATHLIB`S DirichletCharacter.LFunction, Complex.re AND EQUALITY ON ℝ: True** (H14b)
+  ### ### **PRINTED 8 OF 8 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b562_GRH_b.txt
+  b562 -- READING (5): PART (b) -- THE SEAM -- a zero of LFunction χ with re <= 0 is a trivial point; the two forms of GRH_chi coincide
+  
+  ### the branch grh-weil-b562 from main 61e3551 ; the module SIDEExplicitFormula/GRHWeil.lean (fed on stdin after LiWeil.lean)
+  
+  ### THE ELABORATION ATTEMPTS OF THIS PART (the whole module as it then stood), each with its exit and error count:
+      ### grhB_1 -- exit 1, elapsed 29 s, errors 3 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+          | <stdin>:529:54: error: Application type mismatch: The argument
+          | <stdin>:530:18: error(lean.unknownIdentifier): Unknown identifier `lt_of_not_le`
+          | <stdin>:530:36: error(lean.unknownIdentifier): Unknown identifier `lt_of_not_le`
+      ### grhB_2 -- exit 1, elapsed 29 s, errors 5 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+          | <stdin>:457:57: error: unexpected token 'omit'; expected 'lemma'
+          | <stdin>:461:75: error: unexpected token 'omit'; expected 'lemma'
+          | <stdin>:467:89: error: unexpected token 'omit'; expected 'lemma'
+          | <stdin>:475:124: error: unexpected token 'omit'; expected 'lemma'
+          | <stdin>:518:43: error: unexpected token 'omit'; expected 'lemma'
+      ### grhB_3 -- exit 0, elapsed 29 s, errors 0 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM:
+         81 | theorem ne_one_of_ne_one {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : N ≠ 1 := fun h => h1 (level_one' χ h)
+         84 | theorem isPrimitive_inv {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) : χ⁻¹.IsPrimitive := by
+         89 | theorem gammaFactor_ne_zero_of_re_pos (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
+         96 | theorem trivialPoint_of_gammaFactor_eq_zero (χ : DirichletCharacter ℂ N) {s : ℂ} (h : gammaFactor χ s = 0) :
+         97 |     IsTrivialPoint χ s := by
+        120 | theorem LFunction_zero_re_nonpos {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {s : ℂ}
+        121 |     (hs : LFunction χ s = 0) (hre : s.re ≤ 0) : IsTrivialPoint χ s := by
+        138 | theorem re_nonpos_of_trivialPoint {χ : DirichletCharacter ℂ N} {s : ℂ} (h : IsTrivialPoint χ s) : s.re ≤ 0 := by
+        145 | theorem GRH_chi_iff_trivial {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+        146 |     GRH_chi χ ↔ GRH_chi_trivial χ := by
+  
+  ### LEAN`S PRINTS:
+      ne_one_of_ne_one                         ['propext', 'Classical.choice', 'Quot.sound']
+      isPrimitive_inv                          ['propext', 'Classical.choice', 'Quot.sound']
+      gammaFactor_ne_zero_of_re_pos            ['propext', 'Classical.choice', 'Quot.sound']
+      trivialPoint_of_gammaFactor_eq_zero      ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_zero_re_nonpos                 ['propext', 'Classical.choice', 'Quot.sound']
+      re_nonpos_of_trivialPoint                ['propext', 'Classical.choice', 'Quot.sound']
+      GRH_chi_iff_trivial                      ['propext', 'Classical.choice', 'Quot.sound']
+  
+  ### THE FACTS THIS PART CONSUMES, BY NAME, FOUND IN ITS PROOFS: LFunction_eq_completed_div_gammaFactor yes ; completedLFunction_one_sub yes ; LFunction_ne_zero_of_one_le_re yes ; Gammaℝ_ne_zero_of_re_pos yes ; Gamma_eq_zero_iff yes ; conductor_inv yes ; level_one' yes ; isPrimitive_def yes
+  ### rootNumber named in a proof of this part: False
+  ### ### **PRINTED 7 OF 7 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b562_GRH_c.txt
+  b562 -- READING (5): PART (c) -- THE PAIRING ACROSS (χ, χ⁻¹) -- the zeros and their orders carried by conjugation
+  
+  ### the branch grh-weil-b562 from main 61e3551 ; the module SIDEExplicitFormula/GRHWeil.lean (fed on stdin after LiWeil.lean)
+  
+  ### THE ELABORATION ATTEMPTS OF THIS PART (the whole module as it then stood), each with its exit and error count:
+      ### grhC_1 -- exit 1, elapsed 28 s, errors 1 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+          | <stdin>:544:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      ### grhC_2 -- exit 0, elapsed 28 s, errors 0 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+  
+  ### THE DECLARATIONS, AS THE SOURCE STATES THEM:
+        161 | theorem LFunction_conj_of_one_lt_re (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < s.re) :
+        162 |     conj (LFunction χ (conj s)) = LFunction χ⁻¹ s := by
+        185 | theorem LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+        186 |     LFunction χ⁻¹ (conj s) = conj (LFunction χ s) := by
+        209 | theorem LFunction_zero_iff_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+        210 |     LFunction χ s = 0 ↔ LFunction χ⁻¹ (conj s) = 0 := by
+        215 | theorem analyticOrderAt_LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (w : ℂ) :
+        216 |     analyticOrderAt (LFunction χ⁻¹) (conj w) = analyticOrderAt (LFunction χ) w := by
+  
+  ### LEAN`S PRINTS:
+      LFunction_conj_of_one_lt_re              ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_inv_conj                       ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_zero_iff_conj                  ['propext', 'Classical.choice', 'Quot.sound']
+      analyticOrderAt_LFunction_inv_conj       ['propext', 'Classical.choice', 'Quot.sound']
+  
+  ### THE FACTS THIS PART CONSUMES, BY NAME, FOUND IN ITS PROOFS: LFunction_eq_LSeries yes ; differentiable_LFunction yes ; MulChar.star_apply' yes ; cpow_conj yes ; tsum_star yes ; eqOn_of_preconnected_of_eventuallyEq yes ; analyticOrderAt_conj_conj yes
+  ### rootNumber named in a proof of this part: False
+  ### ### **PRINTED 4 OF 4 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b562_zeta23_modules.txt
+  b562 -- READING (5)(d): ZETA23`S FILES CLASSIFIED -- THE PRICE OF THE χ-EXPLICIT FORMULA, MODULE BY MODULE
+  
+  ### THE RULE (the face`s READING (5)(d)): a module is ζ-SPECIFIC if its code (comments stripped) names a ζ object -- riemannZeta, completedRiemannZeta, zetaZeroConfig, zetaSeam, ZetaSeam, IsNontrivialZero, zeroMult, zerosIn, Ncount --
+  ### or it imports, within Zeta23, a module that is; GENERIC otherwise (re-instantiable for L(s, χ) without ζ-specific input).
+  ### A mechanical scan; the one-clause reason is the scan`s own finding.
+  
+      module                                               class       reason (one clause) | its Zeta23 imports
+      Zeta23.Analytic.RectangleLogDeriv                    GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.FromPNTPlus.ResidueCalcOnRectangles
+      Zeta23.Analytic.Stirling                             GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.GammaFacts.Series
+      Zeta23.Assembly.Inputs                               GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg, Zeta23.Defs
+      Zeta23.Defs                                          GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.Defs.Counting                                 GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs
+      Zeta23.ExplicitFormula                               GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs
+      Zeta23.ExplicitFormula.Bridge                        GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.ExplicitFormula, Zeta23.Hypotheses, Zeta23.Poisson.PaperFT
+      Zeta23.FromPNTPlus.Auxiliary                         GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.FromPNTPlus.EulerMaclaurin                    GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.FromPNTPlus.Fourier                           GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.FromPNTPlus.Sobolev
+      Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.FromPNTPlus.Rectangle                         GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.FromPNTPlus.ResidueCalcOnRectangles           GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.FromPNTPlus.Rectangle, Zeta23.FromPNTPlus.Tactic.AdditiveCombination
+      Zeta23.FromPNTPlus.Sobolev                           GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.FromPNTPlus.StrongPNTPrefix                   GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Prelude.InstancePriorities
+      Zeta23.FromPNTPlus.Tactic.AdditiveCombination        GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.FromPNTPlus.ZetaBounds                        ζ-SPECIFIC  names riemannZeta | Zeta23.FromPNTPlus.Auxiliary, Zeta23.FromPNTPlus.Fourier, Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic, Zeta23.FromPNTPlus.ResidueCalcOnRectangles, Zeta23.FromPNTPlus.EulerMaclaurin
+      Zeta23.GammaFacts                                    GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs
+      Zeta23.GammaFacts.Mu                                 GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Analytic.Stirling
+      Zeta23.GammaFacts.Series                             GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.GammaFacts
+      Zeta23.GammaFacts.StirlingVert                       GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.GammaFacts.Mu
+      Zeta23.Hypotheses                                    GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs
+      Zeta23.LinAlg                                        GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.HermitianPosPart, Zeta23.LinAlg.Inertia, Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.RankTrace, Zeta23.LinAlg.Sylvester, Zeta23.LinAlg.VonNeumann, Zeta23.LinAlg.Weyl
+      Zeta23.LinAlg.HermitianPosPart                       GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.PosIndex
+      Zeta23.LinAlg.Inertia                                GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.Sylvester
+      Zeta23.LinAlg.PosIndex                               GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.LinAlg.RankTrace                              GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.VonNeumann, Zeta23.LinAlg.HermitianPosPart
+      Zeta23.LinAlg.Sylvester                              GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.HermitianPosPart
+      Zeta23.LinAlg.VonNeumann                             GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.PosIndex
+      Zeta23.LinAlg.Weyl                                   GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.PosIndex, Zeta23.LinAlg.Sylvester
+      Zeta23.Poisson.PaperFT                               GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs
+      Zeta23.Prelude.InstancePriorities                    GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.RvM.CountByIntegral                           ζ-SPECIFIC  names riemannZeta, completedRiemannZeta, zetaSeam, IsNontrivialZero, zeroMult, zerosIn, Ncount | Zeta23.Analytic.RectangleLogDeriv, Zeta23.Statement.SeamClosed
+      Zeta23.RvM.Halving                                   GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs.Counting
+      Zeta23.RvM.LocalCount                                ζ-SPECIFIC  names riemannZeta, zetaZeroConfig, IsNontrivialZero, zeroMult, Ncount | Zeta23.Prelude.InstancePriorities, Zeta23.Statement.SeamClosed, Zeta23.Defs.Counting, Zeta23.FromPNTPlus.StrongPNTPrefix, Zeta23.RvM.ZetaGrowth, Zeta23.RvM.Halving
+      Zeta23.RvM.ZetaGrowth                                ζ-SPECIFIC  names riemannZeta | Zeta23.FromPNTPlus.ZetaBounds
+      Zeta23.Statement                                     ζ-SPECIFIC  names riemannZeta, ZetaSeam, IsNontrivialZero, zeroMult, zerosIn, Ncount | Zeta23.Hypotheses, Zeta23.Defs.Counting
+      Zeta23.Statement.Seam                                ζ-SPECIFIC  names riemannZeta, ZetaSeam, IsNontrivialZero, zeroMult | Zeta23.Statement
+      Zeta23.Statement.SeamClosed                          ζ-SPECIFIC  names zetaZeroConfig, zetaSeam, ZetaSeam, IsNontrivialZero, zeroMult, zerosIn, Ncount | Zeta23.Statement.Seam, Zeta23.ZetaReflect
+      Zeta23.Tail                                          GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Defs, Zeta23.Assembly.Inputs, Zeta23.Tail.Basic, Zeta23.Tail.Grid, Zeta23.Tail.Count, Zeta23.Tail.RankOne
+      Zeta23.Tail.Basic                                    GENERIC     names no ζ object and imports no ζ-specific module | (none)
+      Zeta23.Tail.Count                                    GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Tail.Basic
+      Zeta23.Tail.Grid                                     GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.Tail.Basic
+      Zeta23.Tail.RankOne                                  GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.LinAlg.Sylvester
+      Zeta23.WeilEF.Contour                                ζ-SPECIFIC  names completedRiemannZeta, zetaSeam, IsNontrivialZero, zeroMult | Zeta23.WeilEF.VerticalLine, Zeta23.WeilEF.GoodHeights, Zeta23.Analytic.RectangleLogDeriv, Zeta23.RvM.CountByIntegral, Zeta23.Statement.SeamClosed
+      Zeta23.WeilEF.FullLine                               ζ-SPECIFIC  names riemannZeta, completedRiemannZeta | Zeta23.WeilEF.Contour
+      Zeta23.WeilEF.FullLineAssembly                       ζ-SPECIFIC  names completedRiemannZeta, ZetaSeam, IsNontrivialZero, zeroMult | Zeta23.WeilEF.FullLine, Zeta23.WeilEF.Horizontal, Zeta23.WeilEF.ZeroSumLimit
+      Zeta23.WeilEF.GammaRBracket                          GENERIC     names no ζ object and imports no ζ-specific module | Zeta23.GammaFacts.Series
+      Zeta23.WeilEF.GoodHeights                            ζ-SPECIFIC  names riemannZeta, zetaZeroConfig, IsNontrivialZero | Zeta23.WeilEF.Landau, Zeta23.RvM.LocalCount, Zeta23.Tail
+      Zeta23.WeilEF.Horizontal                             ζ-SPECIFIC  names riemannZeta, completedRiemannZeta | Zeta23.WeilEF.FullLine
+      Zeta23.WeilEF.Landau                                 ζ-SPECIFIC  names riemannZeta | Zeta23.RvM.ZetaGrowth, Zeta23.FromPNTPlus.StrongPNTPrefix, Zeta23.Statement
+      Zeta23.WeilEF.Main                                   ζ-SPECIFIC  names riemannZeta, completedRiemannZeta, zetaZeroConfig, zetaSeam, ZetaSeam | Zeta23.WeilEF.ZeroSummability, Zeta23.WeilEF.FullLineAssembly
+      Zeta23.WeilEF.VerticalLine                           ζ-SPECIFIC  names riemannZeta | Zeta23.WeilEF.XiLogDeriv, Zeta23.GammaFacts.StirlingVert, Zeta23.ExplicitFormula, Zeta23.ExplicitFormula.Bridge, Zeta23.WeilEF.GammaRBracket, Zeta23.Poisson.PaperFT
+      Zeta23.WeilEF.XiLogDeriv                             ζ-SPECIFIC  names riemannZeta, completedRiemannZeta, IsNontrivialZero | Zeta23.Statement
+      Zeta23.WeilEF.ZeroSumLimit                           ζ-SPECIFIC  names ZetaSeam, IsNontrivialZero, zeroMult | Zeta23.WeilEF.Contour, Zeta23.WeilEF.ZeroSummability
+      Zeta23.WeilEF.ZeroSummability                        ζ-SPECIFIC  names ZetaSeam, zeroMult | Zeta23.Tail, Zeta23.RvM.LocalCount, Zeta23.ExplicitFormula, Zeta23.Poisson.PaperFT
+      Zeta23.ZetaReflect                                   ζ-SPECIFIC  names riemannZeta, IsNontrivialZero, zeroMult | Zeta23.Statement
+  
+  ### ### **FILES 57 ; ζ-SPECIFIC 19 (naming a ζ object directly 19, by import only 0) ; GENERIC 38**
+  ### the direct-mention count alone would call 38 GENERIC; H14d is scored on the transitive rule (fewer than 29 generic).
+  ### ### **H14d (fewer than 29 of the 57 generic): REFUTED**
+  ### THE RULE`S LIMIT, READ BESIDE ITS COUNT: it is lexical. A GENERIC module can still carry ζ`s shape under a neutral
+  ### name -- Zeta23.ExplicitFormula`s `literatureRHS` and `gammaBracket` are ζ`s explicit-formula right-hand side (the pole
+  ### terms h(±i/2), the Γ bracket Re ψ(1/4 + ir/2) - log π) and name no ζ object; for L(s, χ) they are re-stated, not
+  ### re-instantiated (the χ-side`s primeSum_chi, gammaBracket_chi, archTerm_chi in GRHWeil.lean are that re-statement).
+  ### The count prices the files that must be rebuilt for χ by the rule`s words; it does not certify the rest reusable.
+
+### relay data/b562_e0.txt
+  b562 -- READING (6): THE E0 READ -- EVERY DECLARATION OF GRHWeil.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+      parity                                   DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      IsTrivialPoint                           DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      GRH_chi                                  DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      GRH_chi_trivial                          DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      primeSum_chi                             DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      gammaBracket_chi                         DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      archTerm_chi                             DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      h2_sign_chi                              DEFINITION ['propext', 'Classical.choice', 'Quot.sound']
+      ne_one_of_ne_one                         DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      isPrimitive_inv                          DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      gammaFactor_ne_zero_of_re_pos            DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      trivialPoint_of_gammaFactor_eq_zero      DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_zero_re_nonpos                 DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      re_nonpos_of_trivialPoint                DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      GRH_chi_iff_trivial                      DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_conj_of_one_lt_re              DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_inv_conj                       DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      LFunction_zero_iff_conj                  DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+      analyticOrderAt_LFunction_inv_conj       DERIVES    ['propext', 'Classical.choice', 'Quot.sound']
+  ### the salt-check (part (a)): GRH_chi unfolds to Mathlib`s objects: True ; no definition encodes a conclusion it is cited for; h2_sign_chi is STATED and cited for nothing proved
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at de1f175):
+      LFunction_zero_re_nonpos                 defenc False  | check True
+      GRH_chi_iff_trivial                      defenc False  | check True
+      LFunction_inv_conj                       defenc False  | check True
+      analyticOrderAt_LFunction_inv_conj       defenc False  | check True
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+  ### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THE THEOREMS DERIVES (11) ; THE SALT-CHECK True => MERGE True**
+
+### relay data/b562_v06_push.txt
+  error: RPC failed; curl 7 Recv failure: Connection was reset
+  send-pack: unexpected disconnect while reading sideband packet
+  fatal: the remote end hung up unexpectedly
+  Everything up-to-date
+  ### retry after a connection reset:
+  remote: 
+  remote: Create a pull request for 'grh-weil-b562' on GitHub by visiting:        
+  remote:      https://github.com/psinary-sketch/SIDE-explicit-formula/pull/new/grh-weil-b562        
+  remote: 
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new branch]      grh-weil-b562 -> grh-weil-b562
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b562 ; tip de1f175ec02655b7b1d95f22e73004e6052cfa2e ; checkout before main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     61e3551..de1f175  push-b562 -> main
+  push_gated: main read back at the remote: de1f175ec02655b7b1d95f22e73004e6052cfa2e
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new tag]         v0.6 -> v0.6
+  push_gated: tag v0.6 peeled local de1f175ec02655b7b1d95f22e73004e6052cfa2e remote de1f175ec02655b7b1d95f22e73004e6052cfa2e
+  push_gated: DONE -- main and 1 tag(s) pushed and read back
+  de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/main
+  6b5d776ad82555cb4681e9de8533fcc55c053aee	refs/tags/v0.6
+  de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/tags/v0.6^{}
+
+### relay data/b562_rowgen.txt
+  b562 -- READING (6): THE ROWGEN DIFF (rowgen.diff IMPORTED) OF THE MERGED RECORDS AGAINST CORRESPONDENCE ROW 398
+  
+  ### records: 4 ; row found: True
+      ('SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos', ['ok'])
+
+### relay data/b562_branches.txt
+  ### b562 READING (7): the remote's refs of SIDE-explicit-formula, listed:
+  de1f175ec02655b7b1d95f22e73004e6052cfa2e	HEAD
+  8faf7ded8754870669547c9caa54ee5f0275e7c1	refs/heads/detection-region-b559
+  de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/grh-weil-b562
+  2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/li-weil-b561
+  de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/heads/main
+  44af277422b14970cbac2c3c3cc96ca4ffbf6f0e	refs/tags/v0.1
+  baed4df861dac05224f01dad17453648d3d7fe0a	refs/tags/v0.1^{}
+  724e11308977adcb2d853042fcf1f15530605f7e	refs/tags/v0.2
+  5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/tags/v0.2^{}
+  b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+  04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+  9b3a95b0ec1cc3ba1300739f70189d3f92f70da4	refs/tags/v0.4
+  941503b836c1f3548d94b1207276f724dba3263f	refs/tags/v0.4^{}
+  0a6a1eb4e11ade2a505f6e85b2ddb12aec4c698c	refs/tags/v0.5
+  2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/tags/v0.5^{}
+  6b5d776ad82555cb4681e9de8533fcc55c053aee	refs/tags/v0.6
+  de1f175ec02655b7b1d95f22e73004e6052cfa2e	refs/tags/v0.6^{}
+  ### li-weil-b560 at the remote: [] -- ABSENT: its deletion is recorded as done at b561, by inference from this listing, not as this act's.
+  ### the ritual branches -- listed by git branch --merged main, then deleted by name (git branch -d, chained by &&):
+  ### /d/relay merged list (push-b561*):   push-b561   push-b561-closing 
+  ### /d/MY-DOwnloads/PLACE-papers merged list (push-b561*):   push-b561 
+  ### /d/SIDE-global-section merged list (push-b561*):   push-b561 
+  Deleted branch push-b561 (was 0daa7c87).
+  Deleted branch push-b561-closing (was 2f269c11).
+  Deleted branch push-b561 (was 75bd731).
+  Deleted branch push-b561 (was 347fac8).
+  ### read back:
+  ### /d/relay push-b561*: []
+  ### /d/MY-DOwnloads/PLACE-papers push-b561*: []
+  ### /d/SIDE-global-section push-b561*: []
+  ### kept: toolchain-trial-b551 (trial HEAD f22ff35), detection-region-b559 (8faf7de), li-weil-b561 (2df46d7), grh-weil-b562 (de1f175, pushed by name)
+
+### relay data/b562_species.json -- line 6088
+### relay data/b562_x2.json -- line 11563
+### relay data/b562_findings.json -- heading_line 6098
+### relay data/b562_rows.json -- exit_act 0
+### relay data/b562_workorders.json -- line 11565

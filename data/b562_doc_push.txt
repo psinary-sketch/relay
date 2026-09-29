@@ -1,0 +1,40 @@
+push_gated: repo /d/SIDE-explicit-formula ; branch push-b562-doc ; tip 61e35519afd03cfe7b60fcc416ef44946114794c ; checkout before main
+To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   2df46d7..61e3551  push-b562-doc -> main
+push_gated: main read back at the remote: 61e35519afd03cfe7b60fcc416ef44946114794c
+push_gated: DONE -- main and 0 tag(s) pushed and read back
+### the two docstring commits, each touching its docstring alone:
+61e3551 b562 -- LiWeil.lean: li_identity_of_exchange's docstring gains the line that its premise is false as stated for n >= 1 (b561's reading), graded T2 by the superseding correspondence row, under (R172)(1)(a); the docstring alone is touched, no code line moves
+3968ae7 b562 -- LiWeil.lean: LiLimitExchange's docstring gains the line that it is false as stated for n >= 1 (b561's reading, relay data/b561_decay_read.txt (7)), under (R172)(1)(a); the docstring alone is touched, no code line moves; the Prop is kept, not withdrawn
+### their diff against v0.5 (every changed line inside a docstring):
+diff --git a/SIDEExplicitFormula/LiWeil.lean b/SIDEExplicitFormula/LiWeil.lean
+index 218cecf..79ed484 100644
+--- a/SIDEExplicitFormula/LiWeil.lean
++++ b/SIDEExplicitFormula/LiWeil.lean
+@@ -351,7 +351,11 @@ theorem truncMember_EF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+ that tend to `1` at every `u < 0`, the zero side of EF_lit at the truncations tends to `LiCoeff n`. At each member the
+ zero sum is absolutely convergent (EF_lit); the target is the paired (real-part) Li sum, whose unpaired terms decay only
+ like `n/ρ`. A dominant for the truncated transforms uniform along the family is what the Tannery route needs, and
+-EF_lit's own bound grows with the bump's derivatives near `0`: that is the pairing hazard, and it is not crossed here. -/
++EF_lit's own bound grows with the bump's derivatives near `0`: that is the pairing hazard, and it is not crossed here.
++**FALSE AS STATED for `n ≥ 1` (b561's reading, relay `data/b561_decay_read.txt` (7), lines 42-55):** the one-sided
++smoothing moves the jump's midpoint into `u < 0`, and the zero side drifts like `-(n/2) log(1/δ)` along every family in
++the hypothesis. That is a derivation resting on Stirling and the Riemann-von Mangoldt count, neither compiled here; it
++is not a theorem of this kernel. The `Prop` is kept as stated and not withdrawn (ruling (R172)(1)(a), act b562). -/
+ def LiLimitExchange (n : ℕ) : Prop :=
+   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+@@ -360,7 +364,11 @@ def LiLimitExchange (n : ℕ) : Prop :=
+ 
+ /-- **The identity, conditional on the exchange:** if `LiLimitExchange n` holds, then along the same family the
+ literature right-hand sides of EF_lit -- the pole terms, the prime sum and the Γ-integral at the truncations -- tend to
+-`LiCoeff n`. The step is EF_lit itself (`truncMember_EF`); the exchange is the hypothesis, not proved. -/
++`LiCoeff n`. The step is EF_lit itself (`truncMember_EF`); the exchange is the hypothesis, not proved.
++**ITS PREMISE IS FALSE AS STATED for `n ≥ 1` (b561's reading, relay `data/b561_decay_read.txt` (7), lines 42-55):**
++`LiLimitExchange n` fails along the one-sided families it quantifies over, so this conditional is INTERFACES on a
++premise false as stated, graded T2 by the superseding correspondence row (ruling (R172)(1)(a), act b562). The derivation
++rests on Stirling and the Riemann-von Mangoldt count, neither compiled here. -/
+ theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+### the prints after them against b560's prints of the same declarations: diff lines 0 (identical; 35 axiom prints)

@@ -1,0 +1,258 @@
+{
+ "rows": {
+  "parity": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "IsTrivialPoint": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "GRH_chi": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "GRH_chi_trivial": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "primeSum_chi": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "gammaBracket_chi": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "archTerm_chi": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "h2_sign_chi": {
+   "grade": "DEF",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "ne_one_of_ne_one": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "isPrimitive_inv": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "gammaFactor_ne_zero_of_re_pos": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "trivialPoint_of_gammaFactor_eq_zero": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LFunction_zero_re_nonpos": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "re_nonpos_of_trivialPoint": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "GRH_chi_iff_trivial": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LFunction_conj_of_one_lt_re": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LFunction_inv_conj": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LFunction_zero_iff_conj": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "analyticOrderAt_LFunction_inv_conj": {
+   "grade": "DERIVES",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  }
+ },
+ "gate": true,
+ "salt": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos",
+   "pin": "de1f175",
+   "file": "SIDEExplicitFormula/GRHWeil.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ.IsPrimitive → χ ≠ 1 → ∀ {s : ℂ}, DirichletCharacter.LFunction χ s = 0 → s.re ≤ 0 → SIDEExplicitFormula.GRHWeil.IsTrivialPoint χ s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The seam for `L(s, χ)`:** a zero of `LFunction χ` with `re s ≤ 0` is a trivial point",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial",
+   "pin": "de1f175",
+   "file": "SIDEExplicitFormula/GRHWeil.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ.IsPrimitive → χ ≠ 1 → (SIDEExplicitFormula.GRHWeil.GRH_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi_trivial χ)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The strip form and the form off the trivial points coincide**, for a primitive `χ ≠ 1`: the seam and the nonvanishing of `LFunction χ` on `re ≥ 1`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.LFunction_inv_conj",
+   "pin": "de1f175",
+   "file": "SIDEExplicitFormula/GRHWeil.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ ≠ 1 → ∀ (s : ℂ), DirichletCharacter.LFunction χ⁻¹ ((starRingEnd ℂ) s) = (starRingEnd ℂ) (DirichletCharacter.LFunction χ s)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The pairing:** `LFunction χ⁻¹ (conj s) = conj (LFunction χ s)` for every `s`, `χ ≠ 1` -- the series agreement on `re > 1` carried to `ℂ` by the identity theorem (both sides entire, `differentiable_LFunction`).",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj",
+   "pin": "de1f175",
+   "file": "SIDEExplicitFormula/GRHWeil.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ ≠ 1 → ∀ (w : ℂ), analyticOrderAt (DirichletCharacter.LFunction χ⁻¹) ((starRingEnd ℂ) w) = analyticOrderAt (DirichletCharacter.LFunction χ) w",
+   "axioms": null,
+   "doc": "**The multiplicities agree across the pair:** the vanishing order of `LFunction χ⁻¹` at `conj w` is that of `LFunction χ` at `w`, by Zeta23's `analyticOrderAt_conj_conj`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "names": [
+  "parity",
+  "IsTrivialPoint",
+  "GRH_chi",
+  "GRH_chi_trivial",
+  "primeSum_chi",
+  "gammaBracket_chi",
+  "archTerm_chi",
+  "h2_sign_chi",
+  "ne_one_of_ne_one",
+  "isPrimitive_inv",
+  "gammaFactor_ne_zero_of_re_pos",
+  "trivialPoint_of_gammaFactor_eq_zero",
+  "LFunction_zero_re_nonpos",
+  "re_nonpos_of_trivialPoint",
+  "GRH_chi_iff_trivial",
+  "LFunction_conj_of_one_lt_re",
+  "LFunction_inv_conj",
+  "LFunction_zero_iff_conj",
+  "analyticOrderAt_LFunction_inv_conj"
+ ],
+ "tip": "de1f175ec02655b7b1d95f22e73004e6052cfa2e"
+}

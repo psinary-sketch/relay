@@ -1,0 +1,28 @@
+b562 -- READING (5): PART (c) -- THE PAIRING ACROSS (χ, χ⁻¹) -- the zeros and their orders carried by conjugation
+
+### the branch grh-weil-b562 from main 61e3551 ; the module SIDEExplicitFormula/GRHWeil.lean (fed on stdin after LiWeil.lean)
+
+### THE ELABORATION ATTEMPTS OF THIS PART (the whole module as it then stood), each with its exit and error count:
+    ### grhC_1 -- exit 1, elapsed 28 s, errors 1 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+        | <stdin>:544:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    ### grhC_2 -- exit 0, elapsed 28 s, errors 0 (LiWeil.lean then GRHWeil.lean on stdin, branch grh-weil-b562)
+
+### THE DECLARATIONS, AS THE SOURCE STATES THEM:
+      161 | theorem LFunction_conj_of_one_lt_re (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < s.re) :
+      162 |     conj (LFunction χ (conj s)) = LFunction χ⁻¹ s := by
+      185 | theorem LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+      186 |     LFunction χ⁻¹ (conj s) = conj (LFunction χ s) := by
+      209 | theorem LFunction_zero_iff_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+      210 |     LFunction χ s = 0 ↔ LFunction χ⁻¹ (conj s) = 0 := by
+      215 | theorem analyticOrderAt_LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (w : ℂ) :
+      216 |     analyticOrderAt (LFunction χ⁻¹) (conj w) = analyticOrderAt (LFunction χ) w := by
+
+### LEAN`S PRINTS:
+    LFunction_conj_of_one_lt_re              ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_inv_conj                       ['propext', 'Classical.choice', 'Quot.sound']
+    LFunction_zero_iff_conj                  ['propext', 'Classical.choice', 'Quot.sound']
+    analyticOrderAt_LFunction_inv_conj       ['propext', 'Classical.choice', 'Quot.sound']
+
+### THE FACTS THIS PART CONSUMES, BY NAME, FOUND IN ITS PROOFS: LFunction_eq_LSeries yes ; differentiable_LFunction yes ; MulChar.star_apply' yes ; cpow_conj yes ; tsum_star yes ; eqOn_of_preconnected_of_eventuallyEq yes ; analyticOrderAt_conj_conj yes
+### rootNumber named in a proof of this part: False
+### ### **PRINTED 4 OF 4 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

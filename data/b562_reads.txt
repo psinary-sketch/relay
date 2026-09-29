@@ -1,0 +1,99 @@
+b562 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+### SIDE-explicit-formula v0.5 = 2df46d7 ; Mathlib at 51e6992efd
+
+### LiWeil.lean:355 @2df46d7 -- LiLimitExchange
+      355 | def LiLimitExchange (n : ℕ) : Prop :=
+      356 |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+      357 |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+      358 |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+      359 |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+### LiWeil.lean:364 @2df46d7 -- li_identity_of_exchange
+      364 | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+      365 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+      366 |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+### LiWeil.lean:307 @2df46d7 -- truncMember
+      307 | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+### H2Sign.lean:24-31 @2df46d7:
+       24 | def classK (k : ℝ → ℂ) : Prop :=
+       25 |   (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+       26 |     ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+       27 | 
+       28 | /-- **h2, as one Prop:** for every `k` in K, `0 ≤ P(k) - PR(k) + A(k)`. -/
+       29 | def h2_sign : Prop :=
+       30 |   ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+       31 | 
+### Seam.lean @2df46d7 (the template): its declarations:
+    Seam.lean:25 theorem zeta_zero_re_nonpos
+    Seam.lean:84 theorem rh_strip_imp_rh_holds
+    Seam.lean:98 theorem h2_sign_imp_rh_holds
+    Seam.lean:101 theorem h2_sign_iff_rh
+    Seam.lean:104 theorem h2_sign_imp_ch_holds
+    Seam.lean:107 theorem ch_iff_h2_sign
+    b561_decay_read.txt:42 | ### (7) THE ZERO SIDE ALONG THE FAMILY -- A DERIVATION, NOT COMPILED. The excess has one sign on the zeros with ‖ρ‖ δ <= μ/8,
+    b561_decay_read.txt:59 | ### (9) WHAT THIS DOES TO THE PRICE. (D3) as priced at b560 does not exist; (D4) by Tannery has no dominant; b560's stated
+
+### THE MATHLIB CHECKOUT at the kernel`s rev, the Dirichlet L-function facts:
+    NumberTheory/LSeries/DirichletContinuation.lean:61 | noncomputable def LFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.LFunction χ s
+    NumberTheory/LSeries/DirichletContinuation.lean:207 | noncomputable def gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ) := if χ.Even then Gammaℝ s else Gammaℝ (s + 1)
+    NumberTheory/LSeries/DirichletContinuation.lean:224 | @[pp_nodot] noncomputable def completedLFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.completedLFunction χ s
+    NumberTheory/LSeries/DirichletContinuation.lean:259 | lemma LFunction_eq_completed_div_gammaFactor (χ : DirichletCharacter ℂ N) (s : ℂ) (h : s ≠ 0 ∨ N ≠ 1) : LFunction χ s = completedLFunction χ s / gammaFactor χ s := by
+    NumberTheory/LSeries/DirichletContinuation.lean:272 | noncomputable def rootNumber (χ : DirichletCharacter ℂ N) : ℂ := gaussSum χ stdAddChar / I ^ (if χ.Even then 0 else 1) / N ^ (1 / 2 : ℂ)
+    NumberTheory/LSeries/DirichletContinuation.lean:284 | theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) : completedLFunction χ (1 - s) = N ^ (s - 1 / 2) * rootNumber χ * completedLFunction χ⁻¹ s := by
+    NumberTheory/LSeries/DirichletContinuation.lean:110 | lemma Even.LFunction_neg_two_mul_nat {χ : DirichletCharacter ℂ N} (hχ : Even χ) (n : ℕ) [NeZero n] : LFunction χ (-(2 * n)) = 0 := by
+    NumberTheory/LSeries/DirichletContinuation.lean:116 | @[simp] lemma Odd.LFunction_neg_two_mul_nat_sub_one {χ : DirichletCharacter ℂ N} (hχ : Odd χ) (n : ℕ) : LFunction χ (-(2 * n) - 1) = 0 :=
+    NumberTheory/LSeries/DirichletContinuation.lean:75 | lemma LFunction_eq_LSeries (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < re s) : LFunction χ s = LSeries (χ ·) s :=
+    NumberTheory/LSeries/DirichletContinuation.lean:98 | lemma differentiable_LFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) : Differentiable ℂ (LFunction χ) :=
+    NumberTheory/LSeries/Nonvanishing.lean:398 | theorem LFunction_ne_zero_of_one_le_re ⦃s : ℂ⦄ (hχs : χ ≠ 1 ∨ s ≠ 1) (hs : 1 ≤ s.re) : LFunction χ s ≠ 0 :=
+    Analysis/SpecialFunctions/Gamma/Deligne.lean:66 | lemma Gammaℝ_ne_zero_of_re_pos {s : ℂ} (hs : 0 < re s) : Gammaℝ s ≠ 0 := by
+    Analysis/SpecialFunctions/Gamma/Beta.lean:447 | theorem Gamma_eq_zero_iff (s : ℂ) : Gamma s = 0 ↔ ∃ m : ℕ, s = -m := by
+    NumberTheory/DirichletCharacter/Basic.lean:405 | theorem conductor_inv (χ : DirichletCharacter R n) : χ⁻¹.conductor = χ.conductor := by
+    NumberTheory/MulChar/Lemmas.lean:79 | lemma star_apply' (χ : MulChar R ℂ) (a : R) : star (χ a) = χ⁻¹ a := by
+    ### the search for a conjugation lemma for LFunction under Mathlib/NumberTheory (regex LFunction[^\n]*conj|conj[^\n]*LFunction|starRingEnd[^\n]*LFunction): 0 files []
+    ### the search for a rootNumber nonvanishing or norm lemma under Mathlib/NumberTheory (regex rootNumber_ne_zero|norm_rootNumber|abs_rootNumber): 0 files []
+
+### Zeta23`s files: 57
+### the chain bank tools/e16/zeta_ordinates.npy: shape (10000,) ; first [14.134725, 21.02204, 25.010858] ; the 10,000th 9877.782657
+### BALPOS :289-:320 (λ_n, the literature column and the margin table):
+    BALPOS:289 | | n | computed λ_n | literature | absdiff |
+    BALPOS:290 | |---:|:---|:---|:---|
+    BALPOS:291 | | 1 | 0.023095708966121 | 0.02309570896612103 | 3.8e-18 |
+    BALPOS:292 | | 2 | 0.092345735228047 | 0.09234573529135263 | 6.3e-11 |
+    BALPOS:293 | | 3 | 0.20763892055432 | 0.20763892059268 | 3.8e-11 |
+    BALPOS:294 | | 4 | 0.36879047949224 | 0.36879047952 | 2.8e-11 |
+    BALPOS:295 | | 5 | 0.57554271446118 | 0.57554271443 | 3.1e-11 |
+    BALPOS:301 | | n | λ_A(n) | λ_Z(n) | margin λ_n | agree digits |
+    BALPOS:302 | |---:|:---|:---|:---|---:|
+    BALPOS:303 | | 1 | −0.554119955935 | 0.577215664902 | **0.0230957089661** | 258 |
+    BALPOS:304 | | 2 | −0.874539361735 | 0.966885096963 | 0.092345735228 | 258 |
+    BALPOS:305 | | 3 | −1.01305800766 | 1.22069692822 | 0.207638920554 | 258 |
+    BALPOS:306 | | 4 | −1.00679765238 | 1.37558813187 | 0.368790479492 | 258 |
+    BALPOS:307 | | 5 | −0.882725785736 | 1.4582685002 | 0.575542714461 | 258 |
+    BALPOS:308 | | 6 | −0.66073231493 | **1.48829832721** | 0.827566012282 | 258 |
+    BALPOS:309 | | 7 | −0.355730722668 | 1.48019084024 | 1.12446011757 | 258 |
+    BALPOS:310 | | 8 | **+0.0208999330276** | 1.44485574412 | 1.46575567715 | 257 |
+    BALPOS:311 | | 10 | 0.955535679497 | 1.3238036837 | 2.27933936319 | 257 |
+    BALPOS:312 | | 20 | 8.09862405929 | 0.670652812799 | 8.76927687209 | 254 |
+    BALPOS:313 | | 24 | 11.7569802686 | **0.594367623933** | 12.3513478926 | 254 |
+    BALPOS:314 | | 30 | 17.8566523295 | 0.697139961284 | 18.5537922908 | 252 |
+    BALPOS:315 | | 40 | 29.3133191924 | 1.16405623139 | 30.4773754238 | 249 |
+    BALPOS:316 | | 52 | 44.704339005 | **1.51283783312** | 46.2171768381 | 244 |
+    BALPOS:317 | | 60 | 55.7598004042 | 1.37329917068 | 57.1330995749 | 241 |
+    BALPOS:318 | | 70 | 70.3235891926 | 0.870652346445 | 71.1942415391 | 237 |
+    BALPOS:319 | | 80 | 85.604088501 | 0.357632896962 | 85.961721398 | 234 |
+    BALPOS:320 | | 88 | 98.2832446919 | **0.208001172823** | 98.4912458647 | 231 |
+### relay data/b516_ferry.txt:18-21 ((R125)(2)) | (2) A FIXTURE FLOOR IS PRICED IN THE QUANTITY'S OWN SCALE: eps times the sum of the magnitudes of the terms the closed form adds, not an absolute figure; b515's NOT CLEAN verdict on G-FIXTURE-BAR stands as registered and the rule is the repair.
+### the remote`s refs of SIDE-explicit-formula (ls-remote origin):
+    2df46d79bd59a900dde5b8ad8240faa2a0471cdc	HEAD
+    8faf7ded8754870669547c9caa54ee5f0275e7c1	refs/heads/detection-region-b559
+    2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/li-weil-b561
+    2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/heads/main
+    44af277422b14970cbac2c3c3cc96ca4ffbf6f0e	refs/tags/v0.1
+    baed4df861dac05224f01dad17453648d3d7fe0a	refs/tags/v0.1^{}
+    724e11308977adcb2d853042fcf1f15530605f7e	refs/tags/v0.2
+    5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/tags/v0.2^{}
+    b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+    04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+    9b3a95b0ec1cc3ba1300739f70189d3f92f70da4	refs/tags/v0.4
+    941503b836c1f3548d94b1207276f724dba3263f	refs/tags/v0.4^{}
+    0a6a1eb4e11ade2a505f6e85b2ddb12aec4c698c	refs/tags/v0.5
+    2df46d79bd59a900dde5b8ad8240faa2a0471cdc	refs/tags/v0.5^{}
