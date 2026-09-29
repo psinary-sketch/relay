@@ -55,4 +55,10 @@ b558 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
     (h) The FINDINGS entry's refresh sentence first said the memory and the mirror are "recorded in relay's closing record"; the
         refresh runs after the last push, so the committed closing record can only name them as owed. The act's own uncommitted
         sentence was reworded before its commit: the closing paste carries their figures.
+    (i) The post-push suite is NOT CLEAN on one arm, `G-PEEK-DECLARED`, which reads file times: after the act's commit on
+        push-b558, `git checkout main` removed the act's newly tracked files (main did not yet hold them) and the fast-forward
+        wrote them back, all at 02:02:04, so every b558 bank now bears the same time as the face. Their contents equal the pushed
+        blobs (`git status` shows no change to any of them but `b558_exercise.json`, which the suite itself rewrites). The
+        pre-push run, on the same contents, passed this arm. 62 of 63 arms pass post-push. The closing commit is moved onto main
+        by `git branch -f`, with no checkout round-trip.
 ========================================================================================================

@@ -79,8 +79,8 @@
   },
   {
    "name": "G-PEEK-DECLARED",
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "the face`s (C) block; the reads and the dry extraction before the lock, every bank and write after it"
   },
@@ -443,9 +443,11 @@
   }
  ],
  "run": 63,
- "live_failing": [],
+ "live_failing": [
+  "G-PEEK-DECLARED"
+ ],
  "defective": [],
- "neg_failures": 0,
+ "neg_failures": 1,
  "declared": 63,
  "deferred": [],
  "stray": []
