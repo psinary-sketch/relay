@@ -1,0 +1,28 @@
+<stdin>:77:4: warning: declaration uses `sorry`
+<stdin>:83:8: warning: declaration uses `sorry`
+'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_upto_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ellOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.j₀' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.detection_region' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop
+SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔
+  ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis
+SIDEExplicitFormula.B321.ellOf : ℂ → ℝ
+SIDEExplicitFormula.B321.detection_region : ∀ (L₀ : ℝ),
+  SIDEExplicitFormula.B321.h2_sign_upto L₀ →
+    ∀ (ρ : ℂ),
+      riemannZeta ρ = 0 →
+        0 < ρ.re →
+          ρ.re < 1 →
+            ↑(SIDEExplicitFormula.B321.j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2)) * SIDEExplicitFormula.B321.ellOf ρ ≤
+                L₀ →
+              ρ.re - 1 / 2 = 0
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+### the prints -- lake env lean --stdin <- DetectionRegion.lean followed by AxiomCheckDetection.lean less its import line (branch detection-region-b559) -- exit 0 -- 21 s

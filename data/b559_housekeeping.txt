@@ -1,0 +1,44 @@
+b559 -- READING (2): THE HOUSEKEEPING, (R169)(1), DONE AT THE ACT`S START
+
+### (a) b558`s refresh record committed alone -- 745d15da
+    parent 22e5d2e4 ; files ['data/b558_refresh.txt']
+    subject: housekeeping: b558's refresh record (data/b558_refresh.txt) committed at b559's start under (R169)(1)(a) -- the memory index 129 -> 86 lines, the mirror mirror-refresh-2026-09-29-b558.zip (MANIFEST md5 09cc3960...9823), both after b558's last push. Nothing deposits.
+### (b) the instrument change committed alone -- 673a39e2
+    parent 745d15da ; files ['tools/b558_checks.py']
+    subject: housekeeping: G-PEEK-DECLARED's post-push reading by content digests against the pushed tree (tools/b558_checks.py), under (R169)(1)(b)
+
+### (b) the message of 673a39e2, whole (the test quoted):
+    housekeeping: G-PEEK-DECLARED's post-push reading by content digests against the pushed tree (tools/b558_checks.py), under (R169)(1)(b)
+    
+    b558's defect (i): after a push, the checkout between the act commit and its fast-forward rewrites every newly tracked bank,
+    so file times say nothing about the lock (62 of 63). The post-push reading now compares each bank's bytes (CR stripped) with
+    its blob at origin/main by sha256; the after-lock banks' adding commit is later than the face's lock stamp; the before-lock
+    banks are named PASS by a lock-gate run stamped before the lock, and the scan names the ferry. The pre-push reading (file
+    times, before any checkout) is unchanged. A flag --rerun-postpush <file> reads a pushed act and writes that one record only
+    (no table regeneration, no exercise file).
+    
+    The test (scratchpad peek_test.py, run against b558's pushed banks at origin/main 22e5d2e4):
+      the pushed banks as they are                      -> (after, before)   got (True, True)   want (True, True)   ok
+      the lock stamp moved after the act commit         -> after refuses     got False          want False          ok
+      the lock gate run stamp moved after the lock      -> before refuses    got False          want False          ok
+      the pins record missing from the lock gate        -> before refuses    got False          want False          ok
+      an unchanged copy of b558_union.json              -> digest equal      got True           want True           ok
+      b558_union.json with one byte appended            -> digest refuses    got False          want False          ok
+      a bank absent from the pushed tree                -> refuses           got False          want False          ok
+      ### TEST VERDICT : BOTH POLARITIES BEHAVE
+    
+    The re-run on b558's push (data/b559_b558_postpush_rerun.txt, banked with b559):
+      G-PEEK-DECLARED                            PASS  PASS  FAIL  OK
+      ### ### **ARMS RUN : 63. ### LIVE PASSING : 63. ### LIVE FAILING : 0 .**
+      ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+    Nothing deposits.
+
+### (b) the re-run on b558`s push, data/b559_b558_postpush_rerun.txt -- its reading line, the arm, and the verdict:
+    b558 -- THE SUITE. ### **POST-PUSH READING.** ### every arm exercised on both controls.
+      G-PEEK-DECLARED                            PASS  PASS  FAIL  OK
+      ### ### **(R169)(1)(b): A RE-RUN ON THE PUSHED ACT -- THE GENERATOR WAS NOT RE-RUN** (it writes relay`s table files).
+      ###   G-PEEK-DECLARED read by content digests against the pushed tree (origin/main 22e5d2e4).
+      ### ### **ARMS RUN : 63. ### LIVE PASSING : 63. ### LIVE FAILING : 0 .**
+      ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+      ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+### ### **THE RE-RUN PRINTS 63 OF 63: True**

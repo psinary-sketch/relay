@@ -1,0 +1,223 @@
+{
+ "rows": [
+  {
+   "name": "zeroSide_eventually_neg",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1082,
+   "found_line": 1082,
+   "statement": "theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ) (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) : ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0",
+   "what": "the index j at which the zero side is negative: j = max J D (:1093, :1095)",
+   "kind": "NON-CONSTRUCTIVE",
+   "witness": "J from `Metric.tendsto_atTop.mp (rest_tendsto_zero H Q B D hQb) _ hc0` (:1092) -- an existential out of a limit with no rate; D from coeffs_exist",
+   "reach": "THE CONFIGURATION",
+   "markers": [
+    "Metric.tendsto_atTop",
+    "choose"
+   ]
+  },
+  {
+   "name": "rest_tendsto_zero",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 1025,
+   "found_line": 1025,
+   "statement": "theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) : Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)",
+   "what": "the rest over M^(2^(j+1)) tends to 0: a Tendsto, no index",
+   "kind": "NON-CONSTRUCTIVE",
+   "witness": "per zero `tendsto_pow_atTop_nhds_zero_of_lt_one` on offScore/M < 1 (:1055-:1057), no uniform ratio; summed by `tendsto_tsum_of_dominated_convergence` (:1066) -- no rate",
+   "reach": "THE CONFIGURATION",
+   "markers": [
+    "tendsto_tsum_of_dominated_convergence",
+    "Tendsto"
+   ]
+  },
+  {
+   "name": "tie_term_neg",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 749,
+   "found_line": 749,
+   "statement": "theorem tie_term_neg (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) (hQ : ∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : (Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)).re = -(Nf H ρ * M ^ (2 ^ (j + 1)))",
+   "what": "the tie term`s real part, an equality at every j: -(N_rho M^(2^(j+1)))",
+   "kind": "EXPLICIT",
+   "witness": "N_rho = Nf H rho = |K(v)^2 (1 - c^2 v)| (:445), K over the kill nodes (:271), c = cE over the tie set (:274); M the dominant score",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  },
+  {
+   "name": "kill_term_zero",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 756,
+   "found_line": 756,
+   "statement": "theorem kill_term_zero (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ killSet Z g0 M) : Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ) = 0",
+   "what": "the kill term is 0 at every j",
+   "kind": "EXPLICIT",
+   "witness": "K(v) = 0 (:369)",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  },
+  {
+   "name": "rest_term_small",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 764,
+   "found_line": 764,
+   "statement": "theorem rest_term_small (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (ρ : ℂ) : ‖Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)‖ ≤ B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * offScore g0 ρ ^ (2 ^ (j + 1))",
+   "what": "each term bounded at every j: B^2 (1 + |w|)^(2D) offScore^(2^(j+1))",
+   "kind": "EXPLICIT",
+   "witness": "the bound is a closed term in B, D (from coeffs_exist) and the zero`s own offScore and |w| = |gammaOf rho|",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  },
+  {
+   "name": "coeffs_exist",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 672,
+   "found_line": 672,
+   "statement": "theorem coeffs_exist (H : PWSetup Z g0 L M) (hne : (tieSet Z g0 M).Nonempty) : ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ j : ℕ, ∃ Q : Polynomial ℝ, (∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) ∧ ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D",
+   "what": "there are B, D bounding every P_j",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "B = card(VF) * max CV 0 * BK * BE, D = 2 card(VF) + 2 DK + DE (:683); CV from real_even_interpolant over the tie nodes, BK, DK and BE, DE from fixed_poly_bound (:667) of Kp and Ep",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  },
+  {
+   "name": "dominant_summable",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 949,
+   "found_line": 949,
+   "statement": "theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) : Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "what": "the dominant is summable; its sum bounded by 3 A0 Bf zeta3Sum (weighted_finite_bound :879)",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "Bf = 128 * 8^D * B^2 * (Aw H / M)^(2^(D+1)) (:957); A0 from zetaZeroConfig_local_count (:952)",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  },
+  {
+   "name": "Aw",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 800,
+   "found_line": 800,
+   "statement": "def Aw (_H : PWSetup Z g0 L M) : ℝ",
+   "what": "the decay constant of the base: (INT |g0| + INT |g0````|) e^(L/2)",
+   "kind": "EXPLICIT",
+   "witness": "a closed term in the base window",
+   "reach": "(gamma, delta) ALONE",
+   "markers": []
+  },
+  {
+   "name": "paperFT_decay",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 63,
+   "found_line": 63,
+   "statement": "theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ * ‖z‖ ^ p ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|)",
+   "what": "|g^(z)| |z|^p <= (INT |g^(p)|) exp(L |Im z|)",
+   "kind": "EXPLICIT",
+   "witness": "a closed term in the window and z",
+   "reach": "(gamma, delta) ALONE",
+   "markers": []
+  },
+  {
+   "name": "paperFT_decay_zero",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "line": 98,
+   "found_line": 98,
+   "statement": "theorem paperFT_decay_zero {g : ℝ → ℝ} {L : ℝ} (hg : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ ≤ (∫ u, |g u|) * Real.exp (L * |z.im|)",
+   "what": "|g^(z)| <= (INT |g|) exp(L |Im z|)",
+   "kind": "EXPLICIT",
+   "witness": "a closed term in the window and z",
+   "reach": "(gamma, delta) ALONE",
+   "markers": []
+  },
+  {
+   "name": "zetaZeroConfig_local_count",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 310,
+   "found_line": 310,
+   "statement": "theorem zetaZeroConfig_local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ, (zetaZeroConfig.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)",
+   "what": "N(t, t+1) <= A0 log(|t| + 3) with 1 <= A0",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "A0 = max 1 (max (2 A1) K) (:287), K = Ncount (-4) 5 (:285), A1 = (1 / log(R/r)) (|log(3C)| + 2 max A 0) (:122) with r = 0.84, R = 0.95 and A, C from zeta_growth_right (ZetaGrowth.lean:159)",
+   "reach": "ABSOLUTE (zeta alone)",
+   "markers": []
+  },
+  {
+   "name": "base_nonzero_at",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 274,
+   "found_line": 274,
+   "statement": "theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) : ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0",
+   "what": "a width below which the plateau`s transform is nonzero at z",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "L0 = 1 / (4 (|z| + 1)) (:276); at the assembly z = gammaOf rho1, so the base half-support is 1 / (4 (|gammaOf rho1| + 1))",
+   "reach": "(gamma, delta) ALONE",
+   "markers": []
+  },
+  {
+   "name": "plateau_dominant",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 385,
+   "found_line": 385,
+   "statement": "theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2) : ∃ (L : ℝ) (hL : 0 < L), ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore (plateau F L hF0 hF1 hL) ρs ∧ ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore (plateau F L hF0 hF1 hL) ρ ≤ offScore (plateau F L hF0 hF1 hL) ρs",
+   "what": "the base width and a dominant off-line zero rho_s of the largest score M",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "the width from base_nonzero_at at rho1 (:389); rho_s from dominant_exists (:394)",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  },
+  {
+   "name": "dominant_exists",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 368,
+   "found_line": 368,
+   "statement": "theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g) (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2) (hpos : 0 < offScore g ρ₁) : ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧ ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs",
+   "what": "an off-line zero of maximal score",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "a maximiser by `Set.exists_max_image` over the finite set of off-line zeros scoring at least offScore(rho1) (:377): a zero of zeta, not a term in rho1",
+   "reach": "THE CONFIGURATION",
+   "markers": [
+    "exists_max_image"
+   ]
+  },
+  {
+   "name": "off_finite_above",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 331,
+   "found_line": 331,
+   "statement": "theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g) (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) : {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite",
+   "what": "zeros of score at least c lie below height T",
+   "kind": "EXPLICIT",
+   "witness": "T = max 1 (B / c), B = (INT |g````|) e^(L/2) (:333-:334)",
+   "reach": "(gamma, delta) ALONE",
+   "markers": []
+  },
+  {
+   "name": "real_even_interpolant",
+   "file": "SIDEExplicitFormula/PowerWindow.lean",
+   "line": 427,
+   "found_line": 427,
+   "statement": "theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) : ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) → ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧ ∀ j, |Q.coeff j| ≤ C",
+   "what": "a coefficient bound for real interpolants on a node set",
+   "kind": "EXISTENTIAL-WITH-WITNESS",
+   "witness": "CV = SUM_j SUM_i |(Lagrange.basis s id i).coeff j| (:432): a closed term in the nodes, the nodes being the tie set`s v",
+   "reach": "THE CONFIGURATION",
+   "markers": []
+  }
+ ],
+ "h9a": false,
+ "step": "SIDEExplicitFormula/PowerLimit.lean:1092",
+ "nonconstructive": [
+  "zeroSide_eventually_neg",
+  "rest_tendsto_zero"
+ ],
+ "markers_ok": true,
+ "configuration": [
+  "zeroSide_eventually_neg",
+  "rest_tendsto_zero",
+  "tie_term_neg",
+  "kill_term_zero",
+  "rest_term_small",
+  "coeffs_exist",
+  "dominant_summable",
+  "plateau_dominant",
+  "dominant_exists",
+  "real_even_interpolant"
+ ]
+}

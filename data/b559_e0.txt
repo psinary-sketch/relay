@@ -1,0 +1,41 @@
+b559 -- READING (6): THE E0 READ OF THE STATED detection_region, AND THE GRADES OF THE COMPILED COMPANIONS
+
+### THE STATEMENT, AS LEAN PRINTS IT (data/b559_axioms.txt):
+    SIDEExplicitFormula.B321.detection_region : ∀ (L₀ : ℝ),
+      SIDEExplicitFormula.B321.h2_sign_upto L₀ →
+        ∀ (ρ : ℂ),
+          riemannZeta ρ = 0 →
+            0 < ρ.re →
+              ρ.re < 1 →
+                ↑(SIDEExplicitFormula.B321.j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2)) * SIDEExplicitFormula.B321.ellOf ρ ≤
+                    L₀ →
+                  ρ.re - 1 / 2 = 0
+
+### EVERY CONSTITUENT UNFOLDED TO ITS OWNER:
+    the conclusion `ρ.re - 1 / 2 = 0` ........ Mathlib: `Complex.re`, subtraction and equality on `ℝ`
+    `riemannZeta ρ = 0`, `0 < ρ.re`, `ρ.re < 1` .. Mathlib: `riemannZeta`, `Complex.re`, the order on `ℝ` -- the kernel`s
+                                                  `Zeta23.IsNontrivialZero` (Statement.lean:54) unfolded
+    `h2_sign_upto L₀` (the hypothesis hL) ..... this module: over `classK` (H2Sign.lean:24 -- Mathlib`s `ContDiff`,
+                                                  `HasCompactSupport` and Zeta23`s `EF.weilTest`) and b321`s `poleTerm`, `primeSum`,
+                                                  `archTerm` (B321Identity.lean); it names no zero of zeta and no real part
+    `ellOf ρ` ................................ this module: `1 / (4 (‖Zeta23.gammaOf ρ‖ + 1))`, `gammaOf ρ = (ρ - 1/2) / I`
+                                                  (Defs.lean:121) -- Mathlib`s norm and division
+    `j₀ γ δ` ................................. this module: `sorry` -- UNOWNED; its value is `sorryAx``s
+
+### THE SALT-CHECK (EXCLUSION_ENGINE.md :28, :37; FINDINGS :57): no Prop of the module encodes the conclusion --
+### `h2_sign_upto`, `ellOf` and `j₀` name no real part of a zero; the conclusion stands in the theorem alone. The
+### statement`s FORM passes. ### Its region premise rests on `j₀`, whose body is `sorry`: until `j₀` is written the premise
+### has no fixed content, and the theorem`s own proof is `sorry`.
+### ### **THE GRADE ON THE BRANCH: T4 (a `sorry` body, the tier law`s bottom rung). NOT DERIVES. NO MERGE, NO TAG (R169)(5).**
+
+### THE COMPILED COMPANIONS, BY STATEMENT-READ (the three-grade vocabulary):
+    h2_sign_upto_mono          DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+    h2_sign_imp_upto           DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+    upto_all_imp_h2_sign       DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+    h2_sign_iff_forall_upto    DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+    forall_upto_iff_rh         DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+    `h2_sign_iff_forall_upto` is `h2_sign ↔ ∀ L₀, h2_sign_upto L₀`: its two sides are the kernel`s Prop and the finite form,
+    and the proof is the compact support of a classK window; `forall_upto_iff_rh` carries it to Mathlib`s `RiemannHypothesis`
+    through `h2_sign_iff_rh` (Seam.lean:101). Equivalences between open statements: neither is proved.
+
+### THE ROWGEN DIFF: NOT RUN -- it is the merge gate`s (R169)(5), and the branch is HELD.

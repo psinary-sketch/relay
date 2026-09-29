@@ -1,0 +1,52 @@
+b559 -- READING (5): (R169)(3)`s h2_sign_upto TYPED AS THE RULING TYPES IT, FED ON STDIN WITH THE NEW MODULE`S HEADER IMPORT
+### `lake env lean --stdin` from the SIDE-explicit-formula checkout on detection-region-b559 (the narrow-import rule).
+### Variant (a): the ruling`s text inside the kernel`s namespace. Variant (b): the same with `open Zeta23.EF`, so that
+### `weilTest` resolves and what remains is the ruling`s own shape.
+
+### variant (a) -- the input:
+    import SIDEExplicitFormula.Seam
+    open scoped ComplexOrder
+    namespace SIDEExplicitFormula
+    namespace B321
+    
+    def h2_sign_upto (L₀ : ℝ) : Prop :=
+        ∀ h ∈ classK, (∀ u, L₀ < |u| → h u = 0) → 0 ≤ weilTest h h
+    
+    end B321
+    end SIDEExplicitFormula
+### variant (a) -- exit 1, 799 s (the first load of the Mathlib objects took the time) -- Lean`s messages:
+    <stdin>:7:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+      Membership ?m.1 ((ℝ → ℂ) → Prop)
+    
+    Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+    <stdin>:7:50: error(lean.unknownIdentifier): Unknown identifier `weilTest`
+    <stdin>:7:35: error: Function expected at
+      h
+    but this term has type
+      ?m.1
+    
+    Note: Expected a function because this term is being applied to the argument
+      u
+
+### variant (b) -- the input:
+    import SIDEExplicitFormula.Seam
+    open scoped ComplexOrder
+    open Zeta23.EF
+    namespace SIDEExplicitFormula
+    namespace B321
+    
+    def h2_sign_upto (L₀ : ℝ) : Prop :=
+        ∀ h ∈ classK, (∀ u, L₀ < |u| → h u = 0) → 0 ≤ weilTest h h
+    
+    end B321
+    end SIDEExplicitFormula
+### variant (b) -- exit 1, 22 s (the first load of the Mathlib objects took the time) -- Lean`s messages:
+    <stdin>:8:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+      Membership ?m.1 ((ℝ → ℂ) → Prop)
+    
+    Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+
+### ### **THE LITERAL DOES NOT ELABORATE.** `h ∈ classK` asks for a `Membership` instance on `(ℝ → ℂ) → Prop`: `classK`
+### is a predicate (H2Sign.lean:24), not a set. `weilTest` is `Zeta23.EF.weilTest`. And `0 ≤ weilTest h h` would compare a
+### FUNCTION `ℝ → ℂ` with 0 pointwise -- not the sign `h2_sign` states (H2Sign.lean:29-31, `0 ≤ poleTerm k - primeSum k +
+### archTerm k`). The module states the predicate as `h2_sign` states its sign, over `k` with `classK k` and a support bound.

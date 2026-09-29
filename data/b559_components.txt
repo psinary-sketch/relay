@@ -1,0 +1,462 @@
+====================================================================================================================================
+b559 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b559_reads.txt
+  b559 -- READING (1): THE READS, CITED BY PATH AND LINE AT SIDE-explicit-formula v0.2 = 5c72cad (made before the seal; the face`s (C))
+  
+    SIDEExplicitFormula/PowerWindow.lean:62    selfConv                                             | def selfConv (g : ℝ → ℝ) : ℝ → ℝ := fun x => (Zeta23.EF.weilTest (phiC g) (phiC g) x).re
+    SIDEExplicitFormula/PowerWindow.lean:94    selfConv_support                                     | theorem selfConv_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    SIDEExplicitFormula/PowerWindow.lean:121   power (the j-fold iterated self-convolution)         | def power (g : ℝ → ℝ) : ℕ → ℝ → ℝ
+    SIDEExplicitFormula/PowerWindow.lean:129   power_support: support in [-(2^j L), 2^j L]          | theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    SIDEExplicitFormula/PowerWindow.lean:162   polyOp                                               | def polyOp (a : List ℝ) (g : ℝ → ℝ) : ℝ → ℝ :=
+    SIDEExplicitFormula/PowerWindow.lean:274   base_nonzero_at                                      | theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) :
+    SIDEExplicitFormula/PowerWindow.lean:276   its witness L0 = 1 / (4 (|z| + 1))                   |   refine ⟨1 / (4 * (‖z‖ + 1)), by positivity, fun L hL hLL => ?_⟩
+    SIDEExplicitFormula/PowerWindow.lean:328   offScore                                             | def offScore (g : ℝ → ℝ) (ρ : ℂ) : ℝ := ‖Zeta23.paperFT (phiC g) (Zeta23.gammaOf ρ)‖
+    SIDEExplicitFormula/PowerWindow.lean:331   off_finite_above                                     | theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    SIDEExplicitFormula/PowerWindow.lean:334   its height T = max 1 (B / c)                         |   set B : ℝ := (∫ u, |iteratedDeriv 4 g u|) * Real.exp (L / 2) with hB
+    SIDEExplicitFormula/PowerWindow.lean:368   dominant_exists                                      | theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    SIDEExplicitFormula/PowerWindow.lean:377   the dominant by Set.exists_max_image                 |   obtain ⟨ρs, hρs, hmax⟩ := Set.exists_max_image S (offScore g) hfin hne
+    SIDEExplicitFormula/PowerWindow.lean:385   plateau_dominant                                     | theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier)
+    SIDEExplicitFormula/PowerWindow.lean:398   tieSet                                               | def tieSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ := {ρ | ρ ∈ Z.carrier ∧ ρ.re ≠ 1 / 2 ∧ offScore g ρ = M}
+    SIDEExplicitFormula/PowerWindow.lean:401   killSet                                              | def killSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ := {ρ | ρ ∈ Z.carrier ∧ ρ.re = 1 / 2 ∧ M ≤ offScore g ρ}
+    SIDEExplicitFormula/PowerWindow.lean:427   real_even_interpolant                                | theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) :
+    SIDEExplicitFormula/PowerWindow.lean:432   its witness CV                                       |   refine ⟨∑ j ∈ Finset.range s.card, ∑ i ∈ s, ‖(Lagrange.basis s id i).coeff j‖, fun r hr hr1 => ?_⟩
+    SIDEExplicitFormula/PowerWindow.lean:481   the ferry`s ":481" -- this line                      | 
+    SIDEExplicitFormula/PowerWindow.lean:483   rh_strip (the strip predicate: zetaZeroConfig.carrie | def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2
+    SIDEExplicitFormula/PowerLimit.lean:245   PWSetup                                              | structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) : Prop where
+    SIDEExplicitFormula/PowerLimit.lean:251   PWSetup.hdom                                         |   hdom : ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g0 ρ ≤ M
+    SIDEExplicitFormula/PowerLimit.lean:271   Kp                                                   | def Kp (H : PWSetup Z g0 L M) : Polynomial ℝ := ∏ x ∈ Xr H, (Polynomial.X - Polynomial.C x)
+    SIDEExplicitFormula/PowerLimit.lean:274   cE                                                   | def cE (H : PWSetup Z g0 L M) : ℝ := 1 + ∑ ρ ∈ TF H, 1 / |ρ.re - 1 / 2|
+    SIDEExplicitFormula/PowerLimit.lean:277   Ep                                                   | def Ep (H : PWSetup Z g0 L M) : Polynomial ℝ := 1 + Polynomial.C (cE H) * Polynomial.X
+    SIDEExplicitFormula/PowerLimit.lean:437   Xval                                                 | def Xval (H : PWSetup Z g0 L M) (j : ℕ) (ρ : ℂ) : ℂ :=
+    SIDEExplicitFormula/PowerLimit.lean:445   Nf                                                   | def Nf (H : PWSetup Z g0 L M) (ρ : ℂ) : ℝ := ‖(Polynomial.aeval (vOf ρ) (Kp H)) ^ 2 * (1 - (cE H : ℂ) ^ 2 * vOf ρ)‖
+    SIDEExplicitFormula/PowerLimit.lean:591   rT                                                   | def rT (H : PWSetup Z g0 L M) (j : ℕ) (v : ℂ) : ℂ :=
+    SIDEExplicitFormula/PowerLimit.lean:658   fixed_poly_bound                                     | theorem fixed_poly_bound (Q : Polynomial ℝ) :
+    SIDEExplicitFormula/PowerLimit.lean:667   its witness                                          |   exact ⟨((Q.natDegree + 1 : ℕ) : ℝ) * ∑ i ∈ Finset.range (Q.natDegree + 1), |Q.coeff i|, Q.natDegree + 1,
+    SIDEExplicitFormula/PowerLimit.lean:672   coeffs_exist                                         | theorem coeffs_exist (H : PWSetup Z g0 L M) (hne : (tieSet Z g0 M).Nonempty) :
+    SIDEExplicitFormula/PowerLimit.lean:683   its witnesses B and D                                |   refine ⟨(VF H).card * max CV 0 * BK * BE, 2 * (VF H).card + 2 * DK + DE,
+    SIDEExplicitFormula/PowerLimit.lean:749   tie_term_neg                                         | theorem tie_term_neg (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ)
+    SIDEExplicitFormula/PowerLimit.lean:756   kill_term_zero                                       | theorem kill_term_zero (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ killSet Z g0 M) :
+    SIDEExplicitFormula/PowerLimit.lean:764   rest_term_small                                      | theorem rest_term_small (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ)
+    SIDEExplicitFormula/PowerLimit.lean:800   Aw (the decay constant)                              | def Aw (_H : PWSetup Z g0 L M) : ℝ := ((∫ u, |g0 u|) + ∫ u, |iteratedDeriv 4 g0 u|) * Real.exp (L / 2)
+    SIDEExplicitFormula/PowerLimit.lean:809   zero_weight                                          | theorem zero_weight (H : PWSetup Z g0 L M) (B : ℝ) (D : ℕ) (ρ : ℂ) (hρ : ρ ∈ Z.carrier) :
+    SIDEExplicitFormula/PowerLimit.lean:879   weighted_finite_bound                                | theorem weighted_finite_bound (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+    SIDEExplicitFormula/PowerLimit.lean:949   dominant_summable                                    | theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+    SIDEExplicitFormula/PowerLimit.lean:957   its bound Bf                                         |     (128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))) (by positivity)
+    SIDEExplicitFormula/PowerLimit.lean:1025  rest_tendsto_zero                                    | theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    SIDEExplicitFormula/PowerLimit.lean:1057  the per-zero limit, no rate                          |       (tendsto_pow_atTop_nhds_zero_of_lt_one hr0 hr1).comp hN
+    SIDEExplicitFormula/PowerLimit.lean:1066  Tannery: tendsto_tsum_of_dominated_convergence       |   have hlim := tendsto_tsum_of_dominated_convergence (f := fun j x => fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1)))
+    SIDEExplicitFormula/PowerLimit.lean:1082  zeroSide_eventually_neg                              | theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ)
+    SIDEExplicitFormula/PowerLimit.lean:1092  the index J from Metric.tendsto_atTop                |   obtain ⟨J, hJ⟩ := Metric.tendsto_atTop.mp (rest_tendsto_zero H Q B D hQb) _ hc0
+    SIDEExplicitFormula/PowerLimit.lean:1159  zeroSideNeg (the assembly from :1159)                | def zeroSideNeg : Prop :=
+    SIDEExplicitFormula/PowerLimit.lean:1176  plateau_dominant at the assembly                     |     plateau_dominant Zeta23.zetaZeroConfig (1 / 2) hF0 hF1 ρ1 h1 hoff
+    SIDEExplicitFormula/PowerLimit.lean:1193  h2_sign_imp_rh_strip                                 | theorem h2_sign_imp_rh_strip : h2_sign → rh_strip := h2_sign_imp_rh_strip_of zeroSideNeg_holds
+    SIDEExplicitFormula/PowerLimit.lean:1248  the file`s end                                       | end SIDEExplicitFormula
+    SIDEExplicitFormula/DecayBound.lean:63    paperFT_decay                                        | theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)
+    SIDEExplicitFormula/DecayBound.lean:98    paperFT_decay_zero                                   | theorem paperFT_decay_zero {g : ℝ → ℝ} {L : ℝ} (hg : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    SIDEExplicitFormula/H2Sign.lean:24    classK                                               | def classK (k : ℝ → ℂ) : Prop :=
+    SIDEExplicitFormula/H2Sign.lean:29    h2_sign                                              | def h2_sign : Prop :=
+    SIDEExplicitFormula/H2Sign.lean:30    its body                                             |   ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+    SIDEExplicitFormula/H2Sign.lean:31    its sign                                             | 
+    SIDEExplicitFormula/Seam.lean:101   h2_sign_iff_rh                                       | theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+    SIDEExplicitFormula/B321Identity.lean:24    zeroSide                                             | def zeroSide (k : ℝ → ℂ) : ℂ :=
+    SIDEExplicitFormula/RestBound.lean:44    HCount                                               | def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+    SIDEExplicitFormula/RestBound.lean:51    zeta3Sum                                             | def zeta3Sum : ℝ := ∑' m : ℤ, 1 / (1 + |(m : ℝ)|) ^ 3
+    Zeta23/Defs.lean:121   gammaOf                                              | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+    Zeta23/Defs.lean:124   reflect                                              | def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+    Zeta23/RvM/LocalCount.lean:112   half_count_large                                     | theorem half_count_large :
+    Zeta23/RvM/LocalCount.lean:122   its witness A1                                       |   refine ⟨1 / Real.log (R / r) * (|Real.log (3 * C)| + 2 * A'), fun t ht => ?_⟩
+    Zeta23/RvM/LocalCount.lean:282   zeta_local_zero_count                                | theorem zeta_local_zero_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,
+    Zeta23/RvM/LocalCount.lean:285   K = Ncount (-4) 5                                    |   set K : ℝ := (Ncount (-4) 5 : ℝ) with hK
+    Zeta23/RvM/LocalCount.lean:287   its witness A0                                       |   refine ⟨max 1 (max (2 * A₁) K), le_max_left _ _, fun t => ?_⟩
+    Zeta23/RvM/LocalCount.lean:310   zetaZeroConfig_local_count                           | theorem zetaZeroConfig_local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,
+    Zeta23/Statement.lean:54    IsNontrivialZero                                     | def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+    Zeta23/Statement.lean:105   zetaZeros: carrier                                   |   carrier := {ρ | IsNontrivialZero ρ}
+    Zeta23/WeilEF/Main.lean:286   EF_lit_zetaZeroConfig                                | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  
+    toolchain and Mathlib rev of v0.2: lean-toolchain = leanprover/lean4:v4.33.0-rc2 ; lakefile.toml mathlib rev = 51e6992efd06126df61a496bebf8f49482a4e129
+    b551`s census, data/b551_components.txt:24 --   SIDE-explicit-formula | leanprover/lean4:v4.33.0-rc2 | 51e6992efd06 | yes (own .lake/packages) | COMPLETE (1 root) | NO (exit 3): ERROR: error: target is out-of-date and needs to be rebuilt -- stale
+    OPEN_TRAILS.md:11151 the DETECTION-REGION entry (b547) -- | **1** | `W-ORD-DETECTION-REGION` | **RESULT** | A compiled statement that positivity of `h2_sign` on every `classK` window of support at most L₀ excludes off-line zeros of ζ in an explicit region of (γ, δ) -- the progr
+    OPEN_TRAILS.md:11332 b554`s re-price from the closed form -- ### `W-ORD-DETECTION-REGION` (priced at :11151) -- RE-PRICED FROM THE CLOSED FORM, appended 2026-09-28, b554, under the author's ruling (R164)(5)
+    OPEN_TRAILS.md:11423 the critical path`s row -- | (a) | `W-ORD-DETECTION-REGION` | four lemmas by the PowerLimit finite-j₀ route, one of substance (P1, the explicit j₀ inequality); the closed-form route priced beside it at three of substance | :11151, :11332 |
+    FINDINGS.md:57 the salt-check, instituted -- > - F.2026-07-12 — Salt-check instituted; methodology keystone corrected to honest-boundary form
+    FINDINGS.md:3044 the E0 gate -- ### The E0 gate: every constituent unfolded to its owner
+    FINDINGS.md:5529 the detection-geometries entry -- ## Two detection geometries for one obligation: the Weil-side width and order at Q0 against the Li-side index threshold
+    FINDINGS.md:5681 its correction (b550) -- *Appended at b550 (2026-09-26) to the detection-geometries entry (`FINDINGS.md`:5529), under `(R160)`(2) -- A CORRECTION, THE NAVIGATOR’S:* the entry and `(R156)`(4) wrote "width and order" as if the bench's order were t
+    FINDINGS.md:5754 its correction (b553) -- *Appended at b553 (2026-09-28) to the detection-geometries entry (`FINDINGS.md`:5529), under `(R163)`(3) -- A CORRECTION, THE NAVIGATOR’S:* its sentence at :5533, "The detection width is read per zero (R131)", came from 
+    phase1.5/method/EXCLUSION_ENGINE.md:28 the salt-check`s rule text -- Every kernel citation in this paper carries one of three grades. The grades were introduced by the salt-check of 2026-07-12 (§VIII), and instituting them is the main content of this version.
+    phase1.5/method/EXCLUSION_ENGINE.md:37 the salt-check`s rule text -- The third grade is not a hypothetical. As of the 2026-07-12 salt-check, **most of the application-layer terminals this paper cited in v2.0 are shells**, including the one v2.0 named as its exemplar of substance. That fin
+    data/b554_sign_pattern.txt:78 --     POS  ln a 3.4011973817 - 3.5023768112   a 30.000000 - 33.194255
+    data/b554_sign_pattern.txt:79 --     NEG  ln a 3.5023768112 - 3.5642833843   a 33.194255 - 35.314138
+    data/b554_sign_pattern.txt:80 --     POS  ln a 3.5642833843 - 3.6625718035   a 35.314138 - 38.961415
+    data/b554_sign_pattern.txt:81 --     NEG  ln a 3.6625718035 - 4.0943445622   a 38.961415 - 60.000000
+    data/b554_sign_pattern.txt:82 -- ### POSITIVE INTERVALS ABOVE THE FLOOR: 2
+    data/b554_sign_pattern.txt:83 --     ln a [3.4011973817, 3.5023768112]   a [30.000000, 33.194255]
+    data/b554_sign_pattern.txt:84 --     ln a [3.5642833843, 3.6625718035]   a [35.314138, 38.961415]
+
+### relay data/b559_housekeeping.txt
+  b559 -- READING (2): THE HOUSEKEEPING, (R169)(1), DONE AT THE ACT`S START
+  
+  ### (a) b558`s refresh record committed alone -- 745d15da
+      parent 22e5d2e4 ; files ['data/b558_refresh.txt']
+      subject: housekeeping: b558's refresh record (data/b558_refresh.txt) committed at b559's start under (R169)(1)(a) -- the memory index 129 -> 86 lines, the mirror mirror-refresh-2026-09-29-b558.zip (MANIFEST md5 09cc3960...9823), both after b558's last push. Nothing deposits.
+  ### (b) the instrument change committed alone -- 673a39e2
+      parent 745d15da ; files ['tools/b558_checks.py']
+      subject: housekeeping: G-PEEK-DECLARED's post-push reading by content digests against the pushed tree (tools/b558_checks.py), under (R169)(1)(b)
+  
+  ### (b) the message of 673a39e2, whole (the test quoted):
+      housekeeping: G-PEEK-DECLARED's post-push reading by content digests against the pushed tree (tools/b558_checks.py), under (R169)(1)(b)
+      
+      b558's defect (i): after a push, the checkout between the act commit and its fast-forward rewrites every newly tracked bank,
+      so file times say nothing about the lock (62 of 63). The post-push reading now compares each bank's bytes (CR stripped) with
+      its blob at origin/main by sha256; the after-lock banks' adding commit is later than the face's lock stamp; the before-lock
+      banks are named PASS by a lock-gate run stamped before the lock, and the scan names the ferry. The pre-push reading (file
+      times, before any checkout) is unchanged. A flag --rerun-postpush <file> reads a pushed act and writes that one record only
+      (no table regeneration, no exercise file).
+      
+      The test (scratchpad peek_test.py, run against b558's pushed banks at origin/main 22e5d2e4):
+        the pushed banks as they are                      -> (after, before)   got (True, True)   want (True, True)   ok
+        the lock stamp moved after the act commit         -> after refuses     got False          want False          ok
+        the lock gate run stamp moved after the lock      -> before refuses    got False          want False          ok
+        the pins record missing from the lock gate        -> before refuses    got False          want False          ok
+        an unchanged copy of b558_union.json              -> digest equal      got True           want True           ok
+        b558_union.json with one byte appended            -> digest refuses    got False          want False          ok
+        a bank absent from the pushed tree                -> refuses           got False          want False          ok
+        ### TEST VERDICT : BOTH POLARITIES BEHAVE
+      
+      The re-run on b558's push (data/b559_b558_postpush_rerun.txt, banked with b559):
+        G-PEEK-DECLARED                            PASS  PASS  FAIL  OK
+        ### ### **ARMS RUN : 63. ### LIVE PASSING : 63. ### LIVE FAILING : 0 .**
+        ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+      Nothing deposits.
+  
+  ### (b) the re-run on b558`s push, data/b559_b558_postpush_rerun.txt -- its reading line, the arm, and the verdict:
+      b558 -- THE SUITE. ### **POST-PUSH READING.** ### every arm exercised on both controls.
+        G-PEEK-DECLARED                            PASS  PASS  FAIL  OK
+        ### ### **(R169)(1)(b): A RE-RUN ON THE PUSHED ACT -- THE GENERATOR WAS NOT RE-RUN** (it writes relay`s table files).
+        ###   G-PEEK-DECLARED read by content digests against the pushed tree (origin/main 22e5d2e4).
+        ### ### **ARMS RUN : 63. ### LIVE PASSING : 63. ### LIVE FAILING : 0 .**
+        ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+        ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+  ### ### **THE RE-RUN PRINTS 63 OF 63: True**
+
+### relay data/b559_constants.txt
+  b559 -- READING (3): THE CONSTANTS, READ AT v0.2 = 5c72cad
+  
+  ### KINDS: EXPLICIT (a closed term in the lemma`s inputs) ; EXISTENTIAL-WITH-WITNESS (an existential whose proof supplies
+  ### the term, named) ; NON-CONSTRUCTIVE (a limit with no rate, or a choice with no bound in the lemma`s inputs). REACH:
+  ### (gamma, delta) ALONE ; ABSOLUTE ; THE CONFIGURATION (a quantity of zeros of zeta other than the one excluded).
+  ### MARKERS: a mechanical scan of each body at v0.2 for `Metric.tendsto_atTop`, `tendsto_tsum_of_dominated_convergence`, `Tendsto`, `exists_max_image`, `Classical.choose`, `choose`.
+  
+  ### zeroSide_eventually_neg -- SIDEExplicitFormula/PowerLimit.lean:1082
+      statement : theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ) (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) : ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0
+      threshold : the index j at which the zero side is negative: j = max J D (:1093, :1095)
+      kind      : NON-CONSTRUCTIVE
+      witness   : J from `Metric.tendsto_atTop.mp (rest_tendsto_zero H Q B D hQb) _ hc0` (:1092) -- an existential out of a limit with no rate; D from coeffs_exist
+      reach     : THE CONFIGURATION
+      markers   : ['Metric.tendsto_atTop', 'choose']
+  
+  ### rest_tendsto_zero -- SIDEExplicitFormula/PowerLimit.lean:1025
+      statement : theorem rest_tendsto_zero (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) : Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)
+      threshold : the rest over M^(2^(j+1)) tends to 0: a Tendsto, no index
+      kind      : NON-CONSTRUCTIVE
+      witness   : per zero `tendsto_pow_atTop_nhds_zero_of_lt_one` on offScore/M < 1 (:1055-:1057), no uniform ratio; summed by `tendsto_tsum_of_dominated_convergence` (:1066) -- no rate
+      reach     : THE CONFIGURATION
+      markers   : ['tendsto_tsum_of_dominated_convergence', 'Tendsto']
+  
+  ### tie_term_neg -- SIDEExplicitFormula/PowerLimit.lean:749
+      statement : theorem tie_term_neg (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) (hQ : ∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : (Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)).re = -(Nf H ρ * M ^ (2 ^ (j + 1)))
+      threshold : the tie term`s real part, an equality at every j: -(N_rho M^(2^(j+1)))
+      kind      : EXPLICIT
+      witness   : N_rho = Nf H rho = |K(v)^2 (1 - c^2 v)| (:445), K over the kill nodes (:271), c = cE over the tie set (:274); M the dominant score
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### kill_term_zero -- SIDEExplicitFormula/PowerLimit.lean:756
+      statement : theorem kill_term_zero (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) {ρ : ℂ} (hρ : ρ ∈ killSet Z g0 M) : Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ) = 0
+      threshold : the kill term is 0 at every j
+      kind      : EXPLICIT
+      witness   : K(v) = 0 (:369)
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### rest_term_small -- SIDEExplicitFormula/PowerLimit.lean:764
+      statement : theorem rest_term_small (H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (ρ : ℂ) : ‖Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)‖ ≤ B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * offScore g0 ρ ^ (2 ^ (j + 1))
+      threshold : each term bounded at every j: B^2 (1 + |w|)^(2D) offScore^(2^(j+1))
+      kind      : EXPLICIT
+      witness   : the bound is a closed term in B, D (from coeffs_exist) and the zero`s own offScore and |w| = |gammaOf rho|
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### coeffs_exist -- SIDEExplicitFormula/PowerLimit.lean:672
+      statement : theorem coeffs_exist (H : PWSetup Z g0 L M) (hne : (tieSet Z g0 M).Nonempty) : ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ j : ℕ, ∃ Q : Polynomial ℝ, (∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) ∧ ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D
+      threshold : there are B, D bounding every P_j
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : B = card(VF) * max CV 0 * BK * BE, D = 2 card(VF) + 2 DK + DE (:683); CV from real_even_interpolant over the tie nodes, BK, DK and BE, DE from fixed_poly_bound (:667) of Kp and Ep
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### dominant_summable -- SIDEExplicitFormula/PowerLimit.lean:949
+      statement : theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) : Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))
+      threshold : the dominant is summable; its sum bounded by 3 A0 Bf zeta3Sum (weighted_finite_bound :879)
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : Bf = 128 * 8^D * B^2 * (Aw H / M)^(2^(D+1)) (:957); A0 from zetaZeroConfig_local_count (:952)
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### Aw -- SIDEExplicitFormula/PowerLimit.lean:800
+      statement : def Aw (_H : PWSetup Z g0 L M) : ℝ
+      threshold : the decay constant of the base: (INT |g0| + INT |g0````|) e^(L/2)
+      kind      : EXPLICIT
+      witness   : a closed term in the base window
+      reach     : (gamma, delta) ALONE
+      markers   : none
+  
+  ### paperFT_decay -- SIDEExplicitFormula/DecayBound.lean:63
+      statement : theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ * ‖z‖ ^ p ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|)
+      threshold : |g^(z)| |z|^p <= (INT |g^(p)|) exp(L |Im z|)
+      kind      : EXPLICIT
+      witness   : a closed term in the window and z
+      reach     : (gamma, delta) ALONE
+      markers   : none
+  
+  ### paperFT_decay_zero -- SIDEExplicitFormula/DecayBound.lean:98
+      statement : theorem paperFT_decay_zero {g : ℝ → ℝ} {L : ℝ} (hg : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ ≤ (∫ u, |g u|) * Real.exp (L * |z.im|)
+      threshold : |g^(z)| <= (INT |g|) exp(L |Im z|)
+      kind      : EXPLICIT
+      witness   : a closed term in the window and z
+      reach     : (gamma, delta) ALONE
+      markers   : none
+  
+  ### zetaZeroConfig_local_count -- Zeta23/RvM/LocalCount.lean:310
+      statement : theorem zetaZeroConfig_local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ, (zetaZeroConfig.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+      threshold : N(t, t+1) <= A0 log(|t| + 3) with 1 <= A0
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : A0 = max 1 (max (2 A1) K) (:287), K = Ncount (-4) 5 (:285), A1 = (1 / log(R/r)) (|log(3C)| + 2 max A 0) (:122) with r = 0.84, R = 0.95 and A, C from zeta_growth_right (ZetaGrowth.lean:159)
+      reach     : ABSOLUTE (zeta alone)
+      markers   : none
+  
+  ### base_nonzero_at -- SIDEExplicitFormula/PowerWindow.lean:274
+      statement : theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) : ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0
+      threshold : a width below which the plateau`s transform is nonzero at z
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : L0 = 1 / (4 (|z| + 1)) (:276); at the assembly z = gammaOf rho1, so the base half-support is 1 / (4 (|gammaOf rho1| + 1))
+      reach     : (gamma, delta) ALONE
+      markers   : none
+  
+  ### plateau_dominant -- SIDEExplicitFormula/PowerWindow.lean:385
+      statement : theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2) : ∃ (L : ℝ) (hL : 0 < L), ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore (plateau F L hF0 hF1 hL) ρs ∧ ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore (plateau F L hF0 hF1 hL) ρ ≤ offScore (plateau F L hF0 hF1 hL) ρs
+      threshold : the base width and a dominant off-line zero rho_s of the largest score M
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : the width from base_nonzero_at at rho1 (:389); rho_s from dominant_exists (:394)
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### dominant_exists -- SIDEExplicitFormula/PowerWindow.lean:368
+      statement : theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g) (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2) (hpos : 0 < offScore g ρ₁) : ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧ ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs
+      threshold : an off-line zero of maximal score
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : a maximiser by `Set.exists_max_image` over the finite set of off-line zeros scoring at least offScore(rho1) (:377): a zero of zeta, not a term in rho1
+      reach     : THE CONFIGURATION
+      markers   : ['exists_max_image']
+  
+  ### off_finite_above -- SIDEExplicitFormula/PowerWindow.lean:331
+      statement : theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g) (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) : {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite
+      threshold : zeros of score at least c lie below height T
+      kind      : EXPLICIT
+      witness   : T = max 1 (B / c), B = (INT |g````|) e^(L/2) (:333-:334)
+      reach     : (gamma, delta) ALONE
+      markers   : none
+  
+  ### real_even_interpolant -- SIDEExplicitFormula/PowerWindow.lean:427
+      statement : theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) : ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) → ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧ ∀ j, |Q.coeff j| ≤ C
+      threshold : a coefficient bound for real interpolants on a node set
+      kind      : EXISTENTIAL-WITH-WITNESS
+      witness   : CV = SUM_j SUM_i |(Lagrange.basis s id i).coeff j| (:432): a closed term in the nodes, the nodes being the tie set`s v
+      reach     : THE CONFIGURATION
+      markers   : none
+  
+  ### THE COUNTS: EXPLICIT 7 ; EXISTENTIAL-WITH-WITNESS 7 ; NON-CONSTRUCTIVE 2 ; reach THE CONFIGURATION: 10 of 16
+  ### the NON-CONSTRUCTIVE rows each carry a limit marker in their own body: True
+  
+  ### ### **H9a IS REFUTED.** (R169)(4): "refuted if a threshold rests on a non-constructive step (a compactness or a limit
+  ### with no rate) that yields no j0 without a new estimate." THE STEP, BY LINE: PowerLimit.lean:1092, `obtain <J, hJ> :=
+  ### Metric.tendsto_atTop.mp (rest_tendsto_zero H Q B D hQb) _ hc0` -- the index is read off a limit; rest_tendsto_zero
+  ### (:1025) is Tannery`s theorem (:1066) over per-zero limits (:1057) whose ratios offScore/M < 1 carry no uniform bound.
+  ### AND BENEATH IT, THE REACH: the index depends on M (the dominant`s score, a maximiser over zeros of zeta, PowerWindow
+  ### :377), on the tie and kill sets (Kp :271, cE :274, Nf :445), on CV over the tie nodes (PowerWindow :432), and on the
+  ### largest ratio offScore/M outside those sets -- quantities of the zero configuration, not of (gamma, delta). So no
+  ### j0 : R -> R -> N is written from these constants.
+  
+  ### THE ESTIMATE THAT WOULD REPLACE IT, PRICED:
+      (E1) a rate for the rest: with theta the largest offScore(x)/M over the zeros outside the tie and kill sets (a maximum
+           over a finite set by off_finite_above, below 1), for j >= D the rest over M^(2^(j+1)) is at most
+           theta^(2^(j+1) - 2^(D+1)) * 3 A0 Bf zeta3Sum; with fR_bound (:986) carrying the extra factor it gives an index
+           explicit in (theta, the tie terms` N, B, D, A0, Aw, M) -- a CONFIGURATION-RELATIVE j0. One lemma, moderate.
+      (E2) those constants bounded by (gamma, delta) alone: theta has no bound below 1 in terms of the excluded zero (two
+           zeros of near-equal score); CV grows without bound as two tie nodes approach; N_rho tends to 0 as a tie node
+           approaches a kill node (v = -gamma_k^2); the tie and kill sets are bounded in size by the count below height
+           T(M) (explicit). E2 needs a lower bound on the separation of the zeros of zeta near the dominant`s score -- or a
+           route that does not interpolate on nodes -- which no compiled lemma and no ZeroConfig field carries. Research
+           grade; not one lemma. The closed-form route (b554, OPEN_TRAILS :11332, C1-C5) avoids the interpolation and is
+           priced there at three of substance.
+  
+  ### TWO READINGS OF (R169)(2) AGAINST THE KERNEL, PRINTED:
+      the base window is not fixed: the route takes its half-support from the excluded zero, 1 / (4 (|gammaOf rho1| + 1))
+      (PowerWindow :276 at :389), and PWSetup (:245-:251) carries the width L as a parameter, fixing none;
+      the n-th window is not an n-fold power: `power g j` is the j-fold iterated SELF-convolution, the 2^j-fold power,
+      with support in [-(2^j L), 2^j L] (PowerWindow :129-:130); kWindow at index j is weilTest of it, support in
+      [-(2^(j+1) L), 2^(j+1) L] -- so the support at index j is 2^(j+1) * l, not j * l.
+  
+  ### THE POSITIVE CONTROL OF THIS CLASSIFICATION: the same reading names witnesses where the proofs construct them --
+      base_nonzero_at (:276), off_finite_above (:334), fixed_poly_bound (:667), coeffs_exist (:683), weighted_finite_bound
+      and dominant_summable (:957), the local count (:287, :122) -- 7 rows EXISTENTIAL-WITH-WITNESS and 7 EXPLICIT; the
+      NON-CONSTRUCTIVE word falls only where a limit marker stands in the body.
+
+### relay data/b559_literal.txt
+  b559 -- READING (5): (R169)(3)`s h2_sign_upto TYPED AS THE RULING TYPES IT, FED ON STDIN WITH THE NEW MODULE`S HEADER IMPORT
+  ### `lake env lean --stdin` from the SIDE-explicit-formula checkout on detection-region-b559 (the narrow-import rule).
+  ### Variant (a): the ruling`s text inside the kernel`s namespace. Variant (b): the same with `open Zeta23.EF`, so that
+  ### `weilTest` resolves and what remains is the ruling`s own shape.
+  
+  ### variant (a) -- the input:
+      import SIDEExplicitFormula.Seam
+      open scoped ComplexOrder
+      namespace SIDEExplicitFormula
+      namespace B321
+      
+      def h2_sign_upto (L₀ : ℝ) : Prop :=
+          ∀ h ∈ classK, (∀ u, L₀ < |u| → h u = 0) → 0 ≤ weilTest h h
+      
+      end B321
+      end SIDEExplicitFormula
+  ### variant (a) -- exit 1, 799 s (the first load of the Mathlib objects took the time) -- Lean`s messages:
+      <stdin>:7:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+        Membership ?m.1 ((ℝ → ℂ) → Prop)
+      
+      Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+      <stdin>:7:50: error(lean.unknownIdentifier): Unknown identifier `weilTest`
+      <stdin>:7:35: error: Function expected at
+        h
+      but this term has type
+        ?m.1
+      
+      Note: Expected a function because this term is being applied to the argument
+        u
+  
+  ### variant (b) -- the input:
+      import SIDEExplicitFormula.Seam
+      open scoped ComplexOrder
+      open Zeta23.EF
+      namespace SIDEExplicitFormula
+      namespace B321
+      
+      def h2_sign_upto (L₀ : ℝ) : Prop :=
+          ∀ h ∈ classK, (∀ u, L₀ < |u| → h u = 0) → 0 ≤ weilTest h h
+      
+      end B321
+      end SIDEExplicitFormula
+  ### variant (b) -- exit 1, 22 s (the first load of the Mathlib objects took the time) -- Lean`s messages:
+      <stdin>:8:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+        Membership ?m.1 ((ℝ → ℂ) → Prop)
+      
+      Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+  
+  ### ### **THE LITERAL DOES NOT ELABORATE.** `h ∈ classK` asks for a `Membership` instance on `(ℝ → ℂ) → Prop`: `classK`
+  ### is a predicate (H2Sign.lean:24), not a set. `weilTest` is `Zeta23.EF.weilTest`. And `0 ≤ weilTest h h` would compare a
+  ### FUNCTION `ℝ → ℂ` with 0 pointwise -- not the sign `h2_sign` states (H2Sign.lean:29-31, `0 ≤ poleTerm k - primeSum k +
+  ### archTerm k`). The module states the predicate as `h2_sign` states its sign, over `k` with `classK k` and a support bound.
+
+### relay data/b559_elab_attempt1.txt
+  SIDEExplicitFormula/DetectionRegion.lean:77:4: warning: declaration uses `sorry`
+  SIDEExplicitFormula/DetectionRegion.lean:83:8: warning: declaration uses `sorry`
+  ### attempt 1 -- lake env lean SIDEExplicitFormula/DetectionRegion.lean (branch detection-region-b559, from the checkout) -- exit 0 -- 26 s -- errors 0
+
+### relay data/b559_axioms.txt
+  <stdin>:77:4: warning: declaration uses `sorry`
+  <stdin>:83:8: warning: declaration uses `sorry`
+  'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_upto_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.ellOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.j₀' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.detection_region' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop
+  SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔
+    ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+  SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis
+  SIDEExplicitFormula.B321.ellOf : ℂ → ℝ
+  SIDEExplicitFormula.B321.detection_region : ∀ (L₀ : ℝ),
+    SIDEExplicitFormula.B321.h2_sign_upto L₀ →
+      ∀ (ρ : ℂ),
+        riemannZeta ρ = 0 →
+          0 < ρ.re →
+            ρ.re < 1 →
+              ↑(SIDEExplicitFormula.B321.j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2)) * SIDEExplicitFormula.B321.ellOf ρ ≤
+                  L₀ →
+                ρ.re - 1 / 2 = 0
+  def RiemannHypothesis : Prop :=
+  ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+  ### the prints -- lake env lean --stdin <- DetectionRegion.lean followed by AxiomCheckDetection.lean less its import line (branch detection-region-b559) -- exit 0 -- 21 s
+
+### relay data/b559_branch.txt
+  ### the branch's push and read-back (b559, READING (4))
+  local  detection-region-b559 = 8faf7ded8754870669547c9caa54ee5f0275e7c1
+  parent = 5c72cad24303f23d92256ebd466d3a3d32424a4b
+  remote 8faf7ded8754870669547c9caa54ee5f0275e7c1	refs/heads/detection-region-b559
+  remote main 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d	refs/heads/main
+  local main = 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d
+  tags v0.3 local: [] ; remote: []
+  branch an ancestor of main: no
+  checkout returned to: main at 81ae175
+
+### relay data/b559_e0.txt
+  b559 -- READING (6): THE E0 READ OF THE STATED detection_region, AND THE GRADES OF THE COMPILED COMPANIONS
+  
+  ### THE STATEMENT, AS LEAN PRINTS IT (data/b559_axioms.txt):
+      SIDEExplicitFormula.B321.detection_region : ∀ (L₀ : ℝ),
+        SIDEExplicitFormula.B321.h2_sign_upto L₀ →
+          ∀ (ρ : ℂ),
+            riemannZeta ρ = 0 →
+              0 < ρ.re →
+                ρ.re < 1 →
+                  ↑(SIDEExplicitFormula.B321.j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2)) * SIDEExplicitFormula.B321.ellOf ρ ≤
+                      L₀ →
+                    ρ.re - 1 / 2 = 0
+  
+  ### EVERY CONSTITUENT UNFOLDED TO ITS OWNER:
+      the conclusion `ρ.re - 1 / 2 = 0` ........ Mathlib: `Complex.re`, subtraction and equality on `ℝ`
+      `riemannZeta ρ = 0`, `0 < ρ.re`, `ρ.re < 1` .. Mathlib: `riemannZeta`, `Complex.re`, the order on `ℝ` -- the kernel`s
+                                                    `Zeta23.IsNontrivialZero` (Statement.lean:54) unfolded
+      `h2_sign_upto L₀` (the hypothesis hL) ..... this module: over `classK` (H2Sign.lean:24 -- Mathlib`s `ContDiff`,
+                                                    `HasCompactSupport` and Zeta23`s `EF.weilTest`) and b321`s `poleTerm`, `primeSum`,
+                                                    `archTerm` (B321Identity.lean); it names no zero of zeta and no real part
+      `ellOf ρ` ................................ this module: `1 / (4 (‖Zeta23.gammaOf ρ‖ + 1))`, `gammaOf ρ = (ρ - 1/2) / I`
+                                                    (Defs.lean:121) -- Mathlib`s norm and division
+      `j₀ γ δ` ................................. this module: `sorry` -- UNOWNED; its value is `sorryAx``s
+  
+  ### THE SALT-CHECK (EXCLUSION_ENGINE.md :28, :37; FINDINGS :57): no Prop of the module encodes the conclusion --
+  ### `h2_sign_upto`, `ellOf` and `j₀` name no real part of a zero; the conclusion stands in the theorem alone. The
+  ### statement`s FORM passes. ### Its region premise rests on `j₀`, whose body is `sorry`: until `j₀` is written the premise
+  ### has no fixed content, and the theorem`s own proof is `sorry`.
+  ### ### **THE GRADE ON THE BRANCH: T4 (a `sorry` body, the tier law`s bottom rung). NOT DERIVES. NO MERGE, NO TAG (R169)(5).**
+  
+  ### THE COMPILED COMPANIONS, BY STATEMENT-READ (the three-grade vocabulary):
+      h2_sign_upto_mono          DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+      h2_sign_imp_upto           DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+      upto_all_imp_h2_sign       DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+      h2_sign_iff_forall_upto    DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+      forall_upto_iff_rh         DERIVES -- prints ['propext', 'Classical.choice', 'Quot.sound']
+      `h2_sign_iff_forall_upto` is `h2_sign ↔ ∀ L₀, h2_sign_upto L₀`: its two sides are the kernel`s Prop and the finite form,
+      and the proof is the compact support of a classK window; `forall_upto_iff_rh` carries it to Mathlib`s `RiemannHypothesis`
+      through `h2_sign_iff_rh` (Seam.lean:101). Equivalences between open statements: neither is proved.
+  
+  ### THE ROWGEN DIFF: NOT RUN -- it is the merge gate`s (R169)(5), and the branch is HELD.
+
+### relay data/b559_price.json -- line 11491
+### relay data/b559_findings.json -- heading_line 6012
+### relay data/b559_rows.json -- exit 0

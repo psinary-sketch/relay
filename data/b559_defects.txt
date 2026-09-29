@@ -1,0 +1,24 @@
+    (a) The regspec generator was first written as a quoted bash heredoc; bash refused the command line ("unexpected EOF while
+        looking for matching `''") before Python ran, and nothing was written. It was rebuilt as a script file in the session
+        scratchpad (the standing trap: assemble with Write, not a quoted heredoc).
+    (b) The first lock-gate run REFUSED (GATES READ 8, PASSING 4, `data/b559_lockgate_notes.txt`): the stamp command for the four
+        face-subject records died on a Python quoting error (a backslash before the closing quote), so no record carried a
+        stamp. The stamps were made by a corrected command and the second run permitted the lock (`b559_lockgate_notes2.txt`).
+        Both run files are kept.
+    (c) The ferry cites the strip predicate as `rh_strip :481`; at v0.2 line 481 is the section comment and `rh_strip` is at
+        :483. Both lines are printed in `data/b559_reads.txt`. The citation is the navigator's; nothing turns on it.
+    (d) The literal probe's variant (a) ran 799 s: it was the first load of the Mathlib objects in this session, and it ran past
+        the foreground limit into the background, watched by process samples until it ended. Variant (b), warm, ran 22 s.
+    (e) The first elaboration bank (`data/b559_elab_attempt1.txt`) carries its header line at its FOOT: the line was appended by
+        `tee -a` after Lean's messages were written. Its content is the run's.
+    (f) Row 394's status cell reads "j₀ and detection_region carry sorry and are no grade`s" -- a slip for "carry no grade". The
+        grade cell grades the five compiled companions only; the ledger is append-only and the row stands as written.
+    (g) The chained branch deletion redirected only its last command's output: relay's two "Deleted branch" lines went to the
+        terminal and are copied into `data/b559_branches.txt` from that output (marked there); PLACE-papers' line was redirected
+        by the command itself. The branch lists read back empty in both repositories.
+    (h) The pre-push suite is NOT CLEAN on one arm, `G-WRITELIST-KINDS`: the generator the suite re-runs (R107) rewrote
+        `relay/data/terminal_table.json` (row 394's five compiled names now stand among the names that resolve in no repository
+        at any ref -- they live on the HELD branch only), and the face's (W), carried from b558's, names the table's other three
+        files and not this one. The suite's FIRST run passed the arm only because `sources()` reads the written kinds before
+        `regenerate()` writes; its second run, reading the first run's writes, failed it. The face is sealed and is not edited;
+        the arm is neither weakened nor excused. The table is committed at close as housekeeping, (R169)'s last line.

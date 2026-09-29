@@ -1,0 +1,62 @@
+{
+ "grade": "T4",
+ "derives": false,
+ "grades": {
+  "h2_sign_upto_mono": "DERIVES",
+  "h2_sign_imp_upto": "DERIVES",
+  "upto_all_imp_h2_sign": "DERIVES",
+  "h2_sign_iff_forall_upto": "DERIVES",
+  "forall_upto_iff_rh": "DERIVES",
+  "detection_region": "T4"
+ },
+ "prints": {
+  "h2_sign_upto": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "h2_sign_upto_mono": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "h2_sign_imp_upto": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "upto_all_imp_h2_sign": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "h2_sign_iff_forall_upto": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "forall_upto_iff_rh": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "ellOf": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "j₀": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "detection_region": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "statement": "SIDEExplicitFormula.B321.detection_region : ∀ (L₀ : ℝ),\n  SIDEExplicitFormula.B321.h2_sign_upto L₀ →\n    ∀ (ρ : ℂ),\n      riemannZeta ρ = 0 →\n        0 < ρ.re →\n          ρ.re < 1 →\n            ↑(SIDEExplicitFormula.B321.j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2)) * SIDEExplicitFormula.B321.ellOf ρ ≤\n                L₀ →\n              ρ.re - 1 / 2 = 0"
+}

@@ -1,0 +1,129 @@
+RULING (R169) BEGIN
+
+RULING (R169), the author's, ratified by this paste and
+strikeable: LANE TWO OPENS — W-ORD-DETECTION-REGION AS A
+KERNEL ACT ON A BRANCH OF SIDE-EXPLICIT-FORMULA, ITS
+STATEMENT AND ITS HYPOTHESES FIXED HERE BEFORE ANY LINE IS
+WRITTEN; MERGE AND TAG ON THE E0 GATE AND THE PRINT, NOT ON
+COMPILE; TWO HOUSEKEEPING ITEMS FROM b558.
+
+(1) HOUSEKEEPING. (a) relay data/b558_refresh.txt is
+committed at this act's start as b558's housekeeping. (b)
+The post-push check that reads file times (62 of 63) is an
+instrument defect: it is changed to compare content digests
+against the pushed tree, committed alone with its test
+quoted, and re-run on b558's push to print 63 of 63 or the
+reason it cannot.
+
+(2) THE OBJECT. PowerLimit.lean (SIDE-explicit-formula v0.2
+= 5c72cad) proves h2_sign_imp_rh_strip by the power-window
+route: for a fixed base window g in classK and an off-line
+zero ρ = 1/2 + δ + iγ (δ > 0), the zero side of the explicit
+formula at g^{*n} becomes negative for all large n
+(zeroSide_eventually_neg), so positivity at every classK
+window excludes ρ. The detection-region theorem is the
+finite form: positivity at the windows of support at most
+L₀ excludes every off-line zero whose (γ, δ) lies in an
+explicit region R(L₀). The region is explicit exactly when
+the "eventually" of zeroSide_eventually_neg is replaced by
+an explicit index j₀(γ, δ) — the one lemma of substance
+b554 priced — since the n-th power of a base window of
+support [−ℓ, ℓ] has support [−nℓ, nℓ], and the region is
+{(γ, δ) : j₀(γ, δ) · ℓ ≤ L₀}.
+
+(3) THE STATEMENT, fixed. In SIDE-explicit-formula on a
+branch detection-region-b559 from v0.2, a new module
+DetectionRegion.lean stating, in the kernel's existing
+vocabulary (classK, weilTest, the strip zero predicate
+PowerWindow uses, gammaOf and the real part as Zeta23 gives
+them):
+
+  def h2_sign_upto (L₀ : ℝ) : Prop :=
+    ∀ h ∈ classK, (∀ u, L₀ < |u| → h u = 0) → 0 ≤ weilTest h h
+
+  theorem detection_region (L₀ : ℝ) (hL : h2_sign_upto L₀) :
+    ∀ ρ, zeroOfZeta ρ → inStrip ρ →
+      j₀ (γ ρ) (δ ρ) * ℓ ≤ L₀ → δ ρ = 0
+
+with j₀ : ℝ → ℝ → ℕ a definition written in the module from
+the constants PowerLimit's lemmas carry (the decay bound's
+constant, the local count bound at height γ, the tie and
+rest terms' constants), and ℓ the base window's half-support
+as PWSetup fixes it. The theorem's hypothesis is the finite
+positivity, its conclusion is a Mathlib-typed fact about a
+zero of ζ; the salt-check applies: the conclusion must
+unfold to Mathlib objects and no Prop of the module may
+encode it.
+
+(4) THE HYPOTHESES, fixed before any build, each scored by
+a printed line. H9a: PowerLimit's zeroSide_eventually_neg
+and the three lemmas beneath it (tie_term_neg,
+rest_term_small, dominant_summable) carry their thresholds
+existentially (∃ N or Filter.Eventually) with the constants
+recoverable from the proofs — refuted if a threshold rests
+on a non-constructive step (a compactness or a limit with no
+rate) that yields no j₀ without a new estimate. H9b: with
+j₀ written from those constants, detection_region compiles
+on the branch at the standard three with no sorryAx and no
+premise beyond hL — refuted by any sorryAx in the print or
+by a premise the statement needs that (3) does not name.
+H9c: j₀ is explicit enough to evaluate: at (γ, δ) =
+(16.290216, 0.453) and (29.551761, 0.298), and at (T, δ) for
+T ∈ {100, 1000} and δ ∈ {0.1, 0.01}, the seat prints
+j₀ · ℓ as a number; the navigator expects the compiled L₀
+at (16.29, 0.453) to exceed the bench's 33.19 by a factor of
+at least ten (the compiled bound is loose by construction) —
+refuted if it is within a factor of ten, which would be a
+finding of its own. H9d: the region is nonempty for every
+L₀ above an explicit threshold — refuted if j₀ · ℓ is
+unbounded below by nothing, i.e. if for every L₀ the region
+is empty.
+
+(5) THE GATES. Work on the branch; foreground builds under
+600 s, background above, watched. Before any merge: the E0
+gate — the seat reads the statement of detection_region and
+of every new definition it consumes, unfolds the conclusion
+to Mathlib objects, and grades DERIVES / INTERFACES / ENCODES
+in the record; the print — #print axioms detection_region
+and j₀'s dependencies; the rowgen diff. Merge to main by
+fast-forward and tag v0.3 when the grade is DERIVES and
+the print is the standard three; otherwise the branch is
+pushed by name and HELD with the obstacle printed, and the
+work-order's price is corrected on the trails by the
+measured obstacle. No sorry reaches main in either case.
+
+(6) THE READING, entered whatever the outcome: the compiled
+region against the bench's fine-grid numbers at Q0 (33.19,
+38.96) and the b546 detection-geometries observation,
+descriptive voice, nothing about ζ's zeros claimed beyond
+the theorem's own statement if it lands.
+
+(7) The act after this one is W-ORD-LI-WEIL-BRIDGE if
+detection_region lands or is HELD with its obstacle named;
+the order of lane two does not change on a HELD.
+
+RULING (R169) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b559 - LANE TWO, ACT ONE: W-ORD-DETECTION-REGION — THE FINITE FORM OF THE POWER-WINDOW ROUTE, STATED, BUILT ON A BRANCH, GATED, AND MERGED OR HELD, under (R169).
+
+Read before anything, and cite by path and line: SIDE-explicit-formula at v0.2 = 5c72cad — PowerWindow.lean whole (the window family, selfConv and its support lemma, polyOp, base_nonzero_at, offScore, dominant_exists, tieSet and killSet, rh_strip :481, the strip predicate), PowerLimit.lean whole (PWSetup :245–254; Kp, Ep, cE, Xval, rT, coeffs_exist, tie_term_neg, kill_term_zero, rest_term_small, dominant_summable, rest_tendsto_zero, zeroSide_eventually_neg, zeroSideNeg, h2_sign_imp_rh_strip :1193, the assembly :1159–1248), DecayBound.lean and the count bound it uses, H2Sign.lean:29–31 (h2_sign, classK), Seam.lean (h2_sign_iff_rh), Zeta23's gammaOf and reflect (Defs.lean :121, :124) and EF_lit_zetaZeroConfig; the toolchain and Mathlib rev of v0.2 (from b551's census); OPEN_TRAILS's DETECTION-REGION entry and b554's price line; data/b554_sign_pattern.txt (the numbers for (6)); the salt-check and E0-gate rules as FINDINGS states them (cite the lines).
+
+COMPONENT 1 - HOUSEKEEPING, per (R169)(1): the commit; the instrument change with its test; the re-run printed.
+
+COMPONENT 2 - THE CONSTANTS READ. For each of zeroSide_eventually_neg, tie_term_neg, rest_term_small, dominant_summable and the decay and count bounds beneath them: print the statement; say whether its threshold or constant is explicit, existential-with-witness (the proof constructs it), or non-constructive; name the witness term where one exists. Score H9a. Bank as data/b559_constants.txt. If H9a is refuted, print the non-constructive step by line, price the estimate that would replace it, correct the trail, push the branch with the module as far as it is stated (definitions and the theorem with its proof as `sorry` on the branch alone, marked HELD in the record), and skip to Component 6.
+
+COMPONENT 3 - THE MODULE. On branch detection-region-b559 from v0.2: DetectionRegion.lean with h2_sign_upto, j₀ (written from the witnesses of Component 2; every constant it uses named in a docstring with the lemma it comes from), and detection_region per (R169)(3); ℓ read from PWSetup. Build in the background if over 600 s, watched. Print `lake build` exit and the error count per iteration; do not edit any existing module except to expose a constant with a new lemma beside it (no existing statement changed; print any such addition).
+
+COMPONENT 4 - THE GATES, per (R169)(5): the E0 read with the grade written in the record; #print axioms for detection_region, j₀, h2_sign_upto and every new lemma; rowgen diff; then merge by fast-forward and tag v0.3 (annotated, peeled SHA read back) or HELD with the obstacle printed. Score H9b.
+
+COMPONENT 5 - THE EVALUATION, per (R169)(4) H9c–H9d: evaluate j₀ · ℓ at the named (γ, δ) points by unfolding the definition (a Python transcription of the compiled formula, with the transcription printed beside the Lean definition so the reader can check it); print the table; score H9c and H9d; bank as data/b559_region_eval.txt.
+
+COMPONENT 6 - THE READING AND THE RECORD: the (R169)(6) reading in FINDINGS; the FINDINGS entry titled by its objects, "The detection region: the finite form of the power-window route — h2_sign on windows of support at most L₀ against off-line zeros with j₀(γ, δ)·ℓ ≤ L₀" (or, on a HELD, "... stated and held at the named obstacle"); the correspondence row for SIDE-explicit-formula; the trail record; the work-order's line updated with the outcome; the next act named.
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) H9a holds: every threshold is existential-with-witness or explicit; none non-constructive. (N2) H9b holds: detection_region prints the standard three, no sorryAx, on the branch; the E0 grade is DERIVES. (N3) H9c: the compiled L₀ at (16.29, 0.453) exceeds 331.9 (ten times the bench's 33.19). (N4) H9d holds. (N5) the merge and tag v0.3 happen at this act. (N6) no existing statement in the kernel changed; nothing at Zenodo; nothing deposits; the trial worktree untouched.
+
+Foreground runs under the 600 s limit; builds in the background, watched from the foreground [procedural]. Delete commands on verified absolute paths or explicit branch names in the same command (standing rule); push-b558 branches deleted by name after --merged lists them; toolchain-trial-b551 kept; detection-region-b559 deleted after a fast-forward merge is read back from the remote, or kept on a HELD. Record, correspondence rows, trail record in the house form; the terminal table committed as housekeeping at close if it changed. Nothing deposits.
+
+FERRY END (part 1 of 1)
