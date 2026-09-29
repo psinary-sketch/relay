@@ -1,0 +1,14 @@
+SIDE-silence-principle 667c254 = 667c2548777585876a2f3208029595b06a062619 ; git show 667c254:SIDESilencePrinciple/Basic.lean ; checkout HEAD 667c25487775 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDESilencePrinciple.Universal.silence_universal', 'SIDESilencePrinciple.silence_principle']
+start 2026-09-29T04:00:21Z
+@SIDESilencePrinciple.Universal.silence_universal : ∀ {C : SIDESilencePrinciple.Universal.ConfigurationSpace} {R : Type}
+  (I : SIDESilencePrinciple.Universal.Interface C R), I.is_universal → I.kappa_zero
+SIDESilencePrinciple.silence_principle : ∀ (I : SIDESilencePrinciple.Interface),
+  SIDESilencePrinciple.chain_holds I = true → I.essential = true → SIDESilencePrinciple.isSilent I = true
+'SIDESilencePrinciple.Universal.silence_universal' does not depend on any axioms
+'SIDESilencePrinciple.silence_principle' depends on axioms: [propext]
+real 1.1 s
+exit 0

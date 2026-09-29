@@ -1,0 +1,417 @@
+b557 -- THE ORDERED READS, CITED BY PATH AND LINE
+
+### FOUNDATIONS_OF_THE_SIDE_PROGRAMME at `phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md`: 660 lines, read whole ; kernels cited: SIDE-kernel v1.2 (b1407b2; audit ce5d7bd), v1.4 (f374174); SIDE-silence-principle v0.1.0; SIDE-compression v0.2.0 (e9a5a36)
+### phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md:617-645 -- FOUNDATIONS_OF_THE_SIDE_PROGRAMME -- its correspondence section
+  :617 ## Correspondence
+  :618 
+  :619 Every load-bearing claim of the cascade, matched to the kernel that verifies it, the fully-qualified theorem, and its `#print axioms` profile read from the kernel on D: (2026-07-12). No blank Status cells; manuscript-resident and research-reach items are labelled as such. (The References' kernel-federation list points here for the verified profiles.)
+  :620 
+  :621 Kernels audited at: SIDE-kernel `ce5d7bd` (v1.2 = `b1407b2`); SIDE-silence-principle `v0.1.0`; SIDE-compression `e9a5a36` (v0.2.0 — the prior audit line named `e31d719`, which is the initial commit / v0.1.0; corrected 2026-07-13). *(Pin currency, 2026-07-23: the RH-core / Silence / Conservation rows below were profiled at the v1.2 audit; the deposit has since advanced through SIDE-kernel v1.4 = `f374174` (E-Difficulty de-vacuified, W-6-EXT — see §VI and the References list); the 2026-07-24 deposit published SIDE-kernel v1.5 = `0e5233f`, DOI 10.5281/zenodo.21520474 (concept 19674312), on 2026-07-24 — all cited profiles unmoved except `e_difficulty`, which strengthened from the v1.2 skeleton t
+  :622 
+  :623 | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+  :624 |:--|:--|:--|:--|:--|
+  :625 | Silence Principle — universal form | SIDE-kernel v1.2 | `SilenceTheorem.silence_universal` | axiom-free (none) | INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here. |
+  :626 | Silence — per-instance (product formula) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.product_formula_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |
+  :627 | Silence — per-instance (distributive law) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.distributive_law_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |
+  :628 | Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |
+  :629 | Mechanism Theorem | SIDE-kernel v1.2 | `ECondition.type_I_has_ostrowski` | `{propext, Quot.sound}` | DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12) |
+  :630 | E-Difficulty skeleton — sieve ceiling | SIDE-kernel v1.4 (`f374174`) | base `sieve_ceiling` → content `sieve_ceiling_semantic` (`Cascade/SieveCeilingSemantic.lean`) | axiom-free (both) | **SHELL (base) — work-order + DERIVES (content)** — W-6-EXT R3 (2026-07-19): the base terminal is abstract-`Proof` strength bookkeeping — a work-order, not a citation; the contentful ceiling is the axiom-free `sieve_ceiling_semantic` (a target not respecting the I-relation admits no dark-factored certificate). Cite the semantic terminal for content. |
+  :631 | E-Difficulty skeleton — dichotomy | SIDE-kernel v1.4 (`f374174`) | `proof_dichotomy` | axiom-free (none) | **DERIVES** — Terminal 1: genuine LEM over the step-access inductive; untouched by W-6-EXT (was mislabeled SHELL under the blanket W-6 flag). |
+  :632 | E-Difficulty skeleton — bright access | SIDE-kernel v1.4 (`f374174`) | base `bright_access_required` | axiom-free (none) | **SHELL — work-order** — W-6-EXT R3: abstract-`Proof` contrapositive of the strength bound — a work-order, not a citation; content in `sieve_ceiling_semantic`. |
+  :633 | E-Difficulty skeleton — the equivalence | SIDE-kernel v1.4 (`f374174`) | `e_difficulty` (+ `e_difficulty_xi`) | `{propext, Quot.sound}` | **DERIVES** — W-6-EXT R2 (2026-07-19): de-vacuified. `IsDecidable s` reads its system (`SysProof s` over `s.interfaces`); the Ostrowski is EXTRACTED (not `List.replicate`); `h_conserved` is load-bearing (bright ⇒ inessential). Was a `True↔True` shell through v1.3. |
+  :634 | Spectral Inertness / Conservation ($n_4 = 0$) | SIDE-kernel v1.2 | `ProductFormula.conservation_of_spectra` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |
+  :635 | Mathlib bridge — Ostrowski | SIDE-kernel v1.2 | `ostrowski_exhaustive` (`Bridge/OstrowskiBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |
+  :636 | Mathlib bridge — per-prime balance | SIDE-kernel v1.2 | `neg_eq_neg_one_sub_iff` (`Bridge/LocalZeta.lean`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |
+  :637 | Compression Theorem — general form | SIDE-compression v0.2.0 | `Compression.compression`; `Compression.compression_infinite_objects` | axiom-free (none) | DERIVES as schema — content enters at instantiation. Compiled — N per-class checks + exhaustiveness ⟹ the universal conclusion over all objects; chain length = N, independent of object count. (Per-instance panel `xi_compression` … `frobenius_compression` also compiled.) |
+  :638 | Sieve Ceiling Lemma (full form) | (none) | — | — | Manuscript-resident (v1.0 draft) |
+  :639 | E-Difficulty Theorem (full analytic form) | (none) | — | — | Research-reach |
+  :640 
+  :641 ---
+  :642 
+  :643 *Computational workflow assisted by various LLM instances. Mathematical content, proof strategies, and editorial decisions are the author's.*
+  :644 
+  :645 ---
+
+### TECHNE_TOOLKIT at `phase1.5/method/TECHNE_TOOLKIT.md`: 566 lines, read whole ; kernels cited: SIDE-kernel (no pin for Xi.7; v1.4 for Xi.17; 0e5233f for V3B); SIDE-lv-conservation v0.9.0 (e3d08b6); SIDE-substrate-cluster 2e76426 (a module); a private repository`s module (not tiered)
+### phase1.5/method/TECHNE_TOOLKIT.md:501-529 -- TECHNE_TOOLKIT -- its correspondence section
+  :501 ## XIII. Correspondence — technique entry → certificate grade
+  :502 
+  :503 *Added v8.2 (CP-2 maturation). The toolkit graded by its own claim-certificate calculus (Ξ.19): each entry carries one of three grades — **COMPILED SPECIMEN** (a kernel terminal at a pin that derives the entry's content), **COMPILED anchor** (a compiled object the entry's content rests on, without being a single terminal for the whole technique), or **METHOD (manuscript-resident)** (a procedure or grammar with no single compiled specimen — honest, not a deficiency). No METHOD entry is dressed as compiled.*
+  :504 
+  :505 | Entry | Grade | Anchor (at pin) |
+  :506 |:--|:--|:--|
+  :507 | **Ξ.7** Specification Pipeline Decomposer | **COMPILED SPECIMEN** | `SIDEKernel.formation` / `formation_count` (axiom-free); STRUCTURAL_COUNT |
+  :508 | **Ξ.8** Interface Darkness Verifier (κ) | **COMPILED anchor** | `Kappa` / κ = 0 silence certificates; `UniversalDarkness.lean` |
+  :509 | **Ξ.17** Sieve ceiling | **COMPILED SPECIMEN** | `SieveCeiling.e_difficulty` (`{propext, Quot.sound}`, W-6-EXT, v1.4) |
+  :510 | **Ξ.19** Claim–Certificate Calculus | **METHOD + specimens** | EXCLUSION_ENGINE §VIII.0; specimens = the loom findings |
+  :511 | **Relocated-vacuity detector / de-vacuification** | **COMPILED SPECIMENS (two)** | W-6-EXT SieveCeiling; **V3B `offLine_of_codim_two`** (`0e5233f`) |
+  :512 | **§IV Loom Signature Families** | **specimen-bearing** | box-outruns-kernel: 3 specimens (STEANE compiled `2e76426`; ZK exploratory; identifier-over-claim compiled) |
+  :513 | **§III Pattern-Class: Voros 2T²** | **COMPILED anchor** | `N₀(T)=⌊2T²⌋`, `partialPositivity_finiteRange` (lv v0.9.0 `e3d08b6`) |
+  :514 | **§III Pattern-Class: (ℤ/2)³ six presentations** | **COMPILED anchor** | `SteaneLabeling` (axiom-free, `2e76426`); substrate-cluster |
+  :515 | **§VI Five-Door Orientation Object** | **COMPILED anchors** | five-door state (PATHS §I-bis); `h1_complete_at_Phi`, `partialPositivity_finiteRange` (lv v0.9.0) |
+  :516 | **Ξ.4 / Ξ.5 / Ξ.6 / Ξ.9 / Ξ.10–12 / Ξ.20–23; Impossibility Classifier; Programme Filter** | **METHOD (manuscript-resident)** | procedures & grammar; no single compiled specimen — this is the honest grade, not a gap |
+  :517 
+  :518 *Note on C₆/C₇ within Ξ.5's C₁–C₇ map: **C₆** carries a COMPILED-SPECIMEN sub-anchor (`zero_codimension`/`cr_forces_half`, model-level DERIVES; ξ-faithfulness INTERFACES-named); **C₇** is definition-encoded (relabeled stand-in; faithful witness = W-ORD-C7-WITNESS, pending). C₁–C₅ are thin real-algebra voice-theorems (compiled).*
+  :519 
+  :520 ---
+  :521 
+  :522 ## References
+  :523 
+  :524 A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v0.5.4 (Seale 2026). *A Methodology for Determined Systems* (§VI.3.1 science-statement standard; §VI.3.2 pattern-class catalogue).
+  :525 CORPUS_CATALOGOS v8.2 (Seale 2026). *Formation Architecture and the Unified Darkness Principle.*
+  :526 DEPOSIT_VERIFICATION_PROTOCOL_v1 (Seale 2026). *Verification of Deposited Content Against Project State.*
+  :527 EXCLUSION_ENGINE (Seale 2026). *The Exclusion Engine* (§VIII.0 claim–certificate calculus).
+  :528 FOUNDATIONS (Seale 2026). *Foundations of the Formation Calculus* (§VI.5 determination–exhaustiveness unification).
+  :529 PROGRAMME_INFRASTRUCTURE_PLAN_v0.1 (Seale 2026). *Three-Axis Programme Organization.*
+
+### SILENCE_STAGES_DEALIGNMENT at `phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md`: 264 lines, read whole ; kernels cited: SIDE-structural-error-correction v0.2.1 (6a4f482); SIDE-cosmo c5cba30
+### phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md:196-224 -- SILENCE_STAGES_DEALIGNMENT -- its correspondence section
+  :196 ## 9. Correspondence
+  :197 
+  :198 All rows pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`. The `[propext]` on `fano_two_design` is written as such and not rounded to axiom-free.
+  :199 
+  :200 | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+  :201 |:---|:---|:---|:---|:---|
+  :202 | No single-domain failure completes a de-aligned line | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `DeAlignment.no_domain_covers_line` | axiom-free | DERIVES |
+  :203 | The protection theorem, over any line family | v0.2.1 (`6a4f482`) | `DeAlignment.single_domain_fault_not_logical` | axiom-free | DERIVES |
+  :204 | One-position-per-domain implies de-alignment | v0.2.1 (`6a4f482`) | `DeAlignment.dealigned_of_lines_injective` | axiom-free | DERIVES |
+  :205 | The condition is certifiable by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_dealignment_decidable_example` | axiom-free | DERIVES |
+  :206 | The check refuses a collapsed line (the certificate has teeth) | v0.2.1 (`6a4f482`) | `DeAlignment.fano_collapsed_line_rejected` | axiom-free | DERIVES |
+  :207 | The line family used is the Fano plane — every pair of distinct positions on exactly one line, certified by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_two_design` | `[propext]` | DERIVES |
+  :208 | The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.steane_parameters` | `{propext, Quot.sound}` | DERIVES |
+  :209 | The Knill–Laflamme error-correction conditions | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |
+  :210 | Formation Distance theorem, d_eff ≥ 2S−1 (§3) | none (manuscript) | proof sketch only — no terminal | n/a | manuscript-resident |
+  :211 | The four-domain silence-as-protection pattern (§4–5) | none (manuscript) | survey — no terminal | n/a | manuscript-resident |
+  :212 
+  :213 *The DeAlignment rows are the pass's newly-citable anchor (independently verified: remote main and the peeled v0.2.1 tag both at `6a4f482`, six theorems present). The Steane rows are pinned in the sibling kernel `SIDE-cosmo` at `c5cba30` (SIDE-cosmo main). The Formation Distance theorem (§3) and the four-domain pattern (§4–5) carry no kernel and are manuscript-resident, exactly as §3 and §5 already record.*
+  :214 
+  :215 ---
+  :216 
+  :217 ## References
+  :218 
+  :219 Calderbank, A.R. and Shor, P.W. (1996). Good quantum error-correcting codes exist. *Phys. Rev. A* 54, 1098.
+  :220 
+  :221 Knill, E. and Laflamme, R. (1997). Theory of quantum error-correcting codes. *Phys. Rev. A* 55, 900.
+  :222 
+  :223 Shannon, C.E. (1948). A mathematical theory of communication. *Bell System Technical Journal* 27, 379–423, 623–656.
+  :224 
+
+### EXHAUSTIVENESS_LICENSE at `phase1.5/method/EXHAUSTIVENESS_LICENSE.md`: 137 lines, read whole ; kernels cited: SIDE-effects `ExhaustivenessLicense` (no commit named; merged from w-ladder-skeleton, tip a0dc376 on main)
+### phase1.5/method/EXHAUSTIVENESS_LICENSE.md:99-127 -- EXHAUSTIVENESS_LICENSE -- its correspondence section
+  :99 ## Correspondence
+  :100 
+  :101 The ladder structure and grading rule, matched to the compiled Lean terminals and their `#print axioms` profiles, read from the kernel skeleton (MERGED from branch `w-ladder-skeleton`, SIDE-effects; main fast-forwarded).
+  :102 
+  :103 | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+  :104 |:--|:--|:--|:--|:--|
+  :105 | The four grades form a decidable type | SIDE-effects `ExhaustivenessLicense` | `SIDEEffects.ExhaustivenessLicense.Grade` (+ `instance Decidable (a ≤ b)`) | axiom-free (none) | DERIVES — compiled |
+  :106 | The order is a preorder (reflexive, transitive) | SIDE-effects `ExhaustivenessLicense` | `Grade.le_refl`; `Grade.le_trans` | axiom-free (none) | DERIVES — compiled |
+  :107 | THEOREM is the top; NONE the bottom; the ladder is strict | SIDE-effects `ExhaustivenessLicense` | `theorem_is_top`; `none_is_bottom`; `ladder_strict` | axiom-free (none) | DERIVES — compiled from the rank function, not stipulated |
+  :108 | The corpus instances' grades (RH=THEOREM, Hodge=SEARCH, T7 & class-number diagonal = FORCED-OR-UNDERDETERMINED) | SIDE-effects `ExhaustivenessLicense` | `RH_grade`; `Hodge_grade`; `T7_grade`; `classNumberDiagonal_grade` | axiom-free (none) | DERIVES — each computed by `grade`, proved by `rfl` (not an axiom) |
+  :109 | The instances sit in the ordered relation | SIDE-effects `ExhaustivenessLicense` | `instances_ordered` | axiom-free (none) | DERIVES — compiled |
+  :110 | The E-Difficulty bridge (top grade ⇔ TYPE-I discharge) | SIDE-effects `ExhaustivenessLicense` | `RH_typeI_of_top` (via the named premise `EDifficultyTop`) | axiom-free (none) | **INTERFACES** — the biconditional is a named premise, never proved here |
+  :111 
+  :112 *Kernel skeleton read at: SIDE-effects branch `w-ladder-skeleton` (Lean core only, no Mathlib; `theorem` throughout, vanilla-build law). Every terminal axiom-free by `#print axioms`. MERGED — fast-forwarded into main, nothing deposited (governing publication posture).*
+  :113 
+  :114 ---
+  :115 
+  :116 *The `h2`-conditionality of RH's grade is stated at §4 and is unchanged from the corpus's standing scope. This paper adds a vocabulary; it advances no premise.*
+  :117 
+  :118 <!-- b454 CURRENCY ANNOTATION, 2026-09-14 -->
+  :119 
+  :120 #### **CURRENCY ANNOTATION** *(2026-09-14, b454; existing text preserved apart from the state terms named here)*
+  :121 
+  :122 > ### **3 LINE(S) MOVED FROM HELD TO MERGED: EACH BRANCH WAS FAST-FORWARDED INTO `main`.** *The originals, preserved verbatim:*
+  :123 
+  :124 > - line `95` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state terms `held branch `word-pairing-interface`` → `merged branch `word-pairing-interface``) — **(Evidence: `residue_irreducible`, `positivity_free_obstruction_is_zeroRealization`, `certifiedPartialInhabitant`, `zeroActingPairing_to_RH` — SIDE-lv-conservation, held branch `word-pairing-interface`; clean at the standard three axioms {propext, Classical.choice, Quot.sound} or axiom-free. The disclaimer stands: nothing here is proven on the zeros.)**
+  :125 > - line `101` (`SIDE-effects` branch `w-ladder-skeleton`; fast-forward, tip `a0dc376` on `main`’s first-parent line; state terms `HELD on branch` → `MERGED from branch` · `main untouched` → `main fast-forwarded`) — *The ladder structure and grading rule, matched to the compiled Lean terminals and their `#print axioms` profiles, read from the kernel skeleton (HELD on branch `w-ladder-skeleton`, SIDE-effects; main untouched).*
+  :126 > - line `112` (`SIDE-effects` branch `w-ladder-skeleton`; fast-forward, tip `a0dc376` on `main`’s first-parent line; state terms `HELD — nothing merged, nothing deposited` → `MERGED — fast-forwarded into main, nothing deposited`) — **Kernel skeleton read at: SIDE-effects branch `w-ladder-skeleton` (Lean core only, no Mathlib; `theorem` throughout, vanilla-build law). Every terminal axiom-free by `#print axioms`. HELD — nothing merged, nothing deposited (governing publication posture).**
+  :127 
+
+### INVARIANCE_BARRIERS at `phase1.5/method/INVARIANCE_BARRIERS.md`: 715 lines, read whole ; kernels cited: SIDE-kernel v1.7 (2957e7d)
+### phase1.5/method/INVARIANCE_BARRIERS.md:493-521 -- INVARIANCE_BARRIERS -- its correspondence section
+  :493 ## Correspondence
+  :494 
+  :495 Every load-bearing claim of this paper, matched to the kernel that verifies it, the fully-qualified terminal, and its `#print axioms` profile read from the kernel on D: (2026-07-30, at the tagged pin SIDE-kernel v1.7 = `2957e7d`). `{propext, Classical.choice, Quot.sound}` — the standard three axioms — is clean classical Mathlib; a shorter profile (e.g. `{propext, Quot.sound}`) or "axiom-free (none)" carries even less; where no kernel exists the Status is manuscript-resident, literature, or research-reach, never blank.
+  :496 
+  :497 | Claim (as stated here) | Kernel | Terminal (fully qualified) | Axiom profile | Status |
+  :498 |:--|:--|:--|:--|:--|
+  :499 | §1.1 — the reduction: RH under the one open premise `h2` | SIDE-kernel v1.7 = `2957e7d` | `ConservationBridge.riemann_hypothesis` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled — the reduction, not a proof of RH; `h2` carried open |
+  :500 | Theorem 3.1, semantic core (inference respecting indistinguishability cannot separate related points) | SIDE-kernel v1.7 = `2957e7d` | `SieveCeilingSemantic.sieve_ceiling_semantic` | axiom-free (none) | Compiled — the contentful form of the ceiling |
+  :501 | Proof-shape dichotomy (factors dark or has bright access) | SIDE-kernel v1.7 = `2957e7d` | `proof_dichotomy` | axiom-free (none) | Compiled |
+  :502 | Theorem 3.1, abstract-Proof form | SIDE-kernel v1.7 = `2957e7d` | `sieve_ceiling` | axiom-free (none) | Scaffolding (so labelled in its docstring; the contentful form is `sieve_ceiling_semantic`) |
+  :503 | Corollary 3.6, abstract-Proof form | SIDE-kernel v1.7 = `2957e7d` | `bright_access_required` | axiom-free (none) | Scaffolding (same labelling) |
+  :504 | Theorem 4.1 skeleton (decidability ⟺ domain-Ostrowski, in-kernel form) | SIDE-kernel v1.7 = `2957e7d` | `e_difficulty` | `{propext, Quot.sound}` | Compiled skeleton (reads its system, extracts the domain-Ostrowski); the full dichotomy over concrete proof objects remains a conjecture |
+  :505 | Proposition 3.5 / §3.4 — witness architecture (agreeing pair with divergence datum) | SIDE-kernel v1.7 = `2957e7d` | `SieveCeilingWitness.dh_witness` | axiom-free (none) | Compiled architecture; the off-line fact is a stipulated datum from Davenport–Heilbronn 1936, not re-proven in-kernel |
+  :506 | §3.4 — barrier schema, raw invariance form | SIDE-kernel v1.7 = `2957e7d` | `InvarianceBarrier.invariance_barrier` | axiom-free (none) | Compiled (general form only; committed at v1.6, re-audited unchanged at v1.7) |
+  :507 | §3.4 — operative terminal, the derivability corollary | SIDE-kernel v1.7 = `2957e7d` | `InvarianceBarrier.derivability_barrier` | axiom-free (none) | Compiled (general form only; no ξ/Epstein instantiation, no RH content in the statement) |
+  :508 | §3.4 clause (i) — the six T-tool agreement facts | (none) | — | — | Manuscript-resident, one literature citation per tool (clause-(i) table) |
+  :509 | §3.4 clause (ii) — divergence (off-line zeros of ξ_Q) | (none) | — | — | Literature (Davenport–Heilbronn 1936); the two located zeros doubly-sourced in Seale 2026g §5 |
+  :510 | §5.1 — the identification κ(σ, distributive-law interface) = 0 | (none) | — | — | Manuscript-resident structural reading, not a theorem of this paper; Theorem 3.1 applies to sieve methods conditionally on it (work-order W-ORD-KAPPA-DISTRIBUTIVE, OPEN_TRAILS) |
+  :511 | Full E-Difficulty dichotomy over first-order proof objects | (none) | — | — | Research-reach (conjecture; missing library components named in §6.2; work-order W-ORD-E-DIFFICULTY-DICHOTOMY, OPEN_TRAILS) |
+  :512 | §9 — the archimedean κ-row and the per-place table | (none) | — | — | Manuscript-resident structural readings; bright-half certificate = the two-route gauge verification (relay record); dark half = the drift/edge lemma and the compiled negatives (companion keystone); the table's dark cell = `h2`, carried open |
+  :513 
+  :514 ## Placement
+  :515 
+  :516 **The constellation order, stated so no reader mistakes this paper for the programme's centerpiece.** The programme's principal results are (1) the machine-verified reduction of RH to the single clause `h2` and (2) the localization of the residue to the positive space on the zeros — with the independently-derived residue coinciding, object for object, with the number-field shadow of Weil positivity. Those results live in the monograph (*A Place to Stand*, Seale 2026c), the residue paper (*The Residue of the Riemann Hypothesis*, Seale 2026g), and *The Unconditional Surround* (the machine-verified perimeter of the reduction); this paper is read alongside them. What it supplies is the method-li
+  :517 
+  :518 **Depends on:** the Silence Principle and the κ transmission-coefficient formalism (Seale 2026a); the compiled terminals at SIDE-kernel v1.7 = `2957e7d` (Correspondence table above); Davenport–Heilbronn 1936 for the divergence clause.
+  :519 
+  :520 **What this paper does not claim:** it does not prove RH and does not discharge `h2`; the Tier-1 instance is folklore formalized (§1.4), not new mathematics; Theorem 3.7 does not say the Euler product suffices for the positivity — only that every derivation confined to T fails without it; the full E-Difficulty dichotomy remains a conjecture; and the Tier-2 form of the barrier (against all Euler-product-free derivations rather than a named finite T) is research-frontier and not claimed.
+  :521 
+
+### REPARAMETERIZATION_BARRIERS_v0_1 at `phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md`: 263 lines, read whole ; kernels cited: SIDE-kernel 5e668b4 (drafted against v1.7)
+### phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md:217-245 -- REPARAMETERIZATION_BARRIERS_v0_1 -- its correspondence section
+  :217 ## Correspondence
+  :218 
+  :219 *Every load-bearing claim matched to its verifier.* **RE-VERIFIED AS-RUN 2026-08-06 at the CURRENT kernel pin `5e668b4` (the note was drafted against v1.7 = `2957e7d`).** `#print axioms` was re-executed on both terminals and on their two definitions; **all four report "does not depend on any axioms" — unchanged from the recorded profile, so no halt fired.** The two rows below now cite the pin the profiles were *run* at, not the pin they were *read* at.
+  :220 
+  :221 | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+  :222 |:--|:--|:--|:--|:--|
+  :223 | The inference step: agreement + divergence ⟹ not determined | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.invariance_barrier` | **axiom-free, re-printed** | DERIVES |
+  :224 | The derivability form: assumes nothing of the object of interest | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.derivability_barrier` | **axiom-free, re-printed** | DERIVES |
+  :225 | (W1) behavioral identity of *N* and *N_A* | — | — | — | manuscript-resident (§4, two lines) |
+  :226 | (W2) linear-probe equivalence | — | — | — | manuscript-resident (§4) |
+  :227 | (W3) geometric invariants preserved for orthogonal *A* | — | — | — | manuscript-resident (§4) |
+  :228 | (W4) dictionary code covariance | — | — | — | manuscript-resident (§4) |
+  :229 | (W5) divergence of the directional claim | — | — | — | manuscript-resident (§4, generic *A*) |
+  :230 | Membership of each listed method in D | — | — | — | manuscript-resident (§3 table, justified by W1–W4) |
+  :231 | Quantitative / approximate-invariance version | — | — | — | research-reach (§7) |
+  :232 
+  :233 ## Open work-orders
+  :234 
+  :235 - **W-ORD-REPARAM-APPROX** — the approximate-invariance version: a method
+  :236   invariant only up to ε is not covered by the exact argument. State and prove
+  :237   or refute a stability version. *Trigger:* before any claim that the barrier
+  :238   covers methods in practice rather than in principle.
+  :239 - **W-ORD-REPARAM-D-CENSUS** — extend the §3 membership table by auditing
+  :240   further named methods (activation patching, causal scrubbing, attribution
+  :241   patching, steering-vector methods) for invariance under each subgroup.
+  :242   *Trigger:* before circulation.
+  :243 - **W-ORD-REPARAM-KERNEL** — decide whether the domain instantiation warrants a
+  :244   small kernel module beyond the general schema, or remains manuscript-resident.
+  :245   *Trigger:* author call at first revision.
+
+### E_DIFFICULTY_THEOREM at `phase2/method/E_DIFFICULTY_THEOREM.md`: 233 lines, read whole ; kernels cited: SIDE-kernel v1.1 (e0a8ba0), with the v1.4 update note
+### phase2/method/E_DIFFICULTY_THEOREM.md:158-186 -- E_DIFFICULTY_THEOREM -- its correspondence section
+  :158 ## VII. Kernel correspondence
+  :159 
+  :160 The E-Difficulty Theorem is skeleton-verified in SIDE-kernel v1.1, file `Kernel/Cascade/SieveCeiling.lean`. *(Both facts, re-grade 2026-07-16: the four skeleton terminals were profiled clean at the settled pin SIDE-kernel v1.2 — `sieve_ceiling` / `proof_dichotomy` / `bright_access_required` axiom-free, `e_difficulty` `{propext, Quot.sound}`; the v1.1 citation is accurate and the terminals are stable through v1.2/v1.3. The paper's own scoping — skeleton compiled, Mathlib-dependent extension named as future work — is the correct grade; the E-Difficulty dichotomy stands as a conjecture with a partially formalized κ-machinery per the settled salt-check, not a deposit-strength theorem. **De-vacui
+  :161 
+  :162 - `sieve_ceiling` — dark-factored proofs cannot reach universal statements
+  :163 - `proof_dichotomy` — every proof is either dark-factored or has bright access
+  :164 - `e_difficulty` — for systems with `classes ≥ 1`, IsDecidable iff Nonempty (DomainOstrowski)
+  :165 - `e_difficulty_xi` — smoke test applied to the ξ_system
+  :166 
+  :167 The kernel skeleton uses vanilla Lean 4, no Mathlib dependency. The abstract types (Kappa as discrete dark/diffractive/bright, Proof as List StepAccess) capture the structural content. The Mathlib-dependent extension — replacing Kappa with Real ∈ [0, 1], replacing Proof with FirstOrder.Language proofs, witnessing the Epstein zero concretely via a Davenport-Heilbronn Z(s) of discriminant −23 — is named as future work in the kernel's remarks block.
+  :168 
+  :169 The structural content of the theorem is therefore machine-verified at the skeleton level. The full first-order-logic formalization is a project for the Mathlib extension session.
+  :170 
+  :171 *W-6 GATE (claim-certificate calculus, EXCLUSION_ENGINE §VIII.0). In the calculus's vocabulary the certificate-type here is {skeleton compiled} + {full dichotomy conjectured} — the split this section already carries. The skeleton's own Lean terminals — `e_difficulty` / `sieve_ceiling` / `proof_dichotomy` / `bright_access_required` (`SieveCeiling.lean`) — were graded **W-6 shells** in the EXCLUSION_ENGINE salt-check: "skeleton-verified" certifies that the STRUCTURE compiled, not that these terminals bind their subject-matter, until W-6 discharges.* **UPDATE (2026-07-23): W-6 DISCHARGED (W-6-EXT, SIDE-kernel v1.4 = `f374174`, 2026-07-19).** The terminals are de-vacuified — `e_difficulty` now r
+  :172 
+  :173 ---
+  :174 
+  :175 ## VIII. Consequences for the Programme
+  :176 
+  :177 The E-Difficulty Theorem validates the SIDE method retroactively and prospectively. Retroactively: the success of SIDE on ξ(s) was not luck or technique-choice; it was the unique route available given the system's structure. Prospectively: any determined I+D+S system admits exactly one proof architecture for its universal properties — enumeration plus certification. The catalogue of TECHNE.Core instances (27+ systems verifying I+D+S structure across number theory, algebra, combinatorics, and topology) is a catalogue of cases where this architecture should apply and where the SIDE method can be deployed without theoretical mystery about its applicability.
+  :178 
+  :179 The theorem also delimits what SIDE cannot do. For systems that are not determined, or that lack I+D+S structure, the theorem says nothing. The strong claim is about a precisely-specified class of systems.
+  :180 
+  :181 For undecidability questions — the major open problems where independence is suspected — the theorem provides a structural diagnostic. Closing the catalogue, when it can be done, settles decidability. When it cannot be done, the question is undecidable in the ambient logic. This is a refinement of the Gödelian picture: incompleteness is not "some truths escape mysteriously"; it is "the truths that escape are exactly the catalogue-incompletable ones."
+  :182 
+  :183 *Census note (demarcation line). The E-Difficulty dichotomy is the corpus's demarcation line of SIDE applicability: a determined I+D+S system with a closeable catalogue is in-scope (a domain-Ostrowski exists, the universal property is decidable), and everything outside is undecidable-diagnosed (no domain-Ostrowski, independence predicted). SIDE applies exactly on the in-scope side of this line.*
+  :184 
+  :185 ---
+  :186 
+
+### ENUMERA at `phase1.5/method/ENUMERA.md`: 1055 lines, read whole ; kernels cited: none named
+### phase1.5/method/ENUMERA.md:309-337 -- ENUMERA -- its correspondence section
+  :309 ## IV. The Correspondences
+  :310 
+  :311 ### 16. TRIVIUM ↔ QUBIT — [PROVED]
+  :312 
+  :313 | Trivium Structure | Quantum Gate |
+  :314 |:---|:---|
+  :315 | ξ(s) = ξ(1−s) (reflection symmetry) | Hadamard gate H (superposition) |
+  :316 | T: v → iv (quarter-twist) | S-gate √Z (phase π/2) |
+  :317 | ζ = e^{iπ/4} (metaplectic phase) | T-gate (π/8, "magic" gate) |
+  :318 | T² = −I (sign flip) | Z-gate (phase flip) |
+  :319 | Möbius monodromy (non-orientable) | Spin-1/2 (fermionic) |
+  :320 | 7 dimensions, spectrum {0⁶, 12} | [[7,1,3]] Steane code |
+  :321 
+  :322 **Status:** The Trivium IS a [[7,1,3]] quantum error-correcting code for σ-location information (see T3 in §XII). This is no longer a parallel — it is a theorem.
+  :323 
+  :324 ### 17. ARITHMETIC ↔ QUANTUM MECHANICS — [INTERPRETIVE]
+  :325 
+  :326 The qubit is arithmetical, not physical. Physics discovered arithmetic's structure.
+  :327 
+  :328 - Spinor structure (T² = −I) is in arithmetic
+  :329 - Hadamard structure (reflection) is in arithmetic
+  :330 - T-gate structure (e^{iπ/4}) is in arithmetic
+  :331 - Entanglement structure (coordination) is in arithmetic
+  :332 
+  :333 Quantum mechanics is what arithmetic looks like when you touch ground at σ = 1/2. This is a structural reading, not a theorem.
+  :334 
+  :335 ### 18. GROUND ↔ DREAM ↔ NP — [INTERPRETIVE]
+  :336 
+  :337 | Ground | Dream | NP |
+
+### data/b556_defects.txt:1-36 -- relay data/b556_defects.txt -- defect (b) and the rest
+  :1     (a) THE API DROP. The seat's turn stopped at the API after 20:46:11 (the last tool result: a process check showing the
+  :2         r1 probe's lean at 3.5 min, 3.29 GB free) and before tools/b556_record.py was written; the author resumed the act at
+  :3         20:53. The last completed steps: the face sealed (bd34a9a9, 20:41), the probe driver launched in the background
+  :4         (20:42:45, r1 first), and the post-seal source reads of the terminals' statements. Nothing on disk was lost; the r1
+  :5         probe was not restarted (its lean process, started 20:44:29, kept running under the driver); the record tool was
+  :6         written after the resume.
+  :7     (b) The probe m4 (ZeroActingPairing.lean at 5a14205, fed from the checkout at v0.11.0 = HEAD, the file and its imports
+  :8         byte-equal at both) exited 1 with 17 errors, every one outside the four terminals: "Function expected at
+  :9         RealizesXiZeros" and "Unknown identifier certifiedInput_not_zeroRealizing" -- the imported RegisterPentagon olean in
+  :10         the checkout (built 2026-08-09) does not match the source it is imported for. The four terminals' #check and
+  :11         #print axioms printed. A control, m4b, re-fed the file with the pin's RegisterPentagon.lean inlined ahead of it; the
+  :12         rows :373 and :380 are read from whichever of m4 and m4b the bank shows elaborating clean, and both are printed.
+  :13     (c) The control m4b was launched in the foreground under `timeout 590`, and the wrapper killed its elaboration at 590 s
+  :14         (exit 143) -- the standing lesson "never wrap compiles in timeout" (b527) broken by the seat. Its bank is kept as
+  :15         written; the same control was re-run unwrapped in the background as m4c and watched from the foreground.
+  :16         m4c: exit 0, 156 s, 0 errors -- the file elaborates clean against its pin's own RegisterPentagon source.
+  :17     (d) The first tier pass read row :408's profile cell ("... -- no `sorryAx`. Run at pin a27415d") as the row claiming
+  :18         `sorry`, because the parser tested for the word before the braces, and printed :408 MOVED. The cell prints the
+  :19         standard three; the parser now takes only "carries sorry" as a sorry claim, and the second pass is the banked one.
+  :20         Nothing was appended from the first pass.
+  :21     (e) The first `blocks` run appended R_CURVE's block and was refused by the append guard at INDEX_ARITY's, for a closing
+  :22         backtick followed by `s ("`certifiedInput_not_zeroRealizing``s premise") which the possessive rewrite does not cover
+  :23         (b555 defect (h)'s species); nothing was appended to INDEX_ARITY or ADDITIVE_MULTIPLICATIVE by that run. The phrase
+  :24         was reworded and `blocks` made to skip a document whose block is present; the second run appended the other two.
+  :25     (f) Two wordings in the appended blocks, kept as written (append-only): INDEX_ARITY :689 puts "main (5a14205 an
+  :26         ancestor)" in one code span where the sentence means "main, of which 5a14205 is an ancestor, is now tagged v0.11.0";
+  :27         ADDITIVE_MULTIPLICATIVE's correction line lists all four of Module1.lean's imports at c66f3c5 after "imports Mathlib",
+  :28         three of them Mathlib's and the fourth the repository's own SIDEFramework.
+  :29     (g) The first suite run found two defects of the suite's own arms, neither of a bank: G-READS-CITED's needle
+  :30         misquoted the reads bank's label ("the table at the standard" for "the 2026-08-12 table at the standard"), failing
+  :31         live; G-PATH-POINTER tested the line as a substring, so its negative control (line 1) passed inside ":11407". The
+  :32         needle was corrected and the pointer read with a digit boundary; the second run is the banked one.
+  :33     (h) Relay commit 60850ecd's message says "40 fresh probes and tag comparisons"; the bank holds 42 records -- 31
+  :34         elaborations (m4b among them, killed at 590 s) and 11 tag comparisons. The message was typed, not read from the
+  :35         bank; the closing prints the counts from data/b556_probes.jsonl.
+  :36 
+
+### relay data/b556_probe_m4.txt, tail:
+  'SIDELvConservation.RegisterPentagon.edge_drift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral' depends on axioms: [propext,
+   Classical.choice,
+   Quot.sound]
+  real 19.9 s
+  exit 1
+### relay data/b556_probe_m4c.txt, tail:
+  'SIDELvConservation.RegisterPentagon.edge_drift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDELvConservation.RegisterPentagon.edge_drift_neg_for_signNeutral' depends on axioms: [propext,
+   Classical.choice,
+   Quot.sound]
+  real 156.3 s
+  exit 0
+### FINDINGS.md:4805-4811 -- FINDINGS.md:4805 -- the tier law (b539)
+  :4805 ## The cascade, act one: the anchor tier, the hub terminals tiered, THE_UNCONDITIONAL_SURROUND §6 and lv-conservation's description read against the register census
+  :4806 
+  :4807 *Filed at b539 on the author`s ruling `(R149)`. The anchor tier, the load-bearing map`s ranked terminals, and the sentences of THE_UNCONDITIONAL_SURROUND and of lv-conservation`s deposited description that carry the h2 frame, read against the register census (`FINDINGS.md:4787`). Sources: relay `data/b539_anchor.json`, `data/b539_tiers.json`, `data/b539_sentences.json`, `data/b539_erratum_draft.md`.*
+  :4808 
+  :4809 **The anchor tier, fresh.** All 8 anchor theorems of `(R149)`(1) re-profiled at SIDE-explicit-formula `81ae175`, each line equal to its bank; R3 carried UNDECIDED.
+  :4810 
+  :4811 **The hub terminals tiered** (THE_LOAD_BEARING_MAP, appendix at line 81): over the map`s twelve ranked terminals, T0 **5** · T1 **0** · T2 **6** · T3 **0** · T4 **1**. The T0 rows meet the criterion by their statements -- `h1_complete_at_Phi`, `C7_finite_type_false`, `blTerm_nonneg_of_onLine`, `spectral_cannon`, the order-≤1 inputs -- and none is in `(R149)`(1)`s list, which the map does not rank; whether the list widens is the author`s. `ConservationBridge.riemann_hypothesis` and `goalState_sevenClasses_of_h2` are T2.
+
+### FINDINGS.md:4819-4823 -- FINDINGS.md:4819 -- the tier law corrected (b540)
+  :4819 ## The cascade, act two: the tier law corrected, PATHS_TO_THE_CRITICAL_LINE tiered against the RH-anchor
+  :4820 
+  :4821 *Filed at b540 on the author`s ruling `(R150)`. Sources: relay `data/b540_tiers.json`, `data/b540_sentences.json`, `data/b540_file.json`, `data/b540_erratum_draft.md`.*
+  :4822 
+  :4823 **E-2026-09-25-3 is FILED** (ERRATA.md:540-578, in the DEPOSIT-FACING list at :283). **The tier and the RH-anchor are two things**: T0 is a tier, the RH-anchor its subset bearing on where zeta`s zeros are, `h2_sign_iff_rh` at its head; the map`s five T0 terminals outside it each carry the sentence that they say nothing about the zeros` location. **T1 splits** into T1-open and T1-lit; `partialPositivity_finiteRange` is T1-lit. Corrected counts: the map`s twelve {'T0': 5, 'T1-open': 0, 'T1-lit': 1, 'T2': 6, 'T3': 0, 'T4': 0}; SURR`s table {'T0': 3, 'T1-open': 0, 'T1-lit': 1, 'T2': 7, 'T3': 0, 'T4': 4}.
+
+### FINDINGS.md:5812-5812 -- FINDINGS.md:5812 -- the programme-premise clause (b555)
+  :5812 *Appended at b555 (2026-09-28) to the tier law (`FINDINGS.md`:4805, b539; :4819, b540), under `(R165)`(3) -- THE PROGRAMME-PREMISE CLAUSE:* a terminal that interfaces on a named premise which is neither compiled nor a literature theorem but the programme's own manuscript claim -- `silence_universal` on `I.is_universal`; the route terminals on `ConservationHypothesis` before E-2026-09-25-1 showed it RH restated -- is **T2-INTERFACES**: the premise's truth is the programme's to establish, so the terminal cannot be read as resting on anything outside the programme. **T1-open** stays reserved for premises EQUIVALENT-DEEP to RH (`h2_sign`); **T1-lit** for uncompiled literature theorems.
+
+### phase1.5/method/THE_LOAD_BEARING_MAP.md:134-146 -- THE_LOAD_BEARING_MAP.md -- the RH-anchor list and T1 split
+  :134 **The RH-anchor, `(R150)`(2).** The anchor is the subset of T0 that bears on where zeta`s zeros are: **`h2_sign_iff_rh`** (SIDE-explicit-formula v0.2 = `5c72cad`), **ranked here at the head of the hub terminals**; then `ch_iff_rh`; the register census theorems `not_register1`, `mellin_Phi_eq_zero_of_re_le_one`, `lvh2_corrected_iff`, `register5_output_holds`; `b321_identity`; `not_f4_needs`. T0 is a tier -- a theorem stated against Mathlib`s own objects, standard three, no premise, statement read -- and the anchor is a subset of it; `(R149)`(1) conflated the two, and b539`s (N1) was refuted by that conflation.
+  :135 
+  :136 **The five ranked terminals that are T0 and not in the RH-anchor, each with its one clause:**
+  :137 
+  :138 - `h1_complete_at_Phi` -- **T0**: a true fact about zeta`s theta kernel `Phi` (its eight coupling facts) that says nothing about the zeros` location.
+  :139 - `C7_finite_type_false` -- **T0**: a true fact about the growth of `completedRiemannZeta₀` that says nothing about the zeros` location.
+  :140 - `blTerm_nonneg_of_onLine` -- **T0**: a true fact about the Li terms of zeros already on the line that says nothing about where the zeros are.
+  :141 - `spectral_cannon` -- **T0**: a true fact about the derivative of `completedRiemannZeta₀` on the line that says nothing about the zeros` location.
+  :142 - `ξ / Dirichlet order-≤1 inputs` -- **T0**: true growth bounds on `completedRiemannZeta₀` and `completedLFunction` that say nothing about the zeros` location.
+  :143 
+  :144 **T1 split, `(R150)`(3).** `partialPositivity_finiteRange` is **T1-lit**, not T4: it INTERFACES on literature theorems not yet compiled (Bombieri–Lagarias`s decomposition `ExplicitFormulaDecomp`, Voros`s tail bound `TailBoundPremise`) and on the numerical `VerifiedZerosTo T`; it becomes T0 when they compile and nothing else changes. T4 is for a claim with no terminal at all. No ranked terminal is T1-open. `ConservationBridge.riemann_hypothesis` stays **T2**: its premise is RH restated by the rewording lemma `ch_iff_rh`, so it is ENCODES-CONCLUSION per `(R149)`(2)`s own list (the reading is flagged for the author, since `(R150)`(3)`s parenthesis read alone would place it at T1-open).
+  :145 
+  :146 **Corrected counts over the twelve ranked terminals:** T0 5 · T1-open 0 · T1-lit 1 · T2 6 · T3 0 · T4 0.
+
+### phase1.5/spectral/GRH_CASCADE.md:450-450 -- GRH_CASCADE.md:450 -- b555`s line grading the SIDE-effects pair T0
+  :450 | :388 | Additive–multiplicative conspiracy exclusion (Twin / Goldbach / Sophie Germain) | `no_type_d_conspiracies`, `crt_exhaustiveness` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T0 |
+
+### phase1.5/spectral/GRH_CASCADE.md:455-455 -- GRH_CASCADE.md:455 -- b555`s second such line
+  :455 | :393 | ABC qualitative tightening | `no_type_d_conspiracies` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T0 |
+
+### phase2/method/THE_KEYSTONE_CENSUS.md:40-57 -- THE_KEYSTONE_CENSUS.md -- §1`s pin table
+  :40 ### **PIN ANCESTRY — 62 CITED PINS CHECKED LIVE AGAINST THEIR REPOS**
+  :41 
+  :42 | repo | pins | ANCESTOR | ### **NOT-ANCESTOR** | ### **ABSENT** |
+  :43 |:--|--:|--:|--:|--:|
+  :44 | ### **`SIDE-kernel`** | 20 | 16 | ### **2** | ### **2** |
+  :45 | ### **`SIDE-lv-conservation`** | 18 | 17 | 0 | ### **1** |
+  :46 | 20 further repos | 24 | ### **24** | 0 | 0 |
+  :47 
+  :48 > ### **FIVE PINS FAIL, AND THEY ARE NAMED:** `SIDE-kernel` **`2152047` ABSENT** · **`c66f3c5` ABSENT** · **`27a3ae7` NOT-ANCESTOR** · **`3b2e8d6` NOT-ANCESTOR** · `SIDE-lv-conservation` **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited held branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. NO SUBSTITUTE PIN IS OFFERED, because none can be verified to be the intended one.]** ABSENT**.
+  :49 >
+  :50 > ### **"ABSENT" MEANS THE OBJECT IS NOT IN THE REPOSITORY ON DISK — the pin cannot be resolved at all. "NOT-ANCESTOR" means the commit exists but is not reachable from `HEAD`: a rewritten, abandoned, or force-replaced line.**
+  :51 >
+  :52 > ### **THESE ARE STATED, NOT ASSESSED, PER THE CHARTER. Act 3's second half is where each is adjudicated — and this census has just supplied its first five work items, by name.**
+  :53 >
+  :54 > **The other 57 pins resolve and are ancestors of their repo's `HEAD`.** ### **The pin naming of act 3's mechanical half is what made this check possible at all: an unnamed hash cannot be ancestry-tested.**
+  :55 
+  :56 ---
+  :57 
+
+### phase2/method/THE_KEYSTONE_CENSUS.md:119-119 -- THE_KEYSTONE_CENSUS.md -- R_CURVE_CRITERION`s pin sentence
+  :119 | ### **`R_CURVE_CRITERION`** | ### **2026-07-26** | ### **five cited pins, one of which (`bd2ae1a`) is ABSENT from `SIDE-lv-conservation`** |
+
+### phase2/method/THE_KEYSTONE_CENSUS.md:243-283 -- THE_KEYSTONE_CENSUS.md -- the v0.2 section
+  :243 # THE KEYSTONE CENSUS v0.2 -- RE-RUN LIVE, 2026-09-28 (b553, under the author's ruling `(R163)`(6); the v0.1 body above is unchanged)
+  :244 
+  :245 *Tier C, as v0.1. Produced by relay `tools/b553_record.py` (`census`, `ancestry`, `anomaly`); banks relay `data/b553_census.txt`, `data/b553_ancestry.txt`, `data/b553_anomaly.txt`. §0's test rebuilt as operationalised, with (iii) read as the document's stem appearing in REGISTRY, SPIRAL_MAP, README or a clusters/ file, and retired trees (archive/, heritage/, outputs/) counted SUPPORT.*
+  :246 
+  :247 **The control.** At the tree v0.1 counted, the rebuilt detector returns v0.1's raw 20 and its 9 CONCORDANCE-CARRIED exactly; after §0's removals and (iii) as read here it keeps 15 of v0.1's sixteen (EXHAUSTIVENESS_LICENSE fails (iii) at that tree and passes at HEAD); it returns 57 KEYSTONE-CANDIDATE and 100 SUPPORT against v0.1's 62 and 101 -- differences this re-run prints and does not close. Entrants are counted against v0.1's published sixteen.
+  :248 
+  :249 **The classes at HEAD** (v0.1 beside): KEYSTONE 16 (16) · CONCORDANCE-CARRIED 10 (9) · KEYSTONE-CANDIDATE 55 (62) · SUPPORT 224 (101).
+  :250 
+  :251 **Entrants since 2026-08-12:** none. The navigator's four read: BALANCE_AND_POSITIVITY KEYSTONE-CANDIDATE; THE_TWO_RADIUS_FAMILY_AND_THE_ANNIHILATION_BOUNDARY SUPPORT; THE_GLOBAL_SECTION SUPPORT; THE_METHOD_CANON SUPPORT.
+  :252 
+  :253 | keystone | cited pins | Correspondence heading | cascade |
+  :254 |:--|--:|:--|:--|
+  :255 | `PATHS_TO_THE_CRITICAL_LINE` | 29 | present | TIERED (b540) |
+  :256 | `SIMPLICITY_OF_RIEMANN_ZEROS` | 18 | present | untiered |
+  :257 | `THE_UNCONDITIONAL_SURROUND` | 16 | present | TIERED (b539) |
+  :258 | `GRH_CASCADE` | 11 | present | untiered |
+  :259 | `R_CURVE_CRITERION` | 11 | present | untiered |
+  :260 | `INDEX_ARITY_AT_THE_CRITICAL_LINE` | 8 | present | untiered |
+  :261 | `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` | 7 | present | untiered |
+  :262 | `TECHNE_TOOLKIT` | 6 | present | untiered |
+  :263 | `THE_RESIDUE_OF_RH` | 6 | present | TIERED (b549) |
+  :264 | `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` | 5 | present | untiered |
+  :265 | `SILENCE_STAGES_DEALIGNMENT` | 3 | present | untiered |
+  :266 | `EXHAUSTIVENESS_LICENSE` | 3 | present | untiered |
+  :267 | `INVARIANCE_BARRIERS` | 2 | present | untiered |
+  :268 | `REPARAMETERIZATION_BARRIERS_v0_1` | 2 | present | untiered |
+  :269 | `E_DIFFICULTY_THEOREM` | 1 | present | untiered |
+  :270 | `ENUMERA` | 0 | present | untiered |
+  :271 
+  :272 *The cascade has also tiered, outside the KEYSTONE class: day1/A_Place_to_Stand (CONCORDANCE-CARRIED), BALANCE_AND_POSITIVITY, FACES_OF_H2_AT_FINITE_INSTANCE, FACES_LEDGER, THE_IDENTITY_CHAIN.*
+  :273 
+  :274 **Pin ancestry.** Mechanical failures: `21433177` ABSENT; `27a3ae7` NOT-ANCESTOR; `5e932f97` ABSENT; `6e8638a` ABSENT. Hand-read (relay `data/b553_ancestry_read.txt`): `21433177` is a Zenodo record's digits, not a pin; `5e932f97` is a Mathlib pin that resolves in every Mathlib clone at that rev; `6e8638a` resolves nowhere tested; `27a3ae7` is reachable from SIDE-kernel's `derivative-engine` only. **`bd2ae1a` resolves: a PLACE-papers commit of 2026-07-25 (the E-CHARACTERIZATION sitting), which THE_H2_PROGRAMME_CHARTER.md:116 names; v0.1 did not test PLACE-papers.**
+  :275 The five v0.1 named, re-tested: `2152047` ABSENT; `c66f3c5` ANCESTOR; `27a3ae7` NOT-ANCESTOR; `3b2e8d6` NOT-ANCESTOR; `bd2ae1a` ANCESTOR.
+  :276 
+  :277 **Anomaly 1.** SIDE-kernel HEAD `0256e9e`, latest tag `v1.7` (`2957e7d`); HEAD is not the latest tag; the corpus's deposit pin stays `v1.5` = `0e5233f`.
+  :278 
+  :279 **The cascade's remaining roster, in the census's order:** `SIMPLICITY_OF_RIEMANN_ZEROS`, `GRH_CASCADE`, `R_CURVE_CRITERION`, `INDEX_ARITY_AT_THE_CRITICAL_LINE`, `FOUNDATIONS_OF_THE_SIDE_PROGRAMME`, `TECHNE_TOOLKIT`, `ADDITIVE_MULTIPLICATIVE_CONSPIRACY`, `SILENCE_STAGES_DEALIGNMENT`, `EXHAUSTIVENESS_LICENSE`, `INVARIANCE_BARRIERS`, `REPARAMETERIZATION_BARRIERS_v0_1`, `E_DIFFICULTY_THEOREM`, `ENUMERA`. **Next:** `SIMPLICITY_OF_RIEMANN_ZEROS`.
+  :280 
+  :281 *No byte above this section changes. Nothing deposits.*
+  :282 
+  :283 *Appended 2026-09-28 by b554, under the author's ruling `(R164)`(1), to the pin ancestry of §1, at :48:* `bd2ae1a` is a PLACE-papers commit -- the E-CHARACTERIZATION sitting of 2026-07-25, which `THE_H2_PROGRAMME_CHARTER.md`:116 names -- and not a SIDE-lv-conservation pin; the terminals that sitting reported are at SIDE-lv-conservation `v0.11.0` = `2f71068`. The flag of 2026-08-12 above stays as written. Erratum `E-2026-09-27-1` (`ERRATA.md`:754).
+
+### THE_LOAD_BEARING_MAP lines naming each document: {'FOUND': [18, 26, 31, 32, 41, 56, 64], 'LICENSE': [18, 50, 64], 'INVAR': [], 'EDIFF': [], 'TECHNE': [], 'SILENCE': [], 'REPARAM': [], 'ENUMERA': []}

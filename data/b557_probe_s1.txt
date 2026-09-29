@@ -1,0 +1,16 @@
+SIDE-silence-principle v0.1.0 = 90e540fd5644c38e7e9a534bf82f0a8464c2f98c ; git show v0.1.0:SIDESilencePrinciple/Basic.lean ; checkout HEAD 667c25487775 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['SIDESilencePrinciple.product_formula_silent', 'SIDESilencePrinciple.distributive_law_silent', 'SIDESilencePrinciple.silence_principle']
+start 2026-09-29T04:00:20Z
+SIDESilencePrinciple.product_formula_silent : SIDESilencePrinciple.isSilent SIDESilencePrinciple.product_formula = true
+SIDESilencePrinciple.distributive_law_silent : SIDESilencePrinciple.isSilent SIDESilencePrinciple.distributive_law =
+  true
+SIDESilencePrinciple.silence_principle : ∀ (I : SIDESilencePrinciple.Interface),
+  SIDESilencePrinciple.chain_holds I = true → I.essential = true → SIDESilencePrinciple.isSilent I = true
+'SIDESilencePrinciple.product_formula_silent' does not depend on any axioms
+'SIDESilencePrinciple.distributive_law_silent' does not depend on any axioms
+'SIDESilencePrinciple.silence_principle' depends on axioms: [propext]
+real 1.5 s
+exit 0

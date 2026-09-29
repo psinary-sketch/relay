@@ -1,0 +1,17 @@
+SIDE-lv-conservation e3d08b6 = e3d08b6e55ef09ac42672bde278cdfbad53bf21d ; git show e3d08b6:SIDELvConservation/PartialPositivity.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/RegisterPentagon.lean', 'SAME'), ('SIDELvConservation/CouplingsAtPhi.lean', 'SAME'), ('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.PartialPositivity.partialPositivity_finiteRange']
+start 2026-09-29T04:27:29Z
+SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ)
+  (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ),
+  SIDELvConservation.PartialPositivity.VerifiedZerosTo T →
+    SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T →
+      SIDELvConservation.PartialPositivity.TailBoundPremise low tail T →
+        ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n
+'SIDELvConservation.PartialPositivity.partialPositivity_finiteRange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 599.1 s
+exit 0

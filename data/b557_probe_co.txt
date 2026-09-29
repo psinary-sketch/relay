@@ -1,0 +1,13 @@
+SIDE-cosmo c5cba30 = c5cba30ce201af2d619498ef087969e729293969 ; git show c5cba30:SIDECosmo/SteaneExemplar.lean ; checkout HEAD c5cba30ce201 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.30.0-rc2 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDECosmo/FanoFormation.lean', 'SAME'), ('SIDECosmo/FormationPhaseSpace.lean', 'SAME'), ('SIDECosmo/FanoPlane.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['steane_parameters', 'knill_laflamme_t1']
+start 2026-09-29T04:00:26Z
+steane_parameters : xi.formation_total = 7 ∧
+  2 * visible_slots xi - xi.formation_total = 1 ∧ (∀ (i j : Fin 7), i ≠ j → H i + H j ≠ 0) ∧ H 0 + H 1 + H 3 = 0
+knill_laflamme_t1 : Function.Injective H ∧ ∀ (i : Fin 7), H i ≠ 0
+'steane_parameters' depends on axioms: [propext, Quot.sound]
+'knill_laflamme_t1' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 634.2 s
+exit 0

@@ -1,0 +1,11 @@
+SIDE-kernel 0e5233f = 0e5233f011533d09e4799107394c216a915028a1 ; git show 0e5233f:Kernel/Voice3b.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['techne_kernel_voice3b.offLine_of_codim_two']
+start 2026-09-29T04:23:02Z
+techne_kernel_voice3b.offLine_of_codim_two : ∀ (sigma : ℝ),
+  techne_kernel_voice3b.zero_codimension sigma = 2 → ¬sigma = 1 / 2
+'techne_kernel_voice3b.offLine_of_codim_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 15.8 s
+exit 0

@@ -1,0 +1,16 @@
+SIDE-kernel v1.1 = e0a8ba06520759971545c19181bcb57956f199ba ; git show v1.1:Kernel/Cascade/SieveCeiling.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: DIFF
+inlined ahead of the file: NONE
+names: ['sieve_ceiling', 'proof_dichotomy', 'e_difficulty', 'e_difficulty_xi']
+start 2026-09-29T03:58:46Z
+sieve_ceiling : ∀ (π : Proof), π.factorsDark → (maxStatement π).strength < StatementKind.universal.strength
+proof_dichotomy : ∀ (π : Proof), π.factorsDark ∨ π.hasBrightAccess
+e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → s.classes ≥ 1 → (IsDecidable s ↔ Nonempty (DomainOstrowski s))
+e_difficulty_xi : IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system)
+'sieve_ceiling' does not depend on any axioms
+'proof_dichotomy' does not depend on any axioms
+'e_difficulty' depends on axioms: [propext, Quot.sound]
+'e_difficulty_xi' depends on axioms: [propext, Quot.sound]
+real 1.3 s
+exit 0

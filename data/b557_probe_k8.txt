@@ -1,0 +1,12 @@
+SIDE-kernel v1.2 = b1407b2231c650d6d938cfa649f589fd388f669c ; git show v1.2:Bridge/OstrowskiBridge.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('Kernel/Core.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['ostrowski_exhaustive']
+start 2026-09-29T04:17:21Z
+ostrowski_exhaustive : ∀ (f : AbsoluteValue ℚ ℝ),
+  f.IsNontrivial →
+    f.IsEquiv Rat.AbsoluteValue.real ∨ ∃! p, ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)
+'ostrowski_exhaustive' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 328.6 s
+exit 0

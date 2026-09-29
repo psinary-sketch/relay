@@ -1,0 +1,26 @@
+SIDE-structural-error-correction 6a4f482 = 6a4f4829cf219839f33c6af9d665687b93af772e ; git show 6a4f482:SIDEStructuralErrorCorrection/DeAlignment.lean ; checkout HEAD 6a4f4829cf21 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['DeAlignment.no_domain_covers_line', 'DeAlignment.single_domain_fault_not_logical', 'DeAlignment.dealigned_of_lines_injective', 'DeAlignment.fano_dealignment_decidable_example', 'DeAlignment.fano_collapsed_line_rejected', 'DeAlignment.fano_two_design']
+start 2026-09-29T04:00:24Z
+@DeAlignment.no_domain_covers_line : ∀ {P D : Type} (d : P → D) (L : DeAlignment.Line P),
+  DeAlignment.DealignedAt d L → ∀ (k : D), ¬DeAlignment.CompletesLine (DeAlignment.domainFault d k) L
+@DeAlignment.single_domain_fault_not_logical : ∀ {P D : Type} {n : Nat} (d : P → D)
+  (lines : Fin n → DeAlignment.Line P),
+  DeAlignment.Dealigned d lines →
+    ∀ (k : D) (i : Fin n), ¬DeAlignment.CompletesLine (DeAlignment.domainFault d k) (lines i)
+@DeAlignment.dealigned_of_lines_injective : ∀ {P D : Type} (d : P → D) (L : DeAlignment.Line P),
+  (∀ (x y : P), d x = d y → x = y) → L.Proper → DeAlignment.DealignedAt d L
+DeAlignment.fano_dealignment_decidable_example : (DeAlignment.dealignedCheck fun p => p) = true
+DeAlignment.fano_collapsed_line_rejected : (DeAlignment.dealignedCheck fun p => if ↑p = 1 ∨ ↑p = 3 then ⟨0, ⋯⟩ else p) =
+  false
+DeAlignment.fano_two_design : ∀ (p q : Fin 7), p ≠ q → DeAlignment.pairCount p q = 1
+'DeAlignment.no_domain_covers_line' does not depend on any axioms
+'DeAlignment.single_domain_fault_not_logical' does not depend on any axioms
+'DeAlignment.dealigned_of_lines_injective' does not depend on any axioms
+'DeAlignment.fano_dealignment_decidable_example' does not depend on any axioms
+'DeAlignment.fano_collapsed_line_rejected' does not depend on any axioms
+'DeAlignment.fano_two_design' depends on axioms: [propext]
+real 1.1 s
+exit 0

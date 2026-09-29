@@ -1,0 +1,49 @@
+SIDE-lv-conservation e3d08b6 = e3d08b6e55ef09ac42672bde278cdfbad53bf21d ; git show e3d08b6:SIDELvConservation/CouplingsAtPhi.lean ; checkout HEAD 2f71068ac356 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.1 ; mode lake
+repo-local imports (pin vs checkout HEAD): [('SIDELvConservation/T1_MellinFactorization.lean', 'SAME'), ('SIDELvConservation/T2_SDarkness.lean', 'SAME'), ('SIDELvConservation/T3_StepNineBridge.lean', 'SAME'), ('SIDELvConservation/C7OrderBounds.lean', 'SAME'), ('SIDELvConservation/GammaBounds.lean', 'SAME')]
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDELvConservation.h1_complete_at_Phi']
+start 2026-09-29T04:37:53Z
+<stdin>:199:8: warning: This simp argument is unused:
+  C1_realness
+
+Hint: Omit it from the simp argument list.
+  simp [C̵1̵_̵r̵e̵a̵l̵n̵e̵s̵s̵,̵ ̵Phi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:235:58: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  simp only [ofReal_zero, zero_pow, mul_zero, zero_mul, n̵e̵g̵_̵z̵e̵r̵o̵,̵ ̵Complex.exp_zero, one_mul,
+  ̵  ̵ ̵ ̵ ̵ ̵ne_eq,
+  ̲  ̲ ̲ ̲ ̲ ̲OfNat.ofNat_ne_zero, not_false_eq_true] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:326:15: warning: `UpperHalfPlane.coe_mk_subtype` has been deprecated: Use `UpperHalfPlane.coe_mk` instead
+<stdin>:320:82: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  simp only [ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow, mul_zero, n̵e̵g̵_̵z̵e̵r̵o̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵Complex.exp_zero,
+  ̲  ̲ ̲ ̲ ̲ ̲one_mul, Complex.ofReal_zero, zero_mul] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:326:15: warning: This simp argument is unused:
+  UpperHalfPlane.coe_mk_subtype
+
+Hint: Omit it from the simp argument list.
+  s̵i̵m̵p̵ ̵o̵n̵l̵y̵ ̵[̵U̵p̵p̵e̵r̵H̵a̵l̵f̵P̵l̵a̵n̵e̵.̵c̵o̵e̵_̵m̵k̵_̵s̵u̵b̵t̵y̵p̵e̵]̵ ̵a̵t̵ ̵h̵S̵s̲i̲m̲p̲ ̲o̲n̲l̲y̲ ̲a̲t̲ ̲h̲S̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SIDELvConservation.h1_complete_at_Phi : SIDELvConservation.C1_realness SIDELvConservation.Phi ∧
+  SIDELvConservation.C2_halfplane_nonvanishing SIDELvConservation.Phi ∧
+    SIDELvConservation.C3_theta_transformation SIDELvConservation.Phi ∧
+      SIDELvConservation.C4_modularity SIDELvConservation.Phi ∧
+        SIDELvConservation.C5_input SIDELvConservation.Phi ∧
+          SIDELvConservation.C6_holomorphic_extension SIDELvConservation.Phi ∧
+            SIDELvConservation.C7_entirety SIDELvConservation.Phi ∧ SIDELvConservation.C7_order SIDELvConservation.Phi
+'SIDELvConservation.h1_complete_at_Phi' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 30.5 s
+exit 0

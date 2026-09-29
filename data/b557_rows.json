@@ -1,0 +1,1145 @@
+{
+ "FOUND": [
+  {
+   "line": 625,
+   "claim": "Silence Principle — universal form",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`SilenceTheorem.silence_universal`",
+   "profile_cell": "axiom-free (none)",
+   "status": "INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here.",
+   "names": [
+    "SilenceTheorem.silence_universal"
+   ],
+   "probes": [
+    [
+     "k7",
+     "k7t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 626,
+   "claim": "Silence — per-instance (product formula)",
+   "kernel": "SIDE-silence-principle v0.1.0",
+   "terminal_cell": "`SIDESilencePrinciple.product_formula_silent`",
+   "profile_cell": "axiom-free (none)",
+   "status": "**ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content.",
+   "names": [
+    "SIDESilencePrinciple.product_formula_silent"
+   ],
+   "probes": [
+    [
+     "s1",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 627,
+   "claim": "Silence — per-instance (distributive law)",
+   "kernel": "SIDE-silence-principle v0.1.0",
+   "terminal_cell": "`SIDESilencePrinciple.distributive_law_silent`",
+   "profile_cell": "axiom-free (none)",
+   "status": "**ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content.",
+   "names": [
+    "SIDESilencePrinciple.distributive_law_silent"
+   ],
+   "probes": [
+    [
+     "s1",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 628,
+   "claim": "Silence four-step chain",
+   "kernel": "SIDE-silence-principle v0.1.0",
+   "terminal_cell": "`SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal`",
+   "profile_cell": "`[propext]`; axiom-free",
+   "status": "**ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content.",
+   "names": [
+    "SIDESilencePrinciple.silence_principle",
+    "SIDESilencePrinciple.Universal.silence_universal"
+   ],
+   "probes": [
+    [
+     "s1",
+     null
+    ],
+    [
+     "s1",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 629,
+   "claim": "Mechanism Theorem",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`ECondition.type_I_has_ostrowski`",
+   "profile_cell": "`{propext, Quot.sound}`",
+   "status": "DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12)",
+   "names": [
+    "ECondition.type_I_has_ostrowski"
+   ],
+   "probes": [
+    [
+     "k6",
+     "k6t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 630,
+   "claim": "E-Difficulty skeleton — sieve ceiling",
+   "kernel": "SIDE-kernel v1.4 (`f374174`)",
+   "terminal_cell": "base `sieve_ceiling` → content `sieve_ceiling_semantic` (`Cascade/SieveCeilingSemantic.lean`)",
+   "profile_cell": "axiom-free (both)",
+   "status": "**SHELL (base) — work-order + DERIVES (content)** — W-6-EXT R3 (2026-07-19): the base terminal is abstract-`Proof` strength bookkeeping — a work-order, not a citation; the contentful ceiling is the axiom-free `sieve_ceiling_semantic` (a target not respecting the I-relation admits no dark-factored certificate). Cite the semantic terminal for content.",
+   "names": [
+    "sieve_ceiling",
+    "SieveCeilingSemantic.sieve_ceiling_semantic"
+   ],
+   "probes": [
+    [
+     "c1",
+     "c1t"
+    ],
+    [
+     "c2",
+     "c2t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 631,
+   "claim": "E-Difficulty skeleton — dichotomy",
+   "kernel": "SIDE-kernel v1.4 (`f374174`)",
+   "terminal_cell": "`proof_dichotomy`",
+   "profile_cell": "axiom-free (none)",
+   "status": "**DERIVES** — Terminal 1: genuine LEM over the step-access inductive; untouched by W-6-EXT (was mislabeled SHELL under the blanket W-6 flag).",
+   "names": [
+    "proof_dichotomy"
+   ],
+   "probes": [
+    [
+     "c1",
+     "c1t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 632,
+   "claim": "E-Difficulty skeleton — bright access",
+   "kernel": "SIDE-kernel v1.4 (`f374174`)",
+   "terminal_cell": "base `bright_access_required`",
+   "profile_cell": "axiom-free (none)",
+   "status": "**SHELL — work-order** — W-6-EXT R3: abstract-`Proof` contrapositive of the strength bound — a work-order, not a citation; content in `sieve_ceiling_semantic`.",
+   "names": [
+    "bright_access_required"
+   ],
+   "probes": [
+    [
+     "c1",
+     "c1t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 633,
+   "claim": "E-Difficulty skeleton — the equivalence",
+   "kernel": "SIDE-kernel v1.4 (`f374174`)",
+   "terminal_cell": "`e_difficulty` (+ `e_difficulty_xi`)",
+   "profile_cell": "`{propext, Quot.sound}`",
+   "status": "**DERIVES** — W-6-EXT R2 (2026-07-19): de-vacuified. `IsDecidable s` reads its system (`SysProof s` over `s.interfaces`); the Ostrowski is EXTRACTED (not `List.replicate`); `h_conserved` is load-bearing (bright ⇒ inessential). Was a `True↔True` shell through v1.3.",
+   "names": [
+    "e_difficulty",
+    "e_difficulty_xi"
+   ],
+   "probes": [
+    [
+     "c1",
+     "c1t"
+    ],
+    [
+     "c1",
+     "c1t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 634,
+   "claim": "Spectral Inertness / Conservation ($n_4 = 0$)",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`ProductFormula.conservation_of_spectra`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled",
+   "names": [
+    "ProductFormula.conservation_of_spectra"
+   ],
+   "probes": [
+    [
+     "k3",
+     "k3t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 635,
+   "claim": "Mathlib bridge — Ostrowski",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`ostrowski_exhaustive` (`Bridge/OstrowskiBridge.lean`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled",
+   "names": [
+    "ostrowski_exhaustive"
+   ],
+   "probes": [
+    [
+     "k8",
+     "k8t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 636,
+   "claim": "Mathlib bridge — per-prime balance",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal_cell": "`neg_eq_neg_one_sub_iff` (`Bridge/LocalZeta.lean`)",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES — Compiled",
+   "names": [
+    "neg_eq_neg_one_sub_iff"
+   ],
+   "probes": [
+    [
+     "k9",
+     "k9t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 637,
+   "claim": "Compression Theorem — general form",
+   "kernel": "SIDE-compression v0.2.0",
+   "terminal_cell": "`Compression.compression`; `Compression.compression_infinite_objects`",
+   "profile_cell": "axiom-free (none)",
+   "status": "DERIVES as schema — content enters at instantiation. Compiled — N per-class checks + exhaustiveness ⟹ the universal conclusion over all objects; chain length = N, independent of object count. (Per-instance panel `xi_compression` … `frobenius_compression` also compiled.)",
+   "names": [
+    "Compression.compression",
+    "Compression.compression_infinite_objects"
+   ],
+   "probes": [
+    [
+     "cp",
+     null
+    ],
+    [
+     "cp",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 638,
+   "claim": "Sieve Ceiling Lemma (full form)",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Manuscript-resident (v1.0 draft)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 639,
+   "claim": "E-Difficulty Theorem (full analytic form)",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Research-reach",
+   "names": [],
+   "probes": [],
+   "note": null
+  }
+ ],
+ "TECHNE": [
+  {
+   "line": 507,
+   "claim": "**Ξ.7** Specification Pipeline Decomposer",
+   "kernel": "`SIDEKernel.formation` / `formation_count` (axiom-free); STRUCTURAL_COUNT",
+   "terminal_cell": "`SIDEKernel.formation` / `formation_count` (axiom-free); STRUCTURAL_COUNT",
+   "profile_cell": "`SIDEKernel.formation` / `formation_count` (axiom-free); STRUCTURAL_COUNT",
+   "status": "**COMPILED SPECIMEN**",
+   "names": [
+    "SIDEKernel.formation"
+   ],
+   "probes": [
+    [
+     "kc",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 508,
+   "claim": "**Ξ.8** Interface Darkness Verifier (κ)",
+   "kernel": "`Kappa` / κ = 0 silence certificates; `UniversalDarkness.lean`",
+   "terminal_cell": "`Kappa` / κ = 0 silence certificates; `UniversalDarkness.lean`",
+   "profile_cell": "`Kappa` / κ = 0 silence certificates; `UniversalDarkness.lean`",
+   "status": "**COMPILED anchor**",
+   "names": [],
+   "probes": [],
+   "note": "a private repository`s objects (a module and a definition), not tiered here"
+  },
+  {
+   "line": 509,
+   "claim": "**Ξ.17** Sieve ceiling",
+   "kernel": "`SieveCeiling.e_difficulty` (`{propext, Quot.sound}`, W-6-EXT, v1.4)",
+   "terminal_cell": "`SieveCeiling.e_difficulty` (`{propext, Quot.sound}`, W-6-EXT, v1.4)",
+   "profile_cell": "`SieveCeiling.e_difficulty` (`{propext, Quot.sound}`, W-6-EXT, v1.4)",
+   "status": "**COMPILED SPECIMEN**",
+   "names": [
+    "e_difficulty"
+   ],
+   "probes": [
+    [
+     "c1",
+     "c1t"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 510,
+   "claim": "**Ξ.19** Claim–Certificate Calculus",
+   "kernel": "EXCLUSION_ENGINE §VIII.0; specimens = the loom findings",
+   "terminal_cell": "EXCLUSION_ENGINE §VIII.0; specimens = the loom findings",
+   "profile_cell": "EXCLUSION_ENGINE §VIII.0; specimens = the loom findings",
+   "status": "**METHOD + specimens**",
+   "names": [],
+   "probes": [],
+   "note": "METHOD (manuscript-resident)"
+  },
+  {
+   "line": 511,
+   "claim": "**Relocated-vacuity detector / de-vacuification**",
+   "kernel": "W-6-EXT SieveCeiling; **V3B `offLine_of_codim_two`** (`0e5233f`)",
+   "terminal_cell": "W-6-EXT SieveCeiling; **V3B `offLine_of_codim_two`** (`0e5233f`)",
+   "profile_cell": "W-6-EXT SieveCeiling; **V3B `offLine_of_codim_two`** (`0e5233f`)",
+   "status": "**COMPILED SPECIMENS (two)**",
+   "names": [
+    "techne_kernel_voice3b.offLine_of_codim_two"
+   ],
+   "probes": [
+    [
+     "vb",
+     "vbt"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 512,
+   "claim": "**§IV Loom Signature Families**",
+   "kernel": "box-outruns-kernel: 3 specimens (STEANE compiled `2e76426`; ZK exploratory; identifier-over-claim compiled)",
+   "terminal_cell": "box-outruns-kernel: 3 specimens (STEANE compiled `2e76426`; ZK exploratory; identifier-over-claim compiled)",
+   "profile_cell": "box-outruns-kernel: 3 specimens (STEANE compiled `2e76426`; ZK exploratory; identifier-over-claim compiled)",
+   "status": "**specimen-bearing**",
+   "names": [],
+   "probes": [],
+   "note": "a module at SIDE-substrate-cluster 2e76426, not a terminal"
+  },
+  {
+   "line": 513,
+   "claim": "**§III Pattern-Class: Voros 2T²**",
+   "kernel": "`N₀(T)=⌊2T²⌋`, `partialPositivity_finiteRange` (lv v0.9.0 `e3d08b6`)",
+   "terminal_cell": "`N₀(T)=⌊2T²⌋`, `partialPositivity_finiteRange` (lv v0.9.0 `e3d08b6`)",
+   "profile_cell": "`N₀(T)=⌊2T²⌋`, `partialPositivity_finiteRange` (lv v0.9.0 `e3d08b6`)",
+   "status": "**COMPILED anchor**",
+   "names": [
+    "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange"
+   ],
+   "probes": [
+    [
+     "lp",
+     "lpt"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 514,
+   "claim": "**§III Pattern-Class: (ℤ/2)³ six presentations**",
+   "kernel": "`SteaneLabeling` (axiom-free, `2e76426`); substrate-cluster",
+   "terminal_cell": "`SteaneLabeling` (axiom-free, `2e76426`); substrate-cluster",
+   "profile_cell": "`SteaneLabeling` (axiom-free, `2e76426`); substrate-cluster",
+   "status": "**COMPILED anchor**",
+   "names": [],
+   "probes": [],
+   "note": "a module (`SteaneLabeling`) at SIDE-substrate-cluster 2e76426, not a terminal"
+  },
+  {
+   "line": 515,
+   "claim": "**§VI Five-Door Orientation Object**",
+   "kernel": "five-door state (PATHS §I-bis); `h1_complete_at_Phi`, `partialPositivity_finiteRange` (lv v0.9.0)",
+   "terminal_cell": "five-door state (PATHS §I-bis); `h1_complete_at_Phi`, `partialPositivity_finiteRange` (lv v0.9.0)",
+   "profile_cell": "five-door state (PATHS §I-bis); `h1_complete_at_Phi`, `partialPositivity_finiteRange` (lv v0.9.0)",
+   "status": "**COMPILED anchors**",
+   "names": [
+    "SIDELvConservation.h1_complete_at_Phi",
+    "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange"
+   ],
+   "probes": [
+    [
+     "lh",
+     "lht"
+    ],
+    [
+     "lp",
+     "lpt"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 516,
+   "claim": "**Ξ.4 / Ξ.5 / Ξ.6 / Ξ.9 / Ξ.10–12 / Ξ.20–23; Impossibility Classifier; Programme Filter**",
+   "kernel": "procedures & grammar; no single compiled specimen — this is the honest grade, not a gap",
+   "terminal_cell": "procedures & grammar; no single compiled specimen — this is the honest grade, not a gap",
+   "profile_cell": "procedures & grammar; no single compiled specimen — this is the honest grade, not a gap",
+   "status": "**METHOD (manuscript-resident)**",
+   "names": [],
+   "probes": [],
+   "note": "METHOD (manuscript-resident)"
+  }
+ ],
+ "SILENCE": [
+  {
+   "line": 202,
+   "claim": "No single-domain failure completes a de-aligned line",
+   "kernel": "SIDE-structural-error-correction v0.2.1 (`6a4f482`)",
+   "terminal_cell": "`DeAlignment.no_domain_covers_line`",
+   "profile_cell": "axiom-free",
+   "status": "DERIVES",
+   "names": [
+    "DeAlignment.no_domain_covers_line"
+   ],
+   "probes": [
+    [
+     "se",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 203,
+   "claim": "The protection theorem, over any line family",
+   "kernel": "v0.2.1 (`6a4f482`)",
+   "terminal_cell": "`DeAlignment.single_domain_fault_not_logical`",
+   "profile_cell": "axiom-free",
+   "status": "DERIVES",
+   "names": [
+    "DeAlignment.single_domain_fault_not_logical"
+   ],
+   "probes": [
+    [
+     "se",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 204,
+   "claim": "One-position-per-domain implies de-alignment",
+   "kernel": "v0.2.1 (`6a4f482`)",
+   "terminal_cell": "`DeAlignment.dealigned_of_lines_injective`",
+   "profile_cell": "axiom-free",
+   "status": "DERIVES",
+   "names": [
+    "DeAlignment.dealigned_of_lines_injective"
+   ],
+   "probes": [
+    [
+     "se",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 205,
+   "claim": "The condition is certifiable by evaluation",
+   "kernel": "v0.2.1 (`6a4f482`)",
+   "terminal_cell": "`DeAlignment.fano_dealignment_decidable_example`",
+   "profile_cell": "axiom-free",
+   "status": "DERIVES",
+   "names": [
+    "DeAlignment.fano_dealignment_decidable_example"
+   ],
+   "probes": [
+    [
+     "se",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 206,
+   "claim": "The check refuses a collapsed line (the certificate has teeth)",
+   "kernel": "v0.2.1 (`6a4f482`)",
+   "terminal_cell": "`DeAlignment.fano_collapsed_line_rejected`",
+   "profile_cell": "axiom-free",
+   "status": "DERIVES",
+   "names": [
+    "DeAlignment.fano_collapsed_line_rejected"
+   ],
+   "probes": [
+    [
+     "se",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 207,
+   "claim": "The line family used is the Fano plane — every pair of distinct positions on exactly one line, certified by evaluation",
+   "kernel": "v0.2.1 (`6a4f482`)",
+   "terminal_cell": "`DeAlignment.fano_two_design`",
+   "profile_cell": "`[propext]`",
+   "status": "DERIVES",
+   "names": [
+    "DeAlignment.fano_two_design"
+   ],
+   "probes": [
+    [
+     "se",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 208,
+   "claim": "The [[7,1,3]] Steane parameters (the code the lines structure)",
+   "kernel": "SIDE-cosmo (`c5cba30`)",
+   "terminal_cell": "`SteaneExemplar.steane_parameters`",
+   "profile_cell": "`{propext, Quot.sound}`",
+   "status": "DERIVES",
+   "names": [
+    "steane_parameters"
+   ],
+   "probes": [
+    [
+     "co",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 209,
+   "claim": "The Knill–Laflamme error-correction conditions",
+   "kernel": "SIDE-cosmo (`c5cba30`)",
+   "terminal_cell": "`SteaneExemplar.knill_laflamme_t1`",
+   "profile_cell": "`{propext, Classical.choice, Quot.sound}`",
+   "status": "DERIVES",
+   "names": [
+    "knill_laflamme_t1"
+   ],
+   "probes": [
+    [
+     "co",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 210,
+   "claim": "Formation Distance theorem, d_eff ≥ 2S−1 (§3)",
+   "kernel": "none (manuscript)",
+   "terminal_cell": "proof sketch only — no terminal",
+   "profile_cell": "n/a",
+   "status": "manuscript-resident",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 211,
+   "claim": "The four-domain silence-as-protection pattern (§4–5)",
+   "kernel": "none (manuscript)",
+   "terminal_cell": "survey — no terminal",
+   "profile_cell": "n/a",
+   "status": "manuscript-resident",
+   "names": [],
+   "probes": [],
+   "note": null
+  }
+ ],
+ "LICENSE": [
+  {
+   "line": 105,
+   "claim": "The four grades form a decidable type",
+   "kernel": "SIDE-effects `ExhaustivenessLicense`",
+   "terminal_cell": "`SIDEEffects.ExhaustivenessLicense.Grade` (+ `instance Decidable (a ≤ b)`)",
+   "profile_cell": "axiom-free (none)",
+   "status": "DERIVES — compiled",
+   "names": [
+    "SIDEEffects.ExhaustivenessLicense.Grade"
+   ],
+   "probes": [
+    [
+     "el",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 106,
+   "claim": "The order is a preorder (reflexive, transitive)",
+   "kernel": "SIDE-effects `ExhaustivenessLicense`",
+   "terminal_cell": "`Grade.le_refl`; `Grade.le_trans`",
+   "profile_cell": "axiom-free (none)",
+   "status": "DERIVES — compiled",
+   "names": [
+    "SIDEEffects.ExhaustivenessLicense.Grade.le_refl",
+    "SIDEEffects.ExhaustivenessLicense.Grade.le_trans"
+   ],
+   "probes": [
+    [
+     "el",
+     null
+    ],
+    [
+     "el",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 107,
+   "claim": "THEOREM is the top; NONE the bottom; the ladder is strict",
+   "kernel": "SIDE-effects `ExhaustivenessLicense`",
+   "terminal_cell": "`theorem_is_top`; `none_is_bottom`; `ladder_strict`",
+   "profile_cell": "axiom-free (none)",
+   "status": "DERIVES — compiled from the rank function, not stipulated",
+   "names": [
+    "SIDEEffects.ExhaustivenessLicense.theorem_is_top",
+    "SIDEEffects.ExhaustivenessLicense.none_is_bottom",
+    "SIDEEffects.ExhaustivenessLicense.ladder_strict"
+   ],
+   "probes": [
+    [
+     "el",
+     null
+    ],
+    [
+     "el",
+     null
+    ],
+    [
+     "el",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 108,
+   "claim": "The corpus instances' grades (RH=THEOREM, Hodge=SEARCH, T7 & class-number diagonal = FORCED-OR-UNDERDETERMINED)",
+   "kernel": "SIDE-effects `ExhaustivenessLicense`",
+   "terminal_cell": "`RH_grade`; `Hodge_grade`; `T7_grade`; `classNumberDiagonal_grade`",
+   "profile_cell": "axiom-free (none)",
+   "status": "DERIVES — each computed by `grade`, proved by `rfl` (not an axiom)",
+   "names": [
+    "SIDEEffects.ExhaustivenessLicense.RH_grade",
+    "SIDEEffects.ExhaustivenessLicense.Hodge_grade",
+    "SIDEEffects.ExhaustivenessLicense.T7_grade",
+    "SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade"
+   ],
+   "probes": [
+    [
+     "el",
+     null
+    ],
+    [
+     "el",
+     null
+    ],
+    [
+     "el",
+     null
+    ],
+    [
+     "el",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 109,
+   "claim": "The instances sit in the ordered relation",
+   "kernel": "SIDE-effects `ExhaustivenessLicense`",
+   "terminal_cell": "`instances_ordered`",
+   "profile_cell": "axiom-free (none)",
+   "status": "DERIVES — compiled",
+   "names": [
+    "SIDEEffects.ExhaustivenessLicense.instances_ordered"
+   ],
+   "probes": [
+    [
+     "el",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 110,
+   "claim": "The E-Difficulty bridge (top grade ⇔ TYPE-I discharge)",
+   "kernel": "SIDE-effects `ExhaustivenessLicense`",
+   "terminal_cell": "`RH_typeI_of_top` (via the named premise `EDifficultyTop`)",
+   "profile_cell": "axiom-free (none)",
+   "status": "**INTERFACES** — the biconditional is a named premise, never proved here",
+   "names": [
+    "SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top"
+   ],
+   "probes": [
+    [
+     "el",
+     null
+    ]
+   ],
+   "note": null
+  }
+ ],
+ "INVAR": [
+  {
+   "line": 499,
+   "claim": "§1.1 — the reduction: RH under the one open premise `h2`",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`ConservationBridge.riemann_hypothesis`",
+   "profile_cell": "the standard three axioms `{propext, Classical.choice, Quot.sound}`",
+   "status": "Compiled — the reduction, not a proof of RH; `h2` carried open",
+   "names": [
+    "ConservationBridge.riemann_hypothesis"
+   ],
+   "probes": [
+    [
+     "k1",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 500,
+   "claim": "Theorem 3.1, semantic core (inference respecting indistinguishability cannot separate related points)",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`SieveCeilingSemantic.sieve_ceiling_semantic`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled — the contentful form of the ceiling",
+   "names": [
+    "SieveCeilingSemantic.sieve_ceiling_semantic"
+   ],
+   "probes": [
+    [
+     "c2t",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 501,
+   "claim": "Proof-shape dichotomy (factors dark or has bright access)",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`proof_dichotomy`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled",
+   "names": [
+    "proof_dichotomy"
+   ],
+   "probes": [
+    [
+     "c1t",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 502,
+   "claim": "Theorem 3.1, abstract-Proof form",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`sieve_ceiling`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Scaffolding (so labelled in its docstring; the contentful form is `sieve_ceiling_semantic`)",
+   "names": [
+    "sieve_ceiling"
+   ],
+   "probes": [
+    [
+     "c1t",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 503,
+   "claim": "Corollary 3.6, abstract-Proof form",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`bright_access_required`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Scaffolding (same labelling)",
+   "names": [
+    "bright_access_required"
+   ],
+   "probes": [
+    [
+     "c1t",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 504,
+   "claim": "Theorem 4.1 skeleton (decidability ⟺ domain-Ostrowski, in-kernel form)",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`e_difficulty`",
+   "profile_cell": "`{propext, Quot.sound}`",
+   "status": "Compiled skeleton (reads its system, extracts the domain-Ostrowski); the full dichotomy over concrete proof objects remains a conjecture",
+   "names": [
+    "e_difficulty"
+   ],
+   "probes": [
+    [
+     "c1t",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 505,
+   "claim": "Proposition 3.5 / §3.4 — witness architecture (agreeing pair with divergence datum)",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`SieveCeilingWitness.dh_witness`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled architecture; the off-line fact is a stipulated datum from Davenport–Heilbronn 1936, not re-proven in-kernel",
+   "names": [
+    "SieveCeilingWitness.dh_witness"
+   ],
+   "probes": [
+    [
+     "dw",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 506,
+   "claim": "§3.4 — barrier schema, raw invariance form",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`InvarianceBarrier.invariance_barrier`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled (general form only; committed at v1.6, re-audited unchanged at v1.7)",
+   "names": [
+    "InvarianceBarrier.invariance_barrier"
+   ],
+   "probes": [
+    [
+     "ib",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 507,
+   "claim": "§3.4 — operative terminal, the derivability corollary",
+   "kernel": "SIDE-kernel v1.7 = `2957e7d`",
+   "terminal_cell": "`InvarianceBarrier.derivability_barrier`",
+   "profile_cell": "axiom-free (none)",
+   "status": "Compiled (general form only; no ξ/Epstein instantiation, no RH content in the statement)",
+   "names": [
+    "InvarianceBarrier.derivability_barrier"
+   ],
+   "probes": [
+    [
+     "ib",
+     null
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 508,
+   "claim": "§3.4 clause (i) — the six T-tool agreement facts",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Manuscript-resident, one literature citation per tool (clause-(i) table)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 509,
+   "claim": "§3.4 clause (ii) — divergence (off-line zeros of ξ_Q)",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Literature (Davenport–Heilbronn 1936); the two located zeros doubly-sourced in Seale 2026g §5",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 510,
+   "claim": "§5.1 — the identification κ(σ, distributive-law interface) = 0",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Manuscript-resident structural reading, not a theorem of this paper; Theorem 3.1 applies to sieve methods conditionally on it (work-order W-ORD-KAPPA-DISTRIBUTIVE, OPEN_TRAILS)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 511,
+   "claim": "Full E-Difficulty dichotomy over first-order proof objects",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Research-reach (conjecture; missing library components named in §6.2; work-order W-ORD-E-DIFFICULTY-DICHOTOMY, OPEN_TRAILS)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 512,
+   "claim": "§9 — the archimedean κ-row and the per-place table",
+   "kernel": "(none)",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "Manuscript-resident structural readings; bright-half certificate = the two-route gauge verification (relay record); dark half = the drift/edge lemma and the compiled negatives (companion keystone); the table's dark cell = `h2`, carried open",
+   "names": [],
+   "probes": [],
+   "note": null
+  }
+ ],
+ "REPARAM": [
+  {
+   "line": 223,
+   "claim": "The inference step: agreement + divergence ⟹ not determined",
+   "kernel": "SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`)",
+   "terminal_cell": "`InvarianceBarrier.invariance_barrier`",
+   "profile_cell": "**axiom-free, re-printed**",
+   "status": "DERIVES",
+   "names": [
+    "InvarianceBarrier.invariance_barrier"
+   ],
+   "probes": [
+    [
+     "rp",
+     "rpt"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 224,
+   "claim": "The derivability form: assumes nothing of the object of interest",
+   "kernel": "SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`)",
+   "terminal_cell": "`InvarianceBarrier.derivability_barrier`",
+   "profile_cell": "**axiom-free, re-printed**",
+   "status": "DERIVES",
+   "names": [
+    "InvarianceBarrier.derivability_barrier"
+   ],
+   "probes": [
+    [
+     "rp",
+     "rpt"
+    ]
+   ],
+   "note": null
+  },
+  {
+   "line": 225,
+   "claim": "(W1) behavioral identity of *N* and *N_A*",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "manuscript-resident (§4, two lines)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 226,
+   "claim": "(W2) linear-probe equivalence",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "manuscript-resident (§4)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 227,
+   "claim": "(W3) geometric invariants preserved for orthogonal *A*",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "manuscript-resident (§4)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 228,
+   "claim": "(W4) dictionary code covariance",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "manuscript-resident (§4)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 229,
+   "claim": "(W5) divergence of the directional claim",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "manuscript-resident (§4, generic *A*)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 230,
+   "claim": "Membership of each listed method in D",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "manuscript-resident (§3 table, justified by W1–W4)",
+   "names": [],
+   "probes": [],
+   "note": null
+  },
+  {
+   "line": 231,
+   "claim": "Quantitative / approximate-invariance version",
+   "kernel": "—",
+   "terminal_cell": "—",
+   "profile_cell": "—",
+   "status": "research-reach (§7)",
+   "names": [],
+   "probes": [],
+   "note": null
+  }
+ ],
+ "EDIFF": [
+  {
+   "line": 162,
+   "claim": "sieve_ceiling — dark-factored proofs cannot reach universal statements",
+   "kernel": "SIDE-kernel v1.1 (`Kernel/Cascade/SieveCeiling.lean`; §VII)",
+   "terminal_cell": "- `sieve_ceiling` — dark-factored proofs cannot reach universal statements",
+   "profile_cell": "",
+   "status": "- `sieve_ceiling` — dark-factored proofs cannot reach universal statements",
+   "names": [
+    "sieve_ceiling"
+   ],
+   "probes": [
+    [
+     "e11",
+     "e11t"
+    ]
+   ]
+  },
+  {
+   "line": 163,
+   "claim": "proof_dichotomy — every proof is either dark-factored or has bright access",
+   "kernel": "SIDE-kernel v1.1 (`Kernel/Cascade/SieveCeiling.lean`; §VII)",
+   "terminal_cell": "- `proof_dichotomy` — every proof is either dark-factored or has bright access",
+   "profile_cell": "",
+   "status": "- `proof_dichotomy` — every proof is either dark-factored or has bright access",
+   "names": [
+    "proof_dichotomy"
+   ],
+   "probes": [
+    [
+     "e11",
+     "e11t"
+    ]
+   ]
+  },
+  {
+   "line": 164,
+   "claim": "e_difficulty — for systems with classes ≥ 1, IsDecidable iff Nonempty (DomainOstrowski)",
+   "kernel": "SIDE-kernel v1.1 (`Kernel/Cascade/SieveCeiling.lean`; §VII)",
+   "terminal_cell": "- `e_difficulty` — for systems with `classes ≥ 1`, IsDecidable iff Nonempty (DomainOstrowski)",
+   "profile_cell": "",
+   "status": "- `e_difficulty` — for systems with `classes ≥ 1`, IsDecidable iff Nonempty (DomainOstrowski)",
+   "names": [
+    "e_difficulty"
+   ],
+   "probes": [
+    [
+     "e11",
+     "e11t"
+    ]
+   ]
+  },
+  {
+   "line": 165,
+   "claim": "e_difficulty_xi — smoke test applied to the ξ_system",
+   "kernel": "SIDE-kernel v1.1 (`Kernel/Cascade/SieveCeiling.lean`; §VII)",
+   "terminal_cell": "- `e_difficulty_xi` — smoke test applied to the ξ_system",
+   "profile_cell": "",
+   "status": "- `e_difficulty_xi` — smoke test applied to the ξ_system",
+   "names": [
+    "e_difficulty_xi"
+   ],
+   "probes": [
+    [
+     "e11",
+     "e11t"
+    ]
+   ]
+  }
+ ],
+ "ENUMERA": []
+}

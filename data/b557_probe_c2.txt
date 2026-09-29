@@ -1,0 +1,11 @@
+SIDE-kernel v1.4 = f37417410589fb1a9df0232c388b48852f46843e ; git show v1.4:Kernel/Cascade/SieveCeilingSemantic.lean ; checkout HEAD 0256e9e1297f branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SieveCeilingSemantic.sieve_ceiling_semantic']
+start 2026-09-29T03:58:44Z
+@SieveCeilingSemantic.sieve_ceiling_semantic : ∀ {U : Type u_1} (r : U → U → Prop) {onLine : U → Prop},
+  ¬SieveCeilingSemantic.RespectsI r onLine → ¬∃ D, SieveCeilingSemantic.RespectsI r D ∧ ∀ (z : U), D z ↔ onLine z
+'SieveCeilingSemantic.sieve_ceiling_semantic' does not depend on any axioms
+real 1.7 s
+exit 0

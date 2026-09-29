@@ -1,0 +1,57 @@
+SIDE-effects HEAD = ef4cff776f8918761bdb08d9e23f684b0abd5875 ; git show HEAD:SIDEEffects/ExhaustivenessLicense.lean ; checkout HEAD ef4cff776f89 branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.30.0-rc2 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['SIDEEffects.ExhaustivenessLicense.Grade', 'SIDEEffects.ExhaustivenessLicense.Grade.le_refl', 'SIDEEffects.ExhaustivenessLicense.Grade.le_trans', 'SIDEEffects.ExhaustivenessLicense.theorem_is_top', 'SIDEEffects.ExhaustivenessLicense.none_is_bottom', 'SIDEEffects.ExhaustivenessLicense.ladder_strict', 'SIDEEffects.ExhaustivenessLicense.RH_grade', 'SIDEEffects.ExhaustivenessLicense.Hodge_grade', 'SIDEEffects.ExhaustivenessLicense.T7_grade', 'SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade', 'SIDEEffects.ExhaustivenessLicense.instances_ordered', 'SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top', 'SIDEEffects.ExhaustivenessLicense.EDifficultyTop']
+start 2026-09-29T04:11:02Z
+SIDEEffects.ExhaustivenessLicense.Grade : Type
+SIDEEffects.ExhaustivenessLicense.Grade.le_refl : ∀ (a : SIDEEffects.ExhaustivenessLicense.Grade), a ≤ a
+@SIDEEffects.ExhaustivenessLicense.Grade.le_trans : ∀ {a b c : SIDEEffects.ExhaustivenessLicense.Grade},
+  a ≤ b → b ≤ c → a ≤ c
+SIDEEffects.ExhaustivenessLicense.theorem_is_top : ∀ (g : SIDEEffects.ExhaustivenessLicense.Grade),
+  g ≤ SIDEEffects.ExhaustivenessLicense.Grade.theorem_
+SIDEEffects.ExhaustivenessLicense.none_is_bottom : ∀ (g : SIDEEffects.ExhaustivenessLicense.Grade),
+  SIDEEffects.ExhaustivenessLicense.Grade.none ≤ g
+SIDEEffects.ExhaustivenessLicense.ladder_strict : SIDEEffects.ExhaustivenessLicense.Grade.none.rank <
+    SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined.rank ∧
+  SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined.rank <
+      SIDEEffects.ExhaustivenessLicense.Grade.search.rank ∧
+    SIDEEffects.ExhaustivenessLicense.Grade.search.rank < SIDEEffects.ExhaustivenessLicense.Grade.theorem_.rank
+SIDEEffects.ExhaustivenessLicense.RH_grade : SIDEEffects.ExhaustivenessLicense.grade
+    SIDEEffects.ExhaustivenessLicense.RH_evidence =
+  SIDEEffects.ExhaustivenessLicense.Grade.theorem_
+SIDEEffects.ExhaustivenessLicense.Hodge_grade : SIDEEffects.ExhaustivenessLicense.grade
+    SIDEEffects.ExhaustivenessLicense.Hodge_evidence =
+  SIDEEffects.ExhaustivenessLicense.Grade.search
+SIDEEffects.ExhaustivenessLicense.T7_grade : SIDEEffects.ExhaustivenessLicense.grade
+    SIDEEffects.ExhaustivenessLicense.T7_evidence =
+  SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined
+SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade : SIDEEffects.ExhaustivenessLicense.grade
+    SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_evidence =
+  SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined
+SIDEEffects.ExhaustivenessLicense.instances_ordered : SIDEEffects.ExhaustivenessLicense.grade
+      SIDEEffects.ExhaustivenessLicense.T7_evidence ≤
+    SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence ∧
+  SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence ≤
+      SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.RH_evidence ∧
+    SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_evidence ≤
+      SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence
+@SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top : ∀ {RH_typeI_discharged : Prop},
+  SIDEEffects.ExhaustivenessLicense.EDifficultyTop SIDEEffects.ExhaustivenessLicense.RH_evidence RH_typeI_discharged →
+    RH_typeI_discharged
+SIDEEffects.ExhaustivenessLicense.EDifficultyTop : SIDEEffects.ExhaustivenessLicense.Evidence → Prop → Prop
+'SIDEEffects.ExhaustivenessLicense.Grade' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.Grade.le_refl' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.Grade.le_trans' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.theorem_is_top' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.none_is_bottom' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.ladder_strict' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.RH_grade' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.Hodge_grade' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.T7_grade' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.instances_ordered' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top' does not depend on any axioms
+'SIDEEffects.ExhaustivenessLicense.EDifficultyTop' does not depend on any axioms
+real 3.8 s
+exit 0

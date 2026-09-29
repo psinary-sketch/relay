@@ -1,0 +1,14 @@
+SIDE-compression v0.2.0 = e9a5a368d14aeb63ae970acb84fc135838b9f6d2 ; git show v0.2.0:SIDECompression/ChainLength.lean ; checkout HEAD e9a5a368d14a branch main ; lake-manifest and lean-toolchain equal to HEAD: True ; toolchain at pin leanprover/lean4:v4.29.0-rc8 ; mode vanilla
+repo-local imports (pin vs checkout HEAD): NONE
+file at pin vs checkout HEAD: SAME
+inlined ahead of the file: NONE
+names: ['Compression.compression', 'Compression.compression_infinite_objects']
+start 2026-09-29T04:00:23Z
+@Compression.compression : ∀ {α : Type} {N : Nat} (C : Compression.Catalogue α N) (violates : α → Prop),
+  Compression.Exhaustive C violates → (∀ (i : Fin N), Compression.ClassClear C i) → ∀ (x : α), ¬violates x
+@Compression.compression_infinite_objects : ∀ {N : Nat} (C : Compression.Catalogue Nat N) (violates : Nat → Prop),
+  Compression.Exhaustive C violates → (∀ (i : Fin N), Compression.ClassClear C i) → ∀ (n : Nat), ¬violates n
+'Compression.compression' does not depend on any axioms
+'Compression.compression_infinite_objects' does not depend on any axioms
+real 0.9 s
+exit 0

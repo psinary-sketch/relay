@@ -1,0 +1,773 @@
+{
+ "files": {
+  "v1.2:Kernel/Cascade/SieveCeiling.lean": [
+   {
+    "line": 42,
+    "kind": "inductive",
+    "name": "Kappa",
+    "grade": "contentful"
+   },
+   {
+    "line": 49,
+    "kind": "def",
+    "name": "Kappa.isDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 54,
+    "kind": "structure",
+    "name": "Interface",
+    "grade": "contentful"
+   },
+   {
+    "line": 63,
+    "kind": "structure",
+    "name": "DeterminedSystem",
+    "grade": "contentful"
+   },
+   {
+    "line": 69,
+    "kind": "def",
+    "name": "DeterminedSystem.isConserved",
+    "grade": "contentful"
+   },
+   {
+    "line": 82,
+    "kind": "inductive",
+    "name": "StepAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 91,
+    "kind": "abbrev",
+    "name": "Proof",
+    "grade": "contentful"
+   },
+   {
+    "line": 94,
+    "kind": "def",
+    "name": "Proof.factorsDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 101,
+    "kind": "def",
+    "name": "Proof.hasBrightAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 107,
+    "kind": "theorem",
+    "name": "proof_mutually_exclusive",
+    "grade": "contentful"
+   },
+   {
+    "line": 116,
+    "kind": "theorem",
+    "name": "proof_dichotomy",
+    "grade": "contentful"
+   },
+   {
+    "line": 145,
+    "kind": "inductive",
+    "name": "StatementKind",
+    "grade": "contentful"
+   },
+   {
+    "line": 152,
+    "kind": "def",
+    "name": "StatementKind.strength",
+    "grade": "contentful"
+   },
+   {
+    "line": 169,
+    "kind": "def",
+    "name": "maxStatement",
+    "grade": "contentful"
+   },
+   {
+    "line": 174,
+    "kind": "theorem",
+    "name": "factored_dark_capped",
+    "grade": "contentful"
+   },
+   {
+    "line": 191,
+    "kind": "theorem",
+    "name": "density_one_lt_universal",
+    "grade": "contentful"
+   },
+   {
+    "line": 203,
+    "kind": "theorem",
+    "name": "sieve_ceiling",
+    "grade": "contentful"
+   },
+   {
+    "line": 211,
+    "kind": "theorem",
+    "name": "bright_access_required",
+    "grade": "contentful"
+   },
+   {
+    "line": 228,
+    "kind": "structure",
+    "name": "DomainOstrowski",
+    "grade": "contentful"
+   },
+   {
+    "line": 235,
+    "kind": "def",
+    "name": "IsDecidable",
+    "grade": "contentful"
+   },
+   {
+    "line": 239,
+    "kind": "theorem",
+    "name": "hasBright_not_factorsDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 245,
+    "kind": "theorem",
+    "name": "hasBright_maxStatement",
+    "grade": "contentful"
+   },
+   {
+    "line": 266,
+    "kind": "theorem",
+    "name": "e_difficulty",
+    "grade": "contentful"
+   },
+   {
+    "line": 312,
+    "kind": "def",
+    "name": "xi_system",
+    "grade": "contentful"
+   },
+   {
+    "line": 317,
+    "kind": "theorem",
+    "name": "xi_conserved",
+    "grade": "contentful"
+   },
+   {
+    "line": 320,
+    "kind": "theorem",
+    "name": "xi_nontrivial",
+    "grade": "contentful"
+   },
+   {
+    "line": 323,
+    "kind": "theorem",
+    "name": "e_difficulty_xi",
+    "grade": "contentful"
+   }
+  ],
+  "v1.2:Kernel/Cascade/SieveCeilingSemantic.lean": [
+   {
+    "line": 41,
+    "kind": "def",
+    "name": "RespectsI",
+    "grade": "contentful"
+   },
+   {
+    "line": 48,
+    "kind": "theorem",
+    "name": "sieve_ceiling_semantic",
+    "grade": "contentful"
+   },
+   {
+    "line": 60,
+    "kind": "def",
+    "name": "NonInvarianceWitness",
+    "grade": "contentful"
+   },
+   {
+    "line": 64,
+    "kind": "theorem",
+    "name": "not_respectsI_of_witness",
+    "grade": "contentful"
+   },
+   {
+    "line": 74,
+    "kind": "theorem",
+    "name": "sieve_ceiling_of_witness",
+    "grade": "contentful"
+   }
+  ],
+  "v1.2:Kernel/Cascade/SieveCeilingWitness.lean": [
+   {
+    "line": 35,
+    "kind": "inductive",
+    "name": "Config",
+    "grade": "contentful"
+   },
+   {
+    "line": 43,
+    "kind": "def",
+    "name": "iIndist",
+    "grade": "True body"
+   },
+   {
+    "line": 48,
+    "kind": "def",
+    "name": "allOnLine",
+    "grade": "contentful"
+   },
+   {
+    "line": 54,
+    "kind": "theorem",
+    "name": "dh_witness",
+    "grade": "contentful"
+   },
+   {
+    "line": 60,
+    "kind": "theorem",
+    "name": "dh_sieve_ceiling",
+    "grade": "contentful"
+   }
+  ],
+  "v1.4:Kernel/Cascade/SieveCeiling.lean": [
+   {
+    "line": 59,
+    "kind": "inductive",
+    "name": "Kappa",
+    "grade": "contentful"
+   },
+   {
+    "line": 66,
+    "kind": "def",
+    "name": "Kappa.isDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 71,
+    "kind": "structure",
+    "name": "Interface",
+    "grade": "contentful"
+   },
+   {
+    "line": 80,
+    "kind": "structure",
+    "name": "DeterminedSystem",
+    "grade": "contentful"
+   },
+   {
+    "line": 86,
+    "kind": "def",
+    "name": "DeterminedSystem.isConserved",
+    "grade": "contentful"
+   },
+   {
+    "line": 99,
+    "kind": "inductive",
+    "name": "StepAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 108,
+    "kind": "abbrev",
+    "name": "Proof",
+    "grade": "contentful"
+   },
+   {
+    "line": 111,
+    "kind": "def",
+    "name": "Proof.factorsDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 118,
+    "kind": "def",
+    "name": "Proof.hasBrightAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 124,
+    "kind": "theorem",
+    "name": "proof_mutually_exclusive",
+    "grade": "contentful"
+   },
+   {
+    "line": 134,
+    "kind": "theorem",
+    "name": "proof_dichotomy",
+    "grade": "contentful"
+   },
+   {
+    "line": 161,
+    "kind": "inductive",
+    "name": "StatementKind",
+    "grade": "contentful"
+   },
+   {
+    "line": 168,
+    "kind": "def",
+    "name": "StatementKind.strength",
+    "grade": "contentful"
+   },
+   {
+    "line": 182,
+    "kind": "def",
+    "name": "maxStatement",
+    "grade": "SCAFFOLDING (docstring)"
+   },
+   {
+    "line": 187,
+    "kind": "theorem",
+    "name": "factored_dark_capped",
+    "grade": "contentful"
+   },
+   {
+    "line": 198,
+    "kind": "theorem",
+    "name": "density_one_lt_universal",
+    "grade": "contentful"
+   },
+   {
+    "line": 209,
+    "kind": "theorem",
+    "name": "sieve_ceiling",
+    "grade": "SCAFFOLDING (docstring)"
+   },
+   {
+    "line": 219,
+    "kind": "theorem",
+    "name": "bright_access_required",
+    "grade": "SCAFFOLDING (docstring)"
+   },
+   {
+    "line": 236,
+    "kind": "structure",
+    "name": "Step",
+    "grade": "contentful"
+   },
+   {
+    "line": 242,
+    "kind": "def",
+    "name": "Step.isBright",
+    "grade": "contentful"
+   },
+   {
+    "line": 246,
+    "kind": "abbrev",
+    "name": "SysProof",
+    "grade": "contentful"
+   },
+   {
+    "line": 249,
+    "kind": "def",
+    "name": "SysProof.hasBrightAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 253,
+    "kind": "def",
+    "name": "SysProof.anyBright",
+    "grade": "contentful"
+   },
+   {
+    "line": 256,
+    "kind": "theorem",
+    "name": "anyBright_iff",
+    "grade": "contentful"
+   },
+   {
+    "line": 265,
+    "kind": "def",
+    "name": "sysMaxStatement",
+    "grade": "contentful"
+   },
+   {
+    "line": 270,
+    "kind": "theorem",
+    "name": "sysMax_universal_iff",
+    "grade": "contentful"
+   },
+   {
+    "line": 281,
+    "kind": "def",
+    "name": "IsDecidable",
+    "grade": "contentful"
+   },
+   {
+    "line": 290,
+    "kind": "structure",
+    "name": "DomainOstrowski",
+    "grade": "contentful"
+   },
+   {
+    "line": 309,
+    "kind": "theorem",
+    "name": "e_difficulty",
+    "grade": "contentful"
+   },
+   {
+    "line": 338,
+    "kind": "def",
+    "name": "xi_system",
+    "grade": "contentful"
+   },
+   {
+    "line": 343,
+    "kind": "theorem",
+    "name": "xi_conserved",
+    "grade": "contentful"
+   },
+   {
+    "line": 349,
+    "kind": "theorem",
+    "name": "e_difficulty_xi",
+    "grade": "contentful"
+   }
+  ],
+  "v1.4:Kernel/Cascade/SieveCeilingSemantic.lean": [
+   {
+    "line": 41,
+    "kind": "def",
+    "name": "RespectsI",
+    "grade": "contentful"
+   },
+   {
+    "line": 48,
+    "kind": "theorem",
+    "name": "sieve_ceiling_semantic",
+    "grade": "contentful"
+   },
+   {
+    "line": 60,
+    "kind": "def",
+    "name": "NonInvarianceWitness",
+    "grade": "contentful"
+   },
+   {
+    "line": 64,
+    "kind": "theorem",
+    "name": "not_respectsI_of_witness",
+    "grade": "contentful"
+   },
+   {
+    "line": 74,
+    "kind": "theorem",
+    "name": "sieve_ceiling_of_witness",
+    "grade": "contentful"
+   }
+  ],
+  "v1.4:Kernel/Cascade/SieveCeilingWitness.lean": [
+   {
+    "line": 49,
+    "kind": "inductive",
+    "name": "Config",
+    "grade": "contentful"
+   },
+   {
+    "line": 62,
+    "kind": "def",
+    "name": "darkObs",
+    "grade": "contentful"
+   },
+   {
+    "line": 71,
+    "kind": "def",
+    "name": "iIndist",
+    "grade": "contentful"
+   },
+   {
+    "line": 81,
+    "kind": "theorem",
+    "name": "darkReading_capable_of_falsity",
+    "grade": "contentful"
+   },
+   {
+    "line": 87,
+    "kind": "def",
+    "name": "allOnLine",
+    "grade": "contentful"
+   },
+   {
+    "line": 94,
+    "kind": "theorem",
+    "name": "dh_witness",
+    "grade": "contentful"
+   },
+   {
+    "line": 100,
+    "kind": "theorem",
+    "name": "dh_sieve_ceiling",
+    "grade": "contentful"
+   }
+  ],
+  "v1.7:Kernel/Cascade/SieveCeiling.lean": [
+   {
+    "line": 59,
+    "kind": "inductive",
+    "name": "Kappa",
+    "grade": "contentful"
+   },
+   {
+    "line": 66,
+    "kind": "def",
+    "name": "Kappa.isDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 71,
+    "kind": "structure",
+    "name": "Interface",
+    "grade": "contentful"
+   },
+   {
+    "line": 80,
+    "kind": "structure",
+    "name": "DeterminedSystem",
+    "grade": "contentful"
+   },
+   {
+    "line": 86,
+    "kind": "def",
+    "name": "DeterminedSystem.isConserved",
+    "grade": "contentful"
+   },
+   {
+    "line": 99,
+    "kind": "inductive",
+    "name": "StepAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 108,
+    "kind": "abbrev",
+    "name": "Proof",
+    "grade": "contentful"
+   },
+   {
+    "line": 111,
+    "kind": "def",
+    "name": "Proof.factorsDark",
+    "grade": "contentful"
+   },
+   {
+    "line": 118,
+    "kind": "def",
+    "name": "Proof.hasBrightAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 124,
+    "kind": "theorem",
+    "name": "proof_mutually_exclusive",
+    "grade": "contentful"
+   },
+   {
+    "line": 134,
+    "kind": "theorem",
+    "name": "proof_dichotomy",
+    "grade": "contentful"
+   },
+   {
+    "line": 161,
+    "kind": "inductive",
+    "name": "StatementKind",
+    "grade": "contentful"
+   },
+   {
+    "line": 168,
+    "kind": "def",
+    "name": "StatementKind.strength",
+    "grade": "contentful"
+   },
+   {
+    "line": 182,
+    "kind": "def",
+    "name": "maxStatement",
+    "grade": "SCAFFOLDING (docstring)"
+   },
+   {
+    "line": 187,
+    "kind": "theorem",
+    "name": "factored_dark_capped",
+    "grade": "contentful"
+   },
+   {
+    "line": 198,
+    "kind": "theorem",
+    "name": "density_one_lt_universal",
+    "grade": "contentful"
+   },
+   {
+    "line": 209,
+    "kind": "theorem",
+    "name": "sieve_ceiling",
+    "grade": "SCAFFOLDING (docstring)"
+   },
+   {
+    "line": 219,
+    "kind": "theorem",
+    "name": "bright_access_required",
+    "grade": "SCAFFOLDING (docstring)"
+   },
+   {
+    "line": 236,
+    "kind": "structure",
+    "name": "Step",
+    "grade": "contentful"
+   },
+   {
+    "line": 242,
+    "kind": "def",
+    "name": "Step.isBright",
+    "grade": "contentful"
+   },
+   {
+    "line": 246,
+    "kind": "abbrev",
+    "name": "SysProof",
+    "grade": "contentful"
+   },
+   {
+    "line": 249,
+    "kind": "def",
+    "name": "SysProof.hasBrightAccess",
+    "grade": "contentful"
+   },
+   {
+    "line": 253,
+    "kind": "def",
+    "name": "SysProof.anyBright",
+    "grade": "contentful"
+   },
+   {
+    "line": 256,
+    "kind": "theorem",
+    "name": "anyBright_iff",
+    "grade": "contentful"
+   },
+   {
+    "line": 265,
+    "kind": "def",
+    "name": "sysMaxStatement",
+    "grade": "contentful"
+   },
+   {
+    "line": 270,
+    "kind": "theorem",
+    "name": "sysMax_universal_iff",
+    "grade": "contentful"
+   },
+   {
+    "line": 281,
+    "kind": "def",
+    "name": "IsDecidable",
+    "grade": "contentful"
+   },
+   {
+    "line": 290,
+    "kind": "structure",
+    "name": "DomainOstrowski",
+    "grade": "contentful"
+   },
+   {
+    "line": 309,
+    "kind": "theorem",
+    "name": "e_difficulty",
+    "grade": "contentful"
+   },
+   {
+    "line": 338,
+    "kind": "def",
+    "name": "xi_system",
+    "grade": "contentful"
+   },
+   {
+    "line": 343,
+    "kind": "theorem",
+    "name": "xi_conserved",
+    "grade": "contentful"
+   },
+   {
+    "line": 349,
+    "kind": "theorem",
+    "name": "e_difficulty_xi",
+    "grade": "contentful"
+   }
+  ],
+  "v1.7:Kernel/Cascade/SieveCeilingSemantic.lean": [
+   {
+    "line": 41,
+    "kind": "def",
+    "name": "RespectsI",
+    "grade": "contentful"
+   },
+   {
+    "line": 48,
+    "kind": "theorem",
+    "name": "sieve_ceiling_semantic",
+    "grade": "contentful"
+   },
+   {
+    "line": 60,
+    "kind": "def",
+    "name": "NonInvarianceWitness",
+    "grade": "contentful"
+   },
+   {
+    "line": 64,
+    "kind": "theorem",
+    "name": "not_respectsI_of_witness",
+    "grade": "contentful"
+   },
+   {
+    "line": 74,
+    "kind": "theorem",
+    "name": "sieve_ceiling_of_witness",
+    "grade": "contentful"
+   }
+  ],
+  "v1.7:Kernel/Cascade/SieveCeilingWitness.lean": [
+   {
+    "line": 49,
+    "kind": "inductive",
+    "name": "Config",
+    "grade": "contentful"
+   },
+   {
+    "line": 62,
+    "kind": "def",
+    "name": "darkObs",
+    "grade": "contentful"
+   },
+   {
+    "line": 71,
+    "kind": "def",
+    "name": "iIndist",
+    "grade": "contentful"
+   },
+   {
+    "line": 81,
+    "kind": "theorem",
+    "name": "darkReading_capable_of_falsity",
+    "grade": "contentful"
+   },
+   {
+    "line": 87,
+    "kind": "def",
+    "name": "allOnLine",
+    "grade": "contentful"
+   },
+   {
+    "line": 94,
+    "kind": "theorem",
+    "name": "dh_witness",
+    "grade": "contentful"
+   },
+   {
+    "line": 100,
+    "kind": "theorem",
+    "name": "dh_sieve_ceiling",
+    "grade": "contentful"
+   }
+  ]
+ },
+ "effects_a27415d": []
+}

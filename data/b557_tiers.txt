@@ -1,0 +1,644 @@
+b557 -- READING (6): THE CORRESPONDENCE ROWS OF THE SECOND BATCH, RE-READ AT PIN
+
+### the probes (relay data/b557_probe_<id>.txt):
+    c1    SIDE-kernel                        v1.4     Kernel/Cascade/SieveCeiling.lean                 mode vanilla exit 0 112.7 s errors 0 imports NONE
+    c1t   SIDE-kernel                        v1.7     Kernel/Cascade/SieveCeiling.lean                 IDENTICAL to c1
+    c2    SIDE-kernel                        v1.4     Kernel/Cascade/SieveCeilingSemantic.lean         mode vanilla exit 0 1.7 s errors 0 imports NONE
+    c2t   SIDE-kernel                        v1.7     Kernel/Cascade/SieveCeilingSemantic.lean         IDENTICAL to c2
+    co    SIDE-cosmo                         c5cba30  SIDECosmo/SteaneExemplar.lean                    mode lake exit 0 634.2 s errors 0 imports [['SIDECosmo/FanoFormation.lean', 'SAME'], ['SIDECosmo/FormationPhaseSpace.lean', 'SAME'], ['SIDECosmo/FanoPlane.lean', 'SAME']]
+    cp    SIDE-compression                   v0.2.0   SIDECompression/ChainLength.lean                 mode vanilla exit 0 0.9 s errors 0 imports NONE
+    dw    SIDE-kernel                        v1.7     Kernel/Cascade/SieveCeilingWitness.lean          mode lake exit 0 3.3 s errors 0 imports [['Kernel/Cascade/SieveCeilingSemantic.lean', 'SAME']]
+    e11   SIDE-kernel                        v1.1     Kernel/Cascade/SieveCeiling.lean                 mode vanilla exit 0 1.3 s errors 0 imports NONE
+    e11t  SIDE-kernel                        v1.7     Kernel/Cascade/SieveCeiling.lean                 mode vanilla exit 0 1.0 s errors 0 imports NONE
+    el    SIDE-effects                       HEAD     SIDEEffects/ExhaustivenessLicense.lean           mode vanilla exit 0 3.8 s errors 0 imports NONE
+    ib    SIDE-kernel                        v1.7     Kernel/Cascade/InvarianceBarrier.lean            mode lake exit 0 82.9 s errors 0 imports NONE
+    k1    SIDE-kernel                        v1.7     Bridge/ConservationBridge.lean                   mode lake exit 0 196.5 s errors 0 imports [['Kernel/XiDef.lean', 'SAME'], ['Kernel/PoissonExhaustion.lean', 'SAME'], ['Kernel/Integration.lean', 'SAME'], ['Kernel/Voice1.lean', 'SAME'], ['Kernel/Voice2.lean', 'SAME'], ['Kernel/Voice3.lean', 'SAME'], ['Kernel/Voice3b.lean', 'SAME'], ['Kernel/Voice5.lean', 'SAME'], ['Kernel/Voice6.lean', 'SAME'], ['Kernel/Voice7.lean', 'SAME'], ['Kernel/Layer1.lean', 'SAME'], ['Kernel/Core.lean', 'SAME']]
+    k3    SIDE-kernel                        v1.2     Kernel/ProductFormula_Rat.lean                   mode lake exit 0 13.3 s errors 0 imports NONE
+    k3t   SIDE-kernel                        v1.7     Kernel/ProductFormula_Rat.lean                   IDENTICAL to k3
+    k6    SIDE-kernel                        v1.2     MetaKernel.lean                                  mode lake exit 0 314.2 s errors 0 imports NONE
+    k6t   SIDE-kernel                        v1.7     MetaKernel.lean                                  IDENTICAL to k6
+    k7    SIDE-kernel                        v1.2     Kernel/SilenceTheorem.lean                       mode lake exit 0 58.9 s errors 0 imports NONE
+    k7t   SIDE-kernel                        v1.7     Kernel/SilenceTheorem.lean                       IDENTICAL to k7
+    k8    SIDE-kernel                        v1.2     Bridge/OstrowskiBridge.lean                      mode lake exit 0 328.6 s errors 0 imports [['Kernel/Core.lean', 'SAME']]
+    k8t   SIDE-kernel                        v1.7     Bridge/OstrowskiBridge.lean                      IDENTICAL to k8
+    k9    SIDE-kernel                        v1.2     Bridge/LocalZeta.lean                            mode lake exit 0 17.4 s errors 0 imports [['Kernel/Core.lean', 'SAME']]
+    k9t   SIDE-kernel                        v1.7     Bridge/LocalZeta.lean                            IDENTICAL to k9
+    kc    SIDE-kernel                        v1.7     Kernel/Core.lean                                 mode lake exit 0 11.3 s errors 0 imports NONE
+    lh    SIDE-lv-conservation               e3d08b6  SIDELvConservation/CouplingsAtPhi.lean           mode lake exit 0 30.5 s errors 0 imports [['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+    lht   SIDE-lv-conservation               v0.11.0  SIDELvConservation/CouplingsAtPhi.lean           IDENTICAL to lh
+    lp    SIDE-lv-conservation               e3d08b6  SIDELvConservation/PartialPositivity.lean        mode lake exit 0 599.1 s errors 0 imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+    lpt   SIDE-lv-conservation               v0.11.0  SIDELvConservation/PartialPositivity.lean        mode lake exit 0 23.3 s errors 0 imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/ZeroCarrier.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+    m4r   SIDE-lv-conservation               5a14205  SIDELvConservation/ZeroActingPairing.lean        mode lake exit 0 20.5 s errors 0 imports [['SIDELvConservation/RegisterPentagon.lean', 'SAME'], ['SIDELvConservation/CouplingsAtPhi.lean', 'SAME'], ['SIDELvConservation/T1_MellinFactorization.lean', 'SAME'], ['SIDELvConservation/T2_SDarkness.lean', 'SAME'], ['SIDELvConservation/T3_StepNineBridge.lean', 'SAME'], ['SIDELvConservation/C7OrderBounds.lean', 'SAME'], ['SIDELvConservation/GammaBounds.lean', 'SAME']]
+    rp    SIDE-kernel                        5e668b4  Kernel/Cascade/InvarianceBarrier.lean            mode lake exit 0 3.2 s errors 0 imports NONE
+    rpt   SIDE-kernel                        v1.7     Kernel/Cascade/InvarianceBarrier.lean            IDENTICAL to rp
+    s1    SIDE-silence-principle             v0.1.0   SIDESilencePrinciple/Basic.lean                  mode vanilla exit 0 1.5 s errors 0 imports NONE
+    s1h   SIDE-silence-principle             667c254  SIDESilencePrinciple/Basic.lean                  mode vanilla exit 0 1.1 s errors 0 imports NONE
+    se    SIDE-structural-error-correction   6a4f482  SIDEStructuralErrorCorrection/DeAlignment.lean   mode vanilla exit 0 1.1 s errors 0 imports NONE
+    vb    SIDE-kernel                        0e5233f  Kernel/Voice3b.lean                              mode lake exit 0 15.8 s errors 0 imports NONE
+    vbt   SIDE-kernel                        v1.7     Kernel/Voice3b.lean                              IDENTICAL to vb
+
+====================================================================================================
+### FOUNDATIONS_OF_THE_SIDE_PROGRAMME (phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md at PLACE-papers f54a255): 15 rows; 17 terminal readings
+====================================================================================================
+
+### :625 SilenceTheorem.silence_universal [FOUND at v1.2 via k7]
+    statement : @SilenceTheorem.silence_universal : ∀ {C : SilenceTheorem.ConfigurationSpace} {R : Type} (I : SilenceTheorem.Interface C R), I.is_universal → I.kappa_zero
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'k7t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2-INTERFACES -- INTERFACES on `I.is_universal`, a programme structure`s property the manuscript asserts ((R165)(3); b555)
+    earlier   : ('T2-INTERFACES', 'b555') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :626 SIDESilencePrinciple.product_formula_silent [FOUND at v0.1.0 via s1]
+    statement : SIDESilencePrinciple.product_formula_silent : SIDESilencePrinciple.isSilent SIDESilencePrinciple.product_formula = true
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- `decide` over the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0` on hand-defined instances); the row grades it ENCODES-CONCLUSION
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :627 SIDESilencePrinciple.distributive_law_silent [FOUND at v0.1.0 via s1]
+    statement : SIDESilencePrinciple.distributive_law_silent : SIDESilencePrinciple.isSilent SIDESilencePrinciple.distributive_law = true
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- as `product_formula_silent`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :628 SIDESilencePrinciple.silence_principle [FOUND at v0.1.0 via s1]
+    statement : SIDESilencePrinciple.silence_principle : ∀ (I : SIDESilencePrinciple.Interface), SIDESilencePrinciple.chain_holds I = true → I.essential = true → SIDESilencePrinciple.isSilent I = true
+    profile   : depends on axioms: [propext]   (the row prints: depends on axioms: [propext])
+    at the tag: no tag beyond the pin
+    tier      : T2 -- a Bool chain over the file`s `Interface` -- the decidable shadow (the file`s own later relabel)
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :628 SIDESilencePrinciple.Universal.silence_universal [NOT FOUND at v0.1.0 via s1]
+    statement : NONE
+    profile   : None   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2-INTERFACES -- ABSENT at v0.1.0; at HEAD `667c254` (untagged) a type-generic universality premise over the file`s interfaces
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: MOVED -- not found at its pin
+
+### :629 ECondition.type_I_has_ostrowski [FOUND at v1.2 via k6]
+    statement : ECondition.type_I_has_ostrowski : ∀ (Domain : Type) [Fintype Domain] (target : Prop) (produces : Domain → Prop), (∀ (d : Domain), ¬produces d) → (target → ∃ d, produces d) → ¬target
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+    at the tag: {'probe': 'k6t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    tier      : T2 -- modus tollens over an abstract `Domain` whose `[Fintype Domain]` is never used -- logic alone (b539, b555)
+    earlier   : ('T2', 'b555') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :630 sieve_ceiling [FOUND at v1.4 via c1]
+    statement : sieve_ceiling : ∀ (π : Proof), π.factorsDark → (maxStatement π).strength < StatementKind.universal.strength
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2-SHELL -- T2-SHELL: abstract-Proof bookkeeping over the file`s own `Proof`; its docstring at v1.4 and v1.7 labels it SCAFFOLDING
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :630 SieveCeilingSemantic.sieve_ceiling_semantic [FOUND at v1.4 via c2]
+    statement : @SieveCeilingSemantic.sieve_ceiling_semantic : ∀ {U : Type u_1} (r : U → U → Prop) {onLine : U → Prop}, ¬SieveCeilingSemantic.RespectsI r onLine → ¬∃ D, SieveCeilingSemantic.RespectsI r D ∧ ∀ (z : U), D z ↔ onLine z
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'c2t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2 -- a general schema over an arbitrary carrier and indistinguishability relation -- the contentful ceiling, logic whose readings are carried by names
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :631 proof_dichotomy [FOUND at v1.4 via c1]
+    statement : proof_dichotomy : ∀ (π : Proof), π.factorsDark ∨ π.hasBrightAccess
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2 -- excluded middle over the file`s `StepAccess` lists
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :632 bright_access_required [FOUND at v1.4 via c1]
+    statement : bright_access_required : ∀ (π : Proof), (maxStatement π).strength = StatementKind.universal.strength → π.hasBrightAccess
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2-SHELL -- T2-SHELL: abstract-Proof bookkeeping over the file`s own `Proof`; its docstring at v1.4 and v1.7 labels it SCAFFOLDING
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :633 e_difficulty [FOUND at v1.4 via c1]
+    statement : e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → (IsDecidable s ↔ Nonempty (DomainOstrowski s))
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+    at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    tier      : T2 -- over the file`s `DeterminedSystem`, `SysProof` and `DomainOstrowski` -- programme-type; at v1.4 it reads its system (the repair)
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :633 e_difficulty_xi [FOUND at v1.4 via c1]
+    statement : e_difficulty_xi : IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system)
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    tier      : T2 -- the smoke test at the file`s own `xi_system`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :634 ProductFormula.conservation_of_spectra [FOUND at v1.2 via k3]
+    statement : ProductFormula.conservation_of_spectra : ∀ (s : ℤ), 1 ^ s = 1
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+    at the tag: {'probe': 'k3t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T2 -- `∀ s : ℤ, 1 ^ s = 1` -- the unit norm raised to any power; the Conservation-of-Spectra reading (the product formula is s-dark) is carried by the name, not the statement
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :635 ostrowski_exhaustive [FOUND at v1.2 via k8]
+    statement : ostrowski_exhaustive : ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃! p, ∃ (x : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+    at the tag: {'probe': 'k8t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T0 -- T0, not RH-anchor: Mathlib`s Ostrowski theorem restated (b555)
+    earlier   : ('T0', 'b555') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :636 neg_eq_neg_one_sub_iff [FOUND at v1.2 via k9]
+    statement : @neg_eq_neg_one_sub_iff : ∀ {α : Type u_1} [inst : Field α] [CharZero α] (s : α), -s = -(1 - s) ↔ s = 1 / 2
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+    at the tag: {'probe': 'k9t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T0 -- T0, not RH-anchor: in a field of characteristic 0, −s = −(1 − s) ↔ s = 1/2 (b555)
+    earlier   : ('T0', 'b555') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :637 Compression.compression [FOUND at v0.2.0 via cp]
+    statement : @Compression.compression : ∀ {α : Type} {N : Nat} (C : Compression.Catalogue α N) (violates : α → Prop), Compression.Exhaustive C violates → (∀ (i : Fin N), Compression.ClassClear C i) → ∀ (x : α), ¬violates x
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- a schema over the file`s `Catalogue` -- content enters at instantiation (the row`s words)
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :637 Compression.compression_infinite_objects [FOUND at v0.2.0 via cp]
+    statement : @Compression.compression_infinite_objects : ∀ {N : Nat} (C : Compression.Catalogue Nat N) (violates : Nat → Prop), Compression.Exhaustive C violates → (∀ (i : Fin N), Compression.ClassClear C i) → ∀ (n : Nat), ¬violates n
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- as `compression`, at `Catalogue Nat N`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :625 CARRIED  T2-INTERFACES  Silence Principle — universal form
+    :626 CARRIED  T2             Silence — per-instance (product formula)
+    :627 CARRIED  T2             Silence — per-instance (distributive law)
+    :628 MOVED    T2-INTERFACES  Silence four-step chain  -- silence_universal: not found at its pin
+    :629 CARRIED  T2             Mechanism Theorem
+    :630 CARRIED  T2-SHELL       E-Difficulty skeleton — sieve ceiling
+    :631 CARRIED  T2             E-Difficulty skeleton — dichotomy
+    :632 CARRIED  T2-SHELL       E-Difficulty skeleton — bright access
+    :633 CARRIED  T2             E-Difficulty skeleton — the equivalence
+    :634 CARRIED  T2             Spectral Inertness / Conservation ($n_4 = 0$)
+    :635 CARRIED  T0             Mathlib bridge — Ostrowski
+    :636 CARRIED  T0             Mathlib bridge — per-prime balance
+    :637 CARRIED  T2             Compression Theorem — general form
+    :638 CARRIED  T4             Sieve Ceiling Lemma (full form)
+    :639 CARRIED  T4             E-Difficulty Theorem (full analytic form)
+### TIERS OVER THE 17 READINGS: T0 2 · T1-open 0 · T1-lit 0 · T2 11 · T2-SHELL 2 · T2-INTERFACES 2 · T3 0 · T4 0
+### ROW TIERS: T0 2 · T1-open 0 · T1-lit 0 · T2 7 · T2-SHELL 2 · T2-INTERFACES 2 · T3 0 · T4 2
+### DISPOSITIONS: CARRIED 14 · MOVED 1
+
+====================================================================================================
+### TECHNE_TOOLKIT (phase1.5/method/TECHNE_TOOLKIT.md at PLACE-papers f54a255): 10 rows; 6 terminal readings
+====================================================================================================
+
+### :507 SIDEKernel.formation [FOUND at v1.7 via kc]
+    statement : SIDEKernel.formation : 2 + 3 + 2 + 0 = 7
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- `2 + 3 + 2 + 0 = 7` by `decide` -- a numeral identity whose reading (the formation count) is carried by the name
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :509 e_difficulty [FOUND at v1.4 via c1]
+    statement : e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → (IsDecidable s ↔ Nonempty (DomainOstrowski s))
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+    at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    tier      : T2 -- over the file`s `DeterminedSystem`, `SysProof` and `DomainOstrowski` -- programme-type; at v1.4 it reads its system (the repair)
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :511 techne_kernel_voice3b.offLine_of_codim_two [FOUND at 0e5233f via vb]
+    statement : techne_kernel_voice3b.offLine_of_codim_two : ∀ (sigma : ℝ), techne_kernel_voice3b.zero_codimension sigma = 2 → ¬sigma = 1 / 2
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'vbt', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T2 -- over the file`s codimension definitions -- the identifier-over-claim repair`s terminal
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :513 SIDELvConservation.PartialPositivity.partialPositivity_finiteRange [FOUND at e3d08b6 via lp]
+    statement : SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'lpt', 'pin': 'v0.11.0', 'identical': False, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T1-lit -- INTERFACES on Bombieri–Lagarias` decomposition and Voros` tail bound, literature theorems not compiled (b540, b554)
+    earlier   : ('T1-lit', 'b540, b554, b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :515 SIDELvConservation.h1_complete_at_Phi [FOUND at e3d08b6 via lh]
+    statement : SIDELvConservation.h1_complete_at_Phi : SIDELvConservation.C1_realness SIDELvConservation.Phi ∧ SIDELvConservation.C2_halfplane_nonvanishing SIDELvConservation.Phi ∧ SIDELvConservation.C3_theta_transformation SIDELvConservation.Phi ∧ SIDELvConservation.C4_modularity SIDELvConservation.Phi ∧ SIDELvConservation.C5_input SIDELvConservation.Phi ∧ SIDELvConservation.C6_holomorphic_extension SIDELvConservation.Phi ∧ SIDELvConservation.C7_entirety SIDELvConservation.Phi ∧ SIDELvConservation.C7_order SIDELvConservation.Phi
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'lht', 'pin': 'v0.11.0', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T0 -- T0, not RH-anchor: the eight coupling facts of lv`s theta-kernel `Phi`, built from Mathlib`s `evenKernel` (b539, b554)
+    earlier   : ('T0', 'b554, b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :515 SIDELvConservation.PartialPositivity.partialPositivity_finiteRange [FOUND at e3d08b6 via lp]
+    statement : SIDELvConservation.PartialPositivity.partialPositivity_finiteRange : ∀ (T : ℝ) (lam : ℕ → ℝ) (low : Finset SIDELvConservation.PartialPositivity.NontrivialZero) (tail : ℕ → ℝ), SIDELvConservation.PartialPositivity.VerifiedZerosTo T → SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp lam low tail T → SIDELvConservation.PartialPositivity.TailBoundPremise low tail T → ∀ (n : ℕ), 1 ≤ n → n ≤ SIDELvConservation.PartialPositivity.N₀ T → 0 ≤ lam n
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'lpt', 'pin': 'v0.11.0', 'identical': False, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Classical.choice, Quot.sound]'}
+    tier      : T1-lit -- INTERFACES on Bombieri–Lagarias` decomposition and Voros` tail bound, literature theorems not compiled (b540, b554)
+    earlier   : ('T1-lit', 'b540, b554, b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :507 CARRIED  T2             **Ξ.7** Specification Pipeline Decomposer
+    :508 CARRIED  T4             **Ξ.8** Interface Darkness Verifier (κ)  -- a private repository`s objects (a module and a definition), not tiered here
+    :509 CARRIED  T2             **Ξ.17** Sieve ceiling
+    :510 CARRIED  T4             **Ξ.19** Claim–Certificate Calculus  -- METHOD (manuscript-resident)
+    :511 CARRIED  T2             **Relocated-vacuity detector / de-vacuification**
+    :512 CARRIED  T4             **§IV Loom Signature Families**  -- a module at SIDE-substrate-cluster 2e76426, not a terminal
+    :513 CARRIED  T1-lit         **§III Pattern-Class: Voros 2T²**
+    :514 CARRIED  T4             **§III Pattern-Class: (ℤ/2)³ six presentations**  -- a module (`SteaneLabeling`) at SIDE-substrate-cluster 2e76426, not a terminal
+    :515 CARRIED  T1-lit         **§VI Five-Door Orientation Object**
+    :516 CARRIED  T4             **Ξ.4 / Ξ.5 / Ξ.6 / Ξ.9 / Ξ.10–12 / Ξ.20–23; Impossibility Class  -- METHOD (manuscript-resident)
+### TIERS OVER THE 6 READINGS: T0 1 · T1-open 0 · T1-lit 2 · T2 3 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 2 · T2 3 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 5
+### DISPOSITIONS: CARRIED 10 · MOVED 0
+
+====================================================================================================
+### SILENCE_STAGES_DEALIGNMENT (phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md at PLACE-papers f54a255): 10 rows; 8 terminal readings
+====================================================================================================
+
+### :202 DeAlignment.no_domain_covers_line [FOUND at 6a4f482 via se]
+    statement : @DeAlignment.no_domain_covers_line : ∀ {P D : Type} (d : P → D) (L : DeAlignment.Line P), DeAlignment.DealignedAt d L → ∀ (k : D), ¬DeAlignment.CompletesLine (DeAlignment.domainFault d k) L
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :203 DeAlignment.single_domain_fault_not_logical [FOUND at 6a4f482 via se]
+    statement : @DeAlignment.single_domain_fault_not_logical : ∀ {P D : Type} {n : Nat} (d : P → D) (lines : Fin n → DeAlignment.Line P), DeAlignment.Dealigned d lines → ∀ (k : D) (i : Fin n), ¬DeAlignment.CompletesLine (DeAlignment.domainFault d k) (lines i)
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :204 DeAlignment.dealigned_of_lines_injective [FOUND at 6a4f482 via se]
+    statement : @DeAlignment.dealigned_of_lines_injective : ∀ {P D : Type} (d : P → D) (L : DeAlignment.Line P), (∀ (x y : P), d x = d y → x = y) → L.Proper → DeAlignment.DealignedAt d L
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :205 DeAlignment.fano_dealignment_decidable_example [FOUND at 6a4f482 via se]
+    statement : DeAlignment.fano_dealignment_decidable_example : (DeAlignment.dealignedCheck fun p => p) = true
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :206 DeAlignment.fano_collapsed_line_rejected [FOUND at 6a4f482 via se]
+    statement : DeAlignment.fano_collapsed_line_rejected : (DeAlignment.dealignedCheck fun p => if ↑p = 1 ∨ ↑p = 3 then ⟨0, ⋯⟩ else p) = false
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :207 DeAlignment.fano_two_design [FOUND at 6a4f482 via se]
+    statement : DeAlignment.fano_two_design : ∀ (p q : Fin 7), p ≠ q → DeAlignment.pairCount p q = 1
+    profile   : depends on axioms: [propext]   (the row prints: depends on axioms: [propext])
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :208 steane_parameters [FOUND at c5cba30 via co]
+    statement : steane_parameters : xi.formation_total = 7 ∧ 2 * visible_slots xi - xi.formation_total = 1 ∧ (∀ (i j : Fin 7), i ≠ j → H i + H j ≠ 0) ∧ H 0 + H 1 + H 3 = 0
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s check map `H` and the formation record -- programme objects
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :209 knill_laflamme_t1 [FOUND at c5cba30 via co]
+    statement : knill_laflamme_t1 : Function.Injective H ∧ ∀ (i : Fin 7), H i ≠ 0
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s check map `H` -- programme objects
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :202 CARRIED  T2             No single-domain failure completes a de-aligned line
+    :203 CARRIED  T2             The protection theorem, over any line family
+    :204 CARRIED  T2             One-position-per-domain implies de-alignment
+    :205 CARRIED  T2             The condition is certifiable by evaluation
+    :206 CARRIED  T2             The check refuses a collapsed line (the certificate has teeth)
+    :207 CARRIED  T2             The line family used is the Fano plane — every pair of distinct 
+    :208 CARRIED  T2             The [[7,1,3]] Steane parameters (the code the lines structure)
+    :209 CARRIED  T2             The Knill–Laflamme error-correction conditions
+    :210 CARRIED  T4             Formation Distance theorem, d_eff ≥ 2S−1 (§3)
+    :211 CARRIED  T4             The four-domain silence-as-protection pattern (§4–5)
+### TIERS OVER THE 8 READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 8 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 0 · T2 8 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 2
+### DISPOSITIONS: CARRIED 10 · MOVED 0
+
+====================================================================================================
+### EXHAUSTIVENESS_LICENSE (phase1.5/method/EXHAUSTIVENESS_LICENSE.md at PLACE-papers f54a255): 6 rows; 12 terminal readings
+====================================================================================================
+
+### :105 SIDEEffects.ExhaustivenessLicense.Grade [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.Grade : Type
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :106 SIDEEffects.ExhaustivenessLicense.Grade.le_refl [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.Grade.le_refl : ∀ (a : SIDEEffects.ExhaustivenessLicense.Grade), a ≤ a
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :106 SIDEEffects.ExhaustivenessLicense.Grade.le_trans [FOUND at HEAD via el]
+    statement : @SIDEEffects.ExhaustivenessLicense.Grade.le_trans : ∀ {a b c : SIDEEffects.ExhaustivenessLicense.Grade}, a ≤ b → b ≤ c → a ≤ c
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :107 SIDEEffects.ExhaustivenessLicense.theorem_is_top [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.theorem_is_top : ∀ (g : SIDEEffects.ExhaustivenessLicense.Grade), g ≤ SIDEEffects.ExhaustivenessLicense.Grade.theorem_
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :107 SIDEEffects.ExhaustivenessLicense.none_is_bottom [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.none_is_bottom : ∀ (g : SIDEEffects.ExhaustivenessLicense.Grade), SIDEEffects.ExhaustivenessLicense.Grade.none ≤ g
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :107 SIDEEffects.ExhaustivenessLicense.ladder_strict [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.ladder_strict : SIDEEffects.ExhaustivenessLicense.Grade.none.rank < SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined.rank ∧ SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined.rank < SIDEEffects.ExhaustivenessLicense.Grade.search.rank ∧ SIDEEffects.ExhaustivenessLicense.Grade.search.rank < SIDEEffects.ExhaustivenessLicense.Grade.theorem_.rank
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :108 SIDEEffects.ExhaustivenessLicense.RH_grade [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.RH_grade : SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.RH_evidence = SIDEEffects.ExhaustivenessLicense.Grade.theorem_
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :108 SIDEEffects.ExhaustivenessLicense.Hodge_grade [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.Hodge_grade : SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence = SIDEEffects.ExhaustivenessLicense.Grade.search
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :108 SIDEEffects.ExhaustivenessLicense.T7_grade [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.T7_grade : SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.T7_evidence = SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :108 SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade : SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_evidence = SIDEEffects.ExhaustivenessLicense.Grade.forcedOrUnderdetermined
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :109 SIDEEffects.ExhaustivenessLicense.instances_ordered [FOUND at HEAD via el]
+    statement : SIDEEffects.ExhaustivenessLicense.instances_ordered : SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.T7_evidence ≤ SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence ∧ SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence ≤ SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.RH_evidence ∧ SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_evidence ≤ SIDEEffects.ExhaustivenessLicense.grade SIDEEffects.ExhaustivenessLicense.Hodge_evidence
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s four-constructor `Grade` and its rank function -- programme-type, computed by `rfl`/`decide`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :110 SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top [FOUND at HEAD via el]
+    statement : @SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top : ∀ {RH_typeI_discharged : Prop}, SIDEEffects.ExhaustivenessLicense.EDifficultyTop SIDEEffects.ExhaustivenessLicense.RH_evidence RH_typeI_discharged → RH_typeI_discharged
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2-INTERFACES -- INTERFACES on the named premise `EDifficultyTop`, the programme`s own bridge, never proved in the module
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :105 CARRIED  T2             The four grades form a decidable type
+    :106 CARRIED  T2             The order is a preorder (reflexive, transitive)
+    :107 CARRIED  T2             THEOREM is the top; NONE the bottom; the ladder is strict
+    :108 CARRIED  T2             The corpus instances' grades (RH=THEOREM, Hodge=SEARCH, T7 & cla
+    :109 CARRIED  T2             The instances sit in the ordered relation
+    :110 CARRIED  T2-INTERFACES  The E-Difficulty bridge (top grade ⇔ TYPE-I discharge)
+### TIERS OVER THE 12 READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 11 · T2-SHELL 0 · T2-INTERFACES 1 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 0 · T2 5 · T2-SHELL 0 · T2-INTERFACES 1 · T3 0 · T4 0
+### DISPOSITIONS: CARRIED 6 · MOVED 0
+
+====================================================================================================
+### INVARIANCE_BARRIERS (phase1.5/method/INVARIANCE_BARRIERS.md at PLACE-papers f54a255): 14 rows; 9 terminal readings
+====================================================================================================
+
+### :499 ConservationBridge.riemann_hypothesis [FOUND at v1.7 via k1]
+    statement : ConservationBridge.riemann_hypothesis : ConservationBridge.ConservationHypothesis → RiemannHypothesis
+    profile   : depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound])
+    at the tag: no tag beyond the pin
+    tier      : T2 -- INTERFACES on `ConservationHypothesis`, RH restated (`ch_iff_rh`; E-2026-09-25-1): ENCODES-CONCLUSION
+    earlier   : ('T2', 'b539-b541, b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :500 SieveCeilingSemantic.sieve_ceiling_semantic [FOUND at v1.7 via c2t]
+    statement : @SieveCeilingSemantic.sieve_ceiling_semantic : ∀ {U : Type u_1} (r : U → U → Prop) {onLine : U → Prop}, ¬SieveCeilingSemantic.RespectsI r onLine → ¬∃ D, SieveCeilingSemantic.RespectsI r D ∧ ∀ (z : U), D z ↔ onLine z
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- a general schema over an arbitrary carrier and indistinguishability relation -- the contentful ceiling, logic whose readings are carried by names
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :501 proof_dichotomy [FOUND at v1.7 via c1t]
+    statement : proof_dichotomy : ∀ (π : Proof), π.factorsDark ∨ π.hasBrightAccess
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- excluded middle over the file`s `StepAccess` lists
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :502 sieve_ceiling [FOUND at v1.7 via c1t]
+    statement : sieve_ceiling : ∀ (π : Proof), π.factorsDark → (maxStatement π).strength < StatementKind.universal.strength
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2-SHELL -- T2-SHELL: abstract-Proof bookkeeping over the file`s own `Proof`; its docstring at v1.4 and v1.7 labels it SCAFFOLDING
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :503 bright_access_required [FOUND at v1.7 via c1t]
+    statement : bright_access_required : ∀ (π : Proof), (maxStatement π).strength = StatementKind.universal.strength → π.hasBrightAccess
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2-SHELL -- T2-SHELL: abstract-Proof bookkeeping over the file`s own `Proof`; its docstring at v1.4 and v1.7 labels it SCAFFOLDING
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :504 e_difficulty [FOUND at v1.7 via c1t]
+    statement : e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → (IsDecidable s ↔ Nonempty (DomainOstrowski s))
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `DeterminedSystem`, `SysProof` and `DomainOstrowski` -- programme-type; at v1.4 it reads its system (the repair)
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :505 SieveCeilingWitness.dh_witness [FOUND at v1.7 via dw]
+    statement : SieveCeilingWitness.dh_witness : SieveCeilingSemantic.NonInvarianceWitness SieveCeilingWitness.iIndist SieveCeilingWitness.allOnLine
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- over the file`s `Config` with the stipulated Davenport–Heilbronn datum (b556)
+    earlier   : ('T2', 'b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :506 InvarianceBarrier.invariance_barrier [FOUND at v1.7 via ib]
+    statement : @InvarianceBarrier.invariance_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α}, agree x y → ¬(P x ↔ P y) → ¬InvarianceBarrier.DeterminedBy agree P
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- a general schema over an abstract carrier, agreement relation and property -- logic (b556)
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :507 InvarianceBarrier.derivability_barrier [FOUND at v1.7 via ib]
+    statement : @InvarianceBarrier.derivability_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α}, agree x y → ¬P y → ¬InvarianceBarrier.Derives agree P x
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: no tag beyond the pin
+    tier      : T2 -- the soundness corollary, same schema (b556)
+    earlier   : ('T2', 'b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :499 MOVED    T2             §1.1 — the reduction: RH under the one open premise `h2`  -- (R167)(5): the row calls the terminal "the reduction"; its premise is RH restated (E-2026-09-25-1); the programme`s compiled reduction of RH is `h2_sign_iff_rh`
+    :500 CARRIED  T2             Theorem 3.1, semantic core (inference respecting indistinguishab
+    :501 CARRIED  T2             Proof-shape dichotomy (factors dark or has bright access)
+    :502 CARRIED  T2-SHELL       Theorem 3.1, abstract-Proof form
+    :503 CARRIED  T2-SHELL       Corollary 3.6, abstract-Proof form
+    :504 CARRIED  T2             Theorem 4.1 skeleton (decidability ⟺ domain-Ostrowski, in-kernel
+    :505 CARRIED  T2             Proposition 3.5 / §3.4 — witness architecture (agreeing pair wit
+    :506 CARRIED  T2             §3.4 — barrier schema, raw invariance form
+    :507 CARRIED  T2             §3.4 — operative terminal, the derivability corollary
+    :508 CARRIED  T4             §3.4 clause (i) — the six T-tool agreement facts
+    :509 CARRIED  T4             §3.4 clause (ii) — divergence (off-line zeros of ξ_Q)
+    :510 CARRIED  T4             §5.1 — the identification κ(σ, distributive-law interface) = 0
+    :511 CARRIED  T4             Full E-Difficulty dichotomy over first-order proof objects
+    :512 CARRIED  T4             §9 — the archimedean κ-row and the per-place table
+### TIERS OVER THE 9 READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 7 · T2-SHELL 2 · T2-INTERFACES 0 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 0 · T2 7 · T2-SHELL 2 · T2-INTERFACES 0 · T3 0 · T4 5
+### DISPOSITIONS: CARRIED 13 · MOVED 1
+
+====================================================================================================
+### REPARAMETERIZATION_BARRIERS_v0_1 (phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md at PLACE-papers f54a255): 9 rows; 2 terminal readings
+====================================================================================================
+
+### :223 InvarianceBarrier.invariance_barrier [FOUND at 5e668b4 via rp]
+    statement : @InvarianceBarrier.invariance_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α}, agree x y → ¬(P x ↔ P y) → ¬InvarianceBarrier.DeterminedBy agree P
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'rpt', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2 -- a general schema over an abstract carrier, agreement relation and property -- logic (b556)
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :224 InvarianceBarrier.derivability_barrier [FOUND at 5e668b4 via rp]
+    statement : @InvarianceBarrier.derivability_barrier : ∀ {α : Type u_1} {agree : α → α → Prop} {P : α → Prop} {x y : α}, agree x y → ¬P y → ¬InvarianceBarrier.Derives agree P x
+    profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    at the tag: {'probe': 'rpt', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2 -- the soundness corollary, same schema (b556)
+    earlier   : ('T2', 'b556') ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :223 CARRIED  T2             The inference step: agreement + divergence ⟹ not determined
+    :224 CARRIED  T2             The derivability form: assumes nothing of the object of interest
+    :225 CARRIED  T4             (W1) behavioral identity of *N* and *N_A*
+    :226 CARRIED  T4             (W2) linear-probe equivalence
+    :227 CARRIED  T4             (W3) geometric invariants preserved for orthogonal *A*
+    :228 CARRIED  T4             (W4) dictionary code covariance
+    :229 CARRIED  T4             (W5) divergence of the directional claim
+    :230 CARRIED  T4             Membership of each listed method in D
+    :231 CARRIED  T4             Quantitative / approximate-invariance version
+### TIERS OVER THE 2 READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 2 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 0 · T2 2 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 7
+### DISPOSITIONS: CARRIED 9 · MOVED 0
+
+====================================================================================================
+### E_DIFFICULTY_THEOREM (phase2/method/E_DIFFICULTY_THEOREM.md at PLACE-papers f54a255): 4 rows; 4 terminal readings
+====================================================================================================
+
+### :162 sieve_ceiling [FOUND at v1.1 via e11]
+    statement : sieve_ceiling : ∀ (π : Proof), π.factorsDark → (maxStatement π).strength < StatementKind.universal.strength
+    profile   : does not depend on any axioms   (the row prints: None)
+    at the tag: {'probe': 'e11t', 'pin': 'v1.7', 'identical': False, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2-SHELL -- T2-SHELL: abstract-Proof bookkeeping over the file`s own `Proof`; its docstring at v1.4 and v1.7 labels it SCAFFOLDING
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: CARRIED
+
+### :163 proof_dichotomy [FOUND at v1.1 via e11]
+    statement : proof_dichotomy : ∀ (π : Proof), π.factorsDark ∨ π.hasBrightAccess
+    profile   : does not depend on any axioms   (the row prints: None)
+    at the tag: {'probe': 'e11t', 'pin': 'v1.7', 'identical': False, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'does not depend on any axioms'}
+    tier      : T2 -- excluded middle over the file`s `StepAccess` lists
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### :164 e_difficulty [FOUND at v1.1 via e11]
+    statement : e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → s.classes ≥ 1 → (IsDecidable s ↔ Nonempty (DomainOstrowski s))
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'e11t', 'pin': 'v1.7', 'identical': False, 'found': True, 'same_statement': False, 'statement': 'e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → (IsDecidable s ↔ Nonempty (DomainOstrowski s))', 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    tier      : T2 -- over the file`s `DeterminedSystem`, `SysProof` and `DomainOstrowski` -- programme-type; at v1.4 it reads its system (the repair)
+    earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    disposition: MOVED -- statement differs at the tag v1.7
+
+### :165 e_difficulty_xi [FOUND at v1.1 via e11]
+    statement : e_difficulty_xi : IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system)
+    profile   : depends on axioms: [propext, Quot.sound]   (the row prints: None)
+    at the tag: {'probe': 'e11t', 'pin': 'v1.7', 'identical': False, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    tier      : T2 -- the smoke test at the file`s own `xi_system`
+    earlier   : none banked ; E/I (b544): not indexed
+    disposition: CARRIED
+
+### ROWS:
+    :162 MOVED    T2-SHELL       sieve_ceiling — dark-factored proofs cannot reach universal stat  -- READING (7): the bullet names `sieve_ceiling` as the ceiling without SCAFFOLDING, SHELL or work-order on the bullet
+    :163 CARRIED  T2             proof_dichotomy — every proof is either dark-factored or has bri
+    :164 MOVED    T2             e_difficulty — for systems with classes ≥ 1, IsDecidable iff Non  -- e_difficulty: statement differs at the tag v1.7
+    :165 CARRIED  T2             e_difficulty_xi — smoke test applied to the ξ_system
+### TIERS OVER THE 4 READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 3 · T2-SHELL 1 · T2-INTERFACES 0 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 0 · T2 3 · T2-SHELL 1 · T2-INTERFACES 0 · T3 0 · T4 0
+### DISPOSITIONS: CARRIED 2 · MOVED 2
+
+====================================================================================================
+### ENUMERA (phase1.5/method/ENUMERA.md at PLACE-papers f54a255): 0 rows; 0 terminal readings
+====================================================================================================
+
+### ROWS:
+### TIERS OVER THE 0 READINGS: T0 0 · T1-open 0 · T1-lit 0 · T2 0 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0
+### ROW TIERS: T0 0 · T1-open 0 · T1-lit 0 · T2 0 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0
+### DISPOSITIONS: CARRIED 0 · MOVED 0
+
+### T0 TERMINALS ACROSS THE BATCH (distinct): 3 -- [('SIDELvConservation.h1_complete_at_Phi', 'ζ`s theta kernel Φ'), ('neg_eq_neg_one_sub_iff', 'an arbitrary field of characteristic 0'), ('ostrowski_exhaustive', 'ℚ`s places')]
