@@ -1,0 +1,143 @@
+{
+ "branch": "detection-region-clean",
+ "tip": "04eda4a710bf6a29a40bfb07ad2620f101c3d2a5",
+ "parent": "81ae1758f28e280f4e924e8acd76b4b76ae4ac9d",
+ "grades": {
+  "h2_sign_upto": {
+   "grade": "A DEFINITION -- NO GRADE IN THE THREE-GRADE VOCABULARY (it is not a terminal)",
+   "why": "a Prop over `classK` windows and b321`s `poleTerm`, `primeSum`, `archTerm`; it names no zero of zeta and no real part: the salt-check passes",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "h2_sign_imp_upto": {
+   "grade": "DERIVES",
+   "why": "the restriction of `h2_sign` to the windows vanishing outside [-L0, L0]; one line",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "upto_all_imp_h2_sign": {
+   "grade": "DERIVES",
+   "why": "compact support of a classK window gives a bound r; the finite positivity at r is the sign",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "h2_sign_iff_forall_upto": {
+   "grade": "DERIVES",
+   "why": "`h2_sign <-> forall L0, h2_sign_upto L0`: both sides the kernel`s Props, the join proved",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "forall_upto_iff_rh": {
+   "grade": "DERIVES",
+   "why": "the join composed with `h2_sign_iff_rh` (Seam.lean:101); its right side is Mathlib`s `RiemannHypothesis`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  }
+ },
+ "same_as_held": {
+  "h2_sign_upto": true,
+  "h2_sign_imp_upto": true,
+  "upto_all_imp_h2_sign": true,
+  "h2_sign_iff_forall_upto": true,
+  "forall_upto_iff_rh": true
+ },
+ "gate": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_upto",
+   "pin": "04eda4a",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "check": "SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(R169)(3)'s finite positivity, in the kernel's vocabulary:** `h2_sign`'s sign on the `classK` windows that vanish outside `[-L₀, L₀]`.",
+   "body1": "∀ k : ℝ → ℂ, classK k → (∀ u : ℝ, L₀ < |u| → k u = 0) → 0 ≤ poleTerm k - primeSum k + archTerm k",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_upto",
+   "pin": "04eda4a",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "check": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "`h2_sign` gives the finite positivity at every `L₀`.",
+   "body1": "fun h k hk _ => h k hk",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.upto_all_imp_h2_sign",
+   "pin": "04eda4a",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "check": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "Every `classK` window has compact support, so it vanishes outside some `[-r, r]`: the finite positivity at every `L₀` is `h2_sign`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto",
+   "pin": "04eda4a",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "check": "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔ ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The join:** `h2_sign` is the finite positivity at every support bound.",
+   "body1": "⟨fun h L₀ => h2_sign_imp_upto L₀ h, upto_all_imp_h2_sign⟩",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.forall_upto_iff_rh",
+   "pin": "04eda4a",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "check": "SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The join, to Mathlib:** the finite positivity at every support bound is Mathlib's `RiemannHypothesis`, through `h2_sign_iff_rh` (Seam.lean:101)",
+   "body1": "h2_sign_iff_forall_upto.symm.trans h2_sign_iff_rh",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true
+}

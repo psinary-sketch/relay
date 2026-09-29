@@ -1,0 +1,568 @@
+{
+ "rows": {
+  "ne_one_of_mem": {
+   "grade": "DERIVES",
+   "why": "a member of the open strip is not 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "conj_mem": {
+   "grade": "DERIVES",
+   "why": "the conjugate of a nontrivial zero of `riemannZeta` is one, from `riemannZeta_conj` (ZetaReflect.lean:78) -- the instance`s conjugation stability, not a field of the type",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "mult_conj": {
+   "grade": "DERIVES",
+   "why": "its multiplicity agrees, from `analyticOrderAt_zeta_conj` (ZetaReflect.lean:160)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liTerm": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "`1 - (1 - ρ⁻¹) ^ n` over ℂ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pairTerm": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "the term plus the term at the conjugate",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liTerm_conj": {
+   "grade": "DERIVES",
+   "why": "the term at the conjugate is the conjugate of the term",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pairTerm_eq": {
+   "grade": "DERIVES",
+   "why": "the pair is `2 Re (liTerm n ρ)`, real by construction",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pairTerm_im": {
+   "grade": "DERIVES",
+   "why": "its imaginary part is zero",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pairTerm_re": {
+   "grade": "DERIVES",
+   "why": "its real part is twice the term`s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "norm_sub_one_of_re_half": {
+   "grade": "DERIVES",
+   "why": "on the line `‖ρ - 1‖ = ‖ρ‖`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "norm_one_sub_inv_of_re_half": {
+   "grade": "DERIVES",
+   "why": "on the line `‖1 - ρ⁻¹‖ = 1`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liTerm_re_nonneg_of_re_half": {
+   "grade": "DERIVES",
+   "why": "on the line the real part of the term is nonnegative -- algebra over ℂ, no fact about zeta",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pairTerm_re_nonneg_of_re_half": {
+   "grade": "DERIVES",
+   "why": "on the line the pair is nonnegative",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "rem_bound": {
+   "grade": "DERIVES",
+   "why": "the second-order remainder `‖(1 - w) ^ n - 1 + n w‖ ≤ n 2 ^ n ‖w‖ ^ 2` for `‖w‖ ≤ 1`, by induction",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liTerm_re_abs_le": {
+   "grade": "DERIVES",
+   "why": "`|Re liTerm n ρ| ≤ (n + n 2 ^ n) / ‖ρ‖ ^ 2` for `1 ≤ ‖ρ‖`, `0 ≤ Re ρ ≤ 1`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liConst": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "the named constant `2 (n + n 2 ^ n)`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liConst_nonneg": {
+   "grade": "DERIVES",
+   "why": "the constant is nonnegative",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pairTerm_norm_le": {
+   "grade": "DERIVES",
+   "why": "Stage B`s bound `‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2` -- exponent 2, constant named",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "pair_summable": {
+   "grade": "DERIVES",
+   "why": "absolute summability over the genuine zeros, from `zero_sum_inv_sq` (the log-form count)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LiCoeff": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "`(1/2) Σ_ρ m_ρ Re (pairTerm n ρ)` over `zetaZeroConfig` -- the genuine zeros, the salt-check below",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LiCoeff_eq": {
+   "grade": "DERIVES",
+   "why": "the coefficient is `Σ_ρ m_ρ Re (1 - (1 - ρ⁻¹) ^ n)`, the Bombieri-Lagarias sum as the document writes it (BALPOS :70, :422)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "liTerm_re_summable": {
+   "grade": "DERIVES",
+   "why": "the unpaired real-part sum converges absolutely",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "rh_imp_li_nonneg": {
+   "grade": "DERIVES",
+   "why": "Mathlib`s `RiemannHypothesis` implies `0 ≤ λ_n` for every `n`, over the genuine zeros -- the forward half",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blPoly": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "the Bombieri-Lagarias polynomial `Σ_{j=1}^n C(n,j) y^{j-1}/(j-1)!`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blSmooth": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "`e^{u/2} P_n(u)`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blTest": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "the test function `1_{u<0} e^{u/2} P_n(u)` in the kernel`s variable",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blTransform": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals) -- A Prop, STATED, NOT PROVED",
+   "why": "T1: `paperFT (blTest n) (gammaOf ρ) = liTerm n ρ` for `Re ρ > 0`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "truncMember": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals)",
+   "why": "the truncation family: a smooth bump times `e^{u/2} P_n(u)`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blPoly_contDiff": {
+   "grade": "DERIVES",
+   "why": "the polynomial is C²",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "blSmooth_contDiff": {
+   "grade": "DERIVES",
+   "why": "the profile is C²",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "truncMember_classEF": {
+   "grade": "DERIVES",
+   "why": "THE TRUNCATION LEMMA: every member is `ContDiff ℝ 2` with compact support -- EF_lit`s class",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "truncMember_eq": {
+   "grade": "DERIVES",
+   "why": "on a bump supported left of 0 the member is the bump times `k_n`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "truncMember_EF": {
+   "grade": "DERIVES",
+   "why": "EF_lit at each member: the zero sum absolute and equal to the literature right-hand side",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "LiLimitExchange": {
+   "grade": "A DEFINITION -- NO GRADE (the vocabulary grades terminals) -- A Prop, STATED, NOT PROVED: THE HELD POINT",
+   "why": "the zero side at the truncations tends to `LiCoeff n`",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  },
+  "li_identity_of_exchange": {
+   "grade": "INTERFACES",
+   "why": "the literature right-hand sides tend to `LiCoeff n` GIVEN `LiLimitExchange n` -- the premise named at the site and discharged nowhere",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3_or_fewer": true
+  }
+ },
+ "counts": {
+  "DERIVES": 24,
+  "DEFINITION": 10,
+  "INTERFACES": 1
+ },
+ "salt": true,
+ "param": false,
+ "control": true,
+ "gate": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.LiWeil.conj_mem",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "@SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ}, ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**Conjugation stability of the genuine instance (the set):** the conjugate of a nontrivial zero of `riemannZeta` is one, from `riemannZeta_conj` (ZetaReflect.lean:78).",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.mult_conj",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "@SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ}, ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**Conjugation stability of the genuine instance (the multiplicity):** `mult (conj ρ) = mult ρ`, from `analyticOrderAt_zeta_conj` (ZetaReflect.lean:160).",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.pairTerm_eq",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ), SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The pair is real by construction:** `pairTerm n ρ = 2 * Re (liTerm n ρ)`.",
+   "body1": "by",
+   "defenc": true,
+   "defenc_why": "liTerm := 1 - (1 - ρ⁻¹) ^ n"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ}, ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**Stage A's nonnegativity, per zero:** at `Re ρ = 1/2` the real part of the term is nonnegative -- algebra over `ℂ`, no fact about zeta.",
+   "body1": "by",
+   "defenc": true,
+   "defenc_why": "liTerm := 1 - (1 - ρ⁻¹) ^ n"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.pairTerm_norm_le",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ}, 1 ≤ ‖ρ‖ → 0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**Stage B's bound:** for `1 ≤ ‖ρ‖` and `0 ≤ Re ρ ≤ 1`, `‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2`",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.pair_summable",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ), Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**Stage B's summability, over the genuine zeros:** `Σ_ρ m_ρ Re (pairTerm n ρ)` converges absolutely, from `zero_sum_inv_sq` (ZeroSummability.lean:247, the kernel's local count in its log form) -- the finitely many zeros with `|Im ρ| < 1` excepted as `EF_zero_sum_summable_gen` excepts them.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.LiCoeff_eq",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiCoeff n = ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "The coefficient as the sum of the real parts of the Bombieri-Lagarias terms, with multiplicity.",
+   "body1": "by",
+   "defenc": true,
+   "defenc_why": "liTerm := 1 - (1 - ρ⁻¹) ^ n"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The forward half, over the genuine zeros:** Mathlib's `RiemannHypothesis` gives `0 ≤ λ_n` for every `n`",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.truncMember_classEF",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.truncMember_classEF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c), ContDiff ℝ 2 (SIDEExplicitFormula.LiWeil.truncMember n f) ∧ HasCompactSupport (SIDEExplicitFormula.LiWeil.truncMember n f)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**Stage D's truncation lemma:** every member of the family is in EF_lit's class -- `ContDiff ℝ 2` with compact support.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.truncMember_EF",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.truncMember_EF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c), (Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ)) ∧ ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ) = Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n f)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**EF_lit at each member of the family** (Zeta23's EF_lit for the genuine instance, WeilEF/Main.lean:286): the zero sum converges absolutely and equals the literature right-hand side.",
+   "body1": "WeilEF.EF_lit_zetaZeroConfig _ (truncMember_classEF n f).1 (truncMember_classEF n f).2",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.li_identity_of_exchange",
+   "pin": "941503b",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "check": "SIDEExplicitFormula.LiWeil.li_identity_of_exchange : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchange n → ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) → Filter.Tendsto (fun m => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n (fs m))) Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The identity, conditional on the exchange:** if `LiLimitExchange n` holds, then along the same family the literature right-hand sides of EF_lit -- the pole terms, the prime sum and the Γ-integral at the truncations -- tend to `LiCoeff n`",
+   "body1": "(hX c fs hc h1).congr fun m => (truncMember_EF n (fs m)).2",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "names": [
+  "ne_one_of_mem",
+  "conj_mem",
+  "mult_conj",
+  "liTerm",
+  "pairTerm",
+  "liTerm_conj",
+  "pairTerm_eq",
+  "pairTerm_im",
+  "pairTerm_re",
+  "norm_sub_one_of_re_half",
+  "norm_one_sub_inv_of_re_half",
+  "liTerm_re_nonneg_of_re_half",
+  "pairTerm_re_nonneg_of_re_half",
+  "rem_bound",
+  "liTerm_re_abs_le",
+  "liConst",
+  "liConst_nonneg",
+  "pairTerm_norm_le",
+  "pair_summable",
+  "LiCoeff",
+  "LiCoeff_eq",
+  "liTerm_re_summable",
+  "rh_imp_li_nonneg",
+  "blPoly",
+  "blSmooth",
+  "blTest",
+  "blTransform",
+  "truncMember",
+  "blPoly_contDiff",
+  "blSmooth_contDiff",
+  "truncMember_classEF",
+  "truncMember_eq",
+  "truncMember_EF",
+  "LiLimitExchange",
+  "li_identity_of_exchange"
+ ]
+}

@@ -1,0 +1,241 @@
+{
+ "rows": [
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "h2_sign_upto",
+   "line": 33,
+   "text": "def h2_sign_upto (L₀ : ℝ) : Prop :=\n  ∀ k : ℝ → ℂ, classK k → (∀ u : ℝ, L₀ < |u| → k u = 0) → 0 ≤ poleTerm k - primeSum k + archTerm k"
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "h2_sign_upto_mono",
+   "line": 37,
+   "text": "theorem h2_sign_upto_mono {L₀ L₁ : ℝ} (h : L₀ ≤ L₁) : h2_sign_upto L₁ → h2_sign_upto L₀ :="
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "h2_sign_imp_upto",
+   "line": 41,
+   "text": "theorem h2_sign_imp_upto (L₀ : ℝ) : h2_sign → h2_sign_upto L₀ := fun h k hk _ => h k hk"
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "upto_all_imp_h2_sign",
+   "line": 45,
+   "text": "theorem upto_all_imp_h2_sign : (∀ L₀ : ℝ, h2_sign_upto L₀) → h2_sign := by"
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "h2_sign_iff_forall_upto",
+   "line": 55,
+   "text": "theorem h2_sign_iff_forall_upto : h2_sign ↔ ∀ L₀ : ℝ, h2_sign_upto L₀ :="
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "forall_upto_iff_rh",
+   "line": 60,
+   "text": "theorem forall_upto_iff_rh : (∀ L₀ : ℝ, h2_sign_upto L₀) ↔ RiemannHypothesis :="
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "ellOf",
+   "line": 68,
+   "text": "def ellOf (ρ : ℂ) : ℝ := 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))"
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "j₀",
+   "line": 77,
+   "text": "def j₀ (γ δ : ℝ) : ℕ := sorry"
+  },
+  {
+   "rev": "8faf7de",
+   "file": "SIDEExplicitFormula/DetectionRegion.lean",
+   "name": "detection_region",
+   "line": 83,
+   "text": "theorem detection_region (L₀ : ℝ) (hL : h2_sign_upto L₀) :\n    ∀ ρ : ℂ, riemannZeta ρ = 0 → 0 < ρ.re → ρ.re < 1 →\n      (j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2) : ℝ) * ellOf ρ ≤ L₀ → ρ.re - 1 / 2 = 0 := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "name": "literatureRHS",
+   "line": 86,
+   "text": "def literatureRHS (k : ℝ → ℂ) : ℂ :=\n  paperFT k (I / 2) + paperFT k (-I / 2)\n  - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)\n      * (k (Real.log n) + k (-Real.log n))\n  + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "name": "EF_lit",
+   "line": 97,
+   "text": "def EF_lit (Z : ZeroConfig) : Prop :=\n  ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →\n    Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧\n    ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/WeilEF/Main.lean",
+   "name": "EF_lit_zetaZeroConfig",
+   "line": 286,
+   "text": "theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Defs.lean",
+   "name": "gammaOf",
+   "line": 121,
+   "text": "def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Defs.lean",
+   "name": "reflect",
+   "line": 124,
+   "text": "def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Defs.lean",
+   "name": "ZeroConfig",
+   "line": 136,
+   "text": "structure ZeroConfig where\n  /-- the set 𝒵 of distinct zeros -/\n  carrier : Set ℂ\n  /-- multiplicity m_ρ (value irrelevant off carrier) -/\n  mult : ℂ → ℕ\n  one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ\n  strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1\n  reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier\n  mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ\n  /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/\n  finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Statement.lean",
+   "name": "IsNontrivialZero",
+   "line": 54,
+   "text": "def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Statement.lean",
+   "name": "zeroMult",
+   "line": 59,
+   "text": "def zeroMult (ρ : ℂ) : ℕ := (analyticOrderAt riemannZeta ρ).toNat"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Statement.lean",
+   "name": "ZetaSeam",
+   "line": 91,
+   "text": "structure ZetaSeam : Prop where\n  /-- H-fin: at a nontrivial zero the analytic order is finite and ≥ 1. -/\n  one_le_mult : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ\n  /-- H-symm (set): ρ ↦ 1 − conj ρ preserves nontrivial zeros. -/\n  reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ)\n  /-- H-symm (multiplicity). -/\n  mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ\n  /-- local finiteness: finitely many nontrivial zeros with T₁ < γ ≤ T₂. -/\n  finite_window : ∀ T₁ T₂ : ℝ, ({ρ | IsNontrivialZero ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Statement.lean",
+   "name": "zetaZeros",
+   "line": 104,
+   "text": "def zetaZeros (hs : ZetaSeam) : ZeroConfig where\n  carrier := {ρ | IsNontrivialZero ρ}\n  mult := zeroMult\n  one_le_mult := hs.one_le_mult\n  strip := fun _ h => ⟨h.2.1.le, h.2.2.le⟩\n  reflect_mem := hs.reflect_zero\n  mult_reflect := hs.mult_reflect\n  finite_window := hs.finite_window"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "name": "zetaSeam",
+   "line": 38,
+   "text": "theorem zetaSeam : ZetaSeam := ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "name": "zetaZeroConfig",
+   "line": 42,
+   "text": "def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/ZetaReflect.lean",
+   "name": "riemannZeta_conj",
+   "line": 78,
+   "text": "theorem riemannZeta_conj {s : ℂ} (hs : s ≠ 1) :\n    riemannZeta (conj s) = conj (riemannZeta s) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/ZetaReflect.lean",
+   "name": "analyticOrderAt_zeta_conj",
+   "line": 160,
+   "text": "theorem analyticOrderAt_zeta_conj {w : ℂ} (hw : w ≠ 1) :\n    analyticOrderAt riemannZeta (conj w) = analyticOrderAt riemannZeta w := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/ZetaReflect.lean",
+   "name": "zeta_reflect_zero",
+   "line": 294,
+   "text": "theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/ZetaReflect.lean",
+   "name": "zeta_mult_reflect",
+   "line": 330,
+   "text": "theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "name": "zeta_local_zero_count",
+   "line": 282,
+   "text": "theorem zeta_local_zero_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,\n    (Ncount t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "name": "zetaZeroConfig_local_count",
+   "line": 310,
+   "text": "theorem zetaZeroConfig_local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,\n    (zetaZeroConfig.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "name": "zero_sum_inv_sq_gen",
+   "line": 121,
+   "text": "theorem zero_sum_inv_sq_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)\n    (hloc' : ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)) :\n    Summable (fun ρ : Z.carrier =>\n      (Z.mult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "name": "zero_sum_inv_sq",
+   "line": 247,
+   "text": "theorem zero_sum_inv_sq (hs : ZetaSeam) :\n    Summable (fun ρ : (zetaZeros hs).carrier =>\n      (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "name": "EF_zero_sum_summable_gen",
+   "line": 179,
+   "text": "theorem EF_zero_sum_summable_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)\n    (hloc' : ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)) {k : ℝ → ℂ}\n    (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) :\n    Summable (fun ρ : Z.carrier =>\n      (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "name": "weighted_summable",
+   "line": 934,
+   "text": "theorem weighted_summable (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)\n    (hBf : 0 ≤ Bf) (hf0 : ∀ ρ ∈ Z.carrier, 0 ≤ f ρ)\n    (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf) :\n    Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "SIDEExplicitFormula/DecayBound.lean",
+   "name": "paperFT_decay",
+   "line": 63,
+   "text": "theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)\n    (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ * ‖z‖ ^ p ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|) := by"
+  },
+  {
+   "rev": "81ae175",
+   "file": "SIDEExplicitFormula/Seam.lean",
+   "name": "h2_sign_iff_rh",
+   "line": 101,
+   "text": "theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩"
+  }
+ ],
+ "h11a_first": "REFUTED",
+ "h11a_amended": "HOLDS FROM THE PRINTS",
+ "reflect_only": true,
+ "conj_set": true,
+ "conj_mult": true,
+ "carrier": true
+}

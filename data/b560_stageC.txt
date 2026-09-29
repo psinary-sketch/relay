@@ -1,0 +1,68 @@
+b560 -- READING (5): STAGE C -- THE COEFFICIENT AND THE FORWARD HALF -- LiCoeff over the genuine zeros; rh_imp_li_nonneg
+
+### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+
+### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+    ### Stage C attempt 1 -- exit 1, elapsed 24 s, errors 1
+        | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+        | SIDEExplicitFormula/LiWeil.lean:273:6: error: Tactic `rewrite` failed: motive is not type correct:
+        |   fun _a => ↑ρ ∈ _a
+        | Error: Application type mismatch: The argument
+        |   ρ
+        | has type
+        |   ↑zetaZeroConfig.carrier
+        | but is expected to have type
+        |   { x // x ∈ _a }
+        | in the application
+        |   ↑ρ
+        | Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fu
+        | Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'De
+        | hRH : RiemannHypothesis
+        | n : ℕ
+        | ρ : ↑zetaZeroConfig.carrier
+        | hmem : ↑ρ ∈ zetaZeroConfig.carrier
+        | hne : ↑ρ ≠ 1
+        | ⊢ 0 ≤ (pairTerm n ↑ρ).re
+    ### Stage C attempt 2 -- exit 0, elapsed 22 s, errors 0
+        | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+      243 | def LiCoeff (n : ℕ) : ℝ :=
+      244 |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+      247 | theorem LiCoeff_eq (n : ℕ) :
+      248 |     LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re := by
+      257 | theorem liTerm_re_summable (n : ℕ) :
+      258 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re) := by
+      267 | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+
+### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+    <stdin>:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_re_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ
+    SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ),
+      SIDEExplicitFormula.LiWeil.LiCoeff n =
+        ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+          ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re
+    SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+    def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+    fun n =>
+      1 / 2 *
+        ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+          ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+    def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig :=
+    Zeta23.zetaZeros Zeta23.zetaSeam
+    def Zeta23.zetaZeros : Zeta23.ZetaSeam → Zeta23.ZeroConfig :=
+    fun hs =>
+      { carrier := {ρ | Zeta23.IsNontrivialZero ρ}, mult := Zeta23.zeroMult, one_le_mult := ⋯,
+        strip := Zeta23.zetaZeros._proof_1, reflect_mem := ⋯, mult_reflect := ⋯, finite_window := ⋯ }
+    def Zeta23.IsNontrivialZero : ℂ → Prop :=
+    fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+    def Zeta23.zeroMult : ℂ → ℕ :=
+    fun ρ => (analyticOrderAt riemannZeta ρ).toNat
+    def RiemannHypothesis : Prop :=
+    ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+
+### ### **PRINTED 4 OF 4 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

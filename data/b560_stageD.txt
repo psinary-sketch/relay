@@ -1,0 +1,175 @@
+b560 -- READING (5): STAGE D -- THE IDENTITY, PRICED AND PROBED -- the Bombieri-Lagarias test function; the truncation family; one truncation lemma; the limit exchange stated
+
+### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+
+### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+    ### Stage D attempt 1 -- exit 0, elapsed 28 s, errors 0
+        | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    ### Stage D attempt 2 -- exit 0, elapsed 28 s, errors 0 (a docstring's backtick possessive corrected; no code changed)
+        | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+      295 | def blPoly (n : ℕ) (y : ℝ) : ℝ := ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℝ) * y ^ j / (j.factorial : ℝ)
+      298 | def blSmooth (n : ℕ) (u : ℝ) : ℂ := ((Real.exp (u / 2) * blPoly n u : ℝ) : ℂ)
+      301 | def blTest (n : ℕ) (u : ℝ) : ℂ := if u < 0 then blSmooth n u else 0
+      304 | def blTransform (n : ℕ) : Prop := ∀ ρ : ℂ, 0 < ρ.re → paperFT (blTest n) (gammaOf ρ) = liTerm n ρ
+      307 | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+      309 | theorem blPoly_contDiff (n : ℕ) : ContDiff ℝ 2 (blPoly n) := by
+      313 | theorem blSmooth_contDiff (n : ℕ) : ContDiff ℝ 2 (blSmooth n) := by
+      320 | theorem truncMember_classEF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+      321 |     ContDiff ℝ 2 (truncMember n f) ∧ HasCompactSupport (truncMember n f) := by
+      328 | theorem truncMember_eq (n : ℕ) {c : ℝ} (f : ContDiffBump c) (hc : c + f.rOut ≤ 0) (u : ℝ) :
+      329 |     truncMember n f u = ((f u : ℝ) : ℂ) * blTest n u := by
+      344 | theorem truncMember_EF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+      345 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)) ∧
+      346 |     ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)
+      347 |       = EF.literatureRHS (truncMember n f) :=
+      355 | def LiLimitExchange (n : ℕ) : Prop :=
+      356 |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+      357 |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+      358 |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+      359 |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+      364 | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+      365 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+      366 |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+
+### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+    <stdin>:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    'SIDEExplicitFormula.LiWeil.ne_one_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.rem_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_re_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liConst' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liConst_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_re_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.blPoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.blSmooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.blTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.blTransform' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.truncMember' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.blPoly_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.blSmooth_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.truncMember_classEF' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.truncMember_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.truncMember_EF' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.LiLimitExchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.li_identity_of_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+    @SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ},
+      ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier
+    @SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ},
+      ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ
+    SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ),
+      SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)
+    SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+      ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re
+    SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ},
+      1 ≤ ‖ρ‖ →
+        0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2
+    SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ),
+      Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+    SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ),
+      SIDEExplicitFormula.LiWeil.LiCoeff n =
+        ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+          ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re
+    SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+    SIDEExplicitFormula.LiWeil.truncMember_classEF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+      ContDiff ℝ 2 (SIDEExplicitFormula.LiWeil.truncMember n f) ∧
+        HasCompactSupport (SIDEExplicitFormula.LiWeil.truncMember n f)
+    SIDEExplicitFormula.LiWeil.truncMember_EF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+      (Summable fun ρ =>
+          ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+            Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ)) ∧
+        ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+              Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ) =
+          Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n f)
+    SIDEExplicitFormula.LiWeil.li_identity_of_exchange : ∀ (n : ℕ),
+      SIDEExplicitFormula.LiWeil.LiLimitExchange n →
+        ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+          (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+            (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+              Filter.Tendsto (fun m => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n (fs m)))
+                Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+    def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+    fun n =>
+      1 / 2 *
+        ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+          ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+    def SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ :=
+    fun n => 2 * (↑n + ↑n * 2 ^ n)
+    def SIDEExplicitFormula.LiWeil.blTransform : ℕ → Prop :=
+    fun n =>
+      ∀ (ρ : ℂ),
+        0 < ρ.re →
+          Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+    def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+    fun n =>
+      ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+        (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+          (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+            Filter.Tendsto
+              (fun m =>
+                ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+                  ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+                    Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ↑ρ))
+              Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+    def RiemannHypothesis : Prop :=
+    ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+
+### ### **PRINTED 12 OF 12 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### ### **STAGE D -- WHERE IT STOPS, BY LINE, AND WHAT REMAINS, PRICED IN LEMMAS** (the truncation route, OPEN_TRAILS :11294-:11302)
+    REACHED: the statement of the family and ONE truncation lemma -- `truncMember_classEF` (every member `ContDiff ℝ 2` with
+    compact support, EF_lit`s class), EF_lit applied to it (`truncMember_EF`), and the identity conditional on the exchange
+    (`li_identity_of_exchange`, INTERFACES). T2 (the smoothing of the jump at 0) is absorbed: the bump supported left of 0
+    multiplies the everywhere-smooth `e^{u/2} P_n(u)`, so the member is smooth whatever `k_n` does at 0 (`truncMember_eq`).
+    ### **THE OBSTACLE (LiWeil.lean, `LiLimitExchange`): THE LIMIT EXCHANGE, AND THE PAIRING HAZARD IS EXACTLY THERE.** At each
+    member the zero sum is absolutely convergent (EF_lit, ExplicitFormula.lean:98-99), with a dominant `C/(1 + ‖γ_ρ‖²)` whose
+    constant C grows with the second derivative of the member (ZeroSummability.lean:192-195: `C = 2 e^{Λ/2} ∫‖k``‖`); along a
+    family tending to `1_{u<0}` the bumps steepen at 0 and C is unbounded, so no dominant uniform in the family comes from
+    EF_lit`s own bound. The target `LiCoeff n` is a sum of real parts (the paired sum): the unpaired Li terms decay only like
+    `n/ρ` (`liTerm_re_abs_le` bounds the REAL part at `‖ρ‖⁻²`; the imaginary part is first order). The exchange needs the
+    grouped (conjugate-paired) transforms dominated uniformly in the family.
+    PRICED, NOT FORCED:
+      (D1) `blTransform` -- the transform of `k_n` is the Li term (T1): the Mellin integral of `x^{ρ-1} (log x)^{j-1}` on (0,1),
+           an improper integral per power -- one lemma of moderate weight.
+      (D2) the transform at a member converges to the transform of `k_n` at each fixed ρ (dominated convergence in u,
+           `|k_n(u) e^{(ρ-1/2)u}| ≤ e^{Re ρ u}|P_n(u)|` on u < 0) -- one lemma, moderate.
+      (D3) THE LEMMA OF SUBSTANCE: a dominant for the PAIRED truncated transforms, uniform in the family and summable over
+           the zeros -- an integration by parts that keeps the jump`s boundary term (`n/ρ`, first order, cancelling in
+           the real part) separate from a remainder `O(‖ρ‖⁻²)` uniform in the bump -- T6.
+      (D4) Tannery over the zeros through (D3)`s dominant (the pattern of `rest_tendsto_zero`, PowerLimit.lean:1025) -- T7.
+      (D5) the prime side`s limit (a finite sum for compact support; the Λ(n) n^{-1/2} (k(log n) + k(-log n)) terms converge
+           termwise and the family`s support grows -- the tail needs k_n`s decay e^{u/2}|u|^{n-1}) and the Γ-integral`s limit
+           -- T8, two lemmas.
+      (D6) λ_n identified with the Bombieri-Lagarias arithmetic formula in the kernel`s objects -- T9, a statement once
+           (D1)-(D5) are in; not re-read at source (BL 1999 is not in the relay`s banks).
+    ### the exchange is (D2)+(D3)+(D4); (D3) is where the pairing hazard lives and is the next act`s item if the bridge
+    ### continues ((R170)(7)).
+
+### ### **THE CONVERSE, PRICED AND NOT ATTEMPTED** (λ_n ≥ 0 for all n → RH; Bombieri-Lagarias Theorem 1, Voros`s growth):
+      (V1) at an off-line zero ρ₀ (Re ρ₀ ≠ 1/2) one of ρ₀, 1 - conj ρ₀ has `‖1 - 1/ρ‖ > 1`, so its term grows like
+           `‖1 - 1/ρ₀‖^n`: a lemma over ℂ, the reverse of `norm_one_sub_inv_of_re_half` -- light.
+      (V2) the phase: the real part of `-(1 - 1/ρ₀)^n` is negative and of size `‖1 - 1/ρ₀‖^n` for infinitely many n
+           (an argument on `n·arg(1 - 1/ρ₀)` mod 2π, Dirichlet approximation) -- moderate.
+      (V3) the rest of the sum bounded by a quantity of smaller exponential order: the zeros with `‖1 - 1/ρ‖` below the
+           largest, uniformly in n -- it needs the maximum of `‖1 - 1/ρ‖` over the zeros to be attained and the others
+           separated from it, a configuration estimate of the kind b559 met at the detection region -- substance.
+      (V4) assembled: some λ_n < 0; contraposition gives RH. BL 1999 does this for an arbitrary multiset satisfying their
+           growth condition; the kernel`s count bound supplies the multiset`s summability (`pair_summable`).

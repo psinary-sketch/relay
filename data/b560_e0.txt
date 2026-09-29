@@ -1,0 +1,91 @@
+b560 -- READING (6): THE E0 READ ON THE STAGES -- EVERY DECLARATION OF LiWeil.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+
+### declarations in the module: 35 ; graded here: 35 ; printed by Lean: 35
+    ne_one_of_mem                  DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- a member of the open strip is not 1
+    conj_mem                       DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the conjugate of a nontrivial zero of `riemannZeta` is one, from `riemannZeta_conj` (ZetaReflect.lean:78) -- the instance`s conjugation stability, not
+    mult_conj                      DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- its multiplicity agrees, from `analyticOrderAt_zeta_conj` (ZetaReflect.lean:160)
+    liTerm                         DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- `1 - (1 - ρ⁻¹) ^ n` over ℂ
+    pairTerm                       DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the term plus the term at the conjugate
+    liTerm_conj                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the term at the conjugate is the conjugate of the term
+    pairTerm_eq                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the pair is `2 Re (liTerm n ρ)`, real by construction
+    pairTerm_im                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- its imaginary part is zero
+    pairTerm_re                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- its real part is twice the term`s
+    norm_sub_one_of_re_half        DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line `‖ρ - 1‖ = ‖ρ‖`
+    norm_one_sub_inv_of_re_half    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line `‖1 - ρ⁻¹‖ = 1`
+    liTerm_re_nonneg_of_re_half    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line the real part of the term is nonnegative -- algebra over ℂ, no fact about zeta
+    pairTerm_re_nonneg_of_re_half  DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line the pair is nonnegative
+    rem_bound                      DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the second-order remainder `‖(1 - w) ^ n - 1 + n w‖ ≤ n 2 ^ n ‖w‖ ^ 2` for `‖w‖ ≤ 1`, by induction
+    liTerm_re_abs_le               DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- `|Re liTerm n ρ| ≤ (n + n 2 ^ n) / ‖ρ‖ ^ 2` for `1 ≤ ‖ρ‖`, `0 ≤ Re ρ ≤ 1`
+    liConst                        DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the named constant `2 (n + n 2 ^ n)`
+    liConst_nonneg                 DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the constant is nonnegative
+    pairTerm_norm_le               DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- Stage B`s bound `‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2` -- exponent 2, constant named
+    pair_summable                  DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- absolute summability over the genuine zeros, from `zero_sum_inv_sq` (the log-form count)
+    LiCoeff                        DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- `(1/2) Σ_ρ m_ρ Re (pairTerm n ρ)` over `zetaZeroConfig` -- the genuine zeros, the salt-check below
+    LiCoeff_eq                     DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the coefficient is `Σ_ρ m_ρ Re (1 - (1 - ρ⁻¹) ^ n)`, the Bombieri-Lagarias sum as the document writes it (BALPOS :70, :422)
+    liTerm_re_summable             DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the unpaired real-part sum converges absolutely
+    rh_imp_li_nonneg               DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- Mathlib`s `RiemannHypothesis` implies `0 ≤ λ_n` for every `n`, over the genuine zeros -- the forward half
+    blPoly                         DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the Bombieri-Lagarias polynomial `Σ_{j=1}^n C(n,j) y^{j-1}/(j-1)!`
+    blSmooth                       DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- `e^{u/2} P_n(u)`
+    blTest                         DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the test function `1_{u<0} e^{u/2} P_n(u)` in the kernel`s variable
+    blTransform                    A DEFINITION ['propext', 'Classical.choice', 'Quot.sound'] -- T1: `paperFT (blTest n) (gammaOf ρ) = liTerm n ρ` for `Re ρ > 0`
+    truncMember                    DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the truncation family: a smooth bump times `e^{u/2} P_n(u)`
+    blPoly_contDiff                DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the polynomial is C²
+    blSmooth_contDiff              DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the profile is C²
+    truncMember_classEF            DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- THE TRUNCATION LEMMA: every member is `ContDiff ℝ 2` with compact support -- EF_lit`s class
+    truncMember_eq                 DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on a bump supported left of 0 the member is the bump times `k_n`
+    truncMember_EF                 DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- EF_lit at each member: the zero sum absolute and equal to the literature right-hand side
+    LiLimitExchange                A DEFINITION ['propext', 'Classical.choice', 'Quot.sound'] -- the zero side at the truncations tends to `LiCoeff n`
+    li_identity_of_exchange        INTERFACES   ['propext', 'Classical.choice', 'Quot.sound'] -- the literature right-hand sides tend to `LiCoeff n` GIVEN `LiLimitExchange n` -- the premise named at the site and discharged nowhere
+### the grades counted: {'DERIVES': 24, 'DEFINITION': 10, 'INTERFACES': 1}
+
+### THE SALT-CHECK (EXCLUSION_ENGINE.md :28-:34; FINDINGS :57): no Prop of the module encodes a conclusion it is
+### cited for, and the coefficient is over the GENUINE configuration. Lean`s #print of LiCoeff and of what it names:
+    def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+    fun n =>
+      1 / 2 *
+        ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+          ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+    def SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ :=
+    def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig :=
+    Zeta23.zetaZeros Zeta23.zetaSeam
+    def Zeta23.zetaZeros : Zeta23.ZetaSeam → Zeta23.ZeroConfig :=
+    fun hs =>
+    def Zeta23.zetaZeros : Zeta23.ZetaSeam → Zeta23.ZeroConfig :=
+    fun hs =>
+      { carrier := {ρ | Zeta23.IsNontrivialZero ρ}, mult := Zeta23.zeroMult, one_le_mult := ⋯,
+        strip := Zeta23.zetaZeros._proof_1, reflect_mem := ⋯, mult_reflect := ⋯, finite_window := ⋯ }
+    def Zeta23.IsNontrivialZero : ℂ → Prop :=
+    fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+    def Zeta23.zeroMult : ℂ → ℕ :=
+    fun ρ => (analyticOrderAt riemannZeta ρ).toNat
+    def Zeta23.zeroMult : ℂ → ℕ :=
+    fun ρ => (analyticOrderAt riemannZeta ρ).toNat
+    def RiemannHypothesis : Prop :=
+    ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+    ### LiCoeff is over zetaZeroConfig (zetaZeros zetaSeam: carrier IsNontrivialZero of riemannZeta, mult the analytic
+    ### order of riemannZeta): True ; LiCoeff takes a configuration parameter: False
+    ### control: the parameter test on `def LiCoeff (Z : ZeroConfig) (n : ℕ) : ℝ := 0` -> True (must be True)
+    rh_imp_li_nonneg as Lean prints it: SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+    ### its conclusion unfolds to Mathlib objects over the genuine zeros: `RiemannHypothesis` (Mathlib), `LiCoeff n` a `tsum`
+    ### over `{ρ | riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}` weighted by `(analyticOrderAt riemannZeta ρ).toNat` of
+    ### `Re (1 - (1 - ρ⁻¹) ^ n)`: ### **THE SALT-CHECK PASSES: True**
+
+### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at the branch tip 941503b):
+    conj_mem                       defenc False  | doc: **Conjugation stability of the genuine instance (the set):** the conjugate of a nontrivial zero of `
+    mult_conj                      defenc False  | doc: **Conjugation stability of the genuine instance (the multiplicity):** `mult (conj ρ) = mult ρ`, from
+    pairTerm_eq                    defenc True  liTerm := 1 - (1 - ρ⁻¹) ^ n | doc: **The pair is real by construction:** `pairTerm n ρ = 2 * Re (liTerm n ρ)`.
+    liTerm_re_nonneg_of_re_half    defenc True  liTerm := 1 - (1 - ρ⁻¹) ^ n | doc: **Stage A's nonnegativity, per zero:** at `Re ρ = 1/2` the real part of the term is nonnegative -- a
+    pairTerm_norm_le               defenc False  | doc: **Stage B's bound:** for `1 ≤ ‖ρ‖` and `0 ≤ Re ρ ≤ 1`, `‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2`
+    pair_summable                  defenc False  | doc: **Stage B's summability, over the genuine zeros:** `Σ_ρ m_ρ Re (pairTerm n ρ)` converges absolutely,
+    LiCoeff_eq                     defenc True  liTerm := 1 - (1 - ρ⁻¹) ^ n | doc: The coefficient as the sum of the real parts of the Bombieri-Lagarias terms, with multiplicity.
+    rh_imp_li_nonneg               defenc False  | doc: **The forward half, over the genuine zeros:** Mathlib's `RiemannHypothesis` gives `0 ≤ λ_n` for ever
+    truncMember_classEF            defenc False  | doc: **Stage D's truncation lemma:** every member of the family is in EF_lit's class -- `ContDiff ℝ 2` wi
+    truncMember_EF                 defenc False  | doc: **EF_lit at each member of the family** (Zeta23's EF_lit for the genuine instance, WeilEF/Main.lean:
+    li_identity_of_exchange        defenc False  | doc: **The identity, conditional on the exchange:** if `LiLimitExchange n` holds, then along the same fam
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+    ### rowgen`s lean_check_axioms NOT RUN (its `import <module>` needs an olean this act does not build); the check and
+    ### axioms lines are the stdin prints of the same declarations.
+
+### ### **THE GATE (R170)(6): EVERY PRINT THE STANDARD THREE OR FEWER True ; NO ENCODES True ; THE SALT-CHECK True ; => MERGE True**
+### ### `li_identity_of_exchange` is INTERFACES: it lands on main as a conditional whose premise, `LiLimitExchange n`, is
+### ### named and discharged nowhere; `blTransform` and `LiLimitExchange` land as Prop definitions, stated and not proved.

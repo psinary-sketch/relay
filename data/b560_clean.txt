@@ -1,0 +1,47 @@
+b560 -- READING (3): THE CLEAN MERGE -- THE BRANCH, THE ELABORATION, THE PRINTS, THE E0 READ, THE ROWGEN RECORD
+
+### the branch detection-region-clean = 04eda4a ; its parent 81ae175 (main before this act = 81ae175)
+### its files against main before the act (name-status): A AxiomCheckDetection.lean ; A SIDEExplicitFormula/DetectionRegion.lean
+### the declarations it carries: ['h2_sign_upto', 'h2_sign_imp_upto', 'upto_all_imp_h2_sign', 'h2_sign_iff_forall_upto', 'forall_upto_iff_rh']
+### not carried from detection-region-b559 (absent here): ['h2_sign_upto_mono', 'ellOf', 'j₀', 'detection_region']
+### the bodies against the HELD branch`s, declaration by declaration:
+    h2_sign_upto               identical to 8faf7de`s: True
+    h2_sign_imp_upto           identical to 8faf7de`s: True
+    upto_all_imp_h2_sign       identical to 8faf7de`s: True
+    h2_sign_iff_forall_upto    identical to 8faf7de`s: True
+    forall_upto_iff_rh         identical to 8faf7de`s: True
+### sorry in the carried file (code, prose stripped): 0
+
+### THE ELABORATION (data/b560_clean_elab.txt):
+    ### b560 clean attempt 1 -- lake env lean SIDEExplicitFormula/DetectionRegion.lean (branch detection-region-clean from main 81ae175) -- exit 0, elapsed 21 s, errors 0
+
+### LEAN`S PRINTS (the module fed on stdin with its own header import, then AxiomCheckDetection.lean`s lines):
+    'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop
+    SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔
+      ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+    SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis
+    def RiemannHypothesis : Prop :=
+    ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+
+### THE E0 READ, PER DECLARATION (statement-read, the three-grade vocabulary; the salt-check on each):
+    h2_sign_upto               A DEFINITION prints ['propext', 'Classical.choice', 'Quot.sound'] -- a Prop over `classK` windows and b321`s `poleTerm`, `primeSum`, `archTerm`; it names no zero of zeta and no real part: the salt-check passes
+    h2_sign_imp_upto           DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- the restriction of `h2_sign` to the windows vanishing outside [-L0, L0]; one line
+    upto_all_imp_h2_sign       DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- compact support of a classK window gives a bound r; the finite positivity at r is the sign
+    h2_sign_iff_forall_upto    DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- `h2_sign <-> forall L0, h2_sign_upto L0`: both sides the kernel`s Props, the join proved
+    forall_upto_iff_rh         DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- the join composed with `h2_sign_iff_rh` (Seam.lean:101); its right side is Mathlib`s `RiemannHypothesis`
+### ### **EVERY CARRIED THEOREM DERIVES, EVERY PRINT IS THE STANDARD THREE OR FEWER, EVERY BODY IS THE BRANCH`S: True** -- the merge gate of (R170)(1)
+
+### THE ROWGEN RECORD (tools/rowgen/rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 04eda4a):
+    h2_sign_upto               defenc False  | doc: **(R169)(3)'s finite positivity, in the kernel's vocabulary:** `h2_sign`'s sign on the `classK` windows that v
+    h2_sign_imp_upto           defenc False  | doc: `h2_sign` gives the finite positivity at every `L₀`.
+    upto_all_imp_h2_sign       defenc False  | doc: Every `classK` window has compact support, so it vanishes outside some `[-r, r]`: the finite positivity at eve
+    h2_sign_iff_forall_upto    defenc False  | doc: **The join:** `h2_sign` is the finite positivity at every support bound.
+    forall_upto_iff_rh         defenc False  | doc: **The join, to Mathlib:** the finite positivity at every support bound is Mathlib's `RiemannHypothesis`, throu
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+    ### rowgen`s lean_check_axioms NOT RUN: its `import <module>` needs an olean this act does not build ((Z)); the
+    ### check and axioms above are the stdin prints of the same declarations.

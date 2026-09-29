@@ -1,0 +1,43 @@
+b560 -- READING (5): STAGE B -- THE DECAY -- the second-order remainder; the bound on the pair with its constant named; the summability over the genuine zeros
+
+### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+
+### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+    ### Stage B attempt 1 -- exit 1, elapsed 24 s, errors 1
+        | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+        | SIDEExplicitFormula/LiWeil.lean:216:60: error: failed to prove positivity/nonnegativity/nonzeroness
+    ### Stage B attempt 2 -- exit 0, elapsed 22 s, errors 0
+        | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+      118 | theorem rem_bound {w : ℂ} (hw : ‖w‖ ≤ 1) : ∀ n : ℕ, ‖(1 - w) ^ n - 1 + (n : ℂ) * w‖ ≤ n * 2 ^ n * ‖w‖ ^ 2
+      119 |   | 0 => by simp
+      120 |   | n + 1 => by
+      121 |     have ih := rem_bound hw n
+      149 | theorem liTerm_re_abs_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+      150 |     |(liTerm n ρ).re| ≤ (n + n * 2 ^ n) / ‖ρ‖ ^ 2 := by
+      171 | def liConst (n : ℕ) : ℝ := 2 * (n + n * 2 ^ n)
+      173 | theorem liConst_nonneg (n : ℕ) : 0 ≤ liConst n := by unfold liConst; positivity
+      177 | theorem pairTerm_norm_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+      178 |     ‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2 := by
+      188 | theorem pair_summable (n : ℕ) :
+      189 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re) := by
+
+### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+    <stdin>:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    'SIDEExplicitFormula.LiWeil.rem_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_re_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liConst' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liConst_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+    @SIDEExplicitFormula.LiWeil.rem_bound : ∀ {w : ℂ},
+      ‖w‖ ≤ 1 → ∀ (n : ℕ), ‖(1 - w) ^ n - 1 + ↑n * w‖ ≤ ↑n * 2 ^ n * ‖w‖ ^ 2
+    SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ
+    SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ},
+      1 ≤ ‖ρ‖ →
+        0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2
+    SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ),
+      Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+
+### ### **PRINTED 6 OF 6 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

@@ -1,0 +1,51 @@
+b560 -- READING (5): STAGE A -- THE TERMS -- the conjugation stability of the genuine instance; liTerm, pairTerm; the pair real; the line nonnegative
+
+### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+
+### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+    ### Stage A attempt 1 -- exit 0, elapsed 25 s, errors 0
+
+### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+       33 | theorem ne_one_of_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : ρ ≠ 1 := by
+       42 | theorem conj_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : (starRingEnd ℂ) ρ ∈ zetaZeroConfig.carrier := by
+       53 | theorem mult_conj {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) :
+       54 |     zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ := by
+       60 | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+       63 | def pairTerm (n : ℕ) (ρ : ℂ) : ℂ := liTerm n ρ + liTerm n ((starRingEnd ℂ) ρ)
+       66 | theorem liTerm_conj (n : ℕ) (ρ : ℂ) : liTerm n ((starRingEnd ℂ) ρ) = (starRingEnd ℂ) (liTerm n ρ) := by
+       71 | theorem pairTerm_eq (n : ℕ) (ρ : ℂ) : pairTerm n ρ = ((2 * (liTerm n ρ).re : ℝ) : ℂ) := by
+       75 | theorem pairTerm_im (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).im = 0 := by
+       79 | theorem pairTerm_re (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).re = 2 * (liTerm n ρ).re := by
+       83 | theorem norm_sub_one_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖ρ - 1‖ = ‖ρ‖ := by
+       91 | theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+      101 | theorem liTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (liTerm n ρ).re := by
+      109 | theorem pairTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (pairTerm n ρ).re := by
+
+### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+    'SIDEExplicitFormula.LiWeil.ne_one_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+    @SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ},
+      ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier
+    @SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ},
+      ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ
+    SIDEExplicitFormula.LiWeil.liTerm : ℕ → ℂ → ℂ
+    SIDEExplicitFormula.LiWeil.pairTerm : ℕ → ℂ → ℂ
+    SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ),
+      SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)
+    SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+      ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re
+    SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+      ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.pairTerm n ρ).re
+
+### ### **PRINTED 13 OF 13 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**

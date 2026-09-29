@@ -1,0 +1,827 @@
+====================================================================================================================================
+b560 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b560_reads.txt
+  b560 -- READING (1): THE READS, PRINTED VERBATIM BY PATH AND LINE (COMPONENT 3), BEFORE ANY NEW FILE IS WRITTEN
+  ### SIDE-explicit-formula main = 81ae175 ; the HELD branch detection-region-b559 = 8faf7de
+  
+  ### main against v0.2 (git diff --stat v0.2 main): AxiomCheckRegisterDepth.lean           |  35 ++++ ; SIDEExplicitFormula/RegisterDepth.lean | 312 +++++++++++++++++++++++++++++++++ ; 2 files changed, 347 insertions(+)
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:33 @8faf7de -- h2_sign_upto (the HELD branch module)
+         33 | def h2_sign_upto (L₀ : ℝ) : Prop :=
+         34 |   ∀ k : ℝ → ℂ, classK k → (∀ u : ℝ, L₀ < |u| → k u = 0) → 0 ≤ poleTerm k - primeSum k + archTerm k
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:37 @8faf7de -- h2_sign_upto_mono (the HELD branch module)
+         37 | theorem h2_sign_upto_mono {L₀ L₁ : ℝ} (h : L₀ ≤ L₁) : h2_sign_upto L₁ → h2_sign_upto L₀ :=
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:41 @8faf7de -- h2_sign_imp_upto (the HELD branch module)
+         41 | theorem h2_sign_imp_upto (L₀ : ℝ) : h2_sign → h2_sign_upto L₀ := fun h k hk _ => h k hk
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:45 @8faf7de -- upto_all_imp_h2_sign (the HELD branch module)
+         45 | theorem upto_all_imp_h2_sign : (∀ L₀ : ℝ, h2_sign_upto L₀) → h2_sign := by
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:55 @8faf7de -- h2_sign_iff_forall_upto (the HELD branch module)
+         55 | theorem h2_sign_iff_forall_upto : h2_sign ↔ ∀ L₀ : ℝ, h2_sign_upto L₀ :=
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:60 @8faf7de -- forall_upto_iff_rh (the HELD branch module)
+         60 | theorem forall_upto_iff_rh : (∀ L₀ : ℝ, h2_sign_upto L₀) ↔ RiemannHypothesis :=
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:68 @8faf7de -- ellOf (the HELD branch module)
+         68 | def ellOf (ρ : ℂ) : ℝ := 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:77 @8faf7de -- j₀ (the HELD branch module)
+         77 | def j₀ (γ δ : ℝ) : ℕ := sorry
+  
+  ### SIDEExplicitFormula/DetectionRegion.lean:83 @8faf7de -- detection_region (the HELD branch module)
+         83 | theorem detection_region (L₀ : ℝ) (hL : h2_sign_upto L₀) :
+         84 |     ∀ ρ : ℂ, riemannZeta ρ = 0 → 0 < ρ.re → ρ.re < 1 →
+         85 |       (j₀ (Zeta23.gammaOf ρ).re (ρ.re - 1 / 2) : ℝ) * ellOf ρ ≤ L₀ → ρ.re - 1 / 2 = 0 := by
+  
+  ### Zeta23/ExplicitFormula.lean:86 @81ae175 -- literatureRHS (the literature right-hand side)
+         86 | def literatureRHS (k : ℝ → ℂ) : ℂ :=
+         87 |   paperFT k (I / 2) + paperFT k (-I / 2)
+         88 |   - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+         89 |       * (k (Real.log n) + k (-Real.log n))
+         90 |   + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+  
+  ### Zeta23/ExplicitFormula.lean:97 @81ae175 -- EF_lit (H-EF, literature form: the hypotheses on the test function)
+         97 | def EF_lit (Z : ZeroConfig) : Prop :=
+         98 |   ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+         99 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+        100 |     ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+  
+  ### Zeta23/WeilEF/Main.lean:286 @81ae175 -- EF_lit_zetaZeroConfig (EF_lit for the genuine instance)
+        286 | theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  
+  ### Zeta23/Defs.lean:121 @81ae175 -- gammaOf (the ordinate map)
+        121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+  
+  ### Zeta23/Defs.lean:124 @81ae175 -- reflect (the configuration`s reflection)
+        124 | def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+  
+  ### Zeta23/Defs.lean:136 @81ae175 -- ZeroConfig (the configuration type)
+        136 | structure ZeroConfig where
+        137 |   /-- the set 𝒵 of distinct zeros -/
+        138 |   carrier : Set ℂ
+        139 |   /-- multiplicity m_ρ (value irrelevant off carrier) -/
+        140 |   mult : ℂ → ℕ
+        141 |   one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+        142 |   strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+        143 |   reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+        144 |   mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+        145 |   /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+        146 |   finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+  
+  ### Zeta23/Statement.lean:54 @81ae175 -- IsNontrivialZero (membership)
+         54 | def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+  
+  ### Zeta23/Statement.lean:59 @81ae175 -- zeroMult (multiplicity)
+         59 | def zeroMult (ρ : ℂ) : ℕ := (analyticOrderAt riemannZeta ρ).toNat
+  
+  ### Zeta23/Statement.lean:91 @81ae175 -- ZetaSeam (the seam)
+         91 | structure ZetaSeam : Prop where
+         92 |   /-- H-fin: at a nontrivial zero the analytic order is finite and ≥ 1. -/
+         93 |   one_le_mult : ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ
+         94 |   /-- H-symm (set): ρ ↦ 1 − conj ρ preserves nontrivial zeros. -/
+         95 |   reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ)
+         96 |   /-- H-symm (multiplicity). -/
+         97 |   mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ
+         98 |   /-- local finiteness: finitely many nontrivial zeros with T₁ < γ ≤ T₂. -/
+         99 |   finite_window : ∀ T₁ T₂ : ℝ, ({ρ | IsNontrivialZero ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+  
+  ### Zeta23/Statement.lean:104 @81ae175 -- zetaZeros (the instance from the seam)
+        104 | def zetaZeros (hs : ZetaSeam) : ZeroConfig where
+        105 |   carrier := {ρ | IsNontrivialZero ρ}
+        106 |   mult := zeroMult
+        107 |   one_le_mult := hs.one_le_mult
+        108 |   strip := fun _ h => ⟨h.2.1.le, h.2.2.le⟩
+        109 |   reflect_mem := hs.reflect_zero
+        110 |   mult_reflect := hs.mult_reflect
+        111 |   finite_window := hs.finite_window
+  
+  ### Zeta23/Statement/SeamClosed.lean:38 @81ae175 -- zetaSeam (the seam discharged)
+         38 | theorem zetaSeam : ZetaSeam := ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect
+  
+  ### Zeta23/Statement/SeamClosed.lean:42 @81ae175 -- zetaZeroConfig (the genuine instance)
+         42 | def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam
+  
+  ### Zeta23/ZetaReflect.lean:78 @81ae175 -- riemannZeta_conj (conjugation fact (set))
+         78 | theorem riemannZeta_conj {s : ℂ} (hs : s ≠ 1) :
+         79 |     riemannZeta (conj s) = conj (riemannZeta s) := by
+  
+  ### Zeta23/ZetaReflect.lean:160 @81ae175 -- analyticOrderAt_zeta_conj (conjugation fact (multiplicity))
+        160 | theorem analyticOrderAt_zeta_conj {w : ℂ} (hw : w ≠ 1) :
+        161 |     analyticOrderAt riemannZeta (conj w) = analyticOrderAt riemannZeta w := by
+  
+  ### Zeta23/ZetaReflect.lean:294 @81ae175 -- zeta_reflect_zero (reflection fact (set))
+        294 | theorem zeta_reflect_zero : ∀ ρ, IsNontrivialZero ρ → IsNontrivialZero (reflect ρ) := by
+  
+  ### Zeta23/ZetaReflect.lean:330 @81ae175 -- zeta_mult_reflect (reflection fact (multiplicity))
+        330 | theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by
+  
+  ### Zeta23/RvM/LocalCount.lean:282 @81ae175 -- zeta_local_zero_count (the count bound)
+        282 | theorem zeta_local_zero_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,
+        283 |     (Ncount t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) := by
+  
+  ### Zeta23/RvM/LocalCount.lean:310 @81ae175 -- zetaZeroConfig_local_count (the count bound, H-RvM`s vocabulary)
+        310 | theorem zetaZeroConfig_local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ,
+        311 |     (zetaZeroConfig.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3) := by
+  
+  ### Zeta23/WeilEF/ZeroSummability.lean:121 @81ae175 -- zero_sum_inv_sq_gen (the log-form grouping (Stage B`s input))
+        121 | theorem zero_sum_inv_sq_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)
+        122 |     (hloc' : ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)) :
+        123 |     Summable (fun ρ : Z.carrier =>
+        124 |       (Z.mult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+  
+  ### Zeta23/WeilEF/ZeroSummability.lean:247 @81ae175 -- zero_sum_inv_sq (the same, for the zeros of zeta)
+        247 | theorem zero_sum_inv_sq (hs : ZetaSeam) :
+        248 |     Summable (fun ρ : (zetaZeros hs).carrier =>
+        249 |       (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ))) := by
+  
+  ### Zeta23/WeilEF/ZeroSummability.lean:179 @81ae175 -- EF_zero_sum_summable_gen (the finite window handled (its pattern))
+        179 | theorem EF_zero_sum_summable_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)
+        180 |     (hloc' : ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)) {k : ℝ → ℂ}
+        181 |     (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) :
+        182 |     Summable (fun ρ : Z.carrier =>
+        183 |       (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) := by
+  
+  ### SIDEExplicitFormula/PowerLimit.lean:934 @81ae175 -- weighted_summable (the fourth-power grouping)
+        934 | theorem weighted_summable (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+        935 |     (hBf : 0 ≤ Bf) (hf0 : ∀ ρ ∈ Z.carrier, 0 ≤ f ρ)
+        936 |     (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf) :
+        937 |     Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ) := by
+  
+  ### SIDEExplicitFormula/DecayBound.lean:63 @81ae175 -- paperFT_decay (the decay bound)
+         63 | theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)
+         64 |     (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ * ‖z‖ ^ p ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|) := by
+  
+  ### SIDEExplicitFormula/Seam.lean:101 @81ae175 -- h2_sign_iff_rh (the seam`s equivalence)
+        101 | theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+  
+  ### the two sorry bodies on the HELD branch, by line:
+      DetectionRegion.lean:77 | def j₀ (γ δ : ℝ) : ℕ := sorry
+      DetectionRegion.lean:86 |   sorry
+  
+  ### BALANCE_AND_POSITIVITY.md -- C.7.3 as it stands, and the Bombieri-Lagarias formula where the document quotes it:
+      BALPOS:498 | ### C.7.3 The detection threshold — **VERIFIED**, with one extraction caveat stated
+      BALPOS:500 | > **"Sₙ can only reliably signal a zero violating RH up to a height |Im ρ| ≲ n/2; so vice-versa, since such zeros are now known to require |Im ρ| ≳ 10⁹, they could only be detected by Sₙ for n ≳ 10¹⁸"**
+      BALPOS:504 | 
+      BALPOS:70 | Two classical faces name what the upgraded certificate would be. Li's criterion (Bombieri–Lagarias): RH ⟺ λ_n = Σ_ρ [1 − (1 − 1/ρ)^n] ≥ 0 for all n ≥ 1. Connes' trace formulation: the prime sum as a trace on the adele class space, with positivity as trace-positivity. Both are RH-equivalent restatements of the same missing property; both are the Euler class's positivity in different clothing.
+      BALPOS:422 | 1. **Li's criterion and its general form.** Bombieri & Lagarias, *Complements to Li's Criterion for the Riemann Hypothesis*, **J. Number Theory 77 (1999) 274–287**: RH ⟺ λ_n ≥ 0 for all n ≥ 1, with λ_n = Σ_ρ [1 − (1 − 1/ρ)ⁿ]. They show the criterion follows from general inequalities for an arbitrary multiset of complex numbers — **it is not specific to zeta** — give an arithmetic formula for λ_n v
+      BALPOS:68 (the on-line term, compiled in another kernel) | ...One half of that residue is now settled in-kernel: on-line zeros can never break Li positivity, because for Re ρ = 1/2 each Bombieri–Lagarias term is nonnegative — `‖1 − 1/ρ‖ = 1`, so `Re[1 − (1 − 1/ρ)ⁿ] ≥ 0` (`PartialPositivity.blTerm_nonneg_of_onLine`, SIDE-lv-conservation `v0.8.0` = `6efa9e5`, profile `{propext, Classical.cho...
+  ### SIDE-lv-conservation @2f71068 SIDELvConservation/PartialPositivity.lean:51 -- blTerm_nonneg_of_onLine (cited, not imported):
+         51 | lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) :
+         52 |     0 ≤ blTerm z n := by
+         45 | noncomputable def blTerm (z : NontrivialZero) (n : ℕ) : ℝ :=
+         46 |   (1 - (1 - 1 / (z.1 : ℂ)) ^ n).re
+  ### relay data/b549_premise.txt:12 -- inequalityToPositivity (the eventual consumer, cited, not imported):
+        inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+  
+  ### OPEN_TRAILS:
+      OPEN_TRAILS.md:3548 | | **1** | `W-ORD-LI-WEIL-BRIDGE` | **RESULT or RULING** | b324's bridging statement, given its ID here: *a formula carrying the archimedean margin `W_infinity(f) - Tr(theta(f) S)` at a lawful test function to the Li margin `lambda_n` at an index `n`, or a proof that no such formula exists.* Sharpene
+      OPEN_TRAILS.md:11203 | ### `W-ORD-LI-WEIL-BRIDGE` (the row at :3548) — THREE CONSUMERS AND A TOOLCHAIN PRICE, appended 2026-09-26, b550, under the author's ruling (R160)(4)
+      OPEN_TRAILS.md:11265 | ### `W-ORD-LI-WEIL-BRIDGE` (the row at :3548, the items at :11203) -- ITS LEADING ITEM, appended 2026-09-28, b552, under the author's ruling (R162)(2), READING FIVE
+      OPEN_TRAILS.md:11290 | ### `W-ORD-LI-WEIL-BRIDGE` (its leading item at :11265) -- THE BRIDGE RE-ROUTED IN PRICE, appended 2026-09-28, b553, under the author's ruling (R163)(5)
+      OPEN_TRAILS.md:11294 | **The truncation route, inside SIDE-explicit-formula, in lemmas:**
+      OPEN_TRAILS.md:11295 | 
+      OPEN_TRAILS.md:11296 | - **T1** the Li test function g_n in the kernel's variable, as a definition, with its transform identified: paperFT g_n = h_n, h_n(ρ) = 1 − (1 − 1/ρ)^n (BALPOS :422); its form -- one-sided in log x or not -- fixed from the source first -- *new*
+      OPEN_TRAILS.md:11297 | - **T2** a smoothing of g_n where it is not C² (needed iff T1 finds a jump), with its transform's convergence -- *new, conditional*
+      OPEN_TRAILS.md:11298 | - **T3** the cutoff family χ_R: C², compactly supported, → 1 pointwise, bounded -- *new; Mathlib bump functions*
+      OPEN_TRAILS.md:11299 | - **T4** g_{n,R} := g_n · χ_R is C² with compact support -- the hypotheses of EF_lit -- *new*
+      OPEN_TRAILS.md:11300 | - **T5** EF_lit at each g_{n,R}: the zero sum equals literatureRHS g_{n,R} -- *Zeta23 EF_lit (hypothesis field), direct*
+      OPEN_TRAILS.md:11301 | - **T6** the zero side's dominant: the sum grouped by ρ and 1 − ρ̄, since h_n alone decays only like n/ρ; a summable dominant for the grouped terms uniformly in R -- *new; dominant_summable's pattern*
+      OPEN_TRAILS.md:11302 | - **T7** the zero side's limit R → ∞ by Tannery through the grouped dominant -- *rest_tendsto_zero's pattern*
+      OPEN_TRAILS.md:11424 | | (b) | `W-ORD-LI-WEIL-BRIDGE` | T1-T9 by the truncation route inside SIDE-explicit-formula, the paired-sum hazard at T6 (the zero sum grouped by ρ and 1 − ρ̄); its leading item the explicit formula on a class wider than EF_lit's; the toolchain forward F1-F4 priced above it and not the route; three 
+      OPEN_TRAILS.md:11491 | *Appended 2026-09-29 by b559, under the author's ruling `(R169)`(5), to the DETECTION-REGION entry at :11151 and b554's price at :11332 -- THE PRICE CORRECTED BY THE MEASURED OBSTACLE:* the explicit index j₀(γ, δ), priced at b554 as the one lemma of substance, is not one lemma by the PowerLimit rout
+      OPEN_TRAILS.md:11493 | ### b559 — lane two, act one under (R169): W-ORD-DETECTION-REGION stated on a branch and held at the named obstacle; the housekeeping from b558
+  
+  ### THE SUITE`S FILE-TIME ARMS, tools/b559_checks.py (each arm, and every line reading a file time):
+      G-PEEK-DECLARED          declared at :[498]
+      G-WRITELIST-KINDS        declared at :[589]
+      G-PRIORBANK-UNCHANGED    declared at :[578]
+      b559_checks.py:222 | S['after_lock'] = all(os.path.exists(os.path.join(D, x)) and os.path.getmtime(os.path.join(D, x)) > os.path.getmtime(FACE) for x in AFTER_LOCK)
+      b559_checks.py:223 | S['before_lock'] = all(os.path.getmtime(os.path.join(D, x)) < os.path.getmtime(FACE) for x in BEFORE_LOCK)
+      b559_checks.py:243 | if os.path.getmtime(os.path.join(repo, rel)) < os.path.getmtime(FACE):
+      b559_checks.py:251 | S['noprior'] = all(os.path.getmtime(os.path.join(D, f)) < os.path.getmtime(FACE) for f in prior)
+  
+  ### ### **H11a, SCORED FROM THE PRINTS ALONE, BEFORE ANY BUILD:**
+      the type`s symmetry fields : reflect_mem, mult_reflect only (no conjugation field) : True
+      reflect ρ = 1 - (starRingEnd ℂ) ρ  (Defs.lean:124) : True -- at ρ.re = 1/2 it is ρ itself (1 - (1/2 - iγ) = 1/2 + iγ)
+      H11a AS FIRST WORDED (reflection sufficient for pairing) : REFUTED ON THE TYPE -- the configuration`s only symmetry fixes the line
+      the conjugation facts printed : riemannZeta_conj True ; analyticOrderAt_zeta_conj True ; the instance`s carrier and mult are IsNontrivialZero and zeroMult : True
+      ### H11a AS AMENDED (conjugation; the author`s (R170)(4) amendment) : HOLDS FROM THE PRINTS -- ζ(conj ρ) = conj ζ(ρ) = 0 for ρ ≠ 1, the open strip is conjugation-invariant, and the order agrees; the compile is Stage A`s
+
+### relay data/b560_b559_postpush_rerun.txt
+  ========================================================================================================
+  b559 -- THE SUITE. ### **POST-PUSH READING.** ### every arm exercised on both controls.
+  ========================================================================================================
+    arms in the (G2) block : 64 ; run here : 64 ; deferred : 0
+    G-PEEK-DECLARED reads CONTENT DIGESTS AGAINST THE PUSHED TREE (origin/main f8017036)
+    arm                                        LIVE  NEG   POS   verdict
+    --------------------------------------------------------------------------------------------
+    G-RECEIPT-IN-FULL                          PASS  PASS  FAIL  OK
+    G-SCAN-CLEAN                               PASS  PASS  FAIL  OK
+    G-SCAN-FLAGS-DECLARED                      PASS  PASS  FAIL  OK
+    G-STEPZERO-CENSUS                          PASS  PASS  FAIL  OK
+    G-STEPZERO-PINS                            PASS  PASS  FAIL  OK
+    G-REG-LOCKED-FIRST                         PASS  PASS  FAIL  OK
+    G-LOCKGATE-EIGHT                           PASS  PASS  FAIL  OK
+    G-SEAL-VERIFIES                            PASS  PASS  FAIL  OK
+    G-PRIOR-CLOSED-PUSHED                      PASS  PASS  FAIL  OK
+    G-ADDENDUM-SLOT-CONTENT-BOUNDED            PASS  PASS  FAIL  OK
+    G-NUMBER-UNCLAIMED                         FAIL  ###FAIL FAIL  ### NEG FAILS
+    G-PEEK-DECLARED                            PASS  PASS  FAIL  OK
+    G-R169-ENTERED                             PASS  PASS  FAIL  OK
+    G-READS-CITED                              PASS  PASS  FAIL  OK
+    G-HOUSEKEEPING-ALONE                       PASS  PASS  FAIL  OK
+    G-RERUN-RECORD                             PASS  PASS  FAIL  OK
+    G-CONSTANTS-BANKED                         PASS  PASS  FAIL  OK
+    G-H9A-MARKERS                              PASS  PASS  FAIL  OK
+    G-BRANCH-FROM-V02                          PASS  PASS  FAIL  OK
+    G-BRANCH-HELD-OR-MERGED                    PASS  PASS  FAIL  OK
+    G-NO-SORRY-ON-MAIN                         PASS  PASS  FAIL  OK
+    G-EXISTING-UNCHANGED                       PASS  PASS  FAIL  OK
+    G-ELAB-PRINTED                             PASS  PASS  FAIL  OK
+    G-AXIOMS-PRINTED                           PASS  PASS  FAIL  OK
+    G-LITERAL-PROBE                            PASS  PASS  FAIL  OK
+    G-E0-READ                                  PASS  PASS  FAIL  OK
+    G-PRICE-LINE                               PASS  PASS  FAIL  OK
+    G-READING-ENTERED                          PASS  PASS  FAIL  OK
+    G-FINDINGS-ENTRY                           PASS  PASS  FAIL  OK
+    G-CORR-ROW                                 PASS  PASS  FAIL  OK
+    G-BRANCHES-DELETED                         PASS  PASS  FAIL  OK
+    G-TRIAL-UNTOUCHED                          PASS  PASS  FAIL  OK
+    G-LINES-KEPT                               PASS  PASS  FAIL  OK
+    G-MONOGRAPH-UNTOUCHED                      PASS  PASS  FAIL  OK
+    G-ERRATA-UNTOUCHED                         PASS  PASS  FAIL  OK
+    G-CEILING-UNCHANGED                        PASS  PASS  FAIL  OK
+    G-KERNEL-MAINS-UNTOUCHED                   PASS  PASS  FAIL  OK
+    G-NO-ZENODO-CALL                           PASS  PASS  FAIL  OK
+    G-DELETE-FREE                              PASS  PASS  FAIL  OK
+    G-TECHNE-SHAPE-ONLY                        PASS  PASS  FAIL  OK
+    G-N1-SCORED                                PASS  PASS  FAIL  OK
+    G-N2-SCORED                                PASS  PASS  FAIL  OK
+    G-N3-SCORED                                PASS  PASS  FAIL  OK
+    G-N4-SCORED                                PASS  PASS  FAIL  OK
+    G-N5-SCORED                                PASS  PASS  FAIL  OK
+    G-N6-SCORED                                PASS  PASS  FAIL  OK
+    G-SEAT-EXPECTATIONS-SCORED                 PASS  PASS  FAIL  OK
+    G-H9-SCORED                                PASS  PASS  FAIL  OK
+    G-NODEPOSIT                                PASS  PASS  FAIL  OK
+    G-NOH2-MOVED                               PASS  PASS  FAIL  OK
+    G-PRIORBANK-UNCHANGED                      PASS  PASS  FAIL  OK
+    G-FOUR-LISTS-OPEN                          PASS  PASS  FAIL  OK
+    G-CORPUS-SCOPE                             PASS  PASS  FAIL  OK
+    G-TRAIL-APPEND-ONLY                        PASS  PASS  FAIL  OK
+    G-INSTRUMENTS-EDITED-AS-RULED              PASS  PASS  FAIL  OK
+    G-WRITELIST-KINDS                          FAIL  ###FAIL FAIL  ### NEG FAILS
+    G-WRITELIST-SPANS-ACT                      PASS  PASS  FAIL  OK
+    G-NOSTAGE-A-BY-DIFF                        PASS  PASS  FAIL  OK
+    G-ARMS-DECLARED-EQ-RUN                     PASS  PASS  FAIL  OK
+    G-ARMS-NO-SUBSTRING-VERDICT                PASS  PASS  FAIL  OK
+    G-ARMS-NO-LIVE-LIMB                        PASS  PASS  FAIL  OK
+    G-MUSTFAIL                                 PASS  PASS  FAIL  OK
+    G-ARTEFACTS-NOT-COMMITTED                  PASS  PASS  FAIL  OK
+    G-PUSHED-PREDICATE-THREE-CLAUSED           PASS  PASS  FAIL  OK
+  
+    ### files written that NO (W) GLOB COVERS : 1 ['terminal_table.json']
+    ### G-PRIORBANK-UNCHANGED checked 5757 prior banks: 5737 by digest against the pre-act tip and the pushed tree, 1 first tracked in the pushed tree by digest against it, 35 tracked by no tree read by file time; none excepted; changed NONE.
+    ### G-WRITELIST-KINDS read the working tree by content digest against the pushed tree ((R170)(3)).
+    ### ### **(R170)(3): A RE-RUN ON THE PUSHED ACT -- THE GENERATOR WAS NOT RE-RUN** (it writes relay`s table files).
+    ### ### **VACUOUS ARMS : NONE.**
+    ### ### **ARMS RUN : 64. ### LIVE PASSING : 62. ### LIVE FAILING : 2 ['G-NUMBER-UNCLAIMED', 'G-WRITELIST-KINDS'].**
+    ### ### **NEGATIVE-CONTROL FAILURES : 2. ### POSITIVE-CONTROL PASSES : 0 .**
+    ### ### **VERDICT : NOT CLEAN**
+  ========================================================================================================
+
+### relay data/b560_clean_elab.txt
+  ### b560 clean attempt 1 -- lake env lean SIDEExplicitFormula/DetectionRegion.lean (branch detection-region-clean from main 81ae175) -- exit 0, elapsed 21 s, errors 0
+
+### relay data/b560_clean.txt
+  b560 -- READING (3): THE CLEAN MERGE -- THE BRANCH, THE ELABORATION, THE PRINTS, THE E0 READ, THE ROWGEN RECORD
+  
+  ### the branch detection-region-clean = 04eda4a ; its parent 81ae175 (main before this act = 81ae175)
+  ### its files against main before the act (name-status): A AxiomCheckDetection.lean ; A SIDEExplicitFormula/DetectionRegion.lean
+  ### the declarations it carries: ['h2_sign_upto', 'h2_sign_imp_upto', 'upto_all_imp_h2_sign', 'h2_sign_iff_forall_upto', 'forall_upto_iff_rh']
+  ### not carried from detection-region-b559 (absent here): ['h2_sign_upto_mono', 'ellOf', 'j₀', 'detection_region']
+  ### the bodies against the HELD branch`s, declaration by declaration:
+      h2_sign_upto               identical to 8faf7de`s: True
+      h2_sign_imp_upto           identical to 8faf7de`s: True
+      upto_all_imp_h2_sign       identical to 8faf7de`s: True
+      h2_sign_iff_forall_upto    identical to 8faf7de`s: True
+      forall_upto_iff_rh         identical to 8faf7de`s: True
+  ### sorry in the carried file (code, prose stripped): 0
+  
+  ### THE ELABORATION (data/b560_clean_elab.txt):
+      ### b560 clean attempt 1 -- lake env lean SIDEExplicitFormula/DetectionRegion.lean (branch detection-region-clean from main 81ae175) -- exit 0, elapsed 21 s, errors 0
+  
+  ### LEAN`S PRINTS (the module fed on stdin with its own header import, then AxiomCheckDetection.lean`s lines):
+      'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+      SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop
+      SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔
+        ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+      SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis
+      def RiemannHypothesis : Prop :=
+      ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+  
+  ### THE E0 READ, PER DECLARATION (statement-read, the three-grade vocabulary; the salt-check on each):
+      h2_sign_upto               A DEFINITION prints ['propext', 'Classical.choice', 'Quot.sound'] -- a Prop over `classK` windows and b321`s `poleTerm`, `primeSum`, `archTerm`; it names no zero of zeta and no real part: the salt-check passes
+      h2_sign_imp_upto           DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- the restriction of `h2_sign` to the windows vanishing outside [-L0, L0]; one line
+      upto_all_imp_h2_sign       DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- compact support of a classK window gives a bound r; the finite positivity at r is the sign
+      h2_sign_iff_forall_upto    DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- `h2_sign <-> forall L0, h2_sign_upto L0`: both sides the kernel`s Props, the join proved
+      forall_upto_iff_rh         DERIVES      prints ['propext', 'Classical.choice', 'Quot.sound'] -- the join composed with `h2_sign_iff_rh` (Seam.lean:101); its right side is Mathlib`s `RiemannHypothesis`
+  ### ### **EVERY CARRIED THEOREM DERIVES, EVERY PRINT IS THE STANDARD THREE OR FEWER, EVERY BODY IS THE BRANCH`S: True** -- the merge gate of (R170)(1)
+  
+  ### THE ROWGEN RECORD (tools/rowgen/rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 04eda4a):
+      h2_sign_upto               defenc False  | doc: **(R169)(3)'s finite positivity, in the kernel's vocabulary:** `h2_sign`'s sign on the `classK` windows that v
+      h2_sign_imp_upto           defenc False  | doc: `h2_sign` gives the finite positivity at every `L₀`.
+      upto_all_imp_h2_sign       defenc False  | doc: Every `classK` window has compact support, so it vanishes outside some `[-r, r]`: the finite positivity at eve
+      h2_sign_iff_forall_upto    defenc False  | doc: **The join:** `h2_sign` is the finite positivity at every support bound.
+      forall_upto_iff_rh         defenc False  | doc: **The join, to Mathlib:** the finite positivity at every support bound is Mathlib's `RiemannHypothesis`, throu
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+      ### rowgen`s lean_check_axioms NOT RUN: its `import <module>` needs an olean this act does not build ((Z)); the
+      ### check and axioms above are the stdin prints of the same declarations.
+
+### relay data/b560_v03.txt
+  ### b560 READING (3): the v0.3 push via push-b560 (Rule 4.10's hook reads the checked-out branch), and the read-back
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     81ae175..04eda4a  push-b560 -> main
+  04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/heads/main
+  b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+  04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+  ### local main 04eda4a710bf6a29a40bfb07ad2620f101c3d2a5 ; local v0.3 object b52a30b8f7d83c91a7bad26766fe21509ff9980a peeled 04eda4a710bf6a29a40bfb07ad2620f101c3d2a5
+  ### branches deleted by name after the read-back: push-b560 (kernel), detection-region-clean (never pushed; local only)
+
+### relay data/b560_stageA.txt
+  b560 -- READING (5): STAGE A -- THE TERMS -- the conjugation stability of the genuine instance; liTerm, pairTerm; the pair real; the line nonnegative
+  
+  ### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+  
+  ### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+      ### Stage A attempt 1 -- exit 0, elapsed 25 s, errors 0
+  
+  ### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+         33 | theorem ne_one_of_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : ρ ≠ 1 := by
+         42 | theorem conj_mem {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : (starRingEnd ℂ) ρ ∈ zetaZeroConfig.carrier := by
+         53 | theorem mult_conj {ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) :
+         54 |     zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ := by
+         60 | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+         63 | def pairTerm (n : ℕ) (ρ : ℂ) : ℂ := liTerm n ρ + liTerm n ((starRingEnd ℂ) ρ)
+         66 | theorem liTerm_conj (n : ℕ) (ρ : ℂ) : liTerm n ((starRingEnd ℂ) ρ) = (starRingEnd ℂ) (liTerm n ρ) := by
+         71 | theorem pairTerm_eq (n : ℕ) (ρ : ℂ) : pairTerm n ρ = ((2 * (liTerm n ρ).re : ℝ) : ℂ) := by
+         75 | theorem pairTerm_im (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).im = 0 := by
+         79 | theorem pairTerm_re (n : ℕ) (ρ : ℂ) : (pairTerm n ρ).re = 2 * (liTerm n ρ).re := by
+         83 | theorem norm_sub_one_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖ρ - 1‖ = ‖ρ‖ := by
+         91 | theorem norm_one_sub_inv_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖1 - ρ⁻¹‖ = 1 := by
+        101 | theorem liTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (liTerm n ρ).re := by
+        109 | theorem pairTerm_re_nonneg_of_re_half (n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (pairTerm n ρ).re := by
+  
+  ### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+      'SIDEExplicitFormula.LiWeil.ne_one_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      @SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ},
+        ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier
+      @SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ},
+        ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ
+      SIDEExplicitFormula.LiWeil.liTerm : ℕ → ℂ → ℂ
+      SIDEExplicitFormula.LiWeil.pairTerm : ℕ → ℂ → ℂ
+      SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ),
+        SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)
+      SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+        ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re
+      SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+        ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.pairTerm n ρ).re
+  
+  ### ### **PRINTED 13 OF 13 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b560_stageB.txt
+  b560 -- READING (5): STAGE B -- THE DECAY -- the second-order remainder; the bound on the pair with its constant named; the summability over the genuine zeros
+  
+  ### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+  
+  ### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+      ### Stage B attempt 1 -- exit 1, elapsed 24 s, errors 1
+          | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+          | SIDEExplicitFormula/LiWeil.lean:216:60: error: failed to prove positivity/nonnegativity/nonzeroness
+      ### Stage B attempt 2 -- exit 0, elapsed 22 s, errors 0
+          | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  
+  ### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+        118 | theorem rem_bound {w : ℂ} (hw : ‖w‖ ≤ 1) : ∀ n : ℕ, ‖(1 - w) ^ n - 1 + (n : ℂ) * w‖ ≤ n * 2 ^ n * ‖w‖ ^ 2
+        119 |   | 0 => by simp
+        120 |   | n + 1 => by
+        121 |     have ih := rem_bound hw n
+        149 | theorem liTerm_re_abs_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+        150 |     |(liTerm n ρ).re| ≤ (n + n * 2 ^ n) / ‖ρ‖ ^ 2 := by
+        171 | def liConst (n : ℕ) : ℝ := 2 * (n + n * 2 ^ n)
+        173 | theorem liConst_nonneg (n : ℕ) : 0 ≤ liConst n := by unfold liConst; positivity
+        177 | theorem pairTerm_norm_le (n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) :
+        178 |     ‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2 := by
+        188 | theorem pair_summable (n : ℕ) :
+        189 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re) := by
+  
+  ### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+      <stdin>:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+      'SIDEExplicitFormula.LiWeil.rem_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_re_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liConst' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liConst_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+      @SIDEExplicitFormula.LiWeil.rem_bound : ∀ {w : ℂ},
+        ‖w‖ ≤ 1 → ∀ (n : ℕ), ‖(1 - w) ^ n - 1 + ↑n * w‖ ≤ ↑n * 2 ^ n * ‖w‖ ^ 2
+      SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ
+      SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ},
+        1 ≤ ‖ρ‖ →
+          0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2
+      SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ),
+        Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+  
+  ### ### **PRINTED 6 OF 6 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b560_stageC.txt
+  b560 -- READING (5): STAGE C -- THE COEFFICIENT AND THE FORWARD HALF -- LiCoeff over the genuine zeros; rh_imp_li_nonneg
+  
+  ### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+  
+  ### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+      ### Stage C attempt 1 -- exit 1, elapsed 24 s, errors 1
+          | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+          | SIDEExplicitFormula/LiWeil.lean:273:6: error: Tactic `rewrite` failed: motive is not type correct:
+          |   fun _a => ↑ρ ∈ _a
+          | Error: Application type mismatch: The argument
+          |   ρ
+          | has type
+          |   ↑zetaZeroConfig.carrier
+          | but is expected to have type
+          |   { x // x ∈ _a }
+          | in the application
+          |   ↑ρ
+          | Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fu
+          | Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'De
+          | hRH : RiemannHypothesis
+          | n : ℕ
+          | ρ : ↑zetaZeroConfig.carrier
+          | hmem : ↑ρ ∈ zetaZeroConfig.carrier
+          | hne : ↑ρ ≠ 1
+          | ⊢ 0 ≤ (pairTerm n ↑ρ).re
+      ### Stage C attempt 2 -- exit 0, elapsed 22 s, errors 0
+          | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  
+  ### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+        243 | def LiCoeff (n : ℕ) : ℝ :=
+        244 |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+        247 | theorem LiCoeff_eq (n : ℕ) :
+        248 |     LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re := by
+        257 | theorem liTerm_re_summable (n : ℕ) :
+        258 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re) := by
+        267 | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+  
+  ### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+      <stdin>:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+      'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_re_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+      SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ
+      SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ),
+        SIDEExplicitFormula.LiWeil.LiCoeff n =
+          ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re
+      SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+      def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+      fun n =>
+        1 / 2 *
+          ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+      def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig :=
+      Zeta23.zetaZeros Zeta23.zetaSeam
+      def Zeta23.zetaZeros : Zeta23.ZetaSeam → Zeta23.ZeroConfig :=
+      fun hs =>
+        { carrier := {ρ | Zeta23.IsNontrivialZero ρ}, mult := Zeta23.zeroMult, one_le_mult := ⋯,
+          strip := Zeta23.zetaZeros._proof_1, reflect_mem := ⋯, mult_reflect := ⋯, finite_window := ⋯ }
+      def Zeta23.IsNontrivialZero : ℂ → Prop :=
+      fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+      def Zeta23.zeroMult : ℂ → ℕ :=
+      fun ρ => (analyticOrderAt riemannZeta ρ).toNat
+      def RiemannHypothesis : Prop :=
+      ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+  
+  ### ### **PRINTED 4 OF 4 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+
+### relay data/b560_stageD.txt
+  b560 -- READING (5): STAGE D -- THE IDENTITY, PRICED AND PROBED -- the Bombieri-Lagarias test function; the truncation family; one truncation lemma; the limit exchange stated
+  
+  ### the branch li-weil-b560 at the working tree of D:\SIDE-explicit-formula (from v0.3 = 04eda4a) ; the module SIDEExplicitFormula/LiWeil.lean
+  
+  ### THE ELABORATION ATTEMPTS OF THIS STAGE (lake env lean SIDEExplicitFormula/LiWeil.lean from the checkout), each with its exit and error count:
+      ### Stage D attempt 1 -- exit 0, elapsed 28 s, errors 0
+          | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+      ### Stage D attempt 2 -- exit 0, elapsed 28 s, errors 0 (a docstring's backtick possessive corrected; no code changed)
+          | SIDEExplicitFormula/LiWeil.lean:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  
+  ### THE DECLARATIONS OF THIS STAGE, AS THE SOURCE STATES THEM:
+        295 | def blPoly (n : ℕ) (y : ℝ) : ℝ := ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℝ) * y ^ j / (j.factorial : ℝ)
+        298 | def blSmooth (n : ℕ) (u : ℝ) : ℂ := ((Real.exp (u / 2) * blPoly n u : ℝ) : ℂ)
+        301 | def blTest (n : ℕ) (u : ℝ) : ℂ := if u < 0 then blSmooth n u else 0
+        304 | def blTransform (n : ℕ) : Prop := ∀ ρ : ℂ, 0 < ρ.re → paperFT (blTest n) (gammaOf ρ) = liTerm n ρ
+        307 | def truncMember (n : ℕ) {c : ℝ} (f : ContDiffBump c) (u : ℝ) : ℂ := ((f u : ℝ) : ℂ) * blSmooth n u
+        309 | theorem blPoly_contDiff (n : ℕ) : ContDiff ℝ 2 (blPoly n) := by
+        313 | theorem blSmooth_contDiff (n : ℕ) : ContDiff ℝ 2 (blSmooth n) := by
+        320 | theorem truncMember_classEF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+        321 |     ContDiff ℝ 2 (truncMember n f) ∧ HasCompactSupport (truncMember n f) := by
+        328 | theorem truncMember_eq (n : ℕ) {c : ℝ} (f : ContDiffBump c) (hc : c + f.rOut ≤ 0) (u : ℝ) :
+        329 |     truncMember n f u = ((f u : ℝ) : ℂ) * blTest n u := by
+        344 | theorem truncMember_EF (n : ℕ) {c : ℝ} (f : ContDiffBump c) :
+        345 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)) ∧
+        346 |     ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)
+        347 |       = EF.literatureRHS (truncMember n f) :=
+        355 | def LiLimitExchange (n : ℕ) : Prop :=
+        356 |   ∀ (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)), (∀ m, c m + (fs m).rOut ≤ 0) →
+        357 |     (∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) →
+        358 |     Filter.Tendsto (fun m => ∑' ρ : zetaZeroConfig.carrier,
+        359 |       (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n (fs m)) (gammaOf ρ)) Filter.atTop (nhds (LiCoeff n : ℂ))
+        364 | theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+        365 |     (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) :
+        366 |     Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ)) :=
+  
+  ### LEAN`S PRINTS (the module on stdin, then #print axioms for each and #check for the headline):
+      <stdin>:199:4: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+      'SIDEExplicitFormula.LiWeil.ne_one_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.rem_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_re_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liConst' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liConst_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.liTerm_re_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.blPoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.blSmooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.blTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.blTransform' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.truncMember' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.blPoly_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.blSmooth_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.truncMember_classEF' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.truncMember_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.truncMember_EF' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.LiLimitExchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+      'SIDEExplicitFormula.LiWeil.li_identity_of_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+      @SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ},
+        ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier
+      @SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ},
+        ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ
+      SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ),
+        SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)
+      SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+        ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re
+      SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ},
+        1 ≤ ‖ρ‖ →
+          0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2
+      SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ),
+        Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+      SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ),
+        SIDEExplicitFormula.LiWeil.LiCoeff n =
+          ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re
+      SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+      SIDEExplicitFormula.LiWeil.truncMember_classEF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+        ContDiff ℝ 2 (SIDEExplicitFormula.LiWeil.truncMember n f) ∧
+          HasCompactSupport (SIDEExplicitFormula.LiWeil.truncMember n f)
+      SIDEExplicitFormula.LiWeil.truncMember_EF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+        (Summable fun ρ =>
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+              Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ)) ∧
+          ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+              ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+                Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ) =
+            Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n f)
+      SIDEExplicitFormula.LiWeil.li_identity_of_exchange : ∀ (n : ℕ),
+        SIDEExplicitFormula.LiWeil.LiLimitExchange n →
+          ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+            (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+              (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+                Filter.Tendsto (fun m => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n (fs m)))
+                  Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+      def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+      fun n =>
+        1 / 2 *
+          ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+      def SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ :=
+      fun n => 2 * (↑n + ↑n * 2 ^ n)
+      def SIDEExplicitFormula.LiWeil.blTransform : ℕ → Prop :=
+      fun n =>
+        ∀ (ρ : ℂ),
+          0 < ρ.re →
+            Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+      def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+      fun n =>
+        ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+          (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+            (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+              Filter.Tendsto
+                (fun m =>
+                  ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+                    ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+                      Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ↑ρ))
+                Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+      def RiemannHypothesis : Prop :=
+      ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+  
+  ### ### **PRINTED 12 OF 12 ; THE STANDARD THREE OR FEWER, NO sorryAx : True**
+  
+  ### ### **STAGE D -- WHERE IT STOPS, BY LINE, AND WHAT REMAINS, PRICED IN LEMMAS** (the truncation route, OPEN_TRAILS :11294-:11302)
+      REACHED: the statement of the family and ONE truncation lemma -- `truncMember_classEF` (every member `ContDiff ℝ 2` with
+      compact support, EF_lit`s class), EF_lit applied to it (`truncMember_EF`), and the identity conditional on the exchange
+      (`li_identity_of_exchange`, INTERFACES). T2 (the smoothing of the jump at 0) is absorbed: the bump supported left of 0
+      multiplies the everywhere-smooth `e^{u/2} P_n(u)`, so the member is smooth whatever `k_n` does at 0 (`truncMember_eq`).
+      ### **THE OBSTACLE (LiWeil.lean, `LiLimitExchange`): THE LIMIT EXCHANGE, AND THE PAIRING HAZARD IS EXACTLY THERE.** At each
+      member the zero sum is absolutely convergent (EF_lit, ExplicitFormula.lean:98-99), with a dominant `C/(1 + ‖γ_ρ‖²)` whose
+      constant C grows with the second derivative of the member (ZeroSummability.lean:192-195: `C = 2 e^{Λ/2} ∫‖k``‖`); along a
+      family tending to `1_{u<0}` the bumps steepen at 0 and C is unbounded, so no dominant uniform in the family comes from
+      EF_lit`s own bound. The target `LiCoeff n` is a sum of real parts (the paired sum): the unpaired Li terms decay only like
+      `n/ρ` (`liTerm_re_abs_le` bounds the REAL part at `‖ρ‖⁻²`; the imaginary part is first order). The exchange needs the
+      grouped (conjugate-paired) transforms dominated uniformly in the family.
+      PRICED, NOT FORCED:
+        (D1) `blTransform` -- the transform of `k_n` is the Li term (T1): the Mellin integral of `x^{ρ-1} (log x)^{j-1}` on (0,1),
+             an improper integral per power -- one lemma of moderate weight.
+        (D2) the transform at a member converges to the transform of `k_n` at each fixed ρ (dominated convergence in u,
+             `|k_n(u) e^{(ρ-1/2)u}| ≤ e^{Re ρ u}|P_n(u)|` on u < 0) -- one lemma, moderate.
+        (D3) THE LEMMA OF SUBSTANCE: a dominant for the PAIRED truncated transforms, uniform in the family and summable over
+             the zeros -- an integration by parts that keeps the jump`s boundary term (`n/ρ`, first order, cancelling in
+             the real part) separate from a remainder `O(‖ρ‖⁻²)` uniform in the bump -- T6.
+        (D4) Tannery over the zeros through (D3)`s dominant (the pattern of `rest_tendsto_zero`, PowerLimit.lean:1025) -- T7.
+        (D5) the prime side`s limit (a finite sum for compact support; the Λ(n) n^{-1/2} (k(log n) + k(-log n)) terms converge
+             termwise and the family`s support grows -- the tail needs k_n`s decay e^{u/2}|u|^{n-1}) and the Γ-integral`s limit
+             -- T8, two lemmas.
+        (D6) λ_n identified with the Bombieri-Lagarias arithmetic formula in the kernel`s objects -- T9, a statement once
+             (D1)-(D5) are in; not re-read at source (BL 1999 is not in the relay`s banks).
+      ### the exchange is (D2)+(D3)+(D4); (D3) is where the pairing hazard lives and is the next act`s item if the bridge
+      ### continues ((R170)(7)).
+  
+  ### ### **THE CONVERSE, PRICED AND NOT ATTEMPTED** (λ_n ≥ 0 for all n → RH; Bombieri-Lagarias Theorem 1, Voros`s growth):
+        (V1) at an off-line zero ρ₀ (Re ρ₀ ≠ 1/2) one of ρ₀, 1 - conj ρ₀ has `‖1 - 1/ρ‖ > 1`, so its term grows like
+             `‖1 - 1/ρ₀‖^n`: a lemma over ℂ, the reverse of `norm_one_sub_inv_of_re_half` -- light.
+        (V2) the phase: the real part of `-(1 - 1/ρ₀)^n` is negative and of size `‖1 - 1/ρ₀‖^n` for infinitely many n
+             (an argument on `n·arg(1 - 1/ρ₀)` mod 2π, Dirichlet approximation) -- moderate.
+        (V3) the rest of the sum bounded by a quantity of smaller exponential order: the zeros with `‖1 - 1/ρ‖` below the
+             largest, uniformly in n -- it needs the maximum of `‖1 - 1/ρ‖` over the zeros to be attained and the others
+             separated from it, a configuration estimate of the kind b559 met at the detection region -- substance.
+        (V4) assembled: some λ_n < 0; contraposition gives RH. BL 1999 does this for an arbitrary multiset satisfying their
+             growth condition; the kernel`s count bound supplies the multiset`s summability (`pair_summable`).
+
+### relay data/b560_e0.txt
+  b560 -- READING (6): THE E0 READ ON THE STAGES -- EVERY DECLARATION OF LiWeil.lean GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+  ### declarations in the module: 35 ; graded here: 35 ; printed by Lean: 35
+      ne_one_of_mem                  DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- a member of the open strip is not 1
+      conj_mem                       DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the conjugate of a nontrivial zero of `riemannZeta` is one, from `riemannZeta_conj` (ZetaReflect.lean:78) -- the instance`s conjugation stability, not
+      mult_conj                      DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- its multiplicity agrees, from `analyticOrderAt_zeta_conj` (ZetaReflect.lean:160)
+      liTerm                         DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- `1 - (1 - ρ⁻¹) ^ n` over ℂ
+      pairTerm                       DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the term plus the term at the conjugate
+      liTerm_conj                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the term at the conjugate is the conjugate of the term
+      pairTerm_eq                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the pair is `2 Re (liTerm n ρ)`, real by construction
+      pairTerm_im                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- its imaginary part is zero
+      pairTerm_re                    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- its real part is twice the term`s
+      norm_sub_one_of_re_half        DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line `‖ρ - 1‖ = ‖ρ‖`
+      norm_one_sub_inv_of_re_half    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line `‖1 - ρ⁻¹‖ = 1`
+      liTerm_re_nonneg_of_re_half    DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line the real part of the term is nonnegative -- algebra over ℂ, no fact about zeta
+      pairTerm_re_nonneg_of_re_half  DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on the line the pair is nonnegative
+      rem_bound                      DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the second-order remainder `‖(1 - w) ^ n - 1 + n w‖ ≤ n 2 ^ n ‖w‖ ^ 2` for `‖w‖ ≤ 1`, by induction
+      liTerm_re_abs_le               DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- `|Re liTerm n ρ| ≤ (n + n 2 ^ n) / ‖ρ‖ ^ 2` for `1 ≤ ‖ρ‖`, `0 ≤ Re ρ ≤ 1`
+      liConst                        DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the named constant `2 (n + n 2 ^ n)`
+      liConst_nonneg                 DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the constant is nonnegative
+      pairTerm_norm_le               DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- Stage B`s bound `‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2` -- exponent 2, constant named
+      pair_summable                  DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- absolute summability over the genuine zeros, from `zero_sum_inv_sq` (the log-form count)
+      LiCoeff                        DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- `(1/2) Σ_ρ m_ρ Re (pairTerm n ρ)` over `zetaZeroConfig` -- the genuine zeros, the salt-check below
+      LiCoeff_eq                     DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the coefficient is `Σ_ρ m_ρ Re (1 - (1 - ρ⁻¹) ^ n)`, the Bombieri-Lagarias sum as the document writes it (BALPOS :70, :422)
+      liTerm_re_summable             DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the unpaired real-part sum converges absolutely
+      rh_imp_li_nonneg               DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- Mathlib`s `RiemannHypothesis` implies `0 ≤ λ_n` for every `n`, over the genuine zeros -- the forward half
+      blPoly                         DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the Bombieri-Lagarias polynomial `Σ_{j=1}^n C(n,j) y^{j-1}/(j-1)!`
+      blSmooth                       DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- `e^{u/2} P_n(u)`
+      blTest                         DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the test function `1_{u<0} e^{u/2} P_n(u)` in the kernel`s variable
+      blTransform                    A DEFINITION ['propext', 'Classical.choice', 'Quot.sound'] -- T1: `paperFT (blTest n) (gammaOf ρ) = liTerm n ρ` for `Re ρ > 0`
+      truncMember                    DEFINITION   ['propext', 'Classical.choice', 'Quot.sound'] -- the truncation family: a smooth bump times `e^{u/2} P_n(u)`
+      blPoly_contDiff                DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the polynomial is C²
+      blSmooth_contDiff              DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- the profile is C²
+      truncMember_classEF            DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- THE TRUNCATION LEMMA: every member is `ContDiff ℝ 2` with compact support -- EF_lit`s class
+      truncMember_eq                 DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- on a bump supported left of 0 the member is the bump times `k_n`
+      truncMember_EF                 DERIVES      ['propext', 'Classical.choice', 'Quot.sound'] -- EF_lit at each member: the zero sum absolute and equal to the literature right-hand side
+      LiLimitExchange                A DEFINITION ['propext', 'Classical.choice', 'Quot.sound'] -- the zero side at the truncations tends to `LiCoeff n`
+      li_identity_of_exchange        INTERFACES   ['propext', 'Classical.choice', 'Quot.sound'] -- the literature right-hand sides tend to `LiCoeff n` GIVEN `LiLimitExchange n` -- the premise named at the site and discharged nowhere
+  ### the grades counted: {'DERIVES': 24, 'DEFINITION': 10, 'INTERFACES': 1}
+  
+  ### THE SALT-CHECK (EXCLUSION_ENGINE.md :28-:34; FINDINGS :57): no Prop of the module encodes a conclusion it is
+  ### cited for, and the coefficient is over the GENUINE configuration. Lean`s #print of LiCoeff and of what it names:
+      def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+      fun n =>
+        1 / 2 *
+          ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+            ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+      def SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ :=
+      def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig :=
+      Zeta23.zetaZeros Zeta23.zetaSeam
+      def Zeta23.zetaZeros : Zeta23.ZetaSeam → Zeta23.ZeroConfig :=
+      fun hs =>
+      def Zeta23.zetaZeros : Zeta23.ZetaSeam → Zeta23.ZeroConfig :=
+      fun hs =>
+        { carrier := {ρ | Zeta23.IsNontrivialZero ρ}, mult := Zeta23.zeroMult, one_le_mult := ⋯,
+          strip := Zeta23.zetaZeros._proof_1, reflect_mem := ⋯, mult_reflect := ⋯, finite_window := ⋯ }
+      def Zeta23.IsNontrivialZero : ℂ → Prop :=
+      fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+      def Zeta23.zeroMult : ℂ → ℕ :=
+      fun ρ => (analyticOrderAt riemannZeta ρ).toNat
+      def Zeta23.zeroMult : ℂ → ℕ :=
+      fun ρ => (analyticOrderAt riemannZeta ρ).toNat
+      def RiemannHypothesis : Prop :=
+      ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+      ### LiCoeff is over zetaZeroConfig (zetaZeros zetaSeam: carrier IsNontrivialZero of riemannZeta, mult the analytic
+      ### order of riemannZeta): True ; LiCoeff takes a configuration parameter: False
+      ### control: the parameter test on `def LiCoeff (Z : ZeroConfig) (n : ℕ) : ℝ := 0` -> True (must be True)
+      rh_imp_li_nonneg as Lean prints it: SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+      ### its conclusion unfolds to Mathlib objects over the genuine zeros: `RiemannHypothesis` (Mathlib), `LiCoeff n` a `tsum`
+      ### over `{ρ | riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}` weighted by `(analyticOrderAt riemannZeta ρ).toNat` of
+      ### `Re (1 - (1 - ρ⁻¹) ^ n)`: ### **THE SALT-CHECK PASSES: True**
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at the branch tip 941503b):
+      conj_mem                       defenc False  | doc: **Conjugation stability of the genuine instance (the set):** the conjugate of a nontrivial zero of `
+      mult_conj                      defenc False  | doc: **Conjugation stability of the genuine instance (the multiplicity):** `mult (conj ρ) = mult ρ`, from
+      pairTerm_eq                    defenc True  liTerm := 1 - (1 - ρ⁻¹) ^ n | doc: **The pair is real by construction:** `pairTerm n ρ = 2 * Re (liTerm n ρ)`.
+      liTerm_re_nonneg_of_re_half    defenc True  liTerm := 1 - (1 - ρ⁻¹) ^ n | doc: **Stage A's nonnegativity, per zero:** at `Re ρ = 1/2` the real part of the term is nonnegative -- a
+      pairTerm_norm_le               defenc False  | doc: **Stage B's bound:** for `1 ≤ ‖ρ‖` and `0 ≤ Re ρ ≤ 1`, `‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2`
+      pair_summable                  defenc False  | doc: **Stage B's summability, over the genuine zeros:** `Σ_ρ m_ρ Re (pairTerm n ρ)` converges absolutely,
+      LiCoeff_eq                     defenc True  liTerm := 1 - (1 - ρ⁻¹) ^ n | doc: The coefficient as the sum of the real parts of the Bombieri-Lagarias terms, with multiplicity.
+      rh_imp_li_nonneg               defenc False  | doc: **The forward half, over the genuine zeros:** Mathlib's `RiemannHypothesis` gives `0 ≤ λ_n` for ever
+      truncMember_classEF            defenc False  | doc: **Stage D's truncation lemma:** every member of the family is in EF_lit's class -- `ContDiff ℝ 2` wi
+      truncMember_EF                 defenc False  | doc: **EF_lit at each member of the family** (Zeta23's EF_lit for the genuine instance, WeilEF/Main.lean:
+      li_identity_of_exchange        defenc False  | doc: **The identity, conditional on the exchange:** if `LiLimitExchange n` holds, then along the same fam
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+      ### rowgen`s lean_check_axioms NOT RUN (its `import <module>` needs an olean this act does not build); the check and
+      ### axioms lines are the stdin prints of the same declarations.
+  
+  ### ### **THE GATE (R170)(6): EVERY PRINT THE STANDARD THREE OR FEWER True ; NO ENCODES True ; THE SALT-CHECK True ; => MERGE True**
+  ### ### `li_identity_of_exchange` is INTERFACES: it lands on main as a conditional whose premise, `LiLimitExchange n`, is
+  ### ### named and discharged nowhere; `blTransform` and `LiLimitExchange` land as Prop definitions, stated and not proved.
+
+### relay data/b560_v04_push.txt
+  remote: 
+  remote: Create a pull request for 'li-weil-b560' on GitHub by visiting:        
+  remote:      https://github.com/psinary-sketch/SIDE-explicit-formula/pull/new/li-weil-b560        
+  remote: 
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new branch]      li-weil-b560 -> li-weil-b560
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     04eda4a..941503b  push-b560 -> main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new tag]         v0.4 -> v0.4
+  941503b836c1f3548d94b1207276f724dba3263f	refs/heads/li-weil-b560
+  941503b836c1f3548d94b1207276f724dba3263f	refs/heads/main
+  b52a30b8f7d83c91a7bad26766fe21509ff9980a	refs/tags/v0.3
+  04eda4a710bf6a29a40bfb07ad2620f101c3d2a5	refs/tags/v0.3^{}
+  9b3a95b0ec1cc3ba1300739f70189d3f92f70da4	refs/tags/v0.4
+  941503b836c1f3548d94b1207276f724dba3263f	refs/tags/v0.4^{}
+  ### local main 941503b836c1f3548d94b1207276f724dba3263f ; v0.4 object 9b3a95b0ec1cc3ba1300739f70189d3f92f70da4 peeled 941503b836c1f3548d94b1207276f724dba3263f ; li-weil-b560 941503b836c1f3548d94b1207276f724dba3263f
+
+### relay data/b560_rowgen.txt
+  b560 -- READING (6): THE ROWGEN DIFF (rowgen.diff IMPORTED) OF THE MERGED RECORDS AGAINST CORRESPONDENCE ROW 395
+  
+  ### records: 16 ; row found: True
+      ('SIDEExplicitFormula.LiWeil.conj_mem', ['ok'])
+
+### relay data/b560_ledger1.json -- lines {'held': 11510, 'rescope': 11512, 'arc': 11521, 'findings': 6032}
+### relay data/b560_findings.json -- heading_line 6042
+### relay data/b560_rows.json -- exit 0
+### relay data/b560_workorder.json -- line 11523
+### the suite change: relay fc8558db housekeeping: b559's suite -- the post-push readings of G-WRITELIST-KINDS and G-PRIORBANK-UNCHANGED moved to content digests against the pushed tree, a

@@ -1,0 +1,61 @@
+### b560 -- THIS ACT'S OWN DEFECTS (the desk).
+    (a) THE DROP. The turn stopped at the API while the seat was about to bank the paste. At the resume
+        (2026-09-29T15:21:16Z, the first command's clock) `data/b560_*` did not exist: NOTHING HAD REACHED DISK.
+        The last completed step was READ-ONLY: reading b559's registration face as the template, after the
+        extraction of b559's command sequence into the session scratchpad and the author's two answers (cut
+        from main 81ae175; pair by conjugation). No ferry bank, no scan, no census, no face, no kernel file,
+        no branch, no commit had been made. The paste was re-banked whole from the conversation as
+        `data/b560_ferry.txt` (paste one, paste two, the resume order). Nothing before the seal is lost by a
+        re-bank; nothing after it had started.
+    (b) The reads component's first run cut every multi-line `def` and `structure` at its declaring line (the statement
+        cutter stopped at the line carrying `:=` or `where`), so `EF_lit`'s hypotheses and `ZeroConfig`'s fields were not
+        printed, and the H11a line "reflect_mem, mult_reflect only" read False on the one-line text. The cutter was
+        corrected (a def or structure prints to its next blank line) and the component re-run; `data/b560_reads.txt` is
+        the second run's, whole.
+    (c) The re-run on b559's push first died on a directory: the prior-bank list includes `data/b558_editions`, which the
+        file-time reading passed over (`getmtime` of a directory) and the digest reading opened as a file (PermissionError).
+        The digest reading now reads a directory bank file by file; a case for it was added to the test, which was re-run
+        whole (BOTH POLARITIES BEHAVE) before the commit. And the re-run was taken after this act's seal, so b559's
+        `G-NUMBER-UNCLAIMED` -- which reads the data directory live for a b560 registration -- fails on this act's own face:
+        a re-run of a prior act's suite read after the next act's face is written cannot pass that arm. The seat did not
+        foresee it; READING (2) ordered the re-run after the seal and before the merge, and it was taken there.
+    (d) The clean component's first assembly was a quoted bash heredoc carrying Python with nested quotes; bash refused the
+        command line ("unexpected EOF while looking for matching `''") before Python ran, and nothing was written (the
+        standing trap, b559's defect (a) again). It was rebuilt as a scratchpad file with Write and appended.
+    (e) THE TAG REACHED THE REMOTE BEFORE main DID. The first push command chained `git push origin main 2>&1 | tail -1 &&
+        git push origin v0.3`: the kernel's pre-push hook refused the main push from `main` (Rule 4.10: pushes to main only
+        from a push-* branch), and the pipe through `tail` returned tail's exit status, so the chain went on and pushed
+        the tag. For the interval between the two pushes the remote carried v0.3 peeled to 04eda4a while its main was
+        81ae175. main was then pushed from the branch push-b560 (`data/b560_v03_push.txt`) and read back equal to v0.3's
+        peeled SHA; push-b560 and detection-region-clean were deleted by name after the read-back. A push's exit status
+        is read unpiped from here on.
+    (f) `b560_record.py ledger1` made its three appends (OPEN_TRAILS twice, FINDINGS once) and then died on a NameError
+        (`line_of` was not bound in this file) before it wrote its record. The appends are whole: each ledger's committed blob
+        is a byte prefix of its working bytes (FINDINGS +1787 bytes, OPEN_TRAILS +2928). The record was rebuilt from the files
+        by `ledger1_lines` (`data/b560_ledger1.json`, which says so), after a second slip: the backslashes in the patch that
+        inserted it collapsed in the quoted heredoc (the standing trap), and the one line was repaired with the editor.
+    (g) The clean merge's FINDINGS entry (FINDINGS.md:6034, its italic line) carries "ζ`s zeros" and "the compiled
+        statements` own words": the append helper's possessive rewrite converts a backtick-s only after a letter or digit,
+        so the backtick after ζ and the plural possessive's backtick stayed and pair into a false code span in the rendered
+        line (the backtick balance guard passed, the pair being even). The ledger is append-only; the line stands as written.
+        Later appends of this act write ’ for every possessive.
+    (h) The desk's first run read the re-run's `G-PEEK-DECLARED` as FAIL: its reader took the first line naming the arm, which
+        is the suite's header line ("G-PEEK-DECLARED reads CONTENT DIGESTS ..."), not the arm's row. The reader now matches the
+        arm's own row only; its yield was printed (one row per arm: PASS, FAIL, PASS for the three file-time arms) and the desk
+        re-run before anything was entered in a ledger.
+    (i) The rowgen diff's first run flagged row 395's first cited terminal, `conj_mem`, as "MISSING: cited terminal did not
+        resolve at pin". The terminal resolves (35 of 35 printed); the record's check line was empty because `#check @name`
+        prints the name with its `@`, and the record's reader looked for the bare name. The reader was corrected, the E0 record
+        re-run (its grades unchanged), and the diff re-run; `data/b560_rowgen.txt` is the second run's. The clean merge's
+        rowgen record (`data/b560_clean.json`) read its check lines with the same reader before the fix.
+        (Read after the fix: the clean prints carry no `@`, so the clean record was not affected; its two empty check lines,
+        `h2_sign_imp_upto` and `upto_all_imp_h2_sign`, are the two declarations AxiomCheckDetection.lean prints by axioms and
+        does not `#check`.)
+    (j) The satisfiability spec counts 78 gate arms off the face (`b300`'s counter reads the whole face) while the face's
+        (G2) block declares 77: READING (2)'s prose names b559's arm `G-BRANCH-HELD-OR-MERGED`, which the counter reads as a
+        declaration. The spec's clause "gate arms declared" carries 78 and was satisfiable by its own arithmetic; this act's
+        suite reads the (G2) block and runs 77.
+    (k) The pre-push suite's first run read 77 of 77 arms live and NOT CLEAN: `G-RESCOPE-APPENDED`'s positive control passed
+        (DEFECTIVE). The control replaced only "(E2) the per-", and "(E2)" stands again in the same block, so the mutated
+        source still carried what the arm reads. The control now removes every "(E2)"; the first run is kept as
+        `data/b560_checks_first.txt` and the suite re-run.
