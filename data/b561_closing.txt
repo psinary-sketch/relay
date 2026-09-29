@@ -1,0 +1,76 @@
+========================================================================================================
+b561 -- THE CLOSING RECORD. ### **LANE TWO, ACT THREE: THE LI-WEIL BRIDGE AT THE LIMIT EXCHANGE, HELD AT (D3), UNDER (R171).**
+========================================================================================================
+    the weight lines : FINDINGS :6060 :6062 :6064 ; BALPOS :782
+    the push discipline : relay 46ced1ba (tools/push_gated.sh, committed alone, its test quoted)
+    the decay read : H12a REFUTED ; the uniform order n/||rho|| ; (D3) NEITHER ; the exchange FALSE for n >= 1 ; sup values ['1.74197', '1.76646', '1.77026']
+    the items : D1 7 decls, attempts 3, std3 True ; D2 2 decls, attempts 4, std3 True ; D3 HELD at the read ; D4 not reached
+    the E0 read : 9 of 9 DERIVES ; the gate True
+    v0.5 : object 0a6a1eb peeled 2df46d7 (remote 2df46d7) = main 2df46d7 = li-weil-b561 2df46d7 ; pushed by push_gated.sh after main read back
+    the ledger lines : FINDINGS :6066 (entry) ; OPEN_TRAILS :11542 (consumer read) :11544 (work-order) :11546 (record) ; row 396 exit 0
+    the branches : Deleted branch push-b561 (was 2df46d7). ; Deleted branch li-weil-b560 (was 941503b). ; Deleted branch push-b560 (was ea191414). ; Deleted branch push-b560-closing (was d3f1b1d9). ; Deleted branch push-b560 (was 86676f5). ; Deleted branch push-b560 (was f8b8a1e).
+    the token : hits 0 over 59 files and 5 commits
+    H12a REFUTED ; H12b REFUTED ; H12c REFUTED
+    (N1) REFUTED (N2) HELD (N3) NOT SCORABLE (N4) HELD (N5) HELD (N6) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+### b561 -- THIS ACT'S OWN DEFECTS (the desk).
+    (a) The push tool's test first carried a control that could not show the defect: CASE 2 used a hook refusing every
+        push, so the old chain's tag push was refused too and the remote showed no tag either way. The control was rebuilt
+        on b560's own conditions (the kernel's hook, the chain run from main): main refused, the tag at the remote -- the
+        defect reproduced -- and the test re-run whole before the commit.
+    (b) The deletion of li-weil-b560 at the remote ran past 120 s and was then rejected by the remote: "! [remote rejected]
+        li-weil-b560 (cannot lock ref 'refs/heads/li-weil-b560': unable to resolve reference 'refs/heads/li-weil-b560')".
+        Read back by ls-remote afterwards, the ref is ABSENT at the remote. Whether this act's command removed it (and the
+        rejection answered a second attempt) or the ref was already gone cannot be told from this seat; the record reports
+        the absence and the ambiguity. The local deletions (push-b561, li-weil-b560) went through, after li-weil-b560's tip
+        941503b was read as an ancestor of main.
+    (c) The rowgen diff's first run flagged row 396: "PIN: row cites ['2df46d7'] but record pin is 941503b". The E0 record
+        was taken before the kernel commit, when HEAD was v0.4 and the module uncommitted, so rowgen's source-side record
+        carried v0.4's pin. The E0 record was re-run at the committed tip 2df46d7 (its grades unchanged) and the diff re-run;
+        `data/b561_rowgen.txt` is the second run's.
+    (d) The suite's first pre-push run died before scoring: the record's `scores()` read the push test's output from the
+        session scratchpad by an environment variable the suite's run did not carry. The output was banked as
+        `data/b561_push_test.txt` (the same bytes quoted in 46ced1ba's message) and `scores()` and `components` read the bank.
+        In the same stretch the closing tool's first assembly, a quoted bash heredoc, was refused by bash before Python ran
+        (the standing trap) and was rebuilt as a file.
+    (e) The closing record's first run read an EMPTY remote for relay, PLACE-papers, SIDE-global-section, SIDE-explicit-formula
+        and SIDE-kernel (DISAGREE) and an empty v0.5 peel, and the desk re-run in the same minute scored (N6) REFUTED on the
+        same empty reads: `ls-remote` returned nothing during that run. Read again directly, each repository's remote main
+        equals its local main, v0.5 peels to 2df46d7 and detection-region-b559 to 8faf7de -- a transient failure of the
+        network reads, not a state of the remotes. The first record is kept as `data/b561_closing_first.txt`; the desk and
+        the closing were re-run alone.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ### ### **ARMS RUN : 69. ### LIVE PASSING : 69. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 69. ### LIVE PASSING : 69. ### LIVE FAILING : 0 .**
+      relay                        main 0daa7c87569e ; remote 0daa7c87569e ; AGREE
+      PLACE-papers                 main 75bd731f0957 ; remote 75bd731f0957 ; AGREE
+      SIDE-global-section          main 347fac8c36b2 ; remote 347fac8c36b2 ; AGREE
+      SIDE-explicit-formula        main 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE
+      SIDE-kernel                  main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation         main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                 main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle       main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-compression             main e9a5a368d14a ; remote e9a5a368d14a ; AGREE
+      SIDE-structural-error-correction main 6a4f4829cf21 ; remote 6a4f4829cf21 ; AGREE
+      SIDE-cosmo                   main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      detection-region-b559        local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (HELD, kept)
+      li-weil-b561                 local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (pushed by name, kept)
+      li-weil-b560                 local [] ; remote [] (deleted by name after its tip was read as an ancestor of main; defect (b))
+    the HELD commit 6eada6a : its files in the pushed tree : 0 of 2
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R171)(5)**: W-ORD-GRH-WEIL. The bridge`s items return to the trails priced: (X1) the explicit formula
+        on a class containing the midpoint-normalised jump, (X2) a two-sided family with the limit read on EF_lit`s other side,
+        (X3) the exchange restated; (D5), (D6), the converse (V1)-(V4).
+    (b) ### **FOR THE AUTHOR**: `LiLimitExchange n` as b560 stated it is, on the decay read, FALSE for n >= 1 (the one-sided
+        smoothing moves the jump`s midpoint into u < 0; the zero side tends to -infinity like -(n/2) log(1/delta)); a derivation
+        resting on Stirling and Riemann-von Mangoldt, not compiled. `li_identity_of_exchange` (INTERFACES) rests on it.
+    (c) ### **FOR THE AUTHOR**: `blTransform`, stated at v0.4, is proved at v0.5 (`blTransform_holds`).
+    (d) ### **FOR THE AUTHOR**: the remote deletion of li-weil-b560 was rejected as "unable to resolve reference" while the ref
+        reads absent -- defect (b)`s ambiguity.
+    (e) At this close the suite`s regeneration of terminal_table.* is committed as housekeeping if it changed.
+========================================================================================================
