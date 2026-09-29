@@ -22,3 +22,9 @@
         files and not this one. The suite's FIRST run passed the arm only because `sources()` reads the written kinds before
         `regenerate()` writes; its second run, reading the first run's writes, failed it. The face is sealed and is not edited;
         the arm is neither weakened nor excused. The table is committed at close as housekeeping, (R169)'s last line.
+    (i) The post-push suite reads 64 of 64, and ITS `G-WRITELIST-KINDS` PASS IS NOT EVIDENCE: the checkout between the act's
+        commit on push-b559 and main's fast-forward removed and rewrote every newly tracked b559 file, the face among them
+        (its file time now 09:34:17, after the lock), so the table files the suite wrote before it now read as older than the
+        face and drop out of the kinds scan. b558's defect (i) again, on a different arm: (R169)(1)(b) moved `G-PEEK-DECLARED`
+        to content digests; `G-WRITELIST-KINDS` and `G-PRIORBANK-UNCHANGED` still compare file times against the face. The
+        pre-push reading of `G-WRITELIST-KINDS` -- FAIL, defect (h) -- is the one that stands.

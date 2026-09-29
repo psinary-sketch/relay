@@ -387,8 +387,8 @@
   },
   {
    "name": "G-WRITELIST-KINDS",
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "every b559 commit in four repositories and the housekeeping commits, against (R91)`s STEM GLOB"
   },
@@ -450,14 +450,10 @@
   }
  ],
  "run": 64,
- "live_failing": [
-  "G-WRITELIST-KINDS"
- ],
+ "live_failing": [],
  "defective": [],
- "neg_failures": 1,
+ "neg_failures": 0,
  "declared": 64,
  "deferred": [],
- "stray": [
-  "terminal_table.json"
- ]
+ "stray": []
 }
