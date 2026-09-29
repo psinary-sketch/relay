@@ -125,6 +125,46 @@ def jload(n):
     return json.loads(read(os.path.join(D, n)) or '{}')
 
 
+AFTER_LOCK = ('b558_union.json', 'b558_citers.json', 'b558_cp1b.json', 'b558_settle.json', 'b558_editions.json', 'b558_moved_terminals.txt')
+BEFORE_LOCK = ('b558_ferry.txt', 'b558_ferry_scan.txt', 'b558_pins_stepzero.txt')
+RERUN = '--rerun-postpush' in sys.argv
+
+
+def utc_epoch(face_or_notes, label):
+    """### the `<label> (UTC) : <iso>Z` stamp a lock block or a run file carries, as an epoch; None if absent."""
+    import calendar
+    m = re.search(re.escape(label) + r' \(UTC\) : (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)Z', face_or_notes or '')
+    return calendar.timegm(time.strptime(m.group(1), '%Y-%m-%dT%H:%M:%S')) if m else None
+
+
+def pushed_digest_ok(name):
+    """### (R169)(1)(b), b559: the bank's working bytes (CR stripped) against its blob in the PUSHED tree (origin/main), by sha256."""
+    work = open(os.path.join(D, name), 'rb').read().replace(b'\r\n', b'\n') if os.path.exists(os.path.join(D, name)) else None
+    pub = blob(ROOT, 'origin/main:data/' + name)
+    return bool(work) and bool(pub) and hashlib.sha256(work).hexdigest() == hashlib.sha256(pub).hexdigest()
+
+
+def added_epoch(name):
+    """### the commit time of the pushed commit that first added the bank (git's own record, not the file system's)."""
+    t = gits(ROOT, 'log', '--diff-filter=A', '--format=%ct', 'origin/main', '--', 'data/' + name).split()
+    return int(t[-1]) if t else None
+
+
+def peek_by_digest(face, lockn, scan):
+    """### ### **(R169)(1)(b): THE POST-PUSH READING OF `G-PEEK-DECLARED` COMPARES CONTENT DIGESTS AGAINST THE PUSHED TREE.**
+    ### b558's defect (i): the checkout between the act's commit and its fast-forward rewrote every newly tracked bank, so
+    ### file times after a push say nothing about the lock. After the push the arm reads: (after) each bank's bytes equal its
+    ### pushed blob and the pushed commit adding it is later than the face's lock stamp; (before) each bank's bytes equal its
+    ### pushed blob, the lock gate's run stamp precedes the lock stamp and names the scan and the pins as PASS, and the scan
+    ### names the ferry file. The pre-push reading (file times, taken before any checkout) is unchanged."""
+    lk, rn = utc_epoch(face, 'locked at'), utc_epoch(lockn, 'run at')
+    after = lk is not None and all(pushed_digest_ok(x) and (added_epoch(x) or 0) > lk for x in AFTER_LOCK)
+    before = (lk is not None and rn is not None and rn < lk and all(pushed_digest_ok(x) for x in BEFORE_LOCK)
+              and 'ferry file                    : b558_ferry.txt' in scan
+              and all(re.search(re.escape(x) + r'\s+PASS', lockn) for x in ('b558_ferry_scan.txt', 'b558_pins_stepzero.txt')))
+    return after, before
+
+
 def sources():
     tok = (os.environ.get('ZENODO_TOKEN') or '').encode('utf-8')
     needle = 'https://' + 'zenodo' + '.org'
@@ -175,6 +215,11 @@ def sources():
                                                                'b558_editions.json', 'b558_moved_terminals.txt'))),
         before_lock=all(os.path.getmtime(os.path.join(D, x)) < os.path.getmtime(FACE) for x in ('b558_ferry.txt', 'b558_ferry_scan.txt', 'b558_pins_stepzero.txt')),
     )
+    S['pushed'] = RERUN or (gits(ROOT, 'rev-parse', 'origin/main') == gits(ROOT, 'rev-parse', 'HEAD')
+                            and gits(ROOT, 'log', '-1', '--pretty=%s').startswith('b558')
+                            and 'data/b558_components.txt' in gits(ROOT, 'show', '--name-only', '--pretty=format:', 'HEAD'))
+    if S['pushed']:
+        S['after_lock'], S['before_lock'] = peek_by_digest(S['face'], S['lock'], S['scan'])
     S['priv_names'] = K542.techne_private_names()
     scanned = [os.path.join(D, f) for f in os.listdir(D) if f.startswith('b558_') and os.path.isfile(os.path.join(D, f))] + \
         glob.glob(os.path.join(D, 'b558_editions', '*.txt')) + [os.path.join(T, f) for f in os.listdir(T) if f.startswith('b558_')]
@@ -650,7 +695,8 @@ def regenerate():
 
 def main():
     S = sources()
-    rc_gen, gen_diff = regenerate()
+    # ### (R169)(1)(b): a re-run on the pushed act does not regenerate the table (the generator writes relay's table files).
+    rc_gen, gen_diff = (0, dict(rerun=True)) if RERUN else regenerate()
     # ### ### **THE TABLE IS READ AFTER IT IS REGENERATED (b512's own defect, repaired post-push).** ### `sources()`
     # ### read `terminal_table.md` BEFORE `regenerate()` rewrote it, so `G-TABLE-ROW` scored the previous close's
     # ### table; the first post-push run is banked as `b512_checks_postpush_first.txt`.
@@ -670,6 +716,7 @@ def main():
     pushed = (gits(ROOT, 'rev-parse', 'origin/main') == gits(ROOT, 'rev-parse', 'HEAD')
               and gits(ROOT, 'log', '-1', '--pretty=%s').startswith('b558')
               and 'data/b558_components.txt' in gits(ROOT, 'show', '--name-only', '--pretty=format:', 'HEAD'))
+    pushed = pushed or RERUN
     # ### ### **ONE ARM IS POST-PUSH BY NATURE** -- the mirror is built after the push, and the
     # ### face says so in its own words. ### b493 deferred a SECOND arm, `G-LOG-COMMITTED-UNCHANGED`,
     # ### which THIS act does not declare; ### **A DEFERRAL LIST CARRIED PAST THE ARM IT NAMES
@@ -712,8 +759,14 @@ def main():
                    if not any(fnmatch.fnmatch(k, g) for g in globs_of(S['face'])))
     rec('')
     rec('  ### files written that NO (W) GLOB COVERS : %d %s' % (len(stray), stray or ''))
-    rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
-    if gen_diff.get('first_run'):
+    if RERUN:
+        rec('  ### ### **(R169)(1)(b): A RE-RUN ON THE PUSHED ACT -- THE GENERATOR WAS NOT RE-RUN** (it writes relay`s table files).')
+        rec('  ###   G-PEEK-DECLARED read by content digests against the pushed tree (origin/main %s).' % gits(ROOT, 'rev-parse', '--short', 'origin/main'))
+    else:
+        rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
+    if RERUN:
+        pass
+    elif gen_diff.get('first_run'):
         rec('  ###   ### **NO PRIOR RUN TO DIFF AGAINST -- THIS CLOSE IS THE FIRST.** ### From')
         rec('  ###   ### the next close the diff is a cell; saying "no change" now would be a')
         rec('  ###   ### reassuring line about nothing.')
@@ -738,6 +791,12 @@ def main():
     ok = not fail and not defective and negfail == 0 and S['declared_eq_run']
     rec('  ### ### **VERDICT : %s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN'))
     rec('=' * 104)
+    if RERUN:
+        # ### (R169)(1)(b): the re-run writes one named record and nothing of b558's own.
+        out = os.path.join(D, sys.argv[sys.argv.index('--rerun-postpush') + 1])
+        io.open(out, 'w', encoding='utf-8', newline=NL).write(NL.join(L) + NL)
+        print('  written: %s' % os.path.basename(out))
+        return 0 if ok else 1
     out = os.path.join(D, 'b558_checks_postpush.txt' if pushed else 'b558_checks.txt')
     io.open(out, 'w', encoding='utf-8', newline=NL).write(NL.join(L) + NL)
     json.dump(dict(exercise=EX, run=len(RES), live_failing=fail, defective=defective,
