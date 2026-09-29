@@ -1,0 +1,150 @@
+b558 -- THE EDITION WORK-LIST OF PATHS_TO_THE_CRITICAL_LINE (phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+
+### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition is written before its informing work-orders land or are ruled out of scope for it.
+
+:45 -- `h1_complete_at_Phi`
+    the sentence: "| **centre** | goal state | `goal ⇐ h1 ∧ h2`; **h1 complete at Φ** (only h2 open) | `h1_complete_at_Phi`, `RegisterPentagon.goalState_sevenClasses_of_h2` (lv v0.6.0/v0.7.0) |"
+    what the compiled fact supports: reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:45 -- `h2_sign`
+    the sentence: "| **centre** | goal state | `goal ⇐ h1 ∧ h2`; **h1 complete at Φ** (only h2 open) | `h1_complete_at_Phi`, `RegisterPentagon.goalState_sevenClasses_of_h2` (lv v0.6.0/v0.7.0) |"
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:46 -- `partialPositivity_finiteRange`
+    the sentence: "| **R4 — nearest** | balance → positivity | finite-range certificate λ_n ≥ 0 for n ≤ N₀(T)≈2T² (Voros threshold), on-line term proved; **finite-set conjunct now DERIVES** (`lowFinset_mem_iff`, v0.10.0); all-n tail open | `PartialPositivity.partialPositivity_finiteRange`, `blTerm_nonneg_of_onLine`, `lowFinset_mem_iff` (landed lv v0.8.0 / v0.10.0; deposited SIDE-lv-conservation v0.10.0 = `93c27ec`) |"
+    what the compiled fact supports: presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit.
+    informing work-order: W-ORD-LI-WEIL-BRIDGE (the Li form made T0; OPEN_TRAILS :11203)
+
+:59 -- `ch_iff_rh`
+    the sentence: "| **3 (largest ask)** | R2 Conservation / Tate | the **adelic apparatus in Lean** — Tate's thesis / the product formula as machine-checked objects, so `ConservationHypothesis` can be discharged rather than assumed | Mathlib community (adeles / Tate's thesis) — the largest ecosystem ask | R2 face; `ConservationHypothesis` (kernel v1.3) |"
+    what the compiled fact supports: names Tate's thesis in Lean as what would let `ConservationHypothesis` be discharged rather than assumed, and `ConservationHypothesis` is RH restated (`ch_iff_rh`), so discharging it is proving RH.
+    informing work-order: none named on the critical path
+
+:63 -- `h2_sign`
+    the sentence: "**The goal state.** The programme reduces to `goal ⇐ h1 ∧ h2`."
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:63 -- `h2_sign`
+    the sentence: "**`h2` is the single open premise — and it is a statement, not a count:** *every ξ-zero forces the Euler balance at some prime* (the conservation register, in the W-7 existential form — balance at *some* prime, kernel v1.3 = `0bc21c0`)."
+    what the compiled fact supports: states h2 as "every xi-zero forces the Euler balance at some prime", the conservation register, which `ch_iff_rh` shows is RH restated, so the single open premise it names is RH itself.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:67 -- `h2_sign`
+    the sentence: "This is the **nearest-approach** door: the all-doors proximity, farthest first, runs R5 → R3 (h2 raw) → R1/R2 (named premises) → **R4 (here)**."
+    what the compiled fact supports: ranks R1/R2 as named-premise doors to h2, and R1 as stated is false (`not_register1`) and R2 is RH restated (`ch_iff_rh`), so neither is a door by which h2 is approached.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:67 -- `partialPositivity_finiteRange`
+    the sentence: "**The positivity door, ajar (II.7).** The R4 face already carries a finite-range certificate: `PartialPositivity.partialPositivity_finiteRange` (SIDE-lv-conservation v0.8.0 = `6efa9e5`), λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T², with on-line-term nonnegativity **proved** (`blTerm_nonneg_of_onLine`)."
+    what the compiled fact supports: presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit.
+    informing work-order: W-ORD-LI-WEIL-BRIDGE (the Li form made T0; OPEN_TRAILS :11203)
+
+:255 -- `h2_sign`
+    the sentence: "C₅-output (Hilbert–Pólya) stays disclaimed; h2 remains the bracket's outstanding obligation, research-reach.*"
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:257 -- `h1_complete_at_Phi`
+    the sentence: "`h1_complete_at_Phi` discharges h1's certifiable surround, so h2 stands alone as the single open proposition — localization sharpened, h2 itself not shortened; the register-equivalence and partial-positivity interfaces are its doors (Program Two iii, iv), to be opened only at statement-read + price + ruling."
+    what the compiled fact supports: reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:257 -- `h2_sign`
+    the sentence: "`h1_complete_at_Phi` discharges h1's certifiable surround, so h2 stands alone as the single open proposition — localization sharpened, h2 itself not shortened; the register-equivalence and partial-positivity interfaces are its doors (Program Two iii, iv), to be opened only at statement-read + price + ruling."
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:259 -- `h2_sign`
+    the sentence: "R5-output was repaired at P2 from a trivially-true draft to the positive-definite-pairing + operator schema of Hilbert–Pólya (analytic content disclaimed, the C₅ distance, O.18). h1 done, h2 the one open obligation."
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:294 -- `h1_complete_at_Phi`
+    the sentence: "| h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order) | SIDE-lv-conservation v0.6.0 = c80bdc2, DOI `10.5281/zenodo.21433178` (concept `21433177`) | `SIDELvConservation.h1_complete_at_Phi` (C₄ via `C4_modularity_at_Phi`, witness `jacobiTheta`) | `{propext, Classical.choice, Quot.sound}` | Compiled — h1 leg of the bracket complete; C₄ strengthened-then-discharged (Fork B); C₅-output disclaimed, h2 outstanding |"
+    what the compiled fact supports: reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:294 -- `h2_sign`
+    the sentence: "| h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order) | SIDE-lv-conservation v0.6.0 = c80bdc2, DOI `10.5281/zenodo.21433178` (concept `21433177`) | `SIDELvConservation.h1_complete_at_Phi` (C₄ via `C4_modularity_at_Phi`, witness `jacobiTheta`) | `{propext, Classical.choice, Quot.sound}` | Compiled — h1 leg of the bracket complete; C₄ strengthened-then-discharged (Fork B); C₅-output disclaimed, h2 outstanding |"
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:295 -- `h1_complete_at_Phi`
+    the sentence: "| **Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`, only h2 open) | SIDE-lv-conservation v0.7.0 = 2d86182 | `RegisterPentagon.goalState_of_h1_h2` · `.goalState_sevenClasses_of_h2` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** (native, via `T3.T3prime_shared_witness`) |"
+    what the compiled fact supports: reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:295 -- `h2_sign`
+    the sentence: "| **Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`, only h2 open) | SIDE-lv-conservation v0.7.0 = 2d86182 | `RegisterPentagon.goalState_of_h1_h2` · `.goalState_sevenClasses_of_h2` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** (native, via `T3.T3prime_shared_witness`) |"
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:297 -- `ch_iff_rh`
+    the sentence: "| Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis | SIDE-kernel v1.3 = 0bc21c0 (carried at lv-conservation v0.7.0) | `ConservationBridge.riemann_hypothesis`; carried `RegisterPentagon.R2_conservationHypothesis_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — named premise: `ConservationHypothesis` (the statement is `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`). *Re-graded 2026-08-09 from DERIVES by the wave-wide re-grade: the derivation is genuine but conditional, and the corpus rubric reserves DERIVES for the unconditional case. README already graded this terminal INTERFACES; this row now agrees with it, with the rubric, and with its own parenthetical.* Cross-kernel at the SIDE-kernel pin; R2 restated verbatim, bridge attributed as named premise per the federation no-Lake-dep rule |"
+    what the compiled fact supports: grades Route 3 INTERFACES on `ConservationHypothesis` as a genuine conditional derivation, and that premise is RH restated (`ch_iff_rh`), so the terminal encodes its conclusion (T2).
+    informing work-order: none named on the critical path
+
+:297 -- `riemann_hypothesis`
+    the sentence: "| Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis | SIDE-kernel v1.3 = 0bc21c0 (carried at lv-conservation v0.7.0) | `ConservationBridge.riemann_hypothesis`; carried `RegisterPentagon.R2_conservationHypothesis_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — named premise: `ConservationHypothesis` (the statement is `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`). *Re-graded 2026-08-09 from DERIVES by the wave-wide re-grade: the derivation is genuine but conditional, and the corpus rubric reserves DERIVES for the unconditional case. README already graded this terminal INTERFACES; this row now agrees with it, with the rubric, and with its own parenthetical.* Cross-kernel at the SIDE-kernel pin; R2 restated verbatim, bridge attributed as named premise per the federation no-Lake-dep rule |"
+    what the compiled fact supports: grades the terminal INTERFACES on `ConservationHypothesis` as a genuine conditional derivation, and that premise is RH restated (`ch_iff_rh`), so the terminal encodes its conclusion (T2).
+    informing work-order: none named on the critical path
+
+:322 -- `ch_iff_rh`
+    the sentence: "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **discharge h2** | implication compiled; live math sits in the open antecedent |"
+    what the compiled fact supports: puts Route 3's live mathematics in the open antecedent, and the antecedent is RH restated (`ch_iff_rh`).
+    informing work-order: none named on the critical path
+
+:322 -- `h2_sign`
+    the sentence: "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **discharge h2** | implication compiled; live math sits in the open antecedent |"
+    what the compiled fact supports: names "discharge h2" as Route 3's remaining step, and Route 3's antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`), so the step is RH itself.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:322 -- `riemann_hypothesis`
+    the sentence: "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **discharge h2** | implication compiled; live math sits in the open antecedent |"
+    what the compiled fact supports: puts Route 3's live mathematics in the open antecedent, and the antecedent is RH restated (`ch_iff_rh`), so the live mathematics is RH itself.
+    informing work-order: none named on the critical path
+
+:323 -- `h1_complete_at_Phi`
+    the sentence: "| T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6` | **conditional-A** *(on h2)* | **discharge h2** | h1 closed (`h1_complete_at_Phi`); h2 open |"
+    what the compiled fact supports: reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:323 -- `h2_sign`
+    the sentence: "| T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6` | **conditional-A** *(on h2)* | **discharge h2** | h1 closed (`h1_complete_at_Phi`); h2 open |"
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:326 -- `h2_sign`
+    the sentence: "| R-curve criterion `SIDERCurve.monotone_unique_zero` · rcurve `d5f33b4` | **conditional** *(**ONE DIRECTION compiled** — `StrictMono V → at most one zero`, the kernel's own "(ii)⟹(i) step"; **no equivalence terminal exists in SIDE-rcurve v0.1.0**; closure open. Corrected 2026-08-09, second site after L274)* | **discharge h2** (effective dominance = catalogue exhaustiveness) | equivalence engine alive; dominance research-reach |"
+    what the compiled fact supports: draws a conclusion at RH's depth from h2 as the exhaustiveness premise, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the conditional's premise is RH itself.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:332 -- `ch_iff_rh`
+    the sentence: "**RH proper** is reached only *conditionally on h2* (Route 3, T3 goal state) or as a *B-with-named-tail* (R4)."
+    what the compiled fact supports: has RH reached conditionally by Route 3, and Route 3's condition is RH restated (`ch_iff_rh`).
+    informing work-order: none named on the critical path
+
+:332 -- `h2_sign`
+    the sentence: "**RH proper** is reached only *conditionally on h2* (Route 3, T3 goal state) or as a *B-with-named-tail* (R4)."
+    what the compiled fact supports: says RH is reached conditionally on h2 by Route 3 and the T3 goal state, and Route 3's premise is RH restated (`ch_iff_rh`) while the goal state is vacuous on the strip (`mellin_Phi_eq_zero_of_re_le_one`).
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:332 -- `h2_sign`
+    the sentence: "Every conditional route turns on the one hinge, h2 — highest-leverage move;"
+    what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:379 -- `partialPositivity_finiteRange`
+    the sentence: "| A7 | **Finite-range positivity:** `λ_n ≥ 0` for `1≤n≤N₀(T)≈2T²` | proven **in-kernel** — a **certificate, not RH** (cutoff = the detection threshold) | `partialPositivity_finiteRange` (lv `6efa9e5`); finite-set half DERIVES (`lowFinset_mem_iff`, v0.10.0) |"
+    what the compiled fact supports: calls the finite-range positivity "proven in-kernel", and the terminal proves it only under two uncompiled literature premises and verified zeros (T1-lit).
+    informing work-order: W-ORD-LI-WEIL-BRIDGE (the Li form made T0; OPEN_TRAILS :11203)
+
+:450 -- `partialPositivity_finiteRange`
+    the sentence: "**Our FE-even class:** twist-symmetric (w↔1/w) test functions, on which `partialPositivity_finiteRange` proves positivity **to the detection threshold N₀**."
+    what the compiled fact supports: presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit.
+    informing work-order: W-ORD-LI-WEIL-BRIDGE (the Li form made T0; OPEN_TRAILS :11203)
+
+### 29 sentence-rows (17 distinct lines).

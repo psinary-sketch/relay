@@ -1,0 +1,262 @@
+# b558 -- the seat's verdicts, h2_sign (with h2_sign_iff_rh; found by the name and by the ferry's aliases "h2" and "the reduction")
+# the move: h2 in its Weil form is `h2_sign`, and `h2_sign_iff_rh : h2_sign <-> RiemannHypothesis` is compiled (SIDE-explicit-formula v0.2 = 5c72cad; the census R4, b538; THE_RESIDUE_OF_RH :240, b549); lv's h2 as stated at Phi is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`, b538); h2 in the conservation register is RH restated (`ch_iff_rh`).
+# THE PRINCIPLE, applied row by row: MOVED-IN-MEANING when the sentence (a) reads lv's goal state as closing -- "h1 complete at Phi, only h2 open", goal <= h1 and h2 -- which holds at no s of the strip; (b) states h2 in a form the census graded RH restated or false (the Euler-balance / conservation form; the Mellin clause) as a distinct open premise; (c) draws RH, or a conclusion at RH's depth, from h2 as a reduction or a conditional theorem, its premise being RH itself in the Weil form; (d) says the RH <-> h2 equivalence has no terminal. STANDS when it records h2 as open, names it as a premise without drawing RH from it, orients among the doors, records a past edit, or names a different premise or reduction.
+@GOAL	reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+@EULER	states h2 as "every xi-zero forces the Euler balance at some prime", the conservation register, which `ch_iff_rh` shows is RH restated, so the single open premise it names is RH itself.
+@COND	draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+@EXH	draws a conclusion at RH's depth from h2 as the exhaustiveness premise, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the conditional's premise is RH itself.
+@OPEN	records h2 as open; no compiled fact closes it, so the sentence stands.
+@NAV	orients the reader among h2's doors or registers and draws no reduction and no closure from them.
+@DERIV	names the derivative h2 (simplicity's joint step), a different premise, which the move does not touch.
+@SIMPRED	names SIMPLICITY's own reduction (RH to off-line non-intersection of the level curves), a different statement from h2's, which the move does not touch (its compiled status is read at FINDINGS :5778).
+@HOOLEY	names Hooley's classical reduction GRH => Artin, a different statement, which the move does not touch.
+@HIST	records a past edit or version; it reports what was written then and stands as history.
+PATHS:37:1	STANDS	@NAV
+PATHS:41:2	STANDS	@NAV
+PATHS:45:4	MOVED-IN-MEANING	@GOAL
+PATHS:48:6	STANDS	places "h2 raw" at R3, NOT-COMPILED, which the census left UNDECIDED; nothing compiled moves it.
+PATHS:53:8	STANDS	@NAV
+PATHS:63:11	MOVED-IN-MEANING	@GOAL
+PATHS:63:13	MOVED-IN-MEANING	@EULER
+PATHS:65:14	STANDS	@NAV
+PATHS:67:16	MOVED-IN-MEANING	ranks R1/R2 as named-premise doors to h2, and R1 as stated is false (`not_register1`) and R2 is RH restated (`ch_iff_rh`), so neither is a door by which h2 is approached.
+PATHS:69:17	STANDS	places R5's distance at the Hilbert-Polya spectrum, which nothing compiled realizes; it speaks of the HP content, not of the Lean face that `register5_output_holds` shows is a theorem.
+PATHS:69:18	STANDS	names the compiled marker `certifiedInput_not_zeroRealizing`, T1-lit on `NontrivialZeroExistsInStrip`, as b540 tiered it.
+PATHS:255:26	MOVED-IN-MEANING	@GOAL
+PATHS:257:28	MOVED-IN-MEANING	@GOAL
+PATHS:259:30	MOVED-IN-MEANING	@GOAL
+PATHS:267:32	STANDS	@HIST
+PATHS:287:34	STANDS	grades the C5 input compiled and the output-stage (Hilbert-Polya) realization disclaimed; it speaks of the HP content, which nothing compiled realizes.
+PATHS:294:38	MOVED-IN-MEANING	@GOAL
+PATHS:295:40	MOVED-IN-MEANING	@GOAL
+PATHS:302:43	STANDS	names the compiled marker (h2 candidate #4) at INTERFACES on `NontrivialZeroExistsInStrip`, as b540 tiered it (T1-lit).
+PATHS:322:46	MOVED-IN-MEANING	names "discharge h2" as Route 3's remaining step, and Route 3's antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`), so the step is RH itself.
+PATHS:323:49	MOVED-IN-MEANING	@GOAL
+PATHS:326:53	MOVED-IN-MEANING	@EXH
+PATHS:328:54	STANDS	names h2 as one gate of the GRH row beside its own open items; GRH carries RH, so the gate is as written.
+PATHS:329:55	STANDS	sets the identification-to-exclusion distance equal to "the h2/RH gap", which the compiled equivalence leaves as written.
+PATHS:332:56	STANDS	@NAV
+PATHS:332:59	MOVED-IN-MEANING	says RH is reached conditionally on h2 by Route 3 and the T3 goal state, and Route 3's premise is RH restated (`ch_iff_rh`) while the goal state is vacuous on the strip (`mellin_Phi_eq_zero_of_re_le_one`).
+PATHS:332:60	MOVED-IN-MEANING	@COND
+PATHS:394:64	STANDS	identifies h2 with the Li-form tail `lambda_Z(n) >= -lambda_A(n)` for all n, the R4 face in Li's form (T1-lit), which the move leaves as written.
+PATHS:410:65	STANDS	@OPEN
+PATHS:460:67	STANDS	@DERIV
+PATHS:467:68	STANDS	@DERIV
+PATHS:511:69	STANDS	records that the classification arc moved no door, with its positive control; nothing compiled since moves a door.
+PATHS:515:70	STANDS	records that Theorem 3.1 does not apply to the reduction by the kind check; the compiled equivalence leaves that as written.
+PATHS:517:71	STANDS	@OPEN
+SIMP:24:95	STANDS	@SIMPRED
+SIMP:24:97	STANDS	@SIMPRED
+SIMP:26:98	STANDS	@SIMPRED
+SIMP:26:99	MOVED-IN-MEANING	has the RH-closure composing under the one open premise (§27.3), and that premise in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the composition's premise is RH itself.
+SIMP:40:101	STANDS	@SIMPRED
+SIMP:55:102	STANDS	@SIMPRED
+SIMP:71:103	STANDS	@SIMPRED
+SIMP:82:104	STANDS	@SIMPRED
+SIMP:333:111	STANDS	@SIMPRED
+SIMP:438:114	STANDS	@DERIV
+SIMP:453:119	MOVED-IN-MEANING	@GOAL
+SIMP:471:121	STANDS	@HIST
+SIMP:484:124	STANDS	@HIST
+SURR:37:132	MOVED-IN-MEANING	@GOAL
+SURR:37:133	MOVED-IN-MEANING	identifies the single open h2 with the Euler-balance form (RH restated, `ch_iff_rh`) and with the Mellin clause `mellin Phi (s/2) != 0` (false on the strip, `mellin_Phi_eq_zero_of_re_le_one`), forms the census separates.
+SURR:39:135	STANDS	describes the document's own scope -- the reduction with `covers_all` as the one node, bracketed from its discharge -- which the compiled equivalence leaves as written.
+SURR:118:139	STANDS	says the reduction cannot be cheapened by a landscape detour; nothing compiled bears on that.
+SURR:130:141	MOVED-IN-MEANING	@GOAL
+SURR:130:142	MOVED-IN-MEANING	@GOAL
+SURR:163:144	MOVED-IN-MEANING	@COND
+SURR:183:148	MOVED-IN-MEANING	gives the reduction RH <-> `covers_all` no terminal, and the equivalence of RH with h2 in its Weil form is compiled (`h2_sign_iff_rh`), so the row says less than it now could.
+SURR:184:150	MOVED-IN-MEANING	@GOAL
+SURR:197:154	STANDS	@HIST
+SURR:197:156	STANDS	@HIST
+GRH:43:169	MOVED-IN-MEANING	has the cascade reduce to the single carried-open h2 with the surround h1 complete, and lv's h2 at Phi is false on the strip while h2 in its Weil form is RH itself (`h2_sign_iff_rh`).
+GRH:141:172	MOVED-IN-MEANING	says the joint step closes under the shared witness, and that route needs lv's h2 at Phi, false at every s with re s <= 1, so it closes nothing on the strip.
+GRH:143:174	STANDS	says the implication goal <= h1 and h2 is compiled, which it is; the sentence does not claim the implication reaches the strip.
+GRH:143:176	STANDS	says h1 is complete at Phi, which `h1_complete_at_Phi` compiles.
+GRH:143:177	MOVED-IN-MEANING	@GOAL
+GRH:175:178	STANDS	@HOOLEY
+GRH:175:179	STANDS	@HOOLEY
+GRH:280:188	STANDS	@HOOLEY
+GRH:407:196	STANDS	@HIST
+GRH:407:197	STANDS	@HIST
+GRH:409:199	STANDS	@HIST
+RCURVE:13:208	MOVED-IN-MEANING	@EXH
+RCURVE:13:209	MOVED-IN-MEANING	@GOAL
+RCURVE:238:211	MOVED-IN-MEANING	@EXH
+RCURVE:242:212	MOVED-IN-MEANING	@EXH
+RCURVE:242:213	STANDS	@OPEN
+RCURVE:250:214	MOVED-IN-MEANING	@EXH
+RCURVE:250:215	STANDS	records the premise h2 as the open leg, not discharged here.
+RCURVE:352:216	STANDS	@DERIV
+RCURVE:357:219	MOVED-IN-MEANING	@GOAL
+RCURVE:360:220	MOVED-IN-MEANING	@EXH
+RCURVE:382:221	STANDS	names h2 as the manuscript leg carried openly and draws no RH from it in this sentence.
+@ROUTE3RED	calls the reduction of RH to h2 compiled or machine-verified through `ConservationBridge.riemann_hypothesis`, whose premise `ConservationHypothesis` is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`, in the Weil form.
+@MELLIN	identifies h2 with the Euler-balance form (RH restated, `ch_iff_rh`) and with the Mellin clause `mellin Phi (s/2) != 0` (false on the strip, `mellin_Phi_eq_zero_of_re_le_one`), forms the census separates.
+@FENCE	a diagram inside a code fence, read STANDS by the face's declared rule for code listings; its prose twin carries the claim and is read there.
+RCURVE:382:222	MOVED-IN-MEANING	@EXH
+RCURVE:464:227	STANDS	@HIST
+RCURVE:473:230	STANDS	@HIST
+INDEX:21:235	MOVED-IN-MEANING	@ROUTE3RED
+INDEX:29:236	STANDS	a lead-in sentence; it states nothing itself.
+INDEX:29:237	MOVED-IN-MEANING	@EULER
+INDEX:29:238	MOVED-IN-MEANING	@ROUTE3RED
+INDEX:73:241	STANDS	@OPEN
+INDEX:234:242	MOVED-IN-MEANING	has RH proved under the one open premise h2 with "the reduction compiled", and the compiled Route 3 premise is RH restated while h2 in its Weil form is RH itself (`h2_sign_iff_rh`).
+INDEX:263:243	STANDS	@NAV
+INDEX:369:244	MOVED-IN-MEANING	grades `ConservationBridge.riemann_hypothesis` "Compiled -- the reduction", and its premise is RH restated; the compiled reduction of RH is `h2_sign_iff_rh` (the row MOVED at b556).
+INDEX:379:247	STANDS	@OPEN
+INDEX:401:248	MOVED-IN-MEANING	@ROUTE3RED
+INDEX:405:249	MOVED-IN-MEANING	repeats "the reduction compiled" for the Route 3 terminal, whose premise is RH restated (`ch_iff_rh`); the disclaimers in the sentence stand.
+RESIDUE:25:256	STANDS	scopes the paper's results under h2 and draws no RH from it in this sentence.
+RESIDUE:132:257	MOVED-IN-MEANING	says h2 has no terminal and is manuscript-resident, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (the row MOVED at b549, :240).
+RESIDUE:147:258	STANDS	@OPEN
+AMC:249:269	STANDS	borrows the h1/h2 decomposition as an analogy for the trio (classification compiled, density open); its "h2" is the density content M3-M5, not RH's premise.
+AMC:427:286	STANDS	@HIST
+FOUND:30:304	MOVED-IN-MEANING	@COND
+FOUND:36:305	MOVED-IN-MEANING	has RH hold under h2 with the goal state read as closing (h1 complete at Phi, only h2 open), and lv's h2 at Phi is false on the strip while h2 in its Weil form is RH itself (`h2_sign_iff_rh`).
+FOUND:80:307	MOVED-IN-MEANING	identifies h2 with Phi's Mellin factor nonvanishing off the line, which is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+FOUND:80:308	MOVED-IN-MEANING	@GOAL
+FOUND:80:309	STANDS	names h2 as the question whether the witness forces the completion; it draws nothing from it.
+FOUND:321:314	STANDS	asks whether the specification forces the catalogue's exhaustiveness; a question, not a claim.
+FOUND:321:315	MOVED-IN-MEANING	@MELLIN
+FOUND:321:316	STANDS	says Determination supplies Phi with h1 complete there (compiled) and names h2 as the open question.
+FOUND:323:317	MOVED-IN-MEANING	@GOAL
+FOUND:655:340	STANDS	@HIST
+FOUND:655:341	STANDS	@HIST
+TECHNE:10:354	STANDS	@HIST
+TECHNE:331:355	STANDS	@FENCE
+TECHNE:348:356	STANDS	@NAV
+TECHNE:414:360	MOVED-IN-MEANING	has the route terminals compose under h2, and Route 3 composes under `ConservationHypothesis`, RH restated (`ch_iff_rh`), while Routes 1 and 2 are not routes to sigma = 1/2 (b540).
+LIC:13:374	MOVED-IN-MEANING	@COND
+LIC:59:376	MOVED-IN-MEANING	@COND
+LIC:59:377	STANDS	@OPEN
+LIC:59:378	MOVED-IN-MEANING	@COND
+LIC:83:379	STANDS	@OPEN
+LIC:116:380	MOVED-IN-MEANING	@COND
+INVAR:21:382	MOVED-IN-MEANING	@ROUTE3RED
+INVAR:21:383	STANDS	describes the barriers as a wall shared by a method class; nothing compiled about h2 bears on it.
+INVAR:27:384	STANDS	a heading; it states nothing itself.
+INVAR:31:385	MOVED-IN-MEANING	@EULER
+INVAR:31:386	MOVED-IN-MEANING	@ROUTE3RED
+INVAR:354:390	MOVED-IN-MEANING	@COND
+INVAR:354:391	MOVED-IN-MEANING	@GOAL
+INVAR:427:393	MOVED-IN-MEANING	@ROUTE3RED
+INVAR:487:396	STANDS	@OPEN
+INVAR:499:397	MOVED-IN-MEANING	grades `ConservationBridge.riemann_hypothesis` "Compiled -- the reduction", and its premise is RH restated; the compiled reduction of RH is `h2_sign_iff_rh` (the row MOVED at b557).
+INVAR:512:401	STANDS	@OPEN
+INVAR:516:402	MOVED-IN-MEANING	@ROUTE3RED
+INVAR:516:403	STANDS	names the documents where the results live; the surround it calls machine-verified is compiled (`h1_complete_at_Phi`).
+INVAR:516:404	STANDS	describes what the paper supplies; nothing compiled about h2 bears on it.
+INVAR:520:405	STANDS	@OPEN
+INVAR:534:406	STANDS	@HIST
+INVAR:538:408	STANDS	@HIST
+INVAR:677:409	STANDS	says the relativized lemma cannot price the reduction's import; nothing compiled bears on that.
+ENUMERA:13:437	MOVED-IN-MEANING	@COND
+ENUMERA:19:438	STANDS	says the exhaustiveness SIDE exclusion would need to discharge RH is h2; that is so, and the sentence draws no RH from it.
+ENUMERA:20:439	MOVED-IN-MEANING	@GOAL
+ENUMERA:21:440	MOVED-IN-MEANING	@MELLIN
+ENUMERA:23:441	MOVED-IN-MEANING	@COND
+ENUMERA:49:442	STANDS	@FENCE
+ENUMERA:55:443	STANDS	@FENCE
+ENUMERA:59:444	STANDS	@HIST
+ENUMERA:73:446	MOVED-IN-MEANING	@COND
+ENUMERA:536:448	MOVED-IN-MEANING	@COND
+ENUMERA:932:451	MOVED-IN-MEANING	@EULER
+ENUMERA:932:452	STANDS	@OPEN
+ENUMERA:946:454	STANDS	says the catalogue is exhaustive under h2, h2 being that exhaustiveness; it draws nothing further.
+ENUMERA:946:455	MOVED-IN-MEANING	@COND
+ENUMERA:1044:457	MOVED-IN-MEANING	@COND
+MONO:117:461	MOVED-IN-MEANING	has the three route terminals compose under h2, and Route 3 composes under `ConservationHypothesis`, RH restated (`ch_iff_rh`), while Routes 1 and 2 are not routes to sigma = 1/2 (b540).
+MONO:1808:509	MOVED-IN-MEANING	names h2 as the nonvanishing of the transform at the point, lv's Mellin clause, false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+MONO:1808:511	CREDIT	says the obligation h2 is, in each classical face, the theorem itself -- the positivity of the Weil functional among them -- on 2026-07-18, the reading `h2_sign_iff_rh` compiled in the Weil face at b536 (2026-09-25).
+MONO:1810:513	STANDS	@OPEN
+MONO:1810:514	STANDS	@OPEN
+MONO:2181:526	CREDIT	records on 2026-07-18 that the premise "remains RH-equivalent and open", the reading `h2_sign_iff_rh` compiled in the Weil face at b536 (2026-09-25).
+MONO:2183:528	STANDS	@HIST
+MONO:2185:529	STANDS	@HIST
+MONO:2191:531	STANDS	@HIST
+MONO:2193:532	STANDS	@HIST
+MONO:2197:533	STANDS	@HIST
+MONO:2197:534	STANDS	@HIST
+@QUOTE	quotes the deposit's own words as the deposit's; the quotation is accurate and the sentence draws nothing from it.
+@NONE	says nothing is claimed about h2; that stands.
+MONO:2235:543	MOVED-IN-MEANING	says the machine checks the reduction, and the terminal checked is `ConservationBridge.riemann_hypothesis`, whose premise is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`.
+MONO:2237:544	MOVED-IN-MEANING	@ROUTE3RED
+MONO:2250:548	MOVED-IN-MEANING	says there is no terminal to point at for h2, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (b536).
+MONO:2264:549	STANDS	@HIST
+BALPOS:72:554	MOVED-IN-MEANING	gathers the universality hypothesis of `silence_universal`, Route 3's `ConservationHypothesis` and the one premise as registers of a single open joint, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+BALPOS:146:559	MOVED-IN-MEANING	lists Route 3's `ConservationHypothesis` beside the one premise as registers of one joint, and `ConservationHypothesis` is RH restated (`ch_iff_rh`) while the Weil-form premise is equivalent to RH through `h2_sign_iff_rh`, two different depths.
+BALPOS:241:560	STANDS	@FENCE
+BALPOS:243:561	STANDS	@FENCE
+BALPOS:256:563	STANDS	states lv's hypothesis as it is written in Lean; it describes the hypothesis and draws nothing from it.
+BALPOS:258:564	MOVED-IN-MEANING	equates discharging the premise with supplying h1 and h2 at T1's Phi, and h2 at Phi is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so no discharge runs that way on the strip.
+BALPOS:274:565	MOVED-IN-MEANING	calls `mellin Phi (s/2) != 0` for s off the line the analytic content of h2, and it is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+BALPOS:274:566	CREDIT	the clause "outside it the T1 identity itself needs continuation" (2026-07-13) anticipated b538's finding that lv's h2 is false on the strip; the credit is the one already entered at FINDINGS :5461 as corrected at :5527, not entered again.
+BALPOS:356:571	MOVED-IN-MEANING	has T3' close the joint step under h1 and h2, and h2 at Phi is false at every s with re s <= 1, so T3' closes nothing on the strip.
+BALPOS:357:572	STANDS	reads "RH-strength on the half-plane where T1 holds", which there (re s > 1) is C2 at Phi, proved (`C2_halfplane_nonvanishing_at_Phi`), as FINDINGS :5527 reads it.
+BALPOS:469:574	MOVED-IN-MEANING	routes the discharge through the kernel's h2 as the Mellin nonvanishing at Phi, which is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+BALPOS:553:577	MOVED-IN-MEANING	lists Route 3's `ConservationHypothesis` beside the one premise as registers of one joint, and `ConservationHypothesis` is RH restated (`ch_iff_rh`) while the Weil-form premise is equivalent to RH through `h2_sign_iff_rh`, two different depths.
+BALPOS:616:579	STANDS	@OPEN
+BALPOS:620:581	STANDS	@HIST
+BALPOS:628:584	STANDS	@HIST
+BALPOS:660:586	STANDS	reports accurately that the monograph names two classical faces of h2 and does not compile the cross-register equivalences; nothing compiled contradicts the report.
+FACES:1:699	STANDS	@NAV
+FACES:8:700	STANDS	@NAV
+FACES:15:701	STANDS	@OPEN
+FACES:114:705	STANDS	maps h2-as-deposited's fourth register at finite instance; the draft's reading at question grade draws no RH from it.
+FACES:118:706	STANDS	@OPEN
+FACES:186:708	STANDS	@OPEN
+LEDGER:29:722	STANDS	states the positivity face's realized form as one face, "not the compiled equivalence"; nothing compiled contradicts it.
+LEDGER:31:723	STANDS	names a shape across three faces, not a register; the move does not touch it.
+LEDGER:143:725	STANDS	@NONE
+LEDGER:155:726	STANDS	@NONE
+LEDGER:180:727	STANDS	@NONE
+LEDGER:206:729	STANDS	@NONE
+LEDGER:230:730	STANDS	@NONE
+LEDGER:242:732	STANDS	@NONE
+LEDGER:254:733	STANDS	@NONE
+LEDGER:266:734	STANDS	@NONE
+LEDGER:276:736	STANDS	@NONE
+LEDGER:286:737	STANDS	@NONE
+LEDGER:296:738	STANDS	@NONE
+LEDGER:306:739	STANDS	@NONE
+LEDGER:340:740	STANDS	@NONE
+LEDGER:374:741	STANDS	@NONE
+LEDGER:409:742	STANDS	@NONE
+LEDGER:424:743	STANDS	@NONE
+LEDGER:463:744	STANDS	@NONE
+LEDGER:485:746	STANDS	@NONE
+IDC:9:784	STANDS	@NAV
+IDC:13:785	STANDS	@OPEN
+IDC:16:786	STANDS	@QUOTE
+IDC:129:787	STANDS	@NAV
+IDC:168:788	STANDS	@NAV
+IDC:180:789	STANDS	@NAV
+IDC:186:790	STANDS	@NAV
+IDC:201:791	STANDS	@OPEN
+IDC:314:792	STANDS	disclaims any bearing of the layer on h2; nothing compiled bears on that.
+IDC:317:793	STANDS	corrects its own sentence above (Term 3 work is h2 work); nothing compiled bears on it.
+IDC:318:794	STANDS	narrows its own claim about layer one's content; nothing compiled bears on it.
+IDC:1857:795	STANDS	says the constraint that would pin the aggregate is h2 itself, so deriving from it is circular; the compiled equivalence leaves that as written.
+IDC:1884:796	STANDS	identifies requiring Weil's coefficients with requiring h2; the compiled Weil-form equivalence leaves that as written.
+IDC:1885:797	STANDS	identifies file E's relation with h2 (the sign of `W_inf - W_primes`); nothing compiled bears on the identification.
+IDC:1896:798	STANDS	identifies a statement with h2; nothing compiled bears on the identification.
+IDC:2648:799	STANDS	@OPEN
+IDC:2750:800	STANDS	@QUOTE
+IDC:2846:801	STANDS	@QUOTE
+IDC:2847:802	STANDS	states the corpus's own form of h2 (the sign of `W_inf` minus the prime term); the Weil-form terminal `h2_sign` is a sign statement of that kind.
+IDC:2874:803	STANDS	@QUOTE
+IDC:2896:804	STANDS	@QUOTE
+IDC:2897:805	STANDS	@QUOTE
+IDC:3010:806	STANDS	a heading of the comprehension section; it states nothing itself.
+IDC:3018:807	STANDS	@QUOTE
+IDC:3019:808	STANDS	@QUOTE
+IDC:3022:811	STANDS	@QUOTE
+IDC:3040:812	STANDS	reads h2's fourth register at a diagonal cell as the sign of `A - PR`; nothing compiled bears on it.
+IDC:3041:813	STANDS	@QUOTE
+IDC:3059:814	STANDS	sets the deposit's claim beside its ceiling, both quoted; the table draws nothing from them.
+IDC:3060:815	STANDS	@QUOTE
+IDC:3083:816	STANDS	@OPEN
+CENSUS:160:819	STANDS	@OPEN
+CENSUS:237:820	STANDS	@OPEN

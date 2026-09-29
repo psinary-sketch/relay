@@ -1,0 +1,85 @@
+b558 -- THE EDITION WORK-LIST OF FOUNDATIONS_OF_THE_SIDE_PROGRAMME (phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+
+### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition is written before its informing work-orders land or are ruled out of scope for it.
+
+:26 -- `conservation_of_spectra`
+    the sentence: "Spectral Inertness is formally verified in Lean 4 against Mathlib (terminal `ProductFormula.conservation_of_spectra`, `{propext, Classical.choice, Quot.sound}`; supported by the ProductFormula chain); the Compression Theorem is compiled in the public kernel `SIDE-compression` v0.2.0 — both the general chain-length form (`Compression.compression`, axiom-free) and the per-instance panel; the Sieve Ceiling Lemma uses standard first-order model theory; the E-Difficulty Theorem is kernel-verified in SIDE-kernel (de-vacuified at v1.4 = `f374174`, W-6-EXT — `e_difficulty` reads its system and extracts the Ostrowski, `{propext, Quot.sound}`; content in `SieveCeilingSemantic`/`SieveCeilingWitness`)."
+    what the compiled fact supports: says Spectral Inertness is formally verified in Lean 4 against Mathlib through this terminal, which states `(1 : Q) ^ s = 1` and mentions no Euler product and no zeta.
+    informing work-order: none named on the critical path
+
+:26 -- `silence_universal`
+    the sentence: "Each link in the cascade is supported by formal proof: the Silence Principle is theorem-supported in SILENCE_PRINCIPLE_FORMAL with the universal form `silence_universal` machine-verified in MetaKernel.lean (Kernel/SilenceTheorem.lean);"
+    what the compiled fact supports: calls the universal form `silence_universal` machine-verified, and it is compiled under the programme's own premise `I.is_universal` (T2-INTERFACES), whose truth the programme has still to establish.
+    informing work-order: none named on the critical path
+
+:30 -- `h2_sign`
+    the sentence: "RH holds here only **under the same single open premise** `h2` (§VI.5;"
+    what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:36 -- `h2_sign`
+    the sentence: "This works for $\xi(s)$: seven mechanism classes are enumerated, each checked, none produces off-line zeros — and the Riemann Hypothesis holds **under the completeness of that enumeration at the ξ interface**, which is the programme's single open premise `h2` (goal ⇐ h1 ∧ h2, h1 complete at Φ, only h2 open; explained not counted at §VI.5)."
+    what the compiled fact supports: has RH hold under h2 with the goal state read as closing (h1 complete at Phi, only h2 open), and lv's h2 at Phi is false on the strip while h2 in its Weil form is RH itself (`h2_sign_iff_rh`).
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:80 -- `h2_sign`
+    the sentence: "*(Re-scoped 2026-07-19, ARM 3, per §27.3's certificate-not-discharge ruling — Determination supplies the shared **witness** Φ, the h1 side, complete at Φ; but `T3prime` also requires `h2` — that Φ's Mellin factor is nonvanishing off the line, i.e. that the catalogue is exhaustive at the interface — and `h2` is the single open premise, carried openly, not supplied by Determination."
+    what the compiled fact supports: identifies h2 with Phi's Mellin factor nonvanishing off the line, which is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:80 -- `h2_sign`
+    the sentence: "So the joint exclusion closes **under `h2`** — goal ⇐ h1 ∧ h2, only h2 open — not outright."
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:321 -- `h2_sign`
+    the sentence: "This is `h2` — **the premise that every ξ-zero forces the Euler balance at some prime** (the conservation register; equivalently realization-totality at the ξ interface, the R4 positivity face, or the goal state's `mellin Φ (s/2) ≠ 0`; one premise in §27.3's five registers)."
+    what the compiled fact supports: identifies h2 with the Euler-balance form (RH restated, `ch_iff_rh`) and with the Mellin clause `mellin Phi (s/2) != 0` (false on the strip, `mellin_Phi_eq_zero_of_re_le_one`), forms the census separates.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:323 -- `h2_sign`
+    the sentence: "Same test, two scales: T7 answers it "not forced" (a settled boundary); h2 leaves it open (goal ⇐ h1 ∧ h2, only h2 open)."
+    what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+
+:455 -- `conservation_of_spectra`
+    the sentence: "- SIDE-kernel v1.2 (tag `b1407b2`; citable deposit v1.1, DOI 10.5281/zenodo.19937590, whose axiom profile v1.2 supersedes) — provides Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`, and the ProductFormula chain merged against Mathlib (PRs #36881, #36865)."
+    what the compiled fact supports: says SIDE-kernel v1.2 provides Conservation of Spectra (n4 = 0) via the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    informing work-order: none named on the critical path
+
+:563 -- `conservation_of_spectra`
+    the sentence: "Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`;"
+    what the compiled fact supports: says Conservation of Spectra (n4 = 0) is supplied via the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    informing work-order: none named on the critical path
+
+:626 -- `conservation_of_spectra`
+    the sentence: "| Silence — per-instance (product formula) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.product_formula_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |"
+    what the compiled fact supports: directs the reader to cite `conservation_of_spectra` for the arithmetic s-darkness content, and that terminal states `(1 : Q) ^ s = 1`, so the content is in neither model.
+    informing work-order: none named on the critical path
+
+:627 -- `conservation_of_spectra`
+    the sentence: "| Silence — per-instance (distributive law) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.distributive_law_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |"
+    what the compiled fact supports: directs the reader to cite `conservation_of_spectra` for the arithmetic s-darkness content, and that terminal states `(1 : Q) ^ s = 1`, so the content is in neither model.
+    informing work-order: none named on the critical path
+
+:628 -- `conservation_of_spectra`
+    the sentence: "| Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |"
+    what the compiled fact supports: directs the reader to cite `conservation_of_spectra` for the arithmetic s-darkness content, and that terminal states `(1 : Q) ^ s = 1`, so the content is in neither model.
+    informing work-order: none named on the critical path
+
+:628 -- `silence_universal`
+    the sentence: "| Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establish the arithmetic claim. The arithmetic s-darkness content is **manuscript-resident** at `ProductFormula.conservation_of_spectra` (SIDE-kernel, the Conservation-of-Spectra chapter), not in this model — cite that terminal for content. |"
+    what the compiled fact supports: pins `Universal.silence_universal` at SIDE-silence-principle v0.1.0, where it is absent; it is declared at 667c254, tagged v0.2.0 by this act.
+    informing work-order: none named on the critical path
+
+:634 -- `conservation_of_spectra`
+    the sentence: "| Spectral Inertness / Conservation ($n_4 = 0$) | SIDE-kernel v1.2 | `ProductFormula.conservation_of_spectra` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |"
+    what the compiled fact supports: grades Spectral Inertness / Conservation "DERIVES -- Compiled" at the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    informing work-order: none named on the critical path
+
+:653 -- `conservation_of_spectra`
+    the sentence: "*v0.2.4 — 2026-07-29 (Correspondence re-grade, RULING B: the three Silence "Model-level" rows (`product_formula_silent`, `distributive_law_silent`, `silence_principle`) → **ENCODES-CONCLUSION** (they certify the in-kernel Boolean model; the arithmetic content is manuscript-resident at `ProductFormula.conservation_of_spectra`); the two E-Difficulty "SCAFFOLDING" base rows (`sieve_ceiling`, `bright_access_required`) → **SHELL** (work-orders — cite `sieve_ceiling_semantic` for content)."
+    what the compiled fact supports: records the content as resident at `conservation_of_spectra`, and that terminal states `(1 : Q) ^ s = 1`, T2.
+    informing work-order: none named on the critical path
+
+### 16 sentence-rows (13 distinct lines).

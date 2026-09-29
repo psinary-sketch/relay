@@ -1,0 +1,24 @@
+# b558 -- the seat's verdicts, riemann_hypothesis (`ConservationBridge.riemann_hypothesis`, Route 3)
+# the move: T2 -- its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`, E-2026-09-25-1), so it compiles RH => RH; the rows calling it "the reduction" MOVED at INDEX :369 (b556) and INVARIANCE :499 (b557); the compiled reduction of RH is `h2_sign_iff_rh`.
+@RED	calls the terminal the compiled or machine-verified reduction of RH, and its premise is RH restated (`ch_iff_rh`), so it compiles RH => RH; the compiled reduction of RH is `h2_sign_iff_rh` in the Weil form.
+@ROUTE	counts the terminal as a route to RH or to sigma = 1/2, and its premise is RH restated (`ch_iff_rh`), so it is no route: it formalizes RH => RH.
+@PROF	reports the terminal's axiom profile and its compilation at zero `sorry`, which are as stated; it claims no route.
+PATHS:297:42	MOVED-IN-MEANING	grades the terminal INTERFACES on `ConservationHypothesis` as a genuine conditional derivation, and that premise is RH restated (`ch_iff_rh`), so the terminal encodes its conclusion (T2).
+PATHS:322:47	MOVED-IN-MEANING	puts Route 3's live mathematics in the open antecedent, and the antecedent is RH restated (`ch_iff_rh`), so the live mathematics is RH itself.
+GRH:59:170	STANDS	@PROF
+INDEX:29:239	MOVED-IN-MEANING	@RED
+INDEX:369:245	MOVED-IN-MEANING	@RED
+TECHNE:414:358	MOVED-IN-MEANING	@ROUTE
+INVAR:31:387	MOVED-IN-MEANING	@RED
+INVAR:499:398	MOVED-IN-MEANING	@RED
+MONO:117:463	STANDS	names the three route terminals and their profiles, the wording E-2026-09-25-1's replacement adopts; it claims no route to sigma = 1/2.
+MONO:1530:481	STANDS	@PROF
+MONO:1602:488	STANDS	a Lean listing inside a code fence, read STANDS by the face's declared rule for code listings.
+MONO:1669:498	MOVED-IN-MEANING	names the row "Route 3 -- RH from the conservation interface", and the conservation interface is RH restated (`ch_iff_rh`), so the row is RH from RH.
+MONO:1685:501	STANDS	says the clean status certifies the implication `ConservationHypothesis -> RiemannHypothesis` and nothing more, which is exact.
+MONO:1779:504	STANDS	@PROF
+MONO:1823:517	MOVED-IN-MEANING	@ROUTE
+MONO:2224:538	MOVED-IN-MEANING	@ROUTE
+MONO:2243:546	MOVED-IN-MEANING	names the row "Route 3 -- RH from the conservation interface", graded COMPILED, and the conservation interface is RH restated (`ch_iff_rh`).
+LEDGER:17:720	STANDS	states R2's premise as the deposit names it and draws no RH from it.
+LEDGER:191:728	STANDS	records the converse of the terminal compiled, both directions, the fact `ch_iff_rh` carries.
