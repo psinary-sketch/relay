@@ -1,0 +1,52 @@
+b565 -- COMPONENT 3: bulka -- THE PROJECT AT D:\audit-b565\bulka
+
+### lean-toolchain (29 bytes)
+    | leanprover/lean4:v4.34.0-rc1
+### lakefile.lean (1313 bytes)
+    | import Lake
+    | open Lake DSL
+    | /-!
+    | Palomar submission project: Li's criterion for the Riemann Hypothesis.
+    | Trimmed to the transitive import closure of `comparator/Solution.lean`.  The only dependency is
+    | Mathlib, pinned in `lake-manifest.json`.
+    | -/
+    | /-- Mathlib-style linters enforced across the project. -/
+    | abbrev liCriterionLinters : Array LeanOption := #[
+    |   ⟨`linter.mathlibStandardSet, true⟩,
+    |   ⟨`linter.style.header, true⟩,
+    |   ⟨`linter.checkInitImports, true⟩,
+    |   ⟨`linter.allScriptsDocumented, true⟩,
+    |   ⟨`linter.pythonStyle, true⟩,
+    |   ⟨`linter.style.longFile, .ofNat 1500⟩
+    | ]
+    | package LiCriterion where
+    |   leanOptions := #[
+    |     ⟨`pp.unicode.fun, true⟩,
+    |     ⟨`autoImplicit, false⟩,
+    |     ⟨`maxSynthPendingDepth, .ofNat 3⟩
+    |   ] ++ liCriterionLinters.map fun s ↦ { s with name := `weak ++ s.name }
+    | require mathlib from git
+    |   "https://github.com/leanprover-community/mathlib4.git" @
+    |   "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+    | /-- The Li-criterion development. -/
+    | lean_lib Lc
+    | /-- The genus-1 Hadamard factorization machinery. -/
+    | lean_lib Hadamard
+    | /-- Shared complex-analysis utilities. -/
+    | lean_lib FunctionsOfOneComplexVariable
+    | /-- The Comparator bundle: the statement of record, and its proof. -/
+    | @[default_target]
+    | lean_lib Comparator where
+    |   srcDir := "comparator"
+    |   roots := #[`ChallengeDeps, `Challenge, `Solution]
+### lakefile.toml ABSENT
+### lake-manifest.json (3166 bytes)
+    package mathlib                rev de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11  https://github.com/leanprover-community/mathlib4.git
+    package plausible              rev 38e9c3ce15cbb63c92e90bb9a92e4eb82131f669  https://github.com/leanprover-community/plausible
+    package LeanSearchClient       rev 2bc7cf064315b26bc38dac2e9612fb581be9b75f  https://github.com/leanprover-community/LeanSearchClient
+    package importGraph            rev 978b7ec9fbbf9a535114f1de8fe5b3778b358870  https://github.com/leanprover-community/import-graph
+    package proofwidgets           rev 99e8adeea3c3cd86b6b79ba01a1383bf2d31d055  https://github.com/leanprover-community/ProofWidgets4
+    package aesop                  rev c1c4362a130f12e632d252180a6c2a31d8fd4726  https://github.com/leanprover-community/aesop
+    package Qq                     rev 3b55e9d00c6b0018e5d984eb011b6f93c09bd163  https://github.com/leanprover-community/quote4
+    package batteries              rev 01bc479e7432594821ba3fb0ca465211941de86d  https://github.com/leanprover-community/batteries
+    package Cli                    rev af8bc067a4cc6c6df472a68909a3f40b1c76c43e  https://github.com/leanprover/lean4-cli

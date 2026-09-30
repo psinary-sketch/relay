@@ -1,0 +1,44 @@
+WHERE riemannZeta : declared in module Mathlib.NumberTheory.LSeries.RiemannZeta
+WHERE MeromorphicOn.divisor : declared in module Mathlib.Analysis.Meromorphic.Divisor
+WHERE RiemannHypothesis : declared in module Mathlib.NumberTheory.LSeries.RiemannZeta
+WHERE WeilExplicit.zeroMult : declared in module E6Bridge4
+WHERE Zeta23.IsNontrivialZero : declared in module Zeta23.Statement
+WHERE RvMBridge18.xi : declared in module E6Bridge18
+WHERE RvMBridge15.liLimit : declared in module E6Bridge15
+WHERE RvMBridge15.BombieriLagarias.liZeroSum : declared in module E6Bridge15
+WHERE RvMBridge15.BombieriLagarias.liKernel : declared in module E6Bridge15
+WHERE RvMBridge15.BombieriLagarias.archSide : declared in module E6Bridge15
+WHERE RvMBridge15.BombieriLagarias.finiteSide : declared in module E6Bridge15
+WHERE RvMBridge15.LiValue : declared in module E6Bridge15
+WHERE RvMBridge22.LocalCountSum : declared in module E6Bridge22
+WHERE RvMBridge22.StripDerivBound : declared in module E6Bridge22
+WHERE RvMBridge27.bl_explicit_formula : declared in module E6Bridge27
+WHERE RvMBridge27.liValue : declared in module E6Bridge27
+WHERE RvMBridge23.local_count_sum : declared in module E6Bridge23
+WHERE RvMBridge24.stripDerivBound : declared in module E6Bridge24
+WHERE RvMBridge25.bl_explicit_formula_of_two : declared in module E6Bridge25
+WHERE RvMBridge25.liValue_of_two : declared in module E6Bridge25
+theorem RvMBridge27.bl_explicit_formula : ∀ (n : ℕ),
+  0 < n →
+    Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop
+      (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n)) :=
+fun n hn => RvMBridge25.bl_explicit_formula_of_two RvMBridge23.local_count_sum RvMBridge24.stripDerivBound n hn
+theorem RvMBridge27.liValue : ∀ (n : ℕ), 0 < n → RvMBridge15.LiValue n :=
+fun n hn => RvMBridge25.liValue_of_two RvMBridge23.local_count_sum RvMBridge24.stripDerivBound n hn
+RvMBridge23.local_count_sum : RvMBridge22.LocalCountSum
+RvMBridge24.stripDerivBound : RvMBridge22.StripDerivBound
+RvMBridge27.xi_logDeriv_deriv_eq : RvMBridge18.XiLogDerivDerivEq
+RvMBridge25.liValue_of_two : RvMBridge22.LocalCountSum →
+  RvMBridge22.StripDerivBound → ∀ (n : ℕ), 0 < n → RvMBridge15.LiValue n
+RvMBridge22.LocalCountSum : Prop
+RvMBridge22.StripDerivBound : Prop
+def RvMBridge15.liLimit : ℕ → ℂ :=
+fun n => ∑' (ρ : ℂ), RvMBridge15.liPaired n ρ
+def Zeta23.IsNontrivialZero : ℂ → Prop :=
+fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+def RvMBridge18.xi : ℂ → ℂ :=
+fun s => s * (s - 1) / 2 * completedRiemannZeta₀ s + 1 / 2
+def RvMBridge22.lcTerm : ℝ → ℂ → ℝ :=
+fun a ρ => ↑(WeilExplicit.zeroMult ρ) / (1 + (ρ.im - a) ^ 2)
+def RvMBridge22.window : ℂ → Finset ℂ :=
+fun s => ⋯.toFinset

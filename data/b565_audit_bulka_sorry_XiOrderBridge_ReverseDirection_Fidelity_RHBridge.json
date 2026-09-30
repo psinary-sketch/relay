@@ -1,0 +1,319 @@
+{
+ "mods": [
+  "Lc.LiCriterion.XiOrderBridge",
+  "Lc.LiCriterion.ReverseDirection",
+  "Lc.LiCriterion.Fidelity",
+  "Lc.LiCriterion.RHBridge"
+ ],
+ "closure": {
+  "Lc.LiCriterion.RHBridge": {
+   "file": "Lc/LiCriterion/RHBridge.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.GenusOnePairedSumFormula",
+    "Lc.LiCriterion.HadamardBridge",
+    "Lc.LiCriterion.HadamardSummabilityBridge"
+   ]
+  },
+  "Lc.LiCriterion.HadamardSummabilityBridge": {
+   "file": "Lc/LiCriterion/HadamardSummabilityBridge.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.Basic",
+    "Hadamard.OrderOne.SummabilityMultiplicity"
+   ]
+  },
+  "Hadamard.OrderOne.SummabilityMultiplicity": {
+   "file": "Hadamard/OrderOne/SummabilityMultiplicity.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.OrderOne.TailEstimates"
+   ]
+  },
+  "Hadamard.OrderOne.TailEstimates": {
+   "file": "Hadamard/OrderOne/TailEstimates.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.OrderOne.CofiniteControl",
+    "Hadamard.OrderOne.ZeroCountingBounds"
+   ]
+  },
+  "Hadamard.OrderOne.ZeroCountingBounds": {
+   "file": "Hadamard/OrderOne/ZeroCountingBounds.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.ZeroCounting",
+    "Hadamard.ZeroSet"
+   ]
+  },
+  "Hadamard.ZeroSet": {
+   "file": "Hadamard/ZeroSet.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.Basic"
+   ]
+  },
+  "Hadamard.Basic": {
+   "file": "Hadamard/Basic.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "FunctionsOfOneComplexVariable.EntireLog",
+    "FunctionsOfOneComplexVariable.BorelCaratheodory"
+   ]
+  },
+  "FunctionsOfOneComplexVariable.BorelCaratheodory": {
+   "file": "FunctionsOfOneComplexVariable/BorelCaratheodory.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "FunctionsOfOneComplexVariable.EntireLog": {
+   "file": "FunctionsOfOneComplexVariable/EntireLog.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Hadamard.ZeroCounting": {
+   "file": "Hadamard/ZeroCounting.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.Basic"
+   ]
+  },
+  "Hadamard.OrderOne.CofiniteControl": {
+   "file": "Hadamard/OrderOne/CofiniteControl.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Lc.LiCriterion.Basic": {
+   "file": "Lc/LiCriterion/Basic.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.XiZeros",
+    "Hadamard.Basic",
+    "Hadamard.OrderOne.MultipliableFactors",
+    "Lc.LiCriterion.MobiusMap",
+    "Lc.LiCriterion.GenusOne",
+    "Lc.LiCriterion.Pringsheim"
+   ]
+  },
+  "Lc.LiCriterion.Pringsheim": {
+   "file": "Lc/LiCriterion/Pringsheim.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Lc.LiCriterion.GenusOne": {
+   "file": "Lc/LiCriterion/GenusOne.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Lc.LiCriterion.MobiusMap": {
+   "file": "Lc/LiCriterion/MobiusMap.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Hadamard.OrderOne.MultipliableFactors": {
+   "file": "Hadamard/OrderOne/MultipliableFactors.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.Basic",
+    "Hadamard.OrderOne.CofiniteControl"
+   ]
+  },
+  "Lc.XiZeros": {
+   "file": "Lc/XiZeros.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Lc.LiCriterion.HadamardBridge": {
+   "file": "Lc/LiCriterion/HadamardBridge.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.Basic",
+    "Hadamard.General"
+   ]
+  },
+  "Hadamard.General": {
+   "file": "Hadamard/General.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.General.Factorization"
+   ]
+  },
+  "Hadamard.General.Factorization": {
+   "file": "Hadamard/General/Factorization.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.OrderOne.LogDerivMultiplicity",
+    "Hadamard.OrderOne.SummabilityMultiplicity",
+    "Hadamard.OrderOne.QuotientCancellation",
+    "Hadamard.OrderOne.OrderFromMaxModulus",
+    "Hadamard.ZeroSetMultiplicity",
+    "Hadamard.Theorem"
+   ]
+  },
+  "Hadamard.Theorem": {
+   "file": "Hadamard/Theorem.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.Basic"
+   ]
+  },
+  "Hadamard.ZeroSetMultiplicity": {
+   "file": "Hadamard/ZeroSetMultiplicity.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.ZeroSet"
+   ]
+  },
+  "Hadamard.OrderOne.OrderFromMaxModulus": {
+   "file": "Hadamard/OrderOne/OrderFromMaxModulus.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.Basic"
+   ]
+  },
+  "Hadamard.OrderOne.QuotientCancellation": {
+   "file": "Hadamard/OrderOne/QuotientCancellation.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Hadamard.OrderOne.LogDerivMultiplicity": {
+   "file": "Hadamard/OrderOne/LogDerivMultiplicity.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.OrderOne.LogDeriv"
+   ]
+  },
+  "Hadamard.OrderOne.LogDeriv": {
+   "file": "Hadamard/OrderOne/LogDeriv.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.OrderOne.MultipliableFactors",
+    "Hadamard.OrderOne.LocallyUniformProduct"
+   ]
+  },
+  "Hadamard.OrderOne.LocallyUniformProduct": {
+   "file": "Hadamard/OrderOne/LocallyUniformProduct.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Hadamard.Basic",
+    "Hadamard.OrderOne.CofiniteControl"
+   ]
+  },
+  "Lc.LiCriterion.GenusOnePairedSumFormula": {
+   "file": "Lc/LiCriterion/GenusOnePairedSumFormula.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.Basic",
+    "Lc.LiCriterion.ReverseDirection"
+   ]
+  },
+  "Lc.LiCriterion.ReverseDirection": {
+   "file": "Lc/LiCriterion/ReverseDirection.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.Basic",
+    "Lc.LiCriterion.LogDerivPole"
+   ]
+  },
+  "Lc.LiCriterion.LogDerivPole": {
+   "file": "Lc/LiCriterion/LogDerivPole.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Lc.LiCriterion.Fidelity": {
+   "file": "Lc/LiCriterion/Fidelity.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.XiOrderBridge"
+   ]
+  },
+  "Lc.LiCriterion.XiOrderBridge": {
+   "file": "Lc/LiCriterion/XiOrderBridge.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.RHBridge",
+    "Lc.LiCriterion.XiGrowth"
+   ]
+  },
+  "Lc.LiCriterion.XiGrowth": {
+   "file": "Lc/LiCriterion/XiGrowth.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Lc.LiCriterion.Basic",
+    "Hadamard.OrderOne.OrderFromMaxModulus"
+   ]
+  }
+ },
+ "missing": [],
+ "totals": {
+  "sorry": 0,
+  "admit": 0,
+  "axioms": []
+ }
+}

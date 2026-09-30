@@ -1,0 +1,224 @@
+b565 -- COMPONENT 3: THE AUDIT, UNDER (R175)(2) -- THE READINGS, THE GRADES, THE COMPARISONS
+
+### The prints, the builds and the closures: relay data/b565_audit_core.txt. The statements and the declaring modules:
+### data/b565_audit_<repo>_prints.txt, _reads.txt, _reads2.txt (Lean`s own output, from files written in D:/audit-b565).
+
+========================================================================================================
+### BULKA -- https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f3b709ffe5fbcfdd452dfa964bd622b87
+========================================================================================================
+### THE BUILD: 35 modules, one lake call each, every rc 0: True ; failing calls: NONE
+
+### li_criterion
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : li_criterion : RiemannHypothesis ↔ ∀ (n : ℕ), 0 ≤ (LiChallenge.taylorCoeff LiChallenge.riemannXi n).re
+    ZERO SET  : none in the statement: the coefficient is the n-th Taylor coefficient at 0 of the log-derivative of ξ(1/(1 − z)), ξ unfolding to 1/2 · s(s − 1) · completedRiemannZeta₀ s + 1/2 over Mathlib`s completedRiemannZeta₀
+    RH        : Mathlib`s RiemannHypothesis (declared in Mathlib.NumberTheory.LSeries.RiemannZeta)
+    E0 GRADE  : DERIVES -- the standard three and no premise; its body is LiCriterion.li_criterion_rh_iff
+    NEEDLES   : 5 of 5 found verbatim in the banked Lean output
+
+### li_coefficients_eq_zero_sum
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : li_coefficients_eq_zero_sum : ∀ (n : ℕ),
+                  (Summable fun ρ =>
+                      ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *
+                        (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))) ∧
+                    LiChallenge.taylorCoeff LiChallenge.riemannXi n =
+                      2⁻¹ *
+                        ∑' (ρ : LiChallenge.NontrivialZero),
+                          ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *
+                            (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, under the repository`s own name LiChallenge.NontrivialZero (ChallengeDeps) := { ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }, each weighted by Mathlib`s analyticOrderNatAt of its ξ
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise
+    NEEDLES   : 4 of 4 found verbatim in the banked Lean output
+
+### LiCriterion.li_criterion_rh_iff
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.li_criterion_rh_iff : RiemannHypothesis ↔
+                  ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+    ZERO SET  : none in the statement: the coefficient is the n-th Taylor coefficient at 0 of the log-derivative of ξ(1/(1 − z)), ξ unfolding to 1/2 · s(s − 1) · completedRiemannZeta₀ s + 1/2 over Mathlib`s completedRiemannZeta₀
+    RH        : Mathlib`s RiemannHypothesis (declared in Mathlib.NumberTheory.LSeries.RiemannZeta)
+    E0 GRADE  : DERIVES -- the standard three and no premise; its body applies biconditional_rh_li_of_hadamard_order_one to xi_hasFiniteOrder and xi_order_le_one, each printed at the standard three
+    NEEDLES   : 2 of 2 found verbatim in the banked Lean output
+
+### LiCriterion.positivity_implies_RH
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) →
+                  ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, quantified in the conclusion
+    RH        : the strip form ∀ s, riemannZeta s = 0 → 0 < Re s < 1 → Re s = 1/2, stated inline over Mathlib`s riemannZeta -- not a local Prop; LiCriterion.rh_equiv_mathlib proves it equivalent to Mathlib`s RiemannHypothesis
+    E0 GRADE  : DERIVES -- the standard three; its one premise is the positivity the direction converts, not an assumption about ζ
+    NEEDLES   : 3 of 3 found verbatim in the banked Lean output
+
+### LiCriterion.li_pos_implies_rh
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.li_pos_implies_rh : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) →
+                  ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, quantified in the conclusion
+    RH        : the strip form ∀ s, riemannZeta s = 0 → 0 < Re s < 1 → Re s = 1/2, stated inline over Mathlib`s riemannZeta -- not a local Prop; LiCriterion.rh_equiv_mathlib proves it equivalent to Mathlib`s RiemannHypothesis
+    E0 GRADE  : DERIVES -- the standard three; its one premise is the positivity the direction converts
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+
+### LiCriterion.li_equiv_from_weighted_sum_formula
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.li_equiv_from_weighted_sum_formula : (Summable fun ρ =>
+                    ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) / ‖↑ρ‖ ^ 2) →
+                  (∀ (n : ℕ),
+                      LiCriterion.taylorCoeff LiCriterion.riemannXi n =
+                        2⁻¹ *
+                          ∑' (ρ : LiCriterion.NontrivialZero),
+                            ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) * LiCriterion.liPairedSummand n ρ) →
+                    ((∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2) ↔
+                      ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re)
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, under the repository`s own name LiCriterion.NontrivialZero (Lc.LiCriterion.Basic) := { ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }, each weighted by Mathlib`s analyticOrderNatAt of its ξ
+    RH        : the strip form ∀ s, riemannZeta s = 0 → 0 < Re s < 1 → Re s = 1/2, stated inline over Mathlib`s riemannZeta -- not a local Prop; LiCriterion.rh_equiv_mathlib proves it equivalent to Mathlib`s RiemannHypothesis
+    E0 GRADE  : INTERFACES -- its statement takes the summability of m(ρ)/‖ρ‖² and the weighted zero-sum formula as premises
+    NEEDLES   : 2 of 2 found verbatim in the banked Lean output
+
+### LiCriterion.rh_equiv_mathlib
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.rh_equiv_mathlib : RiemannHypothesis ↔ ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, quantified
+    RH        : Mathlib`s RiemannHypothesis (declared in Mathlib.NumberTheory.LSeries.RiemannZeta); the strip form ∀ s, riemannZeta s = 0 → 0 < Re s < 1 → Re s = 1/2, stated inline over Mathlib`s riemannZeta -- not a local Prop; LiCriterion.rh_equiv_mathlib proves it equivalent to Mathlib`s RiemannHypothesis
+    E0 GRADE  : DERIVES -- the standard three and no premise
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+
+### LiCriterion.biconditional_rh_li_of_hadamard_order_one
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.biconditional_rh_li_of_hadamard_order_one : Hadamard.hasFiniteOrder LiCriterion.riemannXi →
+                  Hadamard.order LiCriterion.riemannXi ≤ 1 →
+                    (RiemannHypothesis ↔ ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re)
+    ZERO SET  : none in the statement: the coefficient is the n-th Taylor coefficient at 0 of the log-derivative of ξ(1/(1 − z)), ξ unfolding to 1/2 · s(s − 1) · completedRiemannZeta₀ s + 1/2 over Mathlib`s completedRiemannZeta₀
+    RH        : Mathlib`s RiemannHypothesis (declared in Mathlib.NumberTheory.LSeries.RiemannZeta)
+    E0 GRADE  : INTERFACES -- its statement takes the repository`s own Hadamard.hasFiniteOrder ξ and Hadamard.order ξ ≤ 1 as premises, discharged in li_criterion_rh_iff
+    NEEDLES   : 2 of 2 found verbatim in the banked Lean output
+
+### LiCriterion.xi_hasFiniteOrder
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.xi_hasFiniteOrder : Hadamard.hasFiniteOrder LiCriterion.riemannXi
+    ZERO SET  : none in the statement
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+
+### LiCriterion.xi_order_le_one
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.xi_order_le_one : Hadamard.order LiCriterion.riemannXi ≤ 1
+    ZERO SET  : none in the statement
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+
+### LiCriterion.summable_li_symmetrized
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.summable_li_symmetrized : ∀ (n : ℕ),
+                  Summable fun ρ =>
+                    ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) * (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, under the repository`s own name LiCriterion.NontrivialZero (Lc.LiCriterion.Basic) := { ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }, each weighted by Mathlib`s analyticOrderNatAt of its ξ
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+
+### LiCriterion.taylorCoeff_eq_li_symmetrized
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : LiCriterion.taylorCoeff_eq_li_symmetrized : ∀ (n : ℕ),
+                  LiCriterion.taylorCoeff LiCriterion.riemannXi n =
+                    2⁻¹ *
+                      ∑' (ρ : LiCriterion.NontrivialZero),
+                        ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) *
+                          (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip, under the repository`s own name LiCriterion.NontrivialZero (Lc.LiCriterion.Basic) := { ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }, each weighted by Mathlib`s analyticOrderNatAt of its ξ
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+========================================================================================================
+### ARDA -- https://github.com/DrMurphyIsIn/Arda at acfb0ee57108a185c484409cd91ac5621ce2d13e
+========================================================================================================
+### THE BUILD: 74 modules, one lake call each, every rc 0: True ; failing calls: NONE
+
+### RvMBridge27.bl_explicit_formula
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge27.bl_explicit_formula : ∀ (n : ℕ),
+                  0 < n →
+                    Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop
+                      (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n))
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip with |Im ρ| ≤ T, weighted by WeilExplicit.zeroMult ρ := (MeromorphicOn.divisor riemannZeta {s | 0 < Re s < 1} ρ).toNat, the repository`s own name (E6Bridge4) for the divisor of Mathlib`s riemannZeta
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise beyond 0 < n; its body is bl_explicit_formula_of_two applied to local_count_sum and stripDerivBound, each printed at the standard three
+    NEEDLES   : 5 of 5 found verbatim in the banked Lean output
+
+### RvMBridge27.liValue
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge27.liValue : ∀ (n : ℕ), 0 < n → RvMBridge15.LiValue n
+    ZERO SET  : Mathlib`s riemannZeta zeros: RvMBridge15.liLimit n := the tsum over ρ : ℂ of WeilExplicit.zeroMult ρ · Re(1 − (1 − 1/ρ)^n), the unwindowed sum of real parts, zeroMult the divisor of Mathlib`s riemannZeta
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise beyond 0 < n; its body is liValue_of_two applied to local_count_sum and stripDerivBound
+    NEEDLES   : 4 of 4 found verbatim in the banked Lean output
+
+### RvMBridge27.xi_logDeriv_deriv_eq
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge27.xi_logDeriv_deriv_eq : RvMBridge18.XiLogDerivDerivEq
+    ZERO SET  : Mathlib`s riemannZeta zeros: it proves the repository`s XiLogDerivDerivEq, off Zeta23`s IsNontrivialZero (riemannZeta ρ = 0 ∧ 0 < Re ρ < 1), (log ξ)′′ = − the tsum over ρ : ℂ of zeroMult ρ/(s − ρ)², ξ the repository`s s(s − 1)/2 · completedRiemannZeta₀ s + 1/2
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise; it proves the repository`s XiLogDerivDerivEq outright
+    NEEDLES   : 4 of 4 found verbatim in the banked Lean output
+
+### RvMBridge23.local_count_sum
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge23.local_count_sum : RvMBridge22.LocalCountSum
+    ZERO SET  : Mathlib`s riemannZeta zeros, through RvMBridge22.lcTerm (printed)
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise; it proves the repository`s LocalCountSum outright
+    NEEDLES   : 2 of 2 found verbatim in the banked Lean output
+
+### RvMBridge24.stripDerivBound
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge24.stripDerivBound : RvMBridge22.StripDerivBound
+    ZERO SET  : Mathlib`s riemannZeta zeros, through Zeta23.IsNontrivialZero and RvMBridge22.window (printed)
+    RH        : none in the statement
+    E0 GRADE  : DERIVES -- the standard three and no premise; it proves the repository`s StripDerivBound outright
+    NEEDLES   : 2 of 2 found verbatim in the banked Lean output
+
+### RvMBridge25.bl_explicit_formula_of_two
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge25.bl_explicit_formula_of_two : RvMBridge22.LocalCountSum →
+                  RvMBridge22.StripDerivBound →
+                    ∀ (n : ℕ),
+                      0 < n →
+                        Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop
+                          (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n))
+    ZERO SET  : Mathlib`s riemannZeta zeros in the open strip with |Im ρ| ≤ T, weighted by WeilExplicit.zeroMult ρ := (MeromorphicOn.divisor riemannZeta {s | 0 < Re s < 1} ρ).toNat, the repository`s own name (E6Bridge4) for the divisor of Mathlib`s riemannZeta
+    RH        : none in the statement
+    E0 GRADE  : INTERFACES -- its statement takes the repository`s LocalCountSum and StripDerivBound as premises, discharged by name in bl_explicit_formula
+    NEEDLES   : 2 of 2 found verbatim in the banked Lean output
+
+### RvMBridge25.liValue_of_two
+    PRINT     : ['propext', 'Classical.choice', 'Quot.sound']
+    STATEMENT : RvMBridge25.liValue_of_two : RvMBridge22.LocalCountSum →
+                  RvMBridge22.StripDerivBound → ∀ (n : ℕ), 0 < n → RvMBridge15.LiValue n
+    ZERO SET  : Mathlib`s riemannZeta zeros through RvMBridge15.liLimit (printed; as liValue)
+    RH        : none in the statement
+    E0 GRADE  : INTERFACES -- its statement takes the repository`s LocalCountSum and StripDerivBound as premises, discharged by name in liValue
+    NEEDLES   : 1 of 1 found verbatim in the banked Lean output
+
+========================================================================================================
+### THE COMPARISON: BULKA`S FORWARD DIRECTION AGAINST rh_imp_li_nonneg -- SAME
+========================================================================================================
+    Bulka’s forward direction (li_criterion_rh_iff’s left-to-right) and the programme’s `rh_imp_li_nonneg` are the same object up to the index and the coefficient’s definition: both conclude, from Mathlib’s `RiemannHypothesis`, that Li’s coefficients over Mathlib’s `riemannZeta` zeros are nonnegative -- ours for `LiCoeff n`, the absolutely convergent zero sum ½ Σ m(ρ) Re pairTerm n ρ over Zeta23’s configuration (multiplicity the analytic order of ζ), theirs for Re of the Taylor coefficient of (log ξ(1/(1 − z)))′, which is λ_(n+1) and which `taylorCoeff_eq_li_symmetrized` identifies with the symmetric zero sum weighted by the analytic order of ξ. In Lean neither statement implies the other until the equality lemma LiCoeff (n + 1) = Re (taylorCoeff riemannXi n) is compiled; neither is weaker. Their repository also compiles the converse, which ours does not.
+
+========================================================================================================
+### THE COMPARISON: ARDA`S bl_explicit_formula AGAINST li_identity_sym -- DIFFERENT
+========================================================================================================
+    Arda’s `bl_explicit_formula` and the programme’s `li_identity_sym` are different objects with one zero side: Arda’s states that the height-window sums Σ over |Im ρ| ≤ T of m(ρ)(1 − (1 − 1/ρ)^n) tend, as T → ∞, to closed forms evaluated at the archimedean place (γ, log π, log 2, the values ζ(j)) and at the finite place (the coefficients η_j of −ζ′/ζ − 1/(s − 1) at 1); ours states that `LiCoeff n` -- the absolutely convergent sum, so no window is needed -- is the δ → 0⁺ limit of the explicit formula’s literature right-hand side (pole terms, the prime sum, the Γ-integral) at the symmetric smoothed family. A different limit and an unevaluated arithmetic side: neither implies the other as stated. Nearer to ours is Arda’s `liValue`, whose `liLimit n` is the unwindowed Σ over ρ : ℂ of m(ρ) Re(1 − (1 − 1/ρ)^n) -- our `LiCoeff n`’s zero side up to the multiplicity’s definition (the divisor of ζ there, the analytic order of ζ here) -- set equal to the same closed forms: with the multiplicity lemma, it and `li_identity_sym` together would give `LiCoeff n` its evaluated closed form. Both rest on Zeta23 -- ours vendored at v1.0 = `3635e748`, theirs a dependency at `fbdc36bb`; over the 57 modules we vendor, 50 are byte-identical at the two pins and 7 (LinAlg) differ in a header-comment sentence alone, the code identical with comments stripped.
+
+### THE ZETA23 PINS (relay data/b565_zeta23_pins.json): ours v1.0 = 3635e748 (vendored, every body the v1.0 file: 57 of 57), Arda`s fbdc36bb.
+    over the 57 modules we vendor: 50 byte-identical ; 7 differing in a header comment alone ; code differing: NONE
+    => no consumed statement differs; no pin-refresh work-order.
+
+### THE EQUALITY LEMMA, PRICED (the vendoring`s first act, should the author`s word be to vendor): four lemmas, one of substance -- (E1) the carrier: Zeta23’s IsNontrivialZero ρ is riemannZeta ρ = 0 ∧ 0 < Re ρ < 1, LiCriterion.NontrivialZero’s own predicate, so the index types agree by unfolding; (E2) THE LEMMA OF SUBSTANCE, the multiplicity: (analyticOrderAt riemannZeta ρ).toNat = analyticOrderNatAt riemannXi ρ on the strip, ξ = ½ s(s − 1) Λ(s) with the factor beside ζ analytic and nonzero there; (E3) the term: the reflection ρ ↦ 1 − ρ carries (1 − 1/ρ)^(n+1) to (1 − 1/ρ)^(−(n+1)), so their symmetric sum is our paired sum at n + 1, reindexed by the kernel’s zeta_mult_reflect; (E4) Re of a summable tsum is the tsum of Re (Complex.re_tsum, their summable_li_symmetrized, our pair_summable). Beside the lemmas, a toolchain divergence: the repository pins Lean v4.34.0-rc1 and Mathlib de5ce8a9, the kernel v4.33.0-rc2 and 51e6992e, so the vendored copy compiles at the kernel’s rev or the kernel moves -- priced at the vendoring, not here
+
+### H17a: REFUTED -- the Bulka converse as compiled -- li_criterion`s right-to-left, through li_criterion_rh_iff and positivity_implies_RH -- prints [propext, Classical.choice, Quot.sound], concludes Mathlib`s RiemannHypothesis (declared in Mathlib.NumberTheory.LSeries.RiemannZeta), its zeros Mathlib`s riemannZeta zeros under the repository`s own name for the strip set, its closure sorry 0 and axiom declarations 0: no clause of H17a is printed.
+### H17b: REFUTED -- bl_explicit_formula prints the standard three with no premise beyond 0 < n, its zero set the divisor of Mathlib`s riemannZeta, its two analytic premises discharged by name (local_count_sum, stripDerivBound), its closure (15 modules and 59 of Zeta23) sorry 0 and axiom declarations 0: DERIVES over Mathlib`s zeros.
+### (N3) from the comparison: HELD ; (S2) from the comparison: HELD
+
+### No sentence here claims priority. Nothing here is a statement about RH or any zero beyond the compiled statements` own words.

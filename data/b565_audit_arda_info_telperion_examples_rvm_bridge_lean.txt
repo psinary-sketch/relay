@@ -1,0 +1,70 @@
+b565 -- COMPONENT 3: arda -- THE PROJECT AT D:\audit-b565\arda\telperion\examples\rvm_bridge\lean
+
+### lean-toolchain (29 bytes)
+    | leanprover/lean4:v4.33.0-rc2
+### lakefile.lean ABSENT
+### lakefile.toml (25847 bytes)
+    | name = "RvMBridge"
+    | # E6 bridge island (routes roadmap E6, 2026-09-17): discharges the MIRRORMERE residual
+    | # MM_rvm_unbounded_mean_density from Anthropic's zeta-23-lean (Alpoege--Furman, Theorem A +
+    | # the unconditional Riemann--von Mangoldt main clause). SEPARATE toolchain island by
+    | # necessity: zeta-23-lean pins Lean v4.33.0-rc2 / Mathlib 51e6992e, which matches neither the
+    | # v4.32.0 islands (mirrormere, main) nor the v4.34.0-rc1 islands (missions/rh, li_positivity).
+    | # AxiomGuardRvMBridge is in defaultTargets so bare `lake build` compiles the guard and every
+    | # module it imports before CI runs `lake env lean AxiomGuardRvMBridge.lean` (cf. #448/#451).
+    | defaultTargets = ["E6Bridge", "E6Bridge2", "E6Bridge3", "E6Bridge4", "E6Bridge5", "RvMBridgeGauss", "E6Bridge6", "E6Bridge7", "E6Bridge8", "E6Bridge9", "E6Bridge10", "E6Bridge11", "E6Bridge12", "E6Bridge13", "E6Bridge14", "E6Bridge15", "E6Bridge16", "E6Bridge18", "RvMBridgeXi", "E6Bridge17", "E6Bridge20", "E6Bridge21", "E6Bridge22", "E6Bridge19", "E6Bridge23", "E6Bridge25", "E6Bridge26", "E6Bridge24", "E6Bridge27", "E6Bridge28", "E6Bridge29", "E6Bridge30", "E6Bridge31", "E6Bridge32", "E6Bridge33", "E6Bridge34", "ZhuEnvelope", "ZhuSymbol", "ZhuLegendre", "ZhuParity", "ZhuSplit", "ZhuOrtho", "ZhuTail", "ZhuInstance", "W2cAssembly", "DogfoodComplexReImSplit", "DogfoodZeroSumMajorant", "FamilyWeilForm", "FamilyWeilDisc", "FamilyWeilQuad", "FamilyWeilTable", "AxiomGuardRvMBridge"]
+    | # anthropics/zeta-23-lean redirects to anthropics/formal-math; the Lean project is the
+    | # `zeta23/` subdirectory (package name `Zeta23`). Pinned to the exact commit that the E6 probe
+    | # built and audited locally (see README.md). Transitively pins Mathlib
+    | # 51e6992efd06126df61a496bebf8f49482a4e129 (tag v4.33.0-rc2); `lake exe cache get` works
+    | # through this dependency.
+    | [[require]]
+    | name = "Zeta23"
+    | git = "https://github.com/anthropics/formal-math"
+    | rev = "fbdc36bbf17d20af3fd0447c6d1a8a02773c9844"
+    | subDir = "zeta23"
+    | [[lean_lib]]
+    | name = "E6Bridge"
+    | # Second bridge (2026-09-17): the RH registry node RH_rvm_unconditional (cumulative
+    | # Riemann--von Mangoldt, O(log T) remainder), re-assembled from Zeta23's general-window internals.
+    | [[lean_lib]]
+    | name = "E6Bridge2"
+    | # Third bridge (2026-09-17): the RH registry node RH_corridor_bound (routes-roadmap milestone
+    | # E7 = A3 = B5 = D6, the good-ordinate lemma), from Zeta23's Landau partial fraction + local count
+    | # + the completed-zeta functional equation.
+    | [[lean_lib]]
+    | name = "E6Bridge3"
+    | # Fourth bridge (2026-09-18): the RH registry node RH_limit_explicit_formula (routes-roadmap
+    | # milestone E8 = B6 = D6, the unconditional Weil/Guinand explicit formula for smooth compactly
+    | # supported tests), a normalisation bridge from Zeta23's literature-form explicit formula
+    | # (Zeta23.WeilEF.EF_lit_zetaZeroConfig): transform/index-set/multiplicity/archimedean-term seams.
+    | [[lean_lib]]
+    | name = "E6Bridge4"
+    | # W2c assembly (2026-09-18): the MIRRORMERE milestone MM_zeta_ordinates_not_uniformly_discrete
+    | # (the zeta ordinates are not uniformly discrete, unconditional), from a VERBATIM re-proof of
+    | # the v4.32 quasicrystal island's pigeonhole brick (BoundaryLemmas.lean) applied to
+    | # E6Bridge.rvm_unbounded_mean_density. Cross-toolchain assembly: the brick is re-proved here,
+    | # not consumed as a v4.32 olean.
+    | # Fifth bridge (2026-09-20): the MIRRORMERE dictionary node MM_rh_implies_weil_positivity
+    | # (Weil's criterion, forward half: Mathlib's RiemannHypothesis implies Weil positivity of the
+    | # E8 primes-side functional on Hermitian autocorrelations), assembled from E6Bridge4's limit
+    | # explicit formula and Zeta23's transform factorisation paperFT_weilTest. Proves nothing about
+    | # RH itself; discharges the hypothesis hpos carried by weil_negative_refutes_rh.
+    | [[lean_lib]]
+    | name = "E6Bridge5"
+    | # Sixth bridge (2026-09-20): the Weil converse ATTACK. weil_positivity_implies_rh_of proves
+    | # Weil positivity -> Mathlib RiemannHypothesis MODULO two named analytic obligations
+    | # (GaussianTransfer / GaussianApprox, GaussianDominance), both carried as explicit hypotheses;
+    | # plus the unconditional rearrangements (explicit formula with the zero side isolated and real,
+    | # reflection symmetry, pair split, Gaussian summability, Tannery transfer). Nothing about RH is
+### lake-manifest.json (3504 bytes)
+    package Zeta23                 rev fbdc36bbf17d20af3fd0447c6d1a8a02773c9844  https://github.com/anthropics/formal-math
+    package mathlib                rev 51e6992efd06126df61a496bebf8f49482a4e129  https://github.com/leanprover-community/mathlib4
+    package plausible              rev 123d15766ba49356c02ebad2a4462dfe12d79899  https://github.com/leanprover-community/plausible
+    package LeanSearchClient       rev f5c090429dff3cf66cb65562526c9ea6e8edfbcb  https://github.com/leanprover-community/LeanSearchClient
+    package importGraph            rev bb3469a87774349fe01898d8bf2fc6a1ce6411ca  https://github.com/leanprover-community/import-graph
+    package proofwidgets           rev 222c58dad7706a6e7cae46c0edd65ea881d3ee27  https://github.com/leanprover-community/ProofWidgets4
+    package aesop                  rev 7db8190085343afde2f5d2cdcc9bac719b6ec02c  https://github.com/leanprover-community/aesop
+    package Qq                     rev ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33  https://github.com/leanprover-community/quote4
+    package batteries              rev 76e1c118b0700b4ceafe99532e887d6431625e1a  https://github.com/leanprover-community/batteries
+    package Cli                    rev 1319485273bf87833fa472afbcefdedecb16b45f  https://github.com/leanprover/lean4-cli

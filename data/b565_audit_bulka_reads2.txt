@@ -1,0 +1,14 @@
+LiCriterion.biconditional_rh_li_of_hadamard_order_one : Hadamard.hasFiniteOrder LiCriterion.riemannXi →
+  Hadamard.order LiCriterion.riemannXi ≤ 1 →
+    (RiemannHypothesis ↔ ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re)
+LiCriterion.xi_hasFiniteOrder : Hadamard.hasFiniteOrder LiCriterion.riemannXi
+LiCriterion.xi_order_le_one : Hadamard.order LiCriterion.riemannXi ≤ 1
+LiCriterion.summable_li_symmetrized : ∀ (n : ℕ),
+  Summable fun ρ =>
+    ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) * (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))
+LiCriterion.taylorCoeff_eq_li_symmetrized : ∀ (n : ℕ),
+  LiCriterion.taylorCoeff LiCriterion.riemannXi n =
+    2⁻¹ *
+      ∑' (ρ : LiCriterion.NontrivialZero),
+        ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) *
+          (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))

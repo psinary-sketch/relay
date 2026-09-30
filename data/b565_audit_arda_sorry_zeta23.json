@@ -1,0 +1,584 @@
+{
+ "mods": [
+  "Zeta23.Analytic.Stirling",
+  "Zeta23.FromPNTPlus.ZetaBounds",
+  "Zeta23.GammaFacts.Series",
+  "Zeta23.GammaFacts.StirlingVert",
+  "Zeta23.RvM.CountByIntegral",
+  "Zeta23.RvM.GammaSide",
+  "Zeta23.RvM.ZetaGrowth",
+  "Zeta23.Statement.SeamClosed",
+  "Zeta23.WeilEF.Landau",
+  "Zeta23.WeilEF.Main",
+  "Zeta23.WeilEF.XiLogDeriv"
+ ],
+ "closure": {
+  "Zeta23.WeilEF.XiLogDeriv": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/XiLogDeriv.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Statement"
+   ]
+  },
+  "Zeta23.Statement": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Statement.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Hypotheses",
+    "Zeta23.Defs.Counting"
+   ]
+  },
+  "Zeta23.Defs.Counting": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Defs/Counting.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs"
+   ]
+  },
+  "Zeta23.Defs": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Defs.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.Hypotheses": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Hypotheses.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs"
+   ]
+  },
+  "Zeta23.WeilEF.Main": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/Main.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.ZeroSummability",
+    "Zeta23.WeilEF.FullLineAssembly"
+   ]
+  },
+  "Zeta23.WeilEF.FullLineAssembly": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/FullLineAssembly.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.FullLine",
+    "Zeta23.WeilEF.Horizontal",
+    "Zeta23.WeilEF.ZeroSumLimit"
+   ]
+  },
+  "Zeta23.WeilEF.ZeroSumLimit": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/ZeroSumLimit.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.Contour",
+    "Zeta23.WeilEF.ZeroSummability"
+   ]
+  },
+  "Zeta23.WeilEF.ZeroSummability": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/ZeroSummability.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Tail",
+    "Zeta23.RvM.LocalCount",
+    "Zeta23.ExplicitFormula",
+    "Zeta23.Poisson.PaperFT"
+   ]
+  },
+  "Zeta23.Poisson.PaperFT": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Poisson/PaperFT.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs"
+   ]
+  },
+  "Zeta23.ExplicitFormula": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/ExplicitFormula.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs"
+   ]
+  },
+  "Zeta23.RvM.LocalCount": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/RvM/LocalCount.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Prelude.InstancePriorities",
+    "Zeta23.Statement.SeamClosed",
+    "Zeta23.Defs.Counting",
+    "Zeta23.FromPNTPlus.StrongPNTPrefix",
+    "Zeta23.RvM.ZetaGrowth",
+    "Zeta23.RvM.Halving"
+   ]
+  },
+  "Zeta23.RvM.Halving": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/RvM/Halving.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs.Counting"
+   ]
+  },
+  "Zeta23.RvM.ZetaGrowth": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/RvM/ZetaGrowth.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.FromPNTPlus.ZetaBounds"
+   ]
+  },
+  "Zeta23.FromPNTPlus.ZetaBounds": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.FromPNTPlus.Auxiliary",
+    "Zeta23.FromPNTPlus.Fourier",
+    "Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Zeta23.FromPNTPlus.ResidueCalcOnRectangles",
+    "Zeta23.FromPNTPlus.EulerMaclaurin"
+   ]
+  },
+  "Zeta23.FromPNTPlus.EulerMaclaurin": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/EulerMaclaurin.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.FromPNTPlus.ResidueCalcOnRectangles": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.FromPNTPlus.Rectangle",
+    "Zeta23.FromPNTPlus.Tactic.AdditiveCombination"
+   ]
+  },
+  "Zeta23.FromPNTPlus.Tactic.AdditiveCombination": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/Tactic/AdditiveCombination.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.FromPNTPlus.Rectangle": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/Rectangle.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.FromPNTPlus.Fourier": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/Fourier.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.FromPNTPlus.Sobolev"
+   ]
+  },
+  "Zeta23.FromPNTPlus.Sobolev": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/Sobolev.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.FromPNTPlus.Auxiliary": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/Auxiliary.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.FromPNTPlus.StrongPNTPrefix": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/FromPNTPlus/StrongPNTPrefix.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Prelude.InstancePriorities"
+   ]
+  },
+  "Zeta23.Prelude.InstancePriorities": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Prelude/InstancePriorities.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.Statement.SeamClosed": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Statement/SeamClosed.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Statement.Seam",
+    "Zeta23.ZetaReflect"
+   ]
+  },
+  "Zeta23.ZetaReflect": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/ZetaReflect.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Statement"
+   ]
+  },
+  "Zeta23.Statement.Seam": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Statement/Seam.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Statement"
+   ]
+  },
+  "Zeta23.Tail": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Tail.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs",
+    "Zeta23.Assembly.Inputs",
+    "Zeta23.Tail.Basic",
+    "Zeta23.Tail.Grid",
+    "Zeta23.Tail.Count",
+    "Zeta23.Tail.RankOne"
+   ]
+  },
+  "Zeta23.Tail.RankOne": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Tail/RankOne.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.Sylvester"
+   ]
+  },
+  "Zeta23.LinAlg.Sylvester": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/Sylvester.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.HermitianPosPart"
+   ]
+  },
+  "Zeta23.LinAlg.HermitianPosPart": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/HermitianPosPart.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.PosIndex"
+   ]
+  },
+  "Zeta23.LinAlg.PosIndex": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/PosIndex.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.Tail.Count": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Tail/Count.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Tail.Basic"
+   ]
+  },
+  "Zeta23.Tail.Basic": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Tail/Basic.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": []
+  },
+  "Zeta23.Tail.Grid": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Tail/Grid.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Tail.Basic"
+   ]
+  },
+  "Zeta23.Assembly.Inputs": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Assembly/Inputs.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg",
+    "Zeta23.Defs"
+   ]
+  },
+  "Zeta23.LinAlg": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.HermitianPosPart",
+    "Zeta23.LinAlg.Inertia",
+    "Zeta23.LinAlg.PosIndex",
+    "Zeta23.LinAlg.RankTrace",
+    "Zeta23.LinAlg.Sylvester",
+    "Zeta23.LinAlg.VonNeumann",
+    "Zeta23.LinAlg.Weyl"
+   ]
+  },
+  "Zeta23.LinAlg.Weyl": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/Weyl.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.PosIndex",
+    "Zeta23.LinAlg.Sylvester"
+   ]
+  },
+  "Zeta23.LinAlg.VonNeumann": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/VonNeumann.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.PosIndex"
+   ]
+  },
+  "Zeta23.LinAlg.RankTrace": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/RankTrace.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.PosIndex",
+    "Zeta23.LinAlg.VonNeumann",
+    "Zeta23.LinAlg.HermitianPosPart"
+   ]
+  },
+  "Zeta23.LinAlg.Inertia": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/LinAlg/Inertia.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.LinAlg.Sylvester"
+   ]
+  },
+  "Zeta23.WeilEF.Contour": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/Contour.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.VerticalLine",
+    "Zeta23.WeilEF.GoodHeights",
+    "Zeta23.Analytic.RectangleLogDeriv",
+    "Zeta23.RvM.CountByIntegral",
+    "Zeta23.Statement.SeamClosed"
+   ]
+  },
+  "Zeta23.RvM.CountByIntegral": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/RvM/CountByIntegral.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Analytic.RectangleLogDeriv",
+    "Zeta23.Statement.SeamClosed"
+   ]
+  },
+  "Zeta23.Analytic.RectangleLogDeriv": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Analytic/RectangleLogDeriv.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.FromPNTPlus.ResidueCalcOnRectangles"
+   ]
+  },
+  "Zeta23.WeilEF.GoodHeights": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/GoodHeights.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.Landau",
+    "Zeta23.RvM.LocalCount",
+    "Zeta23.Tail"
+   ]
+  },
+  "Zeta23.WeilEF.Landau": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/Landau.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.RvM.ZetaGrowth",
+    "Zeta23.FromPNTPlus.StrongPNTPrefix",
+    "Zeta23.Statement"
+   ]
+  },
+  "Zeta23.WeilEF.VerticalLine": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/VerticalLine.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.XiLogDeriv",
+    "Zeta23.GammaFacts.StirlingVert",
+    "Zeta23.ExplicitFormula",
+    "Zeta23.ExplicitFormula.Bridge",
+    "Zeta23.WeilEF.GammaRBracket",
+    "Zeta23.Poisson.PaperFT"
+   ]
+  },
+  "Zeta23.WeilEF.GammaRBracket": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/GammaRBracket.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.GammaFacts.Series"
+   ]
+  },
+  "Zeta23.GammaFacts.Series": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/GammaFacts/Series.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.GammaFacts"
+   ]
+  },
+  "Zeta23.GammaFacts": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/GammaFacts.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Defs"
+   ]
+  },
+  "Zeta23.ExplicitFormula.Bridge": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/ExplicitFormula/Bridge.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.ExplicitFormula",
+    "Zeta23.Hypotheses",
+    "Zeta23.Poisson.PaperFT"
+   ]
+  },
+  "Zeta23.GammaFacts.StirlingVert": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/GammaFacts/StirlingVert.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.GammaFacts.Mu"
+   ]
+  },
+  "Zeta23.GammaFacts.Mu": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/GammaFacts/Mu.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Analytic.Stirling"
+   ]
+  },
+  "Zeta23.Analytic.Stirling": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/Analytic/Stirling.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.GammaFacts.Series"
+   ]
+  },
+  "Zeta23.WeilEF.Horizontal": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/Horizontal.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.FullLine"
+   ]
+  },
+  "Zeta23.WeilEF.FullLine": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/WeilEF/FullLine.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.WeilEF.Contour"
+   ]
+  },
+  "Zeta23.RvM.GammaSide": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/RvM/GammaSide.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.RvM.Defs"
+   ]
+  },
+  "Zeta23.RvM.Defs": {
+   "file": "telperion/examples/rvm_bridge/lean/.lake/packages/Zeta23/zeta23/Zeta23/RvM/Defs.lean",
+   "sorry": 0,
+   "admit": 0,
+   "axioms": [],
+   "imports": [
+    "Zeta23.Statement.SeamClosed"
+   ]
+  }
+ },
+ "missing": [],
+ "totals": {
+  "sorry": 0,
+  "admit": 0,
+  "axioms": []
+ }
+}

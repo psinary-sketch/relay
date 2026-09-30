@@ -1,0 +1,248 @@
+{
+ "bulka": {
+  "head": "35df682f3b709ffe5fbcfdd452dfa964bd622b87",
+  "rows": {
+   "li_criterion": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "li_criterion : RiemannHypothesis ↔ ∀ (n : ℕ), 0 ≤ (LiChallenge.taylorCoeff LiChallenge.riemannXi n).re"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "li_coefficients_eq_zero_sum": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "li_coefficients_eq_zero_sum : ∀ (n : ℕ),",
+     "  (Summable fun ρ =>",
+     "      ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *",
+     "        (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))) ∧",
+     "    LiChallenge.taylorCoeff LiChallenge.riemannXi n =",
+     "      2⁻¹ *",
+     "        ∑' (ρ : LiChallenge.NontrivialZero),",
+     "          ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *",
+     "            (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.li_criterion_rh_iff": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "LiCriterion.li_criterion_rh_iff : RiemannHypothesis ↔",
+     "  ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.positivity_implies_RH": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) →",
+     "  ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.li_pos_implies_rh": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.li_equiv_from_weighted_sum_formula": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "LiCriterion.li_equiv_from_weighted_sum_formula : (Summable fun ρ =>",
+     "    ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) / ‖↑ρ‖ ^ 2) →",
+     "  (∀ (n : ℕ),",
+     "      LiCriterion.taylorCoeff LiCriterion.riemannXi n =",
+     "        2⁻¹ *",
+     "          ∑' (ρ : LiCriterion.NontrivialZero),",
+     "            ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) * LiCriterion.liPairedSummand n ρ) →",
+     "    ((∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2) ↔",
+     "      ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re)"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.rh_equiv_mathlib": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "LiCriterion.rh_equiv_mathlib : RiemannHypothesis ↔ ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.biconditional_rh_li_of_hadamard_order_one": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.xi_hasFiniteOrder": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.xi_order_le_one": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.summable_li_symmetrized": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "LiCriterion.taylorCoeff_eq_li_symmetrized": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   }
+  },
+  "sorry": {
+   "sorry": 0,
+   "admit": 0,
+   "axioms": []
+  },
+  "printed": 12
+ },
+ "arda": {
+  "head": "acfb0ee57108a185c484409cd91ac5621ce2d13e",
+  "rows": {
+   "RvMBridge27.bl_explicit_formula": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "RvMBridge27.bl_explicit_formula : ∀ (n : ℕ),",
+     "  0 < n →",
+     "    Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop",
+     "      (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n))"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "RvMBridge27.liValue": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "RvMBridge27.liValue : ∀ (n : ℕ), 0 < n → RvMBridge15.LiValue n"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "RvMBridge27.xi_logDeriv_deriv_eq": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "RvMBridge23.local_count_sum": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "RvMBridge24.stripDerivBound": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   },
+   "RvMBridge25.bl_explicit_formula_of_two": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "check": [
+     "RvMBridge25.bl_explicit_formula_of_two : RvMBridge22.LocalCountSum →",
+     "  RvMBridge22.StripDerivBound →",
+     "    ∀ (n : ℕ),",
+     "      0 < n →",
+     "        Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop",
+     "          (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n))"
+    ],
+    "grade": "INTERFACES",
+    "why": "its statement takes a named premise of the repository`s own: ['RvMBridge22.StripDerivBound']"
+   },
+   "RvMBridge25.liValue_of_two": {
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "grade": "DERIVES",
+    "why": "the standard three, no sorry in its closure, no named premise in its statement"
+   }
+  },
+  "sorry": {
+   "sorry": 0,
+   "admit": 0,
+   "axioms": []
+  },
+  "printed": 7
+ }
+}

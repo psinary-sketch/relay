@@ -1,0 +1,148 @@
+b565 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+
+### relay data/b564_prior_art.txt (sha256 7ad78fefe09e3349)
+      176 | ### THE HITS THAT ARE FORMALIZATIONS, READ FOR THEIR STATEMENTS (the fetched files banked as relay data/b564_fetched_*):
+      177 |   (a) https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean @35df682f3b709ffe5fbcfdd452dfa964bd622b87 -- comparator/Challenge.lean (b564_fetched_bulka_Challenge.lean.txt):
+      178 |         49 | def riemannXi (s : ℂ) : ℂ :=
+      179 |         50 |   (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+      180 |         53 | def phi (f : ℂ → ℂ) (z : ℂ) : ℂ := f (1 / (1 - z))
+      181 |         56 | def logDeriv (φ : ℂ → ℂ) (z : ℂ) : ℂ := deriv φ z / φ z
+      182 |         61 | def taylorCoeff (f : ℂ → ℂ) (n : ℕ) : ℂ :=
+      183 |         62 |   (deriv^[n] (logDeriv (phi f))) 0 / n.factorial
+      184 |         65 | def NontrivialZero : Type := {ρ : ℂ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}
+      185 |         74 | theorem li_criterion :
+      186 |         75 |     RiemannHypothesis ↔ (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) := by
+      187 |         89 | theorem li_coefficients_eq_zero_sum (n : ℕ) :
+      188 |         90 |     Summable (fun ρ : NontrivialZero =>
+      189 |         91 |         (analyticOrderNatAt riemannXi ρ.val : ℂ) *
+      190 |         92 |           ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+      191 |         94 |     taylorCoeff riemannXi n
+      192 |         95 |       = (2⁻¹ : ℂ) * ∑' ρ : NontrivialZero,
+      193 |         97 |             ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+      194 |         98 |               + (1 - (1 - 1 / ρ.val) ^ ((n : ℤ) + 1))) := by
+      195 |       formalization.yaml 101 | sorry_count: 0
+      196 |       formalization.yaml 103 | axioms: [propext, Classical.choice, Quot.sound]
+      197 |       formalization.yaml 107 | sorry_count: 0
+      198 |       formalization.yaml 108 | axioms: [propext, Classical.choice, Quot.sound]
+      199 |       formalization.yaml 113 | sorry_count: 0
+      200 |       formalization.yaml 114 | axioms: [propext, Classical.choice, Quot.sound]
+      201 |       formalization.yaml 151 | reviewers: ["Nicholas Bulka"]
+      202 |       formalization.yaml 153 | The maintainer directed and reviewed the development as it was produced. No external
+      203 |   (b) https://github.com/DrMurphyIsIn/Arda @acfb0ee57108a185c484409cd91ac5621ce2d13e -- the node statement (b564_fetched_arda_RH_bl_explicit_formula.lean.txt) and its proof module
+      204 |       telperion/examples/rvm_bridge/lean/E6Bridge27.lean (b564_fetched_arda_E6Bridge27.lean.txt):
+      205 |       arda_RH_bl_   34 | theorem bl_explicit_formula (n : ℕ) (hn : 0 < n) :
+      206 |       arda_RH_bl_   35 |     Tendsto (BombieriLagarias.liZeroSum n) atTop
+      207 |       arda_RH_bl_   36 |       (𝓝 (BombieriLagarias.archSide n + BombieriLagarias.finiteSide n)) := by sorry
+      208 |       arda_RH_bl_   37 | 
+      209 |       arda_E6Brid   31 | theorem bl_explicit_formula (n : ℕ) (hn : 0 < n) :
+      210 |       arda_E6Brid   32 |     Tendsto (BombieriLagarias.liZeroSum n) atTop
+      211 |       arda_E6Brid   33 |       (𝓝 (BombieriLagarias.archSide n + BombieriLagarias.finiteSide n)) :=
+      212 |       arda_E6Brid   34 |   RvMBridge25.bl_explicit_formula_of_two RvMBridge23.local_count_sum RvMBridge24.stripDerivBound n hn
+      214 | ### THE COMPARISON, ONE PARAGRAPH. Two public Lean 4 / Mathlib developments formalize the objects. (a) Bulka`s li-criterion-rh-equivalence-lean (created 2026-09-05, main 35df682f; imported into Vilin97/lean-pool by PR #495, merged 2026-09-28) states li_criterion : RiemannHypothesis <-> (forall n, 0 
+      216 | ### (N2) -- ### **REFUTED**: two formalizations found in public Lean repositories (a) and (b); none in Mathlib at 51e6992e
+      217 | ### or in Zeta23 at v0.7. Neither was built or audited by this act; their claims are their own records`.
+### FINDINGS.md (b536`s prior-art record and its audit form) :4729-:4750
+     4730 | ## The prior-art search for Weil's criterion in Lean, b536, 2026-09-25 — dated and refutable
+     4732 | *Filed at b536 on the author's ruling `(R146)`(4), before any sentence claims novelty. Sources: relay `data/b536_priorart_grep.txt` (the greps), `data/b536_priorart_readme_main.md` (the README, fetched by the seat).*
+     4734 | **(1) The explicit formula is Zeta23's.** `SIDE-explicit-formula/NOTICE` lines 1-3:
+     4736 | ```
+     4737 | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+     4738 | Copyright 2026 Anthropic, PBC
+     4740 | ```
+     4742 | vendored byte-identical at v1.0 = `3635e748`; its files deriving from PrimeNumberTheoremAnd carry their upstream notices (NOTICE lines 6-10).
+     4744 | **(2) Zeta23 carries no positivity criterion, read from the files.** `grep -i criterion` over `Zeta23/`: **0 files**. `grep -i positiv`: 32 files, 334 lines, every hit the `positivity` tactic, the word "positive", or positive-definiteness of a Hermitian form in `Zeta23/LinAlg/` (Inertia, PosIndex, S
+     4746 | **(3) The Mathlib checkout** (`.lake/packages/mathlib`, case-insensitive): **"weil" — 14 files**, every hit line an author name (Felix Weilacher), the substring of "Henstock-Kurzweil", or the Mordell-Weil theorem (`Mathlib/GroupTheory/Descent.lean:46-47`); lines outside those three: 0. **"explicit f
+     4748 | **(4) Related prior art, found.** github.com/peter941221/Connes-Weil-RH-Proof, its README fetched by the seat: *"The Riemann hypothesis is **not proved** here. The output skeleton still > contains five explicit project axioms, listed in >"*; *"The negative sign is formal. The positive sign is the op
+     4750 | **The sentence, in its corrected form (the search found related prior art):** The explicit formula is Zeta23's. A public repository, github.com/peter941221/Connes-Weil-RH-Proof (README fetched by b536, 2026-09-25), states in Lean, on its own test class, an off-line-zero detector (`exists_healthyDete
+### SIDE-explicit-formula README.md (the vendoring record of Zeta23) :12-:30
+       12 | | pin | `v1.0` = `3635e74826a4c1fcece7d1cd2b6fa75e43a00510` |
+       13 | | modules vendored | 57 -- the local import closure of `Zeta23.WeilEF.Main` |
+       14 | | of those, derived from PrimeNumberTheoremAnd | 10, under `Zeta23/FromPNTPlus/` |
+       15 | | toolchain | `leanprover/lean4:v4.33.0-rc2` -- as zeta23 pins it |
+       16 | | mathlib | `51e6992efd06` -- as zeta23 pins it |
+       17 | | licence | Apache 2.0; `LICENSE` and `NOTICE` carried whole from the source |
+       19 | **WHY THE PIN IS `v1.0`.** `EF_lit`'s statement was read at tag `v1.0` and at `fbdc36b` and
+       20 | the two are byte-identical (sha256 `0255fa699a72c941d7dcb70e0232a0184fb9e0c48c66659a6a237c4022000fe6`), so the order's rule
+       21 | selects the tag. The comparison is banked at `relay/data/b495_pin.txt`.
+       23 | **WHAT IS NOT CLAIMED.** This repository has **no profile**. Nothing here has been built or
+       24 | `#print axioms`'d by this programme at the time of its creation, and **no document of the
+       25 | corpus cites any terminal in it** until a profile is banked. A vendored copy is not a result,
+       26 | a push is not a verification, and a launched build is not a built build.
+       28 | **TOOLCHAIN DIVERGENCE IS EXPECTED.** SPIRAL_MAP section 7 rule 4 pins the federation to one
+       29 | toolchain "unless stated otherwise"; this kernel states otherwise, and pins what its source
+       30 | pins, because a vendored body must compile against the library its author compiled it against.
+### SIDE-explicit-formula NOTICE :1-:12
+        1 | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+        2 | Copyright 2026 Anthropic, PBC
+        4 | This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+        6 | This product includes software derived from PrimeNumberTheoremAnd
+        7 | (https://github.com/AlexKontorovich/PrimeNumberTheoremAnd),
+        8 | Copyright the PrimeNumberTheoremAnd contributors, licensed under the Apache License, Version 2.0.
+        9 | The derived files are the ones under Zeta23/FromPNTPlus/; each carries its upstream notice
+       10 | (source file, upstream commit, original copyright line) and a description of the local modifications.
+       11 | Some of those files in turn derive from mathlib (https://github.com/leanprover-community/mathlib4),
+       12 | Copyright the mathlib contributors, Apache License, Version 2.0; their original headers are preserved.
+### SIDE-explicit-formula lakefile.toml :1-:11
+        1 | name = "SIDEExplicitFormula"
+        2 | defaultTargets = ["SIDEExplicitFormula"]
+        4 | [[require]]
+        5 | name = "mathlib"
+        6 | scope = "leanprover-community"
+        7 | rev = "51e6992efd06126df61a496bebf8f49482a4e129"
+        9 | [[lean_lib]]
+       10 | name = "SIDEExplicitFormula"
+       11 | globs = ["Zeta23.+", "SIDEExplicitFormula.+"]
+### OPEN_TRAILS.md ((R82)`s condition, (R83)) :8022-:8022
+     8022 | ### b473 — the log read to its end, and (R82) decided — filed 2026-09-22
+### OPEN_TRAILS.md ((R82)`s condition, (R83)) :8057-:8057
+     8057 | **`(R82)`'s condition: VOID — FOR WANT OF A RUN, not on a bad profile.** The distinction the order asks for, said plainly: no profile came back wrong, because **no profile came back at all**. `Zeta23.WeilEF.EF_lit_zetaZeroConfig`, `Zeta23.EF.EF_lit` and `Zeta23.WeilEF.EF_lit_zeta` are each `ABSENT`.
+### OPEN_TRAILS.md ((R82)`s condition, (R83)) :8059-:8059
+     8059 | **So the grade does not move in either direction.** zeta23's terminal stays `DERIVES, CONDITIONAL`; the re-read that would make it unconditional is owed and is not performed here. **And `(R83)` is obeyed by doing nothing**: its trigger did not fire, so `SIDE-explicit-formula` is not created, named in the roster, or pinned, and nothing is vendored.
+### FINDINGS.md (the field entry as b564 wrote it) :6136-:6136
+     6136 | *Appended 2026-09-29 by b564 to the field entry (:5575), its sources block (:5601) and b561’s line (:6064), under `(R174)`(3) -- PRIOR ART FOR THE LI FORM, SEARCHED IN b536’S FORM (relay `data/b564_prior_art.txt`):* Mathlib at `51e6992e` and Zeta23 at v0.7 carry no Li coefficient, no Keiper or Bombieri–Lagarias name and no (1 − 1/ρ)^n in any searched spelling (a positive control over the kernel’s own tree fires). Two public Lean 4 / Mathlib developments formalize the objects, read for their statements and not built here: (a) https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean (created 2026-09-05, read at `35df682f` on 2026-09-29; imported into https://github.com/Vilin97/lean-pool by pull request 495, merged 2026-09-28) states Li’s criterion in both directions over Mathlib’s RiemannHypothesis, the coefficient as a Taylor coefficient of the log-derivative of ξ(1/(1 − z)), and its identity with the symmetric zero sum of 1 − (1 − 1/ρ)^(n+1); (b) https://github.com/DrMurphyIsIn/Arda (its node RH_bl_explicit_formula, pull request 562 merged 2026-09-19, recorded proved 2026-09-21 at `acfb0ee5` by its own record, read 2026-09-29) states the Bombieri–Lagarias explicit formula on Li’s test class, the symmetric height-window zero sums tending to the archimedean and finite closed forms for n ≥ 1. Beside them the programme holds the Li form’s forward half (`rh_imp_li_nonneg`, v0.4) and the identity in limit form over the symmetric smoothed family (`li_identity_sym`, v0.7); the converse, compiled in (a) by a Pringsheim-type argument, is not compiled here. GitHub’s code search returned no Lean file for any query, (a)’s included, so its zeros are not evidence of absence; the Lean Zulip archive was reached only through a web search that returned none of its pages. No sentence here claims priority.
+### CORRESPONDENCE row 395 : | 395 | **THE LI–WEIL BRIDGE, STAGED, AND THE DETECTION REGION’S CLEAN PART** (b560, under (R170) and its (4) amendment). SIDE-explicit-formula v0.3 = 04eda4a (b538’s RegisterDepth and b559’s DetectionRegion-clean: h2_sign ↔ ∀ L₀, h2_sign_upto L₀ ↔ RiemannHypothesis) and v0.4 = 941503b (LiWeil.lean): the genuine zero configuration conjugation-stable with multiplicity; the Bombieri–Lagarias terms paired by conjugation, real, nonnegative on the line; their decay liConst n / ‖ρ‖² and absolute summability over the zeros of ζ; LiCoeff over the genuine zeros and RiemannHypothesis → ∀ n, 0 ≤ LiCoeff n; the truncation lemma for EF_lit’s class. The limit exchange is stated as a Prop and not proved. Nothing here proves RH. | `SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean` (v0.4) : `SIDEExplicitFormula.LiWeil.conj_mem`, `SIDEExplicitFormula.LiWeil.mult_conj`, `SIDEExplicitFormula.LiWeil.pai
+### CORRESPONDENCE row 397 : | 397 | **li_identity_of_exchange’S GRADE UNDER THE SUPERSESSION RULE** (b562, under (R172)(1)(a)): its premise `LiLimitExchange n` is false as stated for n ≥ 1 on b561’s reading (relay data/b561_decay_read.txt (7)), so the conditional certifies nothing; this row’s grade cell replaces row 395’s for this terminal alone; row 395 stands unedited above. | `SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean` -- `SIDEExplicitFormula.LiWeil.li_identity_of_exchange` (its docstring marked at `61e3551`) | [propext, Classical.choice, Quot.sound] (relay data/b560_e0.txt; unchanged at v0.6, data/b562_doc_push.txt) | SUPERSEDES row 395: T2 -- `li_identity_of_exchange` (in the table`s grade vocabulary SHELL: a conditional on a premise false as stated certifies nothing) | Written 2026-09-29 (b562) through `relay/tools/corr_row.py`; the rule is `supersede` in `relay/tools/terminal_table.py`. |
+### tools/terminal_table.py (the synonym map`s note) :18-:23
+       18 | ### ### **THE SYNONYM MAP (b554, the author`s ruling (R164)(2)(a)), APPLIED BEFORE THE CONFLICT TEST:**
+       19 | ###     ENCODES-CONCLUSION            -> ENCODES
+       20 | ###     ENCODES-CONCLUSION-or-SHELL   -> ENCODES      (this tool`s compound string `ENCODES-CONCLUSION \\ SHELL`)
+       21 | ###     INTERFACES-on-named-premise   -> INTERFACES   (the grade pattern already reads the word INTERFACES alone)
+       22 | ### A terminal whose cells carry one grade string keeps that string; cells whose mapped grades agree read the
+       23 | ### mapped grade; CONFLICT only where the mapped grades still differ.
+### tools/terminal_table.py (GRADE_RE) :50-:50
+       50 | GRADE_RE = re.compile(r'\b(DERIVES|INTERFACES|SHELL|ENCODES-CONCLUSION|ENCODES)\b')
+### tools/terminal_table.py (SUPERSEDE_RE, supersede) :139-:163
+      139 | SUPERSEDE_RE = re.compile(r'SUPERSEDES row (\d+):')
+      140 | CORR_LABEL = 'SIDE-global-section/CORRESPONDENCE.md'
+      143 | def corr_row_lines():
+      144 |     """### row number -> its line in SIDE-global-section`s CORRESPONDENCE.md."""
+      145 |     out = {}
+      146 |     for i, ln in enumerate(read(os.path.join(SIDE, 'CORRESPONDENCE.md')).split(NL), 1):
+      147 |         m = re.match(r'^\|\s*(\d+)\s*\|', ln)
+      148 |         if m:
+      149 |             out[int(m.group(1))] = i
+      150 |     return out
+      153 | def supersede(cells):
+      154 |     """### ### **THE SUPERSESSION RULE (b553, the author`s ruling (R163)(1)).** ### The ledger admits appends and no edits, so a
+      155 |     ### correction could not clear a CONFLICT under the distinct-grades rule. ### A CORRESPONDENCE.md grade cell reading
+      156 |     ### `SUPERSEDES row N: <grade>` removes, for the terminal it names, every grade cell read from row N`s line of that ledger;
+      157 |     ### the superseding cell stays and so carries the grade. ### Every other cell is read as before."""
+      158 |     rows = [int(m.group(1)) for c in cells if c['ledger'] == CORR_LABEL for m in [SUPERSEDE_RE.search(c.get('quote') or '')] if m]
+      159 |     if not rows:
+      160 |         return cells
+      161 |     lines = corr_row_lines()
+      162 |     gone = set(lines[n] for n in rows if n in lines)
+      163 |     return [c for c in cells if not (c['ledger'] == CORR_LABEL and c['line'] in gone)]
+### tools/terminal_table.py (SYNONYMS, synonym) :219-:227
+      219 | SYNONYMS = {'ENCODES-CONCLUSION': 'ENCODES',
+      220 |             'ENCODES-CONCLUSION ' + chr(92) + ' SHELL': 'ENCODES',
+      221 |             'INTERFACES-on-named-premise': 'INTERFACES'}
+      224 | def synonym(grade):
+      225 |     """### ### **THE SYNONYM MAP (b554, the author`s ruling (R164)(2)(a)).** ### One verdict in two vocabularies is one
+      226 |     ### verdict: the map is applied before the conflict test and nowhere else."""
+      227 |     return SYNONYMS.get(grade, grade)
+### tools/terminal_table.py searched for a tier column: 0 lines carry "tier" (case-insensitive)
+    FERRY_STANDING.md:34 | - **C18** STEP ZERO: the ferry scan; both censuses; push anything ahead of origin, saying so if nothing is.  — carried by 15 of 15 (b320 b321 b322 b323 b324 b325 b326 b327 b328 b329 b330 b331 b332 b333 b334); source b334 lines 25-26
+    FERRY_STANDING.md:82 | ## AUTHOR-RULED CLAUSES (NOT MEASURED)
+    FERRY_STANDING.md:86 | - **A1** A ferry carries its act number, and a number already claimed by an unclosed ferry is a hit for the ferry scan.  --- **AUTHOR-RULED 2026-09-06**, in the numbering ruling banked at `relay/data/b344_ruling_2026-09-06.txt`: *"Add to FERRY_STANDING v2, when next revised: a ferry carries its act 
+    FERRY_STANDING.md:90 | - **A3** The navigator runs the corpus's own `banned_terms.classify` over every ferry before sending, and the seat may refuse any ferry that arrives without a line stating it was run.  --- **AUTHOR-RULED 2026-09-12**, in the re-issue of the b430-b432 sortie ferry (`relay/data/b430_ferry.txt`), **ent

@@ -1,0 +1,52 @@
+'li_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'li_coefficients_eq_zero_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.li_criterion_rh_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.positivity_implies_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.li_pos_implies_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.li_equiv_from_weighted_sum_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.rh_equiv_mathlib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.biconditional_rh_li_of_hadamard_order_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.xi_hasFiniteOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.xi_order_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.summable_li_symmetrized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.taylorCoeff_eq_li_symmetrized' depends on axioms: [propext, Classical.choice, Quot.sound]
+li_criterion : RiemannHypothesis ↔ ∀ (n : ℕ), 0 ≤ (LiChallenge.taylorCoeff LiChallenge.riemannXi n).re
+li_coefficients_eq_zero_sum : ∀ (n : ℕ),
+  (Summable fun ρ =>
+      ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *
+        (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))) ∧
+    LiChallenge.taylorCoeff LiChallenge.riemannXi n =
+      2⁻¹ *
+        ∑' (ρ : LiChallenge.NontrivialZero),
+          ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *
+            (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))
+LiCriterion.li_criterion_rh_iff : RiemannHypothesis ↔
+  ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) →
+  ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+LiCriterion.li_equiv_from_weighted_sum_formula : (Summable fun ρ =>
+    ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) / ‖↑ρ‖ ^ 2) →
+  (∀ (n : ℕ),
+      LiCriterion.taylorCoeff LiCriterion.riemannXi n =
+        2⁻¹ *
+          ∑' (ρ : LiCriterion.NontrivialZero),
+            ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) * LiCriterion.liPairedSummand n ρ) →
+    ((∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2) ↔
+      ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re)
+LiCriterion.rh_equiv_mathlib : RiemannHypothesis ↔ ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+def LiChallenge.riemannXi : ℂ → ℂ :=
+fun s => 1 / 2 * s * (s - 1) * completedRiemannZeta₀ s + 1 / 2
+def LiChallenge.taylorCoeff : (ℂ → ℂ) → ℕ → ℂ :=
+fun f n => deriv^[n] (LiChallenge.logDeriv (LiChallenge.phi f)) 0 / ↑n.factorial
+def LiChallenge.phi : (ℂ → ℂ) → ℂ → ℂ :=
+fun f z => f (1 / (1 - z))
+def LiChallenge.logDeriv : (ℂ → ℂ) → ℂ → ℂ :=
+fun φ z => deriv φ z / φ z
+def LiChallenge.NontrivialZero : Type :=
+{ ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }
+def LiCriterion.riemannXi : ℂ → ℂ :=
+fun s => 1 / 2 * s * (s - 1) * completedRiemannZeta₀ s + 1 / 2
+def LiCriterion.NontrivialZero : Type :=
+{ ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2

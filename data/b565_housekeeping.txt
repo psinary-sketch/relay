@@ -1,0 +1,26 @@
+b565 -- COMPONENT 1: HOUSEKEEPING, UNDER (R175)(5)
+
+### relay 80346ab6 : b565 -- relay data/b564_relay_push_out.txt committed at the act's start, under the author's ruling (R175)(5): b564's last push output, written after that push and left uncommitted there
+    file: data/b564_relay_push_out.txt
+### relay 9de84b16 : b565 -- tools/push_gated.sh: THE CAPTURE, under the author's ruling (R175)(5) (b564's defect (i))
+    file: tools/push_gated.sh
+### the process listing (step zero): relay data/b565_procs_stepzero.txt --
+    ### b565 -- STEP ZERO: THE PROCESS LISTING ((R175)(5), a standing line). run at (UTC) : 2026-09-30T01:11:10Z
+    ### names matched: grep find lean lake git python rg bash sh timeout sleep; powershell.exe matched as the listing's POSITIVE CONTROL (this listing's own shell)
+     16804   7960 powershell.exe  2026-09-23 16:00:39 cpu    143.0  "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+     30552  12268 powershell.exe  2026-09-23 16:03:44 cpu      1.8  C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+     34188   7960 powershell.exe  2026-09-25 09:13:10 cpu      2.1  "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+     10456  37772 powershell.exe  2026-09-29 21:11:10 cpu      0.5  (this listing's own shell; its command line is the listing command)
+    ### candidates other than powershell.exe: 0
+    ### ### **ORPHANS STOPPED : 0.** No grep, find, lean, lake, git, python, rg, bash, sh, timeout or sleep process is running.
+    ### The three older powershell.exe processes carry no script on their command lines: interactive shells, not an act's
+    ### orphaned instrument; they are not stopped. (A first run of this listing wrote a BOM through Set-Content and matched no
+    ### control; that file was removed by its verified absolute path and this bank written by the shell.)
+### tools/FERRY_STANDING.md clause A4 at :92 -- - **A4** At each act's step zero the seat prints a process listing and stops orphans of earlier sessions by PID, the command line printed.  --- **AUTHOR-RULED 2026-09-30**, in `(R175)`(5) (`relay/data/b565_ferry.txt`): *"Defect (d)'s orphaned grep processes: t
+### the VERSION line: VERSION: 2
+### the capture`s test (relay data/b565_capture_test.txt):
+    ### b565 -- THE CAPTURE TEST (scratch: C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b3b42d51-b81a-4da5-84b2-573b76ffbbdb/scratchpad/capture_test_1790730982)
+        (i)  PUSH_GATED_LOG set : exit 0 ; the hook's marker lines in the log 1 ; the read-back line in the log 1
+        (ii) PUSH_GATED_LOG unset: exit 0 ; the hook's marker on the console 1 ; a log file written 0
+    ### ### **CAPTURE TEST : PASS** -- the hook's own line reaches the log when asked, and nothing is logged when not.
+### tools/SUITE_README.md (new, 24 lines): ['- **A `<...>` placeholder in a backticked path is read as `*`** (b564, defect (h): a face wrote `Chi/<name>.lean`, and the']

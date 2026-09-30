@@ -1,0 +1,14 @@
+warning: in the working copy of 'f.txt', LF will be replaced by CRLF the next time Git touches it
+B565-HOOK-MARKER: pre-push ran
+warning: in the working copy of 'f.txt', LF will be replaced by CRLF the next time Git touches it
+push_gated: capture on -> C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b3b42d51-b81a-4da5-84b2-573b76ffbbdb/scratchpad/capture_test_1790730982/on.log (2026-09-30T01:16:24Z)
+push_gated: repo C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b3b42d51-b81a-4da5-84b2-573b76ffbbdb/scratchpad/capture_test_1790730982/work ; branch push-test ; tip 2a1f95c80d42df8165f2f1dd38797d2bd7fc58ed ; checkout before main
+B565-HOOK-MARKER: pre-push ran
+To C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b3b42d51-b81a-4da5-84b2-573b76ffbbdb/scratchpad/capture_test_1790730982/origin.git
+   d0f1d85..2a1f95c  push-test -> main
+push_gated: main read back at the remote: 2a1f95c80d42df8165f2f1dd38797d2bd7fc58ed
+push_gated: DONE -- main and 0 tag(s) pushed and read back
+### b565 -- THE CAPTURE TEST (scratch: C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b3b42d51-b81a-4da5-84b2-573b76ffbbdb/scratchpad/capture_test_1790730982)
+    (i)  PUSH_GATED_LOG set : exit 0 ; the hook's marker lines in the log 1 ; the read-back line in the log 1
+    (ii) PUSH_GATED_LOG unset: exit 0 ; the hook's marker on the console 1 ; a log file written 0
+### ### **CAPTURE TEST : PASS** -- the hook's own line reaches the log when asked, and nothing is logged when not.

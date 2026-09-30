@@ -1,0 +1,5 @@
+def RvMBridge18.XiLogDerivDerivEq : Prop :=
+∀ (s : ℂ),
+  ¬Zeta23.IsNontrivialZero s → deriv (logDeriv RvMBridge18.xi) s = -∑' (ρ : ℂ), ↑(WeilExplicit.zeroMult ρ) / (s - ρ) ^ 2
+def RvMBridge15.liPaired : ℕ → ℂ → ℂ :=
+fun n ρ => ↑(WeilExplicit.zeroMult ρ) * ↑(RvMBridge15.BombieriLagarias.liKernel n ρ).re

@@ -1,0 +1,220 @@
+====================================================================================================
+ACT b565 -- THE REGISTRATION FACE. ### THE AUDIT: TWO PUBLIC FORMALIZATIONS OF LI'S CRITERION AND THE BOMBIERI–LAGARIAS
+### FORMULA READ AT THEIR PINS BY STATEMENT AND PRINT; THE SUPERSEDED GRADE IN A READABLE CELL; HOUSEKEEPING, UNDER (R175).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **NO KERNEL OF THE FEDERATION IS WRITTEN. TWO PUBLIC REPOSITORIES ARE CLONED
+### INTO D:/audit-b565/ AND BUILT THERE WITH THEIR OWN TOOLCHAINS; NOTHING OF THEIRS ENTERS ANY REPOSITORY OF THE CORPUS AT
+### THIS ACT. TWO RELAY TOOLS ARE EDITED, AS RULED, EACH IN A COMMIT OF ITS OWN: tools/push_gated.sh (THE CAPTURE) AND
+### tools/terminal_table.py (THE SYNONYM ENTRY). EVERY PUSH GOES THROUGH tools/push_gated.sh.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R175) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** The ruling and part 1 of 1, received IN FULL,
+### banked verbatim as `b565_ferry.txt`. ### **NOTHING DEPOSITS; NOTHING AT ZENODO IS WRITTEN; NO BYTE ABOVE AN APPENDED
+### LINE OR BLOCK CHANGES; NO KERNEL FILE OF THE FEDERATION IS WRITTEN; NO GRADE MOVES ON A READING; NOTHING ABOUT THE ZEROS
+### OF ζ IS CLAIMED BEYOND A COMPILED STATEMENT`S OWN WORDS; NO SENTENCE CLAIMS PRIORITY.** ### The ferry scan carries no
+### hit and no flag. ### The process listing at step zero (the standing line of (R175)(5)) found no orphan of an earlier
+### session; it stopped nothing (`b565_procs_stepzero.txt`).
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE READS, CITED.** Printed by path and line: relay `data/b564_prior_art.txt` (the two repositories,
+### their URLs and pins as read at b564, the terminals named, the comparison paragraph); FINDINGS.md :4729-:4750 (b536`s
+### prior-art record and its audit of the Connes-Weil repository, its form); the vendoring record of Zeta23 -- SIDE-explicit-
+### formula `README.md` :12-:30 (the pin v1.0 = 3635e748, the module count, the rule that a vendored copy is not a result
+### until a profile is banked), `NOTICE` :1-:12, `lakefile.toml` (the Mathlib rev, the globs) and OPEN_TRAILS.md :8022-:8059
+### ((R82)`s condition and (R83)); FINDINGS.md :6136 (the field entry as b564 wrote it); CORRESPONDENCE rows 395 and 397;
+### `tools/terminal_table.py` (the synonym map :219-:227 and its note :18-:23; `SUPERSEDE_RE` and `supersede` :139-:163;
+### `GRADE_RE` :50); relay `tools/FERRY_STANDING.md` (C18, STEP ZERO; the author-ruled clauses A1-A3, their form). Banked as
+### `data/b565_reads.txt`.
+### **READING (2) -- HOUSEKEEPING (COMPONENT 1).** (i) relay `data/b564_relay_push_out.txt` committed alone, first. (ii) The
+### process listing is banked (step zero). The standing line is entered in `tools/FERRY_STANDING.md` as an author-ruled clause
+### A4 in A1-A3`s form (NOT MEASURED; the ruling`s words quoted), the file`s VERSION line not bumped, for A1`s reason.
+### (iii) `tools/push_gated.sh` gains its capture: when the environment carries `PUSH_GATED_LOG=<path>`, every line the script
+### and the git commands it runs write (the hook`s lines included) is appended to that file as well as printed; nothing else
+### in the script moves; committed alone, the change`s test quoted (a run against a scratch bare repository with a hook that
+### prints a marker line, the marker found in the log file). (iv) `tools/SUITE_README.md`, new: the write-list glob rule --
+### a (W) row names kinds by backticked paths; `*`, `?` and `[...]` are globs; a `<...>` placeholder in a path is read as
+### `*` (b564 defect (h)); the suite reads the (W) block with `globs_of`. Banked as `data/b565_housekeeping.txt`.
+### **READING (3) -- THE SUPERSEDED GRADE (COMPONENT 2).** The ledger CORRESPONDENCE.md has no tier column and
+### `terminal_table.py` reads no tier; the grade axis is the grade cell. So the superseding row is written with its grade
+### cell reading `SUPERSEDES row 397: INTERFACES -- tier T2 by the tier law`s clause; the premise false as stated for
+### n ≥ 1`, the tier carried as words in the same cell (no word of the grade vocabulary but INTERFACES in it, no backticked
+### name but the terminal`s), its statement cell noting the premise`s falsity and the docstring marked at `61e3551`, through
+### `relay/tools/corr_row.py`. The synonym map gains `INTERFACES-on-false-premise -> INTERFACES` and its note one line;
+### committed alone with its test: (i) unit fixtures on `synonym()` both polarities (the new string maps; an unknown string
+### maps to itself; the three old entries unchanged); (ii) the table regenerated with the entry and no row -- CONFLICT
+### before and after, terminals whose grade changed; (iii) after the row -- the same, and the cells of
+### `li_identity_of_exchange` before and after, printed. Banked as `data/b565_supersede.txt`, `data/b565_synonym_unit.txt`.
+### (N5)`s "/ T2" is scored on the row`s own cell, since the table has no tier column to read it from.
+### **READING (4) -- THE AUDIT (COMPONENT 3).** For each repository, in a fresh directory under `D:/audit-b565/` (its
+### absolute path printed and verified empty before the clone): clone, HEAD SHA printed and pinned for the rest of the act;
+### its `lean-toolchain` and its Mathlib rev (lake-manifest) printed; the Mathlib cache fetched by its own `lake exe cache
+### get` where the project carries it; `lake build` of the target that holds the named terminals, in the background when it
+### may pass 600 s, exit code and error count printed. The terminals: in the Li-criterion repository, `li_criterion` and
+### `li_coefficients_eq_zero_sum` (the comparator`s Challenge statements) and the library theorems its Solution delegates to
+### for each direction; in the Arda repository, `bl_explicit_formula` in the proof module the node names
+### (`E6Bridge27.lean`), `liValue`, and the declarations it consumes by name (`local_count_sum`, `stripDerivBound`,
+### `bl_explicit_formula_of_two`). For each: `#print axioms` verbatim, from a file written in the audit directory and
+### elaborated in the repository`s own environment; the statement printed, and its constants unfolded to Mathlib`s or the
+### repository`s own (each named, with its file and line); the zero set -- Mathlib`s `riemannZeta` zeros or a parameter or
+### the repository`s own predicate; `RiemannHypothesis` -- Mathlib`s or local; the sorry count, by a lexical scan of the
+### comment-stripped `.lean` files of the terminal`s transitive closure within the repository and by `sorryAx` in the
+### print; the E0 grade in the three-grade vocabulary, with its one-clause reason. Then two paragraphs: Arda`s formula
+### against `li_identity_sym`, and the Li-criterion repository`s forward direction against `rh_imp_li_nonneg` -- same
+### object, weaker, stronger or different, the difference named. H17a and H17b scored. Banked as `data/b565_audit.txt`
+### (with `.json`). A build that cannot finish (a missing toolchain, a cache refused, a compile error) is printed with its
+### exit and its first errors, and the terminals behind it are NOT SCORABLE from a print; they are not graded from the
+### source. The clones stay in place until the author`s word at the closing.
+### **READING (5) -- THE RECORD (COMPONENT 4).** A line appended after the field entry`s line at FINDINGS :6136 (b561`s and
+### b564`s form) with what each repository proves in its own terms and the audit`s findings; the ceiling sentence untouched;
+### the (R175)(3) conditional entered at the LI-WEIL-BRIDGE work-order with both branches; the FINDINGS entry titled "The
+### audit: two public formalizations of Li`s criterion and the Bombieri–Lagarias formula, read by statement and print at
+### their pins"; the act`s correspondence row (the audit) and the superseding row of READING (3); the trail record; b566
+### named as GRH-WEIL act three with (R175)(6) carried. The terminal table committed at close as housekeeping if it changed.
+### **READING (6) -- HOUSEKEEPING OF BRANCHES.** push-b564 and push-b564-closing (relay), push-b564 (PLACE-papers,
+### SIDE-global-section, SIDE-explicit-formula) listed by `--merged main` and deleted by name. toolchain-trial-b551,
+### detection-region-b559, li-weil-b561, grh-weil-b562 and grh-weil-b564 kept, as ordered; li-weil-b563 kept, since no order
+### deletes it.
+### **READING (7) -- THE SCORING.** H17a and H17b on the audit bank; (N1)-(N6) against the banks; the seat`s (S1)-(S3).
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### `tools/b565_record.py reads | housekeeping | supersede <stage> | audit | fieldline | conditional | findings | rows |
+### trail | scores | desk | components`; `tools/b565_synonym_test.py` Component 2`s test; `tools/b565_capture_test.sh` the
+### capture`s test; `tools/b565_audit.py` the clone, build and print driver. The tool edits, commits, pushes, read-backs and
+### branch commands are the seat`s, every push through `push_gated.sh` with its capture.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** the whole of b564 (this session made it); relay `tools/terminal_table.py`
+### :14-:30, :139-:165, :219-:227 and a search of it for tier; CORRESPONDENCE.md :27-:30 (the columns) and rows 395 and 397;
+### `tools/push_gated.sh` whole; the relay tree searched for a README; `tools/FERRY_STANDING.md` C18; OPEN_TRAILS.md
+### :7967-:8059 (a search for (R82) and (R83)); SIDE-explicit-formula `NOTICE` :1-:12 and `README.md` (a search for the pin);
+### FINDINGS.md :4744-:4750; the disk`s free space on D:. From b564, already banked: both repositories` metadata, the
+### Li-criterion repository`s README, `comparator/Challenge.lean`, `formalization.yaml` and `lean-toolchain` at `35df682f`, and
+### Arda`s node statement and `E6Bridge27.lean` at `acfb0ee5` (relay `data/b564_fetched_*`).
+### ### **AND THE SEAT FORMED ITS READINGS BEFORE THIS SEAL**: that the table has no tier column, so the tier can live only
+### in the grade cell`s words; that the synonym entry is inert on today`s ledgers, since the grade pattern reads the word
+### INTERFACES alone and no reader produces the compound string; that the Li-criterion repository`s comparator builds against
+### plain `import Mathlib` and its own library; that Arda`s proof module is a composition of three bridge modules
+### whose own closure was not read. The hypotheses are the RULING`S.
+### ### **BANKS WRITTEN BEFORE THIS SEAL:** `b565_ferry.txt`, `b565_procs_stepzero.txt`, `b565_ferry_scan.txt`, the two
+### step-zero censuses, the pins, `b565_span*`. ### **NO CLONE MADE, NO BUILD RUN, NO NETWORK FETCH, NO BRANCH MADE, NO ACT
+### TOOL WRITTEN, NO APPEND, NO EDIT OF ANY LEDGER OR TOOL BEFORE THIS SEAL.**
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED LINE.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **H17a HOLDS -- THE BULKA CONVERSE CARRIES A DECLARED AXIOM, A SORRY, A PARAMETER ZERO SET, OR A LOCAL RH;
+### WHICH IS PRINTED.**
+### **(N2)** ### **H17b HOLDS -- ARDA`S FORMULA IS ENCODES OR INTERFACES OVER AN ABSTRACT STRUCTURE.**
+### **(N3)** ### **BULKA`S FORWARD DIRECTION, IF GENUINE, IS THE SAME OBJECT AS rh_imp_li_nonneg OR WEAKER.**
+### **(N4)** ### **BOTH REPOSITORIES BUILD AT THEIR PINS WITH THEIR OWN TOOLCHAINS; THE EXIT CODES PRINTED.**
+### **(N5)** ### **THE SUPERSEDING ROW READS INTERFACES / T2 IN THE REGENERATED TABLE AND NO OTHER GRADE MOVES.**
+### **(N6)** ### **NO KERNEL .lean OF THE FEDERATION CHANGED; NOTHING AT ZENODO; NOTHING DEPOSITS; THE HELD BRANCHES
+### UNTOUCHED.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **H17a IS REFUTED: THE BULKA CONVERSE PRINTS THE STANDARD THREE OVER MATHLIB`S RiemannHypothesis, ITS ZEROS
+### MATHLIB`S riemannZeta ZEROS, NO sorry IN ITS CLOSURE.**
+### **(S2)** ### **ARDA`S bl_explicit_formula STATES THE SYMMETRIC HEIGHT-WINDOW LIMIT OVER MATHLIB`S ZEROS WITH THE
+### REPOSITORY`S OWN MULTIPLICITY AND CLOSED FORMS, AND IS A DIFFERENT OBJECT FROM li_identity_sym (A DIFFERENT LIMIT AND AN
+### EVALUATED ARITHMETIC SIDE).**
+### **(S3)** ### **AFTER THE ROW, li_identity_of_exchange READS INTERFACES FROM ROW 401 ALONE; THE CONFLICT COUNT DOES NOT
+### MOVE; THE SYNONYM ENTRY ALONE MOVES NO GRADE.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits, 0 flags) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `b565_reg_gate.py` -> `b565_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS` `G-STEPZERO-PROCS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R175-ENTERED` `G-READS-CITED`
+### `G-PUSHOUT-COMMITTED` `G-STANDING-A4` `G-CAPTURE-FORM` `G-CAPTURE-COMMIT-ALONE` `G-SUITE-README`
+### `G-SYNONYM-FORM` `G-SYNONYM-COMMIT-ALONE` `G-SYNONYM-UNIT` `G-SUPERSEDE-ROW` `G-SUPERSEDE-READ` `G-CONFLICT-PRINTED`
+### `G-CLONES-PINNED` `G-TOOLCHAINS-PRINTED` `G-BUILDS-PRINTED` `G-AUDIT-PRINTS` `G-AUDIT-STATEMENTS` `G-AUDIT-PROVENANCE`
+### `G-AUDIT-SORRY` `G-AUDIT-GRADES` `G-AUDIT-COMPARED` `G-CLONES-OUTSIDE-CORPUS`
+### `G-FIELD-LINE` `G-NO-PRIORITY-SENTENCE` `G-CEILING-UNTOUCHED` `G-CONDITIONAL-ENTERED`
+### `G-FINDINGS-ENTRY` `G-CORR-ROWS` `G-TRAIL-RECORD`
+### `G-BRANCHES-DELETED` `G-TRIAL-UNTOUCHED` `G-HELD-BRANCH-KEPT`
+### `G-LINES-KEPT` `G-MONOGRAPH-UNTOUCHED` `G-ERRATA-UNTOUCHED`
+### `G-KERNEL-MAINS-UNTOUCHED` `G-NO-ZENODO-CALL` `G-DELETE-FREE` `G-TECHNE-SHAPE-ONLY`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-N5-SCORED` `G-N6-SCORED`
+### `G-SEAT-EXPECTATIONS-SCORED` `G-H17-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-CAPTURE-FORM` reads `tools/push_gated.sh` for the capture and nothing else changed against b564`s close;
+### `G-CAPTURE-COMMIT-ALONE` and `G-SYNONYM-COMMIT-ALONE` read each tool commit`s file list and its quoted test.
+### `G-CLONES-OUTSIDE-CORPUS` reads every repository of the corpus for a file of either clone. `G-KERNEL-MAINS-UNTOUCHED`
+### reads every kernel`s `main` against its pre-act head, SIDE-global-section`s as the ledger rows alone.
+### `G-PEEK-DECLARED`, `G-WRITELIST-KINDS` and `G-PRIORBANK-UNCHANGED` read file times before the push and content digests
+### against the pushed tree after it. `G-DELETE-FREE` reads this act`s own Python tools for a delete call of any kind.
+### `G-NO-ZENODO-CALL` reads the act`s tools for the platform`s address. No arm is scored post-push only.
+### ### **EVERY POSITIVE CONTROL IS POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b565_*` `relay/tools/b565_*` |
+### | the seat, READING (2) | `relay/data/b564_relay_push_out.txt` (committed, not edited) `relay/tools/FERRY_STANDING.md` (clause A4
+###   appended) `relay/tools/push_gated.sh` (the capture, one commit) `relay/tools/SUITE_README.md` (new) |
+### | the seat, READING (3) | `relay/tools/terminal_table.py` (the synonym entry, one commit) |
+### | the suite, `tools/b565_checks.py`, and `tools/b565_record.py supersede` | `relay/data/terminal_table.md`
+###   `relay/data/terminal_table.json` `relay/data/terminal_table_prior.json` `relay/data/terminal_table_run.txt`
+###   `relay/data/terminal_table_diff.json` |
+### | `tools/b565_record.py` | `PLACE-papers/FINDINGS.md` (appends) `PLACE-papers/OPEN_TRAILS.md` (appends)
+###   `SIDE-global-section/CORRESPONDENCE.md` (two rows, through `relay/tools/corr_row.py`) |
+### | `tools/b565_audit.py` and the seat, READING (4) | `D:/audit-b565/*` (the clones, their builds, the print files written there)
+###   and the toolchain directory elan manages |
+### | `tools/b565_capture_test.sh` | the scratchpad only (a bare repository and a working clone, made and left there) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b565_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b565_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b565_registration_2026-09-30.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b565_span*.json` `relay/data/b565_span_notes*.txt` |
+### | `tools/b378_lockgate.py` | `relay/data/b565_lockgate.json` `relay/data/b565_lockgate_notes*.txt` |
+### | the seat`s branch commands, READING (6) | the refs `push-b564`, `push-b564-closing`, `push-b565`, `push-b565-closing` |
+### | the seat`s memory after the last push | the seat`s memory directory (one project file, the index line) |
+### ### The act`s tools, named: `b565_record.py` `b565_reg_gate.py` `b565_regspec.py` `b565_checks.py` `b565_closing.py`
+### `b565_synonym_test.py` `b565_capture_test.sh` `b565_audit.py`. ### A kind of file may be written more than once. No `.lean`
+### file of any kernel, no Zeta23 byte, no ERRATA byte, no README, REGISTRY, FACES_LEDGER, SPIRAL_MAP or keystone byte, no
+### TECHNE-Core write, nothing at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### Nothing deposits; nothing at Zenodo is written or read. ### No kernel file of the federation is edited or added; no
+### kernel tag is made. ### Nothing of either clone is copied into any repository of the corpus; no vendoring is done at this
+### act. ### No grade moves on a reading; the audit grades only what it printed. ### No ledger grade is edited in place; the
+### one grade source removed is removed by the supersession rule, and no grade name is minted. ### No existing relay tool is
+### edited but `push_gated.sh` and `terminal_table.py`, as ruled. ### No work-order is started or filed; lines are appended.
+### ### No erratum is drafted or filed. ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The four lists
+### stay OPEN. ### No rm is run but on a verified absolute path in the same command; the clones are not deleted at this act.
+### ### No repository of the corpus is fetched from a network remote; the pins, the ritual`s pushes, the ls-remote read-backs,
+### the two clones and their toolchain and cache fetches excepted. ### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH OR
+### ANY ZERO BEYOND A COMPILED STATEMENT`S OWN WORDS; A PRINT IS A PRINT, A READING IS A READING.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 2e935f5478ce4ca3e2387287ab787ad774c6b95c6e19827564f34a19cbd9f39c
+### bytes locked : 20994
+### locked at (UTC) : 2026-09-30T01:14:58Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b565_registration_2026-09-30.txt`.**
+====================================================================================================

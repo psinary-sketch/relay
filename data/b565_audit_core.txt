@@ -1,0 +1,134 @@
+b565 -- COMPONENT 3: THE AUDIT OF TWO PUBLIC FORMALIZATIONS, READ BY STATEMENT AND PRINT AT THEIR PINS, UNDER (R175)(2)
+
+### A print is what Lean printed in the repository`s own environment, from a file written in D:/audit-b565 outside the
+### clone; a statement is Lean`s `#check`; a definition is Lean`s `#print`. Nothing is graded from a README.
+
+========================================================================================================
+### BULKA -- https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean
+========================================================================================================
+### THE PIN: HEAD 35df682f3b709ffe5fbcfdd452dfa964bd622b87 (cloned 2026-09-30T01:18:55Z into D:\audit-b565\bulka)
+### THE TOOLCHAIN AND THE MATHLIB REV (from the project`s own files):
+    | leanprover/lean4:v4.34.0-rc1
+    package mathlib                rev de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11  https://github.com/leanprover-community/mathlib4.git
+    package Cli                    rev af8bc067a4cc6c6df472a68909a3f40b1c76c43e  https://github.com/leanprover/lean4-cli
+### THE BUILD (its own lake; relay data/b565_audit_bulka_build.txt):
+### THE PRINTS, VERBATIM (relay data/b565_audit_bulka_prints.txt; its header: 'li_criterion' depends on axioms: [propext, Classical.choice, Quot.sound])
+    'li_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'li_coefficients_eq_zero_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.li_criterion_rh_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.positivity_implies_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.li_pos_implies_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.li_equiv_from_weighted_sum_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.rh_equiv_mathlib' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.biconditional_rh_li_of_hadamard_order_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.xi_hasFiniteOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.xi_order_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.summable_li_symmetrized' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'LiCriterion.taylorCoeff_eq_li_symmetrized' depends on axioms: [propext, Classical.choice, Quot.sound]
+### THE STATEMENTS (Lean`s #check):
+    li_criterion : RiemannHypothesis ↔ ∀ (n : ℕ), 0 ≤ (LiChallenge.taylorCoeff LiChallenge.riemannXi n).re
+    li_coefficients_eq_zero_sum : ∀ (n : ℕ),
+      (Summable fun ρ =>
+          ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *
+            (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))) ∧
+        LiChallenge.taylorCoeff LiChallenge.riemannXi n =
+          2⁻¹ *
+            ∑' (ρ : LiChallenge.NontrivialZero),
+              ↑(analyticOrderNatAt LiChallenge.riemannXi ↑ρ) *
+                (1 - (1 - 1 / ↑ρ) ^ (-(↑n + 1)) + (1 - (1 - 1 / ↑ρ) ^ (↑n + 1)))
+    LiCriterion.li_criterion_rh_iff : RiemannHypothesis ↔
+      ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+    LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) →
+      ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+    LiCriterion.li_equiv_from_weighted_sum_formula : (Summable fun ρ =>
+        ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) / ‖↑ρ‖ ^ 2) →
+      (∀ (n : ℕ),
+          LiCriterion.taylorCoeff LiCriterion.riemannXi n =
+            2⁻¹ *
+              ∑' (ρ : LiCriterion.NontrivialZero),
+                ↑(analyticOrderNatAt LiCriterion.riemannXi ↑ρ) * LiCriterion.liPairedSummand n ρ) →
+        ((∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2) ↔
+          ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re)
+    LiCriterion.rh_equiv_mathlib : RiemannHypothesis ↔ ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+### THE DEFINITIONS THEY UNFOLD TO (Lean`s #print, first lines):
+    def LiChallenge.riemannXi : ℂ → ℂ :=
+    def LiChallenge.taylorCoeff : (ℂ → ℂ) → ℕ → ℂ :=
+    def LiChallenge.phi : (ℂ → ℂ) → ℂ → ℂ :=
+    def LiChallenge.logDeriv : (ℂ → ℂ) → ℂ → ℂ :=
+    def LiChallenge.NontrivialZero : Type :=
+    def LiCriterion.riemannXi : ℂ → ℂ :=
+    def LiCriterion.NontrivialZero : Type :=
+    def RiemannHypothesis : Prop :=
+### THE CLOSURE READ FOR sorry, admit AND axiom (lexical, comment-stripped; control: comparator/Challenge.lean reads sorry 2): sorry 0 ; admit 0 ; axioms NONE
+### THE E0 GRADES:
+    li_criterion                                         DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    li_coefficients_eq_zero_sum                          DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.li_criterion_rh_iff                      DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.positivity_implies_RH                    DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.li_pos_implies_rh                        DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.li_equiv_from_weighted_sum_formula       DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.rh_equiv_mathlib                         DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.biconditional_rh_li_of_hadamard_order_one DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.xi_hasFiniteOrder                        DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.xi_order_le_one                          DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.summable_li_symmetrized                  DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    LiCriterion.taylorCoeff_eq_li_symmetrized            DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+
+========================================================================================================
+### ARDA -- https://github.com/DrMurphyIsIn/Arda
+========================================================================================================
+### THE PIN: HEAD acfb0ee57108a185c484409cd91ac5621ce2d13e (cloned 2026-09-30T01:19:03Z into D:\audit-b565\arda)
+### THE TOOLCHAIN AND THE MATHLIB REV (from the project`s own files):
+    | leanprover/lean4:v4.33.0-rc2
+    | rev = "fbdc36bbf17d20af3fd0447c6d1a8a02773c9844"
+    package Zeta23                 rev fbdc36bbf17d20af3fd0447c6d1a8a02773c9844  https://github.com/anthropics/formal-math
+    package mathlib                rev 51e6992efd06126df61a496bebf8f49482a4e129  https://github.com/leanprover-community/mathlib4
+    package Cli                    rev 1319485273bf87833fa472afbcefdedecb16b45f  https://github.com/leanprover/lean4-cli
+### THE BUILD (its own lake; relay data/b565_audit_arda_build.txt):
+    ### APPENDED (seat, 18:14Z): `lake exe cache get!`, detached via scratchpad watch.ps1 (no time slot), watched from the foreground.
+    C:\Users\echo chamber\.cache\mathlib\41552a3de554e2e0.ltar.part: Transfer failed (error code: 0): Recv failure: Connection was reset
+    C:\Users\echo chamber\.cache\mathlib\eaf24bc67286596c.ltar.part: Transfer failed (error code: 0): Recv failure: Connection was reset
+    C:\Users\echo chamber\.cache\mathlib\33e8fea4422875da.ltar.part: Transfer failed (error code: 0): Recv failure: Connection was reset
+    C:\Users\echo chamber\.cache\mathlib\d255dd0ed51e7182.ltar.part: Transfer failed (error code: 0): Recv failure: Connection was reset
+    C:\Users\echo chamber\.cache\mathlib\05febcc44357fc1d.ltar.part: Transfer failed (error code: 0): Recv failure: Connection was reset
+### THE PRINTS, VERBATIM (relay data/b565_audit_arda_prints.txt; its header: 'RvMBridge27.bl_explicit_formula' depends on axioms: [propext, Classical.choice, Quot.sound])
+    'RvMBridge27.bl_explicit_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'RvMBridge27.liValue' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'RvMBridge27.xi_logDeriv_deriv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'RvMBridge23.local_count_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'RvMBridge24.stripDerivBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'RvMBridge25.bl_explicit_formula_of_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'RvMBridge25.liValue_of_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+### THE STATEMENTS (Lean`s #check):
+    RvMBridge27.bl_explicit_formula : ∀ (n : ℕ),
+      0 < n →
+        Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop
+          (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n))
+    RvMBridge27.liValue : ∀ (n : ℕ), 0 < n → RvMBridge15.LiValue n
+    RvMBridge25.bl_explicit_formula_of_two : RvMBridge22.LocalCountSum →
+      RvMBridge22.StripDerivBound →
+        ∀ (n : ℕ),
+          0 < n →
+            Filter.Tendsto (RvMBridge15.BombieriLagarias.liZeroSum n) Filter.atTop
+              (nhds (RvMBridge15.BombieriLagarias.archSide n + RvMBridge15.BombieriLagarias.finiteSide n))
+### THE DEFINITIONS THEY UNFOLD TO (Lean`s #print, first lines):
+    def RvMBridge15.BombieriLagarias.liKernel : ℕ → ℂ → ℂ :=
+    def RvMBridge15.BombieriLagarias.liZeroSum : ℕ → ℝ → ℂ :=
+    def RvMBridge15.BombieriLagarias.archSide : ℕ → ℂ :=
+    def RvMBridge15.BombieriLagarias.zetaLogDerivReg : ℂ → ℂ :=
+    def RvMBridge15.BombieriLagarias.eta : ℕ → ℂ :=
+    def RvMBridge15.BombieriLagarias.finiteSide : ℕ → ℂ :=
+    def RvMBridge15.LiValue : ℕ → Prop :=
+    def WeilExplicit.zeroMult : ℂ → ℕ :=
+    def RvMBridge22.LocalCountSum : Prop :=
+    def RvMBridge22.StripDerivBound : Prop :=
+### THE CLOSURE READ FOR sorry, admit AND axiom (lexical, comment-stripped; control: comparator/Challenge.lean reads sorry 2): sorry 0 ; admit 0 ; axioms NONE
+### THE E0 GRADES:
+    RvMBridge27.bl_explicit_formula                      DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    RvMBridge27.liValue                                  DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    RvMBridge27.xi_logDeriv_deriv_eq                     DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    RvMBridge23.local_count_sum                          DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    RvMBridge24.stripDerivBound                          DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+    RvMBridge25.bl_explicit_formula_of_two               INTERFACES   -- its statement takes a named premise of the repository`s own: ['RvMBridge22.StripDerivBound']
+    RvMBridge25.liValue_of_two                           DERIVES      -- the standard three, no sorry in its closure, no named premise in its statement
+
