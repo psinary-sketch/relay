@@ -19,6 +19,7 @@
 ###     ENCODES-CONCLUSION            -> ENCODES
 ###     ENCODES-CONCLUSION-or-SHELL   -> ENCODES      (this tool`s compound string `ENCODES-CONCLUSION \\ SHELL`)
 ###     INTERFACES-on-named-premise   -> INTERFACES   (the grade pattern already reads the word INTERFACES alone)
+###     INTERFACES-on-false-premise   -> INTERFACES   (b565, (R175)(4): the grade axis; the tier, T2, is not a grade)
 ### A terminal whose cells carry one grade string keeps that string; cells whose mapped grades agree read the
 ### mapped grade; CONFLICT only where the mapped grades still differ.
 """
@@ -218,7 +219,8 @@ def supersede_findings(cells, name):
 
 SYNONYMS = {'ENCODES-CONCLUSION': 'ENCODES',
             'ENCODES-CONCLUSION ' + chr(92) + ' SHELL': 'ENCODES',
-            'INTERFACES-on-named-premise': 'INTERFACES'}
+            'INTERFACES-on-named-premise': 'INTERFACES',
+            'INTERFACES-on-false-premise': 'INTERFACES'}   # ### b565, the author`s ruling (R175)(4): the grade axis
 
 
 def synonym(grade):
