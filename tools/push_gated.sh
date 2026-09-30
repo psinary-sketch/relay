@@ -20,6 +20,14 @@ if [ "$#" -lt 2 ]; then
   exit 2
 fi
 repo="$1"; branch="$2"; shift 2
+
+# ### THE CAPTURE, (R175)(5), b564's defect (i): a push piped through `tail` lost the pre-push hook's lines. When the
+# ### environment carries PUSH_GATED_LOG=<path>, every line this script and the git commands it runs write -- the hook's
+# ### own output included -- is appended to that file as well as printed. The exit codes are this script's, unchanged.
+if [ -n "${PUSH_GATED_LOG:-}" ]; then
+  exec > >(tee -a "$PUSH_GATED_LOG") 2>&1
+  echo "push_gated: capture on -> $PUSH_GATED_LOG ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+fi
 case "$branch" in
   push-*|repair-*) ;;
   *) echo "push_gated: REFUSED -- <push-branch> must be push-* or repair-* (Rule 4.10): $branch" >&2; exit 2;;
