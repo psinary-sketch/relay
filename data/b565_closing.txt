@@ -1,0 +1,63 @@
+========================================================================================================
+b565 -- THE CLOSING RECORD. ### **THE AUDIT OF TWO PUBLIC FORMALIZATIONS, UNDER (R175).**
+========================================================================================================
+    housekeeping : b564`s push output committed alone (80346ab6) ; push_gated.sh`s capture (9de84b16) ; FERRY_STANDING A4 ; SUITE_README.md ; this act`s pushes captured to data/b565_push_out.txt and data/b565_relay_push_out.txt
+    the superseded grade : the synonym entry (7a2defb1) ; row 401 at CORRESPONDENCE :474 ; CONFLICT 12 -> 12 ; grades changed ['SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.li_identity_of_exchange SHELL -> INTERFACES']
+    the table : ### the regenerated table`s line for li_identity_of_exchange: | `SIDE-explicit-formula` | `SIDEExplicitFormula.LiWeil.li_identity_of_exchange` | *none cited* | `6ec71b302998` | `theorem li_identity_of_exchange (n : ℕ) (h
+    Bulka : https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean @35df682f (HEAD committed 2026-09-04) ; 35 modules built, every exit 0 ; closure 33 modules sorry 0 axioms 0
+        grades : li_criterion DERIVES, li_coefficients_eq_zero_sum DERIVES, li_criterion_rh_iff DERIVES, positivity_implies_RH DERIVES, li_pos_implies_rh DERIVES, li_equiv_from_weighted_sum_formula INTERFACES, rh_equiv_mathlib DERIVES, biconditional_rh_li_of_hadamard_order_one INTERFACES, xi_hasFiniteOrder DERIVES, xi_order_le_one DERIVES, summable_li_symmetrized DERIVES, taylorCoeff_eq_li_symmetrized DERIVES
+    Arda : https://github.com/DrMurphyIsIn/Arda @acfb0ee5 (HEAD committed 2026-09-29) ; 74 modules built, every exit 0 ; closure 15 + Zeta23 59 modules sorry 0 axioms 0
+        grades : bl_explicit_formula DERIVES, liValue DERIVES, xi_logDeriv_deriv_eq DERIVES, local_count_sum DERIVES, stripDerivBound DERIVES, bl_explicit_formula_of_two INTERFACES, liValue_of_two INTERFACES
+    the prints : 19 of 19 audited terminals at [propext, Classical.choice, Quot.sound]
+    the comparisons : Bulka`s forward direction vs rh_imp_li_nonneg SAME ; Arda`s bl_explicit_formula vs li_identity_sym DIFFERENT
+    the Zeta23 pins : ours v1.0 = 3635e748 (every vendored body the v1.0 file: 57 of 57), Arda`s fbdc36bb : 50 identical, 7 in a header comment alone, code differing NONE -> no pin-refresh work-order
+    the ledger lines : FINDINGS :6168 (field line) :6170 (entry) ; OPEN_TRAILS :11630 (the (R175)(3) conditional) :11632 (record) ; rows 401 and 402 (exit 0)
+    the branches : Deleted branch push-b564 (was 3f74aec5). ; Deleted branch push-b564-closing (was 58d73d24). ; Deleted branch push-b564 (was 5c50649). ; Deleted branch push-b564 (was 1135887). ; Deleted branch push-b564 (was 6ec71b3).
+    the token : hits 0 over 87 files and 6 commits
+    H17a REFUTED ; H17b REFUTED
+    (N1) REFUTED (N2) REFUTED (N3) HELD (N4) HELD (N5) HELD (N6) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+### b565 -- THIS ACT OWN DEFECTS (the desk).
+    (j) Component 3: THE BUILD STOPPED FOR MEMORY. Bulka's first `lake build` (about 02:05Z, 2026-09-30) ran 11 parallel lean processes on the 16 GB machine and was stopped for low memory by Claude Code; partial output was left in `.lake/build`. The navigator's ferry ordered the restart as `lake build -j 2`; Lake 5.0.0 at v4.34.0-rc1 (and at v4.33.0-rc2) has no `-j`/`--jobs` in `lake --help`, so the `-j 2` is recorded as the navigator's unchecked assumption. Under the author's ruling the build ran one module per `lake build +Module` call, in import order, in the foreground, free memory printed before each call and held below 2560 MB. First attempt 14:14:02Z was HELD at FreeMB=1834 (two new Chrome renderers, author's). RESTART: module 1 (FunctionsOfOneComplexVariable.EntireLog) started 14:21:34Z with FreeMB=6584. All 35 modules (33 local + ChallengeDeps + Solution) rc=0, peak one lean process per call; min free during a call 875 MB (Lc.LiCriterion.ReverseDirection, Chrome load), every pre-call reading >= 2560. Log: data/b565_audit_bulka_build.txt.
+    (k) Component 3: Arda's `lake exe cache get` ran under a 580/585 s foreground slot and was killed twice mid-decompression (about 15:28Z and 15:39Z). The third pass reported success (1678 decompressed, 7003 already present), but `lake --no-build build Mathlib` then read two modules out of date: Mathlib.Analysis.Analytic.Uniqueness (missing .ilean, .ir, .ir.sig, .olean.private.hash) and Mathlib.RingTheory.Localization.AtPrime.Extension (missing .ir files). `cache get` counts a module decompressed by its .olean, so it will not redo them; deleting the two modules' artefacts was refused by the seat's permission check. Arda's build is HELD before its first module: rebuilding the two would compile Mathlib outside the tree, which the guard forbids. RESOLVED under the author's ruling: `lake exe cache get!` ran detached with no time slot, 15:52:49Z (FreeMB 4828) to 16:18:31Z (FreeMB 4474), decompressed 8676, 5 downloads failed on connection reset, rc unread (the watcher had lost the handle); `lake --no-build build Mathlib` then rc=0 (8696 jobs). Arda's E6Bridge27 closure (59 Zeta23 + 15 Arda modules) then built one module per call, all rc=0; Zeta23.ExplicitFormula took 2467 s, paging cold Mathlib oleans off the D: HDD (ST1000LM035), and was re-watched four times, not killed. STANDING (author): cache fetch and unpack steps never run under a time slot; only per-module lean calls get one, and a lean call that hits the slot is re-watched, not killed mid-write.
+    (l) Relay reachability: at about 14:05Z an `ls` of data/ plus `git -C D:/relay status` did not return in 120 s (and a D:/ wildcard search did not return in 360 s); both were stopped by the seat. Re-tested bounded at 14:36Z: `timeout 60 git -C D:/relay status --short` rc=0 in about 1 s; again at 15:47Z rc=0. Transient; relay writes went ahead.
+    (m) Component 3, step (1): THE SORRY SCANNER READ TWO DOCSTRING LINES AS AXIOM DECLARATIONS. tools/b565_audit.py stripped block comments by a non-greedy regex; Zeta23/FromPNTPlus/Tactic/AdditiveCombination.lean holds a docstring (:131-:189) with a nested `/- ... -/` at :168, so the strip closed at the inner `-/` and exposed the docstring's example lines `axiom qc : ℚ` and `axiom hqc : qc = 2*qc` (:183-:184) as code: the first Zeta23 scan read axiom declarations ['hqc', 'qc']. Lean nests block comments; the stripper now removes them by depth (its docstring says so), a unit test passes both polarities (a nested docstring's axiom dropped, a real one after it kept), and all six sorry banks were re-run: the Zeta23 closure's axioms ['hqc', 'qc'] -> [], every other total unchanged, both controls still firing (17 and 2). No terminal's print ever carried either name.
+    (n) Component 3: THE CORE GRADES' MECHANICAL PASS MISSED THREE PREMISES. `_grade` in tools/b565_record.py finds a premise only as a `(h : ...)` binder or an arrow after a name prefixed RvMBridge22/Hadamard/LiCriterion. It graded `LiCriterion.li_equiv_from_weighted_sum_formula` (premises `Summable ...` and the weighted zero-sum formula) and `LiCriterion.biconditional_rh_li_of_hadamard_order_one` (premises `Hadamard.hasFiniteOrder ξ →`, `Hadamard.order ξ ≤ 1 →`, which the prints file did not #check, so the pass read no statement) DERIVES, and `RvMBridge25.liValue_of_two` DERIVES with no statement at all (the prints file did not #check it). The grades of record are the statement readings of data/b565_audit.txt, each tied to verbatim needles in Lean's own output with the yield printed: those three read INTERFACES. The core bank is left as it ran and named here.
+    (o) THE SUITE'S FIRST PRE-PUSH RUN READ 72 OF 75: three arms were defective in their own needles, not in the act. G-CAPTURE-COMMIT-ALONE looked for a `VERDICT` line; the capture bank's verdict reads `CAPTURE TEST : PASS`. G-SYNONYM-FORM forbade any removed line; adding a map entry turns the map's former closing line (`...'INTERFACES'}`) into `...'INTERFACES',`, one line removed and re-added. G-SYNONYM-UNIT counted `PASS` three times; the bank marks each fixture AGREES and ends `FIXTURES 7 ; AGREEING 7 : PASS`. Each now reads its bank's own line (G-SYNONYM-FORM admits exactly the re-closed line), G-SYNONYM-UNIT's positive control was moved onto the verdict line (appending a line no longer mutates what it reads), and the suite was re-run in full; the first run's file is overwritten by the re-run, and its three failing rows are named here.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ### ### **ARMS RUN : 75. ### LIVE PASSING : 75. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 75. ### LIVE PASSING : 75. ### LIVE FAILING : 0 .**
+      relay                        main 8f50b2863705 ; remote 8f50b2863705 ; AGREE
+      PLACE-papers                 main b6539b275588 ; remote b6539b275588 ; AGREE
+      SIDE-global-section          main b9b00059c4e0 ; remote b9b00059c4e0 ; AGREE
+      SIDE-explicit-formula        main 6ec71b302998 ; remote 6ec71b302998 ; AGREE
+      SIDE-kernel                  main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation         main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                 main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle       main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-compression             main e9a5a368d14a ; remote e9a5a368d14a ; AGREE
+      SIDE-structural-error-correction main 6a4f4829cf21 ; remote 6a4f4829cf21 ; AGREE
+      SIDE-cosmo                   main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      detection-region-b559        local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (HELD, kept)
+      li-weil-b561                 local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                 local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+    the HELD commit 6eada6a : its files in the pushed tree : 0 of 2
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+    the clones : D:/audit-b565/bulka @35df682f and D:/audit-b565/arda @acfb0ee5, outside the corpus, KEPT until the author`s word
+
+### CARRIED FORWARD.
+    (a) ### **FOR THE AUTHOR, (R175)(3)**: H17a is REFUTED -- the Bulka converse is genuine at its pin. The conditional is at
+        OPEN_TRAILS :11630 with both branches; the vendoring, if the word is to vendor, opens with the equality lemma (four lemmas,
+        one of substance: the multiplicity of ζ against that of ξ on the strip) and meets a toolchain divergence (v4.34.0-rc1 /
+        de5ce8a9 against the kernel`s v4.33.0-rc2 / 51e6992e).
+    (b) ### **THE NEXT ACT, (R175)(6)**: b566 is GRH-WEIL act three -- LFunction χ on 0 < Re s by Abel summation (H18a-H18c).
+    (c) The clones stay under D:/audit-b565 until the author`s word; nothing of either repository is in the corpus.
+    (d) The standing lines of this act (memory): Lake at these toolchains has no job cap -- one module per call, free memory
+        printed, held below 2.5 GB; cache fetch and unpack steps never run under a time slot.
+    (e) At this close the suite`s regeneration of terminal_table.* is committed as housekeeping if it changed.
+========================================================================================================
