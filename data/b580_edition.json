@@ -1,0 +1,296 @@
+{
+ "path": "phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md",
+ "cur": "phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md",
+ "cur_blob": "f50bafcd08c17b18af5bfe3029fe989b84d13f88",
+ "lines_cur": 519,
+ "lines_body": 521,
+ "lines_full": 579,
+ "n_cur": 480,
+ "n_body": 481,
+ "n_full": 526,
+ "n_backmatter": 45,
+ "credit": 0,
+ "removals": 0,
+ "ruled_citations": 1,
+ "version_lines": 1,
+ "diff": [
+  {
+   "id": "AMC:25:263",
+   "line": 25,
+   "ed_line": 27,
+   "terminal": "no_type_d_conspiracies",
+   "old": "The finite-modulus no-conspiracy is compiled: `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift) in the `SIDE-effects` repository — vanilla Lean 4, `0 sorry, 0 axioms` — and it rules out finite-modulus-unexplained couplings only.",
+   "new": "The finite-modulus no-conspiracy is compiled as a programme-type statement: `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift) in the `SIDE-effects` repository states `IsEmpty TypeD` over the programme’s own couplings, T2, over Mathlib, `[propext, Classical.choice, Quot.sound]` at `a27415d` and carrying `sorryAx` at `c66f3c5` (relay `data/b558_cp1b.txt` :316) — and it rules out finite-modulus-unexplained couplings only.",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :316"
+   ],
+   "supports": "gives the terminal \"0 sorry, 0 axioms\" in vanilla Lean 4 without Mathlib, and at `c66f3c5` it prints `sorryAx` and imports Mathlib; the clean profile is at `a27415d` (ADDITIVE_MULTIPLICATIVE :507, b556)."
+  },
+  {
+   "id": "AMC:237:266",
+   "line": 237,
+   "ed_line": 239,
+   "terminal": "no_type_d_conspiracies",
+   "old": "The genuine structural exclusion is `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift), vanilla Lean 4, no sorry, no axioms.",
+   "new": "The structural exclusion is `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift), which states `IsEmpty TypeD` over the programme’s own couplings, T2, the arithmetic reading carried by the programme’s definitions, over Mathlib, `[propext, Classical.choice, Quot.sound]` at `a27415d` and carrying `sorryAx` at `c66f3c5` (relay `data/b558_cp1b.txt` :319).",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :319"
+   ],
+   "supports": "calls the terminal the genuine structural exclusion with no sorry and no axioms in vanilla Lean 4, and it is programme-type (T2) and prints `sorryAx` at `c66f3c5`, where its file imports Mathlib."
+  },
+  {
+   "id": "AMC:241:267",
+   "line": 241,
+   "ed_line": 243,
+   "terminal": "no_type_d_conspiracies",
+   "old": "The genuine verification is `Module1.no_type_d_conspiracies` (CRT exhaustiveness); the `no_conspiracy_twins/goldbach/sg` instantiations are placeholder forms over uniformly-True predicates.",
+   "new": "The verification is `Module1.no_type_d_conspiracies` (CRT exhaustiveness), which states `IsEmpty TypeD` over the programme’s own couplings, T2, so the arithmetic reading is carried by the programme’s definitions (relay `data/b558_cp1b.txt` :320); the `no_conspiracy_twins/goldbach/sg` instantiations are placeholder forms over uniformly-True predicates.",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :320"
+   ],
+   "supports": "reads the terminal as a genuine exclusion of additive-multiplicative conspiracies, and it states `IsEmpty TypeD` over the programme's own couplings (T2, GRH_CASCADE :467), so the arithmetic reading is carried by the programme's definitions."
+  },
+  {
+   "id": "AMC:249:270",
+   "line": 249,
+   "ed_line": 251,
+   "terminal": "partialPositivity_finiteRange",
+   "old": "And `partialPositivity_finiteRange` (finite-range Li positivity) is the RH-side structural twin of this paper's \"finite-modulus no-conspiracy, compiled, rules out finite-modulus-unexplained couplings only\" — both are the compiled-partial floor with the global residue left open.",
+   "new": "And `partialPositivity_finiteRange` (finite-range Li positivity) is the RH-side structural twin of this paper's \"finite-modulus no-conspiracy, compiled, rules out finite-modulus-unexplained couplings only\" — but its finite range holds only under two uncompiled literature premises (Bombieri–Lagarias `ExplicitFormulaDecomp`, Voros `TailBoundPremise`), T1-lit, while Li positivity at every n is RH itself (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`), equivalently the nonnegativity of the Bombieri–Lagarias arithmetic limits (`arith_limit_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`).",
+   "changed": true,
+   "reading": 0,
+   "matcher": true,
+   "cites": [
+    "li_nonneg_iff_rh",
+    "arith_limit_nonneg_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the terminal the compiled-partial floor of the RH side, and its partial result holds only under two uncompiled literature premises (T1-lit)."
+  },
+  {
+   "id": "AMC:279:272",
+   "line": 279,
+   "ed_line": 281,
+   "terminal": "no_type_d_conspiracies",
+   "old": "(2) **The structural exclusion is kernel-verified** as `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift; vanilla Lean 4, 0 sorry, 0 axioms).",
+   "new": "(2) **The structural exclusion is compiled, programme-type,** as `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift, stating `IsEmpty TypeD` over the programme’s own couplings, T2, over Mathlib, `[propext, Classical.choice, Quot.sound]` at `a27415d` and carrying `sorryAx` at `c66f3c5`, relay `data/b558_cp1b.txt` :325).",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :325"
+   ],
+   "supports": "gives the terminal \"0 sorry, 0 axioms\" in vanilla Lean 4 without Mathlib, and at `c66f3c5` it prints `sorryAx` and imports Mathlib; the clean profile is at `a27415d` (ADDITIVE_MULTIPLICATIVE :507, b556)."
+  },
+  {
+   "id": "AMC:291:274",
+   "line": 291,
+   "ed_line": 293,
+   "terminal": "no_type_d_conspiracies",
+   "old": "The additive-multiplicative structural component — the `0 sorry, 0 axioms` claim holds of the structural theorems (`Module1.no_type_d_conspiracies`, `crt_exhaustiveness`, `no_type_d`); the milestone wrappers each carry one `sorry`, disclosed in the same list:",
+   "new": "The additive-multiplicative structural component — the structural theorems (`Module1.no_type_d_conspiracies`, `crt_exhaustiveness`, `no_type_d`) are programme-type, T2, over the programme’s own couplings, and at this pin `Module1.no_type_d_conspiracies` carries `sorryAx` and imports Mathlib (relay `data/b558_cp1b.txt` :327); the milestone wrappers each carry one `sorry`, disclosed in the same list:",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :327"
+   ],
+   "supports": "gives the terminal \"0 sorry, 0 axioms\" in vanilla Lean 4 without Mathlib, and at `c66f3c5` it prints `sorryAx` and imports Mathlib; the clean profile is at `a27415d` (ADDITIVE_MULTIPLICATIVE :507, b556)."
+  },
+  {
+   "id": "AMC:292:276",
+   "line": 292,
+   "ed_line": 294,
+   "terminal": "no_type_d_conspiracies",
+   "old": "- `Module1.no_type_d_conspiracies` — the genuine structural exclusion (`crt_exhaustiveness` ⇒ `IsEmpty TypeD`), CRT exhaustiveness via periodic lift;",
+   "new": "- `Module1.no_type_d_conspiracies` — the structural exclusion over the programme’s own couplings (`crt_exhaustiveness` ⇒ `IsEmpty TypeD`), T2, the arithmetic reading carried by the programme’s definitions (relay `data/b558_cp1b.txt` :329), CRT exhaustiveness via periodic lift;",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :329"
+   ],
+   "supports": "reads the terminal as a genuine exclusion of additive-multiplicative conspiracies, and it states `IsEmpty TypeD` over the programme's own couplings (T2, GRH_CASCADE :467), so the arithmetic reading is carried by the programme's definitions."
+  },
+  {
+   "id": "AMC:334:279",
+   "line": 334,
+   "ed_line": 336,
+   "terminal": "no_type_d_conspiracies",
+   "old": "The finite-modulus no-conspiracy is kernel-verified as `Module1.no_type_d_conspiracies` (CRT exhaustiveness) in `SIDE-effects`, vanilla Lean 4, `0 sorry, 0 axioms`.",
+   "new": "The finite-modulus no-conspiracy is compiled, programme-type, as `Module1.no_type_d_conspiracies` (CRT exhaustiveness) in `SIDE-effects`, stating `IsEmpty TypeD` over the programme’s own couplings, T2, over Mathlib, `[propext, Classical.choice, Quot.sound]` at `a27415d` and carrying `sorryAx` at `c66f3c5` (relay `data/b558_cp1b.txt` :332).",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :332"
+   ],
+   "supports": "gives the terminal \"0 sorry, 0 axioms\" in vanilla Lean 4 without Mathlib, and at `c66f3c5` it prints `sorryAx` and imports Mathlib; the clean profile is at `a27415d` (ADDITIVE_MULTIPLICATIVE :507, b556)."
+  },
+  {
+   "id": "AMC:364:280",
+   "line": 364,
+   "ed_line": 366,
+   "terminal": "no_type_d_conspiracies",
+   "old": "`SIDE-effects` (additive-multiplicative component): `Module1.no_type_d_conspiracies` (genuine CRT exhaustiveness) and the general `no_type_d` lemma compile at `0 sorry, 0 axioms`; the `no_conspiracy_twins/goldbach/sg` instantiations are placeholder forms; the `twin_primes_infinite` / `goldbach` / `sophie_germain_infinite` milestone wrappers each carry one `sorry` at the analytic boundary.",
+   "new": "`SIDE-effects` (additive-multiplicative component): `Module1.no_type_d_conspiracies` (CRT exhaustiveness) and the general `no_type_d` lemma compile as programme-type statements over the programme’s own couplings, T2, `no_type_d` axiom-free and `Module1.no_type_d_conspiracies` over Mathlib, `[propext, Classical.choice, Quot.sound]` at `a27415d` and carrying `sorryAx` at `c66f3c5` (relay `data/b558_cp1b.txt` :333); the `no_conspiracy_twins/goldbach/sg` instantiations are placeholder forms; the `twin_primes_infinite` / `goldbach` / `sophie_germain_infinite` milestone wrappers each carry one `sorry` at the analytic boundary.",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :333"
+   ],
+   "supports": "gives the terminal \"0 sorry, 0 axioms\" in vanilla Lean 4 without Mathlib, and at `c66f3c5` it prints `sorryAx` and imports Mathlib; the clean profile is at `a27415d` (ADDITIVE_MULTIPLICATIVE :507, b556)."
+  },
+  {
+   "id": "AMC:404:282",
+   "line": 404,
+   "ed_line": 406,
+   "terminal": "no_type_d_conspiracies",
+   "old": "`no_type_d_conspiracies` is a **derivation-certificate** (scoped positive-modulus).",
+   "new": "`no_type_d_conspiracies` is a **derivation-certificate** (scoped positive-modulus) of a programme-type statement, `IsEmpty TypeD` over the programme’s own couplings, T2 whatever its profile (relay `data/b558_cp1b.txt` :335).",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :335"
+   ],
+   "supports": "grades the terminal DERIVES (clean at `a27415d`), and it is programme-type, T2 whatever its profile (GRH_CASCADE :467, b557)."
+  },
+  {
+   "id": "AMC:408:283",
+   "line": 408,
+   "ed_line": 410,
+   "terminal": "crt_exhaustiveness",
+   "old": "| Finite-modulus no-conspiracy (CRT exhaustiveness) | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `SIDEEffects.Phase15.Module1.crt_exhaustiveness`) | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318 jobs, exit 0. **Scope: for positive-modulus structural couplings** — the constructors carry positivity hypotheses (`0 < q`, `0 < m`), author-accepted 2026-07-13, degenerate zero-modulus cases released as singletons. Upgraded from proof-partial after the W-4 discharge landed at `a27415d`; the Milestones analytic boundary is unchanged. Rules out finite-modulus-unexplained couplings only. |",
+   "new": "| Finite-modulus no-conspiracy (CRT exhaustiveness) | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `SIDEEffects.Phase15.Module1.crt_exhaustiveness`) | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** its own statement, `IsEmpty TypeD` over the programme’s own couplings, T2 whatever its profile (relay `data/b558_cp1b.txt` :336, :337) — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318 jobs, exit 0. **Scope: for positive-modulus structural couplings** — the constructors carry positivity hypotheses (`0 < q`, `0 < m`), author-accepted 2026-07-13, degenerate zero-modulus cases released as singletons. Upgraded from proof-partial after the W-4 discharge landed at `a27415d`; the Milestones analytic boundary is unchanged. Rules out finite-modulus-unexplained couplings only. |",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :336"
+   ],
+   "supports": "grades the row DERIVES through this terminal, and the terminal is programme-type, T2 whatever its profile (GRH_CASCADE :467, b557)."
+  },
+  {
+   "id": "AMC:408:284",
+   "line": 408,
+   "ed_line": 410,
+   "terminal": "no_type_d_conspiracies",
+   "old": "| Finite-modulus no-conspiracy (CRT exhaustiveness) | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `SIDEEffects.Phase15.Module1.crt_exhaustiveness`) | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318 jobs, exit 0. **Scope: for positive-modulus structural couplings** — the constructors carry positivity hypotheses (`0 < q`, `0 < m`), author-accepted 2026-07-13, degenerate zero-modulus cases released as singletons. Upgraded from proof-partial after the W-4 discharge landed at `a27415d`; the Milestones analytic boundary is unchanged. Rules out finite-modulus-unexplained couplings only. |",
+   "new": "| Finite-modulus no-conspiracy (CRT exhaustiveness) | SIDE-effects (`c66f3c5`) | `SIDEEffects.Phase15.Module1.no_type_d_conspiracies` (via `SIDEEffects.Phase15.Module1.crt_exhaustiveness`) | `{propext, Classical.choice, Quot.sound}` — no `sorryAx`. Run at pin `a27415d` (tree clean: `git status --porcelain` empty; HEAD recorded at run), 2026-07-13, `lake env lean` `#print axioms`. | **DERIVES** its own statement, `IsEmpty TypeD` over the programme’s own couplings, T2 whatever its profile (relay `data/b558_cp1b.txt` :336, :337) — the modular-conversion discharge landed at `a27415d` (W-4). `to_modular_correct`'s four cases are proved via the periodicity restructure (`StructuralCoupling.period` / `period_pos` / `eval_periodic`, with `to_modular := ofPeriodic …` correct by `ofPeriodic_eval`); zero `sorry`; full `lake build` 8318 jobs, exit 0. **Scope: for positive-modulus structural couplings** — the constructors carry positivity hypotheses (`0 < q`, `0 < m`), author-accepted 2026-07-13, degenerate zero-modulus cases released as singletons. Upgraded from proof-partial after the W-4 discharge landed at `a27415d`; the Milestones analytic boundary is unchanged. Rules out finite-modulus-unexplained couplings only. |",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :336"
+   ],
+   "supports": "grades the terminal DERIVES (clean at `a27415d`), and it is programme-type, T2 whatever its profile (GRH_CASCADE :467, b557)."
+  },
+  {
+   "id": "AMC:446:290",
+   "line": 446,
+   "ed_line": 448,
+   "terminal": "no_type_d_conspiracies",
+   "old": "| ### **the finite-modulus no-conspiracy** (§I) | ### **`SIDE-effects`**, pin `c66f3c5`, branch ### **`w-ladder-skeleton`** *(recorded 2026-08-12; the corpus had never named the branch)* | `Module1.no_type_d_conspiracies` | ### **`0 sorry, 0 axioms`** (vanilla Lean 4, no Mathlib) | ### **COMPILED** | `git -C SIDE-effects checkout w-ladder-skeleton && lake build`, then `#print axioms Module1.no_type_d_conspiracies` |",
+   "new": "| ### **the finite-modulus no-conspiracy** (§I) | ### **`SIDE-effects`**, pin `c66f3c5`, branch ### **`w-ladder-skeleton`** *(recorded 2026-08-12; the corpus had never named the branch)* | `Module1.no_type_d_conspiracies` | `[propext, sorryAx, Quot.sound]` at this pin, over Mathlib | ### **COMPILED, T2** — programme-type, `IsEmpty TypeD` over the programme’s own couplings, the clean profile `[propext, Classical.choice, Quot.sound]` at `a27415d` (relay `data/b558_cp1b.txt` :343) | `git -C SIDE-effects checkout w-ladder-skeleton && lake build`, then `#print axioms Module1.no_type_d_conspiracies` |",
+   "changed": true,
+   "reading": 2,
+   "matcher": true,
+   "cites": [],
+   "banks": [
+    "relay `data/b558_cp1b.txt` :343"
+   ],
+   "supports": "gives the terminal \"0 sorry, 0 axioms\" in vanilla Lean 4 without Mathlib, and at `c66f3c5` it prints `sorryAx` and imports Mathlib; the clean profile is at `a27415d` (ADDITIVE_MULTIPLICATIVE :507, b556)."
+  }
+ ],
+ "offset": "+2 from :17 (the v0.2.4 version line and a blank, inserted above the v0.2.3 version line); no other insertion",
+ "ceils": [
+  [
+   33,
+   "— mechanism identified, exclusion direct, problem closed (RH, GRH).",
+   "— mechanism identified, exclusion direct, problem closed in the programme’s argument up to its open clause, `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) (RH, GRH)."
+  ],
+  [
+   320,
+   "— RH proof core;",
+   "— RH-core;"
+  ],
+  [
+   366,
+   "— RH proof core.",
+   "— RH-core."
+  ]
+ ],
+ "stemx": [
+  {
+   "cur": 231,
+   "ed": 233,
+   "use": "gaps-between-primes",
+   "why": "the object’s own name"
+  },
+  {
+   "cur": 388,
+   "ed": 390,
+   "use": "Small gaps between primes",
+   "why": "a published title (Maynard 2015)"
+  },
+  {
+   "cur": 396,
+   "ed": 398,
+   "use": "Bounded gaps between primes",
+   "why": "a published title (Zhang 2014)"
+  }
+ ],
+ "version": {
+  "above": 17,
+  "text": "*v0.2.4 — 2026-10-01*"
+ },
+ "sha256": "b2fe7308d6b920f4f4fd1b003cf8376146758b904b30c49e9a7fb48d5b5c2d91",
+ "status_blanks": [],
+ "cited_lines": {
+  "h2_sign_iff_rh": [
+   35
+  ],
+  "li_nonneg_iff_rh": [
+   251
+  ],
+  "arith_limit_nonneg_iff_rh": [
+   251
+  ]
+ },
+ "bank_lines": [
+  316,
+  319,
+  320,
+  325,
+  327,
+  329,
+  332,
+  333,
+  335,
+  336,
+  337,
+  343
+ ]
+}
