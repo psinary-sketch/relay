@@ -9,7 +9,9 @@
 ###   (4) one node's statement changed        -> the emitted page differs from the generated page at that node's line
 ###                                              (g_chain_page.compare reports it) -- a changed statement is refused;
 ###   (5) one CELL line cut short             -> exit 6.
-### Usage: python tools/test_chain_page.py <nodes.txt> <probe_out.txt> <page.md>
+### Usage: python tools/test_chain_page.py <nodes.txt> <probe_out.txt> <page.md> [<dirichlet_nodes.txt> <dirichlet_probe_out.txt>]
+###   (9)-(12), b573 (R183)(5): the Dirichlet variant -- page names, title, tier key, open line, the successor sentence byte for
+###   byte as the last derived line, the Placement rows, no node in Correspondence, an unknown variant refused.
 """
 import io
 import os
@@ -122,9 +124,39 @@ def main(argv):
     finally:
         C.record_rows = real_rows
 
+    # ### (R183)(5), b573: THE DIRICHLET VARIANT -- given a `# page: dirichlet` list and its banked probe output (argv 3, 4)
+    if len(argv) >= 5:
+        dnodes, dout = argv[3], argv[4]
+        want('(9) the ζ list names the ζ page, the χ list the Dirichlet page',
+             C.page_name_of(nodes) == C.PAGE_NAME and C.page_name_of(dnodes) == C.DIR_PAGE_NAME)
+        rc9, pg9, m9, _l = C.build(dnodes, tmp, dout)
+        want('(9) the χ list re-emitted from its banked probe output: exit 0 (read %s)' % rc9, rc9 == 0 and pg9 is not None)
+        if rc9 == 0:
+            ls9 = pg9.split('\n')
+            want('(9) the title is the variant`s', ls9[0] == C.DIR_TITLE)
+            want('(9) the head carries the same tier key', C.TIER_KEY in ls9[2])
+            nl9 = [l for l in ls9 if re.match(r'^\d+\. `', l)]
+            oi = ls9.index(C.DIR_OPEN_LINE) if C.DIR_OPEN_LINE in ls9 else -1
+            want('(10) the open line, verbatim, directly after the node lines (%d nodes)' % len(nl9),
+                 oi == ls9.index(nl9[-1]) + 2 if nl9 and oi >= 0 else False)
+            want('(10) the last derived line is the (R183)(3) sentence, byte for byte', oi >= 0 and ls9[oi + 2] == RULED_SUCCESSOR)
+            want('(11) the Placement table names the ζ page and the successor sentence`s places',
+                 '| the ζ-leg | `%s` |' % C.PAGE_NAME in ls9 and any(l.startswith('| the successor sentence | `README.md:') for l in ls9))
+            want('(11) no Correspondence row is a node', not any(('| `%s` |' % x['name']) in pg9 for x in C.read_nodes(dnodes)[0]))
+        bad = os.path.join(tmp, 'bad_nodes.txt')
+        io.open(bad, 'w', encoding='utf-8').write(io.open(dnodes, encoding='utf-8').read().replace('# page: dirichlet', '# page: other'))
+        rc12, pg12, _m, _l = C.build(bad, tmp, dout)
+        want('(12) an unknown variant is refused: exit 2, no page (read %s)' % rc12, rc12 == 2 and pg12 is None)
+
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1
+
+
+RULED_SUCCESSOR = ('The criterion for primitive χ is composed: Weil positivity on classK for χ ⟺ GRH_chi, both directions compiled '
+                   '(h2_sign_chi_iff_grh_chi, v0.14), the converse by the ζ route over the χ-configuration with its own local count. '
+                   'The one clause now has two compiled instances, ζ and primitive χ ≠ 1, each equivalent to the location of its own '
+                   'zeros; neither is proved.')   # ### (R183)(3), the author's words, typed here from the ferry (relay data/b573_ferry.txt)
 
 
 def keyed_given(path):

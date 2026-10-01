@@ -58,6 +58,19 @@ HOLD_MB = 2560
 PAGE_NAME = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 OPEN_LINE = ('h2_sign — open; by the compiled equivalences above, the same open statement as Li positivity and as '
              'arithmetic-limit positivity.')
+# ### (R183)(5), b573: THE DIRICHLET VARIANT. A node list carrying `# page: dirichlet` is the χ-leg's: its page is written
+# ### under its own name and title, with the ruled open line, its last derived line the (R183)(3) successor sentence as the
+# ### author wrote it (read from README's placed line at PLACE-papers HEAD), the ζ page as a Placement row, and the graded
+# ### χ-side names as its Correspondence rows; its probe also imports the χ and schema modules at the pin. A list without
+# ### `# page:` is generated exactly as before (b568's and b569's lists still regenerate their page byte for byte).
+DIR_PAGE_NAME = 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md'
+DIR_TITLE = '# THE CLAUSE AT THE DIRICHLET INSTANCE'
+DIR_OPEN_LINE = ('GRH_chi — open, for each primitive χ ≠ 1; by the compiled equivalence the same open statement as Weil positivity '
+                 'on classK for χ')
+DIR_CEIL_MARK = "*(Appended under the author's ruling `(R183)`(3)"
+DIR_CEIL_OPEN = "Supportable, the author's sentence: *"
+SCHEMA_PREFIX = 'SIDEExplicitFormula.Schema.'
+VARIANT = None
 BULKA_ROOTS = ('Lc', 'Hadamard', 'FunctionsOfOneComplexVariable')
 LEDGERS = ['FINDINGS.md', 'OPEN_TRAILS.md', 'ERRATA.md', 'FACES_LEDGER.md']
 CHI_PREFIX = 'SIDEExplicitFormula.GRHWeil.'
@@ -79,6 +92,21 @@ def node_pin(path):
             tag = m.group(1)
     rc, sha = git(KER, 'rev-parse', '--verify', '-q', tag + '^{commit}')
     return tag, (sha.strip() if rc == 0 and len(sha.strip()) == 40 else None)
+
+
+def node_variant(path):
+    """### (R183)(5): the page variant a node list names by one line `# page: <name>`; None for a list without one."""
+    v = None
+    for raw in io.open(path, encoding='utf-8'):
+        m = re.match(r'^# page: (\S+)\s*$', raw.rstrip('\r\n'))
+        if m:
+            v = m.group(1)
+    return v
+
+
+def page_name_of(path):
+    """### the page file a node list generates: the Dirichlet page for `# page: dirichlet`, else the ζ page."""
+    return DIR_PAGE_NAME if node_variant(path) == 'dirichlet' else PAGE_NAME
 
 
 def read_nodes(path):
@@ -206,6 +234,10 @@ def probe_imports():
     ### the root module SIDEExplicitFormula.lean imports only Zeta23.WeilEF.Main, so it cannot stand for the kernel."""
     rc, out = git(KER, 'ls-tree', '--name-only', PIN, 'SIDEExplicitFormula/')
     mods = sorted(x[:-5].replace('/', '.') for x in out.split(NL) if x.endswith('.lean') and not x.endswith('/GRHWeil.lean'))
+    if VARIANT == 'dirichlet':
+        # ### (R183)(5): the χ-leg's page also imports GRHWeil and every module of Chi/ and Schema/ at the pin
+        rc2, out2 = git(KER, 'ls-tree', '-r', '--name-only', PIN, 'SIDEExplicitFormula/Chi/', 'SIDEExplicitFormula/Schema/')
+        mods += ['SIDEExplicitFormula.GRHWeil'] + sorted(x[:-5].replace('/', '.') for x in out2.split(NL) if x.endswith('.lean'))
     return NL.join('import %s' % m for m in mods)
 
 
@@ -390,11 +422,26 @@ def ceiling_line():
     return lines[120] if len(lines) > 120 else ''
 
 
+def dir_ceiling():
+    """### (R183)(5): the successor sentence of (R183)(3), as the author wrote it, read from README's placed line at PLACE-papers
+    ### HEAD (between `Supportable, the author's sentence: *` and the closing `*`); with the line numbers at README and REGISTRY."""
+    rc, out = git(PP, 'show', 'HEAD:README.md')
+    rc2, out2 = git(PP, 'show', 'HEAD:REGISTRY.md')
+    rl = [i for i, l in enumerate(out.split(NL), 1) if l.startswith(DIR_CEIL_MARK)]
+    gl = [i for i, l in enumerate(out2.split(NL), 1) if l.startswith(DIR_CEIL_MARK)]
+    if len(rl) != 1:
+        return '', rl, gl
+    line = out.split(NL)[rl[0] - 1]
+    a = line.find(DIR_CEIL_OPEN)
+    b = line.find('*', a + len(DIR_CEIL_OPEN)) if a >= 0 else -1
+    return (line[a + len(DIR_CEIL_OPEN):b] if a >= 0 and b > 0 else ''), rl, gl
+
+
 def keystones(short_names):
     pat = '|'.join(re.escape(s) for s in sorted(short_names))
     rc, out = git(PP, 'grep', '-l', '-E', r'\b(' + pat + r')\b', 'HEAD', '--', '*.md')
     files = sorted(set(x.split(':', 1)[1] for x in out.split(NL) if ':' in x))
-    root = set(LEDGERS + ['README.md', 'REGISTRY.md', PAGE_NAME])
+    root = set(LEDGERS + ['README.md', 'REGISTRY.md', PAGE_NAME, DIR_PAGE_NAME])   # ### both generated pages, never keystones
     return [f for f in files if f not in root and not f.startswith('archive/')]
 
 
@@ -429,12 +476,45 @@ def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b5
     return NL.join(L) + NL
 
 
+def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil_lines, nodes_name, key=True):
+    """### (R183)(5): the χ-leg's page -- the same head key and node-line form as the ζ page; its own title, open line, last
+    ### derived line (the successor sentence) and Placement rows."""
+    head = ('This page is generated by relay `tools/chain_page.py` from the node list relay `data/%s`: the compiled chain '
+            'from `GRH_chi` to the ceiling\'s successor sentence, one declaration per line, in dependency order. '
+            'It is generated at SIDE-explicit-formula %s = `%s` (Lean %s; Mathlib `%s`; Zeta23 vendored at `%s`; Bulka vendored '
+            'at `%s`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by '
+            '`#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes.'
+            % (nodes_name, PIN_TAG, PIN[:7], TOOLCHAIN.split(':')[1], MATHLIB[:8], ZETA23, BULKA))
+    L = [DIR_TITLE, '', head + ((' ' + TIER_KEY) if key else ''), '']
+    for i, n in enumerate(order, 1):
+        c = cells[n]
+        ax = '[' + ', '.join(c['axioms']) + ']' if c['axioms'] is not None else c['axioms_text']
+        cons = ', '.join('`%s`' % short(x) for x in c['consumes']) or 'none'
+        tier = c['tier'] + ((' (table: %s)' % (c.get('table_tier') or 'none')) if key else '')
+        L.append('%d. `%s` — %s:%d — %s — `%s` — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
+                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], c['premises'], c['grade'], tier, ax, cons))
+    rl, gl = ceil_lines
+    L += ['', DIR_OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
+          '| this page | `%s` |' % DIR_PAGE_NAME]
+    L += ['| ledger | `%s` |' % f for f in LEDGERS]
+    L += ['| the successor sentence | %s |' % ', '.join(['`README.md:%d`' % x for x in rl] + ['`REGISTRY.md:%d`' % x for x in gl])]
+    L += ['| keystone naming a node | `%s` |' % f for f in keystone_files]
+    L += ['| the ζ-leg | `%s` |' % PAGE_NAME]
+    L += ['', '## Correspondence', '', '| declaration | repository | grade | tier |', '|:--|:--|:--|:--|']
+    for r in corr_rows:
+        L.append('| `%s` | %s | %s | %s |' % (r['name'], r['repo'], r['grade'], r['tier']))
+    return NL.join(L) + NL
+
+
 # ================================================================================ the run
 def build(nodes_path, probe_dir, from_output=None):
     # ### (R179)(4): the pin and the tier key come with the node list. A list carrying `# pin: <tag>` is generated at that
     # ### tag with the tier key on its head and the table's tier beside every node's; a list without one (b568's) at v0.10
     # ### as b568 generated it, so b568's page still regenerates byte for byte from b568's list.
-    global PIN_TAG, PIN
+    global PIN_TAG, PIN, VARIANT
+    VARIANT = node_variant(nodes_path)
+    if VARIANT not in (None, 'dirichlet'):
+        return 2, None, None, ['unknown page variant %r' % VARIANT]
     keyed = any(re.match(r'^# pin: \S+\s*$', raw.rstrip('\r\n')) for raw in io.open(nodes_path, encoding='utf-8'))
     PIN_TAG, PIN = ('v0.10', '6baed63ae664a22db1f325177b81253e270de6e3')
     if keyed:
@@ -447,6 +527,10 @@ def build(nodes_path, probe_dir, from_output=None):
     corr_names = sorted(set(n for n, r in rec.items()
                             if (n.startswith('SIDEExplicitFormula.') or n.startswith('Zeta23.')) and not n.startswith(CHI_PREFIX)
                             and n not in names and r.get('grade') != 'UNGRADED') | set(m for m in marks if m not in names))
+    if VARIANT == 'dirichlet':
+        # ### (R183)(5): the χ-leg's Correspondence rows are the graded χ-side and schema names that are not nodes
+        corr_names = sorted(set(n for n, r in rec.items() if (n.startswith(CHI_PREFIX) or n.startswith(SCHEMA_PREFIX))
+                                and n not in names and r.get('grade') != 'UNGRADED') | set(m for m in marks if m not in names))
     watch = ['SIDEExplicitFormula.RegisterDepth']
     log = []
     if from_output is None:
@@ -527,7 +611,14 @@ def build(nodes_path, probe_dir, from_output=None):
     for x in corr_extra:
         corr_rows.append(dict(name=x['name'], repo=x['repo'], grade=x['grade'], tier=x['tier'] + ('; ' + x['note'] if x['note'] else '')))
     kfiles = keystones([short(n) for n in names if not cells[n]['module'].startswith('Mathlib')])
-    page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed)
+    if VARIANT == 'dirichlet':
+        sent, rl, gl = dir_ceiling()
+        if not sent:
+            log.append('the successor sentence is not found once at README (lines %s)' % rl)
+            return 6, None, dict(cells=cells), log
+        page = emit_dirichlet(nodes, cells, order, corr_rows, kfiles, sent, (rl, gl), os.path.basename(nodes_path), keyed)
+    else:
+        page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed)
     for d in drops:   # ### each DROP checked here, not typed: a declaration of that exact name at the pin, and the watch
         ere = (r'^[[:space:]]*(@\[[^]]*\][[:space:]]*)?((private|protected|noncomputable)[[:space:]]+)*'
                r'(theorem|lemma|def|abbrev|structure|inductive|irreducible_def)[[:space:]]+([A-Za-z_][A-Za-z0-9_]*\.)*'
