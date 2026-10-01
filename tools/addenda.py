@@ -83,3 +83,29 @@ def paste_reader(data_dir):
                 return t
         return ''
     return paste_of
+
+
+# ### ### (h) THE LICENCE BLOB LINE ((R177)(3)(h), b567). A licence record's digest is compared on the git blob, not on a
+# ### working copy (autocrlf makes the working copy differ: b566 defect (h)). The line appended to the record has the one form
+# ###     LICENCE BLOB SHA256: <64 hex>, blob <40 hex>, <bytes> bytes, appended by (Rn)(k)
+# ### and an arm compares that sha256, that size and that object id against the blob it reads.
+BLOB_RE = re.compile(r'^LICENCE BLOB SHA256: ([0-9a-f]{64}), blob ([0-9a-f]{40}), (\d+) bytes, appended by \((R\d+)\)\((\d+)\)\s*$')
+
+
+def blob_line(text):
+    """### the LAST licence blob line of a record: dict(sha256, blob, bytes, rn, k), or None."""
+    hits = [h for h in (BLOB_RE.match(l) for l in text.replace('\r\n', NL).split(NL)) if h]
+    if not hits:
+        return None
+    h = hits[-1]
+    return dict(sha256=h.group(1), blob=h.group(2), bytes=int(h.group(3)), rn=h.group(4), k=int(h.group(5)))
+
+
+def blob_matches(text, blob_bytes):
+    """### the record's blob line against the bytes of the blob read now: its sha256, its size, and git's own object id."""
+    import hashlib
+    b = blob_line(text)
+    if not b or not blob_bytes:
+        return False
+    oid = hashlib.sha1(b'blob %d\0' % len(blob_bytes) + blob_bytes).hexdigest()
+    return b['sha256'] == hashlib.sha256(blob_bytes).hexdigest() and b['bytes'] == len(blob_bytes) and b['blob'] == oid

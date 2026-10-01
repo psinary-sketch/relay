@@ -1,0 +1,18 @@
+### test_addenda_licence -- (R177)(3)(h)
+  the record`s blob line : {'sha256': '52c6f7221d5a43fd8fd414ea9b386889882aaee08c85008d8bf7046a63a64a8a', 'blob': 'd707a12f00206dd785af487026142534fa36120d', 'bytes': 11344, 'rn': 'R177', 'k': 3}
+  the blob on main       : 11344 bytes, sha256 52c6f7221d5a43fd8fd414ea9b386889882aaee08c85008d8bf7046a63a64a8a
+  its CRLF working form  : 11545 bytes, sha256 18ed520c9cda16a04467676a237d515f6410845e6a0de80de97f5c14731b2991
+  the record carries a blob line, appended by (R177)(3)                          got True  want True  OK
+  the blob line MATCHES the LICENSE blob on the kernel`s main                    got True  want True  OK
+  MUTATION: the CRLF working form does NOT match                                 got False want False OK
+  MUTATION: a blob one byte longer does NOT match                                got False want False OK
+  MUTATION: a line carrying the WORKING-COPY digest does NOT match the blob      got False want False OK
+  MUTATION: the record as b566 left it (no blob line) does NOT match             got False want False OK
+  MUTATION: b566`s own digest line is not read as a blob line                    got None  want None  OK
+  ARM: the real record against the blob on main -> PASS                          got True  want True  OK
+  ARM: the real record, a clone blob equal to main`s -> PASS                     got True  want True  OK
+  ARM: the real record against the WORKING-COPY bytes -> FAIL                    got False want False OK
+  ARM: a clone blob that differs -> FAIL                                         got False want False OK
+  ARM: the record as b566 left it -> FAIL                                        got False want False OK
+  ARM: its own positive control still FAILS                                      got False want False OK
+### 13 of 13 cases as wanted -- PASS

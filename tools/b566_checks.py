@@ -204,6 +204,8 @@ def sources():
         bulka_head=gits(BULKA, 'rev-parse', 'HEAD') if os.path.isdir(BULKA) else '',
         lic=rd_d('b566_step1_license.txt'), lic_blob=hashlib.sha256(blob(BULKA, PIN + ':LICENSE') or b'').hexdigest(),
         lic_main=hashlib.sha256(blob(KER, 'main:Vendored/Bulka/LICENSE') or b'x').hexdigest(),
+        lic_main_bytes=blob(KER, 'main:Vendored/Bulka/LICENSE') or b'',   # ### (R177)(3)(h): the BLOB, compared from b567
+        lic_clone_bytes=(blob(BULKA, PIN + ':LICENSE') or b'') if os.path.isdir(BULKA) else None,
         clo=rd_d('b566_step1_closure.txt'), vlist=[x for x in rd_d('b566_vendor_list.txt').split(NL) if x.strip()],
         dist=rd_d('b566_step1_distance.txt'), vdig=jload('b566_vendor_digests.json'),
         notice=rd8(blob(KER, 'main:NOTICE')),
@@ -544,10 +546,11 @@ ARMS = [
      lambda S: put(S, 'arda_exists', True)),
     ('G-BULKA-KEPT', 'Bulka`s clone READ HERE -- its HEAD the pin',
      lambda S: S['bulka_head'] == PIN, lambda S: put(S, 'bulka_head', '')),
-    ('G-LICENCE-PRINTED', 'the licence bank against the clone`s LICENSE blob at the pin and the carried copy on main',
-     lambda S: (('LICENSE blob' in S['lic']) and ('sha256 ' + S['lic_blob']) in S['lic'] and S['lic_blob'] == S['lic_main']
+    ('G-LICENCE-PRINTED', 'the licence bank`s BLOB LINE ((R177)(3)(h)) against the LICENSE blob on main and the clone`s at the pin',
+     lambda S: (('LICENSE blob' in S['lic']) and ADD.blob_matches(S['lic'], S['lic_main_bytes'])
+                and (S['lic_clone_bytes'] is None or ADD.blob_matches(S['lic'], S['lic_clone_bytes']))
                 and 'Apache License' in S['lic'] and 'Version 2.0, January 2004' in S['lic']),
-     lambda S: put(S, 'lic_main', '0' * 64)),
+     lambda S: put(S, 'lic_main_bytes', S['lic_main_bytes'].replace(b'\n', b'\r\n'))),
     ('G-CLOSURE-LISTED', 'the closure bank and the vendor list -- the converse`s 12, Fidelity`s 33, each module named',
      lambda S: ('ITS CLOSURE: 12 MODULES' in S['clo'] and 'ITS CLOSURE: 33 MODULES' in S['clo'] and len(S['vlist']) == 33
                 and all(('    ' + m) in S['clo'] for m in S['vlist'])),
