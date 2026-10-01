@@ -1,0 +1,50 @@
+=== START 2026-10-01T16:22:42Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Schema/Converse.lean
+SIDEExplicitFormula/Schema/Converse.lean:34:41: error: Application type mismatch: The argument
+  hA
+has type
+  0 ≤ Aw H
+but is expected to have type
+  HCount C.toZeroConfig ?m.129
+in the application
+  weighted_summable C.toZeroConfig hA
+SIDEExplicitFormula/Schema/Converse.lean:30:82: error: unsolved goals
+C : WeilConfig
+g0 : ℝ → ℝ
+L M : ℝ
+H : PWSetup C.toZeroConfig g0 L M
+B : ℝ
+D : ℕ
+A₀ : ℝ
+hA✝ : HCount C.toZeroConfig A₀
+hM : 0 < M
+hA : 0 ≤ Aw H
+⊢ Summable fun ρ => ↑(C.mult ↑ρ) * (B ^ 2 * (1 + ‖wOf ↑ρ‖) ^ (2 * D) * (offScore g0 ↑ρ / M) ^ 2 ^ (D + 1))
+SIDEExplicitFormula/Schema/Converse.lean:56:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:78:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SIDEExplicitFormula/Schema/Converse.lean:84:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:90:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula/Schema/Converse.lean:117:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SIDEExplicitFormula/Schema/Converse.lean:124:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:130:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula/Schema/Converse.lean:190:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:229:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SIDEExplicitFormula/Schema/Converse.lean:241:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+=== END 2026-10-01T16:23:09Z rc=1

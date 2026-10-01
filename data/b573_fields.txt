@@ -1,0 +1,43 @@
+b573 -- COMPONENT 2: THE FIELDS, (R183)(4)(a) -- EACH TYPE READ OFF ITS CONSUMING LEMMA; THE STRUCTURE PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-01T16:06:28Z
+
+### FIELD 1, EF -- consumed by h2_sign_imp_rh_strip_of (PowerLimit.lean :1167, at :1184-:1188 `b321_identity _ hc hs he`) and by
+###   zeroSide_eventually_neg through the zero side; its type is b321_identity`s (B321Identity.lean :46-:48):
+###     :46         zeroSide k = b321Norm * (poleTerm k - primeSum k + archTerm k) := by
+###     :47       obtain ⟨-, h⟩ := Zeta23.WeilEF.EF_lit_zetaZeroConfig k hk hs
+###     :48       have hp : (fun n : ℕ => ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+###   χ`s identity (zeroSide_chi_eq, Chi/CriterionForward.lean :34) carries no evenness: the field takes the even form, which both meet.
+### FIELD 2, COUNT -- consumed by dominant_summable (PowerLimit.lean :949), the one lemma of the kind COUNT; its type is HCount:
+###     :952      obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count
+###     :955      exact weighted_summable Zeta23.zetaZeroConfig ⟨h1, h2⟩
+###     :44     def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+###     :44     theorem rh_strip_chi_iff_grh_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+###     :45       1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+### FIELD 3, TARGET -- the strip form rh_strip (PowerWindow.lean :483) is what h2_sign_iff_rh_strip concludes; the seam (the 4 SEAM
+###   lemmas) carries it to the instance`s own statement, so the field is a Prop with its equivalence to the strip form:
+###     :483    def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2
+
+### THE b572 PRICE BY KIND (relay data/b572_schema.json): {'SEAM': 4, 'NONE': 11, 'EF': 2, 'COUNT': 1}
+###   EF -> field 1 ; COUNT -> field 2 ; SEAM -> field 3`s equivalence (left to the instance) ; NONE -> re-targeted by substitution.
+
+### THE STRUCTURE AND ITS STATEMENTS, AS THEY WILL BE WRITTEN (SIDEExplicitFormula/Schema/Config.lean, namespace SIDEExplicitFormula.Schema):
+
+    structure WeilConfig extends Zeta23.ZeroConfig where
+      /-- EF: the arithmetic side of the explicit formula -/
+      rhs : (ℝ → ℂ) → ℂ
+      /-- EF: the zero side equals it on even `k ∈ C_c²` (b321_identity's type at its consuming site) -/
+      ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+        (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+      /-- COUNT: the local count, as dominant_summable consumes it (HCount, RestBound.lean :44) -/
+      count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+      /-- TARGET: the instance's statement of the zeros' location, equivalent to the strip form (the seam left to the instance) -/
+      target : Prop
+      target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2
+    
+    def h2_sign_cfg (C : WeilConfig) : Prop := ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ C.rhs k
+    def online (C : WeilConfig) : Prop := ∀ ρ ∈ C.carrier, ρ.re = 1 / 2
+    theorem h2_sign_cfg_iff_online (C : WeilConfig) : h2_sign_cfg C ↔ online C
+    theorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target
+
+### ### **H25a, PROVISIONAL: HELD ON THE LIST -- every ζ-naming lemma of the converse maps to one of the three fields or to a statement-level re-target; no fourth kind is named. Final score on the build.**

@@ -1,0 +1,32 @@
+========================================================================================================
+b573 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### H25a-H25c ((R183)(4)).
+--------------------------------------------------------------------------------------------------------
+  **(H25A)** ### **HELD.** -- the structure carries the three fields EF (rhs, ef), COUNT (count), TARGET (target, target_iff) and no other (Schema/Config.lean, fields read ['rhs', 'ef', 'count', 'target', 'target_iff']); the restatement compiled over them with no fourth fact: every generic lemma consumed as it stands, and the instances supply each field from a compiled ζ or χ fact (Schema/Instances.lean)
+  **(H25B)** ### **REFUTED.** -- refuted by one proof: of the 11 statement-naming lemmas, the 7 L7e lemmas (fR, fR_norm_le, fR_bound, rest_tendsto_zero, sT, mem_sT, zeroSide_eventually_neg) re-target by substitution alone (relay data/b573_assertions.txt) and rh_strip becomes the def `online`; the Prop wrappers zeroSideNeg and zeroSideNeg_holds are not restated (the assembly calls zeroSide_eventually_neg_cfg directly); h2_sign_imp_rh_strip_of`s proof NEEDED A CHANGE at its EF use -- its four lines through b321_identity, b321Norm and one_mul become one rewrite by the ef field (zeroSide_cfg_eq) in h2_sign_cfg_imp_online
+  **(H25C)** ### **HELD.** -- both instances reproduce the existing equivalences: h2_sign_cfg_zeta_statement : (h2_sign_cfg zetaWeilConfig ↔ zetaWeilConfig.target) = (h2_sign ↔ RiemannHypothesis) and h2_sign_cfg_chi_statement : (… chiWeilConfig …) = (h2_sign_chi χ ↔ GRH_chi χ), each by rfl, prints ['propext', 'Classical.choice', 'Quot.sound'] (relay data/b573_schema_prints.txt); no sorryAx
+
+### THE NAVIGATOR`S FIVE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- H25a HELD
+  **(N2)** ### **REFUTED.** -- H25b refuted: one proof (the assembly`s EF use) changed; 7 of the 11 by substitution alone
+  **(N3)** ### **HELD.** -- both checks print the standard three; v0.15 = 21c8c52 made by push_gated.sh and read back with the schema
+  **(N4)** ### **HELD.** -- the page has 18 nodes, and relay tools/banned_terms.py reads it CLEAN (data/b573_page_termscan.txt)
+  **(N5)** ### **HELD.** -- v0.14 against main: ['A\tAxiomCheckSchemaAct8.lean', 'M\tREADME.md', 'A\tSIDEExplicitFormula/Schema/Config.lean', 'A\tSIDEExplicitFormula/Schema/Converse.lean', 'A\tSIDEExplicitFormula/Schema/Instances.lean']; nothing at Zenodo; nothing deposits; the kept branches unmoved (the suite`s G-KEPT-BRANCHES)
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- the EF field takes the even form; ζ`s identity carries evenness, χ`s does not; the converse consumes it at the classK window only (h2_sign_cfg_imp_online, `obtain ⟨he, hc, hs, -⟩ := hk`)
+  **(S2)** ### **HELD.** -- both equality checks close by rfl (Schema/Instances.lean)
+  **(S3)** ### **HELD.** -- the ζ page at PLACE-papers HEAD is b569`s blob, unchanged; no node changed
+
+### ### **THE NAVIGATOR`S : HELD 4 ; REFUTED 1.** ### ### **THE SEAT`S : HELD 3 ; REFUTED 0.**
+
+### b573 -- THIS ACT`S OWN DEFECTS (the seat`s), as they occur.
+    (a) A STRAY FILE IN relay/tools AGAIN: a shell command carried an empty here-document append that created relay/tools/b573_record.py.blk (empty); removed at once by its absolute path in the same command; nothing read it; within the (W) glob relay/tools/b573_*. b571`s defect (c) repeated -- the stray line was carried from a copied command.
+    (b) THE ASSERTION LIST: its guard line names a `--diff` flag the generator does not have (the substitution-only reading is made by the record`s H25b instead); and its amendment for the count binder (hA -> hcnt, after the first Converse elaboration met a shadowing) was appended before the patch applied -- a needle failed on an escape -- so the bank carries the amendment, then a CORRECTION line printing the list as it stood when the rename applied (relay data/b573_assertions.txt).
+    (c) THE FIELDS BANK`S :44 PICKER caught two lines (RestBound :44 and CriterionForward :44); the second is printed beside the HCount line and is not a field`s type.
+    (d) THE χ NODE LIST GAINED TWO NODES AFTER THE PAGE WAS FIRST WRITTEN AND THE FINDINGS ENTRY APPENDED: the page`s Correspondence rows read relay HEAD`s terminal table, which at this act`s housekeeping gains rows 437-441; two schema names they grade (online_imp_h2_sign_cfg, h2_sign_cfg_zeta_statement) were outside the list and would have joined the page`s Correspondence, so the committed page would no longer regenerate. Both added as the schema`s nodes (18); the page regenerated twice (runs three and four, byte-identical; runs one and two superseded); the entry`s "16 nodes" corrected by an appended line (:6370), the entry unedited; the PLACE-papers commit dd87bdc`s message names that line :6358, wrongly.
+    (e) THE SUITE, PRE-PUSH RUN ONE: G-PIECES-BANKED FAILED LIVE -- the carried harness`s build_ok looked for "Built SIDEExplicitFormula.Chi.<module>" and this act`s modules are Schema/; the module path corrected in the suite`s assembly, the table files restored to their committed state, the suite re-run: 76 of 76.

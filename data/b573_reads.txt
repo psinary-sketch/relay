@@ -1,0 +1,51 @@
+b573 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### vendored Zeta23 Defs (ZeroConfig) -- Zeta23/Defs.lean @ 4dce7b97
+    :136    structure ZeroConfig where
+### vendored Zeta23 ExplicitFormula (EF_lit) -- Zeta23/ExplicitFormula.lean @ 4dce7b97
+    :97     def EF_lit (Z : ZeroConfig) : Prop :=
+### kernel B321Identity (zeroSide; b321_identity -- the EF field`s consuming type) -- SIDEExplicitFormula/B321Identity.lean @ 4dce7b97
+    :24     def zeroSide (k : ℝ → ℂ) : ℂ :=
+    :46         zeroSide k = b321Norm * (poleTerm k - primeSum k + archTerm k) := by
+    :47       obtain ⟨-, h⟩ := Zeta23.WeilEF.EF_lit_zetaZeroConfig k hk hs
+    :48       have hp : (fun n : ℕ => ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+### kernel RestBound (HCount -- the COUNT field`s type) -- SIDEExplicitFormula/RestBound.lean @ 4dce7b97
+    :44     def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+    :45       1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+### kernel PowerLimit (dominant_summable and its count; the assembly) -- SIDEExplicitFormula/PowerLimit.lean @ 4dce7b97
+    :949    theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+    :952      obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count
+    :955      exact weighted_summable Zeta23.zetaZeroConfig ⟨h1, h2⟩
+    :1167   theorem h2_sign_imp_rh_strip_of (hneg : zeroSideNeg) : h2_sign → rh_strip := by
+    :1188     rw [← hid] at hsign
+### kernel PowerWindow (rh_strip -- the TARGET field`s strip form) -- SIDEExplicitFormula/PowerWindow.lean @ 4dce7b97
+    :483    def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2
+### kernel Seam (h2_sign_iff_rh) -- SIDEExplicitFormula/Seam.lean @ 4dce7b97
+    :101    theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+### kernel Chi/CriterionForward (zeroSide_chi_eq; rh_strip_chi_iff_grh_chi) -- SIDEExplicitFormula/Chi/CriterionForward.lean @ 4dce7b97
+    :34     theorem zeroSide_chi_eq {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ}
+    :44     theorem rh_strip_chi_iff_grh_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+### kernel Chi/CriterionConverse (h2_sign_chi_iff_grh_chi) -- SIDEExplicitFormula/Chi/CriterionConverse.lean @ 4dce7b97
+    :270    theorem h2_sign_chi_iff_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+### relay the b572 generator -- data/b572_gen_converse.py.txt @ 296eb292
+    :12     body = src[a:b]
+    :13     
+    :14     reps = [
+### relay the b572 lemma list (the converse`s count line) -- data/b572_lemmas.txt @ 296eb292
+    :201    ### THE CONVERSE (h2_sign_imp_rh_holds): declarations 191 ; ζ-naming 18 ; generic 173
+    :405    ### ### **THE CONVERSE`S ζ-NAMING LEMMAS: 18** -- ['h2_sign_imp_rh', 'rh_strip_imp_rh_holds', 'rh_strip_imp_rh', 'zeta_zero_re_nonpos', 'rh_strip', 'zeroSideNeg_holds', 'h2_sign_imp_rh_strip_of', 'zeroSide_eventually_neg', 'zeroSideNeg', 'zeroSide', 'b321_identity', 'fR_bound', 'sT', 'mem_sT', 'fR',
+### PLACE-papers README (the (R182)(2) line) -- README.md @ 06275eb1
+    :123    *(Appended under the author's ruling `(R182)`(2), 2026-10-01, b572, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence, b566's `(R176)`(2) sentence and b567's `(R177)`(2) sentence above, which stay: b571 entered at its weight, SIDE-explicit-formula v0.13 = `ac157c1`.)* Supportable, the aut
+### PLACE-papers REGISTRY (the (R182)(2) line) -- REGISTRY.md @ 06275eb1
+    :958    *(Appended under the author's ruling `(R182)`(2), 2026-10-01, b572, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence, b566's `(R176)`(2) sentence and b567's `(R177)`(2) sentence above, which stay: b571 entered at its weight, SIDE-explicit-formula v0.13 = `ac157c1`.)* Supportable, the aut
+### PLACE-papers FINDINGS (the ceiling`s χ-sentence record) -- FINDINGS.md @ 06275eb1
+    :6328   *Appended 2026-10-01 by b572 to the record of the ceiling entry of `(R146)`(2) (:6144), under `(R182)`(2) -- THE CEILING’S χ-SENTENCE:* the author’s sentence, placed at README.md :123 and REGISTRY.md :958 beside the earlier ceiling lines, which stay: *The explicit formula for primitive Dirichlet L-f
+### PLACE-papers OPEN_TRAILS (the schema`s price) -- OPEN_TRAILS.md @ 06275eb1
+    :11764  *Appended 2026-10-01 by b572, under the author’s ruling `(R182)`(5), to the W-ORD-GRH-WEIL entry (:11373) -- A PRICED ITEM, NOT STARTED, THE GENERIC SCHEMA:* for a ZeroConfig with an explicit formula of EF_lit’s shape and a seam, Weil positivity on classK ⟺ all zeros on the line. Price: the 18 ζ-nam
+### relay chain_page.py (the page name; the open line; the ceiling line; the probe imports) -- tools/chain_page.py @ 296eb292
+    :58     PAGE_NAME = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+    :59     OPEN_LINE = ('h2_sign — open; by the compiled equivalences above, the same open statement as Li positivity and as '
+    :387    def ceiling_line():
+    :204    def probe_imports():
+### relay b569`s node list (its pin line) -- data/b569_nodes.txt @ 296eb292
+    :4      # pin: v0.11

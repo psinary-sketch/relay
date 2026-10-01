@@ -1,0 +1,429 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.zeroSide_cfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (k : ℝ → ℂ) : ℂ",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : Prop",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.online": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : Prop",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.zeroSide_cfg_eq": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x) = k x",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) (he : ∀ x : ℝ, k (-x) = k x) : zeroSide_cfg C k = C.rhs k",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : online C → h2_sign_cfg C",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.dominant_summable_cfg": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (B : ℝ) (D : ℕ) : Summable (fun ρ : C.toZeroConfig.carrier => (C.toZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.fR_cfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (j : ℕ) (x : C.toZeroConfig.carrier) : ℂ",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.fR_norm_le_cfg": {
+   "grade": "INTERFACES",
+   "why": "hT : (x : ℂ) ∉ tieSet C.toZeroConfig g0 M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (x : C.toZeroConfig.carrier) (hT : (x : ℂ) ∉ tieSet C.toZeroConfig g0 M) : ‖fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (C.toZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.fR_bound_cfg": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hj : D ≤ j",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (hj : D ≤ j) (x : C.toZeroConfig.carrier) : ‖fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (C.toZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.rest_tendsto_zero_cfg": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) : Tendsto (fun j => ∑' x, fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.sT_cfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) : Finset C.toZeroConfig.carrier",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.mem_sT_cfg": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (x : C.toZeroConfig.carrier) : x ∈ sT_cfg H ↔ (x : ℂ) ∈ tieSet C.toZeroConfig g0 M",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.zeroSide_eventually_neg_cfg": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hρs : ρs ∈ tieSet C.toZeroConfig g0 M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup C.toZeroConfig g0 L M) (ρs : ℂ) (hρs : ρs ∈ tieSet C.toZeroConfig g0 M) : ∃ (a : List ℝ) (j : ℕ), (zeroSide_cfg C (kWindow a g0 j)).re < 0",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_imp_online": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : h2_sign_cfg C → online C",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_iff_online": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : h2_sign_cfg C ↔ online C",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : h2_sign_cfg C ↔ C.target",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.zetaWeilConfig": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": WeilConfig",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_zeta": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg zetaWeilConfig ↔ zetaWeilConfig.target",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (h2_sign_cfg zetaWeilConfig ↔ zetaWeilConfig.target) = (h2_sign ↔ RiemannHypothesis)",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.chiWeilConfig": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : WeilConfig",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_cfg (chiWeilConfig χ hχ h1) ↔ (chiWeilConfig χ hχ h1).target",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : (h2_sign_cfg (chiWeilConfig χ hχ h1) ↔ (chiWeilConfig χ hχ h1).target) = (h2_sign_chi χ ↔ GRH_chi χ)",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "header_read": true,
+   "kind": "theorem"
+  }
+ },
+ "consumed": {
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.b321_identity": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.weighted_summable": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.plateau_dominant": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "Zeta23.RvM.zetaZeroConfig_local_count": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.rh_strip_imp_rh_holds": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg",
+   "pin": "21c8c52",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "check": "SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig), SIDEExplicitFormula.Schema.online C → SIDEExplicitFormula.Schema.h2_sign_cfg C",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The forward half over the structure**: `online C → h2_sign_cfg C`, RHChain's argument.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target",
+   "pin": "21c8c52",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "check": "SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig), SIDEExplicitFormula.Schema.h2_sign_cfg C ↔ C.target",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**THE CRITERION OVER THE STRUCTURE**: Weil positivity on classK is the instance's own target, both directions",
+   "body1": "(h2_sign_cfg_iff_online C).trans C.target_iff.symm",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement",
+   "pin": "21c8c52",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "check": "SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement : (SIDEExplicitFormula.Schema.h2_sign_cfg SIDEExplicitFormula.Schema.zetaWeilConfig ↔ SIDEExplicitFormula.Schema.zetaWeilConfig.target) = (SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The ζ check**: the schema's statement at ζ is `h2_sign_iff_rh`'s statement, by definition.",
+   "body1": "rfl",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement",
+   "pin": "21c8c52",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "check": "@SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1), (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.chiWeilConfig χ hχ h1) ↔ (SIDEExplicitFormula.Schema.chiWeilConfig χ hχ h1).target) = (SIDEExplicitFormula.GRHWeil.h2_sign_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi χ)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The χ check**: the schema's statement at χ is `h2_sign_chi_iff_grh_chi`'s statement, by definition.",
+   "body1": "rfl",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "21c8c522bfc8c7bff4bf7b4c4ddeb66e10eaf3dc",
+ "rev": "grh-weil-b573",
+ "counts": {
+  "DERIVES": 14,
+  "INTERFACES": 1
+ }
+}

@@ -1,0 +1,30 @@
+=== START 2026-10-01T16:24:04Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Schema/Converse.lean
+SIDEExplicitFormula/Schema/Converse.lean:56:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:78:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SIDEExplicitFormula/Schema/Converse.lean:84:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:90:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula/Schema/Converse.lean:117:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SIDEExplicitFormula/Schema/Converse.lean:124:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:130:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+SIDEExplicitFormula/Schema/Converse.lean:190:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+SIDEExplicitFormula/Schema/Converse.lean:229:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SIDEExplicitFormula/Schema/Converse.lean:241:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+=== END 2026-10-01T16:24:28Z rc=0

@@ -1,0 +1,116 @@
+# relay b573 -- the generator of SIDEExplicitFormula/Schema/Converse.lean (banked as relay data/b573_gen_schema.py.txt).
+# b572's method (relay data/b572_gen_converse.py.txt): PowerLimit.lean at v0.14, from `dominant_summable`'s docstring to the end
+# of `zeroSide_eventually_neg`, carried to the structure by NAMED, ASSERTED replacements; then the assembly over the structure.
+# `--list` prints the assertion list (each replacement with its asserted count) and writes nothing in the kernel.
+import io
+import re
+import subprocess
+import sys
+
+src = subprocess.run(['git', '-C', 'D:/SIDE-explicit-formula', 'show', 'v0.14:SIDEExplicitFormula/PowerLimit.lean'],
+                     capture_output=True).stdout.decode('utf-8')
+a = src.index('/-- **L7e, `dominant_summable`:**')
+b = src.index('/-! ### L8 -- the assembly -/')
+body = src[a:b]
+
+# (needle, replacement, the count asserted) -- each needle must occur exactly that many times
+REPS = [
+    ("the dominant is summable over the zeros of zeta, by the kernel's", "the dominant is summable over the configuration, by its", 1),
+    ('  obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count\n', '  obtain ⟨A₀, hcnt⟩ := C.count\n', 1),
+    ('  exact weighted_summable Zeta23.zetaZeroConfig ⟨h1, h2⟩\n', '  exact weighted_summable C.toZeroConfig hcnt\n', 1),
+    ('(zeroSide (kWindow a g0 j)).re < 0', '(zeroSide_cfg C (kWindow a g0 j)).re < 0', 1),
+    ('  unfold zeroSide\n', '  unfold zeroSide_cfg\n', 1),
+    ('Zeta23.zetaZeroConfig', 'C.toZeroConfig', 56),
+]
+NAMES = ['dominant_summable', 'fR_norm_le', 'fR_bound', 'fR', 'rest_tendsto_zero', 'mem_sT', 'sT', 'zeroSide_eventually_neg']
+NAME_COUNTS = {'dominant_summable': 5, 'fR_norm_le': 3, 'fR_bound': 3, 'fR': 26, 'rest_tendsto_zero': 3, 'mem_sT': 6, 'sT': 10,
+               'zeroSide_eventually_neg': 2}
+
+if '--list' in sys.argv:
+    print('### b573 -- THE GENERATOR`S ASSERTION LIST (each needle asserted to occur exactly the count given, in PowerLimit.lean '
+          'at v0.14, :947-:1157)')
+    for o, n, c in REPS:
+        print('  %2d x  %r  ->  %r' % (c, o.strip()[:90], n.strip()[:90]))
+    for nm in NAMES:
+        print('  %2d x  the name %s  ->  %s_cfg (word-bounded)' % (NAME_COUNTS[nm], nm, nm))
+    print('  guard: no `zeroSide ` and no `zeta` (past `Zeta23.` and `zeta3`) left in the carried text')
+    print('  guard: no proof line differs from its source but by the replacements above (the diff printed by --diff)')
+    sys.exit(0)
+
+for o, n, c in REPS:
+    assert body.count(o) == c, (o, body.count(o), c)
+    body = body.replace(o, n)
+for nm in NAMES:
+    pat = re.compile(r'(?<![A-Za-z0-9_.])' + nm + r'(?![A-Za-z0-9_])')
+    assert len(pat.findall(body)) == NAME_COUNTS[nm], (nm, len(pat.findall(body)))
+    body = pat.sub(nm + '_cfg', body)
+assert 'zeroSide ' not in body.replace('zeroSide_cfg', ''), 'a ζ zero side left'
+assert 'zeta' not in body.lower().replace('zeta23.', '').replace('zeta3', ''), [l for l in body.split('\n') if 'zeta' in l.lower()]
+
+head = '''/-
+SIDE-explicit-formula -- SIDEExplicitFormula/Schema/Converse.lean
+THIS PROGRAMME'S WORK (act b573, ruling (R183)(4)(b)-(c); W-ORD-GRH-WEIL, act eight) -- NOT VENDORED.
+SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+
+THE GENERIC SCHEMA, ITS CONVERSE AND THE EQUIVALENCE. PowerLimit.lean's L7e (`dominant_summable` through `zeroSide_eventually_neg`,
+:947-:1157 at v0.14), stated over `Zeta23.zetaZeroConfig` with ζ's local count, carried to any `WeilConfig` with its `count` field
+and its zero side by named, asserted replacements (relay data/b573_gen_schema.py.txt, b572's method); every generic lemma of
+PowerLimit, PowerWindow and RestBound consumed as it stands. Then L8 over the structure: `h2_sign_cfg C → online C` through the
+`ef` field, and `h2_sign_cfg C ↔ online C ↔ C.target`. Nothing here proves RH or GRH or locates any zero.
+-/
+import SIDEExplicitFormula.Schema.Config
+
+open Complex MeasureTheory Filter Topology
+open scoped ComplexConjugate ComplexOrder
+
+noncomputable section
+
+namespace SIDEExplicitFormula
+namespace Schema
+
+open B321
+
+variable {C : WeilConfig} {g0 : ℝ → ℝ} {L M : ℝ}
+
+'''
+
+tail = '''
+/-- **L8 over the structure, the converse at the strip**: an off-line point of the configuration, the plateau's dominant point,
+and a window in classK whose zero side has negative real part contradict `h2_sign_cfg C` through the `ef` field. -/
+theorem h2_sign_cfg_imp_online (C : WeilConfig) : h2_sign_cfg C → online C := by
+  intro h2
+  by_contra hno
+  unfold online at hno
+  push_neg at hno
+  obtain ⟨ρ1, hρ1, hoff⟩ := hno
+  have hF0 : (0 : ℝ) < 1 / 2 := by norm_num
+  have hF1 : (1 / 2 : ℝ) < 1 := by norm_num
+  obtain ⟨L, hL, ρs, hρs, hoffs, hpos, hdom⟩ :=
+    plateau_dominant C.toZeroConfig (1 / 2) hF0 hF1 ρ1 hρ1 hoff
+  have H : PWSetup C.toZeroConfig (plateau (1 / 2) L hF0 hF1 hL) L
+      (offScore (plateau (1 / 2) L hF0 hF1 hL) ρs) :=
+    ⟨plateau_even _ _ hF0 hF1 hL, plateau_contDiff _ _ hF0 hF1 hL ⊤, plateau_support_Icc _ _ hF0 hF1 hL, hL.le,
+      hpos, hdom⟩
+  obtain ⟨a, j, hneg'⟩ := zeroSide_eventually_neg_cfg H ρs ⟨hρs, hoffs, rfl⟩
+  have hk := kWindow_classK a H.hsm H.hs j
+  have hsign := h2 _ hk
+  obtain ⟨he, hc, hs, -⟩ := hk
+  rw [← zeroSide_cfg_eq C hc hs he] at hsign
+  have h0 := (Complex.nonneg_iff.mp hsign).1
+  linarith
+
+/-- **THE CRITERION OVER THE STRUCTURE, AT THE STRIP**: Weil positivity on classK is the strip form, both directions. -/
+theorem h2_sign_cfg_iff_online (C : WeilConfig) : h2_sign_cfg C ↔ online C :=
+  ⟨h2_sign_cfg_imp_online C, online_imp_h2_sign_cfg C⟩
+
+/-- **THE CRITERION OVER THE STRUCTURE**: Weil positivity on classK is the instance's own target, both directions. An
+equivalence between open statements; it proves neither. -/
+theorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target :=
+  (h2_sign_cfg_iff_online C).trans C.target_iff.symm
+
+end Schema
+end SIDEExplicitFormula
+'''
+out = head + body.rstrip() + '\n' + tail
+io.open('D:/SIDE-explicit-formula/SIDEExplicitFormula/Schema/Converse.lean', 'w', encoding='utf-8', newline='\n').write(out)
+print('written; lines:', out.count('\n'))

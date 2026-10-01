@@ -1,0 +1,24 @@
+### written at (UTC) 2026-10-01T16:17:22Z, before Schema/Converse.lean is generated or built
+### b573 -- THE GENERATOR`S ASSERTION LIST (each needle asserted to occur exactly the count given, in PowerLimit.lean at v0.14, :947-:1157)
+   1 x  "the dominant is summable over the zeros of zeta, by the kernel's"  ->  'the dominant is summable over the configuration, by its'
+   1 x  'obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count'  ->  'obtain ⟨A₀, hA⟩ := C.count'
+   1 x  'exact weighted_summable Zeta23.zetaZeroConfig ⟨h1, h2⟩'  ->  'exact weighted_summable C.toZeroConfig hA'
+   1 x  '(zeroSide (kWindow a g0 j)).re < 0'  ->  '(zeroSide_cfg C (kWindow a g0 j)).re < 0'
+   1 x  'unfold zeroSide'  ->  'unfold zeroSide_cfg'
+  56 x  'Zeta23.zetaZeroConfig'  ->  'C.toZeroConfig'
+   5 x  the name dominant_summable  ->  dominant_summable_cfg (word-bounded)
+   3 x  the name fR_norm_le  ->  fR_norm_le_cfg (word-bounded)
+   3 x  the name fR_bound  ->  fR_bound_cfg (word-bounded)
+  26 x  the name fR  ->  fR_cfg (word-bounded)
+   3 x  the name rest_tendsto_zero  ->  rest_tendsto_zero_cfg (word-bounded)
+   6 x  the name mem_sT  ->  mem_sT_cfg (word-bounded)
+  10 x  the name sT  ->  sT_cfg (word-bounded)
+   2 x  the name zeroSide_eventually_neg  ->  zeroSide_eventually_neg_cfg (word-bounded)
+  guard: no `zeroSide ` and no `zeta` (past `Zeta23.` and `zeta3`) left in the carried text
+  guard: no proof line differs from its source but by the replacements above (the diff printed by --diff)
+
+### AMENDMENT at (UTC) 2026-10-01T16:23:25Z, after the first elaboration of Schema/Converse.lean failed at one shadowing (the carried proof's own 'have hA := Aw_nonneg H'): the count binder is renamed hA -> hcnt in the two replacements below; no needle changes; every count unchanged
+   1 x  'obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count'  ->  'obtain ⟨A₀, hA⟩ := C.count'
+### CORRECTION at (UTC) 2026-10-01T16:24:04Z: the amendment line above printed the list before the rename had applied (a patch's needle failed to match); the rename applied now, the two replacements as they stand:
+   1 x  'obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count'  ->  'obtain ⟨A₀, hcnt⟩ := C.count'
+   1 x  'exact weighted_summable Zeta23.zetaZeroConfig ⟨h1, h2⟩'  ->  'exact weighted_summable C.toZeroConfig hcnt'

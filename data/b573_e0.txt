@@ -1,0 +1,53 @@
+b573 -- COMPONENTS 2-3: THE E0 READ -- EVERY DECLARATION GRADED, THE ROWGEN RECORD
+
+### the prints of record: relay data/b573_schema_prints.txt ; the statements at 21c8c52 (grh-weil-b573).
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+
+    zeroSide_cfg                                   DEF        std3  -- 
+    h2_sign_cfg                                    DEF        std3  -- 
+    online                                         DEF        std3  -- 
+    zeroSide_cfg_eq                                DERIVES    std3  -- domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x) = k x
+    online_imp_h2_sign_cfg                         DERIVES    std3  -- no hypothesis binder
+    dominant_summable_cfg                          DERIVES    std3  -- no hypothesis binder
+    fR_cfg                                         DEF        std3  -- 
+    fR_norm_le_cfg                                 INTERFACES std3  -- hT : (x : ℂ) ∉ tieSet C.toZeroConfig g0 M
+    fR_bound_cfg                                   DERIVES    std3  -- domain conditions only: hj : D ≤ j
+    rest_tendsto_zero_cfg                          DERIVES    std3  -- no hypothesis binder
+    sT_cfg                                         DEF        std3  -- 
+    mem_sT_cfg                                     DERIVES    std3  -- no hypothesis binder
+    zeroSide_eventually_neg_cfg                    DERIVES    std3  -- domain conditions only: hρs : ρs ∈ tieSet C.toZeroConfig g0 M
+    h2_sign_cfg_imp_online                         DERIVES    std3  -- no hypothesis binder
+    h2_sign_cfg_iff_online                         DERIVES    std3  -- no hypothesis binder
+    h2_sign_cfg_iff_target                         DERIVES    std3  -- no hypothesis binder
+    zetaWeilConfig                                 DEF        std3  -- 
+    h2_sign_cfg_zeta                               DERIVES    std3  -- no hypothesis binder
+    h2_sign_cfg_zeta_statement                     DERIVES    std3  -- no hypothesis binder
+    chiWeilConfig                                  DEF        std3  -- 
+    h2_sign_cfg_chi                                DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    h2_sign_cfg_chi_statement                      DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+
+### THE CONSUMED TERMINALS, their prints:
+    SIDEExplicitFormula.B321.h2_sign_iff_rh                        std3
+    SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi            std3
+    SIDEExplicitFormula.B321.b321_identity                         std3
+    SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq                    std3
+    SIDEExplicitFormula.B321.weighted_summable                     std3
+    SIDEExplicitFormula.B321.plateau_dominant                      std3
+    Zeta23.RvM.zetaZeroConfig_local_count                          std3
+    SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count          std3
+    SIDEExplicitFormula.B321.rh_strip_imp_rh_holds                 std3
+
+### THE ROWGEN RECORD (at 21c8c52):
+    online_imp_h2_sign_cfg                   defenc False  | check True
+    h2_sign_cfg_iff_target                   defenc False  | check True
+    h2_sign_cfg_zeta_statement               defenc False  | check True
+    h2_sign_cfg_chi_statement                defenc False  | check True
+### ### **THE GATE: PASS** -- declarations 22 (theorems 15: DERIVES 14, INTERFACES 1), consumed 9

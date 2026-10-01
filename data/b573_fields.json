@@ -1,0 +1,15 @@
+{
+ "fields": [
+  "EF",
+  "COUNT",
+  "TARGET"
+ ],
+ "kinds": {
+  "SEAM": 4,
+  "NONE": 11,
+  "EF": 2,
+  "COUNT": 1
+ },
+ "provisional": "HELD",
+ "statement": "structure WeilConfig extends Zeta23.ZeroConfig where\n  /-- EF: the arithmetic side of the explicit formula -/\n  rhs : (ℝ → ℂ) → ℂ\n  /-- EF: the zero side equals it on even `k ∈ C_c²` (b321_identity's type at its consuming site) -/\n  ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →\n    (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k\n  /-- COUNT: the local count, as dominant_summable consumes it (HCount, RestBound.lean :44) -/\n  count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀\n  /-- TARGET: the instance's statement of the zeros' location, equivalent to the strip form (the seam left to the instance) -/\n  target : Prop\n  target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2\n\ndef h2_sign_cfg (C : WeilConfig) : Prop := ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ C.rhs k\ndef online (C : WeilConfig) : Prop := ∀ ρ ∈ C.carrier, ρ.re = 1 / 2\ntheorem h2_sign_cfg_iff_online (C : WeilConfig) : h2_sign_cfg C ↔ online C\ntheorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target"
+}

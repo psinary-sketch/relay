@@ -1,0 +1,567 @@
+@@BEGIN SIDEExplicitFormula.GRHWeil.GRH_chi
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.GRHWeil @@LINE 53 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.GRHWeil.GRH_chi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+fun {N} [NeZero N] χ => ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.GRH_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.GRH_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.chiZeroConfig
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Chi.ZeroConfig @@LINE 225 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.GRHWeil.chiZeroConfig : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.ZeroConfig :=
+fun {N} [NeZero N] χ hχ h1 =>
+  { carrier := {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ},
+    mult := SIDEExplicitFormula.GRHWeil.zeroMultChi χ, one_le_mult := ⋯, strip := ⋯, reflect_mem := ⋯,
+    mult_reflect := ⋯, finite_window := ⋯ }
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.chiZeroConfig
+@@BEGIN SIDEExplicitFormula.GRHWeil.EF_lit_chi
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Chi.Statement @@LINE 42 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.GRHWeil.EF_lit_chi : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 =>
+  ∀ (k : ℝ → ℂ),
+    ContDiff ℝ 2 k →
+      HasCompactSupport k →
+        (Summable fun ρ =>
+            ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ)) ∧
+          ∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+              ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ) =
+            SIDEExplicitFormula.GRHWeil.literatureRHS_chi χ k
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.EF_lit_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.EF_lit_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.rectangle_identity_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.Contour @@LINE 27 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.rectangle_identity_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {k : ℝ → ℂ},
+        ContDiff ℝ 2 k →
+          HasCompactSupport k →
+            ∀ {c : ℝ},
+              1 < c →
+                ∀ {R : ℝ},
+                  7 ≤ R →
+                    (∀ (s : ℂ),
+                        s.im = R ∨ s.im = -R →
+                          1 - c ≤ s.re → s.re ≤ c → DirichletCharacter.completedLFunction χ s ≠ 0) →
+                      ∃ Z,
+                        ↑Z = {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ ∧ -R < ρ.im ∧ ρ.im < R} ∧
+                          RectangleIntegral'
+                              (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                              (↑(1 - c) - ↑R * Complex.I) (↑c + ↑R * Complex.I) =
+                            ∑ ρ ∈ Z, ↑(SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ) * Zeta23.WeilEF.Hfn k ρ
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.rectangle_identity_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.rectangle_identity_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.full_line_identity_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.FullLineAssembly @@LINE 31 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig,
+ SIDEExplicitFormula.GRHWeil.rectangle_identity_chi] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.full_line_identity_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          c ≤ 3 / 2 →
+            1 / (2 * ↑Real.pi) * ∫ (t : ℝ), SIDEExplicitFormula.GRHWeil.Fline_chi χ k c t =
+              ∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+                ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.WeilEF.Hfn k ↑ρ
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.full_line_identity_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.full_line_identity_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.Main @@LINE 269 @@CONSUMES [SIDEExplicitFormula.GRHWeil.EF_lit_chi,
+ SIDEExplicitFormula.GRHWeil.chiZeroConfig,
+ SIDEExplicitFormula.GRHWeil.full_line_identity_chi] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1), SIDEExplicitFormula.GRHWeil.EF_lit_chi χ hχ h1
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds
+@@BEGIN SIDEExplicitFormula.B321.classK
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.H2Sign @@LINE 24 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.B321.classK : (ℝ → ℂ) → Prop :=
+fun k =>
+  (∀ (x : ℝ), k (-x) = k x) ∧
+    ContDiff ℝ 2 k ∧ HasCompactSupport k ∧ ∃ h, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+@@AXIOMS
+'SIDEExplicitFormula.B321.classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.classK
+@@BEGIN SIDEExplicitFormula.GRHWeil.h2_sign_chi
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.GRHWeil @@LINE 75 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.GRHWeil.h2_sign_chi : {N : ℕ} → DirichletCharacter ℂ N → Prop :=
+fun {N} χ =>
+  ∀ (k : ℝ → ℂ),
+    SIDEExplicitFormula.B321.classK k →
+      0 ≤ SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.h2_sign_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.CriterionForward @@LINE 34 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig,
+ SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      SIDEExplicitFormula.GRHWeil.zeroSide_chi χ hχ h1 k =
+        SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq
+@@BEGIN SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.CriterionForward @@LINE 76 @@CONSUMES [SIDEExplicitFormula.GRHWeil.h2_sign_chi,
+ SIDEExplicitFormula.GRHWeil.chiZeroConfig,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq,
+ SIDEExplicitFormula.GRHWeil.GRH_chi] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.GRHWeil.GRH_chi χ → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.CriterionConverse @@LINE 264 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig,
+ SIDEExplicitFormula.GRHWeil.h2_sign_chi,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq,
+ SIDEExplicitFormula.GRHWeil.GRH_chi] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N),
+  χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ → SIDEExplicitFormula.GRHWeil.GRH_chi χ
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.CriterionConverse @@LINE 270 @@CONSUMES [SIDEExplicitFormula.GRHWeil.h2_sign_chi,
+ SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi,
+ SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi,
+ SIDEExplicitFormula.GRHWeil.GRH_chi] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N),
+  χ.IsPrimitive → χ ≠ 1 → (SIDEExplicitFormula.GRHWeil.h2_sign_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi χ)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi
+@@BEGIN SIDEExplicitFormula.Schema.h2_sign_cfg
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Schema.Config @@LINE 41 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Schema.h2_sign_cfg : SIDEExplicitFormula.Schema.WeilConfig → Prop :=
+fun C => ∀ (k : ℝ → ℂ), SIDEExplicitFormula.B321.classK k → 0 ≤ C.rhs k
+@@AXIOMS
+'SIDEExplicitFormula.Schema.h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Schema.h2_sign_cfg
+@@BEGIN SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Schema.Config @@LINE 52 @@CONSUMES [SIDEExplicitFormula.Schema.h2_sign_cfg,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.online C → SIDEExplicitFormula.Schema.h2_sign_cfg C
+@@AXIOMS
+'SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg
+@@BEGIN SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Schema.Converse @@LINE 265 @@CONSUMES [SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg,
+ SIDEExplicitFormula.Schema.h2_sign_cfg,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg C ↔ C.target
+@@AXIOMS
+'SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target
+@@BEGIN SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Schema.Instances @@LINE 44 @@CONSUMES [SIDEExplicitFormula.Schema.h2_sign_cfg,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+@[defeq] theorem SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement : (SIDEExplicitFormula.Schema.h2_sign_cfg
+      SIDEExplicitFormula.Schema.zetaWeilConfig ↔
+    SIDEExplicitFormula.Schema.zetaWeilConfig.target) =
+  (SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis)
+@@AXIOMS
+'SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement
+@@BEGIN SIDEExplicitFormula.Schema.chiWeilConfig
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Schema.Instances @@LINE 51 @@CONSUMES [SIDEExplicitFormula.GRHWeil.GRH_chi,
+ SIDEExplicitFormula.GRHWeil.chiZeroConfig,
+ SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Schema.chiWeilConfig : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.Schema.WeilConfig :=
+fun {N} [NeZero N] χ hχ h1 =>
+  let __src := SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1;
+  { toZeroConfig := __src,
+    rhs := fun k => SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k,
+    ef := ⋯, count := ⋯, target := SIDEExplicitFormula.GRHWeil.GRH_chi χ, target_iff := ⋯ }
+@@AXIOMS
+'SIDEExplicitFormula.Schema.chiWeilConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Schema.chiWeilConfig
+@@BEGIN SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Schema.Instances @@LINE 65 @@CONSUMES [SIDEExplicitFormula.GRHWeil.h2_sign_chi,
+ SIDEExplicitFormula.GRHWeil.GRH_chi,
+ SIDEExplicitFormula.Schema.chiWeilConfig,
+ SIDEExplicitFormula.Schema.h2_sign_cfg] @@WATCHED []
+@@STMT
+@[defeq] theorem SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement : ∀ {N : ℕ} [inst : NeZero N]
+  (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1),
+  (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.chiWeilConfig χ hχ h1) ↔
+      (SIDEExplicitFormula.Schema.chiWeilConfig χ hχ h1).target) =
+    (SIDEExplicitFormula.GRHWeil.h2_sign_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi χ)
+@@AXIOMS
+'SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement
+@@BEGIN SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.GRHWeil @@LINE 145 @@CONSUMES [SIDEExplicitFormula.GRHWeil.GRH_chi] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive → χ ≠ 1 → (SIDEExplicitFormula.GRHWeil.GRH_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi_trivial χ)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial
+@@BEGIN SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZetaBoundsStrip @@LINE 307 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M → ∀ {s : ℂ}, 0 < s.re → SIDEExplicitFormula.GRHWeil.LFunction0 χ M s = DirichletCharacter.LFunction χ s
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction
+@@BEGIN SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZetaBoundsStrip @@LINE 123 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {s : ℂ},
+      0 < s.re →
+        DirichletCharacter.LFunction χ s =
+          s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral
+@@BEGIN SIDEExplicitFormula.GRHWeil.LFunction_inv_conj
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.GRHWeil @@LINE 185 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (s : ℂ), DirichletCharacter.LFunction χ⁻¹ ((starRingEnd ℂ) s) = (starRingEnd ℂ) (DirichletCharacter.LFunction χ s)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.LFunction_inv_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.LFunction_inv_conj
+@@BEGIN SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.GRHWeil @@LINE 120 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 → ∀ {s : ℂ}, DirichletCharacter.LFunction χ s = 0 → s.re ≤ 0 → SIDEExplicitFormula.GRHWeil.IsTrivialPoint χ s
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos
+@@BEGIN SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.GRHWeil @@LINE 215 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (w : ℂ),
+      analyticOrderAt (DirichletCharacter.LFunction χ⁻¹) ((starRingEnd ℂ) w) =
+        analyticOrderAt (DirichletCharacter.LFunction χ) w
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj
+@@BEGIN SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZeroConfig @@LINE 170 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ (w : ℂ),
+        analyticOrderAt (DirichletCharacter.completedLFunction χ⁻¹) (1 - w) =
+          analyticOrderAt (DirichletCharacter.completedLFunction χ) w
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub
+@@BEGIN SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZeroConfig @@LINE 243 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (ρ : ℂ),
+  ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier ↔
+    (starRingEnd ℂ) ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ⁻¹ ⋯ ⋯).carrier
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem
+@@BEGIN SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.LocalCount @@LINE 218 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1),
+  ∃ A₀, 1 ≤ A₀ ∧ ∀ (t : ℝ), ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count
+@@BEGIN SIDEExplicitFormula.GRHWeil.chi_mult_reflect
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZeroConfig @@LINE 208 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.chi_mult_reflect : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {ρ : ℂ},
+        SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ →
+          SIDEExplicitFormula.GRHWeil.zeroMultChi χ (Zeta23.reflect ρ) = SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.chi_mult_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.chi_mult_reflect
+@@BEGIN SIDEExplicitFormula.GRHWeil.chi_reflect_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZeroConfig @@LINE 183 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.chi_reflect_zero : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {ρ : ℂ},
+        SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ →
+          SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ (Zeta23.reflect ρ)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.chi_reflect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.chi_reflect_zero
+@@BEGIN SIDEExplicitFormula.GRHWeil.finite_window_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZeroConfig @@LINE 103 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.finite_window_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (T₁ T₂ : ℝ), ({ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ} ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.finite_window_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.finite_window_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.Statement @@LINE 51 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N},
+  χ.Even →
+    ∀ (r : ℝ),
+      SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r =
+        Real.log (↑N / Real.pi) + (1 / 4 + Complex.I * ↑r / 2).digamma.re
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even
+@@BEGIN SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.VerticalLine @@LINE 227 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi : ∀ {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N)
+  {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          c ≤ 3 / 2 →
+            ∫ (t : ℝ),
+                (Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) + Zeta23.WeilEF.Hfn k (1 - ↑c - ↑t * Complex.I)) *
+                  logDeriv χ.gammaFactor (↑c + ↑t * Complex.I) =
+              ∫ (t : ℝ),
+                Zeta23.paperFT k ↑t *
+                  (logDeriv χ.gammaFactor (1 / 2 + ↑t * Complex.I) + logDeriv χ.gammaFactor (1 / 2 - ↑t * Complex.I))
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.good_heights_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.GoodHeights @@LINE 269 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.good_heights_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∃ Cg,
+        0 < Cg ∧
+          ∃ R,
+            ∀ (j : ℕ),
+              ↑j + 7 ≤ R j ∧
+                R j ≤ ↑j + 8 ∧
+                  ∀ (s : ℂ),
+                    s.im = R j ∨ s.im = -R j →
+                      1 / 2 ≤ s.re →
+                        s.re ≤ 2 →
+                          DirichletCharacter.LFunction χ s ≠ 0 ∧
+                            ‖logDeriv (DirichletCharacter.LFunction χ) s‖ ≤ Cg * Real.log (↑j + 10) ^ 2
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.good_heights_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.good_heights_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZetaBoundsStrip @@LINE 221 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0 : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      0 < M →
+        ∀ {s : ℂ},
+          0 < s.re →
+            HasDerivAt (SIDEExplicitFormula.GRHWeil.LFunction0 χ M) (SIDEExplicitFormula.GRHWeil.LFunction0' χ M s) s
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0
+@@BEGIN SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.Horizontal @@LINE 61 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {k : ℝ → ℂ},
+        ContDiff ℝ 2 k →
+          HasCompactSupport k →
+            ∀ {c : ℝ},
+              1 < c →
+                c ≤ 3 / 2 →
+                  ∀ {Cg : ℝ},
+                    0 < Cg →
+                      ∀ {R : ℕ → ℝ},
+                        (∀ (j : ℕ),
+                            ↑j + 7 ≤ R j ∧
+                              R j ≤ ↑j + 8 ∧
+                                ∀ (s : ℂ),
+                                  s.im = R j ∨ s.im = -R j →
+                                    1 / 2 ≤ s.re →
+                                      s.re ≤ 2 →
+                                        DirichletCharacter.LFunction χ s ≠ 0 ∧
+                                          ‖logDeriv (DirichletCharacter.LFunction χ) s‖ ≤ Cg * Real.log (↑j + 10) ^ 2) →
+                          Filter.Tendsto
+                              (fun j =>
+                                HIntegral
+                                  (fun s =>
+                                    Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                                  (1 - c) c (R j))
+                              Filter.atTop (nhds 0) ∧
+                            Filter.Tendsto
+                              (fun j =>
+                                HIntegral
+                                  (fun s =>
+                                    Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                                  (1 - c) c (-R j))
+                              Filter.atTop (nhds 0)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.XiLogDeriv @@LINE 80 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ (s : ℂ),
+        DirichletCharacter.completedLFunction χ⁻¹ s ≠ 0 →
+          logDeriv (DirichletCharacter.completedLFunction χ) (1 - s) =
+            -(Complex.log ↑N + logDeriv (DirichletCharacter.completedLFunction χ⁻¹) s)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub
+@@BEGIN SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZetaBounds @@LINE 124 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → ∀ (x : ℝ), ‖SIDEExplicitFormula.GRHWeil.charPartialSum χ x‖ ≤ ↑N + 1
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le
+@@BEGIN SIDEExplicitFormula.GRHWeil.norm_integral_tail_le
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZetaBoundsStrip @@LINE 337 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.norm_integral_tail_le : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M →
+        ∀ {σ t : ℝ},
+          0 < σ →
+            ‖∫ (x : ℝ) in Set.Ioi ↑M,
+                  SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(↑σ + ↑t * Complex.I + 1))‖ ≤
+              (↑N + 1) * ↑M ^ (-σ) / σ
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.norm_integral_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.norm_integral_tail_le
+@@BEGIN SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.VerticalLine @@LINE 34 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N),
+  ∃ C,
+    0 < C ∧ ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv χ.gammaFactor (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le
+@@BEGIN SIDEExplicitFormula.GRHWeil.prime_side_line_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.VerticalLine @@LINE 190 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.prime_side_line_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          1 / (2 * ↑Real.pi) *
+              ∫ (t : ℝ),
+                Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) *
+                  -logDeriv (DirichletCharacter.LFunction χ) (↑c + ↑t * Complex.I) =
+            ∑' (n : ℕ),
+              ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) n * ↑(1 / √↑n) * k (Real.log ↑n)
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.prime_side_line_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.prime_side_line_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.verticals_eq_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.FullLine @@LINE 202 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.verticals_eq_chi : ∀ {N : ℕ} [inst : NeZero N] {k : ℝ → ℂ}
+  {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ContDiff ℝ 2 k →
+        HasCompactSupport k →
+          ∀ {c : ℝ},
+            1 < c →
+              c ≤ 3 / 2 →
+                ∀ (R : ℝ),
+                  VIntegral (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s) c
+                        (-R) R -
+                      VIntegral (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                        (1 - c) (-R) R =
+                    Complex.I • ∫ (t : ℝ) in -R..R, SIDEExplicitFormula.GRHWeil.Fline_chi χ k c t
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.verticals_eq_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.verticals_eq_chi
+@@BEGIN SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Chi.ZeroSumLimit @@LINE 27 @@CONSUMES [SIDEExplicitFormula.GRHWeil.chiZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {R : ℕ → ℝ},
+        (∀ (j : ℕ), ↑j + 7 ≤ R j ∧ R j ≤ ↑j + 8) →
+          ∀ {Z : ℕ → Finset ℂ},
+            (∀ (j : ℕ), ↑(Z j) = {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ ∧ -R j < ρ.im ∧ ρ.im < R j}) →
+              Filter.Tendsto
+                (fun j => ∑ ρ ∈ Z j, ↑(SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ) * Zeta23.WeilEF.Hfn k ρ)
+                Filter.atTop
+                (nhds
+                  (∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+                    ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.WeilEF.Hfn k ↑ρ))
+@@AXIOMS
+'SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi
