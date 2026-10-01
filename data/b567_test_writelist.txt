@@ -1,0 +1,26 @@
+### test_addenda_writelist -- (R177)(3)(g)
+  (R176)(3) read: 2330 chars, opens "BRANCH (i) TAKEN, in the order the dependency gives. The con"
+  the clause (R176)(3) is found in the banked paste                          got True  want True  OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(3) -> CLAUSE NAMES IT: "license"
+  b566 line: Vendored/Bulka/LICENSE carried by (R176)(3)                     got True  want True  OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/README.md, carried by (R176)(3) -> CLAUSE DOES NOT NAME IT
+  MUTATION: Vendored/Bulka/README.md carried by (R176)(3) -- no clause names it got False want False OK
+    WRITE-LIST ADDENDUM: data/b471_someone_elses_bank.txt, carried by (R176)(3) -> CLAUSE DOES NOT NAME IT
+  MUTATION: b471_someone_elses_bank.txt carried by (R176)(3)                 got False want False OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(7) -> CLAUSE DOES NOT NAME IT
+  MUTATION: LICENSE carried by (R176)(7), a clause that does not name it     got False want False OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R9999)(1) -> CLAUSE NOT FOUND
+  MUTATION: LICENSE carried by (R9999)(1), a ruling not banked               got False want False OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE carried by R176 3 -> LINE NOT OF THE FORM
+  MUTATION: a line not of the form                                           got False want False OK
+  MUTATION: README.md is named by NO clause (1)-(7) of (R176)                got False want False OK
+  the face`s (W) globs cover LICENSE: False
+  the addendum bank`s accepted basenames: ['LICENSE']
+  ARM: the real stray LICENSE with the accepted addendum -> PASS             got True  want True  OK
+  ARM: the real stray LICENSE with NO addendum -> FAIL                       got False want False OK
+  the mutation`s file CHANGELOG.md is covered by NO (W) glob                 got False want False OK
+  the mutation`s file CHANGELOG.md is named by NO clause (1)-(7) of (R176)   got False want False OK
+  ARM MUTATION: a stray CHANGELOG.md no clause names, beside the addendum -> FAIL got False want False OK
+  ARM MUTATION: an addendum REFUSED (CHANGELOG.md by (R176)(3)) does not carry it -> FAIL got False want False OK
+  ARM: its own positive control still FAILS                                  got False want False OK
+### 15 of 15 cases as wanted -- PASS

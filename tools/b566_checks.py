@@ -30,6 +30,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 import b564_checks as K4          # ### the generic helpers, imported (b564's, carried)
 import b566_record as R
 import b542_checks as K542
+import addenda as ADD             # ### (R177)(3): the post-seal addendum forms, shared (b567)
 
 D, T = os.path.join(ROOT, 'data'), os.path.join(ROOT, 'tools')
 PP = os.path.join('D:', os.sep, 'MY-DOwnloads', 'PLACE-papers')
@@ -229,6 +230,7 @@ def sources():
                  if gits(PP, 'log', '-1', '--pretty=%s').startswith('b566 --')
                  else sorted(p[3:].strip() for p in git(PP, 'status', '--porcelain').split(NL)
                              if p.strip() and not p.lstrip().startswith('??'))),
+        wl_add=ADD.accepted_bases(rd_d('b566_writelist_addendum.txt'), ADD.paste_reader(D)),
         kinds=set(), mustfail=not os.path.exists(os.path.join(D, 'b566_mustnotexist.txt')),
         dep_clean=(gits(PP, 'status', '--porcelain', '--', 'outputs/DEPOSITED-v1.1.2') == ''),
     )
@@ -645,7 +647,8 @@ ARMS = [
      lambda S: S['pp_now']['OPEN_TRAILS.md'].startswith(S['pp_prior']['OPEN_TRAILS.md']) and S['ot'].count(P(R.HEADING6)) == 1,
      lambda S: put(S, 'ot', S['ot'] + NL + P(R.HEADING6) + ' a second record')),
     ('G-WRITELIST-KINDS', 'every b566 commit in four repositories (the kernel`s main and the backport branch), against (R91)`s STEM GLOB',
-     lambda S: not sorted(k for k in S['kinds'] if not any(fnmatch.fnmatch(k, g) for g in globs_of(S['face']))),
+     lambda S: not sorted(k for k in S['kinds'] if not any(fnmatch.fnmatch(k, g) for g in globs_of(S['face']))
+                          and k not in S['wl_add']),   # ### (R177)(3)(g): an ACCEPTED post-seal addendum carries the file
      lambda S: put(S, 'kinds', set(S['kinds']) | {'b471_someone_elses_bank.txt'})),
     ('G-WRITELIST-SPANS-ACT', 'the suite`s own text', lambda S: "log', '--pretty=%H %s'" in S['suite'],
      lambda S: cut(S, 'suite', "log', '--pretty=%H %s'")),
@@ -729,6 +732,10 @@ def main():
     stray = sorted(k for k in S['kinds'] if not any(fnmatch.fnmatch(k, g) for g in globs_of(S['face'])))
     rec('')
     rec('  ### files written that NO (W) GLOB COVERS : %d %s' % (len(stray), stray or ''))
+    rec('  ### of them, carried by an ACCEPTED post-seal addendum ((R177)(3)(g)) : %d %s'
+        % (len([x for x in stray if x in S['wl_add']]), sorted(x for x in stray if x in S['wl_add']) or ''))
+    for a in ADD.writelist_addenda(read(os.path.join(D, 'b566_writelist_addendum.txt')), ADD.paste_reader(D)):
+        rec('  ###   %s -> %s' % (a['line'], a['why']))
     if not RERUN:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         if gen_diff.get('first_run'):
