@@ -1,0 +1,12 @@
+b578 -- COMPONENT 1: b576`S RE-RUN, EACH FAILING ARM READ ON ITS OWN EVIDENCE
+
+### the re-run: ARMS RUN : 69. ### LIVE PASSING : 66.
+### failing: ['G-DOC-UNWRITTEN', 'G-MIRROR-AFTER-PUSH', 'G-WRITELIST-KINDS']
+
+### G-WRITELIST-KINDS -- the arm`s glob-uncovered list as the suite printed it: ['relay/data/b577_b576_rerun.txt', 'relay/data/b577_ferry.txt', 'relay/tools/mirror_prevbuild.json']
+    the accepted addenda carry: ['mirror_prevbuild.json']
+    uncovered by globs AND addenda: ['relay/data/b577_b576_rerun.txt', 'relay/data/b577_ferry.txt'] -- the re-run`s own scaffolding in the worktree (defect (b)); tools/mirror_prevbuild.json is carried: True
+### G-DOC-UNWRITTEN -- b576`s suite reads PLACE-papers` live HEAD; each b576 draft`s first 80 characters in FINDINGS at 192077f / at HEAD: {'A': (False, False), 'B': (False, True)} -- Draft B was appended by b577 (FINDINGS :6448), after b577`s own re-run
+### G-MIRROR-AFTER-PUSH -- the mirror build`s source HEAD 192077f against PLACE-papers` remote main 7bd8954 now: DIFFER -- b577 pushed PLACE-papers 7bd8954 after b577`s re-run
+
+### ### **ONE OF THE THREE IS THE ADDENDUM`S ARM, AND IT NO LONGER FAILS ON THE ADDENDUM`S FILE; TWO READ THE CORPUS AS IT STANDS AT b578, NOT AS IT STOOD AT b576`S PUSH.**

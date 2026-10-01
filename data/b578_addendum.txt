@@ -1,0 +1,18 @@
+b578 -- COMPONENT 1: THE ADDENDUM RE-CITED AND THE RE-RUN, (R188)(2)
+
+### relay data/b576_writelist_addendum.txt, as rewritten (the re-cited line, the refused line beneath it):
+    WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R187)(4)
+    WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5)
+
+### the form (relay tools/addenda.py, (R177)(3)(g)) on each line:
+    WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R187)(4) -> CLAUSE NAMES IT: "mirror_prevbuild.json" ; accepted True
+    WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5) -> CLAUSE DOES NOT NAME IT ; accepted False
+
+### the re-run of b576`s suite in the kept worktree D:/b577-rerun-b576 (HEAD 2eae0499), the rewritten bank and relay data/b577_ferry.txt placed in it:
+    ### files written (74), each against the (W) globs: uncovered ['relay/data/b577_b576_rerun.txt', 'relay/data/b577_ferry.txt', 'relay/tools/mirror_prevbuild.json']
+    ### WRITE-LIST ADDENDUM ((R177)(3)(g)): WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R187)(4) -> CLAUSE NAMES IT: "mirror_prevbuild.json"
+    ### WRITE-LIST ADDENDUM ((R177)(3)(g)): WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5) -> CLAUSE DOES NOT NAME IT
+    ### ### **ARMS RUN : 69. ### LIVE PASSING : 66. ### LIVE FAILING : 3 ['G-DOC-UNWRITTEN', 'G-MIRROR-AFTER-PUSH', 'G-WRITELIST-KINDS'].**
+    ### ### **VERDICT : NOT CLEAN**
+
+### ### **THE RE-CITED LINE IS ACCEPTED; THE REFUSED LINE BENEATH IT IS REFUSED; THE RE-RUN READS 66 OF 69.**

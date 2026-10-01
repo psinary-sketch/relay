@@ -1,0 +1,638 @@
+{
+ "path": "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md",
+ "cur": "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
+ "cur_blob": "75b53dec52e4bf60ca247ec3095b6e5df9ca1b9f",
+ "lines_cur": 640,
+ "lines_body": 646,
+ "lines_full": 689,
+ "n_cur": 739,
+ "n_body": 742,
+ "n_full": 773,
+ "n_backmatter": 31,
+ "n_inserted": 3,
+ "credit": 2,
+ "removals": 0,
+ "diff": [
+  {
+   "id": "PATHS:45:3",
+   "line": 45,
+   "terminal": "h1_complete_at_Phi",
+   "old": "| **centre** | goal state | `goal ⇐ h1 ∧ h2`; **h1 complete at Φ** (only h2 open) | `h1_complete_at_Phi`, `RegisterPentagon.goalState_sevenClasses_of_h2` (lv v0.6.0/v0.7.0) |",
+   "new": "| **centre** | goal state | `goal ⇐ h1 ∧ h2`; **h1 complete at Φ**, and lv’s h2 at Φ, `mellin Φ (s/2) ≠ 0`, is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the goal state closes nothing on the strip -- the open clause is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) | `h1_complete_at_Phi`, `RegisterPentagon.goalState_sevenClasses_of_h2` (lv v0.6.0/v0.7.0) |",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip."
+  },
+  {
+   "id": "PATHS:45:4",
+   "line": 45,
+   "terminal": "h2_sign",
+   "old": "| **centre** | goal state | `goal ⇐ h1 ∧ h2`; **h1 complete at Φ** (only h2 open) | `h1_complete_at_Phi`, `RegisterPentagon.goalState_sevenClasses_of_h2` (lv v0.6.0/v0.7.0) |",
+   "new": "| **centre** | goal state | `goal ⇐ h1 ∧ h2`; **h1 complete at Φ**, and lv’s h2 at Φ, `mellin Φ (s/2) ≠ 0`, is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the goal state closes nothing on the strip -- the open clause is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) | `h1_complete_at_Phi`, `RegisterPentagon.goalState_sevenClasses_of_h2` (lv v0.6.0/v0.7.0) |",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:46:5",
+   "line": 46,
+   "terminal": "partialPositivity_finiteRange",
+   "old": "| **R4 — nearest** | balance → positivity | finite-range certificate λ_n ≥ 0 for n ≤ N₀(T)≈2T² (Voros threshold), on-line term proved; **finite-set conjunct now DERIVES** (`lowFinset_mem_iff`, v0.10.0); all-n tail open | `PartialPositivity.partialPositivity_finiteRange`, `blTerm_nonneg_of_onLine`, `lowFinset_mem_iff` (landed lv v0.8.0 / v0.10.0; deposited SIDE-lv-conservation v0.10.0 = `93c27ec`) |",
+   "new": "| **R4 — nearest** | balance → positivity | finite-range λ_n ≥ 0 for n ≤ N₀(T)≈2T² (Voros threshold), a certificate conditional on two uncompiled literature premises (Bombieri–Lagarias `ExplicitFormulaDecomp`, Voros `TailBoundPremise`) and verified zeros -- T1-lit; on-line term proved; **finite-set conjunct now DERIVES** (`lowFinset_mem_iff`, v0.10.0); the all-n statement is RH itself (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`) | `PartialPositivity.partialPositivity_finiteRange`, `blTerm_nonneg_of_onLine`, `lowFinset_mem_iff` (landed lv v0.8.0 / v0.10.0; deposited SIDE-lv-conservation v0.10.0 = `93c27ec`) |",
+   "changed": true,
+   "reading": 2,
+   "matcher": [
+    1,
+    2
+   ],
+   "cites": [
+    "li_nonneg_iff_rh"
+   ],
+   "banks": [],
+   "supports": "presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit."
+  },
+  {
+   "id": "PATHS:59:10",
+   "line": 59,
+   "terminal": "ch_iff_rh",
+   "old": "| **3 (largest ask)** | R2 Conservation / Tate | the **adelic apparatus in Lean** — Tate's thesis / the product formula as machine-checked objects, so `ConservationHypothesis` can be discharged rather than assumed | Mathlib community (adeles / Tate's thesis) — the largest ecosystem ask | R2 face; `ConservationHypothesis` (kernel v1.3) |",
+   "new": "| **3 (largest ask)** | R2 Conservation / Tate | the **adelic apparatus in Lean** — Tate's thesis / the product formula as machine-checked objects, and `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), so discharging it is proving RH | Mathlib community (adeles / Tate's thesis) — the largest ecosystem ask | R2 face; `ConservationHypothesis` (kernel v1.3) |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "names Tate's thesis in Lean as what would let `ConservationHypothesis` be discharged rather than assumed, and `ConservationHypothesis` is RH restated (`ch_iff_rh`), so discharging it is proving RH."
+  },
+  {
+   "id": "PATHS:63:11",
+   "line": 63,
+   "terminal": "h2_sign",
+   "old": "**The goal state.** The programme reduces to `goal ⇐ h1 ∧ h2`.",
+   "new": "**The goal state.** lv’s goal state is `goal ⇐ h1 ∧ h2`, and its h2 at Φ, `mellin Φ (s/2) ≠ 0`, is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so that reduction closes nothing on the strip.",
+   "changed": true,
+   "reading": 0,
+   "matcher": [],
+   "cites": [
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:63:13",
+   "line": 63,
+   "terminal": "h2_sign",
+   "old": "**`h2` is the single open premise — and it is a statement, not a count:** *every ξ-zero forces the Euler balance at some prime* (the conservation register, in the W-7 existential form — balance at *some* prime, kernel v1.3 = `0bc21c0`).",
+   "new": "**`h2_sign` is the single open premise — and it is a statement, not a count:** Weil positivity on classK, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), whose conservation register, *every ξ-zero forces the Euler balance at some prime* (the W-7 existential form, kernel v1.3 = `0bc21c0`), is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`).",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh"
+   ],
+   "banks": [],
+   "supports": "states h2 as \"every xi-zero forces the Euler balance at some prime\", the conservation register, which `ch_iff_rh` shows is RH restated, so the single open premise it names is RH itself."
+  },
+  {
+   "id": "PATHS:67:15",
+   "line": 67,
+   "terminal": "partialPositivity_finiteRange",
+   "old": "**The positivity door, ajar (II.7).** The R4 face already carries a finite-range certificate: `PartialPositivity.partialPositivity_finiteRange` (SIDE-lv-conservation v0.8.0 = `6efa9e5`), λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T², with on-line-term nonnegativity **proved** (`blTerm_nonneg_of_onLine`).",
+   "new": "**The positivity door, ajar (II.7).** The R4 face carries a finite-range certificate conditional on two uncompiled literature premises (Bombieri–Lagarias `ExplicitFormulaDecomp`, Voros `TailBoundPremise`) and verified zeros, T1-lit: `PartialPositivity.partialPositivity_finiteRange` (SIDE-lv-conservation v0.8.0 = `6efa9e5`), λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T² under those premises, with on-line-term nonnegativity **proved** (`blTerm_nonneg_of_onLine`), while λ_n ≥ 0 at every n is RH itself (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`).",
+   "changed": true,
+   "reading": 2,
+   "matcher": [
+    1,
+    2
+   ],
+   "cites": [
+    "li_nonneg_iff_rh"
+   ],
+   "banks": [],
+   "supports": "presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit."
+  },
+  {
+   "id": "PATHS:67:16",
+   "line": 67,
+   "terminal": "h2_sign",
+   "old": "This is the **nearest-approach** door: the all-doors proximity, farthest first, runs R5 → R3 (h2 raw) → R1/R2 (named premises) → **R4 (here)**.",
+   "new": "Read against the b538 census and the page, the five registers are not doors at five distances but a star on RH: R1 is false as stated (`not_register1`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), R2 is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), R4 is RH in the Weil form and in the Li form (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`, and `li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`), R5’s output face is a theorem as stated (`register5_output_holds`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), and R3 is undecided (relay `data/b538_census.json` :23).",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "not_register1",
+    "register5_output_holds"
+   ],
+   "banks": [
+    "relay `data/b538_census.json` :23"
+   ],
+   "supports": "ranks R1/R2 as named-premise doors to h2, and R1 as stated is false (`not_register1`) and R2 is RH restated (`ch_iff_rh`), so neither is a door by which h2 is approached."
+  },
+  {
+   "id": "PATHS:255:26",
+   "line": 255,
+   "terminal": "h2_sign",
+   "old": "C₅-output (Hilbert–Pólya) stays disclaimed; h2 remains the bracket's outstanding obligation, research-reach.*",
+   "new": "C₅-output (Hilbert–Pólya) stays disclaimed; the bracket’s h2 at Φ is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the obligation it leaves is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), research-reach.*",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:257:27",
+   "line": 257,
+   "terminal": "h1_complete_at_Phi",
+   "old": "`h1_complete_at_Phi` discharges h1's certifiable surround, so h2 stands alone as the single open proposition — localization sharpened, h2 itself not shortened; the register-equivalence and partial-positivity interfaces are its doors (Program Two iii, iv), to be opened only at statement-read + price + ruling.",
+   "new": "`h1_complete_at_Phi` discharges h1’s certifiable surround, and lv’s h2 at Φ is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the single open proposition is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) — localization sharpened, the clause itself not shortened, the conservation register and Li positivity compiled as faces of that clause (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`, and `li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`), not doors to it (Program Two iii, iv).",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip."
+  },
+  {
+   "id": "PATHS:257:28",
+   "line": 257,
+   "terminal": "h2_sign",
+   "old": "`h1_complete_at_Phi` discharges h1's certifiable surround, so h2 stands alone as the single open proposition — localization sharpened, h2 itself not shortened; the register-equivalence and partial-positivity interfaces are its doors (Program Two iii, iv), to be opened only at statement-read + price + ruling.",
+   "new": "`h1_complete_at_Phi` discharges h1’s certifiable surround, and lv’s h2 at Φ is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the single open proposition is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) — localization sharpened, the clause itself not shortened, the conservation register and Li positivity compiled as faces of that clause (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`, and `li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`), not doors to it (Program Two iii, iv).",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "ch_iff_rh",
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:259:30",
+   "line": 259,
+   "terminal": "h2_sign",
+   "old": "R5-output was repaired at P2 from a trivially-true draft to the positive-definite-pairing + operator schema of Hilbert–Pólya (analytic content disclaimed, the C₅ distance, O.18). h1 done, h2 the one open obligation.",
+   "new": "R5-output was repaired at P2 from a trivially-true draft to the positive-definite-pairing + operator schema of Hilbert–Pólya (analytic content disclaimed, the C₅ distance, O.18), and the repaired face is true as stated (`register5_output_holds`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`). h1 done, lv’s h2 at Φ false on the strip (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), `h2_sign` the one open obligation, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`).",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one",
+    "register5_output_holds"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:294:37",
+   "line": 294,
+   "terminal": "h1_complete_at_Phi",
+   "old": "| h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order) | SIDE-lv-conservation v0.6.0 = c80bdc2, DOI `10.5281/zenodo.21433178` (concept `21433177`) | `SIDELvConservation.h1_complete_at_Phi` (C₄ via `C4_modularity_at_Phi`, witness `jacobiTheta`) | `{propext, Classical.choice, Quot.sound}` | Compiled — h1 leg of the bracket complete; C₄ strengthened-then-discharged (Fork B); C₅-output disclaimed, h2 outstanding |",
+   "new": "| h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order) | SIDE-lv-conservation v0.6.0 = c80bdc2, DOI `10.5281/zenodo.21433178` (concept `21433177`) | `SIDELvConservation.h1_complete_at_Phi` (C₄ via `C4_modularity_at_Phi`, witness `jacobiTheta`) | `{propext, Classical.choice, Quot.sound}` | Compiled — h1 leg of the bracket complete; C₄ strengthened-then-discharged (Fork B); C₅-output disclaimed; lv’s h2 at Φ false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`); the outstanding clause is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) |",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip."
+  },
+  {
+   "id": "PATHS:294:38",
+   "line": 294,
+   "terminal": "h2_sign",
+   "old": "| h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order) | SIDE-lv-conservation v0.6.0 = c80bdc2, DOI `10.5281/zenodo.21433178` (concept `21433177`) | `SIDELvConservation.h1_complete_at_Phi` (C₄ via `C4_modularity_at_Phi`, witness `jacobiTheta`) | `{propext, Classical.choice, Quot.sound}` | Compiled — h1 leg of the bracket complete; C₄ strengthened-then-discharged (Fork B); C₅-output disclaimed, h2 outstanding |",
+   "new": "| h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order) | SIDE-lv-conservation v0.6.0 = c80bdc2, DOI `10.5281/zenodo.21433178` (concept `21433177`) | `SIDELvConservation.h1_complete_at_Phi` (C₄ via `C4_modularity_at_Phi`, witness `jacobiTheta`) | `{propext, Classical.choice, Quot.sound}` | Compiled — h1 leg of the bracket complete; C₄ strengthened-then-discharged (Fork B); C₅-output disclaimed; lv’s h2 at Φ false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`); the outstanding clause is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) |",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:295:39",
+   "line": 295,
+   "terminal": "h1_complete_at_Phi",
+   "old": "| **Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`, only h2 open) | SIDE-lv-conservation v0.7.0 = 2d86182 | `RegisterPentagon.goalState_of_h1_h2` · `.goalState_sevenClasses_of_h2` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** (native, via `T3.T3prime_shared_witness`) |",
+   "new": "| **Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`; its h2 at Φ is false at every s with re s ≤ 1, so the edge is vacuous on the strip, `mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`; the open clause is `h2_sign`, `h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) | SIDE-lv-conservation v0.7.0 = 2d86182 | `RegisterPentagon.goalState_of_h1_h2` · `.goalState_sevenClasses_of_h2` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** (native, via `T3.T3prime_shared_witness`) |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip."
+  },
+  {
+   "id": "PATHS:295:40",
+   "line": 295,
+   "terminal": "h2_sign",
+   "old": "| **Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`, only h2 open) | SIDE-lv-conservation v0.7.0 = 2d86182 | `RegisterPentagon.goalState_of_h1_h2` · `.goalState_sevenClasses_of_h2` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** (native, via `T3.T3prime_shared_witness`) |",
+   "new": "| **Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`; its h2 at Φ is false at every s with re s ≤ 1, so the edge is vacuous on the strip, `mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`; the open clause is `h2_sign`, `h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) | SIDE-lv-conservation v0.7.0 = 2d86182 | `RegisterPentagon.goalState_of_h1_h2` · `.goalState_sevenClasses_of_h2` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** (native, via `T3.T3prime_shared_witness`) |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1,
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:297:41",
+   "line": 297,
+   "terminal": "ch_iff_rh",
+   "old": "| Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis | SIDE-kernel v1.3 = 0bc21c0 (carried at lv-conservation v0.7.0) | `ConservationBridge.riemann_hypothesis`; carried `RegisterPentagon.R2_conservationHypothesis_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — named premise: `ConservationHypothesis` (the statement is `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`). *Re-graded 2026-08-09 from DERIVES by the wave-wide re-grade: the derivation is genuine but conditional, and the corpus rubric reserves DERIVES for the unconditional case. README already graded this terminal INTERFACES; this row now agrees with it, with the rubric, and with its own parenthetical.* Cross-kernel at the SIDE-kernel pin; R2 restated verbatim, bridge attributed as named premise per the federation no-Lake-dep rule |",
+   "new": "| Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis | SIDE-kernel v1.3 = 0bc21c0 (carried at lv-conservation v0.7.0) | `ConservationBridge.riemann_hypothesis`; carried `RegisterPentagon.R2_conservationHypothesis_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — named premise: `ConservationHypothesis`, which is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), so the terminal encodes its conclusion (the statement is `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`). *Re-graded 2026-08-09 from DERIVES by the wave-wide re-grade: the derivation is genuine but conditional, and the corpus rubric reserves DERIVES for the unconditional case. README already graded this terminal INTERFACES; this row now agrees with it, with the rubric, and with its own parenthetical.* Cross-kernel at the SIDE-kernel pin; R2 restated verbatim, bridge attributed as named premise per the federation no-Lake-dep rule |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "grades Route 3 INTERFACES on `ConservationHypothesis` as a genuine conditional derivation, and that premise is RH restated (`ch_iff_rh`), so the terminal encodes its conclusion (T2)."
+  },
+  {
+   "id": "PATHS:297:42",
+   "line": 297,
+   "terminal": "riemann_hypothesis",
+   "old": "| Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis | SIDE-kernel v1.3 = 0bc21c0 (carried at lv-conservation v0.7.0) | `ConservationBridge.riemann_hypothesis`; carried `RegisterPentagon.R2_conservationHypothesis_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — named premise: `ConservationHypothesis` (the statement is `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`). *Re-graded 2026-08-09 from DERIVES by the wave-wide re-grade: the derivation is genuine but conditional, and the corpus rubric reserves DERIVES for the unconditional case. README already graded this terminal INTERFACES; this row now agrees with it, with the rubric, and with its own parenthetical.* Cross-kernel at the SIDE-kernel pin; R2 restated verbatim, bridge attributed as named premise per the federation no-Lake-dep rule |",
+   "new": "| Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis | SIDE-kernel v1.3 = 0bc21c0 (carried at lv-conservation v0.7.0) | `ConservationBridge.riemann_hypothesis`; carried `RegisterPentagon.R2_conservationHypothesis_to_RH` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — named premise: `ConservationHypothesis`, which is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), so the terminal encodes its conclusion (the statement is `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`). *Re-graded 2026-08-09 from DERIVES by the wave-wide re-grade: the derivation is genuine but conditional, and the corpus rubric reserves DERIVES for the unconditional case. README already graded this terminal INTERFACES; this row now agrees with it, with the rubric, and with its own parenthetical.* Cross-kernel at the SIDE-kernel pin; R2 restated verbatim, bridge attributed as named premise per the federation no-Lake-dep rule |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "grades the terminal INTERFACES on `ConservationHypothesis` as a genuine conditional derivation, and that premise is RH restated (`ch_iff_rh`), so the terminal encodes its conclusion (T2)."
+  },
+  {
+   "id": "PATHS:322:45",
+   "line": 322,
+   "terminal": "ch_iff_rh",
+   "old": "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **discharge h2** | implication compiled; live math sits in the open antecedent |",
+   "new": "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **prove RH** — the antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`) | implication compiled; it encodes its conclusion: the live mathematics in the antecedent is RH itself |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "puts Route 3's live mathematics in the open antecedent, and the antecedent is RH restated (`ch_iff_rh`)."
+  },
+  {
+   "id": "PATHS:322:46",
+   "line": 322,
+   "terminal": "h2_sign",
+   "old": "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **discharge h2** | implication compiled; live math sits in the open antecedent |",
+   "new": "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **prove RH** — the antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`) | implication compiled; it encodes its conclusion: the live mathematics in the antecedent is RH itself |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "names \"discharge h2\" as Route 3's remaining step, and Route 3's antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`), so the step is RH itself."
+  },
+  {
+   "id": "PATHS:322:47",
+   "line": 322,
+   "terminal": "riemann_hypothesis",
+   "old": "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **discharge h2** | implication compiled; live math sits in the open antecedent |",
+   "new": "| Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f` | **conditional-A** *(antecedent ≠ spec)* | **prove RH** — the antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`) | implication compiled; it encodes its conclusion: the live mathematics in the antecedent is RH itself |",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "puts Route 3's live mathematics in the open antecedent, and the antecedent is RH restated (`ch_iff_rh`), so the live mathematics is RH itself."
+  },
+  {
+   "id": "PATHS:323:48",
+   "line": 323,
+   "terminal": "h1_complete_at_Phi",
+   "old": "| T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6` | **conditional-A** *(on h2)* | **discharge h2** | h1 closed (`h1_complete_at_Phi`); h2 open |",
+   "new": "| T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6` | **conditional-A** *(on lv’s h2, false on the strip)* | **none on the strip** — lv’s h2 at Φ is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the goal state is vacuous there | h1 closed (`h1_complete_at_Phi`); the open clause is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) |",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip."
+  },
+  {
+   "id": "PATHS:323:49",
+   "line": 323,
+   "terminal": "h2_sign",
+   "old": "| T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6` | **conditional-A** *(on h2)* | **discharge h2** | h1 closed (`h1_complete_at_Phi`); h2 open |",
+   "new": "| T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6` | **conditional-A** *(on lv’s h2, false on the strip)* | **none on the strip** — lv’s h2 at Φ is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), so the goal state is vacuous there | h1 closed (`h1_complete_at_Phi`); the open clause is `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) |",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip."
+  },
+  {
+   "id": "PATHS:326:53",
+   "line": 326,
+   "terminal": "h2_sign",
+   "old": "| R-curve criterion `SIDERCurve.monotone_unique_zero` · rcurve `d5f33b4` | **conditional** *(**ONE DIRECTION compiled** — `StrictMono V → at most one zero`, the kernel's own \"(ii)⟹(i) step\"; **no equivalence terminal exists in SIDE-rcurve v0.1.0**; closure open. Corrected 2026-08-09, second site after L274)* | **discharge h2** (effective dominance = catalogue exhaustiveness) | equivalence engine alive; dominance research-reach |",
+   "new": "| R-curve criterion `SIDERCurve.monotone_unique_zero` · rcurve `d5f33b4` | **conditional** *(**ONE DIRECTION compiled** — `StrictMono V → at most one zero`, the kernel's own \"(ii)⟹(i) step\"; **no equivalence terminal exists in SIDE-rcurve v0.1.0**; closure open. Corrected 2026-08-09, second site after L274)* | **discharge `h2_sign`** (effective dominance = catalogue exhaustiveness), and `h2_sign` is equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), so the conditional’s premise is RH itself | equivalence engine alive; dominance research-reach |",
+   "changed": true,
+   "reading": 0,
+   "matcher": [],
+   "cites": [
+    "h2_sign_iff_rh"
+   ],
+   "banks": [],
+   "supports": "draws a conclusion at RH's depth from h2 as the exhaustiveness premise, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the conditional's premise is RH itself."
+  },
+  {
+   "id": "PATHS:332:58",
+   "line": 332,
+   "terminal": "ch_iff_rh",
+   "old": "**RH proper** is reached only *conditionally on h2* (Route 3, T3 goal state) or as a *B-with-named-tail* (R4).",
+   "new": "**RH proper** is reached by no conditional route short of RH: Route 3’s condition is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), the T3 goal state is vacuous on the strip (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), and R4’s named tail at every n is RH itself (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`).",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh",
+    "li_nonneg_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "has RH reached conditionally by Route 3, and Route 3's condition is RH restated (`ch_iff_rh`)."
+  },
+  {
+   "id": "PATHS:332:59",
+   "line": 332,
+   "terminal": "h2_sign",
+   "old": "**RH proper** is reached only *conditionally on h2* (Route 3, T3 goal state) or as a *B-with-named-tail* (R4).",
+   "new": "**RH proper** is reached by no conditional route short of RH: Route 3’s condition is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), the T3 goal state is vacuous on the strip (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.11 = `19b7d1e`), and R4’s named tail at every n is RH itself (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`).",
+   "changed": true,
+   "reading": 1,
+   "matcher": [
+    1
+   ],
+   "cites": [
+    "ch_iff_rh",
+    "li_nonneg_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "banks": [],
+   "supports": "says RH is reached conditionally on h2 by Route 3 and the T3 goal state, and Route 3's premise is RH restated (`ch_iff_rh`) while the goal state is vacuous on the strip (`mellin_Phi_eq_zero_of_re_le_one`)."
+  },
+  {
+   "id": "PATHS:332:60",
+   "line": 332,
+   "terminal": "h2_sign",
+   "old": "Every conditional route turns on the one hinge, h2 — highest-leverage move;",
+   "new": "Every conditional route turns on the one hinge, `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) — highest-leverage move;",
+   "changed": true,
+   "reading": 3,
+   "matcher": [
+    3
+   ],
+   "cites": [
+    "h2_sign_iff_rh"
+   ],
+   "banks": [],
+   "supports": "draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could."
+  },
+  {
+   "id": "PATHS:379:63",
+   "line": 379,
+   "terminal": "partialPositivity_finiteRange",
+   "old": "| A7 | **Finite-range positivity:** `λ_n ≥ 0` for `1≤n≤N₀(T)≈2T²` | proven **in-kernel** — a **certificate, not RH** (cutoff = the detection threshold) | `partialPositivity_finiteRange` (lv `6efa9e5`); finite-set half DERIVES (`lowFinset_mem_iff`, v0.10.0) |",
+   "new": "| A7 | **Finite-range positivity:** `λ_n ≥ 0` for `1≤n≤N₀(T)≈2T²` | compiled **in-kernel under two uncompiled literature premises (Bombieri–Lagarias `ExplicitFormulaDecomp`, Voros `TailBoundPremise`) and verified zeros** -- T1-lit, a **conditional certificate, not RH** (cutoff = the detection threshold); at every n it is RH (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`) | `partialPositivity_finiteRange` (lv `6efa9e5`); finite-set half DERIVES (`lowFinset_mem_iff`, v0.10.0) |",
+   "changed": true,
+   "reading": 2,
+   "matcher": [
+    2
+   ],
+   "cites": [
+    "li_nonneg_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the finite-range positivity \"proven in-kernel\", and the terminal proves it only under two uncompiled literature premises and verified zeros (T1-lit)."
+  },
+  {
+   "id": "PATHS:450:66",
+   "line": 450,
+   "terminal": "partialPositivity_finiteRange",
+   "old": "**Our FE-even class:** twist-symmetric (w↔1/w) test functions, on which `partialPositivity_finiteRange` proves positivity **to the detection threshold N₀**.",
+   "new": "**Our FE-even class:** twist-symmetric (w↔1/w) test functions, on which `partialPositivity_finiteRange` gives positivity **to the detection threshold N₀** only under two uncompiled literature premises (Bombieri–Lagarias `ExplicitFormulaDecomp`, Voros `TailBoundPremise`) and verified zeros (T1-lit), positivity at every n being RH (`li_nonneg_iff_rh`, SIDE-explicit-formula v0.9 = `e5a5a83`).",
+   "changed": true,
+   "reading": 2,
+   "matcher": [
+    2
+   ],
+   "cites": [
+    "li_nonneg_iff_rh"
+   ],
+   "banks": [],
+   "supports": "presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit."
+  }
+ ],
+ "stems": [
+  [
+   67,
+   "(the all-n tail is the open gap)",
+   "(the all-n tail is the open clause)"
+  ],
+  [
+   261,
+   "(the all-n tail is the open gap)",
+   "(the all-n tail is the open tail premise)"
+  ],
+  [
+   304,
+   "the all-n tail is the open gap.",
+   "the all-n tail is the open all-n range."
+  ],
+  [
+   329,
+   "the gap is identification→exclusion (= the h2/RH gap)",
+   "the clause is identification→exclusion (= the h2/RH clause)"
+  ]
+ ],
+ "sha256": "405f43ab0ede34409039d47e31fc9c9551b956f637db23b08ce43aa33b64f357",
+ "status_blanks": [],
+ "cited_lines": {
+  "ch_iff_rh": [
+   59,
+   63,
+   67,
+   242,
+   259,
+   299,
+   326,
+   336
+  ],
+  "h2_sign_iff_rh": [
+   45,
+   63,
+   67,
+   257,
+   259,
+   261,
+   296,
+   297,
+   327,
+   330,
+   336
+  ],
+  "li_nonneg_iff_rh": [
+   46,
+   67,
+   259,
+   336,
+   365,
+   385,
+   456
+  ],
+  "not_register1": [
+   67
+  ],
+  "mellin_Phi_eq_zero_of_re_le_one": [
+   45,
+   63,
+   257,
+   259,
+   261,
+   296,
+   297,
+   327,
+   336
+  ],
+  "register5_output_holds": [
+   67,
+   261
+  ]
+ },
+ "credits": [
+  {
+   "after": 240,
+   "id": "PATHS:240:23",
+   "findings": 5904,
+   "text": "*Credit (CP-1b, b558, FINDINGS :5904):* the sentence above cites on 2026-07-17 the load-bearing flag “treating H as weaker than RH re-commits the ConservationHypothesis error”, the reading `ch_iff_rh` (SIDE-explicit-formula v0.1 = `baed4df`) compiled at b531–b532."
+  },
+  {
+   "after": 308,
+   "id": "PATHS:291:35",
+   "findings": 5918,
+   "text": "*Credit (CP-1b, b558, FINDINGS :5918):* the Conservation-frame row of this table (v0.6 :291) prints `conservation_of_spectra` as `∀ s : ℤ, (1 : ℚ) ^ s = 1` with its conservation reading a STIPULATION carried by the namespace, on 2026-08-09, the reading b539 tiered T2 on 2026-09-25."
+  }
+ ],
+ "boundary": {
+  "after": 359,
+  "text": "*Beside it, compiled since (reading of `(R188)`(4)):* λ_n ≥ 0 at every n is equivalent to RH over Mathlib’s zeros, `li_nonneg_iff_rh` (SIDE-explicit-formula v0.9 = `e5a5a83`)."
+ }
+}
