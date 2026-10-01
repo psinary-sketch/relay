@@ -1,0 +1,17 @@
+========================================================================================================
+b576 COMPONENT 1, STEP 1 -- THE PLAN, DRY. ### **NOTHING IS WRITTEN AT ZENODO IN THIS STEP.**
+========================================================================================================
+### THE CALL, PREPARED, the token redacted:
+    POST https://zenodo.org/api/deposit/depositions/21539068/actions/edit ; Authorization: Bearer [TOKEN REDACTED]
+    PUT  https://zenodo.org/api/deposit/depositions/21539068 ; Authorization: Bearer [TOKEN REDACTED] ; body {"metadata": <every key as fetched, description replaced>}
+    POST https://zenodo.org/api/deposit/depositions/21539068/actions/publish ; Authorization: Bearer [TOKEN REDACTED]
+    GET  https://zenodo.org/api/records/21539068 ; no Authorization header (the fetch-back)
+
+### RECORD 21539068 -- HTTP 200 ; banked `b576_before_21539068.json` sha256 6829143ecd6805db ; state done ; description 3045 chars ; equal to b575`s anonymous fetch : True
+    [Z21539068-E] ### **FOUND ONCE** ; the description`s last sentence, whole:
+         | Repository: github.com/psinary-sketch/SIDE-lv-conservation.
+         its replacement (the sentence, the paragraph`s close, the new paragraph):
+         | Repository: github.com/psinary-sketch/SIDE-lv-conservation.</p>
+<p>Rather than leaving that clause as prose, this kernel states a goal state around it and machine-checks everything provable around it; at the kernel's fixed witness Phi the goal state's nonvanishing clause mellin Phi (s/2) ≠ 0 is false at every s with re s ≤ 1, so on the critical strip the clause is carried by its completedRiemannZeta form, which is RH on the zero configuration (lvh2_corrected_iff, SIDE-explicit-formula RegisterDepth.lean at 81ae175). The one deliberately open obligation is the clause itself; the kernel's docstrings locate it at h2 = mellin Phi (s/2) ≠ 0, which is false as stated at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le_one); the open clause is its completedRiemannZeta form, RH on the strip (lvh2_corrected_iff).
+
+    ### ### **SPANS FOUND ONCE : 1 of 1** ; ### **NO STOP -- STEP 2 MAY WRITE.**
