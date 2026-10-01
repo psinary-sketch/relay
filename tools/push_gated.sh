@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # push_gated.sh -- THE PUSH DISCIPLINE, (R171)(2), written at b561.
 #
-# usage: push_gated.sh <repo> <push-branch> [tag ...]
+# usage: push_gated.sh <repo> <push-branch> [tag[::message] ...]
 #
 # b560's defect (e): a chained command piped `git push origin main` through `tail`; the pre-push hook refused the push,
 # the pipe returned tail's status, and the chain went on to push the tag, so the remote carried a tag peeled to a commit
@@ -12,11 +12,19 @@
 #   (3) only then is each tag pushed, and each tag's peeled SHA read back at the remote equal to its local peel.
 # A refused push, an unequal read-back, or a failed tag push exits non-zero at once, and no later push runs.
 # Exit codes: 0 all pushed and read back; 2 usage; 3 main push refused; 4 main read-back unequal; 5 a tag push refused;
-# 6 a tag read-back unequal. The script prints one line per step; it deletes nothing.
+# 6 a tag read-back unequal; 7 a tag argument refused before any push (the tag already exists, locally or at the
+# remote); 8 the tag could not be made. The script prints one line per step; it deletes nothing.
+#
+# ### THE TAG IS MADE HERE, (R178)(3), b567's defect (g): the seat made the annotated tag v0.10 by hand before main was
+# ### read back. From b568 the script MAKES every tag it is given -- annotated, at the SHA it has just read back at the
+# ### remote, after that SHA has been compared equal to the local tip IN THIS RUN -- and refuses a tag argument whose
+# ### name already exists locally or at the remote, before anything is pushed. A tag argument is NAME or NAME::MESSAGE;
+# ### without a message the tag's message is "NAME -- made by push_gated.sh after main read back at <sha>". The seat
+# ### no longer runs `git tag` by hand for a kernel tag. The test is relay tools/test_push_gated.sh.
 set -euo pipefail
 
 if [ "$#" -lt 2 ]; then
-  echo "push_gated: usage: push_gated.sh <repo> <push-branch> [tag ...]" >&2
+  echo "push_gated: usage: push_gated.sh <repo> <push-branch> [tag[::message] ...]" >&2
   exit 2
 fi
 repo="$1"; branch="$2"; shift 2
@@ -37,6 +45,25 @@ prev=$(git -C "$repo" symbolic-ref --short HEAD)
 tip=$(git -C "$repo" rev-parse "refs/heads/$branch")
 echo "push_gated: repo $repo ; branch $branch ; tip $tip ; checkout before $prev"
 
+# ### (R178)(3): every tag argument is checked BEFORE anything is pushed. A name that exists already was made outside
+# ### this script (by hand, or by an earlier run) and is refused; nothing is pushed.
+for arg in "$@"; do
+  tname="${arg%%::*}"
+  if [ -z "$tname" ]; then
+    echo "push_gated: REFUSED -- an empty tag name in argument '$arg'" >&2
+    exit 7
+  fi
+  if git -C "$repo" rev-parse -q --verify "refs/tags/$tname" >/dev/null; then
+    echo "push_gated: REFUSED -- tag $tname already exists locally; this script makes the tag after main's read-back (R178)(3). NOTHING IS PUSHED" >&2
+    exit 7
+  fi
+  if [ -n "$(git -C "$repo" ls-remote origin "refs/tags/$tname")" ]; then
+    echo "push_gated: REFUSED -- tag $tname already exists at the remote. NOTHING IS PUSHED" >&2
+    exit 7
+  fi
+done
+readback_equal=0
+
 git -C "$repo" checkout -q "$branch"
 set +e
 git -C "$repo" push origin "$branch:main"
@@ -51,11 +78,28 @@ fi
 remote_main=$(git -C "$repo" ls-remote origin refs/heads/main | cut -f1)
 echo "push_gated: main read back at the remote: $remote_main"
 if [ "$remote_main" != "$tip" ]; then
-  echo "push_gated: MAIN READ-BACK UNEQUAL ($remote_main != $tip) -- NO TAG IS PUSHED" >&2
+  echo "push_gated: MAIN READ-BACK UNEQUAL ($remote_main != $tip) -- NO TAG IS MADE OR PUSHED" >&2
   exit 4
 fi
+readback_equal=1
 
-for tag in "$@"; do
+for arg in "$@"; do
+  tag="${arg%%::*}"
+  if [ "$arg" != "$tag" ]; then msg="${arg#*::}"; else msg="$tag -- made by push_gated.sh after main read back at $remote_main"; fi
+  # ### the guard the ruling names: no tag is made unless the read-back happened, and was equal, in this run.
+  if [ "$readback_equal" -ne 1 ]; then
+    echo "push_gated: REFUSED -- tag $tag requested without an equal read-back in this run" >&2
+    exit 8
+  fi
+  set +e
+  git -C "$repo" tag -a "$tag" -m "$msg" "$remote_main"
+  rc=$?
+  set -e
+  if [ "$rc" -ne 0 ]; then
+    echo "push_gated: TAG NOT MADE ($tag, exit $rc)" >&2
+    exit 8
+  fi
+  echo "push_gated: tag $tag made at the read-back $remote_main ($(git -C "$repo" rev-parse "refs/tags/$tag"))"
   set +e
   git -C "$repo" push origin "refs/tags/$tag"
   rc=$?
