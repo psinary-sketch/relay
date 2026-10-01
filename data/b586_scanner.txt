@@ -1,0 +1,24 @@
+b586 -- COMPONENT 1: THE STEM SCANNER TAUGHT THE FORM`S EXCEPTIONS, (R196)(2)
+
+### the test (tools/test_banned_terms_backmatter.py), exit 0:
+    LISTED  exit 0 ; live 0 ; excepted names/history (1, 1) ; verdict CLEAN ; HELD
+    MUTANT  exit 1 ; live 1 ; excepted names/history (1, 1) ; verdict NOT CLEAN ; HELD
+    MUTANT NOT CLEAN -- the unlisted stem reads live
+    TEST HELD
+
+### re-scanned: phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md (exit 0)
+    hits found       : 19   ### unchanged by the QUOTED class -- the scan stays total
+    live uses        : 0
+    excepted (back matter): names 13 ; carried-by-history 2   ### listed by the edition, b586
+    VERDICT          : CLEAN
+    ### carry excepted hits and still be clean, and that is the whole
+
+### re-scanned: phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md (exit 0)
+    hits found       : 6   ### unchanged by the QUOTED class -- the scan stays total
+    live uses        : 0
+    excepted (back matter): names 3 ; carried-by-history 0   ### listed by the edition, b586
+    | :233 | gaps-between-primes (banned stem, excepted) | the o   <<hit: gaps>>
+    | :390 | Small gaps between primes (banned stem, excepted) |   <<hit: gaps>>
+    | :398 | Bounded gaps between primes (banned stem, excepted)   <<hit: gaps>>
+    VERDICT          : CLEAN
+    ### carry excepted hits and still be clean, and that is the whole
