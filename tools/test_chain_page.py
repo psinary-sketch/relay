@@ -72,9 +72,63 @@ def main(argv):
     rc5, pg5, _m5, _l5 = build_from(sh)
     want('(5) a cut CELL: exit 6 (read %s)' % rc5, rc5 == 6 and pg5 is None)
 
+    # ### ### **(R179)(4), b569: THE TIER KEY.** The same banked output under the same node list KEYED (`# pin: <tag>`, the
+    # ### tag the output was elaborated at, read from the output's own node lines): (6) exit 0, the head carries the key
+    # ### sentence, every node line its computed tier with the table's beside it, and the page differs from the unkeyed page
+    # ### ONLY in the head and the tier cells; (7) a table tier cell that differs from a node's computed tier (injected into
+    # ### the record rows) -> exit 7, no page, the node named; (8) an equal table tier -> exit 0 and the cell printed beside.
+    keyed =os.path.join(tmp, 'keyed_' + os.path.basename(nodes))
+    src_nodes = io.open(nodes, encoding='utf-8').read()
+    if keyed_given(nodes):
+        io.open(keyed, 'w', encoding='utf-8', newline='\n').write(src_nodes)
+    else:
+        io.open(keyed, 'w', encoding='utf-8', newline='\n').write('# pin: v0.10\n' + src_nodes)
+    p6 = os.path.join(tmp, 'o6.txt')
+    io.open(p6, 'w', encoding='utf-8', newline='\n').write(out)
+    rc6, pg6, m6, log6 = C.build(keyed, tmp, p6)
+    want('(6) the keyed list re-emitted: exit 0 (read %s)' % rc6, rc6 == 0)
+    want('(6) the head carries the tier key sentence', rc6 == 0 and C.TIER_KEY in pg6.split('\n')[2])
+    nl6 = [l for l in (pg6 or '').split('\n') if re.match(r'^\d+\. `', l)]
+    want('(6) every node line prints the table`s tier beside the computed one (%d lines)' % len(nl6),
+         bool(nl6) and all(re.search(r' — tier: \S+ \(table: [^)]+\) — ', l) for l in nl6))
+    if not keyed_given(nodes):
+        norm = lambda t: [re.sub(r' — tier: \S+(?: \(table: [^)]+\))? — ', ' — tier: * — ', l) for i, l in enumerate(t.split('\n')) if i != 2]
+        a6, b6 = norm(page.decode('utf-8')), norm(pg6 or '')
+        diff6 = [i for i, (x, y) in enumerate(zip(a6, b6)) if x != y]
+        want('(6) and outside the head and the tier cells the keyed page equals the given page (lines differing %s)' % diff6,
+             rc6 == 0 and len(a6) == len(b6) and not diff6)
+        moved = sorted(n for n in m6['cells'] if m6['cells'][n].get('table_tier') is None and n in [x['name'] for x in m6['nodes']]
+                       and ('tier: %s ' % m6['cells'][n]['tier']) not in ' '.join(l for l in page.decode('utf-8').split('\n') if ('`%s`' % n) in l))
+        print('    the node tiers the key moves from the given page: %s' % moved)
+    tvict = next((n for n in (m6['order'] if m6 else []) if m6['cells'][n]['tier'] == 'T0'), None)
+    real_rows = C.record_rows
+
+    def inject(tier):
+        rows = dict(real_rows())
+        r = dict(rows.get(tvict) or dict(name=tvict, repo='SIDE-explicit-formula', grade='DERIVES'))
+        r['grade_cells'] = list(r.get('grade_cells') or []) + [dict(ledger='TEST.md', line=1, quote='`%s` -- tier %s (injected)' % (tvict, tier))]
+        rows[tvict] = r
+        return lambda: rows
+    try:
+        C.record_rows = inject('T2')
+        rc7, pg7, m7, log7 = C.build(keyed, tmp, p6)
+        want('(7) a table tier T2 against %s`s computed T0: exit 7, no page (read %s)' % (tvict, rc7), rc7 == 7 and pg7 is None)
+        want('(7) and the CONFLICT names the node', rc7 == 7 and m7 and m7.get('conflicts') == [tvict])
+        C.record_rows = inject('T0')
+        rc8, pg8, m8, log8 = C.build(keyed, tmp, p6)
+        l8 = [l for l in (pg8 or '').split('\n') if ('`%s`' % tvict) in l and re.match(r'^\d+\. ', l)]
+        want('(8) an equal table tier: exit 0 and the cell reads `T0 (table: T0)` (read %s)' % rc8,
+             rc8 == 0 and bool(l8) and ' — tier: T0 (table: T0) — ' in l8[0])
+    finally:
+        C.record_rows = real_rows
+
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1
+
+
+def keyed_given(path):
+    return any(re.match(r'^# pin: \S+\s*$', l.rstrip('\r\n')) for l in io.open(path, encoding='utf-8'))
 
 
 if __name__ == '__main__':

@@ -25,7 +25,10 @@
 ###   python tools/chain_page.py --nodes <nodes.txt> --probe-dir <dir> --out <page.md> [--cells <cells.json>]
 ###   python tools/chain_page.py --nodes <nodes.txt> --probe-dir <dir> --out <page.md> --from-output <probe_out.txt>
 ###     (re-emit from a banked probe output without elaborating: the parser and emitter only)
-### Exit: 0 written; 2 usage; 3 the checkout refused; 4 free memory below the hold; 5 the probe failed; 6 a node unresolved.
+### Exit: 0 written; 2 usage; 3 the checkout refused; 4 free memory below the hold; 5 the probe failed; 6 a node unresolved;
+### 7 (R179)(4) a node's tier computed from its printed facts disagrees with the table's tier cell -- a CONFLICT, no page.
+### ### (R179)(4), b569: a node list carrying `# pin: <tag>` is generated at that tag, with the tier key on the head and the
+### table's tier printed beside every node's computed tier (`tier_of_node`); a list without one is generated as at b568.
 """
 import io
 import json
@@ -66,6 +69,18 @@ def git(repo, *a):
 
 
 # ================================================================================ the node list
+def node_pin(path):
+    """### (R179)(4), b569: the node list names the kernel tag the page is generated at by one line `# pin: <tag>`; a list
+    ### without one is generated at v0.10 (b568's list, unchanged). The tag is resolved by git; None when it does not resolve."""
+    tag = PIN_TAG
+    for raw in io.open(path, encoding='utf-8'):
+        m = re.match(r'^# pin: (\S+)\s*$', raw.rstrip('\r\n'))
+        if m:
+            tag = m.group(1)
+    rc, sha = git(KER, 'rev-parse', '--verify', '-q', tag + '^{commit}')
+    return tag, (sha.strip() if rc == 0 and len(sha.strip()) == 40 else None)
+
+
 def read_nodes(path):
     nodes, drops, corr, marks = [], [], [], []
     for raw in io.open(path, encoding='utf-8'):
@@ -317,6 +332,40 @@ def tier_of(kind, grade_e0, why, axioms, rec_row, nodeset):
     return 'T2-INTERFACES', 'the tier law`s programme-premise clause (FINDINGS :5812): INTERFACES on %s' % (', '.join(heads) or '?')
 
 
+# ### ### **(R179)(4), b569: THE TIER CELL OF A NODE, DEFINED WHERE THE PAGE IS READ.** *A node's tier cell is computed from
+# ### three printed facts -- grade DERIVES, the standard three, no premise -- and reads T0 when all three hold, with the law's
+# ### "compiled against a Mathlib statement" clause witnessed by the consumes column and not separately tested. The terminal
+# ### table's tier cell, where one exists, is printed beside it and any disagreement is a CONFLICT the regeneration refuses.*
+# ### The table has no tier column; its tier cell is read as a tier WRITTEN in the name's record ledger cell (`record_tier`).
+# ### Where the three facts do not all hold, the tier law's other clauses apply to the printed facts as before (NOT T0 for a
+# ### print beyond the three; T1-open for INTERFACES on h2_sign; T2-INTERFACES otherwise); a record GRADE no longer lifts or
+# ### lowers a node's tier. The Correspondence table's rows (not nodes) keep `tier_of`.
+TIER_KEY = ('A node\'s tier cell is computed from three printed facts — E0 grade DERIVES, the axioms the standard three '
+            '[propext, Classical.choice, Quot.sound], no premise — and reads T0 when all three hold, the tier law\'s clause '
+            '"compiled against a Mathlib statement" being witnessed by the consumes column (Mathlib\'s `RiemannHypothesis` or '
+            '`riemannZeta` among the constants the anchor nodes consume) and not separately tested; the terminal table\'s '
+            'tier cell for the node, where one exists, is printed beside it as `table:`, and a disagreement refuses the page.')
+
+
+def tier_of_node(kind, grade_e0, why, axioms, rec_row):
+    """### RETURN (tier, source, table tier or None, conflict: bool) -- (R179)(4)."""
+    t_rec, src = record_tier(rec_row)
+    if kind != 'theorem':
+        return '—', 'a definition; the law tiers terminals', t_rec, bool(t_rec)
+    std3 = axioms is not None and set(axioms) <= set(STD3)
+    if not std3:
+        t, s = 'NOT T0', 'axioms beyond the standard three'
+    elif grade_e0 == 'DERIVES':
+        t, s = 'T0', 'the three printed facts: E0 DERIVES, the standard three, no premise'
+    else:
+        heads = [h for part in (why or '').split(', ') for h in premise_heads(part.split(' : ', 1)[-1])]
+        if any(h.split('.')[-1] == 'h2_sign' for h in heads):
+            t, s = 'T1-open', 'the tier law: INTERFACES on h2_sign'
+        else:
+            t, s = 'T2-INTERFACES', 'the tier law`s programme-premise clause (FINDINGS :5812): INTERFACES on %s' % (', '.join(heads) or '?')
+    return t, s + ('; the table`s tier %s at %s' % (t_rec, src) if t_rec else ''), t_rec, bool(t_rec) and t_rec != t
+
+
 # ================================================================================ the order
 def dep_order(names, consumes):
     idx = {n: i for i, n in enumerate(names)}
@@ -353,20 +402,21 @@ def short(n):
     return n.split('.')[-1]
 
 
-def emit(nodes, cells, order, corr_rows, keystone_files, ceiling):
-    L = ['# THE CLAUSE AND ITS COMPILED FACES', '',
-         'This page is generated by relay `tools/chain_page.py` from the node list relay `data/b568_nodes.txt`: the compiled chain '
-         'from Mathlib\'s `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. '
-         'It is generated at SIDE-explicit-formula %s = `%s` (Lean %s; Mathlib `%s`; Zeta23 vendored at `%s`; Bulka vendored '
-         'at `%s`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by '
-         '`#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes.'
-         % (PIN_TAG, PIN[:7], TOOLCHAIN.split(':')[1], MATHLIB[:8], ZETA23, BULKA), '']
+def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b568_nodes.txt', key=False):
+    head = ('This page is generated by relay `tools/chain_page.py` from the node list relay `data/%s`: the compiled chain '
+            'from Mathlib\'s `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. '
+            'It is generated at SIDE-explicit-formula %s = `%s` (Lean %s; Mathlib `%s`; Zeta23 vendored at `%s`; Bulka vendored '
+            'at `%s`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by '
+            '`#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes.'
+            % (nodes_name, PIN_TAG, PIN[:7], TOOLCHAIN.split(':')[1], MATHLIB[:8], ZETA23, BULKA))
+    L = ['# THE CLAUSE AND ITS COMPILED FACES', '', head + ((' ' + TIER_KEY) if key else ''), '']
     for i, n in enumerate(order, 1):
         c = cells[n]
         ax = '[' + ', '.join(c['axioms']) + ']' if c['axioms'] is not None else c['axioms_text']
         cons = ', '.join('`%s`' % short(x) for x in c['consumes']) or 'none'
+        tier = c['tier'] + ((' (table: %s)' % (c.get('table_tier') or 'none')) if key else '')
         L.append('%d. `%s` — %s:%d — %s — `%s` — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
-                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], c['premises'], c['grade'], c['tier'], ax, cons))
+                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], c['premises'], c['grade'], tier, ax, cons))
     L += ['', OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
           '| this page | `%s` |' % PAGE_NAME]
     L += ['| ledger | `%s` |' % f for f in LEDGERS]
@@ -381,6 +431,16 @@ def emit(nodes, cells, order, corr_rows, keystone_files, ceiling):
 
 # ================================================================================ the run
 def build(nodes_path, probe_dir, from_output=None):
+    # ### (R179)(4): the pin and the tier key come with the node list. A list carrying `# pin: <tag>` is generated at that
+    # ### tag with the tier key on its head and the table's tier beside every node's; a list without one (b568's) at v0.10
+    # ### as b568 generated it, so b568's page still regenerates byte for byte from b568's list.
+    global PIN_TAG, PIN
+    keyed = any(re.match(r'^# pin: \S+\s*$', raw.rstrip('\r\n')) for raw in io.open(nodes_path, encoding='utf-8'))
+    PIN_TAG, PIN = ('v0.10', '6baed63ae664a22db1f325177b81253e270de6e3')
+    if keyed:
+        PIN_TAG, PIN = node_pin(nodes_path)
+        if PIN is None:
+            return 3, None, None, ['the node list`s pin %s does not resolve in the kernel' % PIN_TAG]
     nodes, drops, corr_extra, marks = read_nodes(nodes_path)
     names = [x['name'] for x in nodes]
     rec = record_rows()
@@ -425,7 +485,10 @@ def build(nodes_path, probe_dir, from_output=None):
         c['path'], c['source_header'] = rel, head
         c['grade'] = grade if c['kind'] == 'theorem' else 'DEF'
         c['premises'] = why if grade == 'INTERFACES' else 'none'
-        c['tier'], c['tier_source'] = tier_of(c['kind'], grade, why, c['axioms'], rec.get(n), nodeset)
+        if keyed and n in nodeset:
+            c['tier'], c['tier_source'], c['table_tier'], c['tier_conflict'] = tier_of_node(c['kind'], grade, why, c['axioms'], rec.get(n))
+        else:
+            c['tier'], c['tier_source'] = tier_of(c['kind'], grade, why, c['axioms'], rec.get(n), nodeset)
         c['record_grade'] = (rec.get(n) or {}).get('grade')
         c['std3'] = c['axioms'] is not None and set(c['axioms']) <= set(STD3)
         if c['module'].startswith('Mathlib'):
@@ -444,6 +507,14 @@ def build(nodes_path, probe_dir, from_output=None):
                 old = source_at(t, rel)
                 m0 = re.search(DECL + r'(?:[A-Za-z_][\w]*\.)*' + re.escape(short(n)) + r'(?![\w\'₀-₉])(.*?):=', old or '', re.M | re.S)
                 c['header_at_entry_equal'] = bool(m0) and ' '.join(m0.group(1).split()) == (head or '')
+    conflicts = [n for n in names if cells[n].get('tier_conflict')]
+    for n in names:
+        if keyed:
+            log.append('tier %-72s computed %-14s table %s%s' % (n, cells[n]['tier'], cells[n].get('table_tier') or 'none',
+                                                                  '   ### CONFLICT' if cells[n].get('tier_conflict') else ''))
+    if conflicts:
+        log.append('### CONFLICT -- the table`s tier differs from the computed tier at %s; NO PAGE (R179)(4)' % conflicts)
+        return 7, None, dict(cells=cells, conflicts=conflicts), log
     order = dep_order(names, {n: cells[n]['consumes'] for n in names})
     if order is None:
         log.append('the consumption relation has a cycle')
@@ -456,7 +527,7 @@ def build(nodes_path, probe_dir, from_output=None):
     for x in corr_extra:
         corr_rows.append(dict(name=x['name'], repo=x['repo'], grade=x['grade'], tier=x['tier'] + ('; ' + x['note'] if x['note'] else '')))
     kfiles = keystones([short(n) for n in names if not cells[n]['module'].startswith('Mathlib')])
-    page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line())
+    page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed)
     for d in drops:   # ### each DROP checked here, not typed: a declaration of that exact name at the pin, and the watch
         ere = (r'^[[:space:]]*(@\[[^]]*\][[:space:]]*)?((private|protected|noncomputable)[[:space:]]+)*'
                r'(theorem|lemma|def|abbrev|structure|inductive|irreducible_def)[[:space:]]+([A-Za-z_][A-Za-z0-9_]*\.)*'
