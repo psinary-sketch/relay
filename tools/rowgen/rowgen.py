@@ -124,6 +124,23 @@ def parse_table(md):
             rows.append(cells)
     return rows
 
+# Lean 4's own identifier set (b571, ruling (R181)(3)), from the toolchain's Init/Meta/Defs.lean at v4.34.0-rc1:
+# isLetterLike (:101), isSubScriptAlnum, isIdFirst = isAlpha || '_' || isLetterLike, isIdRest = isAlphanum || '_' || "'" ||
+# '!' || '?' || isLetterLike || isSubScriptAlnum. A name is components joined by '.'. Escaped «...» names are not read.
+_LETTERLIKE = ('α-κμ-ω'          # lower Greek, but lambda
+               'Α-ΟΡ΢Τ-Ω'  # upper Greek, but Pi and Sigma
+               'ϊ-ϻ'                       # Coptic letters
+               'ἀ-῾'                       # polytonic Greek extended
+               '℀-⅏'                       # the letterlike block
+               '\U0001d49c-\U0001d59f'               # script, double-struck, fraktur Latin
+               'À-ÖØ-öø-ÿ'  # Latin-1 supplement letters, but times and divide
+               'Ā-ſ')                      # Latin Extended-A
+_SUBSCRIPT = '₀-₉ₐ-ₜᵢ-ᵪⱼ'
+_ID_FIRST = '[A-Za-z_' + _LETTERLIKE + ']'
+_ID_REST = "[A-Za-z0-9_'!?" + _LETTERLIKE + _SUBSCRIPT + ']'
+LEAN_NAME = _ID_FIRST + _ID_REST + '*(?:\\.' + _ID_FIRST + _ID_REST + '*)*'
+
+
 def diff(records, table_md):
     recmap = {}
     for r in records:
@@ -132,7 +149,7 @@ def diff(records, table_md):
     out = []
     for cells in parse_table(table_md):
         joined = ' '.join(cells)
-        cited = re.findall(r'`([A-Za-z_][A-Za-z0-9_\.]*)`', joined)
+        cited = re.findall(r'`(' + LEAN_NAME + r')`', joined)
         rec = None
         for c in cited:
             if c in recmap: rec = recmap[c]; break
