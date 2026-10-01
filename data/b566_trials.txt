@@ -1,0 +1,125 @@
+b566 -- COMPONENT 2: THE TWO TRIALS, PER MODULE (R176)(3) STEP ONE
+
+### TRIAL (a) -- BACKPORT: the vendored set at the kernel`s pins v4.33.0-rc2 / 51e6992e, branch vendor-bulka-backport-b566
+    modules 33 ; called 28 ; exit 0 27 ; exit non-zero 1 ; blocked 5 ; not called 0 ; LEAN ERRORS 3
+    FunctionsOfOneComplexVariable.BorelCaratheodory      rc 0        secs 523    errors 0
+    FunctionsOfOneComplexVariable.EntireLog              rc 0        secs 43     errors 0
+    Hadamard.Basic                                       rc 0        secs 36     errors 0
+    Hadamard.OrderOne.CofiniteControl                    rc 0        secs 18     errors 0
+    Hadamard.OrderOne.MultipliableFactors                rc 0        secs 23     errors 0
+    Hadamard.OrderOne.LocallyUniformProduct              rc 0        secs 25     errors 0
+    Hadamard.OrderOne.LogDeriv                           rc 0        secs 23     errors 0
+    Hadamard.OrderOne.LogDerivMultiplicity               rc 0        secs 34     errors 0
+    Hadamard.ZeroCounting                                rc 0        secs 34     errors 0
+    Hadamard.ZeroSet                                     rc 0        secs 22     errors 0
+    Hadamard.OrderOne.ZeroCountingBounds                 rc 0        secs 25     errors 0
+    Hadamard.OrderOne.TailEstimates                      rc 0        secs 26     errors 0
+    Hadamard.OrderOne.SummabilityMultiplicity            rc 0        secs 28     errors 0
+    Hadamard.OrderOne.QuotientCancellation               rc 0        secs 18     errors 0
+    Hadamard.OrderOne.OrderFromMaxModulus                rc 0        secs 21     errors 0
+    Hadamard.ZeroSetMultiplicity                         rc 0        secs 21     errors 0
+    Hadamard.Theorem                                     rc 0        secs 22     errors 0
+    Hadamard.General.Factorization                       rc 1        secs 102    errors 3
+        error Vendored/Bulka/Hadamard/General/Factorization.lean:1715:50 Unknown identifier `ite_eq_right`
+        error Vendored/Bulka/Hadamard/General/Factorization.lean:1726:28 Unknown identifier `ite_eq_left`
+        error Vendored/Bulka/Hadamard/General/Factorization.lean:1746:14 Unknown identifier `ite_eq_right`
+    Hadamard.General                                     rc BLOCKED  secs -      errors 0   (upstream: Hadamard.General.Factorization)
+    Lc.XiZeros                                           rc 0        secs 105    errors 0
+    Lc.LiCriterion.MobiusMap                             rc 0        secs 20     errors 0
+    Lc.LiCriterion.GenusOne                              rc 0        secs 20     errors 0
+    Lc.LiCriterion.Pringsheim                            rc 0        secs 23     errors 0
+    Lc.LiCriterion.Basic                                 rc 0        secs 45     errors 0
+    Lc.LiCriterion.LogDerivPole                          rc 0        secs 20     errors 0
+    Lc.LiCriterion.ReverseDirection                      rc 0        secs 25     errors 0
+    Lc.LiCriterion.GenusOnePairedSumFormula              rc 0        secs 38     errors 0
+    Lc.LiCriterion.HadamardBridge                        rc BLOCKED  secs -      errors 0   (upstream: Hadamard.General.Factorization)
+    Lc.LiCriterion.HadamardSummabilityBridge             rc 0        secs 23     errors 0
+    Lc.LiCriterion.RHBridge                              rc BLOCKED  secs -      errors 0   (upstream: Hadamard.General.Factorization)
+    Lc.LiCriterion.XiGrowth                              rc 0        secs 35     errors 0
+    Lc.LiCriterion.XiOrderBridge                         rc BLOCKED  secs -      errors 0   (upstream: Hadamard.General.Factorization)
+    Lc.LiCriterion.Fidelity                              rc BLOCKED  secs -      errors 0   (upstream: Hadamard.General.Factorization)
+    ### ### **TRIAL (a) : NOT CLEAN -- 3 LEAN ERRORS IN 1 MODULES, 5 BLOCKED**
+
+### TRIAL (b) -- FORWARD: the kernel`s own library at Bulka`s pins v4.34.0-rc1 / de5ce8a9, branch vendor-bulka-forward-b566, worktree D:/b566-forward
+    modules 79 ; called 79 ; exit 0 79 ; exit non-zero 0 ; blocked 0 ; not called 0 ; LEAN ERRORS 0
+    Zeta23.Defs                                          rc 0        secs 739    errors 0
+    Zeta23.LinAlg.PosIndex                               rc 0        secs 57     errors 0
+    Zeta23.LinAlg.HermitianPosPart                       rc 0        secs 26     errors 0
+    Zeta23.LinAlg.Sylvester                              rc 0        secs 28     errors 0
+    Zeta23.LinAlg.Inertia                                rc 0        secs 23     errors 0
+    Zeta23.LinAlg.VonNeumann                             rc 0        secs 49     errors 0
+    Zeta23.LinAlg.RankTrace                              rc 0        secs 25     errors 0
+    Zeta23.LinAlg.Weyl                                   rc 0        secs 24     errors 0
+    Zeta23.LinAlg                                        rc 0        secs 20     errors 0
+    Zeta23.Assembly.Inputs                               rc 0        secs 23     errors 0
+    Zeta23.Tail.Basic                                    rc 0        secs 21     errors 0
+    Zeta23.Tail.Grid                                     rc 0        secs 23     errors 0
+    Zeta23.Tail.Count                                    rc 0        secs 27     errors 0
+    Zeta23.Tail.RankOne                                  rc 0        secs 26     errors 0
+    Zeta23.Tail                                          rc 0        secs 28     errors 0
+    Zeta23.Prelude.InstancePriorities                    rc 0        secs 22     errors 0
+    Zeta23.Hypotheses                                    rc 0        secs 23     errors 0
+    Zeta23.Defs.Counting                                 rc 0        secs 22     errors 0
+    Zeta23.Statement                                     rc 0        secs 54     errors 0
+    Zeta23.Statement.Seam                                rc 0        secs 96     errors 0
+    Zeta23.ZetaReflect                                   rc 0        secs 30     errors 0
+    Zeta23.Statement.SeamClosed                          rc 0        secs 25     errors 0
+    Zeta23.FromPNTPlus.StrongPNTPrefix                   rc 0        secs 36     errors 0
+    Zeta23.FromPNTPlus.Auxiliary                         rc 0        secs 21     errors 0
+    Zeta23.FromPNTPlus.Sobolev                           rc 0        secs 36     errors 0
+    Zeta23.FromPNTPlus.Fourier                           rc 0        secs 28     errors 0
+    Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic rc 0        secs 20     errors 0
+    Zeta23.FromPNTPlus.Rectangle                         rc 0        secs 25     errors 0
+    Zeta23.FromPNTPlus.Tactic.AdditiveCombination        rc 0        secs 20     errors 0
+    Zeta23.FromPNTPlus.ResidueCalcOnRectangles           rc 0        secs 33     errors 0
+    Zeta23.FromPNTPlus.EulerMaclaurin                    rc 0        secs 72     errors 0
+    Zeta23.FromPNTPlus.ZetaBounds                        rc 0        secs 53     errors 0
+    Zeta23.RvM.ZetaGrowth                                rc 0        secs 36     errors 0
+    Zeta23.RvM.Halving                                   rc 0        secs 22     errors 0
+    Zeta23.RvM.LocalCount                                rc 0        secs 38     errors 0
+    Zeta23.ExplicitFormula                               rc 0        secs 28     errors 0
+    Zeta23.Poisson.PaperFT                               rc 0        secs 23     errors 0
+    Zeta23.WeilEF.ZeroSummability                        rc 0        secs 26     errors 0
+    Zeta23.WeilEF.XiLogDeriv                             rc 0        secs 23     errors 0
+    Zeta23.GammaFacts                                    rc 0        secs 21     errors 0
+    Zeta23.GammaFacts.Series                             rc 0        secs 26     errors 0
+    Zeta23.Analytic.Stirling                             rc 0        secs 26     errors 0
+    Zeta23.GammaFacts.Mu                                 rc 0        secs 28     errors 0
+    Zeta23.GammaFacts.StirlingVert                       rc 0        secs 26     errors 0
+    Zeta23.ExplicitFormula.Bridge                        rc 0        secs 26     errors 0
+    Zeta23.WeilEF.GammaRBracket                          rc 0        secs 24     errors 0
+    Zeta23.WeilEF.VerticalLine                           rc 0        secs 31     errors 0
+    Zeta23.WeilEF.Landau                                 rc 0        secs 38     errors 0
+    Zeta23.WeilEF.GoodHeights                            rc 0        secs 41     errors 0
+    Zeta23.Analytic.RectangleLogDeriv                    rc 0        secs 23     errors 0
+    Zeta23.RvM.CountByIntegral                           rc 0        secs 26     errors 0
+    Zeta23.WeilEF.Contour                                rc 0        secs 26     errors 0
+    Zeta23.WeilEF.FullLine                               rc 0        secs 33     errors 0
+    Zeta23.WeilEF.Horizontal                             rc 0        secs 33     errors 0
+    Zeta23.WeilEF.ZeroSumLimit                           rc 0        secs 25     errors 0
+    Zeta23.WeilEF.FullLineAssembly                       rc 0        secs 25     errors 0
+    Zeta23.WeilEF.Main                                   rc 0        secs 26     errors 0
+    SIDEExplicitFormula.B321Identity                     rc 0        secs 25     errors 0
+    SIDEExplicitFormula.H2Sign                           rc 0        secs 23     errors 0
+    SIDEExplicitFormula.TwoPropertyWindow                rc 0        secs 46     errors 0
+    SIDEExplicitFormula.PairTerm                         rc 0        secs 30     errors 0
+    SIDEExplicitFormula.GrowthBound                      rc 0        secs 21     errors 0
+    SIDEExplicitFormula.DecayBound                       rc 0        secs 23     errors 0
+    SIDEExplicitFormula.RestBound                        rc 0        secs 26     errors 0
+    SIDEExplicitFormula.Registers                        rc 0        secs 23     errors 0
+    SIDEExplicitFormula.RHChain                          rc 0        secs 23     errors 0
+    SIDEExplicitFormula.H2Bridge                         rc 0        secs 25     errors 0
+    SIDEExplicitFormula.PowerWindow                      rc 0        secs 28     errors 0
+    SIDEExplicitFormula.PowerLimit                       rc 0        secs 31     errors 0
+    SIDEExplicitFormula.Seam                             rc 0        secs 25     errors 0
+    SIDEExplicitFormula.LiWeil                           rc 0        secs 31     errors 0
+    SIDEExplicitFormula.GRHWeil                          rc 0        secs 25     errors 0
+    SIDEExplicitFormula.Chi.ZeroConfig                   rc 0        secs 25     errors 0
+    SIDEExplicitFormula.Chi.Generic                      rc 0        secs 25     errors 0
+    SIDEExplicitFormula.Chi.ZetaBounds                   rc 0        secs 25     errors 0
+    SIDEExplicitFormula.DetectionRegion                  rc 0        secs 23     errors 0
+    SIDEExplicitFormula.LiWeilExchange                   rc 0        secs 26     errors 0
+    SIDEExplicitFormula.LiWeilSym                        rc 0        secs 35     errors 0
+    SIDEExplicitFormula.RegisterDepth                    rc 0        secs 26     errors 0
+    ### ### **TRIAL (b) : CLEAN -- EVERY MODULE EXIT 0, NO SOURCE EDIT**
+

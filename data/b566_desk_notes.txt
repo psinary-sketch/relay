@@ -1,0 +1,82 @@
+========================================================================================================
+b566 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### (R176)`S FOUR.
+--------------------------------------------------------------------------------------------------------
+  **(H19a)** ### **HELD.** -- Bulka`s LICENSE at 35df682f is the Apache License 2.0, whose section 4 permits redistribution with the licence given, notices kept and changes marked (data/b566_step1_license.txt).
+  **(H19b)** ### **HELD.** -- trial (b), the forward move, built the kernel`s 79 modules clean with no source edit; trial (a) did not (data/b566_trials.txt).
+  **(H19c)** ### **HELD.** -- analyticOrderAt_xi_eq_zeta compiles from Mathlib`s completedRiemannZeta and its relation to riemannZeta on the strip (riemannZeta_def_of_ne_zero, differentiableAt_completedZeta) with Gammaℝ_ne_zero_of_re_pos and differentiable_Gammaℝ_inv; no Gamma fact was missing at the pin; std3, DERIVES (data/b566_e0.txt).
+  **(H19d)** ### **HELD.** -- li_nonneg_iff_rh prints [propext, Classical.choice, Quot.sound], no sorryAx and no premise (data/b566_prints.txt).
+
+### THE NAVIGATOR`S SIX.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- H19a HELD.
+  **(N2)** ### **REFUTED.** -- the backport did not build clean: Hadamard.General.Factorization exits 1 on ite_eq_right and ite_eq_left (core lemmas from v4.34.0-rc1), five modules blocked; the forward trial was needed and is the route.
+  **(N3)** ### **HELD.** -- the converse`s closure within Bulka`s tree is 12 modules (the vendored set, Fidelity`s closure, is 33).
+  **(N4)** ### **HELD.** -- H19c HELD from completedRiemannZeta facts at the pin.
+  **(N5)** ### **HELD.** -- li_nonneg_iff_rh and arith_limit_nonneg_iff_rh print the standard three and grade DERIVES; v0.9 tagged and read back.
+  **(N6)** ### **HELD.** -- no existing .lean file of any kernel changed (SIDE-explicit-formula v0.8 -> v0.9: additions and config only), every other kernel main at its pre-act head, SIDE-global-section the ledger rows alone, the kept branches at their tips; nothing deposits; nothing at Zenodo.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **REFUTED.** -- the backport did not build clean (3 errors in one module).
+  **(S2)** ### **REFUTED.** -- the forward trial built every kernel module with no source edit (79 of 79 exit 0).
+  **(S3)** ### **REFUTED.** -- its first clause fails: the (E2) proof uses Mathlib names beyond READING (4)`s list: DifferentiableOn.analyticAt, analyticAt, analyticOrderAt_eq_zero, differentiableAt_completedZeta, differentiable_Gammaℝ_inv, isOpen_lt, isOpen_ne. Its second clause holds: the equality lemma and both composed theorems print the standard three.
+
+### ### **THE NAVIGATOR`S : HELD 5 ; REFUTED 1 ; NOT SCORABLE 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 0 ; REFUTED 3.**
+### ### **(R176) : H19a HELD ; H19b HELD ; H19c HELD ; H19d HELD.**
+
+### b566 -- THIS ACT'S OWN DEFECTS (the seat's), as they occur.
+    (a) Reading (1): AN UNSCOPED grep -rn IN THE BULKA CLONE. A `grep -rn ... --include=*.lean .` run at D:/audit-b565/bulka
+        descended into .lake/packages (Mathlib's source tree), passed the 120 s foreground slot and was moved to the background
+        (task bc68i7w5u). TaskStop ended the task but not its grep.exe: PID 25248 was still running, found by the process listing,
+        and stopped by PID with its command line printed (FERRY_STANDING A4's form), about 22:00Z. It wrote nothing. The read was
+        re-run scoped to the repository's own source trees (FunctionsOfOneComplexVariable, Hadamard, Lc, comparator).
+    (b) Registration: THE LOCK GATE REFUSED ITS FIRST RUN. The seat stamped three face-subject records (reg_gate, reg_termscan,
+        regspec_run) and not the fourth, audit_b566_reg_satisfiable.txt; b378_lockgate.py read 7 of 8 passing, "THE RECORD
+        CARRIES NO SUBJECT DIGEST", LOCK REFUSED (data/b566_lockgate_notes.txt). The fourth record was stamped over the same
+        face bytes (3a96f72a) and the gate re-run: 8 of 8, LOCK PERMITTED (notes2, and notes3 the run chained to the lock).
+        The face was not changed between the runs. Earlier, the seat's own edit of the face's (C) block wrote "TWO GATE TOOLS",
+        which the prediction counter read as a prediction (regspec_run: 1 found); it was rephrased before any stamp and
+        both gates re-run on the new bytes (0 found).
+    (c) Component 1: TWO UNNEEDED `du -sh` WALKS, LEFT RUNNING AFTER THEIR TASK STOPS. A size read of D:/audit-b565/arda (chained
+        after the clone's HEAD check) and one of Bulka's Mathlib build tree passed their slots on the HDD and were moved to the
+        background; TaskStop ended both tasks but not their du.exe (PIDs 1544 and 30680), which the process listing found and
+        the seat stopped by PID with the command lines printed. Neither wrote anything; no size is claimed from them. It is (a)'s
+        species again: a stopped task's child process outlives the stop, so after any TaskStop the seat now reads the process
+        listing before the next disk-heavy step.
+    (d) Component 4: THE E0 PASS'S FIRST RUN READ THREE PRINTS AS ABSENT AND NO BINDER AT ALL. (i) It parsed the prints with
+        b560_record.parse_prints, which reads a `depends on axioms: [...]` list on one line only; Lean wrapped the lists of
+        analyticOrderAt_xi_eq_zeta, li_coeff_eq_taylorCoeff and arith_limit_nonneg_iff_rh across three lines, so the pass read
+        them None and its gate printed MERGE False. (ii) The statement reader's regex lost its `\b` in the seat's heredoc (it
+        became a literal backspace byte), so every head read empty and every theorem read "no hypothesis binder", including
+        xi_eq_half_Lambda's (hs0 : s ≠ 0). Both were repaired in tools/b566_record.py by a Python file, not a heredoc
+        (prints_axioms reads the wrapped form and `does not depend on any axioms`; no backspace byte remains, counted 0), and
+        the pass re-run: every print the standard three, the binders read (hs0, hs1; h0, h1 -- domain conditions), MERGE True.
+        The banks b566_e0.txt/.json are the re-run's; the first run's gate line is quoted here.
+    (e) Component 5: (a)'s SPECIES A THIRD TIME. A `grep -rn ... /d/SIDE-kernel --include=*.lean` for the residue chain's names
+        walked into that kernel's .lake tree, passed its slot and went to the background; the task was stopped and its two grep
+        processes (PIDs 36344 and 6552) stopped by PID with their command lines printed. Nothing was written. The read was re-run
+        with `git -C /d/SIDE-kernel grep` (tracked files only), which cannot enter an untracked build tree. The repair is in
+        the method: a search over a kernel is a `git grep`, never a recursive grep of its directory.
+    (f) Component 4/5: THE E0 RECORD WAS TAKEN ONE COMMIT EARLY. tools/b566_record.py e0 read the route branch at c79e625; the
+        README section was committed after it (e5a5a83, which became main and v0.9). rowgen.diff against rows 403-406 then
+        flagged PIN on every row ("row cites e5a5a83 but record pin is c79e625"). LiCriterionBridge.lean is the same blob at both
+        commits (git rev-parse of the path at each: 5a8f02b1 both, the seat's console); e0 was re-run at e5a5a83 (its gate unchanged, MERGE True) and the diff
+        re-run against the same rows. The first diff's four PIN lines are quoted here; the banks are the re-run's.
+    (g) THE FACE'S WRITE LIST OMITS A FILE THE ACT WROTE: Vendored/Bulka/LICENSE. The face's (W) row names the vendored copies as
+        `SIDE-explicit-formula/Vendored/Bulka/*.lean`; tools/b566_vendor.py also wrote Bulka's LICENSE beside them (carried whole,
+        as Apache 2.0 section 4(a) and (R176)(3)'s "its NOTICE and license carried" require), and it is in the kernel's commits
+        76c1f11 and 496c8ae and on main. G-WRITELIST-KINDS reads it as the one file no (W) glob covers and FAILS, on both runs.
+        The face is locked and is not edited; the arm is not weakened. The file is right to exist; the face was wrong to omit it
+        -- memory's "a write list omits the late ritual", in a new place: a licence carried beside a glob of sources.
+    (h) THE LICENCE BANK PRINTS THE WRONG FILE'S DIGEST. data/b566_step1_license.txt (a pre-seal peek) names the right blob,
+        `LICENSE blob d707a12f`, but its sha256 18ed520c... is `sha256sum LICENSE` of the clone's WORKING file, which
+        core.autocrlf=true checked out with CRLF line ends; the blob's sha256 is 52c6f722..., equal to the vendored copy's on
+        main and to data/b566_vendor_digests.json's license_sha256. The licence text the bank prints is the same text with CR
+        bytes. G-LICENCE-PRINTED demands the blob's sha256 in the bank and FAILS, truly. The bank is left as banked before the
+        seal (rewriting it would make its "banked before this seal" false); the blob's digest is printed here and in the
+        vendor bank. It is memory's byte-level trap (autocrlf makes working files differ from blobs), met again in a clone.
+    (i) THE SUITE IS NOT CLEAN: 72 of 74 arms pass, every control behaves on the 72; G-WRITELIST-KINDS (g) and G-LICENCE-PRINTED (h)
+        fail live and on their negative controls, as true findings. Neither arm was edited after its failure.

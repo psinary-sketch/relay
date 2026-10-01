@@ -1,0 +1,278 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.LiCriterionBridge.carrierEquiv": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": zetaZeroConfig.carrier ≃ LiCriterion.NontrivialZero"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.carrierEquiv_val": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : zetaZeroConfig.carrier) : (carrierEquiv ρ).val = ρ.val"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.xi_eq_half_Lambda": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hs0, hs1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{s : ℂ} (hs0 : s ≠ 0) (hs1 : s ≠ 1) : LiCriterion.riemannXi s = (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta s"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h0, h1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ρ : ℂ} (h0 : 0 < ρ.re) (h1 : ρ ≠ 1) : analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.xiMult": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : LiCriterion.NontrivialZero) : ℕ"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.zeroMult_eq_xiMult": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : zetaZeroConfig.carrier) : zeroMult ρ.val = xiMult (carrierEquiv ρ)"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.xiMult_pairedZero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : LiCriterion.NontrivialZero) : xiMult (LiCriterion.pairedZero ρ) = xiMult ρ"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.pos_term_eq": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) (z : ℂ) : 1 - (1 - 1 / z) ^ ((n : ℤ) + 1) = liTerm (n + 1) z"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.neg_term_eq": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) (ρ : LiCriterion.NontrivialZero) : 1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)) = liTerm (n + 1) (LiCriterion.pairedZero ρ).val"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.liReal": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) (ρ : LiCriterion.NontrivialZero) : ℝ"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.LiCoeff_eq_liReal": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) : LiCoeff n = ∑' ρ : LiCriterion.NontrivialZero, liReal n ρ"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.liReal_summable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) : Summable (liReal n)"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) : LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis"
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (∀ (n : ℕ) (L : ℂ), Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 L) → 0 ≤ L.re) ↔ RiemannHypothesis"
+  }
+ },
+ "consumed": {
+  "LiCriterion.positivity_implies_RH": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.taylorCoeff_eq_li_symmetrized": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.summable_li_symmetrized": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.rh_equiv_mathlib": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.liSummand_pairedZero": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.analyticOrderNatAt_riemannXi_one_sub": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.pairedZero_involutive": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "XiZeros.xi_eq_half_s_sm1_Lambda": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.LiWeil.li_identity_sym": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.LiWeil.LiCoeff_eq": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.LiWeil.liTerm_re_summable": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "salt": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff",
+   "pin": "e5a5a83",
+   "file": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "check": "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re",
+   "axioms": null,
+   "doc": "**THE EQUALITY LEMMA (R176)(3), STEP TWO.** The programme's Li coefficient at `n + 1`, a sum over the genuine zeros of Mathlib's `riemannZeta` with multiplicity the analytic order of ζ, is the real part of Bulka's `n`-th Taylor coefficient of the log-derivative of `ξ(1/(1 − z))` at `0`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh",
+   "pin": "e5a5a83",
+   "file": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "check": "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**LI'S CRITERION, COMPOSED (R176)(3), STEP THREE.** The programme's Li coefficients over the genuine zeros of Mathlib's `riemannZeta` are all nonnegative if and only if Mathlib's `RiemannHypothesis` holds",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh",
+   "pin": "e5a5a83",
+   "file": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "check": "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh : (∀ (n : ℕ) (L : ℂ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds L) → 0 ≤ L.re) ↔ RiemannHypothesis",
+   "axioms": null,
+   "doc": "**THE CRITERION ON THE ARITHMETIC SIDE.** Every limit, as `δ → 0⁺`, of EF_lit's literature right-hand side at the symmetric members has nonnegative real part, for every `n`, if and only if Mathlib's `RiemannHypothesis` holds",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "e5a5a8347af1b71d559f3d5570eafd350c700ce7",
+ "counts": {
+  "DERIVES": 12,
+  "INTERFACES": 0
+ }
+}

@@ -1,0 +1,43 @@
+### b566 -- STEP ONE (2): THE CONVERSE'S TRANSITIVE CLOSURE WITHIN BULKA'S TREE (35df682f), by the import lines of its own files
+### (roots Lc, Hadamard, FunctionsOfOneComplexVariable; comparator excluded). Computed by the seat's scan of each file's own `import` lines, depth-first, the order topological.
+### THE CONVERSE THEOREM: LiCriterion.positivity_implies_RH, Lc/LiCriterion/ReverseDirection.lean:397 --
+###   (forall n : Nat, 0 <= (taylorCoeff riemannXi n).re) -> (forall s : C, riemannZeta s = 0 -> (0 < s.re /\ s.re < 1) -> s.re = 1/2)
+### ### **ITS CLOSURE: 12 MODULES** (import order):
+    FunctionsOfOneComplexVariable.BorelCaratheodory   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    FunctionsOfOneComplexVariable.EntireLog   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Hadamard.Basic   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Hadamard.OrderOne.CofiniteControl   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Hadamard.OrderOne.MultipliableFactors   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.XiZeros   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.LiCriterion.MobiusMap   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.LiCriterion.GenusOne   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.LiCriterion.Pringsheim   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.LiCriterion.Basic   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.LiCriterion.LogDerivPole   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+    Lc.LiCriterion.ReverseDirection   [Copyright (c) 2026 Nicholas Bulka. All rights reserved.]
+### THE EQUALITY LEMMA'S BULKA INPUT (step two): LiCriterion.taylorCoeff_eq_li_symmetrized and summable_li_symmetrized,
+###   Lc/LiCriterion/Fidelity.lean:124 and :139 -- taylorCoeff riemannXi n = 2^-1 * tsum over NontrivialZero of analyticOrderNatAt riemannXi rho * (paired summand).
+### ### **ITS CLOSURE: 33 MODULES** -- it contains the converse's 12 (True), the Hadamard factorization and the RH bridge; the added 21:
+    Hadamard.OrderOne.LocallyUniformProduct
+    Hadamard.OrderOne.LogDeriv
+    Hadamard.OrderOne.LogDerivMultiplicity
+    Hadamard.ZeroCounting
+    Hadamard.ZeroSet
+    Hadamard.OrderOne.ZeroCountingBounds
+    Hadamard.OrderOne.TailEstimates
+    Hadamard.OrderOne.SummabilityMultiplicity
+    Hadamard.OrderOne.QuotientCancellation
+    Hadamard.OrderOne.OrderFromMaxModulus
+    Hadamard.ZeroSetMultiplicity
+    Hadamard.Theorem
+    Hadamard.General.Factorization
+    Hadamard.General
+    Lc.LiCriterion.GenusOnePairedSumFormula
+    Lc.LiCriterion.HadamardBridge
+    Lc.LiCriterion.HadamardSummabilityBridge
+    Lc.LiCriterion.RHBridge
+    Lc.LiCriterion.XiGrowth
+    Lc.LiCriterion.XiOrderBridge
+    Lc.LiCriterion.Fidelity
+### THE VENDORED SET (the trials): the 33 modules of Fidelity's closure, since step two consumes Fidelity by name and the converse's 12 alone
+### cannot carry the equality lemma. Every other module of the tree (the comparator's ChallengeDeps, Challenge, Solution) is not vendored.

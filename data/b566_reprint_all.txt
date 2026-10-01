@@ -1,0 +1,1049 @@
+=== 2026-10-01T00:40:43Z AxiomCheck.lean rc=0 secs=22 FreeMB_before=4531 prints=4 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.EF.EF_lit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.EF_lit_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== 2026-10-01T00:41:05Z AxiomCheckBridge.lean rc=0 secs=21 FreeMB_before=4531 prints=7 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.balance_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_imp_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_imp_ch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_imp_config' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_ch_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop
+SIDEExplicitFormula.B321.conservationHypothesis : Prop
+def SIDEExplicitFormula.B321.conservationHypothesis : Prop :=
+∀ (σ : ℝ),
+  (∃ t,
+      riemannZeta { re := σ, im := t } = 0 ∧ (¬∃ n, { re := σ, im := t } = -2 * (↑n + 1)) ∧ { re := σ, im := t } ≠ 1) →
+    ∃ p, ∃ (_ : Nat.Prime p), ↑p ^ (-σ) = ↑p ^ (-(1 - σ))
+def SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop :=
+SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.conservationHypothesis
+
+=== 2026-10-01T00:41:26Z AxiomCheckChain.lean rc=0 secs=21 FreeMB_before=4547 prints=3 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.rh_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_imp_cell_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== 2026-10-01T00:41:48Z AxiomCheckChi.lean rc=0 secs=22 FreeMB_before=4564 prints=122 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.zeroMultChi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_analyticOnNhd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_two_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_ne_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.one_le_zeroMultChi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_zeros_locallyFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.finite_window_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaFactor_inv_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_eq_completed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_le_one_sub' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.reflect_eq_conj_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chi_reflect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chi_mult_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_carrier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_hat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_tilde' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_NII' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_hat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_theta_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_tilde' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Az' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Ez' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Gsummand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Gz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0s' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_NIprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Nd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_NonIprime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Ns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_S1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_S2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_W' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Wsummand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ZIprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_offLine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_p' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_s1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_s2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_simple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0star_le_Nd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Nd_le_N' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_trivial_chain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window_finite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window_subset_carrier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_EF_EF_lit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_EF_EF_paper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ExplicitFormulaPaper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_EF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_Gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_MV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_RvM' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_cheb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_local_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_main' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N_le_two_mul_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_reflect_mem_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_Gsummand_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_LocalCount_ofWindowCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_NII_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Az_eq_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Ez_isHermitian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_congr_simp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_L_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_T_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hasSum_Ez' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hat_Ez_isHermitian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hdecay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hloc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_not_mem_sA_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_partial_sum_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_sA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_Gsummand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tailInputs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tilde_Ez_isHermitian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tsum_tail_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_NII_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_tailInputs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_finite_notTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticAt_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.differentiableAt_deriv_LFunction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_bddAbove_near_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.continuousAt_neg_logDeriv_LFunction_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_bddAbove_near_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_isBigO_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.charPartialSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.sum_range_block_char_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_sum_range_char_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction0' depends on axioms: [propext, Classical.choice, Quot.sound]
+def SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → Prop :=
+fun {N} [NeZero N] χ ρ => DirichletCharacter.LFunction χ ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+def SIDEExplicitFormula.GRHWeil.zeroMultChi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℕ :=
+fun {N} [NeZero N] χ ρ => (analyticOrderAt (DirichletCharacter.LFunction χ) ρ).toNat
+def SIDEExplicitFormula.GRHWeil.chiZeroConfig : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.ZeroConfig :=
+fun {N} [NeZero N] χ hχ h1 =>
+  { carrier := {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ},
+    mult := SIDEExplicitFormula.GRHWeil.zeroMultChi χ, one_le_mult := ⋯, strip := ⋯, reflect_mem := ⋯,
+    mult_reflect := ⋯, finite_window := ⋯ }
+def SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.Params → ℝ → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.Assembly.BlockInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_NII : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.Assembly.NII (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.Params → ℝ → ℝ → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.Assembly.TailInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Az : {N : ℕ} →
+  [NeZero N] →
+    (χ : DirichletCharacter ℂ N) →
+      χ.IsPrimitive → χ ≠ 1 → (P : Zeta23.Params) → (T : ℝ) → Matrix (Fin (P.d T)) (Fin (P.d T)) ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Az
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Ez : {N : ℕ} →
+  [NeZero N] →
+    (χ : DirichletCharacter ℂ N) →
+      χ.IsPrimitive → χ ≠ 1 → (P : Zeta23.Params) → (T : ℝ) → Matrix (Fin (P.d T)) (Fin (P.d T)) ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Ez
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Gsummand : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.Params → ℝ → ℤ → ℤ → ℂ → ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Gsummand
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Gz : {N : ℕ} →
+  [NeZero N] →
+    (χ : DirichletCharacter ℂ N) →
+      χ.IsPrimitive → χ ≠ 1 → (P : Zeta23.Params) → (T : ℝ) → Matrix (Fin (P.d T)) (Fin (P.d T)) ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Gz
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0 : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N0
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0s : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N0s
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0star : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).N0star
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_NIprime : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).NIprime
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Nd : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Nd
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_NonIprime : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).NonIprime
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Ns : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Ns
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_S1 : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → Set ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).S1
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_S2 : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → Set ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).S2
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_W : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → (ℝ → ℂ) → (ℝ → ℂ) → ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).W
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Wsummand : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → (ℝ → ℂ) → (ℝ → ℂ) → ℂ → ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).Wsummand
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ZIprime : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → Set ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).ZIprime
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ctorIdx : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).ctorIdx
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_offLine : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → Set ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).offLine
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_p : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).p
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_s1 : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).s1
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_s2 : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℕ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).s2
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_simple : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Set ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).simple
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ → Set ℂ :=
+fun {N} [NeZero N] χ hχ h1 => (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).window
+def SIDEExplicitFormula.GRHWeil.Generic.chi_EF_EF_lit : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.EF.EF_lit (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_EF_EF_paper : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.EF.EF_paper (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_ExplicitFormulaPaper : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.ExplicitFormulaPaper (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.PaperInputs (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.RiemannVonMangoldt (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Zeta23.Params → ℝ → ℝ → ℝ → Prop :=
+fun {N} [NeZero N] χ hχ h1 => Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K : {N : ℕ} →
+  [inst : NeZero N] →
+    (χ : DirichletCharacter ℂ N) →
+      (hχ : χ.IsPrimitive) →
+        (h1 : χ ≠ 1) →
+          {P : Zeta23.Params} →
+            {T A₀ C₁ : ℝ} → Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁ → ℝ :=
+fun {N} [NeZero N] χ hχ h1 => @Zeta23.Tail.TailHyp.K (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_sA : {N : ℕ} →
+  [inst : NeZero N] →
+    (χ : DirichletCharacter ℂ N) →
+      (hχ : χ.IsPrimitive) →
+        (h1 : χ ≠ 1) →
+          {P : Zeta23.Params} →
+            {T A₀ C₁ : ℝ} →
+              Zeta23.Tail.TailHyp (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) P T A₀ C₁ →
+                Finset ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier :=
+fun {N} [NeZero N] χ hχ h1 => @Zeta23.Tail.TailHyp.sA (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1)
+def SIDEExplicitFormula.GRHWeil.charPartialSum : {N : ℕ} → DirichletCharacter ℂ N → ℝ → ℂ :=
+fun {N} χ x => ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ ↑n
+def SIDEExplicitFormula.GRHWeil.LFunction0 : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℂ → ℂ :=
+fun {N} χ M s =>
+  ∑ n ∈ Finset.Icc 1 M, χ ↑n / ↑n ^ s - SIDEExplicitFormula.GRHWeil.charPartialSum χ ↑M * ↑M ^ (-s) +
+    s * ∫ (x : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(s + 1))
+
+=== 2026-10-01T00:42:10Z AxiomCheckDetection.lean rc=0 secs=21 FreeMB_before=4579 prints=5 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop
+SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔
+  ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+
+=== 2026-10-01T00:42:31Z AxiomCheckGRHWeil.lean rc=0 secs=22 FreeMB_before=4583 prints=19 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.GRHWeil.parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.IsTrivialPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.GRH_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.GRH_chi_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.primeSum_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaBracket_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.archTerm_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.ne_one_of_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.isPrimitive_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaFactor_ne_zero_of_re_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.trivialPoint_of_gammaFactor_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_conj_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_inv_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_zero_iff_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+def SIDEExplicitFormula.GRHWeil.GRH_chi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+fun {N} [NeZero N] χ => ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+def SIDEExplicitFormula.GRHWeil.GRH_chi_trivial : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → Prop :=
+fun {N} [NeZero N] χ =>
+  ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 → ¬SIDEExplicitFormula.GRHWeil.IsTrivialPoint χ s → s.re = 1 / 2
+def SIDEExplicitFormula.GRHWeil.IsTrivialPoint : {N : ℕ} → DirichletCharacter ℂ N → ℂ → Prop :=
+fun {N} χ s => ∃ m, s = -↑(2 * m + SIDEExplicitFormula.GRHWeil.parity χ)
+def SIDEExplicitFormula.GRHWeil.parity : {N : ℕ} → DirichletCharacter ℂ N → ℕ :=
+fun {N} χ => if χ.Even then 0 else 1
+def SIDEExplicitFormula.GRHWeil.primeSum_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+fun {N} χ k =>
+  ∑' (n : ℕ),
+    ↑(ArithmeticFunction.vonMangoldt n / √↑n) * (χ ↑n * k (Real.log ↑n) + (starRingEnd ℂ) (χ ↑n) * k (-Real.log ↑n))
+def SIDEExplicitFormula.GRHWeil.gammaBracket_chi : {N : ℕ} → DirichletCharacter ℂ N → ℝ → ℝ :=
+fun {N} χ r =>
+  Real.log (↑N / Real.pi) + (1 / 4 + ↑(SIDEExplicitFormula.GRHWeil.parity χ) / 2 + Complex.I * ↑r / 2).digamma.re
+def SIDEExplicitFormula.GRHWeil.archTerm_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+fun {N} χ k => 1 / (2 * ↑Real.pi) * ∫ (r : ℝ), Zeta23.paperFT k ↑r * ↑(SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r)
+def SIDEExplicitFormula.GRHWeil.h2_sign_chi : {N : ℕ} → DirichletCharacter ℂ N → Prop :=
+fun {N} χ =>
+  ∀ (k : ℝ → ℂ),
+    SIDEExplicitFormula.B321.classK k →
+      0 ≤ SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+@SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 → ∀ {s : ℂ}, DirichletCharacter.LFunction χ s = 0 → s.re ≤ 0 → SIDEExplicitFormula.GRHWeil.IsTrivialPoint χ s
+@SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive → χ ≠ 1 → (SIDEExplicitFormula.GRHWeil.GRH_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi_trivial χ)
+@SIDEExplicitFormula.GRHWeil.LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (s : ℂ), DirichletCharacter.LFunction χ⁻¹ ((starRingEnd ℂ) s) = (starRingEnd ℂ) (DirichletCharacter.LFunction χ s)
+@SIDEExplicitFormula.GRHWeil.LFunction_zero_iff_conj : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → ∀ (s : ℂ), DirichletCharacter.LFunction χ s = 0 ↔ DirichletCharacter.LFunction χ⁻¹ ((starRingEnd ℂ) s) = 0
+@SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (w : ℂ),
+      analyticOrderAt (DirichletCharacter.LFunction χ⁻¹) ((starRingEnd ℂ) w) =
+        analyticOrderAt (DirichletCharacter.LFunction χ) w
+def DirichletCharacter.LFunction : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℂ :=
+fun {N} [NeZero N] χ s => ZMod.LFunction (⇑χ) s
+def DirichletCharacter.gammaFactor : {N : ℕ} → DirichletCharacter ℂ N → ℂ → ℂ :=
+fun {N} χ s => if χ.Even then s.Gammaℝ else (s + 1).Gammaℝ
+
+=== 2026-10-01T00:42:54Z AxiomCheckGrowth.lean rc=0 secs=19 FreeMB_before=4976 prints=2 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.paperFT_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_growth_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== 2026-10-01T00:43:13Z AxiomCheckLimit.lean rc=0 secs=21 FreeMB_before=4986 prints=89 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.paperFT_conj_of_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_neg_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zero_term_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_polyOpFull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.polyOpFull_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.polyOpFull_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pwWindow_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pwWindow_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWindow_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWindow_term' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.wOf_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.wOf_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.vOf_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.vOf_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.v_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.nodes_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.reflect_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.reflect_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.vOf_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_conj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.offScore_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_of_sq_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.tie_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.PWSetup.c4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.PWSetup.tfin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.PWSetup.kfin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.mem_TF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.mem_KF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cE_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cE_big' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.aeval_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.aeval_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.aeval_X_sq_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.aeval_Ep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Ep_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Pof_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Pof_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.polyEvalFull_coeffList' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.vOf_real_of_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Kp_kill' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Kp_tie_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Efac_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gHat_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Xval_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Xval_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Nf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Xval_real_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rep_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.XV_node' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.XV_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.sqrtC_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.norm_sqrtC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.XV_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.norm_Yv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Yv_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Yv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Yv_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rT_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rT_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rT_sq_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.VF_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.poly_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.fixed_poly_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.coeffs_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.term_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.tie_term_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kill_term_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_term_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ceil_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.Aw_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zero_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weighted_finite_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weighted_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.dominant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.fR_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.fR_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.mem_sT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zeroSide_eventually_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zeroSideNeg_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_strip_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_iff_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.zeroSideNeg : Prop
+SIDEExplicitFormula.B321.nodes_distinct_nonreal : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Prop
+SIDEExplicitFormula.B321.nodes_distinct : ∀ (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ),
+  ∀ ρ ∈ SIDEExplicitFormula.B321.tieSet Z g M,
+    ∀ ρ' ∈ SIDEExplicitFormula.B321.tieSet Z g M,
+      SIDEExplicitFormula.B321.vOf ρ = SIDEExplicitFormula.B321.vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ
+SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip
+SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh →
+  SIDEExplicitFormula.B321.h2_sign_imp_rh
+SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop
+
+=== 2026-10-01T00:43:34Z AxiomCheckLiWeil.lean rc=0 secs=21 FreeMB_before=4937 prints=35 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.LiWeil.ne_one_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pairTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liTerm_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pairTerm_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pairTerm_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.rem_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liTerm_re_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liConst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liConst_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liTerm_re_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blPoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blSmooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blTransform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.truncMember' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blPoly_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blSmooth_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.truncMember_classEF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.truncMember_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.truncMember_EF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.LiLimitExchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.li_identity_of_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+@SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ},
+  ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier
+@SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ},
+  ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ
+SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ),
+  SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)
+SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+  ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re
+SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ},
+  1 ≤ ‖ρ‖ →
+    0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2
+SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ),
+  Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ),
+  SIDEExplicitFormula.LiWeil.LiCoeff n =
+    ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+      ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re
+SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+SIDEExplicitFormula.LiWeil.truncMember_classEF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+  ContDiff ℝ 2 (SIDEExplicitFormula.LiWeil.truncMember n f) ∧
+    HasCompactSupport (SIDEExplicitFormula.LiWeil.truncMember n f)
+SIDEExplicitFormula.LiWeil.truncMember_EF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+  (Summable fun ρ =>
+      ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+        Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ)) ∧
+    ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+        ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+          Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ) =
+      Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n f)
+SIDEExplicitFormula.LiWeil.li_identity_of_exchange : ∀ (n : ℕ),
+  SIDEExplicitFormula.LiWeil.LiLimitExchange n →
+    ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+      (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+        (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+          Filter.Tendsto (fun m => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n (fs m)))
+            Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+fun n =>
+  1 / 2 *
+    ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+      ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+def SIDEExplicitFormula.LiWeil.liConst : ℕ → ℝ :=
+fun n => 2 * (↑n + ↑n * 2 ^ n)
+def SIDEExplicitFormula.LiWeil.blTransform : ℕ → Prop :=
+fun n =>
+  ∀ (ρ : ℂ),
+    0 < ρ.re →
+      Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+fun n =>
+  ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+    (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+      (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+        Filter.Tendsto
+          (fun m =>
+            ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+              ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+                Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ↑ρ))
+          Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+
+=== 2026-10-01T00:43:56Z AxiomCheckLiWeilExchange.lean rc=0 secs=21 FreeMB_before=4959 prints=9 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.LiWeil.norm_pow_mul_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integrableOn_pow_mul_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blPoly_neg_cast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.binomial_li' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blTest_integrand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blTransform_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integrable_blTest_integrand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+@SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp : ∀ {ρ : ℂ},
+  0 < ρ.re → ∀ (j : ℕ), ∫ (x : ℝ) in Set.Ioi 0, ↑x ^ j * Complex.exp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+SIDEExplicitFormula.LiWeil.binomial_li : ∀ (n : ℕ) (ρ : ℂ),
+  ∑ j ∈ Finset.range n, ↑(n.choose (j + 1)) * (-1) ^ j / ρ ^ (j + 1) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+SIDEExplicitFormula.LiWeil.blTransform_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.blTransform n
+SIDEExplicitFormula.LiWeil.integrable_blTest_integrand : ∀ (n : ℕ) {ρ : ℂ},
+  0 < ρ.re →
+    MeasureTheory.Integrable
+      (fun u => SIDEExplicitFormula.LiWeil.blTest n u * Complex.exp (Complex.I * Zeta23.gammaOf ρ * ↑u))
+      MeasureTheory.volume
+SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto : ∀ (n : ℕ) {ρ : ℂ},
+  0 < ρ.re →
+    ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+      (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+        (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+          Filter.Tendsto (fun m => Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ρ))
+            Filter.atTop (nhds (Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ)))
+def SIDEExplicitFormula.LiWeil.blTransform : ℕ → Prop :=
+fun n =>
+  ∀ (ρ : ℂ),
+    0 < ρ.re →
+      Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+fun n =>
+  ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+    (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+      (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+        Filter.Tendsto
+          (fun m =>
+            ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+              ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+                Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ↑ρ))
+          Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+
+=== 2026-10-01T00:44:18Z AxiomCheckLiWeilSym.lean rc=0 secs=22 FreeMB_before=4976 prints=65 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.LiWeil.smoothTransition_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_eq_zero_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_eq_zero_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_classEF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_EF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_integrand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blTest_integrand_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_transform_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.LiLimitExchangeSym' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.I_gammaOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_transform_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.conjEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symZeroSum_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symZeroSum_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.SymPairBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_integrand_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_transform_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integral_mul_cos_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.blPoly_contDiff_infty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.qf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.qf1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.qf2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.exp_mul_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.qf_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.qf1_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.qf_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf1_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.jump_cos_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integral_mul_cexp_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integral_mul_cexp_ibp_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.deriv_smoothTransition_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeProfile_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeProfile_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeProfile_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeProfile_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.integrable_cut_pow_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeCut_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeTail_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeTail_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeTail_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.edgeTail_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.left_edge_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.jumpInd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symCut_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.wf_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.re_ofReal_mul_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.leftEdge_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symPair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.symMember_transform_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.exchange_of_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.li_identity_sym' depends on axioms: [propext, Classical.choice, Quot.sound]
+def SIDEExplicitFormula.LiWeil.symCut : ℝ → ℝ → ℝ :=
+fun δ u => (1 / 2 - u / δ).smoothTransition * (δ * u + 2).smoothTransition
+def SIDEExplicitFormula.LiWeil.symMember : ℕ → ℝ → ℝ → ℂ :=
+fun n δ u => ↑(SIDEExplicitFormula.LiWeil.symCut δ u) * SIDEExplicitFormula.LiWeil.blSmooth n u
+def SIDEExplicitFormula.LiWeil.LiLimitExchangeSym : ℕ → Prop :=
+fun n =>
+  Filter.Tendsto
+    (fun δ =>
+      ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+        ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+          Zeta23.paperFT (SIDEExplicitFormula.LiWeil.symMember n δ) (Zeta23.gammaOf ↑ρ))
+    (nhdsWithin 0 (Set.Ioi 0)) (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+def SIDEExplicitFormula.LiWeil.conjEquiv : ↑Zeta23.zetaZeroConfig.carrier ≃ ↑Zeta23.zetaZeroConfig.carrier :=
+{ toFun := fun ρ => ⟨(starRingEnd ℂ) ↑ρ, ⋯⟩, invFun := fun ρ => ⟨(starRingEnd ℂ) ↑ρ, ⋯⟩,
+  left_inv := SIDEExplicitFormula.LiWeil.conjEquiv._proof_3,
+  right_inv := SIDEExplicitFormula.LiWeil.conjEquiv._proof_3 }
+def SIDEExplicitFormula.LiWeil.SymPairBound : ℕ → Prop :=
+fun n =>
+  ∃ C,
+    ∀ (δ : ℝ),
+      0 < δ →
+        δ ≤ 1 →
+          ∀ (ρ : ℂ),
+            1 ≤ |ρ.im| →
+              0 < ρ.re →
+                ρ.re < 1 →
+                  |(Zeta23.paperFT (SIDEExplicitFormula.LiWeil.symMember n δ) (Zeta23.gammaOf ρ)).re| ≤ C / ‖ρ‖ ^ 2
+def SIDEExplicitFormula.LiWeil.qf : ℕ → ℝ → ℝ → ℝ :=
+fun n β u => SIDEExplicitFormula.LiWeil.blPoly n u * Real.exp (β * u)
+def SIDEExplicitFormula.LiWeil.qf1 : ℕ → ℝ → ℝ → ℝ :=
+fun n β u =>
+  (deriv (SIDEExplicitFormula.LiWeil.blPoly n) u + β * SIDEExplicitFormula.LiWeil.blPoly n u) * Real.exp (β * u)
+def SIDEExplicitFormula.LiWeil.qf2 : ℕ → ℝ → ℝ → ℝ :=
+fun n β u =>
+  (deriv (deriv (SIDEExplicitFormula.LiWeil.blPoly n)) u + 2 * β * deriv (SIDEExplicitFormula.LiWeil.blPoly n) u +
+      β ^ 2 * SIDEExplicitFormula.LiWeil.blPoly n u) *
+    Real.exp (β * u)
+def SIDEExplicitFormula.LiWeil.wf : ℝ → ℝ → ℝ :=
+fun δ u => (1 / 2 - u / δ).smoothTransition
+def SIDEExplicitFormula.LiWeil.wf1 : ℝ → ℝ → ℝ :=
+fun δ u => deriv Real.smoothTransition (1 / 2 - u / δ) * -(1 / δ)
+def SIDEExplicitFormula.LiWeil.wf2 : ℝ → ℝ → ℝ :=
+fun δ u => deriv (deriv Real.smoothTransition) (1 / 2 - u / δ) * -(1 / δ) * -(1 / δ)
+def SIDEExplicitFormula.LiWeil.edgeProfile : ℕ → ℝ → ℂ :=
+fun j v => ↑(deriv Real.smoothTransition (v + 2) * v ^ j)
+def SIDEExplicitFormula.LiWeil.edgeTail : ℕ → ℝ → ℂ :=
+fun j v => ↑(((v + 2).smoothTransition - 1) * v ^ j)
+def SIDEExplicitFormula.LiWeil.jumpInd : ℝ → ℝ :=
+fun u => if u < 0 then 1 else 0
+SIDEExplicitFormula.LiWeil.symPair_bound : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.SymPairBound n
+SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchangeSym n
+SIDEExplicitFormula.LiWeil.li_identity_sym : ∀ (n : ℕ),
+  Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ))
+    (nhdsWithin 0 (Set.Ioi 0)) (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+
+=== 2026-10-01T00:44:40Z AxiomCheckPair.lean rc=0 secs=21 FreeMB_before=4953 prints=19 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.pairTwo_factored' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pairTwo_near_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.nearInt_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.realizedGrowth_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.realizedGrowth_ge_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.nearPair_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pair_near_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pair_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.windowSlope_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWin_FT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosWinC_FT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosWinC_FT_near_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.phiC_FT_imag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.phiC_FT_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.farFT_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_ofReal_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_rhoZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_reflect_rhoZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.farSmall : ℝ → (ℝ → ℝ) → ℝ → ℝ → Prop
+def SIDEExplicitFormula.B321.pairConst : ℝ :=
+2
+def SIDEExplicitFormula.B321.pairEps : ℝ → ℝ → ℝ → ℝ :=
+fun ε δ γ₀ =>
+  SIDEExplicitFormula.B321.pairConst -
+    (2 * (1 - (2 * ε + ε ^ 2)) - δ ^ 2 / (2 * γ₀ ^ 2) * (1 + (2 * ε + ε ^ 2))) / (1 + ε) ^ 2
+def SIDEExplicitFormula.B321.farSmall : ℝ → (ℝ → ℝ) → ℝ → ℝ → Prop :=
+fun γ₀ φ δ ε => ‖SIDEExplicitFormula.B321.farFT γ₀ φ δ‖ ≤ ε * SIDEExplicitFormula.B321.nearInt φ δ
+def SIDEExplicitFormula.B321.nearInt : (ℝ → ℝ) → ℝ → ℝ :=
+fun φ δ => ∫ (u : ℝ), φ u * Real.cosh (δ * u)
+def SIDEExplicitFormula.B321.farFT : ℝ → (ℝ → ℝ) → ℝ → ℂ :=
+fun γ₀ φ δ => Zeta23.paperFT (SIDEExplicitFormula.B321.phiC φ) (2 * ↑γ₀ - Complex.I * ↑δ)
+def SIDEExplicitFormula.B321.nearPair : ℝ → ℝ → ℝ → ℂ :=
+fun γ₀ δ N => ((↑δ ^ 2 + 2 * Complex.I * ↑γ₀ * ↑δ) * ↑N / 2) ^ 2 + ((↑δ ^ 2 - 2 * Complex.I * ↑γ₀ * ↑δ) * ↑N / 2) ^ 2
+def SIDEExplicitFormula.B321.pairTwo : ℝ → (ℝ → ℝ) → ℝ → ℂ :=
+fun γ₀ φ δ =>
+  Zeta23.paperFT (SIDEExplicitFormula.B321.kWin γ₀ φ) (Zeta23.gammaOf (SIDEExplicitFormula.B321.rhoZero γ₀ δ)) +
+    Zeta23.paperFT (SIDEExplicitFormula.B321.kWin γ₀ φ)
+      (Zeta23.gammaOf (Zeta23.reflect (SIDEExplicitFormula.B321.rhoZero γ₀ δ)))
+def SIDEExplicitFormula.B321.rhoZero : ℝ → ℝ → ℂ :=
+fun γ₀ δ => 1 / 2 + ↑δ + ↑γ₀ * Complex.I
+
+=== 2026-10-01T00:45:01Z AxiomCheckPower.lean rc=0 secs=22 FreeMB_before=4966 prints=34 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.paperFT_conj_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zero_term_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weilTest_even_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.classK_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weilTest_phiC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.selfConv_im_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.selfConv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.phiC_selfConv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.selfConv_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.selfConv_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.selfConv_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.power_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.power_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.power_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.neg_one_pow_mul_iz_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_polyOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.iteratedDeriv_even_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.polyOp_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.polyOp_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.polyOp_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_support_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_integral_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.base_nonzero_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.off_finite_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.dominant_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.tieSet_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.killSet_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.tieSet_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.real_even_interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+def SIDEExplicitFormula.B321.offScore : (ℝ → ℝ) → ℂ → ℝ :=
+fun g ρ => ‖Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (Zeta23.gammaOf ρ)‖
+def SIDEExplicitFormula.B321.tieSet : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Set ℂ :=
+fun Z g M => {ρ | ρ ∈ Z.carrier ∧ ρ.re ≠ 1 / 2 ∧ SIDEExplicitFormula.B321.offScore g ρ = M}
+def SIDEExplicitFormula.B321.killSet : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Set ℂ :=
+fun Z g M => {ρ | ρ ∈ Z.carrier ∧ ρ.re = 1 / 2 ∧ M ≤ SIDEExplicitFormula.B321.offScore g ρ}
+SIDEExplicitFormula.B321.nodes_distinct_nonreal : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Prop
+SIDEExplicitFormula.B321.rh_strip : Prop
+SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop
+
+=== 2026-10-01T00:45:23Z AxiomCheckRegisterDepth.lean rc=0 secs=21 FreeMB_before=4949 prints=9 no_axiom_prints=2 sorryAx=0 errors=0
+'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms
+'SIDEExplicitFormula.RegisterDepth.silence_universal_restated' does not depend on any axioms
+'SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+def mellin.{u_1} : {E : Type u_1} → [inst : NormedAddCommGroup E] → [NormedSpace ℂ E] → (ℝ → E) → ℂ → E :=
+fun {E} [NormedAddCommGroup E] [NormedSpace ℂ E] f s => ∫ (t : ℝ) in Set.Ioi 0, ↑t ^ (s - 1) • f t
+SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+@SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀
+  {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type}
+  (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero
+@SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x
+@SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ},
+  0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t
+SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+  s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ),
+  0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0
+SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+    0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+  SIDEExplicitFormula.B321.rh_strip
+SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : (∀ C ∈ SIDEExplicitFormula.RegisterDepth.sevenClasses,
+    C SIDEExplicitFormula.RegisterDepth.Phi) →
+  ∀ (s : ℂ), 1 < s.re → SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces s
+SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable : {z | z ≠ 1 ∧ riemannZeta z = 0}.Countable
+SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable : {σ | SIDEExplicitFormula.RegisterDepth.is_xi_zero σ}.Countable
+SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+
+=== 2026-10-01T00:45:44Z AxiomCheckRest.lean rc=0 secs=22 FreeMB_before=4964 prints=30 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.hasCompactSupport_of_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.support_deriv_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.support_iteratedDeriv_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_decay_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_decay_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosWin_support_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.window_decay_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_bound_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_bound_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.finite_rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_le_of_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.restR_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.fiber_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.summable_zeta3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zeta3Sum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zero_term_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weight_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWin_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.window_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosWin_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_re'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_im'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosh_le_exp_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.realizedGrowth_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.two_delta_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.f4_needs_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.HStrip : Zeta23.ZeroConfig → Prop
+SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop
+SIDEExplicitFormula.B321.f4_needs : ℝ → Prop
+SIDEExplicitFormula.B321.HMax : Zeta23.ZeroConfig → Prop
+def SIDEExplicitFormula.B321.restR : ℝ → (ℝ → ℝ) → ℝ → ℝ → ℝ :=
+fun γ₀ φ L A₀ =>
+  768 * A₀ * SIDEExplicitFormula.B321.windowA γ₀ φ ^ 2 * Real.exp L * (γ₀ ^ 2 + 1) ^ 2 *
+    SIDEExplicitFormula.B321.zeta3Sum
+def SIDEExplicitFormula.B321.windowA : ℝ → (ℝ → ℝ) → ℝ :=
+fun γ₀ φ =>
+  (∫ (u : ℝ), |SIDEExplicitFormula.B321.cosWin γ₀ φ u|) +
+    ∫ (u : ℝ), |iteratedDeriv 4 (SIDEExplicitFormula.B321.cosWin γ₀ φ) u|
+def SIDEExplicitFormula.B321.zeta3Sum : ℝ :=
+∑' (m : ℤ), 1 / (1 + |↑m|) ^ 3
+def SIDEExplicitFormula.B321.f4_needs : ℝ → Prop :=
+fun δ => ∃ C, 0 < C ∧ ∃ L₀, ∀ L ≥ L₀, Real.exp L ≤ C * Real.exp (2 * δ * L)
+def SIDEExplicitFormula.B321.HMax : Zeta23.ZeroConfig → Prop :=
+fun Z => ∃ ρ ∈ Z.carrier, ∀ ρ' ∈ Z.carrier, ρ'.re ≤ ρ.re
+def SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop :=
+fun Z A₀ => 1 ≤ A₀ ∧ ∀ (t : ℝ), ↑(Z.N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+def SIDEExplicitFormula.B321.HStrip : Zeta23.ZeroConfig → Prop :=
+fun Z => ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1
+def SIDEExplicitFormula.B321.pairOrbit : ℂ → Set ℂ :=
+fun ρ₀ => {ρ₀, Zeta23.reflect ρ₀, (starRingEnd ℂ) ρ₀, 1 - ρ₀}
+
+=== 2026-10-01T00:46:06Z AxiomCheckSeam.lean rc=0 secs=21 FreeMB_before=4964 prints=6 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.zeta_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_ch_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_iff_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+SIDEExplicitFormula.B321.zeta_zero_re_nonpos : ∀ (z : ℂ), riemannZeta z = 0 → z.re ≤ 0 → ∃ n, z = -2 * (↑n + 1)
+SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : SIDEExplicitFormula.B321.rh_strip_imp_rh
+SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+SIDEExplicitFormula.B321.ch_iff_h2_sign : SIDEExplicitFormula.B321.conservationHypothesis ↔
+  SIDEExplicitFormula.B321.h2_sign
+SIDEExplicitFormula.B321.h2_sign_imp_rh_holds : SIDEExplicitFormula.B321.h2_sign_imp_rh
+SIDEExplicitFormula.B321.h2_sign_imp_ch_holds : SIDEExplicitFormula.B321.h2_sign_imp_ch
+
+=== 2026-10-01T00:46:28Z AxiomCheckWindow.lean rc=0 secs=21 FreeMB_before=5001 prints=11 no_axiom_prints=0 sorryAx=0 errors=0
+'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ibp_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weilTest_ofReal_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_apply_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.f_pair_hypothesis : ℝ → (ℝ → ℝ) → ℝ → Prop
+def SIDEExplicitFormula.B321.realizedGrowth : (ℝ → ℝ) → ℝ → ℝ :=
+fun φ δ => (∫ (u : ℝ), φ u * Real.cosh (δ * u)) / ∫ (u : ℝ), φ u
+def SIDEExplicitFormula.B321.plateau : (F L : ℝ) → 0 < F → F < 1 → 0 < L → ℝ → ℝ :=
+fun F L hF0 hF1 hL u => ((L - u) / (F * L)).smoothTransition * ((L + u) / (F * L)).smoothTransition
+

@@ -1,0 +1,267 @@
+b566 -- READING (1): THE READS, PRINTED BY PATH AND LINE
+
+### relay data/b565_audit.json -- Bulka: url https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean head 35df682f3b709ffe5fbcfdd452dfa964bd622b87 (2026-09-04), build_modules 35, build_exit 0; terminals: li_criterion, li_coefficients_eq_zero_sum, LiCriterion.li_criterion_rh_iff, LiCriterion.positivity_implies_RH, LiCriterion.li_pos_implies_rh, LiCriterion.li_equiv_from_weighted_sum_formula, LiCriterion.rh_equiv_mathlib, LiCriterion.biconditional_rh_li_of_hadamard_order_one, LiCriterion.xi_hasFiniteOrder, LiCriterion.xi_order_le_one, LiCriterion.summable_li_symmetrized, LiCriterion.taylorCoeff_eq_li_symmetrized
+### relay data/b565_audit.json -- h17a_reason: the Bulka converse as compiled -- li_criterion`s right-to-left, through li_criterion_rh_iff and positivity_implies_RH -- prints [propext, Classical.choice, Quot.sound], concludes Mathlib`s RiemannHypothesis (declared in Mathlib.NumberTheory.LSeries.RiemannZeta), its zeros Mathlib`s riemannZeta zeros under the repository`s own name for the strip set, its closure sorry 0 and axiom declarations 0: no clause of H17a is printed.
+### relay data/b565_audit.json -- equality_price: four lemmas, one of substance -- (E1) the carrier: Zeta23’s IsNontrivialZero ρ is riemannZeta ρ = 0 ∧ 0 < Re ρ < 1, LiCriterion.NontrivialZero’s own predicate, so the index types agree by unfolding; (E2) THE LEMMA OF SUBSTANCE, the multiplicity: (analyticOrderAt riemannZeta ρ).toNat = analyticOrderNatAt riemannXi ρ on the strip, ξ = ½ s(s − 1) Λ(s) with the factor beside ζ analytic and nonzero there; (E3) the term: the reflection ρ ↦ 1 − ρ carries (1 − 1/ρ)^(n+1) to (1 − 1/ρ)^(−(n+1)), so their symmetric sum is our paired sum at n + 1, reindexed by the kernel’s zeta_mult_reflect; (E4) Re of a summable tsum is the tsum of Re (Complex.re_tsum, their summable_li_symmetrized, our pair_summable). Beside the lemmas, a toolchain divergence: the repository pins Lean v4.34.0-rc1 and Mathlib de5ce8a9, the kernel v4.33.0-rc2 and 51e6992e, so the vendored copy compiles at the kernel’s rev or the kernel moves -- priced at the vendoring, not here
+### relay data/b565_audit_bulka_build.txt (sha256 821dee6be5e7e057, 145 lines)
+### relay data/b565_audit_bulka_prints.txt (sha256 f16b00f80039d73e, 53 lines)
+### relay data/b565_audit_bulka_reads.txt (sha256 c59d8ca8e338c7e2, 373 lines)
+### relay data/b565_audit_bulka_info.txt (sha256 630584b4ca0f9887, 53 lines)
+### the converse`s print, b565 -- relay/data/b565_audit_bulka_prints.txt :4
+        4 | 'LiCriterion.positivity_implies_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+        5 | 'LiCriterion.li_pos_implies_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+        6 | 'LiCriterion.li_equiv_from_weighted_sum_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+        7 | 'LiCriterion.rh_equiv_mathlib' depends on axioms: [propext, Classical.choice, Quot.sound]
+### the converse`s fully qualified name and module: LiCriterion.positivity_implies_RH, Lc/LiCriterion/ReverseDirection.lean
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/ReverseDirection.lean :397
+      397 | theorem positivity_implies_RH :
+      398 |     (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) →
+      399 |       (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2) := by
+      400 |   intro hpos s hsζ hsstrip
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Fidelity.lean :124
+      124 | theorem taylorCoeff_eq_li_symmetrized (n : ℕ) :
+      125 |     taylorCoeff riemannXi n
+      126 |       = (2⁻¹ : ℂ) * ∑' ρ : NontrivialZero,
+      127 |           (analyticOrderNatAt riemannXi ρ.val : ℂ) *
+      128 |             ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+      129 |               + (1 - (1 - 1 / ρ.val) ^ ((n : ℤ) + 1))) := by
+      130 |   rw [taylorCoeff_eq_weighted_tsum n]
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Fidelity.lean :139
+      139 | theorem summable_li_symmetrized (n : ℕ) :
+      140 |     Summable (fun ρ : NontrivialZero =>
+      141 |       (analyticOrderNatAt riemannXi ρ.val : ℂ) *
+      142 |         ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+      143 |           + (1 - (1 - 1 / ρ.val) ^ ((n : ℤ) + 1)))) := by
+      144 |   refine (summable_weighted_Li_paired_summand_of_weighted_genus
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Fidelity.lean :97
+       97 | lemma analyticOrderNatAt_riemannXi_one_sub (s : ℂ) :
+       98 |     analyticOrderNatAt riemannXi (1 - s) = analyticOrderNatAt riemannXi s := by
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/RHBridge.lean :27
+       27 | theorem rh_equiv_mathlib :
+       28 |     RiemannHypothesis ↔
+       29 |       (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) := by
+### Bulka -- audit-b565/bulka/Lc/XiZeros.lean :56
+       56 | noncomputable def riemannXi (s : ℂ) : ℂ :=
+       57 |   (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+### Bulka -- audit-b565/bulka/Lc/XiZeros.lean :62
+       62 | lemma xi_eq_half_s_sm1_Lambda {s : ℂ} (hs0 : s ≠ 0) (hs1 : s ≠ 1) :
+       63 |     riemannXi s = (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta s := by
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Basic.lean :100
+      100 | noncomputable def NontrivialZero : Type :=
+      101 |   {ρ : ℂ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Basic.lean :1236
+     1236 | noncomputable def riemannXi (s : ℂ) : ℂ :=
+     1237 |   (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Basic.lean :525
+      525 | noncomputable def taylorCoeff (f : ℂ → ℂ) (n : ℕ) : ℂ :=
+      526 |   (deriv^[n] (logDeriv (phi f))) 0 / n.factorial
+### Bulka -- audit-b565/bulka/Lc/LiCriterion/Basic.lean :1666
+     1666 | noncomputable def pairedZeroEquiv : NontrivialZero ≃ NontrivialZero :=
+     1667 |   { toFun := pairedZero
+### Bulka`s LICENSE at 35df682f: relay data/b566_step1_license.txt (printed whole); lean-toolchain leanprover/lean4:v4.34.0-rc1
+### Bulka lakefile.lean (Mathlib rev) -- audit-b565/bulka/lakefile.lean :30
+       30 |   "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+### Bulka lakefile.lean (the options) -- audit-b565/bulka/lakefile.lean :25
+       25 |     ⟨`maxSynthPendingDepth, .ofNat 3⟩
+### OPEN_TRAILS.md ((R82)/(R83), the Zeta23 vendoring record) :8022-:8022
+     8022 | ### b473 — the log read to its end, and (R82) decided — filed 2026-09-22
+### OPEN_TRAILS.md ((R82)/(R83), the Zeta23 vendoring record) :8059-:8059
+     8059 | **So the grade does not move in either direction.** zeta23's terminal stays `DERIVES, CONDITIONAL`; the re-read that would make it unconditional is owed and is not performed here. **And `(R83)` is obeyed by doing nothing**: its trigger did not fire, so `SIDE-explicit-formula` is not created, named in the roster, or pinned, and nothing is vendored.
+### SIDE-explicit-formula README.md at v0.8 :1-:30
+        1 | # SIDE-explicit-formula
+        3 | **A VENDORED KERNEL. NOTHING IN THIS REPOSITORY IS THIS PROGRAMME'S MATHEMATICS.**
+        5 | Every `.lean` body here is a byte-identical copy of a file in `anthropics/formal-math`
+        6 | (the `zeta23` formalization) at the pin recorded below. Each carries a prepended
+        7 | attribution header and nothing else was changed.
+        9 | | | |
+       10 | |:--|:--|
+       11 | | source | `anthropics/formal-math`, the `zeta23` formalization |
+       12 | | pin | `v1.0` = `3635e74826a4c1fcece7d1cd2b6fa75e43a00510` |
+       13 | | modules vendored | 57 -- the local import closure of `Zeta23.WeilEF.Main` |
+       14 | | of those, derived from PrimeNumberTheoremAnd | 10, under `Zeta23/FromPNTPlus/` |
+       15 | | toolchain | `leanprover/lean4:v4.33.0-rc2` -- as zeta23 pins it |
+       16 | | mathlib | `51e6992efd06` -- as zeta23 pins it |
+       17 | | licence | Apache 2.0; `LICENSE` and `NOTICE` carried whole from the source |
+       19 | **WHY THE PIN IS `v1.0`.** `EF_lit`'s statement was read at tag `v1.0` and at `fbdc36b` and
+       20 | the two are byte-identical (sha256 `0255fa699a72c941d7dcb70e0232a0184fb9e0c48c66659a6a237c4022000fe6`), so the order's rule
+       21 | selects the tag. The comparison is banked at `relay/data/b495_pin.txt`.
+       23 | **WHAT IS NOT CLAIMED.** This repository has **no profile**. Nothing here has been built or
+       24 | `#print axioms`'d by this programme at the time of its creation, and **no document of the
+       25 | corpus cites any terminal in it** until a profile is banked. A vendored copy is not a result,
+       26 | a push is not a verification, and a launched build is not a built build.
+       28 | **TOOLCHAIN DIVERGENCE IS EXPECTED.** SPIRAL_MAP section 7 rule 4 pins the federation to one
+       29 | toolchain "unless stated otherwise"; this kernel states otherwise, and pins what its source
+       30 | pins, because a vendored body must compile against the library its author compiled it against.
+### SIDE-explicit-formula NOTICE at v0.8
+        1 | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+        2 | Copyright 2026 Anthropic, PBC
+        4 | This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+        6 | This product includes software derived from PrimeNumberTheoremAnd
+        7 | (https://github.com/AlexKontorovich/PrimeNumberTheoremAnd),
+        8 | Copyright the PrimeNumberTheoremAnd contributors, licensed under the Apache License, Version 2.0.
+        9 | The derived files are the ones under Zeta23/FromPNTPlus/; each carries its upstream notice
+       10 | (source file, upstream commit, original copyright line) and a description of the local modifications.
+       11 | Some of those files in turn derive from mathlib (https://github.com/leanprover-community/mathlib4),
+       12 | Copyright the mathlib contributors, Apache License, Version 2.0; their original headers are preserved.
+       14 | This product depends on, but does not include, Lean 4 (https://github.com/leanprover/lean4) and
+       15 | mathlib4 with its standard dependency set — fetched by the build tool from their public repositories at the
+       16 | revisions pinned in lake-manifest.json: batteries, aesop, Qq, ProofWidgets4, import-graph, LeanSearchClient and
+       17 | plausible are released under the Apache License, Version 2.0; Cli (leanprover/lean4-cli) is released under the
+       18 | MIT License (Copyright (c) 2021 Marc Huisinga). None of these dependencies is included in this repository.
+### SIDE-explicit-formula lakefile.toml at v0.8
+        1 | name = "SIDEExplicitFormula"
+        2 | defaultTargets = ["SIDEExplicitFormula"]
+        4 | [[require]]
+        5 | name = "mathlib"
+        6 | scope = "leanprover-community"
+        7 | rev = "51e6992efd06126df61a496bebf8f49482a4e129"
+        9 | [[lean_lib]]
+       10 | name = "SIDEExplicitFormula"
+       11 | globs = ["Zeta23.+", "SIDEExplicitFormula.+"]
+### SIDE-explicit-formula lean-toolchain at v0.8
+        1 | leanprover/lean4:v4.33.0-rc2
+### SIDE-explicit-formula lake-manifest.json at v0.8, its rev and name lines
+       10 | "rev": "123d15766ba49356c02ebad2a4462dfe12d79899",
+       11 | "name": "plausible",
+       22 | "rev": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+       23 | "name": "LeanSearchClient",
+       34 | "rev": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+       35 | "name": "importGraph",
+       46 | "rev": "222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+       47 | "name": "proofwidgets",
+       58 | "rev": "7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+       59 | "name": "aesop",
+       70 | "rev": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+       71 | "name": "Qq",
+       82 | "rev": "76e1c118b0700b4ceafe99532e887d6431625e1a",
+       83 | "name": "batteries",
+       94 | "rev": "1319485273bf87833fa472afbcefdedecb16b45f",
+       95 | "name": "Cli",
+      106 | "rev": "51e6992efd06126df61a496bebf8f49482a4e129",
+      107 | "name": "mathlib",
+      114 | "name": "Zeta23",
+### a vendored file`s header (Zeta23/Defs.lean) :1-:16
+        1 | /-
+        2 | VENDORED INTO SIDE-explicit-formula -- NOT WRITTEN HERE.
+        4 | Source     : anthropics/formal-math, the `zeta23` formalization
+        5 | Source path: Zeta23/Defs.lean
+        6 | Pin        : v1.0 = 3635e74826a4c1fcece7d1cd2b6fa75e43a00510
+        7 | Copied     : byte-identical; sha256 of the body below = 216b34de76394522aea610c57d342f3dfe8aa1c3d9d6b2ec11509de92f1c6bb0
+        8 | Licence    : Apache License 2.0 -- see LICENSE and NOTICE, carried whole from the source.
+       10 | SPIRAL_MAP section 7 rule 7 (composites vendor with attribution) is satisfied by this header.
+       11 | SPIRAL_MAP section 7 rule 9 (vanilla Lean 4 syntax discipline) is WAIVED for this namespace:
+       12 | a vendored file is not edited, and the waiver is recorded in SPIRAL_MAP beside rule 9 with
+       13 | act b495 as its reason.
+       15 | NOTHING BELOW THIS BLOCK IS THIS PROGRAMME'S WORK, AND NOTHING BELOW IT HAS BEEN ALTERED.
+       16 | -/
+### SPIRAL_MAP.md (the rule 9 waiver for vendored namespaces) :479-:495
+      479 | ## Waiver — 2026-09-23 — rule 9 for vendored namespaces (act b495)
+      481 | **SECTION 7, BESIDE RULE 9.** Rule 9 — *"Vanilla Lean 4 syntax discipline. No `lemma` keyword
+      482 | (Mathlib alias) — always `theorem`. Prefer `by omega` for finite arithmetic over `Eq.subst` (▸)
+      483 | when direction is unclear."* — is **WAIVED FOR VENDORED NAMESPACES**.
+      485 | **THE REASON IS ACT b495**, which created `SIDE-explicit-formula` by vendoring 57 modules of
+      486 | the `zeta23` formalization at pin `v1.0` = `3635e74826a4c1fcece7d1cd2b6fa75e43a00510`. Every body in that kernel is a
+      487 | byte-identical copy, proved per module by a pair of digests (source at the pin, copy on disk
+      488 | before any header). **A VENDORED FILE IS NOT EDITED.** Rule 9 governs how this programme writes
+      489 | Lean; it cannot govern text this programme did not write, and enforcing it on a vendored body
+      490 | would require the one thing vendoring forbids — **changing the body**.
+      492 | **THE WAIVER IS NARROW AND IT NAMES ITS BOUNDARY.** It covers namespaces vendored under rule 7
+      493 | (*"Composites vendor with attribution"*), and it covers them **only as long as the body stays
+      494 | unedited**. The moment a line of a vendored file is changed by this programme, the file stops
+      495 | being vendored, rule 7's header stops being true of it, and rule 9 applies to it in full.
+### LiWeil.lean -- SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean :60
+       60 | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+### LiWeil.lean -- SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean :243
+      243 | def LiCoeff (n : ℕ) : ℝ :=
+      244 |   (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+### LiWeil.lean -- SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean :247
+      247 | theorem LiCoeff_eq (n : ℕ) :
+      248 |     LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re := by
+### LiWeil.lean -- SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean :257
+      257 | theorem liTerm_re_summable (n : ℕ) :
+      258 |     Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re) := by
+### LiWeil.lean -- SIDE-explicit-formula/SIDEExplicitFormula/LiWeil.lean :267
+      267 | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+### LiWeilSym.lean -- SIDE-explicit-formula/SIDEExplicitFormula/LiWeilSym.lean :1218
+     1218 | theorem li_identity_sym (n : ℕ) :
+     1219 |     Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 (LiCoeff n : ℂ)) := by
+### Zeta23 -- SIDE-explicit-formula/Zeta23/Statement.lean :54
+       54 | def IsNontrivialZero (ρ : ℂ) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+### Zeta23 -- SIDE-explicit-formula/Zeta23/Statement.lean :59
+       59 | def zeroMult (ρ : ℂ) : ℕ := (analyticOrderAt riemannZeta ρ).toNat
+### Zeta23 -- SIDE-explicit-formula/Zeta23/Statement/SeamClosed.lean :42
+       42 | def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam
+### Zeta23 -- SIDE-explicit-formula/Zeta23/ZetaReflect.lean :330
+      330 | theorem zeta_mult_reflect : ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ := by
+### MATHLIB AT 51e6992e (the kernel`s) -- checkout HEAD 51e6992efd06126df61a496bebf8f49482a4e129
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :64
+       64 | def completedRiemannZeta₀ (s : ℂ) : ℂ := completedHurwitzZetaEven₀ 0 s
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :68
+       68 | def completedRiemannZeta (s : ℂ) : ℂ := completedHurwitzZetaEven 0 s
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :85
+       85 | lemma completedRiemannZeta_eq (s : ℂ) :
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :90
+       90 | theorem differentiable_completedZeta₀ : Differentiable ℂ completedRiemannZeta₀ :=
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :121
+      121 | def riemannZeta := hurwitzZetaEven 0
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :139
+      139 | theorem differentiableAt_riemannZeta {s : ℂ} (hs' : s ≠ 1) : DifferentiableAt ℂ riemannZeta s :=
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :154
+      154 | lemma riemannZeta_def_of_ne_zero {s : ℂ} (hs : s ≠ 0) :
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :185
+      185 | def RiemannHypothesis : Prop :=
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean :66
+       66 | lemma Gammaℝ_ne_zero_of_re_pos {s : ℂ} (hs : 0 < re s) : Gammaℝ s ≠ 0 := by
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean :89
+       89 | lemma differentiable_Gammaℝ_inv : Differentiable ℂ (fun s ↦ (Gammaℝ s)⁻¹) := by
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/Analytic/Order.lean :497
+      497 | theorem analyticOrderAt_mul (hf : AnalyticAt 𝕜 f z₀) (hg : AnalyticAt 𝕜 g z₀) :
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/Analytic/Order.lean :175
+      175 | lemma analyticOrderAt_congr (hfg : f =ᶠ[𝓝 z₀] g) :
+### Mathlib -- SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/Analytic/Order.lean :133
+      133 | protected lemma AnalyticAt.analyticOrderAt_eq_zero (hf : AnalyticAt 𝕜 f z₀) :
+### MATHLIB AT de5ce8a9 (Bulka`s) -- checkout HEAD de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :64
+       64 | def completedRiemannZeta₀ (s : ℂ) : ℂ := completedHurwitzZetaEven₀ 0 s
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :68
+       68 | def completedRiemannZeta (s : ℂ) : ℂ := completedHurwitzZetaEven 0 s
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :85
+       85 | lemma completedRiemannZeta_eq (s : ℂ) :
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :90
+       90 | theorem differentiable_completedZeta₀ : Differentiable ℂ completedRiemannZeta₀ :=
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :121
+      121 | def riemannZeta := hurwitzZetaEven 0
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :139
+      139 | theorem differentiableAt_riemannZeta {s : ℂ} (hs' : s ≠ 1) : DifferentiableAt ℂ riemannZeta s :=
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :154
+      154 | lemma riemannZeta_def_of_ne_zero {s : ℂ} (hs : s ≠ 0) :
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean :185
+      185 | def RiemannHypothesis : Prop :=
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean :66
+       66 | lemma Gammaℝ_ne_zero_of_re_pos {s : ℂ} (hs : 0 < re s) : Gammaℝ s ≠ 0 := by
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean :89
+       89 | lemma differentiable_Gammaℝ_inv : Differentiable ℂ (fun s ↦ (Gammaℝ s)⁻¹) := by
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/Analysis/Analytic/Order.lean :509
+      509 | theorem analyticOrderAt_mul (hf : AnalyticAt 𝕜 f z₀) (hg : AnalyticAt 𝕜 g z₀) :
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/Analysis/Analytic/Order.lean :175
+      175 | lemma analyticOrderAt_congr (hfg : f =ᶠ[𝓝 z₀] g) :
+### Mathlib -- audit-b565/bulka/.lake/packages/mathlib/Mathlib/Analysis/Analytic/Order.lean :133
+      133 | protected lemma AnalyticAt.analyticOrderAt_eq_zero (hf : AnalyticAt 𝕜 f z₀) :
+### FINDINGS.md (b564`s record of the ceiling sentence) :6144-:6144
+     6144 | **The ceiling entry of (R146)(2) gains the author’s sentence**, appended beside it at README.md :117 and REGISTRY.md :952 (the (R146)(2) lines at :115 and :950 standing unedited above): *the forward half of Li's criterion and the Bombieri–Lagarias limit formula are compiled over Mathlib's zeros; the converse is T1-lit.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *Li’s criterion compiled* without the half named.
+### FINDINGS.md (b565`s field line) :6168-:6168
+     6168 | *Appended 2026-09-30 by b565 to the field entry (:5575) and b564’s line (:6136), under `(R175)`(2) -- THE TWO PUBLIC FORMALIZATIONS, BUILT AND READ AT THEIR PINS (relay `data/b565_audit.txt`):* (a) https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean at `35df682f` (its HEAD committed 2026-09-04), cloned and built 2026-09-30 with its own toolchain (Lean v4.34.0-rc1, Mathlib `de5ce8a9`), 35 modules one per call, every exit 0: `li_criterion` states Mathlib’s `RiemannHypothesis` ↔ ∀ n, 0 ≤ Re of the n-th Taylor coefficient at 0 of the log-derivative of ξ(1/(1 − z)), ξ built from Mathlib’s `completedRiemannZeta₀`; `li_coefficients_eq_zero_sum` identifies that coefficient with ½ Σ, over Mathlib’s `riemannZeta` zeros in the open strip weighted by the analytic order of ξ, of (1 − (1 − 1/ρ)^(−(n+1))) + (1 − (1 − 1/ρ)^(n+1)) -- λ_(n+1) in Li’s indexing; the converse `LiCriterion.positivity_implies_RH` concludes Re ρ = 1/2 for every zero of `riemannZeta` in the strip. Every audited terminal prints [propext, Classical.choice, Quot.sound], and the closure (33 library modules and the comparator) reads no sorry and no axiom declaration. (b) https://github.com/DrMurphyIsIn/Arda at `acfb0ee5` (its HEAD committed 2026-09-29), project `telperion/examples/rvm_bridge/lean`, built 2026-09-30 with Lean v4.33.0-rc2, Mathlib `51e6992e` and Zeta23 at formal-math `fbdc36bb`, 74 modules one per call, every exit 0: `RvMBridge27.bl_explicit_formula` states, for n ≥ 1, that the height-window sums Σ over 0 < Re ρ < 1, |Im ρ| ≤ T of m(ρ)(1 − (1 − 1/ρ)^n), m the divisor of Mathlib’s `riemannZeta` on the strip, tend as T → ∞ to the archimedean closed form plus the finite side in the coefficients of −ζ′/ζ − 1/(s − 1) at 1; it prints the standard three, its two analytic premises discharged by name (`RvMBridge23.local_count_sum`, `RvMBridge24.stripDerivBound`), and its closure (15 modules of its own and 59 of Zeta23) reads no sorry and no axiom declaration. Each is recorded in its own terms; neither is vendored at this act. No sentence here claims priority.
+### FINDINGS.md (b565`s entry) :6170-:6172
+     6170 | ## The audit: two public formalizations of Li’s criterion and the Bombieri–Lagarias formula, read by statement and print at their pins
+     6172 | *Filed at b565 on the author’s ruling `(R175)`(2). Banks: relay `data/b565_audit.txt` (with `.json`), `data/b565_audit_bulka_build.txt`, `data/b565_audit_bulka_prints.txt`, `data/b565_audit_bulka_reads.txt`, `data/b565_audit_arda_build.txt`, `data/b565_audit_arda_prints.txt`, `data/b565_audit_arda_reads.txt`, the sorry banks `data/b565_audit_*_sorry_*.txt` and `data/b565_zeta23_pins.json`. Nothing of either repository enters the corpus; the clones stay under D:/audit-b565 until the author’s word. Nothing about the zeros of ζ is claimed beyond the compiled statements’ own words.*
+### README.md (the ceiling: (R146)(2) and b564`s sentence) :115-:117
+      115 | *(Reworded under the author's ruling `(R146)`(2), 2026-09-25, b536, beside the `(R145)`(2) sentence above, which stays: the seam compiled.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the deposit's Route 3 clause is RH restated by a compiled ten-line lemma (E-2026-09-25-1).* Not supportable: *RH proved*; *h2_sign proved*.
+      117 | *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sentence: *the forward half of Li's criterion and the Bombieri–Lagarias limit formula are compiled over Mathlib's zeros; the converse is T1-lit.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *Li's criterion compiled* without the half named.
+### REGISTRY.md (the ceiling: (R146)(2) and b564`s sentence) :950-:952
+      950 | **THE CEILING LINE, `(R146)`(2), filed b536, 2026-09-25 — pinned at `SIDE-explicit-formula` tag `v0.2` = `5c72cad24303f23d92256ebd466d3a3d32424a4b` (the peeled SHA read back from the remote; a tag is not a deposit):** *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the deposit's Route 3 clause is RH restated by a compiled ten-line lemma (E-2026-09-25-1).* (The `(R145)`(2) line above stands.)
+      952 | *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sentence: *the forward half of Li's criterion and the Bombieri–Lagarias limit formula are compiled over Mathlib's zeros; the converse is T1-lit.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *Li's criterion compiled* without the half named.
+### OPEN_TRAILS.md (the converse`s price, b564) :11609-:11609
+    11609 | *Appended 2026-09-29 by b564, under the author’s ruling `(R174)`(4), to the LI-WEIL-BRIDGE work-order (:3548; b563’s line at :11590) -- THE CONVERSE RE-PRICED ON THE REFLECTION MAP (relay `data/b564_converse_price.txt`):* the converse (∀ n, 0 ≤ LiCoeff n → RiemannHypothesis) in four items. (V1) reflection stability with multiplicity -- COMPILED: the fields reflect_mem and mult_reflect of Zeta23’s ZeroConfig (Zeta23/Defs.lean :143-:144), discharged for ζ by zeta_reflect_zero and zeta_mult_reflect (Zeta23/ZetaReflect.lean :294, :330). (V2) an off-line zero has an orbit member with |1 − 1/ρ′| exceeding 1 -- DERIVED ON THE PAGE, NOT COMPILED: |1 − 1/ρ|² − 1 = (1 − 2β)/(β² + γ²), so the modulus exceeds 1 exactly when β lies left of 1/2, and reflection sends β to 1 − β; the kernel holds only the on-line equality (norm_one_sub_inv_of_re_half, LiWeil.lean :91), the strict form is absent from the kernel and from Mathlib by name; its price is one elementary lemma. (V3) the dominant set is finite -- DERIVED ON THE PAGE, NOT COMPILED: |1 − 1/ρ|² ≥ 1 + η forces β² + γ² ≤ 1/η, a bounded region, and finite_window (Zeta23/Defs.lean :146) makes the zeros there finitely many, so the maximum r_max is attained at finitely many zeros; the kernel’s nearest fact is tieSet_finite for the power-window score (PowerWindow.lean :403); its price is one lemma. (V4) the power-sum lemma -- ABSENT: for finitely many z_k of modulus r_max with multiplicities, Re Σ m_k z_k^n ≤ −c r_max^n for infinitely many n; Mathlib at 51e6992e holds no Turán-type power-sum inequality by name (H16d HELD); this is the lemma of substance. The kernel’s power-window route (PowerLimit.lean) meets the same finite dominant set and escapes the lemma by choosing a polynomial that sets the phases; Li’s fixed test functions leave no such freedom. A public formalization proves the converse by a different route, a Pringsheim-type argument on the Taylor coefficients of the log-derivative of ξ(1/(1 − z)) (FINDINGS :6136); consuming it here would first identify LiCoeff with that coefficient. Nothing is attempted.
+### OPEN_TRAILS.md (the (R175)(3) conditional, b565) :11630-:11630
+    11630 | *Appended 2026-09-30 by b565, under the author’s ruling `(R175)`(3), to the LI-WEIL-BRIDGE work-order (:3548; b563’s line at :11590) -- THE CONDITIONAL, (R82)’S FORM, BOTH BRANCHES:* the audit reads H17a REFUTED (relay `data/b565_audit.txt`; the Bulka converse at `35df682f` prints the standard three over Mathlib’s `RiemannHypothesis` and `riemannZeta`’s zeros, no sorry in its closure). **(i) IF THE AUTHOR’S WORD AT b565’S CLOSING IS TO VENDOR:** the repository vendored at `35df682f` as a dependency of SIDE-explicit-formula in the manner Zeta23 was -- its NOTICE and licence carried, its terminals cited by fully qualified name; the vendoring’s first act the equality lemma, priced here in lemmas: four lemmas, one of substance -- (E1) the carrier: Zeta23’s IsNontrivialZero ρ is riemannZeta ρ = 0 ∧ 0 < Re ρ < 1, LiCriterion.NontrivialZero’s own predicate, so the index types agree by unfolding; (E2) THE LEMMA OF SUBSTANCE, the multiplicity: (analyticOrderAt riemannZeta ρ).toNat = analyticOrderNatAt riemannXi ρ on the strip, ξ = ½ s(s − 1) Λ(s) with the factor beside ζ analytic and nonzero there; (E3) the term: the reflection ρ ↦ 1 − ρ carries (1 − 1/ρ)^(n+1) to (1 − 1/ρ)^(−(n+1)), so their symmetric sum is our paired sum at n + 1, reindexed by the kernel’s zeta_mult_reflect; (E4) Re of a summable tsum is the tsum of Re (Complex.re_tsum, their summable_li_symmetrized, our pair_summable). Beside the lemmas, a toolchain divergence: the repository pins Lean v4.34.0-rc1 and Mathlib de5ce8a9, the kernel v4.33.0-rc2 and 51e6992e, so the vendored copy compiles at the kernel’s rev or the kernel moves -- priced at the vendoring, not here; the converse re-graded T0-vendored; the ceiling sentence amended to name the vendored source; (V1)-(V4) closed as superseded by the vendoring, the price left on record. **(ii) IF H17a HOLDS, OR THE AUTHOR’S WORD IS NOT TO VENDOR:** the field entry carries the audit’s findings beside the URLs (FINDINGS :6168), the converse stays T1-lit, and (V1)-(V4) stand. In either branch no priority is claimed and each repository is recorded in its own terms. **The Zeta23 pins:** Arda’s Zeta23 at `fbdc36bb` against ours at v1.0 = `3635e748`, over the 57 modules we vendor: 50 byte-identical, 7 differing in a header-comment sentence alone (the LinAlg files, the code identical with comments stripped), so no consumed statement differs and no pin-refresh work-order is filed (relay `data/b565_zeta23_pins.json`). Nothing is vendored at this act.
+### relay data/b565_closing_push_out.txt -- committed alone at this act`s start: f0e41d7d b566 -- relay data/b565_closing_push_out.txt committed at the act's start, as b565 did with b564's (R176 ferry): b565's closing push output, written after that push and left uncommitted there

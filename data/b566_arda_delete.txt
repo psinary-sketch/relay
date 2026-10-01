@@ -1,0 +1,15 @@
+### b566 -- COMPONENT 1 (iv): ARDA`S CLONE DELETED, (R176)(5), AFTER data/b566_arda_rehash.txt READ 13 OF 13 AGREEING. The command, run by the seat:
+###   H=$(git -C /d/audit-b565/arda rev-parse HEAD) && test "$H" = "acfb0ee57108a185c484409cd91ac5621ce2d13e" && test -d /d/audit-b565/arda && rm -rf /d/audit-b565/arda && (test -e ... || echo ABSENT) && ls /d/audit-b565
+### Its output, verbatim (the ls lists what remains: b565`s print files outside the clone, and Bulka`s clone, kept per (R176)(5)):
+START 2026-09-30T22:50:49Z rm -rf /d/audit-b565/arda (HEAD acfb0ee57108a185c484409cd91ac5621ce2d13e verified in this command)
+END 2026-09-30T23:05:54Z rc=0
+D:/audit-b565/arda ABSENT
+arda_prints.lean
+arda_reads.lean
+arda_reads2.lean
+bulka
+bulka_build.log
+bulka_prints.lean
+bulka_reads.lean
+bulka_reads2.lean
+

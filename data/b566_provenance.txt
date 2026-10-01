@@ -1,0 +1,18 @@
+### b566 -- COMPONENT 4: THE PROVENANCE READ. A scratch probe (not committed; scratchpad provenance_probe.lean, its only import SIDEExplicitFormula.LiCriterionBridge) elaborated by `lake env lean` in D:/b566-forward at d780a27, 2026-10-01T00:37:06Z-00:37:32Z; stdout verbatim:
+WHERE RiemannHypothesis : declared in module Mathlib.NumberTheory.LSeries.RiemannZeta
+WHERE riemannZeta : declared in module Mathlib.NumberTheory.LSeries.RiemannZeta
+WHERE completedRiemannZeta : declared in module Mathlib.NumberTheory.LSeries.RiemannZeta
+WHERE LiCriterion.NontrivialZero : declared in module Lc.LiCriterion.Basic
+WHERE LiCriterion.taylorCoeff : declared in module Lc.LiCriterion.Basic
+WHERE LiCriterion.riemannXi : declared in module Lc.LiCriterion.Basic
+WHERE LiCriterion.positivity_implies_RH : declared in module Lc.LiCriterion.ReverseDirection
+WHERE Zeta23.zetaZeroConfig : declared in module Zeta23.Statement.SeamClosed
+WHERE Zeta23.IsNontrivialZero : declared in module Zeta23.Statement
+WHERE SIDEExplicitFormula.LiWeil.LiCoeff : declared in module SIDEExplicitFormula.LiWeil
+WHERE Zeta23.EF.literatureRHS : declared in module Zeta23.ExplicitFormula
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+def LiCriterion.NontrivialZero : Type :=
+{ ρ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 }
+def Zeta23.IsNontrivialZero : ℂ → Prop :=
+fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1

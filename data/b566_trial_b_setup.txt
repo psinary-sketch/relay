@@ -1,0 +1,41 @@
+### b566 -- TRIAL (b) SETUP, (R176)(3) STEP ONE: the worktree D:/b566-forward on branch vendor-bulka-forward-b566 from v0.8 = 6ec71b3 (its absolute path verified absent before creation).
+### the pins moved (git diff --stat against 6ec71b3, uncommitted at this bank):
+ lake-manifest.json | 44 ++++++++++++++++++++++----------------------
+ lakefile.toml      |  2 +-
+ lean-toolchain     |  2 +-
+ 3 files changed, 24 insertions(+), 24 deletions(-)
+-rev = "51e6992efd06126df61a496bebf8f49482a4e129"
++rev = "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+-leanprover/lean4:v4.33.0-rc2
++leanprover/lean4:v4.34.0-rc1
+### lake-manifest.json: the package entries replaced by Bulka's manifest's (35df682f), the package name and layout kept; rev lines now:
+10:   "rev": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+11:   "name": "mathlib",
+22:   "rev": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+23:   "name": "plausible",
+34:   "rev": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+35:   "name": "LeanSearchClient",
+46:   "rev": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+47:   "name": "importGraph",
+58:   "rev": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+59:   "name": "proofwidgets",
+70:   "rev": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+71:   "name": "aesop",
+82:   "rev": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+83:   "name": "Qq",
+94:   "rev": "01bc479e7432594821ba3fb0ca465211941de86d",
+95:   "name": "batteries",
+106:   "rev": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+107:   "name": "Cli",
+114: "name": "Zeta23",
+### the Mathlib build: Bulka's .lake/packages copied whole by robocopy, no time slot:
+START 2026-09-30T23:06:12Z robocopy D:\audit-b565\bulka\.lake\packages -> D:\b566-forward\.lake\packages FreeMB=5418
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      4087      4087         0         0         0         0
+   Files :    140578    140578         0         0         0         0
+   Bytes :   7.045 g   7.045 g         0         0         0         0
+   Speed :           12,517,820 Bytes/sec.
+   Speed :              716.275 MegaBytes/min.
+robocopy exit 1 (0-7 success) END 2026-09-30T23:18:50Z
+### lake --no-build build Mathlib (detached, watched): 'All targets up-to-date (8706 jobs).' rc unreadable (the watcher lost the handle); re-run in the foreground: rc=0, 'All targets up-to-date (8706 jobs).'
+### CONTROL: lake --no-build build +Zeta23.Defs (the kernel's first module, unbuilt in the worktree): rc=3, 'error: target is out-of-date and needs to be rebuilt'.

@@ -1,0 +1,22 @@
+### b566 -- STEP ONE (3): THE COMMIT DISTANCE 51e6992e -> de5ce8a9, PRINTED BEFORE EITHER TRIAL (R176)(3). Read in Bulka's Mathlib checkout (D:/audit-b565/bulka/.lake/packages/mathlib, not shallow), at 2026-09-30T22:00:40Z.
+merge-base A B          : 51e6992efd06126df61a496bebf8f49482a4e129
+A ancestor of B         : yes
+rev-list --left-right --count A...B (A-only first, B-only second): 0 129
+A = 51e6992efd06126df61a496bebf8f49482a4e129  2026-08-03T14:29:46Z  chore: bump toolchain to v4.33.0-rc2 (#42401)
+B = de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11  2026-08-11T00:21:07Z  chore: bump toolchain to v4.34.0-rc1 (#42619)
+lean-toolchain at A: leanprover/lean4:v4.33.0-rc2   at B: leanprover/lean4:v4.34.0-rc1
+files changed A..B     : 1156; shortstat:  1156 files changed, 8857 insertions(+), 5897 deletions(-)
+### ### **THE DISTANCE: 129 COMMITS, 8 DAYS (2026-08-03 -> 2026-08-11), THE KERNEL'S REV AN ANCESTOR OF BULKA'S; ONE TOOLCHAIN STEP (v4.33.0-rc2 -> v4.34.0-rc1).**
+### the zeta, Gamma and analytic-order files touched A..B:
+ Mathlib/Analysis/Analytic/Order.lean               | 16 ++++++++++++++--
+ Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean |  1 +
+ Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean  | 13 +++++++++++++
+ Mathlib/Analysis/SpecialFunctions/Gamma/Deriv.lean |  2 +-
+ Mathlib/NumberTheory/LSeries/Basic.lean            |  4 ++--
+ Mathlib/NumberTheory/LSeries/Convergence.lean      |  2 +-
+ Mathlib/NumberTheory/LSeries/Dirichlet.lean        |  2 +-
+ Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean  |  2 +-
+ Mathlib/NumberTheory/LSeries/Injectivity.lean      |  4 ++--
+ Mathlib/NumberTheory/LSeries/RiemannZeta.lean      |  6 +++---
+ Mathlib/NumberTheory/LSeries/SumCoeff.lean         | 14 ++++++++------
+ 11 files changed, 47 insertions(+), 19 deletions(-)

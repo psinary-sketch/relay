@@ -1,0 +1,27 @@
+### b566 -- STEP TWO: THE EQUALITY LEMMA`S STATEMENT, PRINTED BEFORE THE BUILD (R176)(3). written at (UTC) 2026-09-30T22:25:48Z
+### the module: SIDE-explicit-formula/SIDEExplicitFormula/LiCriterionBridge.lean (uncommitted, branch vendor-bulka-backport-b566), sha256 991c0428f7b04cfff4c848909a4b182ba75e1b89c462dc0335fbda567ad3ffeb, 205 lines
+### lean processes running at this write (the module has not been built): 
+### ### **THE STATEMENT OF RECORD:** li_coeff_eq_taylorCoeff (n : ℕ) : LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+### every declaration of the module, its head up to `:=`, in file order:
+
+  :41  def carrierEquiv : zetaZeroConfig.carrier ≃ LiCriterion.NontrivialZero :=
+  :44  theorem carrierEquiv_val (ρ : zetaZeroConfig.carrier) : (carrierEquiv ρ).val = ρ.val := rfl
+  :50  theorem xi_eq_half_Lambda {s : ℂ} (hs0 : s ≠ 0) (hs1 : s ≠ 1) :
+            LiCriterion.riemannXi s = (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta s := by
+  :62  theorem analyticOrderAt_xi_eq_zeta {ρ : ℂ} (h0 : 0 < ρ.re) (h1 : ρ ≠ 1) :
+            analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ := by
+  :98  def xiMult (ρ : LiCriterion.NontrivialZero) : ℕ := analyticOrderNatAt LiCriterion.riemannXi ρ.val
+  :101  theorem zeroMult_eq_xiMult (ρ : zetaZeroConfig.carrier) : zeroMult ρ.val = xiMult (carrierEquiv ρ) := by
+  :108  theorem xiMult_pairedZero (ρ : LiCriterion.NontrivialZero) : xiMult (LiCriterion.pairedZero ρ) = xiMult ρ := by
+  :115  theorem pos_term_eq (n : ℕ) (z : ℂ) : 1 - (1 - 1 / z) ^ ((n : ℤ) + 1) = liTerm (n + 1) z := by
+  :121  theorem neg_term_eq (n : ℕ) (ρ : LiCriterion.NontrivialZero) :
+            1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)) = liTerm (n + 1) (LiCriterion.pairedZero ρ).val := by
+  :131  def liReal (n : ℕ) (ρ : LiCriterion.NontrivialZero) : ℝ := (xiMult ρ : ℝ) * (liTerm n ρ.val).re
+  :134  theorem LiCoeff_eq_liReal (n : ℕ) : LiCoeff n = ∑' ρ : LiCriterion.NontrivialZero, liReal n ρ := by
+  :141  theorem liReal_summable (n : ℕ) : Summable (liReal n) := by
+  :149  theorem li_coeff_eq_taylorCoeff (n : ℕ) :
+            LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re := by
+  :179  theorem li_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis := by
+  :191  theorem arith_limit_nonneg_iff_rh :
+            (∀ (n : ℕ) (L : ℂ), Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 L) → 0 ≤ L.re) ↔
+              RiemannHypothesis := by
