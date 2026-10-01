@@ -21,3 +21,17 @@ and the suite that reads the face.
 working tree's modified files (by file time before the push, by content digest against the pushed tree after it) -- and
 fails on any file no glob of the face covers. A face therefore names each kind it writes, and names it in a form the reader
 can read: a glob or a placeholder, never a description in words alone.
+
+## THE AS-OF LINES (R179)(3), THREE FORMS (R180)(2)(d)
+
+Filed at b570. A suite re-run after its successor reads each repository at the head its act's as-of line names, from the
+act's closing push-out bank (written there by `tools/asof_lines.py` after the closing push) or, for an act closed before
+the lines existed, from a companion bank `data/bNNN_asof_<act>.txt`. The reader is `tools/asof.py` (`repo_asof`). The form
+list is three:
+
+- `push_gated: as-of <repository> <40-hex sha>` -- the repository's closing head (main equal to its remote main);
+- `push_gated: as-of <repository> deleted at close` -- a clone removed by ruling at that close, read as absent;
+- `push_gated: as-of <name> present at close` -- a directory that is not a repository, present at that close (b569's
+  defect (d), kept by (R180)(2)(d)).
+
+Anything after the head, from `###` on, is a source note and is not read. A name given twice refuses the whole bank.
