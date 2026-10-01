@@ -1,0 +1,26 @@
+========================================================================================================
+b575 COMPONENT 3, STEP 1 -- THE PLAN, DRY. ### **NOTHING IS WRITTEN AT ZENODO IN THIS STEP.**
+========================================================================================================
+### THE CALL, PREPARED, PER RECORD (kernel first, monograph last), the token redacted:
+    POST https://zenodo.org/api/deposit/depositions/21520474/actions/edit ; Authorization: Bearer [TOKEN REDACTED]
+    PUT  https://zenodo.org/api/deposit/depositions/21520474 ; Authorization: Bearer [TOKEN REDACTED] ; body {"metadata": <every key as fetched, description replaced>}
+    POST https://zenodo.org/api/deposit/depositions/21520474/actions/publish ; Authorization: Bearer [TOKEN REDACTED]
+    GET  https://zenodo.org/api/records/21520474 ; no Authorization header (the fetch-back)
+    POST https://zenodo.org/api/deposit/depositions/21539167/actions/edit ; Authorization: Bearer [TOKEN REDACTED]
+    PUT  https://zenodo.org/api/deposit/depositions/21539167 ; Authorization: Bearer [TOKEN REDACTED] ; body {"metadata": <every key as fetched, description replaced>}
+    POST https://zenodo.org/api/deposit/depositions/21539167/actions/publish ; Authorization: Bearer [TOKEN REDACTED]
+    GET  https://zenodo.org/api/records/21539167 ; no Authorization header (the fetch-back)
+
+### RECORD 21520474 -- HTTP 200 ; banked `b575_before_21520474.json` sha256 96be4504544dd53f ; state done ; description 3203 chars ; equal to b574`s anonymous fetch : True
+    [Z21520474-C] ### **FOUND ONCE** ; the sentence the two follow, whole:
+         | the programme's standing reduction is Weil positivity on classK, equivalent to RH on the kernel's zero configuration, compiled both ways in SIDE-explicit-formula v0.1.
+         its replacement (the sentence, sentence one, sentence three):
+         | the programme's standing reduction is Weil positivity on classK, equivalent to RH on the kernel's zero configuration, compiled both ways in SIDE-explicit-formula v0.1. Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause. The criterion for primitive χ is composed: Weil positivity on classK for χ ⟺ GRH_chi, both directions compiled (h2_sign_chi_iff_grh_chi, v0.14), the converse by the ζ route over the χ-configuration with its own local count. The one clause now has two compiled instances, ζ and primitive χ ≠ 1, each equivalent to the location of its own zeros; neither is proved.
+
+### RECORD 21539167 -- HTTP 200 ; banked `b575_before_21539167.json` sha256 ad7e0d7ce06d47f4 ; state done ; description 5286 chars ; equal to b574`s anonymous fetch : True
+    [Z21539167-C] ### **FOUND ONCE** ; the sentence the two follow, whole:
+         | the C₅-output (Hilbert–Pólya) register is explicitly disclaimed, never claimed.
+         its replacement (the sentence, sentence one, sentence three):
+         | the C₅-output (Hilbert–Pólya) register is explicitly disclaimed, never claimed. Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause. The criterion for primitive χ is composed: Weil positivity on classK for χ ⟺ GRH_chi, both directions compiled (h2_sign_chi_iff_grh_chi, v0.14), the converse by the ζ route over the χ-configuration with its own local count. The one clause now has two compiled instances, ζ and primitive χ ≠ 1, each equivalent to the location of its own zeros; neither is proved.
+
+    ### ### **SPANS FOUND ONCE : 2 of 2** ; ### **NO STOP -- STEP 2 MAY WRITE.**

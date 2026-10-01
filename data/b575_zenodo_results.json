@@ -1,0 +1,105 @@
+{
+ "draft": {
+  "ok": true
+ },
+ "c0": {
+  "set": true,
+  "length": 60,
+  "status": 200,
+  "title": "SIDE-kernel: Lean 4 formalization of the SIDE reduction of the Riemann Hypothesis by mechanism exclusion",
+  "proceed": true
+ },
+ "c1": {
+  "plan": [
+   {
+    "tag": "Z21520474-C",
+    "record": "21520474",
+    "start": "the programme's standing reduction is Weil positivity on classK",
+    "count": 1,
+    "found": true,
+    "span": [
+     144,
+     311
+    ],
+    "old": "the programme's standing reduction is Weil positivity on classK, equivalent to RH on the kernel's zero configuration, compiled both ways in SIDE-explicit-formula v0.1.",
+    "new": "the programme's standing reduction is Weil positivity on classK, equivalent to RH on the kernel's zero configuration, compiled both ways in SIDE-explicit-formula v0.1. Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause. The criterion for primitive χ is composed: Weil positivity on classK for χ ⟺ GRH_chi, both directions compiled (h2_sign_chi_iff_grh_chi, v0.14), the converse by the ζ route over the χ-configuration with its own local count. The one clause now has two compiled instances, ζ and primitive χ ≠ 1, each equivalent to the location of its own zeros; neither is proved."
+   },
+   {
+    "tag": "Z21539167-C",
+    "record": "21539167",
+    "start": "the C₅-output (Hilbert–Pólya) register is explicitly disclaimed",
+    "count": 1,
+    "found": true,
+    "span": [
+     3319,
+     3398
+    ],
+    "old": "the C₅-output (Hilbert–Pólya) register is explicitly disclaimed, never claimed.",
+    "new": "the C₅-output (Hilbert–Pólya) register is explicitly disclaimed, never claimed. Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause. The criterion for primitive χ is composed: Weil positivity on classK for χ ⟺ GRH_chi, both directions compiled (h2_sign_chi_iff_grh_chi, v0.14), the converse by the ζ route over the χ-configuration with its own local count. The one clause now has two compiled instances, ζ and primitive χ ≠ 1, each equivalent to the location of its own zeros; neither is proved."
+   }
+  ],
+  "once": 2,
+  "stop": false
+ },
+ "c2": {
+  "records": {
+   "21520474": {
+    "record": "21520474",
+    "edit": 201,
+    "other_keys_carried": true,
+    "keys_same": true,
+    "put": 200,
+    "publish": 202,
+    "tries": [
+     {
+      "n": 1,
+      "status": 200,
+      "at": "2026-10-01T18:15:07Z",
+      "identical": true
+     }
+    ],
+    "fetchback_at": "2026-10-01T18:15:07Z",
+    "fetchback_sha256": "4a2c8e21aa5e2edb21d1ad5b76939e20b7a0596a46efeab367930332c3af147d",
+    "rows": [
+     {
+      "tag": "Z21520474-C",
+      "match": true
+     }
+    ],
+    "match": true,
+    "same_id": true,
+    "version": "v1.5",
+    "files_same": false
+   },
+   "21539167": {
+    "record": "21539167",
+    "edit": 201,
+    "other_keys_carried": true,
+    "keys_same": true,
+    "put": 200,
+    "publish": 202,
+    "tries": [
+     {
+      "n": 1,
+      "status": 200,
+      "at": "2026-10-01T18:15:11Z",
+      "identical": true
+     }
+    ],
+    "fetchback_at": "2026-10-01T18:15:11Z",
+    "fetchback_sha256": "d046d422aa46a75a446afa3f2dd1c818877b36f13fd4def140aed7fc249c3469",
+    "rows": [
+     {
+      "tag": "Z21539167-C",
+      "match": true
+     }
+    ],
+    "match": true,
+    "same_id": true,
+    "version": "v1.1.2",
+    "files_same": false
+   }
+  },
+  "all_match": true
+ }
+}

@@ -1,0 +1,41 @@
+b575 -- COMPONENT 2: README`S AND SPIRAL_MAP`S LINES NAMING SIDE-kernel AGAINST THE CITATION RULE OF (R185)(2)(ii)
+### the rule: a sentence citing SIDE-kernel for the deposit cites v1.5; one citing the current kernel cites the tag by its SHA.
+### matcher v1: each v1.0-v1.7 on the line (v1.1.2 and longer excluded); matcher v2: only `SIDE-kernel v1.x` or a ``tag `v1.x` `` (defect (b)); a SHA within 40 characters after the version read as its pin; a SIDE-kernel record id (21520474, 19674312, 19937590, 21417776) noted. Read at PLACE-papers 0018869.
+
+### matcher v1 : lines naming SIDE-kernel 19 ; citing a pin 11 ; differing 9 ['SPIRAL_MAP.md :18', 'SPIRAL_MAP.md :41', 'SPIRAL_MAP.md :49', 'SPIRAL_MAP.md :54', 'SPIRAL_MAP.md :236', 'SPIRAL_MAP.md :256', 'SPIRAL_MAP.md :257', 'SPIRAL_MAP.md :268', 'SPIRAL_MAP.md :443']
+### matcher v2 : lines naming SIDE-kernel 19 ; citing a pin 9 ; differing 5 ['SPIRAL_MAP.md :18', 'SPIRAL_MAP.md :41', 'SPIRAL_MAP.md :257', 'SPIRAL_MAP.md :268', 'SPIRAL_MAP.md :443']
+
+### MATCHER v2, EVERY LINE, WITH THE HAND-READ OF EVERY LINE EITHER MATCHER HIT:
+    README.md :15   cites [('v1.5', '0e5233f'), ('v1.5', None)] ; records ['21520474', '19674312'] ; v1.5 0e5233f: OBEYS (the deposit`s pin); v1.5 : OBEYS (the deposit`s pin)
+              hand-read: the kernel line: deposit v1.5 = 0e5233f cited by named terminal -- obeys.
+    SPIRAL_MAP.md :18   cites [('v1.4', None), ('v1.3', None)] ; records - ; v1.4: ### DIFFERS (a tag cited without its SHA; a deposit context); v1.3: ### DIFFERS (a tag cited without its SHA; a deposit context)
+              hand-read: v0.6`s changelog entry (July 2026): "SIDE-kernel v1.4" as the pin of that pass, a dated historical line; it cites neither the deposit nor the current kernel -- differs in letter only.
+    SPIRAL_MAP.md :41   cites [('v1.1', None)] ; records ['19937590'] ; v1.1: ### DIFFERS (a tag cited without its SHA; a deposit context); record 19937590 (the v1.1 deposit): ### DIFFERS IN LETTER (a deposit citation not at v1.5)
+              hand-read: the frozen v1.1 deposit row, historical and retained verbatim (annotation :43) -- differs in letter only.
+    SPIRAL_MAP.md :43   cites [('v1.2', 'b1407b2')] ; records - ; v1.2 = b1407b2: OBEYS (a tag cited by its SHA)
+              hand-read: the annotation: v1.1 = e7ab5a2 (tag object) and v1.2 = b1407b2, both by SHA -- obeys.
+    SPIRAL_MAP.md :49   cites [('v1.5', '0e5233f')] ; records ['21520474', '21417776'] ; v1.5 0e5233f: OBEYS (the deposit`s pin)
+              hand-read: the deposit-wave row: v1.5 (0e5233f), record 21520474 -- obeys.
+    SPIRAL_MAP.md :54   cites [('v1.4', 'f374174')] ; records ['21520474'] ; v1.4 = f374174: OBEYS (a tag cited by its SHA)
+              hand-read: the live-kernel reconciliation of 2026-07-19: v1.4 = f374174 and v1.2 = b1407b2 by SHA, the deposit v1.5 -- obeys.
+    SPIRAL_MAP.md :117  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :235  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :236  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+              hand-read: v1 artefact: "SIMPLICITY_OF_RIEMANN_ZEROS v1.0" is the document`s version; the line names SIDE-kernel with no pin -- rule not engaged.
+    SPIRAL_MAP.md :256  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+              hand-read: v1 artefact: "A_METHODOLOGY v1.2" is the document`s version; no kernel pin -- rule not engaged.
+    SPIRAL_MAP.md :257  cites [('v1.4', None)] ; records - ; v1.4: ### DIFFERS (a tag cited without its SHA)
+              hand-read: the Foundations row`s note: "de-vacuified at SIDE-kernel v1.4 / W-6-EXT", the version at which a past event happened -- neither the deposit nor the current kernel; differs in letter only.
+    SPIRAL_MAP.md :258  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :267  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :268  cites [('v1.4', None)] ; records - ; v1.4: ### DIFFERS (a tag cited without its SHA)
+              hand-read: the same note in the live table`s Foundations row -- differs in letter only.
+    SPIRAL_MAP.md :269  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :274  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :282  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :333  cites NO PIN ; records - ; RULE NOT ENGAGED (no pin cited)
+    SPIRAL_MAP.md :443  cites [('v1.6', None)] ; records - ; v1.6: ### DIFFERS (a tag cited without its SHA)
+              hand-read: the barrier table: "InvarianceBarrier.invariance_barrier (SIDE-kernel v1.6, axiom-free)", a terminal cited at the tag where it landed, without its SHA -- not the deposit; differs from the rule as written.
+
+### ### **DIFFERING FROM THE RULE AS WRITTEN (matcher v2): 5 -- ['SPIRAL_MAP.md :18', 'SPIRAL_MAP.md :41', 'SPIRAL_MAP.md :257', 'SPIRAL_MAP.md :268', 'SPIRAL_MAP.md :443'].**
+### ### hand-read: every differing line is a dated or frozen historical line, or a terminal cited at the tag where it landed; none cites another version as the deposit or as the current kernel. Nothing edited.
