@@ -1,0 +1,143 @@
+{
+ "act": "b579",
+ "face": "b579_registration_2026-10-01.txt",
+ "face_sha": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+ "helper_ok": true,
+ "fixture_ok": true,
+ "fixture": {
+  "all gates clean": {
+   "permits": true,
+   "failing": []
+  },
+  "one gate`s phrase missing": {
+   "permits": false,
+   "failing": [
+    "the banned-term scan on the face"
+   ]
+  },
+  "### **one gate`s subject digest STALE**": {
+   "permits": false,
+   "failing": [
+    "the registration gate, all its own arms"
+   ]
+  },
+  "one gate carries no subject digest": {
+   "permits": false,
+   "failing": [
+    "the clause spec emitted from the face"
+   ]
+  }
+ },
+ "gates": [
+  {
+   "gate": "the ferry scan (struck clauses and stems)",
+   "file": "b579_ferry_scan.txt",
+   "phrase": "### VERDICT: ### **0 HIT(S) REPORTED.",
+   "subject_is_face": false,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": null,
+   "recorded": null,
+   "actual": null,
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the handoff census",
+   "file": "b579_census_stepzero.txt",
+   "phrase": "TOTAL MISSING : 0",
+   "subject_is_face": false,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": null,
+   "recorded": null,
+   "actual": null,
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the faces census",
+   "file": "b579_faces_census_stepzero.txt",
+   "phrase": "TOTAL MISSING : 0",
+   "subject_is_face": false,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": null,
+   "recorded": null,
+   "actual": null,
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the pins, by ls-remote through the roster",
+   "file": "b579_pins_stepzero.txt",
+   "phrase": "### REPOS HARD-FAILING : 0",
+   "subject_is_face": false,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": null,
+   "recorded": null,
+   "actual": null,
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the registration gate, all its own arms",
+   "file": "b579_reg_gate.txt",
+   "phrase": "GATE VERDICT : CLEAR",
+   "subject_is_face": true,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": true,
+   "recorded": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "actual": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the banned-term scan on the face",
+   "file": "b579_reg_termscan.txt",
+   "phrase": "VERDICT          : CLEAN",
+   "subject_is_face": true,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": true,
+   "recorded": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "actual": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the clause spec emitted from the face",
+   "file": "b579_regspec_run.txt",
+   "phrase": "ARTIFACT-COUNT PREDICTIONS FOUND : 0",
+   "subject_is_face": true,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": true,
+   "recorded": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "actual": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "why": "",
+   "passed": true
+  },
+  {
+   "gate": "the satisfiability audit",
+   "file": "audit_b579_reg_satisfiable.txt",
+   "phrase": "JOINTLY SATISFIABLE",
+   "subject_is_face": true,
+   "present": true,
+   "phrase_ok": true,
+   "hash_ok": true,
+   "recorded": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "actual": "4d4994ce7b054ea556e2faf4a8d7dda46959dd0fe7bff630fbf87fee23b47fb1",
+   "why": "",
+   "passed": true
+  }
+ ],
+ "gates_read": 8,
+ "gates_passing": 8,
+ "face_subject_gates": 4,
+ "permits": true,
+ "run_file": "b579_lockgate_notes.txt",
+ "run_clock": "2026-10-01T20:34:45Z"
+}

@@ -1,0 +1,277 @@
+b579 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay the FOUNDATIONS work-list, whole -- data/b558_editions/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.txt @ 4b7eda1f (85 lines cited)
+    :1      b558 -- THE EDITION WORK-LIST OF FOUNDATIONS_OF_THE_SIDE_PROGRAMME (phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition i
+    :4      
+    :5      :26 -- `conservation_of_spectra`
+    :6          the sentence: "Spectral Inertness is formally verified in Lean 4 against Mathlib (terminal `ProductFormula.conservation_of_spectra`, `{propext, Classical.choice, Quot.sound}`; supported by the ProductFormula chain); the Compression Theorem is compiled in the public kernel `SIDE-compression` v0.2
+    :7          what the compiled fact supports: says Spectral Inertness is formally verified in Lean 4 against Mathlib through this terminal, which states `(1 : Q) ^ s = 1` and mentions no Euler product and no zeta.
+    :8          informing work-order: none named on the critical path
+    :9      
+    :10     :26 -- `silence_universal`
+    :11         the sentence: "Each link in the cascade is supported by formal proof: the Silence Principle is theorem-supported in SILENCE_PRINCIPLE_FORMAL with the universal form `silence_universal` machine-verified in MetaKernel.lean (Kernel/SilenceTheorem.lean);"
+    :12         what the compiled fact supports: calls the universal form `silence_universal` machine-verified, and it is compiled under the programme's own premise `I.is_universal` (T2-INTERFACES), whose truth the programme has still to establish.
+    :13         informing work-order: none named on the critical path
+    :14     
+    :15     :30 -- `h2_sign`
+    :16         the sentence: "RH holds here only **under the same single open premise** `h2` (§VI.5;"
+    :17         what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    :18         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :19     
+    :20     :36 -- `h2_sign`
+    :21         the sentence: "This works for $\xi(s)$: seven mechanism classes are enumerated, each checked, none produces off-line zeros — and the Riemann Hypothesis holds **under the completeness of that enumeration at the ξ interface**, which is the programme's single open premise `h2` (goal ⇐ h1 ∧ h2, h1 c
+    :22         what the compiled fact supports: has RH hold under h2 with the goal state read as closing (h1 complete at Phi, only h2 open), and lv's h2 at Phi is false on the strip while h2 in its Weil form is RH itself (`h2_sign_iff_rh`).
+    :23         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :24     
+    :25     :80 -- `h2_sign`
+    :26         the sentence: "*(Re-scoped 2026-07-19, ARM 3, per §27.3's certificate-not-discharge ruling — Determination supplies the shared **witness** Φ, the h1 side, complete at Φ; but `T3prime` also requires `h2` — that Φ's Mellin factor is nonvanishing off the line, i.e. that the catalogue is exhaustive 
+    :27         what the compiled fact supports: identifies h2 with Phi's Mellin factor nonvanishing off the line, which is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+    :28         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :29     
+    :30     :80 -- `h2_sign`
+    :31         the sentence: "So the joint exclusion closes **under `h2`** — goal ⇐ h1 ∧ h2, only h2 open — not outright."
+    :32         what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    :33         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :34     
+    :35     :321 -- `h2_sign`
+    :36         the sentence: "This is `h2` — **the premise that every ξ-zero forces the Euler balance at some prime** (the conservation register; equivalently realization-totality at the ξ interface, the R4 positivity face, or the goal state's `mellin Φ (s/2) ≠ 0`; one premise in §27.3's five registers)."
+    :37         what the compiled fact supports: identifies h2 with the Euler-balance form (RH restated, `ch_iff_rh`) and with the Mellin clause `mellin Phi (s/2) != 0` (false on the strip, `mellin_Phi_eq_zero_of_re_le_one`), forms the census separates.
+    :38         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :39     
+    :40     :323 -- `h2_sign`
+    :41         the sentence: "Same test, two scales: T7 answers it "not forced" (a settled boundary); h2 leaves it open (goal ⇐ h1 ∧ h2, only h2 open)."
+    :42         what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    :43         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :44     
+    :45     :455 -- `conservation_of_spectra`
+    :46         the sentence: "- SIDE-kernel v1.2 (tag `b1407b2`; citable deposit v1.1, DOI 10.5281/zenodo.19937590, whose axiom profile v1.2 supersedes) — provides Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`, and the ProductFormula chain merged against Mathlib (PRs #36881, 
+    :47         what the compiled fact supports: says SIDE-kernel v1.2 provides Conservation of Spectra (n4 = 0) via the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    :48         informing work-order: none named on the critical path
+    :49     
+    :50     :563 -- `conservation_of_spectra`
+    :51         the sentence: "Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`;"
+    :52         what the compiled fact supports: says Conservation of Spectra (n4 = 0) is supplied via the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    :53         informing work-order: none named on the critical path
+    :54     
+    :55     :626 -- `conservation_of_spectra`
+    :56         the sentence: "| Silence — per-instance (product formula) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.product_formula_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances);
+    :57         what the compiled fact supports: directs the reader to cite `conservation_of_spectra` for the arithmetic s-darkness content, and that terminal states `(1 : Q) ^ s = 1`, so the content is in neither model.
+    :58         informing work-order: none named on the critical path
+    :59     
+    :60     :627 -- `conservation_of_spectra`
+    :61         the sentence: "| Silence — per-instance (distributive law) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.distributive_law_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances
+    :62         what the compiled fact supports: directs the reader to cite `conservation_of_spectra` for the arithmetic s-darkness content, and that terminal states `(1 : Q) ^ s = 1`, so the content is in neither model.
+    :63         informing work-order: none named on the critical path
+    :64     
+    :65     :628 -- `conservation_of_spectra`
+    :66         the sentence: "| Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, e
+    :67         what the compiled fact supports: directs the reader to cite `conservation_of_spectra` for the arithmetic s-darkness content, and that terminal states `(1 : Q) ^ s = 1`, so the content is in neither model.
+    :68         informing work-order: none named on the critical path
+    :69     
+    :70     :628 -- `silence_universal`
+    :71         the sentence: "| Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, e
+    :72         what the compiled fact supports: pins `Universal.silence_universal` at SIDE-silence-principle v0.1.0, where it is absent; it is declared at 667c254, tagged v0.2.0 by this act.
+    :73         informing work-order: none named on the critical path
+    :74     
+    :75     :634 -- `conservation_of_spectra`
+    :76         the sentence: "| Spectral Inertness / Conservation ($n_4 = 0$) | SIDE-kernel v1.2 | `ProductFormula.conservation_of_spectra` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |"
+    :77         what the compiled fact supports: grades Spectral Inertness / Conservation "DERIVES -- Compiled" at the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    :78         informing work-order: none named on the critical path
+    :79     
+    :80     :653 -- `conservation_of_spectra`
+    :81         the sentence: "*v0.2.4 — 2026-07-29 (Correspondence re-grade, RULING B: the three Silence "Model-level" rows (`product_formula_silent`, `distributive_law_silent`, `silence_principle`) → **ENCODES-CONCLUSION** (they certify the in-kernel Boolean model; the arithmetic content is manuscript-residen
+    :82         what the compiled fact supports: records the content as resident at `conservation_of_spectra`, and that terminal states `(1 : Q) ^ s = 1`, T2.
+    :83         informing work-order: none named on the critical path
+    :84     
+    :85     ### 16 sentence-rows (13 distinct lines).
+### PLACE-papers FOUNDATIONS, its head -- phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md @ 292c25b5 (30 lines cited)
+    :1      # Foundations of the SIDE Programme
+    :2      
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER K** — *declared 2026-08-26 (b190); basis: the census test: external-reader results + a Correspondence table naming terminals.*
+    :4      
+    :5      > ### **b186's SYNTHESIS/NOTES/LEDGER SCHEME IS RETIRED, 2026-08-26 (b190).** *Reason: it was invented beside an author-ruled standing standard and its “SYNTHESIS” class spanned Tier K and Tier C at once —* ### **collapsing the very distinction the standing taxonomy exists to enforce.** *The retired
+    :6      
+    :7      **DOCUMENT CLASS: SYNTHESIS** — *declared 2026-08-26 (b186); basis: content and position; ### NO PURPOSE STATEMENT — the absence is the finding.*
+    :8      
+    :9      **PURPOSE:** *the programme's foundations — the silence cascade from dark interfaces to the decidability boundary; for a reader who needs the ground before the results.* — *### added 2026-08-26 (b187) from this document's own content; nothing else edited.*
+    :10     
+    :11     ## The Silence Cascade: From Dark Interfaces to the Decidability Boundary
+    :12     
+    :13     *J. York Seale*
+    :14     
+    :15     *ORCID: 0009-0008-7993-0310*
+    :16     
+    :17     *v0.2.4 — 2026-07-29*
+    :18     
+    :19     *Full version history (v0.2.2 -> v0.2.4) is preserved verbatim in the Version History section at the end of this record.*
+    :20     ---
+    :21     
+    :22     ## Abstract
+    :23     
+    :24     The Foundations cluster of the PLACE TO STAND programme develops the structural cascade that grounds the SIDE methodology. Five linked results form the cascade: the **Silence Principle** (essential interfaces in coupled systems with independent structures carry $\kappa = 0$ for behavioral parameters
+    :25     
+    :26     Each link in the cascade is supported by formal proof: the Silence Principle is theorem-supported in SILENCE_PRINCIPLE_FORMAL with the universal form `silence_universal` machine-verified in MetaKernel.lean (Kernel/SilenceTheorem.lean); Spectral Inertness is formally verified in Lean 4 against Mathli
+    :27     
+    :28     Substantive claim: the foundations of determined-system analysis are themselves silent. Foundations cannot speak about what they produce — but they constrain what can be produced. The cascade names the constraint precisely and identifies its scope condition: the methodology applies if and only if a 
+    :29     
+    :30     **Role.** This record *presents* the Foundations cascade — the five linked results (Silence Principle · Spectral Inertness · Compression · Sieve Ceiling · E-Difficulty) that ground the SIDE methodology — synthesized from the constituent papers. It is the synthesis: the technical detail and the compi
+### PLACE-papers FOUNDATIONS, the marked and the ceiling lines -- phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md @ 292c25b5 (9 lines cited)
+    :36     The SIDE methodology proves universal statements about determined systems by exhaustive enumeration: identify the specification, enumerate its structural constraints, certify the enumeration as complete via a domain Ostrowski, check each constraint, conclude by exclusion. This works for $\xi(s)$: se
+    :80     (C) follows from (B) + determination: in a determined system, every $P$-value must trace to the specification through some mechanism class; if all classes exclude $v$ and the interfaces are sealed, no pathway to $v$ exists. Proof by exhaustion enabled by the sealing condition. The one subtlety — the
+    :109    1. **Two specific instances** load-bearing for the RH proof — the spectral inertness of the product formula and the $\kappa = 0$ assignment of the distributive law — are theorems formally verified in Lean 4 (22 theorems, 0 sorry, 0 custom axioms).
+    :127    The Silence Principle has a precise concrete instantiation for the Riemann zeta function: the Artin-Whaples product formula is spectrally inert. This is the canonical $\kappa = 0$ load-bearing instance for the RH proof.
+    :321    - **The mathematics scale (h2, the specimen).** Does the finite specification *force* the seven-class catalogue's exhaustiveness at the ξ interface? This is `h2` — **the premise that every ξ-zero forces the Euler balance at some prime** (the conservation register; equivalently realization-totality a
+    :323    Same test, two scales: T7 answers it "not forced" (a settled boundary); h2 leaves it open (goal ⇐ h1 ∧ h2, only h2 open). The registration-computability standard — a claim is empirically settled only when its determination screen is pre-registered and run — is the physics face of the same discipline
+    :455    - SIDE-kernel v1.2 (tag `b1407b2`; citable deposit v1.1, DOI 10.5281/zenodo.19937590, whose axiom profile v1.2 supersedes) — provides Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`, and the ProductFormula chain merged against Mathlib (PRs #36881, #36865).
+    :477    **The RH proof's structural logic is exhaustive enumeration enabled by silence.** Seven mechanism classes are enumerated; each is checked by the classical tool natural to it; the dark interfaces between classes mean the per-class checks are uniform across all objects (compression); the domain Ostrow
+    :563    SIDE-kernel v1.4 (tag `f374174`; earlier citable deposit v1.1, Zenodo 10.5281/zenodo.19937590, superseded axiom profile) — RH proof core; Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`; ProductFormula chain merged against Mathlib (PRs #36881, #36865); E-Difficulty T
+### PLACE-papers FOUNDATIONS, the Correspondence -- phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md @ 292c25b5 (24 lines cited)
+    :617    ## Correspondence
+    :618    
+    :619    Every load-bearing claim of the cascade, matched to the kernel that verifies it, the fully-qualified theorem, and its `#print axioms` profile read from the kernel on D: (2026-07-12). No blank Status cells; manuscript-resident and research-reach items are labelled as such. (The References' kernel-fed
+    :620    
+    :621    Kernels audited at: SIDE-kernel `ce5d7bd` (v1.2 = `b1407b2`); SIDE-silence-principle `v0.1.0`; SIDE-compression `e9a5a36` (v0.2.0 — the prior audit line named `e31d719`, which is the initial commit / v0.1.0; corrected 2026-07-13). *(Pin currency, 2026-07-23: the RH-core / Silence / Conservation rows
+    :622    
+    :623    | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+    :624    |:--|:--|:--|:--|:--|
+    :625    | Silence Principle — universal form | SIDE-kernel v1.2 | `SilenceTheorem.silence_universal` | axiom-free (none) | INTERFACES — compiled under the named load-bearing hypothesis `I.is_universal`; the premise is a manuscript result, named here. |
+    :626    | Silence — per-instance (product formula) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.product_formula_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not establ
+    :627    | Silence — per-instance (distributive law) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.distributive_law_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-defined instances); it does not esta
+    :628    | Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`isSilent I := I.kappa_x100 == 0`, evaluated on hand-de
+    :629    | Mechanism Theorem | SIDE-kernel v1.2 | `ECondition.type_I_has_ostrowski` | `{propext, Quot.sound}` | DERIVES — Compiled ([Fintype Domain] is never used — exhaustiveness decorative, per loom 2026-07-12) |
+    :630    | E-Difficulty skeleton — sieve ceiling | SIDE-kernel v1.4 (`f374174`) | base `sieve_ceiling` → content `sieve_ceiling_semantic` (`Cascade/SieveCeilingSemantic.lean`) | axiom-free (both) | **SHELL (base) — work-order + DERIVES (content)** — W-6-EXT R3 (2026-07-19): the base terminal is abstract-`Pro
+    :631    | E-Difficulty skeleton — dichotomy | SIDE-kernel v1.4 (`f374174`) | `proof_dichotomy` | axiom-free (none) | **DERIVES** — Terminal 1: genuine LEM over the step-access inductive; untouched by W-6-EXT (was mislabeled SHELL under the blanket W-6 flag). |
+    :632    | E-Difficulty skeleton — bright access | SIDE-kernel v1.4 (`f374174`) | base `bright_access_required` | axiom-free (none) | **SHELL — work-order** — W-6-EXT R3: abstract-`Proof` contrapositive of the strength bound — a work-order, not a citation; content in `sieve_ceiling_semantic`. |
+    :633    | E-Difficulty skeleton — the equivalence | SIDE-kernel v1.4 (`f374174`) | `e_difficulty` (+ `e_difficulty_xi`) | `{propext, Quot.sound}` | **DERIVES** — W-6-EXT R2 (2026-07-19): de-vacuified. `IsDecidable s` reads its system (`SysProof s` over `s.interfaces`); the Ostrowski is EXTRACTED (not `List.
+    :634    | Spectral Inertness / Conservation ($n_4 = 0$) | SIDE-kernel v1.2 | `ProductFormula.conservation_of_spectra` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |
+    :635    | Mathlib bridge — Ostrowski | SIDE-kernel v1.2 | `ostrowski_exhaustive` (`Bridge/OstrowskiBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |
+    :636    | Mathlib bridge — per-prime balance | SIDE-kernel v1.2 | `neg_eq_neg_one_sub_iff` (`Bridge/LocalZeta.lean`) | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |
+    :637    | Compression Theorem — general form | SIDE-compression v0.2.0 | `Compression.compression`; `Compression.compression_infinite_objects` | axiom-free (none) | DERIVES as schema — content enters at instantiation. Compiled — N per-class checks + exhaustiveness ⟹ the universal conclusion over all objects
+    :638    | Sieve Ceiling Lemma (full form) | (none) | — | — | Manuscript-resident (v1.0 draft) |
+    :639    | E-Difficulty Theorem (full analytic form) | (none) | — | — | Research-reach |
+    :640    
+### PLACE-papers FOUNDATIONS, the Version History and the tier block`s head -- phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md @ 292c25b5 (15 lines cited)
+    :651    ## Version History
+    :652    
+    :653    *v0.2.4 — 2026-07-29 (Correspondence re-grade, RULING B: the three Silence "Model-level" rows (`product_formula_silent`, `distributive_law_silent`, `silence_principle`) → **ENCODES-CONCLUSION** (they certify the in-kernel Boolean model; the arithmetic content is manuscript-resident at `ProductFormul
+    :654    
+    :655    *(v0.2.2, 2026-07-19, ARM 3: new **§VI.5 "Determination licenses Exhaustiveness — one test at two scales"** — D licenses E; E is D's completion claim at the interface; the forced-vs-permitted screen and the registration-computability standard as one test at two scales (T7 the physics specimen, bound
+    :656    
+    :657    *(SIDE-compression general chain-length form compiled 2026-07-12; the Compression Correspondence row and §IV updated accordingly.)*
+    :658    
+    :659    *Gate-1 re-grade applied to the Correspondence section under the three-grade rubric (loom 2026-07-13): the four sieve-ceiling rows converted to work-order rows (W-6 — the terminals do not bind their subject matter); the silence rows regraded (universal form INTERFACES under its named hypothesis; the
+    :660    
+    :661    <!-- b557 THE CASCADE, ACT ELEVEN, 2026-09-29 -->
+    :662    
+    :663    #### THE CASCADE, ACT ELEVEN -- THE CORRESPONDENCE TIERED *(appended 2026-09-29, b557, under the author's ruling `(R167)`(5); no byte above this block changes; the body is not edited)*
+    :664    
+    :665    **The rows, re-read at pin.** 15 rows, 13 naming a terminal. Each terminal's file at the row's pin was elaborated fresh with `#check` and `#print axioms` appended, narrow imports (the file's own header) (relay `data/b557_probe_<id>.txt`; statements, profiles, tiers and reasons in `data/b557_tiers.tx
+### PLACE-papers the zeta page at the mirror`s pin, its pin line and nodes 7, 8, 20 -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 192077ff (4 lines cited)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b569_nodes.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.11 = `19b7d1e` (Lean v4.34.0
+    :11     7. `SIDEExplicitFormula.B321.ch_iff_rh` — SIDEExplicitFormula/H2Bridge.lean:71 — v0.1 = baed4df — `theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.c
+    :12     8. `SIDEExplicitFormula.B321.h2_sign_iff_rh` — SIDEExplicitFormula/Seam.lean:101 — v0.2 = 5c72cad — `theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Q
+    :24     20. `SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh` — SIDEExplicitFormula/LiCriterionBridge.lean:179 — v0.9 = e5a5a83 — `theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis` — premises: none — E0: DERIVES
+### PLACE-papers the zeta page, Correspondence rows -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 192077ff (2 lines cited)
+    :138    | `SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one` | SIDE-explicit-formula | DERIVES | T0 |
+    :144    | `SIDEExplicitFormula.RegisterDepth.silence_universal_restated` | SIDE-explicit-formula | DERIVES | T0 |
+### relay the CP-1b bank, its head and the 16 rows -- data/b558_cp1b.txt @ 4b7eda1f (24 lines cited)
+    :1      b558 -- COMPONENT 4: THE READINGS -- EVERY CITING SENTENCE x TERMINAL, ONE VERDICT (STANDS / MOVED-IN-MEANING / CREDIT)
+    :2      
+    :3      ### the rows: 821 ; the documents’ own 551, read by the seat (relay `data/b558_verdicts_<terminal>.tsv`) ; the cascade`s own 270, STANDS by the declared default
+    :4      ### over all rows: {'STANDS': 637, 'MOVED-IN-MEANING': 177, 'CREDIT': 7} ; over the documents’ own: {'STANDS': 367, 'MOVED-IN-MEANING': 177, 'CREDIT': 7}
+    :5      
+    :6      ### PER TERMINAL (all rows ; the documents’ own)
+    :7          ch_iff_rh                                {'STANDS': 46, 'MOVED-IN-MEANING': 22, 'CREDIT': 1} ; own {'STANDS': 18, 'MOVED-IN-MEANING': 22, 'CREDIT': 1}
+    :8          conservation_of_spectra                  {'STANDS': 57, 'MOVED-IN-MEANING': 17, 'CREDIT': 2} ; own {'STANDS': 54, 'MOVED-IN-MEANING': 17, 'CREDIT': 2}
+    :354    silence_universal | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :26 | MOVED-IN-MEANING | "Each link in the cascade is supported by formal proof: the Silence Principle is theorem-supported in SILENCE_PRINCIPLE_FORMAL with the universal form `silence_universal` machine-verified in MetaKernel.lean (Kernel/Sile
+    :355    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :26 | MOVED-IN-MEANING | "Spectral Inertness is formally verified in Lean 4 against Mathlib (terminal `ProductFormula.conservation_of_spectra`, `{propext, Classical.choice, Quot.sound}`; supported by the ProductFormula chain); the Compres
+    :357    h2_sign | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :30 | MOVED-IN-MEANING | "RH holds here only **under the same single open premise** `h2` (§VI.5;" | draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and 
+    :358    h2_sign | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :36 | MOVED-IN-MEANING | "This works for $\xi(s)$: seven mechanism classes are enumerated, each checked, none produces off-line zeros — and the Riemann Hypothesis holds **under the completeness of that enumeration at the ξ interface**, which is the progr
+    :360    h2_sign | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :80 | MOVED-IN-MEANING | "*(Re-scoped 2026-07-19, ARM 3, per §27.3's certificate-not-discharge ruling — Determination supplies the shared **witness** Φ, the h1 side, complete at Φ; but `T3prime` also requires `h2` — that Φ's Mellin factor is nonvanishing
+    :361    h2_sign | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :80 | MOVED-IN-MEANING | "So the joint exclusion closes **under `h2`** — goal ⇐ h1 ∧ h2, only h2 open — not outright." | reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at ev
+    :368    h2_sign | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :321 | MOVED-IN-MEANING | "This is `h2` — **the premise that every ξ-zero forces the Euler balance at some prime** (the conservation register; equivalently realization-totality at the ξ interface, the R4 positivity face, or the goal state's `mellin Φ (s/
+    :370    h2_sign | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :323 | MOVED-IN-MEANING | "Same test, two scales: T7 answers it "not forced" (a settled boundary); h2 leaves it open (goal ⇐ h1 ∧ h2, only h2 open)." | reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Ph
+    :373    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :455 | MOVED-IN-MEANING | "- SIDE-kernel v1.2 (tag `b1407b2`; citable deposit v1.1, DOI 10.5281/zenodo.19937590, whose axiom profile v1.2 supersedes) — provides Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spect
+    :376    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :563 | MOVED-IN-MEANING | "Conservation of Spectra ($n_4 = 0$) via `ProductFormula.conservation_of_spectra`;" | says Conservation of Spectra (n4 = 0) is supplied via the terminal, which states `(1 : Q) ^ s = 1`, T2.
+    :382    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :626 | MOVED-IN-MEANING | "| Silence — per-instance (product formula) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.product_formula_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (`i
+    :383    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :627 | MOVED-IN-MEANING | "| Silence — per-instance (distributive law) | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.distributive_law_silent` | axiom-free (none) | **ENCODES-CONCLUSION** — certifies the in-kernel Boolean model (
+    :384    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :628 | MOVED-IN-MEANING | "| Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certi
+    :386    silence_universal | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :628 | MOVED-IN-MEANING | "| Silence four-step chain | SIDE-silence-principle v0.1.0 | `SIDESilencePrinciple.silence_principle`; `SIDESilencePrinciple.Universal.silence_universal` | `[propext]`; axiom-free | **ENCODES-CONCLUSION** — certifies t
+    :389    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :634 | MOVED-IN-MEANING | "| Spectral Inertness / Conservation ($n_4 = 0$) | SIDE-kernel v1.2 | `ProductFormula.conservation_of_spectra` | `{propext, Classical.choice, Quot.sound}` | DERIVES — Compiled |" | grades Spectral Inertness / Con
+    :390    conservation_of_spectra | FOUNDATIONS_OF_THE_SIDE_PROGRAMME | :653 | MOVED-IN-MEANING | "*v0.2.4 — 2026-07-29 (Correspondence re-grade, RULING B: the three Silence "Model-level" rows (`product_formula_silent`, `distributive_law_silent`, `silence_principle`) → **ENCODES-CONCLUSION** (they certify the
+### PLACE-papers OPEN_TRAILS, b576`s record, the form, b578`s record -- OPEN_TRAILS.md @ 292c25b5 (3 lines cited)
+    :11836  ### b576 — lane three, act four under (R186): CP-7 act one -- the purpose statement drafted for ruling; the lv description answered by append; SPIRAL_MAP :43 corrected beneath; the refresh
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s n
+    :11886  ### b578 — lane three, act six under (R188): CP-7 act three -- the edition of PATHS_TO_THE_CRITICAL_LINE written beside the current; the addendum re-cited; the order ratified; the re-run worktree deleted
+### PLACE-papers FINDINGS, b578`s entry -- FINDINGS.md @ 292c25b5 (1 lines cited)
+    :6478   ## CP-7, act three: the edition of PATHS_TO_THE_CRITICAL_LINE from its tier block and work-list, the pentagon read as the star; written as v0.7 beside v0.6, no sentence held
+### relay b578`s edition bank, its head -- data/b578_edition_PATHS.txt @ 4b7eda1f (8 lines cited)
+    :1      b578 -- COMPONENT 3: THE EDITION OF PATHS_TO_THE_CRITICAL_LINE, (R188)(4), BY THE FORM OF (R187)(5)
+    :2      
+    :3      ### the current version : PLACE-papers phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md @ 7bd8954 (blob 75b53dec), 640 lines ; head :1 "# Paths to the Critical Line" ; :19 "Version **v0.6 — 2026-07-24** — R-3 re-articulation (Pass A: CENSUS role sentence; currenc"
+    :4      ### the edition : PLACE-papers phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md, 689 lines, sha256 405f43ab0ede34409039d47e31fc9c9551b956f637db23b08ce43aa33b64f357
+    :5      
+    :6      ### THE WORK-LIST, ROW BY ROW (29 rows, 20 sentences, 17 lines) -- each row: the line, the terminal, the reading it falls under (the seat`s hand-read), the declarations its rewrite cites with their pins, the sentence before and after.
+    :7      
+    :8        PATHS:45:3 :45 `h1_complete_at_Phi` -- (iii) the single open premise ; cites ['h2_sign_iff_rh (v0.2 = 5c72cad)', 'mellin_Phi_eq_zero_of_re_le_one (v0.11 = 19b7d1e)']
+### relay tools/banned_terms.py, the stems -- tools/banned_terms.py @ 4b7eda1f (49 lines cited)
+    :1      # -*- coding: utf-8 -*-
+    :2      """banned_terms.py -- THE BANNED-TERM REVIEW, BUILT (b142).
+    :3      
+    :4      ### WHY THIS EXISTS. Rule 3 bans two stems from the record's own voice. The
+    :5      ### review has been run act after act by hand-rolled one-liners, rewritten each
+    :6      ### time. b139 filed the general answer -- BUILD THE CHECK RATHER THAN PRAISE
+    :7      ### THE HABIT -- and b141 applied it to the probe habit. This applies it to the
+    :8      ### banned-term habit, which was the last discretionary check in the closing
+    :9      ### sequence.
+    :10     
+    :11     ### THE STEMS: "gap" and "blind".
+    :12     ### THE EXCEPTIONS, which are part of the rule and not softenings of it:
+    :13     ###   - QUOTED KERNEL IDENTIFIERS (sector_pattern_gap and its kin);
+    :14     ###   - CLAY / BIBLIOGRAPHY CITATIONS ("mass gap");
+    :15     ###   - RETIRED TERMS QUOTED INSIDE CORRECTION RECORDS (EXECUTOR_RULES sec 5);
+    :16     ###   - this file itself, which cannot state the rule without naming the stems.
+    :17     ### Anything else is a LIVE USE and must be corrected before shipping.
+    :18     
+    :19     ### THE SCOPE, AND IT IS THE WHOLE DIFFICULTY -- SEE THE DEFECT NOTE BELOW.
+    :20     ### The rule governs THE ACT'S OWN VOICE, so the scope is the act's ADDED LINES
+    :21     ### plus the whole of files the act CREATES. It is NOT whole existing files: a
+    :22     ### thirty-thousand-line ledger carries decades of quoted history that the act
+    :23     ### did not write and may not rewrite.
+    :24     
+    :25     # ### DEFECT FIXED b142, ON THE CHECK'S FIRST RUN, AND IT IS THE SAME SPECIES
+    :26     # ### AS THE PROBE GENERATOR'S: the first version scanned WHOLE FILES and
+    :27     # ### returned 178 "live uses", every one of them a pre-existing line in a
+    :28     # ### ledger this act only appended to. A scanner with no scope control does not
+    :29     # ### report the rule -- it reports the corpus. ### THE SCOPE IS NOW DERIVED
+    :30     # ### MECHANICALLY FROM THE ACT'S OWN DIFF, which is the probe-generation
+    :31     # ### convention's principle carried to the second check that needed it.
+    :32     # ### A SECOND DEFECT, FIXED IN THE SAME PASS: stdout was inheriting cp1252 and
+    :33     # ### crashed on the first Greek letter it met. A check that dies on its own
+    :34     # ### input is not a check.
+    :35     
+    :36     # ### SECOND SCOPE DEFECT, FIXED b143, AND IT IS A DIFFERENT ONE. The diff scope
+    :37     # ### counts a MOVED file as added lines. The twenty-fifth seam's archival split
+    :38     # ### wrote five BYTE-EXACT archives of historical ledger text, and the review
+    :39     # ### reported live uses inside them. ### THAT TEXT IS NOT THE ACT'S VOICE -- IT
+    :40     # ### IS THE RECORD'S OWN HISTORY, AND "CORRECTING" IT WOULD BOTH DESTROY THE
+    :41     # ### BYTE-EXACTNESS THE ARCHIVE EXISTS TO GUARANTEE AND FALSIFY WHAT THE RECORD
+    :42     # ### ACTUALLY SAID. --exclude takes a path substring and is REQUIRED to be
+    :43     # ### explicit: the exclusions used are printed in the scope block, so an
+    :44     # ### exclusion can never be silent.
+    :45     
+    :46     Usage:
+    :47         python banned_terms.py --diff <repo> [<rev>]     scope = added lines vs rev
+    :48         python banned_terms.py --new <file> [<file>...]  scope = whole file (new files)
+    :49         python banned_terms.py --exclude <substring>     drop paths containing it
+### relay b578`s closing push-out, its head -- data/b578_closing_push_out.txt @ 4b7eda1f (3 lines cited)
+    :1      push_gated: capture on -> /d/relay/data/b578_closing_push_out.txt (2026-10-01T20:13:31Z)
+    :2      push_gated: repo /d/relay ; branch push-b578-closing ; tip 1c628ae86a9e5c8c36e3aab59a3ceadcf63b7ef4 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+### PLACE-papers PATHS v0.7, its version line -- phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md @ 292c25b5 (4 lines cited)
+    :17     **This document is a census of the field's routes to σ = 1/2 — a map of how the mathematical community has approached the critical line, not a proof.** Its catalogued open items belong to the routes named; the programme's own frontier is the single premise stated at *A Place To Stand* §27.3 (concept
+    :18     
+    :19     Version **v0.6 — 2026-07-24** — R-3 re-articulation (Pass A: CENSUS role sentence; currency to the published finish-first wave; §ANNEX B integration; the inside-voice physics-constants frame relocated to OPEN_TRAILS). *Version history and dated changes are in the DELTA entries and §ANNEX blocks belo
+    :20     
