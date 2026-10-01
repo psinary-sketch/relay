@@ -1,0 +1,263 @@
+{
+ "path": "phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md",
+ "cur": "phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md",
+ "cur_blob": "b9597bc0de9379eac6cbf0feb2511acffdfb3bd3",
+ "lines_cur": 700,
+ "lines_body": 710,
+ "lines_full": 799,
+ "n_cur": 826,
+ "n_body": 831,
+ "n_full": 896,
+ "n_backmatter": 65,
+ "credit": 2,
+ "removals": 0,
+ "ruled_citations": 2,
+ "version_lines": 1,
+ "diff": [
+  {
+   "id": "INDEX:21:235",
+   "line": 21,
+   "ed_line": 23,
+   "terminal": "h2_sign",
+   "old": "The programme's exclusion analysis reduced the Riemann Hypothesis to a single located clause — the positive space on the zeros — with the reduction machine-verified and the residue localized.",
+   "new": "The programme's exclusion analysis reduced the Riemann Hypothesis to a single located clause — the positive space on the zeros — with the clause compiled as equivalent to RH in its Weil form (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), the deposit’s Route 3 clause RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), and the residue localized.",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the reduction of RH to h2 compiled or machine-verified through `ConservationBridge.riemann_hypothesis`, whose premise `ConservationHypothesis` is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`, in the Weil form."
+  },
+  {
+   "id": "INDEX:29:237",
+   "line": 29,
+   "ed_line": 31,
+   "terminal": "h2_sign",
+   "old": "RH follows once one open premise holds — `h2`, the positive space on the zeros: a positive-definite pairing realized on the nontrivial zeros, equivalently realization-totality at the ξ interface, the premise that every ξ-zero forces the Euler balance at some prime (the monograph's §27.3, where the one premise is carried in five registers).",
+   "new": "RH follows once one open premise holds — `h2`, the positive space on the zeros: a positive-definite pairing realized on the nontrivial zeros, in its Weil form `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), while the conservation register carried beside it, that every ξ-zero forces the Euler balance at some prime, is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`) (the monograph's §27.3, where the one premise is carried in five registers).",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "states h2 as \"every xi-zero forces the Euler balance at some prime\", the conservation register, which `ch_iff_rh` shows is RH restated, so the single open premise it names is RH itself."
+  },
+  {
+   "id": "INDEX:29:238",
+   "line": 29,
+   "ed_line": 31,
+   "terminal": "h2_sign",
+   "old": "The reduction itself is compiled: `ConservationBridge.riemann_hypothesis` at the standard three axioms {propext, Classical.choice, Quot.sound}.",
+   "new": "The deposit’s Route 3 terminal `ConservationBridge.riemann_hypothesis` compiles at the standard three axioms {propext, Classical.choice, Quot.sound}, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`, E-2026-09-25-1), so it compiles RH ⇒ RH; the compiled reduction of RH is the Weil form (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`).",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the reduction of RH to h2 compiled or machine-verified through `ConservationBridge.riemann_hypothesis`, whose premise `ConservationHypothesis` is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`, in the Weil form."
+  },
+  {
+   "id": "INDEX:29:239",
+   "line": 29,
+   "ed_line": 31,
+   "terminal": "riemann_hypothesis",
+   "old": "The reduction itself is compiled: `ConservationBridge.riemann_hypothesis` at the standard three axioms {propext, Classical.choice, Quot.sound}.",
+   "new": "The deposit’s Route 3 terminal `ConservationBridge.riemann_hypothesis` compiles at the standard three axioms {propext, Classical.choice, Quot.sound}, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`, E-2026-09-25-1), so it compiles RH ⇒ RH; the compiled reduction of RH is the Weil form (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`).",
+   "changed": true,
+   "reading": 2,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the terminal the compiled or machine-verified reduction of RH, and its premise is RH restated (`ch_iff_rh`), so it compiles RH => RH; the compiled reduction of RH is `h2_sign_iff_rh` in the Weil form."
+  },
+  {
+   "id": "INDEX:234:242",
+   "line": 234,
+   "ed_line": 240,
+   "terminal": "h2_sign",
+   "old": "**It is not a discharge.** RH stands exactly where the reduction left it: proved under the one open premise `h2` (§27.3), the reduction compiled, the premise open.",
+   "new": "**It is not a discharge.** RH stands exactly where the reduction left it: argued under the one open premise `h2` (§27.3), which in its Weil form `h2_sign` is equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), the Route 3 terminal compiling RH ⇒ RH (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), the premise open.",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "has RH proved under the one open premise h2 with \"the reduction compiled\", and the compiled Route 3 premise is RH restated while h2 in its Weil form is RH itself (`h2_sign_iff_rh`)."
+  },
+  {
+   "id": "INDEX:369:244",
+   "line": 369,
+   "ed_line": 375,
+   "terminal": "h2_sign",
+   "old": "| §1 — the reduction, RH under the one open premise `h2` | SIDE-kernel v1.7 = `2957e7d` | `ConservationBridge.riemann_hypothesis` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled — the reduction, not a proof of RH; `h2` carried open |",
+   "new": "| §1 — the reduction, RH under the one open premise `h2` | SIDE-kernel v1.7 = `2957e7d` | `ConservationBridge.riemann_hypothesis` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled, T2 (b556’s tier block): its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`, E-2026-09-25-1), so it compiles RH ⇒ RH; the reduction of RH is `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`); `h2` carried open |",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "grades `ConservationBridge.riemann_hypothesis` \"Compiled -- the reduction\", and its premise is RH restated; the compiled reduction of RH is `h2_sign_iff_rh` (the row MOVED at b556)."
+  },
+  {
+   "id": "INDEX:369:245",
+   "line": 369,
+   "ed_line": 375,
+   "terminal": "riemann_hypothesis",
+   "old": "| §1 — the reduction, RH under the one open premise `h2` | SIDE-kernel v1.7 = `2957e7d` | `ConservationBridge.riemann_hypothesis` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled — the reduction, not a proof of RH; `h2` carried open |",
+   "new": "| §1 — the reduction, RH under the one open premise `h2` | SIDE-kernel v1.7 = `2957e7d` | `ConservationBridge.riemann_hypothesis` | the standard three axioms `{propext, Classical.choice, Quot.sound}` | Compiled, T2 (b556’s tier block): its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`, E-2026-09-25-1), so it compiles RH ⇒ RH; the reduction of RH is `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`); `h2` carried open |",
+   "changed": true,
+   "reading": 2,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the terminal the compiled or machine-verified reduction of RH, and its premise is RH restated (`ch_iff_rh`), so it compiles RH => RH; the compiled reduction of RH is `h2_sign_iff_rh` in the Weil form."
+  },
+  {
+   "id": "INDEX:401:248",
+   "line": 401,
+   "ed_line": 407,
+   "terminal": "h2_sign",
+   "old": "**Constellation order.** The programme's principal results are the machine-verified reduction of RH to the single clause `h2` and the localization of the residue to the positive space on the zeros; those live in the monograph (*A Place to Stand*), *The Residue of the Riemann Hypothesis*, and *The Unconditional Surround*.",
+   "new": "**Constellation order.** The programme's principal results are the reduction of RH to the single clause `h2`, compiled in its Weil form (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), and the localization of the residue to the positive space on the zeros; those live in the monograph (*A Place to Stand*), *The Residue of the Riemann Hypothesis*, and *The Unconditional Surround*.",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh"
+   ],
+   "banks": [],
+   "supports": "calls the reduction of RH to h2 compiled or machine-verified through `ConservationBridge.riemann_hypothesis`, whose premise `ConservationHypothesis` is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`, in the Weil form."
+  },
+  {
+   "id": "INDEX:405:249",
+   "line": 405,
+   "ed_line": 411,
+   "terminal": "h2_sign",
+   "old": "**What this paper does not claim:** it is not a discharge of `h2` (§27.3 named; the reduction compiled, the premise open); it makes no no-prism claim — the two-darknesses posture governs (catalogued instruments stop; no theorem that no instrument exists; the open prisms are catalogued in §4); it does not narrow the residue; the index-arity identification of §3 with the cohomological coordinate (Δn₄'s missing codomain) is carried in the arc's ledgers as a graded reading, not asserted here as a theorem.",
+   "new": "**What this paper does not claim:** it is not a discharge of `h2` (§27.3 named; the clause compiled in its Weil form as equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), the Route 3 terminal compiling RH ⇒ RH (`ch_iff_rh`, SIDE-explicit-formula v0.1 = `baed4df`), the premise open); it makes no no-prism claim — the two-darknesses posture governs (catalogued instruments stop; no theorem that no instrument exists; the open prisms are catalogued in §4); it does not narrow the residue; the index-arity identification of §3 with the cohomological coordinate (Δn₄'s missing codomain) is carried in the arc's ledgers as a graded reading, not asserted here as a theorem.",
+   "changed": true,
+   "reading": 1,
+   "cites": [
+    "h2_sign_iff_rh",
+    "ch_iff_rh"
+   ],
+   "banks": [],
+   "supports": "repeats \"the reduction compiled\" for the Route 3 terminal, whose premise is RH restated (`ch_iff_rh`); the disclaimers in the sentence stand."
+  }
+ ],
+ "offset": "+2 from :15 (the v0.19 version line and a blank, above the v0.18 version line); +4 more after :55 (the two b450 credit lines, each with a blank); +2 more after :580 and +2 more after :593 (a blank and a history line beneath the v0.8 and the v0.7 entries) -- v0.18 :n sits at the edition`s :n+2 for 15 <= n <= 55, :n+6 to :580, :n+8 to :593, :n+10 after",
+ "ceils": [],
+ "stems": [
+  [
+   74,
+   "the register gap (density → pairing, the statistical face)",
+   "the register step (density → pairing, the statistical face)"
+  ],
+  [
+   193,
+   "so the gap closes with height",
+   "so the shortfall closes with height"
+  ],
+  [
+   334,
+   "group-named blind spots of an observable class",
+   "group-named unseen directions of an observable class"
+  ],
+  [
+   338,
+   "falls in the gap between",
+   "falls in the interval between"
+  ]
+ ],
+ "facts": [
+  [
+   373,
+   "SIDE-lv-conservation main = `5a14205` (landed 2026-08-02, the ratified pass)",
+   "SIDE-lv-conservation main at `5a14205` (landed 2026-08-02, the ratified pass; an ancestor three commits behind main `2f71068` = v0.11.0)"
+  ],
+  [
+   381,
+   "SIDE-lv-conservation main = `14720d9` (E-8 landed 2026-08-02)",
+   "SIDE-lv-conservation main at `14720d9` (E-8 landed 2026-08-02; an ancestor one commit behind main `2f71068` = v0.11.0)"
+  ]
+ ],
+ "names": [
+  109,
+  162,
+  164,
+  166,
+  167,
+  325,
+  395,
+  513,
+  533
+ ],
+ "names_count": 13,
+ "history": [
+  {
+   "stem_line": 568,
+   "after": 580,
+   "entry": "v0.8",
+   "text": "*v0.19, 2026-10-01 (b585, beneath the v0.8 entry, under the history clause, OPEN_TRAILS :11908): the entry above carries its wording as a dated record; its :568 names the register step (density → pairing) guarding the shadow row.*",
+   "at": 588
+  },
+  {
+   "stem_line": 587,
+   "after": 593,
+   "entry": "v0.7",
+   "text": "*v0.19, 2026-10-01 (b585, beneath the v0.7 entry, under the history clause, OPEN_TRAILS :11908): the entry above carries its wording as a dated record; its :587 names the flip-depth instrument d(t) unresolved at reachable depth for t = −0.1, −0.3 (the deep-tail finding).*",
+   "at": 603
+  }
+ ],
+ "credits": [
+  {
+   "after": 55,
+   "id": "b450 item: W_inf NOT sign-definite",
+   "text": "*Credit (b450, relay `data/b450_batch.json`, INDEX_ARITY_AT_THE_CRITICAL_LINE “W_inf NOT sign-definite”, carried at b585 under `(R195)`(3)):* the archimedean term `W_∞` is not sign-definite -- its kernel `Re ψ(1/4 + iu/2) − log π` is negative at low frequency and positive at high, crossing at u = 2π (the bench row u = 6.283, kernel −0.0011) -- and the positive assembly facing the prime sum is `W_pole + W_∞` (`phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md` :52-:58, :62).",
+   "at": 59
+  },
+  {
+   "after": 55,
+   "id": "b450 item: the Day-1 section I attribution",
+   "text": "*Credit (b450, relay `data/b450_batch.json`, INDEX_ARITY_AT_THE_CRITICAL_LINE “the Day-1 section I attribution pole-plus-archimedean”, carried at b585 under `(R195)`(3)):* Day-1 BALANCE_AND_POSITIVITY §I attributed the positivity to the archimedean term alone, its `W_∞` row reading “positive (provable)”, and the repaired attribution is to the pole-plus-archimedean term (`phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md` :46, :66).",
+   "at": 61
+  }
+ ],
+ "version": {
+  "above": 15,
+  "text": "v0.19, 2026-10-01"
+ },
+ "n4_clause": "the index-arity identification of §3 with the cohomological coordinate (Δn₄'s missing codomain) is carried in the arc's ledgers as a graded reading, not asserted here as a theorem.",
+ "sha256": "b8c0cb5e5dc9d9e61eb4a5c1f455cc15268b760c8ffdb791632f5c9babbe83fc",
+ "status_blanks": [],
+ "cited_lines": {
+  "h2_sign_iff_rh": [
+   23,
+   31,
+   240,
+   375,
+   407,
+   411
+  ],
+  "ch_iff_rh": [
+   23,
+   31,
+   240,
+   375,
+   411
+  ]
+ }
+}
