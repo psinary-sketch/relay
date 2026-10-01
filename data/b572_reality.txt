@@ -1,0 +1,14 @@
+b572 -- COMPONENT 2: THE FORM`S REALITY, (R182)(3) -- WHAT THE ζ CRITERION`S PROOF CONSUMES, READ BEFORE ANY KERNEL FILE
+
+### written at (UTC) 2026-10-01T15:32:52Z
+### (1) The configuration structure (Zeta23/Defs.lean :136) carries reflect_mem and mult_reflect -- invariance under
+###     ρ ↦ 1 − ρ̄ (`Zeta23.reflect`, :124) -- and NO conjugation field.
+### (2) The converse`s walk (h2_sign_imp_rh_holds) uses the reflection fields ['Zeta23.ZeroConfig.reflect_mem'], in ['tie_reflect'].
+### (3) The converse`s walk uses a conjugation-stability fact of a configuration (pattern conj_mem|mult_conj|_conj_conj|riemannZeta_conj|conj_stable|LFunction_inv_conj|analyticOrderAt_conj): NONE.
+### (4) The sign is read on the real part only: h2_sign_imp_rh_strip_of closes on `(Complex.nonneg_iff.mp hsign).1` against a
+###     window whose zero side has negative real part (PowerLimit.lean :1188, :1159-:1161); the forward half needs no reality
+###     either -- on the line each zero`s term is m_ρ·|ĥ(γ_ρ)|², a nonnegative real (RHChain.lean :24-:58).
+### (5) The conjugation that does enter is of the TRANSFORM of a real even test function (paperFT_conj_eq, PowerLimit :215),
+###     with γ ↦ γ̄ supplied by the reflection (gammaOf_reflect, :204): a property of the test function, not of the configuration.
+
+### ### **THE CHOICE: REFLECTION.** Reflection suffices: h2_sign_chi is the statement over the χ-configuration alone -- already stated at GRHWeil.lean :75 (b562) and taken as the statement of record; chiZeroConfig carries reflect_mem and mult_reflect (Chi/ZeroConfig.lean :183, :208, :225); no paired form is stated.

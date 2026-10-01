@@ -1,0 +1,359 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.GRHWeil.zeroSide_chi": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (k : ℝ → ℂ) : ℂ",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) : zeroSide_chi χ hχ h1 k = archTerm_chi χ k - primeSum_chi χ k",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.rh_strip_chi": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Prop",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.GRHWeil.rh_strip_chi_iff_grh_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : rh_strip_chi χ hχ h1 ↔ GRH_chi χ",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.rh_strip_chi_imp_h2_sign_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : rh_strip_chi χ hχ h1 → h2_sign_chi χ",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : GRH_chi χ → h2_sign_chi χ",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.dominant_summable_chi": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (B : ℝ) (D : ℕ) : Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.fR_chi": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (Q : ℕ → Polynomial ℝ) (j : ℕ) (x : (chiZeroConfig χ hχ h1).carrier) : ℂ",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.GRHWeil.fR_norm_le_chi": {
+   "grade": "INTERFACES",
+   "why": "hT : (x : ℂ) ∉ tieSet (chiZeroConfig χ hχ h1) g0 M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (x : (chiZeroConfig χ hχ h1).carrier) (hT : (x : ℂ) ∉ tieSet (chiZeroConfig χ hχ h1) g0 M) : ‖fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ ((chiZeroConfig χ hχ h1).mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.fR_bound_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hj : D ≤ j",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (hj : D ≤ j) (x : (chiZeroConfig χ hχ h1).carrier) : ‖fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ ((chiZeroConfig χ hχ h1).mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) : Tendsto (fun j => ∑' x, fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.sT_chi": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) : Finset (chiZeroConfig χ hχ h1).carrier",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.GRHWeil.mem_sT_chi": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (x : (chiZeroConfig χ hχ h1).carrier) : x ∈ sT_chi H ↔ (x : ℂ) ∈ tieSet (chiZeroConfig χ hχ h1) g0 M",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hρs : ρs ∈ tieSet (chiZeroConfig χ hχ h1) g0 M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(H : PWSetup (chiZeroConfig χ hχ h1) g0 L M) (ρs : ℂ) (hρs : ρs ∈ tieSet (chiZeroConfig χ hχ h1) g0 M) : ∃ (a : List ℝ) (j : ℕ), (zeroSide_chi χ hχ h1 (kWindow a g0 j)).re < 0",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_rh_strip_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ → rh_strip_chi χ hχ h1",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ → GRH_chi χ",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ ↔ GRH_chi χ",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "header_read": true,
+   "kind": "theorem"
+  }
+ },
+ "consumed": {
+  "SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.weighted_summable": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.plateau_dominant": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.tie_term_neg": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.coeffs_exist": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.kWindow_classK": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.zero_weight": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq",
+   "pin": "4dce7b9",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ}, ContDiff ℝ 2 k → HasCompactSupport k → SIDEExplicitFormula.GRHWeil.zeroSide_chi χ hχ h1 k = SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**b321's identity for χ**: for `k ∈ C_c²`, the zero side is `archTerm_chi χ k − primeSum_chi χ k` (`EF_lit_chi_holds`).",
+   "body1": "(EF_lit_chi_holds hχ h1 k hk hkc).2",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi",
+   "pin": "4dce7b9",
+   "file": "SIDEExplicitFormula/Chi/CriterionForward.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.GRHWeil.GRH_chi χ → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**THE FORWARD HALF OF THE CRITERION FOR χ**: `GRH_chi χ → h2_sign_chi χ`, for primitive `χ ≠ 1`.",
+   "body1": "fun h => rh_strip_chi_imp_h2_sign_chi hχ h1 ((rh_strip_chi_iff_grh_chi hχ h1).mpr h)",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi",
+   "pin": "4dce7b9",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ → SIDEExplicitFormula.GRHWeil.GRH_chi χ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**THE CONVERSE OF THE CRITERION FOR χ**: `h2_sign_chi χ → GRH_chi χ`, for primitive `χ ≠ 1`.",
+   "body1": "fun h => (rh_strip_chi_iff_grh_chi hχ h1).mp (h2_sign_chi_imp_rh_strip_chi χ hχ h1 h)",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi",
+   "pin": "4dce7b9",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive → χ ≠ 1 → (SIDEExplicitFormula.GRHWeil.h2_sign_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi χ)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**THE CRITERION AT THE χ-INSTANCE**: Weil positivity on classK for χ is GRH for χ, both directions, for every primitive `χ ≠ 1`",
+   "body1": "⟨h2_sign_chi_imp_grh_chi χ hχ h1, grh_chi_imp_h2_sign_chi hχ h1⟩",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "4dce7b97eb29733b823919bd80b08d01c82c6d8f",
+ "rev": "grh-weil-b572",
+ "counts": {
+  "DERIVES": 12,
+  "INTERFACES": 1
+ }
+}

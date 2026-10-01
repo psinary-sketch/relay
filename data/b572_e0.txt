@@ -1,0 +1,48 @@
+b572 -- COMPONENTS 2-3: THE E0 READ -- EVERY DECLARATION GRADED, THE ROWGEN RECORD
+
+### the prints of record: relay data/b572_chi_prints.txt ; the statements at 4dce7b9 (grh-weil-b572).
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+
+    zeroSide_chi                                   DEF        std3  -- 
+    zeroSide_chi_eq                                DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k
+    rh_strip_chi                                   DEF        std3  -- 
+    rh_strip_chi_iff_grh_chi                       DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    rh_strip_chi_imp_h2_sign_chi                   DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    grh_chi_imp_h2_sign_chi                        DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    dominant_summable_chi                          DERIVES    std3  -- no hypothesis binder
+    fR_chi                                         DEF        std3  -- 
+    fR_norm_le_chi                                 INTERFACES std3  -- hT : (x : ℂ) ∉ tieSet (chiZeroConfig χ hχ h1) g0 M
+    fR_bound_chi                                   DERIVES    std3  -- domain conditions only: hj : D ≤ j
+    rest_tendsto_zero_chi                          DERIVES    std3  -- no hypothesis binder
+    sT_chi                                         DEF        std3  -- 
+    mem_sT_chi                                     DERIVES    std3  -- no hypothesis binder
+    zeroSide_eventually_neg_chi                    DERIVES    std3  -- domain conditions only: hρs : ρs ∈ tieSet (chiZeroConfig χ hχ h1) g0 M
+    h2_sign_chi_imp_rh_strip_chi                   DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    h2_sign_chi_imp_grh_chi                        DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    h2_sign_chi_iff_grh_chi                        DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+
+### THE CONSUMED TERMINALS, their prints:
+    SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds                   std3
+    SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count          std3
+    SIDEExplicitFormula.B321.weighted_summable                     std3
+    SIDEExplicitFormula.B321.plateau_dominant                      std3
+    SIDEExplicitFormula.B321.tie_term_neg                          std3
+    SIDEExplicitFormula.B321.coeffs_exist                          std3
+    SIDEExplicitFormula.B321.kWindow_classK                        std3
+    SIDEExplicitFormula.B321.zero_weight                           std3
+    SIDEExplicitFormula.B321.h2_sign_iff_rh                        std3
+
+### THE ROWGEN RECORD (at 4dce7b9):
+    zeroSide_chi_eq                          defenc False  | check True
+    grh_chi_imp_h2_sign_chi                  defenc False  | check True
+    h2_sign_chi_imp_grh_chi                  defenc False  | check True
+    h2_sign_chi_iff_grh_chi                  defenc False  | check True
+### ### **THE GATE: PASS** -- declarations 17 (theorems 13: DERIVES 12, INTERFACES 1), consumed 9

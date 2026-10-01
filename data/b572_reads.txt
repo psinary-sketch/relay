@@ -1,0 +1,43 @@
+b572 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### kernel H2Sign (classK; h2_sign) -- SIDEExplicitFormula/H2Sign.lean @ ac157c1d
+    :24     def classK (k : ℝ → ℂ) : Prop :=
+    :29     def h2_sign : Prop :=
+### kernel Seam (rh_strip_imp_rh_holds; h2_sign_iff_rh) -- SIDEExplicitFormula/Seam.lean @ ac157c1d
+    :86       rcases le_or_gt 1 s.re with h | h
+    :101    theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+### kernel PowerLimit (tie_reflect; VF_conj; dominant_summable; zeroSide_eventually_neg; the assembly; the forward half) -- SIDEExplicitFormula/PowerLimit.lean @ ac157c1d
+    :232    theorem tie_reflect (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) {M : ℝ} {ρ : ℂ}
+    :634    theorem VF_conj (H : PWSetup Z g0 L M) : ∀ w ∈ VF H, conj w ∈ VF H := by
+    :949    theorem dominant_summable (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) :
+    :1082   theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ)
+    :1167   theorem h2_sign_imp_rh_strip_of (hneg : zeroSideNeg) : h2_sign → rh_strip := by
+    :1188     rw [← hid] at hsign
+    :1197   theorem rh_strip_imp_h2_sign : rh_strip → h2_sign := by
+### kernel PowerWindow (rh_strip) -- SIDEExplicitFormula/PowerWindow.lean @ ac157c1d
+    :483    def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2
+### kernel RHChain (rh_imp_h2_sign) -- SIDEExplicitFormula/RHChain.lean @ ac157c1d
+    :24     theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign := by
+### vendored Zeta23 Defs (reflect; ZeroConfig and its reflection fields) -- Zeta23/Defs.lean @ ac157c1d
+    :124    def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+    :136    structure ZeroConfig where
+    :145      /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+    :146      finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+### kernel GRHWeil (GRH_chi; h2_sign_chi; LFunction_inv_conj) -- SIDEExplicitFormula/GRHWeil.lean @ ac157c1d
+    :53     def GRH_chi (χ : DirichletCharacter ℂ N) : Prop :=
+    :75     def h2_sign_chi (χ : DirichletCharacter ℂ N) : Prop :=
+    :185    theorem LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+### kernel Chi/ZeroConfig (chi_reflect_zero; chi_mult_reflect; chiZeroConfig) -- SIDEExplicitFormula/Chi/ZeroConfig.lean @ ac157c1d
+    :183    theorem chi_reflect_zero {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {ρ : ℂ}
+    :208    theorem chi_mult_reflect {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {ρ : ℂ}
+    :225    def chiZeroConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Zeta23.ZeroConfig where
+### kernel Chi/Main (EF_lit_chi_holds) -- SIDEExplicitFormula/Chi/Main.lean @ ac157c1d
+    :269    theorem EF_lit_chi_holds {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : EF_lit_chi χ hχ h1 := by
+### PLACE-papers README (the last ceiling line) -- README.md @ 49a51ecb
+    :121    *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence:
+### PLACE-papers REGISTRY (the last ceiling line) -- REGISTRY.md @ 49a51ecb
+    :956    *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence:
+### PLACE-papers FINDINGS (the (R146)(2) ceiling entry`s record; b567`s amendment of it) -- FINDINGS.md @ 49a51ecb
+    :6144   **The ceiling entry of (R146)(2) gains the author’s sentence**, appended beside it at README.md :117 and REGISTRY.md :952 (the (R146)(2) lines at :115 and :950 standing unedited above): *the forward half of Li's criterion and the Bombieri–Lagarias limit formula are compiled over Mathlib's zeros; the
+    :6214   *Appended 2026-10-01 by b567 to b564’s record of the ceiling entry (:6144), under `(R177)`(2) -- THE CEILING ENTRY AMENDED:* the author’s sentence inserted beside the `(R146)`(2) entry at README.md :121 and REGISTRY.md :956 (the `(R146)`(2) lines at :115 and :950, b564’s and b566’s beside them, stan
+### PLACE-papers OPEN_TRAILS -- the W-ORD-GRH-WEIL heading at :[11373]

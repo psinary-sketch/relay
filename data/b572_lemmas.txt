@@ -1,0 +1,405 @@
+b572 -- COMPONENT 3: THE LEMMA LIST, (R182)(4)(c) -- every kernel declaration h2_sign_iff_rh`s proof consumes, in the
+### order the constant walk reaches it (relay data/b572_crit_probe.lean.txt, its output data/b572_crit_probe_out.txt; v0.13 = ac157c1), auxiliary constants folded into their owner; ζ-NAMING when its type or value uses directly a constant of the ζ list
+### (RiemannHypothesis, Zeta23.IsNontrivialZero, Zeta23.RvM.zetaZeroConfig_local_count, Zeta23.WeilEF.EF_lit_zetaZeroConfig, Zeta23.zetaSeam, Zeta23.zetaZeroConfig, completedRiemannZeta, riemannZeta, or any non-kernel constant whose name past `Zeta23.` carries `zeta`), the naming constants printed beside it.
+### written at (UTC) 2026-10-01T15:32:46Z
+
+### THE WHOLE PROOF (h2_sign_iff_rh): declarations 193 ; ζ-naming 20 ; generic 173
+      1  ζ-NAMING  B321.h2_sign_iff_rh                                            Seam                                     naming: RiemannHypothesis
+      2  GENERIC   B321.h2_sign                                                   H2Sign                                   
+      3  ζ-NAMING  B321.rh_imp_h2_sign                                            RHChain                                  naming: RiemannHypothesis, Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+      4  GENERIC   B321.h2_sign_imp_rh_holds                                      Seam                                     
+      5  GENERIC   B321.classK                                                    H2Sign                                   
+      6  GENERIC   B321.archTerm                                                  B321Identity                             
+      7  GENERIC   B321.primeSum                                                  B321Identity                             
+      8  GENERIC   B321.poleTerm                                                  B321Identity                             
+      9  GENERIC   B321.b321Norm                                                  B321Identity                             
+     10  ζ-NAMING  B321.zeroSide                                                  B321Identity                             naming: Zeta23.zetaZeroConfig
+     11  ζ-NAMING  B321.b321_identity                                             B321Identity                             naming: Zeta23.WeilEF.EF_lit_zetaZeroConfig, Zeta23.zetaZeroConfig
+     12  GENERIC   B321.h2_sign_imp_rh_of_seam                                    PowerLimit                               
+     13  ζ-NAMING  B321.h2_sign_imp_rh                                            RHChain                                  naming: RiemannHypothesis
+     14  ζ-NAMING  B321.rh_strip_imp_rh_holds                                     Seam                                     naming: Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig, Zeta23.zetaZeroConfig_carrier, riemannZeta, riemannZeta_ne_zero_of_one_le_re
+     15  ζ-NAMING  B321.rh_strip_imp_rh                                           PowerWindow                              naming: RiemannHypothesis
+     16  GENERIC   B321.h2_sign_imp_rh_strip                                      PowerLimit                               
+     17  ζ-NAMING  B321.zeta_zero_re_nonpos                                       Seam                                     naming: riemannZeta, riemannZeta_ne_zero_of_one_le_re, riemannZeta_one_sub, riemannZeta_zero
+     18  ζ-NAMING  B321.rh_strip                                                  PowerWindow                              naming: Zeta23.zetaZeroConfig
+     19  ζ-NAMING  B321.zeroSideNeg_holds                                         PowerLimit                               naming: Zeta23.zetaZeroConfig
+     20  ζ-NAMING  B321.h2_sign_imp_rh_strip_of                                   PowerLimit                               naming: Zeta23.zetaZeroConfig
+     21  GENERIC   B321.tieSet                                                    PowerWindow                              
+     22  ζ-NAMING  B321.zeroSide_eventually_neg                                   PowerLimit                               naming: Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+     23  ζ-NAMING  B321.zeroSideNeg                                               PowerLimit                               naming: Zeta23.zetaZeroConfig
+     24  GENERIC   B321.PWSetup                                                   PowerLimit                               
+     25  GENERIC   B321.plateau_dominant                                          PowerWindow                              
+     26  GENERIC   B321.plateau_contDiff                                          TwoPropertyWindow                        
+     27  GENERIC   B321.plateau_even                                              TwoPropertyWindow                        
+     28  GENERIC   B321.PWSetup.hsm                                               PowerLimit                               
+     29  GENERIC   B321.plateau_support_Icc                                       PowerWindow                              
+     30  GENERIC   B321.offScore                                                  PowerWindow                              
+     31  GENERIC   B321.PWSetup.hs                                                PowerLimit                               
+     32  GENERIC   B321.plateau                                                   TwoPropertyWindow                        
+     33  GENERIC   B321.kWindow_classK                                            PowerLimit                               
+     34  GENERIC   B321.PWSetup.mk                                                PowerLimit                               
+     35  GENERIC   B321.kWindow                                                   PowerLimit                               
+     36  GENERIC   B321.tie_term_neg                                              PowerLimit                               
+     37  ζ-NAMING  B321.fR_bound                                                  PowerLimit                               naming: Zeta23.zetaZeroConfig
+     38  ζ-NAMING  B321.sT                                                        PowerLimit                               naming: Zeta23.zetaZeroConfig
+     39  ζ-NAMING  B321.mem_sT                                                    PowerLimit                               naming: Zeta23.zetaZeroConfig
+     40  GENERIC   B321.coeffList                                                 PowerLimit                               
+     41  GENERIC   B321.wOf                                                       PowerLimit                               
+     42  GENERIC   B321.coeffs_exist                                              PowerLimit                               
+     43  GENERIC   B321.Xval                                                      PowerLimit                               
+     44  GENERIC   B321.vOf                                                       PowerLimit                               
+     45  ζ-NAMING  B321.fR                                                        PowerLimit                               naming: Zeta23.zetaZeroConfig
+     46  GENERIC   B321.PWSetup.hM                                                PowerLimit                               
+     47  ζ-NAMING  B321.rest_tendsto_zero                                         PowerLimit                               naming: Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+     48  GENERIC   B321.Nf                                                        PowerLimit                               
+     49  GENERIC   B321.Nf_pos                                                    PowerLimit                               
+     50  GENERIC   B321.Pof                                                       PowerLimit                               
+     51  ζ-NAMING  B321.dominant_summable                                         PowerLimit                               naming: Zeta23.RvM.zetaZeroConfig_local_count, Zeta23.zetaZeroConfig
+     52  GENERIC   B321.phiC                                                      PairTerm                                 
+     53  GENERIC   B321.base_nonzero_at                                           PowerWindow                              
+     54  GENERIC   B321.dominant_exists                                           PowerWindow                              
+     55  GENERIC   B321.classK_of_real_even                                       PowerWindow                              
+     56  GENERIC   B321.pwWindow_support                                          PowerLimit                               
+     57  GENERIC   B321.pwWindow_contDiff                                         PowerLimit                               
+     58  GENERIC   B321.hasCompactSupport_of_Icc                                  DecayBound                               
+     59  GENERIC   B321.pwWindow                                                  PowerLimit                               
+     60  GENERIC   B321.Xval_norm                                                 PowerLimit                               
+     61  GENERIC   B321.term_eq                                                   PowerLimit                               
+     62  GENERIC   B321.PWSetup.hdom                                              PowerLimit                               
+     63  ζ-NAMING  B321.fR_norm_le                                                PowerLimit                               naming: Zeta23.zetaZeroConfig
+     64  GENERIC   B321.killSet                                                   PowerWindow                              
+     65  GENERIC   B321.kill_term_zero                                            PowerLimit                               
+     66  GENERIC   B321.TF                                                        PowerLimit                               
+     67  GENERIC   B321.mem_TF                                                    PowerLimit                               
+     68  GENERIC   B321.Pof_eval                                                  PowerLimit                               
+     69  GENERIC   B321.poly_norm_le                                              PowerLimit                               
+     70  GENERIC   B321.Kp                                                        PowerLimit                               
+     71  GENERIC   B321.XV                                                        PowerLimit                               
+     72  GENERIC   B321.rT_sq_mul                                                 PowerLimit                               
+     73  GENERIC   B321.rT_norm                                                   PowerLimit                               
+     74  GENERIC   B321.VF                                                        PowerLimit                               
+     75  GENERIC   B321.rT                                                        PowerLimit                               
+     76  GENERIC   B321.VF_conj                                                   PowerLimit                               
+     77  GENERIC   B321.vOf_im                                                    PowerLimit                               
+     78  GENERIC   B321.Ep                                                        PowerLimit                               
+     79  GENERIC   B321.fixed_poly_bound                                          PowerLimit                               
+     80  GENERIC   B321.real_even_interpolant                                     PowerWindow                              
+     81  GENERIC   B321.Yv                                                        PowerLimit                               
+     82  GENERIC   B321.rT_conj                                                   PowerLimit                               
+     83  GENERIC   B321.XV_node                                                   PowerLimit                               
+     84  GENERIC   B321.Xval_real_neg                                             PowerLimit                               
+     85  GENERIC   B321.sqrtC                                                     PowerLimit                               
+     86  GENERIC   B321.cE                                                        PowerLimit                               
+     87  GENERIC   B321.Kp_tie_ne                                                 PowerLimit                               
+     88  GENERIC   B321.Efac_ne                                                   PowerLimit                               
+     89  GENERIC   B321.Aw                                                        PowerLimit                               
+     90  GENERIC   B321.weighted_summable                                         PowerLimit                               
+     91  GENERIC   B321.Aw_nonneg                                                 PowerLimit                               
+     92  GENERIC   B321.zero_weight                                               PowerLimit                               
+     93  GENERIC   B321.HCount                                                    RestBound                                
+     94  GENERIC   B321.plateau_nonneg                                            PowerWindow                              
+     95  GENERIC   B321.plateau_integral_pos                                      PowerWindow                              
+     96  GENERIC   B321.phiC_exp_integrable                                       PairTerm                                 
+     97  GENERIC   B321.plateau_hasCompactSupport                                 TwoPropertyWindow                        
+     98  GENERIC   B321.off_finite_above                                          PowerWindow                              
+     99  GENERIC   B321.weilTest_ofReal_even                                      TwoPropertyWindow                        
+    100  GENERIC   B321.power_support                                             PowerWindow                              
+    101  GENERIC   B321.polyOpFull_support                                        PowerLimit                               
+    102  GENERIC   B321.power                                                     PowerWindow                              
+    103  GENERIC   B321.polyOpFull_contDiff                                       PowerLimit                               
+    104  GENERIC   B321.power_contDiff                                            PowerWindow                              
+    105  GENERIC   B321.polyOpFull                                                PowerLimit                               
+    106  GENERIC   B321.wOf_sq                                                    PowerLimit                               
+    107  GENERIC   B321.polyEvalFull_coeffList                                    PowerLimit                               
+    108  GENERIC   B321.Pof_prod                                                  PowerLimit                               
+    109  GENERIC   B321.PWSetup.hev                                               PowerLimit                               
+    110  GENERIC   B321.kWindow_term                                              PowerLimit                               
+    111  GENERIC   B321.polyEvalFull                                              PowerLimit                               
+    112  GENERIC   B321.rest_term_small                                           PowerLimit                               
+    113  GENERIC   B321.Kp_kill                                                   PowerLimit                               
+    114  GENERIC   B321.PWSetup.tfin                                              PowerLimit                               
+    115  GENERIC   B321.aeval_X_sq_comp                                           PowerLimit                               
+    116  GENERIC   B321.Xr                                                        PowerLimit                               
+    117  GENERIC   B321.rep                                                       PowerLimit                               
+    118  GENERIC   B321.sqrtC_sq                                                  PowerLimit                               
+    119  GENERIC   B321.Yv_ne                                                     PowerLimit                               
+    120  GENERIC   B321.Yv_mul                                                    PowerLimit                               
+    121  GENERIC   B321.norm_Yv                                                   PowerLimit                               
+    122  GENERIC   B321.norm_sqrtC                                                PowerLimit                               
+    123  GENERIC   B321.rep_spec                                                  PowerLimit                               
+    124  GENERIC   B321.vOf_reflect                                               PowerLimit                               
+    125  GENERIC   B321.tie_reflect                                               PowerLimit                               
+    126  GENERIC   B321.Yv_conj                                                   PowerLimit                               
+    127  GENERIC   B321.paperFT_of_sq_eq                                          PowerLimit                               
+    128  GENERIC   B321.gammaOf_sq                                                PowerLimit                               
+    129  GENERIC   B321.cE_big                                                    PowerLimit                               
+    130  GENERIC   B321.gHat_ne                                                   PowerLimit                               
+    131  GENERIC   B321.gammaOf_re'                                               RestBound                                
+    132  GENERIC   B321.vOf_re                                                    PowerLimit                               
+    133  GENERIC   B321.paperFT_conj_eq                                           PowerLimit                               
+    134  GENERIC   B321.paperFT_neg_of_even                                       PowerLimit                               
+    135  GENERIC   B321.aeval_real                                                PowerLimit                               
+    136  GENERIC   B321.mem_KF                                                    PowerLimit                               
+    137  GENERIC   B321.KF                                                        PowerLimit                               
+    138  GENERIC   B321.cE_pos                                                    PowerLimit                               
+    139  GENERIC   B321.weighted_finite_bound                                     PowerLimit                               
+    140  GENERIC   B321.zeta3Sum                                                  RestBound                                
+    141  GENERIC   B321.norm_wOf                                                  PowerLimit                               
+    142  GENERIC   B321.ceil_weight                                               PowerLimit                               
+    143  GENERIC   B321.paperFT_decay_zero                                        DecayBound                               
+    144  GENERIC   B321.PWSetup.hL                                                PowerLimit                               
+    145  GENERIC   B321.gammaOf_im'                                               RestBound                                
+    146  GENERIC   B321.PWSetup.c4                                                PowerLimit                               
+    147  GENERIC   B321.paperFT_decay                                             DecayBound                               
+    148  GENERIC   B321.plateau_eq_one                                            TwoPropertyWindow                        
+    149  GENERIC   B321.polyCoef                                                  PowerWindow                              
+    150  GENERIC   B321.support_iteratedDeriv_Icc                                 DecayBound                               
+    151  GENERIC   B321.wOf_eq                                                    PowerLimit                               
+    152  GENERIC   B321.Ep_prod                                                   PowerLimit                               
+    153  GENERIC   B321.paperFT_polyOpFull                                        PowerLimit                               
+    154  GENERIC   B321.zero_term_real                                            PowerLimit                               
+    155  GENERIC   B321.paperFT_power                                             PowerWindow                              
+    156  GENERIC   B321.vOf_real_of_on                                            PowerLimit                               
+    157  GENERIC   B321.tieSet_finite                                             PowerWindow                              
+    158  GENERIC   B321.XV_ne                                                     PowerLimit                               
+    159  GENERIC   B321.offScore_reflect                                          PowerLimit                               
+    160  GENERIC   B321.reflect_re                                                PowerLimit                               
+    161  GENERIC   B321.XV_conj                                                   PowerLimit                               
+    162  GENERIC   B321.paperFT_conj_of_real_even                                 PowerWindow                              
+    163  GENERIC   B321.phiC_FT_neg                                               PairTerm                                 
+    164  GENERIC   B321.PWSetup.kfin                                              PowerLimit                               
+    165  GENERIC   B321.fiber_count                                               RestBound                                
+    166  GENERIC   B321.summable_zeta3                                            RestBound                                
+    167  GENERIC   B321.paperFT_growth                                            GrowthBound                              
+    168  GENERIC   B321.paperFT_iteratedDeriv                                     DecayBound                               
+    169  GENERIC   B321.selfConv_support                                          PowerWindow                              
+    170  GENERIC   B321.power_support.match_1_1                                   PowerWindow                              
+    171  GENERIC   B321.support_deriv_Icc                                         DecayBound                               
+    172  GENERIC   B321.selfConv                                                  PowerWindow                              
+    173  GENERIC   B321.selfConv_contDiff                                         PowerWindow                              
+    174  GENERIC   B321.power_contDiff.match_1_1                                  PowerWindow                              
+    175  GENERIC   B321.aeval_Ep                                                  PowerLimit                               
+    176  GENERIC   B321.paperFT_sum                                               PowerWindow                              
+    177  GENERIC   B321.paperFT_conj_of_real                                      PowerLimit                               
+    178  GENERIC   B321.Xval_ne                                                   PowerLimit                               
+    179  GENERIC   B321.gammaOf_reflect                                           PowerLimit                               
+    180  GENERIC   B321.aeval_conj                                                PowerLimit                               
+    181  GENERIC   B321.paperFT_ofReal_conj                                       PairTerm                                 
+    182  GENERIC   B321.killSet_finite                                            PowerWindow                              
+    183  GENERIC   B321.ibp_step                                                  TwoPropertyWindow                        
+    184  GENERIC   B321.selfConv_eq                                               PowerWindow                              
+    185  GENERIC   B321.paperFT_power.match_1_1                                   PowerWindow                              
+    186  GENERIC   B321.phiC_selfConv                                             PowerWindow                              
+    187  GENERIC   B321.power_even                                                PowerWindow                              
+    188  GENERIC   B321.zero_term_sq                                              PowerWindow                              
+    189  GENERIC   B321.reflect_im                                                PowerLimit                               
+    190  GENERIC   B321.hasDerivAt_expIz                                          TwoPropertyWindow                        
+    191  GENERIC   B321.weilTest_phiC                                             PowerWindow                              
+    192  GENERIC   B321.selfConv_even                                             PowerWindow                              
+    193  GENERIC   B321.power_even.match_1_1                                      PowerWindow                              
+
+### THE CONVERSE (h2_sign_imp_rh_holds): declarations 191 ; ζ-naming 18 ; generic 173
+      1  GENERIC   B321.h2_sign_imp_rh_holds                                      Seam                                     
+      2  GENERIC   B321.h2_sign_imp_rh_of_seam                                    PowerLimit                               
+      3  ζ-NAMING  B321.h2_sign_imp_rh                                            RHChain                                  naming: RiemannHypothesis
+      4  ζ-NAMING  B321.rh_strip_imp_rh_holds                                     Seam                                     naming: Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig, Zeta23.zetaZeroConfig_carrier, riemannZeta, riemannZeta_ne_zero_of_one_le_re
+      5  GENERIC   B321.h2_sign                                                   H2Sign                                   
+      6  ζ-NAMING  B321.rh_strip_imp_rh                                           PowerWindow                              naming: RiemannHypothesis
+      7  GENERIC   B321.h2_sign_imp_rh_strip                                      PowerLimit                               
+      8  ζ-NAMING  B321.zeta_zero_re_nonpos                                       Seam                                     naming: riemannZeta, riemannZeta_ne_zero_of_one_le_re, riemannZeta_one_sub, riemannZeta_zero
+      9  ζ-NAMING  B321.rh_strip                                                  PowerWindow                              naming: Zeta23.zetaZeroConfig
+     10  GENERIC   B321.classK                                                    H2Sign                                   
+     11  GENERIC   B321.archTerm                                                  B321Identity                             
+     12  GENERIC   B321.primeSum                                                  B321Identity                             
+     13  GENERIC   B321.poleTerm                                                  B321Identity                             
+     14  ζ-NAMING  B321.zeroSideNeg_holds                                         PowerLimit                               naming: Zeta23.zetaZeroConfig
+     15  ζ-NAMING  B321.h2_sign_imp_rh_strip_of                                   PowerLimit                               naming: Zeta23.zetaZeroConfig
+     16  GENERIC   B321.tieSet                                                    PowerWindow                              
+     17  ζ-NAMING  B321.zeroSide_eventually_neg                                   PowerLimit                               naming: Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+     18  ζ-NAMING  B321.zeroSideNeg                                               PowerLimit                               naming: Zeta23.zetaZeroConfig
+     19  GENERIC   B321.PWSetup                                                   PowerLimit                               
+     20  GENERIC   B321.plateau_dominant                                          PowerWindow                              
+     21  GENERIC   B321.plateau_contDiff                                          TwoPropertyWindow                        
+     22  GENERIC   B321.plateau_even                                              TwoPropertyWindow                        
+     23  GENERIC   B321.PWSetup.hsm                                               PowerLimit                               
+     24  GENERIC   B321.b321Norm                                                  B321Identity                             
+     25  GENERIC   B321.plateau_support_Icc                                       PowerWindow                              
+     26  GENERIC   B321.offScore                                                  PowerWindow                              
+     27  GENERIC   B321.PWSetup.hs                                                PowerLimit                               
+     28  GENERIC   B321.plateau                                                   TwoPropertyWindow                        
+     29  GENERIC   B321.kWindow_classK                                            PowerLimit                               
+     30  ζ-NAMING  B321.zeroSide                                                  B321Identity                             naming: Zeta23.zetaZeroConfig
+     31  GENERIC   B321.PWSetup.mk                                                PowerLimit                               
+     32  ζ-NAMING  B321.b321_identity                                             B321Identity                             naming: Zeta23.WeilEF.EF_lit_zetaZeroConfig, Zeta23.zetaZeroConfig
+     33  GENERIC   B321.kWindow                                                   PowerLimit                               
+     34  GENERIC   B321.tie_term_neg                                              PowerLimit                               
+     35  ζ-NAMING  B321.fR_bound                                                  PowerLimit                               naming: Zeta23.zetaZeroConfig
+     36  ζ-NAMING  B321.sT                                                        PowerLimit                               naming: Zeta23.zetaZeroConfig
+     37  ζ-NAMING  B321.mem_sT                                                    PowerLimit                               naming: Zeta23.zetaZeroConfig
+     38  GENERIC   B321.coeffList                                                 PowerLimit                               
+     39  GENERIC   B321.wOf                                                       PowerLimit                               
+     40  GENERIC   B321.coeffs_exist                                              PowerLimit                               
+     41  GENERIC   B321.Xval                                                      PowerLimit                               
+     42  GENERIC   B321.vOf                                                       PowerLimit                               
+     43  ζ-NAMING  B321.fR                                                        PowerLimit                               naming: Zeta23.zetaZeroConfig
+     44  GENERIC   B321.PWSetup.hM                                                PowerLimit                               
+     45  ζ-NAMING  B321.rest_tendsto_zero                                         PowerLimit                               naming: Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+     46  GENERIC   B321.Nf                                                        PowerLimit                               
+     47  GENERIC   B321.Nf_pos                                                    PowerLimit                               
+     48  GENERIC   B321.Pof                                                       PowerLimit                               
+     49  ζ-NAMING  B321.dominant_summable                                         PowerLimit                               naming: Zeta23.RvM.zetaZeroConfig_local_count, Zeta23.zetaZeroConfig
+     50  GENERIC   B321.phiC                                                      PairTerm                                 
+     51  GENERIC   B321.base_nonzero_at                                           PowerWindow                              
+     52  GENERIC   B321.dominant_exists                                           PowerWindow                              
+     53  GENERIC   B321.classK_of_real_even                                       PowerWindow                              
+     54  GENERIC   B321.pwWindow_support                                          PowerLimit                               
+     55  GENERIC   B321.pwWindow_contDiff                                         PowerLimit                               
+     56  GENERIC   B321.hasCompactSupport_of_Icc                                  DecayBound                               
+     57  GENERIC   B321.pwWindow                                                  PowerLimit                               
+     58  GENERIC   B321.Xval_norm                                                 PowerLimit                               
+     59  GENERIC   B321.term_eq                                                   PowerLimit                               
+     60  GENERIC   B321.PWSetup.hdom                                              PowerLimit                               
+     61  ζ-NAMING  B321.fR_norm_le                                                PowerLimit                               naming: Zeta23.zetaZeroConfig
+     62  GENERIC   B321.killSet                                                   PowerWindow                              
+     63  GENERIC   B321.kill_term_zero                                            PowerLimit                               
+     64  GENERIC   B321.TF                                                        PowerLimit                               
+     65  GENERIC   B321.mem_TF                                                    PowerLimit                               
+     66  GENERIC   B321.Pof_eval                                                  PowerLimit                               
+     67  GENERIC   B321.poly_norm_le                                              PowerLimit                               
+     68  GENERIC   B321.Kp                                                        PowerLimit                               
+     69  GENERIC   B321.XV                                                        PowerLimit                               
+     70  GENERIC   B321.rT_sq_mul                                                 PowerLimit                               
+     71  GENERIC   B321.rT_norm                                                   PowerLimit                               
+     72  GENERIC   B321.VF                                                        PowerLimit                               
+     73  GENERIC   B321.rT                                                        PowerLimit                               
+     74  GENERIC   B321.VF_conj                                                   PowerLimit                               
+     75  GENERIC   B321.vOf_im                                                    PowerLimit                               
+     76  GENERIC   B321.Ep                                                        PowerLimit                               
+     77  GENERIC   B321.fixed_poly_bound                                          PowerLimit                               
+     78  GENERIC   B321.real_even_interpolant                                     PowerWindow                              
+     79  GENERIC   B321.Yv                                                        PowerLimit                               
+     80  GENERIC   B321.rT_conj                                                   PowerLimit                               
+     81  GENERIC   B321.XV_node                                                   PowerLimit                               
+     82  GENERIC   B321.Xval_real_neg                                             PowerLimit                               
+     83  GENERIC   B321.sqrtC                                                     PowerLimit                               
+     84  GENERIC   B321.cE                                                        PowerLimit                               
+     85  GENERIC   B321.Kp_tie_ne                                                 PowerLimit                               
+     86  GENERIC   B321.Efac_ne                                                   PowerLimit                               
+     87  GENERIC   B321.Aw                                                        PowerLimit                               
+     88  GENERIC   B321.weighted_summable                                         PowerLimit                               
+     89  GENERIC   B321.Aw_nonneg                                                 PowerLimit                               
+     90  GENERIC   B321.zero_weight                                               PowerLimit                               
+     91  GENERIC   B321.HCount                                                    RestBound                                
+     92  GENERIC   B321.plateau_nonneg                                            PowerWindow                              
+     93  GENERIC   B321.plateau_integral_pos                                      PowerWindow                              
+     94  GENERIC   B321.phiC_exp_integrable                                       PairTerm                                 
+     95  GENERIC   B321.plateau_hasCompactSupport                                 TwoPropertyWindow                        
+     96  GENERIC   B321.off_finite_above                                          PowerWindow                              
+     97  GENERIC   B321.weilTest_ofReal_even                                      TwoPropertyWindow                        
+     98  GENERIC   B321.power_support                                             PowerWindow                              
+     99  GENERIC   B321.polyOpFull_support                                        PowerLimit                               
+    100  GENERIC   B321.power                                                     PowerWindow                              
+    101  GENERIC   B321.polyOpFull_contDiff                                       PowerLimit                               
+    102  GENERIC   B321.power_contDiff                                            PowerWindow                              
+    103  GENERIC   B321.polyOpFull                                                PowerLimit                               
+    104  GENERIC   B321.wOf_sq                                                    PowerLimit                               
+    105  GENERIC   B321.polyEvalFull_coeffList                                    PowerLimit                               
+    106  GENERIC   B321.Pof_prod                                                  PowerLimit                               
+    107  GENERIC   B321.PWSetup.hev                                               PowerLimit                               
+    108  GENERIC   B321.kWindow_term                                              PowerLimit                               
+    109  GENERIC   B321.polyEvalFull                                              PowerLimit                               
+    110  GENERIC   B321.rest_term_small                                           PowerLimit                               
+    111  GENERIC   B321.Kp_kill                                                   PowerLimit                               
+    112  GENERIC   B321.PWSetup.tfin                                              PowerLimit                               
+    113  GENERIC   B321.aeval_X_sq_comp                                           PowerLimit                               
+    114  GENERIC   B321.Xr                                                        PowerLimit                               
+    115  GENERIC   B321.rep                                                       PowerLimit                               
+    116  GENERIC   B321.sqrtC_sq                                                  PowerLimit                               
+    117  GENERIC   B321.Yv_ne                                                     PowerLimit                               
+    118  GENERIC   B321.Yv_mul                                                    PowerLimit                               
+    119  GENERIC   B321.norm_Yv                                                   PowerLimit                               
+    120  GENERIC   B321.norm_sqrtC                                                PowerLimit                               
+    121  GENERIC   B321.rep_spec                                                  PowerLimit                               
+    122  GENERIC   B321.vOf_reflect                                               PowerLimit                               
+    123  GENERIC   B321.tie_reflect                                               PowerLimit                               
+    124  GENERIC   B321.Yv_conj                                                   PowerLimit                               
+    125  GENERIC   B321.paperFT_of_sq_eq                                          PowerLimit                               
+    126  GENERIC   B321.gammaOf_sq                                                PowerLimit                               
+    127  GENERIC   B321.cE_big                                                    PowerLimit                               
+    128  GENERIC   B321.gHat_ne                                                   PowerLimit                               
+    129  GENERIC   B321.gammaOf_re'                                               RestBound                                
+    130  GENERIC   B321.vOf_re                                                    PowerLimit                               
+    131  GENERIC   B321.paperFT_conj_eq                                           PowerLimit                               
+    132  GENERIC   B321.paperFT_neg_of_even                                       PowerLimit                               
+    133  GENERIC   B321.aeval_real                                                PowerLimit                               
+    134  GENERIC   B321.mem_KF                                                    PowerLimit                               
+    135  GENERIC   B321.KF                                                        PowerLimit                               
+    136  GENERIC   B321.cE_pos                                                    PowerLimit                               
+    137  GENERIC   B321.weighted_finite_bound                                     PowerLimit                               
+    138  GENERIC   B321.zeta3Sum                                                  RestBound                                
+    139  GENERIC   B321.norm_wOf                                                  PowerLimit                               
+    140  GENERIC   B321.ceil_weight                                               PowerLimit                               
+    141  GENERIC   B321.paperFT_decay_zero                                        DecayBound                               
+    142  GENERIC   B321.PWSetup.hL                                                PowerLimit                               
+    143  GENERIC   B321.gammaOf_im'                                               RestBound                                
+    144  GENERIC   B321.PWSetup.c4                                                PowerLimit                               
+    145  GENERIC   B321.paperFT_decay                                             DecayBound                               
+    146  GENERIC   B321.plateau_eq_one                                            TwoPropertyWindow                        
+    147  GENERIC   B321.polyCoef                                                  PowerWindow                              
+    148  GENERIC   B321.support_iteratedDeriv_Icc                                 DecayBound                               
+    149  GENERIC   B321.wOf_eq                                                    PowerLimit                               
+    150  GENERIC   B321.Ep_prod                                                   PowerLimit                               
+    151  GENERIC   B321.paperFT_polyOpFull                                        PowerLimit                               
+    152  GENERIC   B321.zero_term_real                                            PowerLimit                               
+    153  GENERIC   B321.paperFT_power                                             PowerWindow                              
+    154  GENERIC   B321.vOf_real_of_on                                            PowerLimit                               
+    155  GENERIC   B321.tieSet_finite                                             PowerWindow                              
+    156  GENERIC   B321.XV_ne                                                     PowerLimit                               
+    157  GENERIC   B321.offScore_reflect                                          PowerLimit                               
+    158  GENERIC   B321.reflect_re                                                PowerLimit                               
+    159  GENERIC   B321.XV_conj                                                   PowerLimit                               
+    160  GENERIC   B321.paperFT_conj_of_real_even                                 PowerWindow                              
+    161  GENERIC   B321.phiC_FT_neg                                               PairTerm                                 
+    162  GENERIC   B321.PWSetup.kfin                                              PowerLimit                               
+    163  GENERIC   B321.fiber_count                                               RestBound                                
+    164  GENERIC   B321.summable_zeta3                                            RestBound                                
+    165  GENERIC   B321.paperFT_growth                                            GrowthBound                              
+    166  GENERIC   B321.paperFT_iteratedDeriv                                     DecayBound                               
+    167  GENERIC   B321.selfConv_support                                          PowerWindow                              
+    168  GENERIC   B321.power_support.match_1_1                                   PowerWindow                              
+    169  GENERIC   B321.support_deriv_Icc                                         DecayBound                               
+    170  GENERIC   B321.selfConv                                                  PowerWindow                              
+    171  GENERIC   B321.selfConv_contDiff                                         PowerWindow                              
+    172  GENERIC   B321.power_contDiff.match_1_1                                  PowerWindow                              
+    173  GENERIC   B321.aeval_Ep                                                  PowerLimit                               
+    174  GENERIC   B321.paperFT_sum                                               PowerWindow                              
+    175  GENERIC   B321.paperFT_conj_of_real                                      PowerLimit                               
+    176  GENERIC   B321.Xval_ne                                                   PowerLimit                               
+    177  GENERIC   B321.gammaOf_reflect                                           PowerLimit                               
+    178  GENERIC   B321.aeval_conj                                                PowerLimit                               
+    179  GENERIC   B321.paperFT_ofReal_conj                                       PairTerm                                 
+    180  GENERIC   B321.killSet_finite                                            PowerWindow                              
+    181  GENERIC   B321.ibp_step                                                  TwoPropertyWindow                        
+    182  GENERIC   B321.selfConv_eq                                               PowerWindow                              
+    183  GENERIC   B321.paperFT_power.match_1_1                                   PowerWindow                              
+    184  GENERIC   B321.phiC_selfConv                                             PowerWindow                              
+    185  GENERIC   B321.power_even                                                PowerWindow                              
+    186  GENERIC   B321.zero_term_sq                                              PowerWindow                              
+    187  GENERIC   B321.reflect_im                                                PowerLimit                               
+    188  GENERIC   B321.hasDerivAt_expIz                                          TwoPropertyWindow                        
+    189  GENERIC   B321.weilTest_phiC                                             PowerWindow                              
+    190  GENERIC   B321.selfConv_even                                             PowerWindow                              
+    191  GENERIC   B321.power_even.match_1_1                                      PowerWindow                              
+
+### THE FORWARD HALF (rh_imp_h2_sign): declarations 9 ; ζ-naming 3 ; generic 6
+      1  ζ-NAMING  B321.rh_imp_h2_sign                                            RHChain                                  naming: RiemannHypothesis, Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+      2  GENERIC   B321.classK                                                    H2Sign                                   
+      3  GENERIC   B321.h2_sign                                                   H2Sign                                   
+      4  GENERIC   B321.b321Norm                                                  B321Identity                             
+      5  GENERIC   B321.archTerm                                                  B321Identity                             
+      6  GENERIC   B321.primeSum                                                  B321Identity                             
+      7  GENERIC   B321.poleTerm                                                  B321Identity                             
+      8  ζ-NAMING  B321.zeroSide                                                  B321Identity                             naming: Zeta23.zetaZeroConfig
+      9  ζ-NAMING  B321.b321_identity                                             B321Identity                             naming: Zeta23.WeilEF.EF_lit_zetaZeroConfig, Zeta23.zetaZeroConfig
+
+### ### **THE CONVERSE`S ζ-NAMING LEMMAS: 18** -- ['h2_sign_imp_rh', 'rh_strip_imp_rh_holds', 'rh_strip_imp_rh', 'zeta_zero_re_nonpos', 'rh_strip', 'zeroSideNeg_holds', 'h2_sign_imp_rh_strip_of', 'zeroSide_eventually_neg', 'zeroSideNeg', 'zeroSide', 'b321_identity', 'fR_bound', 'sT', 'mem_sT', 'fR', 'rest_tendsto_zero', 'dominant_summable', 'fR_norm_le']

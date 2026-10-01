@@ -1,0 +1,138 @@
+=== START 2026-10-01T15:40:20Z cwd=/d/SIDE-explicit-formula cmd=lake env lean AxiomCheckChiAct7.lean
+'SIDEExplicitFormula.GRHWeil.zeroSide_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.rh_strip_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.rh_strip_chi_iff_grh_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.rh_strip_chi_imp_h2_sign_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.dominant_summable_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.fR_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.fR_norm_le_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.fR_bound_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.sT_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.mem_sT_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_rh_strip_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weighted_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.tie_term_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.coeffs_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWindow_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zero_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      SIDEExplicitFormula.GRHWeil.zeroSide_chi χ hχ h1 k =
+        SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+@SIDEExplicitFormula.GRHWeil.rh_strip_chi_iff_grh_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1),
+  SIDEExplicitFormula.GRHWeil.rh_strip_chi χ hχ h1 ↔ SIDEExplicitFormula.GRHWeil.GRH_chi χ
+@SIDEExplicitFormula.GRHWeil.rh_strip_chi_imp_h2_sign_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1),
+  SIDEExplicitFormula.GRHWeil.rh_strip_chi χ hχ h1 → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ
+@SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.GRHWeil.GRH_chi χ → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ
+@SIDEExplicitFormula.GRHWeil.dominant_summable_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {hχ : χ.IsPrimitive} {h1 : χ ≠ 1} {g0 : ℝ → ℝ} {L M : ℝ},
+  SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M →
+    ∀ (B : ℝ) (D : ℕ),
+      Summable fun ρ =>
+        ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) *
+          (B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ↑ρ‖) ^ (2 * D) *
+            (SIDEExplicitFormula.B321.offScore g0 ↑ρ / M) ^ 2 ^ (D + 1))
+@SIDEExplicitFormula.GRHWeil.fR_norm_le_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {hχ : χ.IsPrimitive} {h1 : χ ≠ 1} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M)
+  (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (j : ℕ) (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) →
+    ∀ (j : ℕ) (x : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+      ↑x ∉ SIDEExplicitFormula.B321.tieSet (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 M →
+        ‖SIDEExplicitFormula.GRHWeil.fR_chi H Q j x / ↑M ^ 2 ^ (j + 1)‖ ≤
+          ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑x) *
+            (B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ↑x‖) ^ (2 * D) *
+              (SIDEExplicitFormula.B321.offScore g0 ↑x / M) ^ 2 ^ (j + 1))
+@SIDEExplicitFormula.GRHWeil.fR_bound_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {hχ : χ.IsPrimitive} {h1 : χ ≠ 1} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M)
+  (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (j : ℕ) (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) →
+    ∀ (j : ℕ),
+      D ≤ j →
+        ∀ (x : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+          ‖SIDEExplicitFormula.GRHWeil.fR_chi H Q j x / ↑M ^ 2 ^ (j + 1)‖ ≤
+            ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑x) *
+              (B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ↑x‖) ^ (2 * D) *
+                (SIDEExplicitFormula.B321.offScore g0 ↑x / M) ^ 2 ^ (D + 1))
+@SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {hχ : χ.IsPrimitive} {h1 : χ ≠ 1} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M)
+  (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (j : ℕ) (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) →
+    Filter.Tendsto
+      (fun j =>
+        ∑' (x : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+          SIDEExplicitFormula.GRHWeil.fR_chi H Q j x / ↑M ^ 2 ^ (j + 1))
+      Filter.atTop (nhds 0)
+@SIDEExplicitFormula.GRHWeil.mem_sT_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N} {hχ : χ.IsPrimitive}
+  {h1 : χ ≠ 1} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M)
+  (x : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+  x ∈ SIDEExplicitFormula.GRHWeil.sT_chi H ↔
+    ↑x ∈ SIDEExplicitFormula.B321.tieSet (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 M
+@SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {hχ : χ.IsPrimitive} {h1 : χ ≠ 1} {g0 : ℝ → ℝ} {L M : ℝ},
+  SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M →
+    ∀ ρs ∈ SIDEExplicitFormula.B321.tieSet (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 M,
+      ∃ a j, (SIDEExplicitFormula.GRHWeil.zeroSide_chi χ hχ h1 (SIDEExplicitFormula.B321.kWindow a g0 j)).re < 0
+@SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_rh_strip_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N)
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1),
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi χ → SIDEExplicitFormula.GRHWeil.rh_strip_chi χ hχ h1
+@SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N),
+  χ.IsPrimitive → χ ≠ 1 → SIDEExplicitFormula.GRHWeil.h2_sign_chi χ → SIDEExplicitFormula.GRHWeil.GRH_chi χ
+@SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N),
+  χ.IsPrimitive → χ ≠ 1 → (SIDEExplicitFormula.GRHWeil.h2_sign_chi χ ↔ SIDEExplicitFormula.GRHWeil.GRH_chi χ)
+def SIDEExplicitFormula.GRHWeil.zeroSide_chi : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → (ℝ → ℂ) → ℂ :=
+fun {N} [NeZero N] χ hχ h1 k =>
+  ∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+    ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ)
+def SIDEExplicitFormula.GRHWeil.rh_strip_chi : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 => ∀ ρ ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier, ρ.re = 1 / 2
+def SIDEExplicitFormula.GRHWeil.fR_chi : {N : ℕ} →
+  [inst : NeZero N] →
+    {χ : DirichletCharacter ℂ N} →
+      {hχ : χ.IsPrimitive} →
+        {h1 : χ ≠ 1} →
+          {g0 : ℝ → ℝ} →
+            {L M : ℝ} →
+              SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M →
+                (ℕ → Polynomial ℝ) → ℕ → ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier → ℂ :=
+fun {N} [NeZero N] {χ} {hχ} {h1} {g0} {L M} H Q j x =>
+  if ↑x ∈ SIDEExplicitFormula.B321.tieSet (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 M then 0
+  else
+    ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑x) *
+      Zeta23.paperFT
+        (SIDEExplicitFormula.B321.kWindow (SIDEExplicitFormula.B321.coeffList (SIDEExplicitFormula.B321.Pof H (Q j))) g0
+          j)
+        (Zeta23.gammaOf ↑x)
+def SIDEExplicitFormula.GRHWeil.sT_chi : {N : ℕ} →
+  [inst : NeZero N] →
+    {χ : DirichletCharacter ℂ N} →
+      {hχ : χ.IsPrimitive} →
+        {h1 : χ ≠ 1} →
+          {g0 : ℝ → ℝ} →
+            {L M : ℝ} →
+              SIDEExplicitFormula.B321.PWSetup (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1) g0 L M →
+                Finset ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier :=
+fun {N} [NeZero N] {χ} {hχ} {h1} {g0} {L M} H =>
+  Finset.subtype (fun x => x ∈ (SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier)
+    (SIDEExplicitFormula.B321.TF H)
+=== END 2026-10-01T15:40:42Z rc=0

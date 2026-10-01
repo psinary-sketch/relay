@@ -1,0 +1,116 @@
+# relay b572 -- the generator of SIDEExplicitFormula/Chi/CriterionConverse.lean (banked as relay data/b572_gen_converse.py.txt).
+# PowerLimit.lean at v0.13, from `dominant_summable`'s docstring to the end of `zeroSide_eventually_neg`, carried to the
+# χ-configuration by NAMED replacements, each asserted to occur; then the assembly written here.
+import io
+import re
+import subprocess
+
+src = subprocess.run(['git', '-C', 'D:/SIDE-explicit-formula', 'show', 'v0.13:SIDEExplicitFormula/PowerLimit.lean'],
+                     capture_output=True).stdout.decode('utf-8')
+a = src.index('/-- **L7e, `dominant_summable`:**')
+b = src.index('/-! ### L8 -- the assembly -/')
+body = src[a:b]
+
+reps = [
+    ("    have h1 : (∑' x, fR H Q (max J D) x) =", "    have hR1 : (∑' x, fR H Q (max J D) x) ="),
+    ("    have h2 : ‖∑' x, fR H Q (max J D) x‖ <", "    have hR2 : ‖∑' x, fR H Q (max J D) x‖ <"),
+    ("      rw [h1, norm_mul, norm_pow, Complex.norm_real, Real.norm_of_nonneg hM.le]",
+     "      rw [hR1, norm_mul, norm_pow, Complex.norm_real, Real.norm_of_nonneg hM.le]"),
+    ("    exact lt_of_le_of_lt (Complex.re_le_norm _) h2\n", "    exact lt_of_le_of_lt (Complex.re_le_norm _) hR2\n"),
+    ("the dominant is summable over the zeros of zeta, by the kernel's", "the dominant is summable over the χ-configuration, by its"),
+    ('  obtain ⟨A₀, h1, h2⟩ := Zeta23.RvM.zetaZeroConfig_local_count\n', '  obtain ⟨A₀, hA1, hA2⟩ := chiZeroConfig_local_count hχ h1\n'),
+    ('  exact weighted_summable Zeta23.zetaZeroConfig ⟨h1, h2⟩\n', '  exact weighted_summable (chiZeroConfig χ hχ h1) ⟨hA1, hA2⟩\n'),
+]
+for o, n in reps:
+    assert body.count(o) == 1, o
+    body = body.replace(o, n)
+n0 = body.count('Zeta23.zetaZeroConfig')
+body = body.replace('Zeta23.zetaZeroConfig', '(chiZeroConfig χ hχ h1)')
+names = ['dominant_summable', 'fR_norm_le', 'fR_bound', 'fR', 'rest_tendsto_zero', 'mem_sT', 'sT', 'zeroSide_eventually_neg']
+counts = {}
+for nm in names:
+    pat = re.compile(r'(?<![A-Za-z0-9_.])' + nm + r'(?![A-Za-z0-9_])')
+    counts[nm] = len(pat.findall(body))
+    body = pat.sub(nm + '_chi', body)
+o = '(zeroSide (kWindow a g0 j)).re < 0'
+assert body.count(o) == 1
+body = body.replace(o, '(zeroSide_chi χ hχ h1 (kWindow a g0 j)).re < 0')
+o = '  unfold zeroSide\n'
+assert body.count(o) == 1
+body = body.replace(o, '  unfold zeroSide_chi\n')
+assert 'zeroSide ' not in body.replace('zeroSide_chi', ''), 'a ζ zero side left'
+assert 'zeta' not in body.lower().replace('zeta23.', '').replace('zeta3', ''), [l for l in body.split('\n') if 'zeta' in l.lower()]
+
+head = '''/-
+SIDE-explicit-formula -- SIDEExplicitFormula/Chi/CriterionConverse.lean
+THIS PROGRAMME'S WORK (act b572, ruling (R182)(4)(c)-(d); W-ORD-GRH-WEIL, act seven) -- NOT VENDORED.
+SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+
+THE CRITERION AT THE χ-INSTANCE, ITS CONVERSE, AND THE EQUIVALENCE. PowerLimit.lean's L7e (`dominant_summable` through
+`zeroSide_eventually_neg`, :947-:1157 at v0.13) is stated over `Zeta23.zetaZeroConfig` and consumes ζ's local count; its proofs
+consume of ζ nothing else. Carried here to `chiZeroConfig` with `chiZeroConfig_local_count` (Chi/LocalCount.lean) and the zero side
+for χ, by named replacements (relay data/b572_gen_converse.py.txt); every generic lemma of PowerLimit, PowerWindow and RestBound
+(the window, the tie and kill sets, the polynomial operator, `weighted_summable`, `plateau_dominant`) is consumed as it stands.
+Then L8 at χ: `h2_sign_chi → rh_strip_chi` through b321's identity for χ, and `h2_sign_chi χ ↔ GRH_chi χ`.
+Nothing here proves GRH or locates any zero of any `L(s, χ)`: an equivalence between open statements.
+-/
+import SIDEExplicitFormula.Chi.CriterionForward
+
+open Complex MeasureTheory Filter Topology
+open scoped ComplexConjugate ComplexOrder
+
+noncomputable section
+
+namespace SIDEExplicitFormula
+namespace GRHWeil
+
+open DirichletCharacter B321
+
+variable {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} {hχ : χ.IsPrimitive} {h1 : χ ≠ 1}
+  {g0 : ℝ → ℝ} {L M : ℝ}
+
+'''
+
+tail = '''
+/-- **L8 at χ, the converse at the strip**: an off-line point of the χ-configuration, the plateau's dominant point, and a
+window in classK whose zero side for χ has negative real part contradict `h2_sign_chi` through b321's identity for χ. -/
+theorem h2_sign_chi_imp_rh_strip_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+    h2_sign_chi χ → rh_strip_chi χ hχ h1 := by
+  intro h2
+  by_contra hno
+  unfold rh_strip_chi at hno
+  push_neg at hno
+  obtain ⟨ρ1, hρ1, hoff⟩ := hno
+  have hF0 : (0 : ℝ) < 1 / 2 := by norm_num
+  have hF1 : (1 / 2 : ℝ) < 1 := by norm_num
+  obtain ⟨L, hL, ρs, hρs, hoffs, hpos, hdom⟩ :=
+    plateau_dominant (chiZeroConfig χ hχ h1) (1 / 2) hF0 hF1 ρ1 hρ1 hoff
+  have H : PWSetup (chiZeroConfig χ hχ h1) (plateau (1 / 2) L hF0 hF1 hL) L
+      (offScore (plateau (1 / 2) L hF0 hF1 hL) ρs) :=
+    ⟨plateau_even _ _ hF0 hF1 hL, plateau_contDiff _ _ hF0 hF1 hL ⊤, plateau_support_Icc _ _ hF0 hF1 hL, hL.le,
+      hpos, hdom⟩
+  obtain ⟨a, j, hneg'⟩ := zeroSide_eventually_neg_chi H ρs ⟨hρs, hoffs, rfl⟩
+  have hk := kWindow_classK a H.hsm H.hs j
+  have hsign := h2 _ hk
+  obtain ⟨_he, hc, hs, -⟩ := hk
+  rw [← zeroSide_chi_eq hχ h1 hc hs] at hsign
+  have h0 := (Complex.nonneg_iff.mp hsign).1
+  linarith
+
+/-- **THE CONVERSE OF THE CRITERION FOR χ**: `h2_sign_chi χ → GRH_chi χ`, for primitive `χ ≠ 1`. -/
+theorem h2_sign_chi_imp_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+    h2_sign_chi χ → GRH_chi χ :=
+  fun h => (rh_strip_chi_iff_grh_chi hχ h1).mp (h2_sign_chi_imp_rh_strip_chi χ hχ h1 h)
+
+/-- **THE CRITERION AT THE χ-INSTANCE**: Weil positivity on classK for χ is GRH for χ, both directions, for every primitive
+`χ ≠ 1`. An equivalence between open statements; it proves neither. -/
+theorem h2_sign_chi_iff_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+    h2_sign_chi χ ↔ GRH_chi χ :=
+  ⟨h2_sign_chi_imp_grh_chi χ hχ h1, grh_chi_imp_h2_sign_chi hχ h1⟩
+
+end GRHWeil
+end SIDEExplicitFormula
+'''
+out = head + body.rstrip() + '\n' + tail
+io.open('D:/SIDE-explicit-formula/SIDEExplicitFormula/Chi/CriterionConverse.lean', 'w', encoding='utf-8', newline='\n').write(out)
+print('ζ configuration occurrences replaced:', n0, '; renamed:', counts, '; lines:', out.count('\n'))

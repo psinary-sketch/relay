@@ -1,0 +1,56 @@
+import SIDEExplicitFormula.Seam
+/-! relay b572 Components 2-3's read ((R182)(3), (4)(c); readings (iii)-(iv)). Written by the seat into the scratchpad; not a
+kernel file. From each root, every constant of its type and value followed through every constant of a SIDEExplicitFormula
+module (auxiliary constants included) and stopped at the boundary; each reached kernel constant printed in the order the walk
+reaches it, with its module, the constant that first reached it, and every constant it uses directly. -/
+
+open Lean Elab Command
+
+namespace CritProbe
+
+def modOf (env : Environment) (c : Name) : Name :=
+  match env.getModuleIdxFor? c with
+  | some i => env.header.moduleNames[i.toNat]!
+  | none => Name.anonymous
+
+def walk (env : Environment) (start : Name) : Array (Name × Name) := Id.run do
+  let some ci := env.find? start | return #[]
+  let mut queue : Array (Name × Name) := #[(start, Name.anonymous)]
+  let mut seen : NameSet := ({} : NameSet).insert start
+  let mut out : Array (Name × Name) := #[]
+  let mut i := 0
+  let _ := ci
+  while i < queue.size do
+    let (c, p) := queue[i]!
+    i := i + 1
+    out := out.push (c, p)
+    if let some cj := env.find? c then
+      for d in cj.getUsedConstantsAsSet.toArray do
+        unless seen.contains d do
+          seen := seen.insert d
+          if (modOf env d).getRoot == `SIDEExplicitFormula then
+            queue := queue.push (d, c)
+  return out
+
+end CritProbe
+
+open CritProbe in
+elab "#crit_walk " root:ident : command => do
+  let env ← getEnv
+  let start := root.getId
+  match env.find? start with
+  | none => logInfo m!"@@MISSING {start}"
+  | some _ =>
+    let res := walk env start
+    logInfo m!"@@ROOT {start} @@COUNT {res.size}"
+    for (c, p) in res do
+      let uses := match env.find? c with
+        | some cj => cj.getUsedConstantsAsSet.toArray
+        | none => #[]
+      let us := " ".intercalate (uses.toList.map toString)
+      logInfo m!"@@NODE {c} @@MOD {modOf env c} @@FROM {p} @@USES {us}"
+    logInfo m!"@@DONE {start}"
+
+#crit_walk SIDEExplicitFormula.B321.h2_sign_iff_rh
+#crit_walk SIDEExplicitFormula.B321.h2_sign_imp_rh_holds
+#crit_walk SIDEExplicitFormula.B321.rh_imp_h2_sign
