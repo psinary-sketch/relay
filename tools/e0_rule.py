@@ -31,6 +31,9 @@ RULE_TEXT = [
     '### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the',
     '### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the',
     '### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).',
+    '### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or',
+    '### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not',
+    '### mention it is a premise (CLASS_PREDS, class_case).',
 ]
 
 DOMAIN = r'(?:≠|<|≤|=|∈|\.Even\b|IsPrimitive)'
@@ -44,6 +47,48 @@ SPLITS = [
 ]
 
 BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\([^()]*\)[^()]*)*)\)')
+
+# ### ### **(R180)(2)(f), b570: THE CLASS-MEMBERSHIP CLAUSE.** *A binder that restricts a variable to the class the
+# ### statement is about -- the test-function class EF_lit quantifies over (smoothness, compact support, IsCompact of the
+# ### support) -- is a domain condition and not a premise.* Read here as: the binder's type is one of CLASS_PREDS applied
+# ### to a variable `v` (its last token), and `v` occurs in the statement's CONCLUSION (the text after the binder list):
+# ### the statement is about that variable's class. A class predicate on a variable the conclusion does not mention is a
+# ### premise, as before. ### Its instance (the occasion): SIDE-explicit-formula v0.11 = 19b7d1e, Chi/LocalCount.lean
+# ### `LFunction_zeros_finite_of_isCompact` (hK : IsCompact K) and Chi/ZeroSummability.lean `EF_zero_sum_summable_chi`
+# ### (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) -- b569's defect (f).
+CLASS_PREDS = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact)\b.*?([A-Za-z_][\w\']*)\s*$')
+
+
+def conclusion(head):
+    """### the text after the leading binder groups ( ), { }, [ ], ⦃ ⦄ of a header, from its ':' on; '' when none."""
+    pairs = {'(': ')', '{': '}', '[': ']', '⦃': '⦄'}
+    i, n = 0, len(head)
+    while True:
+        while i < n and head[i].isspace():
+            i += 1
+        if i < n and head[i] in pairs:
+            depth, j = 0, i
+            while j < n:
+                if head[j] in pairs:
+                    depth += 1
+                elif head[j] in pairs.values():
+                    depth -= 1
+                    if depth == 0:
+                        break
+                j += 1
+            i = j + 1
+            continue
+        break
+    rest = head[i:].lstrip()
+    return rest[1:] if rest.startswith(':') else ''
+
+
+def class_case(t, head):
+    """### True when the binder type `t` is a CLASS_PREDS predicate on a variable the header's conclusion mentions."""
+    m = CLASS_PREDS.match(t)
+    if not m:
+        return False
+    return re.search(r'(?<![\w.\'])' + re.escape(m.group(1)) + r'(?![\w\'])', conclusion(head)) is not None
 
 
 def split_case(t):
@@ -60,7 +105,7 @@ def grade(head, kind):
     if kind == 'def':
         return 'DEF', '', []
     binders = BINDER.findall(head)
-    prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t)]
+    prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
     if prem:
         return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
     if binders:
