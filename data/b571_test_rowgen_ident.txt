@@ -1,0 +1,10 @@
+  (1) row 421 read: rowgen.diff yields [('SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide', ['ok'])] PASS
+  (2) the old ASCII pattern reads no cited Gammaℝ name on row 421 (read [])                                PASS
+  (3) an ASCII name still read: row 422 yields [('SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le', ['ok'])] PASS
+  (4) a statement span with a colon is not read as a name (read [])                                        PASS
+  (5a) λ, Π, Σ are not letter-like: fλ, fΠ, fΣ not names                                                   PASS
+  (5b) a subscript and a prime continue a name: x₁, h₂                                                     PASS
+  (5c) a subscript may not begin a name: ₁x                                                                PASS
+  (5d) α, ℝ, 𝔽 begin and continue a name: αβ, ℝx, 𝔽_q, Gammaℝ                                              PASS
+  (5e) a hierarchical name with a Unicode component: A.Gammaℝ.b                                            PASS
+### ### **9 of 9 cases as wanted -- PASS**

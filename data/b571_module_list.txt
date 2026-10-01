@@ -1,0 +1,17 @@
+### b571 -- COMPONENT 3: THE MODULES AFTER FullLine ON EF_lit'S ROUTE, (R181)(4)(c) -- LISTED BY NAME BEFORE THE BUILD. written at (UTC) 2026-10-01T14:44:06Z
+### read from the vendored Zeta23 imports at v0.12 = 141e844 (git grep '^import' Zeta23/WeilEF/*.lean):
+    Zeta23/WeilEF/FullLineAssembly.lean:27:import Zeta23.WeilEF.FullLine
+    Zeta23/WeilEF/FullLineAssembly.lean:28:import Zeta23.WeilEF.Horizontal
+    Zeta23/WeilEF/FullLineAssembly.lean:29:import Zeta23.WeilEF.ZeroSumLimit
+    Zeta23/WeilEF/Horizontal.lean:33:import Zeta23.WeilEF.FullLine
+    Zeta23/WeilEF/Main.lean:25:import Zeta23.WeilEF.ZeroSummability
+    Zeta23/WeilEF/Main.lean:26:import Zeta23.WeilEF.FullLineAssembly
+    Zeta23/WeilEF/ZeroSumLimit.lean:30:import Zeta23.WeilEF.Contour
+    Zeta23/WeilEF/ZeroSumLimit.lean:31:import Zeta23.WeilEF.ZeroSummability
+
+### THE ROUTE AFTER FullLine, IN IMPORT ORDER (each imports only modules before it):
+    (1) Horizontal       -> SIDEExplicitFormula/Chi/Horizontal.lean       (horizontal_vanish_chi; imports Chi/FullLine)
+    (2) ZeroSumLimit     -> SIDEExplicitFormula/Chi/ZeroSumLimit.lean     (zero_sum_limit_chi; imports Chi/Contour, Chi/ZeroSummability)
+    (3) FullLineAssembly -> SIDEExplicitFormula/Chi/FullLineAssembly.lean (full_line_identity_chi; imports (1), (2))
+    (4) Main             -> SIDEExplicitFormula/Chi/Main.lean             (EF_lit_chi's proof, and any Γ-bracket fact for gammaFactor χ it consumes; imports (3))
+### FOUR MODULES remain after FullLine on the route; Zeta23's GammaRBracket is imported by VerticalLine, before FullLine, and is not on this list.

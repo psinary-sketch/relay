@@ -1,0 +1,254 @@
+=== START 2026-10-01T14:56:45Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/Main.lean
+SIDEExplicitFormula/Chi/Main.lean:43:29: error(lean.unknownIdentifier): Unknown identifier `star_eq_one`
+SIDEExplicitFormula/Chi/Main.lean:41:73: error: unsolved goals
+N : ℕ
+χ : DirichletCharacter ℂ N
+⊢ star (χ (-1)) = 1 ↔ χ (-1) = 1
+SIDEExplicitFormula/Chi/Main.lean:152:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero N
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SIDEExplicitFormula/Chi/Main.lean:154:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero N
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SIDEExplicitFormula/Chi/Main.lean:216:10: warning: This simp argument is unused:
+  neg_sq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SIDEExplicitFormula/Chi/Main.lean:320:53: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ℝ),
+    (((fun t =>
+              (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) *
+                logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I)) +
+            fun t => Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) +
+          fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I))
+        a +
+      Hfn k (1 - ↑(5 / 4) - ↑a * I) * log ↑N
+in the target expression
+  ∫ (a : ℝ),
+      (Hfn k (↑(5 / 4) + ↑a * I) + Hfn k (1 - ↑(5 / 4) - ↑a * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑a * I) +
+            Hfn k (↑(5 / 4) + ↑a * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑a * I) +
+          Hfn k (1 - ↑(5 / 4) - ↑a * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑a * I) +
+        Hfn k (1 - ↑(5 / 4) - ↑a * I) * log ↑N =
+    (((∫ (t : ℝ),
+            (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I)) +
+          ∫ (t : ℝ), Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) +
+        ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) +
+      ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ.IsPrimitive
+h1 : χ ≠ 1
+k : ℝ → ℂ
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+hinv1 : χ⁻¹ ≠ 1
+hc1 : 1 < 5 / 4
+hc2 : 5 / 4 ≤ 3 / 2
+hkneg2 : ContDiff ℝ 2 fun u => k (-u)
+hknegc : HasCompactSupport fun u => k (-u)
+C : ℝ
+hC0 : 0 ≤ C
+hC : ∀ (σ t : ℝ), -1 ≤ σ → σ ≤ 2 → ‖Hfn k (↑σ + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb1 : ∀ (t : ℝ), ‖Hfn k (↑(5 / 4) + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb2 : ∀ (t : ℝ), ‖Hfn k (1 - ↑(5 / 4) - ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hH1c : Continuous fun t => Hfn k (↑(5 / 4) + ↑t * I)
+hH2c : Continuous fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I)
+hF :
+  ∀ (t : ℝ),
+    Fline_chi χ k (5 / 4) t =
+      (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I) +
+            Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I) +
+          Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I) +
+        Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+CG : ℝ
+hCG : 0 < CG
+hGb : ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv χ.gammaFactor (↑σ + ↑t * I)‖ ≤ CG * Real.log (2 + |t|)
+iG :
+  Integrable
+    (fun t => (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I))
+    volume
+Mχ : ℝ
+hMχ0 : 0 ≤ Mχ
+hMχ : ∀ (t : ℝ), ‖logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)‖ ≤ Mχ
+Mι : ℝ
+hMι0 : 0 ≤ Mι
+hMι : ∀ (t : ℝ), ‖logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)‖ ≤ Mι
+iPχ : Integrable (fun t => Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) volume
+iPι : Integrable (fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) volume
+iN : Integrable (fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N) volume
+⊢ ∫ (a : ℝ),
+      (Hfn k (↑(5 / 4) + ↑a * I) + Hfn k (1 - ↑(5 / 4) - ↑a * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑a * I) +
+            Hfn k (↑(5 / 4) + ↑a * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑a * I) +
+          Hfn k (1 - ↑(5 / 4) - ↑a * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑a * I) +
+        Hfn k (1 - ↑(5 / 4) - ↑a * I) * log ↑N =
+    (((∫ (t : ℝ),
+            (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I)) +
+          ∫ (t : ℝ), Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) +
+        ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) +
+      ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+SIDEExplicitFormula/Chi/Main.lean:365:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  logDeriv χ.gammaFactor (1 / 2 + ↑r * I) + logDeriv χ.gammaFactor (1 / 2 - ↑r * I)
+in the target expression
+  paperFT k ↑r *
+      ((fun t => logDeriv χ.gammaFactor (1 / 2 + ↑t * I)) + fun t => logDeriv χ.gammaFactor (1 / 2 - ↑t * I)) r =
+    paperFT k ↑r * ↑((1 / 4 + ↑(parity χ) / 2 + I * ↑r / 2).digamma.re - Real.log Real.pi)
+
+case refine_2
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ.IsPrimitive
+h1 : χ ≠ 1
+k : ℝ → ℂ
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+hinv1 : χ⁻¹ ≠ 1
+hc1 : 1 < 5 / 4
+hc2 : 5 / 4 ≤ 3 / 2
+hkneg2 : ContDiff ℝ 2 fun u => k (-u)
+hknegc : HasCompactSupport fun u => k (-u)
+C : ℝ
+hC0 : 0 ≤ C
+hC : ∀ (σ t : ℝ), -1 ≤ σ → σ ≤ 2 → ‖Hfn k (↑σ + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb1 : ∀ (t : ℝ), ‖Hfn k (↑(5 / 4) + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb2 : ∀ (t : ℝ), ‖Hfn k (1 - ↑(5 / 4) - ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hH1c : Continuous fun t => Hfn k (↑(5 / 4) + ↑t * I)
+hH2c : Continuous fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I)
+hF :
+  ∀ (t : ℝ),
+    Fline_chi χ k (5 / 4) t =
+      (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I) +
+            Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I) +
+          Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I) +
+        Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+CG : ℝ
+hCG : 0 < CG
+hGb : ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv χ.gammaFactor (↑σ + ↑t * I)‖ ≤ CG * Real.log (2 + |t|)
+iG :
+  Integrable
+    (fun t => (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I))
+    volume
+Mχ : ℝ
+hMχ0 : 0 ≤ Mχ
+hMχ : ∀ (t : ℝ), ‖logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)‖ ≤ Mχ
+Mι : ℝ
+hMι0 : 0 ≤ Mι
+hMι : ∀ (t : ℝ), ‖logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)‖ ≤ Mι
+iPχ : Integrable (fun t => Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) volume
+iPι : Integrable (fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) volume
+iN : Integrable (fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N) volume
+hsplit :
+  ∫ (t : ℝ), Fline_chi χ k (5 / 4) t =
+    (((∫ (t : ℝ),
+            (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I)) +
+          ∫ (t : ℝ), Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) +
+        ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) +
+      ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+eΓ :
+  ∫ (t : ℝ), (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I) =
+    ∫ (r : ℝ), paperFT k ↑r * ↑((1 / 4 + ↑(parity χ) / 2 + I * ↑r / 2).digamma.re - Real.log Real.pi)
+ePχ :
+  1 / (2 * ↑Real.pi) * ∫ (t : ℝ), Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I) =
+    -∑' (n : ℕ), ↑(Λ n / √↑n) * (χ ↑n * k (Real.log ↑n))
+ePι :
+  1 / (2 * ↑Real.pi) * ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I) =
+    -∑' (n : ℕ), ↑(Λ n / √↑n) * ((starRingEnd ℂ) (χ ↑n) * k (-Real.log ↑n))
+eN : ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N = log ↑N * ∫ (r : ℝ), paperFT k ↑r
+hcont_h : Continuous fun r => paperFT k ↑r
+hbh : ∀ (r : ℝ), ‖paperFT k ↑r‖ ≤ C / (1 + r ^ 2)
+hcp : Continuous fun r => 1 / 2 + ↑r * I
+hcm : Continuous fun r => 1 / 2 - ↑r * I
+i0 :
+  Integrable
+    (fun t =>
+      paperFT k ↑t *
+        ((fun t => logDeriv χ.gammaFactor (1 / 2 + ↑t * I)) + fun t => logDeriv χ.gammaFactor (1 / 2 - ↑t * I)) t)
+    volume
+r : ℝ
+⊢ paperFT k ↑r *
+      ((fun t => logDeriv χ.gammaFactor (1 / 2 + ↑t * I)) + fun t => logDeriv χ.gammaFactor (1 / 2 - ↑t * I)) r =
+    paperFT k ↑r * ↑((1 / 4 + ↑(parity χ) / 2 + I * ↑r / 2).digamma.re - Real.log Real.pi)
+SIDEExplicitFormula/Chi/Main.lean:368:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  1 / 2 + ↑r * I
+in the target expression
+  ‖((fun t => logDeriv χ.gammaFactor (1 / 2 + ↑t * I)) + fun t => logDeriv χ.gammaFactor (1 / 2 - ↑t * I)) r‖ ≤
+    2 * CG * Real.log (2 + |r|)
+
+case refine_1
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ.IsPrimitive
+h1 : χ ≠ 1
+k : ℝ → ℂ
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+hinv1 : χ⁻¹ ≠ 1
+hc1 : 1 < 5 / 4
+hc2 : 5 / 4 ≤ 3 / 2
+hkneg2 : ContDiff ℝ 2 fun u => k (-u)
+hknegc : HasCompactSupport fun u => k (-u)
+C : ℝ
+hC0 : 0 ≤ C
+hC : ∀ (σ t : ℝ), -1 ≤ σ → σ ≤ 2 → ‖Hfn k (↑σ + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb1 : ∀ (t : ℝ), ‖Hfn k (↑(5 / 4) + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb2 : ∀ (t : ℝ), ‖Hfn k (1 - ↑(5 / 4) - ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hH1c : Continuous fun t => Hfn k (↑(5 / 4) + ↑t * I)
+hH2c : Continuous fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I)
+hF :
+  ∀ (t : ℝ),
+    Fline_chi χ k (5 / 4) t =
+      (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I) +
+            Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I) +
+          Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I) +
+        Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+CG : ℝ
+hCG : 0 < CG
+hGb : ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv χ.gammaFactor (↑σ + ↑t * I)‖ ≤ CG * Real.log (2 + |t|)
+iG :
+  Integrable
+    (fun t => (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I))
+    volume
+Mχ : ℝ
+hMχ0 : 0 ≤ Mχ
+hMχ : ∀ (t : ℝ), ‖logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)‖ ≤ Mχ
+Mι : ℝ
+hMι0 : 0 ≤ Mι
+hMι : ∀ (t : ℝ), ‖logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)‖ ≤ Mι
+iPχ : Integrable (fun t => Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) volume
+iPι : Integrable (fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) volume
+iN : Integrable (fun t => Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N) volume
+hsplit :
+  ∫ (t : ℝ), Fline_chi χ k (5 / 4) t =
+    (((∫ (t : ℝ),
+            (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I)) +
+          ∫ (t : ℝ), Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I)) +
+        ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I)) +
+      ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N
+eΓ :
+  ∫ (t : ℝ), (Hfn k (↑(5 / 4) + ↑t * I) + Hfn k (1 - ↑(5 / 4) - ↑t * I)) * logDeriv χ.gammaFactor (↑(5 / 4) + ↑t * I) =
+    ∫ (r : ℝ), paperFT k ↑r * ↑((1 / 4 + ↑(parity χ) / 2 + I * ↑r / 2).digamma.re - Real.log Real.pi)
+ePχ :
+  1 / (2 * ↑Real.pi) * ∫ (t : ℝ), Hfn k (↑(5 / 4) + ↑t * I) * logDeriv (LFunction χ) (↑(5 / 4) + ↑t * I) =
+    -∑' (n : ℕ), ↑(Λ n / √↑n) * (χ ↑n * k (Real.log ↑n))
+ePι :
+  1 / (2 * ↑Real.pi) * ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * logDeriv (LFunction χ⁻¹) (↑(5 / 4) + ↑t * I) =
+    -∑' (n : ℕ), ↑(Λ n / √↑n) * ((starRingEnd ℂ) (χ ↑n) * k (-Real.log ↑n))
+eN : ∫ (t : ℝ), Hfn k (1 - ↑(5 / 4) - ↑t * I) * log ↑N = log ↑N * ∫ (r : ℝ), paperFT k ↑r
+hcont_h : Continuous fun r => paperFT k ↑r
+hbh : ∀ (r : ℝ), ‖paperFT k ↑r‖ ≤ C / (1 + r ^ 2)
+hcp : Continuous fun r => 1 / 2 + ↑r * I
+hcm : Continuous fun r => 1 / 2 - ↑r * I
+r : ℝ
+e1 : 1 / 2 + ↑r * I = ↑(1 / 2) + ↑r * I
+e2 : 1 / 2 - ↑r * I = ↑(1 / 2) + ↑(-r) * I
+⊢ ‖((fun t => logDeriv χ.gammaFactor (1 / 2 + ↑t * I)) + fun t => logDeriv χ.gammaFactor (1 / 2 - ↑t * I)) r‖ ≤
+    2 * CG * Real.log (2 + |r|)
+=== END 2026-10-01T14:57:10Z rc=1

@@ -1,0 +1,59 @@
+{
+ "H23a": [
+  "HELD",
+  "Chi/FullLine.lean compiled at its second elaboration (data/b571_attempt_fullline_2.txt: rc=0, one unused-binder lint, renamed); the first failed at two local slips, not a missing fact (data/b571_attempt_fullline_1.txt: the LSeries notation`s token L used as a binder name; an implicit ψ). Every analytic input it consumes was compiled before this act (data/b571_fullline_statements.txt, the list): the χ identity logDeriv_completedLFunction_one_sub, b562`s pairing LFunction_inv_conj, logDeriv_completedLFunction, the nonvanishing on Re ≥ 1, the Γ factor`s growth, the twisted von Mangoldt series, Zeta23`s majorants. The fold verticals_eq_chi consumes the χ identity and no pairing (LFunction_inv_conj absent from it); the pairing enters at the heights lemma (LFunction_inv_conj present) and at Horizontal (logDeriv_LFunction_inv_conj present)"
+ ],
+ "H23b": [
+  "HELD",
+  "its refutation clause is not met: the conductor term is FlineCond_chi = H(1−c−it)·log N in Fline_chi (Chi/FullLine.lean); in EF_lit_chi_holds it is shifted to the critical line by conductor_line_shift (Zeta23`s vertical_line_shift) and enters as log N·(1/2π)∫ h(r) dr on the archimedean side, where with the Γ part`s −log π it makes gammaBracket_chi`s log(N/π) (GRHWeil.lean :66); primeSum_chi (:61) carries no log and the zero side Σ m_ρ h(γ_ρ) carries no N. In its letter the compiled constant is (1/2π)∫ h(r) dr, which by Fourier inversion is k(0) -- the test function at 0, not its transform: no inversion fact is consumed, so the ĝ(0) form is not what compiles"
+ ],
+ "H23c": [
+  "HELD",
+  "EF_lit_chi lands: EF_lit_chi_holds, E0 DERIVES, prints ['propext', 'Classical.choice', 'Quot.sound'] (data/b571_chi_prints.txt, data/b571_e0.txt); no sorryAx on main (all 29 declarations and 13 consumed terminals within the standard three)"
+ ],
+ "N1": [
+  "HELD",
+  "CONFLICT 12 before and 12 after; ch_iff_rh`s one cell (FACES_LEDGER :497) removed, the row reading UNGRADED (data/b571_chiff.txt)"
+ ],
+ "N2": [
+  "HELD",
+  "row 421 read after relay 618143a8, rows 422-425 unchanged (data/b571_rows570.txt)"
+ ],
+ "N3": [
+  "HELD",
+  "H23a HELD"
+ ],
+ "N4": [
+  "HELD",
+  "in substance: H23b HELD -- the conductor enters on the archimedean side and nowhere else; in its letter the compiled term is log N·(1/2π)∫ h(r) dr, which is log N·k(0) by inversion (not consumed), not ĝ(0)·log N"
+ ],
+ "N5": [
+  "REFUTED",
+  "its first clause: four modules remained after FullLine on the route -- Horizontal, ZeroSumLimit, FullLineAssembly, Main (data/b571_module_list.txt); its second clause held: EF_lit_chi landed at this act"
+ ],
+ "N6": [
+  "HELD",
+  "v0.13 = ac157c1 made by push_gated.sh and read back, with the restated FullLine and the four modules after it; v0.12 against main: ['A\\tAxiomCheckChiAct6.lean', 'M\\tREADME.md', 'A\\tSIDEExplicitFormula/Chi/FullLine.lean', 'A\\tSIDEExplicitFormula/Chi/FullLineAssembly.lean', 'A\\tSIDEExplicitFormula/Chi/Horizontal.lean', 'A\\tSIDEExplicitFormula/Chi/Main.lean', 'A\\tSIDEExplicitFormula/Chi/ZeroSumLimit.lean']; nothing at Zenodo; nothing deposits; the kept branches unmoved (the suite`s G-KEPT-BRANCHES)"
+ ],
+ "S1": [
+  "HELD",
+  "Horizontal, ZeroSumLimit, FullLineAssembly and Main remained (data/b571_module_list.txt)"
+ ],
+ "S2": [
+  "HELD",
+  "the conductor term is log N·(1/2π)∫ h(r) dr on the archimedean side, joining −log π in log(N/π); no inversion fact is consumed (EF_lit_chi_holds` consumed terminals, data/b571_e0.txt)"
+ ],
+ "S3": [
+  "HELD",
+  "as worded: the fold verticals_eq_chi consumes no pairing, Horizontal does (logDeriv_LFunction_inv_conj); the pairing is consumed also by FullLine`s heights lemma (completedLFunction_ne_zero_on_horizontals_chi) -- not the fold, but the same module, which the expectation did not name"
+ ],
+ "counts": {
+  "decls": 29,
+  "theorems": 27,
+  "derives": 25,
+  "interfaces": 2,
+  "consumed": 13,
+  "conflict": 12,
+  "modules": 5
+ }
+}

@@ -1,0 +1,33 @@
+========================================================================================================
+b571 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### H23a-H23c ((R181)(4)).
+--------------------------------------------------------------------------------------------------------
+  **(H23A)** ### **HELD.** -- Chi/FullLine.lean compiled at its second elaboration (data/b571_attempt_fullline_2.txt: rc=0, one unused-binder lint, renamed); the first failed at two local slips, not a missing fact (data/b571_attempt_fullline_1.txt: the LSeries notation`s token L used as a binder name; an implicit ψ). Every analytic input it consumes was compiled before this act (data/b571_fullline_statements.txt, the list): the χ identity logDeriv_completedLFunction_one_sub, b562`s pairing LFunction_inv_conj, logDeriv_completedLFunction, the nonvanishing on Re ≥ 1, the Γ factor`s growth, the twisted von Mangoldt series, Zeta23`s majorants. The fold verticals_eq_chi consumes the χ identity and no pairing (LFunction_inv_conj absent from it); the pairing enters at the heights lemma (LFunction_inv_conj present) and at Horizontal (logDeriv_LFunction_inv_conj present)
+  **(H23B)** ### **HELD.** -- its refutation clause is not met: the conductor term is FlineCond_chi = H(1−c−it)·log N in Fline_chi (Chi/FullLine.lean); in EF_lit_chi_holds it is shifted to the critical line by conductor_line_shift (Zeta23`s vertical_line_shift) and enters as log N·(1/2π)∫ h(r) dr on the archimedean side, where with the Γ part`s −log π it makes gammaBracket_chi`s log(N/π) (GRHWeil.lean :66); primeSum_chi (:61) carries no log and the zero side Σ m_ρ h(γ_ρ) carries no N. In its letter the compiled constant is (1/2π)∫ h(r) dr, which by Fourier inversion is k(0) -- the test function at 0, not its transform: no inversion fact is consumed, so the ĝ(0) form is not what compiles
+  **(H23C)** ### **HELD.** -- EF_lit_chi lands: EF_lit_chi_holds, E0 DERIVES, prints ['propext', 'Classical.choice', 'Quot.sound'] (data/b571_chi_prints.txt, data/b571_e0.txt); no sorryAx on main (all 29 declarations and 13 consumed terminals within the standard three)
+
+### THE NAVIGATOR`S SIX.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- CONFLICT 12 before and 12 after; ch_iff_rh`s one cell (FACES_LEDGER :497) removed, the row reading UNGRADED (data/b571_chiff.txt)
+  **(N2)** ### **HELD.** -- row 421 read after relay 618143a8, rows 422-425 unchanged (data/b571_rows570.txt)
+  **(N3)** ### **HELD.** -- H23a HELD
+  **(N4)** ### **HELD.** -- in substance: H23b HELD -- the conductor enters on the archimedean side and nowhere else; in its letter the compiled term is log N·(1/2π)∫ h(r) dr, which is log N·k(0) by inversion (not consumed), not ĝ(0)·log N
+  **(N5)** ### **REFUTED.** -- its first clause: four modules remained after FullLine on the route -- Horizontal, ZeroSumLimit, FullLineAssembly, Main (data/b571_module_list.txt); its second clause held: EF_lit_chi landed at this act
+  **(N6)** ### **HELD.** -- v0.13 = ac157c1 made by push_gated.sh and read back, with the restated FullLine and the four modules after it; v0.12 against main: ['A\tAxiomCheckChiAct6.lean', 'M\tREADME.md', 'A\tSIDEExplicitFormula/Chi/FullLine.lean', 'A\tSIDEExplicitFormula/Chi/FullLineAssembly.lean', 'A\tSIDEExplicitFormula/Chi/Horizontal.lean', 'A\tSIDEExplicitFormula/Chi/Main.lean', 'A\tSIDEExplicitFormula/Chi/ZeroSumLimit.lean']; nothing at Zenodo; nothing deposits; the kept branches unmoved (the suite`s G-KEPT-BRANCHES)
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- Horizontal, ZeroSumLimit, FullLineAssembly and Main remained (data/b571_module_list.txt)
+  **(S2)** ### **HELD.** -- the conductor term is log N·(1/2π)∫ h(r) dr on the archimedean side, joining −log π in log(N/π); no inversion fact is consumed (EF_lit_chi_holds` consumed terminals, data/b571_e0.txt)
+  **(S3)** ### **HELD.** -- as worded: the fold verticals_eq_chi consumes no pairing, Horizontal does (logDeriv_LFunction_inv_conj); the pairing is consumed also by FullLine`s heights lemma (completedLFunction_ne_zero_on_horizontals_chi) -- not the fold, but the same module, which the expectation did not name
+
+### ### **THE NAVIGATOR`S : HELD 5 ; REFUTED 1.** ### ### **THE SEAT`S : HELD 3 ; REFUTED 0.**
+
+### b571 -- THIS ACT`S OWN DEFECTS (the seat`s), as they occur.
+    (a) THE FACE`S READING (1) CITES FIVE ZETA23 LINES TWO OR THREE OFF -- horizontal_vanish :45 (is :43), zero_sum_limit :41 (:42), full_line_identity :52 (:55), Hfn_mirror :37 (:39), EF_lit_zeta :65 (:67): the seat took the numbers from a print that began at the file`s line 22 and landed on docstring lines; the face is sealed and not edited; the reads bank prints the declaration lines.
+    (b) THE FACE`S READING (iii) DESCRIBES LEAN`S isLetterLike SHORT OF THE TOOLCHAIN`S OWN: v4.34.0-rc1`s Init/Meta/Defs.lean :101 also admits the Latin-1 supplement letters (but × ÷) and Latin Extended-A, and isSubScriptAlnum admits U+2C7C; the face listed neither. The code follows the toolchain`s source (the ruling`s words: Lean`s own identifier set), relay 618143a8.
+    (c) A STRAY FILE IN relay/tools: a shell append with an empty here-document created relay/tools/b571_record.py.new (empty) while the seat meant to append to the record tool; it was removed at once by its absolute path in the same session, before any arm read the tools; nothing read it. Its path is within the (W) glob relay/tools/b571_*.
+    (d) H23b`S FIRST SCORE READ REFUTED BY A NEEDLE THAT COULD NOT TELL THE CONDUCTOR FROM THE PRIME WEIGHT: the predicate asked that primeSum_chi`s definition carry no "log", and it carries Real.log n (k at log n); the score was printed, not banked into any ledger, and the predicate now names the conductor`s own spellings (log N, log (N, Complex.log), each yield printed.
+    (e) THE FIRST E0 READ WAS TAKEN ON grh-weil-b571 AT 1448289, ONE COMMIT BEFORE THE README AND AxiomCheck COMMIT ac157c1 = v0.13: the rowgen diff then flagged PIN on rows 427-431 (they cite v0.13). The read was re-run on the branch at its tip ac157c1 (the merge is a fast-forward, so the branch tip is v0.13); every grade identical; the diff CLEAN on all 5 rows.

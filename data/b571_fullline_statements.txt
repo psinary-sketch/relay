@@ -1,0 +1,35 @@
+### b571 -- COMPONENT 2: FullLine RESTATED AT χ⁻¹ WITH THE CONDUCTOR, (R181)(4)(a) -- THE STATEMENTS, PRINTED BEFORE THE BUILD. written at (UTC) 2026-10-01T14:40:19Z
+### the module : SIDE-explicit-formula SIDEExplicitFormula/Chi/FullLine.lean, on grh-weil-b571 cut from v0.12 = 141e844 ; Zeta23's FullLine.lean unedited
+### the identity it folds by : logDeriv_completedLFunction_one_sub (Chi/XiLogDeriv.lean :80):  Λ'/Λ(1 − s, χ) = −(log N + Λ'/Λ(s, χ⁻¹))  where Λ(s, χ⁻¹) ≠ 0
+
+(F0) def FlineCond_chi (N) (k) (c t : ℝ) : ℂ := Hfn k (1 − c − t·I) · log N
+       -- THE CONDUCTOR TERM, its own summand: integrated, (1/2π)·log N·∫ H(1 − c − it) dt
+(F1) def Fline_chi (χ) (k) (c t : ℝ) : ℂ :=
+       Hfn k (c + t·I) · Λ'/Λ(c + t·I, χ)  +  Hfn k (1 − c − t·I) · Λ'/Λ(c + t·I, χ⁻¹)  +  FlineCond_chi N k c t
+       -- Zeta23's Fline (FullLine.lean :338) is (H(c+it) + H(1−c−it))·Λ'/Λ(c+it): for ζ the left line folds onto ζ itself with no constant
+(F2) theorem verticals_eq_chi (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) (hc1 : 1 < c) (hc2 : c ≤ 3/2) (R : ℝ) :
+       VIntegral (fun s => Hfn k s · Λ'/Λ(s, χ)) c (−R) R − VIntegral (fun s => Hfn k s · Λ'/Λ(s, χ)) (1 − c) (−R) R
+         = I • ∫ t in (−R)..R, Fline_chi χ k c t
+       -- THE FOLD: the left line's integrand at (1−c)+iy is −(H(1−c−i(−y))·(log N + Λ'/Λ(c+i(−y), χ⁻¹))), then y ↦ −y
+(F3) theorem integrable_Fline_chi (h1) (hk) (hkc) (hc1 : 1 < c) (hc2 : c ≤ 3/2) : Integrable (Fline_chi χ k c)
+(F4) theorem tendsto_interval_Fline_chi (h1) (hk) (hkc) (hc1) (hc2) (hR : ∀ j : ℕ, (j : ℝ) ≤ R j) :
+       Tendsto (fun j => ∫ t in (−R j)..R j, Fline_chi χ k c t) atTop (𝓝 (∫ t, Fline_chi χ k c t))
+(F5) theorem completedLFunction_ne_zero_on_horizontals_chi (hχ) (h1) (hc1 : 1 < c) (hc2 : c ≤ 3/2)
+       (hL : ∀ s, (s.im = R ∨ s.im = −R) → 1/2 ≤ s.re → s.re ≤ 2 → LFunction χ s ≠ 0) :
+       ∀ s, (s.im = R ∨ s.im = −R) → 1 − c ≤ s.re → s.re ≤ c → completedLFunction χ s ≠ 0
+       -- for Re s < 1/2 the functional equation lands on Λ(1 − s, χ⁻¹); L(1 − s, χ⁻¹) = conj L(conj(1 − s), χ) by b562's pairing
+       -- (LFunction_inv_conj, GRHWeil.lean :185), conj(1 − s) on the same horizontal
+### with the line facts they consume (new here, each a χ-analogue of a Zeta23 FullLine lemma):
+(F6) theorem logDeriv_completedLFunction_line (h1) (hc1 : 1 < c) (t) : Λ'/Λ(c + t·I, χ) = gammaFactor'/gammaFactor(c + t·I) + L'/L(c + t·I, χ)
+(F7) theorem norm_logDeriv_LFunction_le_of_one_lt_re (χ) (hc1 : 1 < c) : ∃ M, 0 ≤ M ∧ ∀ t, ‖L'/L(c + t·I, χ)‖ ≤ M
+(F8) theorem continuous_logDeriv_completedLFunction_line (h1) (hc1 : 1 ≤ c) : Continuous (fun t => Λ'/Λ(c + t·I, χ))
+(F9) theorem integrable_mul_of_decay_log : φ continuous, ‖φ t‖ ≤ C/(1+t²); ψ continuous, ‖ψ t‖ ≤ A + B·log(2+|t|), 0 ≤ A, B
+       ⊢ Integrable (φ · ψ)      -- Zeta23's integrable_mul_logDeriv_Gammaℝ_of_decay (FullLine.lean :227) with the bound as a hypothesis
+
+### THE ANALYTIC INPUTS, BY NAME, AND WHETHER EACH WAS COMPILED BEFORE THIS ACT:
+###   compiled before : logDeriv_completedLFunction_one_sub, logDeriv_completedLFunction, completedLFunction_ne_zero_of_one_le_re (Chi/XiLogDeriv);
+###                     LFunction_inv_conj (GRHWeil); completedLFunction_eq_zero_iff_of_re_pos (Chi/CountByIntegral); neg_logDeriv_LFunction_eq,
+###                     norm_logDeriv_gammaFactor_le (Chi/VerticalLine); Zeta23's norm_Hfn_le, continuous_Hfn_line, continuous_Hfn_reflect,
+###                     log_two_add_le, one_sub_cast (FullLine); Mathlib's differentiable_completedLFunction, LSeriesSummable_twist_vonMangoldt,
+###                     IsPrimitive.completedLFunction_one_sub, LFunction_ne_zero_of_one_le_re
+###   new             : none expected; F6-F9 are the line facts above, proved here from those

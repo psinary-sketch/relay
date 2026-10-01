@@ -1,0 +1,65 @@
+b571 -- COMPONENTS 2-3: THE E0 READ -- EVERY DECLARATION GRADED, THE ROWGEN RECORD
+
+### the prints of record: relay data/b571_chi_prints.txt ; the statements at ac157c1 (grh-weil-b571).
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+
+    logDeriv_completedLFunction_line               DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hc1 : 1 < c
+    norm_logDeriv_LFunction_le_of_one_lt_re        DERIVES    std3  -- domain conditions only: hc1 : 1 < c
+    continuous_logDeriv_completedLFunction_line    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hc1 : 1 ≤ c
+    integrable_mul_of_decay_log                    INTERFACES std3  -- hφc : Continuous φ, hψc : Continuous ψ
+    norm_logDeriv_completedLFunction_line_le       DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hc1 : 1 < c, hc2 : c ≤ 3 / 2
+    completedLFunction_ne_zero_on_horizontals_chi  DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hc1 : 1 < c, hc2 : c ≤ 3 / 2, hL : ∀ s : ℂ, (s.im = R ∨ s.im = -
+    FlineCond_chi                                  DEF        std3  -- 
+    Fline_chi                                      DEF        std3  -- 
+    integrable_Fline_chi                           DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c, hc2 : c ≤ 3 / 2
+    verticals_eq_chi                               DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c
+    tendsto_interval_Fline_chi                     DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c, hc2 : c ≤ 3 / 2, hR : ∀
+    logDeriv_LFunction_inv_conj                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    norm_logDeriv_completed_le_of_good             DERIVES    std3  -- domain conditions only: hψ1 : ψ ≠ 1, hCG : 0 ≤ CG, hLg1 : 1 ≤ Lg, hG : ∀ σ t : ℝ, 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv (gam
+    horizontal_vanish_chi                          DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c, hc2
+    zero_sum_limit_chi                             DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hR : ∀ j : ℕ, (j
+    full_line_identity_chi                         DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c, hc2
+    even_inv_iff                                   DERIVES    std3  -- no hypothesis binder
+    gammaFactor_inv                                DERIVES    std3  -- no hypothesis binder
+    inv_apply_natCast                              DERIVES    std3  -- no hypothesis binder
+    mem_integerComplement_quarter                  DERIVES    std3  -- domain conditions only: ha : 4 * a = 1 ∨ 4 * a = 3
+    logDeriv_Gammaℝ_bracket                        DERIVES    std3  -- domain conditions only: hσ : 0 < σ
+    gammaFactor_bracket                            DERIVES    std3  -- no hypothesis binder
+    continuous_logDeriv_LFunction_line             DERIVES    std3  -- domain conditions only: hψ1 : ψ ≠ 1, hc1 : 1 ≤ c
+    continuous_logDeriv_gammaFactor_comp           INTERFACES std3  -- hg : Continuous g
+    paperFT_eq_Hfn_half                            DERIVES    std3  -- no hypothesis binder
+    prime_line_eval                                DERIVES    std3  -- domain conditions only: hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c
+    conductor_line_shift                           DERIVES    std3  -- domain conditions only: hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 / 2 ≤ c, hc2 : c ≤ 2
+    summable_mul_log_of_bounded_support            DERIVES    std3  -- domain conditions only: hg : ∀ u, g u ≠ 0 → |u| ≤ B
+    EF_lit_chi_holds                               DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+
+### THE CONSUMED TERMINALS, their prints:
+    SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub std3
+    SIDEExplicitFormula.GRHWeil.LFunction_inv_conj                 std3
+    SIDEExplicitFormula.GRHWeil.rectangle_identity_chi             std3
+    SIDEExplicitFormula.GRHWeil.good_heights_chi                   std3
+    SIDEExplicitFormula.GRHWeil.EF_zero_sum_summable_chi           std3
+    SIDEExplicitFormula.GRHWeil.prime_side_line_chi                std3
+    SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi               std3
+    SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le       std3
+    Zeta23.WeilEF.vertical_line_shift                              std3
+    Zeta23.WeilEF.Hfn_mirror                                       std3
+    Zeta23.WeilEF.logDeriv_Gammaℝ                                  std3
+    Zeta23.WeilEF.digamma_conj                                     std3
+    Zeta23.WeilEF.norm_Hfn_le                                      std3
+
+### THE ROWGEN RECORD (at ac157c1):
+    verticals_eq_chi                         defenc False  | check True
+    horizontal_vanish_chi                    defenc False  | check True
+    zero_sum_limit_chi                       defenc False  | check True
+    full_line_identity_chi                   defenc False  | check True
+    EF_lit_chi_holds                         defenc False  | check True
+### ### **THE GATE: PASS** -- declarations 29 (theorems 27: DERIVES 25, INTERFACES 2), consumed 13

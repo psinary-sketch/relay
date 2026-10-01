@@ -1,0 +1,78 @@
+=== START 2026-10-01T14:41:47Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/FullLine.lean
+SIDEExplicitFormula/Chi/FullLine.lean:196:51: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+k : ℝ → ℂ
+χ : DirichletCharacter ℂ N
+h1 : χ ≠ 1
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+c : ℝ
+hc1 : 1 < c
+hc2 : c ≤ 3 / 2
+hinv1 : χ⁻¹ ≠ 1
+C : ℝ
+hC0 : 0 ≤ C
+hC : ∀ (σ t : ℝ), -1 ≤ σ → σ ≤ 2 → ‖Hfn k (↑σ + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb1 : ∀ (t : ℝ), ‖Hfn k (↑c + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb2 : ∀ (t : ℝ), ‖Hfn k (1 - ↑c - ↑t * I)‖ ≤ C / (1 + t ^ 2)
+A₁ B₁ : ℝ
+hA₁ : 0 ≤ A₁
+hB₁ : 0 ≤ B₁
+hψ₁ : ∀ (t : ℝ), ‖logDeriv (completedLFunction χ) (↑c + ↑t * I)‖ ≤ A₁ + B₁ * Real.log (2 + |t|)
+A₂ B₂ : ℝ
+hA₂ : 0 ≤ A₂
+hB₂ : 0 ≤ B₂
+hψ₂ : ∀ (t : ℝ), ‖logDeriv (completedLFunction χ⁻¹) (↑c + ↑t * I)‖ ≤ A₂ + B₂ * Real.log (2 + |t|)
+i1 : Integrable (fun t => Hfn k (↑c + ↑t * I) * logDeriv (completedLFunction χ) (↑c + ↑t * I)) volume
+i2 : Integrable (fun t => Hfn k (1 - ↑c - ↑t * I) * logDeriv (completedLFunction χ⁻¹) (↑c + ↑t * I)) volume
+t : ℝ
+⊢ ‖?m.379‖ ≤ ‖log ↑N‖
+SIDEExplicitFormula/Chi/FullLine.lean:180:106: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+k : ℝ → ℂ
+χ : DirichletCharacter ℂ N
+h1 : χ ≠ 1
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+c : ℝ
+hc1 : 1 < c
+hc2 : c ≤ 3 / 2
+hinv1 : χ⁻¹ ≠ 1
+C : ℝ
+hC0 : 0 ≤ C
+hC : ∀ (σ t : ℝ), -1 ≤ σ → σ ≤ 2 → ‖Hfn k (↑σ + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb1 : ∀ (t : ℝ), ‖Hfn k (↑c + ↑t * I)‖ ≤ C / (1 + t ^ 2)
+hb2 : ∀ (t : ℝ), ‖Hfn k (1 - ↑c - ↑t * I)‖ ≤ C / (1 + t ^ 2)
+A₁ B₁ : ℝ
+hA₁ : 0 ≤ A₁
+hB₁ : 0 ≤ B₁
+hψ₁ : ∀ (t : ℝ), ‖logDeriv (completedLFunction χ) (↑c + ↑t * I)‖ ≤ A₁ + B₁ * Real.log (2 + |t|)
+A₂ B₂ : ℝ
+hA₂ : 0 ≤ A₂
+hB₂ : 0 ≤ B₂
+hψ₂ : ∀ (t : ℝ), ‖logDeriv (completedLFunction χ⁻¹) (↑c + ↑t * I)‖ ≤ A₂ + B₂ * Real.log (2 + |t|)
+i1 : Integrable (fun t => Hfn k (↑c + ↑t * I) * logDeriv (completedLFunction χ) (↑c + ↑t * I)) volume
+i2 : Integrable (fun t => Hfn k (1 - ↑c - ↑t * I) * logDeriv (completedLFunction χ⁻¹) (↑c + ↑t * I)) volume
+⊢ Integrable (Fline_chi χ k c) volume
+SIDEExplicitFormula/Chi/FullLine.lean:208:5: error: unexpected token 'L'; expected '_' or identifier
+SIDEExplicitFormula/Chi/FullLine.lean:206:49: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+k : ℝ → ℂ
+χ : DirichletCharacter ℂ N
+hχ : χ.IsPrimitive
+h1 : χ ≠ 1
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+c : ℝ
+hc1 : 1 < c
+hc2 : c ≤ 3 / 2
+R : ℝ
+hinv1 : χ⁻¹ ≠ 1
+a✝ : ?m.109 := sorry
+⊢ VIntegral (fun s => Hfn k s * logDeriv (completedLFunction χ) s) c (-R) R -
+      VIntegral (fun s => Hfn k s * logDeriv (completedLFunction χ) s) (1 - c) (-R) R =
+    I • ∫ (t : ℝ) in -R..R, Fline_chi χ k c t
+=== END 2026-10-01T14:42:12Z rc=1

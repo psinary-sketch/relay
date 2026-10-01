@@ -1,0 +1,46 @@
+b571 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### vendored Zeta23 WeilEF/FullLine (Fline; integrable_Fline; verticals_eq; tendsto_interval_Fline; the horizontals` nonvanishing) -- Zeta23/WeilEF/FullLine.lean @ 141e844b
+    :304    theorem completedZeta_ne_zero_on_horizontals {c : ℝ} (hc1 : 1 < c) (hc2 : c ≤ 3 / 2) {R : ℝ}
+    :338    def Fline (k : ℝ → ℂ) (c : ℝ) (t : ℝ) : ℂ :=
+    :362    theorem integrable_Fline (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ}
+    :385    theorem verticals_eq (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ}
+    :431    theorem tendsto_interval_Fline (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ}
+### vendored Zeta23 WeilEF/Horizontal (horizontal_vanish) -- Zeta23/WeilEF/Horizontal.lean @ 141e844b
+    :43     theorem horizontal_vanish {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+### vendored Zeta23 WeilEF/ZeroSumLimit (zero_sum_limit) -- Zeta23/WeilEF/ZeroSumLimit.lean @ 141e844b
+    :42     theorem zero_sum_limit (hs : ZetaSeam) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+### vendored Zeta23 WeilEF/FullLineAssembly (full_line_identity) -- Zeta23/WeilEF/FullLineAssembly.lean @ 141e844b
+    :55     theorem full_line_identity (hs : ZetaSeam) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k)
+### vendored Zeta23 WeilEF/Main (Hfn_mirror; EF_lit_zeta) -- Zeta23/WeilEF/Main.lean @ 141e844b
+    :39     theorem Hfn_mirror (k : ℝ → ℂ) (c t : ℝ) :
+    :67     theorem EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs) := by
+### vendored Zeta23 WeilEF/VerticalLine (vertical_line_shift; gamma_line_shift) -- Zeta23/WeilEF/VerticalLine.lean @ 141e844b
+    :443    theorem vertical_line_shift {f : ℂ → ℂ} {a b : ℝ} (hab : a ≤ b)
+    :659    theorem gamma_line_shift {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+### vendored Zeta23 WeilEF/GammaRBracket (gammaR_bracket) -- Zeta23/WeilEF/GammaRBracket.lean @ 141e844b
+    :114    theorem gammaR_bracket (t : ℝ) :
+### kernel Chi/XiLogDeriv (the χ identity) -- SIDEExplicitFormula/Chi/XiLogDeriv.lean @ 141e844b
+    :80     theorem logDeriv_completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (s : ℂ)
+    :82         logDeriv (completedLFunction χ) (1 - s) = -(Complex.log N + logDeriv (completedLFunction χ⁻¹) s) := by
+### kernel GRHWeil (the pairing; the χ terms) -- SIDEExplicitFormula/GRHWeil.lean @ 141e844b
+    :61     def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    :66     def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+    :70     def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    :185    theorem LFunction_inv_conj {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+### kernel Chi/Contour (rectangle_identity_chi) -- SIDEExplicitFormula/Chi/Contour.lean @ 141e844b
+    :27     theorem rectangle_identity_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ}
+### kernel Chi/Statement (EF_lit_chi) -- SIDEExplicitFormula/Chi/Statement.lean @ 141e844b
+    :42     def EF_lit_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Prop :=
+### PLACE-papers FACES_LEDGER (ch_iff_rh`s row) -- FACES_LEDGER.md @ 01365976
+    :497    | R2 | `Register2_conservationHypothesis`; `ConservationBridge.riemann_hypothesis` (SIDE-kernel v1.3); `ch_iff_rh` (SIDE-explicit-formula `81ae175`) | **T2** | RH restated -- ENCODES-CONCLUSION under (R151)(2); the row's clause "the converse is not compiled" is stale: `ch_iff_rh` compiles both direc
+### relay terminal_table.py at the act`s first commit (the trail and FINDINGS forms; where they are applied) -- tools/terminal_table.py @ 96daad63
+    :184    TRAIL_SUP_RE = re.compile(r'SUPERSEDES OPEN_TRAILS :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
+    :199    def supersede_trail(cells, name):
+    :214    def find_directives():
+    :225    def supersede_findings(cells, name):
+    :789                uniq = sort_corr_by_row(supersede_findings(supersede_trail(supersede(uniq), n), n))
+### relay rowgen.py (the backticked-name pattern) -- tools/rowgen/rowgen.py @ 96daad63
+    :135            cited = re.findall(r'`([A-Za-z_][A-Za-z0-9_\.]*)`', joined)
+### SIDE-global-section CORRESPONDENCE (row 421) -- CORRESPONDENCE.md @ a6d2a724
+    :494    | 421 | **norm_logDeriv_Gammaℝ_le_wide** (b570, under (R180)(5)), SIDE-explicit-formula v0.12 = 141e844: `SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide : ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 3 / 2 ≤ σ → σ ≤ 5 / 2 → ‖logDeriv Complex.Gammaℝ (σ + t * I)‖ ≤ C * Real.log (2 + ‖t‖)`. | `SIDE-explicit-f

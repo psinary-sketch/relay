@@ -1,0 +1,276 @@
+=== START 2026-10-01T14:59:40Z cwd=/d/SIDE-explicit-formula cmd=lake env lean AxiomCheckChiAct6.lean
+'SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_LFunction_le_of_one_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.continuous_logDeriv_completedLFunction_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integrable_mul_of_decay_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_completedLFunction_line_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.completedLFunction_ne_zero_on_horizontals_chi' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.FlineCond_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.Fline_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integrable_Fline_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.verticals_eq_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.tendsto_interval_Fline_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.logDeriv_LFunction_inv_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_completed_le_of_good' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.full_line_identity_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.even_inv_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaFactor_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.inv_apply_natCast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.mem_integerComplement_quarter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.logDeriv_Gammaℝ_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaFactor_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.continuous_logDeriv_LFunction_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.continuous_logDeriv_gammaFactor_comp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.paperFT_eq_Hfn_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.prime_line_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.conductor_line_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.summable_mul_log_of_bounded_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_inv_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.rectangle_identity_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.good_heights_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.EF_zero_sum_summable_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.prime_side_line_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.vertical_line_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.Hfn_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.logDeriv_Gammaℝ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.digamma_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.norm_Hfn_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_line : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {c : ℝ},
+      1 < c →
+        ∀ (t : ℝ),
+          logDeriv (DirichletCharacter.completedLFunction χ) (↑c + ↑t * Complex.I) =
+            logDeriv χ.gammaFactor (↑c + ↑t * Complex.I) +
+              logDeriv (DirichletCharacter.LFunction χ) (↑c + ↑t * Complex.I)
+@SIDEExplicitFormula.GRHWeil.norm_logDeriv_LFunction_le_of_one_lt_re : ∀ {N : ℕ} [inst : NeZero N]
+  (χ : DirichletCharacter ℂ N) {c : ℝ},
+  1 < c → ∃ M, 0 ≤ M ∧ ∀ (t : ℝ), ‖logDeriv (DirichletCharacter.LFunction χ) (↑c + ↑t * Complex.I)‖ ≤ M
+@SIDEExplicitFormula.GRHWeil.continuous_logDeriv_completedLFunction_line : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {c : ℝ}, 1 ≤ c → Continuous fun t => logDeriv (DirichletCharacter.completedLFunction χ) (↑c + ↑t * Complex.I)
+@SIDEExplicitFormula.GRHWeil.integrable_mul_of_decay_log : ∀ {φ ψ : ℝ → ℂ},
+  Continuous φ →
+    ∀ {C : ℝ},
+      0 ≤ C →
+        (∀ (t : ℝ), ‖φ t‖ ≤ C / (1 + t ^ 2)) →
+          Continuous ψ →
+            ∀ {A B : ℝ},
+              0 ≤ A →
+                0 ≤ B →
+                  (∀ (t : ℝ), ‖ψ t‖ ≤ A + B * Real.log (2 + |t|)) →
+                    MeasureTheory.Integrable (fun t => φ t * ψ t) MeasureTheory.volume
+@SIDEExplicitFormula.GRHWeil.norm_logDeriv_completedLFunction_line_le : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {c : ℝ},
+      1 < c →
+        c ≤ 3 / 2 →
+          ∃ A B,
+            0 ≤ A ∧
+              0 ≤ B ∧
+                ∀ (t : ℝ),
+                  ‖logDeriv (DirichletCharacter.completedLFunction χ) (↑c + ↑t * Complex.I)‖ ≤
+                    A + B * Real.log (2 + |t|)
+@SIDEExplicitFormula.GRHWeil.completedLFunction_ne_zero_on_horizontals_chi : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {c : ℝ},
+        1 < c →
+          c ≤ 3 / 2 →
+            ∀ {R : ℝ},
+              (∀ (s : ℂ), s.im = R ∨ s.im = -R → 1 / 2 ≤ s.re → s.re ≤ 2 → DirichletCharacter.LFunction χ s ≠ 0) →
+                ∀ (s : ℂ),
+                  s.im = R ∨ s.im = -R → 1 - c ≤ s.re → s.re ≤ c → DirichletCharacter.completedLFunction χ s ≠ 0
+@SIDEExplicitFormula.GRHWeil.integrable_Fline_chi : ∀ {N : ℕ} [inst : NeZero N] {k : ℝ → ℂ}
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ContDiff ℝ 2 k →
+      HasCompactSupport k →
+        ∀ {c : ℝ},
+          1 < c →
+            c ≤ 3 / 2 → MeasureTheory.Integrable (SIDEExplicitFormula.GRHWeil.Fline_chi χ k c) MeasureTheory.volume
+@SIDEExplicitFormula.GRHWeil.verticals_eq_chi : ∀ {N : ℕ} [inst : NeZero N] {k : ℝ → ℂ} {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ContDiff ℝ 2 k →
+        HasCompactSupport k →
+          ∀ {c : ℝ},
+            1 < c →
+              c ≤ 3 / 2 →
+                ∀ (R : ℝ),
+                  VIntegral (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s) c
+                        (-R) R -
+                      VIntegral (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                        (1 - c) (-R) R =
+                    Complex.I • ∫ (t : ℝ) in -R..R, SIDEExplicitFormula.GRHWeil.Fline_chi χ k c t
+@SIDEExplicitFormula.GRHWeil.tendsto_interval_Fline_chi : ∀ {N : ℕ} [inst : NeZero N] {k : ℝ → ℂ}
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ContDiff ℝ 2 k →
+      HasCompactSupport k →
+        ∀ {c : ℝ},
+          1 < c →
+            c ≤ 3 / 2 →
+              ∀ {R : ℕ → ℝ},
+                (∀ (j : ℕ), ↑j ≤ R j) →
+                  Filter.Tendsto (fun j => ∫ (t : ℝ) in -R j..R j, SIDEExplicitFormula.GRHWeil.Fline_chi χ k c t)
+                    Filter.atTop (nhds (∫ (t : ℝ), SIDEExplicitFormula.GRHWeil.Fline_chi χ k c t))
+@SIDEExplicitFormula.GRHWeil.logDeriv_LFunction_inv_conj : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ (s : ℂ),
+      logDeriv (DirichletCharacter.LFunction χ⁻¹) ((starRingEnd ℂ) s) =
+        (starRingEnd ℂ) (logDeriv (DirichletCharacter.LFunction χ) s)
+@SIDEExplicitFormula.GRHWeil.norm_logDeriv_completed_le_of_good : ∀ {N : ℕ} [inst : NeZero N]
+  {ψ : DirichletCharacter ℂ N},
+  ψ ≠ 1 →
+    ∀ {CG Cg Lg : ℝ},
+      0 ≤ CG →
+        1 ≤ Lg →
+          (∀ (σ t : ℝ),
+              1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv ψ.gammaFactor (↑σ + ↑t * Complex.I)‖ ≤ CG * Real.log (2 + |t|)) →
+            ∀ {s : ℂ},
+              1 / 2 ≤ s.re →
+                s.re ≤ 3 / 2 →
+                  Real.log (2 + |s.im|) ≤ Lg →
+                    DirichletCharacter.LFunction ψ s ≠ 0 →
+                      ‖logDeriv (DirichletCharacter.LFunction ψ) s‖ ≤ Cg * Lg ^ 2 →
+                        ‖logDeriv (DirichletCharacter.completedLFunction ψ) s‖ ≤ (CG + Cg) * Lg ^ 2
+@SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {k : ℝ → ℂ},
+        ContDiff ℝ 2 k →
+          HasCompactSupport k →
+            ∀ {c : ℝ},
+              1 < c →
+                c ≤ 3 / 2 →
+                  ∀ {Cg : ℝ},
+                    0 < Cg →
+                      ∀ {R : ℕ → ℝ},
+                        (∀ (j : ℕ),
+                            ↑j + 7 ≤ R j ∧
+                              R j ≤ ↑j + 8 ∧
+                                ∀ (s : ℂ),
+                                  s.im = R j ∨ s.im = -R j →
+                                    1 / 2 ≤ s.re →
+                                      s.re ≤ 2 →
+                                        DirichletCharacter.LFunction χ s ≠ 0 ∧
+                                          ‖logDeriv (DirichletCharacter.LFunction χ) s‖ ≤ Cg * Real.log (↑j + 10) ^ 2) →
+                          Filter.Tendsto
+                              (fun j =>
+                                HIntegral
+                                  (fun s =>
+                                    Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                                  (1 - c) c (R j))
+                              Filter.atTop (nhds 0) ∧
+                            Filter.Tendsto
+                              (fun j =>
+                                HIntegral
+                                  (fun s =>
+                                    Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                                  (1 - c) c (-R j))
+                              Filter.atTop (nhds 0)
+@SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {R : ℕ → ℝ},
+        (∀ (j : ℕ), ↑j + 7 ≤ R j ∧ R j ≤ ↑j + 8) →
+          ∀ {Z : ℕ → Finset ℂ},
+            (∀ (j : ℕ), ↑(Z j) = {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ ∧ -R j < ρ.im ∧ ρ.im < R j}) →
+              Filter.Tendsto
+                (fun j => ∑ ρ ∈ Z j, ↑(SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ) * Zeta23.WeilEF.Hfn k ρ)
+                Filter.atTop
+                (nhds
+                  (∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+                    ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.WeilEF.Hfn k ↑ρ))
+@SIDEExplicitFormula.GRHWeil.full_line_identity_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          c ≤ 3 / 2 →
+            1 / (2 * ↑Real.pi) * ∫ (t : ℝ), SIDEExplicitFormula.GRHWeil.Fline_chi χ k c t =
+              ∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+                ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.WeilEF.Hfn k ↑ρ
+@SIDEExplicitFormula.GRHWeil.even_inv_iff : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N), χ⁻¹.Even ↔ χ.Even
+@SIDEExplicitFormula.GRHWeil.gammaFactor_inv : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N), χ⁻¹.gammaFactor = χ.gammaFactor
+@SIDEExplicitFormula.GRHWeil.inv_apply_natCast : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N) (n : ℕ),
+  χ⁻¹ ↑n = (starRingEnd ℂ) (χ ↑n)
+@SIDEExplicitFormula.GRHWeil.mem_integerComplement_quarter : ∀ {a : ℝ},
+  4 * a = 1 ∨ 4 * a = 3 → ∀ (b : ℝ), ↑a + ↑b * Complex.I ∈ Complex.integerComplement
+@SIDEExplicitFormula.GRHWeil.logDeriv_Gammaℝ_bracket : ∀ {σ : ℝ},
+  0 < σ →
+    ∀ (t : ℝ),
+      ↑(σ / 2) + ↑(t / 2) * Complex.I ∈ Complex.integerComplement →
+        logDeriv Complex.Gammaℝ (↑σ + ↑t * Complex.I) + logDeriv Complex.Gammaℝ (↑σ - ↑t * Complex.I) =
+          ↑((↑(σ / 2) + ↑(t / 2) * Complex.I).digamma.re - Real.log Real.pi)
+@SIDEExplicitFormula.GRHWeil.gammaFactor_bracket : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N) (t : ℝ),
+  logDeriv χ.gammaFactor (1 / 2 + ↑t * Complex.I) + logDeriv χ.gammaFactor (1 / 2 - ↑t * Complex.I) =
+    ↑((1 / 4 + ↑(SIDEExplicitFormula.GRHWeil.parity χ) / 2 + Complex.I * ↑t / 2).digamma.re - Real.log Real.pi)
+@SIDEExplicitFormula.GRHWeil.continuous_logDeriv_LFunction_line : ∀ {N : ℕ} [inst : NeZero N]
+  {ψ : DirichletCharacter ℂ N},
+  ψ ≠ 1 → ∀ {c : ℝ}, 1 ≤ c → Continuous fun t => logDeriv (DirichletCharacter.LFunction ψ) (↑c + ↑t * Complex.I)
+@SIDEExplicitFormula.GRHWeil.continuous_logDeriv_gammaFactor_comp : ∀ {N : ℕ} [NeZero N] (ψ : DirichletCharacter ℂ N)
+  {g : ℝ → ℂ}, Continuous g → (∀ (t : ℝ), 0 < (g t).re) → Continuous fun t => logDeriv ψ.gammaFactor (g t)
+SIDEExplicitFormula.GRHWeil.paperFT_eq_Hfn_half : ∀ (k : ℝ → ℂ) (t : ℝ),
+  Zeta23.paperFT k ↑t = Zeta23.WeilEF.Hfn k (↑(1 / 2) + ↑t * Complex.I)
+@SIDEExplicitFormula.GRHWeil.prime_line_eval : ∀ {N : ℕ} [inst : NeZero N] (ψ : DirichletCharacter ℂ N) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          1 / (2 * ↑Real.pi) *
+              ∫ (t : ℝ),
+                Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) *
+                  logDeriv (DirichletCharacter.LFunction ψ) (↑c + ↑t * Complex.I) =
+            -∑' (n : ℕ), ↑(ArithmeticFunction.vonMangoldt n / √↑n) * (ψ ↑n * k (Real.log ↑n))
+@SIDEExplicitFormula.GRHWeil.conductor_line_shift : ∀ {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 / 2 ≤ c → c ≤ 2 → ∫ (t : ℝ), Zeta23.WeilEF.Hfn k (1 - ↑c - ↑t * Complex.I) = ∫ (t : ℝ), Zeta23.paperFT k ↑t
+@SIDEExplicitFormula.GRHWeil.summable_mul_log_of_bounded_support : ∀ {g : ℝ → ℂ} {B : ℝ},
+  (∀ (u : ℝ), g u ≠ 0 → |u| ≤ B) → ∀ (a : ℕ → ℂ), Summable fun n => a n * g (Real.log ↑n)
+@SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  (hχ : χ.IsPrimitive) (h1 : χ ≠ 1), SIDEExplicitFormula.GRHWeil.EF_lit_chi χ hχ h1
+def SIDEExplicitFormula.GRHWeil.FlineCond_chi : ℕ → (ℝ → ℂ) → ℝ → ℝ → ℂ :=
+fun N k c t => Zeta23.WeilEF.Hfn k (1 - ↑c - ↑t * Complex.I) * Complex.log ↑N
+def SIDEExplicitFormula.GRHWeil.Fline_chi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → (ℝ → ℂ) → ℝ → ℝ → ℂ :=
+fun {N} [NeZero N] χ k c t =>
+  Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) * logDeriv (DirichletCharacter.completedLFunction χ) (↑c + ↑t * Complex.I) +
+      Zeta23.WeilEF.Hfn k (1 - ↑c - ↑t * Complex.I) *
+        logDeriv (DirichletCharacter.completedLFunction χ⁻¹) (↑c + ↑t * Complex.I) +
+    SIDEExplicitFormula.GRHWeil.FlineCond_chi N k c t
+=== END 2026-10-01T15:00:01Z rc=0
