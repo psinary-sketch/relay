@@ -83,13 +83,16 @@ CORPUS = ['relay', 'MY-DOwnloads/PLACE-papers', 'SIDE-global-section', 'SIDE-exp
 def pushed_digest_ok(name):
     """### (R169)(1)(b): the bank's working bytes (CR stripped) against its blob in the PUSHED tree (origin/main), by sha256."""
     p = os.path.join(D, name)
-    work = open(p, 'rb').read().replace(b'\r\n', b'\n') if os.path.exists(p) else None
-    pub = blob(ROOT, 'origin/main:data/' + name)
+    if AS_OF:   # ### (R178)(2)(ii): at the as-of commit the working tree WAS the pushed tree; the bank is read there
+        work = blob(ROOT, AS_OF + ':data/' + name)
+    else:
+        work = open(p, 'rb').read().replace(b'\r\n', b'\n') if os.path.exists(p) else None
+    pub = blob(ROOT, REF + ':data/' + name)
     return bool(work) and bool(pub) and hashlib.sha256(work).hexdigest() == hashlib.sha256(pub).hexdigest()
 
 
 def added_epoch(name):
-    t = gits(ROOT, 'log', '--diff-filter=A', '--format=%ct', 'origin/main', '--', 'data/' + name).split()
+    t = gits(ROOT, 'log', '--diff-filter=A', '--format=%ct', REF, '--', 'data/' + name).split()
     return int(t[-1]) if t else None
 
 
@@ -104,6 +107,43 @@ def peek_by_digest(face, lockn, scan):
 
 
 RERUN = '--rerun-postpush' in sys.argv   # ### (R170)(3): one named record, no table regeneration
+
+# ### ### **(R178)(2)(ii), b568: THE AS-OF COMMIT.** A sealed face is a statement about the tree at its closing push. When
+# ### `data/b566_closing_push_out.txt` names a relay tip read back equal at the remote, the TREE-READING arms read the relay
+# ### tree at that commit, not at HEAD: G-NUMBER-UNCLAIMED (a successor's registration, looked for in that tree),
+# ### G-PEEK-DECLARED (each bank present in that tree, its add time read there) and G-PRIORBANK-UNCHANGED (each prior
+# ### bank's blob in that tree against the pre-act tip). With no such bank -- the act's own closing run -- they read live, as
+# ### before. `--as-of <sha>` points them at another commit (relay tools/test_asof.py). Arms reading a named bank's content
+# ### are not re-pointed.
+import asof as AF   # noqa: E402
+AS_OF = AF.from_argv(sys.argv, AF.relay_asof(ROOT, D, 'b566'))
+REF = AS_OF or 'origin/main'
+PRIOR_RX = r'^b4[0-9][0-9]_|^b5[0-5][0-9]_|^b56[0-5]_|^b334_'
+
+
+def successor_faces():
+    if AS_OF:
+        return [x for x in AF.names_at(ROOT, AS_OF, 'data') if re.match(r'^b567_registration_.*\.txt$', x)]
+    return glob.glob(os.path.join(D, 'b567_registration_*.txt'))
+
+
+def prior_asof(prior_rev):
+    """### (R178)(2)(ii): every prior bank IN THE AS-OF TREE, its blob against the pre-act tip's; a bank first tracked in
+    ### the as-of tree has no earlier blob and is counted, not compared."""
+    pre, at = tree_ids(ROOT, prior_rev, 'data'), AF.ids_at(ROOT, AS_OF, 'data')
+    bad, n_pre, n_new, n = [], 0, 0, 0
+    for k, i in sorted(at.items()):
+        f = k[len('data/'):]
+        if not re.match(PRIOR_RX, f):
+            continue
+        n += 1
+        if k in pre:
+            n_pre += 1
+            if pre[k] != i:
+                bad.append(f)
+        else:
+            n_new += 1
+    return not bad, n_pre, n_new, 0, bad, n
 
 
 def written_by_digest(repo, rel):
@@ -275,7 +315,9 @@ def sources():
     S['kinds'] = kk
     prior = [f for f in os.listdir(D) if re.match(r'^b4[0-9][0-9]_|^b5[0-5][0-9]_|^b56[0-5]_|^b334_', f)]
     S['prior_checked'] = len(prior)
-    if S['pushed']:
+    if AS_OF:   # ### (R178)(2)(ii): the prior banks as the face's closing push left them, read in the as-of tree
+        S['noprior'], S['prior_pre'], S['prior_pub'], S['prior_time'], S['prior_bad'], S['prior_checked'] = prior_asof(PRIOR_RELAY)
+    elif S['pushed']:
         S['noprior'], S['prior_pre'], S['prior_pub'], S['prior_time'], S['prior_bad'] = prior_by_digest(prior, PRIOR_RELAY)
     else:
         S['noprior'] = all(os.path.getmtime(os.path.join(D, f)) < os.path.getmtime(FACE) for f in prior)
@@ -518,7 +560,7 @@ ARMS = [
     ('G-PRIOR-CLOSED-PUSHED', 'b565`s closing', lambda S: 'THE COMMITS, THE CENSUSES' in S['prior'] and 'b565' in S['prior'],
      lambda S: put(S, 'prior', '')),
     ('G-NUMBER-UNCLAIMED', 'the data directory, and this act`s own banked order',
-     lambda S: 'ACT b566' in S['ferry'] and 'ACT b566' in S['face'] and not glob.glob(os.path.join(D, 'b567_registration_*.txt')),
+     lambda S: 'ACT b566' in S['ferry'] and 'ACT b566' in S['face'] and not successor_faces(),
      lambda S: cut(S, 'face', 'ACT b566')),
     ('G-PEEK-DECLARED', 'the face`s (C) block; before the push file times, after it content digests against the pushed tree',
      lambda S: ('THIS FACE DECLARES READS IT ALREADY MADE' in flat(S['face']) and 'DECLARED AS PEEKS' in flat(S['face'])
@@ -703,6 +745,10 @@ def main():
         rec('  ### run not declared : %s' % sorted(set(names) - set(declared)))
     rec('  G-PEEK-DECLARED reads %s' % ('CONTENT DIGESTS AGAINST THE PUSHED TREE (origin/main %s)' % gits(ROOT, 'rev-parse', '--short', 'origin/main')
                                         if pushed else 'FILE TIMES AGAINST THE FACE (before any checkout)'))
+    rec('  ### (R178)(2)(ii) THE AS-OF COMMIT : %s' % (('relay %s (%s) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED '
+                                                      'read the relay tree there, not at HEAD' % (AS_OF[:8], '--as-of' if '--as-of' in sys.argv
+                                                                                                  else 'b566_closing_push_out.txt'))
+                                                     if AS_OF else 'NONE -- the tree-reading arms read live'))
     rec('  %-42s %-5s %-5s %-5s %s' % ('arm', 'LIVE', 'NEG', 'POS', 'verdict'))
     rec('  ' + '-' * 92)
     fail, defective, negfail = [], [], 0

@@ -113,7 +113,43 @@ def appended_one_line(name):
     return bool(pre) and now.startswith(pre) and extra.count(b'\n') == 1 and extra.endswith(b'\n')
 
 
+# ### ### **(R178)(2)(ii), b568: THE AS-OF COMMIT.** A sealed face is a statement about the tree at its closing push. When
+# ### `data/b567_closing_push_out.txt` names a relay tip read back equal at the remote, the TREE-READING arm of this suite --
+# ### G-PRIORBANK-UNCHANGED, the one that lists and compares the relay data tree -- reads the tree at that commit, not at
+# ### HEAD (the two ordered appends read there too, each its pre-act blob a true prefix plus one line). With no such bank
+# ### -- the act's own closing run -- it reads live, as before. `--as-of <sha>` points it at another commit (relay
+# ### tools/test_asof.py). Arms reading a named bank's content are not re-pointed.
+import asof as AF   # noqa: E402
+AS_OF = AF.from_argv(sys.argv, AF.relay_asof(ROOT, D, 'b567'))
+PRIOR_RX = r'^b4[0-9][0-9]_|^b5[0-5][0-9]_|^b56[0-6]_|^b334_'
+
+
+def prior_check_asof():
+    pre, at = tree_ids(ROOT, PRIOR_RELAY, 'data'), AF.ids_at(ROOT, AS_OF, 'data')
+    bad, n_pre, n_new, n_app, n = [], 0, 0, 0, 0
+    for k, i in sorted(at.items()):
+        f = k[len('data/'):]
+        if not re.match(PRIOR_RX, f):
+            continue
+        n += 1
+        if f in APPENDED:
+            n_app += 1
+            p0, p1 = cr0(AF.blob_at(ROOT, PRIOR_RELAY, k) or b''), cr0(AF.blob_at(ROOT, AS_OF, k) or b'')
+            extra = p1[len(p0):]
+            if not (p0 and p1.startswith(p0) and extra.count(b'\n') == 1 and extra.endswith(b'\n')):
+                bad.append(f)
+        elif k in pre:
+            n_pre += 1
+            if pre[k] != i:
+                bad.append(f)
+        else:
+            n_new += 1
+    return dict(ok=not bad, checked=n, pre=n_pre, pub=n_new, time=0, app=n_app, bad=bad, asof=AS_OF)
+
+
 def prior_check(pushed):
+    if AS_OF:
+        return prior_check_asof()
     """### every prior bank unchanged: after the push by digest against the pre-act tip and the pushed tree; before it by file
     ### time against the face. The two ordered appends are read by `appended_one_line`, by name, and by nothing looser."""
     files = [f for f in os.listdir(D) if re.match(r'^b4[0-9][0-9]_|^b5[0-5][0-9]_|^b56[0-6]_|^b334_', f)]
@@ -611,6 +647,9 @@ def main():
     rec('  ### G-PRIORBANK-UNCHANGED checked %d prior banks: %d against the pre-act tip, %d first tracked in the pushed tree, %d by file '
         'time, %d the ordered appends (prefix + one line); changed %s.' % (pr['checked'], pr['pre'], pr['pub'], pr['time'], pr['app'],
                                                                            pr['bad'] or 'NONE'))
+    rec('  ### (R178)(2)(ii) THE AS-OF COMMIT : %s' % (('relay %s (%s) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD'
+                                                      % (AS_OF[:8], '--as-of' if '--as-of' in sys.argv else 'b567_closing_push_out.txt'))
+                                                     if AS_OF else 'NONE -- the tree-reading arm read live'))
     if not RERUN:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d'
