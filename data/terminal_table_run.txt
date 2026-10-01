@@ -11,10 +11,10 @@
   ledgers read : ### **97**  (including the archive`s split looms -- b494 found the
   ### 2026-07-26 census there, and ### **A SPLIT MOVES A LEDGER, IT DOES NOT RETIRE IT**)
   ### THE GRADE-CELL MATCHER, BOTH VERSIONS, YIELD PRINTED.
-    v1 LOOSE (any name on any line carrying a grade word) : 1389 cells, 950 names
-    v2 WINDOWED (every name within 120 chars of a grade)  : 416 cells, 255 names
-    v3 NEAREST (each grade attaches to its NEAREST name)   : 340 cells, 197 names
-    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 330 cells, 197 names**
+    v1 LOOSE (any name on any line carrying a grade word) : 1422 cells, 964 names
+    v2 WINDOWED (every name within 120 chars of a grade)  : 429 cells, 263 names
+    v3 NEAREST (each grade attaches to its NEAREST name)   : 349 cells, 203 names
+    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 339 cells, 203 names**
     ### ### **v1 AND v2 ARE DISCARDED AND THEIR YIELDS ARE PRINTED ANYWAY** -- b381`s
     ### rule, that a matcher is never replaced silently. ### These ledgers carry
     ### 2,000-character re-grade paragraphs naming a dozen keystones and using three
@@ -53,17 +53,17 @@
       json READS the act`s own printed line beside it                          PASS
   banked profile JSONs read (committed, relay HEAD) : 20 ; names profiled there : 213
 
-  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **118** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/GRH_chi_iff_trivial', 'SIDE-explicit-formula/LFunction_inv_conj', 'SIDE-explicit-formula/LFunction_zero_re_nonpos', 'SIDE-explicit-formula/LiCoeff_eq', 'SIDE-explicit-formula/analyticOrderAt_LFunction_inv_conj', 'SIDE-explicit-formula/analyticOrderAt_completed_one_sub', 'SIDE-explicit-formula/base_nonzero_at', 'SIDE-explicit-formula/binomial_li', 'SIDE-explicit-formula/blTransform_holds', 'SIDE-explicit-formula/ch_iff_h2_sign', 'SIDE-explicit-formula/ch_iff_h2_sign_of_seam']
+  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **122** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/GRH_chi_iff_trivial', 'SIDE-explicit-formula/LFunction_inv_conj', 'SIDE-explicit-formula/LFunction_zero_re_nonpos', 'SIDE-explicit-formula/LiCoeff_eq', 'SIDE-explicit-formula/analyticOrderAt_LFunction_inv_conj', 'SIDE-explicit-formula/analyticOrderAt_completed_one_sub', 'SIDE-explicit-formula/analyticOrderAt_xi_eq_zeta', 'SIDE-explicit-formula/arith_limit_nonneg_iff_rh', 'SIDE-explicit-formula/base_nonzero_at', 'SIDE-explicit-formula/binomial_li', 'SIDE-explicit-formula/blTransform_holds']
   ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **212** ['SIDEExplicitFormula.B321.Aw_nonneg <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Efac_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Ep_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_kill <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_tie_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Nf_pos <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.c4 <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.kfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.tfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_eval <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.VF_conj <- data/b534_profile.json']
 
   ### THE COUNTS.
   ----------------------------------------------------------------------------------------------------
-    rows (repo, name)                                  : ### **1485**
-    NOT PROFILED                                       : ### **636**
-    UNGRADED                                           : ### **1315**
+    rows (repo, name)                                  : ### **1509**
+    NOT PROFILED                                       : ### **660**
+    UNGRADED                                           : ### **1334**
     CONFLICT                                           : ### **12**
     ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **10**
-    names a ledger cites resolving in NO repo, any ref : ### **30**
+    names a ledger cites resolving in NO repo, any ref : ### **31**
     (and, not asked for but owed by (S1)) STATEMENT UNRESOLVED : ### **13**
 
   ### THE DIFF AGAINST THE PRIOR RUN.
