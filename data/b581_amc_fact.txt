@@ -1,0 +1,16 @@
+b581 -- COMPONENT 1: THE FACT CLAUSE APPLIED TO AMC v0.2.4, (R191)(2)
+
+### the source of the fact, printed:
+    SIDE-effects a27415d : lean-toolchain "leanprover/lean4:v4.30.0-rc2" ; lake-manifest mathlib rev 5450b53e5ddc75d46418fabb605edbf36bd0beb6 (inputRev v4.30.0-rc2)
+        import Mathlib
+        import SIDEEffects.Phase15.SIDEFramework
+    SIDE-effects c66f3c5 : lean-toolchain "leanprover/lean4:v4.30.0-rc2" ; lake-manifest mathlib rev 5450b53e5ddc75d46418fabb605edbf36bd0beb6 (inputRev v4.30.0-rc2)
+        import Mathlib.Data.Nat.Prime.Basic
+        import Mathlib.Data.ZMod.Basic
+        import Mathlib.Data.Finset.Basic
+        import SIDEEffects.Phase15.SIDEFramework
+
+### the corrections:
+    :293  "`SIDE-effects` (`c66f3c5`; vanilla Lean 4, no Mathlib)." -> "`SIDE-effects` (`c66f3c5`, Lean `v4.30.0-rc2` with Mathlib at `5450b53`, which Module1.lean imports)."
+    :366  "Vanilla Lean 4." -> "Lean `v4.30.0-rc2` with Mathlib at `5450b53`, which Module1.lean imports at both pins."
+### the back-matter section appended at the end of phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md ; FINDINGS :6542 (beneath b580`s entry :6522)
