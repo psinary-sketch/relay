@@ -1,0 +1,7 @@
+=== START 2026-10-01T06:27:44Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/LocalCount.lean
+SIDEExplicitFormula/Chi/LocalCount.lean:212:2: error: mod_cast has type
+  ∑ᶠ (ρ : ℂ) (_ : ρ ∈ (chiZeroConfig χ hχ h1).window t (t + 1)), (chiZeroConfig χ hχ h1).mult ρ ≤
+    ∑ᶠ (ρ : ℂ) (_ : ρ ∈ (chiZeroConfig χ hχ h1).window (-4) 5), (chiZeroConfig χ hχ h1).mult ρ
+but is expected to have type
+  (chiZeroConfig χ hχ h1).N t (t + 1) ≤ (chiZeroConfig χ hχ h1).N (↑(Int.negSucc 3)) 5
+=== END 2026-10-01T06:28:17Z rc=1

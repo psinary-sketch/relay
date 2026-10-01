@@ -1,0 +1,119 @@
+b569 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### vendored Zeta23 WeilEF/Main (EF_lit`s proof) -- Zeta23/WeilEF/Main.lean @ 6baed63a
+    :16     -/
+    :17     /-
+    :286    theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+### vendored Zeta23 ExplicitFormula (EF_lit) -- Zeta23/ExplicitFormula.lean @ 6baed63a
+    :97     def EF_lit (Z : ZeroConfig) : Prop :=
+### vendored Zeta23 RvM/ZetaGrowth (its import of ZetaBounds; its first declarations) -- Zeta23/RvM/ZetaGrowth.lean @ 6baed63a
+    :45     import Zeta23.FromPNTPlus.ZetaBounds
+    :59     theorem analyticOnNhd_riemannZeta {S : Set ℂ} (hS : (1 : ℂ) ∉ S) :
+    :72     theorem norm_riemannZeta_le_of_re_pos {s : ℂ} (hσ : 0 < s.re) (hs : s ≠ 1) :
+    :94     theorem riemannZeta_linear_growth {δ : ℝ} (hδ : 0 < δ) {s : ℂ} (hσ : δ ≤ s.re)
+    :118    theorem zeta_growth {δ : ℝ} (hδ : 0 < δ) :
+### vendored Zeta23 RvM/LocalCount (its imports) -- Zeta23/RvM/LocalCount.lean @ 6baed63a
+    :39     import Zeta23.Prelude.InstancePriorities
+    :40     import Zeta23.Statement.SeamClosed
+    :41     import Zeta23.Defs.Counting
+    :42     import Zeta23.FromPNTPlus.StrongPNTPrefix
+    :43     import Zeta23.RvM.ZetaGrowth
+    :44     import Zeta23.RvM.Halving
+### vendored Zeta23 WeilEF/ZeroSummability (its imports) -- Zeta23/WeilEF/ZeroSummability.lean @ 6baed63a
+    :22     import Zeta23.Tail
+    :23     import Zeta23.RvM.LocalCount
+    :24     import Zeta23.ExplicitFormula
+    :25     import Zeta23.Poisson.PaperFT
+### kernel Chi/ZeroConfig (chiZeroConfig) -- SIDEExplicitFormula/Chi/ZeroConfig.lean @ 6baed63a
+    :225    def chiZeroConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Zeta23.ZeroConfig where
+### kernel Chi/ZetaBoundsStrip (the representation and the four analogues) -- SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean @ 6baed63a
+    :123    theorem LFunction_eq_mul_integral {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {s : ℂ} (hs : 0 < s.re) :
+    :307    theorem LFunction0_eq_LFunction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ}
+    :320    theorem deriv_LFunction0_eq {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ}
+    :328    theorem deriv_LFunction_eq {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ}
+    :337    theorem norm_integral_tail_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {σ t : ℝ}
+### kernel Chi/Statement (EF_lit_chi) -- SIDEExplicitFormula/Chi/Statement.lean @ 6baed63a
+    :42     def EF_lit_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Prop :=
+### kernel ResidueDischarge (the restated predicate; the forward implication) -- SIDEExplicitFormula/ResidueDischarge.lean @ 6baed63a
+    :30     def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+    :31       ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+    :41     theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis := by
+### kernel LiCriterionBridge (the equality lemma; the composed criterion) -- SIDEExplicitFormula/LiCriterionBridge.lean @ 6baed63a
+    :149    theorem li_coeff_eq_taylorCoeff (n : ℕ) :
+    :179    theorem li_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis := by
+### kernel LiWeil (rh_imp_li_nonneg) -- SIDEExplicitFormula/LiWeil.lean @ 6baed63a
+    :267    theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+### vendored Bulka ReverseDirection (positivity_implies_RH) -- Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean @ 6baed63a
+    :413    theorem positivity_implies_RH :
+    :414        (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) →
+    :415          (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2) := by
+### vendored Bulka RHBridge (rh_equiv_mathlib) -- Vendored/Bulka/Lc/LiCriterion/RHBridge.lean @ 6baed63a
+    :43     theorem rh_equiv_mathlib :
+### relay b568 ZetaBounds classes (the rule) -- data/b568_zetabounds_names.txt @ 3f1d1900
+    :5      ### THE RULE (declared on the face, READING (3)(c)): the class is read from the declaration`s line against the file`s blocks --
+    :6      ###   [:1, :1219] CONTINUATION (the Abel representation, the residue at 1, holomorphy) -- neither of the ruling`s two classes;
+    :7      ###   [:1220, :1850] STRIP BOUNDS (upper bounds for ζ and ζ′ on 1 − A/log|t| ≤ σ ≤ 2, through ZetaDerivUpperBnd :1827);
+    :8      ###   [:1851, end] ZERO-FREE REGION (the near-1 and lower bounds it is built from, ZetaZeroFree :2485, its consequences).
+### relay b568 node list -- data/b568_nodes.txt @ 3f1d1900
+    :1      # b568 -- THE NODE LIST, (R178)(5): the generator's input (relay tools/chain_page.py). One record per node, in the ruling's
+    :2      # order with the two additions placed beside the node that names them: `name | source | role`. source is Mathlib, Zeta23
+    :3      # (vendored), Bulka (vendored) or kernel; role is `listed` (the ruling's list) or `added: <reason>`. Every cell of a node
+### relay chain_page.py (the pin; record_tier; tier_of) -- tools/chain_page.py @ 3f1d1900
+    :48     PIN = '6baed63ae664a22db1f325177b81253e270de6e3'
+    :98     def record_tier(row):
+    :296    def tier_of(kind, grade_e0, why, axioms, rec_row, nodeset):
+### relay b564 face (the genericity rule, b562`s carried) -- data/b564_registration_2026-09-29.txt @ 3f1d1900
+    :75     ### module printed with its Zeta23 imports and its class (b562`s rule, carried: ζ-SPECIFIC if its comment-stripped
+    :76     ### code names a ζ object or it imports a ζ-specific module). THE FRONTIER: the ζ-specific modules none of whose Zeta23
+    :110    ### comment-stripped code names `riemannZeta` or a ζ-SPECIFIC CONSTANT is re-classified with the line printed and the
+    :111    ### count corrected. THE ζ-SPECIFIC CONSTANTS, fixed here: the terms of ζ`s explicit formula or functional equation that
+    :112    ### differ for L(s, χ) at primitive χ ≠ 1 -- the pole terms at s = 0, 1 (h(±i/2), `PiX`, the "pole of ζ" terms), ζ`s
+    :113    ### Γ bracket (digamma at 1/4 + iτ/2 with no parity shift, `log π` with no `log N`: `mu`, `gammaBracket`), and the prime
+    :114    ### sum with no character (`PX`, `nuX`, a Λ(n) sum carrying no χ(n)) -- read by a scan for those identifiers and those
+### relay b566_checks.py (the as-of import; the PLACE-papers and clone reads) -- tools/b566_checks.py @ 3f1d1900
+    :118    import asof as AF   # noqa: E402
+    :119    AS_OF = AF.from_argv(sys.argv, AF.relay_asof(ROOT, D, 'b566'))
+    :212        for p in [x for x in gits(KER, 'ls-tree', '-r', '--name-only', 'main', 'Vendored/Bulka').split(NL) if x.endswith('.lean')]:
+    :236                                capture_output=True, text=True, encoding='utf-8', errors='replace').stdout,
+    :237            prior=rd_d('b565_closing.txt'), desk=rd_d('b566_desk_notes.txt'), defects=rd_d('b566_defects.txt'),
+    :252            tr=jload('b566_trials.json'), tra=rd_d('b566_trial_a_build.txt'), trb=rd_d('b566_trial_b_build.txt'), route=jload('b566_route.json'),
+### relay b567_checks.py (the as-of import; the kernel and PLACE-papers reads) -- tools/b567_checks.py @ 3f1d1900
+    :122    import asof as AF   # noqa: E402
+    :123    AS_OF = AF.from_argv(sys.argv, AF.relay_asof(ROOT, D, 'b567'))
+    :197        k = R.kstate7()
+    :225            k=k, lean_ns=[x for x in gits(KER, 'diff', '--name-status', R.V09, 'origin/main', '--').split(NL) if x.strip()],
+    :230            pp_now={f: open(os.path.join(PP, f), 'rb').read().replace(b'\r\n', b'\n') for f in FIXED + CEIL + OTHER + [RESREL]},
+    :248            tracked=(sorted(x for x in gits(PP, 'show', '--name-only', '--pretty=format:', 'HEAD').split(NL) if x.strip())
+### relay the push-out bank`s form -- data/b568_closing_push_out.txt @ 3f1d1900
+    :1      push_gated: capture on -> /d/relay/data/b568_closing_push_out.txt (2026-10-01T05:19:49Z)
+    :2      push_gated: repo /d/relay ; branch push-b568-closing ; tip 2bc9eb7b9bdf567a87bd804352c8c456a1b309a7 ; checkout before main
+    :5      push_gated: main read back at the remote: 2bc9eb7b9bdf567a87bd804352c8c456a1b309a7
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+### relay terminal_table.py (the diff of grade cells) -- tools/terminal_table.py @ 3f1d1900
+    :917            was = {(x['repo'], x['name']): x for x in prior.get('rows', [])}
+    :918            now = {(r['repo'], r['name']): r for r in rows}
+    :919            added = sorted(set(now) - set(was))
+    :920            gone = sorted(set(was) - set(now))
+    :921            moved = [k for k in sorted(set(now) & set(was))
+### relay push_gated.sh (the push; the read-back) -- tools/push_gated.sh @ 3f1d1900
+    :69     git -C "$repo" push origin "$branch:main"
+    :78     remote_main=$(git -C "$repo" ls-remote origin refs/heads/main | cut -f1)
+    :80     if [ "$remote_main" != "$tip" ]; then
+### relay b566 closing (the heads at its close; the clones) -- data/b566_closing.txt @ 3f1d1900
+    :81           relay                        main ffec2543a4b0 ; remote ffec2543a4b0 ; AGREE
+    :82           PLACE-papers                 main 5ce2895233ad ; remote 5ce2895233ad ; AGREE
+    :84           SIDE-explicit-formula        main e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE
+    :99           v0.9                         peeled e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE
+    :103        the clones : D:/audit-b565/bulka @35df682f KEPT (its deletion not ordered at this act) ; D:/audit-b565/arda DELETED ; the worktree D:/b566-forward (branch vendor-bulka-forward-b566) KEPT, outside the corpus
+### relay b567 closing (the heads at its close; the clones) -- data/b567_closing.txt @ 3f1d1900
+    :44           relay                        main 9febc8a2f7c1 ; remote 9febc8a2f7c1 ; AGREE
+    :45           PLACE-papers                 main 5340891e615c ; remote 5340891e615c ; AGREE
+    :47           SIDE-explicit-formula        main 6baed63ae664 ; remote 6baed63ae664 ; AGREE
+    :64           v0.10                        peeled 6baed63ae664 ; remote 6baed63ae664 ; AGREE
+    :67         the clones : D:/audit-b565/bulka ABSENT ; the old build tree aside at D:/b567-lake-51e6992e PRESENT (not deleted: no ruling orders it) ; the worktree D:/b566-forward KEPT (its .lake moved to the checkout)
+### PLACE-papers the page`s head -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ f2e93b0d
+    :1      # THE CLAUSE AND ITS COMPILED FACES
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b568_nodes.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.10 = `6baed63` (Lean v4.34.0
+
+### the Vendored/Bulka module list at v0.10 (git ls-tree):
+    33 modules: FunctionsOfOneComplexVariable/BorelCaratheodory FunctionsOfOneComplexVariable/EntireLog Hadamard/Basic Hadamard/General Hadamard/General/Factorization Hadamard/OrderOne/CofiniteControl Hadamard/OrderOne/LocallyUniformProduct Hadamard/OrderOne/LogDeriv Hadamard/OrderOne/LogDerivMultiplicity Hadamard/OrderOne/MultipliableFactors Hadamard/OrderOne/OrderFromMaxModulus Hadamard/OrderOne/QuotientCancellation Hadamard/OrderOne/SummabilityMultiplicity Hadamard/OrderOne/TailEstimates Hadamard/OrderOne/ZeroCountingBounds Hadamard/Theorem Hadamard/ZeroCounting Hadamard/ZeroSet Hadamard/ZeroSetMultiplicity Lc/LiCriterion/Basic Lc/LiCriterion/Fidelity Lc/LiCriterion/GenusOne Lc/LiCriterion/GenusOnePairedSumFormula Lc/LiCriterion/HadamardBridge Lc/LiCriterion/HadamardSummabilityBridge Lc/LiCriterion/LogDerivPole Lc/LiCriterion/MobiusMap Lc/LiCriterion/Pringsheim Lc/LiCriterion/RHBridge Lc/LiCriterion/ReverseDirection Lc/LiCriterion/XiGrowth Lc/LiCriterion/XiOrderBridge Lc/XiZeros

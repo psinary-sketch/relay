@@ -1,0 +1,17 @@
+=== START 2026-10-01T05:46:36Z cwd=/d/SIDE-explicit-formula cmd=lake env lean _b569_conv_print.lean
+rh_imp_register4_positivity_liCoeff : RiemannHypothesis →
+  SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff
+register4_positivity_liCoeff_iff_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+    SIDEExplicitFormula.LiWeil.LiCoeff ↔
+  RiemannHypothesis
+rh_imp_taylorCoeff_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+taylorCoeff_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis
+'SIDEExplicitFormula.PageConverses.rh_imp_register4_positivity_liCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.PageConverses.rh_imp_taylorCoeff_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== END 2026-10-01T05:47:03Z rc=0

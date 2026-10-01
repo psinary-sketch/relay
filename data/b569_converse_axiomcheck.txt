@@ -1,0 +1,29 @@
+=== START 2026-10-01T06:56:49Z cwd=/d/SIDE-explicit-formula cmd=lake env lean AxiomCheckConverses.lean
+'SIDEExplicitFormula.PageConverses.rh_imp_register4_positivity_liCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.PageConverses.rh_imp_taylorCoeff_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LiCriterion.positivity_implies_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiCriterion.rh_equiv_mathlib' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.PageConverses.rh_imp_register4_positivity_liCoeff : RiemannHypothesis →
+  SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff
+SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+    SIDEExplicitFormula.LiWeil.LiCoeff ↔
+  RiemannHypothesis
+SIDEExplicitFormula.PageConverses.rh_imp_taylorCoeff_nonneg : RiemannHypothesis →
+  ∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh : (∀ (n : ℕ),
+    0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔
+  RiemannHypothesis
+=== END 2026-10-01T06:57:17Z rc=0

@@ -1,0 +1,48 @@
+{
+ "rows": [
+  {
+   "prop": "Register4_positivity LiCoeff",
+   "node": "SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff ↔ RiemannHypothesis"
+  },
+  {
+   "prop": "∀ n, 0 ≤ (taylorCoeff riemannXi n).re",
+   "node": "SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis"
+  },
+  {
+   "prop": "RiemannHypothesis ~ h2_sign",
+   "node": "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis"
+  },
+  {
+   "prop": "∀ L₀, h2_sign_upto L₀",
+   "node": "SIDEExplicitFormula.B321.forall_upto_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis"
+  },
+  {
+   "prop": "conservationHypothesis",
+   "node": "SIDEExplicitFormula.B321.ch_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis"
+  },
+  {
+   "prop": "∀ n, 0 ≤ LiCoeff n",
+   "node": "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis"
+  },
+  {
+   "prop": "arithmetic-limit positivity",
+   "node": "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh",
+   "iff": true,
+   "statement": "theorem SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh : (∀ (n : ℕ) (L : ℂ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds L) → 0 ≤ L.re) ↔ RiemannHypothesis"
+  }
+ ],
+ "h20b": "HELD",
+ "n": 25
+}

@@ -1,0 +1,24 @@
+b569 -- COMPONENT 1: THE TWO CONVERSES, (R179)(2) -- BUILT, PRINTED, GRADED
+
+### the module : SIDEExplicitFormula/PageConverses.lean at grh-weil-b569 (23c29cc3)
+### the statements banked at (UTC) 2026-10-01T05:42:03Z ; the build started at (UTC) 2026-10-01T05:43:23Z ; statements first : True
+### the build : === START 2026-10-01T05:43:23Z cwd=/d/SIDE-explicit-formula cmd=lake build +SIDEExplicitFormula.PageConverses ; ✔ [3834/3834] Built SIDEExplicitFormula.PageConverses (71s) ; Build completed successfully (3834 jobs). ; === END 2026-10-01T05:46:27Z rc=0
+### the module`s own warnings in the build : 0
+
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+
+    :27   rh_imp_register4_positivity_liCoeff      E0 DERIVES     axioms ['propext', 'Classical.choice', 'Quot.sound']
+          : RiemannHypothesis → Register4_positivity LiCoeff
+    :32   register4_positivity_liCoeff_iff_rh      E0 DERIVES     axioms ['propext', 'Classical.choice', 'Quot.sound']
+          : Register4_positivity LiCoeff ↔ RiemannHypothesis
+    :37   rh_imp_taylorCoeff_nonneg                E0 DERIVES     axioms ['propext', 'Classical.choice', 'Quot.sound']
+          : RiemannHypothesis → ∀ n : ℕ, 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+    :45   taylorCoeff_nonneg_iff_rh                E0 DERIVES     axioms ['propext', 'Classical.choice', 'Quot.sound']
+          : (∀ n : ℕ, 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis
+
+### ### **THE FOUR AT THE STANDARD THREE, E0 DERIVES : True** -- the converse of each compiled implication is now a compiled implication, and each iff is a compiled equivalence; no new analysis.

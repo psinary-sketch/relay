@@ -1,0 +1,151 @@
+b569 -- COMPONENT 3: BULKA`S MODULES READ FOR GENERICITY (W-ORD-BULKA-GENERIC), UNDER (R179)(6) -- NO BUILD
+
+### the modules : Vendored/Bulka at SIDE-explicit-formula v0.10 = 6baed63 (33 .lean files)
+### THE RULE (b564`s face :75-:76, :110-:114; b562`s rule carried; reading (vi) of this act`s face): a module is
+###   ζ-SPECIFIC if its comment-stripped code names a ζ object -- riemannZeta, completedRiemannZeta, riemannZeta_*,
+###   completedRiemannZeta_* (a ζ lemma of Mathlib named by its name: the pattern below, a name containing either
+###   stem after a non-alphanumeric) -- or imports a ζ-specific module. H21d counts the FIRST clause alone.
+### the pattern : (?<![A-Za-z0-9])(?:completedRiemannZeta|riemannZeta)[A-Za-z0-9_₀\']*
+### controls : a known ζ line is found True ; a commented ζ object is not found after stripping True
+
+    FunctionsOfOneComplexVariable.BorelCaratheodory      GENERIC                code lines naming a ζ object   0 (with comments   0)
+    FunctionsOfOneComplexVariable.EntireLog              GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.Basic                                       GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.General                                     GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.General.Factorization                       GENERIC                code lines naming a ζ object   0 (with comments   1)
+    Hadamard.OrderOne.CofiniteControl                    GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.LocallyUniformProduct              GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.LogDeriv                           GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.LogDerivMultiplicity               GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.MultipliableFactors                GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.OrderFromMaxModulus                GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.QuotientCancellation               GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.SummabilityMultiplicity            GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.TailEstimates                      GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.OrderOne.ZeroCountingBounds                 GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.Theorem                                     GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.ZeroCounting                                GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.ZeroSet                                     GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Hadamard.ZeroSetMultiplicity                         GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Lc.LiCriterion.Basic                                 ζ-SPECIFIC (names)     code lines naming a ζ object  38 (with comments  48)
+        :117   {ρ : ℂ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}
+        :1253  (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+        :1260  simp [completedRiemannZeta₀_conj, h2, map_add, map_mul, map_sub]
+        :1270  have hprod : Differentiable ℂ (fun s : ℂ => (s * (s - 1)) * completedRiemannZeta₀ s) := by
+        :1274  (fun s : ℂ => (1 / 2 : ℂ) * ((s * (s - 1)) * completedRiemannZeta₀ s)) :=
+        :1278  Differentiable ℂ (fun s : ℂ => (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s) := by
+        :1289  lemma completedRiemannZeta_ne_zero_of_one_lt_re {s : ℂ} (hs : 1 < s.re) :
+        :1290  completedRiemannZeta s ≠ 0 := by
+        :1295  have hzeta : riemannZeta s ≠ 0 := riemannZeta_ne_zero_of_one_lt_re hs
+        :1297  have hzeta' : completedRiemannZeta s / Gammaℝ s ≠ 0 := by
+        :1298  simpa [riemannZeta_def_of_ne_zero hs0] using hzeta
+        :1310  have hLambda : completedRiemannZeta s ≠ 0 := completedRiemannZeta_ne_zero_of_one_lt_re hs
+        :1312  riemannXi s = (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta s := by
+        :1321  have : (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta s ≠ 0 := by
+        :1447  have hfe : completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s :=
+        :1448  completedRiemannZeta₀_one_sub s
+        :1452  = (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ) := by
+        :1454  _   = (1 / 2 : ℂ) * ((1 - s) * ((1 - s) - 1)) * completedRiemannZeta₀ s + (1 / 2 : ℂ) := by
+        :1457  congrArg (fun t => (1 / 2 : ℂ) * t * completedRiemannZeta₀ s) hpoly
+        :1458  _   = (1 / 2 : ℂ) * (1 - s) * ((1 - s) - 1) * completedRiemannZeta₀ (1 - s) + (1 / 2 : ℂ) := by
+        :1460  have hfe' : completedRiemannZeta₀ s = completedRiemannZeta₀ (1 - s) := by
+        :1646  have hζ : riemannZeta (1 - s) = 0 := by
+        :1647  have hfe := riemannZeta_one_sub (s := s) hs_not_neg hs_ne_one
+        :4353  ∀ z ∈ Metric.ball ρ.val ε, z ≠ ρ.val → riemannZeta z ≠ 0 := by
+        :4362  have h_diff : DifferentiableAt ℂ riemannZeta ρ.val := differentiableAt_riemannZeta h_ne_one
+        :4365  have h_analytic : AnalyticAt ℂ riemannZeta ρ.val := by
+        :4367  have h_diff_on : DifferentiableOn ℂ riemannZeta {w : ℂ | w ≠ 1} := fun w hw =>
+        :4368  (differentiableAt_riemannZeta hw).differentiableWithinAt
+        :4390  have hf_analytic : AnalyticOnNhd ℂ riemannZeta U := by
+        :4392  have h_diff : DifferentiableAt ℂ riemannZeta w := differentiableAt_riemannZeta hw
+        :4394  have h_diff_on : DifferentiableOn ℂ riemannZeta {z : ℂ | z ≠ 1} := fun z hz =>
+        :4395  (differentiableAt_riemannZeta hz).differentiableWithinAt
+        :4403  have h_eq : riemannZeta =ᶠ[𝓝 ρ.val] fun _ => 0 := h_zero
+        :4405  have h_eq_on : EqOn riemannZeta (fun _ : ℂ => (0 : ℂ)) U :=
+        :4412  have h_zeta_2_zero : riemannZeta 2 = 0 := h_eq_on h2_in_U
+        :4414  rw [riemannZeta_two] at h_zeta_2_zero
+        :4542  have hS_eq : S = {z : ℂ | riemannZeta z = 0 ∧ 0 < z.re ∧ z.re < 1} := by
+        :4564  have : riemannZeta t ≠ 0 := h_ball t ht_ball h
+    Lc.LiCriterion.Fidelity                              ζ-SPECIFIC (names)     code lines naming a ζ object   1 (with comments   2)
+        :107   rw [riemannXi, riemannXi, completedRiemannZeta₀_one_sub]
+    Lc.LiCriterion.GenusOne                              GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Lc.LiCriterion.GenusOnePairedSumFormula              ζ-SPECIFIC (names)     code lines naming a ζ object   7 (with comments   7)
+        :2090  (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2) ↔
+        :2143  (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) ↔
+        :2198  ∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2 := by
+        :2208  (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2) ↔
+        :2218  ((∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) ↔
+        :2233  ((∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) ↔
+        :2249  ((∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) ↔
+    Lc.LiCriterion.HadamardBridge                        ζ-SPECIFIC (imports)   code lines naming a ζ object   0 (with comments   0)
+    Lc.LiCriterion.HadamardSummabilityBridge             ζ-SPECIFIC (imports)   code lines naming a ζ object   0 (with comments   0)
+    Lc.LiCriterion.LogDerivPole                          GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Lc.LiCriterion.MobiusMap                             GENERIC                code lines naming a ζ object   0 (with comments   0)
+    Lc.LiCriterion.Pringsheim                            ζ-SPECIFIC (names)     code lines naming a ζ object   3 (with comments   6)
+        :205   lemma completedRiemannZeta₀_conj (s : ℂ) :
+        :206   completedRiemannZeta₀ (conj s) = conj (completedRiemannZeta₀ s) := by
+        :207   simpa [completedRiemannZeta₀] using
+    Lc.LiCriterion.RHBridge                              ζ-SPECIFIC (names)     code lines naming a ζ object  10 (with comments  10)
+        :45    (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) := by
+        :64    exact (riemannZeta_ne_zero_of_one_le_re hs_ge_one) hs
+        :70    rw [hs0, riemannZeta_zero] at hs
+        :81    have hCompleted : completedRiemannZeta s = 0 := by
+        :82    rw [riemannZeta_def_of_ne_zero hs_ne_zero] at hs
+        :90    have hCompleted' : completedRiemannZeta (1 - s) = 0 := by
+        :91    rw [completedRiemannZeta_one_sub]
+        :93    have h1ms_zero : riemannZeta (1 - s) = 0 := by
+        :94    rw [riemannZeta_def_of_ne_zero h1ms_ne_zero, hCompleted', zero_div]
+        :95    exact (riemannZeta_ne_zero_of_one_le_re h1ms_ge_one) h1ms_zero
+    Lc.LiCriterion.ReverseDirection                      ζ-SPECIFIC (names)     code lines naming a ζ object   1 (with comments   1)
+        :415   (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2) := by
+    Lc.LiCriterion.XiGrowth                              ζ-SPECIFIC (names)     code lines naming a ζ object  10 (with comments  12)
+        :141   lemma completedRiemannZeta₀_eq_mellin (s : ℂ) :
+        :142   completedRiemannZeta₀ s = (mellin PR.f_modif (s / 2)) / 2 := rfl
+        :414   lemma norm_completedRiemannZeta₀_le {C p : ℝ} (hC : 0 < C) (hp : 0 < p)
+        :416   ‖completedRiemannZeta₀ z‖ ≤ bnd C p ‖z‖ := by
+        :417   rw [completedRiemannZeta₀_eq_mellin, norm_div]
+        :521   have hΛ : ‖completedRiemannZeta₀ z‖ ≤ bnd C p r := norm_completedRiemannZeta₀_le hC hp hker z
+        :523   have hdef : riemannXi z = (1/2 : ℂ) * z * (z - 1) * completedRiemannZeta₀ z + (1/2 : ℂ) := rfl
+        :526   have h1 : ‖(1/2 : ℂ) * z * (z - 1) * completedRiemannZeta₀ z‖
+        :527   = (1/2) * r * ‖z - 1‖ * ‖completedRiemannZeta₀ z‖ := by
+        :533   have hstep : (1/2) * r * ‖z - 1‖ * ‖completedRiemannZeta₀ z‖
+    Lc.LiCriterion.XiOrderBridge                         ζ-SPECIFIC (imports)   code lines naming a ζ object   0 (with comments   3)
+    Lc.XiZeros                                           ζ-SPECIFIC (names)     code lines naming a ζ object  17 (with comments  24)
+        :69    {ρ : ℂ // riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}
+        :73    (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+        :79    riemannXi s = (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta s := by
+        :83    have h := completedRiemannZeta_eq s
+        :116   (hzeta : riemannZeta s = 0) : completedRiemannZeta s = 0 := by
+        :124   rw [riemannZeta_def_of_ne_zero hs0] at hzeta
+        :130   (hLambda : completedRiemannZeta s = 0) : riemannZeta s = 0 := by
+        :132   rw [riemannZeta_def_of_ne_zero hs0, hLambda, zero_div]
+        :160   have h_Lambda : completedRiemannZeta s = 0 := by
+        :171   have hz : riemannZeta s ≠ 0 := riemannZeta_ne_zero_of_one_le_re h
+        :173   rw [riemannZeta_def_of_ne_zero hs0, div_ne_zero_iff] at hz
+        :182   have hz : riemannZeta (1 - s) ≠ 0 := riemannZeta_ne_zero_of_one_le_re h1ms_re
+        :183   have hL1ms : completedRiemannZeta (1 - s) = 0 := by
+        :184   rw [completedRiemannZeta_one_sub s]
+        :187   rw [riemannZeta_def_of_ne_zero h1ms_ne_zero, div_ne_zero_iff] at hz
+        :189   have hzeta : riemannZeta s = 0 :=
+        :208   have h_Lambda : completedRiemannZeta ρ.val = 0 :=
+
+### ### **NAMING A ζ OBJECT IN COMMENT-STRIPPED CODE : 8 OF 33** ['Lc.LiCriterion.Basic', 'Lc.LiCriterion.Fidelity', 'Lc.LiCriterion.GenusOnePairedSumFormula', 'Lc.LiCriterion.Pringsheim', 'Lc.LiCriterion.RHBridge', 'Lc.LiCriterion.ReverseDirection', 'Lc.LiCriterion.XiGrowth', 'Lc.XiZeros']
+### ### **ζ-SPECIFIC BY THE RULE (NAMING, OR IMPORTING SUCH A MODULE) : 11 OF 33** ; GENERIC 22
+### ### **H21d (at most three of the modules name riemannZeta) : REFUTED** -- the count is 8.
+
+### WHETHER THE CONVERSE IS AN ARGUMENT OVER A ZeroConfig -- the seat`s reading, from the lines above:
+### The converse (`positivity_implies_RH`, ReverseDirection :413) is not stated or proved over a zero configuration: it
+### is stated for Bulka`s own `riemannXi` (Lc.XiZeros, Lc.LiCriterion.Basic :1252, built from `completedRiemannZeta₀`)
+### and its own zero type `NontrivialZero` (Basic :116), and Zeta23`s `ZeroConfig` appears in none of the modules. Its
+### proof has three steps (ReverseDirection :413-:427): (1) `phi_nonzero_unit_disk_of_nonneg` (:335) -- nonnegative real
+### parts of the Taylor coefficients of the log-derivative of φ(z) = ξ(1/(1 − z)) force φ to have no zero in the unit
+### disc; the module names no ζ object outside the theorem`s conclusion (:415), and the step reads as an argument about
+### an entire function with φ(0) ≠ 0, specialised to `riemannXi`; (2) `re_le_half_of_phi_nonzero` (:400) -- a zero ρ
+### gives a zero of φ at 1 − 1/ρ, inside the disc when Re ρ > 1/2; (3) `pairedZero` (Basic :1668) -- the reflection
+### ρ ↦ 1 − ρ from the functional equation (`completedRiemannZeta₀_one_sub`, Fidelity :107; RHBridge :90-:91) gives the
+### other inequality. The ζ-specific inputs are therefore the definition of ξ, the identification of its zeros with
+### ζ`s nontrivial zeros (RHBridge :45-:95, XiZeros) and the reflection; the power-sum identity
+### (`taylorCoeff_eq_li_symmetrized`, Fidelity :140) is the forward direction`s and the bridge`s, not the converse`s, and
+### its module names a ζ object (Fidelity :107). For L(s, χ) at primitive χ ≠ 1 the reflection is ρ ↦ 1 − ρ̄ (the
+### functional equation pairs χ with χ̄), so step (3) does not carry over as written; steps (1)-(2) read as generic in
+### substance but are stated for `riemannXi`. A reading; nothing is built.

@@ -1,0 +1,18 @@
+=== START 2026-10-01T06:45:39Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/CountByIntegral.lean
+SIDEExplicitFormula/Chi/CountByIntegral.lean:45:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  completedLFunction χ⁻¹ s
+in the target expression
+  completedLFunction χ s ≠ 0
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ.IsPrimitive
+h1 : χ ≠ 1
+s : ℂ
+hs : s.re ≤ 0
+hinvp : χ⁻¹.IsPrimitive
+hinv1 : χ⁻¹ ≠ 1
+hFE : completedLFunction χ⁻¹ s = ↑N ^ (1 - s - 1 / 2) * χ⁻¹.rootNumber * completedLFunction χ (1 - s)
+⊢ completedLFunction χ s ≠ 0
+=== END 2026-10-01T06:46:01Z rc=1

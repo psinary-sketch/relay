@@ -1,0 +1,40 @@
+test_push_gated: script /d/relay/tools/push_gated.sh ; sha256 f3e32fcc775daace ; scratch C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza
+### CASE A -- equal read-back
+  A exit : wanted 0 ; got 0 ; PASS
+  A tag made locally : wanted yes ; got yes ; PASS
+  A tag peeled = pushed tip : wanted f32ae2ddcf4ac8211792610d3a37c555fe53d2cc ; got f32ae2ddcf4ac8211792610d3a37c555fe53d2cc ; PASS
+  A tag made after the read-back line : wanted yes ; got yes ; PASS
+### CASE B -- the read-back made to MISMATCH (the remote's post-receive hook moves main back to base)
+  B exit : wanted 4 ; got 4 ; PASS
+  B the script printed the unequal read-back : wanted yes ; got yes ; PASS
+  B NO tag made locally : wanted no ; got no ; PASS
+  B NO tag at the remote : wanted no ; got no ; PASS
+### CASE C -- the main push refused (the remote's pre-receive hook exits 1)
+  C exit : wanted 3 ; got 3 ; PASS
+  C NO tag made locally : wanted no ; got no ; PASS
+  C NO tag at the remote : wanted no ; got no ; PASS
+### CASE D -- a tag made by hand before the run
+  D exit : wanted 7 ; got 7 ; PASS
+  D remote main unmoved : wanted c3a27db09fbc4e7c6d1c311a3da0d1e36783e3c2 ; got c3a27db09fbc4e7c6d1c311a3da0d1e36783e3c2 ; PASS
+  D NO tag at the remote : wanted no ; got no ; PASS
+### CASE E -- a branch not push-* or repair-*
+  E exit : wanted 2 ; got 2 ; PASS
+  E NO tag made locally : wanted no ; got no ; PASS
+### CASE F -- NAME::MESSAGE
+  F exit : wanted 0 ; got 0 ; PASS
+  F the tag's message : wanted v0 -- the test's message ; got v0 -- the test's message ; PASS
+### CASE G -- the table check (--prior C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/G/prior.json --now C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/G/same.json --face C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/G/face_none.txt)
+  G exit : wanted 0 ; got 0 ; PASS
+  G the table check ran before the push : wanted yes ; got yes ; PASS
+  G remote main = pushed tip : wanted 9307d92cb2825f7398383eb475f4995678f122c8 ; got 9307d92cb2825f7398383eb475f4995678f122c8 ; PASS
+### CASE H -- the table check (--prior C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/H/prior.json --now C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/H/mut.json --face C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/H/face_none.txt)
+  H exit : wanted 9 ; got 9 ; PASS
+  H the table check ran before the push : wanted yes ; got yes ; PASS
+  H remote main unmoved : wanted c8b7f65c3ac908da0a20886d1f999554a04f67ac ; got c8b7f65c3ac908da0a20886d1f999554a04f67ac ; PASS
+  H the moved cell printed : wanted yes ; got yes ; PASS
+  H checkout restored : wanted main ; got main ; PASS
+### CASE I -- the table check (--prior C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/I/prior.json --now C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/I/mut.json --face C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/452b72e9-f3e1-4aaa-9db8-69b6fa393ce3/scratchpad/tmp.lZHhNZLcza/I/face_named.txt)
+  I exit : wanted 0 ; got 0 ; PASS
+  I the table check ran before the push : wanted yes ; got yes ; PASS
+  I remote main = pushed tip : wanted 87866679ee0ff5a12b15cf9a51243ca86ff4fcaf ; got 87866679ee0ff5a12b15cf9a51243ca86ff4fcaf ; PASS
+### ### **29 of 29 checks as wanted -- PASS**

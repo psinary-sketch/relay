@@ -1,0 +1,14 @@
+### b569 -- COMPONENT 1: THE TWO CONVERSES, (R179)(2) -- THE STATEMENTS, PRINTED BEFORE THE BUILD. written at (UTC) 2026-10-01T05:42:03Z
+### the module : SIDE-explicit-formula SIDEExplicitFormula/PageConverses.lean, on grh-weil-b569 cut from v0.10 = 6baed63ae664 ; namespace SIDEExplicitFormula.PageConverses ; imports SIDEExplicitFormula.ResidueDischarge
+### the forward pieces, compiled at v0.10 : ResidueDischarge.lean :41 register4_positivity_liCoeff_imp_rh ; LiWeil.lean :267 rh_imp_li_nonneg ; LiCriterionBridge.lean :149 li_coeff_eq_taylorCoeff ; Vendored/Bulka Lc/LiCriterion/ReverseDirection.lean :413 positivity_implies_RH ; Lc/LiCriterion/RHBridge.lean :43 rh_equiv_mathlib
+
+(C1) theorem rh_imp_register4_positivity_liCoeff : RiemannHypothesis → ResidueDischarge.Register4_positivity LiWeil.LiCoeff
+       -- from rh_imp_li_nonneg through the restated predicate (∀ n, 1 ≤ n → 0 ≤ lam n)
+(C2) theorem register4_positivity_liCoeff_iff_rh : ResidueDischarge.Register4_positivity LiWeil.LiCoeff ↔ RiemannHypothesis
+       -- ⟨register4_positivity_liCoeff_imp_rh, rh_imp_register4_positivity_liCoeff⟩
+(C3) theorem rh_imp_taylorCoeff_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+       -- from rh_imp_li_nonneg at n + 1 through li_coeff_eq_taylorCoeff
+(C4) theorem taylorCoeff_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis
+       -- → : LiCriterion.rh_equiv_mathlib.mpr ∘ LiCriterion.positivity_implies_RH ; ← : (C3)
+
+### EXPECTED (R179)(2): DERIVES at the standard three with no new analysis; HELD with the difference named if the restated predicate's form does not match.

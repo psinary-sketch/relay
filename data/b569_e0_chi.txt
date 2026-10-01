@@ -1,0 +1,78 @@
+b569 -- COMPONENT 5: THE E0 READ (chi) -- EVERY DECLARATION GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+
+### the prints of record: relay data/b569_chi_prints.txt ; the statements at 19b7d1e (main).
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+
+    analyticOnNhd_LFunction                      DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    norm_LFunction_le_of_re_pos                  DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hσ : 0 < s.re
+    norm_div_re_le                               DERIVES    std3  -- domain conditions only: hσ : 0 < s.re
+    LFunction_linear_growth                      DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hδ : 0 < δ, hσ : δ ≤ s.re, ht : 1 ≤ |s.im|
+    LFunction_growth                             DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hδ : 0 < δ
+    LFunction_growth_quarter                     DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    LFunction_growth_right_at                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hσ : (0.15 : ℝ) ≤ s.re
+    LFunction_growth_right                       DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    norm_LFunction_sub_one_le                    DERIVES    std3  -- domain conditions only: hs : 2 ≤ s.re
+    pi_sq_div_six_sub_one_lt_one'                DERIVES    std3  -- no hypothesis binder
+    one_third_lt_two_sub_pi_sq_div_six'          DERIVES    std3  -- no hypothesis binder
+    norm_LFunction_ge_of_two_le_re               DERIVES    std3  -- domain conditions only: hs : 2 ≤ s.re
+    LFunction_lower_bound_two                    DERIVES    std3  -- no hypothesis binder
+    LFunction_ne_zero_of_two_le_re               DERIVES    std3  -- domain conditions only: hs : 2 ≤ s.re
+    norm_LFunction_le_of_two_le_re               DERIVES    std3  -- domain conditions only: hs : 2 ≤ s.re
+    LFunction_zeros_finite_of_isCompact          INTERFACES std3  -- hK : IsCompact K
+    gfunChi                                      DEFINITION std3  -- 
+    comp_affine_analyticAt_chi                   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    gfunChi_analyticAt                           DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    analyticOrderNatAt_gfunChi                   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hc : c ≠ 0, hu : u ≠ 0
+    NhalfChi                                     DEFINITION std3  -- 
+    half_count_large_chi                         DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    count_small_chi                              DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, ht : |t| ≤ 4
+    chiZeroConfig_local_count                    DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    chi_zero_sum_inv_sq                          DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    EF_zero_sum_summable_chi                     INTERFACES std3  -- hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k
+    differentiableAt_gammaFactor                 DERIVES    std3  -- domain conditions only: hs : 0 < s.re
+    completedLFunction_eventuallyEq_mul          DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+    logDeriv_completedLFunction                  DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hL : LFunction χ s ≠ 0, hs : 0 < s.re
+    completedLFunction_ne_zero_of_one_le_re      DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 1 ≤ s.re
+    rootNumber_ne_zero                           DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    logDeriv_completedLFunction_one_sub          DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hne : completedLFunction χ⁻¹ s ≠ 0
+    completedLFunction_zeros_strip               DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, h : 0 < ρ.re
+    analyticAt_completedLFunction                DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    completedLFunction_eq_zero_iff_of_re_pos     DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+    completedLFunction_ne_zero_of_re_nonpos      DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hs : s.re ≤ 0
+    completedLFunction_eq_zero_iff               DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+    analyticOrderNatAt_completedLFunction        DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, h : 0 < ρ.re
+    LFunction_logDeriv_partial_fraction          DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    isNontrivialZeroChi_of_mem_closedBall        DERIVES    std3  -- domain conditions only: hχ1 : χ ≠ 1, hr : r < 2, hρ : ρ ∈ Metric.closedBall (2 + t * I) r, hz : LFunction χ ρ = 0
+    sum_mult_six_windows_chi                     DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, hχ1 : χ ≠ 1, hF : ∀ ρ ∈ F, (a : ℝ) < (ρ : ℂ).im ∧ (ρ : ℂ).im ≤ (a : ℝ) + 6
+    card_le_sum_mult_chi                         DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, hχ1 : χ ≠ 1
+    good_heights_at_chi                          DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, hχ1 : χ ≠ 1
+    good_heights_chi                             DERIVES    std3  -- domain conditions only: hχ : χ.IsPrimitive, hχ1 : χ ≠ 1
+
+### THE CONSUMED TERMINALS, their prints:
+    DirichletCharacter.LFunction_eq_LSeries                      std3
+    DirichletCharacter.IsPrimitive.completedLFunction_one_sub    std3
+    Zeta23.WeilEF.EF_zero_sum_summable_gen                       std3
+    Zeta23.WeilEF.logDeriv_partial_fraction_disk                 std3
+    ZerosBound                                                   std3
+    SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral        std3
+    SIDEExplicitFormula.GRHWeil.norm_integral_tail_le            std3
+
+### THE SALT-CHECK -- Lean`s #print of each definition (no sorry):
+    def SIDEExplicitFormula.GRHWeil.gfunChi : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℂ → ℂ → ℂ → ℂ :=
+    fun {N} [NeZero N] χ s₀ c u z => DirichletCharacter.LFunction χ (s₀ + c * z) * u
+    def SIDEExplicitFormula.GRHWeil.NhalfChi : {N : ℕ} →
+      [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → ℝ → ℝ :=
+### ### **THE SALT-CHECK: True** (2 definitions)
+
+### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 19b7d1e):
+    EF_zero_sum_summable_chi                 defenc False  | check True
+    chiZeroConfig_local_count                defenc False  | check True
+    good_heights_chi                         defenc False  | check True
+    logDeriv_completedLFunction_one_sub      defenc False  | check True
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; EVERY HEADER READ True ; THEOREMS 42 (DERIVES 40, INTERFACES 2) ; DEFINITIONS 2 ; CONSUMED 7 AT THE STANDARD THREE True ; THE SALT-CHECK True => PASS**

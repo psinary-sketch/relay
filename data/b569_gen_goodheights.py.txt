@@ -1,0 +1,67 @@
+import io, re, subprocess
+src = subprocess.run(['git', '-C', 'D:/SIDE-explicit-formula', 'show', '6baed63:Zeta23/WeilEF/GoodHeights.lean'],
+                     capture_output=True).stdout.decode('utf-8').split('\n')
+# the zeta-specific declarations: from `isNontrivialZero_of_mem_closedBall`'s docstring to before `end WeilEF`,
+# minus the generic `im_mem_of_mem_closedBall` (kept in Zeta23 and used from there by `open`)
+start = next(i for i, l in enumerate(src) if l.startswith('/-- a zero of ζ in the closed ball'))
+end = next(i for i, l in enumerate(src) if l.startswith('end WeilEF'))
+body = '\n'.join(src[start:end]).rstrip() + '\n'
+a = body.index('lemma im_mem_of_mem_closedBall')
+b = body.index('/-- a finite set of nontrivial zeros')
+body = body[:a] + body[b:]
+reps = [
+    # declarations: names and binders
+    ('/-- a zero of ζ in the closed ball of radius r₀ < 2 about 2 + t i is a nontrivial zero. -/\nlemma isNontrivialZero_of_mem_closedBall {t r : ℝ}',
+     '/-- a zero of `L(·, χ)` in the closed ball of radius r₀ < 2 about 2 + t i is a nontrivial zero. -/\ntheorem isNontrivialZeroChi_of_mem_closedBall {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {t r : ℝ}'),
+    ('(hz : riemannZeta ρ = 0) : IsNontrivialZero ρ := by', '(hz : LFunction χ ρ = 0) : IsNontrivialZeroChi χ ρ := by'),
+    ('  exact riemannZeta_ne_zero_of_one_le_re (not_lt.mp h) hz', '  exact LFunction_ne_zero_of_one_le_re χ (Or.inl h1) (not_lt.mp h) hz'),
+    ('lemma sum_mult_six_windows {A₀ : ℝ}', 'theorem sum_mult_six_windows_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {A₀ : ℝ}'),
+    ('lemma card_le_sum_mult (F', 'theorem card_le_sum_mult_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (F'),
+    ('theorem good_heights_at : ∃ C', 'theorem good_heights_at_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : ∃ C'),
+    ('theorem good_heights : ∃ Cg', 'theorem good_heights_chi {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : ∃ Cg'),
+    # call sites
+    ('sum_mult_six_windows hLC', 'sum_mult_six_windows_chi hχ h1 hLC'),
+    ('card_le_sum_mult Fp, card_le_sum_mult Fm', 'card_le_sum_mult_chi hχ h1 Fp, card_le_sum_mult_chi hχ h1 Fm'),
+    ('isNontrivialZero_of_mem_closedBall (by norm_num) hρ hz', 'isNontrivialZeroChi_of_mem_closedBall h1 (by norm_num) hρ hz'),
+    ('  obtain ⟨C, hC, h⟩ := good_heights_at\n', '  obtain ⟨C, hC, h⟩ := good_heights_at_chi hχ h1\n'),
+    ('  obtain ⟨C, hC, hpf⟩ := zeta_logDeriv_partial_fraction\n', '  obtain ⟨C, hC, hpf⟩ := LFunction_logDeriv_partial_fraction h1\n'),
+    ('  obtain ⟨A₀, hA₀, hloc⟩ := Zeta23.RvM.zetaZeroConfig_local_count\n', '  obtain ⟨A₀, hA₀, hloc⟩ := chiZeroConfig_local_count hχ h1\n'),
+    ('rw [zetaZeroConfig_carrier]', 'rw [chiZeroConfig_carrier]'),
+    # objects
+    ('zetaZeroConfig', '(chiZeroConfig χ hχ h1)'),
+    ('riemannZeta', '(LFunction χ)'),
+]
+reps = [(o, re.sub(r'(?<![A-Za-z0-9_])h1(?![A-Za-z0-9_])', 'hχ1', n)) for o, n in reps]
+for o, n in reps:
+    assert o in body, o[:70]
+    body = body.replace(o, n)
+head = '''/-
+SIDE-explicit-formula -- SIDEExplicitFormula/Chi/GoodHeights.lean
+THIS PROGRAMME'S WORK (act b569, ruling (R179)(6); W-ORD-GRH-WEIL, act four) -- NOT VENDORED.
+SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+
+THE χ-ANALOGUE OF Zeta23/WeilEF/GoodHeights.lean: good heights for `L(·, χ)`, primitive `χ ≠ 1` -- for every `j ≥ 7` a
+height `R ∈ [j, j+1]` with `L(s, χ) ≠ 0` and `‖L'/L(s, χ)‖ ≤ C log²(j + 3)` on both horizontal segments `Im s = ±R`,
+`1/2 ≤ Re s ≤ 2`, and the consumed re-indexed form. The proof is Zeta23's, carried with `zetaZeroConfig` replaced by
+`chiZeroConfig χ hχ h1`, `riemannZeta` by `LFunction χ`, Zeta23's partial fraction and local count by their
+χ-analogues (Chi/Landau.lean, Chi/LocalCount.lean); Zeta23's generic lemmas (the pigeonhole `exists_far_point`, the ball
+geometry, `Tail`'s window sums) are used from Zeta23 unchanged. Generated from the vendored file by relay
+data/b569_gen_goodheights.py.txt. Nothing here proves GRH or locates any zero.
+-/
+import SIDEExplicitFormula.Chi.Landau
+import SIDEExplicitFormula.Chi.LocalCount
+import Zeta23.WeilEF.GoodHeights
+
+noncomputable section
+
+namespace SIDEExplicitFormula
+namespace GRHWeil
+
+open Complex Set Filter Finset DirichletCharacter Zeta23 Zeta23.WeilEF
+
+variable {N : ℕ} [NeZero N]
+
+'''
+out = head + body + '\nend GRHWeil\nend SIDEExplicitFormula\n'
+io.open('D:/SIDE-explicit-formula/SIDEExplicitFormula/Chi/GoodHeights.lean', 'w', encoding='utf-8', newline='\n').write(out)
+print('written', len(out.split('\n')), 'lines; leftover zeta names:', re.findall(r'zeta\w*|IsNontrivialZero\b', body)[:10])

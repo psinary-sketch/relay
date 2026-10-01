@@ -1,0 +1,24 @@
+=== START 2026-10-01T06:41:32Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/XiLogDeriv.lean
+SIDEExplicitFormula/Chi/XiLogDeriv.lean:100:45: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ.IsPrimitive
+h1 : χ ≠ 1
+s : ℂ
+hne : completedLFunction χ⁻¹ s ≠ 0
+hN0 : ↑N ≠ 0
+hε : χ.rootNumber ≠ 0
+c : ℂ → ℂ := fun u => ↑N ^ (u - 1 / 2) * χ.rootNumber
+hc : c = fun u => ↑N ^ (u - 1 / 2) * χ.rootNumber
+hFE : (completedLFunction χ ∘ fun u => 1 - u) = fun u => c u * completedLFunction χ⁻¹ u
+hdΛ : DifferentiableAt ℂ (completedLFunction χ) (1 - s)
+hg : DifferentiableAt ℂ (fun u => 1 - u) s
+key :
+  logDeriv (fun u => c u * completedLFunction χ⁻¹ u) s = logDeriv (completedLFunction χ) (1 - s) * deriv (HSub.hSub 1) s
+hderiv : deriv (fun u => 1 - u) s = -1
+hcd : HasDerivAt c (↑N ^ (s - 1 / 2) * log ↑N * 1 * χ.rootNumber) s
+hc0 : c s ≠ 0
+hp : ↑N ^ (s - 1 / 2) ≠ 0
+⊢ ↑N ^ ((s * 2 - 1) / 2) * log ↑N / ↑N ^ ((s * 2 - 1) / 2) = log ↑N
+=== END 2026-10-01T06:42:09Z rc=1

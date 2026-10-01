@@ -1,0 +1,48 @@
+import Zeta23.WeilEF.Main
+/-! relay b569 Component 4's route probe ((R179)(6), reading (v)). Written by the seat into the scratchpad; not a kernel
+file. From `Zeta23.WeilEF.EF_lit_zetaZeroConfig`, every constant of its type and value, followed through every constant
+of a Zeta23 module and stopped at Mathlib; each reached Zeta23 constant printed with its module and the constant that
+first reached it. -/
+
+open Lean Elab Command
+
+namespace RouteProbe
+
+def modOf (env : Environment) (c : Name) : Name :=
+  match env.getModuleIdxFor? c with
+  | some i => env.header.moduleNames[i.toNat]!
+  | none => Name.anonymous
+
+def walk (env : Environment) (start : Name) : Array (Name × Name) := Id.run do
+  let some ci := env.find? start | return #[]
+  let mut stack : Array (Name × Name) := ci.getUsedConstantsAsSet.toArray.map (fun d => (d, start))
+  let mut seen : NameSet := ({} : NameSet).insert start
+  let mut out : Array (Name × Name) := #[]
+  while stack.size > 0 do
+    let (c, p) := stack.back!
+    stack := stack.pop
+    if seen.contains c then continue
+    seen := seen.insert c
+    if (modOf env c).getRoot != `Zeta23 then continue
+    out := out.push (c, p)
+    if let some cj := env.find? c then
+      for d in cj.getUsedConstantsAsSet.toArray do
+        unless seen.contains d do stack := stack.push (d, c)
+  return out
+
+end RouteProbe
+
+open RouteProbe in
+elab "#route_walk" : command => do
+  let env ← getEnv
+  let start := `Zeta23.WeilEF.EF_lit_zetaZeroConfig
+  match env.find? start with
+  | none => logInfo m!"@@MISSING {start}"
+  | some _ =>
+    let res := walk env start
+    logInfo m!"@@COUNT {res.size}"
+    for (c, p) in res do
+      logInfo m!"@@REACH {c} @@MOD {modOf env c} @@FROM {p}"
+    logInfo m!"@@DONE"
+
+#route_walk

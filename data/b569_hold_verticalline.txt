@@ -1,0 +1,18 @@
+=== START 2026-10-01T06:55:08Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/VerticalLine.lean
+SIDEExplicitFormula/Chi/VerticalLine.lean:47:41: error: linarith failed to find a contradiction
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+C : ℝ
+hC : 0 < C
+hG : ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv Gammaℝ (↑σ + ↑t * I)‖ ≤ C * Real.log (2 + |t|)
+σ t : ℝ
+h1 : 1 / 2 ≤ σ
+h2 : σ ≤ 3 / 2
+ho : χ.Odd
+e : χ.gammaFactor = fun s => (s + 1).Gammaℝ
+hs : ↑σ + ↑t * I + 1 = ↑(σ + 1) + ↑t * I
+a✝ : 3 / 2 < σ + 1
+⊢ False
+failed
+=== END 2026-10-01T06:55:33Z rc=1

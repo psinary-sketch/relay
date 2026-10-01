@@ -1,0 +1,119 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.PageConverses.rh_imp_register4_positivity_liCoeff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": RiemannHypothesis → Register4_positivity LiCoeff",
+   "file": "SIDEExplicitFormula/PageConverses.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Register4_positivity LiCoeff ↔ RiemannHypothesis",
+   "file": "SIDEExplicitFormula/PageConverses.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.PageConverses.rh_imp_taylorCoeff_nonneg": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": RiemannHypothesis → ∀ n : ℕ, 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re",
+   "file": "SIDEExplicitFormula/PageConverses.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (∀ n : ℕ, 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis",
+   "file": "SIDEExplicitFormula/PageConverses.lean",
+   "header_read": true
+  }
+ },
+ "consumed": {
+  "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.positivity_implies_RH": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LiCriterion.rh_equiv_mathlib": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "salt": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh",
+   "pin": "19b7d1e",
+   "file": "SIDEExplicitFormula/PageConverses.lean",
+   "check": "SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff ↔ RiemannHypothesis",
+   "axioms": null,
+   "doc": "**(C2)** The restated register-four positivity of the Li coefficients is equivalent to Mathlib's `RiemannHypothesis`.",
+   "body1": "⟨register4_positivity_liCoeff_imp_rh, rh_imp_register4_positivity_liCoeff⟩",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh",
+   "pin": "19b7d1e",
+   "file": "SIDEExplicitFormula/PageConverses.lean",
+   "check": "SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(C4)** The nonnegativity of the real parts of Bulka's Taylor coefficients of `ξ` is equivalent to Mathlib's `RiemannHypothesis`.",
+   "body1": "⟨fun h => LiCriterion.rh_equiv_mathlib.mpr (LiCriterion.positivity_implies_RH h), rh_imp_taylorCoeff_nonneg⟩",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "19b7d1e48a40ca22618722306194404423dca224",
+ "counts": {
+  "DERIVES": 4,
+  "INTERFACES": 0
+ }
+}

@@ -1,0 +1,59 @@
+import io, subprocess
+src = subprocess.run(['git', '-C', 'D:/SIDE-explicit-formula', 'show', '6baed63:Zeta23/WeilEF/Landau.lean'],
+                     capture_output=True).stdout.decode('utf-8').split('\n')
+# the zeta instance: from its docstring (line 522) to the line before `end WeilEF`
+start = next(i for i, l in enumerate(src) if l.startswith('/-- **Partial fraction for ζ\'/ζ at height t**'))
+end = next(i for i, l in enumerate(src) if l.startswith('end WeilEF'))
+body = '\n'.join(src[start:end]).rstrip() + '\n'
+reps = [
+    ("/-- **Partial fraction for ζ'/ζ at height t** (|t| ≥ 6): there is a finite set Z — exactly the\nζ-zeros",
+     "/-- **Partial fraction for L'/L at height t** (|t| ≥ 6), the χ-analogue of `zeta_logDeriv_partial_fraction`: there is a\nfinite set Z — exactly the zeros of `LFunction χ`"),
+    ("ζ'/ζ(s) = Σ_{ρ ∈ Z} m_ρ/(s−ρ) + O(log(|t|+3)). -/\ntheorem zeta_logDeriv_partial_fraction : ∃ C",
+     "L'/L(s) = Σ_{ρ ∈ Z} m_ρ/(s−ρ) + O(log(|t|+3)). -/\ntheorem LFunction_logDeriv_partial_fraction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : ∃ C"),
+    ("  obtain ⟨A, C₀, hC₀, hgrow⟩ := Zeta23.RvM.zeta_growth_quarter\n", "  obtain ⟨A, C₀, hC₀, hgrow⟩ := LFunction_growth_quarter h1\n"),
+    ("  have hζs₀ : riemannZeta s₀ ≠ 0 :=\n    riemannZeta_ne_zero_of_one_lt_re (by rw [hs₀re]; norm_num)\n",
+     "  have hζs₀ : (LFunction χ) s₀ ≠ 0 :=\n    LFunction_ne_zero_of_two_le_re χ (by rw [hs₀re])\n"),
+    ("Zeta23.RvM.zeta_lower_bound_two t", "LFunction_lower_bound_two χ t"),
+    ("  have hfa : AnalyticOnNhd ℂ riemannZeta (Metric.closedBall s₀ (91/50)) :=\n    Zeta23.RvM.analyticOnNhd_riemannZeta hone\n",
+     "  have hfa : AnalyticOnNhd ℂ (LFunction χ) (Metric.closedBall s₀ (91/50)) :=\n    analyticOnNhd_LFunction h1 _\n"),
+    ("Zeta23.RvM.norm_riemannZeta_le_of_two_le_re (s := w)", "norm_LFunction_le_of_two_le_re χ (s := w)"),
+    ("logDeriv_partial_fraction_disk (f := riemannZeta)", "Zeta23.WeilEF.logDeriv_partial_fraction_disk (f := (LFunction χ))"),
+    ("riemannZeta", "(LFunction χ)"),
+]
+for o, n in reps:
+    assert o in body, o[:60]
+    body = body.replace(o, n)
+# the pole check is not needed: drop the `hone` block
+a = body.index('  -- analyticity on the closed ball of radius 91/50\n  have hone')
+b = body.index('  have hfa :')
+body = body[:a] + '  -- analyticity on the closed ball of radius 91/50: `LFunction χ` is entire, no pole to avoid\n' + body[b:]
+head = '''/-
+SIDE-explicit-formula -- SIDEExplicitFormula/Chi/Landau.lean
+THIS PROGRAMME'S WORK (act b569, ruling (R179)(6); W-ORD-GRH-WEIL, act four) -- NOT VENDORED.
+SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+
+THE χ-ANALOGUE OF THE ζ-INSTANCE OF Zeta23/WeilEF/Landau.lean (`zeta_logDeriv_partial_fraction`, :528): Landau's
+partial fraction for `L'/L(s, χ)` near height `t`, from Zeta23's GENERIC `logDeriv_partial_fraction_disk` (any function
+analytic on a closed disc, nonzero at its centre, with a growth bound), with the growth and the bounds of
+Chi/ZetaGrowth.lean. The proof is Zeta23's, carried with `riemannZeta` replaced by `LFunction χ`; `LFunction χ` is entire
+for `χ ≠ 1`, so Zeta23's check that the disc avoids the pole at `1` is dropped. Generated from the vendored file by relay
+data/b569_gen_landau.py.txt (the replacements printed there). Nothing here proves GRH or locates any zero.
+-/
+import SIDEExplicitFormula.Chi.ZetaGrowth
+import Zeta23.WeilEF.Landau
+
+open Complex Set Filter Topology
+
+noncomputable section
+
+namespace SIDEExplicitFormula
+namespace GRHWeil
+
+open DirichletCharacter
+
+variable {N : ℕ} [NeZero N]
+
+'''
+out = head + body + '\nend GRHWeil\nend SIDEExplicitFormula\n'
+io.open('D:/SIDE-explicit-formula/SIDEExplicitFormula/Chi/Landau.lean', 'w', encoding='utf-8', newline='\n').write(out)
+print('written', len(out.split('\n')), 'lines')
