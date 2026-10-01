@@ -1,0 +1,110 @@
+=== START 2026-10-01T07:56:17Z cwd=/d/SIDE-explicit-formula cmd=lake env lean AxiomCheckChiAct5.lean
+'SIDEExplicitFormula.GRHWeil.digamma_growth_strip_wide' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.logDeriv_comp_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.neg_logDeriv_LFunction_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integrand_eq_tsum_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.per_n_line_integral_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.line_integral_swap_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.prime_side_line_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.analyticAt_gammaFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.rectangle_identity_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DirichletCharacter.LSeries_twist_vonMangoldt_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DirichletCharacter.LSeriesSummable_twist_vonMangoldt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.tilted_inversion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Analytic.rectangleIntegral'_mul_logDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.StirlingVert.digamma_stirling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.completedLFunction_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.GRHWeil.digamma_growth_strip_wide : ∃ C,
+  0 < C ∧ ∀ (s : ℂ), 1 / 4 ≤ s.re → s.re ≤ 2 → ‖s.digamma‖ ≤ C * Real.log (2 + |s.im|)
+SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide : ∃ C,
+  0 < C ∧ ∀ (σ t : ℝ), 3 / 2 ≤ σ → σ ≤ 5 / 2 → ‖logDeriv Complex.Gammaℝ (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)
+SIDEExplicitFormula.GRHWeil.logDeriv_comp_add_one : ∀ (f : ℂ → ℂ) (z : ℂ),
+  logDeriv (fun s => f (s + 1)) z = logDeriv f (z + 1)
+@SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N),
+  ∃ C,
+    0 < C ∧ ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv χ.gammaFactor (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)
+@SIDEExplicitFormula.GRHWeil.neg_logDeriv_LFunction_eq : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {s : ℂ},
+  1 < s.re →
+    -logDeriv (DirichletCharacter.LFunction χ) s =
+      LSeries ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) s
+@SIDEExplicitFormula.GRHWeil.integrand_eq_tsum_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}
+  {k : ℝ → ℂ} {c : ℝ},
+  1 < c →
+    ∀ (t : ℝ),
+      Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) * -logDeriv (DirichletCharacter.LFunction χ) (↑c + ↑t * Complex.I) =
+        ∑' (n : ℕ),
+          Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1 / 2)) ↑t *
+            LSeries.term ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) (↑c + ↑t * Complex.I) n
+@SIDEExplicitFormula.GRHWeil.per_n_line_integral_chi : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ} (n : ℕ),
+        1 / (2 * ↑Real.pi) *
+            ∫ (t : ℝ),
+              Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1 / 2)) ↑t *
+                LSeries.term ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) (↑c + ↑t * Complex.I) n =
+          ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) n * ↑(1 / √↑n) * k (Real.log ↑n)
+@SIDEExplicitFormula.GRHWeil.line_integral_swap_chi : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N} {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          ∫ (t : ℝ),
+              ∑' (n : ℕ),
+                Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1 / 2)) ↑t *
+                  LSeries.term ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) (↑c + ↑t * Complex.I)
+                    n =
+            ∑' (n : ℕ),
+              ∫ (t : ℝ),
+                Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1 / 2)) ↑t *
+                  LSeries.term ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) (↑c + ↑t * Complex.I) n
+@SIDEExplicitFormula.GRHWeil.prime_side_line_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N} {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          1 / (2 * ↑Real.pi) *
+              ∫ (t : ℝ),
+                Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) *
+                  -logDeriv (DirichletCharacter.LFunction χ) (↑c + ↑t * Complex.I) =
+            ∑' (n : ℕ),
+              ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) n * ↑(1 / √↑n) * k (Real.log ↑n)
+@SIDEExplicitFormula.GRHWeil.analyticAt_gammaFactor : ∀ {N : ℕ} [NeZero N] (ψ : DirichletCharacter ℂ N) {s : ℂ},
+  0 < s.re → AnalyticAt ℂ ψ.gammaFactor s
+@SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi : ∀ {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) {k : ℝ → ℂ},
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      ∀ {c : ℝ},
+        1 < c →
+          c ≤ 3 / 2 →
+            ∫ (t : ℝ),
+                (Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) + Zeta23.WeilEF.Hfn k (1 - ↑c - ↑t * Complex.I)) *
+                  logDeriv χ.gammaFactor (↑c + ↑t * Complex.I) =
+              ∫ (t : ℝ),
+                Zeta23.paperFT k ↑t *
+                  (logDeriv χ.gammaFactor (1 / 2 + ↑t * Complex.I) + logDeriv χ.gammaFactor (1 / 2 - ↑t * Complex.I))
+@SIDEExplicitFormula.GRHWeil.rectangle_identity_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ.IsPrimitive →
+    χ ≠ 1 →
+      ∀ {k : ℝ → ℂ},
+        ContDiff ℝ 2 k →
+          HasCompactSupport k →
+            ∀ {c : ℝ},
+              1 < c →
+                ∀ {R : ℝ},
+                  7 ≤ R →
+                    (∀ (s : ℂ),
+                        s.im = R ∨ s.im = -R →
+                          1 - c ≤ s.re → s.re ≤ c → DirichletCharacter.completedLFunction χ s ≠ 0) →
+                      ∃ Z,
+                        ↑Z = {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ ∧ -R < ρ.im ∧ ρ.im < R} ∧
+                          RectangleIntegral'
+                              (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s)
+                              (↑(1 - c) - ↑R * Complex.I) (↑c + ↑R * Complex.I) =
+                            ∑ ρ ∈ Z, ↑(SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ) * Zeta23.WeilEF.Hfn k ρ
+=== END 2026-10-01T07:56:38Z rc=0

@@ -1,0 +1,45 @@
+b570 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### vendored Zeta23 WeilEF/VerticalLine (digamma_growth_strip; norm_logDeriv_Gammaℝ_le; the prime side; gamma_line_shift) -- Zeta23/WeilEF/VerticalLine.lean @ 19b7d1e4
+    :100    theorem integrand_eq_tsum {k : ℝ → ℂ} {c : ℝ} (hc1 : 1 < c) (t : ℝ) :
+    :115    theorem per_n_line_integral {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+    :177    theorem line_integral_swap {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+    :238    theorem prime_side_line {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+    :261    theorem digamma_growth_strip : ∃ C : ℝ, 0 < C ∧ ∀ s : ℂ, 1/4 ≤ s.re → s.re ≤ 1 →
+    :626    lemma norm_logDeriv_Gammaℝ_le : ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 1 / 2 ≤ σ → σ ≤ 3 / 2 →
+    :659    theorem gamma_line_shift {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+### the held attempt (b569) -- SIDEExplicitFormula/Chi/VerticalLine.lean @ 0fdbe654
+    :36           ‖logDeriv (gammaFactor χ) (σ + t * I)‖ ≤ C * Real.log (2 + |t|) := by
+    :47         exact hG (σ + 1) t (by linarith) (by linarith)
+### kernel Chi/Statement (EF_lit_chi) -- SIDEExplicitFormula/Chi/Statement.lean @ 19b7d1e4
+    :42     def EF_lit_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Prop :=
+### Mathlib LSeries/Dirichlet (the twisted von Mangoldt series) -- Mathlib/NumberTheory/LSeries/Dirichlet.lean @ de5ce8a9
+    :402    lemma LSeriesSummable_twist_vonMangoldt {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ}
+    :409    lemma LSeries_twist_vonMangoldt_eq {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < s.re) :
+### relay terminal_table.py (the three supersession forms; the act:line choice) -- tools/terminal_table.py @ b8b6487a
+    :140    SUPERSEDE_RE = re.compile(r'SUPERSEDES row (\d+):')
+    :154    def supersede(cells):
+    :166    
+    :192    FIND_SUP_RE = re.compile(r'SUPERSEDES FINDINGS :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
+    :772                uniq = supersede_findings(supersede_trail(supersede(uniq), n), n)
+    :885            gc = r['grade_cells'][0] if r['grade_cells'] else None
+### PLACE-papers FACES_LEDGER (ch_iff_rh`s row) -- FACES_LEDGER.md @ bd2a6162
+    :497    | R2 | `Register2_conservationHypothesis`; `ConservationBridge.riemann_hypothesis` (SIDE-kernel v1.3); `ch_iff_rh` (SIDE-explicit-formula `81ae175`) | **T2** | RH restated -- ENCODES-CONCLUSION under (R151)(2); the row's clause "the converse is not compiled" is stale: `ch_iff_rh` compiles both direc
+### relay the addendum form -- data/b568_b567_h18b_addendum.txt @ b8b6487a
+    :1      ### b567 -- THE DECLARED-READING ADDENDUM FOR H18b, written AFTER b567's seal by b568 under (R178)(2)(i), in the addendum form of (R177)(3).
+    :2      ### The sealed face data/b567_registration_2026-10-01.txt is NOT edited (its seal verifies at sha256 85818167...); this bank carries the clause as the ruling rewrites it.
+    :5      DECLARED READING ADDENDUM: H18b, "ZetaBounds' χ-analogue completed", carried by (R178)(2)(i)
+### relay b569 closing push-out bank -- data/b569_closing_push_out.txt @ b8b6487a
+    :1      push_gated: capture on -> /d/relay/data/b569_closing_push_out.txt (2026-10-01T07:21:14Z)
+    :2      push_gated: repo /d/relay ; branch push-b569-closing ; tip e2bf000374f707331fd99b2e696a0d28f6eb7c76 ; checkout before main
+    :4         51ab367b..e2bf0003  push-b569-closing -> main
+    :5      push_gated: main read back at the remote: e2bf000374f707331fd99b2e696a0d28f6eb7c76
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay e2bf000374f707331fd99b2e696a0d28f6eb7c76   ### main = remote main by ls-remote
+### relay b569 Bulka bank (the counts; the paragraph) -- data/b569_bulka_generic.txt @ b8b6487a
+    :132    ### ### **NAMING A ζ OBJECT IN COMMENT-STRIPPED CODE : 8 OF 33** ['Lc.LiCriterion.Basic', 'Lc.LiCriterion.Fidelity', 'Lc.LiCriterion.GenusOnePairedSumFormula', 'Lc.LiCriterion.Pringsheim', 'Lc.LiCriterion.RHBridge', 'Lc.LiCriterion.ReverseDirection', 'Lc.LiCriterion.XiGrowth', 'Lc.XiZeros']
+    :133    ### ### **ζ-SPECIFIC BY THE RULE (NAMING, OR IMPORTING SUCH A MODULE) : 11 OF 33** ; GENERIC 22
+    :134    ### ### **H21d (at most three of the modules name riemannZeta) : REFUTED** -- the count is 8.
+    :136    ### WHETHER THE CONVERSE IS AN ARGUMENT OVER A ZeroConfig -- the seat`s reading, from the lines above:
+
+### the Mathlib Gamma facts the ζ argument names (VerticalLine :261-:428): Complex.digamma_def, Complex.differentiableAt_Gamma, Complex.Gamma_ne_zero

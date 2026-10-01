@@ -1,0 +1,17 @@
+### b570 -- COMPONENT 3: THE WIDER-STRIP BOUND, (R180)(5)(a) -- THE STATEMENTS, PRINTED BEFORE THE BUILD. written at (UTC) 2026-10-01T07:46:56Z
+### the module : SIDE-explicit-formula SIDEExplicitFormula/Chi/GammaWide.lean, on grh-weil-b570 cut from v0.11 = 19b7d1e ; Zeta23's VerticalLine.lean unedited
+### the argument : Zeta23's digamma_growth_strip (VerticalLine.lean :261-:428) and norm_logDeriv_Gammaℝ_le (:626-:657), with the interval changed
+
+(W1) theorem digamma_growth_strip_wide : ∃ C : ℝ, 0 < C ∧ ∀ s : ℂ, 1/4 ≤ s.re → s.re ≤ 2 → ‖Complex.digamma s‖ ≤ C * Real.log (2 + |s.im|)
+       -- Zeta23's proof with the compact rectangle [1/4, 1] × [−1/2, 1/2] widened to [1/4, 2] × [−1/2, 1/2] and ‖s‖ ≤ 1 + |Im s| to ‖s‖ ≤ 2 + |Im s|
+(W2) theorem norm_logDeriv_Gammaℝ_le_wide : ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 3 / 2 ≤ σ → σ ≤ 5 / 2 → ‖logDeriv Complex.Gammaℝ (σ + t * I)‖ ≤ C * Real.log (2 + |t|)
+       -- Zeta23's proof, (W1) at (σ + it)/2 with 3/4 ≤ σ/2 ≤ 5/4
+
+### THE FACTS THE ζ ARGUMENT CONSUMES, BY NAME (read from VerticalLine.lean :261-:428 and :626-:657 at v0.11):
+###   Mathlib : Complex.differentiableAt_Gamma, Complex.Gamma_ne_zero, Complex.digamma_def, logDeriv_apply, AnalyticAt.deriv,
+###             AnalyticAt.div, Complex.analyticAt_iff_eventually_differentiableAt, IsCompact.exists_bound_of_continuousOn,
+###             isCompact_Icc, IsCompact.reProdIm, Complex.mem_reProdIm, Complex.norm_le_abs_re_add_abs_im, Complex.log_re,
+###             Complex.log_im, Complex.abs_arg_le_pi, Real.log_le_log, Real.log_inv, Real.log_nonneg, Real.log_pos, Real.pi_lt_four
+###   Zeta23 (vendored, generic) : Zeta23.StirlingVert.digamma_stirling (GammaFacts/StirlingVert.lean :499),
+###             Zeta23.WeilEF.logDeriv_Gammaℝ (WeilEF/GammaRBracket.lean :69)
+### EXPECTED (H22a): it compiles from these, with no new input; refuted by a missing fact named.

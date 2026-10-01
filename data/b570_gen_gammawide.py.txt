@@ -1,0 +1,60 @@
+import io, subprocess
+src = subprocess.run(['git', '-C', 'D:/SIDE-explicit-formula', 'show', '19b7d1e:Zeta23/WeilEF/VerticalLine.lean'],
+                     capture_output=True).stdout.decode('utf-8').split('\n')
+
+
+def block(start_prefix, end_prefix):
+    a = next(i for i, l in enumerate(src) if l.startswith(start_prefix))
+    b = next(i for i, l in enumerate(src) if i > a and l.startswith(end_prefix))
+    return '\n'.join(src[a:b]).rstrip() + '\n'
+
+
+# ### Zeta23's digamma_growth_strip (its docstring through the line before the next docstring) and norm_logDeriv_Gammaℝ_le
+dg = block('/-- Coarse digamma growth on the right half-plane strip', '/-- continuity ⇒ integrability')
+lg = block('/-- growth of logDeriv Γℝ on 1/2 ≤ Re s ≤ 3/2. -/', '/-- **Archimedean line shift**')
+reps_dg = [
+    ('/-- Coarse digamma growth on the right half-plane strip (consumed by the Γℝ line shift and the\nhorizontal-segment estimates; any polynomial bound works — dischargeable via a Stirling-type\nestimate or directly). -/\ntheorem digamma_growth_strip :',
+     '/-- **(W1)** Zeta23`s `digamma_growth_strip` (VerticalLine.lean :261) on the wider strip `1/4 ≤ Re s ≤ 2`: its proof, the\ncompact rectangle widened to `[1/4, 2] × [−1/2, 1/2]` and `‖s‖ ≤ 1 + |Im s|` to `‖s‖ ≤ 2 + |Im s|`. -/\ntheorem digamma_growth_strip_wide :'),
+    ('1/4 ≤ s.re → s.re ≤ 1 →', '1/4 ≤ s.re → s.re ≤ 2 →'),
+    ('Set.Icc (1/4 : ℝ) 1', 'Set.Icc (1/4 : ℝ) 2'),
+    ('    have hsnorm_hi : ‖s‖ ≤ 1 + |s.im| := by\n      calc ‖s‖ ≤ |s.re| + |s.im| := Complex.norm_le_abs_re_add_abs_im s\n        _ ≤ 1 + |s.im| := by\n            have : |s.re| ≤ 1 := by',
+     '    have hsnorm_hi : ‖s‖ ≤ 2 + |s.im| := by\n      calc ‖s‖ ≤ |s.re| + |s.im| := Complex.norm_le_abs_re_add_abs_im s\n        _ ≤ 2 + |s.im| := by\n            have : |s.re| ≤ 2 := by'),
+    ('Zeta23.StirlingVert.digamma_stirling', 'Zeta23.StirlingVert.digamma_stirling'),
+]
+for o, n in reps_dg:
+    assert o in dg, o[:60]
+    dg = dg.replace(o, n)
+assert dg.count('Set.Icc (1/4 : ℝ) 2') == 3, dg.count('Set.Icc (1/4 : ℝ) 2')
+reps_lg = [
+    ('/-- growth of logDeriv Γℝ on 1/2 ≤ Re s ≤ 3/2. -/\nlemma norm_logDeriv_Gammaℝ_le : ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 1 / 2 ≤ σ → σ ≤ 3 / 2 →',
+     '/-- **(W2)** Zeta23`s `norm_logDeriv_Gammaℝ_le` (VerticalLine.lean :626) on `3/2 ≤ σ ≤ 5/2`: its proof, with (W1) at\n`(σ + it)/2`, `3/4 ≤ σ/2 ≤ 5/4`. -/\ntheorem norm_logDeriv_Gammaℝ_le_wide : ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 3 / 2 ≤ σ → σ ≤ 5 / 2 →'),
+    ('  obtain ⟨C, hC, hψ⟩ := digamma_growth_strip\n', '  obtain ⟨C, hC, hψ⟩ := digamma_growth_strip_wide\n'),
+    ('  rw [logDeriv_Gammaℝ hre]', '  rw [Zeta23.WeilEF.logDeriv_Gammaℝ hre]'),
+]
+for o, n in reps_lg:
+    assert o in lg, o[:60]
+    lg = lg.replace(o, n)
+head = '''/-
+SIDE-explicit-formula -- SIDEExplicitFormula/Chi/GammaWide.lean
+THIS PROGRAMME'S WORK (act b570, ruling (R180)(5)(a); W-ORD-GRH-WEIL, act five) -- NOT VENDORED.
+SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+
+THE Γℝ LOG-DERIVATIVE BOUND ON THE WIDER STRIP. For odd χ the Γ factor is `Γℝ(s + 1)`, so VerticalLine's Γ side asks the
+bound `‖Γℝ'/Γℝ(σ + it)‖ ≪ log(2 + |t|)` on `3/2 ≤ σ ≤ 5/2`, beyond Zeta23's `norm_logDeriv_Gammaℝ_le` (`1/2 ≤ σ ≤ 3/2`;
+b569's HOLD). Zeta23's own argument, run on the wider strip: (W1) the digamma growth on `1/4 ≤ Re s ≤ 2`; (W2) the Γℝ bound
+on `3/2 ≤ σ ≤ 5/2`. Generated from the vendored file by relay data/b570_gen_gammawide.py.txt (the replacements printed
+there); Zeta23's file is not edited. Nothing here is a statement about any zero.
+-/
+import Zeta23.WeilEF.VerticalLine
+
+open Complex
+
+noncomputable section
+
+namespace SIDEExplicitFormula
+namespace GRHWeil
+
+'''
+out = head + dg + '\n' + lg + '\nend GRHWeil\nend SIDEExplicitFormula\n'
+io.open('D:/SIDE-explicit-formula/SIDEExplicitFormula/Chi/GammaWide.lean', 'w', encoding='utf-8', newline='\n').write(out)
+print('written', len(out.split('\n')), 'lines')

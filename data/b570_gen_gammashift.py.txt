@@ -1,0 +1,37 @@
+import io, subprocess
+src = subprocess.run(['git', '-C', 'D:/SIDE-explicit-formula', 'show', '19b7d1e:Zeta23/WeilEF/VerticalLine.lean'],
+                     capture_output=True).stdout.decode('utf-8').split('\n')
+a = next(i for i, l in enumerate(src) if l.startswith('/-- **Archimedean line shift**'))
+b = next(i for i, l in enumerate(src) if i > a and l.startswith('end WeilEF'))
+body = '\n'.join(src[a:b]).rstrip() + '\n'
+reps = [
+    ('/-- **Archimedean line shift**', '/-- **(d) THE ARCHIMEDEAN LINE SHIFT FOR χ** -- Zeta23`s `gamma_line_shift` (VerticalLine.lean :659) with `Γℝ` replaced by\nχ`s Γ factor `gammaFactor χ` (its bound: `norm_logDeriv_gammaFactor_le`, the odd case by the wider strip). Zeta23`s text:\n**Archimedean line shift**'),
+    ('theorem gamma_line_shift {k : ℝ → ℂ}', 'theorem gamma_line_shift_chi (χ : DirichletCharacter ℂ N) {k : ℝ → ℂ}'),
+    ('  set G := logDeriv Complex.Gammaℝ with hG\n', '  set G := logDeriv (gammaFactor χ) with hG\n'),
+    ('    have hA := analyticAt_Gammaℝ hs\n    have : G = fun z => deriv Gammaℝ z / Gammaℝ z := by funext z; rw [hG, logDeriv_apply]\n    rw [this]\n    exact hA.deriv.differentiableAt.div hA.differentiableAt (Gammaℝ_ne_zero_of_re_pos hs)',
+     '    have hA := analyticAt_gammaFactor χ hs\n    have : G = fun z => deriv (gammaFactor χ) z / gammaFactor χ z := by funext z; rw [hG, logDeriv_apply]\n    rw [this]\n    exact hA.deriv.differentiableAt.div hA.differentiableAt (gammaFactor_ne_zero_of_re_pos χ hs)'),
+    ('  obtain ⟨CG, hCG, hGb⟩ := norm_logDeriv_Gammaℝ_le\n', '  obtain ⟨CG, hCG, hGb⟩ := norm_logDeriv_gammaFactor_le χ\n'),
+    ('logDeriv Complex.Gammaℝ', 'logDeriv (gammaFactor χ)'),
+]
+for o, n in reps:
+    assert o in body, o[:60]
+    body = body.replace(o, n)
+assert 'Gammaℝ' not in body.replace('`Γℝ`', ''), [l for l in body.split('\n') if 'Gammaℝ' in l][:5]
+extra = '''/-- `gammaFactor ψ` is analytic at every `s` with `0 < Re s`. -/
+theorem analyticAt_gammaFactor (ψ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : AnalyticAt ℂ (gammaFactor ψ) s := by
+  have hopen : IsOpen {u : ℂ | 0 < u.re} := isOpen_lt continuous_const Complex.continuous_re
+  exact DifferentiableOn.analyticAt (fun u hu => (differentiableAt_gammaFactor ψ hu).differentiableWithinAt)
+    (hopen.mem_nhds hs)
+
+section GammaShift
+
+open MeasureTheory Zeta23 Zeta23.WeilEF
+
+'''
+p = 'D:/SIDE-explicit-formula/SIDEExplicitFormula/Chi/VerticalLine.lean'
+s = io.open(p, encoding='utf-8').read()
+tail = 'end GRHWeil\nend SIDEExplicitFormula\n'
+assert s.endswith(tail)
+s = s[:-len(tail)] + extra + body + '\nend GammaShift\n\n' + tail
+io.open(p, 'w', encoding='utf-8', newline='\n').write(s)
+print('appended', len(body.split('\n')), 'lines')

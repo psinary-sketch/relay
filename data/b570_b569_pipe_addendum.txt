@@ -1,0 +1,11 @@
+### b569 -- THE DECLARED-READING ADDENDUM FOR THE PIPE SLIP, written AFTER b569`s close by b570 under (R180)(3), in the addendum form of (R177)(3).
+### The sealed face data/b569_registration_2026-10-01.txt is NOT edited (reg_seal --verify: SEAL INTACT); b569`s closing record is not edited.
+DECLARED READING ADDENDUM: the closing push, "no push`s status passes through a pipe" (relay tools/push_gated.sh :9, its rule (1)), carried by (R180)(3)
+### THE SLIP: after b569`s closing record was committed (relay e2bf0003), the seat ran `push_gated.sh` for push-b569-closing with its output piped through `grep -v awk` and took the exit status from PIPESTATUS[0] (0). push_gated.sh`s own header (:9, its rule (1)) forbids it; b569`s face carried no clause on pipes. The push succeeded and was read back equal.
+### THE CAPTURE FILE`S COMPLETENESS (relay data/b569_closing_push_out.txt, written by push_gated.sh`s own PUSH_GATED_LOG tee, upstream of the pipe), line by line:
+###   the capture opened         PRESENT
+###   the push line              PRESENT
+###   git`s own push output      PRESENT
+###   the read-back              PRESENT
+###   the DONE line              PRESENT
+### ### **THE CAPTURE IS COMPLETE: True.** The no-pipe rule is unchanged; every later push of b570 runs unpiped.

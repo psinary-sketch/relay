@@ -1,0 +1,281 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.GRHWeil.digamma_growth_strip_wide": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : ℝ, 0 < C ∧ ∀ s : ℂ, 1/4 ≤ s.re → s.re ≤ 2 → ‖Complex.digamma s‖ ≤ C * Real.log (2 + |s.im|)",
+   "file": "SIDEExplicitFormula/Chi/GammaWide.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 3 / 2 ≤ σ → σ ≤ 5 / 2 → ‖logDeriv Complex.Gammaℝ (σ + t * I)‖ ≤ C * Real.log (2 + |t|)",
+   "file": "SIDEExplicitFormula/Chi/GammaWide.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.logDeriv_comp_add_one": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(f : ℂ → ℂ) (z : ℂ) : logDeriv (fun s => f (s + 1)) z = logDeriv f (z + 1)",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) : ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv (gammaFactor χ) (σ + t * I)‖ ≤ C * Real.log (2 + |t|)",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.neg_logDeriv_LFunction_eq": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hs : 1 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} {s : ℂ} (hs : 1 < s.re) : -logDeriv (LFunction χ) s = LSeries (↗χ * ↗Λ) s",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.integrand_eq_tsum_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hc1 : 1 < c",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} {k : ℝ → ℂ} {c : ℝ} (hc1 : 1 < c) (t : ℝ) : Zeta23.WeilEF.Hfn k (c + t * I) * (-logDeriv (LFunction χ) (c + t * I)) = ∑' n : ℕ, Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1/2)) t * LSeries.term (↗χ * ↗Λ) (c + t * I) n",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.per_n_line_integral_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ} (n : ℕ) : (1 / (2 * Real.pi) : ℂ) * ∫ t : ℝ, Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1/2)) t * LSeries.term (↗χ * ↗Λ) (c + t * I) n = (↗χ * ↗Λ) n * ((1 / Real.sqrt n : ℝ) : ℂ) * k (Real.log n)",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.line_integral_swap_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ} (hc1 : 1 < c) : ∫ t : ℝ, (∑' n : ℕ, Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1/2)) t * LSeries.term (↗χ * ↗Λ) (c + t * I) n) = ∑' n : ℕ, ∫ t : ℝ, Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1/2)) t * LSeries.term (↗χ * ↗Λ) (c + t * I) n",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.prime_side_line_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ} (hc1 : 1 < c) : (1 / (2 * Real.pi) : ℂ) * ∫ t : ℝ, Zeta23.WeilEF.Hfn k (c + t * I) * (-logDeriv (LFunction χ) (c + t * I)) = ∑' n : ℕ, (↗χ * ↗Λ) n * ((1 / Real.sqrt n : ℝ) : ℂ) * k (Real.log n)",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.analyticAt_gammaFactor": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ψ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : AnalyticAt ℂ (gammaFactor ψ) s",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c, hc2 : c ≤ 3/2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ} (hc1 : 1 < c) (hc2 : c ≤ 3/2) : ∫ t : ℝ, (Hfn k (c + t * I) + Hfn k (1 - c - t * I)) * logDeriv (gammaFactor χ) (c + t * I) = ∫ t : ℝ, paperFT k t * (logDeriv (gammaFactor χ) (1/2 + t * I) + logDeriv (gammaFactor χ) (1/2 - t * I))",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "header_read": true
+  },
+  "SIDEExplicitFormula.GRHWeil.rectangle_identity_chi": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k, hc1 : 1 < c, hR : 7 ≤ R, hgood : ∀ s : ℂ, (s.im = R ∨ s.im = -R) → 1 - c ≤ s.re → s.re ≤ c → completedLFunction χ s ≠ 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k) {c : ℝ} (hc1 : 1 < c) {R : ℝ} (hR : 7 ≤ R) (hgood : ∀ s : ℂ, (s.im = R ∨ s.im = -R) → 1 - c ≤ s.re → s.re ≤ c → completedLFunction χ s ≠ 0) : ∃ Z : Finset ℂ, ((Z : Set ℂ) = {ρ : ℂ | IsNontrivialZeroChi χ ρ ∧ -R < ρ.im ∧ ρ.im < R}) ∧ RectangleIntegral' (fun s => Hfn k s * logDeriv (completedLFunction χ) s) ((1 - c : ℝ) - R * I) ((c : ℝ) + R * I) = ∑ ρ ∈ Z, (zeroMultChi χ ρ : ℂ) * Hfn k ρ",
+   "file": "SIDEExplicitFormula/Chi/Contour.lean",
+   "header_read": true
+  }
+ },
+ "consumed": {
+  "DirichletCharacter.LSeries_twist_vonMangoldt_eq": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "DirichletCharacter.LSeriesSummable_twist_vonMangoldt": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "Zeta23.WeilEF.tilted_inversion": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "Zeta23.Analytic.rectangleIntegral'_mul_logDeriv": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "Zeta23.StirlingVert.digamma_stirling": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.GRHWeil.completedLFunction_eq_zero_iff": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide",
+   "pin": "141e844",
+   "file": "SIDEExplicitFormula/Chi/GammaWide.lean",
+   "check": "SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide : ∃ C, 0 < C ∧ ∀ (σ t : ℝ), 3 / 2 ≤ σ → σ ≤ 5 / 2 → ‖logDeriv Complex.Gammaℝ (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(W2)** Zeta23`s `norm_logDeriv_Gammaℝ_le` (VerticalLine.lean :626) on `3/2 ≤ σ ≤ 5/2`: its proof, with (W1) at `(σ + it)/2`, `3/4 ≤ σ/2 ≤ 5/4`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le",
+   "pin": "141e844",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N), ∃ C, 0 < C ∧ ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv χ.gammaFactor (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(b) THE ODD-χ STEP.** Growth of `gammaFactor χ'/gammaFactor χ` on `1/2 ≤ σ ≤ 3/2`: Zeta23's bound for even χ, the wider-strip bound at `σ + 1` for odd χ.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.prime_side_line_chi",
+   "pin": "141e844",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.prime_side_line_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N} {k : ℝ → ℂ}, ContDiff ℝ 2 k → HasCompactSupport k → ∀ {c : ℝ}, 1 < c → 1 / (2 * ↑Real.pi) * ∫ (t : ℝ), Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) * -logDeriv (DirichletCharacter.LFunction χ) (↑c + ↑t * Complex.I) = ∑' (n : ℕ), ((fun n => χ ↑n) * fun n => ↑(ArithmeticFunction.vonMangoldt n)) n * ↑(1 / √↑n) * k (Real.log ↑n)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The prime side for χ on `Re s = c > 1`**: `(1/2π)∫ H(c + it)·(−L'/L)(c + it, χ) dt = Σ_n χ(n)Λ(n) n^{−1/2} k(log n)`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi",
+   "pin": "141e844",
+   "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi : ∀ {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) {k : ℝ → ℂ}, ContDiff ℝ 2 k → HasCompactSupport k → ∀ {c : ℝ}, 1 < c → c ≤ 3 / 2 → ∫ (t : ℝ), (Zeta23.WeilEF.Hfn k (↑c + ↑t * Complex.I) + Zeta23.WeilEF.Hfn k (1 - ↑c - ↑t * Complex.I)) * logDeriv χ.gammaFactor (↑c + ↑t * Complex.I) = ∫ (t : ℝ), Zeta23.paperFT k ↑t * (logDeriv χ.gammaFactor (1 / 2 + ↑t * Complex.I) + logDeriv χ.gammaFactor (1 / 2 - ↑t * Complex.I))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(d) THE ARCHIMEDEAN LINE SHIFT FOR χ** -- Zeta23`s `gamma_line_shift` (VerticalLine.lean :659) with `Γℝ` replaced by χ`s Γ factor `gammaFactor χ` (its bound: `norm_logDeriv_gammaFactor_le`, the odd case by the wider strip)",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.rectangle_identity_chi",
+   "pin": "141e844",
+   "file": "SIDEExplicitFormula/Chi/Contour.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.rectangle_identity_chi : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ.IsPrimitive → χ ≠ 1 → ∀ {k : ℝ → ℂ}, ContDiff ℝ 2 k → HasCompactSupport k → ∀ {c : ℝ}, 1 < c → ∀ {R : ℝ}, 7 ≤ R → (∀ (s : ℂ), s.im = R ∨ s.im = -R → 1 - c ≤ s.re → s.re ≤ c → DirichletCharacter.completedLFunction χ s ≠ 0) → ∃ Z, ↑Z = {ρ | SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi χ ρ ∧ -R < ρ.im ∧ ρ.im < R} ∧ RectangleIntegral' (fun s => Zeta23.WeilEF.Hfn k s * logDeriv (DirichletCharacter.completedLFunction χ) s) (↑(1 - c) - ↑R * Complex.I) (↑c + ↑R * Complex.I) = ∑ ρ ∈ Z, ↑(SIDEExplicitFormula.GRHWeil.zeroMultChi χ ρ) * Zeta23.WeilEF.Hfn k ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The rectangle identity for χ** at a height `R` free of zeros of `Λ(·, χ)` on the horizontal sides.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "141e844b74453a4c329bb6b3a8a70954b6cb04cf",
+ "counts": {
+  "DERIVES": 12,
+  "INTERFACES": 0
+ }
+}

@@ -1,0 +1,34 @@
+=== START 2026-10-01T07:51:09Z cwd=/d/SIDE-explicit-formula cmd=lake env lean SIDEExplicitFormula/Chi/VerticalLine.lean
+SIDEExplicitFormula/Chi/VerticalLine.lean:33:0: warning: automatically included section variable(s) unused in theorem `SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+SIDEExplicitFormula/Chi/VerticalLine.lean:85:71: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+k : ℝ → ℂ
+hk : ContDiff ℝ 2 k
+hkc : HasCompactSupport k
+c : ℝ
+n : ℕ
+hn : n > 0
+hn0 : 0 < ↑n
+hnC : ↑n ≠ 0
+a : ℂ := ((fun n => χ ↑n) * fun n => ↑(Λ n)) n
+ha : a = ((fun n => χ ↑n) * fun n => ↑(Λ n)) n
+t : ℝ
+hsplit : -(↑c + ↑t * I) = -↑c + -(I * ↑t)
+h1 : ↑n ^ (-↑c) = ↑(↑n ^ (-c))
+h2 : ↑n ^ (-(I * ↑t)) = cexp (-I * ↑t * ↑(Real.log ↑n))
+⊢ ((fun n => χ ↑n) * fun n => ↑(Λ n)) n * (↑(↑n ^ (-c)) * cexp (-I * ↑t * ↑(Real.log ↑n))) =
+    a * ↑(↑n ^ (-c)) * cexp (-I * ↑t * ↑(Real.log ↑n))
+SIDEExplicitFormula/Chi/VerticalLine.lean:133:0: warning: automatically included section variable(s) unused in theorem `SIDEExplicitFormula.GRHWeil.line_integral_swap_chi`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+=== END 2026-10-01T07:51:32Z rc=1

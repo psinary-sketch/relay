@@ -1,0 +1,14 @@
+b570 -- (R180)(2)(f): THE CLASS-MEMBERSHIP CLAUSE, SURVEYED: every theorem header of SIDE-explicit-formula/SIDEExplicitFormula at v0.11 = 19b7d1e graded without and with the clause
+
+### files 34 ; theorem headers 494 ; moved 9
+    SIDEExplicitFormula/B321Identity.lean :44  b321_identity                            INTERFACES -> DERIVES  (domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x) = k x)
+    SIDEExplicitFormula/Chi/LocalCount.lean :36  LFunction_zeros_finite_of_isCompact      INTERFACES -> DERIVES  (domain conditions only: h1 : χ ≠ 1, hK : IsCompact K)
+    SIDEExplicitFormula/Chi/ZeroSummability.lean :34  EF_zero_sum_summable_chi                 INTERFACES -> DERIVES  (domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasCompactSupport k)
+    SIDEExplicitFormula/LiWeilSym.lean :560  integral_mul_cexp_ibp                    INTERFACES -> DERIVES  (domain conditions only: hg : ContDiff ℝ ∞ g, hs : HasCompactSupport g, hτ : τ ≠ 0)
+    SIDEExplicitFormula/LiWeilSym.lean :583  integral_mul_cexp_ibp_iter               INTERFACES -> DERIVES  (domain conditions only: hg : ContDiff ℝ ∞ g, hs : HasCompactSupport g, hτ : τ ≠ 0)
+    SIDEExplicitFormula/PowerWindow.lean :52  classK_of_real_even                      INTERFACES -> DERIVES  (domain conditions only: hg : ContDiff ℝ 2 g, hs : HasCompactSupport g)
+    SIDEExplicitFormula/PowerWindow.lean :112  selfConv_contDiff                        INTERFACES -> DERIVES  (domain conditions only: hg : ContDiff ℝ n g, hs : HasCompactSupport g)
+    SIDEExplicitFormula/TwoPropertyWindow.lean :211  ibp_step                                 INTERFACES -> DERIVES  (domain conditions only: hF : ContDiff ℝ 1 F, hFs : HasCompactSupport F)
+    SIDEExplicitFormula/TwoPropertyWindow.lean :244  paperFT_second_order                     INTERFACES -> DERIVES  (domain conditions only: hg : ContDiff ℝ 2 g, hgs : HasCompactSupport g)
+
+### ### **THE CLAUSE MOVES A DIFFERENT SET: ['EF_zero_sum_summable_chi', 'LFunction_zeros_finite_of_isCompact', 'b321_identity', 'classK_of_real_even', 'ibp_step', 'integral_mul_cexp_ibp', 'integral_mul_cexp_ibp_iter', 'paperFT_second_order', 'selfConv_contDiff']** -- b569`s two χ theorems re-graded under it, the E0 rule unedited otherwise.
