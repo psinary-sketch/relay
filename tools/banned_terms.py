@@ -217,6 +217,45 @@ def classify(line, at=None, path=None):
     return None
 
 
+# ### THE FORM'S EXCEPTIONS, READ FROM AN EDITION'S OWN BACK MATTER (b586, under (R196)(2)).
+# ### An edition written by the form of (R187)(5) lists, in its back matter, the stem uses it carries
+# ### under the name-and-title exception (OPEN_TRAILS :11934) and the dated stems it carries under the
+# ### history clause (:11908). Before b586 this scanner could not read that list, so b585's own verdict
+# ### line read NOT CLEAN over an edition whose every live use was listed. ### THE LIST IS THE
+# ### EDITION'S DECLARATION; THE SCANNER STILL PRINTS EVERY HIT, AND AN UNLISTED STEM STAYS LIVE.
+BM_TAG = re.compile(r'^<!-- b\d+ \(R\d+\) .*BACK MATTER')
+BM_ROW = re.compile(r'^\|\s*:(\d+)\s*\|')
+BM_HISTORY = re.compile(r':(\d+), carried-by-history')
+EXC_NAME = 'EXCEPTED -- NAME OR TITLE, LISTED IN THE BACK MATTER (b586)'
+EXC_HISTORY = 'EXCEPTED -- CARRIED BY HISTORY, LISTED IN THE BACK MATTER (b586)'
+
+
+def backmatter_exceptions(path):
+    """### {line: class} for the lines ABOVE the file's last back-matter tag that a back-matter row
+    ### lists: a row `| :n | ...` carrying "excepted" with "name" or "title" excepts line n as a
+    ### name or title; a row carrying `:n, carried-by-history` excepts line n as carried by history.
+    ### A file with no tag, or one this process cannot open, gives {} -- scanned exactly as before."""
+    try:
+        lines = io.open(path, encoding='utf-8', errors='replace').read().splitlines()
+    except (OSError, TypeError):
+        return {}
+    tags = [k for k, l in enumerate(lines, 1) if BM_TAG.match(l)]
+    if not tags:
+        return {}
+    cut, out = tags[-1], {}
+    for l in lines[cut:]:
+        m = BM_ROW.match(l)
+        if m and 'excepted' in l.lower() and ('name' in l.lower() or 'title' in l.lower()):
+            n = int(m.group(1))
+            if n < cut:
+                out[n] = EXC_NAME
+        for h in BM_HISTORY.finditer(l):
+            n = int(h.group(1))
+            if n < cut:
+                out[n] = EXC_HISTORY
+    return out
+
+
 def added_lines(repo, rev):
     """### THE SCOPE, MECHANICALLY DERIVED. Nothing is typed; the act's own diff
     says which lines are the act's voice."""
@@ -272,13 +311,22 @@ def main(argv):
         srcs.append("EXCLUDED %d lines whose path contains: %s   ### stated, never silent"
                     % (before - len(scope), ", ".join(excl)))
 
-    hits = live = quoted = 0
+    hits = live = quoted = exc_name = exc_hist = 0
     rows = []
+    bm = {}
     for path, ln, text in scope:
+        if path not in bm:
+            bm[path] = backmatter_exceptions(path)
         # ### EVERY hit on a line is classified SEPARATELY, in its own window.
         for m in PAT.finditer(text):
             hits += 1
             cls = classify(text, m.start(), path)
+            if cls is None and ln in bm[path]:
+                cls = bm[path][ln]
+                if cls == EXC_NAME:
+                    exc_name += 1
+                else:
+                    exc_hist += 1
             if cls is None:
                 live += 1
             elif cls.startswith('QUOTED --'):
@@ -303,6 +351,8 @@ def main(argv):
     print("  live uses        : %d" % live)
     print("  quoted uses      : %d   ### verbatim corpus sentences, VERIFIED AT SOURCE (b234)"
           % quoted)
+    print("  excepted (back matter): names %d ; carried-by-history %d   ### listed by the edition, b586"
+          % (exc_name, exc_hist))
     if rows:
         print("\n  THE HIT TABLE -- every hit shown with its class; none dropped:")
         for p, ln, cls, text in rows:
@@ -338,7 +388,9 @@ def main(argv):
         blk, sp = AE.emit('banned_terms', act, srcs,
                           [('stems', ', '.join(STEMS)), ('files', len(files)),
                            ('lines', len(scope)), ('hits', hits),
-                           ('live uses', live), ('quoted uses', quoted)], verdict)
+                           ('live uses', live), ('quoted uses', quoted),
+                           ('excepted (back matter)', 'names %d, carried-by-history %d' % (exc_name, exc_hist))],
+                          verdict)
         print("\n" + blk)
         print("  sidecar written: %s" % sp)
     print("\n  VERDICT          : %s" % verdict)
