@@ -96,7 +96,7 @@ L = ['=' * 104, 'b567 -- THE CLOSING RECORD. ### **GRH-WEIL ACT THREE; THE CEILI
      '    component 2 : distinct Mathlib revs %d (b551 %d) ; toolchain-trial-b551 STALE OPEN_TRAILS :%s ; W-ORD-DEPRECATIONS OPEN_TRAILS :%s'
      ' (%d lines, %d classes, top %s -> %s)' % (RV['count'], RV['b551'], T2.get('stale_line'), T2.get('wo_line'), DJ['lines'], DJ['classes'],
                                                 DJ['top'][0][0], ', '.join(DJ['top'][0][3])),
-     '        the cache : %s ; %s' % (lw(read('b567_cache.txt'), 'after: checkout .lake mathlib'), lw(read('b567_cache_nobuild.txt'), 'CONTROL')[:160]),
+     '        the cache : %s ; %s' % (lw(read('b567_cache.txt').split('retried from cwd')[-1], 'after: checkout .lake mathlib'), lw(read('b567_cache_nobuild.txt'), 'CONTROL')[:160]),
      '        Bulka : bodies %d of %d agreeing, LICENSE %s ; %s' % (BV['agree'], BV['total'], BV['licence'], lw(read('b567_bulka_delete.txt'), 'END ')),
      '    component 3 : %s' % lw(read('b567_e0_residue.txt'), 'THE GATE:')[:200],
      '        THE_RESIDUE_OF_RH.md :%s (the discharge line) ; the §7 reading FINDINGS :%s' % (RLJ.get('line'), SJ.get('line')),
