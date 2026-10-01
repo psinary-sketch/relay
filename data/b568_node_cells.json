@@ -1,0 +1,3710 @@
+{
+ "order": [
+  "riemannZeta",
+  "RiemannHypothesis",
+  "Zeta23.zetaZeroConfig",
+  "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+  "SIDEExplicitFormula.B321.classK",
+  "SIDEExplicitFormula.B321.h2_sign",
+  "SIDEExplicitFormula.B321.ch_iff_rh",
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+  "SIDEExplicitFormula.B321.h2_sign_upto",
+  "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto",
+  "SIDEExplicitFormula.B321.forall_upto_iff_rh",
+  "SIDEExplicitFormula.LiWeil.liTerm",
+  "SIDEExplicitFormula.LiWeil.LiCoeff",
+  "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg",
+  "SIDEExplicitFormula.LiWeil.symMember",
+  "SIDEExplicitFormula.LiWeil.li_identity_sym",
+  "LiCriterion.taylorCoeff",
+  "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff",
+  "LiCriterion.positivity_implies_RH",
+  "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh",
+  "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh",
+  "SIDEExplicitFormula.ResidueDischarge.Register4_positivity",
+  "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh"
+ ],
+ "cells": {
+  "RiemannHypothesis": {
+   "kind": "def",
+   "module": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+   "line": 185,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "def RiemannHypothesis : Prop := ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'RiemannHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+   "source_header": null,
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": null,
+   "std3": true,
+   "entry": "Mathlib = de5ce8a9",
+   "entry_tag": null
+  },
+  "riemannZeta": {
+   "kind": "def",
+   "module": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+   "line": 121,
+   "consumes": [],
+   "watched": [],
+   "statement": "def riemannZeta : ℂ → ℂ := HurwitzZeta.hurwitzZetaEven 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'riemannZeta' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+   "source_header": null,
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": null,
+   "std3": true,
+   "entry": "Mathlib = de5ce8a9",
+   "entry_tag": null
+  },
+  "Zeta23.zetaZeroConfig": {
+   "kind": "def",
+   "module": "Zeta23.Statement.SeamClosed",
+   "line": 42,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig := Zeta23.zetaZeros Zeta23.zetaSeam",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'Zeta23.zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "Zeta23/Statement/SeamClosed.lean",
+   "source_header": ": ZeroConfig",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": null,
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df (Zeta23 vendored at 3635e748)",
+   "header_at_entry_equal": true
+  },
+  "Zeta23.WeilEF.EF_lit_zetaZeroConfig": {
+   "kind": "theorem",
+   "module": "Zeta23.WeilEF.Main",
+   "line": 286,
+   "consumes": [
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem Zeta23.WeilEF.EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit Zeta23.zetaZeroConfig",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "Zeta23/WeilEF/Main.lean",
+   "source_header": ": Zeta23.EF.EF_lit zetaZeroConfig",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df (Zeta23 vendored at 3635e748)",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.classK": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.H2Sign",
+   "line": 24,
+   "consumes": [],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.B321.classK : (ℝ → ℂ) → Prop := fun k => (∀ (x : ℝ), k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧ ∃ h, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.classK' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/H2Sign.lean",
+   "source_header": "(k : ℝ → ℂ) : Prop",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": null,
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.H2Sign",
+   "line": 29,
+   "consumes": [
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.B321.h2_sign : Prop := ∀ (k : ℝ → ℂ), SIDEExplicitFormula.B321.classK k → 0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/H2Sign.lean",
+   "source_header": ": Prop",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": null,
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.ch_iff_rh": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.H2Bridge",
+   "line": 71,
+   "consumes": [
+    "RiemannHypothesis",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/H2Bridge.lean",
+   "source_header": ": conservationHypothesis ↔ RiemannHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T2",
+   "tier_source": "the tier law on the record grade ENCODES-CONCLUSION",
+   "record_grade": "ENCODES-CONCLUSION",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Seam",
+   "line": 101,
+   "consumes": [
+    "RiemannHypothesis",
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "source_header": ": h2_sign ↔ RiemannHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.2",
+   "entry": "v0.2 = 5c72cad",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_upto": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.DetectionRegion",
+   "line": 29,
+   "consumes": [
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop := fun L₀ => ∀ (k : ℝ → ℂ), SIDEExplicitFormula.B321.classK k → (∀ (u : ℝ), L₀ < |u| → k u = 0) → 0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "source_header": "(L₀ : ℝ) : Prop",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.DetectionRegion",
+   "line": 47,
+   "consumes": [
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK",
+    "SIDEExplicitFormula.B321.h2_sign_upto"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔ ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "source_header": ": h2_sign ↔ ∀ L₀ : ℝ, h2_sign_upto L₀",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.forall_upto_iff_rh": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.DetectionRegion",
+   "line": 52,
+   "consumes": [
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+    "SIDEExplicitFormula.B321.h2_sign_upto"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "source_header": ": (∀ L₀ : ℝ, h2_sign_upto L₀) ↔ RiemannHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.LiCoeff": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 243,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ := fun n => 1 / 2 * ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) : ℝ",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": "UNGRADED",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.liTerm": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 60,
+   "consumes": [],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.LiWeil.liTerm : ℕ → ℂ → ℂ := fun n ρ => 1 - (1 - ρ⁻¹) ^ n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) (ρ : ℂ) : ℂ",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": "UNGRADED",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 267,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": ": RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.symMember": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.LiWeilSym",
+   "line": 51,
+   "consumes": [],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.LiWeil.symMember : ℕ → ℝ → ℝ → ℂ := fun n δ u => ↑(SIDEExplicitFormula.LiWeil.symCut δ u) * SIDEExplicitFormula.LiWeil.blSmooth n u",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.symMember' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilSym.lean",
+   "source_header": "(n : ℕ) (δ : ℝ) (u : ℝ) : ℂ",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": "UNGRADED",
+   "std3": true,
+   "entry_tag": "v0.7",
+   "entry": "v0.7 = 1e4a007",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.li_identity_sym": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilSym",
+   "line": 1218,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "SIDEExplicitFormula.LiWeil.symMember",
+    "Zeta23.zetaZeroConfig",
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "riemannZeta",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.li_identity_sym : ∀ (n : ℕ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.li_identity_sym' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilSym.lean",
+   "source_header": "(n : ℕ) : Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 (LiCoeff n : ℂ))",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.7",
+   "entry": "v0.7 = 1e4a007",
+   "header_at_entry_equal": true
+  },
+  "LiCriterion.taylorCoeff": {
+   "kind": "def",
+   "module": "Lc.LiCriterion.Basic",
+   "line": 541,
+   "consumes": [],
+   "watched": [],
+   "statement": "def LiCriterion.taylorCoeff : (ℂ → ℂ) → ℕ → ℂ := fun f n => deriv^[n] (LiCriterion.logDeriv (LiCriterion.phi f)) 0 / ↑n.factorial",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'LiCriterion.taylorCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+   "source_header": "(f : ℂ → ℂ) (n : ℕ) : ℂ",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": null,
+   "std3": true,
+   "entry_tag": "v0.9",
+   "entry": "v0.9 = e5a5a83 (Bulka vendored at 35df682f)",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiCriterionBridge",
+   "line": 149,
+   "consumes": [
+    "riemannZeta",
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "Zeta23.zetaZeroConfig",
+    "LiCriterion.taylorCoeff"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "source_header": "(n : ℕ) : LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.9",
+   "entry": "v0.9 = e5a5a83",
+   "header_at_entry_equal": true
+  },
+  "LiCriterion.positivity_implies_RH": {
+   "kind": "theorem",
+   "module": "Lc.LiCriterion.ReverseDirection",
+   "line": 413,
+   "consumes": [
+    "riemannZeta",
+    "LiCriterion.taylorCoeff"
+   ],
+   "watched": [],
+   "statement": "theorem LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) → ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'LiCriterion.positivity_implies_RH' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+   "source_header": ": (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) → (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "UNGRADED",
+   "std3": true,
+   "entry_tag": "v0.9",
+   "entry": "v0.9 = e5a5a83 (Bulka vendored at 35df682f)",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiCriterionBridge",
+   "line": 179,
+   "consumes": [
+    "LiCriterion.positivity_implies_RH",
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg",
+    "RiemannHypothesis",
+    "LiCriterion.taylorCoeff",
+    "riemannZeta",
+    "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "source_header": ": (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.9",
+   "entry": "v0.9 = e5a5a83",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiCriterionBridge",
+   "line": 191,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.LiWeil.symMember",
+    "SIDEExplicitFormula.LiWeil.li_identity_sym",
+    "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh : (∀ (n : ℕ) (L : ℂ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds L) → 0 ≤ L.re) ↔ RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "source_header": ": (∀ (n : ℕ) (L : ℂ), Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 L) → 0 ≤ L.re) ↔ RiemannHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.9",
+   "entry": "v0.9 = e5a5a83",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.ResidueDischarge.Register4_positivity": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.ResidueDischarge",
+   "line": 30,
+   "consumes": [],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop := fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.ResidueDischarge.Register4_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/ResidueDischarge.lean",
+   "source_header": "(lam : ℕ → ℝ) : Prop",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": "UNGRADED",
+   "std3": true,
+   "entry_tag": "v0.10",
+   "entry": "v0.10 = 6baed63",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.ResidueDischarge",
+   "line": 41,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "RiemannHypothesis",
+    "Zeta23.zetaZeroConfig",
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "riemannZeta",
+    "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh",
+    "SIDEExplicitFormula.ResidueDischarge.Register4_positivity"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff → RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/ResidueDischarge.lean",
+   "source_header": ": Register4_positivity LiCoeff → RiemannHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.10",
+   "entry": "v0.10 = 6baed63",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.base_nonzero_at": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 274,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.base_nonzero_at : ∀ (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ), ∃ L₀, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL)) z ≠ 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.base_nonzero_at' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) : ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.ch_iff_h2_sign": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Seam",
+   "line": 107,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta",
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.B321.ch_iff_rh",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.ch_iff_h2_sign : SIDEExplicitFormula.B321.conservationHypothesis ↔ SIDEExplicitFormula.B321.h2_sign",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.ch_iff_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "source_header": ": conservationHypothesis ↔ h2_sign",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.2",
+   "entry": "v0.2 = 5c72cad",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1240,
+   "consumes": [
+    "SIDEExplicitFormula.B321.ch_iff_rh",
+    "RiemannHypothesis",
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh → (SIDEExplicitFormula.B321.conservationHypothesis ↔ SIDEExplicitFormula.B321.h2_sign)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": ": rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.classK_of_real_even": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 52,
+   "consumes": [
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.classK_of_real_even : ∀ {g : ℝ → ℝ}, ContDiff ℝ 2 g → HasCompactSupport g → SIDEExplicitFormula.B321.classK (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.classK_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "{g : ℝ → ℝ} (hg : ContDiff ℝ 2 g) (hs : HasCompactSupport g) : classK (Zeta23.EF.weilTest (phiC g) (phiC g))",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ 2 g, hs : HasCompactSupport g",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.dominant_exists": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 368,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.dominant_exists : ∀ (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ}, ContDiff ℝ 4 g → Function.support g ⊆ Set.Icc (-L) L → 0 ≤ L → ∀ ρ₁ ∈ Z.carrier, ρ₁.re ≠ 1 / 2 → 0 < SIDEExplicitFormula.B321.offScore g ρ₁ → ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < SIDEExplicitFormula.B321.offScore g ρs ∧ ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → SIDEExplicitFormula.B321.offScore g ρ ≤ SIDEExplicitFormula.B321.offScore g ρs",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.dominant_exists' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g) (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2) (hpos : 0 < offScore g ρ₁) : ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧ ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ 4 g, hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.dominant_summable": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 949,
+   "consumes": [
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.dominant_summable : ∀ {g0 : ℝ → ℝ} {L M : ℝ}, SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M → ∀ (B : ℝ) (D : ℕ), Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ↑ρ‖) ^ (2 * D) * (SIDEExplicitFormula.B321.offScore g0 ↑ρ / M) ^ 2 ^ (D + 1))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.dominant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(H : PWSetup Zeta23.zetaZeroConfig g0 L M) (B : ℝ) (D : ℕ) : Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh_strip": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1233,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_iff_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": ": h2_sign ↔ rh_strip",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_imp_cell": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Registers",
+   "line": 46,
+   "consumes": [
+    "SIDEExplicitFormula.B321.classK",
+    "SIDEExplicitFormula.B321.h2_sign"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_imp_cell : ∀ (F : ℝ → ℝ → ℂ) (W : Set ℝ), SIDEExplicitFormula.B321.admissible F W → SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.cell_form F W",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_imp_cell' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Registers.lean",
+   "source_header": "(F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) : h2_sign → cell_form F W",
+   "grade": "INTERFACES",
+   "premises": "hF : admissible F W",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_imp_ch_holds": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Seam",
+   "line": 104,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta",
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_imp_ch_holds : SIDEExplicitFormula.B321.h2_sign_imp_ch",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_imp_ch_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "source_header": ": h2_sign_imp_ch",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.2",
+   "entry": "v0.2 = 5c72cad",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Seam",
+   "line": 98,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta",
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_imp_rh_holds : SIDEExplicitFormula.B321.h2_sign_imp_rh",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "source_header": ": h2_sign_imp_rh",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.2",
+   "entry": "v0.2 = 5c72cad",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1236,
+   "consumes": [
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.classK",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh → SIDEExplicitFormula.B321.h2_sign_imp_rh",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": ": rh_strip_imp_rh → h2_sign_imp_rh",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "CONFLICT",
+   "tier_source": "the record grade CONFLICT",
+   "record_grade": "CONFLICT",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1193,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.classK",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_imp_rh_strip : SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.rh_strip",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": ": h2_sign → rh_strip",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.h2_sign_imp_upto": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.DetectionRegion",
+   "line": 33,
+   "consumes": [
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK",
+    "SIDEExplicitFormula.B321.h2_sign_upto"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.h2_sign_imp_upto : ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.h2_sign_upto L₀",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "source_header": "(L₀ : ℝ) : h2_sign → h2_sign_upto L₀",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.kWin_classK": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.TwoPropertyWindow",
+   "line": 191,
+   "consumes": [
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.kWin_classK : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ}, ContDiff ℝ 4 φ → HasCompactSupport φ → SIDEExplicitFormula.B321.classK (SIDEExplicitFormula.B321.kWin γ₀ φ)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "source_header": "(γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) : classK (kWin γ₀ φ)",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hφs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.kWindow_classK": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 121,
+   "consumes": [
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.kWindow_classK : ∀ (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ}, ContDiff ℝ (↑⊤) g0 → Function.support g0 ⊆ Set.Icc (-L) L → ∀ (j : ℕ), SIDEExplicitFormula.B321.classK (SIDEExplicitFormula.B321.kWindow a g0 j)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.kWindow_classK' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0) (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) : classK (kWindow a g0 j)",
+   "grade": "INTERFACES",
+   "premises": "hs : Function.support g0 ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.kWindow_term": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 127,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.kWindow_term : ∀ (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ}, (∀ (x : ℝ), g0 (-x) = g0 x) → ContDiff ℝ (↑⊤) g0 → Function.support g0 ⊆ Set.Icc (-L) L → ∀ (j : ℕ) (z : ℂ), Zeta23.paperFT (SIDEExplicitFormula.B321.kWindow a g0 j) z = SIDEExplicitFormula.B321.polyEvalFull a (-(Complex.I * z)) * SIDEExplicitFormula.B321.polyEvalFull a (Complex.I * z) * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g0) z ^ 2 ^ (j + 1)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.kWindow_term' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hev : ∀ x, g0 (-x) = g0 x) (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0) (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) (z : ℂ) : Zeta23.paperFT (kWindow a g0 j) z = polyEvalFull a (-(I * z)) * polyEvalFull a (I * z) * (Zeta23.paperFT (phiC g0) z) ^ (2 ^ (j + 1))",
+   "grade": "INTERFACES",
+   "premises": "hs : Function.support g0 ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.nearInt_ge": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PairTerm",
+   "line": 264,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.nearInt_ge : ∀ {φ : ℝ → ℝ}, Continuous φ → HasCompactSupport φ → (∀ (x : ℝ), 0 ≤ φ x) → ∀ (δ : ℝ), ∫ (u : ℝ), φ u ≤ SIDEExplicitFormula.B321.nearInt φ δ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.nearInt_ge' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PairTerm.lean",
+   "source_header": "{φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x) (δ : ℝ) : (∫ u, φ u) ≤ nearInt φ δ",
+   "grade": "INTERFACES",
+   "premises": "hc : Continuous φ, hs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.nodes_distinct": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 193,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.nodes_distinct : ∀ (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ), ∀ ρ ∈ SIDEExplicitFormula.B321.tieSet Z g M, ∀ ρ' ∈ SIDEExplicitFormula.B321.tieSet Z g M, SIDEExplicitFormula.B321.vOf ρ = SIDEExplicitFormula.B321.vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.nodes_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : ∀ ρ ∈ tieSet Z g M, ∀ ρ' ∈ tieSet Z g M, vOf ρ = vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.off_finite_above": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 331,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.off_finite_above : ∀ (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ}, ContDiff ℝ 4 g → Function.support g ⊆ Set.Icc (-L) L → 0 ≤ L → ∀ (c : ℝ), 0 < c → {ρ | ρ ∈ Z.carrier ∧ c ≤ SIDEExplicitFormula.B321.offScore g ρ}.Finite",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.off_finite_above' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g) (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) : {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ 4 g, hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.pairTwo_factored": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PairTerm",
+   "line": 105,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.pairTwo_factored : ∀ (γ₀ δ : ℝ) {φ : ℝ → ℝ}, ContDiff ℝ 4 φ → HasCompactSupport φ → SIDEExplicitFormula.B321.pairTwo γ₀ φ δ = (↑δ ^ 2 + 2 * Complex.I * ↑γ₀ * ↑δ) ^ 2 * (Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (↑γ₀ - Complex.I * ↑δ) * Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (-↑γ₀ + Complex.I * ↑δ)) + (↑δ ^ 2 - 2 * Complex.I * ↑γ₀ * ↑δ) ^ 2 * (Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (↑γ₀ + Complex.I * ↑δ) * Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (-↑γ₀ - Complex.I * ↑δ))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.pairTwo_factored' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PairTerm.lean",
+   "source_header": "(γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) : pairTwo γ₀ φ δ = ((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) ^ 2 * (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) - I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) + I * δ)) + ((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) ^ 2 * (Zeta23.paperFT (cosWinC γ₀ φ) ((γ₀ : ℂ) + I * δ) * Zeta23.paperFT (cosWinC γ₀ φ) (-(γ₀ : ℂ) - I * δ))",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hφs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.pairTwo_near_far": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PairTerm",
+   "line": 252,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.pairTwo_near_far : ∀ (γ₀ δ : ℝ) {φ : ℝ → ℝ}, ContDiff ℝ 4 φ → HasCompactSupport φ → (∀ (x : ℝ), φ (-x) = φ x) → SIDEExplicitFormula.B321.pairTwo γ₀ φ δ = ((↑δ ^ 2 + 2 * Complex.I * ↑γ₀ * ↑δ) * (↑(SIDEExplicitFormula.B321.nearInt φ δ) + SIDEExplicitFormula.B321.farFT γ₀ φ δ) / 2) ^ 2 + ((↑δ ^ 2 - 2 * Complex.I * ↑γ₀ * ↑δ) * (↑(SIDEExplicitFormula.B321.nearInt φ δ) + (starRingEnd ℂ) (SIDEExplicitFormula.B321.farFT γ₀ φ δ)) / 2) ^ 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.pairTwo_near_far' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PairTerm.lean",
+   "source_header": "(γ₀ δ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (hev : ∀ x, φ (-x) = φ x) : pairTwo γ₀ φ δ = (((δ : ℂ) ^ 2 + 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + farFT γ₀ φ δ) / 2) ^ 2 + (((δ : ℂ) ^ 2 - 2 * I * γ₀ * δ) * ((nearInt φ δ : ℂ) + conj (farFT γ₀ φ δ)) / 2) ^ 2",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hφs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.pair_bound": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PairTerm",
+   "line": 435,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.pair_bound : ∀ (γ₀ δ ε : ℝ) {φ : ℝ → ℝ}, ContDiff ℝ 4 φ → HasCompactSupport φ → (∀ (x : ℝ), φ (-x) = φ x) → (∀ (x : ℝ), 0 ≤ φ x) → 0 < ∫ (u : ℝ), φ u → 0 < γ₀ → 0 < δ → 0 ≤ ε → SIDEExplicitFormula.B321.farSmall γ₀ φ δ ε → SIDEExplicitFormula.B321.farSmall γ₀ φ 0 ε → SIDEExplicitFormula.B321.pairEps ε δ γ₀ ≤ SIDEExplicitFormula.B321.pairConst → (SIDEExplicitFormula.B321.pairTwo γ₀ φ δ).re ≤ -(SIDEExplicitFormula.B321.pairConst - SIDEExplicitFormula.B321.pairEps ε δ γ₀) * δ ^ 2 * ‖SIDEExplicitFormula.B321.windowSlope γ₀ φ‖ ^ 2 * SIDEExplicitFormula.B321.realizedGrowth φ δ ^ 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PairTerm.lean",
+   "source_header": "(γ₀ δ ε : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (hev : ∀ x, φ (-x) = φ x) (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u) (hγ : 0 < γ₀) (hδ : 0 < δ) (hε : 0 ≤ ε) (hfar : farSmall γ₀ φ δ ε) (hfar0 : farSmall γ₀ φ 0 ε) (hc : pairEps ε δ γ₀ ≤ pairConst) : (pairTwo γ₀ φ δ).re ≤ -(pairConst - pairEps ε δ γ₀) * δ ^ 2 * ‖windowSlope γ₀ φ‖ ^ 2 * realizedGrowth φ δ ^ 2",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hφs : HasCompactSupport φ, hfar : farSmall γ₀ φ δ ε, hfar0 : farSmall γ₀ φ 0 ε",
+   "tier": "T2-INTERFACES",
+   "tier_source": "the tier law`s programme-premise clause (FINDINGS :5812): INTERFACES on ContDiff, HasCompactSupport, farSmall, farSmall",
+   "record_grade": "INTERFACES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.pair_near_sign": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PairTerm",
+   "line": 305,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.pair_near_sign : ∀ (γ₀ δ : ℝ) {φ : ℝ → ℝ}, Continuous φ → HasCompactSupport φ → (∀ (x : ℝ), 0 ≤ φ x) → 0 < ∫ (u : ℝ), φ u → 0 < δ → δ < 2 * γ₀ → (SIDEExplicitFormula.B321.nearPair γ₀ δ (SIDEExplicitFormula.B321.nearInt φ δ)).re < 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.pair_near_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PairTerm.lean",
+   "source_header": "(γ₀ δ : ℝ) {φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u) (hδ : 0 < δ) (hδγ : δ < 2 * γ₀) : (nearPair γ₀ δ (nearInt φ δ)).re < 0",
+   "grade": "INTERFACES",
+   "premises": "hc : Continuous φ, hs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_conj_of_real": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 36,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_conj_of_real : ∀ (g : ℝ → ℝ) (z : ℂ), (starRingEnd ℂ) (Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) ((starRingEnd ℂ) z)) = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (-z)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_conj_of_real' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(g : ℝ → ℝ) (z : ℂ) : conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) (-z)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_conj_of_real_even": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 33,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_conj_of_real_even : ∀ {g : ℝ → ℝ}, (∀ (x : ℝ), g (-x) = g x) → ∀ (z : ℂ), (starRingEnd ℂ) (Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) ((starRingEnd ℂ) z)) = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_conj_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "{g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) : conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) z",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_growth": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.GrowthBound",
+   "line": 23,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_growth : ∀ (h : ℝ → ℂ) (L : ℝ), MeasureTheory.Integrable h MeasureTheory.volume → Function.support h ⊆ Set.Icc (-L) L → ∀ (z : ℂ), ‖Zeta23.paperFT h z‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |z.im|)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_growth' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/GrowthBound.lean",
+   "source_header": "(h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT h z‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |z.im|)",
+   "grade": "INTERFACES",
+   "premises": "h : ℝ → ℂ, hi : Integrable h, hs : Function.support h ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_growth_at": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.GrowthBound",
+   "line": 50,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_growth_at : ∀ (h : ℝ → ℂ) (L : ℝ), MeasureTheory.Integrable h MeasureTheory.volume → Function.support h ⊆ Set.Icc (-L) L → ∀ (ρ : ℂ), ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_growth_at' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/GrowthBound.lean",
+   "source_header": "(h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L) (ρ : ℂ) : ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|)",
+   "grade": "INTERFACES",
+   "premises": "h : ℝ → ℂ, hi : Integrable h, hs : Function.support h ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_neg_of_even": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 41,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_neg_of_even : ∀ {g : ℝ → ℝ}, (∀ (x : ℝ), g (-x) = g x) → ∀ (z : ℂ), Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (-z) = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_neg_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "{g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) : Zeta23.paperFT (phiC g) (-z) = Zeta23.paperFT (phiC g) z",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_polyOp": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 191,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_polyOp : ∀ (a : List ℝ) {g : ℝ → ℝ} {L : ℝ}, ContDiff ℝ (2 * ↑a.length) g → Function.support g ⊆ Set.Icc (-L) L → ∀ (z : ℂ), Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.polyOp a g)) z = SIDEExplicitFormula.B321.polyEval a z * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_polyOp' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ (2 * a.length) g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : Zeta23.paperFT (phiC (polyOp a g)) z = polyEval a z * Zeta23.paperFT (phiC g) z",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ (2 * a.length) g, hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_polyOpFull": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 63,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_polyOpFull : ∀ (a : List ℝ) {g : ℝ → ℝ} {L : ℝ}, ContDiff ℝ (↑a.length) g → Function.support g ⊆ Set.Icc (-L) L → ∀ (z : ℂ), Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.polyOpFull a g)) z = SIDEExplicitFormula.B321.polyEvalFull a (-(Complex.I * z)) * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_polyOpFull' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ a.length g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : Zeta23.paperFT (phiC (polyOpFull a g)) z = polyEvalFull a (-(I * z)) * Zeta23.paperFT (phiC g) z",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ a.length g, hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_power": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 146,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_power : ∀ {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞}, (∀ (x : ℝ), g (-x) = g x) → ContDiff ℝ (↑n) g → Function.support g ⊆ Set.Icc (-L) L → ∀ (z : ℂ) (j : ℕ), Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.power g j)) z = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z ^ 2 ^ j",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_power' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "{g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j) | 0 => by show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0) rw [pow_zero, pow_one] | j + 1 => by show Zeta23.paperFT (phiC (selfConv (power g j))) z = _ rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ] /-! ### L4 -- the polynomial operator -/ def polyCoef (a : List ℝ) (j : ℕ) : ℝ",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ n g, hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_window": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.TwoPropertyWindow",
+   "line": 277,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_window : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ}, ContDiff ℝ 4 φ → HasCompactSupport φ → ∀ (z : ℂ), Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) z = (↑γ₀ ^ 2 - z ^ 2) * Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) z",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "source_header": "(γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) : Zeta23.paperFT (windowC γ₀ φ) z = ((γ₀ : ℂ) ^ 2 - z ^ 2) * Zeta23.paperFT (cosWinC γ₀ φ) z",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hφs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.paperFT_window_zero": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.TwoPropertyWindow",
+   "line": 285,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.paperFT_window_zero : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ}, ContDiff ℝ 4 φ → HasCompactSupport φ → Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) ↑γ₀ = 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+   "source_header": "(γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) : Zeta23.paperFT (windowC γ₀ φ) (γ₀ : ℂ) = 0",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hφs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.polyOpFull_contDiff": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 94,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.polyOpFull_contDiff : ∀ (a : List ℝ) {g : ℝ → ℝ}, ContDiff ℝ (↑⊤) g → ContDiff ℝ (↑⊤) (SIDEExplicitFormula.B321.polyOpFull a g)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.polyOpFull_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(a : List ℝ) {g : ℝ → ℝ} (hg : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g) : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (polyOpFull a g)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.polyOpFull_support": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 82,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.polyOpFull_support : ∀ (a : List ℝ) {g : ℝ → ℝ} {L : ℝ}, Function.support g ⊆ Set.Icc (-L) L → Function.support (SIDEExplicitFormula.B321.polyOpFull a g) ⊆ Set.Icc (-L) L",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.polyOpFull_support' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) : Function.support (polyOpFull a g) ⊆ Set.Icc (-L) L",
+   "grade": "INTERFACES",
+   "premises": "hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.power_contDiff": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 140,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.power_contDiff : ∀ {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞}, ContDiff ℝ (↑n) g → Function.support g ⊆ Set.Icc (-L) L → ∀ (j : ℕ), ContDiff ℝ (↑n) (SIDEExplicitFormula.B321.power g j)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.power_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "{g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g) (hs : Function.support g ⊆ Set.Icc (-L) L) : ∀ j, ContDiff ℝ n (power g j) | 0 => hg | j + 1 => selfConv_contDiff (power_contDiff hg hs j) (hasCompactSupport_of_Icc (power_support hs j)) /-- **L3:** `(power g j)^ = g^^(2^j)`. -/ theorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) : ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j) | 0 => by show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0) rw [pow_zero, pow_one] | j + 1 => by show Zeta23.paperFT (phiC (selfConv (power g j))) z = _ rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ] /-! ### L4 -- the polynomial operator -/ def polyCoef (a : List ℝ) (j : ℕ) : ℝ",
+   "grade": "INTERFACES",
+   "premises": "hg : ContDiff ℝ n g, hs : Function.support g ⊆ Set.Icc (-L) L, hg : ContDiff ℝ n g, hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.power_support": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 129,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.power_support : ∀ {g : ℝ → ℝ} {L : ℝ}, Function.support g ⊆ Set.Icc (-L) L → ∀ (j : ℕ), Function.support (SIDEExplicitFormula.B321.power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.power_support' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "{g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) : ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L) | 0 => by show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L) simpa only [pow_zero, one_mul] using hs | j + 1 => by intro x hx have h",
+   "grade": "INTERFACES",
+   "premises": "hs : Function.support g ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.real_even_interpolant": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 427,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.real_even_interpolant : ∀ (s : Finset ℂ), (∀ w ∈ s, (starRingEnd ℂ) w ∈ s) → ∃ C, ∀ (r : ℂ → ℂ), (∀ w ∈ s, r ((starRingEnd ℂ) w) = (starRingEnd ℂ) (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) → ∃ Q, (∀ w ∈ s, Polynomial.eval w (Polynomial.map (algebraMap ℝ ℂ) Q) = r w) ∧ Q.degree < ↑s.card ∧ ∀ (j : ℕ), |Q.coeff j| ≤ C",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.real_even_interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) : ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) → ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧ ∀ j, |Q.coeff j| ≤ C",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.realizedGrowth_ge_one": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PairTerm",
+   "line": 282,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.realizedGrowth_ge_one : ∀ {φ : ℝ → ℝ}, Continuous φ → HasCompactSupport φ → (∀ (x : ℝ), 0 ≤ φ x) → 0 < ∫ (u : ℝ), φ u → ∀ (δ : ℝ), 1 ≤ SIDEExplicitFormula.B321.realizedGrowth φ δ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.realizedGrowth_ge_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PairTerm.lean",
+   "source_header": "{φ : ℝ → ℝ} (hc : Continuous φ) (hs : HasCompactSupport φ) (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u) (δ : ℝ) : 1 ≤ realizedGrowth φ δ",
+   "grade": "INTERFACES",
+   "premises": "hc : Continuous φ, hs : HasCompactSupport φ",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rest_bound": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RestBound",
+   "line": 297,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rest_bound : ∀ (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ}, ContDiff ℝ 4 φ → Function.support φ ⊆ Set.Icc (-L) L → 0 ≤ L → SIDEExplicitFormula.B321.HStrip Z → SIDEExplicitFormula.B321.HCount Z A₀ → ∀ (ρ₀ : ℂ), SIDEExplicitFormula.B321.restSum Z γ₀ φ ρ₀ ≤ SIDEExplicitFormula.B321.restR γ₀ φ L A₀",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RestBound.lean",
+   "source_header": "(Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (hstrip : HStrip Z) (hcount : HCount Z A₀) (ρ₀ : ℂ) : restSum Z γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hs : Function.support φ ⊆ Set.Icc (-L) L, hstrip : HStrip Z, hcount : HCount Z A₀",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rest_bound_closed": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RestBound",
+   "line": 306,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rest_bound_closed : ∀ (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ}, ContDiff ℝ 4 φ → Function.support φ ⊆ Set.Icc (-L) L → 0 ≤ L → SIDEExplicitFormula.B321.HCount Z A₀ → ∀ (ρ₀ : ℂ), SIDEExplicitFormula.B321.restSum Z γ₀ φ ρ₀ ≤ SIDEExplicitFormula.B321.restR γ₀ φ L A₀",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rest_bound_closed' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RestBound.lean",
+   "source_header": "(Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (hcount : HCount Z A₀) (ρ₀ : ℂ) : restSum Z γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hs : Function.support φ ⊆ Set.Icc (-L) L, hcount : HCount Z A₀",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rest_bound_zeta": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RestBound",
+   "line": 314,
+   "consumes": [
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rest_bound_zeta : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ}, ContDiff ℝ 4 φ → Function.support φ ⊆ Set.Icc (-L) L → 0 ≤ L → ∀ (ρ₀ : ℂ), ∃ A₀, 1 ≤ A₀ ∧ SIDEExplicitFormula.B321.restSum Zeta23.zetaZeroConfig γ₀ φ ρ₀ ≤ SIDEExplicitFormula.B321.restR γ₀ φ L A₀",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rest_bound_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RestBound.lean",
+   "source_header": "(γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₀ : ℂ) : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ restSum Zeta23.zetaZeroConfig γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀",
+   "grade": "INTERFACES",
+   "premises": "hφ : ContDiff ℝ 4 φ, hs : Function.support φ ⊆ Set.Icc (-L) L",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rest_tendsto_zero": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1025,
+   "consumes": [
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rest_tendsto_zero : ∀ {g0 : ℝ → ℝ} {L M : ℝ} (H : SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ), (∀ (j : ℕ) (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) → Filter.Tendsto (fun j => ∑' (x : ↑Zeta23.zetaZeroConfig.carrier), SIDEExplicitFormula.B321.fR H Q j x / ↑M ^ 2 ^ (j + 1)) Filter.atTop (nhds 0)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rest_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(H : PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) : Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rest_term_small": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 764,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rest_term_small : ∀ {Z : Zeta23.ZeroConfig} {g0 : ℝ → ℝ} {L M : ℝ} (H : SIDEExplicitFormula.B321.PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ), (∀ (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) → ∀ (j : ℕ) (ρ : ℂ), ‖Zeta23.paperFT (SIDEExplicitFormula.B321.kWindow (SIDEExplicitFormula.B321.coeffList (SIDEExplicitFormula.B321.Pof H Q)) g0 j) (Zeta23.gammaOf ρ)‖ ≤ B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ρ‖) ^ (2 * D) * SIDEExplicitFormula.B321.offScore g0 ρ ^ 2 ^ (j + 1)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rest_term_small' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ) (hB : ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) (j : ℕ) (ρ : ℂ) : ‖Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)‖ ≤ B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * offScore g0 ρ ^ (2 ^ (j + 1))",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rh_imp_cell_form": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RHChain",
+   "line": 66,
+   "consumes": [
+    "RiemannHypothesis",
+    "SIDEExplicitFormula.B321.classK",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rh_imp_cell_form : ∀ (F : ℝ → ℝ → ℂ) (W : Set ℝ), SIDEExplicitFormula.B321.admissible F W → RiemannHypothesis → SIDEExplicitFormula.B321.cell_form F W",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rh_imp_cell_form' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RHChain.lean",
+   "source_header": "(F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) : RiemannHypothesis → cell_form F W",
+   "grade": "INTERFACES",
+   "premises": "hF : admissible F W",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rh_imp_h2_sign": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RHChain",
+   "line": 24,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "RiemannHypothesis",
+    "riemannZeta",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rh_imp_h2_sign : RiemannHypothesis → SIDEExplicitFormula.B321.h2_sign",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rh_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RHChain.lean",
+   "source_header": ": RiemannHypothesis → h2_sign",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rh_imp_rh_strip": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 485,
+   "consumes": [
+    "RiemannHypothesis",
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rh_imp_rh_strip : RiemannHypothesis → SIDEExplicitFormula.B321.rh_strip",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rh_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": ": RiemannHypothesis → rh_strip",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rh_strip_imp_h2_sign": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1197,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rh_strip_imp_h2_sign : SIDEExplicitFormula.B321.rh_strip → SIDEExplicitFormula.B321.h2_sign",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rh_strip_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": ": rh_strip → h2_sign",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.rh_strip_imp_rh_holds": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Seam",
+   "line": 84,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta",
+    "RiemannHypothesis"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : SIDEExplicitFormula.B321.rh_strip_imp_rh",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "source_header": ": rh_strip_imp_rh",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.2",
+   "entry": "v0.2 = 5c72cad",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.selfConv_im_zero": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 78,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.selfConv_im_zero : ∀ (g : ℝ → ℝ) (x : ℝ), (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g) x).im = 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.selfConv_im_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(g : ℝ → ℝ) (x : ℝ) : (Zeta23.EF.weilTest (phiC g) (phiC g) x).im = 0",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.tie_term_neg": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 749,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.tie_term_neg : ∀ {Z : Zeta23.ZeroConfig} {g0 : ℝ → ℝ} {L M : ℝ} (H : SIDEExplicitFormula.B321.PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ), (∀ ρ ∈ SIDEExplicitFormula.B321.tieSet Z g0 M, (Polynomial.aeval (SIDEExplicitFormula.B321.vOf ρ)) Q ^ 2 * SIDEExplicitFormula.B321.Xval H j ρ = -↑‖SIDEExplicitFormula.B321.Xval H j ρ‖) → ∀ {ρ : ℂ}, ρ ∈ SIDEExplicitFormula.B321.tieSet Z g0 M → (Zeta23.paperFT (SIDEExplicitFormula.B321.kWindow (SIDEExplicitFormula.B321.coeffList (SIDEExplicitFormula.B321.Pof H Q)) g0 j) (Zeta23.gammaOf ρ)).re = -(SIDEExplicitFormula.B321.Nf H ρ * M ^ 2 ^ (j + 1))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.tie_term_neg' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(H : PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ) (hQ : ∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) {ρ : ℂ} (hρ : ρ ∈ tieSet Z g0 M) : (Zeta23.paperFT (kWindow (coeffList (Pof H Q)) g0 j) (Zeta23.gammaOf ρ)).re = -(Nf H ρ * M ^ (2 ^ (j + 1)))",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.upto_all_imp_h2_sign": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.DetectionRegion",
+   "line": 37,
+   "consumes": [
+    "SIDEExplicitFormula.B321.h2_sign",
+    "SIDEExplicitFormula.B321.classK",
+    "SIDEExplicitFormula.B321.h2_sign_upto"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.upto_all_imp_h2_sign : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) → SIDEExplicitFormula.B321.h2_sign",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "source_header": ": (∀ L₀ : ℝ, h2_sign_upto L₀) → h2_sign",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.weilTest_even_of_even": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 47,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.weilTest_even_of_even : ∀ (g : ℝ → ℝ) (x : ℝ), Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g) (-x) = Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g) x",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.weilTest_even_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "(g : ℝ → ℝ) (x : ℝ) : Zeta23.EF.weilTest (phiC g) (phiC g) (-x) = Zeta23.EF.weilTest (phiC g) (phiC g) x",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.zeroSide_eventually_neg": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 1082,
+   "consumes": [
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.zeroSide_eventually_neg : ∀ {g0 : ℝ → ℝ} {L M : ℝ}, SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M → ∀ ρs ∈ SIDEExplicitFormula.B321.tieSet Zeta23.zetaZeroConfig g0 M, ∃ a j, (SIDEExplicitFormula.B321.zeroSide (SIDEExplicitFormula.B321.kWindow a g0 j)).re < 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.zeroSide_eventually_neg' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "(H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ) (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) : ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.zero_term_real": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerLimit",
+   "line": 46,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.zero_term_real : ∀ {g : ℝ → ℝ}, Continuous g → HasCompactSupport g → ∀ (z : ℂ), Zeta23.paperFT (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g)) z = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (-z)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.zero_term_real' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "source_header": "{g : ℝ → ℝ} (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) : Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z = Zeta23.paperFT (phiC g) z * Zeta23.paperFT (phiC g) (-z)",
+   "grade": "INTERFACES",
+   "premises": "hc : Continuous g, hs : HasCompactSupport g",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.zero_term_sq": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.PowerWindow",
+   "line": 38,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.zero_term_sq : ∀ {g : ℝ → ℝ}, (∀ (x : ℝ), g (-x) = g x) → Continuous g → HasCompactSupport g → ∀ (z : ℂ), Zeta23.paperFT (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g)) z = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z ^ 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.zero_term_sq' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/PowerWindow.lean",
+   "source_header": "{g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) : Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z = (Zeta23.paperFT (phiC g) z) ^ 2",
+   "grade": "INTERFACES",
+   "premises": "hc : Continuous g, hs : HasCompactSupport g",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.1",
+   "entry": "v0.1 = baed4df",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.B321.zeta_zero_re_nonpos": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.Seam",
+   "line": 25,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.B321.zeta_zero_re_nonpos : ∀ (z : ℂ), riemannZeta z = 0 → z.re ≤ 0 → ∃ n, z = -2 * (↑n + 1)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.B321.zeta_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "source_header": ": ∀ z : ℂ, riemannZeta z = 0 → z.re ≤ 0 → ∃ n : ℕ, z = -2 * (n + 1)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.2",
+   "entry": "v0.2 = 5c72cad",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiCriterionBridge",
+   "line": 62,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta : ∀ {ρ : ℂ}, 0 < ρ.re → ρ ≠ 1 → analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "source_header": "{ρ : ℂ} (h0 : 0 < ρ.re) (h1 : ρ ≠ 1) : analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.9",
+   "entry": "v0.9 = e5a5a83",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.LiCoeff_eq": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 247,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiCoeff n = ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) : LiCoeff n = ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.LiLimitExchange": {
+   "kind": "def",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 359,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop := fun n => ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) → Filter.Tendsto (fun m => ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ↑ρ)) Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.LiLimitExchange' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) : Prop",
+   "grade": "DEF",
+   "premises": "none",
+   "tier": "—",
+   "tier_source": "a definition; the law tiers terminals",
+   "record_grade": "UNGRADED",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.binomial_li": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilExchange",
+   "line": 132,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.binomial_li : ∀ (n : ℕ) (ρ : ℂ), ∑ j ∈ Finset.range n, ↑(n.choose (j + 1)) * (-1) ^ j / ρ ^ (j + 1) = SIDEExplicitFormula.LiWeil.liTerm n ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.binomial_li' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "source_header": "(n : ℕ) (ρ : ℂ) : ∑ j ∈ Finset.range n, (n.choose (j + 1) : ℂ) * (-1) ^ j / ρ ^ (j + 1) = liTerm n ρ",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.5",
+   "entry": "v0.5 = 2df46d7",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.blTransform_holds": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilExchange",
+   "line": 163,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.blTransform_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.blTransform n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.blTransform_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "source_header": "(n : ℕ) : blTransform n",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.5",
+   "entry": "v0.5 = 2df46d7",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.conj_mem": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 42,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ}, ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "{ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : (starRingEnd ℂ) ρ ∈ zetaZeroConfig.carrier",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilExchange",
+   "line": 50,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp : ∀ {ρ : ℂ}, 0 < ρ.re → ∀ (j : ℕ), ∫ (x : ℝ) in Set.Ioi 0, ↑x ^ j * Complex.exp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "source_header": "{ρ : ℂ} (hρ : 0 < ρ.re) : ∀ j : ℕ, ∫ x in Ioi (0 : ℝ), (x : ℂ) ^ j * cexp (-(ρ * x)) = (j.factorial : ℂ) / ρ ^ (j + 1) | 0 => by have hρ0 : ρ ≠ 0",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.5",
+   "entry": "v0.5 = 2df46d7",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilSym",
+   "line": 1214,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "SIDEExplicitFormula.LiWeil.symMember",
+    "Zeta23.zetaZeroConfig",
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "riemannZeta",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchangeSym n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilSym.lean",
+   "source_header": "(n : ℕ) : LiLimitExchangeSym n",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.7",
+   "entry": "v0.7 = 1e4a007",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 101,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ}, ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) {ρ : ℂ} (h : ρ.re = 1 / 2) : 0 ≤ (liTerm n ρ).re",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.li_identity_of_exchange": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 372,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.LiCoeff",
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.li_identity_of_exchange : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchange n → ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) → Filter.Tendsto (fun m => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n (fs m))) Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.li_identity_of_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)) (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Filter.Tendsto (fun m => (fs m) u) Filter.atTop (nhds 1)) : Filter.Tendsto (fun m => EF.literatureRHS (truncMember n (fs m))) Filter.atTop (nhds (LiCoeff n : ℂ))",
+   "grade": "INTERFACES",
+   "premises": "hX : LiLimitExchange n",
+   "tier": "T2",
+   "tier_source": "the record cell SIDE-global-section/CORRESPONDENCE.md:474",
+   "record_grade": "INTERFACES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.mult_conj": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 53,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ}, ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "{ρ : ℂ} (h : ρ ∈ zetaZeroConfig.carrier) : zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.pairTerm_eq": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 71,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ), SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) (ρ : ℂ) : pairTerm n ρ = ((2 * (liTerm n ρ).re : ℝ) : ℂ)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.pairTerm_norm_le": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 177,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ}, 1 ≤ ‖ρ‖ → 0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) {ρ : ℂ} (h1 : 1 ≤ ‖ρ‖) (h0 : 0 ≤ ρ.re) (hr1 : ρ.re ≤ 1) : ‖pairTerm n ρ‖ ≤ liConst n / ‖ρ‖ ^ 2",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.pair_summable": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 188,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.liTerm",
+    "riemannZeta",
+    "Zeta23.zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ), Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) : Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.symPair_bound": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilSym",
+   "line": 944,
+   "consumes": [
+    "SIDEExplicitFormula.LiWeil.symMember",
+    "SIDEExplicitFormula.LiWeil.liTerm"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.symPair_bound : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.SymPairBound n",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.symPair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilSym.lean",
+   "source_header": "(n : ℕ) : SymPairBound n",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.7",
+   "entry": "v0.7 = 1e4a007",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.truncMember_EF": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 344,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "Zeta23.WeilEF.EF_lit_zetaZeroConfig"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.truncMember_EF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c), (Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ)) ∧ ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ) = Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n f)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.truncMember_EF' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) {c : ℝ} (f : ContDiffBump c) : Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ)) ∧ ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ) = EF.literatureRHS (truncMember n f)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.truncMember_classEF": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeil",
+   "line": 320,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.truncMember_classEF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c), ContDiff ℝ 2 (SIDEExplicitFormula.LiWeil.truncMember n f) ∧ HasCompactSupport (SIDEExplicitFormula.LiWeil.truncMember n f)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.truncMember_classEF' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeil.lean",
+   "source_header": "(n : ℕ) {c : ℝ} (f : ContDiffBump c) : ContDiff ℝ 2 (truncMember n f) ∧ HasCompactSupport (truncMember n f)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.4",
+   "entry": "v0.4 = 941503b",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.LiWeilExchange",
+   "line": 209,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto : ∀ (n : ℕ) {ρ : ℂ}, 0 < ρ.re → ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)), (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) → (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) → Filter.Tendsto (fun m => Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ρ)) Filter.atTop (nhds (Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ)))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/LiWeilExchange.lean",
+   "source_header": "(n : ℕ) {ρ : ℂ} (hρ : 0 < ρ.re) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m)) (hc : ∀ m, c m + (fs m).rOut ≤ 0) (h1 : ∀ u : ℝ, u < 0 → Tendsto (fun m => (fs m) u) atTop (𝓝 1)) : Tendsto (fun m => paperFT (truncMember n (fs m)) (gammaOf ρ)) atTop (𝓝 (paperFT (blTest n) (gammaOf ρ)))",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.5",
+   "entry": "v0.5 = 2df46d7",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 143,
+   "consumes": [],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one",
+    "SIDEExplicitFormula.RegisterDepth.Phi._proof_1",
+    "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero",
+    "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero",
+    "SIDEExplicitFormula.RegisterDepth.Phi"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ), 0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": ∀ s : ℂ, 0 < s.re → s.re < 1 → ¬ (mellin Phi (s / 2) ≠ 0)",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 149,
+   "consumes": [
+    "Zeta23.zetaZeroConfig",
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ), 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ SIDEExplicitFormula.B321.rh_strip",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 101,
+   "consumes": [],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.Phi._proof_1",
+    "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero",
+    "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero",
+    "SIDEExplicitFormula.RegisterDepth.Phi"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ), s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": ∀ s : ℂ, s.re ≤ 1 → mellin Phi (s / 2) = 0",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.not_register1": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 60,
+   "consumes": [],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.Interface.mk",
+    "SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.α",
+    "SIDEExplicitFormula.RegisterDepth.ConfigurationSpace",
+    "SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.mk",
+    "SIDEExplicitFormula.RegisterDepth.Interface",
+    "SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis",
+    "SIDEExplicitFormula.RegisterDepth.Interface.is_universal",
+    "SIDEExplicitFormula.RegisterDepth.Interface.action",
+    "SIDEExplicitFormula.RegisterDepth.Interface.essential"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis",
+   "axioms": [],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": ¬ Register1_universalityHypothesis",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 84,
+   "consumes": [],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": "{x : ℝ} (hx : 0 < x) : 1 ≤ evenKernel 0 x",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 241,
+   "consumes": [],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.C6_holomorphic_extension",
+    "SIDEExplicitFormula.RegisterDepth.T3.Coupling",
+    "SIDEExplicitFormula.RegisterDepth.C4_modularity",
+    "SIDEExplicitFormula.RegisterDepth.Phi._proof_1",
+    "SIDEExplicitFormula.RegisterDepth.C7_order",
+    "SIDEExplicitFormula.RegisterDepth.C5_input",
+    "SIDEExplicitFormula.RegisterDepth.C3_theta_transformation",
+    "SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces",
+    "SIDEExplicitFormula.RegisterDepth.T3.CombinationsExclude",
+    "SIDEExplicitFormula.RegisterDepth.T3.PerClassExcludes",
+    "SIDEExplicitFormula.RegisterDepth.sevenClasses",
+    "SIDEExplicitFormula.RegisterDepth.C1_realness",
+    "SIDEExplicitFormula.RegisterDepth.C2_halfplane_nonvanishing",
+    "SIDEExplicitFormula.RegisterDepth.Phi"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : (∀ C ∈ SIDEExplicitFormula.RegisterDepth.sevenClasses, C SIDEExplicitFormula.RegisterDepth.Phi) → ∀ (s : ℂ), 1 < s.re → SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": "(h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → Register3_totalityThroughPlaces s",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T2-INTERFACES",
+   "tier_source": "the tier law`s programme-premise clause (FINDINGS :5812): INTERFACES on C",
+   "record_grade": "INTERFACES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.register5_output_holds": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 297,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya",
+    "SIDEExplicitFormula.RegisterDepth.is_xi_zero",
+    "SIDEExplicitFormula.RegisterDepth.Phi._proof_1",
+    "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable",
+    "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": Register5_output_HilbertPolya",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 91,
+   "consumes": [],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ}, 0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": "{t : ℝ} (ht : 0 < t) : t ^ (-(1 / 2 : ℝ)) ≤ evenKernel 0 t",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.silence_universal_restated": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 68,
+   "consumes": [],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.α",
+    "SIDEExplicitFormula.RegisterDepth.ConfigurationSpace",
+    "SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.mk",
+    "SIDEExplicitFormula.RegisterDepth.Interface.is_universal",
+    "SIDEExplicitFormula.RegisterDepth.Interface",
+    "SIDEExplicitFormula.RegisterDepth.Interface.mk",
+    "SIDEExplicitFormula.RegisterDepth.Interface.action",
+    "SIDEExplicitFormula.RegisterDepth.factors_through",
+    "SIDEExplicitFormula.RegisterDepth.Interface.kappa_zero"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀ {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type} (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero",
+   "axioms": [],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.silence_universal_restated' does not depend on any axioms",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": "{C : ConfigurationSpace} {R : Type} (I : Interface C R) (h_univ : I.is_universal) : I.kappa_zero",
+   "grade": "INTERFACES",
+   "premises": "h_univ : I.is_universal",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 289,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [
+    "SIDEExplicitFormula.RegisterDepth.Phi._proof_1",
+    "SIDEExplicitFormula.RegisterDepth.is_xi_zero",
+    "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable"
+   ],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable : {σ | SIDEExplicitFormula.RegisterDepth.is_xi_zero σ}.Countable",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": {σ : ℝ | is_xi_zero σ}.Countable",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  },
+  "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable": {
+   "kind": "theorem",
+   "module": "SIDEExplicitFormula.RegisterDepth",
+   "line": 267,
+   "consumes": [
+    "riemannZeta"
+   ],
+   "watched": [],
+   "statement": "theorem SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable : {z | z ≠ 1 ∧ riemannZeta z = 0}.Countable",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axioms_text": "'SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "source_header": ": {z : ℂ | z ≠ 1 ∧ riemannZeta z = 0}.Countable",
+   "grade": "DERIVES",
+   "premises": "none",
+   "tier": "T0",
+   "tier_source": "the tier law: compiled, the standard three, no premise",
+   "record_grade": "DERIVES",
+   "std3": true,
+   "entry_tag": "v0.3",
+   "entry": "v0.3 = 04eda4a",
+   "header_at_entry_equal": true
+  }
+ },
+ "drops": [
+  {
+   "name": "h2",
+   "why": "no declaration of that name exists in the kernel at v0.10 (git grep, printed in data/b568_node_cells.txt); `h2` is the deposit's name for the clause whose Prop is h2_sign, which is a node.",
+   "declarations_at_pin": [],
+   "watched_by_nodes": []
+  },
+  {
+   "name": "RegisterDepth",
+   "why": "a namespace and module (SIDEExplicitFormula/RegisterDepth.lean :22), not a declaration; no node consumes a declaration of it (the consumption read, printed in data/b568_node_cells.txt).",
+   "declarations_at_pin": [],
+   "watched_by_nodes": []
+  }
+ ],
+ "corr": [
+  {
+   "name": "SIDEExplicitFormula.B321.base_nonzero_at",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.ch_iff_h2_sign",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.classK_of_real_even",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.dominant_exists",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.dominant_summable",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_iff_rh_strip",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_cell",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_ch_holds",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam",
+   "repo": "SIDE-explicit-formula",
+   "grade": "CONFLICT",
+   "tier": "CONFLICT"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_upto",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.kWin_classK",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.kWindow_classK",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.kWindow_term",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.nearInt_ge",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.nodes_distinct",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.off_finite_above",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pairTwo_factored",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pairTwo_near_far",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pair_bound",
+   "repo": "SIDE-explicit-formula",
+   "grade": "INTERFACES",
+   "tier": "T2-INTERFACES"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pair_near_sign",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_conj_of_real",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_conj_of_real_even",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_growth",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_growth_at",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_neg_of_even",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_polyOp",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_polyOpFull",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_power",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_window",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_window_zero",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.polyOpFull_contDiff",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.polyOpFull_support",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.power_contDiff",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.power_support",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.real_even_interpolant",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.realizedGrowth_ge_one",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_bound",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_bound_closed",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_bound_zeta",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_tendsto_zero",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_term_small",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rh_imp_cell_form",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rh_imp_h2_sign",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rh_imp_rh_strip",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rh_strip_imp_h2_sign",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rh_strip_imp_rh_holds",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.selfConv_im_zero",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.tie_term_neg",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.upto_all_imp_h2_sign",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.weilTest_even_of_even",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.zeroSide_eventually_neg",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.zero_term_real",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.zero_term_sq",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.zeta_zero_re_nonpos",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.LiCoeff_eq",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.LiLimitExchange",
+   "repo": "SIDE-explicit-formula",
+   "grade": "UNGRADED",
+   "tier": "—"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.binomial_li",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.blTransform_holds",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.conj_mem",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.li_identity_of_exchange",
+   "repo": "SIDE-explicit-formula",
+   "grade": "INTERFACES",
+   "tier": "T2"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.mult_conj",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.pairTerm_eq",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.pairTerm_norm_le",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.pair_summable",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.symPair_bound",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.truncMember_EF",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.truncMember_classEF",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.not_register1",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re",
+   "repo": "SIDE-explicit-formula",
+   "grade": "INTERFACES",
+   "tier": "T2-INTERFACES"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.register5_output_holds",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.silence_universal_restated",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable",
+   "repo": "SIDE-explicit-formula",
+   "grade": "DERIVES",
+   "tier": "T0"
+  },
+  {
+   "name": "residue_irreducible",
+   "repo": "SIDE-lv-conservation",
+   "grade": "INTERFACES (PLACE-papers phase1.5/proofs/THE_RESIDUE_OF_RH.md:108)",
+   "tier": "T1-lit (THE_RESIDUE_OF_RH.md:228); liCriterion discharged at λ := LiCoeff by SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh, SIDE-explicit-formula v0.10 = 6baed63"
+  }
+ ],
+ "keystones": [
+  "phase1.5/method/INVARIANCE_BARRIERS.md",
+  "phase1.5/method/THE_LOAD_BEARING_MAP.md",
+  "phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md",
+  "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
+  "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+  "phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
+  "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+  "phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md",
+  "phase2/method/THE_FINDINGS_AS_THEY_STAND.md",
+  "phase2/method/THE_IDENTITY_CHAIN.md"
+ ],
+ "errors": [],
+ "nodes": [
+  {
+   "name": "RiemannHypothesis",
+   "source": "Mathlib",
+   "role": "listed"
+  },
+  {
+   "name": "riemannZeta",
+   "source": "Mathlib",
+   "role": "listed"
+  },
+  {
+   "name": "Zeta23.zetaZeroConfig",
+   "source": "Zeta23",
+   "role": "listed"
+  },
+  {
+   "name": "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+   "source": "Zeta23",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.classK",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.ch_iff_rh",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_upto",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.forall_upto_iff_rh",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.LiCoeff",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.liTerm",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.symMember",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiWeil.li_identity_sym",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "LiCriterion.taylorCoeff",
+   "source": "Bulka",
+   "role": "added: the object of positivity_implies_RH's hypothesis and of li_coeff_eq_taylorCoeff's right side; the ferry's read list names its module"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "LiCriterion.positivity_implies_RH",
+   "source": "Bulka",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh",
+   "source": "kernel",
+   "role": "listed"
+  },
+  {
+   "name": "SIDEExplicitFormula.ResidueDischarge.Register4_positivity",
+   "source": "kernel",
+   "role": "added: the Prop register4_positivity_liCoeff_imp_rh's statement is about"
+  },
+  {
+   "name": "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh",
+   "source": "kernel",
+   "role": "listed"
+  }
+ ]
+}

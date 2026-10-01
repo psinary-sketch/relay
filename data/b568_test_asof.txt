@@ -1,0 +1,16 @@
+test_asof.py -- (R178)(2)(ii). records under C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/d3849d40-f964-42e9-a310-c5dd4c4f8182/scratchpad/asof_test
+  (1) the push-out parser, both polarities on synthetic banks                                          PASS
+  (2) b566`s bank names ce360e88... (read ce360e8854c1)                                                PASS
+  (2) b567`s bank names d77bb7aa... (read d77bb7aa4458)                                                PASS
+    b566 at its own as-of: relay ce360e88 (b566_closing_push_out.txt) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD
+  (3) b566 at ce360e88: G-NUMBER-UNCLAIMED PASS (read PASS)                                            PASS
+  (3) b566 at ce360e88: G-PEEK-DECLARED PASS (read PASS)                                               PASS
+  (3) b566 at ce360e88: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS
+    b566 pointed at b567`s close: relay d77bb7aa (--as-of) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD
+  (4) b566 pointed at d77bb7aa (claim false there): G-NUMBER-UNCLAIMED FAIL (read FAIL)                PASS
+  (4) b566 pointed at d77bb7aa (claim false there): G-PRIORBANK-UNCHANGED FAIL (read FAIL)             PASS
+    b567 at its own as-of: relay d77bb7aa (b567_closing_push_out.txt) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD
+  (5) b567 at d77bb7aa: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS
+    b567 pointed at its own commit before the ordered append: relay 0e50bd19 (--as-of) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD
+  (6) b567 pointed at 0e50bd19 (the ordered append absent there): G-PRIORBANK-UNCHANGED FAIL (read FAIL) PASS
+### ### **10 of 10 cases as wanted -- PASS**

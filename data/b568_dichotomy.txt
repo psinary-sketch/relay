@@ -1,0 +1,46 @@
+### b568 -- (R178)(2)(iii): MATHLIB'S EVEN/ODD DICHOTOMY FOR DIRICHLET CHARACTERS, PRINTED BY NAME AT de5ce8a9, AND THE RULE'S INSTANCE
+### one lake env lean call from the kernel checkout at v0.10 = 6baed63 ( [exited with code 0] )
+### THE PROBE FILE:
+    import Mathlib.NumberTheory.DirichletCharacter.Basic
+    import SIDEExplicitFormula.Chi.Statement
+    
+    /-! b568, (R178)(2)(iii): Mathlib's even/odd dichotomy for Dirichlet characters, printed by name at de5ce8a9, and the
+    two kernel declarations that are the domain-condition rule's instance. A probe; not a kernel file. -/
+    
+    #print sig DirichletCharacter.even_or_odd
+    #print sig DirichletCharacter.not_even_and_odd
+    #print DirichletCharacter.Even
+    #print DirichletCharacter.Odd
+    #print axioms DirichletCharacter.even_or_odd
+    #print sig Classical.em
+    #print sig SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even
+    #print sig SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even
+    #print axioms SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even
+    #print axioms SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even
+    example {S : Type} [CommRing S] [NoZeroDivisors S] {m : ℕ} (ψ : DirichletCharacter S m) :
+        ψ (-1) = 1 ∨ ψ (-1) = -1 := ψ.even_or_odd
+### LEAN'S OUTPUT, VERBATIM (no error; the closing example -- ψ (-1) = 1 ∨ ψ (-1) = -1 := ψ.even_or_odd -- elaborated):
+    theorem DirichletCharacter.even_or_odd.{u_2} : ∀ {S : Type u_2} [inst : CommRing S] {m : ℕ} (ψ : DirichletCharacter S m)
+      [NoZeroDivisors S], ψ.Even ∨ ψ.Odd
+    theorem DirichletCharacter.not_even_and_odd.{u_2} : ∀ {S : Type u_2} [inst : CommRing S] {m : ℕ}
+      (ψ : DirichletCharacter S m) [NeZero 2], ¬(ψ.Even ∧ ψ.Odd)
+    def DirichletCharacter.Even.{u_2} : {S : Type u_2} → [inst : CommRing S] → {m : ℕ} → DirichletCharacter S m → Prop :=
+    fun {S} [CommRing S] {m} ψ => ψ (-1) = 1
+    def DirichletCharacter.Odd.{u_2} : {S : Type u_2} → [inst : CommRing S] → {m : ℕ} → DirichletCharacter S m → Prop :=
+    fun {S} [CommRing S] {m} ψ => ψ (-1) = -1
+    'DirichletCharacter.even_or_odd' depends on axioms: [propext, Quot.sound]
+    theorem Classical.em : ∀ (p : Prop), p ∨ ¬p
+    theorem SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N},
+      χ.Even →
+        ∀ (r : ℝ),
+          SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r =
+            Real.log (↑N / Real.pi) + (1 / 4 + Complex.I * ↑r / 2).digamma.re
+    theorem SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N},
+      ¬χ.Even →
+        ∀ (r : ℝ),
+          SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r =
+            Real.log (↑N / Real.pi) + (3 / 4 + Complex.I * ↑r / 2).digamma.re
+    'SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+### ### **(N3) READS: DirichletCharacter.even_or_odd IS IN MATHLIB AT de5ce8a9 BY NAME (NumberTheory/DirichletCharacter/Basic.lean :538), Even := ψ (-1) = 1, Odd := ψ (-1) = -1; NO LEMMA BUILT.**
+### the rule's split is χ.Even / ¬ χ.Even, exhaustive by Classical.em (printed); even_or_odd stands beside it. Both instance declarations print the standard three.

@@ -1,0 +1,108 @@
+b568 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### kernel H2Sign -- SIDEExplicitFormula/H2Sign.lean @ 6baed63a
+    :24     def classK (k : ℝ → ℂ) : Prop :=
+    :29     def h2_sign : Prop :=
+### kernel Seam -- SIDEExplicitFormula/Seam.lean @ 6baed63a
+    :101    theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+### kernel H2Bridge -- SIDEExplicitFormula/H2Bridge.lean @ 6baed63a
+    :33     def conservationHypothesis : Prop :=
+    :71     theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis := ⟨ch_imp_rh, rh_imp_ch⟩
+### kernel RegisterDepth -- SIDEExplicitFormula/RegisterDepth.lean @ 6baed63a
+    :22     namespace RegisterDepth
+### kernel DetectionRegion -- SIDEExplicitFormula/DetectionRegion.lean @ 6baed63a
+    :29     def h2_sign_upto (L₀ : ℝ) : Prop :=
+    :47     theorem h2_sign_iff_forall_upto : h2_sign ↔ ∀ L₀ : ℝ, h2_sign_upto L₀ :=
+    :52     theorem forall_upto_iff_rh : (∀ L₀ : ℝ, h2_sign_upto L₀) ↔ RiemannHypothesis :=
+### kernel LiWeil -- SIDEExplicitFormula/LiWeil.lean @ 6baed63a
+    :60     def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+    :243    def LiCoeff (n : ℕ) : ℝ :=
+    :267    theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+    :359    def LiLimitExchange (n : ℕ) : Prop :=
+    :372    theorem li_identity_of_exchange (n : ℕ) (hX : LiLimitExchange n) (c : ℕ → ℝ) (fs : ∀ m, ContDiffBump (c m))
+### kernel LiWeilSym -- SIDEExplicitFormula/LiWeilSym.lean @ 6baed63a
+    :51     def symMember (n : ℕ) (δ : ℝ) (u : ℝ) : ℂ := ((symCut δ u : ℝ) : ℂ) * blSmooth n u
+    :1218   theorem li_identity_sym (n : ℕ) :
+### kernel LiCriterionBridge -- SIDEExplicitFormula/LiCriterionBridge.lean @ 6baed63a
+    :149    theorem li_coeff_eq_taylorCoeff (n : ℕ) :
+    :179    theorem li_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis := by
+    :191    theorem arith_limit_nonneg_iff_rh :
+### kernel ResidueDischarge -- SIDEExplicitFormula/ResidueDischarge.lean @ 6baed63a
+    :30     def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+    :34     theorem liCoeff_zero : LiCoeff 0 = 0 := by
+    :41     theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis := by
+### kernel Chi/Statement (the E0 rule`s instance) -- SIDEExplicitFormula/Chi/Statement.lean @ 6baed63a
+    :51     theorem gammaBracket_chi_of_even {χ : DirichletCharacter ℂ N} (he : χ.Even) (r : ℝ) :
+    :59     theorem gammaBracket_chi_of_not_even {χ : DirichletCharacter ℂ N} (he : ¬ χ.Even) (r : ℝ) :
+### vendored Bulka ReverseDirection -- Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean @ 6baed63a
+    :413    theorem positivity_implies_RH :
+### vendored Bulka Basic -- Vendored/Bulka/Lc/LiCriterion/Basic.lean @ 6baed63a
+    :541    noncomputable def taylorCoeff (f : ℂ → ℂ) (n : ℕ) : ℂ :=
+### vendored Zeta23 Defs -- Zeta23/Defs.lean @ 6baed63a
+    :136    structure ZeroConfig where
+### vendored Zeta23 ExplicitFormula -- Zeta23/ExplicitFormula.lean @ 6baed63a
+    :86     def literatureRHS (k : ℝ → ℂ) : ℂ :=
+    :97     def EF_lit (Z : ZeroConfig) : Prop :=
+### vendored Zeta23 SeamClosed -- Zeta23/Statement/SeamClosed.lean @ 6baed63a
+    :42     def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam
+### vendored Zeta23 WeilEF/Main -- Zeta23/WeilEF/Main.lean @ 6baed63a
+    :286    theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+### kernel lean-toolchain -- lean-toolchain @ 6baed63a
+    :1      leanprover/lean4:v4.34.0-rc1
+### kernel lake-manifest (mathlib rev) -- lake-manifest.json @ 6baed63a
+    :10        "rev": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+    :11        "name": "mathlib",
+### Mathlib RiemannZeta -- Mathlib/NumberTheory/LSeries/RiemannZeta.lean @ de5ce8a9
+    :121    def riemannZeta := hurwitzZetaEven 0
+    :185    def RiemannHypothesis : Prop :=
+### Mathlib DirichletCharacter/Basic (the dichotomy) -- Mathlib/NumberTheory/DirichletCharacter/Basic.lean @ de5ce8a9
+    :533    def Odd : Prop := ψ (-1) = -1
+    :536    def Even : Prop := ψ (-1) = 1
+    :538    lemma even_or_odd [NoZeroDivisors S] : ψ.Even ∨ ψ.Odd := by
+    :542    lemma not_even_and_odd [NeZero (2 : S)] : ¬(ψ.Even ∧ ψ.Odd) := by
+### PLACE-papers README (the ceiling sentence) -- README.md @ 5340891e
+    :121    *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence: *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel
+### PLACE-papers REGISTRY (the ceiling sentence) -- REGISTRY.md @ 5340891e
+    :956    *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence: *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel
+### PLACE-papers OPEN_TRAILS (W-ORD-GRH-WEIL; its lines; the critical path; lane three) -- OPEN_TRAILS.md @ 5340891e
+    :11373  ### `W-ORD-GRH-WEIL` -- THE χ-SIDE OF THE WEIL ARC, PRICED, appended 2026-09-28, b555, under the author's ruling (R165)(5)
+    :11407  ### The critical path after the cascade's ninth act: lane one CP-1 close and CP-1b, lane two the five work-orders in dependency order, lane three the clarified layer -- entered 2026-09-28, b556, under the author's ruling (R166)(2)
+    :11417  > LANE THREE — THE CLARIFIED LAYER, after lane two's (a) and (b) at least: CP-4 (the page without narrative, the ceiling as its last derived line), CP-5 (the deposit reconciliation, now carrying Anomaly 1, E-2026-09-25-1 through -6 and E-2026-09-27-1, and the (R110) description edit), CP-7 (the observation document's purpose statement, then the keystone editions written from their tier tables and 
+    :11565  *Appended 2026-09-29 by b562, under the author’s ruling `(R172)`(4), to the W-ORD-GRH-WEIL entry (:11373; the critical path’s row :11425) -- ACT ONE’S LINE AND THE LEADING ITEM:* at SIDE-explicit-formula v0.6 = `de1f175` (`GRHWeil.lean`): **the statement layer, the seam and the pairing COMPILED** (19 declarations, the standard three); **the χ-explicit formula NOT BUILT -- the held point**. **THE L
+    :11613  *Appended 2026-09-29 by b564, under the author’s ruling `(R174)`(5), to the W-ORD-GRH-WEIL entry (:11373; b562’s line at :11565) -- ACT TWO’S LINE:* at SIDE-explicit-formula v0.8 = `6ec71b3`: **THE χ-INSTANCE COMPILED** (`Chi/ZeroConfig.lean`, chiZeroConfig for primitive χ ≠ 1, from the rev’s LFunction facts); **THE GENERIC MODULES CONSUMED UNEDITED** (`Chi/Generic.lean`, their ZeroConfig-taking d
+### PLACE-papers FINDINGS (the tier law) -- FINDINGS.md @ 5340891e
+    :4819   ## The cascade, act two: the tier law corrected, PATHS_TO_THE_CRITICAL_LINE tiered against the RH-anchor
+    :5812   *Appended at b555 (2026-09-28) to the tier law (`FINDINGS.md`:4805, b539; :4819, b540), under `(R165)`(3) -- THE PROGRAMME-PREMISE CLAUSE:* a terminal that interfaces on a named premise which is neither compiled nor a literature theorem but the programme's own manuscript claim -- `silence_universal` on `I.is_universal`; the route terminals on `ConservationHypothesis` before E-2026-09-25-1 showed i
+### PLACE-papers FACES_LEDGER (ch_iff_rh`s row) -- FACES_LEDGER.md @ 5340891e
+    :497    | R2 | `Register2_conservationHypothesis`; `ConservationBridge.riemann_hypothesis` (SIDE-kernel v1.3); `ch_iff_rh` (SIDE-explicit-formula `81ae175`) | **T2** | RH restated -- ENCODES-CONCLUSION under (R151)(2); the row's clause "the converse is not compiled" is stale: `ch_iff_rh` compiles both directions |
+### PLACE-papers THE_RESIDUE_OF_RH (residue_irreducible`s rows) -- phase1.5/proofs/THE_RESIDUE_OF_RH.md @ 5340891e
+    :108    | The residue, compiled (§7) | `residue_irreducible` | `{propext, Classical.choice, Quot.sound}` |
+    :228    | The residue, compiled (§7) | `residue_irreducible` | std3 | **CARRIED** | T1-lit |
+### relay b539 ferry (the tiers) -- data/b539_ferry.txt @ 2625d82d
+    :20     (2) The tiers, for every row of every Correspondence table:
+    :21     T0 — compiled against a Mathlib statement, standard three,
+    :22     statement read (the anchor tier); T1 — compiled in a
+    :23     programme kernel, INTERFACES on a premise that is itself T0
+    :24     or is named and open (h2_sign is the one open premise of
+    :25     this kind, and it is named by its theorem); T2 — compiled,
+    :26     but the terminal is ENCODES-CONCLUSION, SHELL, FALSE-AS-
+    :27     STATED or vacuous (Route 3's clause; lv's h2; R1; R5-output;
+    :28     the two SIDE-effects stand-ins); T3 — numerical, VERIFIED-
+    :29     STRICT / -EST / -EST-TAIL with its bank; T4 — a reading,
+    :30     manuscript-resident, no terminal. A row's existing grade
+    :31     (DERIVES / INTERFACES / ENCODES) is kept and a tier column is
+### relay banned_terms.py (the stems) -- tools/banned_terms.py @ 2625d82d
+    :64     STEMS = ['gap', 'blind']
+### relay b567_record.py (the E0 rule as b567 printed it) -- tools/b567_record.py @ 2625d82d
+    :433        L = ['b567 -- READING (6): THE E0 READ (%s) -- EVERY DECLARATION GRADED, THE SALT-CHECK, THE ROWGEN RECORD' % which, '',
+    :434             '### the prints of record: relay data/%s ; the statements at %s (%s).' % (c['prints'], tip[:7], c['rev']),
+    :435             '### THE RULE (b566`s): a theorem is INTERFACES when an explicit hypothesis binder of its statement is a named Prop of a',
+    :436             '### vendored or kernel module (a premise passed through); DERIVES when its only binders are domain conditions. ### b567`s',
+    :437             '### ONE ADDED READING, declared: a parity predicate of the character (`χ.Even`, `¬ χ.Even`) is a domain condition, as',
+### relay terminal_table.py (its columns: a grade column, no tier column) -- tools/terminal_table.py @ 2625d82d
+    :880             '| repo | name | pin | HEAD | statement | profile | grade | act:line | conflict | E/I (b544) |',
+
+### the terminal table`s columns, read from relay data/terminal_table.md :6 (the generator writes a grade column; no tier column):
+    | repo | name | pin | HEAD | statement | profile | grade | act:line | conflict | E/I (b544) |
+### push_gated.sh read WHOLE before its edit (relay 9de84b16, 75 lines); the suites` arms read at b566_checks.py :520-:527 and the
+### face-reading code :83-:150 (HEAD 2625d82d carries the as-of edit; the reads were of the pre-edit text, d77bb7aa).

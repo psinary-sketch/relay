@@ -1,0 +1,36 @@
+test_push_gated: script /d/relay/tools/push_gated.sh ; sha256 b3a601acc796eac4 ; scratch C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/d3849d40-f964-42e9-a310-c5dd4c4f8182/scratchpad/tmp.5tEjzHElGO
+### CASE A -- equal read-back
+  A exit : wanted 0 ; got 0 ; PASS
+  A tag made locally : wanted yes ; got yes ; PASS
+  A tag peeled = pushed tip : wanted b48bcb40684912c05d8eed6bbc30f4010feac65a ; got b48bcb40684912c05d8eed6bbc30f4010feac65a ; PASS
+  A tag made after the read-back line : wanted yes ; got yes ; PASS
+### CASE B -- the read-back made to MISMATCH (the remote's post-receive hook moves main back to base)
+  B exit : wanted 4 ; got 4 ; PASS
+  B the script printed the unequal read-back : wanted yes ; got yes ; PASS
+  B NO tag made locally : wanted no ; got no ; PASS
+  B NO tag at the remote : wanted no ; got no ; PASS
+### CASE C -- the main push refused (the remote's pre-receive hook exits 1)
+  C exit : wanted 3 ; got 3 ; PASS
+  C NO tag made locally : wanted no ; got no ; PASS
+  C NO tag at the remote : wanted no ; got no ; PASS
+### CASE D -- a tag made by hand before the run
+  D exit : wanted 7 ; got 7 ; PASS
+  D remote main unmoved : wanted 2124dadd3df7946a9a8e0c70bd7bc274bdd6baeb ; got 2124dadd3df7946a9a8e0c70bd7bc274bdd6baeb ; PASS
+  D NO tag at the remote : wanted no ; got no ; PASS
+### CASE E -- a branch not push-* or repair-*
+  E exit : wanted 2 ; got 2 ; PASS
+  E NO tag made locally : wanted no ; got no ; PASS
+### CASE F -- NAME::MESSAGE
+  F exit : wanted 0 ; got 0 ; PASS
+  F the tag's message : wanted v0 -- the test's message ; got v0 -- the test's message ; PASS
+### ### **18 of 18 checks as wanted -- PASS**
+
+### CASE B -- the script's own output (the mismatch dry run), verbatim:
+push_gated: repo C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/d3849d40-f964-42e9-a310-c5dd4c4f8182/scratchpad/tmp.5tEjzHElGO/B/work ; branch push-t ; tip 50802739c3910814f6e4f430455427a8a75d6be0 ; checkout before main
+To C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/d3849d40-f964-42e9-a310-c5dd4c4f8182/scratchpad/tmp.5tEjzHElGO/B/origin.git
+   a2969fe..5080273  push-t -> main
+push_gated: main read back at the remote: a2969fe6550897b693d85f1cf28af80f48bbebee
+push_gated: MAIN READ-BACK UNEQUAL (a2969fe6550897b693d85f1cf28af80f48bbebee != 50802739c3910814f6e4f430455427a8a75d6be0) -- NO TAG IS MADE OR PUSHED
+### CASE D -- the script's own output:
+push_gated: repo C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/d3849d40-f964-42e9-a310-c5dd4c4f8182/scratchpad/tmp.5tEjzHElGO/D/work ; branch push-t ; tip 789166baec244054f6393d6ce42af927a25bfae2 ; checkout before main
+push_gated: REFUSED -- tag vT already exists locally; this script makes the tag after main's read-back (R178)(3). NOTHING IS PUSHED

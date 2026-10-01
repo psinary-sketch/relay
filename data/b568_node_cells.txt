@@ -1,0 +1,213 @@
+b568 -- COMPONENT 3: THE NODE LIST, ITS CELLS, THE ADDITIONS AND DROPS, H20a AND H20b
+### input relay data/b568_nodes.txt (23 nodes) ; cells from relay tools/chain_page.py`s probe at v0.10 = 6baed63 (data/b568_probe_out.txt, data/b568_node_cells.json)
+
+### 1. riemannZeta
+    module:line   Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121 (module Mathlib.NumberTheory.LSeries.RiemannZeta)
+    entry         Mathlib = de5ce8a9 ; the source header at the entry tag equal to v0.10`s: n/a (Mathlib)
+    statement     def riemannZeta : ℂ → ℂ := HurwitzZeta.hurwitzZetaEven 0
+    kind          def ; E0 DEF ; premises none ; record grade None
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      
+### 2. RiemannHypothesis
+    module:line   Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185 (module Mathlib.NumberTheory.LSeries.RiemannZeta)
+    entry         Mathlib = de5ce8a9 ; the source header at the entry tag equal to v0.10`s: n/a (Mathlib)
+    statement     def RiemannHypothesis : Prop := ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+    kind          def ; E0 DEF ; premises none ; record grade None
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      riemannZeta
+### 3. Zeta23.zetaZeroConfig
+    module:line   Zeta23/Statement/SeamClosed.lean:42 (module Zeta23.Statement.SeamClosed)
+    entry         v0.1 = baed4df (Zeta23 vendored at 3635e748) ; the source header at the entry tag equal to v0.10`s: True
+    statement     def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig := Zeta23.zetaZeros Zeta23.zetaSeam
+    kind          def ; E0 DEF ; premises none ; record grade None
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      riemannZeta
+### 4. Zeta23.WeilEF.EF_lit_zetaZeroConfig
+    module:line   Zeta23/WeilEF/Main.lean:286 (module Zeta23.WeilEF.Main)
+    entry         v0.1 = baed4df (Zeta23 vendored at 3635e748) ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem Zeta23.WeilEF.EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit Zeta23.zetaZeroConfig
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      riemannZeta, Zeta23.zetaZeroConfig
+### 5. SIDEExplicitFormula.B321.classK
+    module:line   SIDEExplicitFormula/H2Sign.lean:24 (module SIDEExplicitFormula.H2Sign)
+    entry         v0.1 = baed4df ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.B321.classK : (ℝ → ℂ) → Prop := fun k => (∀ (x : ℝ), k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧ ∃ h, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+    kind          def ; E0 DEF ; premises none ; record grade None
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      
+### 6. SIDEExplicitFormula.B321.h2_sign
+    module:line   SIDEExplicitFormula/H2Sign.lean:29 (module SIDEExplicitFormula.H2Sign)
+    entry         v0.1 = baed4df ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.B321.h2_sign : Prop := ∀ (k : ℝ → ℂ), SIDEExplicitFormula.B321.classK k → 0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k
+    kind          def ; E0 DEF ; premises none ; record grade None
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.B321.classK
+### 7. SIDEExplicitFormula.B321.ch_iff_rh
+    module:line   SIDEExplicitFormula/H2Bridge.lean:71 (module SIDEExplicitFormula.H2Bridge)
+    entry         v0.1 = baed4df ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+    kind          theorem ; E0 DERIVES ; premises none ; record grade ENCODES-CONCLUSION
+    tier          T2 (the tier law on the record grade ENCODES-CONCLUSION)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      RiemannHypothesis, riemannZeta
+### 8. SIDEExplicitFormula.B321.h2_sign_iff_rh
+    module:line   SIDEExplicitFormula/Seam.lean:101 (module SIDEExplicitFormula.Seam)
+    entry         v0.2 = 5c72cad ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      RiemannHypothesis, Zeta23.zetaZeroConfig, riemannZeta, SIDEExplicitFormula.B321.h2_sign, Zeta23.WeilEF.EF_lit_zetaZeroConfig, SIDEExplicitFormula.B321.classK
+### 9. SIDEExplicitFormula.B321.h2_sign_upto
+    module:line   SIDEExplicitFormula/DetectionRegion.lean:29 (module SIDEExplicitFormula.DetectionRegion)
+    entry         v0.3 = 04eda4a ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop := fun L₀ => ∀ (k : ℝ → ℂ), SIDEExplicitFormula.B321.classK k → (∀ (u : ℝ), L₀ < |u| → k u = 0) → 0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k
+    kind          def ; E0 DEF ; premises none ; record grade DERIVES
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.B321.classK
+### 10. SIDEExplicitFormula.B321.h2_sign_iff_forall_upto
+    module:line   SIDEExplicitFormula/DetectionRegion.lean:47 (module SIDEExplicitFormula.DetectionRegion)
+    entry         v0.3 = 04eda4a ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔ ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.B321.h2_sign, SIDEExplicitFormula.B321.classK, SIDEExplicitFormula.B321.h2_sign_upto
+### 11. SIDEExplicitFormula.B321.forall_upto_iff_rh
+    module:line   SIDEExplicitFormula/DetectionRegion.lean:52 (module SIDEExplicitFormula.DetectionRegion)
+    entry         v0.3 = 04eda4a ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔ RiemannHypothesis
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      RiemannHypothesis, SIDEExplicitFormula.B321.h2_sign_iff_forall_upto, SIDEExplicitFormula.B321.h2_sign, SIDEExplicitFormula.B321.h2_sign_iff_rh, SIDEExplicitFormula.B321.h2_sign_upto
+### 12. SIDEExplicitFormula.LiWeil.liTerm
+    module:line   SIDEExplicitFormula/LiWeil.lean:60 (module SIDEExplicitFormula.LiWeil)
+    entry         v0.4 = 941503b ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.LiWeil.liTerm : ℕ → ℂ → ℂ := fun n ρ => 1 - (1 - ρ⁻¹) ^ n
+    kind          def ; E0 DEF ; premises none ; record grade UNGRADED
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      
+### 13. SIDEExplicitFormula.LiWeil.LiCoeff
+    module:line   SIDEExplicitFormula/LiWeil.lean:243 (module SIDEExplicitFormula.LiWeil)
+    entry         v0.4 = 941503b ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ := fun n => 1 / 2 * ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier), ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+    kind          def ; E0 DEF ; premises none ; record grade UNGRADED
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.LiWeil.liTerm, Zeta23.zetaZeroConfig
+### 14. SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg
+    module:line   SIDEExplicitFormula/LiWeil.lean:267 (module SIDEExplicitFormula.LiWeil)
+    entry         v0.4 = 941503b ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis → ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.LiWeil.LiCoeff, RiemannHypothesis, SIDEExplicitFormula.LiWeil.liTerm, Zeta23.zetaZeroConfig, riemannZeta
+### 15. SIDEExplicitFormula.LiWeil.symMember
+    module:line   SIDEExplicitFormula/LiWeilSym.lean:51 (module SIDEExplicitFormula.LiWeilSym)
+    entry         v0.7 = 1e4a007 ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.LiWeil.symMember : ℕ → ℝ → ℝ → ℂ := fun n δ u => ↑(SIDEExplicitFormula.LiWeil.symCut δ u) * SIDEExplicitFormula.LiWeil.blSmooth n u
+    kind          def ; E0 DEF ; premises none ; record grade UNGRADED
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      
+### 16. SIDEExplicitFormula.LiWeil.li_identity_sym
+    module:line   SIDEExplicitFormula/LiWeilSym.lean:1218 (module SIDEExplicitFormula.LiWeilSym)
+    entry         v0.7 = 1e4a007 ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.LiWeil.li_identity_sym : ∀ (n : ℕ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.LiWeil.LiCoeff, SIDEExplicitFormula.LiWeil.symMember, Zeta23.zetaZeroConfig, SIDEExplicitFormula.LiWeil.liTerm, riemannZeta, Zeta23.WeilEF.EF_lit_zetaZeroConfig
+### 17. LiCriterion.taylorCoeff
+    module:line   Vendored/Bulka/Lc/LiCriterion/Basic.lean:541 (module Lc.LiCriterion.Basic)
+    entry         v0.9 = e5a5a83 (Bulka vendored at 35df682f) ; the source header at the entry tag equal to v0.10`s: True
+    statement     def LiCriterion.taylorCoeff : (ℂ → ℂ) → ℕ → ℂ := fun f n => deriv^[n] (LiCriterion.logDeriv (LiCriterion.phi f)) 0 / ↑n.factorial
+    kind          def ; E0 DEF ; premises none ; record grade None
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      
+### 18. SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff
+    module:line   SIDEExplicitFormula/LiCriterionBridge.lean:149 (module SIDEExplicitFormula.LiCriterionBridge)
+    entry         v0.9 = e5a5a83 ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      riemannZeta, SIDEExplicitFormula.LiWeil.LiCoeff, SIDEExplicitFormula.LiWeil.liTerm, Zeta23.zetaZeroConfig, LiCriterion.taylorCoeff
+### 19. LiCriterion.positivity_implies_RH
+    module:line   Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean:413 (module Lc.LiCriterion.ReverseDirection)
+    entry         v0.9 = e5a5a83 (Bulka vendored at 35df682f) ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) → ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+    kind          theorem ; E0 DERIVES ; premises none ; record grade UNGRADED
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      riemannZeta, LiCriterion.taylorCoeff
+### 20. SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh
+    module:line   SIDEExplicitFormula/LiCriterionBridge.lean:179 (module SIDEExplicitFormula.LiCriterionBridge)
+    entry         v0.9 = e5a5a83 ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      LiCriterion.positivity_implies_RH, SIDEExplicitFormula.LiWeil.LiCoeff, SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg, RiemannHypothesis, LiCriterion.taylorCoeff, riemannZeta, SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff
+### 21. SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh
+    module:line   SIDEExplicitFormula/LiCriterionBridge.lean:191 (module SIDEExplicitFormula.LiCriterionBridge)
+    entry         v0.9 = e5a5a83 ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh : (∀ (n : ℕ) (L : ℂ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds L) → 0 ≤ L.re) ↔ RiemannHypothesis
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.LiWeil.LiCoeff, RiemannHypothesis, SIDEExplicitFormula.LiWeil.symMember, SIDEExplicitFormula.LiWeil.li_identity_sym, SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh
+### 22. SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+    module:line   SIDEExplicitFormula/ResidueDischarge.lean:30 (module SIDEExplicitFormula.ResidueDischarge)
+    entry         v0.10 = 6baed63 ; the source header at the entry tag equal to v0.10`s: True
+    statement     def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop := fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n
+    kind          def ; E0 DEF ; premises none ; record grade UNGRADED
+    tier          — (a definition; the law tiers terminals)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      
+### 23. SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh
+    module:line   SIDEExplicitFormula/ResidueDischarge.lean:41 (module SIDEExplicitFormula.ResidueDischarge)
+    entry         v0.10 = 6baed63 ; the source header at the entry tag equal to v0.10`s: True
+    statement     theorem SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff → RiemannHypothesis
+    kind          theorem ; E0 DERIVES ; premises none ; record grade DERIVES
+    tier          T0 (the tier law: compiled, the standard three, no premise)
+    axioms        ['propext', 'Classical.choice', 'Quot.sound'] ; the standard three True
+    consumes      SIDEExplicitFormula.LiWeil.LiCoeff, RiemannHypothesis, Zeta23.zetaZeroConfig, SIDEExplicitFormula.LiWeil.liTerm, riemannZeta, SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh, SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+
+### ### **THE ADDITIONS : 2**
+    LiCriterion.taylorCoeff -- added: the object of positivity_implies_RH's hypothesis and of li_coeff_eq_taylorCoeff's right side; the ferry's read list names its module ; consumed by li_coeff_eq_taylorCoeff, positivity_implies_RH, li_nonneg_iff_rh
+    SIDEExplicitFormula.ResidueDischarge.Register4_positivity -- added: the Prop register4_positivity_liCoeff_imp_rh's statement is about ; consumed by register4_positivity_liCoeff_imp_rh
+### ### **THE DROPS : 2**
+    h2 -- no declaration of that name exists in the kernel at v0.10 (git grep, printed in data/b568_node_cells.txt); `h2` is the deposit's name for the clause whose Prop is h2_sign, which is a node. ; declarations of that name at the pin: 0 [] ; constants under it reached by any node: none
+    RegisterDepth -- a namespace and module (SIDEExplicitFormula/RegisterDepth.lean :22), not a declaration; no node consumes a declaration of it (the consumption read, printed in data/b568_node_cells.txt). ; declarations of that name at the pin: 0 [] ; constants under it reached by any node: none
+### nodes no other node consumes (the chain`s tops): ['ch_iff_rh', 'forall_upto_iff_rh', 'arith_limit_nonneg_iff_rh', 'register4_positivity_liCoeff_imp_rh']
+
+### H20a -- every node prints the standard three with no sorry, every theorem node grades DERIVES (E0):
+    nodes 23 (theorems 12, definitions 11) ; beyond the three or not DERIVES: NONE
+    the vendored converse: positivity_implies_RH E0 DERIVES, ['propext', 'Classical.choice', 'Quot.sound']
+    a record grade other than DERIVES on a theorem node (carried, not the E0 grade): [('ch_iff_rh', 'ENCODES-CONCLUSION')]
+### ### **H20a : HELD**
+
+### H20b -- exactly one open statement, h2_sign, every other open-looking Prop on the chain compiled equivalent to it:
+    RiemannHypothesis                                              joined by h2_sign_iff_rh                           top-level connective ↔
+    ∀ L₀, h2_sign_upto L₀                                          joined by h2_sign_iff_forall_upto                  top-level connective ↔
+    conservationHypothesis (ch_iff_rh`s left side)                 joined by ch_iff_rh                                top-level connective ↔
+    ∀ n, 0 ≤ LiCoeff n (Li positivity)                             joined by li_nonneg_iff_rh                         top-level connective ↔
+    ∀ n L, Tendsto ... → 0 ≤ L.re (arithmetic-limit positivity)    joined by arith_limit_nonneg_iff_rh                top-level connective ↔
+    Register4_positivity LiCoeff                                   joined by register4_positivity_liCoeff_imp_rh      top-level connective →
+    ∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity)     joined by positivity_implies_RH                    top-level connective →
+    RiemannHypothesis is joined to h2_sign by h2_sign_iff_rh (↔); every ↔ above composes with it.
+    open-looking Props joined by an implication only: ['Register4_positivity LiCoeff', '∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity)']
+### ### **H20b : REFUTED** -- in its letter, at 2 places: Register4_positivity LiCoeff; ∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity) -- each joined to RiemannHypothesis by a compiled implication only. No declaration at v0.10 states either converse; the pieces each converse would compose are compiled (rh_imp_li_nonneg, liCoeff_zero, li_coeff_eq_taylorCoeff) but not composed.

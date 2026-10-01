@@ -1,0 +1,74 @@
+{
+ "h20a": true,
+ "h20b": false,
+ "bad_a": [],
+ "bad_b": [
+  "Register4_positivity LiCoeff",
+  "∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity)"
+ ],
+ "rows": [
+  [
+   "RiemannHypothesis",
+   "h2_sign_iff_rh",
+   "↔"
+  ],
+  [
+   "∀ L₀, h2_sign_upto L₀",
+   "h2_sign_iff_forall_upto",
+   "↔"
+  ],
+  [
+   "conservationHypothesis (ch_iff_rh`s left side)",
+   "ch_iff_rh",
+   "↔"
+  ],
+  [
+   "∀ n, 0 ≤ LiCoeff n (Li positivity)",
+   "li_nonneg_iff_rh",
+   "↔"
+  ],
+  [
+   "∀ n L, Tendsto ... → 0 ≤ L.re (arithmetic-limit positivity)",
+   "arith_limit_nonneg_iff_rh",
+   "↔"
+  ],
+  [
+   "Register4_positivity LiCoeff",
+   "register4_positivity_liCoeff_imp_rh",
+   "→"
+  ],
+  [
+   "∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity)",
+   "positivity_implies_RH",
+   "→"
+  ]
+ ],
+ "n": 23,
+ "adds": [
+  [
+   "LiCriterion.taylorCoeff",
+   "added: the object of positivity_implies_RH's hypothesis and of li_coeff_eq_taylorCoeff's right side; the ferry's read list names its module"
+  ],
+  [
+   "SIDEExplicitFormula.ResidueDischarge.Register4_positivity",
+   "added: the Prop register4_positivity_liCoeff_imp_rh's statement is about"
+  ]
+ ],
+ "drops": [
+  "h2",
+  "RegisterDepth"
+ ],
+ "rec_other": [
+  [
+   "ch_iff_rh",
+   "ENCODES-CONCLUSION"
+  ]
+ ],
+ "tops": [
+  "ch_iff_rh",
+  "forall_upto_iff_rh",
+  "arith_limit_nonneg_iff_rh",
+  "register4_positivity_liCoeff_imp_rh"
+ ],
+ "ch_consumers": []
+}

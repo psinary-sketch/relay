@@ -1,0 +1,72 @@
+========================================================================================================
+b568 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### H20a-H20d ((R178)(6)).
+--------------------------------------------------------------------------------------------------------
+  **(H20A)** ### **HELD.** -- every node prints the standard three, every theorem node grades DERIVES (E0); ch_iff_rh`s record grade ENCODES-CONCLUSION is carried beside it (data/b568_node_cells.txt)
+  **(H20B)** ### **REFUTED.** -- joined by an implication only: ['Register4_positivity LiCoeff', '∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity)'] (data/b568_node_cells.txt)
+  **(H20C)** ### **HELD.** -- two runs byte-identical (sha256 882190fe...), G-CHAIN-PAGE live PASS (data/b568_page_runs.txt, data/b568_g_chain_page_live.txt)
+  **(H20D)** ### **HELD.** -- 0 banned-stem hits (data/b568_page_termscan.txt); the last line byte-identical to README :121; no line outside the page`s parts; the seat`s read finds no sentence of interpretation (data/b568_page_checks.txt)
+
+### THE NAVIGATOR`S SEVEN.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **REFUTED.** -- b566 under the as-of commit reads 70 of 74, failing ['G-CEILING-APPENDED', 'G-BULKA-KEPT', 'G-TAG-READ-BACK', 'G-CORPUS-SCOPE'] -- arms that read PLACE-papers at HEAD (G-CEILING-APPENDED, G-CORPUS-SCOPE), the kernel`s live refs (G-TAG-READ-BACK) and the clone b567 deleted (G-BULKA-KEPT), outside the relay tree the ruling names; before the change 68 of 74; the two-sided test 10 of 10
+  **(N2)** ### **HELD.** -- the mismatch run exits 4, no tag made or pushed (data/b568_test_push_gated.txt, 18 of 18)
+  **(N3)** ### **HELD.** -- DirichletCharacter.even_or_odd, Basic.lean :538 at de5ce8a9 (data/b568_dichotomy.txt)
+  **(N4)** ### **REFUTED.** -- H20a HELD, H20b REFUTED
+  **(N5)** ### **REFUTED.** -- 23 nodes; added 2; dropped 2 (h2, RegisterDepth: no declaration carries either name)
+  **(N6)** ### **HELD.** -- H20c HELD, H20d HELD
+  **(N7)** ### **HELD.** -- the kernel checkout clean at main 6baed63; no kernel file written; nothing at Zenodo; nothing deposits; the kept branches at their heads (data/b568_branches.txt); the page carries nothing beyond the ceiling (H20d)
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **REFUTED.** -- H20b fails at 2 places, not one: ['Register4_positivity LiCoeff', '∀ n, 0 ≤ (taylorCoeff riemannXi n).re (Bulka`s positivity)']
+  **(S2)** ### **HELD.** -- ch_iff_rh record ENCODES-CONCLUSION (T2), E0 DERIVES
+  **(S3)** ### **HELD.** -- no node consumes ch_iff_rh: none
+
+### ### **THE NAVIGATOR`S : HELD 4 ; REFUTED 3 ; NOT SCORABLE 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 2 ; REFUTED 1.**
+### ### **H20 : H20a HELD ; H20b REFUTED ; H20c HELD ; H20d HELD.**
+
+### b568 -- THIS ACT'S OWN DEFECTS (the seat's), as they occur.
+    (a) Component 1 and Component 4: THE HEREDOC BACKSLASH TRAP, TWICE. A Python patch written through a bash heredoc collapsed
+        `\'` inside a raw string: first in b568_record.py's matcher lineage line (a SyntaxError on the next run, U+2080 reported),
+        then in chain_page.py's drop check (`(?![\w'])`, which would have read wrong; and git grep -E has no lookahead in any case).
+        Both caught before any bank was read from them; both lines rewritten with the Edit tool, the second as a POSIX pattern with
+        its positive controls printed (h2_sign, classK found; h2, RegisterDepth absent).
+    (b) Component 4: THE FIRST TWO GENERATOR RUNS FAILED. Run one (cold, 04:22:54Z-04:39:34Z): the probe's own elaborator did not
+        compile -- `let line := match ...` took MessageData from its later use in m!; exit 5, no page. Run two: lean exit 0, but the
+        parser missed every theorem block -- Lean's formatter wraps the long CONSUMES list across lines -- and the line cell read
+        the docstring's line (`range`), not the name's (`selectionRange`); exit 6, no page. Both fixed in the generator before its
+        commit; the banked runs are runs three and four (data/b568_page_runs.txt).
+    (c) Component 2: the first run of tools/test_push_gated.sh made its throwaway repositories under git-bash's /tmp, not the
+        scratchpad the face's reading (ix) names. Re-run with TMPDIR set to the scratchpad; the banked run is the second (18 of 18
+        both times).
+    (d) Component 4: tier_of read a tier written in a record cell BEFORE the print, so a record tier would have lifted a print
+        beyond the three. Found by reading, before the page was banked; the print is now read first. No node was affected (every
+        print is the standard three); the test's re-emit (case 1) shows the page byte-identical after the change.
+    (e) Reading (1): the reads bank first cited terminal_table.py :47-:48 (its imports) as "its columns"; corrected to :880 (the
+        header row) before any arm read the bank.
+    (f) Component 4: the generator's first Placement table listed two files under PLACE-papers archive/ as keystones; archive/ is
+        excluded before the page was banked.
+    (g) Component 4: FREE MEMORY FELL BELOW THE 2560 MB HOLD during the first (cold) lean call -- 1734, 1280, then 814 MB with lean's
+        working set at 2 GB. The generator checks the hold before the call (2632 MB then), not during it; the call was watched and
+        not killed, as the standing rule says, and it ended by itself (its own error, (b)). Every later call started above 3100 MB.
+    (h) Component 2: the navigator's (N1) and the face's reading of it assumed b566's re-run would read 72 of 74 before the change;
+        it read 68 of 74 (data/b568_b566_rerun_before.txt) -- b567's own close moved four arms that read PLACE-papers at HEAD, the
+        kernel's live refs and a clone b567 deleted. Recorded, not a seat's act; the as-of commit is scoped to the relay tree as the
+        ruling and the face name it, and those four arms stay failing (70 of 74 after).
+    (i) The closing suite, pre-push run one: G-PAGE-FORM's POSITIVE CONTROL PASSED -- the predicate read only the page's lines
+        above the tables, so a sentence appended after them went unseen. Its own control caught it (and G-ARMS-NO-LIVE-LIMB
+        failed with it, as designed). The predicate now reads every line after the tables too (only headings, table rows and
+        blank lines allowed); re-run.
+    (j) The closing suite, pre-push run one: G-DELETE-FREE FAILED LIVE ON ITS OWN NEEDLE -- the suite's pattern line, which
+        names the delete calls it looks for, is in a file the arm reads. The needle is now built from fragments; its positive
+        control (relay tools/repair_snapshot.py) still hits.
+    (k) THE ACT'S OWN LEDGER LINES CONFERRED GRADE CELLS. The terminal table, regenerated by the suite's first pre-push run,
+        read FINDINGS :6254 (the H20a/H20b paragraph: DERIVES on the same line as a backticked `ch_iff_rh`) as a grade cell and
+        moved ch_iff_rh from ENCODES-CONCLUSION to CONFLICT, and read OPEN_TRAILS :11709 (the next act's H21c, "`EF_lit_chi`
+        lands DERIVES") as a DERIVES cell for EF_lit_chi -- a grade moved by a reading, which (Z) forbids. Caught by the
+        table's own diff (grade-or-profile changed 2) BEFORE any push: the two lines were the act's own, committed locally and
+        unpushed; their names were un-backticked (the words unchanged), the PLACE-papers commit re-made (f2e93b0), the record
+        tool changed to write the same, the table files restored to their committed state and the suite re-run.

@@ -1,0 +1,167 @@
+b568 -- (R178)(2)(i): THE 146 ZETABOUNDS NAMES NOT CONSUMED BY A LATER ZETA23 MODULE, BY CLASS
+
+### the set : relay data/b567_zb_consumers.json `not_consumed` (146 names; b567 counted 150 declarations and 4 consumed)
+### the file : Zeta23/FromPNTPlus/ZetaBounds.lean at SIDE-explicit-formula v0.10 = 6baed63 (3089 lines)
+### THE RULE (declared on the face, READING (3)(c)): the class is read from the declaration`s line against the file`s blocks --
+###   [:1, :1219] CONTINUATION (the Abel representation, the residue at 1, holomorphy) -- neither of the ruling`s two classes;
+###   [:1220, :1850] STRIP BOUNDS (upper bounds for ζ and ζ′ on 1 − A/log|t| ≤ σ ≤ 2, through ZetaDerivUpperBnd :1827);
+###   [:1851, end] ZERO-FREE REGION (the near-1 and lower bounds it is built from, ZetaZeroFree :2485, its consequences).
+### THE MATCHER`S LINEAGE: v1 (the bare name) placed 136 of 146 ; v2 (a dotted capitalised prefix allowed) placed 146 of 146 ; unplaced by v2 0 []
+### the HasDerivAt pair, inside the 146 and ATTEMPTED at b567 (analogues present at v0.10): HasDerivAtZeta0 :1095 CONTINUATION, DerivZeta0EqDerivZeta :1208 CONTINUATION
+
+### CONTINUATION : 68   (opens at div_cpow_eq_cpow_neg :58)
+    :58    div_cpow_eq_cpow_neg
+    :61    one_div_cpow_eq_cpow_neg
+    :64    div_rpow_eq_rpow_neg
+    :67    div_rpow_neg_eq_rpow_div
+    :71    div_rpow_eq_rpow_div_neg
+    :78    ResidueOfTendsTo
+    :189   differentiableAt_deriv_riemannZeta
+    :193   riemannZetaResidue
+    :202   deriv_eqOn_of_eqOn_punctured
+    :212   analytic_deriv_bounded_near_point
+    :227   derivative_const_plus_product
+    :232   deriv_inv_sub
+    :239   deriv_f_minus_A_inv_sub_clean
+    :247   nonZeroOfBddAbove
+    :305   logDerivResidue'
+    :405   logDerivResidue
+    :425   BddAbove_to_IsBigO
+    :444   logDerivResidue''
+    :453   ResidueMult
+    :504   riemannZetaLogDerivResidue
+    :542   riemannZetaLogDerivResidueBigO
+    :557   riemannZeta0_apply
+    :564   differentiableAt_cpow_const_of_ne
+    :569   one_div_cpow_eq
+    :574   sum_eq_int_deriv
+    :595   xpos_of_uIcc
+    :600   ZetaSum_aux1₁
+    :610   ZetaSum_aux1φDiff
+    :616   ZetaSum_aux1φderiv
+    :634   ZetaSum_aux1derivφCont
+    :642   ZetaSum_aux1
+    :664   ZetaSum_aux1_1'
+    :667   ZetaSum_aux1_1
+    :670   ZetaSum_aux1_2
+    :682   ZetaSum_aux1_3
+    :685   ZetaSum_aux1_4'
+    :691   ZetaSum_aux1_4
+    :697   ZetaSum_aux1_5a
+    :703   ZetaSum_aux1_5b
+    :710   measurable_floor_add_half_sub
+    :715   ZetaSum_aux1_5c
+    :723   ZetaSum_aux1_5d
+    :733   ZetaSum_aux1_5
+    :741   ZetaBnd_aux1a
+    :751   Ioc_eq_Ico
+    :754   Ioc_eq_Icc
+    :757   Icc_eq_Ico
+    :760   finsetSum_tendsto_tsum
+    :772   cpow_tendsto
+    :780   cpow_inv_tendsto
+    :787   ZetaSum_aux2a
+    :790   ZetaSum_aux3
+    :802   integrableOn_of_Zeta0_fun
+    :813   ZetaSum_aux2
+    :868   ZetaBnd_aux1
+    :879   ZetaBnd_aux1p
+    :905   isOpen_aux
+    :910   integrable_log_over_pow
+    :946   integrableOn_of_Zeta0_fun_log
+    :977   hasDerivAt_Zeta0Integral
+    :1067  ζ₀'
+    :1074  HasDerivAt_neg_cpow_over2
+    :1079  HasDerivAt_cpow_over_var
+    :1095  HasDerivAtZeta0   [ATTEMPTED at b567: analogue present]
+    :1112  HolomorphicOn_riemannZeta0
+    :1117  HolomorphicOn_riemannZeta
+    :1123  isPathConnected_aux
+    :1208  DerivZeta0EqDerivZeta   [ATTEMPTED at b567: analogue present]
+
+### STRIP BOUNDS : 39   (opens at le_trans₄ :1220)
+    :1220  le_trans₄
+    :1223  lt_trans₄
+    :1226  norm_add₅_le
+    :1231  norm_add₆_le
+    :1237  mul_le_mul₃
+    :1242  ZetaBnd_aux2
+    :1274  logt_gt_one
+    :1277  UpperBnd_aux
+    :1294  UpperBnd_aux2
+    :1304  riemannZeta0_zero_aux
+    :1318  UpperBnd_aux3
+    :1347  self_div_floor_bound
+    :1358  UpperBnd_aux5
+    :1364  UpperBnd_aux6
+    :1389  ZetaUpperBnd'
+    :1430  ZetaUpperBnd
+    :1442  norm_complex_log_ofNat
+    :1448  log_natCast_monotone
+    :1456  Icc0_eq
+    :1465  harmonic_eq_sum_Icc0_aux
+    :1472  harmonic_eq_sum_Icc0
+    :1476  DerivUpperBnd_aux1
+    :1510  DerivUpperBnd_aux2
+    :1531  DerivUpperBnd_aux3
+    :1546  DerivUpperBnd_aux4
+    :1560  DerivUpperBnd_aux5
+    :1586  DerivUpperBnd_aux6
+    :1600  DerivUpperBnd_aux7_1
+    :1608  DerivUpperBnd_aux7_2
+    :1614  DerivUpperBnd_aux7_3
+    :1629  DerivUpperBnd_aux7_3'
+    :1636  DerivUpperBnd_aux7_nonneg
+    :1642  DerivUpperBnd_aux7_tendsto
+    :1660  DerivUpperBnd_aux7_4
+    :1668  DerivUpperBnd_aux7_5
+    :1680  DerivUpperBnd_aux7_integral_eq
+    :1689  DerivUpperBnd_aux7
+    :1737  ZetaDerivUpperBnd'
+    :1827  ZetaDerivUpperBnd
+
+### ZERO-FREE REGION : 39   (opens at Tendsto_nhdsWithin_punctured_map_add :1851)
+    :1851  Tendsto_nhdsWithin_punctured_map_add
+    :1877  Tendsto_nhdsWithin_punctured_add
+    :1881  riemannZeta_isBigO_near_one_horizontal
+    :1894  ZetaNear1BndFilter
+    :1901  ZetaNear1BndExact
+    :1949  norm_zeta_product_ge_one
+    :1958  ZetaLowerBound1_aux1
+    :1964  ZetaLowerBound1
+    :1972  ZetaLowerBound2
+    :1977  ZetaLowerBound3_aux1
+    :1981  ZetaLowerBound3_aux2
+    :1987  ZetaLowerBound3_aux3
+    :1992  ZetaLowerBound3_aux4
+    :1999  ZetaLowerBound3_aux5
+    :2005  ZetaLowerBound3
+    :2087  ZetaInvBound1
+    :2109  Ioi_union_Iio_mem_cocompact
+    :2117  lt_abs_mem_cocompact
+    :2121  ZetaInvBound2
+    :2205  deriv_fun_re
+    :2214  Zeta_eq_int_derivZeta
+    :2239  Zeta_diff_Bnd
+    :2253  ZetaInvBnd_aux'
+    :2257  ZetaInvBnd_aux
+    :2260  ZetaInvBnd_aux2
+    :2278  ZetaInvBnd
+    :2358  ZetaLowerBnd
+    :2485  ZetaZeroFree
+    :2511  LogDerivZetaBnd
+    :2569  ZetaNoZerosOn1Line
+    :2575  ZetaCont
+    :2582  ZetaNoZerosInBox
+    :2690  LogDerivZetaHoloOn
+    :2699  LogDerivZetaHolcSmallT
+    :2737  LogDerivZetaHolcLargeT
+    :2782  summable_complex_then_summable_real_part
+    :2791  dlog_riemannZeta_bdd_on_vertical_lines_generalized
+    :2839  triv_bound_zeta
+    :3021  LogDerivZetaBndUnif
+
+### ### **BY CLASS : CONTINUATION 68 ; STRIP BOUNDS 39 ; ZERO-FREE REGION 39 ; TOTAL 146.**
+### ### **UNATTEMPTED (the pair excluded) : CONTINUATION 66 ; STRIP BOUNDS 39 ; ZERO-FREE REGION 39 ; TOTAL 144.**
+### The ruling names two classes; the file`s first block is a third, and its names are printed under it, not folded into
+### either. Two of the 146 (the HasDerivAt pair) were attempted at b567, so the unattempted set is 144, not 146.
