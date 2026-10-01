@@ -234,6 +234,52 @@ def supersede_findings(cells, name):
     own = set((d[2], d[3]) for d in ds)
     return [c for c in cells if not ((c['ledger'] == FIND_LABEL and c['line'] in gone) or (c['ledger'], c['line']) in own)]
 
+
+FACES_SUP_RE = re.compile(r'SUPERSEDES FACES_LEDGER :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
+FACES_LABEL = 'PLACE-papers/FACES_LEDGER.md'
+_FACES_DIRECTIVES = []
+_FACES_HIT = set()
+
+
+class FacesRefusal(Exception):
+    """### a FACES_LEDGER-form directive whose cited line holds no grade cell for its terminal: the regeneration refuses."""
+
+
+def faces_directives():
+    """### every `SUPERSEDES FACES_LEDGER :N for <terminal>:` line in the ledgers, as (N, terminal, the ledger carrying it, its line)."""
+    if not _FACES_DIRECTIVES:
+        for label, path in ledger_files():
+            text = read(path) or ''
+            for m in FACES_SUP_RE.finditer(text):
+                _FACES_DIRECTIVES.append((int(m.group(1)), m.group(2), label, text.count(NL, 0, m.start()) + 1))
+        _FACES_DIRECTIVES.append(None)      # ### read once, even when there are none
+    return [d for d in _FACES_DIRECTIVES if d]
+
+
+def supersede_faces(cells, name, directives=None):
+    """### ### **THE FACES_LEDGER-LINE FORM (b571, the author`s ruling (R181)(2)).** ### A ledger line carrying
+    ### `SUPERSEDES FACES_LEDGER :N for <terminal>: <grade>` removes, for that terminal alone (its short or its qualified name),
+    ### every grade cell read from FACES_LEDGER.md`s line N. ### The directive line adds no cell for that terminal: its grade
+    ### text is the author`s words, printed in the run`s header, as the FINDINGS form`s is. ### A directive that removes no
+    ### cell is recorded as not hit; `faces_refusals` names it and `build` REFUSES before anything is written."""
+    ds = [d for d in (faces_directives() if directives is None else directives)
+          if name == d[1] or name.endswith('.' + d[1]) or d[1].endswith('.' + name)]
+    if not ds:
+        return cells
+    out = list(cells)
+    for d in ds:
+        hit = [c for c in out if c['ledger'] == FACES_LABEL and c['line'] == d[0]]
+        if hit:
+            _FACES_HIT.add(d)
+        own = (d[2], d[3])
+        out = [c for c in out if c not in hit and (c['ledger'], c['line']) != own]
+    return out
+
+
+def faces_refusals(directives=None):
+    """### the directives that removed no cell: each cites a FACES_LEDGER line holding no grade cell for its terminal."""
+    return [d for d in (faces_directives() if directives is None else directives) if d not in _FACES_HIT]
+
 SYNONYMS = {'ENCODES-CONCLUSION': 'ENCODES',
             'ENCODES-CONCLUSION ' + chr(92) + ' SHELL': 'ENCODES',
             'INTERFACES-on-named-premise': 'INTERFACES',
@@ -661,6 +707,7 @@ def build():
     rec('  ### THE SYNONYM MAP (b554, (R164)(2)(a)), applied before the conflict test : %s' % SYNONYMS)
     rec('  ### THE TRAIL-LINE SUPERSESSIONS READ (b554, (R164)(2)(b)) : %s' % (trail_directives() or 'NONE'))
     rec('  ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : %s' % (find_directives() or 'NONE'))
+    rec('  ### THE FACES_LEDGER-LINE SUPERSESSIONS READ (b571, (R181)(2)) : %s' % (faces_directives() or 'NONE'))
     rec('  `SIDE-*` directories on D:\\      : ### **%d**' % len(named))
     rec('  of those, carrying a `.git`      : ### **%d**  (b378`s own predicate)' % len(repos))
     rec('  ### **BOTH FIGURES ARE PRINTED** -- a roster counted one way is a roster with a')
@@ -786,7 +833,7 @@ def build():
                 if k not in seencell:
                     seencell.add(k)
                     uniq.append(c)
-            uniq = sort_corr_by_row(supersede_findings(supersede_trail(supersede(uniq), n), n))
+            uniq = sort_corr_by_row(supersede_faces(supersede_findings(supersede_trail(supersede(uniq), n), n), n))
             distinct = sorted(set(c['grade'] for c in uniq))
             mapped = sorted(set(synonym(c['grade']) for c in uniq))
             rows.append(dict(
@@ -818,6 +865,12 @@ def build():
         % (len(DEDUP), ['%s/%s' % x for x in DEDUP][:12]))
     rec('  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **%d** %s'
         % (len(FROMJSON), ['%s <- %s' % (x[1], x[2]) for x in FROMJSON][:12]))
+    refused = faces_refusals()
+    if refused:
+        # ### (R181)(2): a FACES_LEDGER-form line citing a line that holds no cell for its terminal is REFUSED -- before
+        # ### any file is written, so a wrong citation cannot regenerate a table at all.
+        rec('  ### ### **REFUSED: FACES_LEDGER-FORM LINE(S) CITING A LINE THAT HOLDS NO CELL FOR THE TERMINAL : %s**' % refused)
+        raise FacesRefusal('FACES_LEDGER-form directive(s) citing a line with no cell for the terminal: %s' % refused)
     rec('')
     return dict(named=len(named), repos=len(repos), rows=rows, loose_cells=len(loose),
                 v2_cells=len(v2), v3_cells=len(v3),
@@ -952,7 +1005,11 @@ def emit(R):
 
 
 def main():
-    R = build()
+    try:
+        R = build()
+    except FacesRefusal as e:
+        print('### ### **TERMINAL TABLE REFUSED, NOTHING WRITTEN: %s**' % e)
+        return 8
     if R is None:
         return 2
     payload, diff = emit(R)
