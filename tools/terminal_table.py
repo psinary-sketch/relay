@@ -164,6 +164,23 @@ def supersede(cells):
     return [c for c in cells if not (c['ledger'] == CORR_LABEL and c['line'] in gone)]
 
 
+def sort_corr_by_row(cells, lines=None):
+    """### ### **THE ROW-SORT (b570, the author`s ruling (R180)(2)(i)).** ### *Rows keep the numbers of their writing; the
+    ### regeneration sorts by number; no row renumbered.* ### A name`s grade cells read from CORRESPONDENCE are put in the
+    ### order of their ROW NUMBERS, in the places the CORRESPONDENCE cells held, before the act:line cell is chosen; every other
+    ### cell keeps its place. b569`s rows were written 414, 415, 416, 418, 419, 417 (its defect (i)); the file is not edited."""
+    lines = corr_row_lines() if lines is None else lines
+    num = {v: k for k, v in lines.items()}
+    idx = [i for i, c in enumerate(cells) if c['ledger'] == CORR_LABEL]
+    if len(idx) < 2:
+        return cells
+    srt = sorted((cells[i] for i in idx), key=lambda c: (num.get(c['line'], 10 ** 9), c['line']))
+    out = list(cells)
+    for i, c in zip(idx, srt):
+        out[i] = c
+    return out
+
+
 TRAIL_SUP_RE = re.compile(r'SUPERSEDES OPEN_TRAILS :(\d+) for `?([A-Za-z_][A-Za-z0-9_.]*)`?:')
 TRAIL_LABEL = 'PLACE-papers/OPEN_TRAILS.md'
 _TRAIL_DIRECTIVES = []
@@ -769,7 +786,7 @@ def build():
                 if k not in seencell:
                     seencell.add(k)
                     uniq.append(c)
-            uniq = supersede_findings(supersede_trail(supersede(uniq), n), n)
+            uniq = sort_corr_by_row(supersede_findings(supersede_trail(supersede(uniq), n), n))
             distinct = sorted(set(c['grade'] for c in uniq))
             mapped = sorted(set(synonym(c['grade']) for c in uniq))
             rows.append(dict(
