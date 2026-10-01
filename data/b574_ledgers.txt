@@ -1,0 +1,44 @@
+b574 -- COMPONENT 4: README AND SPIRAL_MAP AGAINST REGISTRY, (R184)(4)(c) -- THE EXTRACTORS OF READING (vi), NO EDIT
+
+### extractors: pin (SIDE-[A-Za-z0-9-]+)[^|\n]{0,60}?\b(v\d+(?:\.\d+)+)\b`?\**\s*(?:=|\(|·)\s*\**`?([0-9a-f]{7}) ; record id zenodo\.(\d{7,8}) with a version \bv(\d+(?:\.\d+)+)\b ; count \b(\d+) files\b beside a single record id ; ceiling lines (?:Appended|Reworded) under the author's ruling `\((R\d+)\)`\((\d+)\)|THE CEILING LINE, `\((R\d+)\)`\((\d+)\) (the supportable sentence compared)
+### matcher v1: an id takes its line`s first version (as reading (vi) was written); matcher v2: each distinct id takes the nearest version ending within 60 characters before it, or none (defect (b)).
+
+### matcher v1 : facts found {'REGISTRY.md': 53, 'README.md': 29, 'SPIRAL_MAP.md': 14} ; hits 16 (contradicting 9, REGISTRY silent 7)
+### matcher v2 : facts found {'REGISTRY.md': 47, 'README.md': 16, 'SPIRAL_MAP.md': 14} ; hits 3 (contradicting 0, REGISTRY silent 3)
+
+### THE HITS OF MATCHER v1, each with both readings:
+    CONTRADICTS README.md :154   record-version  21539167                       README.md reads 'v5.10.2' ; REGISTRY reads ['v1.1.2', 'v5.13'] at :[77, 77, 83, 419]
+    CONTRADICTS README.md :154   record-version  21539167                       README.md reads 'v5.10.2' ; REGISTRY reads ['v1.1.2', 'v5.13'] at :[77, 77, 83, 419]
+    CONTRADICTS README.md :154   record-version  19675355                       README.md reads 'v5.10.2' ; REGISTRY reads ['v1.1', 'v1.1.2'] at :[77, 417, 419, 428]
+    CONTRADICTS README.md :154   record-version  19675355                       README.md reads 'v5.10.2' ; REGISTRY reads ['v1.1', 'v1.1.2'] at :[77, 417, 419, 428]
+    CONTRADICTS README.md :154   record-version  21539068                       README.md reads 'v5.10.2' ; REGISTRY reads ['v0.10.0'] at :[102]
+    CONTRADICTS README.md :154   record-version  21539068                       README.md reads 'v5.10.2' ; REGISTRY reads ['v0.10.0'] at :[102]
+    CONTRADICTS README.md :154   record-version  21433177                       README.md reads 'v5.10.2' ; REGISTRY reads ['v0.10.0'] at :[102]
+    CONTRADICTS README.md :154   record-version  21433177                       README.md reads 'v5.10.2' ; REGISTRY reads ['v0.10.0'] at :[102]
+    SILENT README.md :154   record-version  21436282                       README.md reads 'v5.10.2' ; REGISTRY does not state it
+    SILENT README.md :154   record-version  21436282                       README.md reads 'v5.10.2' ; REGISTRY does not state it
+    SILENT README.md :154   record-version  21436281                       README.md reads 'v5.10.2' ; REGISTRY does not state it
+    SILENT README.md :154   record-version  21436281                       README.md reads 'v5.10.2' ; REGISTRY does not state it
+    SILENT SPIRAL_MAP.md :41    record-files    19937590                       SPIRAL_MAP.md reads '83' ; REGISTRY does not state it
+    CONTRADICTS SPIRAL_MAP.md :54    record-version  21520474                       SPIRAL_MAP.md reads 'v1.4' ; REGISTRY reads ['v1.1.2', 'v1.5'] at :[77, 97, 700]
+    SILENT SPIRAL_MAP.md :140   pin             SIDE-t7-topology-cmb v0.3      SPIRAL_MAP.md reads '8eb0d5a' ; REGISTRY does not state it
+    SILENT SPIRAL_MAP.md :533   pin             SIDE-silence-principle v0.2.0  SPIRAL_MAP.md reads '667c254' ; REGISTRY does not state it
+
+### THE HITS OF MATCHER v2, each with both readings:
+    SILENT SPIRAL_MAP.md :41    record-files    19937590                       SPIRAL_MAP.md reads '83' ; REGISTRY does not state it
+    SILENT SPIRAL_MAP.md :140   pin             SIDE-t7-topology-cmb v0.3      SPIRAL_MAP.md reads '8eb0d5a' ; REGISTRY does not state it
+    SILENT SPIRAL_MAP.md :533   pin             SIDE-silence-principle v0.2.0  SPIRAL_MAP.md reads '667c254' ; REGISTRY does not state it
+
+### THE HAND-READ OF EVERY LINE EITHER MATCHER HIT (the line read whole by the seat):
+    README.md :154   the deposit note: monograph manuscript v5.10.2 / Zenodo v1.1.2 at 21539167 (concept 19675355), lv v0.10.0 = 93c27ec at 21539068 (concept 21433177), the T7 record 21436282 (concept 21436281), live monograph v5.13 -- every figure REGISTRY states, it states alike (:77, :83, :102, :419); the T7 record REGISTRY does not name. NOT A DIFFERENCE AGAINST REGISTRY: v1 gave all six ids the line`s first version, v5.10.2.
+    SPIRAL_MAP.md :41    the frozen v1.1 deposit row: SIDE-kernel v1.1, 19937590, "83 files, 0 sorry, 0 axioms" -- REGISTRY does not state the v1.1 record or its count. REGISTRY SILENT.
+    SPIRAL_MAP.md :54    the live-kernel reconciliation: "against tag v1.4 = f374174 ... the current published deposit is v1.5 (0e5233f, DOI 10.5281/zenodo.21520474)" -- v1.5 at 21520474 agrees with REGISTRY :700. NOT A DIFFERENCE: v1 gave the id the line`s first version, the reconciliation tag v1.4.
+    SPIRAL_MAP.md :140   SIDE-t7-topology-cmb v0.3 (8eb0d5a), the T7 kernel note -- REGISTRY carries no pin for this kernel. REGISTRY SILENT.
+    SPIRAL_MAP.md :533   SIDE-silence-principle v0.2.0 = 667c254, appended by b558 under (R168)(2)(a) to the Foundations row -- REGISTRY carries no pin for this kernel. REGISTRY SILENT.
+
+### ceiling sentences found per file: {'REGISTRY.md': 7, 'README.md': 7, 'SPIRAL_MAP.md': 0} ; ceiling differences: 0
+### clusters (file/kind), matcher v2: {'SPIRAL_MAP.md/record-files': 1, 'SPIRAL_MAP.md/pin': 2} ; the largest: SPIRAL_MAP.md/pin (2)
+### ### **DIFFERENCES IN TOTAL (matcher v2): 3 -- 0 WHERE REGISTRY STATES IT OTHERWISE, 3 WHERE REGISTRY DOES NOT STATE IT.**
+### ### matcher v1 (reading (vi) as written) hit 16; its excess over v2 is the defect (b) artefact, every hit line hand-read above.
+
+### POSITIVE CONTROL (matcher v2, README mutated in memory, nothing written): mutations ['v1.1.2 -> v1.1.3 at the first "Zenodo **v1.1.2** ([10.5281"', "'classK' -> XXXX at its first occurrence"] ; unmutated hits [] ; mutated hits [(113, 'ceiling'), (154, 'record-version')] ; FIRES: True

@@ -1,0 +1,34 @@
+b574 -- COMPONENT 3: THE PIN COMPARISON, (R184)(4)(b) -- THE FETCH (data/b574_zenodo_fetch.txt) AGAINST THE DEPOSIT`S FILE LIST
+### AS THE CORPUS HOLDS IT (PLACE-papers HEAD outputs/DEPOSITED-v1.1.2/, md5 of each committed blob) AND b535`S FETCH-BACK
+### (data/b535_fetchback_21539167.json); no file named MANIFEST exists for the deposit (reading (v)).
+
+### the corpus copy is printed twice: its committed blob`s md5 (LF, as git stores it) and with CRLF restored (the bytes as
+### deposited, which the working tree carries); the verdict reads the CRLF-restored copy (defect (a)).
+
+    file                           the fetch                              the corpus copy (blob, LF)             the corpus copy (CRLF restored)        b535`s fetch-back                      verdict
+    A_Place_to_Stand.md            md5:e90e2d06d5cadc059c62c29a849e9f8c   md5:09a25536d190e7698216acef2c1185e8   md5:e90e2d06d5cadc059c62c29a849e9f8c   md5:e90e2d06d5cadc059c62c29a849e9f8c   AGREE (as deposited, CRLF)
+    ERRATA.md                      md5:8fa2ea2839199583d24119680d31c23f   md5:b4159e7a1f9900b4c205238a70bc9e11   md5:8fa2ea2839199583d24119680d31c23f   md5:8fa2ea2839199583d24119680d31c23f   AGREE (as deposited, CRLF)
+    Exhaustive_Enumeration.md      md5:218d290942dbfb7d150088d7c6dfe811   md5:218d290942dbfb7d150088d7c6dfe811   md5:ab61df9126e78cdde12f0b15f8085f75   md5:218d290942dbfb7d150088d7c6dfe811   AGREE
+    FORMATION_ARCHITECTURE.html    md5:5d8cf664416d4311c34a5b2c95a13dc9   md5:5d8cf664416d4311c34a5b2c95a13dc9   md5:cddfcc3414ecf6dac201f767b36bd876   md5:5d8cf664416d4311c34a5b2c95a13dc9   AGREE
+    ONE_PAGE_PROOF.md              md5:0c727f16277beb41b62ec29254d0aebc   md5:0c727f16277beb41b62ec29254d0aebc   md5:f3012b6b0e7ab68b8e32b24a8a62396e   md5:0c727f16277beb41b62ec29254d0aebc   AGREE
+    PAPER_DEPENDENCIES.svg         md5:14ad53eabbc775280ac1808639498346   md5:14ad53eabbc775280ac1808639498346   md5:bd6592c0254331585b7831b35884dcd6   md5:14ad53eabbc775280ac1808639498346   AGREE
+    Seven_Mechanism_Classes.md     md5:6caa6e80300584c037cf48882941ad00   md5:6caa6e80300584c037cf48882941ad00   md5:c791f450267b48dd7475d9153185a723   md5:6caa6e80300584c037cf48882941ad00   AGREE
+    Silence_of_Foundations.md      md5:c6e1593165449e004e0791239cac149f   md5:c6e1593165449e004e0791239cac149f   md5:ea92f0d700262426eabee09266daa59b   md5:c6e1593165449e004e0791239cac149f   AGREE
+    Spectral_Inertness.md          md5:db5ab3d3d231cb83a243338c4aa35f76   md5:db5ab3d3d231cb83a243338c4aa35f76   md5:e018f3b6fdb38d12bdfff6cace1675a7   md5:db5ab3d3d231cb83a243338c4aa35f76   AGREE
+    Third_Identity_Element.md      md5:ae918605afbd706faf54aa8474a30eb3   md5:ae918605afbd706faf54aa8474a30eb3   md5:ef5ae6b7c5197f3f08e0d413e6933186   md5:ae918605afbd706faf54aa8474a30eb3   AGREE
+    Which_Structure_Confines.md    md5:6b18d69bcf9e619d3b2fb22376ccc432   md5:6b18d69bcf9e619d3b2fb22376ccc432   md5:fe81792e963559c028b8111ceb05b3e6   md5:6b18d69bcf9e619d3b2fb22376ccc432   AGREE
+
+### ### **FILES: 11 ; DIFFERING: 0.** ### files agreeing only with CRLF restored (the committed blob`s md5 differs by line endings alone): ['A_Place_to_Stand.md', 'ERRATA.md']
+
+### REGISTRY`S STATEMENTS ABOUT THE TWO RECORDS, AGAINST THE FETCH:
+    REGISTRY :419   21539167  version                                                      registry v1.1.2                       fetch v1.1.2                       AGREE
+    REGISTRY :419   21539167  doi                                                          registry 10.5281/zenodo.21539167      fetch 10.5281/zenodo.21539167      AGREE
+    REGISTRY :419   21539167  concept                                                      registry 10.5281/zenodo.19675355      fetch 10.5281/zenodo.19675355      AGREE
+    REGISTRY :419   21539167  date                                                         registry 2026-07-24                   fetch 2026-07-24                   AGREE
+    REGISTRY :700   21520474  version                                                      registry v1.5                         fetch v1.5                         AGREE
+    REGISTRY :700   21520474  version doi                                                  registry 10.5281/zenodo.21520474      fetch 10.5281/zenodo.21520474      AGREE
+    REGISTRY :700   21520474  concept                                                      registry 10.5281/zenodo.19674312      fetch 10.5281/zenodo.19674312      AGREE
+    REGISTRY :700   21520474  WORKING-HEAD (REGISTRY`s dated reading) against the record`s registry v1.7, HEAD 5e668b4           fetch v1.5 (is_last True)          ### DIFFER
+
+### ANOMALY 1, FROM THE FETCH: the SIDE-kernel record 21520474 states version v1.5 (is_last True among its versions); the kernel`s latest tag is v1.7 = 2957e7d (git, read now); REGISTRY`s DEPOSIT-PIN is v1.5 = 0e5233f and its dated WORKING-HEAD reading v1.7. The deposited kernel is v1.5; the kernel has moved past it by tags no deposit carries.
+### ### **PIN DIFFERENCES BETWEEN REGISTRY AND THE FETCH: 1** -- [(700, 'WORKING-HEAD (REGISTRY`s dated reading) against the record`s version')]

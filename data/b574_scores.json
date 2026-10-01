@@ -1,0 +1,73 @@
+{
+ "H26a": [
+  "REFUTED",
+  "against the deposit`s file list as reading (v) declared it (PLACE-papers HEAD outputs/DEPOSITED-v1.1.2/, the md5 of each committed blob): 2 of 11 files differ -- ['A_Place_to_Stand.md', 'ERRATA.md'] -- and by line endings alone: git holds them LF-normalized, the deposit holds the bytes as written, CRLF; with CRLF restored each equals the fetch, the working tree and b535`s fetch-back, and the other 9 agree as committed (relay data/b574_pins.txt). No file named MANIFEST is the deposit`s (git ls-files in PLACE-papers and relay, case-insensitive \"manifest\": PLACE-papers phase1.5/method/METHODOLOGY_DAY_MANIFEST.md (a method-day list), relay data/zenodo-manifests/record_19675356.json and record_21432399.json (other records), reports/2026-07-11-keystone-manifest.md -- none the deposit`s; the same query finds REGISTRY.md (the control))"
+ ],
+ "H26b": [
+  "HELD",
+  "REGISTRY`s statements about the two records against the fetch: 1 differences, [(700, 'v1.7, HEAD 5e668b4', 'v1.5 (is_last True)')] -- Anomaly 1: REGISTRY`s dated WORKING-HEAD reading v1.7 against the record`s v1.5 (is_last True); the kernel`s latest tag ['v1.7', '2957e7d']; every pin, DOI, concept DOI and date agrees (relay data/b574_pins.txt)"
+ ],
+ "H26c": [
+  "HELD",
+  "3 differences in total under reading (vi) -- 0 where REGISTRY states it otherwise, 3 where REGISTRY does not state it (SPIRAL_MAP :41 the v1.1 record`s count, :140 and :533 two kernel pins); the ceiling sentences {'REGISTRY.md': 7, 'README.md': 7, 'SPIRAL_MAP.md': 0} per file, none differing; matcher v1 as first written hit 16, its 13 extra hits artefacts of assigning a line`s first version to every record on it, each hit line hand-read; the positive control fires (relay data/b574_ledgers.txt)"
+ ],
+ "H26d": [
+  "HELD",
+  "the errata a ruling ordered into a description: ['E-2026-09-25-1']; present in the fetched descriptions: ['E-2026-09-25-1']; every other erratum`s presence printed beside its label (relay data/b574_errata.txt)"
+ ],
+ "N1": [
+  "HELD",
+  "both pages generated twice, each byte-identical to its committed copy at HEAD; G-CHAIN-PAGE PASS 2 of 2 (relay data/b574_page_runs.txt)"
+ ],
+ "N2": [
+  "REFUTED",
+  "H26a REFUTED: 2 files differ as committed blobs, by line endings alone"
+ ],
+ "N3": [
+  "HELD",
+  "H26b: the single pin difference is Anomaly 1"
+ ],
+ "N4": [
+  "REFUTED",
+  "H26c holds at 3, but the README`s ceiling block is not the largest cluster: its 7 ceiling sentences all equal REGISTRY`s and README carries no difference; the largest cluster is SPIRAL_MAP.md/pin"
+ ],
+ "N5": [
+  "REFUTED",
+  "E-2026-09-25-1 is in both fetched descriptions; E-2026-09-25-2 in neither -- it is the record of b535`s platform edits (ERRATA :528), never ordered into a description; the other five absent, none ordered into one"
+ ],
+ "N6": [
+  "HELD",
+  "two GETs, no Authorization header; nothing deposits; SIDE-explicit-formula main 21c8c52 (v0.15, unmoved); PLACE-papers changed only at ['FINDINGS.md', 'OPEN_TRAILS.md'], by appended record lines; both pages unchanged"
+ ],
+ "S1": [
+  "HELD",
+  "only E-2026-09-25-1 is in the fetched descriptions"
+ ],
+ "S2": [
+  "REFUTED",
+  "refuted in letter with H26a: as committed blobs 2 files differ, by line endings alone; the deposit`s 11 files equal b535`s fetch-back at every md5, and both descriptions and `modified` stamps equal b535`s read -- the deposit immutable, its description last moved by b535`s edits"
+ ],
+ "S3": [
+  "HELD",
+  "the ζ page regenerates to its committed blob byte for byte; no node changed"
+ ],
+ "counts": {
+  "files": 11,
+  "letter": 2,
+  "lf_only": [
+   "A_Place_to_Stand.md",
+   "ERRATA.md"
+  ],
+  "pin_diffs": 1,
+  "ledger": 3,
+  "contradicting": 0,
+  "silent": 3,
+  "v1": 16,
+  "ruled": [
+   "E-2026-09-25-1"
+  ],
+  "present": [
+   "E-2026-09-25-1"
+  ]
+ }
+}
