@@ -13,6 +13,7 @@
 #   D  tag made by hand first     -> exit 7; nothing pushed (the remote main unmoved)
 #   E  a branch not push-*        -> exit 2
 #   F  NAME::MESSAGE              -> exit 0; the tag's message is MESSAGE
+#   G-I (R179)(5) the table check over a clone named PLACE-papers (see the cases below)
 set -uo pipefail
 
 SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/push_gated.sh"
@@ -82,6 +83,44 @@ mk F; c="$W/F"
 bash "$SCRIPT" "$c/work" push-t "vT::v0 -- the test's message" >"$c/out.txt" 2>&1; rc=$?
 check "F exit" 0 "$rc"
 check "F the tag's message" "v0 -- the test's message" "$(git -C "$c/work" tag -l --format='%(contents:subject)' vT)"
+
+# ### (R179)(5), b569: THE TABLE CHECK. The work clone is named PLACE-papers, so push_gated.sh calls relay tools/table_gate.py
+# ### before the main push; TABLE_GATE_ARGS gives it fixture tables and a fixture face (the seam only adds arguments).
+#   G  the grade cells unchanged              -> exit 0; main pushed
+#   H  a grade cell MUTATED (R / b moved)     -> exit 9; the remote main unmoved, the checkout restored
+#   I  the same mutation NAMED on the face    -> exit 0; main pushed
+mkpp() {   # mkpp <case> -> like mk, the work clone named PLACE-papers
+  local c="$W/$1"
+  mkdir -p "$c" && G init -q --bare "$c/origin.git" && G clone -q "$c/origin.git" "$c/PLACE-papers" 2>/dev/null &&
+  G -C "$c/PLACE-papers" commit -q --allow-empty -m base && G -C "$c/PLACE-papers" push -q origin main 2>/dev/null &&
+  G -C "$c/PLACE-papers" checkout -q -b push-t && G -C "$c/PLACE-papers" commit -q --allow-empty -m child &&
+  G -C "$c/PLACE-papers" checkout -q main
+  printf '{"rows": [{"repo": "R", "name": "a", "grade": "DERIVES"}, {"repo": "R", "name": "b", "grade": "ENCODES-CONCLUSION"}]}\n' >"$c/prior.json"
+  printf '{"rows": [{"repo": "R", "name": "a", "grade": "DERIVES"}, {"repo": "R", "name": "b", "grade": "ENCODES-CONCLUSION"}]}\n' >"$c/same.json"
+  printf '{"rows": [{"repo": "R", "name": "a", "grade": "DERIVES"}, {"repo": "R", "name": "b", "grade": "CONFLICT"}]}\n' >"$c/mut.json"
+  printf '### a face naming no cell\n' >"$c/face_none.txt"
+  printf '### a face naming the cell\n### TABLE CELL: R / b\n' >"$c/face_named.txt"
+}
+for cs in G H I; do
+  mkpp "$cs"; c="$W/$cs"
+  case "$cs" in
+    G) args="--prior $c/prior.json --now $c/same.json --face $c/face_none.txt"; want=0;;
+    H) args="--prior $c/prior.json --now $c/mut.json --face $c/face_none.txt"; want=9;;
+    I) args="--prior $c/prior.json --now $c/mut.json --face $c/face_named.txt"; want=0;;
+  esac
+  echo "### CASE $cs -- the table check ($args)"
+  before=$(git -C "$c/PLACE-papers" ls-remote origin refs/heads/main | cut -f1)
+  TABLE_GATE_ARGS="$args" bash "$SCRIPT" "$c/PLACE-papers" push-t >"$c/out.txt" 2>&1; rc=$?
+  check "$cs exit" "$want" "$rc"
+  check "$cs the table check ran before the push" yes "$(grep -q '^table_gate: face ' "$c/out.txt" && echo yes || echo no)"
+  if [ "$want" -eq 9 ]; then
+    check "$cs remote main unmoved" "$before" "$(git -C "$c/PLACE-papers" ls-remote origin refs/heads/main | cut -f1)"
+    check "$cs the moved cell printed" yes "$(grep -q 'R / b : ENCODES-CONCLUSION -> CONFLICT' "$c/out.txt" && echo yes || echo no)"
+    check "$cs checkout restored" main "$(git -C "$c/PLACE-papers" symbolic-ref --short HEAD)"
+  else
+    check "$cs remote main = pushed tip" "$(git -C "$c/PLACE-papers" rev-parse push-t)" "$(git -C "$c/PLACE-papers" ls-remote origin refs/heads/main | cut -f1)"
+  fi
+done
 
 echo "### ### **$pass of $total checks as wanted -- $([ "$pass" -eq "$total" ] && echo PASS || echo FAIL)**"
 [ "$pass" -eq "$total" ]

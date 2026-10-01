@@ -13,7 +13,8 @@
 # A refused push, an unequal read-back, or a failed tag push exits non-zero at once, and no later push runs.
 # Exit codes: 0 all pushed and read back; 2 usage; 3 main push refused; 4 main read-back unequal; 5 a tag push refused;
 # 6 a tag read-back unequal; 7 a tag argument refused before any push (the tag already exists, locally or at the
-# remote); 8 the tag could not be made. The script prints one line per step; it deletes nothing.
+# remote); 8 the tag could not be made; 9 (R179)(5) the table check refused a PLACE-papers push. The script prints one
+# line per step; it deletes nothing.
 #
 # ### THE TAG IS MADE HERE, (R178)(3), b567's defect (g): the seat made the annotated tag v0.10 by hand before main was
 # ### read back. From b568 the script MAKES every tag it is given -- annotated, at the SHA it has just read back at the
@@ -65,6 +66,26 @@ done
 readback_equal=0
 
 git -C "$repo" checkout -q "$branch"
+
+# ### (R179)(5), b569: DEFECT (k) MADE A CHECK. Before a push of a repository whose directory is named PLACE-papers, the
+# ### terminal table is regenerated in memory (relay tools/table_gate.py; HEAD is now the push branch's tip) and its grade
+# ### cells diffed against relay HEAD's committed table; a moved cell the act's face does not name (`TABLE CELL: <repo> /
+# ### <name>`) refuses the push: exit 9, the checkout restored, NOTHING IS PUSHED. TABLE_GATE_ARGS only ADDS arguments to the
+# ### call (the test's fixture files); nothing skips it.
+if [ "$(basename "$(cd "$repo" && pwd)")" = "PLACE-papers" ]; then
+  tools_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  set +e
+  # shellcheck disable=SC2086
+  PYTHONIOENCODING=utf-8 python "$tools_dir/table_gate.py" --repo "$repo" ${TABLE_GATE_ARGS:-}
+  rc=$?
+  set -e
+  if [ "$rc" -ne 0 ]; then
+    git -C "$repo" checkout -q "$prev"
+    echo "push_gated: TABLE CHECK REFUSED THE PUSH (table_gate exit $rc) -- NOTHING IS PUSHED" >&2
+    exit 9
+  fi
+fi
+
 set +e
 git -C "$repo" push origin "$branch:main"
 rc=$?
