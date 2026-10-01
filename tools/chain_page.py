@@ -506,6 +506,20 @@ def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil
     return NL.join(L) + NL
 
 
+def corr_select(rec, names, marks, variant):
+    """### The Correspondence rows' names: the graded names of the table that are not nodes, and the list's marks.
+    ### ζ page: kernel and Zeta23 names outside the χ side and -- (R184)(2), b573's finding -- outside the schema
+    ### (`SIDEExplicitFormula.Schema.`), so that a schema name graded at a close never joins the ζ page.
+    ### Dirichlet page ((R183)(5)): the χ-side and schema names."""
+    if variant == 'dirichlet':
+        pick = lambda n: n.startswith(CHI_PREFIX) or n.startswith(SCHEMA_PREFIX)
+    else:
+        pick = lambda n: ((n.startswith('SIDEExplicitFormula.') or n.startswith('Zeta23.')) and not n.startswith(CHI_PREFIX)
+                          and not n.startswith(SCHEMA_PREFIX))
+    return sorted(set(n for n, r in rec.items() if pick(n) and n not in names and r.get('grade') != 'UNGRADED')
+                  | set(m for m in marks if m not in names))
+
+
 # ================================================================================ the run
 def build(nodes_path, probe_dir, from_output=None):
     # ### (R179)(4): the pin and the tier key come with the node list. A list carrying `# pin: <tag>` is generated at that
@@ -524,13 +538,7 @@ def build(nodes_path, probe_dir, from_output=None):
     nodes, drops, corr_extra, marks = read_nodes(nodes_path)
     names = [x['name'] for x in nodes]
     rec = record_rows()
-    corr_names = sorted(set(n for n, r in rec.items()
-                            if (n.startswith('SIDEExplicitFormula.') or n.startswith('Zeta23.')) and not n.startswith(CHI_PREFIX)
-                            and n not in names and r.get('grade') != 'UNGRADED') | set(m for m in marks if m not in names))
-    if VARIANT == 'dirichlet':
-        # ### (R183)(5): the χ-leg's Correspondence rows are the graded χ-side and schema names that are not nodes
-        corr_names = sorted(set(n for n, r in rec.items() if (n.startswith(CHI_PREFIX) or n.startswith(SCHEMA_PREFIX))
-                                and n not in names and r.get('grade') != 'UNGRADED') | set(m for m in marks if m not in names))
+    corr_names = corr_select(rec, names, marks, VARIANT)
     watch = ['SIDEExplicitFormula.RegisterDepth']
     log = []
     if from_output is None:

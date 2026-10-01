@@ -12,6 +12,8 @@
 ### Usage: python tools/test_chain_page.py <nodes.txt> <probe_out.txt> <page.md> [<dirichlet_nodes.txt> <dirichlet_probe_out.txt>]
 ###   (9)-(12), b573 (R183)(5): the Dirichlet variant -- page names, title, tier key, open line, the successor sentence byte for
 ###   byte as the last derived line, the Placement rows, no node in Correspondence, an unknown variant refused.
+###   (13)-(15), b574 (R184)(2): corr_select -- a graded Schema name absent from the ζ selection, present in the Dirichlet one;
+###   both pages re-emitted from their banked probe outputs against relay HEAD`s live table.
 """
 import io
 import os
@@ -147,6 +149,24 @@ def main(argv):
         io.open(bad, 'w', encoding='utf-8').write(io.open(dnodes, encoding='utf-8').read().replace('# page: dirichlet', '# page: other'))
         rc12, pg12, _m, _l = C.build(bad, tmp, dout)
         want('(12) an unknown variant is refused: exit 2, no page (read %s)' % rc12, rc12 == 2 and pg12 is None)
+
+    # ### (R184)(2), b574: A SCHEMA NAME GRADED BY HOUSEKEEPING -- absent from the ζ selection, present in the Dirichlet one;
+    # ### and both pages re-emitted from their banked probe outputs against the LIVE table (relay HEAD's) at that table
+    SN = 'SIDEExplicitFormula.Schema.synthetic_graded_name'
+    rec13 = {SN: dict(grade='DERIVES'), 'SIDEExplicitFormula.B321.synthetic_zeta_name': dict(grade='DERIVES'),
+             'SIDEExplicitFormula.GRHWeil.synthetic_chi_name': dict(grade='DERIVES')}
+    z13, d13 = C.corr_select(rec13, [], [], None), C.corr_select(rec13, [], [], 'dirichlet')
+    want('(13) a graded Schema name: absent from the ζ selection (%s)' % z13, SN not in z13 and 'SIDEExplicitFormula.B321.synthetic_zeta_name' in z13)
+    want('(13) and present in the Dirichlet selection (%s)' % d13, SN in d13 and 'SIDEExplicitFormula.GRHWeil.synthetic_chi_name' in d13)
+    live = C.record_rows()
+    lz = [n for n in live if n.startswith(C.SCHEMA_PREFIX) and live[n].get('grade') != 'UNGRADED']
+    want('(14) the live table grades Schema names (%d) -- the case b573 met' % len(lz), len(lz) > 0)
+    rc14, pg14, _m, l14 = C.build(nodes, tmp, out_path)
+    want('(14) the ζ list re-emitted against the live table: exit 0, byte-identical to the page given (read %s)' % rc14,
+         rc14 == 0 and pg14 is not None and pg14.encode('utf-8') == page)
+    if len(argv) >= 5:
+        rc15, pg15, _m, _l = C.build(argv[3], tmp, argv[4])
+        want('(15) the χ list re-emitted against the live table: exit 0 (read %s)' % rc15, rc15 == 0 and pg15 is not None)
 
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
