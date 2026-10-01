@@ -1,0 +1,18 @@
+b577 -- COMPONENT 1: THE WRITE-LIST ADDENDUM AND THE ARM RE-RUN, (R187)(4)
+
+### relay data/b576_writelist_addendum.txt, as ruled:
+    WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5)
+
+### the form (relay tools/addenda.py, (R177)(3)(g)) on it:
+    WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5) -> CLAUSE DOES NOT NAME IT ; accepted False
+    (R186)(5)`s clause, read from relay data/b576_ferry.txt: "THE REFRESH per (R157)(6), carrying v0.2 through v0.15, the two pages, the closed CP-4 and CP-5, and the instruments since b558: the seat's memory record rewritten from the four ledgers (the four ledgers and the relay banks remain the continuity); the mirror zip built by date with no act suffix (no act open at the build), its MANIFEST md5 and last-commit printed and banked; the zip placed where th"
+    (R187)(4)`s clause, which names the file: "THE WRITE-LIST OMISSION: tools/mirror_prevbuild.json is carried by (R186)(5) under the (R177)(3) addendum form — "WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5)" — written at the b576 record; the arm re-run; the mirror builder's write list gains the file for every later act."
+
+### the test (relay data/b577_test_rerun.txt): ['### ### **5 of 5 cases as wanted -- PASS**']
+### the re-run of b576`s suite at b576`s push -- worktree D:\b577-rerun-b576 at 2eae0499 (b576`s closing commit 2eae0499), the edited suite (relay cc4215d9) and the addendum bank placed in it:
+    ### files written (72), each against the (W) globs: uncovered ['relay/tools/mirror_prevbuild.json']
+    ### WRITE-LIST ADDENDUM ((R177)(3)(g)): WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5) -> CLAUSE DOES NOT NAME IT
+    ### ### **ARMS RUN : 69. ### LIVE PASSING : 68. ### LIVE FAILING : 1 ['G-WRITELIST-KINDS'].**
+    ### ### **VERDICT : NOT CLEAN**
+
+### ### **THE RULED LINE IS REFUSED; THE RE-RUN READS 68 OF 69.**
