@@ -1,0 +1,10 @@
+{
+ "line": 6212,
+ "text": "*Appended 2026-10-01 by b567 to the field entry (:5575) and b566’s composition line (:6192), under `(R177)`(1) -- LI’S CRITERION COMPILED AS AN EQUIVALENCE, AT ITS WEIGHT:* SIDE-explicit-formula v0.9 = `e5a5a83`: `li_nonneg_iff_rh : (∀ n, 0 ≤ LiCoeff n) ↔ RiemannHypothesis`, from the kernel’s `rh_imp_li_nonneg` and Bulka’s vendored `positivity_implies_RH` joined by `li_coeff_eq_taylorCoeff` (`LiCoeff (n+1) = (taylorCoeff riemannXi n).re`); `arith_limit_nonneg_iff_rh` through `li_identity_sym`. Fifteen new declarations and the twelve they rest on print the standard three; `RiemannHypothesis` and `riemannZeta` are Mathlib’s, read from their declaring module. **The equality lemma is itself a finding:** the zero-sum definition of λ_n (the paired sum over Mathlib’s zeros) and the Taylor-coefficient definition (Li’s original, through log ξ) coincide in the kernel -- the Li–Bombieri–Lagarias identity compiled, its one substantive step the multiplicity of ζ against ξ on the strip (`analyticOrderAt_xi_eq_zeta`). The compiled picture of the single located clause has three faces, each equivalent to Mathlib’s RH and so to each other: Weil positivity on classK (`h2_sign`, through `h2_sign_iff_rh`), Li positivity (∀ n, 0 ≤ LiCoeff n, through `li_nonneg_iff_rh`), and arithmetic-limit positivity (through `arith_limit_nonneg_iff_rh`). h2 is open; nothing about ζ’s zeros is proved; the three faces are three statements of the one obligation.",
+ "res": {
+  "file": "FINDINGS.md",
+  "before": 800246,
+  "added": 1485,
+  "prefix": true
+ }
+}

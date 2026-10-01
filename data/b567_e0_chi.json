@@ -1,0 +1,474 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.GRHWeil.charPartialSum_eq_zero_of_lt_one": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hx : x < 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) {x : ℝ} (hx : x < 1) : charPartialSum χ x = 0",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.measurable_charPartialSum": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) : Measurable (charPartialSum χ)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.locallyIntegrableOn_charPartialSum": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : LocallyIntegrableOn (charPartialSum χ) (Ioi 0)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.charPartialSum_isBigO": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : (fun n : ℕ => ∑ k ∈ Finset.Icc 1 n, χ (k : ZMod N)) =O[atTop] fun n : ℕ => (n : ℝ) ^ (0 : ℝ)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral_of_one_lt_re": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hs : 1 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {s : ℂ} (hs : 1 < s.re) : LFunction χ s = s * ∫ t in Ioi (1 : ℝ), charPartialSum χ t * (t : ℂ) ^ (-(s + 1))",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.integral_Ioi_one_eq_mellin": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (s : ℂ) : ∫ t in Ioi (1 : ℝ), charPartialSum χ t * (t : ℂ) ^ (-(s + 1)) = mellin (charPartialSum χ) (-s)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.differentiableAt_mellin_charPartialSum": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {s : ℂ} (hs : 0 < s.re) : DifferentiableAt ℂ (mellin (charPartialSum χ)) (-s)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.abelRep": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.differentiableOn_abelRep": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) : DifferentiableOn ℂ (abelRep χ) {s : ℂ | 0 < s.re}",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {s : ℂ} (hs : 0 < s.re) : LFunction χ s = s * ∫ t in Ioi (1 : ℝ), charPartialSum χ t * (t : ℂ) ^ (-(s + 1))",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.tailKernel": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (M : ℕ) : ℝ → ℂ",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.integral_Ioi_indicator_eq": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hM : 0 < M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{M : ℝ} (hM : 0 < M) (f : ℝ → ℂ) (w : ℂ) : ∫ t in Ioi (0 : ℝ), (t : ℂ) ^ (w - 1) • (Ioi M).indicator f t = ∫ t in Ioi M, (t : ℂ) ^ (w - 1) • f t",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.integral_Ioi_eq_mellin_tail": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hM : 0 < M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) {M : ℕ} (hM : 0 < M) (s : ℂ) : ∫ t in Ioi (M : ℝ), charPartialSum χ t * (t : ℂ) ^ (-(s + 1)) = mellin (tailKernel χ M) (-s)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.integral_Ioi_log_eq_mellin_tail": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hM : 0 < M",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) {M : ℕ} (hM : 0 < M) (s : ℂ) : ∫ t in Ioi (M : ℝ), charPartialSum χ t * (t : ℂ) ^ (-(s + 1)) * (-(Real.log t : ℂ)) = -mellin (fun t => Real.log t • tailKernel χ M t) (-s)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.tailKernel_memLp": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (M : ℕ) : MemLp (tailKernel χ M) ⊤ volume",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.hasDerivAt_mellin_tail": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 0 < M, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 0 < M) {s : ℂ} (hs : 0 < s.re) : HasDerivAt (fun z : ℂ => mellin (tailKernel χ M) (-z)) (-mellin (fun t => Real.log t • tailKernel χ M t) (-s)) s",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.LFunction0'": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (M : ℕ) (s : ℂ) : ℂ",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 0 < M, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 0 < M) {s : ℂ} (hs : 0 < s.re) : HasDerivAt (LFunction0 χ M) (LFunction0' χ M s) s",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.sum_Icc_zero_char": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (m : ℕ) : ∑ k ∈ Finset.Icc 0 m, χ (k : ZMod N) = ∑ k ∈ Finset.Icc 1 m, χ (k : ZMod N)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.sum_eq_abel": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : s ≠ 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ} (hs : s ≠ 0) : ∑ n ∈ Finset.Icc 1 M, χ (n : ZMod N) / (n : ℂ) ^ s = charPartialSum χ M * (M : ℂ) ^ (-s) + s * ∫ t in Ioc (1 : ℝ) M, charPartialSum χ t * (t : ℂ) ^ (-(s + 1))",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.integrableOn_Ioi_charPartialSum_cpow": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {s : ℂ} (hs : 0 < s.re) : IntegrableOn (fun t : ℝ => charPartialSum χ t * (t : ℂ) ^ (-(s + 1))) (Ioi 1)",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ} (hs : 0 < s.re) : LFunction0 χ M s = LFunction χ s",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.deriv_LFunction0_eq": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ} (hs : 0 < s.re) : deriv (LFunction0 χ M) s = deriv (LFunction χ) s",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.deriv_LFunction_eq": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {s : ℂ} (hs : 0 < s.re) : deriv (LFunction χ) s = LFunction0' χ M s",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.norm_integral_tail_le": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hσ : 0 < σ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {M : ℕ} (hM : 1 ≤ M) {σ t : ℝ} (hσ : 0 < σ) : ‖∫ x in Ioi (M : ℝ), charPartialSum χ x * (x : ℂ) ^ (-((σ + t * I) + 1))‖ ≤ ((N : ℝ) + 1) * (M : ℝ) ^ (-σ) / σ",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.literatureRHS_chi": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ",
+   "file": "SIDEExplicitFormula/Chi/Statement.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.EF_lit_chi": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Prop",
+   "file": "SIDEExplicitFormula/Chi/Statement.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: he : χ.Even",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (he : χ.Even) (r : ℝ) : gammaBracket_chi χ r = Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + I * r / 2)).re",
+   "file": "SIDEExplicitFormula/Chi/Statement.lean"
+  },
+  "SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: he : ¬ χ.Even",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ N} (he : ¬ χ.Even) (r : ℝ) : gammaBracket_chi χ r = Real.log (N / Real.pi) + (Complex.digamma (3 / 4 + I * r / 2)).re",
+   "file": "SIDEExplicitFormula/Chi/Statement.lean"
+  }
+ },
+ "consumed": {
+  "DirichletCharacter.LFunction_eq_LSeries": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "LSeries_eq_mul_integral": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "mellin_differentiableAt_of_isBigO_rpow": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "mellin_hasDerivAt_of_isBigO_rpow": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "sum_mul_eq_sub_sub_integral_mul'": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "salt": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ ≠ 1 → ∀ {s : ℂ}, 0 < s.re → DirichletCharacter.LFunction χ s = s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(C4) THE REPRESENTATION.** For `χ ≠ 1` and `0 < re s`: `LFunction χ s = s · ∫_{(1,∞)} S_χ(t) t^{−s−1} dt` -- the identity theorem on the convex half-plane, from (C2) near `2`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0 : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N}, χ ≠ 1 → ∀ {M : ℕ}, 0 < M → ∀ {s : ℂ}, 0 < s.re → HasDerivAt (SIDEExplicitFormula.GRHWeil.LFunction0 χ M) (SIDEExplicitFormula.GRHWeil.LFunction0' χ M s) s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(C5) THE ANALOGUE OF `HasDerivAtZeta0`.** For `χ ≠ 1`, `0 < M` and `0 < re s`, `LFunction0 χ M` has derivative `LFunction0' χ M s` at `s`: the finite sum and the boundary term by `const_cpow`, the tail integral by Mathlib's Mellin derivative.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N}, χ ≠ 1 → ∀ {M : ℕ}, 1 ≤ M → ∀ {s : ℂ}, 0 < s.re → SIDEExplicitFormula.GRHWeil.LFunction0 χ M s = DirichletCharacter.LFunction χ s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(C6) THE ANALOGUE OF `Zeta0EqZeta`.** For `χ ≠ 1`, `1 ≤ M` and `0 < re s`: `LFunction0 χ M s = LFunction χ s`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.norm_integral_tail_le",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.norm_integral_tail_le : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N}, χ ≠ 1 → ∀ {M : ℕ}, 1 ≤ M → ∀ {σ t : ℝ}, 0 < σ → ‖∫ (x : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(↑σ + ↑t * Complex.I + 1))‖ ≤ (↑N + 1) * ↑M ^ (-σ) / σ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(C8)** For `χ ≠ 1`, `1 ≤ M` and `σ > 0`: `‖∫_{(M,∞)} S_χ(x) x^{−(σ+it)−1} dx‖ ≤ (N + 1) M^{−σ} / σ` (Zeta23's bound has `1/2` where `S_χ` has `N + 1`).",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/Chi/Statement.lean",
+   "check": "@SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N}, χ.Even → ∀ (r : ℝ), SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r = Real.log (↑N / Real.pi) + (1 / 4 + Complex.I * ↑r / 2).digamma.re",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "The archimedean bracket for an EVEN character: `log(N/π) + Re ψ(1/4 + ir/2)` (the ζ-bracket's digamma argument).",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "6baed63ae664a22db1f325177b81253e270de6e3",
+ "counts": {
+  "DERIVES": 24,
+  "INTERFACES": 0
+ }
+}

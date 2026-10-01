@@ -1,0 +1,68 @@
+b567 -- READING (6): THE E0 READ (chi) -- EVERY DECLARATION GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+
+### the prints of record: relay data/b567_chi_prints.txt ; the statements at 6baed63 (main).
+### THE RULE (b566`s): a theorem is INTERFACES when an explicit hypothesis binder of its statement is a named Prop of a
+### vendored or kernel module (a premise passed through); DERIVES when its only binders are domain conditions. ### b567`s
+### ONE ADDED READING, declared: a parity predicate of the character (`χ.Even`, `¬ χ.Even`) is a domain condition, as
+### `χ ≠ 1` is. ### The prints reader is b566`s widened to names ending in a prime.
+
+    charPartialSum_eq_zero_of_lt_one         DERIVES    std3  -- domain conditions only: hx : x < 1
+    measurable_charPartialSum                DERIVES    std3  -- no hypothesis binder
+    locallyIntegrableOn_charPartialSum       DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    charPartialSum_isBigO                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    LFunction_eq_mul_integral_of_one_lt_re   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 1 < s.re
+    integral_Ioi_one_eq_mellin               DERIVES    std3  -- no hypothesis binder
+    differentiableAt_mellin_charPartialSum   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+    abelRep                                  DEFINITION std3  -- 
+    differentiableOn_abelRep                 DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    LFunction_eq_mul_integral                DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+    tailKernel                               DEFINITION std3  -- 
+    integral_Ioi_indicator_eq                DERIVES    std3  -- domain conditions only: hM : 0 < M
+    integral_Ioi_eq_mellin_tail              DERIVES    std3  -- domain conditions only: hM : 0 < M
+    integral_Ioi_log_eq_mellin_tail          DERIVES    std3  -- domain conditions only: hM : 0 < M
+    tailKernel_memLp                         DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    hasDerivAt_mellin_tail                   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 0 < M, hs : 0 < s.re
+    LFunction0'                              DEFINITION std3  -- 
+    hasDerivAt_LFunction0                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 0 < M, hs : 0 < s.re
+    sum_Icc_zero_char                        DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+    sum_eq_abel                              DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : s ≠ 0
+    integrableOn_Ioi_charPartialSum_cpow     DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+    LFunction0_eq_LFunction                  DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re
+    deriv_LFunction0_eq                      DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re
+    deriv_LFunction_eq                       DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re
+    norm_integral_tail_le                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hσ : 0 < σ
+    literatureRHS_chi                        DEFINITION std3  -- 
+    EF_lit_chi                               DEFINITION std3  -- 
+    gammaBracket_chi_of_even                 DERIVES    std3  -- domain conditions only: he : χ.Even
+    gammaBracket_chi_of_not_even             DERIVES    std3  -- domain conditions only: he : ¬ χ.Even
+
+### THE CONSUMED TERMINALS, their prints:
+    DirichletCharacter.LFunction_eq_LSeries                  std3
+    LSeries_eq_mul_integral                                  std3
+    mellin_differentiableAt_of_isBigO_rpow                   std3
+    mellin_hasDerivAt_of_isBigO_rpow                         std3
+    AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq       std3
+    sum_mul_eq_sub_sub_integral_mul'                         std3
+    SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le       std3
+
+### THE SALT-CHECK -- Lean`s #print of each definition (no sorry):
+    def SIDEExplicitFormula.GRHWeil.abelRep : {N : ℕ} → DirichletCharacter ℂ N → ℂ → ℂ :=
+    fun {N} χ s => s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+    def SIDEExplicitFormula.GRHWeil.tailKernel : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℝ → ℂ :=
+    fun {N} χ M => (Set.Ioi ↑M).indicator (SIDEExplicitFormula.GRHWeil.charPartialSum χ)
+    def SIDEExplicitFormula.GRHWeil.LFunction0' : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℂ → ℂ :=
+    fun {N} χ M s =>
+    def SIDEExplicitFormula.GRHWeil.literatureRHS_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+    fun {N} χ k => SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+    def SIDEExplicitFormula.GRHWeil.EF_lit_chi : {N : ℕ} →
+      [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+### ### **THE SALT-CHECK: True** (5 definitions)
+
+### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 6baed63):
+    LFunction_eq_mul_integral      defenc False  | check True
+    hasDerivAt_LFunction0          defenc False  | check True
+    LFunction0_eq_LFunction        defenc False  | check True
+    norm_integral_tail_le          defenc False  | check True
+    gammaBracket_chi_of_even       defenc False  | check True
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THEOREMS 24 (DERIVES 24, INTERFACES 0) ; DEFINITIONS 5 ; CONSUMED 7 AT THE STANDARD THREE True ; THE SALT-CHECK True => MERGE True**

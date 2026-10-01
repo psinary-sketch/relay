@@ -1,0 +1,17 @@
+b567 -- COMPONENT 3: THE PRINTS -- lake env lean AxiomCheckResidue.lean at residue-discharge-b567 a3fa83b, started 2026-10-01T02:06:05Z, exited by 02:07:37Z
+### AxiomCheckResidue.lean sha256 2e93c291508cac1099018b3296efec0e50cef927e05c0f31f75c82a7175001f5
+### stdout:
+'SIDEExplicitFormula.ResidueDischarge.Register4_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.ResidueDischarge.liCoeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+    SIDEExplicitFormula.LiWeil.LiCoeff →
+  RiemannHypothesis
+SIDEExplicitFormula.ResidueDischarge.liCoeff_zero : SIDEExplicitFormula.LiWeil.LiCoeff 0 = 0
+def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop :=
+fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n
+### stderr:

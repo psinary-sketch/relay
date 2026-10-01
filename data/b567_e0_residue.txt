@@ -1,0 +1,26 @@
+b567 -- READING (6): THE E0 READ (residue) -- EVERY DECLARATION GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+
+### the prints of record: relay data/b567_residue_prints.txt ; the statements at 6baed63 (main).
+### THE RULE (b566`s): a theorem is INTERFACES when an explicit hypothesis binder of its statement is a named Prop of a
+### vendored or kernel module (a premise passed through); DERIVES when its only binders are domain conditions. ### b567`s
+### ONE ADDED READING, declared: a parity predicate of the character (`χ.Even`, `¬ χ.Even`) is a domain condition, as
+### `χ ≠ 1` is. ### The prints reader is b566`s widened to names ending in a prime.
+
+    Register4_positivity                     DEFINITION std3  -- 
+    liCoeff_zero                             DERIVES    std3  -- no hypothesis binder
+    register4_positivity_liCoeff_imp_rh      DERIVES    std3  -- no hypothesis binder
+
+### THE CONSUMED TERMINALS, their prints:
+    SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh   std3
+    SIDEExplicitFormula.LiWeil.LiCoeff_eq                    std3
+
+### THE SALT-CHECK -- Lean`s #print of each definition (no sorry):
+    def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop :=
+    fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n
+### ### **THE SALT-CHECK: True** (1 definitions)
+
+### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 6baed63):
+    register4_positivity_liCoeff_imp_rh defenc False  | check True
+    liCoeff_zero                   defenc False  | check True
+    control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THEOREMS 2 (DERIVES 2, INTERFACES 0) ; DEFINITIONS 1 ; CONSUMED 2 AT THE STANDARD THREE True ; THE SALT-CHECK True => MERGE True**

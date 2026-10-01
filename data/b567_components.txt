@@ -1,0 +1,623 @@
+====================================================================================================================================
+b567 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### relay data/b567_reads.txt
+  b567 -- READING (1): THE READS, CITED BY PATH AND LINE
+  
+  ### the composed criterion (the ferry names LiWeil.lean; they are here) -- SIDEExplicitFormula/LiCriterionBridge.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      theorem li_coeff_eq_taylorCoeff                            :149 | theorem li_coeff_eq_taylorCoeff (n : ℕ) :
+      theorem li_nonneg_iff_rh                                   :179 | theorem li_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis := by
+      theorem arith_limit_nonneg_iff_rh                          :191 | theorem arith_limit_nonneg_iff_rh :
+      theorem analyticOrderAt_xi_eq_zeta                         :62 | theorem analyticOrderAt_xi_eq_zeta {ρ : ℂ} (h0 : 0 < ρ.re) (h1 : ρ ≠ 1) :
+  ### LiWeil.lean -- SIDEExplicitFormula/LiWeil.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      def liTerm                                                 :60 | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+      def LiCoeff                                                :243 | def LiCoeff (n : ℕ) : ℝ :=
+      theorem rh_imp_li_nonneg                                   :267 | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+  ### the kernel`s NOTICE (Bulka`s repository has none) -- NOTICE at e5a5a83 (D:/SIDE-explicit-formula)
+      Bulka                                                      :23 | Copyright 2026 Nicholas Bulka, licensed under the Apache License, Version 2.0; the licence is carried whole at
+      Apache                                                     :4 | This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+      35df682f                                                   :22 | (https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean), at 35df682f3b709ffe5fbcfdd452dfa964bd622b87,
+  ### the carried LICENSE -- Vendored/Bulka/LICENSE at e5a5a83 (D:/SIDE-explicit-formula)
+      Apache License                                             :1 | Apache License
+      Version 2.0, January 2004                                  :2 | Version 2.0, January 2004
+  ### GRHWeil.lean -- SIDEExplicitFormula/GRHWeil.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      def parity                                                 :47 | def parity (χ : DirichletCharacter ℂ N) : ℕ := if χ.Even then 0 else 1
+      def GRH_chi                                                :53 | def GRH_chi (χ : DirichletCharacter ℂ N) : Prop :=
+      def primeSum_chi                                           :61 | def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+      def gammaBracket_chi                                       :66 | def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+      def archTerm_chi                                           :70 | def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+      def h2_sign_chi                                            :75 | def h2_sign_chi (χ : DirichletCharacter ℂ N) : Prop :=
+  ### Chi/ZeroConfig.lean -- SIDEExplicitFormula/Chi/ZeroConfig.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      def chiZeroConfig                                          :225 | def chiZeroConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Zeta23.ZeroConfig where
+      def IsNontrivialZeroChi                                    :48 | def IsNontrivialZeroChi (χ : DirichletCharacter ℂ N) (ρ : ℂ) : Prop :=
+  ### Chi/ZetaBounds.lean, the held point -- SIDEExplicitFormula/Chi/ZetaBounds.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      WHERE THIS FILE STOPS                                      :19 | WHERE THIS FILE STOPS -- the held point, at its four attempts: the χ-analogue of `HasDerivAtZeta0` (s ↦ `LFunction0 χ M s`
+      theorem norm_charPartialSum_le                             :124 | theorem norm_charPartialSum_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (x : ℝ) :
+      def charPartialSum                                         :85 | def charPartialSum (χ : DirichletCharacter ℂ N) (x : ℝ) : ℂ := ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ (n : ZMod N)
+      def LFunction0                                             :142 | def LFunction0 (χ : DirichletCharacter ℂ N) (M : ℕ) (s : ℂ) : ℂ :=
+  ### Zeta23`s ZetaBounds -- Zeta23/FromPNTPlus/ZetaBounds.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      lemma ZetaBnd_aux1b                                        :843 | lemma ZetaBnd_aux1b (N : ℕ) (Npos : 1 ≤ N) {σ t : ℝ} (σpos : 0 < σ) :
+      lemma HasDerivAtZeta0                                      :1095 | lemma HasDerivAtZeta0 {N : ℕ} (Npos : 0 < N) {s : ℂ} (reS_pos : 0 < s.re) (s_ne_one : s ≠ 1) :
+      lemma Zeta0EqZeta                                          :1178 | lemma Zeta0EqZeta {N : ℕ} (N_pos : 0 < N) {s : ℂ} (reS_pos : 0 < s.re) (s_ne_one : s ≠ 1) :
+      lemma DerivZeta0EqDerivZeta                                :1208 | lemma DerivZeta0EqDerivZeta {N : ℕ} (N_pos : 0 < N) {s : ℂ} (reS_pos : 0 < s.re)
+      theorem analyticAt_riemannZeta                             :184 | theorem analyticAt_riemannZeta {s : ℂ} (s_ne_one : s ≠ 1) :
+      noncomputable def riemannZeta0                             :548 | noncomputable def riemannZeta0 (N : ℕ) (s : ℂ) : ℂ :=
+  ### Zeta23`s EF_lit -- Zeta23/ExplicitFormula.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      def gammaBracket                                           :80 | def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π
+      def literatureRHS                                          :86 | def literatureRHS (k : ℝ → ℂ) : ℂ :=
+      def EF_lit                                                 :97 | def EF_lit (Z : ZeroConfig) : Prop :=
+  ### Zeta23`s Defs -- Zeta23/Defs.lean at e5a5a83 (D:/SIDE-explicit-formula)
+      def paperFT                                                :60 | def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+      def gammaOf                                                :121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+      structure ZeroConfig                                       :29 | riemannZeta. The zeros enter only through the abstract structure ZeroConfig
+  ### Mathlib checkout D:/b566-forward\.lake\packages\mathlib at de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+  ### Mathlib -- Mathlib/NumberTheory/LSeries/DirichletContinuation.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+      noncomputable def LFunction (χ                             :61 | noncomputable def LFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.LFunction χ s
+      lemma LFunction_eq_LSeries                                 :75 | lemma LFunction_eq_LSeries (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < re s) :
+      theorem completedLFunction_one_sub                         :284 | theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) :
+  ### Mathlib -- Mathlib/Analysis/Analytic/Uniqueness.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+      theorem eqOn_of_preconnected_of_eventuallyEq               :223 | theorem eqOn_of_preconnected_of_eventuallyEq {f g : E → F} {U : Set E} (hf : AnalyticOnNhd 𝕜 f U)
+  ### Mathlib -- Mathlib/NumberTheory/AbelSummation.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+      theorem _root_.sum_mul_eq_sub_sub_integral_mul             :129 | theorem _root_.sum_mul_eq_sub_sub_integral_mul (ha : 0 ≤ a) (hab : a ≤ b)
+      theorem _root_.sum_mul_eq_sub_sub_integral_mul'            :175 | theorem _root_.sum_mul_eq_sub_sub_integral_mul' {n m : ℕ} (h : n ≤ m)
+  ### Mathlib -- Mathlib/NumberTheory/LSeries/SumCoeff.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+      theorem LSeries_eq_mul_integral                            :137 | theorem LSeries_eq_mul_integral (f : ℕ → ℂ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)
+  ### Mathlib -- Mathlib/Analysis/MellinTransform.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+      def mellin                                                 :91 | def mellin (f : ℝ → E) (s : ℂ) : E :=
+      theorem mellin_hasDerivAt_of_isBigO_rpow                   :320 | theorem mellin_hasDerivAt_of_isBigO_rpow [NormedSpace ℂ E] {a b : ℝ}
+      theorem mellin_differentiableAt_of_isBigO_rpow             :401 | theorem mellin_differentiableAt_of_isBigO_rpow [NormedSpace ℂ E] {a b : ℝ}
+  ### lv (the residue`s premises) -- SIDELvConservation/RegisterPentagon.lean at 2f71068 (D:/SIDE-lv-conservation)
+      def Register4_positivity                                   :152 | def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+      theorem R4_positivity_to_RH                                :266 | theorem R4_positivity_to_RH
+  ### lv -- SIDELvConservation/ZeroActingPartial.lean at 2f71068 (D:/SIDE-lv-conservation)
+      theorem residue_irreducible                                :130 | theorem residue_irreducible
+  ### lv -- SIDELvConservation/ZeroActingPairing.lean at 2f71068 (D:/SIDE-lv-conservation)
+      theorem zeroActingPairing_to_RH                            :69 | theorem zeroActingPairing_to_RH {lam_A lam_Z ledger lam : ℕ → ℝ}
+  ### b549`s premise list -- relay/data/b549_premise.txt :12
+         12 |   inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+  ### OPEN_TRAILS, the residue price -- MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md :11647
+      11647 | *Appended 2026-10-01 by b566, under the author’s ruling `(R176)`(6), to the LI-WEIL-BRIDGE work-order (:3548; b565’s conditional at :11630) -- THE RESIDUE CHAIN, PRICED AFTER THE COMPOSITION, NOT ATTE
+  ### OPEN_TRAILS, the conditional -- MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md :11630
+      11630 | *Appended 2026-09-30 by b565, under the author’s ruling `(R175)`(3), to the LI-WEIL-BRIDGE work-order (:3548; b563’s line at :11590) -- THE CONDITIONAL, (R82)’S FORM, BOTH BRANCHES:* the audit reads H
+  ### THE_RESIDUE_OF_RH, Correspondence -- MY-DOwnloads/PLACE-papers/phase1.5/proofs/THE_RESIDUE_OF_RH.md :95
+         95 | ## Correspondence
+  ### THE_RESIDUE_OF_RH, the tier block -- MY-DOwnloads/PLACE-papers/phase1.5/proofs/THE_RESIDUE_OF_RH.md :215
+        215 | #### **THE CASCADE, ACT FIVE -- THE CORRESPONDENCE TIERED** *(appended 2026-09-26, b549, under the author's ruling `(R159)`(5); no byte above this block changes
+  ### README.md :115-:115
+        115 | *(Reworded under the author's ruling `(R146)`(2), 2026-09-25, b536, beside the `(R145)`(2) sentence above, which stays: the seam compiled.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to Mathlib's Ri
+  ### README.md :117-:117
+        117 | *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sent
+  ### README.md :119-:119
+        119 | *(Appended under the author's ruling `(R176)`(2), 2026-09-30, b566, beside the `(R146)`(2) sentence and b564's `(R174)`(1) sentence above, which stay: the audit of b565 entered at its weight.)* Supportable, the author's 
+  ### REGISTRY.md :950-:950
+        950 | **THE CEILING LINE, `(R146)`(2), filed b536, 2026-09-25 — pinned at `SIDE-explicit-formula` tag `v0.2` = `5c72cad24303f23d92256ebd466d3a3d32424a4b` (the peeled SHA read back from the remote; a tag is not a deposit):** *W
+  ### REGISTRY.md :952-:952
+        952 | *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sent
+  ### REGISTRY.md :954-:954
+        954 | *(Appended under the author's ruling `(R176)`(2), 2026-09-30, b566, beside the `(R146)`(2) sentence and b564's `(R174)`(1) sentence above, which stay: the audit of b565 entered at its weight.)* Supportable, the author's 
+  ### FINDINGS.md :6144-:6144
+       6144 | **The ceiling entry of (R146)(2) gains the author’s sentence**, appended beside it at README.md :117 and REGISTRY.md :952 (the (R146)(2) lines at :115 and :950 standing unedited above): *the forward half of Li's criterio
+  ### FINDINGS.md :6190-:6190
+       6190 | *Appended 2026-09-30 by b566 to the field entry (:5575), b564’s line (:6136) and b565’s (:6168), under `(R176)`(1) -- THE AUDIT AT ITS WEIGHT:* both public formalizations are genuine at their pins. Both repositories buil
+  ### FINDINGS.md :6192-:6192
+       6192 | *Appended 2026-10-01 by b566 to the field entry (:5575) and the weight line above it, under `(R176)`(3) -- THE COMPOSITION LANDED:* SIDE-explicit-formula v0.9 = `e5a5a83` (tag object `08a85d0`) carries `li_nonneg_iff_rh 
+  ### the toolchain census (b551) -- relay/data/b551_toolchains.txt :53
+         53 | ### ### **DISTINCT MATHLIB REVS AMONG NON-VANILLA REPOSITORIES : 7**
+  ### the suite`s licence arm (b566) -- relay/tools/b566_checks.py :549
+        549 |     ('G-LICENCE-PRINTED', 'the licence bank`s BLOB LINE ((R177)(3)(h)) against the LICENSE blob on main and the clone`s at the pin',
+  ### the suite`s write-list arm (b566) -- relay/tools/b566_checks.py :652
+        652 |     ('G-WRITELIST-KINDS', 'every b566 commit in four repositories (the kernel`s main and the backport branch), against (R91)`s STEM GLOB',
+  ### relay data/b566_trial_b_build.txt : 6245 lines, sha256 8d8aa2fa5cfe87e0
+  ### relay data/b566_reprint_summary.txt : 22 lines, sha256 2e76908ec692256b
+  ### relay data/b566_step1_license.txt : 207 lines, sha256 e3ab40fe99b3337a
+  ### relay data/b566_closing_push_out.txt committed alone at the act`s start: 401bb062 b567 -- relay data/b566_closing_push_out.txt committed at the act's start, as b566 did with b565's (R177 ferry)
+
+### relay data/b567_weight.txt
+  b567 -- COMPONENT 1 (a): LI`S CRITERION AT ITS WEIGHT, (R177)(1)
+  
+  ### FINDINGS.md :6212 -- {"file": "FINDINGS.md", "before": 800246, "added": 1485, "prefix": true}
+      *Appended 2026-10-01 by b567 to the field entry (:5575) and b566’s composition line (:6192), under `(R177)`(1) -- LI’S CRITERION COMPILED AS AN EQUIVALENCE, AT ITS WEIGHT:* SIDE-explicit-formula v0.9 = `e5a5a83`: `li_nonneg_iff_rh : (∀ n, 0 ≤ LiCoeff n) ↔ RiemannHypothesis`, from the kernel’s `rh_imp_li_nonneg` and Bulka’s vendored `positivity_implies_RH` joined by `li_coeff_eq_taylorCoeff` (`LiCoeff (n+1) = (taylorCoeff riemannXi n).re`); `arith_limit_nonneg_iff_rh` through `li_identity_sym`. Fifteen new declarations and the twelve they rest on print the standard three; `RiemannHypothesis` and `riemannZeta` are Mathlib’s, read from their declaring module. **The equality lemma is itself a finding:** the zero-sum definition of λ_n (the paired sum over Mathlib’s zeros) and the Taylor-coefficient definition (Li’s original, through log ξ) coincide in the kernel -- the Li–Bombieri–Lagarias identity compiled, its one substantive step the multiplicity of ζ against ξ on the strip (`analyticOrderAt_xi_eq_zeta`). The compiled picture of the single located clause has three faces, each equivalent to Mathlib’s RH and so to each other: Weil positivity on classK (`h2_sign`, through `h2_sign_iff_rh`), Li positivity (∀ n, 0 ≤ LiCoeff n, through `li_nonneg_iff_rh`), and arithmetic-limit positivity (through `arith_limit_nonneg_iff_rh`). h2 is open; nothing about ζ’s zeros is proved; the three faces are three statements of the one obligation.
+
+### relay data/b567_ceiling.txt
+  b567 -- COMPONENT 1 (b): THE CEILING SENTENCE, (R177)(2), BESIDE b566`S LINE IN b536`S FORM
+  
+  ### the author`s sentence, read from the banked ferry: Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause.
+  ### the paragraph: *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence: *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *λ_n ≥ 0 proved*.
+  
+  ### README.md : {"file": "README.md", "after_line": 119, "before": 16728, "added": 855, "head_kept": true, "tail_kept": true, "new_line": 121}
+      the line now at :121 : *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence: *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *λ_n ≥ 0 proved*.
+  ### REGISTRY.md : {"file": "REGISTRY.md", "before": 177957, "added": 855, "prefix": true, "after_line": 954, "new_line": 956}
+      the line now at :956 : *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence: *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel (li_nonneg_iff_rh, v0.9), its converse vendored from nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0; equivalently, RH is the nonnegativity of the Bombieri–Lagarias arithmetic limits (arith_limit_nonneg_iff_rh). Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled as equivalent faces of the one open clause.* Not supportable, unchanged: *RH proved*; *h2_sign proved*; *λ_n ≥ 0 proved*.
+  ### FINDINGS.md :6214 -- {"file": "FINDINGS.md", "before": 801731, "added": 878, "prefix": true}
+
+### relay data/b567_field.txt
+  b567 -- COMPONENT 1 (c): THE FIELD ENTRY`S LINE, (R177)(2)
+  
+  ### FINDINGS.md :6216 -- {"file": "FINDINGS.md", "before": 802609, "added": 402, "prefix": true}
+      *Appended 2026-10-01 by b567 to the field entry (:5575), under `(R177)`(2) -- ONE KERNEL, ONE PIN:* three groups’ compiled pieces -- Zeta23’s explicit formula, Bulka’s converse, the programme’s criterion, forward half, limit formula and χ-instance -- now compose in one kernel at one pin (SIDE-explicit-formula v0.9 = `e5a5a83`, Lean v4.34.0-rc1, Mathlib `de5ce8a9`); no priority is claimed.
+
+### relay data/b567_test_writelist.txt
+  ### test_addenda_writelist -- (R177)(3)(g)
+    (R176)(3) read: 2330 chars, opens "BRANCH (i) TAKEN, in the order the dependency gives. The con"
+    the clause (R176)(3) is found in the banked paste                          got True  want True  OK
+      WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(3) -> CLAUSE NAMES IT: "license"
+    b566 line: Vendored/Bulka/LICENSE carried by (R176)(3)                     got True  want True  OK
+      WRITE-LIST ADDENDUM: Vendored/Bulka/README.md, carried by (R176)(3) -> CLAUSE DOES NOT NAME IT
+    MUTATION: Vendored/Bulka/README.md carried by (R176)(3) -- no clause names it got False want False OK
+      WRITE-LIST ADDENDUM: data/b471_someone_elses_bank.txt, carried by (R176)(3) -> CLAUSE DOES NOT NAME IT
+    MUTATION: b471_someone_elses_bank.txt carried by (R176)(3)                 got False want False OK
+      WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(7) -> CLAUSE DOES NOT NAME IT
+    MUTATION: LICENSE carried by (R176)(7), a clause that does not name it     got False want False OK
+      WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R9999)(1) -> CLAUSE NOT FOUND
+    MUTATION: LICENSE carried by (R9999)(1), a ruling not banked               got False want False OK
+      WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE carried by R176 3 -> LINE NOT OF THE FORM
+    MUTATION: a line not of the form                                           got False want False OK
+    MUTATION: README.md is named by NO clause (1)-(7) of (R176)                got False want False OK
+    the face`s (W) globs cover LICENSE: False
+    the addendum bank`s accepted basenames: ['LICENSE']
+    ARM: the real stray LICENSE with the accepted addendum -> PASS             got True  want True  OK
+    ARM: the real stray LICENSE with NO addendum -> FAIL                       got False want False OK
+    the mutation`s file CHANGELOG.md is covered by NO (W) glob                 got False want False OK
+    the mutation`s file CHANGELOG.md is named by NO clause (1)-(7) of (R176)   got False want False OK
+    ARM MUTATION: a stray CHANGELOG.md no clause names, beside the addendum -> FAIL got False want False OK
+    ARM MUTATION: an addendum REFUSED (CHANGELOG.md by (R176)(3)) does not carry it -> FAIL got False want False OK
+    ARM: its own positive control still FAILS                                  got False want False OK
+  ### 15 of 15 cases as wanted -- PASS
+
+### relay data/b567_test_licence.txt
+  ### test_addenda_licence -- (R177)(3)(h)
+    the record`s blob line : {'sha256': '52c6f7221d5a43fd8fd414ea9b386889882aaee08c85008d8bf7046a63a64a8a', 'blob': 'd707a12f00206dd785af487026142534fa36120d', 'bytes': 11344, 'rn': 'R177', 'k': 3}
+    the blob on main       : 11344 bytes, sha256 52c6f7221d5a43fd8fd414ea9b386889882aaee08c85008d8bf7046a63a64a8a
+    its CRLF working form  : 11545 bytes, sha256 18ed520c9cda16a04467676a237d515f6410845e6a0de80de97f5c14731b2991
+    the record carries a blob line, appended by (R177)(3)                          got True  want True  OK
+    the blob line MATCHES the LICENSE blob on the kernel`s main                    got True  want True  OK
+    MUTATION: the CRLF working form does NOT match                                 got False want False OK
+    MUTATION: a blob one byte longer does NOT match                                got False want False OK
+    MUTATION: a line carrying the WORKING-COPY digest does NOT match the blob      got False want False OK
+    MUTATION: the record as b566 left it (no blob line) does NOT match             got False want False OK
+    MUTATION: b566`s own digest line is not read as a blob line                    got None  want None  OK
+    ARM: the real record against the blob on main -> PASS                          got True  want True  OK
+    ARM: the real record, a clone blob equal to main`s -> PASS                     got True  want True  OK
+    ARM: the real record against the WORKING-COPY bytes -> FAIL                    got False want False OK
+    ARM: a clone blob that differs -> FAIL                                         got False want False OK
+    ARM: the record as b566 left it -> FAIL                                        got False want False OK
+    ARM: its own positive control still FAILS                                      got False want False OK
+  ### 13 of 13 cases as wanted -- PASS
+
+### relay data/b567_b566_rerun_reading.txt
+  b567 -- (R177)(3): b566's SUITE RE-RUN ON b566's PUSH, BEFORE AND AFTER THE TWO ADDENDUM COMMITS (0e50bd19 (g), 90373807 (h))
+  
+  ### BEFORE (b567_b566_rerun_before.txt, 2026-10-01T01:22Z, read before the seal): ARMS RUN 74 ; LIVE PASSING 72 ; LIVE FAILING 2
+  ###     G-LICENCE-PRINTED, G-WRITELIST-KINDS -- b566's defects (h) and (g).
+  ### AFTER  (b567_b566_rerun_after.txt,  2026-10-01T01:38Z):                    ARMS RUN 74 ; LIVE PASSING 72 ; LIVE FAILING 2
+  ###     G-NUMBER-UNCLAIMED, G-PEEK-DECLARED.
+  ###     G-LICENCE-PRINTED  PASS (NEG PASS, POS FAIL, OK) -- the blob line matches the LICENSE blob on main and in the clone.
+  ###     G-WRITELIST-KINDS  PASS (NEG PASS, POS FAIL, OK) -- LICENSE, the one file no (W) glob covers, is carried by the accepted
+  ###                        addendum "WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(3)" (CLAUSE NAMES IT: "license").
+  ### ### **THE TWO ARMS (R177)(3) NAMES ARE CLEARED. THE COUNT IS NOT 74 OF 74: TWO OTHER ARMS NOW FAIL, BOTH BECAUSE b567 EXISTS.**
+  ###   G-NUMBER-UNCLAIMED reads the live data directory for `b567_registration_*.txt` and requires none: b567's face, sealed
+  ###     2026-10-01T01:37:20Z, is there. The arm's subject is the moment b566 closed; it fails for every later act. Not edited.
+  ###   G-PEEK-DECLARED's before-lock limb compares each BEFORE_LOCK bank's working bytes (CR stripped) with relay's PUSHED tree
+  ###     (origin/main ce360e88); b566_step1_license.txt is in that list and now carries the (R177)(3)(h) line, committed (90373807)
+  ###     and not yet pushed. Printed at 2026-10-01T01:39Z: working == pushed tree False; pushed tree a true prefix of working True,
+  ###     extra lines 1 (the LICENCE BLOB SHA256 line); working == HEAD True. It reads clear once b567's relay push carries the line.
+  ###     Not edited.
+  ### Neither failing arm was touched by the two commits; neither commit weakened an arm (test_addenda_writelist.py 15 of 15,
+  ### test_addenda_licence.py 13 of 13, each with mutations that still fail).
+
+### relay data/b567_census_revs.txt
+  b567 -- COMPONENT 2 (a): THE TOOLCHAIN CENSUS, RECOMPUTED AT HEAD, (R177)(4)
+  
+  ### b551`s rows 45; each non-VANILLA row`s mathlib rev re-read from lake-manifest.json AT HEAD
+  
+    SIDE-kernel                        b551 e960b84129b3                                 now e960b84129   leanprover/lean4:v4.29.0-rc8 HEAD:lake-manifest.json
+    SIDE-interfaces                    b551 698d2b68b870                                 now 698d2b68b8   leanprover/lean4:v4.29.0-rc8 HEAD:lake-manifest.json
+    SIDE-effects                       b551 5450b53e5ddc                                 now 5450b53e5d   leanprover/lean4:v4.30.0-rc2 HEAD:lake-manifest.json
+    SIDE-archimedean                   b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-frobenius                     b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-rcurve                        b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-spinor                        b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-simplicity                    b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-global-section                b551 NO MANIFEST; declared cecd0c4d56 (README.md: now cecd0c4d56   leanprover/lean4:v4.29.1     README.md:29 (declared, no manifest)
+    SIDE-trivium                       b551 698d2b68b870                                 now 698d2b68b8   leanprover/lean4:v4.29.0-rc8 HEAD:lake-manifest.json
+    SIDE-grh-transfer                  b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-explicit-formula              b551 51e6992efd06                                 now de5ce8a9a6   leanprover/lean4:v4.34.0-rc1 HEAD:lake-manifest.json  ### MOVED
+    SIDE-lv-conservation               b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-spinor-calibration-mathlib    b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    TECHNE-Core (private)              b551 8f1377de1fe0                                 now 8f1377de1f   leanprover/lean4:v4.29.0     HEAD:lake-manifest.json
+    SIDE-carrier-spec                  b551 5e932f97dd25                                 now 5e932f97dd   leanprover/lean4:v4.29.1     HEAD:lake-manifest.json
+    SIDE-cosmo                         b551 5450b53e5ddc                                 now 5450b53e5d   leanprover/lean4:v4.30.0-rc2 HEAD:lake-manifest.json
+  
+  ### ### **DISTINCT MATHLIB REVS AMONG NON-VANILLA REPOSITORIES, RECOMPUTED : 7** (b551: 7)
+      e960b84129 : SIDE-kernel
+      698d2b68b8 : SIDE-interfaces, SIDE-trivium
+      5450b53e5d : SIDE-effects, SIDE-cosmo
+      5e932f97dd : SIDE-archimedean, SIDE-frobenius, SIDE-rcurve, SIDE-spinor, SIDE-simplicity, SIDE-grh-transfer, SIDE-lv-conservation, SIDE-spinor-calibration-mathlib, SIDE-carrier-spec
+      cecd0c4d56 : SIDE-global-section
+      de5ce8a9a6 : SIDE-explicit-formula
+      8f1377de1f : TECHNE-Core (private)
+  
+  ### the line appended to data/b551_toolchains.txt (prefix kept True, +660 bytes):
+      ### APPENDED 2026-10-01 BY b567 UNDER (R177)(4) -- THE FORWARD MOVE: SIDE-explicit-formula | leanprover/lean4:v4.34.0-rc1 | de5ce8a9a66a | v0.9 = e5a5a83 (was v4.33.0-rc2 / 51e6992efd06 at b551) ; DISTINCT MATHLIB REVS AMONG NON-VANILLA REPOSITORIES, RECOMPUTED AT HEAD : 7 (b551: 7) -- e960b84129 SIDE-kernel; 698d2b68b8 SIDE-interfaces/SIDE-trivium; 5450b53e5d SIDE-effects/SIDE-cosmo; 5e932f97dd SIDE-archimedean/SIDE-frobenius/SIDE-rcurve/SIDE-spinor/SIDE-simplicity/SIDE-grh-transfer/SIDE-lv-conservation/SIDE-spinor-calibration-mathlib/SIDE-carrier-spec; cecd0c4d56 SIDE-global-section; de5ce8a9a6 SIDE-explicit-formula; 8f1377de1f TECHNE-Core (private)
+
+### relay data/b567_trails2.txt
+  b567 -- COMPONENT 2 (b)-(c): THE STALE MARK AND W-ORD-DEPRECATIONS ON THE TRAILS, (R177)(4)
+  
+  ### OPEN_TRAILS.md :11664 -- {"file": "OPEN_TRAILS.md", "before": 1415570, "added": 564, "prefix": true}
+      *Appended 2026-10-01 by b567, under the author’s ruling `(R177)`(4), to the toolchain item (:11232) -- `toolchain-trial-b551` STALE:* SIDE-explicit-formula has moved to Lean `v4.34.0-rc1` and Mathlib `de5ce8a9` (v0.9 = `e5a5a83`, b566), so the branch `toolchain-trial-b551` (SIDE-lv-conservation forwarded to `v4.33.0-rc2` / `51e6992e`, tip `f22ff35`) prices a move to a rev no kernel now holds (relay `data/b567_census_revs.txt`). It is marked STALE; its price is to be re-measured against `de5ce8a9` when the lv item next rises. The branch is kept, unedited.
+  
+  ### OPEN_TRAILS.md :11666 -- {"file": "OPEN_TRAILS.md", "before": 1416134, "added": 1595, "prefix": true}
+      ### `W-ORD-DEPRECATIONS` — filed 2026-10-01, b567, under the author’s ruling (R177)(4)
+      
+      | # | ID | kind | the item | price | trigger |
+      |:--|:--|:--|:--|:--|:--|
+      | **1** | `W-ORD-DEPRECATIONS` | **KERNEL** | SIDE-explicit-formula at Lean `v4.34.0-rc1` / Mathlib `de5ce8a9` builds clean with 2044 deprecation warning lines (trial (b), relay `data/b566_trial_b_build.txt`), 102 distinct sites in 19 files (SIDEExplicitFormula 8, Zeta23 11), 12 classes, every one naming its replacement (relay `data/b567_deprecations.txt`). The top ten by count: `Set.mem_setOf_eq` → `Set.mem_ofPred_eq` 937 lines, 32 sites; `dif_pos` → `dite_eq_left` 217 lines, 8 sites; `if_neg` → `ite_eq_right` 182 lines, 20 sites; `if_pos` → `ite_eq_left` 168 lines, 17 sites; `dif_neg` → `dite_eq_right` 148 lines, 5 sites; `Set.setOf_subset_setOf` → `Set.ofPred_subset_ofPred` 131 lines, 4 sites; `Set.preimage_setOf_eq` → `Set.preimage_ofPred_eq` 99 lines, 3 sites; `Set.notMem_setOf_iff` → `Set.notMem_ofPred_iff` 64 lines, 2 sites; `push_neg` → `push Not` 58 lines, 6 sites; `ENat.toNat_coe` → `ENat.toNat_natCast` 36 lines, 2 sites. No class is a semantic change by its own warning: each names a renamed lemma or tactic. | replace each deprecated name by the one its warning names, file by file (Zeta23 files are vendored: a vendored body is not edited, so their sites wait for the source's own move or a vendoring refresh), each module rebuilt one per call, every print re-read | **the next Mathlib move of SIDE-explicit-formula** |
+      
+      *Filed, not started. No kernel byte changes for it at b567.*
+
+### relay data/b567_cache.txt
+  b567 -- COMPONENT 2 (d): THE MAIN CHECKOUT'S BUILD CACHE REBUILT FROM THE FORWARD WORKTREE, (R177)(4)
+  
+  ### at 2026-10-01T01:45:09Z; processes lean/lake before the move:
+  0
+  ### checkout .lake mathlib HEAD: 51e6992efd06126df61a496bebf8f49482a4e129
+  ### forward  .lake mathlib HEAD: de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+  ### the commands (each path verified in the same chain):
+      test ! -e /d/b567-lake-51e6992e && test -d /d/SIDE-explicit-formula/.lake && mv /d/SIDE-explicit-formula/.lake /d/b567-lake-51e6992e && test ! -e /d/SIDE-explicit-formula/.lake && test -d /d/b566-forward/.lake && mv /d/b566-forward/.lake /d/SIDE-explicit-formula/.lake
+  rc=1
+  ### after: /d/b567-lake-51e6992e mathlib 51e6992efd06126df61a496bebf8f49482a4e129
+  ### after: checkout .lake mathlib fatal: cannot change to 'D:/SIDE-explicit-formula/.lake/packages/mathlib': No such file or directory
+  ### after: /d/b566-forward/.lake exists: YES
+  ### the second move REFUSED (Permission denied): the seat's previous shell had its cwd inside D:/b566-forward/.lake/build (a Windows directory lock); retried from cwd D:/relay at 2026-10-01T01:45:19Z:
+      test ! -e /d/SIDE-explicit-formula/.lake && test -d /d/b566-forward/.lake && mv /d/b566-forward/.lake /d/SIDE-explicit-formula/.lake
+  rc=0
+  ### after: checkout .lake mathlib de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+  ### after: /d/b566-forward/.lake exists: NO
+
+### relay data/b567_cache_nobuild.txt
+  === 2026-10-01T01:45:39Z lake --no-build build SIDEExplicitFormula -> 0 | Some required targets logged failures: - SIDEExplicitFormula.ResidueDischarge  (01:47:57Z)
+  === 2026-10-01T01:47:57Z lake --no-build build BulkaVendored -> 0 | All targets up-to-date (3721 jobs).  (01:48:03Z)
+  === 2026-10-01T01:48:03Z lake --no-build build Mathlib -> 0 | All targets up-to-date (8706 jobs).  (01:49:24Z)
+  === 2026-10-01T01:50:27Z CONTROL lake --no-build build +SIDEExplicitFormula.ResidueDischarge (unbuilt, new this act) -> rc=3 | Some required targets logged failures: - SIDEExplicitFormula.ResidueDischarge  (01:50:36Z)
+  ### NOTE: the rc column of the three lines above was printed by a defective capture (${PIPESTATUS} after a command substitution) and reads 0 whatever lake returned; the message column is lake's own. The SIDEExplicitFormula line read the new unbuilt ResidueDischarge.lean, created at 01:46Z while that call scanned its globs.
+
+### relay data/b567_bulka_verify.txt
+  b567 -- COMPONENT 2 (e): BULKA`S CLONE -- THE VENDORED COPY VERIFIED AGAINST ITS GIT BLOBS BY DIGEST, (R177)(4)
+  
+  ### the clone D:/audit-b565/bulka at HEAD 35df682f3b709ffe5fbcfdd452dfa964bd622b87 (the pin 35df682f3b709ffe5fbcfdd452dfa964bd622b87) ; the kernel`s main e5a5a83
+  
+    Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean        body c455ada13da3 clone c455ada13da3 hdr True AGREE
+    Vendored/Bulka/FunctionsOfOneComplexVariable/EntireLog.lean                body 42fcb51dcef2 clone 42fcb51dcef2 hdr True AGREE
+    Vendored/Bulka/Hadamard/Basic.lean                                         body fd272623904f clone fd272623904f hdr True AGREE
+    Vendored/Bulka/Hadamard/General.lean                                       body 4218ddf7b78e clone 4218ddf7b78e hdr True AGREE
+    Vendored/Bulka/Hadamard/General/Factorization.lean                         body 81b700b74973 clone 81b700b74973 hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean                      body d1ff5845fce4 clone d1ff5845fce4 hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean                body 4e004d1b122f clone 4e004d1b122f hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean                             body 32325c26c539 clone 32325c26c539 hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean                 body b757c52cc49f clone b757c52cc49f hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/MultipliableFactors.lean                  body 64e3e10ebb1f clone 64e3e10ebb1f hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/OrderFromMaxModulus.lean                  body ff105cf4e302 clone ff105cf4e302 hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/QuotientCancellation.lean                 body 53248967fea5 clone 53248967fea5 hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean              body f5f1a50b99c2 clone f5f1a50b99c2 hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean                        body aec94ba321ff clone aec94ba321ff hdr True AGREE
+    Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean                   body 1ea6d0e69cd1 clone 1ea6d0e69cd1 hdr True AGREE
+    Vendored/Bulka/Hadamard/Theorem.lean                                       body e1b34b561d1d clone e1b34b561d1d hdr True AGREE
+    Vendored/Bulka/Hadamard/ZeroCounting.lean                                  body 9987d7ac4775 clone 9987d7ac4775 hdr True AGREE
+    Vendored/Bulka/Hadamard/ZeroSet.lean                                       body bd0437c14bc7 clone bd0437c14bc7 hdr True AGREE
+    Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean                           body 3e1da34ac59e clone 3e1da34ac59e hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/Basic.lean                                   body e65df2122d0e clone e65df2122d0e hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/Fidelity.lean                                body cd6226dfb880 clone cd6226dfb880 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/GenusOne.lean                                body 5b53793cb362 clone 5b53793cb362 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean                body 85e64776d3b3 clone 85e64776d3b3 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean                          body a44c65e65a71 clone a44c65e65a71 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/HadamardSummabilityBridge.lean               body 6dcd2437505e clone 6dcd2437505e hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean                            body de5787183c89 clone de5787183c89 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean                               body 7ba732877502 clone 7ba732877502 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean                              body 8422429e5445 clone 8422429e5445 hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/RHBridge.lean                                body bb9a29aee0ba clone bb9a29aee0ba hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean                        body 15bbfbe082ae clone 15bbfbe082ae hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean                                body 329c7fcbdc3e clone 329c7fcbdc3e hdr True AGREE
+    Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean                           body d8f89451e4b0 clone d8f89451e4b0 hdr True AGREE
+    Vendored/Bulka/Lc/XiZeros.lean                                             body 7626a148d6e4 clone 7626a148d6e4 hdr True AGREE
+    Vendored/Bulka/LICENSE (blob against blob)                                 clone 52c6f7221d5a main 52c6f7221d5a AGREE
+  
+  ### ### **VENDORED BODIES 33 ; AGREEING 33 ; LICENSE AGREE : VERIFIED -- THE CLONE MAY BE DELETED**
+
+### relay data/b567_bulka_delete.txt
+  ### b567 -- COMPONENT 2 (e): BULKA'S CLONE DELETED, (R177)(4), AFTER data/b567_bulka_verify.txt READ 33 OF 33 BODIES AND THE LICENSE AGREEING. The command, run by the seat:
+  ###   H=$(git -C /d/audit-b565/bulka rev-parse HEAD) && test "$H" = "35df682f3b709ffe5fbcfdd452dfa964bd622b87" && test -d /d/audit-b565/bulka && grep -q "VERIFIED -- THE CLONE MAY BE DELETED" data/b567_bulka_verify.txt && rm -rf /d/audit-b565/bulka && (test -e /d/audit-b565/bulka || echo "D:/audit-b565/bulka ABSENT") && ls /d/audit-b565
+  ### Its output, verbatim:
+  START 2026-10-01T03:01:10Z rm -rf /d/audit-b565/bulka (HEAD verified in this command)
+  END 2026-10-01T03:24:27Z rc=0
+  D:/audit-b565/bulka ABSENT
+  arda_prints.lean
+  arda_reads.lean
+  arda_reads2.lean
+  bulka_build.log
+  bulka_prints.lean
+  bulka_reads.lean
+  bulka_reads2.lean
+
+### relay data/b567_residue_statement.txt
+  b567 -- COMPONENT 3: THE RESIDUE PREMISE -- THE STATEMENTS, BANKED BEFORE THE BUILD, (R177)(5)
+  
+  ### at 2026-10-01T01:47:08Z, branch residue-discharge-b567 at e5a5a83 (v0.9), file SIDEExplicitFormula/ResidueDischarge.lean sha256 f294e5e30c6e23f1e4558ed1ce47b86e3fb1564bb52c17db2d840719f66b56cb, no build of it yet run
+  ### lv's source, at 2f71068: def Register4_positivity (lam : ℕ → ℝ) : Prop :=   ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n 
+  
+  30:def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+  31-  ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+  32-
+  --
+  34:theorem liCoeff_zero : LiCoeff 0 = 0 := by
+  35-  rw [LiCoeff_eq]
+  36-  simp [liTerm]
+  --
+  41:theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis := by
+  42-  intro h
+  43-  refine LiCriterionBridge.li_nonneg_iff_rh.mp fun n => ?_
+
+### relay data/b567_residue_prints.txt
+  b567 -- COMPONENT 3: THE PRINTS -- lake env lean AxiomCheckResidue.lean at residue-discharge-b567 a3fa83b, started 2026-10-01T02:06:05Z, exited by 02:07:37Z
+  ### AxiomCheckResidue.lean sha256 2e93c291508cac1099018b3296efec0e50cef927e05c0f31f75c82a7175001f5
+  ### stdout:
+  'SIDEExplicitFormula.ResidueDischarge.Register4_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.ResidueDischarge.liCoeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh' depends on axioms: [propext,
+   Classical.choice,
+   Quot.sound]
+  'SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+      SIDEExplicitFormula.LiWeil.LiCoeff →
+    RiemannHypothesis
+  SIDEExplicitFormula.ResidueDischarge.liCoeff_zero : SIDEExplicitFormula.LiWeil.LiCoeff 0 = 0
+  def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop :=
+  fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n
+  ### stderr:
+
+### relay data/b567_e0_residue.txt
+  b567 -- READING (6): THE E0 READ (residue) -- EVERY DECLARATION GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+  ### the prints of record: relay data/b567_residue_prints.txt ; the statements at 6baed63 (main).
+  ### THE RULE (b566`s): a theorem is INTERFACES when an explicit hypothesis binder of its statement is a named Prop of a
+  ### vendored or kernel module (a premise passed through); DERIVES when its only binders are domain conditions. ### b567`s
+  ### ONE ADDED READING, declared: a parity predicate of the character (`χ.Even`, `¬ χ.Even`) is a domain condition, as
+  ### `χ ≠ 1` is. ### The prints reader is b566`s widened to names ending in a prime.
+  
+      Register4_positivity                     DEFINITION std3  -- 
+      liCoeff_zero                             DERIVES    std3  -- no hypothesis binder
+      register4_positivity_liCoeff_imp_rh      DERIVES    std3  -- no hypothesis binder
+  
+  ### THE CONSUMED TERMINALS, their prints:
+      SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh   std3
+      SIDEExplicitFormula.LiWeil.LiCoeff_eq                    std3
+  
+  ### THE SALT-CHECK -- Lean`s #print of each definition (no sorry):
+      def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop :=
+      fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n
+  ### ### **THE SALT-CHECK: True** (1 definitions)
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 6baed63):
+      register4_positivity_liCoeff_imp_rh defenc False  | check True
+      liCoeff_zero                   defenc False  | check True
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+  ### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THEOREMS 2 (DERIVES 2, INTERFACES 0) ; DEFINITIONS 1 ; CONSUMED 2 AT THE STANDARD THREE True ; THE SALT-CHECK True => MERGE True**
+
+### relay data/b567_zb_consumers.txt
+  b567 -- READING (5): ZETABOUNDS` CONSUMERS -- WHICH OF ITS DECLARATIONS A LATER ZETA23 MODULE READS, AND THE χ-ANALOGUES
+  
+  ### Zeta23/FromPNTPlus/ZetaBounds.lean at v0.9 (e5a5a83): 150 declaration names ; searched in 56 other Zeta23 files, each read at v0.9
+  ### CONTROL: the matcher finds `riemannZeta0` in ZetaBounds.lean itself: True
+  
+      Zeta0EqZeta                        consumed by Zeta23/RvM/ZetaGrowth.lean
+      ZetaBnd_aux1b                      consumed by Zeta23/RvM/ZetaGrowth.lean
+      analyticAt_riemannZeta             consumed by Zeta23/WeilEF/FullLine.lean, Zeta23/WeilEF/XiLogDeriv.lean
+      riemannZeta0                       consumed by Zeta23/RvM/ZetaGrowth.lean
+  
+  ### ### **CONSUMED BY A LATER MODULE : 4 of 150 -- Zeta0EqZeta, ZetaBnd_aux1b, analyticAt_riemannZeta, riemannZeta0**
+  
+  ### THE χ-ANALOGUES, BY NAME (the consumed set and the HasDerivAt pair (R177)(6) names):
+      DerivZeta0EqDerivZeta      -> deriv_LFunction0_eq (Chi/ZetaBoundsStrip.lean, b567)       PRESENT at main 6baed63
+      HasDerivAtZeta0            -> hasDerivAt_LFunction0 (Chi/ZetaBoundsStrip.lean, b567)     PRESENT at main 6baed63
+      Zeta0EqZeta                -> LFunction0_eq_LFunction (Chi/ZetaBoundsStrip.lean, b567)   PRESENT at main 6baed63
+      ZetaBnd_aux1b              -> norm_integral_tail_le (Chi/ZetaBoundsStrip.lean, b567)     PRESENT at main 6baed63
+      analyticAt_riemannZeta     -> analyticAt_LFunction (Chi/ZetaBounds.lean, b564)           PRESENT at main 6baed63
+      riemannZeta0               -> LFunction0 (Chi/ZetaBounds.lean, b564)                     PRESENT at main 6baed63
+  
+  ### NOT CONSUMED BY ANY LATER ZETA23 MODULE (listed, not attempted): 146 -- BddAbove_to_IsBigO, DerivUpperBnd_aux1, DerivUpperBnd_aux2, DerivUpperBnd_aux3, DerivUpperBnd_aux4, DerivUpperBnd_aux5, DerivUpperBnd_aux6, DerivUpperBnd_aux7, DerivUpperBnd_aux7_1, DerivUpperBnd_aux7_2, DerivUpperBnd_aux7_3, DerivUpperBnd_aux7_3', DerivUpperBnd_aux7_4, DerivUpperBnd_aux7_5, DerivUpperBnd_aux7_integral_eq, DerivUpperBnd_aux7_nonneg, DerivUpperBnd_aux7_tendsto, DerivZeta0EqDerivZeta, HasDerivAtZeta0, HasDerivAt_cpow_over_var, HasDerivAt_neg_cpow_over2, HolomorphicOn_riemannZeta, HolomorphicOn_riemannZeta0, Icc0_eq, Icc_eq_Ico, Ioc_eq_Icc, Ioc_eq_Ico, Ioi_union_Iio_mem_cocompact, LogDerivZetaBnd, LogDerivZetaBndUnif, LogDerivZetaHolcLargeT, LogDerivZetaHolcSmallT, LogDerivZetaHoloOn, ResidueMult, ResidueOfTendsTo, Tendsto_nhdsWithin_punctured_add, Tendsto_nhdsWithin_punctured_map_add, UpperBnd_aux, UpperBnd_aux2, UpperBnd_aux3, UpperBnd_aux5, UpperBnd_aux6, ZetaBnd_aux1, ZetaBnd_aux1a, ZetaBnd_aux1p, ZetaBnd_aux2, ZetaCont, ZetaDerivUpperBnd, ZetaDerivUpperBnd', ZetaInvBnd, ZetaInvBnd_aux, ZetaInvBnd_aux', ZetaInvBnd_aux2, ZetaInvBound1, ZetaInvBound2, ZetaLowerBnd, ZetaLowerBound1, ZetaLowerBound1_aux1, ZetaLowerBound2, ZetaLowerBound3, ZetaLowerBound3_aux1, ZetaLowerBound3_aux2, ZetaLowerBound3_aux3, ZetaLowerBound3_aux4, ZetaLowerBound3_aux5, ZetaNear1BndExact, ZetaNear1BndFilter, ZetaNoZerosInBox, ZetaNoZerosOn1Line, ZetaSum_aux1, ZetaSum_aux1_1, ZetaSum_aux1_1', ZetaSum_aux1_2, ZetaSum_aux1_3, ZetaSum_aux1_4, ZetaSum_aux1_4', ZetaSum_aux1_5, ZetaSum_aux1_5a, ZetaSum_aux1_5b, ZetaSum_aux1_5c, ZetaSum_aux1_5d, ZetaSum_aux1derivφCont, ZetaSum_aux1φDiff, ZetaSum_aux1φderiv, ZetaSum_aux1₁, ZetaSum_aux2, ZetaSum_aux2a, ZetaSum_aux3, ZetaUpperBnd, ZetaUpperBnd', ZetaZeroFree, Zeta_diff_Bnd, Zeta_eq_int_derivZeta, analytic_deriv_bounded_near_point, cpow_inv_tendsto, cpow_tendsto, deriv_eqOn_of_eqOn_punctured, deriv_f_minus_A_inv_sub_clean, deriv_fun_re, deriv_inv_sub, derivative_const_plus_product, differentiableAt_cpow_const_of_ne, differentiableAt_deriv_riemannZeta, div_cpow_eq_cpow_neg, div_rpow_eq_rpow_div_neg, div_rpow_eq_rpow_neg, div_rpow_neg_eq_rpow_div, dlog_riemannZeta_bdd_on_vertical_lines_generalized, finsetSum_tendsto_tsum, harmonic_eq_sum_Icc0, harmonic_eq_sum_Icc0_aux, hasDerivAt_Zeta0Integral, integrableOn_of_Zeta0_fun, integrableOn_of_Zeta0_fun_log, integrable_log_over_pow, isOpen_aux, isPathConnected_aux, le_trans₄, logDerivResidue, logDerivResidue', logDerivResidue'', log_natCast_monotone, logt_gt_one, lt_abs_mem_cocompact, lt_trans₄, measurable_floor_add_half_sub, mul_le_mul₃, nonZeroOfBddAbove, norm_add₅_le, norm_add₆_le, norm_complex_log_ofNat, norm_zeta_product_ge_one, one_div_cpow_eq, one_div_cpow_eq_cpow_neg, riemannZeta0_apply, riemannZeta0_zero_aux, riemannZetaLogDerivResidue, riemannZetaLogDerivResidueBigO, riemannZetaResidue, riemannZeta_isBigO_near_one_horizontal, self_div_floor_bound, sum_eq_int_deriv, summable_complex_then_summable_real_part, triv_bound_zeta, xpos_of_uIcc, ζ₀'
+
+### relay data/b567_e0_chi.txt
+  b567 -- READING (6): THE E0 READ (chi) -- EVERY DECLARATION GRADED, THE SALT-CHECK, THE ROWGEN RECORD
+  
+  ### the prints of record: relay data/b567_chi_prints.txt ; the statements at 6baed63 (main).
+  ### THE RULE (b566`s): a theorem is INTERFACES when an explicit hypothesis binder of its statement is a named Prop of a
+  ### vendored or kernel module (a premise passed through); DERIVES when its only binders are domain conditions. ### b567`s
+  ### ONE ADDED READING, declared: a parity predicate of the character (`χ.Even`, `¬ χ.Even`) is a domain condition, as
+  ### `χ ≠ 1` is. ### The prints reader is b566`s widened to names ending in a prime.
+  
+      charPartialSum_eq_zero_of_lt_one         DERIVES    std3  -- domain conditions only: hx : x < 1
+      measurable_charPartialSum                DERIVES    std3  -- no hypothesis binder
+      locallyIntegrableOn_charPartialSum       DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+      charPartialSum_isBigO                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+      LFunction_eq_mul_integral_of_one_lt_re   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 1 < s.re
+      integral_Ioi_one_eq_mellin               DERIVES    std3  -- no hypothesis binder
+      differentiableAt_mellin_charPartialSum   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+      abelRep                                  DEFINITION std3  -- 
+      differentiableOn_abelRep                 DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+      LFunction_eq_mul_integral                DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+      tailKernel                               DEFINITION std3  -- 
+      integral_Ioi_indicator_eq                DERIVES    std3  -- domain conditions only: hM : 0 < M
+      integral_Ioi_eq_mellin_tail              DERIVES    std3  -- domain conditions only: hM : 0 < M
+      integral_Ioi_log_eq_mellin_tail          DERIVES    std3  -- domain conditions only: hM : 0 < M
+      tailKernel_memLp                         DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+      hasDerivAt_mellin_tail                   DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 0 < M, hs : 0 < s.re
+      LFunction0'                              DEFINITION std3  -- 
+      hasDerivAt_LFunction0                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 0 < M, hs : 0 < s.re
+      sum_Icc_zero_char                        DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1
+      sum_eq_abel                              DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : s ≠ 0
+      integrableOn_Ioi_charPartialSum_cpow     DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hs : 0 < s.re
+      LFunction0_eq_LFunction                  DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re
+      deriv_LFunction0_eq                      DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re
+      deriv_LFunction_eq                       DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hs : 0 < s.re
+      norm_integral_tail_le                    DERIVES    std3  -- domain conditions only: h1 : χ ≠ 1, hM : 1 ≤ M, hσ : 0 < σ
+      literatureRHS_chi                        DEFINITION std3  -- 
+      EF_lit_chi                               DEFINITION std3  -- 
+      gammaBracket_chi_of_even                 DERIVES    std3  -- domain conditions only: he : χ.Even
+      gammaBracket_chi_of_not_even             DERIVES    std3  -- domain conditions only: he : ¬ χ.Even
+  
+  ### THE CONSUMED TERMINALS, their prints:
+      DirichletCharacter.LFunction_eq_LSeries                  std3
+      LSeries_eq_mul_integral                                  std3
+      mellin_differentiableAt_of_isBigO_rpow                   std3
+      mellin_hasDerivAt_of_isBigO_rpow                         std3
+      AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq       std3
+      sum_mul_eq_sub_sub_integral_mul'                         std3
+      SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le       std3
+  
+  ### THE SALT-CHECK -- Lean`s #print of each definition (no sorry):
+      def SIDEExplicitFormula.GRHWeil.abelRep : {N : ℕ} → DirichletCharacter ℂ N → ℂ → ℂ :=
+      fun {N} χ s => s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+      def SIDEExplicitFormula.GRHWeil.tailKernel : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℝ → ℂ :=
+      fun {N} χ M => (Set.Ioi ↑M).indicator (SIDEExplicitFormula.GRHWeil.charPartialSum χ)
+      def SIDEExplicitFormula.GRHWeil.LFunction0' : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℂ → ℂ :=
+      fun {N} χ M s =>
+      def SIDEExplicitFormula.GRHWeil.literatureRHS_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+      fun {N} χ k => SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+      def SIDEExplicitFormula.GRHWeil.EF_lit_chi : {N : ℕ} →
+        [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+  ### ### **THE SALT-CHECK: True** (5 definitions)
+  
+  ### THE ROWGEN RECORD (rowgen.py`s extract_doc_body and definition_encoded IMPORTED, at 6baed63):
+      LFunction_eq_mul_integral      defenc False  | check True
+      hasDerivAt_LFunction0          defenc False  | check True
+      LFunction0_eq_LFunction        defenc False  | check True
+      norm_integral_tail_le          defenc False  | check True
+      gammaBracket_chi_of_even       defenc False  | check True
+      control: definition_encoded on `def b560_ctl_stub : Prop := True` -> (True, 'b560_ctl_stub := True') (must be True)
+  ### ### **THE GATE: EVERY PRINT THE STANDARD THREE True ; THEOREMS 24 (DERIVES 24, INTERFACES 0) ; DEFINITIONS 5 ; CONSUMED 7 AT THE STANDARD THREE True ; THE SALT-CHECK True => MERGE True**
+
+### relay data/b567_rowgen.txt
+  b567 -- READING (6): THE ROWGEN DIFF (rowgen.diff IMPORTED) OF THE MERGED RECORDS AGAINST CORRESPONDENCE ROWS 407-412
+  
+  ### row 407 found: True ; records 7
+      ('SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh', ['ok'])
+  ### row 408 found: True ; records 7
+      ('SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh', ['ok'])
+  ### row 409 found: True ; records 7
+      ('SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral', ['ok'])
+  ### row 410 found: True ; records 7
+      ('SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0', ['ok'])
+  ### row 411 found: True ; records 7
+      ('SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction', ['ok'])
+  ### row 412 found: True ; records 7
+      ('SIDEExplicitFormula.GRHWeil.norm_integral_tail_le', ['ok'])
+
+### relay data/b567_branches.txt
+  b567 -- READING (7): push-b566 BRANCHES LISTED BY --merged main AND DELETED BY NAME (2026-10-01T03:00:56Z)
+  ### /d/relay : push-b566
+  Deleted branch push-b566 (was ffec2543).
+  ### /d/relay : push-b566-closing
+  Deleted branch push-b566-closing (was ce360e88).
+  ### /d/MY-DOwnloads/PLACE-papers : push-b566
+  Deleted branch push-b566 (was 5ce2895).
+  ### /d/SIDE-global-section : push-b566
+  Deleted branch push-b566 (was 5440757).
+  ### /d/SIDE-explicit-formula : push-b566
+  Deleted branch push-b566 (was e5a5a83).
+  ### after:
+    /d/relay push-b56*: []
+    /d/MY-DOwnloads/PLACE-papers push-b56*: []
+    /d/SIDE-global-section push-b56*: []
+    /d/SIDE-explicit-formula push-b56*: [push-b567 ]
+  ### the kept branches (kernel): detection-region-b559 grh-weil-b562 grh-weil-b564 grh-weil-b567 li-weil-b561 li-weil-b563 main push-b567 residue-discharge-b567 vendor-bulka-backport-b566 +vendor-bulka-forward-b566 
+  ### lv: +toolchain-trial-b551 at f22ff35
+
+### relay data/b567_kernel_push_out.txt
+  push_gated: capture on -> /d/relay/data/b567_kernel_push_out.txt (2026-10-01T03:00:09Z)
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b567 ; tip 6baed63ae664a22db1f325177b81253e270de6e3 ; checkout before main
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+     e5a5a83..6baed63  push-b567 -> main
+  push_gated: main read back at the remote: 6baed63ae664a22db1f325177b81253e270de6e3
+  push_gated: DONE -- main and 0 tag(s) pushed and read back
+  push_gated: capture on -> /d/relay/data/b567_kernel_push_out.txt (2026-10-01T03:00:24Z)
+  push_gated: repo /d/SIDE-explicit-formula ; branch push-b567 ; tip 6baed63ae664a22db1f325177b81253e270de6e3 ; checkout before main
+  Everything up-to-date
+  push_gated: main read back at the remote: 6baed63ae664a22db1f325177b81253e270de6e3
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new tag]         v0.10 -> v0.10
+  push_gated: tag v0.10 peeled local 6baed63ae664a22db1f325177b81253e270de6e3 remote 6baed63ae664a22db1f325177b81253e270de6e3
+  push_gated: DONE -- main and 1 tag(s) pushed and read back
+  ### b567 -- the act's branches pushed by name and kept (2026-10-01T03:00:40Z):
+  To https://github.com/psinary-sketch/SIDE-explicit-formula.git
+   * [new branch]      residue-discharge-b567 -> residue-discharge-b567
+   * [new branch]      grh-weil-b567 -> grh-weil-b567
+  ### read back:
+  6baed63ae664a22db1f325177b81253e270de6e3	refs/heads/grh-weil-b567
+  6baed63ae664a22db1f325177b81253e270de6e3	refs/heads/main
+  fee07817fd27abbeb16652aa1dea29e56edc5f01	refs/heads/residue-discharge-b567
+  7970b3e4b7e459d49bb99d1c5eb254b1647d3733	refs/tags/v0.10
+  6baed63ae664a22db1f325177b81253e270de6e3	refs/tags/v0.10^{}
+  ### local: residue fee07817fd27abbeb16652aa1dea29e56edc5f01 grh 6baed63ae664a22db1f325177b81253e270de6e3 main 6baed63ae664a22db1f325177b81253e270de6e3
+
+### relay data/b567_deprecations.txt -- the classes (first 24 lines):
+  b567 -- COMPONENT 2 (c): W-ORD-DEPRECATIONS -- TRIAL (b)`S DEPRECATION WARNINGS, COUNTED BY CLASS, (R177)(4)
+  
+  ### the log: relay data/b566_trial_b_build.txt (sha256 8d8aa2fa5cfe87e0), 6245 lines
+  ### deprecation warning lines (`warning: <file>:<l>:<c>: ... deprecated ...`) : 2044
+  ### distinct sites (file, line, column) : 102 ; the log repeats a module`s warnings when a later call replays it
+  ### lines naming deprecation in any other shape : 0 []
+  ### classes (the deprecated name) : 12 ; lines whose message is not of the `X` has been deprecated form : 0
+  ### files carrying a warning : 19, by tree: {"SIDEExplicitFormula": 8, "Zeta23": 11}
+  
+  ### ### **THE TOP TEN CLASSES BY COUNT** (lines ; distinct sites ; the replacement the warning names):
+      Set.mem_setOf_eq                               937 ;   32 sites ; -> Set.mem_ofPred_eq
+      dif_pos                                        217 ;    8 sites ; -> dite_eq_left
+      if_neg                                         182 ;   20 sites ; -> ite_eq_right
+      if_pos                                         168 ;   17 sites ; -> ite_eq_left
+      dif_neg                                        148 ;    5 sites ; -> dite_eq_right
+      Set.setOf_subset_setOf                         131 ;    4 sites ; -> Set.ofPred_subset_ofPred
+      Set.preimage_setOf_eq                           99 ;    3 sites ; -> Set.preimage_ofPred_eq
+      Set.notMem_setOf_iff                            64 ;    2 sites ; -> Set.notMem_ofPred_iff
+      push_neg                                        58 ;    6 sites ; -> push Not
+      ENat.toNat_coe                                  36 ;    2 sites ; -> ENat.toNat_natCast
+  
+  ### every class (lines ; sites ; replacement):
+      Set.mem_setOf_eq                               937 ;   32 ; -> Set.mem_ofPred_eq
+      dif_pos                                        217 ;    8 ; -> dite_eq_left
+### relay data/b567_chi_build.txt -- the attempts and the module builds, their headline lines:
+  === attempt 1 at 2026-10-01T02:08:05Z file sha256 2d73e8f0d0cdec341c7b237044165d9303af0cb2aae6d73622ee0214bcc3e70a ((C1)-(C4))
+  === 2026-10-01T02:08:17Z +SIDEExplicitFormula.Chi.ZetaBoundsStrip FreeMB_before=2909 MsMpEng_WS_MB=263 MsMpEng_CPU_pct=0
+  === 2026-10-01T02:17:53Z +SIDEExplicitFormula.Chi.ZetaBoundsStrip RE-WATCH pid=24436 FreeMB=2756
+  --- +SIDEExplicitFormula.Chi.ZetaBoundsStrip rc=1 secs=911 peak_lean=1 min_free_MB=538
+  === attempt 2 at 2026-10-01T02:23:55Z file sha256 2fe2f94a14acda828e9a8ba072084b0b9c55093f3d13857fe6ea492b3dca79a1 (probe: lake env lean on the file; SumCoeff import added, differentiableAt_id.neg, omit NeZero on two)
+  === attempt 3 at 2026-10-01T02:32:11Z file sha256 679003d677a77ba475fabf411766b1edc63fc05ecd2ee55624cd32fb56de93bc ((C1)-(C8); probe: lake env lean on the file, detached)
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:145:73: error: Type mismatch
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:177:12: error(lean.unknownIdentifier): Unknown constant `norm_indicator_le_norm_self.trans`
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:191:12: error(lean.unknownIdentifier): Unknown constant `norm_indicator_le_norm_self.trans`
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:203:2: error: `ring_nf` made no progress on the goal
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:229:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:236:9: error: Tactic `unfold` failed to unfold `LFunction0'` in
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:264:79: error: Application type mismatch: The argument
+  === attempt 4 at 2026-10-01T02:33:52Z file sha256 901e0339cc755ad23f5ce10d87b734b97457929d951f8e52722de7ae8b868c48 (indicator by cases; norm_indicator_le_norm_self explicit; congr_deriv in place of convert; Nat.cast_one in the Abel call)
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:288:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:288:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:288:60: error: `simp` made no progress
+  SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean:289:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  === attempt 5 at 2026-10-01T02:34:40Z file sha256 1456f1bc3ae4f30893414692e69b5a73a80778c62551da565ead1503934660f6 (h11's interval typed over ℕ)
+  --- probe attempt 5: stdout and stderr both empty (no error, no warning)
+  === Chi/Statement.lean attempt 1 at 2026-10-01T02:36:13Z file sha256 c216b116727adbe668df7d55b9e4c000ace585433f3a292b0aad0443c44fe815 (literatureRHS_chi, EF_lit_chi stated, the bracket by parity; probe detached)
+  === Chi/Statement.lean attempt 2 at 2026-10-01T02:36:53Z file sha256 536f78bb3e8869c2759f49a4ed6ddbb9baffbfda3392c61b9b6e10214acc8068 (if_false -> ↓reduceIte)
+  === THE MODULE BUILDS OF RECORD (lake build, one module per call), after the clean probes
+  === 2026-10-01T02:37:47Z +SIDEExplicitFormula.Chi.ZetaBoundsStrip FreeMB_before=3724 MsMpEng_WS_MB=227 MsMpEng_CPU_pct=0
+  --- +SIDEExplicitFormula.Chi.ZetaBoundsStrip rc=0 secs=262 peak_lean=1 min_free_MB=362
+  === 2026-10-01T02:42:26Z +SIDEExplicitFormula.Chi.Statement FreeMB_before=2881
+  === 2026-10-01T02:51:47Z +SIDEExplicitFormula.Chi.Statement RE-WATCH pid=36124 FreeMB=3282
+  --- +SIDEExplicitFormula.Chi.Statement rc=0 secs=834 peak_lean=1 min_free_MB=1916
+### relay data/b567_weight.json -- line 6212
+### relay data/b567_field.json -- line 6216
+### relay data/b567_s7.json -- line 6218
+### relay data/b567_residue_line.json -- line 253
+### relay data/b567_findings.json -- heading_line 6220
+### relay data/b567_trail.json -- line 11674
+### relay data/b567_rows.json -- rows 407 exit 0, 408 exit 0, 409 exit 0, 410 exit 0, 411 exit 0, 412 exit 0

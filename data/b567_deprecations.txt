@@ -1,0 +1,36 @@
+b567 -- COMPONENT 2 (c): W-ORD-DEPRECATIONS -- TRIAL (b)`S DEPRECATION WARNINGS, COUNTED BY CLASS, (R177)(4)
+
+### the log: relay data/b566_trial_b_build.txt (sha256 8d8aa2fa5cfe87e0), 6245 lines
+### deprecation warning lines (`warning: <file>:<l>:<c>: ... deprecated ...`) : 2044
+### distinct sites (file, line, column) : 102 ; the log repeats a module`s warnings when a later call replays it
+### lines naming deprecation in any other shape : 0 []
+### classes (the deprecated name) : 12 ; lines whose message is not of the `X` has been deprecated form : 0
+### files carrying a warning : 19, by tree: {"SIDEExplicitFormula": 8, "Zeta23": 11}
+
+### ### **THE TOP TEN CLASSES BY COUNT** (lines ; distinct sites ; the replacement the warning names):
+    Set.mem_setOf_eq                               937 ;   32 sites ; -> Set.mem_ofPred_eq
+    dif_pos                                        217 ;    8 sites ; -> dite_eq_left
+    if_neg                                         182 ;   20 sites ; -> ite_eq_right
+    if_pos                                         168 ;   17 sites ; -> ite_eq_left
+    dif_neg                                        148 ;    5 sites ; -> dite_eq_right
+    Set.setOf_subset_setOf                         131 ;    4 sites ; -> Set.ofPred_subset_ofPred
+    Set.preimage_setOf_eq                           99 ;    3 sites ; -> Set.preimage_ofPred_eq
+    Set.notMem_setOf_iff                            64 ;    2 sites ; -> Set.notMem_ofPred_iff
+    push_neg                                        58 ;    6 sites ; -> push Not
+    ENat.toNat_coe                                  36 ;    2 sites ; -> ENat.toNat_natCast
+
+### every class (lines ; sites ; replacement):
+    Set.mem_setOf_eq                               937 ;   32 ; -> Set.mem_ofPred_eq
+    dif_pos                                        217 ;    8 ; -> dite_eq_left
+    if_neg                                         182 ;   20 ; -> ite_eq_right
+    if_pos                                         168 ;   17 ; -> ite_eq_left
+    dif_neg                                        148 ;    5 ; -> dite_eq_right
+    Set.setOf_subset_setOf                         131 ;    4 ; -> Set.ofPred_subset_ofPred
+    Set.preimage_setOf_eq                           99 ;    3 ; -> Set.preimage_ofPred_eq
+    Set.notMem_setOf_iff                            64 ;    2 ; -> Set.notMem_ofPred_iff
+    push_neg                                        58 ;    6 ; -> push Not
+    ENat.toNat_coe                                  36 ;    2 ; -> ENat.toNat_natCast
+    MeasureTheory.integrable_finset_sum              3 ;    2 ; -> MeasureTheory.integrable_finsetSum
+    MeasureTheory.integral_finset_sum                1 ;    1 ; -> MeasureTheory.integral_finsetSum
+
+### classes whose warning names NO replacement : 0 []

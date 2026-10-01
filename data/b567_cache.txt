@@ -1,0 +1,17 @@
+b567 -- COMPONENT 2 (d): THE MAIN CHECKOUT'S BUILD CACHE REBUILT FROM THE FORWARD WORKTREE, (R177)(4)
+
+### at 2026-10-01T01:45:09Z; processes lean/lake before the move:
+0
+### checkout .lake mathlib HEAD: 51e6992efd06126df61a496bebf8f49482a4e129
+### forward  .lake mathlib HEAD: de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+### the commands (each path verified in the same chain):
+    test ! -e /d/b567-lake-51e6992e && test -d /d/SIDE-explicit-formula/.lake && mv /d/SIDE-explicit-formula/.lake /d/b567-lake-51e6992e && test ! -e /d/SIDE-explicit-formula/.lake && test -d /d/b566-forward/.lake && mv /d/b566-forward/.lake /d/SIDE-explicit-formula/.lake
+rc=1
+### after: /d/b567-lake-51e6992e mathlib 51e6992efd06126df61a496bebf8f49482a4e129
+### after: checkout .lake mathlib fatal: cannot change to 'D:/SIDE-explicit-formula/.lake/packages/mathlib': No such file or directory
+### after: /d/b566-forward/.lake exists: YES
+### the second move REFUSED (Permission denied): the seat's previous shell had its cwd inside D:/b566-forward/.lake/build (a Windows directory lock); retried from cwd D:/relay at 2026-10-01T01:45:19Z:
+    test ! -e /d/SIDE-explicit-formula/.lake && test -d /d/b566-forward/.lake && mv /d/b566-forward/.lake /d/SIDE-explicit-formula/.lake
+rc=0
+### after: checkout .lake mathlib de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+### after: /d/b566-forward/.lake exists: NO

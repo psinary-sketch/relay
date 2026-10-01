@@ -1,0 +1,19 @@
+b567 -- (R177)(3): b566's SUITE RE-RUN ON b566's PUSH, BEFORE AND AFTER THE TWO ADDENDUM COMMITS (0e50bd19 (g), 90373807 (h))
+
+### BEFORE (b567_b566_rerun_before.txt, 2026-10-01T01:22Z, read before the seal): ARMS RUN 74 ; LIVE PASSING 72 ; LIVE FAILING 2
+###     G-LICENCE-PRINTED, G-WRITELIST-KINDS -- b566's defects (h) and (g).
+### AFTER  (b567_b566_rerun_after.txt,  2026-10-01T01:38Z):                    ARMS RUN 74 ; LIVE PASSING 72 ; LIVE FAILING 2
+###     G-NUMBER-UNCLAIMED, G-PEEK-DECLARED.
+###     G-LICENCE-PRINTED  PASS (NEG PASS, POS FAIL, OK) -- the blob line matches the LICENSE blob on main and in the clone.
+###     G-WRITELIST-KINDS  PASS (NEG PASS, POS FAIL, OK) -- LICENSE, the one file no (W) glob covers, is carried by the accepted
+###                        addendum "WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(3)" (CLAUSE NAMES IT: "license").
+### ### **THE TWO ARMS (R177)(3) NAMES ARE CLEARED. THE COUNT IS NOT 74 OF 74: TWO OTHER ARMS NOW FAIL, BOTH BECAUSE b567 EXISTS.**
+###   G-NUMBER-UNCLAIMED reads the live data directory for `b567_registration_*.txt` and requires none: b567's face, sealed
+###     2026-10-01T01:37:20Z, is there. The arm's subject is the moment b566 closed; it fails for every later act. Not edited.
+###   G-PEEK-DECLARED's before-lock limb compares each BEFORE_LOCK bank's working bytes (CR stripped) with relay's PUSHED tree
+###     (origin/main ce360e88); b566_step1_license.txt is in that list and now carries the (R177)(3)(h) line, committed (90373807)
+###     and not yet pushed. Printed at 2026-10-01T01:39Z: working == pushed tree False; pushed tree a true prefix of working True,
+###     extra lines 1 (the LICENCE BLOB SHA256 line); working == HEAD True. It reads clear once b567's relay push carries the line.
+###     Not edited.
+### Neither failing arm was touched by the two commits; neither commit weakened an arm (test_addenda_writelist.py 15 of 15,
+### test_addenda_licence.py 13 of 13, each with mutations that still fail).

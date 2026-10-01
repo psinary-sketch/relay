@@ -1,0 +1,16 @@
+b567 -- COMPONENT 3: THE RESIDUE PREMISE -- THE STATEMENTS, BANKED BEFORE THE BUILD, (R177)(5)
+
+### at 2026-10-01T01:47:08Z, branch residue-discharge-b567 at e5a5a83 (v0.9), file SIDEExplicitFormula/ResidueDischarge.lean sha256 f294e5e30c6e23f1e4558ed1ce47b86e3fb1564bb52c17db2d840719f66b56cb, no build of it yet run
+### lv's source, at 2f71068: def Register4_positivity (lam : ℕ → ℝ) : Prop :=   ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n 
+
+30:def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+31-  ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+32-
+--
+34:theorem liCoeff_zero : LiCoeff 0 = 0 := by
+35-  rw [LiCoeff_eq]
+36-  simp [liTerm]
+--
+41:theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis := by
+42-  intro h
+43-  refine LiCriterionBridge.li_nonneg_iff_rh.mp fun n => ?_

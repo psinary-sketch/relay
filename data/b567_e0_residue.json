@@ -1,0 +1,88 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.ResidueDischarge.Register4_positivity": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(lam : ℕ → ℝ) : Prop",
+   "file": "SIDEExplicitFormula/ResidueDischarge.lean"
+  },
+  "SIDEExplicitFormula.ResidueDischarge.liCoeff_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiCoeff 0 = 0",
+   "file": "SIDEExplicitFormula/ResidueDischarge.lean"
+  },
+  "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Register4_positivity LiCoeff → RiemannHypothesis",
+   "file": "SIDEExplicitFormula/ResidueDischarge.lean"
+  }
+ },
+ "consumed": {
+  "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.LiWeil.LiCoeff_eq": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "gate": true,
+ "salt": true,
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/ResidueDischarge.lean",
+   "check": "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff → RiemannHypothesis",
+   "axioms": null,
+   "doc": "**(L3) THE LI-CHANNEL PREMISE, DISCHARGED.** At `lam := LiCoeff`, residue_irreducible's premise `liCriterion : Register4_positivity lam → RiemannHypothesis` holds: the missing index `n = 0` is (L2), and the rest is `li_nonneg_iff_rh`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  },
+  {
+   "name": "SIDEExplicitFormula.ResidueDischarge.liCoeff_zero",
+   "pin": "6baed63",
+   "file": "SIDEExplicitFormula/ResidueDischarge.lean",
+   "check": "SIDEExplicitFormula.ResidueDischarge.liCoeff_zero : SIDEExplicitFormula.LiWeil.LiCoeff 0 = 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**(L2)** The zeroth Li coefficient vanishes: every term `liTerm 0 ρ = 1 − (1 − ρ⁻¹)⁰` is `0`.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": ""
+  }
+ ],
+ "rowgen_control": true,
+ "tip": "6baed63ae664a22db1f325177b81253e270de6e3",
+ "counts": {
+  "DERIVES": 2,
+  "INTERFACES": 0
+ }
+}

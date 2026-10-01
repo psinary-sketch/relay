@@ -1,0 +1,44 @@
+========================================================================================================
+b567 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### H18a-H18c ((R175)(6), carried by (R177)(6)).
+--------------------------------------------------------------------------------------------------------
+  **(H18A)** ### **HELD.** -- LFunction_eq_mul_integral (Chi/ZetaBoundsStrip.lean) prints the standard three: L(s, χ) = s ∫_(1,∞) S_χ(t) t^(−s−1) dt on 0 < re s, from LFunction_eq_LSeries and LSeries_eq_mul_integral on re s > 1 and AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq on the convex half-plane (data/b567_e0_chi.txt).
+  **(H18B)** ### **HELD.** -- ON THE FACE`S DECLARED READING of "completes": the 4 ZetaBounds names a later Zeta23 module consumes (Zeta0EqZeta, ZetaBnd_aux1b, analyticAt_riemannZeta, riemannZeta0) and the HasDerivAt pair each have a χ-analogue at the standard three (data/b567_zb_consumers.txt); the 146 names no later module consumes (the strip bounds, the zero-free region) are listed and not attempted. The frontier moves to Statement.
+  **(H18C)** ### **HELD.** -- Chi/Statement.lean states literatureRHS_chi (archTerm_chi − primeSum_chi) and EF_lit_chi as definitions, the archimedean bracket by parity printed (gammaBracket_chi_of_even, _of_not_even); EF_lit_chi is not proved: HELD at its proof.
+
+### THE NAVIGATOR`S SEVEN.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- b566`s re-run after the two commits reads G-LICENCE-PRINTED and G-WRITELIST-KINDS PASS with NEG PASS and POS FAIL (data/b567_b566_rerun_after.txt); the tests` mutations still fail (a stray no clause names; a working-copy digest) (data/b567_test_writelist.txt 15/15, data/b567_test_licence.txt 13/13). The re-run`s count is 72 of 74, not 74: G-NUMBER-UNCLAIMED and G-PEEK-DECLARED fail because b567 exists (data/b567_b566_rerun_reading.txt).
+  **(N2)** ### **REFUTED.** -- its first limb: the distinct-rev count is 7, b551`s 7 (data/b567_census_revs.txt): 51e6992e was SIDE-explicit-formula`s alone, so the move traded one rev for another. Its second limb holds: the top class `Set.mem_setOf_eq` (937 lines, 32 sites) names `Set.mem_ofPred_eq`, a renamed lemma (data/b567_deprecations.txt).
+  **(N3)** ### **HELD.** -- ResidueDischarge.lean: Register4_positivity (definition), liCoeff_zero, register4_positivity_liCoeff_imp_rh, each [propext, Classical.choice, Quot.sound] (data/b567_residue_prints.txt).
+  **(N4)** ### **HELD.** -- H18a HELD at de5ce8a9; the analytic input is Mathlib`s (LSeries_eq_mul_integral, mellin_differentiableAt_of_isBigO_rpow, the identity theorem); no differentiation under the integral is written in the kernel.
+  **(N5)** ### **HELD.** -- H18b HELD on the declared reading; the frontier moves to Statement.
+  **(N6)** ### **HELD.** -- EF_lit_chi stated, the bracket by parity named, HELD at its proof; v0.10 = 6baed63 (tag object 7970b3e) read back at the remote, carrying Component 3 and all of Component 4.
+  **(N7)** ### **HELD.** -- no existing .lean file of the kernel modified (v0.9 -> v0.10: A	AxiomCheckChiStrip.lean, A	AxiomCheckResidue.lean, M	README.md, A	SIDEExplicitFormula/Chi/Statement.lean, A	SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean, A	SIDEExplicitFormula/ResidueDischarge.lean); the prior banks changed only by the lines (R177) orders (b566_step1_license.txt, b551_toolchains.txt), the addendum bank new; nothing at Zenodo; nothing deposits; the kept branches at their remote heads.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- the count stays 7.
+  **(S2)** ### **HELD.** -- (C3) is differentiableOn_abelRep through mellin_differentiableAt_of_isBigO_rpow; (C5) through mellin_hasDerivAt_of_isBigO_rpow; every new declaration of Components 3 and 4 prints the standard three.
+  **(S3)** ### **HELD.** -- (C1)-(C8) built (module exit 0); EF_lit_chi stated over GRHWeil.lean`s primeSum_chi and archTerm_chi, unchanged.
+
+### ### **THE NAVIGATOR`S : HELD 6 ; REFUTED 1 ; NOT SCORABLE 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+### ### **H18 : H18a HELD ; H18b HELD ; H18c HELD.**
+
+### b567 -- THIS ACT'S OWN DEFECTS (the seat's), as they occur.
+    (a) Order: THE SEAT RAN AHEAD OF THE SEAL. Before the face was written it wrote tools/addenda.py, tools/test_addenda_writelist.py,
+        the G-WRITELIST-KINDS edit in tools/b566_checks.py and data/b566_writelist_addendum.txt, and ran the test (13 of 15, then 15 of
+        15 after the test's own mutation file was corrected: README.md is covered by b566's (W) globs). Nothing was committed. Declared
+        on the sealed face's section (0) (sha256 85818167); (N1) is scored on the committed test and the re-run after the seal.
+    (b) Reading (3)(d) first draft of the addendum bank named commit d780a27 as the one that wrote Vendored/Bulka/LICENSE; the log
+        reads 496c8ae. Corrected before any tool read the bank and before the seal.
+    (c) Component 2 (c): the deprecation class reader's first pattern missed push_neg's wording (`Prefer using `push Not` instead`), reading it as naming no replacement; widened to that wording and re-run before the count was used. Both yields printed: first run 1 class with no replacement named, second 0.
+    (d) Component 2 (d): the second .lake move was REFUSED (Permission denied) because the seat's previous shell call had cd'd into D:/b566-forward/.lake/build/lib/lean/SIDEExplicitFormula to read a trace file, and Windows locks a process's cwd. Between the two moves the checkout had no .lake. Retried from cwd D:/relay: rc 0 (data/b567_cache.txt).
+    (e) Component 2 (d): the --no-build reads' rc column was printed by a defective capture (${PIPESTATUS} read after a command substitution) and reads 0 whatever lake returned; lake's own message column stands, and the control was re-run with a direct rc capture (rc=3). Noted in data/b567_cache_nobuild.txt.
+    (f) Component 4 attempt 2: THE SEAT WRAPPED A LEAN PROBE IN `timeout 590` against the standing 600 s rule (never wrap a compile in timeout; b556's own timeout killed probe m4b). The probe ended by itself in 105 s, rc 0, so nothing was killed. Every later probe runs detached through the scratchpad watcher.
+    (g) Reading (6): THE SEAT MADE THE ANNOTATED TAG v0.10 (object c2065d4) LOCALLY BEFORE main WAS PUSHED AND READ BACK, against the face's order (read back, THEN tagged). Caught before any push: the remote held no v0.10 (ls-remote empty); the local tag was deleted by its explicit name in the same command as that check, and is made again after main's read-back.
+    (h) Component 5, the scorer: its kept-branch list carried li-weil-b560, which is not a kept branch and is absent at the remote (only a stale remote-tracking ref holds it locally), so (N7) first printed REFUTED on an empty head. The list was set to the face's READING (7) and each head compared with b566's recorded remote head (data/b566_scores.json); re-scored.
+    (i) Component 5, the rowgen diff first read PIN mismatches on all six rows: E0 had read the statements at the branch tips (fee0781, ae76e6f), the rows cite main 6baed63. The graded files are byte-identical at main (git diff --quiet, printed); E0 was re-read at main and the diff reads ok on rows 407-412.
+

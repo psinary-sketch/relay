@@ -1,0 +1,13 @@
+b567 -- COMPONENT 2 (b)-(c): THE STALE MARK AND W-ORD-DEPRECATIONS ON THE TRAILS, (R177)(4)
+
+### OPEN_TRAILS.md :11664 -- {"file": "OPEN_TRAILS.md", "before": 1415570, "added": 564, "prefix": true}
+    *Appended 2026-10-01 by b567, under the author’s ruling `(R177)`(4), to the toolchain item (:11232) -- `toolchain-trial-b551` STALE:* SIDE-explicit-formula has moved to Lean `v4.34.0-rc1` and Mathlib `de5ce8a9` (v0.9 = `e5a5a83`, b566), so the branch `toolchain-trial-b551` (SIDE-lv-conservation forwarded to `v4.33.0-rc2` / `51e6992e`, tip `f22ff35`) prices a move to a rev no kernel now holds (relay `data/b567_census_revs.txt`). It is marked STALE; its price is to be re-measured against `de5ce8a9` when the lv item next rises. The branch is kept, unedited.
+
+### OPEN_TRAILS.md :11666 -- {"file": "OPEN_TRAILS.md", "before": 1416134, "added": 1595, "prefix": true}
+    ### `W-ORD-DEPRECATIONS` — filed 2026-10-01, b567, under the author’s ruling (R177)(4)
+    
+    | # | ID | kind | the item | price | trigger |
+    |:--|:--|:--|:--|:--|:--|
+    | **1** | `W-ORD-DEPRECATIONS` | **KERNEL** | SIDE-explicit-formula at Lean `v4.34.0-rc1` / Mathlib `de5ce8a9` builds clean with 2044 deprecation warning lines (trial (b), relay `data/b566_trial_b_build.txt`), 102 distinct sites in 19 files (SIDEExplicitFormula 8, Zeta23 11), 12 classes, every one naming its replacement (relay `data/b567_deprecations.txt`). The top ten by count: `Set.mem_setOf_eq` → `Set.mem_ofPred_eq` 937 lines, 32 sites; `dif_pos` → `dite_eq_left` 217 lines, 8 sites; `if_neg` → `ite_eq_right` 182 lines, 20 sites; `if_pos` → `ite_eq_left` 168 lines, 17 sites; `dif_neg` → `dite_eq_right` 148 lines, 5 sites; `Set.setOf_subset_setOf` → `Set.ofPred_subset_ofPred` 131 lines, 4 sites; `Set.preimage_setOf_eq` → `Set.preimage_ofPred_eq` 99 lines, 3 sites; `Set.notMem_setOf_iff` → `Set.notMem_ofPred_iff` 64 lines, 2 sites; `push_neg` → `push Not` 58 lines, 6 sites; `ENat.toNat_coe` → `ENat.toNat_natCast` 36 lines, 2 sites. No class is a semantic change by its own warning: each names a renamed lemma or tactic. | replace each deprecated name by the one its warning names, file by file (Zeta23 files are vendored: a vendored body is not edited, so their sites wait for the source's own move or a vendoring refresh), each module rebuilt one per call, every print re-read | **the next Mathlib move of SIDE-explicit-formula** |
+    
+    *Filed, not started. No kernel byte changes for it at b567.*

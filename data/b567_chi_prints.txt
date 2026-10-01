@@ -1,0 +1,184 @@
+b567 -- COMPONENT 4: THE PRINTS -- lake env lean AxiomCheckChiStrip.lean at grh-weil-b567 bf3895b, started 2026-10-01T02:56:52Z, exited by 02:57:44Z
+### AxiomCheckChiStrip.lean sha256 c68ad9f9c42f89402b086dfad9d6d7c48bae51b3c87c4664eb5d41dc68dcc9e1
+### stdout:
+'SIDEExplicitFormula.GRHWeil.charPartialSum_eq_zero_of_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.measurable_charPartialSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.locallyIntegrableOn_charPartialSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.charPartialSum_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral_of_one_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integral_Ioi_one_eq_mellin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.differentiableAt_mellin_charPartialSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.abelRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.differentiableOn_abelRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.tailKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integral_Ioi_indicator_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integral_Ioi_eq_mellin_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integral_Ioi_log_eq_mellin_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.tailKernel_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.hasDerivAt_mellin_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction0'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.sum_Icc_zero_char' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.sum_eq_abel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.integrableOn_Ioi_charPartialSum_cpow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.deriv_LFunction0_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.deriv_LFunction_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_integral_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.literatureRHS_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.EF_lit_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DirichletCharacter.LFunction_eq_LSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LSeries_eq_mul_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mellin_differentiableAt_of_isBigO_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mellin_hasDerivAt_of_isBigO_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'sum_mul_eq_sub_sub_integral_mul'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@SIDEExplicitFormula.GRHWeil.charPartialSum_eq_zero_of_lt_one : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N) {x : ℝ},
+  x < 1 → SIDEExplicitFormula.GRHWeil.charPartialSum χ x = 0
+@SIDEExplicitFormula.GRHWeil.measurable_charPartialSum : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N),
+  Measurable (SIDEExplicitFormula.GRHWeil.charPartialSum χ)
+@SIDEExplicitFormula.GRHWeil.locallyIntegrableOn_charPartialSum : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    MeasureTheory.LocallyIntegrableOn (SIDEExplicitFormula.GRHWeil.charPartialSum χ) (Set.Ioi 0) MeasureTheory.volume
+@SIDEExplicitFormula.GRHWeil.charPartialSum_isBigO : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → (fun n => ∑ k ∈ Finset.Icc 1 n, χ ↑k) =O[Filter.atTop] fun n => ↑n ^ 0
+@SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral_of_one_lt_re : ∀ {N : ℕ} [inst : NeZero N]
+  {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {s : ℂ},
+      1 < s.re →
+        DirichletCharacter.LFunction χ s =
+          s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+@SIDEExplicitFormula.GRHWeil.integral_Ioi_one_eq_mellin : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N) (s : ℂ),
+  ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1)) =
+    mellin (SIDEExplicitFormula.GRHWeil.charPartialSum χ) (-s)
+@SIDEExplicitFormula.GRHWeil.differentiableAt_mellin_charPartialSum : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → ∀ {s : ℂ}, 0 < s.re → DifferentiableAt ℂ (mellin (SIDEExplicitFormula.GRHWeil.charPartialSum χ)) (-s)
+@SIDEExplicitFormula.GRHWeil.differentiableOn_abelRep : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → DifferentiableOn ℂ (SIDEExplicitFormula.GRHWeil.abelRep χ) {s | 0 < s.re}
+@SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {s : ℂ},
+      0 < s.re →
+        DirichletCharacter.LFunction χ s =
+          s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+@SIDEExplicitFormula.GRHWeil.integral_Ioi_indicator_eq : ∀ {M : ℝ},
+  0 < M →
+    ∀ (f : ℝ → ℂ) (w : ℂ),
+      ∫ (t : ℝ) in Set.Ioi 0, ↑t ^ (w - 1) • (Set.Ioi M).indicator f t = ∫ (t : ℝ) in Set.Ioi M, ↑t ^ (w - 1) • f t
+@SIDEExplicitFormula.GRHWeil.integral_Ioi_eq_mellin_tail : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N) {M : ℕ},
+  0 < M →
+    ∀ (s : ℂ),
+      ∫ (t : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1)) =
+        mellin (SIDEExplicitFormula.GRHWeil.tailKernel χ M) (-s)
+@SIDEExplicitFormula.GRHWeil.integral_Ioi_log_eq_mellin_tail : ∀ {N : ℕ} (χ : DirichletCharacter ℂ N) {M : ℕ},
+  0 < M →
+    ∀ (s : ℂ),
+      ∫ (t : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1)) * -↑(Real.log t) =
+        -mellin (fun t => Real.log t • SIDEExplicitFormula.GRHWeil.tailKernel χ M t) (-s)
+@SIDEExplicitFormula.GRHWeil.tailKernel_memLp : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → ∀ (M : ℕ), MeasureTheory.MemLp (SIDEExplicitFormula.GRHWeil.tailKernel χ M) ⊤ MeasureTheory.volume
+@SIDEExplicitFormula.GRHWeil.hasDerivAt_mellin_tail : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      0 < M →
+        ∀ {s : ℂ},
+          0 < s.re →
+            HasDerivAt (fun z => mellin (SIDEExplicitFormula.GRHWeil.tailKernel χ M) (-z))
+              (-mellin (fun t => Real.log t • SIDEExplicitFormula.GRHWeil.tailKernel χ M t) (-s)) s
+@SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0 : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      0 < M →
+        ∀ {s : ℂ},
+          0 < s.re →
+            HasDerivAt (SIDEExplicitFormula.GRHWeil.LFunction0 χ M) (SIDEExplicitFormula.GRHWeil.LFunction0' χ M s) s
+@SIDEExplicitFormula.GRHWeil.sum_Icc_zero_char : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 → ∀ (m : ℕ), ∑ k ∈ Finset.Icc 0 m, χ ↑k = ∑ k ∈ Finset.Icc 1 m, χ ↑k
+@SIDEExplicitFormula.GRHWeil.sum_eq_abel : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M →
+        ∀ {s : ℂ},
+          s ≠ 0 →
+            ∑ n ∈ Finset.Icc 1 M, χ ↑n / ↑n ^ s =
+              SIDEExplicitFormula.GRHWeil.charPartialSum χ ↑M * ↑M ^ (-s) +
+                s * ∫ (t : ℝ) in Set.Ioc 1 ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+@SIDEExplicitFormula.GRHWeil.integrableOn_Ioi_charPartialSum_cpow : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {s : ℂ},
+      0 < s.re →
+        MeasureTheory.IntegrableOn (fun t => SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1)))
+          (Set.Ioi 1) MeasureTheory.volume
+@SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M → ∀ {s : ℂ}, 0 < s.re → SIDEExplicitFormula.GRHWeil.LFunction0 χ M s = DirichletCharacter.LFunction χ s
+@SIDEExplicitFormula.GRHWeil.deriv_LFunction0_eq : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M →
+        ∀ {s : ℂ},
+          0 < s.re → deriv (SIDEExplicitFormula.GRHWeil.LFunction0 χ M) s = deriv (DirichletCharacter.LFunction χ) s
+@SIDEExplicitFormula.GRHWeil.deriv_LFunction_eq : ∀ {N : ℕ} [inst : NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M →
+        ∀ {s : ℂ}, 0 < s.re → deriv (DirichletCharacter.LFunction χ) s = SIDEExplicitFormula.GRHWeil.LFunction0' χ M s
+@SIDEExplicitFormula.GRHWeil.norm_integral_tail_le : ∀ {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N},
+  χ ≠ 1 →
+    ∀ {M : ℕ},
+      1 ≤ M →
+        ∀ {σ t : ℝ},
+          0 < σ →
+            ‖∫ (x : ℝ) in Set.Ioi ↑M,
+                  SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(↑σ + ↑t * Complex.I + 1))‖ ≤
+              (↑N + 1) * ↑M ^ (-σ) / σ
+@SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N},
+  χ.Even →
+    ∀ (r : ℝ),
+      SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r =
+        Real.log (↑N / Real.pi) + (1 / 4 + Complex.I * ↑r / 2).digamma.re
+@SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even : ∀ {N : ℕ} {χ : DirichletCharacter ℂ N},
+  ¬χ.Even →
+    ∀ (r : ℝ),
+      SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ r =
+        Real.log (↑N / Real.pi) + (3 / 4 + Complex.I * ↑r / 2).digamma.re
+def SIDEExplicitFormula.GRHWeil.abelRep : {N : ℕ} → DirichletCharacter ℂ N → ℂ → ℂ :=
+fun {N} χ s => s * ∫ (t : ℝ) in Set.Ioi 1, SIDEExplicitFormula.GRHWeil.charPartialSum χ t * ↑t ^ (-(s + 1))
+def SIDEExplicitFormula.GRHWeil.tailKernel : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℝ → ℂ :=
+fun {N} χ M => (Set.Ioi ↑M).indicator (SIDEExplicitFormula.GRHWeil.charPartialSum χ)
+def SIDEExplicitFormula.GRHWeil.LFunction0' : {N : ℕ} → DirichletCharacter ℂ N → ℕ → ℂ → ℂ :=
+fun {N} χ M s =>
+  (∑ n ∈ Finset.Icc 1 M, χ ↑n / ↑n ^ s * -↑(Real.log ↑n) +
+        SIDEExplicitFormula.GRHWeil.charPartialSum χ ↑M * (↑(Real.log ↑M) * ↑M ^ (-s)) +
+      ∫ (x : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(s + 1))) +
+    s * ∫ (x : ℝ) in Set.Ioi ↑M, SIDEExplicitFormula.GRHWeil.charPartialSum χ x * ↑x ^ (-(s + 1)) * -↑(Real.log x)
+def SIDEExplicitFormula.GRHWeil.literatureRHS_chi : {N : ℕ} → DirichletCharacter ℂ N → (ℝ → ℂ) → ℂ :=
+fun {N} χ k => SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k
+def SIDEExplicitFormula.GRHWeil.EF_lit_chi : {N : ℕ} →
+  [NeZero N] → (χ : DirichletCharacter ℂ N) → χ.IsPrimitive → χ ≠ 1 → Prop :=
+fun {N} [NeZero N] χ hχ h1 =>
+  ∀ (k : ℝ → ℂ),
+    ContDiff ℝ 2 k →
+      HasCompactSupport k →
+        (Summable fun ρ =>
+            ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ)) ∧
+          ∑' (ρ : ↑(SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).carrier),
+              ↑((SIDEExplicitFormula.GRHWeil.chiZeroConfig χ hχ h1).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ) =
+            SIDEExplicitFormula.GRHWeil.literatureRHS_chi χ k
+### stderr:

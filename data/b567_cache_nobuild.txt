@@ -1,0 +1,5 @@
+=== 2026-10-01T01:45:39Z lake --no-build build SIDEExplicitFormula -> 0 | Some required targets logged failures: - SIDEExplicitFormula.ResidueDischarge  (01:47:57Z)
+=== 2026-10-01T01:47:57Z lake --no-build build BulkaVendored -> 0 | All targets up-to-date (3721 jobs).  (01:48:03Z)
+=== 2026-10-01T01:48:03Z lake --no-build build Mathlib -> 0 | All targets up-to-date (8706 jobs).  (01:49:24Z)
+=== 2026-10-01T01:50:27Z CONTROL lake --no-build build +SIDEExplicitFormula.ResidueDischarge (unbuilt, new this act) -> rc=3 | Some required targets logged failures: - SIDEExplicitFormula.ResidueDischarge  (01:50:36Z)
+### NOTE: the rc column of the three lines above was printed by a defective capture (${PIPESTATUS} after a command substitution) and reads 0 whatever lake returned; the message column is lake's own. The SIDEExplicitFormula line read the new unbuilt ResidueDischarge.lean, created at 01:46Z while that call scanned its globs.

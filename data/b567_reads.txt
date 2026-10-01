@@ -1,0 +1,109 @@
+b567 -- READING (1): THE READS, CITED BY PATH AND LINE
+
+### the composed criterion (the ferry names LiWeil.lean; they are here) -- SIDEExplicitFormula/LiCriterionBridge.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    theorem li_coeff_eq_taylorCoeff                            :149 | theorem li_coeff_eq_taylorCoeff (n : ℕ) :
+    theorem li_nonneg_iff_rh                                   :179 | theorem li_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis := by
+    theorem arith_limit_nonneg_iff_rh                          :191 | theorem arith_limit_nonneg_iff_rh :
+    theorem analyticOrderAt_xi_eq_zeta                         :62 | theorem analyticOrderAt_xi_eq_zeta {ρ : ℂ} (h0 : 0 < ρ.re) (h1 : ρ ≠ 1) :
+### LiWeil.lean -- SIDEExplicitFormula/LiWeil.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    def liTerm                                                 :60 | def liTerm (n : ℕ) (ρ : ℂ) : ℂ := 1 - (1 - ρ⁻¹) ^ n
+    def LiCoeff                                                :243 | def LiCoeff (n : ℕ) : ℝ :=
+    theorem rh_imp_li_nonneg                                   :267 | theorem rh_imp_li_nonneg : RiemannHypothesis → ∀ n : ℕ, 0 ≤ LiCoeff n := by
+### the kernel`s NOTICE (Bulka`s repository has none) -- NOTICE at e5a5a83 (D:/SIDE-explicit-formula)
+    Bulka                                                      :23 | Copyright 2026 Nicholas Bulka, licensed under the Apache License, Version 2.0; the licence is carried whole at
+    Apache                                                     :4 | This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+    35df682f                                                   :22 | (https://github.com/nicholasbulka/li-criterion-rh-equivalence-lean), at 35df682f3b709ffe5fbcfdd452dfa964bd622b87,
+### the carried LICENSE -- Vendored/Bulka/LICENSE at e5a5a83 (D:/SIDE-explicit-formula)
+    Apache License                                             :1 | Apache License
+    Version 2.0, January 2004                                  :2 | Version 2.0, January 2004
+### GRHWeil.lean -- SIDEExplicitFormula/GRHWeil.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    def parity                                                 :47 | def parity (χ : DirichletCharacter ℂ N) : ℕ := if χ.Even then 0 else 1
+    def GRH_chi                                                :53 | def GRH_chi (χ : DirichletCharacter ℂ N) : Prop :=
+    def primeSum_chi                                           :61 | def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    def gammaBracket_chi                                       :66 | def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+    def archTerm_chi                                           :70 | def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    def h2_sign_chi                                            :75 | def h2_sign_chi (χ : DirichletCharacter ℂ N) : Prop :=
+### Chi/ZeroConfig.lean -- SIDEExplicitFormula/Chi/ZeroConfig.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    def chiZeroConfig                                          :225 | def chiZeroConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : Zeta23.ZeroConfig where
+    def IsNontrivialZeroChi                                    :48 | def IsNontrivialZeroChi (χ : DirichletCharacter ℂ N) (ρ : ℂ) : Prop :=
+### Chi/ZetaBounds.lean, the held point -- SIDEExplicitFormula/Chi/ZetaBounds.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    WHERE THIS FILE STOPS                                      :19 | WHERE THIS FILE STOPS -- the held point, at its four attempts: the χ-analogue of `HasDerivAtZeta0` (s ↦ `LFunction0 χ M s`
+    theorem norm_charPartialSum_le                             :124 | theorem norm_charPartialSum_le {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (x : ℝ) :
+    def charPartialSum                                         :85 | def charPartialSum (χ : DirichletCharacter ℂ N) (x : ℝ) : ℂ := ∑ n ∈ Finset.Icc 1 ⌊x⌋₊, χ (n : ZMod N)
+    def LFunction0                                             :142 | def LFunction0 (χ : DirichletCharacter ℂ N) (M : ℕ) (s : ℂ) : ℂ :=
+### Zeta23`s ZetaBounds -- Zeta23/FromPNTPlus/ZetaBounds.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    lemma ZetaBnd_aux1b                                        :843 | lemma ZetaBnd_aux1b (N : ℕ) (Npos : 1 ≤ N) {σ t : ℝ} (σpos : 0 < σ) :
+    lemma HasDerivAtZeta0                                      :1095 | lemma HasDerivAtZeta0 {N : ℕ} (Npos : 0 < N) {s : ℂ} (reS_pos : 0 < s.re) (s_ne_one : s ≠ 1) :
+    lemma Zeta0EqZeta                                          :1178 | lemma Zeta0EqZeta {N : ℕ} (N_pos : 0 < N) {s : ℂ} (reS_pos : 0 < s.re) (s_ne_one : s ≠ 1) :
+    lemma DerivZeta0EqDerivZeta                                :1208 | lemma DerivZeta0EqDerivZeta {N : ℕ} (N_pos : 0 < N) {s : ℂ} (reS_pos : 0 < s.re)
+    theorem analyticAt_riemannZeta                             :184 | theorem analyticAt_riemannZeta {s : ℂ} (s_ne_one : s ≠ 1) :
+    noncomputable def riemannZeta0                             :548 | noncomputable def riemannZeta0 (N : ℕ) (s : ℂ) : ℂ :=
+### Zeta23`s EF_lit -- Zeta23/ExplicitFormula.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    def gammaBracket                                           :80 | def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π
+    def literatureRHS                                          :86 | def literatureRHS (k : ℝ → ℂ) : ℂ :=
+    def EF_lit                                                 :97 | def EF_lit (Z : ZeroConfig) : Prop :=
+### Zeta23`s Defs -- Zeta23/Defs.lean at e5a5a83 (D:/SIDE-explicit-formula)
+    def paperFT                                                :60 | def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+    def gammaOf                                                :121 | def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+    structure ZeroConfig                                       :29 | riemannZeta. The zeros enter only through the abstract structure ZeroConfig
+### Mathlib checkout D:/b566-forward\.lake\packages\mathlib at de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+### Mathlib -- Mathlib/NumberTheory/LSeries/DirichletContinuation.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+    noncomputable def LFunction (χ                             :61 | noncomputable def LFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ := ZMod.LFunction χ s
+    lemma LFunction_eq_LSeries                                 :75 | lemma LFunction_eq_LSeries (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 1 < re s) :
+    theorem completedLFunction_one_sub                         :284 | theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) :
+### Mathlib -- Mathlib/Analysis/Analytic/Uniqueness.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+    theorem eqOn_of_preconnected_of_eventuallyEq               :223 | theorem eqOn_of_preconnected_of_eventuallyEq {f g : E → F} {U : Set E} (hf : AnalyticOnNhd 𝕜 f U)
+### Mathlib -- Mathlib/NumberTheory/AbelSummation.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+    theorem _root_.sum_mul_eq_sub_sub_integral_mul             :129 | theorem _root_.sum_mul_eq_sub_sub_integral_mul (ha : 0 ≤ a) (hab : a ≤ b)
+    theorem _root_.sum_mul_eq_sub_sub_integral_mul'            :175 | theorem _root_.sum_mul_eq_sub_sub_integral_mul' {n m : ℕ} (h : n ≤ m)
+### Mathlib -- Mathlib/NumberTheory/LSeries/SumCoeff.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+    theorem LSeries_eq_mul_integral                            :137 | theorem LSeries_eq_mul_integral (f : ℕ → ℂ) {r : ℝ} (hr : 0 ≤ r) {s : ℂ} (hs : r < s.re)
+### Mathlib -- Mathlib/Analysis/MellinTransform.lean at HEAD (D:/b566-forward\.lake\packages\mathlib)
+    def mellin                                                 :91 | def mellin (f : ℝ → E) (s : ℂ) : E :=
+    theorem mellin_hasDerivAt_of_isBigO_rpow                   :320 | theorem mellin_hasDerivAt_of_isBigO_rpow [NormedSpace ℂ E] {a b : ℝ}
+    theorem mellin_differentiableAt_of_isBigO_rpow             :401 | theorem mellin_differentiableAt_of_isBigO_rpow [NormedSpace ℂ E] {a b : ℝ}
+### lv (the residue`s premises) -- SIDELvConservation/RegisterPentagon.lean at 2f71068 (D:/SIDE-lv-conservation)
+    def Register4_positivity                                   :152 | def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+    theorem R4_positivity_to_RH                                :266 | theorem R4_positivity_to_RH
+### lv -- SIDELvConservation/ZeroActingPartial.lean at 2f71068 (D:/SIDE-lv-conservation)
+    theorem residue_irreducible                                :130 | theorem residue_irreducible
+### lv -- SIDELvConservation/ZeroActingPairing.lean at 2f71068 (D:/SIDE-lv-conservation)
+    theorem zeroActingPairing_to_RH                            :69 | theorem zeroActingPairing_to_RH {lam_A lam_Z ledger lam : ℕ → ℝ}
+### b549`s premise list -- relay/data/b549_premise.txt :12
+       12 |   inequalityToPositivity   : Register4_channelInequality lam_A lam_Z → Register4_positivity lam
+### OPEN_TRAILS, the residue price -- MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md :11647
+    11647 | *Appended 2026-10-01 by b566, under the author’s ruling `(R176)`(6), to the LI-WEIL-BRIDGE work-order (:3548; b565’s conditional at :11630) -- THE RESIDUE CHAIN, PRICED AFTER THE COMPOSITION, NOT ATTE
+### OPEN_TRAILS, the conditional -- MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md :11630
+    11630 | *Appended 2026-09-30 by b565, under the author’s ruling `(R175)`(3), to the LI-WEIL-BRIDGE work-order (:3548; b563’s line at :11590) -- THE CONDITIONAL, (R82)’S FORM, BOTH BRANCHES:* the audit reads H
+### THE_RESIDUE_OF_RH, Correspondence -- MY-DOwnloads/PLACE-papers/phase1.5/proofs/THE_RESIDUE_OF_RH.md :95
+       95 | ## Correspondence
+### THE_RESIDUE_OF_RH, the tier block -- MY-DOwnloads/PLACE-papers/phase1.5/proofs/THE_RESIDUE_OF_RH.md :215
+      215 | #### **THE CASCADE, ACT FIVE -- THE CORRESPONDENCE TIERED** *(appended 2026-09-26, b549, under the author's ruling `(R159)`(5); no byte above this block changes
+### README.md :115-:115
+      115 | *(Reworded under the author's ruling `(R146)`(2), 2026-09-25, b536, beside the `(R145)`(2) sentence above, which stays: the seam compiled.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to Mathlib's Ri
+### README.md :117-:117
+      117 | *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sent
+### README.md :119-:119
+      119 | *(Appended under the author's ruling `(R176)`(2), 2026-09-30, b566, beside the `(R146)`(2) sentence and b564's `(R174)`(1) sentence above, which stay: the audit of b565 entered at its weight.)* Supportable, the author's 
+### REGISTRY.md :950-:950
+      950 | **THE CEILING LINE, `(R146)`(2), filed b536, 2026-09-25 — pinned at `SIDE-explicit-formula` tag `v0.2` = `5c72cad24303f23d92256ebd466d3a3d32424a4b` (the peeled SHA read back from the remote; a tag is not a deposit):** *W
+### REGISTRY.md :952-:952
+      952 | *(Appended under the author's ruling `(R174)`(1), 2026-09-29, b564, beside the `(R146)`(2) sentence above, which stays: b563 entered at its weight, SIDE-explicit-formula v0.7 = `1e4a007`.)* Supportable, the author's sent
+### REGISTRY.md :954-:954
+      954 | *(Appended under the author's ruling `(R176)`(2), 2026-09-30, b566, beside the `(R146)`(2) sentence and b564's `(R174)`(1) sentence above, which stay: the audit of b565 entered at its weight.)* Supportable, the author's 
+### FINDINGS.md :6144-:6144
+     6144 | **The ceiling entry of (R146)(2) gains the author’s sentence**, appended beside it at README.md :117 and REGISTRY.md :952 (the (R146)(2) lines at :115 and :950 standing unedited above): *the forward half of Li's criterio
+### FINDINGS.md :6190-:6190
+     6190 | *Appended 2026-09-30 by b566 to the field entry (:5575), b564’s line (:6136) and b565’s (:6168), under `(R176)`(1) -- THE AUDIT AT ITS WEIGHT:* both public formalizations are genuine at their pins. Both repositories buil
+### FINDINGS.md :6192-:6192
+     6192 | *Appended 2026-10-01 by b566 to the field entry (:5575) and the weight line above it, under `(R176)`(3) -- THE COMPOSITION LANDED:* SIDE-explicit-formula v0.9 = `e5a5a83` (tag object `08a85d0`) carries `li_nonneg_iff_rh 
+### the toolchain census (b551) -- relay/data/b551_toolchains.txt :53
+       53 | ### ### **DISTINCT MATHLIB REVS AMONG NON-VANILLA REPOSITORIES : 7**
+### the suite`s licence arm (b566) -- relay/tools/b566_checks.py :549
+      549 |     ('G-LICENCE-PRINTED', 'the licence bank`s BLOB LINE ((R177)(3)(h)) against the LICENSE blob on main and the clone`s at the pin',
+### the suite`s write-list arm (b566) -- relay/tools/b566_checks.py :652
+      652 |     ('G-WRITELIST-KINDS', 'every b566 commit in four repositories (the kernel`s main and the backport branch), against (R91)`s STEM GLOB',
+### relay data/b566_trial_b_build.txt : 6245 lines, sha256 8d8aa2fa5cfe87e0
+### relay data/b566_reprint_summary.txt : 22 lines, sha256 2e76908ec692256b
+### relay data/b566_step1_license.txt : 207 lines, sha256 e3ab40fe99b3337a
+### relay data/b566_closing_push_out.txt committed alone at the act`s start: 401bb062 b567 -- relay data/b566_closing_push_out.txt committed at the act's start, as b566 did with b565's (R177 ferry)
