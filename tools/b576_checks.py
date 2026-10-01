@@ -27,6 +27,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 import terminal_table as TT   # noqa: E402,F401
+import addenda as ADD         # noqa: E402  ### (R187)(4), b577: the post-seal addendum form of (R177)(3)(g), read as b566`s suite reads it
 
 NL = chr(10)
 PP, GS, KER = 'D:/MY-DOwnloads/PLACE-papers', 'D:/SIDE-global-section', 'D:/SIDE-explicit-formula'
@@ -224,6 +225,7 @@ def sources():
     )
     S['written'] = written_files(lock_epoch or 0)
     S['globs'] = wl_globs(face)
+    S['wl_add'] = ADD.accepted_bases(rd('b576_writelist_addendum.txt'), ADD.paste_reader(D))
     pre_ids = {}
     for l in git(ROOT, 'ls-tree', '-r', PRE['relay'], '--', 'data/')[1].split(NL):
         if '\t' in l:
@@ -272,7 +274,8 @@ def trail(S):
 
 
 def wl_ok(S):
-    return all(any(fnmatch.fnmatch(f, p) for p in S['globs']) for f in S['written'])
+    # ### (R177)(3)(g), wired at b577 under (R187)(4): an ACCEPTED post-seal addendum carries the file it names
+    return all(any(fnmatch.fnmatch(f, p) for p in S['globs']) or f.split('/')[-1] in S.get('wl_add', set()) for f in S['written'])
 
 
 def scored(S, k):
@@ -539,6 +542,8 @@ def main():
                                                                                   if not any(fnmatch.fnmatch(f, p) for p in S['globs'])] or 'NONE'))
     rec('  ### G-PRIORBANK-UNCHANGED checked %d relay data banks tracked at %s by blob id; changed %s' % (S['prior_n'], PRE['relay'], S['prior_bad'] or 'NONE'))
     rec('  ### G-TOKEN-UNBANKED read %d banks (the token itself is not printed)' % len(S['banks']))
+    for a in ADD.writelist_addenda(rd('b576_writelist_addendum.txt'), ADD.paste_reader(D)):
+        rec('  ### WRITE-LIST ADDENDUM ((R177)(3)(g)): %s -> %s' % (a['line'], a['why']))
     if not RERUN:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d %s' % (len(gen_diff.get('added') or []), len(gen_diff.get('gone') or []),

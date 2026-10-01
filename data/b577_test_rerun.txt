@@ -1,0 +1,10 @@
+b577 -- THE TEST OF b576`S SUITE READING THE ADDENDUM FORM, (R187)(4)
+
+  the ruled line : WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R186)(5) -> CLAUSE DOES NOT NAME IT
+  the control    : WRITE-LIST ADDENDUM: tools/mirror_prevbuild.json, carried by (R187)(4) -> CLAUSE NAMES IT: "mirror_prevbuild.json"
+  (1) the ruled line, (R186)(5): ACCEPTED                                                got False want False OK
+  (2) the control, (R187)(4): ACCEPTED                                                   got True  want True  OK
+  (3) b576`s arm, no addendum carrying the file                                          got False want False OK
+  (4) b576`s arm, an accepted addendum carrying mirror_prevbuild.json                    got True  want True  OK
+  (5) b576`s arm, the addendum carrying it and a stray it does not                       got False want False OK
+  ### ### **5 of 5 cases as wanted -- PASS**
