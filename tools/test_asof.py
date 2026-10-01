@@ -12,6 +12,11 @@
 ###   (5) b567's suite at its own as-of commit: G-PRIORBANK-UNCHANGED PASSES;
 ###   (6) b567's suite pointed at 0e50bd19, b567's own commit before the ordered licence line was appended: the ordered
 ###       append is absent there, so G-PRIORBANK-UNCHANGED FAILS.
+### (R179)(3), b569 -- THE PER-REPOSITORY LINES, ACROSS TWO REPOSITORIES:
+###   (7) b566 at its own lines (relay data/b569_asof_b566.txt): the PLACE-papers, kernel and clone arms PASS;
+###   (8) b566 pointed (`--as-of-lines`) at b567's heads for PLACE-papers and the kernel: the same arms FAIL;
+###   (9) b567 at its own lines (relay data/b569_asof_b567.txt): its tag, scope, cache and clone arms PASS;
+###   (10) b567 pointed at b568's PLACE-papers head and b566's kernel head: its tag and scope arms FAIL.
 ### The suites' records go to the directory given as the first argument (default: a fresh temporary directory), never to
 ### relay/data. Usage: python tools/test_asof.py [<outdir>]
 """
@@ -79,6 +84,44 @@ def main():
     print('    b567 pointed at its own commit before the ordered append: %s' % line)
     want('(6) b567 pointed at %s (the ordered append absent there): G-PRIORBANK-UNCHANGED FAIL (read %s)'
          % (B567_G, arms.get('G-PRIORBANK-UNCHANGED')), arms.get('G-PRIORBANK-UNCHANGED') == 'FAIL')
+
+    # ### ### **(R179)(3), b569: THE LINES, ACROSS TWO REPOSITORIES (PLACE-papers and the kernel) AND A CLONE.** ### (7) b566 at
+    # ### its own lines (the companion bank): the PLACE-papers arms, the kernel's tag arm and the clone arm PASS; (8) b566
+    # ### pointed at lines naming b567's close for both repositories -- PLACE-papers 5340891 (b567's appended lines there,
+    # ### the act commit b567's) and the kernel 6baed63 (main beyond v0.9) -- where its claims are false: the same arms FAIL;
+    # ### (9) b567 at its own lines: its tag, scope and cache arms PASS; (10) b567 pointed at lines naming b568's
+    # ### PLACE-papers close f2e93b0 and b566's kernel e5a5a83: its tag and scope arms FAIL.
+    print('  (R179)(3) the as-of lines: the parser on synthetic lines, both polarities -- %s' % AF.self_test())
+    r6, s6 = AF.repo_asof(D, 'b566')
+    r7, s7 = AF.repo_asof(D, 'b567')
+    want('(7) b566`s lines read from %s: PLACE-papers 5ce2895, the kernel e5a5a83, bulka 35df682f'
+         % s6, (r6.get('PLACE-papers', '')[:7], r6.get('SIDE-explicit-formula', '')[:7], r6.get('bulka', '')[:8])
+         == ('5ce2895', 'e5a5a83', '35df682f'))
+    arms, line = run_suite('b566_checks.py', os.path.join(outdir, 'asof_b566_lines_own.txt'))
+    for a in ('G-CEILING-APPENDED', 'G-CORPUS-SCOPE', 'G-TAG-READ-BACK', 'G-BULKA-KEPT'):
+        want('(7) b566 at its own lines: %s PASS (read %s)' % (a, arms.get(a)), arms.get(a) == 'PASS')
+
+    def false_lines(name, over, base):
+        p = os.path.join(outdir, name)
+        rows = dict(base, **over)
+        open(p, 'w', encoding='utf-8', newline='\n').write(''.join(
+            'push_gated: as-of %s %s\n' % (k, v if v not in (AF.DELETED, AF.PRESENT) else v.lower()) for k, v in sorted(rows.items())))
+        return p
+    f8 = false_lines('lines_b566_at_b567.txt', {'PLACE-papers': r7['PLACE-papers'], 'SIDE-explicit-formula': r7['SIDE-explicit-formula']}, r6)
+    arms, line = run_suite('b566_checks.py', os.path.join(outdir, 'asof_b566_lines_false.txt'), ['--as-of-lines', f8])
+    for a in ('G-CEILING-APPENDED', 'G-CORPUS-SCOPE', 'G-TAG-READ-BACK'):
+        want('(8) b566 pointed at b567`s heads in two repositories (claims false there): %s FAIL (read %s)' % (a, arms.get(a)),
+             arms.get(a) == 'FAIL')
+
+    arms, line = run_suite('b567_checks.py', os.path.join(outdir, 'asof_b567_lines_own.txt'))
+    for a in ('G-TAG-READ-BACK', 'G-CORPUS-SCOPE', 'G-CACHE-MAIN', 'G-BULKA-DELETED'):
+        want('(9) b567 at its own lines (%s): %s PASS (read %s)' % (s7, a, arms.get(a)), arms.get(a) == 'PASS')
+    pp568 = subprocess.run(['git', '-C', 'D:/MY-DOwnloads/PLACE-papers', 'rev-parse', 'f2e93b0'], capture_output=True, text=True).stdout.strip()
+    f10 = false_lines('lines_b567_false.txt', {'PLACE-papers': pp568, 'SIDE-explicit-formula': r6['SIDE-explicit-formula']}, r7)
+    arms, line = run_suite('b567_checks.py', os.path.join(outdir, 'asof_b567_lines_false.txt'), ['--as-of-lines', f10])
+    for a in ('G-TAG-READ-BACK', 'G-CORPUS-SCOPE'):
+        want('(10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): %s FAIL (read %s)' % (a, arms.get(a)),
+             arms.get(a) == 'FAIL')
 
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))

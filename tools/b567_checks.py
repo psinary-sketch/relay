@@ -121,6 +121,16 @@ def appended_one_line(name):
 # ### tools/test_asof.py). Arms reading a named bank's content are not re-pointed.
 import asof as AF   # noqa: E402
 AS_OF = AF.from_argv(sys.argv, AF.relay_asof(ROOT, D, 'b567'))
+# ### ### **(R179)(3), b569: THE AS-OF LINES, EVERY REPOSITORY.** The relay tree aside, this suite reads PLACE-papers' files
+# ### and file list, the kernel's main, remote main and pushed files, SIDE-global-section's CORRESPONDENCE.md, the other
+# ### kernels' mains and Bulka's clone. When the act's push-out bank, or a companion bank (relay data/b569_asof_b567.txt),
+# ### names a head for a repository, each of those reads is taken at that head; a clone `deleted at close` reads absent. With
+# ### no line: live, as before. `--as-of-lines <file>` points the suite at another set of lines (relay tools/test_asof.py).
+RA, RA_SRC = AF.repos_from_argv(sys.argv, AF.repo_asof(D, 'b567'))
+KMAIN = AF.head_of(RA, 'SIDE-explicit-formula', 'main')
+KPUB = AF.head_of(RA, 'SIDE-explicit-formula', 'origin/main')
+PPH = AF.head_of(RA, 'PLACE-papers', None)
+GSH = AF.head_of(RA, 'SIDE-global-section', None)
 PRIOR_RX = r'^b4[0-9][0-9]_|^b5[0-5][0-9]_|^b56[0-6]_|^b334_'
 
 
@@ -189,6 +199,26 @@ def prior_check(pushed):
     return dict(ok=not bad, checked=len(exp), pre=n_pre, pub=n_pub, time=n_time, app=n_app, bad=bad)
 
 
+def apply_repo_asof(S):
+    """### (R179)(3): each read of a repository outside the relay tree taken at the head its as-of line names."""
+    if PPH:
+        S['pp_now'] = {f: (blob(PP, PPH + ':' + f) or b'').replace(b'\r\n', b'\n') for f in S['pp_now']}
+        S['find'], S['ot'] = rd8(S['pp_now']['FINDINGS.md']), rd8(S['pp_now']['OPEN_TRAILS.md'])
+        S['readme'], S['registry'], S['resid'] = rd8(S['pp_now']['README.md']), rd8(S['pp_now']['REGISTRY.md']), rd8(S['pp_now'][RESREL])
+        S['tracked'] = (files_of(PP, PPH) if gits(PP, 'log', '-1', '--pretty=%s', PPH).startswith('b567 --') else [])
+    if GSH:
+        S['corr'] = rd8(blob(SIDE, GSH + ':CORRESPONDENCE.md'))
+    if KMAIN != 'main':
+        S['k'] = dict(S['k'], main=KMAIN, local_main=KMAIN)
+    for n in list(S['others']):
+        if RA.get(n) and RA[n] != AF.DELETED:
+            S['others'][n] = (RA[n], RA[n])
+    if 'bulka' in RA:
+        S['bulka_exists'] = RA['bulka'] != AF.DELETED and os.path.exists(BULKA)
+    if 'b567-lake-51e6992e' in RA:   # ### b569's defect (d): a directory's line reads `present at close` or `deleted at close`
+        S['aside'] = RA['b567-lake-51e6992e'] == AF.PRESENT
+
+
 def sources():
     tok = (os.environ.get('ZENODO_TOKEN') or '').encode('utf-8')
     needle = 'https://' + 'zenodo' + '.org'
@@ -219,12 +249,12 @@ def sources():
         fnd=jload('b567_findings.json'), tr=jload('b567_trail.json'), rows=jload('b567_rows.json'),
         rr_before=rd_d('b567_b566_rerun_before.txt'), rr_after=rd_d('b567_b566_rerun_after.txt'), rr_read=rd_d('b567_b566_rerun_reading.txt'),
         tw=rd_d('b567_test_writelist.txt'), tl=rd_d('b567_test_licence.txt'), addb=rd_d('b566_writelist_addendum.txt'),
-        lic=rd_d('b566_step1_license.txt'), lic_main=blob(KER, 'main:Vendored/Bulka/LICENSE') or b'',
+        lic=rd_d('b566_step1_license.txt'), lic_main=blob(KER, KMAIN + ':Vendored/Bulka/LICENSE') or b'',
         census=rd_d('b551_toolchains.txt'),
         files_g=files_of(ROOT, C_G), files_h=files_of(ROOT, C_H),
-        k=k, lean_ns=[x for x in gits(KER, 'diff', '--name-status', R.V09, 'origin/main', '--').split(NL) if x.strip()],
-        stmt=K4.rd8(blob(KER, 'origin/main:SIDEExplicitFormula/Chi/Statement.lean')),
-        stmt_sha_main=hashlib.sha256(blob(KER, 'origin/main:SIDEExplicitFormula/ResidueDischarge.lean') or b'').hexdigest(),
+        k=k, lean_ns=[x for x in gits(KER, 'diff', '--name-status', R.V09, KPUB, '--').split(NL) if x.strip()],
+        stmt=K4.rd8(blob(KER, KPUB + ':SIDEExplicitFormula/Chi/Statement.lean')),
+        stmt_sha_main=hashlib.sha256(blob(KER, KPUB + ':SIDEExplicitFormula/ResidueDischarge.lean') or b'').hexdigest(),
         corr=read(R.CORR), corr_prior=rd8(blob(SIDE, PRIOR_GS + ':CORRESPONDENCE.md')),
         pp_prior={f: blob(PP, PRIOR_PP + ':' + f) for f in FIXED + CEIL + OTHER + [RESREL]},
         pp_now={f: open(os.path.join(PP, f), 'rb').read().replace(b'\r\n', b'\n') for f in FIXED + CEIL + OTHER + [RESREL]},
@@ -254,10 +284,15 @@ def sources():
         relay_commit_time={h: int(gits(ROOT, 'log', '-1', '--format=%ct', h) or 0) for h in (C_G, C_H)},
     )
     S['pushed'] = RERUN or is_pushed()
+    apply_repo_asof(S)
     kk = set(os.path.basename(x) for x in S['tracked'])
-    for repo, rev in ((ROOT, 'HEAD'), (PP, 'HEAD'), (SIDE, 'HEAD'), (KER, 'main'), (KER, 'residue-discharge-b567')):
+    for repo, rev in ((ROOT, 'HEAD'), (PP, PPH or 'HEAD'), (SIDE, GSH or 'HEAD'), (KER, KMAIN), (KER, 'residue-discharge-b567')):
         for h in act_commit(repo, rev):
             kk |= set(os.path.basename(x) for x in files_of(repo, h))
+        # ### (R179)(3): a repository its as-of line names was clean and pushed at that head; its working tree now is not
+        # ### the face's, so the status read is skipped for it.
+        if RA.get({ROOT: 'relay', PP: 'PLACE-papers', SIDE: 'SIDE-global-section', KER: 'SIDE-explicit-formula'}.get(repo, '')):
+            continue
         for l in git(repo, 'status', '--porcelain').split(NL):
             if l.strip() and not l.lstrip().startswith('??'):
                 rel = l[3:].strip()
@@ -650,6 +685,8 @@ def main():
     rec('  ### (R178)(2)(ii) THE AS-OF COMMIT : %s' % (('relay %s (%s) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD'
                                                       % (AS_OF[:8], '--as-of' if '--as-of' in sys.argv else 'b567_closing_push_out.txt'))
                                                      if AS_OF else 'NONE -- the tree-reading arm read live'))
+    rec('  ### (R179)(3) THE AS-OF LINES : %s' % (('%s -- %s' % (RA_SRC, ' ; '.join('%s %s' % (k2, v[:8]) for k2, v in sorted(RA.items()))))
+                                                if RA else 'NONE -- PLACE-papers, the kernel and the clone read live'))
     if not RERUN:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d'

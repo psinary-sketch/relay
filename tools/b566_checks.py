@@ -118,6 +118,16 @@ RERUN = '--rerun-postpush' in sys.argv   # ### (R170)(3): one named record, no t
 import asof as AF   # noqa: E402
 AS_OF = AF.from_argv(sys.argv, AF.relay_asof(ROOT, D, 'b566'))
 REF = AS_OF or 'origin/main'
+# ### ### **(R179)(3), b569: THE AS-OF LINES, EVERY REPOSITORY.** The relay tree aside, this suite reads PLACE-papers' files
+# ### and file list, the kernel's main and remote main, SIDE-global-section's CORRESPONDENCE.md and the two clones. When the
+# ### act's push-out bank, or a companion bank (relay data/b569_asof_b566.txt), names a head for a repository, each of those
+# ### reads is taken at that head: PLACE-papers' files as blobs there, the kernel's main and remote main read as that head,
+# ### a clone's HEAD as its line names it, a clone `deleted at close` as absent. With no line: live, as before.
+# ### `--as-of-lines <file>` points the suite at another set of lines (relay tools/test_asof.py).
+RA, RA_SRC = AF.repos_from_argv(sys.argv, AF.repo_asof(D, 'b566'))
+KMAIN = AF.head_of(RA, 'SIDE-explicit-formula', 'main')
+PPH = AF.head_of(RA, 'PLACE-papers', None)
+GSH = AF.head_of(RA, 'SIDE-global-section', None)
 PRIOR_RX = r'^b4[0-9][0-9]_|^b5[0-5][0-9]_|^b56[0-5]_|^b334_'
 
 
@@ -183,6 +193,22 @@ def prior_by_digest(files, prior_rev):
     return not bad, n_pre, n_pub, n_time, bad
 
 
+def apply_repo_asof(S):
+    """### (R179)(3): each read of a repository outside the relay tree taken at the head its as-of line names."""
+    if PPH:
+        S['pp_now'] = {f: (blob(PP, PPH + ':' + f) or b'').replace(b'\r\n', b'\n') for f in S['pp_now']}
+        S['find'], S['ot'] = rd8(S['pp_now']['FINDINGS.md']), rd8(S['pp_now']['OPEN_TRAILS.md'])
+        S['tracked'] = (files_of(PP, PPH) if gits(PP, 'log', '-1', '--pretty=%s', PPH).startswith('b566 --') else [])
+    if GSH:
+        S['corr'] = rd8(blob(SIDE, GSH + ':CORRESPONDENCE.md'))
+    if KMAIN != 'main':
+        S['k'] = dict(S['k'], main=KMAIN, remote=dict(S['k']['remote'], **{'refs/heads/main': KMAIN}))
+    if 'bulka' in RA:
+        S['bulka_head'] = '' if RA['bulka'] == AF.DELETED else RA['bulka']
+    if 'arda' in RA:
+        S['arda_exists'] = RA['arda'] != AF.DELETED and os.path.exists(ARDA)
+
+
 def is_pushed():
     return (gits(ROOT, 'rev-parse', 'origin/main') == gits(ROOT, 'rev-parse', 'HEAD')
             and gits(ROOT, 'log', '-1', '--pretty=%s').startswith('b566')
@@ -209,8 +235,8 @@ def vendored(S):
     ### header`s recorded sha256, the digest bank`s, and the clone`s blob at the pin (while the clone exists)."""
     dig = {r['dest']: r for r in S['vdig'].get('rows', [])}
     rows = []
-    for p in [x for x in gits(KER, 'ls-tree', '-r', '--name-only', 'main', 'Vendored/Bulka').split(NL) if x.endswith('.lean')]:
-        b = blob(KER, 'main:' + p) or b''
+    for p in [x for x in gits(KER, 'ls-tree', '-r', '--name-only', KMAIN, 'Vendored/Bulka').split(NL) if x.endswith('.lean')]:
+        b = blob(KER, KMAIN + ':' + p) or b''
         cut_at = b.find(b"ALTERED.\n-/\n")
         hdr, body = (b[:cut_at + len(b"ALTERED.\n-/\n")], b[cut_at + len(b"ALTERED.\n-/\n"):]) if cut_at >= 0 else (b'', b)
         m = re.search(rb'sha256 of the body below = ([0-9a-f]{64})', hdr)
@@ -243,17 +269,17 @@ def sources():
         rehash=jload('b566_arda_rehash.json'), adel=rd_d('b566_arda_delete.txt'), arda_exists=os.path.exists(ARDA),
         bulka_head=gits(BULKA, 'rev-parse', 'HEAD') if os.path.isdir(BULKA) else '',
         lic=rd_d('b566_step1_license.txt'), lic_blob=hashlib.sha256(blob(BULKA, PIN + ':LICENSE') or b'').hexdigest(),
-        lic_main=hashlib.sha256(blob(KER, 'main:Vendored/Bulka/LICENSE') or b'x').hexdigest(),
-        lic_main_bytes=blob(KER, 'main:Vendored/Bulka/LICENSE') or b'',   # ### (R177)(3)(h): the BLOB, compared from b567
+        lic_main=hashlib.sha256(blob(KER, KMAIN + ':Vendored/Bulka/LICENSE') or b'x').hexdigest(),
+        lic_main_bytes=blob(KER, KMAIN + ':Vendored/Bulka/LICENSE') or b'',   # ### (R177)(3)(h): the BLOB, compared from b567
         lic_clone_bytes=(blob(BULKA, PIN + ':LICENSE') or b'') if os.path.isdir(BULKA) else None,
         clo=rd_d('b566_step1_closure.txt'), vlist=[x for x in rd_d('b566_vendor_list.txt').split(NL) if x.strip()],
         dist=rd_d('b566_step1_distance.txt'), vdig=jload('b566_vendor_digests.json'),
-        notice=rd8(blob(KER, 'main:NOTICE')),
+        notice=rd8(blob(KER, KMAIN + ':NOTICE')),
         tr=jload('b566_trials.json'), tra=rd_d('b566_trial_a_build.txt'), trb=rd_d('b566_trial_b_build.txt'), route=jload('b566_route.json'),
         eqs=rd_d('b566_eq_statement.txt'), eqb=rd_d('b566_eq_build.txt'),
-        eq_main=hashlib.sha256(blob(KER, 'main:SIDEExplicitFormula/LiCriterionBridge.lean') or b'').hexdigest(),
+        eq_main=hashlib.sha256(blob(KER, KMAIN + ':SIDEExplicitFormula/LiCriterionBridge.lean') or b'').hexdigest(),
         prints=rd_d('b566_prints.txt'), e0=jload('b566_e0.json'), kpush=rd_d('b566_kernel_push_out.txt'),
-        k=k, lean_ns=[x for x in gits(KER, 'diff', '--name-status', R.V08, 'main', '--', '*.lean').split(NL) if x.strip()],
+        k=k, lean_ns=[x for x in gits(KER, 'diff', '--name-status', R.V08, KMAIN, '--', '*.lean').split(NL) if x.strip()],
         corr=read(R.CORR), corr_prior=rd8(blob(SIDE, PRIOR_GS + ':CORRESPONDENCE.md')),
         branches=rd_d('b566_branches.txt'),
         pp_prior={f: blob(PP, PRIOR_PP + ':' + f) for f in FIXED + CEIL + OTHER},
@@ -276,6 +302,7 @@ def sources():
         kinds=set(), mustfail=not os.path.exists(os.path.join(D, 'b566_mustnotexist.txt')),
         dep_clean=(gits(PP, 'status', '--porcelain', '--', 'outputs/DEPOSITED-v1.1.2') == ''),
     )
+    apply_repo_asof(S)
     S['vend'] = vendored(S)
     S['pushed'] = RERUN or is_pushed()
     if S['pushed']:
@@ -296,9 +323,13 @@ def sources():
     blobs['CORRESPONDENCE.md'] = NL.join(l for l in S['corr'].split(NL) if l not in set(S['corr_prior'].split(NL)))
     S['act_blobs'] = blobs
     kk = set(os.path.basename(x) for x in S['tracked'])
-    for repo, rev in ((ROOT, 'HEAD'), (PP, 'HEAD'), (SIDE, 'HEAD'), (KER, 'main'), (KER, R.BR_A)):
+    for repo, rev in ((ROOT, 'HEAD'), (PP, PPH or 'HEAD'), (SIDE, GSH or 'HEAD'), (KER, KMAIN), (KER, R.BR_A)):
         for h in act_commit(repo, rev):
             kk |= set(os.path.basename(x) for x in files_of(repo, h))
+        # ### (R179)(3): a repository its as-of line names was clean and pushed at that head; its working tree now is not
+        # ### the face's, so the status read is skipped for it.
+        if RA.get({ROOT: 'relay', PP: 'PLACE-papers', SIDE: 'SIDE-global-section', KER: 'SIDE-explicit-formula'}.get(repo, '')):
+            continue
         for l in git(repo, 'status', '--porcelain').split(NL):
             if l.strip() and not l.lstrip().startswith('??'):
                 rel = l[3:].strip()
@@ -749,6 +780,8 @@ def main():
                                                       'read the relay tree there, not at HEAD' % (AS_OF[:8], '--as-of' if '--as-of' in sys.argv
                                                                                                   else 'b566_closing_push_out.txt'))
                                                      if AS_OF else 'NONE -- the tree-reading arms read live'))
+    rec('  ### (R179)(3) THE AS-OF LINES : %s' % (('%s -- %s' % (RA_SRC, ' ; '.join('%s %s' % (k2, v[:8]) for k2, v in sorted(RA.items()))))
+                                                if RA else 'NONE -- PLACE-papers, the kernel and the clones read live'))
     rec('  %-42s %-5s %-5s %-5s %s' % ('arm', 'LIVE', 'NEG', 'POS', 'verdict'))
     rec('  ' + '-' * 92)
     fail, defective, negfail = [], [], 0
