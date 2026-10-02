@@ -1,0 +1,84 @@
+### OFFSET FROM THE CURRENT VERSION (R190)(3): +2 from :10 (the v0.2 line and a blank, above the method-register line); +2 more from :98 and from :120 (a blank and a history line beneath :97 and :119) -- the draft`s :n sits at the edition`s :n for n < 10, :n+2 for 10 <= n <= 97, :n+4 for 98 <= n <= 119, :n+6 for n >= 120 -- every edition line below is the final file`s own.
+
+b594 -- COMPONENT 2: THE EDITION OF FACES_OF_H2_AT_FINITE_INSTANCE, (R204)(4), BY THE FORM OF (R187)(5), ITS CLAUSES AND THE PRECEDENCE ORDER
+
+### the current version : PLACE-papers phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md @ bf4e9f5 (blob 5947bf61), 225 lines ; head :1 "# THE FACES OF `h2` AT FINITE INSTANCE — WHICH ARE SIGN STATEMENTS, WHICH DESCRI" ; :10 "**Method register · ### DRAFT (keystone candidate; every reading individually at QUESTION "
+### its tier block : :190 (b547, the Correspondence paragraph tiered) and :211 (b547, the census table) ; b558`s line :225
+### its version history : no version number; the draft dated 2026-08-18 (:10-:11), §2-bis 2026-08-18 (:42), §4 added 2026-08-28 (:77), the b547 blocks :188-:223, b558`s line :225 ; read as v0.1
+### b450`s items naming this document: none ; the "circularity witness": no object (relay data/b594_reads.txt)
+### the edition : PLACE-papers phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md, 329 lines, sha256 f70992a1cf1774e3f1d2215e157b08ef5c2f9502ed5782841c1ffa74c50b5110
+
+### THE WORK-LIST, ROW BY ROW (1 row), AND THE RULED REWRITE (1):
+
+  FACES:180:707 draft :180 -> v0.2 :186 `h1_complete_at_Phi` -- work-list ; cites ['relay `data/b547_faces.json` :27']
+      answers: pins the terminal at SIDE-kernel v1.5 = 0e5233f, which declares no such name; it is SIDE-lv-conservation's, `CouplingsAtPhi.lean`:418 at v0.6.0 = c80bdc2 (rectified at FACES :205, b547).
+      draft : `h1_complete_at_Phi` (the remainder = placement) at `SIDE-kernel` `v1.5 = 0e5233f`; the open `R3`
+      v0.2  : `h1_complete_at_Phi` (the remainder = placement) at `SIDE-lv-conservation` `v0.6.0 = c80bdc2` (`CouplingsAtPhi.lean`:418, unchanged at `v0.10.0 = 93c27ec`, SIDE-kernel v1.5 declaring no such name; relay `data/b547_faces.json` :27); the open `R3`
+
+  ruled:39 draft :39 -> v0.2 :41 `(R204)(4) reading` -- ruled ; cites ['h2_sign_iff_rh', 'li_nonneg_iff_rh', 'arith_limit_nonneg_iff_rh']
+      answers: (R204)(4): §2’s R4 reading MOVED-IN-MEANING to h2_sign_iff_rh at v0.2 and the three faces; §2 is the draft’s own text, not a dated entry, and no earlier clause of the precedence order reaches it
+      draft : (`λ_n ≥ 0` as predicate; sharpest `λ_Z ≥ −λ_A`)
+      v0.2  : (`λ_n ≥ 0` as predicate; sharpest `λ_Z ≥ −λ_A`; as compiled, RH in each of its three faces: the Weil form by `h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`, the Li form by `li_nonneg_iff_rh` and the arithmetic-limit form by `arith_limit_nonneg_iff_rh`, v0.9 = `e5a5a83`)
+
+### THE COLLISIONS, RESOLVED BY THE PRECEDENCE ORDER WITHOUT A PROMPT (5):
+    draft :95 -> v0.2 :97  history clause; the restatement of (R204)(4)`s pole-term reading -- governs: history -- the sentence equating §1’s ledger form with the atlas’s convention sits in §4.1, a dated entry: carried unchanged, the reading in the history line beneath §4.1
+    draft :116 -> v0.2 :120  history clause; (R204)(4)`s finite-support reading -- governs: history -- THE MAPPING sits in §4.2, a dated entry: carried unchanged, the ladder cited in the history line beneath §4.2
+    draft :102 -> v0.2 :106  history clause; the ceiling clause ("the single premise the proof routes through") -- governs: history -- the deposit’s own words quoted in §4.2’s DEPOSIT-VOICE, a dated entry: carried unchanged as the dated record; the ceiling clause has nothing left
+    draft :133 -> v0.2 :139  history clause; the name-and-title exception (`F2_gap_free`) -- governs: history -- §4.3, a dated entry: carried unchanged; the kernel name is also the scanner’s quoted identifier, so the exception has nothing left
+    draft :180 -> v0.2 :186  the work-list row; the fact clause (the pin `SIDE-kernel v1.5 = 0e5233f`) -- governs: work-list -- the row is the form’s own and is rewritten to the compiled fact, the pin; the fact clause has nothing left
+### THE HISTORY LINES:
+    v0.2 :101, beneath draft :97
+      *History line, 2026-10-02 (v0.2, b594): the ledger form `P + A − PR` that §1 records and the atlas’s cell-level object `A − PR` named above as the same are not one object -- they share `A − PR` and differ by the pole term `P`, the sign `0 ≤ P − PR + A` over every classK window being `h2_sign` (relay `data/b550_reading37.txt` :18), so §1’s form is the bench functional and the cell’s sign is the convention’s object.*
+    v0.2 :125, beneath draft :119
+      *History line, 2026-10-02 (v0.2, b594): the mapping above joins the deposit’s fourth register to a finite-instance object, the sign of `A − PR` at one diagonal a² cell, while the compiled faces are RH-equivalents; the ladder between them is the finite-support one -- the Weil form on the windows supported in [−L₀, L₀] (`h2_sign_upto`), whose holding for every L₀ is `h2_sign` (`h2_sign_iff_forall_upto`, SIDE-explicit-formula v0.3 = `04eda4a`) and is RH (`forall_upto_iff_rh`, v0.3 = `04eda4a`, with `h2_sign_iff_rh`, v0.2 = `5c72cad`), so a cell or a window is a rung and not the face.*
+### THE CEILING CORRECTIONS: none.
+### THE STEM CORRECTIONS: none.
+### THE FACT CORRECTIONS: none (the one wrong pin is the work-list row).
+### THE CEILING-SHAPED SENTENCES READ AND CARRIED:
+    draft :27 -> v0.2 :29  the one-place limit’s E₁ positivity "at proof grade", a local reading tiered T4 in the tier block, not RH
+    draft :39 -> v0.2 :41  "proof at p = 2`s limit": the local E₁ statement at one place, not RH
+    draft :44 -> v0.2 :46  §2-bis, a dated entry: the column head of compiled lemmas
+    draft :46 -> v0.2 :48  §2-bis, a dated entry: `LocalLimit.inner_map_self_of_fixed`, a compiled lemma
+    draft :49 -> v0.2 :51  §2-bis, a dated entry: a proved obstruction (`real_no_compact_open_addSubgroup`), a compiled lemma
+    draft :92 -> v0.2 :94  a negation in a dated entry: "Nothing is proved and nothing is closed"
+    draft :102 -> v0.2 :106  the deposit’s words quoted in a dated entry (DEPOSIT-VOICE); listed among the collisions
+    draft :183 -> v0.2 :189  the E₁ positivity at proof grade, a local reading (T4)
+    draft :203 -> v0.2 :209  b547`s dated tier block: the same local reading, tiered T4
+    draft :219 -> v0.2 :225  b547`s dated census table: `register3_of_one_lt_re` proves the register on re s > 1, a compiled lemma
+### REMOVALS: none.
+### CREDIT LINES: none inserted.
+### THE VERSION LINE: above draft :10: **v0.2 — 2026-10-02** — *CP-7 edition (b594), written beside the draft of 2026-08-18, which carries no version number of its own and is read here as v0.1 and left unedited; its back matter closes the file.*
+
+### THE COUNTS (relay tools/b558_record.py `segments`, imported): the current version 202 ; the edition`s body 205 (+3) ; the back matter 73 ; the edition whole 278
+### H28b, final form: the body differs by +3 against CREDIT 0 + removals 0 + ruled citations 2 (the two history lines; the ruled rewrite keeps its line`s count) + one version line = 3
+### no blank Status cell: HELD
+
+### THE CEILING, every hit in the edition:
+    :29 "proof" -- carried -- ...`E₁` at proof grade)* — ### **AND THE DIFFICULTY IS T...
+    :41 "proof" -- carried -- ...nsform on the Sonin space at EVERY place, `B = ‖·‖²` there: proof at `p = 2`'s limit, model-exact at `p =...
+    :46 "proved" -- carried -- ...| face | the proved/derived citation now available |...
+    :48 "proof" -- carried -- ...| R1 | the `E₁` theorem per place (proof / model-exact / machine) + `B = ‖·‖²` o...
+    :51 "proved" -- carried -- ...ubgroup`) — R4's subject (the missing object) now carries a proved obstruction and a derived geometry, not...
+    :94 "proved" -- carried -- .... ### **The statement is COMPLETE AT CELL LEVEL. Nothing is proved and nothing is closed.**...
+    :106 "proof" -- carried -- ...ise** (§27.3). The five registers of the single premise the proof...
+    :189 "proof" -- carried -- ...ng 16, `7386b47`), the one-place limit's `E₁` positivity at proof grade (sittings 20–21...
+    :209 "proof" -- carried -- ...| the one-place limit's E₁ positivity at proof grade | the sittings 20-21 report | a p...
+    :209 "proof" -- carried -- ...₁ positivity at proof grade | the sittings 20-21 report | a proof-grade reading | **T4** | no terminal na...
+    :225 "proves" -- carried -- ...ip (the census, FINDINGS.md:4787); `register3_of_one_lt_re` proves the register on re s > 1 from the seven...
+    :225 "proved" -- carried -- ...formula `81ae175`) | CORROBORATED IN SHAPE. The register is proved where the Mellin identity holds and und...
+    :256 "proof" -- record -- ...history clause; the ceiling clause ("the single premise the proof routes through") | history | the deposi...
+    :273 "proof" -- record -- ...entence is a compiled lemma, a negation, a local reading at proof grade, or the deposit’s words in a date...
+    :283 "proof" -- record -- ...ling read, carried: the one-place limit’s E₁ positivity "at proof grade", a local reading tiered T4 in th...
+    :284 "proof" -- record -- ...| :41 | ceiling read, carried: "proof at p = 2’s limit": the local E₁ stateme...
+    :287 "proved" -- record -- ...| :51 | ceiling read, carried: §2-bis, a dated entry: a proved obstruction (’real_no_compact_open_addS...
+    :288 "proved" -- record -- ...ing read, carried: a negation in a dated entry: "Nothing is proved and nothing is closed" | carried as rea...
+    :290 "proof" -- record -- ...| :189 | ceiling read, carried: the E₁ positivity at proof grade, a local reading (T4) | carried a...
+    :292 "proves" -- record -- ...arried: b547’s dated census table: ’register3_of_one_lt_re’ proves the register on re s > 1, a compiled le...
+    :307 "proved" -- record -- ...| “proved” phrasings take the ceiling clause | ev...
+### sentences beyond the ceiling: 0
+### THE SCANNER (banned_terms.py --new) on the edition: live uses 0, carried-by-history 0 ; verdict CLEAN
+
+### ### **H28a HELD -- every MOVED row resolves to a sentence citing its compiled fact at its pin or a bank line.**
+### ### **H28b HELD -- final form: the body differs by +3 sentences against at most 3; the back matter 73, excluded and printed.**
+### ### **H28c HELD -- the scanner`s verdict CLEAN; sentences beyond the ceiling 0.**
+### ### **THE EDITION LANDS: NO SENTENCE HELD.**

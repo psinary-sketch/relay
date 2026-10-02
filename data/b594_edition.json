@@ -1,0 +1,150 @@
+{
+ "path": "phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md",
+ "cur": "phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md",
+ "cur_blob": "5947bf612bb39875878ee56e93c7fa7457ac3dfb",
+ "lines_cur": 225,
+ "lines_body": 231,
+ "lines_full": 329,
+ "n_cur": 202,
+ "n_body": 205,
+ "n_full": 278,
+ "n_backmatter": 73,
+ "credit": 0,
+ "removals": 0,
+ "ruled_citations": 2,
+ "ruled_rewrites": 1,
+ "version_lines": 1,
+ "diff": [
+  {
+   "id": "FACES:180:707",
+   "line": 180,
+   "ed_line": 186,
+   "terminal": "h1_complete_at_Phi",
+   "old": "`h1_complete_at_Phi` (the remainder = placement) at `SIDE-kernel` `v1.5 = 0e5233f`; the open `R3`",
+   "new": "`h1_complete_at_Phi` (the remainder = placement) at `SIDE-lv-conservation` `v0.6.0 = c80bdc2` (`CouplingsAtPhi.lean`:418, unchanged at `v0.10.0 = 93c27ec`, SIDE-kernel v1.5 declaring no such name; relay `data/b547_faces.json` :27); the open `R3`",
+   "changed": true,
+   "cites": [
+    "relay `data/b547_faces.json` :27"
+   ],
+   "supports": "pins the terminal at SIDE-kernel v1.5 = 0e5233f, which declares no such name; it is SIDE-lv-conservation's, `CouplingsAtPhi.lean`:418 at v0.6.0 = c80bdc2 (rectified at FACES :205, b547).",
+   "kind": "work-list"
+  },
+  {
+   "id": "ruled:39",
+   "line": 39,
+   "ed_line": 41,
+   "terminal": "(R204)(4) reading",
+   "old": "(`λ_n ≥ 0` as predicate; sharpest `λ_Z ≥ −λ_A`)",
+   "new": "(`λ_n ≥ 0` as predicate; sharpest `λ_Z ≥ −λ_A`; as compiled, RH in each of its three faces: the Weil form by `h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`, the Li form by `li_nonneg_iff_rh` and the arithmetic-limit form by `arith_limit_nonneg_iff_rh`, v0.9 = `e5a5a83`)",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "arith_limit_nonneg_iff_rh"
+   ],
+   "supports": "(R204)(4): §2’s R4 reading MOVED-IN-MEANING to h2_sign_iff_rh at v0.2 and the three faces; §2 is the draft’s own text, not a dated entry, and no earlier clause of the precedence order reaches it",
+   "kind": "ruled"
+  }
+ ],
+ "offset": "+2 from :10 (the v0.2 line and a blank, above the method-register line); +2 more from :98 and from :120 (a blank and a history line beneath :97 and :119) -- the draft`s :n sits at the edition`s :n for n < 10, :n+2 for 10 <= n <= 97, :n+4 for 98 <= n <= 119, :n+6 for n >= 120",
+ "worklist": [
+  [
+   180,
+   "`h1_complete_at_Phi` (the remainder = placement) at `SIDE-kernel` `v1.5 = 0e5233f`;",
+   "`h1_complete_at_Phi` (the remainder = placement) at `SIDE-lv-conservation` `v0.6.0 = c80bdc2` (`CouplingsAtPhi.lean`:418, unchanged at `v0.10.0 = 93c27ec`, SIDE-kernel v1.5 declaring no such name; relay `data/b547_faces.json` :27);"
+  ]
+ ],
+ "ruled": [
+  [
+   39,
+   "(`λ_n ≥ 0` as predicate; sharpest `λ_Z ≥ −λ_A`)",
+   "(`λ_n ≥ 0` as predicate; sharpest `λ_Z ≥ −λ_A`; as compiled, RH in each of its three faces: the Weil form by `h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`, the Li form by `li_nonneg_iff_rh` and the arithmetic-limit form by `arith_limit_nonneg_iff_rh`, v0.9 = `e5a5a83`)"
+  ]
+ ],
+ "ceils": [],
+ "stems": [],
+ "hist": [
+  [
+   97,
+   null,
+   "*History line, 2026-10-02 (v0.2, b594): the ledger form `P + A − PR` that §1 records and the atlas’s cell-level object `A − PR` named above as the same are not one object -- they share `A − PR` and differ by the pole term `P`, the sign `0 ≤ P − PR + A` over every classK window being `h2_sign` (relay `data/b550_reading37.txt` :18), so §1’s form is the bench functional and the cell’s sign is the convention’s object.*"
+  ],
+  [
+   119,
+   null,
+   "*History line, 2026-10-02 (v0.2, b594): the mapping above joins the deposit’s fourth register to a finite-instance object, the sign of `A − PR` at one diagonal a² cell, while the compiled faces are RH-equivalents; the ladder between them is the finite-support one -- the Weil form on the windows supported in [−L₀, L₀] (`h2_sign_upto`), whose holding for every L₀ is `h2_sign` (`h2_sign_iff_forall_upto`, SIDE-explicit-formula v0.3 = `04eda4a`) and is RH (`forall_upto_iff_rh`, v0.3 = `04eda4a`, with `h2_sign_iff_rh`, v0.2 = `5c72cad`), so a cell or a window is a rung and not the face.*"
+  ]
+ ],
+ "hist_at": {
+  "97": 101,
+  "119": 125
+ },
+ "collisions": [
+  [
+   95,
+   "history clause; the restatement of (R204)(4)`s pole-term reading",
+   "history",
+   "the sentence equating §1’s ledger form with the atlas’s convention sits in §4.1, a dated entry: carried unchanged, the reading in the history line beneath §4.1"
+  ],
+  [
+   116,
+   "history clause; (R204)(4)`s finite-support reading",
+   "history",
+   "THE MAPPING sits in §4.2, a dated entry: carried unchanged, the ladder cited in the history line beneath §4.2"
+  ],
+  [
+   102,
+   "history clause; the ceiling clause (\"the single premise the proof routes through\")",
+   "history",
+   "the deposit’s own words quoted in §4.2’s DEPOSIT-VOICE, a dated entry: carried unchanged as the dated record; the ceiling clause has nothing left"
+  ],
+  [
+   133,
+   "history clause; the name-and-title exception (`F2_gap_free`)",
+   "history",
+   "§4.3, a dated entry: carried unchanged; the kernel name is also the scanner’s quoted identifier, so the exception has nothing left"
+  ],
+  [
+   180,
+   "the work-list row; the fact clause (the pin `SIDE-kernel v1.5 = 0e5233f`)",
+   "work-list",
+   "the row is the form’s own and is rewritten to the compiled fact, the pin; the fact clause has nothing left"
+  ]
+ ],
+ "carried": {
+  "27": "the one-place limit’s E₁ positivity \"at proof grade\", a local reading tiered T4 in the tier block, not RH",
+  "39": "\"proof at p = 2`s limit\": the local E₁ statement at one place, not RH",
+  "44": "§2-bis, a dated entry: the column head of compiled lemmas",
+  "46": "§2-bis, a dated entry: `LocalLimit.inner_map_self_of_fixed`, a compiled lemma",
+  "49": "§2-bis, a dated entry: a proved obstruction (`real_no_compact_open_addSubgroup`), a compiled lemma",
+  "92": "a negation in a dated entry: \"Nothing is proved and nothing is closed\"",
+  "102": "the deposit’s words quoted in a dated entry (DEPOSIT-VOICE); listed among the collisions",
+  "183": "the E₁ positivity at proof grade, a local reading (T4)",
+  "203": "b547`s dated tier block: the same local reading, tiered T4",
+  "219": "b547`s dated census table: `register3_of_one_lt_re` proves the register on re s > 1, a compiled lemma"
+ },
+ "version": {
+  "above": 10,
+  "text": "**v0.2 — 2026-10-02** — *CP-7 edition (b594), written beside the draft of 2026-08-18, which carries no version number of its own and is read here as v0.1 and left unedited; its back matter closes the file.*"
+ },
+ "sha256": "f70992a1cf1774e3f1d2215e157b08ef5c2f9502ed5782841c1ffa74c50b5110",
+ "status_blanks": [],
+ "cited_lines": {
+  "h2_sign_iff_rh": [
+   41,
+   125
+  ],
+  "li_nonneg_iff_rh": [
+   41
+  ],
+  "arith_limit_nonneg_iff_rh": [
+   41
+  ],
+  "h2_sign_iff_forall_upto": [
+   125
+  ],
+  "forall_upto_iff_rh": [
+   125
+  ]
+ }
+}
