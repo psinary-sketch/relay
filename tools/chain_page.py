@@ -438,8 +438,14 @@ def dir_ceiling():
 
 
 def keystones(short_names):
-    pat = '|'.join(re.escape(s) for s in sorted(short_names))
-    rc, out = git(PP, 'grep', '-l', '-E', r'\b(' + pat + r')\b', 'HEAD', '--', '*.md')
+    # ### b592, the author's answer before its seal (relay data/b592_author_answers.txt, prompt 7): a node whose short name is a
+    # ### plain lower-case word (`detector`) names a keystone only by its qualified name or in backticks, so that a file using
+    # ### the English word is not read as naming the node. A list with no such name builds the pattern exactly as before.
+    plain = sorted(s for s in short_names if re.fullmatch(r'[a-z]+', s))
+    rest = sorted(s for s in short_names if s not in plain)
+    alts = [r'\b(' + '|'.join(re.escape(s) for s in rest) + r')\b'] if rest else []
+    alts += [r'(`' + re.escape(s) + r'`|[A-Za-z0-9_]\.' + re.escape(s) + r'\b)' for s in plain]
+    rc, out = git(PP, 'grep', '-l', '-E', '|'.join(alts), 'HEAD', '--', '*.md')
     files = sorted(set(x.split(':', 1)[1] for x in out.split(NL) if ':' in x))
     root = set(LEDGERS + ['README.md', 'REGISTRY.md', PAGE_NAME, DIR_PAGE_NAME])   # ### both generated pages, never keystones
     return [f for f in files if f not in root and not f.startswith('archive/')]
@@ -615,7 +621,10 @@ def build(nodes_path, probe_dir, from_output=None):
     for n in corr_names:
         c = cells[n]
         g = c['record_grade'] or 'UNGRADED'
-        corr_rows.append(dict(name=n, repo='SIDE-explicit-formula', grade=g, tier=c['tier']))
+        # ### b592, the author's answer before its seal (prompt 6): a row graded INTERFACES names its premises in its tier cell,
+        # ### read by the shared E0 rule from the source header at the pin; a DERIVES row is written exactly as before.
+        prem = ('; premises: ' + c['premises'].replace('|', '¦')) if g == 'INTERFACES' and c.get('premises') not in (None, 'none') else ''
+        corr_rows.append(dict(name=n, repo='SIDE-explicit-formula', grade=g, tier=c['tier'] + prem))
     for x in corr_extra:
         corr_rows.append(dict(name=x['name'], repo=x['repo'], grade=x['grade'], tier=x['tier'] + ('; ' + x['note'] if x['note'] else '')))
     kfiles = keystones([short(n) for n in names if not cells[n]['module'].startswith('Mathlib')])
