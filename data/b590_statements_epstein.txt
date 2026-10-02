@@ -1,0 +1,21 @@
+b590 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/Epstein.lean, PRINTED BEFORE THE BUILD (reading (vi))
+
+### written at (UTC) 2026-10-02T04:45:40Z ; the branch epstein-b590 (checked out: epstein-b590) ; the file`s sha256 630c744b8693b66e6b3fae7034bfc22b5fadc43e572f39b1f6d601912a7d99da ; its bytes 4297
+
+### :32 def rhoE
+    def rhoE : ℂ := ⟨0.7979971571786801, 29.551761098629115⟩
+### :34 theorem rhoE_re_ne_half
+    theorem rhoE_re_ne_half : rhoE.re ≠ 1 / 2 := by
+### :41 structure EpsteinPremises
+    structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where
+### :47 def epsteinConfig
+    def epsteinConfig (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) : WeilConfig where
+### :57 theorem epstein_not_h2_sign_cfg
+    theorem epstein_not_h2_sign_cfg (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)
+        (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP) :=
+### :62 theorem epstein_detector
+    theorem epstein_detector (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)
+        (hE : rhoE ∈ Z.carrier) :
+        ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase rhoE) j) ∧
+          Function.support (pwWindow a (detectorBase rhoE) j) ⊆ Set.Icc (-(2 ^ j * baseWidth rhoE)) (2 ^ j * baseWidth rhoE) ∧
+          (zeroSide_cfg (epsteinConfig Z rhs hP) (kWindow a (detectorBase rhoE) j)).re < 0 :=

@@ -1,0 +1,38 @@
+b590 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/SaltCheckEpstein.lean, PRINTED AGAIN AFTER THE FILE CHANGED (the first print kept beside) (reading (vi))
+
+### against the first print: headers unchanged ['emptyRhs', 'emptyZ', 'empty_count', 'empty_premises', 'epstein_hypotheses_satisfiable', 'log_three_gt_one', 'membership_load_bearing', 'toyCarrier', 'toyRhs', 'toyZ', 'toy_count', 'toy_premises', 'toy_reflect_mem', 'toy_strip'] ; changed [] ; added ['toy_finite'] ; gone []
+
+### written at (UTC) 2026-10-02T04:50:00Z ; the branch epstein-b590 (checked out: epstein-b590) ; the file`s sha256 0b0171b5e50bcc038baee3a06475ace82974d5d24796cec7879f0a2d5bab5c8c ; its bytes 5836
+
+### :33 def toyCarrier
+    def toyCarrier : Set ℂ := {rhoE, Zeta23.reflect rhoE}
+### :35 theorem toy_strip
+    theorem toy_strip : ∀ ρ ∈ toyCarrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1 := by
+### :45 theorem toy_reflect_mem
+    theorem toy_reflect_mem : ∀ ρ ∈ toyCarrier, Zeta23.reflect ρ ∈ toyCarrier := by
+### :53 theorem toy_finite
+    theorem toy_finite : toyCarrier.Finite := (Set.finite_singleton _).insert _
+### :56 def toyZ
+    def toyZ : Zeta23.ZeroConfig where
+### :65 theorem log_three_gt_one
+    theorem log_three_gt_one : 1 < Real.log 3 := by
+### :70 theorem toy_count
+    theorem toy_count : HCount toyZ 2 := by
+### :88 def toyRhs
+    def toyRhs : (ℝ → ℂ) → ℂ := fun k => ∑' ρ : toyZ.carrier, (toyZ.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+### :90 theorem toy_premises
+    theorem toy_premises : EpsteinPremises toyZ toyRhs :=
+### :94 theorem epstein_hypotheses_satisfiable
+    theorem epstein_hypotheses_satisfiable :
+        ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ), EpsteinPremises Z rhs ∧ rhoE ∈ Z.carrier :=
+### :99 def emptyZ
+    def emptyZ : Zeta23.ZeroConfig where
+### :108 theorem empty_count
+    theorem empty_count : HCount emptyZ 1 := by
+### :119 def emptyRhs
+    def emptyRhs : (ℝ → ℂ) → ℂ := fun k => ∑' ρ : emptyZ.carrier, (emptyZ.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+### :121 theorem empty_premises
+    theorem empty_premises : EpsteinPremises emptyZ emptyRhs :=
+### :126 theorem membership_load_bearing
+    theorem membership_load_bearing :
+        ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP) :=

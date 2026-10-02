@@ -1,0 +1,234 @@
+b590 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### SIDE-explicit-formula the schema`s structure and fields -- SIDEExplicitFormula/Schema/Config.lean @ 21c8c522 (11 lines cited)
+    :24     structure WeilConfig extends Zeta23.ZeroConfig where
+    :25       /-- EF: the arithmetic side of the explicit formula -/
+    :26       rhs : (ℝ → ℂ) → ℂ
+    :27       /-- EF: the zero side equals it on even `k ∈ C_c²` (b321_identity's type at its consuming site) -/
+    :28       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :29         (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :30       /-- COUNT: the local count, as dominant_summable consumes it (HCount, RestBound.lean :44) -/
+    :31       count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+    :32       /-- TARGET: the instance's statement of the zeros' location, equivalent to the strip form (the seam left to the instance) -/
+    :33       target : Prop
+    :34       target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2
+### SIDE-explicit-formula the converse`s witness construction -- SIDEExplicitFormula/Schema/Converse.lean @ 21c8c522 (47 lines cited)
+    :161    theorem zeroSide_eventually_neg_cfg (H : PWSetup C.toZeroConfig g0 L M) (ρs : ℂ)
+    :162        (hρs : ρs ∈ tieSet C.toZeroConfig g0 M) :
+    :163        ∃ (a : List ℝ) (j : ℕ), (zeroSide_cfg C (kWindow a g0 j)).re < 0 := by
+    :164      classical
+    :165      obtain ⟨B, D, hB0, hcoef⟩ := coeffs_exist H ⟨ρs, hρs⟩
+    :166      choose Q hQtie hQb using hcoef
+    :167      have hc0 : 0 < ∑ x ∈ sT_cfg H, (C.toZeroConfig.mult x : ℝ) * Nf H x := by
+    :168        refine Finset.sum_pos (fun x hx => mul_pos ?_ (Nf_pos H ((mem_sT_cfg H x).mp hx)))
+    :169          ⟨⟨ρs, hρs.1⟩, (mem_sT_cfg H _).mpr hρs⟩
+    :170        exact Nat.cast_pos.mpr (lt_of_lt_of_le Nat.zero_lt_one (C.toZeroConfig.one_le_mult x x.2))
+    :171      obtain ⟨J, hJ⟩ := Metric.tendsto_atTop.mp (rest_tendsto_zero_cfg H Q B D hQb) _ hc0
+    :172      have hj := hJ (max J D) (le_max_left _ _)
+    :173      rw [dist_zero_right] at hj
+    :174      refine ⟨coeffList (Pof H (Q (max J D))), max J D, ?_⟩
+    :175      have hDj : D ≤ max J D := le_max_right _ _
+    :235    /-- **L8 over the structure, the converse at the strip**: an off-line point of the configuration, the plateau's dominant point,
+    :236    and a window in classK whose zero side has negative real part contradict `h2_sign_cfg C` through the `ef` field. -/
+    :237    theorem h2_sign_cfg_imp_online (C : WeilConfig) : h2_sign_cfg C → online C := by
+    :238      intro h2
+    :239      by_contra hno
+    :240      unfold online at hno
+    :241      push_neg at hno
+    :242      obtain ⟨ρ1, hρ1, hoff⟩ := hno
+    :243      have hF0 : (0 : ℝ) < 1 / 2 := by norm_num
+    :244      have hF1 : (1 / 2 : ℝ) < 1 := by norm_num
+    :245      obtain ⟨L, hL, ρs, hρs, hoffs, hpos, hdom⟩ :=
+    :246        plateau_dominant C.toZeroConfig (1 / 2) hF0 hF1 ρ1 hρ1 hoff
+    :247      have H : PWSetup C.toZeroConfig (plateau (1 / 2) L hF0 hF1 hL) L
+    :248          (offScore (plateau (1 / 2) L hF0 hF1 hL) ρs) :=
+    :249        ⟨plateau_even _ _ hF0 hF1 hL, plateau_contDiff _ _ hF0 hF1 hL ⊤, plateau_support_Icc _ _ hF0 hF1 hL, hL.le,
+    :250          hpos, hdom⟩
+    :251      obtain ⟨a, j, hneg'⟩ := zeroSide_eventually_neg_cfg H ρs ⟨hρs, hoffs, rfl⟩
+    :252      have hk := kWindow_classK a H.hsm H.hs j
+    :253      have hsign := h2 _ hk
+    :254      obtain ⟨he, hc, hs, -⟩ := hk
+    :255      rw [← zeroSide_cfg_eq C hc hs he] at hsign
+    :256      have h0 := (Complex.nonneg_iff.mp hsign).1
+    :257      linarith
+    :258    
+    :259    /-- **THE CRITERION OVER THE STRUCTURE, AT THE STRIP**: Weil positivity on classK is the strip form, both directions. -/
+    :260    theorem h2_sign_cfg_iff_online (C : WeilConfig) : h2_sign_cfg C ↔ online C :=
+    :261      ⟨h2_sign_cfg_imp_online C, online_imp_h2_sign_cfg C⟩
+    :262    
+    :263    /-- **THE CRITERION OVER THE STRUCTURE**: Weil positivity on classK is the instance's own target, both directions. An
+    :264    equivalence between open statements; it proves neither. -/
+    :265    theorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target :=
+    :266      (h2_sign_cfg_iff_online C).trans C.target_iff.symm
+### SIDE-explicit-formula the base width`s witness, the dominant, the tie and kill sets -- SIDEExplicitFormula/PowerWindow.lean @ 21c8c522 (21 lines cited)
+    :121    def power (g : ℝ → ℝ) : ℕ → ℝ → ℝ
+    :122      | 0 => g
+    :129    theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    :130        ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+    :274    theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) :
+    :275        ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0 := by
+    :276      refine ⟨1 / (4 * (‖z‖ + 1)), by positivity, fun L hL hLL => ?_⟩
+    :385    theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier)
+    :386        (hoff : ρ₁.re ≠ 1 / 2) :
+    :387        ∃ (L : ℝ) (hL : 0 < L), ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore (plateau F L hF0 hF1 hL) ρs ∧
+    :388          ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore (plateau F L hF0 hF1 hL) ρ ≤ offScore (plateau F L hF0 hF1 hL) ρs := by
+    :389      obtain ⟨L₀, hL₀, hne⟩ := base_nonzero_at F hF0 hF1 (Zeta23.gammaOf ρ₁)
+    :390      refine ⟨L₀, hL₀, ?_⟩
+    :391      have h4 : ContDiff ℝ 4 (plateau F L₀ hF0 hF1 hL₀) := by
+    :392        have := plateau_contDiff F L₀ hF0 hF1 hL₀ 4
+    :393        exact_mod_cast this
+    :394      exact dominant_exists Z h4 (plateau_support_Icc F L₀ hF0 hF1 hL₀) hL₀.le ρ₁ h₁ hoff
+    :395        (norm_pos_iff.mpr (hne L₀ hL₀ le_rfl))
+    :396    
+    :398    def tieSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ := {ρ | ρ ∈ Z.carrier ∧ ρ.re ≠ 1 / 2 ∧ offScore g ρ = M}
+    :401    def killSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ := {ρ | ρ ∈ Z.carrier ∧ ρ.re = 1 / 2 ∧ M ≤ offScore g ρ}
+### SIDE-explicit-formula the window, its setup and the coefficients`s degree (L7e as PowerLimit carries it) -- SIDEExplicitFormula/PowerLimit.lean @ 21c8c522 (68 lines cited)
+    :105    def pwWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) : ℝ → ℝ := polyOpFull a (power g0 j)
+    :106    
+    :107    /-- Its `weilTest`. -/
+    :108    def kWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) : ℝ → ℂ :=
+    :109      Zeta23.EF.weilTest (phiC (pwWindow a g0 j)) (phiC (pwWindow a g0 j))
+    :110    
+    :111    theorem pwWindow_contDiff (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0)
+    :112        (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) :
+    :113        ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (pwWindow a g0 j) :=
+    :114      polyOpFull_contDiff a (power_contDiff hsm hs j)
+    :115    
+    :116    theorem pwWindow_support (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) :
+    :117        Function.support (pwWindow a g0 j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L) :=
+    :118      polyOpFull_support a (power_support hs j)
+    :119    
+    :120    /-- **L7c:** the power window's `weilTest` is in classK. -/
+    :121    theorem kWindow_classK (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ} (hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0)
+    :122        (hs : Function.support g0 ⊆ Set.Icc (-L) L) (j : ℕ) : classK (kWindow a g0 j) :=
+    :123      classK_of_real_even ((pwWindow_contDiff a hsm hs j).of_le (WithTop.coe_le_coe.mpr le_top))
+    :124        (hasCompactSupport_of_Icc (pwWindow_support a hs j))
+    :125    
+    :245    structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) : Prop where
+    :246      hev : ∀ x, g0 (-x) = g0 x
+    :247      hsm : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0
+    :248      hs : Function.support g0 ⊆ Set.Icc (-L) L
+    :249      hL : 0 ≤ L
+    :250      hM : 0 < M
+    :251      hdom : ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g0 ρ ≤ M
+    :252    
+    :266    
+    :271    def Kp (H : PWSetup Z g0 L M) : Polynomial ℝ := ∏ x ∈ Xr H, (Polynomial.X - Polynomial.C x)
+    :274    def cE (H : PWSetup Z g0 L M) : ℝ := 1 + ∑ ρ ∈ TF H, 1 / |ρ.re - 1 / 2|
+    :277    def Ep (H : PWSetup Z g0 L M) : Polynomial ℝ := 1 + Polynomial.C (cE H) * Polynomial.X
+    :280    def VF (H : PWSetup Z g0 L M) : Finset ℂ := (TF H).image vOf
+    :445    def Nf (H : PWSetup Z g0 L M) (ρ : ℂ) : ℝ := ‖(Polynomial.aeval (vOf ρ) (Kp H)) ^ 2 * (1 - (cE H : ℂ) ^ 2 * vOf ρ)‖
+    :658    theorem fixed_poly_bound (Q : Polynomial ℝ) :
+    :659        ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ x : ℂ, ‖Polynomial.aeval x Q‖ ≤ B * (1 + ‖x‖) ^ D := by
+    :660      have hC0 : 0 ≤ ∑ i ∈ Finset.range (Q.natDegree + 1), |Q.coeff i| := Finset.sum_nonneg (fun i _ => abs_nonneg _)
+    :661      have hC : ∀ i, |Q.coeff i| ≤ ∑ i ∈ Finset.range (Q.natDegree + 1), |Q.coeff i| := by
+    :662        intro i
+    :663        by_cases hi : i < Q.natDegree + 1
+    :664        · exact Finset.single_le_sum (f := fun i => |Q.coeff i|) (fun k _ => abs_nonneg _) (Finset.mem_range.mpr hi)
+    :665        · rw [Polynomial.coeff_eq_zero_of_natDegree_lt (by omega), abs_zero]
+    :666          exact hC0
+    :667      exact ⟨((Q.natDegree + 1 : ℕ) : ℝ) * ∑ i ∈ Finset.range (Q.natDegree + 1), |Q.coeff i|, Q.natDegree + 1,
+    :668        mul_nonneg (Nat.cast_nonneg _) hC0, fun x => poly_norm_le Q (Nat.lt_succ_self _) hC x⟩
+    :669    
+    :670    /-- **L7d, the coefficients:** there are `B, D` such that for every `j` a real polynomial `S_j` interpolating the phase
+    :671    targets on `V` makes every tie term equal to `-|X|`, and `|P_j(w)| <= B (1 + |w|)^D`, `P_j = S_j(w^2) K(w^2) E(w)`. -/
+    :672    theorem coeffs_exist (H : PWSetup Z g0 L M) (hne : (tieSet Z g0 M).Nonempty) :
+    :673        ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ j : ℕ, ∃ Q : Polynomial ℝ,
+    :674          (∀ ρ ∈ tieSet Z g0 M, (Polynomial.aeval (vOf ρ) Q) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ)) ∧
+    :675          ∀ w : ℂ, ‖Polynomial.aeval w (Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D := by
+    :676      obtain ⟨CV, hCV⟩ := real_even_interpolant (VF H) (VF_conj H)
+    :677      obtain ⟨BK, DK, hBK, hK⟩ := fixed_poly_bound (Kp H)
+    :678      obtain ⟨BE, DE, hBE, hE⟩ := fixed_poly_bound (Ep H)
+    :679      obtain ⟨ρ0, hρ0⟩ := hne
+    :680      have hn : 0 < (VF H).card := Finset.card_pos.mpr ⟨vOf ρ0, by
+    :681        unfold VF
+    :682        exact Finset.mem_image_of_mem _ ((mem_TF H).mpr hρ0)⟩
+    :683      refine ⟨(VF H).card * max CV 0 * BK * BE, 2 * (VF H).card + 2 * DK + DE,
+    :684        mul_nonneg (mul_nonneg (mul_nonneg (Nat.cast_nonneg _) (le_max_right _ _)) hBK) hBE, fun j => ?_⟩
+    :685      obtain ⟨Q, hQe, hQd, hQc⟩ := hCV (rT H j) (fun w hw => rT_conj H j hw) (fun w hw => rT_norm H j hw)
+    :686      refine ⟨Q, fun ρ hρ => ?_, fun w => ?_⟩
+    :687      · have hv : vOf ρ ∈ VF H := by
+    :688          unfold VF
+    :689          exact Finset.mem_image_of_mem _ ((mem_TF H).mpr hρ)
+    :690        have hQv : Polynomial.aeval (vOf ρ) Q = rT H j (vOf ρ) := by
+### SIDE-explicit-formula the plateau -- SIDEExplicitFormula/TwoPropertyWindow.lean @ 21c8c522 (2 lines cited)
+    :56     def plateau (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ℝ → ℝ :=
+    :57       fun u => Real.smoothTransition ((L - u) / (F * L)) * Real.smoothTransition ((L + u) / (F * L))
+### SIDE-explicit-formula the count -- SIDEExplicitFormula/RestBound.lean @ 21c8c522 (2 lines cited)
+    :44     def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+    :45       1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+### SIDE-explicit-formula the zero configuration and the transform -- Zeta23/Defs.lean @ 21c8c522 (15 lines cited)
+    :60     def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+    :121    def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+    :124    def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+    :136    structure ZeroConfig where
+    :137      /-- the set 𝒵 of distinct zeros -/
+    :138      carrier : Set ℂ
+    :139      /-- multiplicity m_ρ (value irrelevant off carrier) -/
+    :140      mult : ℂ → ℕ
+    :141      one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+    :142      strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+    :143      reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+    :144      mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+    :145      /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+    :146      finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+    :161    /-- N(T₁,T₂) := #{ρ : T₁ < γ ≤ T₂} counted WITH multiplicity  [Results]. -/
+### relay b554`s sign pattern, the plateau at 33.19 -- data/b554_sign_pattern.txt @ 0b2cd9f6 (7 lines cited)
+    :78         POS  ln a 3.4011973817 - 3.5023768112   a 30.000000 - 33.194255
+    :79         NEG  ln a 3.5023768112 - 3.5642833843   a 33.194255 - 35.314138
+    :80         POS  ln a 3.5642833843 - 3.6625718035   a 35.314138 - 38.961415
+    :81         NEG  ln a 3.6625718035 - 4.0943445622   a 38.961415 - 60.000000
+    :82     ### POSITIVE INTERVALS ABOVE THE FLOOR: 2
+    :83         ln a [3.4011973817, 3.5023768112]   a [30.000000, 33.194255]
+    :84         ln a [3.5642833843, 3.6625718035]   a [35.314138, 38.961415]
+### relay b511`s zero-list loader -- tools/b511_families.py @ 0b2cd9f6 (5 lines cited)
+    :49     LIB = json.loads(io.open(os.path.join(D, 'b326_epstein_zeros.json'), encoding='utf-8').read())
+    :50     GQ = np.sort(np.array([z['gamma_a'] for z in LIB['zeros']], dtype=np.float64))   # Q0 on-line, complete below 150 (b506)
+    :51     C2 = json.loads(io.open(os.path.join(D, 'b506_c2_results.json'), encoding='utf-8').read())
+    :52     OFFQ = [tuple(z['rho']) for z in C2['found'] if z.get('rho') and z['col'] == 'R']  # Q0's 17 off-line zeros, sigma > 1/2
+    :54     DELTA_Q = 6.1e-11                  # the Q0 bank's largest distance to its Newton zeros (b506)
+### relay b514`s pair, Q0`s zero at 16.29 -- tools/b514_window.py @ 0b2cd9f6 (1 lines cited)
+    :29     PAIR = min(F.OFFQ, key=lambda z: abs(z[1] - G0['q']))   # ### Q0's zero at 0.95326 + 16.29022 i (b506)
+### relay b559`s desk, H9a and H9c -- data/b559_desk_notes.txt @ 0b2cd9f6 (2 lines cited)
+    :7        **(H9a)** ### **REFUTED.** -- the index of zeroSide_eventually_neg from Metric.tendsto_atTop over a limit with no rate (PowerLimit.lean:1092); the non-constructive rows ['zeroSide_eventually_neg', 'rest_tendsto_zero']; reach THE CONFIGURATION in 10 rows (data/b559_constants.txt).
+    :9        **(H9c)** ### **NOT SCORABLE.** -- no compiled j0, so no j0 * l to evaluate at any point.
+### PLACE-papers the literature lines, Bombieri-Lagarias and Weil 1952 -- phase1.5/spectral/BALANCE_AND_POSITIVITY.md @ 53961af2 (2 lines cited)
+    :422    1. **Li's criterion and its general form.** Bombieri & Lagarias, *Complements to Li's Criterion for the Riemann Hypothesis*, **J. Number Theory 77 (1999) 274–287**: RH ⟺ λ_n ≥ 0 for all n ≥ 1, with λ_n = Σ_ρ [1 − (1 − 1/ρ)ⁿ]. They show the criterion follows from general inequalities for an arbitrary
+    :542    **Weil 1952: the positivity criterion.** *"Sur les 'formules explicites' de la théorie des nombres premiers"* (Comm. Lund, 1952): RH is **equivalent to the positive-definiteness** of a certain generalized function arising from the explicit formula. And the fact that governs everything below: **for c
+### PLACE-papers FACES_LEDGER, F7 -- FACES_LEDGER.md @ 53961af2 (1 lines cited)
+    :26     | F7 | F7 -- the Epstein negative control at b326's result: the arc's instrument aimed at Z_Q (x² + xy + 6y², disc −23, h = 3), a positive Li ledger with RH false | a control on the fourth's instrument -- the Weil-positivity face tested on a function whose hypothesis fails | INTERNAL -- relay `data/
+### PLACE-papers OPEN_TRAILS, Q0 recorded -- OPEN_TRAILS.md @ 53961af2 (1 lines cited)
+    :9789   record Q0 = x² + xy + 6y², discriminant −23, class number 3; the kernel tested only on a bank shown complete
+### PLACE-papers the document the ruling calls Day-1, at its md5 pin -- phase1.5/spectral/BALANCE_AND_POSITIVITY.md @ 0b8f4354 (6 lines cited)
+    :1      # Balance and Positivity
+    :3      ## The Euler Class in the Weil Explicit Formula
+    :19     ## I. The alignment
+    :32     | W_∞ (digamma/Γ) | Functional-equation / archimedean | archimedean place | positive (provable) |
+    :43     ## II. Balance and positivity are different strengths
+    :45     The seventh class does not align, and it is precisely the one that carries the theorem. For positive-definite g, the values g(k log p) are not pointwise sign-definite, so the prime sum — governed by the Euler/multiplicative class — is the single indefinite contribution. In this formulation the entir
+### PLACE-papers the archived ledger, Day-1 §II should read -- archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md @ 53961af2 (3 lines cited)
+    :8755   
+    :8763   
+    :8770   **THE REPAIR IS MINIMAL AND THE SUBSTANCE SURVIVES:** what is positive is `W_pole` (`≈ +2.00` to `+2.02`), and the quantity facing the prime sum is **`W_pole + W_∞`**, positive at every measured point. ### **Day-1 §II should read *"the positive POLE-PLUS-ARCHIMEDEAN term dominates the indefinite pri
+### PLACE-papers THE_DAY1_IMPLICATIONS, the md5 read -- phase2/method/THE_DAY1_IMPLICATIONS.md @ 53961af2 (3 lines cited)
+    :18     | `BALANCE_AND_POSITIVITY.md` **(read first, per charter)** | `1989c5d6650a57728e9ddff25430c9be` · `phase1.5/spectral/` |
+    :30     | **3** | The syllogism: *"3. The mechanism catalogue `C₁,…,Cₙ` is **exhaustive** … 4. **No `Cⱼ` produces `P(x)`**. (Checked individually)"* | `A_Place_to_Stand` Ch. 10.1 | ### **exclusion ranges over CLASSES — interfaces are not among them** |
+    :65     **Read first, as charted: `BALANCE_AND_POSITIVITY`. It does not anticipate the sign face — it STATES it, at cite, in July 2026.**
+### PLACE-papers SIGN_ARRANGEMENT_RECONCILIATION, the Day-1 row -- phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md @ 53961af2 (1 lines cited)
+    :16     | **Day-1** (`BALANCE_AND_POSITIVITY` §I, `1989c5d…`) | `Σ_ρ h(γ_ρ) = W_∞(g) + W_pole(g) − Σ_p Σ_{k≥1} (log p / p^{k/2})·(g(k log p) + g(−k log p))` |
+### PLACE-papers the credit lines -- phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md @ 53961af2 (1 lines cited)
+    :143    *Credit (b450, relay `data/b450_batch.json`, THE_UNCONDITIONAL_SURROUND item 2, carried at b581 under `(R191)`(4)):* Day-1 BALANCE_AND_POSITIVITY §I attributed the positivity to the archimedean term alone, its `W_∞` row reading “positive (provable)”, and the repaired attribution is to the pole-plus-
+### PLACE-papers the credit lines (INDEX_ARITY) -- phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md @ 53961af2 (1 lines cited)
+    :61     *Credit (b450, relay `data/b450_batch.json`, INDEX_ARITY_AT_THE_CRITICAL_LINE “the Day-1 section I attribution pole-plus-archimedean”, carried at b585 under `(R195)`(3)):* Day-1 BALANCE_AND_POSITIVITY §I attributed the positivity to the archimedean term alone, its `W_∞` row reading “positive (provab
+### PLACE-papers FINDINGS, the tier law`s programme-premise clause and b589`s entry -- FINDINGS.md @ 53961af2 (2 lines cited)
+    :5812   *Appended at b555 (2026-09-28) to the tier law (`FINDINGS.md`:4805, b539; :4819, b540), under `(R165)`(3) -- THE PROGRAMME-PREMISE CLAUSE:* a terminal that interfaces on a named premise which is neither compiled nor a literature theorem but the programme's own manuscript claim -- `silence_universal`
+    :6718   ## The comprehensive housekeeping act: E_DIFFICULTY_THEOREM's table and edition; the constellation re-read over 20 tables with 2 cells moved; the TECHNE extraction sweep two HELD at the missing file; the three-way λ_n table; the Keiper read; the lv re-measure; the product lemma priced
+### the patent repository, the sweep`s head and table head -- SWEEP_TWO_2026-10-01.md @ 433ae015 (4 lines cited)
+    :1      # TECHNE extraction sweep two -- 2026-10-01
+    :5      *No judgement of patentability is made here; that is counsel`s. The claim families are the navigator`s reading at the b588 closing, which is not in the seat`s hands; each row leaves that column for the author`s paste.*
+    :9      | instrument | act of origin | its test | its relay path | claim family (the navigator`s, b588 closing) |
+    :10     |:--|:--|:--|:--|:--|
+### relay b589`s closing push-out, its head -- data/b589_closing_push_out.txt @ 0b2cd9f6 (3 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b589_closing_push_out.txt (2026-10-02T03:51:13Z)
+    :2      push_gated: repo D:/relay ; branch push-b589-closing ; tip 8f242f97f797d549c0e2afc08fcac0f613159995 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git

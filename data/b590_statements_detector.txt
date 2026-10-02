@@ -1,0 +1,25 @@
+b590 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/Detector.lean, PRINTED BEFORE THE BUILD (reading (v))
+
+### written at (UTC) 2026-10-02T04:33:17Z ; the branch epstein-b590 (checked out: epstein-b590) ; the file`s sha256 82e0e4c89de9da7d02553b683ac268acce7343fdbfa1930f4324b0a0020df6ee ; its bytes 8150
+
+### :28 theorem half_pos'
+    theorem half_pos' : (0 : ℝ) < 1 / 2 := by norm_num
+### :30 theorem half_lt_one'
+    theorem half_lt_one' : (1 / 2 : ℝ) < 1 := by norm_num
+### :33 def baseWidth
+    def baseWidth (ρ : ℂ) : ℝ := 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))
+### :35 theorem baseWidth_pos
+    theorem baseWidth_pos (ρ : ℂ) : 0 < baseWidth ρ := by
+### :40 def detectorBase
+    def detectorBase (ρ : ℂ) : ℝ → ℝ := plateau (1 / 2) (baseWidth ρ) half_pos' half_lt_one' (baseWidth_pos ρ)
+### :44 theorem base_nonzero_at_width
+    theorem base_nonzero_at_width (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) (L : ℝ) (hL : 0 < L)
+        (hLL : L ≤ 1 / (4 * (‖z‖ + 1))) : Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0 := by
+### :99 theorem detector
+    theorem detector (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :
+        ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧
+          Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧
+          (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0 := by
+### :120 theorem not_h2_sign_cfg_of_offline
+    theorem not_h2_sign_cfg_of_offline (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :
+        ¬ h2_sign_cfg C := by

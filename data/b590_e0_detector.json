@@ -1,0 +1,104 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.half_pos'": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (0 : ℝ) < 1 / 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.half_lt_one'": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (1 / 2 : ℝ) < 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.baseWidth": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : ℂ) : ℝ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.baseWidth_pos": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : ℂ) : 0 < baseWidth ρ",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.detectorBase": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : ℂ) : ℝ → ℝ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.base_nonzero_at_width": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hF0 : 0 < F, hF1 : F < 1, hL : 0 < L",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) (L : ℝ) (hL : 0 < L) (hLL : L ≤ 1 / (4 * (‖z‖ + 1))) : Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.detector": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h₀ : ρ₀ ∈ C.carrier, hoff : ρ₀.re ≠ 1 / 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) : ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧ Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧ (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h₀ : ρ₀ ∈ C.carrier, hoff : ρ₀.re ≠ 1 / 2",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) : ¬ h2_sign_cfg C",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "58b912a8706110cc73d48fc6060fcc6f3d55e2ec",
+ "file": "SIDEExplicitFormula/Schema/Detector.lean",
+ "same_file": true
+}

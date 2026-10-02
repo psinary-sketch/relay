@@ -1,0 +1,80 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.rhoE": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.rhoE_re_ne_half": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": rhoE.re ≠ 1 / 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.EpsteinPremises": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": null,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.epsteinConfig": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) : WeilConfig where toZeroConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg": {
+   "grade": "INTERFACES",
+   "why": "hP : EpsteinPremises Z rhs",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.epstein_detector": {
+   "grade": "INTERFACES",
+   "why": "hP : EpsteinPremises Z rhs",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) (hE : rhoE ∈ Z.carrier) : ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase rhoE) j) ∧ Function.support (pwWindow a (detectorBase rhoE) j) ⊆ Set.Icc (-(2 ^ j * baseWidth rhoE)) (2 ^ j * baseWidth rhoE) ∧ (zeroSide_cfg (epsteinConfig Z rhs hP) (kWindow a (detectorBase rhoE) j)).re < 0",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "c404e727d7f7121b180318cca32eeb115452ed1b",
+ "file": "SIDEExplicitFormula/Schema/Epstein.lean",
+ "same_file": true
+}

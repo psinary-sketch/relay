@@ -1,0 +1,91 @@
+{
+ "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+ "sha256": "edc62f25993666e357a22ec9f0f8173c8abff935910c9eafc567d6ef395feb40",
+ "at": "2026-10-02T04:45:40Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "toyCarrier",
+   "line": 33,
+   "head": "def toyCarrier : Set ℂ := {rhoE, Zeta23.reflect rhoE}"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_strip",
+   "line": 35,
+   "head": "theorem toy_strip : ∀ ρ ∈ toyCarrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_reflect_mem",
+   "line": 45,
+   "head": "theorem toy_reflect_mem : ∀ ρ ∈ toyCarrier, Zeta23.reflect ρ ∈ toyCarrier := by"
+  },
+  {
+   "kind": "def",
+   "name": "toyZ",
+   "line": 54,
+   "head": "def toyZ : Zeta23.ZeroConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "log_three_gt_one",
+   "line": 63,
+   "head": "theorem log_three_gt_one : 1 < Real.log 3 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_count",
+   "line": 68,
+   "head": "theorem toy_count : HCount toyZ 2 := by"
+  },
+  {
+   "kind": "def",
+   "name": "toyRhs",
+   "line": 86,
+   "head": "def toyRhs : (ℝ → ℂ) → ℂ := fun k => ∑' ρ : toyZ.carrier, (toyZ.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_premises",
+   "line": 88,
+   "head": "theorem toy_premises : EpsteinPremises toyZ toyRhs :="
+  },
+  {
+   "kind": "theorem",
+   "name": "epstein_hypotheses_satisfiable",
+   "line": 92,
+   "head": "theorem epstein_hypotheses_satisfiable :\n    ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ), EpsteinPremises Z rhs ∧ rhoE ∈ Z.carrier :="
+  },
+  {
+   "kind": "def",
+   "name": "emptyZ",
+   "line": 97,
+   "head": "def emptyZ : Zeta23.ZeroConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "empty_count",
+   "line": 106,
+   "head": "theorem empty_count : HCount emptyZ 1 := by"
+  },
+  {
+   "kind": "def",
+   "name": "emptyRhs",
+   "line": 115,
+   "head": "def emptyRhs : (ℝ → ℂ) → ℂ := fun k => ∑' ρ : emptyZ.carrier, (emptyZ.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)"
+  },
+  {
+   "kind": "theorem",
+   "name": "empty_premises",
+   "line": 117,
+   "head": "theorem empty_premises : EpsteinPremises emptyZ emptyRhs :="
+  },
+  {
+   "kind": "theorem",
+   "name": "membership_load_bearing",
+   "line": 122,
+   "head": "theorem membership_load_bearing :\n    ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP) :="
+  }
+ ]
+}

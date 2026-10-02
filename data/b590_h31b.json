@@ -1,0 +1,41 @@
+{
+ "H31b": "HOLDS",
+ "satisfiable": {
+  "grade": "DERIVES",
+  "why": "no hypothesis binder",
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "std3": true,
+  "head": ": ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ), EpsteinPremises Z rhs ∧ rhoE ∈ Z.carrier",
+  "kind": "theorem"
+ },
+ "load_bearing": {
+  "grade": "INTERFACES",
+  "why": "hP : EpsteinPremises Z rhs",
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "std3": true,
+  "head": ": ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP)",
+  "kind": "theorem"
+ },
+ "conclusion": {
+  "grade": "INTERFACES",
+  "why": "hP : EpsteinPremises Z rhs",
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "std3": true,
+  "head": "(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP)",
+  "kind": "theorem"
+ },
+ "names": true,
+ "check": "SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg : ∀ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ)\n  (hP : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs),\n  SIDEExplicitFormula.Schema.rhoE ∈ Z.carrier →\n    ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.epsteinConfig Z rhs hP)"
+}

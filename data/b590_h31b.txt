@@ -1,0 +1,13 @@
+b590 -- COMPONENT 3: H31b, THE SALT-CHECK, SCORED BY THE FACE`S PREDICATE (reading (vi))
+
+### epstein_hypotheses_satisfiable : ['propext', 'Classical.choice', 'Quot.sound'] (DERIVES) -- the hypotheses of the conclusion hold together: a configuration of rhoE and its reflection, multiplicity one, its arithmetic side its own zero side, the count with A0 = 2
+### membership_load_bearing : ['propext', 'Classical.choice', 'Quot.sound'] (INTERFACES) -- the empty configuration satisfies the premises and is Weil-positive on classK, so the conclusion needs the membership
+### epstein_not_h2_sign_cfg : ['propext', 'Classical.choice', 'Quot.sound'] ; E0 INTERFACES -- hP : EpsteinPremises Z rhs
+### its #check names epsteinConfig and rhoE: True
+    SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg : ∀ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ)
+      (hP : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs),
+      SIDEExplicitFormula.Schema.rhoE ∈ Z.carrier →
+        ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.epsteinConfig Z rhs hP)
+### the tier: T2-INTERFACES by the weakest link -- the count premise the programme`s own bench reading, the explicit-formula premise T1-lit (FINDINGS :5812); the premise bundle`s consistency with the actual Z_Q unproved in the kernel.
+
+### ### **H31b HOLDS.**

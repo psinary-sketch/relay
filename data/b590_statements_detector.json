@@ -1,0 +1,55 @@
+{
+ "file": "SIDEExplicitFormula/Schema/Detector.lean",
+ "sha256": "82e0e4c89de9da7d02553b683ac268acce7343fdbfa1930f4324b0a0020df6ee",
+ "at": "2026-10-02T04:33:17Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "half_pos'",
+   "line": 28,
+   "head": "theorem half_pos' : (0 : ℝ) < 1 / 2 := by norm_num"
+  },
+  {
+   "kind": "theorem",
+   "name": "half_lt_one'",
+   "line": 30,
+   "head": "theorem half_lt_one' : (1 / 2 : ℝ) < 1 := by norm_num"
+  },
+  {
+   "kind": "def",
+   "name": "baseWidth",
+   "line": 33,
+   "head": "def baseWidth (ρ : ℂ) : ℝ := 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))"
+  },
+  {
+   "kind": "theorem",
+   "name": "baseWidth_pos",
+   "line": 35,
+   "head": "theorem baseWidth_pos (ρ : ℂ) : 0 < baseWidth ρ := by"
+  },
+  {
+   "kind": "def",
+   "name": "detectorBase",
+   "line": 40,
+   "head": "def detectorBase (ρ : ℂ) : ℝ → ℝ := plateau (1 / 2) (baseWidth ρ) half_pos' half_lt_one' (baseWidth_pos ρ)"
+  },
+  {
+   "kind": "theorem",
+   "name": "base_nonzero_at_width",
+   "line": 44,
+   "head": "theorem base_nonzero_at_width (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) (L : ℝ) (hL : 0 < L)\n    (hLL : L ≤ 1 / (4 * (‖z‖ + 1))) : Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "detector",
+   "line": 99,
+   "head": "theorem detector (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :\n    ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧\n      Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧\n      (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "not_h2_sign_cfg_of_offline",
+   "line": 120,
+   "head": "theorem not_h2_sign_cfg_of_offline (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :\n    ¬ h2_sign_cfg C := by"
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+b590 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/SaltCheckEpstein.lean, PRINTED BEFORE THE BUILD (reading (vi))
+
+### written at (UTC) 2026-10-02T04:45:40Z ; the branch epstein-b590 (checked out: epstein-b590) ; the file`s sha256 edc62f25993666e357a22ec9f0f8173c8abff935910c9eafc567d6ef395feb40 ; its bytes 5642
+
+### :33 def toyCarrier
+    def toyCarrier : Set ℂ := {rhoE, Zeta23.reflect rhoE}
+### :35 theorem toy_strip
+    theorem toy_strip : ∀ ρ ∈ toyCarrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1 := by
+### :45 theorem toy_reflect_mem
+    theorem toy_reflect_mem : ∀ ρ ∈ toyCarrier, Zeta23.reflect ρ ∈ toyCarrier := by
+### :54 def toyZ
+    def toyZ : Zeta23.ZeroConfig where
+### :63 theorem log_three_gt_one
+    theorem log_three_gt_one : 1 < Real.log 3 := by
+### :68 theorem toy_count
+    theorem toy_count : HCount toyZ 2 := by
+### :86 def toyRhs
+    def toyRhs : (ℝ → ℂ) → ℂ := fun k => ∑' ρ : toyZ.carrier, (toyZ.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+### :88 theorem toy_premises
+    theorem toy_premises : EpsteinPremises toyZ toyRhs :=
+### :92 theorem epstein_hypotheses_satisfiable
+    theorem epstein_hypotheses_satisfiable :
+        ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ), EpsteinPremises Z rhs ∧ rhoE ∈ Z.carrier :=
+### :97 def emptyZ
+    def emptyZ : Zeta23.ZeroConfig where
+### :106 theorem empty_count
+    theorem empty_count : HCount emptyZ 1 := by
+### :115 def emptyRhs
+    def emptyRhs : (ℝ → ℂ) → ℂ := fun k => ∑' ρ : emptyZ.carrier, (emptyZ.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+### :117 theorem empty_premises
+    theorem empty_premises : EpsteinPremises emptyZ emptyRhs :=
+### :122 theorem membership_load_bearing
+    theorem membership_load_bearing :
+        ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP) :=

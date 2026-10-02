@@ -1,0 +1,43 @@
+{
+ "file": "SIDEExplicitFormula/Schema/Epstein.lean",
+ "sha256": "630c744b8693b66e6b3fae7034bfc22b5fadc43e572f39b1f6d601912a7d99da",
+ "at": "2026-10-02T04:45:40Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "rhoE",
+   "line": 32,
+   "head": "def rhoE : ℂ := ⟨0.7979971571786801, 29.551761098629115⟩"
+  },
+  {
+   "kind": "theorem",
+   "name": "rhoE_re_ne_half",
+   "line": 34,
+   "head": "theorem rhoE_re_ne_half : rhoE.re ≠ 1 / 2 := by"
+  },
+  {
+   "kind": "structure",
+   "name": "EpsteinPremises",
+   "line": 41,
+   "head": "structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where"
+  },
+  {
+   "kind": "def",
+   "name": "epsteinConfig",
+   "line": 47,
+   "head": "def epsteinConfig (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) : WeilConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "epstein_not_h2_sign_cfg",
+   "line": 57,
+   "head": "theorem epstein_not_h2_sign_cfg (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)\n    (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "epstein_detector",
+   "line": 62,
+   "head": "theorem epstein_detector (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)\n    (hE : rhoE ∈ Z.carrier) :\n    ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase rhoE) j) ∧\n      Function.support (pwWindow a (detectorBase rhoE) j) ⊆ Set.Icc (-(2 ^ j * baseWidth rhoE)) (2 ^ j * baseWidth rhoE) ∧\n      (zeroSide_cfg (epsteinConfig Z rhs hP) (kWindow a (detectorBase rhoE) j)).re < 0 :="
+  }
+ ]
+}

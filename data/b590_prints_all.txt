@@ -1,0 +1,112 @@
+b590 -- THE PRINTS (all): `lake env lean` at SIDE-explicit-formula epstein-b590 (checked out: epstein-b590, HEAD 58b912a), the watchdog`s run
+### ### EXIT rc=0 ; seconds 22 ; peak lean resident 1544 MB ; free MB after 5057 ; stopped None
+
+'SIDEExplicitFormula.Schema.half_pos'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.half_lt_one'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.baseWidth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.baseWidth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.detectorBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.base_nonzero_at_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.rhoE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.rhoE_re_ne_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.EpsteinPremises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.epsteinConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.epstein_detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toyCarrier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_reflect_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toyZ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.log_three_gt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toyRhs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.epstein_hypotheses_satisfiable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.emptyZ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.emptyRhs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.zeroSide_eventually_neg_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.dominant_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.base_nonzero_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWindow_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.pwWindow_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.Schema.detector : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  ∀ ρ₀ ∈ C.carrier,
+    ρ₀.re ≠ 1 / 2 →
+      ∃ a j,
+        SIDEExplicitFormula.B321.classK
+            (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ∧
+          Function.support (SIDEExplicitFormula.B321.pwWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ⊆
+              Set.Icc (-(2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀))
+                (2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀) ∧
+            (SIDEExplicitFormula.Schema.zeroSide_cfg C
+                  (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j)).re <
+              0
+SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  ∀ ρ₀ ∈ C.carrier, ρ₀.re ≠ 1 / 2 → ¬SIDEExplicitFormula.Schema.h2_sign_cfg C
+SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg : ∀ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ)
+  (hP : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs),
+  SIDEExplicitFormula.Schema.rhoE ∈ Z.carrier →
+    ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.epsteinConfig Z rhs hP)
+SIDEExplicitFormula.Schema.epstein_detector : ∀ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ)
+  (hP : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs),
+  SIDEExplicitFormula.Schema.rhoE ∈ Z.carrier →
+    ∃ a j,
+      SIDEExplicitFormula.B321.classK
+          (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase SIDEExplicitFormula.Schema.rhoE)
+            j) ∧
+        Function.support
+              (SIDEExplicitFormula.B321.pwWindow a
+                (SIDEExplicitFormula.Schema.detectorBase SIDEExplicitFormula.Schema.rhoE) j) ⊆
+            Set.Icc (-(2 ^ j * SIDEExplicitFormula.Schema.baseWidth SIDEExplicitFormula.Schema.rhoE))
+              (2 ^ j * SIDEExplicitFormula.Schema.baseWidth SIDEExplicitFormula.Schema.rhoE) ∧
+          (SIDEExplicitFormula.Schema.zeroSide_cfg (SIDEExplicitFormula.Schema.epsteinConfig Z rhs hP)
+                (SIDEExplicitFormula.B321.kWindow a
+                  (SIDEExplicitFormula.Schema.detectorBase SIDEExplicitFormula.Schema.rhoE) j)).re <
+            0
+SIDEExplicitFormula.Schema.SaltCheckEpstein.epstein_hypotheses_satisfiable : ∃ Z rhs,
+  SIDEExplicitFormula.Schema.EpsteinPremises Z rhs ∧ SIDEExplicitFormula.Schema.rhoE ∈ Z.carrier
+SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing : ∃ Z rhs,
+  ∃ (hP : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs),
+    SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.epsteinConfig Z rhs hP)
+def SIDEExplicitFormula.Schema.baseWidth : ℂ → ℝ :=
+fun ρ => 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))
+def SIDEExplicitFormula.Schema.detectorBase : ℂ → ℝ → ℝ :=
+fun ρ =>
+  SIDEExplicitFormula.B321.plateau (1 / 2) (SIDEExplicitFormula.Schema.baseWidth ρ) SIDEExplicitFormula.Schema.half_pos'
+    SIDEExplicitFormula.Schema.half_lt_one' ⋯
+def SIDEExplicitFormula.Schema.rhoE : ℂ :=
+{ re := 0.7979971571786801, im := 29.551761098629115 }
+structure SIDEExplicitFormula.Schema.EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop
+number of parameters: 2
+fields:
+  SIDEExplicitFormula.Schema.EpsteinPremises.ef : ∀ (k : ℝ → ℂ),
+      ContDiff ℝ 2 k →
+        HasCompactSupport k →
+          (∀ (x : ℝ), k (-x) = k x) → ∑' (ρ : ↑Z.carrier), ↑(Z.mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ) = rhs k
+  SIDEExplicitFormula.Schema.EpsteinPremises.count : ∃ A₀, SIDEExplicitFormula.B321.HCount Z A₀
+constructor:
+  SIDEExplicitFormula.Schema.EpsteinPremises.mk {Z : Zeta23.ZeroConfig} {rhs : (ℝ → ℂ) → ℂ}
+    (ef :
+      ∀ (k : ℝ → ℂ),
+        ContDiff ℝ 2 k →
+          HasCompactSupport k →
+            (∀ (x : ℝ), k (-x) = k x) →
+              ∑' (ρ : ↑Z.carrier), ↑(Z.mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ) = rhs k)
+    (count : ∃ A₀, SIDEExplicitFormula.B321.HCount Z A₀) : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs
+def SIDEExplicitFormula.Schema.epsteinConfig : (Z : Zeta23.ZeroConfig) →
+  (rhs : (ℝ → ℂ) → ℂ) → SIDEExplicitFormula.Schema.EpsteinPremises Z rhs → SIDEExplicitFormula.Schema.WeilConfig :=
+fun Z rhs hP =>
+  { toZeroConfig := Z, rhs := rhs, ef := ⋯, count := ⋯, target := ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2, target_iff := ⋯ }

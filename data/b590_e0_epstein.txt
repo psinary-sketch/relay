@@ -1,0 +1,19 @@
+b590 -- THE E0 READ OF SIDEExplicitFormula/Schema/Epstein.lean AT THE BRANCH TIP c404e72 (epstein-b590)
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+### the file at the tip is the one printed before the build: True
+
+    rhoE                               DEF        std3  -- 
+    rhoE_re_ne_half                    DERIVES    std3  -- no hypothesis binder
+    EpsteinPremises                    DEF        std3  -- 
+    epsteinConfig                      DEF        std3  -- 
+    epstein_not_h2_sign_cfg            INTERFACES std3  -- hP : EpsteinPremises Z rhs
+    epstein_detector                   INTERFACES std3  -- hP : EpsteinPremises Z rhs
+### ### **THE GATE: PASS** -- declarations 6, theorems 3 (DERIVES 1, INTERFACES 2)

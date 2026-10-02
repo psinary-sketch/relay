@@ -1,0 +1,188 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toyCarrier": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Set ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_strip": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∀ ρ ∈ toyCarrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_reflect_mem": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∀ ρ ∈ toyCarrier, Zeta23.reflect ρ ∈ toyCarrier",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_finite": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": toyCarrier.Finite",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toyZ": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Zeta23.ZeroConfig where carrier",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.log_three_gt_one": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": 1 < Real.log 3",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_count": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": HCount toyZ 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toyRhs": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (ℝ → ℂ) → ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": EpsteinPremises toyZ toyRhs",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.epstein_hypotheses_satisfiable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ), EpsteinPremises Z rhs ∧ rhoE ∈ Z.carrier",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.emptyZ": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Zeta23.ZeroConfig where carrier",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_count": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": HCount emptyZ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.emptyRhs": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (ℝ → ℂ) → ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": EpsteinPremises emptyZ emptyRhs",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing": {
+   "grade": "INTERFACES",
+   "why": "hP : EpsteinPremises Z rhs",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP)",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "c404e727d7f7121b180318cca32eeb115452ed1b",
+ "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+ "same_file": true
+}

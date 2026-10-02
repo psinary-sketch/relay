@@ -1,0 +1,49 @@
+{
+ "axioms": {
+  "SIDEExplicitFormula.Schema.half_pos'": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.half_lt_one'": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.baseWidth": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.baseWidth_pos": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.detectorBase": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.base_nonzero_at_width": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.detector": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "sorry": [],
+ "std3": true,
+ "exit": "### EXIT rc=0 ; seconds 22 ; peak lean resident 1541 MB ; free MB after 4966 ; stopped None",
+ "errors": 0,
+ "text": "'SIDEExplicitFormula.Schema.half_pos'' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.half_lt_one'' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.baseWidth' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.baseWidth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.detectorBase' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.base_nonzero_at_width' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.detector' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline' depends on axioms: [propext, Classical.choice, Quot.sound]\nSIDEExplicitFormula.Schema.detector : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),\n  ∀ ρ₀ ∈ C.carrier,\n    ρ₀.re ≠ 1 / 2 →\n      ∃ a j,\n        SIDEExplicitFormula.B321.classK\n            (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ∧\n          Function.support (SIDEExplicitFormula.B321.pwWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ⊆\n              Set.Icc (-(2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀))\n                (2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀) ∧\n            (SIDEExplicitFormula.Schema.zeroSide_cfg C\n                  (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j)).re <\n              0\nSIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),\n  ∀ ρ₀ ∈ C.carrier, ρ₀.re ≠ 1 / 2 → ¬SIDEExplicitFormula.Schema.h2_sign_cfg C\ndef SIDEExplicitFormula.Schema.baseWidth : ℂ → ℝ :=\nfun ρ => 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))\ndef SIDEExplicitFormula.Schema.detectorBase : ℂ → ℝ → ℝ :=\nfun ρ =>\n  SIDEExplicitFormula.B321.plateau (1 / 2) (SIDEExplicitFormula.Schema.baseWidth ρ) SIDEExplicitFormula.Schema.half_pos'\n    SIDEExplicitFormula.Schema.half_lt_one' ⋯"
+}

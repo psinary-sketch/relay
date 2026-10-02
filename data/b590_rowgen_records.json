@@ -1,0 +1,54 @@
+{
+ "rowgen": [
+  {
+   "name": "SIDEExplicitFormula.Schema.detector",
+   "pin": "c404e72",
+   "file": "SIDEExplicitFormula/Schema/Detector.lean",
+   "check": "SIDEExplicitFormula.Schema.detector : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig), ∀ ρ₀ ∈ C.carrier, ρ₀.re ≠ 1 / 2 → ∃ a j, SIDEExplicitFormula.B321.classK (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ∧ Function.support (SIDEExplicitFormula.B321.pwWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀)) (2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀) ∧ (SIDEExplicitFormula.Schema.zeroSide_cfg C (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j)).re < 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**THE DETECTOR THEOREM**: for a configuration of the schema with a point `ρ₀` off the line, there are a coefficient list `a` and a power `j` such that the window `kWindow a (detectorBase ρ₀) j` is in classK, its pre-pairing factor is supported in `[-(2^j w), 2^j w]` with `w = baseWidth ρ₀`, and its zero side has negative real part.",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": "baseWidth := 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))",
+   "defenc_raw": true
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline",
+   "pin": "c404e72",
+   "file": "SIDEExplicitFormula/Schema/Detector.lean",
+   "check": "SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig), ∀ ρ₀ ∈ C.carrier, ρ₀.re ≠ 1 / 2 → ¬SIDEExplicitFormula.Schema.h2_sign_cfg C",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**The detector's consequence**: a configuration of the schema with a point off the line is not Weil-positive on classK",
+   "body1": "by",
+   "defenc": false,
+   "defenc_why": "",
+   "defenc_raw": false
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg",
+   "pin": "c404e72",
+   "file": "SIDEExplicitFormula/Schema/Epstein.lean",
+   "check": "SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg : ∀ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : SIDEExplicitFormula.Schema.EpsteinPremises Z rhs), SIDEExplicitFormula.Schema.rhoE ∈ Z.carrier → ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.epsteinConfig Z rhs hP)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "doc": "**THE EPSTEIN NEGATIVE CONTROL, AT INTERFACES**: under the Epstein premises, with the bench's off-line zero in the carrier, the configuration is not Weil-positive on classK.",
+   "body1": "not_h2_sign_cfg_of_offline (epsteinConfig Z rhs hP) rhoE hE rhoE_re_ne_half",
+   "defenc": false,
+   "defenc_why": "",
+   "defenc_raw": false
+  }
+ ],
+ "control": true,
+ "tip": "c404e727d7f7121b180318cca32eeb115452ed1b"
+}

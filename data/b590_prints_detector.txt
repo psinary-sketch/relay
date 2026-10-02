@@ -1,0 +1,31 @@
+b590 -- THE PRINTS (detector): `lake env lean` at SIDE-explicit-formula epstein-b590 (checked out: epstein-b590, HEAD 21c8c52), the watchdog`s run
+### ### EXIT rc=0 ; seconds 22 ; peak lean resident 1541 MB ; free MB after 4966 ; stopped None
+
+'SIDEExplicitFormula.Schema.half_pos'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.half_lt_one'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.baseWidth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.baseWidth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.detectorBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.base_nonzero_at_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.Schema.detector : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  ∀ ρ₀ ∈ C.carrier,
+    ρ₀.re ≠ 1 / 2 →
+      ∃ a j,
+        SIDEExplicitFormula.B321.classK
+            (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ∧
+          Function.support (SIDEExplicitFormula.B321.pwWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j) ⊆
+              Set.Icc (-(2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀))
+                (2 ^ j * SIDEExplicitFormula.Schema.baseWidth ρ₀) ∧
+            (SIDEExplicitFormula.Schema.zeroSide_cfg C
+                  (SIDEExplicitFormula.B321.kWindow a (SIDEExplicitFormula.Schema.detectorBase ρ₀) j)).re <
+              0
+SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  ∀ ρ₀ ∈ C.carrier, ρ₀.re ≠ 1 / 2 → ¬SIDEExplicitFormula.Schema.h2_sign_cfg C
+def SIDEExplicitFormula.Schema.baseWidth : ℂ → ℝ :=
+fun ρ => 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))
+def SIDEExplicitFormula.Schema.detectorBase : ℂ → ℝ → ℝ :=
+fun ρ =>
+  SIDEExplicitFormula.B321.plateau (1 / 2) (SIDEExplicitFormula.Schema.baseWidth ρ) SIDEExplicitFormula.Schema.half_pos'
+    SIDEExplicitFormula.Schema.half_lt_one' ⋯

@@ -1,0 +1,28 @@
+b590 -- THE E0 READ OF SIDEExplicitFormula/Schema/SaltCheckEpstein.lean AT THE BRANCH TIP c404e72 (epstein-b590)
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+### the file at the tip is the one printed before the build: True
+
+    toyCarrier                         DEF        std3  -- 
+    toy_strip                          DERIVES    std3  -- no hypothesis binder
+    toy_reflect_mem                    DERIVES    std3  -- no hypothesis binder
+    toy_finite                         DERIVES    std3  -- no hypothesis binder
+    toyZ                               DEF        std3  -- 
+    log_three_gt_one                   DERIVES    std3  -- no hypothesis binder
+    toy_count                          DERIVES    std3  -- no hypothesis binder
+    toyRhs                             DEF        std3  -- 
+    toy_premises                       DERIVES    std3  -- no hypothesis binder
+    epstein_hypotheses_satisfiable     DERIVES    std3  -- no hypothesis binder
+    emptyZ                             DEF        std3  -- 
+    empty_count                        DERIVES    std3  -- no hypothesis binder
+    emptyRhs                           DEF        std3  -- 
+    empty_premises                     DERIVES    std3  -- no hypothesis binder
+    membership_load_bearing            INTERFACES std3  -- hP : EpsteinPremises Z rhs
+### ### **THE GATE: PASS** -- declarations 15, theorems 10 (DERIVES 9, INTERFACES 1)
