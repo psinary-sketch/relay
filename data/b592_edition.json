@@ -1,0 +1,187 @@
+{
+ "path": "phase1.5/proofs/THE_RESIDUE_OF_RH_v1_2.md",
+ "cur": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+ "cur_blob": "1c7b951fa8c56ddd23407debb872b4e226562b13",
+ "lines_cur": 253,
+ "lines_body": 261,
+ "lines_full": 349,
+ "n_cur": 256,
+ "n_body": 260,
+ "n_full": 325,
+ "n_backmatter": 65,
+ "credit": 1,
+ "removals": 0,
+ "ruled_citations": 2,
+ "ruled_rewrites": 4,
+ "version_lines": 1,
+ "diff": [
+  {
+   "id": "RESIDUE:132:257",
+   "line": 132,
+   "ed_line": 136,
+   "terminal": "h2_sign",
+   "old": "| ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |",
+   "new": "| ### **`h2`, the one open premise, in its Weil form `h2_sign`** | `SIDE-explicit-formula` v0.2 = `5c72cad` | `SIDEExplicitFormula.B321.h2_sign_iff_rh` (the ζ page, node 8, line 12) | `{propext, Classical.choice, Quot.sound}` | ### **OPEN** — the premise `h2_sign` has a terminal and is open, and its equivalence to Mathlib's `RiemannHypothesis` is the compiled theorem `h2_sign_iff_rh` (monograph §27.3, register 4) | `#check` and `#print axioms` of `h2_sign_iff_rh` at v0.2 |",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh"
+   ],
+   "supports": "says h2 has no terminal and is manuscript-resident, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (the row MOVED at b549, :240).",
+   "kind": "work-list"
+  },
+  {
+   "id": "ruled:77",
+   "line": 77,
+   "ed_line": 79,
+   "terminal": "(R177)(5) reading",
+   "old": "- **only the conjunction is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion).",
+   "new": "- **the conjunction implies RH, and clause 2 in full is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion, discharged at λ := `LiCoeff`), while clause 2 taken for every `n` is RH by three compiled faces beside this theorem, each equivalent to Mathlib's `RiemannHypothesis` — Weil positivity on classK by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), Li positivity by `li_nonneg_iff_rh` (v0.9 = `e5a5a83`), in the residue's own vocabulary `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`), and arithmetic-limit positivity by `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`) — and clause 1 is a candidate supplier of that positivity and not a separate necessity.",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "arith_limit_nonneg_iff_rh",
+    "register4_positivity_liCoeff_iff_rh"
+   ],
+   "supports": "(R202)(4): §7’s conjunction sentence, the (R177)(5) reading (FINDINGS :6218)",
+   "kind": "ruled"
+  },
+  {
+   "id": "ruled:79",
+   "line": 79,
+   "ed_line": 83,
+   "terminal": "(R177)(5) reading",
+   "old": "Neither clause alone is hard; their join is the whole of RH.",
+   "new": "Neither clause alone is hard while clause 2 stops at the threshold; clause 2 in full is RH by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` (v0.9 = `e5a5a83`) with `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`) and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`), and clause 1 is a candidate supplier of it.",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "arith_limit_nonneg_iff_rh",
+    "register4_positivity_liCoeff_iff_rh"
+   ],
+   "supports": "the author’s answers 3 and 5 before the seal: the marked reading extended to an unmarked sentence restating the same claim",
+   "kind": "ruled"
+  },
+  {
+   "id": "ruled:79",
+   "line": 79,
+   "ed_line": 83,
+   "terminal": "(R177)(5) reading",
+   "old": "the difficulty is located exactly at the conjunction.",
+   "new": "the difficulty is located in clause 2 in full, which is RH by the faces cited above, the conjunction implying RH.",
+   "changed": true,
+   "cites": [],
+   "supports": "the author’s answers 3 and 5 before the seal: the marked reading extended to an unmarked sentence restating the same claim",
+   "kind": "ruled"
+  },
+  {
+   "id": "ruled:88",
+   "line": 88,
+   "ed_line": 92,
+   "terminal": "(R177)(5) reading",
+   "old": "`residue_irreducible` is the first *compiled* instance of difficulty located at a conjunction of individually-free clauses.",
+   "new": "`residue_irreducible` is the first *compiled* instance of a conjunction of individually-free clauses that implies RH, its difficulty located in clause 2 in full, which is RH by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` (v0.9 = `e5a5a83`) with `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`) and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`), and clause 1 a candidate supplier.",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "arith_limit_nonneg_iff_rh",
+    "register4_positivity_liCoeff_iff_rh"
+   ],
+   "supports": "the author’s answer 3 before the seal: the marked reading extended to an unmarked sentence restating the same claim",
+   "kind": "ruled"
+  }
+ ],
+ "offset": "+2 from :17 (the v1.2 line and a blank, above the v1.1 line); +2 more from :78 (a blank and the credit line, beneath :77); +2 more from :137 (a blank and the history line, beneath :136); +2 more from :155 (a blank and the history line, beneath :154) -- v1.1 :n sits at the edition`s :n for n < 17, :n+2 for 17 <= n <= 77, :n+4 for 78 <= n <= 136, :n+6 for 137 <= n <= 154 and :n+8 for n >= 155",
+ "worklist": [
+  [
+   132,
+   "| ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |",
+   "| ### **`h2`, the one open premise, in its Weil form `h2_sign`** | `SIDE-explicit-formula` v0.2 = `5c72cad` | `SIDEExplicitFormula.B321.h2_sign_iff_rh` (the ζ page, node 8, line 12) | `{propext, Classical.choice, Quot.sound}` | ### **OPEN** — the premise `h2_sign` has a terminal and is open, and its equivalence to Mathlib's `RiemannHypothesis` is the compiled theorem `h2_sign_iff_rh` (monograph §27.3, register 4) | `#check` and `#print axioms` of `h2_sign_iff_rh` at v0.2 |"
+  ]
+ ],
+ "ruled": [
+  [
+   77,
+   "- **only the conjunction is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion).",
+   "- **the conjunction implies RH, and clause 2 in full is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion, discharged at λ := `LiCoeff`), while clause 2 taken for every `n` is RH by three compiled faces beside this theorem, each equivalent to Mathlib's `RiemannHypothesis` — Weil positivity on classK by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), Li positivity by `li_nonneg_iff_rh` (v0.9 = `e5a5a83`), in the residue's own vocabulary `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`), and arithmetic-limit positivity by `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`) — and clause 1 is a candidate supplier of that positivity and not a separate necessity."
+  ],
+  [
+   79,
+   "Neither clause alone is hard; their join is the whole of RH.",
+   "Neither clause alone is hard while clause 2 stops at the threshold; clause 2 in full is RH by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` (v0.9 = `e5a5a83`) with `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`) and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`), and clause 1 is a candidate supplier of it."
+  ],
+  [
+   79,
+   "the difficulty is located exactly at the conjunction.",
+   "the difficulty is located in clause 2 in full, which is RH by the faces cited above, the conjunction implying RH."
+  ],
+  [
+   88,
+   "`residue_irreducible` is the first *compiled* instance of difficulty located at a conjunction of individually-free clauses.",
+   "`residue_irreducible` is the first *compiled* instance of a conjunction of individually-free clauses that implies RH, its difficulty located in clause 2 in full, which is RH by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` (v0.9 = `e5a5a83`) with `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`) and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`), and clause 1 a candidate supplier."
+  ]
+ ],
+ "hist": [
+  [
+   136,
+   134,
+   "*History line, 2026-10-02 (v1.2, b592): the dated annotation above carries its 2026-08-12 wording as the record; the object its last sentence names is a blank cell -- every row that has no kernel says so in words rather than leaving a blank cell.*"
+  ],
+  [
+   154,
+   152,
+   "*History line, 2026-10-02 (v1.2, b592): the dated annotation above carries its 2026-08-12 wording as the record; the objects its last sentence names are missing information and a question of language -- the residue is not missing information but a question of language, how a structure valid only on `Re s > 1` speaks about `Re s = 1/2`.*"
+  ]
+ ],
+ "credit_line": {
+  "after": 77,
+  "at": 81,
+  "text": "*Credit (b450 item, located at b592): the sign-face registers -- located by name at OPEN_TRAILS :6764 (b454's table, FOUND) and held at `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md` :3476, carried since b454 by the era annotation of v1.1 :184 -- the register pentagon, the five faces compiled as a structure, R4 the sign face and R5 the realization face, the cross-register equivalences deliberately not claimed; read against the clauses above, clause 2 is the sign face R4, whose positivity in full is RH by the compiled faces cited there, and clause 1 is the realization face R5, a candidate supplier of it, no equivalence between the two registers being claimed.*"
+ },
+ "hist_at": {
+  "134": 142,
+  "152": 162
+ },
+ "carried": {
+  "21": "negated: the record \"is not a proof of RH and claims none\"",
+  "23": "negated: the disclaimer \"Nothing in this record is proven on the zeros\"",
+  "67": "the chiasmus, which `(R202)`(4) has STAND as a reading: \"proved\" and \"proves\" there are the sign season’s and the inverse-spectral converse’s own results (positivity free without the zeros; the operator free given the positivity), not RH or the zeros",
+  "69": "the era’s reading: \"proved\" names the settings where line-confinement is proved (function fields), not the ζ-zeros",
+  "73": "\"establishes\" introduces the conjuncts `residue_irreducible` compiles under its named premises (lv v0.11.0 = `2f71068`, ZeroActingPartial.lean :130); the three faces of :%d are attributed in that clause to the theorems beside it",
+  "81": "negated: \"Nothing here is proven on the zeros\"",
+  "91": "negated: \"not proven-absence\""
+ },
+ "version": {
+  "above": 17,
+  "text": "*v1.2 — 2026-10-02 (CP-7 edition (b592), written beside v1.1, which is unedited; its back matter closes the file)*"
+ },
+ "sha256": "289ad83d394de39e6cf7ad0f114a75afa56638c0b335c910375b1146bd607700",
+ "status_blanks": [],
+ "cited_lines": {
+  "h2_sign_iff_rh": [
+   79,
+   83,
+   92,
+   136,
+   248,
+   249
+  ],
+  "li_nonneg_iff_rh": [
+   79,
+   83,
+   92
+  ],
+  "arith_limit_nonneg_iff_rh": [
+   79,
+   83,
+   92
+  ],
+  "register4_positivity_liCoeff_iff_rh": [
+   79,
+   83,
+   92
+  ]
+ }
+}

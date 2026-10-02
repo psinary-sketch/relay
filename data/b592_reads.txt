@@ -1,0 +1,177 @@
+b592 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay the RESIDUE work-list, whole -- data/b558_editions/THE_RESIDUE_OF_RH.txt @ 24457265 (11 lines cited)
+    :1      b558 -- THE EDITION WORK-LIST OF THE_RESIDUE_OF_RH (phase1.5/proofs/THE_RESIDUE_OF_RH.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition is written before its informing work-orders land or are ruled out of scope for it.
+    :4      
+    :5      :132 -- `h2_sign`
+    :6          the sentence: "| ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |"
+    :7          what the compiled fact supports: says h2 has no terminal and is manuscript-resident, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (the row MOVED at b549, :240).
+    :8          informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :9      
+    :10     ### 1 sentence-rows (1 distinct lines).
+    :11     
+### relay the CP-1b rows of THE_RESIDUE_OF_RH (1 MOVED, 6 STANDS, 0 CREDIT) -- data/b558_cp1b.txt @ 24457265 (8 lines cited)
+    :34         RESIDUE  THE_RESIDUE_OF_RH                        {'STANDS': 6, 'MOVED-IN-MEANING': 1, 'CREDIT': 0} ; own {'STANDS': 2, 'MOVED-IN-MEANING': 1, 'CREDIT': 0}
+    :309    h2_sign | THE_RESIDUE_OF_RH | :25 | STANDS | "Everything below composes, as everywhere in the corpus, under the one open premise `h2` (monograph §27.3)." | scopes the paper's results under h2 and draws no RH from it in this sentence.
+    :310    h2_sign | THE_RESIDUE_OF_RH | :132 | MOVED-IN-MEANING | "| ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |" | says h2 has no terminal and is manuscript-resident, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (the row MOVED at b549, :240).
+    :311    h2_sign | THE_RESIDUE_OF_RH | :147 | STANDS | "`h2` unchanged.**" | records h2 as open; no compiled fact closes it, so the sentence stands.
+    :312    h2_sign | THE_RESIDUE_OF_RH | :240 | STANDS | "| `h2`, the one open premise -- **MOVED** (b549, 2026-09-26) | `SIDE-explicit-formula` v0.2 = `5c72cad` | `SIDEExplicitFormula.B321.h2_sign` (`H2Sign.lean`:29–30); the equivalence `SIDEExplicitFormula.B321.h2_sign_iff_rh` (`Seam.lean`:101) | the equivalence: `{propext, Classical.choice, Quot.sound}` | h2 in its Weil form has a terminal, `h2_sign`, and
+    :313    h2_sign_iff_rh | THE_RESIDUE_OF_RH | :240 | STANDS | "| `h2`, the one open premise -- **MOVED** (b549, 2026-09-26) | `SIDE-explicit-formula` v0.2 = `5c72cad` | `SIDEExplicitFormula.B321.h2_sign` (`H2Sign.lean`:29–30); the equivalence `SIDEExplicitFormula.B321.h2_sign_iff_rh` (`Seam.lean`:101) | the equivalence: `{propext, Classical.choice, Quot.sound}` | h2 in its Weil form has a terminal, `h2_sig
+    :314    h2_sign_iff_rh | THE_RESIDUE_OF_RH | :241 | STANDS | "| the zero-acting positive pairing's EXISTENCE -- **CARRIED** (b549, 2026-09-26) | NONE -- no kernel exists | — | — | RESEARCH-REACH, unchanged. The pairing's **criterion** is compiled; its **existence** is not touched: `h2_sign_iff_rh` says positivity of the Weil form on `classK` is RH; it constructs no operator and realizes no spectrum. | no 
+    :315    h2_sign | THE_RESIDUE_OF_RH | :245 | STANDS | "`h2` stays where the deposit left it.*" | the cascade`s own line (b549, `84adecd`), written at or after the move; STANDS by the declared default.
+### PLACE-papers THE_RESIDUE_OF_RH: head, version line, §7, the standard table, the era annotations, the tier block, the appended lines -- phase1.5/proofs/THE_RESIDUE_OF_RH.md @ 90591698 (42 lines cited)
+    :1      ﻿# The Residue of the Riemann Hypothesis
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER K** — *declared 2026-08-26 (b190); basis: the census test: external-reader results + a Correspondence table naming terminals.*
+    :9      **PURPOSE:** *what remains open in the Riemann Hypothesis, stated exactly and compiled; for a reader who wants the residue rather than the claim.* — *### added 2026-08-26 (b187) from this document's own content; nothing else edited.*
+    :11     ## What Remains Open, Stated Exactly — and Compiled
+    :17     *v1.1 — 2026-07-27 (the substrate season absorbed; author-approved; joined the W-1.5 keystone set)*
+    :25     Everything below composes, as everywhere in the corpus, under the one open premise `h2` (monograph §27.3). The reader who wants the destination first may read §7.
+    :71     ## 7. The residue, compiled: the conjunction theorem
+    :72     
+    :73     What remains is stated exactly, and it is compiled. The residue is a **conjunction of two individually-free clauses**, and the theorem `residue_irreducible` establishes:
+    :74     
+    :75     - **clause 1 (zero-realization) is free** — a positive self-adjoint operator with a discrete spectrum exists (the certified input), but it does not realize the ζ-zeros;
+    :76     - **clause 2 (the inequality) is free to a threshold** — the two-channel inequality is certified to `N₀(T)`, but not for all `n`;
+    :77     - **only the conjunction is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion).
+    :78     
+    :79     Neither clause alone is hard; their join is the whole of RH. The detection threshold `N₀(T) ≈ 2T²` that separates the certified range from the open tail is rigid — the `γ²` of `|ρ|²`, forced by the functional equation; no mollifier moves it within the Li framework. So the residue is precisely this: **a self-adjoint operator whose spectrum realizes the zeros, whose pairing extends the certified ine
+    :80     
+    :81     The disclaimer stands. Nothing here is proven on the zeros; the fifth register is held open, now with a sharper statement of what it holds.
+    :88     - **The conjunction as an E-Difficulty case study.** `residue_irreducible` is the first *compiled* instance of difficulty located at a conjunction of individually-free clauses. The shape generalizes: for other determined systems, the same structure theorem asks whether the residual difficulty factors into clauses each already met apart.
+    :97     The seven branch artifacts and the edge lemma, at their pins with `#print axioms` profiles, read from the merged branch `word-pairing-interface` (SIDE-lv-conservation; **merged by fast-forward, nothing deposited**).
+    :108    | The residue, compiled (§7) | `residue_irreducible` | `{propext, Classical.choice, Quot.sound}` |
+    :111    | The barrier extension (§7) | `detection_threshold_mono` | `{propext, Classical.choice, Quot.sound}` |
+    :132    | ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |
+    :134    > ### **0 BLANK CELLS. Every row that has no kernel says so in words rather than leaving a gap.**
+    :147    **Nothing in §§1–8 is rewritten. `h2` unchanged.**
+    :150    ### ERA ANNOTATION (2026-08-12) — bearing on the residue's statement
+    :152    > **A sixth specification was missing from the Euler inventory, and it renames the residue.** The Euler product converges only on `Re s > 1`; every nontrivial zero lies in the critical strip. **The product has no valid expression at any zero it is supposed to constrain**, and uniqueness of analytic continuation means the information nonetheless determines `ζ` everywhere. So the residue is not an i
+    :154    *Provenance: `phase2/method/THE_EULER_SPECIFICATION.md` §§5–7, 2026-08-12. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+    :184    ### ERA ANNOTATION (2026-09-14, b454) — bearing on the sign-face registers
+    :186    > the **five faces** compiled as a structure, with R4 identified as the sign face and R5 as the realization face, and the cross-register equivalences deliberately **not** claimed
+    :188    *Provenance: `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:3476`, a ledger line before b450, added under `(R63)(b)` as amended by `(R64)(2)`. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+    :215    #### **THE CASCADE, ACT FIVE -- THE CORRESPONDENCE TIERED** *(appended 2026-09-26, b549, under the author's ruling `(R159)`(5); no byte above this block changes; §§1–8 are not edited -- the edition waits for CP-7, `(R157)`(2))*
+    :228    | The residue, compiled (§7) | `residue_irreducible` | std3 | **CARRIED** | T1-lit |
+    :231    | The barrier extension (§7) | `detection_threshold_mono` | std3 | **CARRIED** | T2 |
+    :234    *Tiers over the 24 terminals: T0 0 · T1-open 0 · T1-lit 7 · T2 17 · T3 0 · T4 0. `distinctFromInput_discharged` is axiom-free within a row whose union is `{propext, Classical.choice, Quot.sound}`.*
+    :240    | `h2`, the one open premise -- **MOVED** (b549, 2026-09-26) | `SIDE-explicit-formula` v0.2 = `5c72cad` | `SIDEExplicitFormula.B321.h2_sign` (`H2Sign.lean`:29–30); the equivalence `SIDEExplicitFormula.B321.h2_sign_iff_rh` (`Seam.lean`:101) | the equivalence: `{propext, Classical.choice, Quot.sound}` | h2 in its Weil form has a terminal, `h2_sign`, and its equivalence to Mathlib's `RiemannHypothesi
+    :241    | the zero-acting positive pairing's EXISTENCE -- **CARRIED** (b549, 2026-09-26) | NONE -- no kernel exists | — | — | RESEARCH-REACH, unchanged. The pairing's **criterion** is compiled; its **existence** is not touched: `h2_sign_iff_rh` says positivity of the Weil form on `classK` is RH; it constructs no operator and realizes no spectrum. | no verification exists to point at; the row says so |
+    :243    **Back matter -- the §7 reading.** A reading of §7 in the light of the compiled criterion, not an edit of it, is entered at `FINDINGS.md`:5655 (b549).
+    :245    *Appended by b549. No claim of §§1–8 is altered; `h2` stays where the deposit left it.*
+    :247    *Appended 2026-09-26 by b550, under the author's ruling `(R160)`(1), to the tier block at :215:* the read's pin is tagged: SIDE-lv-conservation `v0.11.0` (annotated, tag object `416ec76`) at `main` `2f71068`, its peeled SHA read back from the remote equal to the local. The tip `5a14205` and `main` `2f71068`, byte-identical in the two files holding the terminals, both stand as the read.
+    :249    *Appended 2026-09-28 by b554, under the author's ruling `(R164)`(1), to the era table row at :145:* `bd2ae1a` is a PLACE-papers commit -- the E-CHARACTERIZATION sitting of 2026-07-25, which `THE_H2_PROGRAMME_CHARTER.md`:116 names -- and not a SIDE-lv-conservation pin; the terminals that sitting reported are at SIDE-lv-conservation `v0.11.0` = `2f71068`. The flag of 2026-08-12 above stays as writte
+    :251    *Appended 2026-09-29 by b558, under the author's ruling `(R168)`(4) -- BACK MATTER, THE EDITION WORK-LIST:* This document's -- 1 sentence-rows read MOVED-IN-MEANING by CP-1b, each with what the compiled fact supports and its informing work-order, are listed in relay `data/b558_editions/THE_RESIDUE_OF_RH.txt`, an input to CP-7's edition and not an edition. No byte above this line changes.
+    :253    *Appended 2026-10-01 by b567, under the author’s ruling `(R177)`(5), to the tier block at :215 -- THE LI-CHANNEL PREMISE DISCHARGED:* the row “The residue, compiled (§7)” names `residue_irreducible`, whose λ carries two premises; at λ := `LiCoeff` the second, `liCriterion : Register4_positivity lam → RiemannHypothesis`, is now the theorem `SIDEExplicitFormula.ResidueDischarge.register4_positivity_
+### PLACE-papers FINDINGS, b549`s §7 reading and b567`s -- FINDINGS.md @ 90591698 (6 lines cited)
+    :5655   ## The cascade, act five: THE_RESIDUE_OF_RH tiered, the h2 row given its terminal, the pairing's criterion distinguished from its existence
+    :5665   **§7, read in the light of the compiled criterion.** §7 says the residue is a conjunction of two clauses, each free apart, and that "only the conjunction is RH". Read beside the compiled criterion `h2_sign_iff_rh`, clause 2 in full -- the inequality for every test function, in the Weil form on `classK` -- is RH, so the residue is clause 2 past its certified range; clause 1, realization, is one can
+    :6212   *Appended 2026-10-01 by b567 to the field entry (:5575) and b566’s composition line (:6192), under `(R177)`(1) -- LI’S CRITERION COMPILED AS AN EQUIVALENCE, AT ITS WEIGHT:* SIDE-explicit-formula v0.9 = `e5a5a83`: `li_nonneg_iff_rh : (∀ n, 0 ≤ LiCoeff n) ↔ RiemannHypothesis`, from the kernel’s `rh_imp_li_nonneg` and Bulka’s vendored `positivity_implies_RH` joined by `li_coeff_eq_taylorCoeff` (`LiCo
+    :6214   *Appended 2026-10-01 by b567 to b564’s record of the ceiling entry (:6144), under `(R177)`(2) -- THE CEILING ENTRY AMENDED:* the author’s sentence inserted beside the `(R146)`(2) entry at README.md :121 and REGISTRY.md :956 (the `(R146)`(2) lines at :115 and :950, b564’s and b566’s beside them, standing unedited): *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the pro
+    :6218   *Appended 2026-10-01 by b567 to b549’s reading of §7 (:5665), under `(R177)`(5) -- §7 READ AGAINST THE COMPILED FACTS (a reading, not an edit of THE_RESIDUE_OF_RH.md):* §7 calls the residue a conjunction of two clauses -- zero-realization, and the inequality past the threshold -- and says “only the conjunction is RH”. Read against what is now compiled, the **“inequality” clause in full is RH**, by
+    :6760   ## The located-clause method: the open statement, the star of compiled equivalents, the surround classified, the ζ-leg as the worked instance, four transfers proposed -- written beside the b257 drafts in TECHNE-Core, local-only
+### PLACE-papers OPEN_TRAILS, the form and its clauses -- OPEN_TRAILS.md @ 90591698 (15 lines cited)
+    :6642   | **AUTHORING** | **26** | `PATHS_TO_THE_CRITICAL_LINE` — does not carry: W_inf NOT sign-definite — :159<br>`PATHS_TO_THE_CRITICAL_LINE` — does not carry: the Day-1 section I attribution pole-plus-archimedean — :160<br>`PATHS_TO_THE_CRITICAL_LINE` — superseded form: line 420 names word-pairing-interface (live merged True) : **Th — :161<br>`PATHS_TO_THE_CRITICAL_LINE` — superseded form: line 440 na
+    :6764   | the sign-face registers | 1 | 12 | 12 | **FOUND** | `OPEN_TRAILS-archive-2-historical-landings-and-programs.md:3476` |
+    :6766   **The two counts, over the 15 targets: ADDED 7 — CLAIMED BY THE KEYSTONE AND HELD BY NO LEDGER 8.** Added: `W_∞` not sign-definite in PATHS, SURROUND, SIMPLICITY and INDEX_ARITY; the two-kinds windows verdict in REPARAMETERIZATION; the `S2` Ostrowski seal in EXHAUSTIVENESS_LICENSE; the sign-face registers in THE_RESIDUE_OF_RH. Held by no ledger: the Day-1 §I pole-plus-archimedean attribution (four
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and it
+    :11902  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(2), to the form of an edition (:11864) -- H28b, RESTATED FOR EVERY EDITION ACT:* the edition’s BODY sentence count differs from the current version’s by at most the CREDIT count plus the removals plus the citations a ruling orders; the back matter is excluded from the count and its own sentence count is printed beside it.
+    :11904  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(3), to the form of an edition (:11864) -- THE STEM CLAUSE, STANDING:* a banned stem in a sentence the work-list does not mark is replaced by the object the sentence names (not a synonym for the stem), the sentence otherwise unchanged, each listed in the back matter with line and both wordings; H28c is scored on the edition’s text.
+    :11906  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem clause -- THE CEILING CLAUSE:* a sentence the work-list does not mark that speaks beyond the README ceiling (README :106-:121) takes the object it names, the rest of the sentence unchanged, each listed in the back matter as a ceiling correction with line and both wordings
+    :11908  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem and ceiling clauses -- THE HISTORY CLAUSE:* dated history entries are superseded beneath, not rewritten: a marked sentence in a dated history entry carries unchanged as a dated record, and the next version’s history line directly beneath it states what the compiled fact s
+    :11930  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(2), to the form of an edition (:11864) -- H28b, FINAL FORM FOR EVERY EDITION ACT:* the body sentence count differs from the current version’s by at most the CREDIT count, the removals, the citations a ruling orders, and one version line; the back matter excluded and counted beside.
+    :11932  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(3), to the form of an edition (:11864) -- THE RE-PIN STEP, THE FORM’S LAST:* after every insertion the edition’s own Correspondence column and the act’s diff bank are re-read against the final file and cite its final lines; the bank states the offset from the current version once at its head. Run at b580 on PATHS v0.7, whose column m
+    :11934  *Appended 2026-10-01 by b580, under the author’s answer before b580’s seal, to the form of an edition (:11864), beside the stem, ceiling and history clauses -- THE NAME-AND-TITLE EXCEPTION:* an object’s own name and a bibliography title are not live uses (relay `tools/banned_terms.py` :14, “CLAY / BIBLIOGRAPHY CITATIONS”, an exception the tool names part of the rule); each such use carries unchang
+    :11954  *Appended 2026-10-01 by b581, under the author’s ruling `(R191)`(2), to the form of an edition (:11864) -- THE FACT CLAUSE, STANDING:* an unmarked sentence that states a fact the seat’s printed read contradicts -- a pin, a toolchain, a count, an import -- is corrected in place to the printed fact, the fact’s source printed beside it in the diff bank, and the correction listed in the back matter wi
+    :11956  *Appended 2026-10-01 by b581, under the author’s answer before b581’s seal, to the form of an edition (:11864) -- THE PLACEMENT CLAUSE:* a b450 “does not carry” item the work-list does not place is inserted beside the sentence whose claim it corrects, that sentence named in the back matter. Applied at b581 to THE_UNCONDITIONAL_SURROUND, both items beside its §6 positivity face (v0.4 :137).
+    :12044  *Appended 2026-10-01 by b585 to the history clause (:11908), under the author’s answer before b585’s seal -- INSIDE A DATED ENTRY THE HISTORY CLAUSE GOVERNS:* a banned stem inside a dated history entry is carried as the dated record, and a history line dated to the edition directly beneath the entry names the corrected object; the line counts under H28b as a ruled citation, and the stem is printed
+    :12172  ### b591 — lane three, act eighteen under (R201): the located-clause method document written from the ledgers, placed beside the b257 drafts in TECHNE-Core and not pushed; the witness ratio entered at DETECTION-REGION as (E3); the E0 rule’s existential-binder clause
+### PLACE-papers the archived OPEN_TRAILS, the register pentagon -- archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md @ 90591698 (1 lines cited)
+    :3476   | **the register pentagon** | the **five faces** compiled as a structure, with R4 identified as the sign face and R5 as the realization face, and the cross-register equivalences deliberately **not** claimed | **the equivalences** — *"compiling them would encode RH-equivalence, the W-2 trap"*. The structure is a map of the premise, not a carrier of it |
+### PLACE-papers the ζ page as it stands -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 90591698 (12 lines cited)
+    :1      # THE CLAUSE AND ITS COMPILED FACES
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b569_nodes.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.11 = `19b7d1e` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line re
+    :12     8. `SIDEExplicitFormula.B321.h2_sign_iff_rh` — SIDEExplicitFormula/Seam.lean:101 — v0.2 = 5c72cad — `theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `RiemannHypothesis`, `zetaZeroConfig`, `riemannZeta`, `h2_sign`, `EF_lit_zeta
+    :24     20. `SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh` — SIDEExplicitFormula/LiCriterionBridge.lean:179 — v0.9 = e5a5a83 — `theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `positivity_
+    :25     21. `SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh` — SIDEExplicitFormula/LiCriterionBridge.lean:191 — v0.9 = e5a5a83 — `theorem SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh : (∀ (n : ℕ) (L : ℂ), Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ)) (nhdsWithin 0 (Set.Ioi 0)) (nhds L) → 0 ≤ L.re) ↔ RiemannHypothesis` — pre
+    :27     23. `SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh` — SIDEExplicitFormula/ResidueDischarge.lean:41 — v0.10 = 6baed63 — `theorem SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff → RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) 
+    :28     24. `SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh` — SIDEExplicitFormula/PageConverses.lean:32 — v0.11 = 19b7d1e — `theorem SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms:
+    :30     
+    :32     
+    :36     
+    :41     | ledger | `OPEN_TRAILS.md` |
+    :147    | `residue_irreducible` | SIDE-lv-conservation | INTERFACES (PLACE-papers phase1.5/proofs/THE_RESIDUE_OF_RH.md:108) | T1-lit (THE_RESIDUE_OF_RH.md:228); liCriterion discharged at λ := LiCoeff by SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh, SIDE-explicit-formula v0.10 = 6baed63 |
+### PLACE-papers the χ page as it stands -- THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md @ 90591698 (11 lines cited)
+    :1      # THE CLAUSE AT THE DIRICHLET INSTANCE
+    :2      
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b573_nodes_chi.txt`: the compiled chain from `GRH_chi` to the ceiling's successor sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.15 = `21c8c52` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line reads:
+    :22     18. `SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement` — SIDEExplicitFormula/Schema/Instances.lean:65 — v0.15 = 21c8c52 — `@[defeq] theorem SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1), (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.chiWeilConfig χ hχ h1) ↔ (SIDEExplicitFor
+    :23     
+    :24     GRH_chi — open, for each primitive χ ≠ 1; by the compiled equivalence the same open statement as Weil positivity on classK for χ
+    :25     
+    :26     The criterion for primitive χ is composed: Weil positivity on classK for χ ⟺ GRH_chi, both directions compiled (h2_sign_chi_iff_grh_chi, v0.14), the converse by the ζ route over the χ-configuration with its own local count. The one clause now has two compiled instances, ζ and primitive χ ≠ 1, each equivalent to the location of its own zeros; neither is proved.
+    :27     
+    :28     ## Placement
+    :29     
+### PLACE-papers REGISTRY, the successor sentence -- REGISTRY.md @ 90591698 (1 lines cited)
+    :960    *(Appended under the author's ruling `(R183)`(3), 2026-10-01, b573, replacing by append the last clause of b572's `(R182)`(2) sentence directly above, which stays, as do the `(R146)`(2), `(R174)`(1), `(R176)`(2) and `(R177)`(2) sentences: b572 entered at its weight, SIDE-explicit-formula v0.14 = `4dce7b9`.)* Supportable, the author's sentence: *The criterion for primitive χ is composed: Weil posit
+### relay the ζ node list (b569) -- data/b569_nodes.txt @ 24457265 (2 lines cited)
+    :1      # b569 -- THE NODE LIST, (R179)(2): b568`s 23 records (relay data/b568_nodes.txt, every record line unchanged) and its two
+    :4      # pin: v0.11
+### relay the χ node list (b573) -- data/b573_nodes_chi.txt @ 24457265 (3 lines cited)
+    :6      # page: dirichlet
+    :7      # pin: v0.15
+    :25     SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement | kernel | listed
+### relay the generator`s head -- tools/chain_page.py @ 24457265 (8 lines cited)
+    :4      ### ### **WHAT IT DOES.** Reads a node list (relay data/b568_nodes.txt), refuses unless the kernel checkout is at the pin
+    :22     ### node list at the same pins writes the same bytes (H20c).
+    :28     ### Exit: 0 written; 2 usage; 3 the checkout refused; 4 free memory below the hold; 5 the probe failed; 6 a node unresolved;
+    :30     ### ### (R179)(4), b569: a node list carrying `# pin: <tag>` is generated at that tag, with the tier key on the head and the
+    :58     PAGE_NAME = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+    :444        root = set(LEDGERS + ['README.md', 'REGISTRY.md', PAGE_NAME, DIR_PAGE_NAME])   # ### both generated pages, never keystones
+    :471        L += ['| keystone naming a node | `%s` |' % f for f in keystone_files]
+    :517            pick = lambda n: ((n.startswith('SIDEExplicitFormula.') or n.startswith('Zeta23.')) and not n.startswith(CHI_PREFIX)
+### SIDE-explicit-formula v0.16 the detector -- SIDEExplicitFormula/Schema/Detector.lean @ c404e727 (5 lines cited)
+    :99     theorem detector (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :
+    :100        ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧
+    :101          Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧
+    :102          (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0 := by
+    :120    theorem not_h2_sign_cfg_of_offline (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :
+### SIDE-explicit-formula v0.16 the Epstein instance -- SIDEExplicitFormula/Schema/Epstein.lean @ c404e727 (3 lines cited)
+    :57     theorem epstein_not_h2_sign_cfg (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)
+    :58         (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP) :=
+    :59       not_h2_sign_cfg_of_offline (epsteinConfig Z rhs hP) rhoE hE rhoE_re_ne_half
+### SIDE-explicit-formula v0.16 the residue`s own iff -- SIDEExplicitFormula/PageConverses.lean @ c404e727 (2 lines cited)
+    :32     theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis :=
+    :33       ⟨register4_positivity_liCoeff_imp_rh, rh_imp_register4_positivity_liCoeff⟩
+### SIDE-explicit-formula v0.16 the discharge -- SIDEExplicitFormula/ResidueDischarge.lean @ c404e727 (1 lines cited)
+    :41     theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis := by
+### SIDE-lv-conservation v0.11.0 residue_irreducible -- SIDELvConservation/ZeroActingPartial.lean @ 2f71068a (11 lines cited)
+    :130    theorem residue_irreducible
+    :131        {lam_A lam_Z lam : ℕ → ℝ} {low : Finset NontrivialZero} {tail : ℕ → ℝ} {T : ℝ}
+    :132        (hZero : NontrivialZeroExistsInStrip)
+    :133        (hdecomp : ∀ n, lam n = lam_A n + lam_Z n)
+    :134        (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)
+    :135        (hTail : TailBoundPremise low tail T)
+    :136        (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam)
+    :137        (liCriterion : Register4_positivity lam → RiemannHypothesis) :
+    :138        (¬ RealizesXiZeros certifiedInputSpectrum)
+    :139        ∧ PartialChannelInequality lam_A lam_Z (N₀ T)
+    :140        ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis) :=
+### relay b591`s closing push-out, its head -- data/b591_closing_push_out.txt @ 24457265 (5 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b591_closing_push_out.txt (2026-10-02T13:49:39Z)
+    :2      push_gated: repo D:/relay ; branch push-b591-closing ; tip 652b58d5a5e27224d00676401e741fa8d3562ca3 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         1254eda7..652b58d5  push-b591-closing -> main
+    :5      push_gated: main read back at the remote: 652b58d5a5e27224d00676401e741fa8d3562ca3
+
+### THE b450 ITEM SEARCHED BY NAME ("sign-face registers", case-insensitive) in FINDINGS, OPEN_TRAILS and the archived ledgers @ 9059169:
+    9059169:OPEN_TRAILS.md:6642:| **AUTHORING** | **26** | `PATHS_TO_THE_CRITICAL_LINE` — does not carry: W_inf NOT sign-definite — :159<br>`PATHS_TO_THE_CRITICAL_LINE` — does not carry: the Day-1 section I attribution pole-plus-archimedean — :160<br>`PATHS_TO_THE_CRITICAL_LINE` — superseded form: line 
+    9059169:OPEN_TRAILS.md:6764:| the sign-face registers | 1 | 12 | 12 | **FOUND** | `OPEN_TRAILS-archive-2-historical-landings-and-programs.md:3476` |
+    9059169:OPEN_TRAILS.md:6766:**The two counts, over the 15 targets: ADDED 7 — CLAIMED BY THE KEYSTONE AND HELD BY NO LEDGER 8.** Added: `W_∞` not sign-definite in PATHS, SURROUND, SIMPLICITY and INDEX_ARITY; the two-kinds windows verdict in REPARAMETERIZATION; the `S2` Ostrowski seal in EXHAUSTIVENES
+### hits : 3 -- LOCATED: b454`s table row OPEN_TRAILS :6764 reads FOUND at the archive :3476 (the register pentagon); b450`s item OPEN_TRAILS :6642 (item 23, THE_RESIDUE_OF_RH "does not carry: the sign-face registers -- :181")
+
+### THE DISCHARGE POINTER`S NAME, git grep at v0.16 (both declarations exist):
+    c404e727d7f7121b180318cca32eeb115452ed1b:SIDEExplicitFormula/PageConverses.lean:32:theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis :=
+    c404e727d7f7121b180318cca32eeb115452ed1b:SIDEExplicitFormula/ResidueDischarge.lean:41:theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis := by

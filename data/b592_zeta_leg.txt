@@ -1,0 +1,28 @@
+### b592 -- THE ζ-LEG READ, v0.11 = 19b7d1e .. v0.16 = c404e72 (the author's answer 1: the node set b569's plus nothing unless a ζ-leg declaration of v0.11–v0.16 belongs on the chain, printed if added)
+### git diff --stat 19b7d1e c404e72 -- '*.lean' (SIDE-explicit-formula):
+ AxiomCheckChiAct5.lean                           |  48 +++
+ AxiomCheckChiAct6.lean                           |  90 +++++
+ AxiomCheckChiAct7.lean                           |  59 +++
+ AxiomCheckEpstein.lean                           |  63 ++++
+ AxiomCheckSchemaAct8.lean                        |  70 ++++
+ SIDEExplicitFormula/Chi/Contour.lean             | 110 ++++++
+ SIDEExplicitFormula/Chi/CriterionConverse.lean   | 275 ++++++++++++++
+ SIDEExplicitFormula/Chi/CriterionForward.lean    |  81 +++++
+ SIDEExplicitFormula/Chi/FullLine.lean            | 254 +++++++++++++
+ SIDEExplicitFormula/Chi/FullLineAssembly.lean    |  76 ++++
+ SIDEExplicitFormula/Chi/GammaWide.lean           | 224 ++++++++++++
+ SIDEExplicitFormula/Chi/Horizontal.lean          | 217 +++++++++++
+ SIDEExplicitFormula/Chi/Main.lean                | 435 +++++++++++++++++++++++
+ SIDEExplicitFormula/Chi/VerticalLine.lean        | 374 +++++++++++++++++++
+ SIDEExplicitFormula/Chi/ZeroSumLimit.lean        |  91 +++++
+ SIDEExplicitFormula/Schema/Config.lean           |  77 ++++
+ SIDEExplicitFormula/Schema/Converse.lean         | 269 ++++++++++++++
+ SIDEExplicitFormula/Schema/Detector.lean         | 131 +++++++
+ SIDEExplicitFormula/Schema/Epstein.lean          |  70 ++++
+ SIDEExplicitFormula/Schema/Instances.lean        |  70 ++++
+ SIDEExplicitFormula/Schema/SaltCheckEpstein.lean | 133 +++++++
+ 21 files changed, 3217 insertions(+)
+### top-level modules changed (SIDEExplicitFormula/*.lean outside Chi/ and Schema/):
+  0
+### the schema's ζ check (Schema.h2_sign_cfg_zeta_statement) stays off the ζ page by (R184)(2) (relay tools/chain_page.py corr_select, SCHEMA_PREFIX).
+### VERDICT: no ζ-leg declaration was added at v0.11–v0.16; the ζ node set is b569's, nothing added.

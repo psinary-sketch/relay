@@ -1,0 +1,93 @@
+### OFFSET FROM THE CURRENT VERSION (R190)(3): +2 from :17 (the v1.2 line and a blank, above the v1.1 line); +2 more from :78 (a blank and the credit line, beneath :77); +2 more from :137 (a blank and the history line, beneath :136); +2 more from :155 (a blank and the history line, beneath :154) -- v1.1 :n sits at the edition`s :n for n < 17, :n+2 for 17 <= n <= 77, :n+4 for 78 <= n <= 136, :n+6 for 137 <= n <= 154 and :n+8 for n >= 155 -- every edition line below is the final file`s own.
+
+b592 -- COMPONENT 2: THE EDITION OF THE_RESIDUE_OF_RH, (R202)(4), BY THE FORM OF (R187)(5) AND ITS CLAUSES
+
+### the current version : PLACE-papers phase1.5/proofs/THE_RESIDUE_OF_RH.md @ 9059169 (blob 1c7b951f), 253 lines ; head :1 "﻿# The Residue of the Riemann Hypothesis" ; :17 "*v1.1 — 2026-07-27 (the substrate season absorbed; author-approved; joined the W-1.5 keyst"
+### its §7 : :71-:81 ("## 7. The residue, compiled: the conjunction theorem" .. "The disclaimer stands. Nothing here is proven on the zeros; ")
+### its tier block : :215 "#### **THE CASCADE, ACT FIVE -- THE CORRESPONDENCE TIERED** *(appended 2026-09-26, b549, u" ; the totals :234 "*Tiers over the 24 terminals: T0 0 · T1-open 0 · T1-lit 7 · T2 17 · T3 0 · T4 0. `distinct"
+### the b567 appended correspondence line : :253 "*Appended 2026-10-01 by b567, under the author’s ruling `(R177)`(5), to the tier block at :215 -- THE LI-CHANNEL PREMISE"
+### its version history : the version line :17 (v1.1, 2026-07-27; HELD_RESIDUE_v1_1.md drafted it over v1.0); the dated annotations :119-:147, :150-:154, :160-:168, :172-:211; the tier block :215-:247; the appended lines :249, :251, :253
+### the b450 item searched by name (relay data/b592_reads.txt): the sign-face registers -- LOCATED at OPEN_TRAILS :6764 (b454`s table) and the archive :3476
+### the edition : PLACE-papers phase1.5/proofs/THE_RESIDUE_OF_RH_v1_2.md, 349 lines, sha256 289ad83d394de39e6cf7ad0f114a75afa56638c0b335c910375b1146bd607700
+
+### THE WORK-LIST, ROW BY ROW (1 row), AND THE RULED REWRITES (4 sentences on 3 lines):
+
+  RESIDUE:132:257 v1.1 :132 -> v1.2 :136 `h2_sign` -- work-list ; cites ['h2_sign_iff_rh (v0.2 = 5c72cad)']
+      answers: says h2 has no terminal and is manuscript-resident, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (the row MOVED at b549, :240).
+      v1.1 : | ### **`h2`, the one open premise** | ### **NONE** | — | — | ### **MANUSCRIPT-RESIDENT** — monograph §27.3, register 4 | ### **read §27.3; no terminal** |
+      v1.2 : | ### **`h2`, the one open premise, in its Weil form `h2_sign`** | `SIDE-explicit-formula` v0.2 = `5c72cad` | `SIDEExplicitFormula.B321.h2_sign_iff_rh` (the ζ page, node 8, line 12) | `{propext, Classical.choice, Quot.sound}` | ### **OPEN** — the premise `h2_sign` has a terminal and is open, and its equivalence to Mathlib's `RiemannHypothesis` is the compiled theorem `h2_sign_iff_rh` (monograph §27.3, register 4) | `#check` and `#print axioms` of `h2_sign_iff_rh` at v0.2 |
+
+  ruled:77 v1.1 :77 -> v1.2 :79 `(R177)(5) reading` -- ruled ; cites ['h2_sign_iff_rh (v0.2 = 5c72cad)', 'li_nonneg_iff_rh (v0.9 = e5a5a83)', 'arith_limit_nonneg_iff_rh (v0.9 = e5a5a83)', 'register4_positivity_liCoeff_iff_rh (v0.11 = 19b7d1e)']
+      answers: (R202)(4): §7’s conjunction sentence, the (R177)(5) reading (FINDINGS :6218)
+      v1.1 : - **only the conjunction is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion).
+      v1.2 : - **the conjunction implies RH, and clause 2 in full is RH** — the full object, both clauses jointly over the ζ-zeros, implies RH through the named classical premises (the Weil-criterion direction; Li's criterion, discharged at λ := `LiCoeff`), while clause 2 taken for every `n` is RH by three compiled faces beside this theorem, each equivalent to Mathlib's `RiemannHypothesis` — Weil positivity on classK by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), Li positivity by `li_nonneg_iff_rh` (v0.9 = `e5a5a83`), in the residue's own vocabulary `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`), and arithmetic-limit positivity by `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`) — and clause 1 is a candidate supplier of that positivity and not a separate necessity.
+
+  ruled:79 v1.1 :79 -> v1.2 :83 `(R177)(5) reading` -- ruled ; cites ['h2_sign_iff_rh (v0.2 = 5c72cad)', 'li_nonneg_iff_rh (v0.9 = e5a5a83)', 'arith_limit_nonneg_iff_rh (v0.9 = e5a5a83)', 'register4_positivity_liCoeff_iff_rh (v0.11 = 19b7d1e)']
+      answers: the author’s answers 3 and 5 before the seal: the marked reading extended to an unmarked sentence restating the same claim
+      v1.1 : Neither clause alone is hard; their join is the whole of RH.
+      v1.2 : Neither clause alone is hard while clause 2 stops at the threshold; clause 2 in full is RH by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` (v0.9 = `e5a5a83`) with `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`) and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`), and clause 1 is a candidate supplier of it.
+
+  ruled:79 v1.1 :79 -> v1.2 :83 `(R177)(5) reading` -- ruled ; cites []
+      answers: the author’s answers 3 and 5 before the seal: the marked reading extended to an unmarked sentence restating the same claim
+      v1.1 : the difficulty is located exactly at the conjunction.
+      v1.2 : the difficulty is located in clause 2 in full, which is RH by the faces cited above, the conjunction implying RH.
+
+  ruled:88 v1.1 :88 -> v1.2 :92 `(R177)(5) reading` -- ruled ; cites ['h2_sign_iff_rh (v0.2 = 5c72cad)', 'li_nonneg_iff_rh (v0.9 = e5a5a83)', 'arith_limit_nonneg_iff_rh (v0.9 = e5a5a83)', 'register4_positivity_liCoeff_iff_rh (v0.11 = 19b7d1e)']
+      answers: the author’s answer 3 before the seal: the marked reading extended to an unmarked sentence restating the same claim
+      v1.1 : `residue_irreducible` is the first *compiled* instance of difficulty located at a conjunction of individually-free clauses.
+      v1.2 : `residue_irreducible` is the first *compiled* instance of a conjunction of individually-free clauses that implies RH, its difficulty located in clause 2 in full, which is RH by `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` (v0.9 = `e5a5a83`) with `register4_positivity_liCoeff_iff_rh` (v0.11 = `19b7d1e`) and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`), and clause 1 a candidate supplier.
+
+### THE CREDIT LINE: v1.2 :81, beneath v1.1 :77
+      *Credit (b450 item, located at b592): the sign-face registers -- located by name at OPEN_TRAILS :6764 (b454's table, FOUND) and held at `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md` :3476, carried since b454 by the era annotation of v1.1 :184 -- the register pentagon, the five faces compiled as a structure, R4 the sign face and R5 the realization face, the cross-register equivalences deliberately not claimed; read against the clauses above, clause 2 is the sign face R4, whose positivity in full is RH by the compiled faces cited there, and clause 1 is the realization face R5, a candidate supplier of it, no equivalence between the two registers being claimed.*
+
+### THE HISTORY LINES (the history clause, the author`s answer 4):
+    v1.2 :142, beneath v1.1 :136 (the stem`s line v1.1 :134 -> v1.2 :138, carried-by-history)
+      *History line, 2026-10-02 (v1.2, b592): the dated annotation above carries its 2026-08-12 wording as the record; the object its last sentence names is a blank cell -- every row that has no kernel says so in words rather than leaving a blank cell.*
+    v1.2 :162, beneath v1.1 :154 (the stem`s line v1.1 :152 -> v1.2 :158, carried-by-history)
+      *History line, 2026-10-02 (v1.2, b592): the dated annotation above carries its 2026-08-12 wording as the record; the objects its last sentence names are missing information and a question of language -- the residue is not missing information but a question of language, how a structure valid only on `Re s > 1` speaks about `Re s = 1/2`.*
+### THE CEILING CORRECTIONS: none.
+### THE CEILING-SHAPED SENTENCES READ AND CARRIED:
+    v1.1 :21 -> v1.2 :23  negated: the record "is not a proof of RH and claims none"
+    v1.1 :23 -> v1.2 :25  negated: the disclaimer "Nothing in this record is proven on the zeros"
+    v1.1 :67 -> v1.2 :69  the chiasmus, which `(R202)`(4) has STAND as a reading: "proved" and "proves" there are the sign season’s and the inverse-spectral converse’s own results (positivity free without the zeros; the operator free given the positivity), not RH or the zeros
+    v1.1 :69 -> v1.2 :71  the era’s reading: "proved" names the settings where line-confinement is proved (function fields), not the ζ-zeros
+    v1.1 :73 -> v1.2 :75  "establishes" introduces the conjuncts `residue_irreducible` compiles under its named premises (lv v0.11.0 = `2f71068`, ZeroActingPartial.lean :130); the three faces of :79 are attributed in that clause to the theorems beside it
+    v1.1 :81 -> v1.2 :85  negated: "Nothing here is proven on the zeros"
+    v1.1 :91 -> v1.2 :95  negated: "not proven-absence"
+### THE STEM CORRECTIONS: none in place; the three uses at v1.1 :134 and :152 carried by history.
+### THE FACT CORRECTIONS: none.
+### REMOVALS: none.
+### THE VERSION LINE: above v1.1 :17: *v1.2 — 2026-10-02 (CP-7 edition (b592), written beside v1.1, which is unedited; its back matter closes the file)*
+
+### THE COUNTS (relay tools/b558_record.py `segments`, imported): the current version 256 ; the edition`s body 260 (+4) ; the back matter 65 ; the edition whole 325
+### H28b, final form: the body differs by +4 against CREDIT 1 + removals 0 + ruled citations 2 (the two history lines; the four ruled rewrites keep their lines` counts) + one version line = 4
+### no blank Status cell: HELD
+
+### THE CEILING, every hit in the edition:
+    :23 "proof" -- in a sentence the seat read and carried -- ...d into a single statement of what remains open. It is not a proof of RH and claims none; taking each resu...
+    :25 "proven" -- in a sentence the seat read and carried -- ...s (Weil 1948) and is open over ℚ. Nothing in this record is proven on the zeros.*...
+    :69 "proved" -- in a sentence the seat read and carried -- ... — the chiasmus.** Two eras' results cross. The sign season proved *positivity is free without the zeros* ...
+    :69 "proves" -- in a sentence the seat read and carried -- ...ruction_is_zeroRealization`). The inverse-spectral converse proves *the operator is free given the positiv...
+    :71 "proved" -- in a sentence the seat read and carried -- ... positivity**, and every setting where line-confinement is *proved* supplies one. **And the currency null ...
+    :75 "establishes" -- in a sentence the seat read and carried -- ...ually-free clauses**, and the theorem `residue_irreducible` establishes:...
+    :85 "proven" -- in a sentence the seat read and carried -- ...The disclaimer stands. Nothing here is proven on the zeros; the fifth register is hel...
+    :95 "proven" -- in a sentence the seat read and carried -- ...issing structure over ℚ is absence-of-**construction**, not proven-absence; see PATHS §ANNEX C/D....
+    :278 "only the conjunction is RH" -- quoted in a back-matter row, read by the seat -- ...| :79 | - **only the conjunction is RH** — the full object, both clauses joint...
+    :279 "the whole of RH" -- quoted in a back-matter row, read by the seat -- ...| :83 | Neither clause alone is hard; their join is the whole of RH. | Neither clause alone is hard while c...
+    :304 "proof" -- quoted in a back-matter row, read by the seat -- ... :23 | ceiling read, carried: negated: the record "is not a proof of RH and claims none" | carried as rea...
+    :305 "proven" -- quoted in a back-matter row, read by the seat -- ...carried: negated: the disclaimer "Nothing in this record is proven on the zeros" | carried as read |...
+    :306 "proved" -- quoted in a back-matter row, read by the seat -- ...d: the chiasmus, which `(R202)`(4) has STAND as a reading: "proved" and "proves" there are the sign season...
+    :306 "proves" -- quoted in a back-matter row, read by the seat -- ...us, which `(R202)`(4) has STAND as a reading: "proved" and "proves" there are the sign season’s and the in...
+    :307 "proved" -- quoted in a back-matter row, read by the seat -- ...| :71 | ceiling read, carried: the era’s reading: "proved" names the settings where line-confinem...
+    :307 "proved" -- quoted in a back-matter row, read by the seat -- ...ding: "proved" names the settings where line-confinement is proved (function fields), not the ζ-zeros | ca...
+    :308 "establishes" -- quoted in a back-matter row, read by the seat -- ...| :75 | ceiling read, carried: "establishes" introduces the conjuncts `residue_irre...
+    :309 "proven" -- quoted in a back-matter row, read by the seat -- ...| :85 | ceiling read, carried: negated: "Nothing here is proven on the zeros" | carried as read |...
+    :310 "proven" -- quoted in a back-matter row, read by the seat -- ...| :95 | ceiling read, carried: negated: "not proven-absence" | carried as read |...
+    :327 "proved" -- quoted in a back-matter row, read by the seat -- ...| “proved” phrasings about the conjunction or the...
+### sentences beyond the ceiling: 0
+### THE SCANNER (banned_terms.py --new) on the edition: live uses 0, carried-by-history 3 ; verdict CLEAN
+
+### ### **H28a HELD -- every MOVED row resolves to a sentence citing a declaration on the page at its pin.**
+### ### **H28b HELD -- final form: the body differs by +4 sentences against at most 4; the back matter 65, excluded and printed.**
+### ### **H28c HELD -- the scanner`s verdict CLEAN (live uses carried by history 3); sentences beyond the ceiling 0.**
+### ### **THE EDITION LANDS: NO SENTENCE HELD.**
