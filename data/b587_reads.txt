@@ -1,0 +1,249 @@
+b587 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay the EXHAUSTIVENESS_LICENSE work-list, whole -- data/b558_editions/EXHAUSTIVENESS_LICENSE.txt @ 7750d0c7 (26 lines cited)
+    :1      b558 -- THE EDITION WORK-LIST OF EXHAUSTIVENESS_LICENSE (phase1.5/method/EXHAUSTIVENESS_LICENSE.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition i
+    :4      
+    :5      :13 -- `h2_sign`
+    :6          the sentence: "The RH exhaustiveness it grades composes, as everywhere in the corpus, under the one open premise `h2` (monograph §27.3)."
+    :7          what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    :8          informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :9      
+    :10     :59 -- `h2_sign`
+    :11         the sentence: "**The Riemann Hypothesis — THEOREM, conditional on `h2`.** The seven-class mechanism catalogue's completeness rests on classification theorems at every stage of the formation count (2+3+2+0): the two group structures on ℤ (ring classification), the three places of ℚ (**Ostrowski 1
+    :12         what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    :13         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :14     
+    :15     :59 -- `h2_sign`
+    :16         the sentence: "So RH's license reads **THEOREM at each stage of the count, conditional on `h2` for the totality**."
+    :17         what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    :18         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :19     
+    :20     :116 -- `h2_sign`
+    :21         the sentence: "*The `h2`-conditionality of RH's grade is stated at §4 and is unchanged from the corpus's standing scope."
+    :22         what the compiled fact supports: draws RH from h2 as a reduction or conditional theorem, and h2 in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the condition is RH itself and the sentence says less than it now could.
+    :23         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :24     
+    :25     ### 4 sentence-rows (3 distinct lines).
+    :26     
+### PLACE-papers EXHAUSTIVENESS_LICENSE, whole -- phase1.5/method/EXHAUSTIVENESS_LICENSE.md @ 6e617c72 (158 lines cited)
+    :1      # The Exhaustiveness License: a graded ladder for "is the catalogue complete?"
+    :2      
+    :3      ## A Definition Paper
+    :4      
+    :5      *J. York Seale*
+    :6      
+    :7      *ORCID: 0009-0008-7993-0310*
+    :8      
+    :9      *v0.1 — 2026-07-25 (W-LADDER build; kernel skeleton HELD on branch, main untouched)*
+    :10     
+    :11     ---
+    :12     
+    :13     **Role.** This record *presents* a single definitional object — the **exhaustiveness license** — and grades the programme's own results against it. An exclusion proof (this method's kind, and several others) concludes "the property does not occur" from "no case in the catalogue produces it." That co
+    :14     
+    :15     ---
+    :16     
+    :17     ## 1. The object: what an exhaustiveness license grades
+    :18     
+    :19     Every exclusion argument has the shape:
+    :20     
+    :21     > (a) enumerate the cases (the *catalogue*); (b) show no case produces the target property; (c) conclude the property does not occur.
+    :22     
+    :23     Step (c) is valid only if the catalogue is **exhaustive** — if there is no missed case that could produce the property. Call the certificate for that completeness the argument's **exhaustiveness license**. The whole weight of an exclusion proof rests on the *grade* of this license: a proof whose cat
+    :24     
+    :25     The SIDE method makes this explicit. Its central condition — the **E-condition**, "is the mechanism catalogue exhaustive?" — is exactly the demand for an exhaustiveness license. This paper grades that demand.
+    :26     
+    :27     We are grading the *license*, not the *catalogue's content*. Whether each catalogued case does or does not produce the property (step b) is a separate, per-case question. The license concerns only step (a)'s completeness.
+    :28     
+    :29     ## 2. The ordered grades
+    :30     
+    :31     An exhaustiveness license carries one of four grades. They are **totally ordered by strength**, strongest first.
+    :32     
+    :33     **THEOREM (Ostrowski-class).** Completeness is certified by a classification or finiteness *theorem*, proved in ZFC. The search for cases provably terminates, and a theorem proves it terminates *completely*. The exemplar is Ostrowski's theorem (1916), which classifies every place of ℚ as archimedean
+    :34     
+    :35     **SEARCH (Hodge-class).** Completeness is established by *search or verification* — the catalogue is complete as far as it has been searched, backed by a structural prediction that the search terminates — but no closed classification theorem yet exists. The certificate is strong evidence of complete
+    :36     
+    :37     **FORCED-OR-UNDERDETERMINED (T7-class).** The count is *forced by the structure's own construction* — it falls out of the formation architecture — but its exhaustiveness carries no independent theorem and no terminating search. Such a count is trustworthy as a *description of the construction* while
+    :38     
+    :39     **NONE.** No exhaustiveness license: no classification theorem, no terminating search, no forcing. The catalogue's completeness is simply unestablished (or, at the far end, provably non-terminating — an "anti-Ostrowski" barrier).
+    :40     
+    :41     The order is `THEOREM > SEARCH > FORCED-OR-UNDERDETERMINED > NONE`. Higher means a stronger warrant that nothing was missed.
+    :42     
+    :43     ## 3. The grading function
+    :44     
+    :45     An instance is graded by the **strongest license it can evidence**. Given the factual record of what an instance carries —
+    :46     
+    :47     - a classification theorem for its catalogue (Ostrowski-class), or
+    :48     - a terminating search / verification with predicted completeness (Hodge-class), or
+    :49     - a count forced by its formation architecture (T7-class) —
+    :50     
+    :51     its grade is the topmost of these that applies, and `NONE` if none does. This is a fixed rule, not a case-by-case judgment: the grade is *computed* from the instance's evidence, never assigned by hand.
+    :52     
+    :53     The ladder and this rule are compiled. In the Lean skeleton (`SIDEEffects.ExhaustivenessLicense`, kernel half of this build), the four grades are an inductive type; the order derives from a strength-rank *function* (`Grade.rank`), not from stipulated per-pair facts; the ladder's shape is proved (`th
+    :54     
+    :55     ## 4. The corpus's instances on the ladder
+    :56     
+    :57     Each instance's *evidence* — what certificates its catalogue actually carries — is the corpus's factual claim, justified by the cited records. The kernel takes that evidence as the instance's data and computes the grade; the justification lives here.
+    :58     
+    :59     **The Riemann Hypothesis — THEOREM, conditional on `h2`.** The seven-class mechanism catalogue's completeness rests on classification theorems at every stage of the formation count (2+3+2+0): the two group structures on ℤ (ring classification), the three places of ℚ (**Ostrowski 1916**), the two out
+    :60     
+    :61     **The Hodge exhaustiveness question — SEARCH.** Its completeness (that the N1–N5 catalogue of codimension-dependent structures is complete — no missed sixth) is *search-established* — no N6 found across 60+ years — rather than closed by a classification theorem. That is the SEARCH grade: search-esta
+    :62     
+    :63     **The T7 seven-length — FORCED-OR-UNDERDETERMINED.** The seven-fold count of the T7 structure is forced by its formation architecture; there is no independent classification theorem or terminating search certifying it exhaustive. Filed at the T7-class grade. *(Evidence: the T7 formation-level placem
+    :64     
+    :65     **The class-number diagonal — FORCED-OR-UNDERDETERMINED.** The ℚ(√−6) diagonal of the class-number-anomaly result is likewise forced by construction, its exhaustiveness not independently certified. Same grade as the T7 seven-length. *(Evidence: the class-number-anomaly diagonal, `CLASS_NUMBER_ANOMAL
+    :66     
+    :67     On the ladder these sit in order: the two forced-or-underdetermined instances at the bottom rung above NONE, Hodge above them, RH (per-stage) at the top — the relation the kernel's `instances_ordered` compiles.
+    :68     
+    :69     ## 5. The bridge to difficulty: the E-Difficulty biconditional
+    :70     
+    :71     The ladder's top grade connects to the programme's difficulty theory. The **E-Difficulty** account (the SIDE Level-1 reading of mathematical difficulty) holds that the difficulty of a determined-system problem *equals* the difficulty of proving its mechanism search terminates — of constructing the d
+    :72     
+    :73     The bridge is the biconditional:
+    :74     
+    :75     > an instance earns the **THEOREM** grade **if and only if** its E-condition is **TYPE-I discharged** (its domain Ostrowski is constructed).
+    :76     
+    :77     This is the ladder's link to difficulty theory: the top rung is inhabited precisely by the problems whose search-termination is theorem-constructed. In the kernel this biconditional is the **single INTERFACES point** — carried as a *named premise* (`EDifficultyTop`), consumed by `RH_typeI_of_top`, a
+    :78     
+    :79     ## 6. What this establishes, and what it does not
+    :80     
+    :81     **Establishes.** A precise, ordered vocabulary for the strength of an exclusion argument's completeness certificate, a fixed rule assigning a grade to an instance, and the corpus's instances placed on the ladder with their evidence — all compiled axiom-free at the level of *structure* (the pentagon 
+    :82     
+    :83     **Does not establish.** It discharges no exhaustiveness license and closes no open problem. Grading RH's per-stage counts THEOREM does **not** close `h2`: the totality register remains the open premise, and the E-Difficulty bridge to the top grade is a named premise, not a proof. The ladder classifi
+    :84     
+    :85     ## 7. The residue as the E-Difficulty programme's first instance
+    :86     
+    :87     The ladder's top grade is inhabited exactly when a problem's mechanism search is TYPE-I discharged (§5). RH is the programme's own frontier, and its residue — after every removable layer is stripped — carries a compiled **structure theorem** that makes it the E-Difficulty account's first concrete in
+    :88     
+    :89     - **Clause 1 (zero-realization) is free.** A positive self-adjoint operator with a discrete spectrum exists — the certified `{n²}` input — but it does not realize the ζ-zeros (`certifiedInput_not_zeroRealizing`). Positivity and self-adjointness are cheap; the spectrum it delivers is the wrong one.
+    :90     - **Clause 2 (the inequality) is free to a threshold.** The two-channel inequality is certified for the Li coefficients up to the Voros detection threshold `N₀(T) ≈ 2T²` — given the ζ-zeros verified to height `T` (the finite-range partial inhabitant) — but not for all `n`.
+    :91     - **Only the conjunction is RH.** The full object — a self-adjoint operator whose spectrum *is* the zeros, whose induced pairing yields the inequality for *all* `n` — implies RH, through the named classical premises (the Weil-criterion direction; Li's criterion).
+    :92     
+    :93     So the difficulty is located precisely at the conjunction: neither clause alone is hard (each is witnessed), and their join is the whole of RH. This is the sharpest statement of *where* the difficulty lives — not in constructing a positive operator (free), nor in the finite-range certificate (compil
+    :94     
+    :95     *(Evidence: `residue_irreducible`, `positivity_free_obstruction_is_zeroRealization`, `certifiedPartialInhabitant`, `zeroActingPairing_to_RH` — SIDE-lv-conservation, merged branch `word-pairing-interface`; clean at the standard three axioms {propext, Classical.choice, Quot.sound} or axiom-free. The d
+    :96     
+    :97     ---
+    :98     
+    :99     ## Correspondence
+    :100    
+    :101    The ladder structure and grading rule, matched to the compiled Lean terminals and their `#print axioms` profiles, read from the kernel skeleton (MERGED from branch `w-ladder-skeleton`, SIDE-effects; main fast-forwarded).
+    :102    
+    :103    | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+    :104    |:--|:--|:--|:--|:--|
+    :105    | The four grades form a decidable type | SIDE-effects `ExhaustivenessLicense` | `SIDEEffects.ExhaustivenessLicense.Grade` (+ `instance Decidable (a ≤ b)`) | axiom-free (none) | DERIVES — compiled |
+    :106    | The order is a preorder (reflexive, transitive) | SIDE-effects `ExhaustivenessLicense` | `Grade.le_refl`; `Grade.le_trans` | axiom-free (none) | DERIVES — compiled |
+    :107    | THEOREM is the top; NONE the bottom; the ladder is strict | SIDE-effects `ExhaustivenessLicense` | `theorem_is_top`; `none_is_bottom`; `ladder_strict` | axiom-free (none) | DERIVES — compiled from the rank function, not stipulated |
+    :108    | The corpus instances' grades (RH=THEOREM, Hodge=SEARCH, T7 & class-number diagonal = FORCED-OR-UNDERDETERMINED) | SIDE-effects `ExhaustivenessLicense` | `RH_grade`; `Hodge_grade`; `T7_grade`; `classNumberDiagonal_grade` | axiom-free (none) | DERIVES — each computed by `grade`, proved by `rfl` (not
+    :109    | The instances sit in the ordered relation | SIDE-effects `ExhaustivenessLicense` | `instances_ordered` | axiom-free (none) | DERIVES — compiled |
+    :110    | The E-Difficulty bridge (top grade ⇔ TYPE-I discharge) | SIDE-effects `ExhaustivenessLicense` | `RH_typeI_of_top` (via the named premise `EDifficultyTop`) | axiom-free (none) | **INTERFACES** — the biconditional is a named premise, never proved here |
+    :111    
+    :112    *Kernel skeleton read at: SIDE-effects branch `w-ladder-skeleton` (Lean core only, no Mathlib; `theorem` throughout, vanilla-build law). Every terminal axiom-free by `#print axioms`. MERGED — fast-forwarded into main, nothing deposited (governing publication posture).*
+    :113    
+    :114    ---
+    :115    
+    :116    *The `h2`-conditionality of RH's grade is stated at §4 and is unchanged from the corpus's standing scope. This paper adds a vocabulary; it advances no premise.*
+    :117    
+    :118    <!-- b454 CURRENCY ANNOTATION, 2026-09-14 -->
+    :119    
+    :120    #### **CURRENCY ANNOTATION** *(2026-09-14, b454; existing text preserved apart from the state terms named here)*
+    :121    
+    :122    > ### **3 LINE(S) MOVED FROM HELD TO MERGED: EACH BRANCH WAS FAST-FORWARDED INTO `main`.** *The originals, preserved verbatim:*
+    :123    
+    :124    > - line `95` (`SIDE-lv-conservation` branch `word-pairing-interface`; fast-forward, tip `5a14205` on `main`’s first-parent line; state terms `held branch `word-pairing-interface`` → `merged branch `word-pairing-interface``) — **(Evidence: `residue_irreducible`, `positivity_free_obstruction_is_zeroR
+    :125    > - line `101` (`SIDE-effects` branch `w-ladder-skeleton`; fast-forward, tip `a0dc376` on `main`’s first-parent line; state terms `HELD on branch` → `MERGED from branch` · `main untouched` → `main fast-forwarded`) — *The ladder structure and grading rule, matched to the compiled Lean terminals and t
+    :126    > - line `112` (`SIDE-effects` branch `w-ladder-skeleton`; fast-forward, tip `a0dc376` on `main`’s first-parent line; state terms `HELD — nothing merged, nothing deposited` → `MERGED — fast-forwarded into main, nothing deposited`) — **Kernel skeleton read at: SIDE-effects branch `w-ladder-skeleton` 
+    :127    
+    :128    > ### **WHY.** *`(R63)(a)` as amended by `(R64)(1)`: a line calling a merged branch held is a currency defect. The branch was fast-forwarded, so there is no merge commit; the tip on `main`’s first-parent line is cited. Only the state terms changed on each line; no line was removed; no grade, claim o
+    :129    
+    :130    <!-- b454 ERA ANNOTATION, 2026-09-14 -->
+    :131    
+    :132    ### ERA ANNOTATION (2026-09-14, b454) — bearing on the S2 Ostrowski seal
+    :133    
+    :134    > ### **`S2` Ostrowski `COMPILED`** — `structural_exhaustiveness_proved`, SIDE-kernel v1.5 = `0e5233f`, `{propext, Classical.choice, Quot.sound}`; the roster sealed
+    :135    
+    :136    *Provenance: `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:8808`, a ledger line before b450, added under `(R63)(b)` as amended by `(R64)(2)`. **This note states a later finding and edits no argument above it.** No claim in this document moves.*
+    :137    
+    :138    <!-- b557 THE CASCADE, ACT ELEVEN, 2026-09-29 -->
+    :139    
+    :140    #### THE CASCADE, ACT ELEVEN -- THE CORRESPONDENCE TIERED *(appended 2026-09-29, b557, under the author's ruling `(R167)`(5); no byte above this block changes; the body is not edited)*
+    :141    
+    :142    **The rows, re-read at pin.** 6 rows, 6 naming a terminal. Each terminal's file at the row's pin was elaborated fresh with `#check` and `#print axioms` appended, narrow imports (the file's own header) (relay `data/b557_probe_<id>.txt`; statements, profiles, tiers and reasons in `data/b557_tiers.txt`
+    :143    
+    :144    | row | claim (abridged) | terminal(s) | fresh profile(s) | disposition | tier(s) |
+    :145    |:--|:--|:--|:--|:--|:--|
+    :146    | :105 | The four grades form a decidable type | `Grade` | axiom-free | **CARRIED** | T2 |
+    :147    | :106 | The order is a preorder (reflexive, transitive) | `le_refl`, `le_trans` | axiom-free | **CARRIED** | T2 |
+    :148    | :107 | THEOREM is the top; NONE the bottom; the ladder is strict | `theorem_is_top`, `none_is_bottom`, `ladder_strict` | axiom-free | **CARRIED** | T2 |
+    :149    | :108 | The corpus instances' grades (RH=THEOREM, Hodge=SEARCH, T7 & class-number diagonal = FORCE | `RH_grade`, `Hodge_grade`, `T7_grade`, `classNumberDiagonal_grade` | axiom-free | **CARRIED** | T2 |
+    :150    | :109 | The instances sit in the ordered relation | `instances_ordered` | axiom-free | **CARRIED** | T2 |
+    :151    | :110 | The E-Difficulty bridge (top grade ⇔ TYPE-I discharge) | `RH_typeI_of_top` | axiom-free | **CARRIED** | T2-INTERFACES |
+    :152    
+    :153    *Tiers over the 12 terminal readings: T0 0 · T1-open 0 · T1-lit 0 · T2 11 · T2-SHELL 0 · T2-INTERFACES 1 · T3 0 · T4 0. Rows by their weakest link: T0 0 · T1-open 0 · T1-lit 0 · T2 5 · T2-SHELL 0 · T2-INTERFACES 1 · T3 0 · T4 0. Dispositions: CARRIED 6 · MOVED 0.*
+    :154    
+    :155    
+    :156    *Appended by b557. No claim of the document is altered; `h2` stays where the deposit left it.*
+    :157    
+    :158    *Appended 2026-09-29 by b558, under the author's ruling `(R168)`(4) -- BACK MATTER, THE EDITION WORK-LIST:* This document's -- 4 sentence-rows read MOVED-IN-MEANING by CP-1b, each with what the compiled fact supports and its informing work-order, are listed in relay `data/b558_editions/EXHAUSTIVENES
+### PLACE-papers the zeta page at the mirror`s pin, its pin line and node 8 -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 192077ff (2 lines cited)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b569_nodes.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.11 = `19b7d1e` (Lean v4.34.0
+    :12     8. `SIDEExplicitFormula.B321.h2_sign_iff_rh` — SIDEExplicitFormula/Seam.lean:101 — v0.2 = 5c72cad — `theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Q
+### PLACE-papers OPEN_TRAILS, b454`s ledger table row for the S2 Ostrowski seal and its count line -- OPEN_TRAILS.md @ 6e617c72 (4 lines cited)
+    :6754   
+    :6755   | finding | S1 | S2 | hits read | verdict | first holding line |
+    :6763   | the S2 Ostrowski seal | 1 | 2 | 2 | **FOUND** | `OPEN_TRAILS-archive-2-historical-landings-and-programs.md:8808` |
+    :6766   **The two counts, over the 15 targets: ADDED 7 — CLAIMED BY THE KEYSTONE AND HELD BY NO LEDGER 8.** Added: `W_∞` not sign-definite in PATHS, SURROUND, SIMPLICITY and INDEX_ARITY; the two-kinds windows verdict in REPARAMETERIZATION; the `S2` Ostrowski seal in EXHAUSTIVENESS_LICENSE; the sign-face reg
+### PLACE-papers the archived ledger line b454 found -- archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md @ 6e617c72 (1 lines cited)
+    :8808   **`S1`–`S5` sealed, 0 blank cells:** ### **`S1` FTA `STANDARD-AT-TEXT`** (by the empirical law — four failed sweeps) · ### **`S2` Ostrowski `COMPILED`** — `structural_exhaustiveness_proved`, SIDE-kernel v1.5 = `0e5233f`, `{propext, Classical.choice, Quot.sound}`; the roster sealed · ### **`S3` `COMP
+### relay b540`s tier reading of Route 1 -- data/b540_tiers.json @ 7750d0c7 (2 lines cited)
+    :104        "Route 1 `structural_exhaustiveness_proved` · kernel v1.5 `0e5233f` (DOI 10.5281/zenodo.21520474)"
+    :437     "si_reading": "**§I`s \"three compiled routes\", read after b531 and b538:** two compiled route terminals, **neither a route to σ = 1/2** -- Route 1 (`structural_exhaustiveness_proved`, T2: the decide-count conjunct and the C₇ stand-in) and Route 2 (`spectral_cannon`, T0 and not in the RH-anchor: a
+### relay b541`s census sentence on Route 1 -- data/b541_census.json @ 7750d0c7 (1 lines cited)
+    :3241      "sentence": "**On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states.",
+### PLACE-papers OPEN_TRAILS, the form, its clauses, the name exception and lane three`s order -- OPEN_TRAILS.md @ 6e617c72 (13 lines cited)
+    :11417  > LANE THREE — THE CLARIFIED LAYER, after lane two's (a) and (b) at least: CP-4 (the page without narrative, the ceiling as its last derived line), CP-5 (the deposit reconciliation, now carrying Anomaly 1, E-2026-09-25-1 through -6 and E-2026-09-27-1, and the (R110) description edit), CP-7 (the obse
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s n
+    :11904  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(3), to the form of an edition (:11864) -- THE STEM CLAUSE, STANDING:* a banned stem in a sentence the work-list does not mark is replaced by the object the sentence names (not a synonym for the stem), the sentence otherwise unchanged, 
+    :11906  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem clause -- THE CEILING CLAUSE:* a sentence the work-list does not mark that speaks beyond the README ceiling (README :106-:121) takes the object it names, the rest of the se
+    :11908  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem and ceiling clauses -- THE HISTORY CLAUSE:* dated history entries are superseded beneath, not rewritten: a marked sentence in a dated history entry carries unchanged as a d
+    :11930  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(2), to the form of an edition (:11864) -- H28b, FINAL FORM FOR EVERY EDITION ACT:* the body sentence count differs from the current version’s by at most the CREDIT count, the removals, the citations a ruling orders, and one version lin
+    :11932  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(3), to the form of an edition (:11864) -- THE RE-PIN STEP, THE FORM’S LAST:* after every insertion the edition’s own Correspondence column and the act’s diff bank are re-read against the final file and cite its final lines; the bank st
+    :11934  *Appended 2026-10-01 by b580, under the author’s answer before b580’s seal, to the form of an edition (:11864), beside the stem, ceiling and history clauses -- THE NAME-AND-TITLE EXCEPTION:* an object’s own name and a bibliography title are not live uses (relay `tools/banned_terms.py` :14, “CLAY / B
+    :11954  *Appended 2026-10-01 by b581, under the author’s ruling `(R191)`(2), to the form of an edition (:11864) -- THE FACT CLAUSE, STANDING:* an unmarked sentence that states a fact the seat’s printed read contradicts -- a pin, a toolchain, a count, an import -- is corrected in place to the printed fact, t
+    :11956  *Appended 2026-10-01 by b581, under the author’s answer before b581’s seal, to the form of an edition (:11864) -- THE PLACEMENT CLAUSE:* a b450 “does not carry” item the work-list does not place is inserted beside the sentence whose claim it corrects, that sentence named in the back matter. Applied 
+    :12044  *Appended 2026-10-01 by b585 to the history clause (:11908), under the author’s answer before b585’s seal -- INSIDE A DATED ENTRY THE HISTORY CLAUSE GOVERNS:* a banned stem inside a dated history entry is carried as the dated record, and a history line dated to the edition directly beneath the entry
+    :12062  *Appended 2026-10-01 by b586 to the critical path’s lane three (:11417), under the author’s ruling `(R196)`(4) -- LANE THREE’S ORDER, REFINED:* as ruled: “the editions continue in the ratified order through RESIDUE; then the two companions BALANCE_AND_POSITIVITY and FACES_OF_H2; then W-ORD-SIMPLICIT
+    :12064  ### b586 — lane three, act fourteen under (R196): CP-7 act eleven -- the edition of ENUMERA written beside the current; the scanner taught the exceptions; the corroboration census; lane three’s order refined
+### PLACE-papers FINDINGS, b586`s entry -- FINDINGS.md @ 6e617c72 (1 lines cited)
+    :6650   ## CP-7, act eleven: the edition of ENUMERA from its tier block and work-list; the corroboration census over the roster; the scanner reading the form’s exceptions; written as v1.6 beside v1.5, no sentence held
+### PLACE-papers ENUMERA v1.6, its Names excepted section -- phase1.5/method/ENUMERA_v1_6.md @ 6e617c72 (15 lines cited)
+    :1095   
+    :1096   These lines carry the item labels of the CR document (CRITICAL RESOLVE) as that document numbers and names them; each use carries unchanged under the name-and-title exception (OPEN_TRAILS :11934), the seat’s reading.
+    :1097   
+    :1098   | this edition’s line | Status |
+    :1099   |:--|:--|
+    :1100   | :896 | excepted, the object’s own name (an item label of the CR document) |
+    :1101   | :897 | excepted, the object’s own name (an item label of the CR document) |
+    :1102   | :921 | excepted, the object’s own name (an item label of the CR document) |
+    :1103   | :923 | excepted, the object’s own name (an item label of the CR document) |
+    :1104   | :924 | excepted, the object’s own name (an item label of the CR document) |
+    :1105   | :925 | excepted, the object’s own name (an item label of the CR document) |
+    :1106   
+    :1107   ### Ceiling corrections
+    :1108   
+    :1109   | this edition’s line | v1.5 wording | v1.6 wording | Status |
+### relay b586`s closing push-out, its head -- data/b586_closing_push_out.txt @ 7750d0c7 (3 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b586_closing_push_out.txt (2026-10-01T23:56:34Z)
+    :2      push_gated: repo D:/relay ; branch push-b586-closing ; tip a790a95afd74e3aa9ab23be8610072de456b0aca ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+### THE S2 SEAL, SEARCHED BY NAME ("S2 Ostrowski seal") in PLACE-papers FINDINGS.md and OPEN_TRAILS.md at 6e617c7:
+    FINDINGS.md : 0 hit(s) []
+    OPEN_TRAILS.md : 2 hit(s) [':6642', ':6763']
+      :6642 | **AUTHORING** | **26** | `PATHS_TO_THE_CRITICAL_LINE` — does not carry: W_inf NOT sign-definite — :159<br>`PATHS_TO_THE_CRITICAL_LINE` — does not carry: the Day-1 section I attribution pole-plus-archimedean — :160<br>`
+      :6763 | the S2 Ostrowski seal | 1 | 2 | 2 | **FOUND** | `OPEN_TRAILS-archive-2-historical-landings-and-programs.md:8808` |
+### THE TWO BRANCHES AT THEIR REMOTES (fast-forwarded; no merge commit on the ancestry path):
+    SIDE-lv-conservation word-pairing-interface : remote ['2f71068a refs/heads/main', '5a142053 refs/heads/word-pairing-interface'] ; tip 5a14205 an ancestor of main yes ; merge commits on the path 0 ; "BUILD-1+4 (h2 build slate): QWantedPoster -- the forced-property constraint set "
+    SIDE-effects w-ladder-skeleton : remote ['ef4cff77 refs/heads/main', 'a0dc376f refs/heads/w-ladder-skeleton'] ; tip a0dc376 an ancestor of main yes ; merge commits on the path 0 ; "W-LADDER landing (Program Four iv): root-wire SIDEEffects.ExhaustivenessLicense "
+### the explicit-formula tag the edition cites:
+    SIDE-explicit-formula v0.2 : cited 5c72cad ; local 5c72cad ; remote 5c72cad ; AGREE
