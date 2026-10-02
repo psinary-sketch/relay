@@ -1,0 +1,89 @@
+b598 -- THE TIER BLOCK AND EDITION WORK-LIST OF REPARAMETERIZATION_BARRIERS_v0_1 (phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+
+### written by the b558 form under (R208)(3): the tier block (every terminal the document cites, graded from relay `data/b557_tiers.txt` and checked against the terminal table at relay HEAD and both pages at SIDE-explicit-formula v0.17), then every sentence-row of the b558 matcher (relay `tools/b558_record.py` :330-:371: each union terminal by its name and the ferry`s four aliases, and each tier-block terminal by its name) in line order -- the line, the terminal, the sentence quoted, the verdict (STANDS / MOVED-IN-MEANING / CREDIT), what the compiled fact supports with the declaration by name and pin, and the informing work-order; then b450`s items placed. The document is read at PLACE-papers `eb9b057`, last changed `f8b4a31 2026-09-29`; it is not written, and b558`s pointer line is not appended to it.
+
+### THE VERSION HISTORY, as the document carries it: **v0.1 — 2026-08-04 — DRAFT** | **Version history.** v0.1 (2026-08-04): first draft — schema instantiated for a
+
+## THE TIER BLOCK
+
+`InvarianceBarrier.invariance_barrier` -- SIDE-kernel 5e668b4 (the row`s pin; v1.7 = 2957e7d drafted), `Kernel/Cascade/InvarianceBarrier.lean` :39
+    statement : theorem invariance_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_diverge : ¬ (P x ↔ P y)) : ¬ DeterminedBy agree P
+    tier      : T2 -- a general schema over an abstract carrier, agreement relation and property -- logic (b556) ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :560)
+    table     : InvarianceBarrier.invariance_barrier grade UNGRADED, NOT PROFILED, present at HEAD
+    pages     : not a node on either page at v0.17
+
+`InvarianceBarrier.derivability_barrier` -- SIDE-kernel 5e668b4 (the row`s pin; v1.7 = 2957e7d drafted), `Kernel/Cascade/InvarianceBarrier.lean` :60
+    statement : theorem derivability_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_fail : ¬ P y) : ¬ Derives agree P x
+    tier      : T2 -- the soundness corollary, same schema (b556) ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :568)
+    table     : InvarianceBarrier.derivability_barrier grade UNGRADED, NOT PROFILED, present at HEAD
+    pages     : not a node on either page at v0.17
+
+`InvarianceBarrier.DeterminedBy` -- definition written out at :59; SIDE-kernel 5e668b4, `Kernel/Cascade/InvarianceBarrier.lean` :31 -- `def DeterminedBy (agree : α → α → Prop) (P : α → Prop) : Prop := ∀ x y, agree x y → (P x ↔ P y)` -- E0 DEF, no tier (a definition is not a terminal)
+
+`InvarianceBarrier.Derives` -- definition written out at :66; SIDE-kernel 5e668b4, `Kernel/Cascade/InvarianceBarrier.lean` :50 -- `def Derives (agree : α → α → Prop) (P : α → Prop) (x : α) : Prop := ∀ z, agree x z → P z` -- E0 DEF, no tier (a definition is not a terminal)
+
+### rows naming no terminal (the document`s own manuscript-resident rows): :225, :226, :227, :228, :229, :230, :231 -- T4 by b557`s block
+### ### **TIER BLOCK : 2 terminals cited ; T2 2 ; T2 majority True.**
+
+## THE WORK-LIST
+
+:58 -- `invariance_barrier` -- STANDS (the document`s own)
+    the sentence: "invariance_barrier :"
+    what the compiled fact supports: the code block`s statement, `agree x y → ¬(P x ↔ P y) → ¬ DeterminedBy agree P` (:58-:59), is the compiled one (`Kernel/Cascade/InvarianceBarrier.lean` :39, SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), `DeterminedBy agree P := ∀ x y, agree x y → (P x ↔ P y)` (:31); the T2 tier (a schema over an abstract carrier, b556) is the reading the note gives it itself at :71-:73 (“deliberately weak — all the mathematical content of any barrier built on them sits in the two hypotheses”).
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+:67 -- `derivability_barrier` -- STANDS (the document`s own)
+    the sentence: "derivability_barrier : agree x y → ¬ P y → ¬ Derives agree P x"
+    what the compiled fact supports: the code block`s statement is the compiled one (`Kernel/Cascade/InvarianceBarrier.lean` :60, SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), with `Derives agree P x := ∀ z, agree x z → P z` (:50) as :66 writes it.
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+:223 -- `invariance_barrier` -- STANDS (the document`s own)
+    the sentence: "| The inference step: agreement + divergence ⟹ not determined | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.invariance_barrier` | **axiom-free, re-printed** | DERIVES |"
+    what the compiled fact supports: the row`s pin `5e668b4` holds the file byte for byte as v1.7 and main do (SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), axiom-free as re-printed; the claim cell is the statement (:39).
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+:224 -- `derivability_barrier` -- STANDS (the document`s own)
+    the sentence: "| The derivability form: assumes nothing of the object of interest | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.derivability_barrier` | **axiom-free, re-printed** | DERIVES |"
+    what the compiled fact supports: the same pin and blob (SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)); “assumes nothing of the object of interest” is the statement`s premise `¬ P y` on the witness alone (:60).
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+:272 -- `invariance_barrier` -- STANDS (the cascade`s own)
+    the sentence: "| :223 | The inference step: agreement + divergence ⟹ not determined | `invariance_barrier` | axiom-free | **CARRIED** | T2 |"
+    what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+:273 -- `derivability_barrier` -- STANDS (the cascade`s own)
+    the sentence: "| :224 | The derivability form: assumes nothing of the object of interest | `derivability_barrier` | axiom-free | **CARRIED** | T2 |"
+    what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+:285 -- `h2_sign` -- STANDS (the cascade`s own, by the alias “h2”)
+    the sentence: "`h2` stays where the deposit left it.*"
+    what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+
+### ### **WORK-LIST : 7 sentence-rows (7 distinct lines) ; the document`s own 4 -- STANDS 4 · MOVED-IN-MEANING 0 · CREDIT 0 ; the cascade`s own 3, STANDS by default.**
+
+## b450`S ITEMS, LOCATED BY NAME AND PLACED
+
+relay `data/b450_components.txt` :176 -- “REPARAMETERIZATION_BARRIERS_v0_1  does not carry: the two-kinds windows verdict”
+    placed: carried since b454: the era annotation at :256-:262 (PLACE-papers `b4b0be2`, “VERDICT: `DISTINCT`”), placed beside the Correspondence and the work-orders; the item is in the document, so no credit line is owed at b599
+
+relay `data/b450_components.txt` :113 -- “(i) registry row  None  a registry table row at REGISTRY.md:658 names the file and carries no version”
+    placed: the row is now REGISTRY :687, still with no version cell; a registry row is the author`s (b450`s own routing), not the edition`s
+
+## OBJECTS FOR THE EDITION`S OTHER CLAUSES, PRINTED FOR b599 (no work-list row; the precedence order reads them there)
+
+:219 -- the fact clause: “the CURRENT kernel pin `5e668b4`”: SIDE-kernel main is `0256e9e`; `Kernel/Cascade/InvarianceBarrier.lean` is byte-identical (blob `e4e8d23b`) at `5e668b4`, v1.7 = `2957e7d` and `0256e9e`, and absent at the deposit v1.5 = `0e5233f`.
+
+:40-:41 -- the restatement clause: “the barrier is proved, not conjectured”: the compiled part is the schema (:223, :224); the witness pair (W1)-(W5) and the membership table are manuscript-resident (:225-:230).
+
+## THE SECOND SHAPE, PRINTED AND NOT APPLIED: “Silence Principle”
+
+### the b558 form`s matcher reads each union terminal by its name and the ferry`s four aliases only (relay `tools/b558_record.py` :330-:335); “Silence Principle” is none of them, so these segments are PRINTED AND NOT GRADED. The declarations they would meet: `silence_universal` (SIDE-silence-principle v0.2.0 = `667c254`, `SIDESilencePrinciple/Basic.lean`; T2-INTERFACES on `I.is_universal`, b557-b558) and the ζ page`s `silence_universal_restated` (SIDE-explicit-formula v0.17, `THE_CLAUSE_AND_ITS_COMPILED_FACES.md` :164, DERIVES, T0). The alias is the author`s to rule.
+
+    none
+
+### ### **SECOND SHAPE : 0 segment(s).**
+
+### ### **MOVED-IN-MEANING ROWS FOR THE b599 DECISION : 0.**
