@@ -330,9 +330,14 @@ def union():
 # ### the search patterns: each union terminal by its name (a whole identifier, namespace-free); ALIASES only as the ferry and the
 # ### ruling give them -- the ferry`s four ("h2", "Route 3", "Conservation of Spectra", "the reduction"), each put on the terminal
 # ### it names, and the ruling`s pairing name `ConservationHypothesis` (R168)(3) on ch_iff_rh. No other alias.
+# ### b599, under (R209)(2)(i), the author`s: "Silence Principle" on silence_principle -- the corpus`s own named object, its home
+# ### the document that states it, PLACE-papers `phase1.5/structural/SILENCE_FORMAL.md` :43 ("Theorem (Silence Principle)",
+# ### REGISTRY 1.5d-2), so that later censuses reach the sentences that name it.
 ALIAS = {'h2_sign': [('h2', r'(?<![A-Za-z0-9_])h2(?![A-Za-z0-9_])'), ('the reduction', r'\b[Tt]he reduction\b')],
          'ch_iff_rh': [('ConservationHypothesis', ident('ConservationHypothesis')), ('Route 3', r'\bRoute 3\b')],
-         'conservation_of_spectra': [('Conservation of Spectra', r'Conservation of Spectra')]}
+         'conservation_of_spectra': [('Conservation of Spectra', r'Conservation of Spectra')],
+         'silence_principle': [('Silence Principle', r'Silence Principle')]}
+SILENCE_HOME = ('phase1.5/structural/SILENCE_FORMAL.md', 43)
 # ### the map`s rows carrying a citing-keystones cell: (A) at :22-:35; the union terminals with such a row.
 MAPROW = re.compile(r'^\| (?:\*\*)?(?:\d+|—)(?:\*\*)? \| `([^`]+)`')
 
