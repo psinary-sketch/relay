@@ -1,0 +1,32 @@
+========================================================================================================
+b600 -- THE DESK. ### **THE HYPOTHESES AND THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### H34a-H34c, (R210)(4).
+--------------------------------------------------------------------------------------------------------
+  **(H34A)** ### **HOLDS.** -- the work-order`s statement item by item carried by a declaration True (data/b600_statements_prod.txt) ; the salt-check`s three theorems at the standard three True (product_satisfiable, product_part_load_bearing, product_sum_not_forced)
+  **(H34B)** ### **HOLDS.** -- productLemma_holds ['propext', 'Classical.choice', 'Quot.sound'], sum_ef ['propext', 'Classical.choice', 'Quot.sound'] ; sorryAx NONE ; every print at the standard three True ; the E0 gates True / True
+  **(H34C)** ### **HOLDS.** -- the node productLemma_holds on the ζ page at v0.18 graded DERIVES, its row printed True
+
+### THE NAVIGATOR`S FIVE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- the first completed build of Product.lean exit 0 with the file unchanged after it True (the attempt before it stopped by the harness at t=600 s with no error printed, data/b600_build_prod_attempt1.txt) ; the statement carried True ; the salt check True
+  **(N2)** ### **HELD.** -- the proof closed within the act at the standard three: True
+  **(N3)** ### **HELD.** -- outside the act`s own files, declarations concluding the Prop or its negation: 0 (of 33 headers in 44 kernels)
+  **(N4)** ### **HELD.** -- keystone sentences printed as bearing: 2 (GRH_CASCADE_v0_3_6.md :45, SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md :290)
+  **(N5)** ### **HELD.** -- nothing deposits; SIDE-explicit-formula main at the tag 1dd5cd7, the other mains unmoved True; the kernel`s files 5a1630b..v0.18 ['AxiomCheckProduct.lean', 'SIDEExplicitFormula/Product.lean', 'SIDEExplicitFormula/SaltCheckProduct.lean'], merges 0; PLACE-papers ['FINDINGS.md', 'OPEN_TRAILS.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md']; relay files beyond the act`s own banks and tools and the table: []
+
+### THE SEAT`S FIVE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- every declaration of Product.lean (19) and SaltCheckProduct.lean (7) at the standard three, no sorryAx: True
+  **(S2)** ### **HELD.** -- the salt-check`s three theorems, each DERIVES at the standard three: [('product_satisfiable', 'DERIVES'), ('product_part_load_bearing', 'DERIVES'), ('product_sum_not_forced', 'DERIVES')]
+  **(S3)** ### **HELD.** -- the ζ page re-emitted at v0.18 changed True with 5 of the five nodes ; the χ page changed False
+  **(S4)** ### **HELD.** -- no declaration outside the act`s files concluding the Prop or its negation ; the strict shapes exercised {'pos_reads': True, 'pos_refuses': True, 'neg_reads': True, 'neg_refuses': True} ; the act`s own declarations found by the same walk True
+  **(S5)** ### **HELD.** -- the bearing sentences: [('GRH_CASCADE_v0_3_6.md', 45), ('SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md', 290)]
+
+### ### **H34 : HOLDS 3 ; REFUTED 0.** ### ### **THE NAVIGATOR`S : HELD 5 ; REFUTED 0.** ### ### **THE SEAT`S : HELD 5 ; REFUTED 0.**
+
+### b600 -- THIS ACT`S OWN DEFECTS (the seat`s), as they occur.
+    (a) THE FIRST BUILD OF Product.lean WAS STOPPED BY THE HARNESS, NOT BY AN OOM AND NOT BY THE WATCHDOG: started at 2026-10-02T23:04:50Z with 4154 MB free (the hold 2560), run in the background under b596`s watchdog; the harness`s memory-pressure reaper stopped it at t=600s while the session was idle (the log`s last line: free 2549 MB, lean 714 MB resident, no EXIT line, no error printed). Recorded as a stop under the amended line (OPEN_TRAILS :12352). No orphan lean, lake or python remained; the build is not restarted without the author`s word.
+    (b) THE STEP-ZERO PROCESS LISTING`S NAME SET DID NOT INCLUDE tail: after the stop the listing found six `tail -f` processes of earlier sessions (PIDs 29544, 9680, 9720, 9032 on relay data/b505_c2_* and b506_c2_*; 38124, 6520 on data/b528_run_log.txt) and the seat`s own monitor`s tail and grep (32188, 1324); each stopped by PID with its command line read. The two tails on this session`s own task directory were left running.
+    (c) THE SEAT`S G-NODE-LIST PREDICATE WAS DEFECTIVE AT THE FIRST PRE-PUSH RUN: it split the node list on newlines without stripping the file`s final newline, so its last element was empty and the check that the backmatter record is the list`s last line failed on a true list (the list itself verified line by line: the pin moved, every b596 line carried, the five nodes before the backmatter record). The predicate corrected through the Edit tool to strip the final newline; the suite re-run whole; the arm list unchanged.

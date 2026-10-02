@@ -1,0 +1,236 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Product.reflect_reflect": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(ρ : ℂ) : Zeta23.reflect (Zeta23.reflect ρ) = ρ",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.reflect_mem_iff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (ρ : ℂ) : Zeta23.reflect ρ ∈ C.carrier ↔ ρ ∈ C.carrier",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.onMult": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (ρ : ℂ) : ℕ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.onMult_reflect": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (ρ : ℂ) : onMult C (Zeta23.reflect ρ) = onMult C ρ",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sumMult": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) (ρ : ℂ) : ℕ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.sumZ": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : Zeta23.ZeroConfig where carrier",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.sumZ_N": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) (T₁ T₂ : ℝ) : (sumZ C₁ C₂).N T₁ T₂ = C₁.N T₁ T₂ + C₂.N T₁ T₂",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sumZ_count": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : ∃ A₀ : ℝ, HCount (sumZ C₁ C₂) A₀",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.zeroSide_summable": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) : Summable (fun ρ : C.carrier => (C.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sum_ef": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x) = k x",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) (he : ∀ x : ℝ, k (-x) = k x) : (∑' ρ : (sumZ C₁ C₂).carrier, ((sumZ C₁ C₂).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = C₁.rhs k + C₂.rhs k",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sum_target_iff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : (C₁.target ∧ C₂.target) ↔ ∀ ρ ∈ (sumZ C₁ C₂).carrier, ρ.re = 1 / 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sum": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : WeilConfig where toZeroConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.sum_carrier": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : (sum C₁ C₂).carrier = C₁.carrier ∪ C₂.carrier",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sum_mult": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) (ρ : ℂ) : (sum C₁ C₂).mult ρ = onMult C₁ ρ + onMult C₂ ρ",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sum_rhs": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) (k : ℝ → ℂ) : (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.sum_target": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.ProductLemma": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C₁ C₂ : WeilConfig) : h2_sign_cfg (sum C₁ C₂) ↔ C₁.target ∧ C₂.target",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.productLemma_holds": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ProductLemma",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "1dd5cd739bcca0271ca434d539bac0ab912b890a",
+ "file": "SIDEExplicitFormula/Product.lean",
+ "same_file": true
+}

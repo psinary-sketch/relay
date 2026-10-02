@@ -1,0 +1,21 @@
+b600 -- THE STATEMENTS OF SIDEExplicitFormula/SaltCheckProduct.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-02T23:04:35Z ; the branch product-b600 (checked out: product-b600) ; the file`s sha256 42ab289e868b677e187b80c2c0feee65eb3481284bcb201d2877f83fb7e8fae3 ; its bytes 3176
+
+### :33 def onCfg
+    def onCfg : WeilConfig := Simplicity.SaltCheck.toyCfg 1 le_rfl
+### :35 theorem onCfg_h2
+    theorem onCfg_h2 : h2_sign_cfg onCfg :=
+### :39 def offCfg
+    def offCfg : WeilConfig :=
+### :42 theorem offCfg_not_h2
+    theorem offCfg_not_h2 : ¬ h2_sign_cfg offCfg := fun h => by
+### :47 theorem product_satisfiable
+    theorem product_satisfiable :
+        ∃ C₁ C₂ : WeilConfig, h2_sign_cfg (sum C₁ C₂) ∧ (sum C₁ C₂).carrier.Nonempty :=
+### :53 theorem product_part_load_bearing
+    theorem product_part_load_bearing :
+        ∃ C₁ C₂ : WeilConfig, h2_sign_cfg C₁ ∧ ¬ h2_sign_cfg (sum C₁ C₂) :=
+### :58 theorem product_sum_not_forced
+    theorem product_sum_not_forced :
+        ∃ C₁ C₂ : WeilConfig, h2_sign_cfg C₂ ∧ ¬ h2_sign_cfg (sum C₁ C₂) :=

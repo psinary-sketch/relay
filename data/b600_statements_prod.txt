@@ -1,0 +1,62 @@
+b600 -- THE STATEMENTS OF SIDEExplicitFormula/Product.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-02T23:04:35Z ; the branch product-b600 (checked out: product-b600) ; the file`s sha256 28a2b6bde5075ab496143955f3c3a199da3d98274cc984b55af17173a911a731 ; its bytes 9102
+
+### THE WORK-ORDER, OPEN_TRAILS :12136, WHOLE:
+    *Appended 2026-10-01 by b589 to W-ORD-GRH-WEIL (:11373), under the author’s ruling `(R199)`(6) -- REMAINDER 5, A PRICED ITEM, NOT STARTED, THE PRODUCT LEMMA:* for two configurations of the schema, the sum (carrier union, multiplicities added, rhs added, targets conjoined) is a configuration, and its criterion is the conjunction of the two by h2_sign_cfg_iff_target; priced at one lemma of substance, the summed explicit formula, and bookkeeping; the instance ζ · L(s, χ_d) as the Dedekind zeta of a quadratic field priced beside it as a separate item (relay data/b589_product_price.txt). Trigger: the author's word.
+
+### ITS STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “for two configurations of the schema”                                     -> sum                  in the work-order True ; declared as printed True
+    “the sum (carrier union”                                                   -> sum_carrier          in the work-order True ; declared as printed True
+    “multiplicities added”                                                     -> sum_mult             in the work-order True ; declared as printed True
+    “rhs added”                                                                -> sum_rhs              in the work-order True ; declared as printed True
+    “targets conjoined)”                                                       -> sum_target           in the work-order True ; declared as printed True
+    “is a configuration”                                                       -> sum_ef               in the work-order True ; declared as printed True
+    “and its criterion is the conjunction of the two by h2_sign_cfg_iff_target” -> ProductLemma         in the work-order True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :31 theorem reflect_reflect
+    theorem reflect_reflect (ρ : ℂ) : Zeta23.reflect (Zeta23.reflect ρ) = ρ := by
+### :36 theorem reflect_mem_iff
+    theorem reflect_mem_iff (C : WeilConfig) (ρ : ℂ) : Zeta23.reflect ρ ∈ C.carrier ↔ ρ ∈ C.carrier := by
+### :44 def onMult
+    def onMult (C : WeilConfig) (ρ : ℂ) : ℕ := if ρ ∈ C.carrier then C.mult ρ else 0
+### :46 theorem onMult_reflect
+    theorem onMult_reflect (C : WeilConfig) (ρ : ℂ) : onMult C (Zeta23.reflect ρ) = onMult C ρ := by
+### :53 def sumMult
+    def sumMult (C₁ C₂ : WeilConfig) (ρ : ℂ) : ℕ := onMult C₁ ρ + onMult C₂ ρ
+### :56 def sumZ
+    def sumZ (C₁ C₂ : WeilConfig) : Zeta23.ZeroConfig where
+### :77 theorem sumZ_N
+    theorem sumZ_N (C₁ C₂ : WeilConfig) (T₁ T₂ : ℝ) :
+        (sumZ C₁ C₂).N T₁ T₂ = C₁.N T₁ T₂ + C₂.N T₁ T₂ := by
+### :94 theorem sumZ_count
+    theorem sumZ_count (C₁ C₂ : WeilConfig) : ∃ A₀ : ℝ, HCount (sumZ C₁ C₂) A₀ := by
+### :104 theorem zeroSide_summable
+    theorem zeroSide_summable (C : WeilConfig) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) :
+        Summable (fun ρ : C.carrier => (C.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) := by
+### :111 theorem sum_ef
+    theorem sum_ef (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)
+        (he : ∀ x : ℝ, k (-x) = k x) :
+        (∑' ρ : (sumZ C₁ C₂).carrier, ((sumZ C₁ C₂).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))
+          = C₁.rhs k + C₂.rhs k := by
+### :130 theorem sum_target_iff
+    theorem sum_target_iff (C₁ C₂ : WeilConfig) :
+        (C₁.target ∧ C₂.target) ↔ ∀ ρ ∈ (sumZ C₁ C₂).carrier, ρ.re = 1 / 2 := by
+### :142 def sum
+    def sum (C₁ C₂ : WeilConfig) : WeilConfig where
+### :150 theorem sum_carrier
+    theorem sum_carrier (C₁ C₂ : WeilConfig) : (sum C₁ C₂).carrier = C₁.carrier ∪ C₂.carrier := rfl
+### :152 theorem sum_mult
+    theorem sum_mult (C₁ C₂ : WeilConfig) (ρ : ℂ) : (sum C₁ C₂).mult ρ = onMult C₁ ρ + onMult C₂ ρ := rfl
+### :154 theorem sum_rhs
+    theorem sum_rhs (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) : (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k := rfl
+### :156 theorem sum_target
+    theorem sum_target (C₁ C₂ : WeilConfig) : (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target := Iff.rfl
+### :160 def ProductLemma
+    def ProductLemma : Prop :=
+### :164 theorem h2_sign_cfg_sum_iff_targets
+    theorem h2_sign_cfg_sum_iff_targets (C₁ C₂ : WeilConfig) :
+        h2_sign_cfg (sum C₁ C₂) ↔ C₁.target ∧ C₂.target :=
+### :169 theorem productLemma_holds
+    theorem productLemma_holds : ProductLemma := fun C₁ C₂ => by

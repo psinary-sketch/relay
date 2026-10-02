@@ -1,0 +1,92 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Product.SaltCheck.onCfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": WeilConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.SaltCheck.onCfg_h2": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg onCfg",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.SaltCheck.offCfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": WeilConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Product.SaltCheck.offCfg_not_h2": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ¬ h2_sign_cfg offCfg",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.SaltCheck.product_satisfiable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C₁ C₂ : WeilConfig, h2_sign_cfg (sum C₁ C₂) ∧ (sum C₁ C₂).carrier.Nonempty",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.SaltCheck.product_part_load_bearing": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C₁ C₂ : WeilConfig, h2_sign_cfg C₁ ∧ ¬ h2_sign_cfg (sum C₁ C₂)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Product.SaltCheck.product_sum_not_forced": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C₁ C₂ : WeilConfig, h2_sign_cfg C₂ ∧ ¬ h2_sign_cfg (sum C₁ C₂)",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "1dd5cd739bcca0271ca434d539bac0ab912b890a",
+ "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+ "same_file": true
+}

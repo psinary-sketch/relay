@@ -1,0 +1,34 @@
+b600 -- THE E0 READ OF SIDEExplicitFormula/Product.lean AT THE BRANCH TIP 1dd5cd7 (product-b600)
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise
+### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.
+### the file at the tip is the one printed: True
+
+    reflect_reflect                    DERIVES    std3  -- no hypothesis binder
+    reflect_mem_iff                    DERIVES    std3  -- no hypothesis binder
+    onMult                             DEF        std3  -- 
+    onMult_reflect                     DERIVES    std3  -- no hypothesis binder
+    sumMult                            DEF        std3  -- 
+    sumZ                               DEF        std3  -- 
+    sumZ_N                             DERIVES    std3  -- no hypothesis binder
+    sumZ_count                         DERIVES    std3  -- no hypothesis binder
+    zeroSide_summable                  DERIVES    std3  -- domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k
+    sum_ef                             DERIVES    std3  -- domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x) = k x
+    sum_target_iff                     DERIVES    std3  -- no hypothesis binder
+    sum                                DEF        std3  -- 
+    sum_carrier                        DERIVES    std3  -- no hypothesis binder
+    sum_mult                           DERIVES    std3  -- no hypothesis binder
+    sum_rhs                            DERIVES    std3  -- no hypothesis binder
+    sum_target                         DERIVES    std3  -- no hypothesis binder
+    ProductLemma                       DEF        std3  -- 
+    h2_sign_cfg_sum_iff_targets        DERIVES    std3  -- no hypothesis binder
+    productLemma_holds                 DERIVES    std3  -- no hypothesis binder
+### ### **THE GATE: PASS** -- declarations 19, theorems 14 (DERIVES 14, INTERFACES 0)

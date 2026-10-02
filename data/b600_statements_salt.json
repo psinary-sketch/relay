@@ -1,0 +1,50 @@
+{
+ "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+ "sha256": "42ab289e868b677e187b80c2c0feee65eb3481284bcb201d2877f83fb7e8fae3",
+ "at": "2026-10-02T23:04:35Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "onCfg",
+   "line": 33,
+   "head": "def onCfg : WeilConfig := Simplicity.SaltCheck.toyCfg 1 le_rfl"
+  },
+  {
+   "kind": "theorem",
+   "name": "onCfg_h2",
+   "line": 35,
+   "head": "theorem onCfg_h2 : h2_sign_cfg onCfg :="
+  },
+  {
+   "kind": "def",
+   "name": "offCfg",
+   "line": 39,
+   "head": "def offCfg : WeilConfig :="
+  },
+  {
+   "kind": "theorem",
+   "name": "offCfg_not_h2",
+   "line": 42,
+   "head": "theorem offCfg_not_h2 : ¬ h2_sign_cfg offCfg := fun h => by"
+  },
+  {
+   "kind": "theorem",
+   "name": "product_satisfiable",
+   "line": 47,
+   "head": "theorem product_satisfiable :\n    ∃ C₁ C₂ : WeilConfig, h2_sign_cfg (sum C₁ C₂) ∧ (sum C₁ C₂).carrier.Nonempty :="
+  },
+  {
+   "kind": "theorem",
+   "name": "product_part_load_bearing",
+   "line": 53,
+   "head": "theorem product_part_load_bearing :\n    ∃ C₁ C₂ : WeilConfig, h2_sign_cfg C₁ ∧ ¬ h2_sign_cfg (sum C₁ C₂) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "product_sum_not_forced",
+   "line": 58,
+   "head": "theorem product_sum_not_forced :\n    ∃ C₁ C₂ : WeilConfig, h2_sign_cfg C₂ ∧ ¬ h2_sign_cfg (sum C₁ C₂) :="
+  }
+ ],
+ "items": []
+}

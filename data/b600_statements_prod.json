@@ -1,0 +1,165 @@
+{
+ "file": "SIDEExplicitFormula/Product.lean",
+ "sha256": "28a2b6bde5075ab496143955f3c3a199da3d98274cc984b55af17173a911a731",
+ "at": "2026-10-02T23:04:35Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "reflect_reflect",
+   "line": 31,
+   "head": "theorem reflect_reflect (ρ : ℂ) : Zeta23.reflect (Zeta23.reflect ρ) = ρ := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "reflect_mem_iff",
+   "line": 36,
+   "head": "theorem reflect_mem_iff (C : WeilConfig) (ρ : ℂ) : Zeta23.reflect ρ ∈ C.carrier ↔ ρ ∈ C.carrier := by"
+  },
+  {
+   "kind": "def",
+   "name": "onMult",
+   "line": 44,
+   "head": "def onMult (C : WeilConfig) (ρ : ℂ) : ℕ := if ρ ∈ C.carrier then C.mult ρ else 0"
+  },
+  {
+   "kind": "theorem",
+   "name": "onMult_reflect",
+   "line": 46,
+   "head": "theorem onMult_reflect (C : WeilConfig) (ρ : ℂ) : onMult C (Zeta23.reflect ρ) = onMult C ρ := by"
+  },
+  {
+   "kind": "def",
+   "name": "sumMult",
+   "line": 53,
+   "head": "def sumMult (C₁ C₂ : WeilConfig) (ρ : ℂ) : ℕ := onMult C₁ ρ + onMult C₂ ρ"
+  },
+  {
+   "kind": "def",
+   "name": "sumZ",
+   "line": 56,
+   "head": "def sumZ (C₁ C₂ : WeilConfig) : Zeta23.ZeroConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "sumZ_N",
+   "line": 77,
+   "head": "theorem sumZ_N (C₁ C₂ : WeilConfig) (T₁ T₂ : ℝ) :\n    (sumZ C₁ C₂).N T₁ T₂ = C₁.N T₁ T₂ + C₂.N T₁ T₂ := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "sumZ_count",
+   "line": 94,
+   "head": "theorem sumZ_count (C₁ C₂ : WeilConfig) : ∃ A₀ : ℝ, HCount (sumZ C₁ C₂) A₀ := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "zeroSide_summable",
+   "line": 104,
+   "head": "theorem zeroSide_summable (C : WeilConfig) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) :\n    Summable (fun ρ : C.carrier => (C.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_ef",
+   "line": 111,
+   "head": "theorem sum_ef (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)\n    (he : ∀ x : ℝ, k (-x) = k x) :\n    (∑' ρ : (sumZ C₁ C₂).carrier, ((sumZ C₁ C₂).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))\n      = C₁.rhs k + C₂.rhs k := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_target_iff",
+   "line": 130,
+   "head": "theorem sum_target_iff (C₁ C₂ : WeilConfig) :\n    (C₁.target ∧ C₂.target) ↔ ∀ ρ ∈ (sumZ C₁ C₂).carrier, ρ.re = 1 / 2 := by"
+  },
+  {
+   "kind": "def",
+   "name": "sum",
+   "line": 142,
+   "head": "def sum (C₁ C₂ : WeilConfig) : WeilConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_carrier",
+   "line": 150,
+   "head": "theorem sum_carrier (C₁ C₂ : WeilConfig) : (sum C₁ C₂).carrier = C₁.carrier ∪ C₂.carrier := rfl"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_mult",
+   "line": 152,
+   "head": "theorem sum_mult (C₁ C₂ : WeilConfig) (ρ : ℂ) : (sum C₁ C₂).mult ρ = onMult C₁ ρ + onMult C₂ ρ := rfl"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_rhs",
+   "line": 154,
+   "head": "theorem sum_rhs (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) : (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k := rfl"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_target",
+   "line": 156,
+   "head": "theorem sum_target (C₁ C₂ : WeilConfig) : (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target := Iff.rfl"
+  },
+  {
+   "kind": "def",
+   "name": "ProductLemma",
+   "line": 160,
+   "head": "def ProductLemma : Prop :="
+  },
+  {
+   "kind": "theorem",
+   "name": "h2_sign_cfg_sum_iff_targets",
+   "line": 164,
+   "head": "theorem h2_sign_cfg_sum_iff_targets (C₁ C₂ : WeilConfig) :\n    h2_sign_cfg (sum C₁ C₂) ↔ C₁.target ∧ C₂.target :="
+  },
+  {
+   "kind": "theorem",
+   "name": "productLemma_holds",
+   "line": 169,
+   "head": "theorem productLemma_holds : ProductLemma := fun C₁ C₂ => by"
+  }
+ ],
+ "items": [
+  {
+   "words": "for two configurations of the schema",
+   "decl": "sum",
+   "in_work_order": true,
+   "declared": true
+  },
+  {
+   "words": "the sum (carrier union",
+   "decl": "sum_carrier",
+   "in_work_order": true,
+   "declared": true
+  },
+  {
+   "words": "multiplicities added",
+   "decl": "sum_mult",
+   "in_work_order": true,
+   "declared": true
+  },
+  {
+   "words": "rhs added",
+   "decl": "sum_rhs",
+   "in_work_order": true,
+   "declared": true
+  },
+  {
+   "words": "targets conjoined)",
+   "decl": "sum_target",
+   "in_work_order": true,
+   "declared": true
+  },
+  {
+   "words": "is a configuration",
+   "decl": "sum_ef",
+   "in_work_order": true,
+   "declared": true
+  },
+  {
+   "words": "and its criterion is the conjunction of the two by h2_sign_cfg_iff_target",
+   "decl": "ProductLemma",
+   "in_work_order": true,
+   "declared": true
+  }
+ ]
+}

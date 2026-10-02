@@ -1,0 +1,355 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 36,
+   "name": "reflect_mem_iff",
+   "cls": "OWN",
+   "conclusion": " Zeta23.reflect ρ ∈ C.carrier ↔ ρ ∈ C.carrier",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 46,
+   "name": "onMult_reflect",
+   "cls": "OWN",
+   "conclusion": " onMult C (Zeta23.reflect ρ) = onMult C ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 77,
+   "name": "sumZ_N",
+   "cls": "OWN",
+   "conclusion": " (sumZ C₁ C₂).N T₁ T₂ = C₁.N T₁ T₂ + C₂.N T₁ T₂",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 94,
+   "name": "sumZ_count",
+   "cls": "OWN",
+   "conclusion": " ℝ, HCount (sumZ C₁ C₂) A₀",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 104,
+   "name": "zeroSide_summable",
+   "cls": "OWN",
+   "conclusion": " Summable (fun ρ : C.carrier => (C.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 111,
+   "name": "sum_ef",
+   "cls": "OWN",
+   "conclusion": " (∑' ρ : (sumZ C₁ C₂).carrier, ((sumZ C₁ C₂).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = C₁.rhs k + C₂.rhs k",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 130,
+   "name": "sum_target_iff",
+   "cls": "OWN",
+   "conclusion": " (C₁.target ∧ C₂.target) ↔ ∀ ρ ∈ (sumZ C₁ C₂).carrier, ρ.re = 1 / 2",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 150,
+   "name": "sum_carrier",
+   "cls": "OWN",
+   "conclusion": " (sum C₁ C₂).carrier = C₁.carrier ∪ C₂.carrier",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 152,
+   "name": "sum_mult",
+   "cls": "OWN",
+   "conclusion": " (sum C₁ C₂).mult ρ = onMult C₁ ρ + onMult C₂ ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 154,
+   "name": "sum_rhs",
+   "cls": "OWN",
+   "conclusion": " (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 156,
+   "name": "sum_target",
+   "cls": "OWN",
+   "conclusion": " (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 164,
+   "name": "h2_sign_cfg_sum_iff_targets",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg (sum C₁ C₂) ↔ C₁.target ∧ C₂.target",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Product.lean",
+   "line": 169,
+   "name": "productLemma_holds",
+   "cls": "OWN",
+   "conclusion": " ProductLemma",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+   "line": 35,
+   "name": "onCfg_h2",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg onCfg",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+   "line": 42,
+   "name": "offCfg_not_h2",
+   "cls": "OWN",
+   "conclusion": " ¬ h2_sign_cfg offCfg",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+   "line": 47,
+   "name": "product_satisfiable",
+   "cls": "OWN",
+   "conclusion": " WeilConfig, h2_sign_cfg (sum C₁ C₂) ∧ (sum C₁ C₂).carrier.Nonempty",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+   "line": 53,
+   "name": "product_part_load_bearing",
+   "cls": "OWN",
+   "conclusion": " WeilConfig, h2_sign_cfg C₁ ∧ ¬ h2_sign_cfg (sum C₁ C₂)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckProduct.lean",
+   "line": 58,
+   "name": "product_sum_not_forced",
+   "cls": "OWN",
+   "conclusion": " WeilConfig, h2_sign_cfg C₂ ∧ ¬ h2_sign_cfg (sum C₁ C₂)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+   "line": 100,
+   "name": "allSimple_satisfiable",
+   "cls": "OTHER",
+   "conclusion": " WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+   "line": 107,
+   "name": "allSimple_not_forced",
+   "cls": "OTHER",
+   "conclusion": " WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "line": 47,
+   "name": "zeroSide_cfg_eq",
+   "cls": "OTHER",
+   "conclusion": " zeroSide_cfg C k = C.rhs k",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Config.lean",
+   "line": 52,
+   "name": "online_imp_h2_sign_cfg",
+   "cls": "OTHER",
+   "conclusion": " online C → h2_sign_cfg C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "line": 237,
+   "name": "h2_sign_cfg_imp_online",
+   "cls": "OTHER",
+   "conclusion": " h2_sign_cfg C → online C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "line": 260,
+   "name": "h2_sign_cfg_iff_online",
+   "cls": "OTHER",
+   "conclusion": " h2_sign_cfg C ↔ online C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "line": 265,
+   "name": "h2_sign_cfg_iff_target",
+   "cls": "OTHER",
+   "conclusion": " h2_sign_cfg C ↔ C.target",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Detector.lean",
+   "line": 99,
+   "name": "detector",
+   "cls": "OTHER",
+   "conclusion": " ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧ Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧ (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Detector.lean",
+   "line": 120,
+   "name": "not_h2_sign_cfg_of_offline",
+   "cls": "OTHER",
+   "conclusion": " ¬ h2_sign_cfg C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Epstein.lean",
+   "line": 57,
+   "name": "epstein_not_h2_sign_cfg",
+   "cls": "OTHER",
+   "conclusion": " ¬ h2_sign_cfg (epsteinConfig Z rhs hP)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "line": 40,
+   "name": "h2_sign_cfg_zeta",
+   "cls": "OTHER",
+   "conclusion": " h2_sign_cfg zetaWeilConfig ↔ zetaWeilConfig.target",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "line": 44,
+   "name": "h2_sign_cfg_zeta_statement",
+   "cls": "OTHER",
+   "conclusion": " (h2_sign_cfg zetaWeilConfig ↔ zetaWeilConfig.target) = (h2_sign ↔ RiemannHypothesis)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "line": 60,
+   "name": "h2_sign_cfg_chi",
+   "cls": "OTHER",
+   "conclusion": " h2_sign_cfg (chiWeilConfig χ hχ h1) ↔ (chiWeilConfig χ hχ h1).target",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Instances.lean",
+   "line": 65,
+   "name": "h2_sign_cfg_chi_statement",
+   "cls": "OTHER",
+   "conclusion": " (h2_sign_cfg (chiWeilConfig χ hχ h1) ↔ (chiWeilConfig χ hχ h1).target) = (h2_sign_chi χ ↔ GRH_chi χ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+   "line": 126,
+   "name": "membership_load_bearing",
+   "cls": "OTHER",
+   "conclusion": " ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP)",
+   "reading": null
+  }
+ ],
+ "kernels": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-explicit-formula",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation"
+ ],
+ "files": 14,
+ "bad": [],
+ "controls": {
+  "pos_reads": true,
+  "pos_refuses": true,
+  "neg_reads": true,
+  "neg_refuses": true
+ }
+}

@@ -1,0 +1,26 @@
+b600 -- COMPONENT 2: THE FEDERATION SEARCHED FOR A DECLARATION CONCLUDING THE PRODUCT LEMMA OR ITS NEGATION (UTC 2026-10-02T23:27:26Z)
+
+### git grep -l -E "h2_sign_cfg|ProductLemma|WeilConfig" at HEAD of every kernel (44), 14 files; every theorem/lemma header naming one, its conclusion (the header after its last top-level colon) classified: CONCLUDES / NEGATES by the strict shapes, READ by the loose one, OTHER, OWN (this act`s files)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:36 reflect_mem_iff --  Zeta23.reflect ρ ∈ C.carrier ↔ ρ ∈ C.carrier
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:46 onMult_reflect --  onMult C (Zeta23.reflect ρ) = onMult C ρ
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:77 sumZ_N --  (sumZ C₁ C₂).N T₁ T₂ = C₁.N T₁ T₂ + C₂.N T₁ T₂
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:94 sumZ_count --  ℝ, HCount (sumZ C₁ C₂) A₀
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:104 zeroSide_summable --  Summable (fun ρ : C.carrier => (C.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:111 sum_ef --  (∑' ρ : (sumZ C₁ C₂).carrier, ((sumZ C₁ C₂).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = C₁.rhs k + C₂.rhs k
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:130 sum_target_iff --  (C₁.target ∧ C₂.target) ↔ ∀ ρ ∈ (sumZ C₁ C₂).carrier, ρ.re = 1 / 2
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:150 sum_carrier --  (sum C₁ C₂).carrier = C₁.carrier ∪ C₂.carrier
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:152 sum_mult --  (sum C₁ C₂).mult ρ = onMult C₁ ρ + onMult C₂ ρ
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:154 sum_rhs --  (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:156 sum_target --  (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:164 h2_sign_cfg_sum_iff_targets --  h2_sign_cfg (sum C₁ C₂) ↔ C₁.target ∧ C₂.target
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Product.lean:169 productLemma_holds --  ProductLemma
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckProduct.lean:35 onCfg_h2 --  h2_sign_cfg onCfg
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckProduct.lean:42 offCfg_not_h2 --  ¬ h2_sign_cfg offCfg
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckProduct.lean:47 product_satisfiable --  WeilConfig, h2_sign_cfg (sum C₁ C₂) ∧ (sum C₁ C₂).carrier.Nonempty
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckProduct.lean:53 product_part_load_bearing --  WeilConfig, h2_sign_cfg C₁ ∧ ¬ h2_sign_cfg (sum C₁ C₂)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckProduct.lean:58 product_sum_not_forced --  WeilConfig, h2_sign_cfg C₂ ∧ ¬ h2_sign_cfg (sum C₁ C₂)
+### OTHER rows (named the pattern, conclusion not the Prop) 15: SaltCheckSimplicity.lean:allSimple_satisfiable, SaltCheckSimplicity.lean:allSimple_not_forced, Config.lean:zeroSide_cfg_eq, Config.lean:online_imp_h2_sign_cfg, Converse.lean:h2_sign_cfg_imp_online, Converse.lean:h2_sign_cfg_iff_online, Converse.lean:h2_sign_cfg_iff_target, Detector.lean:detector, Detector.lean:not_h2_sign_cfg_of_offline, Epstein.lean:epstein_not_h2_sign_cfg, Instances.lean:h2_sign_cfg_zeta, Instances.lean:h2_sign_cfg_zeta_statement, Instances.lean:h2_sign_cfg_chi, Instances.lean:h2_sign_cfg_chi_statement, SaltCheckEpstein.lean:membership_load_bearing
+### headers 33 ; CONCLUDES 0 ; NEGATES 0 ; READ 0 (hand-read 0) ; OTHER 15 ; OWN 18
+### the strict shapes, each exercised: {'pos_reads': True, 'pos_refuses': True, 'neg_reads': True, 'neg_refuses': True}
+
+### ### **OUTSIDE THIS ACT`S OWN FILES, DECLARATIONS CONCLUDING THE PROP OR ITS NEGATION : 0**

@@ -1,0 +1,71 @@
+### b600 -- COMPONENT 2: THE BUILD OF axiom ON product-b600, ONE MODULE PER CALL, THE WATCHDOG`S LOG (lean resident cap 3500 MB, free floor 900 MB; the seat starts no call below the 2560 MB hold), copied from the seat`s scratchpad
+
+=== BUILD axiomcheck ; free MB before: 4507 ; start 2026-10-02T23:26:11Z
+  ~ t=11s free=2764MB leans=[(18280, 1536)]
+  | 'SIDEExplicitFormula.Product.reflect_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.reflect_mem_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.onMult' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.onMult_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sumMult' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sumZ' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sumZ_N' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sumZ_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.zeroSide_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum_ef' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum_target_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum_carrier' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum_rhs' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.sum_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.ProductLemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.productLemma_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.onCfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.onCfg_h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.offCfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.offCfg_not_h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.product_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.product_part_load_bearing' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Product.SaltCheck.product_sum_not_forced' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.epsteinConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Zeta23.WeilEF.EF_zero_sum_summable_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | SIDEExplicitFormula.Product.sum_ef : ∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig) (k : ℝ → ℂ),
+  |   ContDiff ℝ 2 k →
+  |     HasCompactSupport k →
+  |       (∀ (x : ℝ), k (-x) = k x) →
+  |         ∑' (ρ : ↑(SIDEExplicitFormula.Product.sumZ C₁ C₂).carrier),
+  |             ↑((SIDEExplicitFormula.Product.sumZ C₁ C₂).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ) =
+  |           C₁.rhs k + C₂.rhs k
+  | SIDEExplicitFormula.Product.sumZ_count : ∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig),
+  |   ∃ A₀, SIDEExplicitFormula.B321.HCount (SIDEExplicitFormula.Product.sumZ C₁ C₂) A₀
+  | SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets : ∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig),
+  |   SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂) ↔ C₁.target ∧ C₂.target
+  | SIDEExplicitFormula.Product.productLemma_holds : SIDEExplicitFormula.Product.ProductLemma
+  | SIDEExplicitFormula.Product.SaltCheck.product_satisfiable : ∃ C₁ C₂,
+  |   SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂) ∧
+  |     (SIDEExplicitFormula.Product.sum C₁ C₂).carrier.Nonempty
+  | SIDEExplicitFormula.Product.SaltCheck.product_part_load_bearing : ∃ C₁ C₂,
+  |   SIDEExplicitFormula.Schema.h2_sign_cfg C₁ ∧
+  |     ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂)
+  | SIDEExplicitFormula.Product.SaltCheck.product_sum_not_forced : ∃ C₁ C₂,
+  |   SIDEExplicitFormula.Schema.h2_sign_cfg C₂ ∧
+  |     ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂)
+  | def SIDEExplicitFormula.Product.sum : SIDEExplicitFormula.Schema.WeilConfig →
+  |   SIDEExplicitFormula.Schema.WeilConfig → SIDEExplicitFormula.Schema.WeilConfig :=
+  | fun C₁ C₂ =>
+  |   let __ZeroConfig := SIDEExplicitFormula.Product.sumZ C₁ C₂;
+  |   { toZeroConfig := __ZeroConfig, rhs := fun k => C₁.rhs k + C₂.rhs k, ef := ⋯, count := ⋯,
+  |     target := C₁.target ∧ C₂.target, target_iff := ⋯ }
+  | def SIDEExplicitFormula.Product.ProductLemma : Prop :=
+  | ∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig),
+  |   SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂) ↔
+  |     SIDEExplicitFormula.Schema.h2_sign_cfg C₁ ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C₂
+  ~ t=25s free=2410MB leans=[]
+### EXIT rc=0 ; seconds 25 ; peak lean resident 1536 MB ; free MB after 4496 ; stopped None

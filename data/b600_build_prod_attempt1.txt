@@ -1,0 +1,399 @@
+### b600 -- COMPONENT 2: THE BUILD OF prod_attempt1 ON product-b600, ONE MODULE PER CALL, THE WATCHDOG`S LOG (lean resident cap 3500 MB, free floor 900 MB; the seat starts no call below the 2560 MB hold), copied from the seat`s scratchpad
+
+=== BUILD SIDEExplicitFormula.Product ; free MB before: 4154 ; start 2026-10-02T23:04:50Z
+  ~ t=19s free=4087MB leans=[]
+  ~ t=30s free=3995MB leans=[]
+  ~ t=41s free=4031MB leans=[]
+  ~ t=55s free=4045MB leans=[]
+  ~ t=67s free=4131MB leans=[]
+  ~ t=77s free=4127MB leans=[]
+  ~ t=89s free=3266MB leans=[]
+  ~ t=99s free=3454MB leans=[]
+  ~ t=110s free=3341MB leans=[]
+  ~ t=121s free=3317MB leans=[]
+  ~ t=132s free=3243MB leans=[]
+  ~ t=144s free=3256MB leans=[]
+  ~ t=158s free=3091MB leans=[]
+  ~ t=172s free=3010MB leans=[]
+  ~ t=184s free=3004MB leans=[]
+  ~ t=195s free=2916MB leans=[]
+  | ⚠ [3374/3435] Replayed Zeta23.Statement
+  | warning: Zeta23/Statement.lean:164:30: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3449/3486] Replayed Zeta23.LinAlg.RankTrace
+  | warning: Zeta23/LinAlg/RankTrace.lean:89:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: Zeta23/LinAlg/RankTrace.lean:92:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: Zeta23/LinAlg/RankTrace.lean:113:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: Zeta23/LinAlg/RankTrace.lean:115:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | ⚠ [3471/3509] Replayed Zeta23.Tail
+  | warning: Zeta23/Tail.lean:306:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/Tail.lean:415:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3591/3627] Replayed Zeta23.ZetaReflect
+  | warning: Zeta23/ZetaReflect.lean:107:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3653/3696] Replayed Zeta23.FromPNTPlus.StrongPNTPrefix
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:89:71: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:230:9: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:304:14: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:312:14: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:371:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:396:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:418:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+  | warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:460:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3683/3712] Replayed Zeta23.RvM.Halving
+  | warning: Zeta23/RvM/Halving.lean:68:55: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/RvM/Halving.lean:78:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/RvM/Halving.lean:86:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3709/3754] Replayed Zeta23.Statement.Seam
+  | warning: Zeta23/Statement/Seam.lean:75:13: `ENat.toNat_coe` has been deprecated: Use `ENat.toNat_natCast` instead
+  | ⚠ [3711/3754] Replayed Zeta23.FromPNTPlus.ZetaBounds
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:887:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:980:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1120:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1127:32: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1133:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1143:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1147:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1163:54: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1185:22: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1197:15: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1197:59: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1213:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1863:19: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1865:45: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1868:28: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1872:28: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1928:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1934:20: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2119:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2912:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2968:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3715/3754] Replayed SIDEExplicitFormula.GrowthBound
+  | warning: SIDEExplicitFormula/GrowthBound.lean:33:50: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/GrowthBound.lean:33:50: Unused tactic linter: `ring` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | ℹ [3724/3754] Replayed Zeta23.GammaFacts.Mu
+  | info: Zeta23/GammaFacts/Mu.lean:153:2: Try this:
+  |   [apply] ring_nf
+  | 
+  |   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+  | 
+  |   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+  | ℹ [3725/3754] Replayed Zeta23.GammaFacts.StirlingVert
+  | info: Zeta23/GammaFacts/StirlingVert.lean:468:6: Try this:
+  |   [apply] ring_nf
+  | 
+  |   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+  | 
+  |   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+  | ⚠ [3732/3754] Replayed Zeta23.WeilEF.ZeroSummability
+  | warning: Zeta23/WeilEF/ZeroSummability.lean:205:4: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3733/3754] Replayed Zeta23.WeilEF.Landau
+  | warning: Zeta23/WeilEF/Landau.lean:54:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/WeilEF/Landau.lean:54:23: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/WeilEF/Landau.lean:63:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/WeilEF/Landau.lean:63:23: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+  | warning: Zeta23/WeilEF/Landau.lean:82:6: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/WeilEF/Landau.lean:82:21: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+  | warning: Zeta23/WeilEF/Landau.lean:185:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/WeilEF/Landau.lean:185:25: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+  | warning: Zeta23/WeilEF/Landau.lean:213:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: Zeta23/WeilEF/Landau.lean:213:25: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+  | warning: Zeta23/WeilEF/Landau.lean:357:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | warning: Zeta23/WeilEF/Landau.lean:453:64: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ⚠ [3735/3754] Replayed Zeta23.WeilEF.Contour
+  | warning: Zeta23/WeilEF/Contour.lean:85:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  | ℹ [3740/3754] Replayed Zeta23.WeilEF.Main
+  | info: Zeta23/WeilEF/Main.lean:54:2: Try this:
+  |   [apply] ring_nf
+  | 
+  |   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+  | 
+  |   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+  | ⚠ [3743/3754] Replayed SIDEExplicitFormula.TwoPropertyWindow
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:56:23: Variable name `hF0` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _hF0
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:56:37: Variable name `hF1` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _hF1
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:56:51: Variable name `hL` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _hL
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:66:4: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:66:4: Unused tactic linter: `fun_prop` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:146:4: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/TwoPropertyWindow.lean:146:4: Unused tactic linter: `fun_prop` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | ⚠ [3744/3754] Replayed SIDEExplicitFormula.PairTerm
+  | warning: SIDEExplicitFormula/PairTerm.lean:73:6: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:74:6: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:73:6: Unused tactic linter: `(simp [map_add, map_mul, Complex.conj_ofReal, Complex.conj_I]; ring)` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:74:6: Unused tactic linter: `simp [map_add, map_mul, Complex.conj_ofReal, Complex.conj_I]` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:218:6: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:219:6: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:218:6: Unused tactic linter: `(simp [map_sub, map_mul, Complex.conj_ofReal, Complex.conj_I]; ring)` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:219:6: Unused tactic linter: `simp [map_sub, map_mul, Complex.conj_ofReal, Complex.conj_I]` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:325:32: try 'simp' instead of 'simpa'
+  | 
+  | Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:325:88: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:325:88: Unused tactic linter: `norm_num` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:403:6: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:403:6: Unused tactic linter: `(field_simp; ring)` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PairTerm.lean:437:19: Variable name `hδ` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _hδ
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | ⚠ [3747/3754] Replayed SIDEExplicitFormula.RHChain
+  | warning: SIDEExplicitFormula/RHChain.lean:39:8: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/RHChain.lean:47:8: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/RHChain.lean:57:8: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/RHChain.lean:39:8: Unused tactic linter: `exact
+  |   (show (ρ : ℂ) ∈ ({z | Zeta23.IsNontrivialZero z} : Set ℂ) by rw [← Zeta23.zetaZeroConfig_carrier];
+  |     exact ρ.2)` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/RHChain.lean:47:8: Unused tactic linter: `norm_num` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/RHChain.lean:57:8: Unused tactic linter: `(rw [← Complex.ofReal_natCast]; exact Complex.zero_le_real.mpr (Nat.cast_nonneg _))` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | ⚠ [3748/3754] Replayed SIDEExplicitFormula.H2Bridge
+  | warning: SIDEExplicitFormula/H2Bridge.lean:56:6: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/H2Bridge.lean:56:6: Unused tactic linter: `(congr 1; ring)` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | ⚠ [3749/3754] Replayed SIDEExplicitFormula.RestBound
+  | warning: SIDEExplicitFormula/RestBound.lean:183:19: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/RestBound.lean:186:19: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/RestBound.lean:183:7: Unused tactic linter: `dsimp only` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/RestBound.lean:183:19: Unused tactic linter: `rw [Int.cast_natCast, Nat.abs_cast, add_comm]` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/RestBound.lean:186:7: Unused tactic linter: `dsimp only` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/RestBound.lean:186:19: Unused tactic linter: `rw [Int.cast_neg, Int.cast_natCast, abs_neg, Nat.abs_cast, add_comm]` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | ⚠ [3750/3754] Replayed SIDEExplicitFormula.PowerWindow
+  | warning: SIDEExplicitFormula/PowerWindow.lean:74:4: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PowerWindow.lean:75:4: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PowerWindow.lean:74:4: Unused tactic linter: `push_cast` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PowerWindow.lean:75:4: Unused tactic linter: `simp` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PowerWindow.lean:358:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/PowerWindow.lean:381:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/PowerWindow.lean:405:49: Variable name `ρ` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _ρ
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | warning: SIDEExplicitFormula/PowerWindow.lean:409:49: Variable name `ρ` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _ρ
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | ⚠ [3751/3754] Replayed SIDEExplicitFormula.PowerLimit
+  | warning: SIDEExplicitFormula/PowerLimit.lean:510:9: Variable name `H` is not explicitly referenced.
+  | 
+  | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  |   [apply] _H
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+  | warning: SIDEExplicitFormula/PowerLimit.lean:519:6: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:599:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:599:20: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:603:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:603:20: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:608:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:608:22: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:613:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:613:22: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:627:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:701:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:977:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:999:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1005:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1011:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1038:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1045:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1051:8: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1111:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1150:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1171:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1215:8: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1225:8: this tactic is never executed
+  | 
+  | Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1215:8: Unused tactic linter: `norm_num` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | warning: SIDEExplicitFormula/PowerLimit.lean:1225:8: Unused tactic linter: `(rw [← Complex.ofReal_natCast]; exact Complex.zero_le_real.mpr (Nat.cast_nonneg _))` does nothing
+  | 
+  | Note: This linter can be disabled with `set_option linter.unusedTactic false`
+  | ⚠ [3753/3754] Replayed SIDEExplicitFormula.Schema.Converse
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:56:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:78:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:84:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:90:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:117:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:124:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:130:8: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:190:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:229:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+  | warning: SIDEExplicitFormula/Schema/Converse.lean:241:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+  | If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+  | ```
+  | open Lean.Parser.Tactic in
+  | macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  |   `(tactic| push $cfg:optConfig Not $[$loc]?)
+  | ```
+  ~ t=206s free=2859MB leans=[(27312, 71)]
+  ~ t=218s free=2549MB leans=[(27312, 87)]
+  ~ t=229s free=2687MB leans=[(27312, 92)]
+  ~ t=240s free=2906MB leans=[(27312, 96)]
+  ~ t=251s free=2938MB leans=[(27312, 100)]
+  ~ t=262s free=2916MB leans=[(27312, 104)]
+  ~ t=273s free=2928MB leans=[(27312, 109)]
+  ~ t=284s free=2981MB leans=[(27312, 114)]
+  ~ t=295s free=3367MB leans=[(27312, 119)]
+  ~ t=306s free=3305MB leans=[(27312, 125)]
+  ~ t=317s free=3235MB leans=[(27312, 129)]
+  ~ t=328s free=3251MB leans=[(27312, 135)]
+  ~ t=339s free=3277MB leans=[(27312, 140)]
+  ~ t=352s free=3267MB leans=[(27312, 145)]
+  ~ t=364s free=3013MB leans=[(27312, 147)]
+  ~ t=377s free=3138MB leans=[(27312, 150)]
+  ~ t=390s free=3249MB leans=[(27312, 152)]
+  ~ t=402s free=3255MB leans=[(27312, 155)]
+  ~ t=413s free=2982MB leans=[(27312, 158)]
+  ~ t=424s free=3021MB leans=[(27312, 163)]
+  ~ t=435s free=3010MB leans=[(27312, 167)]
+  ~ t=446s free=2991MB leans=[(27312, 172)]
+  ~ t=457s free=3052MB leans=[(27312, 177)]
+  ~ t=468s free=3057MB leans=[(27312, 182)]
+  ~ t=479s free=3108MB leans=[(27312, 187)]
+  ~ t=490s free=3105MB leans=[(27312, 193)]
+  ~ t=501s free=3085MB leans=[(27312, 198)]
+  ~ t=512s free=2466MB leans=[(27312, 203)]
+  ~ t=523s free=2904MB leans=[(27312, 211)]
+  ~ t=534s free=2817MB leans=[(27312, 224)]
+  ~ t=545s free=2836MB leans=[(27312, 230)]
+  ~ t=556s free=2750MB leans=[(27312, 234)]
+  ~ t=567s free=2831MB leans=[(27312, 243)]
+  ~ t=578s free=2646MB leans=[(27312, 537)]
+  ~ t=589s free=2606MB leans=[(27312, 622)]
+  ~ t=600s free=2549MB leans=[(27312, 714)]

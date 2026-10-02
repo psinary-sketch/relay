@@ -1,0 +1,458 @@
+{
+ "exercise": {
+  "G-RECEIPT-IN-FULL": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the banked ferry"
+  },
+  "G-SCAN-CLEAN": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the ferry scan`s verdict line"
+  },
+  "G-STEPZERO-CENSUS": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the two censuses"
+  },
+  "G-STEPZERO-PINS": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the pins"
+  },
+  "G-STEPZERO-PROCS": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the process listing"
+  },
+  "G-REG-LOCKED-FIRST": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the lock time against the step-zero commit and every later commit"
+  },
+  "G-LOCKGATE-EIGHT": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the lock gate`s verdict line"
+  },
+  "G-SEAL-VERIFIES": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "reg_seal --verify"
+  },
+  "G-PRIOR-CLOSED-PUSHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "b599`s closing"
+  },
+  "G-NOTHING-RAN-AHEAD": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "section (0) and relay`s log before the lock"
+  },
+  "G-R210-ENTERED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the ferry AND the trail"
+  },
+  "G-READS-CITED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the reads bank"
+  },
+  "G-WORK-ORDER-PRINTED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "OPEN_TRAILS :12136 against the reads bank: the work-order printed whole"
+  },
+  "G-ANSWERS-BANKED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the act`s answers bank: every prompt with its options and recommended mark verbatim, or none"
+  },
+  "G-ARMS-PRERUN": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the pre-run bank: every arm run at HEAD before the lock, its count printed (R202)(3)"
+  },
+  "G-PUSHOUT-COMMITTED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "relay 92b1c086`s files"
+  },
+  "G-BRANCHES-DELETED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the branch lists and the bank"
+  },
+  "G-KEPT-BRANCHES": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the kernel`s branch heads"
+  },
+  "G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "b592`s lists, probes and table at relay 12c15c80 and every PLACE-papers read at ba5f0ea, run afresh through the test`s control()"
+  },
+  "G-INSTRUMENTS-UNEDITED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "b599`s sealed suite, the control`s test file, the generator, its arm, the E0 rule and the push gate against 2b9f75cd"
+  },
+  "G-WEIGHT-LINE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "FINDINGS at the banked line: b599`s weight, addressed to its entry"
+  },
+  "G-AMENDMENT": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "OPEN_TRAILS at the banked line: the generator-run line amended, addressed to :12288, appended past the pre-act end"
+  },
+  "G-AUTHORITY-LINE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "OPEN_TRAILS at the banked line: the authority order, standing"
+  },
+  "G-STATEMENT-AGAINST-WORK-ORDER": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the statements bank: every item of the work-order`s statement carried by a declaration of Product.lean"
+  },
+  "G-HOUSE-FORM": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the three kernel files at the tag: the head, the rule line, no lemma, no sorry, no native_decide, the audit`s imports"
+  },
+  "G-HOLD-READ": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the three build logs and the ζ page run: free memory read above the hold before each Lean call, each exit 0"
+  },
+  "G-PRINTS-STD3": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the axiom audit`s prints: every declaration of both files printed, each at the standard three or less, no sorryAx, no error"
+  },
+  "G-E0-GATES": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the E0 reads at the tip: both gates, productLemma_holds and sum_ef DERIVES, the files the printed ones"
+  },
+  "G-SALT-CHECK": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the salt-check`s three theorems: DERIVES at the standard three, each #check printed"
+  },
+  "G-FED-GREP": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the federation walk: no declaration outside the act`s files concluding the Prop or its negation; the strict shapes exercised"
+  },
+  "G-KERNEL-TAGGED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "SIDE-explicit-formula: main and the peeled tag, the push capture`s read-back"
+  },
+  "G-KERNEL-FILES-ONLY": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "SIDE-explicit-formula 5a1630b..v0.18: the three files, no merge commit"
+  },
+  "G-BRANCH-KEPT-PUSHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the working branch at the tag, pushed by name and read back"
+  },
+  "G-NODE-LIST": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the ζ node list against b596`s: every line carried, the pin moved, the five nodes before the backmatter record"
+  },
+  "G-PAGE-ZETA-NODES": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the ζ page at HEAD and its bank: re-emitted at v0.18, the five nodes on it, productLemma_holds DERIVES"
+  },
+  "G-PAGE-CHI-UNCHANGED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the χ page on disk and at HEAD against bc1337a, its re-emission unchanged"
+  },
+  "G-PAGES-COMMITTED-ALONE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "PLACE-papers` log since bc1337a: the ζ page in one commit of its own, no χ page commit"
+  },
+  "G-CHAIN-PAGE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the ζ page re-emitted from this act`s list and v0.18 probe bank against PLACE-papers HEAD"
+  },
+  "G-CHAIN-PAGE-CHI": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the χ page re-emitted from b596`s χ list and v0.17 probe bank against PLACE-papers HEAD"
+  },
+  "G-PAGE-ARMS-COUNTED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the page-arm bank after the page commit: both page arms and the frozen control"
+  },
+  "G-BEARING": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the bearing bank against each keystone at PLACE-papers HEAD: the two sentences on their cited lines, the reading beside each"
+  },
+  "G-H34A-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-H34B-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-H34C-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-FINDINGS-ENTRY": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "FINDINGS at the banked line"
+  },
+  "G-TRAIL-RECORD": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "OPEN_TRAILS at the banked line"
+  },
+  "G-RESOLVED-RECORDED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s trail record"
+  },
+  "G-NEXT-ACT-NAMED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s trail record"
+  },
+  "G-KERNELS-UNTOUCHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every other kernel`s main, the explicit-formula checkout on main at the tag and clean, the trial branch"
+  },
+  "G-TECHNE-UNPUSHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "TECHNE-Core`s HEAD, its remote-tracking main and its status"
+  },
+  "G-DELETE-FREE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s tools, prose stripped"
+  },
+  "G-NODEPOSIT": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s tools: no platform call"
+  },
+  "G-NOH2-MOVED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "FACES_LEDGER.md against its pre-act blob"
+  },
+  "G-README-UNTOUCHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "README.md against its pre-act blob"
+  },
+  "G-REGISTRY-UNTOUCHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "REGISTRY.md against its pre-act blob"
+  },
+  "G-ERRATA-UNTOUCHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "ERRATA.md against its pre-act blob"
+  },
+  "G-KEYSTONES-SCOPE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "PLACE-papers` phase, day1 and outputs paths, tracked and untracked: none written"
+  },
+  "G-PRIORBANK-UNCHANGED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every relay data bank tracked at 2b9f75cd, by blob id"
+  },
+  "G-CORPUS-SCOPE": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "PLACE-papers` changed files, tracked and untracked"
+  },
+  "G-FINDINGS-APPEND-ONLY": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "FINDINGS -- its pre-act blob a true prefix"
+  },
+  "G-TRAIL-APPEND-ONLY": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "OPEN_TRAILS -- its pre-act blob a true prefix"
+  },
+  "G-GS-UNTOUCHED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "SIDE-global-section`s diff against 3528bcf and its HEAD"
+  },
+  "G-TABLE-GRADES-UNMOVED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the regenerated table`s diff"
+  },
+  "G-N1-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-N2-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-N3-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-N4-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-N5-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-SEAT-EXPECTATIONS-SCORED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores and the desk"
+  },
+  "G-WRITELIST-KINDS": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every file written, against the (W) globs"
+  },
+  "G-ARMS-DECLARED-EQ-RUN": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the (G2) block against this suite`s arm list"
+  },
+  "G-ARMS-NO-LIVE-LIMB": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the harness`s own positive-control results"
+  },
+  "G-MUSTFAIL": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a file that must not exist"
+  },
+  "G-ARTEFACTS-NOT-COMMITTED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "relay`s tracked files"
+  },
+  "G-PUSHED-PREDICATE-THREE-CLAUSED": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this suite`s own text"
+  }
+ },
+ "run": 75,
+ "live_failing": [],
+ "defective": [],
+ "neg_failures": 0
+}
