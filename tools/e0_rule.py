@@ -34,6 +34,8 @@ RULE_TEXT = [
     '### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or',
     '### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not',
     '### mention it is a premise (CLASS_PREDS, class_case).',
+    '### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise',
+    '### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.',
 ]
 
 DOMAIN = r'(?:≠|<|≤|=|∈|\.Even\b|IsPrimitive)'
@@ -83,6 +85,62 @@ def conclusion(head):
     return rest[1:] if rest.startswith(':') else ''
 
 
+# ### ### **(R201)(3), b591: THE EXISTENTIAL-BINDER CLAUSE.** *A binder inside an existential in a theorem's conclusion is
+# ### part of the conclusion and not a premise.* Read here as: a hypothesis binder whose text lies within an existential's
+# ### binder list in the header's conclusion -- from an `∃` to its top-level comma -- is not read as a premise; every binder
+# ### before the conclusion is read as before. ### Its instance (the occasion): SIDE-explicit-formula v0.16 = c404e72,
+# ### Schema/SaltCheckEpstein.lean `membership_load_bearing : ∃ (Z : …) (rhs : …) (hP : EpsteinPremises Z rhs), …`, which
+# ### the rule read INTERFACES on `hP` at b590 (relay data/b590_e0_salt.txt :27); its outer-binder neighbour
+# ### `epstein_not_h2_sign_cfg (hP : EpsteinPremises Z rhs) (hE : rhoE ∈ Z.carrier)` stays INTERFACES.
+def conclusion_start(head):
+    """### the index in `head` where its conclusion begins (just after the ':'), or None when the header has none."""
+    pairs = {'(': ')', '{': '}', '[': ']', '⦃': '⦄'}
+    i, n = 0, len(head)
+    while True:
+        while i < n and head[i].isspace():
+            i += 1
+        if i < n and head[i] in pairs:
+            depth, j = 0, i
+            while j < n:
+                if head[j] in pairs:
+                    depth += 1
+                elif head[j] in pairs.values():
+                    depth -= 1
+                    if depth == 0:
+                        break
+                j += 1
+            i = j + 1
+            continue
+        break
+    return i + 1 if head[i:i + 1] == ':' else None
+
+
+def exist_spans(head):
+    """### the [start, end) spans of every existential binder list in the conclusion: an `∃` to its top-level comma."""
+    s = conclusion_start(head)
+    if s is None:
+        return []
+    opens, closes = '([{⦃⟨', ')]}⦄⟩'
+    out = []
+    for p in range(s, len(head)):
+        if head[p] != '∃':
+            continue
+        depth, q = 0, p + 1
+        while q < len(head):
+            ch = head[q]
+            if ch in opens:
+                depth += 1
+            elif ch in closes:
+                depth -= 1
+                if depth < 0:
+                    break
+            elif ch == ',' and depth == 0:
+                break
+            q += 1
+        out.append((p, q))
+    return out
+
+
 def class_case(t, head):
     """### True when the binder type `t` is a CLASS_PREDS predicate on a variable the header's conclusion mentions."""
     m = CLASS_PREDS.match(t)
@@ -104,7 +162,8 @@ def grade(head, kind):
     ### kind 'def' grades DEF. A binder is a premise unless DOMAIN matches its type or it is a SPLITS case."""
     if kind == 'def':
         return 'DEF', '', []
-    binders = BINDER.findall(head)
+    spans = exist_spans(head)
+    binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
     prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
     if prem:
         return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
