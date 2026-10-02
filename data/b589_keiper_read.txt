@@ -1,0 +1,173 @@
+b589 -- COMPONENT 4 (b): THE KEIPER READ, (R199)(5)(b). ### Mathlib at D:/SIDE-explicit-formula/.lake/packages/mathlib HEAD de5ce8a9a6 (the manifest`s de5ce8a9); git grep over Mathlib/**.lean.
+
+### the Stieltjes constants by name : 386 hit(s) ; 287 after the measure-theoretic `StieltjesFunction` (Lebesgue-Stieltjes measures, another object) is set aside
+    Mathlib/Analysis/Calculus/Monotone.lean:20:theorems. Let `μ` be the Stieltjes measure associated to `f`. Then, almost everywhere,
+    Mathlib/Analysis/Calculus/Monotone.lean:27:Stieltjes measure satisfies `μ [x, y] = f (y^+) - f (x^-)` (the right and left limits of `f` at `y`
+    Mathlib/Analysis/Calculus/Monotone.lean:65:/-- A Stieltjes function is almost everywhere differentiable, with derivative equal to the
+    Mathlib/Analysis/Calculus/Monotone.lean:66:Radon-Nikodym derivative of the associated Stieltjes measure with respect to Lebesgue. -/
+    Mathlib/Analysis/Calculus/Monotone.lean:69:  /- Denote by `μ` the Stieltjes measure associated to `f`.
+    Mathlib/Analysis/Calculus/Monotone.lean:132:Radon-Nikodym derivative of the associated Stieltjes measure with respect to Lebesgue. -/
+    Mathlib/Analysis/Calculus/Monotone.lean:134:    ∀ᵐ x, HasDerivAt f (rnDeriv hf.stieltjesFunction.measure volume x).toReal x := by
+    Mathlib/Analysis/Calculus/Monotone.lean:135:  /- We already know that the Stieltjes function associated to `f` (i.e., `g : x ↦ f (x^+)`) is
+    Mathlib/Analysis/Calculus/Monotone.lean:139:  filter_upwards [hf.stieltjesFunction.ae_hasDerivAt,
+    Mathlib/Analysis/Calculus/Monotone.lean:141:  have A : hf.stieltjesFunction x = f x := by
+    Mathlib/Analysis/Calculus/Monotone.lean:150:      (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+    Mathlib/Analysis/Calculus/Monotone.lean:152:    have : Tendsto (fun y => (hf.stieltjesFunction (y + -1 * (y - x) ^ 2) - f x) / (y - x)) (𝓝[>] x)
+    Mathlib/Analysis/Calculus/Monotone.lean:153:        (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+    Mathlib/Analysis/Calculus/Monotone.lean:176:      (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+    Mathlib/Analysis/Calculus/Monotone.lean:178:    have : Tendsto (fun y => (hf.stieltjesFunction (y + -1 * (y - x) ^ 2) - f x) / (y - x)) (𝓝[<] x)
+    Mathlib/Analysis/Calculus/Monotone.lean:179:        (𝓝 (rnDeriv hf.stieltjesFunction.measure volume x).toReal) := by
+    Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean:11:public import Mathlib.MeasureTheory.Measure.Stieltjes
+    Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean:18:Haar measure on inner product spaces) coincides with the Stieltjes measure associated
+    Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean:53:inner product space) coincides with the Stieltjes measure coming from the identity function. -/
+    Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean:73:  simp [volume_eq_stieltjes_id]
+    Mathlib/MeasureTheory/Measure/ResolventTransform.lean:23:namely the case `𝕜 = ℝ` and `A = ℂ` is the Stieltjes transform, and the case `𝕜 = A = ℂ` is the
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:13:# Stieltjes measures on the real line
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:27:* `Monotone.stieltjesFunction`: to a monotone function `f`, associate the Stieltjes function
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:28:  equal to the right limit of `f`. This makes it possible to associate a Stieltjes measure to
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:33:We define Stieltjes functions over any conditionally complete dense linear order, to be able
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:40:Note that the theory of Stieltjes measures is not completely satisfactory when there is a bot
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:41:element `x`: any Stieltjes measure gives zero mass to `{x}` in this case, so the Dirac mass at `x`
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:42:is not representable as a Stieltjes measure.
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:107:/-! ### Basic properties of Stieltjes functions -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:109:/-- Bundled monotone right-continuous real functions, used to construct Stieltjes measures. -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:159:/-- The identity of `ℝ` as a Stieltjes function, used to construct Lebesgue measure. -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:171:/-- A constant function is a Stieltjes function. -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:182:/-- The sum of two Stieltjes functions is a Stieltjes function. -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:217:at `x` is a Stieltjes function, i.e., it is monotone and right-continuous. -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:218:noncomputable def _root_.Monotone.stieltjesFunction [OrderTopology R]
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:248:theorem _root_.Monotone.stieltjesFunction_eq
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:250:    hf.stieltjesFunction x = rightLim f x :=
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:260:/-! ### The outer measure associated to a Stieltjes function -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:318:/-- The Stieltjes outer measure associated to a Stieltjes function. -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:511:/-! ### The measure associated to a Stieltjes function -/
+    Mathlib/MeasureTheory/Measure/Stieltjes.lean:515:/-- The measure associated to a Stieltjes function, giving mass `f b - f a` to the
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:9:public import Mathlib.MeasureTheory.Measure.Stieltjes
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:16:# Vector valued Stieltjes measure associated to a bounded variation function
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:27:dominated by a finite measure. For this, we can use the Stieltjes measure associated to the
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:45:/-- The Stieltjes function associated to a bounded variation function. It is given by
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:47:Using right limits ensures the right continuity, which is used to construct Stieltjes measures. -/
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:48:@[simps] noncomputable def stieltjesFunctionRightLim
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:61:  if h : Nonempty α then (hf.stieltjesFunctionRightLim h.some).measure else 0
+    Mathlib/MeasureTheory/VectorMeasure/BoundedVariation.lean:89:      BoundedVariationOn.stieltjesFunctionRightLim_apply]
+    Mathlib/Probability/CDF.lean:37:to have more structure on Stieltjes functions first. Right now, if `f` is a Stieltjes function,
+    Mathlib/Probability/CDF.lean:38:`2 • f` makes no sense. We could define Stieltjes functions as a submodule.
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:10:public import Mathlib.Probability.Kernel.Disintegration.MeasurableStieltjes
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:39:  satisfies the properties of a Stieltjes function for `(ν a)`-almost all `b : β`.
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:43:* `ProbabilityTheory.isCondKernelCDF_stieltjesOfMeasurableRat`: if `f : α × β → ℚ → ℝ` has the
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:44:  property `IsRatCondKernelCDF`, then `stieltjesOfMeasurableRat f` is a function
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:61:section stieltjesOfMeasurableRat
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:68:Also the `ℚ → ℝ` function `f (a, b)` should satisfy the properties of a Stieltjes function for
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:73:  isRatStieltjesPoint_ae (a : α) : ∀ᵐ b ∂(ν a), IsRatStieltjesPoint f (a, b)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:80:  filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.mono
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:84:  filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.tendsto_atTop_one
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:88:  filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.tendsto_atBot_zero
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:92:  filter_upwards [hf.isRatStieltjesPoint_ae a] with b hb using hb.iInf_rat_gt_eq
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:94:lemma stieltjesOfMeasurableRat_ae_eq (hf : IsRatCondKernelCDF f κ ν) (a : α) (q : ℚ) :
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:95:    (fun b ↦ stieltjesOfMeasurableRat f hf.measurable (a, b) q) =ᵐ[ν a] fun b ↦ f (a, b) q := by
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:96:  filter_upwards [hf.isRatStieltjesPoint_ae a] with a ha
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:97:  rw [stieltjesOfMeasurableRat_eq, toRatCDF_of_isRatStieltjesPoint ha]
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:99:lemma setIntegral_stieltjesOfMeasurableRat_rat (hf : IsRatCondKernelCDF f κ ν) (a : α) (q : ℚ)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:101:    ∫ b in s, stieltjesOfMeasurableRat f hf.measurable (a, b) q ∂(ν a)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:104:  filter_upwards [stieltjesOfMeasurableRat_ae_eq hf a q] with b hb using fun _ ↦ hb
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:106:lemma setLIntegral_stieltjesOfMeasurableRat_rat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:108:    ∫⁻ b in s, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) q) ∂(ν a)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:111:  · rw [setIntegral_stieltjesOfMeasurableRat_rat hf a q hs, ofReal_measureReal]
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:113:    rw [integrable_congr (stieltjesOfMeasurableRat_ae_eq hf a q)]
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:115:  · exact ae_of_all _ (fun x ↦ stieltjesOfMeasurableRat_nonneg _ _ _)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:117:lemma setLIntegral_stieltjesOfMeasurableRat [IsFiniteKernel κ] (hf : IsRatCondKernelCDF f κ ν)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:119:    ∫⁻ b in s, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) x) ∂(ν a)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:121:  -- We have the result for `x : ℚ` thanks to `setLIntegral_stieltjesOfMeasurableRat_rat`.
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:136:  have h : ∫⁻ b in s, ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) x) ∂(ν a)
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:138:        ENNReal.ofReal (stieltjesOfMeasurableRat f hf.measurable (a, b) r) ∂(ν a) := by
+    Mathlib/Probability/Kernel/Disintegration/CDFToKernel.lean:140:    simp_rw [← measure_stieltjesOfMeasurableRat_Iic]
+    ... 207 more, all printed in the json
+### the residue / Laurent expansion of riemannZeta at 1 : 352 hit(s)
+    Mathlib/Algebra/Lie/Loop.lean:13:public import Mathlib.Algebra.Polynomial.Laurent
+    Mathlib/Algebra/Lie/Loop.lean:22:Laurent polynomials.
+    Mathlib/Algebra/Lie/Loop.lean:29:We implement the basic theory using `AddMonoidAlgebra` instead of `LaurentPolynomial` for
+    Mathlib/Algebra/Lie/Loop.lean:47:lie ring, lie algebra, base change, Laurent polynomial
+    Mathlib/Algebra/Lie/Loop.lean:63:slightly more general definition which coincides with the Laurent polynomial construction when
+    Mathlib/Algebra/Lie/Loop.lean:67:open LaurentPolynomial in
+    Mathlib/Algebra/Lie/Loop.lean:69:Laurent polynomials. -/
+    Mathlib/Algebra/Lie/Loop.lean:70:def loopAlgebraEquivLaurent :
+    Mathlib/Algebra/Lie/Loop.lean:127:/-- The residue pairing on the loop algebra.  When `A = ℤ` and the elements are viewed as Laurent
+    Mathlib/Algebra/MonoidAlgebra/Division.lean:17:In order to apply in maximal generality (such as for `LaurentPolynomial`s), this uses
+    Mathlib/Algebra/MonoidAlgebra/Division.lean:55:  -- If `G` is an additive group, such as `ℤ` when used for `LaurentPolynomial`,
+    Mathlib/Algebra/Polynomial/Laurent.lean:13:/-! # Laurent polynomials
+    Mathlib/Algebra/Polynomial/Laurent.lean:15:We introduce Laurent polynomials over a semiring `R`.  Mathematically, they are expressions of the
+    Mathlib/Algebra/Polynomial/Laurent.lean:23:Since we are going to convert back and forth between polynomials and Laurent polynomials, we
+    Mathlib/Algebra/Polynomial/Laurent.lean:25:Laurent polynomials.
+    Mathlib/Algebra/Polynomial/Laurent.lean:28:The symbol `R[T;T⁻¹]` stands for `LaurentPolynomial R`.  We also define
+    Mathlib/Algebra/Polynomial/Laurent.lean:35:We define Laurent polynomials as `AddMonoidAlgebra R ℤ`.
+    Mathlib/Algebra/Polynomial/Laurent.lean:40:As a consequence, `LaurentPolynomial` plays well with polynomials, but there is a little roughness
+    Mathlib/Algebra/Polynomial/Laurent.lean:48:I made a *heavy* use of `simp` lemmas, aiming to bring Laurent polynomials to the form `C a * T n`.
+    Mathlib/Algebra/Polynomial/Laurent.lean:53:-- (Riccardo) add inclusion into Laurent series.
+    Mathlib/Algebra/Polynomial/Laurent.lean:65:--  this stage of the Laurent process!
+    Mathlib/Algebra/Polynomial/Laurent.lean:81:/-- The semiring of Laurent polynomials with coefficients in the semiring `R`.
+    Mathlib/Algebra/Polynomial/Laurent.lean:84:abbrev LaurentPolynomial (R : Type*) [Semiring R] :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:88:scoped[LaurentPolynomial] notation:9000 R "[T;T⁻¹]" => LaurentPolynomial R
+    Mathlib/Algebra/Polynomial/Laurent.lean:90:open LaurentPolynomial
+    Mathlib/Algebra/Polynomial/Laurent.lean:93:theorem LaurentPolynomial.ext [Semiring R] {p q : R[T;T⁻¹]} (h : ∀ a, p.coeff a = q.coeff a) :
+    Mathlib/Algebra/Polynomial/Laurent.lean:96:/-- The ring homomorphism, taking a polynomial with coefficients in `R` to a Laurent polynomial
+    Mathlib/Algebra/Polynomial/Laurent.lean:98:def Polynomial.toLaurent [Semiring R] : R[X] →+* R[T;T⁻¹] :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:103:theorem Polynomial.toLaurent_apply [Semiring R] (p : R[X]) :
+    Mathlib/Algebra/Polynomial/Laurent.lean:104:    toLaurent p = p.toFinsupp.mapDomain (↑) :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:107:/-- The `R`-algebra map, taking a polynomial with coefficients in `R` to a Laurent polynomial
+    Mathlib/Algebra/Polynomial/Laurent.lean:109:def Polynomial.toLaurentAlg [CommSemiring R] : R[X] →ₐ[R] R[T;T⁻¹] :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:112:@[simp] lemma Polynomial.coe_toLaurentAlg [CommSemiring R] :
+    Mathlib/Algebra/Polynomial/Laurent.lean:113:    (toLaurentAlg : R[X] → R[T;T⁻¹]) = toLaurent :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:116:theorem Polynomial.toLaurentAlg_apply [CommSemiring R] (f : R[X]) : toLaurentAlg f = toLaurent f :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:119:namespace LaurentPolynomial
+    Mathlib/Algebra/Polynomial/Laurent.lean:129:/-- The ring homomorphism `C`, including `R` into the ring of Laurent polynomials over `R` as
+    Mathlib/Algebra/Polynomial/Laurent.lean:130:the constant Laurent polynomials. -/
+    Mathlib/Algebra/Polynomial/Laurent.lean:135:    algebraMap R (LaurentPolynomial A) r = C (algebraMap R A r) :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:183:-- The actual `simp`-normal form of a Laurent monomial is `C a * T n`, whenever it can be reached.
+    Mathlib/Algebra/Polynomial/Laurent.lean:185:theorem _root_.Polynomial.toLaurent_C_mul_T (n : ℕ) (r : R) :
+    Mathlib/Algebra/Polynomial/Laurent.lean:186:    (toLaurent (Polynomial.monomial n r) : R[T;T⁻¹]) = C r * T n := by simp [toLaurent]
+    Mathlib/Algebra/Polynomial/Laurent.lean:189:theorem _root_.Polynomial.toLaurent_C (r : R) : toLaurent (Polynomial.C r) = C r := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:190:  convert! Polynomial.toLaurent_C_mul_T 0 r
+    Mathlib/Algebra/Polynomial/Laurent.lean:194:theorem _root_.Polynomial.toLaurent_comp_C : toLaurent (R := R) ∘ Polynomial.C = C :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:195:  funext Polynomial.toLaurent_C
+    Mathlib/Algebra/Polynomial/Laurent.lean:198:theorem _root_.Polynomial.toLaurent_X : (toLaurent Polynomial.X : R[T;T⁻¹]) = T 1 := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:200:  simp [this, Polynomial.toLaurent_C_mul_T]
+    Mathlib/Algebra/Polynomial/Laurent.lean:203:theorem _root_.Polynomial.toLaurent_one : (Polynomial.toLaurent : R[X] → R[T;T⁻¹]) 1 = 1 :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:204:  map_one Polynomial.toLaurent
+    Mathlib/Algebra/Polynomial/Laurent.lean:207:theorem _root_.Polynomial.toLaurent_C_mul_eq (r : R) (f : R[X]) :
+    Mathlib/Algebra/Polynomial/Laurent.lean:208:    toLaurent (Polynomial.C r * f) = C r * toLaurent f := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:209:  simp only [map_mul, Polynomial.toLaurent_C]
+    Mathlib/Algebra/Polynomial/Laurent.lean:212:theorem _root_.Polynomial.toLaurent_X_pow (n : ℕ) : toLaurent (X ^ n : R[X]) = T n := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:213:  simp only [map_pow, Polynomial.toLaurent_X, T_pow, mul_one]
+    Mathlib/Algebra/Polynomial/Laurent.lean:215:theorem _root_.Polynomial.toLaurent_C_mul_X_pow (n : ℕ) (r : R) :
+    Mathlib/Algebra/Polynomial/Laurent.lean:216:    toLaurent (Polynomial.C r * X ^ n) = C r * T n := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:217:  simp only [map_mul, Polynomial.toLaurent_C, Polynomial.toLaurent_X_pow]
+    Mathlib/Algebra/Polynomial/Laurent.lean:259:/-- To prove something about Laurent polynomials, it suffices to show that
+    Mathlib/Algebra/Polynomial/Laurent.lean:283:  induction f using LaurentPolynomial.induction_on' with
+    Mathlib/Algebra/Polynomial/Laurent.lean:291:/-- `trunc : R[T;T⁻¹] →+ R[X]` maps a Laurent polynomial `f` to the polynomial whose terms of
+    Mathlib/Algebra/Polynomial/Laurent.lean:293:`trunc` is a left-inverse to `Polynomial.toLaurent`. -/
+    Mathlib/Algebra/Polynomial/Laurent.lean:312:theorem leftInverse_trunc_toLaurent :
+    Mathlib/Algebra/Polynomial/Laurent.lean:313:    Function.LeftInverse (trunc : R[T;T⁻¹] → R[X]) Polynomial.toLaurent := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:318:    simp only [Polynomial.toLaurent_C_mul_T, trunc_C_mul_T, Int.natCast_nonneg, Int.toNat_natCast,
+    Mathlib/Algebra/Polynomial/Laurent.lean:322:theorem _root_.Polynomial.trunc_toLaurent (f : R[X]) : trunc (toLaurent f) = f :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:323:  leftInverse_trunc_toLaurent _
+    Mathlib/Algebra/Polynomial/Laurent.lean:325:theorem _root_.Polynomial.toLaurent_injective :
+    Mathlib/Algebra/Polynomial/Laurent.lean:326:    Function.Injective (Polynomial.toLaurent : R[X] → R[T;T⁻¹]) :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:327:  leftInverse_trunc_toLaurent.injective
+    Mathlib/Algebra/Polynomial/Laurent.lean:330:theorem _root_.Polynomial.toLaurent_inj (f g : R[X]) : toLaurent f = toLaurent g ↔ f = g :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:331:  ⟨fun h => Polynomial.toLaurent_injective h, congr_arg _⟩
+    Mathlib/Algebra/Polynomial/Laurent.lean:333:theorem _root_.Polynomial.toLaurent_ne_zero {f : R[X]} : toLaurent f ≠ 0 ↔ f ≠ 0 :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:334:  map_ne_zero_iff _ Polynomial.toLaurent_injective
+    Mathlib/Algebra/Polynomial/Laurent.lean:337:theorem _root_.Polynomial.toLaurent_eq_zero {f : R[X]} : toLaurent f = 0 ↔ f = 0 :=
+    Mathlib/Algebra/Polynomial/Laurent.lean:338:  map_eq_zero_iff _ Polynomial.toLaurent_injective
+    Mathlib/Algebra/Polynomial/Laurent.lean:340:theorem exists_T_pow (f : R[T;T⁻¹]) : ∃ (n : ℕ) (f' : R[X]), toLaurent f' = f * T n := by
+    Mathlib/Algebra/Polynomial/Laurent.lean:344:    simp only [hf, hg, add_mul, add_comm (n : ℤ), map_add, map_mul, Polynomial.toLaurent_X_pow,
+    Mathlib/Algebra/Polynomial/Laurent.lean:349:      simp only [Int.negSucc_eq, Polynomial.toLaurent_C, Int.natCast_succ, mul_T_assoc,
+    Mathlib/Algebra/Polynomial/Laurent.lean:355:    (mul_T : ∀ (f : R[X]) (n : ℕ), motive (toLaurent f * T (-n))) : motive f := by
+    ... 272 more, all printed in the json
+### the log of completedRiemannZeta, or its derivatives at 1 : 0 hit(s)
+
+### THE RE-PRICE OF W-ORD-KEIPER-FACE, on these hits (the seat`s read):
+    READ: Mathlib holds the pole of riemannZeta at 1 (`riemannZeta_residue_one`, NumberTheory/LSeries/RiemannZeta.lean :242), its constant term the Euler-Mascheroni constant (`tendsto_riemannZeta_sub_one_div`, NumberTheory/Harmonic/ZetaAsymp.lean :342), and the split riemannZeta = (s - 1)⁻¹ + riemannZeta₀ with riemannZeta₀ entire (the same file`s header); it holds no Stieltjes constant beyond the zeroth by name (every Stieltjes hit is the Lebesgue-Stieltjes measure) and no log of completedRiemannZeta by name.
+    THE KERNEL ALREADY HOLDS the derivative form: `li_coeff_eq_taylorCoeff` (SIDE-explicit-formula v0.9 = e5a5a83, the ζ page node 18) equates LiCoeff (n+1) with the real part of Bulka`s taylorCoeff of riemannXi.
+    THE PRICE, TWO LEMMAS OF SUBSTANCE: (1) the Keiper-Taylor identity -- the Stieltjes constants defined as the Taylor coefficients of riemannZeta₀ at 1 (a definition, the zeroth equal to γ by the Mathlib limit above), and taylorCoeff riemannXi n equal to the finite Keiper sum in them, the polygamma values at 1/2 and log π (power-series log and the binomial transform); (2) computable two-sided bounds for the Stieltjes constants up to the eleventh and for the polygamma values at 1/2 (the odd zeta values among them), which interval arithmetic would consume to certify a finite-n sign in-kernel. Bookkeeping beside them: the definitions, the n = 1 check against γ.
+    TRIGGER unchanged: W-ORD-LI-THREE-WAY`s agreement, which this act banks (H30a).

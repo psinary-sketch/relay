@@ -1,0 +1,174 @@
+{
+ "sieve_ceiling": {
+  "v1.1": {
+   "line": 203,
+   "doc": [
+    "    If π factors through dark interfaces, π cannot establish",
+    "    a universal statement about the target parameter. -/"
+   ],
+   "sig": [
+    "theorem sieve_ceiling (π : Proof) (h : π.factorsDark) :",
+    "    (maxStatement π).strength < StatementKind.universal.strength := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  },
+  "v1.4": {
+   "line": 209,
+   "doc": [
+    "/-- SCAFFOLDING (base sieve_ceiling, abstract-Proof form). A factored-",
+    "    dark proof is capped below universal STRENGTH. This is the strength",
+    "    bookkeeping; the contentful sieve ceiling — that dark-factored",
+    "    inference cannot separate I-indistinguishable configurations — is",
+    "    `SieveCeilingSemantic.sieve_ceiling_semantic`, with the concrete",
+    "    Davenport–Heilbronn instance in `SieveCeilingWitness.dh_sieve_ceiling`.",
+    "    Cite those for content; cite this only for the strength bound. -/"
+   ],
+   "sig": [
+    "theorem sieve_ceiling (π : Proof) (h : π.factorsDark) :",
+    "    (maxStatement π).strength < StatementKind.universal.strength := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  },
+  "v1.7": {
+   "line": 209,
+   "doc": [
+    "/-- SCAFFOLDING (base sieve_ceiling, abstract-Proof form). A factored-",
+    "    dark proof is capped below universal STRENGTH. This is the strength",
+    "    bookkeeping; the contentful sieve ceiling — that dark-factored",
+    "    inference cannot separate I-indistinguishable configurations — is",
+    "    `SieveCeilingSemantic.sieve_ceiling_semantic`, with the concrete",
+    "    Davenport–Heilbronn instance in `SieveCeilingWitness.dh_sieve_ceiling`.",
+    "    Cite those for content; cite this only for the strength bound. -/"
+   ],
+   "sig": [
+    "theorem sieve_ceiling (π : Proof) (h : π.factorsDark) :",
+    "    (maxStatement π).strength < StatementKind.universal.strength := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  }
+ },
+ "proof_dichotomy": {
+  "v1.1": {
+   "line": 116,
+   "doc": [
+    "/-- Either every step factors dark, or some step is bright. -/"
+   ],
+   "sig": [
+    "theorem proof_dichotomy (π : Proof) :",
+    "    π.factorsDark ∨ π.hasBrightAccess := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  },
+  "v1.7": {
+   "line": 134,
+   "doc": [
+    "/-- TERMINAL 1 (axiom-free). Either every step factors dark, or some",
+    "    step is bright. -/"
+   ],
+   "sig": [
+    "theorem proof_dichotomy (π : Proof) :",
+    "    π.factorsDark ∨ π.hasBrightAccess := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  }
+ },
+ "e_difficulty": {
+  "v1.1": {
+   "line": 266,
+   "doc": [
+    "    The s.classes ≥ 1 hypothesis excludes the vacuous edge case",
+    "    of zero-class systems, where both sides trivially hold.",
+    "    Every programme-relevant system (ξ, Yang-Mills, BSD, Hodge,",
+    "    Navier-Stokes) has s.classes ≥ 1. -/"
+   ],
+   "sig": [
+    "theorem e_difficulty (s : DeterminedSystem)",
+    "    (_h_conserved : s.isConserved) (h_nontrivial : s.classes ≥ 1) :",
+    "    IsDecidable s ↔ Nonempty (DomainOstrowski s) := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  },
+  "v1.4": {
+   "line": 309,
+   "doc": [
+    "    Conservation (h_conserved) is load-bearing: it supplies the",
+    "    `inessential` component of the extracted Ostrowski. -/"
+   ],
+   "sig": [
+    "theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) :",
+    "    IsDecidable s ↔ Nonempty (DomainOstrowski s) := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  },
+  "v1.7": {
+   "line": 309,
+   "doc": [
+    "    Conservation (h_conserved) is load-bearing: it supplies the",
+    "    `inessential` component of the extracted Ostrowski. -/"
+   ],
+   "sig": [
+    "theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) :",
+    "    IsDecidable s ↔ Nonempty (DomainOstrowski s) := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  }
+ },
+ "e_difficulty_xi": {
+  "v1.1": {
+   "line": 323,
+   "doc": [
+    "/-- E-Difficulty applies to ξ. -/"
+   ],
+   "sig": [
+    "theorem e_difficulty_xi :",
+    "    IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system) :="
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  },
+  "v1.7": {
+   "line": 349,
+   "doc": [
+    "/-- E-Difficulty applies to ξ. Both sides are false here (a fully",
+    "    conserved system has no bright — hence no domain-Ostrowski — in",
+    "    this abstract model; the Ostrowski is the hard SIDE input). -/"
+   ],
+   "sig": [
+    "theorem e_difficulty_xi :",
+    "    IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system) :="
+   ],
+   "file": "Kernel/Cascade/SieveCeiling.lean"
+  }
+ },
+ "sieve_ceiling_semantic": {
+  "v1.4": {
+   "line": 48,
+   "doc": [
+    "/-- THE SEMANTIC SIEVE CEILING. If the target property is not",
+    "    r-invariant, no r-respecting (dark-factored) certificate is",
+    "    extensionally equal to it: the dark-factored reach stops strictly",
+    "    below the target. -/"
+   ],
+   "sig": [
+    "theorem sieve_ceiling_semantic {onLine : U → Prop}",
+    "    (h_not_inv : ¬ RespectsI r onLine) :",
+    "    ¬ ∃ D : U → Prop, RespectsI r D ∧ ∀ z, D z ↔ onLine z := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeilingSemantic.lean"
+  },
+  "v1.7": {
+   "line": 48,
+   "doc": [
+    "/-- THE SEMANTIC SIEVE CEILING. If the target property is not",
+    "    r-invariant, no r-respecting (dark-factored) certificate is",
+    "    extensionally equal to it: the dark-factored reach stops strictly",
+    "    below the target. -/"
+   ],
+   "sig": [
+    "theorem sieve_ceiling_semantic {onLine : U → Prop}",
+    "    (h_not_inv : ¬ RespectsI r onLine) :",
+    "    ¬ ∃ D : U → Prop, RespectsI r D ∧ ∀ z, D z ↔ onLine z := by"
+   ],
+   "file": "Kernel/Cascade/SieveCeilingSemantic.lean"
+  }
+ }
+}

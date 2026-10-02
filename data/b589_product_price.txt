@@ -1,0 +1,60 @@
+b589 -- COMPONENT 5: THE PRODUCT LEMMA, PRICED AND NOT ATTEMPTED, (R199)(6). ### SIDE-explicit-formula main 21c8c52.
+
+### the schema`s fields (Schema/Config.lean at main):
+    :24 structure WeilConfig extends Zeta23.ZeroConfig where
+    :25   /-- EF: the arithmetic side of the explicit formula -/
+    :26   rhs : (ℝ → ℂ) → ℂ
+    :27   /-- EF: the zero side equals it on even `k ∈ C_c²` (b321_identity's type at its consuming site) -/
+    :28   ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :29     (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :30   /-- COUNT: the local count, as dominant_summable consumes it (HCount, RestBound.lean :44) -/
+    :31   count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+    :32   /-- TARGET: the instance's statement of the zeros' location, equivalent to the strip form (the seam left to the instance) -/
+    :33   target : Prop
+    :34   target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2
+    :35 
+    :36 /-- The zero side over the structure. -/
+### the count the COUNT field consumes (B321.HCount):
+    SIDEExplicitFormula/RestBound.lean:44:def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+    SIDEExplicitFormula/RestBound.lean-45-  1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+    SIDEExplicitFormula/RestBound.lean-46-
+    SIDEExplicitFormula/RestBound.lean-47-/-- `A = INT |cos(gamma_0 .) phi| + INT |(cos(gamma_0 .) phi)''''|`, the two ends of (d') at `p = 0` and `p = 4`. -/
+    SIDEExplicitFormula/RestBound.lean-48-def windowA (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ := (∫ u, |cosWin γ₀ φ u|) + ∫ u, |iteratedDeriv 4 (cosWin γ₀ φ) u|
+    SIDEExplicitFormula/RestBound.lean-49-
+    SIDEExplicitFormula/RestBound.lean-50-/-- `SUM_{m in Z} (1 + |m|)^{-3}`. -/
+    SIDEExplicitFormula/RestBound.lean-51-def zeta3Sum : ℝ := ∑' m : ℤ, 1 / (1 + |(m : ℝ)|) ^ 3
+    SIDEExplicitFormula/RestBound.lean-52-
+    SIDEExplicitFormula/RestBound.lean-53-/-- **R(L, 4, gamma_0)**, the rest's bound: `768 A0 A^2 e^L (gamma_0^2 + 1)^2 SUM_m (1 + |m|)^{-3}`. -/
+    SIDEExplicitFormula/RestBound.lean-54-def restR (γ₀ : ℝ) (φ : ℝ → ℝ) (L A₀ : ℝ) : ℝ :=
+    SIDEExplicitFormula/RestBound.lean-55-  768 * A₀ * windowA γ₀ φ ^ 2 * Real.exp L * (γ₀ ^ 2 + 1) ^ 2 * zeta3Sum
+    SIDEExplicitFormula/RestBound.lean-56-
+    SIDEExplicitFormula/RestBound.lean-57-/-- The pair's orbit: `rho_0`, `1 - conj rho_0`, `conj rho_0`, `1 - rho_0`. -/
+    SIDEExplicitFormula/RestBound.lean-58-def pairOrbit (ρ₀ : ℂ) : Set ℂ := {ρ₀, Zeta23.reflect ρ₀, starRingEnd ℂ ρ₀, 1 - ρ₀}
+    
+### the configuration the schema extends (Zeta23.ZeroConfig, vendored):
+    Zeta23/Defs.lean:136:structure ZeroConfig where
+    Zeta23/Defs.lean-137-  /-- the set 𝒵 of distinct zeros -/
+    Zeta23/Defs.lean-138-  carrier : Set ℂ
+    Zeta23/Defs.lean-139-  /-- multiplicity m_ρ (value irrelevant off carrier) -/
+    Zeta23/Defs.lean-140-  mult : ℂ → ℕ
+    Zeta23/Defs.lean-141-  one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+    Zeta23/Defs.lean-142-  strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+    Zeta23/Defs.lean-143-  reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+    Zeta23/Defs.lean-144-  mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+    Zeta23/Defs.lean-145-  /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+    Zeta23/Defs.lean-146-  finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+    
+    Zeta23/Defs.lean:162:def N (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ Z.window T₁ T₂, Z.mult ρ
+### the criterion over the structure (h2_sign_cfg_iff_target):
+    SIDEExplicitFormula/Schema/Converse.lean:265:theorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target :=
+    SIDEExplicitFormula/Schema/Converse.lean-266-  (h2_sign_cfg_iff_online C).trans C.target_iff.symm
+    SIDEExplicitFormula/Schema/Converse.lean-267-
+    SIDEExplicitFormula/Schema/Converse.lean-268-end Schema
+
+### THE PRICE (the seat`s read of the fields):
+    THE OBJECT: for two configurations C1, C2 of the schema, the sum C1 + C2 -- carrier C1.carrier ∪ C2.carrier, multiplicity the sum of each configuration`s multiplicity on its own carrier (ZeroConfig`s `mult` is irrelevant off its carrier, Defs.lean :140), rhs the sum of the two rhs, target the conjunction of the two targets.
+    BOOKKEEPING (no lemma of substance): the ZeroConfig fields of the sum -- one_le_mult, the strip, reflect_mem, mult_reflect, finite_window -- each from the two parts; target_iff from the two target_iff`s and membership in the union; COUNT -- the windowed count N (a finsum of multiplicities over a finite window, Defs.lean :162) adds over the union, so HCount holds with A₀ the sum of the two (RestBound.lean :44, 1 ≤ A₀ kept).
+    ONE LEMMA OF SUBSTANCE, the summed explicit formula: on even C_c² test functions, the tsum over the union carrier with the summed multiplicities equals the sum of the two zero sides, each summable by the count it carries (the summability `dominant_summable` draws from HCount), so the sum`s `ef` is the two `ef`s added.
+    THE CRITERION, FREE: `h2_sign_cfg_iff_target` holds for every WeilConfig (Schema/Converse.lean :265), so the sum`s criterion is its target, the conjunction of the two targets, each its own part`s criterion -- no further lemma.
+    THE INSTANCE, PRICED BESIDE AND NOT INSIDE: zeta · L(s, χ_d) as a sum of the ζ configuration and the χ_d configuration needs the χ_d instance at a real primitive quadratic character (the χ page`s instances are for primitive χ); naming it the Dedekind zeta of the quadratic field needs the factorization ζ_K = ζ · L(s, χ_d), which this read did not search in Mathlib -- a separate item.
+    PRICE: one lemma of substance (the summed explicit formula) and the bookkeeping above; the Dedekind identification is a separate item.

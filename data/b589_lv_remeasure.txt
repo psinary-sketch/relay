@@ -1,0 +1,38 @@
+b589 -- COMPONENT 4 (c): THE lv RE-MEASURE AGAINST de5ce8a9, (R199)(5)(c). ### a scratch worktree, nothing merged, nothing pushed.
+
+### the worktree: D:/b589-lv-remeasure, detached at f22ff35 (toolchain-trial-b551`s tip) ; lean-toolchain leanprover/lean4:v4.34.0-rc1 ; Mathlib de5ce8a9a6 ; the lakefile`s rev set in the worktree, uncommitted
+### the cache: the package tree copied from SIDE-explicit-formula (robocopy, 140578 files, 7.0 GB, no failure); lake reused its Mathlib build (no Mathlib module rebuilt); lake warned once per call that the manifest`s mathlib git url differs from the lakefile`s
+
+| module | exit | errors | first error, or the stop | free memory before (MB) | dependents of a failure |
+|:--|--:|--:|:--|--:|:--|
+| SIDELvConservation.Genus5 | 4294967295 | 0 | STOPPED AT THE MEMORY HOLD: lean.exe (PID 17700) at 2361 MB resident, 7611 MB committed, after 22 min on Genus5.lean, free memory 1650 MB; stopped by PID with lake 20140, 25328 (2026-10-01 23:03 local) | 4085 | 1 |
+| SIDELvConservation.Genus5Confinement | 1 | 0 | STOPPED AT THE MEMORY HOLD: lean resident 3288 MB, free 860 MB, after 382 s | 4338 | 1 |
+| SIDELvConservation.TwoSidesIdentity | 1 | 0 | STOPPED AT THE MEMORY HOLD: lean resident 3289 MB, free 846 MB, after 48 s | 3154 | 1 |
+| SIDELvConservation.AxiomCheck_D2 | not run | 0 | not run: it imports Genus5, stopped at the memory hold | -- | -- |
+| SIDELvConservation.FieldLayer | 1 | 0 | STOPPED AT THE MEMORY HOLD: lean resident 3291 MB, free 869 MB, after 49 s | 3364 | 3 |
+| SIDELvConservation.LeadLaw | 1 | 0 | STOPPED AT THE MEMORY HOLD: lean resident 3316 MB, free 826 MB, after 48 s | 3192 | 2 |
+| SIDELvConservation.SaltCheck_LeadLaw | 1 | 0 | STOPPED AT THE MEMORY HOLD: lean resident 3341 MB, free 805 MB, after 48 s | 3222 | 1 |
+| SIDELvConservation.AxiomCheck_LeadLaw | 1 | 0 | STOPPED AT THE MEMORY HOLD: lean resident 3358 MB, free 766 MB, after 48 s | 3373 | 0 |
+| SIDELvConservation.T1_MellinFactorization | 0 | 0 | -- | 4286 | -- |
+| SIDELvConservation.T2_SDarkness | 0 | 0 | -- | 4454 | -- |
+| SIDELvConservation.T3_StepNineBridge | 0 | 0 | -- | 4494 | -- |
+| SIDELvConservation.GammaBounds | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4447 | 11 |
+| SIDELvConservation.C7OrderBounds | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4466 | 10 |
+| SIDELvConservation.CouplingsAtPhi | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4438 | 7 |
+| SIDELvConservation.RegisterPentagon | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4421 | 6 |
+| SIDELvConservation.ZeroCarrier | 0 | 0 | -- | 4457 | -- |
+| SIDELvConservation.PartialPositivity | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4436 | 2 |
+| SIDELvConservation.C7FiniteTypeFalse | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4425 | 1 |
+| SIDELvConservation.AxiomCheck_v0_10_0 | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4443 | 0 |
+| SIDELvConservation.ZeroActingPairing | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4513 | 3 |
+| SIDELvConservation.QWantedPoster | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4453 | 1 |
+| SIDELvConservation.CompositionBarrier | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4472 | 0 |
+| SIDELvConservation.DirichletC7Order | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4414 | 0 |
+| SIDELvConservation.Smoke | 0 | 0 | -- | 4479 | -- |
+| SIDELvConservation.ZeroActingPartial | 1 | 2 | error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern | 4488 | 0 |
+
+### modules 25 ; built clean 5 ; failing 19 ['SIDELvConservation.Genus5', 'SIDELvConservation.Genus5Confinement', 'SIDELvConservation.TwoSidesIdentity', 'SIDELvConservation.FieldLayer', 'SIDELvConservation.LeadLaw', 'SIDELvConservation.SaltCheck_LeadLaw', 'SIDELvConservation.AxiomCheck_LeadLaw', 'SIDELvConservation.GammaBounds', 'SIDELvConservation.C7OrderBounds', 'SIDELvConservation.CouplingsAtPhi', 'SIDELvConservation.RegisterPentagon', 'SIDELvConservation.PartialPositivity', 'SIDELvConservation.C7FiniteTypeFalse', 'SIDELvConservation.AxiomCheck_v0_10_0', 'SIDELvConservation.ZeroActingPairing', 'SIDELvConservation.QWantedPoster', 'SIDELvConservation.CompositionBarrier', 'SIDELvConservation.DirichletC7Order', 'SIDELvConservation.ZeroActingPartial']
+### stopped at the memory hold (no error counted): 7 ['SIDELvConservation.Genus5', 'SIDELvConservation.Genus5Confinement', 'SIDELvConservation.TwoSidesIdentity', 'SIDELvConservation.FieldLayer', 'SIDELvConservation.LeadLaw', 'SIDELvConservation.SaltCheck_LeadLaw', 'SIDELvConservation.AxiomCheck_LeadLaw']
+### the first module whose own source errs, in build order: SIDELvConservation.GammaBounds ; its dependents 11 ['SIDELvConservation.AxiomCheck_v0_10_0', 'SIDELvConservation.C7FiniteTypeFalse', 'SIDELvConservation.C7OrderBounds', 'SIDELvConservation.CompositionBarrier', 'SIDELvConservation.CouplingsAtPhi', 'SIDELvConservation.DirichletC7Order', 'SIDELvConservation.PartialPositivity', 'SIDELvConservation.QWantedPoster', 'SIDELvConservation.RegisterPentagon', 'SIDELvConservation.ZeroActingPairing', 'SIDELvConservation.ZeroActingPartial']
+### the first failing module in build order, a stop included: SIDELvConservation.Genus5 ; its dependents 1 ['SIDELvConservation.AxiomCheck_D2']
+### ### **THE PRICE: GammaBounds, twelfth in build order, breaks at its :177:8 -- a rewrite whose pattern Mathlib de5ce8a9 no longer matches -- and its eleven dependents fail on that error; five modules build clean (T1_MellinFactorization, T2_SDarkness, T3_StepNineBridge, ZeroCarrier, Smoke); seven did not finish under this machine`s memory hold (Genus5 grew to 7611 MB committed over 22 minutes; Genus5Confinement, TwoSidesIdentity, FieldLayer, LeadLaw, SaltCheck_LeadLaw, AxiomCheck_LeadLaw passed 3.3 GB resident with free memory under 900 MB) and AxiomCheck_D2, which imports Genus5, was not run. The price: one located repair (the rewrite at GammaBounds :177) and an unmeasured remainder behind the memory hold -- the seven modules need more memory than this machine holds free before their errors can be counted.**

@@ -1,0 +1,67 @@
+### OFFSET FROM THE CURRENT VERSION (R190)(3): +1 from :6 (the v1.0.4 line, above the v1.0.3 line); +2 more from :184 (a blank and the credit line, beneath :183) -- v1.0.3 :n sits at the edition`s :n for n < 6, at :n+1 for 6 <= n <= 183 and at :n+3 for n >= 184 -- every edition line below is the final file`s own.
+
+b589 -- COMPONENT 1: THE EDITION OF E_DIFFICULTY_THEOREM, (R199)(2), BY THE FORM OF (R187)(5) AND ITS CLAUSES, ITS TABLE WRITTEN FIRST
+
+### the current version : PLACE-papers phase2/method/E_DIFFICULTY_THEOREM.md @ b378167 (blob 27e7cff9), 258 lines ; head :1 "# The E-Difficulty Theorem" ; :6 "**v1.0.3, 2026-07-23** (was v1.0.2, 2026-07-19; v1.0.1, 2026-07-16; v1.0, May 2026)"
+### its tier block : :236 "#### THE CASCADE, ACT ELEVEN -- THE CORRESPONDENCE TIERED *(appended 2026-09-29, b557, under the author's ruli"
+### its version history : the version line :6 (v1.0.3; was v1.0.2, v1.0.1, v1.0); the dated entries :8-:12; b450`s annotation :223-:231; b557`s tier block :234-:256; b558`s line :258
+### the edition : PLACE-papers phase2/method/E_DIFFICULTY_THEOREM_v1_0_4.md, 346 lines, sha256 66bf0a9af54562f2c9cb527764dc9749a5e47be62f001de728848714676395c3
+
+### THE CORRESPONDENCE TABLE, WRITTEN FIRST (4 rows), each terminal re-printed at its pin (relay data/b589_ediff_terms.txt):
+    | claim | kernel pin | terminal | profile | Status |
+    | §VII :162 — `sieve_ceiling`: dark-factored proofs cannot reach universal statements | SIDE-kernel v1.7 = `2957e7d` | `sieve_ceiling` | axiom-free (b557, relay `data/b557_tiers.txt` :596) | Compiled, T2-SHELL (b557’s tier block :242): abstract bookkeeping over the file’s own `Proof`; SCAFFOLDING by its docstring at v1.4 and v1.7 (:598), the contentful ceiling `sieve_ceiling_semantic` |
+    | §VII :163 — `proof_dichotomy`: every proof is either dark-factored or has bright access | SIDE-kernel v1.7 = `2957e7d` | `proof_dichotomy` | axiom-free (b557, :604) | Compiled, T2 (b557’s tier block :243): excluded middle over the file’s `StepAccess` lists (:606) |
+    | §VII :164 — `e_difficulty`: decidability iff a domain Ostrowski | SIDE-kernel v1.7 = `2957e7d` | `e_difficulty` | `{propext, Quot.sound}` (b557, :612) | Compiled, T2 (b557’s tier block :244): at v1.1 = `e0a8ba0` with `classes ≥ 1` (:611); from v1.4 = `f374174` it reads its system, for every conserved `DeterminedSystem` (:613), over the file’s own types (:614) |
+    | §VII :165 — `e_difficulty_xi`: the smoke test at the ξ system | SIDE-kernel v1.7 = `2957e7d` | `e_difficulty_xi` | `{propext, Quot.sound}` (b557, :620) | Compiled, T2 (b557’s tier block :245): at the file’s own `xi_system` (:622) |
+
+### THE WORK-LIST, ROW BY ROW (2 rows, 2 sentences, 2 lines):
+
+  EDIFF:162:425 v1.0.3 :162 -> v1.0.4 :163 `sieve_ceiling` -- (e) the terminal says what it states at its pin ; banks ['b557_tiers.txt:598']
+      work-list: names `sieve_ceiling` as the ceiling -- dark-factored proofs cannot reach universal statements -- and from v1.4 the base terminal is SCAFFOLDING by its docstring, the contentful ceiling `sieve_ceiling_semantic`.
+      v1.0.3 : - `sieve_ceiling` — dark-factored proofs cannot reach universal statements
+      v1.0.4 : - `sieve_ceiling` — dark-factored proofs cannot reach universal statements; from SIDE-kernel v1.4 = `f374174` its docstring labels it SCAFFOLDING, the contentful ceiling being `sieve_ceiling_semantic`, T2-SHELL (relay `data/b557_tiers.txt` :598)
+
+  EDIFF:164:426 v1.0.3 :164 -> v1.0.4 :165 `e_difficulty` -- (e) the terminal says what it states at its pin ; banks ['b557_tiers.txt:611', 'b557_tiers.txt:613']
+      work-list: states the terminal in its v1.1 form -- for systems with classes >= 1, IsDecidable iff Nonempty (DomainOstrowski) -- and at the current tag v1.7 its statement differs (the v1.4 repair reads the system).
+      v1.0.3 : - `e_difficulty` — for systems with `classes ≥ 1`, IsDecidable iff Nonempty (DomainOstrowski)
+      v1.0.4 : - `e_difficulty` — at SIDE-kernel v1.1 = `e0a8ba0`, for systems with `classes ≥ 1`, IsDecidable iff Nonempty (DomainOstrowski) (relay `data/b557_tiers.txt` :611); from v1.4 = `f374174`, through v1.7 = `2957e7d`, it reads its system, for every conserved `DeterminedSystem` IsDecidable iff Nonempty (DomainOstrowski) (relay `data/b557_tiers.txt` :613), T2 over the file’s own types (:614)
+
+### THE CREDIT LINE (the author`s answer): v1.0.4 :186, beneath v1.0.3 :183
+      *Credit (b450 item, located at b588): the E-Difficulty cross-link verdict `DISTINCT` -- located by name at OPEN_TRAILS :773 (the index line of the `S6` crossing landing, 2026-08-12) and held whole at `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md` :8839-:8847 -- reads that E-Difficulty measures catalogue-closeability, that the dichotomy’s own census note places RH on the in-scope, decidable side, and that `h2`’s difficulty is a difficulty inside that side and is not of the kind the dichotomy formalizes.*
+
+### THE CEILING CORRECTIONS (7), the author`s answer:
+    v1.0.3 :24 -> v1.0.4 :25  "The method has been applied successfully to ξ(s) yielding the Riemann Hypothesis, to Dirichlet L-functions yielding GRH," -> "The method has been applied to ξ(s), yielding the reduction of the Riemann Hypothesis to the open premise `h2`, to Dirichlet L-functions, yielding the reduction of GRH to its premise,"
+    v1.0.3 :48 -> v1.0.4 :49  "This direction was already demonstrated for ξ(s) and instantiated across the catalogue." -> "This direction was already demonstrated for ξ(s) at each stage of the formation count, its completeness at the ξ interface being the open premise `h2`, and instantiated across the catalogue."
+    v1.0.3 :136 -> v1.0.4 :137  "The programme did not invent a new proof technique for the Riemann Hypothesis." -> "The programme did not invent a new technique for the reduction of the Riemann Hypothesis."
+    v1.0.3 :136 -> v1.0.4 :137  "appear in every proof of RH, whether the proof recognizes them or not." -> "appear in every reduction of RH, whether the reduction recognizes them or not."
+    v1.0.3 :138 -> v1.0.4 :139  "The 167-year delay was not a failure of effort." -> "The 167 years without a proof were not a failure of effort."
+    v1.0.3 :138 -> v1.0.4 :139  "Once the darkness is named, the route becomes visible." -> "Once the darkness is named, the route to the one open premise `h2` becomes visible."
+    v1.0.3 :177 -> v1.0.4 :178  "Retroactively: the success of SIDE on ξ(s) was not luck or technique-choice;" -> "Retroactively: the reduction SIDE located on ξ(s), to the one open premise `h2`, was not luck or technique-choice;"
+### THE FACT CORRECTIONS (1), the author`s answer:
+    v1.0.3 :203 -> v1.0.4 :206  "Current: SIDE-kernel v1.3, version DOI 10.5281/zenodo.21417776, concept DOI 10.5281/zenodo.19674312" -> "Deposited: SIDE-kernel v1.5 = `0e5233f`, version DOI 10.5281/zenodo.21520474 (REGISTRY :962); the earlier record SIDE-kernel v1.3, version DOI 10.5281/zenodo.21417776, concept DOI 10.5281/zenodo.19674312"
+      the source: PLACE-papers REGISTRY.md :962 @ b378167 "*(Appended under the author's ruling `(R185)`(2)(ii), 2026-10-01, b575: Anomaly 1 stated as a pair of pins, with no deposit.)* **SIDE-kernel, the deposited pin and the current tag.** Deposited at **v1.5** = `0e5233f` (record 21520474, DOI 10.5281/zenodo.21520474; immutable at its version). Current t"
+### THE STEM CORRECTIONS: none. ### REMOVALS: none.
+### THE VERSION LINE: above v1.0.3 :6: **v1.0.4, 2026-10-01** — *CP-7 edition (b589), written beside v1.0.3, which is unedited; its back matter closes the file.*
+
+### THE COUNTS (relay tools/b558_record.py `segments`, imported): the current version 298 ; the edition`s body 300 (+2) ; the back matter 61 ; the edition whole 361
+### H28b, final form: the body differs by +2 against CREDIT 1 + removals 0 + ruled citations 0 + one version line = 2
+### no blank Status cell: HELD
+
+### THE CEILING, every hit in the edition:
+    :49 "already demonstrated for ξ" -- in a sentence corrected under the ceiling clause -- ...ass against P, conclude by completeness. This direction was already demonstrated for ξ(s) at each stage of the formation count...
+    :283 "yielding the Riemann Hypothesis" -- quoted in a back-matter record, read by the seat -- ...on record: The method has been applied successfully to ξ(s) yielding the Riemann Hypothesis, to Dirichlet L-functions yielding GRH,...
+    :283 "yielding GRH" -- quoted in a back-matter record, read by the seat -- ...) yielding the Riemann Hypothesis, to Dirichlet L-functions yielding GRH, | The method has been applied to ξ(s),...
+    :284 "already demonstrated for ξ" -- quoted in a back-matter record, read by the seat -- ...| :49 | ceiling correction record: This direction was already demonstrated for ξ(s) and instantiated across the catalogu...
+    :284 "already demonstrated for ξ" -- quoted in a back-matter record, read by the seat -- ...and instantiated across the catalogue. | This direction was already demonstrated for ξ(s) at each stage of the formation count...
+    :285 "proof technique for the Riemann Hypothesis" -- quoted in a back-matter record, read by the seat -- ...iling correction record: The programme did not invent a new proof technique for the Riemann Hypothesis. | The programme did not invent a new t...
+    :286 "every proof of RH" -- quoted in a back-matter record, read by the seat -- ...| :137 | ceiling correction record: appear in every proof of RH, whether the proof recognizes them or n...
+    :287 "167-year delay" -- quoted in a back-matter record, read by the seat -- ...| :139 | ceiling correction record: The 167-year delay was not a failure of effort. | The 167 ...
+    :288 "route becomes visible" -- quoted in a back-matter record, read by the seat -- ... ceiling correction record: Once the darkness is named, the route becomes visible. | Once the darkness is named, the rout...
+    :289 "success of SIDE" -- quoted in a back-matter record, read by the seat -- ...| :178 | ceiling correction record: Retroactively: the success of SIDE on ξ(s) was not luck or technique-choic...
+### sentences beyond the ceiling: 0
+### THE SCANNER (banned_terms.py) on the edition: live uses 0 ; verdict CLEAN
+
+### ### **H28a HELD -- every MOVED row resolves to a sentence citing its terminal`s statement by bank line at its pin.**
+### ### **H28b HELD -- final form: the body differs by +2 sentences against at most 2; the back matter 61, excluded and printed.**
+### ### **H28c HELD -- the scanner`s live count 0 and verdict CLEAN; sentences beyond the ceiling 0.**
+### ### **THE EDITION LANDS: NO SENTENCE HELD.**

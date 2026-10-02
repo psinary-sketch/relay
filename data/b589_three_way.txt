@@ -1,0 +1,22 @@
+b589 -- COMPONENT 4 (a): W-ORD-LI-THREE-WAY, (R199)(5)(a). ### A BENCH, GRADED READING; NOTHING ABOUT ZETA`S ZEROS IS CLAIMED.
+
+### the routes, as the face fixes them (reading (xii)): ZERO = relay data/b562_drift.txt table (i) Lambda_N + T2, floor T2(n) ; ARITH = data/b563_per_n.txt Z(n,0), floor the bank`s column ; KEIPER = mpmath 1.3.0, Stieltjes constants, eta_j the Taylor coefficients of log xi at s = 1, lambda_n = n sum C(n-1, j-1) eta_j, floor max(|run 50 - run 70|, 1e-45).
+### H30a: every pair of routes at every n agrees within the sum of the two floors; refuted by one miss. BALPOS (li_bench, the channel quadrature) printed beside, not scored.
+
+   n   KEIPER (70 digits)        floor_K    ZERO (Lambda_N+T2)     floor_Z     ARITH Z(n,0)           floor_A    |Z-K|/(fZ+fK)  |A-K|/(fA+fK)  |A-Z|/(fA+fZ)   BALPOS - KEIPER
+   1   0.02309570896612103381431  1.0e-45   0.023095712253211  1.347e-04   0.023210267160811  1.347e-04    0.0000        0.8505        0.4252       -3.469e-17
+   2   0.09234573522804667038573  1.0e-45   0.092345748376807  5.388e-04   0.092803984644144  5.388e-04    0.0000        0.8505        0.4252       +6.331e-11
+   3   0.2076389205543248037915  1.0e-45   0.207638950140657  1.212e-03   0.208670044230589  1.212e-03    0.0000        0.8506        0.4253       +3.836e-11
+   4   0.3687904794922416385905  1.0e-45   0.368790532094090  2.155e-03   0.370623745357635  2.155e-03    0.0000        0.8506        0.4253       +2.776e-11
+   5   0.5755427144611774524311  1.0e-45   0.575542796659413  3.368e-03   0.578407505712605  3.368e-03    0.0000        0.8507        0.4253       -3.118e-11
+   6   0.827566012282379297425  1.0e-45   0.827566130661799  4.849e-03   0.831691863764435  4.849e-03    0.0000        0.8508        0.4254       -3.793e-13
+   7   1.124460117570959490583  1.0e-45   1.124460278720905  6.600e-03   1.130076748260122  6.600e-03    0.0000        0.8510        0.4255       -9.595e-13
+   8   1.465755677147060632656  1.0e-45   1.465755887662471  8.621e-03   1.473093024640439  8.621e-03    0.0000        0.8511        0.4255       +2.939e-12
+   9   1.850916048382534155326  1.0e-45   1.850916314864618  1.091e-02   1.860204298390819  1.091e-02    0.0000        0.8513        0.4256       (not banked)
+  10   2.279339363193157743693  1.0e-45   2.279339692250395  1.347e-02   2.290808992039043  1.347e-02    0.0000        0.8515        0.4257       -3.157e-12
+  11   2.750360838220196060355  1.0e-45   2.750361236469051  1.630e-02   2.764242631340628  1.630e-02    0.0000        0.8517        0.4258       (not banked)
+  12   3.263255320624619848079  1.0e-45   3.263255794690524  1.940e-02   3.279780425083839  1.940e-02    0.0000        0.8519        0.4260       (not banked)
+
+### misses: NONE
+### the closest to its floor: (12, 'r_ak', 0.8519412516997048)
+### ### **H30a HOLDS -- the three routes agree within the sum of their floors at every n = 1..12 (36 comparisons, 0 misses).**

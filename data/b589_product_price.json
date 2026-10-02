@@ -1,0 +1,10 @@
+{
+ "price": [
+  "THE OBJECT: for two configurations C1, C2 of the schema, the sum C1 + C2 -- carrier C1.carrier ∪ C2.carrier, multiplicity the sum of each configuration`s multiplicity on its own carrier (ZeroConfig`s `mult` is irrelevant off its carrier, Defs.lean :140), rhs the sum of the two rhs, target the conjunction of the two targets.",
+  "BOOKKEEPING (no lemma of substance): the ZeroConfig fields of the sum -- one_le_mult, the strip, reflect_mem, mult_reflect, finite_window -- each from the two parts; target_iff from the two target_iff`s and membership in the union; COUNT -- the windowed count N (a finsum of multiplicities over a finite window, Defs.lean :162) adds over the union, so HCount holds with A₀ the sum of the two (RestBound.lean :44, 1 ≤ A₀ kept).",
+  "ONE LEMMA OF SUBSTANCE, the summed explicit formula: on even C_c² test functions, the tsum over the union carrier with the summed multiplicities equals the sum of the two zero sides, each summable by the count it carries (the summability `dominant_summable` draws from HCount), so the sum`s `ef` is the two `ef`s added.",
+  "THE CRITERION, FREE: `h2_sign_cfg_iff_target` holds for every WeilConfig (Schema/Converse.lean :265), so the sum`s criterion is its target, the conjunction of the two targets, each its own part`s criterion -- no further lemma.",
+  "THE INSTANCE, PRICED BESIDE AND NOT INSIDE: zeta · L(s, χ_d) as a sum of the ζ configuration and the χ_d configuration needs the χ_d instance at a real primitive quadratic character (the χ page`s instances are for primitive χ); naming it the Dedekind zeta of the quadratic field needs the factorization ζ_K = ζ · L(s, χ_d), which this read did not search in Mathlib -- a separate item.",
+  "PRICE: one lemma of substance (the summed explicit formula) and the bookkeeping above; the Dedekind identification is a separate item."
+ ]
+}

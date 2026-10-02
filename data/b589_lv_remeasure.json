@@ -1,0 +1,453 @@
+{
+ "meta": {
+  "order": [
+   "SIDELvConservation.Genus5",
+   "SIDELvConservation.Genus5Confinement",
+   "SIDELvConservation.TwoSidesIdentity",
+   "SIDELvConservation.AxiomCheck_D2",
+   "SIDELvConservation.FieldLayer",
+   "SIDELvConservation.LeadLaw",
+   "SIDELvConservation.SaltCheck_LeadLaw",
+   "SIDELvConservation.AxiomCheck_LeadLaw",
+   "SIDELvConservation.T1_MellinFactorization",
+   "SIDELvConservation.T2_SDarkness",
+   "SIDELvConservation.T3_StepNineBridge",
+   "SIDELvConservation.GammaBounds",
+   "SIDELvConservation.C7OrderBounds",
+   "SIDELvConservation.CouplingsAtPhi",
+   "SIDELvConservation.RegisterPentagon",
+   "SIDELvConservation.ZeroCarrier",
+   "SIDELvConservation.PartialPositivity",
+   "SIDELvConservation.C7FiniteTypeFalse",
+   "SIDELvConservation.AxiomCheck_v0_10_0",
+   "SIDELvConservation.ZeroActingPairing",
+   "SIDELvConservation.QWantedPoster",
+   "SIDELvConservation.CompositionBarrier",
+   "SIDELvConservation.DirichletC7Order",
+   "SIDELvConservation.Smoke",
+   "SIDELvConservation.ZeroActingPartial"
+  ],
+  "imports": {
+   "SIDELvConservation.AxiomCheck_D2": [
+    "SIDELvConservation.Genus5",
+    "SIDELvConservation.Genus5Confinement",
+    "SIDELvConservation.TwoSidesIdentity"
+   ],
+   "SIDELvConservation.AxiomCheck_LeadLaw": [
+    "SIDELvConservation.LeadLaw",
+    "SIDELvConservation.SaltCheck_LeadLaw"
+   ],
+   "SIDELvConservation.AxiomCheck_v0_10_0": [
+    "SIDELvConservation.PartialPositivity",
+    "SIDELvConservation.ZeroCarrier",
+    "SIDELvConservation.CouplingsAtPhi",
+    "SIDELvConservation.RegisterPentagon",
+    "SIDELvConservation.T3_StepNineBridge",
+    "SIDELvConservation.C7FiniteTypeFalse"
+   ],
+   "SIDELvConservation.C7FiniteTypeFalse": [
+    "SIDELvConservation.C7OrderBounds"
+   ],
+   "SIDELvConservation.C7OrderBounds": [
+    "SIDELvConservation.T1_MellinFactorization",
+    "SIDELvConservation.GammaBounds"
+   ],
+   "SIDELvConservation.CompositionBarrier": [
+    "SIDELvConservation.QWantedPoster"
+   ],
+   "SIDELvConservation.CouplingsAtPhi": [
+    "SIDELvConservation.T1_MellinFactorization",
+    "SIDELvConservation.T2_SDarkness",
+    "SIDELvConservation.T3_StepNineBridge",
+    "SIDELvConservation.C7OrderBounds"
+   ],
+   "SIDELvConservation.DirichletC7Order": [
+    "SIDELvConservation.C7OrderBounds"
+   ],
+   "SIDELvConservation.FieldLayer": [],
+   "SIDELvConservation.GammaBounds": [],
+   "SIDELvConservation.Genus5": [],
+   "SIDELvConservation.Genus5Confinement": [],
+   "SIDELvConservation.LeadLaw": [
+    "SIDELvConservation.FieldLayer"
+   ],
+   "SIDELvConservation.PartialPositivity": [
+    "SIDELvConservation.RegisterPentagon",
+    "SIDELvConservation.ZeroCarrier"
+   ],
+   "SIDELvConservation.QWantedPoster": [
+    "SIDELvConservation.ZeroActingPairing"
+   ],
+   "SIDELvConservation.RegisterPentagon": [
+    "SIDELvConservation.CouplingsAtPhi"
+   ],
+   "SIDELvConservation.SaltCheck_LeadLaw": [
+    "SIDELvConservation.LeadLaw"
+   ],
+   "SIDELvConservation.Smoke": [],
+   "SIDELvConservation.T1_MellinFactorization": [],
+   "SIDELvConservation.T2_SDarkness": [
+    "SIDELvConservation.T1_MellinFactorization"
+   ],
+   "SIDELvConservation.T3_StepNineBridge": [
+    "SIDELvConservation.T1_MellinFactorization",
+    "SIDELvConservation.T2_SDarkness"
+   ],
+   "SIDELvConservation.TwoSidesIdentity": [],
+   "SIDELvConservation.ZeroActingPairing": [
+    "SIDELvConservation.RegisterPentagon"
+   ],
+   "SIDELvConservation.ZeroActingPartial": [
+    "SIDELvConservation.ZeroActingPairing",
+    "SIDELvConservation.PartialPositivity"
+   ],
+   "SIDELvConservation.ZeroCarrier": []
+  },
+  "worktree": "D:/b589-lv-remeasure",
+  "head": "f22ff35",
+  "toolchain": "leanprover/lean4:v4.34.0-rc1",
+  "mathlib": "de5ce8a9a6",
+  "cache": "the package tree copied from SIDE-explicit-formula (robocopy, 140578 files, 7.0 GB, no failure); lake reused its Mathlib build (no Mathlib module rebuilt); lake warned once per call that the manifest`s mathlib git url differs from the lakefile`s",
+  "free": {
+   "SIDELvConservation.Genus5": 4085,
+   "SIDELvConservation.Genus5Confinement": 4338,
+   "SIDELvConservation.TwoSidesIdentity": 3154,
+   "SIDELvConservation.FieldLayer": 3364,
+   "SIDELvConservation.LeadLaw": 3192,
+   "SIDELvConservation.SaltCheck_LeadLaw": 3222,
+   "SIDELvConservation.AxiomCheck_LeadLaw": 3373,
+   "SIDELvConservation.T1_MellinFactorization": 4286,
+   "SIDELvConservation.T2_SDarkness": 4454,
+   "SIDELvConservation.T3_StepNineBridge": 4494,
+   "SIDELvConservation.GammaBounds": 4447,
+   "SIDELvConservation.C7OrderBounds": 4466,
+   "SIDELvConservation.CouplingsAtPhi": 4438,
+   "SIDELvConservation.RegisterPentagon": 4421,
+   "SIDELvConservation.ZeroCarrier": 4457,
+   "SIDELvConservation.PartialPositivity": 4436,
+   "SIDELvConservation.C7FiniteTypeFalse": 4425,
+   "SIDELvConservation.AxiomCheck_v0_10_0": 4443,
+   "SIDELvConservation.ZeroActingPairing": 4513,
+   "SIDELvConservation.QWantedPoster": 4453,
+   "SIDELvConservation.CompositionBarrier": 4472,
+   "SIDELvConservation.DirichletC7Order": 4414,
+   "SIDELvConservation.Smoke": 4479,
+   "SIDELvConservation.ZeroActingPartial": 4488
+  },
+  "not_run": {
+   "SIDELvConservation.AxiomCheck_D2": "it imports Genus5, stopped at the memory hold"
+  },
+  "price": "GammaBounds, twelfth in build order, breaks at its :177:8 -- a rewrite whose pattern Mathlib de5ce8a9 no longer matches -- and its eleven dependents fail on that error; five modules build clean (T1_MellinFactorization, T2_SDarkness, T3_StepNineBridge, ZeroCarrier, Smoke); seven did not finish under this machine`s memory hold (Genus5 grew to 7611 MB committed over 22 minutes; Genus5Confinement, TwoSidesIdentity, FieldLayer, LeadLaw, SaltCheck_LeadLaw, AxiomCheck_LeadLaw passed 3.3 GB resident with free memory under 900 MB) and AxiomCheck_D2, which imports Genus5, was not run. The price: one located repair (the rewrite at GammaBounds :177) and an unmeasured remainder behind the memory hold -- the seven modules need more memory than this machine holds free before their errors can be counted."
+ },
+ "res": {
+  "SIDELvConservation.Genus5": {
+   "exit": 4294967295,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4085,
+   "stopped": "lean.exe (PID 17700) at 2361 MB resident, 7611 MB committed, after 22 min on Genus5.lean, free memory 1650 MB; stopped by PID with lake 20140, 25328 (2026-10-01 23:03 local)",
+   "not_run": null
+  },
+  "SIDELvConservation.Genus5Confinement": {
+   "exit": 1,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4338,
+   "stopped": "lean resident 3288 MB, free 860 MB, after 382 s",
+   "not_run": null
+  },
+  "SIDELvConservation.TwoSidesIdentity": {
+   "exit": 1,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 3154,
+   "stopped": "lean resident 3289 MB, free 846 MB, after 48 s",
+   "not_run": null
+  },
+  "SIDELvConservation.AxiomCheck_D2": {
+   "exit": null,
+   "errors": 0,
+   "first": [],
+   "ran": false,
+   "free": null,
+   "stopped": null,
+   "not_run": "it imports Genus5, stopped at the memory hold"
+  },
+  "SIDELvConservation.FieldLayer": {
+   "exit": 1,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 3364,
+   "stopped": "lean resident 3291 MB, free 869 MB, after 49 s",
+   "not_run": null
+  },
+  "SIDELvConservation.LeadLaw": {
+   "exit": 1,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 3192,
+   "stopped": "lean resident 3316 MB, free 826 MB, after 48 s",
+   "not_run": null
+  },
+  "SIDELvConservation.SaltCheck_LeadLaw": {
+   "exit": 1,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 3222,
+   "stopped": "lean resident 3341 MB, free 805 MB, after 48 s",
+   "not_run": null
+  },
+  "SIDELvConservation.AxiomCheck_LeadLaw": {
+   "exit": 1,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 3373,
+   "stopped": "lean resident 3358 MB, free 766 MB, after 48 s",
+   "not_run": null
+  },
+  "SIDELvConservation.T1_MellinFactorization": {
+   "exit": 0,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4286,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.T2_SDarkness": {
+   "exit": 0,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4454,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.T3_StepNineBridge": {
+   "exit": 0,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4494,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.GammaBounds": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4447,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.C7OrderBounds": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4466,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.CouplingsAtPhi": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4438,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.RegisterPentagon": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4421,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.ZeroCarrier": {
+   "exit": 0,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4457,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.PartialPositivity": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4436,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.C7FiniteTypeFalse": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4425,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.AxiomCheck_v0_10_0": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4443,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.ZeroActingPairing": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4513,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.QWantedPoster": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4453,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.CompositionBarrier": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4472,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.DirichletC7Order": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4414,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.Smoke": {
+   "exit": 0,
+   "errors": 0,
+   "first": [],
+   "ran": true,
+   "free": 4479,
+   "stopped": null,
+   "not_run": null
+  },
+  "SIDELvConservation.ZeroActingPartial": {
+   "exit": 1,
+   "errors": 2,
+   "first": [
+    "error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: build failed"
+   ],
+   "ran": true,
+   "free": 4488,
+   "stopped": null,
+   "not_run": null
+  }
+ },
+ "failing": [
+  "SIDELvConservation.Genus5",
+  "SIDELvConservation.Genus5Confinement",
+  "SIDELvConservation.TwoSidesIdentity",
+  "SIDELvConservation.FieldLayer",
+  "SIDELvConservation.LeadLaw",
+  "SIDELvConservation.SaltCheck_LeadLaw",
+  "SIDELvConservation.AxiomCheck_LeadLaw",
+  "SIDELvConservation.GammaBounds",
+  "SIDELvConservation.C7OrderBounds",
+  "SIDELvConservation.CouplingsAtPhi",
+  "SIDELvConservation.RegisterPentagon",
+  "SIDELvConservation.PartialPositivity",
+  "SIDELvConservation.C7FiniteTypeFalse",
+  "SIDELvConservation.AxiomCheck_v0_10_0",
+  "SIDELvConservation.ZeroActingPairing",
+  "SIDELvConservation.QWantedPoster",
+  "SIDELvConservation.CompositionBarrier",
+  "SIDELvConservation.DirichletC7Order",
+  "SIDELvConservation.ZeroActingPartial"
+ ],
+ "first_fail": "SIDELvConservation.Genus5",
+ "first_error": "SIDELvConservation.GammaBounds",
+ "first_error_dependents": [
+  "SIDELvConservation.AxiomCheck_v0_10_0",
+  "SIDELvConservation.C7FiniteTypeFalse",
+  "SIDELvConservation.C7OrderBounds",
+  "SIDELvConservation.CompositionBarrier",
+  "SIDELvConservation.CouplingsAtPhi",
+  "SIDELvConservation.DirichletC7Order",
+  "SIDELvConservation.PartialPositivity",
+  "SIDELvConservation.QWantedPoster",
+  "SIDELvConservation.RegisterPentagon",
+  "SIDELvConservation.ZeroActingPairing",
+  "SIDELvConservation.ZeroActingPartial"
+ ],
+ "stopped": [
+  "SIDELvConservation.Genus5",
+  "SIDELvConservation.Genus5Confinement",
+  "SIDELvConservation.TwoSidesIdentity",
+  "SIDELvConservation.FieldLayer",
+  "SIDELvConservation.LeadLaw",
+  "SIDELvConservation.SaltCheck_LeadLaw",
+  "SIDELvConservation.AxiomCheck_LeadLaw"
+ ],
+ "first_fail_dependents": [
+  "SIDELvConservation.AxiomCheck_D2"
+ ]
+}

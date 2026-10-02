@@ -1,0 +1,91 @@
+b589 -- COMPONENT 1 (a): E_DIFFICULTY_THEOREM`S TERMINALS RE-PRINTED AT THEIR PINS, SIDE-kernel Kernel/Cascade/SieveCeiling.lean (git show, no elaboration)
+
+### tag v1.1 = e0a8ba0 (remote e0a8ba0)
+### tag v1.4 = f374174 (remote f374174)
+### tag v1.7 = 2957e7d (remote 2957e7d)
+
+### :162 `sieve_ceiling`
+    @ v1.1 : Kernel/Cascade/SieveCeiling.lean :203
+        |     If π factors through dark interfaces, π cannot establish
+        |     a universal statement about the target parameter. -/
+        > theorem sieve_ceiling (π : Proof) (h : π.factorsDark) :
+        >     (maxStatement π).strength < StatementKind.universal.strength := by
+    @ v1.4 : Kernel/Cascade/SieveCeiling.lean :209
+        |     dark proof is capped below universal STRENGTH. This is the strength
+        |     bookkeeping; the contentful sieve ceiling — that dark-factored
+        |     inference cannot separate I-indistinguishable configurations — is
+        |     `SieveCeilingSemantic.sieve_ceiling_semantic`, with the concrete
+        |     Davenport–Heilbronn instance in `SieveCeilingWitness.dh_sieve_ceiling`.
+        |     Cite those for content; cite this only for the strength bound. -/
+        > theorem sieve_ceiling (π : Proof) (h : π.factorsDark) :
+        >     (maxStatement π).strength < StatementKind.universal.strength := by
+    @ v1.7 : Kernel/Cascade/SieveCeiling.lean :209
+        |     dark proof is capped below universal STRENGTH. This is the strength
+        |     bookkeeping; the contentful sieve ceiling — that dark-factored
+        |     inference cannot separate I-indistinguishable configurations — is
+        |     `SieveCeilingSemantic.sieve_ceiling_semantic`, with the concrete
+        |     Davenport–Heilbronn instance in `SieveCeilingWitness.dh_sieve_ceiling`.
+        |     Cite those for content; cite this only for the strength bound. -/
+        > theorem sieve_ceiling (π : Proof) (h : π.factorsDark) :
+        >     (maxStatement π).strength < StatementKind.universal.strength := by
+
+### :163 `proof_dichotomy`
+    @ v1.1 : Kernel/Cascade/SieveCeiling.lean :116
+        | /-- Either every step factors dark, or some step is bright. -/
+        > theorem proof_dichotomy (π : Proof) :
+        >     π.factorsDark ∨ π.hasBrightAccess := by
+    @ v1.7 : Kernel/Cascade/SieveCeiling.lean :134
+        | /-- TERMINAL 1 (axiom-free). Either every step factors dark, or some
+        |     step is bright. -/
+        > theorem proof_dichotomy (π : Proof) :
+        >     π.factorsDark ∨ π.hasBrightAccess := by
+
+### :164 `e_difficulty`
+    @ v1.1 : Kernel/Cascade/SieveCeiling.lean :266
+        |     The s.classes ≥ 1 hypothesis excludes the vacuous edge case
+        |     of zero-class systems, where both sides trivially hold.
+        |     Every programme-relevant system (ξ, Yang-Mills, BSD, Hodge,
+        |     Navier-Stokes) has s.classes ≥ 1. -/
+        > theorem e_difficulty (s : DeterminedSystem)
+        >     (_h_conserved : s.isConserved) (h_nontrivial : s.classes ≥ 1) :
+        >     IsDecidable s ↔ Nonempty (DomainOstrowski s) := by
+    @ v1.4 : Kernel/Cascade/SieveCeiling.lean :309
+        |     Conservation (h_conserved) is load-bearing: it supplies the
+        |     `inessential` component of the extracted Ostrowski. -/
+        > theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) :
+        >     IsDecidable s ↔ Nonempty (DomainOstrowski s) := by
+    @ v1.7 : Kernel/Cascade/SieveCeiling.lean :309
+        |     Conservation (h_conserved) is load-bearing: it supplies the
+        |     `inessential` component of the extracted Ostrowski. -/
+        > theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) :
+        >     IsDecidable s ↔ Nonempty (DomainOstrowski s) := by
+
+### :165 `e_difficulty_xi`
+    @ v1.1 : Kernel/Cascade/SieveCeiling.lean :323
+        | /-- E-Difficulty applies to ξ. -/
+        > theorem e_difficulty_xi :
+        >     IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system) :=
+    @ v1.7 : Kernel/Cascade/SieveCeiling.lean :349
+        | /-- E-Difficulty applies to ξ. Both sides are false here (a fully
+        |     conserved system has no bright — hence no domain-Ostrowski — in
+        |     this abstract model; the Ostrowski is the hard SIDE input). -/
+        > theorem e_difficulty_xi :
+        >     IsDecidable xi_system ↔ Nonempty (DomainOstrowski xi_system) :=
+
+### (the contentful ceiling the update paragraph names) `sieve_ceiling_semantic`
+    @ v1.4 : Kernel/Cascade/SieveCeilingSemantic.lean :48
+        | /-- THE SEMANTIC SIEVE CEILING. If the target property is not
+        |     r-invariant, no r-respecting (dark-factored) certificate is
+        |     extensionally equal to it: the dark-factored reach stops strictly
+        |     below the target. -/
+        > theorem sieve_ceiling_semantic {onLine : U → Prop}
+        >     (h_not_inv : ¬ RespectsI r onLine) :
+        >     ¬ ∃ D : U → Prop, RespectsI r D ∧ ∀ z, D z ↔ onLine z := by
+    @ v1.7 : Kernel/Cascade/SieveCeilingSemantic.lean :48
+        | /-- THE SEMANTIC SIEVE CEILING. If the target property is not
+        |     r-invariant, no r-respecting (dark-factored) certificate is
+        |     extensionally equal to it: the dark-factored reach stops strictly
+        |     below the target. -/
+        > theorem sieve_ceiling_semantic {onLine : U → Prop}
+        >     (h_not_inv : ¬ RespectsI r onLine) :
+        >     ¬ ∃ D : U → Prop, RespectsI r D ∧ ∀ z, D z ↔ onLine z := by
