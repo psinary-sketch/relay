@@ -129,6 +129,12 @@ def read_nodes(path):
     return nodes, drops, corr, marks
 
 
+def backmatter_of(path):
+    """### b596, the author's answer before its seal: a node list's `# backmatter: <line>` records, in list order; the page
+    ### carries them as one paragraph after the Correspondence table. A list without one emits exactly as before."""
+    return [raw.rstrip('\n').rstrip('\r')[len('# backmatter: '):] for raw in io.open(path, encoding='utf-8') if raw.startswith('# backmatter: ')]
+
+
 # ================================================================================ the record grades (relay HEAD's table)
 def record_rows():
     rc, out = git(ROOT, 'show', 'HEAD:data/terminal_table.json')
@@ -327,6 +333,7 @@ def source_header(src, short, line):
 def entry_tag(rel, short):
     rc, out = git(KER, 'tag', '--sort=creatordate')
     pat = re.compile(DECL + r'(?:[A-Za-z_][\w]*\.)*' + re.escape(short) + r'(?![\w\'₀-₉])', re.M)
+    pat = re.compile(DECL.replace('irreducible_def)', 'irreducible_def|structure)') + r'(?:[A-Za-z_][\w]*\.)*' + re.escape(short) + r'(?![\w\'₀-₉])', re.M)  # b596, the author's answer: a structure node's entry tag
     for t in [x for x in out.split(NL) if x.strip()]:
         src = source_at(t, rel)
         if src and pat.search(src):
@@ -636,6 +643,10 @@ def build(nodes_path, probe_dir, from_output=None):
         page = emit_dirichlet(nodes, cells, order, corr_rows, kfiles, sent, (rl, gl), os.path.basename(nodes_path), keyed)
     else:
         page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed)
+    # ### b596: the backmatter channel -- the list's `# backmatter:` records as one paragraph after the Correspondence table
+    bm = backmatter_of(nodes_path)
+    if bm:
+        page = page + NL + ' '.join(bm) + NL
     for d in drops:   # ### each DROP checked here, not typed: a declaration of that exact name at the pin, and the watch
         ere = (r'^[[:space:]]*(@\[[^]]*\][[:space:]]*)?((private|protected|noncomputable)[[:space:]]+)*'
                r'(theorem|lemma|def|abbrev|structure|inductive|irreducible_def)[[:space:]]+([A-Za-z_][A-Za-z0-9_]*\.)*'
