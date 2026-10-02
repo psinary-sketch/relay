@@ -1,0 +1,87 @@
+{
+ "rows": {
+  "membership_load_bearing": {
+   "before": "INTERFACES",
+   "after": "DERIVES",
+   "why_before": "hP : EpsteinPremises Z rhs",
+   "why_after": "no hypothesis binder",
+   "header": ": ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP)"
+  },
+  "epstein_not_h2_sign_cfg": {
+   "before": "INTERFACES",
+   "after": "INTERFACES",
+   "why_before": "hP : EpsteinPremises Z rhs",
+   "why_after": "hP : EpsteinPremises Z rhs",
+   "header": "(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP)"
+  },
+  "epstein_hypotheses_satisfiable": {
+   "before": "DERIVES",
+   "after": "DERIVES",
+   "why_before": "no hypothesis binder",
+   "why_after": "no hypothesis binder",
+   "header": ": ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ), EpsteinPremises Z rhs ∧ rhoE ∈ Z.carrier"
+  },
+  "detector": {
+   "before": "DERIVES",
+   "after": "DERIVES",
+   "why_before": "domain conditions only: h₀ : ρ₀ ∈ C.carrier, hoff : ρ₀.re ≠ 1 / 2",
+   "why_after": "domain conditions only: h₀ : ρ₀ ∈ C.carrier, hoff : ρ₀.re ≠ 1 / 2",
+   "header": "(C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) : ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧ Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧ (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0"
+  }
+ },
+ "table_row": [
+  [
+   "UNGRADED",
+   0
+  ]
+ ],
+ "corr_rows": 0,
+ "census_n": 1564,
+ "moved": [
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing",
+   "before": "INTERFACES",
+   "after": "DERIVES",
+   "table_grade": "UNGRADED",
+   "cells": 0
+  }
+ ],
+ "no_grade_moved": true,
+ "page_zeta": false,
+ "page_chi": false,
+ "ab": {
+  "zeta": {
+   "rc_before": 0,
+   "rc_after": 0,
+   "equal": true,
+   "committed_equal": false,
+   "diff_added": [
+    "| keystone naming a node | `phase1.5/method/ENUMERA_v1_6.md` |",
+    "| keystone naming a node | `phase1.5/method/EXHAUSTIVENESS_LICENSE_v0_2.md` |",
+    "| keystone naming a node | `phase1.5/method/INVARIANCE_BARRIERS_v1_4.md` |",
+    "| keystone naming a node | `phase1.5/method/TECHNE_TOOLKIT_v8_3.md` |",
+    "| keystone naming a node | `phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md` |",
+    "| keystone naming a node | `phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md` |",
+    "| keystone naming a node | `phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md` |",
+    "| keystone naming a node | `phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md` |",
+    "| keystone naming a node | `phase1.5/spectral/GRH_CASCADE_v0_3_6.md` |",
+    "| keystone naming a node | `phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md` |",
+    "| keystone naming a node | `phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md` |"
+   ],
+   "diff_removed": 0,
+   "unresolved": []
+  },
+  "chi": {
+   "rc_before": 6,
+   "rc_after": 6,
+   "equal": true,
+   "committed_equal": false,
+   "diff_added": [],
+   "diff_removed": 69,
+   "unresolved": [
+    "unresolved: ['SIDEExplicitFormula.Schema.detector', 'SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg', 'SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline']"
+   ]
+  }
+ }
+}
