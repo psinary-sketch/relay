@@ -114,6 +114,12 @@ DEFECTS = [
     'and the author answered (prompt 3): a structure`s entry tag added to the Component 4 generator commit, the page right at '
     'd774fb5. By that answer G-GEN-EDIT (one non-backmatter line) and G-ANSWERS-BANKED (a third prompt) are refuted in their '
     'letter, the cause the navigator`s.',
+    '(f) G-B592-LISTS-CONTROL CANNOT OUTLIVE THIS ACT`S OWN HOUSEKEEPING COMMIT: the generator selects its Correspondence rows from '
+    'the terminal table at relay HEAD; after the housekeeping commit (654624c3) the table carries this act`s graded Simplicity names, '
+    'b592`s v0.16 ζ probe cannot resolve them, and the ζ control exits 6 (unresolved). Pre-push (the table uncommitted) it passed, '
+    'and after each page commit; post-push it fails, the χ control still byte for byte. The seat declared a control whose source moves '
+    'with the act`s own table; the sealed predicate is left as written and the failure reported. The generator test`s cases (1) '
+    'and (3) read the same source and fail the same way after the commit (5 of 5 at cfd9aeac, before it).',
 ]
 
 
