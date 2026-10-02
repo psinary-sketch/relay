@@ -1,0 +1,186 @@
+{
+ "doc": "REPARAM",
+ "title": "REPARAMETERIZATION_BARRIERS_v0_1",
+ "path": "phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md",
+ "head": "f8b4a31 2026-09-29",
+ "tier_block": [
+  {
+   "terminal": "invariance_barrier",
+   "written": "InvarianceBarrier.invariance_barrier",
+   "repo": "SIDE-kernel",
+   "pin": "5e668b4 (the row`s pin; v1.7 = 2957e7d drafted)",
+   "rev": "5e668b4",
+   "path": "Kernel/Cascade/InvarianceBarrier.lean",
+   "line": 39,
+   "statement": "theorem invariance_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_diverge : ¬ (P x ↔ P y)) : ¬ DeterminedBy agree P",
+   "tier": "T2",
+   "reason": "a general schema over an abstract carrier, agreement relation and property -- logic (b556) ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms)",
+   "tier_source": "data/b557_tiers.txt :560",
+   "table": [
+    "InvarianceBarrier.invariance_barrier grade UNGRADED, NOT PROFILED, present at HEAD"
+   ],
+   "page": "not a node on either page at v0.17"
+  },
+  {
+   "terminal": "derivability_barrier",
+   "written": "InvarianceBarrier.derivability_barrier",
+   "repo": "SIDE-kernel",
+   "pin": "5e668b4 (the row`s pin; v1.7 = 2957e7d drafted)",
+   "rev": "5e668b4",
+   "path": "Kernel/Cascade/InvarianceBarrier.lean",
+   "line": 60,
+   "statement": "theorem derivability_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_fail : ¬ P y) : ¬ Derives agree P x",
+   "tier": "T2",
+   "reason": "the soundness corollary, same schema (b556) ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms)",
+   "tier_source": "data/b557_tiers.txt :568",
+   "table": [
+    "InvarianceBarrier.derivability_barrier grade UNGRADED, NOT PROFILED, present at HEAD"
+   ],
+   "page": "not a node on either page at v0.17"
+  }
+ ],
+ "tiers": {
+  "T2": 2
+ },
+ "rows": [
+  {
+   "doc": "REPARAM",
+   "line": 58,
+   "terminal": "invariance_barrier",
+   "by": [
+    "invariance_barrier"
+   ],
+   "own": "DOCUMENT",
+   "commit": "87587d4",
+   "sentence": "invariance_barrier :",
+   "verdict": "STANDS",
+   "reading": "the code block`s statement, `agree x y → ¬(P x ↔ P y) → ¬ DeterminedBy agree P` (:58-:59), is the compiled one (`Kernel/Cascade/InvarianceBarrier.lean` :39, SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), `DeterminedBy agree P := ∀ x y, agree x y → (P x ↔ P y)` (:31); the T2 tier (a schema over an abstract carrier, b556) is the reading the note gives it itself at :71-:73 (“deliberately weak — all the mathematical content of any barrier built on them sits in the two hypotheses”).",
+   "kind": "code"
+  },
+  {
+   "doc": "REPARAM",
+   "line": 67,
+   "terminal": "derivability_barrier",
+   "by": [
+    "derivability_barrier"
+   ],
+   "own": "DOCUMENT",
+   "commit": "87587d4",
+   "sentence": "derivability_barrier : agree x y → ¬ P y → ¬ Derives agree P x",
+   "verdict": "STANDS",
+   "reading": "the code block`s statement is the compiled one (`Kernel/Cascade/InvarianceBarrier.lean` :60, SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), with `Derives agree P x := ∀ z, agree x z → P z` (:50) as :66 writes it.",
+   "kind": "code"
+  },
+  {
+   "doc": "REPARAM",
+   "line": 223,
+   "terminal": "invariance_barrier",
+   "by": [
+    "invariance_barrier"
+   ],
+   "own": "DOCUMENT",
+   "commit": "87587d4",
+   "sentence": "| The inference step: agreement + divergence ⟹ not determined | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.invariance_barrier` | **axiom-free, re-printed** | DERIVES |",
+   "verdict": "STANDS",
+   "reading": "the row`s pin `5e668b4` holds the file byte for byte as v1.7 and main do (SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), axiom-free as re-printed; the claim cell is the statement (:39).",
+   "kind": "table"
+  },
+  {
+   "doc": "REPARAM",
+   "line": 224,
+   "terminal": "derivability_barrier",
+   "by": [
+    "derivability_barrier"
+   ],
+   "own": "DOCUMENT",
+   "commit": "87587d4",
+   "sentence": "| The derivability form: assumes nothing of the object of interest | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.derivability_barrier` | **axiom-free, re-printed** | DERIVES |",
+   "verdict": "STANDS",
+   "reading": "the same pin and blob (SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)); “assumes nothing of the object of interest” is the statement`s premise `¬ P y` on the witness alone (:60).",
+   "kind": "table"
+  },
+  {
+   "doc": "REPARAM",
+   "line": 272,
+   "terminal": "invariance_barrier",
+   "by": [
+    "invariance_barrier"
+   ],
+   "own": "CASCADE",
+   "commit": "f8b4a31",
+   "sentence": "| :223 | The inference step: agreement + divergence ⟹ not determined | `invariance_barrier` | axiom-free | **CARRIED** | T2 |",
+   "verdict": "STANDS",
+   "reading": "the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.",
+   "kind": "table"
+  },
+  {
+   "doc": "REPARAM",
+   "line": 273,
+   "terminal": "derivability_barrier",
+   "by": [
+    "derivability_barrier"
+   ],
+   "own": "CASCADE",
+   "commit": "f8b4a31",
+   "sentence": "| :224 | The derivability form: assumes nothing of the object of interest | `derivability_barrier` | axiom-free | **CARRIED** | T2 |",
+   "verdict": "STANDS",
+   "reading": "the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.",
+   "kind": "table"
+  },
+  {
+   "doc": "REPARAM",
+   "line": 285,
+   "terminal": "h2_sign",
+   "by": [
+    "h2"
+   ],
+   "own": "CASCADE",
+   "commit": "f8b4a31",
+   "sentence": "`h2` stays where the deposit left it.*",
+   "verdict": "STANDS",
+   "reading": "the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.",
+   "kind": "prose"
+  }
+ ],
+ "counts": {
+  "STANDS": 7,
+  "MOVED-IN-MEANING": 0,
+  "CREDIT": 0
+ },
+ "counts_own": {
+  "STANDS": 4,
+  "MOVED-IN-MEANING": 0,
+  "CREDIT": 0
+ },
+ "second": [],
+ "b450": [
+  [
+   "relay `data/b450_components.txt` :176",
+   "“REPARAMETERIZATION_BARRIERS_v0_1  does not carry: the two-kinds windows verdict”",
+   "carried since b454: the era annotation at :256-:262 (PLACE-papers `b4b0be2`, “VERDICT: `DISTINCT`”), placed beside the Correspondence and the work-orders; the item is in the document, so no credit line is owed at b599"
+  ],
+  [
+   "relay `data/b450_components.txt` :113",
+   "“(i) registry row  None  a registry table row at REGISTRY.md:658 names the file and carries no version”",
+   "the row is now REGISTRY :687, still with no version cell; a registry row is the author`s (b450`s own routing), not the edition`s"
+  ]
+ ],
+ "objects": [
+  [
+   "REPARAM",
+   ":219",
+   "fact",
+   "“the CURRENT kernel pin `5e668b4`”: SIDE-kernel main is `0256e9e`; `Kernel/Cascade/InvarianceBarrier.lean` is byte-identical (blob `e4e8d23b`) at `5e668b4`, v1.7 = `2957e7d` and `0256e9e`, and absent at the deposit v1.5 = `0e5233f`"
+  ],
+  [
+   "REPARAM",
+   ":40-:41",
+   "restatement",
+   "“the barrier is proved, not conjectured”: the compiled part is the schema (:223, :224); the witness pair (W1)-(W5) and the membership table are manuscript-resident (:225-:230)"
+  ]
+ ],
+ "n_terms": 2,
+ "moved": 0,
+ "sha256": "39b6cb25629c90b1b2bb8d5cab122db81837b94b2845df6bbe6ad5446436de9b",
+ "file": "data/b558_editions/REPARAMETERIZATION_BARRIERS_v0_1.txt"
+}
