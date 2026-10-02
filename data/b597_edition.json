@@ -1,0 +1,611 @@
+{
+ "path": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+ "cur": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md",
+ "cur_blob": "355e10cdc86329af1ade87598ee8da7db0382a6e",
+ "lines_cur": 532,
+ "lines_body": 544,
+ "lines_full": 709,
+ "n_cur": 545,
+ "n_body": 551,
+ "n_full": 685,
+ "n_backmatter": 134,
+ "credit": 2,
+ "removals": 0,
+ "ruled_citations": 3,
+ "version_lines": 1,
+ "diff": [
+  {
+   "id": "SIMP:26:99",
+   "line": 26,
+   "ed_line": 28,
+   "terminal": "h2_sign",
+   "old": "It is the cluster's paper of record; the reduction and the count are structural (the seven-class enumeration, the convergent routes), the RH-closure composing under the one open premise (§27.3).",
+   "new": "It is the cluster's paper of record; the reduction and the count are structural (the seven-class enumeration, the convergent routes), the RH-closure composing under the one open premise (§27.3), that premise in its Weil form being equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), so the closure’s premise is RH itself, and that face and its two companions (`li_nonneg_iff_rh` and `arith_limit_nonneg_iff_rh`, v0.9 = `e5a5a83`) carry multiplicity only as a weight and constrain none, so the closure composes nothing about simplicity (the ζ page’s last paragraph, `THE_CLAUSE_AND_ITS_COMPILED_FACES.md` :168; relay `data/b596_faces_line.txt`).",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "li_nonneg_iff_rh",
+    "arith_limit_nonneg_iff_rh",
+    "relay `data/b596_faces_line.txt`"
+   ],
+   "supports": "has the RH-closure composing under the one open premise (§27.3), and that premise in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the composition's premise is RH itself.",
+   "answers": "the work-list’s MOVED-IN-MEANING row (`h2_sign`) and the addendum’s :26 (c), the faces’ silence",
+   "kind": "work-list"
+  },
+  {
+   "id": "SIMP:405:113",
+   "line": 405,
+   "ed_line": 407,
+   "terminal": "conservation_of_spectra",
+   "old": "Compiled companions: SIDE-kernel `ProductFormula.conservation_of_spectra`;",
+   "new": "Compiled companions: SIDE-kernel `ProductFormula.conservation_of_spectra`, which states only `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2; its conservation reading carried by its name, the theorem staying manuscript-resident, relay `data/b558_cp1b.txt` :166);",
+   "changed": true,
+   "cites": [
+    "relay `data/b558_cp1b.txt` :166"
+   ],
+   "supports": "offers the terminal as a compiled companion of the theorem, and the terminal states only `(1 : Q) ^ s = 1`, whose conservation reading is carried by its name.",
+   "answers": "the work-list’s MOVED-IN-MEANING row (`conservation_of_spectra`)",
+   "kind": "work-list"
+  },
+  {
+   "id": "SIMP:447:116",
+   "line": 447,
+   "ed_line": 451,
+   "terminal": "conservation_of_spectra",
+   "old": "| Ch. 5 — Conservation of Spectra | SIDE-kernel v1.2 · SIDE-lv-conservation v0.2.0 | `ProductFormula.conservation_of_spectra`; `SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin`; `SIDELvConservation.T2b_mellin_exhaustion` | `{propext, Classical.choice, Quot.sound}` | Compiled |",
+   "new": "| Ch. 5 — Conservation of Spectra | SIDE-kernel v1.2 · SIDE-lv-conservation v0.2.0 | `ProductFormula.conservation_of_spectra`; `SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin`; `SIDELvConservation.T2b_mellin_exhaustion` | `{propext, Classical.choice, Quot.sound}` | Compiled, the three terminals not of one strength: `ProductFormula.conservation_of_spectra` states only `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2, its conservation reading carried by its name), `T2b_mellin_exhaustion` is DEFINITIONAL and `T1_completedRiemannZeta_factors_through_mellin` alone substantive (relay `data/b558_cp1b.txt` :169) |",
+   "changed": true,
+   "cites": [
+    "relay `data/b558_cp1b.txt` :169"
+   ],
+   "supports": "grades the Ch. 5 row \"Compiled\" for the Conservation of Spectra theorem, and the terminal it cites states `(1 : Q) ^ s = 1` (T2), the companions T2b DEFINITIONAL and T1 alone substantive.",
+   "answers": "the work-list’s MOVED-IN-MEANING row (`conservation_of_spectra`)",
+   "kind": "work-list"
+  },
+  {
+   "id": "SIMP:453:118",
+   "line": 453,
+   "ed_line": 457,
+   "terminal": "h1_complete_at_Phi",
+   "old": "| Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open** (the single carried-open premise) |",
+   "new": "| Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, and lv’s h2 at Φ, `mellin Phi (s/2) ≠ 0`, is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.17 = `5a1630b`), so the goal state closes nothing on the strip, the open clause being `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) |",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "supports": "reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.",
+   "answers": "the work-list’s two MOVED-IN-MEANING rows (`h1_complete_at_Phi`, `h2_sign`)",
+   "kind": "work-list"
+  },
+  {
+   "id": "SIMP:453:119",
+   "line": 453,
+   "ed_line": 457,
+   "terminal": "h2_sign",
+   "old": "| Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open** (the single carried-open premise) |",
+   "new": "| Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, and lv’s h2 at Φ, `mellin Phi (s/2) ≠ 0`, is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`, SIDE-explicit-formula at the page’s pin v0.17 = `5a1630b`), so the goal state closes nothing on the strip, the open clause being `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`) |",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh",
+    "mellin_Phi_eq_zero_of_re_le_one"
+   ],
+   "supports": "reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.",
+   "answers": "the work-list’s two MOVED-IN-MEANING rows (`h1_complete_at_Phi`, `h2_sign`)",
+   "kind": "work-list"
+  },
+  {
+   "id": "addendum:24",
+   "line": 24,
+   "ed_line": 26,
+   "terminal": "relay data/b596_simplicity_reading.txt, :24 (a), the proportion",
+   "old": "Empirical anchors: over 40.77% of zeros proved simple (Conrey-Iwaniec-Soundararajan tradition); the first $10^{13}+$ zeros computed and found simple (Platt and others); no double zero has ever been observed.",
+   "new": "Empirical anchors: at least (2/3 − ε)·N(T, 2T) of the zeros in the dyadic window (T, 2T] simple and on the line for all large T, N counted with multiplicity, a theorem upstream (`Zeta23.thmB₀_mult`, anthropics/formal-math at `3635e748`, `Zeta23/FinalMult.lean` :350, outside the vendored set; relay `data/b596_lemmas.txt` (5), (8)) that enters this programme’s kernel as the named premise `SimpleProportion` (SIDE-explicit-formula v0.17 = `5a1630b`, on which `exceptional_mass_le_third` interfaces), not as a compiled fact; the first $10^{13}+$ zeros computed and found simple (Platt and others); no double zero has ever been observed.",
+   "changed": true,
+   "cites": [
+    "SimpleProportion",
+    "exceptional_mass_le_third",
+    "relay `data/b596_lemmas.txt` (5), (8)"
+   ],
+   "supports": ":24 (a), the proportion",
+   "answers": ":24 (a), the proportion",
+   "kind": "addendum"
+  },
+  {
+   "id": "addendum:80",
+   "line": 80,
+   "ed_line": 82,
+   "terminal": "relay data/b596_simplicity_reading.txt, :80 (b), the Prop",
+   "old": "If every zero is simple, perpendicular crossing protects a local neighborhood of each zero against off-line displacement.",
+   "new": "If every zero is simple — the Prop `simplicity` (SIDE-explicit-formula v0.17 = `5a1630b`, every nontrivial zero of analytic order one by `simplicity_iff`), open as its own statement, which the schema’s fields, its target and Weil positivity do not force (`SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced`, v0.17; relay `data/b596_h29b.txt`) — perpendicular crossing protects a local neighborhood of each zero against off-line displacement.",
+   "changed": true,
+   "cites": [
+    "simplicity",
+    "simplicity_iff",
+    "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": ":80 (b), the Prop",
+   "answers": ":80 (b), the Prop",
+   "kind": "addendum"
+  },
+  {
+   "id": "addendum:178",
+   "line": 178,
+   "ed_line": 180,
+   "terminal": "relay data/b596_simplicity_reading.txt, :178 (b), the Prop; (c), the faces’ silence",
+   "old": "The only solution is multiplicity 1.",
+   "new": "The compiled explicit formula does not force multiplicity 1: it sums the zeros with their multiplicities as weights (`Zeta23.WeilEF.EF_lit_zetaZeroConfig`, vendored in SIDE-explicit-formula, with `Zeta23.zetaZeroConfig.mult` as the weight), and at the schema’s form a configuration whose fields, target and Weil positivity all hold has a point of multiplicity two (`SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced`, SIDE-explicit-formula v0.17 = `5a1630b`; relay `data/b596_faces_line.txt`).",
+   "changed": true,
+   "cites": [
+    "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced",
+    "relay `data/b596_faces_line.txt`"
+   ],
+   "supports": ":178 (b), the Prop; (c), the faces’ silence",
+   "answers": ":178 (b), the Prop; (c), the faces’ silence",
+   "kind": "addendum"
+  },
+  {
+   "id": "ceiling:24",
+   "line": 24,
+   "ed_line": 26,
+   "terminal": "joins simplicity to the RH structure ((R207)(6))",
+   "old": "**The reduction:** within Zermelo-Fraenkel set theory with the Axiom of Choice (ZFC), the Riemann Hypothesis is equivalent to the assertion that the level curves $\\mathrm{Re}\\,\\xi = 0$ and $\\mathrm{Im}\\,\\xi = 0$ never intersect off the critical line; this intersection structure is governed by zero simplicity through perpendicular crossing.",
+   "new": "**The reduction:** within Zermelo-Fraenkel set theory with the Axiom of Choice (ZFC), the Riemann Hypothesis is equivalent to the assertion that the level curves $\\mathrm{Re}\\,\\xi = 0$ and $\\mathrm{Im}\\,\\xi = 0$ never intersect off the critical line; this intersection structure meets zero simplicity through perpendicular crossing at each simple zero on the line, and simplicity, compiled as its own Prop (`simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`, by `simplicity_iff`), has no compiled edge to RH in either direction (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it).",
+   "changed": true,
+   "cites": [
+    "simplicity",
+    "simplicity_iff",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "joins simplicity to the RH structure ((R207)(6))",
+   "answers": "joins simplicity to the RH structure ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:26",
+   "line": 26,
+   "ed_line": 28,
+   "terminal": "joins simplicity to the reduction of RH ((R207)(6))",
+   "old": "**Role.** This record *presents* the consolidated simplicity facet — the reduction of RH to off-line non-intersection governed by zero simplicity, together with the convergent arguments (mechanism-class, trace-formula, and the analytic/arithmetic/statistical witnesses) for simplicity itself.",
+   "new": "**Role.** This record *presents* the consolidated simplicity facet — the reduction of RH to off-line non-intersection, with zero simplicity beside it as its own statement (`simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`) and no compiled edge between them (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it), together with the convergent arguments (mechanism-class, trace-formula, and the analytic/arithmetic/statistical witnesses) for simplicity itself.",
+   "changed": true,
+   "cites": [
+    "simplicity",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "joins simplicity to the reduction of RH ((R207)(6))",
+   "answers": "joins simplicity to the reduction of RH ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:32",
+   "line": 32,
+   "ed_line": 34,
+   "terminal": "joins simplicity to the RH structure ((R207)(6))",
+   "old": "**Chapter 1** establishes the ZFC reduction — RH is equivalent to the assertion that $\\mathrm{Re}\\,\\xi = 0$ and $\\mathrm{Im}\\,\\xi = 0$ do not intersect off the critical line, and zero simplicity governs that intersection structure via perpendicular crossing.",
+   "new": "**Chapter 1** establishes the ZFC reduction — RH is equivalent to the assertion that $\\mathrm{Re}\\,\\xi = 0$ and $\\mathrm{Im}\\,\\xi = 0$ do not intersect off the critical line, and perpendicular crossing holds at each simple zero, while zero simplicity, compiled as its own Prop (`simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`), has no compiled edge to RH (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it).",
+   "changed": true,
+   "cites": [
+    "simplicity",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "joins simplicity to the RH structure ((R207)(6))",
+   "answers": "joins simplicity to the RH structure ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:36",
+   "line": 36,
+   "ed_line": 38,
+   "terminal": "the title’s clause: RH ⟺ simplicity ((R207)(6); FINDINGS :5778)",
+   "old": "# Chapter 1 — The Reduction: RH $\\iff$ Simplicity",
+   "new": "# Chapter 1 — The Reduction: RH $\\iff$ Off-Line Non-Intersection, with Simplicity a Separate Prop (`simplicity_iff`, SIDE-explicit-formula v0.17 = `5a1630b`) and No Compiled Edge to `h2_sign` (relay `data/b596_h29b.txt`)",
+   "changed": true,
+   "cites": [
+    "simplicity_iff",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "the title’s clause: RH ⟺ simplicity ((R207)(6); FINDINGS :5778)",
+   "answers": "the title’s clause: RH ⟺ simplicity ((R207)(6); FINDINGS :5778)",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:40",
+   "line": 40,
+   "ed_line": 42,
+   "terminal": "joins simplicity to the RH structure ((R207)(6))",
+   "old": "The reduction at issue: within ZFC, RH reduces to a sharper statement about the geometry of level curves, with zero simplicity governing that geometry through perpendicular crossing.",
+   "new": "The reduction at issue: within ZFC, RH reduces to a sharper statement about the geometry of level curves, with perpendicular crossing at each simple zero on the line, while zero simplicity, compiled as its own Prop (`simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`), has no compiled edge to RH in either direction (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it).",
+   "changed": true,
+   "cites": [
+    "simplicity",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "joins simplicity to the RH structure ((R207)(6))",
+   "answers": "joins simplicity to the RH structure ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:84",
+   "line": 84,
+   "ed_line": 86,
+   "terminal": "beyond the README ceiling: the band closed is RH closed",
+   "old": "The mechanism-theoretic arguments of Chapters 2–5 close this band by establishing that no structural mechanism produces an off-line intersection.",
+   "new": "The mechanism-theoretic arguments of Chapters 2–5 argue that no structural mechanism produces an off-line intersection in this band; they do not close it, since closing it would settle RH, whose Weil form `h2_sign` stays open (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`).",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh"
+   ],
+   "supports": "beyond the README ceiling: the band closed is RH closed",
+   "answers": "beyond the README ceiling: the band closed is RH closed",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:312",
+   "line": 312,
+   "ed_line": 314,
+   "terminal": "simplicity carries RH ((R207)(6))",
+   "old": "- The functional equation, the Euler product, and the Ramanujan bound together close from both sides — sufficient given simplicity.",
+   "new": "- The functional equation, the Euler product, and the Ramanujan bound together close from both sides — sufficient given simplicity on the manuscript’s reading, a sufficiency no compiled statement carries (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it).",
+   "changed": true,
+   "cites": [
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "simplicity carries RH ((R207)(6))",
+   "answers": "simplicity carries RH ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:313",
+   "line": 313,
+   "ed_line": 315,
+   "terminal": "a “proved” phrasing ((R207)(6))",
+   "old": "- Conservation proves no force beyond these three acts — the closure guarantee.",
+   "new": "- Conservation, a manuscript theorem whose compiled companion `conservation_of_spectra` states only `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2; relay `data/b558_cp1b.txt` :166), is read as showing no force beyond these three acts — the closure guarantee.",
+   "changed": true,
+   "cites": [
+    "relay `data/b558_cp1b.txt` :166"
+   ],
+   "supports": "a “proved” phrasing ((R207)(6))",
+   "answers": "a “proved” phrasing ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:317",
+   "line": 317,
+   "ed_line": 319,
+   "terminal": "beyond the README ceiling: RH asserted",
+   "old": "Keep all constraints and, as $10^{13}+$ computations confirm, RH holds.",
+   "new": "Keep all constraints and, as $10^{13}+$ computations confirm, RH holds at every zero computed, and beyond them stays open (its Weil form `h2_sign`, `h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`).",
+   "changed": true,
+   "cites": [
+    "h2_sign_iff_rh"
+   ],
+   "supports": "beyond the README ceiling: RH asserted",
+   "answers": "beyond the README ceiling: RH asserted",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:335",
+   "line": 335,
+   "ed_line": 337,
+   "terminal": "simplicity carries GRH ((R207)(6); README, “GRH reduced”)",
+   "old": "For each Dirichlet L-function, GRH reduces to simplicity of its zeros.",
+   "new": "For each Dirichlet L-function, the manuscript reads GRH as reducing to simplicity of its zeros, a reduction no compiled statement carries (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it), the compiled criterion for primitive χ being Weil positivity (`h2_sign_chi_iff_grh_chi`, SIDE-explicit-formula v0.14 = `4dce7b9`).",
+   "changed": true,
+   "cites": [
+    "h2_sign_chi_iff_grh_chi",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "simplicity carries GRH ((R207)(6); README, “GRH reduced”)",
+   "answers": "simplicity carries GRH ((R207)(6); README, “GRH reduced”)",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:335",
+   "line": 335,
+   "ed_line": 337,
+   "terminal": "simplicity carries GRH ((R207)(6); README, “GRH reduced”)",
+   "old": "The entire GRH reduces to: all L-function zeros are simple.",
+   "new": "On that reading the entire GRH would reduce to: all L-function zeros are simple, which no compiled statement carries (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it).",
+   "changed": true,
+   "cites": [
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "simplicity carries GRH ((R207)(6); README, “GRH reduced”)",
+   "answers": "simplicity carries GRH ((R207)(6); README, “GRH reduced”)",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:351",
+   "line": 351,
+   "ed_line": 353,
+   "terminal": "simplicity carries RH ((R207)(6))",
+   "old": "The three-layer reduction gives: Simplicity $\\implies$ RH $\\implies$ Lindelöf.",
+   "new": "The three-layer reduction reads: Simplicity $\\implies$ RH $\\implies$ Lindelöf, the second arrow classical and the first the manuscript’s, carried by no compiled statement (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it).",
+   "changed": true,
+   "cites": [
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "simplicity carries RH ((R207)(6))",
+   "answers": "simplicity carries RH ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:351",
+   "line": 351,
+   "ed_line": 353,
+   "terminal": "simplicity carries RH, and a “proved” phrasing ((R207)(6))",
+   "old": "Conservation proves no additional condition beyond simplicity is needed.",
+   "new": "Conservation is read as showing that no additional condition beyond simplicity is needed, a reading no compiled statement carries (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it), its compiled companion stating only `∀ s : ℤ, (1 : ℚ) ^ s = 1` (`conservation_of_spectra`, T2; relay `data/b558_cp1b.txt` :166).",
+   "changed": true,
+   "cites": [
+    "relay `data/b558_cp1b.txt` :166",
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "simplicity carries RH, and a “proved” phrasing ((R207)(6))",
+   "answers": "simplicity carries RH, and a “proved” phrasing ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "ceiling:355",
+   "line": 355,
+   "ed_line": 357,
+   "terminal": "simplicity carries RH ((R207)(6))",
+   "old": "Since GUE $\\implies$ simplicity $\\implies$ RH (via Conservation), the moment conjectures are logically downstream of simplicity.",
+   "new": "Since GUE $\\implies$ simplicity $\\implies$ RH (via Conservation) on the manuscript’s reading, whose arrow from simplicity to RH no compiled statement carries (relay `data/b596_h29b.txt`: of 117 federation theorem headers naming simplicity’s constants, none concludes it or its negation and none derives RH from it), the moment conjectures are logically downstream of simplicity.",
+   "changed": true,
+   "cites": [
+    "relay `data/b596_h29b.txt`"
+   ],
+   "supports": "simplicity carries RH ((R207)(6))",
+   "answers": "simplicity carries RH ((R207)(6))",
+   "kind": "ceiling"
+  },
+  {
+   "id": "fact:436",
+   "line": 436,
+   "ed_line": 440,
+   "terminal": "SIDE-kernel derivative-engine heads at 01e5633 locally and at the remote; 27a3ae7 its ancestor three commits back, the file unchanged (relay data/b597_reads.txt)",
+   "old": "| Derivative-level catalogue — honest per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives) | SIDE-kernel branch `derivative-engine` = `27a3ae7` (held, not deposited) | `SIDEDerivative.exactly_c1_derives` | axiom-free (none) | Compiled — the honest count, **not** an exclusion verdict ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "new": "| Derivative-level catalogue — honest per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives) | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) (held, not deposited) | `SIDEDerivative.exactly_c1_derives` | axiom-free (none) | Compiled — the honest count, **not** an exclusion verdict ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "changed": true,
+   "cites": [],
+   "supports": "SIDE-kernel derivative-engine heads at 01e5633 locally and at the remote; 27a3ae7 its ancestor three commits back, the file unchanged (relay data/b597_reads.txt)",
+   "answers": "SIDE-kernel derivative-engine heads at 01e5633 locally and at the remote; 27a3ae7 its ancestor three commits back, the file unchanged (relay data/b597_reads.txt)",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:437",
+   "line": 437,
+   "ed_line": 441,
+   "terminal": "the same",
+   "old": "| C₁ derivative reduction — on the line, a double zero ⇔ Im ξ′(ρ)=0 | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero` | `{propext, Classical.choice, Quot.sound}` | Compiled — consumes the perpendicular crossing (Re ξ′=0); concrete hypothesis is `spectral_cannon` @ `691295b`, cross-referenced not re-proven ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "new": "| C₁ derivative reduction — on the line, a double zero ⇔ Im ξ′(ρ)=0 | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) | `SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero` | `{propext, Classical.choice, Quot.sound}` | Compiled — consumes the perpendicular crossing (Re ξ′=0); concrete hypothesis is `spectral_cannon` @ `691295b`, cross-referenced not re-proven ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "changed": true,
+   "cites": [],
+   "supports": "the same",
+   "answers": "the same",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:438",
+   "line": 438,
+   "ed_line": 442,
+   "terminal": "the same",
+   "old": "| The joint step — not-double ⇔ transversality (uniform = simplicity) | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.no_onLine_double_iff_transversal` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — the derivative h2 = the simplicity conjecture, carried openly (named premise, never encoded) ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "new": "| The joint step — not-double ⇔ transversality (uniform = simplicity, whose compiled statement is the Prop `simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`, by `simplicity_iff`, an equivalence this row’s terminal does not state) | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) | `SIDEDerivative.no_onLine_double_iff_transversal` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — the derivative h2 = the simplicity conjecture, carried openly (named premise, never encoded) ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "changed": true,
+   "cites": [],
+   "supports": "the same",
+   "answers": "the same",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:457",
+   "line": 457,
+   "ed_line": 461,
+   "terminal": "SIDE-grh-transfer v0.5.0 = bfd2af7; main 858cbf6 one commit past it, five files of logs and .gitignore (relay data/b597_reads.txt)",
+   "old": "SIDE-grh-transfer `858cbf6` (v0.5.0);",
+   "new": "SIDE-grh-transfer `858cbf6` (one commit past v0.5.0 = `bfd2af7`, logs and `.gitignore` only);",
+   "changed": true,
+   "cites": [],
+   "supports": "SIDE-grh-transfer v0.5.0 = bfd2af7; main 858cbf6 one commit past it, five files of logs and .gitignore (relay data/b597_reads.txt)",
+   "answers": "SIDE-grh-transfer v0.5.0 = bfd2af7; main 858cbf6 one commit past it, five files of logs and .gitignore (relay data/b597_reads.txt)",
+   "kind": "fact"
+  },
+  {
+   "id": "restatement:438",
+   "line": 438,
+   "ed_line": 442,
+   "terminal": "restates the tier block’s :505, marked (b)",
+   "old": "| The joint step — not-double ⇔ transversality (uniform = simplicity) | SIDE-kernel branch `derivative-engine` = `27a3ae7` | `SIDEDerivative.no_onLine_double_iff_transversal` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — the derivative h2 = the simplicity conjecture, carried openly (named premise, never encoded) ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "new": "| The joint step — not-double ⇔ transversality (uniform = simplicity, whose compiled statement is the Prop `simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`, by `simplicity_iff`, an equivalence this row’s terminal does not state) | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) | `SIDEDerivative.no_onLine_double_iff_transversal` | `{propext, Classical.choice, Quot.sound}` | **INTERFACES** — the derivative h2 = the simplicity conjecture, carried openly (named premise, never encoded) ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |",
+   "changed": true,
+   "cites": [
+    "simplicity",
+    "simplicity_iff"
+   ],
+   "supports": "restates the tier block’s :505, marked (b)",
+   "answers": "restates the tier block’s :505, marked (b)",
+   "kind": "restatement"
+  },
+  {
+   "id": "restatement:442",
+   "line": 442,
+   "ed_line": 446,
+   "terminal": "restates the tier block’s :509, marked (b), (c)",
+   "old": "| Ch. 3 — trace-formula multiplicity-one structure | SIDE-kernel v1.2 | `PerpendicularCrossing.simplicity_from_trace_structure`; `PerpendicularCrossing.multiplicity_from_identity` | axiom-free (none) | Structural implication compiled; the full explicit-formula/trace closure is an argument, not a proved theorem (research-reach) |",
+   "new": "| Ch. 3 — trace-formula multiplicity-one structure | SIDE-kernel v1.2 | `PerpendicularCrossing.simplicity_from_trace_structure`; `PerpendicularCrossing.multiplicity_from_identity` | axiom-free (none) | Structural implication compiled, on the premise that the prime-determined side takes the value 1 (`h_at_one`, SIDE-kernel v1.2 `Kernel/PerpendicularCrossing.lean` :54, the theorem at :50), which the compiled explicit formula does not supply (`SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced`, SIDE-explicit-formula v0.17 = `5a1630b`; relay `data/b596_faces_line.txt`); the full explicit-formula/trace closure is an argument, not a proved theorem (research-reach) |",
+   "changed": true,
+   "cites": [
+    "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced",
+    "relay `data/b596_faces_line.txt`"
+   ],
+   "supports": "restates the tier block’s :509, marked (b), (c)",
+   "answers": "restates the tier block’s :509, marked (b), (c)",
+   "kind": "restatement"
+  }
+ ],
+ "offset": "+2 from :17 (the v1.1.3 line and a blank, above the v1.1.2 line); +2 more from :428 (a blank and a history line beneath the annotation of 2026-08-05); +4 more from :458 (two credit lines, each after a blank, beneath the Correspondence footnote); +4 more from :523 (two history lines, each after a blank, beneath b554’s tier table) -- the current version’s :n sits at the edition’s :n for n < 17, :n+2 for 17 <= n <= 427, :n+4 for 428 <= n <= 457, :n+8 for 458 <= n <= 522, :n+12 for n >= 523",
+ "hist_at": {
+  "427": 431,
+  "505": 532,
+  "509": 534
+ },
+ "cred_at": [
+  463,
+  465
+ ],
+ "ver_at": 17,
+ "collisions": [
+  [
+   24,
+   "the work-list’s STANDS (CP-1b SIMP:24:95, `h2_sign`: the sentence names the document’s own reduction) and the ceiling clause by (R207)(6)",
+   "both, on different clauses",
+   "the reduction clause carried as the STANDS row reads it; the clause joining simplicity to the intersection structure takes the ceiling"
+  ],
+  [
+   26,
+   "the work-list’s STANDS (CP-1b SIMP:26:98, `h2_sign`) and the ceiling clause by (R207)(6)",
+   "both, on different clauses",
+   "the reduction named as before; the words making simplicity govern it take the ceiling"
+  ],
+  [
+   40,
+   "the work-list’s STANDS (CP-1b SIMP:40:101, `h2_sign`) and the ceiling clause by (R207)(6)",
+   "both, on different clauses",
+   "the reduction carried; the clause making simplicity govern its geometry takes the ceiling"
+  ],
+  [
+   26,
+   "the work-list row (CP-1b SIMP:26:99, `h2_sign`) and the addendum’s :26 (c)",
+   "the work-list row and the addendum together",
+   "one rewrite answers both: the premise is RH by `h2_sign_iff_rh`, and the faces carry multiplicity only as weight"
+  ],
+  [
+   351,
+   "the ceiling clause twice on one sentence: a join of simplicity and RH, and a “proved” phrasing on Conservation",
+   "ceiling",
+   "one correction"
+  ],
+  [
+   427,
+   "the stem clause and the history clause (the annotation of 2026-08-05)",
+   "history",
+   "carried unchanged as the dated record, carried-by-history; the object named in the history line beneath"
+  ],
+  [
+   436,
+   "the fact clause (`27a3ae7` beside the branch rows :503-:505 and :526 of b554’s block, and in b397’s quoted rows :482-:484) and the history clause",
+   "history",
+   "the dated blocks carried, their tiering read at that pin; the body rows :436-:438 take the fact"
+  ],
+  [
+   438,
+   "the fact clause (the branch pin) and the restatement clause (the claim cell restating :505)",
+   "fact, then restatement",
+   "both applied, each to what the other leaves: the pin cell to the branch head, the claim cell to the Prop"
+  ],
+  [
+   471,
+   "the restatement clause (the v1.1.2 entry’s “only h2 open”, restating :453) and the history clause",
+   "history",
+   "carried unchanged, CP-1b reading it STANDS as history (SIMP:471:120-122); the reading stated in the rewritten Correspondence row"
+  ],
+  [
+   484,
+   "the restatement clause (b397’s verbatim quotation of the pre-edit :438) and the history clause (the block of 2026-09-10)",
+   "history",
+   "carried unchanged, CP-1b reading it STANDS as history (SIMP:484:124); the reading in the history line beneath the tier block"
+  ],
+  [
+   505,
+   "the addendum (a marked sentence, (b)) and the history clause (b554’s tier block, dated 2026-09-28)",
+   "history",
+   "carried unchanged as the dated record; the reading in the history line beneath the block’s table"
+  ],
+  [
+   509,
+   "the addendum (a marked sentence, (b), (c)) and the history clause (b554’s tier block)",
+   "history",
+   "carried unchanged as the dated record; the reading in the history line beneath the block’s table"
+  ]
+ ],
+ "carried": {
+  "164": "the function-field analogue of RH, Weil 1948, a field fact",
+  "184": "a negation: “not itself a proved theorem here”",
+  "204": "a negation: the Hadamard product “does not prove simplicity”",
+  "298": "Davenport–Heilbronn’s off-line zeros of Epstein functions, a field fact",
+  "347": "a conditional: “if proved uniformly”",
+  "437": "a table cell: the hypothesis “cross-referenced not re-proven”",
+  "446": "a compiled lemma: on-line nonnegativity, `blTerm_nonneg_of_onLine`",
+  "461": "the AI disclosure’s “proof strategies”",
+  "483": "b397’s dated block, a verbatim quotation of the pre-edit row"
+ },
+ "n_ceils": 14,
+ "n_facts": 4,
+ "n_restate": 2,
+ "n_addendum": 3,
+ "sha256": "8ea9136718c3115397732feef76ceb4113d24317e8050db191ba91a3a14fbb71",
+ "status_blanks": [],
+ "cited_lines": {
+  "SIDEExplicitFormula.Simplicity.simplicity": [
+   26,
+   28,
+   34,
+   42,
+   82,
+   442,
+   532
+  ],
+  "SIDEExplicitFormula.Simplicity.simplicity_iff": [
+   26,
+   38,
+   82,
+   442,
+   532
+  ],
+  "SIDEExplicitFormula.Simplicity.SimpleProportion": [
+   26
+  ],
+  "SIDEExplicitFormula.Simplicity.exceptional_mass_le_third": [
+   26
+  ],
+  "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced": [
+   82,
+   180,
+   446,
+   534
+  ],
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh": [
+   28,
+   86,
+   319,
+   457
+  ],
+  "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh": [
+   28
+  ],
+  "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh": [
+   28
+  ],
+  "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one": [
+   457
+  ],
+  "SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi": [
+   337
+  ],
+  "Zeta23.WeilEF.EF_lit_zetaZeroConfig": [
+   180
+  ],
+  "Zeta23.thmB₀_mult": [
+   26
+  ],
+  "PerpendicularCrossing.simplicity_from_trace_structure": [
+   446,
+   534
+  ]
+ }
+}
