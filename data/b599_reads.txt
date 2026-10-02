@@ -1,0 +1,602 @@
+b599 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay the b598 bank of SILENCE_STAGES_DEALIGNMENT, whole -- data/b558_editions/SILENCE_STAGES_DEALIGNMENT.txt @ 16919d87 (174 lines cited)
+    :1      b598 -- THE TIER BLOCK AND EDITION WORK-LIST OF SILENCE_STAGES_DEALIGNMENT (phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### written by the b558 form under (R208)(3): the tier block (every terminal the document cites, graded from relay `data/b557_tiers.txt` and checked against the terminal table at relay HEAD and both pages at SIDE-explicit-formula v0.17), then every sentence-row of the b558 matcher (relay `tools/b558_record.py` :330-:371: each union terminal by its name and the ferry`s four aliases, and each tier-block terminal by its name) in line order -- the line, the terminal, the sentence quoted, the verdict (STANDS / MOVED-IN-MEANING / CREDIT), what the compiled fact supports with the declaration by name 
+    :4      
+    :5      ### THE VERSION HISTORY, as the document carries it: **v1.2, 2026-07-29** (retitle per the title law; was v1.1) | *v1.2, 2026-07-29 — Retitle per the title law (author ruling, option 1). Title → "Silence, Stages, and the De-Alignment Condition"; subtitle → "From Arithmetic  | *v1.1, 2026-07-29 — S1–S7 pass (refine, not rewrite; the four-domain survey and its claim-status scoping are untouched). Added: the governing scope sentence in  | *v1.0.1, 2026-07-19 — Claim-status scoping pass (claim-status only; no mathematics or theorem statements altered). (1) §3 Formation-Distance Theorem: added a de
+    :6      
+    :7      ## THE TIER BLOCK
+    :8      
+    :9      `DeAlignment.no_domain_covers_line` -- SIDE-structural-error-correction v0.2.1 = 6a4f482, `SIDEStructuralErrorCorrection/DeAlignment.lean` :62
+    :10         statement : theorem no_domain_covers_line {P D : Type} (d : P → D) (L : Line P) (h : DealignedAt d L) (k : D) : ¬ CompletesLine (domainFault d k) L
+    :11         tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :271)
+    :12         table     : NO ROW
+    :13         pages     : not a node on either page at v0.17
+    :14     
+    :15     `DeAlignment.single_domain_fault_not_logical` -- SIDE-structural-error-correction v0.2.1 = 6a4f482, `SIDEStructuralErrorCorrection/DeAlignment.lean` :75
+    :16         statement : theorem single_domain_fault_not_logical {P D : Type} {n : Nat} (d : P → D) (lines : Fin n → Line P) (hdea : Dealigned d lines) (k : D) : ∀ i, ¬ CompletesLine (domainFault d k) (lines i)
+    :17         tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :279)
+    :18         table     : NO ROW
+    :19         pages     : not a node on either page at v0.17
+    :20     
+    :21     `DeAlignment.dealigned_of_lines_injective` -- SIDE-structural-error-correction v0.2.1 = 6a4f482, `SIDEStructuralErrorCorrection/DeAlignment.lean` :85
+    :22         statement : theorem dealigned_of_lines_injective {P D : Type} (d : P → D) (L : Line P) (hinj : ∀ x y : P, d x = d y → x = y) (hp : L.Proper) : DealignedAt d L
+    :23         tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :287)
+    :24         table     : NO ROW
+    :25         pages     : not a node on either page at v0.17
+    :26     
+    :27     `DeAlignment.fano_dealignment_decidable_example` -- SIDE-structural-error-correction v0.2.1 = 6a4f482, `SIDEStructuralErrorCorrection/DeAlignment.lean` :113
+    :28         statement : theorem fano_dealignment_decidable_example : dealignedCheck (fun p => p) = true
+    :29         tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :295)
+    :30         table     : NO ROW
+    :31         pages     : not a node on either page at v0.17
+    :32     
+    :33     `DeAlignment.fano_collapsed_line_rejected` -- SIDE-structural-error-correction v0.2.1 = 6a4f482, `SIDEStructuralErrorCorrection/DeAlignment.lean` :118
+    :34         statement : theorem fano_collapsed_line_rejected : dealignedCheck (fun p => if p.val = 1 ∨ p.val = 3 then ⟨0, by decide⟩ else p) = false
+    :35         tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :303)
+    :36         table     : NO ROW
+    :37         pages     : not a node on either page at v0.17
+    :38     
+    :39     `DeAlignment.fano_two_design` -- SIDE-structural-error-correction v0.2.1 = 6a4f482, `SIDEStructuralErrorCorrection/DeAlignment.lean` :140
+    :40         statement : theorem fano_two_design : ∀ p q : Fin 7, p ≠ q → pairCount p q = 1
+    :41         tier      : T2 -- over the file`s `Line` structure and a domain map, or its Fano line table by `decide` -- programme-type ; profile: depends on axioms: [propext]   (the row prints: depends on axioms: [propext]) (data/b557_tiers.txt :311)
+    :42         table     : NO ROW
+    :43         pages     : not a node on either page at v0.17
+    :44     
+    :45     `steane_parameters` -- SIDE-cosmo c5cba30 (SIDE-cosmo main), `SIDECosmo/SteaneExemplar.lean` :81
+    :46         statement : theorem steane_parameters : xi.formation_total = 7 ∧ 2 * visible_slots xi - xi.formation_total = 1 ∧ (∀ i j : Fin 7, i ≠ j → H i + H j ≠ 0) ∧ H 0 + H 1 + H 3 = 0
+    :47         tier      : T2 -- over the file`s check map `H` and the formation record -- programme objects ; profile: depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound]) (data/b557_tiers.txt :319)
+    :48         table     : steane_parameters grade UNGRADED, NOT PROFILED, present at HEAD
+    :49         pages     : not a node on either page at v0.17
+    :50     
+    :51     `knill_laflamme_t1` -- SIDE-cosmo c5cba30 (SIDE-cosmo main), `SIDECosmo/SteaneExemplar.lean` :76
+    :52         statement : theorem knill_laflamme_t1 : Function.Injective H ∧ (∀ i : Fin 7, H i ≠ 0)
+    :53         tier      : T2 -- over the file`s check map `H` -- programme objects ; profile: depends on axioms: [propext, Classical.choice, Quot.sound]   (the row prints: depends on axioms: [propext, Classical.choice, Quot.sound]) (data/b557_tiers.txt :327)
+    :54         table     : knill_laflamme_t1 grade UNGRADED, NOT PROFILED, present at HEAD
+    :55         pages     : not a node on either page at v0.17
+    :56     
+    :57     `conservation_of_spectra` -- SIDE-kernel v1.5 = 0e5233f (the deposit; cited by the b558 alias "Conservation of Spectra"), `Kernel/ProductFormula_Rat.lean` :72
+    :58         statement : theorem conservation_of_spectra : ∀ (s : Int), (1 : Rat) ^ s = 1
+    :59         tier      : T2 -- states `∀ (s : Int), (1 : Rat) ^ s = 1`, a stipulation (THE_LOAD_BEARING_MAP :105, b539); b558`s union, S3 (data/b558_moved_terminals.txt)
+    :60         table     : conservation_of_spectra grade CONFLICT, NOT PROFILED, present at v1.5
+    :61         pages     : not a node on either page at v0.17
+    :62     
+    :63     ### rows naming no terminal (the document`s own manuscript-resident rows): :210, :211 -- T4 by b557`s block
+    :64     ### ### **TIER BLOCK : 9 terminals cited ; T2 9 ; T2 majority True.**
+    :65     
+    :66     ## THE WORK-LIST
+    :67     
+    :68     :109 -- `conservation_of_spectra` -- STANDS (the document`s own, by the alias “Conservation of Spectra”)
+    :69         the sentence: "The product formula connects Stage 1 (primitive) to Stage 2 (transformation), but it carries no s-dependent information (Conservation of Spectra)."
+    :70         what the compiled fact supports: b558`s reading, carried (relay `data/b558_cp1b.txt` :425): names the manuscript`s Conservation of Spectra and claims no compiled content, so the terminal`s T2 reading (`∀ (s : Int), (1 : Rat) ^ s = 1`, SIDE-kernel v1.5 = `0e5233f`, `Kernel/ProductFormula_Rat.lean` :72) leaves its meaning as it was.
+    :71         informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :72     
+    :73     :176 -- `no_domain_covers_line` -- STANDS (the document`s own)
+    :74         the sentence: "*Consequence:* no single-domain failure completes a line (compiled — `no_domain_covers_line`, `single_domain_fault_not_logical`)."
+    :75         what the compiled fact supports: states the consequence as the compiled statement has it: under `DealignedAt d L` no domain fault `domainFault d k` completes `L` (`DeAlignment.lean` :62, SIDE-structural-error-correction v0.2.1 = `6a4f482`); the sentence keeps the condition-plus-consequence form of the statement, and the T2 tier (the file`s own `Line` structure and a domain map) leaves it as it was.
+    :76         informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :77     
+    :78     :176 -- `single_domain_fault_not_logical` -- STANDS (the document`s own)
+    :79         the sentence: "*Consequence:* no single-domain failure completes a line (compiled — `no_domain_covers_line`, `single_domain_fault_not_logical`)."
+    :80         what the compiled fact supports: the same consequence over a line family `lines : Fin n → Line P` under `Dealigned d lines` (`DeAlignment.lean` :75, SIDE-structural-error-correction v0.2.1 = `6a4f482`), as the sentence states it.
+    :81         informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :82     
+    :83     :198 -- `fano_two_design` -- STANDS (the document`s own)
+    :84         the sentence: "The `[propext]` on `fano_two_design` is written as such and not rounded to axiom-free."
+    :85         what the compiled fact supports: the profile `[propext]` the sentence records is the profile b557 printed afresh at the pin (relay `data/b557_tiers.txt` :311-:318).
+    :86         informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :87     
+    :88     :202 -- `no_domain_covers_line` -- STANDS (the document`s own)
+    :89         the sentence: "| No single-domain failure completes a de-aligned line | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `DeAlignment.no_domain_covers_line` | axiom-free | DERIVES |"
+    :90         what the compiled fact supports: the claim cell is the statement (`DeAlignment.lean` :62, SIDE-structural-error-correction v0.2.1 = `6a4f482`), axiom-free as printed; DERIVES is the document`s grade word and T2 (programme-type) the tier b557 entered beneath (:273), neither moving the claim.
+    :91         informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :92     
+    :93     :203 -- `single_domain_fault_not_logical` -- STANDS (the document`s own)
+    :94         the sentence: "| The protection theorem, over any line family | v0.2.1 (`6a4f482`) | `DeAlignment.single_domain_fault_not_logical` | axiom-free | DERIVES |"
+    :95         what the compiled fact supports: “over any line family” is the statement`s `lines : Fin n → Line P` for every `n` (`DeAlignment.lean` :75, SIDE-structural-error-correction v0.2.1 = `6a4f482`).
+    :96         informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :97     
+    :98     :204 -- `dealigned_of_lines_injective` -- STANDS (the document`s own)
+    :99         the sentence: "| One-position-per-domain implies de-alignment | v0.2.1 (`6a4f482`) | `DeAlignment.dealigned_of_lines_injective` | axiom-free | DERIVES |"
+    :100        what the compiled fact supports: the statement takes an injective domain map and a proper line (`L.Proper`, its three positions distinct) to `DealignedAt d L` (`DeAlignment.lean` :85, SIDE-structural-error-correction v0.2.1 = `6a4f482`); the premise `L.Proper` is the well-formedness of a line, which the claim cell leaves implicit, and the claim stands.
+    :101        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :102    
+    :103    :205 -- `fano_dealignment_decidable_example` -- STANDS (the document`s own)
+    :104        the sentence: "| The condition is certifiable by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_dealignment_decidable_example` | axiom-free | DERIVES |"
+    :105        what the compiled fact supports: the statement evaluates the check `dealignedCheck` on the identity assignment to `true` (`DeAlignment.lean` :113, SIDE-structural-error-correction v0.2.1 = `6a4f482`): the condition is checked by evaluation, as the claim cell says.
+    :106        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :107    
+    :108    :206 -- `fano_collapsed_line_rejected` -- STANDS (the document`s own)
+    :109        the sentence: "| The check refuses a collapsed line (the certificate has teeth) | v0.2.1 (`6a4f482`) | `DeAlignment.fano_collapsed_line_rejected` | axiom-free | DERIVES |"
+    :110        what the compiled fact supports: the statement evaluates the check on the assignment sending positions 1 and 3 to one domain to `false` (`DeAlignment.lean` :118, SIDE-structural-error-correction v0.2.1 = `6a4f482`), the refusal the claim cell names.
+    :111        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :112    
+    :113    :207 -- `fano_two_design` -- STANDS (the document`s own)
+    :114        the sentence: "| The line family used is the Fano plane — every pair of distinct positions on exactly one line, certified by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_two_design` | `[propext]` | DERIVES |"
+    :115        what the compiled fact supports: `∀ p q : Fin 7, p ≠ q → pairCount p q = 1` by `decide`, profile `[propext]` (`DeAlignment.lean` :140, SIDE-structural-error-correction v0.2.1 = `6a4f482`), the claim cell`s 2-design.
+    :116        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :117    
+    :118    :208 -- `steane_parameters` -- STANDS (the document`s own)
+    :119        the sentence: "| The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.steane_parameters` | `{propext, Quot.sound}` | DERIVES |"
+    :120        what the compiled fact supports: the statement carries the three numbers: 7 as the formation total, 1 as `2 * visible_slots xi - xi.formation_total`, and distance 3 as no two columns of the parity map `H` summing to zero with the zero-sum triple `H 0 + H 1 + H 3 = 0` (`SIDECosmo/SteaneExemplar.lean` :81, SIDE-cosmo `c5cba30`); that n and k are the CSS code`s block length and logical dimension is read off the formation tuple in the docstrings (:42-:51), and the claim cell names the parameters, not their derivation.
+    :121        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :122    
+    :123    :209 -- `knill_laflamme_t1` -- MOVED-IN-MEANING (the document`s own)
+    :124        the sentence: "| The Knill–Laflamme error-correction conditions | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |"
+    :125        what the compiled fact supports: names the Knill–Laflamme error-correction conditions with the grade DERIVES, and the terminal states only that the parity map `H : Fin 7 → ZMod 2 × ZMod 2 × ZMod 2` has nonzero, pairwise distinct columns (`Function.Injective H ∧ ∀ i : Fin 7, H i ≠ 0`, `SIDECosmo/SteaneExemplar.lean` :76, SIDE-cosmo `c5cba30`); that this is the Knill–Laflamme condition for every Pauli error of weight at most one in the CSS setting is its docstring`s (:72-:75), not compiled, so what is compiled is the t = 1 syndrome condition the name abbreviates.
+    :126        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :127    
+    :128    :243 -- `fano_two_design` -- STANDS (the document`s own)
+    :129        the sentence: "§9 the Correspondence pinned to `SIDE-structural-error-correction` v0.2.1 (`6a4f482`), six DeAlignment terminals + two Steane terminals + two manuscript-resident rows, `[propext]` on `fano_two_design` written as such; jargon defined at first use (minimum-weight logical operator, failure domain, transversal, leakage analogue); vocabulary sweep clean (S5)."
+    :130        what the compiled fact supports: a dated version entry (v1.1, 2026-07-29) recording the §9 pass, read under the history clause; its `[propext]` on `fano_two_design` is the profile at the pin.
+    :131        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :132    
+    :133    :273 -- `no_domain_covers_line` -- STANDS (the cascade`s own)
+    :134        the sentence: "| :202 | No single-domain failure completes a de-aligned line | `no_domain_covers_line` | axiom-free | **CARRIED** | T2 |"
+    :135        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :136        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :137    
+    :138    :274 -- `single_domain_fault_not_logical` -- STANDS (the cascade`s own)
+    :139        the sentence: "| :203 | The protection theorem, over any line family | `single_domain_fault_not_logical` | axiom-free | **CARRIED** | T2 |"
+    :140        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :141        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :142    
+    :143    :275 -- `dealigned_of_lines_injective` -- STANDS (the cascade`s own)
+    :144        the sentence: "| :204 | One-position-per-domain implies de-alignment | `dealigned_of_lines_injective` | axiom-free | **CARRIED** | T2 |"
+    :145        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :146        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :147    
+    :148    :276 -- `fano_dealignment_decidable_example` -- STANDS (the cascade`s own)
+    :149        the sentence: "| :205 | The condition is certifiable by evaluation | `fano_dealignment_decidable_example` | axiom-free | **CARRIED** | T2 |"
+    :150        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :151        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :152    
+    :153    :277 -- `fano_collapsed_line_rejected` -- STANDS (the cascade`s own)
+    :154        the sentence: "| :206 | The check refuses a collapsed line (the certificate has teeth) | `fano_collapsed_line_rejected` | axiom-free | **CARRIED** | T2 |"
+    :155        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :156        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :157    
+    :158    :278 -- `fano_two_design` -- STANDS (the cascade`s own)
+    :159        the sentence: "| :207 | The line family used is the Fano plane — every pair of distinct positions on exactly one l | `fano_two_design` | [propext] | **CARRIED** | T2 |"
+    :160        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :161        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :162    
+    :163    :279 -- `steane_parameters` -- STANDS (the cascade`s own)
+    :164        the sentence: "| :208 | The [[7,1,3]] Steane parameters (the code the lines structure) | `steane_parameters` | [propext, Quot.sound] | **CARRIED** | T2 |"
+    :165        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :166        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :167    
+    :168    :280 -- `knill_laflamme_t1` -- STANDS (the cascade`s own)
+    :169        the sentence: "| :209 | The Knill–Laflamme error-correction conditions | `knill_laflamme_t1` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T2 |"
+    :170        what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :171        informing work-order: none named on the critical path (OPEN_TRAILS :11407)
+    :172    
+    :173    :287 -- `h2_sign` -- STANDS (the cascade`s own, by the alias “h2”)
+    :174        the sentence: "`h2` stays where the deposit left it.*"
+### relay the b598 bank of REPARAMETERIZATION_BARRIERS_v0_1, whole -- data/b558_editions/REPARAMETERIZATION_BARRIERS_v0_1.txt @ 697eb1ed (79 lines cited)
+    :1      b598 -- THE TIER BLOCK AND EDITION WORK-LIST OF REPARAMETERIZATION_BARRIERS_v0_1 (phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### written by the b558 form under (R208)(3): the tier block (every terminal the document cites, graded from relay `data/b557_tiers.txt` and checked against the terminal table at relay HEAD and both pages at SIDE-explicit-formula v0.17), then every sentence-row of the b558 matcher (relay `tools/b558_record.py` :330-:371: each union terminal by its name and the ferry`s four aliases, and each tier-block terminal by its name) in line order -- the line, the terminal, the sentence quoted, the verdict (STANDS / MOVED-IN-MEANING / CREDIT), what the compiled fact supports with the declaration by name 
+    :4      
+    :5      ### THE VERSION HISTORY, as the document carries it: **v0.1 — 2026-08-04 — DRAFT** | **Version history.** v0.1 (2026-08-04): first draft — schema instantiated for a
+    :6      
+    :7      ## THE TIER BLOCK
+    :8      
+    :9      `InvarianceBarrier.invariance_barrier` -- SIDE-kernel 5e668b4 (the row`s pin; v1.7 = 2957e7d drafted), `Kernel/Cascade/InvarianceBarrier.lean` :39
+    :10         statement : theorem invariance_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_diverge : ¬ (P x ↔ P y)) : ¬ DeterminedBy agree P
+    :11         tier      : T2 -- a general schema over an abstract carrier, agreement relation and property -- logic (b556) ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :560)
+    :12         table     : InvarianceBarrier.invariance_barrier grade UNGRADED, NOT PROFILED, present at HEAD
+    :13         pages     : not a node on either page at v0.17
+    :14     
+    :15     `InvarianceBarrier.derivability_barrier` -- SIDE-kernel 5e668b4 (the row`s pin; v1.7 = 2957e7d drafted), `Kernel/Cascade/InvarianceBarrier.lean` :60
+    :16         statement : theorem derivability_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_fail : ¬ P y) : ¬ Derives agree P x
+    :17         tier      : T2 -- the soundness corollary, same schema (b556) ; profile: does not depend on any axioms   (the row prints: does not depend on any axioms) (data/b557_tiers.txt :568)
+    :18         table     : InvarianceBarrier.derivability_barrier grade UNGRADED, NOT PROFILED, present at HEAD
+    :19         pages     : not a node on either page at v0.17
+    :20     
+    :21     `InvarianceBarrier.DeterminedBy` -- definition written out at :59; SIDE-kernel 5e668b4, `Kernel/Cascade/InvarianceBarrier.lean` :31 -- `def DeterminedBy (agree : α → α → Prop) (P : α → Prop) : Prop := ∀ x y, agree x y → (P x ↔ P y)` -- E0 DEF, no tier (a definition is not a terminal)
+    :22     
+    :23     `InvarianceBarrier.Derives` -- definition written out at :66; SIDE-kernel 5e668b4, `Kernel/Cascade/InvarianceBarrier.lean` :50 -- `def Derives (agree : α → α → Prop) (P : α → Prop) (x : α) : Prop := ∀ z, agree x z → P z` -- E0 DEF, no tier (a definition is not a terminal)
+    :24     
+    :25     ### rows naming no terminal (the document`s own manuscript-resident rows): :225, :226, :227, :228, :229, :230, :231 -- T4 by b557`s block
+    :26     ### ### **TIER BLOCK : 2 terminals cited ; T2 2 ; T2 majority True.**
+    :27     
+    :28     ## THE WORK-LIST
+    :29     
+    :30     :58 -- `invariance_barrier` -- STANDS (the document`s own)
+    :31         the sentence: "invariance_barrier :"
+    :32         what the compiled fact supports: the code block`s statement, `agree x y → ¬(P x ↔ P y) → ¬ DeterminedBy agree P` (:58-:59), is the compiled one (`Kernel/Cascade/InvarianceBarrier.lean` :39, SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), `DeterminedBy agree P := ∀ x y, agree x y → (P x ↔ P y)` (:31); the T2 tier (a schema over an abstract carrier, b556) is the reading the note gives it itself at :71-:73 (“deliberately weak — all the mathematical content of any barrier built on them sits in the two hypotheses”).
+    :33         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :34     
+    :35     :67 -- `derivability_barrier` -- STANDS (the document`s own)
+    :36         the sentence: "derivability_barrier : agree x y → ¬ P y → ¬ Derives agree P x"
+    :37         what the compiled fact supports: the code block`s statement is the compiled one (`Kernel/Cascade/InvarianceBarrier.lean` :60, SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), with `Derives agree P x := ∀ z, agree x z → P z` (:50) as :66 writes it.
+    :38         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :39     
+    :40     :223 -- `invariance_barrier` -- STANDS (the document`s own)
+    :41         the sentence: "| The inference step: agreement + divergence ⟹ not determined | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.invariance_barrier` | **axiom-free, re-printed** | DERIVES |"
+    :42         what the compiled fact supports: the row`s pin `5e668b4` holds the file byte for byte as v1.7 and main do (SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)), axiom-free as re-printed; the claim cell is the statement (:39).
+    :43         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :44     
+    :45     :224 -- `derivability_barrier` -- STANDS (the document`s own)
+    :46         the sentence: "| The derivability form: assumes nothing of the object of interest | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.derivability_barrier` | **axiom-free, re-printed** | DERIVES |"
+    :47         what the compiled fact supports: the same pin and blob (SIDE-kernel `5e668b4` (blob `e4e8d23b`, the same at v1.7 = `2957e7d` and at main `0256e9e`)); “assumes nothing of the object of interest” is the statement`s premise `¬ P y` on the witness alone (:60).
+    :48         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :49     
+    :50     :272 -- `invariance_barrier` -- STANDS (the cascade`s own)
+    :51         the sentence: "| :223 | The inference step: agreement + divergence ⟹ not determined | `invariance_barrier` | axiom-free | **CARRIED** | T2 |"
+    :52         what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :53         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :54     
+    :55     :273 -- `derivability_barrier` -- STANDS (the cascade`s own)
+    :56         the sentence: "| :224 | The derivability form: assumes nothing of the object of interest | `derivability_barrier` | axiom-free | **CARRIED** | T2 |"
+    :57         what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :58         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :59     
+    :60     :285 -- `h2_sign` -- STANDS (the cascade`s own, by the alias “h2”)
+    :61         the sentence: "`h2` stays where the deposit left it.*"
+    :62         what the compiled fact supports: the cascade`s own line (b557, `f8b4a31`), written at or after the move; STANDS by the declared default.
+    :63         informing work-order: none named on the critical path (OPEN_TRAILS :11407); the document`s own W-ORD-REPARAM-KERNEL (:243) bears on its manuscript-resident rows
+    :64     
+    :65     ### ### **WORK-LIST : 7 sentence-rows (7 distinct lines) ; the document`s own 4 -- STANDS 4 · MOVED-IN-MEANING 0 · CREDIT 0 ; the cascade`s own 3, STANDS by default.**
+    :66     
+    :67     ## b450`S ITEMS, LOCATED BY NAME AND PLACED
+    :68     
+    :69     relay `data/b450_components.txt` :176 -- “REPARAMETERIZATION_BARRIERS_v0_1  does not carry: the two-kinds windows verdict”
+    :70         placed: carried since b454: the era annotation at :256-:262 (PLACE-papers `b4b0be2`, “VERDICT: `DISTINCT`”), placed beside the Correspondence and the work-orders; the item is in the document, so no credit line is owed at b599
+    :71     
+    :72     relay `data/b450_components.txt` :113 -- “(i) registry row  None  a registry table row at REGISTRY.md:658 names the file and carries no version”
+    :73         placed: the row is now REGISTRY :687, still with no version cell; a registry row is the author`s (b450`s own routing), not the edition`s
+    :74     
+    :75     ## OBJECTS FOR THE EDITION`S OTHER CLAUSES, PRINTED FOR b599 (no work-list row; the precedence order reads them there)
+    :76     
+    :77     :219 -- the fact clause: “the CURRENT kernel pin `5e668b4`”: SIDE-kernel main is `0256e9e`; `Kernel/Cascade/InvarianceBarrier.lean` is byte-identical (blob `e4e8d23b`) at `5e668b4`, v1.7 = `2957e7d` and `0256e9e`, and absent at the deposit v1.5 = `0e5233f`.
+    :78     
+    :79     :40-:41 -- the restatement clause: “the barrier is proved, not conjectured”: the compiled part is the schema (:223, :224); the witness pair (W1)-(W5) and the membership table are manuscript-resident (:225-:230).
+### PLACE-papers SILENCE_STAGES_DEALIGNMENT (current): head, version, abstract, the Silence Principle sentences, §3, §5, §9, the references, the history, the era annotation, b557`s block -- phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md @ fcb498e5 (45 lines cited)
+    :1      # Silence, Stages, and the De-Alignment Condition
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER K** — *declared 2026-08-26 (b190); basis: the census test: external-reader results + a Correspondence table naming terminals — ### **but its own head says “Draft — Phase 3”; flagged as a BORDERLINE for the author**.*
+    :13     **J. York Seale**
+    :15     **v1.2, 2026-07-29** (retitle per the title law; was v1.1)
+    :21     We identify a pattern across four domains: quantum error correction, proof architecture, biological coding, and communication theory. In each case, a determined specification with independent structural stages produces error-correcting capability as a derived consequence, not an engineered feature. The protection parameters [[n, k, d]] are forced by the specification's formation — the stage structure of its mechanism decomposition. The Trivium (the identity subspace of arithmetic at σ = 1/2) produces [[7, 1, 3]] under the standard error model and [[7, 1, 5]] under the natural formation-block m
+    :23     **Scope of the compiled result.** One point in this pattern now carries a machine-checked certificate, and its scope is stated precisely because the rest of the paper is a survey. The seven lines of the Fano plane are the *minimum-weight logical operators* of the [[7,1,3]] code — the smallest sets of positions whose joint corruption flips the encoded logical bit while raising no syndrome the decoder can see — so three faults on a line complete an operator no syndrome sees. A physical realization assigns each of the seven positions to a *failure domain* (whatever fails together). The compiled r
+    :95     *Proof sketch.* S non-empty stages provide S independent error compartments. The Gram matrix for weight-t errors (choosing t of S stages to corrupt) is an (C(S,t) × C(S,t)) matrix. Independence of stages implies the surviving components after any t-block corruption are orthogonal to the surviving components after any different t-block corruption (because different surviving sets access different independent structures). The Gram matrix has full rank whenever t < S (at least one intact stage provides distinguishing information). Full rank at weight-(S-1) means the code corrects up to S-1 errors
+    :97     **Claim-status (decomposition-dependence).** Here S is the stage-count of a *chosen* decomposition. The theorem holds *for that decomposition* — the formation-block model it already names — but the stage decomposition itself (the formation tuple (n₁, ..., n_k, 0, ..., 0)) is presentation-dependent, not a GL-invariant of the specification (T7 substrate-boundary / decomposition-dependence ruling). So d_eff ≥ 2S − 1 is a result about a chosen decomposition, not a substrate-forced invariant of the specification. *Named-interface (interim):* the general theorem carries a proof sketch only — it is m
+    :109    Why can't errors propagate between stages? Because the interfaces between stages are spectrally silent (κ = 0). The product formula connects Stage 1 (primitive) to Stage 2 (transformation), but it carries no s-dependent information (Conservation of Spectra). The distributive law connects addition to multiplication within Stage 1, but it doesn't reference the spectral parameter.
+    :121    This is the deepest connection between the Silence Principle and error correction: the REASON interfaces are silent (they're essential, hence universal, hence non-discriminating) is the SAME REASON they provide error compartmentalization (they can't transmit error syndromes because they can't transmit parameter-specific information).
+    :144    The protection is not designed. It is derived. The specification forces the stage structure. The stage structure forces the independence. The independence produces the compartmentalization. The compartmentalization is the error correction. Each step follows from the previous. The final step — that silence provides protection — is the Silence Principle applied to error theory.
+    :146    **The deepest implication:** Error-correcting codes are not inventions. They are structural consequences of determined specifications with independent stages. Steane engineered the [[7,1,3]] code in 1996. Størmer forced it in 1897. The arithmetic was there first. The engineering discovered what was always derivable.
+    :150    *Claim-status (G3 scope).* Read "forced" and "always inside" in the correspondence register: the [[7,1,3]] parameters *correspond* to the arithmetic structure of n² → θ → ξ via a demonstrated instance — the §2 Trivium computation under the formation-block model — not as an unconditional theorem that *forces* the code from the specification. The demonstrated instance is exhibited; the general "always derivable" reach is the manuscript claim (the §3 theorem, whose tightness §6.1 keeps open), carried openly. *The compiled anchor of this paper is narrower and exact:* the **de-alignment condition**
+    :162    4. **Does the Silence Principle predict which biological systems have error correction?** The immune system, DNA repair, and neural error correction all involve interfaces between independent structures. The Silence Principle predicts that the essential interfaces in these systems are informationally silent — and that this silence is the mechanism of their error correction.
+    :196    ## 9. Correspondence
+    :198    All rows pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`. The `[propext]` on `fano_two_design` is written as such and not rounded to axiom-free.
+    :200    | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+    :202    | No single-domain failure completes a de-aligned line | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `DeAlignment.no_domain_covers_line` | axiom-free | DERIVES |
+    :203    | The protection theorem, over any line family | v0.2.1 (`6a4f482`) | `DeAlignment.single_domain_fault_not_logical` | axiom-free | DERIVES |
+    :204    | One-position-per-domain implies de-alignment | v0.2.1 (`6a4f482`) | `DeAlignment.dealigned_of_lines_injective` | axiom-free | DERIVES |
+    :205    | The condition is certifiable by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_dealignment_decidable_example` | axiom-free | DERIVES |
+    :206    | The check refuses a collapsed line (the certificate has teeth) | v0.2.1 (`6a4f482`) | `DeAlignment.fano_collapsed_line_rejected` | axiom-free | DERIVES |
+    :207    | The line family used is the Fano plane — every pair of distinct positions on exactly one line, certified by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_two_design` | `[propext]` | DERIVES |
+    :208    | The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.steane_parameters` | `{propext, Quot.sound}` | DERIVES |
+    :209    | The Knill–Laflamme error-correction conditions | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |
+    :210    | Formation Distance theorem, d_eff ≥ 2S−1 (§3) | none (manuscript) | proof sketch only — no terminal | n/a | manuscript-resident |
+    :211    | The four-domain silence-as-protection pattern (§4–5) | none (manuscript) | survey — no terminal | n/a | manuscript-resident |
+    :213    *The DeAlignment rows are the pass's newly-citable anchor (independently verified: remote main and the peeled v0.2.1 tag both at `6a4f482`, six theorems present). The Steane rows are pinned in the sibling kernel `SIDE-cosmo` at `c5cba30` (SIDE-cosmo main). The Formation Distance theorem (§3) and the four-domain pattern (§4–5) carry no kernel and are manuscript-resident, exactly as §3 and §5 already record.*
+    :221    Knill, E. and Laflamme, R. (1997). Theory of quantum error-correcting codes. *Phys. Rev. A* 55, 900.
+    :235    *Pins:* monograph 10.5281/zenodo.21436278 (concept 19675355) · SIDE-kernel v1.3 10.5281/zenodo.21417776 (concept 19674312) · SIDE-lv-conservation v0.8.0 10.5281/zenodo.21436280 (concept 21433177). The §3 general theorem is not among these — it is manuscript-resident (proof sketch only; named-interface note at §3).
+    :237    *AI disclosure:* Computational workflow assisted by Claude (Anthropic). Mathematical content, proof strategies, and editorial decisions are the author's.
+    :241    *v1.2, 2026-07-29 — Retitle per the title law (author ruling, option 1). Title → "Silence, Stages, and the De-Alignment Condition"; subtitle → "From Arithmetic to Biology". The former "Silence as Protection" claimed the achieved property the paper's compiled result only conditions; the new title names the objects (silence, stages) and the condition (de-alignment), not a property. The phrase "structural error correction" remains available in-text where scoped, but no longer heads the paper. File renamed `ERROR_CORRECTION.md` → `SILENCE_STAGES_DEALIGNMENT.md` (history preserved via git mv); REGI
+    :243    *v1.1, 2026-07-29 — S1–S7 pass (refine, not rewrite; the four-domain survey and its claim-status scoping are untouched). Added: the governing scope sentence in the abstract (the compiled result is the de-alignment condition — single-domain correlation defeated — not that the structure protects per se); §7 the de-alignment condition with the seven engineering principles restated as design conditions, each condition-plus-consequence; §8 the threat model (multi-domain correlation, model-space escape / the leakage analogue, faults in the verifier — named as outside the theorem); §9 the Corresponde
+    :245    *v1.0.1, 2026-07-19 — Claim-status scoping pass (claim-status only; no mathematics or theorem statements altered). (1) §3 Formation-Distance Theorem: added a decomposition-dependence note — S is the stage-count of a chosen decomposition, presentation-dependent (not a GL-invariant), per the T7 substrate-boundary ruling; the theorem statement, proof sketch, and §6 open-tightness question are untouched. (2) §5: the "Steane forced it / always inside the specification" framing scoped to correspondence/demonstrated-instance grammar (parameters correspond via a demonstrated instance under the formati
+    :249    ### ERA ANNOTATION (2026-08-20) — bearing on the arc's scope: which silences protect
+    :256    > the ball is readable; the silence theorem, proved at general q with its hypotheses named,
+    :259    > paper's own direction: silence is protection ONLY WHEN THE KNILL–LAFLAMME VERDICT SAYS SO
+    :265    <!-- b557 THE CASCADE, ACT ELEVEN, 2026-09-29 -->
+    :267    #### THE CASCADE, ACT ELEVEN -- THE CORRESPONDENCE TIERED *(appended 2026-09-29, b557, under the author's ruling `(R167)`(5); no byte above this block changes; the body is not edited)*
+    :280    | :209 | The Knill–Laflamme error-correction conditions | `knill_laflamme_t1` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T2 |
+    :281    | :210 | Formation Distance theorem, d_eff ≥ 2S−1 (§3) | NONE | — | **CARRIED** | T4 |
+    :282    | :211 | The four-domain silence-as-protection pattern (§4–5) | NONE | — | **CARRIED** | T4 |
+    :283    
+    :284    *Tiers over the 8 terminal readings: T0 0 · T1-open 0 · T1-lit 0 · T2 8 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0. Rows by their weakest link: T0 0 · T1-open 0 · T1-lit 0 · T2 8 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 2. Dispositions: CARRIED 10 · MOVED 0.*
+    :287    *Appended by b557. No claim of the document is altered; `h2` stays where the deposit left it.*
+### PLACE-papers REPARAMETERIZATION_BARRIERS_v0_1 (current): head, version, abstract, §1, the schema, §6, the Correspondence, the work-orders, the history, b454`s and b557`s blocks -- phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md @ fcb498e5 (30 lines cited)
+    :1      ﻿# Reparameterization Barriers for Probing Methods
+    :5      **J. York Seale** | ORCID: 0009-0008-7993-0310
+    :6      **v0.1 — 2026-08-04 — DRAFT**
+    :22     so are outside the class and outside the barrier. The reasoning schema is
+    :23     machine-checked (Lean 4, axiom-free); the domain instantiation is carried in
+    :39     answer is no, and the argument is finished. That is the relativization pattern
+    :40     from complexity theory (Baker–Gill–Solovay), transplanted: the barrier is
+    :41     proved, not conjectured, and it is proved once for the class rather than
+    :42     argued case by case.
+    :58     invariance_barrier :
+    :59       agree x y → ¬(P x ↔ P y) → ¬ DeterminedBy agree P
+    :67     derivability_barrier : agree x y → ¬ P y → ¬ Derives agree P x
+    :70     Both are compiled and axiom-free (SIDE-kernel v1.7; see Correspondence). The
+    :146    > *P*. Therefore no method in D determines *P*.
+    :180    2. **A constructive witness pair** with both barrier clauses proved rather than
+    :181       asserted, including the exact list of quantities preserved and the exact
+    :182       quantity that is not.
+    :219    *Every load-bearing claim matched to its verifier.* **RE-VERIFIED AS-RUN 2026-08-06 at the CURRENT kernel pin `5e668b4` (the note was drafted against v1.7 = `2957e7d`).** `#print axioms` was re-executed on both terminals and on their two definitions; **all four report "does not depend on any axioms" — unchanged from the recorded profile, so no halt fired.** The two rows below now cite the pin the profiles were *run* at, not the pin they were *read* at.
+    :223    | The inference step: agreement + divergence ⟹ not determined | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.invariance_barrier` | **axiom-free, re-printed** | DERIVES |
+    :224    | The derivability form: assumes nothing of the object of interest | SIDE-kernel **`5e668b4`** (re-verified as-run 2026-08-06; drafted against v1.7 `2957e7d`) | `InvarianceBarrier.derivability_barrier` | **axiom-free, re-printed** | DERIVES |
+    :225    | (W1) behavioral identity of *N* and *N_A* | — | — | — | manuscript-resident (§4, two lines) |
+    :230    | Membership of each listed method in D | — | — | — | manuscript-resident (§3 table, justified by W1–W4) |
+    :236      invariant only up to ε is not covered by the exact argument. State and prove
+    :250    proof strategies, and editorial decisions are the author's.*
+    :252    **Version history.** v0.1 (2026-08-04): first draft — schema instantiated for a
+    :260    > ### **VERDICT: `DISTINCT`.** ### **Li-index truncation DOES NOT LOCALISE SUPPORT — the width saturates near `15.7` and stops responding to `n`, while support truncation controls the width directly and exactly (`2 log a`).**
+    :266    #### THE CASCADE, ACT ELEVEN -- THE CORRESPONDENCE TIERED *(appended 2026-09-29, b557, under the author's ruling `(R167)`(5); no byte above this block changes; the body is not edited)*
+    :272    | :223 | The inference step: agreement + divergence ⟹ not determined | `invariance_barrier` | axiom-free | **CARRIED** | T2 |
+    :273    | :224 | The derivability form: assumes nothing of the object of interest | `derivability_barrier` | axiom-free | **CARRIED** | T2 |
+    :285    *Appended by b557. No claim of the document is altered; `h2` stays where the deposit left it.*
+### PLACE-papers the home of the Silence Principle: SILENCE_FORMAL (title, role, the theorem, (A)) -- phase1.5/structural/SILENCE_FORMAL.md @ fcb498e5 (8 lines cited)
+    :1      # THE SILENCE PRINCIPLE
+    :2      ## Formal Statement
+    :6      **Role.** This record *presents* the **formal statement** of the Silence Principle — definitions D.1–D.5 and the theorem (Protection · Independence · …) — the precise object the expository `SILENCE_OF_FOUNDATIONS` (1.5d-3) reads and the cascade `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` (1.5f-4) builds on. Its compiled universal terminal is `silence_universal` (MetaKernel, axiom-free, INTERFACES under the named load-bearing hypothesis `I.is_universal`). This is the statement; the proof-of-record is the kernel terminal.
+    :43     **Theorem (Silence Principle).** *In a determined system X with
+    :44     specification S, target parameter P, and formation (n₁, n₂, n₃, n₄):*
+    :46     *If n₄ = 0 — all essential interfaces are structurally P-dark — then:*
+    :47     
+    :48     **(A) PROTECTION.** *No perturbation crossing a dark interface alters P.
+### PLACE-papers SILENCE_OF_FOUNDATIONS: the principle read in expository form -- phase1.5/structural/SILENCE_OF_FOUNDATIONS.md @ fcb498e5 (2 lines cited)
+    :17     **Role.** This record *presents* the Silence Principle in expository form — the inverse relation between structural essentiality and spectral informativeness (essential components build the stage but do not direct the play). It is the conceptual face of the principle; the formal statement is `SILENCE_FORMAL` (1.5d-2) with the compiled universal terminal `silence_universal` (MetaKernel), and the cascade home is `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` (1.5f-4). No kernel claim originates here — this is the reading, not the proof.
+    :103    **Silence Principle (informal).** For determined systems with independent structural components: if interface I is essential for the system's existence, then I is spectrally silent for behavioral parameters.
+### PLACE-papers REGISTRY: the home`s row, the two documents` rows, the row b394 matched (each cut after its version cell) -- REGISTRY.md @ fcb498e5 (5 lines cited)
+    :183    | 1.5d-2 | Silence Principle (formal) | `phase1.5/structural/SILENCE_FORMAL.md` | v1.0 | ◆ | READY | ~1,600 |
+    :184    | 1.5d-3 | The Silence of Foundations | `phase1.5/structural/SILENCE_OF_FOUNDATIONS.md` | v1.0 | ● | READY | ~1,983 |
+    :249    | p2-24 | Dark Interface | `phase2/philosophy/DARK_INTERFACE.md` | v2.0 | ○ | READY | 3,466 | Phil & Tech |
+    :283    | p2-16 | Silence, Stages, and the De-Alignment Condition | `phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md` | v1.2 | ○ | REVIEW | ~2,100 | P-
+    :687    | `phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md` | Reparameterization Barriers for Probing Methods — witness-pair barrier for a reparam
+### PLACE-papers OPEN_TRAILS: b394`s block, the form, its clauses, the precedence order, b597`s and b598`s lines -- OPEN_TRAILS.md @ fcb498e5 (23 lines cited)
+    :4538   **THREE KEYSTONES READ IN ONE ACT, CHOSEN BY `b390`’S RULE AND NOTHING ADDED TO IT** — *take those whose terminals the drive can reach*. Of the census’s **`15`** keystones on disk, **`4`** name a kernel repository the drive holds and do not say their terminals are held or unmerged. **`11` are excluded and every exclusion is named with its reason**; `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` is **set aside** because `b390` read it whole and re-reading it would be re-doing that act’s work. **The three: `GRH_CASCADE`, `FOUNDATIONS_OF_THE_SIDE_PROGRAMME`, `SILENCE_STAGES_DEALIGNMENT`.** *An earlier form
+    :4540   **WHAT THE THREE CARRY.** `GRH_CASCADE` carries **`13`** correspondence rows; `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` carries **`15`**; and **`SILENCE_STAGES_DEALIGNMENT` carries none**. For that third document the order’s question — *what its table carries by grade* — has the answer **there is no table**, and **a keystone with no table is a keystone whose grade limb cannot be read**. `b387` already named five such. **This act did not write one: writing a correspondence table is authoring, not reconciling.**
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and its CP-1b work-list, the page its objects sit on as its spine; STANDS sentences carried unchanged; MOVED-IN-MEANING sentences rewritten to say what the compiled fact says, citing the declaration by name
+    :11902  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(2), to the form of an edition (:11864) -- H28b, RESTATED FOR EVERY EDITION ACT:* the edition’s BODY sentence count differs from the current version’s by at most the CREDIT count plus the removals plus the citations a ruling orders; the back matter is excluded from the count and its own sentence count is printed beside it.
+    :11904  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(3), to the form of an edition (:11864) -- THE STEM CLAUSE, STANDING:* a banned stem in a sentence the work-list does not mark is replaced by the object the sentence names (not a synonym for the stem), the sentence otherwise unchanged, each listed in the back matter with line and both wordings; H28c is scored on the edition’s text.
+    :11906  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem clause -- THE CEILING CLAUSE:* a sentence the work-list does not mark that speaks beyond the README ceiling (README :106-:121) takes the object it names, the rest of the sentence unchanged, each listed in the back matter as a ceiling correction with line and both wordings; H28c is scored on the edition’s text. Applied at b579 to FOUNDATIONS_OF_THE_SIDE_PROGRAMME :109, :127 and :477 (“the programme’s RH argument”) and :563 (“RH-core”, as its :621 names it); the navigat
+    :11908  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem and ceiling clauses -- THE HISTORY CLAUSE:* dated history entries are superseded beneath, not rewritten: a marked sentence in a dated history entry carries unchanged as a dated record, and the next version’s history line directly beneath it states what the compiled fact says, citing it; the row is resolved as MOVED-IN-MEANING by that line, and the line is counted under H28b as a ruled citation. Applied at b579 to FOUNDATIONS_OF_THE_SIDE_PROGRAMME :653 (the v0.2.4 entr
+    :11930  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(2), to the form of an edition (:11864) -- H28b, FINAL FORM FOR EVERY EDITION ACT:* the body sentence count differs from the current version’s by at most the CREDIT count, the removals, the citations a ruling orders, and one version line; the back matter excluded and counted beside.
+    :11932  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(3), to the form of an edition (:11864) -- THE RE-PIN STEP, THE FORM’S LAST:* after every insertion the edition’s own Correspondence column and the act’s diff bank are re-read against the final file and cite its final lines; the bank states the offset from the current version once at its head. Run at b580 on PATHS v0.7, whose column moved by +2 on every cited line after :19 (relay `data/b580_repin.txt`), its diff bank headed “+2 from :19”; FOUNDATIONS v0.2.5’s column read the same way, unmoved.
+    :11934  *Appended 2026-10-01 by b580, under the author’s answer before b580’s seal, to the form of an edition (:11864), beside the stem, ceiling and history clauses -- THE NAME-AND-TITLE EXCEPTION:* an object’s own name and a bibliography title are not live uses (relay `tools/banned_terms.py` :14, “CLAY / BIBLIOGRAPHY CITATIONS”, an exception the tool names part of the rule); each such use carries unchanged, is listed in the back matter with its line, and is printed as excepted when H28c is scored. Applied at b580 to ADDITIVE_MULTIPLICATIVE_CONSPIRACY :231 (the object’s own name) and :388, :396 (two p
+    :11954  *Appended 2026-10-01 by b581, under the author’s ruling `(R191)`(2), to the form of an edition (:11864) -- THE FACT CLAUSE, STANDING:* an unmarked sentence that states a fact the seat’s printed read contradicts -- a pin, a toolchain, a count, an import -- is corrected in place to the printed fact, the fact’s source printed beside it in the diff bank, and the correction listed in the back matter with line and both wordings; the sentence is otherwise unchanged. Applied at b581 to ADDITIVE_MULTIPLICATIVE_CONSPIRACY v0.2.4 :293 and :366 (relay `data/b581_amc_fact.txt`), and read over THE_UNCONDITI
+    :11956  *Appended 2026-10-01 by b581, under the author’s answer before b581’s seal, to the form of an edition (:11864) -- THE PLACEMENT CLAUSE:* a b450 “does not carry” item the work-list does not place is inserted beside the sentence whose claim it corrects, that sentence named in the back matter. Applied at b581 to THE_UNCONDITIONAL_SURROUND, both items beside its §6 positivity face (v0.4 :137).
+    :12044  *Appended 2026-10-01 by b585 to the history clause (:11908), under the author’s answer before b585’s seal -- INSIDE A DATED ENTRY THE HISTORY CLAUSE GOVERNS:* a banned stem inside a dated history entry is carried as the dated record, and a history line dated to the edition directly beneath the entry names the corrected object; the line counts under H28b as a ruled citation, and the stem is printed as carried-by-history when H28c is scored. Applied at b585 to INDEX_ARITY_AT_THE_CRITICAL_LINE v0.18 :568 (the v0.8 entry) and :587 (the v0.7 entry).
+    :12136  *Appended 2026-10-01 by b589 to W-ORD-GRH-WEIL (:11373), under the author’s ruling `(R199)`(6) -- REMAINDER 5, A PRICED ITEM, NOT STARTED, THE PRODUCT LEMMA:* for two configurations of the schema, the sum (carrier union, multiplicities added, rhs added, targets conjoined) is a configuration, and its criterion is the conjunction of the two by h2_sign_cfg_iff_target; priced at one lemma of substance, the summed explicit formula, and bookkeeping; the instance ζ · L(s, χ_d) as the Dedekind zeta of a quadratic field priced beside it as a separate item (relay data/b589_product_price.txt). Trigger: t
+    :12190  *Appended 2026-10-02 by b592, under the author’s answer before b592’s seal, to the form of an edition (:11864) -- THE PAGE CLAUSE:* an edition act regenerates every page whose Placement it changes as its last housekeeping commit before the suite, so that the page arms read clean at every closing. Applied first at b592: THE_RESIDUE_OF_RH v1.2 names nodes of both pages, and each page was re-emitted after the edition commit and committed alone (relay data/b592_page_runs_c2.txt).
+    :12192  *Appended 2026-10-02 by b592, under the author’s answer before b592’s seal, to the form of an edition (:11864) -- THE RESTATEMENT CLAUSE:* a marked row’s reading extends to the unmarked sentences of the same edition that restate the same claim; each is rewritten with minimal substitution, the rest unchanged, listed in the back matter with both wordings, and counted under H28b with the ruling’s rewrites. Applied first at b592 to THE_RESIDUE_OF_RH v1.1 :79 (two sentences) and :88, beside the §7 sentence of `(R202)`(4) at :77.
+    :12194  *Appended 2026-10-02 by b592 to the history clause’s dated-entry line (:12044), under the author’s answer before b592’s seal -- AN ERA ANNOTATION IS A DATED ENTRY:* an era annotation is a dated history entry under the line above; a banned stem inside one is carried as the dated record with a history line beneath it. Applied first at b592 to THE_RESIDUE_OF_RH v1.1 :134 (the annotation of 2026-08-12 on the correspondence standard) and :152 (the era annotation of 2026-08-12 on the residue’s statement).
+    :12228  *Appended 2026-10-02 by b594, under the author’s ruling `(R204)`(2), to the form of an edition (:11864) -- THE PRECEDENCE ORDER:* where two clauses of the form meet on one sentence, the history clause governs, then the name-and-title exception, then the stem clause, then the ceiling clause, then the fact clause, then the restatement clause, each applying to what the earlier ones leave; the seat resolves the collision by that order without a prompt, lists every resolved collision in the back matter with the clauses named and both wordings, and the author strikes at the closing. A prompt is rese
+    :12288  *Appended 2026-10-02 by b597 beneath the batch-refresh line (:12264), under `(R207)`(3) -- A GENERATOR RUN AT A NEW PIN, STANDING:* a generator run at a new pin goes one page per call in the foreground, or in the background solely after the browser is closed and free memory is read above the hold; a background run stopped by the harness is recorded as a stop, not an OOM. From b596’s reaper stop (its defect (c)).
+    :12290  ### `W-ORD-VENDOR-FINALMULT` -- ZETA23’S FinalMult.lean AND ITS IMPORT CLOSURE VENDORED, THE PROPORTION’S PREMISE DISCHARGED, PRICED, NOT STARTED, appended 2026-10-02, b597, under the author’s ruling (R207)(4)
+    :12296  *Appended 2026-10-02 by b597 beneath W-ORD-QUANTIFIER-COLUMN (:12266), under `(R207)`(5) -- A FACT CORRECTION FROM b596, THE FIFTH SHAPE:* exceptional_mass_le_third is a liminf of a ratio over an infinite set, neither FINITE nor a plain LIMIT; the column reads five shapes -- FINITE, UNIVERSAL, LIMIT, DENSITY, FAMILY -- with DENSITY for a lower or upper density, a liminf or limsup of a proportion.
+    :12298  ### b597 — lane three, act twenty-four under (R207): CP-7 act seventeen -- the edition of SIMPLICITY_OF_RIEMANN_ZEROS from its tier block, work-list and the b596 addendum; the control arm frozen at its pin
+    :12314  ### b598 — lane three, act twenty-five under (R208): CP-1b -- the tier blocks and work-lists of SILENCE_STAGES_DEALIGNMENT and REPARAMETERIZATION by the b558 form
+### PLACE-papers FINDINGS: b598`s weight, strike items and entry -- FINDINGS.md @ fcb498e5 (3 lines cited)
+    :6898   *Appended 2026-10-02 by b598 to b597’s entry (:6880), under `(R208)`(1) -- b597 AT ITS WEIGHT:* SIMPLICITY_OF_RIEMANN_ZEROS v1.1.3 beside v1.1.2, unedited: Chapter 1’s title naming the reduction the body states; simplicity a separate Prop cited to simplicity_iff at v0.17 with no compiled edge to h2_sign; the 40.77% anchor replaced by the named premise SimpleProportion with thmB₀_mult’s upstream line; four work-list lines rewritten; 14 ceiling corrections (11 on sentences joining simplicity and RH or GRH, each citing the b596 walk), 4 fact corrections (the derivative-engine pin to its head 01e5
+    :6900   *Appended 2026-10-02 by b598 to b597’s entry (:6880), under `(R208)`(2) -- THE STRIKE ITEMS, AS RULED:* the 12 collisions stand as resolved, the three CP-1b STANDS rows whose simplicity clauses went to the ceiling included; :24’s “established”, :144 and :278 stand as read by the letter; the b450 credit placement stands; the step-zero repair ran before the seal by Component 0’s letter, and the ruling’s “after the face is sealed” is the navigator’s, contradicted by its own ferry -- the ferry’s Component 0 governs an instrument repair ruled for step zero.
+    :6902   ## CP-1b: the tier blocks and work-lists of SILENCE_STAGES_DEALIGNMENT and REPARAMETERIZATION_BARRIERS from b557’s tiers, the terminal table and the pages at v0.17 -- one row moved in meaning, at the Knill–Laflamme row
+### PLACE-papers ERRATA: the form (the head, the last two entries) -- ERRATA.md @ fcb498e5 (12 lines cited)
+    :1      # Errata
+    :15     **SIDE-kernel v1.3** ([10.5281/zenodo.21417776](https://doi.org/10.5281/zenodo.21417776))
+    :16     and **SIDE-lv-conservation v0.8.0** ([10.5281/zenodo.21436280](https://doi.org/10.5281/zenodo.21436280)).
+    :17     Entries are retained across deposits and are never restated to the current
+    :18     line: a correction filed against an earlier deposit stands as the record of
+    :757    ## E-2026-09-27-1 — PATHS_TO_THE_CRITICAL_LINE attributes the pin `bd2ae1a` to SIDE-lv-conservation; the hash is a PLACE-papers commit, the sitting record of 2026-07-25 (KEYSTONE-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+    :759    **Filed 2026-09-28 (b554), on the author's ruling `(R164)`(1); found at b553 (relay `data/b553_ancestry_read.txt`). Records affected: `phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md`:420, whose flag of 2026-08-12 is repeated at `phase1.5/proofs/THE_RESIDUE_OF_RH.md`:145 and `phase2/method/THE_KEYSTONE_CENSUS.md`:48. ### NO DEPOSITED ARTIFACT IS AFFECTED BY THIS ENTRY.** None of the three is in `outputs/`; each is a keystone-class or census document of the corpus.
+    :773    ## E-2026-10-01-1 — The descriptions of the deposit and of SIDE-kernel v1.5 now carry the compiled ceiling at the successor sentence (DEPOSIT-FACING; RETAINED AT MONOGRAPH v1.1.2 AND SIDE-kernel v1.5)
+    :809    ## E-2026-10-01-3 — SPIRAL_MAP :43’s annotation cites E-2026-07-13-1 for a finding it does not make (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+    :811    **Filed 2026-10-01 by b576, on the author’s ruling `(R186)`(3). Corpus-facing: no deposited artifact is affected.**
+    :815    **The correction.** One line directly beneath SPIRAL_MAP :43 states it; :43 stands as written. b575 re-counted the scope at `e0a8ba0` by the erratum’s method (REGISTRY :964; relay `data/b575_facts.txt`).
+    :817    **Status.** FILED.
+### PLACE-papers the copy b394 read: SILENCE_STAGES_DEALIGNMENT at 4cd1cd2, its §9 -- phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md @ 4cd1cd20 (13 lines cited)
+    :196    ## 9. Correspondence
+    :198    All rows pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`. The `[propext]` on `fano_two_design` is written as such and not rounded to axiom-free.
+    :200    | Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |
+    :202    | No single-domain failure completes a de-aligned line | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `DeAlignment.no_domain_covers_line` | axiom-free | DERIVES |
+    :203    | The protection theorem, over any line family | v0.2.1 (`6a4f482`) | `DeAlignment.single_domain_fault_not_logical` | axiom-free | DERIVES |
+    :204    | One-position-per-domain implies de-alignment | v0.2.1 (`6a4f482`) | `DeAlignment.dealigned_of_lines_injective` | axiom-free | DERIVES |
+    :205    | The condition is certifiable by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_dealignment_decidable_example` | axiom-free | DERIVES |
+    :206    | The check refuses a collapsed line (the certificate has teeth) | v0.2.1 (`6a4f482`) | `DeAlignment.fano_collapsed_line_rejected` | axiom-free | DERIVES |
+    :207    | The line family used is the Fano plane — every pair of distinct positions on exactly one line, certified by evaluation | v0.2.1 (`6a4f482`) | `DeAlignment.fano_two_design` | `[propext]` | DERIVES |
+    :208    | The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.steane_parameters` | `{propext, Quot.sound}` | DERIVES |
+    :209    | The Knill–Laflamme error-correction conditions | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |
+    :210    | Formation Distance theorem, d_eff ≥ 2S−1 (§3) | none (manuscript) | proof sketch only — no terminal | n/a | manuscript-resident |
+    :211    | The four-domain silence-as-protection pattern (§4–5) | none (manuscript) | survey — no terminal | n/a | manuscript-resident |
+### PLACE-papers the ζ page at v0.17: head -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ fcb498e5 (3 lines cited)
+    :1      # THE CLAUSE AND ITS COMPILED FACES
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b596_nodes_faces.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.17 = `5a1630b` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by `#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consume
+    :164    | `SIDEExplicitFormula.RegisterDepth.silence_universal_restated` | SIDE-explicit-formula | DERIVES | T0 |
+### relay b558`s matcher and its alias table, the alias at step zero -- tools/b558_record.py @ d3f32506 (14 lines cited)
+    :330    # ### the search patterns: each union terminal by its name (a whole identifier, namespace-free); ALIASES only as the ferry and the
+    :331    # ### ruling give them -- the ferry`s four ("h2", "Route 3", "Conservation of Spectra", "the reduction"), each put on the terminal
+    :332    # ### it names, and the ruling`s pairing name `ConservationHypothesis` (R168)(3) on ch_iff_rh. No other alias.
+    :333    # ### b599, under (R209)(2)(i), the author`s: "Silence Principle" on silence_principle -- the corpus`s own named object, its home
+    :334    # ### the document that states it, PLACE-papers `phase1.5/structural/SILENCE_FORMAL.md` :43 ("Theorem (Silence Principle)",
+    :335    # ### REGISTRY 1.5d-2), so that later censuses reach the sentences that name it.
+    :336    ALIAS = {'h2_sign': [('h2', r'(?<![A-Za-z0-9_])h2(?![A-Za-z0-9_])'), ('the reduction', r'\b[Tt]he reduction\b')],
+    :337             'ch_iff_rh': [('ConservationHypothesis', ident('ConservationHypothesis')), ('Route 3', r'\bRoute 3\b')],
+    :338             'conservation_of_spectra': [('Conservation of Spectra', r'Conservation of Spectra')],
+    :339             'silence_principle': [('Silence Principle', r'Silence Principle')]}
+    :340    SILENCE_HOME = ('phase1.5/structural/SILENCE_FORMAL.md', 43)
+    :341    # ### the map`s rows carrying a citing-keystones cell: (A) at :22-:35; the union terminals with such a row.
+    :342    MAPROW = re.compile(r'^\| (?:\*\*)?(?:\d+|—)(?:\*\*)? \| `([^`]+)`')
+    :343    
+### relay b394`s components: SILENCE_STAGES_DEALIGNMENT -- data/b394_components.txt @ d3f32506 (16 lines cited)
+    :75       ### **`SILENCE_STAGES_DEALIGNMENT`**
+    :76     ----------------------------------------------------------------------------------------------------
+    :77         ### **WHAT IT CLAIMS**, in its own title: Silence, Stages, and the De-Alignment Condition
+    :78         path `phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md` ; `264` lines ; version token `v1.2`
+    :79         ### ### **IT CARRIES NO CORRESPONDENCE TABLE.** ### The order asks what its
+    :80         ### ### table carries by grade; ### **THE ANSWER IS THAT THERE IS NO TABLE**,
+    :81         ### ### and this act does not write one -- ### **WRITING A CORRESPONDENCE
+    :82         ### ### TABLE IS AUTHORING, NOT RECONCILING.**
+    :83     
+    :84         ### -- the record ### ### **DOES NOT CARRY IT**
+    :85             ### THE RECORD -- `REGISTRY.md` line 244:
+    :86               > | p2-24 | Dark Interface | `phase2/philosophy/DARK_INTERFACE.md` | v2.0 | ○ | READY | 3,466 | Phil & Tech |
+    :87             ### THE KEYSTONE -- ### **NO LINE. ### IT DOES NOT CARRY IT**, and a
+    :88             ### proved absence is said, not quoted.
+    :89               ### **THIS DOCUMENT CARRIES NO CORRESPONDENCE TABLE AT ALL**, so nothing in the record can be matched against a row of its own. ### **A KEYSTONE WITH 
+    :90               NO TABLE IS A KEYSTONE WHOSE GRADE LIMB CANNOT BE READ**, and every record item therefore falls into this bucket by construction rather than by judgem
+### SIDE-structural-error-correction v0.2.1 DeAlignment.lean: the six theorems -- SIDEStructuralErrorCorrection/DeAlignment.lean @ 6a4f4829 (8 lines cited)
+    :29     namespace DeAlignment
+    :62     theorem no_domain_covers_line {P D : Type} (d : P → D) (L : Line P)
+    :75     theorem single_domain_fault_not_logical {P D : Type} {n : Nat}
+    :85     theorem dealigned_of_lines_injective {P D : Type} (d : P → D) (L : Line P)
+    :113    theorem fano_dealignment_decidable_example :
+    :118    theorem fano_collapsed_line_rejected :
+    :140    theorem fano_two_design : ∀ p q : Fin 7, p ≠ q → pairCount p q = 1 := by decide
+    :142    end DeAlignment
+### SIDE-structural-error-correction v0.2.1 Basic.lean: the definitions and the two restating theorems -- SIDEStructuralErrorCorrection/Basic.lean @ 6a4f4829 (11 lines cited)
+    :36     namespace SIDEStructuralErrorCorrection
+    :71     def S : Nat :=
+    :97     def d_eff : Nat := 2 * S - 1
+    :102    /-- Theorem 3.2.  d_eff = 2S - 1 (the formal formula). -/
+    :103    theorem d_eff_formula : d_eff = 2 * S - 1 := by decide
+    :216    /-! ## §9. The Silence-as-Protection Principle -/
+    :222    def num_compartments : Nat := S
+    :228    
+    :233    theorem silence_yields_protection :
+    :234        num_compartments = S ∧ d_eff = 2 * num_compartments - 1 := by decide
+    :236    end SIDEStructuralErrorCorrection
+### SIDE-cosmo c5cba30 SteaneExemplar.lean: the two theorems and the docstring -- SIDECosmo/SteaneExemplar.lean @ c5cba30c (8 lines cited)
+    :72     /-- The Knill–Laflamme condition, specialized to the CSS / stabilizer setting: the
+    :73         code corrects **every** weight-≤1 Pauli error iff all weight-1 error syndromes
+    :74         are distinct and nonzero — exactly `syndrome_injective ∧ syndrome_nonzero`.
+    :75         Hence the [[7,1,3]] code corrects any single-qubit error (t = 1 = ⌊(d−1)/2⌋). -/
+    :76     theorem knill_laflamme_t1 :
+    :77         Function.Injective H ∧ (∀ i : Fin 7, H i ≠ 0) :=
+    :81     theorem steane_parameters :
+    :82         xi.formation_total = 7 ∧
+### SIDE-kernel 5e668b4 InvarianceBarrier.lean -- Kernel/Cascade/InvarianceBarrier.lean @ 5e668b49 (4 lines cited)
+    :31     def DeterminedBy (agree : α → α → Prop) (P : α → Prop) : Prop :=
+    :39     theorem invariance_barrier
+    :50     def Derives (agree : α → α → Prop) (P : α → Prop) (x : α) : Prop :=
+    :60     theorem derivability_barrier
+### SIDE-silence-principle v0.2.0 Basic.lean: silence_universal -- SIDESilencePrinciple/Basic.lean @ 667c2548 (4 lines cited)
+    :118    theorem silence_principle (I : Interface) :
+    :181    theorem silence_universal
+    :182        {C : ConfigurationSpace} {R : Type}
+    :183        (I : Interface C R) (h_univ : I.is_universal) :
+### relay b598`s closing push-out, committed at step zero -- data/b598_closing_push_out.txt @ d3f32506 (8 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b598_closing_push_out.txt (2026-10-02T21:20:29Z)
+    :2      push_gated: repo D:/relay ; branch push-b598-closing ; tip 32fdac16913c84bc8a9f630eb1d9776845047507 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         3646508b..32fdac16  push-b598-closing -> main
+    :5      push_gated: main read back at the remote: 32fdac16913c84bc8a9f630eb1d9776845047507
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay 32fdac16913c84bc8a9f630eb1d9776845047507   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers fcb498e53cc141c647af12d18636214ec1f5ee55   ### main = remote main by ls-remote
+### relay the alias re-run, banked at step zero -- data/b599_alias_rerun.txt @ working tree (13 lines cited)
+    :1      ### b599 -- STEP ZERO: THE b558 MATCHER RE-RUN ON SILENCE_STAGES_DEALIGNMENT AFTER THE ALIAS OF (R209)(2)(i)
+    :2      ### the alias: [('Silence Principle', 'Silence Principle')] on terminal silence_principle, its home phase1.5/structural/SILENCE_FORMAL.md :43 (tools/b558_record.py, working tree; HEAD blob before the edit b5b6e91e)
+    :3      ### the document read at PLACE-papers eb9b057 (phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md); rows by the matcher 27 (b598`s bank: 22)
+    :4      ### rows reached by the alias:
+    :5          :21 -- silence_principle (DOCUMENT, c6661a2) -- "The Silence Principle provides the mechanism: spectrally silent interfaces cannot propagate errors between stages, so the stages function as independent error compartments."
+    :6          :121 -- silence_principle (DOCUMENT, c6661a2) -- "This is the deepest connection between the Silence Principle and error correction: the REASON interfaces are silent (they're essential, hence universal, hence non-discriminating) is the SAME REASON they provide error compartmentalization (they can't transmit error syndromes because they can't transm"
+    :7          :144 -- silence_principle (DOCUMENT, c6661a2) -- "The final step — that silence provides protection — is the Silence Principle applied to error theory."
+    :8          :162 -- silence_principle (DOCUMENT, c6661a2) -- "**Does the Silence Principle predict which biological systems have error correction?** The immune system, DNA repair, and neural error correction all involve interfaces between independent structures."
+    :9          :162 -- silence_principle (DOCUMENT, c6661a2) -- "The Silence Principle predicts that the essential interfaces in these systems are informationally silent — and that this silence is the mechanism of their error correction."
+    :10     ### the home line: phase1.5/structural/SILENCE_FORMAL.md :43 "**Theorem (Silence Principle).** *In a determined system X with"
+    :11     ### the second shape of b598 (data/b598_bank_SILENCE.json): 5 segments ; reached now by the alias: 5 ; the same lines: True
+    :12     ### ### **ALIAS HITS ON SILENCE_STAGES_DEALIGNMENT : 5.**
+    :13     
+
+### the terminal table at relay HEAD (d3f32506), its rows for every cited terminal:
+    no_domain_covers_line                NO ROW
+    single_domain_fault_not_logical      NO ROW
+    dealigned_of_lines_injective         NO ROW
+    fano_dealignment_decidable_example   NO ROW
+    fano_collapsed_line_rejected         NO ROW
+    fano_two_design                      NO ROW
+    d_eff_formula                        NO ROW
+    silence_yields_protection            NO ROW
+    steane_parameters                    SIDE-cosmo steane_parameters grade UNGRADED profile NOT PROFILED present_at ['HEAD']
+    knill_laflamme_t1                    SIDE-cosmo knill_laflamme_t1 grade UNGRADED profile NOT PROFILED present_at ['HEAD']
+    silence_universal                    SIDE-kernel silence_universal grade INTERFACES profile NOT PROFILED present_at ['v1.5'] ; SIDE-silence-principle silence_universal grade INTERFACES profile NOT PROFILED present_at ['HEAD']
+    invariance_barrier                   SIDE-kernel InvarianceBarrier.invariance_barrier grade UNGRADED profile NOT PROFILED present_at ['HEAD']
+    derivability_barrier                 SIDE-kernel InvarianceBarrier.derivability_barrier grade UNGRADED profile NOT PROFILED present_at ['HEAD']
+
+### "Silence Principle" by name across PLACE-papers at fcb498e: 412 lines in 62 files; the files, by count (R = a b557 roster document):
+     33 phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md (R)
+     33 phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md
+     33 phase2/philosophy/SILENCE_EMERGENCE.md
+     29 archive/2026-08-27-trim-backfill/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE_v0_1.md
+     29 phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md
+     11 archive/2026-08-27-trim-backfill/A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v1_2.md
+     11 archive/2026-08-27-trim-backfill/DARK_INTERFACE_SUBMISSION.md
+     11 archive/2026-08-27-trim-backfill/Silence_of_Foundations.md
+     11 day1/Silence_of_Foundations.md
+     11 outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md
+     11 phase1.5/method/A_METHODOLOGY.md
+     11 phase2/philosophy/DARK_INTERFACE.md
+     10 archive/2026-08-27-trim-backfill/INTERFACE_CONSERVATION_HODGE_AND_INTERFACETS_v0_1.md
+     10 phase1.5/method/INVARIANCE_BARRIERS.md (R)
+     10 phase1.5/method/INVARIANCE_BARRIERS_v1_4.md
+     10 phase1.5/spectral/INTERFACE_CONSERVATION.md
+      9 phase1.5/structural/SILENCE_OF_FOUNDATIONS.md
+      6 clusters/PHILOSOPHY_COGNITION_CLUSTER_SYNTHESIS_2026-06-05.md
+      6 day1/A_Place_to_Stand.md (R)
+      6 outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md
+      6 phase1.5/structural/SILENCE_FORMAL.md
+      6 phase2/quantum/FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION.md
+      5 archive/2026-08-23-trim-backfill/FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md
+      5 archive/2026-08-27-trim-backfill/MA_AND_PROGRAMME_OUT_FORMATION_v0_1.md
+      5 archive/2026-08-27-trim-backfill/SILENCE_PRINCIPLE_FORMAL.md
+      5 clusters/FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md
+      5 meta/RAIL_ONLY_PRESERVATION_2026-08-09.md
+      5 outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md
+      5 outputs/v54_deposit_line.md
+      4 meta/W1_DESCRIPTION_DRAFTS.md
+      4 phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md (R)
+      3 EMERGING_RESEARCH_PROGRAMMES.md
+      3 archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md
+      3 archive/2026-08-27-trim-backfill/E_DIFFICULTY_CONJECTURE.md
+      3 phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md (R)
+      3 phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md
+      3 phase2/method/E_DIFFICULTY.md
+      3 phase2/philosophy/COGNITION.md
+      3 phase2/quantum/STEANE_CODE.md
+      2 OPEN_TRAILS.md
+      2 archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-through-2026-08-20c.md
+      2 archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md
+      2 heritage/WHAT_YOU_LEARN.md
+      2 meta/W1_REVIEW_DIGEST.md
+      2 phase1.5/spectral/GRH_CASCADE.md (R)
+      2 phase1.5/spectral/GRH_CASCADE_v0_3_6.md
+      2 phase2/physics-speculative/T7_CMB.md
+      2 protocols/EDITORIAL_BACKLOG_2026-06-05.md
+      1 FINDINGS.md
+      1 REGISTRY.md
+      1 VERIFICATION_LOOM.md
+      1 archive/2026-08-23-trim-backfill/ARXIV_SUBMISSION_FORMS.md
+      1 archive/2026-08-23-trim-backfill/METHODOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md
+      1 archive/2026-08-27-trim-backfill/E_DIFFICULTY_THEOREM_PAPER.md
+      1 clusters/METHODOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md
+      1 meta/VERIFICATION_AND_PROPAGATION.md
+      1 phase1.5/method/COMPUTE_INTERFACE_SPEC.md
+      1 phase1.5/method/DESIGN_PRINCIPLE_MINIMAL_COMPUTE.md
+      1 phase1.5/method/THE_LOAD_BEARING_MAP.md
+      1 phase1.5/spectral/CONSERVATION_REFINED.md
+      1 phase2/method/E_DIFFICULTY_THEOREM.md (R)
+      1 phase2/method/E_DIFFICULTY_THEOREM_v1_0_4.md
+### the documents STATING it (a heading or a bold statement of the principle):
+    fcb498e:archive/2026-08-27-trim-backfill/SILENCE_PRINCIPLE_FORMAL.md:41:**Theorem (Silence Principle).** *In a determined system X with
+    fcb498e:archive/2026-08-27-trim-backfill/Silence_of_Foundations.md:92:**The Silence Principle.**
+    fcb498e:day1/Silence_of_Foundations.md:92:**The Silence Principle.**
+    fcb498e:outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md:92:**The Silence Principle.**
+    fcb498e:phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md:62:**Theorem (Silence Principle).** *In a determined system $X$ with specification $S$, target parameter $P$, and formation $(n_1, n_2, n_3, n_4)$, if $n_4 = 0$ — all essential interfaces are str
+    fcb498e:phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md:64:**Theorem (Silence Principle).** *In a determined system $X$ with specification $S$, target parameter $P$, and formation $(n_1, n_2, n_3, n_4)$, if $n_4 = 0$ — all essential interfaces 
+    fcb498e:phase1.5/structural/SILENCE_FORMAL.md:43:**Theorem (Silence Principle).** *In a determined system X with
+    fcb498e:phase1.5/structural/SILENCE_OF_FOUNDATIONS.md:103:**Silence Principle (informal).** For determined systems with independent structural components: if interface I is essential for the system's existence, then I is spectrally silent for behavioral parame
+    fcb498e:phase2/philosophy/SILENCE_EMERGENCE.md:77:### 2.2 The Silence Principle
+### the home, named in the alias: phase1.5/structural/SILENCE_FORMAL.md :43 -- the formal statement (its title “THE SILENCE PRINCIPLE / Formal Statement”, its role line :6 “presents the formal statement”, REGISTRY 1.5d-2 “Silence Principle (formal)”); the expository forms (SILENCE_OF_FOUNDATIONS :103, the deposited day1/Silence_of_Foundations.md :92) read it
+### SIDE-structural-error-correction: v0.2.1 = 6a4f482 ; main = 6a4f482 ; files carrying `#print axioms` at v0.2.1: none
+### SIDE-cosmo SteaneExemplar.lean opens a namespace at c5cba30: False
+### SIDE-kernel: InvarianceBarrier.lean blob at 5e668b4 e4e8d23b, v1.7 e4e8d23b, main e4e8d23b (= 0256e9e), v1.5 ABSENT
+### SIDE-silence-principle: v0.2.0 = 667c254
+### the copy b394 read, PLACE-papers 4cd1cd2: 263 lines, `## 9. Correspondence` at :196, rows :202-:211 10
+### ERRATA ids dated 2026-10-02 at fcb498e: none

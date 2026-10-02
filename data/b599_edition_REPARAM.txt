@@ -1,0 +1,64 @@
+### OFFSET FROM THE CURRENT VERSION (R190)(3): +1 from :6 (the v0.2 line, above the v0.1 line) -- the current version’s :n sits at the edition’s :n for n < 6, :n+1 for n >= 6 -- every edition line below is the final file`s own.
+
+b599 -- COMPONENT 3: THE EDITION OF REPARAMETERIZATION_BARRIERS, (R209)(4), BY THE FORM OF (R187)(5), ITS CLAUSES AND THE PRECEDENCE ORDER
+
+### the current version : PLACE-papers phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md @ fcb498e (blob b2f658aa), 285 lines ; head :1 "﻿# Reparameterization Barriers for Probing Methods" ; version :6 "**v0.1 — 2026-08-04 — DRAFT**"
+### the bank : relay data/b558_editions/REPARAMETERIZATION_BARRIERS_v0_1.txt (committed at 697eb1ed), read line by line (relay data/b599_reads.txt)
+### the edition : PLACE-papers phase2/method/REPARAMETERIZATION_BARRIERS_v0_2.md, 381 lines, sha256 023cd33bc5de843be0d27d2cb9fab8ec56f1fd39e118e9863f9d67a81ba71b67
+
+### EVERY REWRITTEN OR INSERTED SENTENCE, WITH THE BANK LINE IT ANSWERS AND WHAT IT CITES (3 rewritten):
+
+  ceiling:41 v0.1 :41 -> v0.2 :42 -- ceiling ; cites ['InvarianceBarrier.invariance_barrier']
+      answers: “proved, not conjectured” ((R209)(2)(vi)): the compiled part is the schema (:224), the witness pair manuscript-resident (:226-:230)
+      v0.1 : proved, not conjectured, and it is proved once for the class rather than
+      v0.2 : compiled as a schema (`InvarianceBarrier.invariance_barrier`, SIDE-kernel `5e668b4`), its two clauses for this domain argued in this note (§4), and it is stated once for the class rather than
+
+  ceiling:180 v0.1 :180 -> v0.2 :181 -- ceiling ; cites []
+      answers: a “proved” phrasing about the barrier ((R209)(4)): the clauses are manuscript-resident (:226-:230)
+      v0.1 : **A constructive witness pair** with both barrier clauses proved rather than
+      v0.2 : **A constructive witness pair** with both barrier clauses shown by explicit construction (manuscript-resident, the Correspondence rows (W1)-(W5)) rather than
+
+  fact:219 v0.1 :219 -> v0.2 :220 -- fact ; cites ['`Kernel/Cascade/InvarianceBarrier.lean`']
+      answers: (R209)(2)(v): SIDE-kernel main 0256e9e, the file`s blob e4e8d23b unchanged at 5e668b4, v1.7 and main (relay data/b599_reads.txt)
+      v0.1 : *Every load-bearing claim matched to its verifier.* **RE-VERIFIED AS-RUN 2026-08-06 at the CURRENT kernel pin `5e668b4` (the note was drafted against v1.7 = `2957e7d`).** `#print axioms` was re-executed on both terminals and on their two definitions;
+      v0.2 : *Every load-bearing claim matched to its verifier.* **RE-VERIFIED AS-RUN 2026-08-06 at the kernel pin `5e668b4`, current on that date (the note was drafted against v1.7 = `2957e7d`, and SIDE-kernel main is now `0256e9e`, `Kernel/Cascade/InvarianceBarrier.lean` the same blob `e4e8d23b` at `5e668b4`, v1.7 and `0256e9e`).** `#print axioms` was re-executed on both terminals and on their two definitions;
+
+### THE COLLISIONS, RESOLVED BY THE PRECEDENCE ORDER WITHOUT A PROMPT (2):
+    v0.1 :41 -> v0.2 :42  the ceiling clause (“proved, not conjectured … proved once”) and the restatement clause, on the sentence :40-:43 -- governs: ceiling, then restatement -- one rewrite on :42: the compiled schema named, the domain clauses named as argued; :41 and :43 unchanged
+    v0.1 :219 -> v0.2 :220  the fact clause (“the CURRENT kernel pin”) and the dated re-verification note of 2026-08-06 -- governs: fact, as (R209)(2)(v) rules -- the date and its re-verification kept; the pin named as current on that date, main now `0256e9e`, the blob unchanged
+### THE HISTORY LINES (0, ruled citations under H28b):
+### THE NAMES EXCEPTED (0 sentences on 0 lines): 
+### THE VERSION LINE: v0.2 :6, above v0.1`s line: **v0.2 — 2026-10-02 — CP-7 edition (b599), written beside v0.1, which is left unedited; its back matter closes the file.**
+### THE WORK-LIST REWRITES: 0 ; THE CEILING CORRECTIONS: 2 ; THE FACT CORRECTIONS: 1 ; THE RESTATEMENT REWRITES: 0 (beyond those joined with the ceiling) ; THE STEM CORRECTIONS: none live ; REMOVALS: none ; CREDIT LINES: none (no b450 item placed for this edition)
+### THE CEILING-SHAPED SENTENCES READ AND CARRIED:
+    v0.1 :236 -> v0.2 :237  the work-order’s “State and prove or refute a stability version”, an instruction, not a claim
+    v0.1 :250 -> v0.2 :251  the AI disclosure’s “proof strategies”
+### READ AND LEFT, FOR THE AUTHOR`S STRIKE:
+    v0.1 :70 -> v0.2 :71  “Both are compiled and axiom-free (SIDE-kernel v1.7; see Correspondence)”: the file is the same blob `e4e8d23b` at v1.7, `5e668b4` and main; carried as read
+    v0.1 :146 -> v0.2 :147  the manuscript theorem’s “Therefore no method in D determines P”: its two clauses manuscript-resident (:226-:230), the inference compiled (:224); carried as read, for the author’s strike
+
+### THE COUNTS (relay tools/b558_record.py `segments`, imported): the current version 269 ; the edition`s BODY 270 (+1) ; the BACK MATTER 63, printed separately ; the edition whole 333
+### H28b, final form: the body differs by +1 against CREDIT 0 + removals 0 + ruled citations 0 (the history lines; every rewrite keeps its line`s count) + one version line = 1
+### no blank Status cell: HELD
+
+### THE CEILING, every hit in the edition:
+    :237 "prove" -- carried -- ...nly up to ε is not covered by the exact argument. State and prove...
+    :251 "proof" -- carried -- ...proof strategies, and editorial decisions are...
+    :306 "proved" -- record -- ...| :42 | proved, not conjectured, and it is proved once...
+    :306 "proved" -- record -- ...| :42 | proved, not conjectured, and it is proved once for the class rather than | compil...
+    :306 "proved" -- record -- ...ass rather than | ceiling correction (OPEN_TRAILS :11906): “proved, not conjectured” ((R209)(2)(vi)): the ...
+    :307 "proved" -- record -- ...| :181 | with both barrier clauses proved rather than | with both barrier clauses...
+    :307 "proved" -- record -- ...) rather than | ceiling correction (OPEN_TRAILS :11906): a “proved” phrasing about the barrier ((R209)(4))...
+    :323 "proved" -- record -- ...| :42 | the ceiling clause (“proved, not conjectured … proved once”) and th...
+    :323 "proved" -- record -- ...| :42 | the ceiling clause (“proved, not conjectured … proved once”) and the restatement clause, on t...
+    :342 "prove" -- record -- ...| :237 | ceiling read, carried: the work-order’s “State and prove or refute a stability version”, an inst...
+    :343 "proof" -- record -- ...| :251 | ceiling read, carried: the AI disclosure’s “proof strategies” | carried as read |...
+    :361 "proved" -- record -- ...| (2)(vi) “proved, not conjectured” takes the restatement...
+    :363 "proved" -- record -- ...| (4) “proved” phrasings about the barrier take the c...
+### sentences beyond the ceiling: 0
+### THE SCANNER (banned_terms.py --new) on the edition: live uses 0 ; verdict CLEAN
+
+### ### **H28a HELD -- VACUOUS: the work-list carries no MOVED row, so no row is there to resolve.**
+### ### **H28b HELD -- final form: the body differs by +1 sentences against at most 1; the back matter 63, excluded and printed.**
+### ### **H28c HELD -- the scanner`s verdict CLEAN; sentences beyond the ceiling 0.**
+### ### **THE EDITION LANDS: NO SENTENCE HELD.**

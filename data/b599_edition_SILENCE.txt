@@ -1,0 +1,111 @@
+### OFFSET FROM THE CURRENT VERSION (R190)(3): +2 from :15 (the v1.3 line and a blank, above the v1.2 line); +2 more from :22 (a blank and the history line beneath :21); +2 more from :283 (a blank and the history line beneath b557’s tier table) -- the current version’s :n sits at the edition’s :n for n < 15, :n+2 for 15 <= n <= 21, :n+4 for 22 <= n <= 282, :n+6 for n >= 283 -- every edition line below is the final file`s own.
+
+b599 -- COMPONENT 2: THE EDITION OF SILENCE_STAGES_DEALIGNMENT, (R209)(4), BY THE FORM OF (R187)(5), ITS CLAUSES AND THE PRECEDENCE ORDER
+
+### the current version : PLACE-papers phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md @ fcb498e (blob 0f0c4220), 287 lines ; head :1 "# Silence, Stages, and the De-Alignment Condition" ; version :15 "**v1.2, 2026-07-29** (retitle per the title law; was v1.1)"
+### the bank : relay data/b558_editions/SILENCE_STAGES_DEALIGNMENT.txt (committed at 16919d87), read line by line (relay data/b599_reads.txt)
+### the edition : PLACE-papers phase2/quantum/SILENCE_STAGES_DEALIGNMENT_v1_3.md, 425 lines, sha256 4b0022c97e94601ce0086d2b5e508f27e22ceeb076035e79ca0e991c41ba5ace
+
+### EVERY REWRITTEN OR INSERTED SENTENCE, WITH THE BANK LINE IT ANSWERS AND WHAT IT CITES (7 rewritten):
+
+  work-list:209 v1.2 :209 -> v1.3 :213 -- work-list ; cites ['knill_laflamme_t1', '`SIDECosmo/SteaneExemplar.lean` :72-:75']
+      answers: the work-list’s MOVED-IN-MEANING row (`knill_laflamme_t1`), with the fact clause on its prefix ((R209)(2)(iv))
+      v1.2 : | The Knill–Laflamme error-correction conditions | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |
+      v1.3 : | The single-error syndrome condition of the [[7,1,3]] check map: its seven columns nonzero and pairwise distinct (`Function.Injective H ∧ ∀ i : Fin 7, H i ≠ 0`), the t = 1 case of what the field names the Knill–Laflamme error-correction conditions (Knill and Laflamme 1997), that reading being the declaration’s docstring (`SIDECosmo/SteaneExemplar.lean` :72-:75), not compiled | SIDE-cosmo (`c5cba30`) | `knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |
+
+  ceiling:21 v1.2 :21 -> v1.3 :23 -- ceiling ; cites ['d_eff_formula']
+      answers: “We prove” ((R209)(2)(vi)): the general theorem is manuscript-resident (§3 :101, §9 :214), with the restatement clause on “equals”
+      v1.2 : We prove: the effective distance under formation-block errors equals 2S − 1 where S is the number of non-empty formation stages.
+      v1.3 : We argue, by the sketch of §3 and not by a compiled statement, that the effective distance under formation-block errors is at least 2S − 1 (equal at S = 3, §2) where S is the number of non-empty formation stages, the kernel restating only its definition `d_eff := 2 * S - 1` at its constant S (`d_eff_formula`, SIDE-structural-error-correction v0.2.1 = `6a4f482`).
+
+  fact:198 v1.2 :198 -> v1.3 :202 -- fact ; cites []
+      answers: the rows :212-:213 cite SIDE-cosmo `c5cba30` (relay data/b599_reads.txt; the note :217)
+      v1.2 : All rows pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`.
+      v1.3 : All rows but the two Steane rows (pinned in the sibling kernel `SIDE-cosmo` at `c5cba30`, as the note beneath the table says) pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`.
+
+  fact:208 v1.2 :208 -> v1.3 :212 -- fact ; cites []
+      answers: (R209)(2)(iv): `SIDECosmo/SteaneExemplar.lean` at SIDE-cosmo c5cba30 opens no namespace; the declaration is at the root (relay data/b599_reads.txt)
+      v1.2 : | The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.steane_parameters` | `{propext, Quot.sound}` | DERIVES |
+      v1.3 : | The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `steane_parameters` | `{propext, Quot.sound}` | DERIVES |
+
+  fact:210 v1.2 :210 -> v1.3 :214 -- fact ; cites ['SIDEStructuralErrorCorrection.d_eff_formula']
+      answers: (R209)(2)(iii): the pin the section cites carries d_eff_formula (relay data/b599_reads.txt; b598 bank, the objects)
+      v1.2 : | Formation Distance theorem, d_eff ≥ 2S−1 (§3) | none (manuscript) | proof sketch only — no terminal | n/a | manuscript-resident |
+      v1.3 : | Formation Distance theorem, d_eff ≥ 2S−1 (§3) | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `SIDEStructuralErrorCorrection.d_eff_formula`, the definition `d_eff := 2 * S - 1` (`Basic.lean` :97) restated at the kernel’s constant S = 3 by `decide` (:103), the bound for every S having a sketch only (§3) | no printed profile (the kernel writes no `#print axioms` artefact) | T2, definitional; the general bound manuscript-resident |
+
+  fact:211 v1.2 :211 -> v1.3 :215 -- fact ; cites ['SIDEStructuralErrorCorrection.silence_yields_protection']
+      answers: (R209)(2)(iii): the pin carries silence_yields_protection (relay data/b599_reads.txt; b598 bank, the objects)
+      v1.2 : | The four-domain silence-as-protection pattern (§4–5) | none (manuscript) | survey — no terminal | n/a | manuscript-resident |
+      v1.3 : | The four-domain silence-as-protection pattern (§4–5) | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `SIDEStructuralErrorCorrection.silence_yields_protection`, the definitions `num_compartments := S` (`Basic.lean` :222) and `d_eff` (:97) restated as `num_compartments = S ∧ d_eff = 2 * num_compartments - 1` by `decide` (:233), the four-domain survey having no terminal | no printed profile (the kernel writes no `#print axioms` artefact) | T2, definitional; the survey manuscript-resident |
+
+  fact:213 v1.2 :213 -> v1.3 :217 -- fact ; cites ['d_eff_formula', 'silence_yields_protection']
+      answers: the rows :214-:215 now cite the definitions at the pin (relay data/b599_reads.txt)
+      v1.2 : The Formation Distance theorem (§3) and the four-domain pattern (§4–5) carry no kernel and are manuscript-resident, exactly as §3 and §5 already record.*
+      v1.3 : The Formation Distance theorem (§3) and the four-domain pattern (§4–5) are manuscript-resident as general statements, exactly as §3 and §5 already record, their two rows citing the definitions the kernel restates at its constant S (`d_eff_formula`, `silence_yields_protection`, SIDE-structural-error-correction v0.2.1 = `6a4f482`), T2 as definitional.*
+
+### THE COLLISIONS, RESOLVED BY THE PRECEDENCE ORDER WITHOUT A PROMPT (10):
+    v1.2 :21 -> v1.3 :23  the ceiling clause (“We prove”) and the restatement clause (“equals” restating §3’s ≥), on one sentence -- governs: ceiling, then restatement -- one rewrite: the ceiling takes “We prove”, the restatement what it leaves; both wordings in the ceiling row
+    v1.2 :21 -> v1.3 :23  the name-and-title exception (“The Silence Principle provides the mechanism …”) and the ceiling clause on the line’s other sentence -- governs: both, on different sentences -- the named sentence carried, a history line beneath; the ceiling on “We prove”
+    v1.2 :144 -> v1.3 :148  the name-and-title exception (the final sentence) and the survey’s “It is derived” beside it -- governs: name, then read -- the named sentence carried; “It is derived” read and left, scoped by :154
+    v1.2 :209 -> v1.3 :213  the work-list’s MOVED-IN-MEANING row and the fact clause (the `SteaneExemplar.` prefix) -- governs: the work-list row and the fact together -- one rewrite answers both: the claim cell names the syndrome condition the statement carries, the name written as declared
+    v1.2 :213 -> v1.3 :217  the fact clause (“carry no kernel”, contradicted by the rows :214-:215 as rewritten) and the restatement clause -- governs: fact -- corrected to the definitions cited at the pin; the restatement clause has nothing left
+    v1.2 :243 -> v1.3 :247  the history clause (the v1.1 entry: “two manuscript-resident rows”) and the fact clause -- governs: history -- carried unchanged as the dated record; the rows’ new terminals stated in the history line beneath b557’s table
+    v1.2 :256 -> v1.3 :260  the history clause (the era annotation of 2026-08-20) and the ceiling clause (“proved at general q”) -- governs: history -- carried unchanged as the dated record; the object is SIDE-global-section’s `KLSilence`, not this document’s
+    v1.2 :259 -> v1.3 :263  the history clause (the era annotation) and the work-list’s Knill–Laflamme reading -- governs: history -- carried unchanged: it names the Knill–Laflamme verdict of the KL run, another object than `knill_laflamme_t1`
+    v1.2 :280 -> v1.3 :284  the history clause (b557’s tier block, dated 2026-09-29) and the restatement clause (the block’s :209 row) -- governs: history -- carried unchanged; the reading in the history line beneath the block’s table
+    v1.2 :281 -> v1.3 :285  the history clause (b557’s block, its rows :285-:286, “NONE … T4”) and the fact clause -- governs: history -- carried unchanged; the definitions and their T2 named in the same history line
+### THE HISTORY LINES (2, ruled citations under H28b):
+    v1.3 :25, beneath the earliest sentence naming the Silence Principle (:23) -- (R209)(2)(i): the name-and-title exception, one history line citing the home of the principle by path and line
+      *History line, 2026-10-02 (v1.3, b599): the Silence Principle named above and at :125, :148 and :166 (twice) is the corpus’s own named object, its statement “Theorem (Silence Principle)” at `phase1.5/structural/SILENCE_FORMAL.md` :43 (REGISTRY 1.5d-2), whose part (A), protection across a P-dark interface, is the reading these sentences apply, and its compiled universal form there is `silence_universal`, interfacing on the named hypothesis `I.is_universal` (SIDE-silence-principle v0.2.0 = `667c254`, `SIDESilencePrinciple/Basic.lean` :181), while this document’s compiled anchor stays the de-alignment condition of §7.*
+    v1.3 :288, beneath b557’s tier table (:275-:286), for its rows :284-:286 -- the dated block restates the row :213 and names no terminal for :214-:215; the history clause governs (OPEN_TRAILS :11908, :12194)
+      *History line, 2026-10-02 (v1.3, b599): of the rows above labelled :209, :210 and :211, the first now reads in this edition’s §9 (:213) the single-error syndrome condition `knill_laflamme_t1` states, its Knill–Laflamme reading the docstring’s and not compiled, and the other two (:214, :215) cite the definitions the kernel restates at its constant S, `d_eff_formula` and `silence_yields_protection` (SIDE-structural-error-correction v0.2.1 = `6a4f482`), each T2 as definitional, the general bound and the four-domain survey staying manuscript-resident.*
+### THE NAMES EXCEPTED (5 sentences on 4 lines): :21 -> :23, :121 -> :125, :144 -> :148, :162 -> :166
+### THE VERSION LINE: v1.3 :15, above v1.2`s line: **v1.3, 2026-10-02** — *CP-7 edition (b599), written beside v1.2, which is left unedited; its back matter closes the file.*
+### THE WORK-LIST REWRITES: 1 ; THE CEILING CORRECTIONS: 1 ; THE FACT CORRECTIONS: 5 ; THE RESTATEMENT REWRITES: 0 (beyond those joined with the ceiling) ; THE STEM CORRECTIONS: none live ; REMOVALS: none ; CREDIT LINES: none (no b450 item placed for this edition)
+### THE CEILING-SHAPED SENTENCES READ AND CARRIED:
+    v1.2 :34 -> v1.3 :38  the survey table’s system label “SIDE proof (logic)”, the name of a system, not a claim
+    v1.2 :97 -> v1.3 :101  the general theorem’s “proof sketch only”, manuscript-resident with no kernel pin -- true of the bound for every S; read and carried
+    v1.2 :235 -> v1.3 :239  “manuscript-resident (proof sketch only …)” of the §3 general theorem, true as above
+    v1.2 :237 -> v1.3 :241  the AI disclosure’s “proof strategies”
+    v1.2 :245 -> v1.3 :249  the v1.0.1 dated entry, “proof sketch”, carried by history
+    v1.2 :256 -> v1.3 :260  the era annotation of 2026-08-20, “proved at general q” (SIDE-global-section `KLSilence`), carried by history
+### READ AND LEFT, FOR THE AUTHOR`S STRIKE:
+    v1.2 :21 -> v1.3 :23  “Silence is protection.”: the survey’s pattern, which :27 already carries “at manuscript grade”; not a “proved” phrasing; carried by the letter, for the author’s strike
+    v1.2 :144 -> v1.3 :148  “The protection is not designed. It is derived.”: the survey’s reading, which :154 carries “at manuscript/correspondence grade”; carried by the letter, for the author’s strike
+    v1.2 :146 -> v1.3 :150  “Error-correcting codes are not inventions …”: scoped by :154’s claim-status; carried, for the author’s strike
+
+### THE COUNTS (relay tools/b558_record.py `segments`, imported): the current version 350 ; the edition`s BODY 353 (+3) ; the BACK MATTER 101, printed separately ; the edition whole 454
+### H28b, final form: the body differs by +3 against CREDIT 0 + removals 0 + ruled citations 2 (the history lines; every rewrite keeps its line`s count) + one version line = 3
+### no blank Status cell: HELD
+
+### THE CEILING, every hit in the edition:
+    :23 "proof" -- rewritten -- ...fy a pattern across four domains: quantum error correction, proof architecture, biological coding, and co...
+    :38 "proof" -- carried -- ...| SIDE proof (logic) | Spec → Catalogue → Exclusion ...
+    :101 "proof" -- carried -- ... *Named-interface (interim):* the general theorem carries a proof sketch only — it is manuscript-resident...
+    :239 "proof" -- carried -- ...ral theorem is not among these — it is manuscript-resident (proof sketch only; named-interface note at §3...
+    :241 "proof" -- carried -- ...kflow assisted by Claude (Anthropic). Mathematical content, proof strategies, and editorial decisions are...
+    :249 "proof" -- carried -- ...er the T7 substrate-boundary ruling; the theorem statement, proof sketch, and §6 open-tightness question ...
+    :249 "proof" -- carried -- ...records that the §3 general theorem is manuscript-resident (proof sketch only, no kernel pin). (4) Versio...
+    :260 "proved" -- carried -- ...> the ball is readable; the silence theorem, proved at general q with its hypotheses named,...
+    :315 "prove" -- record -- ...| :23 | We prove: the effective distance under formation...
+    :315 "prove" -- record -- ... `6a4f482`). | ceiling correction (OPEN_TRAILS :11906): “We prove” ((R209)(2)(vi)): the general theorem i...
+    :323 "proof" -- record -- ...| :214 | ¦ none (manuscript) ¦ proof sketch only — no terminal ¦ n/a ¦ manus...
+    :335 "prove" -- record -- ...| :23 | the ceiling clause (“We prove”) and the restatement clause (“equals” ...
+    :335 "prove" -- record -- ...ling, then restatement | one rewrite: the ceiling takes “We prove”, the restatement what it leaves; both ...
+    :336 "prove" -- record -- ...entence carried, a history line beneath; the ceiling on “We prove” |...
+    :341 "proved" -- record -- ...(the era annotation of 2026-08-20) and the ceiling clause (“proved at general q”) | history | carried unch...
+    :370 "proof" -- record -- ...eiling read, carried: the survey table’s system label “SIDE proof (logic)”, the name of a system, not a c...
+    :371 "proof" -- record -- ...| :101 | ceiling read, carried: the general theorem’s “proof sketch only”, manuscript-resident with ...
+    :372 "proof" -- record -- ...| :239 | ceiling read, carried: “manuscript-resident (proof sketch only …)” of the §3 general theor...
+    :373 "proof" -- record -- ...| :241 | ceiling read, carried: the AI disclosure’s “proof strategies” | carried as read |...
+    :374 "proof" -- record -- ...| :249 | ceiling read, carried: the v1.0.1 dated entry, “proof sketch”, carried by history | carried a...
+    :375 "proved" -- record -- ...| ceiling read, carried: the era annotation of 2026-08-20, “proved at general q” (SIDE-global-section `KLS...
+    :381 "proved" -- record -- ...rn, which :27 already carries “at manuscript grade”; not a “proved” phrasing; carried by the letter, for t...
+    :396 "prove" -- record -- ...| (2)(vi) “We prove” takes the restatement clause and the c...
+### sentences beyond the ceiling: 0
+### THE SCANNER (banned_terms.py --new) on the edition: live uses 0 ; verdict CLEAN
+
+### ### **H28a HELD -- every MOVED row resolves to a sentence citing its compiled fact at its pin.**
+### ### **H28b HELD -- final form: the body differs by +3 sentences against at most 3; the back matter 101, excluded and printed.**
+### ### **H28c HELD -- the scanner`s verdict CLEAN; sentences beyond the ceiling 0.**
+### ### **THE EDITION LANDS: NO SENTENCE HELD.**

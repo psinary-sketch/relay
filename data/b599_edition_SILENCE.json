@@ -1,0 +1,243 @@
+{
+ "path": "phase2/quantum/SILENCE_STAGES_DEALIGNMENT_v1_3.md",
+ "cur": "phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md",
+ "cur_blob": "0f0c42208264faea911a8d7e28f4d60666b98371",
+ "lines_cur": 287,
+ "lines_body": 293,
+ "lines_full": 425,
+ "n_cur": 350,
+ "n_body": 353,
+ "n_full": 454,
+ "n_backmatter": 101,
+ "credit": 0,
+ "removals": 0,
+ "ruled_citations": 2,
+ "version_lines": 1,
+ "diff": [
+  {
+   "id": "work-list:209",
+   "line": 209,
+   "ed_line": 213,
+   "terminal": "knill_laflamme_t1",
+   "old": "| The Knill–Laflamme error-correction conditions | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |",
+   "new": "| The single-error syndrome condition of the [[7,1,3]] check map: its seven columns nonzero and pairwise distinct (`Function.Injective H ∧ ∀ i : Fin 7, H i ≠ 0`), the t = 1 case of what the field names the Knill–Laflamme error-correction conditions (Knill and Laflamme 1997), that reading being the declaration’s docstring (`SIDECosmo/SteaneExemplar.lean` :72-:75), not compiled | SIDE-cosmo (`c5cba30`) | `knill_laflamme_t1` | `{propext, Classical.choice, Quot.sound}` | DERIVES |",
+   "changed": true,
+   "cites": [
+    "knill_laflamme_t1",
+    "`SIDECosmo/SteaneExemplar.lean` :72-:75"
+   ],
+   "supports": "names the Knill–Laflamme error-correction conditions with the grade DERIVES, and the terminal states only that the parity map `H : Fin 7 → ZMod 2 × ZMod 2 × ZMod 2` has nonzero, pairwise distinct columns (`Function.Injective H ∧ ∀ i : Fin 7, H i ≠ 0`, `SIDECosmo/SteaneExemplar.lean` :76, SIDE-cosmo `c5cba30`); that this is the Knill–Laflamme condition for every Pauli error of weight at most one in the CSS setting is its docstring`s (:72-:75), not compiled, so what is compiled is the t = 1 syndrome condition the name abbreviates.",
+   "answers": "the work-list’s MOVED-IN-MEANING row (`knill_laflamme_t1`), with the fact clause on its prefix ((R209)(2)(iv))",
+   "kind": "work-list"
+  },
+  {
+   "id": "ceiling:21",
+   "line": 21,
+   "ed_line": 23,
+   "terminal": "“We prove” ((R209)(2)(vi)): the general theorem is manuscript-resident (§3 :101, §9 :214), with the restatement clause on “equals”",
+   "old": "We prove: the effective distance under formation-block errors equals 2S − 1 where S is the number of non-empty formation stages.",
+   "new": "We argue, by the sketch of §3 and not by a compiled statement, that the effective distance under formation-block errors is at least 2S − 1 (equal at S = 3, §2) where S is the number of non-empty formation stages, the kernel restating only its definition `d_eff := 2 * S - 1` at its constant S (`d_eff_formula`, SIDE-structural-error-correction v0.2.1 = `6a4f482`).",
+   "changed": true,
+   "cites": [
+    "d_eff_formula"
+   ],
+   "supports": "“We prove” ((R209)(2)(vi)): the general theorem is manuscript-resident (§3 :101, §9 :214), with the restatement clause on “equals”",
+   "answers": "“We prove” ((R209)(2)(vi)): the general theorem is manuscript-resident (§3 :101, §9 :214), with the restatement clause on “equals”",
+   "kind": "ceiling"
+  },
+  {
+   "id": "fact:198",
+   "line": 198,
+   "ed_line": 202,
+   "terminal": "the rows :212-:213 cite SIDE-cosmo `c5cba30` (relay data/b599_reads.txt; the note :217)",
+   "old": "All rows pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`.",
+   "new": "All rows but the two Steane rows (pinned in the sibling kernel `SIDE-cosmo` at `c5cba30`, as the note beneath the table says) pinned to `SIDE-structural-error-correction` v0.2.1, commit `6a4f4829cf219839f33c6af9d665687b93af772e`; axiom profiles exactly as recorded by `#print axioms`.",
+   "changed": true,
+   "cites": [],
+   "supports": "the rows :212-:213 cite SIDE-cosmo `c5cba30` (relay data/b599_reads.txt; the note :217)",
+   "answers": "the rows :212-:213 cite SIDE-cosmo `c5cba30` (relay data/b599_reads.txt; the note :217)",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:208",
+   "line": 208,
+   "ed_line": 212,
+   "terminal": "(R209)(2)(iv): `SIDECosmo/SteaneExemplar.lean` at SIDE-cosmo c5cba30 opens no namespace; the declaration is at the root (relay data/b599_reads.txt)",
+   "old": "| The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `SteaneExemplar.steane_parameters` | `{propext, Quot.sound}` | DERIVES |",
+   "new": "| The [[7,1,3]] Steane parameters (the code the lines structure) | SIDE-cosmo (`c5cba30`) | `steane_parameters` | `{propext, Quot.sound}` | DERIVES |",
+   "changed": true,
+   "cites": [],
+   "supports": "(R209)(2)(iv): `SIDECosmo/SteaneExemplar.lean` at SIDE-cosmo c5cba30 opens no namespace; the declaration is at the root (relay data/b599_reads.txt)",
+   "answers": "(R209)(2)(iv): `SIDECosmo/SteaneExemplar.lean` at SIDE-cosmo c5cba30 opens no namespace; the declaration is at the root (relay data/b599_reads.txt)",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:210",
+   "line": 210,
+   "ed_line": 214,
+   "terminal": "(R209)(2)(iii): the pin the section cites carries d_eff_formula (relay data/b599_reads.txt; b598 bank, the objects)",
+   "old": "| Formation Distance theorem, d_eff ≥ 2S−1 (§3) | none (manuscript) | proof sketch only — no terminal | n/a | manuscript-resident |",
+   "new": "| Formation Distance theorem, d_eff ≥ 2S−1 (§3) | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `SIDEStructuralErrorCorrection.d_eff_formula`, the definition `d_eff := 2 * S - 1` (`Basic.lean` :97) restated at the kernel’s constant S = 3 by `decide` (:103), the bound for every S having a sketch only (§3) | no printed profile (the kernel writes no `#print axioms` artefact) | T2, definitional; the general bound manuscript-resident |",
+   "changed": true,
+   "cites": [
+    "SIDEStructuralErrorCorrection.d_eff_formula"
+   ],
+   "supports": "(R209)(2)(iii): the pin the section cites carries d_eff_formula (relay data/b599_reads.txt; b598 bank, the objects)",
+   "answers": "(R209)(2)(iii): the pin the section cites carries d_eff_formula (relay data/b599_reads.txt; b598 bank, the objects)",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:211",
+   "line": 211,
+   "ed_line": 215,
+   "terminal": "(R209)(2)(iii): the pin carries silence_yields_protection (relay data/b599_reads.txt; b598 bank, the objects)",
+   "old": "| The four-domain silence-as-protection pattern (§4–5) | none (manuscript) | survey — no terminal | n/a | manuscript-resident |",
+   "new": "| The four-domain silence-as-protection pattern (§4–5) | SIDE-structural-error-correction v0.2.1 (`6a4f482`) | `SIDEStructuralErrorCorrection.silence_yields_protection`, the definitions `num_compartments := S` (`Basic.lean` :222) and `d_eff` (:97) restated as `num_compartments = S ∧ d_eff = 2 * num_compartments - 1` by `decide` (:233), the four-domain survey having no terminal | no printed profile (the kernel writes no `#print axioms` artefact) | T2, definitional; the survey manuscript-resident |",
+   "changed": true,
+   "cites": [
+    "SIDEStructuralErrorCorrection.silence_yields_protection"
+   ],
+   "supports": "(R209)(2)(iii): the pin carries silence_yields_protection (relay data/b599_reads.txt; b598 bank, the objects)",
+   "answers": "(R209)(2)(iii): the pin carries silence_yields_protection (relay data/b599_reads.txt; b598 bank, the objects)",
+   "kind": "fact"
+  },
+  {
+   "id": "fact:213",
+   "line": 213,
+   "ed_line": 217,
+   "terminal": "the rows :214-:215 now cite the definitions at the pin (relay data/b599_reads.txt)",
+   "old": "The Formation Distance theorem (§3) and the four-domain pattern (§4–5) carry no kernel and are manuscript-resident, exactly as §3 and §5 already record.*",
+   "new": "The Formation Distance theorem (§3) and the four-domain pattern (§4–5) are manuscript-resident as general statements, exactly as §3 and §5 already record, their two rows citing the definitions the kernel restates at its constant S (`d_eff_formula`, `silence_yields_protection`, SIDE-structural-error-correction v0.2.1 = `6a4f482`), T2 as definitional.*",
+   "changed": true,
+   "cites": [
+    "d_eff_formula",
+    "silence_yields_protection"
+   ],
+   "supports": "the rows :214-:215 now cite the definitions at the pin (relay data/b599_reads.txt)",
+   "answers": "the rows :214-:215 now cite the definitions at the pin (relay data/b599_reads.txt)",
+   "kind": "fact"
+  }
+ ],
+ "offset": "+2 from :15 (the v1.3 line and a blank, above the v1.2 line); +2 more from :22 (a blank and the history line beneath :21); +2 more from :283 (a blank and the history line beneath b557’s tier table) -- the current version’s :n sits at the edition’s :n for n < 15, :n+2 for 15 <= n <= 21, :n+4 for 22 <= n <= 282, :n+6 for n >= 283",
+ "hist_at": {
+  "21": 25,
+  "282": 288
+ },
+ "ver_at": 15,
+ "collisions": [
+  [
+   21,
+   "the ceiling clause (“We prove”) and the restatement clause (“equals” restating §3’s ≥), on one sentence",
+   "ceiling, then restatement",
+   "one rewrite: the ceiling takes “We prove”, the restatement what it leaves; both wordings in the ceiling row"
+  ],
+  [
+   21,
+   "the name-and-title exception (“The Silence Principle provides the mechanism …”) and the ceiling clause on the line’s other sentence",
+   "both, on different sentences",
+   "the named sentence carried, a history line beneath; the ceiling on “We prove”"
+  ],
+  [
+   144,
+   "the name-and-title exception (the final sentence) and the survey’s “It is derived” beside it",
+   "name, then read",
+   "the named sentence carried; “It is derived” read and left, scoped by {E:150}"
+  ],
+  [
+   209,
+   "the work-list’s MOVED-IN-MEANING row and the fact clause (the `SteaneExemplar.` prefix)",
+   "the work-list row and the fact together",
+   "one rewrite answers both: the claim cell names the syndrome condition the statement carries, the name written as declared"
+  ],
+  [
+   213,
+   "the fact clause (“carry no kernel”, contradicted by the rows {E:210}-{E:211} as rewritten) and the restatement clause",
+   "fact",
+   "corrected to the definitions cited at the pin; the restatement clause has nothing left"
+  ],
+  [
+   243,
+   "the history clause (the v1.1 entry: “two manuscript-resident rows”) and the fact clause",
+   "history",
+   "carried unchanged as the dated record; the rows’ new terminals stated in the history line beneath b557’s table"
+  ],
+  [
+   256,
+   "the history clause (the era annotation of 2026-08-20) and the ceiling clause (“proved at general q”)",
+   "history",
+   "carried unchanged as the dated record; the object is SIDE-global-section’s `KLSilence`, not this document’s"
+  ],
+  [
+   259,
+   "the history clause (the era annotation) and the work-list’s Knill–Laflamme reading",
+   "history",
+   "carried unchanged: it names the Knill–Laflamme verdict of the KL run, another object than `knill_laflamme_t1`"
+  ],
+  [
+   280,
+   "the history clause (b557’s tier block, dated 2026-09-29) and the restatement clause (the block’s :209 row)",
+   "history",
+   "carried unchanged; the reading in the history line beneath the block’s table"
+  ],
+  [
+   281,
+   "the history clause (b557’s block, its rows {E:281}-{E:282}, “NONE … T4”) and the fact clause",
+   "history",
+   "carried unchanged; the definitions and their T2 named in the same history line"
+  ]
+ ],
+ "carried": {
+  "34": "the survey table’s system label “SIDE proof (logic)”, the name of a system, not a claim",
+  "97": "the general theorem’s “proof sketch only”, manuscript-resident with no kernel pin -- true of the bound for every S; read and carried",
+  "235": "“manuscript-resident (proof sketch only …)” of the §3 general theorem, true as above",
+  "237": "the AI disclosure’s “proof strategies”",
+  "245": "the v1.0.1 dated entry, “proof sketch”, carried by history",
+  "256": "the era annotation of 2026-08-20, “proved at general q” (SIDE-global-section `KLSilence`), carried by history"
+ },
+ "n_worklist": 1,
+ "n_ceils": 1,
+ "n_facts": 5,
+ "n_restate": 0,
+ "n_names": 5,
+ "sha256": "4b0022c97e94601ce0086d2b5e508f27e22ceeb076035e79ca0e991c41ba5ace",
+ "status_blanks": [],
+ "cited_lines": {
+  "DeAlignment.no_domain_covers_line": [
+   206
+  ],
+  "DeAlignment.single_domain_fault_not_logical": [
+   207
+  ],
+  "DeAlignment.dealigned_of_lines_injective": [
+   208
+  ],
+  "DeAlignment.fano_dealignment_decidable_example": [
+   209
+  ],
+  "DeAlignment.fano_collapsed_line_rejected": [
+   210
+  ],
+  "DeAlignment.fano_two_design": [
+   211
+  ],
+  "SIDEStructuralErrorCorrection.d_eff_formula": [
+   214
+  ],
+  "SIDEStructuralErrorCorrection.silence_yields_protection": [
+   215
+  ],
+  "steane_parameters": [
+   212,
+   283
+  ],
+  "knill_laflamme_t1": [
+   213,
+   284,
+   288
+  ],
+  "silence_universal": [
+   25
+  ]
+ },
+ "word_line": 12330
+}
