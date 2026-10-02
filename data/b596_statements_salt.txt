@@ -1,0 +1,24 @@
+b596 -- THE STATEMENTS OF SIDEExplicitFormula/SaltCheckSimplicity.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-02T17:19:51Z ; the branch simplicity-b596 (checked out: simplicity-b596) ; the file`s sha256 792a2117de29ad9b0d4715e1ee963fa8295f2a29dd538c2acd54535ee2781e15 ; its bytes 4934
+
+### :33 def pt
+    def pt : ℂ := ⟨1 / 2, 14⟩
+### :35 theorem pt_reflect
+    theorem pt_reflect : Zeta23.reflect pt = pt := by
+### :46 def toyZ
+    def toyZ (m : ℕ) (hm : 1 ≤ m) : Zeta23.ZeroConfig where
+### :63 theorem toy_N_le
+    theorem toy_N_le (m : ℕ) (hm : 1 ≤ m) (t : ℝ) : (toyZ m hm).N t (t + 1) ≤ m := by
+### :72 theorem toy_count
+    theorem toy_count (m : ℕ) (hm : 1 ≤ m) : HCount (toyZ m hm) m := by
+### :84 def toyCfg
+    def toyCfg (m : ℕ) (hm : 1 ≤ m) : WeilConfig where
+### :92 theorem toy_online
+    theorem toy_online (m : ℕ) (hm : 1 ≤ m) : online (toyCfg m hm) := by
+### :100 theorem allSimple_satisfiable
+    theorem allSimple_satisfiable :
+        ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C :=
+### :107 theorem allSimple_not_forced
+    theorem allSimple_not_forced :
+        ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C :=

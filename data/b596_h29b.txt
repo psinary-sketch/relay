@@ -1,0 +1,136 @@
+b596 -- COMPONENT 3: H29b, THE TITLE`S PROP SALT-CHECKED AND THE FEDERATION SEARCHED, (R206)(4)(b)
+
+### allSimple_satisfiable : ['propext', 'Classical.choice', 'Quot.sound'] -- a configuration of the schema, target held, Weil-positive on classK, a point, every point simple
+### allSimple_not_forced : ['propext', 'Classical.choice', 'Quot.sound'] -- the same with a point of multiplicity two: the fields, the target and Weil positivity do not imply the clause
+    SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable : ∃ C,
+      C.target ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ C.carrier.Nonempty ∧ SIDEExplicitFormula.Simplicity.allSimple C
+    SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced : ∃ C,
+      C.target ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ ¬SIDEExplicitFormula.Simplicity.allSimple C
+    def SIDEExplicitFormula.Simplicity.allSimple : SIDEExplicitFormula.Schema.WeilConfig → Prop :=
+    fun C => ∀ ρ ∈ C.carrier, C.mult ρ = 1
+    def SIDEExplicitFormula.Simplicity.simplicity : Prop :=
+### the E0 gates: Simplicity.lean True, SaltCheckSimplicity.lean True ; sorryAx in the prints: NONE
+
+### THE FEDERATION WALK: git grep -E "zeroMult|analyticOrderAt|allSimple|Simplicity\.simplicity|\bsimplicity\b|multiplicit|\.mult\b" at HEAD of every kernel (44), 97 files; every theorem/lemma header naming a constant of the clause, its conclusion classified
+    OTHER     SIDE-bsd-formation-transfer SIDEBSDFormationTransfer/Basic.lean:227 bsd_decomposition --  location_transferred = true ∧ multiplicity_specific_not_transferred = true
+    OTHER     SIDE-bsd-multiplicity SIDEBSDMultiplicity/Basic.lean:263 multiplicity_argument_complete --  BSD_multiplicity_argument.same_spec_determines_both = true ∧ BSD_multiplicity_argument.no_distinguishing_mechanism = true ∧ BSD_multiplicity_argument.observed_
+    OTHER     SIDE-bsd-multiplicity SIDEBSDMultiplicity/Basic.lean:343 BSD_three_layers --  BSD_status.location_zeros_on_Re_one = true ∧ BSD_status.sha_finite = true ∧ BSD_status.multiplicity_equals_rank = true
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/Contour.lean:27 rectangle_identity_chi --  Finset ℂ, ((Z : Set ℂ) = {ρ : ℂ | IsNontrivialZeroChi χ ρ ∧ -R < ρ.im ∧ ρ.im < R}) ∧ RectangleIntegral' (fun s => Hfn k s * logDeriv (completedLFunction χ) s) 
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/CountByIntegral.lean:67 analyticOrderNatAt_completedLFunction --  analyticOrderNatAt (completedLFunction χ) ρ = zeroMultChi χ ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/CriterionConverse.lean:31 dominant_summable_chi --  Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/CriterionConverse.lean:51 fR_norm_le_chi --  ‖fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ ((chiZeroConfig χ hχ h1).mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/CriterionConverse.lean:68 fR_bound_chi --  ‖fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ ((chiZeroConfig χ hχ h1).mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/FullLineAssembly.lean:31 full_line_identity_chi --  (chiZeroConfig χ hχ h1).carrier, ((chiZeroConfig χ hχ h1).mult ρ : ℂ) * Hfn k ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/GoodHeights.lean:40 sum_mult_six_windows_chi --  ∑ ρ ∈ F, ((chiZeroConfig χ hχ hχ1).mult ρ : ℝ) ≤ 6 * (A₀ * Real.log (|(a : ℝ)| + 9))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/GoodHeights.lean:86 card_le_sum_mult_chi --  (F.card : ℝ) ≤ ∑ ρ ∈ F, ((chiZeroConfig χ hχ hχ1).mult ρ : ℝ)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/LocalCount.lean:59 analyticOrderNatAt_gfunChi --  analyticOrderNatAt (gfunChi χ s₀ c u) w = zeroMultChi χ (s₀ + c * w)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/XiLogDeriv.lean:111 completedLFunction_zeros_strip --  (completedLFunction χ ρ = 0 ↔ IsNontrivialZeroChi χ ρ) ∧ analyticOrderAt (completedLFunction χ) ρ = analyticOrderAt (LFunction χ) ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:66 analyticOrderAt_LFunction_ne_top --  analyticOrderAt (LFunction χ) s ≠ ⊤
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:75 one_le_zeroMultChi --  1 ≤ zeroMultChi χ ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:132 analyticOrderAt_LFunction_eq_completed --  analyticOrderAt (LFunction ψ) w = analyticOrderAt (completedLFunction ψ) w
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:146 analyticOrderAt_completed_le_one_sub --  analyticOrderAt (completedLFunction χ) w ≤ analyticOrderAt (completedLFunction χ⁻¹) (1 - w)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:170 analyticOrderAt_completed_one_sub --  analyticOrderAt (completedLFunction χ⁻¹) (1 - w) = analyticOrderAt (completedLFunction χ) w
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:208 chi_mult_reflect --  zeroMultChi χ (Zeta23.reflect ρ) = zeroMultChi χ ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:237 chiZeroConfig_mult --  (chiZeroConfig χ hχ h1).mult = zeroMultChi χ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroConfig.lean:251 chiZeroConfig_mult_conj --  (chiZeroConfig χ⁻¹ (isPrimitive_inv hχ) (inv_ne_one.mpr h1)).mult (conj ρ) = (chiZeroConfig χ hχ h1).mult ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroSumLimit.lean:27 zero_sum_limit_chi --  Tendsto (fun j : ℕ => ∑ ρ ∈ Z j, (zeroMultChi χ ρ : ℂ) * Hfn k ρ) atTop (𝓝 (∑' ρ : (chiZeroConfig χ hχ h1).carrier, ((chiZeroConfig χ hχ h1).mult ρ : ℂ) * Hfn 
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroSummability.lean:26 chi_zero_sum_inv_sq --  Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℝ) / (1 + Complex.normSq (Zeta23.gammaOf ρ)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Chi/ZeroSummability.lean:34 EF_zero_sum_summable_chi --  Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/GRHWeil.lean:23 on --  ℕ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/GRHWeil.lean:215 analyticOrderAt_LFunction_inv_conj --  analyticOrderAt (LFunction χ⁻¹) (conj w) = analyticOrderAt (LFunction χ) w
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiCriterionBridge.lean:62 analyticOrderAt_xi_eq_zeta --  analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiCriterionBridge.lean:101 zeroMult_eq_xiMult --  zeroMult ρ.val = xiMult (carrierEquiv ρ)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeil.lean:53 mult_conj --  zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeil.lean:188 pair_summable --  Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeil.lean:247 LiCoeff_eq --  zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeil.lean:257 liTerm_re_summable --  Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeil.lean:344 truncMember_EF --  zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ) = EF.literatureRHS (truncMember n f)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeilSym.lean:105 symMember_EF --  zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ) = EF.literatureRHS (symMember n δ)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeilSym.lean:224 symZeroSum_conj --  zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/LiWeilSym.lean:236 symZeroSum_im --  (∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)).im = 0
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/PowerLimit.lean:879 weighted_finite_bound --  (∑ ρ ∈ s, (Z.mult ρ : ℝ) * f ρ) ≤ 3 * A₀ * Bf * zeta3Sum
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/PowerLimit.lean:934 weighted_summable --  Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/PowerLimit.lean:949 dominant_summable --  Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/PowerLimit.lean:969 fR_norm_le --  ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/PowerLimit.lean:986 fR_bound --  ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/RestBound.lean:192 fiber_count --  (∑ ρ ∈ s.filter (fun ρ => ⌈ρ.im⌉ = m), (Z.mult ρ : ℝ)) ≤ (Z.N ((m : ℝ) - 1) (m : ℝ) : ℝ)
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/RestBound.lean:207 finite_rest_bound --  (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ restR γ₀ φ L A₀
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/RestBound.lean:275 rest_le_of_finite --  restSum Z γ₀ φ ρ₀ ≤ R
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckSimplicity.lean:100 allSimple_satisfiable --  WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckSimplicity.lean:107 allSimple_not_forced --  WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Schema/Converse.lean:28 dominant_summable_cfg --  Summable (fun ρ : C.toZeroConfig.carrier => (C.toZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Schema/Converse.lean:48 fR_norm_le_cfg --  ‖fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (C.toZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))
+    OTHER     SIDE-explicit-formula SIDEExplicitFormula/Schema/Converse.lean:65 fR_bound_cfg --  ‖fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (C.toZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Simplicity.lean:34 simplicity_iff --  ℂ, Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/Basic.lean:521 weierstrass_E_analyticOrderAt_one --  analyticOrderAt (weierstrass_E p) (1 : ℂ) = 1
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:321 summable_mult_div_norm_pow_of_order_le --  Summable (fun ρ : Z.Zero => (Z.mult ρ : ℝ) / ‖Z.z ρ‖ ^ (Nat.floor lam + 1))
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:377 tsum_zeroWithMultiplicity_eq_weighted_tsum_of_nonneg --  Z.Zero, (Z.mult ρ : ℝ) * g ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:409 sum_mult_div_norm_pow_le_rpow_of_two_pow --  ℕ, n₀ ≤ n → (∑ ρ ∈ Hadamard.OrderOne.zerosBallFinset_of_entire (hf_entire
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:678 tsum_mult_div_norm_pow_tail_le_rpow_of_two_pow --  ℕ, n₀ ≤ n → (∑' ρ : ({ρ : Z.Zero | (2 : ℝ) ^ (n + 1) < ‖Z.z ρ‖} : Set Z.Zero), (Z.mult ρ.val : ℝ) / ‖Z.z ρ.val‖ ^ (p + 1)) ≤ C * ((2 : ℝ) ^ n) ^ (lam + δ - ((p
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1101 summable_inv_norm_pow_zWithMultiplicity --  Summable (fun i : Z.ZeroWithMultiplicity => (1 : ℝ) / ‖Z.zWithMultiplicity i‖ ^ (p + 1))
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1130 canonicalProductZeroSetMultiplicityRank_differentiable --  Differentiable ℂ (canonicalProductZeroSetMultiplicityRank Z p)
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1150 canonicalProductZeroSetMultiplicityRank_eq_zero_iff --  Z.Zero, s = Z.z ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1312 canonicalProductZeroSetMultiplicityRank_eq_tprod_pow --  Z.Zero, weierstrass_E p (s / Z.z ρ) ^ Z.mult ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1415 multipliable_pow_weierstrass_E_div_of_summable --  Multipliable (fun ρ : Z.Zero => weierstrass_E p (s / Z.z ρ) ^ Z.mult ρ)
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1538 analyticOrderNatAt_canonicalProductZeroSetMultiplicityRank --  analyticOrderNatAt (canonicalProductZeroSetMultiplicityRank Z p) (Z.z ρ) = Z.mult ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1658 exists_quotient_entire --  ℂ → ℂ, Differentiable ℂ Q ∧ (∀ z : ℂ, Q z ≠ 0) ∧ (∀ z : ℂ, f z = canonicalProductZeroSetMultiplicityRank Z p z * Q z)
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:1838 order_Q_le_lam_of_factorization --  hasFiniteOrder Q ∧ order Q ≤ lam
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/General/Factorization.lean:3298 hadamard_factorization_general --  ℂ, f z = Complex.exp (g.eval z) * canonicalProductZeroSetMultiplicityRank Z (Nat.floor lam) z
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/OrderOne/QuotientCancellation.lean:42 exists_analyticAt_update_div_of_analyticOrderNatAt_eq --  ℂ, AnalyticAt ℂ (fun z => if z = a then q else f z / g z) a
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean:174 sum_multiplicity_zeros_le_rpow_of_order_le --  ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ C * r ^ (lam + ε)
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean:248 sum_multiplicity_zeros_le_rpow --  ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ C * r ^ ((1 : ℝ) + ε)
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean:264 sum_multiplicity_zeros_le_of_order_le_one --  ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ ((2 * r) ^ ((1 : ℝ) + ε) - Real.log ‖f 0‖) / Real.log 2
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean:548 sum_multiplicity_zeros_le_of_order_le --  ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ ((2 * r) ^ (lam + ε) - Real.log ‖f 0‖) / Real.log 2
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/ZeroCounting.lean:664 sum_zeros_multiplicity_le_of_max_one_maxModulus --  (∑ᶠ u : ℂ, if ‖u‖ ≤ R / 2 then ((MeromorphicOn.divisor f (closedBall (0 : ℂ) |R|) u : ℤ) : ℝ) else 0) ≤ (Real.log (max 1 (maxModulus f R)) - Real.log ‖f 0‖) / 
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean:60 zWithMultiplicity_mk --  Z.zWithMultiplicity ⟨ρ, k⟩ = Z.z ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/Basic.lean:3056 analyticOrderAt_riemannXi_ne_top --  analyticOrderAt riemannXi s ≠ ⊤
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/Basic.lean:3184 summable_inv_norm_sq_zeros_with_multiplicity_of_weighted_genus --  Summable (fun i : XiZeroWithMultiplicity => (1 : ℝ) / ‖i.1.val‖ ^ 2)
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/Basic.lean:3721 xi_sq_factorization_pairedLinear_withMultiplicity_of_weighted_genus --  XiZeroWithMultiplicity, xiPairedLinearFactor i.1 s
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/Basic.lean:4600 exists_increasing_finite_cover_zeros_with_multiplicity --  ∃ (T : ℕ → Finset XiZeroWithMultiplicity), Monotone T ∧ (⋃ n, (T n : Set XiZeroWithMultiplicity)) = Set.univ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean:670 weighted_paired_sum_formula_of_mtest_and_cauchy --  NontrivialZero, (analyticOrderNatAt riemannXi ρ.val : ℂ) * liPairedSummand n ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean:1735 weighted_paired_sum_formula_of_standard_hypotheses --  NontrivialZero, (analyticOrderNatAt riemannXi ρ.val : ℂ) * liPairedSummand n ρ
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean:2229 li_criterion_equiv_of_weighted_standard_hypotheses --  ((∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) ↔ (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re))
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean:82 xi_hadamard_factorization_with_multiplicity_polynomial --  ℂ, riemannXi s = Complex.exp (g.eval s) * Hadamard.canonicalProductZeroSetMultiplicityRank xiZeroSetMultiplicity 1 s
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean:123 xi_hadamard_factorization_with_multiplicity --  ℂ, riemannXi s = Complex.exp (a * s + b) * xiMultiplicityE1Prod s
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean:143 xi_factorization_prod_with_multiplicity_of_hadamard_order_one --  xi_factorization_prod_with_multiplicity
+    OTHER     SIDE-explicit-formula Vendored/Bulka/Lc/LiCriterion/RHBridge.lean:108 biconditional_rh_li_of_weighted_standard_hypotheses --  (RiemannHypothesis ↔ (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re))
+    OTHER     SIDE-explicit-formula Zeta23/Defs/Counting.lean:41 ncard_le_finsum_mult --  s.ncard ≤ ∑ᶠ ρ ∈ s, Z.mult ρ
+    OTHER     SIDE-explicit-formula Zeta23/Defs/Counting.lean:51 finsum_mult_mono --  ∑ᶠ ρ ∈ s, Z.mult ρ ≤ ∑ᶠ ρ ∈ t, Z.mult ρ
+    OTHER     SIDE-explicit-formula Zeta23/RvM/CountByIntegral.lean:97 analyticOrderNatAt_completedRiemannZeta --  analyticOrderNatAt completedRiemannZeta ρ = zeroMult ρ
+    OTHER     SIDE-explicit-formula Zeta23/RvM/Halving.lean:59 N_le_two_mul_half --  (Z.N T₁ T₂ : ℝ) ≤ 2 * ∑ᶠ ρ ∈ Z.window T₁ T₂ ∩ {ρ | 1 / 2 ≤ ρ.re}, (Z.mult ρ : ℝ)
+    OTHER     SIDE-explicit-formula Zeta23/RvM/LocalCount.lean:79 analyticOrderNatAt_gfun --  analyticOrderNatAt (gfun s₀ c u) w = zeroMult (s₀ + c * w)
+    OTHER     SIDE-explicit-formula Zeta23/Statement.lean:117 zetaZeros_mult --  (zetaZeros hs).mult = zeroMult
+    READ      SIDE-explicit-formula Zeta23/Statement.lean:118 zetaZeros_simple --  (zetaZeros hs).simple = {ρ | zeroMult ρ = 1}
+              ### the seat`s hand reading: a set identity: the simple points of the configuration are {ρ | zeroMult ρ = 1}; it names the clause`s set and asserts no point in it or out of it
+    OTHER     SIDE-explicit-formula Zeta23/Statement/Seam.lean:56 analyticOrderAt_riemannZeta_ne_top --  analyticOrderAt riemannZeta s ≠ ⊤
+    OTHER     SIDE-explicit-formula Zeta23/Statement/Seam.lean:66 ZetaSeam.one_le_mult_holds --  ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ
+    OTHER     SIDE-explicit-formula Zeta23/Statement/Seam.lean:124 ZetaSeam.of_reflect --  ZetaSeam
+    OTHER     SIDE-explicit-formula Zeta23/Statement/SeamClosed.lean:45 zetaZeroConfig_mult --  zetaZeroConfig.mult = zeroMult
+    OTHER     SIDE-explicit-formula Zeta23/Tail.lean:135 LocalCount.ofWindowCount --  LocalCount (fun ρ : Z.carrier => (ρ : ℂ).im) (fun ρ : Z.carrier => Z.mult ρ) A₀ where one_le
+    OTHER     SIDE-explicit-formula Zeta23/Tail.lean:164 Gsummand_eq --  Z.Gsummand P T k l ρ = (Z.mult ρ : ℂ) * (uvec P T ρ k * uvec P T ρ l)
+    OTHER     SIDE-explicit-formula Zeta23/Tail.lean:331 partial_sum_le --  ∑ x ∈ u, (Z.mult (x : Z.carrier) : ℝ) * ∑ k, ‖uvec P T (x : Z.carrier) k‖ ^ 2 ≤ P.L T * theta0 A₀ H.K T
+    OTHER     SIDE-explicit-formula Zeta23/Tail.lean:366 summable_tail --  Summable (fun x : {ρ : Z.carrier // ρ ∉ H.sA} => (Z.mult (x : Z.carrier) : ℝ) * ∑ k, ‖uvec P T (x : Z.carrier) k‖ ^ 2)
+    OTHER     SIDE-explicit-formula Zeta23/Tail.lean:372 tsum_tail_le --  {ρ : Z.carrier // ρ ∉ H.sA}, (Z.mult (x : Z.carrier) : ℝ) * ∑ k, ‖uvec P T (x : Z.carrier) k‖ ^ 2 ≤ P.L T * theta0 A₀ H.K T
+    OTHER     SIDE-explicit-formula Zeta23/Tail.lean:422 hasSum_Ez --  HasSum (fun x : {ρ : Z.carrier // ρ ∉ H.sA} => ((Z.mult (x : Z.carrier) : ℝ) : ℂ) • vecMulVec (uvec P T (x : Z.carrier)) (uvec P T (x : Z.carrier))) (Z.Ez P T)
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/Contour.lean:47 rectangle_identity --  Finset ℂ, ((Z : Set ℂ) = {ρ : ℂ | IsNontrivialZero ρ ∧ -R < ρ.im ∧ ρ.im < R}) ∧ RectangleIntegral' (fun s => Hfn k s * logDeriv completedRiemannZeta s) ((1 - c
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/FullLineAssembly.lean:55 full_line_identity --  ℝ, (Hfn k ((c:ℂ) + t * I) + Hfn k (1 - c - t * I)) * logDeriv completedRiemannZeta ((c:ℂ) + t * I) = (∑' ρ : (zetaZeros hs).carrier, ((zetaZeros hs).mult ρ : ℂ
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/GoodHeights.lean:117 sum_mult_six_windows --  ∑ ρ ∈ F, (zetaZeroConfig.mult ρ : ℝ) ≤ 6 * (A₀ * Real.log (|(a : ℝ)| + 9))
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/GoodHeights.lean:163 card_le_sum_mult --  (F.card : ℝ) ≤ ∑ ρ ∈ F, (zetaZeroConfig.mult ρ : ℝ)
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/XiLogDeriv.lean:111 completedZeta_zeros_strip --  (completedRiemannZeta ρ = 0 ↔ IsNontrivialZero ρ) ∧ analyticOrderAt completedRiemannZeta ρ = analyticOrderAt riemannZeta ρ
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/ZeroSumLimit.lean:42 zero_sum_limit --  Tendsto (fun j : ℕ => ∑ ρ ∈ Z j, (zeroMult ρ : ℂ) * Hfn k ρ) atTop (𝓝 (∑' ρ : (zetaZeros hs).carrier, ((zetaZeros hs).mult ρ : ℂ) * Hfn k ρ))
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/ZeroSummability.lean:121 zero_sum_inv_sq_gen --  Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ)))
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/ZeroSummability.lean:179 EF_zero_sum_summable_gen --  Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ))
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/ZeroSummability.lean:247 zero_sum_inv_sq --  Summable (fun ρ : (zetaZeros hs).carrier => (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ)))
+    OTHER     SIDE-explicit-formula Zeta23/WeilEF/ZeroSummability.lean:257 EF_zero_sum_summable --  Summable (fun ρ : (zetaZeros hs).carrier => ((zetaZeros hs).mult ρ : ℂ) * paperFT k (gammaOf ρ))
+    OTHER     SIDE-explicit-formula Zeta23/ZetaReflect.lean:132 analyticOrderAt_conj_conj --  analyticOrderAt (fun z => conj (f (conj z))) (conj w) = analyticOrderAt f w
+    OTHER     SIDE-explicit-formula Zeta23/ZetaReflect.lean:160 analyticOrderAt_zeta_conj --  analyticOrderAt riemannZeta (conj w) = analyticOrderAt riemannZeta w
+    OTHER     SIDE-explicit-formula Zeta23/ZetaReflect.lean:240 analyticOrderAt_zeta_one_sub --  analyticOrderAt riemannZeta (1 - w) = analyticOrderAt riemannZeta w
+    OTHER     SIDE-explicit-formula Zeta23/ZetaReflect.lean:330 zeta_mult_reflect --  ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ
+    OTHER     SIDE-kernel Kernel/AnalyticBridge.lean:13 simple_iff_order_one --  deriv completedRiemannZeta₀ s ≠ 0 ↔ analyticOrderAt completedRiemannZeta₀ s = 1
+    OTHER     SIDE-kernel Kernel/PerpendicularCrossing.lean:40 multiplicity_from_identity --  m = 1
+    OTHER     SIDE-kernel Kernel/Simplicity.lean:39 simple_from_trace --  ti.multiplicity = 1
+    OTHER     SIDE-t7-topology-cmb SIDET7TopologyCMB/Basic.lean:126 spectrum_total_matches_fano --  dominant_eigenvalue_multiplicity + subdominant_eigenspace_dimension = fano_points
+### headers 117 ; CONCLUDES 0 ; NEGATES 0 ; READ 1 (hand-read 1) ; OTHER 113 ; OWN 3
+### the strict shapes, each exercised: {'pos_reads': True, 'pos_refuses': True, 'neg_reads': True, 'neg_refuses': True}
+
+### ### **H29b HOLDS.**

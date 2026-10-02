@@ -1,0 +1,72 @@
+{
+ "rows": [
+  {
+   "line": 24,
+   "mover": "(a) the proportion",
+   "quote": "Empirical anchors: over 40.77% of zeros proved simple (Conrey-Iwaniec-Soundararajan tradition)",
+   "why": "the proportion of zeros simple AND on the line is proved unconditionally at (2/3 - ε) of N(T,2T), counted with multiplicity, on the dyadic window, Lean-checked at the upstream pin (Zeta23.thmB₀_mult, FinalMult.lean :350) and outside the vendored set; the sentence's 40.77% figure and its tradition are superseded as the anchor, and in this kernel the bound is a named premise, not a compiled fact",
+   "cite": "relay data/b596_lemmas.txt (5) and (8); SIDE-explicit-formula v0.17 SIDEExplicitFormula.Simplicity.SimpleProportion and exceptional_mass_le_third (INTERFACES on it)",
+   "found": true,
+   "in_tier_block": false
+  },
+  {
+   "line": 26,
+   "mover": "(c) the faces' silence",
+   "quote": "the RH-closure composing under the one open premise (§27.3)",
+   "why": "the open premise's compiled faces are each an equivalence with RiemannHypothesis and carry multiplicity only as a weight; the closure under that premise therefore says nothing about multiplicity, and the record's simplicity facet does not compose under it",
+   "cite": "relay data/b596_faces_line.txt; h2_sign_iff_rh (v0.2 = 5c72cad), li_nonneg_iff_rh and arith_limit_nonneg_iff_rh (v0.9 = e5a5a83); the ζ page's back-matter line",
+   "found": true,
+   "in_tier_block": false
+  },
+  {
+   "line": 80,
+   "mover": "(b) the Prop",
+   "quote": "If every zero is simple, perpendicular crossing protects a local neighborhood",
+   "why": "the conditional's antecedent is now a compiled Prop over the genuine configuration, every nontrivial zero of analytic order one, and the salt-check shows the schema's fields, its target and Weil positivity do not imply it: the antecedent is open as a separate statement, not a consequence of the faces",
+   "cite": "SIDE-explicit-formula v0.17 SIDEExplicitFormula.Simplicity.simplicity, simplicity_iff; SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced (relay data/b596_h29b.txt)",
+   "found": true,
+   "in_tier_block": false
+  },
+  {
+   "line": 178,
+   "mover": "(b) the Prop, (c) the faces' silence",
+   "quote": "The only solution is multiplicity 1.",
+   "why": "the explicit formula as compiled sums the zeros with their multiplicities as weights and is satisfied, at the schema's form, by a configuration with a point of multiplicity two whose fields, target and Weil positivity all hold; the formula's two sides do not force multiplicity one, so the sentence's conclusion is not what the compiled identity supports",
+   "cite": "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced (v0.17); Zeta23.WeilEF.EF_lit_zetaZeroConfig with Zeta23.zetaZeroConfig.mult as the weight; relay data/b596_faces_line.txt",
+   "found": true,
+   "in_tier_block": false
+  },
+  {
+   "line": 505,
+   "mover": "(b) the Prop",
+   "quote": "(uniform = simplicity)",
+   "why": "the row's 'simplicity' now has its compiled statement over the genuine configuration, which the edition can name in place of the word; the row's terminal stays branch-resident and its equivalence is with transversality, not with the Prop",
+   "cite": "SIDE-explicit-formula v0.17 SIDEExplicitFormula.Simplicity.simplicity, simplicity_iff",
+   "found": true,
+   "in_tier_block": true
+  },
+  {
+   "line": 509,
+   "mover": "(b) the Prop, (c) the faces' silence",
+   "quote": "| :442 | Ch. 3 — trace-formula multiplicity-one structure |",
+   "why": "the row's carried terminals take the prime-determined side's value 1 as a premise (simplicity_from_trace_structure's h_at_one); the compiled explicit formula does not supply it -- at the schema's form the explicit-formula field holds with a point of multiplicity two -- so the trace route to multiplicity one rests on that premise, not on the compiled identity",
+   "cite": "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced (v0.17); SIDE-kernel Kernel/PerpendicularCrossing.lean :50 (the premise h_at_one); relay data/b596_faces_line.txt",
+   "found": true,
+   "in_tier_block": true
+  }
+ ],
+ "tier_block": [
+  496,
+  533
+ ],
+ "H29c": "REFUTED",
+ "by": {
+  "(a) the proportion": 1,
+  "(c) the faces' silence": 1,
+  "(b) the Prop": 2,
+  "(b) the Prop, (c) the faces' silence": 2
+ },
+ "all_found": true,
+ "tier_block_note": ":496 heading, carried; :498 the rows re-read at pin, carried; :500-:501 the table head; :502 (:435 perpendicular crossing) not moved; :503 (:436 the derivative-level catalogue) not moved -- a per-class grade, no density; :504 (:437 the C1 derivative reduction, a double zero on the line iff Im ξ' = 0) not moved -- a pointwise equivalence the Prop does not change; :505 (:438 uniform = simplicity) MOVED by (b), above; :506 (:439 perpendicular gradients) not moved; :507 (:440 the reduction, no terminal) not moved -- it concerns off-line non-intersection, not multiplicity; :508 (:441 the codimension argument) not moved -- its terminals are structural and name no zero; :509 (:442 the trace-formula multiplicity-one structure) MOVED by (b) and (c), above; :510 (:443 Hadamard order) not moved; :511 (:444 Hadamard factorization, no terminal) not moved; :512 (:445 the independence / RMT witnesses, no terminal) not moved by the proportion -- the proportion is an analytic floor, not a statistical witness, and the row's claim is about the two traditions it names; :513 (:446 the RH-positivity route) not moved; :514 (:447 Conservation of Spectra) not moved; :515 (:448 Epstein) not moved; :516 (:449 GRH transfer) not moved; :517 (:450 Dirichlet Hadamard) not moved; :518 (:451 the seven-mechanism count) not moved; :519 (:452 output scales) not moved; :520 (:453 the surround at Φ) not moved; :521 (:454 the premise in five registers) not moved; :522 (:455 C7 finite type) not moved; :524 the tiers line, carried; :526 the branch rows, carried; :528-:532 the appended back-matter lines, carried. The proportion moves no sentence of the block.",
+ "worklist_note": "row :26 (h2_sign) -- moved further by (c), marked above; rows :405 and :447 (conservation_of_spectra) -- not moved by (a)-(c): their claim is the product formula's s-independence; rows :453 (h1_complete_at_Phi; h2_sign) -- not moved by (a)-(c): their claim is lv's goal state at Phi, not multiplicity."
+}

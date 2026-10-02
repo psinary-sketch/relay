@@ -1,0 +1,50 @@
+b596 -- THE PRINTS: `lake env lean AxiomCheckSimplicity.lean` at SIDE-explicit-formula simplicity-b596 (checked out: simplicity-b596, HEAD 5a1630b), the watchdog`s run
+### ### EXIT rc=0 ; seconds 22 ; peak lean resident 1540 MB ; free MB after 5264 ; stopped None
+
+'SIDEExplicitFormula.Simplicity.allSimple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.simplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.simplicity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SimpleProportion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.exceptional_mass_le_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.pt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.pt_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.toyZ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.toy_N_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.toy_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.toy_online' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.zetaWeilConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.SaltCheckEpstein.log_three_gt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Zeta23.zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.Simplicity.simplicity_iff : SIDEExplicitFormula.Simplicity.simplicity ↔
+  ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1
+SIDEExplicitFormula.Simplicity.exceptional_mass_le_third : SIDEExplicitFormula.Simplicity.SimpleProportion →
+  ∀ ε > 0,
+    ∃ T₀, ∀ T ≥ T₀, ↑(Zeta23.Ncount T (2 * T)) - ↑(Zeta23.N0simple T (2 * T)) ≤ (1 / 3 + ε) * ↑(Zeta23.Ncount T (2 * T))
+SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable : ∃ C,
+  C.target ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ C.carrier.Nonempty ∧ SIDEExplicitFormula.Simplicity.allSimple C
+SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced : ∃ C,
+  C.target ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ ¬SIDEExplicitFormula.Simplicity.allSimple C
+def SIDEExplicitFormula.Simplicity.allSimple : SIDEExplicitFormula.Schema.WeilConfig → Prop :=
+fun C => ∀ ρ ∈ C.carrier, C.mult ρ = 1
+def SIDEExplicitFormula.Simplicity.simplicity : Prop :=
+SIDEExplicitFormula.Simplicity.allSimple SIDEExplicitFormula.Schema.zetaWeilConfig
+structure SIDEExplicitFormula.Simplicity.SimpleProportion : Prop
+number of parameters: 0
+fields:
+  SIDEExplicitFormula.Simplicity.SimpleProportion.two_thirds : ∀ ε > 0,
+      ∃ T₀, ∀ T ≥ T₀, (2 / 3 - ε) * ↑(Zeta23.Ncount T (2 * T)) ≤ ↑(Zeta23.N0simple T (2 * T))
+constructor:
+  SIDEExplicitFormula.Simplicity.SimpleProportion.mk
+    (two_thirds : ∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, (2 / 3 - ε) * ↑(Zeta23.Ncount T (2 * T)) ≤ ↑(Zeta23.N0simple T (2 * T))) :
+    SIDEExplicitFormula.Simplicity.SimpleProportion

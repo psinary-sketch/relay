@@ -1,0 +1,61 @@
+{
+ "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+ "sha256": "792a2117de29ad9b0d4715e1ee963fa8295f2a29dd538c2acd54535ee2781e15",
+ "at": "2026-10-02T17:19:51Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "pt",
+   "line": 33,
+   "head": "def pt : ℂ := ⟨1 / 2, 14⟩"
+  },
+  {
+   "kind": "theorem",
+   "name": "pt_reflect",
+   "line": 35,
+   "head": "theorem pt_reflect : Zeta23.reflect pt = pt := by"
+  },
+  {
+   "kind": "def",
+   "name": "toyZ",
+   "line": 46,
+   "head": "def toyZ (m : ℕ) (hm : 1 ≤ m) : Zeta23.ZeroConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_N_le",
+   "line": 63,
+   "head": "theorem toy_N_le (m : ℕ) (hm : 1 ≤ m) (t : ℝ) : (toyZ m hm).N t (t + 1) ≤ m := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_count",
+   "line": 72,
+   "head": "theorem toy_count (m : ℕ) (hm : 1 ≤ m) : HCount (toyZ m hm) m := by"
+  },
+  {
+   "kind": "def",
+   "name": "toyCfg",
+   "line": 84,
+   "head": "def toyCfg (m : ℕ) (hm : 1 ≤ m) : WeilConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "toy_online",
+   "line": 92,
+   "head": "theorem toy_online (m : ℕ) (hm : 1 ≤ m) : online (toyCfg m hm) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "allSimple_satisfiable",
+   "line": 100,
+   "head": "theorem allSimple_satisfiable :\n    ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C :="
+  },
+  {
+   "kind": "theorem",
+   "name": "allSimple_not_forced",
+   "line": 107,
+   "head": "theorem allSimple_not_forced :\n    ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C :="
+  }
+ ]
+}

@@ -1,0 +1,189 @@
+{
+ "zeta": {
+  "rc": 0,
+  "log": [
+   "checkout HEAD 5a1630b8292b ; v0.17 5a1630b8292b ; tracked changes 0",
+   "free memory before the lean call: 5287 MB (hold 2560)",
+   "lake env lean exit 0",
+   "tier RiemannHypothesis                                                        computed —              table none",
+   "tier riemannZeta                                                              computed —              table none",
+   "tier Zeta23.zetaZeroConfig                                                    computed —              table none",
+   "tier Zeta23.WeilEF.EF_lit_zetaZeroConfig                                      computed T0             table none",
+   "tier SIDEExplicitFormula.B321.classK                                          computed —              table none",
+   "tier SIDEExplicitFormula.B321.h2_sign                                         computed —              table none",
+   "tier SIDEExplicitFormula.B321.ch_iff_rh                                       computed T0             table none",
+   "tier SIDEExplicitFormula.B321.h2_sign_iff_rh                                  computed T0             table none",
+   "tier SIDEExplicitFormula.B321.h2_sign_upto                                    computed —              table none",
+   "tier SIDEExplicitFormula.B321.h2_sign_iff_forall_upto                         computed T0             table none",
+   "tier SIDEExplicitFormula.B321.forall_upto_iff_rh                              computed T0             table none",
+   "tier SIDEExplicitFormula.LiWeil.LiCoeff                                       computed —              table none",
+   "tier SIDEExplicitFormula.LiWeil.liTerm                                        computed —              table none",
+   "tier SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg                              computed T0             table none",
+   "tier SIDEExplicitFormula.LiWeil.symMember                                     computed —              table none",
+   "tier SIDEExplicitFormula.LiWeil.li_identity_sym                               computed T0             table none",
+   "tier LiCriterion.taylorCoeff                                                  computed —              table none",
+   "tier SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff            computed T0             table none",
+   "tier LiCriterion.positivity_implies_RH                                        computed T0             table none",
+   "tier SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh                   computed T0             table none",
+   "tier SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh          computed T0             table none",
+   "tier SIDEExplicitFormula.ResidueDischarge.Register4_positivity                computed —              table none",
+   "tier SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh computed T0             table none",
+   "tier SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh    computed T0             table none",
+   "tier SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh              computed T0             table none",
+   "tier SIDEExplicitFormula.Simplicity.allSimple                                 computed —              table none",
+   "tier SIDEExplicitFormula.Simplicity.simplicity                                computed —              table none",
+   "tier SIDEExplicitFormula.Simplicity.simplicity_iff                            computed T0             table none",
+   "tier SIDEExplicitFormula.Simplicity.SimpleProportion                          computed —              table none",
+   "tier SIDEExplicitFormula.Simplicity.exceptional_mass_le_third                 computed T2-INTERFACES  table none"
+  ],
+  "nodes": "b596_nodes.txt",
+  "bytes": 27071,
+  "sha256": "c20c2048a1bf2ee9daa3f0d201fbe75a8ffc645c1fcf2b12af9bf655fd20f30c",
+  "order": [
+   "riemannZeta",
+   "RiemannHypothesis",
+   "Zeta23.zetaZeroConfig",
+   "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
+   "SIDEExplicitFormula.B321.classK",
+   "SIDEExplicitFormula.B321.h2_sign",
+   "SIDEExplicitFormula.B321.ch_iff_rh",
+   "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+   "SIDEExplicitFormula.B321.h2_sign_upto",
+   "SIDEExplicitFormula.B321.h2_sign_iff_forall_upto",
+   "SIDEExplicitFormula.B321.forall_upto_iff_rh",
+   "SIDEExplicitFormula.LiWeil.liTerm",
+   "SIDEExplicitFormula.LiWeil.LiCoeff",
+   "SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg",
+   "SIDEExplicitFormula.LiWeil.symMember",
+   "SIDEExplicitFormula.LiWeil.li_identity_sym",
+   "LiCriterion.taylorCoeff",
+   "SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff",
+   "LiCriterion.positivity_implies_RH",
+   "SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh",
+   "SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh",
+   "SIDEExplicitFormula.ResidueDischarge.Register4_positivity",
+   "SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh",
+   "SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh",
+   "SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh",
+   "SIDEExplicitFormula.Simplicity.allSimple",
+   "SIDEExplicitFormula.Simplicity.simplicity",
+   "SIDEExplicitFormula.Simplicity.simplicity_iff",
+   "SIDEExplicitFormula.Simplicity.SimpleProportion",
+   "SIDEExplicitFormula.Simplicity.exceptional_mass_le_third"
+  ],
+  "new": [
+   {
+    "name": "SIDEExplicitFormula.Simplicity.allSimple",
+    "grade": "DEF",
+    "tier": "—",
+    "premises": "none",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "entry": "v0.17 = 5a1630b"
+   },
+   {
+    "name": "SIDEExplicitFormula.Simplicity.simplicity",
+    "grade": "DEF",
+    "tier": "—",
+    "premises": "none",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "entry": "v0.17 = 5a1630b"
+   },
+   {
+    "name": "SIDEExplicitFormula.Simplicity.simplicity_iff",
+    "grade": "DERIVES",
+    "tier": "T0",
+    "premises": "none",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "entry": "v0.17 = 5a1630b"
+   },
+   {
+    "name": "SIDEExplicitFormula.Simplicity.SimpleProportion",
+    "grade": "DEF",
+    "tier": "—",
+    "premises": "none",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "entry": "NO TAG"
+   },
+   {
+    "name": "SIDEExplicitFormula.Simplicity.exceptional_mass_le_third",
+    "grade": "INTERFACES",
+    "tier": "T2-INTERFACES",
+    "premises": "hP : SimpleProportion",
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "entry": "v0.17 = 5a1630b"
+   }
+  ]
+ },
+ "chi": {
+  "rc": 0,
+  "log": [
+   "checkout HEAD 5a1630b8292b ; v0.17 5a1630b8292b ; tracked changes 0",
+   "free memory before the lean call: 5343 MB (hold 2560)",
+   "lake env lean exit 0",
+   "tier SIDEExplicitFormula.GRHWeil.GRH_chi                                      computed —              table none",
+   "tier SIDEExplicitFormula.GRHWeil.chiZeroConfig                                computed —              table none",
+   "tier SIDEExplicitFormula.GRHWeil.EF_lit_chi                                   computed —              table none",
+   "tier SIDEExplicitFormula.GRHWeil.rectangle_identity_chi                       computed T0             table none",
+   "tier SIDEExplicitFormula.GRHWeil.full_line_identity_chi                       computed T0             table none",
+   "tier SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds                             computed T0             table none",
+   "tier SIDEExplicitFormula.B321.classK                                          computed —              table none",
+   "tier SIDEExplicitFormula.GRHWeil.h2_sign_chi                                  computed —              table none",
+   "tier SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq                              computed T0             table none",
+   "tier SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi                      computed T0             table none",
+   "tier SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi                      computed T0             table none",
+   "tier SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi                      computed T0             table none",
+   "tier SIDEExplicitFormula.Schema.h2_sign_cfg                                   computed —              table none",
+   "tier SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg                        computed T0             table none",
+   "tier SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target                        computed T0             table none",
+   "tier SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement                    computed T0             table none",
+   "tier SIDEExplicitFormula.Schema.chiWeilConfig                                 computed —              table none",
+   "tier SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement                     computed T0             table none",
+   "tier SIDEExplicitFormula.Schema.detector                                      computed T0             table none"
+  ],
+  "nodes": "b596_nodes_chi.txt",
+  "bytes": 17396,
+  "sha256": "8b90c999a2146b350aca55cfc00c2b2a88a8aa9659ca26da9b88f82837aa65ab",
+  "order": [
+   "SIDEExplicitFormula.GRHWeil.GRH_chi",
+   "SIDEExplicitFormula.GRHWeil.chiZeroConfig",
+   "SIDEExplicitFormula.GRHWeil.EF_lit_chi",
+   "SIDEExplicitFormula.GRHWeil.rectangle_identity_chi",
+   "SIDEExplicitFormula.GRHWeil.full_line_identity_chi",
+   "SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds",
+   "SIDEExplicitFormula.B321.classK",
+   "SIDEExplicitFormula.GRHWeil.h2_sign_chi",
+   "SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq",
+   "SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi",
+   "SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi",
+   "SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi",
+   "SIDEExplicitFormula.Schema.h2_sign_cfg",
+   "SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg",
+   "SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target",
+   "SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement",
+   "SIDEExplicitFormula.Schema.chiWeilConfig",
+   "SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement",
+   "SIDEExplicitFormula.Schema.detector"
+  ],
+  "new": []
+ }
+}

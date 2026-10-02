@@ -1,0 +1,281 @@
+b596 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### PLACE-papers OPEN_TRAILS, the work-order whole and the standing line -- OPEN_TRAILS.md @ ba5f0ea3 (7 lines cited)
+    :12012  ### `W-ORD-SIMPLICITY-FACE` -- THE TITLE’S CLAUSE AS A PROP AND THE PROPORTION, PRICED, NOT STARTED, appended 2026-10-01, b584, under the author’s ruling (R194)(3)
+    :12014  **Items.** (a) The lemma walk over the vendored Zeta23 modules at `3635e748` for the Alpöge–Furman proportion (at least 2/3 of ζ’s zeros simple and on the line) by name -- present in the vendored set, or absent with the module that holds it named at the upstream pin. (b) The title’s clause stated as a Prop in SIDE-explicit-formula over the genuine configuration (every zero of multiplicity one), sa
+    :12016  **Hypotheses.** H29a -- the proportion is in the vendored set by name. H29b -- the title’s Prop salt-checks and no compiled fact in the federation implies it or its negation. H29c -- SIMPLICITY’s tier block (T2 majority) carries at least one sentence that the proportion makes MOVED-IN-MEANING.
+    :12018  **Trigger:** the author’s word. **SIMPLICITY_OF_RIEMANN_ZEROS’ edition is HELD behind this work-order or the author’s ruling that it is out of scope.**
+    :12026  *Appended 2026-10-01 by b584 to the order of the editions (:11884), under the author’s ruling `(R194)`(3) -- SIMPLICITY HELD BEHIND ITS WORK-ORDER:* SIMPLICITY_OF_RIEMANN_ZEROS’ edition, the tenth in the order, is HELD behind `W-ORD-SIMPLICITY-FACE` or the author’s ruling that the work-order is out of scope for it; the other editions keep their places.
+    :12228  *Appended 2026-10-02 by b594, under the author’s ruling `(R204)`(2), to the form of an edition (:11864) -- THE PRECEDENCE ORDER:* where two clauses of the form meet on one sentence, the history clause governs, then the name-and-title exception, then the stem clause, then the ceiling clause, then the fact clause, then the restatement clause, each applying to what the earlier ones leave; the seat re
+    :12246  *Appended 2026-10-02 by b595 to the precedence order (:12228), under the author’s answer before b595’s seal -- EVERY PROMPT BANKED VERBATIM:* from b595, every prompt the seat puts to the author is banked in relay at the act’s close with its question, its options and the recommended mark verbatim, beside the answer as given (relay data/bNNN_author_answers.txt). The occasion is b595: the relay’s ban
+### PLACE-papers FINDINGS, b595`s entry -- FINDINGS.md @ ba5f0ea3 (2 lines cited)
+    :6834   *Appended 2026-10-02 by b595 to b594’s entry (:6818), under `(R205)`(1) -- b594 AT ITS WEIGHT:* FACES_OF_H2_AT_FINITE_INSTANCE v0.2 beside the draft unedited, the draft read as v0.1 (it carries no version number; the seat’s reading, accepted): the one row pinning h1_complete_at_Phi at v0.6.0 = c80bdc2; §2’s R4 row naming the three faces at their pins; two history lines beneath the dated §4 -- the 
+    :6836   ## The deliberation tree: the relay’s prompts since b577 as nodes with options, answers, clauses produced and outcomes; the counts; the scoring rule stated
+### relay the lemma-walk instrument`s last bank (b572) -- data/b572_lemmas.txt @ 46248b4a (8 lines cited)
+    :1      b572 -- COMPONENT 3: THE LEMMA LIST, (R182)(4)(c) -- every kernel declaration h2_sign_iff_rh`s proof consumes, in the
+    :2      ### order the constant walk reaches it (relay data/b572_crit_probe.lean.txt, its output data/b572_crit_probe_out.txt; v0.13 = ac157c1), auxiliary constants folded into their owner; ζ-NAMING when its type or value uses directly a constant of the ζ list
+    :3      ### (RiemannHypothesis, Zeta23.IsNontrivialZero, Zeta23.RvM.zetaZeroConfig_local_count, Zeta23.WeilEF.EF_lit_zetaZeroConfig, Zeta23.zetaSeam, Zeta23.zetaZeroConfig, completedRiemannZeta, riemannZeta, or any non-kernel constant whose name past `Zeta23.` carries `zeta`), the naming constants printed beside it.
+    :4      ### written at (UTC) 2026-10-01T15:32:46Z
+    :6      ### THE WHOLE PROOF (h2_sign_iff_rh): declarations 193 ; ζ-naming 20 ; generic 173
+    :7            1  ζ-NAMING  B321.h2_sign_iff_rh                                            Seam                                     naming: RiemannHypothesis
+    :8            2  GENERIC   B321.h2_sign                                                   H2Sign                                   
+    :9            3  ζ-NAMING  B321.rh_imp_h2_sign                                            RHChain                                  naming: RiemannHypothesis, Zeta23.IsNontrivialZero, Zeta23.zetaZeroConfig
+### SIDE-explicit-formula the vendored statement layer (Theorems A, B, C as Props) -- Zeta23/Statement.lean @ c404e727 (46 lines cited)
+    :1      /-
+    :2      VENDORED INTO SIDE-explicit-formula -- NOT WRITTEN HERE.
+    :3      
+    :4      Source     : anthropics/formal-math, the `zeta23` formalization
+    :5      Source path: Zeta23/Statement.lean
+    :6      Pin        : v1.0 = 3635e74826a4c1fcece7d1cd2b6fa75e43a00510
+    :7      Copied     : byte-identical; sha256 of the body below = 3458af8531decf948319517543f731dcdc2c5a7de47e9339f9a443530e60d205
+    :21     -/
+    :22     /-
+    :23     Zeta23/Statement.lean — the statement layer.
+    :24     
+    :25     Canonical text: the paper, §1 [Results], [eq:trivialchain], [thm:A], [thm:B], [thm:C].
+    :26     
+    :27     It (1) defines nontrivial zeros, multiplicity (via analyticOrderAt) and the six counting functions of
+    :28     §1 directly against Mathlib; (2) packages the "seam" facts needed to view them as an abstract
+    :29     Zeta23.ZeroConfig (structure ZetaSeam — classical facts about ζ, established from Mathlib elsewhere in
+    :30     the repository, not paper inputs); (3) states Theorems A, B, C in ε-form (fixed λ ∈ (0,1) with
+    :31     constant H(λ), F(λ), then the 2/3, 1/2, 3/4 liminf wrappers via λ → 1⁻);
+    :77     /-- N₀ˢ(T₁,T₂) := #{ρ : T₁ < γ ≤ T₂, β = 1/2, m_ρ = 1}  [Results]. -/
+    :78     def N0simple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} ∩ {ρ | zeroMult ρ = 1}).ncard
+    :80     /-- Nˢ(T₁,T₂) := "the number of simple zeros" with T₁ < γ ≤ T₂  [Results]. -/
+    :81     def Nsimple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | zeroMult ρ = 1}).ncard
+    :178    /-! ## 4. Theorems A, B, C
+    :179    
+    :180    The headline theorems Zeta23.thmA, thmA_cumulative, thmA_lam, thmB, thmB_cumulative, thmB_lam, thmC,
+    :181    thmC_cumulative, thmC_lam are proved in Zeta23/Final.lean (their types display the full trust base:
+    :182    literature explicit formula, Riemann–von Mangoldt, Montgomery–Vaughan, Γ-facts), on top of the
+    :183    versions Zeta23.thmA_of_traces etc. in Zeta23/Main.lean (thm:traces as an explicit hypothesis). This file
+    :184    stays light (definitions + anchors) so that it can be read and imported cheaply.
+    :185    
+    :186    Paper [thm:A], verbatim: "Let 0 < λ ≤ 1 be fixed. There are constants c(λ) > 0 and T₀(λ) such that
+    :187    for all T ≥ T₀(λ)   N₀*(T,2T) ≥ (H(λ) − c(λ) loglogT/logT) N(T,2T),
+    :188    and for λ < 1 the factor loglog T may be omitted. In particular
+    :189      liminf_{T→∞} N₀*(T,2T)/N(T,2T) ≥ 2/3,   liminf_{T→∞} N₀*(T)/N(T) ≥ 2/3".
+    :190    Formal target: the ε-forms, for each fixed λ ∈ (0,1) with constant
+    :191    H(λ) (resp. 2F(λ)−1, F(λ)), which absorb c(λ)/log T; then the 2/3 (resp. 1/2, 3/4) forms via
+    :192    sup_{λ<1} H(λ) = H(1) = 2/3 etc. The effective c(λ) forms are not stated. -/
+    :194    /-- The statement of Theorem A (2/3, dyadic ε-form) as a Prop, for reference; Zeta23.thmA proves it. -/
+    :195    def ThmA_statement : Prop :=
+    :196      ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0star T (2 * T)
+    :198    /-- The statement of Theorem B (1/2, dyadic ε-form). -/
+    :199    def ThmB_statement : Prop :=
+    :200      ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (1 / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T)
+    :202    /-- The statement of Theorem C (3/4, dyadic ε-form). -/
+    :203    def ThmC_statement : Prop :=
+    :204      ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (3 / 4 - ε) * (Ncount T (2 * T) : ℝ) ≤ Ndist T (2 * T)
+### SIDE-explicit-formula the configuration structure (Zeta23 ZeroConfig) -- Zeta23/Defs.lean @ c404e727 (24 lines cited)
+    :126    /-- An abstract zero configuration: a set (carrier) of DISTINCT points ρ = β+iγ in the closed
+    :127    strip 0 ≤ β ≤ 1 (the instances built from the zeros of ζ and of L(s,χ) lie in the open strip) with
+    :128    multiplicities mult ρ ≥ 1, locally finite in the ordinate, and
+    :129    invariant under ρ ↦ 1−ρ̄ with equal multiplicity. Paper §4 (after prop:zeroside), verbatim:
+    :130    "Inequalities (eq:zeroside) hold for every locally finite multiset of points in the strip 0<β<1
+    :131    that is invariant under ρ ↦ 1−ρ̄ and satisfies N(t+1)−N(t) ≪ log(t+3); they contain no
+    :132    arithmetic."  [subsec:weil]: "The multiset {(γ_ρ,m_ρ)} is invariant under γ ↦ γ̄ (i.e. ρ ↦ 1−ρ̄;
+    :133    multiplicities agree …)".  The quantitative local count N(t+1)−N(t) ≤ A₀ log(t+3) is not part of
+    :134    this structure; it is a field of PaperInputs (H-RvM) in Zeta23/Hypotheses.lean.
+    :135    Distinct points (the set) and multiplicities (the function) are deliberately separate objects. -/
+    :136    structure ZeroConfig where
+    :137      /-- the set 𝒵 of distinct zeros -/
+    :138      carrier : Set ℂ
+    :139      /-- multiplicity m_ρ (value irrelevant off carrier) -/
+    :140      mult : ℂ → ℕ
+    :141      one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+    :142      strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+    :143      reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+    :144      mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+    :145      /-- local finiteness in the ordinate: finitely many zeros with T₁ < γ ≤ T₂ -/
+    :158    /-- simple points: m_ρ = 1. -/
+    :159    def simple : Set ℂ := {ρ | Z.mult ρ = 1}
+    :173    /-- N₀ˢ(T₁,T₂) := #{ρ : T₁ < γ ≤ T₂, β = 1/2, m_ρ = 1}  [Results]. -/
+    :174    def N0s (T₁ T₂ : ℝ) : ℕ := (Z.window T₁ T₂ ∩ onLine ∩ Z.simple).ncard
+### SIDE-explicit-formula the genuine configuration -- Zeta23/Statement/SeamClosed.lean @ c404e727 (8 lines cited)
+    :38     theorem zetaSeam : ZetaSeam := ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect
+    :40     /-- The nontrivial zeros of ζ with multiplicities, as an abstract Zeta23.ZeroConfig — hypothesis-free.
+    :41     carrier = {ρ | IsNontrivialZero ρ}, mult = zeroMult (both rfl). -/
+    :42     def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam
+    :44     @[simp] lemma zetaZeroConfig_carrier : zetaZeroConfig.carrier = {ρ | IsNontrivialZero ρ} := rfl
+    :45     @[simp] lemma zetaZeroConfig_mult : zetaZeroConfig.mult = zeroMult := rfl
+    :51     @[simp] lemma zetaZeroConfig_N0s (T₁ T₂ : ℝ) : zetaZeroConfig.N0s T₁ T₂ = N0simple T₁ T₂ :=
+    :52       zetaZeros_N0s _ _ _
+### SIDE-explicit-formula the schema (WeilConfig, h2_sign_cfg, online, the forward half) -- SIDEExplicitFormula/Schema/Config.lean @ c404e727 (22 lines cited)
+    :1      /-
+    :2      SIDE-explicit-formula -- SIDEExplicitFormula/Schema/Config.lean
+    :3      THIS PROGRAMME'S WORK (act b573, ruling (R183)(4)(a)-(b); W-ORD-GRH-WEIL, act eight) -- NOT VENDORED.
+    :4      SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+    :24     structure WeilConfig extends Zeta23.ZeroConfig where
+    :25       /-- EF: the arithmetic side of the explicit formula -/
+    :26       rhs : (ℝ → ℂ) → ℂ
+    :27       /-- EF: the zero side equals it on even `k ∈ C_c²` (b321_identity's type at its consuming site) -/
+    :28       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :29         (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :30       /-- COUNT: the local count, as dominant_summable consumes it (HCount, RestBound.lean :44) -/
+    :31       count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+    :32       /-- TARGET: the instance's statement of the zeros' location, equivalent to the strip form (the seam left to the instance) -/
+    :33       target : Prop
+    :34       target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2
+    :35     
+    :42     
+    :43     /-- The strip form over the structure: every point of the configuration is on the line. -/
+    :45     
+    :46     /-- b321's identity over the structure, for `k` in classK. -/
+    :52     theorem online_imp_h2_sign_cfg (C : WeilConfig) : online C → h2_sign_cfg C := by
+    :53       intro hstrip k hk
+### SIDE-explicit-formula the ζ instance -- SIDEExplicitFormula/Schema/Instances.lean @ c404e727 (13 lines cited)
+    :22     
+    :23     /-- **ζ as an instance**: the zeros of Mathlib's `riemannZeta` with b321's arithmetic side, ζ's local count, and Mathlib's
+    :24     `RiemannHypothesis` as the target. -/
+    :25     def zetaWeilConfig : WeilConfig :=
+    :32           exact h
+    :33         count := Zeta23.RvM.zetaZeroConfig_local_count
+    :34         target := RiemannHypothesis
+    :35         target_iff := ⟨fun hRH ρ hρ => Zeta23.RH_implies_on_line hRH (by
+    :36             rw [Zeta23.zetaZeroConfig_carrier] at hρ
+    :37             exact hρ), fun h => rh_strip_imp_rh_holds h⟩ }
+    :38     
+    :41       h2_sign_cfg_iff_target zetaWeilConfig
+    :42     
+### SIDE-explicit-formula the house form: the salt-check gate (b590) -- SIDEExplicitFormula/Schema/SaltCheckEpstein.lean @ c404e727 (27 lines cited)
+    :1      /-
+    :2      SIDE-explicit-formula -- SIDEExplicitFormula/Schema/SaltCheckEpstein.lean
+    :3      THIS PROGRAMME'S WORK (act b590, ruling (R200)(4)(b), H31b) -- NOT VENDORED.
+    :4      SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+    :5      
+    :6      THE SALT-CHECK OF THE EPSTEIN INSTANCE, COMPILED. A theorem whose hypotheses cannot hold together is vacuously true and
+    :7      says nothing. `epstein_not_h2_sign_cfg` takes `EpsteinPremises Z rhs` and `rhoE ∈ Z.carrier`; two checks:
+    :8      
+    :9      * **`epstein_hypotheses_satisfiable`** -- the hypotheses hold together: a configuration whose carrier is `rhoE` and its
+    :10       reflection, multiplicity one, the arithmetic side its own zero side, satisfies every field, the count with `A₀ = 2`.
+    :11       No field contradicts another or the membership. (It is a model of the premises' FORM, not of `Z_Q`: the premise
+    :12       bundle's consistency with the actual Epstein zeta function is not proved in the kernel.)
+    :13     * **`membership_load_bearing`** -- the membership hypothesis is USED: the empty configuration satisfies the premises and IS
+    :14       Weil-positive on classK, so the conclusion does not follow from the premises alone.
+    :15     
+    :16     0 sorry, 0 native_decide.
+    :17     -/
+    :18     import SIDEExplicitFormula.Schema.Epstein
+    :105      mult_reflect := fun _ _ => rfl
+    :106      finite_window := fun _ _ => Set.finite_empty.subset Set.inter_subset_left
+    :107    
+    :125    satisfies the premises and is Weil-positive on classK. -/
+    :126    theorem membership_load_bearing :
+    :127        ∃ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs), h2_sign_cfg (epsteinConfig Z rhs hP) :=
+    :128      ⟨emptyZ, emptyRhs, empty_premises,
+    :129        online_imp_h2_sign_cfg _ (fun ρ (h : ρ ∈ (∅ : Set ℂ)) => absurd h (Set.notMem_empty ρ))⟩
+    :130    
+### SIDE-explicit-formula the house form: a module at INTERFACES (b590) -- SIDEExplicitFormula/Schema/Epstein.lean @ c404e727 (14 lines cited)
+    :1      /-
+    :2      SIDE-explicit-formula -- SIDEExplicitFormula/Schema/Epstein.lean
+    :3      THIS PROGRAMME'S WORK (act b590, ruling (R200)(4)(b); the Epstein negative control, its instance) -- NOT VENDORED.
+    :4      SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+    :41     structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where
+    :42       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :43         (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :44       count : ∃ A₀ : ℝ, HCount Z A₀
+    :45     
+    :46     /-- **The Epstein configuration**: the schema's structure built from the premises, the target the strip form itself. -/
+    :57     theorem epstein_not_h2_sign_cfg (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)
+    :58         (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP) :=
+    :59       not_h2_sign_cfg_of_offline (epsteinConfig Z rhs hP) rhoE hE rhoE_re_ne_half
+    :60     
+### SIDE-explicit-formula the module that states h2_sign_iff_rh -- SIDEExplicitFormula/Seam.lean @ c404e727 (2 lines cited)
+    :101    theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+    :102    
+### PLACE-papers the ζ page, its head and its back matter -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ ba5f0ea3 (9 lines cited)
+    :1      # THE CLAUSE AND ITS COMPILED FACES
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b592_nodes.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.16 = `c404e72` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line re
+    :29     25. `SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh` — SIDEExplicitFormula/PageConverses.lean:45 — v0.11 = 19b7d1e — `theorem SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — 
+    :31     h2_sign — open; by the compiled equivalences above, the same open statement as Li positivity and as arithmetic-limit positivity.
+    :33     *(Appended under the author's ruling `(R177)`(2), 2026-10-01, b567, beside the `(R146)`(2) sentence, b564's `(R174)`(1) sentence and b566's `(R176)`(2) sentence above, which stay: Li's criterion compiled as an equivalence, SIDE-explicit-formula v0.9 = `e5a5a83`.)* Supportable, the author's sentence: *Li's criterion is compiled over Mathlib's zeros as a two-way equivalence in the programme's kernel
+    :35     ## Placement
+    :71     ## Correspondence
+    :73     | declaration | repository | grade | tier |
+    :74     |:--|:--|:--|:--|
+### PLACE-papers SIMPLICITY_OF_RIEMANN_ZEROS (current version), head, version, Abstract, tier block, version history -- phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md @ ba5f0ea3 (14 lines cited)
+    :1      ﻿# Simplicity of Riemann Zeros
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER K** — *declared 2026-08-26 (b190); basis: the census test: external-reader results + a Correspondence table naming terminals.*
+    :11     ## A Reduction and Convergent Arguments
+    :17     *v1.1.2 — 2026-07-19*
+    :24     Two results about the zeros of the completed Riemann xi function $\xi(s) = \pi^{-s/2} \Gamma(s/2) \zeta(s)$. **The reduction:** within Zermelo-Fraenkel set theory with the Axiom of Choice (ZFC), the Riemann Hypothesis is equivalent to the assertion that the level curves $\mathrm{Re}\,\xi = 0$ and $\mathrm{Im}\,\xi = 0$ never intersect off the critical line; this intersection structure is governed 
+    :26     **Role.** This record *presents* the consolidated simplicity facet — the reduction of RH to off-line non-intersection governed by zero simplicity, together with the convergent arguments (mechanism-class, trace-formula, and the analytic/arithmetic/statistical witnesses) for simplicity itself. It is the cluster's paper of record; the reduction and the count are structural (the seven-class enumeratio
+    :429    ## Correspondence
+    :469    ## Version History
+    :496    #### THE CASCADE, ACT EIGHT -- THE CORRESPONDENCE TIERED *(appended 2026-09-28, b554, under the author's ruling `(R164)`(8); no byte above this block changes; the title, the Abstract and §§ are not edited -- the edition waits for CP-7, `(R157)`(2))*
+    :498    **The rows, re-read at pin.** The table at :435-455 has 21 rows (the ruling says twenty): 18 name a terminal, 3 name none. Each terminal's file at the row's pin was elaborated fresh with `#check` and `#print axioms` appended (relay `data/b554_probe_<id>.txt`; the statements, profiles, tiers and reasons, `data/b554_simp_tiers.txt`): SIDE-kernel at `v1.2` = `b1407b2`, `spectral_cannon` also at the d
+    :500    | row | claim (abridged) | terminal(s) | fresh profile(s) | disposition | tier(s) |
+    :528    *Appended by b554. No claim of the document is altered; `h2` stays where the deposit left it.*
+    :530    *Appended 2026-09-28 by b554, under the author's ruling `(R164)`(8) -- BACK MATTER, THE READING:* a reading of this document's title and Abstract against its compiled statements is entered at `FINDINGS.md`:5778 (b554); §§ unedited.
+    :532    *Appended 2026-09-29 by b558, under the author's ruling `(R168)`(4) -- BACK MATTER, THE EDITION WORK-LIST:* This document's -- 5 sentence-rows read MOVED-IN-MEANING by CP-1b, each with what the compiled fact supports and its informing work-order, are listed in relay `data/b558_editions/SIMPLICITY_OF_RIEMANN_ZEROS.txt`, an input to CP-7's edition and not an edition. No byte above this line changes.
+### relay SIMPLICITY`s work-list, whole -- data/b558_editions/SIMPLICITY_OF_RIEMANN_ZEROS.txt @ 46248b4a (31 lines cited)
+    :1      b558 -- THE EDITION WORK-LIST OF SIMPLICITY_OF_RIEMANN_ZEROS (phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition is written before its informing work-orders land or are ruled out of scope for it.
+    :4      
+    :5      :26 -- `h2_sign`
+    :6          the sentence: "It is the cluster's paper of record; the reduction and the count are structural (the seven-class enumeration, the convergent routes), the RH-closure composing under the one open premise (§27.3)."
+    :7          what the compiled fact supports: has the RH-closure composing under the one open premise (§27.3), and that premise in its Weil form is equivalent to RH (`h2_sign_iff_rh`), so the composition's premise is RH itself.
+    :8          informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :9      
+    :10     :405 -- `conservation_of_spectra`
+    :11         the sentence: "Compiled companions: SIDE-kernel `ProductFormula.conservation_of_spectra`;"
+    :12         what the compiled fact supports: offers the terminal as a compiled companion of the theorem, and the terminal states only `(1 : Q) ^ s = 1`, whose conservation reading is carried by its name.
+    :13         informing work-order: none named on the critical path
+    :14     
+    :15     :447 -- `conservation_of_spectra`
+    :16         the sentence: "| Ch. 5 — Conservation of Spectra | SIDE-kernel v1.2 · SIDE-lv-conservation v0.2.0 | `ProductFormula.conservation_of_spectra`; `SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin`; `SIDELvConservation.T2b_mellin_exhaustion` | `{propext, Classical.choice, Quot.sound}` | Compiled |"
+    :17         what the compiled fact supports: grades the Ch. 5 row "Compiled" for the Conservation of Spectra theorem, and the terminal it cites states `(1 : Q) ^ s = 1` (T2), the companions T2b DEFINITIONAL and T1 alone substantive.
+    :18         informing work-order: none named on the critical path
+    :19     
+    :20     :453 -- `h1_complete_at_Phi`
+    :21         the sentence: "| Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open** (the single carried-open premise) |"
+    :22         what the compiled fact supports: reads h1's completeness as leaving only h2 open, and h1 and h2 at Phi hold at no s of the strip (lv's h2 false at re s <= 1, `mellin_Phi_eq_zero_of_re_le_one`), so the completed h1 leaves no open clause at Phi that could close the strip.
+    :23         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :24     
+    :25     :453 -- `h2_sign`
+    :26         the sentence: "| Ch. 2/5 — the certifiable surround at Φ: eight couplings hold at the fixed witness | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 complete, **only h2 open** (the single carried-open premise) |"
+    :27         what the compiled fact supports: reads lv's goal state as closing -- h1 complete at Phi, only h2 open -- and lv's h2 at Phi, `mellin Phi (s / 2) != 0`, is false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state closes nothing on the strip.
+    :28         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :29     
+    :30     ### 5 sentence-rows (4 distinct lines).
+    :31     
+### relay the generator`s head, its node-list reader, its emitter and its hold -- tools/chain_page.py @ 46248b4a (12 lines cited)
+    :4      ### ### **WHAT IT DOES.** Reads a node list (relay data/b568_nodes.txt), refuses unless the kernel checkout is at the pin
+    :5      ### with no tracked change, writes ONE probe file into a given directory, elaborates it by ONE `lake env lean` call from the
+    :6      ### kernel checkout, parses Lean's own output, and emits the page: the head, one line per node in dependency order, the
+    :7      ### open-node line, the last derived line (README :121's bytes at PLACE-papers HEAD), and two tables (Placement,
+    :57     HOLD_MB = 2560
+    :112    def read_nodes(path):
+    :458    def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b568_nodes.txt', key=False):
+    :473        L += ['', OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
+    :479        L += ['', '## Correspondence', '', '| declaration | repository | grade | tier |', '|:--|:--|:--|:--|']
+    :556                return 3, None, None, log
+    :558            log.append('free memory before the lean call: %d MB (hold %d)' % (fm, HOLD_MB))
+    :559            if 0 <= fm < HOLD_MB:
+### relay push_gated.sh, its head -- tools/push_gated.sh @ 46248b4a (11 lines cited)
+    :1      #!/usr/bin/env bash
+    :2      # push_gated.sh -- THE PUSH DISCIPLINE, (R171)(2), written at b561.
+    :3      #
+    :4      # usage: push_gated.sh <repo> <push-branch> [tag[::message] ...]
+    :5      #
+    :6      # b560's defect (e): a chained command piped `git push origin main` through `tail`; the pre-push hook refused the push,
+    :7      # the pipe returned tail's status, and the chain went on to push the tag, so the remote carried a tag peeled to a commit
+    :8      # its main did not hold. The standing rule from (R171)(2):
+    :9      #   (1) this script runs with pipefail (and -e, -u); no push's status passes through a pipe;
+    :10     #   (2) main is pushed from <push-branch> (the hook, Rule 4.10, reads the CHECKED-OUT branch, so the branch is checked
+    :11     #       out for the push and the checkout restored after) and READ BACK by ls-remote, equal to <push-branch>'s tip;
+### relay b595`s answers bank, its head -- data/b595_author_answers.txt @ 46248b4a (4 lines cited)
+    :1      ### b595 -- THE AUTHOR'S ANSWERS BEFORE THE SEAL, three prompts put by the seat (2026-10-02), banked verbatim with the options and the recommended mark, as the standing line entered by the first answer orders.
+    :3      ### CALL tool-use id toolu_01VZnUKPEjZeMtRaAHYvjgab (session cbf1b30e-1310-463d-994c-65478058bd99)
+    :4      ### PROMPT 1 (Node source): (R205)(3) builds the tree 'from the relay's prompt banks'. Those banks hold 12 of the 44 prompts since b577 with the question verbatim (data/b592_author_answers.txt, data/b593_author_answers.txt), and no option set for any prompt. A second needle shape (40-char alphanumeric windows) finds 8 of 108 option descriptions partially quoted in edition banks. The full 44 prompt
+    :9      ### PROMPT 2 (Relayed mark): The ruling marks 'the navigator's relayed answer where the author passed it on'. The record shows two answer forms: an option label selected in the prompt (e.g. 'Append + pointer', 'Keep both lines', 'Substitute the stem': b577 head block, b578 title and stem clash), and prose 'Answer to the … prompt: option N. …' in the rulings' idiom (39 of the 41 other answered prom
+### relay b595`s closing push-out, its head -- data/b595_closing_push_out.txt @ 46248b4a (5 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b595_closing_push_out.txt (2026-10-02T16:33:49Z)
+    :2      push_gated: repo D:/relay ; branch push-b595-closing ; tip 0cfe7354b81a120213d7bb484dbc40fe58ca953b ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         8f0af83e..0cfe7354  push-b595-closing -> main
+    :5      push_gated: main read back at the remote: 0cfe7354b81a120213d7bb484dbc40fe58ca953b
+
+### TECHNE-Core DELIBERATION_TREE.md (private) @ da89d839 -- read for section (v)`s place only: heading at :[119]; no line of its text is printed here.

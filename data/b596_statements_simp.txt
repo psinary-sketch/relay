@@ -1,0 +1,16 @@
+b596 -- THE STATEMENTS OF SIDEExplicitFormula/Simplicity.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-02T17:19:51Z ; the branch simplicity-b596 (checked out: simplicity-b596) ; the file`s sha256 6099f6622b79d5d3e9ef4b98bd11a5a0589292809eb55ea0ec9590d2f418ede7 ; its bytes 3420
+
+### :27 def allSimple
+    def allSimple (C : WeilConfig) : Prop := ∀ ρ ∈ C.carrier, C.mult ρ = 1
+### :31 def simplicity
+    def simplicity : Prop := allSimple zetaWeilConfig
+### :34 theorem simplicity_iff
+    theorem simplicity_iff : simplicity ↔ ∀ ρ : ℂ, Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1 :=
+### :40 structure SimpleProportion
+    structure SimpleProportion : Prop where
+### :45 theorem exceptional_mass_le_third
+    theorem exceptional_mass_le_third (hP : SimpleProportion) :
+        ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀,
+          (Zeta23.Ncount T (2 * T) : ℝ) - (Zeta23.N0simple T (2 * T) : ℝ) ≤ (1 / 3 + ε) * (Zeta23.Ncount T (2 * T) : ℝ) := by

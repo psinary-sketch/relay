@@ -1,0 +1,175 @@
+b596 -- COMPONENT 2: THE WALK FOR THE PROPORTION OF SIMPLE ZEROS, (R206)(4)(a). ### written at (UTC) 2026-10-02T17:19:06Z
+### the instrument: git grep over the vendored modules at SIDE-explicit-formula c404e72 (the v0.16 tree), each module`s header pin ['Pin : v1.0 = 3635e74826a4c1fcece7d1cd2b6fa75e43a00510'] ; then the upstream clone (relay data/anthropic-zeta23/formal-math, untracked) at the pin 3635e748
+
+### (1) THE VENDORED MODULE LIST -- 57 modules
+    Zeta23/Analytic/RectangleLogDeriv.lean
+    Zeta23/Analytic/Stirling.lean
+    Zeta23/Assembly/Inputs.lean
+    Zeta23/Defs.lean
+    Zeta23/Defs/Counting.lean
+    Zeta23/ExplicitFormula.lean
+    Zeta23/ExplicitFormula/Bridge.lean
+    Zeta23/FromPNTPlus/Auxiliary.lean
+    Zeta23/FromPNTPlus/EulerMaclaurin.lean
+    Zeta23/FromPNTPlus/Fourier.lean
+    Zeta23/FromPNTPlus/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean
+    Zeta23/FromPNTPlus/Rectangle.lean
+    Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean
+    Zeta23/FromPNTPlus/Sobolev.lean
+    Zeta23/FromPNTPlus/StrongPNTPrefix.lean
+    Zeta23/FromPNTPlus/Tactic/AdditiveCombination.lean
+    Zeta23/FromPNTPlus/ZetaBounds.lean
+    Zeta23/GammaFacts.lean
+    Zeta23/GammaFacts/Mu.lean
+    Zeta23/GammaFacts/Series.lean
+    Zeta23/GammaFacts/StirlingVert.lean
+    Zeta23/Hypotheses.lean
+    Zeta23/LinAlg.lean
+    Zeta23/LinAlg/HermitianPosPart.lean
+    Zeta23/LinAlg/Inertia.lean
+    Zeta23/LinAlg/PosIndex.lean
+    Zeta23/LinAlg/RankTrace.lean
+    Zeta23/LinAlg/Sylvester.lean
+    Zeta23/LinAlg/VonNeumann.lean
+    Zeta23/LinAlg/Weyl.lean
+    Zeta23/Poisson/PaperFT.lean
+    Zeta23/Prelude/InstancePriorities.lean
+    Zeta23/RvM/CountByIntegral.lean
+    Zeta23/RvM/Halving.lean
+    Zeta23/RvM/LocalCount.lean
+    Zeta23/RvM/ZetaGrowth.lean
+    Zeta23/Statement.lean
+    Zeta23/Statement/Seam.lean
+    Zeta23/Statement/SeamClosed.lean
+    Zeta23/Tail.lean
+    Zeta23/Tail/Basic.lean
+    Zeta23/Tail/Count.lean
+    Zeta23/Tail/Grid.lean
+    Zeta23/Tail/RankOne.lean
+    Zeta23/WeilEF/Contour.lean
+    Zeta23/WeilEF/FullLine.lean
+    Zeta23/WeilEF/FullLineAssembly.lean
+    Zeta23/WeilEF/GammaRBracket.lean
+    Zeta23/WeilEF/GoodHeights.lean
+    Zeta23/WeilEF/Horizontal.lean
+    Zeta23/WeilEF/Landau.lean
+    Zeta23/WeilEF/Main.lean
+    Zeta23/WeilEF/VerticalLine.lean
+    Zeta23/WeilEF/XiLogDeriv.lean
+    Zeta23/WeilEF/ZeroSumLimit.lean
+    Zeta23/WeilEF/ZeroSummability.lean
+    Zeta23/ZetaReflect.lean
+
+### (2) THE WALK BY NAME (a needle bounded on both sides by a non-identifier character)
+  ## thmB₀_mult               0 hit(s)
+  ## thmB_mult                0 hit(s)
+  ## two_thirds_simple        0 hit(s)
+  ## thmB₀                    0 hit(s)
+  ## thmB                     1 hit(s)
+      Zeta23/Statement.lean:180  The headline theorems Zeta23.thmA, thmA_cumulative, thmA_lam, thmB, thmB_cumulative, thmB_lam, thmC,
+  ## ThmB_statement           1 hit(s)
+      Zeta23/Statement.lean:199  def ThmB_statement : Prop :=
+  ## N0simple                 9 hit(s)
+      Zeta23/Statement.lean:78  def N0simple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} ∩ {ρ | zeroMult ρ = 1}).ncard
+      Zeta23/Statement.lean:131  @[simp] lemma zetaZeros_N0s : (zetaZeros hs).N0s T₁ T₂ = N0simple T₁ T₂ := by
+      Zeta23/Statement.lean:132  simp [ZeroConfig.N0s, N0simple, zetaZeros_window, ZeroConfig.onLine]
+      Zeta23/Statement.lean:174  N0simple T₁ T₂ ≤ N0star T₁ T₂ ∧ N0star T₁ T₂ ≤ N0 T₁ T₂ ∧ N0 T₁ T₂ ≤ Ncount T₁ T₂ ∧
+      Zeta23/Statement.lean:175  N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ := by
+      Zeta23/Statement.lean:200  ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (1 / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T)
+      Zeta23/Statement/SeamClosed.lean:51  @[simp] lemma zetaZeroConfig_N0s (T₁ T₂ : ℝ) : zetaZeroConfig.N0s T₁ T₂ = N0simple T₁ T₂ :=
+      Zeta23/Statement/SeamClosed.lean:58  N0simple T₁ T₂ ≤ N0star T₁ T₂ ∧ N0star T₁ T₂ ≤ N0 T₁ T₂ ∧ N0 T₁ T₂ ≤ Ncount T₁ T₂ ∧
+      Zeta23/Statement/SeamClosed.lean:59  N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ :=
+  ## N0s                      6 hit(s)
+      Zeta23/Defs.lean:174  def N0s (T₁ T₂ : ℝ) : ℕ := (Z.window T₁ T₂ ∩ onLine ∩ Z.simple).ncard
+      Zeta23/Defs/Counting.lean:65  Z.N0s T₁ T₂ ≤ Z.N0star T₁ T₂ ∧ Z.N0star T₁ T₂ ≤ Z.N0 T₁ T₂ ∧ Z.N0 T₁ T₂ ≤ Z.N T₁ T₂ ∧
+      Zeta23/Defs/Counting.lean:66  Z.N0s T₁ T₂ ≤ Z.Ns T₁ T₂ ∧ Z.Ns T₁ T₂ ≤ Z.Nd T₁ T₂ ∧ Z.Nd T₁ T₂ ≤ Z.N T₁ T₂ := by
+      Zeta23/Statement.lean:131  @[simp] lemma zetaZeros_N0s : (zetaZeros hs).N0s T₁ T₂ = N0simple T₁ T₂ := by
+      Zeta23/Statement.lean:132  simp [ZeroConfig.N0s, N0simple, zetaZeros_window, ZeroConfig.onLine]
+      Zeta23/Statement/SeamClosed.lean:51  @[simp] lemma zetaZeroConfig_N0s (T₁ T₂ : ℝ) : zetaZeroConfig.N0s T₁ T₂ = N0simple T₁ T₂ :=
+  ## Nsimple                  5 hit(s)
+      Zeta23/Statement.lean:81  def Nsimple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | zeroMult ρ = 1}).ncard
+      Zeta23/Statement.lean:133  @[simp] lemma zetaZeros_Ns : (zetaZeros hs).Ns T₁ T₂ = Nsimple T₁ T₂ := by
+      Zeta23/Statement.lean:134  simp [ZeroConfig.Ns, Nsimple, zetaZeros_window]
+      Zeta23/Statement.lean:175  N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ := by
+      Zeta23/Statement/SeamClosed.lean:59  N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ :=
+  ## simple_on_critical_line  0 hit(s)
+
+### (3) THE WALK BY THE BOUND
+  ## '2 / 3'                  9 hit(s)
+      Zeta23/Defs.lean:74  def Ffun (x : ℝ) : ℝ := x / (1 + x ^ 2 / 3)
+      Zeta23/Defs.lean:85  lemma Hfun_one : Hfun 1 = 2 / 3 := by norm_num [Hfun]
+      Zeta23/GammaFacts/Mu.lean:198  have hγ : Real.eulerMascheroniConstant < 2 / 3 := Real.eulerMascheroniConstant_lt_two_thirds
+      Zeta23/GammaFacts/StirlingVert.lean:373  ‖∑' n : ℕ, eps w ((n : ℝ) + 1)‖ ≤ (2 / 3) / w.im ^ 2 := by
+      Zeta23/GammaFacts/StirlingVert.lean:385  _ = (2 / 3) / w.im ^ 2 := by rw [← sq_abs]; field_simp
+      Zeta23/GammaFacts/StirlingVert.lean:527  have b2 : ‖eps w 0‖ ≤ (2 / 3) / w.im ^ 2 := by
+      Zeta23/GammaFacts/StirlingVert.lean:549  _ ≤ (1 / 2) / w.im ^ 2 + (2 / 3) / w.im ^ 2 + 1 / w.im ^ 2 + (2 / 3) / w.im ^ 2 := by
+      Zeta23/GammaFacts/StirlingVert.lean:553  rw [show (1 / 2) / w.im ^ 2 + (2 / 3) / w.im ^ 2 + 1 / w.im ^ 2 + (2 / 3) / w.im ^ 2
+      Zeta23/Statement.lean:196  ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0star T (2 * T)
+  ## '1 / 2 - ε'              1 hit(s)
+      Zeta23/Statement.lean:200  ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (1 / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T)
+  ## 'two thirds'             2 hit(s)
+      Zeta23/Assembly/Inputs.lean:24  "More than two thirds of the zeros of the Riemann zeta function lie on the critical line".
+      Zeta23/Defs.lean:25  Reference text: the paper "More than two thirds of the zeros of the Riemann zeta function lie on
+  ## '2/3'                    7 hit(s)
+      Zeta23/Defs.lean:70  /-- H(λ) := 2 − 1/λ − λ/3  [eq:Fdef]; H(1) = 2/3. -/
+      Zeta23/LinAlg/Weyl.lean:38  Theorems B and C (simple zeros, distinct zeros) but not for Theorem A (2/3 on
+      Zeta23/Statement.lean:31  constant H(λ), F(λ), then the 2/3, 1/2, 3/4 liminf wrappers via λ → 1⁻);
+      Zeta23/Statement.lean:189  liminf_{T→∞} N₀*(T,2T)/N(T,2T) ≥ 2/3,   liminf_{T→∞} N₀*(T)/N(T) ≥ 2/3".
+      Zeta23/Statement.lean:191  H(λ) (resp. 2F(λ)−1, F(λ)), which absorb c(λ)/log T; then the 2/3 (resp. 1/2, 3/4) forms via
+      Zeta23/Statement.lean:192  sup_{λ<1} H(λ) = H(1) = 2/3 etc. The effective c(λ) forms are not stated. -/
+      Zeta23/Statement.lean:194  /-- The statement of Theorem A (2/3, dyadic ε-form) as a Prop, for reference; Zeta23.thmA proves it. -/
+
+### (4) THE VENDORED STATEMENT, IN ITS OWN WORDS (Zeta23/Statement.lean at c404e72)
+    :3 
+    :4 Source     : anthropics/formal-math, the `zeta23` formalization
+    :5 Source path: Zeta23/Statement.lean
+    :6 Pin        : v1.0 = 3635e74826a4c1fcece7d1cd2b6fa75e43a00510
+    :25 Canonical text: the paper, §1 [Results], [eq:trivialchain], [thm:A], [thm:B], [thm:C].
+    :179 
+    :180 The headline theorems Zeta23.thmA, thmA_cumulative, thmA_lam, thmB, thmB_cumulative, thmB_lam, thmC,
+    :181 thmC_cumulative, thmC_lam are proved in Zeta23/Final.lean (their types display the full trust base:
+    :182 literature explicit formula, Riemann–von Mangoldt, Montgomery–Vaughan, Γ-facts), on top of the
+    :183 versions Zeta23.thmA_of_traces etc. in Zeta23/Main.lean (thm:traces as an explicit hypothesis). This file
+    :198 /-- The statement of Theorem B (1/2, dyadic ε-form). -/
+    :199 def ThmB_statement : Prop :=
+    :200   ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (1 / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T)
+    :202 /-- The statement of Theorem C (3/4, dyadic ε-form). -/
+    :203 def ThmC_statement : Prop :=
+    :204   ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (3 / 4 - ε) * (Ncount T (2 * T) : ℝ) ≤ Ndist T (2 * T)
+    ### the vendored set holds the simple-on-the-line statement as `Zeta23.ThmB_statement`, a Prop (a `def`), at the bound 1/2 (its docstring :198 "The statement of Theorem B (1/2, dyadic ε-form)"); its header :179-:183 names the theorems that prove it (Zeta23/Final.lean, Zeta23/Main.lean) as elsewhere; no `theorem` or `lemma` of the vendored set concludes a lower bound on `N0simple` (the name walk above: 0 hits for thmB₀_mult / thmB_mult / two_thirds_simple).
+
+### (5) THE UPSTREAM MODULE THAT HOLDS IT, AT THE PIN 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 (anthropics/formal-math, the zeta23 formalization; relay`s clone at HEAD fbdc36bb)
+    the declaration: ['Zeta23/FinalMult.lean:350']
+    Zeta23/FinalMult.lean :347 /-- **At least 2/3 of the zeros of ζ are SIMPLE AND ON THE CRITICAL LINE, UNCONDITIONAL**
+    Zeta23/FinalMult.lean :348 (this is the paper's [thm:B]; Zeta23/Final.lean has the Cauchy–Schwarz form with 1/2): for every ε > 0 and all large T,
+    Zeta23/FinalMult.lean :349 (2/3 − ε)·N(T,2T) ≤ N₀ˢ(T,2T), for Mathlib's riemannZeta. -/
+    Zeta23/FinalMult.lean :350 theorem thmB₀_mult :
+    Zeta23/FinalMult.lean :351     ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T) :=
+    Zeta23/FinalMult.lean :352   eps_form_twoThirds (N := fun T => (Ncount T (2 * T) : ℝ))
+    Zeta23/FinalMult.lean :353     (lower := fun T => (N0simple T (2 * T) : ℝ)) (fun _ => Nat.cast_nonneg _)
+    Zeta23/FinalMult.lean :354     fun lam hl1 hl2 => thmB_mult_lam (by linarith) hl2
+    Zeta23/Final.lean :85 /-- **Theorem B** [thm:B]: "at least half of the zeros are simple and on the critical line":
+    Zeta23/Final.lean :86 (1/2 − ε)·N(T,2T) ≤ N₀ˢ(T,2T) for T ≥ T₀(ε). -/
+    Zeta23/Final.lean :87 theorem thmB :
+    Zeta23/Final.lean :88     ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (1 / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T) :=
+    Zeta23/Final.lean :89   let H := PaperInputs.of_literature hEF hRvM hMV hΓ
+    Zeta23/Final.lean :304 
+    Zeta23/Final.lean :305 /-- **Theorem B** [thm:B], UNCONDITIONAL: at least (1/2 − ε) of the zeros are simple AND on the line. -/
+    Zeta23/Final.lean :306 theorem thmB₀ :
+    Zeta23/Final.lean :307     ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (1 / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T) :=
+    Zeta23/Final.lean :308   thmB₁ zetaEF
+    README.md :1 # Zeta23 — a Lean 4 formalization of "More than two thirds of the zeros of the Riemann zeta function lie on the critical line"
+    README.md :8 This repository accompanies the paper "More than two thirds of the zeros of the Riemann zeta function lie on the critical line" (Claude; Anthropic, San Francisco, 2026).
+    README.md :9 It contains a complete, `sorry`-free Lean 4 / Mathlib formalization of Theorems A–E of that paper, including proofs
+    README.md :31 | **A** | liminf N₀*(T,2T)/N(T,2T) ≥ 2/3, and liminf N₀*(T)/N(T) ≥ 2/3 | `two_thirds_on_critical_line`(`_cumulative`) | `Zeta23.thmA₀`(`_cumulative`) (`Zeta23/Final.lean`) |
+    README.md :32 | **B** | liminf N₀ˢ/N ≥ 2/3: at least two thirds of the zeros are simple and on the critical line (dyadic and cumulative) | `two_thirds_simple_on_critical_line`(`_cumulative`) | `Zeta23.thmB₀_mult`(`_cumulative`) (`Zeta23/FinalMult.lean`) |
+
+### (6) THE ATTRIBUTION, IN THE MODULES` OWN WORDS, AND THE RECORD`S
+    the vendored header (Statement.lean :3-:6):  | Source     : anthropics/formal-math, the `zeta23` formalization | Source path: Zeta23/Statement.lean | Pin        : v1.0 = 3635e74826a4c1fcece7d1cd2b6fa75e43a00510
+    the vendored body: "Copyright (c) 2026 Anthropic, PBC" and "Canonical text: the paper" (:18, :25)
+    the upstream README :8: This repository accompanies the paper "More than two thirds of the zeros of the Riemann zeta function lie on the critical line" (Claude; Anthropic, San Francisco, 2026).
+    relay data/b468r_closing.txt :39-:41 (the arXiv byline): ### Both papers state THE SAME Theorem A and Theorem B; what differs is the byline (Claude, ### Anthropic / Alpoge and Furman, "discovered and written by Claude"). ### It counts SIMPLE ZEROS ### ON THE LINE -- N0s(T,2T) >= (2/3 - o(1)) N(T,2T), "We prove unconditionally", 0.67250... with
+
+### (7) H29a -- “the proportion is in the vendored set by name”: REFUTED. No theorem of the proportion is in the vendored set by any name; its statement at 1/2 is there as a Prop, and the theorem at 2/3 is upstream at Zeta23/FinalMult.lean :350.
+
+### (8) FACT CORRECTION TO THE WORK-ORDER (OPEN_TRAILS :12014, item (a)), recorded here and not to the module: the work-order names “the Alpöge–Furman proportion (at least 2/3 of ζ’s zeros simple and on the line)”. In the modules’ own words: (i) the vendored set holds the simple-on-the-line statement only as the Prop `Zeta23.ThmB_statement`, at the bound 1/2 (Zeta23/Statement.lean :198-:200), and proves no bound on `N0simple`; (ii) the bound 2/3 for zeros simple and on the line, counted against all zeros with multiplicity on the dyadic window (T, 2T], in the ε-form, is `Zeta23.thmB₀_mult` at the upstream pin (Zeta23/FinalMult.lean :350, “this is the paper’s [thm:B]; Zeta23/Final.lean has the Cauchy–Schwarz form with 1/2”, :348), outside the vendored set; (iii) the 2/3 that the vendored statement layer carries is Theorem A’s, DISTINCT zeros on the line (`ThmA_statement`, `N0star`), not simple ones; (iv) the modules attribute the work to “the paper” under Anthropic’s copyright, the upstream README names it “More than two thirds of the zeros of the Riemann zeta function lie on the critical line” (Claude; Anthropic, 2026), and the name Alpöge–Furman is the arXiv byline of 2608.13637 (relay data/b468r_closing.txt :39-:41), whose text says the argument was discovered and written by Claude.

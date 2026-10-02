@@ -1,0 +1,116 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Simplicity.SaltCheck.pt": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.pt_reflect": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Zeta23.reflect pt = pt",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.toyZ": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(m : ℕ) (hm : 1 ≤ m) : Zeta23.ZeroConfig where carrier",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.toy_N_le": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hm : 1 ≤ m",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(m : ℕ) (hm : 1 ≤ m) (t : ℝ) : (toyZ m hm).N t (t + 1) ≤ m",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.toy_count": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hm : 1 ≤ m",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(m : ℕ) (hm : 1 ≤ m) : HCount (toyZ m hm) m",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(m : ℕ) (hm : 1 ≤ m) : WeilConfig where toZeroConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.toy_online": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hm : 1 ≤ m",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(m : ℕ) (hm : 1 ≤ m) : online (toyCfg m hm)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "5a1630b8292b29657b0e9b488b25034c6989c737",
+ "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+ "same_file": true
+}

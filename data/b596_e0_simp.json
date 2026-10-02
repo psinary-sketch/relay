@@ -1,0 +1,68 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Simplicity.allSimple": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Simplicity.simplicity": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Simplicity.simplicity_iff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": simplicity ↔ ∀ ρ : ℂ, Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Simplicity.SimpleProportion": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": null,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Simplicity.exceptional_mass_le_third": {
+   "grade": "INTERFACES",
+   "why": "hP : SimpleProportion",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(hP : SimpleProportion) : ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (Zeta23.Ncount T (2 * T) : ℝ) - (Zeta23.N0simple T (2 * T) : ℝ) ≤ (1 / 3 + ε) * (Zeta23.Ncount T (2 * T) : ℝ)",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "5a1630b8292b29657b0e9b488b25034c6989c737",
+ "file": "SIDEExplicitFormula/Simplicity.lean",
+ "same_file": true
+}

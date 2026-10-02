@@ -1,0 +1,1134 @@
+{
+ "H29b": "HOLDS",
+ "satisfiable": {
+  "grade": "DERIVES",
+  "why": "no hypothesis binder",
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "std3": true,
+  "head": ": ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C",
+  "kind": "theorem"
+ },
+ "not_forced": {
+  "grade": "DERIVES",
+  "why": "no hypothesis binder",
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "std3": true,
+  "head": ": ∃ C : WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C",
+  "kind": "theorem"
+ },
+ "check": {
+  "allSimple_satisfiable": "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable : ∃ C,\n  C.target ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ C.carrier.Nonempty ∧ SIDEExplicitFormula.Simplicity.allSimple C",
+  "allSimple_not_forced": "SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced : ∃ C,\n  C.target ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ ¬SIDEExplicitFormula.Simplicity.allSimple C\ndef SIDEExplicitFormula.Simplicity.allSimple : SIDEExplicitFormula.Schema.WeilConfig → Prop :=\nfun C => ∀ ρ ∈ C.carrier, C.mult ρ = 1\ndef SIDEExplicitFormula.Simplicity.simplicity : Prop :="
+ },
+ "rows": [
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "file": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 227,
+   "name": "bsd_decomposition",
+   "cls": "OTHER",
+   "conclusion": " location_transferred = true ∧ multiplicity_specific_not_transferred = true",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-bsd-multiplicity",
+   "file": "SIDEBSDMultiplicity/Basic.lean",
+   "line": 263,
+   "name": "multiplicity_argument_complete",
+   "cls": "OTHER",
+   "conclusion": " BSD_multiplicity_argument.same_spec_determines_both = true ∧ BSD_multiplicity_argument.no_distinguishing_mechanism = true ∧ BSD_multiplicity_argument.observed_agreement_in_every_tested_case = true ∧ BSD_multiplicity_argument.all_SIDE_conditions_hold = true",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-bsd-multiplicity",
+   "file": "SIDEBSDMultiplicity/Basic.lean",
+   "line": 343,
+   "name": "BSD_three_layers",
+   "cls": "OTHER",
+   "conclusion": " BSD_status.location_zeros_on_Re_one = true ∧ BSD_status.sha_finite = true ∧ BSD_status.multiplicity_equals_rank = true",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/Contour.lean",
+   "line": 27,
+   "name": "rectangle_identity_chi",
+   "cls": "OTHER",
+   "conclusion": " Finset ℂ, ((Z : Set ℂ) = {ρ : ℂ | IsNontrivialZeroChi χ ρ ∧ -R < ρ.im ∧ ρ.im < R}) ∧ RectangleIntegral' (fun s => Hfn k s * logDeriv (completedLFunction χ) s) ((1 - c : ℝ) - R * I) ((c : ℝ) + R * I) = ∑ ρ ∈ Z, (zeroMultChi χ ρ : ℂ) * Hfn k ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/CountByIntegral.lean",
+   "line": 67,
+   "name": "analyticOrderNatAt_completedLFunction",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderNatAt (completedLFunction χ) ρ = zeroMultChi χ ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "line": 31,
+   "name": "dominant_summable_chi",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "line": 51,
+   "name": "fR_norm_le_chi",
+   "cls": "OTHER",
+   "conclusion": " ‖fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ ((chiZeroConfig χ hχ h1).mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+   "line": 68,
+   "name": "fR_bound_chi",
+   "cls": "OTHER",
+   "conclusion": " ‖fR_chi H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ ((chiZeroConfig χ hχ h1).mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/FullLineAssembly.lean",
+   "line": 31,
+   "name": "full_line_identity_chi",
+   "cls": "OTHER",
+   "conclusion": " (chiZeroConfig χ hχ h1).carrier, ((chiZeroConfig χ hχ h1).mult ρ : ℂ) * Hfn k ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/GoodHeights.lean",
+   "line": 40,
+   "name": "sum_mult_six_windows_chi",
+   "cls": "OTHER",
+   "conclusion": " ∑ ρ ∈ F, ((chiZeroConfig χ hχ hχ1).mult ρ : ℝ) ≤ 6 * (A₀ * Real.log (|(a : ℝ)| + 9))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/GoodHeights.lean",
+   "line": 86,
+   "name": "card_le_sum_mult_chi",
+   "cls": "OTHER",
+   "conclusion": " (F.card : ℝ) ≤ ∑ ρ ∈ F, ((chiZeroConfig χ hχ hχ1).mult ρ : ℝ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/LocalCount.lean",
+   "line": 59,
+   "name": "analyticOrderNatAt_gfunChi",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderNatAt (gfunChi χ s₀ c u) w = zeroMultChi χ (s₀ + c * w)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/XiLogDeriv.lean",
+   "line": 111,
+   "name": "completedLFunction_zeros_strip",
+   "cls": "OTHER",
+   "conclusion": " (completedLFunction χ ρ = 0 ↔ IsNontrivialZeroChi χ ρ) ∧ analyticOrderAt (completedLFunction χ) ρ = analyticOrderAt (LFunction χ) ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 66,
+   "name": "analyticOrderAt_LFunction_ne_top",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (LFunction χ) s ≠ ⊤",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 75,
+   "name": "one_le_zeroMultChi",
+   "cls": "OTHER",
+   "conclusion": " 1 ≤ zeroMultChi χ ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 132,
+   "name": "analyticOrderAt_LFunction_eq_completed",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (LFunction ψ) w = analyticOrderAt (completedLFunction ψ) w",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 146,
+   "name": "analyticOrderAt_completed_le_one_sub",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (completedLFunction χ) w ≤ analyticOrderAt (completedLFunction χ⁻¹) (1 - w)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 170,
+   "name": "analyticOrderAt_completed_one_sub",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (completedLFunction χ⁻¹) (1 - w) = analyticOrderAt (completedLFunction χ) w",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 208,
+   "name": "chi_mult_reflect",
+   "cls": "OTHER",
+   "conclusion": " zeroMultChi χ (Zeta23.reflect ρ) = zeroMultChi χ ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 237,
+   "name": "chiZeroConfig_mult",
+   "cls": "OTHER",
+   "conclusion": " (chiZeroConfig χ hχ h1).mult = zeroMultChi χ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroConfig.lean",
+   "line": 251,
+   "name": "chiZeroConfig_mult_conj",
+   "cls": "OTHER",
+   "conclusion": " (chiZeroConfig χ⁻¹ (isPrimitive_inv hχ) (inv_ne_one.mpr h1)).mult (conj ρ) = (chiZeroConfig χ hχ h1).mult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroSumLimit.lean",
+   "line": 27,
+   "name": "zero_sum_limit_chi",
+   "cls": "OTHER",
+   "conclusion": " Tendsto (fun j : ℕ => ∑ ρ ∈ Z j, (zeroMultChi χ ρ : ℂ) * Hfn k ρ) atTop (𝓝 (∑' ρ : (chiZeroConfig χ hχ h1).carrier, ((chiZeroConfig χ hχ h1).mult ρ : ℂ) * Hfn k ρ))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroSummability.lean",
+   "line": 26,
+   "name": "chi_zero_sum_inv_sq",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℝ) / (1 + Complex.normSq (Zeta23.gammaOf ρ)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Chi/ZeroSummability.lean",
+   "line": 34,
+   "name": "EF_zero_sum_summable_chi",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : (chiZeroConfig χ hχ h1).carrier => ((chiZeroConfig χ hχ h1).mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/GRHWeil.lean",
+   "line": 23,
+   "name": "on",
+   "cls": "OTHER",
+   "conclusion": " ℕ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/GRHWeil.lean",
+   "line": 215,
+   "name": "analyticOrderAt_LFunction_inv_conj",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (LFunction χ⁻¹) (conj w) = analyticOrderAt (LFunction χ) w",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "line": 62,
+   "name": "analyticOrderAt_xi_eq_zeta",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "line": 101,
+   "name": "zeroMult_eq_xiMult",
+   "cls": "OTHER",
+   "conclusion": " zeroMult ρ.val = xiMult (carrierEquiv ρ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "line": 53,
+   "name": "mult_conj",
+   "cls": "OTHER",
+   "conclusion": " zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = zetaZeroConfig.mult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "line": 188,
+   "name": "pair_summable",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "line": 247,
+   "name": "LiCoeff_eq",
+   "cls": "OTHER",
+   "conclusion": " zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "line": 257,
+   "name": "liTerm_re_summable",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : zetaZeroConfig.carrier => (zetaZeroConfig.mult ρ : ℝ) * (liTerm n ρ).re)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeil.lean",
+   "line": 344,
+   "name": "truncMember_EF",
+   "cls": "OTHER",
+   "conclusion": " zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (truncMember n f) (gammaOf ρ) = EF.literatureRHS (truncMember n f)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeilSym.lean",
+   "line": 105,
+   "name": "symMember_EF",
+   "cls": "OTHER",
+   "conclusion": " zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ) = EF.literatureRHS (symMember n δ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeilSym.lean",
+   "line": 224,
+   "name": "symZeroSum_conj",
+   "cls": "OTHER",
+   "conclusion": " zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/LiWeilSym.lean",
+   "line": 236,
+   "name": "symZeroSum_im",
+   "cls": "OTHER",
+   "conclusion": " (∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℂ) * paperFT (symMember n δ) (gammaOf ρ)).im = 0",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 879,
+   "name": "weighted_finite_bound",
+   "cls": "OTHER",
+   "conclusion": " (∑ ρ ∈ s, (Z.mult ρ : ℝ) * f ρ) ≤ 3 * A₀ * Bf * zeta3Sum",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 934,
+   "name": "weighted_summable",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 949,
+   "name": "dominant_summable",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : Zeta23.zetaZeroConfig.carrier => (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 969,
+   "name": "fR_norm_le",
+   "cls": "OTHER",
+   "conclusion": " ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 986,
+   "name": "fR_bound",
+   "cls": "OTHER",
+   "conclusion": " ‖fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (Zeta23.zetaZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 192,
+   "name": "fiber_count",
+   "cls": "OTHER",
+   "conclusion": " (∑ ρ ∈ s.filter (fun ρ => ⌈ρ.im⌉ = m), (Z.mult ρ : ℝ)) ≤ (Z.N ((m : ℝ) - 1) (m : ℝ) : ℝ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 207,
+   "name": "finite_rest_bound",
+   "cls": "OTHER",
+   "conclusion": " (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ restR γ₀ φ L A₀",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/RestBound.lean",
+   "line": 275,
+   "name": "rest_le_of_finite",
+   "cls": "OTHER",
+   "conclusion": " restSum Z γ₀ φ ρ₀ ≤ R",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+   "line": 100,
+   "name": "allSimple_satisfiable",
+   "cls": "OWN",
+   "conclusion": " WeilConfig, C.target ∧ h2_sign_cfg C ∧ C.carrier.Nonempty ∧ allSimple C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+   "line": 107,
+   "name": "allSimple_not_forced",
+   "cls": "OWN",
+   "conclusion": " WeilConfig, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "line": 28,
+   "name": "dominant_summable_cfg",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : C.toZeroConfig.carrier => (C.toZeroConfig.mult ρ : ℝ) * (B ^ 2 * (1 + ‖wOf ρ‖) ^ (2 * D) * (offScore g0 ρ / M) ^ (2 ^ (D + 1))))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "line": 48,
+   "name": "fR_norm_le_cfg",
+   "cls": "OTHER",
+   "conclusion": " ‖fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (C.toZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (j + 1)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Converse.lean",
+   "line": 65,
+   "name": "fR_bound_cfg",
+   "cls": "OTHER",
+   "conclusion": " ‖fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤ (C.toZeroConfig.mult x : ℝ) * (B ^ 2 * (1 + ‖wOf x‖) ^ (2 * D) * (offScore g0 x / M) ^ (2 ^ (D + 1)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Simplicity.lean",
+   "line": 34,
+   "name": "simplicity_iff",
+   "cls": "OWN",
+   "conclusion": " ℂ, Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/Basic.lean",
+   "line": 521,
+   "name": "weierstrass_E_analyticOrderAt_one",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (weierstrass_E p) (1 : ℂ) = 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 321,
+   "name": "summable_mult_div_norm_pow_of_order_le",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : Z.Zero => (Z.mult ρ : ℝ) / ‖Z.z ρ‖ ^ (Nat.floor lam + 1))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 377,
+   "name": "tsum_zeroWithMultiplicity_eq_weighted_tsum_of_nonneg",
+   "cls": "OTHER",
+   "conclusion": " Z.Zero, (Z.mult ρ : ℝ) * g ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 409,
+   "name": "sum_mult_div_norm_pow_le_rpow_of_two_pow",
+   "cls": "OTHER",
+   "conclusion": " ℕ, n₀ ≤ n → (∑ ρ ∈ Hadamard.OrderOne.zerosBallFinset_of_entire (hf_entire",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 678,
+   "name": "tsum_mult_div_norm_pow_tail_le_rpow_of_two_pow",
+   "cls": "OTHER",
+   "conclusion": " ℕ, n₀ ≤ n → (∑' ρ : ({ρ : Z.Zero | (2 : ℝ) ^ (n + 1) < ‖Z.z ρ‖} : Set Z.Zero), (Z.mult ρ.val : ℝ) / ‖Z.z ρ.val‖ ^ (p + 1)) ≤ C * ((2 : ℝ) ^ n) ^ (lam + δ - ((p : ℝ) + 1))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1101,
+   "name": "summable_inv_norm_pow_zWithMultiplicity",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun i : Z.ZeroWithMultiplicity => (1 : ℝ) / ‖Z.zWithMultiplicity i‖ ^ (p + 1))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1130,
+   "name": "canonicalProductZeroSetMultiplicityRank_differentiable",
+   "cls": "OTHER",
+   "conclusion": " Differentiable ℂ (canonicalProductZeroSetMultiplicityRank Z p)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1150,
+   "name": "canonicalProductZeroSetMultiplicityRank_eq_zero_iff",
+   "cls": "OTHER",
+   "conclusion": " Z.Zero, s = Z.z ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1312,
+   "name": "canonicalProductZeroSetMultiplicityRank_eq_tprod_pow",
+   "cls": "OTHER",
+   "conclusion": " Z.Zero, weierstrass_E p (s / Z.z ρ) ^ Z.mult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1415,
+   "name": "multipliable_pow_weierstrass_E_div_of_summable",
+   "cls": "OTHER",
+   "conclusion": " Multipliable (fun ρ : Z.Zero => weierstrass_E p (s / Z.z ρ) ^ Z.mult ρ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1538,
+   "name": "analyticOrderNatAt_canonicalProductZeroSetMultiplicityRank",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderNatAt (canonicalProductZeroSetMultiplicityRank Z p) (Z.z ρ) = Z.mult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1658,
+   "name": "exists_quotient_entire",
+   "cls": "OTHER",
+   "conclusion": " ℂ → ℂ, Differentiable ℂ Q ∧ (∀ z : ℂ, Q z ≠ 0) ∧ (∀ z : ℂ, f z = canonicalProductZeroSetMultiplicityRank Z p z * Q z)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 1838,
+   "name": "order_Q_le_lam_of_factorization",
+   "cls": "OTHER",
+   "conclusion": " hasFiniteOrder Q ∧ order Q ≤ lam",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+   "line": 3298,
+   "name": "hadamard_factorization_general",
+   "cls": "OTHER",
+   "conclusion": " ℂ, f z = Complex.exp (g.eval z) * canonicalProductZeroSetMultiplicityRank Z (Nat.floor lam) z",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/OrderOne/QuotientCancellation.lean",
+   "line": 42,
+   "name": "exists_analyticAt_update_div_of_analyticOrderNatAt_eq",
+   "cls": "OTHER",
+   "conclusion": " ℂ, AnalyticAt ℂ (fun z => if z = a then q else f z / g z) a",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean",
+   "line": 174,
+   "name": "sum_multiplicity_zeros_le_rpow_of_order_le",
+   "cls": "OTHER",
+   "conclusion": " ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ C * r ^ (lam + ε)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean",
+   "line": 248,
+   "name": "sum_multiplicity_zeros_le_rpow",
+   "cls": "OTHER",
+   "conclusion": " ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ C * r ^ ((1 : ℝ) + ε)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+   "line": 264,
+   "name": "sum_multiplicity_zeros_le_of_order_le_one",
+   "cls": "OTHER",
+   "conclusion": " ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ ((2 * r) ^ ((1 : ℝ) + ε) - Real.log ‖f 0‖) / Real.log 2",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+   "line": 548,
+   "name": "sum_multiplicity_zeros_le_of_order_le",
+   "cls": "OTHER",
+   "conclusion": " ℝ, R₀ ≤ r → (∑ᶠ ρ : Z.Zero, if ‖Z.z ρ‖ ≤ r then (analyticOrderNatAt f (Z.z ρ) : ℝ) else 0) ≤ ((2 * r) ^ (lam + ε) - Real.log ‖f 0‖) / Real.log 2",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/ZeroCounting.lean",
+   "line": 664,
+   "name": "sum_zeros_multiplicity_le_of_max_one_maxModulus",
+   "cls": "OTHER",
+   "conclusion": " (∑ᶠ u : ℂ, if ‖u‖ ≤ R / 2 then ((MeromorphicOn.divisor f (closedBall (0 : ℂ) |R|) u : ℤ) : ℝ) else 0) ≤ (Real.log (max 1 (maxModulus f R)) - Real.log ‖f 0‖) / Real.log 2",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean",
+   "line": 60,
+   "name": "zWithMultiplicity_mk",
+   "cls": "OTHER",
+   "conclusion": " Z.zWithMultiplicity ⟨ρ, k⟩ = Z.z ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+   "line": 3056,
+   "name": "analyticOrderAt_riemannXi_ne_top",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt riemannXi s ≠ ⊤",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+   "line": 3184,
+   "name": "summable_inv_norm_sq_zeros_with_multiplicity_of_weighted_genus",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun i : XiZeroWithMultiplicity => (1 : ℝ) / ‖i.1.val‖ ^ 2)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+   "line": 3721,
+   "name": "xi_sq_factorization_pairedLinear_withMultiplicity_of_weighted_genus",
+   "cls": "OTHER",
+   "conclusion": " XiZeroWithMultiplicity, xiPairedLinearFactor i.1 s",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+   "line": 4600,
+   "name": "exists_increasing_finite_cover_zeros_with_multiplicity",
+   "cls": "OTHER",
+   "conclusion": " ∃ (T : ℕ → Finset XiZeroWithMultiplicity), Monotone T ∧ (⋃ n, (T n : Set XiZeroWithMultiplicity)) = Set.univ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean",
+   "line": 670,
+   "name": "weighted_paired_sum_formula_of_mtest_and_cauchy",
+   "cls": "OTHER",
+   "conclusion": " NontrivialZero, (analyticOrderNatAt riemannXi ρ.val : ℂ) * liPairedSummand n ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean",
+   "line": 1735,
+   "name": "weighted_paired_sum_formula_of_standard_hypotheses",
+   "cls": "OTHER",
+   "conclusion": " NontrivialZero, (analyticOrderNatAt riemannXi ρ.val : ℂ) * liPairedSummand n ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean",
+   "line": 2229,
+   "name": "li_criterion_equiv_of_weighted_standard_hypotheses",
+   "cls": "OTHER",
+   "conclusion": " ((∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2) ↔ (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean",
+   "line": 82,
+   "name": "xi_hadamard_factorization_with_multiplicity_polynomial",
+   "cls": "OTHER",
+   "conclusion": " ℂ, riemannXi s = Complex.exp (g.eval s) * Hadamard.canonicalProductZeroSetMultiplicityRank xiZeroSetMultiplicity 1 s",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean",
+   "line": 123,
+   "name": "xi_hadamard_factorization_with_multiplicity",
+   "cls": "OTHER",
+   "conclusion": " ℂ, riemannXi s = Complex.exp (a * s + b) * xiMultiplicityE1Prod s",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean",
+   "line": 143,
+   "name": "xi_factorization_prod_with_multiplicity_of_hadamard_order_one",
+   "cls": "OTHER",
+   "conclusion": " xi_factorization_prod_with_multiplicity",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Vendored/Bulka/Lc/LiCriterion/RHBridge.lean",
+   "line": 108,
+   "name": "biconditional_rh_li_of_weighted_standard_hypotheses",
+   "cls": "OTHER",
+   "conclusion": " (RiemannHypothesis ↔ (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Defs/Counting.lean",
+   "line": 41,
+   "name": "ncard_le_finsum_mult",
+   "cls": "OTHER",
+   "conclusion": " s.ncard ≤ ∑ᶠ ρ ∈ s, Z.mult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Defs/Counting.lean",
+   "line": 51,
+   "name": "finsum_mult_mono",
+   "cls": "OTHER",
+   "conclusion": " ∑ᶠ ρ ∈ s, Z.mult ρ ≤ ∑ᶠ ρ ∈ t, Z.mult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/RvM/CountByIntegral.lean",
+   "line": 97,
+   "name": "analyticOrderNatAt_completedRiemannZeta",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderNatAt completedRiemannZeta ρ = zeroMult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/RvM/Halving.lean",
+   "line": 59,
+   "name": "N_le_two_mul_half",
+   "cls": "OTHER",
+   "conclusion": " (Z.N T₁ T₂ : ℝ) ≤ 2 * ∑ᶠ ρ ∈ Z.window T₁ T₂ ∩ {ρ | 1 / 2 ≤ ρ.re}, (Z.mult ρ : ℝ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/RvM/LocalCount.lean",
+   "line": 79,
+   "name": "analyticOrderNatAt_gfun",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderNatAt (gfun s₀ c u) w = zeroMult (s₀ + c * w)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Statement.lean",
+   "line": 117,
+   "name": "zetaZeros_mult",
+   "cls": "OTHER",
+   "conclusion": " (zetaZeros hs).mult = zeroMult",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Statement.lean",
+   "line": 118,
+   "name": "zetaZeros_simple",
+   "cls": "READ",
+   "conclusion": " (zetaZeros hs).simple = {ρ | zeroMult ρ = 1}",
+   "reading": "a set identity: the simple points of the configuration are {ρ | zeroMult ρ = 1}; it names the clause`s set and asserts no point in it or out of it"
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 56,
+   "name": "analyticOrderAt_riemannZeta_ne_top",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt riemannZeta s ≠ ⊤",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 66,
+   "name": "ZetaSeam.one_le_mult_holds",
+   "cls": "OTHER",
+   "conclusion": " ∀ ρ, IsNontrivialZero ρ → 1 ≤ zeroMult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Statement/Seam.lean",
+   "line": 124,
+   "name": "ZetaSeam.of_reflect",
+   "cls": "OTHER",
+   "conclusion": " ZetaSeam",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Statement/SeamClosed.lean",
+   "line": 45,
+   "name": "zetaZeroConfig_mult",
+   "cls": "OTHER",
+   "conclusion": " zetaZeroConfig.mult = zeroMult",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Tail.lean",
+   "line": 135,
+   "name": "LocalCount.ofWindowCount",
+   "cls": "OTHER",
+   "conclusion": " LocalCount (fun ρ : Z.carrier => (ρ : ℂ).im) (fun ρ : Z.carrier => Z.mult ρ) A₀ where one_le",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Tail.lean",
+   "line": 164,
+   "name": "Gsummand_eq",
+   "cls": "OTHER",
+   "conclusion": " Z.Gsummand P T k l ρ = (Z.mult ρ : ℂ) * (uvec P T ρ k * uvec P T ρ l)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Tail.lean",
+   "line": 331,
+   "name": "partial_sum_le",
+   "cls": "OTHER",
+   "conclusion": " ∑ x ∈ u, (Z.mult (x : Z.carrier) : ℝ) * ∑ k, ‖uvec P T (x : Z.carrier) k‖ ^ 2 ≤ P.L T * theta0 A₀ H.K T",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Tail.lean",
+   "line": 366,
+   "name": "summable_tail",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun x : {ρ : Z.carrier // ρ ∉ H.sA} => (Z.mult (x : Z.carrier) : ℝ) * ∑ k, ‖uvec P T (x : Z.carrier) k‖ ^ 2)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Tail.lean",
+   "line": 372,
+   "name": "tsum_tail_le",
+   "cls": "OTHER",
+   "conclusion": " {ρ : Z.carrier // ρ ∉ H.sA}, (Z.mult (x : Z.carrier) : ℝ) * ∑ k, ‖uvec P T (x : Z.carrier) k‖ ^ 2 ≤ P.L T * theta0 A₀ H.K T",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/Tail.lean",
+   "line": 422,
+   "name": "hasSum_Ez",
+   "cls": "OTHER",
+   "conclusion": " HasSum (fun x : {ρ : Z.carrier // ρ ∉ H.sA} => ((Z.mult (x : Z.carrier) : ℝ) : ℂ) • vecMulVec (uvec P T (x : Z.carrier)) (uvec P T (x : Z.carrier))) (Z.Ez P T)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/Contour.lean",
+   "line": 47,
+   "name": "rectangle_identity",
+   "cls": "OTHER",
+   "conclusion": " Finset ℂ, ((Z : Set ℂ) = {ρ : ℂ | IsNontrivialZero ρ ∧ -R < ρ.im ∧ ρ.im < R}) ∧ RectangleIntegral' (fun s => Hfn k s * logDeriv completedRiemannZeta s) ((1 - c : ℝ) - R * I) ((c : ℝ) + R * I) = (∑ ρ ∈ Z, (zeroMult ρ : ℂ) * Hfn k ρ) - Hfn k 0 - Hfn k 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/FullLineAssembly.lean",
+   "line": 55,
+   "name": "full_line_identity",
+   "cls": "OTHER",
+   "conclusion": " ℝ, (Hfn k ((c:ℂ) + t * I) + Hfn k (1 - c - t * I)) * logDeriv completedRiemannZeta ((c:ℂ) + t * I) = (∑' ρ : (zetaZeros hs).carrier, ((zetaZeros hs).mult ρ : ℂ) * Hfn k ρ) - Hfn k 0 - Hfn k 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 117,
+   "name": "sum_mult_six_windows",
+   "cls": "OTHER",
+   "conclusion": " ∑ ρ ∈ F, (zetaZeroConfig.mult ρ : ℝ) ≤ 6 * (A₀ * Real.log (|(a : ℝ)| + 9))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/GoodHeights.lean",
+   "line": 163,
+   "name": "card_le_sum_mult",
+   "cls": "OTHER",
+   "conclusion": " (F.card : ℝ) ≤ ∑ ρ ∈ F, (zetaZeroConfig.mult ρ : ℝ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/XiLogDeriv.lean",
+   "line": 111,
+   "name": "completedZeta_zeros_strip",
+   "cls": "OTHER",
+   "conclusion": " (completedRiemannZeta ρ = 0 ↔ IsNontrivialZero ρ) ∧ analyticOrderAt completedRiemannZeta ρ = analyticOrderAt riemannZeta ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/ZeroSumLimit.lean",
+   "line": 42,
+   "name": "zero_sum_limit",
+   "cls": "OTHER",
+   "conclusion": " Tendsto (fun j : ℕ => ∑ ρ ∈ Z j, (zeroMult ρ : ℂ) * Hfn k ρ) atTop (𝓝 (∑' ρ : (zetaZeros hs).carrier, ((zetaZeros hs).mult ρ : ℂ) * Hfn k ρ))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 121,
+   "name": "zero_sum_inv_sq_gen",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 179,
+   "name": "EF_zero_sum_summable_gen",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 247,
+   "name": "zero_sum_inv_sq",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : (zetaZeros hs).carrier => (zeroMult ρ : ℝ) / (1 + Complex.normSq (gammaOf ρ)))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/WeilEF/ZeroSummability.lean",
+   "line": 257,
+   "name": "EF_zero_sum_summable",
+   "cls": "OTHER",
+   "conclusion": " Summable (fun ρ : (zetaZeros hs).carrier => ((zetaZeros hs).mult ρ : ℂ) * paperFT k (gammaOf ρ))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 132,
+   "name": "analyticOrderAt_conj_conj",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt (fun z => conj (f (conj z))) (conj w) = analyticOrderAt f w",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 160,
+   "name": "analyticOrderAt_zeta_conj",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt riemannZeta (conj w) = analyticOrderAt riemannZeta w",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 240,
+   "name": "analyticOrderAt_zeta_one_sub",
+   "cls": "OTHER",
+   "conclusion": " analyticOrderAt riemannZeta (1 - w) = analyticOrderAt riemannZeta w",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/ZetaReflect.lean",
+   "line": 330,
+   "name": "zeta_mult_reflect",
+   "cls": "OTHER",
+   "conclusion": " ∀ ρ, IsNontrivialZero ρ → zeroMult (reflect ρ) = zeroMult ρ",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/AnalyticBridge.lean",
+   "line": 13,
+   "name": "simple_iff_order_one",
+   "cls": "OTHER",
+   "conclusion": " deriv completedRiemannZeta₀ s ≠ 0 ↔ analyticOrderAt completedRiemannZeta₀ s = 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/PerpendicularCrossing.lean",
+   "line": 40,
+   "name": "multiplicity_from_identity",
+   "cls": "OTHER",
+   "conclusion": " m = 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Simplicity.lean",
+   "line": 39,
+   "name": "simple_from_trace",
+   "cls": "OTHER",
+   "conclusion": " ti.multiplicity = 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-t7-topology-cmb",
+   "file": "SIDET7TopologyCMB/Basic.lean",
+   "line": 126,
+   "name": "spectrum_total_matches_fano",
+   "cls": "OTHER",
+   "conclusion": " dominant_eigenvalue_multiplicity + subdominant_eigenspace_dimension = fano_points",
+   "reading": null
+  }
+ ],
+ "kernels": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-explicit-formula",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation"
+ ],
+ "files": 97,
+ "bad": []
+}
