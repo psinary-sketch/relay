@@ -1,0 +1,64 @@
+========================================================================================================
+b600 -- THE CLOSING RECORD. ### **LANE THREE, ACT TWENTY-SEVEN: REMAINDER 5 -- THE PRODUCT LEMMA, UNDER (R210).**
+========================================================================================================
+    ### COMPONENT 0 : the process listing (no orphan) ; b599`s closing push-out relay 92b1c086 ; push-b599* branches deleted by name (data/b600_branches.txt) ; the kept branches untouched ; the work-order printed whole (data/b600_reads.txt) ; the suite run at HEAD before the face (data/b600_arms_prerun.txt)
+    ### COMPONENT 1 : b599`s weight FINDINGS :6948 ; the generator-run line amended OPEN_TRAILS :12352 (addressed to :12288) ; the authority order :12354
+    ### COMPONENT 2 : SIDE-explicit-formula v0.18 = 1dd5cd7 on product-b600 merged ; H34a HOLDS, H34b HOLDS, H34c HOLDS ; the ζ page changed True, the χ page changed False ; the bearing data/b600_bearing.txt
+    ### COMPONENT 3 : FINDINGS :6950 (the entry) ; OPEN_TRAILS :12358 (the record) ; next: b601, W-ORD-KEIPER-FACE ; N1 HELD, N2 HELD, N3 HELD, N4 HELD, N5 HELD
+    (H34a) HOLDS (H34b) HOLDS (H34c) HOLDS ; (N1) HELD (N2) HELD (N3) HELD (N4) HELD (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD (S4) HELD (S5) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+### b600 -- THIS ACT`S OWN DEFECTS (the seat`s), as they occur.
+    (a) THE FIRST BUILD OF Product.lean WAS STOPPED BY THE HARNESS, NOT BY AN OOM AND NOT BY THE WATCHDOG: started at 2026-10-02T23:04:50Z with 4154 MB free (the hold 2560), run in the background under b596`s watchdog; the harness`s memory-pressure reaper stopped it at t=600s while the session was idle (the log`s last line: free 2549 MB, lean 714 MB resident, no EXIT line, no error printed). Recorded as a stop under the amended line (OPEN_TRAILS :12352). No orphan lean, lake or python remained; the build is not restarted without the author`s word.
+    (b) THE STEP-ZERO PROCESS LISTING`S NAME SET DID NOT INCLUDE tail: after the stop the listing found six `tail -f` processes of earlier sessions (PIDs 29544, 9680, 9720, 9032 on relay data/b505_c2_* and b506_c2_*; 38124, 6520 on data/b528_run_log.txt) and the seat`s own monitor`s tail and grep (32188, 1324); each stopped by PID with its command line read. The two tails on this session`s own task directory were left running.
+    (c) THE SEAT`S G-NODE-LIST PREDICATE WAS DEFECTIVE AT THE FIRST PRE-PUSH RUN: it split the node list on newlines without stripping the file`s final newline, so its last element was empty and the check that the backmatter record is the list`s last line failed on a true list (the list itself verified line by line: the pin moved, every b596 line carried, the five nodes before the backmatter record). The predicate corrected through the Edit tool to strip the final newline; the suite re-run whole; the arm list unchanged.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 75. ### LIVE PASSING : 75. ### LIVE FAILING : 0 .
+    pre-push : VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES
+    post-push : ARMS RUN : 75. ### LIVE PASSING : 75. ### LIVE FAILING : 0 .
+    post-push : VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES
+      relay                            main fba3916a5bf8 ; remote fba3916a5bf8 ; AGREE
+      PLACE-papers                     main 94735943e370 ; remote 94735943e370 ; AGREE
+      SIDE-global-section              main 3528bcfc8c03 ; remote 3528bcfc8c03 ; AGREE
+      SIDE-explicit-formula            main 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE
+      SIDE-kernel                      main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation             main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                     main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-compression                 main e9a5a368d14a ; remote e9a5a368d14a ; AGREE
+      SIDE-structural-error-correction main 6a4f4829cf21 ; remote 6a4f4829cf21 ; AGREE
+      SIDE-cosmo                       main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      SIDE-grh-transfer                main 858cbf69c169 ; remote 858cbf69c169 ; AGREE
+      SIDE-rcurve                      main d5f33b44ef7b ; remote d5f33b44ef7b ; AGREE
+      SIDE-explicit-formula            tag v0.18 peeled local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    the kernel written by the tagged merge alone ; no worktree made or removed ; no keystone edited
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R210)(5)**: b601, W-ORD-KEIPER-FACE (two lemmas), the research sequence`s third item.
+    (b) ### **FOR THE AUTHOR`S STRIKE**: the amendment appended at the end and addressed to :12288; the Product nodes placed on
+        the ζ page; the bearing sentences chosen by the search printed in data/b600_bearing.txt.
+    (c) The instance ζ · L(s, χ_d) as the Dedekind zeta of a quadratic field stays the work-order`s separate item, not started.
+    (d) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+========================================================================================================
