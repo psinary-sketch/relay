@@ -1,0 +1,790 @@
+b588 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay the TECHNE_TOOLKIT work-list, whole -- data/b558_editions/TECHNE_TOOLKIT.txt @ 5d58af69 (20 lines cited)
+    :1      b558 -- THE EDITION WORK-LIST OF TECHNE_TOOLKIT (phase1.5/method/TECHNE_TOOLKIT.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :2      
+    :3      ### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition i
+    :4      
+    :5      :414 -- `ch_iff_rh`
+    :6          the sentence: "Cited by **named terminal, not by count** (self-applying Ξ.23): the three RH-route terminals `structural_exhaustiveness_proved` (Route 1), `SpectralCannonFull.spectral_cannon` (Route 2), `ConservationBridge.riemann_hypothesis` (Route 3) each carry axiom profile `{propext, Classica
+    :7          what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+    :8          informing work-order: none named on the critical path
+    :9      
+    :10     :414 -- `h2_sign`
+    :11         the sentence: "The route terminals **compose under the named premise `h2`** — **criterion + verified surround, not end-to-end**: the surround `h1_complete_at_Phi` is machine-checked, the finite range is certified to `N₀(T)=⌊2T²⌋`, and the census maps every route to the one open premise (EXCLUSIO
+    :12         what the compiled fact supports: has the route terminals compose under h2, and Route 3 composes under `ConservationHypothesis`, RH restated (`ch_iff_rh`), while Routes 1 and 2 are not routes to sigma = 1/2 (b540).
+    :13         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :14     
+    :15     :414 -- `riemann_hypothesis`
+    :16         the sentence: "Cited by **named terminal, not by count** (self-applying Ξ.23): the three RH-route terminals `structural_exhaustiveness_proved` (Route 1), `SpectralCannonFull.spectral_cannon` (Route 2), `ConservationBridge.riemann_hypothesis` (Route 3) each carry axiom profile `{propext, Classica
+    :17         what the compiled fact supports: counts the terminal as a route to RH or to sigma = 1/2, and its premise is RH restated (`ch_iff_rh`), so it is no route: it formalizes RH => RH.
+    :18         informing work-order: none named on the critical path
+    :19     
+    :20     ### 3 sentence-rows (1 distinct lines).
+### PLACE-papers TECHNE_TOOLKIT, whole -- phase1.5/method/TECHNE_TOOLKIT.md @ c6af5b14 (600 lines cited)
+    :1      # TECHNE Toolkit
+    :2      *CLASS-NUMBERING SCHEME: STAGE.* Declared b409 under `(R25)`, read from this document’s own text (1 of its class symbols pin STAGE, 0 pin the other); the corpus keeps **two** numberings and this note says which one this document uses. **No symbol in this document was renumbered, and nothing above th
+    :3      
+    :4      ## Operational Reference for Determined-Systems Analysis
+    :5      
+    :6      **J. York Seale** | ORCID: 0009-0008-7993-0310
+    :7      **PLACE TO STAND Research Programme**
+    :8      **v8.2, 2026-07-23** — *CP-2 maturation, sitting one: the toolkit corrected by its own §I entries.* Prior: **v8.1, July 2026** — *revised: figures in; patent-strategy out.*
+    :9      
+    :10     > **Changelog v8.2 (keystone maturation — self-application).** The toolkit that teaches the claim-certificate calculus was screened by it. Corrections: **§X (Verification machinery)** re-stated in the toolkit's own grammar — SIDE-kernel cited by named terminal with `{propext, Classical.choice, Quot.
+    :11     
+    :12     ---
+    :13     
+    :14     ## What this is
+    :15     
+    :16     TECHNE is the operational toolkit of the PLACE TO STAND research programme. It packages the methods used to analyze determined systems — to compute their formation, to enumerate their mechanism classes, to certify exhaustiveness, to verify conservation at interfaces, to grade claims by certificate, 
+    :17     
+    :18     This v8 consolidates the toolkit lineage v4.0 → v4.2 → v5.0 (Harmonic Tools) → v5.0 (Elements) → v6.0 (Toolbox) → v6.0 (Toolkit) → v7.0 into a single working reference. It supersedes v7 *as the day-to-day reference*; the prior versions remain accessible for historical and encyclopedic use (notably v
+    :19     
+    :20     What v8 adds to v7 is the **claim layer**: the tools that grade a statement by the certificate behind it (Ξ.19–Ξ.23), the recurring mathematical shapes that recur across analyses (Pattern-Class Catalogue), the recurring *defect* shapes the audit loom finds (Loom Signature Families), the orientation 
+    :21     
+    :22     The toolkit is the operational complement to two other parts of the programme:
+    :23     - **The kernels** (SIDE-kernel public + TECHNE.Core private) — Lean 4 type-checked verification of structural claims
+    :24     - **The corpus** (Day 1 papers + Phase 2 clusters + supporting documents) — the mathematical content the methodology produces
+    :25     
+    :26     The toolkit lives between method and machine. It is what a researcher applies when picking up a new determined system.
+    :27     
+    :28     ---
+    :29     
+    :30     ## I. Tool registry
+    :31     
+    :32     The Ξ tools (xi, *technēi* — by craft) are the analytical instruments. Each takes a determined-system specification or claim as input and produces a specific diagnostic as output. The numbering reflects the order tools entered the registry; gaps in the sequence reflect retired or merged entries.
+    :33     
+    :34     ### Foundational Ξ tools (formalized in Elements v4.2)
+    :35     
+    :36     **Ξ.4 Direction Enforcer.** Corrects epistemological inversion. Input: an argument of form "local L implies global G." Process: identify the global specification S; check whether G is derivable from S; if yes, reframe as S → G → L (downward); if no, flag the argument as invalid for determined system
+    :37     
+    :38     **Ξ.5 Component Tracer.** For any property of ξ(s), identify the source component. Produces a table mapping each property (functional equation, Euler product, balance, modular symmetry, spectral constraints, Hadamard factorization, Cauchy-Riemann) to its responsible component class C₁–C₇. This is Ξ.
+    :39     
+    :40     **Ξ.6 Problem Classifier.** Decision tree assigning a problem to TYPE I (closed, mechanisms enumerable, direct proof), TYPE II (closed, mechanisms partially enumerable, staged resolution), TYPE III (closed, no mechanisms — likely independent of axioms), or TYPE D (specification incomplete, structure
+    :41     
+    :42     **Ξ.7 Specification Pipeline Decomposer.** *The single most useful tool.* Input: a determined system X with specification S. Process:
+    :43     1. Identify the PRIMITIVE — the raw input. Count algebraic structures on it → n₁ mechanism classes.
+    :44     2. Identify the TRANSFORMATION — the operation processing the input. Trace consequence chain → n₂.
+    :45     3. Identify the OUTPUT — the type of object produced. Count structural scales → n₃.
+    :46     4. Identify INTERFACES (external embedding + internal coupling). For each, determine conservation rank for the target parameter. Sum → n₄.
+    :47     5. Compute STRUCTURAL COUNT n₁ + n₂ + n₃ + n₄.
+    :48     
+    :49     Output: formation tuple (n₁, n₂, n₃, n₄), per-stage class lists, count type (forced or accumulated). Validated on ξ(s) → (2, 3, 2, 0). Provides the substrate for the entire formation calculus.
+    :50     
+    :51     **Ξ.8 Interface Darkness Verifier.** For a structural interface and a target parameter P, determine whether the interface transmits spectral content for P. Output: dark / not-dark verdict with justification. Direct application of conservation strength κ, but pre-dates the κ formalism; a κ = 0 measur
+    :52     
+    :53     **Ξ.9 Symmetry Filter.** Verify that a symmetry constraint is structurally derived (from the specification) rather than imposed. Output: pass / fail / contingent. Catches cases where a symmetry is stipulated and then used to argue for what stipulated it.
+    :54     
+    :55     ### Convergence-cycle Ξ tools (formalized in Harmonic Tools v5)
+    :56     
+    :57     **Ξ.10 RESONANCE.** Quantitative convergence assessment. Formula in active practice: R = DEPTH × WIDTH × CONVERGENCE.
+    :58     - DEPTH measures foundational grounding (typically scaled in [0, 1])
+    :59     - WIDTH measures independent path count, weighted by independence quality (can exceed 1)
+    :60     - CONVERGENCE measures agreement quality at the critical locus ([0, 1], 1 = exact)
+    :61     
+    :62     Note: An earlier *Minimal Toolkit* formulation normalized R ∈ [0, 1]. The active-practice formulation does not normalize. The two are not interchangeable; CONSULT outputs report the active-practice form (e.g., the programme readiness CONSULT yields R = 1.78). Apply consistently within a single asses
+    :63     
+    :64     ```
+    :65        FIGURE 6 — THE RESONANCE AXES        R = DEPTH × WIDTH × CONVERGENCE
+    :66     
+    :67             CONVERGENCE
+    :68             (agreement at
+    :69              the critical locus)
+    :70                 ^
+    :71                 |           /|  WIDTH
+    :72                 |         /     (independent paths,
+    :73                 |       /        weighted by independence)
+    :74                 |     /
+    :75                 |   /
+    :76                 | /
+    :77                 +---------------------------->  DEPTH
+    :78                                               (foundational grounding)
+    :79     
+    :80        R is the volume of the box the three axes span. Threshold shells
+    :81        (active-practice form, unnormalized -- larger is stronger):
+    :82     
+    :83          |-- Weak ------+-- Moderate --+-- Strong --+-- Overwhelming --->
+    :84                                             ^
+    :85                                   e.g. programme readiness R = 1.78
+    :86     ```
+    :87     *Figure 6 — The RESONANCE Axes. The necessity signal is the box spanned by DEPTH × WIDTH × CONVERGENCE; the threshold bands mark Weak / Moderate / Strong / Overwhelming shells of that volume.* **Reads as:** *the necessity-signal magnitude.*
+    :88     
+    :89     **Ξ.11 TYPE Classification.** Same TYPE I / II / III / D categories as Ξ.6. Difference: Ξ.6 reaches the verdict by decision tree on closure status; Ξ.11 reaches it by mechanism inventory and convergence analysis. The two should agree. Disagreement is itself diagnostic — a mismatch indicates either i
+    :90     
+    :91     **Ξ.12 INDEPENDENCE Certifier.** For a set of N derivation paths converging on the same conclusion, build the N × N independence matrix. Each entry is INDEPENDENT, CONDITIONAL (resolvable by alternate derivation), or DEPENDENT. Output: matrix + critical locus where independent paths converge. Recent
+    :92     
+    :93     **Ξ.13 DOMAIN TOOLS.** Domain-specific instruments invoked as needed during a CONSULT: P-smooth analysis (for constants), contingency order (for physics), theory space position (for meta-science), boundary proximity (for violation risk). Includes lookup tables: known Ostrowski theorems by domain, kn
+    :94     
+    :95     ### Formation calculus Ξ tools (formalized April 2026)
+    :96     
+    :97     **Ξ.14 Conservation Strength κ.** Input: parameter P, interface I, sample of system configurations. Computation: κ(P, I) = 1 − Var[P | I] / Var[P]. Output: κ ∈ [0, 1]. Interpretation: κ = 0 means I is dark for P (carries no information about P); κ = 1 means I determines P (fully constrains it); inte
+    :98     
+    :99     **Ξ.15 Formation Measure μ.** Input: a system S with mechanism classes C₁ … Cₙ and a target P. Computation: μ(S) = Σᵢ κ(P, Cᵢ). Output: real ≥ 0. Interpretation: μ integer-valued indicates full determination on the target; μ < n indicates partial determination with the deficit measuring how much spe
+    :100    
+    :101    **Ξ.16 Formation Distance Δμ.** Input: number of mechanism classes n, formation measure μ. Computation: Δμ = n − μ. Output: real ≥ 0. Interpretation: Δμ = 0 marks the phase transition to full determination; Δμ > 0 quantifies the structural deficit. Reference implementation: `phase_transition.py`. Us
+    :102    
+    :103    **Ξ.17 Sieve Ceiling Diagnostic.** Method-evaluation tool. Input: open problem with target parameter P; proposed method M operating through interface I. Computation: κ(P, I). Output: go / stop decision with κ justification. If κ = 0, the method achieves density on whatever I transmits but cannot rea
+    :104    
+    :105    **Ξ.18 Cognate Mechanics.** Etymology as structural test. Input: a technical term T used in the programme. Process: extract the PIE / Latin / Greek root R; compare R's meaning to T's programme concept; classify as THEOREM (R is itself a proved statement of the concept), EXACT (R names the concept di
+    :106    
+    :107    ### Claim & certificate Ξ tools (formalized June–July 2026)
+    :108    
+    :109    These are the claim-layer instruments. Where Ξ.7–Ξ.18 measure how *determined* a system is, Ξ.19–Ξ.23 measure how *carried* a statement is by what stands behind it. They are applied to every sentence that enters a deposit.
+    :110    
+    :111    **Ξ.19 Claim–Certificate Calculus.** *What it is:* the grading instrument that attaches a certificate to every deposited statement and assigns it one of three support grades, so that no line of a manuscript stands without a graded warrant. Input: a statement offered for deposit. Process: attach the 
+    :112    
+    :113    > ⟨ statement · certificate-type · pin · content-named residue ⟩
+    :114    
+    :115    where **pin** is the specific machine-checked locus (file · theorem) that discharges the statement, and **content-named residue** is what remains unproven, *named by content* (never counted — see Ξ.23). Assign one of three grades:
+    :116    
+    :117    - **DERIVES** — the statement follows from a compiled certificate; the pin resolves to a 0-sorry Lean locus.
+    :118    - **INTERFACES-with-named-premise** — the statement depends on a premise not yet compiled, but the premise is stated in a content register (Ξ.23), not deferred as a count.
+    :119    - **NOT-COMPILED (shell)** — the statement rests on an outline/stub that *encodes* its own conclusion. A shell is admissible as a work-item, never as evidence.
+    :120    
+    :121    The five rules:
+    :122    1. **No bare claim.** Every claim carries a certificate-type; an uncertified claim is not admissible.
+    :123    2. **Pin or downgrade.** The pin must resolve to a specific machine-checked locus; if it does not resolve, the grade drops one step.
+    :124    3. **Name, don't count.** A premise may hold INTERFACES grade only if its content is named (Ξ.23); a counted premise ("one thing left") is not named and cannot lift the grade.
+    :125    4. **A shell is a work-order, not a citation.** A NOT-COMPILED shell may never be cited as a certificate; it is listed as content-named residue and scheduled as a task.
+    :126    5. **Weakest-link monotonicity.** A claim inherits the weakest grade among its premises; no claim rises above its lowest-compiled dependency.
+    :127    
+    :128    Output: graded tuple + residue list. Use: converts a manuscript from prose-that-asserts into a ledger where every line's support is graded and every gap is a named task. Cite: EXCLUSION_ENGINE §VIII.0.
+    :129    
+    :130    ```
+    :131       FIGURE 3 — THE CLAIM-CERTIFICATE TUPLE
+    :132    
+    :133       +---------------------------------------------------------------+
+    :134       |  < statement  ·  certificate-type  ·  pin  ·  residue >       |
+    :135       |       |               |               |         |             |
+    :136       |  the proposition   grade type    file·theorem  what remains,  |
+    :137       |                                   (0-sorry       named by      |
+    :138       |                                    locus)        content       |
+    :139       |                                                  (Ξ.23)        |
+    :140       +---------------------------------------------------------------+
+    :141                                   |
+    :142                              grade fork
+    :143            +------------------------+------------------------+
+    :144            v                        v                        v
+    :145        DERIVES              INTERFACES-with-           NOT-COMPILED
+    :146        pin resolves to a    named-premise              (shell)
+    :147        0-sorry Lean locus   premise stated in a        outline that encodes
+    :148        -> admissible        content register, not      its own conclusion
+    :149           as evidence       yet compiled               -> work-order only,
+    :150                             -> grade held, not lifted     never a citation
+    :151                                by a count
+    :152    
+    :153       Weakest-link monotonicity: a claim inherits the lowest grade
+    :154       among its premises.
+    :155    ```
+    :156    *Figure 3 — The Claim–Certificate Tuple. The four-field record on top; the three-way grade fork below decides its standing.* **Reads as:** *how a claim is filed.*
+    :157    
+    :158    **Ξ.20 Science-Statement Standard.** The five-part compound-claim grammar. A well-formed scientific statement in the programme is not a bare proposition but the compound:
+    :159    
+    :160    > **CLAIM** (the proposition) · **CERTIFICATE** (what discharges it, with grade per Ξ.19) · **SCOPE** (the intended instances — where it is asserted true) · **STRENGTH** (E₀ — whether the terminal carries the content without a wrapper, per Ξ.21) · **RESIDUE** (the content-named remainder / boundary 
+    :161    
+    :162    A statement missing any of the five parts is under-specified and is returned before it can be graded. Use: forces the author to state scope and strength up front, so that "true" and "strong" are not silently conflated. Cite: A_METHODOLOGY §VI.3.1.
+    :163    
+    :164    **Ξ.21 Two-Sided Truth Screen.** Every statement is screened on two independent axes:
+    :165    - **Truth** — is it true at its intended instances (the SCOPE of Ξ.20)?
+    :166    - **Strength / E₀** — does the *terminal* object carry the content, with no wrapper? A statement can be true yet weak: true because a wrapper (a trivial re-encoding, a `:=True` reduct, a definitional restatement) carries it while the terminal object carries nothing.
+    :167    
+    :168    Both axes must pass. A true-but-weak statement is flagged E₀-fail and routed to the de-vacuification repair (§VII). Use: catches the failure mode where a theorem is technically true but its content has slid into the wrapper. This is the screen that Ξ.19's pin and Ξ.22's canonicality both feed into.
+    :169    
+    :170    ```
+    :171       FIGURE 5 — THE TWO-SIDED SCREEN
+    :172    
+    :173                         +---------------+
+    :174                         |   STATEMENT   |
+    :175                         +-------+-------+
+    :176                                 |
+    :177                +----------------+----------------+
+    :178                v                                 v
+    :179          /  TRUTH gate  \                 / STRENGTH / E0 \
+    :180         /  holds at its  \               /  does the       \
+    :181         \  SCOPE (Ξ.20)? /               \  terminal carry  /
+    :182          \      |       /                 \  the content,   /
+    :183           \-----+------/                   \  no wrapper?  /
+    :184                 |                           \------+------/
+    :185            pass | fail                        pass | fail
+    :186                 |                                  |
+    :187                 +----------------+-----------------+
+    :188                                  v
+    :189                     both pass  ------>  FILED
+    :190                     either fail ----->  WORK-ORDER
+    :191                                         (E0-fail -> de-vacuify, §VII)
+    :192    ```
+    :193    *Figure 5 — The Two-Sided Screen. A statement passes only if it clears both gates; failing either routes it to a work-order rather than a deposit.* **Reads as:** *every statement screened on both axes.*
+    :194    
+    :195    **Ξ.22 Forced-vs-Permitted Screen.** A construction is **canonical** only if it is forced by the specification — independent of any choice of basis, decomposition, ordering, or presentation. A construction that a basis or decomposition merely *permits* (is consistent with, but is not forced to produ
+    :196    
+    :197    **Ξ.23 Explain-not-Count.** A premise's content must be *stated in a register*, never merely counted. "One thing left," "two gaps remain," "n sorries" are counts, not content: they name a cardinality, not a proposition. The tool requires that each residual premise be replaced by a named statement of
+    :198    
+    :199    ---
+    :200    
+    :201    ## II. Formation Calculus
+    :202    
+    :203    The formulas formalized in the April 2026 marathon. Each is a mathematical object operated on by the Ξ tools above; together they constitute a closed framework for measuring determination.
+    :204    
+    :205    | # | Formula | Name |
+    :206    |:--|:--|:--|
+    :207    | F-1 | κ(P, I) = 1 − Var[P \| I] / Var[P] | Conservation strength |
+    :208    | F-2 | μ(S) = Σᵢ κ(P, Cᵢ) | Formation measure |
+    :209    | F-3 | P(I) = (κ(θ₁, I), …, κ(θ_d, I)) | Conservation profile |
+    :210    | F-4 | rank(I) = #{j : κ(θⱼ, I) < ε} | Conservation rank |
+    :211    | F-5 | n₄ = #{I : ∃P, κ(P, I) > ε} = 0 | Universal Darkness Theorem (interface count vanishes for determined systems) |
+    :212    | F-6 | Σ = {(C, P) : κ(P, C) = 1} | Formation surface |
+    :213    | F-7 | Decidable ↔ ∃ Fintype, ∀i Dec(κ = 1) | E-Difficulty |
+    :214    | F-8 | Δμ = n − μ | Formation distance |
+    :215    
+    :216    **Phase Transition Theorem:** c ≥ n ↔ all κ binary → μ ∈ ℤ → E satisfied, where c is the number of independent specification constraints and n is the number of mechanism classes.
+    :217    
+    :218    This theorem identifies the structural threshold separating partially-determined systems (κ values gradient, μ non-integer, E-condition unmet, problem is TYPE II or D) from fully-determined systems (κ values binary, μ integer, E-condition met, problem is TYPE I and admits direct proof). The phase tr
+    :219    
+    :220    **Determination–Exhaustiveness Unification (D ↔ E).** Full determination licenses exhaustiveness: Δμ = 0 (μ ∈ ℤ, all κ binary) ↔ the E-condition holds ↔ the mechanism enumeration is certifiably exhaustive. Determination is the *license* for the exhaustiveness certificate — one may claim "these are a
+    :221    
+    :222    ```
+    :223       FIGURE 4 — THE D<->E LADDER
+    :224    
+    :225       +-------------------+                          +----------------------+
+    :226       |  D                |   Δμ = 0                 |  E                   |
+    :227       |  DETERMINATION    |   (μ ∈ ℤ, all κ binary)  |  EXHAUSTIVENESS      |
+    :228       |  system fully     | ====== licenses ======>  |  "these are all the  |
+    :229       |  determined on    |                          |  mechanism classes"  |
+    :230       |  the target       | <----------------------- |  certifiably closed  |
+    :231       +-------------------+   licence runs one way    +----------------------+
+    :232                              (determination -> closure,
+    :233                               not the reverse)
+    :234    
+    :235       the E-certificate may be claimed exactly when Δμ = 0.
+    :236    ```
+    :237    *Figure 4 — The D↔E Ladder. Full determination (Δμ = 0) is the licence that lets the mechanism enumeration be closed by certificate; the arrow does not run backward.* **Reads as:** *why a determined system can be closed by enumeration.*
+    :238    
+    :239    The Universal Darkness Theorem (F-5) is verified in `UniversalDarkness.lean` (TECHNE.Core, 0 sorry). The E-Difficulty equivalence (F-7) is proved. The formation distance (F-8) is the operational measurement that distinguishes the two phases.
+    :240    
+    :241    ---
+    :242    
+    :243    ## III. Pattern-Class Catalogue
+    :244    
+    :245    The recurring *mathematical* shapes — the structures that show up across otherwise unrelated determined systems. Where the Loom Signature Families (§IV) catalogue recurring *defects*, this catalogue collects recurring *content*: a new system is first pattern-matched against these before a fresh anal
+    :246    
+    :247    | Pattern class | Shape | Where it recurs |
+    :248    |:--|:--|:--|
+    :249    | **Symmetry-forbids-canonical-assignment** | A group action admits no equivariant section: the symmetry itself blocks any canonical choice, so a "natural" assignment cannot survive the symmetry. Feeds Ξ.22 (the permitted assignment is never forced). | Frame/gauge choices; canonical-basis failures; 
+    :250    | **Voros 2T²** | The Voros multiple-gamma / spectral-determinant pattern in its 2T² form — a spectral object whose regularized product carries the structural content. | ξ(s) spectral factorization; zeta-determinant analyses |
+    :251    | **(ℤ/2)³ six presentations** | The elementary abelian group of order 8 presented six inequivalent ways; the Fano/Steane bridge lives in the identification of these presentations. | P-CODE Steane derivation; Fano/Trivium cluster |
+    :252    | **Structural darkness** | κ = 0 as a *class* of interface, not a one-off: whole families of interfaces are dark for a target (the n₄ = 0 regime of F-5). | Universal Darkness Theorem; sieve-ceiling family (Ξ.17) |
+    :253    | **Domain-Ostrowski / filter-catalogue** | A domain admits a complete classification of its valuations/filters (an Ostrowski-type theorem): the catalogue of admissible filters is finite and enumerable, which is what makes exhaustiveness certifiable in that domain. | Ξ.13 Ostrowski lookup tables; co
+    :254    
+    :255    ---
+    :256    
+    :257    ## IV. Loom Signature Families
+    :258    
+    :259    The recurring *defect* shapes the audit loom finds when a manuscript, repository, or deposit is screened. Each family is a signature: a shape plus its tell plus its response. The loom is run before deposit and on any inherited artifact. A finding is logged by family so that the same defect is not re
+    :260    
+    :261    | Family | Shape | Tell | Response |
+    :262    |:--|:--|:--|:--|
+    :263    | **Shell / ENCODES-CONCLUSION** | An outline whose definitions encode the very conclusion they are meant to prove. | The theorem is discharged by a stub that already assumes it. | Demote to NOT-COMPILED (Ξ.19); reopen as work-order. |
+    :264    | **Blanket-count boast** | A claim of coverage stated as a bare cardinality ("N theorems, 0 sorry") standing in for content. | A number where a named content list should be. | Apply Ξ.23; replace count with register. |
+    :265    | **Mis-anchor** | A citation or pin that resolves to the wrong locus (right file, wrong theorem; or right name, wrong version). | The pin doesn't discharge the stated claim. | Ξ.19 rule 2 downgrade; re-anchor. |
+    :266    | **Survey-scope** | A survey whose scope is silently narrower than the claim: **base-file ≠ subsystem**, **manuscript-leg ≠ corpus**. | "Verified" measured on a slice presented as the whole. | Restate scope (Ξ.20 SCOPE); re-run at true scope. |
+    :267    | **Phantom-version** | A referenced version that does not exist (or no longer exists) in the tree being deposited. | Version string with no resolving artifact. | Resolve to a real version or strike the reference. |
+    :268    | **Toolchain-rot** | A certificate that no longer compiles under the current toolchain, silently treated as still valid. | Green in memory, red on rebuild. | Rebuild; re-grade; pin to toolchain. |
+    :269    | **Vacuity-relocation** | A vacuity that migrated from a `:=True` stub into a *definitional encoding* — the `:=True` is gone but the emptiness moved into the definition, so the terminal still carries nothing. | Ξ.21 strength/E₀ fail with no visible stub. | Relocated-vacuity detector (§VII); de-vacu
+    :270    | **Partition-risk** | A foreign-project artifact sitting inside a real-name repository tree — content that belongs to another project has partitioned into this one. | An artifact whose provenance is a different project than the repo it lives in. | Partition out; restore repository/project boundary.
+    :271    | **Box-outruns-kernel** (inverted salt-check) | The *inverse* of Shell/ENCODES-CONCLUSION: a paper theorem-box (or spec) pinned to a terminal that proves *less* than the box asserts — the box's reach borrows the terminal's certainty. | A pin whose terminal DERIVES a sub-proposition of the boxed cla
+    :272    
+    :273    *Specimen list — box-outruns-kernel.* (1) **STEANE §3.2/T.40** (paper→kernel, 2026-07-22): T.40 asserts three things, the terminal proves the seven-column weight-match only → DERIVES-of-a-sub-proposition. (2) **Arithmetization under-constraint** (cross-domain, 2026-07-23, ZK consult, exploratory): a
+    :274    
+    :275    ---
+    :276    
+    :277    ## V. CONSULT Protocol
+    :278    
+    :279    CONSULT is the standard application procedure when the toolkit is invoked on a subject, claim, or problem.
+    :280    
+    :281    **Command:** `TECHNE CONSULT: [subject]`
+    :282    
+    :283    **Steps:**
+    :284    
+    :285    1. **RESONANCE Assessment** (Ξ.10). State the claim precisely. Compute DEPTH (foundational grounding), WIDTH (independent path inventory with independence quality), CONVERGENCE (agreement at locus). Combine: R = D × W × C. Note: μ-anchored DEPTH (using formation measure as the depth quantification) 
+    :286    
+    :287    2. **TYPE Classification** (Ξ.11 with Ξ.6 cross-check). Assign I / II / III / D. If TYPE II, optionally sub-classify into II-A / II-B / II-C / II-D using the Impossibility Classifier (§IX).
+    :288    
+    :289    3. **INDEPENDENCE Analysis** (Ξ.12). Build the independence matrix. Identify the critical locus where paths converge. Resolve any CONDITIONAL entries by alternate derivation if needed. Apply κ-weighting if relevant.
+    :290    
+    :291    4. **DOMAIN-Specific Assessment** (Ξ.13 + Ξ.7 + Ξ.8 + Ξ.14–Ξ.16 as applicable). Compute the formation tuple via Ξ.7 if not already known. Compute κ for the target parameter at each interface. Compute μ and Δμ. Apply domain-specific tools (P-smooth, contingency, theory-space position α_T).
+    :292    
+    :293    5. **CLAIM GRADING** (Ξ.19–Ξ.23). Attach the claim–certificate tuple to each load-bearing statement. Run the two-sided screen (truth + strength/E₀). Run the forced-vs-permitted screen on any construction offered as canonical. Ensure every residue is named, not counted.
+    :294    
+    :295    6. **CROSS-REFERENCE.** Connect to existing programme findings. Pattern-match against the Pattern-Class Catalogue (§III) and against known instances (independent convergence, threshold uniqueness, two-leg architecture, formation-bijection applications). Identify related critical loci.
+    :296    
+    :297    7. **DIAGNOSIS.** Strengths (which axes are clear). Weaknesses (which component is lowest). What would raise R.
+    :298    
+    :299    8. **VERDICT.** What TECHNE tools say. Confidence level. What TECHNE tools cannot tell us. Open questions (as named residues).
+    :300    
+    :301    CONSULT outputs are typically rendered in a structured frame (the boxed RESONANCE assessment template). Worked CONSULTs in the programme archive include the programme readiness assessment (R = 1.78), the Q2/Q3 paired analysis, the TYPE III divisive analysis, the divisive infinity CH analysis, and th
+    :302    
+    :303    ---
+    :304    
+    :305    ## VI. The Five-Door Orientation Object
+    :306    
+    :307    A method for sustained attack on a single open premise. Where CONSULT scans a claim across all axes, the Five-Door Orientation Object holds one open premise still and decomposes the *approaches* to it into a fixed set of named registers, ordered by how close each is to a machine-checked certificate.
+    :308    
+    :309    **Full disclosure.** This technique was published-without-filing; it is disclosed here in full as programme method, with no patent claim attached.
+    :310    
+    :311    **Procedure.**
+    :312    1. Take one open premise P (typically the deepest residue from a CONSULT or the top item of a claim's residue list).
+    :313    2. Decompose the routes to P into **five named doors** — a fixed set of registers (not five arbitrary ideas, but the five standing approach-classes for that premise). Each door is named by its content (Ξ.23), never numbered as "approach 1..5."
+    :314    3. **Order the doors by compiled proximity.** The **nearest** door is the one already holding a *partial machine-checked certificate* (a Lean fragment that discharges part of P). The **farthest** door is one that is honestly *disclaimed with a boundary marker* — a stated reason it does not currently
+    :315    4. **Materialize** the ordered doors as a **persistent orientation object** at a **fixed address** (a stable file path), so the object is **inherited across sessions**: a later session opens the same address, sees the same five doors in the same order, and knows without re-derivation which door is n
+    :316    
+    :317    **Use.** Prevents the two failure modes of long premises: (a) churning approaches without memory across sessions, and (b) presenting the disclaimed farthest door as though it were near. The fixed-address inheritance is the point — the orientation survives the session that produced it.
+    :318    
+    :319    ```
+    :320       FIGURE 1 — THE FIVE-DOOR MAP
+    :321    
+    :322                              R5
+    :323                         (farthest:
+    :324                       disclaimed with a
+    :325                       boundary marker)
+    :326                            .    .
+    :327                         .           .
+    :328                     R3                   R2
+    :329                       \                 /
+    :330                        \    +-------+  /
+    :331                         \   |  h2   | /
+    :332                          \  | prem- |/
+    :333                  R1 ------ .| ise   |. ------  (goal state,
+    :334                          /  | (h1   |\          h1 complete)
+    :335                         /   | done) | \
+    :336                        /    +-------+  \
+    :337                                 |
+    :338                                R4
+    :339                            (nearest:
+    :340                         holds a partial
+    :341                       machine-checked cert)
+    :342    
+    :343       compiled-proximity gradient:
+    :344         nearest  R4 --> R1 --> R2 --> R3 --> R5  farthest
+    :345                  (most compiled)            (disclaimed)
+    :346       each door tagged with its instrument pin (file·theorem).
+    :347    ```
+    :348    *Figure 1 — The Five-Door Map. The open premise h2 sits at the centre; the five standing register-faces ring it, ordered by how much of the route to h2 is already compiled — R4 nearest, R5 farthest.* **Reads as:** *where the doors are.*
+    :349    
+    :350    ```
+    :351       FIGURE 2 — THE VAJRA-PLINKO CHART       (ranked next-ingredient drop)
+    :352    
+    :353       Path 1  (o)   door · ingredient · who-moves-it · reopen-pointer
+    :354       nearest    \
+    :355                   (o)   Path 2   door · ingredient · who · reopen
+    :356                      \
+    :357                       (o)   Path 3   door · ingredient · who · reopen
+    :358                          \
+    :359                           (o)   Path 4   door · ingredient · who · reopen
+    :360                              \
+    :361                               (o)   Path 5   (shielded / disclaimed)
+    :362                                     door · ingredient · who · reopen
+    :363    
+    :364       nearest at top; one ingredient moves each door; the reopen-pointer
+    :365       says where a stalled door is picked back up.
+    :366    ```
+    :367    *Figure 2 — The Vajra-Plinko Chart. The doors of Figure 1 dropped into a ranked ladder, nearest first, each row naming the one ingredient that moves that door and whose move it is.* **Reads as:** *what one ingredient moves each door, and whose move it is.*
+    :368    
+    :369    ---
+    :370    
+    :371    ## VII. Repair & Detection Methods
+    :372    
+    :373    Two paired methods at the toolkit level, addressing the vacuity-relocation signature (§IV). *What they are:* a detector that finds vacuity which has migrated from a stub into a definitional encoding, and its paired repair that restores content without breaking the interface. Each is also the subject
+    :374    
+    :375    **RELOCATED-VACUITY detector** (NEW-6). Input: a theorem that passes the truth screen but is suspected of E₀-failure. Process: run the strength side of the Two-Sided Truth Screen (Ξ.21) — check whether the *terminal* object carries the content. If it does not, trace the emptiness backward: a relocat
+    :376    
+    :377    **DE-VACUIFICATION-UNDER-SIGNATURE-PRESERVATION repair** (NEW-8). Input: a definition flagged by the detector as carrying a relocated vacuity. Process: replace the vacuous definitional encoding with a content-bearing definition **while preserving the public type signature**, so that every downstream
+    :378    
+    :379    ---
+    :380    
+    :381    ## VIII. Programme Filter (manuscript-scale complement)
+    :382    
+    :383    The TECHNE Programme Filter is the manuscript-level screen complementing CONSULT (which works at claim scale). Applied before any candidate paper enters a deposit bundle.
+    :384    
+    :385    **Six axes:** (1) Vocabulary Lineage, (2) Findings vs Transit, (3) Retracted Material Check, (4) Unique Perspective Load-Bearing, (5) Verifiability, (6) Synthesis Altitude.
+    :386    
+    :387    **Four verdict categories:** PASS, REVISE, HOLD, DEFUNCT.
+    :388    
+    :389    The filter encodes the programme's current standard for synthesis depth. It is documented in full in `TECHNE_PROGRAMME_FILTER_v0.1.md` and is operative for Phase 1.5 and Phase 2 deposit candidates. As of v8 the filter's Verifiability axis defers to the claim–certificate grades (Ξ.19) and its screeni
+    :390    
+    :391    ---
+    :392    
+    :393    ## IX. Impossibility Classifier v2.0
+    :394    
+    :395    When κ = 0 is observed at an interface, the response depends on *how* it is zero. The classifier sub-types impossibility into four cases:
+    :396    
+    :397    | Type | κ behavior | Prototype | Response |
+    :398    |:--|:--|:--|:--|
+    :399    | II-A | κ = 0 mutually (constraint-conjugate) | Heisenberg uncertainty | Accept tradeoff |
+    :400    | II-B | κ undefined (self-reference loop) | Gödel incompleteness | Reformulate question |
+    :401    | II-C | κ = 0 for all I (topological obstruction) | Hairy-ball theorem | Stop |
+    :402    | II-D | κ = 0 for some I but not all (specific dark interface) | Sieve ceiling | Find brighter interface |
+    :403    
+    :404    The classifier converts a κ-measurement into operational guidance. II-D is the most common in mathematical practice — a specific method has hit a sieve ceiling for the target parameter; a different method through a different interface may succeed. II-C is terminal — no method through any interface w
+    :405    
+    :406    Reference implementation: `impossibility_upgrade.py`.
+    :407    
+    :408    ---
+    :409    
+    :410    ## X. Verification machinery
+    :411    
+    :412    The toolkit is grounded in machine-checked formalization and computational implementation.
+    :413    
+    :414    **SIDE-kernel** (public, GitHub `psinary-sketch/SIDE-kernel`). Lean 4. Cited by **named terminal, not by count** (self-applying Ξ.23): the three RH-route terminals `structural_exhaustiveness_proved` (Route 1), `SpectralCannonFull.spectral_cannon` (Route 2), `ConservationBridge.riemann_hypothesis` (R
+    :415    
+    :416    **TECHNE.Core** (private; **two local clones on `D:` diverge** — reconciliation + GBG-partition is trail O.4). Lean 4. Extension of the public kernel covering the operational tools as type-checked Lean instances. Cited by **line + commit, not a blanket count** (Ξ.23; §IV blanket-count family): the *
+    :417    
+    :418    **Computational toolkit** (Python, in `/mnt/user-data/outputs/`). Reference implementations of κ measurement (`kappa_computation.py`, `kappa_extended.py`, `kappa_rigorous.py`), formation measure (`formation_measure.py`), phase transition diagnostic (`phase_transition.py`), Klein-Trivium structure (`
+    :419    
+    :420    **Dialectic Engine** (React, `techne_dialectic_engine.jsx`). Working implementation of the methodology as an interactive interface. Not a toy — a real instrument for applying CONSULT.
+    :421    
+    :422    **Self-verification.** The framework verifies its own SIDE certification — `techne_self_consistent` confirms the toolkit's formation analyzer, conservation verifier, exhaustiveness certifier, and certificate generator are internally consistent when applied to the framework itself.
+    :423    
+    :424    ---
+    :425    
+    :426    ## XI. Application registry
+    :427    
+    :428    Where each tool has been used in the programme's deposited and pending work.
+    :429    
+    :430    | Tool | Application | Reference |
+    :431    |:--|:--|:--|
+    :432    | Ξ.7 | ξ(s) → (2, 3, 2, 0) → 7 mechanism classes | THE_STRUCTURAL_COUNT, Voice1–Voice7 |
+    :433    | Ξ.7 | Cosmological matter substrate classification → Ω_b = 4/81 | STORMER_DERIVATION_OMEGA_B, MATTER_AS_ARITHMETIC v0.2 |
+    :434    | Ξ.8 | Universal Darkness Theorem (n₄ = 0) | UniversalDarkness.lean, Silence_of_Foundations |
+    :435    | Ξ.10 | Programme readiness CONSULT (R = 1.78) | TECHNE_CONSULT_PROGRAMME |
+    :436    | Ξ.10 | Cosmic web structure CONSULT | TECHNE_CONSULT_COSMIC_WEB |
+    :437    | Ξ.11 | Twin Primes / Goldbach / Sophie Germain (TYPE D) | RESONANCE_WEB |
+    :438    | Ξ.12 | Five-path independence at σ = 1/2 | A_Place_to_Stand monograph §15 |
+    :439    | Ξ.14, Ξ.15, Ξ.16 | Maxwell, three-body, genetic code formation measurements | kappa_computation.py outputs, SESSION_EXTRACTION_TECHNE |
+    :440    | Ξ.17 | Sieve ceiling lemma; Spite plateau as cosmological sieve ceiling | INVARIANCE_BARRIERS (was SIEVE_CEILING_LEMMA), COSMOLOGICAL_SIEVE_CEILING |
+    :441    | Ξ.18 | Cognate analysis across programme vocabulary | etymology_theorems.py outputs |
+    :442    | Ξ.19 | Claim–certificate grading of deposit statements | EXCLUSION_ENGINE §VIII.0 |
+    :443    | Ξ.20, Ξ.21, Ξ.23 | Compound-claim grammar, two-sided screen, name-don't-count | A_METHODOLOGY §VI.3.1 |
+    :444    | Ξ.22 | Forced-vs-permitted canonicality screen | A_METHODOLOGY §VI.3.1 |
+    :445    | Pattern-Class Catalogue | Cross-system pattern-matching (Voros 2T², (ℤ/2)³, Ostrowski) | A_METHODOLOGY §VI.3.2 |
+    :446    | Loom Signature Families | Deposit / inherited-artifact defect screening | EXCLUSION_ENGINE, deposit loom logs |
+    :447    | Five-Door Orientation Object | Persistent single-premise orientation (published-without-filing) | orientation object at fixed address |
+    :448    | Relocated-vacuity detector / De-vacuification repair | **Two instances:** W-6-EXT SieveCeiling repair (signature-preserved); **W-ORD-V3B `offLine_of_codim_two`** (2026-07-23, decorative `True` binder removed, renamed) | NEW-6, NEW-8 provisionals; W-6-EXT; loom 2026-07-23 |
+    :449    | Loom Signature Families — box-outruns-kernel | **Three specimens:** STEANE §3.2/T.40 (paper→kernel, compiled); ZK arithmetization under-constraint (cross-domain, exploratory); identifier-over-claim (`determination_bridge`→`offLine_of_codim_two`, name-layer) | loom 2026-07-22 / 2026-07-23; §IV spec
+    :450    | Five-Door Orientation Object / Vajra-Plinko | **K3 R4-tail scoping** — the two premises `ExplicitFormulaDecomp`/`TailBoundPremise` frozen verbatim, graded Mathlib-absent-with-ingredient-named | PATHS §I-bis / §ANNEX A; O.18 |
+    :451    | Impossibility Classifier | Multiple TYPE II analyses | phase2_impossibility |
+    :452    | Programme Filter | Phase 2 cluster triage | TECHNE_PROGRAMME_FILTER_v0.1, candidate triage table |
+    :453    | Formation Calculus (full) | Cosmological cluster / Trivium cluster / methodology cluster keystones | A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v0.5.4 |
+    :454    
+    :455    ---
+    :456    
+    :457    ## XII. Versions and archive
+    :458    
+    :459    What this v8 supersedes, with what each prior version retains its value for:
+    :460    
+    :461    | Version | Status | Retained value |
+    :462    |:--|:--|:--|
+    :463    | TECHNE Elements v4.0 | Superseded | Historical reference |
+    :464    | TECHNE Elements v4.2 | Superseded as primary | **116-element catalogue** — encyclopedic detail beyond scope. Consult for instance-tool specifications. |
+    :465    | TECHNE Harmonic Tools v5 | Superseded as primary | Detailed Ξ.10–Ξ.13 specifications including Ξ.12 (Convergence-to-Necessity Bridge with definitions D.41–D.43) and Ξ.13 (Resolution Checker). Consult when the bridge or chord-proof structure is in question. |
+    :466    | TECHNE Elements v5.0 | Superseded | "Compiled Quiver Edition" — partial. |
+    :467    | TECHNE Toolbox v6.0 | Superseded as primary | Twelve-pattern catalogue and narrative context. Consult for pattern recognition. |
+    :468    | TECHNE v6 Toolkit | Superseded | The 5-modules × 4-tools restructuring with decision-tree CONSULT. Operational content absorbed. |
+    :469    | TECHNE Toolkit v7 | Superseded by v8 | The formation-calculus consolidation (Ξ.4–Ξ.18, F-1–F-8, Impossibility Classifier, Programme Filter). v8 absorbs the whole span and adds the claim layer; consult v7 only for the pre-claim-layer wording. |
+    :470    
+    :471    What has been **dropped** from active use:
+    :472    - S-Score (deprecated since the Minimal Toolkit, March 2026; use RESONANCE directly)
+    :473    - ⊗ → ⊙ ← ⊗ signature (replaced by :: → · ← ::)
+    :474    - "Gap" as a methodological noun — retired by the **naming principle**, not a substitute-list: name the absence by its clearest accurate description in context (formation distance $\Delta\mu$, silence boundary, density-placement barrier, contingency interval each available only where genuinely clear
+    :475    - "Conditional" as a proof-completeness framing (the proof compiles end-to-end; it is not conditional)
+    :476    - D+S+I ordering (use I+D+S)
+    :477    - "Non-archimedean" as a side-of-zeta descriptor (use multiplicative)
+    :478    - Counting a residue ("one thing left") in place of naming it (Ξ.23 now forbids this)
+    :479    
+    :480    What has been **renamed** but functionally retained (each because the new term is the *clearest accurate name* in context, per the naming principle — A_METHODOLOGY §V.8, not a mandated list-swap):
+    :481    - "Formation gap" → **formation distance (Δμ)** — here formation distance is the clearest name: it denotes the actual formation-coordinate separation, a formal quantity, where the old "gap" named nothing.
+    :482    - "Convergence quality" rolled into RESONANCE.CONVERGENCE component
+    :483    - "Independence Score" subsumed into Ξ.12's matrix output
+    :484    
+    :485    What has been **added** since v7:
+    :486    - Ξ.19 Claim–Certificate Calculus — the ⟨statement · certificate-type · pin · content-named residue⟩ tuple, three grades (DERIVES / INTERFACES-with-named-premise / NOT-COMPILED shell), five rules; "a shell is a work-order, not a citation"
+    :487    - Ξ.20 Science-Statement Standard — the five-part compound-claim grammar (CLAIM · CERTIFICATE · SCOPE · STRENGTH · RESIDUE)
+    :488    - Ξ.21 Two-Sided Truth Screen — truth (at intended instances) AND strength/E₀ (terminal carries the content, no wrapper)
+    :489    - Ξ.22 Forced-vs-Permitted Screen — basis/decomposition-dependent ⇒ not canonical (distinct from Ξ.7's forced-vs-accumulated count)
+    :490    - Ξ.23 Explain-not-Count — a premise's content is stated in a register, never merely counted
+    :491    - Pattern-Class Catalogue (§III) — symmetry-forbids-canonical-assignment, Voros 2T², (ℤ/2)³ six presentations, structural darkness, domain-Ostrowski/filter-catalogue
+    :492    - Loom Signature Families (§IV) — shell/ENCODES-CONCLUSION, blanket-count boast, mis-anchor, survey-scope, phantom-version, toolchain-rot, vacuity-relocation, partition-risk, box-outruns-kernel (inverted salt-check)
+    :493    - Five-Door Orientation Object (§VI) — persistent single-premise orientation at a fixed address, doors ordered by compiled proximity (published-without-filing)
+    :494    - Relocated-vacuity detector + De-vacuification-under-signature-preservation repair (§VII) — NEW-6 / NEW-8; W-6-EXT SieveCeiling worked instance
+    :495    - D ↔ E unification note in the formation calculus (determination licenses exhaustiveness)
+    :496    - α_T ≈ 0.918 (± 0.018, CV ≈ 2%, across 375 theories / 15 domains) quantified as the theory-space-position invariant (Ξ.13) — the constant is 0.918, not the count 375
+    :497    - Six house figures added (Five-Door Map, Vajra-Plinko Chart, Claim–Certificate Tuple, D↔E Ladder, Two-Sided Screen, RESONANCE Axes)
+    :498    
+    :499    ---
+    :500    
+    :501    ## XIII. Correspondence — technique entry → certificate grade
+    :502    
+    :503    *Added v8.2 (CP-2 maturation). The toolkit graded by its own claim-certificate calculus (Ξ.19): each entry carries one of three grades — **COMPILED SPECIMEN** (a kernel terminal at a pin that derives the entry's content), **COMPILED anchor** (a compiled object the entry's content rests on, without b
+    :504    
+    :505    | Entry | Grade | Anchor (at pin) |
+    :506    |:--|:--|:--|
+    :507    | **Ξ.7** Specification Pipeline Decomposer | **COMPILED SPECIMEN** | `SIDEKernel.formation` / `formation_count` (axiom-free); STRUCTURAL_COUNT |
+    :508    | **Ξ.8** Interface Darkness Verifier (κ) | **COMPILED anchor** | `Kappa` / κ = 0 silence certificates; `UniversalDarkness.lean` |
+    :509    | **Ξ.17** Sieve ceiling | **COMPILED SPECIMEN** | `SieveCeiling.e_difficulty` (`{propext, Quot.sound}`, W-6-EXT, v1.4) |
+    :510    | **Ξ.19** Claim–Certificate Calculus | **METHOD + specimens** | EXCLUSION_ENGINE §VIII.0; specimens = the loom findings |
+    :511    | **Relocated-vacuity detector / de-vacuification** | **COMPILED SPECIMENS (two)** | W-6-EXT SieveCeiling; **V3B `offLine_of_codim_two`** (`0e5233f`) |
+    :512    | **§IV Loom Signature Families** | **specimen-bearing** | box-outruns-kernel: 3 specimens (STEANE compiled `2e76426`; ZK exploratory; identifier-over-claim compiled) |
+    :513    | **§III Pattern-Class: Voros 2T²** | **COMPILED anchor** | `N₀(T)=⌊2T²⌋`, `partialPositivity_finiteRange` (lv v0.9.0 `e3d08b6`) |
+    :514    | **§III Pattern-Class: (ℤ/2)³ six presentations** | **COMPILED anchor** | `SteaneLabeling` (axiom-free, `2e76426`); substrate-cluster |
+    :515    | **§VI Five-Door Orientation Object** | **COMPILED anchors** | five-door state (PATHS §I-bis); `h1_complete_at_Phi`, `partialPositivity_finiteRange` (lv v0.9.0) |
+    :516    | **Ξ.4 / Ξ.5 / Ξ.6 / Ξ.9 / Ξ.10–12 / Ξ.20–23; Impossibility Classifier; Programme Filter** | **METHOD (manuscript-resident)** | procedures & grammar; no single compiled specimen — this is the honest grade, not a gap |
+    :517    
+    :518    *Note on C₆/C₇ within Ξ.5's C₁–C₇ map: **C₆** carries a COMPILED-SPECIMEN sub-anchor (`zero_codimension`/`cr_forces_half`, model-level DERIVES; ξ-faithfulness INTERFACES-named); **C₇** is definition-encoded (relabeled stand-in; faithful witness = W-ORD-C7-WITNESS, pending). C₁–C₅ are thin real-algeb
+    :519    
+    :520    ---
+    :521    
+    :522    ## References
+    :523    
+    :524    A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v0.5.4 (Seale 2026). *A Methodology for Determined Systems* (§VI.3.1 science-statement standard; §VI.3.2 pattern-class catalogue).
+    :525    CORPUS_CATALOGOS v8.2 (Seale 2026). *Formation Architecture and the Unified Darkness Principle.*
+    :526    DEPOSIT_VERIFICATION_PROTOCOL_v1 (Seale 2026). *Verification of Deposited Content Against Project State.*
+    :527    EXCLUSION_ENGINE (Seale 2026). *The Exclusion Engine* (§VIII.0 claim–certificate calculus).
+    :528    FOUNDATIONS (Seale 2026). *Foundations of the Formation Calculus* (§VI.5 determination–exhaustiveness unification).
+    :529    PROGRAMME_INFRASTRUCTURE_PLAN_v0.1 (Seale 2026). *Three-Axis Programme Organization.*
+    :530    PROV1_FORMATION_VERIFICATION_ARCHITECTURE (Seale 2026). *Formation-Determined Verification Architecture.*
+    :531    PROV2_CONSERVATION_GRADE_VERIFICATION (Seale 2026). *Conservation-Grade Interface Verification.*
+    :532    RESONANCE_DEFINITIVE_TOOL (Seale 2026). *RESONANCE: R = DEPTH × WIDTH × CONVERGENCE.*
+    :533    SESSION_EXTRACTION_TECHNE (Seale 2026). *TECHNE Design and Formulas (April 6–7, 2026).*
+    :534    TECHNE_CONSULT_COSMIC_WEB (Seale 2026). *Worked CONSULT — cosmic web structure.*
+    :535    TECHNE_CONSULT_PROGRAMME (Seale 2026). *Worked CONSULT — programme readiness assessment.*
+    :536    TECHNE_ELEMENTS_v4_2 (Seale 2026). *116-Element Catalogue.*
+    :537    TECHNE_EXTRACTION_AUDIT (Seale 2026). *Categorical Inventory of Extracted Items.*
+    :538    TECHNE_HARMONIC_TOOLS_v5 (Seale 2026). *Harmonic Tools Ξ.10–Ξ.13.*
+    :539    TECHNE_KERNEL_COMPLETE_v2 (Seale 2026). *The TECHNE Kernel.*
+    :540    TECHNE_MINIMAL_TOOLKIT_AND_PRACTICE (Seale 2026). *The Minimal Toolkit.*
+    :541    TECHNE_PATENT_TOOLBOX_BRIEFING (Seale 2026). *Patent, Index, and Toolbox Briefing.*
+    :542    TECHNE_PROGRAMME_FILTER_v0.1 (Seale 2026). *Deposit-Track Quality Control for Manuscripts.*
+    :543    TECHNE_TOOLKIT_v7 (Seale 2026). *TECHNE Toolkit v7.0 — Formation-Calculus Consolidation.*
+    :544    TECHNE_WORK_THIS_THREAD (Seale 2026). *April 6–7 Marathon Inventory.*
+    :545    W-6-EXT_SIEVECEILING_REPAIR (Seale 2026). *De-Vacuification under Signature Preservation — worked instance.*
+    :546    
+    :547    *Computational workflow assisted by various LLM instances. Mathematical content, proof strategies, and editorial decisions are the author's.*
+    :548    
+    :549    ---
+    :550    
+    :551    **:: → · ← ::**
+    :552    
+    :553    *One toolkit. Many instruments. Apply consistently. Grade every claim.*
+    :554    
+    :555    <!-- b450 CURRENCY ANNOTATION, 2026-09-13 -->
+    :556    
+    :557    #### **CURRENCY ANNOTATION** *(2026-09-13, b450; existing text preserved apart from the version strings named here)*
+    :558    
+    :559    > ### **2 CITATION(S) MOVED TO THE VERSION THE REGISTRY’S OWN ROW CARRIES.** *The originals, preserved verbatim:*
+    :560    
+    :561    > - line `453` (`A_METHODOLOGY` `v0.2` → `v0.5.4`, `REGISTRY.md:218`) — *| Formation Calculus (full) | Cosmological cluster / Trivium cluster / methodology cluster keystones | A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v0.2 |*
+    :562    > - line `524` (`A_METHODOLOGY` `v0.2` → `v0.5.4`, `REGISTRY.md:218`) — *A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v0.2 (Seale 2026). *A Methodology for Determined Systems* (§VI.3.1 science-statement standard; §VI.3.2 pattern-class catalogue).*
+    :563    
+    :564    > ### **WHY.** *Each cited version is in the cited document’s own lineage — a supersession, not a phantom — and the registry’s row for that document carries a newer version. Only the version string changed on each line; no line was removed; no grade, claim or correspondence row moved.*
+    :565    
+    :566    
+    :567    <!-- b557 THE CASCADE, ACT ELEVEN, 2026-09-29 -->
+    :568    
+    :569    #### THE CASCADE, ACT ELEVEN -- THE CORRESPONDENCE TIERED *(appended 2026-09-29, b557, under the author's ruling `(R167)`(5); no byte above this block changes; the body is not edited)*
+    :570    
+    :571    **The rows, re-read at pin.** 10 rows, 5 naming a terminal. Each terminal's file at the row's pin was elaborated fresh with `#check` and `#print axioms` appended, narrow imports (the file's own header) (relay `data/b557_probe_<id>.txt`; statements, profiles, tiers and reasons in `data/b557_tiers.txt
+    :572    
+    :573    | row | claim (abridged) | terminal(s) | fresh profile(s) | disposition | tier(s) |
+    :574    |:--|:--|:--|:--|:--|:--|
+    :575    | :507 | Ξ.7 Specification Pipeline Decomposer | `formation` | axiom-free | **CARRIED** | T2 |
+    :576    | :508 | Ξ.8 Interface Darkness Verifier (κ) | NONE | — | **CARRIED** | T4 |
+    :577    | :509 | Ξ.17 Sieve ceiling | `e_difficulty` | [propext, Quot.sound] | **CARRIED** | T2 |
+    :578    | :510 | Ξ.19 Claim–Certificate Calculus | NONE | — | **CARRIED** | T4 |
+    :579    | :511 | Relocated-vacuity detector / de-vacuification | `offLine_of_codim_two` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T2 |
+    :580    | :512 | §IV Loom Signature Families | NONE | — | **CARRIED** | T4 |
+    :581    | :513 | §III Pattern-Class: Voros 2T² | `partialPositivity_finiteRange` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T1-lit |
+    :582    | :514 | §III Pattern-Class: (ℤ/2)³ six presentations | NONE | — | **CARRIED** | T4 |
+    :583    | :515 | §VI Five-Door Orientation Object | `h1_complete_at_Phi`, `partialPositivity_finiteRange` | [propext, Classical.choice, Quot.sound] | **CARRIED** | T0, T1-lit |
+    :584    | :516 | Ξ.4 / Ξ.5 / Ξ.6 / Ξ.9 / Ξ.10–12 / Ξ.20–23; Impossibility Classifier; Programme Filter | NONE | — | **CARRIED** | T4 |
+    :585    
+    :586    *Tiers over the 6 terminal readings: T0 1 · T1-open 0 · T1-lit 2 · T2 3 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 0. Rows by their weakest link: T0 0 · T1-open 0 · T1-lit 2 · T2 3 · T2-SHELL 0 · T2-INTERFACES 0 · T3 0 · T4 5. Dispositions: CARRIED 10 · MOVED 0.*
+    :587    
+    :588    *Row :508:* a private repository's objects (a module and a definition), not tiered here.
+    :589    *Row :510:* METHOD (manuscript-resident).
+    :590    *Row :512:* a module at SIDE-substrate-cluster 2e76426, not a terminal.
+    :591    *Row :514:* a module (`SteaneLabeling`) at SIDE-substrate-cluster 2e76426, not a terminal.
+    :592    *Row :516:* METHOD (manuscript-resident).
+    :593    
+    :594    **The repair note, carried on rows :509:** the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling.
+    :595    
+    :596    *The anchor `formation_count` in row :507 names a declaration made twice at the root of two SIDE-kernel files; it is read through `SIDEKernel.formation`, the declaration both restate.*
+    :597    
+    :598    *Appended by b557. No claim of the document is altered; `h2` stays where the deposit left it.*
+    :599    
+    :600    *Appended 2026-09-29 by b558, under the author's ruling `(R168)`(4) -- BACK MATTER, THE EDITION WORK-LIST:* This document's -- 3 sentence-rows read MOVED-IN-MEANING by CP-1b, each with what the compiled fact supports and its informing work-order, are listed in relay `data/b558_editions/TECHNE_TOOLKI
+### PLACE-papers the zeta page at the mirror`s pin, its pin line and nodes 7 and 8 -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 192077ff (3 lines cited)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b569_nodes.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.11 = `19b7d1e` (Lean v4.34.0
+    :11     7. `SIDEExplicitFormula.B321.ch_iff_rh` — SIDEExplicitFormula/H2Bridge.lean:71 — v0.1 = baed4df — `theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.c
+    :12     8. `SIDEExplicitFormula.B321.h2_sign_iff_rh` — SIDEExplicitFormula/Seam.lean:101 — v0.2 = 5c72cad — `theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Q
+### PLACE-papers OPEN_TRAILS, the index line of the S6 crossing landing -- OPEN_TRAILS.md @ c6af5b14 (5 lines cited)
+    :770    > - FOUND-BEYOND — **THE SPEC THE ASSEMBLY MISSED**
+    :771    > - **`S6` SEATS + THE CROSSING FILES — AND THE FOUNDATIONS ARC DOES NOT MEET THE RH ARC HERE** (2026-08-12; appended to `phase2/method/THE_EULER_SPECIFICATION.md`; charter annotated; relay `reports/2026-08-12-s6-crossing.md`)
+    :772    > - §1 — `S6` AND ITS SEAL
+    :773    > - §2 — THE `E`-DIFFICULTY CROSS-LINK: ### **`DISTINCT`. THE DEFINITIONS DO NOT REACH.**
+    :774    > - §3 — THE CROSSING FILING
+### PLACE-papers OPEN_TRAILS, b454`s ledger table row for the cross-link verdict and its count line -- OPEN_TRAILS.md @ c6af5b14 (4 lines cited)
+    :6754   
+    :6755   | finding | S1 | S2 | hits read | verdict | first holding line |
+    :6761   | the E-Difficulty cross-link verdict DISTINCT | 0 | 1 | 1 | HELD BY NO LEDGER | — |
+    :6766   **The two counts, over the 15 targets: ADDED 7 — CLAIMED BY THE KEYSTONE AND HELD BY NO LEDGER 8.** Added: `W_∞` not sign-definite in PATHS, SURROUND, SIMPLICITY and INDEX_ARITY; the two-kinds windows verdict in REPARAMETERIZATION; the `S2` Ostrowski seal in EXHAUSTIVENESS_LICENSE; the sign-face reg
+### PLACE-papers the archived landing, its section 2 whole -- archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md @ c6af5b14 (11 lines cited)
+    :8837   > ### **THE JOINT READING (`OURS`, question grade): DETERMINATION IS TOTAL, EXPRESSION IS REGIONAL. The placement content is present in `S4 + S5` and by `S6′` determines `ζ` everywhere; by `S6` it is spoken only on `Re s > 1`.** ### **SO THE RESIDUE IS NOT AN INFORMATION GAP — IT IS A LANGUAGE GAP.*
+    :8838   
+    :8839   ## §2 — THE `E`-DIFFICULTY CROSS-LINK: ### **`DISTINCT`. THE DEFINITIONS DO NOT REACH.**
+    :8840   
+    :8841   **At its statement:** *"decidability of a universal property `P` is **equivalent to the existence of a domain Ostrowski** for the `P`-mechanism catalogue"* · *"the truths that escape are exactly those **whose enumeration cannot be closed**."*
+    :8842   
+    :8843   > ### **E-DIFFICULTY MEASURES CATALOGUE-CLOSEABILITY. `ξ`'s CATALOGUE IS CLOSED AND COMPILED. The `S6` gap is a DOMAIN-OF-EXPRESSION gap INSIDE a closed catalogue — not a failure to enumerate.**
+    :8844   >
+    :8845   > ### **THE VERDICT HAS CONTENT: the dichotomy's own census note places RH on the IN-SCOPE, DECIDABLE side, so `h2`'s difficulty is a difficulty INSIDE that side and is NOT of the kind the foundations arc formalizes.** ### **THE TWO ARCS DO NOT MEET AT ONE SENTENCE HERE — the charter's second branch
+    :8846   >
+    :8847   > **NOT CLAIMED, and named so drift cannot claim it later:** whether `S6` contributes to `κ_dark` in `D_eff = L·(1 + κ_dark)`. ### **`κ` is defined over INTERFACES (`INVARIANCE_BARRIERS`: *"for `ξ`, `I` is essential and `κ(σ, I) = 0`"*) and `S6` is not an interface. No text reached says otherwise; t
+### relay b450`s two items for the toolkit -- data/b450_components.txt @ 5d58af69 (2 lines cited)
+    :172          TECHNE_TOOLKIT                     THERE IS NO TABLE                                                      writing a correspondence table is authoring
+    :173          TECHNE_TOOLKIT                     does not carry: the E-Difficulty cross-link verdict DISTINCT           adding absent material is authoring
+### relay b450`s batch, the toolkit`s block and the two items -- data/b450_batch.json @ 5d58af69 (28 lines cited)
+    :389      "TECHNE_TOOLKIT": {
+    :390       "path": "phase1.5/method/TECHNE_TOOLKIT.md",
+    :391       "lines": 554,
+    :392       "bytes": 56903,
+    :393       "head": "v8.2",
+    :394       "t1": 0,
+    :395       "t1_lines": [],
+    :396       "t2_rows": 0,
+    :397       "grades": {},
+    :398       "tw_rows": 0,
+    :399       "tw_grades": {},
+    :400       "items": [
+    :401        {
+    :402         "kind": "(i) registry row",
+    :403         "bucket": "ALREADY SAYS IT",
+    :404         "detail": "row 1.5h-7 at REGISTRY.md:222 carries v8.2 ; head token v8.2"
+    :405        },
+    :406        {
+    :407         "kind": "(ii) era finding",
+    :408         "label": "the E-Difficulty cross-link verdict DISTINCT",
+    :409         "hits": [],
+    :410         "bucket": "DOES NOT CARRY IT",
+    :411         "second_yield": 2,
+    :412         "second_read": "Ξ.22 is \"distinct from Ξ.7\" (lines 195, 489) -- another subject"
+    :950        "TECHNE_TOOLKIT",
+    :951        "THERE IS NO TABLE",
+    :955        "TECHNE_TOOLKIT",
+    :956        "does not carry: the E-Difficulty cross-link verdict DISTINCT",
+### relay b454`s shapes for the verdict -- data/b454_registration_2026-09-14.txt @ 5d58af69 (1 lines cited)
+    :87     ###   `the E-Difficulty cross-link verdict DISTINCT` -- S1 `cross-link` with `DISTINCT` ; S2 `DISTINCT` with `E-Difficulty` or `κ`
+### relay b557`s tier block for the toolkit, the e_difficulty reading -- data/b557_tiers.txt @ 5d58af69 (19 lines cited)
+    :201    ### TECHNE_TOOLKIT (phase1.5/method/TECHNE_TOOLKIT.md at PLACE-papers f54a255): 10 rows; 6 terminal readings
+    :202    ====================================================================================================
+    :203    
+    :204    ### :507 SIDEKernel.formation [FOUND at v1.7 via kc]
+    :205        statement : SIDEKernel.formation : 2 + 3 + 2 + 0 = 7
+    :206        profile   : does not depend on any axioms   (the row prints: does not depend on any axioms)
+    :207        at the tag: no tag beyond the pin
+    :208        tier      : T2 -- `2 + 3 + 2 + 0 = 7` by `decide` -- a numeral identity whose reading (the formation count) is carried by the name
+    :209        earlier   : none banked ; E/I (b544): not indexed
+    :210        disposition: CARRIED
+    :211    
+    :212    ### :509 e_difficulty [FOUND at v1.4 via c1]
+    :213        statement : e_difficulty : ∀ (s : DeterminedSystem), s.isConserved → (IsDecidable s ↔ Nonempty (DomainOstrowski s))
+    :214        profile   : depends on axioms: [propext, Quot.sound]   (the row prints: depends on axioms: [propext, Quot.sound])
+    :215        at the tag: {'probe': 'c1t', 'pin': 'v1.7', 'identical': True, 'found': True, 'same_statement': True, 'statement': None, 'profile': 'depends on axioms: [propext, Quot.sound]'}
+    :216        tier      : T2 -- over the file`s `DeterminedSystem`, `SysProof` and `DomainOstrowski` -- programme-type; at v1.4 it reads its system (the repair)
+    :217        earlier   : none banked ; E/I (b544): not indexed ; the repair note (2026-08-08): `e_difficulty` repaired at SIDE-kernel v1.4 (reads its system); `sieve_ceiling` and `bright_access_required` relabelled SCAFFOLDING; `sieve_ceiling_semantic` the contentful ceiling
+    :218        disposition: CARRIED
+    :219    
+### relay b540`s tier reading of the three Routes -- data/b540_tiers.json @ 5d58af69 (1 lines cited)
+    :437     "si_reading": "**§I`s \"three compiled routes\", read after b531 and b538:** two compiled route terminals, **neither a route to σ = 1/2** -- Route 1 (`structural_exhaustiveness_proved`, T2: the decide-count conjunct and the C₇ stand-in) and Route 2 (`spectral_cannon`, T0 and not in the RH-anchor: a
+### PLACE-papers REGISTRY, the deposited pin and the citation rule -- REGISTRY.md @ c6af5b14 (1 lines cited)
+    :962    *(Appended under the author's ruling `(R185)`(2)(ii), 2026-10-01, b575: Anomaly 1 stated as a pair of pins, with no deposit.)* **SIDE-kernel, the deposited pin and the current tag.** Deposited at **v1.5** = `0e5233f` (record 21520474, DOI 10.5281/zenodo.21520474; immutable at its version). Current t
+### PLACE-papers README, the ceiling -- README.md @ c6af5b14 (6 lines cited)
+    :106    Supportable: *RH reduced to a single located clause, reduction machine-verified.*
+    :107    Not supportable: *RH proved.* The open clause is a premise of the multiplicative
+    :108    structure, undischarged, and the corpus names it openly at every site that depends
+    :109    on it. Its residue coincides, object for object, with the number-field shadow of
+    :110    Weil positivity — the century-old obstruction — which is evidence the localization
+    :111    is faithful, not that it has been crossed.
+### PLACE-papers OPEN_TRAILS, the form, its clauses, lane three and the table rule -- OPEN_TRAILS.md @ c6af5b14 (21 lines cited)
+    :11417  > LANE THREE — THE CLARIFIED LAYER, after lane two's (a) and (b) at least: CP-4 (the page without narrative, the ceiling as its last derived line), CP-5 (the deposit reconciliation, now carrying Anomaly 1, E-2026-09-25-1 through -6 and E-2026-09-27-1, and the (R110) description edit), CP-7 (the obse
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s n
+    :11884  *Appended 2026-10-01 by b578, under the author’s ruling `(R188)`(3), to the critical path’s lane three (:11417) and the form of an edition (:11864) -- THE ORDER OF THE EDITIONS, RATIFIED AS PRINTED:* PATHS (29), FOUNDATIONS (16), ADDITIVE_MULTIPLICATIVE_CONSPIRACY (13), then SURROUND, GRH_CASCADE, R
+    :11902  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(2), to the form of an edition (:11864) -- H28b, RESTATED FOR EVERY EDITION ACT:* the edition’s BODY sentence count differs from the current version’s by at most the CREDIT count plus the removals plus the citations a ruling orders; the
+    :11904  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(3), to the form of an edition (:11864) -- THE STEM CLAUSE, STANDING:* a banned stem in a sentence the work-list does not mark is replaced by the object the sentence names (not a synonym for the stem), the sentence otherwise unchanged, 
+    :11906  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem clause -- THE CEILING CLAUSE:* a sentence the work-list does not mark that speaks beyond the README ceiling (README :106-:121) takes the object it names, the rest of the se
+    :11908  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem and ceiling clauses -- THE HISTORY CLAUSE:* dated history entries are superseded beneath, not rewritten: a marked sentence in a dated history entry carries unchanged as a d
+    :11930  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(2), to the form of an edition (:11864) -- H28b, FINAL FORM FOR EVERY EDITION ACT:* the body sentence count differs from the current version’s by at most the CREDIT count, the removals, the citations a ruling orders, and one version lin
+    :11932  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(3), to the form of an edition (:11864) -- THE RE-PIN STEP, THE FORM’S LAST:* after every insertion the edition’s own Correspondence column and the act’s diff bank are re-read against the final file and cite its final lines; the bank st
+    :11934  *Appended 2026-10-01 by b580, under the author’s answer before b580’s seal, to the form of an edition (:11864), beside the stem, ceiling and history clauses -- THE NAME-AND-TITLE EXCEPTION:* an object’s own name and a bibliography title are not live uses (relay `tools/banned_terms.py` :14, “CLAY / B
+    :11954  *Appended 2026-10-01 by b581, under the author’s ruling `(R191)`(2), to the form of an edition (:11864) -- THE FACT CLAUSE, STANDING:* an unmarked sentence that states a fact the seat’s printed read contradicts -- a pin, a toolchain, a count, an import -- is corrected in place to the printed fact, t
+    :11956  *Appended 2026-10-01 by b581, under the author’s answer before b581’s seal, to the form of an edition (:11864) -- THE PLACEMENT CLAUSE:* a b450 “does not carry” item the work-list does not place is inserted beside the sentence whose claim it corrects, that sentence named in the back matter. Applied 
+    :11996  *Appended 2026-10-01 by b583 to the form of an edition (:11864), under the author’s ruling `(R193)`(2) -- THE (N1) PATTERN; ADVANCE READINGS ARE EXPECTATIONS:* the navigator’s advance readings covered 27 of 29 rows at PATHS, 14 of 16 at FOUNDATIONS, 12 of 13 at ADDITIVE_MULTIPLICATIVE_CONSPIRACY, 9 
+    :12044  *Appended 2026-10-01 by b585 to the history clause (:11908), under the author’s answer before b585’s seal -- INSIDE A DATED ENTRY THE HISTORY CLAUSE GOVERNS:* a banned stem inside a dated history entry is carried as the dated record, and a history line dated to the edition directly beneath the entry
+    :12062  *Appended 2026-10-01 by b586 to the critical path’s lane three (:11417), under the author’s ruling `(R196)`(4) -- LANE THREE’S ORDER, REFINED:* as ruled: “the editions continue in the ratified order through RESIDUE; then the two companions BALANCE_AND_POSITIVITY and FACES_OF_H2; then W-ORD-SIMPLICIT
+    :12082  *Appended 2026-10-01 by b587 to the name-and-title exception (:11934), under the author’s ruling `(R197)`(2) -- AN ITEM NAME OF A CITED PROGRAMME DOCUMENT:* the exception gains the clause “an item name of a cited programme document”: such a name carries unchanged in an edition that cites the documen
+    :12084  *Appended 2026-10-01 by b587 to lane three’s refined order (:12062), under the author’s ruling `(R197)`(3) -- THE TABLE RULE, TECHNE_TOOLKIT:* TECHNE_TOOLKIT’s edition is written over its §XIII Correspondence table, the act after b587 per `(R197)`(6).
+    :12086  *Appended 2026-10-01 by b587 to lane three’s refined order (:12062), under the author’s ruling `(R197)`(3) -- THE TABLE RULE, E_DIFFICULTY_THEOREM:* E_DIFFICULTY_THEOREM takes a Correspondence table before its edition, written from its tier block’s terminals (its :236) by the house form in one house
+    :12088  *Appended 2026-10-01 by b587 to lane three’s refined order (:12062), under the author’s ruling `(R197)`(3) -- THE TABLE RULE, ENUMERA AND THE CENSUS:* ENUMERA, edited at b586 over its tier block without a table, is recorded as such, and its table is written the same way after CP-7 if the author so r
+    :12090  ### `W-ORD-CONSTELLATION-RERUN` -- CONSTELLATION MODE OVER THE ROSTER TABLES AT THE CURRENT PINS, PRICED, NOT STARTED, appended 2026-10-01, b587, under the author’s ruling (R197)(4)
+    :12098  ### b587 — lane three, act fifteen under (R197): CP-7 act twelve -- the edition of EXHAUSTIVENESS_LICENSE written beside the current; the table rule applied; W-ORD-CONSTELLATION-RERUN entered
+### PLACE-papers FINDINGS, b587`s entry -- FINDINGS.md @ c6af5b14 (1 lines cited)
+    :6674   ## CP-7, act twelve: the edition of EXHAUSTIVENESS_LICENSE from its tier block and work-list, the three superseded forms citing their fast-forward tips, the S2 seal located; written as v0.2 beside v0.1, no sentence held
+### PLACE-papers THE_METHOD_CANON, its head and its appended sections -- phase1.5/method/THE_METHOD_CANON.md @ c6af5b14 (10 lines cited)
+    :1      # THE METHOD — canon keystone (v1.3, author-ratified)
+    :251    ## XVII. The mixedness line (added 2026-08-20; provenance: the protection act, relay reports/2026-08-20-protection-act.md)
+    :253    > ### **MIXEDNESS CERTIFIES NOTHING: DISTANCE IS A KNILL–LAFLAMME VERDICT, NEVER AN INFERENCE FROM ENTANGLEMENT.**
+    :255    ## XVIII. The eloquence line (added 2026-08-21; provenance: the critical pass and the reacquaintance act, relay reports/2026-08-21-critical-pass.md + reports/2026-08-21-reacquaintance.md)
+    :257    > ### **ELOQUENCE IS A HYPOTHESIS GENERATOR, NEVER EVIDENCE; THE MORE A SENTENCE RESONATES, THE SOONER IT MUST MEET A READ.**
+    :259    ## XIX. The one-consequence line (added 2026-08-21; provenance: the H-COH overdetermination requirement, row 52, and its discharge at row 53 — relay reports/2026-08-21-critical-pass.md + reports/2026-08-21-adelic-construction.md)
+    :261    > ### **A PREMISE WITH ONE CONSEQUENCE IS A RENAMED CONCLUSION: NO MODELING PREMISE BEARS WEIGHT UNTIL IT IS BUILT OR ISSUES A SECOND DECIDED CONSEQUENCE.**
+    :263    ## The discipline note (minted 2026-08-21, the window-opening act; additive; the loom holds the full statements)
+    :276    ## Correspondence addendum — pins read at b377 (2026-09-08)
+    :293    
+### PLACE-papers ENUMERA v1.5 and EXHAUSTIVENESS_LICENSE v0.1, the four instance lines -- phase1.5/method/ENUMERA.md @ c6af5b14 (3 lines cited)
+    :54     ║  EXHAUSTIVENESS: Ostrowski's theorem closes the catalogue     ║
+    :895    | POISSON EXHAUSTION THEOREM | — | Proof that n₂ = 3 via Ostrowski's theorem. Closes CR Gap 2. Establishes exhaustiveness of seven-class catalogue. |
+    :1040   - E (Poisson): Ostrowski's theorem closes exhaustiveness → **[PROVED]**
+### PLACE-papers EXHAUSTIVENESS_LICENSE v0.1, its :59 -- phase1.5/method/EXHAUSTIVENESS_LICENSE.md @ c6af5b14 (1 lines cited)
+    :59     **The Riemann Hypothesis — THEOREM, conditional on `h2`.** The seven-class mechanism catalogue's completeness rests on classification theorems at every stage of the formation count (2+3+2+0): the two group structures on ℤ (ring classification), the three places of ℚ (**Ostrowski 1916**), the two out
+### relay b587`s closing push-out, its head -- data/b587_closing_push_out.txt @ 5d58af69 (3 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b587_closing_push_out.txt (2026-10-02T00:20:18Z)
+    :2      push_gated: repo D:/relay ; branch push-b587-closing ; tip dd3b90251e6ca842e25c5960c967a3e6f340fd3e ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+### THE CROSS-LINK VERDICT, SEARCHED BY NAME at c6af5b1 -- shape 1 the ferry`s words "E-Difficulty cross-link" as written; shape 2 "cross-link" in any case with "DISTINCT" on the same line:
+    FINDINGS.md : shape 1 0 hit(s) [] ; shape 2 0 hit(s) []
+    OPEN_TRAILS.md : shape 1 3 hit(s) [':6642', ':6761', ':6766'] ; shape 2 3 hit(s) [':773', ':6642', ':6761']
+      :773 > - §2 — THE `E`-DIFFICULTY CROSS-LINK: ### **`DISTINCT`. THE DEFINITIONS DO NOT REACH.**
+      :6642 | **AUTHORING** | **26** | `PATHS_TO_THE_CRITICAL_LINE` — does not carry: W_inf NOT sign-definite — :159<br>`PATHS_TO_THE_CRITICAL_LINE` — does not carry: the Day-1 section I attribution pole-plus-archimedean — :160<br>`
+      :6761 | the E-Difficulty cross-link verdict DISTINCT | 0 | 1 | 1 | HELD BY NO LEDGER | — |
+      :6766 **The two counts, over the 15 targets: ADDED 7 — CLAIMED BY THE KEYSTONE AND HELD BY NO LEDGER 8.** Added: `W_∞` not sign-definite in PATHS, SURROUND, SIMPLICITY and INDEX_ARITY; the two-kinds windows verdict in REPARAME
+    FINDINGS-archive-1-entries-through-2026-08-20c.md : shape 1 0 hit(s) [] ; shape 2 0 hit(s) []
+    FINDINGS-archive-2-entries-2026-08-21-and-22.md : shape 1 0 hit(s) [] ; shape 2 0 hit(s) []
+    OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md : shape 1 0 hit(s) [] ; shape 2 0 hit(s) []
+    OPEN_TRAILS-archive-2-historical-landings-and-programs.md : shape 1 0 hit(s) [] ; shape 2 1 hit(s) [':8839']
+      :8839 ## §2 — THE `E`-DIFFICULTY CROSS-LINK: ### **`DISTINCT`. THE DEFINITIONS DO NOT REACH.**
+### THE TERMINALS AT THEIR PINS, by git grep (no elaboration):
+    :507 formation                                       SIDE-kernel @ v1.7 : FOUND v1.7:Bridge/TheBridgeComplete.lean:213:theorem formation : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation | v1.7:Kernel/Bijection.lean:26:theorem formation : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation | v1.7:Kernel/Core.lean:53:theorem formation : 2 + 3 + 2 + 0 = 7 := by decide
+    :509 e_difficulty                                    SIDE-kernel @ v1.4 : FOUND v1.4:Kernel/Cascade/SieveCeiling.lean:309:theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConse
+    :511 offLine_of_codim_two                            SIDE-kernel @ 0e5233f : FOUND 0e5233f:Kernel/Voice3b.lean:183:theorem offLine_of_codim_two (sigma : Real)
+    :513 partialPositivity_finiteRange                   SIDE-lv-conservation @ e3d08b6 : FOUND e3d08b6:SIDELvConservation/PartialPositivity.lean:105:theorem partialPositivity_finiteRange
+    :515 h1_complete_at_Phi                              SIDE-lv-conservation @ e3d08b6 : FOUND e3d08b6:SIDELvConservation/CouplingsAtPhi.lean:418:theorem h1_complete_at_Phi :
+    :514 SteaneLabeling (a module)                       SIDE-substrate-cluster @ 2e76426 : FOUND SIDESubstrateCluster/SteaneLabeling.lean
+    :414 structural_exhaustiveness_proved (Route 1)      SIDE-kernel @ v1.4 : FOUND v1.4:Bridge/ConservationBridge.lean:46:theorem structural_exhaustiveness_proved | v1.4:Bridge/TheBridgeComplete.lean:188:theorem structural_exhaustiveness_proved :
+    :414 spectral_cannon (Route 2)                       SIDE-kernel @ v1.4 : FOUND v1.4:Kernel/SpectralCannonFull.lean:58:theorem spectral_cannon (t : ℝ) :
+    :414 ConservationBridge.riemann_hypothesis (Route 3) SIDE-kernel @ v1.4 : FOUND v1.4:Bridge/ConservationBridge.lean:53:theorem riemann_hypothesis
+### THE TAGS THE EDITION CITES, peeled, locally and at the remote:
+    SIDE-kernel v1.4 : cited f374174 ; local f374174 ; remote f374174 ; AGREE
+    SIDE-kernel v1.5 : cited 0e5233f ; local 0e5233f ; remote 0e5233f ; AGREE
+    SIDE-kernel v1.7 : cited 2957e7d ; local 2957e7d ; remote 2957e7d ; AGREE
+    SIDE-lv-conservation v0.9.0 : cited e3d08b6 ; local e3d08b6 ; remote e3d08b6 ; AGREE
+    SIDE-explicit-formula v0.1 : cited baed4df ; local baed4df ; remote baed4df ; AGREE
+    SIDE-explicit-formula v0.2 : cited 5c72cad ; local 5c72cad ; remote 5c72cad ; AGREE
