@@ -1,0 +1,16 @@
+b602 -- THE STATEMENTS OF SIDEExplicitFormula/SaltCheckKeiperSign.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T02:37:38Z ; the branch sign-window-b602 (checked out: sign-window-b602) ; the file`s sha256 461246c3a94a7dadb943e508d71856c06949a93cc4a0e2193c3609d11d778159 ; its bytes 2535
+
+### :25 theorem log_pi_ge
+    theorem log_pi_ge : 2 - Real.exp 1 / Real.pi ≤ Real.log Real.pi := by
+### :33 theorem e_div_pi_lt
+    theorem e_div_pi_lt : Real.exp 1 / Real.pi < 0.8653 := by
+### :40 theorem log_four_pi_gt
+    theorem log_four_pi_gt : 2.52 < Real.log (4 * Real.pi) := by
+### :49 theorem coarse_lower_insufficient
+    theorem coarse_lower_insufficient : 1 + (1 / 2 : ℝ) / 2 - Real.log (4 * Real.pi) / 2 < 0 := by
+### :54 theorem liCoeff_one_lt_tenth
+    theorem liCoeff_one_lt_tenth : LiWeil.LiCoeff 1 < 1 / 10 := by
+### :61 theorem liCoeff_one_pos_holds
+    theorem liCoeff_one_pos_holds : 0 < LiWeil.LiCoeff 1 := liCoeff_one_pos

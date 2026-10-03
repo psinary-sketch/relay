@@ -1,0 +1,176 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 230,
+   "name": "log_four_pi_ofReal",
+   "cls": "READ",
+   "conclusion": " Complex.log (4 * (Real.pi : ℂ)) = ((Real.log (4 * Real.pi) : ℝ) : ℂ)",
+   "reading": "b601`s cast lemma, Complex.log (4π) as the real log 4π: an equality of casts, not a sign."
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 239,
+   "name": "liCoeff_one_keiper",
+   "cls": "READ",
+   "conclusion": " LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2",
+   "reading": "b601`s closed form λ_1 = 1 + γ/2 − ½ log 4π (v0.19), an identity with no sign: the input this act`s liCoeff_one_pos_iff consumes."
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/KeiperSign.lean",
+   "line": 30,
+   "name": "liCoeff_one_pos_iff",
+   "cls": "OWN",
+   "conclusion": " 0 < LiWeil.LiCoeff 1 ↔ Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/KeiperSign.lean",
+   "line": 66,
+   "name": "log_four_pi_lt",
+   "cls": "OWN",
+   "conclusion": " Real.log (4 * Real.pi) < 2.5421",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/KeiperSign.lean",
+   "line": 75,
+   "name": "threshold_lt_gamma",
+   "cls": "OWN",
+   "conclusion": " Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/KeiperSign.lean",
+   "line": 82,
+   "name": "liCoeff_one_pos",
+   "cls": "OWN",
+   "conclusion": " 0 < LiWeil.LiCoeff 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiper.lean",
+   "line": 35,
+   "name": "log_four_pi_pos",
+   "cls": "READ",
+   "conclusion": " (0 : ℝ) < Real.log (4 * Real.pi)",
+   "reading": "b601`s salt lemma 0 < log 4π: a bound on log 4π alone, not λ_1`s sign (it gives no threshold on γ)."
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiperSign.lean",
+   "line": 40,
+   "name": "log_four_pi_gt",
+   "cls": "OWN",
+   "conclusion": " 2.52 < Real.log (4 * Real.pi)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiperSign.lean",
+   "line": 49,
+   "name": "coarse_lower_insufficient",
+   "cls": "OWN",
+   "conclusion": " 1 + (1 / 2 : ℝ) / 2 - Real.log (4 * Real.pi) / 2 < 0",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiperSign.lean",
+   "line": 54,
+   "name": "liCoeff_one_lt_tenth",
+   "cls": "OWN",
+   "conclusion": " LiWeil.LiCoeff 1 < 1 / 10",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiperSign.lean",
+   "line": 61,
+   "name": "liCoeff_one_pos_holds",
+   "cls": "OWN",
+   "conclusion": " 0 < LiWeil.LiCoeff 1",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+   "line": 186,
+   "name": "plateauRampWindow_of",
+   "cls": "OWN",
+   "conclusion": " PlateauRampWindow W h",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-lv-conservation",
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 362,
+   "name": "n_one_binding_instance",
+   "cls": "READ",
+   "conclusion": " Real.eulerMascheroniConstant + 2 ≥ Real.log (4 * Real.pi)",
+   "reading": "PRIOR ART, NOT THE PROP: γ + 2 ≥ log(4π), the NON-STRICT constants form (it allows λ_1 = 0), proved at SIDE-lv-conservation 2f71068 (commit ef62027, 2026-07-17) by the index 12 and a bound on log 52π, over the constants and not LiCoeff 1, at another kernel and Mathlib pin; its docstring`s \"WHY IT IS NOT PROVED HERE\" is stale against its own proof. Cited in the record."
+  }
+ ],
+ "kernels": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-explicit-formula",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation"
+ ],
+ "files": 7,
+ "bad": [],
+ "controls": {
+  "pos_reads": true,
+  "pos_refuses": true,
+  "neg_reads": true,
+  "neg_refuses": true
+ },
+ "tip": "914c4137e196e6ac877e86b3f6d545e1a730e7c6"
+}

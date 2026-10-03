@@ -1,0 +1,43 @@
+b602 -- COMPONENT 3: THE MATHLIB BOUNDS AND THE INDEX (UTC 2026-10-03T02:18:50Z)
+### the bounds, by name and file at the pin (Mathlib de5ce8a9):
+    Real.eulerMascheroniSeq n = harmonic n - log (n + 1)            Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean :48
+    Real.strictMono_eulerMascheroniSeq                                 EulerMascheroni.lean :53
+    Real.eulerMascheroniSeq_lt_eulerMascheroniConstant (n)            EulerMascheroni.lean :156
+    Real.one_half_lt_eulerMascheroniConstant : 1/2 < γ                EulerMascheroni.lean :167
+    Real.eulerMascheroniConstant_lt_two_thirds : γ < 2/3              EulerMascheroni.lean :171
+    Real.log_two_lt_d9 : log 2 < 0.6931471808                         Mathlib/Analysis/Complex/ExponentialBounds.lean :86
+    Real.log_two_gt_d9 : 0.6931471803 < log 2                         ExponentialBounds.lean :83
+    Real.exp_one_gt_d9 : 2.7182818283 < exp 1                         ExponentialBounds.lean :35
+    Real.exp_one_lt_d9 : exp 1 < 2.7182818286                         ExponentialBounds.lean :38
+    Real.pi_lt_d4 : π < 3.1416 ; Real.pi_gt_d4 : 3.1415 < π           Mathlib/Analysis/Real/Pi/Bounds.lean :172, :167
+    Real.log_le_sub_one_of_pos : log x ≤ x - 1                        Mathlib/Analysis/SpecialFunctions/Log/Basic.lean :307
+### the threshold log 4π − 2 = 0.531024246969 ; the upper bound the proof reaches: log 4π < 2.5421 (2·0.6931471808 + π/e, π/e < 1.1558), so the index must give a partial value above 0.5421
+
+### every index n ≤ 25, H_n − log(n + 1) (H_n exact, the log a float): 
+    n = 1   H_n = 1/1                    partial 0.306853   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 True
+    n = 2   H_n = 3/2                    partial 0.401388   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 3   H_n = 11/6                   partial 0.447039   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 True
+    n = 4   H_n = 25/12                  partial 0.473895   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 5   H_n = 137/60                 partial 0.491574   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 6   H_n = 49/20                  partial 0.504090   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 7   H_n = 363/140                partial 0.513416   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 True
+    n = 8   H_n = 761/280                partial 0.520633   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 9   H_n = 7129/2520              partial 0.526383   above the threshold False ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 10  H_n = 7381/2520              partial 0.531073   above the threshold True ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 11  H_n = 83711/27720            partial 0.534971   above the threshold True ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 12  H_n = 86021/27720            partial 0.538261   above the threshold True ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 13  H_n = 1145993/360360         partial 0.541076   above the threshold True ; above 0.5421 False ; n + 1 a power of 2 False
+    n = 14  H_n = 1171733/360360         partial 0.543512   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 15  H_n = 1195757/360360         partial 0.545640   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 True
+    n = 16  H_n = 2436559/720720         partial 0.547516   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 17  H_n = …                      partial 0.549181   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 18  H_n = …                      partial 0.550669   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 19  H_n = …                      partial 0.552007   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 20  H_n = …                      partial 0.553217   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 21  H_n = …                      partial 0.554316   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 22  H_n = …                      partial 0.555319   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 23  H_n = …                      partial 0.556238   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 24  H_n = …                      partial 0.557082   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+    n = 25  H_n = …                      partial 0.557862   above the threshold True ; above 0.5421 True ; n + 1 a power of 2 False
+
+### ### **THE INDEX CHOSEN: 15** -- H_15 = 1195757/360360, log 16 = 4 log 2, the partial value 0.545640 against the threshold 0.531024 (margin 0.014616) and against the reached bound 0.5421; the first index above the threshold at all is 10 (margin 5·10⁻⁵, log 11 needed); the first above 0.5421 is 14 (log 15 needed); 15 is the first above it with n + 1 a power of 2.

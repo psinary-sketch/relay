@@ -1,0 +1,272 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.PlateauRamp.box": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(a : ℝ) : ℝ → ℝ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.nbox": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(h : ℝ) : ℝ → ℝ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.conv": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(f g : ℝ → ℝ) : ℝ → ℝ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.window": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : ℕ → ℝ → ℝ | 0 => box W | p + 1 => conv (window W h p) (nbox h) /-! ## Evenness and compact support -/ theorem box_even (a x : ℝ) : box a (-x) = box a x",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.box_even": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(a x : ℝ) : box a (-x) = box a x",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.nbox_even": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(h x : ℝ) : nbox h (-x) = nbox h x",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.box_hasCompactSupport": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(a : ℝ) : HasCompactSupport (box a)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.nbox_hasCompactSupport": {
+   "grade": "INTERFACES",
+   "why": "h : ℝ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(h : ℝ) : HasCompactSupport (nbox h)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.conv_even": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hf : ∀ x, f (-x) = f x, hg : ∀ x, g (-x) = g x",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{f g : ℝ → ℝ} (hf : ∀ x, f (-x) = f x) (hg : ∀ x, g (-x) = g x) (x : ℝ) : conv f g (-x) = conv f g x",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.window_even": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : ∀ (p : ℕ) (x : ℝ), window W h p (-x) = window W h p x | 0, x => box_even W x | p + 1, x => conv_even (window_even W h p) (nbox_even h) x /-- **The window is compactly supported**, at every `p`. -/ theorem window_hasCompactSupport (W h : ℝ) : ∀ p : ℕ, HasCompactSupport (window W h p) | 0 => box_hasCompactSupport W | p + 1 => HasCompactSupport.convolution (L",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.window_hasCompactSupport": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : ∀ p : ℕ, HasCompactSupport (window W h p) | 0 => box_hasCompactSupport W | p + 1 => HasCompactSupport.convolution (L",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.box_paperFT": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: ha : 0 ≤ a, hz : z ≠ 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{a : ℝ} (ha : 0 ≤ a) {z : ℂ} (hz : z ≠ 0) : Zeta23.paperFT (phiC (box a)) z = 2 * Complex.sin (z * (a : ℂ)) / z",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.nbox_paperFT": {
+   "grade": "INTERFACES",
+   "why": "h : ℂ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{h : ℝ} (hh : 0 < h) {z : ℂ} (hz : z ≠ 0) : Zeta23.paperFT (phiC (nbox h)) z = 2 * Complex.sin (z * ((h / 2 : ℝ) : ℂ)) / (z * (h : ℂ))",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.window_paperFT_zero": {
+   "grade": "INTERFACES",
+   "why": "h : ℂ",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{W h : ℝ} (hW : 0 ≤ W) {z : ℂ} (hz : z ≠ 0) : Zeta23.paperFT (phiC (window W h 0)) z = (2 * Complex.sin (z * (W : ℂ)) / z) * (2 * Complex.sin (z * ((h / 2 : ℝ) : ℂ)) / (z * (h : ℂ))) ^ 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.ConvStep": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.Smooth4": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": null,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of": {
+   "grade": "INTERFACES",
+   "why": "hP : WindowObligations W h",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{W h : ℝ} (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) : PlateauRampWindow W h",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window": {
+   "grade": "INTERFACES",
+   "why": "hE : EpsteinPremises Z rhs, hP : WindowObligations W h",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hE : EpsteinPremises Z rhs) {W h : ℝ} (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) (p : ℕ) (hp : 6 ≤ p) : (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p))) (Zeta23.gammaOf ρ)) = rhs (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p)))",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "914c4137e196e6ac877e86b3f6d545e1a730e7c6",
+ "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+ "same_file": true
+}

@@ -1,0 +1,49 @@
+### b602 -- THE BUILD OF axsign, ONE MODULE PER CALL, A DETACHED PROCESS WATCHED FROM THE FOREGROUND (OPEN_TRAILS :12356), THE WATCHDOG`S LOG (lean resident cap 3500 MB, free floor 900 MB; the seat starts no call below the 2560 MB hold), copied from the seat`s scratchpad
+
+=== BUILD axsign ; free MB before: 5028 ; start 2026-10-03T02:40:03Z
+  ~ t=11s free=3275MB leans=[(18972, 1548)]
+  | 'SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.log_sixteen' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.eulerMascheroniSeq_fifteen' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.gamma_gt_seq_fifteen' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.log_pi_le_pi_div_e' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.pi_div_e_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.log_four_pi_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.threshold_lt_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.liCoeff_one_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.SaltCheck.log_pi_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.SaltCheck.e_div_pi_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.SaltCheck.log_four_pi_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.SaltCheck.coarse_lower_insufficient' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_lt_tenth' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_pos_holds' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.liCoeff_one_keiper' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.eulerMascheroniSeq_lt_eulerMascheroniConstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.log_two_lt_d9' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.pi_lt_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.exp_one_gt_d9' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.log_le_sub_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.one_sub_inv_le_log_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.pi_gt_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.exp_one_lt_d9' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.log_two_gt_d9' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.eulerMascheroniConstant_lt_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff : 0 < SIDEExplicitFormula.LiWeil.LiCoeff 1 ↔
+  |   Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant
+  | SIDEExplicitFormula.KeiperSign.eulerMascheroniSeq_fifteen : Real.eulerMascheroniSeq 15 =
+  |   1195757 / 360360 - 4 * Real.log 2
+  | SIDEExplicitFormula.KeiperSign.gamma_gt_seq_fifteen : 1195757 / 360360 - 4 * Real.log 2 < Real.eulerMascheroniConstant
+  | SIDEExplicitFormula.KeiperSign.log_four_pi_lt : Real.log (4 * Real.pi) < 2.5421
+  | SIDEExplicitFormula.KeiperSign.threshold_lt_gamma : Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant
+  | SIDEExplicitFormula.KeiperSign.liCoeff_one_pos : 0 < SIDEExplicitFormula.LiWeil.LiCoeff 1
+  | SIDEExplicitFormula.KeiperSign.SaltCheck.coarse_lower_insufficient : 1 + 1 / 2 / 2 - Real.log (4 * Real.pi) / 2 < 0
+  | SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_lt_tenth : SIDEExplicitFormula.LiWeil.LiCoeff 1 < 1 / 10
+  | SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_pos_holds : 0 < SIDEExplicitFormula.LiWeil.LiCoeff 1
+  ~ t=22s free=3651MB leans=[]
+### EXIT rc=0 ; seconds 22 ; peak lean resident 1548 MB ; free MB after 5078 ; stopped None

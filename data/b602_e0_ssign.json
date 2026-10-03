@@ -1,0 +1,80 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.KeiperSign.SaltCheck.log_pi_ge": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": 2 - Real.exp 1 / Real.pi ≤ Real.log Real.pi",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.KeiperSign.SaltCheck.e_div_pi_lt": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Real.exp 1 / Real.pi < 0.8653",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.KeiperSign.SaltCheck.log_four_pi_gt": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": 2.52 < Real.log (4 * Real.pi)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.KeiperSign.SaltCheck.coarse_lower_insufficient": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": 1 + (1 / 2 : ℝ) / 2 - Real.log (4 * Real.pi) / 2 < 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_lt_tenth": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiWeil.LiCoeff 1 < 1 / 10",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_pos_holds": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": 0 < LiWeil.LiCoeff 1",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "3fdc43de6ef69effd0a206dc33d7fba125ed9968",
+ "file": "SIDEExplicitFormula/SaltCheckKeiperSign.lean",
+ "same_file": true
+}

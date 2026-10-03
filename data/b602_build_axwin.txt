@@ -1,0 +1,147 @@
+### b602 -- THE BUILD OF axwin, ONE MODULE PER CALL, A DETACHED PROCESS WATCHED FROM THE FOREGROUND (OPEN_TRAILS :12356), THE WATCHDOG`S LOG (lean resident cap 3500 MB, free floor 900 MB; the seat starts no call below the 2560 MB hold), copied from the seat`s scratchpad
+
+=== BUILD axwin ; free MB before: 5084 ; start 2026-10-03T02:43:21Z
+  ~ t=11s free=3357MB leans=[(18548, 1539)]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.box' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.nbox' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.conv' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.window' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.box_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.nbox_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.box_hasCompactSupport' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.nbox_hasCompactSupport' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.conv_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.window_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.window_hasCompactSupport' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.box_paperFT' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.nbox_paperFT' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.window_paperFT_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.ConvStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.Smooth4' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_zero_at_pi' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_ne_zero_at_half_pi' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.window_even_compact_at_seven' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Schema.detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.B321.classK_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'integral_exp_mul_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'HasCompactSupport.convolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | @SIDEExplicitFormula.Schema.PlateauRamp.box_paperFT : ∀ {a : ℝ},
+  |   0 ≤ a →
+  |     ∀ {z : ℂ},
+  |       z ≠ 0 →
+  |         Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.box a)) z =
+  |           2 * Complex.sin (z * ↑a) / z
+  | @SIDEExplicitFormula.Schema.PlateauRamp.nbox_paperFT : ∀ {h : ℝ},
+  |   0 < h →
+  |     ∀ {z : ℂ},
+  |       z ≠ 0 →
+  |         Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.nbox h)) z =
+  |           2 * Complex.sin (z * ↑(h / 2)) / (z * ↑h)
+  | SIDEExplicitFormula.Schema.PlateauRamp.window_even : ∀ (W h : ℝ) (p : ℕ) (x : ℝ),
+  |   SIDEExplicitFormula.Schema.PlateauRamp.window W h p (-x) = SIDEExplicitFormula.Schema.PlateauRamp.window W h p x
+  | SIDEExplicitFormula.Schema.PlateauRamp.window_hasCompactSupport : ∀ (W h : ℝ) (p : ℕ),
+  |   HasCompactSupport (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)
+  | @SIDEExplicitFormula.Schema.PlateauRamp.window_paperFT_zero : ∀ {W h : ℝ},
+  |   0 ≤ W →
+  |     ∀ {z : ℂ},
+  |       z ≠ 0 →
+  |         Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h 0)) z =
+  |           2 * Complex.sin (z * ↑W) / z * (2 * Complex.sin (z * ↑(h / 2)) / (z * ↑h)) ^ 0
+  | @SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of : ∀ {W h : ℝ},
+  |   0 ≤ W →
+  |     0 < h →
+  |       SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations W h →
+  |         SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow W h
+  | SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window : ∀ (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ),
+  |   SIDEExplicitFormula.Schema.EpsteinPremises Z rhs →
+  |     ∀ {W h : ℝ},
+  |       0 ≤ W →
+  |         0 < h →
+  |           SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations W h →
+  |             ∀ (p : ℕ),
+  |               6 ≤ p →
+  |                 ∑' (ρ : ↑Z.carrier),
+  |                     ↑(Z.mult ↑ρ) *
+  |                       Zeta23.paperFT
+  |                         (Zeta23.EF.weilTest
+  |                           (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p))
+  |                           (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)))
+  |                         (Zeta23.gammaOf ↑ρ) =
+  |                   rhs
+  |                     (Zeta23.EF.weilTest
+  |                       (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p))
+  |                       (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)))
+  | SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_zero_at_pi : Zeta23.paperFT
+  |     (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.box 1)) ↑Real.pi =
+  |   0
+  | SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_ne_zero_at_half_pi : Zeta23.paperFT
+  |     (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.box 1)) (↑Real.pi / 2) ≠
+  |   0
+  | SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.window_even_compact_at_seven : ∀ (W h : ℝ),
+  |   (∀ (x : ℝ),
+  |       SIDEExplicitFormula.Schema.PlateauRamp.window W h 7 (-x) =
+  |         SIDEExplicitFormula.Schema.PlateauRamp.window W h 7 x) ∧
+  |     HasCompactSupport (SIDEExplicitFormula.Schema.PlateauRamp.window W h 7)
+  | def SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT : ℝ → ℝ → Prop :=
+  | fun W h =>
+  |   ∀ (p : ℕ) (z : ℂ),
+  |     z ≠ 0 →
+  |       Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)) z =
+  |         2 * Complex.sin (z * ↑W) / z * (2 * Complex.sin (z * ↑(h / 2)) / (z * ↑h)) ^ p
+  | def SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK : ℝ → ℝ → Prop :=
+  | fun W h =>
+  |   ∀ (p : ℕ),
+  |     6 ≤ p →
+  |       ContDiff ℝ 4 (SIDEExplicitFormula.Schema.PlateauRamp.window W h p) ∧
+  |         (∀ (x : ℝ),
+  |             SIDEExplicitFormula.Schema.PlateauRamp.window W h p (-x) =
+  |               SIDEExplicitFormula.Schema.PlateauRamp.window W h p x) ∧
+  |           HasCompactSupport (SIDEExplicitFormula.Schema.PlateauRamp.window W h p) ∧
+  |             SIDEExplicitFormula.B321.classK
+  |               (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p))
+  |                 (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)))
+  | def SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow : ℝ → ℝ → Prop :=
+  | fun W h =>
+  |   SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT W h ∧ SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK W h
+  | def SIDEExplicitFormula.Schema.PlateauRamp.ConvStep : ℝ → ℝ → Prop :=
+  | fun W h =>
+  |   ∀ (p : ℕ) (z : ℂ),
+  |     Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h (p + 1))) z =
+  |       Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)) z *
+  |         Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.Schema.PlateauRamp.nbox h)) z
+  | def SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 : ℝ → ℝ → Prop :=
+  | fun W h => ∀ (p : ℕ), 6 ≤ p → ContDiff ℝ 4 (SIDEExplicitFormula.Schema.PlateauRamp.window W h p)
+  | structure SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations (W h : ℝ) : Prop
+  | number of parameters: 2
+  | fields:
+  |   SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.conv_step : SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W
+  |       h
+  |   SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.smooth : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h
+  | constructor:
+  |   SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.mk {W h : ℝ}
+  |     (conv_step : SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W h)
+  |     (smooth : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h) :
+  |     SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations W h
+  | def SIDEExplicitFormula.Schema.PlateauRamp.window : ℝ → ℝ → ℕ → ℝ → ℝ :=
+  | fun W h x => Nat.brecOn (motive := fun x => ℝ → ℝ) x (SIDEExplicitFormula.Schema.PlateauRamp.window._f W h)
+  ~ t=22s free=3568MB leans=[]
+### EXIT rc=0 ; seconds 22 ; peak lean resident 1539 MB ; free MB after 5110 ; stopped None

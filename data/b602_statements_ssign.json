@@ -1,0 +1,44 @@
+{
+ "file": "SIDEExplicitFormula/SaltCheckKeiperSign.lean",
+ "sha256": "461246c3a94a7dadb943e508d71856c06949a93cc4a0e2193c3609d11d778159",
+ "at": "2026-10-03T02:37:38Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "log_pi_ge",
+   "line": 25,
+   "head": "theorem log_pi_ge : 2 - Real.exp 1 / Real.pi ≤ Real.log Real.pi := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "e_div_pi_lt",
+   "line": 33,
+   "head": "theorem e_div_pi_lt : Real.exp 1 / Real.pi < 0.8653 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "log_four_pi_gt",
+   "line": 40,
+   "head": "theorem log_four_pi_gt : 2.52 < Real.log (4 * Real.pi) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "coarse_lower_insufficient",
+   "line": 49,
+   "head": "theorem coarse_lower_insufficient : 1 + (1 / 2 : ℝ) / 2 - Real.log (4 * Real.pi) / 2 < 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "liCoeff_one_lt_tenth",
+   "line": 54,
+   "head": "theorem liCoeff_one_lt_tenth : LiWeil.LiCoeff 1 < 1 / 10 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "liCoeff_one_pos_holds",
+   "line": 61,
+   "head": "theorem liCoeff_one_pos_holds : 0 < LiWeil.LiCoeff 1 := liCoeff_one_pos"
+  }
+ ],
+ "items": []
+}

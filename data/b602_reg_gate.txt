@@ -1,0 +1,21 @@
+====================================================================================================
+b602 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b602_registration_2026-10-02.txt
+  marks found  : 2
+      OPEN                       line 70    ### proof, and BALANCE_AND_POSITIVITY v0.9.5 :398`s "is OPEN" stale against both; the sign
+      UNREAD                     line 182   ### **(S4)** ### **THE FEDERATION WALK FINDS NO UNREAD DECLARATION OUTSIDE THIS ACT`S FILE
+  query result : RECORDED at line 8
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 2 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : b5202b9dc2664bca075f211c3f1f29ebdfe7ca391bed5aaa3f801830ce1b9436  (b602_registration_2026-10-02.txt)

@@ -1,0 +1,90 @@
+b602 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/PlateauRamp.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T02:40:54Z ; the branch sign-window-b602 (checked out: sign-window-b602) ; the file`s sha256 2821b257d2b60673848b6c65be14dc9cb70aad9654da78b79f968e53122b7e3f ; its bytes 11805
+
+### THE WORK-ORDER, OPEN_TRAILS :12170, WHOLE:
+    *Appended 2026-10-02 by b591 to the DETECTION-REGION re-scope (:11512; (E1) :11516, (E2) :11517), under `(R201)`(2) -- (E3) THE WITNESS RATIO:* the compiled witness is 2^D × ℓ with D from the kill set and ℓ from the excluded zero, while the bench detects at a plateau of half-width ln a ≈ 3.5; at the Epstein data D = 24 and the ratio is at least 39,196 (relay data/b590_witness_vs_bench.txt :9, :13). The factor of ~4 × 10⁴ is the price of the Tannery step and the kill set together, and (E1)’s configuration-relative rate would make D explicit but not small. The bench’s plateau family and the kernel’s power family are different windows, as b546/b550 recorded (the ruling’s citation). **The item that would close the ratio -- a compiled window of the bench’s plateau family -- priced beside (E1) and (E2), not started:** by b554’s closed-form route, the plateau-ramp window defined in the kernel with its transform in closed form (C1, :11336) and that window in classK (C2, :11337), each new and of substance, the route whole at three lemmas of substance (:11423); no new price is named.
+### b554`s C1 it cites, :11336, WHOLE:
+    - **C1** the plateau-ramp window of the ladder (the indicator of [-W, W] convolved with the order-p B-spline of half-width R) defined in the kernel, with its transform in closed form: φ̂(z) = sinc(zW)·sinc(zh/2)^p up to its normalisation -- the transform of an indicator and of a convolution power -- *new; of substance*
+### b554`s C2 it cites, :11337, WHOLE:
+    - **C2** that window in `classK`: `ContDiff ℝ 4`, even, compactly supported, for p ≥ 6 (a B-spline of order p is C^(p-2)) -- *new; of substance*
+
+### THE STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “a compiled window of the bench’s plateau family”                                    [wo] -> PlateauRampWindow        in its statement True ; declared as printed True
+    “the plateau-ramp window defined in the kernel”                                      [wo] -> window                   in its statement True ; declared as printed True
+    “with its transform in closed form”                                                  [wo] -> ClosedFormFT             in its statement True ; declared as printed True
+    “that window in classK”                                                              [wo] -> WindowInClassK           in its statement True ; declared as printed True
+    “the indicator of [-W, W] convolved with the order-p B-spline of half-width R”       [c1] -> window                   in its statement True ; declared as printed True
+    “φ̂(z) = sinc(zW)·sinc(zh/2)^p up to its normalisation”                              [c1] -> ClosedFormFT             in its statement True ; declared as printed True
+    “`ContDiff ℝ 4`, even, compactly supported, for p ≥ 6”                               [c2] -> WindowInClassK           in its statement True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :45 def box
+    def box (a : ℝ) : ℝ → ℝ := Set.indicator (Set.Icc (-a) a) (fun _ => 1)
+### :48 def nbox
+    def nbox (h : ℝ) : ℝ → ℝ := fun x => h⁻¹ * box (h / 2) x
+### :51 def conv
+    def conv (f g : ℝ → ℝ) : ℝ → ℝ := MeasureTheory.convolution f g (ContinuousLinearMap.lsmul ℝ ℝ) volume
+### :55 def window
+    def window (W h : ℝ) : ℕ → ℝ → ℝ
+      | 0 => box W
+      | p + 1 => conv (window W h p) (nbox h)
+    
+    /-! ## Evenness and compact support -/
+    
+    theorem box_even (a x : ℝ) : box a (-x) = box a x := by
+### :61 theorem box_even
+    theorem box_even (a x : ℝ) : box a (-x) = box a x := by
+### :69 theorem nbox_even
+    theorem nbox_even (h x : ℝ) : nbox h (-x) = nbox h x := by
+### :73 theorem box_hasCompactSupport
+    theorem box_hasCompactSupport (a : ℝ) : HasCompactSupport (box a) :=
+### :76 theorem nbox_hasCompactSupport
+    theorem nbox_hasCompactSupport (h : ℝ) : HasCompactSupport (nbox h) :=
+### :82 theorem conv_even
+    theorem conv_even {f g : ℝ → ℝ} (hf : ∀ x, f (-x) = f x) (hg : ∀ x, g (-x) = g x) (x : ℝ) :
+        conv f g (-x) = conv f g x := by
+### :92 theorem window_even
+    theorem window_even (W h : ℝ) : ∀ (p : ℕ) (x : ℝ), window W h p (-x) = window W h p x
+      | 0, x => box_even W x
+      | p + 1, x => conv_even (window_even W h p) (nbox_even h) x
+    
+    /-- **The window is compactly supported**, at every `p`. -/
+    theorem window_hasCompactSupport (W h : ℝ) : ∀ p : ℕ, HasCompactSupport (window W h p)
+      | 0 => box_hasCompactSupport W
+      | p + 1 => HasCompactSupport.convolution (L := ContinuousLinearMap.lsmul ℝ ℝ) (μ := volume)
+### :97 theorem window_hasCompactSupport
+    theorem window_hasCompactSupport (W h : ℝ) : ∀ p : ℕ, HasCompactSupport (window W h p)
+      | 0 => box_hasCompactSupport W
+      | p + 1 => HasCompactSupport.convolution (L := ContinuousLinearMap.lsmul ℝ ℝ) (μ := volume)
+### :105 theorem box_paperFT
+    theorem box_paperFT {a : ℝ} (ha : 0 ≤ a) {z : ℂ} (hz : z ≠ 0) :
+        Zeta23.paperFT (phiC (box a)) z = 2 * Complex.sin (z * (a : ℂ)) / z := by
+### :132 theorem nbox_paperFT
+    theorem nbox_paperFT {h : ℝ} (hh : 0 < h) {z : ℂ} (hz : z ≠ 0) :
+        Zeta23.paperFT (phiC (nbox h)) z = 2 * Complex.sin (z * ((h / 2 : ℝ) : ℂ)) / (z * (h : ℂ)) := by
+### :151 def ClosedFormFT
+    def ClosedFormFT (W h : ℝ) : Prop :=
+### :156 def WindowInClassK
+    def WindowInClassK (W h : ℝ) : Prop :=
+### :161 def PlateauRampWindow
+    def PlateauRampWindow (W h : ℝ) : Prop := ClosedFormFT W h ∧ WindowInClassK W h
+### :164 theorem window_paperFT_zero
+    theorem window_paperFT_zero {W h : ℝ} (hW : 0 ≤ W) {z : ℂ} (hz : z ≠ 0) :
+        Zeta23.paperFT (phiC (window W h 0)) z =
+          (2 * Complex.sin (z * (W : ℂ)) / z) * (2 * Complex.sin (z * ((h / 2 : ℝ) : ℂ)) / (z * (h : ℂ))) ^ 0 := by
+### :173 def ConvStep
+    def ConvStep (W h : ℝ) : Prop :=
+### :178 def Smooth4
+    def Smooth4 (W h : ℝ) : Prop := ∀ p : ℕ, 6 ≤ p → ContDiff ℝ 4 (window W h p)
+### :181 structure WindowObligations
+    structure WindowObligations (W h : ℝ) : Prop where
+### :186 theorem plateauRampWindow_of
+    theorem plateauRampWindow_of {W h : ℝ} (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) :
+        PlateauRampWindow W h := by
+### :209 theorem epstein_ef_at_window
+    theorem epstein_ef_at_window (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hE : EpsteinPremises Z rhs) {W h : ℝ}
+        (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) (p : ℕ) (hp : 6 ≤ p) :
+        (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) *
+            Zeta23.paperFT (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p))) (Zeta23.gammaOf ρ))
+          = rhs (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p))) := by

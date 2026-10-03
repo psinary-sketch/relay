@@ -1,0 +1,25 @@
+b602 -- THE FEDERATION SEARCHED FOR A DECLARATION CONCLUDING λ_1`S SIGN, THE WINDOW`S PROP, OR A NEGATION (UTC 2026-10-03T02:48:53Z)
+
+### git grep -l -E "LiCoeff 1\b|eulerMascheroniConstant \+ 2|PlateauRampWindow|ClosedFormFT|WindowInClassK|log \(4 \* (Real\.)?(pi|π)\)" at HEAD of every kernel (44; SIDE-explicit-formula at sign-window-b602, the branch tip 914c413), 7 files; every theorem/lemma header naming one, its conclusion classified: CONCLUDES / NEGATES by the strict shapes, READ by the loose one (each hand-read), OTHER, OWN (this act`s files)
+    READ      SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:230 log_four_pi_ofReal --  Complex.log (4 * (Real.pi : ℂ)) = ((Real.log (4 * Real.pi) : ℝ) : ℂ)
+              ### the seat`s hand reading: b601`s cast lemma, Complex.log (4π) as the real log 4π: an equality of casts, not a sign.
+    READ      SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:239 liCoeff_one_keiper --  LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2
+              ### the seat`s hand reading: b601`s closed form λ_1 = 1 + γ/2 − ½ log 4π (v0.19), an identity with no sign: the input this act`s liCoeff_one_pos_iff consumes.
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/KeiperSign.lean:30 liCoeff_one_pos_iff --  0 < LiWeil.LiCoeff 1 ↔ Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/KeiperSign.lean:66 log_four_pi_lt --  Real.log (4 * Real.pi) < 2.5421
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/KeiperSign.lean:75 threshold_lt_gamma --  Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/KeiperSign.lean:82 liCoeff_one_pos --  0 < LiWeil.LiCoeff 1
+    READ      SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiper.lean:35 log_four_pi_pos --  (0 : ℝ) < Real.log (4 * Real.pi)
+              ### the seat`s hand reading: b601`s salt lemma 0 < log 4π: a bound on log 4π alone, not λ_1`s sign (it gives no threshold on γ).
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiperSign.lean:40 log_four_pi_gt --  2.52 < Real.log (4 * Real.pi)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiperSign.lean:49 coarse_lower_insufficient --  1 + (1 / 2 : ℝ) / 2 - Real.log (4 * Real.pi) / 2 < 0
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiperSign.lean:54 liCoeff_one_lt_tenth --  LiWeil.LiCoeff 1 < 1 / 10
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiperSign.lean:61 liCoeff_one_pos_holds --  0 < LiWeil.LiCoeff 1
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/PlateauRamp.lean:186 plateauRampWindow_of --  PlateauRampWindow W h
+    READ      SIDE-lv-conservation SIDELvConservation/CouplingsAtPhi.lean:362 n_one_binding_instance --  Real.eulerMascheroniConstant + 2 ≥ Real.log (4 * Real.pi)
+              ### the seat`s hand reading: PRIOR ART, NOT THE PROP: γ + 2 ≥ log(4π), the NON-STRICT constants form (it allows λ_1 = 0), proved at SIDE-lv-conservation 2f71068 (commit ef62027, 2026-07-17) by the index 12 and a bound on log 52π, over the constants and not LiCoeff 1, at another kernel and Mathlib pin; its docstring`s "WHY IT IS NOT PROVED HERE" is stale against its own proof. Cited in the record.
+### OTHER rows 0: 
+### headers 13 ; CONCLUDES 0 ; NEGATES 0 ; READ 4 (hand-read 4) ; OTHER 0 ; OWN 9
+### the strict shapes, each exercised: {'pos_reads': True, 'pos_refuses': True, 'neg_reads': True, 'neg_refuses': True}
+
+### ### **OUTSIDE THIS ACT`S OWN FILES, DECLARATIONS CONCLUDING λ_1`S SIGN OR THE WINDOW`S PROP OR A NEGATION, UNREAD : 0**

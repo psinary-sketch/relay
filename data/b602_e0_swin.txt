@@ -1,0 +1,18 @@
+b602 -- THE E0 READ OF SIDEExplicitFormula/Schema/SaltCheckPlateauRamp.lean AT THE BRANCH TIP 914c413 (sign-window-b602)
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise
+### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.
+### the file at the tip is the one printed: True
+
+    box_transform_zero_at_pi           DERIVES    std3  -- no hypothesis binder
+    box_transform_ne_zero_at_half_pi   DERIVES    std3  -- no hypothesis binder
+    window_even_compact_at_seven       DERIVES    std3  -- no hypothesis binder
+### ### **THE GATE: PASS** -- declarations 3, theorems 3 (DERIVES 3, INTERFACES 0)

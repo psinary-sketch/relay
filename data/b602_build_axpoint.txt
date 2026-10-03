@@ -1,0 +1,161 @@
+### b602 -- THE BUILD OF axpoint, ONE MODULE PER CALL, A DETACHED PROCESS WATCHED FROM THE FOREGROUND (OPEN_TRAILS :12356), THE WATCHDOG`S LOG (lean resident cap 3500 MB, free floor 900 MB; the seat starts no call below the 2560 MB hold), copied from the seat`s scratchpad
+
+=== BUILD axpoint ; free MB before: 5093 ; start 2026-10-03T02:31:20Z
+  ~ t=11s free=5063MB leans=[]
+  ~ t=22s free=5032MB leans=[]
+  ~ t=33s free=5039MB leans=[]
+  ~ t=44s free=5015MB leans=[]
+  ~ t=55s free=4678MB leans=[(37624, 49)]
+  ~ t=66s free=4619MB leans=[(37624, 83)]
+  ~ t=77s free=4631MB leans=[(37624, 90)]
+  ~ t=88s free=4637MB leans=[(37624, 96)]
+  ~ t=99s free=4636MB leans=[(37624, 103)]
+  ~ t=109s free=4620MB leans=[(37624, 111)]
+  ~ t=120s free=4624MB leans=[(37624, 118)]
+  ~ t=131s free=4620MB leans=[(37624, 125)]
+  ~ t=142s free=4630MB leans=[(37624, 132)]
+  ~ t=153s free=4601MB leans=[(37624, 139)]
+  ~ t=164s free=4581MB leans=[(37624, 145)]
+  ~ t=175s free=4679MB leans=[(37624, 152)]
+  ~ t=186s free=4659MB leans=[(37624, 158)]
+  ~ t=197s free=4636MB leans=[(37624, 165)]
+  ~ t=207s free=4633MB leans=[(37624, 171)]
+  ~ t=218s free=4582MB leans=[(37624, 177)]
+  ~ t=229s free=4517MB leans=[(37624, 183)]
+  ~ t=240s free=4589MB leans=[(37624, 189)]
+  ~ t=251s free=4541MB leans=[(37624, 196)]
+  ~ t=262s free=4541MB leans=[(37624, 203)]
+  ~ t=273s free=3288MB leans=[(37624, 1763)]
+  | 'SIDEExplicitFormula.Keiper.stieltjes' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.analyticAt_riemannZeta₀' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.stieltjes_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.stieltjes_zero_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.taylorAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.xiLogCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.zetaLogCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.gammaRLogCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.keiperA' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.keiperSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.KeiperTaylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.poleCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.StieltjesLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.GammaRZetaValues' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.KeiperTaylorIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.BinomialTransform' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.LogDerivSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.KeiperObligations' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.hasDerivAt_xi_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.xi_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.xiLogCoeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.taylorCoeff_xi_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.binomialTransform_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.zetaLogCoeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.stieltjesLog_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.gammaRLogCoeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.keiperA_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.logDerivSplit_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.keiperTaylor_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.log_four_pi_ofReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.liCoeff_one_keiper' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.InInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.stLo' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.stHi' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.zLo' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.zHi' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.KeiperBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.BoundPremises' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.keiperBounds_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.stieltjes_zero_coarse' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.KeiperBounds.table_refines_coarse' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.gamma_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.log_four_pi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.keiperTaylor_zero_holds' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.split_needs_inv_s' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.split_needs_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.split_needs_gammaR' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_satisfiable' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | 'SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_refutable' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'riemannZeta_residue_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'tendsto_riemannZeta_sub_one_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'riemannZeta₀' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'differentiable_riemannZeta₀' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'riemannZeta₀_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'riemannZeta₁' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'riemannZeta₁_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'deriv_riemannZeta₁_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'completedRiemannZeta₀_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Complex.hasDerivAt_Gammaℝ_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.one_half_lt_eulerMascheroniConstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'Real.eulerMascheroniConstant_lt_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  | 'SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff' depends on axioms: [propext,
+  |  Classical.choice,
+  |  Quot.sound]
+  | SIDEExplicitFormula.Keiper.stieltjes_zero : SIDEExplicitFormula.Keiper.stieltjes 0 = ↑Real.eulerMascheroniConstant
+  | SIDEExplicitFormula.Keiper.stieltjes_zero_limit : Filter.Tendsto (fun s => riemannZeta s - 1 / (s - 1))
+  |   (nhdsWithin 1 {1}ᶜ) (nhds (SIDEExplicitFormula.Keiper.stieltjes 0))
+  | SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue : Filter.Tendsto (fun s => (s - 1) * riemannZeta s)
+  |   (nhdsWithin 1 {1}ᶜ) (nhds (riemannZeta₁ 1))
+  | SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of : SIDEExplicitFormula.Keiper.KeiperObligations →
+  |   SIDEExplicitFormula.Keiper.KeiperTaylorIdentity
+  | SIDEExplicitFormula.Keiper.keiperTaylor_zero : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 =
+  |   SIDEExplicitFormula.Keiper.keiperSum 0
+  | SIDEExplicitFormula.Keiper.liCoeff_one_keiper : SIDEExplicitFormula.LiWeil.LiCoeff 1 =
+  |   1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2
+  | SIDEExplicitFormula.KeiperBounds.keiperBounds_of : SIDEExplicitFormula.KeiperBounds.BoundPremises →
+  |   SIDEExplicitFormula.KeiperBounds.KeiperBounds
+  | SIDEExplicitFormula.KeiperBounds.stieltjes_zero_coarse : SIDEExplicitFormula.KeiperBounds.InInterval (1 / 2) (2 / 3)
+  |   (SIDEExplicitFormula.Keiper.stieltjes 0)
+  | SIDEExplicitFormula.Keiper.SaltCheck.split_needs_inv_s : SIDEExplicitFormula.Keiper.xiLogCoeff 0 ≠
+  |   SIDEExplicitFormula.Keiper.zetaLogCoeff 0 + SIDEExplicitFormula.Keiper.gammaRLogCoeff 0
+  | SIDEExplicitFormula.Keiper.SaltCheck.split_needs_zeta : SIDEExplicitFormula.Keiper.xiLogCoeff 0 ≠
+  |   (-1) ^ 0 + SIDEExplicitFormula.Keiper.gammaRLogCoeff 0
+  | SIDEExplicitFormula.Keiper.SaltCheck.split_needs_gammaR : SIDEExplicitFormula.Keiper.xiLogCoeff 0 ≠
+  |   (-1) ^ 0 + SIDEExplicitFormula.Keiper.zetaLogCoeff 0
+  | SIDEExplicitFormula.Keiper.SaltCheck.keiperTaylor_zero_holds : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 =
+  |   SIDEExplicitFormula.Keiper.keiperSum 0
+  | SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_satisfiable : SIDEExplicitFormula.KeiperBounds.InInterval (1 / 2)
+  |   (2 / 3) (SIDEExplicitFormula.Keiper.stieltjes 0)
+  | SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_refutable : ¬SIDEExplicitFormula.KeiperBounds.InInterval 1 2
+  |     (SIDEExplicitFormula.Keiper.stieltjes 0)
+  | def SIDEExplicitFormula.Keiper.KeiperTaylor : Prop :=
+  | ∀ (n : ℕ), LiCriterion.taylorCoeff LiCriterion.riemannXi n = SIDEExplicitFormula.Keiper.keiperSum n
+  | def SIDEExplicitFormula.Keiper.KeiperTaylorIdentity : Prop :=
+  | SIDEExplicitFormula.Keiper.KeiperTaylor ∧
+  |   SIDEExplicitFormula.Keiper.StieltjesLog ∧ SIDEExplicitFormula.Keiper.GammaRZetaValues
+  | structure SIDEExplicitFormula.Keiper.KeiperObligations : Prop
+  | number of parameters: 0
+  | fields:
+  |   SIDEExplicitFormula.Keiper.KeiperObligations.binomial : SIDEExplicitFormula.Keiper.BinomialTransform
+  |   SIDEExplicitFormula.Keiper.KeiperObligations.split : SIDEExplicitFormula.Keiper.LogDerivSplit
+  |   SIDEExplicitFormula.Keiper.KeiperObligations.stieltjesLog : SIDEExplicitFormula.Keiper.StieltjesLog
+  |   SIDEExplicitFormula.Keiper.KeiperObligations.gammaZeta : SIDEExplicitFormula.Keiper.GammaRZetaValues
+  | constructor:
+  |   SIDEExplicitFormula.Keiper.KeiperObligations.mk (binomial : SIDEExplicitFormula.Keiper.BinomialTransform)
+  |     (split : SIDEExplicitFormula.Keiper.LogDerivSplit) (stieltjesLog : SIDEExplicitFormula.Keiper.StieltjesLog)
+  |     (gammaZeta : SIDEExplicitFormula.Keiper.GammaRZetaValues) : SIDEExplicitFormula.Keiper.KeiperObligations
+  | def SIDEExplicitFormula.KeiperBounds.KeiperBounds : Prop :=
+  | (∀ n ≤ 11, SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n) ∧
+  |   ∀ (j : ℕ), 2 ≤ j → j ≤ 12 → SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j
+  | structure SIDEExplicitFormula.KeiperBounds.BoundPremises : Prop
+  | number of parameters: 0
+  | fields:
+  |   SIDEExplicitFormula.KeiperBounds.BoundPremises.gamma_tight : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0
+  |   SIDEExplicitFormula.KeiperBounds.BoundPremises.higher_stieltjes : ∀ (n : ℕ),
+  |       1 ≤ n → n ≤ 11 → SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n
+  |   SIDEExplicitFormula.KeiperBounds.BoundPremises.zeta_values : ∀ (j : ℕ),
+  |       2 ≤ j → j ≤ 12 → SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j
+  | constructor:
+  |   SIDEExplicitFormula.KeiperBounds.BoundPremises.mk (gamma_tight : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0)
+  |     (higher_stieltjes : ∀ (n : ℕ), 1 ≤ n → n ≤ 11 → SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n)
+  |     (zeta_values : ∀ (j : ℕ), 2 ≤ j → j ≤ 12 → SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j) :
+  |     SIDEExplicitFormula.KeiperBounds.BoundPremises
+  ~ t=284s free=5197MB leans=[]
+### EXIT rc=0 ; seconds 284 ; peak lean resident 1763 MB ; free MB after 5203 ; stopped None

@@ -1,0 +1,190 @@
+{
+ "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+ "sha256": "2821b257d2b60673848b6c65be14dc9cb70aad9654da78b79f968e53122b7e3f",
+ "at": "2026-10-03T02:40:54Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "box",
+   "line": 45,
+   "head": "def box (a : ℝ) : ℝ → ℝ := Set.indicator (Set.Icc (-a) a) (fun _ => 1)"
+  },
+  {
+   "kind": "def",
+   "name": "nbox",
+   "line": 48,
+   "head": "def nbox (h : ℝ) : ℝ → ℝ := fun x => h⁻¹ * box (h / 2) x"
+  },
+  {
+   "kind": "def",
+   "name": "conv",
+   "line": 51,
+   "head": "def conv (f g : ℝ → ℝ) : ℝ → ℝ := MeasureTheory.convolution f g (ContinuousLinearMap.lsmul ℝ ℝ) volume"
+  },
+  {
+   "kind": "def",
+   "name": "window",
+   "line": 55,
+   "head": "def window (W h : ℝ) : ℕ → ℝ → ℝ\n  | 0 => box W\n  | p + 1 => conv (window W h p) (nbox h)\n\n/-! ## Evenness and compact support -/\n\ntheorem box_even (a x : ℝ) : box a (-x) = box a x := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "box_even",
+   "line": 61,
+   "head": "theorem box_even (a x : ℝ) : box a (-x) = box a x := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "nbox_even",
+   "line": 69,
+   "head": "theorem nbox_even (h x : ℝ) : nbox h (-x) = nbox h x := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "box_hasCompactSupport",
+   "line": 73,
+   "head": "theorem box_hasCompactSupport (a : ℝ) : HasCompactSupport (box a) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "nbox_hasCompactSupport",
+   "line": 76,
+   "head": "theorem nbox_hasCompactSupport (h : ℝ) : HasCompactSupport (nbox h) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "conv_even",
+   "line": 82,
+   "head": "theorem conv_even {f g : ℝ → ℝ} (hf : ∀ x, f (-x) = f x) (hg : ∀ x, g (-x) = g x) (x : ℝ) :\n    conv f g (-x) = conv f g x := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "window_even",
+   "line": 92,
+   "head": "theorem window_even (W h : ℝ) : ∀ (p : ℕ) (x : ℝ), window W h p (-x) = window W h p x\n  | 0, x => box_even W x\n  | p + 1, x => conv_even (window_even W h p) (nbox_even h) x\n\n/-- **The window is compactly supported**, at every `p`. -/\ntheorem window_hasCompactSupport (W h : ℝ) : ∀ p : ℕ, HasCompactSupport (window W h p)\n  | 0 => box_hasCompactSupport W\n  | p + 1 => HasCompactSupport.convolution (L := ContinuousLinearMap.lsmul ℝ ℝ) (μ := volume)"
+  },
+  {
+   "kind": "theorem",
+   "name": "window_hasCompactSupport",
+   "line": 97,
+   "head": "theorem window_hasCompactSupport (W h : ℝ) : ∀ p : ℕ, HasCompactSupport (window W h p)\n  | 0 => box_hasCompactSupport W\n  | p + 1 => HasCompactSupport.convolution (L := ContinuousLinearMap.lsmul ℝ ℝ) (μ := volume)"
+  },
+  {
+   "kind": "theorem",
+   "name": "box_paperFT",
+   "line": 105,
+   "head": "theorem box_paperFT {a : ℝ} (ha : 0 ≤ a) {z : ℂ} (hz : z ≠ 0) :\n    Zeta23.paperFT (phiC (box a)) z = 2 * Complex.sin (z * (a : ℂ)) / z := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "nbox_paperFT",
+   "line": 132,
+   "head": "theorem nbox_paperFT {h : ℝ} (hh : 0 < h) {z : ℂ} (hz : z ≠ 0) :\n    Zeta23.paperFT (phiC (nbox h)) z = 2 * Complex.sin (z * ((h / 2 : ℝ) : ℂ)) / (z * (h : ℂ)) := by"
+  },
+  {
+   "kind": "def",
+   "name": "ClosedFormFT",
+   "line": 151,
+   "head": "def ClosedFormFT (W h : ℝ) : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "WindowInClassK",
+   "line": 156,
+   "head": "def WindowInClassK (W h : ℝ) : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "PlateauRampWindow",
+   "line": 161,
+   "head": "def PlateauRampWindow (W h : ℝ) : Prop := ClosedFormFT W h ∧ WindowInClassK W h"
+  },
+  {
+   "kind": "theorem",
+   "name": "window_paperFT_zero",
+   "line": 164,
+   "head": "theorem window_paperFT_zero {W h : ℝ} (hW : 0 ≤ W) {z : ℂ} (hz : z ≠ 0) :\n    Zeta23.paperFT (phiC (window W h 0)) z =\n      (2 * Complex.sin (z * (W : ℂ)) / z) * (2 * Complex.sin (z * ((h / 2 : ℝ) : ℂ)) / (z * (h : ℂ))) ^ 0 := by"
+  },
+  {
+   "kind": "def",
+   "name": "ConvStep",
+   "line": 173,
+   "head": "def ConvStep (W h : ℝ) : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "Smooth4",
+   "line": 178,
+   "head": "def Smooth4 (W h : ℝ) : Prop := ∀ p : ℕ, 6 ≤ p → ContDiff ℝ 4 (window W h p)"
+  },
+  {
+   "kind": "structure",
+   "name": "WindowObligations",
+   "line": 181,
+   "head": "structure WindowObligations (W h : ℝ) : Prop where"
+  },
+  {
+   "kind": "theorem",
+   "name": "plateauRampWindow_of",
+   "line": 186,
+   "head": "theorem plateauRampWindow_of {W h : ℝ} (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) :\n    PlateauRampWindow W h := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "epstein_ef_at_window",
+   "line": 209,
+   "head": "theorem epstein_ef_at_window (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hE : EpsteinPremises Z rhs) {W h : ℝ}\n    (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) (p : ℕ) (hp : 6 ≤ p) :\n    (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) *\n        Zeta23.paperFT (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p))) (Zeta23.gammaOf ρ))\n      = rhs (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p))) := by"
+  }
+ ],
+ "items": [
+  {
+   "words": "a compiled window of the bench’s plateau family",
+   "source": "wo",
+   "decl": "PlateauRampWindow",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the plateau-ramp window defined in the kernel",
+   "source": "wo",
+   "decl": "window",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "with its transform in closed form",
+   "source": "wo",
+   "decl": "ClosedFormFT",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "that window in classK",
+   "source": "wo",
+   "decl": "WindowInClassK",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the indicator of [-W, W] convolved with the order-p B-spline of half-width R",
+   "source": "c1",
+   "decl": "window",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "φ̂(z) = sinc(zW)·sinc(zh/2)^p up to its normalisation",
+   "source": "c1",
+   "decl": "ClosedFormFT",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "`ContDiff ℝ 4`, even, compactly supported, for p ≥ 6",
+   "source": "c2",
+   "decl": "WindowInClassK",
+   "in_statement": true,
+   "declared": true
+  }
+ ]
+}

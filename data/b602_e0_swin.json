@@ -1,0 +1,44 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_zero_at_pi": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Zeta23.paperFT (phiC (box 1)) (Real.pi : ℂ) = 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_ne_zero_at_half_pi": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Zeta23.paperFT (phiC (box 1)) ((Real.pi : ℂ) / 2) ≠ 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.window_even_compact_at_seven": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(W h : ℝ) : (∀ x, window W h 7 (-x) = window W h 7 x) ∧ HasCompactSupport (window W h 7)",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "914c4137e196e6ac877e86b3f6d545e1a730e7c6",
+ "file": "SIDEExplicitFormula/Schema/SaltCheckPlateauRamp.lean",
+ "same_file": true
+}

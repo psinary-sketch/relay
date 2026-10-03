@@ -1,0 +1,91 @@
+{
+ "file": "SIDEExplicitFormula/KeiperSign.lean",
+ "sha256": "171e8b297dfcc86d737872b627b6173a42e8c3c6591a9fd71023633493b526ed",
+ "at": "2026-10-03T02:37:38Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "liCoeff_one_pos_iff",
+   "line": 30,
+   "head": "theorem liCoeff_one_pos_iff :\n    0 < LiWeil.LiCoeff 1 ↔ Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "log_sixteen",
+   "line": 36,
+   "head": "theorem log_sixteen : Real.log 16 = 4 * Real.log 2 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "eulerMascheroniSeq_fifteen",
+   "line": 41,
+   "head": "theorem eulerMascheroniSeq_fifteen : Real.eulerMascheroniSeq 15 = 1195757 / 360360 - 4 * Real.log 2 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "gamma_gt_seq_fifteen",
+   "line": 46,
+   "head": "theorem gamma_gt_seq_fifteen : 1195757 / 360360 - 4 * Real.log 2 < Real.eulerMascheroniConstant := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "log_pi_le_pi_div_e",
+   "line": 51,
+   "head": "theorem log_pi_le_pi_div_e : Real.log Real.pi ≤ Real.pi / Real.exp 1 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "pi_div_e_lt",
+   "line": 59,
+   "head": "theorem pi_div_e_lt : Real.pi / Real.exp 1 < 1.1558 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "log_four_pi_lt",
+   "line": 66,
+   "head": "theorem log_four_pi_lt : Real.log (4 * Real.pi) < 2.5421 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "threshold_lt_gamma",
+   "line": 75,
+   "head": "theorem threshold_lt_gamma : Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "liCoeff_one_pos",
+   "line": 82,
+   "head": "theorem liCoeff_one_pos : 0 < LiWeil.LiCoeff 1 :="
+  }
+ ],
+ "items": [
+  {
+   "words": "λ₁ > 0 from the closed form proved at v0.19",
+   "source": "ruling",
+   "decl": "liCoeff_one_pos",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "which needs γ > log 4π − 2",
+   "source": "ruling",
+   "decl": "liCoeff_one_pos_iff",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the lower bound on γ from Mathlib's Euler–Mascheroni sequences at an index where the partial value exceeds that threshold",
+   "source": "ruling",
+   "decl": "gamma_gt_seq_fifteen",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "an upper bound on log 4π from Mathlib's π and log bounds",
+   "source": "ruling",
+   "decl": "log_four_pi_lt",
+   "in_statement": true,
+   "declared": true
+  }
+ ]
+}

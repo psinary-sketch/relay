@@ -1,0 +1,33 @@
+b602 -- THE STATEMENTS OF SIDEExplicitFormula/KeiperSign.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T02:37:38Z ; the branch sign-window-b602 (checked out: sign-window-b602) ; the file`s sha256 171e8b297dfcc86d737872b627b6173a42e8c3c6591a9fd71023633493b526ed ; its bytes 4223
+
+### THE STATEMENT, (R212)(3) AS BANKED IN data/b602_ferry.txt (whitespace joined):
+    (3) THE SIGN OF λ₁, a finite rung of the Li ladder at T0, the act's second component: λ₁ > 0 from the closed form proved at v0.19, which needs γ > log 4π − 2 (≈ 0.5310); the lower bound on γ from Mathlib's Euler–Mascheroni sequences at an index where the partial value exceeds that threshold, and an upper bound on log 4π from Mathlib's π and log bounds, all at the pin. One module, salt-checked, #print axioms at the standard three; carried to the bound it lacks as a named premise if a Mathlib bound at the pin is too coarse, that bound printed. The ceiling: λ₁ > 0 is a known numerical fact and a single rung; it is not Li's criterion and says nothing about any λ_n beyond n = 1. Hypotheses: H36a — λ₁ > 0 closes at the standard three; H36b — the γ bound needed is reached from Mathlib's sequences at an index at most 25.
+
+### THE STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “λ₁ > 0 from the closed form proved at v0.19”                                        [ruling] -> liCoeff_one_pos          in its statement True ; declared as printed True
+    “which needs γ > log 4π − 2”                                                         [ruling] -> liCoeff_one_pos_iff      in its statement True ; declared as printed True
+    “the lower bound on γ from Mathlib's Euler–Mascheroni sequences at an index where t” [ruling] -> gamma_gt_seq_fifteen     in its statement True ; declared as printed True
+    “an upper bound on log 4π from Mathlib's π and log bounds”                           [ruling] -> log_four_pi_lt           in its statement True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :30 theorem liCoeff_one_pos_iff
+    theorem liCoeff_one_pos_iff :
+        0 < LiWeil.LiCoeff 1 ↔ Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant := by
+### :36 theorem log_sixteen
+    theorem log_sixteen : Real.log 16 = 4 * Real.log 2 := by
+### :41 theorem eulerMascheroniSeq_fifteen
+    theorem eulerMascheroniSeq_fifteen : Real.eulerMascheroniSeq 15 = 1195757 / 360360 - 4 * Real.log 2 := by
+### :46 theorem gamma_gt_seq_fifteen
+    theorem gamma_gt_seq_fifteen : 1195757 / 360360 - 4 * Real.log 2 < Real.eulerMascheroniConstant := by
+### :51 theorem log_pi_le_pi_div_e
+    theorem log_pi_le_pi_div_e : Real.log Real.pi ≤ Real.pi / Real.exp 1 := by
+### :59 theorem pi_div_e_lt
+    theorem pi_div_e_lt : Real.pi / Real.exp 1 < 1.1558 := by
+### :66 theorem log_four_pi_lt
+    theorem log_four_pi_lt : Real.log (4 * Real.pi) < 2.5421 := by
+### :75 theorem threshold_lt_gamma
+    theorem threshold_lt_gamma : Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant := by
+### :82 theorem liCoeff_one_pos
+    theorem liCoeff_one_pos : 0 < LiWeil.LiCoeff 1 :=

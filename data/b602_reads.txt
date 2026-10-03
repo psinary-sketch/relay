@@ -1,0 +1,151 @@
+b602 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### SIDE-explicit-formula v0.19 AxiomCheckKeiper.lean: the salt-check #check lines, the two omitted -- AxiomCheckKeiper.lean @ 5fc0c878 (12 lines cited)
+    :83     #check @SIDEExplicitFormula.Keiper.stieltjes_zero
+    :84     #check @SIDEExplicitFormula.Keiper.stieltjes_zero_limit
+    :85     #check @SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue
+    :86     #check @SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of
+    :87     #check @SIDEExplicitFormula.Keiper.keiperTaylor_zero
+    :88     #check @SIDEExplicitFormula.Keiper.liCoeff_one_keiper
+    :89     #check @SIDEExplicitFormula.KeiperBounds.keiperBounds_of
+    :90     #check @SIDEExplicitFormula.KeiperBounds.stieltjes_zero_coarse
+    :91     #check @SIDEExplicitFormula.Keiper.SaltCheck.split_needs_inv_s
+    :92     #check @SIDEExplicitFormula.Keiper.SaltCheck.split_needs_zeta
+    :93     #check @SIDEExplicitFormula.Keiper.SaltCheck.split_needs_gammaR
+    :94     #check @SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_refutable
+### relay b601`s sealed suite: G-SALT-CHECK`s predicate and arm -- tools/b601_checks.py @ 7a60bad2 (5 lines cited)
+    :398    def salt_ok(S):
+    :399        r = rows_all(S)
+    :400        txt = (S['pr']['doub'].get('text') or '') + NL + (S['pr']['keip'].get('text') or '')
+    :401        return all(r.get(n, {}).get('std3') and r.get(n, {}).get('grade') == 'DERIVES' for n in SALT) and all((n + ' :') in txt for n in SALT)
+    :613        ('G-SALT-CHECK', 'the salt-checks` nine theorems: DERIVES at the standard three, each #check printed', lambda S: salt_ok(S),
+### SIDE-explicit-formula v0.19 Keiper.lean: λ_1`s closed form -- SIDEExplicitFormula/Keiper.lean @ 5fc0c878 (2 lines cited)
+    :238    /-- **KEIPER'S λ_1, IN γ AND log 4π**: the programme's Li coefficient at 1 is `1 + γ/2 − ½ log 4π`. -/
+    :239    theorem liCoeff_one_keiper :
+### Mathlib at the pin: γ, its two sequences, their monotonicity and the bounds -- Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean @ de5ce8a9 (11 lines cited)
+    :48     noncomputable def eulerMascheroniSeq (n : ℕ) : ℝ := harmonic n - log (n + 1)
+    :53     lemma strictMono_eulerMascheroniSeq : StrictMono eulerMascheroniSeq := by
+    :65     lemma one_half_lt_eulerMascheroniSeq_six : 1 / 2 < eulerMascheroniSeq 6 := by
+    :80     noncomputable def eulerMascheroniSeq' (n : ℕ) : ℝ :=
+    :86     lemma strictAnti_eulerMascheroniSeq' : StrictAnti eulerMascheroniSeq' := by
+    :100    lemma eulerMascheroniSeq'_six_lt_two_thirds : eulerMascheroniSeq' 6 < 2 / 3 := by
+    :128    noncomputable def eulerMascheroniConstant : ℝ := limUnder atTop eulerMascheroniSeq
+    :156    lemma eulerMascheroniSeq_lt_eulerMascheroniConstant (n : ℕ) :
+    :161    lemma eulerMascheroniConstant_lt_eulerMascheroniSeq' (n : ℕ) :
+    :167    lemma one_half_lt_eulerMascheroniConstant : 1 / 2 < eulerMascheroniConstant :=
+    :171    lemma eulerMascheroniConstant_lt_two_thirds : eulerMascheroniConstant < 2 / 3 :=
+### Mathlib at the pin: π bounds -- Mathlib/Analysis/Real/Pi/Bounds.lean @ de5ce8a9 (4 lines cited)
+    :151    theorem pi_gt_three : 3 < π := by
+    :163    theorem pi_lt_d2 : π < 3.15 := by
+    :167    theorem pi_gt_d4 : 3.1415 < π := by
+    :172    theorem pi_lt_d4 : π < 3.1416 := by
+### Mathlib at the pin: e and log 2 bounds -- Mathlib/Analysis/Complex/ExponentialBounds.lean @ de5ce8a9 (4 lines cited)
+    :35     theorem exp_one_gt_d9 : 2.7182818283 < exp 1 :=
+    :38     theorem exp_one_lt_d9 : exp 1 < 2.7182818286 :=
+    :83     theorem log_two_gt_d9 : 0.6931471803 < log 2 :=
+    :86     theorem log_two_lt_d9 : log 2 < 0.6931471808 :=
+### Mathlib at the pin: log ≤ x − 1 -- Mathlib/Analysis/SpecialFunctions/Log/Basic.lean @ de5ce8a9 (1 lines cited)
+    :307    theorem log_le_sub_one_of_pos {x : ℝ} (hx : 0 < x) : log x ≤ x - 1 := by
+### Mathlib at the pin: the convolution theorem (Schwartz only), compact support of a convolution, ∫ exp(cx) -- Mathlib/Analysis/Fourier/Convolution.lean @ de5ce8a9 (2 lines cited)
+    :160    theorem fourier_convolution (B : F₁ →L[𝕜] F₂ →L[𝕜] F₃) (f : 𝓢(E, F₁)) (g : 𝓢(E, F₂)) :
+    :167    theorem fourier_convolution_apply (B : F₁ →L[ℂ] F₂ →L[ℂ] F₃) (f : 𝓢(E, F₁)) (g : 𝓢(E, F₂)) (x : E) :
+### Mathlib at the pin: HasCompactSupport.convolution -- Mathlib/Analysis/Convolution.lean @ de5ce8a9 (1 lines cited)
+    :529    protected theorem _root_.HasCompactSupport.convolution [T2Space G] (hcf : HasCompactSupport f)
+### Mathlib at the pin: integral_exp_mul_complex -- Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean @ de5ce8a9 (2 lines cited)
+    :242    theorem integral_exp_mul_complex {c : ℂ} (hc : c ≠ 0) :
+    :243        (∫ x in a..b, Complex.exp (c * x)) = (Complex.exp (c * b) - Complex.exp (c * a)) / c := by
+### PLACE-papers OPEN_TRAILS: the work-order (E3) at :12170 whole; b554`s closed-form route :11332-:11340, :11423; the re-scope :11512-:11517; the generator-run line and b600-b601`s lines -- OPEN_TRAILS.md @ ca841ca0 (19 lines cited)
+    :12170  *Appended 2026-10-02 by b591 to the DETECTION-REGION re-scope (:11512; (E1) :11516, (E2) :11517), under `(R201)`(2) -- (E3) THE WITNESS RATIO:* the compiled witness is 2^D × ℓ with D from the kill set and ℓ from the excluded zero, while the bench detects at a plateau of half-width ln a ≈ 3.5; at the Epstein data D = 24 and the ratio is at least 39,196 (relay data/b590_witness_vs_bench.txt :9, :13). The factor of ~4 × 10⁴ is the price of the Tannery step and the kill set together, and (E1)’s configuration-relative rate would make D explicit but not small. The bench’s plateau family and the kernel’s power family are different windows, as b546/b550 recorded (the ruling’s citation). **The item that would close the ratio -- a compiled window of the bench’s plateau family -- priced beside (E1) and (E2), not started:** by b554’s closed-form route, the plateau-ramp window defined in the kernel with its transform in closed form (C1, :11336) and that window in classK (C2, :11337), each new and of substance, the route whole at three lemmas of substance (:11423); no new price is named.
+    :11332  ### `W-ORD-DETECTION-REGION` (priced at :11151) -- RE-PRICED FROM THE CLOSED FORM, appended 2026-09-28, b554, under the author's ruling (R164)(5)
+    :11334  **The closed-form route, in lemmas** (each marked compiled, generalising a compiled one, or new; and its weight):
+    :11336  - **C1** the plateau-ramp window of the ladder (the indicator of [-W, W] convolved with the order-p B-spline of half-width R) defined in the kernel, with its transform in closed form: φ̂(z) = sinc(zW)·sinc(zh/2)^p up to its normalisation -- the transform of an indicator and of a convolution power -- *new; of substance*
+    :11337  - **C2** that window in `classK`: `ContDiff ℝ 4`, even, compactly supported, for p ≥ 6 (a B-spline of order p is C^(p-2)) -- *new; of substance*
+    :11338  - **C3** the orbit term in closed form at an arbitrary zero (σ, γ): 4·Re k̂(γ − iδ) as `pairTwo_factored` (PairTerm.lean) gives it at the window's own ordinate γ₀, extended to γ ≠ γ₀ -- *generalises `pairTwo_factored`; moderate*
+    :11339  - **C4** an explicit lower bound on the orbit term's magnitude and its sign from C1 and C3 (for the pair orbit the near part is compiled, `pair_near_sign`; the far part is `farSmall`, a Prop not proved -- `pair_bound` INTERFACES on it) -- *new (the far part); moderate*
+    :11340  - **C5** the on-line bound B(a, p) on every other zero's term: `rest_bound_zeta` (RestBound.lean, hypothesis-free) for the pair's orbit; for another orbit its exclusion set changes -- and at the bench's widths the compiled constant exceeds the measured rest by about 1e16 (b530), so the statement's region is empty there unless the bound is tightened -- *generalises `rest_bound_zeta`; of substance if tightened*
+    :11423  | (a) | `W-ORD-DETECTION-REGION` | four lemmas by the PowerLimit finite-j₀ route, one of substance (P1, the explicit j₀ inequality); the closed-form route priced beside it at three of substance | :11151, :11332 |
+    :11512  ### `W-ORD-DETECTION-REGION` (the entry at :11151, the price corrected at :11491) -- RE-SCOPED ON THE MEASURED OBSTACLE, appended 2026-09-29, b560, under the author's ruling (R170)(2)
+    :11516  - **(E1) the configuration-relative rate** -- a rate for `rest_tendsto_zero` given the largest ratio `offScore / M` off the tie and kill sets: one lemma of moderate weight, giving an index for the whole zero configuration, not for (γ, δ). A future lane-two act.
+    :11517  - **(E2) the per-(γ, δ) region** -- the configuration's constants (the dominant score, the tie and kill sets, the interpolation bound over the tie nodes) bounded by (γ, δ) alone: it needs a separation estimate for the zeros near the dominant score that no compiled lemma carries. Research grade; entered as a research-arc line, the author its owner.
+    :12288  *Appended 2026-10-02 by b597 beneath the batch-refresh line (:12264), under `(R207)`(3) -- A GENERATOR RUN AT A NEW PIN, STANDING:* a generator run at a new pin goes one page per call in the foreground, or in the background solely after the browser is closed and free memory is read above the hold; a background run stopped by the harness is recorded as a stop, not an OOM. From b596’s reaper stop (its defect (c)).
+    :12352  *Appended 2026-10-02 by b600 to the generator-run line (:12288), under `(R210)`(2), appended at the end and addressed to it (the ledgers append-only, the author’s answer at b599) -- THE LINE AMENDED:* the browser clause is struck -- the navigator seat runs in a browser and the author’s dual seats cannot run with it closed. The condition is the one the hold already states: a generator run at a new pin starts with free memory read above HOLD_MB (relay tools/chain_page.py :57, 2560 MB), one page per call in the foreground, and a run stopped by the harness is recorded as a stop, not an OOM. No line is added for the network: a failed push followed by ls-remote and a retry is a standing rule already, and a transient is not a reason for a line.
+    :12354  *Appended 2026-10-02 by b600, under the author’s ruling `(R210)`(3) -- THE AUTHORITY ORDER, STANDING:* the programme is the A PLACE TO STAND research programme. The Zenodo deposits and the GitHub repositories under ongoing edit -- the keystones in their house format and the Lean kernels -- carry its assertions, conclusions, aims and objectives. The project workspace’s mirror is research history at every stage of edit and is not definitive where a more refined result supersedes it; the ledgers on D: are newer than any mirror. The navigator cites from the export and the seat’s prints, and not from the mirror where a newer edition exists.
+    :12356  *Appended 2026-10-02 by b600 beneath the amended generator-run line (:12352, amending :12288), under the author’s answer in b600 (relay data/b600_author_answers.txt) -- THE BUILD CLAUSE, STANDING:* a kernel build runs as a detached process, started after free memory is read above the hold, and is watched by its PID and its log from the foreground in calls under 600 s, the seat kept awake; nothing is killed mid-write; one module per call. The harness’s reaper is a property of the harness’s background tasks, not of the machine, so the build is taken out of the harness’s hands. From b600’s first build of Product.lean, stopped by the reaper at t=600 s with no error (its defect (a)).
+    :12358  ### b600 — lane three, act twenty-seven under (R210): REMAINDER 5 -- the product lemma stated as a salt-checked Prop and proved; the generator-run line amended; the authority order entered
+    :12374  ### b601 — lane three, act twenty-eight under (R211): the doubling corollary -- the schema’s positivity without simplicity; W-ORD-KEIPER-FACE -- the two lemmas stated and carried to named obligations
+    :12392  *Appended 2026-10-02 by b601 to its own record (:12374), after the pre-push suite -- THE DEFECTS LINE CORRECTED:* the record’s “Defects (a)-(b)” was written before the suite’s first pre-push run, which found three more, the seat’s (relay data/b601_defects.txt): (c) the E0 arm required each read’s tip to be the tag, while the doubling reads were taken at 2b8abf5 with the files’ blobs identical at v0.19 -- the predicate corrected; (d) Keiper.lean and KeiperBounds.lean wrap the house form’s “NOT VENDORED” over a line end -- the arm’s needle corrected to read across it, the files standing at the tag; (e) AxiomCheckKeiper.lean omits the #check of two salt-check theorems, keiperTaylor_zero_holds and bounds_form_satisfiable (both printed at the standard three by #print axioms, their statements those of keiperTaylor_zero and stieltjes_zero_coarse), so G-SALT-CHECK fails in its letter and the suite reads 80 of 81, for the author. The tag is not moved.
+### PLACE-papers FINDINGS: the witness ratio (:6758); b601`s entry (:6972) -- FINDINGS.md @ ca841ca0 (2 lines cited)
+    :6758   *Appended 2026-10-02 by b591 to b590’s entry (:6740), under `(R201)`(1) -- b590 AT ITS WEIGHT:* SIDE-explicit-formula v0.16 = c404e72: the detector compiles generic and DERIVES, its base window named in the statement (the plateau at half-width 1/(4(‖γ(ρ₀)‖+1)), base_nonzero_at as witness), the power j and the coefficient list existential because j comes from Metric.tendsto_atTop over a limit with no rate (Converse.lean :171) -- b559’s H9a step again, so H31a refuted in letter at the power; epstein_not_h2_sign_cfg under one premise binder (hP : EpsteinPremises Z rhs) and the membership ρ_E ∈ Z.carrier, INTERFACES, T2-INTERFACES, ρ_E = b506’s 0.7979971571786801 + 29.551761098629115 i; the salt-check compiled two ways (the premises hold together on the two-point configuration; the membership is load-bearing, since the empty configuration satisfies the premises and is Weil-positive), the premises’ consistency with Z_Q stated as unproved; H31b held. **The witness ratio, entered as a finding: the compiled witness is 2^D × ℓ, D from the kill set and ℓ from the excluded zero. At ρ_E the base half-width is 0.008182, the dominant off-line orbit is 16.29’s (ρ_E’s score 0.996 of it), eight on-line ordinates fall in the kill set, the kernel’s floor on the power is D = 24, and the witness’s half-width before pairing is at least 2²⁴ × 0.008182 = 137,278, about 39,196 times ln 33.19: the compiled construction certifies the sign at j = 24 by its own inequality and is four orders of magnitude wider than the bench’s plateau** (relay data/b590_witness_vs_bench.txt :5, :7-:9, :12-:13, :21). H31c refuted as expected; the reading is the finding, entered at W-ORD-DETECTION-REGION as its (E3). The Day-1 W_∞ row at §I :32 and the repaired sentence at §II :45: each citation names its own object, both credit lines stand. The ferry bank redacted per the author’s answer; the sweep column filled (I 3, II 1, III 3, IV 3, V 2) in the local patent repository; no family label reached any public repository. The suite reads 68 of 68.
+    :6972   ## The doubling corollary: Weil positivity of the schema without simplicity, at v0.19; the Keiper face’s two lemmas carried to 7 named obligations, the Li ladder’s arithmetic end at the page
+### SIDE-explicit-formula v0.16 Schema/Detector.lean: the detector`s base and statement -- SIDEExplicitFormula/Schema/Detector.lean @ c404e727 (7 lines cited)
+    :33     def baseWidth (ρ : ℂ) : ℝ := 1 / (4 * (‖Zeta23.gammaOf ρ‖ + 1))
+    :40     def detectorBase (ρ : ℂ) : ℝ → ℝ := plateau (1 / 2) (baseWidth ρ) half_pos' half_lt_one' (baseWidth_pos ρ)
+    :99     theorem detector (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :
+    :100        ∃ (a : List ℝ) (j : ℕ), classK (kWindow a (detectorBase ρ₀) j) ∧
+    :101          Function.support (pwWindow a (detectorBase ρ₀) j) ⊆ Set.Icc (-(2 ^ j * baseWidth ρ₀)) (2 ^ j * baseWidth ρ₀) ∧
+    :102          (zeroSide_cfg C (kWindow a (detectorBase ρ₀) j)).re < 0 := by
+    :120    theorem not_h2_sign_cfg_of_offline (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :
+### SIDE-explicit-formula v0.16 Schema/Epstein.lean: EpsteinPremises and epstein_not_h2_sign_cfg -- SIDEExplicitFormula/Schema/Epstein.lean @ c404e727 (8 lines cited)
+    :40     1952; Bombieri-Lagarias 1999), cited, not compiled. `count` -- T3, the local count read off the bench's zero list. -/
+    :41     structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where
+    :42       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :43         (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :44       count : ∃ A₀ : ℝ, HCount Z A₀
+    :57     theorem epstein_not_h2_sign_cfg (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)
+    :58         (hE : rhoE ∈ Z.carrier) : ¬ h2_sign_cfg (epsteinConfig Z rhs hP) :=
+    :59       not_h2_sign_cfg_of_offline (epsteinConfig Z rhs hP) rhoE hE rhoE_re_ne_half
+### SIDE-explicit-formula v0.19 TwoPropertyWindow.lean: the kernel`s plateau and its ramp -- SIDEExplicitFormula/TwoPropertyWindow.lean @ 5fc0c878 (7 lines cited)
+    :11     
+    :12     THE PLATEAU (made concrete at b527, ruling (R137)(2)). `plateau F L` is `smoothTransition ((L - |u|) / (F L))`,
+    :15     fraction `F` of the support, `C^n` for EVERY `n`, even. (At b524 it was a `ContDiffBump` over `someContDiffBumpBase`,
+    :16     a base picked by `Classical.choice` with no values to evaluate -- b526.) The b519 values are the named instance
+    :17     `b519Plateau a = plateau (1/4) (log a)`. **ITS RAMP IS THE exp(-1/x) TRANSITION, NOT THE ORDER-p B-SPLINE OF THE
+    :56     def plateau (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ℝ → ℝ :=
+    :57       fun u => Real.smoothTransition ((L - u) / (F * L)) * Real.smoothTransition ((L + u) / (F * L))
+### SIDE-explicit-formula v0.19 PowerWindow.lean: classK_of_real_even -- SIDEExplicitFormula/PowerWindow.lean @ 5fc0c878 (2 lines cited)
+    :51     /-- **L2:** for a real `C^2` compactly supported `g`, `weilTest g g` is in classK. -/
+    :52     theorem classK_of_real_even {g : ℝ → ℝ} (hg : ContDiff ℝ 2 g) (hs : HasCompactSupport g) :
+### SIDE-lv-conservation 2f71068 CouplingsAtPhi.lean: n_one_binding_instance, the non-strict constants form, prior art -- SIDELvConservation/CouplingsAtPhi.lean @ 2f71068a (6 lines cited)
+    :349      **γ + 2 ≥ log (4 π)**          (slack = 2 λ₁ = 0.0461914179…)
+    :357    are `one_half_lt_eulerMascheroniConstant : 1/2 < γ` and `eulerMascheroniConstant_lt_two_thirds`,
+    :362    theorem n_one_binding_instance :
+    :363        Real.eulerMascheroniConstant + 2 ≥ Real.log (4 * Real.pi) := by
+    :366      have hγ : Real.eulerMascheroniSeq 12 < Real.eulerMascheroniConstant :=
+    :367        Real.eulerMascheroniSeq_lt_eulerMascheroniConstant 12
+### PLACE-papers the ζ page at v0.19: the Li ladder and the Keiper rows -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ ca841ca0 (5 lines cited)
+    :1      # THE CLAUSE AND ITS COMPILED FACES
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b601_nodes_zeta.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.19 = `5fc0c87` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by `#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes. A node's tier cell is computed from three printed facts — E0 grade DERIVES, the axioms the standard three [propext, Classical.choice, Quot.sound], no premise — and reads T0 when all three hold, the tier law's clause "compiled against a Mathlib statement" being witnessed by the consumes column (Mat
+    :24     20. `SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh` — SIDEExplicitFormula/LiCriterionBridge.lean:179 — v0.9 = e5a5a83 — `theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `positivity_implies_RH`, `LiCoeff`, `rh_imp_li_nonneg`, `RiemannHypothesis`, `taylorCoeff`, `riemannZeta`, `li_coeff_eq_taylorCoeff`
+    :25     21. `SIDEExplicitFormula.Keiper.stieltjes` — SIDEExplicitFormula/Keiper.lean:47 — v0.19 = 5fc0c87 — `def SIDEExplicitFormula.Keiper.stieltjes : ℕ → ℂ := fun n => (-1) ^ n * iteratedDeriv n riemannZeta₀ 1` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: none
+    :31     27. `SIDEExplicitFormula.Keiper.liCoeff_one_keiper` — SIDEExplicitFormula/Keiper.lean:239 — v0.19 = 5fc0c87 — `theorem SIDEExplicitFormula.Keiper.liCoeff_one_keiper : SIDEExplicitFormula.LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `LiCoeff`, `taylorCoeff`, `li_coeff_eq_taylorCoeff`
+### PLACE-papers the χ page: head and the detector`s row -- THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md @ ca841ca0 (2 lines cited)
+    :1      # THE CLAUSE AT THE DIRICHLET INSTANCE
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b596_nodes_chi.txt`: the compiled chain from `GRH_chi` to the ceiling's successor sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.17 = `5a1630b` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by `#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes. A node's tier cell is computed from three printed facts — E0 grade DERIVES, the axioms the standard three [propext, Classical.choice, Quot.sound], no premise — and reads T0 when all three hold, the tier law's clause "compiled against a Mathlib statement" being witnessed by the consumes column (Mathlib's `R
+### PLACE-papers the bearing candidates: BALANCE_AND_POSITIVITY v0.9.5 :398; THE_FINDINGS_AS_THEY_STAND :497 -- phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md @ ca841ca0 (3 lines cited)
+    :396    **Correction to the work-order — the n = 1 binding instance.** The sitting proposed proving `3γ + 2 ≥ ln(4π)`. **That is not the n = 1 instance.** From λ_A(1) = 1 − γ/2 − ln 2 − ½·ln π and λ_Z(1) = γ, the instance λ_Z(1) ≥ −λ_A(1) is exactly
+    :398    > **γ + 2 ≥ ln(4π)**,  with slack **2λ₁ = 0.0461914179322421** — matching the bench to 15 digits.
+    :400    The proposed `3γ + 2 ≥ ln(4π)` is *true* but its slack is 1.2006…, so it is a different, weaker statement. The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 = 0.53102…, and Mathlib's available bound is `one_half_lt_eulerMascheroniConstant` (½ < γ), which is **not sharp enough**. A sharper lower bound is derivable from `eulerMascheroniSeq_lt_eulerMascheroniConstant` plus numeric `log` bounds; that is a numeric-analysis obligation, not a transport of the premise, and it is left as its own item.
+### PLACE-papers THE_FINDINGS_AS_THEY_STAND :497 -- phase2/method/THE_FINDINGS_AS_THEY_STAND.md @ ca841ca0 (1 lines cited)
+    :497    **Appended at b526 under `(R136)`(1), beside the b525 block above, whose quoted statement cites the measured window and the kernel`s together:** "the numbers cited were taken on the order-7 B-spline window; the theorems cited hold for every C^4 phi, the kernel's named instance being the smooth bump — the instances differ."
+### relay b601`s closing push-out, committed at step zero -- data/b601_closing_push_out.txt @ 7a60bad2 (17 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b601_closing_push_out.txt (2026-10-03T01:23:21Z)
+    :2      push_gated: repo D:/relay ; branch push-b601-closing ; tip 974855474a8683eac37a4cc2fe3faf2522df0a59 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         d4b534d0..97485547  push-b601-closing -> main
+    :5      push_gated: main read back at the remote: 974855474a8683eac37a4cc2fe3faf2522df0a59
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay 974855474a8683eac37a4cc2fe3faf2522df0a59   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers ca841ca0bfca145e3ce8e1efc9e64f9e241bcbf9   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 3528bcfc8c0341d3639d2ea272bae3bc435901b4   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 5fc0c878182d501362f862d957c9a42eccb05913   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+    :13     push_gated: as-of SIDE-effects ef4cff776f8918761bdb08d9e23f684b0abd5875   ### main = remote main by ls-remote
+    :14     push_gated: as-of SIDE-silence-principle 667c2548777585876a2f3208029595b06a062619   ### main = remote main by ls-remote
+    :15     push_gated: as-of SIDE-compression e9a5a368d14aeb63ae970acb84fc135838b9f6d2   ### main = remote main by ls-remote
+    :16     push_gated: as-of SIDE-structural-error-correction 6a4f4829cf219839f33c6af9d665687b93af772e   ### main = remote main by ls-remote
+    :17     push_gated: as-of SIDE-cosmo c5cba30ce201af2d619498ef087969e729293969   ### main = remote main by ls-remote
+
+### SIDE-explicit-formula: v0.19 = 5fc0c87 ; main = 5fc0c87 ; the checkout`s branch main
+### Mathlib (the kernel`s .lake/packages/mathlib) HEAD de5ce8a9a6
+### chain_page.py`s hold: ['HOLD_MB = 2560']

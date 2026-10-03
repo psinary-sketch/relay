@@ -1,0 +1,46 @@
+# b602 -- THE χ NODE LIST AT v0.20, (R212)(4)-(5): b596`s list (relay data/b596_nodes_chi.txt, every record line unchanged),
+# the pin moved to v0.20; seven declarations of Schema/PlateauRamp.lean placed directly after the detector`s record, the
+# schema page being where the detector stands. Every cell is elaborated by the generator`s probe at the pin, never typed here.
+#
+# b596 -- THE χ NODE LIST AT v0.17, (R206)(4)(b): b592`s records (relay data/b592_nodes_chi.txt, every record line unchanged),
+# the pin moved to v0.17; the χ-leg gains no node. Every cell is elaborated by the generator`s probe at the pin.
+#
+# b592 -- THE NODE LIST OF THE χ-LEG EXTENDED, (R202)(2): b573's 18 records (relay data/b573_nodes_chi.txt, every record
+# line unchanged) with b590's generic detector theorem appended beside the schema nodes; the pin moves to v0.16 = c404e72,
+# where the record's three b590 Schema names resolve. epstein_not_h2_sign_cfg (graded INTERFACES) and
+# not_h2_sign_cfg_of_offline (graded DERIVES) are not nodes: the generator's Correspondence selection takes them from the
+# table. Every cell is elaborated by the generator's probe at the pin, never typed here.
+#
+# b573 -- THE NODE LIST OF THE χ-LEG, (R183)(5): the generator's input for the page at the Dirichlet instance (relay
+# tools/chain_page.py, its `# page: dirichlet` variant), in the ruling's order: GRH_chi, the χ-instance, EF_lit_chi_holds and
+# its route's named terminals, h2_sign_chi, the forward half, the converse, h2_sign_chi_iff_grh_chi, and the schema's nodes
+# (the schema landed at v0.15). `name | source | role`, as b568's and b569's lists. Every cell of a node is elaborated by the
+# generator's probe at the pin below, never typed here.
+# page: dirichlet
+# pin: v0.20
+SIDEExplicitFormula.GRHWeil.GRH_chi | kernel | listed
+SIDEExplicitFormula.GRHWeil.chiZeroConfig | kernel | listed
+SIDEExplicitFormula.GRHWeil.EF_lit_chi | kernel | added: the statement EF_lit_chi_holds proves
+SIDEExplicitFormula.GRHWeil.rectangle_identity_chi | kernel | listed
+SIDEExplicitFormula.GRHWeil.full_line_identity_chi | kernel | listed
+SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds | kernel | listed
+SIDEExplicitFormula.B321.classK | kernel | added: the class h2_sign_chi quantifies over
+SIDEExplicitFormula.GRHWeil.h2_sign_chi | kernel | listed
+SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq | kernel | added: b321's identity for χ, which both halves consume
+SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi | kernel | listed
+SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi | kernel | listed
+SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi | kernel | listed
+SIDEExplicitFormula.Schema.h2_sign_cfg | kernel | listed
+SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg | kernel | added: the schema's forward half, graded by CORRESPONDENCE row 438 (a graded name outside the list would join the Correspondence table at this act's housekeeping)
+SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target | kernel | listed
+SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement | kernel | added: the schema's ζ check, graded by CORRESPONDENCE row 440 (as above)
+SIDEExplicitFormula.Schema.chiWeilConfig | kernel | listed
+SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement | kernel | listed
+SIDEExplicitFormula.Schema.detector | kernel | added: (R202)(2), b590's generic detector theorem (Schema/Detector.lean), graded DERIVES by CORRESPONDENCE row 442 (SIDE-global-section CORRESPONDENCE.md :515), its own row 443
+SIDEExplicitFormula.Schema.PlateauRamp.window | kernel | added: (R212)(4), (E3)`s plateau-ramp window, the box convolved with the order-p B-spline
+SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT | kernel | added: (R212)(4), C1, the transform in closed form, a Prop
+SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK | kernel | added: (R212)(4), C2, the window in classK for p ≥ 6, a Prop
+SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow | kernel | added: (R212)(4), (E3)`s compiled window, C1 and C2
+SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations | kernel | added: (R212)(4), the two named obligations, the convolution step and the smoothness
+SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of | kernel | added: (R212)(4), the window at INTERFACES on its obligations
+SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window | kernel | added: (R212)(4), the window an input to EpsteinPremises` explicit formula, INDEPENDENT
