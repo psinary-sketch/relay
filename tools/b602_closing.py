@@ -51,7 +51,21 @@ def verdict(text, pat):
     return m.group(0) if m else '### NOT FOUND'
 
 
-CARRIED = []
+CARRIED = [
+    '    (a) ### **THE NEXT ACT, (R212)(6)**: b603, the family form over χ mod q, the research sequence`s fifth item; then the edition of',
+    '        THE_FINDINGS_AS_THEY_STAND as a sieve table by cluster, on the author`s word (OPEN_TRAILS :12394).',
+    '    (b) ### **FOR THE AUTHOR**: defect (b) -- an API stop of the harness, not of the act, after the scores (02:54:52Z) and before the',
+    '        record`s first write; resumed 03:14:45Z with both ledgers read first: the Component 1 lines whole, the record not yet landed,',
+    '        nothing cut back.',
+    '    (c) ### **FOR THE AUTHOR`S STRIKE**: the index 15 over 10; the prior art SIDE-lv-conservation n_one_binding_instance cited, not',
+    '        consumed -- its stale docstring and BALANCE_AND_POSITIVITY :400`s "OPEN" left for their next editions; the window under Schema/',
+    '        and on the χ page, its pin moved from v0.17 to v0.20; no re-emission at the point tag; the E0 rule`s lexical reading of a width',
+    '        parameter named h on three non-node declarations.',
+    '    (d) THE WINDOW`S OBLIGATIONS, each a priced item for a later act, none started: ConvStep (the convolution step) and Smooth4 (C⁴ for',
+    '        p ≥ 6), in WindowObligations.',
+    '    (e) Branches left for the next act`s step zero, each merged: PLACE-papers push-b602; relay push-b602 and push-b602-closing.',
+    '    (f) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
+]
 
 
 def main():
