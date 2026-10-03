@@ -50,7 +50,22 @@ def verdict(text, pat):
     return m.group(0) if m else '### NOT FOUND'
 
 
-CARRIED = []
+CARRIED = [
+    '    (a) ### **THE NEXT ACT, (R211)(6)**: b602, (E3)`s compiled window of the bench`s family at DETECTION-REGION (OPEN_TRAILS :12170),',
+    '        the research sequence`s fourth item.',
+    '    (b) ### **FOR THE AUTHOR**: G-SALT-CHECK fails in its letter (defect (e)): AxiomCheckKeiper.lean at v0.19 omits the #check of',
+    '        keiperTaylor_zero_holds and bounds_form_satisfiable (both #print-axioms-printed at the standard three). The tag is not moved and',
+    '        the arm is not weakened; the suite reads 80 of 81 pre- and post-push.',
+    '    (c) ### **FOR THE AUTHOR`S STRIKE**: the price bank`s riemannZeta₀ read as Mathlib`s declaration and consumed; the corollary in a',
+    '        sibling module; the Keiper nodes after li_nonneg_iff_rh (the rows after it renumbered); the (R211)(2) reading appended after the',
+    '        weight line; the defects line appended to the act`s own record (OPEN_TRAILS :12392).',
+    '    (d) THE KEIPER FACE`S OBLIGATIONS, each a priced item for a later act, none started: lemma (1) on KeiperObligations (the binomial',
+    '        transform, the split at 1, the power-series logarithm, the polygamma values at 1/2); lemma (2) on BoundPremises (γ to the',
+    '        table`s width, γ_1..γ_11, ζ(2)..ζ(12)).',
+    '    (e) Branches left for the next act`s step zero, each merged: PLACE-papers push-b601 and push-b601-defects; relay push-b601 and',
+    '        push-b601-closing.',
+    '    (f) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
+]
 
 
 def main():
