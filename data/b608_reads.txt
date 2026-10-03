@@ -1,0 +1,544 @@
+b608 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### the monograph`s current version v5.15: its head, version lines, :722, Part IV`s preamble, §22.4 and the chain sentence, chapter 24`s title and opening, §25.5`s table, §25.8 whole, Appendix H, the Correspondence block, the back-matter tags -- day1/A_Place_to_Stand_v5_15.md @ 0800a6a7 (61 lines cited, of 2580)
+    :1      # The Third Identity Element and Riemann's Theorem
+    :19     **v5.15, 2026-10-03** — CP-8 act two under `(R217)`: chapters 21 and 22, §24.4 and §27.3 read against the compiled faces, the doubling corollary and the sieve, beside v5.14, which stands unedited; every change is recorded in the back matter.  
+    :20     **v5.14, 2026-10-03** — CP-8 act one under `(R216)`: the eleven ceiling uses of the census and the live-line sentences of the errata addressed to this monograph, beside v5.13, which stands unedited; every change is recorded in the back matter.  
+    :21     **v5.13, 2026-07-27**
+    :722    Part II gave the method; this Part applies it to ξ, as a single line of reasoning whose stages are the chapters. Chapter 12 fixes the object and states the dichotomy the whole proof turns on: on the critical line a zero is one real condition (codimension 1); off it, two simultaneous conditions (codi
+    :1292   # PART IV: THE INDEPENDENT ROUTES
+    :1305   Part III assembled the reduction of RH through mechanism enumeration, under the named premise h2, open and equivalent to RH in its Weil form (h2_sign_iff_rh). This Part reaches RH through a different strategy — the structural behavior of zeros themselves — while sharing the exhaustive catalogue and 
+    :1307   The standard literature relates simplicity and the Riemann Hypothesis through the pair correlation conjecture: PCC implies that asymptotically 100% of zeros are both simple and on the critical line (Gallagher-Mueller 1978, Baluyot-Goldston-Suriajaya-Turnage-Butterbaugh 2025). The implication in the 
+    :1309   **Theorem (ZFC).** If all nontrivial zeros of ξ are simple, then the Riemann Hypothesis holds.
+    :1311   The proof uses the perpendicular crossing theorem (formally verified in Lean 4), level-set monotonicity, the fold criterion, and the exhaustive classification from Part III. The simplicity reduction (this theorem) provides the structural reason why simplicity matters — it connects to transversality 
+    :1313   The simplicity of zeros is the most studied adjacent conjecture in analytic number theory: 40.77% proved (Conrey 1989), 10¹³+ confirmed computationally, predicted by GUE random matrix statistics, proved for function fields (Weil-Deligne).
+    :1375   ## 22.4 The Fold Criterion
+    :1377   **Theorem.** If an R-curve through a critical-line zero folds at some σ₀ > 1/2, then ξ has a zero at σ₀ + it_k(σ₀) with σ₀ ≠ 1/2.
+    :1379   *Proof.* A fold occurs where V_k attains a local maximum and returns to zero. Since V_k(σ) = |ξ|² along the R-curve, V_k(σ₀) = 0 implies ξ(σ₀ + it_k(σ₀)) = 0 with σ₀ ≠ 1/2. 
+    :1399   By the fold criterion (§22.4), in the programme’s reading of an open direction, the absence of folds implies the absence of off-line zeros. 
+    :1401   The conditional chain, the programme’s reading of an open direction: simplicity → transversal crossing → nonzero departure speed → no fold → no off-line zero. Each link is argued in §22.1–§22.5, the perpendicular crossing compiled for completedRiemannZeta₀ alone (spectral_cannon, §25.8) and the join
+    :1463   # Chapter 24: Three Proofs Converge
+    :1465   Three traditions — sharing no tools, no assumptions, and no practitioners — converge on the same conclusion: all zeros of ξ are simple.
+    :1487   The answer is the same: nothing in the seven mechanism classes produces the codimension-2 coincidence ξ(ρ) = ξ'(ρ) = 0. The functional equation creates the crossing but does not degenerate it. The Euler product provides the balance but does not cancel the derivative. The remaining classes constrain 
+    :1583   ## 25.5 The Three Compiled Routes
+    :1633   | TheBridgeComplete.lean | Route 1 — structural exhaustiveness proved | 0 sorry, 0 axioms |
+    :1634   | ConservationBridge.lean | Route 3 — RH from Conservation + balance | 0 sorry, 0 axioms |
+    :1661   ## 25.8 Kernel Concordance
+    :1663   The claims this chapter makes about the kernel are meant to be checked, not trusted. For each load-bearing theorem the table gives its fully qualified name, the module it lives in, and the axioms it depends on as reported by Lean's `#print axioms`. A clean entry reads `[propext, Classical.choice, Qu
+    :1665   **Kernel lineage note (2026-07-24, deposit advanced to v1.5).** The profiles in this table were re-profiled at v1.3 = `0bc21c0` and are **unmoved at the current deposit, `v1.5 = 0e5233f`** (SHA-triple verified: annotated tag-object `922c0fc`, peeled commit = local = remote = `0e5233f`). Deposit line
+    :1667   **Concordance scope note (2026-09-22, what this table indexes).** This table indexes the chapter’s **load-bearing theorems** — for each, its fully qualified name, its module, and its axiom profile. It is **not an index of the deposit’s claims**: a sentence elsewhere in the deposited line that assert
+    :1669   | Claim | Theorem | Module | `#print axioms` |
+    :1670   |---|---|---|---|
+    :1671   | Route 1 — structural exhaustiveness, unconditional in Lean | `structural_exhaustiveness_proved` | `Bridge/TheBridgeComplete.lean` | propext, Classical.choice, Quot.sound |
+    :1672   | Route 2 — perpendicular crossing: the completed-ζ derivative is imaginary on the line, ∀t | `SpectralCannonFull.spectral_cannon` | `Kernel/SpectralCannonFull.lean` | propext, Classical.choice, Quot.sound |
+    :1673   | Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/ConservationBridge.lean` | propext, Classical.choice, Quot.sound |
+    :1674   | Structural exhaustiveness yields RH | `techne_kernel_integration.rh_from_structural_exhaustiveness` | `Kernel/Integration.lean` | propext, Classical.choice, Quot.sound |
+    :1675   | Structural exhaustiveness is equivalent to RH | `techne_kernel_integration.structural_exhaustiveness_iff_rh` | `Kernel/Integration.lean` | propext, Classical.choice, Quot.sound |
+    :1676   | The formation count 2 + 3 + 2 + 0 = 7 | `SIDEKernel.formation` | `Kernel/Core.lean` | (none) |
+    :1677   | Inter-mechanism-class independence — no pair of classes conspires | `techne_kernel_cross_exclusion.all_pairs_excluded` | `Bridge/CrossClassExclusion.lean` | propext, Classical.choice, Quot.sound |
+    :1679   **Live-layer concordance row (2026-08-20, addition — the construction era's certificates; NOT part of the deposited kernel above, whose statuses are unmoved):**
+    :1681   | Claim | Terminals | Repository | `#print axioms` |
+    :1682   |---|---|---|---|
+    :1683   | The construction era's global-section certificates: the finite-place models (charts, towers, sector arithmetic, quotient shadows) and the purity-and-distance results at the banked cells; file E's Prop the one deliberate boundary object (stated, not proved, not claimed) | 114 Core terminals across 
+    :1685   **Inter-class independence.** The `CrossClassExclusion` module certifies κ = 0 for every inter-mechanism-class coupling: no pair of mechanism classes conspires to place an off-line zero that neither produces alone. Its terminals — `all_pairs_excluded` (all pairs), `cross_class_exclusion` (per pair),
+    :1687   **On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states. Read per conjunct: the catalogue completeness `Fintype.card MechanismClass = 7` is `decide`; the Ostrowski conjunct (e
+    :1689   **On Route 3.** The clean status for `ConservationBridge.riemann_hypothesis` certifies the Lean implication `ConservationHypothesis → RiemannHypothesis` — exactly what the table row claims and nothing more. The hypothesis is the programme's one counted premise (§27.3), open and named — not the disch
+    :1691   **Closure.** Across `Kernel/`, `Bridge/`, and `MetaKernel.lean` there are zero `axiom` declarations, zero `sorry`, and zero `native_decide`. Those are the only three sources of a non-standard axiom, so every declaration in the core — not only the terminals above — depends on at most `propext`, `Clas
+    :1693   **Route 2 housing.** The canonical Route 2 terminal is `SpectralCannonFull.spectral_cannon`, and it is the sole definition of that theorem in the kernel. An earlier duplicate carrying the same statement (`Kernel/PerpendicularCrossingProbe.lean`) and a scratch test module (`Kernel/SpectralCannonFull4
+    :2217   ## Appendix H: How This Monograph Is Organized
+    :2219   *Relocated to back matter 2026-08-14 (flow ruling P1). **The six paragraphs below are verbatim** — this
+    :2224   The proof has one architecture, applied through multiple layers. These layers serve different purposes and
+    :2227   The proof has one architecture, applied through multiple layers. These layers serve different purposes and should not be confused with each other.
+    :2231   **Two proof strategies** (Part III and Part IV). Part III assembles the proof through direct per-class exclusion. Part IV arrives at the same conclusion through the structural behavior of zeros: simplicity of all zeros implies the Riemann Hypothesis. The two strategies share the exhaustive catalogue
+    :2232   **Three compiled routes** (Part V, Chapter 25). The Lean 4 kernel formalizes three route terminals, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), and Ro
+    :2233   **The one open premise** (§27.3). These registers stand at different depths (b538): the first is false as stated (not_register1); the second is RH restated (ch_iff_rh); the third is undecided; the fourth, in its Weil form, is equivalent to RH (h2_sign_iff_rh); the fifth's compiled face holds outrigh
+    :2235   The methodology is general. The SIDE framework — exhaustive enumeration certified by a domain completeness theorem, per-class exclusion, inter-class independence — applies to any system that is Determined (fully specified, no free parameters), Symmetric (equipped with a structural involution), and p
+    :2237   ## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 — ADDITIVE ONLY: no claim, argument, or sentence above this line is altered. Back matter, per the writing law.)*
+    :2241   This monograph argues that the zeros of the completed zeta function must lie on a single line, by listing every structural source that could put them anywhere and checking each one. Its kernels do three separate jobs. **First**, they verify the catalogue's count and, for each class, algebra showing 
+    :2243   **What the kernels do not do is prove the Riemann Hypothesis.** Each route composes under one premise that no kernel discharges. The monograph names that premise openly at §27.3 and gathers its five registers there. **The machine checks the reduction; the premise stays open.**
+    :2245   > ### **THE `h2` REGISTER, VERBATIM:** ### ***Supportable: RH reduced to a single located clause, reduction machine-verified. Not supportable: RH proved. The open clause is a premise of the multiplicative structure, undischarged, and the corpus names it openly at every site that depends on it.***
+    :2251   | Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |
+    :2258   | ### **`h2`, the one open premise** | ### **NONE — no kernel discharges it** | — | — | ### **MANUSCRIPT-RESIDENT** — §27.3, five registers | ### **read §27.3; there is no terminal to point at, and that is the honest state** |
+    :2259   | ### **the zero-acting positive pairing's existence** | ### **NONE** | — | — | ### **RESEARCH-REACH** — closes over function fields (Weil 1948), open over ℚ | ### **no verification exists; this row says so** |
+    :2278   <!-- b606 (R216) THE v5.14 EDITION`S BACK MATTER, 2026-10-03 -->
+    :2428   <!-- b607 (R217) THE v5.15 EDITION`S BACK MATTER, 2026-10-03 -->
+### relay data/b558_editions/A_Place_to_Stand.txt: the work-list whole (31 rows) -- data/b558_editions/A_Place_to_Stand.txt @ e73212a5 (127 lines cited, of 160)
+    :1      b558 -- THE EDITION WORK-LIST OF A_Place_to_Stand (day1/A_Place_to_Stand.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :3      ### every sentence of the document read MOVED-IN-MEANING by CP-1b (relay `data/b558_cp1b.txt`), in line order: the line, the terminal, the sentence quoted, what the compiled fact supports, and the informing work-order where the critical path names one (OPEN_TRAILS :11407). By (R166)(2), no edition i
+    :5      :103 -- `conservation_of_spectra`
+    :6          the sentence: "| n₄ = 0 interfaces | Conservation of Spectra | Tate 1950, Lean-verified |"
+    :7          what the compiled fact supports: calls n4 = 0 via Conservation of Spectra "Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, its conservation reading carried by the name.
+    :8          informing work-order: none named on the critical path
+    :10     :117 -- `h2_sign`
+    :11         the sentence: "**Formal verification:** the Lean 4 kernel verifies the proof's logical structure — the three route terminals at their pins, composing under the named premise `h2` (criterion + verified surround, not end-to-end) — each at zero `sorry` and zero custom axioms."
+    :12         what the compiled fact supports: has the three route terminals compose under h2, and Route 3 composes under `ConservationHypothesis`, RH restated (`ch_iff_rh`), while Routes 1 and 2 are not routes to sigma = 1/2 (b540).
+    :13         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :15     :1006 -- `conservation_of_spectra`
+    :16         the sentence: "Each certification is a completeness result for its stage: n₂ = 3 from Ostrowski's theorem (1916), n₄ = 0 from Conservation of Spectra (Lean-verified), n₃ = 2 from elliptic regularity + Identity Theorem + Cartan B (H¹(ℂ, 𝒪) = 0), n₁ = 2 from specification-access analysis (additive
+    :17         what the compiled fact supports: calls n4 = 0 from Conservation of Spectra "Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, T2.
+    :18         informing work-order: none named on the critical path
+    :20     :1204 -- `conservation_of_spectra`
+    :21         the sentence: "| Conservation of Spectra | This programme | Proved (ZFC), Lean-verified |"
+    :22         what the compiled fact supports: marks Conservation of Spectra "Proved (ZFC), Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, T2.
+    :23         informing work-order: none named on the critical path
+    :25     :1573 -- `ch_iff_rh`
+    :26         the sentence: "Three routes compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own."
+    :27         what the compiled fact supports: says three routes compile independently, Route 3 among them, and Route 3's premise is RH restated (`ch_iff_rh`) -- the phrase E-2026-09-25-1 replaced with "three route terminals".
+    :28         informing work-order: none named on the critical path
+    :30     :1599 -- `ch_iff_rh`
+    :31         the sentence: "**Route 3 — Conservation.** `Bridge/ConservationBridge.lean` defines `ConservationHypothesis` as the proposition that every ξ-zero forces the Euler balance equation at some prime — the Lean expression of the programme's one counted premise (§27.3), stated at the multiplicative pla
+    :32         what the compiled fact supports: presents `ConservationHypothesis` as the programme's one counted premise, open, and `ch_iff_rh` shows it is RH restated, so the premise it names is RH itself.
+    :33         informing work-order: none named on the critical path
+    :35     :1630 -- `ch_iff_rh`
+    :36         the sentence: "| ConservationBridge.lean | Route 3 — RH from Conservation + balance | 0 sorry, 0 axioms |"
+    :37         what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+    :38         informing work-order: none named on the critical path
+    :40     :1653 -- `ch_iff_rh`
+    :41         the sentence: "`ConservationHypothesis` in `ConservationBridge.lean` is the programme's one counted premise (§27.3) — open, and as of kernel v1.3 stated identically in kernel and prose (every ξ-zero forces the Euler balance at some prime)."
+    :42         what the compiled fact supports: presents `ConservationHypothesis` as the programme's one counted premise, open, and `ch_iff_rh` shows it is RH restated, so the premise it names is RH itself.
+    :43         informing work-order: none named on the critical path
+    :45     :1653 -- `ch_iff_rh`
+    :46         the sentence: "The kernel's Route 3 closes the chain from the premise to `RiemannHypothesis` in Lean directly."
+    :47         what the compiled fact supports: says Route 3 closes the chain from the premise to `RiemannHypothesis`, and the premise is RH restated (`ch_iff_rh`), so the chain runs from RH to RH.
+    :48         informing work-order: none named on the critical path
+    :50     :1669 -- `ch_iff_rh`
+    :51         the sentence: "| Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/ConservationBridge.lean` | propext, Classical.choice, Quot.sound |"
+    :52         what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+    :53         informing work-order: none named on the critical path
+    :55     :1669 -- `riemann_hypothesis`
+    :56         the sentence: "| Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/ConservationBridge.lean` | propext, Classical.choice, Quot.sound |"
+    :57         what the compiled fact supports: names the row "Route 3 -- RH from the conservation interface", and the conservation interface is RH restated (`ch_iff_rh`), so the row is RH from RH.
+    :58         informing work-order: none named on the critical path
+    :60     :1708 -- `ch_iff_rh`
+    :61         the sentence: "The method's continuation past the Day-1 kernel — aimed at the Route 3 interface — is reported in §27.3: two statements closed, the third pinned to a goal state and bracketed by a theorem-pair."
+    :62         what the compiled fact supports: reports the method's continuation aimed at the Route 3 interface with a goal state pinned, and that interface is RH restated (`ch_iff_rh`) while the goal state is vacuous on the strip.
+    :63         informing work-order: none named on the critical path
+    :65     :1793 -- `ch_iff_rh`
+    :66         the sentence: "Second: the proposition named `ConservationHypothesis` in the kernel's Route 3 (§25.5, §25.7) — every ξ-zero forces the Euler balance equation at some prime."
+    :67         what the compiled fact supports: gathers `ConservationHypothesis` with the other registers as one premise, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+    :68         informing work-order: none named on the critical path
+    :70     :1808 -- `h2_sign`
+    :71         the sentence: "**What remains, exactly.** The bracket's two obligations are h1 — the per-class constraints of Chapter 15, instantiated at the fixed witness — and h2 — nonvanishing of the transform at the point in question."
+    :72         what the compiled fact supports: names h2 as the nonvanishing of the transform at the point, lv's Mellin clause, false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+    :73         informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :75     :1810 -- `partialPositivity_finiteRange`
+    :76         the sentence: "The fourth register's door stands **ajar**: `partialPositivity_finiteRange` (v0.8.0) certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with the on-line term's nonnegativity proved — a certificate reaching exactly to where discrimination would begin, and no fur
+    :77         what the compiled fact supports: presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit.
+    :78         informing work-order: W-ORD-LI-WEIL-BRIDGE (the Li form made T0; OPEN_TRAILS :11203)
+    :80     :1823 -- `ch_iff_rh`
+    :81         the sentence: "The Lean kernel formalizes three routes to σ = 1/2: the structural route via `Bridge.StructuralExhaustiveness`, the codimension route via the Spectral Cannon chain, and the Conservation route via `ConservationBridge.riemann_hypothesis` taking `ConservationHypothesis` to `RiemannHy
+    :82         what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+    :83         informing work-order: none named on the critical path
+    :85     :1823 -- `ch_iff_rh`
+    :86         the sentence: "The manuscripts prove the mathematics that connects them: Conservation of Spectra from Tate's thesis (Chapter 13) — the certificate that motivates Route 3's hypothesis, which is itself the one open premise of §27.3, not its discharge; exhaustiveness from Ostrowski (Chapter 15), th
+    :87         what the compiled fact supports: calls Route 3's hypothesis the one open premise of §27.3, and it is RH restated (`ch_iff_rh`).
+    :88         informing work-order: none named on the critical path
+    :90     :1823 -- `riemann_hypothesis`
+    :91         the sentence: "The Lean kernel formalizes three routes to σ = 1/2: the structural route via `Bridge.StructuralExhaustiveness`, the codimension route via the Spectral Cannon chain, and the Conservation route via `ConservationBridge.riemann_hypothesis` taking `ConservationHypothesis` to `RiemannHy
+    :92         what the compiled fact supports: counts the terminal as a route to RH or to sigma = 1/2, and its premise is RH restated (`ch_iff_rh`), so it is no route: it formalizes RH => RH.
+    :93         informing work-order: none named on the critical path
+    :95     :1855 -- `conservation_of_spectra`
+    :96         the sentence: "**For n₄ = 0:** Conservation of Spectra, proved from Tate's thesis within ZFC and verified in Lean."
+    :97         what the compiled fact supports: says Conservation of Spectra is "verified in Lean", and the Lean terminal states `(1 : Q) ^ s = 1`, T2.
+    :98         informing work-order: none named on the critical path
+    :100    :1934 -- `conservation_of_spectra`
+    :101        the sentence: "| 1 | s-Darkness of product formula | Conservation of Spectra | Proved (ZFC), Lean-verified |"
+    :102        what the compiled fact supports: marks the s-darkness of the product formula "Proved (ZFC), Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, T2 (b543 read the row STANDS against the RH-anchor, not against this terminal).
+    :103        informing work-order: none named on the critical path
+    :105    :2224 -- `ch_iff_rh`
+    :106        the sentence: "The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation
+    :107        what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+    :108        informing work-order: none named on the critical path
+    :110    :2224 -- `conservation_of_spectra`
+    :111        the sentence: "The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation
+    :112        what the compiled fact supports: calls Route 3 "Conservation of Spectra via `ConservationBridge.riemann_hypothesis`", compiled with no unproved assertion, and that terminal compiles RH from a premise that is RH restated; the conservation terminal is not in it.
+    :113        informing work-order: none named on the critical path
+    :115    :2224 -- `riemann_hypothesis`
+    :116        the sentence: "The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation
+    :117        what the compiled fact supports: counts the terminal as a route to RH or to sigma = 1/2, and its premise is RH restated (`ch_iff_rh`), so it is no route: it formalizes RH => RH.
+    :118        informing work-order: none named on the critical path
+    :120    :2225 -- `ch_iff_rh`
+    :121        the sentence: "The five registers of the single premise the proof routes through — the universality hypothesis of `silence_universal`, the ConservationHypothesis of Route 3, the totality of realization through places, the balance-to-positivity distance at the multiplicative place, and the spectr
+    :122        what the compiled fact supports: gathers `ConservationHypothesis` with the other registers as one premise, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+    :123        informing work-order: none named on the critical path
+    :125    :2225 -- `silence_universal`
+    :126        the sentence: "The five registers of the single premise the proof routes through — the universality hypothesis of `silence_universal`, the ConservationHypothesis of Route 3, the totality of realization through places, the balance-to-positivity distance at the multiplicative place, and the spectr
+    :127        what the compiled fact supports: gathers the universality hypothesis of `silence_universal` with the other registers as one premise, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+    :128        informing work-order: none named on the critical path
+    :130    :2233 -- `ch_iff_rh`
+    :131        the sentence: "**Third**, they verify that the conservation interface yields the same conclusion — Route 3."
+    :132        what the compiled fact supports: says the kernel verifies that the conservation interface yields the same conclusion, and that interface is RH restated (`ch_iff_rh`), so the conclusion is its premise.
+    :133        informing work-order: none named on the critical path
+    :135    :2235 -- `h2_sign`
+    :136        the sentence: "**The machine checks the reduction; the premise stays open.**"
+    :137        what the compiled fact supports: says the machine checks the reduction, and the terminal checked is `ConservationBridge.riemann_hypothesis`, whose premise is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`.
+    :138        informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :140    :2237 -- `h2_sign`
+    :141        the sentence: "> ### **THE `h2` REGISTER, VERBATIM:** ### ***Supportable: RH reduced to a single located clause, reduction machine-verified."
+    :142        what the compiled fact supports: calls the reduction of RH to h2 compiled or machine-verified through `ConservationBridge.riemann_hypothesis`, whose premise `ConservationHypothesis` is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`, in the Weil form.
+    :143        informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :145    :2243 -- `ch_iff_rh`
+    :146        the sentence: "| Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |"
+    :147        what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+    :148        informing work-order: none named on the critical path
+    :150    :2243 -- `riemann_hypothesis`
+    :151        the sentence: "| Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |"
+    :152        what the compiled fact supports: names the row "Route 3 -- RH from the conservation interface", graded COMPILED, and the conservation interface is RH restated (`ch_iff_rh`).
+    :153        informing work-order: none named on the critical path
+    :155    :2250 -- `h2_sign`
+    :156        the sentence: "| ### **`h2`, the one open premise** | ### **NONE — no kernel discharges it** | — | — | ### **MANUSCRIPT-RESIDENT** — §27.3, five registers | ### **read §27.3; there is no terminal to point at, and that is the honest state** |"
+    :157        what the compiled fact supports: says there is no terminal to point at for h2, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (b536).
+    :158        informing work-order: W-ORD-DETECTION-REGION (positivity of h2_sign on bounded windows against an explicit zero-free region; OPEN_TRAILS :11151)
+    :160    ### 31 sentence-rows (23 distinct lines).
+### relay data/b607_edition_PLACE.txt: the whole-document figure (the ceiling by kind, the scanner, the 154 by line) -- data/b607_edition_PLACE.txt @ e73212a5 (157 lines cited, of 2895)
+    :2592   ### THE CEILING, every hit in the edition, by kind: {'act one`s': 18, 'beyond (act three`s)': 154, 'record': 93, 'scope, carried': 23}
+    :2593       :35 (v5.14 :34) "proved" -- beyond (act three`s)
+    :2594       :37 (v5.14 :36) "proof" -- beyond (act three`s)
+    :2595       :41 (v5.14 :40) "proof" -- beyond (act three`s)
+    :2596       :41 (v5.14 :40) "proved" -- beyond (act three`s)
+    :2597       :41 (v5.14 :40) "proof" -- beyond (act three`s)
+    :2598       :49 (v5.14 :48) "proof" -- beyond (act three`s)
+    :2599       :49 (v5.14 :48) "proof" -- beyond (act three`s)
+    :2600       :49 (v5.14 :48) "proof" -- beyond (act three`s)
+    :2601       :62 (v5.14 :61) "proof" -- beyond (act three`s)
+    :2605       :102 (v5.14 :101) "proved" -- beyond (act three`s)
+    :2606       :103 (v5.14 :102) "proved" -- beyond (act three`s)
+    :2607       :117 (v5.14 :116) "proof" -- beyond (act three`s)
+    :2608       :127 (v5.14 :126) "proof" -- beyond (act three`s)
+    :2609       :165 (v5.14 :164) "proves" -- beyond (act three`s)
+    :2610       :205 (v5.14 :204) "proof" -- beyond (act three`s)
+    :2611       :226 (v5.14 :225) "proved" -- beyond (act three`s)
+    :2612       :237 (v5.14 :236) "proof" -- beyond (act three`s)
+    :2613       :245 (v5.14 :244) "proved" -- beyond (act three`s)
+    :2614       :304 (v5.14 :303) "proved" -- beyond (act three`s)
+    :2615       :316 (v5.14 :315) "proved" -- beyond (act three`s)
+    :2616       :358 (v5.14 :357) "proved" -- beyond (act three`s)
+    :2617       :409 (v5.14 :408) "proof" -- beyond (act three`s)
+    :2618       :415 (v5.14 :414) "proof" -- beyond (act three`s)
+    :2619       :415 (v5.14 :414) "proof" -- beyond (act three`s)
+    :2620       :415 (v5.14 :414) "proof" -- beyond (act three`s)
+    :2621       :448 (v5.14 :447) "proof" -- beyond (act three`s)
+    :2622       :448 (v5.14 :447) "proof" -- beyond (act three`s)
+    :2623       :450 (v5.14 :449) "proof" -- beyond (act three`s)
+    :2624       :450 (v5.14 :449) "proof" -- beyond (act three`s)
+    :2625       :493 (v5.14 :492) "proves" -- beyond (act three`s)
+    :2626       :531 (v5.14 :530) "proved" -- beyond (act three`s)
+    :2627       :533 (v5.14 :532) "proved" -- beyond (act three`s)
+    :2628       :562 (v5.14 :561) "prove" -- beyond (act three`s)
+    :2629       :562 (v5.14 :561) "proof" -- beyond (act three`s)
+    :2630       :586 (v5.14 :585) "proved" -- beyond (act three`s)
+    :2631       :619 (v5.14 :618) "proof" -- beyond (act three`s)
+    :2632       :619 (v5.14 :618) "prove" -- beyond (act three`s)
+    :2633       :629 (v5.14 :628) "proof" -- beyond (act three`s)
+    :2634       :633 (v5.14 :632) "prove" -- beyond (act three`s)
+    :2635       :647 (v5.14 :646) "proved" -- beyond (act three`s)
+    :2636       :673 (v5.14 :672) "proved" -- beyond (act three`s)
+    :2637       :673 (v5.14 :672) "proved" -- beyond (act three`s)
+    :2638       :681 (v5.14 :680) "proof" -- beyond (act three`s)
+    :2639       :722 (v5.14 :721) "proof" -- beyond (act three`s)
+    :2640       :722 (v5.14 :721) "proved" -- beyond (act three`s)
+    :2641       :767 (v5.14 :766) "proved" -- beyond (act three`s)
+    :2642       :771 (v5.14 :770) "proved" -- beyond (act three`s)
+    :2643       :793 (v5.14 :792) "proves" -- beyond (act three`s)
+    :2644       :799 (v5.14 :798) "proved" -- beyond (act three`s)
+    :2648       :829 (v5.14 :828) "proof" -- beyond (act three`s)
+    :2649       :835 (v5.14 :834) "proves" -- beyond (act three`s)
+    :2650       :835 (v5.14 :834) "proves" -- beyond (act three`s)
+    :2651       :835 (v5.14 :834) "prove" -- beyond (act three`s)
+    :2652       :853 (v5.14 :852) "proved" -- beyond (act three`s)
+    :2653       :897 (v5.14 :896) "proves" -- beyond (act three`s)
+    :2654       :909 (v5.14 :908) "proved" -- beyond (act three`s)
+    :2655       :917 (v5.14 :916) "proved" -- beyond (act three`s)
+    :2656       :929 (v5.14 :928) "proves" -- beyond (act three`s)
+    :2657       :955 (v5.14 :954) "proved" -- beyond (act three`s)
+    :2658       :995 (v5.14 :994) "proves" -- beyond (act three`s)
+    :2659       :995 (v5.14 :994) "proves" -- beyond (act three`s)
+    :2660       :995 (v5.14 :994) "proved" -- beyond (act three`s)
+    :2661       :1003 (v5.14 :1002) "proved" -- beyond (act three`s)
+    :2662       :1005 (v5.14 :1004) "proved" -- beyond (act three`s)
+    :2663       :1006 (v5.14 :1005) "proved" -- beyond (act three`s)
+    :2664       :1131 (v5.14 :1130) "proved" -- beyond (act three`s)
+    :2665       :1170 (v5.14 :1169) "proved" -- beyond (act three`s)
+    :2666       :1170 (v5.14 :1169) "proof" -- beyond (act three`s)
+    :2667       :1176 (v5.14 :1175) "proof" -- beyond (act three`s)
+    :2668       :1212 (v5.14 :1211) "proof" -- beyond (act three`s)
+    :2669       :1216 (v5.14 :1215) "proof" -- beyond (act three`s)
+    :2670       :1216 (v5.14 :1215) "prove" -- beyond (act three`s)
+    :2671       :1220 (v5.14 :1219) "proof" -- beyond (act three`s)
+    :2672       :1230 (v5.14 :1229) "proved" -- beyond (act three`s)
+    :2673       :1230 (v5.14 :1229) "proof" -- beyond (act three`s)
+    :2675       :1296 (v5.14 :1295) "proves" -- beyond (act three`s)
+    :2678       :1311 (v5.14 :1310) "proof" -- beyond (act three`s)
+    :2679       :1313 (v5.14 :1312) "proved" -- beyond (act three`s)
+    :2680       :1313 (v5.14 :1312) "proved" -- beyond (act three`s)
+    :2685       :1453 (v5.14 :1452) "proof" -- beyond (act three`s)
+    :2686       :1469 (v5.14 :1468) "proved" -- beyond (act three`s)
+    :2689       :1521 (v5.14 :1518) "proved" -- beyond (act three`s)
+    :2690       :1528 (v5.14 :1525) "proof" -- beyond (act three`s)
+    :2691       :1528 (v5.14 :1525) "proof" -- beyond (act three`s)
+    :2692       :1528 (v5.14 :1525) "proof" -- beyond (act three`s)
+    :2693       :1532 (v5.14 :1529) "proof" -- beyond (act three`s)
+    :2694       :1532 (v5.14 :1529) "proof" -- beyond (act three`s)
+    :2695       :1536 (v5.14 :1533) "proved" -- beyond (act three`s)
+    :2697       :1550 (v5.14 :1547) "proves" -- beyond (act three`s)
+    :2701       :1575 (v5.14 :1572) "proof" -- beyond (act three`s)
+    :2702       :1575 (v5.14 :1572) "proved" -- beyond (act three`s)
+    :2703       :1575 (v5.14 :1572) "proved" -- beyond (act three`s)
+    :2704       :1575 (v5.14 :1572) "proof" -- beyond (act three`s)
+    :2705       :1575 (v5.14 :1572) "proof" -- beyond (act three`s)
+    :2706       :1577 (v5.14 :1574) "proof" -- beyond (act three`s)
+    :2707       :1587 (v5.14 :1584) "proved" -- beyond (act three`s)
+    :2708       :1593 (v5.14 :1590) "proved" -- beyond (act three`s)
+    :2711       :1633 (v5.14 :1630) "proved" -- beyond (act three`s)
+    :2712       :1645 (v5.14 :1642) "proved" -- beyond (act three`s)
+    :2713       :1655 (v5.14 :1652) "proof" -- beyond (act three`s)
+    :2714       :1683 (v5.14 :1680) "proved" -- beyond (act three`s)
+    :2715       :1693 (v5.14 :1690) "proof" -- beyond (act three`s)
+    :2716       :1693 (v5.14 :1690) "proves" -- beyond (act three`s)
+    :2717       :1706 (v5.14 :1703) "proof" -- beyond (act three`s)
+    :2721       :1749 (v5.14 :1746) "proof" -- beyond (act three`s)
+    :2722       :1757 (v5.14 :1754) "proof" -- beyond (act three`s)
+    :2723       :1759 (v5.14 :1756) "proof" -- beyond (act three`s)
+    :2724       :1759 (v5.14 :1756) "proof" -- beyond (act three`s)
+    :2725       :1767 (v5.14 :1764) "proof" -- beyond (act three`s)
+    :2726       :1767 (v5.14 :1764) "proof" -- beyond (act three`s)
+    :2727       :1769 (v5.14 :1766) "proof" -- beyond (act three`s)
+    :2728       :1771 (v5.14 :1768) "proved" -- beyond (act three`s)
+    :2729       :1779 (v5.14 :1776) "proof" -- beyond (act three`s)
+    :2730       :1781 (v5.14 :1778) "proved" -- beyond (act three`s)
+    :2731       :1789 (v5.14 :1786) "proof" -- beyond (act three`s)
+    :2732       :1789 (v5.14 :1786) "proof" -- beyond (act three`s)
+    :2750       :1837 (v5.14 :1834) "proved" -- beyond (act three`s)
+    :2751       :1839 (v5.14 :1836) "proof" -- beyond (act three`s)
+    :2752       :1855 (v5.14 :1852) "proof" -- beyond (act three`s)
+    :2753       :1863 (v5.14 :1860) "proved" -- beyond (act three`s)
+    :2754       :1873 (v5.14 :1870) "proof" -- beyond (act three`s)
+    :2755       :1884 (v5.14 :1881) "proved" -- beyond (act three`s)
+    :2756       :1892 (v5.14 :1889) "proof" -- beyond (act three`s)
+    :2757       :1894 (v5.14 :1891) "proof" -- beyond (act three`s)
+    :2758       :1894 (v5.14 :1891) "proved" -- beyond (act three`s)
+    :2759       :1894 (v5.14 :1891) "proof" -- beyond (act three`s)
+    :2760       :1908 (v5.14 :1905) "proved" -- beyond (act three`s)
+    :2761       :1912 (v5.14 :1909) "proof" -- beyond (act three`s)
+    :2762       :1912 (v5.14 :1909) "proof" -- beyond (act three`s)
+    :2763       :1912 (v5.14 :1909) "proof" -- beyond (act three`s)
+    :2764       :1922 (v5.14 :1919) "proof" -- beyond (act three`s)
+    :2765       :1965 (v5.14 :1962) "proved" -- beyond (act three`s)
+    :2766       :1993 (v5.14 :1990) "proof" -- beyond (act three`s)
+    :2767       :2061 (v5.14 :2058) "proof" -- beyond (act three`s)
+    :2768       :2063 (v5.14 :2060) "proof" -- beyond (act three`s)
+    :2769       :2133 (v5.14 :2130) "proof" -- beyond (act three`s)
+    :2770       :2173 (v5.14 :2170) "proof" -- beyond (act three`s)
+    :2771       :2193 (v5.14 :2190) "proof" -- beyond (act three`s)
+    :2772       :2193 (v5.14 :2190) "end-to-end" -- beyond (act three`s)
+    :2773       :2193 (v5.14 :2190) "proved" -- beyond (act three`s)
+    :2774       :2195 (v5.14 :2192) "proof" -- beyond (act three`s)
+    :2775       :2197 (v5.14 :2194) "proved" -- beyond (act three`s)
+    :2776       :2199 (v5.14 :2196) "proof" -- beyond (act three`s)
+    :2777       :2203 (v5.14 :2200) "proved" -- beyond (act three`s)
+    :2778       :2203 (v5.14 :2200) "proof" -- beyond (act three`s)
+    :2779       :2203 (v5.14 :2200) "proof" -- beyond (act three`s)
+    :2780       :2203 (v5.14 :2200) "proof" -- beyond (act three`s)
+    :2781       :2224 (v5.14 :2221) "proof" -- beyond (act three`s)
+    :2782       :2227 (v5.14 :2224) "proof" -- beyond (act three`s)
+    :2783       :2228 (v5.14 :2225) "proof" -- beyond (act three`s)
+    :2784       :2231 (v5.14 :2228) "proof" -- beyond (act three`s)
+    :2785       :2231 (v5.14 :2228) "proof" -- beyond (act three`s)
+    :2786       :2234 (v5.14 :2231) "proof" -- beyond (act three`s)
+    :2787       :2235 (v5.14 :2232) "proves" -- beyond (act three`s)
+    :2881   ### THE SCANNER (banned_terms.py --new) on the edition: on scope, live uses 0 [] ; whole, live uses 1 at [722], verdict NOT CLEAN
+    :2882   ### THE WHOLE-DOCUMENT FIGURE, HANDED TO ACT THREE: 154 ceiling hits beyond the sentences acts one and two read, and 1 live stem(s) (the scanner) -- b606 handed 171 and 1; this scope held 17 of the 17
+### the ζ page at its own pin v0.20: its pin line and the nodes this act cites -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 0800a6a7 (5 lines cited, of 195)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b602_nodes_zeta.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-exp
+    :11     7. `SIDEExplicitFormula.B321.ch_iff_rh` — SIDEExplicitFormula/H2Bridge.lean:71 — v0.1 = baed4df — `theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (tabl
+    :12     8. `SIDEExplicitFormula.B321.h2_sign_iff_rh` — SIDEExplicitFormula/Seam.lean:101 — v0.2 = 5c72cad — `theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none)
+    :45     41. `SIDEExplicitFormula.Simplicity.simplicity_iff` — SIDEExplicitFormula/Simplicity.lean:34 — v0.17 = 5a1630b — `theorem SIDEExplicitFormula.Simplicity.simplicity_iff : SIDEExplicitFormula.Simplicity.simplicity ↔ ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → Zeta23.
+    :56     52. `SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity` — SIDEExplicitFormula/Doubling.lean:73 — v0.19 = 5fc0c87 — `theorem SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity : ¬SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity` — premi
+### the χ page at v0.21: its pin line and h2_sign_chi_iff_grh_chi -- THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md @ 0800a6a7 (2 lines cited, of 100)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b603_nodes_chi.txt`: the compiled chain from `GRH_chi` to the ceiling's successor sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-for
+    :16     12. `SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi` — SIDEExplicitFormula/Chi/CriterionConverse.lean:270 — v0.14 = 4dce7b9 — `theorem SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi : ∀ {N : ℕ} [inst : NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrim
+### the ζ page searched for a SIDE-kernel node (§25.8`s seven): none -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 0800a6a7 (0 lines cited, of 195)
+### the χ page searched for a SIDE-kernel node: none -- THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md @ 0800a6a7 (0 lines cited, of 100)
+### SIDE-kernel at v1.3: §25.8`s seven theorems -- Bridge/TheBridgeComplete.lean @ 0bc21c06 (1 lines cited, of 208)
+    :188    theorem structural_exhaustiveness_proved :
+### SIDE-kernel at v1.5: TheBridgeComplete.lean (no namespace; structural_exhaustiveness_proved) -- Bridge/TheBridgeComplete.lean @ 0e5233f0 (2 lines cited, of 269)
+    :14     open Complex
+    :249    theorem structural_exhaustiveness_proved :
+### SIDE-kernel at v1.5: ConservationBridge.lean (its namespace, its conditional structural_exhaustiveness_proved, riemann_hypothesis) -- Bridge/ConservationBridge.lean @ 0e5233f0 (6 lines cited, of 57)
+    :7      namespace ConservationBridge
+    :46     theorem structural_exhaustiveness_proved
+    :47         (h_cons : ConservationHypothesis) : StructuralExhaustiveness := by
+    :53     theorem riemann_hypothesis
+    :54         (h_cons : ConservationHypothesis) : RiemannHypothesis :=
+    :57     end ConservationBridge
+### SIDE-kernel at v1.5: spectral_cannon -- Kernel/SpectralCannonFull.lean @ 0e5233f0 (2 lines cited, of 76)
+    :11     namespace SpectralCannonFull
+    :65     theorem spectral_cannon (t : ℝ) :
+### SIDE-kernel at v1.5: the Integration theorems -- Kernel/Integration.lean @ 0e5233f0 (3 lines cited, of 327)
+    :55     namespace techne_kernel_integration
+    :221    theorem rh_from_structural_exhaustiveness
+    :252    theorem structural_exhaustiveness_iff_rh :
+### SIDE-kernel at v1.5: formation -- Kernel/Core.lean @ 0e5233f0 (2 lines cited, of 55)
+    :16     namespace SIDEKernel
+    :53     theorem formation : 2 + 3 + 2 + 0 = 7 := by decide
+### SIDE-kernel at v1.5: all_pairs_excluded -- Bridge/CrossClassExclusion.lean @ 0e5233f0 (2 lines cited, of 84)
+    :27     namespace techne_kernel_cross_exclusion
+    :80     theorem all_pairs_excluded :
+### SIDE-kernel at v1.5: conservation_of_spectra -- Kernel/ProductFormula_Rat.lean @ 0e5233f0 (2 lines cited, of 105)
+    :72     theorem conservation_of_spectra :
+    :73         ∀ (s : Int), (1 : Rat) ^ s = 1 :=
+### relay data/terminal_table.json at relay HEAD: the rows of §25.8`s seven and conservation_of_spectra (pin, present_at, statement file) -- data/terminal_table.json @ e73212a5 (9 rows)
+    ConservationBridge.riemann_hypothesis                          pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Bridge/ConservationBridge.lean ; head 0256e9e
+    ConservationBridge.structural_exhaustiveness_proved            pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Bridge/ConservationBridge.lean ; head 0256e9e
+    SIDEKernel.formation                                           pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Kernel/Core.lean ; head 0256e9e
+    SpectralCannonFull.spectral_cannon                             pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Kernel/SpectralCannonFull.lean ; head 0256e9e
+    conservation_of_spectra                                        pin v1.5 = 0e5233f ; present_at ['v1.5'] ; statement_file Kernel/ProductFormula_Rat.lean ; head 0256e9e
+    structural_exhaustiveness_proved                               pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Bridge/ConservationBridge.lean ; head 0256e9e
+    techne_kernel_cross_exclusion.all_pairs_excluded               pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Bridge/CrossClassExclusion.lean ; head 0256e9e
+    techne_kernel_integration.rh_from_structural_exhaustiveness    pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Kernel/Integration.lean ; head 0256e9e
+    techne_kernel_integration.structural_exhaustiveness_iff_rh     pin v1.5 = 0e5233f ; present_at ['HEAD', 'v1.5'] ; statement_file Kernel/Integration.lean ; head 0256e9e
+### tools/banned_terms.py: the exception reading (the back-matter tag, the carried-by-history and name rows, the window) -- tools/banned_terms.py @ e73212a5 (9 lines cited, of 407)
+    :64     STEMS = ['gap', 'blind']
+    :73         (re.compile(r'retired|superseded|correction record|corrected in place|CORRECTED IN PLACE|'
+    :112    WINDOW = 40
+    :226    BM_TAG = re.compile(r'^<!-- b\d+ \(R\d+\) .*BACK MATTER')
+    :227    BM_ROW = re.compile(r'^\|\s*:(\d+)\s*\|')
+    :228    BM_HISTORY = re.compile(r':(\d+), carried-by-history')
+    :235        ### lists: a row `| :n | ...` carrying "excepted" with "name" or "title" excepts line n as a
+    :236        ### name or title; a row carrying `:n, carried-by-history` excepts line n as carried by history.
+    :248            if m and 'excepted' in l.lower() and ('name' in l.lower() or 'title' in l.lower()):
+### OPEN_TRAILS: the form, the stem, ceiling, history, name-and-title, fact and restatement clauses, the era line, the precedence order, the author`s exhaustiveness reading, b605`s record, the multi-act clause and b607`s record -- OPEN_TRAILS.md @ 0800a6a7 (18 lines cited, of 12516)
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and its CP-1b work-list, the page its objects sit on as its spine; STANDS sentences carried unchanged; MOVED-IN-MEANING sentences rewritten to say what the compiled fact says, citing the declaration by name and pin as the page prints it; CREDIT lines inserted where the work-list places them; a marked sent
+    :11904  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(3), to the form of an edition (:11864) -- THE STEM CLAUSE, STANDING:* a banned stem in a sentence the work-list does not mark is replaced by the object the sentence names (not a synonym for the stem), the sentence otherwise unchanged, each listed in the back matter with line and both wordings; H28c is scored on the edition’s text.
+    :11906  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem clause -- THE CEILING CLAUSE:* a sentence the work-list does not mark that speaks beyond the README ceiling (README :106-:121) takes the object it names, the rest of the sentence unchanged, each listed in the back matter as a ceiling correction with line and both wordings; H28c is scored on the edition’s text. Applied at b579 to FOUNDATIONS_OF_THE_SIDE_PROGRAMME :109, :127 and :477 (“the programme’s RH argument”) and :563 (“RH-core”, as its :621 names it); the navigator’s reading, recorded at b579’s record.
+    :11908  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem and ceiling clauses -- THE HISTORY CLAUSE:* dated history entries are superseded beneath, not rewritten: a marked sentence in a dated history entry carries unchanged as a dated record, and the next version’s history line directly beneath it states what the compiled fact says, citing it; the row is resolved as MOVED-IN-MEANING by that line, and the line is counted under H28b as a ruled citation. Applied at b579 to FOUNDATIONS_OF_THE_SIDE_PROGRAMME :653 (the v0.2.4 entry).
+    :11930  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(2), to the form of an edition (:11864) -- H28b, FINAL FORM FOR EVERY EDITION ACT:* the body sentence count differs from the current version’s by at most the CREDIT count, the removals, the citations a ruling orders, and one version line; the back matter excluded and counted beside.
+    :11932  *Appended 2026-10-01 by b580, under the author’s ruling `(R190)`(3), to the form of an edition (:11864) -- THE RE-PIN STEP, THE FORM’S LAST:* after every insertion the edition’s own Correspondence column and the act’s diff bank are re-read against the final file and cite its final lines; the bank states the offset from the current version once at its head. Run at b580 on PATHS v0.7, whose column moved by +2 on every cited line after :19 (relay `data/b580_repin.txt`), its diff bank headed “+2 from :19”; FOUNDATIONS v0.2.5’s column read the same way, unmoved.
+    :11934  *Appended 2026-10-01 by b580, under the author’s answer before b580’s seal, to the form of an edition (:11864), beside the stem, ceiling and history clauses -- THE NAME-AND-TITLE EXCEPTION:* an object’s own name and a bibliography title are not live uses (relay `tools/banned_terms.py` :14, “CLAY / BIBLIOGRAPHY CITATIONS”, an exception the tool names part of the rule); each such use carries unchanged, is listed in the back matter with its line, and is printed as excepted when H28c is scored. Applied at b580 to ADDITIVE_MULTIPLICATIVE_CONSPIRACY :231 (the object’s own name) and :388, :396 (two published titles).
+    :11954  *Appended 2026-10-01 by b581, under the author’s ruling `(R191)`(2), to the form of an edition (:11864) -- THE FACT CLAUSE, STANDING:* an unmarked sentence that states a fact the seat’s printed read contradicts -- a pin, a toolchain, a count, an import -- is corrected in place to the printed fact, the fact’s source printed beside it in the diff bank, and the correction listed in the back matter with line and both wordings; the sentence is otherwise unchanged. Applied at b581 to ADDITIVE_MULTIPLICATIVE_CONSPIRACY v0.2.4 :293 and :366 (relay `data/b581_amc_fact.txt`), and read over THE_UNCONDITIONAL_SURROUND’s pins (relay `data/b581_reads.txt`).
+    :12072  **A reading on the ceiling clause, the author’s:** the pair “census proved / exhaustiveness open” -- Ostrowski’s theorem closes the place count (n₂ = 3), while the catalogue’s exhaustiveness at the ξ interface is the open premise `h2`, as ENUMERA’s claim-status note at its :18-:21 states; entered here “since the same shape will recur in EXHAUSTIVENESS_LICENSE next”.
+    :12082  *Appended 2026-10-01 by b587 to the name-and-title exception (:11934), under the author’s ruling `(R197)`(2) -- AN ITEM NAME OF A CITED PROGRAMME DOCUMENT:* the exception gains the clause “an item name of a cited programme document”: such a name carries unchanged in an edition that cites the document, listed in the back matter with one line saying the name is that document’s and is renamed at its own edition if it has one. Applied at b586 to ENUMERA v1.6’s seven CR item names (their line appended at b587).
+    :12190  *Appended 2026-10-02 by b592, under the author’s answer before b592’s seal, to the form of an edition (:11864) -- THE PAGE CLAUSE:* an edition act regenerates every page whose Placement it changes as its last housekeeping commit before the suite, so that the page arms read clean at every closing. Applied first at b592: THE_RESIDUE_OF_RH v1.2 names nodes of both pages, and each page was re-emitted after the edition commit and committed alone (relay data/b592_page_runs_c2.txt).
+    :12192  *Appended 2026-10-02 by b592, under the author’s answer before b592’s seal, to the form of an edition (:11864) -- THE RESTATEMENT CLAUSE:* a marked row’s reading extends to the unmarked sentences of the same edition that restate the same claim; each is rewritten with minimal substitution, the rest unchanged, listed in the back matter with both wordings, and counted under H28b with the ruling’s rewrites. Applied first at b592 to THE_RESIDUE_OF_RH v1.1 :79 (two sentences) and :88, beside the §7 sentence of `(R202)`(4) at :77.
+    :12194  *Appended 2026-10-02 by b592 to the history clause’s dated-entry line (:12044), under the author’s answer before b592’s seal -- AN ERA ANNOTATION IS A DATED ENTRY:* an era annotation is a dated history entry under the line above; a banned stem inside one is carried as the dated record with a history line beneath it. Applied first at b592 to THE_RESIDUE_OF_RH v1.1 :134 (the annotation of 2026-08-12 on the correspondence standard) and :152 (the era annotation of 2026-08-12 on the residue’s statement).
+    :12228  *Appended 2026-10-02 by b594, under the author’s ruling `(R204)`(2), to the form of an edition (:11864) -- THE PRECEDENCE ORDER:* where two clauses of the form meet on one sentence, the history clause governs, then the name-and-title exception, then the stem clause, then the ceiling clause, then the fact clause, then the restatement clause, each applying to what the earlier ones leave; the seat resolves the collision by that order without a prompt, lists every resolved collision in the back matter with the clauses named and both wordings, and the author strikes at the closing. A prompt is reserved for a sentence no clause reaches, a write outside the corpus, and anything irreversible. Applie
+    :12458  ### b605 — lane three, act thirty-two under (R215): the sieve table at v0.3 -- the verdict column re-read with NOT A ROUTE as a third verdict and the faces of one clause under one verdict
+    :12496  *Appended 2026-10-03 by b607, under the author’s ruling `(R217)`(2), to the form of an edition (:11864) -- A CLAUSE OF THE FORM FOR MULTI-ACT EDITIONS:* where a document’s next versions are written over several acts under a plan on the trails, H28c’s scanner and any hypothesis bound on the whole body are scored on the act’s own scope -- the sentences its work-list names -- with the whole-document figure printed beside the score; the whole-document figure is the bound for the plan’s final act, and each act’s record carries the figure it hands the next. b606’s H28c, H40c and N4 are re-read under this clause as HELD on scope, REFUTED in letter, both printed (FINDINGS, b607’s weight line for b60
+    :12498  ### b607 — lane three, act thirty-four under (R217): CP-8 act two -- chapters 21 and 22, §24.4 and §27.3 of the monograph read against the compiled faces, the doubling corollary and the sieve
+    :12500  **(R217) ratified.** (1) b606 at its weight, its three letter-refutations re-read under (2). (2) The multi-act clause. (3) ERRATA’s pointer rule. (4) CP-8 act two: chapters 21 and 22, §24.4 and §27.3; H41a-H41d. (5) The act after: b608, CP-8 act three.
+### FINDINGS: b607`s record lines and entry -- FINDINGS.md @ 0800a6a7 (3 lines cited, of 7152)
+    :7128   *Appended 2026-10-03 by b607 to b606’s entry (:7108), under `(R217)`(1) -- b606 AT ITS WEIGHT:* PLACE-papers `day1/A_Place_to_Stand_v5_14.md` (137985c) beside v5.13 unedited, the pages re-emitted each alone (f2a9cec, 64102d2), the record 2988bfa: the eleven uses re-derived by b584’s classifier at th
+    :7130   *Appended 2026-10-03 by b607 to b606’s entry (:7108), under `(R217)`(1) -- TWO FACT CORRECTIONS, THE NAVIGATOR’S:* the pages’ pins crossed in `(R216)`’s ferry -- the ζ page stands at its own pin v0.20 and the χ page at v0.21, as their pin lines read; and “v6” in the navigator’s earlier prose -- the 
+    :7132   ## CP-8, act two: the monograph’s v5.15 over chapters 21–22, §24.4 and §27.3 — simplicity as the second located clause, the convergence table carrying the sieve’s verdicts where the sieve rows them, the registers re-read at the pages’ pins
+### README: the ceiling and its rewordings -- README.md @ 0800a6a7 (4 lines cited, of 182)
+    :106    Supportable: *RH reduced to a single located clause, reduction machine-verified.*
+    :107    Not supportable: *RH proved.* The open clause is a premise of the multiplicative
+    :113    *(Reworded under the author's ruling `(R145)`(2), 2026-09-25, b535, beside the sentence above, which stays: that sentence is supportable only with the clause named as `h2_sign` and the two lines below beside it.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to RH on the kernel's 
+    :115    *(Reworded under the author's ruling `(R146)`(2), 2026-09-25, b536, beside the `(R145)`(2) sentence above, which stays: the seam compiled.)* Supportable: *Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh,
+### ERRATA: E-2026-09-25-1, E-2026-09-25-5 (E5-01, E5-05, E5-11) and E-2026-09-25-6 (E6-11), as cited -- ERRATA.md @ 0800a6a7 (8 lines cited, of 839)
+    :486    ## E-2026-09-25-1 — The deposited kernel's Route 3 premise is equivalent to RH by a ten-line lemma the kernel itself contains (DEPOSIT-FACING; RETAINED AT MONOGRAPH v1.1.2 AND SIDE-kernel v1.5) — DRAFT, NOT FILED
+    :617    ## E-2026-09-25-5 — The deposited monograph, read against the RH-anchor to §25.8: sentences that count Route 3 as a route, name terminals and a file no kernel holds, or read the registers and the perpendicular crossing past their compiled statements (DEPOSIT-F
+    :629    - **A_Place_to_Stand.md:58 at v1.1.2, live :68** (## How to Read This Work): *"The Lean kernel provides machine-checked redundancy, not necessity."*
+    :631      - replacement: *"The Lean kernel provides machine-checked companions to the argument's surround -- its route terminals, one of which (Route 3) is the implication from a premise that is RH restated (ch_iff_rh) -- not a second, redundant proof."*
+    :641    - **A_Place_to_Stand.md:1347 at v1.1.2, live :1349** (## 22.1 Perpendicular Crossing): *"This result is formally verified in Lean 4 as spectral_cannon: Re(ξ'(1/2 + it)) = 0 for all real t, compiled against Mathlib with zero sorry."*
+    :643      - replacement: *"This result is formally verified in Lean 4 as spectral_cannon: (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 for all real t -- the derivative of Mathlib's completedRiemannZeta₀, the entire part of the completed zeta -- compiled against Mathl
+    :735    - **LIVE-SOLE, not in the deposit (corpus-facing), live :2233** (## Correspondence *(added 2026-08-12, W-CONSOLIDATION act 5 ): *"First, they verify that the list is complete and that no item on it produces an off-line zero — that is Route 1."*
+    :737      - replacement: *"First, they verify the catalogue's count and, for each class, algebra showing that its stated constraint on a real σ forces σ = 1/2; the step from a zero of ξ to that constraint is not compiled (b542) -- that is Route 1."*
+### relay data/b558_cp1b.txt: the CP-1b rows this act cites -- data/b558_cp1b.txt @ e73212a5 (7 lines cited, of 873)
+    :278    partialPositivity_finiteRange | R_CURVE_CRITERION | :406 | MOVED-IN-MEANING | "A first compiled down-payment on exactly this dominance question is now on record: finite-range Li positivity, $\lambda_n \geq 0$ for $1 \leq n \leq N_0(T) \appr
+    :513    conservation_of_spectra | A_Place_to_Stand | :103 | MOVED-IN-MEANING | "| n₄ = 0 interfaces | Conservation of Spectra | Tate 1950, Lean-verified |" | calls n4 = 0 via Conservation of Spectra "Lean-verified", and the Lean terminal states `(1
+    :526    conservation_of_spectra | A_Place_to_Stand | :1006 | MOVED-IN-MEANING | "Each certification is a completeness result for its stage: n₂ = 3 from Ostrowski's theorem (1916), n₄ = 0 from Conservation of Spectra (Lean-verified), n₃ = 2 from ell
+    :529    conservation_of_spectra | A_Place_to_Stand | :1204 | MOVED-IN-MEANING | "| Conservation of Spectra | This programme | Proved (ZFC), Lean-verified |" | marks Conservation of Spectra "Proved (ZFC), Lean-verified", and the Lean terminal states
+    :565    partialPositivity_finiteRange | A_Place_to_Stand | :1810 | MOVED-IN-MEANING | "The fourth register's door stands **ajar**: `partialPositivity_finiteRange` (v0.8.0) certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with 
+    :573    conservation_of_spectra | A_Place_to_Stand | :1855 | MOVED-IN-MEANING | "**For n₄ = 0:** Conservation of Spectra, proved from Tate's thesis within ZFC and verified in Lean." | says Conservation of Spectra is "verified in Lean", and the Lean
+    :575    conservation_of_spectra | A_Place_to_Stand | :1934 | MOVED-IN-MEANING | "| 1 | s-Darkness of product formula | Conservation of Spectra | Proved (ZFC), Lean-verified |" | marks the s-darkness of the product formula "Proved (ZFC), Lean-verifi
+### relay data/b607_closing_push_out.txt (committed at step zero) -- data/b607_closing_push_out.txt @ e73212a5 (12 lines cited, of 12)
+    :1      push_gated: capture on -> D:/relay/data/b607_closing_push_out.txt (2026-10-03T22:18:38Z)
+    :2      push_gated: repo D:/relay ; branch push-b607-closing ; tip cb598e6065569e81a92c12f59fbac7d5e05ef6ed ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         3de4485f..cb598e60  push-b607-closing -> main
+    :5      push_gated: main read back at the remote: cb598e6065569e81a92c12f59fbac7d5e05ef6ed
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay cb598e6065569e81a92c12f59fbac7d5e05ef6ed   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers 0800a6a75377a46af02b6b03cbf960b518cb4047   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 3528bcfc8c0341d3639d2ea272bae3bc435901b4   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 1d5d4dd9a4816b88bf9ebdd5a982b7574c7d35af   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+### relay data/b607_scores.json (whole) -- data/b607_scores.json @ e73212a5 (70 lines cited, of 70)
+    :1      {
+    :2       "H28a": [
+    :3        "HOLDS",
+    :4        "every MOVED-IN-MEANING sentence (27) recorded with both wordings and citing what it rests on: 27"
+    :5       ],
+    :6       "H28b": [
+    :7        "HOLDS",
+    :8        "the body differs by +2 against at most 2 (strict 2)"
+    :9       ],
+    :10      "H28c": [
+    :11       "HOLDS",
+    :12       "ON SCOPE under the multi-act clause: the scanner`s live uses on the scope [], unread 0; WHOLE printed beside: REFUTED (1 live stem; 154 hits beyond the read sentences, act three`s figure)"
+    :13      ],
+    :14      "H41a": [
+    :15       "HOLDS",
+    :16       "join sentences 14, rewritten 14, none held"
+    :17      ],
+    :18      "H41b": [
+    :19       "REFUTED",
+    :20       "rows 5 ; with a verdict 3 ; with a sieve row 2 ; the sieve`s own row for the table resolves True"
+    :21      ],
+    :22      "H41c": [
+    :23       "REFUTED",
+    :24       "§27.3`s further corrections 4 (bound 2)"
+    :25      ],
+    :26      "H41d": [
+    :27       "REFUTED",
+    :28       "the scope held 17 of the 171 (bound 40), each read; 154 remain, act three`s"
+    :29      ],
+    :30      "N1": [
+    :31       "HELD",
+    :32       "join sentences in chapters 21-22: 14, each under the ceiling clause"
+    :33      ],
+    :34      "N2": [
+    :35       "REFUTED",
+    :36       "rows 5 ; each row`s sieve rows: [('Analytic number theory', ['RH-16']), ('Random matrix theory', []), ('Computation', []), ('RH-false witnesses', ['FD-01', 'FD-02']), ('Mechanism enumeration', [])]"
+    :37      ],
+    :38      "N3": [
+    :39       "REFUTED",
+    :40       "§27.3 corrections beyond act one`s: 4"
+    :41      ],
+    :42      "N4": [
+    :43       "REFUTED",
+    :44       "removed of the 171: 17 (bound 40) ; H28a HOLDS, H28b HOLDS, H28c HOLDS on scope"
+    :45      ],
+    :46      "N5": [
+    :47       "HELD",
+    :48       "nothing deposits; every kernel`s main unmoved True; v5.14 and v5.13 unedited True; PLACE-papers ['ERRATA.md', 'FINDINGS.md', 'OPEN_TRAILS.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', 'day1/A_Place_to_Stand_v5_15.md'] (wanted ['ERRATA.md', 'FINDINGS.md', 
+    :49      ],
+    :50      "S1": [
+    :51       "HELD",
+    :52       "the re-pin step: RE-PIN : 263 of 263"
+    :53      ],
+    :54      "S2": [
+    :55       "HELD",
+    :56       "every non-blank v5.14 line carried verbatim, rewritten with every change recorded, or re-pinned: 1435 ; failing []"
+    :57      ],
+    :58      "S3": [
+    :59       "HELD",
+    :60       "the scope`s hits unread 0 ; carried hits missing from the back matter none"
+    :61      ],
+    :62      "S4": [
+    :63       "HELD",
+    :64       "the ζ page changed True ; the χ page changed True"
+    :65      ],
+    :66      "S5": [
+    :67       "HELD",
+    :68       "after the page commits: ['### ### **PAGE ARMS PASSING : 2 of 2.**', '### ### **G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA PASSING : 2 of 2.**']"
+    :69      ]
+    :70     }
+
+### the pages` pins: the ζ page`s list b602_nodes_zeta.txt ['# pin: v0.20'] ; the χ page`s list b603_nodes_chi.txt ['# pin: v0.21']
+### the monograph at 0800a6a: v5.15 blob 51565eef3b14 ; v5.14 blob e580a505aa22 ; v5.13 blob 29921bd37e86
+### SIDE-kernel tags: v1.3 = 0bc21c0 ; v1.5 = 0e5233f ; main = 0256e9e
+### SIDE-global-section tags: v0.1.0 = 706a81b ; v0.2.0 = 2e43315 ; main = 3528bcf
+### a fact correction, the navigator`s, carried from (R218)(1): "E-2026-09-25-5" for §27.3`s registers in (R217)(4) -- they stand as E-2026-09-25-6`s replacements (with -1`s and -4`s) left them, as b607 read (its reading R-8)

@@ -1,0 +1,1180 @@
+b608 -- COMPONENT 2: CP-8 ACT THREE`S WORK-LIST, (R218)(4) -- ASSEMBLED BEFORE ANY WRITING, banked 2026-10-03T23:08:07Z
+### the current version: PLACE-papers day1/A_Place_to_Stand_v5_15.md @ 0800a6a, 2580 lines, blob 51565eef3b14; its version line :19 "**v5.15, 2026-10-03** — CP-8 act two under `(R217)`: chapters 21 and 22, §24.4 a"
+### the next version by its own series: v5.16, written beside it as day1/A_Place_to_Stand_v5_16.md
+### the bound: the whole document under the multi-act clause (OPEN_TRAILS :12496) -- the plan`s final act
+
+### PART A -- THE b558 WORK-LIST`S 31 ROWS (relay data/b558_editions/A_Place_to_Stand.txt, numbered by v5.13), READ LINE BY LINE, EACH WITH ITS v5.15 LINE AND ITS LANDING:
+  row 1 :103 `conservation_of_spectra` -> v5.15 :105 -- rewritten: W01
+      the sentence (v5.13): | n₄ = 0 interfaces | Conservation of Spectra | Tate 1950, Lean-verified |
+      what the compiled fact supports: calls n4 = 0 via Conservation of Spectra "Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, its conservation reading carried by the name.
+      v5.15 : | Tate 1950, Lean-verified |
+      v5.16 : | Tate 1950; in Lean the terminal `conservation_of_spectra` states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2), its conservation reading carried by the name |
+      cites : conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  row 2 :117 `h2_sign` -> v5.15 :119 -- landed at act one: E5-02
+      the sentence (v5.13): **Formal verification:** the Lean 4 kernel verifies the proof's logical structure — the three route terminals at their pins, composing under the named premise `h2` (criterion + verified surround, not end-to-end) — each at zero `sorry` and zero custom axioms.
+      what the compiled fact supports: has the three route terminals compose under h2, and Route 3 composes under `ConservationHypothesis`, RH restated (`ch_iff_rh`), while Routes 1 and 2 are not routes to sigma = 1/2 (b540).
+      v5.15 :119 holds “equivalent to RH (h2_sign_iff_rh” -- True
+  row 3 :1006 `conservation_of_spectra` -> v5.15 :1008 -- rewritten: W03
+      the sentence (v5.13): Each certification is a completeness result for its stage: n₂ = 3 from Ostrowski's theorem (1916), n₄ = 0 from Conservation of Spectra (Lean-verified), n₃ = 2 from elliptic regularity + Identity Theorem + Cartan B (H¹(ℂ, 𝒪) = 0), n₁ = 2 from specification-access analysis (additive for θ, multiplicative for Euler product), with the ordering entering through n₂ and n² = (−n)² confirming no ordering 
+      what the compiled fact supports: calls n4 = 0 from Conservation of Spectra "Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, T2.
+      v5.15 : n₄ = 0 from Conservation of Spectra (Lean-verified)
+      v5.16 : n₄ = 0 from Conservation of Spectra (in Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1`, T2)
+      cites : conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  row 4 :1204 `conservation_of_spectra` -> v5.15 :1206 -- rewritten: W04
+      the sentence (v5.13): | Conservation of Spectra | This programme | Proved (ZFC), Lean-verified |
+      what the compiled fact supports: marks Conservation of Spectra "Proved (ZFC), Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, T2.
+      v5.15 : | Proved (ZFC), Lean-verified |
+      v5.16 : | Proved (ZFC); in Lean the terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2) |
+      cites : conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  row 5 :1573 `ch_iff_rh` -> v5.15 :1577 -- rewritten: W05
+      the sentence (v5.13): Three routes compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own.
+      what the compiled fact supports: says three routes compile independently, Route 3 among them, and Route 3's premise is RH restated (`ch_iff_rh`) -- the phrase E-2026-09-25-1 replaced with "three route terminals".
+      v5.15 : Three routes compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own.
+      v5.16 : Three route terminals compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own, its premise RH restated (ch_iff_rh).
+      cites : ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  row 6 :1599 `ch_iff_rh` -> v5.15 :1603 -- landed at act one: E1-M-09
+      the sentence (v5.13): **Route 3 — Conservation.** `Bridge/ConservationBridge.lean` defines `ConservationHypothesis` as the proposition that every ξ-zero forces the Euler balance equation at some prime — the Lean expression of the programme's one counted premise (§27.3), stated at the multiplicative place.
+      what the compiled fact supports: presents `ConservationHypothesis` as the programme's one counted premise, open, and `ch_iff_rh` shows it is RH restated, so the premise it names is RH itself.
+      v5.15 :1603 holds “so the proposition is RH restated” -- True
+  row 7 :1630 `ch_iff_rh` -> v5.15 :1634 -- rewritten: W07
+      the sentence (v5.13): | ConservationBridge.lean | Route 3 — RH from Conservation + balance | 0 sorry, 0 axioms |
+      what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+      v5.15 : | Route 3 — RH from Conservation + balance |
+      v5.16 : | Route 3 — RH from `ConservationHypothesis`, which `balance_theorem` shows is RH restated (ch_iff_rh) |
+      cites : ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  row 8 :1653 `ch_iff_rh` -> v5.15 :1657 -- landed at act one: E1-M-13
+      the sentence (v5.13): `ConservationHypothesis` in `ConservationBridge.lean` is the programme's one counted premise (§27.3) — open, and as of kernel v1.3 stated identically in kernel and prose (every ξ-zero forces the Euler balance at some prime).
+      what the compiled fact supports: presents `ConservationHypothesis` as the programme's one counted premise, open, and `ch_iff_rh` shows it is RH restated, so the premise it names is RH itself.
+      v5.15 :1657 holds “is RH restated by the kernel's own `balance_theorem`” -- True
+  row 9 :1653 `ch_iff_rh` -> v5.15 :1657 -- landed at act one: E1-M-14
+      the sentence (v5.13): The kernel's Route 3 closes the chain from the premise to `RiemannHypothesis` in Lean directly.
+      what the compiled fact supports: says Route 3 closes the chain from the premise to `RiemannHypothesis`, and the premise is RH restated (`ch_iff_rh`), so the chain runs from RH to RH.
+      v5.15 :1657 holds “a chain from RH restated to RH” -- True
+  row 10 :1669 `ch_iff_rh` -> v5.15 :1673 -- rewritten: W10
+      the sentence (v5.13): | Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/ConservationBridge.lean` | propext, Classical.choice, Quot.sound |
+      what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+      v5.15 : | Route 3 — RH from the conservation interface |
+      v5.16 : | Route 3 — RH from the conservation interface `ConservationHypothesis`, RH restated (ch_iff_rh) |
+      cites : ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  row 11 :1669 `riemann_hypothesis` -> v5.15 :1673 -- rewritten: W10
+      the sentence (v5.13): | Route 3 — RH from the conservation interface | `ConservationBridge.riemann_hypothesis` | `Bridge/ConservationBridge.lean` | propext, Classical.choice, Quot.sound |
+      what the compiled fact supports: names the row "Route 3 -- RH from the conservation interface", and the conservation interface is RH restated (`ch_iff_rh`), so the row is RH from RH.
+      v5.15 : | Route 3 — RH from the conservation interface |
+      v5.16 : | Route 3 — RH from the conservation interface `ConservationHypothesis`, RH restated (ch_iff_rh) |
+      cites : ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  row 12 :1708 `ch_iff_rh` -> v5.15 :1712 -- landed at act one: E1-M-18
+      the sentence (v5.13): The method's continuation past the Day-1 kernel — aimed at the Route 3 interface — is reported in §27.3: two statements closed, the third pinned to a goal state and bracketed by a theorem-pair.
+      what the compiled fact supports: reports the method's continuation aimed at the Route 3 interface with a goal state pinned, and that interface is RH restated (`ch_iff_rh`) while the goal state is vacuous on the strip.
+      v5.15 :1712 holds “shows is RH restated (E-2026-09-25-1)” -- True
+  row 13 :1793 `ch_iff_rh` -> v5.15 :1797 -- landed at act one: E1-M-20, E1-M-22, E6-02
+      the sentence (v5.13): Second: the proposition named `ConservationHypothesis` in the kernel's Route 3 (§25.5, §25.7) — every ξ-zero forces the Euler balance equation at some prime.
+      what the compiled fact supports: gathers `ConservationHypothesis` with the other registers as one premise, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+      v5.15 :1797 holds “RH restated (E-2026-09-25-1)” -- True
+  row 14 :1808 `h2_sign` -> v5.15 :1816 -- landed at act one: E4-02, E4-03, E6-05
+      the sentence (v5.13): **What remains, exactly.** The bracket's two obligations are h1 — the per-class constraints of Chapter 15, instantiated at the fixed witness — and h2 — nonvanishing of the transform at the point in question.
+      what the compiled fact supports: names h2 as the nonvanishing of the transform at the point, lv's Mellin clause, false at every s with re s <= 1 (`mellin_Phi_eq_zero_of_re_le_one`).
+      v5.15 :1816 holds “mellin_Phi_eq_zero_of_re_le_one” -- True
+  row 15 :1810 `partialPositivity_finiteRange` -> v5.15 :1818 -- rewritten: W15
+      the sentence (v5.13): The fourth register's door stands **ajar**: `partialPositivity_finiteRange` (v0.8.0) certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with the on-line term's nonnegativity proved — a certificate reaching exactly to where discrimination would begin, and no further; it is not RH, the all-n tail is open.
+      what the compiled fact supports: presents lambda_n >= 0 up to N0(T) as proved or certified outright, and the terminal proves it only under two uncompiled literature premises (Bombieri-Lagarias, Voros) and verified zeros -- T1-lit.
+      v5.15 : certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with
+      v5.16 : certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T² under two uncompiled literature premises (Bombieri–Lagarias, Voros) and verified zeros — T1-lit, not compiled outright — with
+      cites : partialPositivity_finiteRange (SIDE-lv-conservation v0.8.0 = 6efa9e5), T1-lit; the work-list row (relay data/b558_editions/A_Place_to_Stand.txt, :1810) and relay data/b558_cp1b.txt :565, :278
+  row 16 :1823 `ch_iff_rh` -> v5.15 :1831 -- landed at act one: E1-M-23
+      the sentence (v5.13): The Lean kernel formalizes three routes to σ = 1/2: the structural route via `Bridge.StructuralExhaustiveness`, the codimension route via the Spectral Cannon chain, and the Conservation route via `ConservationBridge.riemann_hypothesis` taking `ConservationHypothesis` to `RiemannHypothesis`.
+      what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+      v5.15 :1831 holds “three route terminals” -- True
+  row 17 :1823 `ch_iff_rh` -> v5.15 :1831 -- landed at act one: E1-M-24
+      the sentence (v5.13): The manuscripts prove the mathematics that connects them: Conservation of Spectra from Tate's thesis (Chapter 13) — the certificate that motivates Route 3's hypothesis, which is itself the one open premise of §27.3, not its discharge; exhaustiveness from Ostrowski (Chapter 15), the Mechanism Theorem from I+D+S (Chapter 10).
+      what the compiled fact supports: calls Route 3's hypothesis the one open premise of §27.3, and it is RH restated (`ch_iff_rh`).
+      v5.15 :1831 holds “shows is RH restated (E-2026-09-25-1), not its discharge” -- True
+  row 18 :1823 `riemann_hypothesis` -> v5.15 :1831 -- landed at act one: E1-M-23
+      the sentence (v5.13): The Lean kernel formalizes three routes to σ = 1/2: the structural route via `Bridge.StructuralExhaustiveness`, the codimension route via the Spectral Cannon chain, and the Conservation route via `ConservationBridge.riemann_hypothesis` taking `ConservationHypothesis` to `RiemannHypothesis`.
+      what the compiled fact supports: counts the terminal as a route to RH or to sigma = 1/2, and its premise is RH restated (`ch_iff_rh`), so it is no route: it formalizes RH => RH.
+      v5.15 :1831 holds “— RH restated (E-2026-09-25-1) — to `RiemannHypothesis`” -- True
+  row 19 :1855 `conservation_of_spectra` -> v5.15 :1863 -- rewritten: W19
+      the sentence (v5.13): **For n₄ = 0:** Conservation of Spectra, proved from Tate's thesis within ZFC and verified in Lean.
+      what the compiled fact supports: says Conservation of Spectra is "verified in Lean", and the Lean terminal states `(1 : Q) ^ s = 1`, T2.
+      v5.15 : Conservation of Spectra, proved from Tate's thesis within ZFC and verified in Lean.
+      v5.16 : Conservation of Spectra, argued from Tate's thesis within ZFC (Chapter 13); in Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2).
+      cites : conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  row 20 :1934 `conservation_of_spectra` -> v5.15 :1942 -- rewritten: W20
+      the sentence (v5.13): | 1 | s-Darkness of product formula | Conservation of Spectra | Proved (ZFC), Lean-verified |
+      what the compiled fact supports: marks the s-darkness of the product formula "Proved (ZFC), Lean-verified", and the Lean terminal states `(1 : Q) ^ s = 1`, T2 (b543 read the row STANDS against the RH-anchor, not against this terminal).
+      v5.15 : | Proved (ZFC), Lean-verified |
+      v5.16 : | Proved (ZFC); in Lean the terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2) |
+      cites : conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  row 21 :2224 `ch_iff_rh` -> v5.15 :2232 -- landed at act one: E1-M-02, E6-09
+      the sentence (v5.13): The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation of Spectra via `ConservationBridge.riemann_hypothesis`).
+      what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+      v5.15 :2232 holds “Route 3's conclusion is its premise restated (ch_iff_rh)” -- True
+  row 22 :2224 `conservation_of_spectra` -> v5.15 :2232 -- landed at act one: E1-M-02, E6-09
+      the sentence (v5.13): The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation of Spectra via `ConservationBridge.riemann_hypothesis`).
+      what the compiled fact supports: calls Route 3 "Conservation of Spectra via `ConservationBridge.riemann_hypothesis`", compiled with no unproved assertion, and that terminal compiles RH from a premise that is RH restated; the conservation terminal is not in it.
+      v5.15 :2232 holds “Route 3, the compiled implication” -- True
+  row 23 :2224 `riemann_hypothesis` -> v5.15 :2232 -- landed at act one: E1-M-02, E6-09
+      the sentence (v5.13): The Lean 4 kernel formalizes three independent routes to σ = 1/2, each compiled with zero unproved assertions: Route 1 (structural exhaustiveness via `structural_exhaustiveness_proved`), Route 2 (codimension analysis via `SpectralCannonFull.spectral_cannon`), Route 3 (Conservation of Spectra via `ConservationBridge.riemann_hypothesis`).
+      what the compiled fact supports: counts the terminal as a route to RH or to sigma = 1/2, and its premise is RH restated (`ch_iff_rh`), so it is no route: it formalizes RH => RH.
+      v5.15 :2232 holds “three route terminals” -- True
+  row 24 :2225 `ch_iff_rh` -> v5.15 :2233 -- landed at act one: E1-M-04, E6-10
+      the sentence (v5.13): The five registers of the single premise the proof routes through — the universality hypothesis of `silence_universal`, the ConservationHypothesis of Route 3, the totality of realization through places, the balance-to-positivity distance at the multiplicative place, and the spectral-realization distance — are gathered as one in §27.3.
+      what the compiled fact supports: gathers `ConservationHypothesis` with the other registers as one premise, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+      v5.15 :2233 holds “the second is RH restated (ch_iff_rh)” -- True
+  row 25 :2225 `silence_universal` -> v5.15 :2233 -- landed at act one: E1-M-04, E6-10
+      the sentence (v5.13): The five registers of the single premise the proof routes through — the universality hypothesis of `silence_universal`, the ConservationHypothesis of Route 3, the totality of realization through places, the balance-to-positivity distance at the multiplicative place, and the spectral-realization distance — are gathered as one in §27.3.
+      what the compiled fact supports: gathers the universality hypothesis of `silence_universal` with the other registers as one premise, and the census sets them at different depths: R1 false as stated (`not_register1`), R2 RH restated (`ch_iff_rh`), R4 equivalent to RH through `h2_sign_iff_rh`.
+      v5.15 :2233 holds “the first is false as stated (not_register1)” -- True
+  row 26 :2233 `ch_iff_rh` -> v5.15 :2241 -- landed at act one: E6-11, E6-12, E6-13
+      the sentence (v5.13): **Third**, they verify that the conservation interface yields the same conclusion — Route 3.
+      what the compiled fact supports: says the kernel verifies that the conservation interface yields the same conclusion, and that interface is RH restated (`ch_iff_rh`), so the conclusion is its premise.
+      v5.15 :2241 holds “yields RH from a premise that is RH restated (ch_iff_rh)” -- True
+  row 27 :2235 `h2_sign` -> v5.15 :2243 -- history line beneath :2243 (the dated Correspondence, the history clause)
+      the sentence (v5.13): **The machine checks the reduction; the premise stays open.**
+      what the compiled fact supports: says the machine checks the reduction, and the terminal checked is `ConservationBridge.riemann_hypothesis`, whose premise is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`.
+      v5.15 :2243 -- **What the kernels do not do is prove the Riemann Hypothesis.** Each route composes under one premise that no kernel discharges. The monograph names that premise openly at §27.3 and gathers its five r
+  row 28 :2237 `h2_sign` -> v5.15 :2245 -- history line beneath :2245 (README :106 quoted verbatim; the history clause)
+      the sentence (v5.13): > ### **THE `h2` REGISTER, VERBATIM:** ### ***Supportable: RH reduced to a single located clause, reduction machine-verified.
+      what the compiled fact supports: calls the reduction of RH to h2 compiled or machine-verified through `ConservationBridge.riemann_hypothesis`, whose premise `ConservationHypothesis` is RH restated (`ch_iff_rh`); the compiled reduction of RH to h2 is `h2_sign_iff_rh`, in the Weil form.
+      v5.15 :2245 -- > ### **THE `h2` REGISTER, VERBATIM:** ### ***Supportable: RH reduced to a single located clause, reduction machine-verified. Not supportable: RH proved. The open clause is a premise of the multiplica
+  row 29 :2243 `ch_iff_rh` -> v5.15 :2251 -- history line beneath the table, :2259 (the dated Correspondence)
+      the sentence (v5.13): | Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |
+      what the compiled fact supports: counts Route 3 among routes to RH or to sigma = 1/2, and its premise `ConservationHypothesis` is RH restated (`ch_iff_rh`), so it formalizes RH => RH.
+      v5.15 :2251 -- | Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as a
+  row 30 :2243 `riemann_hypothesis` -> v5.15 :2251 -- history line beneath the table, :2259
+      the sentence (v5.13): | Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as above |
+      what the compiled fact supports: names the row "Route 3 -- RH from the conservation interface", graded COMPILED, and the conservation interface is RH restated (`ch_iff_rh`).
+      v5.15 :2251 -- | Route 3 — RH from the conservation interface | same | `ConservationBridge.riemann_hypothesis` (`Bridge/ConservationBridge.lean`) | `{propext, Classical.choice, Quot.sound}` | ### **COMPILED** | as a
+  row 31 :2250 `h2_sign` -> v5.15 :2258 -- history line beneath the table, :2259
+      the sentence (v5.13): | ### **`h2`, the one open premise** | ### **NONE — no kernel discharges it** | — | — | ### **MANUSCRIPT-RESIDENT** — §27.3, five registers | ### **read §27.3; there is no terminal to point at, and that is the honest state** |
+      what the compiled fact supports: says there is no terminal to point at for h2, and h2 in its Weil form is `h2_sign`, with `h2_sign_iff_rh` compiled (b536).
+      v5.15 :2258 -- | ### **`h2`, the one open premise** | ### **NONE — no kernel discharges it** | — | — | ### **MANUSCRIPT-RESIDENT** — §27.3, five registers | ### **read §27.3; there is no terminal to point at, and th
+  rows 31 ; rewritten 10 ; landed at act one 16 ; history lines (the dated Correspondence) 5 ; the bank`s rows matched 31
+
+### PART B -- THE 154 CEILING HITS BY LINE (relay data/b607_edition_PLACE.txt), EACH WITH ITS DISPOSITION, AND THE BODY`S OTHER HITS:
+  :35 "proved" -- corrected -- C003
+  :37 "proof" -- corrected -- C004
+  :41 "proof" -- corrected -- C005
+  :41 "proved" -- carried -- a quoted source -- Størmer (1897), a published theorem attributed
+  :41 "proof" -- corrected -- C006
+  :49 "proof" -- corrected -- C007
+  :49 "proof" -- corrected -- C008
+  :49 "proof" -- corrected -- C008
+  :62 "proof" -- corrected -- C009
+  :102 "proved" -- carried -- a quoted source -- Ostrowski`s theorem (1916), a published theorem
+  :103 "proved" -- carried -- a quoted source -- Cartan B (1876/1951), a published theorem
+  :117 "proof" -- corrected -- C012
+  :127 "proof" -- corrected -- C013
+  :165 "proves" -- corrected -- C014
+  :205 "proof" -- corrected -- C015
+  :226 "proved" -- carried -- a quoted source -- Størmer (1897)
+  :237 "proof" -- carried -- a quoted source -- Størmer`s published proof (1897)
+  :245 "proved" -- corrected -- C016
+  :304 "proved" -- corrected -- C017
+  :316 "proved" -- corrected -- C018
+  :358 "proved" -- corrected -- C019
+  :409 "proof" -- corrected -- C020
+  :415 "proof" -- corrected -- C021
+  :415 "proof" -- corrected -- C022
+  :415 "proof" -- corrected -- C023
+  :448 "proof" -- corrected -- C024
+  :448 "proof" -- corrected -- C025
+  :450 "proof" -- corrected -- C026
+  :450 "proof" -- corrected -- C026
+  :493 "proves" -- corrected -- C027
+  :531 "proved" -- carried -- a quoted source -- Artin and Whaples (1945)
+  :533 "proved" -- corrected -- C028
+  :562 "prove" -- corrected -- C029
+  :562 "proof" -- corrected -- C030
+  :586 "proved" -- carried -- a quoted source -- Riemann (1859), Hecke, Tate (1950)
+  :619 "proof" -- corrected -- C031
+  :619 "prove" -- carried -- a quoted source -- Euclid, a published proof
+  :629 "proof" -- corrected -- C032
+  :633 "prove" -- corrected -- C033
+  :647 "proved" -- corrected -- R04
+  :673 "proved" -- carried -- a quoted source -- Gödel (1940)
+  :673 "proved" -- carried -- a quoted source -- Cohen (1963)
+  :681 "proof" -- corrected -- C034
+  :722 "proof" -- corrected -- C001
+  :722 "proved" -- corrected -- C002
+  :767 "proved" -- corrected -- R05
+  :771 "proved" -- carried -- a quoted source -- Artin and Whaples (1945)
+  :793 "proves" -- corrected -- C035
+  :799 "proved" -- carried -- a quoted source -- Artin and Whaples (1945)
+  :829 "proof" -- corrected -- C039
+  :835 "proves" -- corrected -- C040
+  :835 "proves" -- corrected -- C041
+  :835 "prove" -- corrected -- C041
+  :853 "proved" -- corrected -- C042
+  :897 "proves" -- corrected -- C043
+  :909 "proved" -- carried -- a quoted source -- Selberg (1956), with Iwaniec cited
+  :917 "proved" -- carried -- a quoted source -- Green`s identity, a classical source named
+  :929 "proves" -- corrected -- C044
+  :955 "proved" -- carried -- a quoted source -- Ostrowski (1916)
+  :995 "proves" -- carried -- a quoted source -- Ostrowski (1916)
+  :995 "proves" -- carried -- a quoted source -- Cartan B (1876/1951)
+  :995 "proved" -- corrected -- C045
+  :1003 "proved" -- carried -- a quoted source -- Ostrowski`s theorem (1916)
+  :1005 "proved" -- carried -- a quoted source -- elliptic regularity, the Identity Theorem and Cartan B (1876/1951)
+  :1006 "proved" -- corrected -- C046
+  :1131 "proved" -- carried -- a quoted source -- Ostrowski (1916)
+  :1170 "proved" -- corrected -- R13
+  :1170 "proof" -- corrected -- C047
+  :1176 "proof" -- corrected -- C048
+  :1212 "proof" -- corrected -- C049
+  :1216 "proof" -- corrected -- C050
+  :1216 "prove" -- corrected -- C051
+  :1220 "proof" -- corrected -- C052
+  :1230 "proved" -- corrected -- C053
+  :1230 "proof" -- corrected -- C054
+  :1296 "proves" -- carried -- a quoted source -- Emmy Noether, a quotation verbatim
+  :1311 "proof" -- corrected -- P06
+  :1313 "proved" -- carried -- a quoted source -- Conrey (1989); act two read the figure with §24.4`s note (L01)
+  :1313 "proved" -- carried -- a quoted source -- Weil, Deligne, a published theorem over function fields
+  :1453 "proof" -- corrected -- C057
+  :1469 "proved" -- carried -- a quoted source -- Conrey (1989)
+  :1521 "proved" -- carried -- a quoted source -- Knuth, a quotation verbatim
+  :1528 "proof" -- corrected -- C058
+  :1528 "proof" -- carried -- a quoted source -- Wiles (1995), a published proof
+  :1528 "proof" -- carried -- a quoted source -- Hales (2005), a published proof
+  :1532 "proof" -- corrected -- C059
+  :1532 "proof" -- corrected -- C060
+  :1536 "proved" -- corrected -- C061
+  :1550 "proves" -- corrected -- C063
+  :1575 "proof" -- corrected -- C064
+  :1575 "proved" -- carried -- a quoted source -- Wiles (1995)
+  :1575 "proved" -- carried -- a quoted source -- Ribet (1990)
+  :1575 "proof" -- carried -- a quoted source -- Hales (2005)
+  :1575 "proof" -- carried -- a quoted source -- the Flyspeck project, of Hales`s published proof
+  :1577 "proof" -- corrected -- C065
+  :1587 "proved" -- corrected -- C066
+  :1593 "proved" -- corrected -- C067
+  :1633 "proved" -- corrected -- C070
+  :1645 "proved" -- corrected -- C071
+  :1655 "proof" -- corrected -- C072
+  :1683 "proved" -- carried -- a dated entry under the history clause -- the live-layer concordance row of 2026-08-20 (v5.15 :1679), a dated addition
+  :1693 "proof" -- corrected -- C073
+  :1693 "proves" -- carried -- a dated entry under the history clause -- the label correction of 2026-07-21
+  :1706 "proof" -- corrected -- C074
+  :1749 "proof" -- corrected -- C077
+  :1757 "proof" -- corrected -- C078
+  :1759 "proof" -- corrected -- C079
+  :1759 "proof" -- corrected -- C080
+  :1767 "proof" -- corrected -- C081
+  :1767 "proof" -- corrected -- C082
+  :1769 "proof" -- corrected -- C083
+  :1771 "proved" -- corrected -- C084
+  :1779 "proof" -- corrected -- C085
+  :1781 "proved" -- corrected -- C086
+  :1789 "proof" -- corrected -- C087
+  :1789 "proof" -- corrected -- C089
+  :1837 "proved" -- corrected -- C091
+  :1839 "proof" -- corrected -- C092
+  :1855 "proof" -- corrected -- C093
+  :1863 "proved" -- corrected -- W19
+  :1873 "proof" -- corrected -- C094
+  :1884 "proved" -- corrected -- C095
+  :1892 "proof" -- corrected -- C096
+  :1894 "proof" -- corrected -- C097
+  :1894 "proved" -- carried -- a quoted source -- Ostrowski (1916)
+  :1894 "proof" -- corrected -- C098
+  :1908 "proved" -- corrected -- C099
+  :1912 "proof" -- corrected -- C100
+  :1912 "proof" -- corrected -- C101
+  :1912 "proof" -- corrected -- C102
+  :1922 "proof" -- corrected -- C103
+  :1965 "proved" -- corrected -- C105
+  :1993 "proof" -- corrected -- C106
+  :2061 "proof" -- carried -- a quoted source -- Conrey (1989)
+  :2063 "proof" -- corrected -- C107
+  :2133 "proof" -- carried -- the name-and-title exception -- a bibliography title (Hales 2005)
+  :2173 "proof" -- corrected -- C108
+  :2193 "proof" -- carried -- a dated entry under the history clause -- the version-history entry v5.9.1 (2026-07-23), its quotation of a retired framing
+  :2193 "end-to-end" -- carried -- a dated entry under the history clause -- the version-history entry v5.9.1 (2026-07-23), its quotation of a retired framing
+  :2193 "proved" -- carried -- a dated entry under the history clause -- the entry v5.9.1 (2026-07-23)
+  :2195 "proof" -- carried -- a dated entry under the history clause -- the entry v5.10 (2026-07-24)
+  :2197 "proved" -- carried -- a dated entry under the history clause -- the entry v5.10.1 (2026-07-24)
+  :2199 "proof" -- carried -- a dated entry under the history clause -- the entry v5.10.2 (2026-07-24)
+  :2203 "proved" -- carried -- a dated entry under the history clause -- the entry v5.12 (2026-07-26), quoting the text it corrected
+  :2203 "proof" -- carried -- a dated entry under the history clause -- the entry v5.12 (2026-07-26), quoting the text it corrected
+  :2203 "proof" -- carried -- a dated entry under the history clause -- the entry v5.12 (2026-07-26)
+  :2203 "proof" -- carried -- a dated entry under the history clause -- the entry v5.12 (2026-07-26)
+  :2224 "proof" -- corrected -- C109
+  :2227 "proof" -- corrected -- C110
+  :2228 "proof" -- corrected -- C111
+  :2231 "proof" -- corrected -- C112
+  :2231 "proof" -- corrected -- C112
+  :2234 "proof" -- corrected -- C113
+  :2235 "proves" -- corrected -- C114
+  the 154: corrected 108 ; carried under a named exception 46 ; unread or missing 0
+  ### the body`s other hits (act one`s lines, act two`s carries), each with its fate:
+  :66 "proof" -- corrected -- C010
+  :70 "proof" -- corrected -- C011
+  :70 "proof" -- carried -- a quoted source -- ERRATA E-2026-09-25-5, E5-01`s replacement text verbatim (act one), the ledger quoted
+  :827 "proof" -- corrected -- C036
+  :827 "proof" -- corrected -- C037
+  :827 "proof" -- corrected -- C038
+  :1274 "proof" -- corrected -- X03
+  :1305 "proved" -- corrected -- P02
+  :1305 "proof" -- corrected -- P03
+  :1329 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published theorem`s "proved" (Conrey 1989), within the ceiling; the line takes L01`s ruled reading
+  :1331 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published theorem over function fields, within the ceiling
+  :1336 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published theorem, within the ceiling (a literature report, not a join of the programme`s argument)
+  :1336 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published theorem, within the ceiling
+  :1505 "proves" -- carried -- a carry of act two, ratified at (R218)(1) -- negated: the sentence says no line proves simplicity
+  :1507 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- negated: the five lines are evidence, not a proof; the geometric clause STANDS (R217)(4)
+  :1542 "proof" -- corrected -- C062
+  :1564 "proves" -- carried -- a quoted source -- ERRATA E-2026-09-25-5, E5-11`s replacement text verbatim (act one)
+  :1564 "proved" -- corrected -- R12
+  :1566 "proves" -- carried -- a carry of act one -- act one`s U09, accepted at (R217)(1): its “proves” governs the compiled reduction printed beneath
+  :1603 "proved" -- corrected -- C068
+  :1603 "proves" -- corrected -- C069
+  :1712 "proved" -- corrected -- C075
+  :1712 "proved" -- corrected -- C076
+  :1712 "proves" -- corrected -- C076
+  :1793 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- a general statement about proofs, naming no object of this monograph
+  :1797 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- a Lean proof term of a compiled theorem, within the ceiling
+  :1797 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- Weil`s published proof over function fields, within the ceiling
+  :1797 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- Weil`s published proof over function fields, within the ceiling
+  :1797 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- v5.13`s sentence on the season`s finding (the final compression), naming no RH proof; within the ceiling
+  :1797 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- the built object`s pairing, a compiled fact of SIDE-global-section; within the ceiling
+  :1803 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published theorem (Li 1997), within the ceiling
+  :1803 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published result, within the ceiling
+  :1803 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a published theorem, within the ceiling
+  :1803 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- Voros`s published asymptotic, within the ceiling
+  :1807 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- a general statement of the axiom journey, within the ceiling
+  :1816 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- the function-field proof shape, within the ceiling
+  :1818 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a compiled fact of SIDE-lv-conservation v0.8.0, within the ceiling
+  :1818 "proved" -- carried -- a carry of act two, ratified at (R218)(1) -- a compiled fact of SIDE-lv-conservation v0.10.0 (lowFinset), within the ceiling
+  :1818 "proves" -- carried -- a carry of act two, ratified at (R218)(1) -- a compiled theorem of SIDE-lv-conservation v0.9.0, within the ceiling
+  :1822 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- a general maxim naming its own limit ("short of the discharge itself"); within the ceiling
+  :1822 "proof" -- carried -- a carry of act two, ratified at (R218)(1) -- a general maxim naming its own limit ("short of the discharge itself"); within the ceiling
+  body hits 195 ; corrected 123 ; carried 72 ; unread 0 ; act one`s lines` hits in b607`s bank 18
+  ### the case-insensitive sweep (titles and labels the case-sensitive pattern does not read) and the χ side:
+  X01 :1272 -- GRH stated as a theorem; act one`s U04 reduces it -- was "**Theorem (GRH).**" -> "**Theorem (GRH), reduced here for each χ to its located clause.**"
+  X02 :1274 -- a proof label for GRH -- was "*Proof.* The four SIDE conditions" -> "*Argument.* The four SIDE conditions"
+  X03 :1274 -- names the GRH argument a proof -- was "The brevity of this proof reflects" -> "The brevity of this argument reflects"
+  X04 :1278 -- states the consequence of GRH unconditionally -- was "No Siegel zeros exist." -> "Under GRH, no Siegel zeros exist."
+  X05 :1280 -- claims the problem resolved; it is resolved conditional on GRH -- was "This resolves a problem that has resisted" -> "Under GRH this resolves a problem that has resisted"
+  L01 :82 -- titles the section a proof of RH -- was "## The Proof in One Page" -> "## The Reduction in One Page"
+  L02 :86 -- the method of the reduction named a proof -- was "**Method.** Proof by exhaustive enumeration" -> "**Method.** Argument by exhaustive enumeration"
+  L03 :712 -- titles Part III a proof of RH -- was "# PART III: THE PROOF" -> "# PART III: THE REDUCTION"
+  L04 :1148 -- titles §19.1 a proof of RH -- was "## 19.1 The Proof" -> "## 19.1 The Reduction"
+  L05 :1150 -- RH stated as a proved theorem; the name “Riemann`s Theorem”, the monograph`s own title, carries under the exception -- was "**Theorem (Riemann's Theorem).**" -> "**Theorem (Riemann's Theorem), reduced here to its located clause.**"
+  L06 :1152 -- a proof label for RH; step (10) states the clause -- was "*Proof.*" -> "*The reduction, under the clause of step (9).*"
+  L07 :1174 -- titles a proof of RH -- was "## 19.2 Proof Architecture" -> "## 19.2 The Reduction's Architecture"
+  L08 :1198 -- titles a proof of RH -- was "## 19.3 What the Proof Uses" -> "## 19.3 What the Reduction Uses"
+  L09 :1890 -- titles a proof of RH -- was "## 28.6 The Proof's Logical Structure" -> "## 28.6 The Reduction's Logical Structure"
+
+### PART C -- §25.8`S KERNEL CONCORDANCE, ENTRY BY ENTRY: ITS PIN AS THE CHAPTER READS IT (v1.3 = 0bc21c0, 2026-07-16), THE PIN IT RESOLVES TO AT THE PAGES AND THE TERMINAL TABLE (relay data/terminal_table.json at e73212a5), EACH THEOREM READ BY git AT v1.3, v1.5 AND main:
+  :1671 structural_exhaustiveness_proved (Bridge/TheBridgeComplete.lean) -- v1.3 :188 True ; v1.5 :249 True ; main :249 True ; the ζ page no node, the χ page no node ; the table: structural_exhaustiveness_proved pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Bridge/ConservationBridge.lean -- RESOLVES TO v1.5 = 0e5233f
+  :1672 SpectralCannonFull.spectral_cannon (Kernel/SpectralCannonFull.lean) -- v1.3 :58 True ; v1.5 :65 True ; main :65 True ; the ζ page no node, the χ page no node ; the table: SpectralCannonFull.spectral_cannon pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Kernel/SpectralCannonFull.lean -- RESOLVES TO v1.5 = 0e5233f
+  :1673 ConservationBridge.riemann_hypothesis (Bridge/ConservationBridge.lean) -- v1.3 :53 True ; v1.5 :53 True ; main :53 True ; the ζ page no node, the χ page no node ; the table: ConservationBridge.riemann_hypothesis pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Bridge/ConservationBridge.lean -- RESOLVES TO v1.5 = 0e5233f
+  :1674 techne_kernel_integration.rh_from_structural_exhaustiveness (Kernel/Integration.lean) -- v1.3 :210 True ; v1.5 :221 True ; main :221 True ; the ζ page no node, the χ page no node ; the table: techne_kernel_integration.rh_from_structural_exhaustiveness pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Kernel/Integration.lean -- RESOLVES TO v1.5 = 0e5233f
+  :1675 techne_kernel_integration.structural_exhaustiveness_iff_rh (Kernel/Integration.lean) -- v1.3 :241 True ; v1.5 :252 True ; main :252 True ; the ζ page no node, the χ page no node ; the table: techne_kernel_integration.structural_exhaustiveness_iff_rh pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Kernel/Integration.lean -- RESOLVES TO v1.5 = 0e5233f
+  :1676 SIDEKernel.formation (Kernel/Core.lean) -- v1.3 :53 True ; v1.5 :53 True ; main :53 True ; the ζ page no node, the χ page no node ; the table: SIDEKernel.formation pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Kernel/Core.lean -- RESOLVES TO v1.5 = 0e5233f
+  :1677 techne_kernel_cross_exclusion.all_pairs_excluded (Bridge/CrossClassExclusion.lean) -- v1.3 :80 True ; v1.5 :80 True ; main :80 True ; the ζ page no node, the χ page no node ; the table: techne_kernel_cross_exclusion.all_pairs_excluded pin v1.5 = 0e5233f, present at ['HEAD', 'v1.5'], statement file Bridge/CrossClassExclusion.lean -- RESOLVES TO v1.5 = 0e5233f
+  the moved pins: 7 of 7 (v1.3 = 0bc21c0 -> v1.5 = 0e5233f); lines moved 4; unresolved 0
+  the table`s bare-name row `structural_exhaustiveness_proved` reads its statement in Bridge/ConservationBridge.lean (:46, a conditional theorem in namespace ConservationBridge); the concordance`s theorem is the root-namespace one in Bridge/TheBridgeComplete.lean (:249 at v1.5, no namespace) -- the pin agrees, the statement file differs; printed, no tool edited
+  :1683 the live-layer row (2026-08-20): SIDE-global-section v0.1.0 = 706a81b -- the dated live-layer row of 2026-08-20, carried by the history clause; the table reads SIDE-global-section at HEAD 3528bcf unpinned; v0.1.0 resolves (peeled 706a81b)
+
+### PART D -- THE STEM AT :722, PART IV`S PREAMBLE (:1305-:1311), CHAPTER 24`S TITLE AND OPENING, PRINTED, WITH THEIR CHANGES:
+  :722 Part II gave the method; this Part applies it to ξ, as a single line of reasoning whose stages are the chapters. Chapter 12 fixes the object and states the dichotomy the whole proof turns on: on the critical line a zero is one real condition (codimension 1); off it, two simultaneous conditions (codimension 2) — a coincidence that, in a determined system, requires a mechanism. Chapters 13 and 14 seal the system, proving that the one interface binding ℚ's structures — the product formula — is spectrally silent, so no force outside ℚ's field data can act on the zeros. The seal is placed before the catalogue because it is what makes a finite catalogue sufficient: once no external force can speak, the question reduces to enumerating the internal ones. Chapter 15 builds that enumeration — seven mechanism classes, proved exhaustive by Ostrowski — and checks each: none couples the two conditions off the line. Chapters 16 through 18 confirm the result from outside the enumeration — five **convergent** identifications of σ = 1/2 *[corrected 2026-08-10 · convergent-identification ruling]*, the controlled Epstein experiment, and five independent closures of the codimension gap. Chapter 19 assembles the syllogism; Chapter 20 carries it to the Dirichlet L-functions. A reader who wants the destination before the route may read Chapter 19 first.
+      S01 (the stem clause (OPEN_TRAILS :11904)) -- the scanner`s one live stem; the object the sentence names is the conversion of §18.1
+        old : five independent closures of the codimension gap
+        new : five independent closures of the step from structural to actual independence (§18.1)
+        cites: the object chapter 18 names: §18.1 “From Structural to Actual” (v5.15 :1109, :1113)
+      C001 (the ceiling clause (OPEN_TRAILS :11906)) -- “the whole proof” names the monograph`s argument a proof of RH
+        old : the dichotomy the whole proof turns on
+        new : the dichotomy the whole reduction turns on
+        cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+      C002 (the ceiling clause) -- exhaustiveness at ξ is the open premise; Ostrowski closes the place count
+        old : seven mechanism classes, proved exhaustive by Ostrowski
+        new : seven mechanism classes, their place count closed by Ostrowski and their exhaustiveness at ξ the open clause h2
+        cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  :1305 Part III assembled the reduction of RH through mechanism enumeration, under the named premise h2, open and equivalent to RH in its Weil form (h2_sign_iff_rh). This Part reaches RH through a different strategy — the structural behavior of zeros themselves — while sharing the exhaustive catalogue and Conservation of Spectra with Part III. The independence is in the method (simplicity reduction vs. direct per-class exclusion), not in the foundational infrastructure. The strategy carries its own premise: the conditional (simplicity → RH) is proved, while its antecedent — the simplicity of the zeros — is the *geometric clause*, carried openly (§24.4). Part III's proof does not consume this clause; the two strategies are independent, and each closes to a single open clause of its own.
+      P01 (the restatement clause (OPEN_TRAILS :12192), restating J12) -- restates “Part IV argues RH from simplicity” (J12), a join act two read as an open direction
+        old : This Part reaches RH through a different strategy
+        new : This Part argues toward RH through a different strategy
+        cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+      P02 (the restatement clause, restating J06) -- restates the conditional act two`s J06 reads as an open direction
+        old : the conditional (simplicity → RH) is proved, while
+        new : the conditional (simplicity → RH) is the programme’s reading of an open direction, an edge no compiled statement carries (simplicity_iff, v0.17; positivity_not_imp_simplicity, v0.19), while
+        cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+      P03 (the ceiling clause) -- “Part III`s proof” names the reduction a proof of RH
+        old : Part III's proof does not consume this clause
+        new : Part III's reduction does not consume this clause
+        cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  :1307 The standard literature relates simplicity and the Riemann Hypothesis through the pair correlation conjecture: PCC implies that asymptotically 100% of zeros are both simple and on the critical line (Gallagher-Mueller 1978, Baluyot-Goldston-Suriajaya-Turnage-Butterbaugh 2025). The implication in the reverse direction — that simplicity of zeros forces zero confinement — has not previously appeared. We establish it here.
+      P04 (the restatement clause, restating J02) -- restates the direction J02 reads as the programme`s reading of an open direction
+        old : We establish it here.
+        new : We argue it here, as an open direction (§22.5).
+        cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  :1309 **Theorem (ZFC).** If all nontrivial zeros of ξ are simple, then the Riemann Hypothesis holds.
+      P05 (the restatement clause, restating J06) -- restates J06`s theorem, which act two read as an open direction
+        old : **Theorem (ZFC).** If all nontrivial zeros of ξ are simple, then the Riemann Hypothesis holds.
+        new : **The conditional, the programme’s reading of an open direction.** If all nontrivial zeros of ξ are simple, then the Riemann Hypothesis holds — an edge no compiled statement carries (simplicity_iff, v0.17; positivity_not_imp_simplicity, v0.19).
+        cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  :1311 The proof uses the perpendicular crossing theorem (formally verified in Lean 4), level-set monotonicity, the fold criterion, and the exhaustive classification from Part III. The simplicity reduction (this theorem) provides the structural reason why simplicity matters — it connects to transversality and R-curves. The derivative-level SIDE analysis (§22.5) applies the same exhaustive catalogue to the degenerate-crossing question ξ'(ρ) = 0: the per-class reductions compile (C₁ derives; the reductions std3-clean), leaving the joint step — that no class produces a double zero — as the *geometric clause* (uniform transversality), carried openly (§24.4). Both levels use the same catalogue; each closes to a single open clause of its own.
+      P06 (the restatement clause, restating J07 and E5-05) -- restates J07`s “proof” and the perpendicular crossing E5-05 corrected
+        old : The proof uses the perpendicular crossing theorem (formally verified in Lean 4)
+        new : The argument uses the perpendicular crossing theorem (compiled in Lean 4 for completedRiemannZeta₀ as spectral_cannon, §25.8; the same fact for ξ′ is not compiled)
+        cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643)
+      P07 (the restatement clause, restating J06) -- names the conditional a theorem
+        old : The simplicity reduction (this theorem) provides
+        new : The simplicity reduction (this conditional) provides
+        cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470)
+  :1463 # Chapter 24: Three Proofs Converge
+      T01 (the ceiling clause, the title naming objects (R218)(4)) -- the title names three proofs converging; the chapter carries three traditions` evidence on simplicity, none a proof (§24.4)
+        old : # Chapter 24: Three Proofs Converge
+        new : # Chapter 24: Three Traditions on Simplicity, Convergent Evidence
+        cites: §24.4`s convergence table and its sieve column (v5.15 :1493-:1499, act two`s T00-T06)
+  :1465 Three traditions — sharing no tools, no assumptions, and no practitioners — converge on the same conclusion: all zeros of ξ are simple.
+      T02 (the ceiling clause (R218)(4)) -- the opening states all zeros simple as the conclusion of three traditions; §24.4 carries them as evidence rows, none as proof
+        old : converge on the same conclusion: all zeros of ξ are simple.
+        new : bear on the same question, whether all zeros of ξ are simple: a proportion (§24.1), a statistical prediction conditional on GUE (§24.2), and per-class reductions whose joint step is the geometric clause, open (§24.3, §24.4).
+        cites: §24.4`s table (RH-16 DARK, test 1; GUE in the bench, DARK, test 1; the mechanism row`s joint step open); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+
+### PART E -- THE §22.4 ITEM OF (R218)(3): the chain sentence, carried, with its history line beneath:
+  §22.4`s criterion (:1377): **Theorem.** If an R-curve through a critical-line zero folds at some σ₀ > 1/2, then ξ has a zero at σ₀ + it_k(σ₀) with σ₀ ≠ 1/2.
+  the sentence stating the link (:1399), carried unchanged: By the fold criterion (§22.4), in the programme’s reading of an open direction, the absence of folds implies the absence of off-line zeros. 
+  the history line beneath it: *v5.16, 2026-10-03, a history line under the sentence above, under `(R218)`(3): the fold criterion of §22.4 runs from a fold to an off-line zero, while the link above reads the converse, from the absence of folds to the absence of off-line zeros — that converse is the open direction and no compiled statement carries it; what is compiled on this chain is the perpendicular crossing, for completedRiemannZeta₀ (spectral_cannon, §25.8).*
+  cites: SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643) (what is compiled); nothing for the converse (R218)(3)
+
+### PART F -- THE HISTORY LINES IN THE DATED CORRESPONDENCE (2026-08-12), FOR ROWS 27-31:
+  beneath :2243 (**What the kernels do not do is prove the Riemann Hypothesis.** Each route composes under one premise that no kernel dis): *v5.16, 2026-10-03, a history line under the paragraph above, the dated Correspondence of 2026-08-12 carried as its record: the route the kernels check to RH composes under `ConservationHypothesis`, which the kernel’s own `balance_theorem` shows is RH restated (ch_iff_rh, E-2026-09-25-1); the compiled reduction of RH to its located clause is h2_sign_iff_rh (SIDE-explicit-formula v0.2): Weil positivity on classK, h2_sign, is equivalent to RH, both directions compiled, and stays open.*
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486); h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  beneath :2245 (> ### **THE `h2` REGISTER, VERBATIM:** ### ***Supportable: RH reduced to a single located clause, reduction machine-veri): *v5.16, 2026-10-03, a history line under the register above, the README’s sentence (README :106) quoted verbatim and carried: the README carries beside it the rewordings of `(R145)`(2) and `(R146)`(2) (README :113, :115) -- the sentence is supportable only with the clause named as h2_sign, Weil positivity on classK equivalent to RH with both directions compiled (h2_sign_iff_rh, SIDE-explicit-formula v0.2), and “reduction machine-verified” is not said of Route 3, whose clause is RH restated (E-2026-09-25-1).*
+      cites: README :106, :113, :115; h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106; ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  beneath :2259 (| ### **the zero-acting positive pairing's existence** | ### **NONE** | — | — | ### **RESEARCH-REACH** — closes over fun): *v5.16, 2026-10-03, a history line under the table above, the dated Correspondence of 2026-08-12 carried as its record: its Route 3 row is the implication from `ConservationHypothesis`, which the kernel’s own `balance_theorem` shows is RH restated (ch_iff_rh, E-2026-09-25-1), so the row formalizes RH from RH restated; and `h2` has a compiled face, h2_sign, equivalent to RH with both directions compiled (h2_sign_iff_rh, SIDE-explicit-formula v0.2, ζ page node 8), which no kernel discharges.*
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486); h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+
+### PART G -- EVERY CHANGE, WITH THE CLAUSE THAT REACHES IT (170):
+  W01 :105 row -- the work-list row (v5.13 :103, conservation_of_spectra) -- calls n₄ = 0 via Conservation of Spectra “Lean-verified”; the Lean terminal states (1 : ℚ) ^ s = 1, its reading carried by the name
+      old : | Tate 1950, Lean-verified |
+      new : | Tate 1950; in Lean the terminal `conservation_of_spectra` states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2), its conservation reading carried by the name |
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  W03 :1008 row -- the work-list row (v5.13 :1006, conservation_of_spectra) -- calls n₄ = 0 from Conservation of Spectra “Lean-verified”; the terminal states (1 : ℚ) ^ s = 1, T2
+      old : n₄ = 0 from Conservation of Spectra (Lean-verified)
+      new : n₄ = 0 from Conservation of Spectra (in Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1`, T2)
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  W04 :1206 row -- the work-list row (v5.13 :1204, conservation_of_spectra) -- marks Conservation of Spectra “Lean-verified”; the terminal states (1 : ℚ) ^ s = 1, T2
+      old : | Proved (ZFC), Lean-verified |
+      new : | Proved (ZFC); in Lean the terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2) |
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  W05 :1577 row -- the work-list row (v5.13 :1573, ch_iff_rh), E-2026-09-25-1’s phrase -- says three routes compile independently, Route 3 among them; Route 3’s premise is RH restated -- the phrase E-2026-09-25-1 replaced with “three route terminals”
+      old : Three routes compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own.
+      new : Three route terminals compile independently in Lean: Route 1 (structural exhaustiveness) on its own, Route 2 (codimension / Spectral Cannon) on its own, Route 3 (Conservation) on its own, its premise RH restated (ch_iff_rh).
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  W07 :1634 row -- the work-list row (v5.13 :1630, ch_iff_rh) -- counts Route 3 among routes to RH; its premise is RH restated, so it formalizes RH from RH restated
+      old : | Route 3 — RH from Conservation + balance |
+      new : | Route 3 — RH from `ConservationHypothesis`, which `balance_theorem` shows is RH restated (ch_iff_rh) |
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  W10 :1673 row -- the work-list rows (v5.13 :1669, ch_iff_rh and riemann_hypothesis) -- names the row “RH from the conservation interface”; the interface is RH restated, so the row is RH from RH restated
+      old : | Route 3 — RH from the conservation interface |
+      new : | Route 3 — RH from the conservation interface `ConservationHypothesis`, RH restated (ch_iff_rh) |
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  W15 :1818 row -- the work-list row (v5.13 :1810, partialPositivity_finiteRange) -- presents λ_n ≥ 0 up to N₀(T) as certified outright; the terminal proves it only under two uncompiled literature premises and verified zeros, T1-lit
+      old : certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with
+      new : certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T² under two uncompiled literature premises (Bombieri–Lagarias, Voros) and verified zeros — T1-lit, not compiled outright — with
+      cites: partialPositivity_finiteRange (SIDE-lv-conservation v0.8.0 = 6efa9e5), T1-lit; the work-list row (relay data/b558_editions/A_Place_to_Stand.txt, :1810) and relay data/b558_cp1b.txt :565, :278
+  W19 :1863 row -- the work-list row (v5.13 :1855, conservation_of_spectra) -- says Conservation of Spectra is “verified in Lean”; the terminal states (1 : ℚ) ^ s = 1, T2
+      old : Conservation of Spectra, proved from Tate's thesis within ZFC and verified in Lean.
+      new : Conservation of Spectra, argued from Tate's thesis within ZFC (Chapter 13); in Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2).
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  W20 :1942 row -- the work-list row (v5.13 :1934, conservation_of_spectra) -- marks the s-darkness of the product formula “Lean-verified”; the terminal states (1 : ℚ) ^ s = 1, T2
+      old : | Proved (ZFC), Lean-verified |
+      new : | Proved (ZFC); in Lean the terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2) |
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  S01 :722 stem -- the stem clause (OPEN_TRAILS :11904) -- the scanner`s one live stem; the object the sentence names is the conversion of §18.1
+      old : five independent closures of the codimension gap
+      new : five independent closures of the step from structural to actual independence (§18.1)
+      cites: the object chapter 18 names: §18.1 “From Structural to Actual” (v5.15 :1109, :1113)
+  C001 :722 ceiling -- the ceiling clause (OPEN_TRAILS :11906) -- “the whole proof” names the monograph`s argument a proof of RH
+      old : the dichotomy the whole proof turns on
+      new : the dichotomy the whole reduction turns on
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C002 :722 ceiling -- the ceiling clause -- exhaustiveness at ξ is the open premise; Ostrowski closes the place count
+      old : seven mechanism classes, proved exhaustive by Ostrowski
+      new : seven mechanism classes, their place count closed by Ostrowski and their exhaustiveness at ξ the open clause h2
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  P01 :1305 restatement -- the restatement clause (OPEN_TRAILS :12192), restating J12 -- restates “Part IV argues RH from simplicity” (J12), a join act two read as an open direction
+      old : This Part reaches RH through a different strategy
+      new : This Part argues toward RH through a different strategy
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  P02 :1305 restatement -- the restatement clause, restating J06 -- restates the conditional act two`s J06 reads as an open direction
+      old : the conditional (simplicity → RH) is proved, while
+      new : the conditional (simplicity → RH) is the programme’s reading of an open direction, an edge no compiled statement carries (simplicity_iff, v0.17; positivity_not_imp_simplicity, v0.19), while
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  P03 :1305 ceiling -- the ceiling clause -- “Part III`s proof” names the reduction a proof of RH
+      old : Part III's proof does not consume this clause
+      new : Part III's reduction does not consume this clause
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  P04 :1307 restatement -- the restatement clause, restating J02 -- restates the direction J02 reads as the programme`s reading of an open direction
+      old : We establish it here.
+      new : We argue it here, as an open direction (§22.5).
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  P05 :1309 restatement -- the restatement clause, restating J06 -- restates J06`s theorem, which act two read as an open direction
+      old : **Theorem (ZFC).** If all nontrivial zeros of ξ are simple, then the Riemann Hypothesis holds.
+      new : **The conditional, the programme’s reading of an open direction.** If all nontrivial zeros of ξ are simple, then the Riemann Hypothesis holds — an edge no compiled statement carries (simplicity_iff, v0.17; positivity_not_imp_simplicity, v0.19).
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  P06 :1311 restatement -- the restatement clause, restating J07 and E5-05 -- restates J07`s “proof” and the perpendicular crossing E5-05 corrected
+      old : The proof uses the perpendicular crossing theorem (formally verified in Lean 4)
+      new : The argument uses the perpendicular crossing theorem (compiled in Lean 4 for completedRiemannZeta₀ as spectral_cannon, §25.8; the same fact for ξ′ is not compiled)
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643)
+  P07 :1311 restatement -- the restatement clause, restating J06 -- names the conditional a theorem
+      old : The simplicity reduction (this theorem) provides
+      new : The simplicity reduction (this conditional) provides
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470)
+  T01 :1463 title -- the ceiling clause, the title naming objects (R218)(4) -- the title names three proofs converging; the chapter carries three traditions` evidence on simplicity, none a proof (§24.4)
+      old : # Chapter 24: Three Proofs Converge
+      new : # Chapter 24: Three Traditions on Simplicity, Convergent Evidence
+      cites: §24.4`s convergence table and its sieve column (v5.15 :1493-:1499, act two`s T00-T06)
+  T02 :1465 ceiling -- the ceiling clause (R218)(4) -- the opening states all zeros simple as the conclusion of three traditions; §24.4 carries them as evidence rows, none as proof
+      old : converge on the same conclusion: all zeros of ξ are simple.
+      new : bear on the same question, whether all zeros of ξ are simple: a proportion (§24.1), a statistical prediction conditional on GUE (§24.2), and per-class reductions whose joint step is the geometric clause, open (§24.3, §24.4).
+      cites: §24.4`s table (RH-16 DARK, test 1; GUE in the bench, DARK, test 1; the mechanism row`s joint step open); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  T03 :1487 restatement -- the restatement clause, restating §22.5 and §24.4`s mechanism row -- states the joint step as settled; §22.5 and §24.4 carry it open
+      old : The answer is the same: nothing in the seven mechanism classes produces the codimension-2 coincidence ξ(ρ) = ξ'(ρ) = 0.
+      new : The answer per class is the same: no one of the seven mechanism classes produces the codimension-2 coincidence ξ(ρ) = ξ'(ρ) = 0 (C₁ derives, the others at the interface level); the joint step is the geometric clause, open (§22.5, §24.4).
+      cites: §22.5 (v5.15 :1397) and §24.4`s mechanism row (:1498)
+  R01 :1583 restatement -- the restatement clause, restating the :1573 row -- counts Route 3 a route, the phrase E-2026-09-25-1 replaced
+      old : ## 25.5 The Three Compiled Routes
+      new : ## 25.5 The Three Compiled Route Terminals
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  R02 :1640 restatement -- the restatement clause, restating the :1573 row -- counts Route 3 a route
+      old : the kernel's three routes in the shortest path
+      new : the kernel's three route terminals in the shortest path
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  R03 :1689 restatement -- the restatement clause, restating the :1653 row (E1-M-13) -- restates “the programme`s one counted premise”, which E-2026-09-25-1 corrected at :1657
+      old : The hypothesis is the programme's one counted premise (§27.3), open and named — not the discharged Chapter 13 theorem
+      new : The hypothesis is RH restated by the kernel's own `balance_theorem` (ch_iff_rh, E-2026-09-25-1), open because RH is open — not the discharged Chapter 13 theorem
+      cites: ch_iff_rh (v0.1 = baed4df, ζ page node 7); ERRATA E-2026-09-25-1 (:486)
+  R04 :647 restatement -- the restatement clause and the ceiling clause, restating the conservation rows -- restates “verified in Lean” for Conservation
+      old : is proved spectrally inert (Chapter 13, verified in Lean)
+      new : is argued spectrally inert (Chapter 13; in Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1`)
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  R05 :767 restatement -- the restatement clause and the ceiling clause -- the s-darkness; its Lean terminal states (1 : ℚ) ^ s = 1
+      old : This is proved by computation (1^s = 1), verified in Lean, and confirmed
+      new : This is shown by computation (1^s = 1) — the Lean terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` — and confirmed
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  R06 :801 restatement -- the fact clause (OPEN_TRAILS :11954) and the restatement clause -- restates “verified in Lean”; the chapter cited is the convergence chapter, the kernel`s is 25
+      old : The s-darkness theorem has been formally verified in Lean 4 (Chapter 24).
+      new : The s-darkness theorem’s Lean terminal, `conservation_of_spectra`, states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (Chapter 25), its conservation reading carried by the name.
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575; the Lean kernel is Chapter 25 (v5.15 :1526), not Chapter 24
+  R07 :1004 restatement -- the restatement clause -- restates the :1006 row`s “Lean-verified”
+      old : | 1950, Lean-verified |
+      new : | 1950; in Lean the terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2) |
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  R08 :2029 restatement -- the restatement clause -- restates the conservation rows` “verified in Lean”
+      old : Formally verified in Lean 4.
+      new : In Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1` (T2).
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  R09 :2037 restatement -- the restatement clause -- restates the :1006 row
+      old : n₄ = 0 from Conservation (Lean-verified)
+      new : n₄ = 0 from Conservation (in Lean its terminal states `∀ s : ℤ, (1 : ℚ) ^ s = 1`, T2)
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  R10 :1783 restatement -- the restatement clause, restating E5-05 -- restates the crossing for ξ′ as verified; E5-05 reads it for completedRiemannZeta₀
+      old : The perpendicular crossing theorem (Re(ξ'(1/2+it)) = 0) is formally verified.
+      new : The perpendicular crossing theorem is compiled for completedRiemannZeta₀ (spectral_cannon, §25.8); the same fact for ξ′ is not compiled.
+      cites: SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643)
+  R11 :2065 restatement -- the restatement clause, restating E5-05 -- as R10
+      old : Formally verified in Lean 4.
+      new : Compiled in Lean 4 for completedRiemannZeta₀ (spectral_cannon, §25.8); the same fact for ξ′ is not compiled.
+      cites: SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643)
+  R12 :1564 restatement -- the restatement clause and the ceiling clause, restating E5-05 and E6-01 -- act one`s line (E5-11): the sentence beside its replacement restates the crossing for ξ
+      old : The perpendicular crossing is proved by path differentiation
+      new : The perpendicular crossing is compiled for completedRiemannZeta₀ by path differentiation
+      cites: SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643)
+  R13 :1170 restatement -- the restatement clause, restating the :1810 row -- restates the finite range as proved
+      old : the on-line contribution and the finite range to Voros's ≈ 2T² threshold proved, the all-n tail open
+      new : the on-line contribution compiled and the finite range to Voros's ≈ 2T² threshold certified under two literature premises, T1-lit, the all-n tail open
+      cites: partialPositivity_finiteRange (SIDE-lv-conservation v0.8.0 = 6efa9e5), T1-lit; the work-list row (relay data/b558_editions/A_Place_to_Stand.txt, :1810) and relay data/b558_cp1b.txt :565, :278
+  X01 :1272 ceiling -- the ceiling clause (the case-insensitive sweep) -- GRH stated as a theorem; act one`s U04 reduces it
+      old : **Theorem (GRH).**
+      new : **Theorem (GRH), reduced here for each χ to its located clause.**
+      cites: h2_sign_chi_iff_grh_chi (v0.14 = 4dce7b9, χ page node 12)
+  X02 :1274 ceiling -- the ceiling clause (the case-insensitive sweep) -- a proof label for GRH
+      old : *Proof.* The four SIDE conditions
+      new : *Argument.* The four SIDE conditions
+      cites: h2_sign_chi_iff_grh_chi (v0.14 = 4dce7b9, χ page node 12)
+  X03 :1274 ceiling -- the ceiling clause (act one`s line, U04) -- names the GRH argument a proof
+      old : The brevity of this proof reflects
+      new : The brevity of this argument reflects
+      cites: h2_sign_chi_iff_grh_chi (v0.14 = 4dce7b9, χ page node 12)
+  X04 :1278 ceiling -- the ceiling clause -- states the consequence of GRH unconditionally
+      old : No Siegel zeros exist.
+      new : Under GRH, no Siegel zeros exist.
+      cites: h2_sign_chi_iff_grh_chi (v0.14 = 4dce7b9, χ page node 12)
+  X05 :1280 ceiling -- the ceiling clause -- claims the problem resolved; it is resolved conditional on GRH
+      old : This resolves a problem that has resisted
+      new : Under GRH this resolves a problem that has resisted
+      cites: h2_sign_chi_iff_grh_chi (v0.14 = 4dce7b9, χ page node 12)
+  L01 :82 title -- the ceiling clause (the case-insensitive sweep) -- titles the section a proof of RH
+      old : ## The Proof in One Page
+      new : ## The Reduction in One Page
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L02 :86 ceiling -- the ceiling clause (the case-insensitive sweep) -- the method of the reduction named a proof
+      old : **Method.** Proof by exhaustive enumeration
+      new : **Method.** Argument by exhaustive enumeration
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L03 :712 title -- the ceiling clause (the case-insensitive sweep) -- titles Part III a proof of RH
+      old : # PART III: THE PROOF
+      new : # PART III: THE REDUCTION
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L04 :1148 title -- the ceiling clause (the case-insensitive sweep) -- titles §19.1 a proof of RH
+      old : ## 19.1 The Proof
+      new : ## 19.1 The Reduction
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L05 :1150 ceiling -- the name-and-title exception (OPEN_TRAILS :11934), then the ceiling clause -- RH stated as a proved theorem; the name “Riemann`s Theorem”, the monograph`s own title, carries under the exception
+      old : **Theorem (Riemann's Theorem).**
+      new : **Theorem (Riemann's Theorem), reduced here to its located clause.**
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L06 :1152 ceiling -- the ceiling clause (the case-insensitive sweep) -- a proof label for RH; step (10) states the clause
+      old : *Proof.*
+      new : *The reduction, under the clause of step (9).*
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L07 :1174 title -- the ceiling clause (the case-insensitive sweep) -- titles a proof of RH
+      old : ## 19.2 Proof Architecture
+      new : ## 19.2 The Reduction's Architecture
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L08 :1198 title -- the ceiling clause (the case-insensitive sweep) -- titles a proof of RH
+      old : ## 19.3 What the Proof Uses
+      new : ## 19.3 What the Reduction Uses
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  L09 :1890 title -- the ceiling clause (the case-insensitive sweep) -- titles a proof of RH
+      old : ## 28.6 The Proof's Logical Structure
+      new : ## 28.6 The Reduction's Logical Structure
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C003 :35 ceiling -- the ceiling clause -- exhaustiveness at ξ is the open premise
+      old : The formation count is exhaustive — proved by Ostrowski's classification of the places of ℚ (1916).
+      new : The formation count is exhaustive at the places — its place count closed by Ostrowski's classification of the places of ℚ (1916), its exhaustiveness at ξ the open clause h2.
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C004 :37 ceiling -- the ceiling clause -- “the proof of RH”
+      old : it is not load-bearing for the proof of RH.
+      new : it is not load-bearing for the reduction of RH.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C005 :41 ceiling -- the ceiling clause -- “this proof”
+      old : Every component theorem used in this proof is classical.
+      new : Every component theorem used in this reduction is classical.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C006 :41 ceiling -- the ceiling clause -- the barrier to proving RH read as crossed
+      old : The barrier to proving the Riemann Hypothesis was not mathematical but methodological: the recognition that proof by exhaustive enumeration
+      new : The barrier to reducing the Riemann Hypothesis to one located clause was not mathematical but methodological: the recognition that argument by exhaustive enumeration
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C007 :49 ceiling -- the ceiling clause -- “the proof”
+      old : develop individual components of the proof in standalone form
+      new : develop individual components of the argument in standalone form
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C008 :49 ceiling -- the ceiling clause -- the supplements named proofs of RH
+      old : A one-page proof summary, a proof architecture diagram,
+      new : A one-page summary of the reduction, an architecture diagram of the argument,
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C009 :62 ceiling -- the ceiling clause -- “the proof”
+      old : The monograph assembles all six into the proof.
+      new : The monograph assembles all six into the reduction.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C010 :66 ceiling -- the ceiling clause (act one`s line, U02) -- “the proof”
+      old : Part III assembles the proof.
+      new : Part III assembles the reduction.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C011 :70 ceiling -- the ceiling clause (act one`s line, E5-01) -- “the proof”
+      old : Every step of the proof is verifiable by hand
+      new : Every step of the reduction is verifiable by hand
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C012 :117 ceiling -- the ceiling clause -- “the proof”
+      old : **What the proof uses:**
+      new : **What the reduction uses:**
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C013 :127 ceiling -- the ceiling clause -- “the proof”
+      old : *The proof has one architecture applied through several layers
+      new : *The reduction has one architecture applied through several layers
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C014 :165 ceiling -- the ceiling clause -- “This work proves it” (RH)
+      old : This work proves it.
+      new : This work reduces it to a single located clause, h2_sign, equivalent to RH (h2_sign_iff_rh) and open.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C015 :205 ceiling -- the ceiling clause -- the paths named proof-paths
+      old : distinct from the five proof-paths of Chapter 16
+      new : distinct from the five identification paths of Chapter 16
+      cites: Appendix H`s own name, “Five identification paths” (v5.15 :2229)
+  C016 :245 ceiling -- the ceiling clause -- the formation count`s exhaustiveness named proved
+      old : a fact proved independently through completely different mathematics
+      new : a count reached independently through completely different mathematics
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C017 :304 ceiling -- the ceiling clause -- names the list proved, the fold criterion among it
+      old : exhibits proved analytical structure at σ = 1/2:
+      new : exhibits analytical structure at σ = 1/2:
+      cites: §4.5`s own list (v5.15 :306-:314): the absence of folds is RH-equivalent
+  C018 :316 ceiling -- the ceiling clause -- calls the fold criterion`s conclusion proved
+      old : These are proved structural properties, not heuristics.
+      new : These are structural properties, not heuristics, each with the status its paragraph states (the absence of folds RH-equivalent, checked to 25,000 sample points).
+      cites: §4.5 (v5.15 :312)
+  C019 :358 ceiling -- the ceiling clause -- the [[7,1,3]] claim the monograph`s own v5.9.1 entry re-scoped
+      old : This is proved by explicit matrix computation.
+      new : This is demonstrated by explicit matrix computation (Knill–Laflamme, the formation-block model).
+      cites: the monograph’s own dated entry v5.9.1 (4) (v5.15 :2193): the [[7,1,3]] “proved” claims re-scoped to demonstrated
+  C020 :409 ceiling -- the ceiling clause -- “into a proof”
+      old : turns this structural landscape into a proof.
+      new : turns this structural landscape into the reduction of RH to its located clause.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C021 :415 ceiling -- the ceiling clause -- “the proof”
+      old : not a step in the proof.
+      new : not a step in the reduction.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C022 :415 ceiling -- the ceiling clause -- “the RH proof”
+      old : and the RH proof of Part III does not depend on it.
+      new : and the RH reduction of Part III does not depend on it.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C023 :415 ceiling -- the ceiling clause -- “the proof”
+      old : A reader driving toward the proof may
+      new : A reader driving toward the reduction may
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C024 :448 ceiling -- the ceiling clause -- “the proof of RH”
+      old : the proof of RH (Part III) does not depend on it.
+      new : the reduction of RH (Part III) does not depend on it.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C025 :448 ceiling -- the ceiling clause -- the sieve named the programme`s proof technique
+      old : the oldest proof technique in mathematics
+      new : the oldest technique of exclusion in mathematics
+      cites: the sentence`s own object, the sieve of Eratosthenes
+  C026 :450 ceiling -- the ceiling clause -- “the proof”
+      old : is not the proof — it is the landscape the proof navigates.
+      new : is not the reduction — it is the landscape the reduction navigates.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C027 :493 ceiling -- the ceiling clause -- the method named a prover of theorems
+      old : SIDE proves theorems by eliminating
+      new : SIDE argues by eliminating
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C028 :533 ceiling -- the ceiling clause and the fact clause -- the programme`s theorem named proved; its chapter is 13
+      old : (proved within ZFC — Chapter 14)
+      new : (argued within ZFC — Chapter 13)
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575; Conservation of Spectra is Chapter 13 (v5.15 :759)
+  C029 :562 ceiling -- the ceiling clause -- “prove the enumeration complete”
+      old : prove the enumeration is complete
+      new : certify the enumeration is complete
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C030 :562 ceiling -- the ceiling clause -- the catalogue`s exhaustiveness at ξ named proved
+      old : What is new for ξ is the proof that the seven mechanism classes are all the filters there are.
+      new : What is new for ξ is the argument that the seven mechanism classes are all the filters there are — their place count closed by Ostrowski, their exhaustiveness at ξ the open clause h2.
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C031 :619 ceiling -- the ceiling clause -- “the proof”
+      old : The proof requires no novel principle.
+      new : The reduction requires no novel principle.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C032 :629 ceiling -- the ceiling clause -- “the proof”
+      old : accepts the syllogism accepts the proof.
+      new : accepts the syllogism accepts the reduction.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C033 :633 ceiling -- the ceiling clause -- the question framed as a proof
+      old : "can we prove all zeros are on the line?"
+      new : "can we show all zeros are on the line?"
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C034 :681 ceiling -- the ceiling clause -- “The proof of RH”
+      old : The proof of RH (Parts I–III) does not depend on DCL.
+      new : The reduction of RH (Parts I–III) does not depend on DCL.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C035 :793 ceiling -- the ceiling clause -- the programme`s theorem named a proof
+      old : Conservation proves no external force can exist:
+      new : Conservation of Spectra argues (Chapter 13) that no external force can exist:
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  C036 :827 ceiling -- the ceiling clause (act one`s line, E5-04) -- the Lean argument named a proof
+      old : The proof is four steps —
+      new : The compiled argument is four steps —
+      cites: silence_universal (SIDE-kernel v1.5, Kernel/SilenceTheorem.lean); E5-04 beside it
+  C037 :827 ceiling -- the ceiling clause (act one`s line) -- the Lean term named a proof
+      old : removing it from the proof leaves an unsolved goal.
+      new : removing it from the Lean term leaves an unsolved goal.
+      cites: silence_universal (SIDE-kernel v1.5)
+  C038 :827 ceiling -- the ceiling clause (act one`s line) -- “The RH proof”
+      old : The RH proof uses two specific instances
+      new : The RH reduction uses two specific instances
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C039 :829 ceiling -- the ceiling clause -- the Lean term named a proof
+      old : Its proof does not — and cannot — reference `s : ℂ`.)
+      new : Its Lean term does not — and cannot — reference `s : ℂ`.)
+      cites: Mathlib`s mul_add
+  C040 :835 ceiling -- the ceiling clause -- “proves density theorems”
+      old : analytic number theory proves density theorems
+      new : analytic number theory establishes density theorems
+      cites: the sentence`s own object
+  C041 :835 ceiling -- the ceiling clause -- “proves” / “cannot prove”
+      old : The sieve proves what the interface transmits (density) and cannot prove what it doesn't (placement).
+      new : The sieve reaches what the interface transmits (density) and cannot reach what it doesn't (placement).
+      cites: the sentence`s own object
+  C042 :853 ceiling -- the ceiling clause -- the place count: closed (OPEN_TRAILS :12072)
+      old : The count n₂ = 3 is proved by the Poisson Exhaustion Theorem (Chapter 16).
+      new : The count n₂ = 3 is closed by the Poisson Exhaustion Theorem (Chapter 16).
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C043 :897 ceiling -- the ceiling clause -- the programme`s theorem named a proof
+      old : Conservation of Spectra (Chapter 13) proves that no structural force
+      new : Conservation of Spectra (Chapter 13) argues that no structural force
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  C044 :929 ceiling -- the ceiling clause -- as C043
+      old : Conservation of Spectra (Chapter 13) proves no force beyond these exists.
+      new : Conservation of Spectra (Chapter 13) argues that no force beyond these exists.
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  C045 :995 ceiling -- the ceiling clause -- the programme`s theorem named proved
+      old : (contradicting Conservation, which is proved)
+      new : (contradicting Conservation, argued in Chapter 13)
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  C046 :1006 ceiling -- the ceiling clause -- the programme`s analysis named proved
+      old : | Ring structure, proved |
+      new : | Ring structure (classical); the two-channel reading is this programme’s |
+      cites: the row`s own object, the ring structure of ℤ
+  C047 :1170 ceiling -- the ceiling clause -- “the proof”
+      old : the proof carries the identity soundly
+      new : the reduction carries the identity soundly
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C048 :1176 ceiling -- the ceiling clause -- “The proof”
+      old : The proof flows through four levels:
+      new : The reduction flows through four levels:
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C049 :1212 ceiling -- the ceiling clause -- “The proof”
+      old : The proof uses exhaustive enumeration
+      new : The reduction uses exhaustive enumeration
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C050 :1216 ceiling -- the ceiling clause -- “The proof”
+      old : The proof examines seven mechanism classes
+      new : The reduction examines seven mechanism classes
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C051 :1216 ceiling -- the ceiling clause -- the catalogue read as closing RH
+      old : The balance equation alone does not prove RH — the balance equation plus the exhaustive catalogue does.
+      new : The balance equation alone does not reach RH — the balance equation plus the exhaustive catalogue does, under the open clause h2 that the catalogue is exhaustive at ξ.
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C052 :1220 ceiling -- the ceiling clause -- “the proof”
+      old : A reader who has followed the proof to this point
+      new : A reader who has followed the reduction to this point
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C053 :1230 ceiling -- the ceiling clause -- “a proved theorem”
+      old : require violating a proved theorem
+      new : require violating a published theorem
+      cites: the options` own theorems (Ostrowski, Cartan B, Tate)
+  C054 :1230 ceiling -- the ceiling clause -- “this proof”
+      old : which this proof asserts is correct.
+      new : which this reduction asserts is correct.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C055 :450 ceiling -- the ceiling clause -- the exclusion read as established
+      old : Parts II–III establish *that* no mechanism exists to place them elsewhere.
+      new : Parts II–III argue *that* no mechanism exists to place them elsewhere, under the open clause h2 (§27.3).
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C056 :1453 ceiling -- the ceiling clause -- RH read as established
+      old : once RH is established by the syllogism (Part III)
+      new : once RH is granted under the syllogism’s open premise h2 (Part III)
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C057 :1453 ceiling -- the ceiling clause -- “the proof”
+      old : The computational evidence confirms what the proof predicts.
+      new : The computational evidence confirms what the reduction predicts.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C058 :1528 ceiling -- the ceiling clause -- the status named a proof status
+      old : The logical form is not the proof status;
+      new : The logical form is not the compiled status;
+      cites: Chapter 25`s own concordance (§25.8)
+  C059 :1532 ceiling -- the ceiling clause -- “the proof`s”
+      old : a Lean 4 formalization of the proof's logical architecture.
+      new : a Lean 4 formalization of the reduction's logical architecture.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C060 :1532 ceiling -- the ceiling clause -- the modules named proof modules
+      old : The core proof modules —
+      new : The core kernel modules —
+      cites: §25.8
+  C061 :1536 ceiling -- the ceiling clause -- a vacuous Lean term named a proof
+      old : `cartan_B_consequence` proved as `True` by `trivial`
+      new : `cartan_B_consequence` closed as `True` by `trivial`
+      cites: the sentence`s own object
+  C062 :1542 ceiling -- the ceiling clause (act one`s line, E5-08) -- “the proof`s structure”
+      old : This is the proof's structure,
+      new : This is the reduction's structure,
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C063 :1550 ceiling -- the ceiling clause -- the Voices` content, as E6-11 reads it
+      old : Each proves that its class identifies σ = 1/2:
+      new : Each compiles algebra showing that its class's stated constraint forces σ = 1/2:
+      cites: ERRATA E-2026-09-25-6, E6-11 (:735, replacement :737): for each class, algebra forcing σ = 1/2 from its stated constraint
+  C064 :1575 ceiling -- the ceiling clause -- “the mathematical proof”
+      old : the mathematical proof in the manuscripts,
+      new : the mathematical argument in the manuscripts,
+      cites: the sentence`s own object
+  C065 :1577 ceiling -- the ceiling clause -- “The convergence is the proof”
+      old : The convergence is the proof.
+      new : The convergence is the argument, under the named premise h2, open (h2_sign_iff_rh).
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C066 :1587 ceiling -- the ceiling clause -- compiled components named proved
+      old : the conjunction of three proved components:
+      new : the conjunction of three compiled components:
+      cites: structural_exhaustiveness_proved (§25.8)
+  C067 :1593 ceiling -- the ceiling clause -- a compiled theorem named proved
+      old : The conjunction is proved unconditionally as
+      new : The conjunction is compiled unconditionally as
+      cites: structural_exhaustiveness_proved (§25.8)
+  C068 :1603 ceiling -- the ceiling clause (act one`s line, E1-M-09) -- the programme`s theorem named proved
+      old : the s-darkness of the product formula, proved within ZFC from Tate's thesis
+      new : the s-darkness of the product formula, argued within ZFC from Tate's thesis
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  C069 :1603 ceiling -- the ceiling clause (act one`s line) -- a compiled implication named a proof
+      old : The bridge then proves:
+      new : The bridge then compiles:
+      cites: ConservationBridge.riemann_hypothesis (§25.8)
+  C070 :1633 ceiling -- the ceiling clause -- a compiled theorem named proved
+      old : | Route 1 — structural exhaustiveness proved |
+      new : | Route 1 — structural exhaustiveness, compiled |
+      cites: structural_exhaustiveness_proved (§25.8)
+  C071 :1645 ceiling -- the ceiling clause -- as C070
+      old : The structural exhaustiveness theorem proved unconditionally.
+      new : The structural exhaustiveness theorem compiled unconditionally.
+      cites: structural_exhaustiveness_proved (§25.8)
+  C072 :1655 ceiling -- the ceiling clause -- “the Day 1 proof”
+      old : are not required for the Day 1 proof.
+      new : are not required for the Day 1 reduction.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C073 :1693 ceiling -- the ceiling clause -- an import path named a proof path
+      old : neither imported by any proof path
+      new : neither imported by any compiled module
+      cites: the sentence`s own object
+  C074 :1706 ceiling -- the ceiling clause -- “whose proof”
+      old : whose proof had not yet been found.
+      new : whose derivation had not yet been found.
+      cites: the sentence`s own object
+  C075 :1712 ceiling -- the ceiling clause (act one`s line, E6-01) -- compiled theorems named proved
+      old : Every theorem is proved from Lean 4's core plus Mathlib.
+      new : Every theorem is compiled from Lean 4's core plus Mathlib.
+      cites: §25.8
+  C076 :1712 ceiling -- the ceiling clause (act one`s line) -- a general maxim on proof
+      old : formalization reveals what needs to be proved, and then mathematics proves it.
+      new : formalization reveals what needs to be shown, and then mathematics shows it.
+      cites: the sentence`s own object
+  C077 :1749 ceiling -- the ceiling clause -- “proof strategies”
+      old : multiple proof strategies,
+      new : multiple strategies of argument,
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C078 :1757 ceiling -- the ceiling clause -- “the proof`s”
+      old : it moved the proof's novel content
+      new : it moved the argument's novel content
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C079 :1759 ceiling -- the ceiling clause -- “the proof”
+      old : Early versions implied the proof required principles beyond ZFC.
+      new : Early versions implied the argument required principles beyond ZFC.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C080 :1759 ceiling -- the ceiling clause -- “The proof”
+      old : The proof operates entirely within ZFC.
+      new : The argument operates entirely within ZFC.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C081 :1767 ceiling -- the ceiling clause -- “the proof`s”
+      old : Thom transversality removed from the proof's logical spine
+      new : Thom transversality removed from the argument's logical spine
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C082 :1767 ceiling -- the ceiling clause -- RH read as established and simplicity as its consequence; the kernel carries simplicity as a second located clause
+      old : the proof establishes RH, from which simplicity follows as a consequence, not as an equivalence.
+      new : the argument reduces RH to its located clause, and simplicity is a separate located clause (simplicity_iff, v0.17), not carried by positivity within the schema (positivity_not_imp_simplicity, v0.19), and not an equivalent of RH.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106; simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  C083 :1769 ceiling -- the ceiling clause -- “the proof`s”
+      old : eliminated Thom transversality from the proof's logical spine
+      new : eliminated Thom transversality from the argument's logical spine
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C084 :1771 ceiling -- the ceiling clause -- a general statement
+      old : retraction to what can actually be proved.
+      new : retraction to what can actually be shown.
+      cites: the sentence`s own object
+  C085 :1779 ceiling -- the ceiling clause -- “proof method”
+      old : formalized as a ZFC proof method,
+      new : formalized as a ZFC method of argument,
+      cites: the sentence`s own object
+  C086 :1781 ceiling -- the ceiling clause -- the programme`s theorem named proved
+      old : The product formula is spectrally silent — proved within ZFC from Tate's thesis.
+      new : The product formula is spectrally silent — argued within ZFC from Tate's thesis (Chapter 13).
+      cites: conservation_of_spectra (SIDE-kernel v1.5 = 0e5233f, Kernel/ProductFormula_Rat.lean :72: ∀ (s : Int), (1 : Rat) ^ s = 1), T2; relay data/b558_cp1b.txt :513, :526, :529, :573, :575
+  C087 :1789 ceiling -- the ceiling clause -- “the RH proof”
+      old : If the RH proof is rejected,
+      new : If the RH reduction is rejected,
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C088 :1789 restatement -- the restatement clause, restating E5-05 -- restates the crossing as verified for ξ′
+      old : The perpendicular crossing remains formally verified.
+      new : The perpendicular crossing remains compiled for completedRiemannZeta₀ (spectral_cannon).
+      cites: SpectralCannonFull.spectral_cannon (SIDE-kernel v1.5 = 0e5233f, Kernel/SpectralCannonFull.lean :65); ERRATA E-2026-09-25-5, E5-05 (:641, replacement :643)
+  C089 :1789 ceiling -- the ceiling clause -- “proof template”
+      old : a named and formalized proof template
+      new : a named and formalized template of argument
+      cites: the sentence`s own object
+  C090 :1837 restatement -- the restatement clause, restating J06 -- the conditional named an established result
+      old : Part IV establishes one result and reduces a second.
+      new : Part IV argues one direction and reduces a second.
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  C091 :1837 ceiling -- the restatement clause, restating J06 -- the conditional named proved
+      old : perpendicular crossing, monotonicity, fold exclusion; proved.
+      new : perpendicular crossing, monotonicity, fold exclusion; an open direction, no compiled statement carrying it (simplicity_iff, v0.17).
+      cites: the joins of act two (J06, J07, J12; v5.15 back matter :2448-:2470); simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  C092 :1839 ceiling -- the ceiling clause -- “a second proof”
+      old : — not a second proof, and not a reduction
+      new : — not a second argument closing RH, and not a reduction
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C093 :1855 ceiling -- the ceiling clause -- “convergence proof”
+      old : A ten-step convergence proof is developed
+      new : A ten-step convergence argument is developed
+      cites: the sentence`s own object
+  C094 :1873 ceiling -- the ceiling clause -- “independence proof”
+      old : with independence proof and the Ostrowski parallel table.
+      new : with the independence argument and the Ostrowski parallel table.
+      cites: the sentence`s own object
+  C095 :1884 ceiling -- the ceiling clause -- the programme`s claim named proved
+      old : it is an interface, proved spectrally inert (n₄ = 0).
+      new : it is an interface, spectrally inert by the n₄ = 0 count (Chapter 14).
+      cites: Chapter 14 (v5.15 :829)
+  C096 :1892 ceiling -- the ceiling clause -- the syllogism named a proof; its exhaustiveness premise is the open clause
+      old : The proof is a syllogism (§10.4): all properties trace to the specification (Determination); the mechanism catalogue is exhaustive (Ostrowski); no catalogued mechanism produces off-line zeros (per-class exclusion); therefore no off-line zeros exist.
+      new : The reduction is a syllogism (§10.4): all properties trace to the specification (Determination); the mechanism catalogue is exhaustive (its place count closed by Ostrowski, its exhaustiveness at ξ the open clause h2); no catalogued mechanism produces off-line zeros (per-class exclusion); therefore, under that clause, no off-line zeros exist.
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C097 :1894 ceiling -- the ceiling clause -- “the proof`s”
+      old : But the proof's logical spine is the syllogism
+      new : But the reduction's logical spine is the syllogism
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C098 :1894 ceiling -- the ceiling clause -- “The proof”
+      old : The proof asks nothing of the reader
+      new : The reduction asks nothing of the reader
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C099 :1908 ceiling -- the ceiling clause -- exhaustiveness at ξ named proved
+      old : proved exhaustive by Ostrowski's classification of the places of ℚ.
+      new : its place count closed by Ostrowski's classification of the places of ℚ, its exhaustiveness at ξ the open clause h2.
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C100 :1912 ceiling -- the ceiling clause -- “The proof method”
+      old : The proof method — enumerate
+      new : The method — enumerate
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C101 :1912 ceiling -- the ceiling clause -- “to proof”
+      old : elevated from computation to proof.
+      new : elevated from computation to argument.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C102 :1912 ceiling -- the ceiling clause -- the catalogue`s completeness named proved
+      old : What is new is the proof that the enumeration is complete.
+      new : What is new is the argument that the enumeration is complete — its place count closed, its exhaustiveness at ξ the open clause h2.
+      cites: OPEN_TRAILS :12072 (the author’s reading: census proved, exhaustiveness open -- Ostrowski closes the place count, the catalogue’s exhaustiveness at ξ is the open premise h2); h2_sign_iff_rh (v0.2, ζ page node 8)
+  C103 :1922 ceiling -- the ceiling clause -- “the proof”
+      old : Every component theorem of the proof predates this programme.
+      new : Every component theorem of the reduction predates this programme.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C104 :1922 ceiling -- the ceiling clause -- the question read as closed
+      old : placed in the right relation, close the question.
+      new : placed in the right relation, reduce the question to one located clause.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C105 :1965 ceiling -- the ceiling clause -- the systems named proved
+      old : Both systems are proved in this monograph
+      new : Both systems' formation counts are derived in this monograph
+      cites: Appendix B`s own table (v5.15 :1960-:1963)
+  C106 :1993 ceiling -- the ceiling clause -- “the proof”
+      old : Every theorem in the proof is visible
+      new : Every theorem in the reduction is visible
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C107 :2063 ceiling -- the ceiling clause -- “the proof`s”
+      old : the proof's conclusion holds regardless
+      new : the reduction's conclusion holds regardless
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C108 :2173 ceiling -- the ceiling clause -- “proof strategies”
+      old : Mathematical content, proof strategies, and editorial decisions
+      new : Mathematical content, strategies of argument, and editorial decisions
+      cites: the sentence`s own object
+  C109 :2224 ceiling -- the ceiling clause (Appendix H, relocated text, live) -- “The proof”
+      old : The proof has one architecture, applied through multiple layers.
+      new : The reduction has one architecture, applied through multiple layers.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C110 :2227 ceiling -- the ceiling clause (Appendix H) -- “The proof”
+      old : The proof has one architecture, applied through multiple layers.
+      new : The reduction has one architecture, applied through multiple layers.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C111 :2228 ceiling -- the ceiling clause (Appendix H) -- “the proof`s”
+      old : This is the proof's foundation
+      new : This is the reduction's foundation
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C112 :2231 ceiling -- the ceiling clause (Appendix H) -- two proofs of RH; the second is an open direction (J06)
+      old : **Two proof strategies** (Part III and Part IV). Part III assembles the proof through direct per-class exclusion. Part IV arrives at the same conclusion through the structural behavior of zeros: simplicity of all zeros implies the Riemann Hypothesis.
+      new : **Two strategies** (Part III and Part IV). Part III assembles the reduction through direct per-class exclusion. Part IV argues toward the same conclusion through the structural behavior of zeros: that simplicity of all zeros implies the Riemann Hypothesis is an open direction (§22.5).
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106; simplicity_iff (v0.17, ζ page node 41); positivity_not_imp_simplicity (v0.19, ζ page node 52)
+  C113 :2234 ceiling -- the ceiling clause (Appendix H) -- “one proof”
+      old : are one proof with structural redundancy
+      new : are one argument with structural redundancy
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  C114 :2235 ceiling -- the ceiling clause (Appendix H) -- “proves the theorem”
+      old : this monograph proves the theorem and presents the method.
+      new : this monograph reduces the theorem to its located clause and presents the method.
+      cites: h2_sign_iff_rh (v0.2 = 5c72cad, ζ page node 8); README :106
+  K00 :1669 repin -- (R218)(4): §25.8 re-pinned entry by entry against the pages and the terminal table -- the column`s head
+      old : | Claim | Theorem | Module | `#print axioms` |
+      new : | Claim | Theorem | Module | `#print axioms` | Pin (relay terminal table) |
+      cites: relay data/terminal_table.json at HEAD (pin v1.5 = 0e5233f, the deposited wave)
+  K01 :1670 repin -- (R218)(4) -- the alignment cell
+      old : |---|---|---|---|
+      new : |---|---|---|---|---|
+      cites: relay data/terminal_table.json
+  K02 :1671 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f, the line from :188 to :249
+      old : | propext, Classical.choice, Quot.sound |
+      new : | propext, Classical.choice, Quot.sound | v1.5 = 0e5233f, :249 (from v1.3 = 0bc21c0, :188); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Bridge/TheBridgeComplete.lean:249 (git grep at v1.3 and v1.5); relay data/terminal_table.json row structural_exhaustiveness_proved
+  K03 :1672 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f, the line from :58 to :65
+      old : | propext, Classical.choice, Quot.sound |
+      new : | propext, Classical.choice, Quot.sound | v1.5 = 0e5233f, :65 (from v1.3 = 0bc21c0, :58); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Kernel/SpectralCannonFull.lean:65 (git grep at v1.3 and v1.5); relay data/terminal_table.json row SpectralCannonFull.spectral_cannon
+  K04 :1673 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f
+      old : | propext, Classical.choice, Quot.sound |
+      new : | propext, Classical.choice, Quot.sound | v1.5 = 0e5233f, :53 (from v1.3 = 0bc21c0, :53); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Bridge/ConservationBridge.lean:53 (git grep at v1.3 and v1.5); relay data/terminal_table.json row ConservationBridge.riemann_hypothesis
+  K05 :1674 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f, the line from :210 to :221
+      old : | propext, Classical.choice, Quot.sound |
+      new : | propext, Classical.choice, Quot.sound | v1.5 = 0e5233f, :221 (from v1.3 = 0bc21c0, :210); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Kernel/Integration.lean:221 (git grep at v1.3 and v1.5); relay data/terminal_table.json row techne_kernel_integration.rh_from_structural_exhaustiveness
+  K06 :1675 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f, the line from :241 to :252
+      old : | propext, Classical.choice, Quot.sound |
+      new : | propext, Classical.choice, Quot.sound | v1.5 = 0e5233f, :252 (from v1.3 = 0bc21c0, :241); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Kernel/Integration.lean:252 (git grep at v1.3 and v1.5); relay data/terminal_table.json row techne_kernel_integration.structural_exhaustiveness_iff_rh
+  K07 :1676 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f
+      old : | (none) |
+      new : | (none) | v1.5 = 0e5233f, :53 (from v1.3 = 0bc21c0, :53); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Kernel/Core.lean:53 (git grep at v1.3 and v1.5); relay data/terminal_table.json row SIDEKernel.formation
+  K08 :1677 repin -- (R218)(4) -- the pin moved from v1.3 = 0bc21c0 to v1.5 = 0e5233f
+      old : | propext, Classical.choice, Quot.sound |
+      new : | propext, Classical.choice, Quot.sound | v1.5 = 0e5233f, :80 (from v1.3 = 0bc21c0, :80); at HEAD 0256e9e; not a page node |
+      cites: SIDE-kernel Bridge/CrossClassExclusion.lean:80 (git grep at v1.3 and v1.5); relay data/terminal_table.json row techne_kernel_cross_exclusion.all_pairs_excluded
+
+### PART H -- THE CARRIED HITS` FRAGMENTS, EACH UNDER ITS NAMED EXCEPTION (46):
+  :41 "Størmer proved his theorem on consecutive smooth numbers in 1897." -- a quoted source -- Størmer (1897), a published theorem attributed
+  :70 "not a second, redundant proof." -- a quoted source -- ERRATA E-2026-09-25-5, E5-01`s replacement text verbatim (act one), the ledger quoted
+  :102 "| 1916, proved |" -- a quoted source -- Ostrowski`s theorem (1916), a published theorem
+  :103 "| 1876/1951, proved |" -- a quoted source -- Cartan B (1876/1951), a published theorem
+  :226 "Carl Størmer proved in 1897" -- a quoted source -- Størmer (1897)
+  :237 "The proof uses Pell equations" -- a quoted source -- Størmer`s published proof (1897)
+  :531 "proved by Artin and Whaples (1945)" -- a quoted source -- Artin and Whaples (1945)
+  :586 "proved by Riemann, made rigorous by Hecke and Tate" -- a quoted source -- Riemann (1859), Hecke, Tate (1950)
+  :619 "the same one Euclid used to prove" -- a quoted source -- Euclid, a published proof
+  :673 "Gödel (1940) proved CH consistent with ZFC." -- a quoted source -- Gödel (1940)
+  :673 "Cohen (1963) proved ¬CH consistent with ZFC." -- a quoted source -- Cohen (1963)
+  :771 "proved unconditionally by Artin and Whaples (1945)" -- a quoted source -- Artin and Whaples (1945)
+  :799 "proved by Artin and Whaples (1945)" -- a quoted source -- Artin and Whaples (1945)
+  :909 "This is proved in Selberg (1956)" -- a quoted source -- Selberg (1956), with Iwaniec cited
+  :917 "proved by integration by parts (Green's identity)" -- a quoted source -- Green`s identity, a classical source named
+  :955 "Ostrowski proved that no such place exists." -- a quoted source -- Ostrowski (1916)
+  :995 "(Ostrowski proves none exists)" -- a quoted source -- Ostrowski (1916)
+  :995 "(Cartan B proves none exists)" -- a quoted source -- Cartan B (1876/1951)
+  :1003 "| 1916, proved |" -- a quoted source -- Ostrowski`s theorem (1916)
+  :1005 "| 1876/1951, proved |" -- a quoted source -- elliptic regularity, the Identity Theorem and Cartan B (1876/1951)
+  :1131 "Ostrowski proved does not exist" -- a quoted source -- Ostrowski (1916)
+  :1296 "If one proves the equality" -- a quoted source -- Emmy Noether, a quotation verbatim
+  :1313 "40.77% proved (Conrey 1989)" -- a quoted source -- Conrey (1989); act two read the figure with §24.4`s note (L01)
+  :1313 "proved for function fields (Weil-Deligne)" -- a quoted source -- Weil, Deligne, a published theorem over function fields
+  :1469 "Conrey (1989) proved that at least 40.77%" -- a quoted source -- Conrey (1989)
+  :1521 "I have only proved it correct, not tested it." -- a quoted source -- Knuth, a quotation verbatim
+  :1528 "Wiles's FLT proof" -- a quoted source -- Wiles (1995), a published proof
+  :1528 "Hales's Kepler proof" -- a quoted source -- Hales (2005), a published proof
+  :1564 "`Kernel/PerpendicularCrossing.lean` proves that" -- a quoted source -- ERRATA E-2026-09-25-5, E5-11`s replacement text verbatim (act one)
+  :1575 "Wiles proved modularity lifting" -- a quoted source -- Wiles (1995)
+  :1575 "Ribet proved the earlier semistable-curve correspondence" -- a quoted source -- Ribet (1990)
+  :1575 "Hales presented the Kepler proof in a manuscript" -- a quoted source -- Hales (2005)
+  :1575 "verified the proof's components in HOL Light" -- a quoted source -- the Flyspeck project, of Hales`s published proof
+  :1894 "check Ostrowski (proved, 1916)" -- a quoted source -- Ostrowski (1916)
+  :2061 "used in Conrey's proof that at least 40.77%" -- a quoted source -- Conrey (1989)
+  :2133 "A proof of the Kepler conjecture." -- the name-and-title exception -- a bibliography title (Hales 2005)
+  :1683 "(stated, not proved, not claimed)" -- a dated entry under the history clause -- the live-layer concordance row of 2026-08-20 (v5.15 :1679), a dated addition
+  :1693 "**What it proves (label correction, 2026-07-21).**" -- a dated entry under the history clause -- the label correction of 2026-07-21
+  :2193 "verifies the proof end-to-end" -- a dated entry under the history clause -- the version-history entry v5.9.1 (2026-07-23), its quotation of a retired framing
+  :2193 "the [[7,1,3]] "proved" claims" -- a dated entry under the history clause -- the entry v5.9.1 (2026-07-23)
+  :2195 "so the proof's spine" -- a dated entry under the history clause -- the entry v5.10 (2026-07-24)
+  :2197 "is now proved" -- a dated entry under the history clause -- the entry v5.10.1 (2026-07-24)
+  :2199 "the one-page-proof step (8)" -- a dated entry under the history clause -- the entry v5.10.2 (2026-07-24)
+  :2203 ""proved by the same logic as RH" / "a second proof"" -- a dated entry under the history clause -- the entry v5.12 (2026-07-26), quoting the text it corrected
+  :2203 "none as proof" -- a dated entry under the history clause -- the entry v5.12 (2026-07-26)
+  :2203 "**Part III's single-premise proof of RH is unchanged**" -- a dated entry under the history clause -- the entry v5.12 (2026-07-26)
+  :1566 "and proves:" -- a carry of act one -- act one`s U09, accepted at (R217)(1): its “proves” governs the compiled reduction printed beneath
