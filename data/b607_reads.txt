@@ -1,0 +1,316 @@
+b607 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### the monograph`s current version v5.14: its head and version lines, chapters 21 and 22, §24.4 with its table and the 2026-09-22 note, §27.3, §25.8`s Route 2 row, its Correspondence heading and act one`s back-matter tag -- day1/A_Place_to_Stand_v5_14.md @ 2988bfa7 (90 lines cited, of 2421)
+    :1      # The Third Identity Element and Riemann's Theorem
+    :19     **v5.14, 2026-10-03** — CP-8 act one under `(R216)`: the eleven ceiling uses of the census and the live-line sentences of the errata addressed to this monograph, beside v5.13, which stands unedited; every change is recorded in the back matter.  
+    :20     **v5.13, 2026-07-27**
+    :1316   # Chapter 21: The Simplicity Reduction
+    :1319   ## 21.1 What Simplicity Means
+    :1321   A zero ρ of ξ is *simple* if ξ'(ρ) ≠ 0 — the function crosses zero without lingering. A *multiple* zero would have ξ'(ρ) = 0 — the function touches zero and turns back, or passes through with a higher-order tangency.
+    :1323   Simplicity is the default for entire functions. Multiplicity is a codimension-1 condition requiring a structural reason. The question is whether ξ has such a reason.
+    :1325   The evidence that it does not:
+    :1327   - **Computational:** Over 10¹³ zeros verified simple. Zero exceptions.
+    :1328   - **Theoretical:** Conrey (1989) proved at least 40.77% of zeros are simple.
+    :1329   - **Statistical:** GUE random matrix statistics predict 100% simplicity. A multiple zero would violate the GUE distribution.
+    :1330   - **Function field:** For zeta functions of curves over finite fields, simplicity is proved for generic curves.
+    :1331   - **Structural:** The balance equation p^(−σ) = p^(−(1−σ)) has a simple root at σ = 1/2 — its derivative −log p · (p^(−σ) + p^(−(1−σ))) is nonzero. Self-adjoint operators have generically simple eigenvalues by von Neumann-Wigner.
+    :1333   ## 21.2 The Direction
+    :1335   The standard literature goes: PCC → simplicity + RH. Montgomery (1973) introduced PCC and showed, assuming RH, that it implies at least two-thirds of zeros are simple. Gallagher and Mueller (1978) proved PCC implies the simple multiplicity conjecture. Baluyot,
+    :1337   The direction argued here is the reverse: from simplicity toward RH, an edge no compiled statement carries (simplicity is a separate located clause, simplicity_iff, SIDE-explicit-formula v0.17). This direction is new. The structural reason it works is the perp
+    :1339   ---
+    :1341   # Chapter 22: The Proof from Simplicity
+    :1344   ## 22.1 Perpendicular Crossing
+    :1346   **Theorem.** At every zero ρ = 1/2 + iγ of ξ on the critical line, ξ'(ρ) is purely imaginary: Re(ξ'(ρ)) = 0.
+    :1348   *Proof.* The functional equation ξ(s) = ξ(1−s) differentiates to ξ'(s) = −ξ'(1−s). At s = ρ on the critical line, 1 − ρ = ρ̄. Schwarz reflection gives ξ'(ρ̄) = $\overline{ξ'(ρ)}$. Combining: ξ'(ρ) = −$\overline{ξ'(ρ)}$. A complex number equal to minus its conj
+    :1350   This result is formally verified in Lean 4 as `spectral_cannon`: (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 for all real t — the derivative of Mathlib's completedRiemannZeta₀, the entire part of the completed zeta — compiled against Mathlib with zero `sorry
+    :1352   ## 22.2 Transversality Equals Simplicity
+    :1354   **Theorem.** At a critical-line zero ρ, the level curves Re(ξ) = 0 and Im(ξ) = 0 cross transversally if and only if ρ is simple.
+    :1356   *Proof.* By the Cauchy-Riemann equations, |∂ξ/∂σ| = |∂ξ/∂t| at every point. The perpendicular crossing theorem gives |ξ'(ρ)| = |Im(ξ'(ρ))|. Transversality requires |ξ'(ρ)| > 0, which fails precisely at a multiple zero. 
+    :1358   ## 22.3 The Monotonicity Formula
+    :1360   Define R-curves as the level sets {s : Re(ξ(s)) = 0} passing through zeros on the critical line.
+    :1362   **Theorem (Monotonicity Formula).** Along the R-curve through a zero ρ_k, parameterized as t = t_k(σ), define V_k(σ) = |ξ(σ + it_k(σ))|². Then V'_k(σ) = −|ξ'|²/u_t wherever u_t ≠ 0, where u = Re(ξ). At every simple zero ρ = 1/2 + iγ, the quantity V'_k(1/2) is 
+    :1364   *Proof.* On the critical line, ξ(1/2 + it) ∈ ℝ for all real t. Therefore u(1/2, t) = ξ(1/2 + it) and v(1/2, t) = 0. The t-derivative:
+    :1366   u_t(1/2, γ) = (d/dt)ξ(1/2 + it)|_{t=γ} = i · ξ'(ρ).
+    :1368   By the perpendicular crossing theorem, ξ'(ρ) = ic₁ for some c₁ ∈ ℝ with c₁ ≠ 0 (simplicity). Therefore u_t(1/2, γ) = i · ic₁ = −c₁ ≠ 0, and:
+    :1370   V'_k(1/2) = −|ξ'(ρ)|²/u_t(1/2, γ) = −c₁²/(−c₁) = c₁ ≠ 0. 
+    :1372   R-curves depart the critical line with nonzero speed at every simple zero.
+    :1374   ## 22.4 The Fold Criterion
+    :1376   **Theorem.** If an R-curve through a critical-line zero folds at some σ₀ > 1/2, then ξ has a zero at σ₀ + it_k(σ₀) with σ₀ ≠ 1/2.
+    :1378   *Proof.* A fold occurs where V_k attains a local maximum and returns to zero. Since V_k(σ) = |ξ|² along the R-curve, V_k(σ₀) = 0 implies ξ(σ₀ + it_k(σ₀)) = 0 with σ₀ ≠ 1/2. 
+    :1380   ## 22.5 The Main Theorem
+    :1382   **Theorem.** If all nontrivial zeros of ζ are simple, then the Riemann Hypothesis holds.
+    :1384   *Proof.* Suppose all nontrivial zeros are simple. By §22.2, every critical-line zero has transversal crossing. By §22.3, every R-curve satisfies V'_k(1/2) ≠ 0, departing the critical line with nonzero speed.
+    :1386   For an R-curve to fold, u_t must vanish at some point along the curve. The formula V'_k = −|ξ'|²/u_t shows that V'_k changes sign only where u_t = 0. The exhaustive classification of Part III identifies seven mechanism classes with formation (2,3,2,0) = 7. The
+    :1388   - **C₁ (real coefficients / Schwarz):** Conjugation symmetry ξ'(s̄) = $\overline{ξ'(s)}$ couples derivatives at conjugate points. No constraint on u_t along a level set.
+    :1389   - **C₂ (Euler product):** The balance equation p^(−σ) = p^(−(1−σ)) has a simple root at σ = 1/2 — its derivative −log p · (p^(−σ) + p^(−(1−σ))) is nonzero. No degeneracy.
+    :1390   - **C₃ (functional equation):** The differentiated functional equation ξ'(s) = −ξ'(1−s) constrains the derivative at reflected points, not at points along the R-curve. It does not force u_t = 0.
+    :1391   - **C₄ (Modular / PSL₂ symmetry):** The scattering matrix and Maass form analysis (§15.3) constrains spectral parameters toward σ = 1/2; no mechanism exists for u_t degeneracy.
+    :1392   - **C₅ (spectral self-adjointness):** Forces real eigenvalues, which concentrate spectral data at σ = 1/2. Does not produce u_t = 0 along R-curves.
+    :1393   - **C₆ (Cauchy-Riemann):** Second-order coupling between partial derivatives. Does not force value-level degeneracy of u_t.
+    :1394   - **C₇ (Hadamard product):** Encodes the zero set globally but does not force local degeneracy of u_t.
+    :1396   Of these, C₁ derives — the perpendicular-crossing reduction, compiled std3 (the derivative engine) — and the remaining classes are carried at the interface level. The joint step — that no class produces the vanishing of u_t, hence no fold — is the *geometric c
+    :1398   By the fold criterion (§22.4), the absence of folds implies the absence of off-line zeros. 
+    :1400   The proof chain: simplicity → transversal crossing → nonzero departure speed → no fold → no off-line zero. Each link is proved — the chain is the conditional, and its antecedent (simplicity) is the geometric clause (§24.4). The last link uses the exhaustive ca
+    :1402   ## 22.6 Computational Verification
+    :1404   R-curve monotonicity is verified independently of the structural argument: 25,000 sample points along R-curves spanning the first 10,000 zeros. V'_k(σ) > 0 for all σ > 1/2 in every case. Zero exceptions.
+    :1406   ## 22.7 The Two Proofs
+    :1408   Part III reduces RH through mechanism enumeration to the named premise h2: seven classes, none producing off-line zeros, exhaustive by Ostrowski. Part IV argues RH from simplicity: perpendicular crossing, monotonicity, fold exclusion — an edge no compiled stat
+    :1410   ## 22.8 The Growth of Transversality
+    :1412   The structural quantity is |ζ'(ρ)| — the derivative of the uncompleted zeta function at each zero, stripped of the Gamma envelope that governs the completed ξ.
+    :1414   |ζ'(ρ)| grows as √γ.
+    :1416   The perpendicular crossing strengthens with height. The obstruction to off-line displacement becomes more robust, not less, as one moves up the critical line. The bigger γ gets, the harder off-line zeros become. Computed across 30 zeros (a preliminary sample; 
+    :1418   ---
+    :1490   ## 24.4 The Convergence
+    :1492   | Tradition | Method | Span | Grade toward simplicity |
+    :1493   |:---|:---|:---|:---|
+    :1494   | Analytic number theory | Mollifiers, mean values (Conrey) | 1942–present | ≥ 40.77% simple — a **proportion**, not all |
+    :1495   | Random matrix theory | GUE statistics, universality | 1973–present | 100% simple — **statistical, conditional on GUE** |
+    :1496   | Computation | Zero tables (Odlyzko, LMFDB) | 1986–present | 10¹³⁺ zeros simple — a **finite range** |
+    :1497   | RH-false witnesses | Davenport–Heilbronn / Epstein off-line zeros | 2026 | every located off-line zero simple, incl. the new t≈176.70 (‖D′‖=1.207, doubly-sourced) — **evidence for genericity** |
+    :1498   | Mechanism enumeration | I+D+S, seven classes | 2026 | per-class reductions compile (C₁ derives, std3); **joint step open** = the geometric clause |
+    :1500   **Analytic-row note (2026-09-22, a new external bound).** An unconditional proportion now exceeds this row’s: *at least two thirds of the nontrivial zeros of ζ, counted with multiplicity, are simple and lie on the critical line*, and 0.6725 with the Montgomery
+    :1502   Five convergent lines. Disjoint tools. No shared practitioners. Each supports the simplicity of the zeros; none, alone or together, proves it.
+    :1504   **The geometric clause (canonical statement).** A zero ρ = ½ + iγ is simple iff ξ'(ρ) ≠ 0; by the perpendicular crossing (the derivative of completedRiemannZeta₀ is imaginary on the line, compiled as spectral_cannon; the same holds of ξ′, not compiled) this is
+    :1788   ## 27.3 The Realization-Totality Premise: Every ξ-Zero Forces the Euler Balance
+    :1790   Every extended proof carries assumptions, and the difference between a mature architecture and a careless one is not the absence of assumptions but the ability to count them, name them, and point to them. This section does that for the present proof. The count
+    :1792   The premise has appeared in this monograph and its deposits under several names, in several vocabularies, without a section stating that they are the same thing. That distribution was honest — each disclosure is accurate where it stands — but distributed hones
+    :1794   **The five registers.** First: the *universality hypothesis* carried by the Universal Silence Theorem — stated for every essential interface, as the register states it, it is false (not_register1); what Chapter 14 uses is the hypothesis at each interface. Chap
+    :1796   *v5.14, 2026-10-03, a history line under E-2026-09-22-1 (ERRATA :414, :415): the two sentences above that begin “This is distinct from the Mechanism Theorem” and “The input-stage spectral coupling” assert a machine check, name no terminal and have no row in §2
+    :1798   These registers stand at different depths (b538): the first is false as stated (not_register1); the second is RH restated (ch_iff_rh); the third is undecided; the fourth, in its Weil form, is equivalent to RH (h2_sign_iff_rh); the fifth's compiled face holds o
+    :1800   **The ancestry of the sharpest form.** The channel inequality is not new terrain, and this monograph cites its line: Li (1997) proved λ_n ≥ 0 for all n equivalent to RH; Bombieri and Lagarias (1999) generalized the criterion, gave the arithmetic formula, exhib
+    :1802   *v5.14, 2026-10-03, a history line under E-2026-09-22-1 (ERRATA :416): the sentence above that begins “The programme’s channel decomposition” asserts a machine check, names no terminal and has no row in §25.8’s concordance; it carries unchanged, its narrowing 
+    :1804   **The compiled shape.** In July 2026 the premise was taken to the compiler, by the programme's own method — the axiom journey of Chapter 26, in which each assumption, forced into formal statement, revealed whether it was a theorem awaiting proof. The kernel SI
+    :1806   The formalization then did what formalization is for: it stated the remaining content as a goal state at the fixed witness Φ; at that witness the goal state's nonvanishing clause mellin Φ (s/2) ≠ 0 is false at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le
+    :1808   > from: for every class-constraint C, *there exists* Φ with C Φ and mellin Φ (s/2) ≠ 0
+    :1809   > to: *there exists* Φ with (for every class-constraint C, C Φ) and mellin Φ (s/2) ≠ 0
+    :1811   — and the kernel contains a theorem-pair bracketing it. **The unrestricted commutation is false**: a concrete two-predicate instance is compiled as a theorem — the countermodel (T3″). **Under Determination it is immediate**: when the class constraints are hypo
+    :1813   **What remains, exactly.** The bracket's two obligations are h1 — the per-class constraints of Chapter 15, instantiated at the fixed witness — and h2 — nonvanishing of the transform at the point in question; at the fixed witness that nonvanishing is false at e
+    :1815   **The registers, compiled.** After h1 completed at the witness, the programme took the *register structure itself* to the compiler. SIDE-lv-conservation now carries, with clean profiles: the **register pentagon** (`RegisterPentagon`, v0.7.0) — the five faces R
+    :1817   **What is certified regardless.** The criterion + verified surround of §25.3 — the manuscripts proving the mathematics (the criterion), the kernel verifying the logical structure (the surround), precedented by Wiles–Ribet and Hales–Flyspeck — does not stand or
+    :1819   **The count.** One premise; five registers; one goal state, at a cited line of a public kernel, whose nonvanishing clause at the fixed witness is false on the critical strip (mellin_Phi_eq_zero_of_re_le_one) and whose corrected form is RH on the zero configura
+    :1669   | Route 2 — perpendicular crossing: the completed-ζ derivative is imaginary on the line, ∀t | `SpectralCannonFull.spectral_cannon` | `Kernel/SpectralCannonFull.lean` | propext, Classical.choice, Quot.sound |
+    :2230   **The one open premise** (§27.3). These registers stand at different depths (b538): the first is false as stated (not_register1); the second is RH restated (ch_iff_rh); the third is undecided; the fourth, in its Weil form, is equivalent to RH (h2_sign_iff_rh);
+    :2275   <!-- b606 (R216) THE v5.14 EDITION`S BACK MATTER, 2026-10-03 -->
+### relay data/b606_edition_PLACE.txt: the whole-document figure (the ceiling by kind, the scanner, H28c) -- data/b606_edition_PLACE.txt @ fa7722b7 (4 lines cited, of 2801)
+    :2552   ### THE CEILING, every hit in the edition, by kind: {'beyond (unread in act one, priced for acts two and three)': 171, 'carried (R-7)': 1, 'record': 36, 'rewritten-line': 28}
+    :2792   ### sentences beyond the ceiling in the body (lines this act neither rewrote nor carried): 171
+    :2793   ### THE SCANNER (banned_terms.py --new) on the edition: live uses 1 ; verdict NOT CLEAN
+    :2798   ### ### **H28c REFUTED -- by its letter over the whole body: the scanner`s verdict NOT CLEAN (live uses 1), sentences beyond the ceiling 171 -- the stems and ceiling sentences outside the eleven uses and the errata are acts two and three`s by (R216)(2) (reading R-6), a conflict inside the order, not a sentence this act wrote.**
+### THE_FINDINGS_AS_THEY_STAND v0.3: the registers, the rows for Conrey`s proportion and the 2/3 (RH-16), simplicity (RH-15, RH-19), the Epstein witnesses (FD-01, FD-02) and the bench; GUE, the computational range, the mechanism enumeration and the geometric clause have no row (the grep below finds none) -- phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_3.md @ 2988bfa7 (25 lines cited, of 1172)
+    :36     - **Bright registers, the ones the sieve looks for:** prime-side control (statements carrying the explicit formula’s prime side: Weil positivity, the χ instance, the family, the product of configurations); the Li ladder (the λ_n, the Keiper face, the Bombieri–Lagarias arithmetic limits, the register-4 and Taylor forms); crossing geometry (where a window or a sign meets a zero’s height: the finite-support ladder, the 
+    :37     - **Dark registers, carried in the bench as falsifiers:** the super-repulsion fit (spacing statistics of the ordinates); the 0.6725 ceiling (proportions of the zeros simple and on the line); the Epstein witnesses (the control function with off-line zeros, numerical and compiled).
+    :78     | RH-15 | Simplicity of ζ’s configuration is every nontrivial zero of multiplicity one, a Prop beside the faces. | UNIVERSAL (H) | multiplicity | NOT A ROUTE | — | the simplicity target itself unfolded (every zero of multiplicity one), not an argument toward it | `simplicity_iff` @ SIDE-explicit-formula v0.17 = 5a1630b |
+    :79     | RH-16 | Under the two-thirds proportion premise, the zeros of a dyadic window not simple and on the line are at most a third plus ε of them. | DENSITY (H) | the 0.6725 ceiling | DARK | 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f) | a proportion over a window offered toward simplicity: an average over the zeros, not each zero | `exceptional_mass_le_third` @ SIDE-explicit-formula v0.17 = 5a1630b |
+    :82     | RH-19 | Within the schema, Weil positivity does not imply simplicity. | FAMILY (H) | multiplicity | NOT A ROUTE | — | a method theorem: a non-implication with a counter-model in the schema, closing a route toward simplicity rather than offering one | `positivity_not_imp_simplicity` @ SIDE-explicit-formula v0.19 = 5fc0c87 |
+    :277    | FD-01 | Under the Epstein premises, a configuration carrying the off-line Epstein point ρ_E is not Weil-positive. | FAMILY (H) | the Epstein witnesses | NOT A ROUTE | — | test 2’s own instrument: the compiled witness on the control configuration | `epstein_not_h2_sign_cfg` @ SIDE-explicit-formula v0.16 = c404e72 -- INTERFACES on EpsteinPremises |
+    :278    | FD-02 | Under the Epstein premises, the Epstein configuration’s explicit formula holds at the plateau-ramp window. | FAMILY (H) | the Epstein witnesses | NOT A ROUTE | — | a compiled identity: the explicit formula at the Epstein configuration on a window | `epstein_ef_at_window` @ SIDE-explicit-formula v0.20 = 914c413 |
+    :593    - **The super-repulsion fit.** A fitted spacing exponent of β ≈ 12.32 against GUE’s 2 (SIMPLICITY v1.1.3 :240), corrected on the record to GUE-consistent repulsion, β_CDF ≈ 3.8 (CONVERGENT_ARGUMENTS_SIMPLICITY :7); a spacing statistic carries no real part, so test 1 darkens it. What it would refute: a claim that the zeros’ spacing law departs from GUE beyond the fit’s error; no placement statement can be refuted by i
+    :594    - **The 0.6725 ceiling.** At least two thirds of the zeros of ζ, counted with multiplicity, are simple and on the line, 0.6725 with the Montgomery–Taylor window (A_Place_to_Stand §24.4’s analytic-row note, :1499; carried in the kernel as the premise of `exceptional_mass_le_third`); a proportion is a density, which test 1 and Theorem 3.1’s ceiling darken. What it would refute: any reading of a proportion as all zeros,
+    :595    - **The Epstein witnesses.** The Epstein zeta of discriminant −23 agrees with ξ on the named toolkit and has off-line zeros (INVARIANCE_BARRIERS v1.4 Proposition 3.5, Theorem 3.7); compiled, a configuration carrying ρ_E is not Weil-positive under the Epstein premises (`epstein_not_h2_sign_cfg`, SIDE-explicit-formula v0.16 = c404e72), the compiled witness at least 2²⁴ base widths wide, four orders of magnitude wider t
+    :831    | RH-15 | :78 | b596 | `SIDEExplicitFormula.Simplicity.simplicity_iff` @ SIDE-explicit-formula v0.17 = 5a1630b | none | DARK, test 1 |
+    :832    | RH-16 | :79 | b596 | `SIDEExplicitFormula.Simplicity.exceptional_mass_le_third` @ SIDE-explicit-formula v0.17 = 5a1630b | none | DARK, test 1 |
+    :835    | RH-19 | :82 | b601 | `SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity` @ SIDE-explicit-formula v0.19 = 5fc0c87 | none | DARK, test 1 |
+    :874    | FD-01 | :277 | b590 | `SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg` @ SIDE-explicit-formula v0.16 = c404e72 | :493–:493 (superseded) | DARK, test 2 |
+    :875    | FD-02 | :278 | b602 | `SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window` @ SIDE-explicit-formula v0.20 = 914c413 | none | DARK, test 1 |
+    :946    | RH-15 | :78 | DARK, test 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f): it carries each zero’s multiplicity, not its real part | NOT A ROUTE | the simplicity target itself unfolded (every zero of multiplicity one), not an argument toward it | relay `data/b605_verdicts.txt` :22 | the verdict changed |
+    :947    | RH-16 | :79 | DARK, test 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f): one aggregate over the zeros (a proportion over a window), not each zero’s real part | DARK, test 1 | a proportion over a window offered toward simplicity: an average over the zeros, not each zero | relay `data/b605_verdicts.txt` :23 | the verdict kept, its reason restated |
+    :950    | RH-19 | :82 | DARK, test 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f): it carries each zero’s multiplicity, not its real part | NOT A ROUTE | a method theorem: a non-implication with a counter-model in the schema, closing a route toward simplicity rather than offering one | relay `data/b605_verdicts.txt` :26 | the verdict changed |
+    :989    | FD-01 | :277 | DARK, test 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f): generic over configurations: the same route goes through at the Epstein configuration: it is that configuration | NOT A ROUTE | test 2’s own instrument: the compiled witness on the control configuration | relay `data/b605_verdicts.txt` :65 | the verdict changed |
+    :990    | FD-02 | :278 | DARK, test 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f): an identity between aggregates over the zeros, true wherever the zeros lie | NOT A ROUTE | a compiled identity: the explicit formula at the Epstein configuration on a window | relay `data/b605_verdicts.txt` :66 | the verdict changed |
+    :1097   | RH-15 | :78 | :58 | DARK, test 1 | NOT A ROUTE | changed |
+    :1098   | RH-16 | :79 | :59 | DARK, test 1 | DARK, test 1 | kept |
+    :1101   | RH-19 | :82 | :62 | DARK, test 1 | NOT A ROUTE | changed |
+    :1140   | FD-01 | :277 | :260 | DARK, test 2 | NOT A ROUTE | changed |
+    :1141   | FD-02 | :278 | :261 | DARK, test 1 | NOT A ROUTE | changed |
+### the sieve searched for a row naming GUE, the computational range, the mechanism enumeration or the geometric clause -- phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_3.md @ 2988bfa7 (0 lines cited, of 1172)
+### relay data/b596_h29b.txt: the walk`s head and count -- data/b596_h29b.txt @ fa7722b7 (3 lines cited, of 136)
+    :1      b596 -- COMPONENT 3: H29b, THE TITLE`S PROP SALT-CHECKED AND THE FEDERATION SEARCHED, (R206)(4)(b)
+    :133    ### headers 117 ; CONCLUDES 0 ; NEGATES 0 ; READ 1 (hand-read 1) ; OTHER 113 ; OWN 3
+    :136    ### ### **H29b HOLDS.**
+### relay data/b596_lemmas.txt: the 2/3`s upstream line -- data/b596_lemmas.txt @ fa7722b7 (6 lines cited, of 175)
+    :141    ### (5) THE UPSTREAM MODULE THAT HOLDS IT, AT THE PIN 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 (anthropics/formal-math, the zeta23 formalization; relay`s clone at HEAD fbdc36bb)
+    :142        the declaration: ['Zeta23/FinalMult.lean:350']
+    :143        Zeta23/FinalMult.lean :347 /-- **At least 2/3 of the zeros of ζ are SIMPLE AND ON THE CRITICAL LINE, UNCONDITIONAL**
+    :144        Zeta23/FinalMult.lean :348 (this is the paper's [thm:B]; Zeta23/Final.lean has the Cauchy–Schwarz form with 1/2): for every ε > 0 and all large T,
+    :145        Zeta23/FinalMult.lean :349 (2/3 − ε)·N(T,2T) ≤ N₀ˢ(T,2T), for Mathlib's riemannZeta. -/
+    :146        Zeta23/FinalMult.lean :350 theorem thmB₀_mult :
+### simplicity_iff, SimpleProportion and exceptional_mass_le_third at v0.17 -- SIDEExplicitFormula/Simplicity.lean @ 5a1630b8 (3 lines cited, of 58)
+    :34     theorem simplicity_iff : simplicity ↔ ∀ ρ : ℂ, Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1 :=
+    :40     structure SimpleProportion : Prop where
+    :45     theorem exceptional_mass_le_third (hP : SimpleProportion) :
+### positivity_not_imp_simplicity at v0.19 -- SIDEExplicitFormula/Doubling.lean @ 5fc0c878 (2 lines cited, of 77)
+    :70     def PositivityImpliesSimplicity : Prop := ∀ C : WeilConfig, h2_sign_cfg C → allSimple C
+    :73     theorem positivity_not_imp_simplicity : ¬ PositivityImpliesSimplicity := fun h =>
+### Product.lean at v0.18 (the product lemma) -- SIDEExplicitFormula/Product.lean @ 1dd5cd73 (2 lines cited, of 173)
+    :160    def ProductLemma : Prop :=
+    :169    theorem productLemma_holds : ProductLemma := fun C₁ C₂ => by
+### family_theorem at v0.21 -- SIDEExplicitFormula/Schema/Family.lean @ 1d5d4dd9 (1 lines cited, of 276)
+    :213    theorem family_theorem : h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter := by
+### the register depths at v0.21: not_register1 and register5_output_holds (not page nodes) -- SIDEExplicitFormula/RegisterDepth.lean @ 1d5d4dd9 (2 lines cited, of 312)
+    :60     theorem not_register1 : ¬ Register1_universalityHypothesis := by
+    :297    theorem register5_output_holds : Register5_output_HilbertPolya := by
+### the ζ page at its own pin v0.20: its pin line and the nodes act two cites -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md @ 2988bfa7 (8 lines cited, of 194)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b602_nodes_zeta.txt`: the compiled chain from Mathlib's `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. It is generated at SIDE-exp
+    :11     7. `SIDEExplicitFormula.B321.ch_iff_rh` — SIDEExplicitFormula/H2Bridge.lean:71 — v0.1 = baed4df — `theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (tabl
+    :12     8. `SIDEExplicitFormula.B321.h2_sign_iff_rh` — SIDEExplicitFormula/Seam.lean:101 — v0.2 = 5c72cad — `theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis` — premises: none — E0: DERIVES — tier: T0 (table: none)
+    :45     41. `SIDEExplicitFormula.Simplicity.simplicity_iff` — SIDEExplicitFormula/Simplicity.lean:34 — v0.17 = 5a1630b — `theorem SIDEExplicitFormula.Simplicity.simplicity_iff : SIDEExplicitFormula.Simplicity.simplicity ↔ ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → Zeta23.
+    :46     42. `SIDEExplicitFormula.Simplicity.SimpleProportion` — SIDEExplicitFormula/Simplicity.lean:40 — v0.17 = 5a1630b — `structure SIDEExplicitFormula.Simplicity.SimpleProportion : Prop number of parameters: 0 fields: SIDEExplicitFormula.Simplicity.SimpleProportion
+    :47     43. `SIDEExplicitFormula.Simplicity.exceptional_mass_le_third` — SIDEExplicitFormula/Simplicity.lean:45 — v0.17 = 5a1630b — `theorem SIDEExplicitFormula.Simplicity.exceptional_mass_le_third : SIDEExplicitFormula.Simplicity.SimpleProportion → ∀ ε > 0, ∃ T₀, ∀ T
+    :52     48. `SIDEExplicitFormula.Product.productLemma_holds` — SIDEExplicitFormula/Product.lean:169 — v0.18 = 1dd5cd7 — `theorem SIDEExplicitFormula.Product.productLemma_holds : SIDEExplicitFormula.Product.ProductLemma` — premises: none — E0: DERIVES — tier: T0 (table
+    :56     52. `SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity` — SIDEExplicitFormula/Doubling.lean:73 — v0.19 = 5fc0c87 — `theorem SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity : ¬SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity` — premi
+### the χ page at v0.21: its pin line and family_theorem -- THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md @ 2988bfa7 (2 lines cited, of 99)
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b603_nodes_chi.txt`: the compiled chain from `GRH_chi` to the ceiling's successor sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-for
+    :27     23. `SIDEExplicitFormula.Schema.Family.family_theorem` — SIDEExplicitFormula/Schema/Family.lean:213 — v0.21 = 1d5d4dd — `theorem SIDEExplicitFormula.Schema.Family.family_theorem : ∀ (q : ℕ) [inst : NeZero q], SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplici
+### ERRATA: its form, E-2026-09-22-1 (its sentences and Status), E-2026-09-25-1 (its rows and what is not corrected), E-2026-09-25-6`s register rows and what is not corrected -- ERRATA.md @ 2988bfa7 (17 lines cited, of 833)
+    :19     what that deposit said, at the version it said it. Each entry lists: the
+    :401    ## E-2026-09-22-1 — Deposited sentences that assert a machine check, name no terminal, and have no row in the deposit’s own concordance (DEPOSIT-FACING; RETAINED AT MONOGRAPH v1.1.2)
+    :413    | `A_Place_to_Stand.md:58` | *“The Lean kernel provides machine-checked redundancy, not necessity.”* | `KernelCertificate` @ `v1.5` | `NOT THE CLAIM` — **STAND-IN** |
+    :414    | `A_Place_to_Stand.md:1779` | *“This is distinct from the Mechanism Theorem of Chapter 10, which is established — derived within ZFC from the I+D+S conditions and carried in machine-checked forms; what remains open is not the theorem but this totality premise
+    :415    | `A_Place_to_Stand.md:1779` | *“The input-stage spectral coupling is certifiable — the fixed witness Φ is the heat trace of a self-adjoint spectrum, machine-checked — while the output-stage claim, that the zeros themselves are the spectrum of a self-adjoint o
+    :416    | `A_Place_to_Stand.md:1783` | *“The programme's channel decomposition λ = λ_A + λ_Z, developed independently, reconstructs this line exactly — the convergence is method-validation of the kind the SIDE framework treats as signal, and the programme's contributi
+    :428    **Status.** Retained at monograph v1.1.2, and never restated to a later line. Under (R77) this entry is disposition (i) and the live note at §25.8 is disposition (iii); disposition (ii) — any narrowing of the deposited sentences — waits on the wave under (R66)
+    :486    ## E-2026-09-25-1 — The deposited kernel's Route 3 premise is equivalent to RH by a ten-line lemma the kernel itself contains (DEPOSIT-FACING; RETAINED AT MONOGRAPH v1.1.2 AND SIDE-kernel v1.5) — DRAFT, NOT FILED
+    :504    **The deposited sentences that rest on it** (b532, relay `data/b532_rows.txt`, each with a replacement drafted from this entry's words):
+    :505    - **monograph v1.1.2 (A_Place_to_Stand.md)** — 10 sentence(s): M-02, M-04, M-09, M-13, M-14, M-18, M-20, M-22, M-23, M-24
+    :524    **What is not corrected.** The monograph's own Appendix G already says *"the premise remains RH-equivalent and open"*; this entry does not dispute it and adds that, for register 2, the equivalence is a ten-line lemma inside the kernel. Every other route termin
+    :693    ## E-2026-09-25-6 — The deposited monograph, read against the RH-anchor from Chapter 26 to its end: sentences that gather the registers as one premise, read the compiled faces past what they state, or count Route 3 as a route; a pin cell and a build instructio
+    :708    - **A_Place_to_Stand.md:1779 at v1.1.2, live :1793** (## 27.3 The Realization-Totality Premise: Every ξ-Zero Force): *"The five registers. First: the universality hypothesis carried by the Universal Silence Theorem."*
+    :711    - **A_Place_to_Stand.md:1779 at v1.1.2, live :1793** (## 27.3 The Realization-Totality Premise: Every ξ-Zero Force): *"Over ℚ the realization space is infinite-dimensional, no positive pairing is known, and the distance between the two stages is this same prem
+    :714    - **A_Place_to_Stand.md:1781 at v1.1.2, live :1795** (## 27.3 The Realization-Totality Premise: Every ξ-Zero Force): *"These are one premise in five registers: kernel-theoretic, formal-interface, category-shaped, analytic, and spectral-geometric."*
+    :716      - replacement: *"These registers stand at different depths (b538): the first is false as stated (not_register1); the second is RH restated (ch_iff_rh); the third is undecided; the fourth, in its Weil form, is equivalent to RH (h2_sign_iff_rh); the fifth's co
+    :751    **What is not corrected.** Every STANDS and STANDS-AS-HISTORY row of the census; the version log and the era annotations, read as records of their dates under (R153)(2); the rows the filed errata already list (E-1: M-02, M-04 in part, M-18, M-20, M-23, M-24; E
+### relay data/b532_rows.txt: the rows and their replacement lines -- data/b532_rows.txt @ fa7722b7 (28 lines cited, of 106)
+    :16     M-02  [RESTS]  ## How This Monograph Is Organized
+    :19       REPLACEMENT (drafted, not applied) : The Lean 4 kernel formalizes three route terminals, each compiled with zero unproved assertions: Route 1 (structural exha
+    :21     M-04  [RESTS]  ## How This Monograph Is Organized
+    :24       REPLACEMENT (drafted, not applied) : The five registers of the single premise the proof routes through -- the universality hypothesis of `silence_universal`, 
+    :26     M-09  [RESTS]  ## 25.5 The Three Compiled Routes
+    :29       REPLACEMENT (drafted, not applied) : `Bridge/ConservationBridge.lean` defines `ConservationHypothesis` as the proposition that every xi-zero forces the Euler 
+    :31     M-13  [RESTS]  ## 25.7 The Mathlib Infrastructure Frontier
+    :34       REPLACEMENT (drafted, not applied) : `ConservationHypothesis` in `ConservationBridge.lean` is RH restated by the kernel`s own `balance_theorem` (E-2026-09-25-
+    :36     M-14  [RESTS]  ## 25.7 The Mathlib Infrastructure Frontier
+    :39       REPLACEMENT (drafted, not applied) : The kernel`s Route 3 closes the chain from the premise to `RiemannHypothesis` in Lean directly -- a chain from RH restate
+    :41     M-18  [RESTS]  ## 26.1 The Axiom Journey
+    :44       REPLACEMENT (drafted, not applied) : The method`s continuation past the Day-1 kernel -- aimed at the Route 3 interface, whose premise the kernel`s own `balanc
+    :46     M-20  [RESTS]  ## 27.3 The One Premise
+    :49       REPLACEMENT (drafted, not applied) : Second: the proposition named `ConservationHypothesis` in the kernel`s Route 3 -- every xi-zero forces the Euler balance 
+    :51     M-22  [RESTS]  ## 27.3 The One Premise
+    :54       REPLACEMENT (drafted, not applied) : This proposition is RH restated by the kernel`s own `balance_theorem` (E-2026-09-25-1); Chapter 13`s Conservation of Spec
+    :56     M-23  [RESTS]  ## 28.1 Formalization
+    :59       REPLACEMENT (drafted, not applied) : The Lean kernel formalizes three route terminals: the structural route via `Bridge.StructuralExhaustiveness`, the codimen
+    :61     M-24  [RESTS]  ## 28.1 Formalization
+    :64       REPLACEMENT (drafted, not applied) : Conservation of Spectra from Tate`s thesis (Chapter 13) is the certificate that motivates Route 3`s hypothesis, which the
+    :66     K-01  [RESTS]  
+    :69       REPLACEMENT (drafted, not applied) : ... and ConservationBridge.riemann_hypothesis (the compiled implication from ConservationHypothesis, which the kernel`s o
+    :71     Z21520474-01  [RESTS]  
+    :74       REPLACEMENT (drafted, not applied) : SIDE-kernel: the machine-verified architecture of the SIDE programme`s route terminals; its Route 3 premise is RH restate
+    :76     Z21520474-02  [RESTS]  
+    :79       REPLACEMENT (drafted, not applied) : ... and ConservationBridge.riemann_hypothesis (the compiled implication from ConservationHypothesis, which the kernel`s o
+    :81     Z21539167-01  [RESTS]  
+    :84       REPLACEMENT (drafted, not applied) : A skeptic can run lake build at the pinned kernel commit (SIDE-kernel v1.5 = 0e5233f) and #print axioms at the named rout
+### OPEN_TRAILS: the form, the stem, ceiling, history and restatement clauses, the era line, the precedence order, CP-8`s plan and b606`s record -- OPEN_TRAILS.md @ 2988bfa7 (9 lines cited, of 12494)
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and its CP-1b work-list, the page its objects sit on as its spine; STANDS sentences carried unchanged; MOVED-IN-MEANING sentences rewritten to say what the compiled fact says, citing the declaration by name
+    :11904  *Appended 2026-10-01 by b579, under the author’s ruling `(R189)`(3), to the form of an edition (:11864) -- THE STEM CLAUSE, STANDING:* a banned stem in a sentence the work-list does not mark is replaced by the object the sentence names (not a synonym for the stem), the sentence otherwise unchanged, each listed in the back matter with line and both wordings; H28c is scored on the edition’s text.
+    :11906  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem clause -- THE CEILING CLAUSE:* a sentence the work-list does not mark that speaks beyond the README ceiling (README :106-:121) takes the object it names, the rest of the sentence unchanged, each listed in the back matter as a ceiling correction with line and both wordings; H28c is scored on the edition’s text. Applied at b579 to FOUNDATIONS_OF_THE_SIDE_PROGRAMME :109, :127 and :477 (“the programme’s RH argument”) and :563 (“RH-core”, as its :621 names it); the navigat
+    :11908  *Appended 2026-10-01 by b579, under the author’s answer before b579’s seal, to the form of an edition (:11864), beside the stem and ceiling clauses -- THE HISTORY CLAUSE:* dated history entries are superseded beneath, not rewritten: a marked sentence in a dated history entry carries unchanged as a dated record, and the next version’s history line directly beneath it states what the compiled fact says, citing it; the row is resolved as MOVED-IN-MEANING by that line, and the line is counted under H28b as a ruled citation. Applied at b579 to FOUNDATIONS_OF_THE_SIDE_PROGRAMME :653 (the v0.2.4 entr
+    :12192  *Appended 2026-10-02 by b592, under the author’s answer before b592’s seal, to the form of an edition (:11864) -- THE RESTATEMENT CLAUSE:* a marked row’s reading extends to the unmarked sentences of the same edition that restate the same claim; each is rewritten with minimal substitution, the rest unchanged, listed in the back matter with both wordings, and counted under H28b with the ruling’s rewrites. Applied first at b592 to THE_RESIDUE_OF_RH v1.1 :79 (two sentences) and :88, beside the §7 sentence of `(R202)`(4) at :77.
+    :12194  *Appended 2026-10-02 by b592 to the history clause’s dated-entry line (:12044), under the author’s answer before b592’s seal -- AN ERA ANNOTATION IS A DATED ENTRY:* an era annotation is a dated history entry under the line above; a banned stem inside one is carried as the dated record with a history line beneath it. Applied first at b592 to THE_RESIDUE_OF_RH v1.1 :134 (the annotation of 2026-08-12 on the correspondence standard) and :152 (the era annotation of 2026-08-12 on the residue’s statement).
+    :12228  *Appended 2026-10-02 by b594, under the author’s ruling `(R204)`(2), to the form of an edition (:11864) -- THE PRECEDENCE ORDER:* where two clauses of the form meet on one sentence, the history clause governs, then the name-and-title exception, then the stem clause, then the ceiling clause, then the fact clause, then the restatement clause, each applying to what the earlier ones leave; the seat resolves the collision by that order without a prompt, lists every resolved collision in the back matter with the clauses named and both wordings, and the author strikes at the closing. A prompt is rese
+    :12474  *Appended 2026-10-03 by b606, under the author’s ruling `(R216)`(2), to lane three’s order (:12062) -- CP-8 IN THREE ACTS, THE MONOGRAPH’S NEXT VERSION BY ITS OWN SERIES:* as ruled: the monograph A_Place_to_Stand’s next version by its own series, each act one version beside the one before it, by the form with its clauses, the precedence order and H28a-H28c, the sieve at v0.3 as the spine and the pages at their own pins: act one (b606) -- the eleven ceiling uses of relay data/b584_ceiling_census.txt and every live-line erratum ERRATA addresses to the monograph, each sentence rewritten or carrie
+    :12476  ### b606 — lane three, act thirty-three under (R216): CP-8 act one -- the monograph’s next version over the eleven ceiling uses and the live errata by the form
+### FINDINGS: b606`s record lines and entry -- FINDINGS.md @ 2988bfa7 (3 lines cited, of 7126)
+    :7104   *Appended 2026-10-03 by b606 to b605’s entry (:7084), under `(R216)`(1) -- b605 AT ITS WEIGHT:* PLACE-papers `phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_3.md` (22e5d8d) beside v0.2 unedited, the pages re-emitted each alone (be1c977, 7ccd4c8), the record cabbed7: the verdict column re-read row by ro
+    :7106   *Appended 2026-10-03 by b606 to b605’s entry (:7084), under `(R216)`(1) -- THE TWO FACT CORRECTIONS, THE NAVIGATOR’S:* the ζ page stands at its own pin v0.20 and the χ page at v0.21 -- `(R215)`’s ferry read the ζ page at v0.21, and `(R216)`’s prints the pair crossed (the ζ page at v0.21, the χ page 
+    :7108   ## CP-8, act one: the monograph’s next version, v5.14, over the eleven ceiling uses and 5 live errata, from the ceiling census and ERRATA by the form
+### README: the ceiling -- README.md @ 2988bfa7 (2 lines cited, of 182)
+    :106    Supportable: *RH reduced to a single located clause, reduction machine-verified.*
+    :107    Not supportable: *RH proved.* The open clause is a premise of the multiplicative
+### relay data/b606_closing_push_out.txt (committed at step zero) -- data/b606_closing_push_out.txt @ fa7722b7 (12 lines cited, of 12)
+    :1      push_gated: capture on -> D:/relay/data/b606_closing_push_out.txt (2026-10-03T21:16:45Z)
+    :2      push_gated: repo D:/relay ; branch push-b606-closing ; tip e48083646a07761c1fec1106c1935c3992dc1ed8 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         9fbdf960..e4808364  push-b606-closing -> main
+    :5      push_gated: main read back at the remote: e48083646a07761c1fec1106c1935c3992dc1ed8
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay e48083646a07761c1fec1106c1935c3992dc1ed8   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers 2988bfa78331bbb928dac229baef8584fbdc9ee5   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 3528bcfc8c0341d3639d2ea272bae3bc435901b4   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 1d5d4dd9a4816b88bf9ebdd5a982b7574c7d35af   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+### relay data/b606_scores.json (whole) -- data/b606_scores.json @ fa7722b7 (70 lines cited, of 70)
+    :1      {
+    :2       "H28a": [
+    :3        "HOLDS",
+    :4        "every MOVED-IN-MEANING sentence (54) recorded with both wordings and citing a declaration, an erratum id or a banked line: 54"
+    :5       ],
+    :6       "H28b": [
+    :7        "HOLDS",
+    :8        "the body differs by +5 against at most 5 (strict 3; the replacements` segment changes 2, net +2)"
+    :9       ],
+    :10      "H28c": [
+    :11       "REFUTED",
+    :12       "by its letter over the whole body: the scanner NOT CLEAN (live uses 1); beyond the ceiling 171 -- reading R-6, the order`s own split of the body over three acts"
+    :13      ],
+    :14      "H40a": [
+    :15       "HOLDS",
+    :16       "11 of 11 uses on a live line, moved 0"
+    :17      ],
+    :18      "H40b": [
+    :19       "REFUTED",
+    :20       "per erratum (id, sentences, live, replacement in ERRATA itself): [['E-2026-07-23-1', 0, 0, 0], ['E-2026-07-12-1', 0, 0, 0], ['E-2026-07-13-1', 0, 0, 0], ['E-2026-07-18-1', 0, 0, 0], ['E-2026-07-27', 0, 0, 0], ['E-2026-08-24-1', 0, 0, 0], ['E-2026-08-24-2', 0, 0, 0], ['THE PARTITION', 0, 0, 0], ['
+    :21      ],
+    :22      "H40c": [
+    :23       "REFUTED",
+    :24       "no sentence held; H28a HOLDS, H28b HOLDS, H28c REFUTED"
+    :25      ],
+    :26      "H40d": [
+    :27       "REFUTED",
+    :28       "the body +5 against credits and history lines 2 (with the version line 3; the replacements` net +2)"
+    :29      ],
+    :30      "N1": [
+    :31       "HELD",
+    :32       "all eleven resolve True ; moved since the census 0 (the census pin`s blob is the current version`s)"
+    :33      ],
+    :34      "N2": [
+    :35       "HELD",
+    :36       "errata with a live line and a replacement: 4 ['E-2026-09-25-1', 'E-2026-09-25-4', 'E-2026-09-25-5', 'E-2026-09-25-6'] ; every sentence of them landed True {'E-2026-09-25-4': '4/4', 'E-2026-09-25-5': '17/17', 'E-2026-09-25-6': '15/15', 'E-2026-09-25-1': '9/9'}"
+    :37      ],
+    :38      "N3": [
+    :39       "REFUTED",
+    :40       "ceiling corrections 10 (rewritten by the clause 9, by the erratum governing U11 1; carried U09 inside the ceiling); fact corrections 0"
+    :41      ],
+    :42      "N4": [
+    :43       "REFUTED",
+    :44       "H28a HOLDS, H28b HOLDS, H28c REFUTED ; held None"
+    :45      ],
+    :46      "N5": [
+    :47       "HELD",
+    :48       "nothing deposits; every kernel`s main unmoved True; the current version unedited True; PLACE-papers ['FINDINGS.md', 'OPEN_TRAILS.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', 'day1/A_Place_to_Stand_v5_14.md'] (wanted ['FINDINGS.md', 'OPEN_TRAILS.md', 'THE
+    :49      ],
+    :50      "S1": [
+    :51       "HELD",
+    :52       "the re-pin step: RE-PIN : 186 of 186"
+    :53      ],
+    :54      "S2": [
+    :55       "HELD",
+    :56       "every non-blank v5.13 line carried verbatim or rewritten with every change recorded: 1309 ; failing []"
+    :57      ],
+    :58      "S3": [
+    :59       "HELD",
+    :60       "every written replacement`s words are its source`s once R-3`s rendering is taken off: failing none"
+    :61      ],
+    :62      "S4": [
+    :63       "HELD",
+    :64       "the ζ page changed True ; the χ page changed True (the edition names nodes of both)"
+    :65      ],
+    :66      "S5": [
+    :67       "HELD",
+    :68       "after the page commits: ['### ### **PAGE ARMS PASSING : 2 of 2.**', '### ### **G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA PASSING : 2 of 2.**']"
+    :69      ]
+    :70     }
+
+### b538`s four depths (relay data/b538_census.json, every row`s grade): [('R1', 'FALSE-AS-STATED'), ('R2', 'EQUIVALENT-REWORDING'), ('R3', 'UNDECIDED'), ('R4', 'EQUIVALENT-DEEP'), ('R5-output', 'TRUE-AS-STATED (a SHELL)'), ('lv`s h2', 'FALSE-AS-STATED at every s with re s ≤ 1, the critical strip included')]
+### the pages` pins: the ζ page`s list b602_nodes_zeta.txt ['# pin: v0.20'] ; the χ page`s list b603_nodes_chi.txt ['# pin: v0.21']
+### the monograph`s v5.14 at 2988bfa: blob e580a505aa22 ; v5.13 at 2988bfa: blob 29921bd37e86
+### a fact correction, the navigator`s: (R217)(4) reads §27.3`s registers "as E-2026-09-25-5`s replacements left them"; E-2026-09-25-5 reads the chapters before §26.1 (ERRATA :619, :687), and §27.3`s register sentences were rewritten at act one by E-2026-09-25-6`s replacements (E6-02, E6-03, E6-04, E6-05, E6-06; ERRATA :708-:722) with E-2026-09-25-1`s (M-20, M-22) and -4`s (v5.14 back matter :2324-:2327, :2348-:2352, :2368-:2369) -- read as E-2026-09-25-6`s
