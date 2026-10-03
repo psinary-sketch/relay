@@ -1,0 +1,20 @@
+b601 -- THE STATEMENTS OF SIDEExplicitFormula/SaltCheckKeiper.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T01:00:48Z ; the branch doubling-keiper-b601 (checked out: doubling-keiper-b601) ; the file`s sha256 cfdbcc4193483729466bfd11df4fe1b1593cca500f0f1f1c0f1fbf6b159ae589 ; its bytes 3632
+
+### :32 theorem gamma_pos
+    theorem gamma_pos : (0 : ℝ) < Real.eulerMascheroniConstant :=
+### :35 theorem log_four_pi_pos
+    theorem log_four_pi_pos : (0 : ℝ) < Real.log (4 * Real.pi) :=
+### :39 theorem keiperTaylor_zero_holds
+    theorem keiperTaylor_zero_holds : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = keiperSum 0 :=
+### :43 theorem split_needs_inv_s
+    theorem split_needs_inv_s : xiLogCoeff 0 ≠ zetaLogCoeff 0 + gammaRLogCoeff 0 := fun h => by
+### :50 theorem split_needs_zeta
+    theorem split_needs_zeta : xiLogCoeff 0 ≠ (-1) ^ 0 + gammaRLogCoeff 0 := fun h => by
+### :58 theorem split_needs_gammaR
+    theorem split_needs_gammaR : xiLogCoeff 0 ≠ (-1) ^ 0 + zetaLogCoeff 0 := fun h => by
+### :68 theorem bounds_form_satisfiable
+    theorem bounds_form_satisfiable : InInterval (1 / 2) (2 / 3) (stieltjes 0) :=
+### :72 theorem bounds_form_refutable
+    theorem bounds_form_refutable : ¬ InInterval 1 2 (stieltjes 0) := fun h => by

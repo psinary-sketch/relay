@@ -1,0 +1,55 @@
+b601 -- THE PRINTS: `lake env lean AxiomCheckDoubling.lean` at SIDE-explicit-formula doubling-keiper-b601 (checked out: doubling-keiper-b601, HEAD 2b8abf5), the watchdog`s run
+### ### EXIT rc=0 ; seconds 22 ; peak lean resident 1540 MB ; free MB after 4247 ; stopped None
+
+'SIDEExplicitFormula.Doubling.sum_self_carrier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.sum_self_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubling_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.DoublingCorollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubling_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubledToy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubledToy_pt_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubledToy_mult_pt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.doubledToy_not_allSimple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Product.productLemma_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.Doubling.sum_self_mult : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  ∀ ρ ∈ C.carrier, (SIDEExplicitFormula.Product.sum C C).mult ρ = 2 * C.mult ρ
+SIDEExplicitFormula.Doubling.doubling_iff : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C) ↔
+    SIDEExplicitFormula.Schema.h2_sign_cfg C
+SIDEExplicitFormula.Doubling.doubling_holds : SIDEExplicitFormula.Doubling.DoublingCorollary
+SIDEExplicitFormula.Doubling.doubledToy_mult_pt : SIDEExplicitFormula.Doubling.doubledToy.mult
+    SIDEExplicitFormula.Simplicity.SaltCheck.pt =
+  2
+SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg : SIDEExplicitFormula.Schema.h2_sign_cfg
+  SIDEExplicitFormula.Doubling.doubledToy
+SIDEExplicitFormula.Doubling.doubledToy_not_allSimple : ¬SIDEExplicitFormula.Simplicity.allSimple
+    SIDEExplicitFormula.Doubling.doubledToy
+SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity : ¬SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity
+SIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable : ∃ C,
+  C.carrier.Nonempty ∧ SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C)
+SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced : ∃ C,
+  C.carrier.Nonempty ∧ ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C)
+SIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity : ∃ C,
+  C.carrier.Nonempty ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ SIDEExplicitFormula.Simplicity.allSimple C
+def SIDEExplicitFormula.Doubling.DoublingCorollary : Prop :=
+∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  (∀ ρ ∈ C.carrier, (SIDEExplicitFormula.Product.sum C C).mult ρ = 2 * C.mult ρ) ∧
+    (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C) ↔
+      SIDEExplicitFormula.Schema.h2_sign_cfg C)
+def SIDEExplicitFormula.Doubling.doubledToy : SIDEExplicitFormula.Schema.WeilConfig :=
+SIDEExplicitFormula.Product.sum
+  (SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg 1 SIDEExplicitFormula.Doubling.doubledToy._proof_1)
+  (SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg 1 SIDEExplicitFormula.Doubling.doubledToy._proof_1)
+def SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity : Prop :=
+∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg C → SIDEExplicitFormula.Simplicity.allSimple C

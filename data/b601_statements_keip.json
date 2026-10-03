@@ -1,0 +1,277 @@
+{
+ "file": "SIDEExplicitFormula/Keiper.lean",
+ "sha256": "3bb45d42ad1eaecf5106371f41b853343f7a2a9967c667be07aa5f7f8ce57ee4",
+ "at": "2026-10-03T01:00:48Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "stieltjes",
+   "line": 47,
+   "head": "def stieltjes (n : ℕ) : ℂ := (-1) ^ n * iteratedDeriv n riemannZeta₀ 1"
+  },
+  {
+   "kind": "theorem",
+   "name": "analyticAt_riemannZeta₀",
+   "line": 50,
+   "head": "theorem analyticAt_riemannZeta₀ : AnalyticAt ℂ riemannZeta₀ 1 :="
+  },
+  {
+   "kind": "theorem",
+   "name": "stieltjes_zero",
+   "line": 54,
+   "head": "theorem stieltjes_zero : stieltjes 0 = (Real.eulerMascheroniConstant : ℂ) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "stieltjes_zero_limit",
+   "line": 58,
+   "head": "theorem stieltjes_zero_limit :\n    Tendsto (fun s : ℂ => riemannZeta s - 1 / (s - 1)) (𝓝[≠] 1) (𝓝 (stieltjes 0)) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "tendsto_riemannZeta₁_residue",
+   "line": 65,
+   "head": "theorem tendsto_riemannZeta₁_residue :\n    Tendsto (fun s : ℂ => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 (riemannZeta₁ 1)) := by"
+  },
+  {
+   "kind": "def",
+   "name": "taylorAt",
+   "line": 73,
+   "head": "def taylorAt (f : ℂ → ℂ) (a : ℂ) (k : ℕ) : ℂ := iteratedDeriv k f a / (k.factorial : ℂ)"
+  },
+  {
+   "kind": "def",
+   "name": "xiLogCoeff",
+   "line": 76,
+   "head": "def xiLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv LiCriterion.riemannXi) 1 k"
+  },
+  {
+   "kind": "def",
+   "name": "zetaLogCoeff",
+   "line": 79,
+   "head": "def zetaLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv riemannZeta₁) 1 k"
+  },
+  {
+   "kind": "def",
+   "name": "gammaRLogCoeff",
+   "line": 82,
+   "head": "def gammaRLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv Gammaℝ) 1 k"
+  },
+  {
+   "kind": "def",
+   "name": "keiperA",
+   "line": 86,
+   "head": "def keiperA (k : ℕ) : ℂ := (-1) ^ k + zetaLogCoeff k + gammaRLogCoeff k"
+  },
+  {
+   "kind": "def",
+   "name": "keiperSum",
+   "line": 89,
+   "head": "def keiperSum (n : ℕ) : ℂ := ∑ k ∈ Finset.range (n + 1), ((n + 1).choose (k + 1) : ℂ) * keiperA k"
+  },
+  {
+   "kind": "def",
+   "name": "KeiperTaylor",
+   "line": 92,
+   "head": "def KeiperTaylor : Prop := ∀ n : ℕ, LiCriterion.taylorCoeff LiCriterion.riemannXi n = keiperSum n"
+  },
+  {
+   "kind": "def",
+   "name": "poleCoeff",
+   "line": 95,
+   "head": "def poleCoeff : ℕ → ℂ\n  | 0 => 1\n  | i + 1 => (-1) ^ i * stieltjes i / (i.factorial : ℂ)\n\n/-- **THE POWER-SERIES LOGARITHM, AS A PROP**: the coefficients of (s − 1) ζ(s)'s logarithmic derivative are fixed by the\nStieltjes constants through `F' = F · (F'/F)`, coefficient by coefficient. -/\ndef StieltjesLog : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "StieltjesLog",
+   "line": 101,
+   "head": "def StieltjesLog : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "GammaRZetaValues",
+   "line": 107,
+   "head": "def GammaRZetaValues : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "KeiperTaylorIdentity",
+   "line": 112,
+   "head": "def KeiperTaylorIdentity : Prop := KeiperTaylor ∧ StieltjesLog ∧ GammaRZetaValues"
+  },
+  {
+   "kind": "def",
+   "name": "BinomialTransform",
+   "line": 117,
+   "head": "def BinomialTransform : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "LogDerivSplit",
+   "line": 122,
+   "head": "def LogDerivSplit : Prop := ∀ k : ℕ, xiLogCoeff k = keiperA k"
+  },
+  {
+   "kind": "structure",
+   "name": "KeiperObligations",
+   "line": 126,
+   "head": "structure KeiperObligations : Prop where"
+  },
+  {
+   "kind": "theorem",
+   "name": "keiperTaylorIdentity_of",
+   "line": 133,
+   "head": "theorem keiperTaylorIdentity_of (hP : KeiperObligations) : KeiperTaylorIdentity := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "hasDerivAt_xi_one",
+   "line": 142,
+   "head": "theorem hasDerivAt_xi_one :\n    HasDerivAt LiCriterion.riemannXi ((1 / 2 : ℂ) * completedRiemannZeta₀ 1) 1 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "xi_one",
+   "line": 159,
+   "head": "theorem xi_one : LiCriterion.riemannXi 1 = 1 / 2 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "xiLogCoeff_zero",
+   "line": 163,
+   "head": "theorem xiLogCoeff_zero : xiLogCoeff 0 = completedRiemannZeta₀ 1 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "taylorCoeff_xi_zero",
+   "line": 170,
+   "head": "theorem taylorCoeff_xi_zero : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = completedRiemannZeta₀ 1 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "binomialTransform_zero",
+   "line": 189,
+   "head": "theorem binomialTransform_zero :\n    LiCriterion.taylorCoeff LiCriterion.riemannXi 0 =\n      ∑ k ∈ Finset.range (0 + 1), ((0 + 1).choose (k + 1) : ℂ) * xiLogCoeff k := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "zetaLogCoeff_zero",
+   "line": 195,
+   "head": "theorem zetaLogCoeff_zero : zetaLogCoeff 0 = stieltjes 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "stieltjesLog_zero",
+   "line": 200,
+   "head": "theorem stieltjesLog_zero :\n    ((0 + 1 : ℕ) : ℂ) * poleCoeff (0 + 1) = ∑ i ∈ Finset.range (0 + 1), poleCoeff i * zetaLogCoeff (0 - i) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "gammaRLogCoeff_zero",
+   "line": 206,
+   "head": "theorem gammaRLogCoeff_zero :\n    gammaRLogCoeff 0 = -((Real.eulerMascheroniConstant : ℂ) + Complex.log (4 * (Real.pi : ℂ))) / 2 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "keiperA_zero",
+   "line": 211,
+   "head": "theorem keiperA_zero :\n    keiperA 0 = 1 + (Real.eulerMascheroniConstant : ℂ)\n      - ((Real.eulerMascheroniConstant : ℂ) + Complex.log (4 * (Real.pi : ℂ))) / 2 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "logDerivSplit_zero",
+   "line": 218,
+   "head": "theorem logDerivSplit_zero : xiLogCoeff 0 = keiperA 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "keiperTaylor_zero",
+   "line": 223,
+   "head": "theorem keiperTaylor_zero : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = keiperSum 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "log_four_pi_ofReal",
+   "line": 229,
+   "head": "theorem log_four_pi_ofReal : Complex.log (4 * (Real.pi : ℂ)) = ((Real.log (4 * Real.pi) : ℝ) : ℂ) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "liCoeff_one_keiper",
+   "line": 238,
+   "head": "theorem liCoeff_one_keiper :\n    LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2 := by"
+  }
+ ],
+ "items": [
+  {
+   "words": "the Keiper-Taylor identity",
+   "source": "price",
+   "decl": "KeiperTaylorIdentity",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the Stieltjes constants defined as the Taylor coefficients of riemannZeta₀ at 1",
+   "source": "price",
+   "decl": "stieltjes",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the zeroth equal to γ by the Mathlib limit above",
+   "source": "price",
+   "decl": "stieltjes_zero_limit",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "taylorCoeff riemannXi n equal to the finite Keiper sum in them",
+   "source": "price",
+   "decl": "KeiperTaylor",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the polygamma values at 1/2",
+   "source": "price",
+   "decl": "GammaRZetaValues",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "log π",
+   "source": "price",
+   "decl": "gammaRLogCoeff_zero",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "power-series log",
+   "source": "price",
+   "decl": "StieltjesLog",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the binomial transform",
+   "source": "price",
+   "decl": "BinomialTransform",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the n = 1 check against γ",
+   "source": "price",
+   "decl": "liCoeff_one_keiper",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "Keiper’s definition of λ_n compiled and shown equal to `LiCoeff`",
+   "source": "row",
+   "decl": "liCoeff_one_keiper",
+   "in_statement": true,
+   "declared": true
+  }
+ ]
+}

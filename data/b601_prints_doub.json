@@ -1,0 +1,99 @@
+{
+ "axioms": {
+  "SIDEExplicitFormula.Doubling.sum_self_carrier": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.sum_self_mult": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubling_iff": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.DoublingCorollary": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubling_holds": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubledToy": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubledToy_pt_mem": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubledToy_mult_pt": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.doubledToy_not_allSimple": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Product.productLemma_holds": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ]
+ },
+ "sorry": [],
+ "std3": true,
+ "exit": "### EXIT rc=0 ; seconds 22 ; peak lean resident 1540 MB ; free MB after 4247 ; stopped None",
+ "errors": 0,
+ "text": "'SIDEExplicitFormula.Doubling.sum_self_carrier' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.sum_self_mult' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubling_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.DoublingCorollary' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubling_holds' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubledToy' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubledToy_pt_mem' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubledToy_mult_pt' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.doubledToy_not_allSimple' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'SIDEExplicitFormula.Product.productLemma_holds' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]\nSIDEExplicitFormula.Doubling.sum_self_mult : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),\n  ∀ ρ ∈ C.carrier, (SIDEExplicitFormula.Product.sum C C).mult ρ = 2 * C.mult ρ\nSIDEExplicitFormula.Doubling.doubling_iff : ∀ (C : SIDEExplicitFormula.Schema.WeilConfig),\n  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C) ↔\n    SIDEExplicitFormula.Schema.h2_sign_cfg C\nSIDEExplicitFormula.Doubling.doubling_holds : SIDEExplicitFormula.Doubling.DoublingCorollary\nSIDEExplicitFormula.Doubling.doubledToy_mult_pt : SIDEExplicitFormula.Doubling.doubledToy.mult\n    SIDEExplicitFormula.Simplicity.SaltCheck.pt =\n  2\nSIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg : SIDEExplicitFormula.Schema.h2_sign_cfg\n  SIDEExplicitFormula.Doubling.doubledToy\nSIDEExplicitFormula.Doubling.doubledToy_not_allSimple : ¬SIDEExplicitFormula.Simplicity.allSimple\n    SIDEExplicitFormula.Doubling.doubledToy\nSIDEExplicitFormula.Doubling.positivity_not_imp_simplicity : ¬SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity\nSIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable : ∃ C,\n  C.carrier.Nonempty ∧ SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C)\nSIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced : ∃ C,\n  C.carrier.Nonempty ∧ ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C)\nSIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity : ∃ C,\n  C.carrier.Nonempty ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C ∧ SIDEExplicitFormula.Simplicity.allSimple C\ndef SIDEExplicitFormula.Doubling.DoublingCorollary : Prop :=\n∀ (C : SIDEExplicitFormula.Schema.WeilConfig),\n  (∀ ρ ∈ C.carrier, (SIDEExplicitFormula.Product.sum C C).mult ρ = 2 * C.mult ρ) ∧\n    (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C) ↔\n      SIDEExplicitFormula.Schema.h2_sign_cfg C)\ndef SIDEExplicitFormula.Doubling.doubledToy : SIDEExplicitFormula.Schema.WeilConfig :=\nSIDEExplicitFormula.Product.sum\n  (SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg 1 SIDEExplicitFormula.Doubling.doubledToy._proof_1)\n  (SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg 1 SIDEExplicitFormula.Doubling.doubledToy._proof_1)\ndef SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity : Prop :=\n∀ (C : SIDEExplicitFormula.Schema.WeilConfig),\n  SIDEExplicitFormula.Schema.h2_sign_cfg C → SIDEExplicitFormula.Simplicity.allSimple C"
+}

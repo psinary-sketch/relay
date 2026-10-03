@@ -1,0 +1,404 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Keiper.stieltjes": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.analyticAt_riemannZeta₀": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": AnalyticAt ℂ riemannZeta₀ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.stieltjes_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": stieltjes 0 = (Real.eulerMascheroniConstant : ℂ)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.stieltjes_zero_limit": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Tendsto (fun s : ℂ => riemannZeta s - 1 / (s - 1)) (𝓝[≠] 1) (𝓝 (stieltjes 0))",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Tendsto (fun s : ℂ => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 (riemannZeta₁ 1))",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.taylorAt": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(f : ℂ → ℂ) (a : ℂ) (k : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.xiLogCoeff": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(k : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.zetaLogCoeff": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(k : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.gammaRLogCoeff": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(k : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.keiperA": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(k : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.keiperSum": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(n : ℕ) : ℂ",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.KeiperTaylor": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.poleCoeff": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ℕ → ℂ | 0 => 1 | i + 1 => (-1) ^ i * stieltjes i / (i.factorial : ℂ) /-- **THE POWER-SERIES LOGARITHM, AS A PROP**: the coefficients of (s − 1) ζ(s)'s logarithmic derivative are fixed by the Stieltjes constants through `F' = F · (F'/F)`, coefficient by coefficient. -/ def StieltjesLog : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.StieltjesLog": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.GammaRZetaValues": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.KeiperTaylorIdentity": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.BinomialTransform": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.LogDerivSplit": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.KeiperObligations": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": null,
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of": {
+   "grade": "INTERFACES",
+   "why": "hP : KeiperObligations",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(hP : KeiperObligations) : KeiperTaylorIdentity",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.hasDerivAt_xi_one": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": HasDerivAt LiCriterion.riemannXi ((1 / 2 : ℂ) * completedRiemannZeta₀ 1) 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.xi_one": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiCriterion.riemannXi 1 = 1 / 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.xiLogCoeff_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": xiLogCoeff 0 = completedRiemannZeta₀ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.taylorCoeff_xi_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = completedRiemannZeta₀ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.binomialTransform_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = ∑ k ∈ Finset.range (0 + 1), ((0 + 1).choose (k + 1) : ℂ) * xiLogCoeff k",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.zetaLogCoeff_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": zetaLogCoeff 0 = stieltjes 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.stieltjesLog_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ((0 + 1 : ℕ) : ℂ) * poleCoeff (0 + 1) = ∑ i ∈ Finset.range (0 + 1), poleCoeff i * zetaLogCoeff (0 - i)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.gammaRLogCoeff_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": gammaRLogCoeff 0 = -((Real.eulerMascheroniConstant : ℂ) + Complex.log (4 * (Real.pi : ℂ))) / 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.keiperA_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": keiperA 0 = 1 + (Real.eulerMascheroniConstant : ℂ) - ((Real.eulerMascheroniConstant : ℂ) + Complex.log (4 * (Real.pi : ℂ))) / 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.logDerivSplit_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": xiLogCoeff 0 = keiperA 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.keiperTaylor_zero": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = keiperSum 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.log_four_pi_ofReal": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Complex.log (4 * (Real.pi : ℂ)) = ((Real.log (4 * Real.pi) : ℝ) : ℂ)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.liCoeff_one_keiper": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "5fc0c878182d501362f862d957c9a42eccb05913",
+ "file": "SIDEExplicitFormula/Keiper.lean",
+ "same_file": true
+}

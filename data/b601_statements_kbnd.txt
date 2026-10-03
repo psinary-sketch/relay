@@ -1,0 +1,195 @@
+b601 -- THE STATEMENTS OF SIDEExplicitFormula/KeiperBounds.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T01:00:48Z ; the branch doubling-keiper-b601 (checked out: doubling-keiper-b601) ; the file`s sha256 652639867c75f7fd8c2fca3e904cadc750284779aaefa75497f7cd0fe3e22230 ; its bytes 7054
+
+### THE WORK-ORDER, LOCATED BY NAME: its row, OPEN_TRAILS :11704, WHOLE:
+    | **2** | `W-ORD-KEIPER-FACE` | **KERNEL** | Keiper’s definition of λ_n compiled and shown equal to `LiCoeff`, giving the Li face a finite-n T0 statement that interval arithmetic can certify in-kernel | one kernel act | **W-ORD-LI-THREE-WAY’s agreement** |
+### its re-price, OPEN_TRAILS :12132, WHOLE:
+    *Appended 2026-10-01 by b589 to W-ORD-KEIPER-FACE (:11704), under the author’s ruling `(R199)`(5)(b) -- RE-PRICED ON THE MATHLIB READ:* re-priced at two lemmas of substance on the Mathlib read at de5ce8a9 (relay data/b589_keiper_read.txt): Mathlib holds the pole of riemannZeta at 1, its constant term and the pole-plus-entire split, and no Stieltjes constant beyond the zeroth by name; the kernel holds the derivative form (li_coeff_eq_taylorCoeff, v0.9); the two lemmas are the Keiper-Taylor identity and computable bounds for the constants it consumes. Trigger unchanged, now met by the three-way bench.
+### the price it cites (relay data/b589_keiper_read.txt), WHOLE:
+        THE PRICE, TWO LEMMAS OF SUBSTANCE: (1) the Keiper-Taylor identity -- the Stieltjes constants defined as the Taylor coefficients of riemannZeta₀ at 1 (a definition, the zeroth equal to γ by the Mathlib limit above), and taylorCoeff riemannXi n equal to the finite Keiper sum in them, the polygamma values at 1/2 and log π (power-series log and the binomial transform); (2) computable two-sided bounds for the Stieltjes constants up to the eleventh and for the polygamma values at 1/2 (the odd zeta values among them), which interval arithmetic would consume to certify a finite-n sign in-kernel. Bookkeeping beside them: the definitions, the n = 1 check against γ.
+
+### THE STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “computable two-sided bounds for the Stieltjes constants up to the eleventh”         [price] -> KeiperBounds                   in its statement True ; declared as printed True
+    “and for the polygamma values at 1/2 (the odd zeta values among them)”               [price] -> ZetaValueBoundsAt              in its statement True ; declared as printed True
+    “which interval arithmetic would consume to certify a finite-n sign in-kernel”       [price] -> InInterval                     in its statement True ; declared as printed True
+    “computable bounds for the constants it consumes”                                    [reprice] -> BoundPremises                  in its statement True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :33 def InInterval
+    def InInterval (lo hi : ℚ) (x : ℂ) : Prop := (lo : ℝ) ≤ x.re ∧ x.re ≤ (hi : ℝ) ∧ x.im = 0
+### :36 def stLo
+    def stLo : ℕ → ℚ
+      | 0 => (577215664901532860606512090081 : ℚ) / 10 ^ 30
+      | 1 => (-72815845483676724860586375876 : ℚ) / 10 ^ 30
+      | 2 => (-9690363192872318484530386037 : ℚ) / 10 ^ 30
+      | 3 => (2053834420303345866160046541 : ℚ) / 10 ^ 30
+      | 4 => (2325370065467300057468170176 : ℚ) / 10 ^ 30
+      | 5 => (793323817301062701753334876 : ℚ) / 10 ^ 30
+      | 6 => (-238769345430199609872421843 : ℚ) / 10 ^ 30
+      | 7 => (-527289567057751046074097507 : ℚ) / 10 ^ 30
+      | 8 => (-352123353803039509602052167 : ℚ) / 10 ^ 30
+      | 9 => (-34394774418088048177914625 : ℚ) / 10 ^ 30
+      | 10 => (205332814909064794683722288 : ℚ) / 10 ^ 30
+      | 11 => (270184439543903526672902081 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The table's upper bounds for γ_0, …, γ_11 (the bench, rounded up at 10⁻³⁰). -/
+    def stHi : ℕ → ℚ
+      | 0 => (577215664901532860606512090084 : ℚ) / 10 ^ 30
+      | 1 => (-72815845483676724860586375873 : ℚ) / 10 ^ 30
+      | 2 => (-9690363192872318484530386034 : ℚ) / 10 ^ 30
+      | 3 => (2053834420303345866160046544 : ℚ) / 10 ^ 30
+      | 4 => (2325370065467300057468170179 : ℚ) / 10 ^ 30
+      | 5 => (793323817301062701753334879 : ℚ) / 10 ^ 30
+      | 6 => (-238769345430199609872421840 : ℚ) / 10 ^ 30
+      | 7 => (-527289567057751046074097504 : ℚ) / 10 ^ 30
+      | 8 => (-352123353803039509602052164 : ℚ) / 10 ^ 30
+      | 9 => (-34394774418088048177914622 : ℚ) / 10 ^ 30
+      | 10 => (205332814909064794683722291 : ℚ) / 10 ^ 30
+      | 11 => (270184439543903526672902084 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The table's lower bounds for ζ(2), …, ζ(12). -/
+    def zLo : ℕ → ℚ
+      | 2 => (1644934066848226436472415166645 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161510 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696540 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486456 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929789 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549848 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238507 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769231 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958899 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282525 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998046 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The table's upper bounds for ζ(2), …, ζ(12). -/
+    def zHi : ℕ → ℚ
+      | 2 => (1644934066848226436472415166648 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161513 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696543 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486459 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929792 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549851 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238510 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769234 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958902 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282528 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998049 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The `n`-th Stieltjes constant in the table's interval. -/
+    def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+### :52 def stHi
+    def stHi : ℕ → ℚ
+      | 0 => (577215664901532860606512090084 : ℚ) / 10 ^ 30
+      | 1 => (-72815845483676724860586375873 : ℚ) / 10 ^ 30
+      | 2 => (-9690363192872318484530386034 : ℚ) / 10 ^ 30
+      | 3 => (2053834420303345866160046544 : ℚ) / 10 ^ 30
+      | 4 => (2325370065467300057468170179 : ℚ) / 10 ^ 30
+      | 5 => (793323817301062701753334879 : ℚ) / 10 ^ 30
+      | 6 => (-238769345430199609872421840 : ℚ) / 10 ^ 30
+      | 7 => (-527289567057751046074097504 : ℚ) / 10 ^ 30
+      | 8 => (-352123353803039509602052164 : ℚ) / 10 ^ 30
+      | 9 => (-34394774418088048177914622 : ℚ) / 10 ^ 30
+      | 10 => (205332814909064794683722291 : ℚ) / 10 ^ 30
+      | 11 => (270184439543903526672902084 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The table's lower bounds for ζ(2), …, ζ(12). -/
+    def zLo : ℕ → ℚ
+      | 2 => (1644934066848226436472415166645 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161510 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696540 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486456 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929789 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549848 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238507 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769231 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958899 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282525 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998046 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The table's upper bounds for ζ(2), …, ζ(12). -/
+    def zHi : ℕ → ℚ
+      | 2 => (1644934066848226436472415166648 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161513 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696543 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486459 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929792 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549851 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238510 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769234 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958902 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282528 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998049 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The `n`-th Stieltjes constant in the table's interval. -/
+    def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+### :68 def zLo
+    def zLo : ℕ → ℚ
+      | 2 => (1644934066848226436472415166645 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161510 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696540 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486456 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929789 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549848 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238507 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769231 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958899 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282525 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998046 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The table's upper bounds for ζ(2), …, ζ(12). -/
+    def zHi : ℕ → ℚ
+      | 2 => (1644934066848226436472415166648 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161513 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696543 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486459 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929792 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549851 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238510 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769234 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958902 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282528 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998049 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The `n`-th Stieltjes constant in the table's interval. -/
+    def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+### :83 def zHi
+    def zHi : ℕ → ℚ
+      | 2 => (1644934066848226436472415166648 : ℚ) / 10 ^ 30
+      | 3 => (1202056903159594285399738161513 : ℚ) / 10 ^ 30
+      | 4 => (1082323233711138191516003696543 : ℚ) / 10 ^ 30
+      | 5 => (1036927755143369926331365486459 : ℚ) / 10 ^ 30
+      | 6 => (1017343061984449139714517929792 : ℚ) / 10 ^ 30
+      | 7 => (1008349277381922826839797549851 : ℚ) / 10 ^ 30
+      | 8 => (1004077356197944339378685238510 : ℚ) / 10 ^ 30
+      | 9 => (1002008392826082214417852769234 : ℚ) / 10 ^ 30
+      | 10 => (1000994575127818085337145958902 : ℚ) / 10 ^ 30
+      | 11 => (1000494188604119464558702282528 : ℚ) / 10 ^ 30
+      | 12 => (1000246086553308048298637998049 : ℚ) / 10 ^ 30
+      | _ => 0
+    
+    /-- The `n`-th Stieltjes constant in the table's interval. -/
+    def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+### :98 def StieltjesBoundsAt
+    def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+### :101 def ZetaValueBoundsAt
+    def ZetaValueBoundsAt (j : ℕ) : Prop := InInterval (zLo j) (zHi j) (riemannZeta (j : ℂ))
+### :104 def KeiperBounds
+    def KeiperBounds : Prop :=
+### :109 structure BoundPremises
+    structure BoundPremises : Prop where
+### :115 theorem keiperBounds_of
+    theorem keiperBounds_of (hP : BoundPremises) : KeiperBounds := by
+### :124 theorem stieltjes_zero_coarse
+    theorem stieltjes_zero_coarse : InInterval (1 / 2) (2 / 3) (stieltjes 0) := by
+### :133 theorem table_refines_coarse
+    theorem table_refines_coarse : (1 / 2 : ℚ) ≤ stLo 0 ∧ stHi 0 ≤ (2 / 3 : ℚ) := by

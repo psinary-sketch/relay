@@ -1,0 +1,26 @@
+{
+ "file": "SIDEExplicitFormula/SaltCheckDoubling.lean",
+ "sha256": "f4cf363f804a2bff4724d86b9d5d7d2ad956fba65564a8b9fb562b285a2ceb9f",
+ "at": "2026-10-03T00:57:05Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "doubling_satisfiable",
+   "line": 33,
+   "head": "theorem doubling_satisfiable :\n    ∃ C : WeilConfig, C.carrier.Nonempty ∧ h2_sign_cfg (sum C C) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "doubling_not_forced",
+   "line": 39,
+   "head": "theorem doubling_not_forced :\n    ∃ C : WeilConfig, C.carrier.Nonempty ∧ ¬ h2_sign_cfg (sum C C) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "positivity_with_simplicity",
+   "line": 46,
+   "head": "theorem positivity_with_simplicity :\n    ∃ C : WeilConfig, C.carrier.Nonempty ∧ h2_sign_cfg C ∧ Simplicity.allSimple C :="
+  }
+ ],
+ "items": []
+}

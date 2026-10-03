@@ -1,0 +1,152 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Doubling.sum_self_carrier": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : (sum C C).carrier = C.carrier",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.sum_self_mult": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hρ : ρ ∈ C.carrier",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) (ρ : ℂ) (hρ : ρ ∈ C.carrier) : (sum C C).mult ρ = 2 * C.mult ρ",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.doubling_iff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(C : WeilConfig) : h2_sign_cfg (sum C C) ↔ h2_sign_cfg C",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.DoublingCorollary": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Doubling.doubling_holds": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": DoublingCorollary",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.doubledToy": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": WeilConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Doubling.doubledToy_pt_mem": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Simplicity.SaltCheck.pt ∈ doubledToy.carrier",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.doubledToy_mult_pt": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": doubledToy.mult Simplicity.SaltCheck.pt = 2",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg doubledToy",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.doubledToy_not_allSimple": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ¬ allSimple doubledToy",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ¬ PositivityImpliesSimplicity",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "2b8abf533d6d88fec44abe19164eaa377cd06f6d",
+ "file": "SIDEExplicitFormula/Doubling.lean",
+ "same_file": true
+}

@@ -1,0 +1,19 @@
+b601 -- THE FEDERATION SEARCHED FOR A DECLARATION CONCLUDING THE DOUBLING COROLLARY, THE KEIPER PROPS OR THEIR NEGATIONS (UTC 2026-10-03T01:05:39Z)
+
+### git grep -l -E "DoublingCorollary|PositivityImpliesSimplicity|KeiperTaylor|KeiperBounds|KeiperObligations|BoundPremises|[Ss]tieltjes" at HEAD of every kernel (44; SIDE-explicit-formula at doubling-keiper-b601, the branch tip 5fc0c87), 6 files; every theorem/lemma header naming one, its conclusion (the header after its last top-level colon) classified: CONCLUDES / NEGATES by the strict shapes, READ by the loose one, OTHER, OWN (this act`s files)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Doubling.lean:47 doubling_holds --  DoublingCorollary
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Doubling.lean:73 positivity_not_imp_simplicity --  ¬ PositivityImpliesSimplicity
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:54 stieltjes_zero --  stieltjes 0 = (Real.eulerMascheroniConstant : ℂ)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:58 stieltjes_zero_limit --  Tendsto (fun s : ℂ => riemannZeta s - 1 / (s - 1)) (𝓝[≠] 1) (𝓝 (stieltjes 0))
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:133 keiperTaylorIdentity_of --  KeiperTaylorIdentity
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:196 zetaLogCoeff_zero --  zetaLogCoeff 0 = stieltjes 0
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Keiper.lean:201 stieltjesLog_zero --  ((0 + 1 : ℕ) : ℂ) * poleCoeff (0 + 1) = ∑ i ∈ Finset.range (0 + 1), poleCoeff i * zetaLogCoeff (0 - i)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/KeiperBounds.lean:115 keiperBounds_of --  KeiperBounds
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/KeiperBounds.lean:124 stieltjes_zero_coarse --  InInterval (1 / 2) (2 / 3) (stieltjes 0)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiper.lean:68 bounds_form_satisfiable --  InInterval (1 / 2) (2 / 3) (stieltjes 0)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/SaltCheckKeiper.lean:72 bounds_form_refutable --  ¬ InInterval 1 2 (stieltjes 0)
+### OTHER rows (named the pattern, conclusion not one of the Props) 0: 
+### headers 11 ; CONCLUDES 0 ; NEGATES 0 ; READ 0 (hand-read 0) ; OTHER 0 ; OWN 11
+### the strict shapes, each exercised: {'pos_reads': True, 'pos_refuses': True, 'neg_reads': True, 'neg_refuses': True}
+
+### ### **OUTSIDE THIS ACT`S OWN FILES, DECLARATIONS CONCLUDING ONE OF THE PROPS OR ITS NEGATION : 0**

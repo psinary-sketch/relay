@@ -1,0 +1,104 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Keiper.SaltCheck.gamma_pos": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (0 : ℝ) < Real.eulerMascheroniConstant",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.log_four_pi_pos": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": (0 : ℝ) < Real.log (4 * Real.pi)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.keiperTaylor_zero_holds": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = keiperSum 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.split_needs_inv_s": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": xiLogCoeff 0 ≠ zetaLogCoeff 0 + gammaRLogCoeff 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.split_needs_zeta": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": xiLogCoeff 0 ≠ (-1) ^ 0 + gammaRLogCoeff 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.split_needs_gammaR": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": xiLogCoeff 0 ≠ (-1) ^ 0 + zetaLogCoeff 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_satisfiable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": InInterval (1 / 2) (2 / 3) (stieltjes 0)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_refutable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ¬ InInterval 1 2 (stieltjes 0)",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "5fc0c878182d501362f862d957c9a42eccb05913",
+ "file": "SIDEExplicitFormula/SaltCheckKeiper.lean",
+ "same_file": true
+}

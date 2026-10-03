@@ -1,0 +1,158 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Doubling.lean",
+   "line": 47,
+   "name": "doubling_holds",
+   "cls": "OWN",
+   "conclusion": " DoublingCorollary",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Doubling.lean",
+   "line": 73,
+   "name": "positivity_not_imp_simplicity",
+   "cls": "OWN",
+   "conclusion": " ¬ PositivityImpliesSimplicity",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 54,
+   "name": "stieltjes_zero",
+   "cls": "OWN",
+   "conclusion": " stieltjes 0 = (Real.eulerMascheroniConstant : ℂ)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 58,
+   "name": "stieltjes_zero_limit",
+   "cls": "OWN",
+   "conclusion": " Tendsto (fun s : ℂ => riemannZeta s - 1 / (s - 1)) (𝓝[≠] 1) (𝓝 (stieltjes 0))",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 133,
+   "name": "keiperTaylorIdentity_of",
+   "cls": "OWN",
+   "conclusion": " KeiperTaylorIdentity",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 196,
+   "name": "zetaLogCoeff_zero",
+   "cls": "OWN",
+   "conclusion": " zetaLogCoeff 0 = stieltjes 0",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 201,
+   "name": "stieltjesLog_zero",
+   "cls": "OWN",
+   "conclusion": " ((0 + 1 : ℕ) : ℂ) * poleCoeff (0 + 1) = ∑ i ∈ Finset.range (0 + 1), poleCoeff i * zetaLogCoeff (0 - i)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/KeiperBounds.lean",
+   "line": 115,
+   "name": "keiperBounds_of",
+   "cls": "OWN",
+   "conclusion": " KeiperBounds",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/KeiperBounds.lean",
+   "line": 124,
+   "name": "stieltjes_zero_coarse",
+   "cls": "OWN",
+   "conclusion": " InInterval (1 / 2) (2 / 3) (stieltjes 0)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiper.lean",
+   "line": 68,
+   "name": "bounds_form_satisfiable",
+   "cls": "OWN",
+   "conclusion": " InInterval (1 / 2) (2 / 3) (stieltjes 0)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/SaltCheckKeiper.lean",
+   "line": 72,
+   "name": "bounds_form_refutable",
+   "cls": "OWN",
+   "conclusion": " ¬ InInterval 1 2 (stieltjes 0)",
+   "reading": null
+  }
+ ],
+ "kernels": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-explicit-formula",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation"
+ ],
+ "files": 6,
+ "bad": [],
+ "controls": {
+  "pos_reads": true,
+  "pos_refuses": true,
+  "neg_reads": true,
+  "neg_refuses": true
+ },
+ "tip": "5fc0c878182d501362f862d957c9a42eccb05913"
+}

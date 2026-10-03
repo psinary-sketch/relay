@@ -1,0 +1,56 @@
+{
+ "file": "SIDEExplicitFormula/SaltCheckKeiper.lean",
+ "sha256": "cfdbcc4193483729466bfd11df4fe1b1593cca500f0f1f1c0f1fbf6b159ae589",
+ "at": "2026-10-03T01:00:48Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "gamma_pos",
+   "line": 32,
+   "head": "theorem gamma_pos : (0 : ℝ) < Real.eulerMascheroniConstant :="
+  },
+  {
+   "kind": "theorem",
+   "name": "log_four_pi_pos",
+   "line": 35,
+   "head": "theorem log_four_pi_pos : (0 : ℝ) < Real.log (4 * Real.pi) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "keiperTaylor_zero_holds",
+   "line": 39,
+   "head": "theorem keiperTaylor_zero_holds : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = keiperSum 0 :="
+  },
+  {
+   "kind": "theorem",
+   "name": "split_needs_inv_s",
+   "line": 43,
+   "head": "theorem split_needs_inv_s : xiLogCoeff 0 ≠ zetaLogCoeff 0 + gammaRLogCoeff 0 := fun h => by"
+  },
+  {
+   "kind": "theorem",
+   "name": "split_needs_zeta",
+   "line": 50,
+   "head": "theorem split_needs_zeta : xiLogCoeff 0 ≠ (-1) ^ 0 + gammaRLogCoeff 0 := fun h => by"
+  },
+  {
+   "kind": "theorem",
+   "name": "split_needs_gammaR",
+   "line": 58,
+   "head": "theorem split_needs_gammaR : xiLogCoeff 0 ≠ (-1) ^ 0 + zetaLogCoeff 0 := fun h => by"
+  },
+  {
+   "kind": "theorem",
+   "name": "bounds_form_satisfiable",
+   "line": 68,
+   "head": "theorem bounds_form_satisfiable : InInterval (1 / 2) (2 / 3) (stieltjes 0) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "bounds_form_refutable",
+   "line": 72,
+   "head": "theorem bounds_form_refutable : ¬ InInterval 1 2 (stieltjes 0) := fun h => by"
+  }
+ ],
+ "items": []
+}

@@ -1,0 +1,109 @@
+{
+ "file": "SIDEExplicitFormula/Doubling.lean",
+ "sha256": "32aa35f4b52db2bc66e63b2000acad31dbd0a97bb6865e23785ff7e9579a6cba",
+ "at": "2026-10-03T00:57:05Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "sum_self_carrier",
+   "line": 26,
+   "head": "theorem sum_self_carrier (C : WeilConfig) : (sum C C).carrier = C.carrier :="
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_self_mult",
+   "line": 30,
+   "head": "theorem sum_self_mult (C : WeilConfig) (ρ : ℂ) (hρ : ρ ∈ C.carrier) : (sum C C).mult ρ = 2 * C.mult ρ := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "doubling_iff",
+   "line": 38,
+   "head": "theorem doubling_iff (C : WeilConfig) : h2_sign_cfg (sum C C) ↔ h2_sign_cfg C :="
+  },
+  {
+   "kind": "def",
+   "name": "DoublingCorollary",
+   "line": 43,
+   "head": "def DoublingCorollary : Prop :="
+  },
+  {
+   "kind": "theorem",
+   "name": "doubling_holds",
+   "line": 47,
+   "head": "theorem doubling_holds : DoublingCorollary := fun C => ⟨sum_self_mult C, doubling_iff C⟩"
+  },
+  {
+   "kind": "def",
+   "name": "doubledToy",
+   "line": 50,
+   "head": "def doubledToy : WeilConfig := sum (Simplicity.SaltCheck.toyCfg 1 le_rfl) (Simplicity.SaltCheck.toyCfg 1 le_rfl)"
+  },
+  {
+   "kind": "theorem",
+   "name": "doubledToy_pt_mem",
+   "line": 53,
+   "head": "theorem doubledToy_pt_mem : Simplicity.SaltCheck.pt ∈ doubledToy.carrier := Or.inl (Set.mem_singleton _)"
+  },
+  {
+   "kind": "theorem",
+   "name": "doubledToy_mult_pt",
+   "line": 56,
+   "head": "theorem doubledToy_mult_pt : doubledToy.mult Simplicity.SaltCheck.pt = 2 :="
+  },
+  {
+   "kind": "theorem",
+   "name": "doubledToy_h2_sign_cfg",
+   "line": 60,
+   "head": "theorem doubledToy_h2_sign_cfg : h2_sign_cfg doubledToy :="
+  },
+  {
+   "kind": "theorem",
+   "name": "doubledToy_not_allSimple",
+   "line": 64,
+   "head": "theorem doubledToy_not_allSimple : ¬ allSimple doubledToy := fun h => by"
+  },
+  {
+   "kind": "def",
+   "name": "PositivityImpliesSimplicity",
+   "line": 70,
+   "head": "def PositivityImpliesSimplicity : Prop := ∀ C : WeilConfig, h2_sign_cfg C → allSimple C"
+  },
+  {
+   "kind": "theorem",
+   "name": "positivity_not_imp_simplicity",
+   "line": 73,
+   "head": "theorem positivity_not_imp_simplicity : ¬ PositivityImpliesSimplicity := fun h =>"
+  }
+ ],
+ "items": [
+  {
+   "words": "sum C C has multiplicity 2·m at every point of C's carrier",
+   "source": "ruling",
+   "decl": "sum_self_mult",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "is Weil-positive exactly when C is (productLemma_holds with both parts C)",
+   "source": "ruling",
+   "decl": "doubling_iff",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the schema's positivity Prop does not imply the schema's simplicity Prop",
+   "source": "ruling",
+   "decl": "positivity_not_imp_simplicity",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "exhibited by the doubled on-line toy of b596, positive and with a point of multiplicity 2",
+   "source": "ruling",
+   "decl": "doubledToy",
+   "in_statement": true,
+   "declared": true
+  }
+ ]
+}

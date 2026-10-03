@@ -1,0 +1,108 @@
+b601 -- THE STATEMENTS OF SIDEExplicitFormula/Keiper.lean, PRINTED AGAIN AFTER THE FILE CHANGED (the first print kept beside)
+
+### against the first print: headers unchanged ['BinomialTransform', 'GammaRZetaValues', 'KeiperObligations', 'KeiperTaylor', 'KeiperTaylorIdentity', 'LogDerivSplit', 'StieltjesLog', 'analyticAt_riemannZeta₀', 'binomialTransform_zero', 'gammaRLogCoeff', 'gammaRLogCoeff_zero', 'hasDerivAt_xi_one', 'keiperA', 'keiperA_zero', 'keiperSum', 'keiperTaylorIdentity_of', 'keiperTaylor_zero', 'liCoeff_one_keiper', 'logDerivSplit_zero', 'log_four_pi_ofReal', 'poleCoeff', 'stieltjes', 'stieltjesLog_zero', 'stieltjes_zero', 'stieltjes_zero_limit', 'taylorAt', 'taylorCoeff_xi_zero', 'tendsto_riemannZeta₁_residue', 'xiLogCoeff', 'xiLogCoeff_zero', 'xi_one', 'zetaLogCoeff', 'zetaLogCoeff_zero'] ; changed [] ; added [] ; gone []
+
+### written at (UTC) 2026-10-03T01:03:00Z ; the branch doubling-keiper-b601 (checked out: doubling-keiper-b601) ; the file`s sha256 74b287efd29742f8ac6b1666893e3c646ff0933221b5a9e2fa087de182afbc96 ; its bytes 14070
+
+### THE WORK-ORDER, LOCATED BY NAME: its row, OPEN_TRAILS :11704, WHOLE:
+    | **2** | `W-ORD-KEIPER-FACE` | **KERNEL** | Keiper’s definition of λ_n compiled and shown equal to `LiCoeff`, giving the Li face a finite-n T0 statement that interval arithmetic can certify in-kernel | one kernel act | **W-ORD-LI-THREE-WAY’s agreement** |
+### its re-price, OPEN_TRAILS :12132, WHOLE:
+    *Appended 2026-10-01 by b589 to W-ORD-KEIPER-FACE (:11704), under the author’s ruling `(R199)`(5)(b) -- RE-PRICED ON THE MATHLIB READ:* re-priced at two lemmas of substance on the Mathlib read at de5ce8a9 (relay data/b589_keiper_read.txt): Mathlib holds the pole of riemannZeta at 1, its constant term and the pole-plus-entire split, and no Stieltjes constant beyond the zeroth by name; the kernel holds the derivative form (li_coeff_eq_taylorCoeff, v0.9); the two lemmas are the Keiper-Taylor identity and computable bounds for the constants it consumes. Trigger unchanged, now met by the three-way bench.
+### the price it cites (relay data/b589_keiper_read.txt), WHOLE:
+        THE PRICE, TWO LEMMAS OF SUBSTANCE: (1) the Keiper-Taylor identity -- the Stieltjes constants defined as the Taylor coefficients of riemannZeta₀ at 1 (a definition, the zeroth equal to γ by the Mathlib limit above), and taylorCoeff riemannXi n equal to the finite Keiper sum in them, the polygamma values at 1/2 and log π (power-series log and the binomial transform); (2) computable two-sided bounds for the Stieltjes constants up to the eleventh and for the polygamma values at 1/2 (the odd zeta values among them), which interval arithmetic would consume to certify a finite-n sign in-kernel. Bookkeeping beside them: the definitions, the n = 1 check against γ.
+
+### THE STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “the Keiper-Taylor identity”                                                         [price] -> KeiperTaylorIdentity           in its statement True ; declared as printed True
+    “the Stieltjes constants defined as the Taylor coefficients of riemannZeta₀ at 1”    [price] -> stieltjes                      in its statement True ; declared as printed True
+    “the zeroth equal to γ by the Mathlib limit above”                                   [price] -> stieltjes_zero_limit           in its statement True ; declared as printed True
+    “taylorCoeff riemannXi n equal to the finite Keiper sum in them”                     [price] -> KeiperTaylor                   in its statement True ; declared as printed True
+    “the polygamma values at 1/2”                                                        [price] -> GammaRZetaValues               in its statement True ; declared as printed True
+    “log π”                                                                              [price] -> gammaRLogCoeff_zero            in its statement True ; declared as printed True
+    “power-series log”                                                                   [price] -> StieltjesLog                   in its statement True ; declared as printed True
+    “the binomial transform”                                                             [price] -> BinomialTransform              in its statement True ; declared as printed True
+    “the n = 1 check against γ”                                                          [price] -> liCoeff_one_keiper             in its statement True ; declared as printed True
+    “Keiper’s definition of λ_n compiled and shown equal to `LiCoeff`”                   [row] -> liCoeff_one_keiper             in its statement True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :47 def stieltjes
+    def stieltjes (n : ℕ) : ℂ := (-1) ^ n * iteratedDeriv n riemannZeta₀ 1
+### :50 theorem analyticAt_riemannZeta₀
+    theorem analyticAt_riemannZeta₀ : AnalyticAt ℂ riemannZeta₀ 1 :=
+### :54 theorem stieltjes_zero
+    theorem stieltjes_zero : stieltjes 0 = (Real.eulerMascheroniConstant : ℂ) := by
+### :58 theorem stieltjes_zero_limit
+    theorem stieltjes_zero_limit :
+        Tendsto (fun s : ℂ => riemannZeta s - 1 / (s - 1)) (𝓝[≠] 1) (𝓝 (stieltjes 0)) := by
+### :65 theorem tendsto_riemannZeta₁_residue
+    theorem tendsto_riemannZeta₁_residue :
+        Tendsto (fun s : ℂ => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 (riemannZeta₁ 1)) := by
+### :73 def taylorAt
+    def taylorAt (f : ℂ → ℂ) (a : ℂ) (k : ℕ) : ℂ := iteratedDeriv k f a / (k.factorial : ℂ)
+### :76 def xiLogCoeff
+    def xiLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv LiCriterion.riemannXi) 1 k
+### :79 def zetaLogCoeff
+    def zetaLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv riemannZeta₁) 1 k
+### :82 def gammaRLogCoeff
+    def gammaRLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv Gammaℝ) 1 k
+### :86 def keiperA
+    def keiperA (k : ℕ) : ℂ := (-1) ^ k + zetaLogCoeff k + gammaRLogCoeff k
+### :89 def keiperSum
+    def keiperSum (n : ℕ) : ℂ := ∑ k ∈ Finset.range (n + 1), ((n + 1).choose (k + 1) : ℂ) * keiperA k
+### :92 def KeiperTaylor
+    def KeiperTaylor : Prop := ∀ n : ℕ, LiCriterion.taylorCoeff LiCriterion.riemannXi n = keiperSum n
+### :95 def poleCoeff
+    def poleCoeff : ℕ → ℂ
+      | 0 => 1
+      | i + 1 => (-1) ^ i * stieltjes i / (i.factorial : ℂ)
+    
+    /-- **THE POWER-SERIES LOGARITHM, AS A PROP**: the coefficients of (s − 1) ζ(s)'s logarithmic derivative are fixed by the
+    Stieltjes constants through `F' = F · (F'/F)`, coefficient by coefficient. -/
+    def StieltjesLog : Prop :=
+### :101 def StieltjesLog
+    def StieltjesLog : Prop :=
+### :107 def GammaRZetaValues
+    def GammaRZetaValues : Prop :=
+### :112 def KeiperTaylorIdentity
+    def KeiperTaylorIdentity : Prop := KeiperTaylor ∧ StieltjesLog ∧ GammaRZetaValues
+### :117 def BinomialTransform
+    def BinomialTransform : Prop :=
+### :122 def LogDerivSplit
+    def LogDerivSplit : Prop := ∀ k : ℕ, xiLogCoeff k = keiperA k
+### :126 structure KeiperObligations
+    structure KeiperObligations : Prop where
+### :133 theorem keiperTaylorIdentity_of
+    theorem keiperTaylorIdentity_of (hP : KeiperObligations) : KeiperTaylorIdentity := by
+### :142 theorem hasDerivAt_xi_one
+    theorem hasDerivAt_xi_one :
+        HasDerivAt LiCriterion.riemannXi ((1 / 2 : ℂ) * completedRiemannZeta₀ 1) 1 := by
+### :159 theorem xi_one
+    theorem xi_one : LiCriterion.riemannXi 1 = 1 / 2 := by
+### :163 theorem xiLogCoeff_zero
+    theorem xiLogCoeff_zero : xiLogCoeff 0 = completedRiemannZeta₀ 1 := by
+### :170 theorem taylorCoeff_xi_zero
+    theorem taylorCoeff_xi_zero : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = completedRiemannZeta₀ 1 := by
+### :190 theorem binomialTransform_zero
+    theorem binomialTransform_zero :
+        LiCriterion.taylorCoeff LiCriterion.riemannXi 0 =
+          ∑ k ∈ Finset.range (0 + 1), ((0 + 1).choose (k + 1) : ℂ) * xiLogCoeff k := by
+### :196 theorem zetaLogCoeff_zero
+    theorem zetaLogCoeff_zero : zetaLogCoeff 0 = stieltjes 0 := by
+### :201 theorem stieltjesLog_zero
+    theorem stieltjesLog_zero :
+        ((0 + 1 : ℕ) : ℂ) * poleCoeff (0 + 1) = ∑ i ∈ Finset.range (0 + 1), poleCoeff i * zetaLogCoeff (0 - i) := by
+### :207 theorem gammaRLogCoeff_zero
+    theorem gammaRLogCoeff_zero :
+        gammaRLogCoeff 0 = -((Real.eulerMascheroniConstant : ℂ) + Complex.log (4 * (Real.pi : ℂ))) / 2 := by
+### :212 theorem keiperA_zero
+    theorem keiperA_zero :
+        keiperA 0 = 1 + (Real.eulerMascheroniConstant : ℂ)
+          - ((Real.eulerMascheroniConstant : ℂ) + Complex.log (4 * (Real.pi : ℂ))) / 2 := by
+### :219 theorem logDerivSplit_zero
+    theorem logDerivSplit_zero : xiLogCoeff 0 = keiperA 0 := by
+### :224 theorem keiperTaylor_zero
+    theorem keiperTaylor_zero : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = keiperSum 0 := by
+### :230 theorem log_four_pi_ofReal
+    theorem log_four_pi_ofReal : Complex.log (4 * (Real.pi : ℂ)) = ((Real.log (4 * Real.pi) : ℝ) : ℂ) := by
+### :239 theorem liCoeff_one_keiper
+    theorem liCoeff_one_keiper :
+        LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2 := by

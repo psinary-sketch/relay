@@ -1,0 +1,38 @@
+b601 -- THE STATEMENTS OF SIDEExplicitFormula/Doubling.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T00:57:05Z ; the branch doubling-keiper-b601 (checked out: doubling-keiper-b601) ; the file`s sha256 32aa35f4b52db2bc66e63b2000acad31dbd0a97bb6865e23785ff7e9579a6cba ; its bytes 4190
+
+### THE STATEMENT, (R211)(3) AS BANKED IN data/b601_ferry.txt (whitespace joined):
+    (3) THE DOUBLING COROLLARY, the act's opening component, one lemma in Product.lean's module or a sibling: for a configuration C, sum C C has multiplicity 2·m at every point of C's carrier and is Weil-positive exactly when C is (productLemma_holds with both parts C); and a named corollary that the schema's positivity Prop does not imply the schema's simplicity Prop — exhibited by the doubled on-line toy of b596, positive and with a point of multiplicity 2. Salt-checked; #print axioms at the standard three; the git grep for any declaration concluding it or its negation printed. Hypotheses: H35a — the corollary closes at the standard three in one module; H35b — the doubled toy satisfies the positivity Prop and fails the simplicity Prop, both printed from the kernel.
+
+### THE STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “sum C C has multiplicity 2·m at every point of C's carrier”                         [ruling] -> sum_self_mult                  in its statement True ; declared as printed True
+    “is Weil-positive exactly when C is (productLemma_holds with both parts C)”          [ruling] -> doubling_iff                   in its statement True ; declared as printed True
+    “the schema's positivity Prop does not imply the schema's simplicity Prop”           [ruling] -> positivity_not_imp_simplicity  in its statement True ; declared as printed True
+    “exhibited by the doubled on-line toy of b596, positive and with a point of multiplicity 2” [ruling] -> doubledToy                     in its statement True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :26 theorem sum_self_carrier
+    theorem sum_self_carrier (C : WeilConfig) : (sum C C).carrier = C.carrier :=
+### :30 theorem sum_self_mult
+    theorem sum_self_mult (C : WeilConfig) (ρ : ℂ) (hρ : ρ ∈ C.carrier) : (sum C C).mult ρ = 2 * C.mult ρ := by
+### :38 theorem doubling_iff
+    theorem doubling_iff (C : WeilConfig) : h2_sign_cfg (sum C C) ↔ h2_sign_cfg C :=
+### :43 def DoublingCorollary
+    def DoublingCorollary : Prop :=
+### :47 theorem doubling_holds
+    theorem doubling_holds : DoublingCorollary := fun C => ⟨sum_self_mult C, doubling_iff C⟩
+### :50 def doubledToy
+    def doubledToy : WeilConfig := sum (Simplicity.SaltCheck.toyCfg 1 le_rfl) (Simplicity.SaltCheck.toyCfg 1 le_rfl)
+### :53 theorem doubledToy_pt_mem
+    theorem doubledToy_pt_mem : Simplicity.SaltCheck.pt ∈ doubledToy.carrier := Or.inl (Set.mem_singleton _)
+### :56 theorem doubledToy_mult_pt
+    theorem doubledToy_mult_pt : doubledToy.mult Simplicity.SaltCheck.pt = 2 :=
+### :60 theorem doubledToy_h2_sign_cfg
+    theorem doubledToy_h2_sign_cfg : h2_sign_cfg doubledToy :=
+### :64 theorem doubledToy_not_allSimple
+    theorem doubledToy_not_allSimple : ¬ allSimple doubledToy := fun h => by
+### :70 def PositivityImpliesSimplicity
+    def PositivityImpliesSimplicity : Prop := ∀ C : WeilConfig, h2_sign_cfg C → allSimple C
+### :73 theorem positivity_not_imp_simplicity
+    theorem positivity_not_imp_simplicity : ¬ PositivityImpliesSimplicity := fun h =>

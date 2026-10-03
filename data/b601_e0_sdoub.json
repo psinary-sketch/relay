@@ -1,0 +1,44 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : WeilConfig, C.carrier.Nonempty ∧ h2_sign_cfg (sum C C)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : WeilConfig, C.carrier.Nonempty ∧ ¬ h2_sign_cfg (sum C C)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ C : WeilConfig, C.carrier.Nonempty ∧ h2_sign_cfg C ∧ Simplicity.allSimple C",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "2b8abf533d6d88fec44abe19164eaa377cd06f6d",
+ "file": "SIDEExplicitFormula/SaltCheckDoubling.lean",
+ "same_file": true
+}
