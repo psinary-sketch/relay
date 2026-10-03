@@ -1,0 +1,102 @@
+b603 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/Family.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T04:15:33Z ; the branch family-b603 (checked out: family-b603) ; the file`s sha256 f3473bb593bd9d4afe25bea58cf6960f411d78422c7f1748537b744e9bff4d65 ; its bytes 14160
+
+### THE STATEMENT, (R213)(3) AS BANKED IN data/b603_ferry.txt (whitespace joined):
+    (3) THE FAMILY FORM OVER χ MOD q, the research act, built from v0.18's product lemma. (a) The sum generalised: a finite sum of configurations over a Finset, by Finset induction from sum and productLemma_holds — Weil positivity of the finite sum holds exactly when it holds for every summand (finsetSum_productLemma). (b) The family: for a modulus q, the configurations of the primitive characters χ ≠ 1 of conductor dividing q (the χ instance of the schema at v0.15, EF_lit_chi_holds at v0.13), summed; the family theorem — Weil positivity of the summed configuration holds exactly when the TARGET of every χ in the family holds — from (a) and h2_sign_cfg_iff_target, salt-checked; the conductor entering once per summand as log(N/π), printed from the summed arithmetic side. (c) One concrete modulus instantiated by rfl or decide — q = 5 (two primitive non-trivial characters) or q = 3 (one), the seat's choice printed with its reason. (d) The Dedekind reading of (R211)(2) — ζ_{ℚ(ζ_q)} as the product over all characters mod q — carried as a reading and not a theorem: the trivial character's instance is ζ's (with the pole) and the imprimitive characters contribute Euler factors at p | q that the schema's arithmetic side does not carry; both obstructions printed by name against the kernel's statements. The ceiling, fixed: the theorem is a statement about the schema's summed configuration and the conjunction of the family's targets at a pin; it is not "GRH mod q reduced" and the record does not say so. Hypotheses: H37a — finsetSum_productLemma closes at the standard three; H37b — the family theorem closes at the standard three; H37c — the concrete modulus instantiates by rfl or decide; H37d — the two Dedekind obstructions are printed as named premises and no part of them is discharged.
+
+### THE STATEMENT, ITEM BY ITEM, BESIDE THE DECLARATION THAT CARRIES IT:
+    “a finite sum of configurations over a Finset”                                       -> finsetSum                in its statement True ; declared as printed True
+    “Weil positivity of the finite sum holds exactly when it holds for every summand”    -> finsetSum_productLemma   in its statement True ; declared as printed True
+    “the configurations of the primitive characters χ ≠ 1 of conductor dividing q”       -> charCfg                  in its statement True ; declared as printed True
+    “Weil positivity of the summed configuration holds exactly when the TARGET of every” -> family_theorem           in its statement True ; declared as printed True
+    “the conductor entering once per summand as log(N/π), printed from the summed arith” -> gammaBracket_conductor   in its statement True ; declared as printed True
+    “One concrete modulus instantiated by rfl or decide”                                 -> family_three_statement   in its statement True ; declared as printed True
+    “the trivial character's instance is ζ's (with the pole)”                            -> TrivialSummandPremise    in its statement True ; declared as printed True
+    “the imprimitive characters contribute Euler factors at p | q that the schema's ari” -> EulerFactorPremise       in its statement True ; declared as printed True
+### ### **EVERY ITEM OF THE STATEMENT CARRIED BY A DECLARATION**
+
+### :56 def emptyZ
+    def emptyZ : Zeta23.ZeroConfig where
+### :65 theorem emptyZ_N
+    theorem emptyZ_N (T₁ T₂ : ℝ) : emptyZ.N T₁ T₂ = 0 := by
+### :69 theorem emptyZ_count
+    theorem emptyZ_count : HCount emptyZ 1 := by
+### :75 def emptyCfg
+    def emptyCfg : WeilConfig where
+### :83 theorem emptyCfg_h2
+    theorem emptyCfg_h2 : h2_sign_cfg emptyCfg :=
+### :88 theorem cfg_ext
+    theorem cfg_ext {C D : WeilConfig} (hc : C.carrier = D.carrier) (hm : C.mult = D.mult) (hr : C.rhs = D.rhs)
+        (ht : C.target = D.target) : C = D := by
+### :99 theorem onMult_sum
+    theorem onMult_sum (A B : WeilConfig) (ρ : ℂ) :
+        Product.onMult (Product.sum A B) ρ = Product.onMult A ρ + Product.onMult B ρ := by
+### :105 theorem sum_comm
+    theorem sum_comm (A B : WeilConfig) : Product.sum A B = Product.sum B A :=
+### :112 theorem sum_assoc
+    theorem sum_assoc (A B C : WeilConfig) :
+        Product.sum (Product.sum A B) C = Product.sum A (Product.sum B C) :=
+### :124 def finsetSum
+    def finsetSum {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : WeilConfig :=
+### :127 theorem finsetSum_empty
+    theorem finsetSum_empty {ι : Type*} (f : ι → WeilConfig) : finsetSum ∅ f = emptyCfg :=
+### :130 theorem finsetSum_insert
+    theorem finsetSum_insert {ι : Type*} {a : ι} {s : Finset ι} (f : ι → WeilConfig) (h : a ∉ s) :
+        finsetSum (insert a s) f = Product.sum (f a) (finsetSum s f) :=
+### :136 theorem finsetSum_productLemma
+    theorem finsetSum_productLemma {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) :
+        h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i) := by
+### :146 theorem finsetSum_target_iff
+    theorem finsetSum_target_iff {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) :
+        h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target :=
+### :151 theorem finsetSum_rhs
+    theorem finsetSum_rhs {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) (k : ℝ → ℂ) :
+        (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k := by
+### :171 def family
+    def family : Finset (DirichletCharacter ℂ q) :=
+### :174 theorem mem_family
+    theorem mem_family (χ : DirichletCharacter ℂ q) : χ ∈ family q ↔ χ ≠ 1 := by
+### :179 theorem primitiveCharacter_ne_one
+    theorem primitiveCharacter_ne_one {χ : DirichletCharacter ℂ q} (h : χ ≠ 1) : χ.primitiveCharacter ≠ 1 := by
+### :186 def charCfg
+    def charCfg (χ : DirichletCharacter ℂ q) : WeilConfig :=
+### :190 theorem charCfg_of_ne
+    theorem charCfg_of_ne (χ : DirichletCharacter ℂ q) (h : χ ≠ 1) :
+        charCfg q χ = chiWeilConfig χ.primitiveCharacter χ.primitiveCharacter_isPrimitive (primitiveCharacter_ne_one q h) :=
+### :195 theorem charCfg_target
+    theorem charCfg_target (χ : DirichletCharacter ℂ q) (h : χ ≠ 1) :
+        (charCfg q χ).target ↔ GRH_chi χ.primitiveCharacter :=
+### :200 theorem charCfg_rhs
+    theorem charCfg_rhs (χ : DirichletCharacter ℂ q) (h : χ ≠ 1) (k : ℝ → ℂ) :
+        (charCfg q χ).rhs k = archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k :=
+### :205 def familyConfig
+    def familyConfig : WeilConfig := finsetSum (family q) (charCfg q)
+### :209 def FamilyTheorem
+    def FamilyTheorem : Prop :=
+### :213 theorem family_theorem
+    theorem family_theorem : h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter := by
+### :218 theorem familyTheorem_holds
+    theorem familyTheorem_holds : FamilyTheorem q := family_theorem q
+### :222 theorem familyConfig_arith
+    theorem familyConfig_arith (k : ℝ → ℂ) :
+        (familyConfig q).rhs k
+          = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k) := by
+### :230 theorem gammaBracket_conductor
+    theorem gammaBracket_conductor (χ : DirichletCharacter ℂ q) (r : ℝ) :
+        gammaBracket_chi χ.primitiveCharacter r
+          = Real.log (χ.conductor / Real.pi)
+            + (Complex.digamma (1 / 4 + (parity χ.primitiveCharacter : ℂ) / 2 + I * r / 2)).re :=
+### :241 theorem family_three
+    theorem family_three : h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter :=
+### :245 theorem family_three_statement
+    theorem family_three_statement :
+        FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter) :=
+### :252 theorem zeta_rhs_pole
+    theorem zeta_rhs_pole (k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k :=
+### :257 def TrivialSummandPremise
+    def TrivialSummandPremise : Prop :=
+### :265 def EulerFactorPremise
+    def EulerFactorPremise (q : ℕ) [NeZero q] : Prop :=
+### :270 structure DedekindPremises
+    structure DedekindPremises (q : ℕ) [NeZero q] : Prop where

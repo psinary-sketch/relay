@@ -1,0 +1,111 @@
+b603 -- THE PRINTS: `lake env lean AxiomCheckFamily.lean` at SIDE-explicit-formula family-b603 (checked out: family-b603, HEAD f054ff7), the watchdog`s run
+### ### EXIT rc=0 ; seconds 33 ; peak lean resident 1580 MB ; free MB after 4572 ; stopped None
+
+'SIDEExplicitFormula.Schema.Family.emptyZ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.emptyZ_N' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.emptyZ_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.emptyCfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.emptyCfg_h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.cfg_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.onMult_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.sum_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.sum_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.finsetSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.finsetSum_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.finsetSum_insert' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.finsetSum_productLemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.finsetSum_target_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.finsetSum_rhs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.mem_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.primitiveCharacter_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.charCfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.charCfg_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.charCfg_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.charCfg_rhs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.familyConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.FamilyTheorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.family_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.familyTheorem_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.familyConfig_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.gammaBracket_conductor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.family_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.family_three_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.zeta_rhs_pole' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.TrivialSummandPremise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.EulerFactorPremise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.DedekindPremises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_satisfiable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_summand_load_bearing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_empty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Product.productLemma_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_satisfiable : ∃ s f,
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.finsetSum s f) ∧
+    (SIDEExplicitFormula.Schema.Family.finsetSum s f).carrier.Nonempty
+SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_summand_load_bearing : ∃ s f,
+  false ∈ s ∧
+    SIDEExplicitFormula.Schema.h2_sign_cfg (f false) ∧
+      ¬SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.finsetSum s f)
+SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_empty : SIDEExplicitFormula.Schema.Family.family 1 = ∅
+SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_h2 : SIDEExplicitFormula.Schema.h2_sign_cfg
+  (SIDEExplicitFormula.Schema.Family.familyConfig 1)
+@SIDEExplicitFormula.Schema.Family.finsetSum_productLemma : ∀ {ι : Type u_1} (s : Finset ι)
+  (f : ι → SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.finsetSum s f) ↔
+    ∀ i ∈ s, SIDEExplicitFormula.Schema.h2_sign_cfg (f i)
+SIDEExplicitFormula.Schema.Family.family_theorem : ∀ (q : ℕ) [inst : NeZero q],
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.familyConfig q) ↔
+    ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family q, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter
+SIDEExplicitFormula.Schema.Family.family_three : SIDEExplicitFormula.Schema.h2_sign_cfg
+    (SIDEExplicitFormula.Schema.Family.familyConfig 3) ↔
+  ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family 3, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter
+SIDEExplicitFormula.Schema.Family.family_three_statement : SIDEExplicitFormula.Schema.Family.FamilyTheorem 3 =
+  (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.familyConfig 3) ↔
+    ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family 3, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter)
+SIDEExplicitFormula.Schema.Family.familyConfig_arith : ∀ (q : ℕ) [inst : NeZero q] (k : ℝ → ℂ),
+  (SIDEExplicitFormula.Schema.Family.familyConfig q).rhs k =
+    ∑ χ ∈ SIDEExplicitFormula.Schema.Family.family q,
+      (SIDEExplicitFormula.GRHWeil.archTerm_chi χ.primitiveCharacter k -
+        SIDEExplicitFormula.GRHWeil.primeSum_chi χ.primitiveCharacter k)
+SIDEExplicitFormula.Schema.Family.gammaBracket_conductor : ∀ (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) (r : ℝ),
+  SIDEExplicitFormula.GRHWeil.gammaBracket_chi χ.primitiveCharacter r =
+    Real.log (↑χ.conductor / Real.pi) +
+      (1 / 4 + ↑(SIDEExplicitFormula.GRHWeil.parity χ.primitiveCharacter) / 2 + Complex.I * ↑r / 2).digamma.re
+SIDEExplicitFormula.Schema.Family.zeta_rhs_pole : ∀ (k : ℝ → ℂ),
+  SIDEExplicitFormula.Schema.zetaWeilConfig.rhs k =
+    SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k
+def SIDEExplicitFormula.Schema.Family.FamilyTheorem : (q : ℕ) → [NeZero q] → Prop :=
+fun q [NeZero q] =>
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.familyConfig q) ↔
+    ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family q, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter
+def SIDEExplicitFormula.Schema.Family.TrivialSummandPremise : Prop :=
+∀ (k : ℝ → ℂ),
+  SIDEExplicitFormula.Schema.zetaWeilConfig.rhs k =
+    SIDEExplicitFormula.GRHWeil.archTerm_chi 1 k - SIDEExplicitFormula.GRHWeil.primeSum_chi 1 k
+def SIDEExplicitFormula.Schema.Family.EulerFactorPremise : (q : ℕ) → [NeZero q] → Prop :=
+fun q [NeZero q] =>
+  ∀ (χ : DirichletCharacter ℂ q),
+    χ ≠ 1 →
+      ∀ (k : ℝ → ℂ),
+        SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k =
+          SIDEExplicitFormula.GRHWeil.archTerm_chi χ.primitiveCharacter k -
+            SIDEExplicitFormula.GRHWeil.primeSum_chi χ.primitiveCharacter k
+structure SIDEExplicitFormula.Schema.Family.DedekindPremises (q : ℕ) [NeZero q] : Prop
+number of parameters: 2
+fields:
+  SIDEExplicitFormula.Schema.Family.DedekindPremises.trivial_summand : SIDEExplicitFormula.Schema.Family.TrivialSummandPremise
+  SIDEExplicitFormula.Schema.Family.DedekindPremises.euler_factors : SIDEExplicitFormula.Schema.Family.EulerFactorPremise
+      q
+constructor:
+  SIDEExplicitFormula.Schema.Family.DedekindPremises.mk {q : ℕ} [NeZero q]
+    (trivial_summand : SIDEExplicitFormula.Schema.Family.TrivialSummandPremise)
+    (euler_factors : SIDEExplicitFormula.Schema.Family.EulerFactorPremise q) :
+    SIDEExplicitFormula.Schema.Family.DedekindPremises q

@@ -1,0 +1,22 @@
+b603 -- COMPONENT 4: THE DEDEKIND READING`S TWO OBSTRUCTIONS, NAMED AGAINST THE KERNEL`S STATEMENTS (UTC 2026-10-03T04:31:01Z)
+
+### OBSTRUCTION (1), THE POLE. The kernel`s instance at the trivial character is ζ`s; its arithmetic side carries the pole term:
+    Schema/Instances.lean :27  rhs := fun k => poleTerm k - primeSum k + archTerm k
+    B321Identity.lean :29-:30 poleTerm k = h(i/2) + h(−i/2) (b321`s P)
+    and no χ instance carries it -- Schema/Instances.lean :53  rhs := fun k => archTerm_chi χ k - primeSum_chi χ k
+### the premise the reading would need, NAMED:
+    def TrivialSummandPremise : Prop :=
+### printed against the kernel by rfl: zeta_rhs_pole
+    theorem zeta_rhs_pole (k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k :=
+
+### OBSTRUCTION (2), THE EULER FACTORS AT p ∣ q. The kernel`s χ side reads χ at its own level:
+    GRHWeil.lean :61-:63  def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ := ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (χ (n : ZMod N) * k (Real.log n) + conj (χ (n : ZMod N)) * k (-Real.log n))
+    GRHWeil.lean :66-:67  def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ := Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + (parity χ : ℂ) / 2 + I * r / 2)).re
+    so at an imprimitive χ mod q (conductor N < q) the terms at p ∣ q, p ∤ N vanish where its primitive inducer`s do not, and the bracket reads log (q/π) where the inducer reads log (N/π); the family`s summands are the inducers (charCfg), and the reading`s product over every character mod q is not.
+### the premise the reading would need, NAMED:
+    def EulerFactorPremise (q : ℕ) [NeZero q] : Prop :=
+### joined:
+    structure DedekindPremises (q : ℕ) [NeZero q] : Prop where
+
+### theorems of this act concluding a premise: NONE ; theorems of this act taking a premise as a hypothesis: NONE
+### ### **NOTHING OF EITHER OBSTRUCTION IS DISCHARGED: TRUE**

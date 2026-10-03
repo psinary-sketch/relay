@@ -1,0 +1,56 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_satisfiable": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ (s : Finset Unit) (f : Unit → WeilConfig), h2_sign_cfg (finsetSum s f) ∧ (finsetSum s f).carrier.Nonempty",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_summand_load_bearing": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": ∃ (s : Finset Bool) (f : Bool → WeilConfig), false ∈ s ∧ h2_sign_cfg (f false) ∧ ¬ h2_sign_cfg (finsetSum s f)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_empty": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": family 1 = ∅",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_h2": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg (familyConfig 1)",
+   "kind": "theorem"
+  }
+ },
+ "gate": true,
+ "tip": "f054ff716077c092cb8fe111f32dcc5d302e196b",
+ "file": "SIDEExplicitFormula/Schema/SaltCheckFamily.lean",
+ "same_file": true
+}

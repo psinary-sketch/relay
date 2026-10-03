@@ -1,0 +1,32 @@
+{
+ "file": "SIDEExplicitFormula/Schema/SaltCheckFamily.lean",
+ "sha256": "1b6658eaf86df90885ff1325766072114f5606e612f5c1eeb9be97344fd2a1cb",
+ "at": "2026-10-03T04:27:30Z",
+ "decls": [
+  {
+   "kind": "theorem",
+   "name": "finsetSum_satisfiable",
+   "line": 36,
+   "head": "theorem finsetSum_satisfiable :\n    ∃ (s : Finset Unit) (f : Unit → WeilConfig), h2_sign_cfg (finsetSum s f) ∧ (finsetSum s f).carrier.Nonempty := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "finsetSum_summand_load_bearing",
+   "line": 43,
+   "head": "theorem finsetSum_summand_load_bearing :\n    ∃ (s : Finset Bool) (f : Bool → WeilConfig), false ∈ s ∧ h2_sign_cfg (f false) ∧ ¬ h2_sign_cfg (finsetSum s f) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "family_one_empty",
+   "line": 49,
+   "head": "theorem family_one_empty : family 1 = ∅ :="
+  },
+  {
+   "kind": "theorem",
+   "name": "family_one_h2",
+   "line": 53,
+   "head": "theorem family_one_h2 : h2_sign_cfg (familyConfig 1) := by"
+  }
+ ],
+ "items": []
+}

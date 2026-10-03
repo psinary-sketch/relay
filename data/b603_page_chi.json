@@ -1,0 +1,224 @@
+{
+ "page": "THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md",
+ "nodes": "b603_nodes_chi.txt",
+ "probe": "b603_chi_probe_out.txt",
+ "rc": 0,
+ "bytes": 29097,
+ "sha256": "e1b2afdffc647e3db2b5a8f6020f737d624724ae317103aaf6d54ae26651b2b0",
+ "changed": true,
+ "diff": [
+  "--- HEAD",
+  "+++ regenerated",
+  "@@ -93,0 +94 @@",
+  "+| `SIDEExplicitFormula.Schema.Family.finsetSum_insert` | SIDE-explicit-formula | INTERFACES | T2-INTERFACES; premises: h : a ∉ s |"
+ ],
+ "at": "2026-10-03T04:43:50Z",
+ "free_mb_before": 4532,
+ "seconds": 47,
+ "new": [
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.finsetSum",
+   "grade": "DEF",
+   "tier": "—",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.finsetSum_productLemma",
+   "grade": "DERIVES",
+   "tier": "T0",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.family",
+   "grade": "DEF",
+   "tier": "—",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.familyConfig",
+   "grade": "DEF",
+   "tier": "—",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.family_theorem",
+   "grade": "DERIVES",
+   "tier": "T0",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.familyConfig_arith",
+   "grade": "DERIVES",
+   "tier": "T0",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.family_three",
+   "grade": "DERIVES",
+   "tier": "T0",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.TrivialSummandPremise",
+   "grade": "DEF",
+   "tier": "—",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.EulerFactorPremise",
+   "grade": "DEF",
+   "tier": "—",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.DedekindPremises",
+   "grade": "DEF",
+   "tier": "—",
+   "premises": "none",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "entry": "v0.21 = 1d5d4dd",
+   "module": "SIDEExplicitFormula.Schema.Family"
+  }
+ ],
+ "rows": {
+  "SIDEExplicitFormula.Schema.Family.finsetSum": [
+   "19. `SIDEExplicitFormula.Schema.Family.finsetSum` — SIDEExplicitFormula/Schema/Family.lean:124 — v0.21 = 1d5d4dd — `def SIDEExplicitFormula.Schema.Family.finsetSum.{u_1} : {ι : Type u_1} → Finset ι → (ι → SIDEExplicitFormula.Schema.WeilConfig) → SIDEExplicitFormula.Schema.WeilConfig := fun {ι} s f => Finset.fold SIDEExplicitFormula.Product.sum SIDEExplicitFormula.Schema.Family.emptyCfg f s` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: none"
+  ],
+  "SIDEExplicitFormula.Schema.Family.finsetSum_productLemma": [
+   "20. `SIDEExplicitFormula.Schema.Family.finsetSum_productLemma` — SIDEExplicitFormula/Schema/Family.lean:136 — v0.21 = 1d5d4dd — `theorem SIDEExplicitFormula.Schema.Family.finsetSum_productLemma.{u_1} : ∀ {ι : Type u_1} (s : Finset ι) (f : ι → SIDEExplicitFormula.Schema.WeilConfig), SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.finsetSum s f) ↔ ∀ i ∈ s, SIDEExplicitFormula.Schema.h2_sign_cfg (f i)` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `online_imp_h2_sign_cfg`, `h2_sign_cfg`, `finsetSum`, `h2_sign_cfg_iff_target`"
+  ],
+  "SIDEExplicitFormula.Schema.Family.family": [
+   "21. `SIDEExplicitFormula.Schema.Family.family` — SIDEExplicitFormula/Schema/Family.lean:171 — v0.21 = 1d5d4dd — `def SIDEExplicitFormula.Schema.Family.family : (q : ℕ) → Finset (DirichletCharacter ℂ q) := fun q => ⋯.toFinset` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: none"
+  ],
+  "SIDEExplicitFormula.Schema.Family.familyConfig": [
+   "22. `SIDEExplicitFormula.Schema.Family.familyConfig` — SIDEExplicitFormula/Schema/Family.lean:205 — v0.21 = 1d5d4dd — `def SIDEExplicitFormula.Schema.Family.familyConfig : (q : ℕ) → [NeZero q] → SIDEExplicitFormula.Schema.WeilConfig := fun q [NeZero q] => SIDEExplicitFormula.Schema.Family.finsetSum (SIDEExplicitFormula.Schema.Family.family q) (SIDEExplicitFormula.Schema.Family.charCfg q)` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `finsetSum`, `family`, `chiWeilConfig`"
+  ],
+  "SIDEExplicitFormula.Schema.Family.family_theorem": [
+   "23. `SIDEExplicitFormula.Schema.Family.family_theorem` — SIDEExplicitFormula/Schema/Family.lean:213 — v0.21 = 1d5d4dd — `theorem SIDEExplicitFormula.Schema.Family.family_theorem : ∀ (q : ℕ) [inst : NeZero q], SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.familyConfig q) ↔ ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family q, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `chiWeilConfig`, `GRH_chi`, `finsetSum`, `h2_sign_cfg`, `h2_sign_cfg_iff_target`, `finsetSum_productLemma`, `family`, `familyConfig`"
+  ],
+  "SIDEExplicitFormula.Schema.Family.familyConfig_arith": [
+   "24. `SIDEExplicitFormula.Schema.Family.familyConfig_arith` — SIDEExplicitFormula/Schema/Family.lean:222 — v0.21 = 1d5d4dd — `theorem SIDEExplicitFormula.Schema.Family.familyConfig_arith : ∀ (q : ℕ) [inst : NeZero q] (k : ℝ → ℂ), (SIDEExplicitFormula.Schema.Family.familyConfig q).rhs k = ∑ χ ∈ SIDEExplicitFormula.Schema.Family.family q, (SIDEExplicitFormula.GRHWeil.archTerm_chi χ.primitiveCharacter k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ.primitiveCharacter k)` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `finsetSum`, `family`, `familyConfig`, `chiWeilConfig`"
+  ],
+  "SIDEExplicitFormula.Schema.Family.family_three": [
+   "25. `SIDEExplicitFormula.Schema.Family.family_three` — SIDEExplicitFormula/Schema/Family.lean:241 — v0.21 = 1d5d4dd — `theorem SIDEExplicitFormula.Schema.Family.family_three : SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Family.familyConfig 3) ↔ ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family 3, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter` — premises: none — E0: DERIVES — tier: T0 (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `GRH_chi`, `family`, `familyConfig`, `family_theorem`, `h2_sign_cfg`"
+  ],
+  "SIDEExplicitFormula.Schema.Family.TrivialSummandPremise": [
+   "26. `SIDEExplicitFormula.Schema.Family.TrivialSummandPremise` — SIDEExplicitFormula/Schema/Family.lean:257 — v0.21 = 1d5d4dd — `def SIDEExplicitFormula.Schema.Family.TrivialSummandPremise : Prop := ∀ (k : ℝ → ℂ), SIDEExplicitFormula.Schema.zetaWeilConfig.rhs k = SIDEExplicitFormula.GRHWeil.archTerm_chi 1 k - SIDEExplicitFormula.GRHWeil.primeSum_chi 1 k` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: none"
+  ],
+  "SIDEExplicitFormula.Schema.Family.EulerFactorPremise": [
+   "27. `SIDEExplicitFormula.Schema.Family.EulerFactorPremise` — SIDEExplicitFormula/Schema/Family.lean:265 — v0.21 = 1d5d4dd — `def SIDEExplicitFormula.Schema.Family.EulerFactorPremise : (q : ℕ) → [NeZero q] → Prop := fun q [NeZero q] => ∀ (χ : DirichletCharacter ℂ q), χ ≠ 1 → ∀ (k : ℝ → ℂ), SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k = SIDEExplicitFormula.GRHWeil.archTerm_chi χ.primitiveCharacter k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ.primitiveCharacter k` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: none"
+  ],
+  "SIDEExplicitFormula.Schema.Family.DedekindPremises": [
+   "28. `SIDEExplicitFormula.Schema.Family.DedekindPremises` — SIDEExplicitFormula/Schema/Family.lean:270 — v0.21 = 1d5d4dd — `structure SIDEExplicitFormula.Schema.Family.DedekindPremises (q : ℕ) [NeZero q] : Prop number of parameters: 2 fields: SIDEExplicitFormula.Schema.Family.DedekindPremises.trivial_summand : SIDEExplicitFormula.Schema.Family.TrivialSummandPremise SIDEExplicitFormula.Schema.Family.DedekindPremises.euler_factors : SIDEExplicitFormula.Schema.Family.EulerFactorPremise q constructor: SIDEExplicitFormula.Schema.Family.DedekindPremises.mk {q : ℕ} [NeZero q] (trivial_summand : SIDEExplicitFormula.Schema.Family.TrivialSummandPremise) (euler_factors : SIDEExplicitFormula.Schema.Family.EulerFactorPremise q) : SIDEExplicitFormula.Schema.Family.DedekindPremises q` — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `EulerFactorPremise`, `TrivialSummandPremise`"
+  ]
+ },
+ "pp_head": "9567591",
+ "log": [
+  "checkout HEAD 1d5d4dd9a481 ; v0.21 1d5d4dd9a481 ; tracked changes 0",
+  "free memory before the lean call: 4530 MB (hold 2560)",
+  "lake env lean exit 0",
+  "tier SIDEExplicitFormula.GRHWeil.GRH_chi                                      computed —              table none",
+  "tier SIDEExplicitFormula.GRHWeil.chiZeroConfig                                computed —              table none",
+  "tier SIDEExplicitFormula.GRHWeil.EF_lit_chi                                   computed —              table none",
+  "tier SIDEExplicitFormula.GRHWeil.rectangle_identity_chi                       computed T0             table none",
+  "tier SIDEExplicitFormula.GRHWeil.full_line_identity_chi                       computed T0             table none",
+  "tier SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds                             computed T0             table none",
+  "tier SIDEExplicitFormula.B321.classK                                          computed —              table none",
+  "tier SIDEExplicitFormula.GRHWeil.h2_sign_chi                                  computed —              table none",
+  "tier SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq                              computed T0             table none",
+  "tier SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi                      computed T0             table none",
+  "tier SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi                      computed T0             table none",
+  "tier SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi                      computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.h2_sign_cfg                                   computed —              table none",
+  "tier SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg                        computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target                        computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement                    computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.chiWeilConfig                                 computed —              table none",
+  "tier SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement                     computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.Family.finsetSum                              computed —              table none",
+  "tier SIDEExplicitFormula.Schema.Family.finsetSum_productLemma                 computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.Family.family                                 computed —              table none",
+  "tier SIDEExplicitFormula.Schema.Family.familyConfig                           computed —              table none",
+  "tier SIDEExplicitFormula.Schema.Family.family_theorem                         computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.Family.familyConfig_arith                     computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.Family.family_three                           computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.Family.TrivialSummandPremise                  computed —              table none",
+  "tier SIDEExplicitFormula.Schema.Family.EulerFactorPremise                     computed —              table none",
+  "tier SIDEExplicitFormula.Schema.Family.DedekindPremises                       computed —              table none",
+  "tier SIDEExplicitFormula.Schema.detector                                      computed T0             table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.window                            computed —              table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT                      computed —              table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK                    computed —              table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow                 computed —              table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations                 computed —              table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of              computed T2-INTERFACES  table none",
+  "tier SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window              computed T2-INTERFACES  table none"
+ ]
+}

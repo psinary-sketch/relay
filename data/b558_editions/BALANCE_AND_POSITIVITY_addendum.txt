@@ -1,0 +1,10 @@
+b603 -- THE BALANCE_AND_POSITIVITY WORK-LIST ADDENDUM, FOR v0.9.6 (under (R213)(2); beside b558`s work-list, which it does not edit; an input to the v0.9.6 edition, not an edition)
+
+### the row`s form is b558`s: the line, the terminal, the sentence quoted, what the compiled fact supports, the informing act
+
+:400 -- `n_one_binding_instance` -- MOVED-IN-MEANING
+    the sentence: "The proposed `3γ + 2 ≥ ln(4π)` is *true* but its slack is 1.2006…, so it is a different, weaker statement. The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 = 0.53102…, and Mathlib's available bound is `one_half_lt_eulerMascheroniConstant` (½ < γ), which is **not sharp enough**. A sharper lower bound is derivable from `eulerMascheroniSeq_lt_eulerMascheroniConstant` plus numeric `log` bounds; that is a numeric-analysis obligation, not a transport of the premise, and it is left as its own item."
+    what the compiled fact supports: the item it calls OPEN is closed twice over -- the non-strict constants form γ + 2 ≥ log 4π by SIDE-lv-conservation `n_one_binding_instance` (commit ef62027, 2026-07-17, at 2f71068), and the strict form over the programme`s coefficient by `liCoeff_one_pos : 0 < LiCoeff 1` at SIDE-explicit-formula v0.20 = 914c413 (T0, no premise, Mathlib`s eulerMascheroniSeq at 15 and its π, e and log 2 bounds); a single rung, nothing about λ_n beyond n = 1.
+    informing act: b602 (R212)(3); routed by (R213)(2)
+
+### 1 sentence-row (1 distinct line).

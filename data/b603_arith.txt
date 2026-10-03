@@ -1,0 +1,25 @@
+b603 -- COMPONENT 3: THE SUMMED ARITHMETIC SIDE AND THE MODULUS (UTC 2026-10-03T04:30:42Z)
+
+### the summed side, Family.lean at family-b603:
+    theorem familyConfig_arith (k : ℝ → ℂ) :
+        (familyConfig q).rhs k
+          = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k) := by
+### the conductor in each summand:
+    theorem gammaBracket_conductor (χ : DirichletCharacter ℂ q) (r : ℝ) :
+        gammaBracket_chi χ.primitiveCharacter r
+          = Real.log (χ.conductor / Real.pi)
+            + (Complex.digamma (1 / 4 + (parity χ.primitiveCharacter : ℂ) / 2 + I * r / 2)).re :=
+### GRHWeil.lean :66-:67 (gammaBracket_chi, N the level, which at a summand is the conductor):
+    :66 def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+    :67   Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + (parity χ : ℂ) / 2 + I * r / 2)).re
+### so the summed side carries one log (N_χ/π) per character of the family, N_χ = χ.conductor ∣ q, inside archTerm_chi.
+
+### the count of non-trivial characters mod q (φ(q) − 1) and of the primitive ones among them, by the bench:
+    q = 3 : φ(q) = 2 ; non-trivial 1 ; primitive non-trivial 1
+    q = 4 : φ(q) = 2 ; non-trivial 1 ; primitive non-trivial 1
+    q = 5 : φ(q) = 4 ; non-trivial 3 ; primitive non-trivial 3
+    q = 7 : φ(q) = 6 ; non-trivial 5 ; primitive non-trivial 5
+    q = 8 : φ(q) = 4 ; non-trivial 3 ; primitive non-trivial 2
+
+### ### **THE MODULUS CHOSEN: q = 3** -- the least modulus with a non-trivial character; its family is one character, the quadratic character mod 3, primitive of conductor 3, so the family theorem at 3 reads the χ instance`s criterion as one summand. The ruling`s alternative q = 5 has THREE primitive non-trivial characters (φ(5) − 1 = 4 − 1, 5 prime), not two (the quadratic one and a conjugate pair -- two classes up to conjugation, three characters): recorded as a fact correction to the ruling`s parenthesis, the choice unaffected.
+### the instantiation: family_three (the family theorem at 3) and family_three_statement (`rfl`, the statement at 3 IS FamilyTheorem 3).

@@ -1,0 +1,261 @@
+{
+ "file": "SIDEExplicitFormula/Schema/Family.lean",
+ "sha256": "f3473bb593bd9d4afe25bea58cf6960f411d78422c7f1748537b744e9bff4d65",
+ "at": "2026-10-03T04:15:34Z",
+ "decls": [
+  {
+   "kind": "def",
+   "name": "emptyZ",
+   "line": 56,
+   "head": "def emptyZ : Zeta23.ZeroConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "emptyZ_N",
+   "line": 65,
+   "head": "theorem emptyZ_N (T₁ T₂ : ℝ) : emptyZ.N T₁ T₂ = 0 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "emptyZ_count",
+   "line": 69,
+   "head": "theorem emptyZ_count : HCount emptyZ 1 := by"
+  },
+  {
+   "kind": "def",
+   "name": "emptyCfg",
+   "line": 75,
+   "head": "def emptyCfg : WeilConfig where"
+  },
+  {
+   "kind": "theorem",
+   "name": "emptyCfg_h2",
+   "line": 83,
+   "head": "theorem emptyCfg_h2 : h2_sign_cfg emptyCfg :="
+  },
+  {
+   "kind": "theorem",
+   "name": "cfg_ext",
+   "line": 88,
+   "head": "theorem cfg_ext {C D : WeilConfig} (hc : C.carrier = D.carrier) (hm : C.mult = D.mult) (hr : C.rhs = D.rhs)\n    (ht : C.target = D.target) : C = D := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "onMult_sum",
+   "line": 99,
+   "head": "theorem onMult_sum (A B : WeilConfig) (ρ : ℂ) :\n    Product.onMult (Product.sum A B) ρ = Product.onMult A ρ + Product.onMult B ρ := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_comm",
+   "line": 105,
+   "head": "theorem sum_comm (A B : WeilConfig) : Product.sum A B = Product.sum B A :="
+  },
+  {
+   "kind": "theorem",
+   "name": "sum_assoc",
+   "line": 112,
+   "head": "theorem sum_assoc (A B C : WeilConfig) :\n    Product.sum (Product.sum A B) C = Product.sum A (Product.sum B C) :="
+  },
+  {
+   "kind": "def",
+   "name": "finsetSum",
+   "line": 124,
+   "head": "def finsetSum {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : WeilConfig :="
+  },
+  {
+   "kind": "theorem",
+   "name": "finsetSum_empty",
+   "line": 127,
+   "head": "theorem finsetSum_empty {ι : Type*} (f : ι → WeilConfig) : finsetSum ∅ f = emptyCfg :="
+  },
+  {
+   "kind": "theorem",
+   "name": "finsetSum_insert",
+   "line": 130,
+   "head": "theorem finsetSum_insert {ι : Type*} {a : ι} {s : Finset ι} (f : ι → WeilConfig) (h : a ∉ s) :\n    finsetSum (insert a s) f = Product.sum (f a) (finsetSum s f) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "finsetSum_productLemma",
+   "line": 136,
+   "head": "theorem finsetSum_productLemma {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) :\n    h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "finsetSum_target_iff",
+   "line": 146,
+   "head": "theorem finsetSum_target_iff {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) :\n    h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target :="
+  },
+  {
+   "kind": "theorem",
+   "name": "finsetSum_rhs",
+   "line": 151,
+   "head": "theorem finsetSum_rhs {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) (k : ℝ → ℂ) :\n    (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k := by"
+  },
+  {
+   "kind": "def",
+   "name": "family",
+   "line": 171,
+   "head": "def family : Finset (DirichletCharacter ℂ q) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "mem_family",
+   "line": 174,
+   "head": "theorem mem_family (χ : DirichletCharacter ℂ q) : χ ∈ family q ↔ χ ≠ 1 := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "primitiveCharacter_ne_one",
+   "line": 179,
+   "head": "theorem primitiveCharacter_ne_one {χ : DirichletCharacter ℂ q} (h : χ ≠ 1) : χ.primitiveCharacter ≠ 1 := by"
+  },
+  {
+   "kind": "def",
+   "name": "charCfg",
+   "line": 186,
+   "head": "def charCfg (χ : DirichletCharacter ℂ q) : WeilConfig :="
+  },
+  {
+   "kind": "theorem",
+   "name": "charCfg_of_ne",
+   "line": 190,
+   "head": "theorem charCfg_of_ne (χ : DirichletCharacter ℂ q) (h : χ ≠ 1) :\n    charCfg q χ = chiWeilConfig χ.primitiveCharacter χ.primitiveCharacter_isPrimitive (primitiveCharacter_ne_one q h) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "charCfg_target",
+   "line": 195,
+   "head": "theorem charCfg_target (χ : DirichletCharacter ℂ q) (h : χ ≠ 1) :\n    (charCfg q χ).target ↔ GRH_chi χ.primitiveCharacter :="
+  },
+  {
+   "kind": "theorem",
+   "name": "charCfg_rhs",
+   "line": 200,
+   "head": "theorem charCfg_rhs (χ : DirichletCharacter ℂ q) (h : χ ≠ 1) (k : ℝ → ℂ) :\n    (charCfg q χ).rhs k = archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k :="
+  },
+  {
+   "kind": "def",
+   "name": "familyConfig",
+   "line": 205,
+   "head": "def familyConfig : WeilConfig := finsetSum (family q) (charCfg q)"
+  },
+  {
+   "kind": "def",
+   "name": "FamilyTheorem",
+   "line": 209,
+   "head": "def FamilyTheorem : Prop :="
+  },
+  {
+   "kind": "theorem",
+   "name": "family_theorem",
+   "line": 213,
+   "head": "theorem family_theorem : h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "familyTheorem_holds",
+   "line": 218,
+   "head": "theorem familyTheorem_holds : FamilyTheorem q := family_theorem q"
+  },
+  {
+   "kind": "theorem",
+   "name": "familyConfig_arith",
+   "line": 222,
+   "head": "theorem familyConfig_arith (k : ℝ → ℂ) :\n    (familyConfig q).rhs k\n      = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k) := by"
+  },
+  {
+   "kind": "theorem",
+   "name": "gammaBracket_conductor",
+   "line": 230,
+   "head": "theorem gammaBracket_conductor (χ : DirichletCharacter ℂ q) (r : ℝ) :\n    gammaBracket_chi χ.primitiveCharacter r\n      = Real.log (χ.conductor / Real.pi)\n        + (Complex.digamma (1 / 4 + (parity χ.primitiveCharacter : ℂ) / 2 + I * r / 2)).re :="
+  },
+  {
+   "kind": "theorem",
+   "name": "family_three",
+   "line": 241,
+   "head": "theorem family_three : h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter :="
+  },
+  {
+   "kind": "theorem",
+   "name": "family_three_statement",
+   "line": 245,
+   "head": "theorem family_three_statement :\n    FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter) :="
+  },
+  {
+   "kind": "theorem",
+   "name": "zeta_rhs_pole",
+   "line": 252,
+   "head": "theorem zeta_rhs_pole (k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k :="
+  },
+  {
+   "kind": "def",
+   "name": "TrivialSummandPremise",
+   "line": 257,
+   "head": "def TrivialSummandPremise : Prop :="
+  },
+  {
+   "kind": "def",
+   "name": "EulerFactorPremise",
+   "line": 265,
+   "head": "def EulerFactorPremise (q : ℕ) [NeZero q] : Prop :="
+  },
+  {
+   "kind": "structure",
+   "name": "DedekindPremises",
+   "line": 270,
+   "head": "structure DedekindPremises (q : ℕ) [NeZero q] : Prop where"
+  }
+ ],
+ "items": [
+  {
+   "words": "a finite sum of configurations over a Finset",
+   "decl": "finsetSum",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "Weil positivity of the finite sum holds exactly when it holds for every summand",
+   "decl": "finsetSum_productLemma",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the configurations of the primitive characters χ ≠ 1 of conductor dividing q",
+   "decl": "charCfg",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "Weil positivity of the summed configuration holds exactly when the TARGET of every χ in the family holds",
+   "decl": "family_theorem",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the conductor entering once per summand as log(N/π), printed from the summed arithmetic side",
+   "decl": "gammaBracket_conductor",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "One concrete modulus instantiated by rfl or decide",
+   "decl": "family_three_statement",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the trivial character's instance is ζ's (with the pole)",
+   "decl": "TrivialSummandPremise",
+   "in_statement": true,
+   "declared": true
+  },
+  {
+   "words": "the imprimitive characters contribute Euler factors at p | q that the schema's arithmetic side does not carry",
+   "decl": "EulerFactorPremise",
+   "in_statement": true,
+   "declared": true
+  }
+ ]
+}

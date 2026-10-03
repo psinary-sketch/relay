@@ -1,0 +1,21 @@
+b603 -- THE FEDERATION SEARCHED FOR A DECLARATION CONCLUDING THE FAMILY THEOREM, THE FINITE PRODUCT LEMMA, A DEDEKIND PREMISE, OR A NEGATION (UTC 2026-10-03T04:30:47Z)
+
+### git grep -l -E "finsetSum|familyConfig|FamilyTheorem|family_theorem|DedekindPremises|TrivialSummandPremise|EulerFactorPremise|Dedekind|cyclotomic" at HEAD of every kernel (44; SIDE-explicit-formula at family-b603, the branch tip 1d5d4dd), 22 files; every theorem/lemma header naming one, its conclusion classified: CONCLUDES / NEGATES by the strict shapes, READ by the loose one (each hand-read), OTHER, OWN (this act`s files)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:127 finsetSum_empty --  finsetSum ∅ f = emptyCfg
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:130 finsetSum_insert --  finsetSum (insert a s) f = Product.sum (f a) (finsetSum s f)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:136 finsetSum_productLemma --  h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:146 finsetSum_target_iff --  h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:151 finsetSum_rhs --  (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:213 family_theorem --  h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:218 familyTheorem_holds --  FamilyTheorem q
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:222 familyConfig_arith --  (familyConfig q).rhs k = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:241 family_three --  h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/Family.lean:245 family_three_statement --  FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckFamily.lean:16 hold --  ∃ (s : Finset Unit) (f : Unit → WeilConfig), h2_sign_cfg (finsetSum s f) ∧ (finsetSum s f).carrier.Nonempty
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckFamily.lean:43 finsetSum_summand_load_bearing --  ∃ (s : Finset Bool) (f : Bool → WeilConfig), false ∈ s ∧ h2_sign_cfg (f false) ∧ ¬ h2_sign_cfg (finsetSum s f)
+    OWN       SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckFamily.lean:53 family_one_h2 --  h2_sign_cfg (familyConfig 1)
+### OTHER rows 1: ZetaBounds.lean:finsetSum_tendsto_tsum
+### headers 14 ; CONCLUDES 0 ; NEGATES 0 ; READ 0 (hand-read 0) ; OTHER 1 ; OWN 13
+### the strict shapes, each exercised: {'pos_reads': True, 'pos_refuses': True, 'neg_reads': True, 'neg_refuses': True}
+
+### ### **OUTSIDE THIS ACT`S OWN FILES, DECLARATIONS CONCLUDING THE FAMILY THEOREM, THE FINITE PRODUCT LEMMA, A DEDEKIND PREMISE OR A NEGATION, UNREAD : 0**

@@ -1,0 +1,416 @@
+{
+ "rows": {
+  "SIDEExplicitFormula.Schema.Family.emptyZ": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Zeta23.ZeroConfig where carrier",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.emptyZ_N": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(T₁ T₂ : ℝ) : emptyZ.N T₁ T₂ = 0",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.emptyZ_count": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": HCount emptyZ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.emptyCfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": WeilConfig where toZeroConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.emptyCfg_h2": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg emptyCfg",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.cfg_ext": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: hc : C.carrier = D.carrier, hm : C.mult = D.mult, hr : C.rhs = D.rhs, ht : C.target = D.target",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{C D : WeilConfig} (hc : C.carrier = D.carrier) (hm : C.mult = D.mult) (hr : C.rhs = D.rhs) (ht : C.target = D.target) : C = D",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.onMult_sum": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(A B : WeilConfig) (ρ : ℂ) : Product.onMult (Product.sum A B) ρ = Product.onMult A ρ + Product.onMult B ρ",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.sum_comm": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(A B : WeilConfig) : Product.sum A B = Product.sum B A",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.sum_assoc": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(A B C : WeilConfig) : Product.sum (Product.sum A B) C = Product.sum A (Product.sum B C)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.finsetSum": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : WeilConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.finsetSum_empty": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ι : Type*} (f : ι → WeilConfig) : finsetSum ∅ f = emptyCfg",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.finsetSum_insert": {
+   "grade": "INTERFACES",
+   "why": "h : a ∉ s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ι : Type*} {a : ι} {s : Finset ι} (f : ι → WeilConfig) (h : a ∉ s) : finsetSum (insert a s) f = Product.sum (f a) (finsetSum s f)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.finsetSum_productLemma": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.finsetSum_target_iff": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.finsetSum_rhs": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{ι : Type*} (s : Finset ι) (f : ι → WeilConfig) (k : ℝ → ℂ) : (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.family": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Finset (DirichletCharacter ℂ q)",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.mem_family": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ q) : χ ∈ family q ↔ χ ≠ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.primitiveCharacter_ne_one": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "{χ : DirichletCharacter ℂ q} (h : χ ≠ 1) : χ.primitiveCharacter ≠ 1",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.charCfg": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ q) : WeilConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.charCfg_of_ne": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ q) (h : χ ≠ 1) : charCfg q χ = chiWeilConfig χ.primitiveCharacter χ.primitiveCharacter_isPrimitive (primitiveCharacter_ne_one q h)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.charCfg_target": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ q) (h : χ ≠ 1) : (charCfg q χ).target ↔ GRH_chi χ.primitiveCharacter",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.charCfg_rhs": {
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : χ ≠ 1",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ q) (h : χ ≠ 1) (k : ℝ → ℂ) : (charCfg q χ).rhs k = archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.familyConfig": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": WeilConfig",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.FamilyTheorem": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.family_theorem": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.familyTheorem_holds": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": FamilyTheorem q",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.familyConfig_arith": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(k : ℝ → ℂ) : (familyConfig q).rhs k = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.gammaBracket_conductor": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(χ : DirichletCharacter ℂ q) (r : ℝ) : gammaBracket_chi χ.primitiveCharacter r = Real.log (χ.conductor / Real.pi) + (Complex.digamma (1 / 4 + (parity χ.primitiveCharacter : ℂ) / 2 + I * r / 2)).re",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.family_three": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.family_three_statement": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter)",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.zeta_rhs_pole": {
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k",
+   "kind": "theorem"
+  },
+  "SIDEExplicitFormula.Schema.Family.TrivialSummandPremise": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": ": Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.EulerFactorPremise": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": "(q : ℕ) [NeZero q] : Prop",
+   "kind": "def"
+  },
+  "SIDEExplicitFormula.Schema.Family.DedekindPremises": {
+   "grade": "DEF",
+   "why": "",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "std3": true,
+   "head": null,
+   "kind": "def"
+  }
+ },
+ "gate": true,
+ "tip": "f054ff716077c092cb8fe111f32dcc5d302e196b",
+ "file": "SIDEExplicitFormula/Schema/Family.lean",
+ "same_file": true
+}

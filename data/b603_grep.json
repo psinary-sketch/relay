@@ -1,0 +1,185 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 127,
+   "name": "finsetSum_empty",
+   "cls": "OWN",
+   "conclusion": " finsetSum ∅ f = emptyCfg",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 130,
+   "name": "finsetSum_insert",
+   "cls": "OWN",
+   "conclusion": " finsetSum (insert a s) f = Product.sum (f a) (finsetSum s f)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 136,
+   "name": "finsetSum_productLemma",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 146,
+   "name": "finsetSum_target_iff",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 151,
+   "name": "finsetSum_rhs",
+   "cls": "OWN",
+   "conclusion": " (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 213,
+   "name": "family_theorem",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 218,
+   "name": "familyTheorem_holds",
+   "cls": "OWN",
+   "conclusion": " FamilyTheorem q",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 222,
+   "name": "familyConfig_arith",
+   "cls": "OWN",
+   "conclusion": " (familyConfig q).rhs k = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 241,
+   "name": "family_three",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/Family.lean",
+   "line": 245,
+   "name": "family_three_statement",
+   "cls": "OWN",
+   "conclusion": " FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/SaltCheckFamily.lean",
+   "line": 16,
+   "name": "hold",
+   "cls": "OWN",
+   "conclusion": " ∃ (s : Finset Unit) (f : Unit → WeilConfig), h2_sign_cfg (finsetSum s f) ∧ (finsetSum s f).carrier.Nonempty",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/SaltCheckFamily.lean",
+   "line": 43,
+   "name": "finsetSum_summand_load_bearing",
+   "cls": "OWN",
+   "conclusion": " ∃ (s : Finset Bool) (f : Bool → WeilConfig), false ∈ s ∧ h2_sign_cfg (f false) ∧ ¬ h2_sign_cfg (finsetSum s f)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "SIDEExplicitFormula/Schema/SaltCheckFamily.lean",
+   "line": 53,
+   "name": "family_one_h2",
+   "cls": "OWN",
+   "conclusion": " h2_sign_cfg (familyConfig 1)",
+   "reading": null
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+   "line": 760,
+   "name": "finsetSum_tendsto_tsum",
+   "cls": "OTHER",
+   "conclusion": " Tendsto (fun (k : ℕ) ↦ ∑ n ∈ Finset.Ico N k, f n) atTop (𝓝 (∑' (n : ℕ), f (n + N)))",
+   "reading": null
+  }
+ ],
+ "kernels": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-explicit-formula",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation"
+ ],
+ "files": 22,
+ "bad": [],
+ "controls": {
+  "pos_reads": true,
+  "pos_refuses": true,
+  "neg_reads": true,
+  "neg_refuses": true
+ },
+ "tip": "1d5d4dd9a4816b88bf9ebdd5a982b7574c7d35af"
+}

@@ -1,0 +1,14 @@
+b603 -- THE STATEMENTS OF SIDEExplicitFormula/Schema/SaltCheckFamily.lean, PRINTED BEFORE THE BUILD
+
+### written at (UTC) 2026-10-03T04:27:30Z ; the branch family-b603 (checked out: family-b603) ; the file`s sha256 1b6658eaf86df90885ff1325766072114f5606e612f5c1eeb9be97344fd2a1cb ; its bytes 3018
+
+### :36 theorem finsetSum_satisfiable
+    theorem finsetSum_satisfiable :
+        ∃ (s : Finset Unit) (f : Unit → WeilConfig), h2_sign_cfg (finsetSum s f) ∧ (finsetSum s f).carrier.Nonempty := by
+### :43 theorem finsetSum_summand_load_bearing
+    theorem finsetSum_summand_load_bearing :
+        ∃ (s : Finset Bool) (f : Bool → WeilConfig), false ∈ s ∧ h2_sign_cfg (f false) ∧ ¬ h2_sign_cfg (finsetSum s f) := by
+### :49 theorem family_one_empty
+    theorem family_one_empty : family 1 = ∅ :=
+### :53 theorem family_one_h2
+    theorem family_one_h2 : h2_sign_cfg (familyConfig 1) := by

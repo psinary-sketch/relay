@@ -1,0 +1,126 @@
+b603 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### SIDE-explicit-formula v0.20 Product.lean: sum_ef, sum, ProductLemma, productLemma_holds -- SIDEExplicitFormula/Product.lean @ 914c4137 (12 lines cited)
+    :111    theorem sum_ef (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)
+    :142    def sum (C₁ C₂ : WeilConfig) : WeilConfig where
+    :143      toZeroConfig := sumZ C₁ C₂
+    :144      rhs := fun k => C₁.rhs k + C₂.rhs k
+    :145      ef := sum_ef C₁ C₂
+    :146      count := sumZ_count C₁ C₂
+    :147      target := C₁.target ∧ C₂.target
+    :148      target_iff := sum_target_iff C₁ C₂
+    :160    def ProductLemma : Prop :=
+    :161      ∀ C₁ C₂ : WeilConfig, h2_sign_cfg (sum C₁ C₂) ↔ h2_sign_cfg C₁ ∧ h2_sign_cfg C₂
+    :169    theorem productLemma_holds : ProductLemma := fun C₁ C₂ => by
+    :170      rw [h2_sign_cfg_sum_iff_targets, h2_sign_cfg_iff_target, h2_sign_cfg_iff_target]
+### SIDE-explicit-formula v0.15 Schema/Config.lean: the configuration structure and h2_sign_cfg -- SIDEExplicitFormula/Schema/Config.lean @ 21c8c522 (8 lines cited)
+    :24     structure WeilConfig extends Zeta23.ZeroConfig where
+    :26       rhs : (ℝ → ℂ) → ℂ
+    :28       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :29         (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :31       count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+    :33       target : Prop
+    :34       target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2
+    :41     def h2_sign_cfg (C : WeilConfig) : Prop := ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ C.rhs k
+### SIDE-explicit-formula v0.15 Schema/Converse.lean: h2_sign_cfg_iff_target -- SIDEExplicitFormula/Schema/Converse.lean @ 21c8c522 (1 lines cited)
+    :265    theorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target :=
+### SIDE-explicit-formula v0.15 Schema/Instances.lean: the ζ instance with its pole term; the χ instance -- SIDEExplicitFormula/Schema/Instances.lean @ 21c8c522 (7 lines cited)
+    :25     def zetaWeilConfig : WeilConfig :=
+    :27         rhs := fun k => poleTerm k - primeSum k + archTerm k
+    :34         target := RiemannHypothesis
+    :51     def chiWeilConfig (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : WeilConfig :=
+    :52       { chiZeroConfig χ hχ h1 with
+    :53         rhs := fun k => archTerm_chi χ k - primeSum_chi χ k
+    :56         target := GRH_chi χ
+### SIDE-explicit-formula v0.13 Chi/Main.lean: EF_lit_chi_holds -- SIDEExplicitFormula/Chi/Main.lean @ ac157c1d (1 lines cited)
+    :269    theorem EF_lit_chi_holds {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : EF_lit_chi χ hχ h1 := by
+### SIDE-explicit-formula v0.20 GRHWeil.lean: GRH_chi, primeSum_chi, gammaBracket_chi (log (N/π)), archTerm_chi -- SIDEExplicitFormula/GRHWeil.lean @ 914c4137 (9 lines cited)
+    :53     def GRH_chi (χ : DirichletCharacter ℂ N) : Prop :=
+    :54       ∀ s : ℂ, LFunction χ s = 0 → 0 < s.re → s.re < 1 → s.re = 1 / 2
+    :61     def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    :62       ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) *
+    :63         (χ (n : ZMod N) * k (Real.log n) + conj (χ (n : ZMod N)) * k (-Real.log n))
+    :66     def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+    :67       Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + (parity χ : ℂ) / 2 + I * r / 2)).re
+    :70     def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    :71       (1 / (2 * Real.pi) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (gammaBracket_chi χ r : ℂ)
+### SIDE-explicit-formula v0.20 B321Identity.lean: the pole term -- SIDEExplicitFormula/B321Identity.lean @ 914c4137 (2 lines cited)
+    :29     def poleTerm (k : ℝ → ℂ) : ℂ :=
+    :30       Zeta23.paperFT k (I / 2) + Zeta23.paperFT k (-I / 2)
+### Mathlib at the pin: DirichletCharacter -- level one, changeLevel_one, conductor, conductor_ne_zero, IsPrimitive, the primitive character and its two lemmas -- Mathlib/NumberTheory/DirichletCharacter/Basic.lean @ de5ce8a9 (8 lines cited)
+    :202    lemma level_one (χ : DirichletCharacter R 1) : χ = 1 := by
+    :220    lemma changeLevel_one {d : ℕ} (h : d ∣ n) :
+    :246    noncomputable def conductor : ℕ := sInf (conductorSet χ)
+    :255    lemma conductor_ne_zero [NeZero n] : conductor χ ≠ 0 :=
+    :292    def IsPrimitive : Prop := conductor χ = n
+    :307    noncomputable def primitiveCharacter : DirichletCharacter R χ.conductor :=
+    :310    theorem changeLevel_primitiveCharacter :
+    :314    lemma primitiveCharacter_isPrimitive : IsPrimitive (χ.primitiveCharacter) := by
+### Mathlib at the pin: the characters of a given modulus are finite (MulChar.finite) -- Mathlib/NumberTheory/MulChar/Duality.lean @ de5ce8a9 (1 lines cited)
+    :39     instance finite [Finite Mˣ] [IsDomain R] : Finite (MulChar M R) := .of_equiv _ equivToUnitHom.symm
+### Mathlib at the pin: Finset.fold, fold_empty, fold_insert -- Mathlib/Data/Finset/Fold.lean @ de5ce8a9 (3 lines cited)
+    :38     def fold (b : β) (f : α → β) (s : Finset α) : β :=
+    :44     theorem fold_empty : (∅ : Finset α).fold op b f = b :=
+    :53     theorem fold_insert [DecidableEq α] (h : a ∉ s) :
+### Mathlib at the pin: Finset.induction_on, forall_mem_insert -- Mathlib/Data/Finset/Insert.lean @ de5ce8a9 (3 lines cited)
+    :492    protected theorem induction_on {α : Type*} {motive : Finset α → Prop} [DecidableEq α] (s : Finset α)
+    :494        (insert : ∀ (a : α) (s : Finset α), a ∉ s → motive s → motive (insert a s)) : motive s :=
+    :561    theorem forall_mem_insert (a : α) (s : Finset α) (p : α → Prop) :
+### PLACE-papers GRH_CASCADE v0.3.6: the family sentences -- phase1.5/spectral/GRH_CASCADE_v0_3_6.md @ a09c4700 (4 lines cited)
+    :45     In the criterion + verified-surround grammar shared with the direct RH route, the cascade's structural exhaustiveness reduces to a carried-open premise for each instance — at ζ `h2_sign`, equivalent to RH (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2 = `5c72cad`), and at each primitive χ ≠ 1 Weil positivity for χ, equivalent to `GRH_chi` (`h2_sign_chi_iff_grh_chi`, SIDE-explicit-formula v0.14 = `4dce7b9`, its explicit formula `EF_lit_chi_holds`, v0.13 = `ac157c1`, both instances of `h2_sign_cfg_iff_target`, v0.15 = `21c8c52`, as the χ page `THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md` at PLACE-papers `192077f` prints them) — carried openly: the federated kernels compile the exclusion *structure* (per-class exclusions, the transport to the joint conclusion, and the certifiable surround `h1`, the eight couplings at Φ, complete), while the open node is `GRH_chi`, v0.6 = `de1f175` per primitive χ, by the compiled equivalence the same open statement as Weil positivity for χ, exactly as `h2_sign` is RH itself. The criterion and the verified surround are the standing grammar — the kernel verifies the surround (the structure), the manuscript supplies the criterion (the exhaustiveness) — and ev
+    :81     A Dirichlet character $\chi$ modulo $q$ is a homomorphism $(\mathbb{Z}/q)^* \to \mathbb{C}^*$ extended to $\mathbb{Z}$ by setting $\chi(n) = 0$ for $\gcd(n, q) > 1$ and $\chi(n) = \chi(n \bmod q)$ otherwise. At unramified primes ($p \nmid q$), the character value $\chi(p)$ is a root of unity; in particular, $|\chi(p)| = 1$.
+    :147    The programme’s argument concludes that all non-trivial zeros of $L(s, \chi)$ lie on $\sigma = 1/2$. The programme’s GRH argument concludes GRH for every Dirichlet character $\chi$. The result is character-uniform: the same argument works for every $\chi$ because $|\chi(p)| = 1$ at every unramified prime. The structural-exhaustiveness form of this conclusion is what `SIDE-grh-transfer` verifies; the full Mathlib-GRH statement (all non-trivial zeros of the analytic $L(s,\chi)$ on the critical line) is the open bridge.
+    :312    **The cascade is character-uniform.** The GRH structural exhaustiveness holds for every Dirichlet character $\chi$ by the same argument as the programme’s RH argument for $\zeta(s)$, verified in `SIDE-grh-transfer`. The argument does not require a separate argument for each $\chi$; the character enters as a magnitude-1 modulation that the structural exclusion ignores.
+### PLACE-papers SIMPLICITY v1.1.3 :290 (and Chapter 7`s transfer sentence :339) -- phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md @ a09c4700 (2 lines cited)
+    :290    Epstein zeta functions $\zeta_Q(s)$, associated with positive definite quadratic forms $Q$, share some structural features with $\zeta$ and lack others. For class numbers greater than 1, the Epstein function decomposes into a sum of Dedekind zetas — but the sum itself need not have an Euler product, since the sum of Euler products is generally not an Euler product.
+    :339    The transfer is the same structural argument that the present paper makes for $\xi$: perpendicular crossing at simple zeros, mechanism enumeration excluding $L'(\rho, \chi) = 0$, Conservation closing the system. The character twist by $\chi$ does not alter the mechanism count (the substitution $|\chi(p)|^2 = 1$ preserves the Euler-product balance), so the seven-mechanism structure transfers with no additional content. This transfer is compiled in the SIDE-grh-transfer kernel (v0.5.0, `SIDEGRHTransfer/GRHBridge.lean`): the terminal `grh_structural_exhaustiveness_proved` establishes the *structural-exhaustiveness* form for a Dirichlet-character pair — seven classes (`seven_classes_chi`), none producing an off-line zero (`none_produce_chi`), Ostrowski-exhaustive (`ostrowski_exhaustive_chi`) — the χ-twisted mirror of Route 1's `structural_exhaustiveness_proved`. What the kernel establishes is this structural transfer, not GRH itself. The one analytic input the transfer inherits — that each completed Dirichlet L-function has order ≤ 1, so its Hadamard product has the same genus-1 shape ζ's does — is itself a pinned terminal for χ ≠ 1, both parities, over the whole plane: `SIDELvConserva
+### PLACE-papers BALANCE_AND_POSITIVITY v0.9.5 :398, :400 -- phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md @ a09c4700 (2 lines cited)
+    :398    > **γ + 2 ≥ ln(4π)**,  with slack **2λ₁ = 0.0461914179322421** — matching the bench to 15 digits.
+    :400    The proposed `3γ + 2 ≥ ln(4π)` is *true* but its slack is 1.2006…, so it is a different, weaker statement. The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 = 0.53102…, and Mathlib's available bound is `one_half_lt_eulerMascheroniConstant` (½ < γ), which is **not sharp enough**. A sharper lower bound is derivable from `eulerMascheroniSeq_lt_eulerMascheroniConstant` plus numeric `log` bounds; that is a numeric-analysis obligation, not a transport of the premise, and it is left as its own item.
+### relay the BALPOS work-list bank -- data/b558_editions/BALANCE_AND_POSITIVITY.txt @ f0860e0b (2 lines cited)
+    :1      b558 -- THE EDITION WORK-LIST OF BALANCE_AND_POSITIVITY (phase1.5/spectral/BALANCE_AND_POSITIVITY.md) -- AN INPUT TO CP-7`S EDITION, NOT AN EDITION
+    :75     ### 14 sentence-rows (8 distinct lines).
+### SIDE-lv-conservation ef62027 CouplingsAtPhi.lean: n_one_binding_instance`s docstring and statement -- SIDELvConservation/CouplingsAtPhi.lean @ ef620273 (2 lines cited)
+    :304    WHY IT IS NOT PROVED HERE.  It needs `γ ≥ log (4π) - 2 = 0.53102…`.  Mathlib's available bounds
+    :310    theorem n_one_binding_instance :
+### SIDE-lv-conservation HEAD CouplingsAtPhi.lean: the same docstring line and statement at the kernel`s HEAD -- SIDELvConservation/CouplingsAtPhi.lean @ 2f71068a (2 lines cited)
+    :356    WHY IT IS NOT PROVED HERE.  It needs `γ ≥ log (4π) - 2 = 0.53102…`.  Mathlib's available bounds
+    :362    theorem n_one_binding_instance :
+### PLACE-papers the χ page at v0.20: head -- THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md @ a09c4700 (2 lines cited)
+    :1      # THE CLAUSE AT THE DIRICHLET INSTANCE
+    :3      This page is generated by relay `tools/chain_page.py` from the node list relay `data/b602_nodes_chi.txt`: the compiled chain from `GRH_chi` to the ceiling's successor sentence, one declaration per line, in dependency order. It is generated at SIDE-explicit-formula v0.20 = `914c413` (Lean v4.34.0-rc1; Mathlib `de5ce8a9`; Zeta23 vendored at `3635e748`; Bulka vendored at `35df682f`). Each line reads: name — module:line — entry tag = SHA — the statement as `#print` gives it (a theorem by `#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes. A node's tier cell is computed from three printed facts — E0 grade DERIVES, the axioms the standard three [propext, Classical.choice, Quot.sound], no premise — and reads T0 when all three hold, the tier law's clause "compiled against a Mathlib statement" being witnessed by the consumes column (Mathlib's `R
+### PLACE-papers OPEN_TRAILS: the generator-run line, b600-b602`s lines -- OPEN_TRAILS.md @ a09c4700 (9 lines cited)
+    :12288  *Appended 2026-10-02 by b597 beneath the batch-refresh line (:12264), under `(R207)`(3) -- A GENERATOR RUN AT A NEW PIN, STANDING:* a generator run at a new pin goes one page per call in the foreground, or in the background solely after the browser is closed and free memory is read above the hold; a background run stopped by the harness is recorded as a stop, not an OOM. From b596’s reaper stop (its defect (c)).
+    :12352  *Appended 2026-10-02 by b600 to the generator-run line (:12288), under `(R210)`(2), appended at the end and addressed to it (the ledgers append-only, the author’s answer at b599) -- THE LINE AMENDED:* the browser clause is struck -- the navigator seat runs in a browser and the author’s dual seats cannot run with it closed. The condition is the one the hold already states: a generator run at a new pin starts with free memory read above HOLD_MB (relay tools/chain_page.py :57, 2560 MB), one page per call in the foreground, and a run stopped by the harness is recorded as a stop, not an OOM. No line is added for the network: a failed push followed by ls-remote and a retry is a standing rule already, and a transient is not a reason for a line.
+    :12354  *Appended 2026-10-02 by b600, under the author’s ruling `(R210)`(3) -- THE AUTHORITY ORDER, STANDING:* the programme is the A PLACE TO STAND research programme. The Zenodo deposits and the GitHub repositories under ongoing edit -- the keystones in their house format and the Lean kernels -- carry its assertions, conclusions, aims and objectives. The project workspace’s mirror is research history at every stage of edit and is not definitive where a more refined result supersedes it; the ledgers on D: are newer than any mirror. The navigator cites from the export and the seat’s prints, and not from the mirror where a newer edition exists.
+    :12356  *Appended 2026-10-02 by b600 beneath the amended generator-run line (:12352, amending :12288), under the author’s answer in b600 (relay data/b600_author_answers.txt) -- THE BUILD CLAUSE, STANDING:* a kernel build runs as a detached process, started after free memory is read above the hold, and is watched by its PID and its log from the foreground in calls under 600 s, the seat kept awake; nothing is killed mid-write; one module per call. The harness’s reaper is a property of the harness’s background tasks, not of the machine, so the build is taken out of the harness’s hands. From b600’s first build of Product.lean, stopped by the reaper at t=600 s with no error (its defect (a)).
+    :12358  ### b600 — lane three, act twenty-seven under (R210): REMAINDER 5 -- the product lemma stated as a salt-checked Prop and proved; the generator-run line amended; the authority order entered
+    :12374  ### b601 — lane three, act twenty-eight under (R211): the doubling corollary -- the schema’s positivity without simplicity; W-ORD-KEIPER-FACE -- the two lemmas stated and carried to named obligations
+    :12392  *Appended 2026-10-02 by b601 to its own record (:12374), after the pre-push suite -- THE DEFECTS LINE CORRECTED:* the record’s “Defects (a)-(b)” was written before the suite’s first pre-push run, which found three more, the seat’s (relay data/b601_defects.txt): (c) the E0 arm required each read’s tip to be the tag, while the doubling reads were taken at 2b8abf5 with the files’ blobs identical at v0.19 -- the predicate corrected; (d) Keiper.lean and KeiperBounds.lean wrap the house form’s “NOT VENDORED” over a line end -- the arm’s needle corrected to read across it, the files standing at the tag; (e) AxiomCheckKeiper.lean omits the #check of two salt-check theorems, keiperTaylor_zero_holds and bounds_form_satisfiable (both printed at the standard three by #print axioms, their statements those of keiperTaylor_zero and stieltjes_zero_coarse), so G-SALT-CHECK fails in its letter and the suite reads 80 of 81, for the author. The tag is not moved.
+    :12394  *Appended 2026-10-02 by b602, under `(R212)`(6), the author’s word -- THE EDITION OF THE_FINDINGS_AS_THEY_STAND AS A SIEVE TABLE, ENTERED:* after b603 (the family form over χ mod q, the research sequence’s fifth item), an edition of THE_FINDINGS_AS_THEY_STAND reorganised as a sieve table by cluster -- the quantifier shape, the register, the test that decided bright or dark and its instrument by pin. Entered as the author’s word in `(R212)`(6); priced at its own act; not started.
+    :12396  ### b602 — lane three, act twenty-nine under (R212): the audit file repaired at v0.19.1; the sign of λ₁ at T0; (E3)’s compiled window at DETECTION-REGION
+### PLACE-papers FINDINGS: b602`s entry -- FINDINGS.md @ a09c4700 (1 lines cited)
+    :6998   ## The sign of λ₁ at T0 from Mathlib’s γ and π bounds; (E3)’s window at DETECTION-REGION carried to 2 named obligations, its relation to EpsteinPremises INDEPENDENT; the Keiper audit file at v0.19.1
+### relay b602`s closing push-out, committed at step zero -- data/b602_closing_push_out.txt @ f0860e0b (17 lines cited)
+    :1      push_gated: capture on -> D:/relay/data/b602_closing_push_out.txt (2026-10-03T03:21:47Z)
+    :2      push_gated: repo D:/relay ; branch push-b602-closing ; tip 3d88436abbf990c888afba7355d73e53efe2c0f9 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         abf144b1..3d88436a  push-b602-closing -> main
+    :5      push_gated: main read back at the remote: 3d88436abbf990c888afba7355d73e53efe2c0f9
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay 3d88436abbf990c888afba7355d73e53efe2c0f9   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers a09c4700ee7da83c8e7daeee6387748429e6b958   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 3528bcfc8c0341d3639d2ea272bae3bc435901b4   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 914c4137e196e6ac877e86b3f6d545e1a730e7c6   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+    :13     push_gated: as-of SIDE-effects ef4cff776f8918761bdb08d9e23f684b0abd5875   ### main = remote main by ls-remote
+    :14     push_gated: as-of SIDE-silence-principle 667c2548777585876a2f3208029595b06a062619   ### main = remote main by ls-remote
+    :15     push_gated: as-of SIDE-compression e9a5a368d14aeb63ae970acb84fc135838b9f6d2   ### main = remote main by ls-remote
+    :16     push_gated: as-of SIDE-structural-error-correction 6a4f4829cf219839f33c6af9d665687b93af772e   ### main = remote main by ls-remote
+    :17     push_gated: as-of SIDE-cosmo c5cba30ce201af2d619498ef087969e729293969   ### main = remote main by ls-remote
+
+### SIDE-explicit-formula: v0.20 = 914c413 ; main = 914c413 ; the checkout`s branch main
+### Mathlib (the kernel`s .lake/packages/mathlib) HEAD de5ce8a9a6
+### chain_page.py`s hold: ['HOLD_MB = 2560']
+### the lv kernel`s housekeeping list searched (git ls-files relay data and tools; git grep PLACE-papers OPEN_TRAILS and FINDINGS for "housekeeping list"): NONE FOUND -- opened by this act at relay data/SIDE-lv-conservation_housekeeping.txt
