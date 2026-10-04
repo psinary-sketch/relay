@@ -59,7 +59,10 @@ CARRIED = [
     '        THE_METHOD_AS_IT_STANDS` addendum after its closing line.',
     '    (c) ### **FOR THE AUTHOR`S STRIKE**: each append`s wording; the loom`s FINDINGS column (every heading an act wrote, the last its',
     '        entry); the map`s table by pointer; REGISTRY`s Status cells read from each head.',
-    '    (d) Branches left for the next act`s step zero, each merged: PLACE-papers push-b618; relay push-b618 and push-b618-closing.',
+    '    (d) Branches left for the next act`s step zero, each merged: PLACE-papers push-b618 and push-b618-correction; relay push-b618',
+    '        and push-b618-closing.',
+    '    (g) ### **NOT CLEAN, IN ITS LETTER**: G-TABLE-GRADES-DECLARED, pre-push and post-push -- the face`s two TABLE CELL lines, which',
+    '        the table does not move (defect (d)); the correction line at OPEN_TRAILS :12797. For the author.',
     '    (e) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
     '    (f) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).',
 ]
