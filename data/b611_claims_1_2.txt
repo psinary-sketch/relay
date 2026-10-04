@@ -1,0 +1,153 @@
+b611 -- COMPONENT 2: THE CLAIM BANK OF PHASE 1.2, (R221)(4), banked 2026-10-04T03:04:06Z before any writing
+### the papers at PLACE-papers f374bba; the kernel at SIDE-kernel v1.2 = b1407b2; the sieve v0.4 at f374bba
+### THE GRADING RULE, the seat's reading and strikeable: kernel-verified only where the paper names a terminal (or its file) at a pin and the
+### computationally-verified only where the paper reports a computation; argument-supported where the paper's text argues the claim;
+### synthesis-suggested where it reads a pattern across results; statement-grade where it states without argument. No grade is above the
+### paper's own support. A ROUTE is a claim offered as an argument toward RH, simplicity or the open clause; each is read through the
+
+### PART A -- THE PAPERS, EACH WITH ITS PATH, REGISTRY ROW, VERSION AND HEAD:
+  EA = `phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md` -- REGISTRY 1.5a-1 (:142) -- 542 lines -- head :1 “# THE EXCLUSION ARCHITECTURE FOR THE RIEMANN HYPOTHESIS” -- version/date line “### February 2026”
+  ME = `phase1.5/proofs/MECHANISM_EXCLUSION.md` -- REGISTRY 1.5a-2 (:143) -- 408 lines -- head :1 “# Mechanism Exclusion for the Riemann Hypothesis” -- version/date line “**March 2026**”
+  IR = `phase1.5/proofs/IDS_TO_RH.md` -- REGISTRY 1.5a-3 (:144) -- 314 lines -- head :1 “# THE PROOF” -- version/date line “**Definitive Summary — January 2026** *(claim-status re-scoped 2026-07-19, ARM 1 — see note below)*”
+  IP = `phase1.5/proofs/INTEGRATED_PROOF.md` -- REGISTRY 1.5a-4 (:145) -- 403 lines -- head :1 “# INTEGRATED PROOF OF THE RIEMANN HYPOTHESIS” -- version/date line “**Version 1.0 — February 2026** *(claim-status re-scoped 2026-07-19, ARM 1 — see note below)*”
+
+### PART B -- THE CLAIMS, EACH WITH ITS LINE, NEEDLE, GRADE AND REASON (55):
+  EA-01  EA :48   kernel-verified           support terminal    -- EA states that every nontrivial zero of ζ lies on Re(s) = 1/2 under the conservation clause h2, every zero of ξ forcing the Euler balance, with h1 complete and h2 open.
+         needle “under the conservation clause” on the line: True ; reason: the conditional is the compiled ConservationBridge.riemann_hypothesis at SIDE-kernel v1.2, which EA :542 names at that pin; its premise is the paper’s h2 in the conservation register; the sieve reads that premise as RH restated (RH-02, ch_iff_rh)
+  EA-02  EA :50   argument-supported        support argument    -- EA names its method exhaustive mechanism enumeration from a finite specification, seven classes none producing an off-line zero, the exclusion conditional on h2.
+         needle “Exhaustive mechanism enumeration from finite specification” on the line: True ; reason: argued across EA §§5-10; the conditional is stated at :50 ; route R1 DARK test 2
+  EA-03  EA :70   theorem-supported         support theorem     -- EA states that ξ is an entire function of order 1 satisfying ξ(s) = ξ(1−s).
+         needle “entire function of order 1 satisfying the functional equation” on the line: True ; reason: the standard construction, Riemann 1859 and Tate 1950, named at :81
+  EA-04  EA :99   argument-supported        support argument    -- EA states the SIDE Exclusion Principle: in a determined system with an exhaustive mechanism catalogue for a property, if no class produces the property at a point, it does not hold there.
+         needle “Theorem (SIDE Exclusion Principle)” on the line: True ; reason: a five-step syllogism at :101-:107, its weight in the exhaustiveness hypothesis
+  EA-05  EA :130  theorem-supported         support theorem     -- EA states that the functional equation and Schwarz reflection constrain zeros to quadruples {ρ, 1−ρ, ρ̄, 1−ρ̄}, collapsing to pairs on the critical line.
+         needle “zeros are constrained to occur in quadruples” on the line: True ; reason: the functional equation and the reflection principle, standard (:132)
+  EA-06  EA :164  argument-supported        support argument    -- EA states that ℤ carries two group structures and that the quadratic form inherits one mechanism class from each.
+         needle “exactly two algebraic group structures” on the line: True ; reason: the group count is algebra; the class-per-structure step is the paper’s reading (:170)
+  EA-07  EA :178  theorem-supported         support theorem     -- EA cites Ostrowski’s theorem: every nontrivial absolute value on ℚ is equivalent to the real or a p-adic one.
+         needle “By Ostrowski's theorem (1916)” on the line: True ; reason: Ostrowski 1916, named
+  EA-08  EA :192  argument-supported        support argument    -- EA states that the transformation stage yields three classes and that a fourth would require a place of ℚ beyond ∞ and the primes.
+         needle “A fourth class would require a place of ℚ” on the line: True ; reason: Ostrowski and Tate named; the step “all chains pass through the Mellin transform” is stated as a lemma without its argument
+  EA-09  EA :210  argument-supported        support argument    -- EA states that the output stage’s two classes, C₃ and C₇, are a structural reading rather than a classification theorem.
+         needle “structural reading, not a classification theorem” on the line: True ; reason: the paper’s own [ESTABLISHED] and its words at :210
+  EA-10  EA :216  argument-supported        support argument    -- EA states that the product formula is s-dark: |x|_A = 1 gives |x|_A^s = 1 for every s, so it adds no s-dependent zero-location constraint.
+         needle “Conservation of Spectra proves it is s-dark” on the line: True ; reason: argued at :216-:222; the compiled `conservation_of_spectra` is named in ME’s inventory without a pin
+  EA-11  EA :240  argument-supported        support argument    -- EA states that each of the seven classes identifies σ = 1/2 and fails to produce a zero at σ ≠ 1/2.
+         needle “Each mechanism class individually identifies” on the line: True ; reason: the seven checks at :242-:252, the paper’s own [ESTABLISHED]
+  EA-12  EA :281  synthesis-suggested       support reading     -- EA states that ten research programmes decompose into combinations of the seven classes and none introduces an eighth.
+         needle “All ten decompose into combinations of” on the line: True ; reason: a reading of ten programmes, the table at :268-:279
+  EA-13  EA :296  synthesis-suggested       support reading     -- EA reads every programme that stalled on the way to RH as having crossed a dark interface.
+         needle “crossed a dark interface” on the line: True ; reason: a retrodiction across programmes
+  EA-14  EA :316  theorem-supported         support theorem     -- EA states that Epstein zeta functions satisfy functional equations, generally lack Euler products, and can carry off-line zeros.
+         needle “generally lack Euler products” on the line: True ; reason: Davenport–Heilbronn 1936, named at :331
+  EA-15  EA :331  computationally-verified  support computation -- EA states that ζ carries no off-line zero among the first 10¹³ and more of its zeros, a computation.
+         needle “confirmed computationally to 10¹³+ zeros” on the line: True ; reason: a computational record, cited
+  EA-16  EA :341  argument-supported        support argument    -- EA states the Identity-Formation Bijection: each mechanism class has one identity element, distinct classes distinct ones, every identity element in some class.
+         needle “Theorem 5.1 (Identity-Formation Bijection)” on the line: True ; reason: three lemmas at :351-:359 resting on I, D, S and Thom transversality
+  EA-17  EA :367  synthesis-suggested       support reading     -- EA reads the critical line as the identity subspace of arithmetic, where 0, 1 and 1/2 sit symmetric in centred coordinates.
+         needle “The critical line is the identity subspace of arithmetic” on the line: True ; reason: a reading at :367-:369
+  EA-18  EA :387  statement-grade           support statement   -- EA states h2 canonically in equivalent faces: the Euler balance at some prime, realization-totality at the ξ interface, the R4 positivity face and the Mellin-nonvanishing clause.
+         needle “every zero of ξ forces the Euler balance at some prime” on the line: True ; reason: the faces are named; their equivalence is not argued in the paper
+  EA-19  EA :399  argument-supported        support argument    -- EA places the whole logical weight on one claim, that the seven-class catalogue is exhaustive, which is h2.
+         needle “the seven-class mechanism catalogue is exhaustive” on the line: True ; reason: the paper’s own assessment at :399-:410
+  EA-20  EA :542  kernel-verified           support terminal    -- EA states that the conditional StructuralExhaustiveness → RH is the kernel’s output and that the paper argues for the antecedent.
+         needle “is the kernel's output” on the line: True ; reason: `Integration.lean` named at :540 and the pin v1.2 at :542; the antecedent at that pin is ∀ σ, is_xi_zero σ → σ = 1/2, so the compiled conditional’s antecedent is RH in the kernel’s encoding
+  EA-21  EA :542  kernel-verified           support terminal    -- EA states that at SIDE-kernel v1.2 the named route terminals compile without sorry and that the formation terminals are axiom-free.
+         needle “`SIDEKernel.formation` and `SIDEKernel.formation_count` are axiom-free” on the line: True ; reason: each name resolves at v1.2 and its statement is read; the axiom profiles are the paper’s record of 2026-07-10, which REGISTRY :95 carries, not re-printed in this act; the bare name structural_exhaustiveness_proved resolves to two theorems at v1.2 (TheBridgeComplete.lean :188, ConservationBridge.lean :29)
+  ME-01  ME :21   kernel-verified           support terminal    -- ME states that no off-line zero exists under the conservation clause h2, the catalogue’s completeness at the ξ interface, carried openly.
+         needle “no off-line zero exists **under the conservation clause `h2`**” on the line: True ; reason: the conditional is ConservationBridge.riemann_hypothesis at v1.2, named at ME :408 and :219
+  ME-02  ME :49   argument-supported        support argument    -- ME states the Mechanism Theorem: in a determined, symmetric system with independent constraints, no mechanism means no effect.
+         needle “properties require mechanisms” on the line: True ; reason: a five-step derivation from I, D and S at :51-:61
+  ME-03  ME :37   statement-grade           support statement   -- ME states that I, D and S are grounded in five philosophical traditions, validated on five test cases and falsifiable.
+         needle “validated on 5/5 empirical test cases” on the line: True ; reason: stated; the traditions and cases are not set out
+  ME-04  ME :93   kernel-verified           support terminal    -- ME states that the formation count 2 + 3 + 2 + 0 = 7 is checked in Lean.
+         needle “Verified by `native_decide` in Lean” on the line: True ; reason: at v1.2 the arithmetic compiles by `decide`, not `native_decide` (Core.lean :50, :53), the pin ME :408 names; the terminal states the arithmetic, not that the classes number seven
+  ME-05  ME :111  argument-supported        support argument    -- ME states that the catalogue is exhaustive by Ostrowski’s theorem and that Conservation seals the interfaces.
+         needle “The catalogue is exhaustive by Ostrowski” on the line: True ; reason: Ostrowski named for the places; the step from places to every derivation chain is argued, and ME :113 calls it h2
+  ME-06  ME :127  synthesis-suggested       support reading     -- ME reads the Epstein comparison as showing the Euler product causally responsible for zero confinement together with the functional equation.
+         needle “The Euler product is causally responsible” on the line: True ; reason: a causal reading of a controlled comparison
+  ME-07  ME :137  argument-supported        support argument    -- ME states FOCUS: the completed zeta function is real on the critical line.
+         needle “Im(Λ₀(1/2 + it)) = 0” on the line: True ; reason: the four-step derivation at :139; the terminal `focus` is named in the inventory (:349) without a pin
+  ME-08  ME :141  argument-supported        support argument    -- ME states that off the line a zero needs Re and Im to vanish together, codimension two.
+         needle “codimension 2, generically forbidden” on the line: True ; reason: argued at :141
+  ME-09  ME :145  kernel-verified           support terminal    -- ME states the Spectral Cannon: the derivative of the completed zeta function is purely imaginary on the critical line.
+         needle “Re(Λ₀'(1/2 + it)) = 0” on the line: True ; reason: `SpectralCannonFull.spectral_cannon` at SIDE-kernel v1.2, named at ME :408; its statement at that pin is exactly this
+  ME-10  ME :149  argument-supported        support argument    -- ME states that at a simple zero the level curves cross perpendicularly and that along the curve Re = 0, |Im| increases and never returns to zero, so no off-line zero lies on it.
+         needle “never returns to zero” on the line: True ; reason: argued at :149 ; route R5 DARK test 2
+  ME-11  ME :151  argument-supported        support argument    -- ME states that in a determined system generic behaviour is actual, so codimension-two coincidences are absent for ξ.
+         needle “"generic" IS "actual"” on the line: True ; reason: Thom transversality named; the step from a parameter-free map to “generic is actual” is argued ; route R6 DARK test 2
+  ME-12  ME :161  argument-supported        support argument    -- ME states that localizing the explicit formula at a zero forces its multiplicity to equal a prime-side value, and that computation gives that value 1 at every tested zero.
+         needle “The identity forces m = R(γ₀)” on the line: True ; reason: argued at :161; the computation is finite ; route R4 DARK test 4
+  ME-13  ME :163  synthesis-suggested       support reading     -- ME sets the trace-formula route beside the function-field case, where the Lefschetz trace formula yields semisimplicity of Frobenius.
+         needle “semisimplicity of Frobenius eigenvalues” on the line: True ; reason: the function-field result is named; the parallel is a reading
+  ME-14  ME :210  statement-grade           support statement   -- ME states that the residual axiom all_zeros_simple is the simplicity face of h2, carried openly.
+         needle “One axiom remains in the Lean formalization” on the line: True ; reason: stated at :210-:219; at SIDE-kernel v1.2 no declaration begins `axiom`, and all_zeros_simple occurs only in comments (PerpendicularCrossing.lean :173)
+  ME-15  ME :275  argument-supported        support argument    -- ME states that its five identification paths share the functional equation’s involution, so they identify the line and carry no weight for placement.
+         needle “This is convergent identification, not independent derivation” on the line: True ; reason: the paper’s correction of 2026-08-10 at :265 and :275 ; route R3 NOT A ROUTE
+  ME-16  ME :306  statement-grade           support statement   -- ME’s conclusion states that the kernel carries zero sorry and zero axioms and that no axiom remains.
+         needle “No axioms remain” on the line: True ; reason: ME :219 itself names this the superseded W-9 form; kept as the paper states it
+  IR-01  IR :28   argument-supported        support argument    -- IR states that independent structures cannot conspire, since coupling would violate their independence.
+         needle “Independent structures cannot conspire” on the line: True ; reason: argued at :30-:42
+  IR-02  IR :54   statement-grade           support statement   -- IR states that I, D and S are foundational principles at the level of the axiom of choice.
+         needle “same level as the Axiom of Choice” on the line: True ; reason: stated at :54-:56
+  IR-03  IR :96   argument-supported        support argument    -- IR states the Mechanism Theorem by a five-step derivation from I, D and S.
+         needle “**QED** ∎” on the line: True ; reason: the steps at :64-:94
+  IR-04  IR :123  synthesis-suggested       support reading     -- IR states that the archimedean and multiplicative structures are independent by six criteria of history, vocabulary, domain, derivation, machinery and constraint.
+         needle “⊥ F₁‚ (independent)” on the line: True ; reason: criteria of provenance tabulated at :114-:121
+  IR-05  IR :133  argument-supported        support argument    -- IR states that an off-line zero is a location-type property that neither the symmetry structure nor the multiplicative structure produces.
+         needle “Loc ∉ Sym ∪ Card” on the line: True ; reason: the type analysis at :127-:135 ; route R2 DARK test 2
+  IR-06  IR :151  statement-grade           support statement   -- IR states that the zeros lie on the line under h2, here that the Sym ∪ Card partition is complete.
+         needle “under the exhaustiveness premise `h2`” on the line: True ; reason: the conditional as the paper re-scoped it on 2026-07-19
+  IR-07  IR :165  statement-grade           support statement   -- IR states that ABC and an arithmetic P ≠ NP follow from I, D and S and that forty and more conjectures are resolved.
+         needle “ABC follows” on the line: True ; reason: stated; IR :14 says each entry inherits the same conditional
+  IR-08  IR :302  kernel-verified           support terminal    -- IR states that the kernel’s output is the conditional StructuralExhaustiveness → RH and that the paper argues for its antecedent.
+         needle “by deriving the Mechanism Theorem from I+D+S” on the line: True ; reason: the same compiled conditional as EA-20, at the pin IR :302 names
+  IP-01  IP :26   synthesis-suggested       support reading     -- IP states that three approaches, topological, spectral and arithmetic, converge and that their agreement is necessary.
+         needle “**necessary** — a manifestation of the CONVERGENCE principle” on the line: True ; reason: a convergence reading at :18-:27
+  IP-02  IP :87   argument-supported        support argument    -- IP states that σ = 1/2 is the unique fixed point of the functional equation’s symmetry.
+         needle “σ = 1/2 is the unique fixed point” on the line: True ; reason: one line of algebra at :92 ; route R7 DARK test 2
+  IP-03  IP :97   kernel-verified           support terminal    -- IP states that the Euler product’s contributions balance, p^(−σ) = p^(−(1−σ)), only at σ = 1/2.
+         needle “THEOREM (Euler Product Balance)” on the line: True ; reason: `balance_theorem` of `Voice1.lean`, which EA :538 and :542 name at v1.2 as the balance theorem; its statement at that pin is this equivalence for a prime p
+  IP-04  IP :125  theorem-supported         support theorem     -- IP states that the Weil explicit formula is an exact identity between a sum over zeros and a sum over primes.
+         needle “This is an **exact identity**” on the line: True ; reason: the Weil explicit formula, named; IP :13 re-scopes the paper’s use of it to an INTERFACES-with-premises step (conditional convergence)
+  IP-05  IP :137  computationally-verified  support computation -- IP reports the residue at the first zero computed as 1.0000.
+         needle “Residue at first zero = 1.0000” on the line: True ; reason: a single computation, reported
+  IP-06  IP :167  argument-supported        support argument    -- IP states that along the curve Re(ξ) = 0 from a simple zero, |Im(ξ)| increases strictly.
+         needle “|Im(ξ)| is strictly monotonically increasing” on the line: True ; reason: the argument at :169-:174 rests on its step 3, no critical points on the curve, which the paper does not give ; route R5 DARK test 2
+  IP-07  IP :176  computationally-verified  support computation -- IP reports |Im(ξ)| growing about a hundredfold from σ = 0.5 to σ = 1 along the curves of ten zeros.
+         needle “grows ~100× from σ=0.5 to σ=1 for all 10 zeros” on the line: True ; reason: a computation at ten zeros
+  IP-08  IP :298  computationally-verified  support computation -- IP reports simplicity checked at ten zeros and the zero count N(T) matched with error under 0.5.
+         needle “Verified (10 zeros)” on the line: True ; reason: the verification table at :294-:302
+  IP-09  IP :341  statement-grade           support statement   -- IP lists as owed the localization argument’s formalization, verification beyond ten zeros and an unconditional simplicity.
+         needle “Prove simplicity unconditionally” on the line: True ; reason: the paper’s own open items at :339-:341
+  IP-10  IP :317  argument-supported        support argument    -- IP states that the paths’ independence is evidence for the antecedent h2 and not a discharge of it.
+         needle “*this is evidence for the antecedent*” on the line: True ; reason: the paper’s re-scope at :317
+
+### PART C -- THE ROUTES, EACH THROUGH THE FIVE TESTS IN ORDER, WITH ITS VERDICT AND INSTRUMENT:
+  R1 -- claims EA-02 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the classes’ compiled exclusions are conditions on a real σ alone (SIDE-kernel v1.5, TheBridgeComplete.lean :157-:159) and name no function, so they hold beside the Epstein configuration the detector meets at ρ_E -- the sieve`s row RH-60 = DARK 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)
+  R2 -- claims IR-05 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- with the symmetry structure alone, as an Epstein ζ_Q has it, the same type analysis finds no location-type mechanism, yet the Epstein functions carry off-line zeros -- the sieve`s row none
+  R3 -- claims ME-15 -- not asked (not a route) -- NOT A ROUTE, — -- the paper itself withdraws the paths as an argument for placement: they identify the line and do not place a zero -- the sieve`s row none
+  R4 -- claims ME-12 -- tests 1-3 passed; fails test 4 -- DARK, forall_upto pair @ v0.3 = 04eda4a; li_nonneg_iff_rh @ v0.9 = e5a5a83 -- the prime side enters, so test 2 passes, but the value is computed at finitely many zeros and the universal step is the localization IP :339 lists as owed, a FINITE check with no ladder to every zero -- the sieve`s row none
+  R5 -- claims ME-10, IP-06 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the argument uses the functional equation, Schwarz reflection and Cauchy–Riemann alone, all of which an Epstein ζ_Q with real coefficients carries, and Epstein functions carry off-line zeros (EA :316, :331) -- the sieve`s row none
+  R6 -- claims ME-11 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- an Epstein ζ_Q for a fixed form is equally parameter-free and carries off-line zeros, so the argument meets the Epstein configuration unchanged -- the sieve`s row none
+  R7 -- claims IP-02 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the fixed point of s ↦ 1 − s is shared by every function with this functional equation, an Epstein ζ_Q among them, so it places no zero on the line -- the sieve`s row none
+
+### PART D -- THE TERMINALS AT THE PIN (SIDE-kernel v1.2 = b1407b2), EACH READ ON ITS LINE, AND THE TABLE`S GRADE:
+  conservation_rh      Bridge/ConservationBridge.lean :36   RESOLVES -- “theorem riemann_hypothesis” -- `ConservationBridge.riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`, its premise (:13-:16) every σ with is_xi_zero σ meeting p^(−σ) = p^(−(1−σ)) at every prime -- terminal table: grade CONFLICT, profile NOT PROFILED, pin v1.5
+  cons_hyp             Bridge/ConservationBridge.lean :13   RESOLVES -- “def ConservationHypothesis : Prop :=” -- the premise ConservationHypothesis
+  integration_rh       Kernel/Integration.lean :210  RESOLVES -- “theorem rh_from_structural_exhaustiveness” -- `techne_kernel_integration.rh_from_structural_exhaustiveness (h : StructuralExhaustiveness) : RiemannHypothesis`, its antecedent (:201-:202) ∀ σ, is_xi_zero σ → σ = 1/2 -- terminal table: grade UNGRADED, profile NOT PROFILED, pin v1.5
+  integration_se       Kernel/Integration.lean :202  RESOLVES -- “∀ (sigma : Real), is_xi_zero sigma → sigma = 1 / 2” -- the antecedent
+  spectral_cannon      Kernel/SpectralCannonFull.lean :58   RESOLVES -- “theorem spectral_cannon (t : ℝ) :” -- `SpectralCannonFull.spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` -- terminal table: grade UNGRADED, profile NOT PROFILED, pin v1.5
+  spectral_cannon_stmt Kernel/SpectralCannonFull.lean :59   RESOLVES -- “(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 := by” -- its statement
+  formation            Kernel/Core.lean :53   RESOLVES -- “theorem formation : 2 + 3 + 2 + 0 = 7 := by decide” -- `SIDEKernel.formation : 2 + 3 + 2 + 0 = 7`, by `decide` -- terminal table: grade UNGRADED, profile NOT PROFILED, pin v1.5
+  formation_count      Kernel/Core.lean :50   RESOLVES -- “theorem formation_count : n1 + n2 + n3 + n4 = 7 := by decide” -- `SIDEKernel.formation_count : n1 + n2 + n3 + n4 = 7`, by `decide`
+  balance              Kernel/Voice1.lean :22   RESOLVES -- “theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :” -- `balance_theorem p hp s : p^(−s) = p^(−(1−s)) ↔ s = 1/2` for a prime p (:22-:24) -- terminal table: grade ENCODES-CONCLUSION, profile NOT PROFILED, pin v1.5
+  sep_root             Bridge/TheBridgeComplete.lean :188  RESOLVES -- “theorem structural_exhaustiveness_proved :” -- the root `structural_exhaustiveness_proved : StructuralExhaustiveness`, the conjunction of the card-7 enumeration, none_produce and Ostrowski at :180-:190 -- terminal table: grade UNGRADED, profile NOT PROFILED, pin v1.5
+  sep_cons             Bridge/ConservationBridge.lean :29   RESOLVES -- “theorem structural_exhaustiveness_proved” -- the second `structural_exhaustiveness_proved`, of namespace ConservationBridge, conditional on ConservationHypothesis -- terminal table: grade UNGRADED, profile NOT PROFILED, pin v1.5
+  the pages: no node of either page`s list names a terminal the four papers cite (the ζ list relay data/b602_nodes_zeta.txt, the χ list data/b603_nodes_chi.txt)
+
+### PART E -- H45a`S TRACE TABLE: the (paper, line) pairs a body sentence may cite, each a claim line above (54):
+  EA :48, EA :50, EA :70, EA :99, EA :130, EA :164, EA :178, EA :192, EA :210, EA :216, EA :240, EA :281, EA :296, EA :316, EA :331, EA :341, EA :367, EA :387, EA :399, EA :542, IP :26, IP :87, IP :97, IP :125, IP :137, IP :167, IP :176, IP :298, IP :317, IP :341, IR :28, IR :54, IR :96, IR :123, IR :133, IR :151, IR :165, IR :302, ME :21, ME :37, ME :49, ME :93, ME :111, ME :127, ME :137, ME :141, ME :145, ME :149, ME :151, ME :161, ME :163, ME :210, ME :275, ME :306
+
+### THE GRADES: kernel-verified 8, theorem-supported 5, argument-supported 23, computationally-verified 4, synthesis-suggested 7, statement-grade 8
+### ### **H45d HOLDS** -- the five tests reach 7 routes (R1, R2, R3, R4, R5, R6, R7); where the sieve has a row: R1 against RH-60: DARK, test 2 / DARK, test 2 -- MATCH
