@@ -60,6 +60,8 @@ CARRIED = [
     '    (d) The terminal table`s housekeeping list opened at relay data/housekeeping_terminal_table.txt, its entry H-TT-1.',
     '    (e) Branches left for the next act`s step zero, each merged: PLACE-papers push-b609; relay push-b609 and push-b609-closing.',
     '    (f) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
+    '    (g) The PLACE-papers push`s first attempt was refused by the network ("Could not resolve host", exit 128, no tag): its',
+    '        capture banked as data/b609_push_out_attempt1.txt, the remote read unmoved at 3d2f67d by ls-remote, the push re-run and read back.',
 ]
 
 
