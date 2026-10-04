@@ -303,7 +303,7 @@ def sources():
     S['pp_log'] = [(l.split(' ', 1)[0], l.split(' ', 1)[1] if ' ' in l else '') for l in gs(PP, 'log', '--reverse', '--format=%h %s', PRE['pp'] + '..HEAD').split(NL) if l.strip()]
     S['pp_files'] = {h: files_of(PP, h) for h, _s in S['pp_log']}
     S['relay_files'] = {h: files_of(ROOT, h) for h, _s in S['relay_log']}
-    S['pp_head'], S['pp_remote'] = gs(PP, 'rev-parse', 'HEAD'), (gs(PP, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+    S['pp_head'], S['pp_remote'] = gs(PP, 'rev-parse', 'HEAD'), K.remote_refs(PP).get('refs/heads/main', '')   # ### (R225)(4): read once
     S.update(extra_sources(S))
     return S
 

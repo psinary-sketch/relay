@@ -406,23 +406,35 @@ def resolve_claims():
     return out
 
 
+_REMOTE = {}   # ### (R225)(4): each repository's remote refs, read once per run and reused by every later read
+
+
+def remote_refs(path):
+    """### one `git ls-remote origin` per repository per run, its refs reused across arms; a failed read is retried once alone, and a
+    ### read that fails twice is kept as failed for the run: {ref: sha}"""
+    if path not in _REMOTE:
+        out = g(path, 'ls-remote', 'origin')
+        if 'refs/heads/' not in out:
+            out = g(path, 'ls-remote', 'origin')
+        _REMOTE[path] = dict((l.split('\t')[1].strip(), l.split('\t')[0].strip()) for l in out.split(NL) if '\t' in l)
+    return _REMOTE[path]
+
+
 def pin_state(key):
     """### a pin resolves when its commit is in the clone, peels to the expected commit, and is at the remote:
-    ### (key, repo, pin, local commit, how the remote holds it or None)"""
+    ### (key, repo, pin, local commit, how the remote holds it or None) -- the remote read once per run (remote_refs)"""
     repo, pin, want, _where = PINS[key] if key in PINS else PINS_NT[key]
     path = 'D:/' + repo
     loc = g(path, 'rev-parse', '--verify', '-q', pin + '^{commit}').strip()
     if not loc.startswith(want):
         return (key, repo, pin, loc[:12], None)
-    rem = None
-    for l in g(path, 'ls-remote', 'origin', 'refs/tags/*').split(NL):
-        if l.startswith(loc) and l.endswith('^{}'):
-            rem = 'remote tag %s' % l.split('refs/tags/')[1][:-3]
-            break
-        if l.startswith(loc) and '^{}' not in l and rem is None:
-            rem = 'remote tag %s' % l.split('refs/tags/')[1]
+    refs = remote_refs(path)
+    tags = [(r[len('refs/tags/'):], h) for r, h in sorted(refs.items()) if r.startswith('refs/tags/')]
+    peeled = [r[:-3] for r, h in tags if r.endswith('^{}') and h.startswith(loc)]
+    light = [r for r, h in tags if not r.endswith('^{}') and h.startswith(loc)]
+    rem = ('remote tag %s' % peeled[0]) if peeled else ('remote tag %s' % light[0]) if light else None
     if rem is None:
-        head = g(path, 'ls-remote', 'origin', 'refs/heads/main').split('\t')[0].strip()
+        head = refs.get('refs/heads/main', '')
         if head and subprocess.run(['git', '-C', path, 'merge-base', '--is-ancestor', loc, head], capture_output=True).returncode == 0:
             rem = 'on the remote main %s' % head[:7]
     return (key, repo, pin, loc[:12], rem)
