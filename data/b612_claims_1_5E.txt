@@ -1,0 +1,249 @@
+b612 -- COMPONENT 2: THE CLAIM BANK OF CLUSTER 1.5E, (R222)(3), banked 2026-10-04T04:02:39Z before any writing
+### the papers at PLACE-papers a79215a; the kernels at the pins the papers name (PART D); the sieve v0.4 at a79215a
+### THE GRADING RULE, confirmed by (R222)(1): kernel-verified only where the paper names a terminal (or its file) at a pin and the
+### computationally-verified only where the paper reports a computation; argument-supported where the paper's text argues the claim;
+### synthesis-suggested where it reads a pattern across results; statement-grade where it states without argument. No grade is above the
+### paper's own support. A ROUTE is a claim offered as an argument toward RH, simplicity or the open clause; each is read through the
+### sieve's five tests in order. A pin RESOLVES when its commit is in the clone and at the remote (a remote tag peeling to it, or the
+
+### PART A -- THE PAPERS, EACH WITH ITS PATH, REGISTRY ROW, VERSION AND HEAD:
+  CO = `phase1.5/deep-structure/CONSTANCE.md` -- REGISTRY 1.5e-1 (:191), its version v13.0, its status RECLASSIFIED → theory-space cluster -- 2940 lines -- head :1 “# The Prime Mosaic” -- the paper`s own version/date line “**February 2026**; **Version 13.0**”
+  FR = `phase1.5/deep-structure/FROBENIUS.md` -- REGISTRY 1.5e-2 (:192), its version v0.2, its status READY -- 150 lines -- head :1 “# The {2,3} Substrate at σ = 1/2: Three Machine-Checked Appearances” -- the paper`s own version/date line “**v0.2, May 2026** (revises v1, January 27, 2026; renamed from "{2,3} Spectral Realization of the Riemann Hypothesis")”
+  TR = `phase1.5/deep-structure/TRIVIUM.md` -- REGISTRY 1.5e-3 (:193), its version v0.2, its status READY -- 153 lines -- head :1 “# The Trivium: σ = 1/2 as the Third Identity Element” -- the paper`s own version/date line “**v0.2, May 2026** (revises v1, February 6, 2026)”
+  TF = `phase1.5/deep-structure/TRIVIUM_FINDINGS.md` -- REGISTRY 1.5e-4 (:194), its version v1.0, its status SCOPE-DROPPED (archival) -- 517 lines -- head :1 “# TRIVIUM: Identity SubSpace” -- the paper`s own version/date line “**February 2026**”
+  TS = `phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md` -- REGISTRY 1.5e-5 (:195), its version v1.0, its status READY -- 859 lines -- head :1 “# The Trivium Identity Subspace: σ = 1/2 and Its Structural Properties” -- the paper`s own version/date line “February 2026”
+  CN = `phase1.5/deep-structure/CLASS_NUMBER_ANOMALY.md` -- REGISTRY 1.5e-6 (:196), its version v1.0.2, its status READY -- 208 lines -- head :1 “# The Class-Number Anomaly of the Trivium Quadratic Fields” -- the paper`s own version/date line “*v1.0.2, May 2026 (rev. 2026-07-19)*”
+
+### PART B -- THE CLAIMS, EACH WITH ITS LINE, NEEDLE, GRADE AND REASON (89):
+  FR-01  FR :26   kernel-verified           support terminal    -- FR states that {2, 3} is the one coprime pair with both entries at least 2 whose Frobenius number is 1.
+         needle “Theorem (Frobenius Uniqueness for g = 1)” on the line: True ; reason: FR :30 names `g_two_three` and `g_two_three_minimal` at SIDE-frobenius `2efe9f2`; read at that pin, g(2, 3) = 1 and every other pair 2 ≤ a < b has g(a, b) ≥ 2
+  FR-02  FR :32   theorem-supported         support theorem     -- FR states that every integer n ≥ 2 is a sum 2a + 3b with a, b ≥ 0.
+         needle “Corollary (Gap-Free Accessibility)” on the line: True ; reason: Sylvester’s formula, named at :20; not among the terminals FR names
+  FR-03  FR :50   kernel-verified           support terminal    -- FR states that the indicial equation of (xp)² factors as (r + 1/2)² = 0, with the double root r = −1/2.
+         needle “The indicial identity and its forced double root are machine-checked” on the line: True ; reason: FR :50 names `indicial_factor`, `indicial_root_unique` and `indicial_forces_half` at `2efe9f2`; read there, r² + r + 1/4 = (r + 1/2)² over ℚ with the one root −1/2; the Berry–Keating operator itself is not compiled
+  FR-04  FR :58   statement-grade           support statement   -- FR states that the critical line corresponds to the indicial boundary condition at x = 0 under the Mellin and Berry–Keating correspondence.
+         needle “corresponds to this boundary condition under the Mellin/Berry-Keating correspond” on the line: True ; reason: stated at :58 without an argument
+  FR-05  FR :75   kernel-verified           support terminal    -- FR states that the modular generators satisfy S² = −I and, in PSL₂(ℤ), (ST)³ = I.
+         needle “machine-checked at SIDE-frobenius `2efe9f2` (`S_squared`, `ST_cubed`” on the line: True ; reason: read at `2efe9f2`: S² = −1 and (ST)³ = −1 in SL₂(ℤ), which is (ST)³ = I in PSL₂(ℤ); FR :75 and :93 write (ST)³ = I as the relation checked
+  FR-06  FR :101  synthesis-suggested       support reading     -- FR reads {2, 3} as the one algebraic basis from which the Frobenius, Berry–Keating and modular appearances derive.
+         needle “The substrate-unity claim of this paper” on the line: True ; reason: FR :109 keeps the unity a reading
+  FR-07  FR :103  statement-grade           support statement   -- FR states that the seven discriminants {−1, ±2, ±3, ±6} are the seven mechanism classes of ξ.
+         needle “These seven discriminants are the seven mechanism classes” on the line: True ; reason: stated with a cross-reference to IDENTITY_FORMATION_BIJECTION Theorem 5.1
+  FR-08  FR :111  statement-grade           support statement   -- FR states that it does not establish RH and that its earlier version overstated what the substrate provides.
+         needle “A complete proof of the Riemann Hypothesis” on the line: True ; reason: the paper’s own scope at :111
+  TR-01  TR :26   theorem-supported         support theorem     -- TR states that in w = s − 1/2 the functional equation reads ξ(w) = ξ(−w), the critical line being Re(w) = 0.
+         needle “becomes ξ(w) = ξ(−w)” on the line: True ; reason: the functional equation, classical
+  TR-02  TR :30   argument-supported        support argument    -- TR states that p^(−σ) = p^(−(1−σ)) holds at every prime exactly when σ = 1/2.
+         needle “holds for every prime simultaneously if and only if σ = 1/2” on the line: True ; reason: one line of algebra at :30; TR names no terminal
+  TR-03  TR :34   theorem-supported         support theorem     -- TR states that the theta transformation’s exponent 1/2 comes from the n² in θ through Poisson summation, and that the Mellin transform carries it to the axis σ = 1/2.
+         needle “the exponent 1/2 = 2^(−1) is forced by n²” on the line: True ; reason: Poisson summation and the Gaussian transform, classical, at :34
+  TR-04  TR :74   theorem-supported         support theorem     -- TR places the Trivium at the fixed point τ = i of S, the order-3 element fixing e^(2πi/3).
+         needle “The Trivium is the fixed point of S” on the line: True ; reason: the modular group’s fixed points, classical (Serre, named at :67); the identification with σ = 1/2 is the paper’s
+  TR-05  TR :88   statement-grade           support statement   -- TR states that ξ(1/2 + it) is real, reading it as the phases of e, i and π cancelling, and that the cancellation fails off the line.
+         needle “Off the critical line, this cancellation fails” on the line: True ; reason: the realness is classical; the phase reading and its failure off the line are stated
+  TR-06  TR :104  statement-grade           support statement   -- TR states that its Trivium reformulation and RH are the same statement.
+         needle “These are the same statement” on the line: True ; reason: a restatement, stated at :104
+  TR-07  TR :106  statement-grade           support statement   -- TR states that the seven mechanism classes of ξ together forbid zeros off the Trivium, citing the I+D+S paper and ARITHMETIC_HORIZONS V80.
+         needle “collectively forbid off-Trivium zeros” on the line: True ; reason: stated with citations; no argument at :106 ; route R1 DARK test 2
+  TR-08  TR :112  synthesis-suggested       support reading     -- TR reads the seven mechanism classes, the seven elements of (ℤ/2)³ from {−1, 2, 3}, the seven Hamming syndromes and the seven Fano points as one algebraic object.
+         needle “are the same algebraic object acting on different carrier objects” on the line: True ; reason: the cluster keystone’s reading, at :112
+  TF-01  TF :22   argument-supported        support argument    -- TF states that the balance p^(−σ) = p^(−(1−σ)) has the one solution σ = 1/2 for every prime, and names 1/2 the exponential zero.
+         needle “This equation solves to σ = 1/2” on the line: True ; reason: algebra at :22; the name is the paper’s
+  TF-02  TF :70   synthesis-suggested       support reading     -- TF states five derivations of σ = 1/2 and, corrected on 2026-08-10, calls their agreement convergent identification and not independent derivation.
+         needle “convergent identification, not independent derivation” on the line: True ; reason: the convergence reading at :56-:70 with its correction ; route R2 NOT A ROUTE
+  TF-03  TF :169  argument-supported        support argument    -- TF states that every prime splits in exactly 3 or exactly 7 of the seven fields ℚ(√d).
+         needle “Every prime splits in exactly 3 or exactly 7 of the seven fields” on the line: True ; reason: TF :427 calls it a theorem of quadratic reciprocity, the argument TS :287’s; TF :171 gives the valence-7 primes as ±1 mod 24, where that argument gives 1 mod 24
+  TF-04  TF :241  theorem-supported         support theorem     -- TF states Størmer’s theorem for {2, 3}: the consecutive {2, 3}-smooth pairs are (1, 2), (2, 3), (3, 4) and (8, 9).
+         needle “**(1,2), (2,3), (3,4), (8,9)**” on the line: True ; reason: Størmer 1897, named at :239
+  TF-05  TF :134  argument-supported        support argument    -- TF states that the Hermitian matrix vv† of the Trivium vector has spectrum {0, 0, 0, 0, 0, 0, 12}.
+         needle “**{0, 0, 0, 0, 0, 0, 12}**” on the line: True ; reason: a rank-one matrix with ||v||² = 12 (:114)
+  TF-06  TF :211  statement-grade           support statement   -- TF states that methods working through averaged quantities cannot locate individual zeros.
+         needle “cannot, in principle, determine the location of individual zeros” on the line: True ; reason: asserted at :211-:213 as structural, without an argument
+  TF-07  TF :223  theorem-supported         support theorem     -- TF states that the Euler product converges only for Re(s) > 1, so not where the nontrivial zeros lie.
+         needle “Therefore the Euler product *never converges where the zeros live*” on the line: True ; reason: classical
+  TF-08  TF :371  synthesis-suggested       support reading     -- TF sets out a six-step architecture ending in the Mechanism Theorem forbidding zeros off σ = 1/2.
+         needle “forbids coincidental zeros away from σ = 1/2” on the line: True ; reason: its steps marked done at :363-:369, its weight on the Mechanism Theorem (:391) ; route R1 DARK test 2
+  TF-09  TF :391  statement-grade           support statement   -- TF states that the Mechanism Theorem is the load-bearing axiom of its framework and that the framework fails if it is false.
+         needle “is the load-bearing axiom” on the line: True ; reason: the paper’s own caveat C1
+  TF-10  TF :421  statement-grade           support statement   -- TF states that its explanation of the 3/4 exponent remains a conjecture.
+         needle “remains a conjecture” on the line: True ; reason: the paper’s own caveat C4
+  TF-11  TF :502  computationally-verified  support computation -- TF records RH as numerically checked to more than 10¹³ zeros.
+         needle “Numerically verified to 10¹³+ zeros” on the line: True ; reason: the literature computation, reported ; route R3 NOT A ROUTE
+  TS-01  TS :98   argument-supported        support argument    -- TS states that n^(−σ) = n^(−(1−σ)) for every n ≥ 2 holds exactly at σ = 1/2.
+         needle “The exponential balance point is σ₀ = 1/2” on the line: True ; reason: the argument at :100
+  TS-02  TS :110  statement-grade           support statement   -- TS states that it calls 1/2 an identity element by analogy, 1/2 being the fixed point of the involution σ ↦ 1 − σ and not an identity in the axiom’s sense.
+         needle “by analogy: the additive and multiplicative identities” on the line: True ; reason: the paper’s own scope remark
+  TS-03  TS :116  synthesis-suggested       support reading     -- TS states five convergent constructions of σ = 1/2 and, corrected, that they are not logically independent, three taking the involution σ ↦ 1 − σ as their definition.
+         needle “not logically independent: three of them take the involution” on the line: True ; reason: the convergence reading at :114-:128 with its correction ; route R2 NOT A ROUTE
+  TS-04  TS :174  kernel-verified           support terminal    -- TS states that g(2, 3) = 1 and the modular relations S² = −I, (ST)³ = I are machine-checked, Størmer’s finiteness staying classical.
+         needle “Parts (a) and (b) are additionally machine-checked at SIDE-frobenius v0.1.0” on the line: True ; reason: read at SIDE-frobenius v0.1.0 = `2efe9f2`: `g_two_three`, and S² = −1, (ST)³ = −1 in SL₂(ℤ), the latter I only in PSL₂(ℤ)
+  TS-05  TS :180  argument-supported        support argument    -- TS states that {−1, 2, 3} generate (ℤ/2)³ in ℚ*/ℚ*², giving seven nontrivial quadratic fields.
+         needle “The group generated by {−1, 2, 3} in ℚ*/ℚ*² is (ℤ/2)³” on the line: True ; reason: the argument at :180
+  TS-06  TS :184  theorem-supported         support theorem     -- TS states Størmer’s theorem with the four consecutive pairs for {2, 3}.
+         needle “For P = {2, 3}, the complete list is” on the line: True ; reason: Størmer 1897 and Lehmer 1964, named at :186
+  TS-07  TS :194  argument-supported        support argument    -- TS states that the dimension 7 comes from two counts, the seven fields and the symmetric Størmer range {−3, …, 3}.
+         needle “Two independent counts converge” on the line: True ; reason: the argument at :194
+  TS-08  TS :238  argument-supported        support argument    -- TS states that M = vv† has spectrum {0⁶, 12}.
+         needle “spec(M) = {0, 0, 0, 0, 0, 0, 12}” on the line: True ; reason: the argument at :240
+  TS-09  TS :246  argument-supported        support argument    -- TS states the Shannon entropy of the eigenvalue weights 1/7 and 6/7 as about 0.592 bits.
+         needle “≈ 0.592 bits” on the line: True ; reason: a direct computation at :248
+  TS-10  TS :285  argument-supported        support argument    -- TS states that every prime p > 3 splits in exactly 3 or exactly 7 of the seven fields, 7 exactly when (−1/p), (2/p) and (3/p) are all +1.
+         needle “Every prime p > 3 has valence exactly 3 or exactly 7.” on the line: True ; reason: the argument at :287
+  TS-11  TS :312  theorem-supported         support theorem     -- TS states that the Weil representation’s lift of the Fourier transform satisfies 𝐖⁴ = −Id, so has order 8.
+         needle “𝐖⁴ = −Id (not +Id)” on the line: True ; reason: Weil 1964 and Weissman 2023, named at :310
+  TS-12  TS :318  synthesis-suggested       support reading     -- TS states a correspondence between the quarter-twist of the Trivium vector and the Weil representation on the {2, 3}-smooth sector.
+         needle “Theorem 7.3 (Metaplectic Correspondence)” on the line: True ; reason: TS :677 names it a correspondence, not an identification
+  TS-13  TS :326  argument-supported        support argument    -- TS states that over the critical line the complex bundle E_ℂ is orientable and the real bundle E_ℝ is not.
+         needle “Theorem 7.5 (Möbius Dichotomy)” on the line: True ; reason: the argument at :328
+  TS-14  TS :359  argument-supported        support argument    -- TS states that the monodromy sits at σ = 1/2 alone, since only there the involution s ↦ 1 − s fixes a fiber.
+         needle “The Möbius monodromy of E_ℝ is supported at σ = 1/2 and only at σ = 1/2” on the line: True ; reason: the argument at :361
+  TS-15  TS :381  theorem-supported         support theorem     -- TS states that the trefoil’s Alexander polynomial is t² − t + 1 = Φ₆(t).
+         needle “Δₜ(t) = t² − t + 1 = Φ₆(t)” on the line: True ; reason: the torus-knot formula, applied at :383
+  TS-16  TS :394  synthesis-suggested       support reading     -- TS reads the trefoil’s Alexander polynomial as the functional equation acting on the Trivium’s quarter-twist.
+         needle “IS the functional equation on the Trivium” on the line: True ; reason: a reading at :394
+  TS-17  TS :464  theorem-supported         support theorem     -- TS states that ξ(1/2 + it) is real for every real t.
+         needle “Theorem 8.14 (FOCUS)” on the line: True ; reason: Riemann 1859 and Edwards 1974, named at :466
+  TS-18  TS :476  argument-supported        support argument    -- TS states that a zero on the critical line is one real condition and a zero off it two.
+         needle “Proposition 8.16 (Codimension Dichotomy)” on the line: True ; reason: the argument at :478; TS :480 reads the second as structurally exceptional ; route R5 DARK test 2
+  TS-19  TS :520  argument-supported        support argument    -- TS states that at each simple zero on the line ξ′ is purely imaginary, so the level curves Re ξ = 0 and Im ξ = 0 cross at right angles.
+         needle “Proposition 8.27 (Orthogonal Crossing)” on the line: True ; reason: the argument at :522
+  TS-20  TS :538  argument-supported        support argument    -- TS states that along the curve Re ξ = 0 through a simple zero, Im ξ vanishes at σ = 1/2 alone within some neighborhood.
+         needle “Theorem 8.29 (Neighborhood Nonvanishing)” on the line: True ; reason: the argument at :540
+  TS-21  TS :548  argument-supported        support argument    -- TS states that along that curve V′ₖ(σ) = −|ξ′|²/u_t wherever ξ′ ≠ 0.
+         needle “Theorem 8.30 (Monotonicity Formula)” on the line: True ; reason: the argument at :554
+  TS-22  TS :558  argument-supported        support argument    -- TS states that Vₖ can vanish off the line only where the curve folds, so that no fold at any zero is equivalent to RH.
+         needle “Corollary 8.31 (Fold Criterion)” on the line: True ; reason: the argument at :560; TS :660 grades it a reformulation
+  TS-23  TS :583  computationally-verified  support computation -- TS reports C(t) = (ξ′_ℝ)² − ξ_ℝ ξ″_ℝ positive at 109 heights in [1, 55].
+         needle “is positive at all 109 sample heights” on the line: True ; reason: a computation, reported
+  TS-24  TS :587  computationally-verified  support computation -- TS cites Platt and Trudgian’s computation of the first 12,363,153,093,004 zeros on the line and simple, and reads it as no fold at those zeros.
+         needle “verified that the first 12,363,153,093,004 non-trivial zeros” on the line: True ; reason: the literature computation [18] ; route R3 NOT A ROUTE
+  TS-25  TS :607  synthesis-suggested       support reading     -- TS inventories the known mechanisms producing zeros and finds none that produces a zero off the critical line.
+         needle “Every known mechanism for producing zeros of entire functions” on the line: True ; reason: an inventory at :605-:611 ; route R7 DARK test 2
+  TS-26  TS :615  synthesis-suggested       support reading     -- TS states that its analytic, topological and structural lines of evidence converge on every nontrivial zero lying on the critical line.
+         needle “converge on the same conclusion” on the line: True ; reason: TS :671 calls them evidence ; route R6 DARK test 2
+  TS-27  TS :643  statement-grade           support statement   -- TS states that its analytic results of §§8.5-8.7 use only the functional equation and the Cauchy–Riemann equations, not the Euler product.
+         needle “use only the functional equation and Cauchy–Riemann, not the Euler product” on the line: True ; reason: the paper’s own account of its means
+  TS-28  TS :660  statement-grade           support statement   -- TS grades its fold criterion a reformulation and global family separation open and equivalent to RH.
+         needle “| Fold Criterion (= RH) | REFORMULATION |” on the line: True ; reason: the status table at :653-:663
+  TS-29  TS :671  statement-grade           support statement   -- TS states that its computations and its inventory are evidence and that the step from the local result to RH is the open question.
+         needle “These are evidence, not proof” on the line: True ; reason: the paper’s methodological note
+  CN-01  CN :15   computationally-verified  support computation -- CN states that of the seven fields ℚ(√d), d ∈ {−1, 2, 3, −2, −3, 6, −6}, six have class number 1 and ℚ(√−6) has class number 2.
+         needle “exactly six have class number” on the line: True ; reason: PARI/GP, reported at :41
+  CN-02  CN :49   kernel-verified           support terminal    -- CN states that ℚ(√−6) is the vector (1, 1, 1) of (ℤ/2)³, the one vertex of Hamming weight 3, the weights splitting (3, 3, 1).
+         needle “**(C1) Cube combinatorics.**” on the line: True ; reason: CN :98 and :132 name `SIDESubstrateCluster.partition_cardinalities` at SIDE-substrate-cluster v0.4; read at `06b61c3`, the weight classes have lengths 3, 3 and 1; the identification with ℚ(√−6) is the paper’s
+  CN-03  CN :53   argument-supported        support terminal    -- CN states that (ℤ/24)* has the structure (ℤ/2)³, verified in SIDE-dirichlet-mod-24 v0.1.0 = 597b0869.
+         needle “the natural modulus of Dirichlet characters mod 24” on the line: True ; reason: read at `597b0869`: φ(24) = 8, each of the eight units squares to 1 mod 24, and a count equality; the isomorphism stands in the kernel’s comments and follows from the structure of an abelian group of order 8 and exponent 2, not compiled as a declaration
+  CN-04  CN :62   theorem-supported         support theorem     -- CN states that since −6 is squarefree and ≡ 2 mod 4, the discriminant of ℚ(√−6) is −24.
+         needle “the discriminant doubles to $-24$” on the line: True ; reason: the discriminant of a quadratic field, classical
+  CN-05  CN :66   synthesis-suggested       support reading     -- CN reads weight 3, class number 2 and discriminant magnitude 24 as three views of one property, both 2 and 3 ramifying in ℚ(√−6).
+         needle “three views of the same fact” on the line: True ; reason: a reading at :59-:66
+  CN-06  CN :82   argument-supported        support argument    -- CN states that an element-level canonical bijection between the seven fields and the seven classes is not forced, a symmetry transitive on the seven objects making any assignment a choice of basis.
+         needle “is **not forced**” on the line: True ; reason: the argument at :82
+  CN-07  CN :82   kernel-verified           support terminal    -- CN states that the abstract Identity-Formation Bijection schema is demonstrated at the concrete instance sideIDS, formation (2, 3, 2, 0), total 7.
+         needle “demonstrated at a concrete instance” on the line: True ; reason: CN :82 names SIDE-bijection v0.2.0 = `a26f6f1`; read there, `sideIDS` carries the formation ⟨2, 3, 2, 0⟩ and the identity map at each stage, and `sideIDS_bijection` applies the schema to it
+  CN-08  CN :86   synthesis-suggested       support reading     -- CN reads the class number 2 of ℚ(√−6) as the arithmetic shadow of the CSS construction’s parity-check dependency.
+         needle “the arithmetic shadow of the CSS construction” on the line: True ; reason: a reading at :86
+  CN-09  CN :90   synthesis-suggested       support reading     -- CN reads the denominator 81 = 3⁴ of Ω_b = 4/81 as the ramification of 3 in ℚ(√−6).
+         needle “The cosmological wall reads off the ramification structure” on the line: True ; reason: a reading at :90
+  CN-10  CN :134  kernel-verified           support terminal    -- CN states that SIDE-bijection v0.1 = dd487e6 carries the abstract schema only, bijectivity from assumed per-stage injectivity and surjectivity, with no concrete seven-count.
+         needle “it carries **no concrete seven-count**” on the line: True ; reason: read at `dd487e6`: `identity_formation_bijection` concludes Bijective (S.identityOf stage) at every stage from the structure’s own fields; the tag v0.1 is held in the clone only, its commit on the remote main
+  CN-11  CN :134  kernel-verified           support terminal    -- CN states that SIDE-trivium’s trivium_theorem exhibits a concrete MechanismClass ≃ QuadraticDiscriminant with both cardinalities 7.
+         needle “`SIDE-trivium.trivium_theorem` (`1df5bad4`)” on the line: True ; reason: read at `1df5bad4`: Nonempty (MechanismClass ≃ QuadraticDiscriminant) with both Fintype cardinalities 7, MechanismClass an inductive type of the kernel
+  CN-12  CN :146  kernel-verified           support terminal    -- CN states that weight 3, class number 2 and discriminant magnitude 24 hold together for d = −6 alone among the seven Trivium discriminants.
+         needle “is now kernel-verified as `triple_identification_diagonal`” on the line: True ; reason: CN :202 names SIDE-class-number-anomaly v0.2 = `2203b88a`; read there, the biconditional over `triviumDiscs` by `decide`, with `classNumber` an encoded table whose grounding is the open LV-L-4
+  CN-13  CN :132  kernel-verified           support terminal    -- CN states that under antipodal pairing in (ℤ/2)³ the weight-3 diagonal is the one unpaired element.
+         needle “`SIDESubstrateCluster.diagonal_unpaired`” on the line: True ; reason: read at SIDE-substrate-cluster v0.4 = `06b61c3`: `diagonal_unpaired` and `obstruction_theorem`; the tag v0.4 is held in the clone only, its commit the remote’s v0.1.0
+  CN-14  CN :142  computationally-verified  support computation -- CN states that h(−24) = 2 is checked in PARI/GP and that a Mathlib derivation is open work.
+         needle “is computationally verified in PARI/GP” on the line: True ; reason: PARI/GP, reported
+  CO-01  CO :18   statement-grade           support statement   -- CO states that its physics readings are proposed and not forced, and that it was reclassified to the theory-space cluster, leaving a pointer in the Trivium cluster.
+         needle “Reclassified → theory-space cluster” on the line: True ; reason: the paper’s role note
+  CO-02  CO :192  computationally-verified  support computation -- CO states that six adjacent-generation mass ratios factor into primes tied to {2, 3} and three non-adjacent ratios do not.
+         needle “Six ratios tested. Six match. 100%.” on the line: True ; reason: the tables at :1308-:1318 and :2460-:2474; :1315 and :2469 give different values for the u to t ratio
+  CO-03  CO :324  argument-supported        support argument    -- CO states that g(a, b) = 1 needs (a − 1)(b − 1) = 2, whose only solutions are (2, 3) and (3, 2).
+         needle “We need (a−1)(b−1) = 2” on the line: True ; reason: the argument at :324
+  CO-04  CO :1162 computationally-verified  support computation -- CO states that among k = 4 to 17 only k = 6 and k = 7 make both 2^k + 3 and 2^k + 9 prime.
+         needle “Only k=6 and k=7 produce simultaneous primes in this range” on the line: True ; reason: a primality check, stated as directly verifiable
+  CO-05  CO :1284 statement-grade           support statement   -- CO predicts H₀ from the CMB at exactly 337/5 = 67.400 and locally at exactly 73.000, falsified if the CMB value departs from 67.400.
+         needle “\frac{337}{5} = 67.400 \text{ exactly}” on the line: True ; reason: a prediction; its derivation at :2629-:2635 is a reading
+  CO-06  CO :1327 computationally-verified  support computation -- CO reports that 47 of 51 parameters factor into the fifteen core primes and that no one of 1000 random fifteen-prime sets matched.
+         needle “Of 51 fundamental parameters tested, 47 factor” on the line: True ; reason: reported, with figures at :2476-:2484
+  CO-07  CO :1353 statement-grade           support statement   -- CO tabulates sixteen predictions as confirmed and none as falsified.
+         needle “16 predictions confirmed. 0 falsified.” on the line: True ; reason: a table of matches at :1334-:1351 without a stated method
+  CO-08  CO :1737 statement-grade           support statement   -- CO states that whether the generation count traces to the sector count is open, the correlation being exact.
+         needle “remains to be proven” on the line: True ; reason: the paper’s own scope
+  CO-09  CO :1824 statement-grade           support statement   -- CO states that the arithmetic fixing the physical constants also places the zeta zeros on the critical line, through the Frobenius property of {2, 3}.
+         needle “also forces zeta zeros to the critical line” on the line: True ; reason: stated at :1824 without an argument ; route R8 DARK test 2
+  CO-10  CO :2097 computationally-verified  support computation -- CO reports partial Euler products through six primes approximating the first zero about seventy times more closely than partial Dirichlet sums.
+         needle “~70× more accurately than partial Dirichlet sums” on the line: True ; reason: a computation, tabulated at :2806-:2809
+  CO-11  CO :2105 statement-grade           support statement   -- CO states that turning the codimension argument’s “generically” into “necessarily” for ζ is equivalent to RH.
+         needle “Making "generically" into "necessarily" for this specific function is equivalent” on the line: True ; reason: the paper’s own scope
+  CO-12  CO :2729 argument-supported        support argument    -- CO states that off the line a zero needs two real conditions in one real parameter and that a smooth trajectory generically misses such a set.
+         needle “A smooth one-dimensional trajectory generically misses codimension-2 sets entire” on the line: True ; reason: the argument at :2725-:2729; :2737 marks the step for ξ open ; route R5 DARK test 2
+  CO-13  CO :2746 argument-supported        support argument    -- CO states that at every zero ρ = 1/2 + iγ, Re ξ′(ρ) = 0.
+         needle “Differentiate ξ(s) = ξ(1−s) to get” on the line: True ; reason: the argument at :2746; CO names no terminal for it
+  CO-14  CO :2754 argument-supported        support argument    -- CO states that the product formula is s-dark and that every constraint on zero locations traces to ℚ’s additive, multiplicative and distributive components.
+         needle “The product formula ∏_v |x|_v = 1 is *s-dark*” on the line: True ; reason: a one-line argument at :2754
+  CO-15  CO :2772 computationally-verified  support computation -- CO reports |ζ′(ρ)|/√γ with mean 0.251 and no trend over the first 30 zeros, and reads the barrier as growing like √γ.
+         needle “The barrier grows as √γ” on the line: True ; reason: the table at :2766-:2770 ; route R9 DARK test 1
+  CO-16  CO :2790 synthesis-suggested       support reading     -- CO states that its five paths share the involution σ ↦ 1 − σ and that their agreement is convergent identification, evidence about the line and none about placement.
+         needle “convergent identification, not independent derivation” on the line: True ; reason: the correction of 2026-08-10 at :2788-:2790 ; route R2 NOT A ROUTE
+  CO-17  CO :2888 statement-grade           support terminal    -- CO states that SIDESpinor.spinor_forces_half concludes w = 0 from i·w = w and does not conclude σ = 1/2, the reading at σ = 1/2 resting on two uncompiled stipulations.
+         needle “`SIDESpinor.spinor_forces_half` is `(w : ℂ) (h : Complex.I * w = w) : w = 0`” on the line: True ; reason: CO names the terminal without a pin; read at SIDE-spinor v0.1.0 (:70), its statement is the one CO quotes
+  CO-18  CO :2908 statement-grade           support statement   -- CO states that the concentration of the monodromy at σ = 1/2 explains why numerical searches find no off-line zero, there being none to find.
+         needle “There's nothing to find.” on the line: True ; reason: stated at :2908 without an argument ; route R4 DARK test 2
+  CO-19  CO :2852 statement-grade           support statement   -- CO states that the remaining step runs from the neighborhood of each zero to the whole strip, its 24,000 computed points not closing it.
+         needle “"computed" ≠ "proven."” on the line: True ; reason: the paper’s own scope at :2850-:2854
+
+### PART C -- THE ROUTES, EACH THROUGH THE FIVE TESTS IN ORDER, WITH ITS VERDICT AND INSTRUMENT:
+  R1 -- claims TR-07, TF-08 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the classes’ exclusions, as the sieve reads them, are conditions on a real σ naming no function, so they hold beside the Epstein configuration the detector meets at ρ_E -- the sieve`s row RH-60 = DARK 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)
+  R2 -- claims TF-02, TS-03, CO-16 -- not asked (not a route) -- NOT A ROUTE, — -- the papers’ own correction of 2026-08-10: the paths identify the line, sharing one involution, and carry no placement -- the sieve`s row none: listed for the sieve`s next version
+  R3 -- claims TF-11, TS-24 -- not asked (not a route) -- NOT A ROUTE, — -- a finite range of computed zeros says nothing of the zeros beyond it -- the sieve`s row RH-58 = NOT A ROUTE —
+  R4 -- claims CO-18 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the monodromy is a property of the involution s ↦ 1 − s, shared by every function with this functional equation, an Epstein ζ_Q among them, whose off-line zeros the detector meets at ρ_E -- the sieve`s row none: listed for the sieve`s next version
+  R5 -- claims TS-18, CO-12 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the count of real conditions holds for every function real on its symmetry line, an Epstein ζ_Q among them, whose off-line zeros the detector meets at ρ_E; CO :2737 marks the step for ζ open -- the sieve`s row none: listed for the sieve`s next version
+  R6 -- claims TS-26 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- TS :643 says its analytic results use only the functional equation and the Cauchy–Riemann equations, not the Euler product, so they hold unchanged at the Epstein configuration -- the sieve`s row none: listed for the sieve`s next version
+  R7 -- claims TS-25 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the inventory names no prime-side ingredient, and the Epstein configuration (the sieve’s FD-01) carries an off-line point with a functional equation -- the sieve`s row none: listed for the sieve`s next version
+  R8 -- claims CO-09 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the Frobenius property of {2, 3} is a fact about the integers and names no prime side; the integers an Epstein ζ_Q sums over carry it unchanged -- the sieve`s row none: listed for the sieve`s next version
+  R9 -- claims CO-15 -- fails test 1 -- DARK, I-7 @ 847e433; IB Thm 3.1 @ 1d0109f -- a statistic over thirty ordinates, |ζ′(ρ)|/√γ, carries no real part of any zero -- the sieve`s row none: listed for the sieve`s next version
+
+### PART D -- THE TERMINALS AT THEIR PINS, EACH READ ON ITS LINE, WITH THE PIN`S RESOLUTION AND THE TABLE`S ROW:
+  pin frobenius  SIDE-frobenius v0.1.0 -> 2efe9f2f8655 ; at the remote: remote tag v0.1.0
+  pin cna        SIDE-class-number-anomaly v0.2 -> 2203b88a2008 ; at the remote: remote tag v0.2
+  pin mod24      SIDE-dirichlet-mod-24 v0.1.0 -> 597b0869107c ; at the remote: remote tag v0.1.0
+  pin substrate  SIDE-substrate-cluster v0.4 -> 06b61c3afe80 ; at the remote: remote tag v0.1.0
+  pin bij01      SIDE-bijection v0.1 -> dd487e61504c ; at the remote: remote tag v0.1.0
+  pin bij020     SIDE-bijection v0.2.0 -> a26f6f1c5dea ; at the remote: remote tag v0.2.0
+  pin trivium    SIDE-trivium 1df5bad4 -> 1df5bad43cc0 ; at the remote: on the remote main 1aac3a9
+  pin spinor     SIDE-spinor v0.1.0 -> b235bc6235b5 ; at the remote: remote tag v0.1.0
+  g23          SIDE-frobenius SIDEFrobenius/Indicial.lean :65   RESOLVES -- “theorem g_two_three : frobenius_number 2 3 = 1 := by” -- `SIDEFrobenius.g_two_three : frobenius_number 2 3 = 1`, where frobenius_number a b = a·b − a − b (:63) -- terminal table: SIDEFrobenius.g_two_three, grade UNGRADED, profile NOT PROFILED
+  g23min       SIDE-frobenius SIDEFrobenius/Indicial.lean :68   RESOLVES -- “theorem g_two_three_minimal (a b : ℤ)” -- `SIDEFrobenius.g_two_three_minimal`: for integers 2 ≤ a < b with (a, b) ≠ (2, 3), 2 ≤ frobenius_number a b (:68-:70) -- terminal table: SIDEFrobenius.g_two_three_minimal, grade UNGRADED, profile NOT PROFILED
+  g23min_stmt  SIDE-frobenius SIDEFrobenius/Indicial.lean :70   RESOLVES -- “2 ≤ frobenius_number a b := by” -- its conclusion
+  ind_factor   SIDE-frobenius SIDEFrobenius/Indicial.lean :29   RESOLVES -- “theorem indicial_factor (r : ℚ) : r ^ 2 + r + 1 / 4 = (r + 1 / 2) ^ 2 := by” -- `SIDEFrobenius.indicial_factor (r : ℚ) : r² + r + 1/4 = (r + 1/2)²` -- terminal table: SIDEFrobenius.indicial_factor, grade UNGRADED, profile NOT PROFILED
+  ind_unique   SIDE-frobenius SIDEFrobenius/Indicial.lean :33   RESOLVES -- “r ^ 2 + r + 1 / 4 = 0 ↔ r = -1 / 2 := by” -- `SIDEFrobenius.indicial_root_unique (r : ℚ) : r² + r + 1/4 = 0 ↔ r = −1/2` (:32-:33)
+  ind_half     SIDE-frobenius SIDEFrobenius/Indicial.lean :54   RESOLVES -- “theorem indicial_forces_half (r : ℚ) (h : r ^ 2 + r + 1 / 4 = 0) :” -- `SIDEFrobenius.indicial_forces_half`: from r² + r + 1/4 = 0, −r = 1/2 (:54-:55) -- terminal table: SIDEFrobenius.indicial_forces_half, grade UNGRADED, profile NOT PROFILED
+  S_sq         SIDE-frobenius SIDEFrobenius/Indicial.lean :95   RESOLVES -- “theorem S_squared : Smat * Smat = -1 := by” -- `SIDEFrobenius.S_squared : Smat * Smat = -1`, S = !![0, -1; 1, 0] over ℤ (:91) -- terminal table: SIDEFrobenius.S_squared, grade UNGRADED, profile NOT PROFILED
+  ST_cu        SIDE-frobenius SIDEFrobenius/Indicial.lean :98   RESOLVES -- “theorem ST_cubed : (Smat * Tmat) ^ 3 = -1 := by” -- `SIDEFrobenius.ST_cubed : (Smat * Tmat) ^ 3 = -1`, T = !![1, 1; 0, 1]; the file says (ST)³ = −I, of order 3 in PSL₂ (:85-:86) -- terminal table: SIDEFrobenius.ST_cubed, grade UNGRADED, profile NOT PROFILED
+  tri_diag     SIDE-class-number-anomaly SIDEClassNumberAnomaly/Basic.lean :204  RESOLVES -- “theorem triple_identification_diagonal :” -- `triple_identification_diagonal : ∀ d ∈ triviumDiscs, (classNumber d = 2 ∧ hammingWeight d = 3 ∧ discMagnitude d = 24) ↔ d = -6`, by `decide` (:204-:207) -- terminal table: triple_identification_diagonal, grade DERIVES, profile NOT PROFILED
+  tri_stmt     SIDE-class-number-anomaly SIDEClassNumberAnomaly/Basic.lean :206  RESOLVES -- “(classNumber d = 2 ∧ hammingWeight d = 3 ∧ discMagnitude d = 24) ↔ d = -6 := by” -- its statement
+  cn_lookup    SIDE-class-number-anomaly SIDEClassNumberAnomaly/Basic.lean :52   RESOLVES -- “def classNumber : Int → Nat” -- `classNumber` an encoded table, −6 ↦ 2 and the six others ↦ 1 (:52-:60); the kernel’s honesty note (:196-:202) names its grounding LV-L-4 -- terminal table: no row
+  m24_phi      SIDE-dirichlet-mod-24 SIDEDirichletMod24/Basic.lean :62   RESOLVES -- “theorem phi_24_eq_eight :” -- `phi_24_eq_eight`: φ(24) = 8 by enumerating gcd with 24 (:62-:67) -- terminal table: no row
+  m24_units    SIDE-dirichlet-mod-24 SIDEDirichletMod24/Basic.lean :82   RESOLVES -- “theorem all_units_order_two_or_one :” -- `all_units_order_two_or_one`: each of 1, 5, 7, 11, 13, 17, 19, 23 squares to 1 mod 24 (:82-:90) -- terminal table: no row
+  m24_card     SIDE-dirichlet-mod-24 SIDEDirichletMod24/Basic.lean :127  RESOLVES -- “theorem units_eq_cubit : numUnits = cubitCardinality := by decide” -- `units_eq_cubit : numUnits = cubitCardinality`, both defined as 8 (:57, :120); the isomorphism (ℤ/24)* ≅ (ℤ/2)³ is stated in the comments at :84 and :124, no declaration states it -- terminal table: no row
+  part_card    SIDE-substrate-cluster SIDESubstrateCluster/Substrate.lean :126  RESOLVES -- “theorem partition_cardinalities :” -- `SIDESubstrateCluster.partition_cardinalities`: the weight classes 1, 2 and 3 have lengths 3, 3 and 1 (:126-:130) -- terminal table: no row
+  diag_unp     SIDE-substrate-cluster SIDESubstrateCluster/PairingObstruction.lean :41   RESOLVES -- “theorem diagonal_unpaired : inSubstrate (antipode diagonal) = false := by decide” -- `SIDESubstrateCluster.diagonal_unpaired : inSubstrate (antipode diagonal) = false` -- terminal table: no row
+  obstr        SIDE-substrate-cluster SIDESubstrateCluster/PairingObstruction.lean :64   RESOLVES -- “theorem obstruction_theorem :” -- `SIDESubstrateCluster.obstruction_theorem`: the diagonal is in the substrate and its antipode is not, while e1, e2, e3 and their antipodes are (:64-:70) -- terminal table: no row
+  ifb_v01      SIDE-bijection SIDEBijection/Theorem.lean :134  RESOLVES -- “theorem identity_formation_bijection (S : IDSSystem) :” -- `SIDEBijection.identity_formation_bijection (S : IDSSystem) : ∀ stage : Fin 4, Bijective (S.identityOf stage)` (:134-:135) -- terminal table: SIDEBijection.identity_formation_bijection, grade CONFLICT, profile NOT PROFILED
+  ifb_v01_pf   SIDE-bijection SIDEBijection/Theorem.lean :137  RESOLVES -- “exact ⟨S.distinctness stage, S.noOrphans stage⟩” -- closed by the structure’s own fields `distinctness` and `noOrphans`, which an instance supplies
+  side_ids     SIDE-bijection SIDEBijection/Theorem.lean :230  RESOLVES -- “def sideIDS : IDSSystem where” -- `SIDEBijection.sideIDS : IDSSystem`, the identity map on Fin n at each stage (:230-:236) -- terminal table: no row
+  side_form    SIDE-bijection SIDEBijection/Theorem.lean :231  RESOLVES -- “formation := ⟨2, 3, 2, 0⟩” -- its formation tuple
+  side_bij     SIDE-bijection SIDEBijection/Theorem.lean :241  RESOLVES -- “theorem sideIDS_bijection :” -- `SIDEBijection.sideIDS_bijection : ∀ stage, Bijective (sideIDS.identityOf stage)`, the schema applied to `sideIDS` (:241-:243) -- terminal table: no row
+  triv_thm     SIDE-trivium Trivium/Bijection.lean :256  RESOLVES -- “theorem trivium_theorem :” -- `Trivium.trivium_theorem : Nonempty (MechanismClass ≃ QuadraticDiscriminant) ∧ Fintype.card MechanismClass = 7 ∧ Fintype.card QuadraticDiscriminant = 7` (:256-:259) -- terminal table: no row
+  triv_card    SIDE-trivium Trivium/Bijection.lean :258  RESOLVES -- “Fintype.card MechanismClass = 7 ∧” -- its cardinality conjunct; MechanismClass an inductive type of the kernel (:64)
+  spinor       SIDE-spinor SIDESpinor/Spinor.lean :70   RESOLVES -- “theorem spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0 :=” -- `SIDESpinor.spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0` -- terminal table: SIDESpinor.spinor_forces_half, grade UNGRADED, profile NOT PROFILED
+  the pages: the cited terminals on the ζ list relay data/b602_nodes_zeta.txt: NONE ; on the χ list data/b603_nodes_chi.txt: NONE
+
+### PART E -- H46a`S TRACE TABLE: the (paper, line) pairs a body sentence may cite, each a claim line above (87):
+  CN :15, CN :49, CN :53, CN :62, CN :66, CN :82, CN :86, CN :90, CN :132, CN :134, CN :142, CN :146, CO :18, CO :192, CO :324, CO :1162, CO :1284, CO :1327, CO :1353, CO :1737, CO :1824, CO :2097, CO :2105, CO :2729, CO :2746, CO :2754, CO :2772, CO :2790, CO :2852, CO :2888, CO :2908, FR :26, FR :32, FR :50, FR :58, FR :75, FR :101, FR :103, FR :111, TF :22, TF :70, TF :134, TF :169, TF :211, TF :223, TF :241, TF :371, TF :391, TF :421, TF :502, TR :26, TR :30, TR :34, TR :74, TR :88, TR :104, TR :106, TR :112, TS :98, TS :110, TS :116, TS :174, TS :180, TS :184, TS :194, TS :238, TS :246, TS :285, TS :312, TS :318, TS :326, TS :359, TS :381, TS :394, TS :464, TS :476, TS :520, TS :538, TS :548, TS :558, TS :583, TS :587, TS :607, TS :615, TS :643, TS :660, TS :671
+
+### THE GRADES: kernel-verified 10, theorem-supported 11, argument-supported 23, computationally-verified 10, synthesis-suggested 13, statement-grade 22
+### THE ROUTES WITH NO SIEVE ROW, LISTED FOR THE SIEVE`S NEXT VERSION: R4 DARK, test 2; R5 DARK, test 2; R6 DARK, test 2; R7 DARK, test 2; R8 DARK, test 2; R9 DARK, test 1
+### ### **H46d HOLDS** -- the five tests reach 9 routes (R1, R2, R3, R4, R5, R6, R7, R8, R9); where the sieve has a row: R1 against RH-60: DARK, test 2 / DARK, test 2 -- MATCH; R3 against RH-58: NOT A ROUTE / NOT A ROUTE -- MATCH; with no row, listed: 6
