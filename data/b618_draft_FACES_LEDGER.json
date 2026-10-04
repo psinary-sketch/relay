@@ -1,0 +1,111 @@
+{
+ "at": "2026-10-04T21:27:16Z",
+ "doc": "FACES_LEDGER.md",
+ "lines": 16,
+ "bytes": 1789,
+ "sha256": "8a6cf359311ffa16292405c379eb244d32265d3d18a09938ef834b53c1293818",
+ "scanner_clean": true,
+ "scan_tail": [
+  "  live uses        : 0",
+  "  VERDICT          : CLEAN"
+ ],
+ "ceiling": [],
+ "ledger_cells": [
+  [
+   "| Keiper | `SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of` (SIDE-explicit-formula v0.19 = 5fc0c87; the ζ page) | T2",
+   [
+    [
+     11,
+     63,
+     "SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of"
+    ]
+   ]
+  ],
+  [
+   "| the window | `SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of` (SIDE-explicit-formula v0.20 = 914c413; the",
+   [
+    [
+     15,
+     76,
+     "SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of"
+    ]
+   ]
+  ]
+ ],
+ "keystone_hits": {
+  "zeta": [
+   "doubling_holds",
+   "keiperTaylorIdentity_of",
+   "productLemma_holds",
+   "simplicity_iff"
+  ],
+  "chi": [
+   "family_theorem",
+   "plateauRampWindow_of"
+  ]
+ },
+ "meta": {
+  "faces": [
+   {
+    "face": "simplicity",
+    "decl": "simplicity_iff",
+    "q": "SIDEExplicitFormula.Simplicity.simplicity_iff",
+    "pin": "v0.17 = 5a1630b",
+    "e0": "DERIVES",
+    "tier": "T0",
+    "page": "ζ",
+    "ver": "v0.17"
+   },
+   {
+    "face": "product",
+    "decl": "productLemma_holds",
+    "q": "SIDEExplicitFormula.Product.productLemma_holds",
+    "pin": "v0.18 = 1dd5cd7",
+    "e0": "DERIVES",
+    "tier": "T0",
+    "page": "ζ",
+    "ver": "v0.18"
+   },
+   {
+    "face": "doubling",
+    "decl": "doubling_holds",
+    "q": "SIDEExplicitFormula.Doubling.doubling_holds",
+    "pin": "v0.19 = 5fc0c87",
+    "e0": "DERIVES",
+    "tier": "T0",
+    "page": "ζ",
+    "ver": "v0.19"
+   },
+   {
+    "face": "Keiper",
+    "decl": "keiperTaylorIdentity_of",
+    "q": "SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of",
+    "pin": "v0.19 = 5fc0c87",
+    "e0": "INTERFACES",
+    "tier": "T2-INTERFACES",
+    "page": "ζ",
+    "ver": "v0.19"
+   },
+   {
+    "face": "the window",
+    "decl": "plateauRampWindow_of",
+    "q": "SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of",
+    "pin": "v0.20 = 914c413",
+    "e0": "INTERFACES",
+    "tier": "T2-INTERFACES",
+    "page": "χ",
+    "ver": "v0.20"
+   },
+   {
+    "face": "family",
+    "decl": "family_theorem",
+    "q": "SIDEExplicitFormula.Schema.Family.family_theorem",
+    "pin": "v0.21 = 1d5d4dd",
+    "e0": "DERIVES",
+    "tier": "T0",
+    "page": "χ",
+    "ver": "v0.21"
+   }
+  ]
+ }
+}
