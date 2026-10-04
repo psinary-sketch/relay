@@ -60,6 +60,9 @@ CARRIED = [
     '        79981 entry corpus-facing; the two routes` verdicts.',
     '    (d) Branches left for the next act`s step zero, each merged: PLACE-papers push-b613; relay push-b613 and push-b613-closing.',
     '    (e) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
+    '    (f) Two transient network failures, each kept: the PLACE-papers push refused on "Could not resolve host" with the remote main',
+    '        unmoved by ls-remote, re-pushed alone (data/b613_push_out_attempt1.txt); the first post-push suite failed G-CITED-PINS-NOW on',
+    '        an ls-remote, its claim held when tested directly, the suite re-run alone 86 of 86 (data/b613_checks_postpush_attempt1.txt).',
 ]
 
 
