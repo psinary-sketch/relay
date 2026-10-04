@@ -1,0 +1,29 @@
+You are being asked to act as an independent second reader for a research programme's documents. You have no context of the work that produced them, and that is the point: read only the files named below, judge each item on its own words, and write your answers to one file. Do not open, search or read any other file in any repository on this machine, do not run git, and do not change any file except the one answer file named at the end.
+
+The packet is the directory D:/relay/data/b620_reader_packet. Read its five files: 00_README.txt, 01_ceiling.txt, 02_substitutions.txt, 03_rows.txt and 04_residue.txt.
+
+THE CEILING. 01_ceiling.txt holds the programme's ceiling: the sentence its documents may say about the Riemann Hypothesis and the sentence they may not. A wording is BEYOND the ceiling when it says, or plainly implies, more than the supportable sentence -- for example that the hypothesis, or a step the supportable sentence leaves open, is proved, established, settled or resolved.
+
+TASK ONE -- 370 substitutions (02_substitutions.txt). Each item gives a FIRST WORDING that stood in a document and the SECOND WORDING that replaced it. For each item answer exactly one of:
+  SAME-OBJECT -- the second wording speaks of the same object or claim as the first (it may correct, narrow, qualify or restate it) and stays within the ceiling;
+  DIFFERENT-OBJECT -- the second wording speaks of a different object or makes a different claim than the first;
+  BEYOND-CEILING -- the second wording goes beyond the ceiling.
+Give one line of reason.
+
+TASK TWO -- 120 claims (03_rows.txt). Each item states what a paper claims, followed by the lines of that paper it cites, copied verbatim. Grade each claim by what those cited lines themselves name as its backing, using exactly one of these six grades:
+  kernel-verified -- the lines name a machine-checked terminal (a compiled theorem or its file) at a pin, and the statement carries the claim;
+  theorem-supported -- the lines name a theorem of the published literature for it;
+  computationally-verified -- the lines report a computation;
+  argument-supported -- the lines argue the claim;
+  synthesis-suggested -- the lines read a pattern across results;
+  statement-grade -- the lines state it without argument.
+Grade no claim above what its cited lines name as its backing. Give one line of reason.
+
+TASK THREE -- 164 sentences (04_residue.txt). For each sentence answer AT (within the ceiling) or BEYOND (beyond it). Give one line of reason.
+
+THE ANSWER FILE. Write all your answers to D:/relay/data/b620_reader_answers.txt, one item per line, in the packet's own order, in exactly this form:
+  S001 | SAME-OBJECT | your one line of reason
+  R001 | argument-supported | your one line of reason
+  X001 | AT | your one line of reason
+Every item S001 to S370, R001 to R120 and X001 to X164 must have exactly one line. Use no other verdict words than those above, and do not put a vertical bar inside a reason. When the file is complete, read it back once to check every item is present, then stop. Do not commit, push or edit anything else.
+

@@ -1,0 +1,1 @@
+The reader`s packet. Five files: this one; 01_ceiling.txt, the ceiling sentence; 02_substitutions.txt, 370 pairs of wordings; 03_rows.txt, 120 claims each with the lines of the paper it cites; 04_residue.txt, 164 sentences. The task is in the prompt that came with it.

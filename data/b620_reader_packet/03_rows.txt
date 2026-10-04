@@ -1,0 +1,481 @@
+Claims. Each states what a paper claims, followed by the lines of that paper it cites, copied verbatim.
+
+R001 -- IR states that an off-line zero is a location-type property that neither the symmetry structure nor the multiplicative structure produces.
+  the paper: IDS_TO_RH.md, lines as cited (IR :133)
+    :133 **Key observation**: Loc ∉ Sym ∪ Card
+
+R002 -- FA reads cosmic flatness in the uniform decomposition, (4/81)(81/4) = 1, as an arithmetic consequence of the partition.
+  the paper: FANO_DERIVATION_OF_LAMBDA.md, lines as cited (FA :157)
+    :157 **Cosmic flatness in Decomposition A.** Total cosmic density $\Omega_{\text{total}}^{(A)} = \Omega_b \cdot (1 + 77/4) = \Omega_b \cdot 81/4 = 1$ exactly. Cosmic flatness is the algebraic identity $(4/81) \cdot (81/4) = 1$. Standard cosmology requires inflation to dynamically flatten the universe to $\Omega_{\text{total}} = 1$; the substrate derivation produces flatness as an arithmetic consequence of the partition structure.
+
+R003 -- QV states that T on all seven qubits is the transversal T and a logical T of the Steane code.
+  the paper: qec_kappa_v2.py, lines as cited (QV :17)
+    :17     Max n_T = 7. For n_T = 7 this is transversal T = logical T."""
+
+R004 -- BV states that E(ℚ) is finitely generated, ℤ^r ⊕ T, by Mordell’s theorem.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :80)
+    :80 The rational points $E(\mathbb{Q})$ form a finitely generated abelian group (Mordell 1922): $E(\mathbb{Q}) \cong \mathbb{Z}^r \oplus T$, where $r$ is the *algebraic rank* and $T$ is the torsion subgroup. The torsion subgroup is bounded: $|T| \leq 16$ (Mazur 1977).
+
+R005 -- IS states that its five derivations use disjoint machinery with no shared logical dependencies.
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :65)
+    :65 These five derivations employ disjoint mathematical machinery: Fourier analysis, generating functions, multiplicative number theory, hyperbolic geometry, and combinatorics respectively. No two share logical dependencies beyond the axioms of ℤ.
+
+R006 -- BT traces the BSD formula’s period to C₁, the regulator to C₂, ¦Ш¦ to C₄ and the Tamagawa product to C₅.
+  the paper: BSD_TRANSFER.md, lines as cited (BT :203)
+    :203 - Ω (the real period) — from C₁ (√ mechanism, Γ-factor)
+
+R007 -- DI reports a worked example from a private library, extended in one session and compiled without failure; the library is cited here by pointer alone.
+  the paper: DARK_INTERFACE.md, lines as cited (DI :125)
+    :125 In a single session (April 2026), the TECHNE.Core library was extended from 38 files to 44 files. Five new Lean files were designed through natural language and compiled through the Lean type checker. The full build compiled 2,934 modules with zero failures. The entire extension — five new files, four new instances, three new theorems — compiled in one session because the bright interface replaced the dark interface as the medium of error detection.
+
+R008 -- PO names PrimeMosaic.lean, TerminusLambda.lean and TerminusParameters.lean, with 0 sorry and 0 axioms, and a Python reproduction of the error trace.
+  the paper: PRIME_ORDER.md, lines as cited (PO :107)
+    :107 v1.0 — first writing on verified footing. The mosaic arithmetic is machine-checked in PrimeMosaic.lean; the cosmological-constant coefficient arithmetic in TerminusLambda.lean; the gauge- and mass-sector prime-expressions in TerminusParameters.lean; all three vanilla Lean 4, 0 sorry, 0 axioms. The cosmological error trace is reproduced in lambda_numerical_verification.py from CODATA α and the cited observed value. Physical interpretations and the α-series values are carried by CONSTANCE, PRIME_CORE_READER, and TERMINUS, cited rather than reproduced.
+
+R009 -- ZS cites Thom’s transversality (1956) for the curve generically missing that hyperplane.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :54)
+    :54 The image of Φ is a curve — a one-dimensional object in five-dimensional space. The hyperplane H has codimension 1 in ℂ⁵. By transversality (Thom 1956), a curve generically misses a codimension-1 surface when the ambient dimension exceeds 1 + 1 = 2. Since 5 > 2, the intersection Φ(ℝ) ∩ H is generically empty. *(This transversality argument is the manuscript-leg version of the compiled kernel terminal `SIDESimplicity.transversal_generic_empty` — the codim-5 analytic identification the census records as the simplicity-conditional route, VAJRA-PLINKO Path 5, `PATHS_TO_THE_CRITICAL_LINE` §I-bis.)*
+
+R010 -- EA states that the output stage’s two classes, C₃ and C₇, are a structural reading rather than a classification theorem.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :210)
+    :210 **Status: [ESTABLISHED].** The bipartite structure of complex analysis (local/global) is standard. The identification of C₃ and C₇ as the mechanism classes at this stage is a structural reading, not a classification theorem with the strength of Ostrowski.
+
+R011 -- DM places the (3, 3, 1) partition under the parabolic stabilizer of the diagonal.
+  the paper: DARK_DELTA_MU.md, lines as cited (DM :107)
+    :107 The (ℤ/2)³ → T_μν embedding is constructed in QUATERNIONIC v0.2 §4 as an ε-family interpolating between Decomposition A (uniform tree-level, total 77/4) and Decomposition B (asymmetric DM/DE split, total 58/3). The Hamming-weight partition (3, 3, 1) under the GL(3, 𝔽₂) parabolic stabilizer of the diagonal element assigns:
+
+R012 -- TF sets out a six-step architecture ending in the Mechanism Theorem forbidding zeros off σ = 1/2.
+  the paper: TRIVIUM_FINDINGS.md, lines as cited (TF :371)
+    :371 **Step 5.** Apply Conservation of Spectra to bound the search space. The bright eigenvalue is conserved, the dark subspace cannot create off-line zeros, and the Mechanism Theorem (no mechanism → no effect) forbids coincidental zeros away from σ = 1/2.
+
+R013 -- DI reads natural language and the product formula as instances of one phenomenon, each essential, universal and dark.
+  the paper: DARK_INTERFACE.md, lines as cited (DI :60)
+    :60 The parallel is not metaphorical. The product formula and natural language are both essential, universal interfaces. They are dark for the same reason: universality implies non-discrimination implies silence. The product formula is the arithmetic prototype. Natural language is the epistemological prototype. The Silence Principle identifies them as instances of the same structural phenomenon.
+
+R014 -- ZS reports that random perturbation of the Trivium’s dark eigenvalue matrix gives var/mean² = 0.189, against GUE 0.178, GOE 0.286 and Poisson 1.000.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :96)
+    :96 The Trivium is complex (not quaternionic) with T² = −I. This selects β = 2: GUE statistics. Confirmed computationally: random perturbation of the Trivium's dark eigenvalue matrix gives var/mean² = 0.189, consistent with GUE (0.178) and inconsistent with GOE (0.286) or Poisson (1.000).
+
+R015 -- LC states that no cosmological model satisfies all four SIDE conditions, the dark sector being the failure of exhaustiveness.
+  the paper: LOCAL_COSMIC.md, lines as cited (LC :117)
+    :117 No model satisfies all four SIDE conditions for cosmology. This is because the E condition — exhaustiveness — requires demonstrating that local physics exhaustively describes all cosmic mechanisms. The dark sector IS the failure of E. Any model that satisfies E for cosmology would have solved the dark sector problem.
+
+R016 -- YM states the Tightness Theorem, d_eff = 2S − 1 for rank-1 codespaces, giving d_eff = 5 at S = 3.
+  the paper: YANG_MILLS_MONOGRAPH.md, lines as cited (YM :221)
+    :221 The Tightness Theorem (proved for rank-1 codespaces in the formation calculus): for a formation code with k = 1 and S non-empty stages, the effective distance under formation-block errors equals exactly 2S − 1.
+
+R017 -- BV’s four-stage table counts three Ostrowski places, ∞, p-adic and global, for ξ and for Λ(E, s).
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :127)
+    :127 | Transformation ($n_2$) | Three Ostrowski places: $\infty$, $p$-adic non-arch, global | Three Ostrowski places preserved; local factor $L_p(E, s)$ at each | yes: 3 |
+
+R018 -- BV states that SIDE-bsd-multiplicity’s six_sha_frameworks counts the six frameworks without bounding Ш.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :213)
+    :213 `BSD.sha_bounded : ¬BSD.ShaGrows` enumerates the six frameworks but certifies each via `bounds_sha := True` (a placeholder), so it verifies the SIDE Exclusion *form*, not a bound on Ш. Ш-finiteness is open; `SIDE-bsd-multiplicity`'s `six_sha_frameworks` genuinely counts the six frameworks but does not bound Ш.
+
+R019 -- SF argues from the neutrino table that within one sector the mixing angles are P-smooth and the mass-squared differences are not, so symmetry content discriminates.
+  the paper: SYMMETRY_FILTER.md, lines as cited (SF :121)
+    :121 Same particles. Same sector. Different kappa. The discriminating variable is symmetry content. This confirms the symmetry-filter interpretation: the interface does not filter by sector, distance, or particle type. It filters by whether the quantity's formation is symmetric or broken.
+
+R020 -- FR reads {2, 3} as the one algebraic basis from which the Frobenius, Berry–Keating and modular appearances derive.
+  the paper: FROBENIUS.md, lines as cited (FR :101)
+    :101 The three derivation paths are disjoint. The fact that all three identify the same pair {2, 3} is structural, not coincidental. The substrate-unity claim of this paper: the pair {2, 3} is not merely the first two primes — it is the algebraic basis from which arithmetic accessibility (Frobenius), differential operator structure on the critical line (Berry-Keating), and the modular group governing the upper half-plane action (PSL₂(ℤ)) all derive.
+
+R021 -- IR states that independent structures cannot conspire, since coupling would violate their independence.
+  the paper: IDS_TO_RH.md, lines as cited (IR :28)
+    :28 **Independent structures cannot conspire.**
+
+R022 -- LC states that CCC needs α to vary by 10⁻⁵ per Hubble time where atomic clocks allow below 10⁻⁷, a hundred-fold tension.
+  the paper: LOCAL_COSMIC.md, lines as cited (LC :90)
+    :90 **Fine structure constant variation.** CCC requires alpha variation of order 10-to-the-minus-5 per Hubble time to replace dark energy. Atomic clock constraints give less than 10-to-the-minus-7 per Hubble time. Tension: 100-fold.
+
+R023 -- IS states Størmer’s theorem for {2, 3}: the consecutive smooth pairs are (1, 2), (2, 3), (3, 4) and (8, 9).
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :155)
+    :155 $$(1, 2), \quad (2, 3), \quad (3, 4), \quad (8, 9)$$
+
+R024 -- EA places the whole logical weight on one claim, that the seven-class catalogue is exhaustive, which is h2.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :399)
+    :399 The proof's logical weight concentrates on a single claim: **the seven-class mechanism catalogue is exhaustive** — this is the `h2` premise, named canonically at §10 Step 6. Everything else — the SIDE framework, the syllogistic logic, the specification's determination, the independence, the symmetry — is either standard mathematics or a ZFC theorem.
+
+R025 -- ZS assigns the completed zeta function the SIDE formation (2, 3, 2, 0) with seven mechanism classes, defining ξ(s) as π^(−s/2) Γ(s/2) ζ(s).
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :18)
+    :18 The completed Riemann zeta function ξ(s) = π^{−s/2} Γ(s/2) ζ(s) has seven mechanism classes in its SIDE formation (2, 3, 2, 0). At a zero ρ = 1/2 + iγ on the critical line, ξ(ρ) = 0. The zero is simple if ξ'(ρ) ≠ 0. A double zero requires ξ'(ρ) = 0.
+
+R026 -- CG reports r = 0.762 between the Bloom level of assessment and the active-learning advantage across meta-analytic comparisons from Freeman et al. (2014).
+  the paper: COGNITION.md, lines as cited (CG :24)
+    :24 The formation prediction — that hot media (κ ≈ 1) grow factual recall (Bloom levels 1-2) while cool media (κ ≈ 0) grow structural understanding (Bloom levels 5-6) — is tested against 225 published studies from Freeman et al. (2014). The correlation between Bloom level of assessment and active learning advantage is r = 0.762 (n = 12 meta-analytic comparisons, 645+ primary studies). Concept inventories show 56% larger effect sizes than traditional exams within the same meta-analysis.
+
+R027 -- FD reads Δμ in cosmology as 77/4, the dark structure 19.25 times the visible.
+  the paper: FORMATION_DISTANCE.md, lines as cited (FD :128)
+    :128 **In cosmology (this finding):** Δμ is the formation distance of the local-cosmic interface. Δμ = 77/4 = 19.25 means the dark structure is 19.25 times the visible structure.
+
+R028 -- ID reads three historical cases as confirming that peer review cannot reliably separate valid from invalid arguments.
+  the paper: INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md, lines as cited (ID :29)
+    :29 - Natural language: $\kappa(\text{validity}, \text{natural language}) = 0$. Predicted: even careful peer review cannot reliably distinguish valid from invalid arguments in formal mathematics. Confirmed: Voevodsky (2002), Hsiang (1993), Mochizuki IUT (2012–present).
+
+R029 -- QI’s docstring lists a T gate and a Toffoli among its non-Clifford gates.
+  the paper: qec_kappa_infrastructure.py, lines as cited (QI :7)
+    :7 3. Non-Clifford gates: T-gate, Toffoli
+
+R030 -- DM gives the dark-to-visible ratio as 7 × 11/4 = 77/4 against the observed 19.28.
+  the paper: DARK_DELTA_MU.md, lines as cited (DM :83)
+    :83 (Ω_DM + Ω_DE) / Ω_b = 7 × 11/4 = 77/4 = 19.25
+
+R031 -- FA states that the equation-of-state catalogue closes to a doubleton by Möbius parity, a sign convention selecting one member.
+  the paper: FANO_DERIVATION_OF_LAMBDA.md, lines as cited (FA :97)
+    :97 The mapping is structural in two senses: the weight grading is fixed by the privileged direction; the assignment of equation-of-state values to weight classes follows the Hamming-distance ordering. Up to a single sign convention the assignment is determined rather than free: the equation-of-state catalogue compatible with the substrate closes to a doubleton $\{M_1, M_2\}$ (`SIDESubstrateCluster.catalogue_is_doubleton`), where $M_1$ tracks the Mobius parity and $M_2$ tracks its negation (`M1_tracks_mu`, `M2_tracks_neg_mu`); fixing the canonical bit ($w = -1$ for $\mu$-odd) selects $M_1$ and excludes $M_2$.
+
+R032 -- IS states that n^(−σ) = n^(−(1−σ)) for every n ≥ 2 holds exactly at σ = 1/2.
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :35)
+    :35 **Proposition 1.2.** The exponential balance point is σ₀ = 1/2.
+
+R033 -- ME’s conclusion states that the kernel carries zero sorry and zero axioms and that no axiom remains.
+  the paper: MECHANISM_EXCLUSION.md, lines as cited (ME :306)
+    :306 The accompanying Lean 4 kernel machine-verifies 360 theorems, lemmas, and definitions constituting the proof's complete architecture, with zero `sorry` and zero axioms. The Schwarz reflection theorem was submitted to Mathlib as PR #36324 (now closed). No axioms remain — the simplicity of zeros, previously the single axiom, is now derived within the formalization.
+
+R034 -- ZS states a codimension margin of 5, weak correlation between two sources leaving 4.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :64)
+    :64 The codimension is 5, not 1. This provides a comfortable margin — the curve misses the hyperplane by a wide structural margin, not a narrow coincidence. Even if some of the five contributions were weakly correlated (reducing the effective independence), the codimension would need to drop to 1 before the argument fails. Weak correlations between two of the five sources would reduce the effective codimension to 4 — still far above the threshold.
+
+R035 -- ZS splits ξ′’s contributions by mechanism class into five additive ones and two structural constraints.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :20)
+    :20 The derivative ξ'(s) receives contributions from each mechanism class. We classify these into additive contributions (functions whose sum constitutes ξ') and constraint contributions (structural relations that restrict the additive contributions without adding independent terms).
+
+R036 -- ZS’s formation-framework section gives the codimension as 5 − 1 = 4, five contributions over one parameter.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :106)
+    :106 Zero simplicity is Extension 2 of the Complex Analysis Is Formation Structure paper. The codimension principle applies to any determined system with IDS structure: if a property requires the simultaneous vanishing of k independent contributions and the system has dimension d < k, the property is generically unsatisfied. For ξ(s), k = 5 and d = 1 (the single parameter γ), giving codimension 5 − 1 = 4.
+
+R037 -- IS states that every prime p > 3 splits in exactly 3 or exactly 7 of the seven fields.
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :305)
+    :305 **Theorem 6.2.** Every prime p > 3 has valence exactly 3 or exactly 7.
+
+R038 -- CO tabulates sixteen predictions as confirmed and none as falsified.
+  the paper: CONSTANCE.md, lines as cited (CO :1353)
+    :1353 16 predictions confirmed. 0 falsified.
+
+R039 -- QI takes the eight even-weight codewords as the support of ¦0_L⟩ and the odd as that of ¦1_L⟩.
+  the paper: qec_kappa_infrastructure.py, lines as cited (QI :61)
+    :61 # Even-weight codewords form |0_L> support
+
+R040 -- ZS names SIDESimplicity.transversal_generic_empty as the compiled terminal its transversality argument is the manuscript leg of.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :54)
+    :54 The image of Φ is a curve — a one-dimensional object in five-dimensional space. The hyperplane H has codimension 1 in ℂ⁵. By transversality (Thom 1956), a curve generically misses a codimension-1 surface when the ambient dimension exceeds 1 + 1 = 2. Since 5 > 2, the intersection Φ(ℝ) ∩ H is generically empty. *(This transversality argument is the manuscript-leg version of the compiled kernel terminal `SIDESimplicity.transversal_generic_empty` — the codim-5 analytic identification the census records as the simplicity-conditional route, VAJRA-PLINKO Path 5, `PATHS_TO_THE_CRITICAL_LINE` §I-bis.)*
+
+R041 -- IS states that the pointwise intersection of the three identity loci is empty and takes the centered coordinate instead.
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :85)
+    :85 the identity subspace is empty: 𝒥(A) = ∅.
+
+R042 -- TR places the Trivium at the fixed point τ = i of S, the order-3 element fixing e^(2πi/3).
+  the paper: TRIVIUM.md, lines as cited (TR :74)
+    :74 The Trivium is the fixed point of S (the order-2 generator) at τ = i in the upper half-plane. The companion vertex at τ = e^(2πi/3) is the fixed point of the order-3 element. Together these tile the hyperbolic fundamental domain.
+
+R043 -- FA states the deviation Ω_b/12 as a falsifiable prediction within reach of coming CMB surveys.
+  the paper: FANO_DERIVATION_OF_LAMBDA.md, lines as cited (FA :141)
+    :141 This is a falsifiable sub-percent prediction. Planck $\Omega_K$ precision is at the 0.002 level, below the predicted residual. Future surveys (Simons Observatory, CMB-S4) will probe the regime where $\Omega_b/12 \approx 0.4\%$ is detectable.
+
+R044 -- TF states Størmer’s theorem for {2, 3}: the consecutive {2, 3}-smooth pairs are (1, 2), (2, 3), (3, 4) and (8, 9).
+  the paper: TRIVIUM_FINDINGS.md, lines as cited (TF :241)
+    :241 **(1,2), (2,3), (3,4), (8,9)**
+
+R045 -- IR states that the zeros lie on the line under h2, here that the Sym ∪ Card partition is complete.
+  the paper: IDS_TO_RH.md, lines as cited (IR :151)
+    :151 **All non-trivial zeros have Re(s) = 1/2** — *under the exhaustiveness premise `h2`* (that the Sym ∪ Card type-partition is complete, so no mechanism produces Loc); goal ⇐ h1 ∧ h2, only `h2` open. ∎ *(re-scoped 2026-07-19; the ∎ stands over the conditional, its reason attached, per §27.3 — and per this paper's own "argues for the antecedent." See the front-matter note.)*
+
+R046 -- TS states that its computations and its inventory are evidence and that the step from the local result to RH is the open question.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :671)
+    :671 *On proof versus evidence.* The Fold Criterion (Corollary 8.31) is a proved equivalence: RH holds if and only if no R-curve folds. The computational verification (Observation 8.35) confirms this for 1.24 × 10¹³ zeros. The mechanism-inventory argument (§8.8, Structural) observes that no known construction produces an off-line zero. These are evidence, not proof. The gap between the Neighborhood Nonvanishing Theorem (local) and RH (global) is the open problem. Proving u_t maintains sign along R-curves is equivalent to proving RH; the Monotonicity Formula reformulates the problem but does not close it.
+
+R047 -- QD’s version note records an editorial pass through a tool of a private library, carried here by pointer alone.
+  the paper: QUATERNIONIC.md, lines as cited (QD :228)
+    :228 *v0.3 changes from v0.2: editorial discipline pass through TECHNE Programme Filter. §9 "Honest Assessment" section removed; §8 falsification compressed from list-as-section to single paragraph; speculative-classification banner folded into single inline sentence at start of abstract; cross-reference to MATTER_AS_ARITHMETIC integrated as §9 Companion Papers rather than standalone numbered section.*
+
+R048 -- PO states the coefficients c₁ = 44/27, c₃ = 4/9, c₅ = −352/27 = −8c₁, c₆ = −337/27 and c₁c₃ = 176/243.
+  the paper: PRIME_ORDER.md, lines as cited (PO :75)
+    :75 $$c_1 = \tfrac{44}{27} = \tfrac{2^2\cdot 11}{3^3}, \quad c_3 = \tfrac{4}{9} = \tfrac{2^2}{3^2}, \quad c_5 = -\tfrac{352}{27} = -8\,c_1, \quad c_6 = -\tfrac{337}{27}, \quad c_1 c_3 = \tfrac{176}{243} = \tfrac{2^4\cdot 11}{3^5}.$$
+
+R049 -- CG states a four-stage formation (n₁, n₂, n₃, n₄) whose interface stage has n₄ = 0 in a well-structured system.
+  the paper: COGNITION.md, lines as cited (CG :68)
+    :68 The formation tuple (n₁, n₂, n₃, n₄) counts the independent mechanism classes at each stage. The interface stage should have n₄ = 0 in a well-structured system — the binding should be dark.
+
+R050 -- TS states that n^(−σ) = n^(−(1−σ)) for every n ≥ 2 holds exactly at σ = 1/2.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :98)
+    :98 **Proposition 1.2.** The exponential balance point is σ₀ = 1/2.
+
+R051 -- TC hypothesizes that the dark-to-visible ratio 77/4 is seven Fano elements times 11/4.
+  the paper: T7_CMB.md, lines as cited (TC :225)
+    :225 If the spatial topology is T-seven, the (Z/2Z)-cubed homology group provides 7 non-identity elements that may correspond to the 7 dark sectors identified in the quaternionic prime ground extension. The dark-to-visible ratio 77/4 (observed with 0.17% error) would be 7 (Fano elements) times 11/4 (a structural factor involving the necessity ceiling 11).
+
+R052 -- BV states that verifying BSD for a given curve admits a factor-by-factor decomposition along mechanism classes.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :313)
+    :313 The mechanism-class factorization is a structural reading not present in the conventional formulation. It makes explicit that the BSD formula is not a single equation but a product over the formation architecture, with each factor traceable to a structural source. Computational verification of BSD for a specific elliptic curve thus admits a factor-by-factor decomposition along mechanism classes, with each factor verifiable independently.
+
+R053 -- UF writes 137 = 2⁷ + 3² and 337 = 2⁸ + 3⁴ and reads them as twinned.
+  the paper: UNIFICATION_OF_FORCES.md, lines as cited (UF :383)
+    :383 $$137 = 2^7 + 3^2 = 128 + 9$$
+
+R054 -- SF states that it does not claim to know what dark matter is, only what makes it dark.
+  the paper: SYMMETRY_FILTER.md, lines as cited (SF :161)
+    :161 This paper does NOT claim to know what dark matter is. It claims to know what makes it dark: the symmetry filter at the local-cosmic interface has kappa = 0 for symmetry-breaking content. The dark sector's identity — its specific particle content, its symmetry group, its coupling constants — is precisely the information that the filter blocks.
+
+R055 -- MA states that ℚ has exactly three places by Ostrowski’s theorem, archimedean, p-adic and a global coherence.
+  the paper: MATTER_AS_ARITHMETIC.md, lines as cited (MA :99)
+    :99 Configurations in the complement require the transformation stage's place-assignment. By Ostrowski's theorem, ℚ has exactly three places — archimedean, p-adic, and the global coherence enforcing the Artin–Whaples product formula. Configurations carrying this place-assignment cannot be reached from primitive operations alone.
+
+R056 -- ME sets the trace-formula route beside the function-field case, where the Lefschetz trace formula yields semisimplicity of Frobenius.
+  the paper: MECHANISM_EXCLUSION.md, lines as cited (ME :163)
+    :163 This parallels the Lefschetz trace formula, which proves semisimplicity of Frobenius eigenvalues in the function field case — a theorem, not a conjecture. The mechanism enumeration of §5 applied at the derivative level independently excludes ξ'(ρ) = 0: the same closed system, the same seven classes, none producing a double zero. The programme proves simplicity by two independent routes.
+
+R057 -- TF states that its explanation of the 3/4 exponent remains a conjecture.
+  the paper: TRIVIUM_FINDINGS.md, lines as cited (TF :421)
+    :421 The 3/4 barrier explanation (geometric midpoint of the quarter-turn) remains a conjecture. It is consistent with all known exponents achieved by classical methods but has not been derived from the fiber topology. The obstacle to progress is making the fiber-bundle language rigorous — specifying the base space, the fiber, and the structure group precisely enough to prove the non-orientability claim as a theorem rather than an observation.
+
+R058 -- TR states that the theta transformation’s exponent 1/2 comes from the n² in θ through Poisson summation, and that the Mellin transform carries it to the axis σ = 1/2.
+  the paper: TRIVIUM.md, lines as cited (TR :34)
+    :34 The Jacobi theta function θ(τ) = Σ exp(πin²τ) sums over n² — the squares of integers, the simplest nonlinear arithmetic structure on ℤ. Poisson summation produces the modular transformation θ(−1/τ) = √(−iτ) · θ(τ); the exponent 1/2 = 2^(−1) is forced by n² because the Fourier transform of exp(−πx²t) is t^(−1/2) exp(−πy²/t). The Mellin transform of θ produces ξ(s) with functional equation axis at σ = 1/2. The critical line sits at the reciprocal of the squaring exponent — the inverse of the exponential structure on n².
+
+R059 -- UF gives its TERMINUS formula for Λ, 11α/12^{11/2} times a series less 337α⁶/27.
+  the paper: UNIFICATION_OF_FORCES.md, lines as cited (UF :644)
+    :644 $$\Lambda = \frac{11\alpha}{12^{11/2}} \times [1 + ...] - \frac{337\alpha^6}{27}$$
+
+R060 -- ME states the Spectral Cannon: the derivative of the completed zeta function is purely imaginary on the critical line.
+  the paper: MECHANISM_EXCLUSION.md, lines as cited (ME :145)
+    :145 Re(Λ₀'(1/2 + it)) = 0
+
+R061 -- FD places 16/3 at 0.45σ and 14 at 0.41σ from Planck.
+  the paper: FORMATION_DISTANCE.md, lines as cited (FD :145)
+    :145 | DM/visible | 16/3 = 5.333 | 0.45σ from Planck |
+
+R062 -- SE states a four-step theorem for determined systems with independent structures, essential interfaces being universal and universal ones silent about behavioral parameters, and names it the Silence Principle.
+  the paper: SILENCE_EMERGENCE.md, lines as cited (SE :13)
+    :13 We identify a structural relationship between essentiality and informativeness in coupled systems: the more essential a component is to a system's existence, the less it constrains the system's behavior. We prove this as a four-step theorem for determined systems with independent structures: essential components are interfaces; interfaces must be universal to be essential; universality implies configuration-independent output; configuration-independent output implies silence about behavioral parameters. We call this the Silence Principle. The principle is instantiated in mathematics (the product formula builds the Riemann zeta function but carries zero information about its zero locations), molecular biology (the genetic code is essential for protein synthesis but nearly silent about codon usage frequency), and physics (quantum mechanics constrains all chemistry but predicts almost no specific molecular configuration). We argue that the principle resolves two longstanding puzzles: first, why reductionism fails at scale transitions despite the correctness of fundamental laws; second, why the explanatory gap between physical processes and subjective experience exists. The hard problem of consciousness is not a peculiarity of mind-body relations — it is a structural consequence of the Silence Principle applied to the neural-experiential interface. We distinguish this claim from eliminativism, panpsychism, and strong emergence, and situate it within the structural realist programme of Ladyman and Ross.
+
+R063 -- QD states that both decompositions use only the integers 2, 3, 7 and 11 with no free parameter.
+  the paper: QUATERNIONIC.md, lines as cited (QD :12)
+    :12 The ratio of total dark sector density to baryonic density, (Ω_DM + Ω_Λ) / Ω_b ≈ 19.28 (Planck 2018), admits two structural decompositions: 7 × (11/4) = 77/4 = 19.25 (Decomposition A, error 0.17%) and 16/3 + 14 = 58/3 = 19.33 (Decomposition B, error 0.26%). Both use only the structural integers {2, 3, 7, 11} without free parameters. We construct an explicit ε-family embedding φ: (ℤ/2)³ → End(T_μν) interpolating between the two decompositions. The ε = 0 endpoint is uniform tree-level (Decomposition A); the ε = 1 endpoint distributes the (3, 3, 1) Hamming-weight partition under the GL(3, 𝔽₂) parabolic stabilizer of the diagonal — three weight-1 elements as DE contributions, three weight-2 elements as DM contributions, the diagonal weight-3 element as a 1/12 symmetry-breaking residual. The 1/12 residual equals exactly Ω_b / 12 ≈ 0.41% of total cosmic density, giving a falsifiable sub-percent prediction connecting the embedding's diagonal weight to cosmic flatness. The construction is structurally motivated; the equation-of-state assignment and the connection between the 1/12 here and the ζ(−1) of zeta-regularization are open.
+
+R064 -- UC predicts that AI systems will fail at dark-interface problems until they build internal models.
+  the paper: UNIFIED_COGNITIVE.md, lines as cited (UC :100)
+    :100 3. **Testable in AI:** AI systems will continue to fail at dark-interface problems (IMO P6, MOHS ≥ 45) until they develop DMN-equivalent processing — the ability to build internal models rather than search over external patterns.
+
+R065 -- EA cites Ostrowski’s theorem: every nontrivial absolute value on ℚ is equivalent to the real or a p-adic one.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :178)
+    :178 **Proof.** By Ostrowski's theorem (1916), every nontrivial absolute value on ℚ is equivalent to either the standard absolute value |·| or a p-adic absolute value |·|ₚ. The places of ℚ are exactly {∞} ∪ {primes}. There are no others.
+
+R066 -- IP states that the Euler product’s contributions balance, p^(−σ) = p^(−(1−σ)), only at σ = 1/2.
+  the paper: INTEGRATED_PROOF.md, lines as cited (IP :97)
+    :97 **THEOREM (Euler Product Balance):** The Euler product contributions
+
+R067 -- CS cites STAREVOL models of Nguyen and colleagues (2024) reproducing the plateau’s flatness and depletion, and models of Corazza and colleagues (2025) reproducing both plateaux.
+  the paper: COSMOLOGICAL_SIEVE_CEILING.md, lines as cited (CS :154)
+    :154 1. **Nguyen et al. (A&A 2024):** STAREVOL models with diffusion + rotation + parametric turbulence reproduce the Spite plateau flatness, the depletion magnitude, AND the transition to scatter at [Fe/H] > −1.5, self-consistently with Solar and Population I constraints.
+
+R068 -- ME states that the catalogue is exhaustive by Ostrowski’s theorem and that Conservation seals the interfaces.
+  the paper: MECHANISM_EXCLUSION.md, lines as cited (ME :111)
+    :111 **Exhaustiveness.** The catalogue is exhaustive by Ostrowski's theorem — there are no places of ℚ beyond {∞} ∪ {primes}, so no derivation chain can produce a constraint outside the seven classes. Conservation seals the interfaces: no hidden force acts through the global-to-local boundary. A hypothetical eighth class would require a third group structure on ℤ (none exists), a second Fourier duality for θ (none found in 200+ years), a third scale of complex analysis (none exists), or spectral content in a dark interface (contradicts Conservation, which is a theorem).
+
+R069 -- LC states that BBN abundances and the dark matter density lie at similar temporal distance yet differ in κ by 0.96.
+  the paper: LOCAL_COSMIC.md, lines as cited (LC :98)
+    :98 A crucial finding: the kappa gradient does NOT track distance from Earth or time since the Big Bang. BBN abundances (distance 5, from the first minutes) have kappa approximately 0.96. Dark matter density (distance 7, measured from galaxy surveys at z less than 1) has kappa equals 0. The temporal distance is similar; the kappa values differ by 0.96.
+
+R070 -- ST states that Ω_b = 4/81 = 0.04938 follows from the generators {2, 3} of ℤ and Størmer’s theorem with zero free parameters, 0.13σ from Planck 2018.
+  the paper: STORMER.md, lines as cited (ST :17)
+    :17 The baryon density of the universe Ω_b = 4/81 = 0.04938 can be derived from pure arithmetic — the generators {2, 3} of ℤ and Størmer's theorem on consecutive smooth numbers — with zero free parameters and zero physics input. Planck 2018 measures Ω_b = 0.04930 ± 0.00066. The prediction is 0.13σ from observation.
+
+R071 -- YM cites the lightest glueball at 1.73 ± 0.09 GeV, a string tension near 0.19 GeV² and deconfinement near 155 MeV as experimental anchors for Δ > 0.
+  the paper: YANG_MILLS_MONOGRAPH.md, lines as cited (YM :251)
+    :251 Lattice QCD predicts the lightest glueball state (with quantum numbers J^{PC} = 0^{++}) at mass 1.73 ± 0.09 GeV. Experimental candidates include f₀(1500) at 1.506 GeV and f₀(1710) at 1.720 GeV. Both candidates lie within the predicted mass range. Mixing with quark-antiquark states complicates clean identification of a pure glueball, but the mass scale agrees.
+
+R072 -- CO states that among k = 4 to 17 only k = 6 and k = 7 make both 2^k + 3 and 2^k + 9 prime.
+  the paper: CONSTANCE.md, lines as cited (CO :1162)
+    :1162 (This is directly verifiable: check primality of {2^k + 3, 2^k + 9} for each k. At k=5, 35 = 5×7 fails. At k=8, 259 = 7×37 fails. At k=12, 4105 = 5×821 fails. Only k=6 and k=7 produce simultaneous primes in this range.)
+
+R073 -- TS states that along that curve V′ₖ(σ) = −¦ξ′¦²/u_t wherever ξ′ ≠ 0.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :548)
+    :548 **Theorem 8.30 (Monotonicity Formula).** Let γₖ be a simple zero of ξ_ℝ and let (σ, t_R(σ)) be the R-curve through γₖ. Wherever ξ′(σ + it_R(σ)) ≠ 0:
+
+R074 -- YM cites SIDE-effects Structural.lean at c66f3c5 and a27415d for the mass_gap placeholder, `gapped` True on each sector, retired at the later pin.
+  the paper: YANG_MILLS_MONOGRAPH.md, lines as cited (YM :405)
+    :405 Seale, J.Y. (2026). *SIDE-effects* (`SIDEEffects/Structural.lean`, GitHub `psinary-sketch/SIDE-effects`, pins `c66f3c5` / `a27415d`). Vanilla-Lean placement kernel; the `mass_gap` placeholder is retired from `Structural.lean` (W-2). No Zenodo deposit; cited by pin. *The genuine formation-level content is `SIDE-yang-mills-formation` v0.1.1 = `73e9e2c` — relabeled as a formation-level placement skeleton over stipulated data (W-5 d′ scaffolding relabel), not a claim-bearing proof.*
+
+R075 -- TR states that the seven mechanism classes of ξ together forbid zeros off the Trivium, citing the I+D+S paper and ARITHMETIC_HORIZONS V80.
+  the paper: TRIVIUM.md, lines as cited (TR :106)
+    :106 The SIDE Exclusion proof shows that the seven mechanism classes of ξ(s) collectively forbid off-Trivium zeros (THE_PROOF_IDS_TO_RH; ARITHMETIC_HORIZONS V80). The Identity-Formation Bijection (Theorem 5.1) connects mechanism classes to identity elements: each mechanism class has exactly one identity element where its structural force does nothing. All seven identity elements lie at the Trivium. The Trivium IS where seven identities coincide.
+
+R076 -- TH notes α_T within 0.0013 of 11/12.
+  the paper: THEORY_SPACE.md, lines as cited (TH :216)
+    :216 α_T = 0.918. The fraction 11/12 = 0.9167. The difference is 0.0013 — within the standard deviation of 0.018.
+
+R077 -- UF writes G × 10¹² = 66.74 = t₁₅ + (1370/1653)(t₁₆ − t₁₅), with 1370 = 2 × 5 × 137.
+  the paper: UNIFICATION_OF_FORCES.md, lines as cited (UF :157)
+    :157 $$66.74 = t_{15} + \frac{1370}{1653} \times \Delta t_{15}$$
+
+R078 -- UC reads the agreement of the two datasets as the signature of one domain-general variable.
+  the paper: UNIFIED_COGNITIVE.md, lines as cited (UC :80)
+    :80 The convergence of independent datasets on the same predictor is the signature of a real structural variable, not a coincidence. Interface darkness — the degree to which a medium transmits or absorbs task-relevant information — appears to be a domain-general property of cognitive tasks.
+
+R079 -- CS reads BBN’s formation as the one ξ(s), the Shannon channel and the genetic code share.
+  the paper: COSMOLOGICAL_SIEVE_CEILING.md, lines as cited (CS :43)
+    :43 This is the same formation as ξ(s), the Shannon channel, and the genetic code. The coincidence is structural: all are determined systems with two independent input structures feeding three transformation stages that produce two output scales.
+
+R080 -- CG reads Chi and Wylie’s ICAP hierarchy as a κ gradient.
+  the paper: COGNITION.md, lines as cited (CG :199)
+    :199 The learning effectiveness increases monotonically as κ decreases. The ICAP hierarchy is a conservation profile in disguise.
+
+R081 -- TS states that g(2, 3) = 1 and the modular relations S² = −I, (ST)³ = I are machine-checked, Størmer’s finiteness staying classical.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :174)
+    :174 Parts (a) and (b) are additionally machine-checked at SIDE-frobenius v0.1.0 = `2efe9f2`: g(2,3)=1 in `g_two_three` (profile `{propext}`), the modular generator relations S²=−I, (ST)³=I in `S_squared`/`ST_cubed` (`{propext, Classical.choice, Quot.sound}`) — see FROBENIUS (1.5e-2). Part (c), Størmer finiteness, stays classical (Pell reduction).
+
+R082 -- FD gives Ω_b = 4/81 = 0.04938 at 0.13σ from Planck’s 0.04930 ± 0.00066.
+  the paper: FORMATION_DISTANCE.md, lines as cited (FD :22)
+    :22 Planck 2018 measures: 0.04930 ± 0.00066. The prediction sits 0.13σ from observation. Five independent datasets, combined, place the dark-to-visible ratio at 0.03σ from the structural prediction 77/4 = 19.25.
+
+R083 -- BV works at the critical point s = 1 in the coordinate w = s − 1, the order of vanishing read at w = 0.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :384)
+    :384 The critical point of $\Lambda(E, s)$ is $s = 1$, not $s = 1/2$. The functional equation reflects $s \mapsto 2 - s$ around the center $s = 1$. The Inversion Analyzer (a programme tool for shifting to the natural coordinate) prescribes working in $w = s - 1$: in this coordinate, the critical point is the origin and the functional equation symmetry is around $w = 0$.
+
+R084 -- CS states that its 2026-07-19 re-grade re-scopes three headline claims to grade and changes no mathematics, κ value or formation count.
+  the paper: COSMOLOGICAL_SIEVE_CEILING.md, lines as cited (CS :8)
+    :8 > **Claim-status correction (2026-07-19, ARM 6 — first re-grade).** This file (v1.0, April 2026) is the oldest in the physics set and had never been brought to the settled claim-grade; this pass re-scopes claim-status only — no mathematics, no κ value, and no formation count is changed. Three headline overstatements are bent to grade: (1) the "or can prove" barrier in §4.1 is conjecture-grade (the Sieve Ceiling Lemma is proved; the full density⟹placement dichotomy is not); (2) the "is resolved / is answered" language in §9 is re-scoped to this file's own residual analysis (§6/§7 keep a named residual of 0.1–0.15 dex, ~15%, a standing candidate for new physics); (3) the "sieve ceiling is a theorem" claim in §8.2 is scoped to the proved Lemma, with the density/placement→E-Difficulty framing marked conjecture-grade. The invoked "theorem" status of the E-Difficulty / sieve-ceiling kernel terminals is manuscript-level until the W-6 shells close (W-6 gate, §8.2). Nothing is struck; each claim is bent with its reason attached.
+
+R085 -- CN states that SIDE-trivium’s trivium_theorem exhibits a concrete MechanismClass ≃ QuadraticDiscriminant with both cardinalities 7.
+  the paper: CLASS_NUMBER_ANOMALY.md, lines as cited (CN :134)
+    :134 `SIDE-bijection v0.1` (`dd487e6`) — the **abstract** Identity-Formation Bijection schema (`identity_formation_bijection`: bijective from assumed per-stage injectivity + surjectivity over `Fin 4 → Type`; it carries **no concrete seven-count**). The schema's content is hypothesis-assumed **at SIDE-bijection v0.1 = `dd487e6`** (not instantiated there), and **instantiated as of SIDE-bijection v0.2.0 = `a26f6f1`** at the concrete `sideIDS` instance — converting it from hypothesis-assumed to demonstrated-at-an-instance (schema + one compiled instance, not a blanket bijection); **see §8.2**. *(W-11 re-grade 2026-07-16; instance reconciliation 2026-07-19.)* The **concrete count** is not here but in its instances: `SIDE-dirichlet-mod-24 v0.1.0` = `597b0869` verifies $(\mathbb{Z}/24)^* \cong (\mathbb{Z}/2)^3$ (by `decide`), and `SIDE-trivium.trivium_theorem` (`1df5bad4`) exhibits a concrete `MechanismClass ≃ QuadraticDiscriminant` with both cards = 7. The schema is cited correctly for the *abstract* claim; the seven-count is anchored to its concrete instance, not to the schema — the finer discrimination the W-11 template requires.
+
+R086 -- EA states that the product formula is s-dark: ¦x¦_A = 1 gives ¦x¦_A^s = 1 for every s, so it adds no s-dependent zero-location constraint.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :216)
+    :216 **External interface (product formula).** The adelic product formula ∏ᵥ|x|ᵥ = 1 builds the integration domain for ξ. Conservation of Spectra proves it is s-dark: the spectral parameter s is invisible to C¹_ℚ because |x|_A = 1 implies |x|^s_A = 1 for all s. The product formula produces ξ's integration domain but contributes no s-dependent zero-location constraint.
+
+R087 -- ZS states that neither mechanism alone settles simplicity: the codimension argument needs generic = actual, invoking the Mechanism Theorem, and the GUE argument needs Montgomery’s conjecture.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :119)
+    :119 Neither mechanism alone is a complete proof — the codimension argument requires "generic = actual" (which invokes the Mechanism Theorem), and the GUE argument requires Montgomery's conjecture. Together, they provide independent structural evidence that zero simplicity is not accidental but determined by the specification.
+
+R088 -- IS states that the Trivium vector has norm squared 12.
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :203)
+    :203 (a) **Norm.** ||v||² = Σ|v_n|² = 3 + 2 + 1 + 0 + 1 + 2 + 3 = 12.
+
+R089 -- IR states that the kernel’s output is the conditional StructuralExhaustiveness → RH and that the paper argues for its antecedent.
+  the paper: IDS_TO_RH.md, lines as cited (IR :302)
+    :302 Each file compiles with 0 `sorry` against Mathlib. The conditional `StructuralExhaustiveness → RH` is the kernel's output; **the present paper argues for the antecedent** by deriving the Mechanism Theorem from I+D+S and applying it to the ξ specification. The kernel is cited by named terminal, not by count: at SIDE-kernel `v1.2` (`b1407b2`, `#print axioms` 2026-07-10) `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon` and `ConservationBridge.riemann_hypothesis` compile with 0 `sorry` and depend on exactly `{propext, Classical.choice, Quot.sound}`; `SIDEKernel.formation` and `SIDEKernel.formation_count` are axiom-free. *(Pin currency, 2026-07-23: the audit above was run at v1.2; the citable deposit has since advanced to **v1.3 = `0bc21c0`** and the live kernel to tag **v1.4 = `f374174`** plus its C₆ de-encode / C₇ relabel / V3B children — all terminal profiles unmoved; grades hold through v1.4.)*
+
+R090 -- TS states that it calls 1/2 an identity element by analogy, 1/2 being the fixed point of the involution σ ↦ 1 − σ and not an identity in the axiom’s sense.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :110)
+    :110 We use 'identity element' by analogy: the additive and multiplicative identities are fixed points of the operations n ↦ n + e and n ↦ n × e, while the exponential balance point is the fixed point of the involution σ ↦ 1 − σ. The algebraic property is balance under reflection, not the standard identity axiom a ∗ e = a.
+
+R091 -- TS states that its analytic, topological and structural lines of evidence converge on every nontrivial zero lying on the critical line.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :615)
+    :615 The identity subspace exists, it is unique, its algebraic, spectral, topological, and knot-theoretic structure is completely determined. The Monotonicity Formula (Theorem 8.30) controls Vₖ′ in closed form; the Fold Criterion (Corollary 8.31) identifies the exact geometric content of RH; the Neighborhood Nonvanishing Theorem (8.29) proves local separation exactly; and the Platt–Trudgian verification [18] confirms global separation for the first 1.24 × 10¹³ zeros. Three independent lines of evidence — analytic, topological, structural — converge on the same conclusion: all non-trivial zeros of the Riemann zeta function lie on the critical line. The precise logical status of each claim, the exact remaining question, and the research directions it opens are recorded in §8.9.
+
+R092 -- ZS cites Montgomery’s pair-correlation conjecture and Odlyzko’s computations matching GUE at height 10²⁰.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :100)
+    :100 Montgomery's pair correlation conjecture (1973) predicts that the pair correlation of zeta zeros matches GUE. Odlyzko's computations (1987, extended through 2001) confirm this to extraordinary precision at height 10²⁰. The convergence of the codimension argument (algebraic: transversality in ℂ⁵) and the GUE argument (statistical: level repulsion from T² = −I) from independent directions strengthens the conclusion beyond either argument alone.
+
+R093 -- ME states that the residual axiom all_zeros_simple is the simplicity face of h2, carried openly.
+  the paper: MECHANISM_EXCLUSION.md, lines as cited (ME :210)
+    :210 One axiom remains in the Lean formalization:
+
+R094 -- TR states that in w = s − 1/2 the functional equation reads ξ(w) = ξ(−w), the critical line being Re(w) = 0.
+  the paper: TRIVIUM.md, lines as cited (TR :26)
+    :26 Setting w = s − 1/2 centers the critical strip at its symmetry axis. The functional equation ξ(s) = ξ(1−s) becomes ξ(w) = ξ(−w) — even parity in the centered coordinate. The critical line is Re(w) = 0: where the additive coordinate vanishes, where the natural variable returns the additive identity.
+
+R095 -- CG maps McLuhan’s hot and cool media onto κ for content delivery.
+  the paper: COGNITION.md, lines as cited (CG :114)
+    :114 McLuhan's hot/cold distinction maps directly to the conservation coefficient:
+
+R096 -- BV states that neither Clay problem is settled in it, its era annotation adding and correcting nothing.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :476)
+    :476 > note (the retired `bounds_sha`/`excluded` placeholders). (3) Neither Clay problem is proved
+
+R097 -- ST lists the cosmos as a determined system over ℤ as an assumption, not derived.
+  the paper: STORMER.md, lines as cited (ST :143)
+    :143 | The cosmos is a determined system over ℤ | **Assumption** (not derived) |
+
+R098 -- ZS states that at σ = 1/2 each p^(−s) lies on the unit circle and that f₂ is an absolutely convergent sum of oscillatory terms.
+  the paper: ZERO_SIMPLICITY.md, lines as cited (ZS :26)
+    :26 **f₂(γ): Logarithmic derivative of ζ (from C₂, multiplicative structure).** The Euler product ζ(s) = Π_p (1 − p⁻ˢ)⁻¹ contributes ζ'/ζ(s) = −Σ_p (log p) p⁻ˢ / (1 − p⁻ˢ). This is the von Mangoldt explicit formula restricted to prime contributions. At σ = 1/2, the balance identity forces each term p⁻ˢ to lie on the unit circle, making f₂ an absolutely convergent sum of oscillatory terms.
+
+R099 -- FA predicts no direct dark-matter detection through a Standard Model gauge coupling.
+  the paper: FANO_DERIVATION_OF_LAMBDA.md, lines as cited (FA :161)
+    :161 **No direct dark matter detection at any Standard Model gauge charge.** The non-identity elements of $(\mathbb{Z}/2)^3$ live in the kernel of the $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ projection (the gauge orthogonality constraint of the embedding). No direct-detection experiment using a Standard Model gauge coupling can succeed. Every null result (XENON, LZ, PandaX) is consistent with the structural prediction. A positive detection at any nonzero gauge charge refutes the framework.
+
+R100 -- BV’s v0.1.2 pass re-scopes the GRH-for-Λ(E, s) consequence, the Ш-finiteness square and the rank equality to hold under the open premise h2.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :13)
+    :13 *v0.1.2 (2026-07-19), ARM 6 (A6.2) — body-cell scoping pass. The v0.1.1 re-grade corrected the abstract and chapter summary but left the chapter bodies carrying unscoped □-QED cells against their own settled grade (W-5, placement-skeleton honesty). This pass **bends — never strikes** those cells with their reasons attached in-cell: the Chapter 3 GRH-for-$\Lambda(E,s)$ consequence, the Chapter 4 $\Sha$-finiteness $\square$, and the Chapter 5 rank-equality $\square$ and rank table are each re-scoped to hold **under the open premise** `h2` (the seven-class catalogue is complete at the ξ interface — every ξ-zero forces the Euler-product balance at some prime; one premise among the five registers of §27.3). The Formation Transfer supplies *location* and the machine-verified tuple match, not the rank equality or the $\Sha$ bound. Kernel Correspondence enablers (the Dirichlet order terminal, the E-Difficulty residue with its W-6 gate, the claim–certificate calculus) landed beside the corrected claims as cited terminals, not as closure. DOIs refreshed to current versions. No compiled claim strengthened; no mathematical claim changed.*
+
+R101 -- TF states that the Mechanism Theorem is the load-bearing axiom of its framework and that the framework fails if it is false.
+  the paper: TRIVIUM_FINDINGS.md, lines as cited (TF :391)
+    :391 The Mechanism Theorem — "in IDS systems, no mechanism → no effect" — is the load-bearing axiom. If it is true, the proof architecture is sound. If there exists a way for determined systems to produce effects without mechanisms (a "structural accident"), the entire framework collapses.
+
+R102 -- YM excludes four candidate mechanisms for Δ = 0.
+  the paper: YANG_MILLS_MONOGRAPH.md, lines as cited (YM :152)
+    :152 | Conformal invariance (β(g) = 0 at finite g) | Excluded | Asymptotic freedom proves β(g) < 0 for all g > 0 |
+
+R103 -- EA states that the functional equation and Schwarz reflection constrain zeros to quadruples {ρ, 1−ρ, ρ̄, 1−ρ̄}, collapsing to pairs on the critical line.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :130)
+    :130 The functional equation ξ(s) = ξ(1−s) establishes reflection symmetry about σ = 1/2. Combined with the Schwarz reflection ξ(s̄) = ξ̄(s), zeros are constrained to occur in quadruples {ρ, 1−ρ, ρ̄, 1−ρ̄}, collapsed to pairs on the critical line.
+
+R104 -- IS counts the dimension 7 from the {2,3}-smooth integers up to 3, listed as {0, 1, 2, 3}, and the symmetric index set {−3, …, 3}.
+  the paper: IDENTITY_SUBSPACE.md, lines as cited (IS :171)
+    :171 (ii) *From Størmer (Theorem 3.3):* The {2,3}-smooth integers ≤ 3 are {0, 1, 2, 3}. The index set {−3, −2, −1, 0, +1, +2, +3} has cardinality 7.
+
+R105 -- SE states that whether neural structure and experience are coupled or identical is an empirical question its theorem does not settle.
+  the paper: SILENCE_EMERGENCE.md, lines as cited (SE :183)
+    :183 The distinction is subtle. IIT claims that the mathematical structure of integrated information *is* the experience. The Silence Principle claims that the coupling between mathematical structure and phenomenal character is a silent interface. If IIT is correct that structure and experience are identical (not coupled by an interface but literally the same thing), then the Silence Principle does not apply — there is no interface between two independent structures, just one structure with two descriptions. The question becomes empirical: are neural structure and phenomenal experience genuinely independent (coupled by an essential interface) or literally identical (one thing under two descriptions)? The hard problem's persistence suggests the former. But this is ultimately an empirical question, not one settable by theorem.
+
+R106 -- UC maps bright and dark interfaces onto joint and Task-Positive-only network engagement.
+  the paper: UNIFIED_COGNITIVE.md, lines as cited (UC :88)
+    :88 The formation framework maps onto this architecture: bright interfaces engage both TPN (task execution) and DMN (model-building), producing integrated learning. Dark interfaces engage TPN alone (the student follows along) without triggering DMN (no model is built). This predicts the Freeman et al. result: active learning works because it brightens the interface, engaging DMN alongside TPN.
+
+R107 -- LC reads the channels above 0.7 as transmitting gauge-invariant quantities and those near 0 as symmetry-breaking.
+  the paper: LOCAL_COSMIC.md, lines as cited (LC :59)
+    :59 Channels with kappa greater than 0.7 transmit **gauge-invariant** quantities — observables that are symmetric under the Standard Model gauge transformations or under diffeomorphisms. Channels with kappa near 0 involve **symmetry-breaking** quantities — observables that depend on how a symmetry was broken.
+
+R108 -- EA states that the conditional StructuralExhaustiveness → RH is the kernel’s output and that the paper argues for the antecedent.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :542)
+    :542 Each file compiles with 0 `sorry` against Mathlib. The conditional `StructuralExhaustiveness → RH` is the kernel's output; **the present paper argues for the antecedent**. The kernel is cited by named terminal, not by count: at SIDE-kernel `v1.2` (`b1407b2`, `#print axioms` 2026-07-10) `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon` and `ConservationBridge.riemann_hypothesis` compile with 0 `sorry` and depend on exactly `{propext, Classical.choice, Quot.sound}`; `SIDEKernel.formation` and `SIDEKernel.formation_count` are axiom-free. *(Pin currency, 2026-07-23: the audit above was run at v1.2; the citable deposit has since advanced through v1.4; the finish-first wave published **SIDE-kernel v1.5 = `0e5233f`**, DOI 10.5281/zenodo.21520474 (concept 19674312), 2026-07-24 — all terminal profiles unmoved; grades hold through v1.5.)* Four Mathlib PRs submitted (#36881 and #36865 merged; #36871 and #36324 submitted and closed).
+
+R109 -- DI states that its claim is falsifiable by a feature of natural language that reliably separates valid from invalid arguments.
+  the paper: DARK_INTERFACE.md, lines as cited (DI :175)
+    :175 The claim κ(validity, natural language) = 0 is falsifiable. A counterexample would be a feature of natural language that reliably distinguishes valid from invalid mathematical arguments without requiring the reader to check the mathematics. If such a feature exists — a grammatical construction, a rhetorical pattern, a notational convention — that correlates perfectly with logical validity, then κ > 0 and the claim is refuted. Known candidates (mathematical notation, type annotations, reputation signals) are either formal sub-languages embedded within natural language or statistical proxies that do not achieve κ = 1.
+
+R110 -- TH identifies fourteen theories satisfying I, D and S.
+  the paper: THEORY_SPACE.md, lines as cited (TH :20)
+    :20 across all 15 domains. The coefficient of variation is remarkably low for a quantity spanning domains from particle physics to geology. The range is [0.888, 0.952], with Geology highest and Condensed Matter lowest. Fourteen I∩D∩S theories are identified.
+
+R111 -- SF reports that zero violations among 350 local constants is a 1.9 percent event and the clustering pattern p ≈ 5.8 × 10⁻⁵.
+  the paper: SYMMETRY_FILTER.md, lines as cited (SF :91)
+    :91 Under a uniform distribution, we would expect approximately 4 violations in local physics (where 350 of 439 constants reside). Observing zero is a 1.9% event. The probability of the observed clustering pattern — zero local, three bridge, zero symmetric cosmic, two dark — is p approximately 5.8 times 10 to the minus 5.
+
+R112 -- EA states that ζ carries no off-line zero among the first 10¹³ and more of its zeros, a computation.
+  the paper: THE_EXCLUSION_ARCHITECTURE.md, lines as cited (EA :331)
+    :331 **Status: [PROVED].** The existence of off-line zeros for Epstein zeta functions is a theorem (Davenport-Heilbronn, 1936). The absence of off-line zeros for Riemann ζ is confirmed computationally to 10¹³+ zeros. The structural difference is exactly the Euler product.
+
+R113 -- ME states that its five identification paths share the functional equation’s involution, so they identify the line and carry no weight for placement.
+  the paper: MECHANISM_EXCLUSION.md, lines as cited (ME :275)
+    :275 Each path has its own complete internal logic. Yet all five hand back the **same involution**, with the same fixed locus. ~~None references any other. … Independent structures cannot permit what neither produces — and five independent structures, converging from five traditions with five different machineries, make the convergence decisive.~~ **Struck and kept for provenance.** *[corrected 2026-08-10 · convergent-identification ruling]* **This is convergent identification, not independent derivation**, and it is consilience about **where the free layer sits**. It is genuine evidence about **the line as the distinguished locus** and carries **no weight for placement**; **`h2` is untouched.**
+
+R114 -- TS cites Platt and Trudgian’s computation of the first 12,363,153,093,004 zeros on the line and simple, and reads it as no fold at those zeros.
+  the paper: TRIVIUM_IDENTITY_SUBSPACE.md, lines as cited (TS :587)
+    :587 **Observation 8.35 (Large-Scale Verification).** Platt and Trudgian [18] verified that the first 12,363,153,093,004 non-trivial zeros of ζ lie on the critical line and are simple. Since any zero of Vₖ at σ ≠ 1/2 would constitute an off-line zero of ξ, this verification implies Vₖ(σ) ≠ 0 for all σ ∈ (0, 1) \ {1/2} for each of the first ~1.24 × 10¹³ zeros. The Fold Criterion (Corollary 8.31) further implies that no R-curve through any of these zeros folds in the critical strip. This constitutes nine orders of magnitude beyond the paper's direct computations.
+
+R115 -- IP reports simplicity checked at ten zeros and the zero count N(T) matched with error under 0.5.
+  the paper: INTEGRATED_PROOF.md, lines as cited (IP :298)
+    :298 | Simplicity | Trace formula | m = 1 | ✓ Verified (10 zeros) |
+
+R116 -- IR states that ABC and an arithmetic P ≠ NP follow from I, D and S and that forty and more conjectures are resolved.
+  the paper: IDS_TO_RH.md, lines as cited (IR :165)
+    :165 - ABC follows (Add ⊥ Mult → c bounded)
+
+R117 -- BV states that the kernels SIDE-bsd-formation-transfer and SIDE-bsd-multiplicity machine-verify the formation transfer -- the tuple match, root-number parity and the enumerations -- graded closed scaffolding under the W-5 relabel.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :19)
+    :19 The Birch and Swinnerton-Dyer conjecture is the statement that for every elliptic curve $E$ over the rationals, the algebraic rank of $E(\mathbb{Q})$ equals the order of vanishing of the L-function $L(E, s)$ at $s = 1$, and that the leading Taylor coefficient is given by the BSD formula involving period, regulator, Tamagawa product, Shafarevich-Tate order, and torsion. The completed L-function $\Lambda(E, s)$ inherits the formation architecture of the Riemann xi function $\xi(s)$: the tuple $(2, 3, 2, 0) = 7$ is preserved, all seven mechanism classes transfer (four unconditionally, three via the Hasse bound $|a_p| \leq 2\sqrt{p}$ entering modularity at class $C_4$). The independence structure tightens — $C_5$ (modular) couples to $C_4$ (balance) through the modularity-Hasse chain — but the formation count is invariant. The Generalized Riemann Hypothesis for elliptic curve L-functions follows: all nontrivial zeros of $L(E, s)$ lie on $\mathrm{Re}(s) = 1$. The Shafarevich-Tate group $\Sha(E/\mathbb{Q})$ is finite for every $E$ over $\mathbb{Q}$: six independent frameworks (Kolyvagin's Euler systems, Iwasawa theory, Brauer-Manin, Selmer descent, modularity, $p$-adic methods) all bound $\Sha$ and none produces an infinite-growth mechanism, so SIDE Exclusion forces $\Sha$ finite. With $\Sha$ finite, the BSD formula becomes an equation between determined, computable quantities; four candidate mechanisms for rank-order mismatch (phantom L-zeros, degenerate regulator, Tamagawa mismatch, period-L mismatch) are all absent, so rank equals analytic rank for every elliptic curve over $\mathbb{Q}$, rank-independent. The rank-by-rank bottleneck of the traditional approach was an artifact of the Kolyvagin technique's dependence on Heegner points (available for rank 0 and 1); the SIDE analysis is uniform across all ranks. The BSD formula factors structurally: the leading coefficient decomposes as a product over the seven mechanism-class contributions, with $\Omega$ traced to $C_1$ (gamma-factor architecture), the regulator to $C_2$ (height-pairing reality), $|\Sha|$ to $C_4$ (balance / local-global), and the Tamagawa product to $C_5$ (modular / bad reduction). What is machine-verified in the federated kernels `SIDE-bsd-formation-transfer` and `SIDE-bsd-multiplicity` (zero `sorry`, zero `axiom`) is the **formation transfer** — the tuple $(2,3,2,0)=7$ matching $\xi$, root-number parity, and the framework/contribution enumerations; **not** Ш-finiteness and **not** rank-equality, which are SIDE-Exclusion *arguments* (open) whose form-level kernel placeholders (`bounds_sha := True`, `excluded := True`) were retired under work-order W-2. Under the W-5 d′ relabel (v0.1.1), even this machine-verified tuple match is graded as **closed scaffolding** — a placement/count artifact certifying that $\Lambda(E,s)$ carries the same $(2,3,2,0)=7$ formation architecture as $\xi$, not a claim-bearing derivation of any BSD conclusion. *(Re-grade 2026-07-16, maximum strictness: the abstract's "forces $\Sha$ finite" and "rank equals analytic rank for every elliptic curve" are the method thesis on the manuscript leg, scoped in Chapters 3–5 and the kernel-citation pin note below; neither Clay problem is proved here.)*
+
+R118 -- MA’s era annotation reads the xi_* cluster at SIDE-cosmo c5cba30 as deriving its counts from a tuple carried by definition.
+  the paper: MATTER_AS_ARITHMETIC.md, lines as cited (MA :183)
+    :183 > T7 decomposition-dependence ruling); SIDE-cosmo `c5cba30` — the `xi_*` cluster the same
+
+R119 -- CO states that six adjacent-generation mass ratios factor into primes tied to {2, 3} and three non-adjacent ratios do not.
+  the paper: CONSTANCE.md, lines as cited (CO :192)
+    :192 Compare mass ratios across fermion generations. Adjacent generations—electron to muon, muon to tau, up to charm, charm to top—yield ratios that factor entirely into primes connected to {2, 3}. Six ratios tested. Six match. 100%.
+
+R120 -- BV states that for Λ(E, s) five paths are independent and two coupled through modularity, the count kept and the independence narrowed.
+  the paper: BSD_VIA_FORMATION_TRANSFER.md, lines as cited (BV :151)
+    :151 The tightening of independence is a structural difference, not a defect. For $\xi$, seven independent paths produce mutual reinforcement at the level of structural validity. For $\Lambda(E, s)$, five paths are independent and two are coupled through modularity. The mutual reinforcement is structurally stronger (modularity is a deep theorem) but the independence is structurally narrower.
