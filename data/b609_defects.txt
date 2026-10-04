@@ -1,0 +1,3 @@
+b609 -- THE DEFECT LIST (the act`s own).
+
+    (a) THE SEAT`S, IN COMPONENT 4: the χ page`s call was issued in parallel with the ζ page`s commit call and started in that call`s directory (PLACE-papers), where a relative `tools/b609_record.py` does not exist; Python could not open the file, so nothing ran and nothing was written (no page bank, no page byte). The call was re-run alone, after the ζ commit, with the tool`s absolute path; one page per call in the foreground held throughout.
