@@ -1,0 +1,385 @@
+b614 -- COMPONENT 2: THE CLAIM BANK OF CLUSTER 2D, (R224)(4), banked 2026-10-04T06:02:18Z before any writing
+### the papers at PLACE-papers e7b444e; the sieve v0.4 at e7b444e
+### THE GRADING RULE, confirmed by (R222)(1): kernel-verified only where the paper names a terminal (or its file) at a pin and the
+### computationally-verified only where the paper reports a computation; argument-supported where the paper's text argues the claim;
+### synthesis-suggested where it reads a pattern across results; statement-grade where it states without argument. No grade is above the
+### paper's own support. A ROUTE is a claim offered as an argument toward RH, simplicity or the open clause; each is read through the
+### sieve's five tests in order. A pin RESOLVES, by the rule (R223)(1) confirms, when its commit is in the clone and at the remote.
+
+### PART A -- THE PAPERS, EACH WITH ITS PATH, REGISTRY ROW, VERSION AND HEAD:
+  CS = `phase2/physics/COSMOLOGICAL_SIEVE_CEILING.md` -- REGISTRY p2-8 (:269), its version v1.0, its status READY -- 255 lines -- head :1 “# THE COSMOLOGICAL SIEVE CEILING” -- the paper`s own version/date line “**J. York Seale** | v1.0.1, April 2026 (re-graded 2026-07-19, ARM 6)” -- last commit 0f039ac 2026-08-21
+  MA = `phase2/physics/MATTER_AS_ARITHMETIC.md` -- REGISTRY p2-9 (:270), its version v0.2.1, its status REVIEW -- 189 lines -- head :1 “# Matter as Arithmetic” -- the paper`s own version/date line “**v0.2.1 — 2026-07-19** (rev. of v0.2, May 2026; ARM 5 kinship reciprocal)” -- last commit bd8b1ba 2026-09-11
+  ST = `phase2/physics/STORMER.md` -- REGISTRY p2-10 (:271), its version v1.0, its status READY -- 259 lines -- head :1 “# The Størmer Derivation of Ω_b” -- the paper`s own version/date line “**April 27, 2026 · v1.0.1 (rev. 2026-07-19, ARM 5)**” -- last commit 454197c 2026-08-21
+  HC = `phase2/physics/HODGE_CONSERVATION.md` -- REGISTRY p2-15 (:272), its version v1.0, its status READY -- 155 lines -- head :1 “# HODGE CONSERVATION” -- the paper`s own version/date line “**March 2026**” -- last commit 4d661bf 2026-04-16
+  PO = `phase2/physics/PRIME_ORDER.md` -- REGISTRY p2-25 (:273), its version v1.0, its status READY -- 109 lines -- head :1 “# PRIME ORDER” -- the paper`s own version/date line “**J. York Seale** · ORCID 0009-0008-7993-0310 · v1.0” -- last commit 0b3b132 2026-06-01
+  FA = `phase2/physics/FANO_DERIVATION_OF_LAMBDA.md` -- REGISTRY p2-30 (:274), its version v0.1, its status REVIEW -- 262 lines -- head :1 “# The Fano Derivation of $\Lambda$” -- the paper`s own version/date line “*v0.1, May 2026*” -- last commit 63d470a 2026-08-09
+  YM = `phase2/physics/YANG_MILLS_MONOGRAPH.md` -- REGISTRY p2-31 (:275), its version v0.2, its status REVIEW -- 445 lines -- head :1 “# The Yang-Mills Mass Gap via SIDE Exclusion” -- the paper`s own version/date line “*v0.2 — 2026-07-19 (claim-status reframe; was v0.1, May 2026)*” -- last commit 56669aa 2026-08-21
+  UF = `heritage/UNIFICATION_OF_FORCES.md` -- REGISTRY p2-26 (:276), its version v1.0, its status DEFUNCT -- 941 lines -- head :1 “# THE ARITHMETIC UNIFICATION OF FORCES” -- the paper`s own version/date line “### January 2026” -- last commit 4e8d2a5 2026-06-04
+  lines in all: 2615
+
+### PART B -- THE CLAIMS, EACH WITH ITS LINE, NEEDLE, GRADE AND REASON (143):
+  CS-01  CS :8    statement-grade           support statement   -- CS states that its 2026-07-19 re-grade re-scopes three headline claims to grade and changes no mathematics, κ value or formation count.
+         needle “This file (v1.0, April 2026) is the oldest in the physics set” on the line: True ; reason: the paper’s own claim-status note
+  CS-02  CS :12   argument-supported        support argument    -- CS states that the Spite plateau’s flatness shows the observational interface universal and not bright, and that the lithium problem’s resolution is stellar depletion.
+         needle “Flatness proves that the observational interface” on the line: True ; reason: the argument at :98-:102 and the two-plateau comparison at :110-:123
+  CS-03  CS :22   computationally-verified  support computation -- CS reports the BBN prediction A(⁷Li) = 2.69 ± 0.04 dex against the Spite plateau’s 2.20 ± 0.10 dex, a discrepancy of 0.49 dex, a factor of 3.1.
+         needle “**Discrepancy:** 0.49 dex, a factor of 3.1” on the line: True ; reason: the cited values at :20-:21; 10^0.49 ≈ 3.09 in the claim bank
+  CS-04  CS :34   statement-grade           support statement   -- CS assigns BBN the formation (2, 3, 2, 0) = 7.
+         needle “**Formation of BBN:** (2, 3, 2, 0) = 7.” on the line: True ; reason: the table at :36-:41; the era annotation at :253-:254 reads the tuple as a modeling premise entering the flagship kernel by definition
+  CS-05  CS :43   synthesis-suggested       support reading     -- CS reads BBN’s formation as the one ξ(s), the Shannon channel and the genetic code share.
+         needle “This is the same formation as ξ(s), the Shannon channel, and the genetic code.” on the line: True ; reason: a reading at :43
+  CS-06  CS :62   statement-grade           support statement   -- CS gives κ < 0.65 for the composite observational interface, from per-stage values < 0.7, ~0.95 and ~0.95.
+         needle “**The composite interface is dark for primordial ⁷Li**” on the line: True ; reason: the per-stage values stated at :59-:61 without a method; the composite is their product
+  CS-07  CS :72   theorem-supported         support theorem     -- CS states that sieve methods give density results for the zeros of ζ on the critical line and not that every zero lies on it, citing Selberg (1942) and Conrey (1989).
+         needle “Selberg (1942) proved 40%. Conrey (1989) proved 41.6%.” on the line: True ; reason: Selberg 1942 and Conrey 1989, named; Selberg’s theorem gives a positive proportion and Conrey’s more than two fifths, so the figures 40% and 41.6% and a record near 100% do not match the results cited
+  CS-08  CS :72   statement-grade           support statement   -- CS grades as conjecture the reading that no sieve method can bridge density to placement, the Sieve Ceiling Lemma standing as the structural result.
+         needle “is the sieve-ceiling conjecture, not a theorem” on the line: True ; reason: the paper’s own claim-status note at :72; the Lemma is not stated in this paper
+  CS-09  CS :74   statement-grade           support statement   -- CS states that sieve methods operate through the Euler product, whose interface has κ = 0 for zero placement.
+         needle “the Euler product interface has κ = 0 for zero placement” on the line: True ; reason: stated at :74
+  CS-10  CS :96   argument-supported        support argument    -- CS states that a universal dark interface keeps a plateau flat while offsetting its absolute value, flatness evidencing universality and not brightness.
+         needle “**Theorem (Informal).** A universal dark interface preserves the flatness” on the line: True ; reason: the argument at :98-:102
+  CS-11  CS :121  argument-supported        support argument    -- CS reads the second lithium plateau of Mucciarelli and colleagues (2022), at A(Li) ≈ 1.0 dex in early red giants, as the controlled experiment for the mechanism.
+         needle “Both produced by universal stellar processing.” on the line: True ; reason: the comparison table at :112-:119
+  CS-12  CS :140  synthesis-suggested       support reading     -- CS assesses the residual of 0.1-0.15 dex as within reach of pre-main-sequence depletion and 3D NLTE corrections.
+         needle “No new physics is required at the current level of precision.” on the line: True ; reason: an assessment across the sources tabled at :133-:138
+  CS-13  CS :146  statement-grade           support statement   -- CS classifies the lithium problem TYPE II, a Science-Statement whose warrant is observational registration.
+         needle “**TYPE II — graduated decidable.**” on the line: True ; reason: the paper’s own claim-status note at :148
+  CS-14  CS :154  computationally-verified  support computation -- CS cites STAREVOL models of Nguyen and colleagues (2024) reproducing the plateau’s flatness and depletion, and models of Corazza and colleagues (2025) reproducing both plateaux.
+         needle “STAREVOL models with diffusion + rotation + parametric turbulence reproduce the Spite plat” on the line: True ; reason: model computations, cited at :154-:156
+  CS-15  CS :174  statement-grade           support terminal    -- CS scopes its sieve-ceiling theorem to the Sieve Ceiling Lemma, the density-to-E-Difficulty framing conjecture-grade and its kernel terminals W-6 shells.
+         needle “The sieve ceiling is a theorem in analytic number theory.” on the line: True ; reason: kernel terminals named by role at :174, not by name or pin
+  CS-16  CS :184  argument-supported        support argument    -- CS states that the lithium problem is substantially accounted for by stellar depletion, with a named residual of 0.1-0.15 dex, about 15%, carried as a standing candidate for new physics.
+         needle “is substantially accounted for by recognizing that the Spite plateau” on the line: True ; reason: the residual analysis at :129-:140
+  CS-17  CS :188  synthesis-suggested       support reading     -- CS draws the lesson that a universal observational interface’s flat value is not to be read as the true value.
+         needle “universality is not brightness” on the line: True ; reason: a reading at :188
+  CS-18  CS :240  synthesis-suggested       support reading     -- CS’s era annotation of 2026-08-21 reads the paper’s universal dark interface as of the protective-silent species.
+         needle “PROTECTIVE-SILENT (I-12a)” on the line: True ; reason: a dated era annotation
+  MA-01  MA :14   computationally-verified  support computation -- MA states that the baryon density selects the Arithmetic class, Ω = 4/81, at 0.13σ against Planck 2018 and excludes the other three classes at 18.6σ to 351σ.
+         needle “selecting the Arithmetic class at 0.13σ and excluding the others by 18.6σ to 351σ” on the line: True ; reason: the distances at :61-:71, recomputed in the claim bank
+  MA-02  MA :28   statement-grade           support statement   -- MA states that the second component of classes B and D is stipulated, the n₂ theorem not reaching them.
+         needle “**Classes B and D: the second component remains STIPULATED.**” on the line: True ; reason: the in-place narrowing at :27-:28
+  MA-03  MA :30   theorem-supported         support theorem     -- MA states that connected reductive symmetry groups admit exactly three-level covering towers, giving n₂ = 3.
+         needle “**Theorem (n₂ = 3).** Connected reductive symmetry groups admit exactly three-level coveri” on the line: True ; reason: Chevalley–Steinberg named at :30; the count read from it is the programme’s (CORPUS_CATALOGOS Theorem 7.4)
+  MA-04  MA :32   theorem-supported         support theorem     -- MA states that every output of a determined entire-function system has exactly two structural scales, local and global, giving n₃ = 2.
+         needle “**Theorem (n₃ = 2).** Every output of a determined entire-function system has exactly two ” on the line: True ; reason: Hadamard factorization and Cartan’s Theorem B named at :32; the count is cited to a programme Theorem 5.1
+  MA-05  MA :34   theorem-supported         support theorem     -- MA states that universal interfaces are spectrally inert, giving n₄ = 0.
+         needle “**Theorem (n₄ = 0).** Universal interfaces are spectrally inert.” on the line: True ; reason: Schur’s lemma named at :34; the count is cited to a programme Corollary 6.2
+  MA-06  MA :45   statement-grade           support statement   -- MA states that Class A’s tuple is forced for every Dedekind zeta function.
+         needle “Class A's tuple is theorem-forced for every Dedekind zeta function” on the line: True ; reason: cited to FORMATION_UNIVERSALITY_v3 Theorem 1, its argument not in this paper
+  MA-07  MA :53   argument-supported        support argument    -- MA defines Ω = n₁^{n₃}/n₂^{n₁+n₃} for each class, the numerator counting primitive-accessible configurations and the denominator the place-assignment phase space.
+         needle “n_1^{n_3}}{n_2^{n_1+n_3}}” on the line: True ; reason: the counting reading at :55
+  MA-08  MA :73   statement-grade           support statement   -- MA states that the chain from ℤ through {2, 3}, the Størmer wall and the tuple (2, 3, 2, 0) to 4/81 is a forward derivation with zero free parameters.
+         needle “is a forward derivation with zero free parameters” on the line: True ; reason: the formula’s form rests on the counting reading at :55 and the tuple’s components on cited programme results (:30-:34)
+  MA-09  MA :85   computationally-verified  support computation -- MA reports the dark-to-visible ratio 77/4 = 19.25 against Planck’s 19.28, within 0.17%.
+         needle “The dark/visible ratio 77/4 = 19.25 matches Planck” on the line: True ; reason: recomputed in the claim bank
+  MA-10  MA :89   argument-supported        support argument    -- MA reads cosmic flatness as the identity Ω_b × 81/4 = 1, consistent with Planck’s Ω_K = −0.0007 ± 0.0019.
+         needle “Cosmic flatness is the algebraic identity of phase-space exhaustion.” on the line: True ; reason: the identity at :87, which takes Ω_b = 4/81 as given
+  MA-11  MA :99   statement-grade           support theorem     -- MA states that ℚ has exactly three places by Ostrowski’s theorem, archimedean, p-adic and a global coherence.
+         needle “By Ostrowski's theorem, ℚ has exactly three places” on the line: True ; reason: Ostrowski’s theorem named; it gives the archimedean place and one p-adic place for each prime p, so the theorem named does not carry the count three
+  MA-12  MA :101  synthesis-suggested       support reading     -- MA reads the cosmological visible/dark boundary as the boundary between primitive-accessible and place-requiring configurations.
+         needle “The cosmological visible/dark boundary is the structural boundary” on the line: True ; reason: a reading at :97-:105
+  MA-13  MA :111  statement-grade           support statement   -- MA reads the Hamming-weight partition (3, 3, 1) of the seven nonzero elements of (ℤ/2)³ as a GL(3, 𝔽₂) orbit decomposition under the stabilizer of the diagonal.
+         needle “the GL(3, 𝔽₂) orbit decomposition under the parabolic stabilizer” on the line: True ; reason: FA :25 refutes the orbit reading, the diagonal’s stabilizer having order 24 and acting transitively on the six other elements; recomputed in the claim bank
+  MA-14  MA :123  computationally-verified  support computation -- MA states that the split decomposition gives Ω_total = 244/243, a flatness deviation of 1/243 = Ω_b/12.
+         needle “= \frac{\Omega_b}{12}” on the line: True ; reason: the arithmetic at :117-:123, recomputed in the claim bank
+  MA-15  MA :125  statement-grade           support statement   -- MA predicts a cosmological component of magnitude Ω_b/12 ≈ 0.41%.
+         needle “a specific cosmological prediction of magnitude Ω_b/12 ≈ 0.41%” on the line: True ; reason: a prediction
+  MA-16  MA :127  synthesis-suggested       support reading     -- MA reads the 1/12 as echoing ζ(−1) = −1/12 in zeta regularization.
+         needle “The 1/12 echoes ζ(−1) = −1/12” on the line: True ; reason: a reading at :127
+  MA-17  MA :145  synthesis-suggested       support reading     -- MA reads matter content as set by ℤ-arithmetic and not by the gravitational, gauge or probabilistic substrate.
+         needle “Gravity acts on matter; arithmetic determines matter.” on the line: True ; reason: a reading at :143-:147
+  MA-18  MA :181  kernel-verified           support terminal    -- MA’s era annotation reads omega_b_equals_4_over_81 at SIDE-omega-b 9c80279 as deriving 4/81 from a tuple carried by definition.
+         needle “`omega_b_equals_4_over_81` DERIVES the 4/81 arithmetic from the def-carried” on the line: True ; reason: SIDE-omega-b 9c80279 = commit 9c80279b6976, remote tag v0.1.0: SIDEOmegaB/Theorem.lean `SIDEOmegaB.omega_b_equals_4_over_81 : arithmeticSubstrate.omega = ⟨4, 81⟩` by decide (:130-:132); SIDEOmegaB/Theorem.lean the tuple defined as numerals, n1 := 2, n2 := 3, n3 := 2, n4 := 0 (:114-:118); SIDEOmegaB/Theorem.lean Formation.omega’s numerator n1^n3 (:101)
+  MA-19  MA :183  kernel-verified           support terminal    -- MA’s era annotation reads the xi_* cluster at SIDE-cosmo c5cba30 as deriving its counts from a tuple carried by definition.
+         needle “SIDE-cosmo `c5cba30` — the `xi_*` cluster the same” on the line: True ; reason: SIDE-cosmo c5cba30 = commit c5cba30ce201, on the remote main c5cba30: SIDECosmo/FormationPhaseSpace.lean xi defined as ⟨2, 3, 2, 0⟩ (:53); SIDECosmo/FormationPhaseSpace.lean `xi_total : total_slots xi = 81` by decide (:59), total_slots f = trans^(prim + output) (:22); SIDECosmo/FormationPhaseSpace.lean `xi_visible : visible_slots xi = 4` by decide (:60)
+  MA-20  MA :188  statement-grade           support statement   -- MA’s era annotation holds the cited density fraction anchored at its stated σ whatever the kernel grades.
+         needle “anchored at its stated sigma regardless of every kernel grade above” on the line: True ; reason: a dated era annotation
+  ST-01  ST :17   statement-grade           support statement   -- ST states that Ω_b = 4/81 = 0.04938 follows from the generators {2, 3} of ℤ and Størmer’s theorem with zero free parameters, 0.13σ from Planck 2018.
+         needle “with zero free parameters and zero physics input” on the line: True ; reason: the chain at :21-:27; ST :143 lists the cosmos as a determined system over ℤ as an assumption, not derived
+  ST-02  ST :22   theorem-supported         support theorem     -- ST states by Størmer’s theorem that the consecutive {2, 3}-smooth pairs are exactly (1, 2), (2, 3), (3, 4) and (8, 9), the wall being 9.
+         needle “the consecutive {2, 3}-smooth pairs are exactly (1,2), (2,3), (3,4), (8,9)” on the line: True ; reason: Størmer 1897, named; the list recomputed in the claim bank
+  ST-03  ST :23   computationally-verified  support computation -- ST counts seven {2, 3}-smooth numbers up to the wall: 1, 2, 3, 4, 6, 8 and 9.
+         needle “{1, 2, 3, 4, 6, 8, 9} — exactly 7 numbers” on the line: True ; reason: the enumeration, recomputed in the claim bank
+  ST-04  ST :58   synthesis-suggested       support reading     -- ST reads the count 7 as the formation total of ξ(s), and the equality as not coincidental.
+         needle “This equality is not coincidental” on the line: True ; reason: the era annotation at :230-:232 reads the tuple as decomposition-dependent, a modeling premise
+  ST-05  ST :66   argument-supported        support argument    -- ST states that wall² = n₂^(n₁+n₃) when n₁ = n₃, 3² × 3² = 81 for (2, 3, 2, 0).
+         needle “wall² = n₂^(n₁+n₃) when n₁ = n₃” on the line: True ; reason: the derivation at :159-:163, taking the wall as n₂^n₁
+  ST-06  ST :78   computationally-verified  support computation -- ST writes the dark sector as 81 − 4 = 77 = 7 × 11.
+         needle “Dark = 81 − 4 = 77 = 7 × 11” on the line: True ; reason: arithmetic
+  ST-07  ST :87   synthesis-suggested       support reading     -- ST reads 11, the first prime above the wall, as the dark sector per formation unit.
+         needle “**The dark sector per formation unit is 11.**” on the line: True ; reason: a reading at :80-:87
+  ST-08  ST :93   computationally-verified  support computation -- ST reports that among generator pairs of primes up to 13 the formula dark = formation count × first unreachable prime holds for {2, 3} alone.
+         needle “holds **only** for {2, 3}” on the line: True ; reason: the table at :95-:101, which lists pairs with 2; every pair of primes up to 13 recomputed in the claim bank
+  ST-09  ST :118  computationally-verified  support computation -- ST reports dark/visible 77/4 = 19.250 against a combined 19.284 at 0.03σ, and ΔH₀ = 2Ω_bH₀ = 6.65 km/s/Mpc against 6.14 ± 0.97 at 0.53σ.
+         needle “| Dark/visible = 77/4 | 19.250 | Combined: 19.284 |” on the line: True ; reason: the table at :117-:119; the five datasets are not listed
+  ST-10  ST :124  statement-grade           support statement   -- ST predicts a null result for direct dark-matter detection and w = −1 for dark energy.
+         needle “framework predicts null (κ = 0 for dark sector)” on the line: True ; reason: predictions at :122-:124
+  ST-11  ST :139  statement-grade           support terminal    -- ST cites the xi_* cluster in SIDE-cosmo’s FormationPhaseSpace.lean for the final arithmetic step 4/81 = visible/total.
+         needle “the final arithmetic step is **kernel-verified**” on the line: True ; reason: named without a pin; the names stand at SIDE-cosmo main c5cba30, :59-:63, and MA :183 names that pin
+  ST-12  ST :143  statement-grade           support statement   -- ST lists the cosmos as a determined system over ℤ as an assumption, not derived.
+         needle “| The cosmos is a determined system over ℤ | **Assumption** (not derived) |” on the line: True ; reason: the paper’s own status table
+  ST-13  ST :145  statement-grade           support statement   -- ST states that the remaining open step is the structural justification of total = n₂^(n₁+n₃).
+         needle “The remaining open step is the structural justification of why total = n₂^(n₁+n₃)” on the line: True ; reason: the paper’s own scope; its status table at :142 marks the same justification as done by Independence and Silence
+  ST-14  ST :175  argument-supported        support argument    -- ST argues total = n₂^(n₁+n₃) from Independence applied to place-assignment, interfaces contributing a factor 1 by Silence.
+         needle “The product rule for independent selections gives total = n₂^(n₁+n₃).” on the line: True ; reason: the argument at :169-:175
+  ST-15  ST :188  synthesis-suggested       support reading     -- ST reads the cosmos as inheriting its formation structure from ℤ and not from the Standard Model’s gauge group.
+         needle “The cosmos inherits its formation structure from ℤ, not from SU(3) × SU(2) × U(1).” on the line: True ; reason: a reading at :188
+  ST-16  ST :223  kernel-verified           support terminal    -- ST’s era annotation reads SIDEKernel.formation and formation_count at SIDE-kernel 5e668b4: the sum derives and the tuple enters by definition.
+         needle “at SIDE-kernel `5e668b4`, `SIDEKernel.formation` and `formation_count` print” on the line: True ; reason: SIDE-kernel 5e668b4 = commit 5e668b49f058, on the remote main 0256e9e: Kernel/Core.lean n1 defined := 2 (:34), the other entries as numerals; Kernel/Core.lean `formation_count : n1 + n2 + n3 + n4 = 7` by decide (:50); `formation : 2 + 3 + 2 + 0 = 7` (:53)
+  ST-17  ST :228  kernel-verified           support terminal    -- ST’s era annotation names a derived count for the seven classes, CardDerived at SIDE-trivium 1aac3a9.
+         needle “image, SIDE-trivium `1aac3a9`” on the line: True ; reason: SIDE-trivium 1aac3a9 = commit 1aac3a9e1939, on the remote main 1aac3a9: Trivium/CardDerived.lean `mechanism_class_card_derived : Fintype.card MechanismClass = ({-1, 2, -2, 3, -3, 6, -6} : Finset Int).card` (:48-:49); Trivium/CardDerived.lean `quadratic_discriminant_card_value`: that image’s card is 7 by decide (:44-:45)
+  ST-18  ST :257  kernel-verified           support terminal    -- ST’s dated ruling records omega_b_equals_4_over_81 at SIDE-omega-b 9c80279, Theorem.lean :130, for the final arithmetic step to 4/81.
+         needle “`SIDEOmegaB.omega_b_equals_4_over_81` exists at `SIDE-omega-b/SIDEOmegaB/Theorem.lean:130`” on the line: True ; reason: SIDE-omega-b 9c80279 = commit 9c80279b6976, remote tag v0.1.0: SIDEOmegaB/Theorem.lean `SIDEOmegaB.omega_b_equals_4_over_81 : arithmeticSubstrate.omega = ⟨4, 81⟩` by decide (:130-:132); SIDEOmegaB/Theorem.lean the tuple defined as numerals, n1 := 2, n2 := 3, n3 := 2, n4 := 0 (:114-:118); SIDEOmegaB/Theorem.lean Formation.omega’s numerator n1^n3 (:101)
+  ST-19  ST :11   statement-grade           support statement   -- ST’s v1.0.1 note says the name omega_b_equals_4_over_81 does not exist on disk, a note the dated ruling at :254-:259 supersedes.
+         needle “name does not exist on disk” on the line: True ; reason: superseded at :254-:259; the name stands at 9c80279
+  HC-01  HC :16   statement-grade           support statement   -- HC states that for RH the E condition was closed by Conservation of Spectra, the product formula being s-dark and n₄ = 0.
+         needle “For RH, the E gap was closed by Conservation of Spectra” on the line: True ; reason: stated at :16 ; route R1 DARK test 2
+  HC-02  HC :24   argument-supported        support argument    -- HC states that every structure present at codimension p ≥ 2 and absent at p = 1 acts on ker(cl) and not on coker(cl).
+         needle “**Hodge Conservation Theorem.** Every algebraic-geometric structure that exists at codimen” on the line: True ; reason: the inventory N1–N5 at :36-:74 and the search at :76-:88; HC :125 calls the exhaustiveness one of evidence and search
+  HC-03  HC :38   theorem-supported         support theorem     -- HC cites Mumford (1968) for CH^p(X) infinite-dimensional at p ≥ 2 and reads it as enlarging the domain of cl.
+         needle “CH^p(X) is infinite-dimensional in general (Mumford, 1968)” on the line: True ; reason: Mumford 1968, named
+  HC-04  HC :46   theorem-supported         support theorem     -- HC states that the Griffiths group vanishes at p = 1 and can be nontrivial at p ≥ 2, citing Lefschetz, Griffiths (1969) and Clemens (1983).
+         needle “At p = 1: Griff¹(X) = 0 (Lefschetz).” on the line: True ; reason: the results named at :46
+  HC-05  HC :48   statement-grade           support statement   -- HC defines the Griffiths group as homologically trivial cycles modulo algebraically trivial ones, modulo the Abel-Jacobi kernel.
+         needle “modulo the Abel-Jacobi kernel” on the line: True ; reason: the standard definition is homologically trivial cycles modulo algebraically trivial ones, with no Abel-Jacobi quotient
+  HC-06  HC :62   statement-grade           support statement   -- HC gives the intermediate Jacobian at p ≥ 2 as a complex torus that may lack a polarization.
+         needle “is a complex torus that may lack a polarization” on the line: True ; reason: a standard definition, stated
+  HC-07  HC :88   argument-supported        support argument    -- HC reports five candidates for a sixth codimension-dependent structure searched and eliminated.
+         needle “**No N6 found.** ∎” on the line: True ; reason: the eliminations at :78-:86
+  HC-08  HC :98   statement-grade           support statement   -- HC states that the obstructions to surjectivity of cl at p ≥ 2 are a subset of those at p = 1.
+         needle “**Step 3 (Monotonicity).**” on the line: True ; reason: stated at :98, resting on Step 2
+  HC-09  HC :104  argument-supported        support argument    -- HC concludes the Hodge Conjecture from five steps, the last the Mechanism Theorem.
+         needle “**The Hodge Conjecture holds.** ∎” on the line: True ; reason: the steps at :94-:102; the caveats at :125-:133 rest the exhaustiveness of N1–N5 on search and name the Mechanism Theorem a foundational commitment
+  HC-10  HC :119  synthesis-suggested       support reading     -- HC reads the product formula and the codimension increase as instances of one principle, interfaces as filters.
+         needle “interfaces between structures are filters” on the line: True ; reason: the comparison at :110-:117
+  HC-11  HC :125  statement-grade           support statement   -- HC states that the exhaustiveness of N1–N5 rests on evidence and search, not on a classification theorem.
+         needle “The claim is supported by evidence and search, not by a classification theorem.” on the line: True ; reason: the paper’s own caveat
+  HC-12  HC :127  statement-grade           support theorem     -- HC credits the exhaustiveness on the RH side to Tate’s thesis, the classification of all places.
+         needle “Conservation of Spectra's exhaustiveness is proved by Tate's thesis” on the line: True ; reason: Tate’s thesis named; the step from it to the exhaustiveness of the mechanism classes is not argued here ; route R1 DARK test 2
+  HC-13  HC :133  statement-grade           support statement   -- HC states that its argument uses the Mechanism Theorem, the same foundational commitment as the RH argument.
+         needle “This is the same foundational commitment as for RH.” on the line: True ; reason: the paper’s own caveat ; route R1 DARK test 2
+  HC-14  HC :141  statement-grade           support statement   -- HC states that counterexamples to the integral Hodge conjecture use torsion and that no rational counterexample has been found.
+         needle “Voisin's counterexamples to the integral Hodge conjecture use torsion.” on the line: True ; reason: stated at :141
+  HC-15  HC :149  statement-grade           support statement   -- HC states that the standard conjectures become independent validation rather than the sole path to E closure.
+         needle “The standard conjectures are no longer required as the sole path to E closure.” on the line: True ; reason: stated at :147-:149
+  PO-01  PO :11   statement-grade           support statement   -- PO states that the dimensionless constants of physics are arithmetic expressions in two and three.
+         needle “are arithmetic expressions in two and three” on the line: True ; reason: the chapter’s claim; PO :99 calls whether two and three must organize the constants open
+  PO-02  PO :17   statement-grade           support computation -- PO states that 2^a + 3^b yields the primes 5 to 41 and then, past a stretch with no prime, 137 and 337.
+         needle “Eleven appear in sequence — 5, 7, 11, 13, 17, 19, 29, 31, 41” on the line: True ; reason: an enumeration reported without its range; the claim bank finds 43 = 2⁴ + 3³, 59, 67, 73, 83, 89, 97, 113 and 131 of that form between 41 and 137
+  PO-03  PO :19   computationally-verified  support computation -- PO states that 23 and 53 are not of the form 2^a + 3^b and enter as 2⁵ − 3² and 2·3³ − 1.
+         needle “Twenty-three is a difference of powers, 2⁵ − 3².” on the line: True ; reason: recomputed in the claim bank
+  PO-04  PO :25   statement-grade           support terminal    -- PO states that a kernel confirms every element of its fifteen-prime set prime and that exactly 23 and 53 are not of the form 2^a + 3^b.
+         needle “a verification kernel walks the whole set, confirms every element prime” on the line: True ; reason: PrimeMosaic.lean named without a kernel or pin (:57, :107); the file stands at SIDE-constants main, which carries no tag
+  PO-05  PO :27   computationally-verified  support computation -- PO states that 23 and 53 are Sophie Germain primes, their children 47 and 107 prime.
+         needle “Each is a Sophie Germain prime” on the line: True ; reason: recomputed in the claim bank; :27 and :54 call 47 and 107 the first primes outside the set, where 37 and 43 are smaller primes outside it
+  PO-06  PO :29   argument-supported        support argument    -- PO states that among coprime pairs at least two only {2, 3} leaves the single integer 1 unreachable by non-negative combinations.
+         needle “(a−1)(b−1) = 2 has the one solution” on the line: True ; reason: the equation (a−1)(b−1) = 2 at :29; recomputed in the claim bank
+  PO-07  PO :49   computationally-verified  support computation -- PO writes 337 = 2⁸ + 3⁴ = 16² + 9², a prime, as its terminus.
+         needle “| 337 | 2⁸ + 3⁴ = 16² + 9² | jump prime · terminus |” on the line: True ; reason: recomputed in the claim bank
+  PO-08  PO :67   computationally-verified  support computation -- PO gives the leading term Λ₀ = 11α/12¹¹² = 1.087 × 10⁻¹²² from the measured α, about one percent from the observed central value.
+         needle “Fed the measured α, this is 1.087×10⁻¹²²” on the line: True ; reason: recomputed in the claim bank from CODATA α
+  PO-09  PO :75   computationally-verified  support computation -- PO states the coefficients c₁ = 44/27, c₃ = 4/9, c₅ = −352/27 = −8c₁, c₆ = −337/27 and c₁c₃ = 176/243.
+         needle “c_5 = -\tfrac{352}{27} = -8\,c_1” on the line: True ; reason: the arithmetic recomputed in the claim bank
+  PO-10  PO :81   statement-grade           support statement   -- PO states that its residual of 2.2 × 10⁻¹⁴ measures the convergence of a six-coefficient fit to the observed value, not agreement to fourteen places.
+         needle “It is the closure of a six-coefficient fit” on the line: True ; reason: the paper’s own scope
+  PO-11  PO :83   statement-grade           support statement   -- PO states that whether the coefficients’ simplicity is forced or merely available is open.
+         needle “is a question neither the arithmetic kernel nor the numerical trace can answer” on the line: True ; reason: the paper’s own scope
+  PO-12  PO :89   computationally-verified  support computation -- PO gives the Weinberg angle 3/13 + α/16 − α²/10, the strong coupling 2/17 + α/29 + α²/50, and the bases 1836 = 12·3²·17, 207 = 3²·23 and 3480 = 2³·3·5·29.
+         needle “The Weinberg angle is 3/13 + α/16 − α²/10” on the line: True ; reason: the factorizations and values recomputed in the claim bank; the α-series values cited, not formalized (:93)
+  PO-13  PO :91   synthesis-suggested       support reading     -- PO reads the two primes outside the sum form, 23 and 53, as the numbers of the muon.
+         needle “The anomalies of the mosaic are the numbers of the second-generation lepton.” on the line: True ; reason: a reading at :91
+  PO-14  PO :93   statement-grade           support terminal    -- PO states that the arithmetic of every base and coefficient is checked and the α-series values are cited and not formalized.
+         needle “a decision procedure cannot evaluate α” on the line: True ; reason: TerminusParameters.lean named without a pin (:107); it stands at SIDE-constants main, untagged
+  PO-15  PO :107  statement-grade           support terminal    -- PO names PrimeMosaic.lean, TerminusLambda.lean and TerminusParameters.lean, with 0 sorry and 0 axioms, and a Python reproduction of the error trace.
+         needle “The mosaic arithmetic is machine-checked in PrimeMosaic.lean” on the line: True ; reason: files named without a kernel or pin; they stand at SIDE-constants main, which carries no tag
+  FA-01  FA :19   computationally-verified  support computation -- FA derives Ω_Λ = 14Ω_b = 56/81 = 0.6914 against Planck’s 0.6854 ± 0.0073, 0.82σ.
+         needle “The prediction is 0.82σ from observation.” on the line: True ; reason: recomputed in the claim bank; the factor 14 from the embedding’s assignment (:117)
+  FA-02  FA :25   argument-supported        support argument    -- FA states that the partition (3, 3, 1) is the Hamming-weight grading and not a GL(3, 𝔽₂) orbit decomposition, the diagonal’s stabilizer having order 24 and acting transitively on the six other elements.
+         needle “It is not a $\mathrm{GL}(3, \mathbb{F}_2)$ orbit decomposition” on the line: True ; reason: the argument at :64; recomputed in the claim bank
+  FA-03  FA :31   statement-grade           support terminal    -- FA names partition_cardinalities, cyc_weight_invariant, stab_order_24 and orbit_transitive_on_six as kernel checks of the grading.
+         needle “kernel-verified in `SIDESubstrateCluster.partition_cardinalities`” on the line: True ; reason: named without a pin; the names stand at SIDE-substrate-cluster main 2e76426
+  FA-04  FA :50   computationally-verified  support computation -- FA reports observed Ω_DM/Ω_b = 5.381 against 16/3 and Ω_Λ/Ω_b = 13.903 against 14, differences of 0.89% and 0.70%.
+         needle “$13.903$ | $14 = 7 \cdot 2$ | 0.70%” on the line: True ; reason: recomputed from the Planck values at :41-:43
+  FA-05  FA :54   computationally-verified  support computation -- FA states that the two dark-sector decompositions differ by 58/3 − 77/4 = 1/12.
+         needle “The difference $58/3 - 77/4 = 1/12$” on the line: True ; reason: recomputed in the claim bank
+  FA-06  FA :95   statement-grade           support statement   -- FA assigns w = −1 to the weight-1 elements as the farthest from the diagonal and w = 0 to the weight-2 elements.
+         needle “They receive $w = -1$, the equation of state of a cosmological constant.” on the line: True ; reason: FA :244 calls the assignment a structural choice, its first-principles derivation a reach
+  FA-07  FA :97   statement-grade           support terminal    -- FA states that the equation-of-state catalogue closes to a doubleton by Möbius parity, a sign convention selecting one member.
+         needle “compatible with the substrate closes to a doubleton” on the line: True ; reason: catalogue_is_doubleton, M1_tracks_mu and M2_tracks_neg_mu named without a pin; they stand at SIDE-substrate-cluster main
+  FA-08  FA :113  kernel-verified           support terminal    -- FA cites three_weight1_eq_14 at SIDE-residual-bridge v0.1 for three weight-1 contributions of 14/3 Ω_b summing to 14 Ω_b.
+         needle “is kernel-verified at vanilla Lean 4 in `SIDE-residual-bridge v0.1` via `three_weight1_eq_” on the line: True ; reason: SIDE-residual-bridge v0.1 = commit b473d4b0cc23, on the remote main 5aa5ab7: SIDEResidualBridge/Bridge.lean `three_weight1_eq_14 : fracEq (fadd (fadd weight1Contrib weight1Contrib) weight1Contrib) (14, 1) = true` by decide (:77-:78), weight1Contrib := (14, 3) (:57)
+  FA-09  FA :131  computationally-verified  support computation -- FA gives Ω_total = 244/243 in the split decomposition, a flatness deviation of 1/243 = Ω_b/12 ≈ 0.41%.
+         needle “\frac{4}{81} \cdot \frac{61}{3} = \frac{244}{243}” on the line: True ; reason: recomputed in the claim bank
+  FA-10  FA :141  statement-grade           support statement   -- FA states the deviation Ω_b/12 as a falsifiable prediction within reach of coming CMB surveys.
+         needle “This is a falsifiable sub-percent prediction.” on the line: True ; reason: a prediction
+  FA-11  FA :143  statement-grade           support terminal    -- FA names a ten-theorem chain in SIDE-residual-bridge, from three_weight1_eq_14 to omegaLambda_mu_shifted.
+         needle “is kernel-verified at vanilla Lean 4 in `SIDE-residual-bridge`, each theorem closed by `de” on the line: True ; reason: named without a pin; six of the ten stand at the tag v0.1 cited at :113 and all ten at main 5aa5ab7
+  FA-12  FA :145  computationally-verified  support computation -- FA states that carrying the diagonal into the dark-energy sector gives Ω_Λ = 169/243 ≈ 0.6955, 1.38σ from Planck.
+         needle “this is a $1.38\sigma$ offset” on the line: True ; reason: recomputed in the claim bank
+  FA-13  FA :155  computationally-verified  support computation -- FA gives Ω_DM = 64/243 ≈ 0.2634 against Planck’s 0.2653 ± 0.0039, 0.49σ.
+         needle “Deviation 0.49σ.” on the line: True ; reason: recomputed in the claim bank
+  FA-14  FA :157  argument-supported        support argument    -- FA reads cosmic flatness in the uniform decomposition, (4/81)(81/4) = 1, as an arithmetic consequence of the partition.
+         needle “the substrate derivation produces flatness as an arithmetic consequence of the partition s” on the line: True ; reason: the identity at :157, which takes Ω_b = 4/81 as given
+  FA-15  FA :161  statement-grade           support statement   -- FA predicts no direct dark-matter detection through a Standard Model gauge coupling.
+         needle “A positive detection at any nonzero gauge charge refutes the framework.” on the line: True ; reason: a prediction
+  FA-16  FA :183  synthesis-suggested       support reading     -- FA reads ξ(s) and the cosmological energy budget as inheriting their structure from (ℤ/2)³.
+         needle “The substrate is the source.” on the line: True ; reason: a reading at :181-:183
+  FA-17  FA :193  statement-grade           support statement   -- FA records a heritage formula for Λ, 11α/12^{11/2} times a series less 337α⁶/27, and routes its own Λ through Ω_Λ = 14Ω_b.
+         needle “\Lambda = \frac{11 \alpha}{12^{11/2}}” on the line: True ; reason: the heritage note at :187-:199; 11α/12^{11/2} ≈ 9.3 × 10⁻⁸ in the claim bank, not of order 10⁻¹²², where PO :65 writes 12¹¹²
+  FA-18  FA :244  statement-grade           support statement   -- FA states that the equation-of-state assignment is a structural choice whose first-principles derivation is a reach.
+         needle “is a structural choice that matches observation” on the line: True ; reason: the paper’s own scope
+  FA-19  FA :248  statement-grade           support statement   -- FA states that the link between its 1/12 and ζ(−1) = −1/12 stands at magnitude alone.
+         needle “the connection has not been established beyond magnitude coincidence” on the line: True ; reason: the paper’s own scope
+  YM-01  YM :14   statement-grade           support terminal    -- YM states that what compiles is the exclusion form and the four-sector enumeration, its formation placement a scaffolding over stipulated data.
+         needle “**What is compiled:** the **SIDE-Exclusion form** and the **four-sector enumeration**” on the line: True ; reason: the kernels named by repository at :14; their pins at :405
+  YM-02  YM :15   statement-grade           support statement   -- YM states that the physical Yang-Mills mass gap Δ > 0 is open, per-sector positivity entering by definition.
+         needle “**What is open:** the **physical gap Δ > 0 (the Clay theorem)**” on the line: True ; reason: the paper’s own claim-status note
+  YM-03  YM :16   statement-grade           support statement   -- YM states that its count (3, 3, 2, 0) = 8 against ξ’s 7 turns on quantization as a third primitive class, a decomposition choice.
+         needle “turns on assigning **quantization as a third primitive class**” on the line: True ; reason: the paper’s own claim-status note
+  YM-04  YM :17   statement-grade           support statement   -- YM states that the E-Difficulty skeleton classifies Yang-Mills TYPE II, at manuscript level until W-6 discharges.
+         needle “classifies YM **in-method (TYPE II)**” on the line: True ; reason: the paper’s own claim-status note
+  YM-05  YM :49   argument-supported        support argument    -- YM states that every spectral contribution lies in one of four topological sectors, a classification complete by Bott periodicity and a codimension constraint.
+         needle “The classification is complete by Bott periodicity” on the line: True ; reason: the argument at :108-:118
+  YM-06  YM :103  statement-grade           support statement   -- YM classifies the vortex sector by π₁ of the center Z(SU(N)), given as ℤ_N.
+         needle “| Vortex | π₁(Z(SU(N))) = ℤ_N | Center charge |” on the line: True ; reason: the center is discrete, so π₁ of it is trivial; center vortices are classed by π₁(SU(N)/ℤ_N) = ℤ_N
+  YM-07  YM :118  statement-grade           support theorem     -- YM states that the homotopy groups of SU(N) are completely computed by Bott periodicity.
+         needle “The homotopy groups of SU(N) are completely computed (Bott periodicity theorem).” on the line: True ; reason: Bott periodicity named; it computes the stable homotopy groups, πₖ(SU(N)) for k < 2N, not every homotopy group
+  YM-08  YM :141  statement-grade           support theorem     -- YM assigns each sector its mechanism for Δ > 0: asymptotic freedom, the gluon condensate, string tension and the dual Meissner effect.
+         needle “Each entry is a known result of quantum field theory.” on the line: True ; reason: the mechanisms named with their literature (:136-:139, :321); that each yields Δ > 0 is the per-sector positivity the paper enters by definition (:15)
+  YM-09  YM :152  argument-supported        support argument    -- YM excludes four candidate mechanisms for Δ = 0.
+         needle “Asymptotic freedom proves β(g) < 0 for all g > 0” on the line: True ; reason: the table at :147-:152
+  YM-10  YM :165  statement-grade           support statement   -- YM concludes Δ > 0 at the level of the exclusion form, under per-sector positivity entered as a placeholder.
+         needle “under the per-sector positivity that is entered as a placeholder” on the line: True ; reason: the paper’s re-scoped conclusion
+  YM-11  YM :195  synthesis-suggested       support reading     -- YM reads the origin of AG(3, 𝔽₂), absent from PG(2, 𝔽₂), as quantization.
+         needle “which corresponds to **quantization itself**” on the line: True ; reason: a reading; :199 calls the count a decomposition choice
+  YM-12  YM :207  argument-supported        support argument    -- YM states code parameters [[8, 1, 5]] under formation-block errors and [[8, 1, 3]] per component, a subcode of the CSS code [[8, 3, 3]] from the extended Hamming code [8, 4, 4].
+         needle “Yang-Mills produces a formation-block code with parameters [[8, 1, 5]]” on the line: True ; reason: the derivation at :211-:229; the era annotation at :440-:443 grades the parameters as subcode derivations, not an independent Knill–Laflamme run
+  YM-13  YM :221  statement-grade           support statement   -- YM states the Tightness Theorem, d_eff = 2S − 1 for rank-1 codespaces, giving d_eff = 5 at S = 3.
+         needle “the effective distance under formation-block errors equals exactly 2S − 1” on the line: True ; reason: cited to the formation calculus, not argued here
+  YM-14  YM :251  computationally-verified  support computation -- YM cites the lightest glueball at 1.73 ± 0.09 GeV, a string tension near 0.19 GeV² and deconfinement near 155 MeV as experimental anchors for Δ > 0.
+         needle “Lattice QCD predicts the lightest glueball state” on the line: True ; reason: lattice computations and measurements, cited at :251-:261
+  YM-15  YM :298  statement-grade           support terminal    -- YM prints its kernel code: `gapped` True on four sectors, mass_gap : ¬Massless, and sectors_complete.
+         needle “theorem mass_gap : ¬Massless := by” on the line: True ; reason: the code quoted at :277-:311 without a pin; YM :405 names the pins
+  YM-16  YM :315  statement-grade           support statement   -- YM states that the kernel checks the exclusion syllogism and the sector enumeration, not the physical mass gap.
+         needle “is the *form* of the exclusion, not a derivation from Yang-Mills dynamics” on the line: True ; reason: the paper’s own scope
+  YM-17  YM :323  statement-grade           support statement   -- YM states that its architecture, a verified surround and a manuscript criterion, is that of the RH argument, kernel arithmetic the surround and the manuscript’s Ostrowski the criterion.
+         needle “is the same as the structure of the Riemann hypothesis” on the line: True ; reason: stated at :323 ; route R2 DARK test 2
+  YM-18  YM :341  statement-grade           support statement   -- YM’s reaches say the structural argument establishes that the mass gap exists, a constructive argument remaining.
+         needle “establishes that the mass gap exists by SIDE exclusion” on the line: True ; reason: stated at :341, beside the claim-status note at :15 that calls the physical mass gap open
+  YM-19  YM :371  statement-grade           support statement   -- YM states that it supplies the structural form and constraint of the Clay deliverable, not the mass-gap theorem.
+         needle “not the physical mass-gap theorem itself” on the line: True ; reason: the paper’s re-scoped context note
+  YM-20  YM :405  kernel-verified           support terminal    -- YM cites SIDE-effects Structural.lean at c66f3c5 and a27415d for the mass_gap placeholder, `gapped` True on each sector, retired at the later pin.
+         needle “pins `c66f3c5` / `a27415d`” on the line: True ; reason: SIDE-effects c66f3c5 = commit c66f3c590adf, on the remote main ef4cff7: SIDEEffects/Structural.lean `YangMills.mass_gap : ¬Massless` (:56), from `all_gapped` (:49) over `gapped` defined True on each sector (:43); SIDEEffects/Structural.lean `gapped` defined by cases, True on each of four sectors (:43-:47); SIDEEffects/Structural.lean the placeholder recorded as retired (:73)
+  YM-21  YM :405  kernel-verified           support terminal    -- YM cites SIDE-yang-mills-formation v0.1.1 = 73e9e2c as a formation-level placement skeleton over stipulated data.
+         needle “`SIDE-yang-mills-formation` v0.1.1 = `73e9e2c`” on the line: True ; reason: SIDE-yang-mills-formation v0.1.1 = commit 73e9e2c3e962, remote tag v0.1.1: SIDEYangMillsFormation/Basic.lean `yang_mills_total_eight : formation_total = 8` by decide (:69) over n1 := 3 (:56), n2 := 3, n3 := 2, n4 := 0; SIDEYangMillsFormation/Basic.lean n1 defined := 3 (:56)
+  YM-22  YM :442  statement-grade           support statement   -- YM’s era annotation grades its code parameters as subcode derivations, not an independent Knill–Laflamme run.
+         needle “subcode-derivations under the formation-block model” on the line: True ; reason: a dated era annotation
+  UF-01  UF :24   statement-grade           support statement   -- UF states that the forces are unified arithmetically, in the prime structure of their constants.
+         needle “the forces are unified **arithmetically**” on the line: True ; reason: REGISTRY :276 files the paper DEFUNCT, its framing retired
+  UF-02  UF :36   computationally-verified  support computation -- UF places m_π⁰ = 134.98 MeV, α⁻¹ = 137.036, m_t/m_c = 135.98 and 100·m_H/m_Z = 137.35 between the 46th and 47th ordinates of ζ’s zeros, 134.757 and 138.116.
+         needle “spans from t₄₆ = 134.757 to t₄₇ = 138.116” on the line: True ; reason: the ordinates recomputed in the claim bank
+  UF-03  UF :60   computationally-verified  support computation -- UF writes α⁻¹ = t₄₆ + (19/28)(t₄₇ − t₄₆).
+         needle “\alpha^{-1} = 137.036 = t_{46} + \frac{19}{28}” on the line: True ; reason: recomputed in the claim bank
+  UF-04  UF :88   synthesis-suggested       support reading     -- UF reads the interval between the 46th and 47th ordinates as a unification hub.
+         needle “is a **unification hub**” on the line: True ; reason: a reading at :86-:88
+  UF-05  UF :157  computationally-verified  support computation -- UF writes G × 10¹² = 66.74 = t₁₅ + (1370/1653)(t₁₆ − t₁₅), with 1370 = 2 × 5 × 137.
+         needle “66.74 = t_{15} + \frac{1370}{1653}” on the line: True ; reason: recomputed in the claim bank
+  UF-06  UF :174  statement-grade           support statement   -- UF reads the 137 in 1370 as forced and not numerology.
+         needle “**The prime factorization is forced**” on the line: True ; reason: stated at :167-:176
+  UF-07  UF :211  computationally-verified  support computation -- UF writes the weak mixing angle’s interpolation as 152/289, with q − p = 137.
+         needle “q - p = 289 - 152 = 137” on the line: True ; reason: recomputed in the claim bank
+  UF-08  UF :383  computationally-verified  support computation -- UF writes 137 = 2⁷ + 3² and 337 = 2⁸ + 3⁴ and reads them as twinned.
+         needle “137 = 2^7 + 3^2 = 128 + 9” on the line: True ; reason: arithmetic; the twinning a reading
+  UF-09  UF :517  statement-grade           support statement   -- UF states that the gauge structure guarantees P-factored physics through the spectral action and zeta regularization.
+         needle “**The gauge structure GUARANTEES P-factored physics.**” on the line: True ; reason: the pathway at :498-:515, stated without derivation
+  UF-10  UF :575  statement-grade           support statement   -- UF states fine-tuning, the hierarchy problem and the cosmological-constant problem dissolved.
+         needle “**Fine-tuning is dissolved**” on the line: True ; reason: stated at :561-:654
+  UF-11  UF :644  statement-grade           support statement   -- UF gives its TERMINUS formula for Λ, 11α/12^{11/2} times a series less 337α⁶/27.
+         needle “\Lambda = \frac{11\alpha}{12^{11/2}}” on the line: True ; reason: 11α/12^{11/2} ≈ 9.3 × 10⁻⁸ in the claim bank, not of order 10⁻¹²², where PO :65 writes 12¹¹²
+  UF-12  UF :695  statement-grade           support statement   -- UF predicts 6H₀ absent from cosmological data, its index 202 = 2 × 101 with 101 outside its prime set.
+         needle “Gap 202 = 2 × 101, and 101 ∉ P.” on the line: True ; reason: a prediction
+  UF-13  UF :719  statement-grade           support statement   -- UF reports 122 constants tested with no failure.
+         needle “After testing 122 constants across 27 orders of magnitude” on the line: True ; reason: reported without the data
+  UF-14  UF :797  statement-grade           support statement   -- UF asks whether consciousness is a prime-detection system.
+         needle “is consciousness a prime-detection system?” on the line: True ; reason: speculation, so marked at :806
+  UF-15  UF :893  statement-grade           support statement   -- UF states a probability below 10⁻³⁶⁶ against its pattern arising by chance.
+         needle “P < 10⁻³⁶⁶” on the line: True ; reason: stated without its computation
+
+### PART C -- THE ROUTES, EACH THROUGH THE FIVE TESTS IN ORDER, WITH ITS VERDICT AND INSTRUMENT:
+  R1 -- claims HC-01, HC-12, HC-13 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the exhaustiveness the paper credits to Conservation of Spectra and Tate’s thesis is the mechanism enumeration’s, whose compiled exclusions are conditions on a real σ naming no function, so they hold beside the Epstein configuration the detector meets at ρ_E -- the sieve`s row RH-60 = DARK 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)
+  R2 -- claims YM-17 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the criterion the paper names, Ostrowski’s classification of places, is the enumeration’s exhaustiveness step, whose compiled exclusions name no function and hold beside the Epstein configuration -- the sieve`s row RH-60 = DARK 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)
+
+### PART D -- THE PINS THE PAPERS NAME WITH A TERMINAL, THE STATEMENTS READ THERE, AND THE NAMES CITED WITHOUT A PIN:
+  omegab    SIDE-omega-b 9c80279 -> commit 9c80279b6976 ; at the remote: remote tag v0.1.0 ; named at ST :249, :257; MA :181
+  cosmo     SIDE-cosmo c5cba30 -> commit c5cba30ce201 ; at the remote: on the remote main c5cba30 ; named at MA :183
+  kernel    SIDE-kernel 5e668b4 -> commit 5e668b49f058 ; at the remote: on the remote main 0256e9e ; named at ST :223
+  trivium   SIDE-trivium 1aac3a9 -> commit 1aac3a9e1939 ; at the remote: on the remote main 1aac3a9 ; named at ST :228
+  bridge    SIDE-residual-bridge v0.1 -> commit b473d4b0cc23 ; at the remote: on the remote main 5aa5ab7 ; named at FA :113
+  effects   SIDE-effects c66f3c5 -> commit c66f3c590adf ; at the remote: on the remote main ef4cff7 ; named at YM :405
+  effects2  SIDE-effects a27415d -> commit a27415d1aa0c ; at the remote: on the remote main ef4cff7 ; named at YM :405
+  ymf       SIDE-yang-mills-formation v0.1.1 -> commit 73e9e2c3e962 ; at the remote: remote tag v0.1.1 ; named at YM :405
+  read omegab      SIDEOmegaB/Theorem.lean :130 at 9c80279 -- needle on the line: True -- `SIDEOmegaB.omega_b_equals_4_over_81 : arithmeticSubstrate.omega = ⟨4, 81⟩` by decide (:130-:132)
+  read omegab_def  SIDEOmegaB/Theorem.lean :114 at 9c80279 -- needle on the line: True -- the tuple defined as numerals, n1 := 2, n2 := 3, n3 := 2, n4 := 0 (:114-:118)
+  read omegab_num  SIDEOmegaB/Theorem.lean :101 at 9c80279 -- needle on the line: True -- Formation.omega’s numerator n1^n3 (:101)
+  read xi_def      SIDECosmo/FormationPhaseSpace.lean :53 at c5cba30 -- needle on the line: True -- xi defined as ⟨2, 3, 2, 0⟩ (:53)
+  read xi_total    SIDECosmo/FormationPhaseSpace.lean :59 at c5cba30 -- needle on the line: True -- `xi_total : total_slots xi = 81` by decide (:59), total_slots f = trans^(prim + output) (:22)
+  read xi_visible  SIDECosmo/FormationPhaseSpace.lean :60 at c5cba30 -- needle on the line: True -- `xi_visible : visible_slots xi = 4` by decide (:60)
+  read kn1         Kernel/Core.lean :34 at 5e668b4 -- needle on the line: True -- n1 defined := 2 (:34), the other entries as numerals
+  read kcount      Kernel/Core.lean :50 at 5e668b4 -- needle on the line: True -- `formation_count : n1 + n2 + n3 + n4 = 7` by decide (:50); `formation : 2 + 3 + 2 + 0 = 7` (:53)
+  read card        Trivium/CardDerived.lean :48 at 1aac3a9 -- needle on the line: True -- `mechanism_class_card_derived : Fintype.card MechanismClass = ({-1, 2, -2, 3, -3, 6, -6} : Finset Int).card` (:48-:49)
+  read card7       Trivium/CardDerived.lean :44 at 1aac3a9 -- needle on the line: True -- `quadratic_discriminant_card_value`: that image’s card is 7 by decide (:44-:45)
+  read w1          SIDEResidualBridge/Bridge.lean :77 at v0.1 -- needle on the line: True -- `three_weight1_eq_14 : fracEq (fadd (fadd weight1Contrib weight1Contrib) weight1Contrib) (14, 1) = true` by decide (:77-:78), weight1Contrib := (14, 3) (:57)
+  read mg          SIDEEffects/Structural.lean :56 at c66f3c5 -- needle on the line: True -- `YangMills.mass_gap : ¬Massless` (:56), from `all_gapped` (:49) over `gapped` defined True on each sector (:43)
+  read mg_def      SIDEEffects/Structural.lean :43 at c66f3c5 -- needle on the line: True -- `gapped` defined by cases, True on each of four sectors (:43-:47)
+  read mg_ret      SIDEEffects/Structural.lean :73 at a27415d -- needle on the line: True -- the placeholder recorded as retired (:73)
+  read ymf         SIDEYangMillsFormation/Basic.lean :69 at v0.1.1 -- needle on the line: True -- `yang_mills_total_eight : formation_total = 8` by decide (:69) over n1 := 3 (:56), n2 := 3, n3 := 2, n4 := 0
+  read ymf_n1      SIDEYangMillsFormation/Basic.lean :56 at v0.1.1 -- needle on the line: True -- n1 defined := 3 (:56)
+  xi_wall_sq               named without a pin (ST :11, :139); stands at SIDE-cosmo main = c5cba30, SIDECosmo/FormationPhaseSpace.lean :63 -- no row certifies from it
+  partition_cardinalities  named without a pin (FA :31, :76); stands at SIDE-substrate-cluster main = 2e76426, SIDESubstrateCluster/Substrate.lean :126 -- no row certifies from it
+  stab_order_24            named without a pin (FA :31, :64); stands at SIDE-substrate-cluster main = 2e76426, SIDESubstrateCluster/StabRefutation.lean :63 -- no row certifies from it
+  catalogue_is_doubleton   named without a pin (FA :97); stands at SIDE-substrate-cluster main = 2e76426, SIDESubstrateCluster/MuClassifier.lean :62 -- no row certifies from it
+  omegaLambda_mu_shifted   named without a pin (FA :143, :145); stands at SIDE-residual-bridge main = 5aa5ab7, SIDEResidualBridge/Bridge.lean :87 -- no row certifies from it
+  PrimeMosaic.lean         named without a pin (PO :57, :107); stands at SIDE-constants main = 545dde2, PrimeMosaic.lean :1 -- no row certifies from it
+  the terminal table on omega_b_equals_4_over_81: no row
+  the terminal table on xi_total: no row
+  the terminal table on formation_count: no row
+  the terminal table on mechanism_class_card_derived: ['SIDE-kernel mechanism_class_card_derived v1.5 UNGRADED']
+  the terminal table on three_weight1_eq_14: no row
+  the terminal table on mass_gap: ['SIDE-effects YangMills.mass_gap c66f3c5 SHELL']
+  the terminal table on yang_mills_total_eight: no row
+  the pages: ζ list 93 lines, χ list 60 lines; no node of either is a name the eight papers cite with a pin
+
+### PART E -- THE CLUSTER`S ARITHMETIC, RECOMPUTED (mpmath 1.3.0):
+  MA :68-:71 σ-distances A, B, C, D -- computed 0.13, 351.4, 18.6, 304.1 ; the paper 0.13, 351, 18.6, 304 ; AGREES
+  MA :85 Planck (Ω_DM + Ω_Λ)/Ω_b and 77/4 against it -- computed 19.284 ; 0.18% ; the paper 19.28 ; 0.17% ; AGREES
+  MA :119-:123 and FA :131-:137 Ω_b(1 + 58/3), its excess over 1, Ω_b/12 -- computed 244/243 ; 1/243 ; 1/243 ; the paper 244/243 ; 1/243 ; 1/243 ; AGREES
+  ST :22 consecutive {2,3}-smooth pairs below 10⁶ -- computed [(1, 2), (2, 3), (3, 4), (8, 9)] ; the paper (1,2), (2,3), (3,4), (8,9) ; AGREES
+  ST :23 {2,3}-smooth numbers up to 9 -- computed [1, 2, 3, 4, 6, 8, 9] ; the paper {1, 2, 3, 4, 6, 8, 9} ; AGREES
+  ST :93-:101 every pair of primes up to 13: dark = wall² − p₁² against FC × first non-smooth prime above the wall -- computed {2,3}: wall 9, total 81, visible 4, dark 77, FC 7, first prime 11, FC×prime 77; {2,5}: wall 5, total 25, visible 4, dark 21, FC 4, first prime 7, FC×prime 28; {2,7}: wall 8, total 64, visible 4, dark 60, FC 5, first prime 11, FC×prime 55; {2,11}: wall 2, total 4, visible 4, dark 0, FC 2, first prime 3, FC×prime 6; {2,13}: wall 2, total 4, visible 4, dark 0, FC 2, first prime 3, FC×prime 6; {3,5}: wall 1, total 1, visible 9, dark -8, FC 1, first prime 2, FC×prime 2; {3,7}: wall 1, total 1, visible 9, dark -8, FC 1, first prime 2, FC×prime 2; {3,11}: wall 1, total 1, visible 9, dark -8, FC 1, first prime 2, FC×prime 2; {3,13}: wall 1, total 1, visible 9, dark -8, FC 1, first prime 2, FC×prime 2; {5,7}: wall 1, total 1, visible 25, dark -24, FC 1, first prime 2, FC×prime 2; {5,11}: wall 1, total 1, visible 25, dark -24, FC 1, first prime 2, FC×prime 2; {5,13}: wall 1, total 1, visible 25, dark -24, FC 1, first prime 2, FC×prime 2; {7,11}: wall 1, total 1, visible 49, dark -48, FC 1, first prime 2, FC×prime 2; {7,13}: wall 1, total 1, visible 49, dark -48, FC 1, first prime 2, FC×prime 2; {11,13}: wall 1, total 1, visible 121, dark -120, FC 1, first prime 2, FC×prime 2 ; the paper only {2, 3} ; AGREES
+  PO :17 primes of the form 2^a + 3^b (a, b ≥ 0) up to 337 -- computed [2, 3, 5, 7, 11, 13, 17, 19, 29, 31, 41, 43, 59, 67, 73, 83, 89, 97, 113, 131, 137, 251, 257, 283, 307, 337] ; the paper 5, 7, 11, 13, 17, 19, 29, 31, 41, then 137 and 337 ; ### DIFFERS
+  PO :19 23 and 53 of the form 2^a + 3^b ; 2⁵ − 3², 2·3³ − 1 -- computed False, False ; 23, 53 ; the paper neither ; 23, 53 ; AGREES
+  PO :27 2·23+1 and 2·53+1 prime -- computed True, True ; the paper 47 and 107 prime ; AGREES
+  PO :27, :54 the primes below 47 outside the set -- computed [37, 43] ; the paper 47 and 107 "the first primes outside the Core" ; ### DIFFERS
+  PO :29 coprime pairs 2 ≤ a < b < 50 leaving exactly one unreachable integer -- computed [(2, 3)] ; the paper {2, 3} alone ; AGREES
+  PO :49, UF :383-:384 337 = 2⁸ + 3⁴ = 16² + 9², prime ; 137 = 2⁷ + 3² -- computed True ; True ; the paper yes ; yes ; AGREES
+  PO :65-:67 11α/12¹¹² (CODATA 2018 α) -- computed 1.087e-122 ; the paper 1.087×10⁻¹²² ; AGREES
+  FA :193, UF :644 11α/12^{11/2} -- computed 9.312e-8 ; the paper of order 10⁻¹²² by UF :640-:641 ; ### DIFFERS
+  PO :75 coefficients: 44 = 2²·11 ; −8c₁ ; c₁c₃ -- computed True ; -352/27 ; 176/243 ; the paper ; −352/27 ; 176/243 = 2⁴·11/3⁵ ; AGREES
+  PO :89 3/13 + α/16 − α²/10 ; 2/17 + α/29 + α²/50 ; 1836, 207, 3480 -- computed 0.23122 ; 0.11790 ; 1836 207 3480 ; the paper the Weinberg angle and α_s ; 12·3²·17, 3²·23, 2³·3·5·29 ; AGREES
+  FA :19 Ω_Λ = 56/81 against Planck -- computed 0.6914, 0.82σ ; the paper 0.82σ ; AGREES
+  FA :155 Ω_DM = 64/243 against Planck -- computed 0.2634, 0.49σ ; the paper 0.49σ ; AGREES
+  FA :145 Ω_Λ = 169/243 against Planck -- computed 0.6955, 1.38σ ; the paper 1.38σ ; AGREES
+  FA :49-:50 Ω_DM/Ω_b, Ω_Λ/Ω_b and their differences from 16/3, 14 -- computed 5.381, 13.903 ; 0.89%, 0.70% ; the paper 5.381, 13.903 ; 0.89%, 0.70% ; AGREES
+  FA :54, :127 58/3 − 77/4 -- computed 1/12 ; the paper 1/12 ; AGREES
+  MA :111, FA :25 |GL(3, 𝔽₂)|, the diagonal’s stabilizer, the orbit of (1,0,0) under it -- computed 168, 24, 6 ; the paper 168, 24, 6 (FA) ; an orbit decomposition (3, 3, 1) (MA) ; AGREES
+  UF :36 the 46th and 47th ordinates -- computed 134.7565, 138.116 ; the paper 134.757, 138.116 ; AGREES
+  UF :60, :157, :208 t₄₆ + (19/28)Δ ; t₁₅ + (1370/1653)Δ ; t₂ + (152/289)Δ -- computed 137.0362 ; 66.743 ; 23.12 ; the paper 137.036 ; 66.74 ; 23.12 ; AGREES
+  UF :160-:161, :220 1370 = 2 × 5 × 137, 1653 = 3 × 19 × 29, 289 − 152 -- computed 1370, 1653, 137 ; the paper 1370, 1653, 137 ; AGREES
+  CS :22 10^0.49 -- computed 3.090 ; the paper 3.1 ; AGREES
+
+### PART F -- H48a`S TRACE TABLE: the (paper, line) pairs a body sentence may cite, each a claim line above (141):
+  CS :8, CS :12, CS :22, CS :34, CS :43, CS :62, CS :72, CS :74, CS :96, CS :121, CS :140, CS :146, CS :154, CS :174, CS :184, CS :188, CS :240, FA :19, FA :25, FA :31, FA :50, FA :54, FA :95, FA :97, FA :113, FA :131, FA :141, FA :143, FA :145, FA :155, FA :157, FA :161, FA :183, FA :193, FA :244, FA :248, HC :16, HC :24, HC :38, HC :46, HC :48, HC :62, HC :88, HC :98, HC :104, HC :119, HC :125, HC :127, HC :133, HC :141, HC :149, MA :14, MA :28, MA :30, MA :32, MA :34, MA :45, MA :53, MA :73, MA :85, MA :89, MA :99, MA :101, MA :111, MA :123, MA :125, MA :127, MA :145, MA :181, MA :183, MA :188, PO :11, PO :17, PO :19, PO :25, PO :27, PO :29, PO :49, PO :67, PO :75, PO :81, PO :83, PO :89, PO :91, PO :93, PO :107, ST :11, ST :17, ST :22, ST :23, ST :58, ST :66, ST :78, ST :87, ST :93, ST :118, ST :124, ST :139, ST :143, ST :145, ST :175, ST :188, ST :223, ST :228, ST :257, UF :24, UF :36, UF :60, UF :88, UF :157, UF :174, UF :211, UF :383, UF :517, UF :575, UF :644, UF :695, UF :719, UF :797, UF :893, YM :14, YM :15, YM :16, YM :17, YM :49, YM :103, YM :118, YM :141, YM :152, YM :165, YM :195, YM :207, YM :221, YM :251, YM :298, YM :315, YM :323, YM :341, YM :371, YM :405, YM :442
+
+### THE GRADES: kernel-verified 8, theorem-supported 7, argument-supported 17, computationally-verified 27, synthesis-suggested 15, statement-grade 69
+### THE CERTIFYING PINS: 8 (SIDE-cosmo c5cba30, SIDE-effects a27415d, SIDE-effects c66f3c5, SIDE-kernel 5e668b4, SIDE-omega-b 9c80279, SIDE-residual-bridge v0.1, SIDE-trivium 1aac3a9, SIDE-yang-mills-formation v0.1.1), in 7 kernels
+### H48d -- THE ROUTES: 2 (R1, R2); against the sieve: R1 against RH-60: DARK, test 2 / DARK, test 2 -- MATCH; R2 against RH-60: DARK, test 2 / DARK, test 2 -- MATCH; with no row, listed for its next version: none
