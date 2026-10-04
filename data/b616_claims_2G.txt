@@ -1,0 +1,351 @@
+b616 -- COMPONENT 2: THE CLAIM BANK OF CLUSTER 2G, (R226)(3), banked 2026-10-04T17:25:58Z before any writing
+### the papers and simulators at PLACE-papers 3dd4f29; the sieve v0.4 at 3dd4f29
+### THE GRADING RULE, confirmed by (R222)(1): kernel-verified only where the paper names a terminal (or its file) at a pin and the
+### computationally-verified only where the paper reports a computation; argument-supported where the paper's text argues the claim;
+### synthesis-suggested where it reads a pattern across results; statement-grade where it states without argument. No grade is above the
+### paper's own support. THE SIMULATORS, (R226)(3): a simulator's claim grades computationally-verified only where a bank holds the run;
+### where none does, the claim is graded by what its text states, and the bank search is printed. A ROUTE is a claim offered as an argument
+### toward RH, simplicity or the open clause; each is read through the sieve's five tests in order. A pin RESOLVES, by the rule (R223)(1)
+### confirms, when its commit is in the clone and at the remote. THE LOAD-BEARING CLAUSE, OPEN_TRAILS :12699: the tier reads KC only when a
+
+### PART A -- THE PAPERS AND THE SIMULATORS, EACH WITH ITS PATH, REGISTRY ROW, VERSION AND HEAD:
+  SF = `phase2/physics-speculative/SYMMETRY_FILTER.md` -- REGISTRY p2-d1 (:301), its version v1.0, its status READY -- 181 lines -- head :1 “# The Symmetry Filter” -- its own version/date line “**April 2026**” -- last commit 2b728ae 2026-04-16
+  LC = `phase2/physics-speculative/LOCAL_COSMIC.md` -- REGISTRY p2-d2 (:302), its version v1.0, its status READY -- 170 lines -- head :1 “# The Local–Cosmic Interface” -- its own version/date line “**April 2026**” -- last commit cfb2fa1 2026-08-21
+  TC = `phase2/physics-speculative/T7_CMB.md` -- REGISTRY p2-d3 (:303), its version v1.1, its status TESTED-PARTIAL — registered search run 2 -- 254 lines -- head :1 “# Trivium Topology and the Cosmic Microwave Background” -- its own version/date line “**April 2026**” -- last commit cfb2fa1 2026-08-21
+  QD = `phase2/physics-speculative/QUATERNIONIC.md` -- REGISTRY p2-d4 (:304), its version v0.3, its status READY -- 243 lines -- head :1 “# The Quaternionic Dark Sector” -- its own version/date line “**v0.3, May 2026** (revises v0.2; supersedes v0.1)” -- last commit cfb2fa1 2026-08-21
+  DM = `phase2/physics-speculative/DARK_DELTA_MU.md` -- REGISTRY p2-d5 (:305), its version v0.2, its status READY -- 217 lines -- head :1 “# The Dark Sector as Formation Distance” -- its own version/date line “**v0.2.1, July 2026** (revises v0.2, May 2026; revises v0.1, April 15, 2026)” -- last commit cfb2fa1 2026-08-21
+  FD = `phase2/physics-speculative/FORMATION_DISTANCE.md` -- REGISTRY p2-d6 (:306), its version v0.2, its status READY NOTE (b426, `(R39)`): the lane's f -- 224 lines -- head :1 “# The Formation Distance of the Dark Sector” -- its own version/date line “**v0.2, May 2026** (revises v0.1, April 15, 2026)” -- last commit f1a5d22 2026-09-11
+  TH = `phase2/physics-speculative/THEORY_SPACE.md` -- REGISTRY p2-d7 (:307), its version v2.0, its status READY -- 322 lines -- head :1 “# A UNIVERSAL CONSTANT IN THEORY SPACE” -- its own version/date line “**Version 2.0 — March 2026**” -- last commit fe577d5 2026-07-23
+  QI = `phase2/physics-speculative/qec_kappa_infrastructure.py` -- REGISTRY p2-d8 (:308), its version v1.0, its status exploratory -- 368 lines -- head :1 “"""” -- its own version/date line “J. York Seale programme cross-check, June 2026” -- last commit 48206f0 2026-06-04
+  QV = `phase2/physics-speculative/qec_kappa_v2.py` -- REGISTRY p2-d9 (:309), its version v2.0, its status exploratory -- 81 lines -- head :1 “"""” -- its own version/date line “” -- last commit 48206f0 2026-06-04
+  lines in all: 2060 (the papers 1611, the simulators 449)
+
+### PART B -- THE CLAIMS, EACH WITH ITS LINE, NEEDLE, GRADE AND REASON (124):
+  SF-01  SF :12   synthesis-suggested       support reading     -- SF reads formation analysis of 439 constants in 50 sectors as an interface that transmits gauge-invariant content at κ ≈ 0.8–0.98 and blocks symmetry-breaking content at κ ≈ 0.
+         needle “Using formation analysis applied to 439 fundamental constants across 50 sectors” on the line: True ; reason: the abstract’s reading of the channels at :38-:54 and the census at :62-:100
+  SF-02  SF :12   computationally-verified  support computation -- SF reports that the five P-smooth violations among 439 constants cluster at the local–cosmic boundary, p < 6 × 10⁻⁵.
+         needle “The five violations of P-smooth arithmetic structure among 439 constants cluster exclusive” on the line: True ; reason: reported at :82-:100; its bins table (:64-:74) sums to 279 constants and 265 P-smooth, not 439 and 434 (the claim bank)
+  SF-03  SF :20   statement-grade           support statement   -- SF states that κ measured across eight channels shows a sharp gradient, gauge-invariant content crossing near 1 and symmetry-breaking content blocked at 0.
+         needle “we measure the conservation strength kappa across eight observational channels” on the line: True ; reason: the eight values at :38-:52 are given without a measurement procedure
+  SF-04  SF :26   statement-grade           support statement   -- SF defines κ(Q, I) as how much of Q’s internal structure survives transmission through I, 1 conserving all relationships and 0 none.
+         needle “measures how much of Q's internal structure survives transmission through I” on the line: True ; reason: a definition with no formula
+  SF-05  SF :28   statement-grade           support statement   -- SF defines the formation distance Δμ = n − μ, μ the sum of the κ values over n relationships.
+         needle “Delta-mu equals n minus mu” on the line: True ; reason: a definition
+  SF-06  SF :30   statement-grade           support statement   -- SF calls a constant P-smooth when a rational approximation of it factors through a fifteen-prime set, with corrections at orders of α.
+         needle “if its rational approximation factors entirely through the prime set P” on the line: True ; reason: a definition; the approximation’s tolerance is not stated
+  SF-07  SF :38   statement-grade           support statement   -- SF assigns κ = 0.98 to electromagnetism down to κ = 0 for the dark sector over eight channels.
+         needle “**Channel 1: Electromagnetism (kappa = 0.98).**” on the line: True ; reason: values assigned at :38-:52 without a stated measurement; SIDE-local-cosmic-interface 7a62ced enters them as definitions
+  SF-08  SF :54   synthesis-suggested       support reading     -- SF reads the channels near κ = 1 as gauge-invariant and those near 0 as symmetry-breaking, and calls the interface a symmetry filter.
+         needle “The interface is a symmetry filter.” on the line: True ; reason: a reading at :54
+  SF-09  SF :76   computationally-verified  support computation -- SF gives a linear fit of the P-smooth rate against distance with slope −0.039 and correlation r = −0.66.
+         needle “The linear fit gives kappa = 1.047 minus 0.039 times distance” on the line: True ; reason: reported at :76; the line and r recomputed from the bins table’s rates in the claim bank
+  SF-10  SF :82   computationally-verified  support computation -- SF reports exactly five violations among 439 constants, 1.1 percent.
+         needle “exactly 5 are violations (1.1%)” on the line: True ; reason: reported at :82; its own bins table (:64-:74) leaves 14 constants not P-smooth
+  SF-11  SF :91   computationally-verified  support computation -- SF reports that zero violations among 350 local constants is a 1.9 percent event and the clustering pattern p ≈ 5.8 × 10⁻⁵.
+         needle “Observing zero is a 1.9% event.” on the line: True ; reason: reported at :91 without its model; the claim bank recomputes (1 − 5/439)^350 and the draw of five from 439
+  SF-12  SF :96   statement-grade           support statement   -- SF lists θ₁₃ mixing among the five violations.
+         needle “- theta-13 mixing (PMNS matrix)” on the line: True ; reason: against :112, which marks sin²θ₁₃ P-smooth with κ = 1.0
+  SF-13  SF :121  argument-supported        support argument    -- SF argues from the neutrino table that within one sector the mixing angles are P-smooth and the mass-squared differences are not, so symmetry content discriminates.
+         needle “The discriminating variable is symmetry content.” on the line: True ; reason: argued from the table at :108-:115
+  SF-14  SF :131  statement-grade           support statement   -- SF reads the Hubble tension as the formation distance, one formation unit blocked between local and cosmic measurement.
+         needle “The residual tension IS Delta-mu.” on the line: True ; reason: stated at :131
+  SF-15  SF :141  statement-grade           support statement   -- SF predicts the local and cosmic H₀ values stabilizing about 6–8 km/s/Mpc apart, Δμ = 1 in H₀ units.
+         needle “separated by approximately 6–8 km/s/Mpc” on the line: True ; reason: a prediction; the values it quotes at :127 differ by 5.68 km/s/Mpc (the claim bank)
+  SF-16  SF :139  statement-grade           support statement   -- SF predicts that no dark matter particle with Standard Model gauge charge will be found, a positive detection refuting the framework.
+         needle “A positive detection at ANY nonzero gauge charge refutes this framework.” on the line: True ; reason: a falsifiable prediction, stated
+  SF-17  SF :153  statement-grade           support statement   -- SF reads the gauge group at the local–cosmic interface as the analogue of the product formula, which it calls s-dark at the scale of ζ.
+         needle “the product formula (the archimedean-multiplicative interface) is s-dark” on the line: True ; reason: an analogy stated at :153-:155
+  SF-18  SF :161  statement-grade           support statement   -- SF states that it does not claim to know what dark matter is, only what makes it dark.
+         needle “This paper does NOT claim to know what dark matter is.” on the line: True ; reason: the paper’s own scope at :161-:163
+  LC-01  LC :12   argument-supported        support argument    -- LC states that CCC+TL is excluded by four observations: supernova time dilation, the CMB blackbody, α-variation constraints and the Bullet Cluster.
+         needle “CCC+TL is excluded by four independent observations” on the line: True ; reason: argued at :86-:92; the table’s four zero scores (:68, :70, :73, :78) put σ₈ where :12 and :90 put α variation
+  LC-02  LC :28   statement-grade           support statement   -- LC assesses κ per channel as the fraction of local structural information that predicts the cosmological observable.
+         needle “we assess kappa — the fraction of local structural information that successfully predicts” on the line: True ; reason: an assessment, no procedure stated
+  LC-03  LC :32   statement-grade           support statement   -- LC takes its P-smooth rates from the 439-constant census of Constance v13.0.
+         needle “We use the 439-constant census from Constance: The Prime Mosaic (v13.0)” on the line: True ; reason: a census cited; no bank of it is read here
+  LC-04  LC :55   computationally-verified  support computation -- LC gives the mean κ as 0.70 over eight channels and 0.80 without the dark sector.
+         needle “Mean kappa (all channels): 0.70. Mean kappa (excluding dark): 0.80.” on the line: True ; reason: recomputed in the claim bank
+  LC-05  LC :59   synthesis-suggested       support reading     -- LC reads the channels above 0.7 as transmitting gauge-invariant quantities and those near 0 as symmetry-breaking.
+         needle “Channels with kappa greater than 0.7 transmit **gauge-invariant** quantities” on the line: True ; reason: a reading at :59-:61
+  LC-06  LC :79   computationally-verified  support computation -- LC totals its twelve-test comparison as 21 of 24 for ΛCDM, 10 for CCC+TL, 14 for MOND and 20 for the programme.
+         needle “| **Total** | **21/24** | **10/24** | **14/24** | **20/24** |” on the line: True ; reason: the column sums recomputed in the claim bank; the scores themselves are assigned at :67-:78
+  LC-07  LC :82   argument-supported        support argument    -- LC states that MOND is excluded by two observations and that ΛCDM and the programme have no outright failure.
+         needle “MOND is excluded by two.” on the line: True ; reason: the zero scores at :67 and :73
+  LC-08  LC :90   computationally-verified  support computation -- LC states that CCC needs α to vary by 10⁻⁵ per Hubble time where atomic clocks allow below 10⁻⁷, a hundred-fold tension.
+         needle “Tension: 100-fold.” on the line: True ; reason: the ratio recomputed in the claim bank
+  LC-09  LC :98   statement-grade           support statement   -- LC states that BBN abundances and the dark matter density lie at similar temporal distance yet differ in κ by 0.96.
+         needle “The temporal distance is similar; the kappa values differ by 0.96.” on the line: True ; reason: the 0.96 is the P-smooth rate of SYMMETRY_FILTER’s bin 5 (SF :71), not a channel κ of :46-:53
+  LC-10  LC :117  argument-supported        support argument    -- LC states that no cosmological model satisfies all four SIDE conditions, the dark sector being the failure of exhaustiveness.
+         needle “No model satisfies all four SIDE conditions for cosmology.” on the line: True ; reason: the table at :110-:115
+  LC-11  LC :123  statement-grade           support statement   -- LC states that the programme’s diagnostic extends Conservation of Spectra from number theory to cosmology.
+         needle “It extends Conservation of Spectra from number theory to cosmology.” on the line: True ; reason: stated at :123
+  LC-12  LC :163  statement-grade           support statement   -- LC’s era annotation names SIDE-local-cosmic-interface 7a62ced as the kernel leg, its κ×100 terminals a data table entered by definition.
+         needle “SIDE-local-cosmic-interface `7a62ced`” on the line: True ; reason: a pin with no terminal named; at 7a62ced `kappa_x100` is defined by cases and each value decided (SIDELocalCosmicInterface/Basic.lean :52-:69)
+  TC-01  TC :12   statement-grade           support statement   -- TC proposes a seven-fold non-orientable topology whose CMB signature is seven matched arc pairs at Fano-determined separations.
+         needle “seven matched arc pairs at angular separations determined by the Fano incidence geometry” on the line: True ; reason: a proposal; the paper’s own :174 and :215 record the seven scales as corpus-underdetermined
+  TC-02  TC :12   statement-grade           support statement   -- TC distinguishes its signature from a 3-torus’s three matched circles and a dodecahedral space’s twelve.
+         needle “a 3-torus produces 3 matched circles, a Poincare dodecahedral space produces 12” on the line: True ; reason: against :39 and :68, which count three pairs for the torus and six pairs for the dodecahedron, so the two counts are of different things
+  TC-03  TC :22   computationally-verified  support computation -- TC tabulates the observed low-multipole power against ΛCDM, the quadrupole at 0.17 of its prediction.
+         needle “| l = 2 (quadrupole) | 201 | 1150 | 0.17 |” on the line: True ; reason: the four ratios at :22-:25 recomputed in the claim bank
+  TC-04  TC :27   computationally-verified  support computation -- TC gives the combined deficit at l = 2 to 5 as 24 percent.
+         needle “The combined power deficit at l = 2 through 5 is 24%.” on the line: True ; reason: recomputed from the table in the claim bank
+  TC-05  TC :49   statement-grade           support statement   -- TC states that the Klein surface with seven Möbius strips on the Fano frame has H₁ = ℤ ⊕ (ℤ/2)³.
+         needle “with first homology group H_1 = Z direct sum (Z/2Z)-cubed” on the line: True ; reason: stated without a construction; SIDE-t7-topology-cmb v0.3 enters the free rank 1 and the torsion rank 3 as definitions (SIDET7TopologyCMB/Basic.lean :62-:63)
+  TC-06  TC :60   argument-supported        support argument    -- TC counts 21 incidences in the Fano plane, seven lines of three points.
+         needle “- Total incidences: 21” on the line: True ; reason: the count at :55-:60, recomputed in the claim bank
+  TC-07  TC :70   statement-grade           support statement   -- TC tabulates T-seven with seven arc pairs, non-orientable, its symmetry group GL(3, 𝔽₂) of order 168.
+         needle “| T-seven | 7 arc pairs | **Non-orientable** | GL(3, F_2), order 168 | 7 matched arcs |” on the line: True ; reason: GL(3, 𝔽₂) has order 168 (the claim bank); that it is the symmetry group of a cosmic topology is stated
+  TC-08  TC :72   argument-supported        support argument    -- TC argues that orientation reversal makes the matched features arcs whose polarization is reflected, a signature no orientable topology produces.
+         needle “The polarization reflection is a unique, falsifiable signature that no orientable topology” on the line: True ; reason: argued at :72 and :98
+  TC-09  TC :106  statement-grade           support statement   -- TC states that the Fano incidence matrix has eigenvalues 3 once and −1 six times.
+         needle “The eigenvalues of the Fano incidence matrix are 3 (multiplicity 1) and minus 1 (multiplic” on the line: True ; reason: the incidence matrix N has N Nᵀ = 2I + J, its other eigenvalues of modulus √2; 3 and −1 six times are the eigenvalues of the collinearity graph K₇ (the claim bank)
+  TC-10  TC :144  computationally-verified  support computation -- TC estimates the search at about 10¹¹ evaluations, 10⁶ pairs by 100 domain sizes by 1000 trials.
+         needle “Total: approximately 10-to-the-11 evaluations.” on the line: True ; reason: recomputed in the claim bank
+  TC-11  TC :172  computationally-verified  support computation -- TC reports the pre-registered search run once on Planck 2018 SMICA with the frozen seed, pipeline SIDE-t7-topology-cmb v0.3 = 8eb0d5a.
+         needle “has now been **run once** on Planck 2018 SMICA” on the line: True ; reason: the run banked as t7_results.json at SIDE-t7-topology-cmb 575a802 on its main, read in the claim bank
+  TC-12  TC :174  argument-supported        support argument    -- TC records the seven-distinct-scale discriminator as untested and underdetermined, GL(3, 𝔽₂)’s transitivity collapsing the scales.
+         needle “is therefore recorded as UNTESTED-AS-UNDERDETERMINED” on the line: True ; reason: argued at :174 and :190
+  TC-13  TC :178  computationally-verified  support computation -- TC reports the best θ_min 54.0°, a near-zero statistic and a look-elsewhere p = 0.046, the Marginal band of its decision table.
+         needle “is **p = 0.046**” on the line: True ; reason: the bank’s p_global_look_elsewhere and best θ_min, read in the claim bank
+  TC-14  TC :180  statement-grade           support statement   -- TC states that the methodology is not falsified and the specific topology is unsupported at marginal at this sensitivity.
+         needle “**the SIDE methodology is not falsified” on the line: True ; reason: the paper’s reading of its outcome D at :180
+  TC-15  TC :199  statement-grade           support statement   -- TC’s derivation table again gives the Fano incidence eigenstructure as 3 and −1 six times.
+         needle “| Fano incidence eigenstructure | eigenvalues 3, −1×6 (two values)” on the line: True ; reason: as TC :106
+  TC-16  TC :213  statement-grade           support statement   -- TC cites a negative theorem of another programme paper, that no canonical map takes the seven discriminants to the seven mechanism classes.
+         needle “**functorial-limit negative theorem**” on the line: True ; reason: a result of another paper cited by name, not read here
+  TC-17  TC :215  argument-supported        support argument    -- TC concludes that the substrate does not determine the seven lengths, every screened construction yielding at most three classes or one scale.
+         needle “the **seven-distinct-scale discriminator is corpus-underdetermined**” on the line: True ; reason: the screens at :194-:211
+  TC-18  TC :225  statement-grade           support statement   -- TC hypothesizes that the dark-to-visible ratio 77/4 is seven Fano elements times 11/4.
+         needle “The dark-to-visible ratio 77/4 (observed with 0.17% error) would be 7 (Fano elements) time” on the line: True ; reason: a hypothesis by the paper’s own word at :227
+  QD-01  QD :12   computationally-verified  support computation -- QD gives the dark-to-baryon ratio as 19.28 from Planck 2018.
+         needle “(Ω_DM + Ω_Λ) / Ω_b ≈ 19.28 (Planck 2018)” on the line: True ; reason: recomputed from :22-:24 in the claim bank
+  QD-02  QD :12   computationally-verified  support computation -- QD fits the ratio by 7 × 11/4 = 77/4 at 0.17 percent and by 16/3 + 14 = 58/3 at 0.26 percent.
+         needle “7 × (11/4) = 77/4 = 19.25 (Decomposition A, error 0.17%)” on the line: True ; reason: recomputed in the claim bank (0.176 and 0.256 percent)
+  QD-03  QD :12   statement-grade           support statement   -- QD states that both decompositions use only the integers 2, 3, 7 and 11 with no free parameter.
+         needle “Both use only the structural integers {2, 3, 7, 11} without free parameters.” on the line: True ; reason: stated at :12 and :35
+  QD-04  QD :12   statement-grade           support statement   -- QD places the (3, 3, 1) Hamming-weight partition under the GL(3, 𝔽₂) parabolic stabilizer of the diagonal.
+         needle “under the GL(3, 𝔽₂) parabolic stabilizer of the diagonal” on the line: True ; reason: the stabilizer of the diagonal has order 24 and is transitive on the six other non-zero vectors, so its orbits are (6, 1) (the claim bank)
+  QD-05  QD :30   computationally-verified  support computation -- QD matches dark matter over visible, 5.381, to 16/3 at 0.89 percent and dark energy over visible, 13.903, to 14 at 0.70 percent.
+         needle “| DM / visible | 5.381 | 16/3 = 5.333 | 0.89% |” on the line: True ; reason: recomputed in the claim bank
+  QD-06  QD :35   statement-grade           support statement   -- QD reads the 1/12 between the two decompositions as the symmetry-breaking weight of the diagonal element.
+         needle “The 1/12 = (58/3 − 77/4) discrepancy is the symmetry-breaking weight” on the line: True ; reason: the difference recomputed in the claim bank; its reading as a weight is stated
+  QD-07  QD :43   argument-supported        support argument    -- QD identifies the seven non-identity elements of (ℤ/2)³ with the seven nontrivial square classes generated by −1, 2 and 3.
+         needle “to the 7 nontrivial discriminants in ℚ\*/(ℚ\*)² generated by {−1, 2, 3}” on the line: True ; reason: three independent order-2 generators give 2³ − 1 = 7 (:55)
+  QD-08  QD :55   statement-grade           support statement   -- QD states, citing the Identity-Formation Bijection, that this seven is the formation count of ξ(s).
+         needle “Identity-Formation Bijection (Theorem 5.1) makes this the same 7” on the line: True ; reason: a result of another paper cited by name, not read here
+  QD-09  QD :67   statement-grade           support statement   -- QD reads 11 as the necessity ceiling, the dimension count of M-theory.
+         needle “- 11 is the necessity ceiling (M-theory dimensions” on the line: True ; reason: stated at :67
+  QD-10  QD :69   computationally-verified  support computation -- QD matches the per-element weight 11/4 to the empirical factor 2.755 at 0.18 percent.
+         needle “- 11/4 = 2.750 matches the empirical factor 2.755 to 0.18%” on the line: True ; reason: recomputed in the claim bank
+  QD-11  QD :83   computationally-verified  support computation -- QD verifies that three weight-2 elements at 16/9 give 16/3 and three weight-1 elements at 14/3 give 14.
+         needle “Verification: 3 × (16/9) = 16/3 (matches Ω_DM/Ω_b); 3 × (14/3) = 14” on the line: True ; reason: recomputed in the claim bank
+  QD-12  QD :121  statement-grade           support statement   -- QD states that its six structural constraints are all satisfied by construction.
+         needle “All six are satisfied by construction.” on the line: True ; reason: the sixth (:119) rests on an injection into the gauge kernel the paper names and does not construct
+  QD-13  QD :125  statement-grade           support statement   -- QD states that the stabilizer of the diagonal is S₃ permuting coordinates, with orbits of sizes 3, 3 and 1.
+         needle “The stabilizer subgroup of the diagonal is the symmetric group S_3, permuting coordinates.” on the line: True ; reason: the stabilizer of (1, 1, 1) in GL(3, 𝔽₂) has order 168/7 = 24; the coordinate permutations are a subgroup of order 6 (the claim bank)
+  QD-14  QD :135  argument-supported        support argument    -- QD places the weight-1 elements at Hamming distance 2 from the diagonal and the weight-2 elements at distance 1.
+         needle “Hamming distance 2 from the diagonal” on the line: True ; reason: the counting at :135-:137, recomputed in the claim bank
+  QD-15  QD :139  statement-grade           support statement   -- QD assigns the most asymmetric elements the vacuum-like equation of state and the nearer ones the matter-like one.
+         needle “The assignment maps "most-broken relative to a uniform fluid" to vacuum-like” on the line: True ; reason: the abstract keeps the equation-of-state assignment open (:12)
+  QD-16  QD :149  computationally-verified  support computation -- QD gives the flatness deviation of the asymmetric decomposition as Ω_b/12 ≈ 0.0041.
+         needle “\frac{\Omega_b}{12} \approx 0.0041” on the line: True ; reason: recomputed in the claim bank
+  QD-17  QD :153  statement-grade           support statement   -- QD notes that the 1/12 echoes ζ(−1) = −1/12.
+         needle “The 1/12 echoes ζ(−1) = −1/12” on the line: True ; reason: an echo the abstract leaves open (:12)
+  QD-18  QD :177  statement-grade           support statement   -- QD states that the weights 16/9 and 14/3 are not free parameters, being forced by the partition matching the observed ratios.
+         needle “The 16/9 and 14/3 weights are not free parameters.” on the line: True ; reason: they are the observed ratios’ fits divided by three (:177)
+  QD-19  QD :183  statement-grade           support statement   -- QD states that α sees the identity element and has zero projection onto the seven non-identity elements, giving κ = 0 for dark channels.
+         needle “has zero projection onto the seven non-identity elements” on the line: True ; reason: stated at :183
+  QD-20  QD :197  statement-grade           support statement   -- QD names its falsifiers: the ratio leaving 19.25 by more than 1σ, a gauge-charged detection, w ≠ −1, or flatness outside ±0.5 percent.
+         needle “the asymmetric decomposition predicts +0.41%” on the line: True ; reason: predictions stated at :197
+  QD-21  QD :228  statement-grade           support statement   -- QD’s version note records an editorial pass through a tool of a private library, carried here by pointer alone.
+         needle “*v0.3 changes from v0.2: editorial discipline pass through” on the line: True ; reason: the TECHNE citation, carried by pointer alone: TECHNE-Core, its tracked-file manifest sha256 eeaf403c0bfe18f8b7e126d895dedbdbcdeb0128fc7079b41bd9f03f3625cfc3; no sentence of its body carried and no tool of it named
+  QD-22  QD :236  statement-grade           support statement   -- QD’s era annotation names SIDE-quaternionic-dark-sector e860142 as the kernel leg, its terminals arithmetic over weight data the file defines.
+         needle “SIDE-quaternionic-dark-sector `e860142`” on the line: True ; reason: a pin with no terminal named; at e860142 the weights are defined and their sums decided (SIDEQuaternionicDarkSector/Basic.lean :70-:74)
+  DM-01  DM :12   statement-grade           support statement   -- DM states that the dark sector is the formation distance of the local–cosmic interface, not a substance, an illusion or modified gravity.
+         needle “It is the **formation distance** of the local↔cosmic interface” on the line: True ; reason: the thesis, stated; its own note at :153 rests it on the subtractive Δμ
+  DM-02  DM :37   computationally-verified  support computation -- DM reports the P-smooth degradation over 439 constants with Spearman ρ = −0.66.
+         needle “(439 constants, Spearman ρ = −0.66)” on the line: True ; reason: reported; −0.66 is the Pearson r of SYMMETRY_FILTER’s linear fit (SF :76), and Spearman ρ over the nine bins is −0.644 (the claim bank)
+  DM-03  DM :58   computationally-verified  support computation -- DM reports zero violations among 350 local constants and a clustering probability near 5.8 × 10⁻⁵.
+         needle “Zero violations in 350 local constants.” on the line: True ; reason: the count SYMMETRY_FILTER reports (SF :82-:91), restated
+  DM-04  DM :69   computationally-verified  support computation -- DM reports that the α-order of a constant rank-correlates perfectly with its derivation difficulty, Spearman ρ = 1.00.
+         needle “### 5. Contingency Hierarchy (Spearman ρ = 1.00, p < 0.001)” on the line: True ; reason: reported without its data or the number of ranks
+  DM-05  DM :83   computationally-verified  support computation -- DM gives the dark-to-visible ratio as 7 × 11/4 = 77/4 against the observed 19.28.
+         needle “(Ω_DM + Ω_DE) / Ω_b = 7 × 11/4 = 77/4 = 19.25” on the line: True ; reason: recomputed in the claim bank
+  DM-06  DM :86   statement-grade           support statement   -- DM reads 11 as the necessity ceiling, the M-theory dimension count.
+         needle “first prime non-{2,3}-smooth above the Størmer wall” on the line: True ; reason: stated at :86
+  DM-07  DM :91   argument-supported        support argument    -- DM reads 81 = 3⁴ = n₂^(n₁+n₃) as the formation phase space of the tuple (2, 3, 2, 0), four visible and 77 dark.
+         needle “81 = 3⁴ = n₂^(n₁+n₃)” on the line: True ; reason: the identity over the tuple, recomputed in the claim bank; the exponent n₁ + n₃ is the paper’s choice
+  DM-08  DM :107  statement-grade           support statement   -- DM places the (3, 3, 1) partition under the parabolic stabilizer of the diagonal.
+         needle “under the GL(3, 𝔽₂) parabolic stabilizer of the diagonal element” on the line: True ; reason: as QD :12; the stabilizer’s orbits are (6, 1) (the claim bank)
+  DM-09  DM :121  statement-grade           support statement   -- DM gives three levels for κ = 0: gauge closure, the symmetry filter and quaternionic orthogonality.
+         needle “SU(3) × SU(2) × U(1) has no dark sector representations” on the line: True ; reason: the table at :119-:123
+  DM-10  DM :137  statement-grade           support statement   -- DM predicts seven matched arc pairs, distinguishable from a 3-torus’s three circles and a dodecahedron’s twelve.
+         needle “Distinguishable from 3-torus (3 circles), dodecahedron (12 circles), and infinite flat (no” on the line: True ; reason: as TC :12; against TC :39 and :68
+  DM-11  DM :147  statement-grade           support statement   -- DM states that the SIDE Exclusion Principle settles RH by showing that no mechanism class produces off-line zeros once the system is sealed.
+         needle “by showing that no mechanism class produces off-line zeros when the system is sealed” on the line: True ; reason: stated at :147; the argument it names is the mechanism enumeration the sieve reads at RH-60 ; route R1 DARK test 2
+  DM-12  DM :149  statement-grade           support statement   -- DM extends Conservation of Spectra to cosmological scale, the local–cosmic interface s-dark for symmetry-breaking information.
+         needle “the local↔cosmic interface is s-dark for symmetry-breaking information” on the line: True ; reason: stated at :149
+  DM-13  DM :175  statement-grade           support statement   -- DM closes on Δμ as the dark sector, a conservation property.
+         needle “Δμ IS the dark sector.” on the line: True ; reason: the paper’s statement at :173-:179
+  FD-01  FD :14   statement-grade           support statement   -- FD states that the universe has 81 parts, 4 visible and 77 dark.
+         needle “The universe has 81 parts. 4 are visible. 77 are dark.” on the line: True ; reason: stated at :14 from the tuple identity at :16
+  FD-02  FD :16   argument-supported        support argument    -- FD derives 81 = n₂^(n₁+n₃) and 4 = n₁^n₃ from the tuple, 77 = 81 − 4 = 7 × 11.
+         needle “77 = 81 − 4 = 7 × 11” on the line: True ; reason: the identity over the tuple at :16, recomputed in the claim bank
+  FD-03  FD :22   computationally-verified  support computation -- FD gives Ω_b = 4/81 = 0.04938 at 0.13σ from Planck’s 0.04930 ± 0.00066.
+         needle “The prediction sits 0.13σ from observation.” on the line: True ; reason: recomputed in the claim bank (0.126σ)
+  FD-04  FD :22   computationally-verified  support computation -- FD reports five combined datasets placing the ratio 0.03σ from 77/4.
+         needle “Five independent datasets, combined, place the dark-to-visible ratio at 0.03σ” on the line: True ; reason: the datasets are not named; Planck’s values alone give about 0.11σ (the claim bank)
+  FD-05  FD :46   statement-grade           support statement   -- FD states that BBN abundances at distance 5 have κ = 0.96 while the dark matter density at distance 7 has κ = 0.
+         needle “but have κ = 0.96” on the line: True ; reason: the 0.96 is SYMMETRY_FILTER’s bin-5 P-smooth rate (SF :71), as at LC :98
+  FD-06  FD :77   statement-grade           support statement   -- FD reads 11 as the first prime not reached from 2 and 3 by smoothness.
+         needle “the first prime that cannot be reached from {2, 3} by smoothness” on the line: True ; reason: every prime other than 2 and 3 is not {2, 3}-smooth; 5 and 7 come before 11
+  FD-07  FD :108  computationally-verified  support computation -- FD gives the flatness deviation of Decomposition B as 1/243 = Ω_b/12.
+         needle “Ω_total(B) − 1 = 1/243 = (1/12) × (4/81) = Ω_b / 12” on the line: True ; reason: recomputed in the claim bank
+  FD-08  FD :112  argument-supported        support argument    -- FD reads Planck’s Ω_K = −0.0007 ± 0.0019 as consistent with both decompositions.
+         needle “is consistent with both Decomposition A (Ω_total = 1 exactly) and Decomposition B (Ω_total” on the line: True ; reason: Decomposition B’s Ω_K = −1/243 lies 1.8σ from the quoted value (the claim bank)
+  FD-09  FD :128  statement-grade           support statement   -- FD reads Δμ in cosmology as 77/4, the dark structure 19.25 times the visible.
+         needle “Δμ = 77/4 = 19.25 means the dark structure is 19.25 times the visible structure” on the line: True ; reason: against :61, where Δμ = n − μ is a difference of counts, not a ratio
+  FD-10  FD :145  computationally-verified  support computation -- FD places 16/3 at 0.45σ and 14 at 0.41σ from Planck.
+         needle “| DM/visible | 16/3 = 5.333 | 0.45σ from Planck |” on the line: True ; reason: recomputed in the claim bank
+  FD-11  FD :161  statement-grade           support statement   -- FD’s threshold clause, appended under (R38), reads the w = −1 condition UNDER PRESSURE at three sigma and FIRED at five.
+         needle “the condition reads **UNDER PRESSURE** at a stated preference of three sigma or more” on the line: True ; reason: a ruling appended at b426 (:161)
+  FD-12  FD :163  statement-grade           support statement   -- FD predicts Ω_b = 4/81 testable at about 2.5σ with CMB-S4.
+         needle “testable at approximately 2.5σ with CMB-S4 precision” on the line: True ; reason: a prediction, stated
+  FD-13  FD :179  statement-grade           support statement   -- FD states that the SIDE Exclusion Principle settles RH by showing that no mechanism class among seven produces off-line zeros, Conservation of Spectra sealing the interfaces.
+         needle “by showing that no mechanism class among seven produces off-line zeros” on the line: True ; reason: stated at :179; the argument it names is the mechanism enumeration the sieve reads at RH-60 ; route R1 DARK test 2
+  FD-14  FD :183  statement-grade           support statement   -- FD states that the cosmos selects the arithmetic class at 0.13σ, excluding the other three by 18.6σ to 351σ.
+         needle “by 18.6σ to 351σ” on the line: True ; reason: figures of MATTER_AS_ARITHMETIC, cited, not computed here
+  FD-15  FD :187  statement-grade           support statement   -- FD restates that at ζ’s scale the interfaces carry no spectral content and the zeros are confined to the critical line.
+         needle “and the zeros are confined to the critical line” on the line: True ; reason: a restatement of :179 ; route R1 DARK test 2
+  TH-01  TH :18   computationally-verified  support computation -- TH reports a mean alignment α_T = 0.918 ± 0.018 for the I∩D∩S theories, CV 2.0 percent.
+         needle “α_T = 0.918 ± 0.018 (CV = 2.0%)” on the line: True ; reason: reported; the per-domain table (:108-:118) gives a count-weighted mean 0.922 (the claim bank)
+  TH-02  TH :20   statement-grade           support statement   -- TH states that α_T is the same across all fifteen domains.
+         needle “across all 15 domains” on the line: True ; reason: against :120, where four of the fifteen domains have no I∩D∩S theory
+  TH-03  TH :20   computationally-verified  support computation -- TH identifies fourteen theories satisfying I, D and S.
+         needle “Fourteen I∩D∩S theories are identified.” on the line: True ; reason: the per-domain counts (:108-:118) sum to 14 (the claim bank)
+  TH-04  TH :65   computationally-verified  support computation -- TH totals its sample at 375 theories over fifteen domains.
+         needle “| **Total** | **375** | |” on the line: True ; reason: the domain counts at :50-:64 sum to 348 (the claim bank)
+  TH-05  TH :79   computationally-verified  support computation -- TH reports two raters with Cohen’s κ = 0.87.
+         needle “Inter-rater agreement: κ = 0.87” on the line: True ; reason: reported; the data are available on request (:306) and not supplied
+  TH-06  TH :128  computationally-verified  support computation -- TH reports χ² = 2.1 on 10 degrees of freedom, p = 0.995, against a uniform law on [0.85, 0.95].
+         needle “χ² = 2.1, df = 10, p = 0.995” on the line: True ; reason: the survival probability recomputed in the claim bank
+  TH-07  TH :130  computationally-verified  support computation -- TH reports a bootstrap 95 percent interval [0.906, 0.930].
+         needle “**Bootstrap 95% CI** (10,000 resamples): [0.906, 0.930].” on the line: True ; reason: reported; a normal interval from its own mean and deviation is computed in the claim bank
+  TH-08  TH :176  statement-grade           support statement   -- TH states that the Lean kernel for RH compiles the architecture of the argument, what classes exhaust ξ’s mechanisms, leaving the instantiation to Lean’s riemannZeta.
+         needle “compiles the ARCHITECTURE of the proof” on the line: True ; reason: stated at :176; the architecture it names is the mechanism enumeration the sieve reads at RH-60 ; route R1 DARK test 2
+  TH-09  TH :208  argument-supported        support argument    -- TH’s retrocheck finds phlogiston, the ether and steady-state cosmology each failing the I condition.
+         needle “Retrocheck: 3/3.” on the line: True ; reason: argued at :198-:202
+  TH-10  TH :216  computationally-verified  support computation -- TH notes α_T within 0.0013 of 11/12.
+         needle “The difference is 0.0013 — within the standard deviation of 0.018.” on the line: True ; reason: recomputed in the claim bank
+  TH-11  TH :218  statement-grade           support statement   -- TH reads 11/12 as M-theory’s eleven dimensions over the twelve Standard Model fermions per generation.
+         needle “12 is the number of Standard Model fermions per generation.” on the line: True ; reason: a generation carries two quark flavours in three colours and two leptons; twelve is the flavour count over three generations
+  TH-12  TH :232  argument-supported        support argument    -- TH states that fourteen points cannot distinguish 0.918 from 0.917 and asks for at least thirty.
+         needle “cannot distinguish 0.918 from 0.917” on the line: True ; reason: argued at :232 from the sample size
+  TH-13  TH :254  computationally-verified  support computation -- TH tabulates the paths M1 to M5 as 45 years for general relativity, 68 for plate tectonics and 15 for BCS.
+         needle “| General relativity | 1915 | 1915 | ~1960 | ~1960 | 45 years M1→M5 |” on the line: True ; reason: recomputed in the claim bank
+  TH-14  TH :300  statement-grade           support statement   -- TH states that its findings are empirical and independently reproducible.
+         needle “The findings are empirical and independently reproducible.” on the line: True ; reason: against :306, where the table of 375 theories is available on request
+  QI-01  QI :7    statement-grade           support statement   -- QI’s docstring lists a T gate and a Toffoli among its non-Clifford gates.
+         needle “3. Non-Clifford gates: T-gate, Toffoli” on the line: True ; reason: the module defines a T gate (:156-:160) and no Toffoli
+  QI-02  QI :59   statement-grade           support statement   -- QI asserts that the [7, 4, 3] Hamming code has sixteen codewords.
+         needle “assert len(HAMMING_CODEWORDS) == 16” on the line: True ; reason: a check the module runs on import; no bank holds a run; the claim bank recounts sixteen
+  QI-03  QI :61   statement-grade           support statement   -- QI takes the eight even-weight codewords as the support of |0_L⟩ and the odd as that of |1_L⟩.
+         needle “# Even-weight codewords form |0_L> support” on the line: True ; reason: no bank holds a run; the claim bank finds the even-weight words of weights 0 and 4
+  QI-04  QI :167  statement-grade           support statement   -- QI measures logical Z as the parity of all seven qubits.
+         needle “Logical Z is the parity of all 7 qubits” on the line: True ; reason: no bank holds a run; Z on all seven qubits is a logical Z of the Steane code (the claim bank)
+  QI-05  QI :187  statement-grade           support statement   -- QI defines κ at the syndrome interface as one minus the mean within-class variance of the logical outcome over its total variance.
+         needle “Compute kappa(logical, syndrome) = 1 - (mean within-class variance / total variance).” on the line: True ; reason: a definition the module computes; no bank holds a run
+  QI-06  QI :280  statement-grade           support statement   -- QI states that T gates anticommute with the X-type stabilizers, so the X syndrome should detect non-Clifford content.
+         needle “# T-gates anti-commute with X-stabilizers” on the line: True ; reason: no bank holds a run; T X T† = (X + Y)/√2, so T neither commutes nor anticommutes with X (the claim bank)
+  QI-07  QI :358  statement-grade           support statement   -- QI expects κ near 0 at T-count 0, perfect protection by design.
+         needle “For Steane [[7,1,3]] this should be ~0” on the line: True ; reason: no bank holds a run; the companion paper’s table reports 0.0000 (phase2/quantum/QEC_KAPPA_MAGIC_FINDINGS_v0_1.md :19), a report and not a bank
+  QI-08  QI :366  statement-grade           support statement   -- QI expects κ to rise monotonically with T-count toward saturation if the conjecture holds.
+         needle “Expected pattern if conjecture holds: monotonically rising kappa” on the line: True ; reason: no bank holds a run; the companion paper reports κ not monotonic (:38)
+  QV-01  QV :17   statement-grade           support statement   -- QV states that T on all seven qubits is the transversal T and a logical T of the Steane code.
+         needle “For n_T = 7 this is transversal T = logical T.” on the line: True ; reason: no bank holds a run; T on all seven qubits multiplies the weight-4 words of |0_L⟩ by −1 and so leaves the code space (the claim bank)
+  QV-02  QV :66   statement-grade           support statement   -- QV runs forty states by eight measurements at each T-count from 0 to 7.
+         needle “k, syn = kappa_full(prep, n_states=40, n_meas=8)” on the line: True ; reason: the sizes match the companion paper’s table (:15); no bank holds the run
+  QV-03  QV :78   statement-grade           support statement   -- QV states that transversal T preserves the code space, so κ at n_T = 7 should return to about 0.
+         needle “Transversal T is a logical operation - it should PRESERVE the code” on the line: True ; reason: as QV :17; the companion paper reports 0.0153 at n_T = 7 (:26)
+  QV-04  QV :81   statement-grade           support statement   -- QV prints “Confirmed” beside whatever value its run gives at n_T = 7.
+         needle “Confirmed: kappa at n_T=7 = ” on the line: True ; reason: the word is printed unconditionally; no bank holds a run
+
+### PART C -- THE ROUTES, EACH THROUGH THE FIVE TESTS IN ORDER, WITH ITS VERDICT AND INSTRUMENT:
+  R1 -- claims DM-11, FD-13, FD-15, TH-08 -- tests 1-1 passed; fails test 2 -- DARK, detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f -- the SIDE Exclusion Principle the papers name is the mechanism enumeration: its compiled exclusions are conditions on a real σ naming no function, so they hold beside the Epstein configuration the detector meets at ρ_E -- the sieve`s row RH-60 = DARK 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)
+  the cosmology claims (κ, the census, the topology, the embedding, α_T) are offered toward no target the sieve reads, as its row MC-01 = NOT A ROUTE — reads the constants and the empirical layer
+
+### PART D -- THE PINS THE PAPERS NAME (none with a terminal), THE READS THERE, AND THE REGISTERED RUN`S BANK:
+  no terminal: t7v03  SIDE-t7-topology-cmb v0.3 -> commit 8eb0d5ad0b33 ; at the remote: remote tag v0.3 ; named at TC :172
+  no terminal: t7v01  SIDE-t7-topology-cmb v0.1 -> commit DOES NOT RESOLVE AS CITED ; at the remote: NONE ; named at TC :174
+  no terminal: lci    SIDE-local-cosmic-interface 7a62ced -> commit 7a62cedbb956 ; at the remote: remote tag v0.1.0 ; named at LC :163
+  no terminal: qds    SIDE-quaternionic-dark-sector e860142 -> commit e860142a5381 ; at the remote: remote tag v0.1.0 ; named at QD :236
+  read for the record t7_h1   SIDET7TopologyCMB/Basic.lean :62 at v0.3 -- needle on the line: True -- `H1_free_rank := 1` and `H1_torsion_rank := 3` entered by definition (:62-:63), the homology the paper states read in as numerals
+  read for the record lci_k   SIDELocalCosmicInterface/Basic.lean :52 at 7a62ced -- needle on the line: True -- `kappa_x100` defined by cases on the eight channels (:52-:60), `em_98` to `dark_0` by decide (:62-:69): the paper’s estimates as definitions
+  read for the record qds_dm  SIDEQuaternionicDarkSector/Basic.lean :70 at e860142 -- needle on the line: True -- `dm_per_element := ⟨16, 9⟩` (:70) and `dm_total_eq_16_over_3` by decide (:74): arithmetic over weights the file defines
+  the commits` subjects: ['@ v0.3: surviving-signature run (seven-scale discriminator corpus-underdetermined)', 'Initial commit: SIDE-local-cosmic-interface kernel', 'Initial commit: SIDE-quaternionic-dark-sector kernel']
+  the registered run`s bank: SIDE-t7-topology-cmb:t7_results.json at 575a802 -- {'ok': True, 'rev': '575a802', 'p': 0.04595404595404595, 'theta': 54.0, 'signal': 7.102258781088722e-09, 'seed': 770411, 'n_mc': 1000, 'scan': 171, 'decision': 'D_marginal', 'md5_blob': '65d2353d596443cdc7a4ce080c955950', 'md5_wc': 'a340fabf74c720f39cdcbd994177fc47', 'md5_paper': 'a340fabf74c720f39cdcbd994177fc47', 'wc_matches': True, 'on_remote': True, 'remote_main': '936cd65'}
+  load-bearing reading: no row reads kernel-verified; LOAD empty
+  the terminal table on kappa_x100: no row
+  the terminal table on em_98: no row
+  the terminal table on dm_total_eq_16_over_3: no row
+  the terminal table on decomp_A_factorization: no row
+  the terminal table on twenty_one_incidences: no row
+  the terminal table on T7_torsion_eight: no row
+  the terminal table on riemannZeta: ['SIDE-explicit-formula riemannZeta None UNGRADED']
+  the pages: ζ list 93 lines, χ list 60 lines; nodes of either the cluster names: none
+
+### PART E -- THE TECHNE CITATION: QD :228, carried by pointer alone -- TECHNE-Core, its tracked-file manifest sha256 eeaf403c0bfe18f8b7e126d895dedbdbcdeb0128fc7079b41bd9f03f3625cfc3 ; no sentence of its body carried and no tool of it named
+
+### PART F -- THE CLUSTER`S ARITHMETIC, RECOMPUTED (mpmath 1.3.0):
+  SF :64-:74 the bins table’s constants and P-smooth counts summed -- computed 279 constants, 265 P-smooth, 14 not P-smooth ; the paper 439 constants, 5 violations (:62, :82) ; ### DIFFERS
+  SF :76 the P-smooth rate against distance over the nine bins: the least-squares line and Pearson r -- computed rate = 1.047 − 0.0385 × distance ; r = -0.660 ; the paper κ = 1.047 − 0.039 × distance, r = −0.66 ; AGREES
+  DM :37 the same nine bins: Spearman ρ -- computed ρ = -0.644 ; the paper Spearman ρ = −0.66 ; ### DIFFERS
+  SF :91 zero of five violations among 350 of 439 constants: a Poisson count at mean 350 × 5/439, a per-constant rate 5/439, and five drawn from 439 -- computed exp(−3.986) = 0.0186 ; (1 − 5/439)^350 = 0.0181 ; C(89, 5)/C(439, 5) = 3.13e-04 ; the paper a 1.9% event ; AGREES
+  SF :127 and :141 the H₀ values’ difference and its combined error -- computed 73.04 − 67.36 = 5.68 km/s/Mpc ± 1.17 (4.8σ) ; the paper a separation of 6–8 km/s/Mpc predicted ; ### DIFFERS
+  LC :55 the mean κ over eight channels and over seven -- computed 0.704 ; 0.804 ; the paper 0.70 ; 0.80 ; AGREES
+  LC :67-:80 the four columns summed and their zero scores counted -- computed ΛCDM 21, zeros 0 ; CCC+TL 10, zeros 4 ; MOND 14, zeros 2 ; Programme 20, zeros 0 ; the paper 21, 10, 14, 20 ; failures 0, 4, 2, 0 ; AGREES
+  LC :90 the α-variation tension -- computed 10⁻⁵ / 10⁻⁷ = 100 ; the paper 100-fold ; AGREES
+  TC :22-:25 the observed over predicted D_l -- computed l = 2: 0.175, l = 3: 0.829, l = 4: 0.837, l = 5: 1.133 ; the paper 0.17, 0.83, 0.84, 1.13 ; AGREES
+  TC :27 the combined deficit at l = 2 to 5 -- computed 1 − 3262/4284 = 23.9% ; the paper 24% ; AGREES
+  TC :60 the Fano incidences, seven lines of three points -- computed 21 ; the paper 21 ; AGREES
+  TC :106 and :199 the Fano incidence matrix N (lines {0, 1, 3} + k mod 7): the moduli of its eigenvalues; the eigenvalues of N Nᵀ; those of the collinearity graph K₇ -- computed |λ(N)| [1.4142, 1.4142, 1.4142, 1.4142, 1.4142, 1.4142, 3.0] ; λ(N Nᵀ) [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 9.0] ; λ(K₇) [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 6.0] ; the paper 3 once and −1 six times ; ### DIFFERS
+  TC :70, :190 and QD :12, :125 GL(3, 𝔽₂) enumerated: its order, the orbit of a non-zero vector, the stabilizer of (1, 1, 1), the stabilizer’s orbits on the other six, the coordinate permutations inside it -- computed order 168 ; orbit 7 ; stabilizer 24 ; its orbits [6] ; permutation matrices 6 ; the paper order 168, transitive (TC); stabilizer S₃ with orbits 3, 3 (QD :125) ; ### DIFFERS
+  TC :144 the evaluation count -- computed 10⁶ × 100 × 1000 = 1e+11 ; the paper 10¹¹ ; AGREES
+  TC :172-:178 the registered run’s bank, SIDE-t7-topology-cmb 575a802:t7_results.json -- computed p_global 0.04595404595404595 ; best θ_min 54.0 ; signal 7.102258781088722e-09 ; seed 770411 ; n_mc 1000 ; scan 171 points ; decision D_marginal ; working-copy md5 a340fabf74c720f39cdcbd994177fc47 (the paper’s a340fabf…) ; the committed blob’s md5 65d2353d596443cdc7a4ce080c955950 (core.autocrlf) ; on the remote main True ; the paper p = 0.046, θ_min 54.0°, seed 770411, md5 a340fabf… ; AGREES
+  QD :12, :30-:33 and DM :83-:100 the Planck ratios and their distances from the fractions -- computed total 19.284 ; DM/b 5.381 ; DE/b 13.903 ; 77/4 off by 0.176% ; 58/3 off by 0.256% ; 16/3 off by 0.89% ; 14 off by 0.70% ; the paper 19.284 ; 5.381 ; 13.903 ; 0.17% ; 0.26% ; 0.89% ; 0.70% ; AGREES
+  QD :69 the per-element factor -- computed 19.2840 / 7 → 2.7549 ; off 11/4 by 0.18% ; the paper 2.755, 0.18% ; AGREES
+  QD :35, :83, :145 and FD :97-:108 the decomposition arithmetic -- computed 3 × 16/9 = 16/3 ; 3 × 14/3 = 14 ; 58/3 − 77/4 = 1/12 ; Ω_b/12 at Ω_b = 4/81: 1/243 = 0.00412 ; the paper 16/3 ; 14 ; 1/12 ; 1/243 ≈ 0.0041 ; AGREES
+  QD :135-:137 the Hamming distances to (1, 1, 1) -- computed weight 1: 2 ; weight 2: 1 ; the paper 2 ; 1 ; AGREES
+  DM :91 and FD :16 the tuple (2, 3, 2, 0) -- computed n₂^(n₁+n₃) = 3^(2+2) = 81 ; n₁^n₃ = 2^2 = 4 ; 81 − 4 = 77 = 7 × 11 ; the paper 81 ; 4 ; 77 ; AGREES
+  FD :20-:22 and :143-:146 the pulls from Planck 2018 -- computed Ω_b = 4/81 = 0.049383, 0.125σ ; 16/3 0.45σ ; 14 0.41σ ; 77/4 0.11σ (Planck alone) ; the paper 0.13σ ; 0.45σ ; 0.41σ ; 0.03σ (five datasets) ; AGREES
+  FD :112 Decomposition B’s curvature against Planck’s Ω_K = −0.0007 ± 0.0019 -- computed Ω_K = −1/243 = -0.0041, -1.80σ ; the paper consistent with both ; AGREES
+  TH :50-:65 and :108-:118 the domain counts, the I∩D∩S counts, the means and the deviation -- computed 348 theories ; 14 I∩D∩S ; count-weighted mean 0.9224, unweighted 0.9211 ; deviation 0.0203 ; the paper 375 ; 14 ; 0.918 ± 0.018 ; ### DIFFERS
+  TH :128 the χ² survival at 2.1 on 10 degrees of freedom -- computed p = 0.9955 ; the paper 0.995 ; AGREES
+  TH :130 a normal 95 percent interval from 0.918 ± 0.018 over fourteen -- computed [0.909, 0.927] ; the paper [0.906, 0.930] ; ### DIFFERS
+  TH :216 the distance from 11/12 -- computed 0.918 − 11/12 = 0.00133 ; the paper 0.0013 ; AGREES
+  TH :254-:256 the paths M1 to M5 -- computed 45 ; 68 ; 15 ; the paper 45 ; 68 ; 15 ; AGREES
+  QI :43-:64 the [7, 4, 3] codewords and the weights of the even ones -- computed 16 codewords ; even 8 of weights [0, 4] ; odd 8 ; the paper 16 ; 8 ; 8 ; AGREES
+  QI :280 T X T† against ±X and (X + Y)/√2 -- computed T X T† = (X + Y)/√2: True ; commutes: False ; anticommutes: False ; the paper anti-commute ; ### DIFFERS
+  QV :17 and :78 T on all seven qubits applied to |0_L⟩: its overlaps with |0_L⟩ and |1_L⟩ and the norm left in the code space -- computed ⟨0_L|T⊗7|0_L⟩ = -0.750+0.000i ; ⟨1_L|T⊗7|0_L⟩ = 0.000 ; norm in the code space 0.750 ; the paper a logical operation preserving the code space ; ### DIFFERS
+
+### PART G -- H50a`S TRACE TABLE: the (paper, line) pairs a body sentence may cite, each a claim line above (117):
+  DM :12, DM :37, DM :58, DM :69, DM :83, DM :86, DM :91, DM :107, DM :121, DM :137, DM :147, DM :149, DM :175, FD :14, FD :16, FD :22, FD :46, FD :77, FD :108, FD :112, FD :128, FD :145, FD :161, FD :163, FD :179, FD :183, FD :187, LC :12, LC :28, LC :32, LC :55, LC :59, LC :79, LC :82, LC :90, LC :98, LC :117, LC :123, LC :163, QD :12, QD :30, QD :35, QD :43, QD :55, QD :67, QD :69, QD :83, QD :121, QD :125, QD :135, QD :139, QD :149, QD :153, QD :177, QD :183, QD :197, QD :228, QD :236, QI :7, QI :59, QI :61, QI :167, QI :187, QI :280, QI :358, QI :366, QV :17, QV :66, QV :78, QV :81, SF :12, SF :20, SF :26, SF :28, SF :30, SF :38, SF :54, SF :76, SF :82, SF :91, SF :96, SF :121, SF :131, SF :139, SF :141, SF :153, SF :161, TC :12, TC :22, TC :27, TC :49, TC :60, TC :70, TC :72, TC :106, TC :144, TC :172, TC :174, TC :178, TC :180, TC :199, TC :213, TC :215, TC :225, TH :18, TH :20, TH :65, TH :79, TH :128, TH :130, TH :176, TH :208, TH :216, TH :218, TH :232, TH :254, TH :300
+
+### PART H -- THE SIMULATORS AND H50c: the bank search (PLACE-papers tracked and untracked by git grep / ls-files; relay tracked by git grep; D:/MY-DOwnloads, D:/HERITAGE, D:/PLACE-phase2, D:/PLACE-phase1.5 by file name by os.walk; needles ['kappa vs T-count', 'kappa(logical | full syndrome)', 'STEANE [[7,1,3]] kappa']): NONE
+  QI-01  QI :7    statement-grade   -- a bank holds the run: no
+  QI-02  QI :59   statement-grade   -- a bank holds the run: no
+  QI-03  QI :61   statement-grade   -- a bank holds the run: no
+  QI-04  QI :167  statement-grade   -- a bank holds the run: no
+  QI-05  QI :187  statement-grade   -- a bank holds the run: no
+  QI-06  QI :280  statement-grade   -- a bank holds the run: no
+  QI-07  QI :358  statement-grade   -- a bank holds the run: no
+  QI-08  QI :366  statement-grade   -- a bank holds the run: no
+  QV-01  QV :17   statement-grade   -- a bank holds the run: no
+  QV-02  QV :66   statement-grade   -- a bank holds the run: no
+  QV-03  QV :78   statement-grade   -- a bank holds the run: no
+  QV-04  QV :81   statement-grade   -- a bank holds the run: no
+### ### **H50c HOLDS** -- 12 simulator claims, 0 graded computationally-verified, 12 below it; the bank search found none -- every claim graded below computationally-verified for want of a banked run; the arm`s other side, computationally-verified where a bank holds the run, is VACUOUS: no bank holds a run of either simulator
+
+### THE GRADES: kernel-verified 0, theorem-supported 0, argument-supported 15, computationally-verified 34, synthesis-suggested 3, statement-grade 72
+### THE CERTIFYING PINS: none ; LOAD-BEARING ROWS: none
+### THE ROUTES: 1 (R1); against the sieve: R1 against RH-60: DARK, test 2 / DARK, test 2 -- MATCH; with no row, listed for its next version: none
