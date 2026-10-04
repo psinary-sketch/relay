@@ -64,9 +64,13 @@ CARRIED = [
     '        (N1) scored after the build, REFUTED in letter on its count of syntheses (four named, the navigator`s two), its floor held.',
     '    (e) Branches left for the next act`s step zero, each merged: PLACE-papers push-b614; relay push-b614 and push-b614-closing.',
     '    (f) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
-    '    (g) One transient network failure, kept: the first scores run read every cited pin`s remote as absent; tested directly, all',
-    '        eight resolve; the scorer re-run alone (data/b614_scores_attempt1.json). The append guard refused the first trail record',
-    '        (the stem twice in one item), writing nothing; OPEN_TRAILS read at its banked length; the item rephrased and appended.',
+    '    (g) Transient ls-remote failures, each kept and each claim tested directly before a re-run alone: the first scores run read',
+    '        every cited pin`s remote as absent (data/b614_scores_attempt1.json); a pre-push suite run failed G-GRADES-IN-RULE and',
+    '        G-DOC-TIER-LINE (data/b614_checks_attempt1.txt); two post-push runs failed the pin arms (data/b614_checks_postpush_attempt1.txt,',
+    '        _attempt2.txt); the first closing pins run read relay`s remote unresolved (data/b614_pins_closing_attempt1.txt);',
+    '        twenty sequential ls-remote calls all answered, so the failures come in the suite`s bursts of calls --',
+    '        the next suite resolves each pin once per run. The append guard refused the first trail record (the stem twice in one',
+    '        item), writing nothing; OPEN_TRAILS read at its banked length; the item rephrased and appended.',
 ]
 
 
