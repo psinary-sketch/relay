@@ -1,0 +1,25 @@
+b617 -- COMPONENT 1: THE ARITHMETIC OF (R227)(2), the 2G papers` findings, computed 2026-10-04T19:18:37Z (Python 3.12.10, numpy 2.5.1), from the papers` own tables as b616`s claims module carries them (tools/b616_claims.py, read only)
+
+### (i) SYMMETRY_FILTER :64-:74, the bins table, summed against :62 and :82 (439 constants, five violations):
+    constants 279 ; P-smooth 265 ; not P-smooth 14.
+    THE FACT OF RECORD: the table sums to 279 constants with 14 not P-smooth; the paper states 439 and 5 -- ERRATA E-2026-10-04-5.
+
+### (ii) THEORY_SPACE :50-:64, the domain counts, against :46, :65 and :298 (375); :108-:118, the per-domain values, against :18 and :99 (0.918):
+    the domain counts sum to 348 ; the I∩D∩S counts to 14 ; the count-weighted mean 0.9224 ; the unweighted mean over the eleven domains 0.9211.
+    THE FACT OF RECORD: 348 theories, not 375; the count-weighted mean 0.922, not 0.918 -- ERRATA E-2026-10-04-6.
+
+### (iii) SYMMETRY_FILTER :76 (the linear fit, r = −0.66) and the −0.66 called Spearman ρ at DARK_DELTA_MU :37 and FORMATION_DISTANCE :139:
+    over the nine bins, rate against distance: least squares rate = 1.047 − 0.0385 × distance ; Pearson r = -0.660 ; Spearman ρ = -0.644.
+    THE FACT OF RECORD: −0.66 is the Pearson r of SYMMETRY_FILTER`s fit; the Spearman ρ over the bins is -0.644 -- ERRATA E-2026-10-04-7 at the two citing papers.
+
+### (iv) T7_CMB :106 and :199, “the Fano incidence matrix” with eigenvalues 3 once and −1 six times:
+    the incidence matrix N (lines {0, 1, 3} + k mod 7): the moduli of its eigenvalues [3.0, 1.4142, 1.4142, 1.4142, 1.4142, 1.4142, 1.4142] ; N Nᵀ = 2I + J, its eigenvalues [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 9.0] ; the collinearity graph K₇ (J − I), its eigenvalues [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 6.0].
+    THE FACT OF RECORD: N has 3 once and six eigenvalues of modulus √2; K₇ has 6 once and −1 six times; the pair 3 and −1 six times is the spectrum of neither -- its 3 is N`s and its −1 six times K₇`s. (b616`s reading, that the pair belongs to K₇, is corrected here: its own bank prints λ(K₇) with 6 once.)
+
+### (v) QUATERNIONIC :12 and :125, DARK_DELTA_MU :107, FORMATION_DISTANCE :100: the diagonal`s stabilizer S₃ (or a parabolic) with orbits (3, 3, 1):
+    GL(3, 𝔽₂) enumerated: order 168 ; the orbit of a non-zero vector 7 ; the stabilizer of (1, 1, 1) of order 24 ; its orbits on the seven non-zero vectors [6, 1] ; the coordinate permutations inside it 6.
+    THE FACT OF RECORD: the stabilizer has order 24, not 6, contains S₃ as its coordinate permutations, and its orbits are (6, 1).
+
+### (vi) qec_kappa_v2.py :17 and :78, transversal T read as a logical T on the Steane code:
+    the [7, 4, 3] code`s 16 codewords ; T on all seven qubits applied to |0_L⟩: ⟨0_L|T⊗7|0_L⟩ = -0.750+0.000i ; ⟨1_L|T⊗7|0_L⟩ = 0.000 ; the norm kept in the code space 0.750.
+    THE FACT OF RECORD: T⊗7 keeps 0.750 of the norm of |0_L⟩ in the code space, so it is not a logical gate on the Steane code.

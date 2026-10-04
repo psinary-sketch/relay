@@ -1,0 +1,525 @@
+{
+ "at": "2026-10-04T19:20:03Z",
+ "instruments": [
+  {
+   "test": "1",
+   "repo": "PLACE-papers",
+   "rev": "847e433",
+   "path": "phase1.5/method/INSTRUMENTS.md",
+   "line": 93,
+   "ok": true,
+   "text": "## I-7 — THE PLACEMENT SCREEN (standing; filed 2026-08-05, author-ruled)"
+  },
+  {
+   "test": "1",
+   "repo": "PLACE-papers",
+   "rev": "1d0109f",
+   "path": "phase1.5/method/INVARIANCE_BARRIERS_v1_4.md",
+   "line": 148,
+   "ok": true,
+   "text": "**Theorem 3.1 (Sieve Ceiling Lemma).** *Let M be a determined structure with specification S, interface I with κ(P, I) = 0 for target parameter P. Let π be a formal first-order proof in ZFC ∪ S. If π "
+  },
+  {
+   "test": "2",
+   "repo": "SIDE-explicit-formula",
+   "rev": "v0.16",
+   "path": "SIDEExplicitFormula/Schema/Detector.lean",
+   "line": 99,
+   "ok": true,
+   "text": "theorem detector (C : WeilConfig) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ C.carrier) (hoff : ρ₀.re ≠ 1 / 2) :"
+  },
+  {
+   "test": "2",
+   "repo": "SIDE-explicit-formula",
+   "rev": "v0.16",
+   "path": "SIDEExplicitFormula/Schema/Epstein.lean",
+   "line": 57,
+   "ok": true,
+   "text": "theorem epstein_not_h2_sign_cfg (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs)"
+  },
+  {
+   "test": "2",
+   "repo": "PLACE-papers",
+   "rev": "1d0109f",
+   "path": "phase1.5/method/INVARIANCE_BARRIERS_v1_4.md",
+   "line": 259,
+   "ok": true,
+   "text": "**Theorem 3.7 (Euler-product barrier against T).** *Let T = {T1 functional equation, T2 analytic continuation, T3 order-1 growth / Hadamard factorization, T4 Dirichlet-series expansion, T5 Riemann–von"
+  },
+  {
+   "test": "4",
+   "repo": "SIDE-explicit-formula",
+   "rev": "v0.3",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "line": 47,
+   "ok": true,
+   "text": "theorem h2_sign_iff_forall_upto : h2_sign ↔ ∀ L₀ : ℝ, h2_sign_upto L₀ :="
+  },
+  {
+   "test": "4",
+   "repo": "SIDE-explicit-formula",
+   "rev": "v0.3",
+   "path": "SIDEExplicitFormula/DetectionRegion.lean",
+   "line": 52,
+   "ok": true,
+   "text": "theorem forall_upto_iff_rh : (∀ L₀ : ℝ, h2_sign_upto L₀) ↔ RiemannHypothesis :="
+  },
+  {
+   "test": "4",
+   "repo": "SIDE-explicit-formula",
+   "rev": "v0.9",
+   "path": "SIDEExplicitFormula/LiCriterionBridge.lean",
+   "line": 179,
+   "ok": true,
+   "text": "theorem li_nonneg_iff_rh : (∀ n : ℕ, 0 ≤ LiCoeff n) ↔ RiemannHypothesis := by"
+  }
+ ],
+ "sources": [
+  {
+   "row": "RH-61",
+   "cluster": "1.2",
+   "route": "R3",
+   "path": "phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+   "line": 135,
+   "ok": true,
+   "text": "| R3 | ME-15 | NOT A ROUTE | — | the paper itself withdraws the paths as an argument for placement: they identify the line and do not place a zero | none |"
+  },
+  {
+   "row": "RH-61",
+   "cluster": "1.5E",
+   "route": "R2",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 183,
+   "ok": true,
+   "text": "| R2 | TF-02, TS-03, CO-16 | NOT A ROUTE | — | the papers’ own correction of 2026-08-10: the paths identify the line, sharing one involution, and carry no placement | none; listed for the sieve’s next version |"
+  },
+  {
+   "row": "RH-61",
+   "cluster": "2B",
+   "route": "R2",
+   "path": "phase2/philosophy/THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md",
+   "line": 165,
+   "ok": true,
+   "text": "| R2 | IS-02 | NOT A ROUTE | — | the paper’s own correction of 2026-08-10: the derivations identify the line, sharing one involution, and carry no placement | none |"
+  },
+  {
+   "row": "RH-62",
+   "cluster": "1.2",
+   "route": "R2",
+   "path": "phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+   "line": 134,
+   "ok": true,
+   "text": "| R2 | IR-05 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | with the symmetry structure alone, as an Epstein ζ_Q has it, the same type analysis finds no location-type mechanism, yet the Epstein "
+  },
+  {
+   "row": "RH-63",
+   "cluster": "1.2",
+   "route": "R4",
+   "path": "phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+   "line": 136,
+   "ok": true,
+   "text": "| R4 | ME-12 | DARK | 4 (forall_upto pair @ v0.3 = 04eda4a; li_nonneg_iff_rh @ v0.9 = e5a5a83) | the prime side enters, so test 2 passes, but the value is computed at finitely many zeros and the universal step is the loc"
+  },
+  {
+   "row": "RH-64",
+   "cluster": "1.2",
+   "route": "R5",
+   "path": "phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+   "line": 137,
+   "ok": true,
+   "text": "| R5 | ME-10, IP-06 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the argument uses the functional equation, Schwarz reflection and Cauchy–Riemann alone, all of which an Epstein ζ_Q with real c"
+  },
+  {
+   "row": "RH-65",
+   "cluster": "1.2",
+   "route": "R6",
+   "path": "phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+   "line": 138,
+   "ok": true,
+   "text": "| R6 | ME-11 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | an Epstein ζ_Q for a fixed form is equally parameter-free and carries off-line zeros, so the argument meets the Epstein configuration "
+  },
+  {
+   "row": "RH-65",
+   "cluster": "1.5E",
+   "route": "R5",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 186,
+   "ok": true,
+   "text": "| R5 | TS-18, CO-12 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the count of real conditions holds for every function real on its symmetry line, an Epstein ζ_Q among them, whose off-line zero"
+  },
+  {
+   "row": "RH-66",
+   "cluster": "1.2",
+   "route": "R7",
+   "path": "phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+   "line": 139,
+   "ok": true,
+   "text": "| R7 | IP-02 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the fixed point of s ↦ 1 − s is shared by every function with this functional equation, an Epstein ζ_Q among them, so it places no zer"
+  },
+  {
+   "row": "RH-66",
+   "cluster": "1.5E",
+   "route": "R4",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 185,
+   "ok": true,
+   "text": "| R4 | CO-18 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the monodromy is a property of the involution s ↦ 1 − s, shared by every function with this functional equation, an Epstein ζ_Q among "
+  },
+  {
+   "row": "RH-67",
+   "cluster": "1.5E",
+   "route": "R6",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 187,
+   "ok": true,
+   "text": "| R6 | TS-26 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | TS :643 says its analytic results use only the functional equation and the Cauchy–Riemann equations, not the Euler product, so they ho"
+  },
+  {
+   "row": "RH-68",
+   "cluster": "1.5E",
+   "route": "R7",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 188,
+   "ok": true,
+   "text": "| R7 | TS-25 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the inventory names no prime-side ingredient, and the Epstein configuration (the sieve’s FD-01) carries an off-line point with a funct"
+  },
+  {
+   "row": "RH-69",
+   "cluster": "1.5E",
+   "route": "R8",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 189,
+   "ok": true,
+   "text": "| R8 | CO-09 | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the Frobenius property of {2, 3} is a fact about the integers and names no prime side; the integers an Epstein ζ_Q sums over carry it "
+  },
+  {
+   "row": "RH-70",
+   "cluster": "1.5E",
+   "route": "R9",
+   "path": "phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+   "line": 190,
+   "ok": true,
+   "text": "| R9 | CO-15 | DARK | 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f) | a statistic over thirty ordinates, ¦ζ′(ρ)¦/√γ, carries no real part of any zero | none; listed for the sieve’s next version |"
+  }
+ ],
+ "rows": [
+  {
+   "id": "RH-61",
+   "key": "K1",
+   "verdict": "NOT A ROUTE",
+   "test": "—",
+   "shape": "FINITE (H)",
+   "register": "the symmetry and its level curves",
+   "conclusion": "The paths to σ = 1/2 share the one involution s ↦ 1 − s, so their agreement identifies the line and places no zero; the papers withdraw them as an argument for placement.",
+   "reason": "the papers’ own correction of 2026-08-10: the paths identify the line through the involution they share and carry no placement, offered toward no target",
+   "sources": [
+    [
+     "1.2",
+     "R3",
+     135,
+     "| R3 | ME-15 | NOT A ROUTE |"
+    ],
+    [
+     "1.5E",
+     "R2",
+     183,
+     "| R2 | TF-02, TS-03, CO-16 | NOT A ROUTE |"
+    ],
+    [
+     "2B",
+     "R2",
+     165,
+     "| R2 | IS-02 | NOT A ROUTE |"
+    ]
+   ],
+   "line": "| RH-61 | The paths to σ = 1/2 share the one involution s ↦ 1 − s, so their agreement identifies the line and places no zero; the papers withdraw them as an argument for placement. | FINITE (H) | the symmetry and its level curves | NOT A ROUTE | — | the papers’ own correction of 2026-08-10: the paths identify the line through the involution they share and carry no placement, offered toward no target | none -- the syntheses’ route rows: 1.2 R3 (its :135); 1.5E R2 (its :183); 2B R2 (its :165) |"
+  },
+  {
+   "id": "RH-62",
+   "key": "K2",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the symmetry and its level curves",
+   "conclusion": "An off-line zero is read as a location-type property that neither the symmetry structure nor the multiplicative structure produces, offered as excluding off-line zeros of ξ; the type analysis is the papers’ argument and no compiled step.",
+   "reason": "with the symmetry structure alone, as an Epstein ζ_Q has it, the same type analysis finds no location-type mechanism, yet the Epstein configuration carries an off-line point, which the detector meets at ρ_E with a negative window",
+   "sources": [
+    [
+     "1.2",
+     "R2",
+     134,
+     "| R2 | IR-05 | DARK |"
+    ]
+   ],
+   "line": "| RH-62 | An off-line zero is read as a location-type property that neither the symmetry structure nor the multiplicative structure produces, offered as excluding off-line zeros of ξ; the type analysis is the papers’ argument and no compiled step. | UNIVERSAL (H) | the symmetry and its level curves | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | with the symmetry structure alone, as an Epstein ζ_Q has it, the same type analysis finds no location-type mechanism, yet the Epstein configuration carries an off-line point, which the detector meets at ρ_E with a negative window | none -- the syntheses’ route rows: 1.2 R2 (its :134) |"
+  },
+  {
+   "id": "RH-63",
+   "key": "K3",
+   "verdict": "DARK",
+   "test": "4 (forall_upto pair @ v0.3 = 04eda4a; li_nonneg_iff_rh @ v0.9 = e5a5a83)",
+   "shape": "FINITE (H)",
+   "register": "multiplicity",
+   "conclusion": "Localizing the explicit formula at a zero equates its multiplicity with a prime-side value, computed to be 1 at finitely many zeros; the step to every zero is the localization the papers list as owed.",
+   "reason": "the prime side enters, so test 2 is cleared, but the value is computed at finitely many zeros and the universal step is the localization owed: a FINITE check with no ladder of rungs to every zero; tests 1 and 3 n/a",
+   "sources": [
+    [
+     "1.2",
+     "R4",
+     136,
+     "| R4 | ME-12 | DARK |"
+    ]
+   ],
+   "line": "| RH-63 | Localizing the explicit formula at a zero equates its multiplicity with a prime-side value, computed to be 1 at finitely many zeros; the step to every zero is the localization the papers list as owed. | FINITE (H) | multiplicity | DARK | 4 (forall_upto pair @ v0.3 = 04eda4a; li_nonneg_iff_rh @ v0.9 = e5a5a83) | the prime side enters, so test 2 is cleared, but the value is computed at finitely many zeros and the universal step is the localization owed: a FINITE check with no ladder of rungs to every zero; tests 1 and 3 n/a | none -- the syntheses’ route rows: 1.2 R4 (its :136) |"
+  },
+  {
+   "id": "RH-64",
+   "key": "K4",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the symmetry and its level curves",
+   "conclusion": "Along the curve Re ξ = 0 leaving a simple zero, the modulus of Im ξ is argued to increase strictly, offered as keeping off-line zeros off that curve; the step that the curve has no critical points is not given.",
+   "reason": "the argument uses the functional equation, Schwarz reflection and the Cauchy–Riemann equations alone, which an Epstein ζ_Q with real coefficients carries, and the Epstein configuration carries an off-line point the detector meets at ρ_E",
+   "sources": [
+    [
+     "1.2",
+     "R5",
+     137,
+     "| R5 | ME-10, IP-06 | DARK |"
+    ]
+   ],
+   "line": "| RH-64 | Along the curve Re ξ = 0 leaving a simple zero, the modulus of Im ξ is argued to increase strictly, offered as keeping off-line zeros off that curve; the step that the curve has no critical points is not given. | UNIVERSAL (H) | the symmetry and its level curves | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the argument uses the functional equation, Schwarz reflection and the Cauchy–Riemann equations alone, which an Epstein ζ_Q with real coefficients carries, and the Epstein configuration carries an off-line point the detector meets at ρ_E | none -- the syntheses’ route rows: 1.2 R5 (its :137) |"
+  },
+  {
+   "id": "RH-65",
+   "key": "K5",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the symmetry and its level curves",
+   "conclusion": "An off-line zero needs two real conditions in one real parameter where an on-line zero needs one, offered with genericity as excluding off-line zeros of a determined system; the step from generic to actual for ξ is marked open.",
+   "reason": "the count of real conditions holds for every function real on its symmetry line, an Epstein ζ_Q among them, whose off-line point the detector meets at ρ_E; the papers mark the step for ξ open",
+   "sources": [
+    [
+     "1.2",
+     "R6",
+     138,
+     "| R6 | ME-11 | DARK |"
+    ],
+    [
+     "1.5E",
+     "R5",
+     186,
+     "| R5 | TS-18, CO-12 | DARK |"
+    ]
+   ],
+   "line": "| RH-65 | An off-line zero needs two real conditions in one real parameter where an on-line zero needs one, offered with genericity as excluding off-line zeros of a determined system; the step from generic to actual for ξ is marked open. | UNIVERSAL (H) | the symmetry and its level curves | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the count of real conditions holds for every function real on its symmetry line, an Epstein ζ_Q among them, whose off-line point the detector meets at ρ_E; the papers mark the step for ξ open | none -- the syntheses’ route rows: 1.2 R6 (its :138); 1.5E R5 (its :186) |"
+  },
+  {
+   "id": "RH-66",
+   "key": "K6",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the symmetry and its level curves",
+   "conclusion": "The involution s ↦ 1 − s fixes σ = 1/2, and its fixed line with the monodromy concentrated there is offered as placing the zeros on the line.",
+   "reason": "the fixed point of s ↦ 1 − s and its monodromy are shared by every function with this functional equation, an Epstein ζ_Q among them, whose off-line point the detector meets at ρ_E",
+   "sources": [
+    [
+     "1.2",
+     "R7",
+     139,
+     "| R7 | IP-02 | DARK |"
+    ],
+    [
+     "1.5E",
+     "R4",
+     185,
+     "| R4 | CO-18 | DARK |"
+    ]
+   ],
+   "line": "| RH-66 | The involution s ↦ 1 − s fixes σ = 1/2, and its fixed line with the monodromy concentrated there is offered as placing the zeros on the line. | UNIVERSAL (H) | the symmetry and its level curves | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the fixed point of s ↦ 1 − s and its monodromy are shared by every function with this functional equation, an Epstein ζ_Q among them, whose off-line point the detector meets at ρ_E | none -- the syntheses’ route rows: 1.2 R7 (its :139); 1.5E R4 (its :185) |"
+  },
+  {
+   "id": "RH-67",
+   "key": "K7",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the symmetry and its level curves",
+   "conclusion": "Analytic, topological and structural lines of evidence are read as converging on every nontrivial zero lying on the line, and the papers call them evidence.",
+   "reason": "the papers’ analytic results use only the functional equation and the Cauchy–Riemann equations, not the Euler product, so they hold unchanged at the Epstein configuration",
+   "sources": [
+    [
+     "1.5E",
+     "R6",
+     187,
+     "| R6 | TS-26 | DARK |"
+    ]
+   ],
+   "line": "| RH-67 | Analytic, topological and structural lines of evidence are read as converging on every nontrivial zero lying on the line, and the papers call them evidence. | UNIVERSAL (H) | the symmetry and its level curves | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the papers’ analytic results use only the functional equation and the Cauchy–Riemann equations, not the Euler product, so they hold unchanged at the Epstein configuration | none -- the syntheses’ route rows: 1.5E R6 (its :187) |"
+  },
+  {
+   "id": "RH-68",
+   "key": "K8",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the mechanism catalogue",
+   "conclusion": "An inventory of the known mechanisms producing zeros of functions with a functional equation finds none producing a zero off the line, offered as excluding one; the inventory names no prime-side ingredient.",
+   "reason": "the inventory names no prime-side ingredient, and the Epstein configuration (FD-01) carries an off-line point with a functional equation",
+   "sources": [
+    [
+     "1.5E",
+     "R7",
+     188,
+     "| R7 | TS-25 | DARK |"
+    ]
+   ],
+   "line": "| RH-68 | An inventory of the known mechanisms producing zeros of functions with a functional equation finds none producing a zero off the line, offered as excluding one; the inventory names no prime-side ingredient. | UNIVERSAL (H) | the mechanism catalogue | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the inventory names no prime-side ingredient, and the Epstein configuration (FD-01) carries an off-line point with a functional equation | none -- the syntheses’ route rows: 1.5E R7 (its :188) |"
+  },
+  {
+   "id": "RH-69",
+   "key": "K9",
+   "verdict": "DARK",
+   "test": "2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f)",
+   "shape": "UNIVERSAL (H)",
+   "register": "the codes and the substrate",
+   "conclusion": "The Frobenius property of {2, 3}, read by the papers as fixing the physical constants, is offered as also placing the zeta zeros on the line, the step stated without an argument.",
+   "reason": "the Frobenius property of {2, 3} is a fact about the integers and names no prime side; the integers an Epstein ζ_Q sums over carry it unchanged",
+   "sources": [
+    [
+     "1.5E",
+     "R8",
+     189,
+     "| R8 | CO-09 | DARK |"
+    ]
+   ],
+   "line": "| RH-69 | The Frobenius property of {2, 3}, read by the papers as fixing the physical constants, is offered as also placing the zeta zeros on the line, the step stated without an argument. | UNIVERSAL (H) | the codes and the substrate | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | the Frobenius property of {2, 3} is a fact about the integers and names no prime side; the integers an Epstein ζ_Q sums over carry it unchanged | none -- the syntheses’ route rows: 1.5E R8 (its :189) |"
+  },
+  {
+   "id": "RH-70",
+   "key": "K10",
+   "verdict": "DARK",
+   "test": "1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f)",
+   "shape": "DENSITY (H)",
+   "register": "multiplicity",
+   "conclusion": "The modulus of ζ′(ρ) divided by √γ over the first thirty zeros, mean 0.251 with no trend, is read as a barrier growing like √γ; a statistic over finitely many ordinates.",
+   "reason": "a statistic over thirty ordinates offered toward placement and simplicity: it carries no zero’s real part and bounds no zero beyond the thirty",
+   "sources": [
+    [
+     "1.5E",
+     "R9",
+     190,
+     "| R9 | CO-15 | DARK |"
+    ]
+   ],
+   "line": "| RH-70 | The modulus of ζ′(ρ) divided by √γ over the first thirty zeros, mean 0.251 with no trend, is read as a barrier growing like √γ; a statistic over finitely many ordinates. | DENSITY (H) | multiplicity | DARK | 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f) | a statistic over thirty ordinates offered toward placement and simplicity: it carries no zero’s real part and bounds no zero beyond the thirty | none -- the syntheses’ route rows: 1.5E R9 (its :190) |"
+  }
+ ],
+ "dup": [
+  {
+   "row": "RH-61",
+   "nearest": "RH-02",
+   "top": [
+    0.05263157894736842,
+    "RH-58"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-62",
+   "nearest": "RH-60",
+   "top": [
+    0.07692307692307693,
+    "RH-01"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-63",
+   "nearest": "RH-15",
+   "top": [
+    0.11764705882352941,
+    "RH-20"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-64",
+   "nearest": "RH-25",
+   "top": [
+    0.045454545454545456,
+    "RH-58"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-65",
+   "nearest": "RH-60",
+   "top": [
+    0.09090909090909091,
+    "RH-60"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-66",
+   "nearest": "RH-60",
+   "top": [
+    0.07692307692307693,
+    "RH-38"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-67",
+   "nearest": "RH-60",
+   "top": [
+    0.0625,
+    "RH-15"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-68",
+   "nearest": "RH-60",
+   "top": [
+    0.05263157894736842,
+    "RH-25"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-69",
+   "nearest": "CT-01",
+   "top": [
+    0.05263157894736842,
+    "RH-45"
+   ],
+   "ok": true
+  },
+  {
+   "row": "RH-70",
+   "nearest": "RH-59",
+   "top": [
+    0.12,
+    "RH-59"
+   ],
+   "ok": true
+  }
+ ],
+ "tests": {
+  "routes": 9,
+  "dark": 9,
+  "t2": 7,
+  "by_test": {
+   "1": 1,
+   "2": 7,
+   "4": 1
+  }
+ },
+ "H51a": "HOLDS",
+ "H51b": "HOLDS"
+}
