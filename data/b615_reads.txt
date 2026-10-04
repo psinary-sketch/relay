@@ -1,0 +1,787 @@
+b615 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### THE_KEYSTONE_CENSUS v0.3: the 2F and 2G rows and the no-keystone section -- phase2/method/THE_KEYSTONE_CENSUS_v0_3.md @ f22a13a2 (8 lines cited, of 428)
+    :56     | R16 | 2F: Empirical & Competition (REGISTRY :289) | `p2-6` ZERO_SIMPLICITY.md (:293); `p2-11` BSD_TRANSFER.md (:294); `p2-29` BSD_VIA_FORMATION_TRANSFER.md (:295) | no tier read: p2-6, p2-11, p2-29 | edited by the form: none ; neither: 3 | none (no SPIRAL_MAP §4A cluster holds a member here) | SIDE-bsd-formation-transfer v0.1.1 = 3491766 | neither: 3 |
+    :57     | R17 | 2G: Physics (Speculative — UNREVIEWED) (REGISTRY :297) | `p2-d1` SYMMETRY_FILTER.md (:301); `p2-d2` LOCAL_COSMIC.md (:302); `p2-d3` T7_CMB.md (:303); `p2-d4` QUATERNIONIC.md (:304); `p2-d5` DARK_DELTA_MU.md (:305); `p2-d6` FORMATION_DISTANCE.md (:306); `p2-d7` THEORY_SPACE.md (:307); `p2-d8` qec_kappa_infrastructure.py (:308); `p2-d9` qec_kappa_v2.py (:309) | no tier read: p2-d1, p2-d2, p2-d3, p2-d4, p2-d5, p2-d6, p2-d7, p2-d8, p2-d9 | edited by the form: none ; neither: 9 | Matter / cosmology MC: 1 row (via p2-d1, p2-d2, p2-d3, p2-d4, p2-d5, p2-d6, p2-d7) | SIDE-class-coupling v0.1.0 = b6a6e86 ; SIDE-constants: no tag ; SIDE-coupling v0.1.0 = 42b5e4e ; SIDE-formation-arithmetic v0.1.0 = ef0fcf1 ; SIDE-omega-b v0.1.0 = 9c80279 ; SIDE-orchestrator v0.1.0 = 5d0a341 ; SIDE-residual-bridge v0.1.0 = cf8a619 ; SIDE-substrate-cluster v0.1.0 = 06b61c3 | neither: 9 |
+    :65     ## §2 — THE CLUSTERS WITH DOCUMENTS AND NO KEYSTONE *(under §0)*
+    :73     - **R16 2F: Empirical & Competition** (REGISTRY :289): `p2-6` `phase2/empirical/ZERO_SIMPLICITY.md`; `p2-11` `phase2/empirical/BSD_TRANSFER.md`; `p2-29` `phase2/empirical/BSD_VIA_FORMATION_TRANSFER.md`.
+    :74     - **R17 2G: Physics (Speculative — UNREVIEWED)** (REGISTRY :297): `p2-d1` `phase2/physics-speculative/SYMMETRY_FILTER.md`; `p2-d2` `phase2/physics-speculative/LOCAL_COSMIC.md`; `p2-d3` `phase2/physics-speculative/T7_CMB.md`; `p2-d4` `phase2/physics-speculative/QUATERNIONIC.md`; `p2-d5` `phase2/physics-speculative/DARK_DELTA_MU.md`; `p2-d6` `phase2/physics-speculative/FORMATION_DISTANCE.md`; `p2-d7` `phase2/physics-speculative/THEORY_SPACE.md`; `p2-d8` `phase2/physics-speculative/qec_kappa_infrastructure.py`; `p2-d9` `phase2/physics-speculative/qec_kappa_v2.py`.
+    :155    ## §2 — THE CLASSIFICATION
+    :415    | R16 | :56 | 2F: Empirical & Competition | :293, :294, :295 | none | read |
+    :416    | R17 | :57 | 2G: Physics (Speculative — UNREVIEWED) | :301, :302, :303, :304, :305, :306, :307, :308, :309 | none | read |
+### REGISTRY.md: the 2F heading and rows p2-6, p2-11, p2-29 -- REGISTRY.md @ f22a13a2 (4 lines cited, of 968)
+    :289    ### 2F: Empirical & Competition
+    :293    | p2-6 | Zero Simplicity | `phase2/empirical/ZERO_SIMPLICITY.md` | v2.0 | ○ | SHORT | 1,864 | Number Theory |
+    :294    | p2-11 | BSD Formation Transfer | `phase2/empirical/BSD_TRANSFER.md` | v1.0 | ○ | DRAFT | ~1,700 | Arith. Geom. — predecessor of p2-29; both retained per multiple-keystones ruling |
+    :295    | p2-29 | Birch and Swinnerton-Dyer via Formation Transfer | `phase2/empirical/BSD_VIA_FORMATION_TRANSFER.md` | v0.1.2 | ○ | REVIEW | ~5,500 | Higher-version expansion of p2-11; paired kernel: `SIDE-bsd-formation-transfer` (clean axioms per session audit 2026-05-31); promotion to ◆ requires kernel-verification sweep. **v0.1.1 (2026-07-16):** Phase-2-remainder re-grade — abstract/chapter-summary over-claim ("proves full BSD", "forces Ш finite", "machine-verified") scoped to the formation transfer (location); Ш-finiteness / full BSD remain open (W-2 placeholders); neither Clay problem proved. Body was already honest; headline brought into line. |
+### ZERO_SIMPLICITY.md whole (p2-6) -- phase2/empirical/ZERO_SIMPLICITY.md @ f22a13a2 (80 lines cited, of 146)
+    :1      # ZERO SIMPLICITY FROM MECHANISM-CLASS DECOMPOSITION
+    :2      *CLASS-NUMBERING SCHEME: STAGE.* Declared b409 under `(R25)`, read from this document’s own text (3 of its class symbols pin STAGE, 0 pin the other); the corpus keeps **two** numberings and this note says which one this document uses. **No symbol in this document was renumbered, and nothing above th
+    :4      ## A Codimension Argument for Simple Zeros of ξ(s)
+    :6      **J. York Seale** | v2.0, April 2026
+    :8      ---
+    :10     ## Abstract
+    :12     We decompose the derivative ξ'(s) along the seven mechanism classes of the SIDE framework into five additive contributions and two constraint contributions. A double zero at ρ = 1/2 + iγ requires ξ'(ρ) = 0, which demands the simultaneous vanishing of five independent real-analytic functions of γ. Th
+    :14     ---
+    :16     ## 1. The Decomposition
+    :18     The completed Riemann zeta function ξ(s) = π^{−s/2} Γ(s/2) ζ(s) has seven mechanism classes in its SIDE formation (2, 3, 2, 0). At a zero ρ = 1/2 + iγ on the critical line, ξ(ρ) = 0. The zero is simple if ξ'(ρ) ≠ 0. A double zero requires ξ'(ρ) = 0.
+    :20     The derivative ξ'(s) receives contributions from each mechanism class. We classify these into additive contributions (functions whose sum constitutes ξ') and constraint contributions (structural relations that restrict the additive contributions without adding independent terms).
+    :22     ### 1.1 Additive contributions (five independent sources)
+    :24     **f₁(γ): Theta-transform derivative (from C₁, additive structure).** The n² input to the Jacobi theta function θ(τ) = Σ exp(πin²τ) contributes to ξ through the Mellin transform. The derivative with respect to s extracts the s-dependence of the Mellin kernel t^{s/2}, giving a contribution involving t
+    :26     **f₂(γ): Logarithmic derivative of ζ (from C₂, multiplicative structure).** The Euler product ζ(s) = Π_p (1 − p⁻ˢ)⁻¹ contributes ζ'/ζ(s) = −Σ_p (log p) p⁻ˢ / (1 − p⁻ˢ). This is the von Mangoldt explicit formula restricted to prime contributions. At σ = 1/2, the balance identity forces each term p⁻ˢ 
+    :28     **f₃(γ): Digamma contribution (from C₃, archimedean place).** The Gamma factor Γ(s/2) contributes ψ(s/2)/2 − (log π)/2, where ψ = Γ'/Γ is the digamma function. At s = 1/2 + iγ₁, the digamma function evaluates to a specific complex number with |f₃(γ₁)| ≈ 0.90. The digamma function has no zeros in the
+    :30     **f₅(γ): Hadamard sum (from C₅, local-global analytic).** The Hadamard product ξ(s) = ξ(0) Π_ρ' (1 − s/ρ') contributes Σ_{ρ' ≠ ρ} 1/(ρ − ρ') from the other zeros. This sum converges conditionally and encodes the spacing of nearby zeros. The contribution is dominated by the nearest-neighbor zeros ρ' 
+    :32     **f₆(γ): Explicit formula (from C₆, local-global arithmetic).** The explicit formula relates ξ' to a sum over prime powers: Σ_p Σ_k (log p) p⁻ᵏˢ. This is the full von Mangoldt sum (including prime power contributions beyond the prime-only sum in f₂). The explicit formula is the bridge between the ar
+    :34     ### 1.2 Constraint contributions (two structural relations)
+    :36     **f₄(γ): Functional equation constraint (from C₄).** The relation ξ(s) = ξ(1−s) implies ξ'(s) = −ξ'(1−s). At ρ = 1/2 + iγ: ξ'(ρ) = −ξ'(1−ρ). This couples the values of ξ' at ρ and 1−ρ but does not produce an independent additive contribution to the sum.
+    :38     **f₇(γ): Balance constraint (from C₇).** The balance identity p⁻σ = p⁻⁽¹⁻σ⁾ iff σ = 1/2 constrains the evaluation of f₂ and f₆ at the critical line. Again a structural constraint, not an additive contribution.
+    :40     ---
+    :42     ## 2. The Codimension Argument
+    :44     For ξ'(ρ) = 0, the five additive contributions must satisfy:
+    :46     f₁(γ) + f₂(γ) + f₃(γ) + f₅(γ) + f₆(γ) = 0
+    :48     Each fⱼ is a real-analytic function of γ. The functions come from five independent structural sources (additive, multiplicative, archimedean, analytic, arithmetic), and their values at any given γ are determined by independent data.
+    :50     ### 2.1 The transversality formulation
+    :52     Consider the map Φ: ℝ → ℂ⁵ defined by γ ↦ (f₁(γ), f₂(γ), f₃(γ), f₅(γ), f₆(γ)). The zero set of the sum is the hyperplane H = {(z₁,...,z₅) ∈ ℂ⁵ : z₁ + z₂ + z₃ + z₄ + z₅ = 0}. The condition ξ'(ρ) = 0 is equivalent to Φ(γ) ∈ H.
+    :54     The image of Φ is a curve — a one-dimensional object in five-dimensional space. The hyperplane H has codimension 1 in ℂ⁵. By transversality (Thom 1956), a curve generically misses a codimension-1 surface when the ambient dimension exceeds 1 + 1 = 2. Since 5 > 2, the intersection Φ(ℝ) ∩ H is generica
+    :56     ### 2.2 Why generic = actual
+    :58     The key step: in a determined system with no tunable parameters, generic position is actual position.
+    :60     This is not a tautology. In a system with free parameters, one might tune parameters to force Φ(γ) into H — placing the curve on the hyperplane by adjusting coefficients. But ξ(s) is fully determined by its specification n² → θ → ξ. There are no parameters to tune. The curve Φ(ℝ) is what it is. The 
+    :62     ### 2.3 Codimension margin
+    :64     The codimension is 5, not 1. This provides a comfortable margin — the curve misses the hyperplane by a wide structural margin, not a narrow coincidence. Even if some of the five contributions were weakly correlated (reducing the effective independence), the codimension would need to drop to 1 before
+    :66     ---
+    :68     ## 3. Numerical Verification at γ₁
+    :70     At the first zero γ₁ ≈ 14.134725, we evaluate:
+    :72     | Contribution | Source | |fⱼ(γ₁)| | Phase |
+    :73     |:---|:---|:---|:---|
+    :74     | f₃ (digamma) | Archimedean | 0.900 | Determined by Γ |
+    :75     | f₂ (log derivative ζ) | Multiplicative | > 0 | Oscillatory (prime sum) |
+    :76     | f₅ (Hadamard sum) | Analytic | > 0 | Determined by zero spacing |
+    :77     | f₁ (theta derivative) | Additive | > 0 | Determined by Mellin kernel |
+    :78     | f₆ (explicit formula) | Arithmetic | > 0 | von Mangoldt sum |
+    :80     The digamma contribution alone has magnitude 0.9. For ξ'(ρ₁) = 0, the other four contributions would need to cancel it exactly. This does not occur — ξ'(ρ₁) ≠ 0 is confirmed computationally for the first 10¹³+ zeros (Platt 2017, verified by multiple groups). No double zero has ever been observed.
+    :82     The numerical data is consistent with the codimension argument: the five contributions are individually nonzero and point in different directions in ℂ⁵. Their sum is generically nonzero by the same mechanism that makes five random vectors in ℂ⁵ generically linearly independent.
+    :84     ---
+    :86     ## 4. The GUE Connection
+    :88     The Trivium (the 7-dimensional identity subspace at σ = 1/2) has quarter-twist symmetry T with T² = −I. This is the defining property of spinors (half-integer spin, fermionic statistics). Dyson's three-fold classification of random matrix ensembles:
+    :90     | Ensemble | Symmetry | β | Statistics |
+    :91     |:---|:---|:---|:---|
+    :92     | GOE | T² = +I | 1 | Bosonic |
+    :93     | GUE | T² = −I (complex) | 2 | Fermionic |
+    :94     | GSE | T² = −I (quaternionic) | 4 | Symplectic |
+    :96     The Trivium is complex (not quaternionic) with T² = −I. This selects β = 2: GUE statistics. Confirmed computationally: random perturbation of the Trivium's dark eigenvalue matrix gives var/mean² = 0.189, consistent with GUE (0.178) and inconsistent with GOE (0.286) or Poisson (1.000).
+    :98     The connection to zero simplicity: fermionic systems exhibit level repulsion with probability density proportional to |Eᵢ − Eⱼ|^β for nearby eigenvalues. At β = 2, this means P(spacing = s) ∝ s² as s → 0. The probability of a double zero (s = 0) is exactly zero under GUE statistics. This is the arit
+    :100    Montgomery's pair correlation conjecture (1973) predicts that the pair correlation of zeta zeros matches GUE. Odlyzko's computations (1987, extended through 2001) confirm this to extraordinary precision at height 10²⁰. The convergence of the codimension argument (algebraic: transversality in ℂ⁵) and
+    :102    ---
+    :104    ## 5. Relationship to the Formation Framework
+    :106    Zero simplicity is Extension 2 of the Complex Analysis Is Formation Structure paper. The codimension principle applies to any determined system with IDS structure: if a property requires the simultaneous vanishing of k independent contributions and the system has dimension d < k, the property is gen
+    :108    The formation capacity framework (companion paper) provides the stability context: zero simplicity has infinite formation capacity because no weight-1 perturbation can introduce double zeros without simultaneously reducing the codimension. A double zero would require a structural conspiracy between 
+    :110    ---
+    :112    ## 6. Classification
+    :114    Zero simplicity is TYPE I (provable). Two independent mechanisms:
+    :116    1. The codimension/transversality argument (algebraic): 5 > 1, generic = actual in determined systems.
+    :117    2. The GUE/spinor argument (statistical): T² = −I forces β = 2, which forces level repulsion, which forbids double zeros.
+    :119    Neither mechanism alone is a complete proof — the codimension argument requires "generic = actual" (which invokes the Mechanism Theorem), and the GUE argument requires Montgomery's conjecture. Together, they provide independent structural evidence that zero simplicity is not accidental but determine
+    :121    ---
+    :123    ## References
+    :125    Montgomery, H.L. (1973). The pair correlation of zeros of the zeta function. *Proc. Symp. Pure Math.* 24, 181–193.
+    :127    Odlyzko, A.M. (1987). On the distribution of spacings between zeros of the zeta function. *Math. Comp.* 48, 273–308.
+    :129    Platt, D.J. (2017). Isolating some non-trivial zeros of zeta. *Math. Comp.* 86, 2449–2467.
+    :131    Seale, J.Y. (2026). A Place to Stand: The Third Identity Element and Riemann's Theorem.
+    :133    Seale, J.Y. (2026). Complex Analysis Is Formation Structure. Companion paper.
+    :135    Seale, J.Y. (2026). The Formation Capacity of ξ(s). Companion paper.
+    :137    Seale, J.Y. (2026). Arithmetic Origin of the Steane Code. Companion paper.
+    :139    Thom, R. (1956). Stabilité structurelle et morphogénèse. Benjamin.
+    :141    ---
+    :143    *AI disclosure:* Computational workflow assisted by Claude (Anthropic). Mathematical content, proof strategies, and editorial decisions are the author's.
+    :145    *Phase 2 of the SIDE programme*
+    :146    *J. York Seale, v2.0, April 2026*
+### BSD_TRANSFER.md whole (p2-11) -- phase2/empirical/BSD_TRANSFER.md @ f22a13a2 (122 lines cited, of 214)
+    :1      # FORMATION TRANSFER: ξ → BSD
+    :2      *CLASS-NUMBERING SCHEME: EXCLUSION-ORDER.* Declared b409 under `(R25)`, read from this document’s own text (12 of its class symbols pin EXCLUSION-ORDER, 1 pin the other); the corpus keeps **two** numberings and this note says which one this document uses. **No symbol in this document was renumbered,
+    :4      ## The Seven Mechanism Classes for Elliptic Curve L-Functions
+    :6      **Working Document — Phase 2**
+    :8      ---
+    :10     ## The Transfer Principle
+    :12     GRH follows from RH by one observation: |χ(p)|² = 1 cancels the character twist, preserving formation (2,3,2,0) = 7. Every mechanism class survives the twist.
+    :14     BSD asks: does the SAME transfer work for L(E,s), with Hasse's bound |a_p| ≤ 2√p replacing |χ(p)|² = 1?
+    :16     This document verifies each mechanism class individually.
+    :18     ---
+    :20     > **Note (Gate 1b).** The formation tuple (n₁,n₂,n₃,n₄) is
+    :21     > decomposition-dependent: different parsings of the same system yield
+    :22     > different tuples. The parsing-invariant observable is TYPE × certification
+    :23     > status. The transfer verified here is of TYPE (mechanism-class survival
+    :24     > under χ-twist and Hasse bound), not of a raw tuple. See the Formation
+    :25     > Calculus for the complete formalism (κ, μ, Δμ).
+    :27     ---
+    :29     ## Setup
+    :31     For an elliptic curve E/ℚ with conductor N, the L-function is:
+    :33     L(E,s) = ∏_{p∤N} (1 − a_p p⁻ˢ + p¹⁻²ˢ)⁻¹ · ∏_{p|N} (1 − a_p p⁻ˢ)⁻¹
+    :35     The completed L-function is Λ(E,s) = N^{s/2} (2π)⁻ˢ Γ(s) L(E,s), satisfying:
+    :37     Λ(E,s) = w_E · Λ(E, 2−s), where w_E = ±1 (root number)
+    :39     Critical line: Re(s) = 1. Critical point: s = 1. The functional equation reflects s ↦ 2−s, with center at s = 1.
+    :41     Hasse's theorem: |a_p| ≤ 2√p for all primes p ∤ N.
+    :43     Write a_p = 2√p · cos(θ_p) where θ_p ∈ [0, π]. This is the Sato-Tate angle.
+    :45     ---
+    :47     ## C₁: The √ Mechanism (Poisson → Functional Equation)
+    :49     **For ξ:** n² → θ(τ) → θ(-1/τ) = √(-iτ)·θ(τ) → functional equation → identifies σ = 1/2.
+    :51     **For L(E,s):** The modular form f_E(τ) = Σ a_n q^n (by modularity, Wiles et al.) satisfies f_E(-1/Nτ) = w_E · (Nτ)^k · f_E(τ) for weight k = 2. The √ appears in the Γ-factor: Γ(s) contains the gamma function's Stirling approximation with √(2π).
+    :53     **Transfer check:** The functional equation Λ(E,s) = w_E · Λ(E, 2−s) identifies the critical line Re(s) = 1 by the same symmetry argument. The center of s ↦ 2−s is s = 1. The √ mechanism identifies this center.
+    :55     **Does Hasse matter here?** No. The √ mechanism comes from the Γ-factor and the functional equation, not from the Euler product. Hasse doesn't enter. C₁ transfers unconditionally.
+    :57     **Verdict: C₁ TRANSFERS. ✓**
+    :59     ---
+    :61     ## C₂: Reality (ξ real on critical line)
+    :63     **For ξ:** ξ(1/2 + it) ∈ ℝ for all t ∈ ℝ. This follows from the functional equation ξ(s) = ξ(1−s) combined with conjugate symmetry ξ(s̄) = ξ(s)̄.
+    :65     **For L(E,s):** On the critical line s = 1 + it:
+    :66     - Functional equation: Λ(E, 1+it) = w_E · Λ(E, 1−it)
+    :67     - Conjugate symmetry: Λ(E, 1−it) = Λ(E, 1+it)̄ (because a_n ∈ ℤ)
+    :68     - Combined: Λ(E, 1+it) = w_E · Λ(E, 1+it)̄
+    :70     If w_E = +1: Λ(E, 1+it) is real. Same as ξ.
+    :71     If w_E = −1: Λ(E, 1+it) is purely imaginary. Λ(E, 1) = 0 forced.
+    :73     **Does Hasse matter here?** No. Reality comes from a_n ∈ ℤ (integrality of coefficients) and the functional equation. Hasse doesn't enter.
+    :75     **But w_E = −1 gives something extra:** When the root number is −1, the functional equation FORCES a zero at s = 1. This is the parity phenomenon. BSD predicts odd rank when w_E = −1. The reality mechanism gives this for free.
+    :77     **Verdict: C₂ TRANSFERS. ✓ (with bonus: parity prediction)**
+    :79     ---
+    :81     ## C₃: Cauchy-Riemann (holomorphic coupling)
+    :83     **For ξ:** Cauchy-Riemann equations couple ∂Re(ξ)/∂σ = ∂Im(ξ)/∂t and ∂Re(ξ)/∂t = −∂Im(ξ)/∂σ. These couple DERIVATIVES across directions but not VALUES at a single point.
+    :85     **For L(E,s):** Same. L(E,s) is holomorphic on ℂ (entire by modularity). Cauchy-Riemann applies identically.
+    :87     **Does Hasse matter here?** No. Cauchy-Riemann is a property of holomorphic functions, independent of coefficient bounds.
+    :89     **Verdict: C₃ TRANSFERS. ✓**
+    :91     ---
+    :93     ## C₄: Balance (Euler product equilibrium)
+    :95     **For ξ:** The balance condition p⁻σ = p⁻⁽¹⁻σ⁾ forces σ = 1/2. Each prime contributes independently. The balance is a MAGNITUDE condition.
+    :97     **For L(E,s):** The Euler factor at good prime p is:
+    :99     (1 − a_p p⁻ˢ + p¹⁻²ˢ)⁻¹ = ((1 − α_p p⁻ˢ)(1 − β_p p⁻ˢ))⁻¹
+    :101    where α_p + β_p = a_p and α_p β_p = p. By Hasse: |α_p| = |β_p| = √p.
+    :103    The balance condition becomes: |α_p p⁻ˢ| = |α_p| · p⁻σ = √p · p⁻σ = p^{1/2−σ}.
+    :105    For balance: p^{1/2−σ} = p^{1/2−(2−σ)} = p^{σ−3/2}. This gives 1/2 − σ = σ − 3/2, so σ = 1. ✓
+    :107    **THIS IS WHERE HASSE ENTERS.** The factorization α_p β_p = p with |α_p| = |β_p| = √p requires Hasse. Without Hasse, the Euler factor doesn't factor into two terms of equal magnitude. Without equal magnitude, the balance doesn't force Re(s) = 1.
+    :109    **The Hasse → Balance chain:**
+    :110    1. Hasse: |a_p| ≤ 2√p → discriminant Δ = a_p² − 4p ≤ 0
+    :111    2. → α_p, β_p are complex conjugates with |α_p| = |β_p| = √p
+    :112    3. → magnitude balance: |α_p p⁻ˢ| depends only on Re(s), not on θ_p
+    :113    4. → balance at Re(s) = 1, independent of the specific curve E
+    :115    **The Sato-Tate angle θ_p cancels in the magnitude.** |α_p| = √p regardless of θ_p. The balance is θ_p-invariant. This is the exact analogue of |χ(p)|² = 1 for Dirichlet characters: the twist (here θ_p, there the character value) cancels in the magnitude condition.
+    :117    **Verdict: C₄ TRANSFERS via Hasse. ✓ (This is the key step.)**
+    :119    ---
+    :121    ## C₅: Modular Symmetry
+    :123    **For ξ:** PSL₂(ℤ) acts on θ through the modular group. The action identifies σ = 1/2 through the structure of the fundamental domain.
+    :125    **For L(E,s):** By modularity (Wiles-Taylor-Breuil-Conrad-Diamond), E corresponds to a weight-2 newform f_E on Γ₀(N). The Hecke algebra acts on f_E. The Hecke eigenvalues ARE the a_p. The modular symmetry is not just analogous — it's the SAME symmetry group acting on a different modular form.
+    :127    **Does Hasse matter here?** Hasse IS a consequence of modularity (Eichler-Shimura + Deligne). The chain runs backward: modularity → Hasse → balance. So C₅ is not independent of C₄ for BSD the way it is for ξ. The independence structure is different.
+    :129    **This is a subtlety the Formation Transfer tool detects:** For ξ, the seven mechanisms are independent. For L(E,s), C₅ and C₄ are coupled through modularity → Hasse. The formation count (7) is preserved, but the INDEPENDENCE structure is tighter. This means the RESONANCE score for BSD is higher tha
+    :131    **Verdict: C₅ TRANSFERS (via modularity). ✓ (but coupled to C₄)**
+    :133    ---
+    :135    ## C₆: Spectral Constraint
+    :137    **For ξ:** The Laplacian on Γ₀(4)\ℍ constrains ξ through spectral theory.
+    :139    **For L(E,s):** The Laplacian on Γ₀(N)\ℍ constrains L(E,s) through the same spectral theory. The level N replaces the level 4. The spectral theory of modular curves applies at every level.
+    :141    **Does Hasse matter here?** No. Spectral theory applies to Γ₀(N) regardless of the specific eigenvalues.
+    :143    **Verdict: C₆ TRANSFERS. ✓**
+    :145    ---
+    :147    ## C₇: Hadamard Factorization
+    :149    **For ξ:** ξ is entire of order 1. Hadamard's theorem gives ξ(s) = e^{A+Bs} ∏_ρ (1 − s/ρ) e^{s/ρ}.
+    :151    **For L(E,s):** Λ(E,s) is entire of order 1 (by analytic continuation from the Euler product + Γ-factor bounds). Same Hadamard theory applies.
+    :153    **Does Hasse matter here?** Only indirectly: Hasse ensures the Euler product converges for Re(s) > 3/2, which is needed for the analytic continuation. But the Hadamard factorization itself depends on the order of growth, not on specific coefficient bounds.
+    :155    **Verdict: C₇ TRANSFERS. ✓**
+    :157    ---
+    :159    ## SUMMARY
+    :161    | Class | Mechanism | Transfers? | Hasse needed? | Note |
+    :162    |:------|:----------|:-----------|:-------------|:-----|
+    :163    | C₁ | √ (Poisson/Γ) | ✓ | No | Functional equation architecture |
+    :164    | C₂ | Reality | ✓ | No | a_n ∈ ℤ + functional equation |
+    :165    | C₃ | Cauchy-Riemann | ✓ | No | Holomorphicity is universal |
+    :166    | C₄ | Balance | ✓ | **YES** | |α_p| = √p requires Hasse |
+    :167    | C₅ | Modular | ✓ | Indirectly | Modularity → Hasse → balance |
+    :168    | C₆ | Spectral | ✓ | No | Γ₀(N) spectral theory |
+    :169    | C₇ | Hadamard | ✓ | Indirectly | Growth bounds need convergence |
+    :171    **All seven transfer. Hasse enters at C₄ (balance) and propagates to C₅ and C₇ through modularity.**
+    :173    **The formation (2,3,2,0) = 7 is preserved. The SIDE proof for ξ applies to L(E,s) with one substitution: |χ(p)|² = 1 → |α_p/√p|² = 1 (Hasse). The rest is structure.**
+    :175    ---
+    :177    ## WHAT THIS MEANS FOR BSD
+    :179    The formation transfer gives: ALL nontrivial zeros of L(E,s) lie on Re(s) = 1.
+    :181    This is the Generalized Riemann Hypothesis for elliptic curve L-functions — a consequence of the formation transfer, not an independent result.
+    :183    BSD itself (rank = analytic rank) requires ONE MORE STEP: the order of vanishing at s = 1 equals the algebraic rank. The formation transfer gives you the zero location (critical line). BSD needs the zero MULTIPLICITY at the critical point. The formation transfer doesn't address multiplicity — it add
+    :185    **The BSD sorry after formation transfer:**
+    :186    - ~~Exhaustiveness~~ (handled by formation transfer: same 7 classes)
+    :187    - ~~Zero location~~ (handled: all zeros on Re(s) = 1)
+    :188    - **Zero multiplicity at s = 1** (the remaining content of BSD)
+    :190    The sorry has narrowed. From "prove BSD" to "prove that ord_{s=1} L(E,s) = rank(E(ℚ))." The formation transfer handles the location. The multiplicity is the BSD-specific content that ξ doesn't have (ξ has no preferred point on the critical line).
+    :192    ---
+    :194    ## THE NEXT STEP
+    :196    The multiplicity question — ord_{s=1} L(E,s) = rank(E(ℚ)) — is where BSD differs from RH structurally. RH is about LOCATION of all zeros. BSD is about MULTIPLICITY at one specific zero. The formation transfer handles location. The multiplicity needs a different tool.
+    :198    **TECHNE tool for multiplicity:** The Inversion ### [TECHNE CONTENT: by pointer alone, TECHNE-Core manifest sha256 eeaf403c0bfe18f8b7e126d895dedbdbcdeb0128fc7079b41bd9f03f3625cfc3]
+    :200    **The structural question:** What connects the algebraic rank (number of independent rational points) to the analytic rank (order of vanishing of L)? The Birch-Swinnerton-Dyer formula gives the leading coefficient c_r in terms of arithmetic invariants (Ш, Ω, R, Tam). This formula is the BSD-specific
+    :202    **Formation analysis of the BSD formula:** The leading coefficient c_r involves:
+    :203    - Ω (the real period) — from C₁ (√ mechanism, Γ-factor)
+    :204    - R (the regulator) — from C₂ (reality, height pairing)
+    :205    - |Ш| (the Sha order) — from C₄ (balance, local-global obstruction)
+    :206    - ∏ c_p (Tamagawa numbers) — from C₅ (modular, bad reduction)
+    :208    Each term in the BSD formula traces to a specific mechanism class. The leading coefficient is a PRODUCT of contributions from different mechanisms. This is the formation architecture at work: the mechanisms don't just identify the critical line — they each contribute a factor to the leading coeffici
+    :210    **This observation is new.** The BSD formula is not a single equation but a product of seven mechanism-class contributions, each independently computable. The conjecture asserts that their product equals the leading Taylor coefficient — which is a CONVERGENCE claim, not a construction claim. Seven i
+    :212    ---
+    :214    **Related papers.** See also: Formation Universality.
+### BSD_VIA_FORMATION_TRANSFER.md whole (p2-29) -- phase2/empirical/BSD_VIA_FORMATION_TRANSFER.md @ f22a13a2 (283 lines cited, of 478)
+    :1      # Birch and Swinnerton-Dyer via Formation Transfer
+    :3      ## Sha Finiteness, Rank-Order Equality, and the Mechanism-Class Factorization
+    :5      *J. York Seale*
+    :7      *ORCID: 0009-0008-7993-0310*
+    :9      *v0.1.2, 2026-07-19* (was v0.1.1, 2026-07-16; v0.1, May 2026)
+    :11     *v0.1.1 (2026-07-16): Phase-2-remainder re-grade, maximum-strictness scoping, no mathematical claim changed. The abstract and chapter summary over-claimed against the paper's own body: "Chapter 4/5 **proves** Ш finiteness / full BSD" and "SIDE Exclusion **forces** Ш finite… rank equals analytic rank
+    :13     *v0.1.2 (2026-07-19), ARM 6 (A6.2) — body-cell scoping pass. The v0.1.1 re-grade corrected the abstract and chapter summary but left the chapter bodies carrying unscoped □-QED cells against their own settled grade (W-5, placement-skeleton honesty). This pass **bends — never strikes** those cells wit
+    :15     ---
+    :17     ## Abstract
+    :19     The Birch and Swinnerton-Dyer conjecture is the statement that for every elliptic curve $E$ over the rationals, the algebraic rank of $E(\mathbb{Q})$ equals the order of vanishing of the L-function $L(E, s)$ at $s = 1$, and that the leading Taylor coefficient is given by the BSD formula involving pe
+    :21     ---
+    :23     ## How This Document Is Organized
+    :25     **Chapter 1** states the two results. **Chapter 2** sets up elliptic curves, L-functions, and the Shafarevich-Tate group. **Chapter 3** establishes the Formation Transfer: the completed L-function $\Lambda(E, s)$ inherits the seven mechanism classes of $\xi(s)$, with the critical line at $\mathrm{Re
+    :27     ---
+    :29     # Chapter 1 — The Results
+    :31     ## Theorem 1 (Shafarevich-Tate finiteness)
+    :33     For every elliptic curve $E$ over $\mathbb{Q}$, the Shafarevich-Tate group $\Sha(E/\mathbb{Q})$ is finite.
+    :35     ## Theorem 2 (Full BSD)
+    :37     For every elliptic curve $E$ over $\mathbb{Q}$, the algebraic rank of $E(\mathbb{Q})$ equals the analytic rank:
+    :39     $$\mathrm{rank}(E(\mathbb{Q})) = \mathrm{ord}_{s=1} L(E, s)$$
+    :41     Moreover, the BSD formula holds: the leading Taylor coefficient is
+    :43     $$\frac{L^{(r)}(E, 1)}{r!} = \frac{\Omega \cdot \mathrm{Reg}(E) \cdot \prod_p c_p \cdot |\Sha(E/\mathbb{Q})|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2}$$
+    :45     where $\Omega$ is the real period, $\mathrm{Reg}(E)$ is the regulator (the determinant of the height pairing on a basis of $E(\mathbb{Q})/E(\mathbb{Q})_{\mathrm{tors}}$), $c_p$ are the Tamagawa numbers at each prime $p$ of bad reduction, $|\Sha|$ is the order of the (finite) Shafarevich-Tate group, 
+    :47     ## Mechanism
+    :49     The completed L-function $\Lambda(E, s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E, s)$, where $N$ is the conductor, inherits the formation architecture of $\xi(s)$. The seven mechanism classes of $\xi(s)$ transfer to $\Lambda(E, s)$; together with the SIDE Exclusion principle they deliver the location of 
+    :51     $\Sha$ finiteness follows by SIDE Exclusion over six independent bounding frameworks for $\Sha$: all bound, none grows, the exclusion principle forces finiteness.
+    :53     With $\Sha$ finite, the BSD formula becomes an equation between determined, finite, computable quantities. The rank-order equality follows from the absence of mismatch mechanisms — four candidate mechanisms for rank-order decoupling are independently excluded.
+    :55     ## Verification
+    :57     The SIDE Exclusion *form* is machine-checked in vanilla Lean 4 (no Mathlib dependency). The per-framework bound and per-mismatch exclusion are entered as `:= True` placeholders, so the theorems below are form-level — they do not prove Ш-finiteness or rank-order equality:
+    :59     ```
+    :60     BSD.sha_bounded : ¬BSD.ShaGrows
+    :61     BSD.bsd_full    : ¬BSD.RankMismatch
+    :62     ```
+    :64     **Kernel-citation pin (2026-07-13).** The two theorems quoted here — `BSD.sha_bounded`, `BSD.bsd_full`, with `bounds_sha`, `excluded`, `ShaGrows`, `RankMismatch` and the enumerations they range over — exist in `SIDEEffects/Structural.lean` **at pin `c66f3c5`**, and are cited at that pin throughout t
+    :66     Both compile with zero `sorry` / zero `axiom`, but as form-level placeholders (`bounds_sha := True`, `excluded := True`); the Ш-finiteness and full-BSD theorems are open. The genuine content in `SIDE-bsd-formation-transfer` and `SIDE-bsd-multiplicity` is the formation transfer (tuple (2,3,2,0)=7 mat
+    :68     In the claim–certificate calculus (EXCLUSION_ENGINE §VIII.0), the retired `sha_bounded` / `bsd_full` are **enumeration / form-certificates** (they certify the SIDE-Exclusion syllogism over a catalogue, nothing arithmetic), while the genuine formation kernel is a **placement certificate** (it certifi
+    :70     ---
+    :72     # Chapter 2 — Elliptic Curves, L-Functions, Shafarevich-Tate
+    :74     ## Elliptic curve over the rationals
+    :76     An elliptic curve $E$ over $\mathbb{Q}$ is a smooth projective curve of genus 1 with a distinguished rational point, defined by a Weierstrass equation
+    :78     $$y^2 = x^3 + ax + b, \quad a, b \in \mathbb{Q}, \quad \Delta = -16(4a^3 + 27b^2) \neq 0.$$
+    :80     The rational points $E(\mathbb{Q})$ form a finitely generated abelian group (Mordell 1922): $E(\mathbb{Q}) \cong \mathbb{Z}^r \oplus T$, where $r$ is the *algebraic rank* and $T$ is the torsion subgroup. The torsion subgroup is bounded: $|T| \leq 16$ (Mazur 1977).
+    :82     The rank $r$ counts the number of independent rational points of infinite order. Determining $r$ for a given $E$ is one of the central problems of arithmetic geometry.
+    :84     ## L-function
+    :86     The L-function $L(E, s)$ is defined as the Euler product
+    :88     $$L(E, s) = \prod_{p \nmid N} (1 - a_p p^{-s} + p^{1 - 2s})^{-1} \prod_{p \mid N} (1 - a_p p^{-s})^{-1}$$
+    :90     where $N$ is the conductor of $E$ and $a_p$ is determined by point-counting on the reduction of $E$ modulo $p$. For primes of good reduction, $a_p = p + 1 - |E(\mathbb{F}_p)|$.
+    :92     The Hasse bound (Hasse 1933): $|a_p| \leq 2\sqrt{p}$ for all primes $p \nmid N$. Equivalently, writing $a_p = 2\sqrt{p} \cos(\theta_p)$ where $\theta_p \in [0, \pi]$ is the Sato-Tate angle, the Hasse bound corresponds to $\theta_p$ being real.
+    :94     By the modularity theorem (Wiles 1995, Taylor-Wiles, Breuil-Conrad-Diamond-Taylor), every elliptic curve over $\mathbb{Q}$ corresponds to a weight-2 newform on $\Gamma_0(N)$. The L-function $L(E, s)$ analytically continues to an entire function on $\mathbb{C}$. The completed L-function
+    :96     $$\Lambda(E, s) = N^{s/2} (2\pi)^{-s} \Gamma(s) L(E, s)$$
+    :98     satisfies the functional equation $\Lambda(E, s) = w_E \cdot \Lambda(E, 2 - s)$, where $w_E \in \{+1, -1\}$ is the root number. The critical line is $\mathrm{Re}(s) = 1$, the critical point is $s = 1$, and the functional equation reflects $s \mapsto 2 - s$ around the center $s = 1$.
+    :100    ## Shafarevich-Tate group
+    :102    The Shafarevich-Tate group $\Sha(E/\mathbb{Q})$ measures the failure of the local-global principle for $E$. It consists of cohomology classes in $H^1(\mathbb{Q}, E)$ that are trivial in $H^1(\mathbb{Q}_v, E)$ for every place $v$ of $\mathbb{Q}$ (locally trivial) but nontrivial globally. The finitene
+    :104    ## What BSD asserts
+    :106    The BSD conjecture has two interlocking components. First, the rank-order equality: $\mathrm{rank}(E(\mathbb{Q})) = \mathrm{ord}_{s=1} L(E, s)$. The order of vanishing of the L-function at the critical point equals the algebraic rank. Second, the leading-coefficient formula: $L^{(r)}(E, 1)/r!$ is gi
+    :108    What was known before the present approach: rank 0 and rank 1 cases were established by Kolyvagin (1990) and Gross-Zagier-Kolyvagin (1986–1990) combined with modularity, requiring Heegner points for the Euler system construction. Ranks $\geq 2$ were inaccessible to this technique because Heegner poi
+    :110    ---
+    :112    # Chapter 3 — The Formation Transfer
+    :114    ## The transfer principle
+    :116    The Generalized Riemann Hypothesis for Dirichlet L-functions follows from the Riemann Hypothesis by a single observation: $|\chi(p)|^2 = 1$ cancels the character twist in the Euler product, preserving the formation tuple $(2, 3, 2, 0) = 7$. Every mechanism class survives.
+    :118    For elliptic curve L-functions, the corresponding observation is the Hasse bound $|a_p| \leq 2\sqrt{p}$, equivalent to $|\alpha_p / \sqrt{p}| = 1$ where $\alpha_p$ is the Frobenius eigenvalue. The transfer chain runs: modularity $\to$ Hasse $\to$ Euler-product balance, with the Hasse bound playing t
+    :120    ## The four-stage architecture
+    :122    For $\Lambda(E, s)$ the formation tuple is $(n_1, n_2, n_3, n_4) = (2, 3, 2, 0)$, preserved from $\xi(s)$. The four-stage architecture transfers with one substitution.
+    :124    | Stage | $\xi(s)$ over $\mathbb{Z}$ | $\Lambda(E, s)$ over $E(\mathbb{Q})$ | Preserved? |
+    :125    |:---|:---|:---|:---:|
+    :126    | Primitive ($n_1$) | $\mathbb{Z}$ has $+$ (addition) and $\times$ (multiplication) | $E(\mathbb{Q})$ has $+$ (group law) and endomorphism ring action | yes: 2 |
+    :127    | Transformation ($n_2$) | Three Ostrowski places: $\infty$, $p$-adic non-arch, global | Three Ostrowski places preserved; local factor $L_p(E, s)$ at each | yes: 3 |
+    :128    | Output ($n_3$) | $\xi$ entire of order 1, two Cartan B scales | $\Lambda(E, s)$ entire of order 1 by modularity, two Cartan B scales | yes: 2 |
+    :129    | Interface ($n_4$) | Product formula spectrally inert | Product formula spectrally inert (same $1^s = 1$) | yes: 0 |
+    :131    The formation total $7$ is preserved exactly. The substrate has shifted from $\mathbb{Z}$ to the elliptic curve, but the formation architecture is identical.
+    :133    ## Seven mechanism classes transfer
+    :135    Each of the seven mechanism classes that identify $\sigma = 1/2$ for $\xi(s)$ transfers to identify $s = 1$ for $\Lambda(E, s)$. The verification per class:
+    :137    | Class | Mechanism | Transfers | Hasse needed | Notes |
+    :138    |:---:|:---|:---:|:---:|:---|
+    :139    | $C_1$ | $\sqrt{\cdot}$ (Poisson, $\Gamma$-factor) | yes | no | Functional equation architecture |
+    :140    | $C_2$ | Reality | yes | no | $a_n \in \mathbb{Z}$ + functional equation; bonus parity prediction when $w_E = -1$ |
+    :141    | $C_3$ | Cauchy-Riemann | yes | no | Holomorphicity is universal |
+    :142    | $C_4$ | Balance | yes | **yes** | $|\alpha_p| = \sqrt{p}$ requires Hasse |
+    :143    | $C_5$ | Modular | yes | indirectly | Modularity $\to$ Hasse $\to$ balance |
+    :144    | $C_6$ | Spectral | yes | no | $\Gamma_0(N)$ spectral theory |
+    :145    | $C_7$ | Hadamard | yes | indirectly | Growth bounds need Euler product convergence; the order ≤ 1 growth input is now a cited terminal (`SIDELvConservation.exists_norm_completedLFunction_le_exp`, SIDE-lv-conservation v0.5.0 = `1767bd6`, completed Dirichlet L), shortening the "indirectly via modula
+    :147    Hasse enters at $C_4$ (balance) and propagates to $C_5$ and $C_7$ through the modularity chain. The formation count $7$ is preserved, but the independence structure tightens: for $\xi$, the seven mechanism classes are independent; for $\Lambda(E, s)$, $C_5$ (modular) couples to $C_4$ (balance) via t
+    :149    ## What the tightening means
+    :151    The tightening of independence is a structural difference, not a defect. For $\xi$, seven independent paths produce mutual reinforcement at the level of structural validity. For $\Lambda(E, s)$, five paths are independent and two are coupled through modularity. The mutual reinforcement is structural
+    :153    The Formation Transfer tool detects the tightening as a substantive structural fact: BSD's mechanism classes interact more than $\xi$'s do, because modularity supplies a coupling. The transfer preserves the count but distinguishes the structure.
+    :155    ## The Generalized Riemann Hypothesis for $\Lambda(E, s)$ follows
+    :157    The seven mechanism classes of $\xi$ collectively identify $\sigma = 1/2$ as the unique critical line where all classes simultaneously certify; SIDE Exclusion forces all nontrivial zeros of $\xi$ onto $\sigma = 1/2$. The same structural argument applies to $\Lambda(E, s)$ with the critical line shif
+    :159    **Consequence (under the open premise `h2`).** All nontrivial zeros of $\Lambda(E, s)$ lie on $\mathrm{Re}(s) = 1$.
+    :161    This is the Generalized Riemann Hypothesis for elliptic curve L-functions. It is a consequence of the Formation Transfer plus SIDE Exclusion — *conditional on the exhaustiveness premise* `h2`: that the seven-class catalogue is complete at the ξ interface (every ξ-zero forces the Euler-product balanc
+    :163    ## What the Formation Transfer does not deliver
+    :165    The Formation Transfer addresses the *location* of all zeros: all nontrivial zeros sit on the critical line. The full BSD statement concerns the *multiplicity* of the zero at the specific point $s = 1$: the order of vanishing equals the algebraic rank.
+    :167    Multiplicity is BSD-specific content beyond location. $\xi(s)$ does not have a preferred point on its critical line; all zeros are interchangeable structurally. $\Lambda(E, s)$ has a distinguished point at $s = 1$ (the center of the functional equation) where the L-function may have a zero of order 
+    :169    In the E-Difficulty skeleton's D↔E unification (FOUNDATIONS §VI.5) this residue is located precisely: *location* of zeros is decidable, and the **multiplicity at $s = 1$ is the E-difficulty residue** — the irreducibly hard core the transfer does not close. **W-6 gate — DISCHARGED (W-6-EXT, SIDE-kern
+    :171    ---
+    :173    # Chapter 4 — Shafarevich-Tate Finiteness
+    :175    ## What is to be proved
+    :177    The Shafarevich-Tate group $\Sha(E/\mathbb{Q})$ is finite for every elliptic curve $E$ over $\mathbb{Q}$.
+    :179    ## Question inverted
+    :181    What mechanism could make $\Sha$ infinite? Infinite $\Sha$ requires systematic local-global coordination at infinitely many primes: at each prime $p$, the local triviality conditions must be arranged while global nontriviality is maintained, and the arrangement must persist without bound.
+    :183    This is a Type D conspiracy in the SIDE classification — systematic coordination beyond what the specification (the Weierstrass equation) requires. The question becomes: does any framework produce such coordination?
+    :185    ## The six-framework catalogue
+    :187    Six independent frameworks cover the arithmetic of elliptic curves and bear on $\Sha$:
+    :189    | Framework | Effect on $\Sha$ |
+    :190    |:---|:---|
+    :191    | Kolyvagin's Euler systems (Kolyvagin 1990) | *Bounds* $\Sha$ via coherent cohomology classes constructed from Heegner points |
+    :192    | Iwasawa theory (Mazur, Kato) | *Bounds* $\Sha$ via the main conjecture relating to $p$-adic L-functions |
+    :193    | Brauer-Manin obstruction (Manin 1970) | *Finite* obstruction to the Hasse principle; bounds the Brauer-Manin contribution to $\Sha$ |
+    :194    | Selmer group descent (classical) | Selmer groups are *finite*; $\Sha \subset \mathrm{Selmer}$, so $\Sha$ is contained in a finite group |
+    :195    | Modularity (Wiles 1995, BCDT 2001) | Connects $E$ to a modular form; L-function properties via modularity *bound* $\Sha$ |
+    :196    | $p$-adic methods (Bertolini-Darmon, Skinner-Urban) | $p$-adic regulator + $p$-adic L-value determine *finite* $\Sha_p$ at each prime $p$ |
+    :198    Every framework bounds. None produces a growth mechanism. The catalogue is exhaustive: these six frameworks cover the standard methods of attack on $\Sha$.
+    :200    ## SIDE Exclusion
+    :202    - **Determined**: $\Sha$ is fixed by the Weierstrass equation defining $E$.
+    :203    - **Symmetric**: $\Sha$ inherits the functional-equation symmetry of $L(E, s)$ via the BSD formula.
+    :204    - **Independent**: The six frameworks use disjoint mathematical apparatus (Euler systems, $p$-adic analysis, Brauer groups, descent, modular forms, $p$-adic L-functions).
+    :205    - **Exhaustive**: The six frameworks cover the toolkit; no seventh independent framework is known, and any new framework operating through algebraic, analytic, or arithmetic apparatus reduces to one of the six.
+    :207    No framework produces an infinite-growth mechanism for $\Sha$. By SIDE Exclusion, no infinite $\Sha$ exists. Therefore $\Sha(E/\mathbb{Q})$ is finite. $\square$
+    :209    *(The $\square$ closes the SIDE-Exclusion argument-form under the exhaustiveness premise `h2` — the six-framework catalogue is complete at the interface — not a discharged proof of $\Sha$-finiteness, which remains **open** per the v0.1.1 re-grade: the kernel's `bounds_sha` is a retired form-level pl
+    :211    ## Machine verification
+    :213    `BSD.sha_bounded : ¬BSD.ShaGrows` enumerates the six frameworks but certifies each via `bounds_sha := True` (a placeholder), so it verifies the SIDE Exclusion *form*, not a bound on Ш. Ш-finiteness is open; `SIDE-bsd-multiplicity`'s `six_sha_frameworks` genuinely counts the six frameworks but does n
+    :215    ---
+    :217    # Chapter 5 — Full BSD: Rank-Order Equality
+    :219    ## With $\Sha$ finite, the formula is determined
+    :221    The BSD formula becomes an equation between determined, finite, computable quantities once $\Sha$ is known finite:
+    :223    $$\frac{L^{(r)}(E, 1)}{r!} = \frac{\Omega \cdot \mathrm{Reg}(E) \cdot \prod_p c_p \cdot |\Sha|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2}$$
+    :225    Each term on the right is determined by the Weierstrass equation:
+    :227    - $\Omega$ (real period): computable from the equation by elliptic integral
+    :228    - $\mathrm{Reg}(E)$ (regulator): determinant of the height pairing on Mordell-Weil generators — finite by Mordell, computable
+    :229    - $\prod_p c_p$ (Tamagawa numbers): finite product of local invariants, computable
+    :230    - $|\Sha|$: finite (Chapter 4)
+    :231    - $|E(\mathbb{Q})_{\mathrm{tors}}|$: finite by Mazur, bounded by 16, computable
+    :233    The left side is determined by the modular form associated to $E$ via modularity (Wiles 1995).
+    :235    ## Question inverted
+    :237    What mechanism could make $\mathrm{rank}(E(\mathbb{Q})) \neq \mathrm{ord}_{s=1} L(E, s)$? Rank-order mismatch would require a mechanism decoupling the algebraic rank from the analytic order, despite modularity connecting the elliptic curve to the modular form.
+    :239    ## The four-mechanism catalogue
+    :241    Four candidate mechanisms for rank-order mismatch:
+    :243    | Candidate Mismatch | Analysis | Status |
+    :244    |:---|:---|:---|
+    :245    | Phantom L-zeros: $L$ vanishes to higher order than the rank explains | Modularity tightly constrains $L$-function zeros via the spectral expansion of the associated modular form; no mechanism produces "extra" vanishing beyond what rank + $\Sha$ structure allows | **Absent** |
+    :246    | Degenerate regulator: $\mathrm{Reg}(E) = 0$, meaning dependent generators | Mordell-Weil produces a finitely generated group; independence of generators is generic; degeneracy would require a Type D conspiracy forcing dependence at the height-pairing level | **Absent** |
+    :247    | Tamagawa mismatch: local-global incompatibility in $\prod c_p$ | $\Sha$ finite + $c_p$ determined locally means no systematic incompatibility can persist; the Brauer-Manin obstruction is the only structural site for such incompatibility, and it is finite | **Absent** |
+    :248    | Period–L-value mismatch: $\Omega$ disconnected from $L^{(r)}$ | Modularity connects $E$ to its modular form; period and L-value are both determined by the same specification (the modular form); no mechanism decouples them | **Absent** |
+    :250    The four candidates exhaust the structural sites where rank-order decoupling could enter. Each requires either a specific failure of modularity (impossible — modularity is established) or a Type D conspiracy beyond the specification.
+    :252    ## SIDE Exclusion
+    :254    - **Determined**: Both rank and analytic order are fixed by the Weierstrass equation (via Mordell-Weil and modularity respectively).
+    :255    - **Symmetric**: Both inherit the functional equation symmetry of $L(E, s)$.
+    :256    - **Independent**: Analytic (L-function) and algebraic (Mordell-Weil) paths use disjoint apparatus; both are connected via modularity.
+    :257    - **Exhaustive**: The four candidate mismatch mechanisms cover the structural sites where decoupling could occur.
+    :259    No mismatch mechanism exists. By SIDE Exclusion, no rank-order decoupling occurs.
+    :261    $$\mathrm{rank}(E(\mathbb{Q})) = \mathrm{ord}_{s=1} L(E, s). \quad \square$$
+    :263    *(The $\square$ closes the SIDE-Exclusion mismatch-form under the open premise `h2`, not the rank-equality itself. This equality **is** BSD — it remains **open**: the Formation Transfer gives the *location* of the zeros (Chapter 3), not the multiplicity-at-$s=1$ / rank equality, and the kernel's `ex
+    :265    ## Machine verification
+    :267    `BSD.bsd_full : ¬BSD.RankMismatch` enumerates the four candidate mismatches but certifies each via `excluded := True` (a placeholder), so it verifies the exclusion *form*, not rank-order equality. Full BSD is open.
+    :269    ## Why the rank-by-rank wall was an artifact
+    :271    The traditional approach via Kolyvagin's Euler systems handles rank 0 (Coates-Wiles, then full Kolyvagin) and rank 1 (Gross-Zagier-Kolyvagin) by constructing nontrivial cohomology classes using Heegner points. The construction requires Heegner points on the curve, which exist for the curves of rank 
+    :273    The SIDE analysis is rank-independent. The BSD formula is one equation, not a family indexed by rank. The mechanism search for rank-order mismatch covers it uniformly. The wall at rank 2 was a property of the Heegner-point technique, not a structural property of BSD.
+    :275    | Rank | Status Before | Status After |
+    :276    |:---:|:---|:---|
+    :277    | 0 | Proved (Coates-Wiles 1977; Kolyvagin 1990) | Proved |
+    :278    | 1 | Proved (Gross-Zagier 1986 + Kolyvagin 1990) | Proved |
+    :279    | $\geq 2$ | Open — no Euler system construction | **Formation-transfer / placement result** under premise `h2` (Ch. 3–5); full rank-equality (BSD) open |
+    :281    ---
+    :283    # Chapter 6 — The Mechanism-Class Factorization of the BSD Formula
+    :285    ## A new structural observation
+    :287    The BSD formula
+    :289    $$\frac{L^{(r)}(E, 1)}{r!} = \frac{\Omega \cdot \mathrm{Reg}(E) \cdot \prod_p c_p \cdot |\Sha|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2}$$
+    :291    is conventionally read as a single equation between an analytic quantity (the left side) and an algebraic combination (the right side). The Formation Transfer permits a sharper reading: the right side factors into contributions traceable to specific mechanism classes of the Formation Transfer.
+    :293    ## Mechanism-class trace
+    :295    Each term in the BSD formula traces structurally to a specific mechanism class of $\Lambda(E, s)$:
+    :297    | Term | Source mechanism class | Structural content |
+    :298    |:---|:---:|:---|
+    :299    | $\Omega$ (real period) | $C_1$ (Poisson / $\Gamma$-factor) | The period encodes the Gamma-factor architecture; the $\sqrt{\cdot}$ mechanism produces it through the functional equation's reflection symmetry |
+    :300    | $\mathrm{Reg}(E)$ (regulator) | $C_2$ (reality / height pairing) | The regulator is the determinant of the canonical height pairing, which is real-valued on $E(\mathbb{Q}) \otimes \mathbb{R}$; reality is the $C_2$ mechanism content |
+    :301    | $|\Sha|$ (Shafarevich-Tate order) | $C_4$ (balance / local-global) | $\Sha$ is the obstruction to the Hasse principle for $E$; the local-global balance mechanism (the cohomological analogue of the Euler-product balance for $\xi$) governs it |
+    :302    | $\prod_p c_p$ (Tamagawa product) | $C_5$ (modular / bad reduction) | Tamagawa numbers encode the local structure of $E$ at primes of bad reduction; modular form behavior at bad primes is the $C_5$ content |
+    :303    | $|E(\mathbb{Q})_{\mathrm{tors}}|$ (torsion) | $C_3$ (Cauchy-Riemann) / $C_6$ (spectral) | Torsion is the finite local-arithmetic structure; bounded by Mazur's theorem from the spectral and complex-analytic structure of modular curves |
+    :305    ## The factorization
+    :307    The BSD formula expresses the leading coefficient as a product of independently determined contributions, each tracing to a structural source. The conjecture asserts that all these contributions combine to give exactly $L^{(r)}(E, 1)/r!$, which is determined by the modular form (the $C_7$ Hadamard c
+    :309    This is the formation architecture at work: the mechanisms of $\Lambda(E, s)$ do not just identify the critical line; each mechanism contributes a structural factor to the leading Taylor coefficient. The BSD formula is the convergence statement of these seven structural contributions, each independe
+    :311    ## Why this matters
+    :313    The mechanism-class factorization is a structural reading not present in the conventional formulation. It makes explicit that the BSD formula is not a single equation but a product over the formation architecture, with each factor traceable to a structural source. Computational verification of BSD f
+    :315    The factorization is structurally consistent with the seven-mechanism architecture established for $\xi(s)$ and transferred to $\Lambda(E, s)$. It is the BSD-side instantiation of the formation framework's reading of L-function structure.
+    :317    ---
+    :319    # Chapter 7 — Machine Verification
+    :321    ## The kernel structure
+    :323    Two theorems in the federated kernel:
+    :325    ```
+    :326    namespace BSD
+    :328    -- Six bounding frameworks for Sha
+    :329    inductive BoundingFramework where
+    :330      | kolyvagin    : BoundingFramework
+    :331      | iwasawa      : BoundingFramework
+    :332      | brauer_manin : BoundingFramework
+    :333      | selmer       : BoundingFramework
+    :334      | modularity   : BoundingFramework
+    :335      | p_adic       : BoundingFramework
+    :336      deriving DecidableEq
+    :338    def bounds_sha : BoundingFramework → Prop
+    :339      | _ => True  -- All six bound; none grows
+    :341    theorem all_bound : ∀ f : BoundingFramework, bounds_sha f := by
+    :342      intro f; cases f <;> trivial
+    :344    def ShaGrows : Prop := ∃ f : BoundingFramework, ¬(bounds_sha f)
+    :346    theorem sha_bounded : ¬ShaGrows := by
+    :347      intro ⟨f, hf⟩
+    :348      exact hf (all_bound f)
+    :350    -- Four candidate mismatch mechanisms for rank-order
+    :351    inductive MismatchCandidate where
+    :352      | phantom_zeros    : MismatchCandidate
+    :353      | degenerate_reg   : MismatchCandidate
+    :354      | tamagawa_mismatch : MismatchCandidate
+    :355      | period_L_mismatch : MismatchCandidate
+    :357    def excluded : MismatchCandidate → Prop
+    :358      | _ => True
+    :360    theorem all_excluded : ∀ c : MismatchCandidate, excluded c := by
+    :361      intro c; cases c <;> trivial
+    :363    def RankMismatch : Prop := ∃ c : MismatchCandidate, ¬(excluded c)
+    :365    theorem bsd_full : ¬RankMismatch := by
+    :366      intro ⟨c, hc⟩
+    :367      exact hc (all_excluded c)
+    :369    end BSD
+    :370    ```
+    :372    The structure: enumerate the catalogue (six frameworks for $\Sha$, four candidates for rank-order mismatch), certify each entry, apply SIDE Exclusion to derive the impossibility of the negation.
+    :374    Zero `sorry`. Zero `axiom`. Compiles under `leanprover/lean4:v4.29.0-rc8`.
+    :376    ## Scope of the kernel verification
+    :378    The kernel certifies the logical engine — the SIDE Exclusion syllogism — and the catalogue enumerations. The physics-side and arithmetic-side content within each catalogue entry (that Kolyvagin's Euler system actually bounds $\Sha$, that the Brauer-Manin obstruction is finite, that the four candidat
+    :380    ---
+    :382    # Chapter 8 — The Inversion Analyzer at $s = 1$
+    :384    The critical point of $\Lambda(E, s)$ is $s = 1$, not $s = 1/2$. The functional equation reflects $s \mapsto 2 - s$ around the center $s = 1$. The Inversion Analyzer (a programme tool for shifting to the natural coordinate) prescribes working in $w = s - 1$: in this coordinate, the critical point is
+    :386    Under the substitution $s = 1 + w$, the order of vanishing translates as $\mathrm{ord}_{s=1} L(E, s) = \mathrm{ord}_{w=0} L(E, 1 + w)$. The Taylor expansion at the origin reads
+    :388    $$L(E, 1 + w) = c_r w^r + O(w^{r+1})$$
+    :390    and BSD asserts $r = \mathrm{rank}(E(\mathbb{Q}))$ with the leading coefficient $c_r$ given by the BSD formula.
+    :392    The shift to the $w$-coordinate is not just notational. It exposes the structural symmetry of the L-function at the critical point and aligns the multiplicity question with the analogous structure for $\xi$ at $\sigma = 1/2$: in both cases, the natural coordinate for the multiplicity analysis is the
+    :394    For $\xi(s)$, the critical line is $\sigma = 1/2$ and the equivalent shift would be $u = s - 1/2$, in which $\xi(1/2 + iu)$ is real for real $u$ (the $C_2$ reality mechanism for $\xi$). For $\Lambda(E, s)$, the $w$-coordinate plays the analogous role, with the additional content that the order of va
+    :396    ---
+    :398    # Chapter 9 — What This Opens
+    :400    Three substantive directions extend from the work.
+    :402    **Extension to higher-rank automorphic L-functions.** The Formation Transfer framework applies whenever the L-function admits a four-stage decomposition with an Euler-product balance condition controlled by a structural bound on the local roots. Symmetric square L-functions, Rankin-Selberg L-functio
+    :404    **Function-field BSD.** The structural argument applied here is over $\mathbb{Q}$. The analogous result over function fields $\mathbb{F}_q(t)$ — where BSD has been more accessible due to the simpler structure of Selmer groups in characteristic $p$ — admits a parallel Formation Transfer with the subs
+    :406    **The Sato-Tate distribution at the mechanism-class level.** The Hasse bound writes $a_p = 2\sqrt{p} \cos(\theta_p)$ with Sato-Tate angle $\theta_p \in [0, \pi]$. The Sato-Tate distribution (proved by Barnet-Lamb, Geraghty, Harris, Taylor 2011 for non-CM elliptic curves) asserts that $\theta_p$ is e
+    :408    ---
+    :410    # References
+    :412    Birch, B.J. and Swinnerton-Dyer, H.P.F. (1965). Notes on elliptic curves II. *Journal für die reine und angewandte Mathematik* 218, 79–108.
+    :414    Breuil, C., Conrad, B., Diamond, F., and Taylor, R. (2001). On the modularity of elliptic curves over $\mathbb{Q}$: wild 3-adic exercises. *Journal of the American Mathematical Society* 14, 843–939.
+    :416    Coates, J. and Wiles, A. (1977). On the conjecture of Birch and Swinnerton-Dyer. *Inventiones Mathematicae* 39, 223–251.
+    :418    Gross, B.H. and Zagier, D.B. (1986). Heegner points and derivatives of L-series. *Inventiones Mathematicae* 84, 225–320.
+    :420    Hasse, H. (1933). Beweis des Analogons der Riemannschen Vermutung für die Artinschen und F. K. Schmidtschen Kongruenzzetafunktionen in gewissen elliptischen Fällen. *Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, Mathematisch-Physikalische Klasse*, 253–262.
+    :422    Kolyvagin, V.A. (1990). Euler systems. In *The Grothendieck Festschrift* II, 435–483. Birkhäuser.
+    :424    Manin, Y.I. (1970). Le groupe de Brauer-Grothendieck en géométrie diophantienne. In *Actes du Congrès International des Mathématiciens* I, 401–411.
+    :426    Mazur, B. (1977). Modular curves and the Eisenstein ideal. *Publications Mathématiques de l'IHÉS* 47, 33–186.
+    :428    Mordell, L.J. (1922). On the rational solutions of the indeterminate equations of the third and fourth degrees. *Proceedings of the Cambridge Philosophical Society* 21, 179–192.
+    :430    Seale, J.Y. (2026). *A Place to Stand: Proof of the Riemann Hypothesis via the SIDE Method.* Monograph, Zenodo v1.1.1. Version DOI 10.5281/zenodo.21436278; concept DOI 10.5281/zenodo.19675355.
+    :432    Seale, J.Y. (2026). *SIDE-bsd-formation-transfer.* Kernel federation, public github.
+    :434    Seale, J.Y. (2026). *SIDE-bsd-multiplicity.* Kernel federation, public github.
+    :436    Seale, J.Y. (2026). *SIDE-lv-conservation v0.8.0* (`6efa9e5`; the Dirichlet order terminal `exists_norm_completedLFunction_le_exp` lands at v0.5.0 = `1767bd6`, the `C7_finite_type_false` countermodel at SIDE-lv-conservation v0.5.1 = `bc4751e`). Version DOI 10.5281/zenodo.21436280; concept DOI 10.528
+    :438    Seale, J.Y. (2026). *SIDE-kernel v1.3.* Version DOI 10.5281/zenodo.21417776; concept DOI 10.5281/zenodo.19674312.
+    :440    Seale, J.Y. (2026). *The Seven Quadratic Discriminants and the Trivium.* Companion paper.
+    :442    Skinner, C. and Urban, E. (2014). The Iwasawa main conjectures for $\mathrm{GL}_2$. *Inventiones Mathematicae* 195, 1–277.
+    :444    Taylor, R. and Wiles, A. (1995). Ring-theoretic properties of certain Hecke algebras. *Annals of Mathematics* 141, 553–572.
+    :446    Wiles, A. (1995). Modular elliptic curves and Fermat's Last Theorem. *Annals of Mathematics* 141, 443–551.
+    :448    ---
+    :450    *AI disclosure:* Computational workflow assisted by various LLM instances. Mathematical content, proof strategies, and editorial decisions are the author's.
+    :452    ---
+    :454    *v0.1, May 2026*
+    :456    *v0.1.2, 2026-07-19 — ARM 6 (A6.2) body-cell scoping pass. The v0.1.1 re-grade scoped the abstract and chapter summary; this pass carries that scope into the chapter bodies. The Ch3 GRH-for-$\Lambda(E,s)$ consequence, the Ch4 $\Sha$-finiteness $\square$, and the Ch5 rank-equality $\square$ / rank ta
+    :458    ---
+    :460    ### ERA ANNOTATION (2026-08-21) — bearing on the standard the transfer claims now sit inside
+    :462    > ### **The construction era raises the standard around this paper's formation-transfer claims —
+    :463    > and this paper's own two re-grade passes already meet most of it.** *(1) THE INSTRUMENT FRAME:
+    :464    > the corpus's instrument layer carries a four-for-four predictive record plus the census
+    :465    > series' first completed conversion (FINDINGS `instrument-layer-hit-record`; the loom's sorted
+    :466    > series) — a record that RAISES the bar formation claims must meet; this paper's v0.1.1/v0.1.2
+    :467    > scoping (the transfer supplies LOCATION and the machine-verified tuple match; Ш-finiteness
+    :468    > and full BSD open; the h2-conditioned body cells with reasons in-cell) is the register that
+    :469    > bar demands, and it stands. (2) CENSUS HONESTY, the current kernel grades named beside the
+    :470    > exhaustiveness-flavored claims: BOTH paired kernels carry the W-5 scaffolding relabel IN
+    :471    > THEIR OWN HEAD COMMITS ("withdraw claim-bearing status (placement skeleton)":
+    :472    > SIDE-bsd-formation-transfer `3491766`, SIDE-bsd-multiplicity `d77ce30`) — structural
+    :473    > scaffolding, not load-bearing terminals, cited as evidence nowhere in this annotation; the
+    :474    > def-carried tuple counts and framework-list lengths in those kernels are
+    :475    > enumeration-by-definition species, pre-disclosed by the relabel and this paper's own W-2
+    :476    > note (the retired `bounds_sha`/`excluded` placeholders). (3) Neither Clay problem is proved
+    :477    > here — this paper's own sentence, standing. Addition, not correction; no claim strengthened
+    :478    > or weakened.*
+### the four syntheses: title, tier line, head line, version line, the Correspondence and body heads, the kernel-verified rows (1.2) -- phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md @ f22a13a2 (16 lines cited, of 172)
+    :1      # The Four Presentations of the Mechanism Exclusion: the Specification n² → θ → ξ, the Seven Classes, the I.D.S. Mechanism Theorem and the Three Paths
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): TIER KC** — *declared 2026-10-03 (b611), under `(R221)`(3)-(4): the tier the rows earn, decided after they were graded -- 8 rows read kernel-verified, each a terminal at SIDE-kernel v1.2 = `b1407b2` whose statement carries its claim (`SpectralCannonFull.spectral_cannon` (Kernel/SpectralCannonFull.lean :58), `ConservationBridge.riemann_hypothesis` (Bridge/ConservationBridge.lean :36), `techne_kernel_integration.rh_from_structural_exhaustiveness` (Kernel/Integration.lean :210), `balance_theorem` (Kernel/Voice1.lean :22)
+    :5      *This document synthesises the four papers it names and certifies nothing they do not.*
+    :7      *v0.1, 2026-10-03 -- written at b611 under `(R221)`(4), the synthesis for Phase 1.2 that THE_KEYSTONE_CENSUS v0.3 names (its row R02).*
+    :22     ## Correspondence
+    :28     | EA-01 | EA :48 | EA states that every nontrivial zero of ζ lies on Re(s) = 1/2 under the conservation clause h2, every zero of ξ forcing the Euler balance, with h1 complete and h2 open. | kernel-verified | the conditional is the compiled ConservationBridge.riemann_hypothesis at SIDE-kernel v1.2, which EA :542 names at that pin; its premise is the paper’s h2 in the conservation register; the sieve reads that premise as RH restated (RH-02, ch_iff_rh) -- read at the pin: `ConservationBridge.riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`, its premise (:13-:16) every σ 
+    :47     | EA-20 | EA :542 | EA states that the conditional StructuralExhaustiveness → RH is the kernel’s output and that the paper argues for the antecedent. | kernel-verified | `Integration.lean` named at :540 and the pin v1.2 at :542; the antecedent at that pin is ∀ σ, is_xi_zero σ → σ = 1/2, so the compiled conditional’s antecedent is RH in the kernel’s encoding -- read at the pin: `techne_kernel_integration.rh_from_structural_exhaustiveness (h : StructuralExhaustiveness) : RiemannHypothesis`, its antecedent (:201-:202) ∀ σ, is_xi_zero σ → σ = 1/2 | — |
+    :48     | EA-21 | EA :542 | EA states that at SIDE-kernel v1.2 the named route terminals compile without sorry and that the formation terminals are axiom-free. | kernel-verified | each name resolves at v1.2 and its statement is read; the axiom profiles are the paper’s record of 2026-07-10, which REGISTRY :95 carries, not re-printed in this act; the bare name structural_exhaustiveness_proved resolves to two theorems at v1.2 (TheBridgeComplete.lean :188, ConservationBridge.lean :29) -- read at the pin: `SIDEKernel.formation : 2 + 3 + 2 + 0 = 7`, by `decide`; `SIDEKernel.formation_count : n1 + n2 + n3 + 
+    :49     | ME-01 | ME :21 | ME states that no off-line zero exists under the conservation clause h2, the catalogue’s completeness at the ξ interface, carried openly. | kernel-verified | the conditional is ConservationBridge.riemann_hypothesis at v1.2, named at ME :408 and :219 -- read at the pin: `ConservationBridge.riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis`, its premise (:13-:16) every σ with is_xi_zero σ meeting p^(−σ) = p^(−(1−σ)) at every prime | — |
+    :52     | ME-04 | ME :93 | ME states that the formation count 2 + 3 + 2 + 0 = 7 is checked in Lean. | kernel-verified | at v1.2 the arithmetic compiles by `decide`, not `native_decide` (Core.lean :50, :53), the pin ME :408 names; the terminal states the arithmetic, not that the classes number seven -- read at the pin: `SIDEKernel.formation : 2 + 3 + 2 + 0 = 7`, by `decide`; `SIDEKernel.formation_count : n1 + n2 + n3 + n4 = 7`, by `decide` | — |
+    :57     | ME-09 | ME :145 | ME states the Spectral Cannon: the derivative of the completed zeta function is purely imaginary on the critical line. | kernel-verified | `SpectralCannonFull.spectral_cannon` at SIDE-kernel v1.2, named at ME :408; its statement at that pin is exactly this -- read at the pin: `SpectralCannonFull.spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` | — |
+    :72     | IR-08 | IR :302 | IR states that the kernel’s output is the conditional StructuralExhaustiveness → RH and that the paper argues for its antecedent. | kernel-verified | the same compiled conditional as EA-20, at the pin IR :302 names -- read at the pin: `techne_kernel_integration.rh_from_structural_exhaustiveness (h : StructuralExhaustiveness) : RiemannHypothesis`, its antecedent (:201-:202) ∀ σ, is_xi_zero σ → σ = 1/2 | — |
+    :75     | IP-03 | IP :97 | IP states that the Euler product’s contributions balance, p^(−σ) = p^(−(1−σ)), only at σ = 1/2. | kernel-verified | `balance_theorem` of `Voice1.lean`, which EA :538 and :542 name at v1.2 as the balance theorem; its statement at that pin is this equivalence for a prime p -- read at the pin: `balance_theorem p hp s : p^(−s) = p^(−(1−s)) ↔ s = 1/2` for a prime p (:22-:24) | — |
+    :84     ## 1. The conditional each paper states
+    :122    ## Back matter of v0.1 — written 2026-10-03 by b611 under the author’s ruling `(R221)`(3)-(4), by the synthesis form of `(R220)`(5)
+    :129    ### The routes through the five tests
+### the four syntheses: title, tier line, head line, version line, the Correspondence and body heads, the kernel-verified rows (1.5E) -- phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md @ f22a13a2 (18 lines cited, of 239)
+    :1      # The {2, 3} Substrate and the Trivium: the Frobenius Pair, the Seven Quadratic Fields, the Trivium Vector, the Class-Number Diagonal and the Prime Mosaic
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): TIER KC** — *declared 2026-10-03 (b612), under `(R222)`(3): the tier the rows earn, decided after they were graded -- 10 rows read kernel-verified, each naming terminals at a pin that resolves in its clone and at its remote, whose statements carry the claim (at SIDE-frobenius v0.1.0 = `2efe9f2`: `SIDEFrobenius.g_two_three` (SIDEFrobenius/Indicial.lean :65), `SIDEFrobenius.g_two_three_minimal` (SIDEFrobenius/Indicial.lean :68), `SIDEFrobenius.indicial_factor` (SIDEFrobenius/Indicial.lean :29), `SIDEFrobenius.indicial_r
+    :5      *This document synthesises the six papers it names and certifies nothing they do not.*
+    :7      *v0.1, 2026-10-03 -- written at b612 under `(R222)`(3), the synthesis for 1.5E that THE_KEYSTONE_CENSUS v0.3 names (its row R07).*
+    :24     ## Correspondence
+    :30     | FR-01 | FR :26 | FR states that {2, 3} is the one coprime pair with both entries at least 2 whose Frobenius number is 1. | kernel-verified | FR :30 names `g_two_three` and `g_two_three_minimal` at SIDE-frobenius `2efe9f2`; read at that pin, g(2, 3) = 1 and every other pair 2 ≤ a < b has g(a, b) ≥ 2 | — |
+    :32     | FR-03 | FR :50 | FR states that the indicial equation of (xp)² factors as (r + 1/2)² = 0, with the double root r = −1/2. | kernel-verified | FR :50 names `indicial_factor`, `indicial_root_unique` and `indicial_forces_half` at `2efe9f2`; read there, r² + r + 1/4 = (r + 1/2)² over ℚ with the one root −1/2; the Berry–Keating operator itself is not compiled | — |
+    :34     | FR-05 | FR :75 | FR states that the modular generators satisfy S² = −I and, in PSL₂(ℤ), (ST)³ = I. | kernel-verified | read at `2efe9f2`: S² = −1 and (ST)³ = −1 in SL₂(ℤ), which is (ST)³ = I in PSL₂(ℤ); FR :75 and :93 write (ST)³ = I as the relation checked | — |
+    :60     | TS-04 | TS :174 | TS states that g(2, 3) = 1 and the modular relations S² = −I, (ST)³ = I are machine-checked, Størmer’s finiteness staying classical. | kernel-verified | read at SIDE-frobenius v0.1.0 = `2efe9f2`: `g_two_three`, and S² = −1, (ST)³ = −1 in SL₂(ℤ), the latter I only in PSL₂(ℤ) | — |
+    :87     | CN-02 | CN :49 | CN states that ℚ(√−6) is the vector (1, 1, 1) of (ℤ/2)³, the one vertex of Hamming weight 3, the weights splitting (3, 3, 1). | kernel-verified | CN :98 and :132 name `SIDESubstrateCluster.partition_cardinalities` at SIDE-substrate-cluster v0.4; read at `06b61c3`, the weight classes have lengths 3, 3 and 1; the identification with ℚ(√−6) is the paper’s | — |
+    :92     | CN-07 | CN :82 | CN states that the abstract Identity-Formation Bijection schema is demonstrated at the concrete instance sideIDS, formation (2, 3, 2, 0), total 7. | kernel-verified | CN :82 names SIDE-bijection v0.2.0 = `a26f6f1`; read there, `sideIDS` carries the formation ⟨2, 3, 2, 0⟩ and the identity map at each stage, and `sideIDS_bijection` applies the schema to it | — |
+    :95     | CN-10 | CN :134 | CN states that SIDE-bijection v0.1 = dd487e6 carries the abstract schema only, bijectivity from assumed per-stage injectivity and surjectivity, with no concrete seven-count. | kernel-verified | read at `dd487e6`: `identity_formation_bijection` concludes Bijective (S.identityOf stage) at every stage from the structure’s own fields; the tag v0.1 is held in the clone only, its commit on the remote main | — |
+    :96     | CN-11 | CN :134 | CN states that SIDE-trivium’s trivium_theorem exhibits a concrete MechanismClass ≃ QuadraticDiscriminant with both cardinalities 7. | kernel-verified | read at `1df5bad4`: Nonempty (MechanismClass ≃ QuadraticDiscriminant) with both Fintype cardinalities 7, MechanismClass an inductive type of the kernel | — |
+    :97     | CN-12 | CN :146 | CN states that weight 3, class number 2 and discriminant magnitude 24 hold together for d = −6 alone among the seven Trivium discriminants. | kernel-verified | CN :202 names SIDE-class-number-anomaly v0.2 = `2203b88a`; read there, the biconditional over `triviumDiscs` by `decide`, with `classNumber` an encoded table whose grounding is the open LV-L-4 | — |
+    :98     | CN-13 | CN :132 | CN states that under antipodal pairing in (ℤ/2)³ the weight-3 diagonal is the one unpaired element. | kernel-verified | read at SIDE-substrate-cluster v0.4 = `06b61c3`: `diagonal_unpaired` and `obstruction_theorem`; the tag v0.4 is held in the clone only, its commit the remote’s v0.1.0 | — |
+    :120    ## 1. The papers and their scope
+    :170    ## Back matter of v0.1 — written 2026-10-03 by b612 under the author’s ruling `(R222)`(3), by the synthesis form of `(R220)`(5) and `(R221)`(3)
+    :178    ### The routes through the five tests
+### the four syntheses: title, tier line, head line, version line, the Correspondence and body heads, the kernel-verified rows (2B) -- phase2/philosophy/THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md @ f22a13a2 (8 lines cited, of 192)
+    :1      # The Silence Principle and Interface Darkness: Natural Language and Validity, the Conservation of Cognition, the Pedagogy and IMO Correlations and the Identity Subspace
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): TIER C** — *declared 2026-10-04 (b613), under `(R223)`(3): the tier the rows earn, decided after they were graded -- 0 rows read kernel-verified: the one kernel pin the papers name with a claim, SIDE-silence-principle v0.1, resolves neither in the clone nor at the remote, and the terminal they name, silence_universal, is named without a pin; each row is cited at its stated grade, the Correspondence in the back matter (`(R221)`(3)).*
+    :5      *This document synthesises the six papers it names and certifies nothing they do not.*
+    :7      *v0.1, 2026-10-04 -- written at b613 under `(R223)`(3), the synthesis for 2B that THE_KEYSTONE_CENSUS v0.3 names (its row R12).*
+    :24     ## 1. The papers and their status
+    :62     ## Back matter of v0.1 — written 2026-10-04 by b613 under the author’s ruling `(R223)`(3), by the synthesis form of `(R220)`(5) and `(R221)`(3)
+    :70     ## Correspondence
+    :160    ### The routes through the five tests
+### the four syntheses: title, tier line, head line, version line, the Correspondence and body heads, the kernel-verified rows (2D) -- phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS.md @ f22a13a2 (16 lines cited, of 326)
+    :1      # The Baryon Fraction, the Dark Sector and the Constants: the Lithium Plateaux, the Størmer Wall, the Fano Split, Hodge Conservation and the Yang-Mills Exclusion Form
+    :3      **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): TIER KC** — *declared 2026-10-04 (b614), under `(R224)`(4): the tier the rows earn, decided after they were graded -- 8 rows read kernel-verified at 8 pins in 7 kernels, each pin resolving in its clone and at its remote; the certifying statements are arithmetic over tuples their own files define, a placeholder form and a derived count, and they certify nothing about the physics; each other row is cited at its stated grade, the Correspondence after the front matter (`(R221)`(3)).*
+    :5      *This document synthesises the eight papers it names and certifies nothing they do not.*
+    :7      *v0.1, 2026-10-04 -- written at b614 under `(R224)`(4), the synthesis for 2D that THE_KEYSTONE_CENSUS v0.3 names (its row R14).*
+    :26     ## Correspondence
+    :67     | MA-18 | MA :181 | MA’s era annotation reads omega_b_equals_4_over_81 at SIDE-omega-b 9c80279 as deriving 4/81 from a tuple carried by definition. | kernel-verified | SIDE-omega-b 9c80279 = commit 9c80279b6976, remote tag v0.1.0: SIDEOmegaB/Theorem.lean `SIDEOmegaB.omega_b_equals_4_over_81 : arithmeticSubstrate.omega = ⟨4, 81⟩` by decide (:130-:132); SIDEOmegaB/Theorem.lean the tuple defined as numerals, n1 := 2, n2 := 3, n3 := 2, n4 := 0 (:114-:118); SIDEOmegaB/Theorem.lean Formation.omega’s numerator n1^n3 (:101) | — |
+    :68     | MA-19 | MA :183 | MA’s era annotation reads the xi_* cluster at SIDE-cosmo c5cba30 as deriving its counts from a tuple carried by definition. | kernel-verified | SIDE-cosmo c5cba30 = commit c5cba30ce201, on the remote main c5cba30: SIDECosmo/FormationPhaseSpace.lean xi defined as ⟨2, 3, 2, 0⟩ (:53); SIDECosmo/FormationPhaseSpace.lean `xi_total : total_slots xi = 81` by decide (:59), total_slots f = trans^(prim + output) (:22); SIDECosmo/FormationPhaseSpace.lean `xi_visible : visible_slots xi = 4` by decide (:60) | — |
+    :85     | ST-16 | ST :223 | ST’s era annotation reads SIDEKernel.formation and formation_count at SIDE-kernel 5e668b4: the sum derives and the tuple enters by definition. | kernel-verified | SIDE-kernel 5e668b4 = commit 5e668b49f058, on the remote main 0256e9e: Kernel/Core.lean n1 defined := 2 (:34), the other entries as numerals; Kernel/Core.lean `formation_count : n1 + n2 + n3 + n4 = 7` by decide (:50); `formation : 2 + 3 + 2 + 0 = 7` (:53) | — |
+    :86     | ST-17 | ST :228 | ST’s era annotation names a derived count for the seven classes, CardDerived at SIDE-trivium 1aac3a9. | kernel-verified | SIDE-trivium 1aac3a9 = commit 1aac3a9e1939, on the remote main 1aac3a9: Trivium/CardDerived.lean `mechanism_class_card_derived : Fintype.card MechanismClass = ({-1, 2, -2, 3, -3, 6, -6} : Finset Int).card` (:48-:49); Trivium/CardDerived.lean `quadratic_discriminant_card_value`: that image’s card is 7 by decide (:44-:45) | — |
+    :87     | ST-18 | ST :257 | ST’s dated ruling records omega_b_equals_4_over_81 at SIDE-omega-b 9c80279, Theorem.lean :130, for the final arithmetic step to 4/81. | kernel-verified | SIDE-omega-b 9c80279 = commit 9c80279b6976, remote tag v0.1.0: SIDEOmegaB/Theorem.lean `SIDEOmegaB.omega_b_equals_4_over_81 : arithmeticSubstrate.omega = ⟨4, 81⟩` by decide (:130-:132); SIDEOmegaB/Theorem.lean the tuple defined as numerals, n1 := 2, n2 := 3, n3 := 2, n4 := 0 (:114-:118); SIDEOmegaB/Theorem.lean Formation.omega’s numerator n1^n3 (:101) | — |
+    :126    | FA-08 | FA :113 | FA cites three_weight1_eq_14 at SIDE-residual-bridge v0.1 for three weight-1 contributions of 14/3 Ω_b summing to 14 Ω_b. | kernel-verified | SIDE-residual-bridge v0.1 = commit b473d4b0cc23, on the remote main 5aa5ab7: SIDEResidualBridge/Bridge.lean `three_weight1_eq_14 : fracEq (fadd (fadd weight1Contrib weight1Contrib) weight1Contrib) (14, 1) = true` by decide (:77-:78), weight1Contrib := (14, 3) (:57) | — |
+    :157    | YM-20 | YM :405 | YM cites SIDE-effects Structural.lean at c66f3c5 and a27415d for the mass_gap placeholder, `gapped` True on each sector, retired at the later pin. | kernel-verified | SIDE-effects c66f3c5 = commit c66f3c590adf, on the remote main ef4cff7: SIDEEffects/Structural.lean `YangMills.mass_gap : ¬Massless` (:56), from `all_gapped` (:49) over `gapped` defined True on each sector (:43); SIDEEffects/Structural.lean `gapped` defined by cases, True on each of four sectors (:43-:47); SIDEEffects/Structural.lean the placeholder recorded as retired (:73) | — |
+    :158    | YM-21 | YM :405 | YM cites SIDE-yang-mills-formation v0.1.1 = 73e9e2c as a formation-level placement skeleton over stipulated data. | kernel-verified | SIDE-yang-mills-formation v0.1.1 = commit 73e9e2c3e962, remote tag v0.1.1: SIDEYangMillsFormation/Basic.lean `yang_mills_total_eight : formation_total = 8` by decide (:69) over n1 := 3 (:56), n2 := 3, n3 := 2, n4 := 0; SIDEYangMillsFormation/Basic.lean n1 defined := 3 (:56) | — |
+    :176    ## 1. The papers and their status
+    :218    ## Back matter of v0.1 — written 2026-10-04 by b614 under the author’s ruling `(R224)`(4), by the synthesis form of `(R220)`(5) and `(R221)`(3)
+    :226    ### The routes through the five tests
+### THE_DOCUMENT_CLASS_TAXONOMY.md: the tier definitions and (R19)`s KC -- phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md @ f22a13a2 (8 lines cited, of 70)
+    :14     **Tier K — Keystone-certified.** A document whose load-bearing claims are backed by a **machine-checked kernel terminal at a pin**, Gate-1-graded (DERIVES, or INTERFACES-with-a-named-premise). *Obligation:* every such claim states its **grade · terminal · pin**, and the axiom profile is written in full ("the standard three axioms {propext, Classical.choice, Quot.sound}", or cleaner). *Citation rule:* **may be cited as certification** — the terminal, at its grade, is the warrant.
+    :16     **Tier C — Cluster-synthesis.** A document that **organizes** certified results into a cross-system picture, panel, map, or interpretation — asserting *relationships* not individually certified. *Obligation:* state the invariant it organizes on; flag any tuple/value that is a **coordinate, not an invariant**; carry the Gate-1b discipline (classification × certification is the invariant, not a shared tuple). *Citation rule:* **cite for orientation and organization — NEVER as certification of the relationships it draws.** This is the taxonomy's load-bearing rule.
+    :18     **Tier N — Notes / exploratory.** Consults, seeds, reports, drafts, dry-runs. *Obligation:* mark the exploratory grade on its face; no promotion without a status call. *Citation rule:* **reference-only** — not citable as established; a Tier-N claim is a lead, not a result. *Admission (the internal-until-fruit law, 2026-07-28):* **Tier N is the floor for *fruit*, not the parking lot for conversation** — a document is admitted only once its exploration has borne fruit (a conclusion informed, a discourse advanced, a decision enabled). Ongoing banter and speculative design stay **loom-resident** (ledger lines) until then; documents are earned, even at the floor.
+    :20     **Tier E — Filing-facing.** A document written for counsel or a patent examiner rather than for a referee: invention disclosures, per-filing packages and claim-support charts, prior-art and enablement material, and the engineering notes held with them. *Obligation:* mark the attorney-facing grade on its face; carry the **sequencing law** (provisioning precedes publishing and partnering) and, wherever it reconstructs claim content, the **executor-cannot-read-the-filed-claims** caveat; every technical claim still states its **grade · terminal · pin**, exactly as Tier K requires — Tier E relaxes the audience, never the certificate. *Citation rule:* **never cited in a reader-facing paper** — Tie
+    :57     **Tier KC — the finished keystone.** A document that **synthesizes a subject cluster** *and* **carries the verification apparatus**. It is a conjunction of what Tier K and Tier C each do alone, and it is named because the corpus writes such documents and had no word for them.
+    :59     *Obligation.* **Every load-bearing claim is stated clearly in the body** and **carried by a row in a correspondence table placed after the front matter, where a reader meets it** — not appended where only a returning reader will find it. **Each row names what backs it in the front door’s own vocabulary** — `kernel-verified`, `theorem-supported`, `argument-supported`, `computationally-verified`, `synthesis-suggested`, `milestone-open`, `statement-grade` — and **a claim whose backing is not machine-checked says so in the row**. Plus **glossary, bibliography, and other tables as the document needs them**: the furniture is part of the class, because a finished keystone is a document a stranger c
+    :61     *Citation rule, written so a reader who has never seen this taxonomy can obey it:* **A SYSTEMATIC SYNTHESIS WITH A VERIFICATION CONCORDANCE — CITE THE SYNTHESIS FOR ORIENTATION, CITE EACH CONCORDANCE ROW AT ITS STATED GRADE.**
+    :63     > ### **THE GUARD, WRITTEN INTO THE CLASS AND NOT BESIDE IT: THIS CLASS CONFERS NO CITATION LICENSE THE TWO TIERS DO NOT ALREADY CONFER.** *It names a **conjunction** and a **furniture obligation**. Nothing in it permits a synthesis conclusion to be cited as certification. A row at `kernel-verified` is cited as Tier K allows; a synthesis relationship is cited as Tier C allows — **for orientation, never as certification of the relationships it draws**. The conjunction adds a table and a discipline; it adds no warrant.*
+### the sieve v0.4: the five tests, RH-58, RH-59, RH-60 -- phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_4.md @ f22a13a2 (10 lines cited, of 1273)
+    :24     ## The five tests
+    :26     The five tests are tests of routes: each asks a candidate argument toward the located clause, simplicity or a GRH_chi target a question about placement, and a row that is not a route is not asked.
+    :28     1. **Placement register** — the conclusion carries each zero’s real part, not an average over zeros; it reads only a row that is a statistic or an average over the zeros offered as a placement argument -- a density, a zero-density, a mollifier, a GUE statistic, a proportion -- and nothing else. Instrument: INSTRUMENTS.md I-7, the placement screen (:93, its second run :148), and INVARIANCE_BARRIERS v1.4 Theorem 3.1 (:148) with Proposition 3.5’s witness (:188), one test as I-7’s own cross-reference reads them; pinned at PLACE-papers 847e433 (I-7) and 1d0109f (INVARIANCE_BARRIERS v1.4).
+    :29     2. **Prime side** — the route would fail on the Epstein configuration. Instrument: `detector` and `epstein_not_h2_sign_cfg`, and INVARIANCE_BARRIERS v1.4 Theorem 3.7 (:259): no derivation confined to the named toolkit succeeds without the Euler product; pinned at SIDE-explicit-formula v0.16 = c404e72; PLACE-papers 1d0109f.
+    :30     3. **Conductor uniformity** — the conductor enters once per summand. Instrument: `EF_lit_chi_holds` and `family_theorem`; read for a row over a character or a family, n/a for a row with none; pinned at SIDE-explicit-formula v0.13 = ac157c1 and v0.21 = 1d5d4dd.
+    :31     4. **Quantifier** — UNIVERSAL, or a ladder of FINITE rungs whose limit is UNIVERSAL. Instrument: `h2_sign_iff_forall_upto` and `forall_upto_iff_rh` (the forall_upto pair), and `li_nonneg_iff_rh`; pinned at SIDE-explicit-formula v0.3 = 04eda4a and v0.9 = e5a5a83.
+    :32     5. **Compiled face** — the conclusion attaches to a declaration at a pin. Instrument: the pages’ node lists -- the ζ page’s at its own pin, the χ page’s at v0.21 -- and, for the Core shadows the current version cites, the SIDE-global-section correspondence; it is also the compiled-face column’s source; pinned at SIDE-explicit-formula v0.20 = 914c413 (the ζ list) and v0.21 = 1d5d4dd (the χ list); SIDE-global-section 3528bcf.
+    :120    | RH-58 | The zeros of ζ computed to a finite height, 10¹³ and more of them, are simple and on the line; the range is finite and says nothing of the zeros beyond it. | FINITE (H) | the computational range | NOT A ROUTE | — | a bench fact: a finite range of zeros computed simple and on the line, offered toward no target and recorded at its own grade, the zeros beyond the range left open | computed, no declaration: the zero tables (Odlyzko, LMFDB) as A_Place_to_Stand v5.16 §24.4 cites them (:1500), and SIMPLICITY v1.1.3 :319 |
+    :121    | RH-59 | The unfolded spacings of ζ’s zeros match the GUE statistics to every tested range, and GUE predicts that no zero is multiple; a statistic over the ordinates, a conjecture with numerical support. | DENSITY (H) | the super-repulsion fit | DARK | 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f) | a GUE statistic offered toward simplicity: a statistic over the ordinates carries no zero’s real part and no zero’s multiplicity, the bench’s super-repulsion fit read beside it | none: Montgomery 1973 (pair correlation) and Odlyzko 1987 (the computed spacings), as SIMPLICITY v1.1.3 :343 and A_Place_to_Stand v5.16 §24.2 (:1478) cite them |
+    :122    | RH-60 | The seven mechanism classes are enumerated, Ostrowski-exhaustive at the places of ℚ, and each class’s exclusion compiles as a statement about a real σ alone; the step from the classes to ξ’s zeros is open -- at their real parts it is the located clause, at their multiplicity the geometric clause. | UNIVERSAL (H) | the mechanism catalogue | DARK | 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f) | a candidate route toward the located clause and toward simplicity through the classes: its compiled exclusions name no function -- C₂_euler’s off-line condition is σ ≠ 1/2 ∧ -σ = -(1 - σ), the Euler product entering none of them -- so they hold unchanged beside the Epstein con
+### ERRATA.md: the head, the entry form and the latest entries -- ERRATA.md @ f22a13a2 (12 lines cited, of 869)
+    :1      # Errata
+    :9      **PURPOSE:** *the corrections record for the deposited line — what changed after Zenodo publication and at which version; for a reader holding a deposited copy.* — *### added 2026-08-26 (b187) from this document's own content; nothing else edited.*
+    :11     This file records corrections to the deposited line after its Zenodo
+    :19     what that deposit said, at the version it said it. Each entry lists: the
+    :841    ## E-2026-10-04-1 — TRIVIUM_FINDINGS :171, CONSTANCE :2216 and the deposited monograph’s Appendix F give the valence-7 primes as p ≡ ±1 mod 24; the valence-7 primes are p ≡ 1 mod 24 alone (DEPOSIT-FACING; RETAINED AT MONOGRAPH v1.1.2)
+    :843    **Filed 2026-10-04 by b613, on the author’s ruling `(R223)`(2)(i) and its closing sentence; found at b612 (relay `data/b612_reads.txt`), computed at b613 (relay `data/b613_arith.txt`). Records affected: `phase1.5/deep-structure/TRIVIUM_FINDINGS.md` :171, `phase1.5/deep-structure/CONSTANCE.md` :2216, and the deposited monograph *A Place to Stand*, Zenodo v1.1.2 ([10.5281/zenodo.21539167](https://doi.org/10.5281/zenodo.21539167)), Appendix F, mirrored at `outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.
+    :845    **What the lines say.** TRIVIUM_FINDINGS :171: *“these are the primes ≡ ±1 mod 24”*; CONSTANCE :2216: *“The primes ≡ ±1 (mod 24) are valence-7.”*; Appendix F: *“| p ≡ ±1 mod 24 | 7 | Splits in every field |”*.
+    :847    **What is true.** A prime p > 3 has valence 7 exactly when (−1/p), (2/p) and (3/p) are all +1 -- the papers’ own argument (TRIVIUM_IDENTITY_SUBSPACE :287, CONSTANCE :2210) -- and that holds exactly when p ≡ 1 mod 24: (−1/p) = 1 needs p ≡ 1 mod 4, (2/p) = 1 needs p ≡ ±1 mod 8, (3/p) = 1 needs p ≡ ±1 mod 12, and the three meet at 1 mod 24 alone. A prime p ≡ 23 mod 24 has (−1/p) = −1 and valence 3. Computed over the 9590 primes 5 to 100000: valences {3, 7} only; 1181 valence-7 primes, every one ≡ 1
+    :849    **The correction.** Where the three lines read “≡ ±1 mod 24”, the condition of record is “≡ 1 mod 24”. The dichotomy itself -- every prime p > 3 has valence 3 or 7 -- stands.
+    :851    **Scope.** No line is edited: the papers take the correction at their next editions as fact items (OPEN_TRAILS :12647), and the monograph at its next version. No banked number, verdict or grade moves. Nothing here is a statement about RH or any zero.
+    :853    **Status.** FILED. Retained at monograph v1.1.2.
+    :856    ## E-2026-10-04-2 — CONSTANCE :1315 factors 79981 as 11 × 661, which is 7271; 79981 = 11² × 661, and Appendix D :2469 gives a different value for the same ratio (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+### OPEN_TRAILS: the form, the arm-unrun standing line, the precedence order, the sequence`s form, (R19)`s clauses, b614`s record lines and record -- OPEN_TRAILS.md @ f22a13a2 (8 lines cited, of 12695)
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and its CP-1b work-list, the page its objects sit on as its spine; STANDS sentences carried unchanged; MOVED-IN-MEANING sentences rewritten to say what the compiled fact says, citing the declaration by name and pin as the page prints it; CREDIT lines inserted where the work-list places them; a marked sentence the compiled facts do not support removed and its removal recorded in back matter, not reworded; Placement and Correspondence in back matter; no blank Status cell; the title naming objects and conditions; 0 live banned stems; nothing beyond the ceiling; the edition diffed sentence by sentence against the work-list and the diff banked. It does not deposit and does not move into a phase repository; promotion is CP-8’s. Every edition act scores H28a, H28b and H28c as `(R187)`(6) fixes them (relay `data/b577_ferry.txt`).
+    :12188  *Appended 2026-10-02 by b592 to b591’s record (:12172), under the author’s ruling `(R202)`(3) -- THE ARM-UNRUN STANDING LINE:* no arm is declared on a face before it has been run at HEAD in the same session and its count printed; a page arm is run after every kernel tag before the next face is sealed. The occasion is b591’s defect (a): the face declared G-CHAIN-PAGE and G-CHAIN-PAGE-CHI without running them at HEAD, and both failed as sealed (relay data/b591_defects.txt). Applied first at b592, whose suite was run at HEAD before its face was sealed (relay data/b592_arms_prerun.txt).
+    :12228  *Appended 2026-10-02 by b594, under the author’s ruling `(R204)`(2), to the form of an edition (:11864) -- THE PRECEDENCE ORDER:* where two clauses of the form meet on one sentence, the history clause governs, then the name-and-title exception, then the stem clause, then the ceiling clause, then the fact clause, then the restatement clause, each applying to what the earlier ones leave; the seat resolves the collision by that order without a prompt, lists every resolved collision in the back matter with the clauses named and both wordings, and the author strikes at the closing. A prompt is reserved for a sentence no clause reaches, a write outside the corpus, and anything irreversible. Applied first at b594 to FACES_OF_H2_AT_FINITE_INSTANCE.
+    :12566  *Appended 2026-10-03 by b610, under `(R220)`(5), the author’s explicit ask -- THE SYNTHESIS SEQUENCE, ENTERED WITH ITS FORM:* the keystones the clusters lack, written from the clusters’ own papers, one act per cluster the census names (its §2, the clusters with documents and no keystone under `(R220)`(3)), in the census’s order, each act writing one new document in the cluster’s folder titled by its objects: the cluster’s papers read at address, their claims listed with the grade each paper’s own text supports (kernel-verified at a pin; theorem-supported; argument-supported; computationally-verified; synthesis-suggested; statement-grade); a Correspondence table after the front matter carrying every load-bearing claim with its grade; the sieve’s five tests applied to any claim that is a route; the ceiling as everywhere; Tier C unless a terminal at a pin certifies a claim, in which case the row says so and the document’s tier line reads KC; no claim entered that no paper of the cluster states; the no-disclosure arm run where a cluster touches TECHNE content. Each act prices the next. The acts are named one line per cluster on this act’s trail record, from the census; the first is b611, the census’s opening-listed cluster (`(R220)`(6)); W-ORD-QUANTIFIER-COLUMN’s generator follows the sequence.
+    :12601  *Appended 2026-10-03 by b611 to the synthesis sequence’s form (:12566), under `(R221)`(3) -- THREE CLAUSES OF THE SYNTHESIS FORM:* (i) the Correspondence table sits in the back matter for a Tier C document and after the front matter, where `(R19)` puts it, when the document’s tier line reads KC -- the placement follows the tier the rows earn, decided after the rows are graded; (ii) the title names the cluster’s objects and no property; (iii) the document’s head carries one line saying it synthesises the papers it names and certifies nothing they do not.
+    :12671  *Appended 2026-10-04 by b614 to b613’s record (:12651), under `(R224)`(2)(i)-(iv) -- THE 2B PAPERS’ FINDINGS, FACT ITEMS FOR THEIR NEXT EDITIONS, THE SYNTHESIS’S ROWS STANDING AS GRADED:* (i) phase2/philosophy/COGNITION.md :172 gives n = 12 after excluding one of its table’s twelve rows, leaving 11, and the coefficient r = 0.762 with its coding unstated; at midpoint coding of the Bloom ranges the 11 rows give r ≈ 0.782 (relay data/b614_arith.txt) -- a fact item, the coding to be stated or the coefficient corrected. (ii) COGNITION.md :179 gives the n₂ stage 261 studies where the rows its table lists sum to 217 -- a fact item. (iii) phase2/method/IDENTITY_SUBSPACE.md :129 bounds every other coprime pair by g(a, b) ≥ 1, which holds of every pair and does not single out {2, 3}; every other pair has g ≥ 3, so g ≥ 2 does (SIDE-frobenius v0.1.0’s g_two_three_minimal) -- a fact item; :171 lists 0 among the {2,3}-smooth integers, which 0 is not -- a fact item; :65 keeps its sentence of logically independent derivations beneath its own :53 correction that three share the involution -- a fact item. (iv) phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :25, :245, :249 and :327 cite SIDE-silence-principle v0.1, which resolves nowhere: the pin is corrected to the tag the remote holds whose text the papers match (v0.1.0 or v0.2.0), read by the seat at the next act that touches those papers; and silence_universal, named at :250 and :329 without a pin, takes one -- it
+    :12673  *Appended 2026-10-04 by b614 to W-ORD-SECOND-READER (:12212), under `(R224)`(2)(v) -- A READING FOR THE RECORD: THE SILENCE-PRINCIPLE KERNEL’S INSTANCES SILENT BY DEFINITION; THE SECOND READER’S ADDENDUM EXTENDED:* at SIDE-silence-principle v0.1.0 (90e540fd, a remote tag) an interface is silent when its κ field is 0 (`isSilent`, SIDESilencePrinciple/Basic.lean :64), and each load-bearing instance sets that field to 0 in its own definition -- the product formula (:131-:135) and the distributive law (:139-:143) -- so the kernel’s instances carry silence by definition and not by derivation. Every sentence citing them as a verified silence takes the ceiling at the 1.5h and 2B editions. The second reader’s addendum is extended beside b610’s, which is not edited: relay data/b614_second_reader_addendum.txt, 34 lines of three matchers over the current 1.5h and 2B documents, read by hand -- 17 kin, 17 not kin.
+    :12675  ### b614 — lane three, act forty-one under (R224): the synthesis for 2D -- one document from the cluster’s eight papers read at address, every claim graded, the routes read; the 2B papers’ findings entered; the mirror after the last push
+### FINDINGS: b614`s weight line for b613 and b614`s entry -- FINDINGS.md @ f22a13a2 (2 lines cited, of 7318)
+    :7298   *Appended 2026-10-04 by b614 to b613’s entry (:7280), under `(R224)`(1) -- b613 AT ITS WEIGHT; THE CITED PIN, THE POINTER, THE CORPUS-FACING TAG AND THE TWO ROUTE VERDICTS CONFIRMED:* THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md v0.1 (PLACE-papers 36d13a7), in the 2B papers’ folder: p2-2, p2-24, p2-14, p2-21, p2-22 and p2-28 read whole at a4f16fe and unedited; 83 claims -- 0 kernel-verified, 4 theorem-supported, 18 argument-supported, 9 computationally-verified, 19 synthesis-suggested, 33 statement-grade; tier C, the one cited kernel pin, SIDE-silence-principle v0.1, resolving neither in th
+    :7300   ## The 2D synthesis: the baryon fraction, the dark sector and the constants at v0.1 from p2-8, p2-9, p2-10, p2-15, p2-25, p2-30, p2-31 and p2-26, 143 claims graded, 2 routes read, tier KC; the 2B papers’ fact items; the mirror built after the last push
+### the 2D fact items` lines: CS -- phase2/physics/COSMOLOGICAL_SIEVE_CEILING.md @ f22a13a2 (1 lines cited, of 255)
+    :72     In analytic number theory, sieve methods prove density results about zeros of the Riemann zeta function: "at least X% of nontrivial zeros lie on the critical line." Selberg (1942) proved 40%. Conrey (1989) proved 41.6%. The current record approaches 100%. But no sieve method has proved — or can prove — that EVERY zero lies on the critical line. *(Claim-status, 2026-07-19, ARM 6: the "or can prove" is conjecture-grade. The Sieve Ceiling Lemma — the proved §4.3 structural theorem — establishes tha
+### the 2D fact items` lines: MA -- phase2/physics/MATTER_AS_ARITHMETIC.md @ f22a13a2 (2 lines cited, of 189)
+    :99     Configurations in the complement require the transformation stage's place-assignment. By Ostrowski's theorem, ℚ has exactly three places — archimedean, p-adic, and the global coherence enforcing the Artin–Whaples product formula. Configurations carrying this place-assignment cannot be reached from primitive operations alone.
+    :111    The seven non-identity elements of (ℤ/2)³ map into the dark sector via the Hamming-weight partition (3, 3, 1) — the GL(3, 𝔽₂) orbit decomposition under the parabolic stabilizer of the diagonal element (1, 1, 1). (The Hamming-weight classes here are one of the '(ℤ/2)³ six presentations' — A_METHODOLOGY §VI.3.2 pattern-class catalogue.) The embedding (QUATERNIONIC v0.2 §4) assigns:
+### the 2D fact items` lines: FA -- phase2/physics/FANO_DERIVATION_OF_LAMBDA.md @ f22a13a2 (3 lines cited, of 262)
+    :25     3. This Hamming-weight grading is the partition $(3, 3, 1)$, invariant under the coordinate-permutation action of $S_3$ (which fixes each weight class setwise). It is not a $\mathrm{GL}(3, \mathbb{F}_2)$ orbit decomposition: the diagonal stabilizer has order 24, not 6, and acts transitively on the six non-diagonal elements as a single orbit -- the grading that yields $(3, 3, 1)$ is Hamming weight, not group orbit.
+    :191    A heritage formula for $\Lambda$ from the PRIME GROUND era of the corpus is:
+    :193    $$\Lambda = \frac{11 \alpha}{12^{11/2}} \cdot [1 + \cdots] - \frac{337 \alpha^6}{27}$$
+### the 2D fact items` lines: PO -- phase2/physics/PRIME_ORDER.md @ f22a13a2 (6 lines cited, of 109)
+    :17     Run the sum operation 2^a + 3^b across small exponents and collect the primes it yields. Eleven appear in sequence — 5, 7, 11, 13, 17, 19, 29, 31, 41 — and then, past a stretch where the sum produces no prime, two more arrive far out: 137 and 337. With the two generators themselves, that is thirteen primes reachable by addition.
+    :19     The physics needs fifteen. Two primes appear throughout the constants that the sum operation never reaches: 23 and 53. They are not failures of the structure but inclusions in it — the way a growing crystal, forming from its seed minerals, incorporates foreign material at the cavities its own geometry creates. The two inclusions enter through the other operations. Twenty-three is a difference of powers, 2⁵ − 3². Fifty-three is a product of powers less one, 2·3³ − 1. No prime in the set escapes t
+    :27     The two inclusions are not inert. Each is a Sophie Germain prime, and each has a child just outside the Core where the structure first spills over: 2·23+1 = 47 and 2·53+1 = 107, both prime, both verified. These are the first exits — the points where the arithmetic that organizes the constants reaches past its own boundary.
+    :54     *Inclusion* — resists the sum, entering by difference (23) or by product-less-one (53). These two are the only members of the set without a 2^a + 3^b form, and they are the Sophie Germain pair whose children 47 = 2·23+1 and 107 = 2·53+1 are the first primes outside the Core.
+    :65     $$\Lambda_0 = \frac{11\,\alpha}{12^{112}}.$$
+    :67     Fed the measured α, this is 1.087×10⁻¹²² — the right order of magnitude, out of a formula with no astronomical input, and within about one percent of the central observed value. (The manuscript's own prose at this step reads "≈ 0.80, twenty percent low"; the computation says 0.988, one-point-two percent low, and that one-point-two percent is exactly what the first correction cancels. The prose carries a slip the arithmetic does not; the corrected figure is the one to keep.)
+### the 2D fact items` lines: HC -- phase2/physics/HODGE_CONSERVATION.md @ f22a13a2 (1 lines cited, of 155)
+    :48     The Griffiths group is defined as: cycles homologous to zero, modulo those algebraically equivalent to zero, modulo the Abel-Jacobi kernel. It lives entirely inside ker(cl).
+### the 2D fact items` lines: YM -- phase2/physics/YANG_MILLS_MONOGRAPH.md @ f22a13a2 (4 lines cited, of 445)
+    :15     > **What is open:** the **physical gap Δ > 0 (the Clay theorem)** — per-sector positivity is `gapped := True`, entered by definition, so no physical gap is derived. The Clay deliverable is the open input, not "supplied."
+    :103    | Vortex | π₁(Z(SU(N))) = ℤ_N | Center charge |
+    :118    The homotopy groups of SU(N) are completely computed (Bott periodicity theorem). There are no unknown homotopy groups. The classification is exhaustive.
+    :341    **Constructive proof (Wightman / Osterwalder-Schrader axioms).** The structural proof establishes that the mass gap exists by SIDE exclusion. The constructive proof — building the Hilbert space explicitly, demonstrating the spectral gap as an operator inequality — is the remaining technical step toward the strict Wightman or Osterwalder-Schrader formulation. The apparatus is lattice QCD as approximating sequence plus a continuum limit construction. Classification: TYPE I work (clear path, identi
+### the 2D fact items` lines: ST -- phase2/physics/STORMER.md @ f22a13a2 (2 lines cited, of 259)
+    :142    | Total formation slots = n₂^(n₁+n₃) (structural justification) | **Proved** (Independence → product rule; Silence → n₄ contributes 1) |
+    :145    The wall² conjecture has been absorbed: it is an algebraic consequence of n₁ = n₃ and the formula total = n₂^(n₁+n₃). The remaining open step is the structural justification of why total = n₂^(n₁+n₃) — a question about formation architecture, not about cosmology.
+### the 2D fact items` lines: UF -- heritage/UNIFICATION_OF_FORCES.md @ f22a13a2 (3 lines cited, of 941)
+    :640    - Λ is a P-factored interpolation value
+    :641    - The 10⁻¹²² factor is **built into the gap structure**
+    :644    $$\Lambda = \frac{11\alpha}{12^{11/2}} \times [1 + ...] - \frac{337\alpha^6}{27}$$
+### the suite`s ls-remote call sites at b614, by file and line: tools/b614_checks.py -- tools/b614_checks.py @ b89d88e8 (2 lines cited, of 919)
+    :277        S['pins_now'] = {k: K.pin_state(k) for k in K.PINS}
+    :311        S['pp_head'], S['pp_remote'] = gs(PP, 'rev-parse', 'HEAD'), (gs(PP, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+### tools/b614_claims.py -- tools/b614_claims.py @ b89d88e8 (4 lines cited, of 700)
+    :510    def pin_state(key):
+    :519        for l in g(path, 'ls-remote', 'origin', 'refs/tags/*').split(NL):
+    :526            head = g(path, 'ls-remote', 'origin', 'refs/heads/main').split('\t')[0].strip()
+    :564            st = pin_state(c[7])
+### tools/b614_record.py -- tools/b614_record.py @ b89d88e8 (3 lines cited, of 1371)
+    :175            st = K.pin_state(k)
+    :181        L.append('### SIDE-silence-principle tags by ls-remote: %s' % ' ; '.join(l.strip() for l in g('D:/SIDE-silence-principle', 'ls-remote', '--tags', 'origin').split(NL) if l.strip()))
+    :1003       loc, rem = g(PP, 'rev-parse', 'HEAD').strip(), (g(PP, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+### tools/b614_closing.py -- tools/b614_closing.py @ b89d88e8 (2 lines cited, of 129)
+    :89             rem = g(p, 'ls-remote', 'origin', 'refs/heads/main').split('\t')[0]
+    :94             rem = g(K, 'ls-remote', 'origin', 'refs/heads/' + b).split('\t')[0]
+### relay data/b614_mirror.txt (its figures) -- data/b614_mirror.txt @ b89d88e8 (12 lines cited, of 109)
+    :1      b614 -- THE MIRROR, BUILT AFTER THE ACT`S LAST PLACE-papers PUSH (the author`s answer to b614`s prompt), banked 2026-10-04T06:09:24Z
+    :2      ### THE ZIP : D:/MY-DOwnloads/mirror-refresh-2026-10-04.zip ; 3783640 bytes ; sha256 9abdc876bc98c8b8a50b5ce7c25ab94a6c3327e9e353fe04d13f7a05559f2e14
+    :3      ### THE MANIFEST : md5 20ed9b0572787dc2a14984922153ff4c ; 9534 bytes ; 70 rows ; entries in the zip 71 (files 70 + MANIFEST)
+    :4      ### THE SOURCE LINE : Source: PLACE-papers @ `f22a13a` (main). Export 2026-10-04. 70 files flat.
+    :5      ### THE ROSTER-CHANGE LINE : ROSTER CHANGE, THIS BUILD (2026-10-04): 70 files.
+    :6      ###   ADDED:   A_Place_to_Stand_v5_17.md, ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md, BALANCE_AND_POSITIVITY_v0_9_5.md, E_DIFFICULTY_THEOREM_v1_0_4.md, ENUMERA_v1_6.md, EXHAUSTIVENESS_LICENSE_v0_2.md, FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md, FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md, GRH_CASCADE_
+    :7      ###   REMOVED: none
+    :8      ### the files the line names as added: 26 ; the syntheses among them: 4 (THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS.md, THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md, THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md, THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md)
+    :9      ### THE SEE NOTES (the author`s addition): 16 base rows carry their current edition`s version:
+    :10         | SPIRAL_MAP.md | 64072 | `2e6a4f649764a50f8533eeff89ca4c80` | v0.7 (see SPIRAL_MAP_v0_7.md) | 192077f 2026-10-01 |
+    :11         | THE_RESIDUE_OF_RH.md | 39288 | `7802394a14a43aa5dad69951a8b5d59f` | v1.2 (see THE_RESIDUE_OF_RH_v1_2.md) | 5340891 2026-09-30 |
+    :12         | A_Place_to_Stand.md | 245171 | `bb86aa65025b49d2547016ef5000a31e` | v5.17 (see A_Place_to_Stand_v5_17.md) | da1faed 2026-09-22 |
+### relay data/b614_closing_push_out.txt (committed at step zero) -- data/b614_closing_push_out.txt @ 98fccb22 (12 lines cited, of 12)
+    :1      push_gated: capture on -> D:/relay/data/b614_closing_push_out.txt (2026-10-04T06:37:25Z)
+    :2      push_gated: repo D:/relay ; branch push-b614-closing ; tip b89d88e82249f0c6ef5b992bc800b4f3efff1667 ; checkout before main
+    :3      To https://github.com/psinary-sketch/relay.git
+    :4         1a237840..b89d88e8  push-b614-closing -> main
+    :5      push_gated: main read back at the remote: b89d88e82249f0c6ef5b992bc800b4f3efff1667
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay b89d88e82249f0c6ef5b992bc800b4f3efff1667   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers f22a13a29806fceaa84e4547f4b33a023803d925   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 3528bcfc8c0341d3639d2ea272bae3bc435901b4   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 1d5d4dd9a4816b88bf9ebdd5a982b7574c7d35af   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+### relay data/b614_scores.json (whole) -- data/b614_scores.json @ 98fccb22 (58 lines cited, of 58)
+    :1      {
+    :2       "H48a": [
+    :3        "HOLDS",
+    :4        "body sentences 40, untraced none"
+    :5       ],
+    :6       "H48b": [
+    :7        "HOLDS",
+    :8        "Correspondence rows 143 (the floor 20), graded above the paper`s backing none"
+    :9       ],
+    :10      "H48c": [
+    :11       "HOLDS",
+    :12       "the tier line reads KC with 8 certifying rows; every certifying pin resolves in its clone and at its remote: True"
+    :13      ],
+    :14      "H48d": [
+    :15       "HOLDS",
+    :16       "routes 2 (R1, R2); against the sieve: [['R1', 'RH-60', 'DARK, test 2', 'DARK, test 2', True], ['R2', 'RH-60', 'DARK, test 2', 'DARK, test 2', True]]"
+    :17      ],
+    :18      "N1": [
+    :19       "REFUTED",
+    :20       "the roster-change line names 26 added files (the floor twelve: True) and 4 syntheses (THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS.md, THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md, THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md, THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md) -- thr
+    :21      ],
+    :22      "N2": [
+    :23       "HELD",
+    :24       "143 claims (the floor 70)"
+    :25      ],
+    :26      "N3": [
+    :27       "HELD",
+    :28       "8 rows kernel-verified, each at a terminal whose pin resolves in its clone and at its remote, the statement read there standing: True"
+    :29      ],
+    :30      "N4": [
+    :31       "HELD",
+    :32       "every body sentence traced HOLDS ; the scanner CLEAN ; the ceiling pattern 0"
+    :33      ],
+    :34      "N5": [
+    :35       "HELD",
+    :36       "nothing deposits; kernels unmoved since the face True; the papers, the census, REGISTRY, SPIRAL_MAP, b613`s document, the taxonomy, the sieve, the 2B papers and ERRATA unedited True; PLACE-papers ['FINDINGS.md', 'OPEN_TRAILS.md', 'phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTAN
+    :37      ],
+    :38      "S1": [
+    :39       "HELD",
+    :40       "claim needles on their lines at e7b444e: 143 of 143"
+    :41      ],
+    :42      "S2": [
+    :43       "HELD",
+    :44       "the cited pins resolving 8 of 8 ; the kernel reads standing 16 of 16 ; rows kernel-verified 8"
+    :45      ],
+    :46      "S3": [
+    :47       "HELD",
+    :48       "the Correspondence placed by (R221)(3) for tier KC: True"
+    :49      ],
+    :50      "S4": [
+    :51       "HELD",
+    :52       "the ζ page changed False (expected False) ; the χ page changed False (expected False)"
+    :53      ],
+    :54      "S5": [
+    :55       "HELD",
+    :56       "after the pages: ['### ### **PAGE ARMS PASSING : 2 of 2.**', '### ### **G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA PASSING : 2 of 2.**']"
+    :57      ]
+    :58     }
+### SIDE-effects c66f3c5: its toolchain -- lean-toolchain @ c66f3c59 (1 lines cited, of 1)
+    :1      leanprover/lean4:v4.30.0-rc2
+### SIDE-effects main: the retirement record -- SIDEEffects/Structural.lean @ ef4cff77 (3 lines cited, of 110)
+    :98     --     (Retired: `bounds_sha := True`, `mismatch_absent := True` ⇒
+    :99     --     `sha_bounded`, `bsd_full`. The `Sha_finite`/`sha_finite`/
+    :100    --     `bsd_fully_closed`/`BSD_architecture_fully_closed` decls in those
+### SIDE-effects at c66f3c5: sha -- SIDEEffects/Structural.lean @ c66f3c59 (1 lines cited, of 299)
+    :213    theorem sha_bounded : ¬ShaGrows := by
+### SIDE-effects at c66f3c5: sha_def -- SIDEEffects/Structural.lean @ c66f3c59 (1 lines cited, of 299)
+    :199    def bounds_sha : Framework → Prop
+### SIDE-effects at c66f3c5: bsd -- SIDEEffects/Structural.lean @ c66f3c59 (1 lines cited, of 299)
+    :236    theorem bsd_full : ¬RankMismatch := by
+### SIDE-effects at c66f3c5: bsd_def -- SIDEEffects/Structural.lean @ c66f3c59 (1 lines cited, of 299)
+    :224    def mismatch_absent : MismatchMechanism → Prop
+### SIDE-lv-conservation at v0.5.0: lv_c7 -- SIDELvConservation/DirichletC7Order.lean @ 1767bd64 (1 lines cited, of 781)
+    :771    theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N]
+### SIDE-lv-conservation at v0.5.1: lv_ft -- SIDELvConservation/C7FiniteTypeFalse.lean @ bc4751ee (1 lines cited, of 154)
+    :68     theorem C7_finite_type_false :
+### SIDE-kernel at v1.4: ed -- Kernel/Cascade/SieveCeiling.lean @ f3741741 (1 lines cited, of 374)
+    :309    theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) :
+### SIDE-kernel at v1.4: ed_xi -- Kernel/Cascade/SieveCeiling.lean @ f3741741 (1 lines cited, of 374)
+    :349    theorem e_difficulty_xi :
+### SIDE-kernel at v1.4: scs -- Kernel/Cascade/SieveCeilingSemantic.lean @ f3741741 (1 lines cited, of 79)
+    :48     theorem sieve_ceiling_semantic {onLine : U → Prop}
+### SIDE-bsd-formation-transfer at 3491766: bft_total -- SIDEBSDFormationTransfer/Basic.lean @ 34917669 (1 lines cited, of 322)
+    :67     theorem formation_total_seven : formation_total_BSD = 7 := by decide
+### SIDE-bsd-multiplicity at d77ce30: bm_six -- SIDEBSDMultiplicity/Basic.lean @ d77ce309 (1 lines cited, of 375)
+    :163    theorem six_sha_frameworks : all_sha_frameworks.length = 6 := by decide
+
+### THE PINS THE PAPERS NAME WITH A TERMINAL, EACH AS CITED, RESOLVED IN ITS CLONE AND AT ITS REMOTE:
+    effects   SIDE-effects c66f3c5 -> c66f3c590adf ; at the remote: on the remote main ef4cff7 -- named at BV :64
+    lv050     SIDE-lv-conservation v0.5.0 -> 1767bd64241e ; at the remote: remote tag v0.5.0 -- named at BV :145, :436
+    lv051     SIDE-lv-conservation v0.5.1 -> bc4751ee7e8c ; at the remote: remote tag v0.5.1 -- named at BV :145, :436
+    k14       SIDE-kernel v1.4 -> f37417410589 ; at the remote: remote tag v1.4 -- named at BV :169
+### THE PINS THE PAPERS NAME WITHOUT A TERMINAL:
+    bft       SIDE-bsd-formation-transfer 3491766 -> 34917669160d ; at the remote: remote tag v0.1.1 -- named at BV :472
+    bm        SIDE-bsd-multiplicity d77ce30 -> d77ce309e6bd ; at the remote: remote tag v0.1.1 -- named at BV :472
+    lv080     SIDE-lv-conservation v0.8.0 -> 6efa9e54dadf ; at the remote: remote tag v0.8.0 -- named at BV :436
+    k13       SIDE-kernel v1.3 -> 0bc21c06454a ; at the remote: remote tag v1.3 -- named at BV :438
+    the head commits` subjects: ['W-5 scaffolding relabel: withdraw claim-bearing status (placement skeleton)', 'W-5 scaffolding relabel: withdraw claim-bearing status (placement skeleton)']
+    transversal_generic_empty                    named without a pin (ZS :54); read for the record at SIDE-simplicity main = 54ba4f3, SIDESimplicity/Codimension.lean :30: stands
+    six_sha_frameworks                           named without a pin (BV :213); read for the record at SIDE-bsd-multiplicity main = d77ce30, SIDEBSDMultiplicity/Basic.lean :163: stands
+    the retirement of sha_bounded and bsd_full   named without a pin (BV :64); read for the record at SIDE-effects main = ef4cff7, SIDEEffects/Structural.lean :98: stands
+### THE NO-DISCLOSURE NEEDLE SETS, read locally at TECHNE-Core 36352a0b and never printed: the method document modules/2026-08/THE_LOCATED_CLAUSE_METHOD.md, 56 sentences of 40 characters or more (b591`s form); the tree modules/2026-10/DELIBERATION_TREE.md, 61 (b595`s form); every module document, 1052 sentences of 60 characters or more (b611`s form)
+### TECHNE mentions in the three papers: {'ZS': 0, 'BT': 1, 'BV': 0} ; the pointer each takes: TECHNE-Core, its tracked-file manifest sha256 eeaf403c0bfe18f8b7e126d895dedbdbcdeb0128fc7079b41bd9f03f3625cfc3
+### PLACE-papers HEAD at the reads: f22a13a2 ; relay HEAD: 98fccb22
