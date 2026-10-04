@@ -94,8 +94,17 @@ def _count(ls):
     return sum(len(_segs(l)) for l in ls)
 
 
-DEFECTS = []
-DEFECT_SHORT = []
+DEFECTS = [
+    '(a) THE SEAT`S, AT COMPONENT 6, BEFORE THE FIRST SCORES: the S6 scorer in tools/b619_record.py, as sealed, compared the N5 test`s '
+    'list of runs with a number (`T5.get(\'runs\', 0) >= 2`), which raises when the list exists; found by reading the scorer before its '
+    'first run, nothing banked. Corrected through the Edit tool to count the runs. And before the FINDINGS entry was written, its dry run '
+    'listed the two relay commits of the record tool by a loose match, in reverse order; the entry`s text was corrected through the Edit tool '
+    'to name the tool as sealed and the edit by their subjects. Two edits of the record tool after the seal beyond the one (R229)(2) orders, '
+    'committed with the closing; the sealed blob (a975611b) and the N5 edit (760973ab) stand as committed.',
+]
+DEFECT_SHORT = ['(a) the seat’s: the S6 scorer compared the N5 test’s list of runs with a number and would have raised, and the FINDINGS entry’s '
+                'dry run listed the tool’s relay commits by a loose match; both corrected through the Edit tool before use -- two edits of the '
+                'record tool after the seal beyond the ruled one']
 
 
 def defects(*a):
@@ -1043,7 +1052,7 @@ def scores(*a):
                'the ζ page changed %s, the χ page changed %s (expected %s)' % (Z.get('changed'), X.get('changed'), S4_EXPECT)),
         'S5': (('HELD' if 'PAGE ARMS PASSING : 2 of 2' in arms2 and 'PASSING : 2 of 2.**' in arms2.split('PAGE ARMS PASSING')[-1] else 'REFUTED'),
                'after the pages: %s' % [l.strip() for l in arms2.split(NL) if 'PASSING' in l]),
-        'S6': (('HELD' if T5.get('same') is True and T5.get('runs', 0) >= 2 else 'REFUTED'), 'the N5 test: %s' % (T5.get('summary') or 'not run')),
+        'S6': (('HELD' if T5.get('same') is True and len(T5.get('runs') or []) >= 2 else 'REFUTED'), 'the N5 test: %s' % (T5.get('summary') or 'not run')),
     }
     put_json('b619_scores.json', S)
     for k in SCORE_KEYS:
@@ -1066,8 +1075,9 @@ def _finding_text():
     ch = CJ['changes']
     t = _title_entry()
     ed = next((h for h, s in _pp_commits() if s.startswith(EDITION_PREFIX)), '?')
-    sc = [l.split(' ', 1)[0] for l in g(RELAY, 'log', '--format=%h %s', PRE_RELAY + '..HEAD', '--', 'tools/b619_record.py').split(NL)
-          if 'the N5 scorer' in l]
+    rlog = [l.split(' ', 1) for l in g(RELAY, 'log', '--format=%h %s', PRE_RELAY + '..HEAD', '--', 'tools/b619_record.py').split(NL) if l.strip()]
+    sc = ['the tool as sealed %s' % h for h, s in rlog if s.startswith('b619 (R229)(2): the record tool as sealed')] + \
+         ['the edit %s' % h for h, s in rlog if s.startswith('b619 (R229)(2): the N5 scorer')]
     H = CJ['h53']
     e = ['', t, '',
          '*Filed at b619 on the author’s ruling `(R229)`. Banks: relay `data/b619_reads.txt`, `data/b619_census.txt`, `data/b619_edition_CENSUS.txt`, '
