@@ -953,9 +953,25 @@ def R2_epoch(s):
         return None
 
 
-def n5(*a):
+def n5(trail_line=None, ot=None, *a):
     """### N5, scored by its letter: nothing deposits; no kernel touched; no current version edited; no file written beyond the edition file,
-    ### the mapping bank, the diff bank, the scorer edit and its test, the re-emitted pages, the record lines and the trails."""
+    ### the mapping bank, the diff bank, the scorer edit and its test, the re-emitted pages, the record lines and the trails.
+    ### ### THE STANDING REPAIR, (R229)(2): `trail_line` is the line the trail record's head takes on OPEN_TRAILS -- its expected line, a
+    ### parameter from b619 on -- so the write list is the face's, OPEN_TRAILS in it throughout, and the record is read at that line once
+    ### written and as pending while the trails stop short of it and no record stands; `ot` is the trails' text to read (the test's copy),
+    ### else the file on disk."""
+    if isinstance(trail_line, str):
+        trail_line = int(trail_line.split('=')[-1])
+    ot_text = ot if ot is not None else io.open(os.path.join(PP, 'OPEN_TRAILS.md'), encoding='utf-8', errors='replace').read().replace(chr(13), '')
+    ot_lines = lines_of(ot_text)
+    if trail_line is None:
+        rec_ok, rec_state = False, 'no expected line given'
+    elif len(ot_lines) >= trail_line and ot_lines[trail_line - 1] == TRAIL_HEAD:
+        rec_ok, rec_state = True, 'the trail record written at :%d' % trail_line
+    elif TRAIL_HEAD not in ot_text and len(ot_lines) < trail_line:
+        rec_ok, rec_state = True, 'the trail record pending at :%d (the trails end at :%d)' % (trail_line, len(ot_lines))
+    else:
+        rec_ok, rec_state = False, 'the trail record neither at :%s nor pending' % trail_line
     Z, X = (jl('b619_page_%s.json' % k) if os.path.exists(_p('b619_page_%s.json' % k)) else {} for k in ('zeta', 'chi'))
     face = jl('b619_kernels_face.json')['kernels']
     now = {k: list(v) for k, v in kern_state(list(face)).items()}
@@ -963,19 +979,18 @@ def n5(*a):
     pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', PRE_PP) + NL + g(PP, 'diff', '--name-only', PRE_PP, 'HEAD')).split(NL) if x.strip())
                    | set(x[3:] for x in g(PP, 'status', '--porcelain', '--untracked-files=all', '--', 'phase2', 'phase1.5', 'day1', 'heritage').split(NL)
                          if x.startswith('?? ')))
-    trail_pending = not os.path.exists(_p('b619_trail.json'))   # ### b618's form, carried: OPEN_TRAILS wanted once the trail record is banked
-    want_pp = sorted([CEN4, 'FINDINGS.md'] + ([] if trail_pending else ['OPEN_TRAILS.md']) + [p['page'] for p in (Z, X) if p.get('changed')])
+    want_pp = sorted([CEN4, 'FINDINGS.md', 'OPEN_TRAILS.md'] + [p['page'] for p in (Z, X) if p.get('changed')])   # ### the face's write list
     created = sorted(x for x in g(PP, 'diff', '--name-only', '--diff-filter=ADR', PRE_PP, 'HEAD').split(NL) if x.strip())
     cur_ok = all((_show(PP, PRE_PP, p) or '') == (_show(PP, 'HEAD', p) or '') and (_show(PP, PRE_PP, p) or '') == R2.cr0(
         open(os.path.join(PP, *p.split('/')), 'rb').read()).decode('utf-8', 'replace') for p in CURRENTS)
     relay_beyond = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL)
                               if x.strip() and not os.path.basename(x).startswith('b619_') and not os.path.basename(x).startswith('terminal_table')
                               and x != 'data/b618_closing_push_out.txt'))
-    ok = kern_same and created in ([], [CEN4]) and cur_ok and pp_ch == want_pp and relay_beyond == []
+    ok = kern_same and created in ([], [CEN4]) and cur_ok and pp_ch == want_pp and relay_beyond == [] and rec_ok
     return ('HELD' if ok else 'REFUTED',
             'nothing deposits; kernels unmoved since the face %s; created %s (the edition alone allowed); current versions unedited %s; '
-            'PLACE-papers %s (wanted %s%s); relay beyond the act`s banks, tools and the table %s' % (
-                kern_same, created or 'none', cur_ok, pp_ch, want_pp, ', the trail record pending' if trail_pending else '', relay_beyond))
+            'PLACE-papers %s (wanted %s); %s; relay beyond the act`s banks, tools and the table %s' % (
+                kern_same, created or 'none', cur_ok, pp_ch, want_pp, rec_state, relay_beyond))
 
 
 def scores(*a):
@@ -999,7 +1014,8 @@ def scores(*a):
     v3_same = (_show(PP, PRE_PP, CEN3) or '') == (_show(PP, 'HEAD', CEN3) or '')
     arms2 = rd('b619_page_arms_c2.txt')
     unp = H.get('unpushed') or []
-    n5v = n5()
+    tl = [x for x in a if x.startswith('trail_line=')]
+    n5v = n5(int(tl[0].split('=')[1]) if tl else None)   # ### (R229)(2): the trail record's expected line, a parameter of N5
     S = {
         'H53a': (H.get('H53a', 'REFUTED'), 'read back from v0.4 on disk: %s of 6 synthesis cells carry the path, version and tier their own head gives %s' % (
             sum(x['ok'] for x in H.get('a') or []), [x['needle'] for x in H.get('a') or [] if not x['ok']] or '')),
