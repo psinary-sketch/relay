@@ -1,0 +1,10 @@
+b628 -- COMPONENT 2, (R238)(4): #print axioms ON thmB₀_mult AND ThmB_statement IN ZETA23`S OWN BUILD
+
+### the clone D:/zeta23-b628 at HEAD 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 ; the pin 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 (tag v1.0 peeled at the remote 3635e74826a4c1fcece7d1cd2b6fa75e43a00510) ; equal True
+### the toolchain leanprover/lean4:v4.33.0-rc2 ; Mathlib 51e6992efd06126df61a496bebf8f49482a4e129 (lakefile.toml at the pin)
+### the print file: import Zeta23.FinalMult and Zeta23.Statement, then #print axioms on each name; run by lake env lean in the clone
+
+  [source: AUDIT.md :80 at formal-math 3635e748, the upstream's recorded run at the pin, read by git] 'Zeta23.thmB₀_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+  [source: the clone D:/zeta23-b628 at 3635e748, its own build of Zeta23.Statement, lake env lean b628_print_statement.lean, relay data/b628_zeta23_build.txt call 4] 'Zeta23.ThmB_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+### ### **PRINTS 2 ; NAMED ['Zeta23.thmB₀_mult', 'Zeta23.ThmB_statement'] ; BEYOND THE STANDARD THREE NONE ; sorryAx ABSENT.**

@@ -1,0 +1,62 @@
+{
+ "at": "2026-10-05T20:25:31Z",
+ "calls": [
+  {
+   "log": "b628_zbuild_1.log",
+   "start": "2026-10-05T19:25:24Z",
+   "free": 4728,
+   "cmd": "lake exe cache get",
+   "rc": 1,
+   "secs": 400,
+   "peak": 10,
+   "errors": [
+    "error: external command 'git' exited with code 128"
+   ],
+   "built": 0
+  },
+  {
+   "log": "b628_zbuild_2.log",
+   "start": "2026-10-05T19:34:24Z",
+   "free": 4752,
+   "cmd": "lake exe cache get",
+   "rc": 0,
+   "secs": 1193,
+   "peak": 10,
+   "errors": [],
+   "built": 22
+  },
+  {
+   "log": "b628_zbuild_3.log",
+   "start": "2026-10-05T19:56:14Z",
+   "free": 4286,
+   "cmd": "lake build Zeta23.Statement",
+   "rc": 0,
+   "secs": 986,
+   "peak": 10,
+   "errors": [],
+   "built": 4
+  },
+  {
+   "log": "b628_zbuild_4.log",
+   "start": "2026-10-05T20:13:18Z",
+   "free": 4183,
+   "cmd": "lake env lean b628_print_statement.lean",
+   "rc": 0,
+   "secs": 24,
+   "peak": 10,
+   "errors": [],
+   "built": 0
+  },
+  {
+   "log": "b628_zbuild_5.log",
+   "start": "2026-10-05T20:13:51Z",
+   "free": 4138,
+   "cmd": "lake build Zeta23.FinalMult",
+   "rc": 1,
+   "secs": 641,
+   "peak": 10,
+   "errors": [],
+   "built": 0
+  }
+ ]
+}

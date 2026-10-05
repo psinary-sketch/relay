@@ -1,0 +1,22 @@
+
+### b628 — lane three, act fifty-five under (R238): the 2/3 theorem’s axiom profile read in its own kernel and cited at two_thirds, v0.23; the intake form’s pilot on the ANNEX paper; the carried test defect repaired
+
+**(R238) ratified.** (1) b627 at its weight. (2) The carried test defect repaired and the step-zero test line. (3) The word: both. (4) Route (b). (5) W-ORD-INTAKE, the pilot. (6) The act after: b629.
+
+**Entered:** FINDINGS.md:7611 (b627’s weight), :7613 (the entry); OPEN_TRAILS.md:13059 (the standing test line, beneath :12799), :13061 (the word, to :12970), :13063 (to :12893); this record; relay tools/test_chain_page_b596.py 4c2e59d6; SIDE-explicit-formula v0.23 = 98b7668; relay data/b628_intake_summary.txt.
+
+**Act root:** b628 `9d6a00f1dd340871ba0ee1074b6028ce6bd422f35bcc7a96ac938c7f244556c1` (previous `1968ba027067f3dbc2e6ff816081392e4d74df0a37d43620e8bc395d14865727`, b627’s; relay data/act_roots.txt).
+
+**The author’s answers before the seal** (relay data/b628_author_answers.txt): the intake bank -- option 1. The full intake bank written under data/, untracked and not pushed; relay carries a summary bank alone — counts, grades, clusters, work-order lines and the full bank's sha256 — committed alone, with no sentence of the paper in it; H62d–H62f scored on the local bank, the entry citing the summary and the digest. The choice of that paper was mine without reading REGISTRY :360's "not for publication" — the navigator's, recorded; the pilot still serves, since the form's test is the grading and the digest makes the local bank checkable later without publishing it. For the version tab when it comes: the census at its latest version on D: (v0_7 if that is the head the seat prints), read from there and not from the mirror's v0_4 that I cited — the ledgers on D: are newer than any mirror, by the standing rule; the ANNEX row read from the latest version, the earlier versions untouched.; the version -- : the census at its latest version on D: (v0_7 if that is the head the seat prints), read from there and not from the mirror's v0_4 that I cited — the ledgers on D: are newer than any mirror, by the standing rule; the ANNEX row read from the latest version, the earlier versions untouched..
+
+**The next act’s terminals, each statement at its pin** (`(R237)`(4)): W-ORD-NYMAN-BEURLING-FACE (OPEN_TRAILS :12893) names no kernel terminal yet; its statements are b629`s to write, priced at the work-order.
+
+**Resolved by the seat, for the author’s strike:** (1) the upstream`s AUDIT.md read as an artefact that does not carry the ruling`s print by name, so the module built; (2) the ζ page`s backmatter line as the node`s citation, the generator`s channel being the list`s; (3) the census at its latest version on D: naming v0_5, the later versions not read for claims; (4) the intake`s claims read one per assertion the paper makes in its own voice, a citation it reports read as the cited work`s and not counted; (5) the summary refused on any six-word run of the paper; (6) test_chain_page_b592.py`s cases (1)-(3), found failing at step zero, carried.
+
+**Defects** (relay data/b628_defects.txt): (a) the face and the artefact bank`s sentence say AUDIT.md prints neither name; it prints thmB₀_mult at :80 at the standard three, ThmB_statement nowhere; thmB₀_mult taken from :80 by the author`s answer at the hold, ThmB_statement from the clone`s build; (b) the axioms bank`s header says both names printed in the clone`s build of FinalMult; by the author`s answer at the hold thmB₀_mult`s line is AUDIT.md :80, each line marked by its source; (c) a second ls-remote of SIDE-explicit-formula, the seat`s, reading the citation branch before the tag; (d) the ζ page arm`s needle `— v0.23 = ` carried from b626, where nodes entered at the tag; no node enters at v0.23 here, the page`s head line names the pin; the claim tested directly; (e) the scores and the entry, written before the hold, read the axioms bank as one build`s print: H62a`s line, N1`s `no HOLD fired`, S2 held where its letter is refuted, the entry`s route-(b) paragraph; corrected on OPEN_TRAILS.
+
+**H62a HOLDS · H62b HOLDS · H62c HOLDS · H62d HOLDS · H62e HOLDS · H62f HOLDS · N1 HELD · N2 HELD · N3 HELD · N4 REFUTED · N5 HELD · S1 HELD · S2 HELD · S3 HELD · S4 HELD · S5 HELD.**
+
+**Next:** per `(R238)`(6), b629, W-ORD-NYMAN-BEURLING-FACE (:12893), the opening act of its two; the author rules on the closing.
+
+**No `sorry` on any `main`.** Nothing deposits; row U1 unedited; `h2` where the deposit left it; the four lists stay OPEN.

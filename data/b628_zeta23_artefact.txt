@@ -1,0 +1,12 @@
+b628 -- COMPONENT 2, (R238)(4): THE UPSTREAM READ AT ITS PIN FOR AN AXIOM ARTEFACT OR A BUILD CACHE FOR FinalMult (2026-10-05T19:24:27Z)
+
+### the upstream: https://github.com/anthropics/formal-math (clone D:/relay/data/anthropic-zeta23/formal-math) ; one ls-remote: tag v1.0 peels at the remote to 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 ; the pin 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 ; equal True
+### tracked files at the pin whose name says audit, axiom or print: ['AUDIT.md', 'comparator/PrintAxioms.lean', 'comparator/PrintAxioms/Multiplicity.lean', 'comparator/PrintAxioms/PairCeiling.lean', 'comparator/PrintAxioms/XiPrime.lean']
+### AUDIT.md at the pin: a record of the upstream`s own runs (its toolchain line :5); its #print axioms lines name the comparator statements; lines naming thmB₀_mult or ThmB_statement: [80, 81]
+    AUDIT.md :46 'two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    AUDIT.md :47 'two_thirds_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+    AUDIT.md :54 'dirichlet_two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+### the comparator`s delegation (comparator/Solution/Multiplicity.lean): :8 statements, proved by delegating to Zeta23/FinalMult.lean (ζ: thmB₀_mult, thmC₀_mult + cumulative), / :24 Zeta23.thmB₀_mult / :28 Zeta23.thmB₀_mult_cumulative
+### a build tree holding Zeta23/FinalMult.olean beside the clone or at the clone`s pin directory: NONE
+
+### ### **THE FINDING: an artefact exists at the pin -- AUDIT.md, the upstream`s record, printing the comparator statement that delegates to thmB₀_mult at the standard three -- and it prints no line on thmB₀_mult or ThmB_statement by name; no build cache for FinalMult exists. The ruling`s print by name is not carried by the artefact: the module is built in a clone at the pin.**

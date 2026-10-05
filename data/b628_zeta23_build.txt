@@ -1,0 +1,10 @@
+b628 -- THE DETACHED BUILD CALLS AT THE HOLD, b628_zbuild (2026-10-05T20:25:31Z), one target per call, watched from the foreground
+
+### b628_zbuild_1.log : lake exe cache get ; started 2026-10-05T19:25:24Z, free 4728 MB ; exit 1 after 400 s, peak 10 MB ; built lines 0 ; errors 1
+    error: external command 'git' exited with code 128
+### b628_zbuild_2.log : lake exe cache get ; started 2026-10-05T19:34:24Z, free 4752 MB ; exit 0 after 1193 s, peak 10 MB ; built lines 22 ; errors 0
+### b628_zbuild_3.log : lake build Zeta23.Statement ; started 2026-10-05T19:56:14Z, free 4286 MB ; exit 0 after 986 s, peak 10 MB ; built lines 4 ; errors 0
+### b628_zbuild_4.log : lake env lean b628_print_statement.lean ; started 2026-10-05T20:13:18Z, free 4183 MB ; exit 0 after 24 s, peak 10 MB ; built lines 0 ; errors 0
+### b628_zbuild_5.log : lake build Zeta23.FinalMult ; started 2026-10-05T20:13:51Z, free 4138 MB ; exit 1 after 641 s, peak 10 MB ; built lines 0 ; errors 0
+
+### ### **CALLS 5 ; ELAPSED 3244 s IN ALL.**

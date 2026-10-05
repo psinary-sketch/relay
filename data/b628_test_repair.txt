@@ -1,0 +1,62 @@
+b628 -- COMPONENT 1, (R238)(2): tools/test_chain_page_b596.py REPAIRED, RUN AND COUNTED (2026-10-05T19:24:13Z); exit 0
+
+### 1 file changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/tools/test_chain_page_b596.py b/tools/test_chain_page_b596.py
+index 4c774655..455303cc 100644
+--- a/tools/test_chain_page_b596.py
++++ b/tools/test_chain_page_b596.py
+@@ -113,15 +113,30 @@ def main():
+         RELAY_PIN, subprocess.run(['git', '-C', ROOT, 'rev-parse', '--short=8', RELAY_PIN + ':data/terminal_table.json'],
+                                   capture_output=True).stdout.decode().strip(), PRE_PP))
+     (zl, zp, _zn), (cl, cp, _cn) = pinned_lists()
+-    rc1, z = regen(zl, zp)
+-    res.append(('(1) b592 ζ list, no record: byte for byte against the page at %s' % PRE_PP, rc1 == 0 and z == blob('%s:%s' % (PRE_PP, C.PAGE_NAME))))
++    # ### b628, (R238)(2): case (1) re-emits with the E0 rule loaded from its blob at the test's own relay pin, as the suite's control
++    # ### does since b626 -- the live rule moved at b625 (576891c5) and the case failed from then until this repair.
++    import types
++    e0 = types.ModuleType('e0_rule_%s' % RELAY_PIN)
++    e0.__file__ = os.path.join(ROOT, 'tools', 'e0_rule.py')
++    exec(compile(relay_blob('tools/e0_rule.py').decode('utf-8'), 'e0_rule@%s' % RELAY_PIN, 'exec'), e0.__dict__)
++    live_e0, C.E0 = C.E0, e0
++    try:
++        rc1, z = regen(zl, zp)
++    finally:
++        C.E0 = live_e0
++    res.append(('(1) b592 ζ list, no record, the E0 rule at %s: byte for byte against the page at %s' % (RELAY_PIN, PRE_PP),
++                rc1 == 0 and z == blob('%s:%s' % (PRE_PP, C.PAGE_NAME))))
+     rc2, c = regen(cl, cp)
+     res.append(('(2) b592 χ list, no record: byte for byte against the page at %s' % PRE_PP, rc2 == 0 and c == blob('%s:%s' % (PRE_PP, C.DIR_PAGE_NAME))))
+     d = tempfile.mkdtemp()
+     tl = os.path.join(d, 'b592_nodes.txt')
+     src = io.open(zl, encoding='utf-8').read()
+     io.open(tl, 'w', encoding='utf-8', newline=NL).write(src.rstrip(NL) + NL + '# backmatter: first record, its words' + NL + '# backmatter: second record.' + NL)
+-    rc3, t = regen(tl, zp)
++    live_e0, C.E0 = C.E0, e0         # ### (3) is the page of (1) with its paragraph: the same E0 rule, at the test's pin
++    try:
++        rc3, t = regen(tl, zp)
++    finally:
++        C.E0 = live_e0
+     want = (z or b'') + (NL + 'first record, its words second record.' + NL).encode('utf-8')
+     res.append(('(3) two records: the page of (1) with one paragraph after the Correspondence table', rc3 == 0 and z is not None and t == want))
+     res.append(('(4) the reader: no record from b592`s lists; the two, in order, from the list of (3)',
+
+### THE RUN:
+### pins: relay 12c15c80 (the lists, the probes, the terminal table blob 2ce26253) ; PLACE-papers ba5f0ea (pages, README, REGISTRY, keystones)
+  (1) b592 ζ list, no record, the E0 rule at 12c15c80: byte for byte against the page at ba5f0ea                           PASS
+  (2) b592 χ list, no record: byte for byte against the page at ba5f0ea                                                    PASS
+  (3) two records: the page of (1) with one paragraph after the Correspondence table                                       PASS
+  (4) the reader: no record from b592`s lists; the two, in order, from the list of (3)                                     PASS
+  (5) the entry tag of a structure, a theorem and a definition of Simplicity.lean: [('v0.17', '5a1630b'), ('v0.17', '5a1630b'), ('v0.17', '5a1630b')] PASS
+  (6) the five test nodes read ['FINITE', 'UNIVERSAL', 'UNIVERSAL', 'DENSITY', 'FAMILY']                                   PASS
+  (7) the positive control: the five statements mutated where the reader reads them read ['UNIVERSAL', 'FINITE', 'LIMIT', 'LIMIT', 'UNIVERSAL'], none its unmutated shape PASS
+  (8) an object reads —: riemannZeta and familyConfig read ['—', '—']                                                      PASS
+  (9) the switch: off on b592`s, b602`s and b603`s lists [False, False, False, False], on with its line; the page with it is the page without it, one head line and 52 shape cells on 52 node lines added PASS
+  (10) rh_upto and rh_upto_platt read ['BOUNDED', 'BOUNDED']                                                               PASS
+  (11) the word between FINITE and UNIVERSAL, named by the key; the UNIVERSAL control (the pair, the bound removed, a bound mentioning ρ) reads ['UNIVERSAL', 'UNIVERSAL', 'UNIVERSAL'] PASS
+### ALL PASS
+
+### THE REPAIRED CASE: (1) b592 ζ list, no record, the E0 rule at 12c15c80: byte for byte against the page at ba5f0ea                           PASS
+### CASES : 11 ; PASSING : 11 ; FAILING : 0   ### counted by the numbered case pattern
+
+### THE POSITIVE CONTROL: the same test with tools/test_chain_page_b596.py as it stood at relay 4266bc46 (exit 1): cases 11, passing 10, failing ['(1)']
