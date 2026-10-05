@@ -1,0 +1,1614 @@
+@@BEGIN RiemannHypothesis
+@@CELL @@KIND def @@MODULE Mathlib.NumberTheory.LSeries.RiemannZeta @@LINE 185 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+@@AXIOMS
+'RiemannHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END RiemannHypothesis
+@@BEGIN riemannZeta
+@@CELL @@KIND def @@MODULE Mathlib.NumberTheory.LSeries.RiemannZeta @@LINE 121 @@CONSUMES [] @@WATCHED []
+@@STMT
+def riemannZeta : ℂ → ℂ :=
+HurwitzZeta.hurwitzZetaEven 0
+@@AXIOMS
+'riemannZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END riemannZeta
+@@BEGIN Zeta23.zetaZeroConfig
+@@CELL @@KIND def @@MODULE Zeta23.Statement.SeamClosed @@LINE 42 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+def Zeta23.zetaZeroConfig : Zeta23.ZeroConfig :=
+Zeta23.zetaZeros Zeta23.zetaSeam
+@@AXIOMS
+'Zeta23.zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END Zeta23.zetaZeroConfig
+@@BEGIN Zeta23.WeilEF.EF_lit_zetaZeroConfig
+@@CELL @@KIND theorem @@MODULE Zeta23.WeilEF.Main @@LINE 286 @@CONSUMES [riemannZeta,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem Zeta23.WeilEF.EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit Zeta23.zetaZeroConfig
+@@AXIOMS
+'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END Zeta23.WeilEF.EF_lit_zetaZeroConfig
+@@BEGIN SIDEExplicitFormula.B321.classK
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.H2Sign @@LINE 24 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.B321.classK : (ℝ → ℂ) → Prop :=
+fun k =>
+  (∀ (x : ℝ), k (-x) = k x) ∧
+    ContDiff ℝ 2 k ∧ HasCompactSupport k ∧ ∃ h, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+@@AXIOMS
+'SIDEExplicitFormula.B321.classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.classK
+@@BEGIN SIDEExplicitFormula.B321.h2_sign
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.H2Sign @@LINE 29 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.B321.h2_sign : Prop :=
+∀ (k : ℝ → ℂ),
+  SIDEExplicitFormula.B321.classK k →
+    0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign
+@@BEGIN SIDEExplicitFormula.B321.ch_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.H2Bridge @@LINE 71 @@CONSUMES [RiemannHypothesis,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.ch_iff_rh
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Seam @@LINE 101 @@CONSUMES [RiemannHypothesis,
+ Zeta23.zetaZeroConfig,
+ riemannZeta,
+ SIDEExplicitFormula.B321.h2_sign,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_iff_rh
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_upto
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.DetectionRegion @@LINE 29 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.B321.h2_sign_upto : ℝ → Prop :=
+fun L₀ =>
+  ∀ (k : ℝ → ℂ),
+    SIDEExplicitFormula.B321.classK k →
+      (∀ (u : ℝ), L₀ < |u| → k u = 0) →
+        0 ≤
+          SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k +
+            SIDEExplicitFormula.B321.archTerm k
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_upto
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_iff_forall_upto
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.DetectionRegion @@LINE 47 @@CONSUMES [SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.B321.h2_sign_upto] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_iff_forall_upto : SIDEExplicitFormula.B321.h2_sign ↔
+  ∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_iff_forall_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_iff_forall_upto
+@@BEGIN SIDEExplicitFormula.B321.forall_upto_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.DetectionRegion @@LINE 52 @@CONSUMES [RiemannHypothesis,
+ SIDEExplicitFormula.B321.h2_sign_iff_forall_upto,
+ SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.h2_sign_iff_rh,
+ SIDEExplicitFormula.B321.h2_sign_upto] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.forall_upto_iff_rh : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) ↔
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.B321.forall_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.forall_upto_iff_rh
+@@BEGIN SIDEExplicitFormula.LiWeil.LiCoeff
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.LiWeil @@LINE 243 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.LiWeil.LiCoeff : ℕ → ℝ :=
+fun n =>
+  1 / 2 *
+    ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+      ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.LiCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.LiCoeff
+@@BEGIN SIDEExplicitFormula.LiWeil.liTerm
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.LiWeil @@LINE 60 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.LiWeil.liTerm : ℕ → ℂ → ℂ :=
+fun n ρ => 1 - (1 - ρ⁻¹) ^ n
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.liTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.liTerm
+@@BEGIN SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 267 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ RiemannHypothesis,
+ SIDEExplicitFormula.LiWeil.liTerm,
+ Zeta23.zetaZeroConfig,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg : RiemannHypothesis →
+  ∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg
+@@BEGIN SIDEExplicitFormula.LiWeil.symMember
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.LiWeilSym @@LINE 51 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.LiWeil.symMember : ℕ → ℝ → ℝ → ℂ :=
+fun n δ u => ↑(SIDEExplicitFormula.LiWeil.symCut δ u) * SIDEExplicitFormula.LiWeil.blSmooth n u
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.symMember' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.symMember
+@@BEGIN SIDEExplicitFormula.LiWeil.li_identity_sym
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilSym @@LINE 1218 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.symMember,
+ Zeta23.zetaZeroConfig,
+ SIDEExplicitFormula.LiWeil.liTerm,
+ riemannZeta,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.li_identity_sym : ∀ (n : ℕ),
+  Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ))
+    (nhdsWithin 0 (Set.Ioi 0)) (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.li_identity_sym' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.li_identity_sym
+@@BEGIN LiCriterion.taylorCoeff
+@@CELL @@KIND def @@MODULE Lc.LiCriterion.Basic @@LINE 541 @@CONSUMES [] @@WATCHED []
+@@STMT
+def LiCriterion.taylorCoeff : (ℂ → ℂ) → ℕ → ℂ :=
+fun f n => deriv^[n] (LiCriterion.logDeriv (LiCriterion.phi f)) 0 / ↑n.factorial
+@@AXIOMS
+'LiCriterion.taylorCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END LiCriterion.taylorCoeff
+@@BEGIN SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiCriterionBridge @@LINE 149 @@CONSUMES [riemannZeta,
+ SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.liTerm,
+ Zeta23.zetaZeroConfig,
+ LiCriterion.taylorCoeff] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff : ∀ (n : ℕ),
+  SIDEExplicitFormula.LiWeil.LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re
+@@AXIOMS
+'SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff
+@@BEGIN LiCriterion.positivity_implies_RH
+@@CELL @@KIND theorem @@MODULE Lc.LiCriterion.ReverseDirection @@LINE 413 @@CONSUMES [riemannZeta,
+ LiCriterion.taylorCoeff] @@WATCHED []
+@@STMT
+theorem LiCriterion.positivity_implies_RH : (∀ (n : ℕ), 0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) →
+  ∀ (s : ℂ), riemannZeta s = 0 → 0 < s.re ∧ s.re < 1 → s.re = 1 / 2
+@@AXIOMS
+'LiCriterion.positivity_implies_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END LiCriterion.positivity_implies_RH
+@@BEGIN SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiCriterionBridge @@LINE 179 @@CONSUMES [LiCriterion.positivity_implies_RH,
+ SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg,
+ RiemannHypothesis,
+ LiCriterion.taylorCoeff,
+ riemannZeta,
+ SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh : (∀ (n : ℕ), 0 ≤ SIDEExplicitFormula.LiWeil.LiCoeff n) ↔
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh
+@@BEGIN SIDEExplicitFormula.Keiper.stieltjes
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Keiper @@LINE 47 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Keiper.stieltjes : ℕ → ℂ :=
+fun n => (-1) ^ n * iteratedDeriv n riemannZeta₀ 1
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.stieltjes' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.stieltjes
+@@BEGIN SIDEExplicitFormula.Keiper.KeiperTaylor
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Keiper @@LINE 92 @@CONSUMES [LiCriterion.taylorCoeff] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Keiper.KeiperTaylor : Prop :=
+∀ (n : ℕ), LiCriterion.taylorCoeff LiCriterion.riemannXi n = SIDEExplicitFormula.Keiper.keiperSum n
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.KeiperTaylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.KeiperTaylor
+@@BEGIN SIDEExplicitFormula.Keiper.KeiperTaylorIdentity
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Keiper @@LINE 112 @@CONSUMES [riemannZeta,
+ SIDEExplicitFormula.Keiper.KeiperTaylor,
+ SIDEExplicitFormula.Keiper.stieltjes] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Keiper.KeiperTaylorIdentity : Prop :=
+SIDEExplicitFormula.Keiper.KeiperTaylor ∧
+  SIDEExplicitFormula.Keiper.StieltjesLog ∧ SIDEExplicitFormula.Keiper.GammaRZetaValues
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.KeiperTaylorIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.KeiperTaylorIdentity
+@@BEGIN SIDEExplicitFormula.Keiper.KeiperObligations
+@@CELL @@KIND inductive @@MODULE SIDEExplicitFormula.Keiper @@LINE 126 @@CONSUMES [LiCriterion.taylorCoeff,
+ riemannZeta,
+ SIDEExplicitFormula.Keiper.stieltjes] @@WATCHED []
+@@STMT
+structure SIDEExplicitFormula.Keiper.KeiperObligations : Prop
+number of parameters: 0
+fields:
+  SIDEExplicitFormula.Keiper.KeiperObligations.binomial : SIDEExplicitFormula.Keiper.BinomialTransform
+  SIDEExplicitFormula.Keiper.KeiperObligations.split : SIDEExplicitFormula.Keiper.LogDerivSplit
+  SIDEExplicitFormula.Keiper.KeiperObligations.stieltjesLog : SIDEExplicitFormula.Keiper.StieltjesLog
+  SIDEExplicitFormula.Keiper.KeiperObligations.gammaZeta : SIDEExplicitFormula.Keiper.GammaRZetaValues
+constructor:
+  SIDEExplicitFormula.Keiper.KeiperObligations.mk (binomial : SIDEExplicitFormula.Keiper.BinomialTransform)
+    (split : SIDEExplicitFormula.Keiper.LogDerivSplit) (stieltjesLog : SIDEExplicitFormula.Keiper.StieltjesLog)
+    (gammaZeta : SIDEExplicitFormula.Keiper.GammaRZetaValues) : SIDEExplicitFormula.Keiper.KeiperObligations
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.KeiperObligations' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.KeiperObligations
+@@BEGIN SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Keiper @@LINE 133 @@CONSUMES [SIDEExplicitFormula.Keiper.KeiperObligations,
+ SIDEExplicitFormula.Keiper.stieltjes,
+ riemannZeta,
+ SIDEExplicitFormula.Keiper.KeiperTaylorIdentity,
+ SIDEExplicitFormula.Keiper.KeiperTaylor,
+ LiCriterion.taylorCoeff] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of : SIDEExplicitFormula.Keiper.KeiperObligations →
+  SIDEExplicitFormula.Keiper.KeiperTaylorIdentity
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of
+@@BEGIN SIDEExplicitFormula.Keiper.keiperTaylor_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Keiper @@LINE 224 @@CONSUMES [LiCriterion.taylorCoeff,
+ SIDEExplicitFormula.Keiper.stieltjes] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Keiper.keiperTaylor_zero : LiCriterion.taylorCoeff LiCriterion.riemannXi 0 =
+  SIDEExplicitFormula.Keiper.keiperSum 0
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.keiperTaylor_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.keiperTaylor_zero
+@@BEGIN SIDEExplicitFormula.Keiper.liCoeff_one_keiper
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Keiper @@LINE 239 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ LiCriterion.taylorCoeff,
+ SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Keiper.liCoeff_one_keiper : SIDEExplicitFormula.LiWeil.LiCoeff 1 =
+  1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2
+@@AXIOMS
+'SIDEExplicitFormula.Keiper.liCoeff_one_keiper' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Keiper.liCoeff_one_keiper
+@@BEGIN SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.KeiperSign @@LINE 30 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.Keiper.liCoeff_one_keiper] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff : 0 < SIDEExplicitFormula.LiWeil.LiCoeff 1 ↔
+  Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant
+@@AXIOMS
+'SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff
+@@BEGIN SIDEExplicitFormula.KeiperSign.threshold_lt_gamma
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.KeiperSign @@LINE 75 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.KeiperSign.threshold_lt_gamma : Real.log (4 * Real.pi) - 2 < Real.eulerMascheroniConstant
+@@AXIOMS
+'SIDEExplicitFormula.KeiperSign.threshold_lt_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.KeiperSign.threshold_lt_gamma
+@@BEGIN SIDEExplicitFormula.KeiperSign.liCoeff_one_pos
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.KeiperSign @@LINE 82 @@CONSUMES [SIDEExplicitFormula.KeiperSign.threshold_lt_gamma,
+ SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.KeiperSign.liCoeff_one_pos : 0 < SIDEExplicitFormula.LiWeil.LiCoeff 1
+@@AXIOMS
+'SIDEExplicitFormula.KeiperSign.liCoeff_one_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.KeiperSign.liCoeff_one_pos
+@@BEGIN SIDEExplicitFormula.KeiperBounds.KeiperBounds
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.KeiperBounds @@LINE 104 @@CONSUMES [riemannZeta,
+ SIDEExplicitFormula.Keiper.stieltjes] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.KeiperBounds.KeiperBounds : Prop :=
+(∀ n ≤ 11, SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n) ∧
+  ∀ (j : ℕ), 2 ≤ j → j ≤ 12 → SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j
+@@AXIOMS
+'SIDEExplicitFormula.KeiperBounds.KeiperBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.KeiperBounds.KeiperBounds
+@@BEGIN SIDEExplicitFormula.KeiperBounds.BoundPremises
+@@CELL @@KIND inductive @@MODULE SIDEExplicitFormula.KeiperBounds @@LINE 109 @@CONSUMES [riemannZeta,
+ SIDEExplicitFormula.Keiper.stieltjes] @@WATCHED []
+@@STMT
+structure SIDEExplicitFormula.KeiperBounds.BoundPremises : Prop
+number of parameters: 0
+fields:
+  SIDEExplicitFormula.KeiperBounds.BoundPremises.gamma_tight : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0
+  SIDEExplicitFormula.KeiperBounds.BoundPremises.higher_stieltjes : ∀ (n : ℕ),
+      1 ≤ n → n ≤ 11 → SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n
+  SIDEExplicitFormula.KeiperBounds.BoundPremises.zeta_values : ∀ (j : ℕ),
+      2 ≤ j → j ≤ 12 → SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j
+constructor:
+  SIDEExplicitFormula.KeiperBounds.BoundPremises.mk (gamma_tight : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0)
+    (higher_stieltjes : ∀ (n : ℕ), 1 ≤ n → n ≤ 11 → SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n)
+    (zeta_values : ∀ (j : ℕ), 2 ≤ j → j ≤ 12 → SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j) :
+    SIDEExplicitFormula.KeiperBounds.BoundPremises
+@@AXIOMS
+'SIDEExplicitFormula.KeiperBounds.BoundPremises' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.KeiperBounds.BoundPremises
+@@BEGIN SIDEExplicitFormula.KeiperBounds.keiperBounds_of
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.KeiperBounds @@LINE 115 @@CONSUMES [SIDEExplicitFormula.Keiper.stieltjes,
+ SIDEExplicitFormula.KeiperBounds.BoundPremises,
+ riemannZeta,
+ SIDEExplicitFormula.KeiperBounds.KeiperBounds] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.KeiperBounds.keiperBounds_of : SIDEExplicitFormula.KeiperBounds.BoundPremises →
+  SIDEExplicitFormula.KeiperBounds.KeiperBounds
+@@AXIOMS
+'SIDEExplicitFormula.KeiperBounds.keiperBounds_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.KeiperBounds.keiperBounds_of
+@@BEGIN SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiCriterionBridge @@LINE 191 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ RiemannHypothesis,
+ SIDEExplicitFormula.LiWeil.symMember,
+ SIDEExplicitFormula.LiWeil.li_identity_sym,
+ SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh : (∀ (n : ℕ) (L : ℂ),
+    Filter.Tendsto (fun δ => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.symMember n δ))
+        (nhdsWithin 0 (Set.Ioi 0)) (nhds L) →
+      0 ≤ L.re) ↔
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh
+@@BEGIN SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.ResidueDischarge @@LINE 30 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.ResidueDischarge.Register4_positivity : (ℕ → ℝ) → Prop :=
+fun lam => ∀ (n : ℕ), 1 ≤ n → 0 ≤ lam n
+@@AXIOMS
+'SIDEExplicitFormula.ResidueDischarge.Register4_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+@@BEGIN SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.ResidueDischarge @@LINE 41 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ RiemannHypothesis,
+ Zeta23.zetaZeroConfig,
+ SIDEExplicitFormula.LiWeil.liTerm,
+ riemannZeta,
+ SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh,
+ SIDEExplicitFormula.ResidueDischarge.Register4_positivity] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+    SIDEExplicitFormula.LiWeil.LiCoeff →
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh
+@@BEGIN SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PageConverses @@LINE 32 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg,
+ RiemannHypothesis,
+ SIDEExplicitFormula.ResidueDischarge.Register4_positivity,
+ SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh : SIDEExplicitFormula.ResidueDischarge.Register4_positivity
+    SIDEExplicitFormula.LiWeil.LiCoeff ↔
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh
+@@BEGIN SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PageConverses @@LINE 45 @@CONSUMES [LiCriterion.positivity_implies_RH,
+ SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg,
+ RiemannHypothesis,
+ LiCriterion.taylorCoeff,
+ SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh : (∀ (n : ℕ),
+    0 ≤ (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re) ↔
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh
+@@BEGIN SIDEExplicitFormula.Simplicity.allSimple
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Simplicity @@LINE 27 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Simplicity.allSimple : SIDEExplicitFormula.Schema.WeilConfig → Prop :=
+fun C => ∀ ρ ∈ C.carrier, C.mult ρ = 1
+@@AXIOMS
+'SIDEExplicitFormula.Simplicity.allSimple' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Simplicity.allSimple
+@@BEGIN SIDEExplicitFormula.Simplicity.simplicity
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Simplicity @@LINE 31 @@CONSUMES [SIDEExplicitFormula.Simplicity.allSimple,
+ riemannZeta,
+ Zeta23.zetaZeroConfig,
+ RiemannHypothesis,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Simplicity.simplicity : Prop :=
+SIDEExplicitFormula.Simplicity.allSimple SIDEExplicitFormula.Schema.zetaWeilConfig
+@@AXIOMS
+'SIDEExplicitFormula.Simplicity.simplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Simplicity.simplicity
+@@BEGIN SIDEExplicitFormula.Simplicity.simplicity_iff
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Simplicity @@LINE 34 @@CONSUMES [riemannZeta,
+ SIDEExplicitFormula.Simplicity.simplicity] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Simplicity.simplicity_iff : SIDEExplicitFormula.Simplicity.simplicity ↔
+  ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1
+@@AXIOMS
+'SIDEExplicitFormula.Simplicity.simplicity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Simplicity.simplicity_iff
+@@BEGIN SIDEExplicitFormula.Simplicity.SimpleProportion
+@@CELL @@KIND inductive @@MODULE SIDEExplicitFormula.Simplicity @@LINE 40 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+structure SIDEExplicitFormula.Simplicity.SimpleProportion : Prop
+number of parameters: 0
+fields:
+  SIDEExplicitFormula.Simplicity.SimpleProportion.two_thirds : ∀ ε > 0,
+      ∃ T₀, ∀ T ≥ T₀, (2 / 3 - ε) * ↑(Zeta23.Ncount T (2 * T)) ≤ ↑(Zeta23.N0simple T (2 * T))
+constructor:
+  SIDEExplicitFormula.Simplicity.SimpleProportion.mk
+    (two_thirds : ∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, (2 / 3 - ε) * ↑(Zeta23.Ncount T (2 * T)) ≤ ↑(Zeta23.N0simple T (2 * T))) :
+    SIDEExplicitFormula.Simplicity.SimpleProportion
+@@AXIOMS
+'SIDEExplicitFormula.Simplicity.SimpleProportion' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Simplicity.SimpleProportion
+@@BEGIN SIDEExplicitFormula.Simplicity.exceptional_mass_le_third
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Simplicity @@LINE 45 @@CONSUMES [SIDEExplicitFormula.Simplicity.SimpleProportion,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Simplicity.exceptional_mass_le_third : SIDEExplicitFormula.Simplicity.SimpleProportion →
+  ∀ ε > 0,
+    ∃ T₀, ∀ T ≥ T₀, ↑(Zeta23.Ncount T (2 * T)) - ↑(Zeta23.N0simple T (2 * T)) ≤ (1 / 3 + ε) * ↑(Zeta23.Ncount T (2 * T))
+@@AXIOMS
+'SIDEExplicitFormula.Simplicity.exceptional_mass_le_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Simplicity.exceptional_mass_le_third
+@@BEGIN SIDEExplicitFormula.Product.sum
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Product @@LINE 142 @@CONSUMES [SIDEExplicitFormula.Product.sum_ef] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Product.sum : SIDEExplicitFormula.Schema.WeilConfig →
+  SIDEExplicitFormula.Schema.WeilConfig → SIDEExplicitFormula.Schema.WeilConfig :=
+fun C₁ C₂ =>
+  let __ZeroConfig := SIDEExplicitFormula.Product.sumZ C₁ C₂;
+  { toZeroConfig := __ZeroConfig, rhs := fun k => C₁.rhs k + C₂.rhs k, ef := ⋯, count := ⋯,
+    target := C₁.target ∧ C₂.target, target_iff := ⋯ }
+@@AXIOMS
+'SIDEExplicitFormula.Product.sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Product.sum
+@@BEGIN SIDEExplicitFormula.Product.sum_ef
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Product @@LINE 111 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Product.sum_ef : ∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig) (k : ℝ → ℂ),
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      (∀ (x : ℝ), k (-x) = k x) →
+        ∑' (ρ : ↑(SIDEExplicitFormula.Product.sumZ C₁ C₂).carrier),
+            ↑((SIDEExplicitFormula.Product.sumZ C₁ C₂).mult ↑ρ) * Zeta23.paperFT k (Zeta23.gammaOf ↑ρ) =
+          C₁.rhs k + C₂.rhs k
+@@AXIOMS
+'SIDEExplicitFormula.Product.sum_ef' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Product.sum_ef
+@@BEGIN SIDEExplicitFormula.Product.ProductLemma
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Product @@LINE 160 @@CONSUMES [SIDEExplicitFormula.Product.sum,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Product.ProductLemma : Prop :=
+∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂) ↔
+    SIDEExplicitFormula.Schema.h2_sign_cfg C₁ ∧ SIDEExplicitFormula.Schema.h2_sign_cfg C₂
+@@AXIOMS
+'SIDEExplicitFormula.Product.ProductLemma' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Product.ProductLemma
+@@BEGIN SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Product @@LINE 164 @@CONSUMES [SIDEExplicitFormula.Product.sum,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets : ∀ (C₁ C₂ : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C₁ C₂) ↔ C₁.target ∧ C₂.target
+@@AXIOMS
+'SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets
+@@BEGIN SIDEExplicitFormula.Product.productLemma_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Product @@LINE 169 @@CONSUMES [SIDEExplicitFormula.Product.sum,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.Product.ProductLemma,
+ SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Product.productLemma_holds : SIDEExplicitFormula.Product.ProductLemma
+@@AXIOMS
+'SIDEExplicitFormula.Product.productLemma_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Product.productLemma_holds
+@@BEGIN SIDEExplicitFormula.Doubling.DoublingCorollary
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Doubling @@LINE 43 @@CONSUMES [SIDEExplicitFormula.Product.sum,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Doubling.DoublingCorollary : Prop :=
+∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  (∀ ρ ∈ C.carrier, (SIDEExplicitFormula.Product.sum C C).mult ρ = 2 * C.mult ρ) ∧
+    (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Product.sum C C) ↔
+      SIDEExplicitFormula.Schema.h2_sign_cfg C)
+@@AXIOMS
+'SIDEExplicitFormula.Doubling.DoublingCorollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Doubling.DoublingCorollary
+@@BEGIN SIDEExplicitFormula.Doubling.doubling_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Doubling @@LINE 47 @@CONSUMES [SIDEExplicitFormula.Product.sum,
+ SIDEExplicitFormula.Doubling.DoublingCorollary,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.Product.productLemma_holds] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Doubling.doubling_holds : SIDEExplicitFormula.Doubling.DoublingCorollary
+@@AXIOMS
+'SIDEExplicitFormula.Doubling.doubling_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Doubling.doubling_holds
+@@BEGIN SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.Doubling @@LINE 70 @@CONSUMES [SIDEExplicitFormula.Simplicity.allSimple,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity : Prop :=
+∀ (C : SIDEExplicitFormula.Schema.WeilConfig),
+  SIDEExplicitFormula.Schema.h2_sign_cfg C → SIDEExplicitFormula.Simplicity.allSimple C
+@@AXIOMS
+'SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity
+@@BEGIN SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Doubling @@LINE 73 @@CONSUMES [SIDEExplicitFormula.Simplicity.allSimple,
+ SIDEExplicitFormula.Product.sum,
+ SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.Product.productLemma_holds] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity : ¬SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity
+@@AXIOMS
+'SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity
+@@BEGIN SIDEExplicitFormula.PlattRung.rh_upto
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.PlattRung @@LINE 31 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.PlattRung.rh_upto : ℝ → Prop :=
+fun T => ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → |ρ.im| ≤ T → ρ.re = 1 / 2
+@@AXIOMS
+'SIDEExplicitFormula.PlattRung.rh_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.PlattRung.rh_upto
+@@BEGIN SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PlattRung @@LINE 36 @@CONSUMES [RiemannHypothesis,
+ SIDEExplicitFormula.PlattRung.rh_upto,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh : (∀ (T : ℝ), SIDEExplicitFormula.PlattRung.rh_upto T) ↔
+  RiemannHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh
+@@BEGIN SIDEExplicitFormula.PlattRung.plattTrudgianT
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.PlattRung @@LINE 47 @@CONSUMES [] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.PlattRung.plattTrudgianT : ℝ :=
+3 * 10 ^ 12
+@@AXIOMS
+'SIDEExplicitFormula.PlattRung.plattTrudgianT' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.PlattRung.plattTrudgianT
+@@BEGIN SIDEExplicitFormula.PlattRung.PlattTrudgianHeight
+@@CELL @@KIND inductive @@MODULE SIDEExplicitFormula.PlattRung @@LINE 51 @@CONSUMES [SIDEExplicitFormula.PlattRung.rh_upto] @@WATCHED []
+@@STMT
+structure SIDEExplicitFormula.PlattRung.PlattTrudgianHeight (T : ℝ) : Prop
+number of parameters: 1
+fields:
+  SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.verified : SIDEExplicitFormula.PlattRung.rh_upto T
+constructor:
+  SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.mk {T : ℝ} (verified : SIDEExplicitFormula.PlattRung.rh_upto T) :
+    SIDEExplicitFormula.PlattRung.PlattTrudgianHeight T
+@@AXIOMS
+'SIDEExplicitFormula.PlattRung.PlattTrudgianHeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.PlattRung.PlattTrudgianHeight
+@@BEGIN SIDEExplicitFormula.PlattRung.rh_upto_platt
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PlattRung @@LINE 56 @@CONSUMES [SIDEExplicitFormula.PlattRung.PlattTrudgianHeight,
+ SIDEExplicitFormula.PlattRung.rh_upto,
+ SIDEExplicitFormula.PlattRung.plattTrudgianT] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.PlattRung.rh_upto_platt : SIDEExplicitFormula.PlattRung.PlattTrudgianHeight
+    SIDEExplicitFormula.PlattRung.plattTrudgianT →
+  SIDEExplicitFormula.PlattRung.rh_upto SIDEExplicitFormula.PlattRung.plattTrudgianT
+@@AXIOMS
+'SIDEExplicitFormula.PlattRung.rh_upto_platt' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.PlattRung.rh_upto_platt
+@@BEGIN SIDEExplicitFormula.B321.base_nonzero_at
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 274 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.base_nonzero_at : ∀ (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ),
+  ∃ L₀,
+    0 < L₀ ∧
+      ∀ (L : ℝ) (hL : 0 < L),
+        L ≤ L₀ → Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL)) z ≠ 0
+@@AXIOMS
+'SIDEExplicitFormula.B321.base_nonzero_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.base_nonzero_at
+@@BEGIN SIDEExplicitFormula.B321.ch_iff_h2_sign
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Seam @@LINE 107 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta,
+ RiemannHypothesis,
+ SIDEExplicitFormula.B321.ch_iff_rh,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.ch_iff_h2_sign : SIDEExplicitFormula.B321.conservationHypothesis ↔
+  SIDEExplicitFormula.B321.h2_sign
+@@AXIOMS
+'SIDEExplicitFormula.B321.ch_iff_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.ch_iff_h2_sign
+@@BEGIN SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1240 @@CONSUMES [SIDEExplicitFormula.B321.ch_iff_rh,
+ RiemannHypothesis,
+ riemannZeta,
+ Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh →
+  (SIDEExplicitFormula.B321.conservationHypothesis ↔ SIDEExplicitFormula.B321.h2_sign)
+@@AXIOMS
+'SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam
+@@BEGIN SIDEExplicitFormula.B321.classK_of_real_even
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 52 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.classK_of_real_even : ∀ {g : ℝ → ℝ},
+  ContDiff ℝ 2 g →
+    HasCompactSupport g →
+      SIDEExplicitFormula.B321.classK
+        (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g))
+@@AXIOMS
+'SIDEExplicitFormula.B321.classK_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.classK_of_real_even
+@@BEGIN SIDEExplicitFormula.B321.dominant_exists
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 368 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.dominant_exists : ∀ (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ 4 g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      0 ≤ L →
+        ∀ ρ₁ ∈ Z.carrier,
+          ρ₁.re ≠ 1 / 2 →
+            0 < SIDEExplicitFormula.B321.offScore g ρ₁ →
+              ∃ ρs ∈ Z.carrier,
+                ρs.re ≠ 1 / 2 ∧
+                  0 < SIDEExplicitFormula.B321.offScore g ρs ∧
+                    ∀ ρ ∈ Z.carrier,
+                      ρ.re ≠ 1 / 2 → SIDEExplicitFormula.B321.offScore g ρ ≤ SIDEExplicitFormula.B321.offScore g ρs
+@@AXIOMS
+'SIDEExplicitFormula.B321.dominant_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.dominant_exists
+@@BEGIN SIDEExplicitFormula.B321.dominant_summable
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 949 @@CONSUMES [riemannZeta,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.dominant_summable : ∀ {g0 : ℝ → ℝ} {L M : ℝ},
+  SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M →
+    ∀ (B : ℝ) (D : ℕ),
+      Summable fun ρ =>
+        ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+          (B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ↑ρ‖) ^ (2 * D) *
+            (SIDEExplicitFormula.B321.offScore g0 ↑ρ / M) ^ 2 ^ (D + 1))
+@@AXIOMS
+'SIDEExplicitFormula.B321.dominant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.dominant_summable
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_iff_rh_strip
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1233 @@CONSUMES [Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔
+  SIDEExplicitFormula.B321.rh_strip
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_iff_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_iff_rh_strip
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_imp_cell
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Registers @@LINE 46 @@CONSUMES [SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.B321.h2_sign] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_imp_cell : ∀ (F : ℝ → ℝ → ℂ) (W : Set ℝ),
+  SIDEExplicitFormula.B321.admissible F W → SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.cell_form F W
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_imp_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_imp_cell
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_imp_ch_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Seam @@LINE 104 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta,
+ RiemannHypothesis,
+ SIDEExplicitFormula.B321.h2_sign,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_imp_ch_holds : SIDEExplicitFormula.B321.h2_sign_imp_ch
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_imp_ch_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_imp_ch_holds
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_imp_rh_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Seam @@LINE 98 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta,
+ RiemannHypothesis,
+ SIDEExplicitFormula.B321.h2_sign,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_imp_rh_holds : SIDEExplicitFormula.B321.h2_sign_imp_rh
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_imp_rh_holds
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1236 @@CONSUMES [RiemannHypothesis,
+ SIDEExplicitFormula.B321.h2_sign,
+ Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.classK,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh →
+  SIDEExplicitFormula.B321.h2_sign_imp_rh
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_imp_rh_strip
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1193 @@CONSUMES [Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.B321.h2_sign,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_imp_rh_strip : SIDEExplicitFormula.B321.h2_sign →
+  SIDEExplicitFormula.B321.rh_strip
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_imp_rh_strip
+@@BEGIN SIDEExplicitFormula.B321.h2_sign_imp_upto
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.DetectionRegion @@LINE 33 @@CONSUMES [SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.B321.h2_sign_upto] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.h2_sign_imp_upto : ∀ (L₀ : ℝ),
+  SIDEExplicitFormula.B321.h2_sign → SIDEExplicitFormula.B321.h2_sign_upto L₀
+@@AXIOMS
+'SIDEExplicitFormula.B321.h2_sign_imp_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.h2_sign_imp_upto
+@@BEGIN SIDEExplicitFormula.B321.kWin_classK
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.TwoPropertyWindow @@LINE 191 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.kWin_classK : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ → HasCompactSupport φ → SIDEExplicitFormula.B321.classK (SIDEExplicitFormula.B321.kWin γ₀ φ)
+@@AXIOMS
+'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.kWin_classK
+@@BEGIN SIDEExplicitFormula.B321.kWindow_classK
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 121 @@CONSUMES [SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.kWindow_classK : ∀ (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ (↑⊤) g0 →
+    Function.support g0 ⊆ Set.Icc (-L) L →
+      ∀ (j : ℕ), SIDEExplicitFormula.B321.classK (SIDEExplicitFormula.B321.kWindow a g0 j)
+@@AXIOMS
+'SIDEExplicitFormula.B321.kWindow_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.kWindow_classK
+@@BEGIN SIDEExplicitFormula.B321.kWindow_term
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 127 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.kWindow_term : ∀ (a : List ℝ) {g0 : ℝ → ℝ} {L : ℝ},
+  (∀ (x : ℝ), g0 (-x) = g0 x) →
+    ContDiff ℝ (↑⊤) g0 →
+      Function.support g0 ⊆ Set.Icc (-L) L →
+        ∀ (j : ℕ) (z : ℂ),
+          Zeta23.paperFT (SIDEExplicitFormula.B321.kWindow a g0 j) z =
+            SIDEExplicitFormula.B321.polyEvalFull a (-(Complex.I * z)) *
+                SIDEExplicitFormula.B321.polyEvalFull a (Complex.I * z) *
+              Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g0) z ^ 2 ^ (j + 1)
+@@AXIOMS
+'SIDEExplicitFormula.B321.kWindow_term' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.kWindow_term
+@@BEGIN SIDEExplicitFormula.B321.nearInt_ge
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PairTerm @@LINE 264 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.nearInt_ge : ∀ {φ : ℝ → ℝ},
+  Continuous φ →
+    HasCompactSupport φ → (∀ (x : ℝ), 0 ≤ φ x) → ∀ (δ : ℝ), ∫ (u : ℝ), φ u ≤ SIDEExplicitFormula.B321.nearInt φ δ
+@@AXIOMS
+'SIDEExplicitFormula.B321.nearInt_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.nearInt_ge
+@@BEGIN SIDEExplicitFormula.B321.nodes_distinct
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 193 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.nodes_distinct : ∀ (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ),
+  ∀ ρ ∈ SIDEExplicitFormula.B321.tieSet Z g M,
+    ∀ ρ' ∈ SIDEExplicitFormula.B321.tieSet Z g M,
+      SIDEExplicitFormula.B321.vOf ρ = SIDEExplicitFormula.B321.vOf ρ' → ρ' = ρ ∨ ρ' = 1 - ρ
+@@AXIOMS
+'SIDEExplicitFormula.B321.nodes_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.nodes_distinct
+@@BEGIN SIDEExplicitFormula.B321.off_finite_above
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 331 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.off_finite_above : ∀ (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ 4 g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      0 ≤ L → ∀ (c : ℝ), 0 < c → {ρ | ρ ∈ Z.carrier ∧ c ≤ SIDEExplicitFormula.B321.offScore g ρ}.Finite
+@@AXIOMS
+'SIDEExplicitFormula.B321.off_finite_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.off_finite_above
+@@BEGIN SIDEExplicitFormula.B321.pairTwo_factored
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PairTerm @@LINE 105 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.pairTwo_factored : ∀ (γ₀ δ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ →
+    HasCompactSupport φ →
+      SIDEExplicitFormula.B321.pairTwo γ₀ φ δ =
+        (↑δ ^ 2 + 2 * Complex.I * ↑γ₀ * ↑δ) ^ 2 *
+            (Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (↑γ₀ - Complex.I * ↑δ) *
+              Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (-↑γ₀ + Complex.I * ↑δ)) +
+          (↑δ ^ 2 - 2 * Complex.I * ↑γ₀ * ↑δ) ^ 2 *
+            (Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (↑γ₀ + Complex.I * ↑δ) *
+              Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) (-↑γ₀ - Complex.I * ↑δ))
+@@AXIOMS
+'SIDEExplicitFormula.B321.pairTwo_factored' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.pairTwo_factored
+@@BEGIN SIDEExplicitFormula.B321.pairTwo_near_far
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PairTerm @@LINE 252 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.pairTwo_near_far : ∀ (γ₀ δ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ →
+    HasCompactSupport φ →
+      (∀ (x : ℝ), φ (-x) = φ x) →
+        SIDEExplicitFormula.B321.pairTwo γ₀ φ δ =
+          ((↑δ ^ 2 + 2 * Complex.I * ↑γ₀ * ↑δ) *
+                  (↑(SIDEExplicitFormula.B321.nearInt φ δ) + SIDEExplicitFormula.B321.farFT γ₀ φ δ) /
+                2) ^
+              2 +
+            ((↑δ ^ 2 - 2 * Complex.I * ↑γ₀ * ↑δ) *
+                  (↑(SIDEExplicitFormula.B321.nearInt φ δ) + (starRingEnd ℂ) (SIDEExplicitFormula.B321.farFT γ₀ φ δ)) /
+                2) ^
+              2
+@@AXIOMS
+'SIDEExplicitFormula.B321.pairTwo_near_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.pairTwo_near_far
+@@BEGIN SIDEExplicitFormula.B321.pair_bound
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PairTerm @@LINE 435 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.pair_bound : ∀ (γ₀ δ ε : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ →
+    HasCompactSupport φ →
+      (∀ (x : ℝ), φ (-x) = φ x) →
+        (∀ (x : ℝ), 0 ≤ φ x) →
+          0 < ∫ (u : ℝ), φ u →
+            0 < γ₀ →
+              0 < δ →
+                0 ≤ ε →
+                  SIDEExplicitFormula.B321.farSmall γ₀ φ δ ε →
+                    SIDEExplicitFormula.B321.farSmall γ₀ φ 0 ε →
+                      SIDEExplicitFormula.B321.pairEps ε δ γ₀ ≤ SIDEExplicitFormula.B321.pairConst →
+                        (SIDEExplicitFormula.B321.pairTwo γ₀ φ δ).re ≤
+                          -(SIDEExplicitFormula.B321.pairConst - SIDEExplicitFormula.B321.pairEps ε δ γ₀) * δ ^ 2 *
+                              ‖SIDEExplicitFormula.B321.windowSlope γ₀ φ‖ ^ 2 *
+                            SIDEExplicitFormula.B321.realizedGrowth φ δ ^ 2
+@@AXIOMS
+'SIDEExplicitFormula.B321.pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.pair_bound
+@@BEGIN SIDEExplicitFormula.B321.pair_near_sign
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PairTerm @@LINE 305 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.pair_near_sign : ∀ (γ₀ δ : ℝ) {φ : ℝ → ℝ},
+  Continuous φ →
+    HasCompactSupport φ →
+      (∀ (x : ℝ), 0 ≤ φ x) →
+        0 < ∫ (u : ℝ), φ u →
+          0 < δ → δ < 2 * γ₀ → (SIDEExplicitFormula.B321.nearPair γ₀ δ (SIDEExplicitFormula.B321.nearInt φ δ)).re < 0
+@@AXIOMS
+'SIDEExplicitFormula.B321.pair_near_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.pair_near_sign
+@@BEGIN SIDEExplicitFormula.B321.paperFT_conj_of_real
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 36 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_conj_of_real : ∀ (g : ℝ → ℝ) (z : ℂ),
+  (starRingEnd ℂ) (Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) ((starRingEnd ℂ) z)) =
+    Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (-z)
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_conj_of_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_conj_of_real
+@@BEGIN SIDEExplicitFormula.B321.paperFT_conj_of_real_even
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 33 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_conj_of_real_even : ∀ {g : ℝ → ℝ},
+  (∀ (x : ℝ), g (-x) = g x) →
+    ∀ (z : ℂ),
+      (starRingEnd ℂ) (Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) ((starRingEnd ℂ) z)) =
+        Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_conj_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_conj_of_real_even
+@@BEGIN SIDEExplicitFormula.B321.paperFT_growth
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.GrowthBound @@LINE 23 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_growth : ∀ (h : ℝ → ℂ) (L : ℝ),
+  MeasureTheory.Integrable h MeasureTheory.volume →
+    Function.support h ⊆ Set.Icc (-L) L → ∀ (z : ℂ), ‖Zeta23.paperFT h z‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |z.im|)
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_growth
+@@BEGIN SIDEExplicitFormula.B321.paperFT_growth_at
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.GrowthBound @@LINE 50 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_growth_at : ∀ (h : ℝ → ℂ) (L : ℝ),
+  MeasureTheory.Integrable h MeasureTheory.volume →
+    Function.support h ⊆ Set.Icc (-L) L →
+      ∀ (ρ : ℂ), ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|)
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_growth_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_growth_at
+@@BEGIN SIDEExplicitFormula.B321.paperFT_neg_of_even
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 41 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_neg_of_even : ∀ {g : ℝ → ℝ},
+  (∀ (x : ℝ), g (-x) = g x) →
+    ∀ (z : ℂ),
+      Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (-z) = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_neg_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_neg_of_even
+@@BEGIN SIDEExplicitFormula.B321.paperFT_polyOp
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 191 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_polyOp : ∀ (a : List ℝ) {g : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ (2 * ↑a.length) g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.polyOp a g)) z =
+          SIDEExplicitFormula.B321.polyEval a z * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_polyOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_polyOp
+@@BEGIN SIDEExplicitFormula.B321.paperFT_polyOpFull
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 63 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_polyOpFull : ∀ (a : List ℝ) {g : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ (↑a.length) g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.polyOpFull a g)) z =
+          SIDEExplicitFormula.B321.polyEvalFull a (-(Complex.I * z)) *
+            Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_polyOpFull' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_polyOpFull
+@@BEGIN SIDEExplicitFormula.B321.paperFT_power
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 146 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_power : ∀ {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞},
+  (∀ (x : ℝ), g (-x) = g x) →
+    ContDiff ℝ (↑n) g →
+      Function.support g ⊆ Set.Icc (-L) L →
+        ∀ (z : ℂ) (j : ℕ),
+          Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (SIDEExplicitFormula.B321.power g j)) z =
+            Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z ^ 2 ^ j
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_power
+@@BEGIN SIDEExplicitFormula.B321.paperFT_window
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.TwoPropertyWindow @@LINE 277 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_window : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ →
+    HasCompactSupport φ →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) z =
+          (↑γ₀ ^ 2 - z ^ 2) * Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) z
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_window
+@@BEGIN SIDEExplicitFormula.B321.paperFT_window_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.TwoPropertyWindow @@LINE 285 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.paperFT_window_zero : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ → HasCompactSupport φ → Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) ↑γ₀ = 0
+@@AXIOMS
+'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.paperFT_window_zero
+@@BEGIN SIDEExplicitFormula.B321.polyOpFull_contDiff
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 94 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.polyOpFull_contDiff : ∀ (a : List ℝ) {g : ℝ → ℝ},
+  ContDiff ℝ (↑⊤) g → ContDiff ℝ (↑⊤) (SIDEExplicitFormula.B321.polyOpFull a g)
+@@AXIOMS
+'SIDEExplicitFormula.B321.polyOpFull_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.polyOpFull_contDiff
+@@BEGIN SIDEExplicitFormula.B321.polyOpFull_support
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 82 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.polyOpFull_support : ∀ (a : List ℝ) {g : ℝ → ℝ} {L : ℝ},
+  Function.support g ⊆ Set.Icc (-L) L → Function.support (SIDEExplicitFormula.B321.polyOpFull a g) ⊆ Set.Icc (-L) L
+@@AXIOMS
+'SIDEExplicitFormula.B321.polyOpFull_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.polyOpFull_support
+@@BEGIN SIDEExplicitFormula.B321.power_contDiff
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 140 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.power_contDiff : ∀ {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞},
+  ContDiff ℝ (↑n) g →
+    Function.support g ⊆ Set.Icc (-L) L → ∀ (j : ℕ), ContDiff ℝ (↑n) (SIDEExplicitFormula.B321.power g j)
+@@AXIOMS
+'SIDEExplicitFormula.B321.power_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.power_contDiff
+@@BEGIN SIDEExplicitFormula.B321.power_support
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 129 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.power_support : ∀ {g : ℝ → ℝ} {L : ℝ},
+  Function.support g ⊆ Set.Icc (-L) L →
+    ∀ (j : ℕ), Function.support (SIDEExplicitFormula.B321.power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+@@AXIOMS
+'SIDEExplicitFormula.B321.power_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.power_support
+@@BEGIN SIDEExplicitFormula.B321.real_even_interpolant
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 427 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.real_even_interpolant : ∀ (s : Finset ℂ),
+  (∀ w ∈ s, (starRingEnd ℂ) w ∈ s) →
+    ∃ C,
+      ∀ (r : ℂ → ℂ),
+        (∀ w ∈ s, r ((starRingEnd ℂ) w) = (starRingEnd ℂ) (r w)) →
+          (∀ w ∈ s, ‖r w‖ ≤ 1) →
+            ∃ Q,
+              (∀ w ∈ s, Polynomial.eval w (Polynomial.map (algebraMap ℝ ℂ) Q) = r w) ∧
+                Q.degree < ↑s.card ∧ ∀ (j : ℕ), |Q.coeff j| ≤ C
+@@AXIOMS
+'SIDEExplicitFormula.B321.real_even_interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.real_even_interpolant
+@@BEGIN SIDEExplicitFormula.B321.realizedGrowth_ge_one
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PairTerm @@LINE 282 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.realizedGrowth_ge_one : ∀ {φ : ℝ → ℝ},
+  Continuous φ →
+    HasCompactSupport φ →
+      (∀ (x : ℝ), 0 ≤ φ x) → 0 < ∫ (u : ℝ), φ u → ∀ (δ : ℝ), 1 ≤ SIDEExplicitFormula.B321.realizedGrowth φ δ
+@@AXIOMS
+'SIDEExplicitFormula.B321.realizedGrowth_ge_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.realizedGrowth_ge_one
+@@BEGIN SIDEExplicitFormula.B321.rest_bound
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RestBound @@LINE 297 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rest_bound : ∀ (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ},
+  ContDiff ℝ 4 φ →
+    Function.support φ ⊆ Set.Icc (-L) L →
+      0 ≤ L →
+        SIDEExplicitFormula.B321.HStrip Z →
+          SIDEExplicitFormula.B321.HCount Z A₀ →
+            ∀ (ρ₀ : ℂ), SIDEExplicitFormula.B321.restSum Z γ₀ φ ρ₀ ≤ SIDEExplicitFormula.B321.restR γ₀ φ L A₀
+@@AXIOMS
+'SIDEExplicitFormula.B321.rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rest_bound
+@@BEGIN SIDEExplicitFormula.B321.rest_bound_closed
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RestBound @@LINE 306 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rest_bound_closed : ∀ (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ},
+  ContDiff ℝ 4 φ →
+    Function.support φ ⊆ Set.Icc (-L) L →
+      0 ≤ L →
+        SIDEExplicitFormula.B321.HCount Z A₀ →
+          ∀ (ρ₀ : ℂ), SIDEExplicitFormula.B321.restSum Z γ₀ φ ρ₀ ≤ SIDEExplicitFormula.B321.restR γ₀ φ L A₀
+@@AXIOMS
+'SIDEExplicitFormula.B321.rest_bound_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rest_bound_closed
+@@BEGIN SIDEExplicitFormula.B321.rest_bound_zeta
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RestBound @@LINE 314 @@CONSUMES [riemannZeta,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rest_bound_zeta : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ 4 φ →
+    Function.support φ ⊆ Set.Icc (-L) L →
+      0 ≤ L →
+        ∀ (ρ₀ : ℂ),
+          ∃ A₀,
+            1 ≤ A₀ ∧
+              SIDEExplicitFormula.B321.restSum Zeta23.zetaZeroConfig γ₀ φ ρ₀ ≤ SIDEExplicitFormula.B321.restR γ₀ φ L A₀
+@@AXIOMS
+'SIDEExplicitFormula.B321.rest_bound_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rest_bound_zeta
+@@BEGIN SIDEExplicitFormula.B321.rest_tendsto_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1025 @@CONSUMES [riemannZeta,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rest_tendsto_zero : ∀ {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M) (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (j : ℕ) (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D) →
+    Filter.Tendsto
+      (fun j => ∑' (x : ↑Zeta23.zetaZeroConfig.carrier), SIDEExplicitFormula.B321.fR H Q j x / ↑M ^ 2 ^ (j + 1))
+      Filter.atTop (nhds 0)
+@@AXIOMS
+'SIDEExplicitFormula.B321.rest_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rest_tendsto_zero
+@@BEGIN SIDEExplicitFormula.B321.rest_term_small
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 764 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rest_term_small : ∀ {Z : Zeta23.ZeroConfig} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup Z g0 L M) (Q : Polynomial ℝ) (B : ℝ) (D : ℕ),
+  (∀ (w : ℂ), ‖(Polynomial.aeval w) (SIDEExplicitFormula.B321.Pof H Q)‖ ≤ B * (1 + ‖w‖) ^ D) →
+    ∀ (j : ℕ) (ρ : ℂ),
+      ‖Zeta23.paperFT
+            (SIDEExplicitFormula.B321.kWindow (SIDEExplicitFormula.B321.coeffList (SIDEExplicitFormula.B321.Pof H Q)) g0
+              j)
+            (Zeta23.gammaOf ρ)‖ ≤
+        B ^ 2 * (1 + ‖SIDEExplicitFormula.B321.wOf ρ‖) ^ (2 * D) * SIDEExplicitFormula.B321.offScore g0 ρ ^ 2 ^ (j + 1)
+@@AXIOMS
+'SIDEExplicitFormula.B321.rest_term_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rest_term_small
+@@BEGIN SIDEExplicitFormula.B321.rh_imp_cell_form
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RHChain @@LINE 66 @@CONSUMES [RiemannHypothesis,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.B321.h2_sign,
+ Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rh_imp_cell_form : ∀ (F : ℝ → ℝ → ℂ) (W : Set ℝ),
+  SIDEExplicitFormula.B321.admissible F W → RiemannHypothesis → SIDEExplicitFormula.B321.cell_form F W
+@@AXIOMS
+'SIDEExplicitFormula.B321.rh_imp_cell_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rh_imp_cell_form
+@@BEGIN SIDEExplicitFormula.B321.rh_imp_h2_sign
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RHChain @@LINE 24 @@CONSUMES [Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ RiemannHypothesis,
+ riemannZeta,
+ SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rh_imp_h2_sign : RiemannHypothesis → SIDEExplicitFormula.B321.h2_sign
+@@AXIOMS
+'SIDEExplicitFormula.B321.rh_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rh_imp_h2_sign
+@@BEGIN SIDEExplicitFormula.B321.rh_imp_rh_strip
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 485 @@CONSUMES [RiemannHypothesis,
+ Zeta23.zetaZeroConfig,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rh_imp_rh_strip : RiemannHypothesis → SIDEExplicitFormula.B321.rh_strip
+@@AXIOMS
+'SIDEExplicitFormula.B321.rh_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rh_imp_rh_strip
+@@BEGIN SIDEExplicitFormula.B321.rh_strip_imp_h2_sign
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1197 @@CONSUMES [Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig,
+ SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rh_strip_imp_h2_sign : SIDEExplicitFormula.B321.rh_strip →
+  SIDEExplicitFormula.B321.h2_sign
+@@AXIOMS
+'SIDEExplicitFormula.B321.rh_strip_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rh_strip_imp_h2_sign
+@@BEGIN SIDEExplicitFormula.B321.rh_strip_imp_rh_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Seam @@LINE 84 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta,
+ RiemannHypothesis] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : SIDEExplicitFormula.B321.rh_strip_imp_rh
+@@AXIOMS
+'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.rh_strip_imp_rh_holds
+@@BEGIN SIDEExplicitFormula.B321.selfConv_im_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 78 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.selfConv_im_zero : ∀ (g : ℝ → ℝ) (x : ℝ),
+  (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g) x).im = 0
+@@AXIOMS
+'SIDEExplicitFormula.B321.selfConv_im_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.selfConv_im_zero
+@@BEGIN SIDEExplicitFormula.B321.tie_term_neg
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 749 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.tie_term_neg : ∀ {Z : Zeta23.ZeroConfig} {g0 : ℝ → ℝ} {L M : ℝ}
+  (H : SIDEExplicitFormula.B321.PWSetup Z g0 L M) (Q : Polynomial ℝ) (j : ℕ),
+  (∀ ρ ∈ SIDEExplicitFormula.B321.tieSet Z g0 M,
+      (Polynomial.aeval (SIDEExplicitFormula.B321.vOf ρ)) Q ^ 2 * SIDEExplicitFormula.B321.Xval H j ρ =
+        -↑‖SIDEExplicitFormula.B321.Xval H j ρ‖) →
+    ∀ {ρ : ℂ},
+      ρ ∈ SIDEExplicitFormula.B321.tieSet Z g0 M →
+        (Zeta23.paperFT
+              (SIDEExplicitFormula.B321.kWindow (SIDEExplicitFormula.B321.coeffList (SIDEExplicitFormula.B321.Pof H Q))
+                g0 j)
+              (Zeta23.gammaOf ρ)).re =
+          -(SIDEExplicitFormula.B321.Nf H ρ * M ^ 2 ^ (j + 1))
+@@AXIOMS
+'SIDEExplicitFormula.B321.tie_term_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.tie_term_neg
+@@BEGIN SIDEExplicitFormula.B321.upto_all_imp_h2_sign
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.DetectionRegion @@LINE 37 @@CONSUMES [SIDEExplicitFormula.B321.h2_sign,
+ SIDEExplicitFormula.B321.classK,
+ SIDEExplicitFormula.B321.h2_sign_upto] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.upto_all_imp_h2_sign : (∀ (L₀ : ℝ), SIDEExplicitFormula.B321.h2_sign_upto L₀) →
+  SIDEExplicitFormula.B321.h2_sign
+@@AXIOMS
+'SIDEExplicitFormula.B321.upto_all_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.upto_all_imp_h2_sign
+@@BEGIN SIDEExplicitFormula.B321.weilTest_even_of_even
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 47 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.weilTest_even_of_even : ∀ (g : ℝ → ℝ) (x : ℝ),
+  Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g) (-x) =
+    Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g) x
+@@AXIOMS
+'SIDEExplicitFormula.B321.weilTest_even_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.weilTest_even_of_even
+@@BEGIN SIDEExplicitFormula.B321.zeroSide_eventually_neg
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 1082 @@CONSUMES [riemannZeta,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.zeroSide_eventually_neg : ∀ {g0 : ℝ → ℝ} {L M : ℝ},
+  SIDEExplicitFormula.B321.PWSetup Zeta23.zetaZeroConfig g0 L M →
+    ∀ ρs ∈ SIDEExplicitFormula.B321.tieSet Zeta23.zetaZeroConfig g0 M,
+      ∃ a j, (SIDEExplicitFormula.B321.zeroSide (SIDEExplicitFormula.B321.kWindow a g0 j)).re < 0
+@@AXIOMS
+'SIDEExplicitFormula.B321.zeroSide_eventually_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.zeroSide_eventually_neg
+@@BEGIN SIDEExplicitFormula.B321.zero_term_real
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerLimit @@LINE 46 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.zero_term_real : ∀ {g : ℝ → ℝ},
+  Continuous g →
+    HasCompactSupport g →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g)) z =
+          Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (-z)
+@@AXIOMS
+'SIDEExplicitFormula.B321.zero_term_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.zero_term_real
+@@BEGIN SIDEExplicitFormula.B321.zero_term_sq
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.PowerWindow @@LINE 38 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.zero_term_sq : ∀ {g : ℝ → ℝ},
+  (∀ (x : ℝ), g (-x) = g x) →
+    Continuous g →
+      HasCompactSupport g →
+        ∀ (z : ℂ),
+          Zeta23.paperFT (Zeta23.EF.weilTest (SIDEExplicitFormula.B321.phiC g) (SIDEExplicitFormula.B321.phiC g)) z =
+            Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z ^ 2
+@@AXIOMS
+'SIDEExplicitFormula.B321.zero_term_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.zero_term_sq
+@@BEGIN SIDEExplicitFormula.B321.zeta_zero_re_nonpos
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.Seam @@LINE 25 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.B321.zeta_zero_re_nonpos : ∀ (z : ℂ), riemannZeta z = 0 → z.re ≤ 0 → ∃ n, z = -2 * (↑n + 1)
+@@AXIOMS
+'SIDEExplicitFormula.B321.zeta_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.B321.zeta_zero_re_nonpos
+@@BEGIN SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiCriterionBridge @@LINE 62 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta : ∀ {ρ : ℂ},
+  0 < ρ.re → ρ ≠ 1 → analyticOrderAt LiCriterion.riemannXi ρ = analyticOrderAt riemannZeta ρ
+@@AXIOMS
+'SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta
+@@BEGIN SIDEExplicitFormula.LiWeil.LiCoeff_eq
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 247 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.liTerm,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.LiCoeff_eq : ∀ (n : ℕ),
+  SIDEExplicitFormula.LiWeil.LiCoeff n =
+    ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+      ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.liTerm n ↑ρ).re
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.LiCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.LiCoeff_eq
+@@BEGIN SIDEExplicitFormula.LiWeil.LiLimitExchange
+@@CELL @@KIND def @@MODULE SIDEExplicitFormula.LiWeil @@LINE 359 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+def SIDEExplicitFormula.LiWeil.LiLimitExchange : ℕ → Prop :=
+fun n =>
+  ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+    (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+      (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+        Filter.Tendsto
+          (fun m =>
+            ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+              ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+                Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ↑ρ))
+          Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.LiLimitExchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.LiLimitExchange
+@@BEGIN SIDEExplicitFormula.LiWeil.binomial_li
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilExchange @@LINE 132 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.binomial_li : ∀ (n : ℕ) (ρ : ℂ),
+  ∑ j ∈ Finset.range n, ↑(n.choose (j + 1)) * (-1) ^ j / ρ ^ (j + 1) = SIDEExplicitFormula.LiWeil.liTerm n ρ
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.binomial_li' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.binomial_li
+@@BEGIN SIDEExplicitFormula.LiWeil.blTransform_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilExchange @@LINE 163 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.blTransform_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.blTransform n
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.blTransform_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.blTransform_holds
+@@BEGIN SIDEExplicitFormula.LiWeil.conj_mem
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 42 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.conj_mem : ∀ {ρ : ℂ},
+  ρ ∈ Zeta23.zetaZeroConfig.carrier → (starRingEnd ℂ) ρ ∈ Zeta23.zetaZeroConfig.carrier
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.conj_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.conj_mem
+@@BEGIN SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilExchange @@LINE 50 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp : ∀ {ρ : ℂ},
+  0 < ρ.re → ∀ (j : ℕ), ∫ (x : ℝ) in Set.Ioi 0, ↑x ^ j * Complex.exp (-(ρ * ↑x)) = ↑j.factorial / ρ ^ (j + 1)
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp
+@@BEGIN SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilSym @@LINE 1214 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ SIDEExplicitFormula.LiWeil.symMember,
+ Zeta23.zetaZeroConfig,
+ SIDEExplicitFormula.LiWeil.liTerm,
+ riemannZeta,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.LiLimitExchangeSym n
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds
+@@BEGIN SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 101 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half : ∀ (n : ℕ) {ρ : ℂ},
+  ρ.re = 1 / 2 → 0 ≤ (SIDEExplicitFormula.LiWeil.liTerm n ρ).re
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half
+@@BEGIN SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 372 @@CONSUMES [SIDEExplicitFormula.LiWeil.LiCoeff,
+ Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.li_identity_of_exchange : ∀ (n : ℕ),
+  SIDEExplicitFormula.LiWeil.LiLimitExchange n →
+    ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+      (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+        (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+          Filter.Tendsto (fun m => Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n (fs m)))
+            Filter.atTop (nhds ↑(SIDEExplicitFormula.LiWeil.LiCoeff n))
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.li_identity_of_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+@@BEGIN SIDEExplicitFormula.LiWeil.mult_conj
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 53 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.mult_conj : ∀ {ρ : ℂ},
+  ρ ∈ Zeta23.zetaZeroConfig.carrier → Zeta23.zetaZeroConfig.mult ((starRingEnd ℂ) ρ) = Zeta23.zetaZeroConfig.mult ρ
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.mult_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.mult_conj
+@@BEGIN SIDEExplicitFormula.LiWeil.pairTerm_eq
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 71 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.pairTerm_eq : ∀ (n : ℕ) (ρ : ℂ),
+  SIDEExplicitFormula.LiWeil.pairTerm n ρ = ↑(2 * (SIDEExplicitFormula.LiWeil.liTerm n ρ).re)
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.pairTerm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.pairTerm_eq
+@@BEGIN SIDEExplicitFormula.LiWeil.pairTerm_norm_le
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 177 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.pairTerm_norm_le : ∀ (n : ℕ) {ρ : ℂ},
+  1 ≤ ‖ρ‖ →
+    0 ≤ ρ.re → ρ.re ≤ 1 → ‖SIDEExplicitFormula.LiWeil.pairTerm n ρ‖ ≤ SIDEExplicitFormula.LiWeil.liConst n / ‖ρ‖ ^ 2
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.pairTerm_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.pairTerm_norm_le
+@@BEGIN SIDEExplicitFormula.LiWeil.pair_summable
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 188 @@CONSUMES [SIDEExplicitFormula.LiWeil.liTerm,
+ riemannZeta,
+ Zeta23.zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.pair_summable : ∀ (n : ℕ),
+  Summable fun ρ => ↑(Zeta23.zetaZeroConfig.mult ↑ρ) * (SIDEExplicitFormula.LiWeil.pairTerm n ↑ρ).re
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.pair_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.pair_summable
+@@BEGIN SIDEExplicitFormula.LiWeil.symPair_bound
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilSym @@LINE 944 @@CONSUMES [SIDEExplicitFormula.LiWeil.symMember,
+ SIDEExplicitFormula.LiWeil.liTerm] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.symPair_bound : ∀ (n : ℕ), SIDEExplicitFormula.LiWeil.SymPairBound n
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.symPair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.symPair_bound
+@@BEGIN SIDEExplicitFormula.LiWeil.truncMember_EF
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 344 @@CONSUMES [Zeta23.zetaZeroConfig,
+ Zeta23.WeilEF.EF_lit_zetaZeroConfig] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.truncMember_EF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+  (Summable fun ρ =>
+      ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+        Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ)) ∧
+    ∑' (ρ : ↑Zeta23.zetaZeroConfig.carrier),
+        ↑(Zeta23.zetaZeroConfig.mult ↑ρ) *
+          Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n f) (Zeta23.gammaOf ↑ρ) =
+      Zeta23.EF.literatureRHS (SIDEExplicitFormula.LiWeil.truncMember n f)
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.truncMember_EF' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.truncMember_EF
+@@BEGIN SIDEExplicitFormula.LiWeil.truncMember_classEF
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeil @@LINE 320 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.truncMember_classEF : ∀ (n : ℕ) {c : ℝ} (f : ContDiffBump c),
+  ContDiff ℝ 2 (SIDEExplicitFormula.LiWeil.truncMember n f) ∧
+    HasCompactSupport (SIDEExplicitFormula.LiWeil.truncMember n f)
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.truncMember_classEF' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.truncMember_classEF
+@@BEGIN SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.LiWeilExchange @@LINE 209 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto : ∀ (n : ℕ) {ρ : ℂ},
+  0 < ρ.re →
+    ∀ (c : ℕ → ℝ) (fs : (m : ℕ) → ContDiffBump (c m)),
+      (∀ (m : ℕ), c m + (fs m).rOut ≤ 0) →
+        (∀ u < 0, Filter.Tendsto (fun m => ↑(fs m) u) Filter.atTop (nhds 1)) →
+          Filter.Tendsto (fun m => Zeta23.paperFT (SIDEExplicitFormula.LiWeil.truncMember n (fs m)) (Zeta23.gammaOf ρ))
+            Filter.atTop (nhds (Zeta23.paperFT (SIDEExplicitFormula.LiWeil.blTest n) (Zeta23.gammaOf ρ)))
+@@AXIOMS
+'SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto
+@@BEGIN SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 143 @@CONSUMES [] @@WATCHED [SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one,
+ SIDEExplicitFormula.RegisterDepth.Phi._proof_1,
+ SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero,
+ SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero,
+ SIDEExplicitFormula.RegisterDepth.Phi]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip : ∀ (s : ℂ),
+  0 < s.re → s.re < 1 → ¬mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) ≠ 0
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip
+@@BEGIN SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 149 @@CONSUMES [Zeta23.zetaZeroConfig,
+ riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+    0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+  SIDEExplicitFormula.B321.rh_strip
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff
+@@BEGIN SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 101 @@CONSUMES [] @@WATCHED [SIDEExplicitFormula.RegisterDepth.Phi._proof_1,
+ SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero,
+ SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero,
+ SIDEExplicitFormula.RegisterDepth.Phi]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+  s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one
+@@BEGIN SIDEExplicitFormula.RegisterDepth.not_register1
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 60 @@CONSUMES [] @@WATCHED [SIDEExplicitFormula.RegisterDepth.Interface.mk,
+ SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.α,
+ SIDEExplicitFormula.RegisterDepth.ConfigurationSpace,
+ SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.mk,
+ SIDEExplicitFormula.RegisterDepth.Interface,
+ SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis,
+ SIDEExplicitFormula.RegisterDepth.Interface.is_universal,
+ SIDEExplicitFormula.RegisterDepth.Interface.action,
+ SIDEExplicitFormula.RegisterDepth.Interface.essential]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms
+@@END SIDEExplicitFormula.RegisterDepth.not_register1
+@@BEGIN SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 84 @@CONSUMES [] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero : ∀ {x : ℝ}, 0 < x → 1 ≤ HurwitzZeta.evenKernel 0 x
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero
+@@BEGIN SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 241 @@CONSUMES [] @@WATCHED [SIDEExplicitFormula.RegisterDepth.C6_holomorphic_extension,
+ SIDEExplicitFormula.RegisterDepth.T3.Coupling,
+ SIDEExplicitFormula.RegisterDepth.C4_modularity,
+ SIDEExplicitFormula.RegisterDepth.Phi._proof_1,
+ SIDEExplicitFormula.RegisterDepth.C7_order,
+ SIDEExplicitFormula.RegisterDepth.C5_input,
+ SIDEExplicitFormula.RegisterDepth.C3_theta_transformation,
+ SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces,
+ SIDEExplicitFormula.RegisterDepth.T3.CombinationsExclude,
+ SIDEExplicitFormula.RegisterDepth.T3.PerClassExcludes,
+ SIDEExplicitFormula.RegisterDepth.sevenClasses,
+ SIDEExplicitFormula.RegisterDepth.C1_realness,
+ SIDEExplicitFormula.RegisterDepth.C2_halfplane_nonvanishing,
+ SIDEExplicitFormula.RegisterDepth.Phi]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re : (∀
+    C ∈ SIDEExplicitFormula.RegisterDepth.sevenClasses, C SIDEExplicitFormula.RegisterDepth.Phi) →
+  ∀ (s : ℂ), 1 < s.re → SIDEExplicitFormula.RegisterDepth.Register3_totalityThroughPlaces s
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re
+@@BEGIN SIDEExplicitFormula.RegisterDepth.register5_output_holds
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 297 @@CONSUMES [riemannZeta] @@WATCHED [SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya,
+ SIDEExplicitFormula.RegisterDepth.is_xi_zero,
+ SIDEExplicitFormula.RegisterDepth.Phi._proof_1,
+ SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable,
+ SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.register5_output_holds
+@@BEGIN SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 91 @@CONSUMES [] @@WATCHED [SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero : ∀ {t : ℝ},
+  0 < t → t ^ (-(1 / 2)) ≤ HurwitzZeta.evenKernel 0 t
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero
+@@BEGIN SIDEExplicitFormula.RegisterDepth.silence_universal_restated
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 68 @@CONSUMES [] @@WATCHED [SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.α,
+ SIDEExplicitFormula.RegisterDepth.ConfigurationSpace,
+ SIDEExplicitFormula.RegisterDepth.ConfigurationSpace.mk,
+ SIDEExplicitFormula.RegisterDepth.Interface.is_universal,
+ SIDEExplicitFormula.RegisterDepth.Interface,
+ SIDEExplicitFormula.RegisterDepth.Interface.mk,
+ SIDEExplicitFormula.RegisterDepth.Interface.action,
+ SIDEExplicitFormula.RegisterDepth.factors_through,
+ SIDEExplicitFormula.RegisterDepth.Interface.kappa_zero]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.silence_universal_restated : ∀
+  {C : SIDEExplicitFormula.RegisterDepth.ConfigurationSpace} {R : Type}
+  (I : SIDEExplicitFormula.RegisterDepth.Interface C R), I.is_universal → I.kappa_zero
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.silence_universal_restated' does not depend on any axioms
+@@END SIDEExplicitFormula.RegisterDepth.silence_universal_restated
+@@BEGIN SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 289 @@CONSUMES [riemannZeta] @@WATCHED [SIDEExplicitFormula.RegisterDepth.Phi._proof_1,
+ SIDEExplicitFormula.RegisterDepth.is_xi_zero,
+ SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable]
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable : {σ |
+    SIDEExplicitFormula.RegisterDepth.is_xi_zero σ}.Countable
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable
+@@BEGIN SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable
+@@CELL @@KIND theorem @@MODULE SIDEExplicitFormula.RegisterDepth @@LINE 267 @@CONSUMES [riemannZeta] @@WATCHED []
+@@STMT
+theorem SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable : {z | z ≠ 1 ∧ riemannZeta z = 0}.Countable
+@@AXIOMS
+'SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+@@END SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable

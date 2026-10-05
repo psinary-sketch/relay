@@ -1,0 +1,33 @@
+b626 -- COMPONENT 2: THE E0 RULE`S GRADE FUNCTION BEFORE THE EDIT, tools/e0_rule.py @ relay 42677181 (2026-10-05T15:51:42Z; blob f8aee020f552)
+
+    :55   DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive|\.Nonempty\b|\bNonempty\b|\.Finite\b|\bSet\.Finite\b|\bFinite\b)'
+    :65   BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\([^()]*\)[^()]*)*)\)')
+    :261  RESTRICTIONS = [
+    :262      dict(head='admissible', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/Registers.lean :38',
+    :264      dict(head='HStrip', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RestBound.lean :40',
+    :266      dict(head='HCount', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RestBound.lean :44',
+    :268      dict(head='is_universal', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RegisterDepth.lean :38',
+    :270      dict(head='IsNontrivialZeroChi', where='SIDE-explicit-formula v0.21 = 1d5d4dd, SIDEExplicitFormula/Chi/ZeroConfig.lean :48',
+    :300  def restriction_case(t, head):
+    :318  def domain_case(t, head):
+    :326  def grade(head, kind):
+    :327      """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
+    :328      ### kind 'def' grades DEF. A binder is a premise unless it is a domain condition (domain_case); a Fact instance is a premise."""
+    :329      if kind == 'def':
+    :330          return 'DEF', '', []
+    :331      head = statement_only(head)
+    :332      spans = exist_spans(head)
+    :333      binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
+    :334      cs = conclusion_start(head)
+    :335      facts = [((m.group(1) or '[inst]'), m.group(2).strip()) for m in INSTANCE.finditer(head) if cs is None or m.start() < cs]
+    :336      concl = alpha(conclusion(head))
+    :337      enc = [(b, t) for b, t in binders if concl and alpha(t) == concl]
+    :338      if enc:
+    :339          return 'ENCODES-CONCLUSION', 'the conclusion is the binder ' + ', '.join('%s : %s' % bt for bt in enc), binders
+    :340      prem = [(b, t) for b, t in binders if not domain_case(t, head)] + facts
+    :341      binders = binders + facts
+    :342      if prem:
+    :343          return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
+    :344      if binders:
+    :345          return 'DERIVES', 'domain conditions only: ' + ', '.join('%s : %s' % bt for bt in binders), binders
+    :346      return 'DERIVES', 'no hypothesis binder', binders

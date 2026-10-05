@@ -1,0 +1,196 @@
+b626 -- COMPONENT 2: THE E0 RULE`S SEAM AND DATA CLAUSES AND THEIR TEST, THE DIFF AGAINST relay 42677181 (2026-10-05T16:03:47Z)
+
+### 2 files changed, 110 insertions(+), 8 deletions(-)
+
+diff --git a/tools/e0_rule.py b/tools/e0_rule.py
+index f8aee020..e5b5c335 100644
+--- a/tools/e0_rule.py
++++ b/tools/e0_rule.py
+@@ -50,6 +50,12 @@ RULE_TEXT = [
+     '### statement binds and its conclusion mentions; the named restrictions the seat read at their pins (RESTRICTIONS) on such',
+     '### variables alone; a',
+     '### bounded quantifier`s range (∀ x ∈ S,) no condition on a named object, its body read in its place (strip_range).',
++    '### (R236)(2), b626: (i) SEAM ANTECEDENTS -- a Prop that is the antecedent of a top-level implication in the conclusion is',
++    '### read as a binder when it is itself a named implication between open statements, a SEAMS entry (seam_antecedents), the',
++    '### author`s answer before b626`s seal narrowing the ruled reading of every antecedent; a plain A -> B keeps DERIVES;',
++    '### (ii) DATA BINDERS -- a binder whose type is not a Prop (a function, a real, a natural, a character) is an object of the',
++    '### statement and not a hypothesis whatever its name (data_binder). (R236)(3): each named restriction names the quantified',
++    '### variable it restricts; an entry that cannot is struck.',
+ ]
+ 
+ DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive|\.Nonempty\b|\bNonempty\b|\.Finite\b|\bSet\.Finite\b|\bFinite\b)'
+@@ -260,16 +266,20 @@ CLASS_PREDS_B625 = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact|Cont
+ SUPPORT = re.compile(r'^\s*(?:Function\.support|tsupport)\s+([^\W\d][\w\'₀-₉]*)\s*⊆')
+ RESTRICTIONS = [
+     dict(head='admissible', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/Registers.lean :38',
+-         reads='∀ a ∈ W, classK (F a) ∧ poleTerm (F a) = 0 -- a condition on F and W alone'),
++         reads='∀ a ∈ W, classK (F a) ∧ poleTerm (F a) = 0 -- a condition on F and W alone', restricts=('F', 'W')),
+     dict(head='HStrip', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RestBound.lean :40',
+-         reads='∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1 -- a condition on Z`s own carrier'),
++         reads='∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1 -- a condition on Z`s own carrier', restricts=('Z',)),
+     dict(head='HCount', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RestBound.lean :44',
+-         reads='1 ≤ A₀ ∧ ∀ t, Z.N t (t + 1) ≤ A₀ * log (|t| + 3) -- a condition on Z and A₀ alone'),
++         reads='1 ≤ A₀ ∧ ∀ t, Z.N t (t + 1) ≤ A₀ * log (|t| + 3) -- a condition on Z and A₀ alone', restricts=('Z', 'A₀')),
+     dict(head='is_universal', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RegisterDepth.lean :38',
+-         reads='∀ c₁ c₂, I.action c₁ = I.action c₂ -- a condition on I`s own action'),
++         reads='∀ c₁ c₂, I.action c₁ = I.action c₂ -- a condition on I`s own action', restricts=('I',)),
+     dict(head='IsNontrivialZeroChi', where='SIDE-explicit-formula v0.21 = 1d5d4dd, SIDEExplicitFormula/Chi/ZeroConfig.lean :48',
+-         reads='LFunction χ ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 -- the membership of ρ in the nontrivial zeros of L(s, χ)'),
++         reads='LFunction χ ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 -- the membership of ρ in the nontrivial zeros of L(s, χ)', restricts=('χ', 'ρ')),
+ ]
++# ### (R236)(3): every entry names the quantified variables it restricts (its definition's parameters, by position); an entry that
++# ### cannot name one is struck. None is struck: each definition read at its pin takes its restricted objects as parameters.
++STRUCK_RESTRICTIONS = [r['head'] for r in RESTRICTIONS if not r.get('restricts')]
++RESTRICTIONS = [r for r in RESTRICTIONS if r.get('restricts')]
+ 
+ 
+ def bound_vars(head):
+@@ -323,14 +333,76 @@ def domain_case(t, head):
+                 or restriction_case(t, head))
+ 
+ 
++# ### ### **(R236)(2), b626: SEAM ANTECEDENTS AND DATA BINDERS.** *(i) A Prop that is the antecedent of a top-level implication
++# ### in a statement's conclusion is read as the rule reads a binder -- the curried and the bound forms of one hypothesis take one
++# ### grade* -- as the author narrowed it before b626's seal, for an antecedent that is a seam (SEAMS below). Read here as: the
++# ### conclusion, unless it opens with a quantifier, a lambda or a negation, or its top-level connective is ↔, is split at its
++# ### depth-0 arrows before any depth-0 quantifier; every part but the last is an antecedent (arrow_antecedents), read as a binder
++# ### named `→` when it is a SEAMS entry (seam_antecedents). Its instance: h2_sign_imp_rh_of_seam `: rh_strip_imp_rh →
++# ### h2_sign_imp_rh`, INTERFACES on the seam its arrow carries, as its cells grade it. *(ii) A binder whose type is not a Prop --
++# ### a function, a real, a natural, a character -- is an object of the statement and not a hypothesis whatever its name.* Read
++# ### here as: a binder whose type is a number type, Prop or Type, an arrow chain of those, or a Dirichlet character is not read
++# ### (data_binder). Its instance: paperFT_growth and paperFT_growth_at, `h : ℝ → ℂ`, read by the rule's name pattern until b626.
++DATA_ATOM = r'(?:ℝ|ℂ|ℕ|ℤ|ℚ|ℕ∞|ℝ≥0|ℝ≥0∞|Prop|Type\*?|Type u|Sort\*?)'
++DATA_TYPE = re.compile(r'^\s*(?:' + DATA_ATOM + r'(?:\s*→\s*' + DATA_ATOM + r')*|DirichletCharacter\b.*)\s*$')
++
++
++def data_binder(t):
++    """### (R236)(2)(ii): True when the binder's type is no Prop -- a number type, Prop or Type, an arrow chain of those, a character."""
++    return DATA_TYPE.match(t) is not None
++
++
++# ### (R236)(2)(i) AS NARROWED BY THE AUTHOR'S ANSWER BEFORE b626's SEAL: *a plain A → B between open statements is the kernel's
++# ### result and keeps DERIVES; an antecedent that is itself a named implication between open statements -- a seam, the kernel's
++# ### own "_of_seam" marker -- is a premise.* THE PRINCIPLE, beside the entries so that the next seam is added by it and not by a
++# ### name match: an entry is a Prop the kernel names whose definition, read at its pin, is an implication between open statements
++# ### and which no theorem of the kernel derives. The measurement that narrowed it: the clause as first worded moved 14 plain
++# ### implications DERIVES -> INTERFACES over the 193 page nodes, measured before the seal (relay data/b626_author_answers.txt).
++SEAMS = [
++    dict(name='rh_strip_imp_rh', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/PowerWindow.lean :495',
++         reads='def rh_strip_imp_rh : Prop := rh_strip → RiemannHypothesis -- a named implication between open statements, a premise'),
++]
++
++
++def seam_antecedents(concl):
++    """### (R236)(2)(i), narrowed: the conclusion's top-level antecedents that are SEAMS entries by name."""
++    names = set(s['name'] for s in SEAMS)
++    return [a for a in arrow_antecedents(concl) if a.strip() in names]
++
++
++def arrow_antecedents(concl):
++    """### (R236)(2)(i): the antecedents of the conclusion's top-level implication chain, [] when it opens with a quantifier,
++    ### a lambda or a negation or carries no depth-0 arrow."""
++    c = (concl or '').strip()
++    if not c or re.match(r'^(∀|∃|fun\b|λ|¬)', c):
++        return []
++    parts, depth, last = [], 0, 0
++    for i, ch in enumerate(c):
++        if ch in '([{⦃⟨':
++            depth += 1
++        elif ch in ')]}⦄⟩':
++            depth -= 1
++        elif depth == 0 and ch == '↔':
++            return []          # ### ↔ binds looser than →: the top-level connective is the equivalence, no implication
++        elif depth == 0 and (ch in '∀∃λ' or c.startswith('fun ', i)):
++            break              # ### a quantifier's body runs to the end: its arrows are not the conclusion's
++        elif ch == '→' and depth == 0:
++            parts.append(c[last:i].strip())
++            last = i + 1
++    return [p for p in parts if p]
++
++
+ def grade(head, kind):
+     """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
+-    ### kind 'def' grades DEF. A binder is a premise unless it is a domain condition (domain_case); a Fact instance is a premise."""
++    ### kind 'def' grades DEF. A binder is a premise unless it is a domain condition (domain_case); a Fact instance is a premise;
++    ### a data binder is no hypothesis; a seam antecedent of the conclusion is read as a binder."""
+     if kind == 'def':
+         return 'DEF', '', []
+     head = statement_only(head)
+     spans = exist_spans(head)
+     binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
++    binders = [(b, t) for b, t in binders if not data_binder(t)]
++    binders = binders + [('→', a) for a in seam_antecedents(conclusion(head))]
+     cs = conclusion_start(head)
+     facts = [((m.group(1) or '[inst]'), m.group(2).strip()) for m in INSTANCE.finditer(head) if cs is None or m.start() < cs]
+     concl = alpha(conclusion(head))
+@@ -364,6 +436,9 @@ def self_test():
+         ('{s : Set ℂ} (hn : s.Nonempty) (hf : s.Finite) : P s', 'theorem', 'DERIVES'),
+         ('{g : ℝ → ℝ} {L : ℝ} (hc : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) : Q g', 'theorem', 'DERIVES'),
+         ('(h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → R s', 'theorem', 'INTERFACES'),
++        (': rh_strip_imp_rh → h2_sign_imp_rh', 'theorem', 'INTERFACES'),
++        (': RiemannHypothesis → h2_sign', 'theorem', 'DERIVES'),
++        ('(h : ℝ → ℂ) (hc : Continuous h) : Q h', 'theorem', 'DERIVES'),
+     ]
+     return all(grade(h, k)[0] == want for h, k, want in cases)
+ 
+@@ -371,5 +446,5 @@ def self_test():
+ if __name__ == '__main__':
+     ok = self_test()
+     print('\n'.join(RULE_TEXT))
+-    print('### self-test (fifteen headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
++    print('### self-test (eighteen headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
+     raise SystemExit(0 if ok else 1)
+diff --git a/tools/test_e0_rule.py b/tools/test_e0_rule.py
+index 00c25661..8a71bedc 100644
+--- a/tools/test_e0_rule.py
++++ b/tools/test_e0_rule.py
+@@ -26,6 +26,12 @@
+ ###       conditions; at v0.21 B321.paperFT_polyOp reads DERIVES on its support binder; a Prop about a fixed object behind a
+ ###       bounded quantifier's range (register3_of_one_lt_re`s `∀ C ∈ sevenClasses, C Phi`) is a premise.
+ ###   (9) power_contDiff now reads DERIVES on hg and hs -- its support binder a domain condition under clause (iii).
++### b626, (R236)(2) and the author's answer before b626's seal -- the seam antecedent and the data binder:
++###   (16) h2_sign_imp_rh_of_seam at v0.21 reads INTERFACES on the seam rh_strip_imp_rh its arrow carries;
++###   (17) paperFT_growth and paperFT_growth_at at v0.21 read DERIVES, their data binder h : ℝ → ℂ not entering;
++###   (18) a planted P → Q with P a domain condition reads DERIVES, and a plain implication between open statements keeps DERIVES,
++###       where a seam antecedent reads INTERFACES;
++###   (19) a planted theorem whose data binder is named h reads its Prop binders alone.
+ ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
+ ### when none is given), their absolute paths printed; they are read as text and never built.
+ ### Usage: python tools/test_e0_rule.py [planted-directory]
+@@ -95,7 +101,7 @@ def main():
+         res.append(bool(cond))
+         print('  %-104s %s' % (label, 'PASS' if cond else '### FAIL'))
+ 
+-    want('(1) the rule`s own self-test (b568`s seven headers, b624`s four and b625`s four)', E0.self_test())
++    want('(1) the rule`s own self-test (b568`s seven headers, b624`s four, b625`s four and b626`s three)', E0.self_test())
+     for rel, short in (('SIDEExplicitFormula/Chi/LocalCount.lean', 'LFunction_zeros_finite_of_isCompact'),
+                        ('SIDEExplicitFormula/Chi/ZeroSummability.lean', 'EF_zero_sum_summable_chi')):
+         h = header(rel, short)
+@@ -145,6 +151,27 @@ def main():
+     b15 = E0.grade('(h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → R s', 'theorem')
+     want('(15) clause (iii): restrictions on the quantified function read %s; paperFT_polyOp at v0.21 %s; behind a range %s' % (
+          a15[0], k15[0], b15[0]), a15[0] == 'DERIVES' and hk is not None and k15[0] == 'DERIVES' and b15[0] == 'INTERFACES')
++    h16 = kernel_header('SIDEExplicitFormula/PowerLimit.lean', 'h2_sign_imp_rh_of_seam', CP)
++    g16 = E0.grade(h16 or '', 'theorem')
++    want('(16) h2_sign_imp_rh_of_seam at v0.21 reads INTERFACES on its seam (read %s; %s)' % (g16[0], g16[1]),
++         h16 is not None and g16[0] == 'INTERFACES' and g16[1] == '→ : rh_strip_imp_rh')
++    g17 = []
++    for short in ('paperFT_growth', 'paperFT_growth_at'):
++        h17 = kernel_header('SIDEExplicitFormula/GrowthBound.lean', short, CP)
++        g = E0.grade(h17 or '', 'theorem')
++        g17.append((short, h17 is not None, g[0], [b for b, _t in g[2]]))
++    want('(17) paperFT_growth and paperFT_growth_at at v0.21 read DERIVES without h (read %s)' % [(x[0], x[2], x[3]) for x in g17],
++         all(x[1] and x[2] == 'DERIVES' and 'h' not in x[3] for x in g17) and len(g17) == 2)
++    a18 = E0.grade('(n : ℕ) : 1 ≤ n → Q n', 'theorem')
++    b18 = E0.grade(': RiemannHypothesis → h2_sign', 'theorem')
++    c18 = E0.grade('(x : ℝ) : rh_strip_imp_rh → Q x', 'theorem')
++    want('(18) a domain antecedent reads %s; a plain implication between open statements %s; a seam antecedent %s' % (a18[0], b18[0], c18[0]),
++         a18[0] == 'DERIVES' and b18[0] == 'DERIVES' and c18[0] == 'INTERFACES')
++    a19 = E0.grade('(h : ℝ → ℝ) (hc : Continuous h) : Q h', 'theorem')
++    b19 = E0.grade('(h : ℝ → ℝ) (hP : NamedPremise h) : Q h', 'theorem')
++    want('(19) a data binder named h does not enter (read %s, binders %s); beside a named premise %s on %s' % (
++         a19[0], [b for b, _t in a19[2]], b19[0], b19[1]),
++         a19[0] == 'DERIVES' and [b for b, _t in a19[2]] == ['hc'] and b19[0] == 'INTERFACES' and b19[1] == 'hP : NamedPremise h')
+     n = sum(res)
+     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
+     return 0 if n == len(res) else 1
