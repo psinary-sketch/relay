@@ -14,6 +14,7 @@
 #   E  a branch not push-*        -> exit 2
 #   F  NAME::MESSAGE              -> exit 0; the tag's message is MESSAGE
 #   G-I (R179)(5) the table check over a clone named PLACE-papers (see the cases below)
+#   J-M (b623) the existing-tag mode: a tag the clone carries pushed as it stands (see the cases below)
 set -uo pipefail
 
 SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/push_gated.sh"
@@ -121,6 +122,48 @@ for cs in G H I; do
     check "$cs remote main = pushed tip" "$(git -C "$c/PLACE-papers" rev-parse push-t)" "$(git -C "$c/PLACE-papers" ls-remote origin refs/heads/main | cut -f1)"
   fi
 done
+
+# ### b623, THE EXISTING-TAG MODE ((R233)(5)(a), the author's answer before b623's seal): a tag the clone carries, pushed as
+# ### it stands -- no main push, no tag made, nothing moved.
+#   J  a lightweight tag, absent at the remote -> exit 0; the remote's tag = its commit; the remote main unmoved though the
+#      clone's main is ahead; the local tag unmoved
+#   K  an annotated tag                        -> exit 0; read back by its ^{} line; the tag object the same on both sides
+#   L  the name already at the remote         -> exit 7; the remote's tag unchanged
+#   M  a tag the clone does not carry          -> exit 10; nothing at the remote
+echo "### CASE J -- the existing-tag mode, a lightweight tag"
+mk J; c="$W/J"
+G -C "$c/work" tag vL main
+G -C "$c/work" commit -q --allow-empty -m ahead
+before=$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)
+bash "$SCRIPT" "$c/work" --existing-tag vL >"$c/out.txt" 2>&1; rc=$?
+check "J exit" 0 "$rc"
+check "J the remote's tag = the local tag's commit" "$(git -C "$c/work" rev-parse 'vL^{}')" "$(git -C "$c/work" ls-remote origin refs/tags/vL | cut -f1)"
+check "J remote main unmoved" "$before" "$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)"
+check "J the local tag unmoved" "$(git -C "$c/work" rev-parse 'main~1')" "$(git -C "$c/work" rev-parse 'vL^{}')"
+
+echo "### CASE K -- the existing-tag mode, an annotated tag"
+mk K; c="$W/K"
+G -C "$c/work" tag -a vA -m annotated main
+obj=$(git -C "$c/work" rev-parse refs/tags/vA)
+bash "$SCRIPT" "$c/work" --existing-tag vA >"$c/out.txt" 2>&1; rc=$?
+check "K exit" 0 "$rc"
+check "K the remote's peel = the local peel" "$(git -C "$c/work" rev-parse 'vA^{}')" "$(git -C "$c/work" ls-remote origin 'refs/tags/vA^{}' | cut -f1)"
+check "K the tag object the same on both sides" "$obj" "$(git -C "$c/work" ls-remote origin refs/tags/vA | grep -v '\^{}' | cut -f1)"
+
+echo "### CASE L -- the existing-tag mode, the name already at the remote"
+mk L; c="$W/L"
+G -C "$c/origin.git" tag vR main
+G -C "$c/work" tag vR push-t
+rbefore=$(git -C "$c/work" ls-remote origin refs/tags/vR | cut -f1)
+bash "$SCRIPT" "$c/work" --existing-tag vR >"$c/out.txt" 2>&1; rc=$?
+check "L exit" 7 "$rc"
+check "L the remote's tag unchanged" "$rbefore" "$(git -C "$c/work" ls-remote origin refs/tags/vR | cut -f1)"
+
+echo "### CASE M -- the existing-tag mode, a tag the clone does not carry"
+mk M; c="$W/M"
+bash "$SCRIPT" "$c/work" --existing-tag vN >"$c/out.txt" 2>&1; rc=$?
+check "M exit" 10 "$rc"
+check "M NO tag at the remote" no "$(has_remote_tag "$c" vN)"
 
 echo "### ### **$pass of $total checks as wanted -- $([ "$pass" -eq "$total" ] && echo PASS || echo FAIL)**"
 [ "$pass" -eq "$total" ]

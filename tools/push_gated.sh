@@ -2,6 +2,7 @@
 # push_gated.sh -- THE PUSH DISCIPLINE, (R171)(2), written at b561.
 #
 # usage: push_gated.sh <repo> <push-branch> [tag[::message] ...]
+#        push_gated.sh <repo> --existing-tag <tag>        (b623: one tag the clone carries, pushed as it stands)
 #
 # b560's defect (e): a chained command piped `git push origin main` through `tail`; the pre-push hook refused the push,
 # the pipe returned tail's status, and the chain went on to push the tag, so the remote carried a tag peeled to a commit
@@ -13,8 +14,8 @@
 # A refused push, an unequal read-back, or a failed tag push exits non-zero at once, and no later push runs.
 # Exit codes: 0 all pushed and read back; 2 usage; 3 main push refused; 4 main read-back unequal; 5 a tag push refused;
 # 6 a tag read-back unequal; 7 a tag argument refused before any push (the tag already exists, locally or at the
-# remote); 8 the tag could not be made; 9 (R179)(5) the table check refused a PLACE-papers push. The script prints one
-# line per step; it deletes nothing.
+# remote); 8 the tag could not be made; 9 (R179)(5) the table check refused a PLACE-papers push; 10 (the existing-tag
+# mode) the tag is not in the clone. The script prints one line per step; it deletes nothing.
 #
 # ### THE TAG IS MADE HERE, (R178)(3), b567's defect (g): the seat made the annotated tag v0.10 by hand before main was
 # ### read back. From b568 the script MAKES every tag it is given -- annotated, at the SHA it has just read back at the
@@ -37,6 +38,52 @@ if [ -n "${PUSH_GATED_LOG:-}" ]; then
   exec > >(tee -a "$PUSH_GATED_LOG") 2>&1
   echo "push_gated: capture on -> $PUSH_GATED_LOG ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
 fi
+
+# ### THE EXISTING-TAG MODE, b623, the author's answer before b623's seal under (R233)(5)(a): a tag the clone already
+# ### carries, which a ledger cites and the remote lacks, is pushed AS IT STANDS -- no main push, no tag made, nothing
+# ### moved or re-pointed.   usage: push_gated.sh <repo> --existing-tag <tag>   (one tag per call)
+# ###   (1) the tag must exist locally (exit 10 otherwise) and be absent at the remote (exit 7 otherwise); a refusal
+# ###       pushes nothing;
+# ###   (2) refs/tags/<tag> is pushed as it stands, its status never through a pipe (exit 5 if refused);
+# ###   (3) the remote's peel is read back -- the `^{}` line for an annotated tag, the plain line for a lightweight one --
+# ###       and compared with the local peel (exit 6 if unequal).
+if [ "$branch" = "--existing-tag" ]; then
+  if [ "$#" -ne 1 ]; then
+    echo "push_gated: usage: push_gated.sh <repo> --existing-tag <tag> (one tag per call)" >&2
+    exit 2
+  fi
+  tag="$1"
+  if ! git -C "$repo" rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+    echo "push_gated: REFUSED -- tag $tag does not exist locally; the existing-tag mode pushes only a tag the clone carries. NOTHING IS PUSHED" >&2
+    exit 10
+  fi
+  if [ -n "$(git -C "$repo" ls-remote origin "refs/tags/$tag")" ]; then
+    echo "push_gated: REFUSED -- tag $tag already exists at the remote. NOTHING IS PUSHED" >&2
+    exit 7
+  fi
+  local_peel=$(git -C "$repo" rev-parse "$tag^{}")
+  echo "push_gated: repo $repo ; existing tag $tag ($(git -C "$repo" cat-file -t "refs/tags/$tag")) ; local peel $local_peel ; no main push"
+  set +e
+  git -C "$repo" push origin "refs/tags/$tag"
+  rc=$?
+  set -e
+  if [ "$rc" -ne 0 ]; then
+    echo "push_gated: TAG PUSH REFUSED ($tag, exit $rc)" >&2
+    exit 5
+  fi
+  remote_peel=$(git -C "$repo" ls-remote origin "refs/tags/$tag^{}" | cut -f1)
+  if [ -z "$remote_peel" ]; then
+    remote_peel=$(git -C "$repo" ls-remote origin "refs/tags/$tag" | cut -f1)
+  fi
+  echo "push_gated: tag $tag peeled local $local_peel remote $remote_peel"
+  if [ "$remote_peel" != "$local_peel" ]; then
+    echo "push_gated: TAG READ-BACK UNEQUAL ($tag)" >&2
+    exit 6
+  fi
+  echo "push_gated: DONE -- existing tag $tag pushed as it stands and read back"
+  exit 0
+fi
+
 case "$branch" in
   push-*|repair-*) ;;
   *) echo "push_gated: REFUSED -- <push-branch> must be push-* or repair-* (Rule 4.10): $branch" >&2; exit 2;;
