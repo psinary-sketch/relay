@@ -314,7 +314,8 @@ def inputs(capture):
     import time
     raw = open(capture, 'rb').read()
     txt = raw.decode('utf-8', 'replace').replace(chr(13), '')
-    nums = re.findall(r'^\s*(\d+\.\d{60,})\s*$', txt, re.M)
+    # ### the table wraps each ordinate over several lines and parts them by a blank line: each block joined, whitespace removed
+    nums = [b for b in (''.join(x.split()) for x in re.split(r'\n\s*\n', txt)) if re.fullmatch(r'\d+\.\d{60,}', b)]
     taken = nums[:K.N_ORD]
     me = io.open(os.path.abspath(__file__), encoding='utf-8').read()
     L_ = ['b627 -- THE BENCH`S INPUTS, BANKED BEFORE ANY COMPUTATION (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
