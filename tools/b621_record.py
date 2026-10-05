@@ -121,8 +121,20 @@ def _hits(s):
     return [m.group(0) for m in CEILING.finditer(s)]
 
 
-DEFECTS = []
-DEFECT_SHORT = []
+DEFECTS = [
+    '(a) THE SEAT`S, AT THE PRE-PUSH SUITE, AFTER THE RECORD: the suite`s G-SYN-TIERS asks that 2B`s and 2F`s next versions be absent by '
+    'testing their sources for None, while the source builder reads every file through cr0, which returns empty bytes for an absent one; '
+    'so that arm, and G-H55B-SCORED, which recomputes H55b through it, fail in their letter -- the suite 76 of 78 pre-push, NOT CLEAN in '
+    'letter, the arm`s positive control unable to show the species (it fails either way). The claim tested directly: neither next version exists '
+    'on disk, at HEAD or in the index, and each edited synthesis`s tier line equals its current one (relay data/b621_tiers_direct.txt); H55b '
+    'and N2 stand as scored. The sealed suite is not edited. The trail record, written before the suite, read "none recorded"; the record '
+    'tool, committed as sealed (ff6550ee), took one edit through the Edit tool after the seal -- this defect`s text, the direct test and a '
+    'correction line -- committed alone, the face`s (Z) refuted in its letter; the correction appended to OPEN_TRAILS addressed to the record.',
+]
+DEFECT_SHORT = ['(a) the seat’s: the suite’s G-SYN-TIERS tests 2B’s and 2F’s next versions for absence by None where its sources hold an absent '
+                'file as empty bytes, so it and G-H55B-SCORED fail in letter, the suite 76 of 78 pre-push; tested directly, neither next version '
+                'exists and every edited tier line equals its current one (relay data/b621_tiers_direct.txt); the sealed suite not edited; the '
+                'record tool took one edit after the seal to carry the defect, committed alone']
 
 
 def defects(*a):
@@ -1542,6 +1554,59 @@ def components(*a):
          '### COMPONENT 6 : FINDINGS :%d (the entry) ; OPEN_TRAILS :%d (the record) ; next: b622 ; N1 %s, N2 %s, N3 %s, N4 %s, N5 %s' % (
              fj['entry_line'], tj['line'], S['N1'][0], S['N2'][0], S['N3'][0], S['N4'][0], S['N5'][0])]
     put_txt('b621_components.txt', L)
+
+
+def tiers_direct(*a):
+    """### defect (a)'s direct test: every untouched synthesis's next version absent on disk, at HEAD and in the index; every edited one's
+    ### tier line equal to its current one's. Writes data/b621_tiers_direct.txt."""
+    L = ['b621 -- DEFECT (a)`S DIRECT TEST: THE TIER ARM`S CLAIM READ WITHOUT ITS PREDICATE (%s), PLACE-papers HEAD %s' % (
+        utc(), g(PP, 'rev-parse', '--short=7', 'HEAD').strip()), '']
+    ok = True
+    for k in K.SYN:
+        p = K.NEXT[k][0]
+        disk = os.path.exists(os.path.join(PP, *p.split('/')))
+        head = _show(PP, 'HEAD', p)
+        idx = g(PP, 'ls-files', '--', p).strip()
+        if k in EDITED:
+            t0, t1 = lines_of(_show(PP, PRE_PP, K.SYN[k]))[2], lines_of(head or '')[2] if head else ''
+            good = disk and head is not None and t0 == t1
+            L.append('  %-4s %s -- on disk %s, at HEAD %s, tracked %s ; its tier line equal to the current one`s %s' % (k, p, disk, head is not None,
+                                                                                                                bool(idx), t0 == t1))
+        else:
+            good = not disk and head is None and not idx
+            L.append('  %-4s %s -- on disk %s, at HEAD %s, tracked %s (no row of it moves: no next version)' % (k, p, disk, head is not None, bool(idx)))
+        ok = ok and good
+    L += ['', '### ### **THE CLAIM %s: no next version for 2B or 2F, and every edited synthesis`s tier line unmoved.**' % ('HOLDS' if ok else 'FAILS')]
+    put_txt('b621_tiers_direct.txt', L)
+    print(L[-1])
+
+
+CORR_HEAD = '*Appended 2026-10-04 by b621 to its record (:%d) -- A CORRECTION, THE SEAT’S:*'
+
+
+def correction(*a):
+    """### OPEN_TRAILS: the record's defect line corrected, addressed to the record, appended at the end; `dry` prints it."""
+    Q = R2._Q()
+    rec = Q.line_of(Q.OT, TRAIL_HEAD)
+    t = ('\n%s the record’s “Defects: none recorded” was written before the pre-push suite, which read 76 of 78 -- G-SYN-TIERS and '
+         'G-H55B-SCORED failing in their letter on one predicate, which tests the next versions of 2B and 2F for absence by None where its '
+         'sources hold an absent file as empty bytes. Tested directly, neither next version exists on disk, at HEAD or in the index, and every '
+         'edited synthesis’s tier line equals its current one (relay data/b621_tiers_direct.txt), so H55b and N2 stand as scored. The sealed '
+         'suite is not edited; the record tool took one edit after the seal to carry the defect, committed alone in relay (relay '
+         'data/b621_defects.txt, defect (a)).\n' % (CORR_HEAD % rec))
+    bad = ledger_check(t)
+    nd, _n = _nd(t)
+    sc, clean = _scan_text(t, 'correction')
+    print('  grade-word lines naming a backticked name: %s ; no-disclosure hits: %s ; scanner %s' % (bad or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN'))
+    if 'dry' in a:
+        print(t)
+        return
+    if bad or any(nd.values()) or not clean:
+        sys.exit('### THE LINE WOULD GRADE A TABLE NAME, CARRY TECHNE TEXT OR A STEM -- NOTHING WRITTEN')
+    Q.guard_absent(Q.OT, CORR_HEAD % rec)
+    r = Q.append_to(Q.OT, t)
+    put_json('b621_correction.json', dict(line=Q.line_of(Q.OT, CORR_HEAD % rec), head=CORR_HEAD % rec, append=r))
+    print('  OPEN_TRAILS correction :%s' % Q.line_of(Q.OT, CORR_HEAD % rec))
 
 
 if __name__ == '__main__':
