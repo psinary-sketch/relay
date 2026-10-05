@@ -434,11 +434,15 @@ def dep_order(names, consumes):
 # ### read on; the eventual form `∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, X` reads LIMIT, DENSITY when X compares counting functions; an atom is a
 # ### comparison (FINITE), a `Filter.Tendsto` (LIMIT), a Prop of the page read through its own statement, or unread. A node with nothing
 # ### read reads UNCLASSIFIED, for the author's ruling.
-SHAPES = ('FINITE', 'UNIVERSAL', 'LIMIT', 'DENSITY', 'FAMILY')
+# ### b627, (R237)(3): BOUNDED, between FINITE and UNIVERSAL -- a number-typed binder whose body carries a premise bounding the
+# ### variable's height (`|x.im|`), norm (`‖x‖`, `|x|`, `Complex.abs x`) or, for ℕ and ℤ, its index (`x`) above by a term free of x
+# ### (`_measure_bounded`); FINITE as it read before, for Finset and finite-range forms.
+SHAPES = ('FINITE', 'BOUNDED', 'UNIVERSAL', 'LIMIT', 'DENSITY', 'FAMILY')
 COLUMN_MARK = '# column: quantifier'
 SHAPE_KEY = ('The shape cell after each statement is read by the generator from the statement\'s leading binders as the probe printed '
-             'it: FINITE for a closed or bounded statement (a cell, a window, a count up to T), UNIVERSAL for a quantifier over the zeros, '
-             'the primes, the integers or the reals with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that '
+             'it: FINITE for a closed statement or a finite range (a cell, a window, a Finset, a count up to T), BOUNDED for a quantifier '
+             'over the zeros, the primes, the integers or the reals whose body bounds the variable\'s height, norm or index by an explicit '
+             'term, UNIVERSAL for one with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that '
              'form over a proportion of counts, FAMILY for a quantifier over a class of objects (every character, every configuration); an '
              'iff or a conjunction reads the higher of its sides in that order, a premise is passed over, a Prop on the page is read through '
              'its own statement, a node with nothing the reader can read is printed UNCLASSIFIED for the author\'s ruling, and a definition '
@@ -536,6 +540,22 @@ def _bounded(nm, body):
         s = sp[1]
 
 
+def _measure_bounded(nm, ty, body):
+    """### b627, (R237)(3): a premise of the body bounding the variable's height (`|x.im|`), norm (`‖x‖`, `|x|`, `Complex.abs x`) or,
+    ### for ℕ and ℤ, its index (`x` itself) above by a term that does not mention it."""
+    v = re.escape(nm)
+    meas = [r'\|%s\.im\|' % v, r'‖%s‖' % v, r'\|%s\|' % v, r'Complex\.abs %s' % v] + ([v] if ty.strip() in ('ℕ', 'ℤ') else [])
+    s = body
+    while True:
+        sp = _split(s, ' → ')
+        if not sp:
+            return False
+        m = re.fullmatch(r'(%s) (≤|<) (.+)' % '|'.join(meas), _strip(sp[0]))
+        if m and not re.search(r'(?<![\w.\'])%s(?![\w\'₀-₉])' % v, m.group(3)):
+            return True
+        s = sp[1]
+
+
 def _domain(nm, ty, rel, body, env, tys):
     if rel in ('≤', '<'):
         return 'FINITE' if re.fullmatch(r'\d+', ty) else 'UNIVERSAL'
@@ -552,7 +572,9 @@ def _domain(nm, ty, rel, body, env, tys):
                                                                           if re.match(r'^(Type|Sort)\b', t)):
         return 'FAMILY'
     if re.match(_NUMBER_TY, ty):
-        return 'FINITE' if ty.strip() in ('ℕ', 'ℤ') and _bounded(nm, body) else 'UNIVERSAL'
+        if ty.strip() in ('ℕ', 'ℤ') and _bounded(nm, body):
+            return 'FINITE'
+        return 'BOUNDED' if _measure_bounded(nm, ty, body) else 'UNIVERSAL'
     return None   # ### a proof binder: a premise, passed over
 
 

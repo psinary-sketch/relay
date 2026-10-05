@@ -163,7 +163,7 @@ def main():
     r0 = C.build(os.path.join(D, 'b602_nodes_zeta.txt'), tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
     r1 = C.build(tl2, tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
     p0, p1 = (r0[1] or ''), (r1[1] or '')
-    cells_pat = r' — shape: (FINITE|UNIVERSAL|LIMIT|DENSITY|FAMILY|UNCLASSIFIED|—)(?= — premises: )'
+    cells_pat = r' — shape: (FINITE|BOUNDED|UNIVERSAL|LIMIT|DENSITY|FAMILY|UNCLASSIFIED|—)(?= — premises: )'
     stripped = re.sub(cells_pat, '', p1.replace(NL + C.SHAPE_KEY + NL, '', 1))
     nshape = len(re.findall(cells_pat, p1))
     nnodes = len(r0[2]['order']) if r0[0] == 0 else -1
@@ -172,6 +172,20 @@ def main():
                 'line and %d shape cells on %d node lines added' % (switch, nshape, nnodes),
                 r0[0] == 0 and r1[0] == 0 and not any(switch) and C.node_column(tl2) and stripped == p0 and nshape == nnodes
                 and p1.count(C.SHAPE_KEY) == 1 and p0.count(C.SHAPE_KEY) == 0))
+    # ### b627, (R237)(3): THE BOUNDED WORD. (10) the rung's nodes from b626's probe at v0.22: rh_upto (a definition, ∀ ρ under
+    # ### |ρ.im| ≤ T) and rh_upto_platt (read through rh_upto) read BOUNDED; (11) the word in the column's order between FINITE and
+    # ### UNIVERSAL and named by the key line, with the UNIVERSAL control -- the height pair, rh_upto with its bound removed, and rh_upto
+    # ### with a bound that mentions the variable, each reading UNIVERSAL.
+    rc_ = C.parse(io.open(os.path.join(D, 'b626_probe_out.txt'), encoding='utf-8').read().replace(chr(13), ''))[0]
+    up, upp, pair = ('SIDEExplicitFormula.PlattRung.%s' % s for s in ('rh_upto', 'rh_upto_platt', 'forall_rh_upto_iff_rh'))
+    got10 = [C.shape_of(n, rc_) for n in (up, upp)]
+    res.append(('(10) rh_upto and rh_upto_platt read %s' % got10, got10 == ['BOUNDED', 'BOUNDED']))
+    st = rc_[up]['statement']
+    ctl = [C.shape_of(pair, rc_), mutated(rc_, up, st.replace(' → |ρ.im| ≤ T', '')), mutated(rc_, up, st.replace('|ρ.im| ≤ T', '|ρ.im| ≤ ρ.re'))]
+    res.append(('(11) the word between FINITE and UNIVERSAL, named by the key; the UNIVERSAL control (the pair, the bound removed, a bound '
+                'mentioning ρ) reads %s' % ctl, 'BOUNDED' in C.SHAPES and C.SHAPES.index('BOUNDED') == C.SHAPES.index('FINITE') + 1
+                == C.SHAPES.index('UNIVERSAL') - 1 and 'BOUNDED for a quantifier' in C.SHAPE_KEY and ctl == ['UNIVERSAL'] * 3
+                and '|ρ.im| ≤ T' in st))
     for name, ok in res:
         print('  %-120s %s' % (name, 'PASS' if ok else 'FAIL'))
     ok = all(x for _n, x in res)
