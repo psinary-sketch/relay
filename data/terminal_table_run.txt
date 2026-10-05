@@ -12,10 +12,10 @@
   ledgers read : ### **97**  (including the archive`s split looms -- b494 found the
   ### 2026-07-26 census there, and ### **A SPLIT MOVES A LEDGER, IT DOES NOT RETIRE IT**)
   ### THE GRADE-CELL MATCHER, BOTH VERSIONS, YIELD PRINTED.
-    v1 LOOSE (any name on any line carrying a grade word) : 1566 cells, 1058 names
-    v2 WINDOWED (every name within 120 chars of a grade)  : 505 cells, 302 names
-    v3 NEAREST (each grade attaches to its NEAREST name)   : 424 cells, 238 names
-    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 414 cells, 238 names**
+    v1 LOOSE (any name on any line carrying a grade word) : 1569 cells, 1058 names
+    v2 WINDOWED (every name within 120 chars of a grade)  : 506 cells, 303 names
+    v3 NEAREST (each grade attaches to its NEAREST name)   : 425 cells, 239 names
+    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 415 cells, 239 names**
     ### ### **v1 AND v2 ARE DISCARDED AND THEIR YIELDS ARE PRINTED ANYWAY** -- b381`s
     ### rule, that a matcher is never replaced silently. ### These ledgers carry
     ### 2,000-character re-grade paragraphs naming a dozen keystones and using three
@@ -62,14 +62,15 @@
     rows (repo, name)                                  : ### **1989**
     NOT PROFILED                                       : ### **1078**
     UNGRADED                                           : ### **1781**
-    CONFLICT                                           : ### **12**
+    CONFLICT                                           : ### **11**
     ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **9**
     names a ledger cites resolving in NO repo, any ref : ### **32**
     (and, not asked for but owed by (S1)) STATEMENT UNRESOLVED : ### **54**
 
   ### THE DIFF AGAINST THE PRIOR RUN.
   ----------------------------------------------------------------------------------------------------
-    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 0
+    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 1
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : CONFLICT|PROFILED -> INTERFACES|PROFILED
 
   written: data/terminal_table.json, data/terminal_table.md
 ========================================================================================================
