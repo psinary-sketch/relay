@@ -113,15 +113,30 @@ def main():
         RELAY_PIN, subprocess.run(['git', '-C', ROOT, 'rev-parse', '--short=8', RELAY_PIN + ':data/terminal_table.json'],
                                   capture_output=True).stdout.decode().strip(), PRE_PP))
     (zl, zp, _zn), (cl, cp, _cn) = pinned_lists()
-    rc1, z = regen(zl, zp)
-    res.append(('(1) b592 ζ list, no record: byte for byte against the page at %s' % PRE_PP, rc1 == 0 and z == blob('%s:%s' % (PRE_PP, C.PAGE_NAME))))
+    # ### b628, (R238)(2): case (1) re-emits with the E0 rule loaded from its blob at the test's own relay pin, as the suite's control
+    # ### does since b626 -- the live rule moved at b625 (576891c5) and the case failed from then until this repair.
+    import types
+    e0 = types.ModuleType('e0_rule_%s' % RELAY_PIN)
+    e0.__file__ = os.path.join(ROOT, 'tools', 'e0_rule.py')
+    exec(compile(relay_blob('tools/e0_rule.py').decode('utf-8'), 'e0_rule@%s' % RELAY_PIN, 'exec'), e0.__dict__)
+    live_e0, C.E0 = C.E0, e0
+    try:
+        rc1, z = regen(zl, zp)
+    finally:
+        C.E0 = live_e0
+    res.append(('(1) b592 ζ list, no record, the E0 rule at %s: byte for byte against the page at %s' % (RELAY_PIN, PRE_PP),
+                rc1 == 0 and z == blob('%s:%s' % (PRE_PP, C.PAGE_NAME))))
     rc2, c = regen(cl, cp)
     res.append(('(2) b592 χ list, no record: byte for byte against the page at %s' % PRE_PP, rc2 == 0 and c == blob('%s:%s' % (PRE_PP, C.DIR_PAGE_NAME))))
     d = tempfile.mkdtemp()
     tl = os.path.join(d, 'b592_nodes.txt')
     src = io.open(zl, encoding='utf-8').read()
     io.open(tl, 'w', encoding='utf-8', newline=NL).write(src.rstrip(NL) + NL + '# backmatter: first record, its words' + NL + '# backmatter: second record.' + NL)
-    rc3, t = regen(tl, zp)
+    live_e0, C.E0 = C.E0, e0         # ### (3) is the page of (1) with its paragraph: the same E0 rule, at the test's pin
+    try:
+        rc3, t = regen(tl, zp)
+    finally:
+        C.E0 = live_e0
     want = (z or b'') + (NL + 'first record, its words second record.' + NL).encode('utf-8')
     res.append(('(3) two records: the page of (1) with one paragraph after the Correspondence table', rc3 == 0 and z is not None and t == want))
     res.append(('(4) the reader: no record from b592`s lists; the two, in order, from the list of (3)',
