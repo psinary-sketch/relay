@@ -1226,7 +1226,10 @@ TRAIL_HEAD = ('### b625 — lane three, act fifty-two under (R235): the 2/3 theo
 def _answer():
     t = rd('b625_author_answers.txt')
     m = re.findall(r'^RESULT \(transcript line \d+\): (.*)$', t, re.M)
-    return m[-1] if m else 'no answer banked'
+    if not m:
+        return 'no answer banked'
+    r = m[-1].split('"="', 1)[-1]
+    return r.split('". Read the answers carefully', 1)[0].strip()
 
 
 def _title_entry():
@@ -1264,7 +1267,7 @@ def _finding_text():
          'listing banked before any copy, the free memory read (%d MB), no module built, nothing copied, no branch made. The author’s '
          'answer at the hold: %s. H59a-H59c %s, %s, %s.' % (
              len(CL['modules']), sum(r['lines'] for r in CL['modules']), len(CL['modules']) - CL['new'], CL['new'], len(CL['external']),
-             CL['toolchain']['upstream'], CL['toolchain']['kernel'], CL['free_mb'], _answer()[:400], S['H59a'][0], S['H59b'][0], S['H59c'][0])
+             CL['toolchain']['upstream'], CL['toolchain']['kernel'], CL['free_mb'], _answer(), S['H59a'][0], S['H59b'][0], S['H59c'][0])
          + (' The work-order re-priced by that answer with two routes, the port and the cross-kernel discharge, neither started '
             '(OPEN_TRAILS :%d).' % jx('b625_repriced.json')['lines'][0]['line'] if jx('b625_repriced.json') else ''), '',
          '**The 33 nodes** (`(R235)`(2)): each binder printed and classed -- %d agreeing with the ledger after the criterion and closed in '
@@ -1294,7 +1297,7 @@ def _finding_text():
          ':%d; the census item :%d.' % (rl['lines'][0]['line'], rl['lines'][1]['line'], rl['lines'][2]['line'], rl['lines'][3]['line']), '',
          '**The scores.** ' + ', '.join('%s %s' % (k, S[k][0]) for k in SCORE_KEYS) + '.', '',
          '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): it re-reads b596’s face at the proportion (W-ORD-SIMPLICITY-FACE, the '
-         'premise named because the 2/3 theorem’s module lay outside the vendored set) and finds the gap priced at OPEN_TRAILS :12290 '
+         'premise named because the 2/3 theorem’s module lay outside the vendored set) and finds the work priced at OPEN_TRAILS :12290 '
          'wider than one module; it re-reads b624’s entry (:7512) node by node, giving its 33 printed disagreements a ruled criterion and '
          'closing all but four; and it gives b624’s root (OPEN_TRAILS :12931) its successor over the kernel both pages pin. It strengthens '
          'the programme’s offering of a grade a reader can recompute from a statement alone, and of a record whose every act can be '
@@ -1353,7 +1356,7 @@ def _trail_text():
                                               CO['lines'][3]['line'], e0c, arc), '',
              '**Act root:** b625 `%s` (previous `%s`, b624’s; relay data/act_roots.txt).' % (J['root'], J['previous']), '',
              '**The hold, and the author’s answer** (relay data/b625_author_answers.txt): the closure %d modules, %d not vendored; %s.%s' % (
-                 len(CL['modules']), CL['new'], _answer()[:500],
+                 len(CL['modules']), CL['new'], _answer(),
                  (' The work-order re-priced with two routes, neither started: OPEN_TRAILS :%d.' % jx('b625_repriced.json')['lines'][0]['line'])
                  if jx('b625_repriced.json') else ''), '',
              '**For the author’s ruling:** %s.' % ('; '.join('%s -- %s' % (r['name'], r['why']) for r in unc) or 'none'), '',
