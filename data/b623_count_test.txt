@@ -1,0 +1,14 @@
+b623 -- COMPONENT 1: THE TEST OF THE CASE COUNTER, RUN AND COUNTED (2026-10-05T04:05:07Z); exit 0
+
+test_count: the repaired counter tools/b623_record.py (working file); the sealed form at relay 4ceba9c2
+  (1) a push_gated test, three check lines and its own summary line : wanted (3, 2) ; got (3, 2) ; PASS
+  (2) the same with "### ALL PASS" planted: the count unchanged : wanted (3, 2) ; got (3, 2) ; PASS
+  (3) a numbered test, two case lines and its CASES line : wanted (2, 2) ; got (2, 2) ; PASS
+  (4) the same with "### ALL PASS" planted: the count unchanged : wanted (2, 2) ; got (2, 2) ; PASS
+  (5) a failing numbered case is a case, not a pass : wanted (3, 2) ; got (3, 2) ; PASS
+  (6) a text with no case line counts nothing, its planted line included : wanted (0, 0) ; got (0, 0) ; PASS
+### CASES : 6 ; PASSING : 6 ; FAILING : 0
+### THE SEALED FORM (the positive control): REFUTED -- it fails cases [2, 4, 5, 6]
+### ALL PASS
+
+### CASES : 6 ; PASSING : 6 ; FAILING : 0   ### counted by the numbered case pattern

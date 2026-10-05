@@ -1,0 +1,59 @@
+b623 -- COMPONENT 2: tools/test_push_gated.sh RUN AND COUNTED (2026-10-05T04:06:19Z); exit 0
+
+test_push_gated: script /d/relay/tools/push_gated.sh ; sha256 aa176fc5ed49903b ; scratch /tmp/tmp.Jihvg49Bx7
+### CASE A -- equal read-back
+  A exit : wanted 0 ; got 0 ; PASS
+  A tag made locally : wanted yes ; got yes ; PASS
+  A tag peeled = pushed tip : wanted e5966cd9d2cafe8c8bbc5f6c7bb560b00aaa247b ; got e5966cd9d2cafe8c8bbc5f6c7bb560b00aaa247b ; PASS
+  A tag made after the read-back line : wanted yes ; got yes ; PASS
+### CASE B -- the read-back made to MISMATCH (the remote's post-receive hook moves main back to base)
+  B exit : wanted 4 ; got 4 ; PASS
+  B the script printed the unequal read-back : wanted yes ; got yes ; PASS
+  B NO tag made locally : wanted no ; got no ; PASS
+  B NO tag at the remote : wanted no ; got no ; PASS
+### CASE C -- the main push refused (the remote's pre-receive hook exits 1)
+  C exit : wanted 3 ; got 3 ; PASS
+  C NO tag made locally : wanted no ; got no ; PASS
+  C NO tag at the remote : wanted no ; got no ; PASS
+### CASE D -- a tag made by hand before the run
+  D exit : wanted 7 ; got 7 ; PASS
+  D remote main unmoved : wanted 4e7689cb381d6075fbd31fb8f9c289afb0d3911a ; got 4e7689cb381d6075fbd31fb8f9c289afb0d3911a ; PASS
+  D NO tag at the remote : wanted no ; got no ; PASS
+### CASE E -- a branch not push-* or repair-*
+  E exit : wanted 2 ; got 2 ; PASS
+  E NO tag made locally : wanted no ; got no ; PASS
+### CASE F -- NAME::MESSAGE
+  F exit : wanted 0 ; got 0 ; PASS
+  F the tag's message : wanted v0 -- the test's message ; got v0 -- the test's message ; PASS
+### CASE G -- the table check (--prior /tmp/tmp.Jihvg49Bx7/G/prior.json --now /tmp/tmp.Jihvg49Bx7/G/same.json --face /tmp/tmp.Jihvg49Bx7/G/face_none.txt)
+  G exit : wanted 0 ; got 0 ; PASS
+  G the table check ran before the push : wanted yes ; got yes ; PASS
+  G remote main = pushed tip : wanted f2f6be35dfd1cca17b7b068b37a6ba7cd4f137d3 ; got f2f6be35dfd1cca17b7b068b37a6ba7cd4f137d3 ; PASS
+### CASE H -- the table check (--prior /tmp/tmp.Jihvg49Bx7/H/prior.json --now /tmp/tmp.Jihvg49Bx7/H/mut.json --face /tmp/tmp.Jihvg49Bx7/H/face_none.txt)
+  H exit : wanted 9 ; got 9 ; PASS
+  H the table check ran before the push : wanted yes ; got yes ; PASS
+  H remote main unmoved : wanted 0556a4243c8e85c13452e4a3dbd26ee61e0c30ee ; got 0556a4243c8e85c13452e4a3dbd26ee61e0c30ee ; PASS
+  H the moved cell printed : wanted yes ; got yes ; PASS
+  H checkout restored : wanted main ; got main ; PASS
+### CASE I -- the table check (--prior /tmp/tmp.Jihvg49Bx7/I/prior.json --now /tmp/tmp.Jihvg49Bx7/I/mut.json --face /tmp/tmp.Jihvg49Bx7/I/face_named.txt)
+  I exit : wanted 0 ; got 0 ; PASS
+  I the table check ran before the push : wanted yes ; got yes ; PASS
+  I remote main = pushed tip : wanted dc0cd5bfbda1481b1c39908b10c70731e8ff2e94 ; got dc0cd5bfbda1481b1c39908b10c70731e8ff2e94 ; PASS
+### CASE J -- the existing-tag mode, a lightweight tag
+  J exit : wanted 0 ; got 0 ; PASS
+  J the remote's tag = the local tag's commit : wanted 4b86a86f3b1a2b2740d44ed539f423d08aa79dba ; got 4b86a86f3b1a2b2740d44ed539f423d08aa79dba ; PASS
+  J remote main unmoved : wanted 4b86a86f3b1a2b2740d44ed539f423d08aa79dba ; got 4b86a86f3b1a2b2740d44ed539f423d08aa79dba ; PASS
+  J the local tag unmoved : wanted 4b86a86f3b1a2b2740d44ed539f423d08aa79dba ; got 4b86a86f3b1a2b2740d44ed539f423d08aa79dba ; PASS
+### CASE K -- the existing-tag mode, an annotated tag
+  K exit : wanted 0 ; got 0 ; PASS
+  K the remote's peel = the local peel : wanted 6fc451dc3071e6196827a8fbb1c222ea64c6c8a9 ; got 6fc451dc3071e6196827a8fbb1c222ea64c6c8a9 ; PASS
+  K the tag object the same on both sides : wanted e4f469d8c104ecb3da37017179141b151a2356b3 ; got e4f469d8c104ecb3da37017179141b151a2356b3 ; PASS
+### CASE L -- the existing-tag mode, the name already at the remote
+  L exit : wanted 7 ; got 7 ; PASS
+  L the remote's tag unchanged : wanted 0933f8264696e7015d48e81bf91c571846ba1075 ; got 0933f8264696e7015d48e81bf91c571846ba1075 ; PASS
+### CASE M -- the existing-tag mode, a tag the clone does not carry
+  M exit : wanted 10 ; got 10 ; PASS
+  M NO tag at the remote : wanted no ; got no ; PASS
+### ### **40 of 40 checks as wanted -- PASS**
+
+### CASES : 40 ; PASSING : 40 ; FAILING : 0   ### counted by the case pattern; the test`s own line: **40 of 40 checks as wanted -- PASS**
