@@ -1,0 +1,18 @@
+b624 -- COMPONENT 2: THE E0 RULE`S GRADE FUNCTION BEFORE THE EDIT, tools/e0_rule.py @ relay 884d0848 (2026-10-05T05:21:59Z; blob 93d75fe34870)
+
+    :41   DOMAIN = r'(?:≠|<|≤|=|∈|\.Even\b|IsPrimitive)'
+    :51   BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\([^()]*\)[^()]*)*)\)')
+    :61   CLASS_PREDS = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact)\b.*?([A-Za-z_][\w\']*)\s*$')
+    :160  def grade(head, kind):
+    :161      """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
+    :162      ### kind 'def' grades DEF. A binder is a premise unless DOMAIN matches its type or it is a SPLITS case."""
+    :163      if kind == 'def':
+    :164          return 'DEF', '', []
+    :165      spans = exist_spans(head)
+    :166      binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
+    :167      prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
+    :168      if prem:
+    :169          return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
+    :170      if binders:
+    :171          return 'DERIVES', 'domain conditions only: ' + ', '.join('%s : %s' % bt for bt in binders), binders
+    :172      return 'DERIVES', 'no hypothesis binder', binders

@@ -1,0 +1,238 @@
+b624 -- COMPONENT 2: THE E0 RULE`S CLAUSE AND ITS TEST, THE DIFF AGAINST relay 884d0848 (2026-10-05T05:23:02Z)
+
+### 2 files changed, 154 insertions(+), 4 deletions(-)
+
+diff --git a/tools/e0_rule.py b/tools/e0_rule.py
+index 93d75fe3..18ebe563 100644
+--- a/tools/e0_rule.py
++++ b/tools/e0_rule.py
+@@ -36,9 +36,13 @@ RULE_TEXT = [
+     '### mention it is a premise (CLASS_PREDS, class_case).',
+     '### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise',
+     '### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.',
++    '### (R234)(2), b624: the grade is read from the statement`s binders alone -- a hypothesis the proof introduces (by induction,',
++    '### by cases, by a match arm, by intro inside the proof term) is no binder of the statement (statement_only cuts a header where',
++    '### a proof begins inside it); a non-membership (∉) is a domain condition as a membership is; a theorem one of whose explicit',
++    '### hypothesis binders has the conclusion itself as its type, its bound variables abstracted, reads ENCODES-CONCLUSION.',
+ ]
+ 
+-DOMAIN = r'(?:≠|<|≤|=|∈|\.Even\b|IsPrimitive)'
++DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive)'
+ 
+ SPLITS = [
+     dict(cases=(r'^\s*\w+\.Even\s*$', r'^\s*¬\s*\w+\.Even\s*$'),
+@@ -157,13 +161,86 @@ def split_case(t):
+     return None
+ 
+ 
++# ### ### **(R234)(2), b624: THE STATEMENT'S BINDERS ALONE, NON-MEMBERSHIP, AND THE CONCLUSION AS A BINDER.**
++# ### *A hypothesis the proof introduces -- by induction, by cases, by a match arm, by intro inside the proof term -- is not a
++# ### binder of the statement and does not enter the grade; the grade is read from the statement's binders alone.* Read here
++# ### as: a header handed in without `:=` (a proof by match arms, `| 0 => ... | j + 1 => ...`) is cut where its first arm
++# ### begins (statement_only), so neither the arms nor any text a reader carried past them is read. Its instance (the occasion):
++# ### SIDE-explicit-formula v0.21 = 1d5d4dd, PowerWindow.lean :139 `power_contDiff`, whose header the page generator read on
++# ### through its arms into the next theorem's binders (hev, hg, hs). An induction hypothesis (`ih` in finsetSum_productLemma,
++# ### Schema/Family.lean :136) lives after `:=` and never reached the rule. *A non-membership is a domain condition as a
++# ### membership is* (the author's answer before b624's seal): `∉` joins DOMAIN; its instance `finsetSum_insert` (Family.lean
++# ### :130, `h : a ∉ s`). *A theorem one of whose explicit hypothesis binders has the conclusion itself as its type reads
++# ### ENCODES-CONCLUSION* (the author's answer): equality is syntactic after the bound variables of each side are abstracted
++# ### (alpha), so an alpha-variant is caught and a merely similar Prop is not.
++def statement_only(head):
++    """### the header cut where a proof begins inside it: the first match arm `|` at bracket depth 0 after the conclusion
++    ### starts; a header with no such arm is returned whole."""
++    s = conclusion_start(head)
++    if s is None:
++        return head
++    depth = 0
++    for i in range(s, len(head)):
++        ch = head[i]
++        if ch in '([{⦃⟨':
++            depth += 1
++        elif ch in ')]}⦄⟩':
++            depth -= 1
++        elif ch == '|' and depth == 0 and head[i - 1:i] in (' ', '\n') and head[i + 1:i + 2] == ' ':
++            return head[:i]
++    return head
++
++
++QUANT = re.compile(r'(∀|∃!|∃|fun|λ)\s')
++IDENT = r"[^\W\d][\w'₀-₉]*"
++
++
++def alpha(t):
++    """### the text with each variable bound by ∀, ∃, ∃!, fun or λ renamed in binding order (_b0, _b1, ...) from its binder on,
++    ### and its whitespace collapsed: two Props that differ only in the names of their bound variables read the same."""
++    t = ' '.join(t.split())
++    k, pos = 0, 0
++    while True:
++        m = QUANT.search(t, pos)
++        if not m:
++            break
++        j, depth = m.end(), 0
++        while j < len(t):
++            ch = t[j]
++            if ch in '([{⦃⟨':
++                depth += 1
++            elif ch in ')]}⦄⟩':
++                depth -= 1
++            elif depth == 0 and (ch == ',' or t.startswith('=>', j)):
++                break
++            j += 1
++        seg = t[m.end():j]
++        grp = re.findall(r'[(\[{⦃]\s*([^:()\[\]{}⦃⦄]*?)\s*:', seg)
++        if grp:
++            names = [n for g in grp for n in re.findall(IDENT, g)]
++        else:
++            left = re.split(r'\s*(?::|∈|∉|>|<|≥|≤|≠)\s*', seg, maxsplit=1)[0]
++            names = re.findall(IDENT, left)
++        for n in names:
++            t = t[:m.start()] + re.sub(r'(?<![\w.\'])' + re.escape(n) + r'(?![\w\'₀-₉])', '_b%d' % k, t[m.start():])
++            k += 1
++        pos = m.end()
++    t = re.sub(r'([(\[{⦃])\s+', r'\1', t)
++    return re.sub(r'\s+([)\]}⦄])', r'\1', t).strip()
++
++
+ def grade(head, kind):
+     """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
+     ### kind 'def' grades DEF. A binder is a premise unless DOMAIN matches its type or it is a SPLITS case."""
+     if kind == 'def':
+         return 'DEF', '', []
++    head = statement_only(head)
+     spans = exist_spans(head)
+     binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
++    concl = alpha(conclusion(head))
++    enc = [(b, t) for b, t in binders if concl and alpha(t) == concl]
++    if enc:
++        return 'ENCODES-CONCLUSION', 'the conclusion is the binder ' + ', '.join('%s : %s' % bt for bt in enc), binders
+     prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
+     if prem:
+         return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
+@@ -182,6 +259,10 @@ def self_test():
+         ('(hχ : χ ≠ 1) : P', 'theorem', 'DERIVES'),
+         ('(h : Register4_positivity lam) : P', 'theorem', 'INTERFACES'),
+         (': Prop', 'def', 'DEF'),
++        ('{a : ι} {s : Finset ι} (h : a ∉ s) : P a s', 'theorem', 'DERIVES'),
++        ('(n : ℕ) (h : ∀ k : ℕ, k + n = n + k) : ∀ m : ℕ, m + n = n + m', 'theorem', 'ENCODES-CONCLUSION'),
++        ('(n : ℕ) (h : ∀ k : ℕ, k + n = k + n) : ∀ m : ℕ, m + n = n + m', 'theorem', 'DERIVES'),
++        ('(n : ℕ) : ∀ j, R n j\n  | 0 => f\n  | j + 1 => g (hX : Q j)', 'theorem', 'DERIVES'),
+     ]
+     return all(grade(h, k)[0] == want for h, k, want in cases)
+ 
+@@ -189,5 +270,5 @@ def self_test():
+ if __name__ == '__main__':
+     ok = self_test()
+     print('\n'.join(RULE_TEXT))
+-    print('### self-test (seven headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
++    print('### self-test (eleven headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
+     raise SystemExit(0 if ok else 1)
+diff --git a/tools/test_e0_rule.py b/tools/test_e0_rule.py
+index 4cae605e..feb7c649 100644
+--- a/tools/test_e0_rule.py
++++ b/tools/test_e0_rule.py
+@@ -9,12 +9,24 @@
+ ###       named negative case;
+ ###   (5) a named Prop premise beside a class binder still reads INTERFACES;
+ ###   (6) `conclusion` reads past ( ), { }, [ ] binder groups to the ':'.
+-### Usage: python tools/test_e0_rule.py
++### b624, (R234)(2) and the author's two answers before b624's seal -- the statement's binders alone, `∉`, ENCODES-CONCLUSION:
++###   (7) finsetSum_productLemma at v0.21, its header read by the page generator's own reader, reads DERIVES (its induction
++###       hypothesis lives in the proof);
++###   (8) finsetSum_insert, the step lemma, at v0.21 reads DERIVES on its non-membership binder `h : a ∉ s`;
++###   (9) power_contDiff (PowerWindow.lean) at v0.21, proved by match arms with no `:=`, reads its statement's binders alone;
++###   (10) a planted module, one named premise in its statement and an induction in its proof, reads INTERFACES on that
++###       premise alone;
++###   (11) a planted shell, the conclusion an alpha-variant binder, reads ENCODES-CONCLUSION;
++###   (12) beside it a merely similar Prop as a binder does not read ENCODES-CONCLUSION.
++### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
++### when none is given), their absolute paths printed; they are read as text and never built.
++### Usage: python tools/test_e0_rule.py [planted-directory]
+ """
+ import os
+ import re
+ import subprocess
+ import sys
++import tempfile
+ 
+ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ sys.path.insert(0, os.path.join(ROOT, 'tools'))
+@@ -33,6 +45,41 @@ def header(rel, short):
+     return ' '.join(m.group(1).split()) if m else None
+ 
+ 
++V021 = '1d5d4dd'
++NL = chr(10)
++PLANTED = {
++    'PlantedInterface.lean': NL.join([
++        '-- b624 planted module (relay tools/test_e0_rule.py): one named premise in the statement, an induction in the proof.',
++        'namespace Planted', '',
++        'def NamedPremise (n : Nat) : Prop := n = n', '',
++        'theorem sum_le_of_premise (hP : NamedPremise 0) (s : List Nat) : s.length ≤ s.length + 1 := by',
++        '  induction s with',
++        '  | nil => simp',
++        '  | cons a t ih => simp', '',
++        'end Planted', '']),
++    'PlantedShell.lean': NL.join([
++        '-- b624 planted module (relay tools/test_e0_rule.py): the conclusion as a binder, and a merely similar Prop beside it.',
++        'namespace PlantedShell', '',
++        'theorem shell_planted (n : Nat) (h : ∀ k : Nat, k + n = n + k) : ∀ m : Nat, m + n = n + m := h', '',
++        'theorem similar_planted (n : Nat) (h : ∀ k : Nat, k + n = k + n) : ∀ m : Nat, m + n = n + m := fun m => Nat.add_comm m n', '',
++        'end PlantedShell', '']),
++}
++
++
++def kernel_header(rel, short, CP):
++    """### the declaration's header at v0.21 as the page generator reads it (chain_page.source_header)."""
++    src = subprocess.run(['git', '-C', KER, 'show', '%s:%s' % (V021, rel)], capture_output=True).stdout.decode('utf-8').replace(chr(13), '')
++    ls = [i + 1 for i, l in enumerate(src.split(NL)) if re.match(r'^(theorem|lemma) ' + re.escape(short) + r'(?![\w\'])', l)]
++    return CP.source_header(src, short, ls[0]) if ls else None
++
++
++def planted_grade(path, short, CP):
++    src = open(path, encoding='utf-8').read()
++    ls = [i + 1 for i, l in enumerate(src.split(NL)) if re.match(r'^theorem ' + re.escape(short) + r'(?![\w\'])', l)]
++    h = CP.source_header(src, short, ls[0]) if ls else None
++    return E0.grade(h or '', 'theorem')[:2] if h else ('UNREAD', '')
++
++
+ def main():
+     res = []
+ 
+@@ -40,7 +87,7 @@ def main():
+         res.append(bool(cond))
+         print('  %-104s %s' % (label, 'PASS' if cond else '### FAIL'))
+ 
+-    want('(1) the rule`s own self-test (b568`s seven headers)', E0.self_test())
++    want('(1) the rule`s own self-test (b568`s seven headers and b624`s four)', E0.self_test())
+     for rel, short in (('SIDEExplicitFormula/Chi/LocalCount.lean', 'LFunction_zeros_finite_of_isCompact'),
+                        ('SIDEExplicitFormula/Chi/ZeroSummability.lean', 'EF_zero_sum_summable_chi')):
+         h = header(rel, short)
+@@ -54,6 +101,28 @@ def main():
+     want('(5) a named premise beside a class binder: INTERFACES (read %s)' % g5[0], g5[0] == 'INTERFACES')
+     c6 = E0.conclusion('{N : ℕ} [NeZero N] (h1 : χ ≠ 1) {K : Set ℂ} (hK : IsCompact K) : (K ∩ s).Finite')
+     want('(6) conclusion reads past the binder groups (read %r)' % c6, c6.strip() == '(K ∩ s).Finite')
++    import chain_page as CP
++    for i, (rel, short, wantg, wantb) in enumerate((('SIDEExplicitFormula/Schema/Family.lean', 'finsetSum_productLemma', 'DERIVES', []),
++                                                     ('SIDEExplicitFormula/Schema/Family.lean', 'finsetSum_insert', 'DERIVES', ['h']),
++                                                     ('SIDEExplicitFormula/PowerWindow.lean', 'power_contDiff', 'INTERFACES', ['hg', 'hs'])), 7):
++        h = kernel_header(rel, short, CP)
++        g = E0.grade(h or '', 'theorem')
++        want('(%d) %s at v0.21 reads %s on binders %s (read %s; binders %s)' % (i, short, wantg, wantb, g[0], [b for b, _t in g[2]]),
++             h is not None and g[0] == wantg and [b for b, _t in g[2]] == wantb)
++    pdir = sys.argv[1] if len(sys.argv) > 1 else tempfile.mkdtemp()
++    os.makedirs(pdir, exist_ok=True)
++    for fn, text in PLANTED.items():
++        p = os.path.abspath(os.path.join(pdir, fn))
++        open(p, 'w', encoding='utf-8', newline=NL).write(text)
++        print('  planted: %s (%d bytes)' % (p, len(text.encode('utf-8'))))
++    gi = planted_grade(os.path.join(pdir, 'PlantedInterface.lean'), 'sum_le_of_premise', CP)
++    want('(10) the planted interface, an induction in its proof, reads INTERFACES on its one premise (read %s; %s)' % (gi[0], gi[1]),
++         gi[0] == 'INTERFACES' and gi[1] == 'hP : NamedPremise 0')
++    gs_ = planted_grade(os.path.join(pdir, 'PlantedShell.lean'), 'shell_planted', CP)
++    want('(11) the planted shell, the conclusion an alpha-variant binder, reads ENCODES-CONCLUSION (read %s; %s)' % (gs_[0], gs_[1][:60]),
++         gs_[0] == 'ENCODES-CONCLUSION')
++    gn = planted_grade(os.path.join(pdir, 'PlantedShell.lean'), 'similar_planted', CP)
++    want('(12) a merely similar Prop as a binder does not read ENCODES-CONCLUSION (read %s)' % gn[0], gn[0] != 'ENCODES-CONCLUSION')
+     n = sum(res)
+     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
+     return 0 if n == len(res) else 1
