@@ -35,7 +35,7 @@ ROOT_FILES = ('tools/act_root.py', 'tools/test_act_root.py')
 CLAUSE_NODES = [('SIDEExplicitFormula.Schema.Family.finsetSum_productLemma', 'SIDEExplicitFormula/Schema/Family.lean', 136),
                 ('SIDEExplicitFormula.Schema.Family.finsetSum_insert', 'SIDEExplicitFormula/Schema/Family.lean', 130),
                 ('SIDEExplicitFormula.Schema.Family.family_theorem', 'SIDEExplicitFormula/Schema/Family.lean', 213),
-                ('SIDEExplicitFormula.PowerWindow.power_contDiff', 'SIDEExplicitFormula/PowerWindow.lean', 139)]
+                ('SIDEExplicitFormula.B321.power_contDiff', 'SIDEExplicitFormula/PowerWindow.lean', 139)]
 # ### the four ledger cells that grade finsetSum_insert INTERFACES in the table (the table's own reader, at relay 884d0848)
 INSERT_CELLS = [('FINDINGS.md', 7058), ('OPEN_TRAILS.md', 12424), ('OPEN_TRAILS.md', 12434), ('OPEN_TRAILS.md', 12438)]
 
