@@ -26,6 +26,12 @@
 ###       conditions; at v0.21 B321.paperFT_polyOp reads DERIVES on its support binder; a Prop about a fixed object behind a
 ###       bounded quantifier's range (register3_of_one_lt_re`s `∀ C ∈ sevenClasses, C Phi`) is a premise.
 ###   (9) power_contDiff now reads DERIVES on hg and hs -- its support binder a domain condition under clause (iii).
+### b626, (R236)(2) and the author's answer before b626's seal -- the seam antecedent and the data binder:
+###   (16) h2_sign_imp_rh_of_seam at v0.21 reads INTERFACES on the seam rh_strip_imp_rh its arrow carries;
+###   (17) paperFT_growth and paperFT_growth_at at v0.21 read DERIVES, their data binder h : ℝ → ℂ not entering;
+###   (18) a planted P → Q with P a domain condition reads DERIVES, and a plain implication between open statements keeps DERIVES,
+###       where a seam antecedent reads INTERFACES;
+###   (19) a planted theorem whose data binder is named h reads its Prop binders alone.
 ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
 ### when none is given), their absolute paths printed; they are read as text and never built.
 ### Usage: python tools/test_e0_rule.py [planted-directory]
@@ -95,7 +101,7 @@ def main():
         res.append(bool(cond))
         print('  %-104s %s' % (label, 'PASS' if cond else '### FAIL'))
 
-    want('(1) the rule`s own self-test (b568`s seven headers, b624`s four and b625`s four)', E0.self_test())
+    want('(1) the rule`s own self-test (b568`s seven headers, b624`s four, b625`s four and b626`s three)', E0.self_test())
     for rel, short in (('SIDEExplicitFormula/Chi/LocalCount.lean', 'LFunction_zeros_finite_of_isCompact'),
                        ('SIDEExplicitFormula/Chi/ZeroSummability.lean', 'EF_zero_sum_summable_chi')):
         h = header(rel, short)
@@ -145,6 +151,27 @@ def main():
     b15 = E0.grade('(h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → R s', 'theorem')
     want('(15) clause (iii): restrictions on the quantified function read %s; paperFT_polyOp at v0.21 %s; behind a range %s' % (
          a15[0], k15[0], b15[0]), a15[0] == 'DERIVES' and hk is not None and k15[0] == 'DERIVES' and b15[0] == 'INTERFACES')
+    h16 = kernel_header('SIDEExplicitFormula/PowerLimit.lean', 'h2_sign_imp_rh_of_seam', CP)
+    g16 = E0.grade(h16 or '', 'theorem')
+    want('(16) h2_sign_imp_rh_of_seam at v0.21 reads INTERFACES on its seam (read %s; %s)' % (g16[0], g16[1]),
+         h16 is not None and g16[0] == 'INTERFACES' and g16[1] == '→ : rh_strip_imp_rh')
+    g17 = []
+    for short in ('paperFT_growth', 'paperFT_growth_at'):
+        h17 = kernel_header('SIDEExplicitFormula/GrowthBound.lean', short, CP)
+        g = E0.grade(h17 or '', 'theorem')
+        g17.append((short, h17 is not None, g[0], [b for b, _t in g[2]]))
+    want('(17) paperFT_growth and paperFT_growth_at at v0.21 read DERIVES without h (read %s)' % [(x[0], x[2], x[3]) for x in g17],
+         all(x[1] and x[2] == 'DERIVES' and 'h' not in x[3] for x in g17) and len(g17) == 2)
+    a18 = E0.grade('(n : ℕ) : 1 ≤ n → Q n', 'theorem')
+    b18 = E0.grade(': RiemannHypothesis → h2_sign', 'theorem')
+    c18 = E0.grade('(x : ℝ) : rh_strip_imp_rh → Q x', 'theorem')
+    want('(18) a domain antecedent reads %s; a plain implication between open statements %s; a seam antecedent %s' % (a18[0], b18[0], c18[0]),
+         a18[0] == 'DERIVES' and b18[0] == 'DERIVES' and c18[0] == 'INTERFACES')
+    a19 = E0.grade('(h : ℝ → ℝ) (hc : Continuous h) : Q h', 'theorem')
+    b19 = E0.grade('(h : ℝ → ℝ) (hP : NamedPremise h) : Q h', 'theorem')
+    want('(19) a data binder named h does not enter (read %s, binders %s); beside a named premise %s on %s' % (
+         a19[0], [b for b, _t in a19[2]], b19[0], b19[1]),
+         a19[0] == 'DERIVES' and [b for b, _t in a19[2]] == ['hc'] and b19[0] == 'INTERFACES' and b19[1] == 'hP : NamedPremise h')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1
