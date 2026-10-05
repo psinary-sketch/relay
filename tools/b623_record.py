@@ -122,9 +122,11 @@ def defects(*a):
 
 # ================================================================================ (R233)(3): THE TEST COUNT
 def count_cases(text, case_re=None):
-    """### THE SEALED FORM, b622's: every line ending in PASS or FAIL is a case. (R233)(3) repairs it after the seal."""
-    cases = [l for l in (text or '').split(NL) if re.search(r'( PASS| FAIL)$', l)]
-    return len(cases), sum(1 for c in cases if c.endswith(' PASS'))
+    """### THE STANDING REPAIR, (R233)(3) (OPEN_TRAILS :12889): a test's cases are the lines its own case pattern matches, never its
+    ### summary lines; a case passes when its line ends in PASS."""
+    rx = re.compile(case_re or COUNT_CASE)
+    cases = [l for l in (text or '').split(NL) if rx.search(l)]
+    return len(cases), sum(1 for c in cases if c.rstrip().endswith('PASS'))
 
 
 PUSH_CASE = r'^  [A-Z] \S.* : wanted .* ; got .* ; (?:PASS|### FAIL)$'    # ### test_push_gated.sh's check lines
