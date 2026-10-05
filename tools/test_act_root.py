@@ -9,6 +9,11 @@
 ###   (5) the previous root of a chain's first act is the empty string's sha256;
 ###   (6) verify reads a chain whose second line names a previous root other than the first line's root as DISAGREE, on a
 ###       roots file and banks written to a fresh temporary directory, never relay's.
+### b625, (R235)(3) -- the repository list widened:
+###   (7) verify reads a line carrying "list widened: +<kernel>" AGREE when the act's banked heads gain exactly that kernel on the
+###       previous act's, and a line whose note names a kernel the heads do not gain DISAGREE (fresh temporary directory);
+###   (8) the repositories read at PLACE-papers HEAD hold every kernel of the census's kernel column, every kernel REGISTRY's kernel
+###       rows name and every kernel a page pins -- SIDE-explicit-formula among them.
 ### Nothing in relay is written. Usage: python tools/test_act_root.py
 """
 import hashlib
@@ -69,6 +74,36 @@ def main():
         AR.D, AR.ROOTS, AR.ROOT = save
     want('(6) verify reads a broken chain`s second act DISAGREE and its first AGREE (read %s)' % [(x[0], x[1]) for x in v],
          [(x[0], x[1]) for x in v] == [('t001', 'AGREE'), ('t002', 'DISAGREE')])
+    d = tempfile.mkdtemp()
+    save = (AR.D, AR.ROOTS, AR.ROOT)
+    try:
+        AR.D, AR.ROOTS, AR.ROOT = d, os.path.join(d, 'act_roots.txt'), d
+        hs = (dict(relay='a', **{'SIDE-x': 'b'}), dict(relay='a', **{'SIDE-x': 'b', 'SIDE-y': 'c'}), dict(relay='a', **{'SIDE-x': 'b', 'SIDE-y': 'c'}))
+        prev, lines = EMPTY, []
+        for i, (act, h, note) in enumerate((('t101', hs[0], ''), ('t102', hs[1], 'list widened: +SIDE-y'), ('t103', hs[2], 'list widened: +SIDE-z'))):
+            r = AR.root_of([], prev)
+            json.dump(dict(act=act, root=r, previous=prev, items=[], reads=dict(heads=h, tags={}, banks={})),
+                      open(os.path.join(d, '%s_act_root.json' % act), 'w'))
+            lines.append('%s %s %s%s' % (act, r, prev, (' ' + note) if note else ''))
+            prev = r
+        open(AR.ROOTS, 'w').write('\n'.join(lines) + '\n')
+        try:
+            v7 = AR.verify(remote=lambda p: {})
+        except Exception as e:
+            v7 = [('verify raised %s' % type(e).__name__, '')]
+    finally:
+        AR.D, AR.ROOTS, AR.ROOT = save
+    want('(7) a widened line AGREE when its heads gain exactly the kernel it names, DISAGREE when they do not (read %s)' % [(x[0], x[1]) for x in v7],
+         [(x[0], x[1]) for x in v7] == [('t101', 'AGREE'), ('t102', 'AGREE'), ('t103', 'DISAGREE')])
+    rp = AR.repositories('HEAD')
+    try:
+        rk, pk = AR.registry_kernels('HEAD'), AR.page_kernels('HEAD')
+    except AttributeError as e:
+        rk, pk = None, None
+    need = set(AR.census_kernels('HEAD')) | set(rk or []) | set(pk or [])
+    want('(8) the repositories at PLACE-papers HEAD: %d, the census`s %d, REGISTRY`s kernel rows %s, the pages` pins %s' % (
+         len(rp), len(AR.census_kernels('HEAD')), rk, pk),
+         rk is not None and need <= set(rp) and 'SIDE-explicit-formula' in rp and rp[:2] == ['relay', 'PLACE-papers'] and len(rp) == len(set(rp)))
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

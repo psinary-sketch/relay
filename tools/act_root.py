@@ -16,6 +16,12 @@
 ### repository: the chain (each previous root the line before's root), the root over the banked items, every bank's sha256
 ### now, every tag's peel at its remote now, every head an ancestor of (or equal to) the remote's main now; it prints AGREE
 ### or DISAGREE per act. It writes nothing. The deposit description carrying the root is a separate (R110) item.
+### ### **(R235)(3), b625: THE REPOSITORY LIST WIDENED.** From b625 the repositories are relay, PLACE-papers and the union of the
+### census's kernel column, REGISTRY's kernel rows (a table row whose first or second cell is a kernel's name alone) and every kernel
+### a page pins (the kernel each generated page's pin sentence names). The chain takes appends and no edits: b624's line stands as
+### written; an act whose repositories gain on the previous act's carries "list widened: +<kernel> ..." after its three fields, one
+### name per kernel gained, sorted. `verify` reads the three fields of every line and checks a note against the heads the two acts'
+### banks name.
 """
 import hashlib
 import io
@@ -77,8 +83,43 @@ def census_kernels(rev='HEAD'):
     return sorted(out)
 
 
+KERNEL = r'SIDE-[a-z0-9]+(?:-[a-z0-9]+)*'
+PAGES = ('THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md')
+
+
+def registry_kernels(rev='HEAD'):
+    """### REGISTRY's kernel rows: every table row whose first or second cell is a kernel's name alone (backticks and bold stripped)."""
+    t = g(PP, 'show', '%s:REGISTRY.md' % rev)
+    out = set()
+    for l in t.split(NL):
+        if l.startswith('|'):
+            cells = [c.strip().strip('`*').strip() for c in l.split('|')]
+            out |= set(c for c in cells[1:3] if re.fullmatch(KERNEL, c))
+    return sorted(out)
+
+
+def page_kernels(rev='HEAD'):
+    """### every kernel a page pins: the kernel each generated page's pin sentence ("It is generated at <kernel> ...") names."""
+    out = set()
+    for p in PAGES:
+        out |= set(re.findall(r'It is generated at (%s)\b' % KERNEL, g(PP, 'show', '%s:%s' % (rev, p))))
+    return sorted(out)
+
+
 def repositories(rev='HEAD'):
-    return ['relay', 'PLACE-papers'] + census_kernels(rev)
+    """### (R235)(3), from b625: relay, PLACE-papers and the union of the census's kernel column, REGISTRY's kernel rows and every
+    ### kernel a page pins."""
+    return ['relay', 'PLACE-papers'] + sorted(set(census_kernels(rev)) | set(registry_kernels(rev)) | set(page_kernels(rev)))
+
+
+def widened(heads, prev_act):
+    """### the note an act's line carries when its repositories gain on the previous act's banked heads: 'list widened: +a +b', or ''."""
+    if not prev_act:
+        return ''
+    jp = os.path.join(D, '%s_act_root.json' % prev_act)
+    prev = set(json.load(io.open(jp, encoding='utf-8'))['reads']['heads']) if os.path.exists(jp) else set()
+    gained = sorted(set(heads) - prev)
+    return ('list widened: ' + ' '.join('+' + k for k in gained)) if gained else ''
 
 
 VER = r'v\d+(?:\.\d+)*'
@@ -115,7 +156,7 @@ def root_of(items, previous):
 def last_root():
     if not os.path.exists(ROOTS):
         return EMPTY, None
-    ls = [l.split() for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
+    ls = [l.split()[:3] for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
     return (ls[-1][1], ls[-1][0]) if ls else (EMPTY, None)
 
 
@@ -154,8 +195,10 @@ def compute(act, banks, write=False):
     lines = sorted(items)
     for l in lines:
         print('  ' + l)
+    note = widened(reads['heads'], prev_act)
     print('### previous root (%s): %s' % (prev_act or 'the empty string', prev))
-    print('### ### **ACT ROOT %s : %s** (repositories %d ; tags %d ; banks %d)' % (act, root, len(reads['heads']), len(reads['tags']), len(reads['banks'])))
+    print('### ### **ACT ROOT %s : %s** (repositories %d ; tags %d ; banks %d)%s' % (act, root, len(reads['heads']), len(reads['tags']),
+                                                                                    len(reads['banks']), (' ; ' + note) if note else ''))
     if write:
         if os.path.exists(ROOTS) and re.search(r'^%s ' % re.escape(act), io.open(ROOTS, encoding='utf-8').read(), re.M):
             raise SystemExit('### %s ALREADY IN data/act_roots.txt -- NOTHING WRITTEN' % act)
@@ -167,7 +210,7 @@ def compute(act, banks, write=False):
             open(p + '.tmp', 'wb').write(body.encode('utf-8'))
             os.replace(p + '.tmp', p)
         with open(ROOTS, 'ab') as f:
-            f.write(('%s %s %s' % (act, root, prev) + NL).encode('utf-8'))
+            f.write(('%s %s %s%s' % (act, root, prev, (' ' + note) if note else '') + NL).encode('utf-8'))
         print('  written: data/act_roots.txt (+1 line), data/%s_act_root.json, data/%s_act_root.txt' % (act, act))
     return root, items, prev
 
@@ -177,9 +220,11 @@ def verify(remote=ls_remote):
     out = []
     if not os.path.exists(ROOTS):
         return out
-    rows = [l.split() for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
-    prev_expect = EMPTY
-    for act, root, prev in rows:
+    rows = [l.split(None, 3) for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
+    prev_expect, prev_heads = EMPTY, None
+    for row in rows:
+        act, root, prev = row[:3]
+        note = row[3].strip() if len(row) > 3 else ''
         why = []
         jp = os.path.join(D, '%s_act_root.json' % act)
         if not os.path.exists(jp):
@@ -191,6 +236,13 @@ def verify(remote=ls_remote):
             why.append('the chain: previous %s, the line before %s' % (prev[:12], prev_expect[:12]))
         if j.get('root') != root or j.get('previous') != prev or root_of(j['items'], prev) != root:
             why.append('the root over the banked items does not recompute')
+        heads = set(((j.get('reads') or {}).get('heads') or {}))
+        if note or prev_heads is not None:
+            gained = sorted(heads - prev_heads) if prev_heads is not None else []
+            want = ('list widened: ' + ' '.join('+' + k for k in gained)) if gained else ''
+            if note != want:
+                why.append('the line`s note %r, the heads gained %r' % (note, want))
+        prev_heads = heads
         for it in j['items']:
             parts = it.split()
             if parts[0].startswith('data/'):
