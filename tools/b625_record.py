@@ -866,6 +866,43 @@ def closure(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 3: THE RE-PRICED ITEM, BY THE AUTHOR'S ANSWER
+RP_HEAD = '*Appended 2026-10-05 by b625 to W-ORD-VENDOR-FINALMULT (:12290), under the author’s answer at b625’s hold -- RE-PRICED, TWO ROUTES, NEITHER STARTED:*'
+
+
+def _repriced_text():
+    CL = jl('b625_closure.json')
+    tc = CL['toolchain']
+    return ('\n%s the listing (relay data/b625_closure.txt) shows a port, not a vendor: %d modules of the closure outside the vendored set, '
+            '%d lines, %d distinct Mathlib and Batteries imports, across a toolchain step (upstream %s with Mathlib %s; the kernel %s with '
+            'Mathlib %s), so every module is a build against a different Mathlib and the %d byte-identical modules already vendored are no '
+            'guide to the rest. **Route (a), the port:** the closure split by directory, under twenty new modules per act, the toolchain '
+            'question settled in the opening act, at the listing’s figures. **Price:** not fewer than five acts. **Route (b), the '
+            'cross-kernel discharge:** Zeta23 at v1.0 = 3635e748 prints #print axioms on thmB₀_mult in its own build, the print banked with '
+            'the peeled SHA, and SimpleProportion’s two_thirds field carries a head-line citation to that pin and print, the grade staying '
+            'INTERFACES with the field’s discharge recorded at its source kernel. **Price:** one act, no port, no claim moved. **Trigger:** '
+            'the author’s word between them; neither starts at b625.\n' % (
+                RP_HEAD, CL['new'], sum(r['lines'] for r in CL['modules'] if r['state'] == 'NEW'), len(CL['external']), tc['upstream'],
+                (tc['mathlib_upstream'] or '')[:8], tc['kernel'], (tc['mathlib_kernel'] or '')[:8], len(CL['modules']) - CL['new']))
+
+
+def repriced(*a):
+    """### the author's answer at the hold: W-ORD-VENDOR-FINALMULT re-priced on OPEN_TRAILS with two routes, appended at the end and
+    ### addressed to :12290 (data/b625_repriced.json); no table cell (predicted)."""
+    Q = R2._Q()
+    t = _repriced_text()
+    cells = predict_cells(t, 'OPEN_TRAILS.md')
+    nd, _n = _nd(t)
+    sc, clean = _scan_text(t, 'repriced')
+    print('  table cells: %s ; no-disclosure hits: %s ; scanner %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN'))
+    if 'dry' in a:
+        print(t)
+        return
+    if cells or any(nd.values()) or not clean:
+        sys.exit('### THE LINE WOULD MAKE A TABLE CELL, CARRY TECHNE TEXT OR A STEM -- NOTHING WRITTEN')
+    _land(Q, [('OPEN_TRAILS.md', RP_HEAD, t)], 'b625_repriced.json')
+
+
 # ================================================================================ COMPONENT 5: THE TABLE, THE PAGES, THE ROOT
 def table(*a):
     r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
@@ -1227,7 +1264,9 @@ def _finding_text():
          'listing banked before any copy, the free memory read (%d MB), no module built, nothing copied, no branch made. The author’s '
          'answer at the hold: %s. H59a-H59c %s, %s, %s.' % (
              len(CL['modules']), sum(r['lines'] for r in CL['modules']), len(CL['modules']) - CL['new'], CL['new'], len(CL['external']),
-             CL['toolchain']['upstream'], CL['toolchain']['kernel'], CL['free_mb'], _answer()[:400], S['H59a'][0], S['H59b'][0], S['H59c'][0]), '',
+             CL['toolchain']['upstream'], CL['toolchain']['kernel'], CL['free_mb'], _answer()[:400], S['H59a'][0], S['H59b'][0], S['H59c'][0])
+         + (' The work-order re-priced by that answer with two routes, the port and the cross-kernel discharge, neither started '
+            '(OPEN_TRAILS :%d).' % jx('b625_repriced.json')['lines'][0]['line'] if jx('b625_repriced.json') else ''), '',
          '**The 33 nodes** (`(R235)`(2)): each binder printed and classed -- %d agreeing with the ledger after the criterion and closed in '
          'the bank; %d corrected, the step lemma of the family form, its four cells each taking a dated correction entry in the table’s '
          'own supersession form (FINDINGS :%d; OPEN_TRAILS :%d, :%d, :%d); %d printed for the author’s ruling, keeping the ledger’s grade: '
@@ -1313,8 +1352,10 @@ def _trail_text():
                                               rl['lines'][2]['line'], rl['lines'][3]['line'], CO['lines'][1]['line'], CO['lines'][2]['line'],
                                               CO['lines'][3]['line'], e0c, arc), '',
              '**Act root:** b625 `%s` (previous `%s`, b624’s; relay data/act_roots.txt).' % (J['root'], J['previous']), '',
-             '**The hold, and the author’s answer** (relay data/b625_author_answers.txt): the closure %d modules, %d not vendored; %s.' % (
-                 len(CL['modules']), CL['new'], _answer()[:500]), '',
+             '**The hold, and the author’s answer** (relay data/b625_author_answers.txt): the closure %d modules, %d not vendored; %s.%s' % (
+                 len(CL['modules']), CL['new'], _answer()[:500],
+                 (' The work-order re-priced with two routes, neither started: OPEN_TRAILS :%d.' % jx('b625_repriced.json')['lines'][0]['line'])
+                 if jx('b625_repriced.json') else ''), '',
              '**For the author’s ruling:** %s.' % ('; '.join('%s -- %s' % (r['name'], r['why']) for r in unc) or 'none'), '',
              '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
              '**Defects** (relay data/b625_defects.txt): %s.' % ('; '.join(DEFECT_SHORT) if DEFECT_SHORT else 'none recorded'), '',
