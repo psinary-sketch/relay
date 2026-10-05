@@ -1,0 +1,626 @@
+b621 -- COMPONENT 2: THE ROWS, (R231)(3)(iii), RE-READ AND BANKED BEFORE ANY EDITION IS WRITTEN (2026-10-05T01:12:20Z)
+
+### THE RULE, (R231)(3)(iii): for the six kernel-verified rows graded down, the terminal`s statement at its pin printed beside the paper`s cited lines -- where the statement carries the claim the grade stands with the terminal named in the row, where it does not the grade moves to what the lines support; for the 46 others the lower grade governs unless the seat names a cited line the packet omitted, each printed with its reason; ties fall to the lower grade.
+### THE ORDER OF THE GRADES (reading R-7): the grading rule`s own order as each synthesis prints it -- kernel-verified, theorem-supported, computationally-verified, argument-supported, synthesis-suggested, statement-grade, highest first.
+### the synthesis files read at PLACE-papers e6a3fbf; the papers and the terminals at their pins.
+
+### PART A -- THE SIX KERNEL-VERIFIED ROWS:
+
+  R060  P12 ME-09  (phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md at its line :57)  seat kernel-verified ; reader statement-grade -- the reader`s line: the formula is stated with no derivation or pin
+    the claim: ME states the Spectral Cannon: the derivative of the completed zeta function is purely imaginary on the critical line.
+    the row`s backing cell: `SpectralCannonFull.spectral_cannon` at SIDE-kernel v1.2, named at ME :408; its statement at that pin is exactly this -- read at the pin: `SpectralCannonFull.spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0`
+    the paper`s lines, phase1.5/proofs/MECHANISM_EXCLUSION.md @ f374bba:
+      :145   [cited] Re(Λ₀'(1/2 + it)) = 0
+      :408   [naming the terminal at its pin] Each file compiles with 0 `sorry` against Mathlib. The conditional `StructuralExhaustiveness → RH` is the kernel's output; **the present paper argues for the antecedent** via the mechanism enumeration and per-class exclusion. The kernel is cited by named terminal, not by count: at SIDE-kernel `v1.2` (`b1407b2`, `#print axioms` 2026-07-10) `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon` and `ConservationBridge.riemann_hypothesis` compile with 0 `sorry` and depend on exactly `{propext, Classical.choice, Quot.sound}`; `SIDEKernel.formation` and `SIDEKernel.formation_count
+    the terminal`s statement at its pin:
+      SIDE-kernel @ b1407b2 (b1407b2231c6) Kernel/SpectralCannonFull.lean :58-:59
+        :58   theorem spectral_cannon (t : ℝ) :
+        :59       (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 := by
+    ### VERDICT: STANDS at kernel-verified -- the statement at the pin is the paper’s line: the real part of the derivative of completedRiemannZeta₀ (the paper’s Λ₀) vanishes at every point of the critical line, so the derivative is purely imaginary there
+
+  R066  P12 IP-03  (phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md at its line :75)  seat kernel-verified ; reader statement-grade -- the reader`s line: a theorem heading only
+    the claim: IP states that the Euler product’s contributions balance, p^(−σ) = p^(−(1−σ)), only at σ = 1/2.
+    the row`s backing cell: `balance_theorem` of `Voice1.lean`, which EA :538 and :542 name at v1.2 as the balance theorem; its statement at that pin is this equivalence for a prime p -- read at the pin: `balance_theorem p hp s : p^(−s) = p^(−(1−s)) ↔ s = 1/2` for a prime p (:22-:24)
+    the paper`s lines, phase1.5/proofs/INTEGRATED_PROOF.md @ f374bba:
+      :97    [cited] **THEOREM (Euler Product Balance):** The Euler product contributions
+      :98    [cited] balance only at σ = 1/2.
+    the terminal`s statement at its pin:
+      SIDE-kernel @ b1407b2 (b1407b2231c6) Kernel/Voice1.lean :22-:24
+        :22   theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :
+        :23       (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s))
+        :24       <-> s = 1 / 2 := by
+    ### VERDICT: STANDS at kernel-verified -- the statement is the balance for a prime p and a real exponent: p^(−s) = p^(−(1−s)) if and only if s = 1/2, the claim; the terminal is the one EA :538 and :542, papers of the same cluster, name at v1.2, as the row states
+
+  R089  P12 IR-08  (phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md at its line :72)  seat kernel-verified ; reader statement-grade -- the reader`s line: the named terminals do not include the conditional itself, so the compiled statements do not carry it
+    the claim: IR states that the kernel’s output is the conditional StructuralExhaustiveness → RH and that the paper argues for its antecedent.
+    the row`s backing cell: the same compiled conditional as EA-20, at the pin IR :302 names -- read at the pin: `techne_kernel_integration.rh_from_structural_exhaustiveness (h : StructuralExhaustiveness) : RiemannHypothesis`, its antecedent (:201-:202) ∀ σ, is_xi_zero σ → σ = 1/2
+    the paper`s lines, phase1.5/proofs/IDS_TO_RH.md @ f374bba:
+      :300   [omitted by the packet: the file named] 4. `Integration.lean` — the assembled conditional
+      :302   [cited] Each file compiles with 0 `sorry` against Mathlib. The conditional `StructuralExhaustiveness → RH` is the kernel's output; **the present paper argues for the antecedent** by deriving the Mechanism Theorem from I+D+S and applying it to the ξ specification. The kernel is cited by named terminal, not by count: at SIDE-kernel `v1.2` (`b1407b2`, `#print axioms` 2026-07-10) `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon` and `ConservationBridge.riemann_hypothesis` compile with 0 `sorry` and depend on exactly `{propext, Classical.choice, Quot.sound}`; `SIDEKernel.formation` a
+    the terminal`s statement at its pin:
+      SIDE-kernel @ b1407b2 (b1407b2231c6) Kernel/Integration.lean :201-:202
+        :201  def StructuralExhaustiveness : Prop :=
+        :202    ∀ (sigma : Real), is_xi_zero sigma → sigma = 1 / 2
+      SIDE-kernel @ b1407b2 (b1407b2231c6) Kernel/Integration.lean :210-:212
+        :210  theorem rh_from_structural_exhaustiveness
+        :211      (h : StructuralExhaustiveness) :
+        :212      RiemannHypothesis := by
+    ### VERDICT: STANDS at kernel-verified -- IR :300 names `Integration.lean` as “the assembled conditional” and :302 its pin; the theorem there states the conditional StructuralExhaustiveness → RiemannHypothesis the claim names, with StructuralExhaustiveness defined as ∀ σ, is_xi_zero σ → σ = 1/2; that the paper argues for the antecedent is the paper’s own sentence at :302
+
+  R108  P12 EA-20  (phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md at its line :47)  seat kernel-verified ; reader statement-grade -- the reader`s line: the named terminals do not include the conditional itself, so the compiled statements do not carry it
+    the claim: EA states that the conditional StructuralExhaustiveness → RH is the kernel’s output and that the paper argues for the antecedent.
+    the row`s backing cell: `Integration.lean` named at :540 and the pin v1.2 at :542; the antecedent at that pin is ∀ σ, is_xi_zero σ → σ = 1/2, so the compiled conditional’s antecedent is RH in the kernel’s encoding -- read at the pin: `techne_kernel_integration.rh_from_structural_exhaustiveness (h : StructuralExhaustiveness) : RiemannHypothesis`, its antecedent (:201-:202) ∀ σ, is_xi_zero σ → σ = 1/2
+    the paper`s lines, phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md @ f374bba:
+      :540   [omitted by the packet: the file named] 4. `Integration.lean` — the assembled conditional
+      :542   [cited] Each file compiles with 0 `sorry` against Mathlib. The conditional `StructuralExhaustiveness → RH` is the kernel's output; **the present paper argues for the antecedent**. The kernel is cited by named terminal, not by count: at SIDE-kernel `v1.2` (`b1407b2`, `#print axioms` 2026-07-10) `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon` and `ConservationBridge.riemann_hypothesis` compile with 0 `sorry` and depend on exactly `{propext, Classical.choice, Quot.sound}`; `SIDEKernel.formation` and `SIDEKernel.formation_count` are axiom-free. *(Pin currency, 2026-07-23: the audi
+    the terminal`s statement at its pin:
+      SIDE-kernel @ b1407b2 (b1407b2231c6) Kernel/Integration.lean :201-:202
+        :201  def StructuralExhaustiveness : Prop :=
+        :202    ∀ (sigma : Real), is_xi_zero sigma → sigma = 1 / 2
+      SIDE-kernel @ b1407b2 (b1407b2231c6) Kernel/Integration.lean :210-:212
+        :210  theorem rh_from_structural_exhaustiveness
+        :211      (h : StructuralExhaustiveness) :
+        :212      RiemannHypothesis := by
+    ### VERDICT: STANDS at kernel-verified -- EA :540 names `Integration.lean` as “the assembled conditional” and :542 its pin; the statement is the conditional the claim names, as at R089
+
+  R074  2D YM-20  (phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_2.md at its line :207)  seat kernel-verified ; reader statement-grade -- the reader`s line: a bibliography entry, and the gapped True placeholder is not stated
+    the claim: YM cites SIDE-effects Structural.lean at c66f3c5 and a27415d for the mass_gap placeholder, `gapped` True on each sector, retired at the later pin.
+    the row`s backing cell: SIDE-effects c66f3c5 = commit c66f3c590adf, on the remote main ef4cff7: SIDEEffects/Structural.lean `YangMills.mass_gap : ¬Massless` (:56), from `all_gapped` (:49) over `gapped` defined True on each sector (:43); SIDEEffects/Structural.lean `gapped` defined by cases, True on each of four sectors (:43-:47); SIDEEffects/Structural.lean the placeholder recorded as retired (:73)
+    the paper`s lines, phase2/physics/YANG_MILLS_MONOGRAPH.md @ e7b444e:
+      :405   [cited] Seale, J.Y. (2026). *SIDE-effects* (`SIDEEffects/Structural.lean`, GitHub `psinary-sketch/SIDE-effects`, pins `c66f3c5` / `a27415d`). Vanilla-Lean placement kernel; the `mass_gap` placeholder is retired from `Structural.lean` (W-2). No Zenodo deposit; cited by pin. *The genuine formation-level content is `SIDE-yang-mills-formation` v0.1.1 = `73e9e2c` — relabeled as a formation-level placement skeleton over stipulated data (W-5 d′ scaffolding relabel), not a claim-bearing proof.*
+    the terminal`s statement at its pin:
+      SIDE-effects @ c66f3c5 (c66f3c590adf) SIDEEffects/Structural.lean :43-:47
+        :43   def gapped : Sector → Prop
+        :44     | .perturbative => True  -- β(g)<0 generates scale Λ_QCD
+        :45     | .instanton    => True  -- tunneling → gluon condensate → gap
+        :46     | .vortex       => True  -- confinement → string tension → gap
+        :47     | .monopole     => True  -- dual Meissner → gap
+      SIDE-effects @ c66f3c5 (c66f3c590adf) SIDEEffects/Structural.lean :49-:49
+        :49   theorem all_gapped : ∀ s : Sector, gapped s := by
+      SIDE-effects @ c66f3c5 (c66f3c590adf) SIDEEffects/Structural.lean :56-:56
+        :56   theorem mass_gap : ¬Massless := by
+      SIDE-effects @ a27415d (a27415d1aa0c) SIDEEffects/Structural.lean :73-:74
+        :73   --     (Retired: `gapped := True` on four sectors ⇒ `mass_gap : ¬Massless`;
+        :74   --     `gap_bounds : 50 ≤ 170`. MetaKernel `ym_massless := False` likewise retired.)
+    ### VERDICT: STANDS at kernel-verified -- at c66f3c5 `gapped` is defined True on each of four sectors and `mass_gap : ¬Massless` follows from `all_gapped`, the placeholder YM cites; at a27415d the file records it retired (:73-:74) -- the claim, a statement of what YM cites, is carried by the two pins; the row’s cell placed the retirement line under c66f3c5, a fact the next version corrects (F01)
+
+  R118  2D MA-19  (phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_2.md at its line :118)  seat kernel-verified ; reader statement-grade -- the reader`s line: a fragment naming a pin with no statement
+    the claim: MA’s era annotation reads the xi_* cluster at SIDE-cosmo c5cba30 as deriving its counts from a tuple carried by definition.
+    the row`s backing cell: SIDE-cosmo c5cba30 = commit c5cba30ce201, on the remote main c5cba30: SIDECosmo/FormationPhaseSpace.lean xi defined as ⟨2, 3, 2, 0⟩ (:53); SIDECosmo/FormationPhaseSpace.lean `xi_total : total_slots xi = 81` by decide (:59), total_slots f = trans^(prim + output) (:22); SIDECosmo/FormationPhaseSpace.lean `xi_visible : visible_slots xi = 4` by decide (:60)
+    the paper`s lines, phase2/physics/MATTER_AS_ARITHMETIC.md @ e7b444e:
+      :180   [omitted by the packet: the annotation’s head] > touched by this annotation).** *The anchors' species, read at their pins: SIDE-omega-b
+      :181   [omitted by the packet: the annotation’s head] > `9c80279` — `omega_b_equals_4_over_81` DERIVES the 4/81 arithmetic from the def-carried
+      :182   [omitted by the packet: the annotation’s head] > tuple (its own commit says "skeleton level"; the tuple is the modeling premise, per the
+      :183   [cited] > T7 decomposition-dependence ruling); SIDE-cosmo `c5cba30` — the `xi_*` cluster the same
+      :184   [omitted by the packet: the annotation’s tail] > species; the Steane/syndrome terminals genuine decidable facts. The flagship formation
+      :185   [omitted by the packet: the annotation’s tail] > terminals split at the statement-read (the sum derives; the tuple by definition;
+      :186   [omitted by the packet: the annotation’s tail] > conversion-candidate sorted, the CardDerived neighbor confirmed). THE EMPIRICAL-ANCHOR
+    the terminal`s statement at its pin:
+      SIDE-cosmo @ c5cba30 (c5cba30ce201) SIDECosmo/FormationPhaseSpace.lean :22-:22
+        :22   def total_slots (f : FormationTuple) : ℕ := f.trans ^ (f.prim + f.output)
+      SIDE-cosmo @ c5cba30 (c5cba30ce201) SIDECosmo/FormationPhaseSpace.lean :53-:53
+        :53   def xi : FormationTuple := ⟨2, 3, 2, 0, by omega⟩
+      SIDE-cosmo @ c5cba30 (c5cba30ce201) SIDECosmo/FormationPhaseSpace.lean :59-:60
+        :59   theorem xi_total : total_slots xi = 81 := by decide
+        :60   theorem xi_visible : visible_slots xi = 4 := by decide
+    ### VERDICT: STANDS at kernel-verified -- xi is defined as the tuple ⟨2, 3, 2, 0⟩ and `xi_total` and `xi_visible` decide 81 and 4 from it -- counts derived from a tuple carried by definition, the annotation’s reading at :180-:186, of which the packet held one line
+
+### PART B -- THE 46 OTHERS (the reader`s grade, the seat`s, the omitted line the seat names if any, the verdict):
+
+  R012  15E TF-08  phase1.5/deep-structure/TRIVIUM_FINDINGS.md @ a79215a  (the synthesis`s line :53)  seat synthesis-suggested ; reader statement-grade (down) -- the reader`s line: step 5 asserts the Mechanism Theorem forbids off-line zeros, with no argument
+    the omitted line the seat names: TF :363-:369, :391
+      :363   **Step 1.** Establish the Trivium as an IDS system (Independent, Determined, Symmetric). This is done: the three roads are independent, the vector is fully determined, and the functional equation provides symmetry.
+      :365   **Step 2.** Show that IDS systems are spinorial — that the symmetry group acts as a double cover. This is done: the quarter-twist generates a cyclic-4 group with 720° return.
+      :367   **Step 3.** Prove that the spinor creates a phase-invariant landscape. This is done: M_H = vv† is invariant under v → iv, so V(σ) is independent of spinor state.
+      :369   **Step 4.** Show the landscape has a unique minimum at σ = 1/2. This is done: the landscape potential V(σ) achieves its minimum at the Trivium.
+      :391   The Mechanism Theorem — "in IDS systems, no mechanism → no effect" — is the load-bearing axiom. If it is true, the proof architecture is sound. If there exists a way for determined systems to produce effects without mechanisms (a "structural accident"), the entire framework collapses.
+    ### VERDICT: MOVES -- the grade statement-grade -- the omitted lines mark steps one to four done, a line each, and call the Mechanism Theorem the load-bearing axiom; they state the architecture and read no pattern across results
+
+  R042  15E TR-04  phase1.5/deep-structure/TRIVIUM.md @ a79215a  (the synthesis`s line :41)  seat theorem-supported ; reader statement-grade (down) -- the reader`s line: the fixed points are stated, with no argument
+    the omitted line the seat names: TR :67
+      :67    The free product of cyclic groups of order 2 and 3 (Serre, 1977). The generators {2, 3} of physical arithmetic appear simultaneously as:
+    ### VERDICT: MOVES -- the grade statement-grade -- TR :67 names Serre (1977) for the free product of the cyclic groups of orders 2 and 3, not for the fixed points the claim states; no theorem of the literature is named for them
+
+  R044  15E TF-04  phase1.5/deep-structure/TRIVIUM_FINDINGS.md @ a79215a  (the synthesis`s line :49)  seat theorem-supported ; reader statement-grade (down) -- the reader`s line: the line lists the pairs and names no theorem
+    the omitted line the seat names: TF :239
+      :239   Størmer's theorem (1897) states that for any fixed set of primes {p₁, ..., p_k}, there are only finitely many pairs of consecutive integers both of which are smooth with respect to those primes. For {2, 3}, the complete list is:
+    ### VERDICT: STANDS -- the grade theorem-supported -- TF :239 names Størmer’s theorem (1897) for the list the cited line gives
+
+  R050  15E TS-01  phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md @ a79215a  (the synthesis`s line :57)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the proposition is stated with no proof in the cited line
+    the omitted line the seat names: TS :100
+      :100   *Proof.* The equation n^{−σ} = n^{−(1−σ)} is equivalent to −σ log n = −(1−σ) log n, which for n ≥ 2 gives σ = 1 − σ, hence σ = 1/2. This is independent of n. ∎
+    ### VERDICT: STANDS -- the grade argument-supported -- TS :100 is the proposition’s argument: −σ log n = −(1−σ) log n gives σ = 1/2
+
+  R058  15E TR-03  phase1.5/deep-structure/TRIVIUM.md @ a79215a  (the synthesis`s line :40)  seat theorem-supported ; reader argument-supported (down) -- the reader`s line: argues the exponent through Poisson summation and the Fourier transform
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade argument-supported -- no line beyond :34 is cited; the line argues the exponent through Poisson summation and the Gaussian transform and names no theorem of the literature for it
+
+  R073  15E TS-21  phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md @ a79215a  (the synthesis`s line :77)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: a theorem heading without the formula
+    the omitted line the seat names: TS :549-:554
+      :550       V′ₖ(σ) = −|ξ′(σ + it_R(σ))|² / u_t(σ, t_R(σ))
+      :552   In particular, Vâ'– is strictly monotone on every interval where u_t maintains sign along the R-curve.
+      :554   *Proof.* Differentiating u(σ, t_R(σ)) = 0 in σ gives u_σ + u_t · t′_R = 0, hence t′_R(σ) = −u_σ/u_t. Now V′ₖ = v_σ + v_t · t′_R. By Cauchy–Riemann, v_σ = −u_t and v_t = u_σ. Substituting: V′ₖ = (−u_t) + u_σ · (−u_σ/u_t) = −u_t − u_σ²/u_t = −(u_t² + u_σ²)/u_t. Since ξ′(s) = u_σ − iu_t (the holomorphic derivative), we have |ξ′|² = u_σ² + u_t². Therefore V′ₖ(σ) = −|ξ′|²/u_t. ∎
+    ### VERDICT: STANDS -- the grade argument-supported -- TS :550 is the formula and :554 its argument by Cauchy–Riemann
+
+  R094  15E TR-01  phase1.5/deep-structure/TRIVIUM.md @ a79215a  (the synthesis`s line :38)  seat theorem-supported ; reader statement-grade (down) -- the reader`s line: a change of variable stated
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line is cited for the backing; the line states a change of variable
+
+  R023  2B IS-07  phase2/method/IDENTITY_SUBSPACE.md @ a4f16fe  (the synthesis`s line :136)  seat theorem-supported ; reader statement-grade (down) -- the reader`s line: the line lists the pairs and names no theorem
+    the omitted line the seat names: IS :157
+      :157   *Proof.* See [Størmer 1897] or [Lehmer 1964]. The proof reduces to solving finitely many Pell equations. □
+    ### VERDICT: STANDS -- the grade theorem-supported -- IS :157 names Størmer (1897) and Lehmer (1964) for the list
+
+  R032  2B IS-01  phase2/method/IDENTITY_SUBSPACE.md @ a4f16fe  (the synthesis`s line :130)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the proposition is stated with no proof in the cited line
+    the omitted line the seat names: IS :37
+      :37    *Proof.* The equation n^(−σ) = n^(−(1−σ)) is equivalent to −σ log n = −(1−σ) log n, which for n ≥ 2 gives σ = 1 − σ, hence σ = 1/2. This is independent of n. □
+    ### VERDICT: STANDS -- the grade argument-supported -- IS :37 is the proposition’s argument
+
+  R037  2B IS-12  phase2/method/IDENTITY_SUBSPACE.md @ a4f16fe  (the synthesis`s line :141)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the theorem is stated with no proof in the cited line
+    the omitted line the seat names: IS :307-:323
+      :307   *Proof.* The seven Legendre symbols ((−3/p), (−2/p), (−1/p), (2/p), (3/p), (6/p), (−6/p)) are not independent. They satisfy the multiplicative relations:
+      :309   - (6/p) = (2/p)(3/p)
+      :310   - (−6/p) = (−1/p)(2/p)(3/p)
+      :311   - (−2/p) = (−1/p)(2/p)
+      :312   - (−3/p) = (−1/p)(3/p)
+      :314   The three independent symbols are (−1/p), (2/p), and (3/p), each taking values ±1. The seven dependent values are determined by these three.
+      :316   The number of +1 values among the seven depends on how many of the three independent symbols are +1:
+      :318   - If all three are +1: all seven products are +1. Valence = 7.
+      :319   - If exactly two are +1: direct enumeration shows valence = 3 in every case.
+      :320   - If exactly one is +1: direct enumeration shows valence = 3 in every case.
+      :321   - If zero are +1: all seven products involve an odd number of (−1) factors, but (−1)·(−1)·(−1) = −1, so the products with even numbers of negative factors are +1. Enumeration shows valence = 3.
+      :323   In every case: either all three independent symbols are +1 (giving valence 7) or at least one is −1 (giving valence 3). No other valence occurs. □
+    ### VERDICT: STANDS -- the grade argument-supported -- IS :307-:323 is the theorem’s argument through the three independent Legendre symbols
+
+  R041  2B IS-04  phase2/method/IDENTITY_SUBSPACE.md @ a4f16fe  (the synthesis`s line :133)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: emptiness is stated, and the centred-coordinate step is not in the line
+    the omitted line the seat names: IS :87-:89
+      :87    *Proof.* The three identity elements 0, 1, 1/2 are distinct real numbers. â–¡
+      :89    **Remark 2.3.** This is the wrong definition for our purposes. The three identities live at different *levels* of the arithmetic hierarchy (additive, multiplicative, exponential). The natural construction is not their pointwise intersection but their *simultaneous realization in a common coordinate system*.
+    ### VERDICT: STANDS -- the grade argument-supported -- IS :87 argues the emptiness and :89 the turn to the centred coordinate
+
+  R062  2B SE-01  phase2/philosophy/SILENCE_EMERGENCE.md @ a4f16fe  (the synthesis`s line :76)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: an abstract stating the theorem and its name
+    the omitted line the seat names: SE :81-:86
+      :81    *Proof.* Four steps:
+      :83    1. I is *essential* → I is present in every configuration of X.
+      :84    2. I is *universal* → I acts identically in every configuration.
+      :85    3. Therefore I's contribution to any P-measurement is the same constant c across all configurations.
+      :86    4. A constant contribution carries zero information about variation: κ(P, I) = 0. ∎
+    ### VERDICT: STANDS -- the grade argument-supported -- SE :81-:86 are the four steps the abstract names
+
+  R088  2B IS-09  phase2/method/IDENTITY_SUBSPACE.md @ a4f16fe  (the synthesis`s line :138)  seat argument-supported ; reader computationally-verified (up) -- the reader`s line: the line shows the sum computing the norm squared as 12
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade argument-supported -- the seat’s argument-supported is below the reader’s computationally-verified in the grading rule’s order
+
+  R095  2B CG-06  phase2/philosophy/COGNITION.md @ a4f16fe  (the synthesis`s line :112)  seat synthesis-suggested ; reader statement-grade (down) -- the reader`s line: the line only asserts the mapping
+    the omitted line the seat names: CG :116-:121
+      :116   | Medium | McLuhan Temperature | κ (content delivery) | Primary Network | Bloom Level |
+      :117   |:-------|:-------------------|:---------------------|:---------------|:------------|
+      :118   | Lecture | Hot | ≈ 0.95 | Task-Positive dominant | Remember, Understand |
+      :119   | Guided practice | Warm | ≈ 0.60 | Task-Positive + Frontoparietal | Apply |
+      :120   | Socratic seminar | Cool | ≈ 0.20 | Frontoparietal + Default Mode | Analyse, Evaluate |
+      :121   | Research creation | Cold | ≈ 0.05 | Default Mode dominant | Create |
+    ### VERDICT: STANDS -- the grade synthesis-suggested -- the table the cited line introduces aligns McLuhan’s temperature with κ, the network and Bloom’s level across four media: a pattern read across results
+
+  R104  2B IS-08  phase2/method/IDENTITY_SUBSPACE.md @ a4f16fe  (the synthesis`s line :137)  seat argument-supported ; reader theorem-supported (up) -- the reader`s line: the line names Størmer for the count
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade argument-supported -- the seat’s argument-supported is below the reader’s theorem-supported
+
+  R105  2B SE-11  phase2/philosophy/SILENCE_EMERGENCE.md @ a4f16fe  (the synthesis`s line :86)  seat statement-grade ; reader argument-supported (up) -- the reader`s line: argues the coupled-or-identical question is empirical
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R008  2D PO-15  phase2/physics/PRIME_ORDER.md @ e7b444e  (the synthesis`s line :168)  seat statement-grade ; reader computationally-verified (up) -- the reader`s line: Lean files are named with no pin, and the line reports a Python reproduction of the error trace
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R043  2D FA-10  phase2/physics/FANO_DERIVATION_OF_LAMBDA.md @ e7b444e  (the synthesis`s line :178)  seat statement-grade ; reader argument-supported (up) -- the reader`s line: argues falsifiability from Planck precision and future surveys
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R048  2D PO-09  phase2/physics/PRIME_ORDER.md @ e7b444e  (the synthesis`s line :162)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: the coefficients are stated without derivation
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :75 is cited; the paper states the coefficients and the arithmetic is the claim bank’s
+
+  R053  2D UF-08  heritage/UNIFICATION_OF_FORCES.md @ e7b444e  (the synthesis`s line :217)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: the line states 137 = 2⁷ + 3² only
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :383 is cited; the paper states the sum, the arithmetic and the twinning not reported as computed
+
+  R055  2D MA-11  phase2/physics/MATTER_AS_ARITHMETIC.md @ e7b444e  (the synthesis`s line :110)  seat statement-grade ; reader theorem-supported (up) -- the reader`s line: the line names Ostrowski's theorem
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R067  2D CS-14  phase2/physics/COSMOLOGICAL_SIEVE_CEILING.md @ e7b444e  (the synthesis`s line :95)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: the line cites Nguyen et al. models only, and Corazza is absent
+    the omitted line the seat names: CS :155-:156
+      :156   2. **Corazza et al. (A&A 2025):** Chemical evolution models incorporating Pop III and Pop II yields, combined with stellar depletion corrections, reproduce the plateau at A(Li) ≈ 2.15-2.25 dex AND both plateaux (MS and RGB) simultaneously.
+    ### VERDICT: STANDS -- the grade computationally-verified -- CS :156 cites the models of Corazza and colleagues (2025) reproducing both plateaux, the claim’s second half
+
+  R070  2D ST-01  phase2/physics/STORMER.md @ e7b444e  (the synthesis`s line :120)  seat statement-grade ; reader theorem-supported (up) -- the reader`s line: the line names Størmer's theorem as the backing of the derivation
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R071  2D YM-14  phase2/physics/YANG_MILLS_MONOGRAPH.md @ e7b444e  (the synthesis`s line :201)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: a lattice QCD value is stated, and the string tension and deconfinement are not in the line
+    the omitted line the seat names: YM :252-:261
+      :253   ## String tension
+      :255   Lattice QCD computations give the QCD string tension σ ≈ (440 MeV)² ≈ 0.19 GeV². Independent measurements of heavy quarkonium potentials (charmonium and bottomonium) yield σ_exp ≈ 0.18–0.20 GeV². Agreement between the lattice prediction and the heavy quarkonium fits is within 10%.
+      :257   The string tension is a direct measurement of confinement and of the mass gap: the relation Δ ≥ √σ > 0 gives a numerical lower bound on the gap that matches the glueball-mass anchor.
+      :259   ## Deconfinement temperature
+      :261   At the critical temperature T_c ≈ 155 ± 10 MeV, confinement ceases and quark-gluon plasma forms. This transition has been confirmed experimentally at the Relativistic Heavy Ion Collider (RHIC) at Brookhaven National Laboratory and at the Large Hadron Collider (LHC) at the European Organization for Nuclear Research (CERN).
+    ### VERDICT: STANDS -- the grade computationally-verified -- YM :255 reports the lattice string tension near 0.19 GeV² and :261 the deconfinement temperature near 155 MeV
+
+  R077  2D UF-05  heritage/UNIFICATION_OF_FORCES.md @ e7b444e  (the synthesis`s line :214)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: a formula is stated
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :157 is cited; the paper states the formula, the recomputation is the claim bank’s
+
+  R099  2D FA-15  phase2/physics/FANO_DERIVATION_OF_LAMBDA.md @ e7b444e  (the synthesis`s line :183)  seat statement-grade ; reader argument-supported (up) -- the reader`s line: argues from the gauge-kernel placement to no direct detection
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R102  2D YM-09  phase2/physics/YANG_MILLS_MONOGRAPH.md @ e7b444e  (the synthesis`s line :196)  seat argument-supported ; reader theorem-supported (up) -- the reader`s line: names asymptotic freedom for its one exclusion, and only one of four rows is cited
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade argument-supported -- the seat’s argument-supported is below the reader’s theorem-supported
+
+  R006  2F BT-17  phase2/empirical/BSD_TRANSFER.md @ f22a13a  (the synthesis`s line :124)  seat synthesis-suggested ; reader statement-grade (down) -- the reader`s line: the line states one trace (Ω to C₁) only, with no argument
+    the omitted line the seat names: BT :202-:206
+      :202   **Formation analysis of the BSD formula:** The leading coefficient c_r involves:
+      :203   - Ω (the real period) — from C₁ (√ mechanism, Γ-factor)
+      :204   - R (the regulator) — from C₂ (reality, height pairing)
+      :205   - |Ш| (the Sha order) — from C₄ (balance, local-global obstruction)
+      :206   - ∏ c_p (Tamagawa numbers) — from C₅ (modular, bad reduction)
+    ### VERDICT: STANDS -- the grade synthesis-suggested -- BT :202-:206 trace each of the four terms to its class with a gloss: the formula read against the catalogue
+
+  R034  2F ZS-15  phase2/empirical/ZERO_SIMPLICITY.md @ f22a13a  (the synthesis`s line :96)  seat statement-grade ; reader argument-supported (up) -- the reader`s line: the line argues the codimension margin survives weak correlation
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R036  2F ZS-23  phase2/empirical/ZERO_SIMPLICITY.md @ f22a13a  (the synthesis`s line :104)  seat statement-grade ; reader argument-supported (up) -- the reader`s line: applies the codimension principle to get 5 − 1 = 4
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R052  2F BV-35  phase2/empirical/BSD_VIA_FORMATION_TRANSFER.md @ f22a13a  (the synthesis`s line :160)  seat statement-grade ; reader argument-supported (up) -- the reader`s line: infers the factor-by-factor decomposition from the factorization reading
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R022  2G LC-08  phase2/physics-speculative/LOCAL_COSMIC.md @ 3dd4f29  (the synthesis`s line :114)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: the figures are stated without a source computation
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :90 is cited; the paper states the figures, the ratio recomputed in the claim bank
+
+  R030  2G DM-05  phase2/physics-speculative/DARK_DELTA_MU.md @ 3dd4f29  (the synthesis`s line :163)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: the line gives the arithmetic only, and the observed value is not in it
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :83 is cited; the paper states the arithmetic, the recomputation is the claim bank’s
+
+  R051  2G TC-18  phase2/physics-speculative/T7_CMB.md @ 3dd4f29  (the synthesis`s line :136)  seat statement-grade ; reader synthesis-suggested (up) -- the reader`s line: a conditional reading that matches 77/4 to Fano elements times 11/4
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade statement-grade -- the seat’s statement-grade is the lowest grade
+
+  R061  2G FD-10  phase2/physics-speculative/FORMATION_DISTANCE.md @ 3dd4f29  (the synthesis`s line :181)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: a table cell with one value, and 14 at 0.41σ is not in the line
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :145 is cited; the paper states the distances, the recomputation is the claim bank’s
+
+  R076  2G TH-10  phase2/physics-speculative/THEORY_SPACE.md @ 3dd4f29  (the synthesis`s line :196)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: a numerical difference is stated
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :216 is cited; the paper states the difference, the recomputation is the claim bank’s
+
+  R082  2G FD-03  phase2/physics-speculative/FORMATION_DISTANCE.md @ 3dd4f29  (the synthesis`s line :174)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: Planck's value and the σ distance are stated
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- no line beyond :22 is cited; the paper states Planck’s value and the distance, the recomputation is the claim bank’s
+
+  R110  2G TH-03  phase2/physics-speculative/THEORY_SPACE.md @ 3dd4f29  (the synthesis`s line :189)  seat computationally-verified ; reader statement-grade (down) -- the reader`s line: the count is stated
+    the omitted line the seat names: TH :108-:118
+      :108   | Geology | 1 | 0.952 | 1 |
+      :109   | Astrophysics | 1 | 0.948 | 2 |
+      :110   | Classical mechanics | 2 | 0.941 | 3 |
+      :111   | Electromagnetism | 1 | 0.937 | 4 |
+      :112   | Relativity | 2 | 0.929 | 5 |
+      :113   | Thermodynamics | 1 | 0.921 | 6 |
+      :114   | Quantum mechanics | 2 | 0.912 | 7 |
+      :115   | Fluid dynamics | 1 | 0.908 | 8 |
+      :116   | Particle physics | 1 | 0.901 | 9 |
+      :117   | Nuclear physics | 1 | 0.895 | 10 |
+      :118   | Condensed matter | 1 | 0.888 | 11 |
+    ### VERDICT: MOVES -- the grade statement-grade -- TH :108-:118 is the per-domain table of counts, which states the counts; the sum to 14 is the claim bank’s, and no computation is reported for it
+
+  R001  P12 IR-05  phase1.5/proofs/IDS_TO_RH.md @ f374bba  (the synthesis`s line :69)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the line only asserts Loc ∉ Sym ∪ Card as a key observation
+    the omitted line the seat names: IR :127-:135
+      :127   | Structure | Type | Productions |
+      :128   |-----------|------|-------------|
+      :129   | F₁ (√) | **Sym** | Functional equation, reality on line, zero pairing |
+      :130   | F₁‚ (Euler) | **Card** | Zero density, zero-free regions, spacing statistics |
+      :131   | "Zero at σ≠½" | **Loc** | Requires both existence AND specific position |
+      :133   **Key observation**: Loc ∉ Sym ∪ Card
+      :135   Neither F₁ nor F₁‚ produces location-type properties.
+    ### VERDICT: STANDS -- the grade argument-supported -- IR :127-:131 assign each structure’s productions a type and :135 draws the exclusion from them: the type analysis the backing names
+
+  R010  P12 EA-09  phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md @ f374bba  (the synthesis`s line :36)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the line states the structural-reading status, with no argument
+    the omitted line the seat names: none
+    ### VERDICT: MOVES -- the grade statement-grade -- the backing cites :210 alone, the line the packet held; it states the structural-reading status
+
+  R021  P12 IR-01  phase1.5/proofs/IDS_TO_RH.md @ f374bba  (the synthesis`s line :65)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: a bold assertion with no argument in the cited line
+    the omitted line the seat names: IR :30-:42
+      :30    Why? Because coupling would violate the independence that defines them.
+      :32    If F₁ and F₁‚ are truly independent:
+      :33    - Neither derives from the other
+      :34    - They use disjoint mathematical machinery
+      :35    - They constrain the system through non-overlapping relationships
+      :37    For them to "conspire" to permit property P without either producing P:
+      :38    - Would require hidden coupling
+      :39    - Hidden coupling contradicts independence
+      :40    - Therefore: no conspiracy is possible
+      :42    **This is not philosophy. This is logic.**
+    ### VERDICT: STANDS -- the grade argument-supported -- IR :30-:42 argue that coupling would contradict the independence
+
+  R024  P12 EA-19  phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md @ f374bba  (the synthesis`s line :46)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the line asserts where the logical weight lies, with no argument
+    the omitted line the seat names: EA :400-:410
+      :401   The exhaustiveness claim (E) rests on four sub-claims:
+      :403   | Component | Claim | Status | Basis |
+      :404   |:---|:---|:---|:---|
+      :405   | n₁ = 2 | Two group structures on ℤ | **[PROVED]** | Algebraic classification |
+      :406   | n₂ = 3 | Three places of ℚ | **[PROVED]** | Ostrowski (1916) + Tate (1950) |
+      :407   | n₃ = 2 | Two scales of complex analysis | **[ESTABLISHED]** | Standard structure theory |
+      :408   | n₄ = 0 | Interfaces are s-dark | **[PROVED]** | Conservation of Spectra (Tate) |
+      :410   The weakest link is n₃ = 2. While the bipartite structure of complex analysis (local/global) is standard and uncontroversial, its formalization as a mechanism-class count is a structural reading rather than a classification theorem with the logical force of Ostrowski. A skeptic who accepts n₁, n₂, and n₄ but disputes n₃ must identify a structural property of entire functions of order 1 that is neither local (derivatives/Taylor) nor global (factorization/topology) — a third scale of holomorphic a
+    ### VERDICT: STANDS -- the grade argument-supported -- EA :401-:410 decompose the exhaustiveness claim into four sub-claims and argue its weakest link
+
+  R056  P12 ME-13  phase1.5/proofs/MECHANISM_EXCLUSION.md @ f374bba  (the synthesis`s line :61)  seat synthesis-suggested ; reader theorem-supported (up) -- the reader`s line: the line names the Lefschetz trace formula's semisimplicity theorem
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade synthesis-suggested -- the seat’s synthesis-suggested is below the reader’s theorem-supported
+
+  R068  P12 ME-05  phase1.5/proofs/MECHANISM_EXCLUSION.md @ f374bba  (the synthesis`s line :53)  seat argument-supported ; reader theorem-supported (up) -- the reader`s line: the line names Ostrowski's theorem for exhaustiveness
+    the omitted line the seat names: none
+    ### VERDICT: UNCHANGED -- the grade argument-supported -- the seat’s argument-supported is below the reader’s theorem-supported
+
+  R103  P12 EA-05  phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md @ f374bba  (the synthesis`s line :32)  seat theorem-supported ; reader argument-supported (down) -- the reader`s line: combines the functional equation and Schwarz reflection into quadruples
+    the omitted line the seat names: EA :132
+      :132   **Status: [PROVED].** Standard, uncontroversial.
+    ### VERDICT: MOVES -- the grade argument-supported -- EA :132 marks the step standard and uncontroversial and names no theorem of the literature; the line combines the functional equation with Schwarz reflection, an argument
+
+  R113  P12 ME-15  phase1.5/proofs/MECHANISM_EXCLUSION.md @ f374bba  (the synthesis`s line :63)  seat argument-supported ; reader statement-grade (down) -- the reader`s line: the corrected status is stated
+    the omitted line the seat names: ME :265
+      :265   Five mathematical structures identify σ = 1/2 through their own internal logic. **They are NOT independent: three of the five take the functional equation's involution `σ ↦ 1 − σ` as their definition, so the machinery is shared, not non-overlapping.** *[corrected 2026-08-10 · convergent-identification ruling]*
+    ### VERDICT: STANDS -- the grade argument-supported -- ME :265 gives the reason: three of the five paths take the involution as their definition, so the machinery is shared
+
+### PART B2 -- THE CELLS THE NEXT VERSIONS CHANGE (grade and backing, old and new), AND THE FACT THE ROWS` RE-READ FOUND:
+  R012  15E TF-08 -> phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM_v0_2.md
+      was : synthesis-suggested | its steps marked done at :363-:369, its weight on the Mechanism Theorem (:391)
+      now : statement-grade | stated: its steps marked done at :363-:369 and its weight on the Mechanism Theorem (:391), no pattern read across results
+  R042  15E TR-04 -> phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM_v0_2.md
+      was : theorem-supported | the modular group’s fixed points, classical (Serre, named at :67); the identification with σ = 1/2 is the paper’s
+      now : statement-grade | stated: Serre is named at :67 for the free product of the cyclic groups of orders 2 and 3, not for the fixed points; the identification with σ = 1/2 is the paper’s
+  R058  15E TR-03 -> phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM_v0_2.md
+      was : theorem-supported | Poisson summation and the Gaussian transform, classical, at :34
+      now : argument-supported | argued at :34 through Poisson summation and the Gaussian transform, no theorem of the literature named for it
+  R094  15E TR-01 -> phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM_v0_2.md
+      was : theorem-supported | the functional equation, classical
+      now : statement-grade | stated at :26, a change of variable, no theorem of the literature named
+  R048  2D PO-09 -> phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3.md
+      was : computationally-verified | the arithmetic recomputed in the claim bank
+      now : statement-grade | stated at :75; the arithmetic recomputed in the claim bank, the paper reporting no computation
+  R053  2D UF-08 -> phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3.md
+      was : computationally-verified | arithmetic; the twinning a reading
+      now : statement-grade | stated at :383; arithmetic the paper does not report computing, the twinning a reading
+  R077  2D UF-05 -> phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3.md
+      was : computationally-verified | recomputed in the claim bank
+      now : statement-grade | stated at :157; recomputed in the claim bank, the paper reporting no computation
+  R022  2G LC-08 -> phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md
+      was : computationally-verified | the ratio recomputed in the claim bank
+      now : statement-grade | stated at :90; the ratio recomputed in the claim bank, the paper reporting no computation
+  R030  2G DM-05 -> phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md
+      was : computationally-verified | recomputed in the claim bank
+      now : statement-grade | stated at :83; recomputed in the claim bank, the paper reporting no computation
+  R061  2G FD-10 -> phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md
+      was : computationally-verified | recomputed in the claim bank
+      now : statement-grade | stated at :145; recomputed in the claim bank, the paper reporting no computation
+  R076  2G TH-10 -> phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md
+      was : computationally-verified | recomputed in the claim bank
+      now : statement-grade | stated at :216; recomputed in the claim bank, the paper reporting no computation
+  R082  2G FD-03 -> phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md
+      was : computationally-verified | recomputed in the claim bank (0.126σ)
+      now : statement-grade | stated at :22; recomputed in the claim bank (0.126σ), the paper reporting no computation
+  R110  2G TH-03 -> phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md
+      was : computationally-verified | the per-domain counts (:108-:118) sum to 14 (the claim bank)
+      now : statement-grade | stated at :20; the per-domain counts (:108-:118) sum to 14 in the claim bank, the paper stating counts and reporting no computation
+  R010  P12 EA-09 -> phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION_v0_2.md
+      was : argument-supported | the paper’s own [ESTABLISHED] and its words at :210
+      now : statement-grade | stated at :210 with the paper’s own [ESTABLISHED], no argument in the line
+  R103  P12 EA-05 -> phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION_v0_2.md
+      was : theorem-supported | the functional equation and the reflection principle, standard (:132)
+      now : argument-supported | argued at :130 from the functional equation and Schwarz reflection; :132 marks it standard and names no theorem of the literature
+  F01  2D YM-20 (the fact clause) -- the retirement line :73 is the file’s at a27415d, where :73-:74 record the placeholder retired; at c66f3c5 the line :73 is the doc comment of `sectors_complete`
+      was : SIDEEffects/Structural.lean the placeholder recorded as retired (:73)
+      now : SIDEEffects/Structural.lean at a27415d (= commit a27415d1aa0c, on the remote main ef4cff7) the placeholder recorded as retired (:73)
+
+### THE COUNTS: the kernel-verified rows standing on their terminals` statements 6 of 6 ; the 46 others: stand 16 (on a line the packet omitted), move 15 (to the reader`s lower grade), unchanged 15 (the seat`s grade the lower) ; the rows re-graded 15, by synthesis {'P12': 2, '15E': 4, '2B': 0, '2D': 3, '2F': 0, '2G': 6} ; the syntheses touched ['15E', '2D', '2G', 'P12'] ; the rows the act`s re-read corrects by the fact clause 1
+### ### **H55a HOLDS -- of the six kernel-verified rows, 6 stand with the terminal`s statement carrying the claim (bound four).**
+
+### PART C -- THE RESIDUE, (R231)(3)(iv) AND THE AUTHOR`S ANSWER BEFORE THE SEAL (relay data/b621_author_answers.txt) -- banked 2026-10-05T01:12:22Z
+### THE RULING`S LETTER: a sentence the reader read BEYOND and the seat AT takes the ceiling clause at its document`s next edition; a sentence the seat read BEYOND and the reader AT keeps the seat`s reading and stays on the second reader`s list.
+### THE AUTHOR`S ANSWER (option 3): every sentence EITHER reader read BEYOND takes the ceiling at its document`s next edition -- the monograph`s at v5.18 (the 13 both read BEYOND, the one the reader read BEYOND, by a history line beneath since the dated block governs, and the 19 the seat read BEYOND), the other documents` listed for their next editions; the seat`s BEYOND kept means kept BEYOND; H55c and N3 scored on the 33.
+
+### THE 56 RESIDUE DISAGREEMENTS, BY DOCUMENT AND LINE, WITH THE VERDICT:
+  X058  clusters/IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_2026-05-19.md :17 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X003  clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md :120 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X105  clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md :180 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X062  day1/A_Place_to_Stand_v5_17.md :848 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C26)
+  X010  day1/A_Place_to_Stand_v5_17.md :890 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C27)
+  X157  day1/A_Place_to_Stand_v5_17.md :905 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C28)
+  X017  day1/A_Place_to_Stand_v5_17.md :945 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C29)
+  X104  day1/A_Place_to_Stand_v5_17.md :985 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C30)
+  X031  day1/A_Place_to_Stand_v5_17.md :1168 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C31)
+  X070  day1/A_Place_to_Stand_v5_17.md :1214 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C32)
+  X049  day1/A_Place_to_Stand_v5_17.md :1392 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C34)
+  X133  day1/A_Place_to_Stand_v5_17.md :1491 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C35)
+  X118  day1/A_Place_to_Stand_v5_17.md :1884 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C36)
+  X075  day1/A_Place_to_Stand_v5_17.md :1888 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C38)
+  X046  internal/CATALOGOS.md :129 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X045  internal/CATALOGOS.md :157 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X019  phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md :99 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X037  phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md :35 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X029  phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md :92 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X025  phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md :153 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X101  phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md :26 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X127  phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md :120 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X111  phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md :323 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X151  phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md :369 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X132  phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md :272 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X120  phase1.5/spectral/GRH_CASCADE_v0_3_6.md :51 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X039  phase1.5/spectral/GRH_CASCADE_v0_3_6.md :130 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X141  phase2/formation/UNIVERSALITY.md :42 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X114  phase2/formation/UNIVERSALITY.md :160 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X116  phase2/formation/UNIVERSALITY.md :162 (the enumeration needle`s addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X054  day1/A_Place_to_Stand_v5_16.md :67 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C21)
+  X034  day1/A_Place_to_Stand_v5_16.md :416 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C22)
+  X042  day1/A_Place_to_Stand_v5_16.md :420 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C23)
+  X131  day1/A_Place_to_Stand_v5_16.md :461 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C24)
+  X119  day1/A_Place_to_Stand_v5_16.md :534 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C25)
+  X084  day1/A_Place_to_Stand_v5_16.md :1275 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C33)
+  X028  day1/A_Place_to_Stand_v5_16.md :1883 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C36)
+  X099  day1/A_Place_to_Stand_v5_16.md :1883 (the seed; mark KIN) seat BEYOND ; reader AT -- the ceiling at v5.18 (C37)
+  X102  day1/A_Place_to_Stand_v5_16.md :2233 (the seed; mark DATED) seat AT ; reader BEYOND -- the ceiling at v5.18 (H1)
+  X146  phase1.5/method/A_METHODOLOGY.md :37 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X068  phase1.5/method/A_METHODOLOGY.md :78 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X061  phase1.5/method/A_METHODOLOGY.md :110 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X005  phase1.5/method/A_METHODOLOGY.md :423 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X152  phase1.5/method/A_METHODOLOGY.md :447 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X056  phase1.5/method/A_METHODOLOGY.md :568 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X047  phase1.5/method/ENUMERA_v1_6.md :186 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X077  phase1.5/method/INVARIANCE_BARRIERS_v1_4.md :433 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X096  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :17 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X117  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :25 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X154  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :245 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X040  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :249 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X053  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :277 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X026  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :287 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X147  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md :327 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X035  phase2/philosophy/SILENCE_EMERGENCE.md :25 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+  X122  phase2/philosophy/SILENCE_EMERGENCE.md :275 (the silence-principle addendum; mark KIN) seat BEYOND ; reader AT -- the ceiling at its document`s next edition, listed
+
+### THE SENTENCES BOTH READERS READ BEYOND (agreements of the batch, no clause of (R231) naming them; the author`s answer):
+  X153  day1/A_Place_to_Stand_v5_17.md :931 (the enumeration needle`s addendum) -- the ceiling at v5.18 (C20)
+  X158  day1/A_Place_to_Stand_v5_17.md :1097 (the enumeration needle`s addendum) -- the ceiling at v5.18 (C12, C13)
+  X091  day1/A_Place_to_Stand_v5_17.md :1099 (the enumeration needle`s addendum) -- the ceiling at v5.18 (C14, C15)
+  X148  day1/A_Place_to_Stand_v5_17.md :1198 (the enumeration needle`s addendum) -- the ceiling at v5.18 (C16, C17, C18, C19)
+  X004  day1/A_Place_to_Stand_v5_17.md :1218 (the enumeration needle`s addendum) -- the ceiling at v5.18 (C01, C02, C03)
+  X024  internal/CATALOGOS.md :162 (the enumeration needle`s addendum) -- the ceiling at its document`s next edition, listed
+  X002  internal/CATALOGOS.md :759 (the enumeration needle`s addendum) -- the ceiling at its document`s next edition, listed
+  X144  phase1.5/spectral/GRH_CASCADE_v0_3_6.md :157 (the enumeration needle`s addendum) -- the ceiling at its document`s next edition, listed
+  X159  day1/A_Place_to_Stand_v5_16.md :317 (the seed) -- the ceiling at v5.18 (C05)
+  X051  day1/A_Place_to_Stand_v5_16.md :451 (the seed) -- the ceiling at v5.18 (C06)
+  X073  day1/A_Place_to_Stand_v5_16.md :766 (the seed) -- the ceiling at v5.18 (C07)
+  X130  day1/A_Place_to_Stand_v5_16.md :1018 (the seed) -- the ceiling at v5.18 (C08)
+  X136  day1/A_Place_to_Stand_v5_16.md :1114 (the seed) -- the ceiling at v5.18 (C09)
+  X163  day1/A_Place_to_Stand_v5_16.md :1128 (the seed) -- the ceiling at v5.18 (C10)
+  X100  day1/A_Place_to_Stand_v5_16.md :1130 (the seed) -- the ceiling at v5.18 (C11)
+  X036  day1/A_Place_to_Stand_v5_16.md :1959 (the seed) -- the ceiling at v5.18 (C04)
+
+### THE MONOGRAPH`S SUBSET: 33 items (both BEYOND 13, the reader`s BEYOND 1, the seat`s BEYOND 19), each answered: {'X004': ['C01', 'C02', 'C03'], 'X010': ['C27'], 'X017': ['C29'], 'X028': ['C36'], 'X031': ['C31'], 'X034': ['C22'], 'X036': ['C04'], 'X042': ['C23'], 'X049': ['C34'], 'X051': ['C06'], 'X054': ['C21'], 'X062': ['C26'], 'X070': ['C32'], 'X073': ['C07'], 'X075': ['C38'], 'X084': ['C33'], 'X091': ['C14', 'C15'], 'X099': ['C37'], 'X100': ['C11'], 'X102': ['H1'], 'X104': ['C30'], 'X118': ['C36'], 'X119': ['C25'], 'X130': ['C08'], 'X131': ['C24'], 'X133': ['C35'], 'X136': ['C09'], 'X148': ['C16', 'C17', 'C18', 'C19'], 'X153': ['C20'], 'X157': ['C28'], 'X158': ['C12', 'C13'], 'X159': ['C05'], 'X163': ['C10']} ; the ruled changes 38 on 30 lines and the history line ; the distinct sentences rewritten 38 ; items unanswered none
+
+### THE OTHER DOCUMENTS` SENTENCES, LISTED FOR THEIR NEXT EDITIONS (39 sentences in 14 documents; none written in this act):
+  clusters/IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_2026-05-19.md : :17 (X058, seat BEYOND, reader AT)
+  clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md : :120 (X003, seat BEYOND, reader AT); :180 (X105, seat BEYOND, reader AT)
+  internal/CATALOGOS.md : :129 (X046, seat BEYOND, reader AT); :157 (X045, seat BEYOND, reader AT); :162 (X024, both BEYOND); :759 (X002, both BEYOND)
+  phase1.5/method/A_METHODOLOGY.md : :37 (X146, seat BEYOND, reader AT); :78 (X068, seat BEYOND, reader AT); :110 (X061, seat BEYOND, reader AT); :423 (X005, seat BEYOND, reader AT); :447 (X152, seat BEYOND, reader AT); :568 (X056, seat BEYOND, reader AT)
+  phase1.5/method/ENUMERA_v1_6.md : :186 (X047, seat BEYOND, reader AT)
+  phase1.5/method/INVARIANCE_BARRIERS_v1_4.md : :433 (X077, seat BEYOND, reader AT)
+  phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md : :99 (X019, seat BEYOND, reader AT)
+  phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md : :35 (X037, seat BEYOND, reader AT); :92 (X029, seat BEYOND, reader AT); :153 (X025, seat BEYOND, reader AT)
+  phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md : :26 (X101, seat BEYOND, reader AT); :120 (X127, seat BEYOND, reader AT); :323 (X111, seat BEYOND, reader AT); :369 (X151, seat BEYOND, reader AT)
+  phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md : :272 (X132, seat BEYOND, reader AT)
+  phase1.5/spectral/GRH_CASCADE_v0_3_6.md : :51 (X120, seat BEYOND, reader AT); :130 (X039, seat BEYOND, reader AT); :157 (X144, both BEYOND)
+  phase2/formation/UNIVERSALITY.md : :42 (X141, seat BEYOND, reader AT); :160 (X114, seat BEYOND, reader AT); :162 (X116, seat BEYOND, reader AT)
+  phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md : :17 (X096, seat BEYOND, reader AT); :25 (X117, seat BEYOND, reader AT); :245 (X154, seat BEYOND, reader AT); :249 (X040, seat BEYOND, reader AT); :277 (X053, seat BEYOND, reader AT); :287 (X026, seat BEYOND, reader AT); :327 (X147, seat BEYOND, reader AT)
+  phase2/philosophy/SILENCE_EMERGENCE.md : :25 (X035, seat BEYOND, reader AT); :275 (X122, seat BEYOND, reader AT)
+
+### THE RESTATEMENT SURVEY (the restatement clause, OPEN_TRAILS :12192): eight needles over v5.17`s body (:1-:2240), every hit read by hand -- each needle`s yield, then every hit line`s fate:
+  needle none-produces     19 lines
+  needle closures          20 lines
+  needle established        6 lines
+  needle seal              17 lines
+  needle certifies          3 lines
+  needle where-the-zeros    6 lines
+  needle folds              3 lines
+  needle no-mechanism      34 lines
+    :37    [none-produces,no-mechanism] rewritten (P01)
+    :68    [established] rewritten (C21)
+    :117   [none-produces] rewritten (P02)
+    :130   [closures] carried -- a count of the reduction’s parts, the open premise named
+    :167   [where-the-zeros] carried -- states what RH asserts, not that it holds
+    :207   [closures] carried -- names the paths and the closures as objects
+    :314   [folds] rewritten (P03)
+    :318   [where-the-zeros,folds] rewritten (C05)
+    :344   [seal] carried -- the n₄ = 0 count’s reading, argued in Chapter 13
+    :358   [seal] carried -- the identification redundancy among the classes: each identifies the line, none placing the zeros
+    :417   [established] rewritten (C22)
+    :421   [established] rewritten (C23)
+    :436   [none-produces] carried -- the derivative-level joint step named as the open geometric clause
+    :438   [no-mechanism] carried -- the method’s general principle (Part II), not a claim at ξ
+    :452   [where-the-zeros,no-mechanism] rewritten (C06)
+    :462   [established] rewritten (C24, P04)
+    :493   [none-produces,no-mechanism] carried -- the method’s template, stated generally
+    :535   [established,seal] rewritten (C25)
+    :549   [no-mechanism] carried -- the method’s condition E stated generally (Part II)
+    :553   [no-mechanism] rewritten (P05)
+    :564   [no-mechanism] carried -- the method’s template across the table
+    :635   [no-mechanism] carried -- the method stated conditionally (“if ... provably complete”)
+    :637   [no-mechanism] carried -- the Mechanism Theorem’s general statement
+    :653   [no-mechanism] carried -- the syllogism’s step, general
+    :675   [no-mechanism] carried -- the method’s test case (CH)
+    :724   [closures,seal,no-mechanism] rewritten (P25, P26, P27)
+    :767   [seal,no-mechanism] rewritten (C07)
+    :793   [seal] carried -- the product formula’s reading, argued in Chapter 13
+    :795   [seal,no-mechanism] rewritten (P06, P07)
+    :833   [seal] carried -- the Silence Principle’s chain, general
+    :837   [seal] carried -- the distributive interface’s reading
+    :855   [seal] carried -- a count closed at the places
+    :861   [no-mechanism] carried -- the n₄ = 0 stage contributes no class, a count
+    :919   [no-mechanism] carried -- the modular surface’s completeness, a classical fact
+    :929   [none-produces] rewritten (P08)
+    :951   [no-mechanism] carried -- Ostrowski’s classification, a theorem of the literature
+    :997   [no-mechanism] carried -- what an eighth class would require, the place count
+    :1019  [closures,where-the-zeros] rewritten (C08)
+    :1105  [closures] carried -- a chapter title (the name-and-title exception)
+    :1113  [none-produces] rewritten (P09)
+    :1115  [no-mechanism] rewritten (C09)
+    :1125  [no-mechanism] rewritten (P28)
+    :1127  [closures] carried -- a section title (the name-and-title exception)
+    :1129  [closures,where-the-zeros,no-mechanism] rewritten (C10)
+    :1131  [closures] rewritten (C11)
+    :1133  [closures,seal,no-mechanism] rewritten (P10, P11)
+    :1135  [closures] rewritten (P12)
+    :1137  [closures] carried -- the paths’ coverage of the classes, not a placement
+    :1139  [closures,no-mechanism] rewritten (P13)
+    :1141  [closures,no-mechanism] rewritten (P14)
+    :1143  [closures,no-mechanism] rewritten (P15)
+    :1168  [none-produces] rewritten (C31, P16)
+    :1187  [none-produces] rewritten (P18)
+    :1194  [seal] carried -- names the seal
+    :1218  [none-produces,certifies] rewritten (C01, C02, C03)
+    :1276  [none-produces] rewritten (C33, P20)
+    :1313  [none-produces] carried -- the derivative-level joint step named as the open geometric clause
+    :1394  [no-mechanism] carried -- a per-class statement at the derivative level, the joint step named open at :1399
+    :1399  [none-produces] carried -- the joint step named as the open geometric clause
+    :1413  [none-produces] rewritten (P29)
+    :1463  [no-mechanism] carried -- the paths’ coverage of the classes
+    :1597  [none-produces] carried -- the compiled conjunction read as it states: none_produce is the algebraic signature
+    :1613  [seal] carried -- the compiled implication from the premise, conditional
+    :1695  [closures] carried -- the kernel’s axiom audit, a closure of the audit
+    :1771  [closures] carried -- a version note naming Closure 5
+    :1785  [seal,no-mechanism] rewritten (P21)
+    :1799  [closures] carried -- the premise section’s preface
+    :1801  [closures,certifies] carried -- the five registers, each at its stated depth
+    :1807  [established] carried -- the literature’s results (Voros), cited
+    :1820  [no-mechanism] carried -- h1 at the witness, compiled
+    :1845  [folds] rewritten (P30)
+    :1849  [none-produces] carried -- other domains’ completeness, flagged for independent scrutiny
+    :1914  [none-produces,seal,certifies] rewritten (P22, P23, P24)
+    :1916  [none-produces,no-mechanism] carried -- the method’s template, the exhaustiveness at ξ named open
+    :1960  [none-produces] rewritten (C04)
+    :2063  [no-mechanism] carried -- the glossary’s Mechanism Theorem
+    :2077  [seal] carried -- the glossary’s Silence Principle
+    :2100  [no-mechanism] carried -- the valence dichotomy, a finite fact
+    :2189  [closures] carried -- a version-history entry
+    :2232  [none-produces] the dated block: the history line H1 beneath it
+    :2233  [where-the-zeros] the dated block: the history line H1 beneath it
+    :2234  [closures,no-mechanism] the dated block: the history line H1 beneath it
+    :2238  [seal,no-mechanism] the dated block: the history line H1 beneath it
+  ### the hit lines: 83 -- rewritten 35, under the history line 4, carried with a reason 44, with no fate 0
+
+### ### **THE MONOGRAPH`S RESIDUE SENTENCES AT THE CEILING: 33 ITEMS (38 DISTINCT SENTENCES REWRITTEN, ONE ITEM BY THE HISTORY LINE); THE RESTATEMENT CLAUSE`S SENTENCES 30; THE OTHER DOCUMENTS` 39 LISTED.**
