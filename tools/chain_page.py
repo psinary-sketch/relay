@@ -685,7 +685,10 @@ def keystones(short_names):
     # ### b592, the author's answer before its seal (relay data/b592_author_answers.txt, prompt 7): a node whose short name is a
     # ### plain lower-case word (`detector`) names a keystone only by its qualified name or in backticks, so that a file using
     # ### the English word is not read as naming the node. A list with no such name builds the pattern exactly as before.
-    plain = sorted(s for s in short_names if re.fullmatch(r'[a-z]+', s))
+    # ### b629, the author's answer after its seal (relay data/b629_author_answers.txt, prompt 3): the guard extended in the same
+    # ### terms to a short name of upper-case letters alone (`NB`, `BD`), so that an acronym in prose ('NB:', '(BD)') is not read
+    # ### as naming the node. A list with no such name still builds the pattern exactly as before.
+    plain = sorted(s for s in short_names if re.fullmatch(r'[a-z]+|[A-Z]+', s))
     rest = sorted(s for s in short_names if s not in plain)
     alts = [r'\b(' + '|'.join(re.escape(s) for s in rest) + r')\b'] if rest else []
     alts += [r'(`' + re.escape(s) + r'`|[A-Za-z0-9_]\.' + re.escape(s) + r'\b)' for s in plain]
