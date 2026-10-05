@@ -1,0 +1,24 @@
+b622 -- COMPONENT 2: THE TEST OF THE GENERATOR`S SHAPE READER, RUN AND COUNTED (2026-10-05T02:18:08Z); exit 0
+
+### pins: relay 12c15c80 (the lists, the probes, the terminal table blob 2ce26253) ; PLACE-papers ba5f0ea (pages, README, REGISTRY, keystones)
+  (1) b592 ζ list, no record: byte for byte against the page at ba5f0ea                                                    PASS
+  (2) b592 χ list, no record: byte for byte against the page at ba5f0ea                                                    PASS
+  (3) two records: the page of (1) with one paragraph after the Correspondence table                                       PASS
+  (4) the reader: no record from b592`s lists; the two, in order, from the list of (3)                                     PASS
+  (5) the entry tag of a structure, a theorem and a definition of Simplicity.lean: [('v0.17', '5a1630b'), ('v0.17', '5a1630b'), ('v0.17', '5a1630b')] PASS
+  (6) the five test nodes read ['FINITE', 'UNIVERSAL', 'UNIVERSAL', 'DENSITY', 'FAMILY']                                   PASS
+  (7) the positive control: the five statements mutated where the reader reads them read ['UNIVERSAL', 'FINITE', 'LIMIT', 'LIMIT', 'UNIVERSAL'], none its unmutated shape PASS
+  (8) an object reads —: riemannZeta and familyConfig read ['—', '—']                                                      PASS
+  (9) the switch: off on b592`s, b602`s and b603`s lists [False, False, False, False], on with its line; the page with it is the page without it, one head line and 52 shape cells on 52 node lines added PASS
+### ALL PASS
+
+### CASES : 10 ; PASSING : 10 ; FAILING : 0
+
+### THE FIVE TEST NODES, READ BY tools/chain_page.py`s shape_of FROM THEIR PAGES` BANKED PROBES:
+  SIDEExplicitFormula.KeiperSign.liCoeff_one_pos                     zeta  want FINITE     read FINITE       AS EXPECTED
+  SIDEExplicitFormula.B321.h2_sign_iff_rh                            zeta  want UNIVERSAL  read UNIVERSAL    AS EXPECTED
+  SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh    zeta  want UNIVERSAL  read UNIVERSAL    AS EXPECTED
+  SIDEExplicitFormula.Simplicity.exceptional_mass_le_third           zeta  want DENSITY    read DENSITY      AS EXPECTED
+  SIDEExplicitFormula.Schema.Family.family_theorem                   chi   want FAMILY     read FAMILY       AS EXPECTED
+
+### ### **H56a HOLDS -- the five test nodes read as expected: 5 of 5.**

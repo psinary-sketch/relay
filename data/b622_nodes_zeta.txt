@@ -1,0 +1,98 @@
+# b622 -- THE ζ NODE LIST WITH THE QUANTIFIER COLUMN, (R232)(4): b602`s list (relay data/b602_nodes_zeta.txt), every line
+# unchanged, at its pin v0.20, with the one line `# column: quantifier` appended, by which the generator emits the shape cell
+# and the key`s head line (relay tools/chain_page.py, `node_column`). A list without that line emits exactly as before.
+#
+# b602 -- THE ζ NODE LIST AT v0.20, (R212)(3), (5): b601`s list (relay data/b601_nodes_zeta.txt, every record line unchanged,
+# its backmatter record kept), the pin moved to v0.20; three declarations of KeiperSign.lean placed directly after
+# liCoeff_one_keiper`s record. Every cell is elaborated by the generator`s probe at the pin, never typed here.
+#
+# b601 -- THE ζ NODE LIST AT v0.19, (R211)(4)-(5): b600`s list (relay data/b600_nodes_zeta.txt, every record line unchanged,
+# its backmatter record kept), the pin moved to v0.19; ten declarations of the Keiper face placed beside the Li ladder, directly
+# after li_nonneg_iff_rh (H35e), and four of the doubling corollary appended after the Product nodes. Every cell is elaborated by
+# the generator`s probe at the pin, never typed here.
+#
+# b600 -- THE ζ NODE LIST AT v0.18, (R210)(4): b596`s list (relay data/b596_nodes_faces.txt, every record line unchanged,
+# its backmatter record kept) with five declarations of SIDEExplicitFormula/Product.lean appended, the pin moved to v0.18.
+# Every cell is elaborated by the generator`s probe at the pin, never typed here.
+#
+# b596 -- COMPONENT 4, (R206)(4)(c): relay data/b596_nodes.txt, every line unchanged, with the faces` line as one
+# backmatter record (the generator`s channel, the author`s answer before b596`s seal).
+#
+# b596 -- THE ζ NODE LIST AT v0.17, (R206)(4)(b): b592`s 25 records (relay data/b592_nodes.txt, every record line
+# unchanged) with the five declarations of SIDEExplicitFormula/Simplicity.lean appended, the pin moved to v0.17. Every cell is
+# elaborated by the generator`s probe at the pin, never typed here.
+#
+# b592 -- THE ζ NODE LIST AT v0.16, (R202)(2) and the author's answer 1 before the seal (relay data/b592_author_answers.txt):
+# b569's 25 records (relay data/b569_nodes.txt, every record line unchanged, kept as the record of the v0.11 page), the pin
+# moved to v0.16 = c404e72; no ζ-leg declaration was added at v0.11–v0.16 (relay data/b592_zeta_leg.txt), so nothing is
+# added. Every cell is elaborated by the generator's probe at the pin, never typed here.
+#
+# b569 -- THE NODE LIST, (R179)(2): b568`s 23 records (relay data/b568_nodes.txt, every record line unchanged) and its two
+# drops, with the two iffs of SIDEExplicitFormula/PageConverses.lean appended; the page is generated at the pin below by
+# relay tools/chain_page.py, with (R179)(4)`s tier key. `name | source | role`, as b568`s list.
+# pin: v0.20
+#
+# b568 -- THE NODE LIST, (R178)(5): the generator's input (relay tools/chain_page.py). One record per node, in the ruling's
+# order with the two additions placed beside the node that names them: `name | source | role`. source is Mathlib, Zeta23
+# (vendored), Bulka (vendored) or kernel; role is `listed` (the ruling's list) or `added: <reason>`. Every cell of a node
+# -- module:line, entry tag, statement, premises, E0 grade, tier, axioms, consumed nodes -- is elaborated by the generator's
+# probe at SIDE-explicit-formula v0.10 = 6baed63, never typed here.
+# DROP h2 : no declaration of that name exists in the kernel at v0.10 (git grep, printed in data/b568_node_cells.txt); `h2` is the deposit's name for the clause whose Prop is h2_sign, which is a node.
+# DROP RegisterDepth : a namespace and module (SIDEExplicitFormula/RegisterDepth.lean :22), not a declaration; no node consumes a declaration of it (the consumption read, printed in data/b568_node_cells.txt).
+RiemannHypothesis | Mathlib | listed
+riemannZeta | Mathlib | listed
+Zeta23.zetaZeroConfig | Zeta23 | listed
+Zeta23.WeilEF.EF_lit_zetaZeroConfig | Zeta23 | listed
+SIDEExplicitFormula.B321.classK | kernel | listed
+SIDEExplicitFormula.B321.h2_sign | kernel | listed
+SIDEExplicitFormula.B321.ch_iff_rh | kernel | listed
+SIDEExplicitFormula.B321.h2_sign_iff_rh | kernel | listed
+SIDEExplicitFormula.B321.h2_sign_upto | kernel | listed
+SIDEExplicitFormula.B321.h2_sign_iff_forall_upto | kernel | listed
+SIDEExplicitFormula.B321.forall_upto_iff_rh | kernel | listed
+SIDEExplicitFormula.LiWeil.LiCoeff | kernel | listed
+SIDEExplicitFormula.LiWeil.liTerm | kernel | listed
+SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg | kernel | listed
+SIDEExplicitFormula.LiWeil.symMember | kernel | listed
+SIDEExplicitFormula.LiWeil.li_identity_sym | kernel | listed
+LiCriterion.taylorCoeff | Bulka | added: the object of positivity_implies_RH's hypothesis and of li_coeff_eq_taylorCoeff's right side; the ferry's read list names its module
+SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff | kernel | listed
+LiCriterion.positivity_implies_RH | Bulka | listed
+SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh | kernel | listed
+SIDEExplicitFormula.Keiper.stieltjes | kernel | added: (R211)(4), the Stieltjes constants as the Taylor coefficients of Mathlib`s riemannZeta₀ at 1
+SIDEExplicitFormula.Keiper.KeiperTaylor | kernel | added: (R211)(4), Bulka`s Taylor coefficient of ξ as the Keiper sum, a Prop
+SIDEExplicitFormula.Keiper.KeiperTaylorIdentity | kernel | added: (R211)(4), the work-order`s lemma (1), the identity in the Stieltjes constants, the polygamma values at 1/2 and log π
+SIDEExplicitFormula.Keiper.KeiperObligations | kernel | added: (R211)(4), lemma (1)`s four named obligations
+SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of | kernel | added: (R211)(4), lemma (1) at INTERFACES on its obligations
+SIDEExplicitFormula.Keiper.keiperTaylor_zero | kernel | added: (R211)(4), lemma (1) at n = 0, proved
+SIDEExplicitFormula.Keiper.liCoeff_one_keiper | kernel | added: (R211)(4), Keiper`s λ_1 = 1 + γ/2 − ½ log 4π, the n = 1 check against γ
+SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff | kernel | added: (R212)(3), λ_1 > 0 exactly when γ > log 4π − 2, by the closed form
+SIDEExplicitFormula.KeiperSign.threshold_lt_gamma | kernel | added: (R212)(3), γ > log 4π − 2 from Mathlib`s sequence at 15 and its π, e and log 2 bounds
+SIDEExplicitFormula.KeiperSign.liCoeff_one_pos | kernel | added: (R212)(3), the sign of λ_1, a single rung, not Li`s criterion
+SIDEExplicitFormula.KeiperBounds.KeiperBounds | kernel | added: (R211)(4), the work-order`s lemma (2), the bound table as a Prop
+SIDEExplicitFormula.KeiperBounds.BoundPremises | kernel | added: (R211)(4), lemma (2)`s named premises (γ to the table`s width, γ_1..γ_11, ζ(2)..ζ(12))
+SIDEExplicitFormula.KeiperBounds.keiperBounds_of | kernel | added: (R211)(4), lemma (2) at INTERFACES on its premises
+SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh | kernel | listed
+SIDEExplicitFormula.ResidueDischarge.Register4_positivity | kernel | added: the Prop register4_positivity_liCoeff_imp_rh's statement is about
+SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh | kernel | listed
+@corr SIDE-lv-conservation | residue_irreducible | INTERFACES (PLACE-papers phase1.5/proofs/THE_RESIDUE_OF_RH.md:108) | T1-lit (THE_RESIDUE_OF_RH.md:228) | liCriterion discharged at λ := LiCoeff by SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh, SIDE-explicit-formula v0.10 = 6baed63
+@mark SIDEExplicitFormula.LiWeil.LiLimitExchange
+@mark SIDEExplicitFormula.LiWeil.li_identity_of_exchange
+SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh | kernel | added: (R179)(2), the converse of register4_positivity_liCoeff_imp_rh joined into an iff
+SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh | kernel | added: (R179)(2), the converse of positivity_implies_RH joined into an iff
+SIDEExplicitFormula.Simplicity.allSimple | kernel | added: (R206)(4)(b), the title`s clause over a configuration of the schema
+SIDEExplicitFormula.Simplicity.simplicity | kernel | added: (R206)(4)(b), the title`s clause over the genuine configuration
+SIDEExplicitFormula.Simplicity.simplicity_iff | kernel | added: (R206)(4)(b), the clause read as every nontrivial zero of multiplicity one
+SIDEExplicitFormula.Simplicity.SimpleProportion | kernel | added: (R206)(4)(b), the proportion as a named premise
+SIDEExplicitFormula.Simplicity.exceptional_mass_le_third | kernel | added: (R206)(4)(b), the proportion`s consequence at INTERFACES
+SIDEExplicitFormula.Product.sum | kernel | added: (R210)(4), the sum of two configurations of the schema (the work-order`s object)
+SIDEExplicitFormula.Product.sum_ef | kernel | added: (R210)(4), the summed explicit formula, the work-order`s lemma of substance
+SIDEExplicitFormula.Product.ProductLemma | kernel | added: (R210)(4), the product lemma as a Prop
+SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets | kernel | added: (R210)(4), the criterion of the sum the conjunction of the targets
+SIDEExplicitFormula.Product.productLemma_holds | kernel | added: (R210)(4), the product lemma proved
+SIDEExplicitFormula.Doubling.DoublingCorollary | kernel | added: (R211)(3), the doubling corollary as a Prop
+SIDEExplicitFormula.Doubling.doubling_holds | kernel | added: (R211)(3), the doubling corollary proved by productLemma_holds
+SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity | kernel | added: (R211)(3), the schema`s positivity implying its simplicity, a Prop
+SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity | kernel | added: (R211)(3), the named corollary, exhibited by the doubled toy
+# backmatter: *(Appended under the author's ruling `(R206)`(4)(c), 2026-10-02, b596, through the node list's backmatter record.)* The faces and multiplicity: `h2_sign_iff_rh` (SIDE-explicit-formula v0.2 = `5c72cad`), `li_nonneg_iff_rh` and `arith_limit_nonneg_iff_rh` (v0.9 = `e5a5a83`) each state an equivalence with Mathlib's `RiemannHypothesis`, whose statement names no multiplicity; the sum over the zeros behind each face carries `Zeta23.zetaZeroConfig.mult` as a weight (the zero side that `b321_identity` equates with `h2_sign`'s arithmetic side; `LiCoeff`; the arithmetic limit, through `li_identity_sym`); so multiplicity is carried as weight by each face and constrained by none. At the schema's form, a configuration whose fields, target and Weil positivity all hold has a point of multiplicity two (`SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced`, v0.17), and `SIDEExplicitFormula.Simplicity.simplicity` stands beside the faces as its own Prop.
+# column: quantifier

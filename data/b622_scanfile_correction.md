@@ -1,0 +1,2 @@
+
+*Appended 2026-10-04 by b622 to its record (:12865) -- A CORRECTION, THE SEAT’S:* the FINDINGS entry (:7466) reads “the test 10 of 10 cases” from the record tool’s count, which took the test’s verdict line for a case (defect (a), relay data/b622_defects.txt); the test has nine cases, (1) to (9), all passing, its verdict ALL PASS and its exit 0, counted directly on relay data/b622_gen_test.txt. H56a and N1 stand as scored, on the five reads themselves.

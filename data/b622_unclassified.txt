@@ -1,0 +1,31 @@
+b622 -- THE NODES THE READER PRINTS UNCLASSIFIED, FOR THE AUTHOR`S RULING (2026-10-05T02:20:29Z)
+
+### the author`s reading before the seal (relay data/b622_author_answers.txt): a premise bundle prints the shape of its strongest field; the seat prints a proposal by that reading, each field read in the kernel at the page`s pin by the reader`s own rules.
+
+### Zeta23.WeilEF.EF_lit_zetaZeroConfig (the zeta page, v0.20 = 914c413)
+    the statement as the probe printed it: theorem Zeta23.WeilEF.EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit Zeta23.zetaZeroConfig
+    EF_lit @ v0.20 Zeta23/ExplicitFormula.lean :97 -- def EF_lit (Z : ZeroConfig) : Prop := ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧ ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+        read by the reader`s rules: UNIVERSAL
+    ### THE SEAT`S PROPOSAL: UNIVERSAL -- the strongest field`s shape (UNIVERSAL).
+
+### SIDEExplicitFormula.Keiper.KeiperObligations (the zeta page, v0.20 = 914c413)
+    the statement as the probe printed it: structure SIDEExplicitFormula.Keiper.KeiperObligations : Prop number of parameters: 0 fields: SIDEExplicitFormula.Keiper.KeiperObligations.binomial : SIDEExplicitFormula.Keiper.BinomialTransform SIDEExplicitFormula.Keiper.KeiperObligations.split : SIDEExplicitFormula.Keiper.LogDerivSplit SIDEExplicitFormula.Keiper.KeiperObligations.stieltjesLog : SIDEExplicitFormula.Keiper.StieltjesLog SIDEExplicitFormula.Keiper.KeiperObligations.gammaZeta : SIDEExplicitFormula.Keiper.GammaRZetaValues constructor: SIDEExplicitFormula.Keiper.KeiperObligations.mk (binomial : SIDEExplicitFormula.Keiper.BinomialTransform) (split : SIDEExplicitFormula.Keiper.LogDerivSplit) (stieltjesLog : SIDEExplicitFormula.Keiper.StieltjesLog) (gammaZeta : SIDEExplicitFormula.Keiper.GammaRZetaValues) : SIDEExplicitFormula.Keiper.KeiperObligations
+    BinomialTransform @ v0.20 SIDEExplicitFormula/Keiper.lean :117 -- def BinomialTransform : Prop := ∀ n : ℕ, LiCriterion.taylorCoeff LiCriterion.riemannXi n = ∑ k ∈ Finset.range (n + 1), ((n + 1).choose (k + 1) : ℂ) * xiLogCoeff k
+        read by the reader`s rules: UNIVERSAL
+    LogDerivSplit @ v0.20 SIDEExplicitFormula/Keiper.lean :122 -- def LogDerivSplit : Prop := ∀ k : ℕ, xiLogCoeff k = keiperA k
+        read by the reader`s rules: UNIVERSAL
+    StieltjesLog @ v0.20 SIDEExplicitFormula/Keiper.lean :101 -- def StieltjesLog : Prop := ∀ k : ℕ, ((k + 1 : ℕ) : ℂ) * poleCoeff (k + 1) = ∑ i ∈ Finset.range (k + 1), poleCoeff i * zetaLogCoeff (k - i)
+        read by the reader`s rules: UNIVERSAL
+    GammaRZetaValues @ v0.20 SIDEExplicitFormula/Keiper.lean :107 -- def GammaRZetaValues : Prop := ∀ k : ℕ, gammaRLogCoeff (k + 1) = (-1) ^ k * (1 - 1 / (2 : ℂ) ^ (k + 2)) * riemannZeta ((k : ℂ) + 2)
+        read by the reader`s rules: UNIVERSAL
+    ### THE SEAT`S PROPOSAL: UNIVERSAL -- the strongest field`s shape (UNIVERSAL, UNIVERSAL, UNIVERSAL, UNIVERSAL).
+
+### SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations (the chi page, v0.21 = 1d5d4dd)
+    the statement as the probe printed it: structure SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations (W h : ℝ) : Prop number of parameters: 2 fields: SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.conv_step : SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W h SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.smooth : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h constructor: SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.mk {W h : ℝ} (conv_step : SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W h) (smooth : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h) : SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations W h
+    ConvStep @ v0.21 SIDEExplicitFormula/Schema/PlateauRamp.lean :173 -- def ConvStep (W h : ℝ) : Prop := ∀ (p : ℕ) (z : ℂ), Zeta23.paperFT (phiC (window W h (p + 1))) z = Zeta23.paperFT (phiC (window W h p)) z * Zeta23.paperFT (phiC (nbox h)) z
+        read by the reader`s rules: UNIVERSAL
+    Smooth4 @ v0.21 SIDEExplicitFormula/Schema/PlateauRamp.lean :178 -- def Smooth4 (W h : ℝ) : Prop := ∀ p : ℕ, 6 ≤ p → ContDiff ℝ 4 (window W h p)
+        read by the reader`s rules: UNIVERSAL
+    ### THE SEAT`S PROPOSAL: UNIVERSAL -- the strongest field`s shape (UNIVERSAL, UNIVERSAL).
+
+### ### **UNCLASSIFIED : 3 ; PROPOSED : {'Zeta23.WeilEF.EF_lit_zetaZeroConfig': 'UNIVERSAL', 'SIDEExplicitFormula.Keiper.KeiperObligations': 'UNIVERSAL', 'SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations': 'UNIVERSAL'}.**
