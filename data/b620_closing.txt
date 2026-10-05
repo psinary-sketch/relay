@@ -1,0 +1,83 @@
+========================================================================================================
+b620 -- THE CLOSING RECORD. ### **LANE THREE, ACT FORTY-SEVEN: THE SECOND READER -- THE PACKET, THE HOLD, THE READER IN A FRESH SESSION, THE AGREEMENT BANKED, UNDER (R230).**
+========================================================================================================
+    ### COMPONENT 0 : the process listing (no orphan at step zero) ; b619`s closing push-out relay 3408ac33 ; push-b619* branches deleted by name (data/b620_branches.txt) ; the kept branches untouched ; the suite run at HEAD before the face (data/b620_arms_prerun.txt)
+    ### COMPONENT 1 : b619`s weight FINDINGS :7420
+    ### COMPONENT 2 : the packet data/b620_reader_packet/ ; 370 substitutions, 120 rows, 164 residue sentences ; H54d HOLDS
+    ### COMPONENT 3 : the hold, the one prompt answered (data/b620_author_answers.txt) ; S2 HELD
+    ### COMPONENT 4 : the keying data/b620_agreement.txt ; the monograph 0.996, the sieve 0.958, the rows 0.567 ; 114 disagreements ; H54a HOLDS, H54b HOLDS, H54c REFUTED
+    ### COMPONENT 5 : the ζ page changed False, the χ page changed False ; page arms data/b620_page_arms_c2.txt
+    ### COMPONENT 6 : FINDINGS :7422 (the entry) ; OPEN_TRAILS :12819 (the record) ; next: b621 ; N1 HELD, N2 HELD, N3 HELD, N4 REFUTED, N5 HELD
+    (H54a) HOLDS (H54b) HOLDS (H54c) REFUTED (H54d) HOLDS ; (N1) HELD (N2) HELD (N3) HELD (N4) REFUTED (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD (S4) HELD (S5) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+b620 -- THE DEFECT LIST (the act`s own).
+
+    (a) THE SEAT`S, ON THE AUTHOR`S ANSWER AT THE HOLD, AFTER THE SEAL: the face`s (Z) says this act`s record tool takes no edit after the seal; the author`s answer ordered a note on H54a-H54c of how the reader ran, so the record tool took one edit through the Edit tool (READER_NOTE, carried into the keying`s H54 lines and the scores), the face`s sentence refuted in its letter. The author`s answer also ordered the seat to launch the reader itself; that launch was refused by the session`s permission classifier, the seat did not pursue it, and the author ran the reader in the author`s own terminal.
+    (b) THE SEAT`S, AT THE AUDIT: relay data/b620_reader_run.txt, the bank the author`s answer ordered, was written by a script in the seat`s scratchpad (reader_audit.py; a first attempt through a bash heredoc failed on its backslashes before writing anything), not by a subcommand of this act`s record tool, which had none for it.
+    (c) THE SEAT`S, AT COMPONENT 6, BEFORE THE RECORD: the N5 scorer carried from b619 lists OPEN_TRAILS in the face`s write list throughout and compared the changed files exactly; in this act the trail record is OPEN_TRAILS` only write, so before it the scorer read REFUTED and after it would read HELD -- the converse of the defect the standing repair (OPEN_TRAILS :12799) closes. Corrected through the Edit tool to count OPEN_TRAILS as written while the record is pending at its expected line; the scores banked again before the record, and the first scores bank not kept.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 70. ### LIVE PASSING : 70. ### LIVE FAILING : 0 .
+    pre-push : VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES
+    post-push : ARMS RUN : 70. ### LIVE PASSING : 70. ### LIVE FAILING : 0 .
+    post-push : VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES
+      relay                            main 71f10d1ad32c ; remote 71f10d1ad32c ; AGREE
+      PLACE-papers                     main e6a3fbf19a51 ; remote e6a3fbf19a51 ; AGREE
+      SIDE-global-section              main 3528bcfc8c03 ; remote 3528bcfc8c03 ; AGREE
+      SIDE-explicit-formula            main 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE
+      SIDE-kernel                      main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation             main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                     main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      SIDE-trivium                     main 1aac3a9e1939 ; remote 1aac3a9e1939 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 2e76426dc4b0 ; remote 2e76426dc4b0 ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 54ba4f38b729 ; remote 54ba4f38b729 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 520abe7a6b7d ; remote 520abe7a6b7d ; AGREE
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    no kernel written, tagged or branched ; no Lean call ; no worktree made or removed ; no edition changed ; the packet and its prompt committed alone in relay ; ERRATA, README, REGISTRY and SPIRAL_MAP untouched ; no mirror built
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R230)(3)**: b621, the author`s rulings on the disagreements applied as editions where ruled, then
+        W-ORD-QUANTIFIER-COLUMN`s generator; the author rules on the closing.
+    (b) ### **FOR THE AUTHOR**: the disagreements of relay data/b620_agreement.txt, each with both wordings, the seat`s reading and
+        the reader`s line; listed by edition and line on the trail record.
+    (c) ### **FOR THE AUTHOR`S STRIKE**: the seat`s readings of the batch (every substitution SAME-OBJECT; the sieve`s substitution
+        set; the residue marks; the enumeration needle; the masks; the row eligibility).
+    (d) Branches left for the next act`s step zero, each merged: PLACE-papers push-b620; relay push-b620 and push-b620-closing.
+    (e) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+    (f) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).
+========================================================================================================
