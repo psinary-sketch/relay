@@ -1,0 +1,25 @@
+b625 -- COMPONENT 2: tools/test_e0_rule.py RUN AND COUNTED (2026-10-05T14:52:48Z); exit 0
+
+  (1) the rule`s own self-test (b568`s seven headers, b624`s four and b625`s four)                         PASS
+  (2) LFunction_zeros_finite_of_isCompact at v0.11 reads DERIVES (read DERIVES; domain conditions only: h1 : χ ≠ 1, hK : IsCompact K) PASS
+  (2) EF_zero_sum_summable_chi at v0.11 reads DERIVES (read DERIVES; domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk :) PASS
+  (3) a class binder on a variable the conclusion mentions: DERIVES (read DERIVES)                         PASS
+  (4) a class binder on a variable the conclusion does NOT mention: INTERFACES (read INTERFACES)           PASS
+  (5) a named premise beside a class binder: INTERFACES (read INTERFACES)                                  PASS
+  (6) conclusion reads past the binder groups (read ' (K ∩ s).Finite')                                     PASS
+  (7) finsetSum_productLemma at v0.21 reads DERIVES on binders [] (read DERIVES; binders [])               PASS
+  (8) finsetSum_insert at v0.21 reads DERIVES on binders ['h'] (read DERIVES; binders ['h'])               PASS
+  (9) power_contDiff at v0.21 reads DERIVES on binders ['hg', 'hs'] (read DERIVES; binders ['hg', 'hs'])   PASS
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\f5c41941-fa74-40e9-b806-a98e7280e315\scratchpad\b625_planted\PlantedInterface.lean (349 bytes)
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\f5c41941-fa74-40e9-b806-a98e7280e315\scratchpad\b625_planted\PlantedShell.lean (386 bytes)
+  (10) the planted interface, an induction in its proof, reads INTERFACES on its one premise (read INTERFACES; hP : NamedPremise 0) PASS
+  (11) the planted shell, the conclusion an alpha-variant binder, reads ENCODES-CONCLUSION (read ENCODES-CONCLUSION; the conclusion is the binder h : ∀ k : Nat, k + n = n + k) PASS
+  (12) a merely similar Prop as a binder does not read ENCODES-CONCLUSION (read DERIVES)                   PASS
+  (13) clause (i): instances not of Fact read DERIVES; a Fact instance reads INTERFACES on hp : Fact p.Prime PASS
+  (14) clause (ii): non-emptiness and finiteness read DERIVES; beside a named premise INTERFACES on hP : EpsteinPremises s PASS
+  (15) clause (iii): restrictions on the quantified function read DERIVES; paperFT_polyOp at v0.21 DERIVES; behind a range INTERFACES PASS
+### ### **16 of 16 cases as wanted -- PASS**
+
+### CASES : 16 ; PASSING : 16 ; FAILING : 0   ### counted by the numbered case pattern
+
+### THE POSITIVE CONTROL: the same test with tools/e0_rule.py as it stood at relay 84bae29a (exit 1): cases 16, passing 12, failing ['(9)', '(13)', '(14)', '(15)']

@@ -1,0 +1,862 @@
+{
+ "at": "2026-10-05T14:51:35Z",
+ "rows": [
+  {
+   "name": "SIDEExplicitFormula.B321.dominant_exists",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hg",
+     "type": "ContDiff ℝ 4 g",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hL",
+     "type": "0 ≤ L",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    },
+    {
+     "binder": "h₁",
+     "type": "ρ₁ ∈ Z.carrier",
+     "cls": "(ii)",
+     "why": "a membership in the carrier of the configuration the statement names"
+    },
+    {
+     "binder": "hoff",
+     "type": "ρ₁.re ≠ 1 / 2",
+     "cls": "(iii)",
+     "why": "a restriction on the point ρ₁ the statement quantifies"
+    },
+    {
+     "binder": "hpos",
+     "type": "0 < offScore g ρ₁",
+     "cls": "(iii)",
+     "why": "a positivity restriction on the point ρ₁ the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_cell",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hF",
+     "type": "admissible F W",
+     "cls": "(iii)",
+     "why": "the window family F and width set W the statement quantifies restricted to classK with the pole term annihilated (Registers.lean :38, a def on F and W alone)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam",
+   "page": "zeta",
+   "ledger": "CONFLICT",
+   "rule_before": "DERIVES",
+   "class_grade": null,
+   "verdict": "FOR THE AUTHOR`S RULING",
+   "why": "no binder; its INTERFACES cells (FINDINGS :4648, CORRESPONDENCE :458) read the named Prop rh_strip_imp_rh in the antecedent of the conclusion`s arrow, which the clause, a reading of binders, does not reach",
+   "binders": []
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.kWin_classK",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hφs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.kWindow_classK",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hs",
+     "type": "Function.support g0 ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.kWindow_term",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hev",
+     "type": "∀ x, g0 (-x) = g0 x",
+     "cls": "(iii)",
+     "why": "the parity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g0 ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.nearInt_ge",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hc",
+     "type": "Continuous φ",
+     "cls": "(iii)",
+     "why": "the continuity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hnn",
+     "type": "∀ x, 0 ≤ φ x",
+     "cls": "(iii)",
+     "why": "the non-negativity of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.off_finite_above",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hg",
+     "type": "ContDiff ℝ 4 g",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hL",
+     "type": "0 ≤ L",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    },
+    {
+     "binder": "hc",
+     "type": "0 < c",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pairTwo_factored",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hφs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pairTwo_near_far",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hφs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hev",
+     "type": "∀ x, φ (-x) = φ x",
+     "cls": "(iii)",
+     "why": "the parity of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.pair_near_sign",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hc",
+     "type": "Continuous φ",
+     "cls": "(iii)",
+     "why": "the continuity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hnn",
+     "type": "∀ x, 0 ≤ φ x",
+     "cls": "(iii)",
+     "why": "the non-negativity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hpos",
+     "type": "0 < ∫ u, φ u",
+     "cls": "(iii)",
+     "why": "the positivity of the integral of the test function the statement quantifies"
+    },
+    {
+     "binder": "hδ",
+     "type": "0 < δ",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    },
+    {
+     "binder": "hδγ",
+     "type": "δ < 2 * γ₀",
+     "cls": "(iii)",
+     "why": "a bound between two reals the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_growth",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": null,
+   "verdict": "FOR THE AUTHOR`S RULING",
+   "why": "a binder no clause reaches; the ledger`s grade kept until the ruling",
+   "binders": [
+    {
+     "binder": "h",
+     "type": "ℝ → ℂ",
+     "cls": "NONE",
+     "why": "not a Prop: the function the statement quantifies, read as a hypothesis binder by the rule`s name pattern (h...); no clause of (R235)(2) speaks to a binder that is no condition"
+    },
+    {
+     "binder": "hi",
+     "type": "Integrable h",
+     "cls": "(iii)",
+     "why": "the integrability of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support h ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_growth_at",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": null,
+   "verdict": "FOR THE AUTHOR`S RULING",
+   "why": "a binder no clause reaches; the ledger`s grade kept until the ruling",
+   "binders": [
+    {
+     "binder": "h",
+     "type": "ℝ → ℂ",
+     "cls": "NONE",
+     "why": "not a Prop: the function the statement quantifies, read as a hypothesis binder by the rule`s name pattern (h...); no clause of (R235)(2) speaks to a binder that is no condition"
+    },
+    {
+     "binder": "hi",
+     "type": "Integrable h",
+     "cls": "(iii)",
+     "why": "the integrability of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support h ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_polyOp",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hg",
+     "type": "ContDiff ℝ (2 * a.length) g",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_polyOpFull",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hg",
+     "type": "ContDiff ℝ a.length g",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_power",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hev",
+     "type": "∀ x, g (-x) = g x",
+     "cls": "(iii)",
+     "why": "the parity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hg",
+     "type": "ContDiff ℝ n g",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_window",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hφs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_window_zero",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hφs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.polyOpFull_support",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.power_contDiff",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hg",
+     "type": "ContDiff ℝ n g",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.power_support",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hs",
+     "type": "Function.support g ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.realizedGrowth_ge_one",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hc",
+     "type": "Continuous φ",
+     "cls": "(iii)",
+     "why": "the continuity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "HasCompactSupport φ",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hnn",
+     "type": "∀ x, 0 ≤ φ x",
+     "cls": "(iii)",
+     "why": "the non-negativity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hpos",
+     "type": "0 < ∫ u, φ u",
+     "cls": "(iii)",
+     "why": "the positivity of the integral of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_bound",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support φ ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hL",
+     "type": "0 ≤ L",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    },
+    {
+     "binder": "hstrip",
+     "type": "HStrip Z",
+     "cls": "(iii)",
+     "why": "the configuration Z the statement quantifies restricted to the open strip (RestBound.lean :40, a def on Z`s own carrier)"
+    },
+    {
+     "binder": "hcount",
+     "type": "HCount Z A₀",
+     "cls": "(iii)",
+     "why": "the configuration Z and the real A₀ the statement quantifies restricted by the local count (RestBound.lean :44, a def on Z and A₀ alone)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_bound_closed",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support φ ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hL",
+     "type": "0 ≤ L",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    },
+    {
+     "binder": "hcount",
+     "type": "HCount Z A₀",
+     "cls": "(iii)",
+     "why": "the configuration Z and the real A₀ the statement quantifies restricted by the local count (RestBound.lean :44, a def on Z and A₀ alone)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rest_bound_zeta",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hφ",
+     "type": "ContDiff ℝ 4 φ",
+     "cls": "(iii)",
+     "why": "the smoothness of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "Function.support φ ⊆ Set.Icc (-L) L",
+     "cls": "(iii)",
+     "why": "the support of the test function the statement quantifies"
+    },
+    {
+     "binder": "hL",
+     "type": "0 ≤ L",
+     "cls": "(iii)",
+     "why": "a real`s positivity, the real quantified by the statement"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.rh_imp_cell_form",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hF",
+     "type": "admissible F W",
+     "cls": "(iii)",
+     "why": "the window family F and width set W the statement quantifies restricted to classK with the pole term annihilated (Registers.lean :38, a def on F and W alone)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.zero_term_real",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hc",
+     "type": "Continuous g",
+     "cls": "(iii)",
+     "why": "the continuity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "HasCompactSupport g",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.zero_term_sq",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hev",
+     "type": "∀ x, g (-x) = g x",
+     "cls": "(iii)",
+     "why": "the parity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hc",
+     "type": "Continuous g",
+     "cls": "(iii)",
+     "why": "the continuity of the test function the statement quantifies"
+    },
+    {
+     "binder": "hs",
+     "type": "HasCompactSupport g",
+     "cls": "(iii)",
+     "why": "the compact support of the test function the statement quantifies"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.chi_mult_reflect",
+   "page": "chi",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hχ",
+     "type": "χ.IsPrimitive",
+     "cls": "(iii)",
+     "why": "the character χ the statement quantifies restricted to primitive characters"
+    },
+    {
+     "binder": "h1",
+     "type": "χ ≠ 1",
+     "cls": "(iii)",
+     "why": "the character χ the statement quantifies restricted to the non-trivial ones"
+    },
+    {
+     "binder": "h",
+     "type": "IsNontrivialZeroChi χ ρ",
+     "cls": "(ii)",
+     "why": "a membership of ρ in the nontrivial zeros of L(s, χ) (Chi/ZeroConfig.lean :48)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.chi_reflect_zero",
+   "page": "chi",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "hχ",
+     "type": "χ.IsPrimitive",
+     "cls": "(iii)",
+     "why": "the character χ the statement quantifies restricted to primitive characters"
+    },
+    {
+     "binder": "h1",
+     "type": "χ ≠ 1",
+     "cls": "(iii)",
+     "why": "the character χ the statement quantifies restricted to the non-trivial ones"
+    },
+    {
+     "binder": "h",
+     "type": "IsNontrivialZeroChi χ ρ",
+     "cls": "(ii)",
+     "why": "a membership of ρ in the nontrivial zeros of L(s, χ) (Chi/ZeroConfig.lean :48)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re",
+   "page": "zeta",
+   "ledger": "INTERFACES",
+   "rule_before": "DERIVES",
+   "class_grade": "INTERFACES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "h1",
+     "type": "∀ C ∈ sevenClasses, C Phi",
+     "cls": "premise",
+     "why": "a Prop about the fixed objects Phi and sevenClasses the kernel names and does not derive (RegisterDepth.lean :81, :230); the membership is the quantifier`s range, not a condition on an object the statement names"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.silence_universal_restated",
+   "page": "zeta",
+   "ledger": "DERIVES",
+   "rule_before": "INTERFACES",
+   "class_grade": "DERIVES",
+   "verdict": "AGREE",
+   "why": "closed in the bank",
+   "binders": [
+    {
+     "binder": "h_univ",
+     "type": "I.is_universal",
+     "cls": "(iii)",
+     "why": "the interface I the statement quantifies restricted to universal interfaces (RegisterDepth.lean :38, a def on I`s own action)"
+    }
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.Family.finsetSum_insert",
+   "page": "chi",
+   "ledger": "INTERFACES",
+   "rule_before": "DERIVES",
+   "class_grade": "DERIVES",
+   "verdict": "CORRECTED",
+   "why": "the ledger`s cells take a dated correction entry",
+   "binders": [
+    {
+     "binder": "h",
+     "type": "a ∉ s",
+     "cls": "(ii)",
+     "why": "a non-membership of a in the Finset s the statement names"
+    }
+   ]
+  }
+ ],
+ "agree": 29,
+ "corrected": 1,
+ "unclassed": 3
+}

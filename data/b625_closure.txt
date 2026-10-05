@@ -1,0 +1,262 @@
+b625 -- COMPONENT 3, (R235)(4): THE CLOSURE OF Zeta23/FinalMult.lean, LISTED BEFORE ANY COPY (2026-10-05T14:53:48Z)
+
+### the upstream: anthropics/formal-math (the clone relay data/anthropic-zeta23/formal-math, untracked); one ls-remote: tag v1.0 peels at the remote to 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 ; the pin 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 ; equal True
+### Zeta23/FinalMult.lean :350 at the pin: theorem thmB₀_mult :
+### the vendored set: SIDE-explicit-formula 52d8cf9 (SIDE-explicit-formula v0 -- 57 modules vendored from zeta23 at v1.0 = 3635e74826a4, byte-identical bodies with attributi), Zeta23/ at main
+
+### THE CLOSURE, BY FILE (module ; lines ; state against the vendored set):
+  Zeta23.Analytic.RectangleLogDeriv                       386  VENDORED
+  Zeta23.Analytic.Stirling                                280  VENDORED
+  Zeta23.Assembly                                        1633  NEW
+  Zeta23.Assembly.Certificate                             102  NEW
+  Zeta23.Assembly.CertificateC3                           101  NEW
+  Zeta23.Assembly.Inputs                                   69  VENDORED
+  Zeta23.Assembly.SeamMult                                 92  NEW
+  Zeta23.Chebyshev                                       1211  NEW
+  Zeta23.Defs                                             339  VENDORED
+  Zeta23.Defs.Counting                                     66  VENDORED
+  Zeta23.Defs.LeafIntegrals                               206  NEW
+  Zeta23.Defs.Profile                                      34  NEW
+  Zeta23.ExplicitFormula                                  734  VENDORED
+  Zeta23.ExplicitFormula.Bridge                           204  VENDORED
+  Zeta23.Final                                            374  NEW
+  Zeta23.FinalMult                                        378  NEW
+  Zeta23.FromPNTPlus.Auxiliary                             88  VENDORED
+  Zeta23.FromPNTPlus.EulerMaclaurin                        92  VENDORED
+  Zeta23.FromPNTPlus.Fourier                              199  VENDORED
+  Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic     28  VENDORED
+  Zeta23.FromPNTPlus.Mertens                              202  NEW
+  Zeta23.FromPNTPlus.Rectangle                            280  VENDORED
+  Zeta23.FromPNTPlus.ResidueCalcOnRectangles             1153  VENDORED
+  Zeta23.FromPNTPlus.Sobolev                              371  VENDORED
+  Zeta23.FromPNTPlus.StrongPNTPrefix                      482  VENDORED
+  Zeta23.FromPNTPlus.Tactic.AdditiveCombination           196  VENDORED
+  Zeta23.FromPNTPlus.ZetaBounds                          3060  VENDORED
+  Zeta23.FromPNTPlus.ZetaConj                              41  NEW
+  Zeta23.GammaFacts                                       121  VENDORED
+  Zeta23.GammaFacts.Complete                               32  NEW
+  Zeta23.GammaFacts.IntMu                                 524  NEW
+  Zeta23.GammaFacts.Mu                                    464  VENDORED
+  Zeta23.GammaFacts.Series                                499  VENDORED
+  Zeta23.GammaFacts.StirlingVert                          642  VENDORED
+  Zeta23.Hypotheses                                       159  VENDORED
+  Zeta23.Hypotheses.GzGp                                  148  NEW
+  Zeta23.LinAlg                                            12  VENDORED
+  Zeta23.LinAlg.HermitianPosPart                          204  VENDORED
+  Zeta23.LinAlg.Inertia                                   138  VENDORED
+  Zeta23.LinAlg.PosIndex                                  127  VENDORED
+  Zeta23.LinAlg.RankTrace                                 267  VENDORED
+  Zeta23.LinAlg.Sylvester                                 309  VENDORED
+  Zeta23.LinAlg.VonNeumann                                204  VENDORED
+  Zeta23.LinAlg.Weyl                                      136  VENDORED
+  Zeta23.MV                                               240  NEW
+  Zeta23.MV.Duality                                       203  NEW
+  Zeta23.MV.Eigen                                         141  NEW
+  Zeta23.MV.EigenIdentity                                 195  NEW
+  Zeta23.MV.Final                                          36  NEW
+  Zeta23.MV.Quadratic                                     213  NEW
+  Zeta23.MV.Spacing                                       544  NEW
+  Zeta23.Main                                             317  NEW
+  Zeta23.PiFacts                                          427  NEW
+  Zeta23.Poisson                                          404  NEW
+  Zeta23.Poisson.PaperFT                                  162  VENDORED
+  Zeta23.Prelude.InstancePriorities                        30  VENDORED
+  Zeta23.PrimeSideA                                       481  NEW
+  Zeta23.PrimeSideA.Basic                                1385  NEW
+  Zeta23.PrimeSideA.Bridge                                119  NEW
+  Zeta23.PrimeSideA.CrossMuP                              157  NEW
+  Zeta23.PrimeSideA.CrossMuPCore                          281  NEW
+  Zeta23.PrimeSideA.Defs                                  157  NEW
+  Zeta23.PrimeSideA.Ends                                  176  NEW
+  Zeta23.PrimeSideA.EndsCore                              698  NEW
+  Zeta23.PrimeSideA.EndsE1                                901  NEW
+  Zeta23.PrimeSideA.EndsE2                                452  NEW
+  Zeta23.PrimeSideA.EndsNu                                821  NEW
+  Zeta23.PrimeSideA.EndsWeighted                          244  NEW
+  Zeta23.PrimeSideA.MuMu                                  290  NEW
+  Zeta23.PrimeSideB                                       826  NEW
+  Zeta23.PrimeSideB.Concrete                              106  NEW
+  Zeta23.PrimeSideB.Final                                  35  NEW
+  Zeta23.PrimeSideB.PP                                    481  NEW
+  Zeta23.PrimeSideB.PPKernel                              714  NEW
+  Zeta23.PrimeSideB.PPOffDiag                             173  NEW
+  Zeta23.PrimeSideB.Traces                                209  NEW
+  Zeta23.PrimeSideTemp                                    102  NEW
+  Zeta23.RvM.Backlund                                     416  NEW
+  Zeta23.RvM.BacklundDefs                                  33  NEW
+  Zeta23.RvM.CountByIntegral                              165  VENDORED
+  Zeta23.RvM.Defs                                          52  NEW
+  Zeta23.RvM.Fold                                         203  NEW
+  Zeta23.RvM.GammaSide                                    202  NEW
+  Zeta23.RvM.Halving                                       87  VENDORED
+  Zeta23.RvM.LocalCount                                   298  VENDORED
+  Zeta23.RvM.MainTerm                                     486  NEW
+  Zeta23.RvM.NcountWindow                                  59  NEW
+  Zeta23.RvM.ReZeroCount                                  364  NEW
+  Zeta23.RvM.Statement                                     23  NEW
+  Zeta23.RvM.ZetaGrowth                                   236  VENDORED
+  Zeta23.Statement                                        190  VENDORED
+  Zeta23.Statement.Seam                                   113  VENDORED
+  Zeta23.Statement.SeamClosed                              50  VENDORED
+  Zeta23.Tail                                             691  VENDORED
+  Zeta23.Tail.Basic                                        75  VENDORED
+  Zeta23.Tail.Count                                       499  VENDORED
+  Zeta23.Tail.Grid                                        143  VENDORED
+  Zeta23.Tail.Package                                      53  NEW
+  Zeta23.Tail.RankOne                                     178  VENDORED
+  Zeta23.Taper                                            172  NEW
+  Zeta23.Taper.Basic                                      186  NEW
+  Zeta23.Taper.Decay                                     1004  NEW
+  Zeta23.Taper.Fourier                                    480  NEW
+  Zeta23.Taper.Norms                                      625  NEW
+  Zeta23.Taper.Params                                     114  NEW
+  Zeta23.Taper.Strip                                      114  NEW
+  Zeta23.ThmD.AssemblyD                                    79  NEW
+  Zeta23.ThmD.BridgeD                                     117  NEW
+  Zeta23.ThmD.Concrete                                    244  NEW
+  Zeta23.ThmD.Functional                                  505  NEW
+  Zeta23.ThmD.Limit                                       214  NEW
+  Zeta23.ThmD.PP                                          350  NEW
+  Zeta23.ThmD.PsiC                                        573  NEW
+  Zeta23.ThmD.Traces                                      667  NEW
+  Zeta23.ThmD.Window                                     1792  NEW
+  Zeta23.ThmD.WindowCore                                  514  NEW
+  Zeta23.ThmD.WindowLocalHyps                              97  NEW
+  Zeta23.TracesBoundsE                                     59  NEW
+  Zeta23.WeilEF.Contour                                   197  VENDORED
+  Zeta23.WeilEF.FullLine                                  426  VENDORED
+  Zeta23.WeilEF.FullLineAssembly                           92  VENDORED
+  Zeta23.WeilEF.GammaRBracket                             131  VENDORED
+  Zeta23.WeilEF.GoodHeights                               354  VENDORED
+  Zeta23.WeilEF.Horizontal                                172  VENDORED
+  Zeta23.WeilEF.Landau                                    661  VENDORED
+  Zeta23.WeilEF.Main                                      273  VENDORED
+  Zeta23.WeilEF.VerticalLine                              788  VENDORED
+  Zeta23.WeilEF.XiLogDeriv                                118  VENDORED
+  Zeta23.WeilEF.ZeroSumLimit                               89  VENDORED
+  Zeta23.WeilEF.ZeroSummability                           249  VENDORED
+  Zeta23.ZeroSide                                         997  NEW
+  Zeta23.ZeroSide.Final                                   103  NEW
+  Zeta23.ZeroSide.Mult                                    206  NEW
+  Zeta23.ZeroSide.RankTraceMult                           442  NEW
+  Zeta23.ZetaReflect                                      329  VENDORED
+
+### THE EXTERNAL IMPORTS (Mathlib, Batteries), SEPARATED: 113 distinct
+  Batteries.Tactic.Lemma
+  Mathlib
+  Mathlib.Algebra.BigOperators.Field
+  Mathlib.Algebra.BigOperators.Fin
+  Mathlib.Algebra.BigOperators.Finprod
+  Mathlib.Algebra.Group.Submonoid.BigOperators
+  Mathlib.Algebra.Lie.OfAssociative
+  Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+  Mathlib.Algebra.Order.Chebyshev
+  Mathlib.Algebra.Order.Field.GeomSum
+  Mathlib.Algebra.Order.Floor.Defs
+  Mathlib.Algebra.Order.Floor.Ring
+  Mathlib.Algebra.Order.Floor.Semiring
+  Mathlib.Algebra.Order.Rearrangement
+  Mathlib.Algebra.Order.Star.Real
+  Mathlib.Analysis.Analytic.Order
+  Mathlib.Analysis.Analytic.Uniqueness
+  Mathlib.Analysis.Asymptotics.Lemmas
+  Mathlib.Analysis.CStarAlgebra.Classes
+  Mathlib.Analysis.Calculus.ContDiff.Convolution
+  Mathlib.Analysis.Calculus.ContDiff.Defs
+  Mathlib.Analysis.Calculus.ContDiff.Deriv
+  Mathlib.Analysis.Calculus.Deriv.Star
+  Mathlib.Analysis.Calculus.Deriv.Support
+  Mathlib.Analysis.Calculus.LogDeriv
+  Mathlib.Analysis.Calculus.LogDerivUniformlyOn
+  Mathlib.Analysis.Complex.Basic
+  Mathlib.Analysis.Complex.BorelCaratheodory
+  Mathlib.Analysis.Complex.CauchyIntegral
+  Mathlib.Analysis.Complex.Convex
+  Mathlib.Analysis.Complex.ExponentialBounds
+  Mathlib.Analysis.Complex.HasPrimitives
+  Mathlib.Analysis.Complex.IntegerCompl
+  Mathlib.Analysis.Complex.ReImTopology
+  Mathlib.Analysis.Complex.RealDeriv
+  Mathlib.Analysis.Complex.RemovableSingularity
+  Mathlib.Analysis.Convex.Birkhoff
+  Mathlib.Analysis.Distribution.SchwartzSpace.Deriv
+  Mathlib.Analysis.Fourier.Convolution
+  Mathlib.Analysis.Fourier.FourierTransform
+  Mathlib.Analysis.Fourier.FourierTransformDeriv
+  Mathlib.Analysis.Fourier.Inversion
+  Mathlib.Analysis.Fourier.PoissonSummation
+  Mathlib.Analysis.InnerProductSpace.Basic
+  Mathlib.Analysis.Matrix.Normed
+  Mathlib.Analysis.Matrix.PosDef
+  Mathlib.Analysis.Meromorphic.NormalForm
+  Mathlib.Analysis.Normed.Group.InfiniteSum
+  Mathlib.Analysis.Normed.Module.Connected
+  Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn
+  Mathlib.Analysis.Normed.Order.Lattice
+  Mathlib.Analysis.PSeries
+  Mathlib.Analysis.Real.Pi.Bounds
+  Mathlib.Analysis.SpecialFunctions.Complex.Analytic
+  Mathlib.Analysis.SpecialFunctions.ExpDeriv
+  Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+  Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+  Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
+  Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
+  Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+  Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+  Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+  Mathlib.Analysis.SpecialFunctions.Log.Basic
+  Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
+  Mathlib.Analysis.SpecialFunctions.Pow.Complex
+  Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+  Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+  Mathlib.Analysis.SpecialFunctions.Pow.Real
+  Mathlib.Analysis.SpecialFunctions.SmoothTransition
+  Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+  Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex
+  Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+  Mathlib.Analysis.SumIntegralComparisons
+  Mathlib.Data.Matrix.Basic
+  Mathlib.Data.Rat.Cast.OfScientific
+  Mathlib.Data.Set.Card
+  Mathlib.LinearAlgebra.Complex.FiniteDimensional
+  Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+  Mathlib.LinearAlgebra.Lagrange
+  Mathlib.MeasureTheory.Function.Floor
+  Mathlib.MeasureTheory.Integral.Bochner.Basic
+  Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+  Mathlib.MeasureTheory.Integral.Bochner.Set
+  Mathlib.MeasureTheory.Integral.IntegralEqImproper
+  Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+  Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+  Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts
+  Mathlib.MeasureTheory.Integral.Prod
+  Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+  Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+  Mathlib.MeasureTheory.Measure.Lebesgue.Integral
+  Mathlib.MeasureTheory.Order.Group.Lattice
+  Mathlib.NumberTheory.AbelSummation
+  Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt
+  Mathlib.NumberTheory.Chebyshev
+  Mathlib.NumberTheory.Harmonic.Bounds
+  Mathlib.NumberTheory.Harmonic.EulerMascheroni
+  Mathlib.NumberTheory.Harmonic.GammaDeriv
+  Mathlib.NumberTheory.Harmonic.ZetaAsymp
+  Mathlib.NumberTheory.LSeries.Dirichlet
+  Mathlib.NumberTheory.LSeries.Nonvanishing
+  Mathlib.NumberTheory.LSeries.RiemannZeta
+  Mathlib.NumberTheory.ZetaValues
+  Mathlib.Order.Filter.AtTopBot.Field
+  Mathlib.Order.Filter.ZeroAndBoundedAtFilter
+  Mathlib.Order.Interval.Set.Monotone
+  Mathlib.RingTheory.SimpleRing.Principal
+  Mathlib.Tactic.Abel
+  Mathlib.Tactic.LinearCombinationPrime
+  Mathlib.Topology.Algebra.InfiniteSum.Order
+  Mathlib.Topology.Algebra.InfiniteSum.Real
+  Mathlib.Topology.ContinuousMap.Bounded.Basic
+  Mathlib.Topology.Instances.Matrix
+
+### THE TOOLCHAINS: upstream leanprover/lean4:v4.33.0-rc2 (Mathlib 51e6992efd06126df61a496bebf8f49482a4e129, its manifest) ; SIDE-explicit-formula leanprover/lean4:v4.34.0-rc1 (Mathlib de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11, its manifest) ; toolchains equal False ; Mathlib equal False
+### THE CONDITIONS OF (R235)(4): modules in the closure 135 (the limit 20) -- EXCEEDS ; of them vendored already 57, NEW 78 (28151 lines) ; the hold: free memory now 6169 MB (the hold 2560 MB), no module built
+
+### ### **CLOSURE 135 MODULES (46256 LINES) ; NEW 78 ; THE TWENTY-MODULE CONDITION FAILS ; THE ACT HOLDS AT COMPONENT 3, NO COPY MADE.**

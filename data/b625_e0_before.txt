@@ -1,0 +1,25 @@
+b625 -- COMPONENT 2: THE E0 RULE`S GRADE FUNCTION BEFORE THE EDIT, tools/e0_rule.py @ relay 84bae29a (2026-10-05T14:34:11Z; blob 18ebe563fac2)
+
+    :45   DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive)'
+    :55   BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\([^()]*\)[^()]*)*)\)')
+    :65   CLASS_PREDS = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact)\b.*?([A-Za-z_][\w\']*)\s*$')
+    :148  def class_case(t, head):
+    :156  def split_case(t):
+    :232  def grade(head, kind):
+    :233      """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
+    :234      ### kind 'def' grades DEF. A binder is a premise unless DOMAIN matches its type or it is a SPLITS case."""
+    :235      if kind == 'def':
+    :236          return 'DEF', '', []
+    :237      head = statement_only(head)
+    :238      spans = exist_spans(head)
+    :239      binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
+    :240      concl = alpha(conclusion(head))
+    :241      enc = [(b, t) for b, t in binders if concl and alpha(t) == concl]
+    :242      if enc:
+    :243          return 'ENCODES-CONCLUSION', 'the conclusion is the binder ' + ', '.join('%s : %s' % bt for bt in enc), binders
+    :244      prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
+    :245      if prem:
+    :246          return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
+    :247      if binders:
+    :248          return 'DERIVES', 'domain conditions only: ' + ', '.join('%s : %s' % bt for bt in binders), binders
+    :249      return 'DERIVES', 'no hypothesis binder', binders
