@@ -1,0 +1,39 @@
+b620 -- THE READER`S RUN AND ITS AUDIT, (R230)(2) and the author`s answer at the hold (relay data/b620_author_answers.txt): the reader run headless from the empty directory D:\reader_b620 by the author in the author`s own terminal (the seat`s own launch, at the author`s instruction, was refused by the session`s permission classifier, and the seat did not launch it), its lead D:\reader_b620\lead.txt verbatim as the author wrote it, then the reader prompt; option 1 answered.
+
+### THE SCRATCH DIRECTORY: full_prompt.txt (3486 bytes), lead.txt (389 bytes), reader_run.err (0 bytes), reader_run.log (7338 bytes)
+### lead.txt sha256 c5336c8d86055fb3d79bd7cf3bfe83331f5330ee9e370a27f3184744e792f87d ; full_prompt.txt sha256 48bb94b5b69f730d8052c6f44018c817022fbf6c45b9865306ababa192aee6cd (the lead, a blank line, data/b620_reader_prompt.txt)
+### THE RUN LOG (reader_run.log, UTF-16 as the terminal redirected it; reader_run.err 0 bytes): {"type": "result", "subtype": "success", "is_error": false, "num_turns": 16, "duration_ms": 311837, "session_id": "41abdfea-625a-48b8-b888-3ab1e76c4b4f"}
+### the reader`s closing report, whole:
+    The answers file is written to `D:/relay/data/b620_reader_answers.txt`. It has 654 lines, one for every item from S001ΓÇôS370, R001ΓÇôR120 and X001ΓÇôX164, in the packet's order. When I read it back, two reasons contained a vertical bar inside a math expression; I reworded them, and every line now matches the required form.
+    
+    **Task one (substitutions):**
+    - **SAME-OBJECT, 364 items.** Most change "proof" to "reduction" or "argument", re-grade a sieve row, or correct a compiled scope or count.
+    - **DIFFERENT-OBJECT, 5 items:** S011, S099, S129, S205 and S356. In each, an arc summary, an appended note or the quoted governing claim was replaced by an unrelated sieve row.
+    - **BEYOND-CEILING, 1 item:** S045. It still says, with nothing marking it as open, that no mechanism produces off-line zeros.
+    
+    **Task two (claims):** two items are kernel-verified: R081 and R085, which name compiled terminals at a pin. R089 and R108 name pins too, but none of the terminals they name is the conditional the claim is about, so they are statement-grade. For theorem-supported I went by the literal rule: if a line names a published theorem as its backing, the claim gets that grade, even where the theorem does not fully carry it (R070 and R104 cite St├╕rmer).
+    
+    **Task three (sentences):** 18 are BEYOND: X002, X004, X024, X036, X051, X073, X091, X100, X102, X130, X136, X144, X148, X153, X158, X159 and X163. Each treats the exhaustiveness of the catalogue (the open clause), the confinement of the zeros, or the codimension closures as settled. The other 146 are AT.
+    
+    The closest calls were S045, S075 and S126 in task one, and X007, X019 and X158 in task three. S075 and S126 keep the "Theorem" label but add "reduced here to its located clause", so I counted them as within the ceiling. I made no other changes.
+
+### THE AUDIT: every tool call of the reader`s session transcript (C:\Users\echo chamber\.claude\projects\D--reader-b620\41abdfea-625a-48b8-b888-3ab1e76c4b4f.jsonl), with its path:
+  Read  D:\relay\data\b620_reader_packet\00_README.txt
+  Read  D:\relay\data\b620_reader_packet\01_ceiling.txt
+  Read  D:\relay\data\b620_reader_packet\02_substitutions.txt
+  Read  D:\relay\data\b620_reader_packet\02_substitutions.txt offset 447 limit 400
+  Read  D:\relay\data\b620_reader_packet\02_substitutions.txt offset 847 limit 340
+  Read  D:\relay\data\b620_reader_packet\02_substitutions.txt offset 1187 limit 300
+  Read  D:\relay\data\b620_reader_packet\03_rows.txt
+  Read  D:\relay\data\b620_reader_packet\03_rows.txt offset 374 limit None
+  Read  D:\relay\data\b620_reader_packet\04_residue.txt
+  Write D:\relay\data\b620_reader_answers.txt
+  Grep  D:\relay\data\b620_reader_answers.txt
+  Grep  D:\relay\data\b620_reader_answers.txt
+  Edit  D:\relay\data\b620_reader_answers.txt
+  Edit  D:\relay\data\b620_reader_answers.txt
+  Grep  D:\relay\data\b620_reader_answers.txt
+### paths read: 9, all under the packet: True ; calls on the answer file alone: 6 ; paths outside the packet and the answer file: NONE
+### the reader project`s memory folder: EMPTY
+### A FINDING ON THE LAUNCH, NOT A CONTAMINATION: the reader used Grep and Edit, which the launch neither allowed by name nor disallowed; their one target was its own answer file (two reasons reworded to remove a vertical bar, three checks of the line form).
+### ### **CONTAMINATION FINDING : NONE.** The reader read the packet`s five files and nothing else; it wrote and checked its own bank alone.

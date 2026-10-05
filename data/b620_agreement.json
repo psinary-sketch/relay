@@ -1,0 +1,1181 @@
+{
+ "at": "2026-10-05T00:08:45Z",
+ "n_answers": 654,
+ "missing": [],
+ "bad": [],
+ "editions": {
+  "the monograph v5.14": [
+   54,
+   54
+  ],
+  "the monograph v5.15": [
+   27,
+   27
+  ],
+  "the monograph v5.16": [
+   169,
+   170
+  ],
+  "the sieve v0.2": [
+   0,
+   5
+  ],
+  "the sieve v0.3": [
+   104,
+   104
+  ],
+  "the sieve v0.4": [
+   5,
+   5
+  ],
+  "the sieve v0.5": [
+   5,
+   5
+  ]
+ },
+ "r_m": 0.9960159362549801,
+ "r_s": 0.957983193277311,
+ "mono": [
+  250,
+  251
+ ],
+ "sieve": [
+  114,
+  119
+ ],
+ "syn": {
+  "15E": [
+   13,
+   20
+  ],
+  "2B": [
+   11,
+   20
+  ],
+  "2D": [
+   7,
+   20
+  ],
+  "2F": [
+   16,
+   20
+  ],
+  "2G": [
+   13,
+   20
+  ],
+  "P12": [
+   8,
+   20
+  ]
+ },
+ "r_y": 0.5666666666666667,
+ "pairs": {
+  "synthesis-suggested -> statement-grade": 3,
+  "theorem-supported -> statement-grade": 4,
+  "argument-supported -> statement-grade": 11,
+  "theorem-supported -> argument-supported": 2,
+  "argument-supported -> computationally-verified": 1,
+  "argument-supported -> theorem-supported": 3,
+  "statement-grade -> argument-supported": 6,
+  "statement-grade -> computationally-verified": 1,
+  "computationally-verified -> statement-grade": 11,
+  "statement-grade -> theorem-supported": 2,
+  "kernel-verified -> statement-grade": 6,
+  "statement-grade -> synthesis-suggested": 1,
+  "synthesis-suggested -> theorem-supported": 1
+ },
+ "beyond": [
+  "X153",
+  "X158",
+  "X091",
+  "X148",
+  "X004",
+  "X024",
+  "X002",
+  "X144",
+  "X159",
+  "X051",
+  "X073",
+  "X130",
+  "X136",
+  "X163",
+  "X100",
+  "X036",
+  "X102"
+ ],
+ "r_x": 0.6585365853658537,
+ "dis_s": [
+  {
+   "id": "S045",
+   "doc": "the monograph",
+   "edition": "v5.16",
+   "bank": "b608_edition_PLACE.txt",
+   "bank_line": 396,
+   "item": "C050",
+   "new_line": 1217,
+   "seat": "SAME-OBJECT",
+   "reader": "BEYOND-CEILING",
+   "line": "still says unconditionally that no mechanism produces off-line zeros, with exhaustiveness open (h2) not mentioned",
+   "was": "The proof examines seven mechanism classes and finds that none produces off-line zeros.",
+   "now": "The reduction examines seven mechanism classes and finds that none produces off-line zeros."
+  },
+  {
+   "id": "S356",
+   "doc": "the sieve",
+   "edition": "v0.2",
+   "bank": "b604_edition_FINDINGS_STAND.txt",
+   "bank_line": 706,
+   "item": "c01",
+   "new_line": null,
+   "seat": "SAME-OBJECT",
+   "reader": "DIFFERENT-OBJECT",
+   "line": "the quoted governing claim replaced by row RH-01, a different object",
+   "was": "> ### **THE GOVERNING CLAIM, QUOTED UNCHANGED AND CLAIMED NO FURTHER:** > ### **RH reduced to a single located clause, reduction machine-verified.**",
+   "now": "| RH-01 | Weil positivity on classK (h2_sign) is equivalent to RH, both directions compiled, the clause the reduction locates; it is open, and neither side is established. | UNIVERSAL (H) | prime-side control | BRIGHT, tests 1–5 cleared (test 3 n/a: no character enters) | `h2_sign_iff_rh` @ SIDE-explicit-formula v0.2 = 5c72cad; `h2_sign_cfg_zeta_statement` @ SIDE-explicit-formula v0.15 = 21c8c52 |"
+  },
+  {
+   "id": "S099",
+   "doc": "the sieve",
+   "edition": "v0.2",
+   "bank": "b604_edition_FINDINGS_STAND.txt",
+   "bank_line": 707,
+   "item": "c66",
+   "new_line": null,
+   "seat": "SAME-OBJECT",
+   "reader": "DIFFERENT-OBJECT",
+   "line": "an arc's one-statement summary replaced by row RH-25, a different object",
+   "was": "- **b508–b515 — THE CHAIN AND THE WINDOW ARC**, folded at b516. Its one statement, quoted: **In this arc the kernel compiled that RH implies h2_sign and h2_sign the cell form, so h2_sign is at most as strong as RH; the converse was priced as a construction and then approached by measurement — a window peaked at the off-line zero’s height made its pair positive, a window vanishing there turned the pair negative but left it ten thousand times smaller than the low zeros — which is the shape of the classical converse: a zero at the point and concentration near it, at once.**",
+   "now": "| RH-25 | Every off-line point of any configuration is met by a classK window on which the zero side is negative. | FAMILY (H) | crossing geometry | DARK, test 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f): generic over configurations: the same route goes through at the Epstein configuration | `detector` @ SIDE-explicit-formula v0.16 = c404e72 |"
+  },
+  {
+   "id": "S205",
+   "doc": "the sieve",
+   "edition": "v0.2",
+   "bank": "b604_edition_FINDINGS_STAND.txt",
+   "bank_line": 708,
+   "item": "c68",
+   "new_line": null,
+   "seat": "SAME-OBJECT",
+   "reader": "DIFFERENT-OBJECT",
+   "line": "an arc's one-statement summary replaced by row FD-01, a different object",
+   "was": "- **b517–b524 — THE WITNESS ARC**, folded at b525. Its one statement, quoted: **In this arc the window of (f)(i) — the zero factor (γ₀² + D²) on a cosine-modulated plateau — was designed, widened and priced until, at Q0, an Epstein zeta function whose off-line zeros are banked, h2_sign’s quantity was negative beyond its bound from width 34 to 60, the bound surviving the strip, the count and the shortfall re-priced; and the kernel proved the window’s three properties for every C⁴ compactly supported φ. The witness is exhibited numerically at one ρ on the control function, not on ζ; no statement about ζ moved.**",
+   "now": "| FD-01 | Under the Epstein premises, a configuration carrying the off-line Epstein point ρ_E is not Weil-positive. | FAMILY (H) | the Epstein witnesses | DARK, test 2 (detector, epstein @ v0.16 = c404e72; IB Thm 3.7 @ 1d0109f): generic over configurations: the same route goes through at the Epstein configuration: it is that configuration | `epstein_not_h2_sign_cfg` @ SIDE-explicit-formula v0.16 ="
+  },
+  {
+   "id": "S129",
+   "doc": "the sieve",
+   "edition": "v0.2",
+   "bank": "b604_edition_FINDINGS_STAND.txt",
+   "bank_line": 709,
+   "item": "c70",
+   "new_line": null,
+   "seat": "SAME-OBJECT",
+   "reader": "DIFFERENT-OBJECT",
+   "line": "an appended note on window instances replaced by row RH-27, a different object",
+   "was": "**Appended at b526 under `(R136)`(1), beside the b525 block above, whose quoted statement cites the measured window and the kernel`s together:** \"the numbers cited were taken on the order-7 B-spline window; the theorems cited hold for every C^4 phi, the kernel's named instance being the smooth bump — the instances differ.\"",
+   "now": "| RH-27 | The plateau-ramp window lies in classK with its closed-form transform, carried on two named obligations. | FAMILY (H) | crossing geometry | DARK, test 1 (I-7 @ 847e433; IB Thm 3.1 @ 1d0109f): no zero is named: the conclusion is about a window | `plateauRampWindow_of` @ SIDE-explicit-formula v0.20 = 914c413 |"
+  },
+  {
+   "id": "S011",
+   "doc": "the sieve",
+   "edition": "v0.2",
+   "bank": "b604_edition_FINDINGS_STAND.txt",
+   "bank_line": 710,
+   "item": "c71",
+   "new_line": null,
+   "seat": "SAME-OBJECT",
+   "reader": "DIFFERENT-OBJECT",
+   "line": "an arc's one-statement summary replaced by row RH-01, a different object",
+   "was": "- **b526–b534 — THE WEIL CONVERSE ARC**, folded at b535. Its one statement, quoted: **In this arc the kernel’s plateau was found to be a choice and then made concrete (b526, b527), ξ read positive at order 7 on both windows (b526, b528), the pair’s term and the rest of the zero sum bounded in the kernel (b529, b530), the deposit’s Route 3 premise read as RH restated and the deposited sentences read against it (b531, b532), and Weil’s criterion compiled in the kernel’s own objects — `h2_sign ↔ rh_strip` at the standard three, `h2_sign → RiemannHypothesis` compiled from the seam `rh_strip_imp_rh`, which is not proved (b533, b534). No statement about where the zeros of ζ lie moved.**",
+   "now": "| RH-01 | Weil positivity on classK (h2_sign) is equivalent to RH, both directions compiled, the clause the reduction locates; it is open, and neither side is established. | UNIVERSAL (H) | prime-side control | BRIGHT, tests 1–5 cleared (test 3 n/a: no character enters) | `h2_sign_iff_rh` @ SIDE-explicit-formula v0.2 = 5c72cad; `h2_sign_cfg_zeta_statement` @ SIDE-explicit-formula v0.15 = 21c8c52 |"
+  }
+ ],
+ "dis_r": [
+  {
+   "id": "R012",
+   "key": "15E",
+   "claim_id": "TF-08",
+   "seat": "synthesis-suggested",
+   "reader": "statement-grade",
+   "line": "step 5 asserts the Mechanism Theorem forbids off-line zeros, with no argument"
+  },
+  {
+   "id": "R042",
+   "key": "15E",
+   "claim_id": "TR-04",
+   "seat": "theorem-supported",
+   "reader": "statement-grade",
+   "line": "the fixed points are stated, with no argument"
+  },
+  {
+   "id": "R044",
+   "key": "15E",
+   "claim_id": "TF-04",
+   "seat": "theorem-supported",
+   "reader": "statement-grade",
+   "line": "the line lists the pairs and names no theorem"
+  },
+  {
+   "id": "R050",
+   "key": "15E",
+   "claim_id": "TS-01",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the proposition is stated with no proof in the cited line"
+  },
+  {
+   "id": "R058",
+   "key": "15E",
+   "claim_id": "TR-03",
+   "seat": "theorem-supported",
+   "reader": "argument-supported",
+   "line": "argues the exponent through Poisson summation and the Fourier transform"
+  },
+  {
+   "id": "R073",
+   "key": "15E",
+   "claim_id": "TS-21",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "a theorem heading without the formula"
+  },
+  {
+   "id": "R094",
+   "key": "15E",
+   "claim_id": "TR-01",
+   "seat": "theorem-supported",
+   "reader": "statement-grade",
+   "line": "a change of variable stated"
+  },
+  {
+   "id": "R023",
+   "key": "2B",
+   "claim_id": "IS-07",
+   "seat": "theorem-supported",
+   "reader": "statement-grade",
+   "line": "the line lists the pairs and names no theorem"
+  },
+  {
+   "id": "R032",
+   "key": "2B",
+   "claim_id": "IS-01",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the proposition is stated with no proof in the cited line"
+  },
+  {
+   "id": "R037",
+   "key": "2B",
+   "claim_id": "IS-12",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the theorem is stated with no proof in the cited line"
+  },
+  {
+   "id": "R041",
+   "key": "2B",
+   "claim_id": "IS-04",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "emptiness is stated, and the centred-coordinate step is not in the line"
+  },
+  {
+   "id": "R062",
+   "key": "2B",
+   "claim_id": "SE-01",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "an abstract stating the theorem and its name"
+  },
+  {
+   "id": "R088",
+   "key": "2B",
+   "claim_id": "IS-09",
+   "seat": "argument-supported",
+   "reader": "computationally-verified",
+   "line": "the line shows the sum computing the norm squared as 12"
+  },
+  {
+   "id": "R095",
+   "key": "2B",
+   "claim_id": "CG-06",
+   "seat": "synthesis-suggested",
+   "reader": "statement-grade",
+   "line": "the line only asserts the mapping"
+  },
+  {
+   "id": "R104",
+   "key": "2B",
+   "claim_id": "IS-08",
+   "seat": "argument-supported",
+   "reader": "theorem-supported",
+   "line": "the line names Størmer for the count"
+  },
+  {
+   "id": "R105",
+   "key": "2B",
+   "claim_id": "SE-11",
+   "seat": "statement-grade",
+   "reader": "argument-supported",
+   "line": "argues the coupled-or-identical question is empirical"
+  },
+  {
+   "id": "R008",
+   "key": "2D",
+   "claim_id": "PO-15",
+   "seat": "statement-grade",
+   "reader": "computationally-verified",
+   "line": "Lean files are named with no pin, and the line reports a Python reproduction of the error trace"
+  },
+  {
+   "id": "R043",
+   "key": "2D",
+   "claim_id": "FA-10",
+   "seat": "statement-grade",
+   "reader": "argument-supported",
+   "line": "argues falsifiability from Planck precision and future surveys"
+  },
+  {
+   "id": "R048",
+   "key": "2D",
+   "claim_id": "PO-09",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "the coefficients are stated without derivation"
+  },
+  {
+   "id": "R053",
+   "key": "2D",
+   "claim_id": "UF-08",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "the line states 137 = 2⁷ + 3² only"
+  },
+  {
+   "id": "R055",
+   "key": "2D",
+   "claim_id": "MA-11",
+   "seat": "statement-grade",
+   "reader": "theorem-supported",
+   "line": "the line names Ostrowski's theorem"
+  },
+  {
+   "id": "R067",
+   "key": "2D",
+   "claim_id": "CS-14",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "the line cites Nguyen et al. models only, and Corazza is absent"
+  },
+  {
+   "id": "R070",
+   "key": "2D",
+   "claim_id": "ST-01",
+   "seat": "statement-grade",
+   "reader": "theorem-supported",
+   "line": "the line names Størmer's theorem as the backing of the derivation"
+  },
+  {
+   "id": "R071",
+   "key": "2D",
+   "claim_id": "YM-14",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "a lattice QCD value is stated, and the string tension and deconfinement are not in the line"
+  },
+  {
+   "id": "R074",
+   "key": "2D",
+   "claim_id": "YM-20",
+   "seat": "kernel-verified",
+   "reader": "statement-grade",
+   "line": "a bibliography entry, and the gapped True placeholder is not stated"
+  },
+  {
+   "id": "R077",
+   "key": "2D",
+   "claim_id": "UF-05",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "a formula is stated"
+  },
+  {
+   "id": "R099",
+   "key": "2D",
+   "claim_id": "FA-15",
+   "seat": "statement-grade",
+   "reader": "argument-supported",
+   "line": "argues from the gauge-kernel placement to no direct detection"
+  },
+  {
+   "id": "R102",
+   "key": "2D",
+   "claim_id": "YM-09",
+   "seat": "argument-supported",
+   "reader": "theorem-supported",
+   "line": "names asymptotic freedom for its one exclusion, and only one of four rows is cited"
+  },
+  {
+   "id": "R118",
+   "key": "2D",
+   "claim_id": "MA-19",
+   "seat": "kernel-verified",
+   "reader": "statement-grade",
+   "line": "a fragment naming a pin with no statement"
+  },
+  {
+   "id": "R006",
+   "key": "2F",
+   "claim_id": "BT-17",
+   "seat": "synthesis-suggested",
+   "reader": "statement-grade",
+   "line": "the line states one trace (Ω to C₁) only, with no argument"
+  },
+  {
+   "id": "R034",
+   "key": "2F",
+   "claim_id": "ZS-15",
+   "seat": "statement-grade",
+   "reader": "argument-supported",
+   "line": "the line argues the codimension margin survives weak correlation"
+  },
+  {
+   "id": "R036",
+   "key": "2F",
+   "claim_id": "ZS-23",
+   "seat": "statement-grade",
+   "reader": "argument-supported",
+   "line": "applies the codimension principle to get 5 − 1 = 4"
+  },
+  {
+   "id": "R052",
+   "key": "2F",
+   "claim_id": "BV-35",
+   "seat": "statement-grade",
+   "reader": "argument-supported",
+   "line": "infers the factor-by-factor decomposition from the factorization reading"
+  },
+  {
+   "id": "R022",
+   "key": "2G",
+   "claim_id": "LC-08",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "the figures are stated without a source computation"
+  },
+  {
+   "id": "R030",
+   "key": "2G",
+   "claim_id": "DM-05",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "the line gives the arithmetic only, and the observed value is not in it"
+  },
+  {
+   "id": "R051",
+   "key": "2G",
+   "claim_id": "TC-18",
+   "seat": "statement-grade",
+   "reader": "synthesis-suggested",
+   "line": "a conditional reading that matches 77/4 to Fano elements times 11/4"
+  },
+  {
+   "id": "R061",
+   "key": "2G",
+   "claim_id": "FD-10",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "a table cell with one value, and 14 at 0.41σ is not in the line"
+  },
+  {
+   "id": "R076",
+   "key": "2G",
+   "claim_id": "TH-10",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "a numerical difference is stated"
+  },
+  {
+   "id": "R082",
+   "key": "2G",
+   "claim_id": "FD-03",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "Planck's value and the σ distance are stated"
+  },
+  {
+   "id": "R110",
+   "key": "2G",
+   "claim_id": "TH-03",
+   "seat": "computationally-verified",
+   "reader": "statement-grade",
+   "line": "the count is stated"
+  },
+  {
+   "id": "R001",
+   "key": "P12",
+   "claim_id": "IR-05",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the line only asserts Loc ∉ Sym ∪ Card as a key observation"
+  },
+  {
+   "id": "R010",
+   "key": "P12",
+   "claim_id": "EA-09",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the line states the structural-reading status, with no argument"
+  },
+  {
+   "id": "R021",
+   "key": "P12",
+   "claim_id": "IR-01",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "a bold assertion with no argument in the cited line"
+  },
+  {
+   "id": "R024",
+   "key": "P12",
+   "claim_id": "EA-19",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the line asserts where the logical weight lies, with no argument"
+  },
+  {
+   "id": "R056",
+   "key": "P12",
+   "claim_id": "ME-13",
+   "seat": "synthesis-suggested",
+   "reader": "theorem-supported",
+   "line": "the line names the Lefschetz trace formula's semisimplicity theorem"
+  },
+  {
+   "id": "R060",
+   "key": "P12",
+   "claim_id": "ME-09",
+   "seat": "kernel-verified",
+   "reader": "statement-grade",
+   "line": "the formula is stated with no derivation or pin"
+  },
+  {
+   "id": "R066",
+   "key": "P12",
+   "claim_id": "IP-03",
+   "seat": "kernel-verified",
+   "reader": "statement-grade",
+   "line": "a theorem heading only"
+  },
+  {
+   "id": "R068",
+   "key": "P12",
+   "claim_id": "ME-05",
+   "seat": "argument-supported",
+   "reader": "theorem-supported",
+   "line": "the line names Ostrowski's theorem for exhaustiveness"
+  },
+  {
+   "id": "R089",
+   "key": "P12",
+   "claim_id": "IR-08",
+   "seat": "kernel-verified",
+   "reader": "statement-grade",
+   "line": "the named terminals do not include the conditional itself, so the compiled statements do not carry it"
+  },
+  {
+   "id": "R103",
+   "key": "P12",
+   "claim_id": "EA-05",
+   "seat": "theorem-supported",
+   "reader": "argument-supported",
+   "line": "combines the functional equation and Schwarz reflection into quadruples"
+  },
+  {
+   "id": "R108",
+   "key": "P12",
+   "claim_id": "EA-20",
+   "seat": "kernel-verified",
+   "reader": "statement-grade",
+   "line": "the named terminals do not include the conditional itself, so the compiled statements do not carry it"
+  },
+  {
+   "id": "R113",
+   "key": "P12",
+   "claim_id": "ME-15",
+   "seat": "argument-supported",
+   "reader": "statement-grade",
+   "line": "the corrected status is stated"
+  }
+ ],
+ "dis_x": [
+  {
+   "id": "X058",
+   "doc": "clusters/IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_2026-05-19.md",
+   "line": 17,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "formation totals, not RH",
+   "sentence": "For completed L-functions over number fields, the formation total is **universal**: n₁ + n₂ + n₃ + n₄ = 7 for every Dedekind zeta function ζ_K(s), independent of K. The identity-subspace dimension depends on signature (d(K) = 7 for ℚ and imaginary quadratic fields; d(K) = 15 for real quadratic fields with eight spectator identities introduced by the fundamental unit). The seven mechanism classes correspond to the classical tools of complex analysis (Mellin transform, Euler product, Gamma factor, functional equation, Hadamard product, explicit formula, balance identity) — the toolkit isn't arbi"
+  },
+  {
+   "id": "X003",
+   "doc": "clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md",
+   "line": 120,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "describes a paper's argument about analytic methods",
+   "sentence": "**COMPLEX_ANALYSIS_BASECAMP_FOR_REVIEW (287 lines, v1.0 April 2026)** — \"What the SIDE Programme Reveals About the Architecture of Analytic Methods\". Argues the classical tools of complex analysis (Mellin transforms, Euler products, Gamma factors, functional equations, Hadamard products, explicit formulas, balance identity) are the mechanism classes of a determined system. Five extensions derived: dark interface diagnostic, codimension principle, formation capacity, spinor structure, exhaustive enumeration as meta-tool. **Hold as standalone meta-paper.**"
+  },
+  {
+   "id": "X105",
+   "doc": "clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md",
+   "line": 180,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "localizes the remaining content to one property",
+   "sentence": "**Weil alignment and the localization.** The seven mechanism classes were mapped onto the Weil explicit-formula terms: six occupy positions of definite sign or definite role; the Euler/multiplicative class (canonical C₂) governs the prime sum — the single indefinite term. The catalogue's certificate for that class is balance (local factor symmetry under s ↦ 1−s), which is strictly weaker than the positivity the criterion requires (archimedean dominance over the prime term, for every admissible test function). The remaining analytic content of RH is thereby localized to one property of one clas"
+  },
+  {
+   "id": "X062",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 848,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "primitive-stage channels",
+   "sentence": "**Stage 1 — Primitive (n₁ = 2).** The specification n² → θ → ξ accesses ℤ at the primitive stage through exactly two algebraic channels: the additive group (ℤ, +), which builds the theta function θ(τ) = Σ exp(πin²τ) through its Fourier analysis, and the multiplicative monoid (ℤ \\ {0}, ×) with unique factorization, which produces the Euler product ζ(s) = ∏(1 − p⁻ˢ)⁻¹. The integers carry additional structure — ordering, Euclidean algorithm, principal ideal property — but each enters the construction through a structure already counted: the ordering enters through the archimedean absolute value ("
+  },
+  {
+   "id": "X010",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 890,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a catalogue table row",
+   "sentence": "| C₂ (Euler/multiplicative) | Primitive | Multiplicative structure (Euler product) | Balance at σ = 1/2; unique factorization |"
+  },
+  {
+   "id": "X157",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 905,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "per-class balance",
+   "sentence": "**C₂ (Euler product balance).** p^(−σ) = p^(−(1−σ)) if and only if σ = 1/2. The balance condition identifies the critical line. It produces no off-line zeros because the balance explicitly fails at σ ≠ 1/2. **Produces on-line identification. No off-line mechanism.**"
+  },
+  {
+   "id": "X017",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 945,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "class independence, with no RH claim",
+   "sentence": "The seven classes are independent: no class's exclusion depends on another class's result. The independence is structural — each class arises from a different component of the specification (ring structure, places of ℚ, function theory). Model-theoretic separation confirms: for each pair (Cᵢ, Cⱼ), there exists a function satisfying one class's constraints but not the other's. The Epstein zeta functions (functional equation without Euler product) separate the transformation-stage classes. Polynomials (Cauchy-Riemann without Hadamard) separate the output-stage classes."
+  },
+  {
+   "id": "X104",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 985,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a table row",
+   "sentence": "| Weil explicit formula | C₂ (Euler) + C₃ (FE) + C₆ (CR) + C₇ (Hadamard) | Relates prime sums to zero sums via Euler product + Hadamard |"
+  },
+  {
+   "id": "X031",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 1168,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a per-class examination step with no joint claim",
+   "sentence": "**(7)** Each mechanism class is examined for off-line zero production. The functional equation relates different points. Conjugate symmetry relates different points. Cauchy-Riemann couples derivatives, not values. The √ mechanism creates global symmetry, not local coupling. The Euler product identifies σ = 1/2 and fails elsewhere. The modular and spectral classes identify σ = 1/2. The Hadamard product encodes but does not produce. None of the seven couples Re(ξ) to Im(ξ) at any single off-line point."
+  },
+  {
+   "id": "X070",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 1214,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "describes the reduction's method",
+   "sentence": "The reduction uses exhaustive enumeration — the same logical template as Euclid's five Platonic solids — and applies it through results ranging from 1737 (Euler product) to 1950 (Tate's thesis). The mathematical content is standard. The logical architecture — applying exhaustive enumeration to ξ's specification through Ostrowski's classification — is new."
+  },
+  {
+   "id": "X049",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 1392,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the balance root is simple",
+   "sentence": "- **C₂ (Euler product):** The balance equation p^(−σ) = p^(−(1−σ)) has a simple root at σ = 1/2 — its derivative −log p · (p^(−σ) + p^(−(1−σ))) is nonzero. No degeneracy."
+  },
+  {
+   "id": "X133",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 1491,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "per-class, with the joint step open",
+   "sentence": "The answer per class is the same: no one of the seven mechanism classes produces the codimension-2 coincidence ξ(ρ) = ξ'(ρ) = 0 (C₁ derives, the others at the interface level); the joint step is the geometric clause, open (§22.5, §24.4). The functional equation creates the crossing but does not degenerate it. The Euler product provides the balance but does not cancel the derivative. The remaining classes constrain without degenerating."
+  },
+  {
+   "id": "X118",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 1884,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "class separations",
+   "sentence": "This is the output-stage analogue of the Epstein experiment: Epstein functions have C₃ (functional equation) but lack C₂ (Euler product), demonstrating that the transformation-stage classes are independent. Polynomials and Hadamard products demonstrate that the output-stage classes are independent. Both separations use the same logic — exhibit a system where one constraint is present and the other absent."
+  },
+  {
+   "id": "X075",
+   "doc": "day1/A_Place_to_Stand_v5_17.md",
+   "line": 1888,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the n₁ channels",
+   "sentence": "**For n₁ = 2:** The specification n² → θ → ξ accesses ℤ through two algebraic channels at the primitive stage. The additive group (ℤ, +) produces C₁ (the theta function's Fourier coefficients are real integers, giving Schwarz reflection). The multiplicative monoid (ℤ \\ {0}, ×) with unique factorization produces C₂ (the Euler product). The distributive law a(b+c) = ab+ac couples these two structures; it is an interface, spectrally inert by the n₄ = 0 count (Chapter 14)."
+  },
+  {
+   "id": "X046",
+   "doc": "internal/CATALOGOS.md",
+   "line": 129,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a table row",
+   "sentence": "| C₂ | Euler balance | ζ(s) = ∏(1-p⁻ˢ)⁻¹ | Primitive |"
+  },
+  {
+   "id": "X045",
+   "doc": "internal/CATALOGOS.md",
+   "line": 157,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a table cell",
+   "sentence": "| Euler product (C₂) | ✓ | ✗ |"
+  },
+  {
+   "id": "X019",
+   "doc": "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md",
+   "line": 99,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "closure stated only under an exhaustive catalogue, as a conditional",
+   "sentence": "*Tradition.* Multiplicative number theory; Euler, 1737. *Machinery.* The Euler product, multiplicative independence (CRT). *Establishes.* The balance equation p^{−σ} = p^{−(1−σ)} has its unique simultaneous solution at σ = 1/2 across every prime. *Touches.* C₂ / C₄ (the multiplicative place). *State.* Identification of σ = 1/2 — and the *minimal* one: under an exhaustive catalogue, this single identification closes the proof (see V, \"One voice suffices\")."
+  },
+  {
+   "id": "X037",
+   "doc": "phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md",
+   "line": 35,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "states an equivalence with covers_all only",
+   "sentence": "> where `covers_all` is the statement that every zero of ξ in the critical strip is produced by a single one of the seven catalogued mechanism classes. The forward direction is immediate; the reverse direction is the whole of the surround. The Hypothesis is true exactly when `covers_all` is true, and `covers_all` is the analytic transport of the Euler product's per-prime independence from the half-plane σ > 1, where it holds, into the strip 0 < σ < 1, where the zeros are."
+  },
+  {
+   "id": "X029",
+   "doc": "phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md",
+   "line": 92,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "balance algebra",
+   "sentence": "**Balance (C₂).** The Euler factors pair p^{−s} against p^{−(1−s)}. Equality p^{−σ} = p^{−(1−σ)} holds across every prime simultaneously at one and only one value, σ = ½. This is elementary and exact."
+  },
+  {
+   "id": "X025",
+   "doc": "phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md",
+   "line": 153,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "describes the form of covers_all, the open statement",
+   "sentence": "`covers_all` has a second face, and it is more concrete than the attribution form above. The corpus's own geometric architecture closes from two sides rather than by attributing each zero to a class. In the manuscript's words: *the two close from opposite sides — transversality from σ = ½ meets the zero-free region from σ = 1.* One jaw is the Euler zero-free region (C₂, Euler), pressing in from σ = 1, where the multiplicative structure forbids zeros. The other jaw is the functional-equation transversality at the line (C₃, functional equation) — at a simple on-line zero the level curves cross t"
+  },
+  {
+   "id": "X101",
+   "doc": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+   "line": 26,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an RH equivalence, the reduction",
+   "sentence": "Two results about the zeros of the completed Riemann xi function $\\xi(s) = \\pi^{-s/2} \\Gamma(s/2) \\zeta(s)$. **The reduction:** within Zermelo-Fraenkel set theory with the Axiom of Choice (ZFC), the Riemann Hypothesis is equivalent to the assertion that the level curves $\\mathrm{Re}\\,\\xi = 0$ and $\\mathrm{Im}\\,\\xi = 0$ never intersect off the critical line; this intersection structure meets zero simplicity through perpendicular crossing at each simple zero on the line, and simplicity, compiled as its own Prop (`simplicity`, SIDE-explicit-formula v0.17 = `5a1630b`, by `simplicity_iff`), has no "
+  },
+  {
+   "id": "X127",
+   "doc": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+   "line": 120,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a contribution label",
+   "sentence": "- $f_3(\\gamma)$ — $C_2$ (Euler): the prime-side contribution from the Euler product expansion."
+  },
+  {
+   "id": "X111",
+   "doc": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+   "line": 323,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the Euler product's structural role",
+   "sentence": "The Epstein experiment tells the structural reading of why $\\zeta$ is different from $\\zeta_Q$ for $Q$ of class number greater than 1. The structural reading: the Euler product is not optional for RH; it is constitutive. Conservation of Spectra applies to both $\\zeta$ and $\\zeta_Q$ (both are Tate integrals), but the mechanism enumeration for $\\zeta_Q$ lacks the Euler-product class because $\\zeta_Q$ literally lacks the Euler product as a structural feature."
+  },
+  {
+   "id": "X151",
+   "doc": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+   "line": 369,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the Euler product is essential, not sufficient",
+   "sentence": "**The Davenport-Heilbronn evidential witness.** The Epstein experiment of Chapter 6 establishes that the Euler product is essential for off-line zero exclusion. The Davenport-Heilbronn construction provides explicit off-line zeros for specific Epstein functions. A formal calibration of the Davenport-Heilbronn examples against the mechanism-class catalogue — identifying which mechanism is structurally absent and how that absence produces the off-line zero — extends the controlled-experiment framework from yes/no discrimination to mechanism-level diagnosis."
+  },
+  {
+   "id": "X132",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md",
+   "line": 272,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a table row",
+   "sentence": "| **C₂** Euler / multiplicative | Primitive | Multiplicative structure (Euler product) | Balance at σ = 1/2; unique factorization |"
+  },
+  {
+   "id": "X120",
+   "doc": "phase1.5/spectral/GRH_CASCADE_v0_3_6.md",
+   "line": 51,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "describes the argument's extension, with no claim of proof",
+   "sentence": "The programme’s RH argument — set out in the monograph, its architecture compiled in SIDE-kernel (v1.2, tag on commit `b1407b2`; citable deposit v1.1, Zenodo DOI 10.5281/zenodo.19937590) — extends to a cascade of consequences via a single structural fact: Dirichlet characters $\\chi$ satisfy $|\\chi(p)| = 1$ at every prime where the Euler product is active. The character twist is magnitude-preserving; the balance equation $p^{-\\sigma} = p^{-(1-\\sigma)}$ at zeros of $L(s, \\chi)$ is character-insensitive. Consequence: the seven mechanism classes of $\\xi(s)$ transfer to $L(s, \\chi)$ for every Diric"
+  },
+  {
+   "id": "X039",
+   "doc": "phase1.5/spectral/GRH_CASCADE_v0_3_6.md",
+   "line": 130,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "per-class balance for χ",
+   "sentence": "2. **$C_2$ Euler (Euler product / balance)** — the Euler product carries $\\chi(p)$ at unramified primes, but $|\\chi(p)| = 1$ leaves the balance $p^{-\\sigma} = p^{-(1-\\sigma)} \\Rightarrow \\sigma = 1/2$ (§II.3). Kernel: `c2_chi_exclusion` (via `voice1_balance_chi`)."
+  },
+  {
+   "id": "X141",
+   "doc": "phase2/formation/UNIVERSALITY.md",
+   "line": 42,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "balance for prime ideals",
+   "sentence": "**(C₂) Multiplicative structure.** Unique factorization of ideals in 𝒪_K gives the Euler product ζ_K(s) = Π_𝔭 (1 − N(𝔭)^{−s})^{−1}. The balance equation N(𝔭)^{−σ} = N(𝔭)^{−(1−σ)} has unique solution σ = 1/2 for every prime ideal 𝔭."
+  },
+  {
+   "id": "X114",
+   "doc": "phase2/formation/UNIVERSALITY.md",
+   "line": 160,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "identity elements generate classes",
+   "sentence": "*Proof.* The mechanism-class identity elements are those generated by sign (−1) and primes (π₁, π₂). Each produces a derivation chain to a zero-location constraint: [−1] acts through Schwarz reflection (C₁), [π₁] and [π₂] act through the Euler product (C₂) and place structure (C₃–C₅). Their products produce the remaining mechanism classes C₆, C₇ at the output stage."
+  },
+  {
+   "id": "X116",
+   "doc": "phase2/formation/UNIVERSALITY.md",
+   "line": 162,
+   "source": "the enumeration needle`s addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the unit's contribution",
+   "sentence": "The spectator elements all involve [ε]. The fundamental unit acts within the multiplicative structure: ε ∈ 𝒪_K× ⊂ 𝒪_K \\ {0}. Its contribution to zero locations is absorbed into the Euler product class C₂ through the regulator R_K = log|ε|, which is a constant independent of s. The derivation chain ε → R_K → Res_{s=1} ζ_K(s) terminates at the pole, not at zero locations. No independent zero-location constraint arises."
+  },
+  {
+   "id": "X054",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 67,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "structural significance only",
+   "sentence": "Part I establishes the structural significance of σ = 1/2."
+  },
+  {
+   "id": "X034",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 416,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the bijection is independent of the reduction",
+   "sentence": "The bijection draws on three conditions — Independence, Determination, Symmetry — formally defined in Part II (Chapter 9) and established for ξ in Part III; it holds conditionally on them, and the RH reduction of Part III does not depend on it."
+  },
+  {
+   "id": "X042",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 420,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a conditional bijection",
+   "sentence": "For any system satisfying the three conditions of Part II (Independence, Determination, Symmetry — established for ξ in Chapter 13), the map from mechanism classes to generalized identity elements is a bijection."
+  },
+  {
+   "id": "X131",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 461,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "structural distinction of σ = 1/2",
+   "sentence": "Part I established that σ = 1/2 is structurally distinguished — the third identity element, the seven-dimensional Størmer locus, the convergence of three independent traditions."
+  },
+  {
+   "id": "X119",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 534,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "Conservation argued",
+   "sentence": "Conservation of Spectra (argued within ZFC — Chapter 13) establishes that this binding constraint is spectrally silent."
+  },
+  {
+   "id": "X084",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 1275,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an argument for GRH transfer of conditions",
+   "sentence": "*Argument.* The four SIDE conditions are verified for each L(s, χ) in §20.1, with the independence transfer demonstrated explicitly for χ mod 5 in §20.2."
+  },
+  {
+   "id": "X028",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 1883,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an Epstein separation of classes",
+   "sentence": "This is the output-stage analogue of the Epstein experiment: Epstein functions have C₃ (functional equation) but lack C₂ (Euler product), demonstrating that the transformation-stage classes are independent."
+  },
+  {
+   "id": "X099",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 1883,
+   "source": "the seed",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an output-stage separation",
+   "sentence": "Polynomials and Hadamard products demonstrate that the output-stage classes are independent."
+  },
+  {
+   "id": "X102",
+   "doc": "day1/A_Place_to_Stand_v5_16.md",
+   "line": 2233,
+   "source": "the seed",
+   "seat": "AT",
+   "reader": "BEYOND",
+   "line_r": "arguments establishing that coincidences cannot occur off the line amounts to RH",
+   "sentence": "Five independent arguments, distinct from the paths, each establishing that codimension-2 coincidences cannot occur off the critical line."
+  },
+  {
+   "id": "X146",
+   "doc": "phase1.5/method/A_METHODOLOGY.md",
+   "line": 37,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a κ procedure",
+   "sentence": "**Step 4 — Measure κ across interfaces.** For each observable $Q$ crossing each interface $I$, measure conservation strength $\\kappa(Q, I) \\in [0, 1]$. Compute formation distance $\\Delta\\mu = n - \\Sigma\\kappa$. The Silence Principle (`SIDE-silence-principle`) certifies that essential interfaces give $\\kappa = 0$ for behavioral parameters in the four-step chain essential ⇒ universal ⇒ constant acti"
+  },
+  {
+   "id": "X068",
+   "doc": "phase1.5/method/A_METHODOLOGY.md",
+   "line": 78,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a κ definition",
+   "sentence": "**Conservation strength κ.** *Input:* observable $Q$ transmitted through interface $I$. *Output:* $\\kappa(Q, I) \\in [0, 1]$ = fraction of $Q$'s structural information surviving $I$. *Procedure:* compute the ratio of internal-relationships preserved across $I$ to total internal-relationships. $\\kappa = 1$ means full conservation; $\\kappa = 0$ means no structure crosses. Empirical κ values form a gr"
+  },
+  {
+   "id": "X061",
+   "doc": "phase1.5/method/A_METHODOLOGY.md",
+   "line": 110,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the Silence kernel, not RH",
+   "sentence": "**SIDE-silence-principle** verifies the four-step chain of the Silence Principle: essential ⇒ universal ⇒ constant action ⇒ silent ($\\kappa = 0$). Two load-bearing instances at $\\kappa = 0$ (product formula in Tate's construction; distributive law in $\\mathbb{Z}$). A tested panel of essential interfaces from number theory, physics, biology, linguistics, computation, and law, with behavioral $\\kapp"
+  },
+  {
+   "id": "X005",
+   "doc": "phase1.5/method/A_METHODOLOGY.md",
+   "line": 423,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "concerns the Silence Principle, not RH",
+   "sentence": "**Silence (`SIDE-silence-principle`).** Essential interfaces in coupled systems with independent structures carry $\\kappa = 0$ for behavioral parameters. The four-step chain (essential ⇒ universal ⇒ constant action ⇒ silent) makes this structural rather than empirical. Foundations cannot speak about what they produce."
+  },
+  {
+   "id": "X152",
+   "doc": "phase1.5/method/A_METHODOLOGY.md",
+   "line": 447,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a kernel list item",
+   "sentence": "- SIDE-silence-principle: four-step chain of the Silence Principle with six consequences"
+  },
+  {
+   "id": "X056",
+   "doc": "phase1.5/method/A_METHODOLOGY.md",
+   "line": 568,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a kernel citation, not RH",
+   "sentence": "SIDE-silence-principle v0.1. *Kernel verification of the Silence Principle: the four-step chain, load-bearing instances, six consequences, falsification scope.*"
+  },
+  {
+   "id": "X047",
+   "doc": "phase1.5/method/ENUMERA_v1_6.md",
+   "line": 186,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an interface row",
+   "sentence": "| Internal (distributive law) | Conservation rank 0 | Verified: builds domain, not placement |"
+  },
+  {
+   "id": "X077",
+   "doc": "phase1.5/method/INVARIANCE_BARRIERS_v1_4.md",
+   "line": 433,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "E-Difficulty skeleton, not RH",
+   "sentence": "Machine verification of Theorem 4.1 (E-Difficulty) in its full form follows from verification of the full Theorem 3.1 plus the already-deposited Silence Principle; its skeleton is compiled now (§6.1)."
+  },
+  {
+   "id": "X096",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 17,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an epistemic-status note",
+   "sentence": "The cluster's epistemic status is empirical regularity. The underlying Silence Principle is theorem-supported (Foundations cluster, kernel-verified); the applications in this cluster instantiate that principle in cognitive systems where $\\kappa$ is measured rather than derived. Predictions are falsifiable; the cluster's load-bearing claims are stated alongside their replication caveats."
+  },
+  {
+   "id": "X117",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 25,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "the Silence Principle, not RH",
+   "sentence": "The Silence Principle (developed formally in the Foundations cluster, kernel-verified in `SIDE-silence-principle v0.1`) states that essential interfaces in coupled systems with independent structures carry $\\kappa = 0$ for behavioral parameters. The principle has been demonstrated across mathematics, physics, biology, and computation. The Philosophy and Cognition cluster identifies cognitive syste"
+  },
+  {
+   "id": "X154",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 245,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an epistemic-status note",
+   "sentence": "This cluster's content is empirically anchored rather than kernel-verified. The underlying Silence Principle (kernel-verified in `SIDE-silence-principle v0.1` and `MetaKernel.lean / Kernel/SilenceTheorem.lean`) is the cited anchor; the cognitive-application instances are corollaries at the empirical level rather than additional kernel verifications."
+  },
+  {
+   "id": "X040",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 249,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a kernel description, not RH",
+   "sentence": "- `SIDE-silence-principle v0.1` — the formal core. Two load-bearing instances at $\\kappa = 0$; six consequences kernelized; falsification scope encoded structurally (single-structure systems excluded). This kernel is the structural anchor for the cognitive applications."
+  },
+  {
+   "id": "X053",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 277,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an epistemic-status note, not RH",
+   "sentence": "- The cluster's content has *empirical-regularity* epistemic status. The underlying Silence Principle (Foundations cluster) is theorem-supported and kernel-verified; the cognitive applications instantiate that principle in domains where $\\kappa$ is measured rather than derived. Replication of the specific empirical correlations ($r = 0.762$ pedagogy, $r = 0.656$ IMO) is an open question subject to"
+  },
+  {
+   "id": "X026",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 287,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "an epistemic-status note",
+   "sentence": "- Clause G of the Silence Principle (dark interfaces as the necessary condition for structural self-organization) is empirically anchored in cognitive systems. Whether the clause holds at theorem-level for the Foundations cluster's mathematical instances is an open question; the cluster keeps Clauses A–F (kernel-verified) and Clause G (empirically anchored in cognitive systems) at distinct epistem"
+  },
+  {
+   "id": "X147",
+   "doc": "phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md",
+   "line": 327,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a kernel description",
+   "sentence": "`SIDE-silence-principle v0.1` — formal core of the Silence Principle. Two load-bearing instances at $\\kappa = 0$ (product formula in Tate's construction; distributive law in $\\mathbb{Z}$). Six consequences kernelized. Falsification scope encoded structurally."
+  },
+  {
+   "id": "X035",
+   "doc": "phase2/philosophy/SILENCE_EMERGENCE.md",
+   "line": 25,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "concerns the product formula's inertness, not RH",
+   "sentence": "The product formula is spectrally inert: the spectral parameter s does not appear in the identity |x|_A = 1 on the norm-one subgroup. The formula builds ξ without encoding where its zeros sit. Essentiality is maximal. Informativeness about zero locations is zero. This has been proved formally in Lean 4 with zero unproved assertions (Seale 2026a)."
+  },
+  {
+   "id": "X122",
+   "doc": "phase2/philosophy/SILENCE_EMERGENCE.md",
+   "line": 275,
+   "source": "the silence-principle addendum",
+   "seat": "BEYOND",
+   "reader": "AT",
+   "line_r": "a consciousness parallel",
+   "sentence": "The parallel between number theory and consciousness may seem strained. What could the Riemann zeta function have to do with subjective experience? The answer is: nothing, except structure. The product formula and the neural-experiential interface are both essential universal interfaces in coupled systems with independent structures. The Silence Principle applies to both for the same structural re"
+  }
+ ],
+ "bc": [
+  "S045"
+ ],
+ "n_dis": 114,
+ "H54a": "HOLDS",
+ "H54b": "HOLDS",
+ "H54c": "REFUTED"
+}
