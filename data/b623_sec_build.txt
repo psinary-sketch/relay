@@ -1,0 +1,86 @@
+b623 -- COMPONENT 3: THE BUILD OF SIDE-structural-error-correction AND THE PRINTS, FOUR DETACHED CALLS, EACH LOG AS THE WATCHDOG WROTE IT (2026-10-05T04:10:47Z)
+
+### LOG sec_build_1.log
+### START 2026-10-05T04:09:12Z free 4855 MB pid 9488 cmd lake build +SIDEStructuralErrorCorrection.Basic cwd D:\SIDE-structural-error-correction
+Build completed successfully (2 jobs).
+### EXIT 0 2026-10-05T04:09:12Z 0 s peak 0 MB free 4858 MB
+
+### LOG sec_build_2.log
+### START 2026-10-05T04:09:25Z free 4967 MB pid 35512 cmd lake build +SIDEStructuralErrorCorrection.DeAlignment cwd D:\SIDE-structural-error-correction
+Build completed successfully (2 jobs).
+### EXIT 0 2026-10-05T04:09:25Z 0 s peak 0 MB free 4965 MB
+
+### LOG sec_build_3.log
+### START 2026-10-05T04:09:39Z free 5040 MB pid 42360 cmd lake build +SIDEStructuralErrorCorrection cwd D:\SIDE-structural-error-correction
+Build completed successfully (4 jobs).
+### EXIT 0 2026-10-05T04:09:39Z 0 s peak 0 MB free 5020 MB
+
+### LOG sec_build_4.log
+### START 2026-10-05T04:09:49Z free 5075 MB pid 34512 cmd lake env lean AxiomCheck.lean cwd D:\SIDE-structural-error-correction
+### SAMPLE 2026-10-05T04:10:09Z free 5069 MB child working set 10 MB
+### SAMPLE 2026-10-05T04:10:29Z free 5016 MB child working set 10 MB
+'SIDEStructuralErrorCorrection.primitive_size' does not depend on any axioms
+'SIDEStructuralErrorCorrection.transformation_size' does not depend on any axioms
+'SIDEStructuralErrorCorrection.output_size' does not depend on any axioms
+'SIDEStructuralErrorCorrection.interface_size' does not depend on any axioms
+'SIDEStructuralErrorCorrection.formation_total' does not depend on any axioms
+'SIDEStructuralErrorCorrection.formation_total_seven' does not depend on any axioms
+'SIDEStructuralErrorCorrection.wall_squared' does not depend on any axioms
+'SIDEStructuralErrorCorrection.interface_dark' does not depend on any axioms
+'SIDEStructuralErrorCorrection.isNonDark' does not depend on any axioms
+'SIDEStructuralErrorCorrection.S' does not depend on any axioms
+'SIDEStructuralErrorCorrection.S_eq_three' does not depend on any axioms
+'SIDEStructuralErrorCorrection.interface_not_counted' does not depend on any axioms
+'SIDEStructuralErrorCorrection.non_dark_covers_seven' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_eff' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_eff_eq_five' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_eff_formula' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_standard' does not depend on any axioms
+'SIDEStructuralErrorCorrection.formation_block_stronger' does not depend on any axioms
+'SIDEStructuralErrorCorrection.improvement_two' does not depend on any axioms
+'SIDEStructuralErrorCorrection.max_correctable_weight' does not depend on any axioms
+'SIDEStructuralErrorCorrection.max_correctable_two' does not depend on any axioms
+'SIDEStructuralErrorCorrection.max_correctable_standard' does not depend on any axioms
+'SIDEStructuralErrorCorrection.complement_weight' does not depend on any axioms
+'SIDEStructuralErrorCorrection.complementarity_weight_2' does not depend on any axioms
+'SIDEStructuralErrorCorrection.complementarity_weight_1' does not depend on any axioms
+'SIDEStructuralErrorCorrection.complementarity_weight_0' does not depend on any axioms
+'SIDEStructuralErrorCorrection.full_corruption_complement' does not depend on any axioms
+'SIDEStructuralErrorCorrection.k_logical' does not depend on any axioms
+'SIDEStructuralErrorCorrection.rank_one' does not depend on any axioms
+'SIDEStructuralErrorCorrection.tightness_regime' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_eff_tight' does not depend on any axioms
+'SIDEStructuralErrorCorrection.S_universal_max' does not depend on any axioms
+'SIDEStructuralErrorCorrection.S_within_universal_max' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_eff_universal_max' does not depend on any axioms
+'SIDEStructuralErrorCorrection.d_eff_universal_max_eq_five' does not depend on any axioms
+'SIDEStructuralErrorCorrection.trivium_saturates_universal_max' does not depend on any axioms
+'SIDEStructuralErrorCorrection.spectral_volume' does not depend on any axioms
+'SIDEStructuralErrorCorrection.spectral_volume_eq_twelve' does not depend on any axioms
+'SIDEStructuralErrorCorrection.spectral_d_eff_relation' does not depend on any axioms
+'SIDEStructuralErrorCorrection.dark_subspace_dim' does not depend on any axioms
+'SIDEStructuralErrorCorrection.dark_subspace_eq_six' does not depend on any axioms
+'SIDEStructuralErrorCorrection.cubit_substrate_connection' does not depend on any axioms
+'SIDEStructuralErrorCorrection.num_compartments' does not depend on any axioms
+'SIDEStructuralErrorCorrection.compartment_count_three' does not depend on any axioms
+'SIDEStructuralErrorCorrection.silence_yields_protection' does not depend on any axioms
+'DeAlignment.Line' does not depend on any axioms
+'DeAlignment.Line.Proper' does not depend on any axioms
+'DeAlignment.DealignedAt' does not depend on any axioms
+'DeAlignment.Dealigned' does not depend on any axioms
+'DeAlignment.domainFault' does not depend on any axioms
+'DeAlignment.CompletesLine' does not depend on any axioms
+'DeAlignment.no_domain_covers_line' does not depend on any axioms
+'DeAlignment.single_domain_fault_not_logical' does not depend on any axioms
+'DeAlignment.dealigned_of_lines_injective' does not depend on any axioms
+'DeAlignment.fanoLines' does not depend on any axioms
+'DeAlignment.dealignedCheck' does not depend on any axioms
+'DeAlignment.fano_dealignment_decidable_example' does not depend on any axioms
+'DeAlignment.fano_collapsed_line_rejected' does not depend on any axioms
+'DeAlignment.onLine' does not depend on any axioms
+'DeAlignment.allSeven' depends on axioms: [propext]
+'DeAlignment.pairCount' depends on axioms: [propext]
+'DeAlignment.fano_two_design' depends on axioms: [propext]
+### EXIT 0 2026-10-05T04:10:35Z 45 s peak 10 MB free 5141 MB
+
+### ### **CALLS : 4 ; TARGETS ['+SIDEStructuralErrorCorrection.Basic', '+SIDEStructuralErrorCorrection.DeAlignment', '+SIDEStructuralErrorCorrection', 'AxiomCheck.lean'] ; EXITS [0, 0, 0, 0] ; FREE AT START [4855, 4967, 5040, 5075] MB.**
