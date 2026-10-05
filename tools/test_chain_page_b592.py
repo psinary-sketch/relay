@@ -9,7 +9,11 @@ before b592's seal (relay data/b592_author_answers.txt, prompts 6 and 7).
 ###   qualified Schema.detector each name the node; the ten English-word sentences (the first use of the word in each of the
 ###   ten files b592 found) name it under the old rule and not under the new; a list with no plain lower-case name builds the
 ###   same match under both rules (the ζ list's short names, against PLACE-papers HEAD).
-### Usage: python tools/test_chain_page_b592.py [<chi_probe_out.txt>]   (default: relay data/b592_chi_probe_out.txt)
+### Usage: python tools/test_chain_page_b592.py [<chi_probe_out.txt>]   (default: b592's χ probe output at relay 12c15c80)
+### ### b629, (R239)(3): CASES (1)-(3) RUN NOTHING LIVE. b592's χ list and probe output are read by `git show` at relay 12c15c80
+### (their one commit); both generators' every HEAD read is redirected for the run -- relay HEAD to 12c15c80, PLACE-papers HEAD to
+### ba5f0ea -- and both run the E0 rule's blob at 12c15c80, the freeze of test_chain_page_b596.py's case (1). The generators' code is
+### the subject: the one at 652b58d5 and the one as it stands. tools/chain_page.py is untouched (its `git` and `E0` are swapped here).
 """
 import io
 import os
@@ -27,6 +31,8 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 PRE_RELAY = '652b58d5'
+RELAY_PIN = '12c15c80'
+PRE_PP = 'ba5f0ea'
 ENGLISH = [
     'If the brain is a prime detector:',
     'The bimodality is therefore a *determination detector*.',
@@ -49,9 +55,52 @@ def old_generator():
     return m
 
 
+def relay_blob(rev, path):
+    r = subprocess.run(['git', '-C', ROOT, 'show', '%s:%s' % (rev, path)], capture_output=True)
+    return r.stdout if r.returncode == 0 else None
+
+
+def e0_at(rev):
+    m = types.ModuleType('e0_rule_%s' % rev)
+    exec(compile(relay_blob(rev, 'tools/e0_rule.py').decode('utf-8'), 'e0_rule@%s' % rev, 'exec'), m.__dict__)
+    return m
+
+
+def frozen_git(gen):
+    """### a generator's own `git`, every HEAD read redirected: relay HEAD -> 12c15c80, PLACE-papers HEAD -> ba5f0ea."""
+    real = gen.git
+
+    def git(repo, *a):
+        a = list(a)
+        r = repo.replace(chr(92), '/')
+        if a[:1] == ['show'] and len(a) > 1 and a[1].startswith('HEAD:'):
+            if r == ROOT.replace(chr(92), '/'):
+                a[1] = RELAY_PIN + a[1][4:]
+            elif r == gen.PP:
+                a[1] = PRE_PP + a[1][4:]
+        elif r == gen.PP and a[:1] == ['grep'] and 'HEAD' in a:
+            a[a.index('HEAD')] = PRE_PP
+        return real(repo, *a)
+    return git
+
+
+def frozen_build(gen, nodes, tmp, probe):
+    saved = (gen.git, gen.E0)
+    gen.git, gen.E0 = frozen_git(gen), e0_at(RELAY_PIN)
+    try:
+        return gen.build(nodes, tmp, probe)
+    finally:
+        gen.git, gen.E0 = saved
+
+
 def main(argv):
-    probe = argv[0] if argv else os.path.join(ROOT, 'data', 'b592_chi_probe_out.txt')
-    nodes = os.path.join(ROOT, 'data', 'b592_nodes_chi.txt')
+    tmp = tempfile.mkdtemp()
+    nodes, probe = os.path.join(tmp, 'b592_nodes_chi.txt'), os.path.join(tmp, 'b592_chi_probe_out.txt')
+    io.open(nodes, 'wb').write(relay_blob(RELAY_PIN, 'data/b592_nodes_chi.txt'))
+    if argv:
+        probe = argv[0]
+    else:
+        io.open(probe, 'wb').write(relay_blob(RELAY_PIN, 'data/b592_chi_probe_out.txt'))
     res = []
 
     def want(label, cond):
@@ -59,9 +108,8 @@ def main(argv):
         print('  %-100s %s' % (label, 'PASS' if cond else '### FAIL'))
 
     old = old_generator()
-    tmp = tempfile.mkdtemp()
-    rc0, p0, _m0, _l0 = old.build(nodes, tmp, probe)
-    rc1, p1, _m1, _l1 = C.build(nodes, tmp, probe)
+    rc0, p0, _m0, _l0 = frozen_build(old, nodes, tempfile.mkdtemp(), probe)
+    rc1, p1, _m1, _l1 = frozen_build(C, nodes, tempfile.mkdtemp(), probe)
     rows0 = [l for l in (p0 or '').split('\n') if l.startswith('| `SIDEExplicitFormula.')]
     rows1 = [l for l in (p1 or '').split('\n') if l.startswith('| `SIDEExplicitFormula.')]
     want('(1) the χ list re-emitted from the v0.16 probe under both generators: exit 0 both (read %s, %s)' % (rc0, rc1), rc0 == 0 and rc1 == 0)
