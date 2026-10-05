@@ -36,9 +36,13 @@ RULE_TEXT = [
     '### mention it is a premise (CLASS_PREDS, class_case).',
     '### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise',
     '### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.',
+    '### (R234)(2), b624: the grade is read from the statement`s binders alone -- a hypothesis the proof introduces (by induction,',
+    '### by cases, by a match arm, by intro inside the proof term) is no binder of the statement (statement_only cuts a header where',
+    '### a proof begins inside it); a non-membership (∉) is a domain condition as a membership is; a theorem one of whose explicit',
+    '### hypothesis binders has the conclusion itself as its type, its bound variables abstracted, reads ENCODES-CONCLUSION.',
 ]
 
-DOMAIN = r'(?:≠|<|≤|=|∈|\.Even\b|IsPrimitive)'
+DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive)'
 
 SPLITS = [
     dict(cases=(r'^\s*\w+\.Even\s*$', r'^\s*¬\s*\w+\.Even\s*$'),
@@ -157,13 +161,86 @@ def split_case(t):
     return None
 
 
+# ### ### **(R234)(2), b624: THE STATEMENT'S BINDERS ALONE, NON-MEMBERSHIP, AND THE CONCLUSION AS A BINDER.**
+# ### *A hypothesis the proof introduces -- by induction, by cases, by a match arm, by intro inside the proof term -- is not a
+# ### binder of the statement and does not enter the grade; the grade is read from the statement's binders alone.* Read here
+# ### as: a header handed in without `:=` (a proof by match arms, `| 0 => ... | j + 1 => ...`) is cut where its first arm
+# ### begins (statement_only), so neither the arms nor any text a reader carried past them is read. Its instance (the occasion):
+# ### SIDE-explicit-formula v0.21 = 1d5d4dd, PowerWindow.lean :139 `power_contDiff`, whose header the page generator read on
+# ### through its arms into the next theorem's binders (hev, hg, hs). An induction hypothesis (`ih` in finsetSum_productLemma,
+# ### Schema/Family.lean :136) lives after `:=` and never reached the rule. *A non-membership is a domain condition as a
+# ### membership is* (the author's answer before b624's seal): `∉` joins DOMAIN; its instance `finsetSum_insert` (Family.lean
+# ### :130, `h : a ∉ s`). *A theorem one of whose explicit hypothesis binders has the conclusion itself as its type reads
+# ### ENCODES-CONCLUSION* (the author's answer): equality is syntactic after the bound variables of each side are abstracted
+# ### (alpha), so an alpha-variant is caught and a merely similar Prop is not.
+def statement_only(head):
+    """### the header cut where a proof begins inside it: the first match arm `|` at bracket depth 0 after the conclusion
+    ### starts; a header with no such arm is returned whole."""
+    s = conclusion_start(head)
+    if s is None:
+        return head
+    depth = 0
+    for i in range(s, len(head)):
+        ch = head[i]
+        if ch in '([{⦃⟨':
+            depth += 1
+        elif ch in ')]}⦄⟩':
+            depth -= 1
+        elif ch == '|' and depth == 0 and head[i - 1:i] in (' ', '\n') and head[i + 1:i + 2] == ' ':
+            return head[:i]
+    return head
+
+
+QUANT = re.compile(r'(∀|∃!|∃|fun|λ)\s')
+IDENT = r"[^\W\d][\w'₀-₉]*"
+
+
+def alpha(t):
+    """### the text with each variable bound by ∀, ∃, ∃!, fun or λ renamed in binding order (_b0, _b1, ...) from its binder on,
+    ### and its whitespace collapsed: two Props that differ only in the names of their bound variables read the same."""
+    t = ' '.join(t.split())
+    k, pos = 0, 0
+    while True:
+        m = QUANT.search(t, pos)
+        if not m:
+            break
+        j, depth = m.end(), 0
+        while j < len(t):
+            ch = t[j]
+            if ch in '([{⦃⟨':
+                depth += 1
+            elif ch in ')]}⦄⟩':
+                depth -= 1
+            elif depth == 0 and (ch == ',' or t.startswith('=>', j)):
+                break
+            j += 1
+        seg = t[m.end():j]
+        grp = re.findall(r'[(\[{⦃]\s*([^:()\[\]{}⦃⦄]*?)\s*:', seg)
+        if grp:
+            names = [n for g in grp for n in re.findall(IDENT, g)]
+        else:
+            left = re.split(r'\s*(?::|∈|∉|>|<|≥|≤|≠)\s*', seg, maxsplit=1)[0]
+            names = re.findall(IDENT, left)
+        for n in names:
+            t = t[:m.start()] + re.sub(r'(?<![\w.\'])' + re.escape(n) + r'(?![\w\'₀-₉])', '_b%d' % k, t[m.start():])
+            k += 1
+        pos = m.end()
+    t = re.sub(r'([(\[{⦃])\s+', r'\1', t)
+    return re.sub(r'\s+([)\]}⦄])', r'\1', t).strip()
+
+
 def grade(head, kind):
     """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
     ### kind 'def' grades DEF. A binder is a premise unless DOMAIN matches its type or it is a SPLITS case."""
     if kind == 'def':
         return 'DEF', '', []
+    head = statement_only(head)
     spans = exist_spans(head)
     binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
+    concl = alpha(conclusion(head))
+    enc = [(b, t) for b, t in binders if concl and alpha(t) == concl]
+    if enc:
+        return 'ENCODES-CONCLUSION', 'the conclusion is the binder ' + ', '.join('%s : %s' % bt for bt in enc), binders
     prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
     if prem:
         return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
@@ -182,6 +259,10 @@ def self_test():
         ('(hχ : χ ≠ 1) : P', 'theorem', 'DERIVES'),
         ('(h : Register4_positivity lam) : P', 'theorem', 'INTERFACES'),
         (': Prop', 'def', 'DEF'),
+        ('{a : ι} {s : Finset ι} (h : a ∉ s) : P a s', 'theorem', 'DERIVES'),
+        ('(n : ℕ) (h : ∀ k : ℕ, k + n = n + k) : ∀ m : ℕ, m + n = n + m', 'theorem', 'ENCODES-CONCLUSION'),
+        ('(n : ℕ) (h : ∀ k : ℕ, k + n = k + n) : ∀ m : ℕ, m + n = n + m', 'theorem', 'DERIVES'),
+        ('(n : ℕ) : ∀ j, R n j\n  | 0 => f\n  | j + 1 => g (hX : Q j)', 'theorem', 'DERIVES'),
     ]
     return all(grade(h, k)[0] == want for h, k, want in cases)
 
@@ -189,5 +270,5 @@ def self_test():
 if __name__ == '__main__':
     ok = self_test()
     print('\n'.join(RULE_TEXT))
-    print('### self-test (seven headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
+    print('### self-test (eleven headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
     raise SystemExit(0 if ok else 1)
