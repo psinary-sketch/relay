@@ -18,6 +18,14 @@
 ###       premise alone;
 ###   (11) a planted shell, the conclusion an alpha-variant binder, reads ENCODES-CONCLUSION;
 ###   (12) beside it a merely similar Prop as a binder does not read ENCODES-CONCLUSION.
+### b625, (R235)(2) -- the domain-condition criterion, one case per clause, each with both polarities:
+###   (13) clause (i): an instance binder whose class is not Fact is a domain condition, a Fact instance a premise;
+###   (14) clause (ii): non-emptiness and finiteness conditions on a set the statement names are domain conditions, a named
+###       premise beside them still reads INTERFACES;
+###   (15) clause (iii): continuity and the support inclusion restricting the function the statement quantifies are domain
+###       conditions; at v0.21 B321.paperFT_polyOp reads DERIVES on its support binder; a Prop about a fixed object behind a
+###       bounded quantifier's range (register3_of_one_lt_re`s `∀ C ∈ sevenClasses, C Phi`) is a premise.
+###   (9) power_contDiff now reads DERIVES on hg and hs -- its support binder a domain condition under clause (iii).
 ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
 ### when none is given), their absolute paths printed; they are read as text and never built.
 ### Usage: python tools/test_e0_rule.py [planted-directory]
@@ -87,7 +95,7 @@ def main():
         res.append(bool(cond))
         print('  %-104s %s' % (label, 'PASS' if cond else '### FAIL'))
 
-    want('(1) the rule`s own self-test (b568`s seven headers and b624`s four)', E0.self_test())
+    want('(1) the rule`s own self-test (b568`s seven headers, b624`s four and b625`s four)', E0.self_test())
     for rel, short in (('SIDEExplicitFormula/Chi/LocalCount.lean', 'LFunction_zeros_finite_of_isCompact'),
                        ('SIDEExplicitFormula/Chi/ZeroSummability.lean', 'EF_zero_sum_summable_chi')):
         h = header(rel, short)
@@ -104,7 +112,7 @@ def main():
     import chain_page as CP
     for i, (rel, short, wantg, wantb) in enumerate((('SIDEExplicitFormula/Schema/Family.lean', 'finsetSum_productLemma', 'DERIVES', []),
                                                      ('SIDEExplicitFormula/Schema/Family.lean', 'finsetSum_insert', 'DERIVES', ['h']),
-                                                     ('SIDEExplicitFormula/PowerWindow.lean', 'power_contDiff', 'INTERFACES', ['hg', 'hs'])), 7):
+                                                     ('SIDEExplicitFormula/PowerWindow.lean', 'power_contDiff', 'DERIVES', ['hg', 'hs'])), 7):
         h = kernel_header(rel, short, CP)
         g = E0.grade(h or '', 'theorem')
         want('(%d) %s at v0.21 reads %s on binders %s (read %s; binders %s)' % (i, short, wantg, wantb, g[0], [b for b, _t in g[2]]),
@@ -123,6 +131,20 @@ def main():
          gs_[0] == 'ENCODES-CONCLUSION')
     gn = planted_grade(os.path.join(pdir, 'PlantedShell.lean'), 'similar_planted', CP)
     want('(12) a merely similar Prop as a binder does not read ENCODES-CONCLUSION (read %s)' % gn[0], gn[0] != 'ENCODES-CONCLUSION')
+    a13 = E0.grade('(N : ℕ) [NeZero N] [Fintype ι] (x : ι) : P N x', 'theorem')
+    b13 = E0.grade('(p : ℕ) [NeZero p] [hp : Fact p.Prime] : P p', 'theorem')
+    want('(13) clause (i): instances not of Fact read %s; a Fact instance reads %s on %s' % (a13[0], b13[0], b13[1]),
+         a13[0] == 'DERIVES' and b13[0] == 'INTERFACES' and b13[1] == 'hp : Fact p.Prime')
+    a14 = E0.grade('{s : Set ℂ} (hn : s.Nonempty) (hf : s.Finite) : P s', 'theorem')
+    b14 = E0.grade('{s : Set ℂ} (hn : s.Nonempty) (hf : s.Finite) (hP : EpsteinPremises s) : P s', 'theorem')
+    want('(14) clause (ii): non-emptiness and finiteness read %s; beside a named premise %s on %s' % (a14[0], b14[0], b14[1]),
+         a14[0] == 'DERIVES' and b14[0] == 'INTERFACES' and b14[1] == 'hP : EpsteinPremises s')
+    a15 = E0.grade('{g : ℝ → ℝ} {L : ℝ} (hc : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) : Q g', 'theorem')
+    hk = kernel_header('SIDEExplicitFormula/PowerWindow.lean', 'paperFT_polyOp', CP)
+    k15 = E0.grade(hk or '', 'theorem')
+    b15 = E0.grade('(h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → R s', 'theorem')
+    want('(15) clause (iii): restrictions on the quantified function read %s; paperFT_polyOp at v0.21 %s; behind a range %s' % (
+         a15[0], k15[0], b15[0]), a15[0] == 'DERIVES' and hk is not None and k15[0] == 'DERIVES' and b15[0] == 'INTERFACES')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

@@ -40,9 +40,19 @@ RULE_TEXT = [
     '### by cases, by a match arm, by intro inside the proof term) is no binder of the statement (statement_only cuts a header where',
     '### a proof begins inside it); a non-membership (∉) is a domain condition as a membership is; a theorem one of whose explicit',
     '### hypothesis binders has the conclusion itself as its type, its bound variables abstracted, reads ENCODES-CONCLUSION.',
+    '### (R235)(2), b625, THE DOMAIN-CONDITION CRITERION: a binder is a domain condition, and does not enter the grade, when it is',
+    '### (i) an instance binder whose class is not Fact; (ii) a membership, non-membership, non-emptiness or finiteness condition on',
+    '### an object the statement names; (iii) a restriction on a variable the same statement quantifies universally (support,',
+    '### parity, smoothness, continuity, integrability; a real`s positivity; a natural`s bound). A binder is a premise when it asserts',
+    '### a Prop about a fixed object the kernel names and does not derive (a structure of premises, an EF_lit_* hypothesis, a Fact',
+    '### instance, a Summable or HasSum of the kernel`s own series). Read here: a Fact instance a premise (INSTANCE); non-emptiness',
+    '### and finiteness in DOMAIN; continuity, integrability and the support inclusion beside CLASS_PREDS, on a variable the',
+    '### statement binds and its conclusion mentions; the named restrictions the seat read at their pins (RESTRICTIONS) on such',
+    '### variables alone; a',
+    '### bounded quantifier`s range (∀ x ∈ S,) no condition on a named object, its body read in its place (strip_range).',
 ]
 
-DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive)'
+DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive|\.Nonempty\b|\bNonempty\b|\.Finite\b|\bSet\.Finite\b|\bFinite\b)'
 
 SPLITS = [
     dict(cases=(r'^\s*\w+\.Even\s*$', r'^\s*¬\s*\w+\.Even\s*$'),
@@ -229,19 +239,106 @@ def alpha(t):
     return re.sub(r'\s+([)\]}⦄])', r'\1', t).strip()
 
 
+# ### ### **(R235)(2), b625: THE DOMAIN-CONDITION CRITERION.** *A binder of a statement is a domain condition, and does not enter
+# ### the grade, when it is (i) an instance binder whose class is not Fact; (ii) a membership, non-membership, non-emptiness or
+# ### finiteness condition on an object the statement names; (iii) a restriction on a variable the same statement quantifies
+# ### universally -- the restriction being part of the quantifier's domain and not a premise about the analytic object. A binder
+# ### is a premise when it asserts a Prop about a fixed object the kernel names and does not derive.* Read here as:
+# ###   (i) instance binders were never read as hypotheses; a `[Fact P]` instance is now read, and read as a premise (INSTANCE);
+# ###   (ii) non-emptiness and finiteness join DOMAIN beside membership and non-membership;
+# ###   (iii) continuity and integrability join the class predicates, the support inclusion `Function.support v ⊆ ...` is read
+# ###        as one, on a variable the statement binds and its conclusion mentions (quantified: b570's reading kept, so a class
+# ###        predicate on a variable the conclusion never mentions stays a premise, (R180)(2)(f)'s named case); a named
+# ###        restriction the seat read at its pin as a condition on its arguments' own data (RESTRICTIONS, each with its
+# ###        definition's file and line) is a domain condition when every argument is such a variable;
+# ###   a bounded quantifier's range is no condition on an object the statement names: a binder `∀ x ∈ S, P x` is read by its
+# ###   body (strip_range), so `∀ C ∈ sevenClasses, C Phi` -- a Prop about the fixed Phi -- reads as a premise.
+# ### Its occasion: the 33 page nodes whose ledger grade differed from the rule's read at b624 (relay data/b624_e0_nodes.txt),
+# ### classed binder by binder at b625 (relay data/b625_e0_classes.txt).
+INSTANCE = re.compile(r'\[(?:\s*(\w+)\s*:)?\s*(Fact\b[^\[\]]*(?:\[[^\[\]]*\][^\[\]]*)*)\]')
+CLASS_PREDS_B625 = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact|Continuous|Integrable|Differentiable)\b.*?\s([^\W\d][\w\'₀-₉]*)\s*$')
+SUPPORT = re.compile(r'^\s*(?:Function\.support|tsupport)\s+([^\W\d][\w\'₀-₉]*)\s*⊆')
+RESTRICTIONS = [
+    dict(head='admissible', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/Registers.lean :38',
+         reads='∀ a ∈ W, classK (F a) ∧ poleTerm (F a) = 0 -- a condition on F and W alone'),
+    dict(head='HStrip', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RestBound.lean :40',
+         reads='∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1 -- a condition on Z`s own carrier'),
+    dict(head='HCount', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RestBound.lean :44',
+         reads='1 ≤ A₀ ∧ ∀ t, Z.N t (t + 1) ≤ A₀ * log (|t| + 3) -- a condition on Z and A₀ alone'),
+    dict(head='is_universal', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/RegisterDepth.lean :38',
+         reads='∀ c₁ c₂, I.action c₁ = I.action c₂ -- a condition on I`s own action'),
+    dict(head='IsNontrivialZeroChi', where='SIDE-explicit-formula v0.21 = 1d5d4dd, SIDEExplicitFormula/Chi/ZeroConfig.lean :48',
+         reads='LFunction χ ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 -- the membership of ρ in the nontrivial zeros of L(s, χ)'),
+]
+
+
+def bound_vars(head):
+    """### the variables a header's binder groups ( ), { }, ⦃ ⦄ bind before its conclusion (instance groups bind none read here)."""
+    s = conclusion_start(head)
+    pre = head[:s - 1] if s else head
+    out = set()
+    for m in re.finditer(r'[({⦃]\s*([^:(){}⦃⦄\[\]]+?)\s*:', pre):
+        out |= set(re.findall(IDENT, m.group(1)))
+    return out
+
+
+def quantified(v, head):
+    """### (iii)'s variable: one the statement binds and its conclusion mentions -- b570's reading of "the class the statement is
+    ### about" kept, so a restriction on a bound variable the conclusion never mentions stays a premise ((R180)(2)(f)'s case)."""
+    return v in bound_vars(head) and re.search(r'(?<![\w.\'])' + re.escape(v) + r'(?![\w\'₀-₉])', conclusion(head)) is not None
+
+
+def strip_range(t):
+    """### a bounded quantifier's range is no condition on a named object: `∀ x ∈ S, P` read as `P` (repeatedly)."""
+    while True:
+        m = re.match(r'^\s*∀\s+[^,]*?\s∈\s[^,]*,\s*', t)
+        if not m:
+            return t
+        t = t[m.end():]
+
+
+def restriction_case(t, head):
+    """### the RESTRICTIONS entry whose head the binder type applies to the statement's own quantified variables alone, or None."""
+    t = t.strip()
+    for r in RESTRICTIONS:
+        m = re.match(r'^(?:' + re.escape(r['head']) + r'((?:\s+[^\W\d][\w\'₀-₉]*)+)|([^\W\d][\w\'₀-₉]*)\.' + re.escape(r['head']) + r')\s*$', t)
+        if m:
+            args = m.group(1).split() if m.group(1) else [m.group(2)]
+            if args and all(quantified(a, head) for a in args):
+                return r
+    return None
+
+
+def restricts_bound(t, head):
+    """### (iii): a smoothness, continuity, integrability, compact-support or support restriction on a quantified variable."""
+    m = CLASS_PREDS_B625.match(t) or SUPPORT.match(t)
+    return bool(m) and quantified(m.group(1), head)
+
+
+def domain_case(t, head):
+    """### the binder type read as a domain condition: DOMAIN on its body (a bounded quantifier's range stripped), a SPLITS case, a
+    ### class predicate on a variable the conclusion mentions, (iii)'s restriction on a variable the statement binds, or a named
+    ### restriction on the statement's own variables."""
+    return bool(re.search(DOMAIN, strip_range(t)) or split_case(t) or class_case(t, head) or restricts_bound(t, head)
+                or restriction_case(t, head))
+
+
 def grade(head, kind):
     """### RETURN `(grade, why, binders)` for a declaration header (the text between the name and `:=`).
-    ### kind 'def' grades DEF. A binder is a premise unless DOMAIN matches its type or it is a SPLITS case."""
+    ### kind 'def' grades DEF. A binder is a premise unless it is a domain condition (domain_case); a Fact instance is a premise."""
     if kind == 'def':
         return 'DEF', '', []
     head = statement_only(head)
     spans = exist_spans(head)
     binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
+    cs = conclusion_start(head)
+    facts = [((m.group(1) or '[inst]'), m.group(2).strip()) for m in INSTANCE.finditer(head) if cs is None or m.start() < cs]
     concl = alpha(conclusion(head))
     enc = [(b, t) for b, t in binders if concl and alpha(t) == concl]
     if enc:
         return 'ENCODES-CONCLUSION', 'the conclusion is the binder ' + ', '.join('%s : %s' % bt for bt in enc), binders
-    prem = [(b, t) for b, t in binders if not re.search(DOMAIN, t) and not split_case(t) and not class_case(t, head)]
+    prem = [(b, t) for b, t in binders if not domain_case(t, head)] + facts
+    binders = binders + facts
     if prem:
         return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
     if binders:
@@ -263,6 +360,10 @@ def self_test():
         ('(n : ℕ) (h : ∀ k : ℕ, k + n = n + k) : ∀ m : ℕ, m + n = n + m', 'theorem', 'ENCODES-CONCLUSION'),
         ('(n : ℕ) (h : ∀ k : ℕ, k + n = k + n) : ∀ m : ℕ, m + n = n + m', 'theorem', 'DERIVES'),
         ('(n : ℕ) : ∀ j, R n j\n  | 0 => f\n  | j + 1 => g (hX : Q j)', 'theorem', 'DERIVES'),
+        ('(p : ℕ) [NeZero p] [Fact p.Prime] : P p', 'theorem', 'INTERFACES'),
+        ('{s : Set ℂ} (hn : s.Nonempty) (hf : s.Finite) : P s', 'theorem', 'DERIVES'),
+        ('{g : ℝ → ℝ} {L : ℝ} (hc : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) : Q g', 'theorem', 'DERIVES'),
+        ('(h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → R s', 'theorem', 'INTERFACES'),
     ]
     return all(grade(h, k)[0] == want for h, k, want in cases)
 
@@ -270,5 +371,5 @@ def self_test():
 if __name__ == '__main__':
     ok = self_test()
     print('\n'.join(RULE_TEXT))
-    print('### self-test (eleven headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
+    print('### self-test (fifteen headers, both polarities): %s' % ('PASS' if ok else 'FAIL'))
     raise SystemExit(0 if ok else 1)
