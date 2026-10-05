@@ -9,6 +9,9 @@
 ### (4) THE READER: backmatter_of reads no record from b592's lists and the two records, in order, from the list of (3).
 ### (5) THE ENTRY TAG OF A STRUCTURE: entry_tag finds SIDEExplicitFormula.Simplicity.SimpleProportion (a `structure`) at v0.17,
 ###   and still finds a theorem (simplicity_iff) and a definition (allSimple) of the same file at v0.17.
+### (6)-(9) b622, (R232)(4): THE SHAPE READER (`shape_of`) on the ruling's five test nodes from their pages' banked probes, its positive
+###   control (each statement mutated where the reader reads it), an object, and the column's switch (`node_column`): a list without
+###   the line emits as before, b602's list with it gains one head line and one shape cell per node line.
 ### Usage: python tools/test_chain_page_b596.py
 ### ### b597, (R207)(2) and the author's answer before b597's seal (relay data/b597_author_answers.txt): THE CONTROL FROZEN AT WHAT IT
 ### CONTROLS. Cases (1)-(4) and the suite's control arm G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA read b592's two lists and probe
@@ -18,6 +21,7 @@
 """
 import io
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -126,6 +130,48 @@ def main():
     e = [C.entry_tag(rel, n) for n in ('SimpleProportion', 'simplicity_iff', 'allSimple')]
     res.append(('(5) the entry tag of a structure, a theorem and a definition of Simplicity.lean: %s' % e,
                 all(x == ('v0.17', '5a1630b') for x in e)))
+    # ### b622, (R232)(4): THE SHAPE READER AND THE COLUMN. (6) the ruling's five test nodes read from their pages' banked probes (b602's at
+    # ### v0.20, b603's at v0.21); (7) the positive control: each statement mutated where the reader reads it, every read must move off its
+    # ### shape; (8) an object reads —; (9) the switch: no list of b592's, b602's or b603's carries the column's line, and b602's list with
+    # ### the line added emits b602's page with one head line and one shape cell on each node line, nothing else.
+    zc = C.parse(io.open(os.path.join(D, 'b602_probe_out.txt'), encoding='utf-8').read().replace(chr(13), ''))[0]
+    cc = C.parse(io.open(os.path.join(D, 'b603_chi_probe_out.txt'), encoding='utf-8').read().replace(chr(13), ''))[0]
+    five = [(zc, 'SIDEExplicitFormula.KeiperSign.liCoeff_one_pos', 'FINITE', '∀ (n : ℕ), 0 < SIDEExplicitFormula.LiWeil.LiCoeff n'),
+            (zc, 'SIDEExplicitFormula.B321.h2_sign_iff_rh', 'UNIVERSAL', '0 < 1 ↔ 0 < 2'),
+            (zc, 'SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh', 'UNIVERSAL', 'Filter.Tendsto f l₁ l₂'),
+            (zc, 'SIDEExplicitFormula.Simplicity.exceptional_mass_le_third', 'DENSITY', None),
+            (cc, 'SIDEExplicitFormula.Schema.Family.family_theorem', 'FAMILY', None)]
+    got = [C.shape_of(n, cs) for cs, n, _w, _m in five]
+    res.append(('(6) the five test nodes read %s' % got, got == [w for _c, _n, w, _m in five]))
+
+    def mutated(cs, n, stmt):
+        m = dict(cs)
+        m[n] = dict(cs[n], statement=stmt)
+        return C.shape_of(n, m)
+    ex, fam = five[3][1], five[4][1]
+    pos = [mutated(cs, n, 'theorem %s : %s' % (n, s)) for cs, n, _w, s in five[:3]]
+    pos.append(mutated(zc, ex, zc[ex]['statement'].replace('Zeta23.Ncount', 'Zeta23.Mcount').replace('Zeta23.N0simple', 'Zeta23.M0simple')))
+    pos.append(mutated(cc, fam, cc[fam]['statement'].replace('∀ χ ∈ SIDEExplicitFormula.Schema.Family.family q,', '∀ (m : ℕ),')))
+    res.append(('(7) the positive control: the five statements mutated where the reader reads them read %s, none its unmutated shape' % pos,
+                all(p != w for p, (_c, _n, w, _m) in zip(pos, five))))
+    ob = [C.shape_of('riemannZeta', zc), C.shape_of('SIDEExplicitFormula.Schema.Family.familyConfig', cc)]
+    res.append(('(8) an object reads —: riemannZeta and familyConfig read %s' % ob, ob == ['—', '—']))
+    d2 = tempfile.mkdtemp()
+    tl2 = os.path.join(d2, 'b602_nodes_zeta.txt')
+    io.open(tl2, 'w', encoding='utf-8', newline=NL).write(io.open(os.path.join(D, 'b602_nodes_zeta.txt'), encoding='utf-8').read().replace(chr(13), '').rstrip(NL)
+                                                         + NL + C.COLUMN_MARK + NL)
+    r0 = C.build(os.path.join(D, 'b602_nodes_zeta.txt'), tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+    r1 = C.build(tl2, tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+    p0, p1 = (r0[1] or ''), (r1[1] or '')
+    cells_pat = r' — shape: (FINITE|UNIVERSAL|LIMIT|DENSITY|FAMILY|UNCLASSIFIED|—)(?= — premises: )'
+    stripped = re.sub(cells_pat, '', p1.replace(NL + C.SHAPE_KEY + NL, '', 1))
+    nshape = len(re.findall(cells_pat, p1))
+    nnodes = len(r0[2]['order']) if r0[0] == 0 else -1
+    switch = [C.node_column(x) for x in (zl, cl, os.path.join(D, 'b602_nodes_zeta.txt'), os.path.join(D, 'b603_nodes_chi.txt'))]
+    res.append(('(9) the switch: off on b592`s, b602`s and b603`s lists %s, on with its line; the page with it is the page without it, one head '
+                'line and %d shape cells on %d node lines added' % (switch, nshape, nnodes),
+                r0[0] == 0 and r1[0] == 0 and not any(switch) and C.node_column(tl2) and stripped == p0 and nshape == nnodes
+                and p1.count(C.SHAPE_KEY) == 1 and p0.count(C.SHAPE_KEY) == 0))
     for name, ok in res:
         print('  %-120s %s' % (name, 'PASS' if ok else 'FAIL'))
     ok = all(x for _n, x in res)

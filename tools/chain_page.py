@@ -29,6 +29,8 @@
 ### 7 (R179)(4) a node's tier computed from its printed facts disagrees with the table's tier cell -- a CONFLICT, no page.
 ### ### (R179)(4), b569: a node list carrying `# pin: <tag>` is generated at that tag, with the tier key on the head and the
 ### table's tier printed beside every node's computed tier (`tier_of_node`); a list without one is generated as at b568.
+### (R232)(4), b622: a node list carrying `# column: quantifier` takes the shape cell after each node's statement and the key's head
+### line (`node_column`, `shape_of`); a list without it is generated exactly as before.
 """
 import io
 import json
@@ -422,6 +424,219 @@ def dep_order(names, consumes):
     return out
 
 
+# ================================================================================ the quantifier column (b622, (R232)(4))
+# ### W-ORD-QUANTIFIER-COLUMN (OPEN_TRAILS :12266, DENSITY :12296): each node's shape read from its statement as the probe printed it.
+# ### The proposition read: a theorem's type; a Prop-valued definition's body after its `fun` parameters; a Prop structure's fields,
+# ### joined as a conjunction; any other definition is an object and reads '—'. At each step: `¬` is passed through; an iff, a
+# ### conjunction or a disjunction reads the higher of its sides in the order of SHAPES; a premise (`A → B`) is passed over to B; a
+# ### leading binder group is read by its domains (a configuration, a character, a type or a family of them FAMILY; ℕ, ℤ, ℚ, ℝ, ℂ and
+# ### functions among them UNIVERSAL, FINITE when a numeral bounds them above; a proof binder passed over; `x ∈ S` by S) and its body
+# ### read on; the eventual form `∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, X` reads LIMIT, DENSITY when X compares counting functions; an atom is a
+# ### comparison (FINITE), a `Filter.Tendsto` (LIMIT), a Prop of the page read through its own statement, or unread. A node with nothing
+# ### read reads UNCLASSIFIED, for the author's ruling.
+SHAPES = ('FINITE', 'UNIVERSAL', 'LIMIT', 'DENSITY', 'FAMILY')
+COLUMN_MARK = '# column: quantifier'
+SHAPE_KEY = ('The shape cell after each statement is read by the generator from the statement\'s leading binders as the probe printed '
+             'it: FINITE for a closed or bounded statement (a cell, a window, a count up to T), UNIVERSAL for a quantifier over the zeros, '
+             'the primes, the integers or the reals with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that '
+             'form over a proportion of counts, FAMILY for a quantifier over a class of objects (every character, every configuration); an '
+             'iff or a conjunction reads the higher of its sides in that order, a premise is passed over, a Prop on the page is read through '
+             'its own statement, a node with nothing the reader can read is printed UNCLASSIFIED for the author\'s ruling, and a definition '
+             'of an object, not a Prop, reads —.')
+_FAMILY_TY = r'\b(WeilConfig|ZeroConfig|DirichletCharacter)\b'
+_COUNT_FNS = r'\b(Ncount|N0simple|Nat\.count|Finset\.card|Set\.ncard|Nat\.card)\b'
+_NUMBER_TY = r'^[\s()ℕℤℚℝℂ→]+$'
+_RELS = (' = ', ' ≠ ', ' < ', ' ≤ ', ' > ', ' ≥ ')
+_OPEN, _CLOSE = '([{⟨', ')]}⟩'
+
+
+def node_column(path):
+    """### b622, (R232)(4): a node list carrying `# column: quantifier` is emitted with the shape column and the key's head line; a list
+    ### without it emits exactly as before."""
+    return any(raw.rstrip('\r\n') == COLUMN_MARK for raw in io.open(path, encoding='utf-8'))
+
+
+def _wraps(s):
+    d = 0
+    for i, ch in enumerate(s):
+        if ch in _OPEN:
+            d += 1
+        elif ch in _CLOSE:
+            d -= 1
+            if d == 0 and i != len(s) - 1:
+                return False
+    return True
+
+
+def _strip(s):
+    s = s.strip()
+    while len(s) > 1 and s[0] == '(' and s[-1] == ')' and _wraps(s):
+        s = s[1:-1].strip()
+    return s
+
+
+def _split(s, op):
+    """### s split at its FIRST top-level `op`; None when there is none before a binder (whose body runs to the end)."""
+    d = 0
+    for i, ch in enumerate(s):
+        if ch in _OPEN:
+            d += 1
+        elif ch in _CLOSE:
+            d -= 1
+        elif d == 0 and s.startswith(op, i):
+            return s[:i].strip(), s[i + len(op):].strip()
+        elif d == 0 and (ch in '∀∃' or (s.startswith('fun ', i) and (i == 0 or s[i - 1] == ' '))):
+            return None
+    return None
+
+
+def _group(s):
+    """### s opens with ∀ or ∃: (the binder text, the body)."""
+    d = 0
+    for i in range(1, len(s)):
+        ch = s[i]
+        if ch in _OPEN:
+            d += 1
+        elif ch in _CLOSE:
+            d -= 1
+        elif ch == ',' and d == 0:
+            return s[1:i].strip(), s[i + 1:].strip()
+    return s[1:].strip(), ''
+
+
+def _binders(text):
+    """### [(name, type or set or bound, relation or None)]: `(x y : T)`, `{N : ℕ}`, `x ∈ S`, `x ≤ c`, bare names; instance binders dropped."""
+    out = []
+    for m in re.finditer(r'\(([^():]+?) : ((?:[^()]|\((?:[^()]|\([^()]*\))*\))+)\)|\{([^{}:]+?) : ([^{}]+)\}|\[[^\[\]]*\]', text):
+        if m.group(1) is None and m.group(3) is None:
+            continue
+        for nm in (m.group(1) or m.group(3)).split():
+            out.append((nm, (m.group(2) or m.group(4)).strip(), None))
+    rest = re.sub(r'\((?:[^()]|\((?:[^()]|\([^()]*\))*\))*\)|\{[^{}]*\}|\[[^\[\]]*\]', ' ', text).strip()
+    if rest:
+        m = re.match(r'^(.+?)\s+(∈|≤|<|≥|>)\s+(.+)$', rest)
+        t = re.match(r'^([^:∈≤<≥>]+?) : (.+)$', rest)   # ### `x y : T` unparenthesized, as a source file writes it
+        if t:
+            out += [(nm, t.group(2).strip(), None) for nm in t.group(1).split()]
+        elif m:
+            out += [(nm, m.group(3).strip(), m.group(2)) for nm in m.group(1).split()]
+        else:
+            out += [(nm, None, None) for nm in rest.split()]
+    return out
+
+
+def _bounded(nm, body):
+    s = body
+    while True:
+        sp = _split(s, ' → ')
+        if not sp:
+            return False
+        if re.fullmatch(re.escape(nm) + r' (≤|<) \d+', _strip(sp[0])):
+            return True
+        s = sp[1]
+
+
+def _domain(nm, ty, rel, body, env, tys):
+    if rel in ('≤', '<'):
+        return 'FINITE' if re.fullmatch(r'\d+', ty) else 'UNIVERSAL'
+    if rel in ('≥', '>'):
+        return 'UNIVERSAL'
+    if rel == '∈':
+        h = ty.split()[0]
+        if h in env:
+            return 'FAMILY' if re.search(_FAMILY_TY, env[h]) or re.search(r'Finset (ι|\(?Type)', env[h]) or env[h].split()[-1] in env else 'FINITE'
+        return 'FAMILY' if re.search(_FAMILY_TY, tys.get(h, '')) else 'UNIVERSAL'
+    if ty is None:
+        return None
+    if re.search(_FAMILY_TY, ty) or re.match(r'^(Type|Sort)\b', ty) or any(re.search(r'\b%s\b' % re.escape(v), ty) for v, t in env.items()
+                                                                          if re.match(r'^(Type|Sort)\b', t)):
+        return 'FAMILY'
+    if re.match(_NUMBER_TY, ty):
+        return 'FINITE' if ty.strip() in ('ℕ', 'ℤ') and _bounded(nm, body) else 'UNIVERSAL'
+    return None   # ### a proof binder: a premise, passed over
+
+
+def _top(parts):
+    known = [p for p in parts if p in SHAPES]
+    return max(known, key=SHAPES.index) if known else None
+
+
+def _read(s, cells, tys, env, seen, depth):
+    s = _strip(s)
+    if depth > 40 or not s:
+        return None
+    if s.startswith('¬'):
+        return _read(s[1:], cells, tys, env, seen, depth + 1)
+    for op in (' ↔ ', ' ∧ ', ' ∨ '):
+        sp = _split(s, op)
+        if sp:
+            return _top([_read(x, cells, tys, env, seen, depth + 1) for x in sp])
+    sp = _split(s, ' → ')
+    if sp:
+        return _read(sp[1], cells, tys, env, seen, depth + 1)
+    if s[0] in '∀∃':
+        m = re.match(r'^∀ \S+ > 0, ∃ (\S+), ∀ \S+ ≥ \1, (.*)$', s)
+        if m:
+            return 'DENSITY' if re.search(_COUNT_FNS, m.group(2)) else 'LIMIT'
+        bt, body = _group(s)
+        env = dict(env)
+        bs = _binders(bt)
+        for nm, ty, rel in bs:
+            if rel is None and ty is not None:
+                env[nm] = ty
+        return _top([_domain(nm, ty, rel, body, env, tys) for nm, ty, rel in bs] + [_read(body, cells, tys, env, seen, depth + 1)])
+    head = s.split()[0].lstrip('@')
+    if head == 'Filter.Tendsto':
+        return 'LIMIT'
+    if head in ('Filter.liminf', 'Filter.limsup'):
+        return 'DENSITY' if re.search(_COUNT_FNS, s) else 'LIMIT'
+    if any(_split(s, r) for r in _RELS):
+        return 'FINITE'
+    if head in cells and head not in seen:
+        return _shape(head, cells, tys, seen | {head}, depth + 1)
+    return None
+
+
+def _prop(c):
+    """### ('prop', text) | ('fields', [texts]) | ('object', None) | (None, None)"""
+    st = re.sub(r'^@\[[^\]]*\]\s*', '', c.get('statement') or '')
+    if c.get('kind') == 'theorem':
+        m = re.match(r'^theorem \S+ : (.*)$', st)
+        return ('prop', m.group(1)) if m else (None, None)
+    if c.get('kind') == 'inductive':
+        m = re.match(r'^(?:inductive )?structure (\S+).*? : Prop number of parameters: \d+ fields: (.*?) constructor: ', st)
+        if not m:
+            return ('object', None)
+        fs = re.split(r' (?=%s\.[^\s.]+ : )' % re.escape(m.group(1)), m.group(2))
+        return ('fields', [f.split(' : ', 1)[1] for f in fs if ' : ' in f])
+    m = re.match(r'^def \S+ : (.*?) := (.*)$', st)
+    if not m:
+        return (None, None)
+    if not (m.group(1) == 'Prop' or m.group(1).endswith('→ Prop')):
+        return ('object', None)
+    return ('prop', re.sub(r'^fun .*? => ', '', m.group(2), count=1))
+
+
+def _shape(n, cells, tys, seen, depth):
+    k, p = _prop(cells[n])
+    if k == 'object':
+        return '—'
+    if k == 'fields':
+        return _top([_read(f, cells, tys, {}, seen, depth + 1) for f in p])
+    return _read(p, cells, tys, {}, seen, depth + 1) if k == 'prop' else None
+
+
+def shape_of(n, cells):
+    """### the node's shape: one of SHAPES, '—' for an object, or 'UNCLASSIFIED'. `cells` is the parser's, every cell of the probe."""
+    live = {k: v for k, v in cells.items() if not v.get('missing')}
+    tys = {}
+    for k, v in live.items():
+        m = re.match(r'^(?:@\[[^\]]*\]\s*)?(?:def|theorem) \S+ : (.*?)(?: := .*)?$', v.get('statement') or '')
+        tys[k] = m.group(1) if m else ''
+    r = _shape(n, live, tys, {n}, 0)
+    return r if r in SHAPES or r == '—' else 'UNCLASSIFIED'
+
+
 # ================================================================================ the page
 def ceiling_line():
     rc, out = git(PP, 'show', 'HEAD:README.md')
@@ -462,7 +677,7 @@ def short(n):
     return n.split('.')[-1]
 
 
-def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b568_nodes.txt', key=False):
+def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b568_nodes.txt', key=False, column=False):
     head = ('This page is generated by relay `tools/chain_page.py` from the node list relay `data/%s`: the compiled chain '
             'from Mathlib\'s `RiemannHypothesis` to the ceiling sentence, one declaration per line, in dependency order. '
             'It is generated at SIDE-explicit-formula %s = `%s` (Lean %s; Mathlib `%s`; Zeta23 vendored at `%s`; Bulka vendored '
@@ -470,13 +685,16 @@ def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b5
             '`#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes.'
             % (nodes_name, PIN_TAG, PIN[:7], TOOLCHAIN.split(':')[1], MATHLIB[:8], ZETA23, BULKA))
     L = ['# THE CLAUSE AND ITS COMPILED FACES', '', head + ((' ' + TIER_KEY) if key else ''), '']
+    if column:
+        L += [SHAPE_KEY, '']   # ### b622, (R232)(4): the column's one head line
     for i, n in enumerate(order, 1):
         c = cells[n]
         ax = '[' + ', '.join(c['axioms']) + ']' if c['axioms'] is not None else c['axioms_text']
         cons = ', '.join('`%s`' % short(x) for x in c['consumes']) or 'none'
         tier = c['tier'] + ((' (table: %s)' % (c.get('table_tier') or 'none')) if key else '')
-        L.append('%d. `%s` — %s:%d — %s — `%s` — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
-                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], c['premises'], c['grade'], tier, ax, cons))
+        sh = (' — shape: %s' % c.get('shape')) if column else ''   # ### b622, (R232)(4): the shape cell, after the statement
+        L.append('%d. `%s` — %s:%d — %s — `%s`%s — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
+                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], sh, c['premises'], c['grade'], tier, ax, cons))
     L += ['', OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
           '| this page | `%s` |' % PAGE_NAME]
     L += ['| ledger | `%s` |' % f for f in LEDGERS]
@@ -489,7 +707,7 @@ def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b5
     return NL.join(L) + NL
 
 
-def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil_lines, nodes_name, key=True):
+def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil_lines, nodes_name, key=True, column=False):
     """### (R183)(5): the χ-leg's page -- the same head key and node-line form as the ζ page; its own title, open line, last
     ### derived line (the successor sentence) and Placement rows."""
     head = ('This page is generated by relay `tools/chain_page.py` from the node list relay `data/%s`: the compiled chain '
@@ -499,13 +717,16 @@ def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil
             '`#print sig`; whitespace runs collapsed) — premises — E0 grade — tier — axioms — the nodes it consumes.'
             % (nodes_name, PIN_TAG, PIN[:7], TOOLCHAIN.split(':')[1], MATHLIB[:8], ZETA23, BULKA))
     L = [DIR_TITLE, '', head + ((' ' + TIER_KEY) if key else ''), '']
+    if column:
+        L += [SHAPE_KEY, '']   # ### b622, (R232)(4): the column's one head line
     for i, n in enumerate(order, 1):
         c = cells[n]
         ax = '[' + ', '.join(c['axioms']) + ']' if c['axioms'] is not None else c['axioms_text']
         cons = ', '.join('`%s`' % short(x) for x in c['consumes']) or 'none'
         tier = c['tier'] + ((' (table: %s)' % (c.get('table_tier') or 'none')) if key else '')
-        L.append('%d. `%s` — %s:%d — %s — `%s` — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
-                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], c['premises'], c['grade'], tier, ax, cons))
+        sh = (' — shape: %s' % c.get('shape')) if column else ''   # ### b622, (R232)(4): the shape cell, after the statement
+        L.append('%d. `%s` — %s:%d — %s — `%s`%s — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
+                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], sh, c['premises'], c['grade'], tier, ax, cons))
     rl, gl = ceil_lines
     L += ['', DIR_OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
           '| this page | `%s` |' % DIR_PAGE_NAME]
@@ -549,6 +770,7 @@ def build(nodes_path, probe_dir, from_output=None):
         if PIN is None:
             return 3, None, None, ['the node list`s pin %s does not resolve in the kernel' % PIN_TAG]
     nodes, drops, corr_extra, marks = read_nodes(nodes_path)
+    column = node_column(nodes_path)   # ### b622, (R232)(4): the shape column, by the list's one line
     names = [x['name'] for x in nodes]
     rec = record_rows()
     corr_names = corr_select(rec, names, marks, VARIANT)
@@ -620,6 +842,9 @@ def build(nodes_path, probe_dir, from_output=None):
     if conflicts:
         log.append('### CONFLICT -- the table`s tier differs from the computed tier at %s; NO PAGE (R179)(4)' % conflicts)
         return 7, None, dict(cells=cells, conflicts=conflicts), log
+    if column:
+        for n in names:
+            cells[n]['shape'] = shape_of(n, cells)
     order = dep_order(names, {n: cells[n]['consumes'] for n in names})
     if order is None:
         log.append('the consumption relation has a cycle')
@@ -640,9 +865,9 @@ def build(nodes_path, probe_dir, from_output=None):
         if not sent:
             log.append('the successor sentence is not found once at README (lines %s)' % rl)
             return 6, None, dict(cells=cells), log
-        page = emit_dirichlet(nodes, cells, order, corr_rows, kfiles, sent, (rl, gl), os.path.basename(nodes_path), keyed)
+        page = emit_dirichlet(nodes, cells, order, corr_rows, kfiles, sent, (rl, gl), os.path.basename(nodes_path), keyed, column)
     else:
-        page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed)
+        page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed, column)
     # ### b596: the backmatter channel -- the list's `# backmatter:` records as one paragraph after the Correspondence table
     bm = backmatter_of(nodes_path)
     if bm:
