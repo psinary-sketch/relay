@@ -1,0 +1,61 @@
+b627 -- COMPONENT 1, (R237)(4): THE CLOSING TOOL`S CARRIED SECTION, EDITED AFTER THE SEAL, AGAINST THE TOOL AS SEALED (relay b63847ed) (2026-10-05T17:57:03Z)
+
+### 1 file changed, 27 insertions(+), 1 deletion(-)
+
+diff --git a/tools/b627_closing.py b/tools/b627_closing.py
+index b7700f60..b7f5df2c 100644
+--- a/tools/b627_closing.py
++++ b/tools/b627_closing.py
+@@ -70,6 +70,32 @@ CARRIED = [
+ _REMOTE = {}
+ 
+ 
++def next_terminals():
++    """### (R237)(4), THE CLOSING FORM: beneath each terminal the next act names, its statement read by git at its pin (the declaration
++    ### line through its `:=` or the blank line ending it, at most eight lines, whitespace-joined); a work-order naming no kernel
++    ### terminal yet is said so. The routes are b627_worklist's."""
++    sys.path.insert(0, T)
++    import b627_worklist as WL
++    out = []
++    for route, terms in WL.NEXT_ROUTES:
++        out.append('    %s:' % route)
++        if not terms:
++            out.append('        names no kernel terminal yet; its statements are the act`s to write, priced at the work-order')
++        for name, repo, pin, path, line in terms:
++            r = subprocess.run(['git', '-C', repo, 'show', '%s:%s' % (pin, path)], capture_output=True)
++            t = r.stdout.decode('utf-8', 'replace').replace(chr(13), '').split(NL) if r.returncode == 0 else []
++            body = []
++            for l in t[line - 1:line + 7]:
++                if body and not l.strip():
++                    break
++                body.append(l.split(':=')[0] + (':=' if ':=' in l else ''))
++                if ':=' in l:
++                    break
++            st = ' '.join(' '.join(body).split()) if body else '### NOT READ AT THE PIN'
++            out += ['        %s (%s @ %s, %s :%d)' % (name, repo.split('/')[-1], pin, path, line), '            %s' % st]
++    return out
++
++
+ def remote_refs(p):
+     """### OPEN_TRAILS :12703: one ls-remote per repository for the closing, retried once alone when it fails"""
+     if p not in _REMOTE:
+@@ -129,7 +155,7 @@ def main():
+           'alone in relay ; the bench run twice in the foreground ; one line appended to data/act_roots.txt ; relay, PLACE-papers and '
+           'SIDE-global-section pushed once before the root ; '
+           'ERRATA, REGISTRY, README and SPIRAL_MAP untouched ; no MANIFEST written and no mirror built', '']
+-    L += ['### CARRIED FORWARD.'] + CARRIED + ['=' * 104]
++    L += ['### CARRIED FORWARD.'] + CARRIED[:2] + ['    ### THE NEXT ACT`S TERMINALS, EACH STATEMENT AT ITS PIN ((R237)(4)):'] + next_terminals() + CARRIED[2:] + ['=' * 104]
+     b = (NL.join(L) + NL).encode('utf-8')
+     p = os.path.join(D, 'b627_closing.txt')
+     open(p + '.tmp', 'wb').write(b)
+
+### THE NEXT ACT`S TERMINALS, AS THE EDITED TOOL PRINTS THEM:
+    route (b) of W-ORD-VENDOR-FINALMULT (OPEN_TRAILS :12970):
+        Zeta23.thmB₀_mult (formal-math @ 3635e748, Zeta23/FinalMult.lean :350)
+            theorem thmB₀_mult : ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T) :=
+        SIDEExplicitFormula.Simplicity.SimpleProportion (SIDE-explicit-formula @ v0.22, SIDEExplicitFormula/Simplicity.lean :40)
+            structure SimpleProportion : Prop where two_thirds : ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Zeta23.Ncount T (2 * T) : ℝ) ≤ Zeta23.N0simple T (2 * T)
+        SIDEExplicitFormula.Simplicity.exceptional_mass_le_third (SIDE-explicit-formula @ v0.22, SIDEExplicitFormula/Simplicity.lean :45)
+            theorem exceptional_mass_le_third (hP : SimpleProportion) : ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (Zeta23.Ncount T (2 * T) : ℝ) - (Zeta23.N0simple T (2 * T) : ℝ) ≤ (1 / 3 + ε) * (Zeta23.Ncount T (2 * T) : ℝ) :=
+    W-ORD-NYMAN-BEURLING-FACE (OPEN_TRAILS :12893):
+        names no kernel terminal yet; its statements are the act`s to write, priced at the work-order

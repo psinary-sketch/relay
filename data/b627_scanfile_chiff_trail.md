@@ -1,0 +1,3 @@
+
+*Appended 2026-10-05 by b627 to :10884, under `(R237)`(2) -- A CORRECTION ENTRY, THE SEAM PRINCIPLE:*
+SUPERSEDES OPEN_TRAILS :10884 for `ch_iff_h2_sign_of_seam`: INTERFACES -- the node SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam (SIDE-explicit-formula v0.22 = e939c92, PowerLimit.lean :1240, the statement rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign)) is graded on its seam premise rh_strip_imp_rh by the seam principle the author ruled at `(R237)`(2): an equivalence presented under an open seam premise is graded as its consequent is. The shared E0 rule reads it so since relay 629ef408 (b626); the grade the line :10884 carried for it is replaced for this terminal alone, and :10884 stands unedited above.

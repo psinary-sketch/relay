@@ -1,0 +1,52 @@
+{
+ "page": "THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
+ "rc": 0,
+ "bytes": 45392,
+ "sha256": "464716d8ab8209a3a7d6b77e6b418bab0cb982b016b47e56df007d2e22ce78ac",
+ "changed": true,
+ "diff": [
+  "-The shape cell after each statement is read by the generator from the statement's leading binders as the probe printed it: FINITE for a closed or bounded statement (a cell, a window, a count up to T), UNIVERSAL for a quantifier over the zeros, the primes, the integers or the reals with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that form over a proportion of counts, FAMILY for a quantifier over a class of objects (every character, every configuration); an iff or a conjunction reads the higher of its sides in that order, a premise is passed over, a Prop on the page is read through its own statement, a node with nothing the reader can read is printed UNCLASSIFIED for the author's ruling, and a definition of an object, not a Prop, reads —.",
+  "+The shape cell after each statement is read by the generator from the statement's leading binders as the probe printed it: FINITE for a closed statement or a finite range (a cell, a window, a Finset, a count up to T), BOUNDED for a quantifier over the zeros, the primes, the integers or the reals whose body bounds the variable's height, norm or index by an explicit term, UNIVERSAL for one with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that form over a proportion of counts, FAMILY for a quantifier over a class of objects (every character, every configuration); an iff or a conjunction reads the higher of its sides in that order, a premise is passed over, a Prop on the page is read through its own statement, a node with nothing the reader can read is printed UNCLASSIFIED for the author's ruling, and a definition of an object, not a Prop, reads —.",
+  "-53. `SIDEExplicitFormula.PlattRung.rh_upto` — SIDEExplicitFormula/PlattRung.lean:31 — v0.22 = e939c92 — `def SIDEExplicitFormula.PlattRung.rh_upto : ℝ → Prop := fun T => ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → |ρ.im| ≤ T → ρ.re = 1 / 2` — shape: UNIVERSAL — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `riemannZeta`",
+  "+53. `SIDEExplicitFormula.PlattRung.rh_upto` — SIDEExplicitFormula/PlattRung.lean:31 — v0.22 = e939c92 — `def SIDEExplicitFormula.PlattRung.rh_upto : ℝ → Prop := fun T => ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → |ρ.im| ≤ T → ρ.re = 1 / 2` — shape: BOUNDED — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `riemannZeta`",
+  "-56. `SIDEExplicitFormula.PlattRung.PlattTrudgianHeight` — SIDEExplicitFormula/PlattRung.lean:51 — v0.22 = e939c92 — `structure SIDEExplicitFormula.PlattRung.PlattTrudgianHeight (T : ℝ) : Prop number of parameters: 1 fields: SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.verified : SIDEExplicitFormula.PlattRung.rh_upto T constructor: SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.mk {T : ℝ} (verified : SIDEExplicitFormula.PlattRung.rh_upto T) : SIDEExplicitFormula.PlattRung.PlattTrudgianHeight T` — shape: UNIVERSAL — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `rh_upto`",
+  "-57. `SIDEExplicitFormula.PlattRung.rh_upto_platt` — SIDEExplicitFormula/PlattRung.lean:56 — v0.22 = e939c92 — `theorem SIDEExplicitFormula.PlattRung.rh_upto_platt : SIDEExplicitFormula.PlattRung.PlattTrudgianHeight SIDEExplicitFormula.PlattRung.plattTrudgianT → SIDEExplicitFormula.PlattRung.rh_upto SIDEExplicitFormula.PlattRung.plattTrudgianT` — shape: UNIVERSAL — premises: hP : PlattTrudgianHeight plattTrudgianT — E0: INTERFACES — tier: T2-INTERFACES (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `PlattTrudgianHeight`, `rh_upto`, `plattTrudgianT`",
+  "+56. `SIDEExplicitFormula.PlattRung.PlattTrudgianHeight` — SIDEExplicitFormula/PlattRung.lean:51 — v0.22 = e939c92 — `structure SIDEExplicitFormula.PlattRung.PlattTrudgianHeight (T : ℝ) : Prop number of parameters: 1 fields: SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.verified : SIDEExplicitFormula.PlattRung.rh_upto T constructor: SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.mk {T : ℝ} (verified : SIDEExplicitFormula.PlattRung.rh_upto T) : SIDEExplicitFormula.PlattRung.PlattTrudgianHeight T` — shape: BOUNDED — premises: none — E0: DEF — tier: — (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `rh_upto`",
+  "+57. `SIDEExplicitFormula.PlattRung.rh_upto_platt` — SIDEExplicitFormula/PlattRung.lean:56 — v0.22 = e939c92 — `theorem SIDEExplicitFormula.PlattRung.rh_upto_platt : SIDEExplicitFormula.PlattRung.PlattTrudgianHeight SIDEExplicitFormula.PlattRung.plattTrudgianT → SIDEExplicitFormula.PlattRung.rh_upto SIDEExplicitFormula.PlattRung.plattTrudgianT` — shape: BOUNDED — premises: hP : PlattTrudgianHeight plattTrudgianT — E0: INTERFACES — tier: T2-INTERFACES (table: none) — axioms: [propext, Classical.choice, Quot.sound] — consumes: `PlattTrudgianHeight`, `rh_upto`, `plattTrudgianT`",
+  "-| `SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam` | SIDE-explicit-formula | DERIVES | T0 |",
+  "+| `SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam` | SIDE-explicit-formula | INTERFACES | T2-INTERFACES; premises: → : rh_strip_imp_rh |"
+ ],
+ "grade_cells": 200,
+ "grade_cells_moved": [
+  "corr:SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam"
+ ],
+ "shapes_moved": [
+  [
+   "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight",
+   "UNIVERSAL",
+   "BOUNDED"
+  ],
+  [
+   "SIDEExplicitFormula.PlattRung.rh_upto",
+   "UNIVERSAL",
+   "BOUNDED"
+  ],
+  [
+   "SIDEExplicitFormula.PlattRung.rh_upto_platt",
+   "UNIVERSAL",
+   "BOUNDED"
+  ]
+ ],
+ "key_changed": true,
+ "rung": {
+  "SIDEExplicitFormula.PlattRung.rh_upto": "BOUNDED",
+  "SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh": "UNIVERSAL",
+  "SIDEExplicitFormula.PlattRung.plattTrudgianT": "—",
+  "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight": "BOUNDED",
+  "SIDEExplicitFormula.PlattRung.rh_upto_platt": "BOUNDED"
+ },
+ "dry": false,
+ "at": "2026-10-05T18:02:37Z",
+ "free_mb_before": 4511,
+ "seconds": 17
+}

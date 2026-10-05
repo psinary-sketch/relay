@@ -1,0 +1,95 @@
+b627 -- COMPONENT 2, (R237)(3): THE SHAPE READER`S BOUNDED WORD AND ITS TEST, THE DIFF AGAINST relay 746ab804 (2026-10-05T18:02:07Z)
+
+### 2 files changed, 41 insertions(+), 5 deletions(-)
+
+diff --git a/tools/chain_page.py b/tools/chain_page.py
+index 76f258ee..c8c09049 100644
+--- a/tools/chain_page.py
++++ b/tools/chain_page.py
+@@ -434,11 +434,15 @@ def dep_order(names, consumes):
+ # ### read on; the eventual form `∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, X` reads LIMIT, DENSITY when X compares counting functions; an atom is a
+ # ### comparison (FINITE), a `Filter.Tendsto` (LIMIT), a Prop of the page read through its own statement, or unread. A node with nothing
+ # ### read reads UNCLASSIFIED, for the author's ruling.
+-SHAPES = ('FINITE', 'UNIVERSAL', 'LIMIT', 'DENSITY', 'FAMILY')
++# ### b627, (R237)(3): BOUNDED, between FINITE and UNIVERSAL -- a number-typed binder whose body carries a premise bounding the
++# ### variable's height (`|x.im|`), norm (`‖x‖`, `|x|`, `Complex.abs x`) or, for ℕ and ℤ, its index (`x`) above by a term free of x
++# ### (`_measure_bounded`); FINITE as it read before, for Finset and finite-range forms.
++SHAPES = ('FINITE', 'BOUNDED', 'UNIVERSAL', 'LIMIT', 'DENSITY', 'FAMILY')
+ COLUMN_MARK = '# column: quantifier'
+ SHAPE_KEY = ('The shape cell after each statement is read by the generator from the statement\'s leading binders as the probe printed '
+-             'it: FINITE for a closed or bounded statement (a cell, a window, a count up to T), UNIVERSAL for a quantifier over the zeros, '
+-             'the primes, the integers or the reals with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that '
++             'it: FINITE for a closed statement or a finite range (a cell, a window, a Finset, a count up to T), BOUNDED for a quantifier '
++             'over the zeros, the primes, the integers or the reals whose body bounds the variable\'s height, norm or index by an explicit '
++             'term, UNIVERSAL for one with no bound, LIMIT for a Filter.Tendsto or an eventual ε–T₀ form, DENSITY for that '
+              'form over a proportion of counts, FAMILY for a quantifier over a class of objects (every character, every configuration); an '
+              'iff or a conjunction reads the higher of its sides in that order, a premise is passed over, a Prop on the page is read through '
+              'its own statement, a node with nothing the reader can read is printed UNCLASSIFIED for the author\'s ruling, and a definition '
+@@ -536,6 +540,22 @@ def _bounded(nm, body):
+         s = sp[1]
+ 
+ 
++def _measure_bounded(nm, ty, body):
++    """### b627, (R237)(3): a premise of the body bounding the variable's height (`|x.im|`), norm (`‖x‖`, `|x|`, `Complex.abs x`) or,
++    ### for ℕ and ℤ, its index (`x` itself) above by a term that does not mention it."""
++    v = re.escape(nm)
++    meas = [r'\|%s\.im\|' % v, r'‖%s‖' % v, r'\|%s\|' % v, r'Complex\.abs %s' % v] + ([v] if ty.strip() in ('ℕ', 'ℤ') else [])
++    s = body
++    while True:
++        sp = _split(s, ' → ')
++        if not sp:
++            return False
++        m = re.fullmatch(r'(%s) (≤|<) (.+)' % '|'.join(meas), _strip(sp[0]))
++        if m and not re.search(r'(?<![\w.\'])%s(?![\w\'₀-₉])' % v, m.group(3)):
++            return True
++        s = sp[1]
++
++
+ def _domain(nm, ty, rel, body, env, tys):
+     if rel in ('≤', '<'):
+         return 'FINITE' if re.fullmatch(r'\d+', ty) else 'UNIVERSAL'
+@@ -552,7 +572,9 @@ def _domain(nm, ty, rel, body, env, tys):
+                                                                           if re.match(r'^(Type|Sort)\b', t)):
+         return 'FAMILY'
+     if re.match(_NUMBER_TY, ty):
+-        return 'FINITE' if ty.strip() in ('ℕ', 'ℤ') and _bounded(nm, body) else 'UNIVERSAL'
++        if ty.strip() in ('ℕ', 'ℤ') and _bounded(nm, body):
++            return 'FINITE'
++        return 'BOUNDED' if _measure_bounded(nm, ty, body) else 'UNIVERSAL'
+     return None   # ### a proof binder: a premise, passed over
+ 
+ 
+diff --git a/tools/test_chain_page_b596.py b/tools/test_chain_page_b596.py
+index dc3920af..4c774655 100644
+--- a/tools/test_chain_page_b596.py
++++ b/tools/test_chain_page_b596.py
+@@ -163,7 +163,7 @@ def main():
+     r0 = C.build(os.path.join(D, 'b602_nodes_zeta.txt'), tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+     r1 = C.build(tl2, tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+     p0, p1 = (r0[1] or ''), (r1[1] or '')
+-    cells_pat = r' — shape: (FINITE|UNIVERSAL|LIMIT|DENSITY|FAMILY|UNCLASSIFIED|—)(?= — premises: )'
++    cells_pat = r' — shape: (FINITE|BOUNDED|UNIVERSAL|LIMIT|DENSITY|FAMILY|UNCLASSIFIED|—)(?= — premises: )'
+     stripped = re.sub(cells_pat, '', p1.replace(NL + C.SHAPE_KEY + NL, '', 1))
+     nshape = len(re.findall(cells_pat, p1))
+     nnodes = len(r0[2]['order']) if r0[0] == 0 else -1
+@@ -172,6 +172,20 @@ def main():
+                 'line and %d shape cells on %d node lines added' % (switch, nshape, nnodes),
+                 r0[0] == 0 and r1[0] == 0 and not any(switch) and C.node_column(tl2) and stripped == p0 and nshape == nnodes
+                 and p1.count(C.SHAPE_KEY) == 1 and p0.count(C.SHAPE_KEY) == 0))
++    # ### b627, (R237)(3): THE BOUNDED WORD. (10) the rung's nodes from b626's probe at v0.22: rh_upto (a definition, ∀ ρ under
++    # ### |ρ.im| ≤ T) and rh_upto_platt (read through rh_upto) read BOUNDED; (11) the word in the column's order between FINITE and
++    # ### UNIVERSAL and named by the key line, with the UNIVERSAL control -- the height pair, rh_upto with its bound removed, and rh_upto
++    # ### with a bound that mentions the variable, each reading UNIVERSAL.
++    rc_ = C.parse(io.open(os.path.join(D, 'b626_probe_out.txt'), encoding='utf-8').read().replace(chr(13), ''))[0]
++    up, upp, pair = ('SIDEExplicitFormula.PlattRung.%s' % s for s in ('rh_upto', 'rh_upto_platt', 'forall_rh_upto_iff_rh'))
++    got10 = [C.shape_of(n, rc_) for n in (up, upp)]
++    res.append(('(10) rh_upto and rh_upto_platt read %s' % got10, got10 == ['BOUNDED', 'BOUNDED']))
++    st = rc_[up]['statement']
++    ctl = [C.shape_of(pair, rc_), mutated(rc_, up, st.replace(' → |ρ.im| ≤ T', '')), mutated(rc_, up, st.replace('|ρ.im| ≤ T', '|ρ.im| ≤ ρ.re'))]
++    res.append(('(11) the word between FINITE and UNIVERSAL, named by the key; the UNIVERSAL control (the pair, the bound removed, a bound '
++                'mentioning ρ) reads %s' % ctl, 'BOUNDED' in C.SHAPES and C.SHAPES.index('BOUNDED') == C.SHAPES.index('FINITE') + 1
++                == C.SHAPES.index('UNIVERSAL') - 1 and 'BOUNDED for a quantifier' in C.SHAPE_KEY and ctl == ['UNIVERSAL'] * 3
++                and '|ρ.im| ≤ T' in st))
+     for name, ok in res:
+         print('  %-120s %s' % (name, 'PASS' if ok else 'FAIL'))
+     ok = all(x for _n, x in res)

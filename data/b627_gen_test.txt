@@ -1,0 +1,19 @@
+b627 -- COMPONENT 2: tools/test_chain_page_b596.py RUN AND COUNTED (2026-10-05T18:00:36Z); exit 1
+
+### pins: relay 12c15c80 (the lists, the probes, the terminal table blob 2ce26253) ; PLACE-papers ba5f0ea (pages, README, REGISTRY, keystones)
+  (1) b592 ζ list, no record: byte for byte against the page at ba5f0ea                                                    FAIL
+  (2) b592 χ list, no record: byte for byte against the page at ba5f0ea                                                    PASS
+  (3) two records: the page of (1) with one paragraph after the Correspondence table                                       PASS
+  (4) the reader: no record from b592`s lists; the two, in order, from the list of (3)                                     PASS
+  (5) the entry tag of a structure, a theorem and a definition of Simplicity.lean: [('v0.17', '5a1630b'), ('v0.17', '5a1630b'), ('v0.17', '5a1630b')] PASS
+  (6) the five test nodes read ['FINITE', 'UNIVERSAL', 'UNIVERSAL', 'DENSITY', 'FAMILY']                                   PASS
+  (7) the positive control: the five statements mutated where the reader reads them read ['UNIVERSAL', 'FINITE', 'LIMIT', 'LIMIT', 'UNIVERSAL'], none its unmutated shape PASS
+  (8) an object reads —: riemannZeta and familyConfig read ['—', '—']                                                      PASS
+  (9) the switch: off on b592`s, b602`s and b603`s lists [False, False, False, False], on with its line; the page with it is the page without it, one head line and 52 shape cells on 52 node lines added PASS
+  (10) rh_upto and rh_upto_platt read ['BOUNDED', 'BOUNDED']                                                               PASS
+  (11) the word between FINITE and UNIVERSAL, named by the key; the UNIVERSAL control (the pair, the bound removed, a bound mentioning ρ) reads ['UNIVERSAL', 'UNIVERSAL', 'UNIVERSAL'] PASS
+### NOT ALL PASS
+
+### CASES : 11 ; PASSING : 10 ; FAILING : 1   ### counted by the numbered case pattern
+
+### THE POSITIVE CONTROL: the same test with tools/chain_page.py as it stood at relay 746ab804 (exit 1): cases 11, passing 8, failing ['(1)', '(10)', '(11)']
