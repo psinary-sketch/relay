@@ -810,6 +810,10 @@ def build(nodes_path, probe_dir, from_output=None):
             return 3, None, None, log
         fm = free_mb()
         log.append('free memory before the lean call: %d MB (hold %d)' % (fm, HOLD_MB))
+        # ### b630, (R240)(5), W-ORD-PROBE-HOLD: the reading (in force since b568) printed on the generator's own output at every
+        # ### start, refused or not, so no caller has to print the log for the reading to be seen.
+        print('chain_page: free memory before the lean call: %d MB (hold %d) -- %s' % (
+            fm, HOLD_MB, 'REFUSED, beneath the hold' if 0 <= fm < HOLD_MB else 'started'))
         if 0 <= fm < HOLD_MB:
             return 4, None, None, log
         rc, out = run_probe(probe_dir, probe_text(names + corr_names, names, watch))
