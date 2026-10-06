@@ -1,0 +1,23 @@
+b632 -- tools/test_terminal_table_b630.py RUN AND COUNTED (2026-10-06T17:31:24Z); exit 0
+
+  (1) a theorem with a premise binder reads INTERFACES                                                           PASS
+  (2) a theorem without a hypothesis binder reads DERIVES                                                        PASS
+  (3) a definition reads DEF                                                                                     PASS
+  (4) no statement reads nothing                                                                                 PASS
+  (5) a cell row keeps its grade and reads cell                                                                  PASS
+  (6) a new row with no cell takes the rule`s grade and reads rule                                               PASS
+  (7) a baseline row with no cell takes the rule`s grade and reads rule (b632: the baseline condition retired)   PASS
+  (8) a cell row whose rule reading differs is returned, its grade kept                                          PASS
+  (9) rhoFun_bound, new since 75227e9c and carrying no cell, grades DERIVES from the rule and reads rule (read DERIVES rule) PASS
+  (10) a cell-graded row of the table (Finset) keeps its grade ['DERIVES'] and reads cell                        PASS
+  (11) the baseline reads at relay 75227e9c, 1994 rows                                                           PASS
+  (12) the planted pair: absent from the baseline INTERFACES/rule, present in it DERIVES/rule, both by the rule; no statement reads none (read [('INTERFACES', 'rule'), ('DERIVES', 'rule'), ('UNGRADED', 'none')]) PASS
+  ### 12 of 12 cases as wanted -- PASS
+D:\relay\tools\terminal_table.py:403: SyntaxWarning: invalid escape sequence '\ '
+  ### BLIND TO COMPOUND VERDICTS: it read `ENCODES-CONCLUSION \ SHELL` as two cells."""
+D:\relay\tools\terminal_table.py:516: SyntaxWarning: invalid escape sequence '\ '
+  merged[-1] = (p0, g1, pg + ' \ ' + gr)
+D:\relay\tools\terminal_table.py:795: SyntaxWarning: invalid escape sequence '\ '
+  rec('    ### `ENCODES-CONCLUSION \ SHELL`, `SHELL / hypothesis-assumed`, `SHELL/ENCODES`')
+
+### CASES : 12 ; PASSING : 12 ; FAILING : 0   ### counted by the numbered case pattern

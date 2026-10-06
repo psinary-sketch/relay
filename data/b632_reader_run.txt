@@ -1,0 +1,10 @@
+b632 -- THE READER`S RUN, ITS TRANSCRIPT AUDITED (2026-10-06T17:30:06Z)
+
+### sessions found naming the packet, written after its commit: 1
+### C:/Users/echo chamber/.claude/projects\D--\456e7a6c-9c7e-4075-a110-05e23142d979.jsonl -- tool calls 4
+    Read   D:\relay\data\b632_reader_packet\00_README.txt
+    Read   D:\relay\data\b632_reader_packet\01_statements.txt
+    Write  D:\relay\data\b632_reader_answers.txt
+    Bash   cut -d'|' -f1 /d/relay/data/b632_reader_answers.txt | tr -d ' ' | awk '{n++; if ($0 != sprintf("G%03d", n)) print "BAD", n, $0} END {print n}'
+
+### ### **SESSIONS 1 ; CALLS OUTSIDE THE PACKET AND THE ANSWER FILE : 0 .**
