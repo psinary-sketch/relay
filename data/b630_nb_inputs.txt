@@ -1,0 +1,26 @@
+b630 -- COMPONENT 4, (R240)(6): THE BENCH INPUTS, BANKED BEFORE ANY COMPUTATION (2026-10-06T02:43:29Z)
+
+### the registry reads, each once, by these command lines (no header, no identifier):
+    curl -s -m 60 -o b630_cite_bbls.txt https://export.arxiv.org/api/query?search_query=au:Balazard+AND+au:Saias+AND+abs:Nyman&max_results=5
+    curl -s -m 60 -o b630_cite_burnol.txt https://export.arxiv.org/api/query?search_query=au:Burnol+AND+abs:Nyman&max_results=5
+
+### bbls -- read once: https://export.arxiv.org/api/query?search_query=au:Balazard+AND+au:Saias+AND+abs:Nyman&max_results=5 (749 bytes, 0 entries)
+    the recollection (the ferry`s, printed beside, not copied): Báez-Duarte, Balazard, Landreau and Saias conjectured d_N² ~ C / log N with C = Σ_ρ 1/|ρ|² = 2 + γ − log 4π
+    the record: NONE RETURNED
+
+### burnol -- read once: https://export.arxiv.org/api/query?search_query=au:Burnol+AND+abs:Nyman&max_results=5 (5964 bytes, 4 entries)
+    the recollection (the ferry`s, printed beside, not copied): Burnol proved lim inf d_N² log N ≥ C
+    the record: http://arxiv.org/abs/math/9910055v3 | A note on Nyman's equivalent formulation of the Riemann Hypothesis | published 1999-10-11T11:05:56Z | journal_ref Algebraic Methods in Probability and Statistics, Viana M. &amp; Richards D. eds, Contemp. Math. 287, 23-26, American Mathematical Society, Providence, RI, 2001 | Jean-Francois Burnol
+    the record: http://arxiv.org/abs/math/0001013v3 | An adelic causality problem related to abelian L-functions | published 2000-01-04T13:42:19Z | journal_ref J. Number Theory 87 (2001), no. 2, 253-269 | Jean-Francois Burnol
+    the record: http://arxiv.org/abs/math/0103058v2 | A lower bound in an approximation problem involving the zeros of the Riemann zeta function | published 2001-03-08T15:43:17Z | journal_ref Adv. Math. 170 (2002), no 1, 56--70 | Jean-Francois Burnol
+    the record: http://arxiv.org/abs/math/0202166v1 | On an analytic estimate in the theory of the Riemann Zeta function and a Theorem of Baez-Duarte | published 2002-02-18T20:54:49Z | journal_ref Acta Cientifica Venezolana, 54: 210-215, 2003 | Jean-Francois Burnol
+
+### the kernel`s λ₁: liCoeff_one_keiper at v0.20 (914c413), SIDEExplicitFormula/Keiper.lean :239 -- LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2
+### the statement equals the expected form True
+### 2λ₁ = 2(1 + γ/2 − ½ log 4π) = [0.0461914179322420676286204958130 +/- 9.42e-33] ; 2 + γ − log 4π = [0.0461914179322420676286204958130 +/- 9.42e-33] ; the difference [+/- 5.41e-38], containing 0 True
+
+### the precision: 128 bits, every quantity a ball at it
+### the integration: closed form per piece (tools/b630_nb_bench.py), each piece`s trigamma part checked against acb.integral in the tool`s fixtures; the minimisation: arb_mat.solve on the Gram matrix of rho(1/n), n = 2 … N (rho(1/1) is zero)
+### the N_max rule: the largest N <= 100 whose ball for d_N² has radius at most 10^-6 of its midpoint
+### the object: the kernel`s d_N, the distance in L²(0, 1) from 1 to the span of rho(1/n), n <= N -- the constrained form, its span the sums Σ a_k {1/(kx)} with Σ a_k/k = 0; the literature`s d_N of the recollection is the distance in L²(0, ∞), no constraint, so the kernel`s d_N² is at least it at each N (a reading of the two definitions, printed, not a result of this act)
+### H64c read over 2 <= N <= N_max: at N = 1 log N = 0 and the product is 0; N = 1 is printed

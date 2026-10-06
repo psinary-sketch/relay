@@ -1,0 +1,16 @@
+b630 -- tools/test_terminal_table_b630.py RUN AND COUNTED (2026-10-06T02:28:41Z); exit 0
+
+  (1) a theorem with a premise binder reads INTERFACES                                                           PASS
+  (2) a theorem without a hypothesis binder reads DERIVES                                                        PASS
+  (3) a definition reads DEF                                                                                     PASS
+  (4) no statement reads nothing                                                                                 PASS
+  (5) a cell row keeps its grade and reads cell                                                                  PASS
+  (6) a new row with no cell takes the rule`s grade and reads rule                                               PASS
+  (7) a baseline row with no cell keeps UNGRADED and reads none                                                  PASS
+  (8) a cell row whose rule reading differs is returned, its grade kept                                          PASS
+  (9) rhoFun_bound, new since 75227e9c and carrying no cell, grades DERIVES from the rule and reads rule (read DERIVES rule) PASS
+  (10) a cell-graded row of the table (Finset) keeps its grade ['DERIVES'] and reads cell                        PASS
+  (11) the baseline reads at relay 75227e9c, 1994 rows                                                           PASS
+  ### 11 of 11 cases as wanted -- PASS
+
+### CASES : 11 ; PASSING : 11 ; FAILING : 0   ### counted by the numbered case pattern

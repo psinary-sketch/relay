@@ -1,0 +1,20 @@
+
+## The Nyman–Beurling distances d_N² for N ≤ 100 in Arb balls, d_N² · log N beside 2λ₁ = 0.0461914179; 13 rows graded from the rule with provenance, 3 helper defs as objects and 1 helper theorem; the probe hold
+
+*Filed at b630 on the author’s ruling `(R240)` and the author’s two answers before the seal. Banks: relay `data/b630_nb_inputs.txt`, `data/b630_nb_bench.txt`, `data/b630_table_rule_readings.txt`, `data/b630_table_final.txt`, `data/b630_table_test.txt`, `data/b630_probe_test.txt`, `data/b630_probe_profile.txt`, `data/b630_act_root.txt`, `data/b630_author_answers.txt`. Nothing deposits.*
+
+**The bench** (`(R240)`(6), a T3/T4 bench with no claim): the kernel’s d_N (SIDE-explicit-formula v0.24, NymanBeurling.lean :94), the distance in L²(0, 1) from 1 to the span of rho(1/n), n ≤ N, computed for N = 1 … 100 at 128 bits: each inner product in closed form per piece, the trigamma parts checked against Arb’s own integrator, the minimisation a linear solve in balls. N_max, the largest N whose ball keeps six certified digits, is 100. N = 2: d_N² = 0.3068528194 (± 1.21e-36), d_N² · log N = 0.21269416; N = 5: d_N² = 0.0363190179 (± 2.85e-32), d_N² · log N = 0.05845320; N = 10: d_N² = 0.0238525533 (± 9.88e-30), d_N² · log N = 0.05492253; N = 20: d_N² = 0.0165382521 (± 1.39e-30), d_N² · log N = 0.04954417; N = 50: d_N² = 0.0118869704 (± 6.57e-29), d_N² · log N = 0.04650210; N = 100: d_N² = 0.0102019192 (± 1.15e-27), d_N² · log N = 0.04698157. Beside them 2λ₁ = 0.046191417932242067 from the kernel’s liCoeff_one_keiper at v0.20 (the identity 2λ₁ = 2 + γ − log 4π checked in balls, True). The recollection, read from the registry and printed beside, not copied: the rate d_N² ~ C/log N with C = 2 + γ − log 4π is a conjecture of Báez-Duarte, Balazard, Landreau and Saias, and Burnol’s lower bound is a lim inf; the kernel’s d_N is the constrained (0, 1) form, at least the literature’s (0, ∞) form at each N. The bench is the finite distances of a fourth face, computed, set beside a constant the kernel holds at another face; nothing is inferred about N beyond N_max. H64a HOLDS, H64b HOLDS, H64c REFUTED, H64d HOLDS.
+
+**The table** (`(R240)`(3)–(4), by the author’s answers): the thirteen rows of v0.24 graded from the shared E0 rule with the provenance mark rule, every row graded by cells marked cell, no existing grade moved; the three helper defs at DEF with the object shape —, the helper theorem rhoFun_bound graded by the rule. Nine-tenths of the terminal table has no grade from any ledger: 1799 of 2007 rows, 1745 of them readable by the rule, banked and not applied, the input of W-ORD-TABLE-RULE-GRADES (OPEN_TRAILS :13133).
+
+**The probe hold** (`(R240)`(5)): the generator’s probe reads free memory before it starts and refuses beneath 2560 MB, printing the reading; one profiled run: its children’s peak 2661 MB, Python’s own peak 11.2 MB, the lowest free reading 2849 MB.
+
+**The record lines and the root.** b629’s weight at FINDINGS :7655; the outbound-identifier line beneath :11864 (OPEN_TRAILS :13125); the provenance clause (:13127); the helper clause (:13129); the Nyman item (:13131). The root of b630 over 38 repositories, 34 tags and 45 banks; the chain verified, b624 AGREE, b625 AGREE, b626 AGREE, b627 AGREE, b628 AGREE, b629 AGREE, b630 AGREE.
+
+**The scores.** H64a HOLDS, H64b HOLDS, H64c REFUTED, H64d HOLDS, N1 HELD, N2 HELD, N3 REFUTED, N4 REFUTED, N5 HELD, S1 HELD, S2 HELD, S3 REFUTED, S4 HELD, S5 HELD.
+
+**Read in mutual light** (`(R204)`(3)(ii)-(iii)): it re-reads b629’s face, whose d_N it computes, and b601–b602’s Keiper face, whose λ₁ it sets beside them; and b625’s 33 rows where a rule reading met a cell, whose form the provenance column now carries. It strengthens the programme’s offering of one located clause read through many faces, each number set beside the others with its own ball and its own grade.
+
+**Next.** Per `(R240)`(7): b631, W-ORD-DEDEKIND-INSTANCE (OPEN_TRAILS :12895). The author rules on the closing.
+
+*Nothing deposits; nothing here is a statement that RH holds, that NB does, or that the conjectured rate holds at any N.*

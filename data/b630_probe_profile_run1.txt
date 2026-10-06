@@ -1,0 +1,231 @@
+b630 -- COMPONENT 3, (R240)(5): ONE PROFILED PROBE RUN OF THE ζ LIST WITH THE HELPERS (2026-10-06T02:40:33Z); exit 5 ; 589 s
+
+### free memory before the call 5451 MB (the hold 2560) ; the lowest sample during it 3282 MB ; samples 211, every 2 s
+### the probe`s child processes (lean, lake): peak working set summed 2318 MB ; the largest single process 1865 MB
+### Python`s own allocations (tracemalloc): peak 11.2 MB, current at the end 0.2 MB ; the ten largest by line:
+        38.8 KB  D:\relay\tools\b630_record.py:521
+        25.0 KB  C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:548
+        23.0 KB  C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1538
+        19.7 KB  D:\relay\tools\b630_record.py:522
+        12.8 KB  C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py:354
+        12.8 KB  D:\relay\tools\b630_record.py:517
+        10.4 KB  C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1018
+         9.8 KB  C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\subprocess.py:1023
+         6.6 KB  D:\relay\tools\b602_record.py:672
+         3.8 KB  D:\relay\tools\chain_page.py:130
+
+### the samples (seconds from start | free MB | child working sets MB):
+        0 |  5450 | 
+        3 |  5417 | lake.exe:21944=1 lake.exe:27504=10
+        6 |  5402 | lake.exe:21944=1 lake.exe:27504=10
+        9 |  5406 | lake.exe:21944=11 lake.exe:27504=10
+       12 |  5375 | lake.exe:21944=44 lake.exe:27504=10
+       15 |  5380 | lake.exe:21944=44 lake.exe:27504=10
+       17 |  5353 | lake.exe:21944=45 lake.exe:27504=10
+       20 |  5352 | lake.exe:21944=47 lake.exe:27504=10
+       23 |  5321 | lake.exe:21944=49 lake.exe:27504=10
+       26 |  5322 | lake.exe:21944=51 lake.exe:27504=10
+       29 |  5329 | lake.exe:21944=53 lake.exe:27504=10
+       31 |  5336 | lake.exe:21944=55 lake.exe:27504=10
+       34 |  5336 | lake.exe:21944=56 lake.exe:27504=10
+       37 |  5332 | lake.exe:21944=58 lake.exe:27504=10
+       40 |  5336 | lake.exe:21944=60 lake.exe:27504=10
+       43 |  5331 | lake.exe:21944=62 lake.exe:27504=10
+       45 |  5324 | lake.exe:21944=64 lake.exe:27504=10
+       48 |  5325 | lake.exe:21944=66 lake.exe:27504=10
+       51 |  5321 | lake.exe:21944=68 lake.exe:27504=10
+       54 |  5311 | lake.exe:21944=69 lake.exe:27504=10
+       57 |  5310 | lake.exe:21944=70 lake.exe:27504=10
+       59 |  5309 | lake.exe:21944=72 lake.exe:27504=10
+       62 |  5311 | lake.exe:21944=73 lake.exe:27504=10
+       65 |  5297 | lake.exe:21944=75 lake.exe:27504=10
+       68 |  5293 | lake.exe:21944=76 lake.exe:27504=10
+       70 |  5447 | lake.exe:21944=77 lake.exe:27504=10
+       73 |  5454 | lake.exe:21944=79 lake.exe:27504=10
+       76 |  5430 | lake.exe:21944=80 lake.exe:27504=10
+       79 |  5415 | lake.exe:21944=81 lake.exe:27504=10
+       81 |  5384 | lake.exe:21944=86 lake.exe:27504=10
+       84 |  5358 | lake.exe:21944=109 lake.exe:27504=10
+       87 |  5300 | lake.exe:21944=162 lake.exe:27504=10
+       90 |  5271 | lake.exe:21944=211 lake.exe:27504=10
+       92 |  5225 | lake.exe:21944=262 lake.exe:27504=10
+       95 |  5172 | lake.exe:21944=325 lake.exe:27504=10
+       98 |  5144 | lake.exe:21944=353 lake.exe:27504=10
+      101 |  5120 | lake.exe:21944=373 lake.exe:27504=10
+      103 |  5101 | lake.exe:21944=399 lake.exe:27504=10
+      106 |  5056 | lake.exe:21944=442 lake.exe:27504=10
+      109 |  5038 | lake.exe:21944=443 lake.exe:27504=10
+      112 |  5039 | lake.exe:21944=443 lake.exe:27504=10
+      115 |  4997 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=51
+      117 |  5010 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=65
+      120 |  4996 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=75
+      123 |  5013 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=79
+      126 |  5030 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=80
+      128 |  5033 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=81
+      131 |  5023 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=82
+      134 |  5021 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=84
+      137 |  5015 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=85
+      139 |  5010 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=86
+      142 |  4979 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=87
+      145 |  4989 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=88
+      148 |  4985 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=90
+      151 |  5006 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=91
+      153 |  5003 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=92
+      156 |  5006 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=93
+      159 |  4994 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=94
+      162 |  4996 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=95
+      164 |  5004 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=96
+      167 |  4977 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=97
+      170 |  4989 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=98
+      173 |  4984 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=99
+      176 |  4987 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=101
+      178 |  4977 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=102
+      181 |  4979 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=103
+      184 |  4974 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=105
+      187 |  4992 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=106
+      189 |  4891 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=107
+      192 |  4814 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=108
+      195 |  5043 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=109
+      198 |  5040 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=110
+      201 |  4984 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=111
+      203 |  4983 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=113
+      206 |  4976 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=114
+      209 |  5000 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=116
+      212 |  4985 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=117
+      214 |  4964 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=119
+      217 |  4964 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=120
+      220 |  4958 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=122
+      223 |  4962 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=123
+      225 |  4960 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=125
+      228 |  4962 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=126
+      231 |  4953 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=128
+      234 |  4941 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=129
+      236 |  4941 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=131
+      239 |  4939 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=132
+      242 |  4939 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=133
+      245 |  4926 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=135
+      248 |  4926 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=136
+      250 |  4921 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=138
+      253 |  4921 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=139
+      256 |  4917 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=140
+      259 |  4904 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=142
+      261 |  4871 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=143
+      264 |  4871 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=144
+      267 |  4869 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=145
+      270 |  4971 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=146
+      273 |  4971 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=147
+      275 |  4967 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=149
+      278 |  4973 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=150
+      281 |  4974 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=151
+      284 |  4955 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=152
+      286 |  4948 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=153
+      289 |  4939 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=155
+      292 |  4938 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=156
+      295 |  4934 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=158
+      298 |  4930 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=159
+      300 |  4901 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=160
+      303 |  4901 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=161
+      306 |  4895 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=162
+      309 |  4892 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=164
+      311 |  4899 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=165
+      314 |  4898 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=166
+      317 |  4895 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=167
+      320 |  4873 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=168
+      322 |  4847 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=170
+      325 |  4845 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=171
+      328 |  4840 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=172
+      331 |  4866 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=174
+      334 |  4860 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=175
+      336 |  4832 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=176
+      339 |  4828 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=177
+      342 |  4795 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=178
+      345 |  4782 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=179
+      350 |  4777 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=182
+      353 |  4783 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=183
+      356 |  4761 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=184
+      358 |  4773 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=185
+      361 |  4739 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=186
+      364 |  4734 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=188
+      370 |  4738 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=190
+      372 |  4744 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=191
+      375 |  4748 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=193
+      378 |  4743 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=194
+      381 |  4706 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=195
+      384 |  4691 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=196
+      386 |  4706 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=198
+      389 |  4721 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=199
+      392 |  4717 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=200
+      395 |  4721 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=201
+      397 |  4719 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=203
+      400 |  4717 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=204
+      403 |  4712 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=205
+      406 |  4706 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=207
+      408 |  4704 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=209
+      411 |  4702 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=210
+      414 |  4698 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=212
+      417 |  4703 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=214
+      419 |  4688 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=216
+      422 |  4689 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=218
+      425 |  4679 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=219
+      428 |  4680 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=221
+      431 |  4626 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=222
+      433 |  4654 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=223
+      436 |  4656 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=224
+      439 |  4642 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=226
+      442 |  4608 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=227
+      444 |  4606 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=249
+      447 |  4597 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=255
+      450 |  4610 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=261
+      453 |  4610 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=267
+      455 |  4528 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=551
+      458 |  4481 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=594
+      461 |  4438 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=643
+      464 |  4393 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=692
+      467 |  4352 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=734
+      469 |  4300 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=780
+      472 |  4250 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=826
+      475 |  4207 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=867
+      478 |  4170 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=905
+      480 |  4134 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=935
+      483 |  4113 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=966
+      486 |  3974 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=999
+      489 |  4002 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1029
+      491 |  3962 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1067
+      494 |  3923 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1096
+      497 |  3906 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1125
+      500 |  3884 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1152
+      502 |  3854 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1174
+      505 |  3828 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1206
+      508 |  3799 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1232
+      511 |  3788 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1261
+      514 |  3765 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1292
+      516 |  3757 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1320
+      519 |  3711 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1358
+      522 |  3667 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1402
+      525 |  3639 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1473
+      527 |  3627 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1486
+      530 |  3614 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1501
+      533 |  3578 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1519
+      536 |  3575 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1540
+      538 |  3558 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1558
+      541 |  3537 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1575
+      544 |  3521 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1594
+      547 |  3502 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1616
+      549 |  3483 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1639
+      552 |  3473 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1655
+      555 |  3431 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1706
+      558 |  3433 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1700
+      560 |  3385 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1707
+      563 |  3332 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1726
+      566 |  3320 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1781
+      569 |  3318 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1792
+      572 |  3312 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1801
+      574 |  3318 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1812
+      577 |  3315 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1821
+      580 |  3308 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1831
+      583 |  3296 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1843
+      585 |  3286 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1852
+      588 |  3282 | lake.exe:21944=443 lake.exe:27504=10 lean.exe:38668=1865
+
+### the generator`s log: checkout HEAD aa17442f98cc ; v0.24 aa17442f98cc ; tracked changes 0 / free memory before the lean call: 5412 MB (hold 2560) / lake env lean exit 143
+### ### **PEAK OF THE PROBE`S CHILDREN 2318 MB ; PYTHON`S OWN PEAK 11.2 MB ; THE LOWEST FREE READING 3282 MB AGAINST THE HOLD 2560.**

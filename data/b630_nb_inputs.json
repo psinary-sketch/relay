@@ -1,0 +1,65 @@
+{
+ "at": "2026-10-06T02:43:30Z",
+ "reads": {
+  "bbls": {
+   "url": "https://export.arxiv.org/api/query?search_query=au:Balazard+AND+au:Saias+AND+abs:Nyman&max_results=5",
+   "bytes": 749,
+   "entries": []
+  },
+  "burnol": {
+   "url": "https://export.arxiv.org/api/query?search_query=au:Burnol+AND+abs:Nyman&max_results=5",
+   "bytes": 5964,
+   "entries": [
+    {
+     "id": "http://arxiv.org/abs/math/9910055v3",
+     "title": "A note on Nyman's equivalent formulation of the Riemann Hypothesis",
+     "published": "1999-10-11T11:05:56Z",
+     "journal_ref": "Algebraic Methods in Probability and Statistics, Viana M. &amp; Richards D. eds, Contemp. Math. 287, 23-26, American Mathematical Society, Providence, RI, 2001",
+     "authors": [
+      "Jean-Francois Burnol"
+     ],
+     "summary": "A certain subspace of the Hilbert space of square-integrable functions on the unit interval has been considered by Nyman, Beurling, and others, with the result that the constant function 1 belongs to it if and only if the Riemann Hypothesis holds. I show that the product of |1 - 1/rho| taken over the zeros with real parts strictly greater than 1/2, counted with multiplicities, is the norm of the projection of 1 to this subspace. This provides a quantitative refinement to Nyman's theorem."
+    },
+    {
+     "id": "http://arxiv.org/abs/math/0001013v3",
+     "title": "An adelic causality problem related to abelian L-functions",
+     "published": "2000-01-04T13:42:19Z",
+     "journal_ref": "J. Number Theory 87 (2001), no. 2, 253-269",
+     "authors": [
+      "Jean-Francois Burnol"
+     ],
+     "summary": "I associate to a global field K a Lax-Phillips scattering which has the property of causality if and only if the Riemann Hypothesis holds for all the abelian L-functions of K. As a Hilbert space closure problem this provides an adelic variation on a theme initiated by Nyman and Beurling. The adelic aspects are related to previous work by Tate, Iwasawa and Connes."
+    },
+    {
+     "id": "http://arxiv.org/abs/math/0103058v2",
+     "title": "A lower bound in an approximation problem involving the zeros of the Riemann zeta function",
+     "published": "2001-03-08T15:43:17Z",
+     "journal_ref": "Adv. Math. 170 (2002), no 1, 56--70",
+     "authors": [
+      "Jean-Francois Burnol"
+     ],
+     "summary": "We slightly improve the lower bound of Baez-Duarte, Balazard, Landreau and Saias in the Nyman-Beurling formulation of the Riemann Hypothesis as an approximation problem. We construct Hilbert space vectors which could prove useful in the context of the so-called `Hilbert-Polya idea'."
+    },
+    {
+     "id": "http://arxiv.org/abs/math/0202166v1",
+     "title": "On an analytic estimate in the theory of the Riemann Zeta function and a Theorem of Baez-Duarte",
+     "published": "2002-02-18T20:54:49Z",
+     "journal_ref": "Acta Cientifica Venezolana, 54: 210-215, 2003",
+     "authors": [
+      "Jean-Francois Burnol"
+     ],
+     "summary": "We establish a uniform upper estimate for the values of zeta(s)/zeta(s+A), 0&lt;= A, on the critical line (conditionally on the Riemann Hypothesis). We use this to give a variant, purely complex analytic, to Baez-Duarte's proof of a strengthened Nyman-Beurling criterion for the validity of the Riemann Hypothesis."
+    }
+   ]
+  }
+ },
+ "commands": "curl -s -m 60 -o b630_cite_bbls.txt https://export.arxiv.org/api/query?search_query=au:Balazard+AND+au:Saias+AND+abs:Nyman&max_results=5\ncurl -s -m 60 -o b630_cite_burnol.txt https://export.arxiv.org/api/query?search_query=au:Burnol+AND+abs:Nyman&max_results=5\n",
+ "licoeff_statement": "LiWeil.LiCoeff 1 = 1 + Real.eulerMascheroniConstant / 2 - Real.log (4 * Real.pi) / 2",
+ "licoeff_line": 239,
+ "statement_ok": true,
+ "two_lambda1": "[0.0461914179322420676286204958130 +/- 9.42e-33]",
+ "check": "[0.0461914179322420676286204958130 +/- 9.42e-33]",
+ "identity": true,
+ "prec": 128,
+ "n_cap": 100
+}

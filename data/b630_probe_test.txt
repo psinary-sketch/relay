@@ -1,0 +1,12 @@
+b630 -- tools/test_chain_page_b630.py RUN AND COUNTED (2026-10-06T02:30:36Z); exit 0
+
+  (1) a planted reading of 1000 MB: the build exits 4 (read 4)                                             PASS
+  (2) and the probe is never called                                                                        PASS
+  (3) and the reading is printed with REFUSED                                                              PASS
+  (4) a planted reading of 99999 MB: the build passes the hold and calls the probe (exit 5, calls 1)       PASS
+  (5) and the reading is printed with started                                                              PASS
+  (6) and the log carries the reading line as before                                                       PASS
+  (7) the hold is 2560 MB                                                                                  PASS
+  ### 7 of 7 cases as wanted -- PASS
+
+### CASES : 7 ; PASSING : 7 ; FAILING : 0   ### counted by the numbered case pattern

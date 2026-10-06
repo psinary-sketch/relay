@@ -1,0 +1,54 @@
+b630 -- COMPONENT 3, (R240)(5): ONE PROFILED PROBE RUN OF THE ζ LIST WITH THE HELPERS (2026-10-06T02:42:57Z); exit 0 ; 94 s
+
+### free memory before the call 5354 MB (the hold 2560) ; the lowest sample during it 2849 MB ; samples 34, every 2 s
+### the probe`s child processes (lean, lake): peak working set summed 2661 MB ; the largest single process 2208 MB
+### Python`s own allocations (tracemalloc): peak 11.2 MB, current at the end 5.7 MB ; the ten largest by line:
+      4265.2 KB  D:\relay\tools\chain_page.py:83
+       637.5 KB  C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\re\_compiler.py:766
+        98.0 KB  D:\relay\tools\chain_page.py:903
+        72.9 KB  D:\relay\tools\chain_page.py:296
+        51.0 KB  D:\relay\tools\chain_page.py:876
+        44.4 KB  D:\relay\tools\chain_page.py:300
+        43.7 KB  D:\relay\tools\chain_page.py:338
+        43.5 KB  D:\relay\tools\chain_page.py:864
+        43.1 KB  D:\relay\tools\chain_page.py:331
+        41.6 KB  D:\relay\tools\chain_page.py:337
+
+### the samples (seconds from start | free MB | child working sets MB):
+        0 |  5339 | 
+        3 |  4848 | lake.exe:17180=442 lake.exe:28540=10
+        6 |  4750 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=107
+        9 |  4630 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=182
+       12 |  3377 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1706
+       14 |  3365 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1711
+       17 |  3213 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1881
+       20 |  3191 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1905
+       23 |  3172 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1933
+       25 |  3164 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1940
+       28 |  3166 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1950
+       31 |  3159 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1958
+       34 |  3191 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1963
+       37 |  3169 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=1970
+       39 |  3094 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2024
+       42 |  3018 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2094
+       45 |  2993 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2120
+       48 |  2974 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2138
+       50 |  2973 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2157
+       53 |  2975 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2177
+       56 |  2979 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2181
+       59 |  2962 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2198
+       62 |  2961 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2201
+       64 |  2956 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2201
+       67 |  2950 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2204
+       70 |  2958 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2206
+       73 |  2849 | lake.exe:17180=443 lake.exe:28540=10 lean.exe:9564=2208
+       76 |  5344 | 
+       78 |  5321 | 
+       81 |  5311 | 
+       84 |  5306 | 
+       87 |  5300 | 
+       90 |  5255 | 
+       92 |  5259 | 
+
+### the generator`s log: checkout HEAD aa17442f98cc ; v0.24 aa17442f98cc ; tracked changes 0 / free memory before the lean call: 5314 MB (hold 2560) / lake env lean exit 0 / tier RiemannHypothesis                                                        computed —              table none / tier riemannZeta                                                              computed —              table none / tier Zeta23.zetaZeroConfig                                                    computed —              table none / tier Zeta23.WeilEF.EF_lit_zetaZeroConfig                                      computed T0             tabl
+### ### **PEAK OF THE PROBE`S CHILDREN 2661 MB ; PYTHON`S OWN PEAK 11.2 MB ; THE LOWEST FREE READING 2849 MB AGAINST THE HOLD 2560.**
