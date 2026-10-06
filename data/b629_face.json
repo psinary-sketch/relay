@@ -1,0 +1,70 @@
+{
+ "at": "2026-10-05T23:51:22Z",
+ "nodes": {
+  "rhoFun": {
+   "kind": "def",
+   "grade": null,
+   "why": "",
+   "binders": []
+  },
+  "rhoFun_measurable": {
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "binders": []
+  },
+  "rhoFun_memLp": {
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "binders": []
+  },
+  "NB": {
+   "kind": "def",
+   "grade": null,
+   "why": "",
+   "binders": []
+  },
+  "BD": {
+   "kind": "def",
+   "grade": null,
+   "why": "",
+   "binders": []
+  },
+  "NymanBeurlingPremise": {
+   "kind": "structure",
+   "grade": null,
+   "why": "",
+   "binders": []
+  },
+  "rh_iff_nb": {
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "why": "hP : NymanBeurlingPremise",
+   "binders": [
+    "hP"
+   ]
+  },
+  "distN": {
+   "kind": "def",
+   "grade": null,
+   "why": "",
+   "binders": []
+  },
+  "distN_antitone": {
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "binders": []
+  }
+ },
+ "obligations": {
+  "rhoFun_measurable": "discharged",
+  "rhoFun_memLp": "discharged"
+ },
+ "files": [
+  "AxiomCheckNymanBeurling.lean",
+  "SIDEExplicitFormula/NymanBeurling.lean"
+ ],
+ "sorry": 0
+}

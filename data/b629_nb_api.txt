@@ -1,0 +1,31 @@
+b629 -- COMPONENT 2, (R239)(4): THE API READ, MATHLIB AT THE KERNEL`S PIN (2026-10-05T22:47:55Z)
+
+### the kernel SIDE-explicit-formula at 98b7668 (toolchain leanprover/lean4:v4.34.0-rc1) ; its Mathlib checkout D:/SIDE-explicit-formula/.lake/packages/mathlib at de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11, read by git grep
+
+### Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean (2 line(s))
+    :248   theorem memLp_const (c : E) [IsFiniteMeasure μ] : MemLp (fun _ : α => c) p μ :=
+    :549   theorem MemLp.of_bound [IsFiniteMeasure μ] {f : α → E} (hf : AEStronglyMeasurable f μ) (C : ℝ)
+### Mathlib/MeasureTheory/Function/LpSpace/Basic.lean (1 line(s))
+    :106   def toLp (f : α → E) (h_mem_ℒp : MemLp f p μ) : Lp E p μ :=
+### Mathlib/MeasureTheory/Function/Floor.lean (1 line(s))
+    :45    theorem measurable_fract [IsStrictOrderedRing R] [BorelSpace R] :
+### Mathlib/Algebra/Order/Floor/Ring.lean (2 line(s))
+    :386   theorem fract_nonneg (a : R) : 0 ≤ fract a :=
+    :393   theorem fract_lt_one (a : R) : fract a < 1 :=
+### Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean (1 line(s))
+    :96    theorem volume_Ioo {a b : ℝ} : volume (Ioo a b) = ofReal (b - a) := by simp [volume_val]
+### Mathlib/Topology/Algebra/Module/Basic.lean (1 line(s))
+    :157   def Submodule.topologicalClosure (s : Submodule R M) : Submodule R M :=
+### Mathlib/LinearAlgebra/Span/Defs.lean (1 line(s))
+    :88    theorem span_monotone : Monotone (span R : Set M → Submodule R M) := fun _ _ => span_mono
+### Mathlib/Topology/MetricSpace/HausdorffDistance.lean (2 line(s))
+    :573   def infDist (x : α) (s : Set α) : ℝ :=
+    :622   theorem infDist_le_infDist_of_subset (h : s ⊆ t) (hs : s.Nonempty) : infDist x t ≤ infDist x s :=
+### Mathlib/NumberTheory/LSeries/RiemannZeta.lean (1 line(s))
+    :185   def RiemannHypothesis : Prop :=
+
+### THE OBLIGATIONS THE DEFINITIONS NEED, LISTED BEFORE ANY MODULE IS WRITTEN:
+    rhoFun_measurable: Measurable (rhoFun θ): fract is measurable (Floor.lean, measurable_fract), division by x and the product by θ measurable -- expected discharged
+    rhoFun_memLp: MemLp (rhoFun θ) 2 μ on the unit interval: |rhoFun θ x| ≤ 1 + |θ| from fract_nonneg and fract_lt_one, the measure finite on (0, 1) (volume_Ioo, isFiniteMeasure_restrict), MemLp.of_bound -- expected discharged
+
+### ### **DECLARATIONS READ 12 ; FILES WITHOUT A HIT NONE ; OBLIGATIONS LISTED 2.**

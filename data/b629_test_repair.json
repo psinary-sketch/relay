@@ -1,0 +1,22 @@
+{
+ "at": "2026-10-05T22:46:33Z",
+ "rc": 0,
+ "cases": 8,
+ "passing": 8,
+ "repaired": [
+  "(1) the χ list re-emitted from the v0.16 probe under both generators: exit 0 both (read 0, 0)        PASS",
+  "(2) every DERIVES Correspondence row byte for byte unchanged (25 rows)                               PASS",
+  "(3) the INTERFACES row prints its premise, and no row but an INTERFACES row changed                  PASS"
+ ],
+ "stat": "1 file changed, 54 insertions(+), 6 deletions(-)",
+ "control": {
+  "rc": 1,
+  "cases": 8,
+  "passing": 5,
+  "failing": [
+   "(1)",
+   "(2)",
+   "(3)"
+  ]
+ }
+}
