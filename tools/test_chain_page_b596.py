@@ -175,8 +175,15 @@ def main():
     tl2 = os.path.join(d2, 'b602_nodes_zeta.txt')
     io.open(tl2, 'w', encoding='utf-8', newline=NL).write(io.open(os.path.join(D, 'b602_nodes_zeta.txt'), encoding='utf-8').read().replace(chr(13), '').rstrip(NL)
                                                          + NL + C.COLUMN_MARK + NL)
-    r0 = C.build(os.path.join(D, 'b602_nodes_zeta.txt'), tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
-    r1 = C.build(tl2, tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+    # ### b632, (R242)(2): CASE (9) FROZEN TO THE TEST'S OWN PIN, the same freeze as (1) and (3) -- the generator's every HEAD read at relay
+    # ### 12c15c80 and PLACE-papers ba5f0ea (_frozen_git), the E0 rule's blob at 12c15c80; b630's rule-graded rows in relay HEAD's table had
+    # ### joined b602's list's Correspondence and the case failed from b630 to this repair. A test reads every input at its own pin.
+    live_e0, C.E0, C.git = C.E0, e0, _frozen_git
+    try:
+        r0 = C.build(os.path.join(D, 'b602_nodes_zeta.txt'), tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+        r1 = C.build(tl2, tempfile.mkdtemp(), os.path.join(D, 'b602_probe_out.txt'))
+    finally:
+        C.E0, C.git = live_e0, _GIT
     p0, p1 = (r0[1] or ''), (r1[1] or '')
     cells_pat = r' — shape: (FINITE|BOUNDED|UNIVERSAL|LIMIT|DENSITY|FAMILY|UNCLASSIFIED|—)(?= — premises: )'
     stripped = re.sub(cells_pat, '', p1.replace(NL + C.SHAPE_KEY + NL, '', 1))
