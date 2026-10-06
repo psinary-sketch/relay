@@ -1,0 +1,50 @@
+You are being asked to act as an independent second reader for a research programme's machine-checked declarations. You have no context of the work that produced them, and that is the point: read only the files named below, judge each item on its own words, and write your answers to one file. Do not open, search or read any other file in any repository on this machine, do not run git, and do not change any file except the one answer file named at the end.
+
+The packet is the directory D:/relay/data/b632_reader_packet. Read its two files: 00_README.txt and 01_statements.txt.
+
+THE RULE. Each item is one Lean declaration's statement as its repository holds it at the commit named. Grade each by the rule below, read from the statement's own binders and conclusion alone -- not from its name, its proof or what you know of the mathematics. The rule's text follows as its source carries it, the citations of the acts and rulings that wrote each clause masked:
+
+THE E0 RULE (relay tools/e0_rule.py, shared from b—): a theorem is INTERFACES when an explicit hypothesis binder
+of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+predicate on the object's own data. (R—)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+object's own data is a domain condition, not a premise, when both cases are present as declarations and the
+exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+(R—)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+mention it is a premise (CLASS_PREDS, class_case).
+(R—)(3), b—: a binder inside an existential in a theorem's conclusion is part of the conclusion and not a premise
+(exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.
+(R—)(2), b—: the grade is read from the statement's binders alone -- a hypothesis the proof introduces (by induction,
+by cases, by a match arm, by intro inside the proof term) is no binder of the statement (statement_only cuts a header where
+a proof begins inside it); a non-membership (∉) is a domain condition as a membership is; a theorem one of whose explicit
+hypothesis binders has the conclusion itself as its type, its bound variables abstracted, reads ENCODES-CONCLUSION.
+(R—)(2), b—, THE DOMAIN-CONDITION CRITERION: a binder is a domain condition, and does not enter the grade, when it is
+(i) an instance binder whose class is not Fact; (ii) a membership, non-membership, non-emptiness or finiteness condition on
+an object the statement names; (iii) a restriction on a variable the same statement quantifies universally (support,
+parity, smoothness, continuity, integrability; a real's positivity; a natural's bound). A binder is a premise when it asserts
+a Prop about a fixed object the kernel names and does not derive (a structure of premises, an EF_lit_* hypothesis, a Fact
+instance, a Summable or HasSum of the kernel's own series). Read here: a Fact instance a premise (INSTANCE); non-emptiness
+and finiteness in DOMAIN; continuity, integrability and the support inclusion beside CLASS_PREDS, on a variable the
+statement binds and its conclusion mentions; the named restrictions the seat read at their pins (RESTRICTIONS) on such
+variables alone; a
+bounded quantifier's range (∀ x ∈ S,) no condition on a named object, its body read in its place (strip_range).
+(R—)(2), b—: (i) SEAM ANTECEDENTS -- a Prop that is the antecedent of a top-level implication in the conclusion is
+read as a binder when it is itself a named implication between open statements, a SEAMS entry (seam_antecedents), the
+author's answer before b—'s seal narrowing the ruled reading of every antecedent; a plain A -> B keeps DERIVES;
+(ii) DATA BINDERS -- a binder whose type is not a Prop (a function, a real, a natural, a character) is an object of the
+statement and not a hypothesis whatever its name (data_binder). (R—)(3): each named restriction names the quantified
+variable it restricts; an entry that cannot is struck.
+
+THE GRADES. Answer exactly one of:
+  DEF -- the declaration is a definition, structure or other object (its keyword is def, abbrev, instance, structure, class or inductive), not a theorem;
+  DERIVES -- a theorem whose explicit hypothesis binders are all domain conditions under the rule, or which has none;
+  INTERFACES -- a theorem with at least one explicit hypothesis binder that is a premise under the rule; name that binder in your reason;
+  ENCODES-CONCLUSION -- a theorem one of whose explicit hypothesis binders has the conclusion itself as its type, its bound variables renamed.
+Give one line of reason.
+
+TASK -- 60 statements (01_statements.txt), items G001 to G060.
+
+THE ANSWER FILE. Write all your answers to D:/relay/data/b632_reader_answers.txt, one item per line, in the packet's own order, in exactly this form:
+  G001 | DERIVES | your one line of reason
+Every item G001 to G060 must have exactly one line. Use no other grade words than the four above, and do not put a vertical bar inside a reason. When the file is complete, read it back once to check every item is present, then stop. Do not commit, push or edit anything else.

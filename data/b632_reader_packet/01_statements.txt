@@ -1,0 +1,248 @@
+Statements. Each is one declaration as its repository holds it at the commit named, copied verbatim; the task is in the prompt.
+
+G001 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/Generic.lean, at commit 8c51431ada77
+    theorem chi_Assembly_TailInputs_tilde (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+        type_of% (@Zeta23.Assembly.TailInputs.tilde (chiZeroConfig χ hχ h1))
+
+G002 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/Main.lean, at commit 8c51431ada77
+    theorem mem_integerComplement_quarter {a : ℝ} (ha : 4 * a = 1 ∨ 4 * a = 3) (b : ℝ) :
+        ((a : ℝ) : ℂ) + ((b : ℝ) : ℂ) * I ∈ Complex.integerComplement
+
+G003 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/XiLogDeriv.lean, at commit 8c51431ada77
+    theorem differentiableAt_gammaFactor (ψ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) :
+        DifferentiableAt ℂ (gammaFactor ψ) s
+
+G004 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/LiWeilSym.lean, at commit 8c51431ada77
+    def SymPairBound (n : ℕ) : Prop
+
+G005 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/Generic.lean, at commit 8c51431ada77
+    def chi_Assembly_NII (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+        type_of% (@Zeta23.Assembly.NII (chiZeroConfig χ hχ h1))
+
+G006 -- repository SIDE-global-section, file Core/AggregationCircularityShadow.lean, at commit 17ce9ff5831d
+    theorem cweil_inhabited {Cell : Type} (t x : Cell → α) :
+        SatisfiesCWeil G (fun c => forced G (t c) (x c)) t x
+
+G007 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Schema/Family.lean, at commit 8c51431ada77
+    theorem family_three_statement :
+        FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter)
+
+G008 -- repository SIDE-global-section, file Core/LadderOrientationShadow.lean, at commit 17ce9ff5831d
+    theorem stepsI_of_alt2 (c : Nat → U4) (hA : Alt2 c) (h1 : c 1 = mul i (c 0)) : StepsI c
+      | 0 => h1
+      | (k + 1) => by
+          have ih
+
+G009 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/RestBound.lean, at commit 8c51431ada77
+    theorem kWin_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+        (hL : 0 ≤ L) (z : ℂ) (hz : |z.im| ≤ 1 / 2) :
+        ‖Zeta23.paperFT (kWin γ₀ φ) z‖ * (1 + ‖z‖ ^ 4) ^ 2 ≤
+          (γ₀ ^ 2 + ‖z‖ ^ 2) ^ 2 * (windowA γ₀ φ ^ 2 * Real.exp L)
+
+G010 -- repository SIDE-global-section, file Core/QuotientWeilShape.lean, at commit 17ce9ff5831d
+    theorem shape_climbs_2 :
+        (2 * 7 < 6 * 3) ∧ (6 * 15 < 14 * 7) ∧ (14 < 15)
+
+G011 -- repository SIDE-global-section, file Core/FoldedMirrorShadow.lean, at commit 17ce9ff5831d
+    theorem fold_holds_for_fGood :
+        twoEnded fGood [1] = oneSided fGood [1] + oneSided fGood [1]
+
+G012 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Schema/PlateauRamp.lean, at commit 8c51431ada77
+    theorem box_even (a x : ℝ) : box a (-x) = box a x
+
+G013 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/PowerLimit.lean, at commit 8c51431ada77
+    theorem norm_wOf (ρ : ℂ) : ‖wOf ρ‖ = ‖Zeta23.gammaOf ρ‖
+
+G014 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/Generic.lean, at commit 8c51431ada77
+    theorem chi_Tail_eventually_NII_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+        type_of% (@Zeta23.Tail.eventually_NII_le (chiZeroConfig χ hχ h1))
+
+G015 -- repository SIDE-global-section, file Core/M4EnvelopeShadow.lean, at commit 17ce9ff5831d
+    theorem deep_cuts_need_the_evaluation_error :
+        ¬ (146013870 ≤ 146013869) ∧
+        ¬ (318448512 ≤ 318376360)
+
+G016 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/PowerLimit.lean, at commit 8c51431ada77
+    theorem weighted_summable (Z : Zeta23.ZeroConfig) {A₀ : ℝ} (hcount : HCount Z A₀) (f : ℂ → ℝ) (Bf : ℝ)
+        (hBf : 0 ≤ Bf) (hf0 : ∀ ρ ∈ Z.carrier, 0 ≤ f ρ)
+        (hf : ∀ ρ ∈ Z.carrier, f ρ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤ Bf) :
+        Summable (fun ρ : Z.carrier => (Z.mult ρ : ℝ) * f ρ)
+
+G017 -- repository SIDE-global-section, file Core/E2EvenMonotoneShadow.lean, at commit 17ce9ff5831d
+    theorem probe_cells_are_all_smaller_than_at_two :
+        (154974787 < 1002346928) ∧ (294741237 < 1002346928) ∧
+        (526961571 < 1002346928) ∧ (766113960 < 1002346928) ∧
+        (902826267 < 1002346928) ∧ (992958675 < 1002346928)
+
+G018 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/KeiperSign.lean, at commit 8c51431ada77
+    theorem log_four_pi_lt : Real.log (4 * Real.pi) < 2.5421
+
+G019 -- repository SIDE-explicit-formula, file Zeta23/WeilEF/Main.lean, at commit 8c51431ada77
+    theorem Hfn_mirror (k : ℝ → ℂ) (c t : ℝ) :
+        Hfn k (1 - c - t * I) = Hfn (fun u => k (-u)) ((c:ℂ) + t * I)
+
+G020 -- repository SIDE-global-section, file Core/StatedChoiceShadow.lean, at commit 17ce9ff5831d
+    theorem deviation_can_be_nonzero : devSum [1, 2, 1] = 1
+
+G021 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/Generic.lean, at commit 8c51431ada77
+    def chi_ZeroConfig_NonIprime (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+        type_of% (@Zeta23.ZeroConfig.NonIprime (chiZeroConfig χ hχ h1))
+
+G022 -- repository SIDE-global-section, file Core/LinkShadow.lean, at commit 17ce9ff5831d
+    theorem witness_no_fixed_point :
+        witnesses.all (fun e => decide (conjExp e ≠ e)) = true
+
+G023 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Schema/PlateauRamp.lean, at commit 8c51431ada77
+    theorem box_hasCompactSupport (a : ℝ) : HasCompactSupport (box a)
+
+G024 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/LiWeilSym.lean, at commit 8c51431ada77
+    def symCut (δ u : ℝ) : ℝ
+
+G025 -- repository SIDE-global-section, file Core/LadderOrientationShadow.lean, at commit 17ce9ff5831d
+    theorem measured_stepsMI : StepsMI measured
+
+G026 -- repository SIDE-global-section, file Core/TraceSilence.lean, at commit 17ce9ff5831d
+    theorem trace_silence_2_2 :
+        ([1, 2].all fun k => ((List.range 4).drop 1).all
+          fun a => a * (2 ^ k - 1) % 4 != 0) = true
+
+G027 -- repository SIDE-global-section, file Core/IndexRangeShadow.lean, at commit 17ce9ff5831d
+    theorem index_range_grows_with_its_bound :
+        (R 1 == [1] && R 2 == [1, 2] && R 3 == [1, 2, 3] && R 4 == [1, 2, 3, 4]) = true
+
+G028 -- repository SIDE-global-section, file Core/SectorNonvanishingShadow.lean, at commit 17ce9ff5831d
+    theorem arrival_shape : 0 + 0 + (0 + 1) + 0 = 1
+
+G029 -- repository SIDE-global-section, file Core/RationalEnclosureShadow.lean, at commit 17ce9ff5831d
+    theorem criterion_accepts_a_correct_lower_bound :
+        below 7 10 = true
+
+G030 -- repository SIDE-global-section, file Core/ArchimedeanTwinShadow.lean, at commit 17ce9ff5831d
+    theorem the_halves_do_not_come_out_otherwise :
+        ¬ ((1 : Nat) + 2 = 2) ∧ ¬ ((1 : Nat) + 2 = 4)
+
+G031 -- repository SIDE-global-section, file Core/AggregationSourceShadow.lean, at commit 17ce9ff5831d
+    theorem the_two_laws_disagree_at_first_level :
+        (2 * (2 - 2) = 0) ∧ (0 < (3 - 1) * (3 - 1)) ∧ (0 < (5 - 1) * (5 - 1))
+
+G032 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/PlattRung.lean, at commit 8c51431ada77
+    def rh_upto (T : ℝ) : Prop
+
+G033 -- repository SIDE-global-section, file Core/SectorNonvanishingShadow.lean, at commit 17ce9ff5831d
+    theorem arrival_dim_zero : (d : Nat) → 4 * d = 2 * 0 → d = 0
+      | 0,     _ => rfl
+      | k + 1, h =>
+        absurd (h ▸ Nat.mul_pos (by decide : 0 < 4) (Nat.succ_pos k)) (by decide)
+
+G034 -- repository SIDE-global-section, file Core/E2EvenMonotoneShadow.lean, at commit 17ce9ff5831d
+    theorem kernel_tail_is_positive_not_zero : (0 < 1559)
+
+G035 -- repository SIDE-global-section, file Core/TowerLimitShadow.lean, at commit 17ce9ff5831d
+    theorem register_arithmetic :
+        (4 = 2 * 2 ∧ 2 / 2 = 1 ∧ 4 / 4 = 1 ∧ 8 / 8 = 1 ∧ 16 / 16 = 1) ∧
+        (2 ^ 1 < 4 ^ 1 ∧ 2 ^ 2 < 4 ^ 2 ∧ 2 ^ 3 < 4 ^ 3 ∧ 2 ^ 4 < 4 ^ 4)
+
+G036 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/PowerLimit.lean, at commit 8c51431ada77
+    theorem mem_KF (H : PWSetup Z g0 L M) {ρ : ℂ} : ρ ∈ KF H ↔ ρ ∈ killSet Z g0 M
+
+G037 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/LiWeil.lean, at commit 8c51431ada77
+    theorem norm_sub_one_of_re_half {ρ : ℂ} (h : ρ.re = 1 / 2) : ‖ρ - 1‖ = ‖ρ‖
+
+G038 -- repository SIDE-global-section, file Interfaces/LocalLimit.lean, at commit 17ce9ff5831d
+    theorem hullMono {ι : Type*} [Preorder ι] (U : ι → Submodule ℂ H) :
+        Monotone (hull U)
+
+G039 -- repository SIDE-global-section, file Core/DiagonalSection.lean, at commit 17ce9ff5831d
+    theorem antipode_fixes_class_gram : mm3 A (mm3 C A) = C
+
+G040 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/ZetaBounds.lean, at commit 8c51431ada77
+    theorem differentiableAt_deriv_LFunction {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (s : ℂ) :
+        DifferentiableAt ℂ (deriv (LFunction χ)) s
+
+G041 -- repository SIDE-global-section, file Core/DiagonalSection.lean, at commit 17ce9ff5831d
+    theorem parity_f : parityV fV = smulV ⟨-1,0⟩ fV
+
+G042 -- repository SIDE-global-section, file Core/IndexRangeShadow.lean, at commit 17ce9ff5831d
+    theorem index_range_at_bound_one_is_a_single_point :
+        (R 1 == [1] && (R 1).length == 1) = true
+
+G043 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Schema/PlateauRamp.lean, at commit 8c51431ada77
+    theorem epstein_ef_at_window (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hE : EpsteinPremises Z rhs) {W h : ℝ}
+        (hW : 0 ≤ W) (hh : 0 < h) (hP : WindowObligations W h) (p : ℕ) (hp : 6 ≤ p) :
+        (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) *
+            Zeta23.paperFT (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p))) (Zeta23.gammaOf ρ))
+          = rhs (Zeta23.EF.weilTest (phiC (window W h p)) (phiC (window W h p)))
+
+G044 -- repository SIDE-explicit-formula, file Zeta23/Statement/SeamClosed.lean, at commit 8c51431ada77
+    def zetaZeroConfig : ZeroConfig
+
+G045 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/ZetaGrowth.lean, at commit 8c51431ada77
+    theorem LFunction_ne_zero_of_two_le_re (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 2 ≤ s.re) : LFunction χ s ≠ 0
+
+G046 -- repository SIDE-global-section, file Core/DoubleEntryShadow.lean, at commit 17ce9ff5831d
+    theorem zero_share_has_no_double_entry :
+        (zeroCases.all (fun t =>
+          decide (shareOf t = 0) && decide (moveOf t = singleEntry t))
+         && nonzeroCases.all (fun t =>
+          !decide (shareOf t = 0) && !decide (moveOf t = singleEntry t))) = true
+
+G047 -- repository SIDE-global-section, file Core/BallAbsorptionShadow.lean, at commit 17ce9ff5831d
+    theorem refuse_empty_2_2 : emptyOrbit 2 2 = false
+
+G048 -- repository SIDE-global-section, file Core/ValuationDivisibilityShadow.lean, at commit 17ce9ff5831d
+    theorem valuation_and_divisibility_agree_over_the_range_at_p_three_n_two :
+        agreeOn 3 2 81 = true
+
+G049 -- repository SIDE-global-section, file Core/BallAbsorptionShadow.lean, at commit 17ce9ff5831d
+    theorem refuse_live_2_2_k2 : hasLiveStep 2 2 2 = false
+
+G050 -- repository SIDE-global-section, file Core/SinglePrimeFactor.lean, at commit 17ce9ff5831d
+    theorem base_six_values :
+        B329.ballQ 6 1 * B329.sumAN 6 1 = 468 ∧ B329.sumAQ 6 1 = 324
+
+G051 -- repository SIDE-global-section, file Core/JunctionSignShadow.lean, at commit 17ce9ff5831d
+    theorem cap_strictly_slack_from_two :
+        (2 < 2 * 2 - 1) ∧ (3 < 2 * 3 - 1) ∧ (4 < 2 * 4 - 1) ∧
+        (5 < 2 * 5 - 1) ∧ (6 < 2 * 6 - 1)
+
+G052 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/PowerLimit.lean, at commit 8c51431ada77
+    theorem fixed_poly_bound (Q : Polynomial ℝ) :
+        ∃ B : ℝ, ∃ D : ℕ, 0 ≤ B ∧ ∀ x : ℂ, ‖Polynomial.aeval x Q‖ ≤ B * (1 + ‖x‖) ^ D
+
+G053 -- repository SIDE-explicit-formula, file Vendored/Bulka/Lc/LiCriterion/Fidelity.lean, at commit 8c51431ada77
+    theorem summable_li_symmetrized (n : ℕ) :
+        Summable (fun ρ : NontrivialZero =>
+          (analyticOrderNatAt riemannXi ρ.val : ℂ) *
+            ((1 - (1 - 1 / ρ.val) ^ (-((n : ℤ) + 1)))
+              + (1 - (1 - 1 / ρ.val) ^ ((n : ℤ) + 1))))
+
+G054 -- repository SIDE-global-section, file Core/AlternationShadow.lean, at commit 17ce9ff5831d
+    theorem alternates_neg (s : Nat → Int) (h : Alternates s) :
+        Alternates (fun i => -s i)
+
+G055 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/ZetaGrowth.lean, at commit 8c51431ada77
+    theorem LFunction_growth {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) {δ : ℝ} (hδ : 0 < δ) :
+        ∃ C : ℝ, 0 < C ∧ ∀ s : ℂ, δ ≤ s.re → 1 ≤ |s.im| → ‖LFunction χ s‖ ≤ C * |s.im|
+
+G056 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/PowerWindow.lean, at commit 8c51431ada77
+    theorem neg_one_pow_mul_iz_pow (z : ℂ) (j : ℕ) : (-1 : ℂ) ^ j * (-(I * z)) ^ (2 * j) = z ^ (2 * j)
+
+G057 -- repository SIDE-global-section, file Core/ReDerivationShadow.lean, at commit 17ce9ff5831d
+    theorem expanding_the_scaling_operator_reconciles_all_three_terms :
+        ((sourceExpanded.zip corpusExponents).all (fun p => decide (p.1 = p.2))
+         && decide (sourceExpanded.length = 3)
+         && decide (corpusExponents.length = 3)) = true
+
+G058 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/Chi/Generic.lean, at commit 8c51431ada77
+    theorem chi_Tail_TailHyp_Az_eq_sum (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :
+        type_of% (@Zeta23.Tail.TailHyp.Az_eq_sum (chiZeroConfig χ hχ h1))
+
+G059 -- repository SIDE-explicit-formula, file Vendored/Bulka/Lc/LiCriterion/RHBridge.lean, at commit 8c51431ada77
+    theorem rh_equiv_mathlib :
+        RiemannHypothesis ↔
+          (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2)
+
+G060 -- repository SIDE-explicit-formula, file SIDEExplicitFormula/LiWeilSym.lean, at commit 8c51431ada77
+    theorem integrable_cut_pow_cexp {h : ℝ → ℝ} (hc : Continuous h) (h1 : ∀ u, |h u| ≤ 1) (h0 : ∀ u, 0 ≤ u → h u = 0)
+        (j : ℕ) {τ : ℂ} (hτ : 0 < τ.re) : Integrable (fun u : ℝ => ((h u * u ^ j : ℝ) : ℂ) * cexp (τ * u))
+

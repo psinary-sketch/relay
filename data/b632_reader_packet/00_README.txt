@@ -1,0 +1,1 @@
+The reader's packet. Two files: this one; and 01_statements.txt, 60 statements of Lean declarations, each with the repository, the file and the commit it is read at. The task is in the prompt that came with it.
