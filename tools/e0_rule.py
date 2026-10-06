@@ -56,6 +56,8 @@ RULE_TEXT = [
     '### (ii) DATA BINDERS -- a binder whose type is not a Prop (a function, a real, a natural, a character) is an object of the',
     '### statement and not a hypothesis whatever its name (data_binder). (R236)(3): each named restriction names the quantified',
     '### variable it restricts; an entry that cannot is struck.',
+    '### (R243)(2), b633: Alt2 and Alternates enter the named restrictions, each with the variable it restricts; and a named predicate',
+    '### on the statement`s quantified variables that the rule neither lists nor has met (MET) reads PREDICATE-UNLISTED, not INTERFACES.',
 ]
 
 DOMAIN = r'(?:≠|<|≤|=|∈|∉|\.Even\b|IsPrimitive|\.Nonempty\b|\bNonempty\b|\.Finite\b|\bSet\.Finite\b|\bFinite\b)'
@@ -275,9 +277,61 @@ RESTRICTIONS = [
          reads='∀ c₁ c₂, I.action c₁ = I.action c₂ -- a condition on I`s own action', restricts=('I',)),
     dict(head='IsNontrivialZeroChi', where='SIDE-explicit-formula v0.21 = 1d5d4dd, SIDEExplicitFormula/Chi/ZeroConfig.lean :48',
          reads='LFunction χ ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 -- the membership of ρ in the nontrivial zeros of L(s, χ)', restricts=('χ', 'ρ')),
+    # ### b633, (R243)(2): the second reader's two disagreements of b632 upheld -- a restriction on a variable the statement quantifies
+    # ### universally, clause (iii), which the rule had read as a premise because neither name was on this list.
+    dict(head='Alt2', where='SIDE-global-section 17ce9ff, Core/LadderOrientationShadow.lean :95',
+         reads='def Alt2 (c : Nat → U4) : Prop := ∀ k, c (k + 2) = mul m1 (c k) -- a condition on c alone', restricts=('c',)),
+    dict(head='Alternates', where='SIDE-global-section 17ce9ff, Core/AlternationShadow.lean :33 and Core/SignTransferShadow.lean :47',
+         reads='def Alternates (s : Nat → Int) : Prop := ∀ i, s (i + 1) = -s i -- a condition on s alone', restricts=('s',)),
 ]
 # ### (R236)(3): every entry names the quantified variables it restricts (its definition's parameters, by position); an entry that
 # ### cannot name one is struck. None is struck: each definition read at its pin takes its restricted objects as parameters.
+# ### ### **(R243)(2), b633, AND THE AUTHOR'S ANSWER BEFORE b633'S SEAL: PREDICATE-UNLISTED.** *When a named predicate on a quantified
+# ### variable is met for the first time the rule prints it as PREDICATE-UNLISTED rather than INTERFACES, so the list grows by a ruling
+# ### and not by a wrong grade standing until a reader catches it.* "For the first time" is read against MET: every named premise any
+# ### row of the table carried in the rule's reading at relay 8e6b63cc -- 45 from the rule-graded rows (b632's 42 heads and the 3 of
+# ### the two rows graded before it) and 6 from the cell-graded rows, 51 names, by the author's two answers -- so the clause guards
+# ### forward and moves no row or page cell read before it. A binder is UNLISTED when its type is a name applied to variables
+# ### the statement quantifies and its conclusion mentions, the name neither a RESTRICTIONS head nor MET nor a variable the statement
+# ### (or the binder's own quantifier) binds. The clause does not separate a premise structure about a fixed kernel object from a
+# ### predicate restricting a quantified variable; that separation is W-ORD-BINDER-GRAMMAR's (OPEN_TRAILS :13002), and MET is the
+# ### forward-only guard until it lands.
+MET = ('Alt2', 'Alternates', 'AnalyticOnNhd', 'BoundPremises', 'ConservationHypothesis', 'Continuous', 'Dealigned', 'DealignedAt',
+       'EpsteinPremises', 'EqOn', 'EulerFactorPremise', 'HCount', 'HasCompactSupport', 'HasDerivAt', 'IdempotentAdd', 'Integrable',
+       'IsEvenFn', 'IsExpansion', 'IsOpen', 'IsRoot', 'IsSign', 'IsSignedCompletion', 'IsTrivialPoint', 'KeiperObligations', 'Monotone',
+       'NotDiv', 'NymanBeurlingPremise', 'PerClassExcludes', 'PlattTrudgianHeight', 'Prime', 'Proper', 'SatisfiesCWeil', 'StepsI',
+       'StepsMI', 'StrictMono', 'StructuralExhaustiveness', 'SymPairBound', 'Tendsto', 'TrivialSummandPremise', 'WindowObligations',
+       'ZetaSeam', 'farSmall', 'identity', 'is_xi_zero', 'zeroSideNeg') + (
+    # ### the author's second answer before b633's seal: MET from every row -- the six names cell-graded rows' rule readings carry
+    'Blind', 'IsPreconnected', 'LiLimitExchange', 'VerifiedZerosTo', 'factorsDark', 'isConserved')
+NAMED_PRED = re.compile(r"^(?:([^\W\d][\w'.₀-₉]*)((?:\s+[^\W\d][\w'₀-₉]*)+)|([^\W\d][\w'₀-₉]*)\.([^\W\d][\w'₀-₉]*))\s*$")
+
+
+def unlisted_case(t, head):
+    """### (R243)(2): the name of a predicate the binder type applies to the statement's own quantified variables alone, when the rule
+    ### neither lists it, nor has met it, nor reads it as a variable bound by the statement or by the binder's own quantifier; else None."""
+    s = (t or '').strip()
+    qbound = set()
+    for _ in range(6):
+        s = re.sub(r'^¬\s*', '', s)
+        m = re.match(r'^∀\s+([^,]*?)\s∈\s[^,]*,\s*', s) or re.match(r'^∀\s+([^,]*?),\s*', s)
+        if not m:
+            break
+        qbound |= set(re.findall(IDENT, m.group(1).split(':')[0]))
+        s = s[m.end():]
+    m = NAMED_PRED.match(s)
+    if not m:
+        return None
+    if m.group(1):
+        name, args = m.group(1), m.group(2).split()
+    else:
+        name, args = m.group(4), [m.group(3)]
+    short = name.split('.')[-1]
+    if '.' not in name and (name in bound_vars(head) or name in qbound):
+        return None
+    if short in MET or short in [r['head'] for r in RESTRICTIONS]:
+        return None
+    return short if args and all(quantified(a, head) for a in args) else None
 STRUCK_RESTRICTIONS = [r['head'] for r in RESTRICTIONS if not r.get('restricts')]
 RESTRICTIONS = [r for r in RESTRICTIONS if r.get('restricts')]
 
@@ -410,7 +464,10 @@ def grade(head, kind):
     if enc:
         return 'ENCODES-CONCLUSION', 'the conclusion is the binder ' + ', '.join('%s : %s' % bt for bt in enc), binders
     prem = [(b, t) for b, t in binders if not domain_case(t, head)] + facts
+    unl = [(b, t) for b, t in binders if b != '→' and not domain_case(t, head) and unlisted_case(t, head)]
     binders = binders + facts
+    if unl:          # ### (R243)(2): a predicate met for the first time is printed, not graded INTERFACES
+        return 'PREDICATE-UNLISTED', ', '.join('%s : %s' % bt for bt in unl), binders
     if prem:
         return 'INTERFACES', ', '.join('%s : %s' % bt for bt in prem), binders
     if binders:

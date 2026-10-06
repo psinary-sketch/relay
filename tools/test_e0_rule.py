@@ -32,6 +32,13 @@
 ###   (18) a planted P → Q with P a domain condition reads DERIVES, and a plain implication between open statements keeps DERIVES,
 ###       where a seam antecedent reads INTERFACES;
 ###   (19) a planted theorem whose data binder is named h reads its Prop binders alone.
+### b633, (R243)(2) and the author's two answers before b633's seal -- the two named restrictions and PREDICATE-UNLISTED:
+###   (19) re-pointed: its planted NamedPremise on the quantified h is a predicate the rule neither lists nor has met, and reads
+###       PREDICATE-UNLISTED (the case's expectation was the old reading itself; listed for the author's strike);
+###   (20) Alt2 restricting the quantified c reads DERIVES;
+###   (21) Alternates restricting the quantified s reads DERIVES;
+###   (22) a planted unlisted predicate on a quantified variable reads PREDICATE-UNLISTED, the same name on a fixed object still
+###       INTERFACES, and a met name (LiLimitExchange) on a quantified variable still INTERFACES.
 ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
 ### when none is given), their absolute paths printed; they are read as text and never built.
 ### Usage: python tools/test_e0_rule.py [planted-directory]
@@ -171,7 +178,16 @@ def main():
     b19 = E0.grade('(h : ℝ → ℝ) (hP : NamedPremise h) : Q h', 'theorem')
     want('(19) a data binder named h does not enter (read %s, binders %s); beside a named premise %s on %s' % (
          a19[0], [b for b, _t in a19[2]], b19[0], b19[1]),
-         a19[0] == 'DERIVES' and [b for b, _t in a19[2]] == ['hc'] and b19[0] == 'INTERFACES' and b19[1] == 'hP : NamedPremise h')
+         a19[0] == 'DERIVES' and [b for b, _t in a19[2]] == ['hc'] and b19[0] == 'PREDICATE-UNLISTED' and b19[1] == 'hP : NamedPremise h')
+    g20 = E0.grade('{c : Nat → U4} (h : Alt2 c) : c 4 = c 0', 'theorem')
+    want('(20) Alt2 restricting the quantified c reads DERIVES (read %s; %s)' % (g20[0], g20[1]), g20[0] == 'DERIVES')
+    g21 = E0.grade('{s : Nat → Int} (h : Alternates s) : s 2 = s 0', 'theorem')
+    want('(21) Alternates restricting the quantified s reads DERIVES (read %s; %s)' % (g21[0], g21[1]), g21[0] == 'DERIVES')
+    a22 = E0.grade('{f : ℕ → ℕ} (hU : PlantedUnmet f) : Q f', 'theorem')
+    b22 = E0.grade('(hU : PlantedUnmet 0) (n : ℕ) : Q n', 'theorem')
+    c22 = E0.grade('{n : ℕ} (hX : LiLimitExchange n) : Q n', 'theorem')
+    want('(22) a planted unlisted predicate reads %s on %s; on a fixed object %s; a met name %s' % (a22[0], a22[1], b22[0], c22[0]),
+         a22[0] == 'PREDICATE-UNLISTED' and a22[1] == 'hU : PlantedUnmet f' and b22[0] == 'INTERFACES' and c22[0] == 'INTERFACES')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1
