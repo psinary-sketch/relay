@@ -14,6 +14,7 @@
 import contextlib
 import io
 import os
+import subprocess
 import sys
 import tempfile
 
@@ -25,19 +26,44 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 NODES = os.path.join(ROOT, 'data', 'b630_nodes_zeta.txt')
+# ### b633, (R243)(4) and the test-pin line (OPEN_TRAILS :13193): THE TEST FROZEN TO ITS OWN PIN. Its list is read from the relay commit
+# ### that wrote it (e99c6de4), and the generator's checkout check reads the kernel at the list's pin v0.24 = aa17442 with no tracked
+# ### change -- the live main (at v0.25 since b631) is not consulted. The test failed from b631's tag to this repair (exit 3 at the check).
+LIST_REV = 'e99c6de4'
+PIN_SHA = 'aa17442f98ccdff33c50447c5de044861dfc9bae'
+_GIT = C.git
+
+
+def _frozen_git(repo, *a):
+    """### the generator's `git`, the kernel's checkout read at the test's pin: HEAD -> v0.24, its tracked status clean."""
+    if repo.replace(chr(92), '/') == C.KER.replace(chr(92), '/'):
+        if list(a[:2]) == ['rev-parse', 'HEAD']:
+            return 0, PIN_SHA + chr(10)
+        if a[:1] == ('status',):
+            return 0, ''
+    return _GIT(repo, *a)
+
+
+def pinned_list():
+    """### b630's list written from its own commit into a fresh directory, under its own name."""
+    b = subprocess.run(['git', '-C', ROOT, 'show', '%s:data/b630_nodes_zeta.txt' % LIST_REV], capture_output=True).stdout
+    p = os.path.join(tempfile.mkdtemp(), 'b630_nodes_zeta.txt')
+    open(p, 'wb').write(b)
+    return p
 
 
 def run(reading):
     calls = []
-    saved = (C.free_mb, C.run_probe)
+    saved = (C.free_mb, C.run_probe, C.git)
     C.free_mb = lambda: reading
     C.run_probe = lambda d, text: (calls.append(1), (9, ''))[1]
+    C.git = _frozen_git
     buf = io.StringIO()
     try:
         with contextlib.redirect_stdout(buf):
-            rc, page, meta, log = C.build(NODES, tempfile.mkdtemp(), None)
+            rc, page, meta, log = C.build(pinned_list(), tempfile.mkdtemp(), None)
     finally:
-        C.free_mb, C.run_probe = saved
+        C.free_mb, C.run_probe, C.git = saved
     return rc, calls, buf.getvalue(), log or []
 
 
