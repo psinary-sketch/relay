@@ -14,6 +14,9 @@
 ###       previous act's, and a line whose note names a kernel the heads do not gain DISAGREE (fresh temporary directory);
 ###   (8) the repositories read at PLACE-papers HEAD hold every kernel of the census's kernel column, every kernel REGISTRY's kernel
 ###       rows name and every kernel a page pins -- SIDE-explicit-formula among them.
+### b634, (R244)(4) -- the census path at v0.5:
+###   (9) the census the root reads is THE_KEYSTONE_CENSUS_v0_5.md, present at PLACE-papers HEAD, and its kernel column yields a
+###       non-empty list every name of which is a SIDE- repository; the list read at v0.4 by the same reader is printed beside it.
 ### Nothing in relay is written. Usage: python tools/test_act_root.py
 """
 import hashlib
@@ -104,6 +107,16 @@ def main():
     want('(8) the repositories at PLACE-papers HEAD: %d, the census`s %d, REGISTRY`s kernel rows %s, the pages` pins %s' % (
          len(rp), len(AR.census_kernels('HEAD')), rk, pk),
          rk is not None and need <= set(rp) and 'SIDE-explicit-formula' in rp and rp[:2] == ['relay', 'PLACE-papers'] and len(rp) == len(set(rp)))
+    ck5 = AR.census_kernels('HEAD')
+    save = AR.CENSUS
+    try:
+        AR.CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_4.md'
+        ck4 = AR.census_kernels('HEAD')
+    finally:
+        AR.CENSUS = save
+    want('(9) the census path is v0.5 and its kernel column reads %d kernels (v0.4 by the same reader %d; gained %s, lost %s)' % (
+         len(ck5), len(ck4), sorted(set(ck5) - set(ck4)) or 'none', sorted(set(ck4) - set(ck5)) or 'none'),
+         AR.CENSUS == 'phase2/method/THE_KEYSTONE_CENSUS_v0_5.md' and bool(ck5) and all(k.startswith('SIDE-') for k in ck5))
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

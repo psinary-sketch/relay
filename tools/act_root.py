@@ -35,7 +35,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, 'data')
 NL = chr(10)
 PP = 'D:/MY-DOwnloads/PLACE-papers'
-CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_4.md'
+CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_5.md'   # ### b634, (R244)(4): the census at v0.5 (b633), its §1 kernel column in the same place
 ROOTS = os.path.join(D, 'act_roots.txt')
 EMPTY = hashlib.sha256(b'').hexdigest()
 
