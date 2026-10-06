@@ -1,0 +1,36 @@
+b631 -- COMPONENT 2, (R241)(3): THE KERNEL READ, BEFORE ANY MODULE (2026-10-06T04:11:03Z)
+
+### SIDEExplicitFormula/Schema/Family.lean at v0.24 (aa17442) and at v0.21 (1d5d4dd):
+    :124   def finsetSum {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : WeilConfig   [at v0.21: present]
+    :136   theorem finsetSum_productLemma {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i)   [at v0.21: present]
+    :146   theorem finsetSum_target_iff {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target   [at v0.21: present]
+    :151   theorem finsetSum_rhs {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) (k : ℝ → ℂ) : (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k   [at v0.21: present]
+    :171   def family : Finset (DirichletCharacter ℂ q)   [at v0.21: present]
+    :186   def charCfg (χ : DirichletCharacter ℂ q) : WeilConfig   [at v0.21: present]
+    :205   def familyConfig : WeilConfig   [at v0.21: present]
+    :209   def FamilyTheorem : Prop   [at v0.21: present]
+    :213   theorem family_theorem : h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter   [at v0.21: present]
+    :222   theorem familyConfig_arith (k : ℝ → ℂ) : (familyConfig q).rhs k = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k)   [at v0.21: present]
+    :241   theorem family_three : h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter   [at v0.21: present]
+    :245   theorem family_three_statement : FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter)   [at v0.21: present]
+    :252   theorem zeta_rhs_pole (k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k   [at v0.21: present]
+    :257   def TrivialSummandPremise : Prop   [at v0.21: present]
+    :265   def EulerFactorPremise (q : ℕ) [NeZero q] : Prop   [at v0.21: present]
+    :270   structure DedekindPremises (q : ℕ) [NeZero q] : Prop   [at v0.21: present]
+
+### SIDEExplicitFormula/Product.lean at v0.24:
+    :142   def sum (C₁ C₂ : WeilConfig) : WeilConfig
+    :154   theorem sum_rhs (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) : (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k
+    :156   theorem sum_target (C₁ C₂ : WeilConfig) : (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target
+    :160   def ProductLemma : Prop
+    :169   theorem productLemma_holds : ProductLemma
+
+### the ζ configuration`s pole term at its definition: SIDEExplicitFormula/Schema/Instances.lean :[27] -- rhs := fun k => poleTerm k - primeSum k + archTerm k
+
+### WHAT THE DEDEKIND PRODUCT NEEDS AT p | q, AS THE KERNEL STATES IT (EulerFactorPremise, above): every non-trivial character mod q, imprimitive ones included, with its primitive inducer`s arithmetic side; and the trivial summand in the family`s form (TrivialSummandPremise). The act extends them and does not re-declare them.
+
+### THE SPLIT, BY THE AUTHOR`S ANSWER BEFORE THE SEAL (data/b631_author_answers.txt), THE STATEMENTS TO BE WRITTEN:
+    DedekindConfig q := Product.sum zetaWeilConfig (familyConfig q) -- the trivial summand ζ`s configuration, its pole term carried
+    dedekind_instance : h2_sign_cfg (DedekindConfig q) ↔ zetaWeilConfig.target ∧ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter -- no premise
+    dedekind_rhs (hT : TrivialSummandPremise) (hE : EulerFactorPremise q) (k) : (DedekindConfig q).rhs k = (the trivial summand in the family`s form) + ∑ χ ∈ family q, (archTerm_chi χ k − primeSum_chi χ k) -- each character at its own level, both premises used
+    dedekind_three : DedekindTheorem 3 = (the statement at q = 3) -- rfl

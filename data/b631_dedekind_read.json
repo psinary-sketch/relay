@@ -1,0 +1,108 @@
+{
+ "at": "2026-10-06T04:11:03Z",
+ "decls": {
+  "finsetSum": {
+   "line": 124,
+   "statement": "def finsetSum {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : WeilConfig",
+   "at_v021": true
+  },
+  "finsetSum_productLemma": {
+   "line": 136,
+   "statement": "theorem finsetSum_productLemma {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, h2_sign_cfg (f i)",
+   "at_v021": true
+  },
+  "finsetSum_target_iff": {
+   "line": 146,
+   "statement": "theorem finsetSum_target_iff {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) : h2_sign_cfg (finsetSum s f) ↔ ∀ i ∈ s, (f i).target",
+   "at_v021": true
+  },
+  "finsetSum_rhs": {
+   "line": 151,
+   "statement": "theorem finsetSum_rhs {ι : Type*} (s : Finset ι) (f : ι → WeilConfig) (k : ℝ → ℂ) : (finsetSum s f).rhs k = ∑ i ∈ s, (f i).rhs k",
+   "at_v021": true
+  },
+  "family": {
+   "line": 171,
+   "statement": "def family : Finset (DirichletCharacter ℂ q)",
+   "at_v021": true
+  },
+  "charCfg": {
+   "line": 186,
+   "statement": "def charCfg (χ : DirichletCharacter ℂ q) : WeilConfig",
+   "at_v021": true
+  },
+  "familyConfig": {
+   "line": 205,
+   "statement": "def familyConfig : WeilConfig",
+   "at_v021": true
+  },
+  "FamilyTheorem": {
+   "line": 209,
+   "statement": "def FamilyTheorem : Prop",
+   "at_v021": true
+  },
+  "family_theorem": {
+   "line": 213,
+   "statement": "theorem family_theorem : h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter",
+   "at_v021": true
+  },
+  "familyConfig_arith": {
+   "line": 222,
+   "statement": "theorem familyConfig_arith (k : ℝ → ℂ) : (familyConfig q).rhs k = ∑ χ ∈ family q, (archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k)",
+   "at_v021": true
+  },
+  "family_three": {
+   "line": 241,
+   "statement": "theorem family_three : h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter",
+   "at_v021": true
+  },
+  "family_three_statement": {
+   "line": 245,
+   "statement": "theorem family_three_statement : FamilyTheorem 3 = (h2_sign_cfg (familyConfig 3) ↔ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter)",
+   "at_v021": true
+  },
+  "zeta_rhs_pole": {
+   "line": 252,
+   "statement": "theorem zeta_rhs_pole (k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k",
+   "at_v021": true
+  },
+  "TrivialSummandPremise": {
+   "line": 257,
+   "statement": "def TrivialSummandPremise : Prop",
+   "at_v021": true
+  },
+  "EulerFactorPremise": {
+   "line": 265,
+   "statement": "def EulerFactorPremise (q : ℕ) [NeZero q] : Prop",
+   "at_v021": true
+  },
+  "DedekindPremises": {
+   "line": 270,
+   "statement": "structure DedekindPremises (q : ℕ) [NeZero q] : Prop",
+   "at_v021": true
+  },
+  "Product.sum": {
+   "line": 142,
+   "statement": "def sum (C₁ C₂ : WeilConfig) : WeilConfig"
+  },
+  "Product.sum_rhs": {
+   "line": 154,
+   "statement": "theorem sum_rhs (C₁ C₂ : WeilConfig) (k : ℝ → ℂ) : (sum C₁ C₂).rhs k = C₁.rhs k + C₂.rhs k"
+  },
+  "Product.sum_target": {
+   "line": 156,
+   "statement": "theorem sum_target (C₁ C₂ : WeilConfig) : (sum C₁ C₂).target ↔ C₁.target ∧ C₂.target"
+  },
+  "Product.ProductLemma": {
+   "line": 160,
+   "statement": "def ProductLemma : Prop"
+  },
+  "Product.productLemma_holds": {
+   "line": 169,
+   "statement": "theorem productLemma_holds : ProductLemma"
+  },
+  "pole_line": [
+   27
+  ]
+ }
+}

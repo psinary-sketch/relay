@@ -1,0 +1,45 @@
+{
+ "at": "2026-10-06T05:14:57Z",
+ "rev": "v0.25",
+ "nodes": {
+  "DedekindConfig": {
+   "kind": "def",
+   "grade": "DEF",
+   "why": "",
+   "binders": []
+  },
+  "DedekindTheorem": {
+   "kind": "def",
+   "grade": "DEF",
+   "why": "",
+   "binders": []
+  },
+  "dedekind_instance": {
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "binders": []
+  },
+  "dedekind_rhs": {
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "why": "hT : TrivialSummandPremise, hE : EulerFactorPremise q",
+   "binders": [
+    "hT",
+    "hE"
+   ]
+  },
+  "dedekind_three": {
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "binders": []
+  }
+ },
+ "three_proof": "rfl",
+ "files": [
+  "AxiomCheckDedekind.lean",
+  "SIDEExplicitFormula/Schema/Dedekind.lean"
+ ],
+ "sorry": 0
+}
