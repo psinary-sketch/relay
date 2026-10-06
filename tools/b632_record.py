@@ -1005,6 +1005,26 @@ def components(*a):
     put_txt('b632_components.txt', L)
 
 
+def findings(*a):
+    """### (R242)(2): THE FINDINGS WRITER, RESTORED. b630's body (relay tools/b630_record.py :1051-:1066 at e99c6de4), which b631's
+    ### assembly dropped (b631's defect (j)); the entry is guarded for table cells, TECHNE text and stems, refused if its title stands,
+    ### appended through b566's guarded append_to and its line banked. Tested on a scratch copy by tools/test_record_findings_b632.py."""
+    Q = R2._Q()
+    t, e = _finding_text()
+    cells = predict_cells(e, 'FINDINGS.md')
+    nd, _n = _nd(e)
+    sc, clean = _scan_text(e, 'entry')
+    print('  table cells the entry would make: %s ; no-disclosure hits: %s ; scanner %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN'))
+    if 'dry' in a:
+        print(e)
+        return
+    if cells or any(nd.values()) or not clean:
+        sys.exit('### A LINE WOULD MAKE A TABLE CELL, CARRY TECHNE TEXT OR A STEM -- NOTHING WRITTEN')
+    Q.guard_absent(Q.FIND, t[:90])
+    r = Q.append_to(Q.FIND, e)
+    put_json('b632_findings.json', dict(entry_line=Q.line_of(Q.FIND, t[:90]), title=t, append=r))
+    print('  FINDINGS entry :%s' % Q.line_of(Q.FIND, t[:90]))
+
 
 def trail(*a):
     Q = R2._Q()
