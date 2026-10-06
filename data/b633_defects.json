@@ -1,0 +1,15 @@
+{
+ "defects": [
+  "(a) THE RECORD TOOL`S ANSWER COUNT. tools/b633_record.py`s FINDINGS text (_finding_text) says the act was filed on \"the author`s three answers before the seal\"; two prompts were put, in two calls, and two answers banked (data/b633_author_answers.txt; the face`s section (0) says two). The figure was typed into the tool before the seal from a miscount of the calls and not read from the bank; the tool was sealed with it and takes no edit after the seal, so the entry carries it and the correction appended to this act`s record says two. The seat`s.",
+  "(b) THE ROOT`S CENSUS READER AT v0.4. Component 4 orders the generator`s census reader pointed at v0.5 if any arm reads the census. The page generator (tools/chain_page.py) reads no census; tools/act_root.py does (CENSUS = phase2/method/THE_KEYSTONE_CENSUS_v0_4.md, :38, read by its census kernel list). It is not on this face`s write list and was not edited; b633`s root and v0.5`s kernel column were both taken over the list it yields at PLACE-papers e67c43b, so they agree with each other. Carried to the author for b634; not repaired.",
+  "(c) test_asof.py AT STEP ZERO. Its first run stopped on a FileNotFoundError inside its own temporary directory (data/b633_tests_asof_attempt1.txt, 308 s); run again alone it passed 24 of 24 (427 s). The cause was not established; the test is not repaired.",
+  "(d) G-PROVENANCE-CELLS`S KEY. The suite`s arm keys the census body`s rows by their R-number and keeps the last line per id; R12, R14, R16 and R17 stand twice in the body -- in §1 and in §1C`s Phase 2 table -- so the arm compares §1C`s SEC-reading cell with the provenance figure and fails live at the pre-push suite. Tested directly (data/b633_provenance_direct.txt): read at §1`s own line every one of the 23 rows equals the table at HEAD. The arm ran at HEAD before the seal when v0.5 did not exist, so its live limb had never read the edition; the seat did not run it over the dry edition in the scratchpad. The suite is sealed and takes no edit; the arm is carried as defective. The seat`s."
+ ],
+ "short": [
+  "(a) the record tool’s FINDINGS text says three answers before the seal where two were banked, corrected beneath this record",
+  "(b) tools/act_root.py reads the census at v0.4 (:38), not on the write list, carried to b634",
+  "(c) test_asof.py’s first step-zero run stopped in its own temporary directory and passed alone on the second",
+  "(d) G-PROVENANCE-CELLS keys the census rows by R-number and reads §1C’s Phase 2 line for four rows; the predicate tested directly holds on all 23 (data/b633_provenance_direct.txt)"
+ ],
+ "correction": "the FINDINGS entry of b633 says it was filed on the author’s three answers before the seal; two prompts were put to the author before the seal, in two calls, and two answers are banked (relay data/b633_author_answers.txt), as the face’s section (0) says. The figure was a constant in the sealed record tool (relay data/b633_defects.txt (a)). The entry stands as written; this line is the correction."
+}

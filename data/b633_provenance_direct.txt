@@ -1,0 +1,32 @@
+b633 -- G-PROVENANCE-CELLS`S PREDICATE TESTED DIRECTLY (the arm failing live at the pre-push suite)
+
+### the census at v0.5 on disk, sha256 a3a1d85fe245873e ; the table at relay HEAD data/terminal_table.json
+### the arm keys the body`s rows by the regex ^| (R\d\d) | and keeps the LAST line per id; ids matched more than once: {'R12': 2, 'R14': 2, 'R16': 2, 'R17': 2} -- the second
+### line of each is §1C`s Phase 2 row (its last cell the SEC reading), so the arm compares §1C`s reading cell with the provenance figure.
+
+  R01  want 31 / 31 / 1 |  §1 row (first line) EQUAL ; last line EQUAL
+  R02  want 0 / 29 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R03  want 45 / 129 / 5 |  §1 row (first line) EQUAL ; last line EQUAL
+  R04  want 30 / 72 / 1 |  §1 row (first line) EQUAL ; last line EQUAL
+  R05  want 33 / 72 / 1 |  §1 row (first line) EQUAL ; last line EQUAL
+  R06  want 31 / 133 / 2 |  §1 row (first line) EQUAL ; last line EQUAL
+  R07  want 3 / 8 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R08  want 1 / 61 / 1 |  §1 row (first line) EQUAL ; last line EQUAL
+  R09  want 45 / 129 / 5 |  §1 row (first line) EQUAL ; last line EQUAL
+  R10  want 32 / 92 / 2 |  §1 row (first line) EQUAL ; last line EQUAL
+  R11  want 0 / 0 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R12  want 2 / 0 / 0 |  §1 row (first line) EQUAL ; last line DIFFERS
+  R13  want 32 / 92 / 2 |  §1 row (first line) EQUAL ; last line EQUAL
+  R14  want 6 / 5 / 0 |  §1 row (first line) EQUAL ; last line DIFFERS
+  R15  want 4 / 66 / 1 |  §1 row (first line) EQUAL ; last line EQUAL
+  R16  want 0 / 0 / 0 |  §1 row (first line) EQUAL ; last line DIFFERS
+  R17  want 1 / 0 / 0 |  §1 row (first line) EQUAL ; last line DIFFERS
+  R18  want 0 / 0 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R19  want 0 / 0 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R20  want 0 / 0 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R21  want 37 / 742 / 1 |  §1 row (first line) EQUAL ; last line EQUAL
+  R22  want 0 / 0 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+  R23  want 0 / 14 / 0 |  §1 row (first line) EQUAL ; last line EQUAL
+
+### ### **READ AT §1`S OWN LINE (THE FIRST): 23 of 23 rows equal, differing NONE. READ AT THE LAST LINE, AS THE ARM DOES: differing ['R12', 'R14', 'R16', 'R17'].**
+### The predicate holds; the arm`s key is defective (data/b633_defects.txt (d)). The suite is sealed and takes no edit.

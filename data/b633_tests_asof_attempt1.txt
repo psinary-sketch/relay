@@ -1,0 +1,34 @@
+b633 -- STEP ZERO: test_asof.py, ITS FIRST RUN, KEPT AS ATTEMPT 1 (exit 1 ; 308 s)
+
+test_asof.py -- (R178)(2)(ii). records under C:\Users\ECHOCH~1\AppData\Local\Temp\tmpiou21idp
+  (1) the push-out parser, both polarities on synthetic banks                                          PASS
+  (2) b566`s bank names ce360e88... (read ce360e8854c1)                                                PASS
+  (2) b567`s bank names d77bb7aa... (read d77bb7aa4458)                                                PASS
+    b566 at its own as-of: NOT PRINTED
+  (3) b566 at ce360e88: G-NUMBER-UNCLAIMED PASS (read None)                                            ### FAIL
+  (3) b566 at ce360e88: G-PEEK-DECLARED PASS (read None)                                               ### FAIL
+  (3) b566 at ce360e88: G-PRIORBANK-UNCHANGED PASS (read None)                                         ### FAIL
+    b566 pointed at b567`s close: NOT PRINTED
+  (4) b566 pointed at d77bb7aa (claim false there): G-NUMBER-UNCLAIMED FAIL (read None)                ### FAIL
+  (4) b566 pointed at d77bb7aa (claim false there): G-PRIORBANK-UNCHANGED FAIL (read None)             ### FAIL
+    b567 at its own as-of: NOT PRINTED
+  (5) b567 at d77bb7aa: G-PRIORBANK-UNCHANGED PASS (read None)                                         ### FAIL
+    b567 pointed at its own commit before the ordered append: NOT PRINTED
+  (6) b567 pointed at 0e50bd19 (the ordered append absent there): G-PRIORBANK-UNCHANGED FAIL (read None) ### FAIL
+  (R179)(3) the as-of lines: the parser on synthetic lines, both polarities -- True
+  (7) b566`s lines read from b569_asof_b566.txt: PLACE-papers 5ce2895, the kernel e5a5a83, bulka 35df682f PASS
+  (7) b566 at its own lines: G-CEILING-APPENDED PASS (read None)                                       ### FAIL
+  (7) b566 at its own lines: G-CORPUS-SCOPE PASS (read None)                                           ### FAIL
+  (7) b566 at its own lines: G-TAG-READ-BACK PASS (read None)                                          ### FAIL
+  (7) b566 at its own lines: G-BULKA-KEPT PASS (read None)                                             ### FAIL
+Traceback (most recent call last):
+  File "D:\relay\tools\test_asof.py", line 132, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "D:\relay\tools\test_asof.py", line 110, in main
+    f8 = false_lines('lines_b566_at_b567.txt', {'PLACE-papers': r7['PLACE-papers'], 'SIDE-explicit-formula': r7['SIDE-explicit-formula']}, r6)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\test_asof.py", line 107, in false_lines
+    open(p, 'w', encoding='utf-8', newline='\n').write(''.join(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\tmpiou21idp\\lines_b566_at_b567.txt'
