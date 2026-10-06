@@ -885,7 +885,10 @@ def build(nodes_path, probe_dir, from_output=None):
         # ### b592, the author's answer before its seal (prompt 6): a row graded INTERFACES names its premises in its tier cell,
         # ### read by the shared E0 rule from the source header at the pin; a DERIVES row is written exactly as before.
         prem = ('; premises: ' + c['premises'].replace('|', '¦')) if g == 'INTERFACES' and c.get('premises') not in (None, 'none') else ''
-        corr_rows.append(dict(name=n, repo='SIDE-explicit-formula', grade=g, tier=c['tier'] + prem))
+        # ### b632, (R242)(3) and the author's answer before b632's seal (prompt 2): a row the table grades by the shared E0 rule says so
+        # ### in its tier cell, the same mark the table carries; a row graded by ledger cells is written exactly as before.
+        prov = '; provenance: rule' if (rec.get(n) or {}).get('provenance') == 'rule' else ''
+        corr_rows.append(dict(name=n, repo='SIDE-explicit-formula', grade=g, tier=c['tier'] + prem + prov))
     for x in corr_extra:
         corr_rows.append(dict(name=x['name'], repo=x['repo'], grade=x['grade'], tier=x['tier'] + ('; ' + x['note'] if x['note'] else '')))
     kfiles = keystones([short(n) for n in names if not cells[n]['module'].startswith('Mathlib')])
