@@ -1,0 +1,110 @@
+========================================================================================================
+b629 -- THE CLOSING RECORD. ### **LANE THREE, ACT FIFTY-SIX: THE NYMAN–BEURLING CRITERION AS A COMPILED FACE AT v0.24; THE INTAKE FORM ENTERED; THE b592 TEST REPAIRED, UNDER (R239).**
+========================================================================================================
+    ### COMPONENT 0 : the process listing ; b628`s closing push-out relay dabf7b95 ; push-b628* branches deleted by name (data/b629_branches.txt) ; every test file under tools/ run (data/b629_tests_stepzero.txt) ; the suite, b628`s predicates repaired, run at HEAD before the face (data/b629_arms_prerun.txt) ; b628`s local intake bank untracked
+    ### COMPONENT 1 : b628`s weight FINDINGS :7633 ; the intake form OPEN_TRAILS :13093 ; the clone and cache :13095 ; the b592 test repair data/b629_test_repair.txt
+    ### COMPONENT 2 : data/b629_nb_api.txt
+    ### COMPONENT 3 : data/b629_citation.txt ; data/b629_build.txt ; data/b629_prints.txt ; data/b629_face.txt ; v0.24 ; H63a HOLDS, H63b HOLDS, H63c HOLDS
+    ### COMPONENT 4 : the ζ page at v0.24 (data/b629_page_zeta.json, data/b629_nodes_zeta.txt, data/b629_probe_out.txt) ; the table ; page arms data/b629_page_arms.txt ; the root 219ae8b566b58e82 ; the arm data/b629_root_arm.txt ; H63d REFUTED
+    ### COMPONENT 5 : FINDINGS :7635 (the entry) ; OPEN_TRAILS :13097 (the record) ; next: b630 ; N1 HELD, N2 HELD, N3 HELD, N4 HELD, N5 REFUTED
+    (H63a) HOLDS (H63b) HOLDS (H63c) HOLDS (H63d) REFUTED ; (N1) HELD (N2) HELD (N3) HELD (N4) HELD (N5) REFUTED ; (S1) HELD (S2) HELD (S3) HELD (S4) HELD (S5) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+b629 -- THE DEFECT LIST (the act`s own).
+
+    (a) THE REGISTRY READS CARRIED THE AUTHOR`S ADDRESS. Two of Component 3`s three reads (Crossref, Beurling`s record and the Nyman search) were sent with a User-Agent header naming the author`s e-mail address, for Crossref`s polite pool; the author had not asked for it, and the address is to be used to identify the author and sent to no unrelated service. The reads themselves were made once each as the face declares; the header is the defect. Repair: no registry read of a later act carries the address unless the author asks for it.
+    (b) THE PRERUN`S FIRST RUN READ ONE REMOTE TWICE. act_root`s one retry on a failed ls-remote of PLACE-papers; run again alone every remote was read once (declared on the face, section (0)).
+    (c) THE SECOND BUILD CALL CROSSED THE HOLD. `lake build SIDEExplicitFormula.NymanBeurling` (b629_kbuild_2.log), started at 4503 MB free, read 2489 MB at its 20 s sample and 2414 MB at the seat`s listing, against 2560; the seat moved to stop it as the hold orders, and the process exited 0 at 23:06:17Z after 36 s, before the stop landed. A defect of the run, not of the result (the author`s answer, prompt 2). The first call (b629_kbuild_1.log) crossed at 708 s (2553 MB) and was stopped by PID.
+    (d) THE SEAT MISSTATED THE SECOND CALL TO THE AUTHOR. Prompt 1 said both lake calls were stopped by PID; the second had exited 0 on its own. The seat read the log, put the correction as prompt 2, and the author`s answer to it withdrew the route, the work-order and the standing line of the answer to prompt 1; both answers stand in the bank as given.
+    (e) THE ζ PROBE CROSSED THE HOLD, BOTH EMISSIONS. The foreground probe calls of `page_new` read free memory above the hold at their start (4374 and 4310 MB) and fell beneath it while running, the background samples` lowest 2305 MB in emission 1 and 2061 MB in emission 2, against 2560; neither could be stopped mid-call. A defect of the run (the author`s answer, prompt 3); the work-order for the probe to read its free memory and refuse beneath the hold goes on the trails, priced, trigger the author`s word.
+    (f) THE KEYSTONE RULE READ TWO ACRONYMS AS NODES. Emission 1 of the ζ page carried two false keystone rows: `NB` matched the nota bene at FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md :453 and `BD` the 'Barrier Discovery (BD)' at CONVERGENCE.md :35057, b592`s guard covering lower-case short names only. Repaired under the author`s answer (prompt 3) by one edit to tools/chain_page.py with tools/test_chain_page_b629.py, committed alone (relay 830d2974); emission 2 carries neither row (data/b629_page_emissions_diff.txt). The edit lies outside the face`s write list: N5 is refuted in letter.
+    (g) THE TABLE ARM`S LETTER NAMES THE NODE LIST, NOT THE MODULE. G-TABLE-FINAL admits grade-column movement only for FACE_NODES; the table regenerated adds thirteen rows of the face`s own module, four of them helpers outside the list (unitMeasure, rhoFun_bound, rho, constOne), each None -> UNGRADED as a new row. No existing row moved and none is gone; the arm fails on its letter, sealed and not edited.
+    (h) A CARRIED WORDING IN THE RECORD TOOL. `page_new``s docstring and its failure message still say v0.23, carried from b628; the call ran at v0.24 and its banks read v0.24. Sealed; not edited.
+    (i) THE ANSWERS BANK WAS WRITTEN BY HAND. The seat wrote data/b629_author_answers.txt itself, each result without the question the transcript carries before the answer, so the record tool’s reader returned no answer and the trail record (OPEN_TRAILS :13097) printed 'no answer banked' three times (corrected at :13121). The seat then replaced the bank with the record tool’s `answers` output, which broke the act root computed over the hand-written bytes (b629 DISAGREE); the hand-written bytes were restored at the path (sha256 5482316d...) and the verbatim bank kept beside it, data/b629_author_answers_verbatim.txt, after the root (OPEN_TRAILS :13123).
+    (j) AD-HOC ROOT VERIFIES. To test the root after the bank swap the seat ran act_root.verify three times outside the suite, 38 remote reads each, against the line of one ls-remote per repository; the third read several remotes empty (heads 'not on the remote main', tags ABSENT) and printed b627-b629 DISAGREE, a transient read: one direct ls-remote of SIDE-explicit-formula then returned main aa17442 and v0.24. The suite`s own arm is the verify of record.
+    (k) FOUR ARMS FAIL PRE-PUSH, EACH NAMED. G-TABLE-FINAL by its letter, (g). Three by the keystone repair the author ordered after the seal (prompt 3): G-INSTRUMENTS-UNEDITED reads tools/chain_page.py changed against 75227e9c; G-STEPZERO-TESTS reads tools/test_chain_page_b629.py, a test file the step-zero bank never ran (it did not exist); G-WRITELIST-KINDS reads both files outside the (W) globs, and reads b628`s local intake bank data/b628_intake_crank_v0_5.txt as written by this act, its letter counting an untracked file written by b628 (so read at the prerun too). The suite is sealed and not edited; its verdict NOT CLEAN stands as printed.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 82. ### LIVE PASSING : 78. ### LIVE FAILING : 4 ['G-STEPZERO-TESTS', 'G-INSTRUMENTS-UNEDITED', 'G-TABLE-FINAL', 'G-WRITELIST-KINDS'].
+    pre-push : VERDICT : NOT CLEAN
+    post-push : ARMS RUN : 82. ### LIVE PASSING : 78. ### LIVE FAILING : 4 ['G-STEPZERO-TESTS', 'G-INSTRUMENTS-UNEDITED', 'G-TABLE-FINAL', 'G-WRITELIST-KINDS'].
+    post-push : VERDICT : NOT CLEAN
+      relay                            main e7fe5c550ba4 ; remote e7fe5c550ba4 ; AGREE
+      PLACE-papers                     main 655e2d24e762 ; remote 655e2d24e762 ; AGREE
+      SIDE-global-section              main 17ce9ff5831d ; remote 17ce9ff5831d ; AGREE
+      SIDE-explicit-formula            main aa17442f98cc ; remote aa17442f98cc ; AGREE
+      SIDE-kernel                      main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation             main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                     main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      SIDE-trivium                     main 1aac3a9e1939 ; remote 1aac3a9e1939 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 2e76426dc4b0 ; remote 2e76426dc4b0 ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 54ba4f38b729 ; remote 54ba4f38b729 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 520abe7a6b7d ; remote 520abe7a6b7d ; AGREE
+      SIDE-bijection                   main a26f6f1c5dea ; remote a26f6f1c5dea ; AGREE
+      SIDE-class-coupling              main b6a6e869304d ; remote b6a6e869304d ; AGREE
+      SIDE-coupling                    main 42b5e4e5a1f9 ; remote 42b5e4e5a1f9 ; AGREE
+      SIDE-formation-arithmetic        main ef0fcf1e9967 ; remote ef0fcf1e9967 ; AGREE
+      SIDE-meta                        main 6bb7b23b4e6c ; remote 6bb7b23b4e6c ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 6bf19ab0ef6a ; remote 6bf19ab0ef6a ; AGREE
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; main 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    one kernel module and its AxiomCheck added on nb-b629 and tagged v0.24, built at the hold detached one module per call ; no existing kernel file`s code changed ; no worktree made or removed ; no current version, keystone, census or ANNEX file edited ; the b592 test repair committed alone in relay, b628`s local intake bank untracked ; one line appended to data/act_roots.txt ; relay and PLACE-papers pushed once before the root ; ERRATA, REGISTRY, README and SPIRAL_MAP untouched ; no MANIFEST written and no mirror built
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R239)(5)**: b630, the Nyman–Beurling bench (the second act): d_N computed up to a named bound beside
+        Báez-Duarte`s rate, a T3/T4 bench with no claim; the author rules on the closing.
+    ### THE NEXT ACT`S TERMINALS, EACH STATEMENT AT ITS PIN ((R237)(4)):
+    b630, the Nyman–Beurling bench (the second act):
+        SIDEExplicitFormula.NymanBeurling.distN (SIDE-explicit-formula @ v0.24, SIDEExplicitFormula/NymanBeurling.lean :94)
+            def distN (N : ℕ) : ℝ :=
+        SIDEExplicitFormula.NymanBeurling.distN_antitone (SIDE-explicit-formula @ v0.24, SIDEExplicitFormula/NymanBeurling.lean :101)
+            theorem distN_antitone : Antitone distN :=
+    (b) ### **FOR THE AUTHOR`S RULING**: W-ORD-ZETA23-SERIAL-BUILD (OPEN_TRAILS :13065), the clone and cache kept on D:; the sieve`s
+        next version; W-ORD-GATE-FROM-ELABORATOR and W-ORD-BINDER-GRAMMAR, priced, waiting on the word.
+    (c) ### **FOR THE AUTHOR`S STRIKE**: the seat`s readings (the measure on (0, 1); BD`s θ = 1/(n + 1); d_N the distance itself;
+        the family defined for every θ; the registry reads; test_asof`s case (9) read transient at step zero).
+    (c2) b628`s full intake bank stays local and untracked in relay data/; its digest is in b628`s summary bank.
+    (d0) The act root of b629 is relay data/act_roots.txt`s last line; every mirror build carries it in MANIFEST.
+    (d) Branches left for the next act`s step zero, each merged: PLACE-papers push-b629 and push-b629-root; relay push-b629,
+        push-b629-root and push-b629-closing; SIDE-explicit-formula push-b629-kernel; nb-b629 kept.
+    (e) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+    (f) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).
+========================================================================================================
