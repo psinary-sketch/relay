@@ -12,6 +12,11 @@ author's answer before b630's seal (relay data/b630_author_answers.txt, prompt 1
 ### (10) ONE CELL-GRADED ROW OF THE TABLE: the first SIDE-explicit-formula row the committed table grades by cells: the pass keeps its
 ###   grade and marks it cell.
 ### (11) THE BASELINE reads at relay 75227e9c, 1994 rows.
+### b632, (R242)(3) and the author's answer before b632's seal (relay data/b632_author_answers.txt, prompt 1): THE BASELINE CONDITION
+###   RETIRED. Case (7), whose expectation was the retired condition itself, re-pointed in the same edit: a row in the baseline with no
+###   cell now takes the rule's grade and reads rule. (12) THE PLANTED PAIR: a row absent from the table at relay 75227e9c and a row
+###   present there, read from the baseline itself, both with no cell, both graded by the rule; beside them a row with no cell and no
+###   statement the rule reads stays UNGRADED and reads none.
 ### Usage: python tools/test_terminal_table_b630.py
 """
 import copy
@@ -49,7 +54,8 @@ def main():
     by = {r['name']: r for r in rs}
     want('(5) a cell row keeps its grade and reads cell', by['X.cell']['grade'] == 'DERIVES' and by['X.cell']['provenance'] == 'cell')
     want('(6) a new row with no cell takes the rule`s grade and reads rule', by['X.new']['grade'] == 'INTERFACES' and by['X.new']['provenance'] == 'rule')
-    want('(7) a baseline row with no cell keeps UNGRADED and reads none', by['X.old']['grade'] == 'UNGRADED' and by['X.old']['provenance'] == 'none')
+    want('(7) a baseline row with no cell takes the rule`s grade and reads rule (b632: the baseline condition retired)',
+         by['X.old']['grade'] == 'DERIVES' and by['X.old']['provenance'] == 'rule')
     want('(8) a cell row whose rule reading differs is returned, its grade kept', differ == [('R', 'X.differ', 'INTERFACES', 'DERIVES')]
          and by['X.differ']['grade'] == 'INTERFACES')
     T = json.loads(subprocess.run(['git', '-C', ROOT, 'show', 'HEAD:data/terminal_table.json'], capture_output=True).stdout.decode('utf-8'))
@@ -65,6 +71,21 @@ def main():
          len(cellrow) == 1 and [cellrow[0]['grade']] == g0 and cellrow[0]['provenance'] == 'cell')
     want('(11) the baseline reads at relay %s, %s rows' % (TT.RULE_BASELINE, len(base) if base is not None else None),
          base is not None and len(base) == 1994)
+    # ### b632, (R242)(3): THE PLANTED PAIR -- one key absent from the baseline, one key read from it, both with no cell and a statement the
+    # ### rule reads; and one with no statement the rule reads.
+    present = sorted(base or [])[:1]
+    planted = [dict(repo='SIDE-planted-b632', name='Planted.absent', grade='UNGRADED', grade_cells=[], statement='theorem Planted.absent (hQ : Q) : P'),
+               dict(repo=present[0][0] if present else '?', name=present[0][1] if present else '?', grade='UNGRADED', grade_cells=[],
+                    statement='theorem planted_present : P'),
+               dict(repo='SIDE-planted-b632', name='Planted.none', grade='UNGRADED', grade_cells=[], statement=None)]
+    TT.provenance(planted, base or set())
+    want('(12) the planted pair: absent from the baseline %s/%s, present in it %s/%s, both by the rule; no statement reads none (read %s)' % (
+        planted[0]['grade'], planted[0]['provenance'], planted[1]['grade'], planted[1]['provenance'],
+        [(p['grade'], p['provenance']) for p in planted]),
+         bool(present) and ('SIDE-planted-b632', 'Planted.absent') not in base and present[0] in base
+         and (planted[0]['grade'], planted[0]['provenance']) == ('INTERFACES', 'rule')
+         and (planted[1]['grade'], planted[1]['provenance']) == ('DERIVES', 'rule')
+         and (planted[2]['grade'], planted[2]['provenance']) == ('UNGRADED', 'none'))
     n = sum(res)
     print('  ### %d of %d cases as wanted -- %s' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1
