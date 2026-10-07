@@ -4,22 +4,22 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 421,
- "grade_cells_loose_v1": 1585,
- "grade_cells_v2": 512,
- "grade_cells_v3": 431,
+ "grade_cells": 425,
+ "grade_cells_loose_v1": 1601,
+ "grade_cells_v2": 518,
+ "grade_cells_v3": 435,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 2011,
-  "not_profiled": 1100,
+  "rows": 2016,
+  "not_profiled": 1105,
   "ungraded": 6,
   "conflict": 11,
   "encodes": 9,
   "ledger_names_unresolved": 32,
-  "statement_unresolved": 45
+  "statement_unresolved": 44
  },
  "workorders_b516": {
   "shortname_dedup": [
@@ -314,6 +314,10 @@
    [
     "SIDE-explicit-formula",
     "norm_integral_tail_le"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "norm_logDeriv_Gammaℝ_le_wide"
    ],
    [
     "SIDE-explicit-formula",
@@ -630,6 +634,10 @@
    [
     "SIDE-lv-conservation",
     "certifiedInput_not_zeroRealizing"
+   ],
+   [
+    "SIDE-lv-conservation",
+    "exists_norm_completedRiemannZeta₀_le_exp"
    ],
    [
     "SIDE-lv-conservation",
@@ -17386,10 +17394,25 @@
    "profile_state": "NOT PROFILED",
    "profile_source": null,
    "grade": "DERIVES",
-   "grade_cells": [],
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 493,
+     "act": "b570",
+     "quote": "`norm_logDeriv_Gammaℝ_le_wide` DERIVES ; `norm_logDeriv_gammaFactor_le` DERIVES ; `prime_side_line"
+    },
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 494,
+     "act": "b570",
+     "quote": "`norm_logDeriv_Gammaℝ_le_wide` DERIVES"
+    }
+   ],
    "conflict": null,
    "mark": null,
-   "provenance": "rule",
+   "provenance": "cell",
    "zeta_row": false,
    "ei": "—"
   },
@@ -17500,7 +17523,7 @@
      "ledger": "SIDE-global-section/CORRESPONDENCE.md",
      "line": 493,
      "act": "b570",
-     "quote": "`norm_logDeriv_Gammaℝ_le_wide` DERIVES ; `norm_logDeriv_gammaFactor_le` DERIVES ; `prime_side_line_chi` DERIVES ; `gamma_line_shift"
+     "quote": "`norm_logDeriv_Gammaℝ_le_wide` DERIVES ; `norm_logDeriv_gammaFactor_le` DERIVES ; `prime_side_line_chi` DERIVES ; `gamma_line_shift_chi` DE"
     },
     {
      "grade": "DERIVES",
@@ -29955,7 +29978,7 @@
   },
   {
    "repo": "SIDE-explicit-formula",
-   "name": "completedRiemannZeta",
+   "name": "completedRiemannZeta₀_one",
    "head": "8c51431ada77",
    "pin": null,
    "pin_sha": null,
@@ -29972,11 +29995,11 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "DEF",
+   "grade": "UNGRADED",
    "grade_cells": [],
    "conflict": null,
-   "mark": "upstream",
-   "provenance": "rule-elab",
+   "mark": null,
+   "provenance": "none",
    "zeta_row": false,
    "ei": "—"
   },
@@ -30249,33 +30272,6 @@
   },
   {
    "repo": "SIDE-explicit-formula",
-   "name": "riemannZeta",
-   "head": "8c51431ada77",
-   "pin": null,
-   "pin_sha": null,
-   "pin_cell": null,
-   "refs": [
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": null,
-   "statement_file": null,
-   "statement_state": "UNRESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "DEF",
-   "grade_cells": [],
-   "conflict": null,
-   "mark": "upstream",
-   "provenance": "rule-elab",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-explicit-formula",
    "name": "riemannZeta_residue_one",
    "head": "8c51431ada77",
    "pin": null,
@@ -30298,6 +30294,114 @@
    "conflict": null,
    "mark": "upstream",
    "provenance": "rule-elab",
+   "zeta_row": false,
+   "ei": "—"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "riemannZeta₀",
+   "head": "8c51431ada77",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": null,
+   "statement_file": null,
+   "statement_state": "UNRESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null,
+   "mark": null,
+   "provenance": "none",
+   "zeta_row": false,
+   "ei": "—"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "riemannZeta₀_one",
+   "head": "8c51431ada77",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": null,
+   "statement_file": null,
+   "statement_state": "UNRESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null,
+   "mark": null,
+   "provenance": "none",
+   "zeta_row": false,
+   "ei": "—"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "riemannZeta₁",
+   "head": "8c51431ada77",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": null,
+   "statement_file": null,
+   "statement_state": "UNRESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null,
+   "mark": null,
+   "provenance": "none",
+   "zeta_row": false,
+   "ei": "—"
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "riemannZeta₁_one",
+   "head": "8c51431ada77",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": null,
+   "statement_file": null,
+   "statement_state": "UNRESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null,
+   "mark": null,
+   "provenance": "none",
    "zeta_row": false,
    "ei": "—"
   },
@@ -52535,7 +52639,7 @@
   },
   {
    "repo": "SIDE-lv-conservation",
-   "name": "Complex.norm_completedZeta",
+   "name": "Complex.norm_completedZeta₀_le_of_re_eq_neg_one",
    "head": "2f71068ac356",
    "pin": "v0.8.0",
    "pin_sha": "6efa9e54dadf",
@@ -52548,19 +52652,48 @@
     "HEAD",
     "v0.8.0"
    ],
-   "statement": null,
-   "statement_file": null,
-   "statement_state": "UNRESOLVED",
+   "statement": "theorem norm_completedZeta₀_le_of_re_eq_neg_one {s : ℂ} (hs : s.re = -1) :\n    ‖completedRiemannZeta₀ s‖ ≤ Real.pi⁻¹ * (∑' n : ℕ, 1 / (n : ℝ) ^ (2 : ℝ)) + 3 / 2",
+   "statement_file": "SIDELvConservation/GammaBounds.lean",
+   "statement_state": "RESOLVED",
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "UNGRADED",
+   "grade": "DERIVES",
    "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "none",
-   "zeta_row": false,
-   "ei": "—"
+   "provenance": "rule",
+   "zeta_row": true,
+   "ei": "I (≤)"
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "Complex.norm_completedZeta₀_le_of_re_eq_two",
+   "head": "2f71068ac356",
+   "pin": "v0.8.0",
+   "pin_sha": "6efa9e54dadf",
+   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
+   "refs": [
+    "v0.8.0",
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD",
+    "v0.8.0"
+   ],
+   "statement": "theorem norm_completedZeta₀_le_of_re_eq_two {s : ℂ} (hs : s.re = 2) :\n    ‖completedRiemannZeta₀ s‖ ≤ Real.pi⁻¹ * (∑' n : ℕ, 1 / (n : ℝ) ^ (2 : ℝ)) + 3 / 2",
+   "statement_file": "SIDELvConservation/GammaBounds.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [],
+   "conflict": null,
+   "mark": null,
+   "provenance": "rule",
+   "zeta_row": true,
+   "ei": "I (≤)"
   },
   {
    "repo": "SIDE-lv-conservation",
@@ -53889,7 +54022,7 @@
   },
   {
    "repo": "SIDE-lv-conservation",
-   "name": "SIDELvConservation.completedRiemannZeta",
+   "name": "SIDELvConservation.completedRiemannZeta₀_eq_half_mellin",
    "head": "2f71068ac356",
    "pin": "v0.8.0",
    "pin_sha": "6efa9e54dadf",
@@ -53902,19 +54035,19 @@
     "HEAD",
     "v0.8.0"
    ],
-   "statement": null,
-   "statement_file": null,
-   "statement_state": "UNRESOLVED",
+   "statement": "theorem completedRiemannZeta₀_eq_half_mellin (s : ℂ) :\n    completedRiemannZeta₀ s = mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2",
+   "statement_file": "SIDELvConservation/C7OrderBounds.lean",
+   "statement_state": "RESOLVED",
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "UNGRADED",
+   "grade": "DERIVES",
    "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "none",
-   "zeta_row": false,
-   "ei": "—"
+   "provenance": "rule",
+   "zeta_row": true,
+   "ei": "E (=)"
   },
   {
    "repo": "SIDE-lv-conservation",
@@ -53947,7 +54080,7 @@
   },
   {
    "repo": "SIDE-lv-conservation",
-   "name": "SIDELvConservation.exists_norm_completedRiemannZeta",
+   "name": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
    "head": "2f71068ac356",
    "pin": "v0.8.0",
    "pin_sha": "6efa9e54dadf",
@@ -53960,19 +54093,70 @@
     "HEAD",
     "v0.8.0"
    ],
-   "statement": null,
-   "statement_file": null,
-   "statement_state": "UNRESOLVED",
+   "statement": "theorem exists_norm_completedRiemannZeta₀_le_exp :\n    ∃ A C : ℝ, ∀ s : ℂ, ‖completedRiemannZeta₀ s‖\n      ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+   "statement_file": "SIDELvConservation/C7OrderBounds.lean",
+   "statement_state": "RESOLVED",
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "UNGRADED",
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/REGISTRY.md",
+     "line": 620,
+     "act": null,
+     "quote": "lit, not a one-cell fill): the **input** (ξ order ≤ 1) is **DERIVES** at `SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp`, SIDE-lv-conservation `v0.4.0 = 0d2d74c` (clean `{propext,"
+    },
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md",
+     "line": 1484,
+     "act": null,
+     "quote": "Ch. 4 Hadamard row split so the **input** (ξ order ≤ 1) is DERIVES at `exists_norm_completedRiemannZeta₀_le_exp` (v0.4.0 = 0d2d74c, clean), while **Hadamard's theorem** (or"
+    },
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md",
+     "line": 2447,
+     "act": null,
+     "quote": "onsistency* with simplicity, not simplicity. Order-≤1 input DERIVES (`exists_norm_completedRiemannZeta₀_le_exp`); the genus-1 factorization step classical (Mathlib-absent,"
+    }
+   ],
+   "conflict": null,
+   "mark": null,
+   "provenance": "cell",
+   "zeta_row": true,
+   "ei": "I (≤)"
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half",
+   "head": "2f71068ac356",
+   "pin": "v0.8.0",
+   "pin_sha": "6efa9e54dadf",
+   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
+   "refs": [
+    "v0.8.0",
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD",
+    "v0.8.0"
+   ],
+   "statement": "theorem exists_norm_completedRiemannZeta₀_le_exp_half :\n    ∃ A C : ℝ, 0 ≤ A ∧ ∀ s : ℂ, 1 / 2 ≤ s.re →\n      ‖completedRiemannZeta₀ s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+   "statement_file": "SIDELvConservation/C7OrderBounds.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
    "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "none",
-   "zeta_row": false,
-   "ei": "—"
+   "provenance": "rule",
+   "zeta_row": true,
+   "ei": "I (≤)"
   },
   {
    "repo": "SIDE-lv-conservation",
@@ -54034,7 +54218,7 @@
   },
   {
    "repo": "SIDE-lv-conservation",
-   "name": "SIDELvConservation.norm_completedRiemannZeta",
+   "name": "SIDELvConservation.norm_completedRiemannZeta₀_le",
    "head": "2f71068ac356",
    "pin": "v0.8.0",
    "pin_sha": "6efa9e54dadf",
@@ -54047,19 +54231,19 @@
     "HEAD",
     "v0.8.0"
    ],
-   "statement": null,
-   "statement_file": null,
-   "statement_state": "UNRESOLVED",
+   "statement": "theorem norm_completedRiemannZeta₀_le (s : ℂ) :\n    ‖completedRiemannZeta₀ s‖\n      ≤ (∫ t in Ioi (0 : ℝ), t ^ ((s / 2).re - 1) * ‖(hurwitzEvenFEPair 0).f_modif t‖) / 2",
+   "statement_file": "SIDELvConservation/C7OrderBounds.lean",
+   "statement_state": "RESOLVED",
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "UNGRADED",
+   "grade": "DERIVES",
    "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "none",
-   "zeta_row": false,
-   "ei": "—"
+   "provenance": "rule",
+   "zeta_row": true,
+   "ei": "I (≤)"
   },
   {
    "repo": "SIDE-lv-conservation",
@@ -55568,11 +55752,11 @@
    "profile": "does not depend on any axioms",
    "profile_state": "PROFILED",
    "profile_source": "relay:data/b623_profile.json",
-   "grade": "UNGRADED",
+   "grade": "DEF",
    "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "none",
+   "provenance": "rule-elab",
    "zeta_row": false,
    "ei": "—"
   },
