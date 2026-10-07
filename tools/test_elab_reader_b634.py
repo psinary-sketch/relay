@@ -9,7 +9,9 @@
 ### and the header's cut and the absent name:
 ###   (4) a theorem planted in the generated file, (n : Nat) : n = n → n = n -- HEADER 1 of TOTAL 2, the arrow kept in the conclusion;
 ###   (5) a name the environment lacks prints MISSING;
-###   (6) with the namespaces opened, (2)'s binder type prints without its namespace prefix.
+###   (6) with the namespaces opened, (2)'s binder type prints without its namespace prefix;
+###   (7) b636, (R246)(4): the reader given SIDE-structural-error-correction reads its d_eff_eq_five -- a theorem, no binder, d_eff = 5 --
+###       in that kernel's checkout, and returns to the explicit-formula kernel after.
 ### The generated file and its output are the scratchpad's; nothing in a repository is written. Usage: python tools/test_elab_reader_b634.py
 """
 import os
@@ -25,6 +27,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 PR = 'SIDEExplicitFormula.PlattRung.'
 NAMES = [PR + 'rh_upto', PR + 'rh_upto_platt', 'Nat.add_comm', 'b634PlantedArrow', PR + 'b634_no_such_name']
 EXTRA = 'theorem b634PlantedArrow (n : Nat) : n = n → n = n := fun h => h'
+SEC = 'SIDEStructuralErrorCorrection.d_eff_eq_five'     # ### b636, case (7)
 
 
 def main():
@@ -55,6 +58,20 @@ def main():
          e4['header'] == 1 and e4['total'] == 2 and e4['concl'] == 'n = n → n = n')
     want('(5) an absent name prints MISSING', e5['missing'] is True and NAMES[4] in got)
     want('(6) the namespaces opened: (2)`s binder printed without its prefix', bool(e2['binders']) and PR not in e2['binders'][0]['type'])
+    # ### b636, (R246)(4): the reader takes the kernel -- one declaration of SIDE-structural-error-correction at v0.2.2 = 6bf19ab of known
+    # ### type, d_eff_eq_five : d_eff = 5 (SIDEStructuralErrorCorrection/Basic.lean :100), read by one call importing its module alone.
+    EL.use('SIDE-structural-error-correction')
+    try:
+        c7 = EL.call('SIDEStructuralErrorCorrection/Basic', [SEC], 'test_reader_sec')
+        g7 = EL.parse(open(c7['out'], 'rb').read().decode('utf-8', 'replace')) if c7.get('started') else {}
+    finally:
+        EL.use(EL.DEFAULT_KERNEL)
+    e7 = g7.get(SEC) or dict(kind=None, header=-1, total=-1, binders=[], concl='', missing=True)
+    print('  the kernel`s call: started %s ; exit %s ; %s s ; free before %s MB ; in %s' % (c7.get('started'), c7.get('rc'), c7.get('seconds'),
+                                                                                       c7.get('free_before'), EL.KERNELS['SIDE-structural-error-correction']['KER']))
+    want('(7) SIDE-structural-error-correction`s d_eff_eq_five: a theorem, no binder, the conclusion d_eff = 5 (read %s %s of %s, %s)' % (
+         e7['kind'], e7['header'], e7['total'], e7['concl']),
+         e7['kind'] == 'theorem' and e7['header'] == 0 and e7['total'] == 0 and e7['concl'] == 'd_eff = 5' and EL.KX.KERNEL == 'SIDE-explicit-formula')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

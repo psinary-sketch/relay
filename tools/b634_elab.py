@@ -19,7 +19,10 @@
 ### banked); during a call the free memory is sampled every 2 s and the lowest kept; every call's exit, seconds and lowest reading
 ### banked in data/b634_elab_runs.json AS IT LANDS, so a stopped driver resumes at the first module not yet read. `join` writes
 ### data/b634_elab_types.txt from the calls' outputs. It writes nothing in the kernel; the generated files and logs are the scratchpad's.
-### Usage: python tools/b634_elab.py plan | run | join | test
+### ### b636, (R246)(4): THE KERNEL IS AN ARGUMENT. `--kernel <name>` selects a kernel of KERNELS -- its checkout, pin, tag, module roots,
+### run bank, types bank and work directory; the explicit-formula kernel is the default, its banks and behaviour b634's unchanged.
+### SIDE-structural-error-correction at v0.2.2 = 6bf19ab writes data/b636_elab_sec_runs.json and data/b636_elab_sec.txt.
+### Usage: python tools/b634_elab.py [--kernel <name>] plan | run | join | test
 """
 import collections
 import io
@@ -29,6 +32,7 @@ import re
 import subprocess
 import sys
 import time
+import types
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
@@ -42,6 +46,35 @@ RUNS = os.path.join(D, 'b634_elab_runs.json')
 TYPES = os.path.join(D, 'b634_elab_types.txt')
 WAIT_S, WAIT_MAX_S, SAMPLE_S = 30, 600, 2
 VENDOR = 'Vendored/Bulka/'     # ### the vendored library's srcDir at the pin (lakefile.toml, b566)
+
+# ### ### **b636, (R246)(4): THE KERNELS THE READER TAKES.** Each: its checkout, pin and tag, the path prefixes of its modules at the pin, its
+# ### run bank and types bank under relay data/, its work directory in a scratchpad, and the act that named it.
+SP636 = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e1567886-3bd6-4471-9e29-3d65058acee0/scratchpad'
+KERNELS = {
+    'SIDE-explicit-formula': dict(KERNEL='SIDE-explicit-formula', KER=K.KER, KER_PIN=K.KER_PIN, KER_TAG=K.KER_TAG,
+                                  ROOTS=('SIDEExplicitFormula/', 'Zeta23/', VENDOR), RUNS='b634_elab_runs.json', TYPES='b634_elab_types.txt',
+                                  WORK=os.path.join(SP, 'b634_elab'), ACT='b634'),
+    'SIDE-structural-error-correction': dict(KERNEL='SIDE-structural-error-correction', KER='D:/SIDE-structural-error-correction',
+                                             KER_PIN='6bf19ab', KER_TAG='v0.2.2', ROOTS=('SIDEStructuralErrorCorrection/',),
+                                             RUNS='b636_elab_sec_runs.json', TYPES='b636_elab_sec.txt', WORK=os.path.join(SP636, 'b636_elab_sec'),
+                                             ACT='b636'),
+}
+DEFAULT_KERNEL = 'SIDE-explicit-formula'
+KX = types.SimpleNamespace()
+
+
+def use(name):
+    """### select the kernel the reader reads: its fields in KX, the run bank, the types bank and the work directory in this module."""
+    global WORK, RUNS, TYPES
+    if name not in KERNELS:
+        raise SystemExit('### NO SUCH KERNEL FOR THE READER: %s (it takes %s)' % (name, sorted(KERNELS)))
+    for k, v in KERNELS[name].items():
+        setattr(KX, k, v)
+    WORK, RUNS, TYPES = KX.WORK, os.path.join(D, KX.RUNS), os.path.join(D, KX.TYPES)
+    return KX
+
+
+use(DEFAULT_KERNEL)
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
@@ -195,23 +228,23 @@ def free_mb():
 
 
 def _git(*a):
-    r = subprocess.run(['git', '-C', K.KER] + list(a), capture_output=True)
+    r = subprocess.run(['git', '-C', KX.KER] + list(a), capture_output=True)
     return r.stdout.decode('utf-8', 'replace').replace(chr(13), '')
 
 
 def plan():
     """### the calls: {module: [names]} in path order, and the names no module names."""
     T = json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows']
-    E = [r for r in T if r['repo'] == K.KERNEL]
-    mods = set(f[:-5] for f in _git('ls-tree', '-r', '--name-only', K.KER_PIN).split(NL)
-               if f.endswith('.lean') and (f.startswith('SIDEExplicitFormula/') or f.startswith('Zeta23/') or f.startswith(VENDOR)))
+    E = [r for r in T if r['repo'] == KX.KERNEL]
+    mods = set(f[:-5] for f in _git('ls-tree', '-r', '--name-only', KX.KER_PIN).split(NL)
+               if f.endswith('.lean') and f.startswith(KX.ROOTS))
     calls, missing, via = collections.OrderedDict(), [], {}
     for r in E:
         f = (r.get('statement_file') or '').split(':')[0]
         m = f[:-5] if f.endswith('.lean') else None
         if m is None or m not in mods:
             short = r['name'].split('.')[-1]
-            hits = sorted(set(x.split(':', 2)[1][:-5] for x in _git('grep', '-l', '-w', '-F', short, K.KER_PIN, '--', '*.lean').split(NL)
+            hits = sorted(set(x.split(':', 2)[1][:-5] for x in _git('grep', '-l', '-w', '-F', short, KX.KER_PIN, '--', '*.lean').split(NL)
                               if x.count(':') >= 1 and x.split(':', 2)[1][:-5] in mods))
             if not hits:
                 missing.append(r['name'])
@@ -254,7 +287,7 @@ def call(module, names, tag, opens=True, extra='', resolve=False):
     print('  %s: free memory before the call %d MB (hold %d); %d names' % (module, fm, K.HOLD_MB, len(names)), flush=True)
     t0, low = time.time(), fm
     with open(out, 'wb') as fo:
-        p = subprocess.Popen(['lake', 'env', 'lean', src.replace('/', os.sep)], cwd=K.KER, stdout=fo, stderr=subprocess.STDOUT)
+        p = subprocess.Popen(['lake', 'env', 'lean', src.replace('/', os.sep)], cwd=KX.KER, stdout=fo, stderr=subprocess.STDOUT)
         while p.poll() is None:
             time.sleep(SAMPLE_S)
             f = free_mb()
@@ -301,7 +334,7 @@ def run(*a):
     calls, missing, via, n = plan()
     J = _runs()
     done = set(c['module'] for c in J['calls'] if c.get('rc') == 0 and c.get('read') == c.get('names'))
-    print('### b634_elab: %d rows of %s in %d calls; %d named by no module; %d calls already read' % (n, K.KERNEL, len(calls), len(missing), len(done)), flush=True)
+    print('### b634_elab: %d rows of %s in %d calls; %d named by no module; %d calls already read' % (n, KX.KERNEL, len(calls), len(missing), len(done)), flush=True)
     for i, (m, names) in enumerate(calls.items(), 1):
         if m in done:
             continue
@@ -331,8 +364,8 @@ def run(*a):
 def join(*a):
     calls, missing, via, n = plan()
     J = _runs()
-    L = ['b634 -- COMPONENT 3: THE ELABORATED TYPES OF %s AT %s = %s, ONE MODULE`S DECLARATIONS PER CALL (%s)' % (
-        K.KERNEL, K.KER_TAG, K.KER_PIN, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
+    L = ['%s -- COMPONENT 3: THE ELABORATED TYPES OF %s AT %s = %s, ONE MODULE`S DECLARATIONS PER CALL (%s)' % (
+        KX.ACT, KX.KERNEL, KX.KER_TAG, KX.KER_PIN, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
          '### rows of the kernel in the table %d ; calls planned %d ; named by no module %d' % (n, len(calls), len(missing)), '']
     final, second = {}, {}
     for c in J['calls']:
@@ -572,6 +605,10 @@ def test(*a):
 
 
 if __name__ == '__main__':
+    if '--kernel' in sys.argv:          # ### b636, (R246)(4): the kernel as an argument, taken out before the command is read
+        i = sys.argv.index('--kernel')
+        use(sys.argv[i + 1] if len(sys.argv) > i + 1 else '')
+        del sys.argv[i:i + 2]
     cmd = sys.argv[1] if len(sys.argv) > 1 else ''
     if cmd == 'plan':
         c, mi, v, n = plan()
@@ -593,5 +630,5 @@ if __name__ == '__main__':
     elif cmd == 'compare':
         compare()
     else:
-        print('usage: b634_elab.py plan | run | join')
+        print('usage: b634_elab.py [--kernel <name>] plan | run | join')
         sys.exit(2)
