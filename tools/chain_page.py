@@ -887,7 +887,10 @@ def build(nodes_path, probe_dir, from_output=None):
         prem = ('; premises: ' + c['premises'].replace('|', '¦')) if g == 'INTERFACES' and c.get('premises') not in (None, 'none') else ''
         # ### b632, (R242)(3) and the author's answer before b632's seal (prompt 2): a row the table grades by the shared E0 rule says so
         # ### in its tier cell, the same mark the table carries; a row graded by ledger cells is written exactly as before.
-        prov = '; provenance: rule' if (rec.get(n) or {}).get('provenance') == 'rule' else ''
+        # ### b635, the author's answer after b635's seal (the page-mark prompt): any provenance but the ledger cells' (and 'none', no grade)
+        # ### prints as itself -- "rule-elab" as "rule-elab" -- rather than being matched by name.
+        pv = (rec.get(n) or {}).get('provenance')
+        prov = ('; provenance: ' + pv) if pv not in (None, 'cell', 'none') else ''
         corr_rows.append(dict(name=n, repo='SIDE-explicit-formula', grade=g, tier=c['tier'] + prem + prov))
     for x in corr_extra:
         corr_rows.append(dict(name=x['name'], repo=x['repo'], grade=x['grade'], tier=x['tier'] + ('; ' + x['note'] if x['note'] else '')))

@@ -1,0 +1,7 @@
+b635 Component 4 -- held before the chi page's commit. tools/chain_page.py:890 (b632, relay 2299971f) writes '; provenance: rule'
+only when the table's provenance == 'rule'; a row at provenance 'rule-elab' (b635's generator edit) gets no mark, so it reads as
+graded by ledger cells.
+Page rows by the table's provenance (data/terminal_table.json at the phantom table, relay 6ecc7132):
+  zeta (PLACE-papers e0ed341, committed, not pushed): cell 85, rule 352, rule-elab 5 -- the 5 rule-elab rows are unmarked
+  chi  (re-emitted, uncommitted):                     cell 27, rule 263, rule-elab 61 -- the 61 rule-elab rows are unmarked
+No page row carries the upstream mark.
