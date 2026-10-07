@@ -453,7 +453,25 @@ def provenance(rows, base, elab_path=None, elab_paths=None):
             r['grade'], r['provenance'] = rr, 'rule'
         else:
             r['provenance'] = 'none'
+        if r['repo'] in ELAB_BANKS and er is None and r.get('statement_state') == 'UNRESOLVED':
+            r['mark'] = 'upstream'          # ### b637: a declaration neither the generator's resolver nor the reader finds in the kernel
+        if r.get('mark') == 'upstream':     # ### b637, (R247)(2): a kind and not a grade
+            UPSTREAM.append((r['repo'], r['name'], r['grade'], r.get('provenance')))
+            r['kind'] = 'upstream'
+            r['grade'], r['provenance'] = '—', 'none'
     return differ
+
+
+# ### ### **b637, (R247)(2) AND OPEN_TRAILS BENEATH :12955: UPSTREAM ROWS A KIND AND NOT A GRADE.** *A table row whose declaration lives
+# ### outside every kernel (the five Mathlib names, riemannZeta₀ among them, and any row the upstream mark reaches) is a kind and not a
+# ### terminal: its grade cell reads — with the kind upstream, its provenance none, and it is excluded from every grade count the census and
+# ### the deposit bank print; the generator's counts re-read with the exclusion, printed before and after. The programme grades what its
+# ### kernels state; Mathlib's theorems are cited, not graded.* Read here as: a row the upstream mark reaches (the reader found its
+# ### declaration in a module outside the kernel's roots), and a row of a kernel the reader has read whose statement the generator's
+# ### resolver finds in no file of the kernel and which the reader typed nowhere (the five Mathlib names of AxiomCheckKeiper.lean), takes
+# ### the grade —, the kind `upstream` and the provenance none; its grade and provenance before the exclusion are kept in UPSTREAM and
+# ### printed by the build beside the counts with the rows and without them.
+UPSTREAM = []
 
 
 def ledger_files():
@@ -1035,10 +1053,21 @@ def build():
     if base is None:
         rec('  ### ### **HALT. ### THE RULE`S BASELINE TABLE AT relay %s DOES NOT READ.**' % RULE_BASELINE)
         return None
+    UPSTREAM[:] = []
     differ = provenance(rows, base)
     pv = {}
     for r in rows:
         pv[r['provenance']] = pv.get(r['provenance'], 0) + 1
+    up = set((x[0], x[1]) for x in UPSTREAM)
+    g_with, g_without = {}, {}
+    for r in rows:
+        k_ = dict(((x[0], x[1]), x[2]) for x in UPSTREAM).get((r['repo'], r['name']), r['grade'])
+        g_with[k_] = g_with.get(k_, 0) + 1
+        if (r['repo'], r['name']) not in up:
+            g_without[r['grade']] = g_without.get(r['grade'], 0) + 1
+    rec('  ### b637, (R247)(2), THE UPSTREAM ROWS A KIND : ### **%d** rows, their grades before the exclusion %s ; the grade counts with them %s ; '
+        'without them %s' % (len(UPSTREAM), dict((x[2], sum(1 for y in UPSTREAM if y[2] == x[2])) for x in UPSTREAM),
+                             dict(sorted(g_with.items())), dict(sorted(g_without.items()))))
     rec('  ### THE PROVENANCE COLUMN (b630, (R240)(3)) : %s ; rows graded by the rule : %s' % (
         pv, ['%s/%s %s' % (r['repo'], r['name'], r['grade']) for r in rows if r['provenance'] == 'rule']))
     rec('  ### rows graded by cells whose rule reading differs : ### **%d** %s' % (len(differ), ['%s/%s %s|rule %s' % x for x in differ][:40]))
