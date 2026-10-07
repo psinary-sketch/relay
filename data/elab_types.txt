@@ -1,4 +1,4 @@
-### ELABORATED TYPES -- SIDE-explicit-formula at v0.25 = 8c51431, read by lake env lean (relay tools/b634_elab.py, tools/b635_elab.py); written 2026-10-07T02:07:19Z by b635 under (R245)(2)-(3) and the author`s answers before its seal; the terminal table reads it for this kernel`s rows without a ledger cell.
+### ELABORATED TYPES -- SIDE-explicit-formula at v0.25 = 8c51431, read by lake env lean (relay tools/b634_elab.py, tools/b635_elab.py); written 2026-10-07T02:10:20Z by b635 under (R245)(2)-(3) and the author`s answers before its seal; the terminal table reads it for this kernel`s rows without a ledger cell.
 ### KERNEL SIDE-explicit-formula
 ### MODULE ROOTS OF THE KERNEL: SIDEExplicitFormula Zeta23 Lc Hadamard FunctionsOfOneComplexVariable
 
@@ -22,6 +22,10 @@ BINDER implicit z₀ : E
 BINDER explicit h₀ : z₀ ∈ U
 BINDER explicit hfg : f =ᶠ[nhds z₀] g
 CONCL Set.EqOn f g U
+END
+DECL Complex.hasDerivAt_Gammaℝ_one KIND theorem HEADER 0 TOTAL 0
+MODULE Complex.hasDerivAt_Gammaℝ_one Mathlib.NumberTheory.Harmonic.GammaDeriv
+CONCL HasDerivAt Gammaℝ (-(↑Real.eulerMascheroniConstant + Complex.log (4 * ↑Real.pi)) / 2) 1
 END
 DECL DirichletCharacter.IsPrimitive.completedLFunction_one_sub KIND theorem HEADER 5 TOTAL 5
 MODULE DirichletCharacter.IsPrimitive.completedLFunction_one_sub Mathlib.NumberTheory.LSeries.DirichletContinuation
@@ -88,6 +92,17 @@ BINDER instance inst✝ : T2Space G
 BINDER explicit hcf : HasCompactSupport f
 BINDER explicit hcg : HasCompactSupport g
 CONCL HasCompactSupport (MeasureTheory.convolution f g L μ)
+END
+DECL LSeries_eq_mul_integral KIND theorem HEADER 7 TOTAL 7
+MODULE LSeries_eq_mul_integral Mathlib.NumberTheory.LSeries.SumCoeff
+BINDER explicit f : ℕ → ℂ
+BINDER implicit r : ℝ
+BINDER explicit hr : 0 ≤ r
+BINDER implicit s : ℂ
+BINDER explicit hs : r < s.re
+BINDER explicit hS : LSeriesSummable f s
+BINDER explicit hO : (fun n => ∑ k ∈ Finset.Icc 1 n, f k) =O[Filter.atTop] fun n => ↑n ^ r
+CONCL LSeries f s = s * ∫ (t : ℝ) in Set.Ioi 1, (∑ k ∈ Finset.Icc 1 ⌊t⌋₊, f k) * ↑t ^ (-(s + 1))
 END
 DECL LiCriterion.analyticOrderNatAt_riemannXi_one_sub KIND theorem HEADER 1 TOTAL 1
 BINDER explicit s : ℂ
@@ -2132,6 +2147,20 @@ BINDER explicit k : Fin (P.d T)
 BINDER explicit l : Fin (P.d T)
 CONCL (chiZeroConfig χ hχ h1).Az P T k l = ∑ x ∈ H.sA, (chiZeroConfig χ hχ h1).Gsummand P T ↑↑k ↑↑l ↑x
 END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg KIND theorem HEADER 10 TOTAL 10
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER implicit P : Zeta23.Params
+BINDER implicit T : ℝ
+BINDER implicit A₀ : ℝ
+BINDER implicit C₁ : ℝ
+BINDER explicit H : Zeta23.Tail.TailHyp (chiZeroConfig χ hχ h1) P T A₀ C₁
+CONCL 0 ≤ A₀
+END
 DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Ez_isHermitian KIND theorem HEADER 11 TOTAL 11
 BINDER implicit N : ℕ
 BINDER instance inst✝ : NeZero N
@@ -2218,6 +2247,34 @@ BINDER implicit A₀ : ℝ
 BINDER implicit C₁ : ℝ
 BINDER explicit H : Zeta23.Tail.TailHyp (chiZeroConfig χ hχ h1) P T A₀ C₁
 CONCL 0 < T
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀ KIND theorem HEADER 10 TOTAL 10
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀ SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER implicit P : Zeta23.Params
+BINDER implicit T : ℝ
+BINDER implicit A₀ : ℝ
+BINDER implicit C₁ : ℝ
+BINDER explicit self : Zeta23.Tail.TailHyp (chiZeroConfig χ hχ h1) P T A₀ C₁
+CONCL 1 ≤ A₀
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁ KIND theorem HEADER 10 TOTAL 10
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁ SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER implicit P : Zeta23.Params
+BINDER implicit T : ℝ
+BINDER implicit A₀ : ℝ
+BINDER implicit C₁ : ℝ
+BINDER explicit self : Zeta23.Tail.TailHyp (chiZeroConfig χ hχ h1) P T A₀ C₁
+CONCL 0 ≤ C₁
 END
 DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hL KIND theorem HEADER 10 TOTAL 10
 BINDER implicit N : ℕ
@@ -3891,6 +3948,14 @@ BINDER implicit χ : DirichletCharacter ℂ N
 BINDER explicit h1 : χ ≠ 1
 CONCL MeasureTheory.LocallyIntegrableOn (charPartialSum χ) (Set.Ioi 0) MeasureTheory.volume
 END
+DECL SIDEExplicitFormula.GRHWeil.logDeriv_Gammaℝ_bracket KIND theorem HEADER 4 TOTAL 4
+MODULE SIDEExplicitFormula.GRHWeil.logDeriv_Gammaℝ_bracket SIDEExplicitFormula.Chi.Main
+BINDER implicit σ : ℝ
+BINDER explicit hσ : 0 < σ
+BINDER explicit t : ℝ
+BINDER explicit hw : ↑(σ / 2) + ↑(t / 2) * Complex.I ∈ Complex.integerComplement
+CONCL logDeriv Complex.Gammaℝ (↑σ + ↑t * Complex.I) + logDeriv Complex.Gammaℝ (↑σ - ↑t * Complex.I) = ↑((↑(σ / 2) + ↑(t / 2) * Complex.I).digamma.re - Real.log Real.pi)
+END
 DECL SIDEExplicitFormula.GRHWeil.logDeriv_LFunction_inv_conj KIND theorem HEADER 5 TOTAL 5
 BINDER implicit N : ℕ
 BINDER instance inst✝ : NeZero N
@@ -4030,6 +4095,10 @@ BINDER implicit σ : ℝ
 BINDER implicit t : ℝ
 BINDER explicit hσ : 0 < σ
 CONCL ‖∫ (x : ℝ) in Set.Ioi ↑M, charPartialSum χ x * ↑x ^ (-(↑σ + ↑t * Complex.I + 1))‖ ≤ (↑N + 1) * ↑M ^ (-σ) / σ
+END
+DECL SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide KIND theorem HEADER 0 TOTAL 0
+MODULE SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide SIDEExplicitFormula.Chi.GammaWide
+CONCL ∃ C, 0 < C ∧ ∀ (σ t : ℝ), 3 / 2 ≤ σ → σ ≤ 5 / 2 → ‖logDeriv Complex.Gammaℝ (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)
 END
 DECL SIDEExplicitFormula.GRHWeil.norm_logDeriv_LFunction_le_of_one_lt_re KIND theorem HEADER 5 TOTAL 5
 BINDER implicit N : ℕ
@@ -4434,6 +4503,10 @@ END
 DECL SIDEExplicitFormula.Keiper.StieltjesLog KIND def HEADER 0 TOTAL 0
 CONCL Prop
 END
+DECL SIDEExplicitFormula.Keiper.analyticAt_riemannZeta₀ KIND theorem HEADER 0 TOTAL 0
+MODULE SIDEExplicitFormula.Keiper.analyticAt_riemannZeta₀ SIDEExplicitFormula.Keiper
+CONCL AnalyticAt ℂ riemannZeta₀ 1
+END
 DECL SIDEExplicitFormula.Keiper.binomialTransform_zero KIND theorem HEADER 0 TOTAL 0
 CONCL LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = ∑ k ∈ Finset.range (0 + 1), ↑((0 + 1).choose (k + 1)) * xiLogCoeff k
 END
@@ -4498,6 +4571,10 @@ CONCL ℂ
 END
 DECL SIDEExplicitFormula.Keiper.taylorCoeff_xi_zero KIND theorem HEADER 0 TOTAL 0
 CONCL LiCriterion.taylorCoeff LiCriterion.riemannXi 0 = completedRiemannZeta₀ 1
+END
+DECL SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue KIND theorem HEADER 0 TOTAL 0
+MODULE SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue SIDEExplicitFormula.Keiper
+CONCL Filter.Tendsto (fun s => (s - 1) * riemannZeta s) (nhdsWithin 1 {1}ᶜ) (nhds (riemannZeta₁ 1))
 END
 DECL SIDEExplicitFormula.Keiper.xiLogCoeff KIND def HEADER 1 TOTAL 1
 BINDER explicit k : ℕ
@@ -6299,6 +6376,12 @@ DECL Zeta23.WeilEF.digamma_conj KIND theorem HEADER 1 TOTAL 1
 BINDER explicit z : ℂ
 CONCL ((starRingEnd ℂ) z).digamma = (starRingEnd ℂ) z.digamma
 END
+DECL Zeta23.WeilEF.logDeriv_Gammaℝ KIND theorem HEADER 2 TOTAL 2
+MODULE Zeta23.WeilEF.logDeriv_Gammaℝ Zeta23.WeilEF.GammaRBracket
+BINDER implicit s : ℂ
+BINDER explicit hs : 0 < s.re
+CONCL logDeriv Complex.Gammaℝ s = -↑(Real.log Real.pi) / 2 + 1 / 2 * (s / 2).digamma
+END
 DECL Zeta23.WeilEF.logDeriv_partial_fraction_disk KIND theorem HEADER 9 TOTAL 9
 BINDER implicit f : ℂ → ℂ
 BINDER implicit s₀ : ℂ
@@ -6316,6 +6399,10 @@ BINDER implicit k : ℝ → ℂ
 BINDER explicit hk : ContDiff ℝ 2 k
 BINDER explicit hkc : HasCompactSupport k
 CONCL ∃ C, 0 ≤ C ∧ ∀ (σ t : ℝ), -1 ≤ σ → σ ≤ 2 → ‖Hfn k (↑σ + ↑t * Complex.I)‖ ≤ C / (1 + t ^ 2)
+END
+DECL Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le KIND theorem HEADER 0 TOTAL 0
+MODULE Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le Zeta23.WeilEF.VerticalLine
+CONCL ∃ C, 0 < C ∧ ∀ (σ t : ℝ), 1 / 2 ≤ σ → σ ≤ 3 / 2 → ‖logDeriv Complex.Gammaℝ (↑σ + ↑t * Complex.I)‖ ≤ C * Real.log (2 + |t|)
 END
 DECL Zeta23.WeilEF.tilted_inversion KIND theorem HEADER 5 TOTAL 5
 BINDER implicit k : ℝ → ℂ
@@ -6345,6 +6432,14 @@ DECL completedRiemannZeta KIND def HEADER 1 TOTAL 1
 MODULE completedRiemannZeta Mathlib.NumberTheory.LSeries.RiemannZeta
 BINDER explicit s : ℂ
 CONCL ℂ
+END
+DECL deriv_riemannZeta₁_one KIND theorem HEADER 0 TOTAL 0
+MODULE deriv_riemannZeta₁_one Mathlib.NumberTheory.Harmonic.ZetaAsymp
+CONCL deriv riemannZeta₁ 1 = ↑Real.eulerMascheroniConstant
+END
+DECL differentiable_riemannZeta₀ KIND theorem HEADER 0 TOTAL 0
+MODULE differentiable_riemannZeta₀ Mathlib.NumberTheory.Harmonic.ZetaAsymp
+CONCL Differentiable ℂ riemannZeta₀
 END
 DECL farSmall KIND def HEADER 4 TOTAL 4
 BINDER explicit γ₀ : ℝ
