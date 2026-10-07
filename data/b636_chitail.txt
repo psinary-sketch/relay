@@ -1,0 +1,25 @@
+b636 -- COMPONENT 1, (R246)(2)(i): SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le, ITS BINDERS UNDER THE CRITERION (2026-10-07T14:15:37Z)
+
+### its elaborated type, relay data/b634_elab_types.txt (b634`s reader at SIDE-explicit-formula v0.25 = 8c51431):
+
+  implicit        N      : ℕ                                                            -> OBJECT -- an implicit binder: an object of the statement, not a hypothesis the rule reads
+  instance        inst✝  : NeZero N                                                     -> DOMAIN CONDITION (I) -- an instance binder whose class is not Fact
+  explicit        χ      : DirichletCharacter ℂ N                                       -> OBJECT -- a data binder (its type is no Prop)
+  explicit        hχ     : χ.IsPrimitive                                                -> DOMAIN CONDITION -- the rule`s domain case holds (DOMAIN, a split, a class predicate, a restriction on a bound variable)
+  explicit        h1     : χ ≠ 1                                                        -> DOMAIN CONDITION -- the rule`s domain case holds (DOMAIN, a split, a class predicate, a restriction on a bound variable)
+  implicit        P      : Zeta23.Params                                                -> OBJECT -- an implicit binder: an object of the statement, not a hypothesis the rule reads
+  implicit        T      : ℝ                                                            -> OBJECT -- an implicit binder: an object of the statement, not a hypothesis the rule reads
+  implicit        A₀     : ℝ                                                            -> OBJECT -- an implicit binder: an object of the statement, not a hypothesis the rule reads
+  implicit        C₁     : ℝ                                                            -> OBJECT -- an implicit binder: an object of the statement, not a hypothesis the rule reads
+  explicit        H      : Zeta23.Tail.TailHyp (chiZeroConfig χ hχ h1) P T A₀ C₁        -> NOT READ -- the rule`s binder pattern reads hypothesis binders named h…; this one is named H
+  implicit        κ      : ℝ                                                            -> OBJECT -- an implicit binder: an object of the statement, not a hypothesis the rule reads
+  explicit        hκ     : 0 ≤ κ                                                        -> DOMAIN CONDITION -- the rule`s domain case holds (DOMAIN, a split, a class predicate, a restriction on a bound variable)
+  explicit        hM     : (↑κ • (chiZeroConfig χ hχ h1).Ez P T).IsHermitian            -> PREMISE -- a Prop the criterion names in none of its domain conditions (membership, non-membership, non-emptiness, finiteness; support, parity, smoothness, continuity, integrability; a real`s positivity; a natural`s bound)
+  CONCL Zeta23.Tail.traceNorm hM ≤ κ * (P.L T * Zeta23.Tail.theta0 A₀ H.K T)
+
+### the binders the old pattern read ['h1', 'hκ', 'hχ'] ; the repaired pattern reads ['h1', 'hM', 'hκ', 'hχ'] ; dropped by the old and read now: ['hM']
+### hM : (↑κ • (chiZeroConfig χ hχ h1).Ez P T).IsHermitian -- its class under the criterion: PREMISE; the conclusion uses it (traceNorm hM), the operator`s own argument
+### the repaired rule on the elaborated header: INTERFACES -- hM : (↑κ • (chiZeroConfig χ hχ h1).Ez P T).IsHermitian
+### the table at relay HEAD: INTERFACES at provenance rule-elab
+
+### ### **RULED UNDER (R246)(2)(i): INTERFACES -- the move stands, the binder a premise ; THE TABLE AGREES, NOTHING REGENERATED.**

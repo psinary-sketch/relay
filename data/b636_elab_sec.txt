@@ -1,0 +1,245 @@
+b636 -- COMPONENT 3: THE ELABORATED TYPES OF SIDE-structural-error-correction AT v0.2.2 = 6bf19ab, ONE MODULE`S DECLARATIONS PER CALL (2026-10-07T14:23:59Z)
+
+### rows of the kernel in the table 62 ; calls planned 2 ; named by no module 0
+### ### **DECLARATIONS WITH A TYPE : 62 ; MISSING : 0 ; OF 62 ROWS.**
+
+### MODULE SIDEStructuralErrorCorrection/Basic -- exit 0, 4 s, free 4209 MB before, lowest 3486 MB, namespaces opened True
+DECL SIDEStructuralErrorCorrection.S KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.S_eq_three KIND theorem HEADER 0 TOTAL 0
+CONCL S = 3
+END
+DECL SIDEStructuralErrorCorrection.S_universal_max KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.S_within_universal_max KIND theorem HEADER 0 TOTAL 0
+CONCL S ≤ S_universal_max
+END
+DECL SIDEStructuralErrorCorrection.compartment_count_three KIND theorem HEADER 0 TOTAL 0
+CONCL num_compartments = 3
+END
+DECL SIDEStructuralErrorCorrection.complement_weight KIND def HEADER 1 TOTAL 1
+BINDER explicit w : Nat
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.complementarity_weight_0 KIND theorem HEADER 0 TOTAL 0
+CONCL complement_weight 0 = S
+END
+DECL SIDEStructuralErrorCorrection.complementarity_weight_1 KIND theorem HEADER 0 TOTAL 0
+CONCL complement_weight 1 = 2
+END
+DECL SIDEStructuralErrorCorrection.complementarity_weight_2 KIND theorem HEADER 0 TOTAL 0
+CONCL complement_weight 2 = 1
+END
+DECL SIDEStructuralErrorCorrection.cubit_substrate_connection KIND theorem HEADER 0 TOTAL 0
+CONCL dark_subspace_dim + 1 = formation_total ∧ formation_total = 7
+END
+DECL SIDEStructuralErrorCorrection.d_eff KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.d_eff_eq_five KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff = 5
+END
+DECL SIDEStructuralErrorCorrection.d_eff_formula KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff = 2 * S - 1
+END
+DECL SIDEStructuralErrorCorrection.d_eff_tight KIND theorem HEADER 0 TOTAL 0
+CONCL k_logical = 1 ∧ S ≤ 3 ∧ d_eff = 2 * S - 1
+END
+DECL SIDEStructuralErrorCorrection.d_eff_universal_max KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.d_eff_universal_max_eq_five KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff_universal_max = 5
+END
+DECL SIDEStructuralErrorCorrection.d_standard KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.dark_subspace_dim KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.dark_subspace_eq_six KIND theorem HEADER 0 TOTAL 0
+CONCL dark_subspace_dim = 6
+END
+DECL SIDEStructuralErrorCorrection.formation_block_stronger KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff > d_standard
+END
+DECL SIDEStructuralErrorCorrection.formation_total KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.formation_total_seven KIND theorem HEADER 0 TOTAL 0
+CONCL formation_total = 7
+END
+DECL SIDEStructuralErrorCorrection.full_corruption_complement KIND theorem HEADER 0 TOTAL 0
+CONCL complement_weight S = 0
+END
+DECL SIDEStructuralErrorCorrection.improvement_two KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff - d_standard = 2
+END
+DECL SIDEStructuralErrorCorrection.interface_dark KIND theorem HEADER 0 TOTAL 0
+CONCL interface_size = 0
+END
+DECL SIDEStructuralErrorCorrection.interface_not_counted KIND theorem HEADER 0 TOTAL 0
+CONCL isNonDark interface_size = 0
+END
+DECL SIDEStructuralErrorCorrection.interface_size KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.isNonDark KIND def HEADER 1 TOTAL 1
+BINDER explicit n : Nat
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.k_logical KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.max_correctable_standard KIND theorem HEADER 0 TOTAL 0
+CONCL (d_standard - 1) / 2 = 1
+END
+DECL SIDEStructuralErrorCorrection.max_correctable_two KIND theorem HEADER 0 TOTAL 0
+CONCL max_correctable_weight = 2
+END
+DECL SIDEStructuralErrorCorrection.max_correctable_weight KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.non_dark_covers_seven KIND theorem HEADER 0 TOTAL 0
+CONCL primitive_size + transformation_size + output_size = formation_total
+END
+DECL SIDEStructuralErrorCorrection.num_compartments KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.output_size KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.primitive_size KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.rank_one KIND theorem HEADER 0 TOTAL 0
+CONCL k_logical = 1
+END
+DECL SIDEStructuralErrorCorrection.silence_yields_protection KIND theorem HEADER 0 TOTAL 0
+CONCL num_compartments = S ∧ d_eff = 2 * num_compartments - 1
+END
+DECL SIDEStructuralErrorCorrection.spectral_d_eff_relation KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff * (d_eff - 1) = spectral_volume + 8
+END
+DECL SIDEStructuralErrorCorrection.spectral_volume KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.spectral_volume_eq_twelve KIND theorem HEADER 0 TOTAL 0
+CONCL spectral_volume = 12
+END
+DECL SIDEStructuralErrorCorrection.tightness_regime KIND theorem HEADER 0 TOTAL 0
+CONCL S ≤ 3
+END
+DECL SIDEStructuralErrorCorrection.transformation_size KIND def HEADER 0 TOTAL 0
+CONCL Nat
+END
+DECL SIDEStructuralErrorCorrection.trivium_saturates_universal_max KIND theorem HEADER 0 TOTAL 0
+CONCL d_eff = d_eff_universal_max
+END
+DECL SIDEStructuralErrorCorrection.wall_squared KIND theorem HEADER 0 TOTAL 0
+CONCL primitive_size = output_size
+END
+
+### MODULE SIDEStructuralErrorCorrection/DeAlignment -- exit 0, 4 s, free 4161 MB before, lowest 3466 MB, namespaces opened True
+DECL DeAlignment.CompletesLine KIND def HEADER 3 TOTAL 3
+BINDER implicit P : Type
+BINDER explicit F : P → Prop
+BINDER explicit L : Line P
+CONCL Prop
+END
+DECL DeAlignment.Dealigned KIND def HEADER 5 TOTAL 5
+BINDER implicit P : Type
+BINDER implicit D : Type
+BINDER implicit n : Nat
+BINDER explicit d : P → D
+BINDER explicit lines : Fin n → Line P
+CONCL Prop
+END
+DECL DeAlignment.DealignedAt KIND def HEADER 4 TOTAL 4
+BINDER implicit P : Type
+BINDER implicit D : Type
+BINDER explicit d : P → D
+BINDER explicit L : Line P
+CONCL Prop
+END
+DECL DeAlignment.Line KIND inductive HEADER 1 TOTAL 1
+BINDER explicit P : Type
+CONCL Type
+END
+DECL DeAlignment.Line.Proper KIND def HEADER 2 TOTAL 2
+BINDER implicit P : Type
+BINDER explicit L : Line P
+CONCL Prop
+END
+    ### named by git grep in SIDEStructuralErrorCorrection/DeAlignment
+DECL DeAlignment.allSeven KIND def HEADER 0 TOTAL 0
+CONCL List (Fin 7)
+END
+DECL DeAlignment.dealignedCheck KIND def HEADER 1 TOTAL 1
+BINDER explicit d : Fin 7 → Fin 7
+CONCL Bool
+END
+DECL DeAlignment.dealigned_of_lines_injective KIND theorem HEADER 6 TOTAL 6
+BINDER implicit P : Type
+BINDER implicit D : Type
+BINDER explicit d : P → D
+BINDER explicit L : Line P
+BINDER explicit hinj : ∀ (x y : P), d x = d y → x = y
+BINDER explicit hp : L.Proper
+CONCL DealignedAt d L
+END
+DECL DeAlignment.domainFault KIND def HEADER 5 TOTAL 5
+BINDER implicit P : Type
+BINDER implicit D : Type
+BINDER explicit d : P → D
+BINDER explicit k : D
+BINDER explicit p : P
+CONCL Prop
+END
+DECL DeAlignment.fanoLines KIND def HEADER 0 TOTAL 1
+CONCL Fin 7 → Line (Fin 7)
+END
+DECL DeAlignment.fano_collapsed_line_rejected KIND theorem HEADER 0 TOTAL 0
+CONCL (dealignedCheck fun p => if ↑p = 1 ∨ ↑p = 3 then ⟨0, ⋯⟩ else p) = false
+END
+DECL DeAlignment.fano_dealignment_decidable_example KIND theorem HEADER 0 TOTAL 0
+CONCL (dealignedCheck fun p => p) = true
+END
+DECL DeAlignment.fano_two_design KIND theorem HEADER 2 TOTAL 3
+BINDER explicit p : Fin 7
+BINDER explicit q : Fin 7
+CONCL p ≠ q → pairCount p q = 1
+END
+DECL DeAlignment.no_domain_covers_line KIND theorem HEADER 6 TOTAL 6
+BINDER implicit P : Type
+BINDER implicit D : Type
+BINDER explicit d : P → D
+BINDER explicit L : Line P
+BINDER explicit h : DealignedAt d L
+BINDER explicit k : D
+CONCL ¬CompletesLine (domainFault d k) L
+END
+DECL DeAlignment.onLine KIND def HEADER 2 TOTAL 2
+BINDER explicit L : Line (Fin 7)
+BINDER explicit p : Fin 7
+CONCL Bool
+END
+DECL DeAlignment.pairCount KIND def HEADER 2 TOTAL 2
+BINDER explicit p : Fin 7
+BINDER explicit q : Fin 7
+CONCL Nat
+END
+DECL DeAlignment.single_domain_fault_not_logical KIND theorem HEADER 8 TOTAL 8
+BINDER implicit P : Type
+BINDER implicit D : Type
+BINDER implicit n : Nat
+BINDER explicit d : P → D
+BINDER explicit lines : Fin n → Line P
+BINDER explicit hdea : Dealigned d lines
+BINDER explicit k : D
+BINDER explicit i : Fin n
+CONCL ¬CompletesLine (domainFault d k) (lines i)
+END
+

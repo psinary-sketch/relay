@@ -1,0 +1,26 @@
+b636 -- THE READER`S TEST EXTENDED, tools/test_elab_reader_b634.py, THE DIFF AGAINST relay 4b84f96d (2026-10-07T14:17:50Z)
+
+--- test_elab_reader_b634.py@4b84f96d
++++ test_elab_reader_b634.py
+@@ -12 +12,3 @@
+-###   (6) with the namespaces opened, (2)'s binder type prints without its namespace prefix.
++###   (6) with the namespaces opened, (2)'s binder type prints without its namespace prefix;
++###   (7) b636, (R246)(4): the reader given SIDE-structural-error-correction reads its d_eff_eq_five -- a theorem, no binder, d_eff = 5 --
++###       in that kernel's checkout, and returns to the explicit-formula kernel after.
+@@ -27,0 +30 @@
++SEC = 'SIDEStructuralErrorCorrection.d_eff_eq_five'     # ### b636, case (7)
+@@ -57,0 +61,14 @@
++    # ### b636, (R246)(4): the reader takes the kernel -- one declaration of SIDE-structural-error-correction at v0.2.2 = 6bf19ab of known
++    # ### type, d_eff_eq_five : d_eff = 5 (SIDEStructuralErrorCorrection/Basic.lean :100), read by one call importing its module alone.
++    EL.use('SIDE-structural-error-correction')
++    try:
++        c7 = EL.call('SIDEStructuralErrorCorrection/Basic', [SEC], 'test_reader_sec')
++        g7 = EL.parse(open(c7['out'], 'rb').read().decode('utf-8', 'replace')) if c7.get('started') else {}
++    finally:
++        EL.use(EL.DEFAULT_KERNEL)
++    e7 = g7.get(SEC) or dict(kind=None, header=-1, total=-1, binders=[], concl='', missing=True)
++    print('  the kernel`s call: started %s ; exit %s ; %s s ; free before %s MB ; in %s' % (c7.get('started'), c7.get('rc'), c7.get('seconds'),
++                                                                                       c7.get('free_before'), EL.KERNELS['SIDE-structural-error-correction']['KER']))
++    want('(7) SIDE-structural-error-correction`s d_eff_eq_five: a theorem, no binder, the conclusion d_eff = 5 (read %s %s of %s, %s)' % (
++         e7['kind'], e7['header'], e7['total'], e7['concl']),
++         e7['kind'] == 'theorem' and e7['header'] == 0 and e7['total'] == 0 and e7['concl'] == 'd_eff = 5' and EL.KX.KERNEL == 'SIDE-explicit-formula')

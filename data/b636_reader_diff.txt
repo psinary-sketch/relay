@@ -1,0 +1,74 @@
+b636 -- THE READER GENERALISED TO TAKE THE KERNEL, tools/b634_elab.py, THE DIFF AGAINST relay 4b84f96d (2026-10-07T14:17:50Z)
+
+--- b634_elab.py@4b84f96d
++++ b634_elab.py
+@@ -22 +22,4 @@
+-### Usage: python tools/b634_elab.py plan | run | join | test
++### ### b636, (R246)(4): THE KERNEL IS AN ARGUMENT. `--kernel <name>` selects a kernel of KERNELS -- its checkout, pin, tag, module roots,
++### run bank, types bank and work directory; the explicit-formula kernel is the default, its banks and behaviour b634's unchanged.
++### SIDE-structural-error-correction at v0.2.2 = 6bf19ab writes data/b636_elab_sec_runs.json and data/b636_elab_sec.txt.
++### Usage: python tools/b634_elab.py [--kernel <name>] plan | run | join | test
+@@ -31,0 +35 @@
++import types
+@@ -44,0 +49,29 @@
++
++# ### ### **b636, (R246)(4): THE KERNELS THE READER TAKES.** Each: its checkout, pin and tag, the path prefixes of its modules at the pin, its
++# ### run bank and types bank under relay data/, its work directory in a scratchpad, and the act that named it.
++SP636 = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e1567886-3bd6-4471-9e29-3d65058acee0/scratchpad'
++KERNELS = {
++    'SIDE-explicit-formula': dict(KERNEL='SIDE-explicit-formula', KER=K.KER, KER_PIN=K.KER_PIN, KER_TAG=K.KER_TAG,
++                                  ROOTS=('SIDEExplicitFormula/', 'Zeta23/', VENDOR), RUNS='b634_elab_runs.json', TYPES='b634_elab_types.txt',
++                                  WORK=os.path.join(SP, 'b634_elab'), ACT='b634'),
++    'SIDE-structural-error-correction': dict(KERNEL='SIDE-structural-error-correction', KER='D:/SIDE-structural-error-correction',
++                                             KER_PIN='6bf19ab', KER_TAG='v0.2.2', ROOTS=('SIDEStructuralErrorCorrection/',),
++                                             RUNS='b636_elab_sec_runs.json', TYPES='b636_elab_sec.txt', WORK=os.path.join(SP636, 'b636_elab_sec'),
++                                             ACT='b636'),
++}
++DEFAULT_KERNEL = 'SIDE-explicit-formula'
++KX = types.SimpleNamespace()
++
++
++def use(name):
++    """### select the kernel the reader reads: its fields in KX, the run bank, the types bank and the work directory in this module."""
++    global WORK, RUNS, TYPES
++    if name not in KERNELS:
++        raise SystemExit('### NO SUCH KERNEL FOR THE READER: %s (it takes %s)' % (name, sorted(KERNELS)))
++    for k, v in KERNELS[name].items():
++        setattr(KX, k, v)
++    WORK, RUNS, TYPES = KX.WORK, os.path.join(D, KX.RUNS), os.path.join(D, KX.TYPES)
++    return KX
++
++
++use(DEFAULT_KERNEL)
+@@ -198 +231 @@
+-    r = subprocess.run(['git', '-C', K.KER] + list(a), capture_output=True)
++    r = subprocess.run(['git', '-C', KX.KER] + list(a), capture_output=True)
+@@ -205,3 +238,3 @@
+-    E = [r for r in T if r['repo'] == K.KERNEL]
+-    mods = set(f[:-5] for f in _git('ls-tree', '-r', '--name-only', K.KER_PIN).split(NL)
+-               if f.endswith('.lean') and (f.startswith('SIDEExplicitFormula/') or f.startswith('Zeta23/') or f.startswith(VENDOR)))
++    E = [r for r in T if r['repo'] == KX.KERNEL]
++    mods = set(f[:-5] for f in _git('ls-tree', '-r', '--name-only', KX.KER_PIN).split(NL)
++               if f.endswith('.lean') and f.startswith(KX.ROOTS))
+@@ -214 +247 @@
+-            hits = sorted(set(x.split(':', 2)[1][:-5] for x in _git('grep', '-l', '-w', '-F', short, K.KER_PIN, '--', '*.lean').split(NL)
++            hits = sorted(set(x.split(':', 2)[1][:-5] for x in _git('grep', '-l', '-w', '-F', short, KX.KER_PIN, '--', '*.lean').split(NL)
+@@ -257 +290 @@
+-        p = subprocess.Popen(['lake', 'env', 'lean', src.replace('/', os.sep)], cwd=K.KER, stdout=fo, stderr=subprocess.STDOUT)
++        p = subprocess.Popen(['lake', 'env', 'lean', src.replace('/', os.sep)], cwd=KX.KER, stdout=fo, stderr=subprocess.STDOUT)
+@@ -304 +337 @@
+-    print('### b634_elab: %d rows of %s in %d calls; %d named by no module; %d calls already read' % (n, K.KERNEL, len(calls), len(missing), len(done)), flush=True)
++    print('### b634_elab: %d rows of %s in %d calls; %d named by no module; %d calls already read' % (n, KX.KERNEL, len(calls), len(missing), len(done)), flush=True)
+@@ -334,2 +367,2 @@
+-    L = ['b634 -- COMPONENT 3: THE ELABORATED TYPES OF %s AT %s = %s, ONE MODULE`S DECLARATIONS PER CALL (%s)' % (
+-        K.KERNEL, K.KER_TAG, K.KER_PIN, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
++    L = ['%s -- COMPONENT 3: THE ELABORATED TYPES OF %s AT %s = %s, ONE MODULE`S DECLARATIONS PER CALL (%s)' % (
++        KX.ACT, KX.KERNEL, KX.KER_TAG, KX.KER_PIN, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
+@@ -574,0 +608,4 @@
++    if '--kernel' in sys.argv:          # ### b636, (R246)(4): the kernel as an argument, taken out before the command is read
++        i = sys.argv.index('--kernel')
++        use(sys.argv[i + 1] if len(sys.argv) > i + 1 else '')
++        del sys.argv[i:i + 2]
+@@ -596 +633 @@
+-        print('usage: b634_elab.py plan | run | join')
++        print('usage: b634_elab.py [--kernel <name>] plan | run | join')

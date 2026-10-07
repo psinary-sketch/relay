@@ -1,0 +1,110 @@
+{
+ "at": "2026-10-07T14:15:37Z",
+ "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le",
+ "binders": [
+  {
+   "kind": "implicit",
+   "name": "N",
+   "type": "ℕ",
+   "cls": "object",
+   "why": "an implicit binder: an object of the statement, not a hypothesis the rule reads"
+  },
+  {
+   "kind": "instance",
+   "name": "inst✝",
+   "type": "NeZero N",
+   "cls": "domain condition (i)",
+   "why": "an instance binder whose class is not Fact"
+  },
+  {
+   "kind": "explicit",
+   "name": "χ",
+   "type": "DirichletCharacter ℂ N",
+   "cls": "object",
+   "why": "a data binder (its type is no Prop)"
+  },
+  {
+   "kind": "explicit",
+   "name": "hχ",
+   "type": "χ.IsPrimitive",
+   "cls": "domain condition",
+   "why": "the rule`s domain case holds (DOMAIN, a split, a class predicate, a restriction on a bound variable)"
+  },
+  {
+   "kind": "explicit",
+   "name": "h1",
+   "type": "χ ≠ 1",
+   "cls": "domain condition",
+   "why": "the rule`s domain case holds (DOMAIN, a split, a class predicate, a restriction on a bound variable)"
+  },
+  {
+   "kind": "implicit",
+   "name": "P",
+   "type": "Zeta23.Params",
+   "cls": "object",
+   "why": "an implicit binder: an object of the statement, not a hypothesis the rule reads"
+  },
+  {
+   "kind": "implicit",
+   "name": "T",
+   "type": "ℝ",
+   "cls": "object",
+   "why": "an implicit binder: an object of the statement, not a hypothesis the rule reads"
+  },
+  {
+   "kind": "implicit",
+   "name": "A₀",
+   "type": "ℝ",
+   "cls": "object",
+   "why": "an implicit binder: an object of the statement, not a hypothesis the rule reads"
+  },
+  {
+   "kind": "implicit",
+   "name": "C₁",
+   "type": "ℝ",
+   "cls": "object",
+   "why": "an implicit binder: an object of the statement, not a hypothesis the rule reads"
+  },
+  {
+   "kind": "explicit",
+   "name": "H",
+   "type": "Zeta23.Tail.TailHyp (chiZeroConfig χ hχ h1) P T A₀ C₁",
+   "cls": "not read",
+   "why": "the rule`s binder pattern reads hypothesis binders named h…; this one is named H"
+  },
+  {
+   "kind": "implicit",
+   "name": "κ",
+   "type": "ℝ",
+   "cls": "object",
+   "why": "an implicit binder: an object of the statement, not a hypothesis the rule reads"
+  },
+  {
+   "kind": "explicit",
+   "name": "hκ",
+   "type": "0 ≤ κ",
+   "cls": "domain condition",
+   "why": "the rule`s domain case holds (DOMAIN, a split, a class predicate, a restriction on a bound variable)"
+  },
+  {
+   "kind": "explicit",
+   "name": "hM",
+   "type": "(↑κ • (chiZeroConfig χ hχ h1).Ez P T).IsHermitian",
+   "cls": "premise",
+   "why": "a Prop the criterion names in none of its domain conditions (membership, non-membership, non-emptiness, finiteness; support, parity, smoothness, continuity, integrability; a real`s positivity; a natural`s bound)"
+  }
+ ],
+ "dropped": [
+  "hM"
+ ],
+ "binder": "hM",
+ "binder_class": "premise",
+ "ruled": "INTERFACES",
+ "rule_now": [
+  "INTERFACES",
+  "hM : (↑κ • (chiZeroConfig χ hχ h1).Ez P T).IsHermitian"
+ ],
+ "table": "INTERFACES",
+ "provenance": "rule-elab",
+ "stands": true
+}

@@ -1,0 +1,16 @@
+b636 -- tools/test_elab_reader_b634.py RUN AND COUNTED (2026-10-07T14:22:58Z); exit 0
+
+  SIDEExplicitFormula/PlattRung: free memory before the call 4018 MB (hold 2560); 5 names
+  the call: started True ; exit 0 ; 24 s ; free before 4018 MB ; lowest 1857 MB
+  (1) rh_upto: a def, one explicit binder T : ℝ, the conclusion Prop (read def [{'kind': 'explicit', 'name': 'T', 'type': 'ℝ'}] Prop) PASS
+  (2) rh_upto_platt: a theorem, explicit hP on PlattTrudgianHeight, the conclusion rh_upto (read [('hP', 'PlattTrudgianHeight plattTrudgianT')] rh_upto plattTrudgianT) PASS
+  (3) Nat.add_comm: explicit n and m of ℕ, the conclusion n + m = m + n (read [('n', 'ℕ'), ('m', 'ℕ')] n + m = m + n) PASS
+  (4) a planted arrow: HEADER 1 of TOTAL 2, the arrow kept in the conclusion (read 1 of 2, n = n → n = n)  PASS
+  (5) an absent name prints MISSING                                                                        PASS
+  (6) the namespaces opened: (2)`s binder printed without its prefix                                       PASS
+  SIDEStructuralErrorCorrection/Basic: free memory before the call 4133 MB (hold 2560); 1 names
+  the kernel`s call: started True ; exit 0 ; 283 s ; free before 4133 MB ; in D:/SIDE-structural-error-correction
+  (7) SIDE-structural-error-correction`s d_eff_eq_five: a theorem, no binder, the conclusion d_eff = 5 (read theorem 0 of 0, d_eff = 5) PASS
+### ### **7 of 7 cases as wanted -- PASS**
+
+### CASES : 7 ; PASSING : 7 ; FAILING : 0   ### counted by the numbered case pattern
