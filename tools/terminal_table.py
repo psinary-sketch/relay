@@ -347,6 +347,12 @@ ELAB_TYPES = os.path.join(D, 'elab_types.txt')
 RETIRE_FILE = os.path.join(D, 'table_retire.json')
 REPOINT_FILE = os.path.join(D, 'table_repoint.json')
 KERNEL_ROOTS = ('SIDEExplicitFormula', 'Zeta23', 'Lc', 'Hadamard', 'FunctionsOfOneComplexVariable')
+# ### ### **b636, (R246)(4): THE ELABORATED READING EXTENDED TO SIDE-structural-error-correction.** Each kernel the reader has read has its
+# ### types bank and its module roots; a row of such a kernel no ledger cell grades takes the rule's grade of its elaborated type, provenance
+# ### `rule-elab` where the textual reading differs or defers, else `rule`, as for the explicit-formula kernel. Its bank is the reader's own
+# ### at relay data/b636_elab_sec.txt (tools/b634_elab.py --kernel SIDE-structural-error-correction, at v0.2.2 = 6bf19ab).
+ELAB_BANKS = {ELAB_KERNEL: ELAB_TYPES, 'SIDE-structural-error-correction': os.path.join(D, 'b636_elab_sec.txt')}
+ELAB_ROOTS = {ELAB_KERNEL: KERNEL_ROOTS, 'SIDE-structural-error-correction': ('SIDEStructuralErrorCorrection',)}
 _ELAB = {}
 
 
@@ -423,13 +429,18 @@ def repoint_and_retire(name, pop, rmap=None, rset=None):
     return pop, moved, gone
 
 
-def provenance(rows, base, elab_path=None):
-    """### mark every row cell, rule, rule-elab or none, grading the rule's rows; RETURN the cell rows whose rule reading differs."""
+def provenance(rows, base, elab_path=None, elab_paths=None):
+    """### mark every row cell, rule, rule-elab or none, grading the rule's rows; RETURN the cell rows whose rule reading differs.
+    ### `elab_path` names the explicit-formula kernel's bank (b635); `elab_paths` maps any kernel of ELAB_BANKS to a bank (b636)."""
     differ = []
     for r in rows:
         kind, rr = rule_reading(r.get('statement'), r['name'])
-        er = elab_reading(r['name'], elab_path) if r['repo'] == ELAB_KERNEL else None
-        if er is not None and er[1] and er[1].split('.')[0] not in KERNEL_ROOTS:
+        if r['repo'] in ELAB_BANKS:
+            p = (elab_paths or {}).get(r['repo']) or (elab_path if r['repo'] == ELAB_KERNEL else None) or ELAB_BANKS[r['repo']]
+            er = elab_reading(r['name'], p)
+        else:
+            er = None
+        if er is not None and er[1] and er[1].split('.')[0] not in ELAB_ROOTS.get(r['repo'], KERNEL_ROOTS):
             r['mark'] = 'upstream'
         if r.get('grade_cells'):
             r['provenance'] = 'cell'
