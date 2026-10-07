@@ -550,13 +550,25 @@ def _remote(repo_path, cache):
     return cache[repo_path]
 
 
-def registry_tags():
-    """### every (kernel, tag) pair REGISTRY names on one line: a `SIDE-...` repository and a backticked `vN.N[.N]` tag."""
-    t = io.open(os.path.join(PP, 'REGISTRY.md'), encoding='utf-8').read().replace(chr(13), '')
+# ### ### **b636, (R246)(2)(iii): THE TAG MATCHER READS THE REGISTRY'S TAG FORM ALONE AND NOTHING IN PROSE.** ### b635's matcher took every
+# ### backticked vN.N[.N] on a one-kernel line as a cited tag and read REGISTRY :705's prose ("`ab6f269` prices the `v0.5` matching-
+# ### certificate target") as a SIDE-window tag. The REGISTRY's tag form, read off its tag lines: the version bound to a commit (`vX` = `sha`,
+# ### = commit / = peeled `sha`, `vX`, HEAD `sha`, `vX`/`sha`), the version after the word tag (tag `vX`), or the version alone in a table
+# ### cell (| `vX` |); emphasis marks between are read through. A version in running text with none of these is prose and no tag.
+# ### tools/test_registry_tags_b636.py is its test, :705's sentence its negative case.
+TAG_FORM = re.compile(r'(?:\btag\s*\**\s*`(v\d+(?:\.\d+){1,2})`'
+                      r'|`(v\d+(?:\.\d+){1,2})`\**\s*(?:=\s*(?:commit\s+|peeled\s+)?|,\s*HEAD\s+|/)\**`[0-9a-f]{7,40}`'
+                      r'|\|\s*\**\s*`(v\d+(?:\.\d+){1,2})`\s*\**\s*\|)')
+
+
+def registry_tags(text=None):
+    """### every (kernel, tag) pair REGISTRY names on one line: a `SIDE-...` repository and a backticked `vN.N[.N]` tag in the REGISTRY's tag
+    ### form (b636, TAG_FORM). `text` given, it is read in place of REGISTRY.md at PLACE-papers' working tree."""
+    t = (text if text is not None else io.open(os.path.join(PP, 'REGISTRY.md'), encoding='utf-8').read()).replace(chr(13), '')
     pairs = set()
     for i, l in enumerate(t.split(NL), 1):
         ks = set(re.findall(r'\b(SIDE-[a-z0-9]+(?:-[a-z0-9]+)*)\b', l))
-        tags = set(re.findall(r'`(v\d+(?:\.\d+){1,2})`', l))
+        tags = set(next(x for x in m.groups() if x) for m in TAG_FORM.finditer(l))
         if len(ks) == 1 and tags:
             k = ks.pop()
             for tg in tags:
