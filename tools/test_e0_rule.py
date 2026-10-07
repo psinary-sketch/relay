@@ -39,6 +39,12 @@
 ###   (21) Alternates restricting the quantified s reads DERIVES;
 ###   (22) a planted unlisted predicate on a quantified variable reads PREDICATE-UNLISTED, the same name on a fixed object still
 ###       INTERFACES, and a met name (LiLimitExchange) on a quantified variable still INTERFACES.
+### b635, (R245)(2) -- the textual rule's three repairs, a case each:
+###   (23) a conclusion written as a type_of% term reads DEFERRED (the elaborated type is the statement), a plain conclusion beside it not;
+###   (24) a hypothesis binder nested two parentheses deep is read (ZerosBound's hfAnalytic form, a premise on AnalyticOnNhd), and one
+###       nested one deep still is;
+###   (25) a class-membership binder under its qualified name with its default measure reads as a domain condition
+###       (MeasureTheory.Integrable h MeasureTheory.volume), as the bare name does.
 ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
 ### when none is given), their absolute paths printed; they are read as text and never built.
 ### Usage: python tools/test_e0_rule.py [planted-directory]
@@ -188,6 +194,17 @@ def main():
     c22 = E0.grade('{n : ℕ} (hX : LiLimitExchange n) : Q n', 'theorem')
     want('(22) a planted unlisted predicate reads %s on %s; on a fixed object %s; a met name %s' % (a22[0], a22[1], b22[0], c22[0]),
          a22[0] == 'PREDICATE-UNLISTED' and a22[1] == 'hU : PlantedUnmet f' and b22[0] == 'INTERFACES' and c22[0] == 'INTERFACES')
+    a23 = E0.grade('(χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) : type_of% (@Zeta23.Tail.norm_uvec_le (chiZeroConfig χ hχ))', 'theorem')
+    b23 = E0.grade('(n : ℕ) : n + 0 = n', 'theorem')
+    want('(23) a type_of%% conclusion reads %s; a plain conclusion %s' % (a23[0], b23[0]), a23[0] == 'DEFERRED' and b23[0] == 'DERIVES')
+    a24 = E0.grade('{f : ℂ → ℂ} (hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall (0 : ℂ) 1)) : f 0 = 1', 'theorem')
+    b24 = E0.grade('{f : ℂ → ℂ} (hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall 0 1)) : f 0 = 1', 'theorem')
+    want('(24) a binder nested two deep read %s on %s; one deep %s' % (a24[0], a24[1], b24[0]),
+         a24[0] == 'INTERFACES' and a24[1].startswith('hfAnalytic : AnalyticOnNhd') and b24[0] == 'INTERFACES')
+    a25 = E0.grade('(h : ℝ → ℂ) (L : ℝ) (hi : MeasureTheory.Integrable h MeasureTheory.volume) : Q h', 'theorem')
+    b25 = E0.grade('(h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) : Q h', 'theorem')
+    want('(25) the qualified class name with its default measure reads %s; the bare name %s' % (a25[0], b25[0]),
+         a25[0] == 'DERIVES' and b25[0] == 'DERIVES')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

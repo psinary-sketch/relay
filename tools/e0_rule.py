@@ -70,7 +70,7 @@ SPLITS = [
                     'NumberTheory/DirichletCharacter/Basic.lean :538)'),
 ]
 
-BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\([^()]*\)[^()]*)*)\)')
+BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\((?:[^()]|\([^()]*\))*\)[^()]*)*)\)')   # ### b635, (R245)(2): two levels of nesting
 
 # ### ### **(R180)(2)(f), b570: THE CLASS-MEMBERSHIP CLAUSE.** *A binder that restricts a variable to the class the
 # ### statement is about -- the test-function class EF_lit quantifies over (smoothness, compact support, IsCompact of the
@@ -264,7 +264,8 @@ def alpha(t):
 # ### Its occasion: the 33 page nodes whose ledger grade differed from the rule's read at b624 (relay data/b624_e0_nodes.txt),
 # ### classed binder by binder at b625 (relay data/b625_e0_classes.txt).
 INSTANCE = re.compile(r'\[(?:\s*(\w+)\s*:)?\s*(Fact\b[^\[\]]*(?:\[[^\[\]]*\][^\[\]]*)*)\]')
-CLASS_PREDS_B625 = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact|Continuous|Integrable|Differentiable)\b.*?\s([^\W\d][\w\'₀-₉]*)\s*$')
+CLASS_PREDS_B625 = re.compile(r'^\s*(?:[\w\']+\.)*(?:ContDiff|HasCompactSupport|IsCompact|Continuous|Integrable|Differentiable)\b.*?\s'
+                              r'([^\W\d][\w\'₀-₉]*)(?:\s+(?:MeasureTheory\.)?volume)?\s*$')   # ### b635, (R245)(2): the qualified name and its default measure
 SUPPORT = re.compile(r'^\s*(?:Function\.support|tsupport)\s+([^\W\d][\w\'₀-₉]*)\s*⊆')
 RESTRICTIONS = [
     dict(head='admissible', where='SIDE-explicit-formula v0.20 = 914c413, SIDEExplicitFormula/Registers.lean :38',
@@ -453,6 +454,8 @@ def grade(head, kind):
     if kind == 'def':
         return 'DEF', '', []
     head = statement_only(head)
+    if re.match(r'^\s*type_of%', conclusion(head) or ''):   # ### b635, (R245)(2): the statement is the elaborated type
+        return 'DEFERRED', 'the conclusion is a type_of% term; the elaborated type is the statement', []
     spans = exist_spans(head)
     binders = [m.groups() for m in BINDER.finditer(head) if not any(a <= m.start() < b for a, b in spans)]
     binders = [(b, t) for b, t in binders if not data_binder(t)]
