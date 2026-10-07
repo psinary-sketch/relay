@@ -1,0 +1,73 @@
+b634 -- STEP ZERO, (R244)(2): THE INTERFACES ROWS WITH NO HEAD FOR THE PREMISE TABLE TO NAME, FROM THE TABLE AT relay f34279c8 (2026-10-06T22:17:29Z)
+
+### the table`s INTERFACES rows: 85 ({'rule': 62, 'cell': 23})
+### by provenance and by what the rule`s reading names:
+    cell  every premise named          10
+    cell  no premise named             1
+    cell  no premise the rule reads    12
+    rule  every premise named          55
+    rule  named and unnamed            3
+    rule  no premise named             4
+
+### THE RULING`S FIGURE. (R244)(1)-(2) read 22 rows on unnamed heads as 85 - 63: 85 the table`s INTERFACES rows (62 graded by the rule,
+### 23 by ledger cells), 63 the 42 heads` rows counted once per named premise over the rule rows alone. By rows, the set the
+### ruling`s words define -- INTERFACES on a bare relation or an unnamed predicate, no head for the premise table to name -- is 20:
+### the rows whose rule reading carries a premise with no named head, and the ledger-graded rows on which the rule reads no premise.
+### 5 of them are in SIDE-explicit-formula, the act`s scope; the rest are in kernels (R244)(4) leaves to later acts.
+
+  U01 LATER     cell  SIDE-effects             EDifficultyTop :: table INTERFACES, rule DEF :: no premise the rule reads
+        statement: def EDifficultyTop (e : Evidence) (typeI_discharged : Prop) : Prop
+  U02 IN-SCOPE  cell  SIDE-explicit-formula    Register5_output_HilbertPolya :: table INTERFACES, rule DEF :: no premise the rule reads
+        statement: def Register5_output_HilbertPolya : Prop
+  U03 IN-SCOPE  cell  SIDE-explicit-formula    SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem h2_sign_chi_iff_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ ↔ GRH_chi χ
+  U04 IN-SCOPE  cell  SIDE-explicit-formula    SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem h2_sign_chi_imp_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ → GRH_chi χ
+  U05 IN-SCOPE  cell  SIDE-explicit-formula    SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re :: table INTERFACES, rule INTERFACES :: no premise named
+        h1 : ∀ C ∈ sevenClasses, C Phi  -> unnamed: a variable the statement binds
+        statement: theorem register3_of_one_lt_re (h1 : ∀ C ∈ sevenClasses, C Phi) : ∀ s : ℂ, 1 < s.re → Register3_totalityThroughPlaces s
+  U06 IN-SCOPE  rule  SIDE-explicit-formula    Zeta23.Analytic.rectangleIntegral'_mul_logDeriv :: table INTERFACES, rule INTERFACES :: named and unnamed
+        hf : AnalyticOnNhd ℂ f (Rectangle z w)  -> AnalyticOnNhd
+        hg : AnalyticOnNhd ℂ g (Rectangle z w)  -> AnalyticOnNhd
+        hZsub : (Z : Set ℂ) ⊆ Rectangle z w  -> unnamed: a bare relation
+        statement: theorem rectangleIntegral'_mul_logDeriv {f g : ℂ → ℂ} {z w : ℂ} (hre : z.re ≤ w.re) (him : z.im ≤ w.im) (hf : AnalyticOnNhd ℂ f (Rectangle z w)) (hg : AnalyticOnNhd ℂ g (Rectangle z w)) (hborder : ∀ s ∈ RectangleBorder z w, f s ≠ 0) (Z : Finset ℂ) (hZ : ∀ s ∈ Rectangle z w, f s = 0 ↔ s ∈ Z) (hZsub : (Z : Set ℂ) ⊆ Rectangle z w) : RectangleIntegral' (fun s => g s * logDeriv f s) z w = ∑ ρ ∈ Z, (ana
+  U07 LATER     cell  SIDE-grh-transfer        SIDEGRHTransfer.grh_structural_exhaustiveness_proved :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem grh_structural_exhaustiveness_proved {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) : GRHStructuralExhaustiveness χ χbar
+  U08 LATER     rule  SIDE-grh-transfer        SIDEGRHTransfer.twisted_balance_at_half :: table INTERFACES, rule INTERFACES :: named and unnamed
+        hp : Nat.Prime p  -> Prime
+        hpn : ¬ p ∣ n  -> unnamed: a bare relation
+        statement: theorem twisted_balance_at_half {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n) : ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 / 2 : ℝ)) = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - 1 / 2 : ℝ))
+  U09 LATER     rule  SIDE-grh-transfer        SIDEGRHTransfer.twisted_balance_at_unramified_prime :: table INTERFACES, rule INTERFACES :: named and unnamed
+        hp : Nat.Prime p  -> Prime
+        hpn : ¬ p ∣ n  -> unnamed: a bare relation
+        statement: theorem twisted_balance_at_unramified_prime {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n) (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n) (s : ℝ) : ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-s) = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - s)) ↔ s = 1 / 2
+  U10 LATER     cell  SIDE-kernel              ConservationHypothesis :: table INTERFACES, rule DEF :: no premise the rule reads
+        statement: def ConservationHypothesis : Prop
+  U11 LATER     rule  SIDE-kernel              InvarianceBarrier.derivability_barrier :: table INTERFACES, rule INTERFACES :: no premise named
+        h_agree : agree x y  -> unnamed: a variable the statement binds
+        h_fail : ¬ P y  -> unnamed: a variable the statement binds
+        statement: theorem derivability_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_fail : ¬ P y) : ¬ Derives agree P x
+  U12 LATER     rule  SIDE-kernel              InvarianceBarrier.invariance_barrier :: table INTERFACES, rule INTERFACES :: no premise named
+        h_agree : agree x y  -> unnamed: a variable the statement binds
+        h_diverge : ¬ (P x ↔ P y)  -> unnamed: a variable the statement binds
+        statement: theorem invariance_barrier {agree : α → α → Prop} {P : α → Prop} {x y : α} (h_agree : agree x y) (h_diverge : ¬ (P x ↔ P y)) : ¬ DeterminedBy agree P
+  U13 LATER     cell  SIDE-kernel              silence_universal :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem silence_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) (h_univ : I.is_universal) : I.kappa_zero
+  U14 LATER     cell  SIDE-lv-conservation     Register5_output_HilbertPolya :: table INTERFACES, rule DEF :: no premise the rule reads
+        statement: def Register5_output_HilbertPolya : Prop
+  U15 LATER     cell  SIDE-lv-conservation     RegisterPentagon.certifiedInput_not_zeroRealizing :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem certifiedInput_not_zeroRealizing (nontrivialZeroInStrip : NontrivialZeroExistsInStrip) : ¬ RealizesXiZeros certifiedInputSpectrum
+  U16 LATER     rule  SIDE-lv-conservation     T3.T3b_joint_witness_gives_combinations_exclude :: table INTERFACES, rule INTERFACES :: no premise named
+        hJoint : ∀ C ∈ 𝒞, C Φ  -> unnamed: a variable the statement binds
+        statement: theorem T3b_joint_witness_gives_combinations_exclude (𝒞 : Set Coupling) (s : ℂ) (Φ : ℝ → ℂ) (hJoint : ∀ C ∈ 𝒞, C Φ) (hNonzero : mellin Φ (s / 2) ≠ 0) : CombinationsExclude 𝒞 s
+  U17 LATER     rule  SIDE-lv-conservation     T3.T3prime_shared_witness :: table INTERFACES, rule INTERFACES :: no premise named
+        h1 : ∀ C ∈ 𝒞, C Phi  -> unnamed: a variable the statement binds
+        statement: theorem T3prime_shared_witness (𝒞 : Set Coupling) (s : ℂ) (h1 : ∀ C ∈ 𝒞, C Phi) (h2 : mellin Phi (s / 2) ≠ 0) : ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+  U18 LATER     cell  SIDE-lv-conservation     ZeroActingPairing :: table INTERFACES, rule DEF :: no premise the rule reads
+        statement: structure ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop where /-- (1) **zero-acting** — the pairing's spectrum realizes the ξ-zeros: the R5-output schema (a positive-definite symmetric pairing, a self-adjoint operator, and a zero-realizing diagonal). DISCLAIMED as an existence claim; here a typed requirement of the object. -/ zeroActing : Register5_output_HilbertPolya /-- (2) **positive-on
+  U19 LATER     cell  SIDE-silence-principle   silence_universal :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem silence_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) (h_univ : I.is_universal) : I.kappa_zero
+  U20 LATER     cell  SIDE-simplicity          SIDESimplicity.transversal_generic_empty :: table INTERFACES, rule DERIVES :: no premise the rule reads
+        statement: theorem transversal_generic_empty (curveDim obstrCodim : ℤ) (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) : curveDim - obstrCodim < 0
+
+### ### **ROWS IN THE SET : 20 ; IN SCOPE (SIDE-explicit-formula) : 5 ; RULE ROWS AMONG THE INTERFACES : 62.**

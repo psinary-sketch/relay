@@ -1,0 +1,46 @@
+b634 -- COMPONENT 4: THE SEAT'S HAND-READ OF EVERY DISAGREEMENT AND EVERY IN-SCOPE UNNAMED ROW, BESIDE THE RECORD TOOL'S CLASSES (2026-10-06)
+
+### The record tool is sealed; its classes stand banked (data/b634_gate_disagreements.txt, data/b634_unnamed_read.txt). Every one of
+### the twelve disagreements and the five in-scope unnamed rows was read by hand against its elaborated header, its textual statement and
+### the module's source at 8c51431. Where the hand-read differs from the tool, both are printed and the tool's predicate named.
+
+### THE TWELVE DISAGREEMENTS (textual DERIVES in all twelve):
+  ### the tool: auto-bound implicit 9 ; notation or coercion 3 ; section variable, header cut, other 0.
+  ### the hand-read: notation or coercion 11 ; other 1.
+  (1)-(8) SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit, chi_EF_prop_EF_of_lit, chi_Tail_eventually_tailInputs,
+          chi_Tail_norm_sq_uvec_le, chi_Tail_norm_uvec_le, chi_ZeroConfig_finsum_mult_mono, chi_ZeroConfig_ncard_le_finsum_mult,
+          chi_ZeroConfig_ncard_mono -- elaborated INTERFACES (one PREDICATE-UNLISTED).
+          TOOL: auto-bound implicit, on N. HAND-READ: notation or coercion. Each statement's conclusion is the term elaborator
+          `type_of% (@Zeta23.… (chiZeroConfig χ hχ h1))`, which elaborates to the target lemma's own type: its hypotheses (hEF, hP,
+          hst, ht, hs, hL, hT, hC₁, hdecay, …) are binders of the elaborated declaration and invisible in the text. N is no
+          auto-bound implicit: `variable {N : ℕ} [NeZero N]` binds it (SIDEExplicitFormula/Chi/Generic.lean :62), a section variable
+          that grades nothing here. The tool's auto-bound test does not exclude the module's section variables (defect).
+  (9)     ZerosBound -- elaborated INTERFACES on hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall 0 1).
+          TOOL: auto-bound implicit, on B, r, R, f. HAND-READ: notation or coercion. The textual binder pattern admits one level of
+          nested parentheses; hfAnalytic's type, `AnalyticOnNhd ℂ f (Metric.closedBall (0 : ℂ) 1)`, nests two, so the textual
+          reading drops the binder altogether; the elaborated print drops the ascription `(0 : ℂ)` and the binder is read, a premise
+          on AnalyticOnNhd. B, r, R and f are bound by the text's group `{B r R : ℝ} {f : ℂ → ℂ}`; the tool's bound-name reader
+          splits the header at its first " : " and so reads no group (defect). The elaborated reading is the faithful one here.
+  (10)-(11) SIDEExplicitFormula.B321.paperFT_growth, paperFT_growth_at -- elaborated INTERFACES on hi.
+          TOOL and HAND-READ: notation or coercion. The text's `Integrable h` prints elaborated as
+          `MeasureTheory.Integrable h MeasureTheory.volume`; the rule's class-membership pattern is anchored at the bare name and
+          misses the qualified one with its default measure shown.
+  (12)    Finset -- elaborated DEF.
+          TOOL: notation or coercion. HAND-READ: other. The table's row is named `Finset`, a namespace, while its statement is the
+          lemma Finset.Ioc_eq_Ico; the reader read the constant the name names -- the type Finset -- a definition. The difference is
+          the table's name for the row, not the elaboration.
+
+### THE FIVE UNNAMED ROWS IN SCOPE (H68d's letter: an elaborated head a named premise, a domain condition or a data binder would
+### classify). THE TOOL counts a row classified when ANY binder of it classifies: 4 of 5. THE HAND-READ reads the row's own unnamed
+### head:
+  Register5_output_HilbertPolya (cell INTERFACES; a def with no binder) -- no head to classify. NOT CLASSIFIED (tool: not).
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi (cell INTERFACES; the rule reads no premise) -- every elaborated binder data or a
+      domain condition: N data, the instance NeZero N a domain condition by clause (i) (the tool prints it a named premise),
+      χ data, hχ and h1 domain conditions. CLASSIFIED (tool: classified).
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi -- as the row above. CLASSIFIED (tool: classified).
+  SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re (cell INTERFACES) -- its unnamed head h1 : ∀ C ∈ sevenClasses, C Phi stays
+      unnamed elaborated (C the statement's own bound variable). NOT CLASSIFIED (tool: classified, by its data binder s).
+  Zeta23.Analytic.rectangleIntegral'_mul_logDeriv (rule INTERFACES) -- its unnamed head hZsub : ↑Z ⊆ z.Rectangle w stays a bare
+      relation elaborated. NOT CLASSIFIED (tool: classified, by its other binders).
+  ### ### **HAND-READ: 2 OF 5 CLASSIFIED -- H68d REFUTED (half is 2.5). THE TOOL: 4 OF 5 -- HOLDS. The tool's predicate (an elaborated
+  ### head classified when any binder classifies) does not read the unnamed head the hypothesis names (defect). N4 refuted either way.**

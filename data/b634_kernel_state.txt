@@ -1,0 +1,145 @@
+b634 -- COMPONENT 2: THE KERNEL`S STATE, SIDE-explicit-formula AT v0.25 = 8c51431 (2026-10-06T22:45:58Z)
+
+### checkout HEAD 8c51431ada77 ; at the pin True ; tracked changes NONE
+### modules at the pin: 126 ; oleans present 125 ; absent 1 ['SIDEExplicitFormula']
+### `lake build --no-build` (compiles nothing): exit 3 in 275 s ; its last lines:
+    warning: SIDEExplicitFormula/Schema/Family.lean:230:0: automatically included section variable(s) unused in theorem `SIDEExplicitFormula.Schema.Family.gammaBracket_conductor`:
+      [NeZero q]
+    consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+      omit [NeZero q] in theorem ...
+    
+    Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+    ✖ [3995/3996] Building SIDEExplicitFormula.Schema.Dedekind
+    error: target is out-of-date and needs to be rebuilt
+    Some required targets logged failures:
+    - SIDEExplicitFormula.Doubling
+    - SIDEExplicitFormula.SaltCheckProduct
+    - SIDEExplicitFormula.Schema.Dedekind
+
+### PER MODULE:
+    ABSENT   SIDEExplicitFormula
+    present  SIDEExplicitFormula/B321Identity
+    present  SIDEExplicitFormula/Chi/Contour
+    present  SIDEExplicitFormula/Chi/CountByIntegral
+    present  SIDEExplicitFormula/Chi/CriterionConverse
+    present  SIDEExplicitFormula/Chi/CriterionForward
+    present  SIDEExplicitFormula/Chi/FullLine
+    present  SIDEExplicitFormula/Chi/FullLineAssembly
+    present  SIDEExplicitFormula/Chi/GammaWide
+    present  SIDEExplicitFormula/Chi/Generic
+    present  SIDEExplicitFormula/Chi/GoodHeights
+    present  SIDEExplicitFormula/Chi/Horizontal
+    present  SIDEExplicitFormula/Chi/Landau
+    present  SIDEExplicitFormula/Chi/LocalCount
+    present  SIDEExplicitFormula/Chi/Main
+    present  SIDEExplicitFormula/Chi/Statement
+    present  SIDEExplicitFormula/Chi/VerticalLine
+    present  SIDEExplicitFormula/Chi/XiLogDeriv
+    present  SIDEExplicitFormula/Chi/ZeroConfig
+    present  SIDEExplicitFormula/Chi/ZeroSumLimit
+    present  SIDEExplicitFormula/Chi/ZeroSummability
+    present  SIDEExplicitFormula/Chi/ZetaBounds
+    present  SIDEExplicitFormula/Chi/ZetaBoundsStrip
+    present  SIDEExplicitFormula/Chi/ZetaGrowth
+    present  SIDEExplicitFormula/DecayBound
+    present  SIDEExplicitFormula/DetectionRegion
+    present  SIDEExplicitFormula/Doubling
+    present  SIDEExplicitFormula/GRHWeil
+    present  SIDEExplicitFormula/GrowthBound
+    present  SIDEExplicitFormula/H2Bridge
+    present  SIDEExplicitFormula/H2Sign
+    present  SIDEExplicitFormula/Keiper
+    present  SIDEExplicitFormula/KeiperBounds
+    present  SIDEExplicitFormula/KeiperSign
+    present  SIDEExplicitFormula/LiCriterionBridge
+    present  SIDEExplicitFormula/LiWeil
+    present  SIDEExplicitFormula/LiWeilExchange
+    present  SIDEExplicitFormula/LiWeilSym
+    present  SIDEExplicitFormula/NymanBeurling
+    present  SIDEExplicitFormula/PageConverses
+    present  SIDEExplicitFormula/PairTerm
+    present  SIDEExplicitFormula/PlattRung
+    present  SIDEExplicitFormula/PowerLimit
+    present  SIDEExplicitFormula/PowerWindow
+    present  SIDEExplicitFormula/Product
+    present  SIDEExplicitFormula/RHChain
+    present  SIDEExplicitFormula/RegisterDepth
+    present  SIDEExplicitFormula/Registers
+    present  SIDEExplicitFormula/ResidueDischarge
+    present  SIDEExplicitFormula/RestBound
+    present  SIDEExplicitFormula/SaltCheckDoubling
+    present  SIDEExplicitFormula/SaltCheckKeiper
+    present  SIDEExplicitFormula/SaltCheckKeiperSign
+    present  SIDEExplicitFormula/SaltCheckProduct
+    present  SIDEExplicitFormula/SaltCheckSimplicity
+    present  SIDEExplicitFormula/Schema/Config
+    present  SIDEExplicitFormula/Schema/Converse
+    present  SIDEExplicitFormula/Schema/Dedekind
+    present  SIDEExplicitFormula/Schema/Detector
+    present  SIDEExplicitFormula/Schema/Epstein
+    present  SIDEExplicitFormula/Schema/Family
+    present  SIDEExplicitFormula/Schema/Instances
+    present  SIDEExplicitFormula/Schema/PlateauRamp
+    present  SIDEExplicitFormula/Schema/SaltCheckEpstein
+    present  SIDEExplicitFormula/Schema/SaltCheckFamily
+    present  SIDEExplicitFormula/Schema/SaltCheckPlateauRamp
+    present  SIDEExplicitFormula/Seam
+    present  SIDEExplicitFormula/Simplicity
+    present  SIDEExplicitFormula/TwoPropertyWindow
+    present  Zeta23/Analytic/RectangleLogDeriv
+    present  Zeta23/Analytic/Stirling
+    present  Zeta23/Assembly/Inputs
+    present  Zeta23/Defs
+    present  Zeta23/Defs/Counting
+    present  Zeta23/ExplicitFormula
+    present  Zeta23/ExplicitFormula/Bridge
+    present  Zeta23/FromPNTPlus/Auxiliary
+    present  Zeta23/FromPNTPlus/EulerMaclaurin
+    present  Zeta23/FromPNTPlus/Fourier
+    present  Zeta23/FromPNTPlus/Mathlib/Analysis/SpecialFunctions/Log/Basic
+    present  Zeta23/FromPNTPlus/Rectangle
+    present  Zeta23/FromPNTPlus/ResidueCalcOnRectangles
+    present  Zeta23/FromPNTPlus/Sobolev
+    present  Zeta23/FromPNTPlus/StrongPNTPrefix
+    present  Zeta23/FromPNTPlus/Tactic/AdditiveCombination
+    present  Zeta23/FromPNTPlus/ZetaBounds
+    present  Zeta23/GammaFacts
+    present  Zeta23/GammaFacts/Mu
+    present  Zeta23/GammaFacts/Series
+    present  Zeta23/GammaFacts/StirlingVert
+    present  Zeta23/Hypotheses
+    present  Zeta23/LinAlg
+    present  Zeta23/LinAlg/HermitianPosPart
+    present  Zeta23/LinAlg/Inertia
+    present  Zeta23/LinAlg/PosIndex
+    present  Zeta23/LinAlg/RankTrace
+    present  Zeta23/LinAlg/Sylvester
+    present  Zeta23/LinAlg/VonNeumann
+    present  Zeta23/LinAlg/Weyl
+    present  Zeta23/Poisson/PaperFT
+    present  Zeta23/Prelude/InstancePriorities
+    present  Zeta23/RvM/CountByIntegral
+    present  Zeta23/RvM/Halving
+    present  Zeta23/RvM/LocalCount
+    present  Zeta23/RvM/ZetaGrowth
+    present  Zeta23/Statement
+    present  Zeta23/Statement/Seam
+    present  Zeta23/Statement/SeamClosed
+    present  Zeta23/Tail
+    present  Zeta23/Tail/Basic
+    present  Zeta23/Tail/Count
+    present  Zeta23/Tail/Grid
+    present  Zeta23/Tail/RankOne
+    present  Zeta23/WeilEF/Contour
+    present  Zeta23/WeilEF/FullLine
+    present  Zeta23/WeilEF/FullLineAssembly
+    present  Zeta23/WeilEF/GammaRBracket
+    present  Zeta23/WeilEF/GoodHeights
+    present  Zeta23/WeilEF/Horizontal
+    present  Zeta23/WeilEF/Landau
+    present  Zeta23/WeilEF/Main
+    present  Zeta23/WeilEF/VerticalLine
+    present  Zeta23/WeilEF/XiLogDeriv
+    present  Zeta23/WeilEF/ZeroSumLimit
+    present  Zeta23/WeilEF/ZeroSummability
+    present  Zeta23/ZetaReflect

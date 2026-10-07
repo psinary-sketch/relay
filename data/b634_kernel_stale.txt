@@ -1,0 +1,21 @@
+b634 -- COMPONENT 2: LAKE'S OUT-OF-DATE READING, READ AGAINST THE OLEANS' TIMES AND THE SOURCES' LAST COMMITS (2026-10-06)
+
+### `lake build --no-build` at SIDE-explicit-formula 8c51431 (data/b634_kernel_state.txt) exits 3: "target is out-of-date and needs to be
+### rebuilt", the required targets logging failures SIDEExplicitFormula.Doubling, SIDEExplicitFormula.SaltCheckProduct and
+### SIDEExplicitFormula.Schema.Dedekind. Every module's olean is present but the aggregator's, which holds no declaration.
+
+  module                                  olean written (UTC)      trace written (UTC)      source's last commit              table rows
+  SIDEExplicitFormula/Doubling            2026-10-03T00:58:33Z     2026-10-03T00:58:34Z     2b8abf5 2026-10-03T01:00:25Z      12
+  SIDEExplicitFormula/SaltCheckProduct    2026-10-02T23:25:29Z     2026-10-02T23:25:30Z     1dd5cd7 2026-10-02T23:27:10Z       7
+  SIDEExplicitFormula/Schema/Dedekind     2026-10-06T05:13:21Z     (no trace)               8c51431 2026-10-06T05:14:29Z       5
+
+### THE READING. Each olean was written within two minutes before the commit that last changed its source -- built, then committed --
+### so each holds the source as committed. Dedekind's olean has no lake trace: b631 built it by the direct route of OPEN_TRAILS :13167,
+### whose standing line leaves "lake's trace for the module rebuilt at a later act". Doubling's and SaltCheckProduct's traces are lake's
+### own; lake reads them out of date most plausibly through an import's trace changed since (not established here: lake's source hash is
+### its own and is not recomputed by the seat). Modules importing the three -- SIDEExplicitFormula/SaltCheckDoubling.lean and
+### SIDEExplicitFormula/Schema/SaltCheckFamily.lean, beside the AxiomCheck files -- are not reported by lake, its jobs stopping at the
+### first failure, and may read out of date for the same cause.
+### ### NONE IS ABSENT, so none is built: the face (reading (vi), section (W)) builds only an absent olean where a table row lives. The
+### elaborated reader imports the oleans as they stand; the 24 table rows in the three modules are read from oleans written from their
+### committed sources. Lake's traces for them are carried to the author.

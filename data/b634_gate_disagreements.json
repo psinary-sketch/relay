@@ -1,0 +1,141 @@
+{
+ "at": "2026-10-06T23:54:45Z",
+ "disagreements": [
+  {
+   "name": "Finset",
+   "provenance": "cell",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "DEF",
+   "cls": "notation or coercion",
+   "why": "the same hypothesis binders, their types printed differently: ",
+   "header": "(α : Type u_4) : Type u_4",
+   "statement": "lemma Finset.Ioc_eq_Ico (M N : ℕ) : Finset.Ioc N M = Finset.Ico (N + 1) (M + 1)"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_growth",
+   "provenance": "cell",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "notation or coercion",
+   "why": "the same hypothesis binders, their types printed differently: hi : Integrable h || MeasureTheory.Integrable h MeasureTheory.volume",
+   "header": "(h : ℝ → ℂ) (L : ℝ) (hi : MeasureTheory.Integrable h MeasureTheory.volume) (hs : Function.support h ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT h z‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |z.im|)",
+   "statement": "theorem paperFT_growth (h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L) (z : ℂ) : ‖Zeta23.paperFT h z‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |z.im|)"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.paperFT_growth_at",
+   "provenance": "cell",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "notation or coercion",
+   "why": "the same hypothesis binders, their types printed differently: hi : Integrable h || MeasureTheory.Integrable h MeasureTheory.volume",
+   "header": "(h : ℝ → ℂ) (L : ℝ) (hi : MeasureTheory.Integrable h MeasureTheory.volume) (hs : Function.support h ⊆ Set.Icc (-L) L) (ρ : ℂ) : ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|)",
+   "statement": "theorem paperFT_growth_at (h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) (hs : Function.support h ⊆ Set.Icc (-L) L) (ρ : ℂ) : ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ u, ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|)"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (hEF : Zeta23.EF.EF_lit (chiZeroConfig χ hχ h1)) (hΓ : Zeta23.GammaFacts) : Zeta23.ExplicitFormulaPaper (chiZeroConfig χ hχ h1)",
+   "statement": "theorem chi_EF_explicitFormulaPaper_of_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.EF.explicitFormulaPaper_of_lit (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (hEF : Zeta23.EF.EF_lit (chiZeroConfig χ hχ h1)) {L : ℝ} (hL : 0 < L) {f : ℝ → ℂ} {g : ℝ → ℂ} (hf : ContDiff ℝ 2 f) (hg : ContDiff ℝ 2 g) (hfs : tsupport f ⊆ Set.Icc (-(L / 2)) (L / 2)) (hgs : tsupport g ⊆ Set.Icc (-(L / 2)) (L / 2)) (hFk : MeasureTheory.Integrable (FourierTransform.fourier (Zeta23.EF.weilTest f g)) MeasureTheory.volume) (hμ : MeasureTheory.Integrable (fun τ => Zeta23.paperFT (Zeta23.EF.weilTest f g) ↑τ * ↑(Zeta23.mu τ)) MeasureTheory.volume) : (Summable fun ρ => (chiZeroConfig χ hχ h1).Wsummand f g ↑ρ) ∧ MeasureTheory.Integrable (fun τ => Zeta23.paperFT f ↑τ * (starRingEnd ℂ) (Zeta23.paperFT g ↑τ) * ↑(Zeta23.nuX (Real.exp L) τ)) MeasureTheory.volume ∧ (chiZeroConfig χ hχ h1).W f g = ∫ (τ : ℝ), Zeta23.paperFT f ↑τ * (starRingEnd ℂ) (Zeta23.paperFT g ↑τ) * ↑(Zeta23.nuX (Real.exp L) τ)",
+   "statement": "theorem chi_EF_prop_EF_of_lit (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.EF.prop_EF_of_lit (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_tailInputs",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "PREDICATE-UNLISTED",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (P : Zeta23.Params) (hP : P.Valid) {A₀ : ℝ} (hA₀ : 1 ≤ A₀) (hloc : ∀ (t : ℝ), ↑((chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)) (C₁ : ℝ → ℝ) (hC₁ : ∀ (T : ℝ), 0 ≤ C₁ T) (hdecay : ∀ᶠ (T : ℝ) in Filter.atTop, ∀ (r y : ℝ), |y| ≤ 1 / 2 → ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ T / ‖↑r - Complex.I * ↑y‖ ^ 2) (ha : ∀ᶠ (T : ℝ) in Filter.atTop, 0 < P.a T) (hconj : ∀ᶠ (T : ℝ) in Filter.atTop, ∀ (z : ℂ), P.phiHat T ((starRingEnd ℂ) z) = (starRingEnd ℂ) (P.phiHat T z)) : ∀ᶠ (T : ℝ) in Filter.atTop, Zeta23.Assembly.TailInputs (chiZeroConfig χ hχ h1) P T (Zeta23.Tail.theta0 A₀ (Real.exp (P.L T / 4) * C₁ T) T)",
+   "statement": "theorem chi_Tail_eventually_tailInputs (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.Tail.eventually_tailInputs (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {P : Zeta23.Params} {T : ℝ} (hT : Zeta23.Tail.T₀ ≤ T) (hL : 2 ≤ P.L T) {C₁ : ℝ} (hC₁ : 0 ≤ C₁) (hdecay : ∀ (r y : ℝ), |y| ≤ 1 / 2 → ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖↑r - Complex.I * ↑y‖ ^ 2) {ρ : ℂ} (hρ : ρ ∈ (chiZeroConfig χ hχ h1).carrier) (htail : Zeta23.Tail.InTail T ρ.im) : ∑ k, ‖Zeta23.Tail.uvec P T ρ k‖ ^ 2 ≤ (Real.exp (P.L T / 4) * C₁) ^ 2 * P.L T * (Zeta23.Tail.distI T ρ.im ^ 3)⁻¹",
+   "statement": "theorem chi_Tail_norm_sq_uvec_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.Tail.norm_sq_uvec_le (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) {P : Zeta23.Params} {T : ℝ} (hL : 0 < P.L T) (hT : 0 < T) {C₁ : ℝ} (hC₁ : 0 ≤ C₁) (hdecay : ∀ (r y : ℝ), |y| ≤ 1 / 2 → ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖↑r - Complex.I * ↑y‖ ^ 2) {ρ : ℂ} (hρ : ρ ∈ (chiZeroConfig χ hχ h1).carrier) (htail : Zeta23.Tail.InTail T ρ.im) (k : Fin (P.d T)) : ‖Zeta23.Tail.uvec P T ρ k‖ ≤ Real.exp (P.L T / 4) * C₁ * (|ρ.im - (T + ↑↑k * (2 * Real.pi / P.L T))| ^ 2)⁻¹",
+   "statement": "theorem chi_Tail_norm_uvec_le (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.Tail.norm_uvec_le (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (T₁ : ℝ) (T₂ : ℝ) {s : Set ℂ} {t : Set ℂ} (hst : s ⊆ t) (ht : t ⊆ (chiZeroConfig χ hχ h1).window T₁ T₂) : ∑ᶠ (ρ : ℂ) (_ : ρ ∈ s), (chiZeroConfig χ hχ h1).mult ρ ≤ ∑ᶠ (ρ : ℂ) (_ : ρ ∈ t), (chiZeroConfig χ hχ h1).mult ρ",
+   "statement": "theorem chi_ZeroConfig_finsum_mult_mono (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.ZeroConfig.finsum_mult_mono (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (T₁ : ℝ) (T₂ : ℝ) {s : Set ℂ} (hs : s ⊆ (chiZeroConfig χ hχ h1).window T₁ T₂) : s.ncard ≤ ∑ᶠ (ρ : ℂ) (_ : ρ ∈ s), (chiZeroConfig χ hχ h1).mult ρ",
+   "statement": "theorem chi_ZeroConfig_ncard_le_finsum_mult (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.ZeroConfig.ncard_le_finsum_mult (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['N'] are bound in the elaborated type and free in the textual header",
+   "header": "{N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) (T₁ : ℝ) (T₂ : ℝ) {s : Set ℂ} {t : Set ℂ} (hst : s ⊆ t) (ht : t ⊆ (chiZeroConfig χ hχ h1).window T₁ T₂) : s.ncard ≤ t.ncard",
+   "statement": "theorem chi_ZeroConfig_ncard_mono (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : type_of% (@Zeta23.ZeroConfig.ncard_mono (chiZeroConfig χ hχ h1))"
+  },
+  {
+   "name": "ZerosBound",
+   "provenance": "rule",
+   "table": "DERIVES",
+   "textual": "DERIVES",
+   "elaborated": "INTERFACES",
+   "cls": "auto-bound implicit",
+   "why": "implicit binders ['B', 'r', 'R', 'f'] are bound in the elaborated type and free in the textual header",
+   "header": "{B : ℝ} {r : ℝ} {R : ℝ} {f : ℂ → ℂ} (r_pos : 0 < r) (r_lt_one : r < 1) (r_lt_R : r < R) (R_lt_one : R < 1) (hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall 0 1)) (hf0_eq_one : f 0 = 1) (finiteZeros : (SetOfZeros 1 f).Finite) (fz_bound : ∀ (z : ℂ), ‖z‖ ≤ R → ‖f z‖ ≤ B) : ↑(∑ ρ ∈ ⋯.toFinset, analyticOrderNatAt f ρ) ≤ 1 / Real.log (R / r) * Real.log B",
+   "statement": "theorem ZerosBound {B r R : ℝ} {f : ℂ → ℂ} (r_pos : 0 < r) (r_lt_one : r < 1) (r_lt_R : r < R) (R_lt_one : R < 1) (hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall (0 : ℂ) 1)) (hf0_eq_one : f 0 = 1) (finiteZeros : (SetOfZeros 1 f).Finite) (fz_bound : ∀ z : ℂ, ‖z‖ ≤ R → ‖f z‖ ≤ B) : ∑ ρ ∈ (finiteSetOfZeros_mono r_lt_one finiteZeros).toFinset, analyticOrderNatAt f ρ ≤ 1 / Real.log (R / r) * Real.log B"
+  }
+ ],
+ "by_class": {
+  "notation or coercion": 3,
+  "auto-bound implicit": 9
+ }
+}

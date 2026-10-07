@@ -1,0 +1,58 @@
+b634 -- COMPONENT 4: THE UNNAMED ROWS READ FROM THEIR ELABORATED BINDERS (2026-10-06T23:54:45Z)
+
+  SIDE-effects / EDifficultyTop -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  Register5_output_HilbertPolya :: cell, table INTERFACES, textual DEF, elaborated DEF
+      conclusion: Prop
+      ### an elaborated head classified: False
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi :: cell, table INTERFACES, textual DERIVES, elaborated DERIVES
+      implicit        N            : ℕ  -> data binder
+      instance        inst✝        : NeZero N  -> named premise: NeZero
+      explicit        χ            : DirichletCharacter ℂ N  -> data binder
+      explicit        hχ           : χ.IsPrimitive  -> domain condition
+      explicit        h1           : χ ≠ 1  -> domain condition
+      conclusion: h2_sign_chi χ ↔ GRH_chi χ
+      ### an elaborated head classified: True
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi :: cell, table INTERFACES, textual DERIVES, elaborated DERIVES
+      implicit        N            : ℕ  -> data binder
+      instance        inst✝        : NeZero N  -> named premise: NeZero
+      explicit        χ            : DirichletCharacter ℂ N  -> data binder
+      explicit        hχ           : χ.IsPrimitive  -> domain condition
+      explicit        h1           : χ ≠ 1  -> domain condition
+      conclusion: h2_sign_chi χ → GRH_chi χ
+      ### an elaborated head classified: True
+  SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re :: cell, table INTERFACES, textual INTERFACES, elaborated INTERFACES
+      explicit        h1           : ∀ C ∈ sevenClasses, C Phi  -> unnamed: a variable the statement binds
+      explicit        s            : ℂ  -> data binder
+      conclusion: 1 < s.re → Register3_totalityThroughPlaces s
+      ### an elaborated head classified: True
+  Zeta23.Analytic.rectangleIntegral'_mul_logDeriv :: rule, table INTERFACES, textual INTERFACES, elaborated INTERFACES
+      implicit        f            : ℂ → ℂ  -> data binder
+      implicit        g            : ℂ → ℂ  -> data binder
+      implicit        z            : ℂ  -> data binder
+      implicit        w            : ℂ  -> data binder
+      explicit        hre          : z.re ≤ w.re  -> domain condition
+      explicit        him          : z.im ≤ w.im  -> domain condition
+      explicit        hf           : AnalyticOnNhd ℂ f (z.Rectangle w)  -> named premise: AnalyticOnNhd
+      explicit        hg           : AnalyticOnNhd ℂ g (z.Rectangle w)  -> named premise: AnalyticOnNhd
+      explicit        hborder      : ∀ s ∈ RectangleBorder z w, f s ≠ 0  -> domain condition
+      explicit        Z            : Finset ℂ  -> named premise: Finset
+      explicit        hZ           : ∀ s ∈ z.Rectangle w, f s = 0 ↔ s ∈ Z  -> domain condition
+      explicit        hZsub        : ↑Z ⊆ z.Rectangle w  -> unnamed: a bare relation
+      conclusion: RectangleIntegral' (fun s => g s * logDeriv f s) z w = ∑ ρ ∈ Z, ↑(analyticOrderNatAt f ρ) * g ρ
+      ### an elaborated head classified: True
+  SIDE-grh-transfer / SIDEGRHTransfer.grh_structural_exhaustiveness_proved -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-grh-transfer / SIDEGRHTransfer.twisted_balance_at_half -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-grh-transfer / SIDEGRHTransfer.twisted_balance_at_unramified_prime -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-kernel / ConservationHypothesis -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-kernel / InvarianceBarrier.derivability_barrier -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-kernel / InvarianceBarrier.invariance_barrier -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-kernel / silence_universal -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-lv-conservation / Register5_output_HilbertPolya -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-lv-conservation / RegisterPentagon.certifiedInput_not_zeroRealizing -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-lv-conservation / T3.T3b_joint_witness_gives_combinations_exclude -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-lv-conservation / T3.T3prime_shared_witness -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-lv-conservation / ZeroActingPairing -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-silence-principle / silence_universal -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+  SIDE-simplicity / SIDESimplicity.transversal_generic_empty -- NOT SCORABLE THIS ACT: its kernel is not elaborated under (R244)(4)
+
+### ### **ROWS 20 ; IN SCOPE 5 ; CLASSIFIED 4 ; NOT SCORABLE THIS ACT 15.**

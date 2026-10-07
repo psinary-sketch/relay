@@ -1,0 +1,326 @@
+{
+ "at": "2026-10-06T22:17:29Z",
+ "interfaces": 85,
+ "decomposition": {
+  "rule / every premise named": 55,
+  "cell / no premise the rule reads": 12,
+  "cell / every premise named": 10,
+  "cell / no premise named": 1,
+  "rule / named and unnamed": 3,
+  "rule / no premise named": 4
+ },
+ "rows": [
+  {
+   "repo": "SIDE-effects",
+   "name": "EDifficultyTop",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DEF",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "def EDifficultyTop (e : Evidence) (typeI_discharged : Prop) : Prop",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "Register5_output_HilbertPolya",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DEF",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "def Register5_output_HilbertPolya : Prop",
+   "in_scope": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem h2_sign_chi_iff_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :\n    h2_sign_chi χ ↔ GRH_chi χ",
+   "in_scope": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem h2_sign_chi_imp_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) :\n    h2_sign_chi χ → GRH_chi χ",
+   "in_scope": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "no premise named",
+   "binders": [
+    {
+     "binder": "h1",
+     "type": "∀ C ∈ sevenClasses, C Phi",
+     "head": null,
+     "why": "a variable the statement binds"
+    }
+   ],
+   "statement": "theorem register3_of_one_lt_re (h1 : ∀ C ∈ sevenClasses, C Phi) :\n    ∀ s : ℂ, 1 < s.re → Register3_totalityThroughPlaces s",
+   "in_scope": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "Zeta23.Analytic.rectangleIntegral'_mul_logDeriv",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "named and unnamed",
+   "binders": [
+    {
+     "binder": "hf",
+     "type": "AnalyticOnNhd ℂ f (Rectangle z w)",
+     "head": "AnalyticOnNhd",
+     "why": null
+    },
+    {
+     "binder": "hg",
+     "type": "AnalyticOnNhd ℂ g (Rectangle z w)",
+     "head": "AnalyticOnNhd",
+     "why": null
+    },
+    {
+     "binder": "hZsub",
+     "type": "(Z : Set ℂ) ⊆ Rectangle z w",
+     "head": null,
+     "why": "a bare relation"
+    }
+   ],
+   "statement": "theorem rectangleIntegral'_mul_logDeriv {f g : ℂ → ℂ} {z w : ℂ} (hre : z.re ≤ w.re)\n    (him : z.im ≤ w.im)\n    (hf : AnalyticOnNhd ℂ f (Rectangle z w)) (hg : AnalyticOnNhd ℂ g (Rectangle z w))\n    (hborder : ∀ s ∈ RectangleBorder z w, f s ≠ 0)\n    (Z : Finset ℂ) (hZ : ∀ s ∈ Rectangle z w, f s = 0 ↔ s ∈ Z) (hZsub : (Z : Set ℂ) ⊆ Rectangle z w) :\n    RectangleIntegral' (fun s => g s * logDeriv f s) z w\n      = ∑ ρ ∈ Z, (analyticOrderNatAt f ρ : ℂ) * g ρ",
+   "in_scope": true
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "name": "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem grh_structural_exhaustiveness_proved\n    {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) :\n    GRHStructuralExhaustiveness χ χbar",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "name": "SIDEGRHTransfer.twisted_balance_at_half",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "named and unnamed",
+   "binders": [
+    {
+     "binder": "hp",
+     "type": "Nat.Prime p",
+     "head": "Prime",
+     "why": null
+    },
+    {
+     "binder": "hpn",
+     "type": "¬ p ∣ n",
+     "head": null,
+     "why": "a bare relation"
+    }
+   ],
+   "statement": "theorem twisted_balance_at_half\n    {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n)\n    (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n) :\n    ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 / 2 : ℝ))\n      = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - 1 / 2 : ℝ))",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-grh-transfer",
+   "name": "SIDEGRHTransfer.twisted_balance_at_unramified_prime",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "named and unnamed",
+   "binders": [
+    {
+     "binder": "hp",
+     "type": "Nat.Prime p",
+     "head": "Prime",
+     "why": null
+    },
+    {
+     "binder": "hpn",
+     "type": "¬ p ∣ n",
+     "head": null,
+     "why": "a bare relation"
+    }
+   ],
+   "statement": "theorem twisted_balance_at_unramified_prime\n    {n : ℕ} [NeZero n] (χ : DirichletCharacter ℂ n)\n    (p : ℕ) (hp : Nat.Prime p) (hpn : ¬ p ∣ n)\n    (s : ℝ) :\n    ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-s)\n      = ‖χ ((p : ZMod n))‖ * (prime_as_real p hp) ^ (-(1 - s))\n    ↔ s = 1 / 2",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "name": "ConservationHypothesis",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DEF",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "def ConservationHypothesis : Prop",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "name": "InvarianceBarrier.derivability_barrier",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "no premise named",
+   "binders": [
+    {
+     "binder": "h_agree",
+     "type": "agree x y",
+     "head": null,
+     "why": "a variable the statement binds"
+    },
+    {
+     "binder": "h_fail",
+     "type": "¬ P y",
+     "head": null,
+     "why": "a variable the statement binds"
+    }
+   ],
+   "statement": "theorem derivability_barrier\n    {agree : α → α → Prop} {P : α → Prop} {x y : α}\n    (h_agree : agree x y) (h_fail : ¬ P y) :\n    ¬ Derives agree P x",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "name": "InvarianceBarrier.invariance_barrier",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "no premise named",
+   "binders": [
+    {
+     "binder": "h_agree",
+     "type": "agree x y",
+     "head": null,
+     "why": "a variable the statement binds"
+    },
+    {
+     "binder": "h_diverge",
+     "type": "¬ (P x ↔ P y)",
+     "head": null,
+     "why": "a variable the statement binds"
+    }
+   ],
+   "statement": "theorem invariance_barrier\n    {agree : α → α → Prop} {P : α → Prop} {x y : α}\n    (h_agree : agree x y) (h_diverge : ¬ (P x ↔ P y)) :\n    ¬ DeterminedBy agree P",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-kernel",
+   "name": "silence_universal",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem silence_universal\n    {C : ConfigurationSpace} {R : Type}\n    (I : Interface C R)\n    (h_univ : I.is_universal) :\n    I.kappa_zero",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "Register5_output_HilbertPolya",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DEF",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "def Register5_output_HilbertPolya : Prop",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "RegisterPentagon.certifiedInput_not_zeroRealizing",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem certifiedInput_not_zeroRealizing\n    (nontrivialZeroInStrip : NontrivialZeroExistsInStrip) :\n    ¬ RealizesXiZeros certifiedInputSpectrum",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "T3.T3b_joint_witness_gives_combinations_exclude",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "no premise named",
+   "binders": [
+    {
+     "binder": "hJoint",
+     "type": "∀ C ∈ 𝒞, C Φ",
+     "head": null,
+     "why": "a variable the statement binds"
+    }
+   ],
+   "statement": "theorem T3b_joint_witness_gives_combinations_exclude\n    (𝒞 : Set Coupling) (s : ℂ) (Φ : ℝ → ℂ)\n    (hJoint : ∀ C ∈ 𝒞, C Φ) (hNonzero : mellin Φ (s / 2) ≠ 0) :\n    CombinationsExclude 𝒞 s",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "T3.T3prime_shared_witness",
+   "provenance": "rule",
+   "table_grade": "INTERFACES",
+   "rule_grade": "INTERFACES",
+   "kind": "no premise named",
+   "binders": [
+    {
+     "binder": "h1",
+     "type": "∀ C ∈ 𝒞, C Phi",
+     "head": null,
+     "why": "a variable the statement binds"
+    }
+   ],
+   "statement": "theorem T3prime_shared_witness\n    (𝒞 : Set Coupling) (s : ℂ)\n    (h1 : ∀ C ∈ 𝒞, C Phi)\n    (h2 : mellin Phi (s / 2) ≠ 0) :\n    ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "ZeroActingPairing",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DEF",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "structure ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop where\n  /-- (1) **zero-acting** — the pairing's spectrum realizes the ξ-zeros: the R5-output schema\n  (a positive-definite symmetric pairing, a self-adjoint operator, and a zero-realizing\n  diagonal). DISCLAIMED as an existence claim; here a typed requirement of the object. -/\n  zeroActing : Register5_output_HilbertPolya\n  /-- (2) **positive-on-FE-even ⟹ the channel inequality** — the Weil-criterion direction as a\n  named premise: a positive pairing on the FE-even (functional-equation-symmetric) test class\n  yields the two-channel inequality `−λ_A ≤ λ_Z`. -/\n  yieldsInequality : Register5_output_HilbertPolya → Register4_channelInequality lam_A lam_Z\n  /-- (3) **Euler-consuming** — the DH-breaking clause (the Epstein test formalized): a valid\n  pairing requires the Euler ledger non-negative, so a *sign-neutral* ledger (Davenport–\n  Heilbronn, period-sum 0) admits none. The requirement, not a theorem. -/\n  eulerConsuming : ∀ m, 0 ≤ ledger m\n  /-- (4) **distinct-from-input** — the certified `{n²}` input spectrum is *not* zero-realizing\n  (`certifiedInput_not_zeroRealizing`): this pairing is not the input spectrum. -/\n  distinctFromInput : ¬ RealizesXiZeros certifiedInputSpectrum",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-silence-principle",
+   "name": "silence_universal",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem silence_universal\n    {C : ConfigurationSpace} {R : Type}\n    (I : Interface C R) (h_univ : I.is_universal) :\n    I.kappa_zero",
+   "in_scope": false
+  },
+  {
+   "repo": "SIDE-simplicity",
+   "name": "SIDESimplicity.transversal_generic_empty",
+   "provenance": "cell",
+   "table_grade": "INTERFACES",
+   "rule_grade": "DERIVES",
+   "kind": "no premise the rule reads",
+   "binders": [],
+   "statement": "theorem transversal_generic_empty (curveDim obstrCodim : ℤ)\n    (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) :\n    curveDim - obstrCodim < 0",
+   "in_scope": false
+  }
+ ]
+}

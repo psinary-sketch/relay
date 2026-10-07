@@ -1,0 +1,13 @@
+b634 -- tools/test_elab_reader_b634.py RUN AND COUNTED (2026-10-06T22:58:14Z); exit 0
+
+  SIDEExplicitFormula/PlattRung: free memory before the call 2777 MB (hold 2560); 5 names
+  the call: started True ; exit 0 ; 462 s ; free before 2777 MB ; lowest 1858 MB
+  (1) rh_upto: a def, one explicit binder T : ℝ, the conclusion Prop (read def [{'kind': 'explicit', 'name': 'T', 'type': 'ℝ'}] Prop) PASS
+  (2) rh_upto_platt: a theorem, explicit hP on PlattTrudgianHeight, the conclusion rh_upto (read [('hP', 'PlattTrudgianHeight plattTrudgianT')] rh_upto plattTrudgianT) PASS
+  (3) Nat.add_comm: explicit n and m of ℕ, the conclusion n + m = m + n (read [('n', 'ℕ'), ('m', 'ℕ')] n + m = m + n) PASS
+  (4) a planted arrow: HEADER 1 of TOTAL 2, the arrow kept in the conclusion (read 1 of 2, n = n → n = n)  PASS
+  (5) an absent name prints MISSING                                                                        PASS
+  (6) the namespaces opened: (2)`s binder printed without its prefix                                       PASS
+### ### **6 of 6 cases as wanted -- PASS**
+
+### CASES : 6 ; PASSING : 6 ; FAILING : 0   ### counted by the numbered case pattern

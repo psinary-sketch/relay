@@ -1,0 +1,20 @@
+b634 -- COMPONENT 2, AFTER THE AUTHOR'S REBUILD: lake build --no-build at 8c51431, 2026-10-06T23:01:56Z
+  omit [NeZero q] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [3995/3996] Building SIDEExplicitFormula.Schema.SaltCheckFamily
+error: target is out-of-date and needs to be rebuilt
+Some required targets logged failures:
+- SIDEExplicitFormula.SaltCheckDoubling
+- SIDEExplicitFormula.Schema.SaltCheckFamily
+### exit 3
+
+### THE READING. The three modules the author's word named are rebuilt by lake on its first call each, no crossing, lake building
+### nothing beside them (data/b634_rebuild.json, data/b634_rebuild.txt: 28 constants old and new, 0 gained, 0 lost, 0 type hashes
+### moved). Lake now reads their importers out of date -- the cascade data/b634_kernel_stale.txt named:
+###   SIDEExplicitFormula/SaltCheckDoubling          olean 2026-10-03T00:59:22Z ; source 2b8abf5 2026-10-03T01:00:25Z ; 3 table rows
+###   SIDEExplicitFormula/Schema/SaltCheckFamily     olean 2026-10-03T04:28:33Z ; source f054ff7 2026-10-03T04:28:59Z ; 4 table rows
+### Each olean was written before the commit that last changed its source, so it holds its committed source; lake reads it out of date
+### only through the imports rebuilt this act, whose declarations and types the comparison reads unmoved. The word's purpose -- no type
+### read from an olean older than its source -- holds for both; its letter names three modules, so these two are not rebuilt. Carried to
+### the author.
