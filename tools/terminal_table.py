@@ -327,16 +327,110 @@ def baseline_keys():
     return set((x['repo'], x['name']) for x in json.loads(r.stdout.decode('utf-8')).get('rows', []))
 
 
-def provenance(rows, base):
-    """### mark every row cell, rule or none, grading the rule's rows; RETURN the cell rows whose rule reading differs."""
+# ### ### **b635, (R245)(2)-(3) AND THE AUTHOR'S TWO ANSWERS BEFORE b635'S SEAL (relay data/b635_author_answers.txt): THE ELABORATED
+# ### READING GRADES SIDE-explicit-formula.** A row of that kernel no ledger cell grades takes the shared rule's grade of its ELABORATED type
+# ### (relay data/elab_types.txt, the reader's bank), the textual reading's where the reader has no type; its provenance reads `rule-elab`
+# ### where the elaborated grade differs from the textual reading or the textual reading defers (a type_of% conclusion), else `rule`. A row
+# ### of the kernel whose declaration the reader found in a module outside the kernel's own roots carries the mark `upstream` beside its
+# ### grade. A name on the re-point map (relay data/table_repoint.json) is read under its new name; a name on the retire list (relay
+# ### data/table_retire.json) is no row. Each entry of either file cites its source.
+ELAB_KERNEL = 'SIDE-explicit-formula'
+ELAB_TYPES = os.path.join(D, 'elab_types.txt')
+RETIRE_FILE = os.path.join(D, 'table_retire.json')
+REPOINT_FILE = os.path.join(D, 'table_repoint.json')
+KERNEL_ROOTS = ('SIDEExplicitFormula', 'Zeta23', 'Lc', 'Hadamard', 'FunctionsOfOneComplexVariable')
+_ELAB = {}
+
+
+def elab_bank(path=None):
+    """### the reader's bank read back: {name: dict(kind, binders=[(kind, name, type)], concl, module)}."""
+    path = path or ELAB_TYPES
+    if path in _ELAB:
+        return _ELAB[path]
+    out, cur = {}, None
+    for l in (read(path) or '').replace(chr(13), '').split(NL):
+        m = re.match(r'^DECL (\S+) KIND (\S+) HEADER \d+ TOTAL \d+$', l)
+        if m:
+            cur = out[m.group(1)] = dict(kind=m.group(2), binders=[], concl='', module=None)
+            continue
+        if cur is None:
+            continue
+        m = re.match(r'^MODULE (\S+) (\S+)$', l)
+        m2 = re.match(r'^BINDER (explicit|implicit|strict-implicit|instance) (\S+) : (.*)$', l)
+        if m:
+            cur['module'] = m.group(2)
+        elif m2:
+            cur['binders'].append(m2.groups())
+        elif l.startswith('CONCL '):
+            cur['concl'] = l[6:]
+        elif l == 'END':
+            cur = None
+    _ELAB[path] = out
+    return out
+
+
+def elab_reading(name, path=None):
+    """### RETURN (grade, module) of a name the reader typed, its header rendered in the textual rule's syntax; None where it has no type."""
+    import e0_rule as E0
+    e = elab_bank(path).get(name)
+    if e is None:
+        return None
+    parts = []
+    for k, b, t in e['binders']:
+        parts.append({'explicit': '(%s : %s)', 'implicit': '{%s : %s}', 'strict-implicit': '⦃%s : %s⦄'}.get(k, '[%s%s]') % ((b, t) if k != 'instance' else ('', t)))
+    head = (' '.join(parts) + ' : ' + e['concl']).strip()
+    return E0.grade(head, 'theorem' if e['kind'] == 'theorem' else 'def')[0], e['module']
+
+
+def _jfile(p, key):
+    try:
+        return json.loads(read(p) or '{}').get(key) or []
+    except ValueError:
+        return []
+
+
+def retire_set(path=None):
+    return set((x['repo'], x['name']) for x in _jfile(path or RETIRE_FILE, 'retire'))
+
+
+def repoint_map(path=None):
+    return dict(((x['repo'], x['old']), x['new']) for x in _jfile(path or REPOINT_FILE, 'repoint'))
+
+
+def repoint_and_retire(name, pop, rmap=None, rset=None):
+    """### the population of repository `name` with each re-pointed name under its new name and each retired name gone: RETURN
+    ### (pop, re-pointed [(old, new)], retired [names])."""
+    rmap = repoint_map() if rmap is None else rmap
+    rset = retire_set() if rset is None else rset
+    moved, gone = [], []
+    for old in sorted(list(pop)):
+        new = rmap.get((name, old))
+        if new and new != old:
+            pop.setdefault(new, {}).update(pop.pop(old))
+            moved.append((old, new))
+    for n in sorted(list(pop)):
+        if (name, n) in rset:
+            pop.pop(n)
+            gone.append(n)
+    return pop, moved, gone
+
+
+def provenance(rows, base, elab_path=None):
+    """### mark every row cell, rule, rule-elab or none, grading the rule's rows; RETURN the cell rows whose rule reading differs."""
     differ = []
     for r in rows:
         kind, rr = rule_reading(r.get('statement'), r['name'])
+        er = elab_reading(r['name'], elab_path) if r['repo'] == ELAB_KERNEL else None
+        if er is not None and er[1] and er[1].split('.')[0] not in KERNEL_ROOTS:
+            r['mark'] = 'upstream'
         if r.get('grade_cells'):
             r['provenance'] = 'cell'
-            if rr is not None and r['grade'] != 'CONFLICT' and synonym(r['grade']) != rr:
+            if rr is not None and rr != 'DEFERRED' and r['grade'] != 'CONFLICT' and synonym(r['grade']) != rr:
                 differ.append((r['repo'], r['name'], r['grade'], rr))
-        elif rr is not None:          # ### b632: the 75227e9c condition retired -- every row no cell grades takes the rule
+        elif er is not None:          # ### b635: the elaborated reading grades the kernel
+            r['grade'] = er[0]
+            r['provenance'] = 'rule-elab' if (rr is None or rr == 'DEFERRED' or rr != er[0]) else 'rule'
+        elif rr is not None and rr != 'DEFERRED':          # ### b632: the 75227e9c condition retired -- every row no cell grades takes the rule
             r['grade'], r['provenance'] = rr, 'rule'
         else:
             r['provenance'] = 'none'
@@ -826,7 +920,7 @@ def build():
     BANKED, banked_files = banked_profiles()
     rec('  banked profile JSONs read (committed, relay HEAD) : %d ; names profiled there : %d' % (len(banked_files), len(BANKED)))
     rec('')
-    DEDUP, FROMJSON = [], []
+    DEDUP, FROMJSON, REPOINTED, RETIRED = [], [], [], []
     rows, unresolved_names, seen = [], [], set()
     for name, path in repos:
         head = gs(path, 'rev-parse', 'HEAD')
@@ -862,6 +956,9 @@ def build():
 
         pop, dropped = dedup_pop(pop)
         DEDUP.extend((name, d) for d in dropped)
+        pop, moved_, gone_ = repoint_and_retire(name, pop)          # ### b635, (R245)(2)-(3)
+        REPOINTED.extend((name, o, n_) for o, n_ in moved_)
+        RETIRED.extend((name, n_) for n_ in gone_)
         for n in sorted(pop):
             key = (name, n)
             if key in seen:
@@ -903,14 +1000,17 @@ def build():
                        ('UNGRADED' if not distinct else ('CONFLICT' if len(mapped) > 1 else mapped[0]))),
                 grade_cells=[dict(grade=c['grade'], ledger=c['ledger'], line=c['line'],
                                   act=c['act'], quote=c['quote']) for c in uniq],
-                conflict=(sorted(distinct) if len(mapped) > 1 else None)))
+                conflict=(sorted(distinct) if len(mapped) > 1 else None), mark=None))
 
     # ### names a ledger cites that resolve in NO repository at ANY ref
     declared = set(r['name'] for r in rows) | set(B378.split(r['name'])[1] for r in rows)
+    retired_names = set(n_ for _r, n_ in RETIRED)
     for n in sorted(set(c['name'] for c in cells)):
-        if n in declared or B378.split(n)[1] in declared:
+        if n in declared or B378.split(n)[1] in declared or n in retired_names:
             continue
         unresolved_names.append(n)
+    rec('  ### b635: RE-POINTED (relay data/table_repoint.json) %d %s ; RETIRED (relay data/table_retire.json) %d %s' % (
+        len(REPOINTED), ['%s/%s -> %s' % x for x in REPOINTED], len(RETIRED), ['%s/%s' % x for x in RETIRED]))
 
     base = baseline_keys()
     if base is None:
@@ -1019,9 +1119,10 @@ def emit(R):
         where = ('%s:%d' % (gc['ledger'], gc['line'])) if gc else ''
         act = (gc['act'] or '') if gc else ''
         cf = ' / '.join(r['conflict']) if r['conflict'] else ''
-        M.append('| `%s` | `%s` | %s | `%s` | `%s` | %s | **%s** | %s | %s %s | %s | %s |'
+        M.append('| `%s` | `%s` | %s | `%s` | `%s` | %s | **%s**%s | %s | %s %s | %s | %s |'
                  % (r['repo'], r['name'], ('`%s`' % r['pin']) if r['pin'] else '*none cited*',
-                    r['head'], st, r['profile'][:60], r['grade'], r.get('provenance', 'none'), act, where, cf, r['ei']))
+                    r['head'], st, r['profile'][:60], r['grade'], ' *upstream*' if r.get('mark') == 'upstream' else '',
+                    r.get('provenance', 'none'), act, where, cf, r['ei']))
     M += ['', '## CONFLICTS, BOTH CELLS QUOTED', '']
     if not conf:
         M.append('*none*')
