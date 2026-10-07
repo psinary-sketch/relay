@@ -40,13 +40,19 @@ def main():
         res.append(bool(cond))
         print('  %-110s %s' % (label, 'PASS' if cond else '### FAIL'))
 
+    # ### b637, (R247)(3)-(4) and the author's answer after b637's seal (relay data/b637_author_answers.txt, prompt 1): RE-POINTED. The
+    # ### binder grammar reads a bare name no lexicon lists as a binder that reaches no class -- a raised bug, never a grade -- so the
+    # ### synthetic premise `SomePremise`, a bare name, stopped this test; it is applied to an argument (`SomePremise 0`), a named premise,
+    # ### and the case still wants INTERFACES. The same answer read for this file's other two synthetic premises, `H` of case (6) and `Q`
+    # ### of case (12): one-letter names the statement binds nowhere, which the grammar reads as type variables (data), each applied to an
+    # ### argument; the stop at (1) hid them from the prompt (b637's defect).
     want('(1) a theorem with a premise binder reads INTERFACES',
-         TT.rule_reading('theorem X.foo (hP : SomePremise) : P ↔ Q', 'X.foo') == ('theorem', 'INTERFACES'))
+         TT.rule_reading('theorem X.foo (hP : SomePremise 0) : P ↔ Q', 'X.foo') == ('theorem', 'INTERFACES'))
     want('(2) a theorem without a hypothesis binder reads DERIVES', TT.rule_reading('theorem X.bar : Antitone f', 'X.bar') == ('theorem', 'DERIVES'))
     want('(3) a definition reads DEF', TT.rule_reading('noncomputable def X.baz (N : ℕ) : ℝ', 'X.baz') == ('def', 'DEF'))
     want('(4) no statement reads nothing', TT.rule_reading(None, 'X.q') == (None, None))
     rows = [dict(repo='R', name='X.cell', grade='DERIVES', grade_cells=[dict(grade='DERIVES')], statement='theorem X.cell : P'),
-            dict(repo='R', name='X.new', grade='UNGRADED', grade_cells=[], statement='theorem X.new (h : H) : P'),
+            dict(repo='R', name='X.new', grade='UNGRADED', grade_cells=[], statement='theorem X.new (h : H 0) : P'),   # ### b637: re-pointed, as (1)
             dict(repo='R', name='X.old', grade='UNGRADED', grade_cells=[], statement='theorem X.old : P'),
             dict(repo='R', name='X.differ', grade='INTERFACES', grade_cells=[dict(grade='INTERFACES')], statement='theorem X.differ : P')]
     rs = copy.deepcopy(rows)
@@ -74,7 +80,9 @@ def main():
     # ### b632, (R242)(3): THE PLANTED PAIR -- one key absent from the baseline, one key read from it, both with no cell and a statement the
     # ### rule reads; and one with no statement the rule reads.
     present = sorted(base or [])[:1]
-    planted = [dict(repo='SIDE-planted-b632', name='Planted.absent', grade='UNGRADED', grade_cells=[], statement='theorem Planted.absent (hQ : Q) : P'),
+    # ### b637: the planted premise re-pointed as (1)'s -- `Q`, a one-letter name the statement binds nowhere, the grammar reads as a type
+    # ### variable (data); applied to an argument it is a named premise.
+    planted = [dict(repo='SIDE-planted-b632', name='Planted.absent', grade='UNGRADED', grade_cells=[], statement='theorem Planted.absent (hQ : Q 0) : P'),
                dict(repo=present[0][0] if present else '?', name=present[0][1] if present else '?', grade='UNGRADED', grade_cells=[],
                     statement='theorem planted_present : P'),
                dict(repo='SIDE-planted-b632', name='Planted.none', grade='UNGRADED', grade_cells=[], statement=None)]
