@@ -73,7 +73,11 @@ def main():
     want('(5) upstream marked %s ; a kernel row marked %s' % (u.get('mark'), p.get('mark')), u.get('mark') == 'upstream' and p.get('mark') is None)
     o = by[('SIDE-other', 'K.prem')]
     want('(6) another kernel`s row: read %s at %s' % (o['grade'], o['provenance']), (o['grade'], o['provenance']) == ('DERIVES', 'rule'))
-    want('(7) a statement-less kernel row the reader typed: read %s at %s' % (u['grade'], u['provenance']), (u['grade'], u['provenance']) == ('DERIVES', 'rule-elab'))
+    # ### b637, (R247)(2) and the author's answer after b637's seal (relay data/b637_author_answers.txt, prompt 1): RE-POINTED. The row
+    # ### Nat.up, which the upstream mark reaches, is a kind and not a grade: it reads — at provenance none with the kind upstream, where it
+    # ### read DERIVES at rule-elab; the generator keeps that reading in UPSTREAM.
+    want('(7) a statement-less row the upstream mark reaches: read %s at %s, kind %s' % (u['grade'], u['provenance'], u.get('kind')),
+         (u['grade'], u['provenance'], u.get('kind')) == ('—', 'none', 'upstream'))
     c = by[(K, 'K.cell')]
     want('(8) a cell-graded row: read %s at %s' % (c['grade'], c['provenance']), (c['grade'], c['provenance']) == ('DERIVES', 'cell'))
     pop = {'old.name': {'HEAD': 1}, 'keep': {'HEAD': 2}, 'gone.ns': {'HEAD': 3}}
