@@ -1,0 +1,49 @@
+{
+ "at": "2026-10-07T17:14:34Z",
+ "runs": [
+  {
+   "test": "tools/test_e0_rule.py",
+   "cases": 56,
+   "passing": 27,
+   "failing": [
+    "(26) the rule`s class table equals the bank`s classification (26 classes)                                ### FAIL",
+    "(28) b01: binder n reaches B01, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(29) b02: binder n reaches B02, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(30) b03: binder n reaches B03, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(31) b04: binder c reaches B04, the declaration reads INTERFACES (read RAISED AttributeError, INTERFACES) ### FAIL",
+    "(32) b05: binder [inst] reaches B05, the declaration reads DERIVES (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(33) b06: binder c reaches B06, the declaration reads ENCODES-CONCLUSION (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(34) b07: binder c reaches B07, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(35) b08: binder c reaches B08, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(36) b09: binder c reaches B09, the declaration reads PREDICATE-UNLISTED (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(37) b10: binder c reaches B10, the declaration reads INTERFACES (read RAISED AttributeError, DERIVES)   ### FAIL",
+    "(38) b11: binder c reaches B11, the declaration reads INTERFACES (read RAISED AttributeError, DERIVES)   ### FAIL",
+    "(39) b12: binder c reaches B12, the declaration reads ENCODES-CONCLUSION (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(40) b13: binder c reaches B13, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(41) b14: binder c reaches B14, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(42) b15: binder c reaches B15, the declaration reads PREDICATE-UNLISTED (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(43) b16: binder c reaches B16, the declaration reads INTERFACES (read RAISED AttributeError, DERIVES)   ### FAIL",
+    "(44) b17: binder c reaches B17, the declaration reads INTERFACES (read RAISED AttributeError, DERIVES)   ### FAIL",
+    "(45) b18: binder c reaches B18, the declaration reads ENCODES-CONCLUSION (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(46) b19: binder c reaches B19, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(47) b20: binder c reaches B20, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(48) b21: binder c reaches B21, the declaration reads PREDICATE-UNLISTED (read RAISED AttributeError, DERIVES) ### FAIL",
+    "(49) b22: binder c reaches B22, the declaration reads INTERFACES (read RAISED AttributeError, DERIVES)   ### FAIL",
+    "(50) b23: binder c reaches B23, the declaration reads INTERFACES (read RAISED AttributeError, DERIVES)   ### FAIL",
+    "(51) b24: binder → reaches B24, the declaration reads INTERFACES (read RAISED AttributeError, INTERFACES) ### FAIL",
+    "(52) b25: binder → reaches B25, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(53) b26: binder c reaches B26, the declaration reads DERIVES (read RAISED AttributeError, DERIVES)      ### FAIL",
+    "(54) the five-name test: ['h', 'H', 'hyp', 'x', 'ξ'] read [('RAISED AttributeError', 'DERIVES'), ('RAISED AttributeError', 'INTERFACES')] ### FAIL",
+    "(55) the no-class control: binder c reaches RAISED AttributeError, the declaration reads DERIVES (a bug, no grade) ### FAIL"
+   ]
+  },
+  {
+   "test": "tools/test_e0_existential.py",
+   "cases": 7,
+   "passing": 6,
+   "failing": [
+    "(7) the span ends at the existential`s top-level comma (spans [(2, 13)]; the binder after it at 17 uncovered); the binder inside the existential`s bod"
+   ]
+  }
+ ]
+}

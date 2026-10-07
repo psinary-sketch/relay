@@ -1,0 +1,531 @@
+{
+ "at": "2026-10-07T17:28:53Z",
+ "old": {
+  "Alt2": [
+   "—",
+   3,
+   0
+  ],
+  "Alternates": [
+   "SIDE-global-section",
+   5,
+   2
+  ],
+  "AnalyticOnNhd": [
+   "SIDE-explicit-formula",
+   2,
+   2
+  ],
+  "BoundPremises": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "ConservationHypothesis": [
+   "SIDE-kernel",
+   3,
+   3
+  ],
+  "Continuous": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "Dealigned": [
+   "SIDE-structural-error-correction",
+   1,
+   1
+  ],
+  "DealignedAt": [
+   "SIDE-structural-error-correction",
+   1,
+   1
+  ],
+  "EpsteinPremises": [
+   "SIDE-explicit-formula",
+   2,
+   2
+  ],
+  "EqOn": [
+   "SIDE-lv-conservation",
+   1,
+   1
+  ],
+  "HCount": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "HasCompactSupport": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "HasDerivAt": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "IdempotentAdd": [
+   "SIDE-carrier-spec",
+   4,
+   4
+  ],
+  "Integrable": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "IsEvenFn": [
+   "SIDE-global-section",
+   1,
+   1
+  ],
+  "IsExpansion": [
+   "SIDE-lv-conservation",
+   2,
+   2
+  ],
+  "IsOpen": [
+   "SIDE-global-section",
+   1,
+   1
+  ],
+  "IsRoot": [
+   "SIDE-lv-conservation",
+   2,
+   2
+  ],
+  "IsSign": [
+   "SIDE-global-section",
+   5,
+   5
+  ],
+  "IsSignedCompletion": [
+   "SIDE-carrier-spec",
+   1,
+   1
+  ],
+  "IsTrivialPoint": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "KeiperObligations": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "Monotone": [
+   "SIDE-global-section",
+   1,
+   1
+  ],
+  "NotDiv": [
+   "SIDE-global-section",
+   1,
+   1
+  ],
+  "PerClassExcludes": [
+   "SIDE-lv-conservation",
+   1,
+   1
+  ],
+  "PlattTrudgianHeight": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "Prime": [
+   "SIDE-carrier-spec, SIDE-explicit-formula, SIDE-global-section, SIDE-grh-transfer",
+   5,
+   5
+  ],
+  "Proper": [
+   "SIDE-structural-error-correction",
+   1,
+   1
+  ],
+  "SatisfiesCWeil": [
+   "SIDE-global-section",
+   1,
+   1
+  ],
+  "StepsI": [
+   "SIDE-global-section",
+   2,
+   2
+  ],
+  "StepsMI": [
+   "SIDE-global-section",
+   2,
+   2
+  ],
+  "StrictMono": [
+   "SIDE-rcurve",
+   2,
+   2
+  ],
+  "StructuralExhaustiveness": [
+   "SIDE-kernel",
+   1,
+   1
+  ],
+  "SymPairBound": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "Tendsto": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "WindowObligations": [
+   "SIDE-explicit-formula",
+   2,
+   2
+  ],
+  "ZetaSeam": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "farSmall": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ],
+  "identity": [
+   "SIDE-global-section",
+   1,
+   1
+  ],
+  "is_xi_zero": [
+   "SIDE-kernel",
+   1,
+   1
+  ],
+  "zeroSideNeg": [
+   "SIDE-explicit-formula",
+   1,
+   1
+  ]
+ },
+ "rule_heads": {
+  "Prime": [
+   "SIDE-carrier-spec|SIDECarrierSpec.int_frobenius",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.balance_lemma",
+   "SIDE-global-section|LocalLimit.general_p_no_fixed_cell",
+   "SIDE-grh-transfer|SIDEGRHTransfer.twisted_balance_at_half",
+   "SIDE-grh-transfer|SIDEGRHTransfer.twisted_balance_at_unramified_prime"
+  ],
+  "IdempotentAdd": [
+   "SIDE-carrier-spec|SIDECarrierSpec.map_eq_zero_of_idempotent",
+   "SIDE-carrier-spec|SIDECarrierSpec.no_idempotent_candidate",
+   "SIDE-carrier-spec|SIDECarrierSpec.signedCompletion_trivial_of_idempotent",
+   "SIDE-carrier-spec|SIDECarrierSpec.trivial_of_idempotent_of_spec"
+  ],
+  "IsSignedCompletion": [
+   "SIDE-carrier-spec|SIDECarrierSpec.signedCompletion_trivial_of_idempotent"
+  ],
+  "PWSetup": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Aw_nonneg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Efac_ne",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Ep_prod",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Kp_kill",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Kp_tie_ne",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Nf_pos",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Pof_eval",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Pof_prod",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.VF_conj",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.XV_conj",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.XV_ne",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.XV_node",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Xval_ne",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Xval_norm",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Xval_real_neg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Yv_conj",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Yv_mul",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.Yv_ne",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.aeval_Ep",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.cE_big",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.cE_pos",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.coeffs_exist",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.fR_bound",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.fR_norm_le",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.gHat_ne",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.kill_term_zero",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.mem_KF",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.mem_TF",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.mem_sT",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.norm_Yv",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.rT_conj",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.rT_norm",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.rT_sq_mul",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.rep_spec",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.term_eq",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.zero_weight",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.dominant_summable_chi",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.fR_bound_chi",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.fR_norm_le_chi",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.mem_sT_chi",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.dominant_summable_cfg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.fR_bound_cfg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.fR_norm_le_cfg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.mem_sT_cfg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.rest_tendsto_zero_cfg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.zeroSide_eventually_neg_cfg"
+  ],
+  "zeroSideNeg": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of"
+  ],
+  "Continuous": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.paperFT_sum"
+  ],
+  "HasCompactSupport": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.paperFT_sum"
+  ],
+  "HCount": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.weighted_summable"
+  ],
+  "farSmall": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.windowSlope_bound"
+  ],
+  "IsTrivialPoint": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint"
+  ],
+  "KeiperObligations": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of"
+  ],
+  "BoundPremises": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.KeiperBounds.keiperBounds_of"
+  ],
+  "SymPairBound": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.exchange_of_bound"
+  ],
+  "HasDerivAt": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.LiWeil.integral_mul_cos_ibp"
+  ],
+  "NymanBeurlingPremise": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.NymanBeurling.rh_iff_nb"
+  ],
+  "PlattTrudgianHeight": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.PlattRung.rh_upto_platt"
+  ],
+  "TrivialSummandPremise": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs"
+  ],
+  "EulerFactorPremise": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs"
+  ],
+  "EpsteinPremises": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.epstein_detector"
+  ],
+  "WindowObligations": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window",
+   "SIDE-explicit-formula|SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of"
+  ],
+  "AnalyticOnNhd": [
+   "SIDE-explicit-formula|ZerosBound",
+   "SIDE-explicit-formula|Zeta23.Analytic.rectangleIntegral'_mul_logDeriv",
+   "SIDE-explicit-formula|Zeta23.WeilEF.logDeriv_partial_fraction_disk"
+  ],
+  "ZetaSeam": [
+   "SIDE-explicit-formula|Zeta23.WeilEF.EF_lit_zeta"
+  ],
+  "Integrable": [
+   "SIDE-explicit-formula|Zeta23.WeilEF.vertical_line_shift"
+  ],
+  "Tendsto": [
+   "SIDE-explicit-formula|Zeta23.WeilEF.vertical_line_shift"
+  ],
+  "SatisfiesCWeil": [
+   "SIDE-global-section|AggregationCircularityShadow.cweil_is_the_assumption"
+  ],
+  "identity": [
+   "SIDE-global-section|AggregationCircularityShadow.unique"
+  ],
+  "NotDiv": [
+   "SIDE-global-section|B329.valuation_unique"
+  ],
+  "IsEvenFn": [
+   "SIDE-global-section|FoldedMirrorShadow.two_ended_eq_two_times_one_sided"
+  ],
+  "StepsI": [
+   "SIDE-global-section|LadderOrientationShadow.alt2_of_stepsI",
+   "SIDE-global-section|LadderOrientationShadow.ladder_form"
+  ],
+  "StepsMI": [
+   "SIDE-global-section|LadderOrientationShadow.alt2_of_stepsMI",
+   "SIDE-global-section|LadderOrientationShadow.ladder_form_mi"
+  ],
+  "Monotone": [
+   "SIDE-global-section|LocalLimit.compression_tendsto"
+  ],
+  "IsOpen": [
+   "SIDE-global-section|LocalLimit.real_no_compact_open_addSubgroup"
+  ],
+  "IsSign": [
+   "SIDE-global-section|SignTransferShadow.eq_of_mul_pos",
+   "SIDE-global-section|SignTransferShadow.neg_is_sign",
+   "SIDE-global-section|SignTransferShadow.sq_pos",
+   "SIDE-global-section|SignTransferShadow.transfer",
+   "SIDE-global-section|SignTransferShadow.transfer_symm"
+  ],
+  "Alternates": [
+   "SIDE-global-section|SignTransferShadow.transfer",
+   "SIDE-global-section|SignTransferShadow.transfer_symm"
+  ],
+  "ConservationHypothesis": [
+   "SIDE-kernel|ConservationBridge.conservation_activates_balance",
+   "SIDE-kernel|ConservationBridge.structural_exhaustiveness_proved",
+   "SIDE-kernel|structural_exhaustiveness_proved"
+  ],
+  "is_xi_zero": [
+   "SIDE-kernel|ConservationBridge.conservation_activates_balance"
+  ],
+  "StructuralExhaustiveness": [
+   "SIDE-kernel|techne_kernel_integration.rh_from_structural_exhaustiveness"
+  ],
+  "SelfDualFE": [
+   "SIDE-lv-conservation|SIDELvConservation.FieldLayer.norml_top",
+   "SIDE-lv-conservation|SIDELvConservation.LeadLaw.lead_law",
+   "SIDE-lv-conservation|SIDELvConservation.LeadLaw.lead_law_of_top_coeff"
+  ],
+  "IsExpansion": [
+   "SIDE-lv-conservation|SIDELvConservation.FieldLayer.top_coeff_of_expansion",
+   "SIDE-lv-conservation|SIDELvConservation.LeadLaw.lead_law"
+  ],
+  "IsRoot": [
+   "SIDE-lv-conservation|SIDELvConservation.Genus5Confinement.e8_confined",
+   "SIDE-lv-conservation|SIDELvConservation.Genus5Confinement.w16_confined"
+  ],
+  "EqOn": [
+   "SIDE-lv-conservation|T2a_mellin_congr_on_Ioi"
+  ],
+  "PerClassExcludes": [
+   "SIDE-lv-conservation|T3.T3_perClass_to_combinations"
+  ],
+  "NontrivialZeroExistsInStrip": [
+   "SIDE-lv-conservation|distinctFromInput_discharged"
+  ],
+  "Register4_channelInequality": [
+   "SIDE-lv-conservation|zeroActingPairing_to_RH"
+  ],
+  "Register4_positivity": [
+   "SIDE-lv-conservation|zeroActingPairing_to_RH"
+  ],
+  "ZeroActingPairing": [
+   "SIDE-lv-conservation|zeroActingPairing_to_RH",
+   "SIDE-lv-conservation|zeroActingPairing_to_channelInequality"
+  ],
+  "StrictMono": [
+   "SIDE-rcurve|SIDERCurve.monotone_unique_zero",
+   "SIDE-rcurve|SIDERCurve.second_zero_breaks_monotone"
+  ],
+  "Proper": [
+   "SIDE-structural-error-correction|DeAlignment.dealigned_of_lines_injective"
+  ],
+  "DealignedAt": [
+   "SIDE-structural-error-correction|DeAlignment.no_domain_covers_line"
+  ],
+  "Dealigned": [
+   "SIDE-structural-error-correction|DeAlignment.single_domain_fault_not_logical"
+  ]
+ },
+ "elab_heads": {
+  "PWSetup": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.PWSetup.c4",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.PWSetup.kfin",
+   "SIDE-explicit-formula|SIDEExplicitFormula.B321.PWSetup.tfin"
+  ],
+  "BlockInputs": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_hat",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_tilde"
+  ],
+  "TailInputs": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_hat",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_theta_nonneg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_tilde"
+  ],
+  "EF_lit": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit"
+  ],
+  "GammaFacts": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit"
+  ],
+  "Integrable": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit"
+  ],
+  "PaperInputs": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_EF",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_Gamma",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_MV",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_RvM",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_cheb"
+  ],
+  "RiemannVonMangoldt": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_local_count",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_main"
+  ],
+  "TailHyp": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Az_eq_sum",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Ez_isHermitian",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_congr_simp",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_nonneg",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_L_pos",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_T_pos",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hL",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hT",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hasSum_Ez",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hat_Ez_isHermitian",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hdecay",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hloc",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_not_mem_sA_iff",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_partial_sum_le",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_Gsummand",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_tail",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tailInputs",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tilde_Ez_isHermitian",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tsum_tail_le",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail"
+  ],
+  "InTail": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le",
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le"
+  ],
+  "tilde": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail"
+  ],
+  "hat": [
+   "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail"
+  ]
+ },
+ "by_class": {
+  "B10": 26,
+  "B11": 140
+ },
+ "unnamed": [
+  "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le",
+  "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono",
+  "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult",
+  "SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono",
+  "SIDE-explicit-formula|Zeta23.Analytic.rectangleIntegral'_mul_logDeriv",
+  "SIDE-grh-transfer|SIDEGRHTransfer.twisted_balance_at_half",
+  "SIDE-grh-transfer|SIDEGRHTransfer.twisted_balance_at_unramified_prime",
+  "SIDE-kernel|InvarianceBarrier.derivability_barrier",
+  "SIDE-kernel|InvarianceBarrier.invariance_barrier",
+  "SIDE-lv-conservation|T2c_phi_side_predicates_are_s_dark",
+  "SIDE-lv-conservation|T3.T3b_joint_witness_gives_combinations_exclude",
+  "SIDE-lv-conservation|T3.T3prime_shared_witness"
+ ]
+}

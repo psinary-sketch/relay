@@ -1,0 +1,84 @@
+b637 -- COMPONENT 2, (R247)(4)(i): THE BINDER CLASSIFICATION -- KIND × TYPING × FORM, EACH CLASS WITH ITS OUTCOME; ONE PLANTED DECLARATION PER CLASS, ITS EXPECTED CLASS AND GRADE FIXED HERE BEFORE THE RULE READS IT (2026-10-07T17:10:43Z)
+
+### LEAN`S BINDER KINDS (BinderInfo), git grep --no-index in each toolchain`s Lean sources:
+  SIDE-explicit-formula -- D:/elan/toolchains/leanprover--lean4---v4.34.0-rc1/src/lean/Lean/Expr.lean:
+    src/lean/Lean/Expr.lean:71:inductive BinderInfo where
+    src/lean/Lean/Expr.lean:73:  | default
+    src/lean/Lean/Expr.lean:75:  | implicit
+    src/lean/Lean/Expr.lean:77:  | strictImplicit
+    src/lean/Lean/Expr.lean:79:  | instImplicit
+  SIDE-structural-error-correction -- D:/elan/toolchains/leanprover--lean4---v4.29.0-rc8/src/lean/Lean/Expr.lean:
+    src/lean/Lean/Expr.lean:71:inductive BinderInfo where
+    src/lean/Lean/Expr.lean:73:  | default
+    src/lean/Lean/Expr.lean:75:  | implicit
+    src/lean/Lean/Expr.lean:77:  | strictImplicit
+    src/lean/Lean/Expr.lean:79:  | instImplicit
+### the grammar`s kinds: the four Lean kinds of a header binder or of the conclusion`s leading telescope (default read as explicit), and two positions in the conclusion -- the antecedent of its top-level implication, a binder of an existential in it. An auto-bound implicit and a section variable reach the elaborated header as implicit or explicit binders and take those kinds there; the textual header does not carry them.
+
+### THE CLASSES (26):
+  | class | kind | typing | form | outcome | its grade effect |
+  |:--|:--|:--|:--|:--|:--|
+  | B01 | explicit | data | — | data | none: an object |
+  | B02 | implicit | data | — | data | none: an object |
+  | B03 | strict-implicit | data | — | data | none: an object |
+  | B04 | instance | a class | Fact | premise | INTERFACES |
+  | B05 | instance | a class | any class but Fact (criterion (i)) | domain condition | none: a domain condition |
+  | B06 | explicit | Prop | the conclusion itself | conclusion | ENCODES-CONCLUSION |
+  | B07 | explicit | Prop | a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split`s case (criterion (ii); DOMAIN, SPLITS) | domain condition | none: a domain condition |
+  | B08 | explicit | Prop | a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS) | domain condition | none: a domain condition |
+  | B09 | explicit | Prop | a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET) | unlisted | PREDICATE-UNLISTED |
+  | B10 | explicit | Prop | a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction | premise | INTERFACES |
+  | B11 | explicit | Prop | any other Prop: a structure of premises or a named Prop about a fixed object | premise | INTERFACES |
+  | B12 | implicit | Prop | the conclusion itself | conclusion | ENCODES-CONCLUSION |
+  | B13 | implicit | Prop | a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split`s case (criterion (ii); DOMAIN, SPLITS) | domain condition | none: a domain condition |
+  | B14 | implicit | Prop | a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS) | domain condition | none: a domain condition |
+  | B15 | implicit | Prop | a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET) | unlisted | PREDICATE-UNLISTED |
+  | B16 | implicit | Prop | a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction | premise | INTERFACES |
+  | B17 | implicit | Prop | any other Prop: a structure of premises or a named Prop about a fixed object | premise | INTERFACES |
+  | B18 | strict-implicit | Prop | the conclusion itself | conclusion | ENCODES-CONCLUSION |
+  | B19 | strict-implicit | Prop | a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split`s case (criterion (ii); DOMAIN, SPLITS) | domain condition | none: a domain condition |
+  | B20 | strict-implicit | Prop | a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS) | domain condition | none: a domain condition |
+  | B21 | strict-implicit | Prop | a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET) | unlisted | PREDICATE-UNLISTED |
+  | B22 | strict-implicit | Prop | a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction | premise | INTERFACES |
+  | B23 | strict-implicit | Prop | any other Prop: a structure of premises or a named Prop about a fixed object | premise | INTERFACES |
+  | B24 | antecedent | Prop | a seam (SEAMS) | seam | INTERFACES |
+  | B25 | antecedent | Prop | any other antecedent: a plain implication between open statements, a domain antecedent | conclusion | none: part of the conclusion |
+  | B26 | existential | any | a binder of an existential in the conclusion | conclusion | none: part of the conclusion |
+
+### THE GRADE: a binder in a class whose form is the conclusion itself -- ENCODES-CONCLUSION; else one whose outcome is unlisted -- PREDICATE-UNLISTED; else one whose outcome is premise or seam -- INTERFACES; else DERIVES; a definition DEF; a type_of% conclusion DEFERRED. A binder that reaches no class is a bug of the grammar, printed as such, and no grade.
+
+### THE PLANTED DECLARATIONS, C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/22cdf84c-42e5-4b4d-b777-6c6a90fcc03e/scratchpad/b637_planted/B637Planted.lean (4514 bytes, sha256 735629f5128f90be54d450a0f8675a86b4ec2fc0ef317e3b72e6dd85a67b5561), written before any reading:
+  B01   binder n      expected class B01   grade DERIVES              theorem b01 (n : Nat) : n = n := rfl
+  B02   binder n      expected class B02   grade DERIVES              theorem b02 {n : Nat} : n = n := rfl
+  B03   binder n      expected class B03   grade DERIVES              theorem b03 ⦃n : Nat⦄ : n = n := rfl
+  B04   binder c      expected class B04   grade INTERFACES           theorem b04 (p : Nat) [c : Fact (Nat.Prime p)] : p = p := rfl
+  B05   binder [inst] expected class B05   grade DERIVES              theorem b05 (N : Nat) [NeZero N] : N = N := rfl
+  B06   binder c      expected class B06   grade ENCODES-CONCLUSION   theorem b06 (n : Nat) (c : ∀ k : Nat, k + n = n + k) : ∀ m : Nat, m + n = n + m := c
+  B07   binder c      expected class B07   grade DERIVES              theorem b07 (n : Nat) (c : 0 < n) : n = n := rfl
+  B08   binder c      expected class B08   grade DERIVES              theorem b08 (f : ℝ → ℝ) (c : Continuous f) : f = f := rfl
+  B09   binder c      expected class B09   grade PREDICATE-UNLISTED   theorem b09 (f : ℕ → ℂ) (s : ℂ) (c : LSeriesSummable f s) : f = f ∧ s = s := ⟨rfl, rfl⟩
+  B10   binder c      expected class B10   grade INTERFACES           theorem b10 (f : ℝ → ℝ) (c : Monotone f) : f = f := rfl
+  B11   binder c      expected class B11   grade INTERFACES           theorem b11 (c : NontrivialZeroExistsInStrip) : True := trivial
+  B12   binder c      expected class B12   grade ENCODES-CONCLUSION   theorem b12 (n : Nat) {c : ∀ k : Nat, k + n = n + k} : ∀ m : Nat, m + n = n + m := c
+  B13   binder c      expected class B13   grade DERIVES              theorem b13 (n : Nat) {c : 0 < n} : n = n := rfl
+  B14   binder c      expected class B14   grade DERIVES              theorem b14 (f : ℝ → ℝ) {c : Continuous f} : f = f := rfl
+  B15   binder c      expected class B15   grade PREDICATE-UNLISTED   theorem b15 (f : ℕ → ℂ) (s : ℂ) {c : LSeriesSummable f s} : f = f ∧ s = s := ⟨rfl, rfl⟩
+  B16   binder c      expected class B16   grade INTERFACES           theorem b16 (f : ℝ → ℝ) {c : Monotone f} : f = f := rfl
+  B17   binder c      expected class B17   grade INTERFACES           theorem b17 {c : NontrivialZeroExistsInStrip} : True := trivial
+  B18   binder c      expected class B18   grade ENCODES-CONCLUSION   theorem b18 (n : Nat) ⦃c : ∀ k : Nat, k + n = n + k⦄ : ∀ m : Nat, m + n = n + m := c
+  B19   binder c      expected class B19   grade DERIVES              theorem b19 (n : Nat) ⦃c : 0 < n⦄ : n = n := rfl
+  B20   binder c      expected class B20   grade DERIVES              theorem b20 (f : ℝ → ℝ) ⦃c : Continuous f⦄ : f = f := rfl
+  B21   binder c      expected class B21   grade PREDICATE-UNLISTED   theorem b21 (f : ℕ → ℂ) (s : ℂ) ⦃c : LSeriesSummable f s⦄ : f = f ∧ s = s := ⟨rfl, rfl⟩
+  B22   binder c      expected class B22   grade INTERFACES           theorem b22 (f : ℝ → ℝ) ⦃c : Monotone f⦄ : f = f := rfl
+  B23   binder c      expected class B23   grade INTERFACES           theorem b23 ⦃c : NontrivialZeroExistsInStrip⦄ : True := trivial
+  B24   binder →      expected class B24   grade INTERFACES           theorem b24 : rh_strip_imp_rh → True := fun _ => trivial
+  B25   binder →      expected class B25   grade DERIVES              theorem b25 (n : Nat) : 0 < n → n ≠ 0 := Nat.pos_iff_ne_zero.mp
+  B26   binder c      expected class B26   grade DERIVES              theorem b26 : ∃ (n : Nat) (c : 0 < n), n = 1 := ⟨1, Nat.one_pos, rfl⟩
+  FIVE  binder h      expected class B11   grade INTERFACES           theorem five_h (h : NontrivialZeroExistsInStrip) : True := trivial
+  FIVE  binder H      expected class B11   grade INTERFACES           theorem five_H (H : NontrivialZeroExistsInStrip) : True := trivial
+  FIVE  binder hyp    expected class B11   grade INTERFACES           theorem five_hyp (hyp : NontrivialZeroExistsInStrip) : True := trivial
+  FIVE  binder x      expected class B11   grade INTERFACES           theorem five_x (x : NontrivialZeroExistsInStrip) : True := trivial
+  FIVE  binder ξ      expected class B11   grade INTERFACES           theorem five_xi (ξ : NontrivialZeroExistsInStrip) : True := trivial
+  NONE  binder c      expected class NONE  grade NO CLASS             theorem noclass (c : SomeUndeclaredBareName) : True := trivial
+
+### ### **CLASSES 26 ; PLANTED DECLARATIONS 32 (one per class 26, the five-name test 5, the no-class control 1) ; EXPECTATIONS FIXED BEFORE ANY READING.**

@@ -1,0 +1,64 @@
+b637 -- tools/test_e0_rule.py RUN AND COUNTED (2026-10-07T17:14:32Z); exit 0
+
+  (1) the rule`s own self-test (b568`s seven headers, b624`s four, b625`s four and b626`s three)           PASS
+  (2) LFunction_zeros_finite_of_isCompact at v0.11 reads DERIVES (read DERIVES; domain conditions only: h1 : χ ≠ 1, hK : IsCompact K) PASS
+  (2) EF_zero_sum_summable_chi at v0.11 reads DERIVES (read DERIVES; domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk :) PASS
+  (3) a class binder on a variable the conclusion mentions: DERIVES (read DERIVES)                         PASS
+  (4) a class binder on a variable the conclusion does NOT mention: INTERFACES (read INTERFACES)           PASS
+  (5) a named premise beside a class binder: INTERFACES (read INTERFACES)                                  PASS
+  (6) conclusion reads past the binder groups (read ' (K ∩ s).Finite')                                     PASS
+  (7) finsetSum_productLemma at v0.21 reads DERIVES on binders [] (read DERIVES; binders [])               PASS
+  (8) finsetSum_insert at v0.21 reads DERIVES on binders ['h'] (read DERIVES; binders ['h'])               PASS
+  (9) power_contDiff at v0.21 reads DERIVES on binders ['hg', 'hs'] (read DERIVES; binders ['hg', 'hs'])   PASS
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\22cdf84c-42e5-4b4d-b777-6c6a90fcc03e\scratchpad\b637_planted\PlantedInterface.lean (349 bytes)
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\22cdf84c-42e5-4b4d-b777-6c6a90fcc03e\scratchpad\b637_planted\PlantedShell.lean (386 bytes)
+  (10) the planted interface, an induction in its proof, reads INTERFACES on its one premise (read INTERFACES; hP : NamedPremise 0) PASS
+  (11) the planted shell, the conclusion an alpha-variant binder, reads ENCODES-CONCLUSION (read ENCODES-CONCLUSION; the conclusion is the binder h : ∀ k : Nat, k + n = n + k) PASS
+  (12) a merely similar Prop as a binder does not read ENCODES-CONCLUSION (read DERIVES)                   PASS
+  (13) clause (i): instances not of Fact read DERIVES; a Fact instance reads INTERFACES on hp : Fact p.Prime PASS
+  (14) clause (ii): non-emptiness and finiteness read DERIVES; beside a named premise INTERFACES on hP : EpsteinPremises s PASS
+  (15) clause (iii): restrictions on the quantified function read DERIVES; paperFT_polyOp at v0.21 DERIVES; behind a range INTERFACES PASS
+  (16) h2_sign_imp_rh_of_seam at v0.21 reads INTERFACES on its seam (read INTERFACES; → : rh_strip_imp_rh) PASS
+  (17) paperFT_growth and paperFT_growth_at at v0.21 read DERIVES without h (read [('paperFT_growth', 'DERIVES', ['hi', 'hs']), ('paperFT_growth_at', 'DERIVES', ['hi', 'hs'])]) PASS
+  (18) a domain antecedent reads DERIVES; a plain implication between open statements DERIVES; a seam antecedent INTERFACES PASS
+  (19) a data binder named h does not enter (read DERIVES, binders ['hc']); beside a named premise PREDICATE-UNLISTED on hP : NamedPremise h PASS
+  (20) Alt2 restricting the quantified c reads DERIVES (read DERIVES; domain conditions only: h : Alt2 c)  PASS
+  (21) Alternates restricting the quantified s reads DERIVES (read DERIVES; domain conditions only: h : Alternates s) PASS
+  (22) a planted unlisted predicate reads PREDICATE-UNLISTED on hU : PlantedUnmet f; on a fixed object INTERFACES; a met name INTERFACES PASS
+  (23) a type_of% conclusion reads DEFERRED; a plain conclusion DERIVES                                    PASS
+  (24) a binder nested two deep read INTERFACES on hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall (0 : ℂ) 1); one deep INTERFACES PASS
+  (25) the qualified class name with its default measure reads DERIVES; the bare name DERIVES              PASS
+  (26) the rule`s class table equals the bank`s classification (26 classes)                                PASS
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\22cdf84c-42e5-4b4d-b777-6c6a90fcc03e\scratchpad\b637_planted\B637Planted.lean (4514 bytes)
+  (27) the planted module rebuilt from the bank has the bank`s sha256 (735629f5128f90be)                   PASS
+  (28) b01: binder n reaches B01, the declaration reads DERIVES (read B01, DERIVES)                        PASS
+  (29) b02: binder n reaches B02, the declaration reads DERIVES (read B02, DERIVES)                        PASS
+  (30) b03: binder n reaches B03, the declaration reads DERIVES (read B03, DERIVES)                        PASS
+  (31) b04: binder c reaches B04, the declaration reads INTERFACES (read B04, INTERFACES)                  PASS
+  (32) b05: binder [inst] reaches B05, the declaration reads DERIVES (read B05, DERIVES)                   PASS
+  (33) b06: binder c reaches B06, the declaration reads ENCODES-CONCLUSION (read B06, ENCODES-CONCLUSION)  PASS
+  (34) b07: binder c reaches B07, the declaration reads DERIVES (read B07, DERIVES)                        PASS
+  (35) b08: binder c reaches B08, the declaration reads DERIVES (read B08, DERIVES)                        PASS
+  (36) b09: binder c reaches B09, the declaration reads PREDICATE-UNLISTED (read B09, PREDICATE-UNLISTED)  PASS
+  (37) b10: binder c reaches B10, the declaration reads INTERFACES (read B10, INTERFACES)                  PASS
+  (38) b11: binder c reaches B11, the declaration reads INTERFACES (read B11, INTERFACES)                  PASS
+  (39) b12: binder c reaches B12, the declaration reads ENCODES-CONCLUSION (read B12, ENCODES-CONCLUSION)  PASS
+  (40) b13: binder c reaches B13, the declaration reads DERIVES (read B13, DERIVES)                        PASS
+  (41) b14: binder c reaches B14, the declaration reads DERIVES (read B14, DERIVES)                        PASS
+  (42) b15: binder c reaches B15, the declaration reads PREDICATE-UNLISTED (read B15, PREDICATE-UNLISTED)  PASS
+  (43) b16: binder c reaches B16, the declaration reads INTERFACES (read B16, INTERFACES)                  PASS
+  (44) b17: binder c reaches B17, the declaration reads INTERFACES (read B17, INTERFACES)                  PASS
+  (45) b18: binder c reaches B18, the declaration reads ENCODES-CONCLUSION (read B18, ENCODES-CONCLUSION)  PASS
+  (46) b19: binder c reaches B19, the declaration reads DERIVES (read B19, DERIVES)                        PASS
+  (47) b20: binder c reaches B20, the declaration reads DERIVES (read B20, DERIVES)                        PASS
+  (48) b21: binder c reaches B21, the declaration reads PREDICATE-UNLISTED (read B21, PREDICATE-UNLISTED)  PASS
+  (49) b22: binder c reaches B22, the declaration reads INTERFACES (read B22, INTERFACES)                  PASS
+  (50) b23: binder c reaches B23, the declaration reads INTERFACES (read B23, INTERFACES)                  PASS
+  (51) b24: binder → reaches B24, the declaration reads INTERFACES (read B24, INTERFACES)                  PASS
+  (52) b25: binder → reaches B25, the declaration reads DERIVES (read B25, DERIVES)                        PASS
+  (53) b26: binder c reaches B26, the declaration reads DERIVES (read B26, DERIVES)                        PASS
+  (54) the five-name test: ['h', 'H', 'hyp', 'x', 'ξ'] read [('B11', 'INTERFACES')]                        PASS
+  (55) the no-class control: binder c reaches None, the declaration reads NO CLASS (a bug, no grade)       PASS
+### ### **56 of 56 cases as wanted -- PASS**
+
+### CASES : 56 ; PASSING : 56 ; FAILING : 0   ### counted by the numbered case pattern

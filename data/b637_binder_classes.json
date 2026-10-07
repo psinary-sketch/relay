@@ -1,0 +1,448 @@
+{
+ "at": "2026-10-07T17:10:43Z",
+ "classes": [
+  {
+   "id": "B01",
+   "kind": "explicit",
+   "typing": "data",
+   "form": "—",
+   "outcome": "data"
+  },
+  {
+   "id": "B02",
+   "kind": "implicit",
+   "typing": "data",
+   "form": "—",
+   "outcome": "data"
+  },
+  {
+   "id": "B03",
+   "kind": "strict-implicit",
+   "typing": "data",
+   "form": "—",
+   "outcome": "data"
+  },
+  {
+   "id": "B04",
+   "kind": "instance",
+   "typing": "a class",
+   "form": "Fact",
+   "outcome": "premise"
+  },
+  {
+   "id": "B05",
+   "kind": "instance",
+   "typing": "a class",
+   "form": "any class but Fact (criterion (i))",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B06",
+   "kind": "explicit",
+   "typing": "Prop",
+   "form": "the conclusion itself",
+   "outcome": "conclusion"
+  },
+  {
+   "id": "B07",
+   "kind": "explicit",
+   "typing": "Prop",
+   "form": "a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split`s case (criterion (ii); DOMAIN, SPLITS)",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B08",
+   "kind": "explicit",
+   "typing": "Prop",
+   "form": "a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS)",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B09",
+   "kind": "explicit",
+   "typing": "Prop",
+   "form": "a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET)",
+   "outcome": "unlisted"
+  },
+  {
+   "id": "B10",
+   "kind": "explicit",
+   "typing": "Prop",
+   "form": "a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction",
+   "outcome": "premise"
+  },
+  {
+   "id": "B11",
+   "kind": "explicit",
+   "typing": "Prop",
+   "form": "any other Prop: a structure of premises or a named Prop about a fixed object",
+   "outcome": "premise"
+  },
+  {
+   "id": "B12",
+   "kind": "implicit",
+   "typing": "Prop",
+   "form": "the conclusion itself",
+   "outcome": "conclusion"
+  },
+  {
+   "id": "B13",
+   "kind": "implicit",
+   "typing": "Prop",
+   "form": "a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split`s case (criterion (ii); DOMAIN, SPLITS)",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B14",
+   "kind": "implicit",
+   "typing": "Prop",
+   "form": "a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS)",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B15",
+   "kind": "implicit",
+   "typing": "Prop",
+   "form": "a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET)",
+   "outcome": "unlisted"
+  },
+  {
+   "id": "B16",
+   "kind": "implicit",
+   "typing": "Prop",
+   "form": "a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction",
+   "outcome": "premise"
+  },
+  {
+   "id": "B17",
+   "kind": "implicit",
+   "typing": "Prop",
+   "form": "any other Prop: a structure of premises or a named Prop about a fixed object",
+   "outcome": "premise"
+  },
+  {
+   "id": "B18",
+   "kind": "strict-implicit",
+   "typing": "Prop",
+   "form": "the conclusion itself",
+   "outcome": "conclusion"
+  },
+  {
+   "id": "B19",
+   "kind": "strict-implicit",
+   "typing": "Prop",
+   "form": "a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split`s case (criterion (ii); DOMAIN, SPLITS)",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B20",
+   "kind": "strict-implicit",
+   "typing": "Prop",
+   "form": "a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS)",
+   "outcome": "domain condition"
+  },
+  {
+   "id": "B21",
+   "kind": "strict-implicit",
+   "typing": "Prop",
+   "form": "a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET)",
+   "outcome": "unlisted"
+  },
+  {
+   "id": "B22",
+   "kind": "strict-implicit",
+   "typing": "Prop",
+   "form": "a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction",
+   "outcome": "premise"
+  },
+  {
+   "id": "B23",
+   "kind": "strict-implicit",
+   "typing": "Prop",
+   "form": "any other Prop: a structure of premises or a named Prop about a fixed object",
+   "outcome": "premise"
+  },
+  {
+   "id": "B24",
+   "kind": "antecedent",
+   "typing": "Prop",
+   "form": "a seam (SEAMS)",
+   "outcome": "seam"
+  },
+  {
+   "id": "B25",
+   "kind": "antecedent",
+   "typing": "Prop",
+   "form": "any other antecedent: a plain implication between open statements, a domain antecedent",
+   "outcome": "conclusion"
+  },
+  {
+   "id": "B26",
+   "kind": "existential",
+   "typing": "any",
+   "form": "a binder of an existential in the conclusion",
+   "outcome": "conclusion"
+  }
+ ],
+ "planted_file": "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/22cdf84c-42e5-4b4d-b777-6c6a90fcc03e/scratchpad/b637_planted/B637Planted.lean",
+ "planted_sha256": "735629f5128f90be54d450a0f8675a86b4ec2fc0ef317e3b72e6dd85a67b5561",
+ "planted_bytes": 4514,
+ "planted": [
+  {
+   "cls": "B01",
+   "binder": "n",
+   "decl": "b01",
+   "text": "theorem b01 (n : Nat) : n = n := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B02",
+   "binder": "n",
+   "decl": "b02",
+   "text": "theorem b02 {n : Nat} : n = n := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B03",
+   "binder": "n",
+   "decl": "b03",
+   "text": "theorem b03 ⦃n : Nat⦄ : n = n := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B04",
+   "binder": "c",
+   "decl": "b04",
+   "text": "theorem b04 (p : Nat) [c : Fact (Nat.Prime p)] : p = p := rfl",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B05",
+   "binder": "",
+   "decl": "b05",
+   "text": "theorem b05 (N : Nat) [NeZero N] : N = N := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B06",
+   "binder": "c",
+   "decl": "b06",
+   "text": "theorem b06 (n : Nat) (c : ∀ k : Nat, k + n = n + k) : ∀ m : Nat, m + n = n + m := c",
+   "grade": "ENCODES-CONCLUSION",
+   "test": "class"
+  },
+  {
+   "cls": "B07",
+   "binder": "c",
+   "decl": "b07",
+   "text": "theorem b07 (n : Nat) (c : 0 < n) : n = n := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B08",
+   "binder": "c",
+   "decl": "b08",
+   "text": "theorem b08 (f : ℝ → ℝ) (c : Continuous f) : f = f := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B09",
+   "binder": "c",
+   "decl": "b09",
+   "text": "theorem b09 (f : ℕ → ℂ) (s : ℂ) (c : LSeriesSummable f s) : f = f ∧ s = s := ⟨rfl, rfl⟩",
+   "grade": "PREDICATE-UNLISTED",
+   "test": "class"
+  },
+  {
+   "cls": "B10",
+   "binder": "c",
+   "decl": "b10",
+   "text": "theorem b10 (f : ℝ → ℝ) (c : Monotone f) : f = f := rfl",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B11",
+   "binder": "c",
+   "decl": "b11",
+   "text": "theorem b11 (c : NontrivialZeroExistsInStrip) : True := trivial",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B12",
+   "binder": "c",
+   "decl": "b12",
+   "text": "theorem b12 (n : Nat) {c : ∀ k : Nat, k + n = n + k} : ∀ m : Nat, m + n = n + m := c",
+   "grade": "ENCODES-CONCLUSION",
+   "test": "class"
+  },
+  {
+   "cls": "B13",
+   "binder": "c",
+   "decl": "b13",
+   "text": "theorem b13 (n : Nat) {c : 0 < n} : n = n := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B14",
+   "binder": "c",
+   "decl": "b14",
+   "text": "theorem b14 (f : ℝ → ℝ) {c : Continuous f} : f = f := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B15",
+   "binder": "c",
+   "decl": "b15",
+   "text": "theorem b15 (f : ℕ → ℂ) (s : ℂ) {c : LSeriesSummable f s} : f = f ∧ s = s := ⟨rfl, rfl⟩",
+   "grade": "PREDICATE-UNLISTED",
+   "test": "class"
+  },
+  {
+   "cls": "B16",
+   "binder": "c",
+   "decl": "b16",
+   "text": "theorem b16 (f : ℝ → ℝ) {c : Monotone f} : f = f := rfl",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B17",
+   "binder": "c",
+   "decl": "b17",
+   "text": "theorem b17 {c : NontrivialZeroExistsInStrip} : True := trivial",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B18",
+   "binder": "c",
+   "decl": "b18",
+   "text": "theorem b18 (n : Nat) ⦃c : ∀ k : Nat, k + n = n + k⦄ : ∀ m : Nat, m + n = n + m := c",
+   "grade": "ENCODES-CONCLUSION",
+   "test": "class"
+  },
+  {
+   "cls": "B19",
+   "binder": "c",
+   "decl": "b19",
+   "text": "theorem b19 (n : Nat) ⦃c : 0 < n⦄ : n = n := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B20",
+   "binder": "c",
+   "decl": "b20",
+   "text": "theorem b20 (f : ℝ → ℝ) ⦃c : Continuous f⦄ : f = f := rfl",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B21",
+   "binder": "c",
+   "decl": "b21",
+   "text": "theorem b21 (f : ℕ → ℂ) (s : ℂ) ⦃c : LSeriesSummable f s⦄ : f = f ∧ s = s := ⟨rfl, rfl⟩",
+   "grade": "PREDICATE-UNLISTED",
+   "test": "class"
+  },
+  {
+   "cls": "B22",
+   "binder": "c",
+   "decl": "b22",
+   "text": "theorem b22 (f : ℝ → ℝ) ⦃c : Monotone f⦄ : f = f := rfl",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B23",
+   "binder": "c",
+   "decl": "b23",
+   "text": "theorem b23 ⦃c : NontrivialZeroExistsInStrip⦄ : True := trivial",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B24",
+   "binder": "→",
+   "decl": "b24",
+   "text": "theorem b24 : rh_strip_imp_rh → True := fun _ => trivial",
+   "grade": "INTERFACES",
+   "test": "class"
+  },
+  {
+   "cls": "B25",
+   "binder": "→",
+   "decl": "b25",
+   "text": "theorem b25 (n : Nat) : 0 < n → n ≠ 0 := Nat.pos_iff_ne_zero.mp",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B26",
+   "binder": "c",
+   "decl": "b26",
+   "text": "theorem b26 : ∃ (n : Nat) (c : 0 < n), n = 1 := ⟨1, Nat.one_pos, rfl⟩",
+   "grade": "DERIVES",
+   "test": "class"
+  },
+  {
+   "cls": "B11",
+   "binder": "h",
+   "decl": "five_h",
+   "text": "theorem five_h (h : NontrivialZeroExistsInStrip) : True := trivial",
+   "grade": "INTERFACES",
+   "test": "five-name"
+  },
+  {
+   "cls": "B11",
+   "binder": "H",
+   "decl": "five_H",
+   "text": "theorem five_H (H : NontrivialZeroExistsInStrip) : True := trivial",
+   "grade": "INTERFACES",
+   "test": "five-name"
+  },
+  {
+   "cls": "B11",
+   "binder": "hyp",
+   "decl": "five_hyp",
+   "text": "theorem five_hyp (hyp : NontrivialZeroExistsInStrip) : True := trivial",
+   "grade": "INTERFACES",
+   "test": "five-name"
+  },
+  {
+   "cls": "B11",
+   "binder": "x",
+   "decl": "five_x",
+   "text": "theorem five_x (x : NontrivialZeroExistsInStrip) : True := trivial",
+   "grade": "INTERFACES",
+   "test": "five-name"
+  },
+  {
+   "cls": "B11",
+   "binder": "ξ",
+   "decl": "five_xi",
+   "text": "theorem five_xi (ξ : NontrivialZeroExistsInStrip) : True := trivial",
+   "grade": "INTERFACES",
+   "test": "five-name"
+  },
+  {
+   "cls": "NONE",
+   "binder": "c",
+   "decl": "noclass",
+   "text": "theorem noclass (c : SomeUndeclaredBareName) : True := trivial",
+   "grade": "NO CLASS",
+   "test": "no-class control"
+  }
+ ]
+}
