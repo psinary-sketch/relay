@@ -1,0 +1,63 @@
+b638 -- THE GENERATOR`S GLOSSARY BLOCK, (R248)(4), THE DIFF AGAINST relay 2aa41700 (2026-10-07T19:29:36Z)
+
+### lines removed 4 ; added 45
+
+--- chain_page.py@2aa41700
++++ chain_page.py
+@@ -460,0 +461,36 @@
++
++
++# ### b638, (R248)(4), THE READER'S CLAUSE: a node list carrying the one line `# glossary` is emitted with the glossary block beneath the
++# ### page's head line -- every internal name the two pages and the keystone census use, defined in the programme's own words, printed
++# ### from relay data/glossary.txt, the one shared source the census prints through this same renderer, so the block reads byte for byte
++# ### alike in all three. A list without the line emits exactly as before.
++GLOSSARY_MARK = '# glossary'
++GLOSSARY_FILE = os.path.join(ROOT, 'data', 'glossary.txt')
++GLOSSARY_HEAD = '## Glossary'
++GLOSSARY_INTRO = ('*The internal names this document uses, each defined in the programme’s own words with where the programme states it. '
++                  'The block is printed by relay `tools/chain_page.py` from relay `data/glossary.txt`, one source shared by the two generated '
++                  'pages and the keystone census, so it reads the same in all three.*')
++
++
++def node_glossary(path):
++    """### b638, (R248)(4): True for a node list carrying the line `# glossary`."""
++    return any(raw.rstrip('\r\n') == GLOSSARY_MARK for raw in io.open(path, encoding='utf-8'))
++
++
++def glossary_entries(path=None):
++    """### b638: the glossary's entries in its file's order, (name, definition, source); a line beginning # is a comment."""
++    out = []
++    for raw in io.open(path or GLOSSARY_FILE, encoding='utf-8'):
++        line = raw.rstrip('\n').rstrip('\r')
++        if not line.strip() or line.startswith('#'):
++            continue
++        f = line.split('\t')
++        if len(f) != 3 or not all(x.strip() for x in f):
++            raise ValueError('a glossary line is not name, definition and source: %r' % line[:80])
++        out.append(tuple(x.strip() for x in f))
++    return out
++
++
++def glossary_block(path=None):
++    """### b638: the glossary block's lines -- its heading, its one-line introduction, one line per entry."""
++    return [GLOSSARY_HEAD, '', GLOSSARY_INTRO, ''] + ['- **%s** — %s *(%s)*' % e for e in glossary_entries(path)]
+@@ -705 +741 @@
+-def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b568_nodes.txt', key=False, column=False):
++def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b568_nodes.txt', key=False, column=False, glossary=False):
+@@ -712,0 +749,2 @@
++    if glossary:
++        L += glossary_block() + ['']   # ### b638, (R248)(4): the glossary block beneath the head line
+@@ -735 +773 @@
+-def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil_lines, nodes_name, key=True, column=False):
++def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil_lines, nodes_name, key=True, column=False, glossary=False):
+@@ -744,0 +783,2 @@
++    if glossary:
++        L += glossary_block() + ['']   # ### b638, (R248)(4): the glossary block beneath the head line
+@@ -798,0 +839 @@
++    gloss = node_glossary(nodes_path)  # ### b638, (R248)(4): the glossary block, by the list's one line
+@@ -903 +944 @@
+-        page = emit_dirichlet(nodes, cells, order, corr_rows, kfiles, sent, (rl, gl), os.path.basename(nodes_path), keyed, column)
++        page = emit_dirichlet(nodes, cells, order, corr_rows, kfiles, sent, (rl, gl), os.path.basename(nodes_path), keyed, column, gloss)
+@@ -905 +946 @@
+-        page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed, column)
++        page = emit(nodes, cells, order, corr_rows, kfiles, ceiling_line(), os.path.basename(nodes_path), keyed, column, gloss)

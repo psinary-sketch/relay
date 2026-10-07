@@ -1,0 +1,28 @@
+b638 -- ITS TEST, CASE (9) AT v0.6, THE DIFF AGAINST relay 2aa41700 (2026-10-07T20:10:09Z)
+
+### lines removed 9 ; added 9
+
+--- test_act_root.py@2aa41700
++++ test_act_root.py
+@@ -17,3 +17,3 @@
+-### b634, (R244)(4) -- the census path at v0.5:
+-###   (9) the census the root reads is THE_KEYSTONE_CENSUS_v0_5.md, present at PLACE-papers HEAD, and its kernel column yields a
+-###       non-empty list every name of which is a SIDE- repository; the list read at v0.4 by the same reader is printed beside it.
++### b634, (R244)(4) -- the census path at v0.5; b638, (R248)(5) -- at v0.6:
++###   (9) the census the root reads is THE_KEYSTONE_CENSUS_v0_6.md, present at PLACE-papers HEAD, and its kernel column yields a
++###       non-empty list every name of which is a SIDE- repository; the list read at v0.5 by the same reader is printed beside it.
+@@ -110 +110 @@
+-    ck5 = AR.census_kernels('HEAD')
++    ck6 = AR.census_kernels('HEAD')
+@@ -113,2 +113,2 @@
+-        AR.CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_4.md'
+-        ck4 = AR.census_kernels('HEAD')
++        AR.CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_5.md'
++        ck5 = AR.census_kernels('HEAD')
+@@ -117,3 +117,3 @@
+-    want('(9) the census path is v0.5 and its kernel column reads %d kernels (v0.4 by the same reader %d; gained %s, lost %s)' % (
+-         len(ck5), len(ck4), sorted(set(ck5) - set(ck4)) or 'none', sorted(set(ck4) - set(ck5)) or 'none'),
+-         AR.CENSUS == 'phase2/method/THE_KEYSTONE_CENSUS_v0_5.md' and bool(ck5) and all(k.startswith('SIDE-') for k in ck5))
++    want('(9) the census path is v0.6 and its kernel column reads %d kernels (v0.5 by the same reader %d; gained %s, lost %s)' % (
++         len(ck6), len(ck5), sorted(set(ck6) - set(ck5)) or 'none', sorted(set(ck5) - set(ck6)) or 'none'),
++         AR.CENSUS == 'phase2/method/THE_KEYSTONE_CENSUS_v0_6.md' and bool(ck6) and all(k.startswith('SIDE-') for k in ck6))

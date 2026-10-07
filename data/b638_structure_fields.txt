@@ -1,0 +1,64 @@
+b638 -- COMPONENT 2, (R248)(2): THE FIELD PRINT -- EVERY STRUCTURE TYPE AMONG b637`S 93 MOVES, EACH FIELD WITH ITS KIND (2026-10-07T19:28:33Z)
+
+### each field read by the rule`s own typing() (relay tools/e0_rule.py) in its declaration`s context; a head the typing reads as unlisted or unread settled by its own declaration at the pin (git grep). THE RULING`S TEST: every field a Prop -- the moves on the type stand at INTERFACES on a premise structure; any field data -- the type is an object of the statement, its moves revert, the grammar gains the data-structure clause.
+
+== structure PWSetup -- SIDE-explicit-formula SIDEExplicitFormula/PowerLimit.lean :245 at 8c51431 ; declared structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) : Prop where
+     :246   hev                PROP  a universal over a relation at depth 0 (=)                     ∀ x, g0 (-x) = g0 x
+     :247   hsm                PROP  the lexicon: ContDiff (Mathlib de5ce8a9 Mathlib/Analysis/Calculus/ContDiff/Defs.lean :1068) ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0
+     :248   hs                 PROP  a relation at depth 0 (⊆)                                      Function.support g0 ⊆ Set.Icc (-L) L
+     :249   hL                 PROP  a relation at depth 0 (≤)                                      0 ≤ L
+     :250   hM                 PROP  a relation at depth 0 (<)                                      0 < M
+     :251   hdom               PROP  a bounded universal                                            ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g0 ρ ≤ M
+   ### fields 6 ; Prop 6 ; data 0 ; unread 0 ; the moves resting on it 51 ; THE RULING: THE MOVES STAND
+
+== structure TailHyp -- SIDE-explicit-formula Zeta23/Tail.lean :288 at 8c51431 ; declared structure TailHyp (Z : ZeroConfig) (P : Params) (T A₀ C₁ : ℝ) : Prop where
+     :289   hT                 PROP  a relation at depth 0 (≤)                                      T₀ ≤ T
+     :290   hL                 PROP  a relation at depth 0 (≤)                                      2 ≤ P.L T
+     :291   hA₀                PROP  a relation at depth 0 (≤)                                      1 ≤ A₀
+     :293   hloc               PROP  a universal over a relation at depth 0 (≤)                     ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+     :294   hC₁                PROP  a relation at depth 0 (≤)                                      0 ≤ C₁
+     :296   hdecay             PROP  a bounded universal                                            ∀ (r y : ℝ), |y| ≤ 1 / 2 → (r : ℂ) - I * y ≠ 0 → ‖P.phiHat T (r - I * y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖(r : 
+   ### fields 6 ; Prop 6 ; data 0 ; unread 0 ; the moves resting on it 23 ; THE RULING: THE MOVES STAND
+
+== structure BlockInputs -- SIDE-explicit-formula Zeta23/Assembly/Inputs.lean :58 at 8c51431 ; declared structure BlockInputs : Prop where
+     :60    hat                PROP  an existential                                                 ∃ (Pm Qm : Matrix (Fin (P.d T)) (Fin (P.d T)) ℂ) (p : ℕ) (_ : Pm.PosSemidef) (hQm : Qm.IsHermitian), P.hat T (
+     :66    tilde              PROP  an existential                                                 ∃ (p : ℕ) (hAt : (P.tilde T (Z.Az P T)).IsHermitian), posIndex hAt ≤ Z.s1 T + Z.s2 T + p ∧ (P.tilde T (Z.Az P 
+   ### fields 2 ; Prop 2 ; data 0 ; unread 0 ; the moves resting on it 2 ; THE RULING: THE MOVES STAND
+
+== structure TailInputs -- SIDE-explicit-formula Zeta23/Assembly/Inputs.lean :73 at 8c51431 ; declared structure TailInputs (θ₀ : ℝ) : Prop where
+     :74    theta_nonneg       PROP  a relation at depth 0 (≤)                                      0 ≤ θ₀
+     :77    tilde              PROP  an existential                                                 ∃ hEt : (P.tilde T (Z.Ez P T)).IsHermitian, ∀ i, |hEt.eigenvalues i| ≤ θ₀
+     :79    hat                PROP  an existential                                                 ∃ B : ℝ, 0 ≤ B ∧ |rtrace (P.hat T (Z.Ez P T))| ≤ B ∧ frobSq (P.hat T (Z.Ez P T)) ≤ B ^ 2 ∧ B ≤ θ₀ / (P.a T * P
+   ### fields 3 ; Prop 3 ; data 0 ; unread 0 ; the moves resting on it 3 ; THE RULING: THE MOVES STAND
+
+== structure PaperInputs -- SIDE-explicit-formula Zeta23/Hypotheses.lean :163 at 8c51431 ; declared structure PaperInputs (Z : ZeroConfig) : Prop where
+     :165   EF                 PROP  the typing: UNLEXED: an application of a name no lex ; its head`s declaration Zeta23/Hypotheses.lean :64: def ExplicitFormulaPaper (Z : ZeroConfig) :  ExplicitFormulaPaper Z
+     :167   RvM                PROP  the lexicon: RiemannVonMangoldt (SIDE-explicit-formula Zeta23/Hypotheses.lean :83) RiemannVonMangoldt Z
+     :169   cheb               PROP  the typing: a bare name no lexicon lists (ChebyshevM ; its head`s declaration Zeta23/Hypotheses.lean :99: structure ChebyshevMertens : Prop where ChebyshevMertens
+     :171   MV                 PROP  an existential                                                 ∃ C : ℝ, 0 < C ∧ MVHilbert C
+     :173   Gamma              PROP  the lexicon: GammaFacts (SIDE-explicit-formula Zeta23/Hypotheses.lean :141) GammaFacts
+   ### fields 5 ; Prop 5 ; data 0 ; unread 0 ; the moves resting on it 5 ; THE RULING: THE MOVES STAND
+
+== structure RiemannVonMangoldt -- SIDE-explicit-formula Zeta23/Hypotheses.lean :83 at 8c51431 ; declared structure RiemannVonMangoldt (Z : ZeroConfig) : Prop where
+     :84    main               PROP  an existential                                                 ∃ C T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T → |(Z.N T (2 * T) : ℝ) - T / (2 * Real.pi) * ell1 T| ≤ C * Real.log T
+     :86    local_count        PROP  an existential                                                 ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+   ### fields 2 ; Prop 2 ; data 0 ; unread 0 ; the moves resting on it 2 ; THE RULING: THE MOVES STAND
+
+== structure SelfDualFE -- SIDE-lv-conservation SIDELvConservation/FieldLayer.lean :56 at 2f71068 ; declared structure SelfDualFE (q : K) (g : ℕ) (p : ℕ → K) : Prop where
+     :57    fe                 PROP  a bounded universal                                            ∀ i ≤ g, p (2 * g - i) = q ^ (g - i) * p i
+   ### fields 1 ; Prop 1 ; data 0 ; unread 0 ; the moves resting on it 3 ; THE RULING: THE MOVES STAND
+
+== structure ZeroActingPairing -- SIDE-lv-conservation SIDELvConservation/ZeroActingPairing.lean :41 at 2f71068 ; declared structure ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop where
+     :45    zeroActing         PROP  the lexicon: Register5_output_HilbertPolya (SIDE-lv-conservation SIDELvConservation/RegisterPentagon.lean :189) Register5_output_HilbertPolya
+     :49    yieldsInequality   PROP  an implication into a Prop                                     Register5_output_HilbertPolya → Register4_channelInequality lam_A lam_Z
+     :53    eulerConsuming     PROP  a universal over a relation at depth 0 (≤)                     ∀ m, 0 ≤ ledger m
+     :56    distinctFromInput  PROP  a negation                                                     ¬ RealizesXiZeros certifiedInputSpectrum
+   ### fields 4 ; Prop 4 ; data 0 ; unread 0 ; the moves resting on it 2 ; THE RULING: THE MOVES STAND
+
+### THE MOVES RESTING ON NO STRUCTURE TYPE (2), each with the premise binders the rerun printed:
+  SIDE-lv-conservation           T2c_phi_side_predicates_are_s_dark                             B11 _hP : P Φ₁
+  SIDE-lv-conservation           distinctFromInput_discharged                                   B11 nontrivialZeroInStrip : NontrivialZeroExistsInStrip
+
+### THE SECOND READER`S G036 AT b632 (relay data/b632_reader_answers.txt :36): G036 | DERIVES | H : PWSetup Z g0 L M is read as an object (the conclusion builds KF H from it), a data binder; rho is data (reading uncertain if PWSetup is a Prop-only structure)
+
+### ### **STRUCTURE TYPES 8 ; FIELDS 29 ; DATA FIELDS 0 ; UNREAD 0 ; TYPES ALL PROP 8 ; MOVES STANDING 91 ; MOVES REVERTING 0 ; PWSetup: 6 FIELDS, EVERY ONE A PROP, 51 MOVES STANDING.**

@@ -1,0 +1,508 @@
+{
+ "at": "2026-10-07T19:28:33Z",
+ "types": [
+  {
+   "name": "PWSetup",
+   "kernel": "SIDE-explicit-formula",
+   "pin": "8c51431",
+   "path": "SIDEExplicitFormula/PowerLimit.lean",
+   "line": 245,
+   "head": "structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) : Prop where",
+   "fields": [
+    {
+     "name": "hev",
+     "line": 246,
+     "type": "∀ x, g0 (-x) = g0 x",
+     "typing": "prop",
+     "how": "a universal over a relation at depth 0 (=)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hsm",
+     "line": 247,
+     "type": "ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g0",
+     "typing": "prop",
+     "how": "the lexicon: ContDiff (Mathlib de5ce8a9 Mathlib/Analysis/Calculus/ContDiff/Defs.lean :1068)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hs",
+     "line": 248,
+     "type": "Function.support g0 ⊆ Set.Icc (-L) L",
+     "typing": "prop",
+     "how": "a relation at depth 0 (⊆)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hL",
+     "line": 249,
+     "type": "0 ≤ L",
+     "typing": "prop",
+     "how": "a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hM",
+     "line": 250,
+     "type": "0 < M",
+     "typing": "prop",
+     "how": "a relation at depth 0 (<)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hdom",
+     "line": 251,
+     "type": "∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g0 ρ ≤ M",
+     "typing": "prop",
+     "how": "a bounded universal",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDEExplicitFormula.B321.Aw_nonneg",
+    "SIDEExplicitFormula.B321.Efac_ne",
+    "SIDEExplicitFormula.B321.Ep_prod",
+    "SIDEExplicitFormula.B321.Kp_kill",
+    "SIDEExplicitFormula.B321.Kp_tie_ne",
+    "SIDEExplicitFormula.B321.Nf_pos",
+    "SIDEExplicitFormula.B321.PWSetup.c4",
+    "SIDEExplicitFormula.B321.PWSetup.kfin",
+    "SIDEExplicitFormula.B321.PWSetup.tfin",
+    "SIDEExplicitFormula.B321.Pof_eval",
+    "SIDEExplicitFormula.B321.Pof_prod",
+    "SIDEExplicitFormula.B321.VF_conj",
+    "SIDEExplicitFormula.B321.XV_conj",
+    "SIDEExplicitFormula.B321.XV_ne",
+    "SIDEExplicitFormula.B321.XV_node",
+    "SIDEExplicitFormula.B321.Xval_ne",
+    "SIDEExplicitFormula.B321.Xval_norm",
+    "SIDEExplicitFormula.B321.Xval_real_neg",
+    "SIDEExplicitFormula.B321.Yv_conj",
+    "SIDEExplicitFormula.B321.Yv_mul",
+    "SIDEExplicitFormula.B321.Yv_ne",
+    "SIDEExplicitFormula.B321.aeval_Ep",
+    "SIDEExplicitFormula.B321.cE_big",
+    "SIDEExplicitFormula.B321.cE_pos",
+    "SIDEExplicitFormula.B321.coeffs_exist",
+    "SIDEExplicitFormula.B321.fR_bound",
+    "SIDEExplicitFormula.B321.fR_norm_le",
+    "SIDEExplicitFormula.B321.gHat_ne",
+    "SIDEExplicitFormula.B321.kill_term_zero",
+    "SIDEExplicitFormula.B321.mem_KF",
+    "SIDEExplicitFormula.B321.mem_TF",
+    "SIDEExplicitFormula.B321.mem_sT",
+    "SIDEExplicitFormula.B321.norm_Yv",
+    "SIDEExplicitFormula.B321.rT_conj",
+    "SIDEExplicitFormula.B321.rT_norm",
+    "SIDEExplicitFormula.B321.rT_sq_mul",
+    "SIDEExplicitFormula.B321.rep_spec",
+    "SIDEExplicitFormula.B321.term_eq",
+    "SIDEExplicitFormula.B321.zero_weight",
+    "SIDEExplicitFormula.GRHWeil.dominant_summable_chi",
+    "SIDEExplicitFormula.GRHWeil.fR_bound_chi",
+    "SIDEExplicitFormula.GRHWeil.fR_norm_le_chi",
+    "SIDEExplicitFormula.GRHWeil.mem_sT_chi",
+    "SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi",
+    "SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi",
+    "SIDEExplicitFormula.Schema.dominant_summable_cfg",
+    "SIDEExplicitFormula.Schema.fR_bound_cfg",
+    "SIDEExplicitFormula.Schema.fR_norm_le_cfg",
+    "SIDEExplicitFormula.Schema.mem_sT_cfg",
+    "SIDEExplicitFormula.Schema.rest_tendsto_zero_cfg",
+    "SIDEExplicitFormula.Schema.zeroSide_eventually_neg_cfg"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "TailHyp",
+   "kernel": "SIDE-explicit-formula",
+   "pin": "8c51431",
+   "path": "Zeta23/Tail.lean",
+   "line": 288,
+   "head": "structure TailHyp (Z : ZeroConfig) (P : Params) (T A₀ C₁ : ℝ) : Prop where",
+   "fields": [
+    {
+     "name": "hT",
+     "line": 289,
+     "type": "T₀ ≤ T",
+     "typing": "prop",
+     "how": "a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hL",
+     "line": 290,
+     "type": "2 ≤ P.L T",
+     "typing": "prop",
+     "how": "a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hA₀",
+     "line": 291,
+     "type": "1 ≤ A₀",
+     "typing": "prop",
+     "how": "a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hloc",
+     "line": 293,
+     "type": "∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)",
+     "typing": "prop",
+     "how": "a universal over a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hC₁",
+     "line": 294,
+     "type": "0 ≤ C₁",
+     "typing": "prop",
+     "how": "a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hdecay",
+     "line": 296,
+     "type": "∀ (r y : ℝ), |y| ≤ 1 / 2 → (r : ℂ) - I * y ≠ 0 → ‖P.phiHat T (r - I * y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖(r : ℂ) - I * y‖ ^ 2",
+     "typing": "prop",
+     "how": "a bounded universal",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Az_eq_sum",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Ez_isHermitian",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_congr_simp",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_nonneg",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_L_pos",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_T_pos",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hL",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hT",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hasSum_Ez",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hat_Ez_isHermitian",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hdecay",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hloc",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_not_mem_sA_iff",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_partial_sum_le",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_Gsummand",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_tail",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tailInputs",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tilde_Ez_isHermitian",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tsum_tail_le",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "BlockInputs",
+   "kernel": "SIDE-explicit-formula",
+   "pin": "8c51431",
+   "path": "Zeta23/Assembly/Inputs.lean",
+   "line": 58,
+   "head": "structure BlockInputs : Prop where",
+   "fields": [
+    {
+     "name": "hat",
+     "line": 60,
+     "type": "∃ (Pm Qm : Matrix (Fin (P.d T)) (Fin (P.d T)) ℂ) (p : ℕ) (_ : Pm.PosSemidef) (hQm : Qm.IsHermitian), P.hat T (Z.Az P T) = Pm + Qm ∧ Pm.rank ≤ Z.s1 T + Z.s2 T ∧ rtrace Pm ≤ (Z.NonIprime T : ℝ) ∧ posIndex hQm ≤ p ∧ (Z.NonIprime T : ℝ) + 2 * p ≤ Z.NIprime T",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "tilde",
+     "line": 66,
+     "type": "∃ (p : ℕ) (hAt : (P.tilde T (Z.Az P T)).IsHermitian), posIndex hAt ≤ Z.s1 T + Z.s2 T + p ∧ (P.tilde T (Z.Az P T)).rank ≤ (Z.ZIprime T).ncard ∧ (Z.s1 T : ℝ) + 2 * Z.s2 T + 2 * p ≤ Z.NIprime T",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_hat",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_tilde"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "TailInputs",
+   "kernel": "SIDE-explicit-formula",
+   "pin": "8c51431",
+   "path": "Zeta23/Assembly/Inputs.lean",
+   "line": 73,
+   "head": "structure TailInputs (θ₀ : ℝ) : Prop where",
+   "fields": [
+    {
+     "name": "theta_nonneg",
+     "line": 74,
+     "type": "0 ≤ θ₀",
+     "typing": "prop",
+     "how": "a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "tilde",
+     "line": 77,
+     "type": "∃ hEt : (P.tilde T (Z.Ez P T)).IsHermitian, ∀ i, |hEt.eigenvalues i| ≤ θ₀",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "hat",
+     "line": 79,
+     "type": "∃ B : ℝ, 0 ≤ B ∧ |rtrace (P.hat T (Z.Ez P T))| ≤ B ∧ frobSq (P.hat T (Z.Ez P T)) ≤ B ^ 2 ∧ B ≤ θ₀ / (P.a T * P.L T)",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_hat",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_theta_nonneg",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_tilde"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "PaperInputs",
+   "kernel": "SIDE-explicit-formula",
+   "pin": "8c51431",
+   "path": "Zeta23/Hypotheses.lean",
+   "line": 163,
+   "head": "structure PaperInputs (Z : ZeroConfig) : Prop where",
+   "fields": [
+    {
+     "name": "EF",
+     "line": 165,
+     "type": "ExplicitFormulaPaper Z",
+     "typing": "prop",
+     "how": "UNLEXED: an application of a name no lexicon lists, read as a named predicate",
+     "decl": {
+      "where": "Zeta23/Hypotheses.lean :64",
+      "line": "def ExplicitFormulaPaper (Z : ZeroConfig) : Prop :=",
+      "kind": "prop"
+     },
+     "kind": "prop"
+    },
+    {
+     "name": "RvM",
+     "line": 167,
+     "type": "RiemannVonMangoldt Z",
+     "typing": "prop",
+     "how": "the lexicon: RiemannVonMangoldt (SIDE-explicit-formula Zeta23/Hypotheses.lean :83)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "cheb",
+     "line": 169,
+     "type": "ChebyshevMertens",
+     "typing": null,
+     "how": "a bare name no lexicon lists (ChebyshevMertens)",
+     "decl": {
+      "where": "Zeta23/Hypotheses.lean :99",
+      "line": "structure ChebyshevMertens : Prop where",
+      "kind": "prop"
+     },
+     "kind": "prop"
+    },
+    {
+     "name": "MV",
+     "line": 171,
+     "type": "∃ C : ℝ, 0 < C ∧ MVHilbert C",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "Gamma",
+     "line": 173,
+     "type": "GammaFacts",
+     "typing": "prop",
+     "how": "the lexicon: GammaFacts (SIDE-explicit-formula Zeta23/Hypotheses.lean :141)",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_EF",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_Gamma",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_MV",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_RvM",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_cheb"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "RiemannVonMangoldt",
+   "kernel": "SIDE-explicit-formula",
+   "pin": "8c51431",
+   "path": "Zeta23/Hypotheses.lean",
+   "line": 83,
+   "head": "structure RiemannVonMangoldt (Z : ZeroConfig) : Prop where",
+   "fields": [
+    {
+     "name": "main",
+     "line": 84,
+     "type": "∃ C T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T → |(Z.N T (2 * T) : ℝ) - T / (2 * Real.pi) * ell1 T| ≤ C * Real.log T",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "local_count",
+     "line": 86,
+     "type": "∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)",
+     "typing": "prop",
+     "how": "an existential",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_local_count",
+    "SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_main"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "SelfDualFE",
+   "kernel": "SIDE-lv-conservation",
+   "pin": "2f71068",
+   "path": "SIDELvConservation/FieldLayer.lean",
+   "line": 56,
+   "head": "structure SelfDualFE (q : K) (g : ℕ) (p : ℕ → K) : Prop where",
+   "fields": [
+    {
+     "name": "fe",
+     "line": 57,
+     "type": "∀ i ≤ g, p (2 * g - i) = q ^ (g - i) * p i",
+     "typing": "prop",
+     "how": "a bounded universal",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "SIDELvConservation.FieldLayer.norml_top",
+    "SIDELvConservation.LeadLaw.lead_law_of_top_coeff",
+    "SIDELvConservation.LeadLaw.ptTop_eq_p_zero"
+   ],
+   "ruling": "the moves stand"
+  },
+  {
+   "name": "ZeroActingPairing",
+   "kernel": "SIDE-lv-conservation",
+   "pin": "2f71068",
+   "path": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 41,
+   "head": "structure ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop where",
+   "fields": [
+    {
+     "name": "zeroActing",
+     "line": 45,
+     "type": "Register5_output_HilbertPolya",
+     "typing": "prop",
+     "how": "the lexicon: Register5_output_HilbertPolya (SIDE-lv-conservation SIDELvConservation/RegisterPentagon.lean :189)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "yieldsInequality",
+     "line": 49,
+     "type": "Register5_output_HilbertPolya → Register4_channelInequality lam_A lam_Z",
+     "typing": "prop",
+     "how": "an implication into a Prop",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "eulerConsuming",
+     "line": 53,
+     "type": "∀ m, 0 ≤ ledger m",
+     "typing": "prop",
+     "how": "a universal over a relation at depth 0 (≤)",
+     "decl": null,
+     "kind": "prop"
+    },
+    {
+     "name": "distinctFromInput",
+     "line": 56,
+     "type": "¬ RealizesXiZeros certifiedInputSpectrum",
+     "typing": "prop",
+     "how": "a negation",
+     "decl": null,
+     "kind": "prop"
+    }
+   ],
+   "declared_prop": true,
+   "all_prop": true,
+   "moves": [
+    "zeroActingPairing_to_RH",
+    "zeroActingPairing_to_channelInequality"
+   ],
+   "ruling": "the moves stand"
+  }
+ ],
+ "rest": [
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "T2c_phi_side_predicates_are_s_dark",
+   "classes": [
+    "B11 _hP : P Φ₁"
+   ]
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "distinctFromInput_discharged",
+   "classes": [
+    "B11 nontrivialZeroInStrip : NontrivialZeroExistsInStrip"
+   ]
+  }
+ ],
+ "fields": 29,
+ "all_prop": true,
+ "pwsetup_fields": 6,
+ "pwsetup_moves": 51,
+ "pwsetup_all_prop": true,
+ "standing": 91,
+ "reverting": 0
+}
