@@ -1,0 +1,9 @@
+b635 Component 5 -- the deposit bank's one unresolved tag, hand-read (the matcher's residue).
+data/b635_deposit_items.txt:30 -- `SIDE-window` `v0.5` = `` ### NOT AT THE REMOTE.
+The source of the pair: PLACE-papers REGISTRY.md:705, the SIDE-window row, in prose: "`ab6f269` prices the `v0.5` matching-certificate
+target". There `v0.5` names a future version the README prices; it is not a tag the REGISTRY cites as deposited or pinned. The row's tags
+are `v0.1.0`..`v0.4.0`, DEPOSIT-PIN `v0.4.0` = `1bd2865`, and each of those resolves in the same bank.
+Local: SIDE-window has no tag v0.5 (git tag: v0.1.0 v0.2.0 v0.3.0 v0.4.0 v0.5.0); the remote listing, read once, has none either.
+The defect is in the instrument, not the subject: registry_tags() in tools/b635_record.py (sealed) takes every backticked vN.N[.N] on a
+one-kernel line as a cited tag. H69d and N4 read REFUTED in letter by this one pair; every tag the REGISTRY cites as a tag resolves
+(18 of 18), the 5 items resolve, and the no-disclosure arm reads 0. Not repaired this act (a sealed tool); carried to the author.

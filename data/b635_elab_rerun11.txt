@@ -1,0 +1,167 @@
+### b635 -- THE ELABORATED READER ON THE ELEVEN, ONE CALL (2026-10-07T02:07:13Z): imports ['SIDEExplicitFormula.Chi.Generic', 'SIDEExplicitFormula.GrowthBound', 'Zeta23.FromPNTPlus.StrongPNTPrefix'] ; exit 0 ; 24 s ; free 4699 MB before, lowest 2547 MB
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit KIND theorem HEADER 7 TOTAL 7
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER explicit hEF : Zeta23.EF.EF_lit (chiZeroConfig χ hχ h1)
+BINDER explicit hΓ : Zeta23.GammaFacts
+CONCL Zeta23.ExplicitFormulaPaper (chiZeroConfig χ hχ h1)
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit KIND theorem HEADER 16 TOTAL 16
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER explicit hEF : Zeta23.EF.EF_lit (chiZeroConfig χ hχ h1)
+BINDER implicit L : ℝ
+BINDER explicit hL : 0 < L
+BINDER implicit f : ℝ → ℂ
+BINDER implicit g : ℝ → ℂ
+BINDER explicit hf : ContDiff ℝ 2 f
+BINDER explicit hg : ContDiff ℝ 2 g
+BINDER explicit hfs : tsupport f ⊆ Set.Icc (-(L / 2)) (L / 2)
+BINDER explicit hgs : tsupport g ⊆ Set.Icc (-(L / 2)) (L / 2)
+BINDER explicit hFk : MeasureTheory.Integrable (FourierTransform.fourier (Zeta23.EF.weilTest f g)) MeasureTheory.volume
+BINDER explicit hμ : MeasureTheory.Integrable (fun τ => Zeta23.paperFT (Zeta23.EF.weilTest f g) ↑τ * ↑(Zeta23.mu τ)) MeasureTheory.volume
+CONCL (Summable fun ρ => (chiZeroConfig χ hχ h1).Wsummand f g ↑ρ) ∧ MeasureTheory.Integrable (fun τ => Zeta23.paperFT f ↑τ * (starRingEnd ℂ) (Zeta23.paperFT g ↑τ) * ↑(Zeta23.nuX (Real.exp L) τ)) MeasureTheory.volume ∧ (chiZeroConfig χ hχ h1).W f g = ∫ (τ : ℝ), Zeta23.paperFT f ↑τ * (starRingEnd ℂ) (Zeta23.paperFT g ↑τ) * ↑(Zeta23.nuX (Real.exp L) τ)
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_tailInputs KIND theorem HEADER 15 TOTAL 15
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_tailInputs SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER explicit P : Zeta23.Params
+BINDER explicit hP : P.Valid
+BINDER implicit A₀ : ℝ
+BINDER explicit hA₀ : 1 ≤ A₀
+BINDER explicit hloc : ∀ (t : ℝ), ↑((chiZeroConfig χ hχ h1).N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+BINDER explicit C₁ : ℝ → ℝ
+BINDER explicit hC₁ : ∀ (T : ℝ), 0 ≤ C₁ T
+BINDER explicit hdecay : ∀ᶠ (T : ℝ) in Filter.atTop, ∀ (r y : ℝ), |y| ≤ 1 / 2 → ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ T / ‖↑r - Complex.I * ↑y‖ ^ 2
+BINDER explicit ha : ∀ᶠ (T : ℝ) in Filter.atTop, 0 < P.a T
+BINDER explicit hconj : ∀ᶠ (T : ℝ) in Filter.atTop, ∀ (z : ℂ), P.phiHat T ((starRingEnd ℂ) z) = (starRingEnd ℂ) (P.phiHat T z)
+CONCL ∀ᶠ (T : ℝ) in Filter.atTop, Zeta23.Assembly.TailInputs (chiZeroConfig χ hχ h1) P T (Zeta23.Tail.theta0 A₀ (Real.exp (P.L T / 4) * C₁ T) T)
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le KIND theorem HEADER 15 TOTAL 15
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER implicit P : Zeta23.Params
+BINDER implicit T : ℝ
+BINDER explicit hT : Zeta23.Tail.T₀ ≤ T
+BINDER explicit hL : 2 ≤ P.L T
+BINDER implicit C₁ : ℝ
+BINDER explicit hC₁ : 0 ≤ C₁
+BINDER explicit hdecay : ∀ (r y : ℝ), |y| ≤ 1 / 2 → ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖↑r - Complex.I * ↑y‖ ^ 2
+BINDER implicit ρ : ℂ
+BINDER explicit hρ : ρ ∈ (chiZeroConfig χ hχ h1).carrier
+BINDER explicit htail : Zeta23.Tail.InTail T ρ.im
+CONCL ∑ k, ‖Zeta23.Tail.uvec P T ρ k‖ ^ 2 ≤ (Real.exp (P.L T / 4) * C₁) ^ 2 * P.L T * (Zeta23.Tail.distI T ρ.im ^ 3)⁻¹
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le KIND theorem HEADER 16 TOTAL 16
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER implicit P : Zeta23.Params
+BINDER implicit T : ℝ
+BINDER explicit hL : 0 < P.L T
+BINDER explicit hT : 0 < T
+BINDER implicit C₁ : ℝ
+BINDER explicit hC₁ : 0 ≤ C₁
+BINDER explicit hdecay : ∀ (r y : ℝ), |y| ≤ 1 / 2 → ↑r - Complex.I * ↑y ≠ 0 → ‖P.phiHat T (↑r - Complex.I * ↑y)‖ ≤ Real.exp (P.L T / 4) * C₁ / ‖↑r - Complex.I * ↑y‖ ^ 2
+BINDER implicit ρ : ℂ
+BINDER explicit hρ : ρ ∈ (chiZeroConfig χ hχ h1).carrier
+BINDER explicit htail : Zeta23.Tail.InTail T ρ.im
+BINDER explicit k : Fin (P.d T)
+CONCL ‖Zeta23.Tail.uvec P T ρ k‖ ≤ Real.exp (P.L T / 4) * C₁ * (|ρ.im - (T + ↑↑k * (2 * Real.pi / P.L T))| ^ 2)⁻¹
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono KIND theorem HEADER 11 TOTAL 11
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER explicit T₁ : ℝ
+BINDER explicit T₂ : ℝ
+BINDER implicit s : Set ℂ
+BINDER implicit t : Set ℂ
+BINDER explicit hst : s ⊆ t
+BINDER explicit ht : t ⊆ (chiZeroConfig χ hχ h1).window T₁ T₂
+CONCL ∑ᶠ (ρ : ℂ) (_ : ρ ∈ s), (chiZeroConfig χ hχ h1).mult ρ ≤ ∑ᶠ (ρ : ℂ) (_ : ρ ∈ t), (chiZeroConfig χ hχ h1).mult ρ
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult KIND theorem HEADER 9 TOTAL 9
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER explicit T₁ : ℝ
+BINDER explicit T₂ : ℝ
+BINDER implicit s : Set ℂ
+BINDER explicit hs : s ⊆ (chiZeroConfig χ hχ h1).window T₁ T₂
+CONCL s.ncard ≤ ∑ᶠ (ρ : ℂ) (_ : ρ ∈ s), (chiZeroConfig χ hχ h1).mult ρ
+END
+DECL SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono KIND theorem HEADER 11 TOTAL 11
+MODULE SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono SIDEExplicitFormula.Chi.Generic
+BINDER implicit N : ℕ
+BINDER instance inst✝ : NeZero N
+BINDER explicit χ : DirichletCharacter ℂ N
+BINDER explicit hχ : χ.IsPrimitive
+BINDER explicit h1 : χ ≠ 1
+BINDER explicit T₁ : ℝ
+BINDER explicit T₂ : ℝ
+BINDER implicit s : Set ℂ
+BINDER implicit t : Set ℂ
+BINDER explicit hst : s ⊆ t
+BINDER explicit ht : t ⊆ (chiZeroConfig χ hχ h1).window T₁ T₂
+CONCL s.ncard ≤ t.ncard
+END
+DECL ZerosBound KIND theorem HEADER 12 TOTAL 12
+MODULE ZerosBound Zeta23.FromPNTPlus.StrongPNTPrefix
+BINDER implicit B : ℝ
+BINDER implicit r : ℝ
+BINDER implicit R : ℝ
+BINDER implicit f : ℂ → ℂ
+BINDER explicit r_pos : 0 < r
+BINDER explicit r_lt_one : r < 1
+BINDER explicit r_lt_R : r < R
+BINDER explicit R_lt_one : R < 1
+BINDER explicit hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall 0 1)
+BINDER explicit hf0_eq_one : f 0 = 1
+BINDER explicit finiteZeros : (SetOfZeros 1 f).Finite
+BINDER explicit fz_bound : ∀ (z : ℂ), ‖z‖ ≤ R → ‖f z‖ ≤ B
+CONCL ↑(∑ ρ ∈ ⋯.toFinset, analyticOrderNatAt f ρ) ≤ 1 / Real.log (R / r) * Real.log B
+END
+DECL SIDEExplicitFormula.B321.paperFT_growth KIND theorem HEADER 5 TOTAL 5
+MODULE SIDEExplicitFormula.B321.paperFT_growth SIDEExplicitFormula.GrowthBound
+BINDER explicit h : ℝ → ℂ
+BINDER explicit L : ℝ
+BINDER explicit hi : MeasureTheory.Integrable h MeasureTheory.volume
+BINDER explicit hs : Function.support h ⊆ Set.Icc (-L) L
+BINDER explicit z : ℂ
+CONCL ‖Zeta23.paperFT h z‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |z.im|)
+END
+DECL SIDEExplicitFormula.B321.paperFT_growth_at KIND theorem HEADER 5 TOTAL 5
+MODULE SIDEExplicitFormula.B321.paperFT_growth_at SIDEExplicitFormula.GrowthBound
+BINDER explicit h : ℝ → ℂ
+BINDER explicit L : ℝ
+BINDER explicit hi : MeasureTheory.Integrable h MeasureTheory.volume
+BINDER explicit hs : Function.support h ⊆ Set.Icc (-L) L
+BINDER explicit ρ : ℂ
+CONCL ‖Zeta23.paperFT h (Zeta23.gammaOf ρ)‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |ρ.re - 1 / 2|)
+END

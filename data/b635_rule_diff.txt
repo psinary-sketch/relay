@@ -1,0 +1,14 @@
+b635 -- (R245)(2): THE RULE`S THREE REPAIRS, THE DIFF AGAINST relay f022c6ab (2026-10-07T01:59:28Z)
+
+--- e0_rule.py@f022c6ab
++++ e0_rule.py
+@@ -73 +73 @@
+-BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\([^()]*\)[^()]*)*)\)')
++BINDER = re.compile(r'\((h\w*) : ([^()]*(?:\((?:[^()]|\([^()]*\))*\)[^()]*)*)\)')   # ### b635, (R245)(2): two levels of nesting
+@@ -267 +267,2 @@
+-CLASS_PREDS_B625 = re.compile(r'^\s*(?:ContDiff|HasCompactSupport|IsCompact|Continuous|Integrable|Differentiable)\b.*?\s([^\W\d][\w\'₀-₉]*)\s*$')
++CLASS_PREDS_B625 = re.compile(r'^\s*(?:[\w\']+\.)*(?:ContDiff|HasCompactSupport|IsCompact|Continuous|Integrable|Differentiable)\b.*?\s'
++                              r'([^\W\d][\w\'₀-₉]*)(?:\s+(?:MeasureTheory\.)?volume)?\s*$')   # ### b635, (R245)(2): the qualified name and its default measure
+@@ -455,0 +457,2 @@
++    if re.match(r'^\s*type_of%', conclusion(head) or ''):   # ### b635, (R245)(2): the statement is the elaborated type
++        return 'DEFERRED', 'the conclusion is a type_of% term; the elaborated type is the statement', []

@@ -1,0 +1,14 @@
+b635 -- THE GENERATOR'S TEST RUN AGAINST tools/terminal_table.py AT relay f022c6ab (git show into the scratchpad, the test beside it): it must fail there.
+
+C:\Users\echo chamber\AppData\Local\Temp\claude\D--\89dd14e7-e119-4cf8-b592-ceaac809eff2\scratchpad\oldgen635\tools\terminal_table.py:403: SyntaxWarning: invalid escape sequence '\ '
+  ### BLIND TO COMPOUND VERDICTS: it read `ENCODES-CONCLUSION \ SHELL` as two cells."""
+C:\Users\echo chamber\AppData\Local\Temp\claude\D--\89dd14e7-e119-4cf8-b592-ceaac809eff2\scratchpad\oldgen635\tools\terminal_table.py:516: SyntaxWarning: invalid escape sequence '\ '
+  merged[-1] = (p0, g1, pg + ' \ ' + gr)
+C:\Users\echo chamber\AppData\Local\Temp\claude\D--\89dd14e7-e119-4cf8-b592-ceaac809eff2\scratchpad\oldgen635\tools\terminal_table.py:795: SyntaxWarning: invalid escape sequence '\ '
+  rec('    ### `ENCODES-CONCLUSION \ SHELL`, `SHELL / hypothesis-assumed`, `SHELL/ENCODES`')
+Traceback (most recent call last):
+  File "C:\Users\echo chamber\AppData\Local\Temp\claude\D--\89dd14e7-e119-4cf8-b592-ceaac809eff2\scratchpad\oldgen635\tools\test_terminal_table_b635.py", line 30, in <module>
+    K = TT.ELAB_KERNEL
+        ^^^^^^^^^^^^^^
+AttributeError: module 'terminal_table' has no attribute 'ELAB_KERNEL'
+### exit 1
