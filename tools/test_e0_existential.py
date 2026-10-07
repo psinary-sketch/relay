@@ -10,7 +10,11 @@
 ###   (5) a synthetic header with an outer premise binder AND an inner existential binder reads INTERFACES;
 ###   (6) a synthetic header with the existential binder alone reads DERIVES;
 ###   (7) `exist_spans` stops at the existential's top-level comma: a binder after that comma (inside a nested ∀) is not
-###       covered by the span.
+###       covered by the span. ### b637, (R247)(3)-(4), RE-POINTED: the binder after the comma lies inside the existential's body, and the
+###       binder grammar reads the statement's binders as Lean's (the header's groups and the conclusion's leading telescope), so it is no
+###       binder of the statement but part of the conclusion -- (R201)(3)'s words, "a binder inside an existential in a theorem's
+###       conclusion is part of the conclusion"; the case wanted INTERFACES, the old pattern's reach; it now wants DERIVES, the span's
+###       reading unchanged. No row of the terminal table moves by it (relay data/b637_rerun.txt).
 ### Usage: python tools/test_e0_existential.py
 """
 import os
@@ -61,8 +65,10 @@ def main():
     h7 = ': ∃ (Z : Cfg), ∀ (hQ : Premises Z), P Z'
     sp = E0.exist_spans(h7)
     q = h7.index('(hQ')
-    want('(7) the span ends at the existential`s top-level comma (spans %s; the binder after it at %d uncovered)' % (sp, q),
-         len(sp) == 1 and not any(a <= q < b for a, b in sp) and E0.grade(h7, 'theorem')[0] == 'INTERFACES')
+    g7 = E0.grade(h7, 'theorem')[0]
+    want('(7) the span ends at the existential`s top-level comma (spans %s; the binder after it at %d uncovered); the binder inside the '
+         'existential`s body part of the conclusion, DERIVES (read %s)' % (sp, q, g7),
+         len(sp) == 1 and not any(a <= q < b for a, b in sp) and g7 == 'DERIVES')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

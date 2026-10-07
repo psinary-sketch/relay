@@ -45,6 +45,14 @@
 ###       nested one deep still is;
 ###   (25) a class-membership binder under its qualified name with its default measure reads as a domain condition
 ###       (MeasureTheory.Integrable h MeasureTheory.volume), as the bare name does.
+### b637, (R247)(3)-(4) -- the binder grammar, names removed from the reading:
+###   (26) the rule's class table equals the classification banked before the rule was rewritten (relay data/b637_binder_classes.json);
+###   (27) the planted module b637 banked, rebuilt here from the bank's declarations, has the bank's sha256;
+###   (28)-(53) one case per class: the planted declaration's binder reaches the class the bank fixed, and the declaration reads the grade
+###        the bank fixed, before the rule read it;
+###   (54) the five-name test: one hypothesis planted under the names h, H, hyp, x and ξ reads one outcome;
+###   (55) the no-class control: a binder whose type is a bare name no lexicon lists reaches no class and raises, printed as a bug, no grade.
+### Each new case is guarded: a rule without the grammar fails the case, it does not stop the test.
 ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
 ### when none is given), their absolute paths printed; they are read as text and never built.
 ### Usage: python tools/test_e0_rule.py [planted-directory]
@@ -105,6 +113,76 @@ def planted_grade(path, short, CP):
     ls = [i + 1 for i, l in enumerate(src.split(NL)) if re.match(r'^theorem ' + re.escape(short) + r'(?![\w\'])', l)]
     h = CP.source_header(src, short, ls[0]) if ls else None
     return E0.grade(h or '', 'theorem')[:2] if h else ('UNREAD', '')
+
+
+CLASSES_BANK = os.path.join(ROOT, 'data', 'b637_binder_classes.json')
+
+
+def planted_module(J):
+    """### b637's planted module, rebuilt from the bank's declarations in the form the act's record tool wrote it."""
+    body = ['-- b637 planted module (relay tools/b637_record.py classes, (R247)(4)(i)): one declaration per binder class, the five-name test and',
+            '-- the no-class control. Read by the rule as text, never built. Each declaration`s expected class and grade is fixed in relay',
+            '-- data/b637_binder_classes.json before the rule reads it.', 'namespace PlantedB637', '']
+    for p in J['planted']:
+        tag = 'FIVE' if p['test'] == 'five-name' else ('NONE' if p['test'] == 'no-class control' else p['cls'])
+        body += ['-- %s : binder %s ; the grade the rule must read: %s' % (tag, p['binder'] or '[inst]', p['grade']), p['text'], '']
+    return NL.join(body + ['end PlantedB637', ''])
+
+
+def _read_planted(src, p):
+    """### one planted declaration read by the rule: RETURN (class of the binder under test or None, grade or 'NO CLASS' or 'RAISED x')."""
+    m = re.search(r'^theorem ' + re.escape(p['decl']) + r'(?![\w\'])(.*?):=', src, re.M | re.S)
+    head = ' '.join(m.group(1).split()) if m else ''
+    try:
+        bs = E0.binders_of(head)
+        b = [x for x in bs if x['name'] == p['binder'] or (p['binder'] == '' and x['kind'] == 'instance')]
+        gc = b[0]['cls'] if b else None
+    except Exception as e:
+        gc = 'RAISED %s' % type(e).__name__
+    try:
+        gr = E0.grade(head, 'theorem')[0]
+    except Exception as e:
+        gr = 'NO CLASS' if type(e).__name__ == 'BinderUnclassed' else 'RAISED %s' % type(e).__name__
+    return gc, gr
+
+
+def binder_grammar(want, pdir):
+    """### b637's cases (26)-(55), each guarded."""
+    import hashlib
+    import io
+    import json
+    try:
+        J = json.load(io.open(CLASSES_BANK, encoding='utf-8'))
+    except Exception as e:
+        want('(26) the classification bank read (%s)' % type(e).__name__, False)
+        return
+    try:
+        table = [list(c) for c in E0.CLASSES]
+    except Exception:
+        table = None
+    want('(26) the rule`s class table equals the bank`s classification (%d classes)' % len(J['classes']),
+         table == [[c['id'], c['kind'], c['typing'], c['form'], c['outcome']] for c in J['classes']])
+    text = planted_module(J)
+    b = text.encode('utf-8')
+    p = os.path.abspath(os.path.join(pdir, 'B637Planted.lean'))
+    open(p, 'w', encoding='utf-8', newline=NL).write(text)
+    print('  planted: %s (%d bytes)' % (p, len(b)))
+    want('(27) the planted module rebuilt from the bank has the bank`s sha256 (%s)' % hashlib.sha256(b).hexdigest()[:16],
+         hashlib.sha256(b).hexdigest() == J['planted_sha256'])
+    n = 28
+    for q in [x for x in J['planted'] if x['test'] == 'class']:
+        gc, gr = _read_planted(text, q)
+        want('(%d) %s: binder %s reaches %s, the declaration reads %s (read %s, %s)' % (n, q['decl'], q['binder'] or '[inst]', q['cls'], q['grade'], gc, gr),
+             gc == q['cls'] and gr == q['grade'])
+        n += 1
+    five = [(q['binder'],) + _read_planted(text, q) for q in J['planted'] if q['test'] == 'five-name']
+    want('(%d) the five-name test: %s read %s' % (n, [x[0] for x in five], sorted(set((x[1], x[2]) for x in five))),
+         len(five) == 5 and len(set((x[1], x[2]) for x in five)) == 1 and five[0][2] == 'INTERFACES')
+    n += 1
+    ctl = [q for q in J['planted'] if q['test'] == 'no-class control']
+    gc, gr = _read_planted(text, ctl[0]) if ctl else ('?', '?')
+    want('(%d) the no-class control: binder %s reaches %s, the declaration reads %s (a bug, no grade)' % (n, ctl[0]['binder'] if ctl else '?', gc, gr),
+         bool(ctl) and gc is None and gr == 'NO CLASS')
 
 
 def main():
@@ -205,6 +283,7 @@ def main():
     b25 = E0.grade('(h : ℝ → ℂ) (L : ℝ) (hi : Integrable h) : Q h', 'theorem')
     want('(25) the qualified class name with its default measure reads %s; the bare name %s' % (a25[0], b25[0]),
          a25[0] == 'DERIVES' and b25[0] == 'DERIVES')
+    binder_grammar(want, pdir)
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1
