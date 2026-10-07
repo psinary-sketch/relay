@@ -49,8 +49,16 @@ import b378_terminals as B378          # noqa: E402
 GRADES = ('DERIVES', 'INTERFACES', 'SHELL', 'ENCODES-CONCLUSION', 'ENCODES')
 # ### **THE LONGER NAME FIRST**, or `ENCODES` swallows every `ENCODES-CONCLUSION`.
 GRADE_RE = re.compile(r'\b(DERIVES|INTERFACES|SHELL|ENCODES-CONCLUSION|ENCODES)\b')
-NAME_RE = re.compile(r'`([A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*)`')
-PRINT_SRC = re.compile(r'^[ \t]*#print[ \t]+axioms[ \t]+([A-Za-z_][A-Za-z0-9_.\u2019\']*)',
+# ### ### **b636, (R246)(2)(ii): THE TWO NAME PATTERNS READ LEAN IDENTIFIERS AS LEAN DOES.** ### The ASCII classes stopped at the first
+# ### character outside them (\u211d, \u2080, \u2081) and cut thirteen printed names to their heads (relay data/b635_phantom_names.txt). ID_FIRST is
+# ### Lean's isIdFirst (ASCII letters, `_`, isLetterLike: Greek but \u03bb \u03a0 \u03a3, Coptic, polytonic Greek, the letter-like block \u2100-\u214f with \u211d,
+# ### the mathematical alphanumerics \ud835\udc9c-\ud835\udd9f); ID_REST is Lean's isIdRest (those, digits, `'`, `!`, `?`, and isSubScriptAlnum: \u2080-\u2089, \u2090-\u209c,
+# ### \u1d62-\u1d6a, \u2c7c). Each pattern keeps its shape; only its classes widen. tools/test_name_patterns_b636.py is its test.
+ID_FIRST = ('A-Za-z_\u03b1-\u03ba\u03bc-\u03c9\u0391-\u039f\u03a1\u03a2\u03a4-\u03a9\u03ca-\u03fb\u1f00-\u1ffe\u2100-\u214f'
+            '\U0001d49c-\U0001d59f')
+ID_REST = ID_FIRST + "0-9'!?\u2080-\u2089\u2090-\u209c\u1d62-\u1d6a\u2c7c"
+NAME_RE = re.compile('`([%s][%s]*(?:\\.[%s][%s]*)*)`' % (ID_FIRST, ID_REST, ID_FIRST, ID_REST))
+PRINT_SRC = re.compile("^[ \\t]*#print[ \\t]+axioms[ \\t]+([%s][%s.\u2019]*)" % (ID_FIRST, ID_REST),
                        re.M)
 # ### the captured-stdout dialect: `'Name' does not depend on any axioms`
 # ###                          or `'Name' depends on axioms: [propext, ...]`

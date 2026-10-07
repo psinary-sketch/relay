@@ -1,0 +1,41 @@
+b636 -- STEP ZERO, (R246)(2)(ii): THE GENERATOR'S TWO NAME PATTERNS WIDENED TO LEAN'S IDENTIFIER CHARACTERS -- THE TABLE BUILT IN MEMORY
+UNDER EACH PATTERN PAIR AND COMPARED ROW BY ROW (2026-10-07; nothing of the table's files written by this comparison)
+
+### the patterns: tools/terminal_table.py NAME_RE and PRINT_SRC (:52-:53 at relay be879893; the ferry cites them in tools/chain_page.py,
+### which carries neither -- git grep over tools/ finds both in terminal_table.py alone, the navigator's file name). Each keeps its shape;
+### its classes widen to Lean's isIdFirst / isIdRest. Test: tools/test_name_patterns_b636.py, 7 of 7 (data/b636_namepat_test.txt).
+### the comparison: the generator's build() run twice in one scratch harness, patterns as committed and patterns widened; the committed
+### build agrees with data/terminal_table.json at relay be879893 on all 2011 rows (grade, provenance, mark, cell count); the edited module's
+### build equals the prototype's.
+
+### rows only under the ASCII patterns (gone): 6
+  SIDE-explicit-formula|completedRiemannZeta  ['DEF', 'rule-elab', 'upstream', 0]
+  SIDE-explicit-formula|riemannZeta  ['DEF', 'rule-elab', 'upstream', 0]
+  SIDE-lv-conservation|Complex.norm_completedZeta  ['UNGRADED', 'none', None, 0]
+  SIDE-lv-conservation|SIDELvConservation.completedRiemannZeta  ['UNGRADED', 'none', None, 0]
+  SIDE-lv-conservation|SIDELvConservation.exists_norm_completedRiemannZeta  ['UNGRADED', 'none', None, 0]
+  SIDE-lv-conservation|SIDELvConservation.norm_completedRiemannZeta  ['UNGRADED', 'none', None, 0]
+### rows only under the widened patterns (new): 11
+  SIDE-explicit-formula|completedRiemannZeta₀_one  ['UNGRADED', 'none', None, 0]
+  SIDE-explicit-formula|riemannZeta₀  ['UNGRADED', 'none', None, 0]
+  SIDE-explicit-formula|riemannZeta₀_one  ['UNGRADED', 'none', None, 0]
+  SIDE-explicit-formula|riemannZeta₁  ['UNGRADED', 'none', None, 0]
+  SIDE-explicit-formula|riemannZeta₁_one  ['UNGRADED', 'none', None, 0]
+  SIDE-lv-conservation|Complex.norm_completedZeta₀_le_of_re_eq_neg_one  ['DERIVES', 'rule', None, 0]
+  SIDE-lv-conservation|Complex.norm_completedZeta₀_le_of_re_eq_two  ['DERIVES', 'rule', None, 0]
+  SIDE-lv-conservation|SIDELvConservation.completedRiemannZeta₀_eq_half_mellin  ['DERIVES', 'rule', None, 0]
+  SIDE-lv-conservation|SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp  ['DERIVES', 'cell', None, 3]
+  SIDE-lv-conservation|SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half  ['DERIVES', 'rule', None, 0]
+  SIDE-lv-conservation|SIDELvConservation.norm_completedRiemannZeta₀_le  ['DERIVES', 'rule', None, 0]
+### rows on both whose (grade, provenance, mark, cells) moves: 1
+  SIDE-explicit-formula|SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide  ['DERIVES', 'rule', None, 0] -> ['DERIVES', 'cell', None, 2]
+### rows 2011 -> 2016 ; grade cells 421 -> 425 ; unresolved ledger names 32 -> 32 ; re-point map entries firing: 0
+
+### READ BY HAND: the two SIDE-explicit-formula rows that go were themselves truncations -- riemannZeta stood for the four Mathlib prints
+### riemannZeta₀, riemannZeta₀_one, riemannZeta₁, riemannZeta₁_one (AxiomCheckKeiper.lean :71, :73-:75 at 8c51431) and completedRiemannZeta
+### for completedRiemannZeta₀_one (:77); b634's reader typed the two heads, which are other Mathlib constants. The five full names are
+### Mathlib's, outside the kernel's roots; the elaborated bank (data/elab_types.txt) has no type for them, so they read UNGRADED at
+### provenance none until a reader types them. The SIDE-lv-conservation rows were heads of the kernel's own ₀ names; read whole, their
+### statements resolve and six rows take the rule's or a ledger cell's grade (FINDINGS :5247, :5441 name the cell row). The twelve
+### re-pointed rows of b635 keep their grades: the repaired print reader carries their full names, and the re-point map's twelve entries
+### now fire on no row.
