@@ -541,8 +541,17 @@ def premise_regen_ok(S):
 
 
 def dedekind_ok(S):
+    """### the two Dedekind premises each to one status with its reason and discharger. The edit after the seal on the author's word (the suite
+    ### prompt, option 1): REFUTED-BY-COMPUTATION admitted for TrivialSummandPremise (D1) alone, its witness class and value printed in the bank."""
     d = S['psj'].get('dedekind') or []
-    return [x['key'] for x in d] == ['D1', 'D2'] and all(x['status'] in K.STATUSES and x['reason'] and x['discharger'] for x in d) \
+
+    def admitted(x):
+        if x['status'] in K.STATUSES:
+            return True
+        notes = x.get('notes') or []
+        return x['key'] == 'D1' and x['status'] == 'REFUTED-BY-COMPUTATION' and any(n.startswith('WITNESS CLASS :') for n in notes) \
+            and any(n.startswith('VALUE :') for n in notes) and all(('    %s' % n) in S['pst'] for n in notes)
+    return [x['key'] for x in d] == ['D1', 'D2'] and all(admitted(x) and x['reason'] and x['discharger'] for x in d) \
         and '### (D1) TrivialSummandPremise' in S['pst'] and '### (D2) EulerFactorPremise' in S['pst']
 
 
