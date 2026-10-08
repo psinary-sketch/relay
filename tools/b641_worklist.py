@@ -142,7 +142,7 @@ OBLIGATIONS = [
          reason='No compiled proof and no Mathlib lemma at the pin gives the order raised by a box convolution.',
          discharger='a kernel theorem smooth4_holds : Smooth4 W h, by induction on p through intervalIntegral.integral_hasDerivAt_right',
          candidate='theorem smooth4_holds (W h : Real) : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h'),
-    dict(key='E1', comp=4, head='EpsteinPremises', field='count : exists A0, HCount Z A0', file=EPSTEIN_FILE, line=44, defline=44,
+    dict(key='E1', comp=4, head='EpsteinPremises', field='count : exists A0, HCount Z A0', file=EPSTEIN_FILE, line=44, defline=41,
          status='OPEN',
          read='its meaning, by the docstring (:38-:40) and its uses: T3, the local count N(t, t + 1) <= A0 log(|t| + 3) with A0 >= 1 (HCount, '
               'SIDEExplicitFormula/RestBound.lean :44) read off the bench`s zero list; epsteinConfig (:51) hands it to WeilConfig.count, the '
