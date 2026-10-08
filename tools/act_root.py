@@ -22,6 +22,11 @@
 ### written; an act whose repositories gain on the previous act's carries "list widened: +<kernel> ..." after its three fields, one
 ### name per kernel gained, sorted. `verify` reads the three fields of every line and checks a note against the heads the two acts'
 ### banks name.
+### ### **(R251)(3), b641: W-ORD-ROOT-ORDER.** The act root is the last step of an act, after the last declared seal re-run, and no bank
+### the root names is written after it; an edit after the root is the next act's. `compute --write` refuses a root that leaves out the
+### act's own seal bank (data/<act>_seal_hashes.json) when that bank exists, and banks the root's time (`at`, `at_epoch`); `verify` reads
+### a bank the root names whose file was written after that time as DISAGREE -- "written after the root" -- even when its bytes are
+### unchanged. A root banked before b641 carries no time and is read as before: b640's root is not recomputed.
 """
 import hashlib
 import io
@@ -188,8 +193,23 @@ def gather(banks, remote=ls_remote, rev='HEAD'):
     return items, reads
 
 
+ORDER_SLACK = 2.0   # ### seconds: a bank's mtime this far past the root's time still reads as written before it (filesystem rounding)
+
+
+def seal_bank_unnamed(act, banks):
+    """### (R251)(3): the act's own seal bank, when it exists, must be among the banks the root names -- the root follows the last seal re-run."""
+    sb = 'data/%s_seal_hashes.json' % act
+    named = set(b.replace('\\', '/')[b.replace('\\', '/').index('data/'):] if 'data/' in b.replace('\\', '/') else 'data/' + os.path.basename(b)
+                for b in banks)
+    return os.path.exists(os.path.join(ROOT, *sb.split('/'))) and sb not in named
+
+
 def compute(act, banks, write=False):
+    import time
+    if write and seal_bank_unnamed(act, banks):
+        raise SystemExit('### data/%s_seal_hashes.json EXISTS AND THE ROOT DOES NOT NAME IT -- W-ORD-ROOT-ORDER: NO ROOT' % act)
     prev, prev_act = last_root()
+    at_epoch = time.time()
     items, reads = gather(banks)
     root = root_of(items, prev)
     lines = sorted(items)
@@ -202,7 +222,8 @@ def compute(act, banks, write=False):
     if write:
         if os.path.exists(ROOTS) and re.search(r'^%s ' % re.escape(act), io.open(ROOTS, encoding='utf-8').read(), re.M):
             raise SystemExit('### %s ALREADY IN data/act_roots.txt -- NOTHING WRITTEN' % act)
-        j = dict(act=act, root=root, previous=prev, previous_act=prev_act, items=lines, reads=reads, lsr=LSR)
+        j = dict(act=act, root=root, previous=prev, previous_act=prev_act, items=lines, reads=reads, lsr=LSR,
+                 at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(at_epoch)), at_epoch=at_epoch)
         for name, body in (('%s_act_root.json' % act, json.dumps(j, indent=1, ensure_ascii=False) + NL),
                            ('%s_act_root.txt' % act, NL.join(['%s -- THE ACT ROOT (tools/act_root.py)' % act, ''] + ['  ' + l for l in lines] +
                                                            ['', 'previous %s' % prev, 'root %s' % root]) + NL)):
@@ -243,12 +264,15 @@ def verify(remote=ls_remote):
             if note != want:
                 why.append('the line`s note %r, the heads gained %r' % (note, want))
         prev_heads = heads
+        at_epoch = j.get('at_epoch')
         for it in j['items']:
             parts = it.split()
             if parts[0].startswith('data/'):
                 p = os.path.join(ROOT, *parts[0].split('/'))
                 if not os.path.exists(p) or sha256_file(p) != parts[1]:
                     why.append('bank %s changed' % parts[0])
+                elif at_epoch is not None and os.path.getmtime(p) > at_epoch + ORDER_SLACK:
+                    why.append('bank %s written after the root (W-ORD-ROOT-ORDER: an edit after the root is the next act`s)' % parts[0])
             elif len(parts) == 3:
                 refs = remote(path_of(parts[0]))
                 rp = refs.get('refs/tags/%s^{}' % parts[1]) or refs.get('refs/tags/%s' % parts[1])
