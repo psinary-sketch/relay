@@ -551,7 +551,7 @@ def _open_para():
             'its own, named W-ORD-PREMISE- and the premise.' % (len(op), '; '.join(carried), len(op) - len(carried)))
 
 
-def compose():
+def compose(with_repairs=True):
     """### the b640 description from the b639 bank: the assumption section and the open section rewritten from the five-status bank, the record`s
     ### note carrying that no claim is added or withdrawn, the root chain`s last line, the mirror`s file line and digest, the composition line;
     ### every other sentence carried; straight quotes throughout. RETURN (html, [(index, old, new, why)])."""
@@ -570,7 +570,8 @@ def compose():
     new[i_op] = _open_para()
     why[i_op] = 'the open heads and their work-orders at five statuses (the fact clause: b639`s 29 and 25 no longer hold)'
     i_ce = next(i for i, p in enumerate(P) if p.startswith('THE CENSUS, THE ROOT CHAIN'))
-    roots = [l for l in io.open(os.path.join(D, 'act_roots.txt'), encoding='utf-8').read().split(NL) if l.strip()]
+    # this act's own line, once its root lands, is not the line "at this description" (the edit after the seal: the suite recomposes after the root)
+    roots = [l for l in io.open(os.path.join(D, 'act_roots.txt'), encoding='utf-8').read().split(NL) if l.strip() and l.split()[0] != 'b640']
     last = roots[-1].split()
     new[i_ce] = re.sub(r'its last line at this description b\d{3} [0-9a-f]+…; the act root of this act, b\d{3},',
                        'its last line at this description %s %s…; the act root of this act, b640,' % (last[0], last[1][:16]), P[i_ce])
@@ -589,6 +590,15 @@ def compose():
                  'data/%s (github.com/psinary-sketch/relay).' % K.DESC)
     why[i_th] = 'the composition line'
     new = [_straight(p) for p in new]
+    # the edit after the seal, on the author's word at Component 5: the reader's UNCLEAR passages repaired from data/b640_reader_repairs.json,
+    # each sentence found exactly once in the composed text or nothing composed
+    for r in (_repairs() if with_repairs else []):
+        tot = sum(p.count(r['old']) for p in new)
+        if tot != 1:
+            sys.exit('### THE READER REPAIR (%s) FINDS ITS SENTENCE %d TIMES -- NOTHING COMPOSED' % (r['n'], tot))
+        i = next(j for j, p in enumerate(new) if r['old'] in p)
+        new[i] = new[i].replace(r['old'], r['new'])
+        why[i] = (why[i] + '; ' if i in why else '') + 'the reader`s UNCLEAR (%s) repaired (data/b640_reader_repairs.json)' % r['n']
     html = ''.join('<p>%s</p>' % p for p in new)
     ch = []
     for i, (a, b) in enumerate(zip(P, new)):
@@ -597,12 +607,48 @@ def compose():
     return html, ch
 
 
+def _repairs():
+    return jl('b640_reader_repairs.json').get('repairs') or []
+
+
+STATUS_WORDS = ('open', 'cited', 'discharged', 'witnessed', 'domain', 'compiled', 'proved', 'premise')
+
+
+def _tokens(t):
+    """### the figures, names and status words of a passage: numerals; identifiers with an underscore, a dot or an inner capital; capitals runs."""
+    t = HT.unescape(t)
+    toks = set(re.findall(r'(?<![\w.])\d+(?:[./]\d+)*', t))
+    toks |= set(m for m in re.findall(r'[A-Za-z][\w.]*[\w]', t) if '_' in m or re.search(r'[a-z][A-Z]', m) or re.search(r'[a-z]\.[A-Za-z]', m)
+                or re.fullmatch(r'[A-Z][A-Z0-9-]+', m))
+    toks |= set(w for w in re.findall(r'[a-z]+', t.lower()) if w in STATUS_WORDS)
+    return toks
+
+
+def _repair_arm(old_desc):
+    """### each repair: every figure, name and status word of the sentence as it stood is in the rewrite, and the rewrite brings none the
+    ### description did not already carry. RETURN [(n, dropped, brought)]."""
+    whole = _tokens(old_desc)
+    out = []
+    for r in _repairs():
+        a, b = _tokens(r['old']), _tokens(r['new'])
+        out.append((r['n'], sorted(a - b), sorted(b - whole)))
+    return out
+
+
 def describe(*a):
     """### data/b640_deposit_description.txt (the HTML exactly as it goes to the service) and data/b640_description_scan.txt with its json: the
-    ### paragraph diff against the b639 bank, each change with its reason; the scanner, the glossary-key scan and the no-disclosure arm."""
+    ### paragraph diff against the b639 bank, each change with its reason; the scanner, the glossary-key scan and the no-disclosure arm; the
+    ### reader's repairs, each with the reader's words, the sentence as it stood and as rewritten, and the arm that no claim moves."""
     html, ch = compose()
     if '’' in html or '“' in html or '”' in html:
         sys.exit('### A CURLY QUOTE SURVIVES -- NOTHING WRITTEN')
+    base, _c = compose(False)
+    arm = _repair_arm(base)
+    bad = [x for x in arm if x[1] or x[2]]
+    if bad:
+        for n, dr, br in bad:
+            print('### REPAIR (%s): dropped %s ; brought %s' % (n, dr, br))
+        sys.exit('### A REPAIR MOVES A FIGURE, NAME OR STATUS -- NOTHING WRITTEN')
     R9.DESC_TERMS = R9.DESC_TERMS + ('Mathlib', 'INTERFACES')
     sc = _desc_scan(html)
     p = os.path.join(SP if DRY else D, K.DESC)
@@ -619,15 +665,23 @@ def describe(*a):
             for x in difflib.unified_diff(_straight(a_).split('. '), b_.split('. '), lineterm='', n=0):
                 if x[:1] in '+-' and x[:3] not in ('+++', '---'):
                     L.append('      %s' % x[:400])
+    L += ['', '### THE READER`S UNCLEAR PASSAGES REPAIRED, %d (the edit after the seal, on the author`s word at Component 5; relay '
+          'data/b640_reader_repairs.json):' % len(_repairs())]
+    for r, (n, dr, br) in zip(_repairs(), arm):
+        L += ['  (%s) the reader: %s' % (n, r['reader']), '      as it stood: %s' % HT.unescape(r['old']), '      as rewritten: %s' % HT.unescape(r['new']),
+              '      the arm: figures, names and status words dropped %s ; brought from outside the description %s' % (dr or 'NONE', br or 'NONE')]
     L += ['### undeclared changes: %s' % (undecl or 'NONE'),
           '### the scanner: %s ; names undefined: %s ; markup outside the tags: %s ; the no-disclosure arm: %s' % (
               'CLEAN' if sc['clean'] else '### NOT CLEAN', sc['undefined'] or 'NONE', sc['markup'] or 'NONE', sc['nd']), '',
-          '### ### **DESCRIPTION %d BYTES ; PARAGRAPHS CHANGED %d ; UNDECLARED %d ; SCANNER %s ; UNDEFINED %d ; NO-DISCLOSURE %d.**' % (
-              len(html.encode('utf-8')), len(ch), len(undecl), 'CLEAN' if sc['clean'] else 'NOT CLEAN', len(sc['undefined']), sum(sc['nd'].values()))]
+          '### ### **DESCRIPTION %d BYTES ; PARAGRAPHS CHANGED %d ; UNDECLARED %d ; SCANNER %s ; UNDEFINED %d ; NO-DISCLOSURE %d ; READER REPAIRS %d, '
+          'THE ARM %d OF %d.**' % (
+              len(html.encode('utf-8')), len(ch), len(undecl), 'CLEAN' if sc['clean'] else 'NOT CLEAN', len(sc['undefined']), sum(sc['nd'].values()),
+              len(arm), sum(1 for x in arm if not x[1] and not x[2]), len(arm))]
     put_txt('b640_description_scan.txt', L)
     put_json('b640_description_scan.json', dict(at=utc(), sha256=hashlib.sha256(html.encode('utf-8')).hexdigest(), bytes=len(html.encode('utf-8')),
                                                 changed=[[i, w] for i, _a, _b, w in ch], undeclared=len(undecl), clean=sc['clean'],
-                                                undefined=sc['undefined'], markup=sc['markup'], nd=sc['nd']))
+                                                undefined=sc['undefined'], markup=sc['markup'], nd=sc['nd'],
+                                                repairs=[[n, dr, br] for n, dr, br in arm]))
     print(L[-1])
 
 
