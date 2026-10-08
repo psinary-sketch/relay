@@ -4,8 +4,8 @@
  "tools": {
   "b640_worklist.py": "1c4790d3c5b1c5fe894250a68075b702c0ab3cafaf93974f82381bf535da1d5e",
   "b640_tests.py": "29acc635a5e38a7c72fa869ed110ee0582d904f2242ded6431f40631156fe413",
-  "b640_record.py": "837ed5059668b256a73ab8bd64e5160ca5203cb7b04a6131bcc2af35f019125f",
-  "b640_checks.py": "6f74c79e202228384161e512989b14662a91c0133c1a5e6f5a6abc38abb7356a",
+  "b640_record.py": "bbee93f48f22f87a0d93ed70808619c9fb3066ba06b14f66b2a22185c12c2cf8",
+  "b640_checks.py": "8c86fdee56adc730c9960e44576c460f8f4b50d274b9f8f20366504237f95744",
   "b640_closing.py": "d4752ec14e2e1d4ab69aaaa919c7fb5ec966e063d53e5b4fa33e43df07226fa1",
   "b640_reg_gate.py": "cfe9b8c14d65d6e0ce74372b7f205a3cd20c99b4b265b8bc3fda87f7bde414d9",
   "b640_regspec.py": "34ffe5c6241d72a473b3e87cf40bacd6559cd70e9d997a47abe53f6c6803f3d8"
@@ -20,16 +20,41 @@
   "b640_reg_gate.py": "cfe9b8c14d65d6e0ce74372b7f205a3cd20c99b4b265b8bc3fda87f7bde414d9",
   "b640_regspec.py": "34ffe5c6241d72a473b3e87cf40bacd6559cd70e9d997a47abe53f6c6803f3d8"
  },
- "amended": {
-  "at": "2026-10-08T06:14:26Z",
-  "tool": "b640_record.py",
-  "sealed": "0dd1c945ff7cb29a6de093a8aaa8f70b4eadb8429a37b351da6b5c22cfb56375",
-  "now": "837ed5059668b256a73ab8bd64e5160ca5203cb7b04a6131bcc2af35f019125f",
-  "commits": [
-   "646e0cc7 (as sealed, alone)",
-   "7505e346 (its one edit after the seal, alone)"
-  ],
-  "word": "the author at Component 5, option 2: the reader's nine UNCLEAR passages repaired before the draft is updated; the composition edit recorded, the seal re-run with the change declared",
-  "note": "'at' and 'lock' are the seal's own, unchanged; 'tools_at_lock' the hashes recorded then (also data/b640_seal_hashes_at_lock.json); 'tools' the hashes re-run now, the one moved tool named here"
- }
+ "amendments": [
+  {
+   "at": "2026-10-08T06:14:26Z",
+   "tool": "b640_record.py",
+   "sealed": "0dd1c945ff7cb29a6de093a8aaa8f70b4eadb8429a37b351da6b5c22cfb56375",
+   "now": "837ed5059668b256a73ab8bd64e5160ca5203cb7b04a6131bcc2af35f019125f",
+   "commits": [
+    "646e0cc7 (as sealed, alone)",
+    "7505e346 (its one edit after the seal, alone)"
+   ],
+   "word": "the author at Component 5, option 2: the reader's nine UNCLEAR passages repaired before the draft is updated; the composition edit recorded, the seal re-run with the change declared",
+   "defect": "the composition edit; (c) repaired in it"
+  },
+  {
+   "at": "2026-10-08T06:45:34Z",
+   "tool": "b640_record.py",
+   "sealed": "837ed5059668b256a73ab8bd64e5160ca5203cb7b04a6131bcc2af35f019125f",
+   "now": "bbee93f48f22f87a0d93ed70808619c9fb3066ba06b14f66b2a22185c12c2cf8",
+   "commits": [
+    "b01a5bde (its second edit after the seal, alone)"
+   ],
+   "word": "the author at the scores prompt, option 1: the one-line isfile guard, committed alone, the seal re-run with both edits declared",
+   "defect": "(f)"
+  },
+  {
+   "at": "2026-10-08T06:51:33Z",
+   "tool": "b640_checks.py",
+   "sealed": "6f74c79e202228384161e512989b14662a91c0133c1a5e6f5a6abc38abb7356a",
+   "now": "8c86fdee56adc730c9960e44576c460f8f4b50d274b9f8f20366504237f95744",
+   "commits": [
+    "dad5381d (its one edit after the seal, alone)"
+   ],
+   "word": "the author at the suite prompt, option 1: the os.path.isfile guard at tools/b640_checks.py:268 that :290 already carries, committed alone, the seal re-run with all three edits declared",
+   "defect": "(g)"
+  }
+ ],
+ "note": "'at' and 'lock' are the seal's own, unchanged; 'tools_at_lock' the hashes recorded then (also data/b640_seal_hashes_at_lock.json); 'tools' the hashes re-run after the third edit; each edit after the seal named in 'amendments', in order"
 }
