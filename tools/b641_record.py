@@ -497,8 +497,16 @@ def _ob_block(o):
 
 
 def _n3(obs):
-    """### (R251)(5) and N3: exactly one status of the three, a reason line, a discharger, none reading presumed."""
-    return [o['key'] for o in obs if o['status'] not in K.STATUSES or not o['reason'].strip() or not o['discharger'].strip()
+    """### (R251)(5) and N3: exactly one status of the three, a reason line, a discharger, none reading presumed. The edit after the seal on the
+    ### author's word (the suite prompt): the status read as recorded (_status), REFUTED-BY-COMPUTATION admitted for TrivialSummandPremise (D1)
+    ### alone and only with its witness class and value printed beside it."""
+    def admitted(o):
+        st = _status(o)
+        if st in K.STATUSES:
+            return True
+        notes = ' '.join(AUTHOR_NOTES.get(o['key'], []))
+        return o['key'] == 'D1' and st == 'REFUTED-BY-COMPUTATION' and 'WITNESS CLASS :' in notes and 'VALUE :' in notes
+    return [o['key'] for o in obs if not admitted(o) or not o['reason'].strip() or not o['discharger'].strip()
             or 'presum' in (o['read'] + o['reason']).lower()]
 
 
@@ -903,7 +911,8 @@ def scores(*a):
     banked = all(os.path.exists(os.path.join(D, b + '.txt')) for b in ('b641_keiper_status', 'b641_window_epstein_status', 'b641_patch_versions',
                                                                        'b641_premise_status'))
     texts = ''.join(rd(b + '.txt') for b in ('b641_keiper_status', 'b641_window_epstein_status', 'b641_patch_versions', 'b641_premise_status'))
-    each = all(('### (%s) ' % o['key']) in texts or o['key'] == 'P1' for o in obs) and '### STATUS : ' in rd('b641_patch_versions.txt')
+    each = all(('### (%s) ' % o['key']) in texts or o['key'] == 'P1' for o in obs) and '### STATUS : ' in rd('b641_patch_versions.txt') \
+        and all(('    %s' % n) in rd('b641_premise_status.txt') for n in AUTHOR_NOTES.get('D1', []))
     reps = PH.get('repos') or {}
     S = {
         'N1': (('HELD' if nd_rc == 0 and nd_n == 3 and nd_p == 3 else 'REFUTED'),
