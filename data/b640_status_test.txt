@@ -1,0 +1,16 @@
+b640 -- tools/test_premise_status.py RUN AND COUNTED (2026-10-08T05:48:39Z); exit 0
+
+  (1) a planted Mathlib predicate on a quantified variable in every row reads DOMAIN             wanted DOMAIN ; got DOMAIN ; PASS
+  (2) a planted structure built inline in a proof reads DISCHARGED                               wanted DISCHARGED ; got DISCHARGED ; PASS
+  (3) a planted head whose standalone construction a proof consumes reads DISCHARGED             wanted DISCHARGED ; got DISCHARGED ; PASS
+  (4) a planted premise cited T1-lit in every field reads CITED                                  wanted CITED ; got CITED ; PASS
+  (5) a planted head with a standalone construction nothing consumes reads WITNESSED             wanted WITNESSED ; got WITNESSED ; PASS
+  (6) a planted premise constructed in salt checks alone reads OPEN                              wanted OPEN ; got OPEN ; PASS
+  (7) a kernel predicate on a quantified variable is not DOMAIN (the answer: Mathlib`s alone)    wanted OPEN ; got OPEN ; PASS
+  (8) a Mathlib predicate with one row on a fixed object is not DOMAIN                           wanted DISCHARGED ; got DISCHARGED ; PASS
+  (9) the domain reader on 'p.Prime'                                                             wanted ['p'] ; got ['p'] ; PASS
+  (10) the domain reader on 'Nat.Prime p'                                                         wanted ['p'] ; got ['p'] ; PASS
+  (11) the domain reader on 'Nat.Prime 3'                                                         wanted [] ; got [] ; PASS
+### ### **11 of 11 cases as wanted -- PASS**
+
+### CASES : 11 ; PASSING : 11
