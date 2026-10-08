@@ -1,0 +1,67 @@
+{
+ "at": "2026-10-08T06:13:14Z",
+ "word": "the author at Component 5, option 2: the nine passages the reader marked UNCLEAR repaired before the draft is updated, each clarifying and changing no claim, figure, name or status",
+ "reader_answers": "data/b640_reader_answers.txt",
+ "repairs": [
+  {
+   "n": "1",
+   "reader": "\"with that clause carried openly as open\": I cannot tell what this phrase adds beyond saying the clause is unproved.",
+   "old": "with that clause carried openly as open\". This version",
+   "new": "with that clause carried openly as open\", meaning that the one clause the reduction rests on is not proved and is stated in the kernels, under its own name, as the premise of the theorems that need it. This version"
+  },
+  {
+   "n": "2",
+   "reader": "\"which the kernel states, proves equivalent to RH, bounds by its mechanism exclusions, and carries as its one open premise\": I do not understand what \"bounds by its mechanism exclusions\" means.",
+   "old": "which the kernel states, proves equivalent to RH, bounds by its mechanism exclusions, and carries as its one open premise.",
+   "new": "which the kernel states, proves equivalent to RH, bounds by its mechanism exclusions, and carries as its one open premise; the mechanism exclusions are the route terminals of SIDE-kernel set out under WHAT IS MACHINE-VERIFIED below, which compile that none of seven named mechanism classes produces the off-line signature the kernel defines, the exhaustiveness of the seven classes over all mechanisms not being compiled."
+  },
+  {
+   "n": "3",
+   "reader": "The two README sentences quoted whole (simplicity_iff … dedekind_rhs): these are very dense. Phrases such as \"a single rung\", \"q = 3 by rfl\", \"independent of the Epstein premises\" and \"the family's carried at INTERFACES\" are not explained.",
+   "old": "(dedekind_rhs).\" A name written with underscores",
+   "new": "(dedekind_rhs).\" In these two sentences, as the kernel's own files read them: \"a single rung\" means that λ₁ &gt; 0 is proved for the first of Li's coefficients alone, not for every n; \"q = 3 by rfl\" means that the statement at modulus q = 3 is the family theorem's statement by definition, which Lean checks by rfl, a proof by definitional equality; a result \"carried at INTERFACES on\" a named premise or obligation is compiled with that premise taken as a hypothesis and not proved (WHAT THE KERNELS ASSUME, below); \"independent of the Epstein premises\" means that the window family and its two obligations are statements about test functions alone and do not use EpsteinPremises, one of the open premises listed below; and \"the family's\" is the family's term of the right-hand side of dedekind_rhs, the term beside the trivial character's, carried on TrivialSummandPremise and EulerFactorPremise. A name written with underscores"
+  },
+  {
+   "n": "4",
+   "reader": "The sentence about structural_exhaustiveness_proved: I cannot tell which parts are compiled and which are not. I also cannot tell what the mechanism exclusions establish, given that ConservationBridge.riemann_hypothesis has RH restated as its premise.",
+   "old": "The mechanism exclusions: the route terminals of SIDE-kernel at its tag v1.5 (commit 0e5233f; the kernel's own record, DOI 10.5281/zenodo.21520474) -- structural_exhaustiveness_proved, which states that the kernel's mechanism type has seven members, that none of them produces the off-line signature the kernel defines, and Ostrowski's classification of the places of the rationals, the exhaustiveness of the seven classes over all mechanisms being the manuscript's theorem and not compiled (ERRATA E-2026-09-14-1); SpectralCannonFull.spectral_cannon; and ConservationBridge.riemann_hypothesis, whose premise ConservationHypothesis is RH restated by a compiled ten-line lemma (ERRATA E-2026-09-25-1) -- each printed by #print axioms at v1.5 as [propext, Classical.choice, Quot.sound] (relay data/b457_profile_run.txt).",
+   "new": "The mechanism exclusions: three route terminals of SIDE-kernel at its tag v1.5 (commit 0e5233f; the kernel's own record, DOI 10.5281/zenodo.21520474), each printed by #print axioms at v1.5 as [propext, Classical.choice, Quot.sound] (relay data/b457_profile_run.txt). The first, structural_exhaustiveness_proved, is compiled and states three things, each proved: that the kernel's mechanism type has seven members, that none of them produces the off-line signature the kernel defines, and Ostrowski's classification of the places of the rationals. It does not state that the seven classes exhaust all mechanisms: the exhaustiveness of the seven classes over all mechanisms is the manuscript's theorem and is not compiled (ERRATA E-2026-09-14-1). The second is SpectralCannonFull.spectral_cannon. The third, ConservationBridge.riemann_hypothesis, concludes RH from its premise ConservationHypothesis, and a compiled ten-line lemma shows that premise to be RH restated (ERRATA E-2026-09-25-1), so that this theorem derives RH only from RH restated."
+  },
+  {
+   "n": "5",
+   "reader": "The keystone census sum (\"50 heads … summing to 123 … rule-elab rows beside sum to 47; 12 rows rest on a premise no head names … INTERFACES rows … number 186: rule 117, rule-elab 46, cell 23\"): I could not see how these figures fit together.",
+   "old": "cell 23.\" Read at their pins",
+   "new": "cell 23.\" That is: the INTERFACES rows outside the upstream rows, 186 in all, are counted by where their grade comes from, 117 by the rule, 46 by the rule reading the elaborated type (rule-elab) and 23 by a ledger cell; the 50 heads are the named premises those rows rest on; a rule-graded row is counted once under each named premise it rests on, so one row can be counted more than once, and these counts over the 50 heads sum to 123; the same count over the rule-elab rows sums to 47; and 12 rows rest on a premise that none of the 50 heads names. Read at their pins"
+  },
+  {
+   "n": "6",
+   "reader": "\"A premise is open when no proof in the kernels constructs it outside a salt check … and no citation covers every field\": the term \"salt check\" and the phrase \"covers every field\" are unclear to me.",
+   "old": "A premise is open when no proof in the kernels constructs it outside a salt check, a file that only shows a premise is not vacuous, and no citation covers every field;",
+   "new": "A premise is open when no proof in the kernels constructs it outside a salt check -- a test file that only shows a premise is not vacuous, that is, that it can be satisfied, so that a theorem resting on it is not true merely because nothing satisfies it -- and no citation of a literature theorem covers every field, a field being one of the named components of the premise's structure;"
+  },
+  {
+   "n": "7",
+   "reader": "The root-chain sentence (\"its last line at this description b639 a3d0d3015f649cbb…; the act root of this act, b640, is computed at its record over the act's banks, this draft's read-back among them\"): I could not follow it.",
+   "old": "The root chain: relay data/act_roots.txt, its last line at this description b639 a3d0d3015f649cbb…; the act root of this act, b640, is computed at its record over the act's banks, this draft's read-back among them, and lands in the next mirror's MANIFEST.",
+   "new": "The root chain: relay data/act_roots.txt, one line per act, each line that act's root, a sha256 over the repositories' heads, the cited tags and the act's banks, chained to the root before it so that an act's state can be re-read and checked. When this description was composed, the last line was b639's, a3d0d3015f649cbb…. This act's own root, b640's, is computed later, when the act records it; the act's banks it covers include this draft's read-back from the service, and it is listed in the MANIFEST of the next mirror."
+  },
+  {
+   "n": "8",
+   "reader": "The glossary entry for \"seam\", and why rh_strip_imp_rh is given as its example.",
+   "old": "rh_strip_imp_rh, that every zero of zeta with real part at most 0 is a trivial zero.",
+   "new": "rh_strip_imp_rh, that every zero of zeta with real part at most 0 is a trivial zero [in plain terms: the implication that if every zero in the critical strip, the zeros the kernel's explicit formula reads, has real part 1/2, then RH holds as Mathlib states it; it needs every zero with real part at most 0 to be a trivial zero, which Mathlib does not state by name at the kernel's pin, so the kernel states the implication without proving it and the theorems that use it take it as their premise]."
+  },
+  {
+   "n": "9",
+   "reader": "\"keystone -- a document read at Tier K, KC or C under the author-ruled taxonomy\": the tiers are not defined.",
+   "old": "keystone -- a document read at Tier K, KC or C under the author-ruled taxonomy: the documents that carry the programme's results to a reader outside it;",
+   "new": "keystone -- a document read at Tier K, KC or C under the author-ruled taxonomy: the documents that carry the programme's results to a reader outside it [the taxonomy is the programme's document-class taxonomy, ruled by the author, whose tiers include K, C and KC: K, a document whose load-bearing claims are each backed by a compiled theorem at a pin; C, a synthesis that organizes such results into a wider picture and certifies nothing itself; KC, a document that does both];"
+  },
+  {
+   "n": "8, 9 (the opener)",
+   "reader": "the reader`s (8) and (9), above: the square brackets mark the glosses as not the glossary`s words",
+   "old": "DEFINITIONS, in the programme's glossary's words (relay data/glossary.txt):",
+   "new": "DEFINITIONS, in the programme's glossary's words (relay data/glossary.txt), with a plain gloss in square brackets, not the glossary's, where a reader outside the programme found an entry unclear:"
+  }
+ ]
+}

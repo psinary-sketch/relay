@@ -1,0 +1,11 @@
+b640 -- COMPONENT 5, (R250)(6): THE LEGIBILITY PACKET, STAGED OFF D:\ (2026-10-08T05:50:22Z)
+
+### staged: C:/reader_b640 (packet/description.txt 20543 bytes, packet/questions.txt, lead.txt, full_prompt.txt) ; banked: relay data/b640_reader_packet/, data/b640_reader_prompt.txt
+### the description, plain text from data/b640_deposit_description.txt, sha256 9d8d713d95ca5b3a6a6b1e38fd9e4aced91bd4e31611d11d9bd73bcb330f7301
+### the questions: What does this programme claim? / What does it assume? / What does it leave open?
+### the no-disclosure arm over the packet and the prompt: {'method': 0, 'tree': 0, 'modules': 0}
+
+### THE HOLD, verbatim: The legibility packet is at C:\reader_b640\packet\ and the prompt at C:\reader_b640\full_prompt.txt. Run the reader from a directory off D:\ as at b632; it writes C:\reader_b640\answers.txt and closes; then answer here that the bank is there.
+### the command, beneath it:
+    cd C:\reader_b640
+    Get-Content C:\reader_b640\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b640\reader_run.log 2> C:\reader_b640\reader_run.err
