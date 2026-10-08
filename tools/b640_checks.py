@@ -265,7 +265,7 @@ def sources():
         mustfail=not os.path.exists(os.path.join(D, 'b640_mustnotexist.txt')), table_changed=None,
         fj=jl('b640_findings.json'), tj=jl('b640_trail.json'), sc=jl('b640_scores.json'), desk=rd('b640_desk_notes.txt'),
         lsr=None, word=REC._word(),
-        token_logged=[f for f in os.listdir(D) if f.startswith('b640_') and REC._tok() and REC._tok().encode() in open(os.path.join(D, f), 'rb').read()]
+        token_logged=[f for f in os.listdir(D) if f.startswith('b640_') and os.path.isfile(os.path.join(D, f)) and REC._tok() and REC._tok().encode() in open(os.path.join(D, f), 'rb').read()]
         + [f for f in os.listdir(T) if f.startswith('b640_') and REC._tok() and REC._tok().encode() in open(os.path.join(T, f), 'rb').read()]
         + (['the session transcript'] if REC._tok() and os.path.exists(REC.SESSION) and REC._tok().encode() in open(REC.SESSION, 'rb').read() else []),
         rlog=[(l.split(' ', 2)[0], l.split(' ', 2)[2] if l.count(' ') >= 2 else '', int(l.split(' ', 2)[1])) for l in
