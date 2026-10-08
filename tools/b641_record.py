@@ -456,6 +456,28 @@ def _docstring(text_lines, n):
     return ' '.join(' '.join(text_lines[j:i + 1]).split()) if j >= 0 else ''
 
 
+# ### THE EDIT AFTER THE SEAL, on the author's answers at Components 3, 4 and 5: a premise the seat has computed false is not OPEN --
+# ### TrivialSummandPremise takes the sixth status, REFUTED-BY-COMPUTATION, the witness class and the value printed beside it; EulerFactorPremise
+# ### stays OPEN with its counterexample and its sufficient condition beside it; dedekind_rhs keeps the grade its statement reads and takes the
+# ### annotation; and one OPEN_TRAILS block carries the sixth status's clause and the four work-orders the answers name (`workorders`).
+AUTHOR_STATUS = {'D1': 'REFUTED-BY-COMPUTATION'}
+AUTHOR_NOTES = {
+    'D1': ['WITNESS CLASS : every k : R -> C real, nonnegative, continuous, not identically zero and supported in (-log 2, log 2)',
+           'VALUE : poleTerm k = paperFT k (i/2) + paperFT k (-i/2) = INT k(u) (e^(-u/2) + e^(u/2)) du > 0, while both prime sums are 0 and the '
+           'Gamma terms are equal, so the premise would need poleTerm k = 0 (the seat`s computation, not compiled)'],
+    'D2': ['COUNTEREXAMPLE : q = 6, the odd character mod 6 induced from conductor 3; for k supported in (-log 2, log 2) the prime terms agree and '
+           'the Gamma terms differ by log 2 times (1/2 pi) INT paperFT k = log 2 k(0), nonzero when k(0) is (the seat`s computation, not compiled)',
+           'SUFFICIENT CONDITION : every non-trivial character mod q primitive (q = 3 among them), both sides then reading the same character at the '
+           'same level'],
+}
+RHS_NOTE = ('the row resting on both: dedekind_rhs (SIDE-explicit-formula 8c51431, SIDEExplicitFormula/Schema/Dedekind.lean :59) -- its grade '
+            'unchanged, read from its statement; annotated: on a premise refuted by computation at b641 (W-ORD-DEDEKIND-RHS-RESTATE)')
+
+
+def _status(o):
+    return AUTHOR_STATUS.get(o['key'], o['status'])
+
+
 def _ob_block(o):
     L = []
     t = lines_of(_show(K.EF, K.EF_PIN, o['file']) or '') if o['file'].endswith('.lean') else []
@@ -465,8 +487,10 @@ def _ob_block(o):
         if o['defline'] != o['line']:
             L.append('    its definition :%d : %s' % (o['defline'], t[o['defline'] - 1].strip()))
         L.append('    its docstring : %s' % (_docstring(t, o['defline']) or '### NONE ABOVE THE DEFINITION'))
-    L += ['    the seat`s read : %s' % o['read'], '    STATUS : %s' % o['status'], '    REASON : %s' % o['reason'],
+    L += ['    the seat`s read : %s' % o['read'], '    STATUS : %s%s' % (_status(o), ' (the author`s answer at Component 5; the worklist`s %s)' % o['status']
+                                                                    if o['key'] in AUTHOR_STATUS else ''), '    REASON : %s' % o['reason'],
           '    DISCHARGER : %s' % o['discharger']]
+    L += ['    %s' % n for n in AUTHOR_NOTES.get(o['key'], [])]
     if o['candidate']:
         L.append('    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : %s' % o['candidate'])
     return L
@@ -580,7 +604,7 @@ def pstatus(*a):
         m = re.match(r'^  (\S+)\s+rule ', l)
         if m and m.group(1) in by:
             for o in by[m.group(1)]:
-                out.append('      (R251)(5) %s %s: %s -- %s' % (o['key'], o['field'], o['status'], o['reason']))
+                out.append('      (R251)(5) %s %s: %s -- %s' % (o['key'], o['field'], _status(o), o['reason']))
     old = [l for l in lines_of(rd('b640_premise_status.txt'))]
     strip_ = lambda ls: [l for l in ls if not l.startswith(('b640 -- COMPONENT 2', 'b641 -- COMPONENT 5', '### the kernels read at the commits'))
                          and not l.startswith('      (R251)(5)')]   # noqa: E731
@@ -592,14 +616,16 @@ def pstatus(*a):
     out += ['', '### THE DEDEKIND PREMISES, (R251)(5), EACH TO ONE STATUS WITH ITS REASON:']
     for o in [o for o in K.OBLIGATIONS if o['comp'] == 5 and o['key'].startswith('D')]:
         out += [''] + _ob_block(o)
+    out += ['', '### %s' % RHS_NOTE]
     out += ['', '### THE DIFF AGAINST b640`S data/b640_premise_status.txt, BY ROW (title and timestamp lines and the (R251)(5) lines aside): %d line(s)' % len(dif)]
     out += ['    ' + x[:300] for x in dif[:200]]
     out += ['### heads whose status moved: %s ; (R251)(5) lines beneath their heads: %d' % (moved or 'NONE', added), '',
-            '### ### **HEADS %d ; STATUS MOVED %d ; ROWS DIFFERING %d ; THE DEDEKIND PREMISES OPEN %d OF 2.**' % (
-                len(heads1), len(moved), len(dif), sum(1 for o in K.OBLIGATIONS if o['key'] in ('D1', 'D2') and o['status'] == 'OPEN'))]
-    J = dict(J, at=utc(), obligations=dict((h, [dict(key=o['key'], status=o['status']) for o in os_]) for h, os_ in by.items()), diff=dif,
-             moved=moved, dedekind=[dict((k, o[k]) for k in ('key', 'head', 'status', 'reason', 'discharger', 'candidate'))
-                                   for o in K.OBLIGATIONS if o['key'] in ('D1', 'D2')])
+            '### ### **HEADS %d ; STATUS MOVED %d ; ROWS DIFFERING %d ; THE DEDEKIND PREMISES %s.**' % (
+                len(heads1), len(moved), len(dif), ', '.join('%s %s' % (o['head'], _status(o)) for o in K.OBLIGATIONS if o['key'] in ('D1', 'D2')))]
+    J = dict(J, at=utc(), obligations=dict((h, [dict(key=o['key'], status=_status(o)) for o in os_]) for h, os_ in by.items()), diff=dif,
+             moved=moved, dedekind=[dict([(k, o[k]) for k in ('key', 'head', 'reason', 'discharger', 'candidate')] + [('status', _status(o)),
+                                         ('notes', AUTHOR_NOTES.get(o['key'], []))]) for o in K.OBLIGATIONS if o['key'] in ('D1', 'D2')],
+             rhs_note=RHS_NOTE)
     put_txt('b641_premise_status.txt', out)
     put_json('b641_premise_status.json', J)
     print(out[-1])
@@ -655,6 +681,74 @@ def oai(*a):
     put_json('b641_openai_math_read.json', dict(at=utc(), clone=K.CLONE, url=url, commit=head, theirs=theirs.get('rev'), ours=ours.get('rev'),
                                                 files=[p for p in K.OAI_FILES if _oai(p) is not None]))
     print(L[-1])
+
+
+# ================================================================================ THE AUTHOR'S ANSWERS AT COMPONENTS 3-5: THE OPEN_TRAILS BLOCK
+FIVE_CLAUSE = 13429           # ### OPEN_TRAILS: b640's five-status clause, beneath the domain-condition criterion
+SIX_HEAD = ('*Appended 2026-10-08 by b641 beneath the five-status clause (:%d), under the author’s answer at b641’s Component 5 -- THE SIXTH STATUS, '
+            'REFUTED-BY-COMPUTATION:*' % FIVE_CLAUSE)
+PD_HEAD = ('*Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 4 -- W-ORD-PLATEAURAMP-DOCSTRING, NOT STARTED, TRIGGER THE '
+           'FIRST UNDERSTATES ROW OF THE REVIEW PASS:*')
+EZ_HEAD = ('*Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 4 -- W-ORD-EPSTEIN-ZQ, PRICED IN b641’S CLOSING, TRIGGER A '
+           'RULING TO BUILD IT:*')
+DR_HEAD = ('*Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 5 -- W-ORD-DEDEKIND-RHS-RESTATE, NOT STARTED, TRIGGER THE '
+           'PROVING ACT:*')
+NV_HEAD = ('*Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 5 -- W-ORD-PREMISE-NONVACUITY, STANDING, TRIGGER ANY NEW '
+           'PREMISE STRUCTURE:*')
+
+
+def _wo_items():
+    return [
+        ('OPEN_TRAILS.md', SIX_HEAD,
+         '\n%s a premise the seat has computed false is not OPEN: it takes REFUTED-BY-COMPUTATION, a sixth status beside the five, its witness class '
+         'and the value that refutes it printed in its bank; the status is the seat`s computation and is not compiled -- it stands until a kernel '
+         'theorem compiles the refutation or the premise is restated. It is assigned from the computation, not by the shared tool`s rule over '
+         'the kernels. At b641 TrivialSummandPremise takes it (relay data/b641_premise_status.txt: the witness class every real, nonnegative, '
+         'continuous k not identically zero and supported in (-log 2, log 2); the value, its pole term positive where the premise needs it 0). '
+         'The census at v0.7 carries it.\n' % SIX_HEAD),
+        ('OPEN_TRAILS.md', PD_HEAD,
+         '\n%s SIDE-explicit-formula v0.25 (8c51431) SIDEExplicitFormula/Schema/PlateauRamp.lean :19-:20 reads that Mathlib at the pin holds the '
+         'convolution theorem for the transform for Schwartz functions only; Mathlib at the pin, de5ce8a9, holds Real.fourier_mul_convolution_eq '
+         'for integrable functions (Mathlib/Analysis/Fourier/Convolution.lean :119), at real frequency (relay data/b641_window_epstein_status.txt, '
+         'W1). The docstring is edited under ruling in the review pass; no kernel byte is touched at b641.\n' % PD_HEAD),
+        ('OPEN_TRAILS.md', EZ_HEAD,
+         '\n%s EpsteinPremises’ count field stays OPEN, its discharger the construction of Z_Q, the zero configuration of the Epstein zeta '
+         'function of x^2 + xy + 6y^2 (discriminant -23), which Mathlib at the pin does not hold (relay data/b641_window_epstein_status.txt, E1); '
+         'the price is the seat`s, printed in relay data/b641_closing.txt.\n' % EZ_HEAD),
+        ('OPEN_TRAILS.md', DR_HEAD,
+         '\n%s TrivialSummandPremise is restated so that the pole term is carried rather than required to vanish, and dedekind_rhs is re-proved on '
+         'the restated premise. Until then dedekind_rhs keeps the grade its statement reads and its row is annotated: on a premise refuted by '
+         'computation at b641; the pages’ cells for it are not edited, and the correction is a dated entry in the form of ERRATA at b641`s '
+         'closing. EulerFactorPremise`s counterexample at the modulus 6 and its sufficient condition (every non-trivial character primitive) are '
+         'recorded beside it (relay data/b641_premise_status.txt).\n' % DR_HEAD),
+        ('OPEN_TRAILS.md', NV_HEAD,
+         '\n%s every premise structure in the premise table takes a non-vacuity read -- a witness exists, or the premise is marked UNWITNESSED -- '
+         'before a theorem resting on it takes the interface grade; the existing table is read once under it at b642.\n' % NV_HEAD),
+    ]
+
+
+def workorders(*a):
+    """### the author's answers at Components 3-5: the sixth status's clause beneath the five-status clause and the four work-orders, appended to
+    ### OPEN_TRAILS in the order of the answers; data/b641_workorders.json."""
+    Q = R2._Q()
+    items = [(f, h, _poss(t)) for f, h, t in _wo_items()]
+    allt = ''.join(t for _f, _h, t in items)
+    cells = sum((predict_cells(t, f) for f, _h, t in items), [])
+    nd, _n = _nd(allt)
+    sc, clean = _scan_text(allt, 'workorders')
+    ticks = [h[:40] for _f, h, t in items if t.count('`') % 2]
+    oai_ = [n for n in OAI_NEEDLES if n in allt]
+    print('  table cells: %s ; nd %s ; scanner %s ; odd backticks %s ; the collection named %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN',
+                                                                                              ticks or 'NONE', oai_ or 'NONE'))
+    if DRY:
+        for _f, _h, t in items:
+            print(t)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or ticks or oai_:
+        sys.exit('### A LINE WOULD MAKE A TABLE CELL, CARRY TECHNE TEXT, A STEM OR ODD BACKTICKS -- NOTHING WRITTEN')
+    _land(Q, items, 'b641_workorders.json', FIVE_CLAUSE)
 
 
 # ================================================================================ THE TABLE AND THE ROOT
