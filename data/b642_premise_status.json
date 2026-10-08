@@ -1,0 +1,5401 @@
+{
+ "at": "2026-10-08T19:33:46Z",
+ "heads": [
+  {
+   "head": "Alternates",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section SignTransferShadow.transfer",
+    "SIDE-global-section SignTransferShadow.transfer_symm"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/AlternationShadow.lean",
+    "line": 33,
+    "text": "def Alternates (s : Nat → Int) : Prop := ∀ i, s (i + 1) = -s i",
+    "doc": "/-- a sign sequence alternates when each term is the negation of the last. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "b"
+    ],
+    [
+     "a"
+    ]
+   ],
+   "consumed": [],
+   "inline": [
+    {
+     "file": "Core/AlternationShadow.lean",
+     "line": 89,
+     "text": "have hn : Alternates (fun i => -s i) := alternates_neg s h"
+    }
+   ],
+   "standalone": [
+    {
+     "file": "Core/SignTransferShadow.lean",
+     "line": 134,
+     "name": "flip_alternates"
+    },
+    {
+     "file": "Core/SignTransferShadow.lean",
+     "line": 145,
+     "name": "transfer_nonvacuous"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "WITNESS ONLY -- flip_alternates and transfer_nonvacuous, the one concrete sequence; the rows take it of any sequence",
+   "wo9": []
+  },
+  {
+   "head": "AnalyticOnNhd",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 3,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula ZerosBound",
+    "SIDE-explicit-formula Zeta23.Analytic.rectangleIntegral'_mul_logDeriv",
+    "SIDE-explicit-formula Zeta23.WeilEF.logDeriv_partial_fraction_disk"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "f"
+    ],
+    [
+     "f",
+     "g",
+     "w",
+     "z"
+    ],
+    [
+     "R",
+     "f",
+     "s₀"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "Zeta23/Statement/Seam.lean",
+     "line": 46,
+     "name": "riemannZeta_analyticOnNhd_compl_one",
+     "consumers": [
+      [
+       "Zeta23/RvM/LocalCount.lean:68",
+       "comp_affine_analyticAt"
+      ],
+      [
+       "Zeta23/Statement/Seam.lean:59",
+       "analyticOrderAt_riemannZeta_ne_top"
+      ],
+      [
+       "Zeta23/Statement/Seam.lean:61",
+       "analyticOrderAt_riemannZeta_ne_top"
+      ],
+      [
+       "Zeta23/Statement/Seam.lean:69",
+       "ZetaSeam.one_le_mult_holds"
+      ]
+     ]
+    }
+   ],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/Contour.lean",
+     "line": 69,
+     "text": "have hf : AnalyticOnNhd ℂ (completedLFunction χ) (Rectangle z w) := fun s _ => analyticAt_completedLFunction h1 s"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Contour.lean",
+     "line": 70,
+     "text": "have hg : AnalyticOnNhd ℂ (Hfn k) (Rectangle z w) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Landau.lean",
+     "line": 54,
+     "text": "have hfa : AnalyticOnNhd ℂ (LFunction χ) (Metric.closedBall s₀ (91/50)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/LocalCount.lean",
+     "line": 103,
+     "text": "have hfAnalytic : AnalyticOnNhd ℂ g (Metric.closedBall (0 : ℂ) 1) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+     "line": 126,
+     "text": "have hf : AnalyticOnNhd ℂ (LFunction χ) {z : ℂ | 0 < z.re} := fun z _ => analyticAt_LFunction h1 z"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+     "line": 127,
+     "text": "have hg : AnalyticOnNhd ℂ (abelRep χ) {z : ℂ | 0 < z.re} := (differentiableOn_abelRep h1).analyticOnNhd hU"
+    },
+    {
+     "file": "SIDEExplicitFormula/GRHWeil.lean",
+     "line": 188,
+     "text": "have hf1 : AnalyticOnNhd ℂ (LFunction χ⁻¹) Set.univ :="
+    },
+    {
+     "file": "SIDEExplicitFormula/GRHWeil.lean",
+     "line": 190,
+     "text": "have hf2 : AnalyticOnNhd ℂ (fun z => conj (LFunction χ (conj z))) Set.univ := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/RegisterDepth.lean",
+     "line": 269,
+     "text": "have hA : AnalyticOnNhd ℂ riemannZeta {(1 : ℂ)}ᶜ :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+     "line": 83,
+     "text": "have hf_an : AnalyticOnNhd ℂ f (closedBall (0 : ℂ) |R|) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+     "line": 319,
+     "text": "have hf_an : AnalyticOnNhd ℂ f U := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+     "line": 397,
+     "text": "have hf_anU : AnalyticOnNhd ℂ f U := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+     "line": 600,
+     "text": "have hf_an : AnalyticOnNhd ℂ f U := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean",
+     "line": 668,
+     "text": "have hf_anU : AnalyticOnNhd ℂ f U := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/ZeroCounting.lean",
+     "line": 308,
+     "text": "have hf_an : AnalyticOnNhd ℂ f (closedBall (0 : ℂ) |R|) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/ZeroCounting.lean",
+     "line": 515,
+     "text": "have hf_an : AnalyticOnNhd ℂ f (closedBall (0 : ℂ) |R|) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/ZeroCounting.lean",
+     "line": 727,
+     "text": "have hf_an : AnalyticOnNhd ℂ f (closedBall (0 : ℂ) |R|) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 3058,
+     "text": "have hxi_analytic : AnalyticOnNhd ℂ riemannXi Set.univ := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 4046,
+     "text": "have h_iter : AnalyticOnNhd ℂ (deriv^[m'] (f k)) (Metric.ball z₀ r) :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 4390,
+     "text": "have hf_analytic : AnalyticOnNhd ℂ riemannZeta U := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 4398,
+     "text": "have hg_analytic : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : ℂ)) U := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean",
+     "line": 48,
+     "text": "have hxi_analytic : AnalyticOnNhd ℂ riemannXi Set.univ := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 86,
+     "text": "have hφ_an : AnalyticOnNhd ℂ φ (Metric.ball (0 : ℂ) (1 : ℝ)) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/StrongPNTPrefix.lean",
+     "line": 162,
+     "text": "have hf : AnalyticOnNhd ℂ f (Metric.ball 0 R) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/StrongPNTPrefix.lean",
+     "line": 219,
+     "text": "have BanalyticOnNhdOfDr : AnalyticOnNhd ℂ B (Metric.closedBall (0 : ℂ) r) := BanalyticOnNhdOfDR.mono (Metric.closedBall_"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1183,
+     "text": "have f_an : AnalyticOnNhd ℂ f U := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1187,
+     "text": "have g_an : AnalyticOnNhd ℂ g U := (HolomorphicOn_riemannZeta0 N_pos).analyticOnNhd isOpen_aux"
+    },
+    {
+     "file": "Zeta23/RvM/CountByIntegral.lean",
+     "line": 133,
+     "text": "have hf : AnalyticOnNhd ℂ completedRiemannZeta (Rectangle z w) := by"
+    },
+    {
+     "file": "Zeta23/RvM/CountByIntegral.lean",
+     "line": 137,
+     "text": "have hg : AnalyticOnNhd ℂ (fun _ : ℂ => (1 : ℂ)) (Rectangle z w) := fun _ _ => analyticAt_const"
+    },
+    {
+     "file": "Zeta23/RvM/LocalCount.lean",
+     "line": 158,
+     "text": "have hfAnalytic : AnalyticOnNhd ℂ g (Metric.closedBall (0 : ℂ) 1) := by"
+    },
+    {
+     "file": "Zeta23/RvM/ZetaGrowth.lean",
+     "line": 61,
+     "text": "have h : AnalyticOnNhd ℂ riemannZeta ({1}ᶜ : Set ℂ) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/Contour.lean",
+     "line": 125,
+     "text": "have hf : AnalyticOnNhd ℂ completedRiemannZeta (Rectangle z w \\ (P : Set ℂ)) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/Contour.lean",
+     "line": 131,
+     "text": "have hg : AnalyticOnNhd ℂ (Hfn k) (Rectangle z w) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/Landau.lean",
+     "line": 398,
+     "text": "have hga : AnalyticOnNhd ℂ g (Metric.closedBall (0 : ℂ) 1) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/Landau.lean",
+     "line": 559,
+     "text": "have hfa : AnalyticOnNhd ℂ riemannZeta (Metric.closedBall s₀ (91/50)) :="
+    },
+    {
+     "file": "Zeta23/ZetaReflect.lean",
+     "line": 85,
+     "text": "have hζ : AnalyticOnNhd ℂ riemannZeta ({(1 : ℂ)}ᶜ) := by"
+    },
+    {
+     "file": "Zeta23/ZetaReflect.lean",
+     "line": 88,
+     "text": "have hζt : AnalyticOnNhd ℂ (fun z => conj (riemannZeta (conj z))) ({(1 : ℂ)}ᶜ) := by"
+    }
+   ],
+   "standalone": [
+    {
+     "file": "Zeta23/Statement/Seam.lean",
+     "line": 46,
+     "name": "riemannZeta_analyticOnNhd_compl_one"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 79,
+     "text": "theorem analyticOnNhd_witness : AnalyticOnNhd ℂ (fun z : ℂ => z) Set.univ"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "INSTANCES -- a general predicate of Mathlib`s; the kernel constructs instances, not checked here row by row",
+   "wo9": []
+  },
+  {
+   "head": "BoundPremises",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.KeiperBounds.keiperBounds_of"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/KeiperBounds.lean",
+    "line": 109,
+    "text": "structure BoundPremises : Prop where",
+    "doc": "/-- **THE NAMED PREMISES**: Euler's γ to the table's width; the Stieltjes constants from the first to the eleventh; the zeta\nvalues from ζ(2) to ζ(12). -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "ConservationHypothesis",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 3,
+   "elab": 0,
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "pins": [
+    "0256e9e"
+   ],
+   "rule_rows": [
+    "SIDE-kernel ConservationBridge.conservation_activates_balance",
+    "SIDE-kernel ConservationBridge.structural_exhaustiveness_proved",
+    "SIDE-kernel structural_exhaustiveness_proved"
+   ],
+   "decl": {
+    "repo": "SIDE-kernel",
+    "pin": "0256e9e",
+    "file": "Bridge/ConservationBridge.lean",
+    "line": 26,
+    "text": "def ConservationHypothesis : Prop :=",
+    "doc": "/-- The Conservation hypothesis (existential form): every ξ-zero forces the\n    Euler balance equation at SOME prime.  This is the programme's one counted\n    premise (monograph §27.3), stated at the multiplicative place — NOT the\n    discharged Chapter 13 theorem (the s-darkness of the product formula is the\n    unconditional *certificate* that motivates it, a distinct proposition).\n    Named hypothesis (ξ pattern), not sorry.\n\n    W-7 enactment (2026-07-16): the definition was weakened from the universal\n    form (`∀ p`, balance at EVERY prime) to this existential form (`∃ p`, at\n    SOME prime), aligning the compiled def with the prose the monograph has\n    always named (§25.5: \"at some prime\") and with\n    `PoissonExhaustion.BalanceContradiction`.  Truth-plausibility screen: the\n    existential is strictly WEAKER than the universal, so `riemann_hypothesis`\n    below becomes a strictly STRONGER theorem (weaker hypothesis, same\n    conclusion); every consumer that could supply the universal can supply the\n    existential.  The conclusion is unchanged; only the hypothesis moved, in\n    the direction that strengthens the result. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [],
+    [],
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": [
+    "FOR IT",
+    "W-ORD-H2-BRIDGE (:10257): SIDE-kernel`s ConservationHypothesis and h2_sign, the bridge between them"
+   ]
+  },
+  {
+   "head": "Continuous",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.paperFT_sum"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "f",
+     "j"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 135,
+     "name": "continuous_expWt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:191",
+       "convStep_holds"
+      ],
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:192",
+       "convStep_holds"
+      ]
+     ]
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 464,
+     "name": "weierstrass_E_continuous",
+     "consumers": [
+      [
+       "Vendored/Bulka/Hadamard/Basic.lean:2070",
+       "weierstrass_product_hasProdLocallyUniformlyOn"
+      ],
+      [
+       "Vendored/Bulka/Hadamard/Basic.lean:2195",
+       "weierstrass_product_hasProdLocallyUniformlyOn_of_tendsto_norm_atTop"
+      ],
+      [
+       "Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean:116",
+       "hasProdLocallyUniformlyOn_weierstrass_E_one_of_summable_inv_norm_sq"
+      ],
+      [
+       "Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean:246",
+       "hasProdLocallyUniformlyOn_weierstrass_E_of_summable_inv_norm_pow"
+      ]
+     ]
+    }
+   ],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLine.lean",
+     "line": 65,
+     "text": "have hline : Continuous (fun t : ℝ => ((c : ℂ) + t * I)) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLine.lean",
+     "line": 210,
+     "text": "have hLχc : Continuous (fun t : ℝ => Lχ ((c : ℂ) + t * I)) := continuous_logDeriv_completedLFunction_line h1 hc1.le"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLine.lean",
+     "line": 211,
+     "text": "have hLιc : Continuous (fun t : ℝ => Lι ((c : ℂ) + t * I)) := continuous_logDeriv_completedLFunction_line hinv1 hc1.le"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLine.lean",
+     "line": 213,
+     "text": "have hH2 : Continuous (fun t : ℝ => Hfn k (1 - c - t * I)) := continuous_Hfn_reflect hk hkc c"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 143,
+     "text": "have hline : Continuous (fun t : ℝ => ((c : ℂ) + t * I)) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 284,
+     "text": "have hH1c : Continuous (fun t : ℝ => Hfn k (((5/4:ℝ):ℂ) + t * I)) := continuous_Hfn_line hk hkc _"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 285,
+     "text": "have hH2c : Continuous (fun t : ℝ => Hfn k (1 - (5/4:ℝ) - t * I)) := continuous_Hfn_reflect hk hkc _"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 362,
+     "text": "have hcont_h : Continuous (fun r : ℝ => paperFT k r) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 368,
+     "text": "have hcp : Continuous (fun r : ℝ => (1/2 : ℂ) + r * I) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 369,
+     "text": "have hcm : Continuous (fun r : ℝ => (1/2 : ℂ) - r * I) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/DecayBound.lean",
+     "line": 67,
+     "text": "have hc : Continuous (phiC (iteratedDeriv p g)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+     "line": 88,
+     "text": "have hc : Continuous (u * v) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 134,
+     "text": "have hcont : Continuous (fun u : ℝ => blSmooth n u * cexp (Complex.I * gammaOf ρ * u)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 288,
+     "text": "have hk'c : Continuous k' := continuous_iff_continuousAt.2 fun x => (hk' x).continuousAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 473,
+     "text": "have hk2c : Continuous k2 := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1027,
+     "text": "have hk0c : Continuous k0 := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1099,
+     "text": "have hcont : Continuous (fun u : ℝ => blSmooth n u * cexp (Complex.I * gammaOf ρ * u)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 92,
+     "text": "have hc : Continuous (windowC γ₀ φ) := (windowC_contDiff hφ).continuous"
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 131,
+     "text": "have hφc : Continuous (fun t => (φ t : ℂ)) := Complex.continuous_ofReal.comp hc"
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 132,
+     "text": "have hE : Continuous (fun t : ℝ => Complex.exp (Complex.I * z * (t : ℂ))) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 268,
+     "text": "have hch : Continuous (fun u : ℝ => Real.cosh (δ * u)) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 49,
+     "text": "have hc' : Continuous (phiC g) := Complex.continuous_ofReal.comp hc"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 40,
+     "text": "have hc' : Continuous (phiC g) := Complex.continuous_ofReal.comp hc"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 278,
+     "text": "have hcont : Continuous φ := (plateau_contDiff F L hF0 hF1 hL 0).continuous"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 288,
+     "text": "have hφc : Continuous (fun u => (φ u : ℂ)) := Complex.continuous_ofReal.comp hcont"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 47,
+     "text": "have hcont : Continuous φ := (plateau_contDiff F L hF0 hF1 hL 0).continuous"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 57,
+     "text": "have hφc : Continuous (fun u => (φ u : ℂ)) := Complex.continuous_ofReal.comp hcont"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 75,
+     "text": "have hG : Continuous fun y => ∫ s in (0 : ℝ)..y, f s := intervalIntegral.continuous_primitive hii 0"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 85,
+     "text": "have hc : Continuous f := hf.continuous"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 214,
+     "text": "have hFc : Continuous (fun t => (F t : ℂ)) := Complex.continuous_ofReal.comp hF.continuous"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 215,
+     "text": "have hF'c : Continuous (fun t => ((deriv F t : ℝ) : ℂ)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 217,
+     "text": "have hec : Continuous (fun t : ℝ => Complex.exp (Complex.I * z * (t : ℂ))) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 249,
+     "text": "have hE : Continuous (fun t : ℝ => Complex.exp (Complex.I * z * (t : ℂ))) := by fun_prop"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 250,
+     "text": "have hgc : Continuous (fun t => (g t : ℂ)) := Complex.continuous_ofReal.comp hg.continuous"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 251,
+     "text": "have hg2c : Continuous (fun t => ((deriv (deriv g) t : ℝ) : ℂ)) :="
+    },
+    {
+     "file": "Vendored/Bulka/FunctionsOfOneComplexVariable/EntireLog.lean",
+     "line": 53,
+     "text": "have hfSub_cont : Continuous fSub := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 102,
+     "text": "have hcont : Continuous fun ζ : ℂ => ‖f ζ‖ := (hf.norm)"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 127,
+     "text": "have hcont : Continuous f := hf.continuous"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 169,
+     "text": "have hcont : Continuous f := hf.continuous"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 703,
+     "text": "have hcont_g : Continuous fun θ : ℝ => g (circleMap (0 : ℂ) R θ) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 709,
+     "text": "have hcont_norm : Continuous fun θ : ℝ => ‖g (circleMap (0 : ℂ) R θ)‖ := hcont_g.norm"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 882,
+     "text": "have hcont : Continuous fun ζ : ℂ => (g ζ).re :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 2069,
+     "text": "have hE : Continuous (fun z : ℂ => weierstrass_E (p n) (z / a n)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 2071,
+     "text": "have h1 : Continuous (fun _z : ℂ => (1 : ℂ)) := continuous_const"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 2194,
+     "text": "have hE : Continuous (fun z : ℂ => weierstrass_E (p n) (z / a n)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean",
+     "line": 115,
+     "text": "have hE : Continuous (fun w : ℂ => weierstrass_E 1 (w / z i)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean",
+     "line": 245,
+     "text": "have hE : Continuous (fun w : ℂ => weierstrass_E p (w / z i)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 122,
+     "text": "have hφ_cont : Continuous (fun z : K' => φ (z : ℂ)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 141,
+     "text": "have hnorm_cont : Continuous (fun z : K' => ‖(z : ℂ)‖) := by"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 209,
+     "text": "have hgt : Continuous (tilde g) := continuous_tilde hg"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 212,
+     "text": "have hFc : Continuous (Function.uncurry fun (x t : ℝ) => f t * tilde g (x - t) * cexp (I * z * x)) := by"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 537,
+     "text": "have hcont : Continuous fun u : ℝ => (Real.exp (|u| / 2) : ℂ) * cexp (-I * τ * u) := by fun_prop"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 732,
+     "text": "have hk : Continuous (weilTest f g) := hkd.continuous"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 86,
+     "text": "have : Continuous fun p : ℝ × ℝ ↦ ((innerₗ ℝ) p.1) p.2 := continuous_inner"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 459,
+     "text": "have e4 : Continuous (deriv f) := by simpa only [e3] using continuous_self_div_sq_add_sq hy"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 280,
+     "text": "have ch {R} : Continuous (fun v => (h R v : ℂ)) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 282,
+     "text": "have ch' {R} : Continuous (fun v => (h' R v : ℂ)) := continuous_ofReal.comp (CS.continuous _)"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 283,
+     "text": "have ch'' {R} : Continuous (fun v => (h'' R v : ℂ)) := continuous_ofReal.comp (CS.continuous _)"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1131,
+     "text": "have cont : Continuous f := by continuity"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1141,
+     "text": "have cont : Continuous f := by continuity"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1161,
+     "text": "have cont : Continuous f := by continuity"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 395,
+     "text": "have hc : Continuous (wTerm n) := by"
+    },
+    {
+     "file": "Zeta23/Poisson/PaperFT.lean",
+     "line": 111,
+     "text": "have hf' : Continuous (deriv f) := hf.continuous_deriv le_rfl"
+    },
+    {
+     "file": "Zeta23/Poisson/PaperFT.lean",
+     "line": 118,
+     "text": "have hcv : Continuous (fun u : ℝ => cexp (I * z * u)) := by fun_prop"
+    },
+    {
+     "file": "Zeta23/Poisson/PaperFT.lean",
+     "line": 119,
+     "text": "have hcv' : Continuous (fun u : ℝ => I * z * cexp (I * z * u)) := by fun_prop"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 135,
+     "text": "have hline : Continuous (fun t : ℝ => ((c : ℂ) + t * I)) := by fun_prop"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 366,
+     "text": "have hφc : Continuous φ := (continuous_Hfn_line hk hkc c).add (continuous_Hfn_reflect hk hkc c)"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 392,
+     "text": "have hLc : Continuous (fun t : ℝ => L ((c : ℂ) + t * I)) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 398,
+     "text": "have hH2 : Continuous (fun t : ℝ => Hfn k (1 - c - t * I)) := continuous_Hfn_reflect hk hkc c"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 433,
+     "text": "have hc : Continuous (fun t : ℝ => f (σ + t * I)) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 435,
+     "text": "have hg : Continuous (fun t : ℝ => (σ : ℂ) + t * I) := by fun_prop"
+    }
+   ],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 135,
+     "name": "continuous_expWt"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 464,
+     "name": "weierstrass_E_continuous"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 81,
+     "text": "theorem continuous_witness : Continuous (fun x : ℝ => x)"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "INSTANCES -- a general predicate of Mathlib`s; the kernel constructs instances, not checked here row by row",
+   "wo9": []
+  },
+  {
+   "head": "Dealigned",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-structural-error-correction"
+   ],
+   "pins": [
+    "6bf19ab"
+   ],
+   "rule_rows": [
+    "SIDE-structural-error-correction DeAlignment.single_domain_fault_not_logical"
+   ],
+   "decl": {
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6bf19ab",
+    "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+    "line": 48,
+    "text": "def Dealigned {P D : Type} {n : Nat} (d : P → D) (lines : Fin n → Line P) : Prop :=",
+    "doc": "/-- **The de-alignment condition**: every line is de-aligned. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "d",
+     "lines"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "DealignedAt",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-structural-error-correction"
+   ],
+   "pins": [
+    "6bf19ab"
+   ],
+   "rule_rows": [
+    "SIDE-structural-error-correction DeAlignment.no_domain_covers_line"
+   ],
+   "decl": {
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6bf19ab",
+    "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+    "line": 44,
+    "text": "def DealignedAt {P D : Type} (d : P → D) (L : Line P) : Prop :=",
+    "doc": "/-- **The de-alignment condition at a line**: the assignment `d` sends the\n    line's three positions to three distinct domains. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "L",
+     "d"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "EpsteinPremises",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.epstein_detector"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/Schema/Epstein.lean",
+    "line": 41,
+    "text": "structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where",
+    "doc": "/-- **THE EPSTEIN PREMISES**, the schema's explicit-formula and count fields for `Z_Q` as named premises over a zero\nconfiguration `Z` and an arithmetic side `rhs`. `ef` -- T1-lit, the explicit formula for `Z_Q` from the literature (Weil\n1952; Bombieri-Lagarias 1999), cited, not compiled. `count` -- T3, the local count read off the bench's zero list. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "Z",
+     "rhs"
+    ],
+    [
+     "Z",
+     "rhs"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+     "line": 90,
+     "text": "theorem toy_premises : EpsteinPremises toyZ toyRhs"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+     "line": 121,
+     "text": "theorem empty_premises : EpsteinPremises emptyZ emptyRhs"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [
+    "configuration `Z` and an arithmetic side `rhs`. `ef` -- T1-lit, the explicit formula for `Z_Q` from the literature (Weil"
+   ],
+   "other_tiers": [
+    "T3"
+   ],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "EqOn",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation T2a_mellin_congr_on_Ioi"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "Φ₁",
+     "Φ₂"
+    ]
+   ],
+   "consumed": [],
+   "inline": [
+    {
+     "file": "SIDELvConservation/C7OrderBounds.lean",
+     "line": 134,
+     "text": "have heq : Set.EqOn (fun x : ℝ => (p ^ (a - 1))⁻¹ * ((p * x) ^ (a - 1) * Real.exp (-(p * x))))"
+    }
+   ],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- built by have inside the Mellin proof of C7OrderBounds",
+   "wo9": []
+  },
+  {
+   "head": "EulerFactorPremise",
+   "status": "WITNESSED",
+   "meets": [
+    "WITNESSED"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/Schema/Family.lean",
+    "line": 265,
+    "text": "def EulerFactorPremise (q : ℕ) [NeZero q] : Prop :=",
+    "doc": "/-- **OBSTRUCTION (2), THE EULER FACTORS AT p ∣ q, as the premise the reading would need**: every non-trivial character\nmod `q`, imprimitive ones included, with its primitive inducer's arithmetic side -- the kernel's χ side reads `χ (n : ZMod\nN)` and `log (N/π)` at the level `N`, so at an imprimitive character the terms at `p ∣ q` and the level differ. NOT\nDISCHARGED HERE. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/Schema/FamilyPremises.lean",
+     "line": 174,
+     "name": "eulerFactorPremise_three"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 67,
+     "text": "theorem eulerFactorPremise_witness : Schema.Family.EulerFactorPremise 3"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "HCount",
+   "status": "WITNESSED",
+   "meets": [
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.weighted_summable"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/RestBound.lean",
+    "line": 44,
+    "text": "def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=",
+    "doc": "/-- **H-COUNT:** the kernel's local count, `N(t, t + 1) <= A0 log(|t| + 3)` with `A0 >= 1`\n(the shape of `Zeta23.RvM.zetaZeroConfig_local_count`). -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "A₀",
+     "Z"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/Schema/Family.lean",
+     "line": 69,
+     "name": "emptyZ_count"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckSimplicity.lean",
+     "line": 72,
+     "text": "theorem toy_count (m : ℕ) (hm : 1 ≤ m) : HCount (toyZ m hm) m"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+     "line": 70,
+     "text": "theorem toy_count : HCount toyZ 2"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+     "line": 108,
+     "text": "theorem empty_count : HCount emptyZ 1"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "WITNESS ONLY -- emptyZ_count, the empty configuration",
+   "wo9": []
+  },
+  {
+   "head": "HasCompactSupport",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.paperFT_sum"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "f",
+     "j"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 622,
+     "name": "edgeProfile_hasCompactSupport",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:631",
+       "edgeProfile_bound"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:724",
+       "edgeTail_ibp"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:792",
+       "edgeTail_bound"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+     "line": 73,
+     "name": "box_hasCompactSupport",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Schema/PlateauRamp.lean:98",
+       "window_hasCompactSupport"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+     "line": 76,
+     "name": "nbox_hasCompactSupport",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Schema/PlateauRamp.lean:100",
+       "window_hasCompactSupport"
+      ],
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:192",
+       "convStep_holds"
+      ]
+     ]
+    }
+   ],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 276,
+     "text": "have hknegc : HasCompactSupport (fun u : ℝ => k (-u)) := hkc.comp_homeomorph (Homeomorph.neg ℝ)"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 142,
+     "text": "have hkbc : HasCompactSupport (Zeta23.WeilEF.tilt k (c - 1/2)) := Zeta23.WeilEF.tilt_hasCompactSupport hkc _"
+    },
+    {
+     "file": "SIDEExplicitFormula/DecayBound.lean",
+     "line": 69,
+     "text": "have hcs : HasCompactSupport (phiC (iteratedDeriv p g)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeil.lean",
+     "line": 324,
+     "text": "· have h : HasCompactSupport (fun u => ((f u : ℝ) : ℂ)) := f.hasCompactSupport.comp_left Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 93,
+     "text": "have hs : HasCompactSupport (windowC γ₀ φ) := windowC_hasCompactSupport hφs"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 50,
+     "text": "have hs' : HasCompactSupport (phiC g) := hs.comp_left (g := fun r : ℝ => (r : ℂ)) Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 41,
+     "text": "have hs' : HasCompactSupport (phiC g) := hs.comp_left (g := fun r : ℝ => (r : ℂ)) Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 55,
+     "text": "have hhs : HasCompactSupport (phiC g) := hs.comp_left (g := fun r : ℝ => (r : ℂ)) Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 115,
+     "text": "have hhs : HasCompactSupport (phiC g) := hs.comp_left (g := fun r : ℝ => (r : ℂ)) Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 279,
+     "text": "have hcs : HasCompactSupport φ := plateau_hasCompactSupport F L hF0 hF1 hL"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 289,
+     "text": "have hφcs : HasCompactSupport (fun u => (φ u : ℂ)) := hcs.comp_left (g := fun r : ℝ => (r : ℂ)) Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 48,
+     "text": "have hcs : HasCompactSupport φ := plateau_hasCompactSupport F L hF0 hF1 hL"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 58,
+     "text": "have hφcs : HasCompactSupport (fun u => (φ u : ℂ)) := hcs.comp_left (g := fun r : ℝ => (r : ℂ)) Complex.ofReal_zero"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 150,
+     "text": "show HasCompactSupport ((fun u => Real.cos (γ₀ * u)) * φ)"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 165,
+     "text": "have hg : HasCompactSupport (cosWin γ₀ φ) := cosWin_hasCompactSupport hφs"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 166,
+     "text": "show HasCompactSupport ((fun _ => γ₀ ^ 2) * cosWin γ₀ φ + deriv (deriv (cosWin γ₀ φ)))"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 194,
+     "text": "have hhs : HasCompactSupport (windowC γ₀ φ) := windowC_hasCompactSupport hφs"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 218,
+     "text": "have hFcs : HasCompactSupport (fun t => (F t : ℂ)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 220,
+     "text": "have hF'cs : HasCompactSupport (fun t => ((deriv F t : ℝ) : ℂ)) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 210,
+     "text": "have hgts : HasCompactSupport (tilde g) := hasCompactSupport_tilde hgs"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 215,
+     "text": "have hFs : HasCompactSupport"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 577,
+     "text": "have hkc : HasCompactSupport k := hasCompactSupport_of_tsupport_subset hks"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 727,
+     "text": "have hfc : HasCompactSupport f :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 729,
+     "text": "have hgc : HasCompactSupport g :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 62,
+     "text": "have hkc : HasCompactSupport k := Zeta23.hasCompactSupport_of_support_subset_abs hΛ"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 99,
+     "text": "have hkc : HasCompactSupport k := Zeta23.hasCompactSupport_of_support_subset_abs hΛ"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 210,
+     "text": "have hfc : HasCompactSupport f :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 212,
+     "text": "have hgc : HasCompactSupport g :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 215,
+     "text": "have hkc : HasCompactSupport (weilTest f g) := weilTest_hasCompactSupport hfc hgc"
+    },
+    {
+     "file": "Zeta23/Poisson/PaperFT.lean",
+     "line": 158,
+     "text": "have hcs : HasCompactSupport f := hasCompactSupport_of_support_subset_abs hsupp"
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 74,
+     "text": "have hknegc : HasCompactSupport (fun u : ℝ => k (-u)) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 184,
+     "text": "have hkbc : HasCompactSupport (tilt k (c - 1/2)) := tilt_hasCompactSupport hkc _"
+    }
+   ],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 622,
+     "name": "edgeProfile_hasCompactSupport"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+     "line": 73,
+     "name": "box_hasCompactSupport"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+     "line": 76,
+     "name": "nbox_hasCompactSupport"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 85,
+     "text": "theorem hasCompactSupport_witness : HasCompactSupport (Schema.PlateauRamp.box 1)"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "INSTANCES -- a general predicate of Mathlib`s; the kernel constructs instances, not checked here row by row",
+   "wo9": []
+  },
+  {
+   "head": "HasDerivAt",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.LiWeil.integral_mul_cos_ibp"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "k",
+     "k'",
+     "k''",
+     "x"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 142,
+     "name": "hasDerivAt_xi_one",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Keiper.lean:166",
+       "xiLogCoeff_zero"
+      ],
+      [
+       "SIDEExplicitFormula/Keiper.lean:178",
+       "taylorCoeff_xi_zero"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 323,
+     "name": "exp_mul_hasDerivAt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:329",
+       "qf_hasDerivAt"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:336",
+       "qf1_hasDerivAt"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 327,
+     "name": "qf_hasDerivAt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:421",
+       "jump_cos_bound"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:461",
+       "jump_cos_bound"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:467",
+       "jump_cos_bound"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:470",
+       "jump_cos_bound"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 333,
+     "name": "qf1_hasDerivAt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:464",
+       "jump_cos_bound"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:471",
+       "jump_cos_bound"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 394,
+     "name": "wf_hasDerivAt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:467",
+       "jump_cos_bound"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:471",
+       "jump_cos_bound"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 398,
+     "name": "wf1_hasDerivAt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:470",
+       "jump_cos_bound"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 697,
+     "name": "edgeTail_hasDerivAt",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:754",
+       "edgeTail_ibp"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 202,
+     "name": "hasDerivAt_expIz",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/TwoPropertyWindow.lean:227",
+       "ibp_step"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Auxiliary.lean",
+     "line": 57,
+     "name": "hasDerivAt_ofReal",
+     "consumers": [
+      [
+       "Zeta23/FromPNTPlus/Auxiliary.lean:61",
+       "deriv_ofReal"
+      ],
+      [
+       "Zeta23/FromPNTPlus/Auxiliary.lean:64",
+       "differentiableAt_ofReal"
+      ]
+     ]
+    }
+   ],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/Horizontal.lean",
+     "line": 35,
+     "text": "have hd : HasDerivAt (LFunction χ) (deriv (LFunction χ) s) s := (differentiable_LFunction h1 s).hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/XiLogDeriv.lean",
+     "line": 96,
+     "text": "have hcd : HasDerivAt c ((N : ℂ) ^ (s - 1 / 2) * Complex.log N * 1 * rootNumber χ) s :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+     "line": 230,
+     "text": "have hsum : HasDerivAt (fun z => ∑ n ∈ Finset.Icc 1 M, χ (n : ZMod N) * (n : ℂ) ^ (-z))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/ZetaBoundsStrip.lean",
+     "line": 237,
+     "text": "have hbd : HasDerivAt (fun z : ℂ => charPartialSum χ M * (M : ℂ) ^ (-z))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 144,
+     "text": "have hΛ : HasDerivAt completedRiemannZeta₀ (deriv completedRiemannZeta₀ 1) 1 :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 146,
+     "text": "have h : HasDerivAt (fun s : ℂ => (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 171,
+     "text": "have hm : HasDerivAt (fun z : ℂ => 1 / (1 - z)) 1 0 := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 172,
+     "text": "have h1 : HasDerivAt (fun z : ℂ => 1 - z) (-1) 0 := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 177,
+     "text": "have hx : HasDerivAt LiCriterion.riemannXi ((1 / 2 : ℂ) * completedRiemannZeta₀ 1) ((fun z : ℂ => 1 / (1 - z)) 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 179,
+     "text": "have hphi : HasDerivAt (LiCriterion.phi LiCriterion.riemannXi) ((1 / 2 : ℂ) * completedRiemannZeta₀ 1 * 1) 0 :="
+    },
+    {
+     "file": "SIDEExplicitFormula/KeiperIdentities.lean",
+     "line": 137,
+     "text": "have h1 : HasDerivAt (fun y : ℂ => 1 - y) (-1) z := by simpa using (hasDerivAt_id z).const_sub 1"
+    },
+    {
+     "file": "SIDEExplicitFormula/KeiperIdentities.lean",
+     "line": 183,
+     "text": "have hL : HasDerivAt (Lj j) (Lj (j + 1) (wInv z)) (wInv z) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+     "line": 73,
+     "text": "have h1 : HasDerivAt (fun z : ℂ => -cexp (-(ρ * z)) / ρ) (cexp (-(ρ * x))) (x : ℂ) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 498,
+     "text": "have h1 : HasDerivAt (fun w : ℂ => (1 : ℂ) - w) (-1) (1 : ℂ) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 500,
+     "text": "have hpoly_at : HasDerivAt poly (deriv poly 1) (1 : ℂ) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 502,
+     "text": "have h2 : HasDerivAt (fun w : ℂ => Complex.exp (poly w))"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 505,
+     "text": "have hprod : HasDerivAt (fun w : ℂ => (1 - w) * Complex.exp (poly w))"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+     "line": 1283,
+     "text": "have : HasDerivAt g (1 / a) a := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+     "line": 1284,
+     "text": "have : HasDerivAt (fun s : ℂ => s / a) ((1 : ℂ) / a) a := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean",
+     "line": 98,
+     "text": "have hdiv : HasDerivAt (fun w : ℂ => w / a) ((1 : ℂ) / a) x := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean",
+     "line": 100,
+     "text": "have hexp : HasDerivAt f₂ (Complex.exp (x / a) * ((1 : ℂ) / a)) x := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean",
+     "line": 108,
+     "text": "have hdiv : HasDerivAt (fun w : ℂ => w / a) ((1 : ℂ) / a) x := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean",
+     "line": 111,
+     "text": "have : HasDerivAt f₁ (-((1 : ℂ) / a)) x := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean",
+     "line": 355,
+     "text": "have hlin : HasDerivAt (fun w : ℂ => a * w + b) a x := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean",
+     "line": 358,
+     "text": "have hexp : HasDerivAt (fun w : ℂ => Complex.exp (a * w + b)) (Complex.exp (a * x + b) * a) x :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 1885,
+     "text": "have hmul : HasDerivAt (fun s : ℂ => b * s) b (0 : ℂ) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 1896,
+     "text": "have hmul : HasDerivAt (fun s : ℂ => (-b) * s) (-b) (0 : ℂ) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 1901,
+     "text": "have hadd : HasDerivAt (fun s : ℂ => (a + b) + (-b) * s) (-b) (0 : ℂ) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean",
+     "line": 54,
+     "text": "· have hder : HasDerivAt f (deriv f z) z := hd.hasDerivAt"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean",
+     "line": 63,
+     "text": "have hconj' : HasDerivAt f (conj (deriv f z)) (conj z) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean",
+     "line": 70,
+     "text": "have hder_conj : HasDerivAt f (deriv f (conj z)) (conj z) := hd_conj.hasDerivAt"
+    },
+    {
+     "file": "Zeta23/Analytic/Stirling.lean",
+     "line": 206,
+     "text": "have h1 : HasDerivAt (fun w : ℂ => w + ((n : ℂ) + 1)) 1 z := (hasDerivAt_id z).add_const _"
+    },
+    {
+     "file": "Zeta23/Analytic/Stirling.lean",
+     "line": 208,
+     "text": "have h3 : HasDerivAt (fun w : ℂ => (w + ((n : ℂ) + 1))⁻¹)"
+    },
+    {
+     "file": "Zeta23/Analytic/Stirling.lean",
+     "line": 216,
+     "text": "have h7 : HasDerivAt (fun w : ℂ => 1 / ((n : ℂ) + 1) - (w + ((n : ℂ) + 1))⁻¹)"
+    },
+    {
+     "file": "Zeta23/Analytic/Stirling.lean",
+     "line": 250,
+     "text": "have hinvd : HasDerivAt (fun w : ℂ => 1 / w) (-1 / z ^ 2) z := by"
+    },
+    {
+     "file": "Zeta23/Analytic/Stirling.lean",
+     "line": 252,
+     "text": "have h2 : HasDerivAt (fun w : ℂ => w⁻¹) (-1 / z ^ 2) z := h1"
+    },
+    {
+     "file": "Zeta23/Analytic/Stirling.lean",
+     "line": 258,
+     "text": "have hRHSd : HasDerivAt"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 71,
+     "text": "have l2 : HasDerivAt (fun v => -v * u) (-u) x := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 455,
+     "text": "have e2 {x} : HasDerivAt f (x / (x ^ 2 + y ^ 2)) x := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 798,
+     "text": "have hpath : HasDerivAt (fun r : ℝ ↦ (r : ℂ) + (h : ℂ) * Complex.I) 1 x := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 800,
+     "text": "have hconst : HasDerivAt (fun r : ℝ ↦ (r : ℂ) + (h : ℂ) * Complex.I) 0 x :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 809,
+     "text": "have hpath : HasDerivAt (fun y : ℝ ↦ (r : ℂ) + (y : ℂ) * Complex.I) Complex.I x := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 811,
+     "text": "have hconst : HasDerivAt (fun y : ℝ ↦ (r : ℂ) + (y : ℂ) * Complex.I) 0 x :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 71,
+     "text": "have key x : HasDerivAt ofReal 1 x := hasDerivAt_id x |>.ofReal_comp"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 284,
+     "text": "have dh R v : HasDerivAt (h R) (h' R v) v := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 287,
+     "text": "have dh' R v : HasDerivAt (h' R) (h'' R v) v := ((g.scale R).deriv.hasDerivAt v).neg"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 324,
+     "text": "have df v : HasDerivAt f (f' v) v := f.hasDerivAt v"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 325,
+     "text": "have df' v : HasDerivAt f' (f'' v) v := f'.hasDerivAt v"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 326,
+     "text": "have l3 v : HasDerivAt (fun v => h R v * f v) (h' R v * f v + h R v * f' v) v :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 328,
+     "text": "have l5 : HasDerivAt (fun v => h' R v * f v) (h'' R v * f v + h' R v * f' v) v :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 330,
+     "text": "have l7 : HasDerivAt (fun v => h R v * f' v) (h' R v * f' v + h R v * f'' v) v :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 140,
+     "text": "have h_deriv : HasDerivAt g (deriv g p) p := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 483,
+     "text": "have g_diff : HasDerivAt g (deriv g p) p :="
+    },
+    {
+     "file": "Zeta23/GammaFacts/Mu.lean",
+     "line": 389,
+     "text": "have hginner : HasDerivAt (fun x : ℝ => (1 / 4 : ℂ) + (Complex.I / 2) * (x : ℂ))"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Mu.lean",
+     "line": 391,
+     "text": "have h1 : HasDerivAt (fun x : ℝ => ((x : ℝ) : ℂ)) 1 τ := Complex.ofRealCLM.hasDerivAt"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Mu.lean",
+     "line": 394,
+     "text": "have hcompd : HasDerivAt"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Mu.lean",
+     "line": 399,
+     "text": "have hre : HasDerivAt"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Mu.lean",
+     "line": 403,
+     "text": "have hmuD : HasDerivAt Zeta23.mu"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 288,
+     "text": "have hd1 : HasDerivAt (fun s : ℂ => 1 + s / ((n : ℂ) + 1)) (1 / ((n : ℂ) + 1)) z := by"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 291,
+     "text": "have hd2 : HasDerivAt (fun s : ℂ => Complex.exp (-(s / ((n : ℂ) + 1))))"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 293,
+     "text": "have hlin : HasDerivAt (fun s : ℂ => -(s / ((n : ℂ) + 1))) (-(1 / ((n : ℂ) + 1))) z := by"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 297,
+     "text": "have hprod : HasDerivAt"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 477,
+     "text": "have hder : HasDerivAt (fun s : ℂ => s * Complex.exp (γc * s))"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 479,
+     "text": "have h1 : HasDerivAt (fun s : ℂ => Complex.exp (γc * s)) (γc * Complex.exp (γc * z)) z := by"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 480,
+     "text": "have hlin : HasDerivAt (fun s : ℂ => γc * s) γc z := by"
+    },
+    {
+     "file": "Zeta23/GammaFacts/StirlingVert.lean",
+     "line": 77,
+     "text": "have h1 : HasDerivAt (fun z : ℂ => Complex.log (z + w)) (((x : ℂ) + w)⁻¹) (x : ℂ) := by"
+    },
+    {
+     "file": "Zeta23/Poisson/PaperFT.lean",
+     "line": 115,
+     "text": "have h1 : HasDerivAt (fun u : ℝ => I * z * u) (I * z * 1) x :="
+    },
+    {
+     "file": "Zeta23/WeilEF/GammaRBracket.lean",
+     "line": 81,
+     "text": "have hdpow : HasDerivAt (fun s : ℂ => (Real.pi : ℂ) ^ (-s / 2))"
+    },
+    {
+     "file": "Zeta23/WeilEF/GammaRBracket.lean",
+     "line": 105,
+     "text": "have : HasDerivAt (fun s : ℂ => s / 2) (1 / 2) s := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/Landau.lean",
+     "line": 98,
+     "text": "have hd : HasDerivAt (fun w : ℂ => w - ρ) 1 z := (hasDerivAt_id z).sub_const ρ"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 560,
+     "text": "· have h1 : HasDerivAt (fun z : ℂ => I * z * (u:ℂ)) (I * u) z := by"
+    }
+   ],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/Keiper.lean",
+     "line": 142,
+     "name": "hasDerivAt_xi_one"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 323,
+     "name": "exp_mul_hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 327,
+     "name": "qf_hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 333,
+     "name": "qf1_hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 394,
+     "name": "wf_hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 398,
+     "name": "wf1_hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 697,
+     "name": "edgeTail_hasDerivAt"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 202,
+     "name": "hasDerivAt_expIz"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Auxiliary.lean",
+     "line": 57,
+     "name": "hasDerivAt_ofReal"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 70,
+     "name": "hasDerivAt_e"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 89,
+     "text": "theorem hasDerivAt_witness : HasDerivAt (fun x : ℝ => x) 1 0"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "INSTANCES -- a general predicate of Mathlib`s; the kernel constructs instances, not checked here row by row",
+   "wo9": []
+  },
+  {
+   "head": "IdempotentAdd",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 4,
+   "elab": 0,
+   "kernels": [
+    "SIDE-carrier-spec"
+   ],
+   "pins": [
+    "b3916cc"
+   ],
+   "rule_rows": [
+    "SIDE-carrier-spec SIDECarrierSpec.map_eq_zero_of_idempotent",
+    "SIDE-carrier-spec SIDECarrierSpec.no_idempotent_candidate",
+    "SIDE-carrier-spec SIDECarrierSpec.signedCompletion_trivial_of_idempotent",
+    "SIDE-carrier-spec SIDECarrierSpec.trivial_of_idempotent_of_spec"
+   ],
+   "decl": {
+    "repo": "SIDE-carrier-spec",
+    "pin": "b3916cc",
+    "file": "SIDECarrierSpec/IdempotentNoGo.lean",
+    "line": 29,
+    "text": "def IdempotentAdd (C : Type u) [AddCommMonoid C] : Prop := ∀ a : C, a + a = a",
+    "doc": "/-- **Idempotent addition** — `a + a = a`.  MODEL of the characteristic-one law `1 ⊕ 1 = 1`,\n`max(a, a) = a`. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "M"
+    ],
+    [
+     "C"
+    ],
+    [
+     "M"
+    ],
+    [
+     "C"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "Integrable",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 1,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula Zeta23.WeilEF.vertical_line_shift"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "φ"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 35,
+     "name": "box_integrable",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:39",
+       "nbox_integrable"
+      ],
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:42",
+       "window_integrable"
+      ]
+     ]
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 39,
+     "name": "nbox_integrable",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:43",
+       "window_integrable"
+      ],
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:192",
+       "convStep_holds"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 446,
+     "name": "integrable_exp_neg_abs_half_mul",
+     "consumers": [
+      [
+       "Zeta23/ExplicitFormula.lean:470",
+       "integrable_exp_neg_abs_half"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 468,
+     "name": "integrable_exp_neg_abs_half",
+     "consumers": [
+      [
+       "Zeta23/ExplicitFormula.lean:609",
+       "pole_term"
+      ],
+      [
+       "Zeta23/ExplicitFormula.lean:624",
+       "pole_term"
+      ],
+      [
+       "Zeta23/ExplicitFormula.lean:648",
+       "integrable_paperFT_mul_PiX"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 509,
+     "name": "integrable_EL",
+     "consumers": [
+      [
+       "Zeta23/ExplicitFormula.lean:620",
+       "pole_term"
+      ],
+      [
+       "Zeta23/ExplicitFormula.lean:629",
+       "pole_term"
+      ],
+      [
+       "Zeta23/ExplicitFormula.lean:653",
+       "integrable_paperFT_mul_PiX"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 257,
+     "name": "hf",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Chi/Contour.lean:69",
+       "rectangle_identity_chi"
+      ],
+      [
+       "SIDEExplicitFormula/Chi/Contour.lean:105",
+       "rectangle_identity_chi"
+      ],
+      [
+       "SIDEExplicitFormula/Chi/FullLineAssembly.lean:36",
+       "full_line_identity_chi"
+      ],
+      [
+       "SIDEExplicitFormula/Chi/FullLineAssembly.lean:59",
+       "full_line_identity_chi"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 259,
+     "name": "hf'",
+     "consumers": [
+      [
+       "Vendored/Bulka/FunctionsOfOneComplexVariable/EntireLog.lean:91",
+       "entire_has_entire_log_of_no_zeros"
+      ],
+      [
+       "Vendored/Bulka/FunctionsOfOneComplexVariable/EntireLog.lean:97",
+       "entire_has_entire_log_of_no_zeros"
+      ]
+     ]
+    }
+   ],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLine.lean",
+     "line": 83,
+     "text": "have hmaj : Integrable (fun t : ℝ => K * ((1 : ℝ) + ‖t‖ ^ 2) ^ (-(3 / 2 : ℝ) / 2)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 206,
+     "text": "have hφi : Integrable φ := integrable_inv_one_add_sq.const_mul C"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 298,
+     "text": "have iG : Integrable (fun t : ℝ => (Hfn k (((5/4:ℝ):ℂ) + t * I) + Hfn k (1 - (5/4:ℝ) - t * I))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 309,
+     "text": "have iPχ : Integrable (fun t : ℝ => Hfn k (((5/4:ℝ):ℂ) + t * I) * logDeriv (LFunction χ) (((5/4:ℝ):ℂ) + t * I)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 312,
+     "text": "have iPι : Integrable (fun t : ℝ => Hfn k (1 - (5/4:ℝ) - t * I) * logDeriv (LFunction χ⁻¹) (((5/4:ℝ):ℂ) + t * I)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 315,
+     "text": "have iN : Integrable (fun t : ℝ => Hfn k (1 - (5/4:ℝ) - t * I) * Complex.log (N : ℂ)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 325,
+     "text": "have i12 : Integrable (fun t : ℝ => (Hfn k (((5/4:ℝ):ℂ) + t * I) + Hfn k (1 - (5/4:ℝ) - t * I))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 328,
+     "text": "have i123 : Integrable (fun t : ℝ => (Hfn k (((5/4:ℝ):ℂ) + t * I) + Hfn k (1 - (5/4:ℝ) - t * I))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 366,
+     "text": "have iΓh : Integrable (fun r : ℝ => paperFT k r"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 387,
+     "text": "have iNh : Integrable (fun r : ℝ => paperFT k r * Complex.log (N : ℂ)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 144,
+     "text": "have hpfi : Integrable (fun t : ℝ => Zeta23.paperFT (Zeta23.WeilEF.tilt k (c - 1/2)) t) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 255,
+     "text": "have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 262,
+     "text": "have hφi : Integrable φ := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 322,
+     "text": "have hi₁c : Integrable (fun t : ℝ => f₁ (c + t * I)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 324,
+     "text": "have hi₂c : Integrable (fun t : ℝ => f₂ (c + t * I)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 326,
+     "text": "have hi₁h : Integrable (fun t : ℝ => f₁ ((1/2 : ℝ) + t * I)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 328,
+     "text": "have hi₂h : Integrable (fun t : ℝ => f₂ ((1/2 : ℝ) + t * I)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 133,
+     "text": "have hint : Integrable (fun u : ℝ => blTest n u * cexp (Complex.I * gammaOf ρ * u)) := integrable_blTest_integrand n hρ"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 136,
+     "text": "have hbi : Integrable (fun u : ℝ => ‖blTest n u * cexp (Complex.I * gammaOf ρ * u)‖"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 269,
+     "text": "have hi : Integrable (fun u : ℝ => symMember n δ u * cexp (Complex.I * gammaOf ρ * u)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 567,
+     "text": "have hint1 : Integrable (g * fun x : ℝ => cexp (τ * x)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 569,
+     "text": "have hint2 : Integrable (deriv g * fun x : ℝ => cexp (τ * x) / τ) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 718,
+     "text": "have hint1 : Integrable (edgeTail j * fun x : ℝ => cexp (τ * x)) := edgeTail_integrable j hτ"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 719,
+     "text": "have hIt : Integrable (fun v : ℝ => (((Real.smoothTransition (v + 2) - 1) * v ^ (j - 1) : ℝ) : ℂ) * cexp (τ * v)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 722,
+     "text": "have hIp : Integrable (fun v : ℝ => edgeProfile j v * cexp (τ * v)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 725,
+     "text": "have hint2 : Integrable ((fun v : ℝ => edgeProfile j v + (j : ℂ) * (((Real.smoothTransition (v + 2) - 1) * v ^ (j - 1) :"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 790,
+     "text": "have hIp : Integrable (fun v : ℝ => edgeProfile (j + 1) v * cexp (τ * v)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 959,
+     "text": "have hH : Integrable (fun u : ℝ => ((symCut δ u * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 960,
+     "text": "have hi : Integrable (fun u : ℝ => symMember n δ u * cexp (Complex.I * gammaOf ρ * u)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 964,
+     "text": "have hT1 : Integrable (fun u : ℝ => ((jumpInd u * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 980,
+     "text": "have hT2 : Integrable (fun u : ℝ => (((wf δ u - jumpInd u) * blPoly n u : ℝ) : ℂ) * cexp (ρ * u)) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1023,
+     "text": "have hgInt : Integrable g := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1032,
+     "text": "have hFInt : Integrable F := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1098,
+     "text": "have hint : Integrable (fun u : ℝ => blTest n u * cexp (Complex.I * gammaOf ρ * u)) := integrable_blTest_integrand n hρ"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1101,
+     "text": "have hbi : Integrable (fun u : ℝ => ‖blTest n u * cexp (Complex.I * gammaOf ρ * u)‖"
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 267,
+     "text": "have i1 : Integrable φ := hc.integrable_of_hasCompactSupport hs"
+    },
+    {
+     "file": "SIDEExplicitFormula/PairTerm.lean",
+     "line": 269,
+     "text": "have i2 : Integrable (fun u => φ u * Real.cosh (δ * u)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 290,
+     "text": "have iE : Integrable (fun u : ℝ => (φ u : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerWindow.lean",
+     "line": 292,
+     "text": "have i1 : Integrable (fun u : ℝ => (φ u : ℂ)) := hφc.integrable_of_hasCompactSupport hφcs"
+    },
+    {
+     "file": "SIDEExplicitFormula/RestBound.lean",
+     "line": 334,
+     "text": "have i1 : Integrable (fun u => φ u * Real.cosh (δ * u)) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/RestBound.lean",
+     "line": 337,
+     "text": "have i2 : Integrable (fun u => φ u * Real.exp (δ * L)) := (hc.integrable_of_hasCompactSupport hcs).mul_const _"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 59,
+     "text": "have iE : Integrable (fun u : ℝ => (φ u : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 61,
+     "text": "have i1 : Integrable (fun u : ℝ => (φ u : ℂ)) := hφc.integrable_of_hasCompactSupport hφcs"
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 253,
+     "text": "have i1 : Integrable (fun u => (c : ℂ) * ((g u : ℂ) * Complex.exp (Complex.I * z * (u : ℂ)))) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/TwoPropertyWindow.lean",
+     "line": 257,
+     "text": "have i2 : Integrable (fun u => ((deriv (deriv g) u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 227,
+     "text": "have hFi : Integrable (Function.uncurry fun (x t : ℝ) => f t * tilde g (x - t) * cexp (I * z * x))"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 358,
+     "text": "have hki : Integrable k :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 395,
+     "text": "have hG : Integrable (fun p : ℝ × ℝ => E p.1 * paperFT k p.2) (volume.prod volume) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 578,
+     "text": "have hki : Integrable k := hk.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 579,
+     "text": "have hA_int : Integrable (fun u : ℝ => k u * (Real.exp (-|u| / 2) : ℂ)) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 581,
+     "text": "have hB_int : Integrable (fun u : ℝ => k u * (Real.exp (|u| / 2) : ℂ)) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 583,
+     "text": "have hI1 : Integrable (fun u : ℝ => k u * cexp (I * (I / 2) * u)) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 585,
+     "text": "have hI2 : Integrable (fun u : ℝ => k u * cexp (I * (-I / 2) * u)) :="
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 623,
+     "text": "have hintA : Integrable (fun τ : ℝ => paperFT k τ * (1 / ((1 / 4 : ℂ) + τ ^ 2))) := by"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 627,
+     "text": "have hintB : Integrable (fun τ : ℝ => paperFT k τ *"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 647,
+     "text": "have hintA : Integrable (fun τ : ℝ => paperFT k τ * (1 / ((1 / 4 : ℂ) + τ ^ 2))) := by"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 651,
+     "text": "have hintB : Integrable (fun τ : ℝ => paperFT k τ *"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 703,
+     "text": "have hPiP : Integrable (fun τ : ℝ => paperFT k τ * (PiX (Real.exp L) τ : ℂ)"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 63,
+     "text": "have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 88,
+     "text": "have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 100,
+     "text": "have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula/Bridge.lean",
+     "line": 183,
+     "text": "have hdom : Integrable (fun τ : ℝ => 2 * K₁ * K₂ * (1 + ‖τ‖) ^ (-(3 / 2) : ℝ)) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 103,
+     "text": "have l1 : Integrable (fun x => (((π : ℂ) ^ 2)⁻¹ * 4⁻¹) * deriv (deriv f) x) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 377,
+     "text": "have e3 : Integrable bound volume :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 995,
+     "text": "have hF_int : Integrable (F s) μ := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1034,
+     "text": "have bound_integrable : Integrable bound μ := by"
+    },
+    {
+     "file": "Zeta23/Poisson/PaperFT.lean",
+     "line": 165,
+     "text": "have hint : Integrable (deriv (deriv f)) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 59,
+     "text": "have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 237,
+     "text": "have hmaj : Integrable (fun t : ℝ => K * ((1 : ℝ) + ‖t‖ ^ 2) ^ (-(3 / 2 : ℝ) / 2)) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 101,
+     "text": "have hint1 : Integrable (fun t : ℝ => Hfn k (((5/4:ℝ):ℂ) + t * I)"
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 104,
+     "text": "have hint2 : Integrable (fun t : ℝ => Hfn k (1 - (5/4:ℝ) - t * I)"
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 114,
+     "text": "have hintζ : Integrable (fun t : ℝ => (Hfn k (((5/4:ℝ):ℂ) + t * I)"
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 120,
+     "text": "have hintΓ1 : Integrable (fun t : ℝ => Hfn k (((5/4:ℝ):ℂ) + t * I)"
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 123,
+     "text": "have hintΓ2 : Integrable (fun t : ℝ => Hfn k (1 - (5/4:ℝ) - t * I)"
+    },
+    {
+     "file": "Zeta23/WeilEF/Main.lean",
+     "line": 133,
+     "text": "have hintΓ : Integrable (fun t : ℝ => (Hfn k (((5/4:ℝ):ℂ) + t * I)"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 89,
+     "text": "have hint : Integrable (tilt k b) (volume : Measure ℝ) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 186,
+     "text": "have hpfi : Integrable (fun t : ℝ => paperFT (tilt k (c - 1/2)) t) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 519,
+     "text": "have hbound_int : Integrable (fun u : ℝ => ‖k u‖"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 687,
+     "text": "have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 694,
+     "text": "have hφi : Integrable φ := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 754,
+     "text": "have hi₁c : Integrable (fun t : ℝ => f₁ (c + t * I)) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 756,
+     "text": "have hi₂c : Integrable (fun t : ℝ => f₂ (c + t * I)) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 758,
+     "text": "have hi₁h : Integrable (fun t : ℝ => f₁ ((1/2 : ℝ) + t * I)) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 760,
+     "text": "have hi₂h : Integrable (fun t : ℝ => f₂ ((1/2 : ℝ) + t * I)) :="
+    }
+   ],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 35,
+     "name": "box_integrable"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 39,
+     "name": "nbox_integrable"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 446,
+     "name": "integrable_exp_neg_abs_half_mul"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 468,
+     "name": "integrable_exp_neg_abs_half"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "line": 509,
+     "name": "integrable_EL"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 257,
+     "name": "hf"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 259,
+     "name": "hf'"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 262,
+     "name": "hf''"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 91,
+     "text": "theorem integrable_witness : Integrable (Schema.PlateauRamp.box 1)"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "INSTANCES -- a general predicate of Mathlib`s; the kernel constructs instances, not checked here row by row",
+   "wo9": []
+  },
+  {
+   "head": "IsEvenFn",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section FoldedMirrorShadow.two_ended_eq_two_times_one_sided"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/FoldedMirrorShadow.lean",
+    "line": 138,
+    "text": "def IsEvenFn (T : Int → Nat) : Prop := ∀ x, T (-x) = T x",
+    "doc": "/-- Evenness of the summand in the signed index. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "T"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "IsExpansion",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation SIDELvConservation.FieldLayer.top_coeff_of_expansion",
+    "SIDE-lv-conservation SIDELvConservation.LeadLaw.lead_law"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/FieldLayer.lean",
+    "line": 65,
+    "text": "def IsExpansion (g : ℕ) (c : ℕ → K) (pt : ℕ → K) : Prop :=",
+    "doc": "/-- **The expansion relation.** `c` are the certificate's coefficients for the normalized\nsequence `pt` when `x^g * h(x + 1/x)` reproduces `∑ pt i x^i` — written without inverses. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "c",
+     "g",
+     "pt"
+    ],
+    [
+     "c",
+     "g",
+     "p",
+     "s"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDELvConservation/SaltCheck_LeadLaw.lean",
+     "line": 44,
+     "text": "theorem expansion_exists_of_palindromic (pt : ℕ → ℚ) (hpal : pt 0 = pt 2) : IsExpansion 1 (fun j => "
+    },
+    {
+     "file": "SIDELvConservation/SaltCheck_LeadLaw.lean",
+     "line": 54,
+     "text": "theorem expansion_at_zero : IsExpansion 0 (fun _ => (1 : ℚ)) (fun _ => (2 : ℚ))"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "IsOpen",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section LocalLimit.real_no_compact_open_addSubgroup"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "H"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "IsRoot",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN"
+   ],
+   "was": "OPEN",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation SIDELvConservation.Genus5Confinement.e8_confined",
+    "SIDE-lv-conservation SIDELvConservation.Genus5Confinement.w16_confined"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "r"
+    ],
+    [
+     "r"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "IsSign",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 5,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section SignTransferShadow.eq_of_mul_pos",
+    "SIDE-global-section SignTransferShadow.neg_is_sign",
+    "SIDE-global-section SignTransferShadow.sq_pos",
+    "SIDE-global-section SignTransferShadow.transfer",
+    "SIDE-global-section SignTransferShadow.transfer_symm"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/SignTransferShadow.lean",
+    "line": 44,
+    "text": "def IsSign (x : Int) : Prop := x = 1 ∨ x = -1",
+    "doc": "/-- a value is a sign when it is `1` or `-1`. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "x",
+     "y"
+    ],
+    [
+     "x"
+    ],
+    [
+     "x"
+    ],
+    [
+     "a",
+     "b",
+     "k"
+    ],
+    [
+     "a",
+     "b",
+     "k"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "Core/SignTransferShadow.lean",
+     "line": 136,
+     "name": "flip_is_sign",
+     "consumers": [
+      [
+       "Core/SignTransferShadow.lean:141",
+       "flip_pos"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Core/SignTransferShadow.lean",
+     "line": 136,
+     "name": "flip_is_sign"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "WITNESS ONLY -- flip_is_sign, the one concrete sequence",
+   "wo9": []
+  },
+  {
+   "head": "IsSignedCompletion",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-carrier-spec"
+   ],
+   "pins": [
+    "b3916cc"
+   ],
+   "rule_rows": [
+    "SIDE-carrier-spec SIDECarrierSpec.signedCompletion_trivial_of_idempotent"
+   ],
+   "decl": {
+    "repo": "SIDE-carrier-spec",
+    "pin": "b3916cc",
+    "file": "SIDECarrierSpec/IdempotentNoGo.lean",
+    "line": 34,
+    "text": "structure IsSignedCompletion (M : Type u) [AddCommMonoid M] (G : Type v) [AddCommGroup G]",
+    "doc": "/-- `G`, via `ι`, is a **signed completion** of `M`: a commutative group generated by\ndifferences of images.  MODEL of the Grothendieck group completion, stated by its generation\nproperty so that the statement is library-independent. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "G",
+     "M",
+     "ι"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "IsTrivialPoint",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/GRHWeil.lean",
+    "line": 50,
+    "text": "def IsTrivialPoint (χ : DirichletCharacter ℂ N) (s : ℂ) : Prop := ∃ m : ℕ, s = -((2 * m + parity χ : ℕ) : ℂ)",
+    "doc": "/-- The trivial points of `L(s, χ)`: `s = -(2m + a)`, `a` the parity. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "s",
+     "χ"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 62,
+     "text": "theorem isTrivialPoint_parity {N : ℕ} (χ : DirichletCharacter ℂ N) : GRHWeil.IsTrivialPoint χ (-((2 "
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "KeiperObligations",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/Keiper.lean",
+    "line": 126,
+    "text": "structure KeiperObligations : Prop where",
+    "doc": "/-- **THE OBLIGATIONS WHERE THE PROOF STOPS, NAMED**: (O1) the binomial transform, (O2) the split, (O3) the power-series\nlogarithm, (O4) the polygamma values at 1/2. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": [
+    "NAMES IT",
+    "W-ORD-QUANTIFIER-COLUMN (:12887): its quantifier shape as a premise bundle, not its discharge"
+   ]
+  },
+  {
+   "head": "Monotone",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section LocalLimit.compression_tendsto"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "U"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "Interfaces/LocalLimit.lean",
+     "line": 158,
+     "name": "hullMono",
+     "consumers": [
+      [
+       "Interfaces/LocalLimit.lean:185",
+       "hull_compression_tendsto"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Interfaces/LocalLimit.lean",
+     "line": 158,
+     "name": "hullMono"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- hullMono, monotone hull for every family, unconditional",
+   "wo9": []
+  },
+  {
+   "head": "NontrivialZeroExistsInStrip",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation distinctFromInput_discharged"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/RegisterPentagon.lean",
+    "line": 312,
+    "text": "def NontrivialZeroExistsInStrip : Prop :=",
+    "doc": "/-- **Named classical premise** — a nontrivial ζ-zero exists with real part strictly inside\nthe critical strip.  Classical status: Riemann's own computed zeros; Hardy (1914) proved\ninfinitely many lie ON the line; the strip bound `0 < Re < 1` is the classical zero-free-region\nconsequence.  **Absent from Mathlib at pin `5e932f97`** (the pin carries `RiemannHypothesis`,\nthe trivial zeros `riemannZeta_neg_two_mul_nat_add_one`, and `riemannZeta 0 = -1/2`, but no\nnontrivial-zero existence).  Hence carried as an explicit premise (ξ-pattern). -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "NotDiv",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section B329.valuation_unique"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/FiniteSideSeal.lean",
+    "line": 124,
+    "text": "def NotDiv (p u : Nat) : Prop := ∀ c, u ≠ p * c",
+    "doc": "/-- \"`p` does not divide `u`\", written as an equation's refusal rather than with\n    the library's `∣`, whose lemmas carry `propext`. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "p",
+     "u",
+     "u'"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "NymanBeurlingPremise",
+   "status": "CITED",
+   "meets": [
+    "CITED"
+   ],
+   "was": "CITED",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.NymanBeurling.rh_iff_nb"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/NymanBeurling.lean",
+    "line": 84,
+    "text": "structure NymanBeurlingPremise : Prop where",
+    "doc": "/-- **THE NAMED PREMISE (T1-lit):** the classical equivalence of the Nyman–Beurling statement with Mathlib's `RiemannHypothesis`\n-- Beurling, PNAS 41 (5), 312-314 (1955), DOI 10.1073/pnas.41.5.312; after Nyman's thesis (1950), carried by no record read; the\nform `BD` after Báez-Duarte, arXiv math/0202141 (relay data/b629_citation.txt). A premise of this kernel, not a theorem of it. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": true,
+   "cited_lines": [
+    "/-- **THE NAMED PREMISE (T1-lit):** the classical equivalence of the Nyman–Beurling statement with Mathlib's `RiemannHypothesis`"
+   ],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "PWSetup",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 48,
+   "elab": 3,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Aw_nonneg",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Efac_ne",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Ep_prod",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Kp_kill",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Kp_tie_ne",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Nf_pos",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Pof_eval",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Pof_prod",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.VF_conj",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.XV_conj",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.XV_ne",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.XV_node",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Xval_ne",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Xval_norm",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Xval_real_neg",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Yv_conj",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Yv_mul",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.Yv_ne",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.aeval_Ep",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.cE_big",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.cE_pos",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.coeffs_exist",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.fR_bound",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.fR_norm_le",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.gHat_ne",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.kill_term_zero",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.mem_KF",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.mem_TF",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.mem_sT",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.norm_Yv",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.rT_conj",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.rT_norm",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.rT_sq_mul",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.rep_spec",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.term_eq",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.zero_weight",
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.dominant_summable_chi",
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.fR_bound_chi",
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.fR_norm_le_chi",
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.mem_sT_chi",
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi",
+    "SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.dominant_summable_cfg",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.fR_bound_cfg",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.fR_norm_le_cfg",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.mem_sT_cfg",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.rest_tendsto_zero_cfg",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.zeroSide_eventually_neg_cfg"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/PowerLimit.lean",
+    "line": 245,
+    "text": "structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) : Prop where",
+    "doc": "/-- The fixed data of L7d: a real even smooth base supported in `[-L, L]`, and the dominant off-line score `M`. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ],
+   "consumed": [],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+     "line": 251,
+     "text": "have H : PWSetup (chiZeroConfig χ hχ h1) (plateau (1 / 2) L hF0 hF1 hL) L"
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 1177,
+     "text": "have H : PWSetup Zeta23.zetaZeroConfig (plateau (1 / 2) L hF0 hF1 hL) L"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Converse.lean",
+     "line": 247,
+     "text": "have H : PWSetup C.toZeroConfig (plateau (1 / 2) L hF0 hF1 hL) L"
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Detector.lean",
+     "line": 113,
+     "text": "have H : PWSetup C.toZeroConfig (detectorBase ρ₀) (baseWidth ρ₀) (offScore (detectorBase ρ₀) ρs) :="
+    }
+   ],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 36,
+     "text": "theorem pwSetup_zero : B321.PWSetup Zeta23.zetaZeroConfig (fun _ => 0) 0 1"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- built by have in the four converse proofs and handed to the lemmas resting on it",
+   "wo9": []
+  },
+  {
+   "head": "PerClassExcludes",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation T3.T3_perClass_to_combinations"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/T3_StepNineBridge.lean",
+    "line": 52,
+    "text": "def PerClassExcludes (C : Coupling) (s : ℂ) : Prop :=",
+    "doc": "/-- Per-class exclusion at `s`: coupling `C` is consistent with a `Φ`\nwhose Mellin factor has *no* zero at `s`. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "C",
+     "s"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "PlattTrudgianHeight",
+   "status": "CITED",
+   "meets": [
+    "CITED"
+   ],
+   "was": "CITED",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.PlattRung.rh_upto_platt"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/PlattRung.lean",
+    "line": 51,
+    "text": "structure PlattTrudgianHeight (T : ℝ) : Prop where",
+    "doc": "/-- **THE NAMED PREMISE (T1-lit):** Platt and Trudgian's verification at the height `T` -- every nontrivial zero with\n`|Im ρ| ≤ T` on the critical line. A premise of this kernel, not a theorem of it. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 52,
+     "text": "theorem plattTrudgianHeight_neg_one : PlattRung.PlattTrudgianHeight (-1)"
+    }
+   ],
+   "cited": true,
+   "cited_lines": [
+    "/-- **THE NAMED PREMISE (T1-lit):** Platt and Trudgian's verification at the height `T` -- every nontrivial zero with"
+   ],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "Prime",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN"
+   ],
+   "was": "OPEN",
+   "rule": 5,
+   "elab": 0,
+   "kernels": [
+    "SIDE-carrier-spec",
+    "SIDE-explicit-formula",
+    "SIDE-global-section",
+    "SIDE-grh-transfer"
+   ],
+   "pins": [
+    "17ce9ff",
+    "858cbf6",
+    "8c51431",
+    "b3916cc"
+   ],
+   "rule_rows": [
+    "SIDE-carrier-spec SIDECarrierSpec.int_frobenius",
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.balance_lemma",
+    "SIDE-global-section LocalLimit.general_p_no_fixed_cell",
+    "SIDE-grh-transfer SIDEGRHTransfer.twisted_balance_at_half",
+    "SIDE-grh-transfer SIDEGRHTransfer.twisted_balance_at_unramified_prime"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "p"
+    ],
+    [
+     "p"
+    ],
+    [
+     "p"
+    ],
+    [
+     "p"
+    ],
+    [
+     "p"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 99,
+     "text": "theorem nat_prime_witness : Nat.Prime 2"
+    },
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 101,
+     "text": "theorem prime_witness : Prime (2 : ℕ)"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "Proper",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-structural-error-correction"
+   ],
+   "pins": [
+    "6bf19ab"
+   ],
+   "rule_rows": [
+    "SIDE-structural-error-correction DeAlignment.dealigned_of_lines_injective"
+   ],
+   "decl": {
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6bf19ab",
+    "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+    "line": 39,
+    "text": "def Line.Proper {P : Type} (L : Line P) : Prop :=",
+    "doc": "/-- The three positions of a line are distinct — the nondegeneracy every\n    block of a 2-(7,3,1) design satisfies. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "L"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "Register4_channelInequality",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation zeroActingPairing_to_RH"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/RegisterPentagon.lean",
+    "line": 158,
+    "text": "def Register4_channelInequality (lam_A lam_Z : ℕ → ℝ) : Prop :=",
+    "doc": "/-- **R4 face, sharpest form — the channel inequality** `λ_Z(n) ≥ −λ_A(n)` between the two\nindependently computable channels (§27.3; BALANCE_AND_POSITIVITY).  The decomposition\n`λ = λ_A + λ_Z` is compiled combinatorially (SIDE-li-map `lam_add`, `73cee42`). -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "lam",
+     "lam_A",
+     "lam_Z"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "Register4_positivity",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation zeroActingPairing_to_RH"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/RegisterPentagon.lean",
+    "line": 152,
+    "text": "def Register4_positivity (lam : ℕ → ℝ) : Prop :=",
+    "doc": "/-- **R4 face — positivity** (Li's criterion content): the Li coefficients are non-negative.\nOver the actual Taylor coefficients of `log ξ` this is RH-equivalent (Li 1997;\nBombieri–Lagarias 1999) — that identification is the named manuscript premise on the\n`R4 ↔ RH` interface edge, not part of this face. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "lam"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "SatisfiesCWeil",
+   "status": "WITNESSED",
+   "meets": [
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section AggregationCircularityShadow.cweil_is_the_assumption"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/AggregationCircularityShadow.lean",
+    "line": 116,
+    "text": "def SatisfiesCWeil {Cell : Type} (agg : Aggregation Cell α)",
+    "doc": "/-- C-WEIL as a constraint on an aggregation: it satisfies the identity at\n    every cell. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "agg",
+     "t",
+     "x"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Core/AggregationCircularityShadow.lean",
+     "line": 134,
+     "name": "cweil_inhabited"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "WITNESS ONLY -- cweil_inhabited, the aggregation built to satisfy it",
+   "wo9": []
+  },
+  {
+   "head": "SelfDualFE",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 3,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation SIDELvConservation.FieldLayer.norml_top",
+    "SIDE-lv-conservation SIDELvConservation.LeadLaw.lead_law",
+    "SIDE-lv-conservation SIDELvConservation.LeadLaw.lead_law_of_top_coeff"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/FieldLayer.lean",
+    "line": 56,
+    "text": "structure SelfDualFE (q : K) (g : ℕ) (p : ℕ → K) : Prop where",
+    "doc": "/-- The self-dual functional equation for a Duursma zeta polynomial's coefficients, over a\nfield with `q` of size-role and genus `g`: `p (2g - i) = q ^ (g - i) * p i` for `i ≤ g`.\n\nThe cited datum (Duursma), taken here as a hypothesis; nothing below re-proves it. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "g",
+     "p",
+     "q"
+    ],
+    [
+     "g",
+     "p",
+     "q"
+    ],
+    [
+     "g",
+     "p",
+     "q"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "StepsI",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section LadderOrientationShadow.alt2_of_stepsI",
+    "SIDE-global-section LadderOrientationShadow.ladder_form"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/LadderOrientationShadow.lean",
+    "line": 88,
+    "text": "def StepsI (c : Nat → U4) : Prop := ∀ k, c (k + 1) = mul i (c k)",
+    "doc": "/-- each step multiplies by `i`: the ladder. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "c"
+    ],
+    [
+     "c"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "Core/LadderOrientationShadow.lean",
+     "line": 190,
+     "name": "ipow_stepsI",
+     "consumers": [
+      [
+       "Core/LadderOrientationShadow.lean:191",
+       "ipow_alt2"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Core/LadderOrientationShadow.lean",
+     "line": 190,
+     "name": "ipow_stepsI"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "WITNESS ONLY -- ipow_stepsI, the powers of i",
+   "wo9": []
+  },
+  {
+   "head": "StepsMI",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section LadderOrientationShadow.alt2_of_stepsMI",
+    "SIDE-global-section LadderOrientationShadow.ladder_form_mi"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/LadderOrientationShadow.lean",
+    "line": 91,
+    "text": "def StepsMI (c : Nat → U4) : Prop := ∀ k, c (k + 1) = mul mi (c k)",
+    "doc": "/-- each step multiplies by `-i`: the other orientation. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "c"
+    ],
+    [
+     "c"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "Core/LadderOrientationShadow.lean",
+     "line": 223,
+     "name": "measured_stepsMI",
+     "consumers": [
+      [
+       "Core/LadderOrientationShadow.lean:229",
+       "measured_alt2"
+      ],
+      [
+       "Core/LadderOrientationShadow.lean:233",
+       "measured_is_ladder"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Core/LadderOrientationShadow.lean",
+     "line": 223,
+     "name": "measured_stepsMI"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "WITNESS ONLY -- measured_stepsMI, the measured ladder",
+   "wo9": []
+  },
+  {
+   "head": "StrictMono",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN"
+   ],
+   "was": "OPEN",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-rcurve"
+   ],
+   "pins": [
+    "d5f33b4"
+   ],
+   "rule_rows": [
+    "SIDE-rcurve SIDERCurve.monotone_unique_zero",
+    "SIDE-rcurve SIDERCurve.second_zero_breaks_monotone"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "V"
+    ],
+    [
+     "V"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "StructuralExhaustiveness",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "pins": [
+    "0256e9e"
+   ],
+   "rule_rows": [
+    "SIDE-kernel techne_kernel_integration.rh_from_structural_exhaustiveness"
+   ],
+   "decl": {
+    "repo": "SIDE-kernel",
+    "pin": "0256e9e",
+    "file": "Bridge/TheBridgeComplete.lean",
+    "line": 215,
+    "text": "def StructuralExhaustiveness : Prop :=",
+    "doc": ""
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [
+    {
+     "file": "Bridge/TheBridgeComplete.lean",
+     "line": 249,
+     "name": "structural_exhaustiveness_proved",
+     "consumers": [
+      [
+       "Bridge/ConservationBridge.lean:55",
+       "riemann_hypothesis"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Bridge/TheBridgeComplete.lean",
+     "line": 249,
+     "name": "structural_exhaustiveness_proved"
+    }
+   ],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- structural_exhaustiveness_proved (Bridge/TheBridgeComplete.lean), unconditional in the kernel; its reach is the kernel`s own mechanism type (README :16, ERRATA E-2026-09-14-1)",
+   "wo9": []
+  },
+  {
+   "head": "SymPairBound",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.LiWeil.exchange_of_bound"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/LiWeilSym.lean",
+    "line": 244,
+    "text": "def SymPairBound (n : ℕ) : Prop :=",
+    "doc": "/-- **(D3') STATED (a `Prop`):** the real part of the symmetric member's transform is bounded by `C / ‖ρ‖²` for every\n`δ ∈ (0, 1]` and every `ρ` with `1 ≤ |Im ρ|` and `0 < Re ρ < 1`, the constant depending on `n` alone. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "n"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 944,
+     "name": "symPair_bound",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:1214",
+       "liLimitExchangeSym_holds"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 944,
+     "name": "symPair_bound"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 56,
+     "text": "theorem symPairBound_witness (n : ℕ) : LiWeil.SymPairBound n"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- symPair_bound n, unconditional, for every n",
+   "wo9": []
+  },
+  {
+   "head": "Tendsto",
+   "status": "DOMAIN",
+   "meets": [
+    "DOMAIN",
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula Zeta23.WeilEF.vertical_line_shift"
+   ],
+   "decl": null,
+   "upstream": true,
+   "domain_vars": [
+    [
+     "φ"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1218,
+     "name": "li_identity_sym",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiCriterionBridge.lean:197",
+       "arith_limit_nonneg_iff_rh"
+      ],
+      [
+       "SIDEExplicitFormula/LiCriterionBridge.lean:200",
+       "arith_limit_nonneg_iff_rh"
+      ]
+     ]
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 235,
+     "name": "tendsto_zseq_nhds",
+     "consumers": [
+      [
+       "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean:277",
+       "tendsto_zseq_punctured"
+      ],
+      [
+       "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean:377",
+       "phi_nonzero_unit_disk_of_nonneg"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1877,
+     "name": "Tendsto_nhdsWithin_punctured_add",
+     "consumers": [
+      [
+       "Zeta23/FromPNTPlus/ZetaBounds.lean:1896",
+       "ZetaNear1BndFilter"
+      ]
+     ]
+    },
+    {
+     "file": "Zeta23/ZetaReflect.lean",
+     "line": 118,
+     "name": "tendsto_conj_nhds",
+     "consumers": [
+      [
+       "Zeta23/ZetaReflect.lean:126",
+       "analyticAt_conj_conj"
+      ],
+      [
+       "Zeta23/ZetaReflect.lean:137",
+       "analyticOrderAt_conj_conj"
+      ],
+      [
+       "Zeta23/ZetaReflect.lean:145",
+       "analyticOrderAt_conj_conj"
+      ]
+     ]
+    }
+   ],
+   "inline": [
+    {
+     "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+     "line": 111,
+     "text": "have hN : Tendsto (fun j : ℕ => 2 ^ (j + 1)) atTop atTop :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/CriterionConverse.lean",
+     "line": 138,
+     "text": "have hr : Tendsto (fun j : ℕ => (offScore g0 x / M) ^ (2 ^ (j + 1))) atTop (𝓝 0) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLine.lean",
+     "line": 247,
+     "text": "have hRtop : Tendsto R atTop atTop := tendsto_atTop_mono hR tendsto_natCast_atTop_atTop"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLineAssembly.lean",
+     "line": 63,
+     "text": "have hL : Tendsto (fun j : ℕ => RectangleIntegral' f (((1 - c : ℝ) : ℂ) - R j * I) ((c : ℝ) + R j * I))"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/FullLineAssembly.lean",
+     "line": 70,
+     "text": "have hL' : Tendsto (fun j : ℕ => ∑ ρ ∈ Z j, (zeroMultChi χ ρ : ℂ) * Hfn k ρ)"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Horizontal.lean",
+     "line": 208,
+     "text": "have hb : Tendsto b atTop (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Horizontal.lean",
+     "line": 209,
+     "text": "have hlim : Tendsto (fun j : ℕ => (8 * CH * K * |c - (1 - c)|) / ((j : ℝ) + 7)) atTop (𝓝 0) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 215,
+     "text": "have hsq : Tendsto (fun t : ℝ => 1 + t ^ 2) atTop atTop :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 217,
+     "text": "have hsq' : Tendsto (fun t : ℝ => 1 + t ^ 2) atBot atTop := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 222,
+     "text": "have htop : Tendsto φ atTop (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/Main.lean",
+     "line": 224,
+     "text": "have hbot : Tendsto φ atBot (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 266,
+     "text": "have hφlim : Filter.Tendsto (fun x : ℝ => M * (1 + x) ^ (-(3 / 2 : ℝ))) Filter.atTop (nhds 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 267,
+     "text": "have h1 : Filter.Tendsto (fun x : ℝ => (1 + x) ^ (-(3 / 2 : ℝ))) Filter.atTop (nhds 0) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 270,
+     "text": "have hφtop : Filter.Tendsto φ Filter.atTop (nhds 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/VerticalLine.lean",
+     "line": 275,
+     "text": "have hφbot : Filter.Tendsto φ Filter.atBot (nhds 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/ZeroSumLimit.lean",
+     "line": 82,
+     "text": "have hs_tend : Tendsto s atTop atTop := tendsto_atTop_atTop_of_monotone hmono hexh"
+    },
+    {
+     "file": "SIDEExplicitFormula/Chi/ZeroSumLimit.lean",
+     "line": 83,
+     "text": "have hT : Tendsto (fun S : Finset (chiZeroConfig χ hχ h1).carrier => ∑ x ∈ S, g x) atTop"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+     "line": 87,
+     "text": "have h0 : Tendsto (u * v) (𝓝[>] 0) (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+     "line": 94,
+     "text": "have hinf : Tendsto (u * v) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilExchange.lean",
+     "line": 95,
+     "text": "have hb : Tendsto (fun x : ℝ => (ρ.re * x) ^ (j + 1) * Real.exp (-(ρ.re * x))) atTop (𝓝 0) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 571,
+     "text": "have hlim : Tendsto (g * fun x : ℝ => cexp (τ * x) / τ) (Filter.cocompact ℝ) (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 731,
+     "text": "have htop : Tendsto (edgeTail j * fun x : ℝ => cexp (τ * x) / τ) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 736,
+     "text": "have hbot : Tendsto (edgeTail j * fun x : ℝ => cexp (τ * x) / τ) atBot (𝓝 0) := by"
+    },
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 737,
+     "text": "have hb : Tendsto (fun x : ℝ => (τ.re * x) ^ j * Real.exp (-(τ.re * x))) atTop (𝓝 0) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 1029,
+     "text": "have hN : Tendsto (fun j : ℕ => 2 ^ (j + 1)) atTop atTop :="
+    },
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 1056,
+     "text": "have hr : Tendsto (fun j : ℕ => (offScore g0 x / M) ^ (2 ^ (j + 1))) atTop (𝓝 0) :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Converse.lean",
+     "line": 108,
+     "text": "have hN : Tendsto (fun j : ℕ => 2 ^ (j + 1)) atTop atTop :="
+    },
+    {
+     "file": "SIDEExplicitFormula/Schema/Converse.lean",
+     "line": 135,
+     "text": "have hr : Tendsto (fun j : ℕ => (offScore g0 x / M) ^ (2 ^ (j + 1))) atTop (𝓝 0) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 238,
+     "text": "have hr0_tendsto : Filter.Tendsto r0 atTop atTop := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 825,
+     "text": "have hr_tendsto : Tendsto r_seq atTop atTop := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 961,
+     "text": "have hB0 : Tendsto B atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 962,
+     "text": "have h1 : Tendsto (fun n => (r_seq n : ℝ) ^ (ρ + ε - k)) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 968,
+     "text": "have h2 : Tendsto (fun n => (r_seq n : ℝ) ^ (-k : ℝ)) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 1038,
+     "text": "have hconst0 : Tendsto (fun _ : ℕ => ‖iteratedDeriv k g 0‖) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 2590,
+     "text": "have hv_tendsto : Tendsto v atTop (𝓝 (0 : ℝ)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/Basic.lean",
+     "line": 2678,
+     "text": "have hrseq_tendsto : Filter.Tendsto r_seq atTop atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+     "line": 1720,
+     "text": "have h1 : Filter.Tendsto g (𝓝[≠] z) (𝓝 (g z)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/General/Factorization.lean",
+     "line": 1723,
+     "text": "have h2 : Filter.Tendsto g (𝓝[≠] z) (𝓝 (f z / P z)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean",
+     "line": 45,
+     "text": "have ht : Tendsto (fun i : ι => (1 : ℝ) / ‖z i‖ ^ 2) cofinite (nhds 0) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean",
+     "line": 79,
+     "text": "have ht : Tendsto (fun i : ι => (1 : ℝ) / ‖z i‖ ^ (p + 1)) cofinite (nhds 0) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean",
+     "line": 153,
+     "text": "have hlim : Tendsto (fun n : ℕ => C * q ^ n) atTop (nhds (0 : ℝ)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean",
+     "line": 154,
+     "text": "have hpow : Tendsto (fun n : ℕ => q ^ n) atTop (nhds (0 : ℝ)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean",
+     "line": 727,
+     "text": "have hlim : Tendsto (fun n : ℕ => C * q ^ n) atTop (nhds (0 : ℝ)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean",
+     "line": 728,
+     "text": "have hpow : Tendsto (fun n : ℕ => q ^ n) atTop (nhds (0 : ℝ)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 4069,
+     "text": "have h_ptwise : Filter.Tendsto (fun k => (deriv^[n+1] (f k)) z₀)"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 4164,
+     "text": "have hT_atTop : Filter.Tendsto T atTop (atTop : Filter (Finset NontrivialZero)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/Basic.lean",
+     "line": 4181,
+     "text": "have hleft' : Filter.Tendsto (fun k => ∑ c ∈ S k, (1 - (1 - 1/c) ^ (-(n+1 : ℤ))))"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean",
+     "line": 324,
+     "text": "have hT_atTop : Filter.Tendsto T atTop (atTop : Filter (Finset NontrivialZero)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 115,
+     "text": "have hinv0 : Tendsto (fun x : ℂ => ‖x⁻¹‖) (𝓝[≠] (0 : ℂ)) atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 117,
+     "text": "have hsub : Tendsto (fun z : ℂ => z - z0) (𝓝[≠] z0) (𝓝[≠] (0 : ℂ)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 121,
+     "text": "· have : Tendsto (fun z : ℂ => z - z0) (𝓝 z0) (𝓝 (0 : ℂ)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 132,
+     "text": "have hinv : Tendsto (fun z : ℂ => ‖(z - z0)⁻¹‖) (𝓝[≠] z0) atTop := tendsto_norm_inv_sub z0"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 134,
+     "text": "have hmul : Tendsto (fun z => ‖n‖ * ‖(z - z0)⁻¹‖) (𝓝[≠] z0) atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 144,
+     "text": "have hdiv : Tendsto (fun z => ‖n / (z - z0)‖) (𝓝[≠] z0) atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 146,
+     "text": "have hsub : Tendsto (fun z => ‖n / (z - z0)‖ - ‖g z‖) (𝓝[≠] z0) atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean",
+     "line": 274,
+     "text": "have hunb : Tendsto (fun z => ‖(n : ℂ) / (z - z0) + _root_.logDeriv g z‖) (𝓝[≠] z0) atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 236,
+     "text": "have hnat : Tendsto (fun n : ℕ => n + 1) atTop atTop := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 237,
+     "text": "have : Tendsto (fun n : ℕ => (fun m : ℕ => m) (n + 1)) atTop atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 241,
+     "text": "have hreal : Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℝ)) atTop atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 243,
+     "text": "have hinv : Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℝ)⁻¹) atTop (𝓝 (0 : ℝ)) :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 245,
+     "text": "have hconst : Tendsto (fun _ : ℕ => (1 : ℝ)) atTop (𝓝 (1 : ℝ)) := tendsto_const_nhds"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 249,
+     "text": "have ht : Tendsto (fun n : ℕ => (1 : ℝ) - ((n + 1 : ℕ) : ℝ)⁻¹) atTop (𝓝 (1 : ℝ)) := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 261,
+     "text": "have hz0 : Tendsto (fun _ : ℕ => z0) atTop (𝓝 z0) := tendsto_const_nhds"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 277,
+     "text": "have hnhds : Tendsto (zseq z0) atTop (𝓝 z0) := tendsto_zseq_nhds z0"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 359,
+     "text": "have h_unbdd : Tendsto (fun z => ‖g z‖) (𝓝[≠] z0) atTop := by"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 363,
+     "text": "have hseq_punct : Tendsto (zseq z0) atTop (𝓝[≠] z0) := tendsto_zseq_punctured z0 hz0_ne0"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 364,
+     "text": "have h_unbdd_seq : Tendsto (fun n => ‖g (zseq z0 n)‖) atTop atTop := h_unbdd.comp hseq_punct"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 374,
+     "text": "have h_re_unbdd : Tendsto (fun n => (g (‖zseq z0 n‖ : ℂ)).re) atTop atTop :="
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 376,
+     "text": "have hnorm_lim : Tendsto (fun n => ‖zseq z0 n‖) atTop (𝓝 r0) := by"
+    },
+    {
+     "file": "Zeta23/Analytic/RectangleLogDeriv.lean",
+     "line": 284,
+     "text": "have hslope : Tendsto (fun s => (g s - g q) / (s - q)) (𝓝[≠] q) (𝓝 (deriv g q)) := by"
+    },
+    {
+     "file": "Zeta23/Analytic/RectangleLogDeriv.lean",
+     "line": 287,
+     "text": "have hcont : Tendsto (fun s => g s * logDeriv h s) (𝓝[≠] q)"
+    },
+    {
+     "file": "Zeta23/Analytic/RectangleLogDeriv.lean",
+     "line": 351,
+     "text": "have hslope : Tendsto (fun s => (g s - g q) / (s - q)) (𝓝[≠] q) (𝓝 (deriv g q)) := by"
+    },
+    {
+     "file": "Zeta23/Analytic/RectangleLogDeriv.lean",
+     "line": 354,
+     "text": "have hcont : Tendsto (fun s => g s * logDeriv G s) (𝓝[≠] q)"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 129,
+     "text": "have h0 : Filter.Tendsto (fun x : ℝ => Real.log x / x) Filter.atTop (nhds 0) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 131,
+     "text": "have hshift : Filter.Tendsto (fun T : ℝ => Real.log (T + 2) / (T + 2))"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 701,
+     "text": "have hsub : Filter.Tendsto (fun z : ℂ ↦ z - p) (nhdsWithin p {p}ᶜ) (nhds 0) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 703,
+     "text": "have hf' : Filter.Tendsto f (nhdsWithin p {p}ᶜ) (nhds (f p)) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 783,
+     "text": "have h_tendsto : Filter.Tendsto (fun z : ℂ ↦ (z - p) * f z) (nhdsWithin p ({p}ᶜ)) (nhds (residue f p)) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 912,
+     "text": "have hnorm : Filter.Tendsto (fun z : ℂ ↦ ‖(f - fun s ↦ ∑ q ∈ polesFin, residue f q / (s - q)) z‖) (nhdsWithin p ({p}ᶜ)) "
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ResidueCalcOnRectangles.lean",
+     "line": 1162,
+     "text": "have hsub : Filter.Tendsto (fun z : ℂ ↦ z - s) (nhdsWithin s {s}ᶜ) (nhds 0) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 294,
+     "text": "have vR v : Tendsto (fun R : ℝ => v * R⁻¹) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/StrongPNTPrefix.lean",
+     "line": 91,
+     "text": "have h_limit : Filter.Tendsto (fun ε => (2 * (M + ε) * ‖z‖) / (R - ‖z‖)) (nhdsWithin 0 (Set.Ioi 0)) (nhds ((2 * M * ‖z‖)"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 129,
+     "text": "have h_tendsto_gA : Tendsto g (𝓝[≠] p) (𝓝 A) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 135,
+     "text": "have h_tendsto_gp : Tendsto g (𝓝[≠] p) (𝓝 (g p)) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 142,
+     "text": "have h_q_limit : Tendsto q (𝓝[≠] p) (𝓝 (deriv g p)) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1646,
+     "text": "have h3 : Tendsto (fun t : ℝ ↦ t ^ (-σ) * Real.log t) atTop (nhds 0) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1884,
+     "text": "have H : Tendsto (fun w ↦ w * ζ (1 + w)) (𝓝[≠] 0) (𝓝 1) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 2602,
+     "text": "have σTo1 : Filter.Tendsto σ' Filter.atTop (𝓝 1) := by"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 2617,
+     "text": "have σTo1 : Filter.Tendsto (σ' ∘ subseq) Filter.atTop (𝓝 1) :="
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 2624,
+     "text": "have ToOneT0 : Filter.Tendsto (fun n ↦ (σ' (subseq n) : ℂ) + Complex.I * (t (subseq n))) Filter.atTop"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 232,
+     "text": "have hL : Tendsto (fun N => (Complex.GammaSeq z N)⁻¹) atTop (𝓝 ((Complex.Gamma z)⁻¹)) :="
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 234,
+     "text": "have hhar : Tendsto (fun N : ℕ =>"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 239,
+     "text": "have hexp : Tendsto (fun N : ℕ => Complex.exp"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 242,
+     "text": "have h2 : Tendsto (fun N : ℕ =>"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 247,
+     "text": "have hP : Tendsto (fun N => ∏ n ∈ Finset.range N, (1 + wTerm n z)) atTop"
+    },
+    {
+     "file": "Zeta23/GammaFacts/Series.lean",
+     "line": 250,
+     "text": "have hRHS : Tendsto (fun N : ℕ => z * Complex.exp"
+    },
+    {
+     "file": "Zeta23/GammaFacts/StirlingVert.lean",
+     "line": 415,
+     "text": "have h1 : Tendsto (fun N : ℕ => ((((harmonic N : ℚ) : ℝ) - Real.log ((N : ℝ) + 1) : ℝ) : ℂ))"
+    },
+    {
+     "file": "Zeta23/GammaFacts/StirlingVert.lean",
+     "line": 418,
+     "text": "have h2 : Tendsto (fun N : ℕ => Complex.log (1 + w / ((N : ℂ) + 1))) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Zeta23/GammaFacts/StirlingVert.lean",
+     "line": 419,
+     "text": "have hq : Tendsto (fun N : ℕ => w / ((N : ℂ) + 1)) atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Zeta23/GammaFacts/StirlingVert.lean",
+     "line": 457,
+     "text": "have hR : Tendsto (fun N : ℕ => ∑ n ∈ Finset.range N, (1 / ((n : ℂ) + 1) - 1 / (w + n + 1)))"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLine.lean",
+     "line": 434,
+     "text": "have hRtop : Tendsto R atTop atTop :="
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLineAssembly.lean",
+     "line": 89,
+     "text": "have hL : Tendsto (fun j : ℕ => RectangleIntegral' f (((1 - c : ℝ) : ℂ) - R j * I) ((c : ℝ) + R j * I))"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLineAssembly.lean",
+     "line": 97,
+     "text": "have hRt : Tendsto (fun j : ℕ => (∑ ρ ∈ Z j, (zeroMult ρ : ℂ) * Hfn k ρ) - Hfn k 0 - Hfn k 1)"
+    },
+    {
+     "file": "Zeta23/WeilEF/FullLineAssembly.lean",
+     "line": 101,
+     "text": "have hL' : Tendsto (fun j : ℕ => (∑ ρ ∈ Z j, (zeroMult ρ : ℂ) * Hfn k ρ) - Hfn k 0 - Hfn k 1)"
+    },
+    {
+     "file": "Zeta23/WeilEF/Horizontal.lean",
+     "line": 177,
+     "text": "have hb : Tendsto b atTop (𝓝 0) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/Horizontal.lean",
+     "line": 178,
+     "text": "have hlim : Tendsto (fun j : ℕ => (8 * CH * K * |c - (1 - c)|) / ((j : ℝ) + 7)) atTop (𝓝 0) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 497,
+     "text": "have hlim1 : Filter.Tendsto g Filter.atTop (nhds ((∫ t : ℝ, f (b + t * I)) - (∫ t : ℝ, f (a + t * I)))) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 501,
+     "text": "have hlim0 : Filter.Tendsto g Filter.atTop (nhds 0) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 504,
+     "text": "have : Filter.Tendsto (fun R => (b - a) * (φ R + φ (-R))) Filter.atTop (nhds ((b - a) * (0 + 0))) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 698,
+     "text": "have hφlim : Filter.Tendsto (fun x : ℝ => M * (1 + x) ^ (-(3 / 2 : ℝ))) Filter.atTop (nhds 0) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 699,
+     "text": "have h1 : Filter.Tendsto (fun x : ℝ => (1 + x) ^ (-(3 / 2 : ℝ))) Filter.atTop (nhds 0) :="
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 702,
+     "text": "have hφtop : Filter.Tendsto φ Filter.atTop (nhds 0) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/VerticalLine.lean",
+     "line": 707,
+     "text": "have hφbot : Filter.Tendsto φ Filter.atBot (nhds 0) := by"
+    },
+    {
+     "file": "Zeta23/WeilEF/ZeroSumLimit.lean",
+     "line": 96,
+     "text": "have hs_tend : Tendsto s atTop atTop := tendsto_atTop_atTop_of_monotone hmono hexh"
+    },
+    {
+     "file": "Zeta23/WeilEF/ZeroSumLimit.lean",
+     "line": 97,
+     "text": "have hT : Tendsto (fun S : Finset (zetaZeros hs).carrier => ∑ x ∈ S, g x) atTop"
+    }
+   ],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/LiWeilSym.lean",
+     "line": 1218,
+     "name": "li_identity_sym"
+    },
+    {
+     "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+     "line": 235,
+     "name": "tendsto_zseq_nhds"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Fourier.lean",
+     "line": 126,
+     "name": "tendsto_const_mul_log_add_two_div_add_two_atTop"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/Sobolev.lean",
+     "line": 267,
+     "name": "W21_approximation"
+    },
+    {
+     "file": "Zeta23/FromPNTPlus/ZetaBounds.lean",
+     "line": 1877,
+     "name": "Tendsto_nhdsWithin_punctured_add"
+    },
+    {
+     "file": "Zeta23/ZetaReflect.lean",
+     "line": 118,
+     "name": "tendsto_conj_nhds"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 105,
+     "text": "theorem tendsto_witness : Tendsto (fun n : ℕ => (1 : ℝ) / n) atTop (𝓝 0)"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "INSTANCES -- a general predicate of Mathlib`s; the kernel constructs instances, not checked here row by row",
+   "wo9": []
+  },
+  {
+   "head": "TrivialSummandPremise",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/Schema/Family.lean",
+    "line": 257,
+    "text": "def TrivialSummandPremise : Prop :=",
+    "doc": "/-- **OBSTRUCTION (1), THE POLE, as the premise the reading would need**: the trivial character's summand in the family's\nform, ζ's arithmetic side with no pole term. NOT DISCHARGED HERE. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "WindowObligations",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "OPEN",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window",
+    "SIDE-explicit-formula SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+    "line": 181,
+    "text": "structure WindowObligations (W h : ℝ) : Prop where",
+    "doc": "/-- **THE OBLIGATIONS WHERE THE PROOF STOPS, NAMED**. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "W",
+     "h"
+    ],
+    [
+     "W",
+     "h"
+    ]
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 200,
+     "name": "windowObligations_holds",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/Schema/WindowProofs.lean:205",
+       "plateauRampWindow_holds"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/Schema/WindowProofs.lean",
+     "line": 200,
+     "name": "windowObligations_holds"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 70,
+     "text": "theorem windowObligations_witness (W h : ℝ) : Schema.PlateauRamp.WindowObligations W h"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": [
+    "NAMES IT",
+    "W-ORD-QUANTIFIER-COLUMN (:12887): its quantifier shape as a premise bundle, not its discharge"
+   ]
+  },
+  {
+   "head": "ZeroActingPairing",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 2,
+   "elab": 0,
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "pins": [
+    "2f71068"
+   ],
+   "rule_rows": [
+    "SIDE-lv-conservation zeroActingPairing_to_RH",
+    "SIDE-lv-conservation zeroActingPairing_to_channelInequality"
+   ],
+   "decl": {
+    "repo": "SIDE-lv-conservation",
+    "pin": "2f71068",
+    "file": "SIDELvConservation/ZeroActingPairing.lean",
+    "line": 41,
+    "text": "structure ZeroActingPairing (lam_A lam_Z ledger : ℕ → ℝ) : Prop where",
+    "doc": "/-- The four typed requirements the B1 survey earned, bundled into the center-object's type.\n\n`lam_A`, `lam_Z` are the two Li channels; `ledger` is the Euler ledger (the von Mangoldt\n`Λ ≥ 0` for `ζ`; the sign-neutral periodic `a_n` for Davenport–Heilbronn). -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "lam_A",
+     "lam_Z",
+     "ledger"
+    ],
+    [
+     "lam_A",
+     "lam_Z",
+     "ledger"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "ZetaSeam",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula Zeta23.WeilEF.EF_lit_zeta"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "Zeta23/Statement.lean",
+    "line": 91,
+    "text": "structure ZetaSeam : Prop where",
+    "doc": "/-- Classical facts about ζ needed to instantiate Zeta23.ZeroConfig; these are established from\nMathlib elsewhere in the repository (identity theorem + ζ(2) ≠ 0 for one_le_mult; functional equation\nriemannZeta_one_sub / completedRiemannZeta_one_sub + Γ-nonvanishing + conjugation symmetry at the\nlevel of analyticOrderAt for the reflection facts; isolated zeros + the pole at 1 for finiteness),\nand are not inputs of the paper. Paper [subsec:weil]: \"The multiset {(γ_ρ,m_ρ)} is invariant under\nγ ↦ γ̄ (i.e. ρ ↦ 1−ρ̄; multiplicities agree because conj ξ(conj s) = ξ(s) = ξ(1−s))\". -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [
+    {
+     "file": "Zeta23/Statement/SeamClosed.lean",
+     "line": 38,
+     "name": "zetaSeam",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/LiWeil.lean:192",
+       "pair_summable"
+      ],
+      [
+       "SIDEExplicitFormula/LiWeilSym.lean:1141",
+       "exchange_of_bound"
+      ],
+      [
+       "Zeta23/RvM/CountByIntegral.lean:138",
+       "rectangleIntegral'_logDeriv_completedZeta_eq_Ncount"
+      ],
+      [
+       "Zeta23/Statement/SeamClosed.lean:42",
+       "zetaZeroConfig"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "Zeta23/Statement/SeamClosed.lean",
+     "line": 38,
+     "name": "zetaSeam"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 59,
+     "text": "theorem zetaSeam_witness : Zeta23.ZetaSeam"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- zetaSeam closes the seam unconditionally (Zeta23/Statement/SeamClosed.lean)",
+   "wo9": []
+  },
+  {
+   "head": "farSmall",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.windowSlope_bound"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/PairTerm.lean",
+    "line": 313,
+    "text": "def farSmall (γ₀ : ℝ) (φ : ℝ → ℝ) (δ ε : ℝ) : Prop := ‖farFT γ₀ φ δ‖ ≤ ε * nearInt φ δ",
+    "doc": "/-- **THE HYPOTHESIS OF COMPONENT 3, A Prop, NOT PROVED:** the far factor is at most `eps` times the near factor,\n`|phi^(2 gamma_0 - i delta)| <= eps * INT phi cosh(delta u)`. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "γ₀",
+     "ε",
+     "φ"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 48,
+     "text": "theorem farSmall_zero (γ₀ δ ε : ℝ) : B321.farSmall γ₀ (fun _ => 0) δ ε"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": [
+    "FOR IT",
+    "W-ORD-WEIL-CONVERSE (:10608): the converse`s table, farSmall its named hypothesis"
+   ]
+  },
+  {
+   "head": "identity",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-global-section"
+   ],
+   "pins": [
+    "17ce9ff"
+   ],
+   "rule_rows": [
+    "SIDE-global-section AggregationCircularityShadow.unique"
+   ],
+   "decl": {
+    "repo": "SIDE-global-section",
+    "pin": "17ce9ff",
+    "file": "Core/AggregationCircularityShadow.lean",
+    "line": 78,
+    "text": "def identity (t q x : α) : Prop := G.add t q = x",
+    "doc": "/-- File E's finite-instance identity at one cell: `t` the archimedean trace,\n    `q` the quotient trace, `x` the ledger's `wInf - wPrimes`.\n    ### STATED, NEVER ASSERTED. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "q1",
+     "q2",
+     "t",
+     "x"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": [
+    "THE WORD",
+    "the lines match the English word (\"it is an identity\", :4961), not the predicate identity"
+   ]
+  },
+  {
+   "head": "is_xi_zero",
+   "status": "OPEN",
+   "meets": [
+    "OPEN"
+   ],
+   "was": "OPEN",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "pins": [
+    "0256e9e"
+   ],
+   "rule_rows": [
+    "SIDE-kernel ConservationBridge.conservation_activates_balance"
+   ],
+   "decl": {
+    "repo": "SIDE-kernel",
+    "pin": "0256e9e",
+    "file": "Kernel/XiDef.lean",
+    "line": 34,
+    "text": "def is_xi_zero (sigma : Real) : Prop :=",
+    "doc": "/-- A nontrivial zero of the Riemann zeta function at real part sigma.\n    Excludes trivial zeros (negative even integers) and the pole at 1. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    [
+     "σ"
+    ]
+   ],
+   "consumed": [],
+   "inline": [],
+   "standalone": [],
+   "salt": [],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "",
+   "wo9": []
+  },
+  {
+   "head": "zeroSideNeg",
+   "status": "DISCHARGED",
+   "meets": [
+    "DISCHARGED",
+    "WITNESSED"
+   ],
+   "was": "DISCHARGED IN KERNEL",
+   "rule": 1,
+   "elab": 0,
+   "kernels": [
+    "SIDE-explicit-formula"
+   ],
+   "pins": [
+    "8c51431"
+   ],
+   "rule_rows": [
+    "SIDE-explicit-formula SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of"
+   ],
+   "decl": {
+    "repo": "SIDE-explicit-formula",
+    "pin": "8c51431",
+    "file": "SIDEExplicitFormula/PowerLimit.lean",
+    "line": 1159,
+    "text": "def zeroSideNeg : Prop :=",
+    "doc": "/-- The statement L7e delivers, as a Prop, so that the assembly below is compiled from it by name. -/"
+   },
+   "upstream": false,
+   "domain_vars": [
+    []
+   ],
+   "consumed": [
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 1163,
+     "name": "zeroSideNeg_holds",
+     "consumers": [
+      [
+       "SIDEExplicitFormula/PowerLimit.lean:1193",
+       "h2_sign_imp_rh_strip"
+      ]
+     ]
+    }
+   ],
+   "inline": [],
+   "standalone": [
+    {
+     "file": "SIDEExplicitFormula/PowerLimit.lean",
+     "line": 1163,
+     "name": "zeroSideNeg_holds"
+    }
+   ],
+   "salt": [
+    {
+     "file": "SIDEExplicitFormula/SaltCheckNonvacuity.lean",
+     "line": 45,
+     "text": "theorem zeroSideNeg_witness : B321.zeroSideNeg"
+    }
+   ],
+   "cited": false,
+   "cited_lines": [],
+   "other_tiers": [],
+   "handread9": "AT A USE -- zeroSideNeg_holds, unconditional",
+   "wo9": []
+  }
+ ],
+ "counts": {
+  "DISCHARGED": 10,
+  "DOMAIN": 12,
+  "OPEN": 23,
+  "WITNESSED": 3,
+  "CITED": 2
+ },
+ "rule_rows": {
+  "DISCHARGED": 65,
+  "DOMAIN": 20,
+  "OPEN": 33,
+  "WITNESSED": 3,
+  "CITED": 2
+ },
+ "elab_rows": {
+  "DISCHARGED": 3,
+  "DOMAIN": 1,
+  "OPEN": 0,
+  "WITNESSED": 0,
+  "CITED": 0
+ },
+ "four": {
+  "IsOpen": "DOMAIN",
+  "IsRoot": "DOMAIN",
+  "Prime": "DOMAIN",
+  "StrictMono": "DOMAIN"
+ },
+ "h74a": "HOLDS",
+ "figure_equal": false,
+ "diff": [
+  "-  AnalyticOnNhd                rule  3 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: none",
+  "+  AnalyticOnNhd                rule  3 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :79",
+  "-  Continuous                   rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: none",
+  "+  Continuous                   rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :81",
+  "+      consumed: continuous_expWt SIDEExplicitFormula/Schema/WindowProofs.lean :135 -- used at SIDEExplicitFormula/Schema/WindowProofs.lean:191 (in convStep_holds), SIDEExplicitFormula/Schema/WindowProofs.lean:192 (in convStep_holds)",
+  "-  HasCompactSupport            rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: none",
+  "+  HasCompactSupport            rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :85",
+  "-      consumed: nbox_hasCompactSupport SIDEExplicitFormula/Schema/PlateauRamp.lean :76 -- used at SIDEExplicitFormula/Schema/PlateauRamp.lean:100 (in window_hasCompactSupport)",
+  "+      consumed: nbox_hasCompactSupport SIDEExplicitFormula/Schema/PlateauRamp.lean :76 -- used at SIDEExplicitFormula/Schema/PlateauRamp.lean:100 (in window_hasCompactSupport), SIDEExplicitFormula/Schema/WindowProofs.lean:192 (in convStep_holds)",
+  "-  HasDerivAt                   rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: none",
+  "+  HasDerivAt                   rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :89",
+  "-  Integrable                   rule  1 elab  1 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: none",
+  "+  Integrable                   rule  1 elab  1 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :91",
+  "+      consumed: box_integrable SIDEExplicitFormula/Schema/WindowProofs.lean :35 -- used at SIDEExplicitFormula/Schema/WindowProofs.lean:39 (in nbox_integrable), SIDEExplicitFormula/Schema/WindowProofs.lean:42 (in window_integrable)",
+  "+      consumed: nbox_integrable SIDEExplicitFormula/Schema/WindowProofs.lean :39 -- used at SIDEExplicitFormula/Schema/WindowProofs.lean:43 (in window_integrable), SIDEExplicitFormula/Schema/WindowProofs.lean:192 (in convStep_holds)",
+  "-      consumed: integrable_exp_neg_abs_half Zeta23/ExplicitFormula.lean :468 -- used at Zeta23/ExplicitFormula.lean:609 (in pole_term), Zeta23/ExplicitFormula.lean:624 (in pole_term), Zeta23/ExplicitFormula.lean:648 (in integrable_paperFT_mul_PiX)",
+  "-      consumed: integrable_EL Zeta23/ExplicitFormula.lean :509 -- used at Zeta23/ExplicitFormula.lean:620 (in pole_term), Zeta23/ExplicitFormula.lean:629 (in pole_term), Zeta23/ExplicitFormula.lean:653 (in integrable_paperFT_mul_PiX)",
+  "-  Prime                        rule  5 elab  0 | b639 OPEN                 -> DOMAIN     | meets DOMAIN | salt-check column: none",
+  "+  Prime                        rule  5 elab  0 | b639 OPEN                 -> DOMAIN     | meets DOMAIN | salt-check column: 2 witness(es), SaltCheckNonvacuity.lean :99, SaltCheckNonvacuity.lean :101",
+  "-  Tendsto                      rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: none",
+  "+  Tendsto                      rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DOMAIN     | meets DOMAIN / DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :105",
+  "-### ### **DISCHARGED : 9 heads ; rule rows 63 ; rule-elab rows 3**",
+  "+### ### **DISCHARGED : 10 heads ; rule rows 65 ; rule-elab rows 3**",
+  "-  PWSetup                      rule 48 elab  3 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED | salt-check column: none",
+  "+  PWSetup                      rule 48 elab  3 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :36",
+  "-  SymPairBound                 rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: none",
+  "+  SymPairBound                 rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :56",
+  "-  ZetaSeam                     rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: none",
+  "+  WindowObligations            rule  2 elab  0 | b639 OPEN                 -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :70",
+  "+      the move: OPEN -> DISCHARGED, a construction a non-witness proof consumes",
+  "+      consumed: windowObligations_holds SIDEExplicitFormula/Schema/WindowProofs.lean :200 -- used at SIDEExplicitFormula/Schema/WindowProofs.lean:205 (in plateauRampWindow_holds)",
+  "+  ZetaSeam                     rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :59",
+  "-  zeroSideNeg                  rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: none",
+  "+  zeroSideNeg                  rule  1 elab  0 | b639 DISCHARGED IN KERNEL -> DISCHARGED | meets DISCHARGED / WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :45",
+  "-  PlattTrudgianHeight          rule  1 elab  0 | b639 CITED                -> CITED      | meets CITED | salt-check column: none",
+  "+  PlattTrudgianHeight          rule  1 elab  0 | b639 CITED                -> CITED      | meets CITED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :52",
+  "-### ### **WITNESSED : 2 heads ; rule rows 2 ; rule-elab rows 0**",
+  "+### ### **WITNESSED : 3 heads ; rule rows 3 ; rule-elab rows 0**",
+  "+  EulerFactorPremise           rule  1 elab  0 | b639 OPEN                 -> WITNESSED  | meets WITNESSED | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :67",
+  "+      the move: OPEN -> WITNESSED, standalone constructions outside the salt checks, none consumed",
+  "+      standalone, consumed by nothing: eulerFactorPremise_three (SIDEExplicitFormula/Schema/FamilyPremises.lean :174)",
+  "-### ### **OPEN : 25 heads ; rule rows 36 ; rule-elab rows 0**",
+  "+### ### **OPEN : 23 heads ; rule rows 33 ; rule-elab rows 0**",
+  "-  EulerFactorPremise           rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none",
+  "-  IsTrivialPoint               rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none",
+  "+  IsTrivialPoint               rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :62",
+  "-  WindowObligations            rule  2 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none",
+  "-  farSmall                     rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none",
+  "+  farSmall                     rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: 1 witness(es), SaltCheckNonvacuity.lean :48",
+  "-### the figure put to the author with the answer ({'OPEN': 25, 'CITED': 2, 'DISCHARGED': 9, 'WITNESSED': 2, 'DOMAIN': 12}) against the tool`s ({'DISCHARGED': 9, 'DOMAIN': 12, 'OPEN': 25, 'WITNESSED': 2, 'CITED': 2}): EQUAL",
+  "-### moves from b639`s read: 23",
+  "+### the figure put to the author with the answer ({'OPEN': 25, 'CITED': 2, 'DISCHARGED': 9, 'WITNESSED': 2, 'DOMAIN': 12}) against the tool`s ({'DISCHARGED': 10, 'DOMAIN': 12, 'OPEN': 23, 'WITNESSED': 3, 'CITED': 2}): ### DIFFERS",
+  "+### moves from b639`s read: 25",
+  "-### ### **HEADS 50 ; OPEN 25 ; CITED 2 ; DISCHARGED 9 ; WITNESSED 2 ; DOMAIN 12 -- RULE ROWS 36 / 2 / 63 / 2 / 20. H74a HOLDS.**",
+  "-",
+  "+### ### **HEADS 50 ; OPEN 23 ; CITED 2 ; DISCHARGED 10 ; WITNESSED 3 ; DOMAIN 12 -- RULE ROWS 33 / 2 / 65 / 3 / 20. H74a HOLDS.**"
+ ],
+ "added": [],
+ "gone": [],
+ "moved": [
+  "EulerFactorPremise",
+  "WindowObligations"
+ ]
+}

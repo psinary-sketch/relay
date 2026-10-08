@@ -1,0 +1,184 @@
+b642 -- THE EPSTEIN RUNGS PRICED FROM THE PIN (ruling (R252)(4)); a probe and a bank, no build
+Mathlib de5ce8a9a66a (the pin de5ce8a9: AGREE); W-ORD-EPSTEIN-ZQ`s five rungs; every grep `git grep -n -E` at the pin
+
+== R1 THE LATTICE SUM AND ITS CONVERGENCE
+
+-- ZLattice summability : 3 hit(s)  [pattern ^lemma (summable_norm_rpow|summable_norm_sub_rpow|tsum_norm_rpow_le)\b ; path Mathlib/Algebra/Module/ZLattice/Summable.lean]
+     Mathlib/Algebra/Module/ZLattice/Summable.lean:226:lemma summable_norm_rpow (r : ℝ) (hr : r < -Module.finrank ℤ L) :
+     Mathlib/Algebra/Module/ZLattice/Summable.lean:231:lemma tsum_norm_rpow_le (r : ℝ) (hr : r < -Module.finrank ℤ L) :
+     Mathlib/Algebra/Module/ZLattice/Summable.lean:237:lemma summable_norm_sub_rpow (r : ℝ) (hr : r < -Module.finrank ℤ L) (x : E) :
+-- Eisenstein summability over Z^2 (integer weight, holomorphic) : 2 hit(s)  [pattern ^(lemma|theorem) (summable_norm_eisSummand|summable_eisSummand)\b ; path Mathlib/NumberTheory/ModularForms/EisensteinSeries/*]
+     Mathlib/NumberTheory/ModularForms/EisensteinSeries/IsBoundedAtImInfty.lean:39:lemma summable_norm_eisSummand {k : ℤ} (hk : 3 ≤ k) (z : ℍ) :
+     Mathlib/NumberTheory/ModularForms/EisensteinSeries/QExpansion.lean:211:lemma summable_eisSummand {k : ℕ} (hk : 3 ≤ k) (z : ℍ) :
+-- a non-holomorphic (real-analytic) Eisenstein series : 0 hit(s)  [pattern [Nn]onholomorphic|realAnalyticEisenstein ; path Mathlib/*]
+-- Epstein, anywhere : 0 hit(s)  [pattern [Ee]pstein ; path Mathlib/*]
+
+   PRICE: ONE ACT: Z_Q(s) = sum over Z^2 minus 0 of Q(m, n)^(-s) for Q = x^2 + xy + 6y^2 = |m + n tau|^2, tau = (1 + sqrt(-23))/2; Q is comparable to the squared norm of a rank-2 lattice, so summable_norm_rpow (exponent -2 Re s < -2) gives absolute convergence on Re s > 1 and holomorphy by locally uniform convergence. The Eisenstein lemmas are for integer weight k >= 3 and holomorphic summands only; no real-analytic Eisenstein series and no Epstein zeta is at the pin.
+
+== R2 THE THETA AND ITS INVERSION
+
+-- Poisson summation : 4 hit(s)  [pattern ^theorem (Real\.tsum_eq_tsum_fourier\S*|SchwartzMap\.tsum_eq_tsum_fourier)\b ; path Mathlib/Analysis/Fourier/PoissonSummation.lean]
+     Mathlib/Analysis/Fourier/PoissonSummation.lean:103:theorem Real.tsum_eq_tsum_fourier {f : C(ℝ, ℂ)}
+     Mathlib/Analysis/Fourier/PoissonSummation.lean:195:theorem Real.tsum_eq_tsum_fourier_of_rpow_decay_of_summable {f : ℝ → ℂ} (hc : Continuous f)
+     Mathlib/Analysis/Fourier/PoissonSummation.lean:206:theorem Real.tsum_eq_tsum_fourier_of_rpow_decay {f : ℝ → ℂ} (hc : Continuous f) {b : ℝ}
+     Mathlib/Analysis/Fourier/PoissonSummation.lean:220:theorem SchwartzMap.tsum_eq_tsum_fourier (f : 𝓢(ℝ, ℂ)) (x : ℝ) :
+-- Gaussian sums over Z (a linear term allowed) : 3 hit(s)  [pattern ^theorem (Complex\.tsum_exp_neg_quadratic|Complex\.tsum_exp_neg_mul_int_sq|Real\.tsum_exp_neg_mul_int_sq)\b ; path Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean]
+     Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean:87:theorem Complex.tsum_exp_neg_quadratic {a : ℂ} (ha : 0 < a.re) (b : ℂ) :
+     Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean:118:theorem Complex.tsum_exp_neg_mul_int_sq {a : ℂ} (ha : 0 < a.re) :
+     Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean:123:theorem Real.tsum_exp_neg_mul_int_sq {a : ℝ} (ha : 0 < a) :
+-- the Jacobi theta transformation : 2 hit(s)  [pattern ^theorem (jacobiTheta₂_functional_equation|jacobiTheta_S_smul)\b ; path Mathlib/NumberTheory/ModularForms/JacobiTheta/*]
+     Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean:43:theorem jacobiTheta_S_smul (τ : ℍ) :
+     Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean:465:theorem jacobiTheta₂_functional_equation (z τ : ℂ) : jacobiTheta₂ z τ =
+-- Poisson summation over a lattice or in more than one real dimension : 0 hit(s)  [pattern [Pp]oisson.*(ZLattice|EuclideanSpace|Fin 2|ι →)|(ZLattice|EuclideanSpace).*[Pp]oisson ; path Mathlib/*]
+-- a theta of a quadratic or binary form : 0 hit(s)  [pattern BinaryQuadraticForm|QuadraticForm.*[Tt]heta|[Tt]heta.*QuadraticForm ; path Mathlib/*]
+
+   PRICE: TWO ACTS: Poisson summation at the pin is one-dimensional (Real and Schwartz on R) and no lattice or binary-form theta is there; Theta_Q(t) = sum exp(-pi t Q(m, n)) is reached by completing the square, Q = (m + n/2)^2 + (23/4) n^2, an iterated sum whose inner sum is a shifted Gaussian (Complex.tsum_exp_neg_quadratic, the linear term b) -- one act for the inversion Theta_Q(1/t) = (2/sqrt 23) t Theta_Q*(t) with Q* the dual form (equivalent to Q), one for the interchange of the iterated sums and the bounds.
+
+== R3 THE FUNCTIONAL EQUATION AND THE CONTINUATION
+
+-- the abstract Mellin functional equation : 6 hit(s)  [pattern ^(structure WeakFEPair|structure IsStrongFEPair|theorem (functional_equation|differentiable_Λ₀|hasMellin|Λ_residue_k))\b ; path Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean]
+     Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:80:structure WeakFEPair where
+     Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:100:structure IsStrongFEPair (P : WeakFEPair E) : Prop where
+     Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:405:theorem hasMellin [CompleteSpace E]
+     Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:425:theorem functional_equation (s : ℂ) :
+     Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:431:theorem Λ_residue_k :
+     Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:484:theorem hasMellin (s : ℂ) : HasMellin P.f s (P.Λ s) :=
+-- the Dedekind zeta (defined; residue only) : 5 hit(s)  [pattern ^(def|theorem) dedekindZeta\S* ; path Mathlib/NumberTheory/NumberField/DedekindZeta.lean]
+     Mathlib/NumberTheory/NumberField/DedekindZeta.lean:47:def dedekindZeta (s : ℂ) :=
+     Mathlib/NumberTheory/NumberField/DedekindZeta.lean:54:def dedekindZeta_residue : ℝ :=
+     Mathlib/NumberTheory/NumberField/DedekindZeta.lean:58:theorem dedekindZeta_residue_def :
+     Mathlib/NumberTheory/NumberField/DedekindZeta.lean:63:theorem dedekindZeta_residue_pos : 0 < dedekindZeta_residue K := by
+     Mathlib/NumberTheory/NumberField/DedekindZeta.lean:69:theorem dedekindZeta_residue_ne_zero : dedekindZeta_residue K ≠ 0 :=
+-- Hecke (class-group character) L-functions : 0 hit(s)  [pattern HeckeCharacter|heckeLFunction|HeckeL ; path Mathlib/*]
+
+   PRICE: ONE ACT, AFTER R2: Theta_Q - 1 and its dual as a WeakFEPair (weight k = 1) give Lambda_Q = (2 pi / sqrt 23)^(-s) Gamma(s) Z_Q(s), its functional equation (functional_equation), continuation (differentiable_Λ₀) and the pole at s = 1 (Λ_residue_k). The Dedekind zeta of Q(sqrt -23) is defined at the pin with its residue only (no functional equation), and no Hecke L-function is there, so the decomposition Z_Q = (1/3)(zeta_K + 2 L(chi)) is not a route at the pin.
+
+== R4 THE EXPLICIT FORMULA
+
+-- "explicit formula", every hit hand-read : 33 hit(s)  [pattern [Ee]xplicit formula|ExplicitFormula ; path Mathlib/*]
+     Mathlib/Analysis/Calculus/ContDiff/Comp.lean:74:write down an explicit formula for the `n`-th derivative of `g ∘ f` in terms of derivatives of
+     Mathlib/Analysis/Complex/Polynomial/GaussLucas.lean:57:This version provides explicit formulas for the coefficients of the convex combination.
+     Mathlib/Analysis/Fourier/FourierTransformDeriv.lean:69:  explicit formula for the `n`-th derivative of the Fourier integral of `f`, as the Fourier
+     Mathlib/Analysis/Real/Pi/Irrational.lean:135:The second base case for the induction on `n`, giving an explicit formula for `I 1 θ`.
+     Mathlib/Analysis/Real/Pi/Wallis.lean:18:obtain an explicit formula for this integral, which is rational if `n` is odd and a rational
+     Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean:65:Explicit formula for `toCircle j`. Note that this is "evil" because it uses `ZMod.val`. Where
+     Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean:198:/-- Explicit formula for the Beta function when second argument is a positive integer. -/
+     Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean:52:/-- Explicit formula for the norm of the Gaussian function along the vertical
+     Mathlib/Combinatorics/Enumerative/Catalan/Basic.lean:30:* `catalan_eq_centralBinom_div`: The explicit formula for the Catalan number using the central
+     Mathlib/Data/Nat/Choose/Central.lean:132:/-- A crucial lemma to ensure that Catalan numbers can be defined via their explicit formula
+     Mathlib/FieldTheory/Finite/Trace.lean:20:- `algebraMap_trace_eq_sum_pow`: an explicit formula for the trace map:
+     Mathlib/FieldTheory/Finite/Trace.lean:22:- `algebraMap_norm_eq_prod_pow`: an explicit formula for the norm map:
+     Mathlib/FieldTheory/Finite/Trace.lean:48:/-- An explicit formula for the trace map: `trace[L/K](x) = ∑ i < [L:K], x ^ ((#K) ^ i)`. -/
+     Mathlib/FieldTheory/Finite/Trace.lean:58:/-- An explicit formula for the norm map: `norm[L/K](x) = ∏ i < [L:K], x ^ ((#K) ^ i)`. -/
+     Mathlib/FieldTheory/Finite/Trace.lean:68:/-- An explicit formula for the norm map: `norm[L/K](x) = x ^ (∑ i < [L:K], (#K) ^ i)`. -/
+     Mathlib/Geometry/Manifold/Instances/Icc.lean:144:  -- explicit formulas.
+     Mathlib/Geometry/Manifold/VectorField/LieBracket.lean:841:  space Lie bracket, given by an explicit formula). Pulling back this Lie bracket in `M` gives
+     Mathlib/GroupTheory/Exponent.lean:271:explicit formula. -/
+     Mathlib/GroupTheory/Exponent.lean:275:if you don't need the explicit formula. -/]
+     Mathlib/NumberTheory/Harmonic/GammaDeriv.lean:30:/-- Explicit formula for the derivative of the Gamma function at positive integers, in terms of
+     Mathlib/NumberTheory/Harmonic/GammaDeriv.lean:174:/-- Explicit formula for the derivative of the complex Gamma function at positive integers, in
+     Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean:200:/-- Explicit formula for `ζ (2 * k)`, for `k ∈ ℕ` with `k ≠ 0`, in terms of the Bernoulli number
+     Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean:214:/-- Explicit formula for `ζ (2 * k)`, for `k ∈ ℕ`, in terms of the Bernoulli number
+     Mathlib/NumberTheory/LSeries/ZMod.lean:205:/-- Explicit formula for the L-function of `𝓕 Φ`, where `𝓕` is the discrete Fourier transform. -/
+     Mathlib/NumberTheory/LSeries/ZMod.lean:268:/-- Explicit formula for `LFunction Φ 0` when `Φ` is even. -/
+     Mathlib/NumberTheory/Modular.lean:820:/-- Explicit formula for the image of `ModularGroup.fdo` in `ℂ`. -/
+     Mathlib/NumberTheory/Modular.lean:827:/-- Explicit formula for the image of `ModularGroup.fd` in `ℂ`. -/
+     Mathlib/NumberTheory/ZetaValues.lean:270:theory, to obtain an explicit formula for `∑ (n:ℤ), 1 / n ^ k * fourier n x`. -/
+     Mathlib/NumberTheory/ZetaValues.lean:465:/-- Explicit formula for `L(χ, 3)`, where `χ` is the unique nontrivial Dirichlet character modulo 4.
+     Mathlib/RingTheory/Polynomial/Chebyshev.lean:58:* Add explicit formula involving square roots for Chebyshev polynomials
+     Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean:60:  `pow_sub_one_mul_geom_sum_eq_pow_sub_one_mul_geom_sum` gives an explicit formula for the unit. -/
+     Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean:124:  `pow_sub_one_eq_geom_sum_mul_geom_sum_inv_mul_pow_sub_one` for the explicit formula of the
+     Mathlib/Topology/Instances/AddCircle/Real.lean:74:Explicit formula for `toCircle j`. Note that this is "evil" because it uses `ZMod.val`. Where
+-- a Hadamard factorization (every hit hand-read: the matrix Hadamard product, none a factorization) : 60 hit(s)  [pattern ^(theorem|lemma) [^ ]*[Hh]adamard ; path Mathlib/*]
+     Mathlib/Analysis/Matrix/Order.lean:254:theorem PosSemidef.hadamard {A B : Matrix ι ι 𝕜}
+     Mathlib/Analysis/Matrix/Order.lean:270:theorem PosDef.hadamard {A B : Matrix ι ι 𝕜}
+     Mathlib/Combinatorics/SimpleGraph/AdjMatrix.lean:155:theorem isAdjMatrix_iff_hadamard [DecidableEq V] [MonoidWithZero α]
+     Mathlib/Combinatorics/SimpleGraph/AdjMatrix.lean:342:theorem adjMatrix_hadamard_self [MulZeroOneClass α] :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:49:theorem hadamard_apply [Mul α] (A : Matrix m n α) (B : Matrix m n α) (i j) :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:60:theorem hadamard_comm [CommMagma α] : A ⊙ B = B ⊙ A :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:64:theorem hadamard_assoc [Semigroup α] : A ⊙ B ⊙ C = A ⊙ (B ⊙ C) :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:68:theorem hadamard_add [Distrib α] : A ⊙ (B + C) = A ⊙ B + A ⊙ C :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:71:theorem add_hadamard [Distrib α] : (B + C) ⊙ A = B ⊙ A + C ⊙ A :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:78:theorem smul_hadamard [Mul α] [SMul R α] [IsScalarTower R α α] (k : R) : (k • A) ⊙ B = k • A ⊙ B :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:82:theorem hadamard_smul [Mul α] [SMul R α] [SMulCommClass R α α] (k : R) : A ⊙ (k • B) = k • A ⊙ B :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:92:theorem hadamard_zero : A ⊙ (0 : Matrix m n α) = 0 :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:96:theorem zero_hadamard : (0 : Matrix m n α) ⊙ A = 0 :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:105:theorem hadamard_diagonal (M) (w : n → α) :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:108:theorem diagonal_hadamard (M) (w : n → α) :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:111:theorem diagonal_hadamard_diagonal (v : n → α) (w : n → α) :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:114:theorem diagonal_hadamard_eq_diagonal_iff {A : Matrix n n α} {d e} :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:118:theorem hadamard_diagonal_eq_diagonal_iff {A : Matrix n n α} {d e} :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:129:theorem hadamard_one : M ⊙ 1 = diagonal M.diag := mul_one M.diag ▸ hadamard_diagonal M 1
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:131:theorem one_hadamard : 1 ⊙ M = diagonal M.diag := one_mul M.diag ▸ diagonal_hadamard M 1
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:133:theorem one_hadamard_eq_diagonal_iff {A : Matrix n n α} {d} : 1 ⊙ A = diagonal d ↔ A.diag = d := by
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:136:theorem hadamard_one_eq_diagonal_iff {A : Matrix n n α} {d} : A ⊙ 1 = diagonal d ↔ A.diag = d := by
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:139:theorem one_hadamard_eq_zero_iff {A : Matrix n n α} : 1 ⊙ A = 0 ↔ A.diag = 0 := by
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:142:theorem hadamard_one_eq_zero_iff {A : Matrix n n α} : A ⊙ 1 = 0 ↔ A.diag = 0 := by
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:145:theorem one_hadamard_eq_one_iff {A : Matrix n n α} : 1 ⊙ A = 1 ↔ A.diag = 1 :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:148:theorem hadamard_one_eq_one_iff {A : Matrix n n α} : A ⊙ 1 = 1 ↔ A.diag = 1 :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:159:theorem hadamard_self_eq_self_iff [Mul α] {A : Matrix m n α} :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:162:theorem submatrix_hadamard {l o : Type*} [Mul α]
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:166:theorem transpose_hadamard [Mul α] (A B : Matrix m n α) : (A ⊙ B)ᵀ = Aᵀ ⊙ Bᵀ :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:169:theorem conjTranspose_hadamard [Mul α] [StarMul α] (A B : Matrix m n α) : (A ⊙ B)ᴴ = Bᴴ ⊙ Aᴴ :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:176:theorem single_hadamard_single_eq (i : m) (j : n) (a b : α) :
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:180:theorem single_hadamard_single_of_ne
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:193:theorem sum_hadamard_eq : (∑ i : m, ∑ j : n, (A ⊙ B) i j) = trace (A * Bᵀ) :=
+     Mathlib/LinearAlgebra/Matrix/Hadamard.lean:197:theorem dotProduct_vecMul_hadamard [DecidableEq m] [DecidableEq n] (v : m → α) (w : n → α) :
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:58:theorem IsHadamard.isStarNormal (hA : A.IsHadamard) : IsStarNormal A where
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:63:theorem IsHadamard.conjTranspose (hA : A.IsHadamard) : Aᴴ.IsHadamard := by
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:69:theorem isHadamard_conjTranspose_iff : Aᴴ.IsHadamard ↔ A.IsHadamard :=
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:73:theorem IsHadamard.reindex (e₁ e₂ : n ≃ m) (hA : A.IsHadamard) :
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:80:theorem isHadamard_submatrix_equiv_iff (e₁ e₂ : m ≃ n) :
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:86:theorem IsHadamard.kronecker {A : Matrix m m R} {B : Matrix n n R}
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:116:theorem IsHadamard.card_eq_mul_star_of_const_col_sum {s : R}
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:137:theorem IsHadamard.card_eq_star_mul_of_const_row_sum {s : R}
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:153:theorem IsHadamard.transpose (hA : A.IsHadamard) : Aᵀ.IsHadamard where
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:163:theorem isHadamard_transpose_iff : Aᵀ.IsHadamard ↔ A.IsHadamard :=
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:172:theorem IsHadamard.neg (hA : A.IsHadamard) : (-A).IsHadamard := by
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:177:theorem IsHadamard.neg_iff : (-A).IsHadamard ↔ A.IsHadamard :=
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:186:theorem IsHadamard.det_mul_star_det (hA : A.IsHadamard) :
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:192:theorem IsHadamard.star_det_mul_det (hA : A.IsHadamard) :
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:198:theorem IsHadamard.det_ne_zero [IsReduced R] (hA : A.IsHadamard)
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:203:theorem IsHadamard.isRegular_det (hA : A.IsHadamard)
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:214:theorem IsHadamard.of_mul_conjTranspose
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:229:theorem isHadamard_iff_mul_conjTranspose
+     Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean:242:theorem IsHadamard.four_dvd_card {A : Matrix n n ℤ}
+     Mathlib/LinearAlgebra/Matrix/Hermitian.lean:165:theorem IsHermitian.hadamard [CommMonoid α] [StarMul α] {A B : Matrix n n α}
+     Mathlib/LinearAlgebra/Matrix/Vec.lean:101:theorem vec_hadamard [Mul R] (A B : Matrix m n R) : vec (A ⊙ B) = vec A * vec B := rfl
+     Mathlib/LinearAlgebra/Matrix/Vec.lean:115:theorem hadamard_kronecker_hadamard (A B : Matrix l m R) (C D : Matrix n p R) :
+     Mathlib/LinearAlgebra/Matrix/Vec.lean:119:theorem kronecker_hadamard_kronecker
+     Mathlib/LinearAlgebra/Matrix/Vec.lean:182:theorem dotProduct_hadamard_mulVec_eq_kronecker
+     Mathlib/LinearAlgebra/Matrix/Vec.lean:189:theorem star_dotProduct_hadamard_mulVec_eq_kronecker [StarAddMonoid R]
+     Mathlib/LinearAlgebra/Matrix/WithConv.lean:135:lemma Matrix.toLin'_hadamard (x y : Matrix m n α) :
+
+   PRICE: THREE ACTS AT THE LEAST, re-priced at its ruling: no hit concerns a sum over zeros (all 33 hand-read: derivative, trace, Catalan, special-value and coordinate formulas), and the pin holds no Hadamard factorization; the explicit formula for Z_Q needs its order-1 product or a contour argument, a zero count (the field E1 asks for), and the schema`s test-function side -- the kernel`s route for zeta (Zeta23/WeilEF, vendored) is the model, Z_Q has no Euler product (class number 3).
+
+== R5 THE OFF-LINE ZERO AS A CERTIFIED WITNESS
+
+-- Davenport and Heilbronn : 19 hit(s)  [pattern Davenport|Heilbronn ; path Mathlib/*]
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:12:# The Cauchy-Davenport theorem
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:14:This file proves a generalisation of the Cauchy-Davenport theorem to arbitrary groups.
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:16:Cauchy-Davenport provides a lower bound on the size of `s + t` in terms of the sizes of `s` and `t`,
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:23:There are two kinds of proof of Cauchy-Davenport:
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:34:* `cauchy_davenport_minOrder_mul`: A generalisation of the Cauchy-Davenport theorem to arbitrary
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:36:* `cauchy_davenport_of_isTorsionFree`: The Cauchy-Davenport theorem in torsion-free groups.
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:37:* `ZMod.cauchy_davenport`: The Cauchy-Davenport theorem for `ZMod p`.
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:38:* `cauchy_davenport_mul_of_linearOrder_isCancelMul`: The Cauchy-Davenport theorem in linear ordered
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:47:* Matt DeVos, *On a generalization of the Cauchy-Davenport theorem*
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:66:/-- The relation we induct along in the proof by DeVos of the Cauchy-Davenport theorem.
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:72:/-- The relation we induct along in the proof by DeVos of the Cauchy-Davenport theorem.
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:110:/-- A generalisation of the **Cauchy-Davenport theorem** to arbitrary groups. The size of `s * t` is
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:113:@[to_additive /-- A generalisation of the **Cauchy-Davenport theorem** to arbitrary groups. The
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:184:/-- The **Cauchy-Davenport Theorem** for torsion-free groups. The size of `s * t` is lower-bounded
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:187:/-- The **Cauchy-Davenport theorem** for torsion-free groups. The size of `s + t` is lower-bounded
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:196:/-- The **Cauchy-Davenport Theorem**. If `s`, `t` are nonempty sets in `ℤ/pℤ`, then the size of
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:205:/-- The **Cauchy-Davenport Theorem** for linearly ordered cancellative semigroups. The size of
+     Mathlib/Combinatorics/Additive/CauchyDavenport.lean:208:/-- The **Cauchy-Davenport theorem** for linearly ordered additive cancellative semigroups. The
+     Mathlib/Combinatorics/Additive/ETransform.lean:101:bound on Roth numbers, and by DeVos in his proof of Cauchy-Davenport.
+-- interval arithmetic : 2 hit(s)  [pattern [Ii]nterval arithmetic ; path Mathlib/*]
+     Mathlib/Algebra/Order/Interval/Basic.lean:16:# Interval arithmetic
+     Mathlib/Order/Interval/Basic.lean:16:interval arithmetic.
+
+   PRICE: ONE ACT FOR A WITNESSED CERTIFICATE, A COMPILED ONE UNPRICED: the hits are the Cauchy-Davenport theorem and order-theoretic intervals; the pin holds no certified evaluation of an analytic function. A certificate by ball arithmetic outside Lean (python-flint Arb, the b627 instrument) is WITNESSED, not compiled.
+
+== THE READ PRICE: R1 one act, R2 two, R3 one, R4 three at the least, R5 one (witnessed) -- EIGHT ACTS AT THE LEAST, the compiled certificate unpriced; beside it b641`s estimate (relay data/b641_closing.txt :127-:131): four acts at the least, each re-priced at the ruling that starts it. The two count differently: the estimate ends at the local count (R4`s field), the rungs run to the off-line zero.

@@ -1,0 +1,217 @@
+b642 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay data/b641_keiper_status.txt: every candidate statement -- data/b641_keiper_status.txt @ 10fdca58 (15 lines cited, of 78)
+    :7      ### (K1) KeiperObligations -- the field: binomial : BinomialTransform
+    :15         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem binomialTransform_holds : SIDEExplicitFormula.Keiper.BinomialTransform
+    :17     ### (K2) KeiperObligations -- the field: split : LogDerivSplit
+    :25         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem logDerivSplit_holds : SIDEExplicitFormula.Keiper.LogDerivSplit
+    :27     ### (K3) KeiperObligations -- the field: stieltjesLog : StieltjesLog
+    :35         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem stieltjesLog_holds : SIDEExplicitFormula.Keiper.StieltjesLog
+    :37     ### (K4) KeiperObligations -- the field: gammaZeta : GammaRZetaValues
+    :45         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem gammaRZetaValues_holds : SIDEExplicitFormula.Keiper.GammaRZetaValues
+    :47     ### (B1) BoundPremises -- the field: gamma_tight : StieltjesBoundsAt 0
+    :55         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem gamma_tight_holds : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0
+    :57     ### (B2) BoundPremises -- the field: higher_stieltjes : forall n, 1 <= n -> n <= 11 -> StieltjesBoundsAt n
+    :65         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem higher_stieltjes_holds : forall n : Nat, 1 <= n -> n <= 11 -> SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n
+    :67     ### (B3) BoundPremises -- the field: zeta_values : forall j, 2 <= j -> j <= 12 -> ZetaValueBoundsAt j
+    :75         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem zeta_values_holds : forall j : Nat, 2 <= j -> j <= 12 -> SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j
+    :78     ### ### **OBLIGATIONS 7 ; DISCHARGED 0 ; CITED 0 ; OPEN 7 ; WITHOUT ONE STATUS AND A REASON NONE ; CANDIDATE DECLARATIONS 7.**
+### relay data/b641_window_epstein_status.txt: every candidate statement -- data/b641_window_epstein_status.txt @ 10fdca58 (7 lines cited, of 35)
+    :5      ### (W1) WindowObligations -- the field: conv_step : ConvStep W h
+    :13         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem convStep_holds (W h : Real) : SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W h
+    :15     ### (W2) WindowObligations -- the field: smooth : Smooth4 W h
+    :23         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem smooth4_holds (W h : Real) : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h
+    :25     ### (E1) EpsteinPremises -- the field: count : exists A0, HCount Z A0
+    :33         CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem epstein_count_holds : exists A0 : Real, SIDEExplicitFormula.B321.HCount ZQ A0  -- ZQ, the zero configuration of x^2 + xy + 6y^2`s Epstein zeta function, not yet constructed
+    :35     ### ### **OBLIGATIONS 3 ; DISCHARGED 0 ; CITED 0 ; OPEN 3 ; WITHOUT ONE STATUS AND A REASON NONE ; CANDIDATE DECLARATIONS 3.**
+### relay data/b641_premise_status.txt: the Dedekind candidates and statuses -- data/b641_premise_status.txt @ 10fdca58 (12 lines cited, of 216)
+    :4      ###   DOMAIN: a predicate of Mathlib`s (its declaration outside every kernel) that every row resting on it applies to a variable the row`s statement quantifies -- not a premise; removed to the domain-condition list below with its variables named.
+    :189    ### (D1) TrivialSummandPremise -- the field: (the premise, a Prop over every k)
+    :193        STATUS : REFUTED-BY-COMPUTATION (the author`s answer at Component 5; the worklist`s OPEN)
+    :196        WITNESS CLASS : every k : R -> C real, nonnegative, continuous, not identically zero and supported in (-log 2, log 2)
+    :197        VALUE : poleTerm k = paperFT k (i/2) + paperFT k (-i/2) = INT k(u) (e^(-u/2) + e^(u/2)) du > 0, while both prime sums are 0 and the Gamma terms are equal, so the premise would need poleTerm k = 0 (the seat`s computation, not compiled)
+    :198        CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem not_trivialSummandPremise : Not SIDEExplicitFormula.Schema.Family.TrivialSummandPremise
+    :200    ### (D2) EulerFactorPremise -- the field: (the premise at a modulus q)
+    :204        STATUS : OPEN
+    :207        COUNTEREXAMPLE : q = 6, the odd character mod 6 induced from conductor 3; for k supported in (-log 2, log 2) the prime terms agree and the Gamma terms differ by log 2 times (1/2 pi) INT paperFT k = log 2 k(0), nonzero when k(0) is (the seat`s computation, not compiled)
+    :208        SUFFICIENT CONDITION : every non-trivial character mod q primitive (q = 3 among them), both sides then reading the same character at the same level
+    :209        CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem eulerFactorPremise_of_primitive (q : Nat) [NeZero q] (h : forall chi : DirichletCharacter Complex q, chi != 1 -> chi.IsPrimitive) : SIDEExplicitFormula.Schema.Family.EulerFactorPremise q ; theorem not_eulerFactorPremise_si
+    :211    ### the row resting on both: dedekind_rhs (SIDE-explicit-formula 8c51431, SIDEExplicitFormula/Schema/Dedekind.lean :59) -- its grade unchanged, read from its statement; annotated: on a premise refuted by computation at b641 (W-ORD-DEDEKIND-RHS-RESTATE)
+### SIDE-explicit-formula: the Keiper definitions the statements name -- SIDEExplicitFormula/Keiper.lean @ 8c51431a (14 lines cited, of 254)
+    :47     def stieltjes (n : ℕ) : ℂ := (-1) ^ n * iteratedDeriv n riemannZeta₀ 1
+    :73     def taylorAt (f : ℂ → ℂ) (a : ℂ) (k : ℕ) : ℂ := iteratedDeriv k f a / (k.factorial : ℂ)
+    :76     def xiLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv LiCriterion.riemannXi) 1 k
+    :79     def zetaLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv riemannZeta₁) 1 k
+    :82     def gammaRLogCoeff (k : ℕ) : ℂ := taylorAt (logDeriv Gammaℝ) 1 k
+    :86     def keiperA (k : ℕ) : ℂ := (-1) ^ k + zetaLogCoeff k + gammaRLogCoeff k
+    :89     def keiperSum (n : ℕ) : ℂ := ∑ k ∈ Finset.range (n + 1), ((n + 1).choose (k + 1) : ℂ) * keiperA k
+    :92     def KeiperTaylor : Prop := ∀ n : ℕ, LiCriterion.taylorCoeff LiCriterion.riemannXi n = keiperSum n
+    :95     def poleCoeff : ℕ → ℂ
+    :101    def StieltjesLog : Prop :=
+    :107    def GammaRZetaValues : Prop :=
+    :117    def BinomialTransform : Prop :=
+    :122    def LogDerivSplit : Prop := ∀ k : ℕ, xiLogCoeff k = keiperA k
+    :126    structure KeiperObligations : Prop where
+### SIDE-explicit-formula: the window definitions -- SIDEExplicitFormula/Schema/PlateauRamp.lean @ 8c51431a (10 lines cited, of 224)
+    :19     * CARRIED TO TWO NAMED OBLIGATIONS (`WindowObligations`): (O1) `ConvStep`, the convolution theorem for the transform on the
+    :20       family (Mathlib at the pin holds it for Schwartz functions only, `fourier_convolution`, and the box is not one); (O2)
+    :21       `Smooth4`, the window `C^4` for `p ≥ 6` (convolution with a box raises the order by one; no Mathlib lemma at the pin).
+    :45     def box (a : ℝ) : ℝ → ℝ := Set.indicator (Set.Icc (-a) a) (fun _ => 1)
+    :48     def nbox (h : ℝ) : ℝ → ℝ := fun x => h⁻¹ * box (h / 2) x
+    :51     def conv (f g : ℝ → ℝ) : ℝ → ℝ := MeasureTheory.convolution f g (ContinuousLinearMap.lsmul ℝ ℝ) volume
+    :55     def window (W h : ℝ) : ℕ → ℝ → ℝ
+    :173    def ConvStep (W h : ℝ) : Prop :=
+    :178    def Smooth4 (W h : ℝ) : Prop := ∀ p : ℕ, 6 ≤ p → ContDiff ℝ 4 (window W h p)
+    :181    structure WindowObligations (W h : ℝ) : Prop where
+### SIDE-explicit-formula: Family.lean`s two premises -- SIDEExplicitFormula/Schema/Family.lean @ 8c51431a (8 lines cited, of 276)
+    :255    /-- **OBSTRUCTION (1), THE POLE, as the premise the reading would need**: the trivial character's summand in the family's
+    :256    form, ζ's arithmetic side with no pole term. NOT DISCHARGED HERE. -/
+    :257    def TrivialSummandPremise : Prop :=
+    :261    /-- **OBSTRUCTION (2), THE EULER FACTORS AT p ∣ q, as the premise the reading would need**: every non-trivial character
+    :264    DISCHARGED HERE. -/
+    :265    def EulerFactorPremise (q : ℕ) [NeZero q] : Prop :=
+    :269    /-- **THE DEDEKIND READING'S PREMISES**, joined. NOT DISCHARGED HERE. -/
+    :270    structure DedekindPremises (q : ℕ) [NeZero q] : Prop where
+### SIDE-explicit-formula: dedekind_rhs and dedekind_three -- SIDEExplicitFormula/Schema/Dedekind.lean @ 8c51431a (11 lines cited, of 77)
+    :55     /-- **THE SUMMED ARITHMETIC SIDE AS THE DEDEKIND READING'S, ON THE TWO PREMISES**: under `TrivialSummandPremise` (the trivial
+    :56     summand in the family's form, without the pole term) and `EulerFactorPremise q` (every non-trivial character mod `q` with its
+    :57     primitive inducer's arithmetic side), the summed side is the trivial summand's plus every non-trivial character's at its own level.
+    :58     Both premises are used; neither is discharged. -/
+    :59     theorem dedekind_rhs (hT : TrivialSummandPremise) (hE : EulerFactorPremise q) (k : ℝ → ℂ) :
+    :60         (DedekindConfig q).rhs k
+    :61           = (archTerm_chi (1 : DirichletCharacter ℂ 1) k - primeSum_chi (1 : DirichletCharacter ℂ 1) k)
+    :62             + ∑ χ ∈ family q, (archTerm_chi χ k - primeSum_chi χ k) := by
+    :70     /-- **The statement at q = 3 is the instance's**, by definition. -/
+    :71     theorem dedekind_three :
+    :72         DedekindTheorem 3 = (h2_sign_cfg (DedekindConfig 3) ↔ zetaWeilConfig.target ∧ ∀ χ ∈ family 3, GRH_chi χ.primitiveCharacter) :=
+### SIDE-explicit-formula: EpsteinPremises at v0.16 -- SIDEExplicitFormula/Schema/Epstein.lean @ c404e727 (7 lines cited, of 70)
+    :38     /-- **THE EPSTEIN PREMISES**, the schema's explicit-formula and count fields for `Z_Q` as named premises over a zero
+    :39     configuration `Z` and an arithmetic side `rhs`. `ef` -- T1-lit, the explicit formula for `Z_Q` from the literature (Weil
+    :40     1952; Bombieri-Lagarias 1999), cited, not compiled. `count` -- T3, the local count read off the bench's zero list. -/
+    :41     structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where
+    :42       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :43         (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :44       count : ∃ A₀ : ℝ, HCount Z A₀
+### Mathlib at the pin: the convolution theorem -- Mathlib/Analysis/Fourier/Convolution.lean @ de5ce8a9 (5 lines cited, of 191)
+    :116    of the individual functions.
+    :118    Version for multiplication. -/
+    :119    theorem fourier_mul_convolution_eq {f₁ : E → R} {f₂ : E → R}
+    :120        (hf₁ : Integrable f₁) (hf₂ : Integrable f₂) (ξ : E) :
+    :121        𝓕 (f₁ ⋆[mul ℂ R] f₂) ξ = (𝓕 f₁ ξ) * (𝓕 f₂ ξ) :=
+### the census at v0.6: the premise table (:958-:1019), 60 rows -- the 50 heads of b640`s status bank and the rows read by the elaborated reader alone -- phase2/method/THE_KEYSTONE_CENSUS_v0_6.md @ 93db6269 (62 lines cited, of 1127)
+    :958    | named premise | kernels | commits read at | rule rows | rule-elab rows | v0.5 (b632 → v0.5) | a ledger naming its discharge |
+    :959    |:--|:--|:--|:--|:--|:--|:--|
+    :960    | Alternates | SIDE-global-section | 17ce9ff | 2 | 0 | 5 → 2 | none named |
+    :961    | AnalyticOnNhd | SIDE-explicit-formula | 8c51431 | 3 | 0 | 2 → 2 | none named |
+    :962    | BlockInputs | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | none named |
+    :963    | BoundPremises | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :964    | ConservationHypothesis | SIDE-kernel | 0256e9e | 3 | 0 | 3 → 3 | OPEN_TRAILS :61, OPEN_TRAILS :5523 |
+    :965    | Continuous | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :966    | Dealigned | SIDE-structural-error-correction | 6bf19ab | 1 | 0 | 1 → 1 | none named |
+    :967    | DealignedAt | SIDE-structural-error-correction | 6bf19ab | 1 | 0 | 1 → 1 | none named |
+    :968    | EF_lit | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | FINDINGS :6142, OPEN_TRAILS :11590 |
+    :969    | EpsteinPremises | SIDE-explicit-formula | 8c51431 | 2 | 0 | 2 → 2 | none named |
+    :970    | EqOn | SIDE-lv-conservation | 2f71068 | 1 | 0 | 1 → 1 | none named |
+    :971    | EulerFactorPremise | SIDE-explicit-formula | 8c51431 | 1 | 0 | — | FINDINGS :7026, FINDINGS :7056, OPEN_TRAILS :12420 |
+    :972    | GammaFacts | SIDE-explicit-formula | 8c51431 | 0 | 1 | — | none named |
+    :973    | HCount | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :974    | HasCompactSupport | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :975    | HasDerivAt | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | FINDINGS :6244 |
+    :976    | IdempotentAdd | SIDE-carrier-spec | b3916cc | 4 | 0 | 4 → 4 | none named |
+    :977    | InTail | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | none named |
+    :978    | Integrable | SIDE-explicit-formula | 8c51431 | 1 | 1 | 1 → 1 | none named |
+    :979    | IsEvenFn | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+    :980    | IsExpansion | SIDE-lv-conservation | 2f71068 | 2 | 0 | 2 → 2 | none named |
+    :981    | IsOpen | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+    :982    | IsRoot | SIDE-lv-conservation | 2f71068 | 2 | 0 | 2 → 2 | none named |
+    :983    | IsSign | SIDE-global-section | 17ce9ff | 5 | 0 | 5 → 5 | none named |
+    :984    | IsSignedCompletion | SIDE-carrier-spec | b3916cc | 1 | 0 | 1 → 1 | none named |
+    :985    | IsTrivialPoint | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :986    | KeiperObligations | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :987    | Monotone | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+    :988    | NontrivialZeroExistsInStrip | SIDE-lv-conservation | 2f71068 | 1 | 0 | — | none named |
+    :989    | NotDiv | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+    :990    | NymanBeurlingPremise | SIDE-explicit-formula | 8c51431 | 1 | 0 | — | FINDINGS :7639 |
+    :991    | PWSetup | SIDE-explicit-formula | 8c51431 | 48 | 3 | — | none named |
+    :992    | PaperInputs | SIDE-explicit-formula | 8c51431 | 0 | 5 | — | OPEN_TRAILS :7763 |
+    :993    | PerClassExcludes | SIDE-lv-conservation | 2f71068 | 1 | 0 | 1 → 1 | none named |
+    :994    | PlattTrudgianHeight | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :995    | Prime | SIDE-carrier-spec, SIDE-explicit-formula, SIDE-global-section, SIDE-grh-transfer | 17ce9ff, 858cbf6, 8c51431, b3916cc | 5 | 0 | 5 → 5 | none named |
+    :996    | Proper | SIDE-structural-error-correction | 6bf19ab | 1 | 0 | 1 → 1 | none named |
+    :997    | Register4_channelInequality | SIDE-lv-conservation | 2f71068 | 1 | 0 | — | OPEN_TRAILS :11542, OPEN_TRAILS :11647 |
+    :998    | Register4_positivity | SIDE-lv-conservation | 2f71068 | 1 | 0 | — | FINDINGS :6230, FINDINGS :6244, OPEN_TRAILS :11542, OPEN_TRAILS :11647 |
+    :999    | RiemannVonMangoldt | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | none named |
+    :1000   | SatisfiesCWeil | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+    :1001   | SelfDualFE | SIDE-lv-conservation | 2f71068 | 3 | 0 | — | none named |
+    :1002   | StepsI | SIDE-global-section | 17ce9ff | 2 | 0 | 2 → 2 | none named |
+    :1003   | StepsMI | SIDE-global-section | 17ce9ff | 2 | 0 | 2 → 2 | none named |
+    :1004   | StrictMono | SIDE-rcurve | d5f33b4 | 2 | 0 | 2 → 2 | none named |
+    :1005   | StructuralExhaustiveness | SIDE-kernel | 0256e9e | 1 | 0 | 1 → 1 | none named |
+    :1006   | SymPairBound | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :1007   | TailHyp | SIDE-explicit-formula | 8c51431 | 0 | 24 | — | none named |
+    :1008   | TailInputs | SIDE-explicit-formula | 8c51431 | 0 | 3 | — | none named |
+    :1009   | Tendsto | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :1010   | TrivialSummandPremise | SIDE-explicit-formula | 8c51431 | 1 | 0 | — | FINDINGS :7026, FINDINGS :7056, OPEN_TRAILS :12420 |
+    :1011   | WindowObligations | SIDE-explicit-formula | 8c51431 | 2 | 0 | 2 → 2 | none named |
+    :1012   | ZeroActingPairing | SIDE-lv-conservation | 2f71068 | 2 | 0 | — | OPEN_TRAILS :11647 |
+    :1013   | ZetaSeam | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :1014   | farSmall | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+    :1015   | hat | SIDE-explicit-formula | 8c51431 | 0 | 1 | — | none named |
+    :1016   | identity | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | FINDINGS :3183, FINDINGS :6244, OPEN_TRAILS :4961, OPEN_TRAILS :4969 |
+    :1017   | is_xi_zero | SIDE-kernel | 0256e9e | 1 | 0 | 1 → 1 | none named |
+    :1018   | tilde | SIDE-explicit-formula | 8c51431 | 0 | 1 | — | none named |
+    :1019   | zeroSideNeg | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | OPEN_TRAILS :10882 |
+### Zeta23 at 3635e748: ZetaZeroFree -- Zeta23/FromPNTPlus/ZetaBounds.lean @ 3635e748 (6 lines cited, of 3060)
+    :2457   lemma ZetaZeroFree :
+    :2458       ∃ (A : ℝ) (_ : A ∈ Ioc 0 (1 / 2)),
+    :2459       ∀ (σ : ℝ)
+    :2460       (t : ℝ) (_ : 3 < |t|)
+    :2461       (_ : σ ∈ Ico (1 - A / (Real.log |t|) ^ 9) 1),
+    :2462       ζ (σ + t * I) ≠ 0 := by
+### SIDE-explicit-formula`s vendored copy at 8c51431: ZetaZeroFree -- Zeta23/FromPNTPlus/ZetaBounds.lean @ 8c51431a (6 lines cited, of 3088)
+    :2485   lemma ZetaZeroFree :
+    :2486       ∃ (A : ℝ) (_ : A ∈ Ioc 0 (1 / 2)),
+    :2487       ∀ (σ : ℝ)
+    :2488       (t : ℝ) (_ : 3 < |t|)
+    :2489       (_ : σ ∈ Ico (1 - A / (Real.log |t|) ^ 9) 1),
+    :2490       ζ (σ + t * I) ≠ 0 := by
+### THE_UNCONDITIONAL_SURROUND v0.5: section 6a -- phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md @ 93db6269 (3 lines cited, of 314)
+    :151    ## 6a. The node, seen geometrically: the squeeze and its analytic target
+    :153    `covers_all` has a second face, and it is more concrete than the attribution form above. The corpus's own geometric architecture closes from two sides rather than by attributing each zero to a class. In the manuscript's words: *the two close from opposite sides — transversality from σ = ½ meets the zero-free region from σ = 1.* One jaw is the Euler zero-free region (C₂, Euler), pressing in from σ 
+    :155    This reframes Epstein more cleanly than the attribution form did. Epstein zeta functions carry the transversality jaw but, lacking the Euler product, have **no zero-free region** — one jaw of the squeeze is simply absent, and zeros escape into the unprotected middle of the strip. The discriminator is not "a joint resultant no class invokes"; it is "one jaw missing."
+### OPEN_TRAILS: the form clause, the build lines, the test-pin line, the patch work-order, b641`s block, its correction -- OPEN_TRAILS.md @ 93db6269 (12 lines cited, of 13523)
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and its CP-1b work-list, the page its objects sit on as its spine; STANDS sentences carried unchanged; MOVED-IN-MEANING sentences rewritten to say what the compiled fact says, citing the declaration by name and pin as the page prints it; CREDIT lines inserted where the work-list places them; a marked sentence the compiled facts do not support removed and its removal recorded in back matter, not reworded; Placement and Correspondence in back matter; no blank Status cell; the title naming objects and co
+    :13067  *Appended 2026-10-05 by b628 beneath the build clause (:12356), under the author’s answer at b628’s hold -- STANDING: A CLOSURE BUILD UNDER THE HOLD IS A SERIAL MODULE LIST:* a lake build of a target with an unbuilt closure runs its modules in parallel with no job cap, so a closure build under the hold is a serial module list -- one module per call in dependency order, free memory read before each -- or is not run. Its occasion: b628’s FinalMult call, free memory 717 MB within ten minutes against the hold, stopped by PID.
+    :13167  *Appended 2026-10-06 by b631 beneath the build clause (:12356), under the author’s answer at the hold (relay data/b631_author_answers.txt, prompt 2) -- THE BUILD ROUTE UNDER THE HOLD, STANDING:* under the hold a module is built by lake once and retried once; a second crossing sends it to the direct compile -- lake env lean -o and -i on the module, then on its AxiomCheck, under the same watch and stop -- the stopped calls banked, the build arm’s letter accepting the direct route when the bank shows them; lake’s trace for the module rebuilt at a later act. The line rests on measured crossings in three acts (b629, b631), lean at about 2 GB on these modules against a hold that leaves about 2.2 GB on this machine; the margin is the machine’s, and the direct route keeps the lane moving without lowering the hold. The line the author gave at b629 was withdrawn because its premise was false, not 
+    :13193  *Appended 2026-10-06 by b632 beneath the N5 scorer’s line (:12799), under `(R242)`(2) -- A TEST READS EVERY INPUT AT ITS OWN PIN, STANDING:* a test that regenerates anything reads every input at its own pin -- its lists, its probes, the table, the generator, the rule and the kernel’s checkout -- the live tree being for the act’s arms and not for the tests. From b631’s carried case (9) of tools/test_chain_page_b596.py, where b630’s rule-graded rows joined an older list’s Correspondence against relay HEAD’s table; the case is frozen to the test’s own pin by one edit after b632’s seal, committed alone with its run. At b632’s step zero tools/test_chain_page_b630.py was found failing in the same way, its list pinned at v0.24 read against the kernel’s checkout at v0.25 (the generator stops at the checkout, exit 3, before the hold is read); carried to the author, not repaired.
+    :13397  *Appended 2026-10-07 by b639, under the author’s answer before b639’s seal (relay data/b639_author_answers.txt) -- W-ORD-DAY1-PATCH-VERSIONS, PRICED, NOT STARTED, TRIGGER THE AUTHOR’S WORD:* each of the seven Day 1 companions whose bytes moved after the deposit of v1.1.2 while its version label stood -- Exhaustive_Enumeration, Which_Structure_Confines, Spectral_Inertness, Seven_Mechanism_Classes, Third_Identity_Element, Silence_of_Foundations, ONE_PAGE_PROOF -- takes a patch version at its next edition (v2.3 to v2.3.1, and so on) with a dated line naming the edits since the deposit, the line counts against v1.1.2’s bytes as relay data/b639_deposit_files.txt prints them. No label is edited at b639, which deposits each live file under its own name, the PLACE-papers commit it is read at and its line-diff count against v1.1.2 printed in the description, so a reader sees that the label stood 
+    :13487  *Appended 2026-10-08 by b641, under `(R251)`(7) -- W-ORD-STATEMENT-PIN, ENTERED AND PRICED, NOT STARTED, TRIGGER THE NEXT NEW LOAD-BEARING DECLARATION, ACTED ON THE AUTHOR’S WORD:* a statement file authored and committed before its proof, carrying the statement with a placeholder that is not a proof (the statement as a definition of a Prop, no `sorry`), and a kernel check that the proof’s theorem is that statement (the proof elaborated against the statement file’s Prop, compiled in its own module), beside the salt checks and the E0 gate, not replacing them. Priced by the seat against the current pins (SIDE-explicit-formula v0.25 = 8c51431, Mathlib de5ce8a9, v4.34.0-rc1): two acts -- one for the form, its checker and a test planting a proof whose theorem differs from its statement (expected to fail), the check compiled as one module under the hold by the direct route (OPEN_TRAILS :13167);
+    :13489  *Appended 2026-10-08 by b641 beneath the five-status clause (:13429), under the author’s answer at b641’s Component 5 -- THE SIXTH STATUS, REFUTED-BY-COMPUTATION:* a premise the seat has computed false is not OPEN: it takes REFUTED-BY-COMPUTATION, a sixth status beside the five, its witness class and the value that refutes it printed in its bank; the status is the seat’s computation and is not compiled -- it stands until a kernel theorem compiles the refutation or the premise is restated. It is assigned from the computation, not by the shared tool’s rule over the kernels. At b641 TrivialSummandPremise takes it (relay data/b641_premise_status.txt: the witness class every real, nonnegative, continuous k not identically zero and supported in (-log 2, log 2); the value, its pole term positive where the premise needs it 0). The census at v0.7 carries it.
+    :13491  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 4 -- W-ORD-PLATEAURAMP-DOCSTRING, NOT STARTED, TRIGGER THE FIRST UNDERSTATES ROW OF THE REVIEW PASS:* SIDE-explicit-formula v0.25 (8c51431) SIDEExplicitFormula/Schema/PlateauRamp.lean :19-:20 reads that Mathlib at the pin holds the convolution theorem for the transform for Schwartz functions only; Mathlib at the pin, de5ce8a9, holds Real.fourier_mul_convolution_eq for integrable functions (Mathlib/Analysis/Fourier/Convolution.lean :119), at real frequency (relay data/b641_window_epstein_status.txt, W1). The docstring is edited under ruling in the review pass; no kernel byte is touched at b641.
+    :13493  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 4 -- W-ORD-EPSTEIN-ZQ, PRICED IN b641’S CLOSING, TRIGGER A RULING TO BUILD IT:* EpsteinPremises’ count field stays OPEN, its discharger the construction of Z_Q, the zero configuration of the Epstein zeta function of x^2 + xy + 6y^2 (discriminant -23), which Mathlib at the pin does not hold (relay data/b641_window_epstein_status.txt, E1); the price is the seat’s, printed in relay data/b641_closing.txt.
+    :13495  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 5 -- W-ORD-DEDEKIND-RHS-RESTATE, NOT STARTED, TRIGGER THE PROVING ACT:* TrivialSummandPremise is restated so that the pole term is carried rather than required to vanish, and dedekind_rhs is re-proved on the restated premise. Until then dedekind_rhs keeps the grade its statement reads and its row is annotated: on a premise refuted by computation at b641; the pages’ cells for it are not edited, and the correction is a dated entry in the form of ERRATA at b641’s closing. EulerFactorPremise’s counterexample at the modulus 6 and its sufficient condition (every non-trivial character primitive) are recorded beside it (relay data/b641_premise_status.txt).
+    :13497  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 5 -- W-ORD-PREMISE-NONVACUITY, STANDING, TRIGGER ANY NEW PREMISE STRUCTURE:* every premise structure in the premise table takes a non-vacuity read -- a witness exists, or the premise is marked UNWITNESSED -- before a theorem resting on it takes the interface grade; the existing table is read once under it at b642.
+    :13523  *Appended 2026-10-08 by b641 to its record (:13499) -- A CORRECTION, THE SEAT’S:* the FINDINGS entry (b641's, titled "The needle and the root order; ...") counts the research discharge as 0 discharged, 0 cited, 13 open; on the author's answer at Component 5 the count is 0 discharged, 0 cited, 12 open and 1 REFUTED-BY-COMPUTATION, TrivialSummandPremise, its witness class and value printed in relay data/b641_premise_status.txt and its status's clause at OPEN_TRAILS :13489. The entry's phrase line reads: the entering commit in relay, bf2405b9 (b454), names (R63) and (R64); the entering commit in PLACE-papers, b39217fe (2026-07-15), names no ruling. Both slips the seat's (relay data/b641_defects.txt, (g)); no tool was edited for them.
+### FINDINGS: b641`s entry -- FINDINGS.md @ 93db6269 (1 lines cited, of 7961)
+    :7939   ## The needle and the root order; the provenance of a phrase; Keiper’s seven, the window’s two, the Epstein count field, the Dedekind premises and the patch versions each at one status with its reason; an outside repository’s sources read and banked in relay
+### relay data/b641_closing_push_out.txt (committed at step zero) -- data/b641_closing_push_out.txt @ 4efa0ffe (8 lines cited, of 12)
+    :5      push_gated: main read back at the remote: 10fdca58139aa7c8db21706fe795896229ccf62b
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay 10fdca58139aa7c8db21706fe795896229ccf62b   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers 93db62698cf3f92c675d51368625792b76a1cc7f   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 17ce9ff5831de1bded63c8a4c83eee7f498f3a7a   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 8c51431ada7798c65fa26b07ef99a447d7c15735   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+### ZetaZeroFree`s #check and #print axioms, read at SIDE-explicit-formula 8c51431`s built vendored module (lake env lean, detached; the scratchpad`s zzf_1.log):
+    ### START 2026-10-08T18:02:58Z free 4237 MB pid 26420 cmd lake env lean C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\e594f88a-2fab-4757-943d-7ab1bc3de815\scratchpad\b642_zzf_probe.lean cwd D:\SIDE-explicit-formula
+    ZetaZeroFree : ∃ A,
+      ∃ (_ : A ∈ Set.Ioc 0 (1 / 2)),
+        ∀ (σ t : ℝ), 3 < |t| → σ ∈ Set.Ico (1 - A / Real.log |t| ^ 9) 1 → riemannZeta (↑σ + ↑t * Complex.I) ≠ 0
+    'ZetaZeroFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+    ### EXIT 0 2026-10-08T18:03:28Z 30 s peak 10 MB free 4332 MB
+
+### the ruling`s ":2485 at 3635e748" read beside both: :2485 is the vendored copy`s line at 8c51431; at 3635e748 the lemma is at :2457 and :2485 falls inside LogDerivZetaBnd; the statement at the two lines byte-identical.
+### the local intake bank`s state: ?? data/b628_intake_crank_v0_5.txt
+### the branch: SIDE-explicit-formula v0.26-work at 8c51431ada77 ; main 8c51431ada77
+### PLACE-papers HEAD at the reads: f1600d26 ; relay HEAD: 4efa0ffe

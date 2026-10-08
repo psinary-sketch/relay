@@ -1,0 +1,134 @@
+b642 -- NON-VACUITY OVER THE PREMISE TABLE (ruling (R252)(3)(e), W-ORD-PREMISE-NONVACUITY acted)
+heads: 50, from data/b641_premise_status.json (the census v0.6 premise table`s 50 heads); Salt module SIDEExplicitFormula/SaltCheckNonvacuity.lean at v0.26-work f4f6ef0
+rule (quoted): "a witness theorem or example in a Salt module, or the structure printed as UNWITNESSED in the bank with the reason".
+A DEGENERATE witness satisfies the structure where it says nothing; it is counted WITNESSED and named DEGENERATE beside the count.
+
+== COUNTS
+
+WITNESSED 24 ; UNWITNESSED 26 ; total 50 ; both 0 ; neither 0
+  UNWITNESSED / CONTENT: 3
+  UNWITNESSED / OTHER-KERNEL: 22
+  UNWITNESSED / REFUTED: 1
+  WITNESSED / DEGENERATE: 3
+  WITNESSED / EXISTING: 3
+  WITNESSED / NEW: 18
+  WITNESSED and not DEGENERATE: 21
+
+== WITNESSED (24)
+
+AnalyticOnNhd  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:79 analyticOnNhd_witness  axioms [propext, Classical.choice, Quot.sound]
+Continuous  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:81 continuous_witness  axioms [propext, Classical.choice, Quot.sound]
+EpsteinPremises  [EXISTING; b641 status OPEN]
+    SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckEpstein.lean:90 toy_premises  axioms at the pin`s own AxiomCheck
+    SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckEpstein.lean:121 empty_premises  axioms at the pin`s own AxiomCheck
+EqOn  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:83 eqOn_witness  axioms [propext, Classical.choice, Quot.sound]
+EulerFactorPremise  [NEW; b641 status OPEN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:67 eulerFactorPremise_witness  axioms [propext, Classical.choice, Quot.sound]
+HCount  [EXISTING; b641 status WITNESSED]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckSimplicity.lean:72 toy_count  axioms at the pin`s own AxiomCheck
+    SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckEpstein.lean:70 toy_count  axioms at the pin`s own AxiomCheck
+HasCompactSupport  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:85 hasCompactSupport_witness  axioms [propext, Classical.choice, Quot.sound]
+    SIDE-explicit-formula SIDEExplicitFormula/Schema/SaltCheckPlateauRamp.lean:47 window_even_compact_at_seven  axioms at the pin`s own AxiomCheck
+HasDerivAt  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:89 hasDerivAt_witness  axioms [propext, Classical.choice, Quot.sound]
+Integrable  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:91 integrable_witness  axioms [propext, Classical.choice, Quot.sound]
+IsExpansion  [EXISTING; b641 status OPEN]
+    SIDE-lv-conservation SIDELvConservation/SaltCheck_LeadLaw.lean:44 expansion_exists_of_palindromic  axioms at the pin`s own AxiomCheck
+    SIDE-lv-conservation SIDELvConservation/SaltCheck_LeadLaw.lean:54 expansion_at_zero  axioms at the pin`s own AxiomCheck
+IsOpen  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:93 isOpen_witness  axioms [propext, Classical.choice, Quot.sound]
+IsRoot  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:95 isRoot_witness  axioms [propext, Classical.choice, Quot.sound]
+IsTrivialPoint  [NEW; b641 status OPEN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:62 isTrivialPoint_parity  axioms [propext, Classical.choice, Quot.sound]
+Monotone  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:97 monotone_witness  axioms [propext, Classical.choice, Quot.sound]
+PWSetup  [DEGENERATE; b641 status DISCHARGED]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:36 pwSetup_zero  axioms [propext, Classical.choice, Quot.sound]
+    DEGENERATE: the zero base at L = 0, M = 1, every score 0; the structure is not empty, its consumers` bases are not witnessed
+PlattTrudgianHeight  [DEGENERATE; b641 status CITED]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:52 plattTrudgianHeight_neg_one  axioms [propext, Classical.choice, Quot.sound]
+    DEGENERATE: the height -1, an empty range; at plattTrudgianT (3 * 10^12) the premise stays CITED, not witnessed
+Prime  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:99 nat_prime_witness  axioms [propext, Classical.choice, Quot.sound]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:101 prime_witness  axioms [propext, Classical.choice, Quot.sound]
+StrictMono  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:103 strictMono_witness  axioms NO AXIOM
+SymPairBound  [NEW; b641 status DISCHARGED]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:56 symPairBound_witness  axioms [propext, Classical.choice, Quot.sound]
+Tendsto  [NEW; b641 status DOMAIN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:105 tendsto_witness  axioms [propext, Classical.choice, Quot.sound]
+WindowObligations  [NEW; b641 status OPEN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:70 windowObligations_witness  axioms [propext, Classical.choice, Quot.sound]
+ZetaSeam  [NEW; b641 status DISCHARGED]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:59 zetaSeam_witness  axioms [propext, Classical.choice, Quot.sound]
+farSmall  [DEGENERATE; b641 status OPEN]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:48 farSmall_zero  axioms [propext, Classical.choice, Quot.sound]
+    DEGENERATE: the zero base, both sides 0; Component 3`s hypothesis at a non-zero base is not witnessed
+zeroSideNeg  [NEW; b641 status DISCHARGED]
+    SIDE-explicit-formula SIDEExplicitFormula/SaltCheckNonvacuity.lean:45 zeroSideNeg_witness  axioms [propext, Classical.choice, Quot.sound]
+
+== UNWITNESSED (26)
+
+Alternates  [OTHER-KERNEL; b641 status DISCHARGED]
+    reason: declared in SIDE-global-section (Core/AlternationShadow.lean:33 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5); an in-kernel instance outside a Salt module, from b641`s bank: Core/SignTransferShadow.lean:134 flip_alternates, Core/SignTransferShadow.lean:145 transfer_nonvacuous
+BoundPremises  [CONTENT; b641 status OPEN]
+    reason: its fields are certified digit claims (Euler`s gamma to the table`s width, the Stieltjes constants 1 to 11, zeta at 2 to 12); a witness is their proof, and no compiled proof exists at v0.26 (B1-B3 named WITNESSED candidates by interval arithmetic at b641, not compiled)
+ConservationHypothesis  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-kernel (Bridge/ConservationBridge.lean:26 at 0256e9e); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+Dealigned  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-structural-error-correction (SIDEStructuralErrorCorrection/DeAlignment.lean:48 at 6bf19ab); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+DealignedAt  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-structural-error-correction (SIDEStructuralErrorCorrection/DeAlignment.lean:44 at 6bf19ab); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+IdempotentAdd  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-carrier-spec (SIDECarrierSpec/IdempotentNoGo.lean:29 at b3916cc); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+IsEvenFn  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-global-section (Core/FoldedMirrorShadow.lean:138 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+IsSign  [OTHER-KERNEL; b641 status DISCHARGED]
+    reason: declared in SIDE-global-section (Core/SignTransferShadow.lean:44 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5); an in-kernel instance outside a Salt module, from b641`s bank: Core/SignTransferShadow.lean:136 flip_is_sign
+IsSignedCompletion  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-carrier-spec (SIDECarrierSpec/IdempotentNoGo.lean:34 at b3916cc); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+KeiperObligations  [CONTENT; b641 status OPEN]
+    reason: three of its four fields are proved at b642 (binomialTransform_holds, logDerivSplit_holds, stieltjesLog_holds); the fourth, gammaZeta (GammaRZetaValues, obligation (O4)), has no compiled proof at v0.26
+NontrivialZeroExistsInStrip  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-lv-conservation (SIDELvConservation/RegisterPentagon.lean:312 at 2f71068); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+NotDiv  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-global-section (Core/FiniteSideSeal.lean:124 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+NymanBeurlingPremise  [CONTENT; b641 status CITED]
+    reason: its one field is NB <-> RiemannHypothesis, the classical equivalence, CITED; no proof of it is in the kernel or in Mathlib at de5ce8a9
+PerClassExcludes  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-lv-conservation (SIDELvConservation/T3_StepNineBridge.lean:52 at 2f71068); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+Proper  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-structural-error-correction (SIDEStructuralErrorCorrection/DeAlignment.lean:39 at 6bf19ab); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+Register4_channelInequality  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-lv-conservation (SIDELvConservation/RegisterPentagon.lean:158 at 2f71068); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+Register4_positivity  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-lv-conservation (SIDELvConservation/RegisterPentagon.lean:152 at 2f71068); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+SatisfiesCWeil  [OTHER-KERNEL; b641 status WITNESSED]
+    reason: declared in SIDE-global-section (Core/AggregationCircularityShadow.lean:116 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5); an in-kernel instance outside a Salt module, from b641`s bank: Core/AggregationCircularityShadow.lean:134 cweil_inhabited
+SelfDualFE  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-lv-conservation (SIDELvConservation/FieldLayer.lean:56 at 2f71068); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+StepsI  [OTHER-KERNEL; b641 status DISCHARGED]
+    reason: declared in SIDE-global-section (Core/LadderOrientationShadow.lean:88 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5); an in-kernel instance outside a Salt module, from b641`s bank: Core/LadderOrientationShadow.lean:190 ipow_stepsI
+StepsMI  [OTHER-KERNEL; b641 status DISCHARGED]
+    reason: declared in SIDE-global-section (Core/LadderOrientationShadow.lean:91 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5); an in-kernel instance outside a Salt module, from b641`s bank: Core/LadderOrientationShadow.lean:223 measured_stepsMI
+StructuralExhaustiveness  [OTHER-KERNEL; b641 status DISCHARGED]
+    reason: declared in SIDE-kernel (Bridge/TheBridgeComplete.lean:215 at 0256e9e); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5); an in-kernel instance outside a Salt module, from b641`s bank: Bridge/TheBridgeComplete.lean:249 structural_exhaustiveness_proved
+TrivialSummandPremise  [REFUTED; b641 status OPEN]
+    reason: refuted in the kernel at b642: Schema/FamilyPremises.lean not_trivialSummandPremise proves ¬ TrivialSummandPremise, so no witness exists; the restated TrivialSummandPremise` is witnessed (the added row)
+ZeroActingPairing  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-lv-conservation (SIDELvConservation/ZeroActingPairing.lean:41 at 2f71068); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 1 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+identity  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-global-section (Core/AggregationCircularityShadow.lean:78 at 17ce9ff); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+is_xi_zero  [OTHER-KERNEL; b641 status OPEN]
+    reason: declared in SIDE-kernel (Kernel/XiDef.lean:34 at 0256e9e); that kernel has no Salt module naming it at its pin (git grep over its files named *salt*: 0 files, 0 hits) and is not importable from SIDE-explicit-formula; no kernel but SIDE-explicit-formula is written this act ((R252) N5)
+
+== THE ADDED ROW (outside the 50)
+
+TrivialSummandPremise`  [ADDED] SIDEExplicitFormula/SaltCheckNonvacuity.lean:74 trivialSummandPremise'_witness'  axioms [propext, Classical.choice, Quot.sound]
+    the head this act adds ((R252)(3)(d)); outside the 50

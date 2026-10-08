@@ -1,0 +1,223 @@
+b642 -- DECLARATIONS OF THE PROVING ACT (ruling (R252)(2)-(3)), SIDE-explicit-formula branch v0.26-work
+base 8c51431 (v0.25); HEAD 82550e4ea4e032830bb06848b83c2be976035541; Lean v4.34.0-rc1, Mathlib de5ce8a9.
+Every #print axioms below is the compiler`s output, read from the run log named; wrapped prints joined. Nothing here deposits.
+
+== COMMITS ON v0.26-work (oldest first), each alone, its stat printed
+
+b7e44594182b9957532c6fc7efd360ae7edf0632 b642 (R252)(3)(a): SIDEExplicitFormula/KeiperIdentities.lean -- binomialTransform_holds, logDerivSplit_holds and stieltjesLog_holds, Keiper's obligations (O1)-(O3) proved at every index from the kernel's definitions; (O4) not here. Built by lake (89 s). Nothing here proves RH or any sign of any lambda_n.
+    SIDEExplicitFormula/KeiperIdentities.lean | 395 ++++++++++++++++++++++++++++++
+     1 file changed, 395 insertions(+)
+df8f1999ffd94b4b05d0bc9024dca7eb15d9814a b642 (R252)(3)(b): SIDEExplicitFormula/Schema/WindowProofs.lean -- convStep_holds (through Real.fourier_mul_convolution_eq at de5ce8a9 with the weight e^(-(Im z) u)) and smooth4_holds (the box average raising the order by one), WindowObligations and plateauRampWindow at every W and h. Built by lake (23 s). Nothing here is a statement about any zero.
+    SIDEExplicitFormula/Schema/WindowProofs.lean | 209 +++++++++++++++++++++++++++
+     1 file changed, 209 insertions(+)
+72522b529ab582922e3176955894f2d1ffb49c65 b642 (R252)(3)(c): SIDEExplicitFormula/Schema/FamilyPremises.lean -- not_trivialSummandPremise (the pole term 8 sinh(1/4) at the box of half-width 1/2, both prime sums vanishing, the Gamma terms agreeing), eulerFactorPremise_of_primitive and eulerFactorPremise_three, not_eulerFactorPremise_six (the point mass at log 2, the prime terms differing at n = 2). Built by lake. Nothing here proves RH or GRH or locates any zero.
+    SIDEExplicitFormula/Schema/FamilyPremises.lean | 269 +++++++++++++++++++++++++
+     1 file changed, 269 insertions(+)
+46eb4ea393abe4b7bb3ec03af574e0dc1bb30afa b642 (R252)(3)(d): Schema/Family.lean -- TrivialSummandPremise kept as it stands, its docstring naming its refutation (Family.not_trivialSummandPremise, Schema/FamilyPremises.lean) and the act, and the restated premise beside it (Dedekind.TrivialSummandPremise', Schema/DedekindRestated.lean); the definition unchanged. Rebuilt by lake (20 s).
+    SIDEExplicitFormula/Schema/Family.lean | 5 ++++-
+     1 file changed, 4 insertions(+), 1 deletion(-)
+f2bc00fe0d99efef008935b2e76269ee18f310a6 b642 (R252)(3)(d): Schema/DedekindRestated.lean, first stage -- TrivialSummandPremise' (the pole term carried as a term), trivialSummandPremise'_of_even and the witness trivialSummandPremise'_witness at the constant 1, built before dedekind_rhs is re-proved. Built by lake (with Dedekind and FamilyPremises, the cascade of the Family.lean docstring edit).
+    SIDEExplicitFormula/Schema/DedekindRestated.lean | 52 ++++++++++++++++++++++++
+     1 file changed, 52 insertions(+)
+d868e66e953171374d2a69a69e38aef4e104d044 b642 (R252)(3)(d): Schema/DedekindRestated.lean, second stage -- dedekind_rhs' re-proved on TrivialSummandPremise' and EulerFactorPremise q, each witnessed; dedekind_three re-checked by rfl (dedekind_three_v026). Built by lake (19 s).
+    SIDEExplicitFormula/Schema/DedekindRestated.lean | 18 ++++++++++++++++++
+     1 file changed, 18 insertions(+)
+719c40f3d2682214a43e5ae3431aa41b860a1da5 b642 (R252)(3)(d): Schema/Dedekind.lean -- the v0.25 dedekind_rhs kept, its docstring naming the refuted premise (Family.not_trivialSummandPremise) and the re-proof dedekind_rhs' on the restated premise; the statement unchanged, no deletion. Rebuilt by lake (18 s).
+    SIDEExplicitFormula/Schema/Dedekind.lean | 4 +++-
+     1 file changed, 3 insertions(+), 1 deletion(-)
+820021d4a24f21785138934df3b9a426bda196fa b642 (R252)(2): AxiomCheckKeiperIdentities.lean -- #print axioms for every declaration of the KeiperIdentities module
+    AxiomCheckKeiperIdentities.lean | 46 +++++++++++++++++++++++++++++++++++++++++
+     1 file changed, 46 insertions(+)
+8c8c7b1e5eb8446ed8c363b24b54c990e29e634a b642 (R252)(2): AxiomCheckWindowProofs.lean -- #print axioms for every declaration of the WindowProofs module
+    AxiomCheckWindowProofs.lean | 33 +++++++++++++++++++++++++++++++++
+     1 file changed, 33 insertions(+)
+926a3fb3f4ee0856be756e9de2eb711d79bda31b b642 (R252)(2): AxiomCheckFamilyPremises.lean -- #print axioms for every declaration of the FamilyPremises module
+    AxiomCheckFamilyPremises.lean | 32 ++++++++++++++++++++++++++++++++
+     1 file changed, 32 insertions(+)
+76bae0cd9bd76c1c5cfc2ff25b11b8ec9d5034c3 b642 (R252)(2): AxiomCheckDedekindRestated.lean -- #print axioms for every declaration of the DedekindRestated module
+    AxiomCheckDedekindRestated.lean | 22 ++++++++++++++++++++++
+     1 file changed, 22 insertions(+)
+e7adb714327868f092192f5df2d9af6fc21dbeeb b642 (R252)(3)(e): SIDEExplicitFormula/SaltCheckNonvacuity.lean -- 23 witnesses over the premise table's heads this kernel reaches (10 kernel heads, 13 library predicates carried as DOMAIN, and TrivialSummandPremise' the act adds); PWSetup, farSmall and PlattTrudgianHeight witnessed DEGENERATE and so marked. Built by lake (18 s). Nothing here proves RH or GRH or locates any zero.
+    SIDEExplicitFormula/SaltCheckNonvacuity.lean | 108 +++++++++++++++++++++++++++
+     1 file changed, 108 insertions(+)
+f4f6ef0f9f333f22d25ea6a5ff5ec605f3de9951 b642 (R252)(3)(e): AxiomCheckNonvacuity.lean -- #print axioms for every witness of SaltCheckNonvacuity
+    AxiomCheckNonvacuity.lean | 33 +++++++++++++++++++++++++++++++++
+     1 file changed, 33 insertions(+)
+82550e4ea4e032830bb06848b83c2be976035541 b642 (R252)(3)(f): Schema/PlateauRamp.lean :19-:20 -- the docstring states the pin's theorem's scope: Real.fourier_mul_convolution_eq, Mathlib/Analysis/Fourier/Convolution.lean :119 at de5ce8a9, integrable functions at real frequency (it said Schwartz functions only). W-ORD-PLATEAURAMP-DOCSTRING acted. Docstring only; no statement changed.
+    SIDEExplicitFormula/Schema/PlateauRamp.lean | 4 ++--
+     1 file changed, 2 insertions(+), 2 deletions(-)
+
+== MODULES: blob sha at the branch, sha256 of the working file, lines
+
+SIDEExplicitFormula/KeiperIdentities.lean  (3)(a)  blob 1f44a2b3f8746beb10855bd56e0d22c9f3a3f617  sha256 0f37047026fd40a23b3a0cf8383efb0cc47bc688d3e35df12317021dc6595146  lines 395
+SIDEExplicitFormula/Schema/WindowProofs.lean  (3)(b)  blob 74b9bc6dcc5874d54fc302792b8ef5d6f627028a  sha256 bcc79fa353205b930fc2291c637c25323f2a3bed63b132e44748c09755fe883c  lines 209
+SIDEExplicitFormula/Schema/FamilyPremises.lean  (3)(c)  blob ba721be5d04dfdfc568617656a21f85369757276  sha256 2cc79eca8c485dfcdb20aa5ef72404aae77b0b0d2377254c3871aeb52d330ce6  lines 269
+SIDEExplicitFormula/Schema/DedekindRestated.lean  (3)(d)  blob 3eb25954f2a376eed96e7df16a220f32aed89146  sha256 7b3e263d322218b704e99604b7793fe2d923ef94ecbd740faed1a6deeed730e5  lines 70
+SIDEExplicitFormula/Schema/Family.lean  (3)(d) docstring  blob 21c32b0c7c5c3435d32f6f07e28412c2c93b6bce  sha256 ab98499ac7193f649ae3d33eb732a4f3583f49f19db56ac7bf67eb7cdf15c020  lines 279
+SIDEExplicitFormula/Schema/Dedekind.lean  (3)(d) docstring  blob 9524087db2a12ecebd113c7a4b20e06235cd6f66  sha256 332d34489cef7912c3bbcf56e80305689b83105e5851e6794b6b8e480ba22219  lines 79
+
+== KeiperIdentities -- ruling (3)(a); AxiomCheckKeiperIdentities.lean, run log ax_KeiperIdentities.log
+
+### START 2026-10-08T18:57:47Z free 4489 MB pid 42092 cmd lake env lean D:\SIDE-explicit-formula\AxiomCheckKeiperIdentities.lean cwd D:\SIDE-explicit-formula
+### EXIT 0 2026-10-08T18:58:10Z 23 s peak 10 MB free 4453 MB
+prints 31; at exactly [propext, Classical.choice, Quot.sound]: 31; with no axiom: 0; other: 0; sorryAx in the log: False
+  SIDEExplicitFormula.Keiper.binomBeta: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomBeta_zero_zero: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomBeta_top: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomBeta_succ_zero: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.choose_key: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomBeta_succ_succ: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomSum_step_algebra: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.wInv: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.Lj: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomSum: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.differentiable_riemannXi: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.xiNe: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.isOpen_xiNe: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.one_mem_xiNe: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.differentiableOn_Lj: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.hasDerivAt_wInv: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.logDeriv_phi_xi: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.iterate_deriv_eventually: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.binomialTransform_holds: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.differentiableAt_Gammaℝ: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.riemannXi_eq_split: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.logDeriv_riemannXi_eventually: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.analyticAt_logDeriv: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.analyticAt_logDeriv_riemannZeta₁: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.analyticAt_logDeriv_Gammaℝ: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.logDerivSplit_holds: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.iteratedDeriv_sub_one: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.iteratedDeriv_succ_mul_sub_one: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.poleCoeff_eq: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Keiper.stieltjesLog_holds: [propext, Classical.choice, Quot.sound]
+-- #check (the statements, verbatim from the compiler):
+  SIDEExplicitFormula.Keiper.binomialTransform_holds : SIDEExplicitFormula.Keiper.BinomialTransform
+  SIDEExplicitFormula.Keiper.logDerivSplit_holds : SIDEExplicitFormula.Keiper.LogDerivSplit
+  SIDEExplicitFormula.Keiper.stieltjesLog_holds : SIDEExplicitFormula.Keiper.StieltjesLog
+
+== WindowProofs -- ruling (3)(b); AxiomCheckWindowProofs.lean, run log ax_WindowProofs.log
+
+### START 2026-10-08T18:58:13Z free 4472 MB pid 26544 cmd lake env lean D:\SIDE-explicit-formula\AxiomCheckWindowProofs.lean cwd D:\SIDE-explicit-formula
+### EXIT 0 2026-10-08T18:58:37Z 23 s peak 10 MB free 4417 MB
+prints 19; at exactly [propext, Classical.choice, Quot.sound]: 19; with no axiom: 0; other: 0; sorryAx in the log: False
+  SIDEExplicitFormula.Schema.PlateauRamp.box_integrable: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.nbox_integrable: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.window_integrable: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.nbox_of_nonpos: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.conv_nbox_eq: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.continuous_intAvg: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.contDiff_primitive: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.contDiff_intAvg: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.window_contDiff: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.smooth4_holds: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.expWt: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.continuous_expWt: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.expWt_add: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.integrable_weighted: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.paperFT_eq_fourier: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.conv_weighted: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.convStep_holds: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_holds: [propext, Classical.choice, Quot.sound]
+-- #check (the statements, verbatim from the compiler):
+  SIDEExplicitFormula.Schema.PlateauRamp.convStep_holds : ∀ (W h : ℝ), SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W h
+  SIDEExplicitFormula.Schema.PlateauRamp.smooth4_holds : ∀ (W h : ℝ), SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h
+  SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds : ∀ (W h : ℝ),
+    SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations W h
+
+== FamilyPremises -- ruling (3)(c); AxiomCheckFamilyPremises.lean, run log ax_FamilyPremises.log
+
+### START 2026-10-08T18:58:39Z free 4438 MB pid 34032 cmd lake env lean D:\SIDE-explicit-formula\AxiomCheckFamilyPremises.lean cwd D:\SIDE-explicit-formula
+### EXIT 0 2026-10-08T18:59:03Z 23 s peak 10 MB free 4209 MB
+prints 16; at exactly [propext, Classical.choice, Quot.sound]: 16; with no axiom: 0; other: 0; sorryAx in the log: False
+  SIDEExplicitFormula.Schema.Family.parity_one: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.one_apply_nat: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.archTerm_chi_one: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.log_nat_gt_half: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.poleTerm_box_half: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.primitiveCharacter_apply_nat: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.primitive_of_ne_one_three: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.eulerFactorPremise_three: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.pointLog2: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.paperFT_pointLog2: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.archTerm_chi_pointLog2: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.log_nat_eq_log_two: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.neg_log_nat_ne_log_two: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Family.not_eulerFactorPremise_six: [propext, Classical.choice, Quot.sound]
+-- #check (the statements, verbatim from the compiler):
+  SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise : ¬SIDEExplicitFormula.Schema.Family.TrivialSummandPremise
+  SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive : ∀ (q : ℕ) [inst : NeZero q],
+    (∀ (χ : DirichletCharacter ℂ q), χ ≠ 1 → χ.IsPrimitive) → SIDEExplicitFormula.Schema.Family.EulerFactorPremise q
+  SIDEExplicitFormula.Schema.Family.eulerFactorPremise_three : SIDEExplicitFormula.Schema.Family.EulerFactorPremise 3
+  SIDEExplicitFormula.Schema.Family.not_eulerFactorPremise_six : ¬SIDEExplicitFormula.Schema.Family.EulerFactorPremise 6
+
+== DedekindRestated -- ruling (3)(d); AxiomCheckDedekindRestated.lean, run log ax_DedekindRestated.log
+
+### START 2026-10-08T18:59:06Z free 4207 MB pid 12788 cmd lake env lean D:\SIDE-explicit-formula\AxiomCheckDedekindRestated.lean cwd D:\SIDE-explicit-formula
+### EXIT 0 2026-10-08T18:59:29Z 23 s peak 10 MB free 4540 MB
+prints 6; at exactly [propext, Classical.choice, Quot.sound]: 6; with no axiom: 0; other: 0; sorryAx in the log: False
+  SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise': [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_of_even: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_witness: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs': [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_three_v026: [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs: [propext, Classical.choice, Quot.sound]
+-- #check (the statements, verbatim from the compiler):
+  SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_witness : SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise'
+    fun x => 1
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' : ∀ (q : ℕ) [inst : NeZero q] (k : ℝ → ℂ),
+    SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' k →
+      SIDEExplicitFormula.Schema.Family.EulerFactorPremise q →
+        (SIDEExplicitFormula.Schema.Dedekind.DedekindConfig q).rhs k =
+          SIDEExplicitFormula.B321.poleTerm k +
+              (SIDEExplicitFormula.GRHWeil.archTerm_chi 1 k - SIDEExplicitFormula.GRHWeil.primeSum_chi 1 k) +
+            ∑ χ ∈ SIDEExplicitFormula.Schema.Family.family q,
+              (SIDEExplicitFormula.GRHWeil.archTerm_chi χ k - SIDEExplicitFormula.GRHWeil.primeSum_chi χ k)
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_three_v026 : SIDEExplicitFormula.Schema.Dedekind.DedekindTheorem 3 =
+    (SIDEExplicitFormula.Schema.h2_sign_cfg (SIDEExplicitFormula.Schema.Dedekind.DedekindConfig 3) ↔
+      SIDEExplicitFormula.Schema.zetaWeilConfig.target ∧
+        ∀ χ ∈ SIDEExplicitFormula.Schema.Family.family 3, SIDEExplicitFormula.GRHWeil.GRH_chi χ.primitiveCharacter)
+
+== TOTAL: 72 prints over the four modules; beyond the standard three or sorryAx: 0
+
+== WATCHDOG LOGS (build1.py, detached); the hold is 2,560 MB of free memory, read at the start
+
+ax_DedekindRestated.log: start free 4207 MB; lowest sampled free 2585 MB; EXIT 0 2026-10-08T18:59:29Z 23 s peak 10 MB free 4540 MB
+ax_FamilyPremises.log: start free 4438 MB; lowest sampled free 2164 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:59:03Z 23 s peak 10 MB free 4209 MB
+ax_KeiperIdentities.log: start free 4489 MB; lowest sampled free 2465 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:58:10Z 23 s peak 10 MB free 4453 MB
+ax_Nonvacuity.log: start free 5082 MB; lowest sampled free 2915 MB; EXIT 0 2026-10-08T19:08:22Z 21 s peak 10 MB free 5070 MB
+ax_WindowProofs.log: start free 4472 MB; lowest sampled free 2396 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:58:37Z 23 s peak 10 MB free 4417 MB
+build_dedekind_1.log: start free 4547 MB; lowest sampled free 2559 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:55:58Z 24 s peak 10 MB free 4609 MB
+    ✔ [3893/3893] Built SIDEExplicitFormula.Schema.Dedekind (18s)
+build_dedres_1.log: start free 4372 MB; lowest sampled free 1984 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:54:22Z 50 s peak 10 MB free 4568 MB
+    ✔ [3897/3899] Built SIDEExplicitFormula.Schema.Dedekind (22s)
+    ⚠ [3898/3899] Built SIDEExplicitFormula.Schema.FamilyPremises (24s)
+    ✔ [3899/3899] Built SIDEExplicitFormula.Schema.DedekindRestated (20s)
+build_dedres_2.log: start free 4540 MB; lowest sampled free 2530 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:55:12Z 24 s peak 10 MB free 4587 MB
+    ✔ [3899/3899] Built SIDEExplicitFormula.Schema.DedekindRestated (19s)
+build_dedres_3.log: start free 4424 MB; lowest sampled free 2414 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:56:32Z 24 s peak 10 MB free 4488 MB
+    ✔ [3899/3899] Built SIDEExplicitFormula.Schema.DedekindRestated (18s)
+build_family_1.log: start free 4096 MB; lowest sampled free 4096 MB; EXIT 0 2026-10-08T18:52:14Z 5 s peak 0 MB free 4099 MB
+build_family_2.log: start free 4356 MB; lowest sampled free 2309 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:53:01Z 26 s peak 10 MB free 4352 MB
+    ⚠ [3892/3892] Built SIDEExplicitFormula.Schema.Family (20s)
+build_fampre_1.log: start free 4582 MB; lowest sampled free 2495 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:51:47Z 34 s peak 10 MB free 4512 MB
+    ⚠ [3897/3897] Built SIDEExplicitFormula.Schema.FamilyPremises (24s)
+build_keiperid_1.log: start free 5496 MB; lowest sampled free 1795 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:47:32Z 197 s peak 10 MB free 4254 MB
+    ⚠ [3834/3834] Built SIDEExplicitFormula.KeiperIdentities (89s)
+build_nv_1.log: start free 4350 MB; lowest sampled free 2322 MB  CROSSING below the hold; EXIT 0 2026-10-08T19:07:43Z 24 s peak 10 MB free 4441 MB
+    ✔ [3976/3976] Built SIDEExplicitFormula.SaltCheckNonvacuity (18s)
+build_plateau_1.log: start free 4953 MB; lowest sampled free 2948 MB; EXIT 0 2026-10-08T19:14:09Z 24 s peak 10 MB free 4961 MB
+    ⚠ [3756/3756] Built SIDEExplicitFormula.Schema.PlateauRamp (19s)
+build_post_saltchecknonvacuity.log: start free 4333 MB; lowest sampled free 3995 MB; EXIT 0 2026-10-08T19:15:22Z 6 s peak 0 MB free 3995 MB
+build_post_schema_dedekindrestated.log: start free 4911 MB; lowest sampled free 4879 MB; EXIT 0 2026-10-08T19:14:58Z 5 s peak 0 MB free 4879 MB
+build_post_schema_familypremises.log: start free 4939 MB; lowest sampled free 4811 MB; EXIT 0 2026-10-08T19:14:46Z 5 s peak 0 MB free 4811 MB
+build_post_schema_saltcheckplateauramp.log: start free 4122 MB; lowest sampled free 4116 MB; EXIT 0 2026-10-08T19:15:33Z 5 s peak 0 MB free 4116 MB
+build_post_schema_windowproofs.log: start free 4926 MB; lowest sampled free 4752 MB; EXIT 0 2026-10-08T19:15:09Z 5 s peak 0 MB free 4752 MB
+build_window_1.log: start free 4499 MB; lowest sampled free 2505 MB  CROSSING below the hold; EXIT 0 2026-10-08T18:49:07Z 30 s peak 10 MB free 4516 MB
+    ℹ [3757/3757] Built SIDEExplicitFormula.Schema.WindowProofs (24s)
+build_window_2.log: start free 4621 MB; lowest sampled free 2693 MB; EXIT 0 2026-10-08T18:49:55Z 28 s peak 10 MB free 4648 MB
+    ✔ [3757/3757] Built SIDEExplicitFormula.Schema.WindowProofs (23s)

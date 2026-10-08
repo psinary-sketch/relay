@@ -1,0 +1,26 @@
+b642 -- THE MERGE OF v0.26-work INTO SIDE-explicit-formula main AND THE TAG v0.26, READ BACK (2026-10-08T20:12:11Z)
+
+### step-zero face: main 8c51431
+### main 82550e4ea4e0 ; v0.26-work 82550e4ea4e0 ; v0.26 peeled 82550e4ea4e0
+### the push capture (data/b642_kernel_push_out.txt): main read back 82550e4ea4e0 ; tag v0.26 made at 82550e4ea4e0 ; peel at the remote 82550e4ea4e0
+### main`s reflog, newest first: 82550e4ea4e032830bb06848b83c2be976035541 merge v0.26-work: Fast-forward | 8c51431ada7798c65fa26b07ef99a447d7c15735 merge 8c51431: Fast-forward | aa17442f98ccdff33c50447c5de044861dfc9bae merge aa17442: Fast-forward | 98b7668d1989f1681bc842fd0a6fef5d719df923 merge cite-b628: Fast-forward
+### the merge is a fast-forward: True
+### the closure build: NOT RUN -- the merge is a fast-forward to the branch tip, each of whose modules was built at its commit, one module per call (data/b642_declarations.txt`s watchdog logs); a closure build is a serial module list or not run (:13067)
+
+### THE BRANCH`S COMMITS, EACH ALONE:
+    b7e4459  b642 (R252)(3)(a): SIDEExplicitFormula/KeiperIdentities.lean -- binomialTransform_holds, logDerivSplit_holds a  [SIDEExplicitFormula/KeiperIdentities.lean]
+    df8f199  b642 (R252)(3)(b): SIDEExplicitFormula/Schema/WindowProofs.lean -- convStep_holds (through Real.fourier_mul_co  [SIDEExplicitFormula/Schema/WindowProofs.lean]
+    72522b5  b642 (R252)(3)(c): SIDEExplicitFormula/Schema/FamilyPremises.lean -- not_trivialSummandPremise (the pole term   [SIDEExplicitFormula/Schema/FamilyPremises.lean]
+    46eb4ea  b642 (R252)(3)(d): Schema/Family.lean -- TrivialSummandPremise kept as it stands, its docstring naming its ref  [SIDEExplicitFormula/Schema/Family.lean]
+    f2bc00f  b642 (R252)(3)(d): Schema/DedekindRestated.lean, first stage -- TrivialSummandPremise' (the pole term carried   [SIDEExplicitFormula/Schema/DedekindRestated.lean]
+    d868e66  b642 (R252)(3)(d): Schema/DedekindRestated.lean, second stage -- dedekind_rhs' re-proved on TrivialSummandPrem  [SIDEExplicitFormula/Schema/DedekindRestated.lean]
+    719c40f  b642 (R252)(3)(d): Schema/Dedekind.lean -- the v0.25 dedekind_rhs kept, its docstring naming the refuted premi  [SIDEExplicitFormula/Schema/Dedekind.lean]
+    820021d  b642 (R252)(2): AxiomCheckKeiperIdentities.lean -- #print axioms for every declaration of the KeiperIdentities  [AxiomCheckKeiperIdentities.lean]
+    8c8c7b1  b642 (R252)(2): AxiomCheckWindowProofs.lean -- #print axioms for every declaration of the WindowProofs module  [AxiomCheckWindowProofs.lean]
+    926a3fb  b642 (R252)(2): AxiomCheckFamilyPremises.lean -- #print axioms for every declaration of the FamilyPremises mod  [AxiomCheckFamilyPremises.lean]
+    76bae0c  b642 (R252)(2): AxiomCheckDedekindRestated.lean -- #print axioms for every declaration of the DedekindRestated  [AxiomCheckDedekindRestated.lean]
+    e7adb71  b642 (R252)(3)(e): SIDEExplicitFormula/SaltCheckNonvacuity.lean -- 23 witnesses over the premise table's heads  [SIDEExplicitFormula/SaltCheckNonvacuity.lean]
+    f4f6ef0  b642 (R252)(3)(e): AxiomCheckNonvacuity.lean -- #print axioms for every witness of SaltCheckNonvacuity  [AxiomCheckNonvacuity.lean]
+    82550e4  b642 (R252)(3)(f): Schema/PlateauRamp.lean :19-:20 -- the docstring states the pin's theorem's scope: Real.fou  [SIDEExplicitFormula/Schema/PlateauRamp.lean]
+
+### ### **MAIN = v0.26-work = v0.26 = THE REMOTE`S MAIN = THE REMOTE`S PEEL : True.**

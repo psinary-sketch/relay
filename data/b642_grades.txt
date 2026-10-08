@@ -1,0 +1,454 @@
+b642 -- THE GRADES AT THE ELABORATED READER (ruling (R252)(3), Component 5), SIDE-explicit-formula v0.26-work 82550e4
+
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise
+### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.
+### (R234)(2), b624: the grade is read from the statement`s binders alone -- a hypothesis the proof introduces (by induction,
+### by cases, by a match arm, by intro inside the proof term) is no binder of the statement (statement_only cuts a header where
+### a proof begins inside it); a non-membership (∉) is a domain condition as a membership is; a theorem one of whose explicit
+### hypothesis binders has the conclusion itself as its type, its bound variables abstracted, reads ENCODES-CONCLUSION.
+### (R235)(2), b625, THE DOMAIN-CONDITION CRITERION: a binder is a domain condition, and does not enter the grade, when it is
+### (i) an instance binder whose class is not Fact; (ii) a membership, non-membership, non-emptiness or finiteness condition on
+### an object the statement names; (iii) a restriction on a variable the same statement quantifies universally (support,
+### parity, smoothness, continuity, integrability; a real`s positivity; a natural`s bound). A binder is a premise when it asserts
+### a Prop about a fixed object the kernel names and does not derive (a structure of premises, an EF_lit_* hypothesis, a Fact
+### instance, a Summable or HasSum of the kernel`s own series). Read here: a Fact instance a premise (INSTANCE); non-emptiness
+### and finiteness in DOMAIN; continuity, integrability and the support inclusion beside CLASS_PREDS, on a variable the
+### statement binds and its conclusion mentions; the named restrictions the seat read at their pins (RESTRICTIONS) on such
+### variables alone; a
+### bounded quantifier`s range (∀ x ∈ S,) no condition on a named object, its body read in its place (strip_range).
+### (R236)(2), b626: (i) SEAM ANTECEDENTS -- a Prop that is the antecedent of a top-level implication in the conclusion is
+### read as a binder when it is itself a named implication between open statements, a SEAMS entry (seam_antecedents), the
+### author`s answer before b626`s seal narrowing the ruled reading of every antecedent; a plain A -> B keeps DERIVES;
+### (ii) DATA BINDERS -- a binder whose type is not a Prop (a function, a real, a natural, a character) is an object of the
+### statement and not a hypothesis whatever its name (data_binder). (R236)(3): each named restriction names the quantified
+### variable it restricts; an entry that cannot is struck.
+### (R243)(2), b633: Alt2 and Alternates enter the named restrictions, each with the variable it restricts; and a named predicate
+### on the statement`s quantified variables that the rule neither lists nor has met (MET) reads PREDICATE-UNLISTED, not INTERFACES.
+### (R247)(3)-(4), b637, THE BINDER GRAMMAR: a binder`s name is no part of its reading. Every binder of a statement (the header`s groups,
+### the conclusion`s leading telescope, the antecedents of its implication, the binders of an existential in it) is classed by its
+### kind, its typing (a Prop or data, read from its type) and its Prop`s form (CLASSES, 26); the grade follows the classes` outcomes;
+### a binder that reaches no class raises BinderUnclassed and is printed as a bug, never graded.
+
+== KeiperIdentities (SIDEExplicitFormula.KeiperIdentities), 31 names; EXIT 0 2026-10-08T19:19:48Z 136 s peak 10 MB free 4345 MB
+   START 2026-10-08T19:17:31Z free 4019 MB pid 44012 cmd lake env lean C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\
+
+DEF  def  SIDEExplicitFormula.Keiper.binomBeta
+    statement: (n : ℕ) (j : ℕ) : ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.binomBeta_zero_zero
+    statement: : binomBeta 0 0 = 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.binomBeta_top
+    statement: (n : ℕ) : binomBeta n (n + 1) = 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.binomBeta_succ_zero
+    statement: (n : ℕ) : binomBeta (n + 1) 0 = ↑(n + 2) * binomBeta n 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.choose_key
+    statement: (n : ℕ) (j : ℕ) : (n + 1) * (n + 2).choose (j + 2) = (n + j + 3) * (n + 1).choose (j + 2) + (j + 1) * (n + 1).choose (j + 1)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.binomBeta_succ_succ
+    statement: (n : ℕ) (j : ℕ) : binomBeta (n + 1) (j + 1) = ↑(n + j + 3) * binomBeta n (j + 1) + binomBeta n j
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.binomSum_step_algebra
+    statement: (n : ℕ) (w : ℂ) (Lv : ℕ → ℂ) : ∑ j ∈ Finset.range (n + 1), binomBeta n j * (↑(n + j + 2) * w ^ (n + j + 1) * w ^ 2 * Lv j + w ^ (n + j + 2) * (Lv (j + 1) * w ^ 2)) = ∑ j ∈ Finset.range (n + 1 + 1), binomBeta (n + 1) j * (w ^ (n + 1 + j + 2) * Lv j)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Keiper.wInv
+    statement: (z : ℂ) : ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Keiper.Lj
+    statement: (j : ℕ) : ℂ → ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Keiper.binomSum
+    statement: (n : ℕ) (z : ℂ) : ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.differentiable_riemannXi
+    statement: : Differentiable ℂ LiCriterion.riemannXi
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Keiper.xiNe
+    statement: : Set ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.isOpen_xiNe
+    statement: : IsOpen xiNe
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.one_mem_xiNe
+    statement: : 1 ∈ xiNe
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.differentiableOn_Lj
+    statement: (j : ℕ) : DifferentiableOn ℂ (Lj j) xiNe
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.hasDerivAt_wInv
+    statement: {z : ℂ} (hz : z ≠ 1) : HasDerivAt wInv (wInv z ^ 2) z
+    why: domain conditions only: hz : z ≠ 1
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.logDeriv_phi_xi
+    statement: {z : ℂ} (hz : z ≠ 1) : LiCriterion.logDeriv (LiCriterion.phi LiCriterion.riemannXi) z = wInv z ^ 2 * Lj 0 (wInv z)
+    why: domain conditions only: hz : z ≠ 1
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.iterate_deriv_eventually
+    statement: (n : ℕ) : deriv^[n] (LiCriterion.logDeriv (LiCriterion.phi LiCriterion.riemannXi)) =ᶠ[nhds 0] binomSum n
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.binomialTransform_holds
+    statement: : BinomialTransform
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.differentiableAt_Gammaℝ
+    statement: {s : ℂ} (hs : 0 < s.re) : DifferentiableAt ℂ Complex.Gammaℝ s
+    why: domain conditions only: hs : 0 < s.re
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.riemannXi_eq_split
+    statement: {s : ℂ} (hs : 0 < s.re) : LiCriterion.riemannXi s = 1 / 2 * s * riemannZeta₁ s * s.Gammaℝ
+    why: domain conditions only: hs : 0 < s.re
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.logDeriv_riemannXi_eventually
+    statement: : logDeriv LiCriterion.riemannXi =ᶠ[nhds 1] fun s => s⁻¹ + logDeriv riemannZeta₁ s + logDeriv Complex.Gammaℝ s
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+INTERFACES  theorem  SIDEExplicitFormula.Keiper.analyticAt_logDeriv
+    statement: {f : ℂ → ℂ} {x : ℂ} {U : Set ℂ} (hU : IsOpen U) (hx : x ∈ U) (hf : DifferentiableOn ℂ f U) (hfx : f x ≠ 0) : AnalyticAt ℂ (logDeriv f) x
+    why: hU : IsOpen U, hf : DifferentiableOn ℂ f U
+    axioms: [propext, Classical.choice, Quot.sound]
+    note: (R180)(2)(f) as written: IsOpen U and DifferentiableOn ℂ f U restrict U, which the conclusion does not mention, so they read as premises; a general lemma whose hypotheses its caller discharges (logDerivSplit_holds is DERIVES).
+DERIVES  theorem  SIDEExplicitFormula.Keiper.analyticAt_logDeriv_riemannZeta₁
+    statement: : AnalyticAt ℂ (logDeriv riemannZeta₁) 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.analyticAt_logDeriv_Gammaℝ
+    statement: : AnalyticAt ℂ (logDeriv Complex.Gammaℝ) 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.logDerivSplit_holds
+    statement: : LogDerivSplit
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+INTERFACES  theorem  SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀
+    statement: {n : WithTop ℕ∞} : ContDiff ℂ n riemannZeta₀
+    why: n : WithTop ℕ∞
+    axioms: [propext, Classical.choice, Quot.sound]
+    note: INSTRUMENT MISREADING, NOT REGRADED: the binder n : WithTop ℕ∞ is data (the smoothness order); e0_rule.typing has no lexicon entry for WithTop and reads it as an unlexed named predicate (typing prop, class B17, outcome premise). The shared rule is not edited at b642.
+DERIVES  theorem  SIDEExplicitFormula.Keiper.iteratedDeriv_sub_one
+    statement: (j : ℕ) : (iteratedDeriv (j + 2) fun s => s - 1) = fun x => 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.iteratedDeriv_succ_mul_sub_one
+    statement: (g : ℂ → ℂ) (hg : Differentiable ℂ g) (i : ℕ) : iteratedDeriv (i + 1) (fun s => (s - 1) * g s) 1 = ↑(i + 1) * iteratedDeriv i g 1
+    why: domain conditions only: hg : Differentiable ℂ g
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.poleCoeff_eq
+    statement: (i : ℕ) : poleCoeff i = iteratedDeriv i riemannZeta₁ 1 / ↑i.factorial
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Keiper.stieltjesLog_holds
+    statement: : StieltjesLog
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+
+== WindowProofs (SIDEExplicitFormula.Schema.WindowProofs), 19 names; EXIT 0 2026-10-08T19:20:19Z 27 s peak 10 MB free 4407 MB
+   START 2026-10-08T19:19:51Z free 4381 MB pid 40708 cmd lake env lean C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\
+
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.box_integrable
+    statement: (a : ℝ) : MeasureTheory.Integrable (box a) MeasureTheory.volume
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.nbox_integrable
+    statement: (h : ℝ) : MeasureTheory.Integrable (nbox h) MeasureTheory.volume
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.window_integrable
+    statement: (W : ℝ) (h : ℝ) (p : ℕ) : MeasureTheory.Integrable (window W h p) MeasureTheory.volume
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.nbox_of_nonpos
+    statement: {h : ℝ} (hh : h ≤ 0) : nbox h = 0
+    why: domain conditions only: hh : h ≤ 0
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.conv_nbox_eq
+    statement: (f : ℝ → ℝ) {h : ℝ} (hh : 0 < h) (x : ℝ) : conv f (nbox h) x = h⁻¹ * ∫ (s : ℝ) in x - h / 2..x + h / 2, f s
+    why: domain conditions only: hh : 0 < h
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.continuous_intAvg
+    statement: {f : ℝ → ℝ} (hf : MeasureTheory.Integrable f MeasureTheory.volume) (c : ℝ) : Continuous fun x => ∫ (s : ℝ) in x - c..x + c, f s
+    why: domain conditions only: hf : MeasureTheory.Integrable f MeasureTheory.volume
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.contDiff_primitive
+    statement: {f : ℝ → ℝ} {n : ℕ} (hf : ContDiff ℝ (↑n) f) : ContDiff ℝ ↑(n + 1) fun y => ∫ (s : ℝ) in 0..y, f s
+    why: domain conditions only: hf : ContDiff ℝ (↑n) f
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.contDiff_intAvg
+    statement: {f : ℝ → ℝ} {n : ℕ} (hf : ContDiff ℝ (↑n) f) (c : ℝ) : ContDiff ℝ ↑(n + 1) fun x => ∫ (s : ℝ) in x - c..x + c, f s
+    why: domain conditions only: hf : ContDiff ℝ (↑n) f
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.window_contDiff
+    statement: (W : ℝ) {h : ℝ} (hh : 0 < h) (p : ℕ) : ContDiff ℝ (↑p) (window W h (p + 1))
+    why: domain conditions only: hh : 0 < h
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.smooth4_holds
+    statement: (W : ℝ) (h : ℝ) : Smooth4 W h
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Schema.PlateauRamp.expWt
+    statement: (b : ℝ) (u : ℝ) : ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.continuous_expWt
+    statement: (b : ℝ) : Continuous (expWt b)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.expWt_add
+    statement: (b : ℝ) (t : ℝ) (s : ℝ) : expWt b (t + s) = expWt b t * expWt b s
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.integrable_weighted
+    statement: {f : ℝ → ℝ} (hf : MeasureTheory.Integrable f MeasureTheory.volume) (hc : HasCompactSupport f) {e : ℝ → ℂ} (he : Continuous e) : MeasureTheory.Integrable (fun u => ↑(f u) * e u) MeasureTheory.volume
+    why: domain conditions only: hf : MeasureTheory.Integrable f MeasureTheory.volume, hc : HasCompactSupport f, he : Continuous e
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.paperFT_eq_fourier
+    statement: (F : ℝ → ℝ) (z : ℂ) : Zeta23.paperFT (B321.phiC F) z = FourierTransform.fourier (fun u => ↑(F u) * expWt z.im u) (-z.re / (2 * Real.pi))
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.conv_weighted
+    statement: (f : ℝ → ℝ) (g : ℝ → ℝ) (b : ℝ) (u : ℝ) : ↑(conv f g u) * expWt b u = MeasureTheory.convolution (fun t => ↑(f t) * expWt b t) (fun t => ↑(g t) * expWt b t) (ContinuousLinearMap.mul ℂ ℂ) MeasureTheory.volume u
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.convStep_holds
+    statement: (W : ℝ) (h : ℝ) : ConvStep W h
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds
+    statement: (W : ℝ) (h : ℝ) : WindowObligations W h
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_holds
+    statement: {W : ℝ} {h : ℝ} (hW : 0 ≤ W) (hh : 0 < h) : PlateauRampWindow W h
+    why: domain conditions only: hW : 0 ≤ W, hh : 0 < h
+    axioms: [propext, Classical.choice, Quot.sound]
+
+== FamilyPremises (SIDEExplicitFormula.Schema.FamilyPremises), 17 names; EXIT 0 2026-10-08T19:20:48Z 25 s peak 10 MB free 4448 MB
+   START 2026-10-08T19:20:23Z free 4483 MB pid 20340 cmd lake env lean C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\
+
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.parity_one
+    statement: : GRHWeil.parity 1 = 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.one_apply_nat
+    statement: (n : ℕ) : 1 ↑n = 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.archTerm_chi_one
+    statement: (k : ℝ → ℂ) : GRHWeil.archTerm_chi 1 k = B321.archTerm k
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.log_nat_gt_half
+    statement: {n : ℕ} (hn : 2 ≤ n) : 1 / 2 < Real.log ↑n
+    why: domain conditions only: hn : 2 ≤ n
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.poleTerm_box_half
+    statement: : B321.poleTerm (B321.phiC (PlateauRamp.box (1 / 2))) = 8 * ↑(Real.sinh (1 / 4))
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise
+    statement: : ¬TrivialSummandPremise
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.primitiveCharacter_apply_nat
+    statement: {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) (n : ℕ) : χ.primitiveCharacter ↑n = χ ↑n
+    why: domain conditions only: hχ : χ.IsPrimitive
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive
+    statement: (q : ℕ) [NeZero q] (h : ∀ (χ : DirichletCharacter ℂ q), χ ≠ 1 → χ.IsPrimitive) : EulerFactorPremise q
+    why: domain conditions only: h : ∀ (χ : DirichletCharacter ℂ q), χ ≠ 1 → χ.IsPrimitive
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.primitive_of_ne_one_three
+    statement: (χ : DirichletCharacter ℂ 3) (hχ : χ ≠ 1) : χ.IsPrimitive
+    why: domain conditions only: hχ : χ ≠ 1
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.eulerFactorPremise_three
+    statement: : EulerFactorPremise 3
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Schema.Family.pointLog2
+    statement: (x : ℝ) : ℂ
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.paperFT_pointLog2
+    statement: (z : ℂ) : Zeta23.paperFT pointLog2 z = 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.archTerm_chi_pointLog2
+    statement: {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) : GRHWeil.archTerm_chi χ pointLog2 = 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.log_nat_eq_log_two
+    statement: {n : ℕ} (h : Real.log ↑n = Real.log 2) : n = 2
+    why: domain conditions only: h : Real.log ↑n = Real.log 2
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.neg_log_nat_ne_log_two
+    statement: (n : ℕ) : -Real.log ↑n ≠ Real.log 2
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Family.not_eulerFactorPremise_six
+    statement: : ¬EulerFactorPremise 6
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DEF  def  SIDEExplicitFormula.Schema.Family.TrivialSummandPremise  [CHANGED: docstring only]
+    statement: : Prop
+    why: -
+    axioms: not printed
+
+== DedekindRestated (SIDEExplicitFormula.Schema.DedekindRestated), 6 names; EXIT 0 2026-10-08T19:21:14Z 24 s peak 10 MB free 4256 MB
+   START 2026-10-08T19:20:50Z free 4447 MB pid 37392 cmd lake env lean C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\
+
+DEF  def  SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise'
+    statement: (k : ℝ → ℂ) : Prop
+    why: -
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_of_even
+    statement: (k : ℝ → ℂ) (he : ∀ (x : ℝ), k (-x) = k x) : TrivialSummandPremise' k
+    why: domain conditions only: he : ∀ (x : ℝ), k (-x) = k x
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_witness
+    statement: : TrivialSummandPremise' fun x => 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+PREDICATE-UNLISTED  theorem  SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs'
+    statement: (q : ℕ) [NeZero q] (k : ℝ → ℂ) (hT : TrivialSummandPremise' k) (hE : Family.EulerFactorPremise q) : (DedekindConfig q).rhs k = B321.poleTerm k + (GRHWeil.archTerm_chi 1 k - GRHWeil.primeSum_chi 1 k) + ∑ χ ∈ Family.family q, (GRHWeil.archTerm_chi χ k - GRHWeil.primeSum_chi χ k)
+    why: hT : TrivialSummandPremise' k
+    axioms: [propext, Classical.choice, Quot.sound]
+    note: (R243)(2): TrivialSummandPremise` is a predicate the rule meets for the first time; it is printed, not graded INTERFACES. Both premises it takes are witnessed (trivialSummandPremise`_witness at the constant 1; eulerFactorPremise_three at q = 3).
+DERIVES  theorem  SIDEExplicitFormula.Schema.Dedekind.dedekind_three_v026
+    statement: : DedekindTheorem 3 = (h2_sign_cfg (DedekindConfig 3) ↔ zetaWeilConfig.target ∧ ∀ χ ∈ Family.family 3, GRHWeil.GRH_chi χ.primitiveCharacter)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+INTERFACES  theorem  SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs  [CHANGED: docstring only]
+    statement: (q : ℕ) [NeZero q] (hT : Family.TrivialSummandPremise) (hE : Family.EulerFactorPremise q) (k : ℝ → ℂ) : (DedekindConfig q).rhs k = GRHWeil.archTerm_chi 1 k - GRHWeil.primeSum_chi 1 k + ∑ χ ∈ Family.family q, (GRHWeil.archTerm_chi χ k - GRHWeil.primeSum_chi χ k)
+    why: hT : Family.TrivialSummandPremise, hE : Family.EulerFactorPremise q
+    axioms: [propext, Classical.choice, Quot.sound]
+
+== Nonvacuity (SIDEExplicitFormula.SaltCheckNonvacuity), 23 names; EXIT 0 2026-10-08T19:21:41Z 24 s peak 10 MB free 4306 MB
+   START 2026-10-08T19:21:17Z free 4271 MB pid 7860 cmd lake env lean C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\e
+
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.pwSetup_zero
+    statement: : B321.PWSetup Zeta23.zetaZeroConfig (fun x => 0) 0 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.zeroSideNeg_witness
+    statement: : B321.zeroSideNeg
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.farSmall_zero
+    statement: (γ₀ : ℝ) (δ : ℝ) (ε : ℝ) : B321.farSmall γ₀ (fun x => 0) δ ε
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.plattTrudgianHeight_neg_one
+    statement: : PlattRung.PlattTrudgianHeight (-1)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.symPairBound_witness
+    statement: (n : ℕ) : LiWeil.SymPairBound n
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.zetaSeam_witness
+    statement: : Zeta23.ZetaSeam
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.isTrivialPoint_parity
+    statement: {N : ℕ} (χ : DirichletCharacter ℂ N) : GRHWeil.IsTrivialPoint χ (-↑(2 * 0 + GRHWeil.parity χ))
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.eulerFactorPremise_witness
+    statement: : Schema.Family.EulerFactorPremise 3
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.windowObligations_witness
+    statement: (W : ℝ) (h : ℝ) : Schema.PlateauRamp.WindowObligations W h
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness'
+    statement: : Schema.Dedekind.TrivialSummandPremise' fun x => 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.analyticOnNhd_witness
+    statement: : AnalyticOnNhd ℂ (fun z => z) Set.univ
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.continuous_witness
+    statement: : Continuous fun x => x
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.eqOn_witness
+    statement: : Set.EqOn (fun x => x + 0) (fun x => x) Set.univ
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.hasCompactSupport_witness
+    statement: : HasCompactSupport (Schema.PlateauRamp.box 1)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.hasDerivAt_witness
+    statement: : HasDerivAt (fun x => x) 1 0
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.integrable_witness
+    statement: : MeasureTheory.Integrable (Schema.PlateauRamp.box 1) MeasureTheory.volume
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.isOpen_witness
+    statement: : IsOpen (Set.Ioi 0)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.isRoot_witness
+    statement: : (Polynomial.X - Polynomial.C 1).IsRoot 1
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.monotone_witness
+    statement: : Monotone fun x => x
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.nat_prime_witness
+    statement: : Nat.Prime 2
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.prime_witness
+    statement: : Prime 2
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.strictMono_witness
+    statement: : StrictMono fun n => n
+    why: no hypothesis binder
+    axioms: NO AXIOM
+DERIVES  theorem  SIDEExplicitFormula.SaltCheckNonvacuity.tendsto_witness
+    statement: : Filter.Tendsto (fun n => 1 / ↑n) Filter.atTop (nhds 0)
+    why: no hypothesis binder
+    axioms: [propext, Classical.choice, Quot.sound]
+
+== COUNTS: 96 declarations read; DEF 9 ; DERIVES 83 ; INTERFACES 3 ; PREDICATE-UNLISTED 1
+   KeiperIdentities   DEF 5 ; DERIVES 24 ; INTERFACES 2
+   WindowProofs       DEF 1 ; DERIVES 18
+   FamilyPremises     DEF 2 ; DERIVES 15
+   DedekindRestated   DEF 1 ; DERIVES 3 ; INTERFACES 1 ; PREDICATE-UNLISTED 1
+   Nonvacuity         DERIVES 23
+   theorems 87 ; at the standard three or no axiom 87
