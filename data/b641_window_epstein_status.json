@@ -1,0 +1,42 @@
+{
+ "at": "2026-10-08T17:12:57Z",
+ "obligations": [
+  {
+   "key": "W1",
+   "head": "WindowObligations",
+   "field": "conv_step : ConvStep W h",
+   "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+   "line": 182,
+   "status": "OPEN",
+   "reason": "No compiled proof; Mathlib`s integrable-function convolution theorem at the pin covers real frequencies, not the complex z the field quantifies.",
+   "discharger": "a kernel theorem convStep_holds : ConvStep W h, from Real.fourier_mul_convolution_eq applied to the windows weighted by exp(-Im z u) (an exponential weight passes through a convolution), or by Fubini directly",
+   "candidate": "theorem convStep_holds (W h : Real) : SIDEExplicitFormula.Schema.PlateauRamp.ConvStep W h"
+  },
+  {
+   "key": "W2",
+   "head": "WindowObligations",
+   "field": "smooth : Smooth4 W h",
+   "file": "SIDEExplicitFormula/Schema/PlateauRamp.lean",
+   "line": 183,
+   "status": "OPEN",
+   "reason": "No compiled proof and no Mathlib lemma at the pin gives the order raised by a box convolution.",
+   "discharger": "a kernel theorem smooth4_holds : Smooth4 W h, by induction on p through intervalIntegral.integral_hasDerivAt_right",
+   "candidate": "theorem smooth4_holds (W h : Real) : SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 W h"
+  },
+  {
+   "key": "E1",
+   "head": "EpsteinPremises",
+   "field": "count : exists A0, HCount Z A0",
+   "file": "SIDEExplicitFormula/Schema/Epstein.lean",
+   "line": 44,
+   "status": "OPEN",
+   "reason": "The count is a hypothesis about an abstract configuration with no construction of Z_Q`s zeros to prove it of and no matched citation.",
+   "discharger": "a local zero count for Z_Q`s zeros: a kernel theorem once Z_Q`s zero configuration is built, or a Riemann-von Mangoldt count for Epstein zeta functions of binary forms at a named reference with its statement matched (none read here)",
+   "candidate": "theorem epstein_count_holds : exists A0 : Real, SIDEExplicitFormula.B321.HCount ZQ A0  -- ZQ, the zero configuration of x^2 + xy + 6y^2`s Epstein zeta function, not yet constructed"
+  }
+ ],
+ "counts": {
+  "OPEN": 3
+ },
+ "without": []
+}

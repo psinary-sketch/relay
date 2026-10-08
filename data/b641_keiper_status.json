@@ -1,0 +1,86 @@
+{
+ "at": "2026-10-08T16:32:44Z",
+ "obligations": [
+  {
+   "key": "K1",
+   "head": "KeiperObligations",
+   "field": "binomial : BinomialTransform",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 127,
+   "status": "OPEN",
+   "reason": "No compiled proof and no matched citation: the identity holds only at n = 0 in the kernel (binomialTransform_zero).",
+   "discharger": "a kernel theorem binomialTransform_holds : BinomialTransform, by the composition of Taylor series at 0 under z -> 1/(1 - z), logDeriv (phi riemannXi) analytic at 0 since riemannXi 1 = 1/2 is not zero",
+   "candidate": "theorem binomialTransform_holds : SIDEExplicitFormula.Keiper.BinomialTransform"
+  },
+  {
+   "key": "K2",
+   "head": "KeiperObligations",
+   "field": "split : LogDerivSplit",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 128,
+   "status": "OPEN",
+   "reason": "No compiled proof: the split is proved at its first coefficient only (logDerivSplit_zero).",
+   "discharger": "a kernel theorem logDerivSplit_holds : LogDerivSplit, by Mathlib`s logDeriv_mul on a neighbourhood of 1 where s, riemannZeta1 s and GammaR s are nonzero, and the Taylor coefficients of 1/s at 1",
+   "candidate": "theorem logDerivSplit_holds : SIDEExplicitFormula.Keiper.LogDerivSplit"
+  },
+  {
+   "key": "K3",
+   "head": "KeiperObligations",
+   "field": "stieltjesLog : StieltjesLog",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 129,
+   "status": "OPEN",
+   "reason": "No compiled proof: the power-series logarithm is proved at its first coefficient only (stieltjesLog_zero).",
+   "discharger": "a kernel theorem stieltjesLog_holds : StieltjesLog, by Leibniz`s rule on riemannZeta1 * logDeriv riemannZeta1 = deriv riemannZeta1 near 1 and the identification of poleCoeff as riemannZeta1`s Taylor coefficients",
+   "candidate": "theorem stieltjesLog_holds : SIDEExplicitFormula.Keiper.StieltjesLog"
+  },
+  {
+   "key": "K4",
+   "head": "KeiperObligations",
+   "field": "gammaZeta : GammaRZetaValues",
+   "file": "SIDEExplicitFormula/Keiper.lean",
+   "line": 130,
+   "status": "OPEN",
+   "reason": "Not cited, since the field is the reference`s value carried through a derivation the kernel does not hold, and not compiled.",
+   "discharger": "a kernel theorem gammaRZetaValues_holds : GammaRZetaValues from DLMF 5.15.3 cited as a premise of its own, or from psi^(n) as a Hurwitz zeta value, with the chain rule through GammaR s = pi^(-s/2) Gamma(s/2)",
+   "candidate": "theorem gammaRZetaValues_holds : SIDEExplicitFormula.Keiper.GammaRZetaValues"
+  },
+  {
+   "key": "B1",
+   "head": "BoundPremises",
+   "field": "gamma_tight : StieltjesBoundsAt 0",
+   "file": "SIDEExplicitFormula/KeiperBounds.lean",
+   "line": 110,
+   "status": "OPEN",
+   "reason": "The reference read gives 20 digits against the 30 the interval needs, and no kernel proof bounds gamma that tightly.",
+   "discharger": "a value of gamma to at least 30 digits with its error bound at a named reference, read and matched, or a certified interval computation in the kernel (Euler-Maclaurin with an explicit remainder)",
+   "candidate": "theorem gamma_tight_holds : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0"
+  },
+  {
+   "key": "B2",
+   "head": "BoundPremises",
+   "field": "higher_stieltjes : forall n, 1 <= n -> n <= 11 -> StieltjesBoundsAt n",
+   "file": "SIDEExplicitFormula/KeiperBounds.lean",
+   "line": 111,
+   "status": "OPEN",
+   "reason": "No reference read carries the eleven values to the table`s width and no kernel proof bounds them.",
+   "discharger": "a rigorous published computation of gamma_1..gamma_11 with error bounds (for instance Johansson and Blagouchine, Math. Comp. 2019, not read here) matched entry by entry, or certified interval arithmetic in the kernel",
+   "candidate": "theorem higher_stieltjes_holds : forall n : Nat, 1 <= n -> n <= 11 -> SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n"
+  },
+  {
+   "key": "B3",
+   "head": "BoundPremises",
+   "field": "zeta_values : forall j, 2 <= j -> j <= 12 -> ZetaValueBoundsAt j",
+   "file": "SIDEExplicitFormula/KeiperBounds.lean",
+   "line": 112,
+   "status": "OPEN",
+   "reason": "Neither the even values (pi known to 20 digits at the pin) nor the odd ones are bounded to 10^-30 by a compiled proof or a matched citation.",
+   "discharger": "pi to at least 32 digits in the kernel with the Bernoulli values for even j, and for odd j a certified series bound with an explicit tail, computed in the kernel, or a published table of zeta(3)..zeta(11) with error bounds read and matched",
+   "candidate": "theorem zeta_values_holds : forall j : Nat, 2 <= j -> j <= 12 -> SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j"
+  }
+ ],
+ "counts": {
+  "OPEN": 7
+ },
+ "without": []
+}

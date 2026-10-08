@@ -1,0 +1,200 @@
+b641 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay data/b640_closing_push_out.txt (committed at step zero) -- data/b640_closing_push_out.txt @ 43e02fa1 (8 lines cited, of 12)
+    :5      push_gated: main read back at the remote: c7c31e0cd9225e14c6b9ab3f6ea0103073533314
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay c7c31e0cd9225e14c6b9ab3f6ea0103073533314   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers e8320b5469046bb2b1da1d40cdda6d33e23867a0   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 17ce9ff5831de1bded63c8a4c83eee7f498f3a7a   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 8c51431ada7798c65fa26b07ef99a447d7c15735   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+### relay data/b640_defects.txt: defects (b) and (h) by line -- data/b640_defects.txt @ c7c31e0c (2 lines cited, of 11)
+    :4          (b) A SEALED NEEDLE THAT CANNOT TELL A DENIAL FROM AN ASSERTION. Question 1's negative needle in the reader comparison carries a not-guard on its first alternative only; its second alternative, \bRH (is|was|has been) proved\b, fired on the reader's own denial ("cannot be claimed: that RH is proved"), so the sealed comparison reads AGREE 2 OF 3 and H74c is refuted in its letter. Read by hand, all three answers agr
+    :10         (h) TWO BANKS WRITTEN AFTER THE ROOT. The act root (b640 1898ae2b...) was computed over 62 banks before scores; after it, the seat re-ran status_test, which rewrote data/b640_status_test.json and .txt with a new timestamp and nothing else (11 of 11 both times), and the record tool's second and the checks tool's one edit after the seal, each on the author's word, re-ran data/b640_seal_hashes.json. The two status-t
+### relay tools/b640_record.py before the repair: Question 1`s needle -- tools/b640_record.py @ c7c31e0c (3 lines cited, of 1436)
+    :776    NEEDLES = {
+    :778            (r'(?<!not )(?<!n.t )\bproved?\b.{0,40}\bRiemann Hypothesis\b|\bRH (is|was|has been) proved\b', 'NOT the claim: RH proved')),
+    :808            if q == 1:
+### relay data/b640_reader_handread.txt: the hand-read answers -- data/b640_reader_handread.txt @ c7c31e0c (8 lines cited, of 10)
+    :1      b640 -- COMPONENT 5: H74c BY HAND BESIDE THE SEALED COMPARISON (2026-10-08T06:14:51Z), on the author`s word (option 2)
+    :3      ### the sealed comparison (data/b640_reader_compare.txt): AGREE 2 OF 3, question 1 DIFFER
+    :4      ### question 1`s negative needle, alternative 2 (\bRH (is|was|has been) proved\b, the not-guard on alternative 1 only), fired 1 time(s), each on the reader`s own denial:
+    :5          ...ext says plainly that the following cannot be claimed: that RH is proved, that h2_...
+    :6      ### the reader, question 1, its opening: "The programme says it has not proved the Riemann Hypothesis. It claims to have reduced RH to one stated condition"
+    :7      ### the description`s own sentence the reader restates: "Not supportable, unchanged: RH proved; h2_sign proved; ..."
+    :8      ### by hand: question 1 AGREE (the claim a reduction to one located clause, machine-verified; RH proved denied, not asserted); question 2 AGREE; question 3 AGREE
+    :10     ### ### **H74c: SEALED 2 OF 3 (REFUTED IN LETTER) ; BY HAND 3 OF 3 ; THE DEFECT THE SEAT`S: QUESTION 1`S NEGATIVE NEEDLE CANNOT TELL A DENIAL FROM AN ASSERTION.**
+### relay data/b640_reader_answers.txt: the reader`s answer 1, its opening -- data/b640_reader_answers.txt @ c7c31e0c (1 lines cited, of 25)
+    :1      ANSWER 1:
+### relay tools/act_root.py before the rule: where the root is computed -- tools/act_root.py @ c7c31e0c (6 lines cited, of 283)
+    :151    def root_of(items, previous):
+    :152        payload = ''.join(x + NL for x in sorted(items)) + previous + NL
+    :163    def gather(banks, remote=ls_remote, rev='HEAD'):
+    :191    def compute(act, banks, write=False):
+    :194        root = root_of(items, prev)
+    :218    def verify(remote=ls_remote):
+### relay data/b640_premise_status.txt: the OPEN rows of the five subjects -- data/b640_premise_status.txt @ c7c31e0c (6 lines cited, of 173)
+    :141      BoundPremises                rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none
+    :145      EpsteinPremises              rule  2 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: 2 witness(es), SaltCheckEpstein.lean :90, SaltCheckEpstein.lean :121
+    :147      EulerFactorPremise           rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none
+    :153      KeiperObligations            rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none
+    :161      TrivialSummandPremise        rule  1 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none
+    :162      WindowObligations            rule  2 elab  0 | b639 OPEN                 -> OPEN       | meets OPEN | salt-check column: none
+### SIDE-explicit-formula: KeiperObligations, its four fields and their definitions -- SIDEExplicitFormula/Keiper.lean @ 8c51431a (22 lines cited, of 254)
+    :23     * CARRIED TO FOUR NAMED OBLIGATIONS (`KeiperObligations`): `BinomialTransform`, `LogDerivSplit`, `StieltjesLog`,
+    :24       `GammaRZetaValues`; `keiperTaylorIdentity_of` derives the Prop from them, at INTERFACES. Three of the four are proved here
+    :25       at their first index (`binomialTransform_zero`, `logDerivSplit_zero`, `stieltjesLog_zero`), and the identity at `n = 0`
+    :101    def StieltjesLog : Prop :=
+    :102      ∀ k : ℕ, ((k + 1 : ℕ) : ℂ) * poleCoeff (k + 1) =
+    :103        ∑ i ∈ Finset.range (k + 1), poleCoeff i * zetaLogCoeff (k - i)
+    :107    def GammaRZetaValues : Prop :=
+    :108      ∀ k : ℕ, gammaRLogCoeff (k + 1) = (-1) ^ k * (1 - 1 / (2 : ℂ) ^ (k + 2)) * riemannZeta ((k : ℂ) + 2)
+    :116    /-- **(O1) THE BINOMIAL TRANSFORM**: the substitution `s = 1/(1 − z)` in ξ'/ξ. -/
+    :117    def BinomialTransform : Prop :=
+    :118      ∀ n : ℕ, LiCriterion.taylorCoeff LiCriterion.riemannXi n =
+    :119        ∑ k ∈ Finset.range (n + 1), ((n + 1).choose (k + 1) : ℂ) * xiLogCoeff k
+    :121    /-- **(O2) THE LOGARITHMIC-DERIVATIVE SPLIT AT 1**: ξ = ½ · s · ((s − 1) ζ(s)) · Γℝ(s) near 1. -/
+    :122    def LogDerivSplit : Prop := ∀ k : ℕ, xiLogCoeff k = keiperA k
+    :124    /-- **THE OBLIGATIONS WHERE THE PROOF STOPS, NAMED**: (O1) the binomial transform, (O2) the split, (O3) the power-series
+    :125    logarithm, (O4) the polygamma values at 1/2. -/
+    :126    structure KeiperObligations : Prop where
+    :127      binomial : BinomialTransform
+    :128      split : LogDerivSplit
+    :129      stieltjesLog : StieltjesLog
+    :130      gammaZeta : GammaRZetaValues
+    :133    theorem keiperTaylorIdentity_of (hP : KeiperObligations) : KeiperTaylorIdentity := by
+### SIDE-explicit-formula: BoundPremises, its three fields (the work-order`s lemma (2), OPEN_TRAILS :12380) -- SIDEExplicitFormula/KeiperBounds.lean @ 8c51431a (14 lines cited, of 137)
+    :12     * CARRIED (`keiperBounds_of`, at INTERFACES on `BoundPremises`): Euler's γ to the table's width, every Stieltjes constant
+    :13       from the first to the eleventh, and the eleven zeta values are NAMED PREMISES -- Mathlib at the pin holds no Stieltjes
+    :14       constant beyond γ by name and no bound on any odd zeta value, and nothing here assumes one.
+    :15     * CLOSED (`stieltjes_zero_coarse`): γ_0 = γ lies in (1/2, 2/3) with zero imaginary part, by Mathlib's
+    :16       `one_half_lt_eulerMascheroniConstant` and `eulerMascheroniConstant_lt_two_thirds`; the table's interval at 0 refines it
+    :17       (`table_refines_coarse`). Mathlib's interval is too wide to fix the sign of λ_1 = 1 + γ/2 − ½ log 4π.
+    :98     def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+    :101    def ZetaValueBoundsAt (j : ℕ) : Prop := InInterval (zLo j) (zHi j) (riemannZeta (j : ℂ))
+    :107    /-- **THE NAMED PREMISES**: Euler's γ to the table's width; the Stieltjes constants from the first to the eleventh; the zeta
+    :108    values from ζ(2) to ζ(12). -/
+    :109    structure BoundPremises : Prop where
+    :110      gamma_tight : StieltjesBoundsAt 0
+    :111      higher_stieltjes : ∀ n : ℕ, 1 ≤ n → n ≤ 11 → StieltjesBoundsAt n
+    :112      zeta_values : ∀ j : ℕ, 2 ≤ j → j ≤ 12 → ZetaValueBoundsAt j
+### SIDE-explicit-formula: WindowObligations, its two fields -- SIDEExplicitFormula/Schema/PlateauRamp.lean @ 8c51431a (12 lines cited, of 224)
+    :19     * CARRIED TO TWO NAMED OBLIGATIONS (`WindowObligations`): (O1) `ConvStep`, the convolution theorem for the transform on the
+    :20       family (Mathlib at the pin holds it for Schwartz functions only, `fourier_convolution`, and the box is not one); (O2)
+    :21       `Smooth4`, the window `C^4` for `p ≥ 6` (convolution with a box raises the order by one; no Mathlib lemma at the pin).
+    :22       `plateauRampWindow_of` derives the item from them, at INTERFACES.
+    :172    /-- **(O1) THE CONVOLUTION STEP**: the transform of the next window is the transform of this one times the normalised box's. -/
+    :173    def ConvStep (W h : ℝ) : Prop :=
+    :177    /-- **(O2) THE SMOOTHNESS**: for `p ≥ 6` the window is `C^4`. -/
+    :178    def Smooth4 (W h : ℝ) : Prop := ∀ p : ℕ, 6 ≤ p → ContDiff ℝ 4 (window W h p)
+    :180    /-- **THE OBLIGATIONS WHERE THE PROOF STOPS, NAMED**. -/
+    :181    structure WindowObligations (W h : ℝ) : Prop where
+    :182      conv_step : ConvStep W h
+    :183      smooth : Smooth4 W h
+### SIDE-explicit-formula: EpsteinPremises and its count field -- SIDEExplicitFormula/Schema/Epstein.lean @ 8c51431a (10 lines cited, of 70)
+    :12     specific to zeta, :422) and the local count (T3: read off the bench's zero list, relay data/b326_epstein_zeros.json and
+    :13     data/b506_c2_results.json) -- with the target taken as the strip form itself; the bench's off-line zero `rhoE` (b506's
+    :38     /-- **THE EPSTEIN PREMISES**, the schema's explicit-formula and count fields for `Z_Q` as named premises over a zero
+    :39     configuration `Z` and an arithmetic side `rhs`. `ef` -- T1-lit, the explicit formula for `Z_Q` from the literature (Weil
+    :40     1952; Bombieri-Lagarias 1999), cited, not compiled. `count` -- T3, the local count read off the bench's zero list. -/
+    :41     structure EpsteinPremises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where
+    :42       ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    :43         (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+    :44       count : ∃ A₀ : ℝ, HCount Z A₀
+    :51       count := hP.count
+### SIDE-explicit-formula: HCount, the count`s predicate -- SIDEExplicitFormula/RestBound.lean @ 8c51431a (4 lines cited, of 392)
+    :42     /-- **H-COUNT:** the kernel's local count, `N(t, t + 1) <= A0 log(|t| + 3)` with `A0 >= 1`
+    :43     (the shape of `Zeta23.RvM.zetaZeroConfig_local_count`). -/
+    :44     def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+    :45       1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+### SIDE-explicit-formula: TrivialSummandPremise and EulerFactorPremise at v0.25 -- SIDEExplicitFormula/Schema/Family.lean @ 8c51431a (13 lines cited, of 276)
+    :252    theorem zeta_rhs_pole (k : ℝ → ℂ) : zetaWeilConfig.rhs k = poleTerm k - primeSum k + archTerm k :=
+    :255    /-- **OBSTRUCTION (1), THE POLE, as the premise the reading would need**: the trivial character's summand in the family's
+    :256    form, ζ's arithmetic side with no pole term. NOT DISCHARGED HERE. -/
+    :257    def TrivialSummandPremise : Prop :=
+    :258      ∀ k : ℝ → ℂ,
+    :259        zetaWeilConfig.rhs k = archTerm_chi (1 : DirichletCharacter ℂ 1) k - primeSum_chi (1 : DirichletCharacter ℂ 1) k
+    :261    /-- **OBSTRUCTION (2), THE EULER FACTORS AT p ∣ q, as the premise the reading would need**: every non-trivial character
+    :262    mod `q`, imprimitive ones included, with its primitive inducer's arithmetic side -- the kernel's χ side reads `χ (n : ZMod
+    :263    N)` and `log (N/π)` at the level `N`, so at an imprimitive character the terms at `p ∣ q` and the level differ. NOT
+    :264    DISCHARGED HERE. -/
+    :265    def EulerFactorPremise (q : ℕ) [NeZero q] : Prop :=
+    :266      ∀ χ : DirichletCharacter ℂ q, χ ≠ 1 → ∀ k : ℝ → ℂ,
+    :267        archTerm_chi χ k - primeSum_chi χ k = archTerm_chi χ.primitiveCharacter k - primeSum_chi χ.primitiveCharacter k
+### SIDE-explicit-formula: the terms the Dedekind premises compare -- SIDEExplicitFormula/GRHWeil.lean @ 8c51431a (8 lines cited, of 225)
+    :47     def parity (χ : DirichletCharacter ℂ N) : ℕ := if χ.Even then 0 else 1
+    :61     def primeSum_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    :62       ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) *
+    :63         (χ (n : ZMod N) * k (Real.log n) + conj (χ (n : ZMod N)) * k (-Real.log n))
+    :66     def gammaBracket_chi (χ : DirichletCharacter ℂ N) (r : ℝ) : ℝ :=
+    :67       Real.log (N / Real.pi) + (Complex.digamma (1 / 4 + (parity χ : ℂ) / 2 + I * r / 2)).re
+    :70     def archTerm_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) : ℂ :=
+    :71       (1 / (2 * Real.pi) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (gammaBracket_chi χ r : ℂ)
+### SIDE-explicit-formula: poleTerm, primeSum, archTerm -- SIDEExplicitFormula/B321Identity.lean @ 8c51431a (6 lines cited, of 61)
+    :29     def poleTerm (k : ℝ → ℂ) : ℂ :=
+    :30       Zeta23.paperFT k (I / 2) + Zeta23.paperFT k (-I / 2)
+    :33     def primeSum (k : ℝ → ℂ) : ℂ :=
+    :34       ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (2 * k (Real.log n))
+    :37     def archTerm (k : ℝ → ℂ) : ℂ :=
+    :38       (1 / (2 * π) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (Zeta23.EF.gammaBracket r : ℂ)
+### SIDE-explicit-formula: paperFT and gammaBracket -- Zeta23/Defs.lean @ 8c51431a (1 lines cited, of 355)
+    :60     def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+### SIDE-explicit-formula: gammaBracket -- Zeta23/ExplicitFormula.lean @ 8c51431a (1 lines cited, of 750)
+    :80     def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π
+### SIDE-explicit-formula: Bulka`s phi, logDeriv, taylorCoeff, riemannXi -- Vendored/Bulka/Lc/LiCriterion/Basic.lean @ 8c51431a (7 lines cited, of 5175)
+    :395    noncomputable def phi (f : ℂ → ℂ) (z : ℂ) : ℂ := f (1 / (1 - z))
+    :409    noncomputable def logDeriv (φ : ℂ → ℂ) (z : ℂ) : ℂ :=
+    :410      deriv φ z / φ z
+    :541    noncomputable def taylorCoeff (f : ℂ → ℂ) (n : ℕ) : ℂ :=
+    :542      (deriv^[n] (logDeriv (phi f))) 0 / n.factorial
+    :1252   noncomputable def riemannXi (s : ℂ) : ℂ :=
+    :1253     (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+### SIDE-explicit-formula lake-manifest.json: the programme`s Mathlib pin -- lake-manifest.json @ 8c51431a (10 lines cited, of 116)
+    :10        "rev": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+    :11        "name": "mathlib",
+    :22        "rev": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+    :34        "rev": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+    :46        "rev": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+    :58        "rev": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+    :70        "rev": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+    :82        "rev": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+    :94        "rev": "01bc479e7432594821ba3fb0ca465211941de86d",
+    :106       "rev": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+### Mathlib at the pin: the convolution theorem for integrable functions -- Mathlib/Analysis/Fourier/Convolution.lean @ de5ce8a9 (7 lines cited, of 191)
+    :87     theorem fourier_bilin_convolution_eq (B : F₁ →L[ℂ] F₂ →L[ℂ] F₃) {f₁ : E → F₁} {f₂ : E → F₂}
+    :88         (hf₁ : Integrable f₁) (hf₂ : Integrable f₂) (ξ : E) :
+    :89         𝓕 (f₁ ⋆[B] f₂) ξ = B (𝓕 f₁ ξ) (𝓕 f₂ ξ) := calc
+    :119    theorem fourier_mul_convolution_eq {f₁ : E → R} {f₂ : E → R}
+    :120        (hf₁ : Integrable f₁) (hf₂ : Integrable f₂) (ξ : E) :
+    :121        𝓕 (f₁ ⋆[mul ℂ R] f₂) ξ = (𝓕 f₁ ξ) * (𝓕 f₂ ξ) :=
+    :160    theorem fourier_convolution (B : F₁ →L[𝕜] F₂ →L[𝕜] F₃) (f : 𝓢(E, F₁)) (g : 𝓢(E, F₂)) :
+### Mathlib at the pin: digamma -- Mathlib/Analysis/SpecialFunctions/Gamma/Digamma.lean @ de5ce8a9 (3 lines cited, of 64)
+    :39     noncomputable def digamma : ℂ → ℂ := logDeriv Gamma
+    :47     theorem digamma_one : digamma 1 = - Real.eulerMascheroniConstant := by
+    :50     theorem digamma_one_half : digamma (1 / 2) = - 2 * log 2 - Real.eulerMascheroniConstant := by
+### Mathlib at the pin: the bounds on gamma and pi -- Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean @ de5ce8a9 (2 lines cited, of 174)
+    :167    lemma one_half_lt_eulerMascheroniConstant : 1 / 2 < eulerMascheroniConstant :=
+    :171    lemma eulerMascheroniConstant_lt_two_thirds : eulerMascheroniConstant < 2 / 3 :=
+### Mathlib at the pin: pi to twenty digits -- Mathlib/Analysis/Real/Pi/Bounds.lean @ de5ce8a9 (2 lines cited, of 233)
+    :190    theorem pi_gt_d20 : 3.14159265358979323846 < π := by
+    :206    theorem pi_lt_d20 : π < 3.14159265358979323847 := by
+### OPEN_TRAILS: the form clause, the build lines, the test-pin line, the patch work-order, b640`s record and correction, the Keiper obligations -- OPEN_TRAILS.md @ e8320b54 (8 lines cited, of 13481)
+    :11864  *Appended 2026-10-01 by b577, under the author’s ruling `(R187)`(5)–(6), to the critical path’s lane three (:11417) -- THE FORM OF AN EDITION, STANDING FOR CP-7:* one keystone per act, in the order printed at relay `data/b577_edition_order.txt` as the author rules it. The edition is the keystone’s next version written beside the current one, the current unedited; written from its tier block and its CP-1b work-list, the page its objects sit on as its spine; STANDS sentences carried unchanged; MOVED-IN-MEANING sentences rewritten to say what the compiled fact says, citing the declaration by name and pin as the page prints it; CREDIT lines inserted where the work-list places them; a marked sentence the compiled facts do not support removed and its removal recorded in back matter, not reworded; Placement and Correspondence in back matter; no blank Status cell; the title naming objects and conditions; 0 live banned stems; nothing beyond the ceiling; the edition diffed sentence by sentence against the work-list and the diff banked. It does not deposit and does not move into a phase repository; promotion is CP-8’s. Every edition act scores H28a, H28b and H28c as `(R187)`(6) fixes them (relay `data/b577_ferry.txt`).
+    :12380  **The obligations, named where the proofs stop** (the work-order’s two lemmas carried, not closed): lemma (1) at `keiperTaylorIdentity_of` on `KeiperObligations` -- (O1) the binomial transform, (O2) the logarithmic-derivative split at 1, (O3) the power-series logarithm, (O4) the polygamma values at 1/2, (O1)-(O3) proved at their first index; lemma (2) at `keiperBounds_of` on `BoundPremises` -- γ to the table’s width, γ_1..γ_11, ζ(2)..ζ(12). Each is a priced item for a later act; none is started.
+    :13067  *Appended 2026-10-05 by b628 beneath the build clause (:12356), under the author’s answer at b628’s hold -- STANDING: A CLOSURE BUILD UNDER THE HOLD IS A SERIAL MODULE LIST:* a lake build of a target with an unbuilt closure runs its modules in parallel with no job cap, so a closure build under the hold is a serial module list -- one module per call in dependency order, free memory read before each -- or is not run. Its occasion: b628’s FinalMult call, free memory 717 MB within ten minutes against the hold, stopped by PID.
+    :13167  *Appended 2026-10-06 by b631 beneath the build clause (:12356), under the author’s answer at the hold (relay data/b631_author_answers.txt, prompt 2) -- THE BUILD ROUTE UNDER THE HOLD, STANDING:* under the hold a module is built by lake once and retried once; a second crossing sends it to the direct compile -- lake env lean -o and -i on the module, then on its AxiomCheck, under the same watch and stop -- the stopped calls banked, the build arm’s letter accepting the direct route when the bank shows them; lake’s trace for the module rebuilt at a later act. The line rests on measured crossings in three acts (b629, b631), lean at about 2 GB on these modules against a hold that leaves about 2.2 GB on this machine; the margin is the machine’s, and the direct route keeps the lane moving without lowering the hold. The line the author gave at b629 was withdrawn because its premise was false, not because the route was wrong.
+    :13193  *Appended 2026-10-06 by b632 beneath the N5 scorer’s line (:12799), under `(R242)`(2) -- A TEST READS EVERY INPUT AT ITS OWN PIN, STANDING:* a test that regenerates anything reads every input at its own pin -- its lists, its probes, the table, the generator, the rule and the kernel’s checkout -- the live tree being for the act’s arms and not for the tests. From b631’s carried case (9) of tools/test_chain_page_b596.py, where b630’s rule-graded rows joined an older list’s Correspondence against relay HEAD’s table; the case is frozen to the test’s own pin by one edit after b632’s seal, committed alone with its run. At b632’s step zero tools/test_chain_page_b630.py was found failing in the same way, its list pinned at v0.24 read against the kernel’s checkout at v0.25 (the generator stops at the checkout, exit 3, before the hold is read); carried to the author, not repaired.
+    :13397  *Appended 2026-10-07 by b639, under the author’s answer before b639’s seal (relay data/b639_author_answers.txt) -- W-ORD-DAY1-PATCH-VERSIONS, PRICED, NOT STARTED, TRIGGER THE AUTHOR’S WORD:* each of the seven Day 1 companions whose bytes moved after the deposit of v1.1.2 while its version label stood -- Exhaustive_Enumeration, Which_Structure_Confines, Spectral_Inertness, Seven_Mechanism_Classes, Third_Identity_Element, Silence_of_Foundations, ONE_PAGE_PROOF -- takes a patch version at its next edition (v2.3 to v2.3.1, and so on) with a dated line naming the edits since the deposit, the line counts against v1.1.2’s bytes as relay data/b639_deposit_files.txt prints them. No label is edited at b639, which deposits each live file under its own name, the PLACE-papers commit it is read at and its line-diff count against v1.1.2 printed in the description, so a reader sees that the label stood still while the text moved. Price: seven dated lines, one act.
+    :13455  ### b640 — lane three, act sixty-seven under (R250): the premise status at five and the open premises given work-orders; the deposit description’s assumption section recomposed and read by a second reader; the draft 23228113 updated and held at the same prompt
+    :13481  *Appended 2026-10-08 by b640 to its record (:13455) -- A CORRECTION, THE SEAT’S:* the FINDINGS entry (:7911) says of Component 4 that every other sentence of the description was carried; on the author's word at Component 5 (option 2) the nine passages the second reader marked UNCLEAR were repaired before the draft was updated, in 10 repairs (relay data/b640_reader_repairs.json; data/b640_description_scan.txt prints each with the reader's words, the sentence as it stood and as rewritten), each clarifying and changing no claim, figure, name or status -- the arm 10 of 10, its positive control firing (data/b640_repair_arm_control.txt) -- the scanner clean, undefined 0, no-disclosure 0, and the bank before the repairs kept beside it (data/b640_deposit_description_before_repairs.txt); the description read back from the service is the repaired one. H74c and N3 stand REFUTED in letter at 2 of 3 and hold by hand at 3 of 3 (defect (b), data/b640_reader_handread.txt). The record tool carries two edits after the seal, each on the author's word and committed alone (relay 7505e346, the composition; b01a5bde, the isfile guard), the seal re-run with both declared (data/b640_seal_hashes.json, its amendments; the hashes at the lock in data/b640_seal_hashes_at_lock.json); the record's 'agree' for the seven sealed tools is against the re-run.
+### FINDINGS: b640`s entry -- FINDINGS.md @ e8320b54 (1 lines cited, of 7935)
+    :7911   ## The premise status at five: 25 open with work-orders, 2 cited, 9 discharged, 2 witnessed, 12 domain; the deposit description’s assumption section recomposed and read by a second reader, 2 of 3 agreeing; the draft 23228113 updated and held
+### THE REFERENCES FETCHED BEFORE THE SEAT`S READ (plain https GETs, no header naming the author; the pages kept in the scratchpad):
+    DLMF 25.2  https://dlmf.nist.gov/25.2  sha256 3415d0658ebad8775170be0e38e85b1b2afd6052ce026914837ea562c643bdeb ; 125782 bytes
+    DLMF 25.6  https://dlmf.nist.gov/25.6  sha256 b55cc4fb2c6fdcc1ef73df75f7fb508d6b054e5e7d3025335a8ff1cb2caa580d ; 148202 bytes
+    DLMF 5.15  https://dlmf.nist.gov/5.15  sha256 409d55c59147ec77fbdc83e8c59fb7f13a006c6b3ea7b4fa8cca10ef3ccbdaaa ; 74322 bytes
+    DLMF 5.2  https://dlmf.nist.gov/5.2  sha256 9de30ed1dc33a92de4a729d35356d213ed1df6faed940f9cb18a4219567d5853 ; 95802 bytes
+
+### the local intake bank`s state: ?? data/b628_intake_crank_v0_5.txt
+### PLACE-papers HEAD at the reads: e8320b54 ; relay HEAD: a2b0c105

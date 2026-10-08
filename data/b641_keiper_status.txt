@@ -1,0 +1,78 @@
+b641 -- COMPONENT 3, (R251)(5): KEIPER`S SEVEN, EACH TO ONE STATUS WITH ITS REASON (2026-10-08T16:32:44Z)
+
+### each obligation printed with its field and docstring at its pin; the seat`s read of what would discharge it -- a theorem in the kernels (named, its axiom print read), a literature theorem (the reference read, the statement matched), or neither -- and exactly one of DISCHARGED, CITED, OPEN, with its reason in one sentence and its discharger named; a candidate new declaration printed as a statement and raised as a prompt, written nowhere.
+
+### the seven, as the kernel names them where the proofs stop (OPEN_TRAILS :12380, W-ORD-KEIPER-FACE): KeiperObligations` four (lemma (1)) and BoundPremises` three (lemma (2)).
+
+### (K1) KeiperObligations -- the field: binomial : BinomialTransform
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/Keiper.lean :127 : binomial : BinomialTransform
+    its definition :117 : def BinomialTransform : Prop :=
+    its docstring : /-- **(O1) THE BINOMIAL TRANSFORM**: the substitution `s = 1/(1 − z)` in ξ'/ξ. -/
+    the seat`s read : true by the kernel`s definitions: with s = 1/(1 - z), logDeriv (phi riemannXi) z = SUM_k xiLogCoeff k z^k (1 - z)^-(k+2), whose z^n coefficient is SUM_k C(n+1, k+1) xiLogCoeff k (taylorCoeff, Vendored/Bulka/Lc/LiCriterion/Basic.lean :541; riemannXi 1 = 1/2); no kernel theorem proves it past n = 0 (binomialTransform_zero), no Mathlib lemma at the pin composes Taylor coefficients under z -> 1/(1 - z), and no reference was read whose statement is the kernel`s at its normalization
+    STATUS : OPEN
+    REASON : No compiled proof and no matched citation: the identity holds only at n = 0 in the kernel (binomialTransform_zero).
+    DISCHARGER : a kernel theorem binomialTransform_holds : BinomialTransform, by the composition of Taylor series at 0 under z -> 1/(1 - z), logDeriv (phi riemannXi) analytic at 0 since riemannXi 1 = 1/2 is not zero
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem binomialTransform_holds : SIDEExplicitFormula.Keiper.BinomialTransform
+
+### (K2) KeiperObligations -- the field: split : LogDerivSplit
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/Keiper.lean :128 : split : LogDerivSplit
+    its definition :122 : def LogDerivSplit : Prop := ∀ k : ℕ, xiLogCoeff k = keiperA k
+    its docstring : /-- **(O2) THE LOGARITHMIC-DERIVATIVE SPLIT AT 1**: ξ = ½ · s · ((s − 1) ζ(s)) · Γℝ(s) near 1. -/
+    the seat`s read : true: riemannXi = 1/2 s riemannZeta1 s GammaR s near 1, each factor nonzero there, so xi`/xi is 1/s + riemannZeta1`/riemannZeta1 + GammaR`/GammaR and 1/s has the Taylor coefficients (-1)^k at 1; proved at k = 0 only (logDerivSplit_zero); Mathlib holds logDeriv_mul, no kernel theorem uses it here
+    STATUS : OPEN
+    REASON : No compiled proof: the split is proved at its first coefficient only (logDerivSplit_zero).
+    DISCHARGER : a kernel theorem logDerivSplit_holds : LogDerivSplit, by Mathlib`s logDeriv_mul on a neighbourhood of 1 where s, riemannZeta1 s and GammaR s are nonzero, and the Taylor coefficients of 1/s at 1
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem logDerivSplit_holds : SIDEExplicitFormula.Keiper.LogDerivSplit
+
+### (K3) KeiperObligations -- the field: stieltjesLog : StieltjesLog
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/Keiper.lean :129 : stieltjesLog : StieltjesLog
+    its definition :101 : def StieltjesLog : Prop :=
+    its docstring : /-- **THE POWER-SERIES LOGARITHM, AS A PROP**: the coefficients of (s − 1) ζ(s)'s logarithmic derivative are fixed by the Stieltjes constants through `F' = F · (F'/F)`, coefficient by coefficient. -/
+    the seat`s read : true: poleCoeff are the Taylor coefficients of riemannZeta1 at 1 (riemannZeta1 = 1 + (s - 1) riemannZeta0 near 1, stieltjes n = (-1)^n riemannZeta0^(n)(1)), and F` = F (F`/F) read coefficient by coefficient is the field; proved at k = 0 only (stieltjesLog_zero)
+    STATUS : OPEN
+    REASON : No compiled proof: the power-series logarithm is proved at its first coefficient only (stieltjesLog_zero).
+    DISCHARGER : a kernel theorem stieltjesLog_holds : StieltjesLog, by Leibniz`s rule on riemannZeta1 * logDeriv riemannZeta1 = deriv riemannZeta1 near 1 and the identification of poleCoeff as riemannZeta1`s Taylor coefficients
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem stieltjesLog_holds : SIDEExplicitFormula.Keiper.StieltjesLog
+
+### (K4) KeiperObligations -- the field: gammaZeta : GammaRZetaValues
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/Keiper.lean :130 : gammaZeta : GammaRZetaValues
+    its definition :107 : def GammaRZetaValues : Prop :=
+    its docstring : /-- **THE POLYGAMMA VALUES AT 1/2, AS A PROP**: Γℝ's coefficients past the first are `(−1)^k (1 − 2^(−(k+2))) ζ(k + 2)`, since ψ⁽ᵏ⁾(1/2) = (−1)^(k+1) k! (2^(k+1) − 1) ζ(k + 1). -/
+    the seat`s read : reference read: DLMF 5.15.3, psi^(n)(1/2) = (-1)^(n+1) n! (2^(n+1) - 1) zeta(n + 1); the field is that value carried through logDeriv GammaR s = -1/2 log pi + 1/2 psi(s/2) to the (k+1)-th Taylor coefficient at 1, (-1)^k (1 - 2^-(k+2)) zeta(k + 2) by the seat`s computation, so its statement is a consequence of the reference and not the reference`s own; Mathlib at the pin holds digamma = logDeriv Gamma with digamma_one_half and no derivative of it of higher order
+    STATUS : OPEN
+    REASON : Not cited, since the field is the reference`s value carried through a derivation the kernel does not hold, and not compiled.
+    DISCHARGER : a kernel theorem gammaRZetaValues_holds : GammaRZetaValues from DLMF 5.15.3 cited as a premise of its own, or from psi^(n) as a Hurwitz zeta value, with the chain rule through GammaR s = pi^(-s/2) Gamma(s/2)
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem gammaRZetaValues_holds : SIDEExplicitFormula.Keiper.GammaRZetaValues
+
+### (B1) BoundPremises -- the field: gamma_tight : StieltjesBoundsAt 0
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/KeiperBounds.lean :110 : gamma_tight : StieltjesBoundsAt 0
+    its definition :98 : def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+    its docstring : /-- The `n`-th Stieltjes constant in the table's interval. -/
+    the seat`s read : reference read: DLMF 5.2.3 gives gamma = 0.57721 56649 01532 86060... to 20 digits, short of the table`s interval at 10^-30; Mathlib at the pin bounds gamma in (1/2, 2/3) only (stieltjes_zero_coarse, table_refines_coarse); the imaginary part 0 is the kernel`s (stieltjes_zero)
+    STATUS : OPEN
+    REASON : The reference read gives 20 digits against the 30 the interval needs, and no kernel proof bounds gamma that tightly.
+    DISCHARGER : a value of gamma to at least 30 digits with its error bound at a named reference, read and matched, or a certified interval computation in the kernel (Euler-Maclaurin with an explicit remainder)
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem gamma_tight_holds : SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt 0
+
+### (B2) BoundPremises -- the field: higher_stieltjes : forall n, 1 <= n -> n <= 11 -> StieltjesBoundsAt n
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/KeiperBounds.lean :111 : higher_stieltjes : ∀ n : ℕ, 1 ≤ n → n ≤ 11 → StieltjesBoundsAt n
+    its definition :98 : def StieltjesBoundsAt (n : ℕ) : Prop := InInterval (stLo n) (stHi n) (stieltjes n)
+    its docstring : /-- The `n`-th Stieltjes constant in the table's interval. -/
+    the seat`s read : no reference read gives gamma_1..gamma_11 to 10^-30 (DLMF 25.2 read: it defines the Stieltjes constants and prints none of these values); Mathlib at the pin names no Stieltjes constant beyond gamma
+    STATUS : OPEN
+    REASON : No reference read carries the eleven values to the table`s width and no kernel proof bounds them.
+    DISCHARGER : a rigorous published computation of gamma_1..gamma_11 with error bounds (for instance Johansson and Blagouchine, Math. Comp. 2019, not read here) matched entry by entry, or certified interval arithmetic in the kernel
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem higher_stieltjes_holds : forall n : Nat, 1 <= n -> n <= 11 -> SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt n
+
+### (B3) BoundPremises -- the field: zeta_values : forall j, 2 <= j -> j <= 12 -> ZetaValueBoundsAt j
+    at SIDE-explicit-formula 8c51431 SIDEExplicitFormula/KeiperBounds.lean :112 : zeta_values : ∀ j : ℕ, 2 ≤ j → j ≤ 12 → ZetaValueBoundsAt j
+    its definition :101 : def ZetaValueBoundsAt (j : ℕ) : Prop := InInterval (zLo j) (zHi j) (riemannZeta (j : ℂ))
+    its docstring : /-- The zeta value at `j` in the table's interval. -/
+    the seat`s read : even j: Mathlib`s riemannZeta_two_mul_nat gives zeta(2k) through a Bernoulli number and pi^(2k), but Mathlib`s pi bounds stop at 20 digits (pi_gt_d20, pi_lt_d20); odd j: no bound at the pin, and DLMF 25.6 read prints no value to 30 digits
+    STATUS : OPEN
+    REASON : Neither the even values (pi known to 20 digits at the pin) nor the odd ones are bounded to 10^-30 by a compiled proof or a matched citation.
+    DISCHARGER : pi to at least 32 digits in the kernel with the Bernoulli values for even j, and for odd j a certified series bound with an explicit tail, computed in the kernel, or a published table of zeta(3)..zeta(11) with error bounds read and matched
+    CANDIDATE NEW DECLARATION (raised as a prompt, written nowhere) : theorem zeta_values_holds : forall j : Nat, 2 <= j -> j <= 12 -> SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt j
+
+### the references fetched (scratchpad, digest): DLMF 25.2 3415d0658ebad877; DLMF 25.6 b55cc4fb2c6fdcc1; DLMF 5.15 409d55c59147ec77; DLMF 5.2 9de30ed1dc33a92d
+### ### **OBLIGATIONS 7 ; DISCHARGED 0 ; CITED 0 ; OPEN 7 ; WITHOUT ONE STATUS AND A REASON NONE ; CANDIDATE DECLARATIONS 7.**
