@@ -1,0 +1,13 @@
+{
+ "defects": [
+  "(a) SCRATCH FILES OUTSIDE THE SCRATCHPAD, BEFORE THE SEAL. A byte comparison of the seven companions against their deposited bytes wrote two scratch files under the shell's /tmp and not the session's scratchpad; they were removed in the same command, each path verified with test -e before its rm. Nothing else was touched; nothing was tracked or staged. Declared on the face, section (0).",
+  "(b) A DELETE VERIFIED IN ONE FORM AND MADE IN ANOTHER, BEFORE THE SEAL. A dry report call of the step-zero runner wrote data/b639_tests_stepzero.txt with no test run; the command that removed it verified the path in relative form and removed it in absolute form -- the same file, the house delete form (b537, standing) not followed to the letter. The bank was rewritten by the runner's report after every test ran. Declared on the face, section (0).",
+  "(c) THE LOCK CALLED WITHOUT ITS DIRECTORY. The first reg_seal --lock named the face without data/ and was refused with nothing written (the b633 trap); the lock was written by the second call on the full path, the seal verified intact."
+ ],
+ "short": [
+  "(a) two scratch files written under /tmp, not the scratchpad, removed in the same command on verified paths",
+  "(b) a dry runner bank deleted with its path verified in relative form and removed in absolute form",
+  "(c) the first lock call named the face without data/ and was refused, nothing written"
+ ],
+ "correction": ""
+}

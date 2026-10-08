@@ -1,0 +1,29 @@
+====================================================================================================
+b639_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b639_registration_2026-10-07.txt
+  bytes/lines  : 27536 / 245
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE AND THE BANKS, NOT TYPED:**
+      ARMS      86
+      READINGS  7
+      EXPECT    10
+      BARS      0
+      TESTS     29
+      QUESTIONS 6
+
+  clauses emitted : 104
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 22**
+  written : b639_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 2390e2058119f2f49ec7f649882acc8e9d2a64cb01f44789603343c4b2e64760  (b639_registration_2026-10-07.txt)
