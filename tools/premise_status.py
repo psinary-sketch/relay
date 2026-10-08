@@ -171,3 +171,84 @@ def classify4(dik, elsewhere, cited):
     """### (R249)(2) as answered before b639's seal: the first status of four the head meets."""
     meets = [s for s, ok in zip(STATUSES4[:3], (dik, elsewhere, cited)) if ok] or ['OPEN']
     return meets[0], meets
+
+
+# ================================================================================ b640, (R250)(3): FIVE STATUSES, READ FROM THE USE SITE
+# ### As the author answered before b640's seal: DOMAIN is a predicate of Mathlib's (its declaration outside every kernel) that every row resting
+# ### on it applies to a variable the row's statement quantifies -- not a premise, removed to the domain-condition list with its variable named;
+# ### DISCHARGED, a construction outside the SaltCheck files that a proof consumes (an inline have / let / show inside a proof, or a declaration
+# ### concluding the head with no Prop hypothesis whose name another declaration uses, the consumer outside SaltCheck and AxiomCheck files and
+# ### not itself a witness); CITED, every field T1-lit; WITNESSED, constructions outside the salt checks and none consumed; OPEN otherwise, a
+# ### head constructed inside salt checks alone among them. Each head takes the first it meets in that order.
+STATUSES5 = ('DOMAIN', 'DISCHARGED', 'CITED', 'WITNESSED', 'OPEN')
+WITNESS_NAME = re.compile(r'nonvacuous|inhabited|toy|empty|witness|example', re.I)
+_TOK = re.compile(r"[^\W\d][\w'₀-₉]*(?:\.[^\W\d][\w'₀-₉]*)*")
+
+
+def classify5(f):
+    """### the five-status rule over a head's facts, pure: f carries upstream, domain_vars (one list per row, the quantified variables the head is
+    ### applied to; empty where none), consumed (constructions outside the salt checks some non-witness proof uses), inline (inline constructions
+    ### outside the salt checks), standalone (constructions outside the salt checks), cited. RETURN (status, the tests it meets)."""
+    rowsd = f.get('domain_vars') or []
+    tests = [('DOMAIN', bool(f.get('upstream')) and bool(rowsd) and all(rowsd)),
+             ('DISCHARGED', bool(f.get('consumed')) or bool(f.get('inline'))),
+             ('CITED', bool(f.get('cited'))),
+             ('WITNESSED', bool(f.get('standalone')))]
+    meets = [s for s, ok in tests if ok] or ['OPEN']
+    return meets[0], meets
+
+
+def domain_vars(h, hd, pb, binders):
+    """### the variables the row's statement quantifies that its premise binder on h applies h to (dot form p.Prime read with p)."""
+    bound = set()
+    for b in binders:
+        for n in re.split(r'\s+', b.get('name') or ''):
+            if n and n != '→':
+                bound.add(n)
+    out = []
+    for b in pb:
+        t = ' '.join(b['type'].split())
+        m = re.search(r'(?<![\w.])((?:[\w.]*\.)?)%s\b' % re.escape(h), t)
+        if not m:
+            continue
+        rest = t[m.end():]
+        dotted = [x for x in m.group(1).rstrip('.').split('.') if x]
+        qv = set(x for s in re.findall(r'∀\s+([^,:]+)', t) for x in s.split())
+        out += sorted((set(_TOK.findall(rest)) | set(dotted)) & (bound | qv) - {h})
+    return sorted(set(out))
+
+
+def enclosing_decl(src_lines, line):
+    for i in range(min(line, len(src_lines)) - 1, -1, -1):
+        m = re.match(r'^\s*(?:@\[[^\]]*\]\s*)?(?:(?:private|protected|noncomputable)\s+)*(theorem|lemma|def|abbrev|instance|example)\s*([^\s({\[:]*)',
+                     src_lines[i])
+        if m:
+            return m.group(2) or m.group(1)
+    return ''
+
+
+def consumers(repo, pin, name, own_file, own_line):
+    """### every line at the pin naming the construction outside its own declaration, outside SaltCheck and AxiomCheck files, and outside a
+    ### declaration whose name marks a witness: RETURN [(file:line, enclosing declaration)]."""
+    short = name.split('.')[-1]
+    if not short or WITNESS_NAME.search(short):
+        return []
+    out, cache = [], {}
+    for l in g(repo, 'grep', '-n', '-w', short, pin, '--', '*.lean').split(NL):
+        if l.count(':') < 3:
+            continue
+        _p, f, ln, t = l.split(':', 3)
+        ln = int(ln)
+        if SALT_MARK in f or os.path.basename(f).startswith('AxiomCheck') or '#print' in t or '#check' in t:
+            continue
+        if f == own_file and ln == own_line:
+            continue
+        if f not in cache:
+            cache[f] = strip_comments(g(repo, 'show', '%s:%s' % (pin, f)).replace(chr(13), '')).split(NL)
+        if ln <= len(cache[f]) and not re.search(r'\b%s\b' % re.escape(short), cache[f][ln - 1]):
+            continue
+        enc = enclosing_decl(cache[f], ln)
+        if enc.split('.')[-1] == short or WITNESS_NAME.search(enc):
+            continue
+        out.append(('%s:%d' % (f, ln), enc))
+    return out
