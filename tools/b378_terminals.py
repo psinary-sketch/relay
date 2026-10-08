@@ -62,8 +62,12 @@ LEAD_POSIX = (r'^[ \t]*(@\[[^]]*\][ \t]*)?'
 
 
 def decl_re(last):
-    """### **THE DECLARATION PATTERN FOR ONE NAME'S LAST SEGMENT.**"""
-    return re.compile(LEAD + KEYWORD + r'[ \t]+' + re.escape(last) + r'\b', re.M)
+    """### **THE DECLARATION PATTERN FOR ONE NAME'S LAST SEGMENT.**
+    ### b643, (R253)(3)(b): the name ends where Lean's identifier ends -- no identifier character (Lean's isIdRest: a letter, a digit, `_`,
+    ### `'`, `!`, `?`, a subscript) follows it -- and not at `\\b`: after a final `'` no word boundary falls before a space, so a primed name
+    ### (dedekind_rhs') was never found, and `\\b` after an unprimed name falls before a `'`, so dedekind_rhs could be found at dedekind_rhs'.
+    ### terminal_table.py's textual reader resolves every row's statement through this pattern (statement, declares)."""
+    return re.compile(LEAD + KEYWORD + r'[ \t]+' + re.escape(last) + r"(?![\w'!?])", re.M)
 
 
 def split(name):
