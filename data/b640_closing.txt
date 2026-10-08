@@ -1,0 +1,129 @@
+b640 closed: relay abf99f58, PLACE-papers e8320b5; suite 84 of 85; root 1898ae2b3174067f…; 5 prompts answered; 9 defects
+========================================================================================================
+b640 -- THE CLOSING RECORD. ### **LANE THREE, ACT SIXTY-SEVEN: THE PREMISE STATUS SPLIT TO FIVE AND THE OPEN PREMISES GIVEN WORK-ORDERS; THE DEPOSIT DESCRIPTION`S ASSUMPTION SECTION RECOMPOSED; A SECOND READER FOR LEGIBILITY; THE DRAFT 23228113 UPDATED AND HELD AT THE SAME PROMPT, UNDER (R250).**
+========================================================================================================
+### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b640_seal_hashes.json):
+      b640_worklist.py       seal 1c4790d3c5b1c5fe ; close 1c4790d3c5b1c5fe ; AGREE
+      b640_tests.py          seal 29acc635a5e38a7c ; close 29acc635a5e38a7c ; AGREE
+      b640_record.py         seal bbee93f48f22f87a ; close bbee93f48f22f87a ; AGREE
+      b640_checks.py         seal 8c86fdee56adc730 ; close 8c86fdee56adc730 ; AGREE
+      b640_closing.py        seal d4752ec14e2e1d4a ; close d4752ec14e2e1d4a ; AGREE
+      b640_reg_gate.py       seal cfe9b8c14d65d6e0 ; close cfe9b8c14d65d6e0 ; AGREE
+      b640_regspec.py        seal 34ffe5c6241d72a4 ; close 34ffe5c6241d72a4 ; AGREE
+      ### AGREE 7 of 7
+
+### THE DRAFT UPDATED ON THE (R110) ROUTE (relay data/b640_zenodo.json and the step banks):
+      record 21539167 ; draft 23228113 ; 14 files read back ; title A Place To Stand: the SIDE reduction of the Riemann Hypothesis to a single located clause ; version v1.2.0 ; description equal up to quote straightening True
+      the author`s word : hold ; nothing published
+
+### THE MIRROR, BUILT AFTER THE ACT`S LAST PLACE-papers PUSH AND BEFORE THE DRAFT`S UPDATE (relay data/b640_mirror.txt):
+      the zip, in the draft and for the author`s project : D:/MY-DOwnloads/mirror-refresh-2026-10-08-b640.zip
+      md5 f5377573a32c6cf3b13b3247863d6fb5 ; sha256 17e0ec1ab2f6b5fc8c164bc577ad13d477eaa50854075e5315ed2d2f05c2f081 ; 4173931 bytes ; files 74 ; MANIFEST md5 d34048081e3d309104a6d4e61a8e3c4e
+      ROSTER line : ROSTER: 74 files, unchanged since 2026-10-07-b639.
+      root line : Act root: b639 a3d0d3015f649cbb5f5656f79f8ca9c360cd2679b95851df40b864bf197b79e2 ; verification : CLEAN ON ALL THREE CLAUSES
+
+    ### COMPONENT 0 : step zero (data/b640_tests_stepzero.txt, data/b640_arms_prerun.txt, the seal`s hashes)
+    ### COMPONENT 1 : b639`s weight FINDINGS :7909 ; the five-status clause OPEN_TRAILS :13429
+    ### COMPONENT 2 : the status at five (data/b640_premise_status.txt, data/b640_status_test.txt) ; H74a HOLDS
+    ### COMPONENT 3 : the work-orders OPEN_TRAILS :13431 (data/b640_workorders.txt) ; H74b HOLDS
+    ### COMPONENT 4 : the description (data/b640_deposit_description.txt, data/b640_description_scan.txt)
+    ### COMPONENT 5 : the reader (data/b640_reader_packet.txt, data/b640_reader_compare.txt) ; H74c REFUTED
+    ### COMPONENT 6 : the mirror (data/b640_mirror.txt) ; the draft (data/b640_zenodo_update.txt, data/b640_zenodo_read.txt) ; H74d HOLDS ; the word hold
+    ### COMPONENT 7 : the pages, the root 1898ae2b3174067f ; FINDINGS :7911 ; OPEN_TRAILS :13455
+    (H74a) HOLDS (H74b) HOLDS (H74c) REFUTED (H74d) HOLDS ; (N1) HELD (N2) HELD (N3) REFUTED (N4) HELD (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD (S4) HELD (S5) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+b640 -- THE DEFECT LIST (the act`s own).
+
+    (a) TWO COMPONENTS' LINES IN ONE WORKING FILE. Component 1's lines in PLACE-papers OPEN_TRAILS.md were left uncommitted when Component 3 appended its work-order block to the same file. The two were split by staging the blob of the file as Component 1 had left it (git hash-object, then git update-index) and committing that first (20a29ed), then committing the whole file (0ddd715), so each commit stands alone and carries only its own component's lines. Nothing was lost; the order of the two commits is the order of the components.
+    (b) A SEALED NEEDLE THAT CANNOT TELL A DENIAL FROM AN ASSERTION. Question 1's negative needle in the reader comparison carries a not-guard on its first alternative only; its second alternative, \bRH (is|was|has been) proved\b, fired on the reader's own denial ("cannot be claimed: that RH is proved"), so the sealed comparison reads AGREE 2 OF 3 and H74c is refuted in its letter. Read by hand, all three answers agree, 3 of 3 (relay data/b640_reader_handread.txt). The needle was the seat's, written before the seal; it is left unedited, both figures recorded on the author's word.
+    (c) A COMPOSITION THAT READ THE ROOT CHAIN LIVE. The sealed compose() took the root chain's last line from data/act_roots.txt as it stood at each call, so once this act's root landed the suite's recomposition would have read b640's line and differed from the bank. Found while making the composition edit the author ordered at Component 5 and repaired in that same edit (relay 7505e346): the line skips this act's own; the description unchanged by it, and recomposed equal against a planted b640 line and again after the root.
+    (d) A GLOSS THAT DREW TWO UNDEFINED NAMES. The first recomposition with the reader's repairs read 'Tier C' and 'Tier KC' in gloss (9) as names the glossary does not define (the scan: undefined 2). The gloss was reworded to name the tiers K, C and KC as the entry itself does, and recomposed: undefined 0, the arm 10 of 10. Neither recomposition went to the service.
+    (e) A BANK WRITTEN THROUGH A HEREDOC THAT COLLAPSED ITS BACKSLASHES. data/b640_reader_handread.txt was first written with two backspace bytes where the needle reads \b (the standing trap: quoted heredocs still collapse the backslash); the two bytes were replaced in place by the two characters before the bank was committed, and nothing read the bank in between.
+    (f) A SEALED CHECK THAT OPENED A DIRECTORY AS A FILE. N5's token-in-no-bank check in the sealed scores opened every data/b640_* entry as a file, and data/b640_reader_packet, a directory N5's own path list allows, raised PermissionError before scores wrote anything. On the author's word the record tool's second edit after the seal adds the one-line os.path.isfile guard (relay b01a5bde, alone), the seal re-run with both edits declared (data/b640_seal_hashes.json, its amendments); the scores on the record are the sealed tool's own. The check was the seat's, written before the seal and not run with the packet directory present.
+    (g) THE SAME UNGUARDED READ IN THE SUITE. sources() in the sealed tools/b640_checks.py scanned every data/b640_* entry for the token as a file at :268, and the directory data/b640_reader_packet raised PermissionError before any arm ran; the tool's own :290 already guarded the same listing with os.path.isfile. Found at the pre-push suite, after the record and trail were on PLACE-papers (e8320b5). On the author's word the guard :290 carries was applied at :268 (relay dad5381d, alone), the seal re-run with all three edits declared (data/b640_seal_hashes.json, its amendments). The token scan is not widened this act. The read was the seat's, written before the seal and not run with the packet directory present.
+    (h) TWO BANKS WRITTEN AFTER THE ROOT. The act root (b640 1898ae2b...) was computed over 62 banks before scores; after it, the seat re-ran status_test, which rewrote data/b640_status_test.json and .txt with a new timestamp and nothing else (11 of 11 both times), and the record tool's second and the checks tool's one edit after the seal, each on the author's word, re-ran data/b640_seal_hashes.json. The two status-test banks were restored to their committed bytes, the bytes the root hashed (relay 09ffcf95). The seal bank cannot be restored without dropping two declared amendments, and the root cannot be recomputed with the record already on PLACE-papers (e8320b5); so the pre-push suite reads 84 of 85, G-ACTROOT-VERIFY failing in its letter, the chain b624-b639 AGREE and b640 DISAGREE on data/b640_seal_hashes.json alone (relay data/b640_checks.txt, its line 5). The claim tested directly: every other bank the root names re-hashes equal.
+    (i) A SUITE BANK OVERWRITTEN BY ITS OWN DIAGNOSIS. The first pre-push run read 83 of 85, G-LSREMOTE-ONE-PER-REPO failing on two ls-remote calls to PLACE-papers; the seat re-ran the suite under a stack trace to find the second call, and that run overwrote data/b640_checks.txt and data/b640_lsr.json before the first was kept. The first run's full printed output is banked as data/b640_checks_attempt1.txt and the traced run as data/b640_checks_attempt2_traced.txt with its data/b640_lsr_attempt2_traced.json; the traced run and the plain run after it each read one ls-remote per repository, the only PLACE-papers call act_root.verify's, and G-LSREMOTE-ONE-PER-REPO passes. The second call of the first run was not reproduced. A third run, straight after the traced one, read eleven repositories twice (relay data/b640_checks_attempt3.txt, data/b640_lsr_attempt3.json), the burst of empty remote reads b639 met; the fourth, run alone, read every repository once, 84 of 85, the pre-push reading of record. After the push the seat read the pre-push bank by mistake for the post-push one, its output discarded, and ran the post-push suite again; that second run overwrote the first's data/b640_checks_postpush.txt and data/b640_lsr_postpush.json, and reads 84 of 85, G-ACTROOT-VERIFY alone, every repository read once.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 85. ### LIVE PASSING : 84. ### LIVE FAILING : 1 ['G-ACTROOT-VERIFY'].
+    pre-push : VERDICT : NOT CLEAN
+    post-push : ARMS RUN : 85. ### LIVE PASSING : 84. ### LIVE FAILING : 1 ['G-ACTROOT-VERIFY'].
+    post-push : VERDICT : NOT CLEAN
+      relay                            main abf99f586340 ; remote abf99f586340 ; AGREE
+      PLACE-papers                     main e8320b546904 ; remote e8320b546904 ; AGREE
+      SIDE-global-section              main 17ce9ff5831d ; remote 17ce9ff5831d ; AGREE
+      SIDE-explicit-formula            main 8c51431ada77 ; remote 8c51431ada77 ; AGREE
+      SIDE-kernel                      main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation             main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                     main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      SIDE-trivium                     main 1aac3a9e1939 ; remote 1aac3a9e1939 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 2e76426dc4b0 ; remote 2e76426dc4b0 ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 54ba4f38b729 ; remote 54ba4f38b729 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 520abe7a6b7d ; remote 520abe7a6b7d ; AGREE
+      SIDE-bijection                   main a26f6f1c5dea ; remote a26f6f1c5dea ; AGREE
+      SIDE-class-coupling              main b6a6e869304d ; remote b6a6e869304d ; AGREE
+      SIDE-coupling                    main 42b5e4e5a1f9 ; remote 42b5e4e5a1f9 ; AGREE
+      SIDE-formation-arithmetic        main ef0fcf1e9967 ; remote ef0fcf1e9967 ; AGREE
+      SIDE-meta                        main 6bb7b23b4e6c ; remote 6bb7b23b4e6c ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 6bf19ab0ef6a ; remote 6bf19ab0ef6a ; AGREE
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      dedekind-b631                    local 8c51431ada77 ; remote 8c51431ada77 ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; main 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    no kernel source touched ; lean run only by the step-zero reader test, detached ; no worktree made or removed ; no current version or keystone edited ; b628`s local intake bank untracked ; no identifier of the author in any outbound request beyond the record`s own metadata, the seat`s plain requests to github.com (its ls-remote reads and its pushes) within that rule, the route`s requests to zenodo.org carrying the token in their Authorization header alone and a User-Agent naming the act, the DOI read at DataCite with no identifier ; the token never printed or banked ; one line appended to data/act_roots.txt ; the shared status tool carried and extended, each committed alone ; ERRATA, SPIRAL_MAP, README, REGISTRY and the census untouched ; the reader run by the author off D:\ ; the mirror built after the act`s last PLACE-papers push and before the draft`s update by the unedited builder
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R250)(8)**: b641 on the author`s word -- the census at v0.7 with the five-status column (the method item at
+        OPEN_TRAILS :13395), or the open premises taken up one at a time beginning with Keiper`s obligations.
+    ### THE NEXT ACT`S TERMINALS, EACH STATEMENT AT ITS PIN ((R237)(4)):
+    b641, on the author`s word: the census at v0.7 with the five-status column (the method item at OPEN_TRAILS :13395), or the open premises taken up one at a time beginning with Keiper`s obligations:
+        names no kernel terminal yet; its statements are the act`s to write, priced at the work-order
+    (b) ### **FOR THE AUTHOR`S RULING**: the reader`s UNCLEAR section and every differ with its repair (data/b640_reader_compare.txt); the
+        description`s changed paragraphs and their reasons (data/b640_description_scan.txt).
+    (c) ### **FOR THE AUTHOR`S STRIKE**: the seat`s readings (the reader staged off D:\ at C:/reader_b640; the open section, the root line and
+        the composition line re-read by the fact clause; the shared status tool carried then extended; the comparison`s needles).
+    (c2) b628`s full intake bank stays local and untracked in relay data/; its digest is in b628`s summary bank.
+    (d0) The act root of b640 is relay data/act_roots.txt`s last line; the next mirror carries it in MANIFEST.
+    (d) Branches left for the next act`s step zero, each merged: the push-b640* branches of relay and PLACE-papers; the kept kernel
+        branches untouched.
+    (e) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+    (f) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).
+========================================================================================================
