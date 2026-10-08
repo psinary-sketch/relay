@@ -1,0 +1,270 @@
+b643 -- READING (1): THE READS, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN
+
+### relay data/b642_grades.txt: the WithTop note -- data/b642_grades.txt @ 13b1c48b (4 lines cited, of 454)
+    :149    INTERFACES  theorem  SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀
+    :150        statement: {n : WithTop ℕ∞} : ContDiff ℂ n riemannZeta₀
+    :151        why: n : WithTop ℕ∞
+    :153        note: INSTRUMENT MISREADING, NOT REGRADED: the binder n : WithTop ℕ∞ is data (the smoothness order); e0_rule.typing has no lexicon entry for WithTop and reads it as an unlexed named predicate (typing prop, class B17, outcome premise). The shared rule is not edited at b642.
+### relay data/b642_table.txt: the three primed names -- data/b642_table.txt @ 13b1c48b (7 lines cited, of 113)
+    :55       + SIDE-explicit-formula SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' ('—', 'none', 'upstream', 'upstream')
+    :59       + SIDE-explicit-formula SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' ('—', 'none', 'upstream', 'upstream')
+    :60       + SIDE-explicit-formula SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' ('—', 'none', 'upstream', 'upstream')
+    :101    ### THE TABLE BESIDE THE GATE (data/b642_grades.txt): 96 names graded by the gate ; in the table 96 ; grades differing 3
+    :102        SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' : gate DERIVES ; table — (provenance none)
+    :103        SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' : gate DEF ; table — (provenance none)
+    :104        SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' : gate PREDICATE-UNLISTED ; table — (provenance none)
+### relay data/b642_nonvacuity.txt: the counts and the class lines -- data/b642_nonvacuity.txt @ 13b1c48b (7 lines cited, of 134)
+    :8      WITNESSED 24 ; UNWITNESSED 26 ; total 50 ; both 0 ; neither 0
+    :9        UNWITNESSED / CONTENT: 3
+    :10       UNWITNESSED / OTHER-KERNEL: 22
+    :11       UNWITNESSED / REFUTED: 1
+    :12       WITNESSED / DEGENERATE: 3
+    :13       WITNESSED / EXISTING: 3
+    :14       WITNESSED / NEW: 18
+### relay data/b641_premise_status.txt: the heads by status, the figure line -- data/b641_premise_status.txt @ 13b1c48b (9 lines cited, of 216)
+    :11     ### ### **DOMAIN : 12 heads ; rule rows 20 ; rule-elab rows 1**
+    :85     ### ### **DISCHARGED : 9 heads ; rule rows 63 ; rule-elab rows 3**
+    :124    ### ### **CITED : 2 heads ; rule rows 2 ; rule-elab rows 0**
+    :130    ### ### **WITNESSED : 2 heads ; rule rows 2 ; rule-elab rows 0**
+    :140    ### ### **OPEN : 25 heads ; rule rows 36 ; rule-elab rows 0**
+    :171          (R251)(5) D1 (the premise, a Prop over every k): REFUTED-BY-COMPUTATION -- As stated the premise is false, so nothing can discharge it, and dedekind_rhs rests on it.
+    :185    ### ### **HEADS 50 ; OPEN 25 ; CITED 2 ; DISCHARGED 9 ; WITNESSED 2 ; DOMAIN 12 -- RULE ROWS 36 / 2 / 63 / 2 / 20. H74a HOLDS.**
+    :193        STATUS : REFUTED-BY-COMPUTATION (the author`s answer at Component 5; the worklist`s OPEN)
+    :216    ### ### **HEADS 50 ; STATUS MOVED 0 ; ROWS DIFFERING 0 ; THE DEDEKIND PREMISES TrivialSummandPremise REFUTED-BY-COMPUTATION, EulerFactorPremise OPEN.**
+### relay data/b642_defects.txt: defects (a), (h), (i), (k) -- data/b642_defects.txt @ 13b1c48b (4 lines cited, of 14)
+    :3          (a) THE SEAT`S: FREE MEMORY FELL BENEATH THE 2,560 MB HOLD DURING DETACHED RUNS, EACH STARTED ABOVE IT AND NONE STOPPED. The hold gates the start and was read before every call; during the calls the watchdog sampled lows beneath it -- the builds and audits printed in data/b642_declarations.txt`s watchdog section (build_keiperid_1 1795 MB, build_dedres_1 1984, ax_FamilyPremises 2164, build_family_2 2309, build_nv_1 2322, ax_WindowProofs 2396, build_dedres_3 2414, ax_KeiperIdentities 2465, build_fampre_1 2495, build_window_1 2505, build_dedres_2 2530, build_dedekind_1 2559) and, NOT in that 
+    :10         (h) THE SEAT`S: TWO REFUTATIONS COMPILED BY OTHER WITNESSES THAN b641 PRINTED. not_trivialSummandPremise is proved at the box of half-width 1/2, an indicator, where b641 computed at a continuous bump; not_eulerFactorPremise_six through the point mass at log 2, the prime terms differing at n = 2, where b641 read the Gamma terms. Each refutes the premise as stated; (R252)(3)(c) asked for b641`s computations made proofs.
+    :11         (i) THE INSTRUMENTS`: TWO READINGS BANKED AS PRINTED. tools/e0_rule.py reads the data binder n : WithTop ℕ∞ of contDiff_riemannZeta₀ as an unlexed named predicate and grades it INTERFACES; tools/terminal_table.py`s textual reader leaves three primed names ungraded (TrivialSummandPremise`, dedekind_rhs`, trivialSummandPremise`_witness`). Neither shared tool is edited; the notes stand in data/b642_grades.txt and data/b642_table.txt.
+    :13         (k) THE SEAT`S: COMPONENT 5`S PAGE CHECK READ THE WRONG TABLE, AND A CELL DOES MOVE ON BOTH PAGES. The generator builds each page`s Correspondence table from every graded kernel name of the terminal table at relay HEAD (tools/chain_page.py, corr_select); at Component 5 relay HEAD still carried b641`s table, so the re-emission matched byte for byte and the seat read no cell moved. With the v0.26 table committed at relay 534999e3 the act`s new declarations join both Correspondence tables, and neither b635`s banked probes nor a probe at the lists` v0.25 pin resolves them: the pre-push suite r
+### relay tools/e0_rule.py before the repair: the binder classes, the lexicon and the typing`s fall-through -- tools/e0_rule.py @ 13b1c48b (9 lines cited, of 1020)
+    :514    CLASSES = ([('B01', 'explicit', 'data', '—', 'data'), ('B02', 'implicit', 'data', '—', 'data'), ('B03', 'strict-implicit', 'data', '—', 'data'),
+    :541    OUTCOME_OF = dict((c[0], c[4]) for c in CLASSES)
+    :669    SORT_ATOMS = re.compile(r"^(?:ℝ|ℂ|ℕ|ℤ|ℚ|ℕ∞|ℝ≥0|ℝ≥0∞|EReal|ENNReal|NNReal|Nat|Int|Real|Complex|Rat|Bool|Prop|Unit|Type\*?|Type\s+[\w'₀-₉]+|Sort\*?|"
+    :687    LEXICON = {
+    :789    def _lex(name):
+    :804    def typing(t, ctx=None, depth=0):
+    :894            return 'prop', 'UNLEXED: an application of a name no lexicon lists, read as a named predicate'
+    :918    def binders_of(head):
+    :957    def grade(head, kind):
+### relay tools/terminal_table.py: the textual reader -- tools/terminal_table.py @ 13b1c48b (7 lines cited, of 1236)
+    :47     import b378_terminals as B378          # noqa: E402
+    :57     ID_FIRST = ('A-Za-z_\u03b1-\u03ba\u03bc-\u03c9\u0391-\u039f\u03a1\u03a2\u03a4-\u03a9\u03ca-\u03fb\u1f00-\u1ffe\u2100-\u214f'
+    :59     ID_REST = ID_FIRST + "0-9'!?\u2080-\u2089\u2090-\u209c\u1d62-\u1d6a\u2c7c"
+    :60     NAME_RE = re.compile('`([%s][%s]*(?:\\.[%s][%s]*)*)`' % (ID_FIRST, ID_REST, ID_FIRST, ID_REST))
+    :788    def statement(repo, ref, name):
+    :796        pat = B378.decl_re(last)
+    :806            if not B378.declares(t, name, f):
+### relay tools/b378_terminals.py before the repair: the declaration pattern -- tools/b378_terminals.py @ 13b1c48b (4 lines cited, of 479)
+    :49     KEYWORD = r'(?:theorem|lemma|def|abbrev|instance|structure|inductive|axiom)'
+    :50     LEAD = (r'^[ \t]*(?:@\[[^\]]*\][ \t]*)?'
+    :64     def decl_re(last):
+    :66         return re.compile(LEAD + KEYWORD + r'[ \t]+' + re.escape(last) + r'\b', re.M)
+### relay tools/chain_page.py: corr_select and the table it reads -- tools/chain_page.py @ 13b1c48b (8 lines cited, of 989)
+    :74     SCHEMA_PREFIX = 'SIDEExplicitFormula.Schema.'
+    :78     CHI_PREFIX = 'SIDEExplicitFormula.GRHWeil.'
+    :141    def record_rows():
+    :142        rc, out = git(ROOT, 'show', 'HEAD:data/terminal_table.json')
+    :808    def corr_select(rec, names, marks, variant):
+    :814            pick = lambda n: n.startswith(CHI_PREFIX) or n.startswith(SCHEMA_PREFIX)
+    :816            pick = lambda n: ((n.startswith('SIDEExplicitFormula.') or n.startswith('Zeta23.')) and not n.startswith(CHI_PREFIX)
+    :818        return sorted(set(n for n, r in rec.items() if pick(n) and n not in names and r.get('grade') != 'UNGRADED')
+### relay data/b638_nodes_zeta.txt: its pin line -- data/b638_nodes_zeta.txt @ 13b1c48b (2 lines cited, of 144)
+    :19     # pin moved to v0.23; one backmatter record for exceptional_mass_le_third`s citation. Every cell is elaborated by the
+    :59     # pin: v0.25
+### relay data/b638_nodes_chi.txt: its pin line -- data/b638_nodes_chi.txt @ 13b1c48b (1 lines cited, of 83)
+    :39     # pin: v0.25
+### relay tools/act_root.py: the census path (a reader of the census`s kernel column, not a generator) -- tools/act_root.py @ 13b1c48b (3 lines cited, of 307)
+    :43     CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_6.md'   # ### b638, (R248)(5): the census at v0.6 (b638), its §1 kernel column in the same place (b634: v0.5)
+    :76     def census_kernels(rev='HEAD'):
+    :117        return ['relay', 'PLACE-papers'] + sorted(set(census_kernels(rev)) | set(registry_kernels(rev)) | set(page_kernels(rev)))
+### relay tools/b638_record.py: the edition generator that wrote v0.6 -- tools/b638_record.py @ 13b1c48b (5 lines cited, of 1938)
+    :371        blk = CP.glossary_block(p)
+    :744    def census(*a):
+    :994    def _edition(CJ, cur, gl):
+    :1217   def edition(*a):
+    :1224       gl = CP.glossary_block(_glossary_path())
+### relay tools/b634_elab.py: the elaborated reader -- it prints types, no dependency -- tools/b634_elab.py @ 13b1c48b (14 lines cited, of 634)
+    :8      ###     BINDER <explicit|implicit|strict-implicit|instance> <name> : <type>      (one per header binder; a hygienic name marked ✝)
+    :9      ###     CONCL <the rest of the type>
+    :118    def b634Dump (label : String) (n : Name) : MetaM Unit := do
+    :127            IO.println s!"BINDER {b634BinderKind d.binderInfo} {b634Name d.userName} : {b634Flat (← ppExpr d.type)}"
+    :128          IO.println s!"CONCL {b634Flat (← ppExpr body)}"
+    :134        b634Dump label n
+    :151          b634Dump label c[0]!
+    :162    def gen(module, names, path, opens=True, extra='', resolve=False):
+    :180            lines.append(('  b634Resolve %s %s %s' % (_lean_str(n), nm, home)) if resolve else ('  b634Dump %s %s' % (_lean_str(n), nm)))
+    :187    def parse(text):
+    :211            m = re.match(r'^BINDER (explicit|implicit|strict-implicit|instance) (\S+) : (.*)$', l)
+    :214            elif l.startswith('CONCL '):
+    :409                L += ['BINDER %s %s : %s' % (b['kind'], b['name'], b['type']) for b in e['binders']]
+    :410                L += ['CONCL %s' % e['concl'], 'END']
+### the census at v0.6: its headings -- phase2/method/THE_KEYSTONE_CENSUS_v0_6.md @ 69b74d08 (68 lines cited, of 1127)
+    :1      # THE KEYSTONE CENSUS — ACT 3a
+    :3      ## What this document is about
+    :11     ## Glossary
+    :102    ## §0 — THE KEYSTONE TEST, RULED *(v0.3, 2026-10-03, b610, under the author’s ruling `(R220)`(3))*
+    :108    ### The census’s own test of v0.1, carried beneath under the history clause
+    :110    ## §0 — THE CATEGORY, DEFINED BEFORE COUNTING *(so the count is reproducible)*
+    :123    ## §1 — THE PHASES AND CLUSTERS, ONE ROW EACH *(read 2026-10-07, b638; relay `data/b638_census.txt`)*
+    :155    ## §1A — THE KERNEL COLUMN AT THE ROOT’S LIST *(read 2026-10-07, b638, the tags re-read under `(R248)`(5); relay `data/b638_census.txt`, Part C)*
+    :200    ## §1B — THE EXPLICIT-FORMULA KERNEL’S FACES AT v0.22-v0.25 *(under `(R243)`(6)(ii), read again at v0.6 under `(R248)`(5); relay `data/b638_census.txt`, Part D)*
+    :211    ## §1C — THE PHASE 2 ROWS READ AGAINST SIDE-structural-error-correction AT v0.2.2 *(under `(R243)`(6)(iv); read again by b636 under `(R246)`(4), its four rows unchanged and no trigger; relay `data/b63
+    :224    ## §2 — THE CLUSTERS WITH DOCUMENTS AND NO KEYSTONE *(under §0)*
+    :234    ## §3 — WHAT THE READING FOUND, STATED AND NOT REPAIRED
+    :246    ## Back matter of the v0.3 edition — written 2026-10-03 by b610 under the author’s ruling `(R220)`(4), by the form of `(R187)`(5), its clauses and the precedence order, with the reorganisation `(R215)
+    :248    ### The readings, each the seat’s and strikeable
+    :259    ### Removals -- the body moved whole below (the reorganising clause)
+    :267    ### History lines
+    :273    ### The census at v0.1 and v0.2, moved whole
+    :278    ## §1 — THE FEDERATION, READ LIVE — **TWO ANOMALIES THE CORPUS DOES NOT RECORD**
+    :293    ### **PIN ANCESTRY — 62 CITED PINS CHECKED LIVE AGAINST THEIR REPOS**
+    :311    ## §2 — THE CLASSIFICATION
+    :322    ### **THE SIXTEEN KEYSTONES** *(last content update = git log, **excluding the 2026-08-12 pin-naming pass** — see §4)*
+    :345    ## §3 — THE THREE QUESTIONS
+    :347    ### **(a) CLUSTERS HOLDING MULTIPLE KEYSTONES**
+    :356    ### **(b) SPINE / KEYSTONE MISMATCHES — STATED AS STRUCTURE**
+    :364    ### **(c) THE CURRENCY PICTURE — ACT 3b's WORK-LIST, READY**
+    :385    ## §4 — THE SPINE CHECK *(item 4)*
+    :403    ## §5 — A CONTAMINATION THIS CENSUS CAUSED AND CORRECTED
+    :415    ### **THE NATURAL NEXT RULING, AS THE CHARTER ANTICIPATES:** *which keystones get the correspondence institution first.* ### **The census's own answer, offered and not taken: `THE_RESIDUE_OF_RH` and `
+    :419    # **ACT 3c — THE COVERAGE RECONCILIATION** *(2026-08-12; phase read per document from `REGISTRY`'s own rows, not per directory)*
+    :421    ## §6 — **THE README NAMES FIVE PHASES. `REGISTRY` IMPLEMENTS THREE.**
+    :440    ## §7 — **PHASE 1.2's CHECKPOINT KERNELS, MATCHED TO THEIR CITERS** *(read live 2026-08-12)*
+    :457    ## §8 — **THE REPO RECONCILIATION: 48 ACCOUNT, 45 LOCAL, 3 EXPLAINED, ZERO ORPHANS**
+    :471    ## §9 — **THE KEYSTONE TABLE, WITH PHASE MEMBERSHIP**
+    :480    ### **THE BRANCH-RESIDENT FINDING, PROPAGATED AS A REQUIRED LINE**
+    :492    ### §9 ANNOTATED -- THE REQUIRED LINE SUPERSEDED (appended 2026-09-28, b553, under the author's ruling `(R163)`(6))
+    :496    # THE KEYSTONE CENSUS v0.2 -- RE-RUN LIVE, 2026-09-28 (b553, under the author's ruling `(R163)`(6); the v0.1 body above is unchanged)
+    :542    ### Placement
+    :552    ### Correspondence
+    :580    ### Version history
+    :588    ## Back matter of the v0.4 edition — written 2026-10-04 by b619 under the author’s ruling `(R229)`(3), by the form of `(R187)`(5), its clauses and the precedence order
+    :590    ### The readings v0.4 adds, each the seat’s and strikeable
+    :600    ### The cells changed, by row and column (both wordings in relay `data/b619_census.txt`, Part B)
+    :624    ### Rewrites under the clauses
+    :639    ### Removals
+    :650    ### Insertions ordered by the ruling
+    :658    ### Placement
+    :675    ### Correspondence
+    :703    ### Version history
+    :711    ## Back matter of the v0.5 edition — written 2026-10-06 by b633 under the author’s ruling `(R243)`(6), by the form of `(R187)`(5), its clauses and the precedence order
+    :713    ### The readings v0.5 adds, each the seat’s and strikeable
+    :723    ### The cells changed, by row and column (both wordings in relay `data/b633_census.txt`, Part B)
+    :753    ### Rewrites under the clauses
+    :763    ### Insertions ordered by the ruling
+    :773    ### The named premises the INTERFACES rows rest on (`(R243)`(6)(vi)), and MET
+    :826    ### A fact read in v0.4’s back matter
+    :830    ### Placement
+    :849    ### Correspondence
+    :881    ### Version history
+    :888    ## Back matter of the v0.6 edition — written 2026-10-07 by b638 under the author’s ruling `(R248)`(4)-(5), by the form of `(R187)`(5), its clauses and the precedence order, under the reader’s clause
+    :890    ### The readings v0.6 adds, each the seat’s and strikeable
+    :898    ### The cells changed, by row and column (both wordings in relay `data/b638_census.txt`, Part B)
+    :928    ### Rewrites under the clauses
+    :946    ### Insertions ordered by the ruling
+    :954    ### The named premises the INTERFACES rows rest on, at v0.6 (`(R248)`(5)), and MET
+    :1040   ### The binder grammar the grades rest on
+    :1073   ### Placement
+    :1092   ### Correspondence
+    :1124   ### Version history
+### relay data/glossary.txt -- data/glossary.txt @ 13b1c48b (74 lines cited, of 74)
+    :1      # relay data/glossary.txt -- THE SHARED GLOSSARY, entered at b638 under the author's ruling (R248)(4), the reader's clause.
+    :2      # One source for the glossary block the two generated pages (tools/chain_page.py) and the keystone census (v0.6 on) print, so the
+    :3      # block reads byte for byte the same in all three. A line beginning # is a comment and is not printed. Every other line is one entry:
+    :4      # the name, a tab, its definition in the programme's own words, a tab, where the programme states it. The block prints the entries
+    :5      # in this file's order. The located clause is spelled out as the ruling words it.
+    :6      A PLACE TO STAND	the research programme whose papers, kernels and ledgers this corpus holds: its principal result "a machine-verified reduction of the Riemann Hypothesis to a single located clause, with that clause carried openly as open"	OPEN_TRAILS :12354, "
+    :7      RH	the Riemann Hypothesis, as Mathlib states it (`RiemannHypothesis`): every zero s of the Riemann zeta function that is not a trivial zero −2(n+1) and is not s = 1 has real part 1/2	Mathlib de5ce8a9, NumberTheory/LSeries/RiemannZeta.lean :185
+    :8      GRH_chi	the same statement for the zeros of the L-function of one primitive Dirichlet character χ ≠ 1; GRH, the generalised Riemann Hypothesis for these characters, is GRH_chi for every such χ	README :125, the author's ruling (R183)(3)
+    :9      the located clause	the Riemann Hypothesis holds exactly when the explicit-formula quadratic form Q(k) = pole term − prime sum + archimedean term is non-negative for every admissible test window k, the theorem h2_sign_iff_rh deriving the equivalence with no pre
+    :10     h2	the programme's name for the open clause; in the kernel it is the one Prop h2_sign	SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :28, "h2, as one Prop"
+    :11     h2_sign	Weil positivity on classK: for every test window k in classK, 0 ≤ P(k) − PR(k) + A(k), the pole term, the prime sum and the archimedean term of the explicit formula; open, and carried as the one open premise	SIDE-explicit-formula SIDEExplicitFormula/H2
+    :12     classK	the admissible test windows: functions k on the reals that are even, twice continuously differentiable and compactly supported, and of the form h ⋆ h~ with h twice continuously differentiable and compactly supported	SIDE-explicit-formula SIDEExplicitFor
+    :13     h2_sign_iff_rh	the compiled theorem h2_sign ↔ RiemannHypothesis: "Weil positivity on classK is Mathlib's RiemannHypothesis, both directions, no hypothesis"	SIDE-explicit-formula SIDEExplicitFormula/Seam.lean :100-:101; README :115
+    :14     Weil positivity	the statement h2_sign, the non-negativity of the explicit formula's quadratic form on classK, one of three faces of the one open clause compiled as equivalent	README :121
+    :15     Li positivity	the non-negativity of Li's coefficients λ_n, compiled over Mathlib's zeros as equivalent to RH (li_nonneg_iff_rh), a second face of the one open clause	README :121
+    :16     arithmetic-limit positivity	the non-negativity of the Bombieri–Lagarias arithmetic limits, compiled as equivalent to RH (arith_limit_nonneg_iff_rh), the third face of the one open clause	README :121
+    :17     seam	a named implication between open statements, read as a premise when it is the antecedent of a statement's conclusion: rh_strip_imp_rh, that every zero of zeta with real part at most 0 is a trivial zero	relay tools/e0_rule.py, (R236)(2)(i); README :113
+    :18     kernel	a Lean 4 repository of the programme's federation, checked by Lean on its own and cited by named theorem at a pinned commit or tag: "Lean kernels under psinary-sketch carry the arms"	README :18
+    :19     SIDE-	the prefix of every kernel's name, one public repository each under github.com/psinary-sketch: SIDE-kernel carries the deposited route terminals (v1.5), SIDE-explicit-formula the explicit formula, h2_sign and h2_sign_iff_rh, SIDE-structural-error-correct
+    :20     terminal	a compiled theorem a paper cites by name: "cited by named terminal, not by count"	README :15
+    :21     pin	the commit, or the tag peeling to one, at which a citation is read: "pins move, so the columns are read live, never recalled"	README :18
+    :22     the standard three	the axioms [propext, Classical.choice, Quot.sound], written std3	README :79-:80
+    :23     Zeta23	the vendored explicit-formula modules of anthropics/formal-math at 3635e748, on which the explicit-formula kernel builds	the generated pages' head line
+    :24     Bulka	the vendored repository nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0, the converse half of Li's criterion	README :121
+    :25     E0	the shared grading rule, relay tools/e0_rule.py from b568: it grades a theorem by reading its statement's binders, INTERFACES when a hypothesis binder is a named Prop passed through as a premise and DERIVES when its only binders are domain conditions; from 
+    :26     binder	a variable or hypothesis a statement introduces: the header's groups ( ), { }, ⦃ ⦄ and [ ] (Lean's four binder kinds), the conclusion's leading universal telescope, the antecedents of its implication and the binders of an existential in it	relay data/b6
+    :27     binder class	one of the 26 classes B01-B26 the rule reads every binder into, by kind, typing (a Prop or data) and form, each class with its outcome: data, a domain condition, a premise, a seam, an unlisted predicate or part of the conclusion	relay data/b637_bi
+    :28     domain condition	a binder that does not enter the grade: an instance binder whose class is not Fact; a membership, non-membership, non-emptiness or finiteness condition on an object the statement names; a restriction on a variable the same statement quantifies
+    :29     premise	a binder asserting a Prop about a fixed object the kernel names and does not derive: a structure of premises, an EF_lit_* hypothesis, a Fact instance, a Summable or HasSum of the kernel's own series	relay tools/e0_rule.py, (R235)(2)
+    :30     DERIVES	"the theorem's statement, unfolded to its base objects, establishes the claim"	README :64-:65
+    :31     INTERFACES	"the theorem takes the claim as a named hypothesis, discharged elsewhere and identified in the row. This is a legitimate architecture, not a defect; it is how a kernel cites a manuscript result. The row names the premise."	README :66-:68
+    :32     ENCODES-CONCLUSION	"the theorem stipulates what the paper claims, or concludes a placeholder. These are work-orders, not citations"; the rule reads it when a hypothesis binder's type is the conclusion itself	README :69-:71; relay tools/e0_rule.py, (R234)(2)
+    :33     SHELL	read with ENCODES-CONCLUSION: a theorem that concludes a placeholder; a work-order, not a citation	README :69-:71
+    :34     ENCODES	the table's synonym for ENCODES-CONCLUSION and ENCODES-CONCLUSION-or-SHELL, applied before ledger cells are compared	relay tools/terminal_table.py, the synonym map, (R164)(2)(a)
+    :35     NOT THE CLAIM	"the theorem is sound and its statement is strictly weaker than the claim the row makes for it"	README :72-:73
+    :36     DEF	the table's grade of a definition: an object or a Prop defined, not a theorem, carrying no claim	relay data/b637_binder_classes.txt, the grade
+    :37     PREDICATE-UNLISTED	the rule's reading of a named predicate on a variable the statement quantifies, met for the first time: printed as such and not read as a premise, so the list of named restrictions grows by a ruling and not by a wrong grade	OPEN_TRAILS :1322
+    :38     MET	the rule's forward guard: the named predicates any row of the terminal table carried in the rule's reading at relay 8e6b63cc (51 names) and those met since; a name it holds reads as a premise until the author rules it a restriction	OPEN_TRAILS :13221; rela
+    :39     CONFLICT	a row whose ledger cells grade one name differently: "the row records CONFLICT and quotes BOTH WITHOUT CHOOSING -- a table that resolves a disagreement has conferred a grade"	relay tools/terminal_table.py :10-:12
+    :40     UNGRADED	a row neither a ledger cell nor the rule grades	THE_KEYSTONE_CENSUS v0.5 :43, "none (ungraded)"
+    :41     the terminal table	relay data/terminal_table.md and its json: one row per compiled declaration the ledgers or the axiom prints name, each with its grade and the provenance of that grade; "it confers no grade and moves none"	relay tools/terminal_table.py :1-:12
+    :42     provenance	where a row's grade comes from: cell (a ledger cell grades it), rule (the shared E0 rule reads its statement), rule-elab (the rule reads the declaration's elaborated type where the textual reading differs or defers) or none (ungraded)	THE_KEYSTONE_C
+    :43     upstream	the kind of a table row whose declaration lives outside every kernel (Mathlib's, or a vendored module's beyond the kernel's roots): its grade cell reads —, its provenance none, and it is excluded from every grade count; "Mathlib's theorems are cited, 
+    :44     T0	the anchor tier: compiled against a Mathlib statement, at the standard three, its statement read	the author's ruling (R149)(2), relay data/b539_ferry.txt :21-:22
+    :45     T1-open	compiled in a programme kernel, INTERFACES on a premise equivalent to RH that is named and open; h2_sign is the one open premise of this kind	(R149)(2); FINDINGS :4823, :5812
+    :46     T1-lit	compiled in a programme kernel, INTERFACES on an uncompiled literature theorem	FINDINGS :4823, :5812
+    :47     T2	compiled, but the terminal is ENCODES-CONCLUSION, SHELL, false as stated or vacuous	(R149)(2), relay data/b539_ferry.txt :25-:28
+    :48     T2-INTERFACES	a terminal that interfaces on a named premise which is neither compiled nor a literature theorem but the programme's own manuscript claim	FINDINGS :5812, (R165)(3)
+    :49     T3	numerical: VERIFIED-STRICT, -EST or -EST-TAIL, with its bank	(R149)(2), relay data/b539_ferry.txt :28-:29
+    :50     T4	a reading, manuscript-resident, with no terminal	(R149)(2), relay data/b539_ferry.txt :29-:30
+    :51     keystone	a document read at Tier K, KC or C under the author-ruled taxonomy: the documents that carry the programme's results to a reader outside it	THE_KEYSTONE_CENSUS v0.5 :20
+    :52     Tier K, KC, C, N, E	the author-ruled tiers of a document: Tier K, certification at a pin; Tier KC, certification and cluster synthesis together; Tier C, synthesis; Tier N, notes and exploratory; Tier E, filing-facing	phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY
+    :53     phase	REGISTRY's divisions of the corpus -- Phase 1 (Day 1), Phase 1.2, Phase 1.5 and Phase 2 -- and within them the lettered clusters (1.5A-1.5H, 2A-2G), each a group of papers on one subject	REGISTRY.md; THE_KEYSTONE_CENSUS v0.5 :41
+    :54     REGISTRY	"the single source of truth. One row per paper: ID, title, file, version, confidence mark, status, word count, notes ... If this file disagrees with anything else, it wins"	README :35
+    :55     FINDINGS	"the middle reference layer between the kernels ... and the papers, which cite"; append-only	README :37
+    :56     OPEN_TRAILS	"the cross-session continuity ledger -- items needing explicit follow-through: open trails, work-orders (W-ORD-*), and research-arc entries with dated addenda"; append-only	README :36
+    :57     W-ORD	a work-order on OPEN_TRAILS: a named piece of work, priced and entered, which an act takes up on the author's word	README :36
+    :58     ERRATA	"corrections to deposited artifacts, each retained at the version it was filed against"	README :40
+    :59     SPIRAL_MAP	"the federation map -- kernels, their relationship to the papers, and the translation table from programme vocabulary to standard mathematics"	README :39
+    :60     relay	the programme's working repository (github.com/psinary-sketch/relay): "session reports, computational instruments, and their data banks"	README :41
+    :61     PLACE-papers	the corpus's own repository (github.com/psinary-sketch/PLACE-papers): the papers, the registry, the generated pages and the ledgers	OPEN_TRAILS :12354
+    :62     the sieve	THE_FINDINGS_AS_THEY_STAND: the sieve table of the programme's findings by cluster, each row with its verdict	phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md :1
+    :63     the ceiling sentence	the README's ruled line of what the corpus may claim and what it may not, with each later ruled sentence placed beside it; no document claims beyond it	README :106, and the ruled sentences beside it, :113-:125
+    :64     Correspondence	the table that pairs a document's rows with the compiled declarations they cite and grades each pair; with Placement it sits in the back matter	OPEN_TRAILS :11864, the form of an edition
+    :65     Placement	the table of where each object a document names lives: its path and its status	OPEN_TRAILS :11864, the form of an edition
+    :66     the form of an edition	the standing form by which a document's next version is written beside the current one, the current unedited, its changes recorded in back matter	OPEN_TRAILS :11864
+    :67     the load-bearing clause	a kernel-verified terminal counts toward a document's tier only where it carries the thesis of the document's head	OPEN_TRAILS :12699
+    :68     ANNEX	REGISTRY's download layer, outside the repository tree and filed non-keystone	REGISTRY.md :360
+    :69     CP-1	the first stage of the critical path: the tier blocks appended to each keystone, its terminals tiered T0-T4	OPEN_TRAILS :11413
+    :70     bNNN	an act: one numbered session of the programme's work under the author's ruling (b638 is this one), its banks at relay data/bNNN_*, its record lines in FINDINGS and OPEN_TRAILS	OPEN_TRAILS :13339, the record of b637
+    :71     (Rnnn)	the author's rulings, numbered, each ratified by the delivery that carries it and strikeable clause by clause	the ruling (R248)'s own head
+    :72     the act root	the sha256 over the repositories' heads, the cited tags and the act's banks, chained to the previous act's root, so that an act's state can be re-read and checked	relay tools/act_root.py :4-:10; relay data/act_roots.txt
+    :73     the deposit	a Zenodo record of the programme's work, the author's own act; the Zenodo deposits and the GitHub repositories carry its assertions	OPEN_TRAILS :12354
+    :74     the mirror	the project workspace's mirror, a zip of the roster's files: research history at every stage of edit, not definitive where a more refined result supersedes it	OPEN_TRAILS :12354; relay tools/mirror_roster.json
+### OPEN_TRAILS: the work-orders of b641, the squeeze, the Epstein price, b642`s record and correction -- OPEN_TRAILS.md @ 69b74d08 (9 lines cited, of 13561)
+    :13489  *Appended 2026-10-08 by b641 beneath the five-status clause (:13429), under the author’s answer at b641’s Component 5 -- THE SIXTH STATUS, REFUTED-BY-COMPUTATION:* a premise the seat has computed false is not OPEN: it takes REFUTED-BY-COMPUTATION, a sixth status beside the five, its witness class and the value that refutes it printed in its bank; the status is the seat’s computation and is not compiled -- it stands until a kernel theorem compiles the refutation or the premise is restated. It is assigned from the computation, not by the shared tool’s rule over the kernels. At b641 TrivialSummandPremise takes it (relay data/b641_premise_status.txt: the witness class every real, nonnegative, co
+    :13491  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 4 -- W-ORD-PLATEAURAMP-DOCSTRING, NOT STARTED, TRIGGER THE FIRST UNDERSTATES ROW OF THE REVIEW PASS:* SIDE-explicit-formula v0.25 (8c51431) SIDEExplicitFormula/Schema/PlateauRamp.lean :19-:20 reads that Mathlib at the pin holds the convolution theorem for the transform for Schwartz functions only; Mathlib at the pin, de5ce8a9, holds Real.fourier_mul_convolution_eq for integrable functions (Mathlib/Analysis/Fourier/Convolution.lean :119), at real frequency (relay data/b641_window_epstein_status.txt, W1). The docstring is edited under ruling in the review pass; no kernel byte is touched at b641.
+    :13493  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 4 -- W-ORD-EPSTEIN-ZQ, PRICED IN b641’S CLOSING, TRIGGER A RULING TO BUILD IT:* EpsteinPremises’ count field stays OPEN, its discharger the construction of Z_Q, the zero configuration of the Epstein zeta function of x^2 + xy + 6y^2 (discriminant -23), which Mathlib at the pin does not hold (relay data/b641_window_epstein_status.txt, E1); the price is the seat’s, printed in relay data/b641_closing.txt.
+    :13495  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 5 -- W-ORD-DEDEKIND-RHS-RESTATE, NOT STARTED, TRIGGER THE PROVING ACT:* TrivialSummandPremise is restated so that the pole term is carried rather than required to vanish, and dedekind_rhs is re-proved on the restated premise. Until then dedekind_rhs keeps the grade its statement reads and its row is annotated: on a premise refuted by computation at b641; the pages’ cells for it are not edited, and the correction is a dated entry in the form of ERRATA at b641’s closing. EulerFactorPremise’s counterexample at the modulus 6 and its sufficient condition (every non-trivial character primitive) are recorded beside it (rela
+    :13497  *Appended 2026-10-08 by b641, under the author’s answer at b641’s Component 5 -- W-ORD-PREMISE-NONVACUITY, STANDING, TRIGGER ANY NEW PREMISE STRUCTURE:* every premise structure in the premise table takes a non-vacuity read -- a witness exists, or the premise is marked UNWITNESSED -- before a theorem resting on it takes the interface grade; the existing table is read once under it at b642.
+    :13527  *Appended 2026-10-08 by b642 beneath `(R251)`(7)’s block (:13487), under `(R252)`(5) -- A CORRECTION IN THE NAVIGATOR’S NAME: W-ORD-H2-STRIP-AXIS WITHDRAWN; THE SQUEEZE’S COMPILED JAW NAMED:* W-ORD-H2-STRIP-AXIS, as the navigator proposed it at b641, is WITHDRAWN: the θ-jaw is THE_UNCONDITIONAL_SURROUND §6a’s Euler jaw (phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md, section 6a: "One jaw is the Euler zero-free region ... pressing in from σ = 1"), not a new axis. The compiled Euler jaw is ZetaZeroFree, read by the seat at Zeta23/FromPNTPlus/ZetaBounds.lean :2457 at 3635e748 and in SIDE-explicit-formula’s vendored copy at :2485 at 8c51431, the statement at the two lines identical: "lemma Z
+    :13533  *Appended 2026-10-08 by b642 to b641’s W-ORD-EPSTEIN-ZQ block (:13493), under `(R252)`(4) -- THE PRICE READ FROM THE PIN, THE ESTIMATE KEPT BESIDE IT:* The five rungs priced from Mathlib at de5ce8a9 by git grep, each hit by file and line in relay data/b642_epstein_rungs.txt: (R1) the lattice sum and its convergence, one act, through `ZLattice.summable_norm_rpow` (Mathlib/Algebra/Module/ZLattice/Summable.lean :226); (R2) the theta and its inversion, two acts, Poisson summation at the pin being one-dimensional (Mathlib/Analysis/Fourier/PoissonSummation.lean :103, :195, :206, :220) with the shifted Gaussian sum `Complex.tsum_exp_neg_quadratic` (Mathlib/Analysis/SpecialFunctions/Gaussian/Poisson
+    :13535  ### b642 — lane three, act sixty-nine under (R252): SIDE-explicit-formula v0.26 — Keiper’s three identities at every index, the window’s two, TrivialSummandPremise refuted in the kernel and restated with a witness, dedekind_rhs re-proved, non-vacuity witnesses over the premise table; the PlateauRamp docstring at its pin; the Epstein rungs priced from the pin; the squeeze’s compiled jaw named
+    :13561  *Appended 2026-10-08 by b642 to its record (:13535) -- A CORRECTION, THE SEAT’S:* Component 5 read both pages as unchanged against the terminal table at relay HEAD, which still carried b641’s table; with the v0.26 table committed (relay 534999e3) the act’s new declarations join both pages’ Correspondence tables, so a cell moves on each page under (R252)’s order. The re-emission needs node lists pinned at v0.26 and a fresh probe, a lean call the sealed face rules out after the seal; it is not done. Both pages stand unchanged at PLACE-papers; the suite’s G-CHAIN-PAGE and G-CHAIN-PAGE-CHI read failing (exit 6, unresolved) and the figure stands as the record, nothing relabelled; the re-emission 
+### FINDINGS: b642`s entry and its weight line beneath b641`s -- FINDINGS.md @ 69b74d08 (2 lines cited, of 7991)
+    :7963   *Appended 2026-10-08 by b642 to b641’s entry (:7939), under `(R252)`(1) -- b641 AT ITS WEIGHT, ITS FIGURES READ FROM ITS BANKS:* the needle (relay c607f25c): an assertion matches, a denial does not, the three hand-read answers 3 of 3, N1 HELD. The root order (relay a2b0c105): a root leaving out the act’s seal bank refused, the root’s time recorded, a named bank written after it read DISAGREE, its 
+    :7965   ## SIDE-explicit-formula v0.26: Keiper’s three identities at every index, the window’s two, TrivialSummandPremise refuted in the kernel and restated with a witness, dedekind_rhs re-proved, non-vacuity witnesses over the premise table with 26 unwitnessed; the PlateauRamp docstring at its pin; the Epstein rungs priced from the pin; the squeeze’s compiled jaw named
+### relay data/b642_closing_push_out.txt (committed at step zero) -- data/b642_closing_push_out.txt @ 3f9a7920 (8 lines cited, of 12)
+    :5      push_gated: main read back at the remote: 13b1c48b34fef364f165cd9ce9b01a1482912507
+    :6      push_gated: DONE -- main and 0 tag(s) pushed and read back
+    :7      push_gated: as-of relay 13b1c48b34fef364f165cd9ce9b01a1482912507   ### main = remote main by ls-remote
+    :8      push_gated: as-of PLACE-papers 69b74d0814da52c338b81449eae54dc6c71a41fc   ### main = remote main by ls-remote
+    :9      push_gated: as-of SIDE-global-section 17ce9ff5831de1bded63c8a4c83eee7f498f3a7a   ### main = remote main by ls-remote
+    :10     push_gated: as-of SIDE-explicit-formula 82550e4ea4e032830bb06848b83c2be976035541   ### main = remote main by ls-remote
+    :11     push_gated: as-of SIDE-kernel 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164   ### main = remote main by ls-remote
+    :12     push_gated: as-of SIDE-lv-conservation 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23   ### main = remote main by ls-remote
+
+### the local intake bank`s state: ?? data/b628_intake_crank_v0_5.txt
+### SIDE-explicit-formula main 82550e4ea4e0 ; v0.26 peeled 82550e4ea4e0
+### PLACE-papers HEAD at the reads: 69b74d08 ; relay HEAD: 213902e2

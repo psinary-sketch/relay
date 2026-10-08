@@ -1,0 +1,35 @@
+b643 -- COMPONENT 2, (R253)(3): THE RERUN UNDER THE REPAIRED READERS (2026-10-08T22:25:35Z)
+
+### the rule before the repairs: relay 13b1c48b tools/e0_rule.py ; after: relay HEAD 054458d3 (07c43e89 alone with its test)
+
+### THE ELABORATED READER, SIDE-explicit-formula at v0.26 = 82550e4 (data/b643_elab_ef.txt, its calls in data/b643_elab_ef_runs.json)
+    names typed 1034 ; missing 2 ; calls 98, exit 0 98 ; the watchdog`s lows per call: lowest 1522 MB, beneath the hold in 13 of 98 calls
+    every call`s low: B321Identity 1522, Contour 1776, CountByIntegral 1845, CriterionConverse 1862, CriterionForward 1827, FullLine 1767, FullLineAssembly 1806, GammaWide 1989, Generic 1789, GoodHeights 1976, Horizontal 1800, Landau 1751, LocalCount 1867, Main 2975, Statement 3321, VerticalLine 3187, XiLogDeriv 3253, ZeroConfig 3045, ZeroSumLimit 3060, ZeroSummability 3192, ZetaBounds 3006, ZetaBoundsStrip 3036, ZetaGrowth 2956, DecayBound 2937, DetectionRegion 3076, Doubling 3151, GRHWeil 3105, GrowthBound 3418, H2Bridge 3210, Keiper 3015, KeiperBounds 3031, KeiperIdentities 3024, KeiperSign 3158, LiCriterionBridge 3035, LiWeil 3034, LiWeilExchange 3188, LiWeilSym 3076, NymanBeurling 3284, PageConverses 3023, PairTerm 3021, PlattRung 3207, PowerLimit 3022, PowerWindow 2967, Product 3036, RHChain 3193, RegisterDepth 3051, Registers 3219, ResidueDischarge 3165, RestBound 3049, SaltCheckDoubling 3032, SaltCheckKeiper 3182, SaltCheckKeiperSign 3115, SaltCheckNonvacuity 3107, SaltCheckProduct 3132, SaltCheckSimplicity 3267, Config 3252, Converse 3223, Dedekind 2988, DedekindRestated 3169, Detector 3108, Epstein 3203, Family 2979, FamilyPremises 2978, Instances 3177, PlateauRamp 2953, SaltCheckEpstein 3033, SaltCheckFamily 3029, SaltCheckPlateauRamp 3041, WindowProofs 3036, Seam 3188, Simplicity 3031, TwoPropertyWindow 3047, Basic 3207, Fidelity 3189, RHBridge 3210, ReverseDirection 3194, XiOrderBridge 3192, XiZeros 3177, RectangleLogDeriv 3477, ExplicitFormula 3234, StrongPNTPrefix 3355, GammaFacts 3474, StirlingVert 3272, LocalCount 3160, SeamClosed 3172, FullLine 3142, GammaRBracket 3387, Landau 3231, Main 3196, VerticalLine 3211, ZeroSummability 3155, ZetaBounds 2701, PairTerm 2756, PowerWindow 2763, RegisterDepth 2748, Dedekind 2756, Family 2742, GammaFacts 3210
+    ### GRADE MOVES UNDER THE REPAIRED RULE (reader: elaborated): 1
+      SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀ : INTERFACES -> DERIVES ; binders: n : WithTop ℕ∞ -> data B02/data
+
+### THE ELABORATED READER, SIDE-structural-error-correction at v0.2.2 = 6bf19ab (data/b643_elab_sec.txt, its calls in data/b643_elab_sec_runs.json)
+    names typed 62 ; missing 0 ; calls 2, exit 0 2 ; the watchdog`s lows per call: lowest 3276 MB, beneath the hold in 0 of 2 calls
+    every call`s low: Basic 3276, DeAlignment 3320
+    ### GRADE MOVES UNDER THE REPAIRED RULE (reader: elaborated): 0
+
+### THE TEXTUAL READER (tools/terminal_table.py through b378_terminals.decl_re, 213902e2) OVER THE THREE PRIMED ROWS:
+    SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' : RESOLVED in SIDEExplicitFormula/Schema/DedekindRestated.lean
+    SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' : RESOLVED in SIDEExplicitFormula/Schema/DedekindRestated.lean
+    SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' : RESOLVED in SIDEExplicitFormula/SaltCheckNonvacuity.lean
+
+### THE TERMINAL TABLE REGENERATED (exit 0) AGAINST b642`S COMMITTED TABLE (relay 13b1c48b), BY ROW: rows 2110 -> 2110 ; added 0 ; gone 0 ; moved 12 ; grade moved 5
+  ~ SIDE-explicit-formula SIDEExplicitFormula.B321.gammaOf_im' ('DERIVES', 'rule-elab', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.B321.gammaOf_re' ('DERIVES', 'rule-elab', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.LFunction0' ('DEF', 'rule-elab', '', '') -> ('DEF', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.one_third_lt_two_sub_pi_sq_div_six' ('DERIVES', 'rule-elab', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.GRHWeil.pi_sq_div_six_sub_one_lt_one' ('DERIVES', 'rule-elab', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀ ('INTERFACES', 'rule', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' ('—', 'none', 'upstream', 'upstream') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' ('—', 'none', 'upstream', 'upstream') -> ('DEF', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' ('—', 'none', 'upstream', 'upstream') -> ('PREDICATE-UNLISTED', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.Schema.half_lt_one' ('DERIVES', 'rule-elab', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-explicit-formula SIDEExplicitFormula.Schema.half_pos' ('DERIVES', 'rule-elab', '', '') -> ('DERIVES', 'rule', '', '')
+  ~ SIDE-kernel Voice7Witness.hadamard_does_not_enforce_online' ('UNGRADED', 'none', '', '') -> ('DERIVES', 'rule', '', '')
+
+### ### **ELABORATED GRADE MOVES 1 ; TABLE ROWS MOVED 12 (GRADE MOVED 5) ; ADDED 0 ; GONE 0.**

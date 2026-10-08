@@ -1,0 +1,38 @@
+b643 -- COMPONENT 0, (R253)(3): THE TWO READER REPAIRS, EACH WITH ITS PLANTED TEST, EACH COMMITTED ALONE (2026-10-08T21:24:32Z)
+
+### relay 07c43e89 : tools/e0_rule.py, tools/test_e0_databinder_b643.py ; alone with its test True
+    before the edit : ### ### **6 of 10 cases as wanted -- FAIL**
+    after the edit  : ### ### **10 of 10 cases as wanted -- PASS**
+      (1) n : WithTop ℕ∞ types as data                                                                         PASS
+      (2) n : ℕ types as data                                                                                  PASS
+      (3) x : ℝ types as data                                                                                  PASS
+      (4) the order type`s symbol ℕ∞ alone types as data, not a predicate                                      PASS
+      (5) WithBot ℤ types as data                                                                              PASS
+      (6) contDiff_riemannZeta₀`s elaborated header grades DERIVES                                             PASS
+      (7) the planted header with all three data binders grades DERIVES                                        PASS
+      (8) CONTROL: an unlisted premise name applied still reads as a named predicate                           PASS
+      (9) CONTROL: a header carrying that premise grades INTERFACES, not DERIVES                               PASS
+      (10) the rule`s own self-test still passes                                                                PASS
+    ### ### **10 of 10 cases as wanted -- PASS**
+    the test files the repaired module`s own tests ran after it: test_e0_rule.py 56/56, test_e0_existential.py 7/7, test_premise_status.py 11/11
+
+### relay 213902e2 : tools/b378_terminals.py, tools/test_primed_names_b643.py ; alone with its test True
+    before the edit : ### ### **3 of 8 cases as wanted -- FAIL**
+    after the edit  : ### ### **8 of 8 cases as wanted -- PASS**
+      (1) dedekind_rhs' found at `theorem dedekind_rhs' (q : ℕ)`                                                         PASS
+      (2) TrivialSummandPremise' found at `def TrivialSummandPremise' (k : ℝ → ℂ)`                                       PASS
+      (3) trivialSummandPremise'_witness' found at its theorem line, the name ending in a prime before a colon           PASS
+      (4) the unprimed dedekind_rhs found at its own line                                                                PASS
+      (5) CONTROL: the unprimed dedekind_rhs NOT found at dedekind_rhs'`s line                                           PASS
+      (6) CONTROL: foo NOT found at a subscripted foo₁                                                                   PASS
+      (7) CONTROL: foo NOT found at foo_bar                                                                              PASS
+      (8) the three primed rows resolve at SIDE-explicit-formula main through terminal_table.statement                   PASS
+    ### ### **8 of 8 cases as wanted -- PASS**
+    the test files the repaired module`s own tests ran after it: test_terminal_table_b630.py 12/12, test_terminal_table_b635.py 10/10, test_terminal_table_b636.py 7/7, test_terminal_table_b637.py 5/5, test_name_patterns_b636.py 7/7, test_row_sort.py 5/5, test_rowgen_ident.py 4/4
+
+### contDiff_riemannZeta₀ by the repaired rule: the binder n : WithTop ℕ∞ types data (the lexicon: WithTop (Mathlib de5ce8a9 Mathlib/Order/TypeTags.lean :21-:22 (WithBot`s @[to_dual]))) ; the grade DERIVES (b642 read INTERFACES)
+### SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' by the repaired reader: RESOLVED in SIDEExplicitFormula/Schema/DedekindRestated.lean : theorem dedekind_rhs' (q : ℕ) [NeZero q] (k : ℝ → ℂ) (hT : TrivialSummandPremise' k) (hE : EulerFactorPremise q) : (DedekindConfig q).rhs k = poleTerm k + (arch
+### SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' by the repaired reader: RESOLVED in SIDEExplicitFormula/Schema/DedekindRestated.lean : def TrivialSummandPremise' (k : ℝ → ℂ) : Prop
+### SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' by the repaired reader: RESOLVED in SIDEExplicitFormula/SaltCheckNonvacuity.lean : theorem trivialSummandPremise'_witness' : Schema.Dedekind.TrivialSummandPremise' (fun _ => 1)
+
+### the step-zero tests before the repairs (the scratchpad`s copy of the runner bank): not clean ['test_chain_page.py', 'test_chain_page_b638.py', 'test_g_chain_page.py']

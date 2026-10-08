@@ -1,10 +1,364 @@
+b643 -- STEP ZERO: EVERY TEST FILE UNDER tools/, RUN AND COUNTED ((R238)(2), standing) (2026-10-08T21:22:50Z)
+
+  test_act_root.py                   exit 0 ; numbered cases 9, passing 9, failing none ; its own last line: ### ### **9 of 9 cases as wanted -- PASS** ; 1 s
+  test_act_root_order_b641.py        exit 0 ; numbered cases 5, passing 5, failing none ; its own last line: ### ### **5 of 5 cases as wanted -- PASS** ; 0 s
+  test_addenda_licence.py            exit 0 ; no numbered case printed; exit and last line read: ### 13 of 13 cases as wanted -- PASS ; 0 s
+  test_addenda_writelist.py          exit 0 ; no numbered case printed; exit and last line read: ### 15 of 15 cases as wanted -- PASS ; 5 s
+  test_asof.py                       exit 0 ; numbered cases 24, passing 24, failing none ; its own last line: ### ### **24 of 24 cases as wanted -- PASS** ; 387 s
+  test_banned_terms_backmatter.py    exit 0 ; no numbered case printed; exit and last line read: TEST HELD ; 0 s
+  test_chain_page.py                 exit 1 ; numbered cases 6, passing 3, failing ['(1)', '(1)', '(3)'] ; its own last line: KeyError: 'tier' ; 0 s ; args b638_nodes_zeta.txt b635_probe_out_zeta.txt THE_CLAUSE_AND_ITS_COMPILED_FACES.md b638_nodes_chi.txt b635_probe_out_chi.txt
+  test_chain_page_b592.py            exit 0 ; numbered cases 8, passing 8, failing none ; its own last line:   ### 8 of 8 cases as wanted -- PASS ; 28 s
+  test_chain_page_b596.py            exit 0 ; numbered cases 11, passing 11, failing none ; its own last line: ### ALL PASS ; 56 s
+  test_chain_page_b629.py            exit 0 ; numbered cases 8, passing 8, failing none ; its own last line:   ### 8 of 8 cases as wanted -- PASS ; 1 s
+  test_chain_page_b630.py            exit 0 ; numbered cases 7, passing 7, failing none ; its own last line:   ### 7 of 7 cases as wanted -- PASS ; 0 s
+  test_chain_page_b632.py            exit 0 ; numbered cases 4, passing 4, failing none ; its own last line:   ### 4 of 4 cases as wanted -- PASS ; 42 s
+  test_chain_page_b635.py            exit 0 ; numbered cases 4, passing 4, failing none ; its own last line:   ### 4 of 4 cases as wanted -- PASS ; 30 s
+  test_chain_page_b638.py            exit 1 ; numbered cases 7, passing 3, failing ['(4)', '(5)', '(6)', '(7)'] ; its own last line: ### ### **3 of 7 cases as wanted -- FAIL** ; 0 s
+  test_closing_headline_b634.py      exit 0 ; numbered cases 5, passing 5, failing none ; its own last line: ### ### **5 of 5 cases as wanted -- PASS** ; 0 s
+  test_e0_databinder_b643.py         exit 0 ; numbered cases 10, passing 10, failing none ; its own last line: ### ### **10 of 10 cases as wanted -- PASS** ; 0 s
+  test_e0_existential.py             exit 0 ; numbered cases 7, passing 7, failing none ; its own last line: ### ### **7 of 7 cases as wanted -- PASS** ; 0 s
+  test_e0_rule.py                    exit 0 ; numbered cases 56, passing 56, failing none ; its own last line: ### ### **56 of 56 cases as wanted -- PASS** ; 0 s ; args b637_planted
+  test_elab_reader_b634.py           exit 0 ; numbered cases 7, passing 7, failing none ; its own last line: ### ### **7 of 7 cases as wanted -- PASS** ; 958 s
+  test_faces_form.py                 exit 0 ; numbered cases 5, passing 5, failing none ; its own last line: ### ### **10 of 10 cases as wanted -- PASS** ; 22 s
+  test_g_chain_page.py               exit 1 ; numbered cases 6, passing 4, failing ['(1)', '(3)'] ; its own last line: ### ### **4 of 6 cases as wanted -- FAIL** ; 0 s ; args b638_nodes_zeta.txt b635_probe_out_zeta.txt THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  test_name_patterns_b636.py         exit 0 ; numbered cases 7, passing 7, failing none ; its own last line: ### ### **7 of 7 cases as wanted -- PASS** ; 0 s
+  test_premise_status.py             exit 0 ; numbered cases 11, passing 11, failing none ; its own last line: ### ### **11 of 11 cases as wanted -- PASS** ; 0 s
+  test_primed_names_b643.py          exit 0 ; numbered cases 8, passing 8, failing none ; its own last line: ### ### **8 of 8 cases as wanted -- PASS** ; 0 s
+  test_push_gated.sh                 exit 0 ; no numbered case printed; exit and last line read: ### ### **40 of 40 checks as wanted -- PASS** ; 25 s
+  test_reader_needle_b641.py         exit 0 ; numbered cases 3, passing 3, failing none ; its own last line: ### ### **3 of 3 cases as wanted -- PASS** ; 0 s
+  test_record_findings_b632.py       exit 0 ; numbered cases 6, passing 6, failing none ; its own last line: ### ALL PASS ; 1 s
+  test_registry_tags_b636.py         exit 0 ; numbered cases 5, passing 5, failing none ; its own last line: ### ### **5 of 5 cases as wanted -- PASS** ; 0 s
+  test_row_sort.py                   exit 0 ; numbered cases 5, passing 5, failing none ; its own last line: ### ### **5 of 5 cases as wanted -- PASS** ; 0 s
+  test_rowgen_ident.py               exit 0 ; numbered cases 4, passing 4, failing none ; its own last line: ### ### **9 of 9 cases as wanted -- PASS** ; 0 s
+  test_terminal_table_b630.py        exit 0 ; numbered cases 12, passing 12, failing none ; its own last line:   ### 12 of 12 cases as wanted -- PASS ; 0 s
+  test_terminal_table_b635.py        exit 0 ; numbered cases 10, passing 10, failing none ; its own last line: ### ### **10 of 10 cases as wanted -- PASS** ; 0 s
+  test_terminal_table_b636.py        exit 0 ; numbered cases 7, passing 7, failing none ; its own last line: ### ### **7 of 7 cases as wanted -- PASS** ; 0 s
+  test_terminal_table_b637.py        exit 0 ; numbered cases 5, passing 5, failing none ; its own last line: ### ### **5 of 5 cases as wanted -- PASS** ; 0 s
+
+### the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE
+
+### ### **TEST FILES 34 ; RUN 34 ; NOT CLEAN 3 ["test_chain_page.py ['(1)', '(1)', '(3)']", "test_chain_page_b638.py ['(4)', '(5)', '(6)', '(7)']", "test_g_chain_page.py ['(1)', '(3)']"].**
+
+### THE OUTPUTS, WHOLE:
+
+=== test_act_root.py
+  (1) the fixed items and the empty previous root hash to the fixed root (read af3a43edc36a0b38)           PASS
+  (2) the root does not depend on the items` order                                                         PASS
+  (3) a different previous root gives a different root                                                     PASS
+  (4) a one-byte change on a copy of a bank changes the root (copy C:/Users/ECHOCH~1/AppData/Local/Temp/tmpz2yc8g78/bank_copy.txt; the source unmoved True) PASS
+  (5) a chain`s first previous root is the empty string`s sha256                                           PASS
+  (6) verify reads a broken chain`s second act DISAGREE and its first AGREE (read [('t001', 'AGREE'), ('t002', 'DISAGREE')]) PASS
+  (7) a widened line AGREE when its heads gain exactly the kernel it names, DISAGREE when they do not (read [('t101', 'AGREE'), ('t102', 'AGREE'), ('t103', 'DISAGREE')]) PASS
+  (8) the repositories at PLACE-papers HEAD: 38, the census`s 32, REGISTRY`s kernel rows ['SIDE-archimedean', 'SIDE-carrier-spec', 'SIDE-fano-darkness', 'SIDE-frobenius', 'SIDE-li-map', 'SIDE-rcurve', 'SIDE-spinor'], the pages` pins ['SIDE-explicit-formula'] PASS
+  (9) the census path is v0.6 and its kernel column reads 32 kernels (v0.5 by the same reader 32; gained none, lost none) PASS
+### ### **9 of 9 cases as wanted -- PASS**
+
+=== test_act_root_order_b641.py
+  (1) a root over one bank, written, reads AGREE (read [('t901', 'AGREE')]; the root`s time banked 2026-10-08T21:19:00Z) PASS
+  (2) THE PLANTED WRITE: the bank written again after the root, bytes unchanged, reads DISAGREE (read [('t901', 'DISAGREE', ['bank data/t901_x.txt written after the root (W-ORD-ROOT-ORDER: an edit after the root is the next act`s)'])]) PASS
+  (3) the bank written after the root with a byte changed reads DISAGREE, changed (read [('t901', 'DISAGREE', ['bank data/t901_x.txt changed'])]) PASS
+  (4) a root in the form before b641 (no time banked), its bank unchanged but written later, reads AGREE (read [('t902', 'AGREE')]) PASS
+  (5) compute refuses a root leaving out the act`s seal bank (refused True, nothing written True) and computes one naming it (True) PASS
+### ### **5 of 5 cases as wanted -- PASS**
+
+=== test_addenda_licence.py
+### test_addenda_licence -- (R177)(3)(h)
+  the record`s blob line : {'sha256': '52c6f7221d5a43fd8fd414ea9b386889882aaee08c85008d8bf7046a63a64a8a', 'blob': 'd707a12f00206dd785af487026142534fa36120d', 'bytes': 11344, 'rn': 'R177', 'k': 3}
+  the blob on main       : 11344 bytes, sha256 52c6f7221d5a43fd8fd414ea9b386889882aaee08c85008d8bf7046a63a64a8a
+  its CRLF working form  : 11545 bytes, sha256 18ed520c9cda16a04467676a237d515f6410845e6a0de80de97f5c14731b2991
+  the record carries a blob line, appended by (R177)(3)                          got True  want True  OK
+  the blob line MATCHES the LICENSE blob on the kernel`s main                    got True  want True  OK
+  MUTATION: the CRLF working form does NOT match                                 got False want False OK
+  MUTATION: a blob one byte longer does NOT match                                got False want False OK
+  MUTATION: a line carrying the WORKING-COPY digest does NOT match the blob      got False want False OK
+  MUTATION: the record as b566 left it (no blob line) does NOT match             got False want False OK
+  MUTATION: b566`s own digest line is not read as a blob line                    got None  want None  OK
+  ARM: the real record against the blob on main -> PASS                          got True  want True  OK
+  ARM: the real record, a clone blob equal to main`s -> PASS                     got True  want True  OK
+  ARM: the real record against the WORKING-COPY bytes -> FAIL                    got False want False OK
+  ARM: a clone blob that differs -> FAIL                                         got False want False OK
+  ARM: the record as b566 left it -> FAIL                                        got False want False OK
+  ARM: its own positive control still FAILS                                      got False want False OK
+### 13 of 13 cases as wanted -- PASS
+
+=== test_addenda_writelist.py
+### test_addenda_writelist -- (R177)(3)(g)
+  (R176)(3) read: 2330 chars, opens "BRANCH (i) TAKEN, in the order the dependency gives. The con"
+  the clause (R176)(3) is found in the banked paste                          got True  want True  OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(3) -> CLAUSE NAMES IT: "license"
+  b566 line: Vendored/Bulka/LICENSE carried by (R176)(3)                     got True  want True  OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/README.md, carried by (R176)(3) -> CLAUSE DOES NOT NAME IT
+  MUTATION: Vendored/Bulka/README.md carried by (R176)(3) -- no clause names it got False want False OK
+    WRITE-LIST ADDENDUM: data/b471_someone_elses_bank.txt, carried by (R176)(3) -> CLAUSE DOES NOT NAME IT
+  MUTATION: b471_someone_elses_bank.txt carried by (R176)(3)                 got False want False OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R176)(7) -> CLAUSE DOES NOT NAME IT
+  MUTATION: LICENSE carried by (R176)(7), a clause that does not name it     got False want False OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE, carried by (R9999)(1) -> CLAUSE NOT FOUND
+  MUTATION: LICENSE carried by (R9999)(1), a ruling not banked               got False want False OK
+    WRITE-LIST ADDENDUM: Vendored/Bulka/LICENSE carried by R176 3 -> LINE NOT OF THE FORM
+  MUTATION: a line not of the form                                           got False want False OK
+  MUTATION: README.md is named by NO clause (1)-(7) of (R176)                got False want False OK
+  the face`s (W) globs cover LICENSE: False
+  the addendum bank`s accepted basenames: ['LICENSE']
+  ARM: the real stray LICENSE with the accepted addendum -> PASS             got True  want True  OK
+  ARM: the real stray LICENSE with NO addendum -> FAIL                       got False want False OK
+  the mutation`s file CHANGELOG.md is covered by NO (W) glob                 got False want False OK
+  the mutation`s file CHANGELOG.md is named by NO clause (1)-(7) of (R176)   got False want False OK
+  ARM MUTATION: a stray CHANGELOG.md no clause names, beside the addendum -> FAIL got False want False OK
+  ARM MUTATION: an addendum REFUSED (CHANGELOG.md by (R176)(3)) does not carry it -> FAIL got False want False OK
+  ARM: its own positive control still FAILS                                  got False want False OK
+### 15 of 15 cases as wanted -- PASS
+
+=== test_asof.py
+test_asof.py -- (R178)(2)(ii). records under C:\Users\ECHOCH~1\AppData\Local\Temp\tmpz_64lw4j
+  (1) the push-out parser, both polarities on synthetic banks                                          PASS
+  (2) b566`s bank names ce360e88... (read ce360e8854c1)                                                PASS
+  (2) b567`s bank names d77bb7aa... (read d77bb7aa4458)                                                PASS
+    b566 at its own as-of: relay ce360e88 (b566_closing_push_out.txt) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD
+  (3) b566 at ce360e88: G-NUMBER-UNCLAIMED PASS (read PASS)                                            PASS
+  (3) b566 at ce360e88: G-PEEK-DECLARED PASS (read PASS)                                               PASS
+  (3) b566 at ce360e88: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS
+    b566 pointed at b567`s close: relay d77bb7aa (--as-of) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD
+  (4) b566 pointed at d77bb7aa (claim false there): G-NUMBER-UNCLAIMED FAIL (read FAIL)                PASS
+  (4) b566 pointed at d77bb7aa (claim false there): G-PRIORBANK-UNCHANGED FAIL (read FAIL)             PASS
+    b567 at its own as-of: relay d77bb7aa (b567_closing_push_out.txt) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD
+  (5) b567 at d77bb7aa: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS
+    b567 pointed at its own commit before the ordered append: relay 0e50bd19 (--as-of) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD
+  (6) b567 pointed at 0e50bd19 (the ordered append absent there): G-PRIORBANK-UNCHANGED FAIL (read FAIL) PASS
+  (R179)(3) the as-of lines: the parser on synthetic lines, both polarities -- True
+  (7) b566`s lines read from b569_asof_b566.txt: PLACE-papers 5ce2895, the kernel e5a5a83, bulka 35df682f PASS
+  (7) b566 at its own lines: G-CEILING-APPENDED PASS (read PASS)                                       PASS
+  (7) b566 at its own lines: G-CORPUS-SCOPE PASS (read PASS)                                           PASS
+  (7) b566 at its own lines: G-TAG-READ-BACK PASS (read PASS)                                          PASS
+  (7) b566 at its own lines: G-BULKA-KEPT PASS (read PASS)                                             PASS
+  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-CEILING-APPENDED FAIL (read FAIL) PASS
+  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-CORPUS-SCOPE FAIL (read FAIL) PASS
+  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-TAG-READ-BACK FAIL (read FAIL) PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-TAG-READ-BACK PASS (read PASS)                     PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-CORPUS-SCOPE PASS (read PASS)                      PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-CACHE-MAIN PASS (read PASS)                        PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-BULKA-DELETED PASS (read PASS)                     PASS
+  (10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): G-TAG-READ-BACK FAIL (read FAIL) PASS
+  (10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): G-CORPUS-SCOPE FAIL (read FAIL) PASS
+### ### **24 of 24 cases as wanted -- PASS**
+
+=== test_banned_terms_backmatter.py
+LISTED  exit 0 ; live 0 ; excepted names/history (1, 1) ; verdict CLEAN ; HELD
+MUTANT  exit 1 ; live 1 ; excepted names/history (1, 1) ; verdict NOT CLEAN ; HELD
+MUTANT NOT CLEAN -- the unlisted stem reads live
+TEST HELD
+
+=== test_chain_page.py
+  (1) the banked output re-emitted: exit 0                                                         ### FAIL
+  (1) and the page byte-identical to the generated page                                            ### FAIL
+  (2) mutation applied: SIDEExplicitFormula.B321.h2_sign_iff_rh`s block removed                    PASS
+  (2) a missing print: exit 6, no page (read 6)                                                    PASS
+  (3) mutation applied: sorryAx injected into SIDEExplicitFormula.B321.h2_sign_iff_rh`s print      PASS
+  (3) a print beyond the three: the axioms cell shows sorryAx                                      ### FAIL
+Traceback (most recent call last):
+  File "D:\relay\tools\test_chain_page.py", line 187, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\test_chain_page.py", line 64, in main
+    want('(3) and the tier is NOT T0 (read %s)' % (m3['cells'][victim]['tier'] if m3 else None),
+                                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'tier'
+
+=== test_chain_page_b592.py
+  (1) the χ list re-emitted from the v0.16 probe under both generators: exit 0 both (read 0, 0)        PASS
+  (2) every DERIVES Correspondence row byte for byte unchanged (25 rows)                               PASS
+  (3) the INTERFACES row prints its premise, and no row but an INTERFACES row changed                  PASS
+  (4) a backticked `detector` names the node under the new rule                                        PASS
+  (5) a qualified Schema.detector names the node under the new rule                                    PASS
+  (6) the ten English-word sentences name it under the old rule (the control: 10 of 10)                PASS
+  (7) and none of the ten under the new rule (read 0)                                                  PASS
+  (8) the ζ list has no plain lower-case name, and its keystone match is the same under both rules     PASS
+  ### 8 of 8 cases as wanted -- PASS
+
+=== test_chain_page_b596.py
+### pins: relay 12c15c80 (the lists, the probes, the terminal table blob 2ce26253) ; PLACE-papers ba5f0ea (pages, README, REGISTRY, keystones)
+  (1) b592 ζ list, no record, the E0 rule at 12c15c80: byte for byte against the page at ba5f0ea                           PASS
+  (2) b592 χ list, no record: byte for byte against the page at ba5f0ea                                                    PASS
+  (3) two records: the page of (1) with one paragraph after the Correspondence table                                       PASS
+  (4) the reader: no record from b592`s lists; the two, in order, from the list of (3)                                     PASS
+  (5) the entry tag of a structure, a theorem and a definition of Simplicity.lean: [('v0.17', '5a1630b'), ('v0.17', '5a1630b'), ('v0.17', '5a1630b')] PASS
+  (6) the five test nodes read ['FINITE', 'UNIVERSAL', 'UNIVERSAL', 'DENSITY', 'FAMILY']                                   PASS
+  (7) the positive control: the five statements mutated where the reader reads them read ['UNIVERSAL', 'FINITE', 'LIMIT', 'LIMIT', 'UNIVERSAL'], none its unmutated shape PASS
+  (8) an object reads —: riemannZeta and familyConfig read ['—', '—']                                                      PASS
+  (9) the switch: off on b592`s, b602`s and b603`s lists [False, False, False, False], on with its line; the page with it is the page without it, one head line and 52 shape cells on 52 node lines added PASS
+  (10) rh_upto and rh_upto_platt read ['BOUNDED', 'BOUNDED']                                                               PASS
+  (11) the word between FINITE and UNIVERSAL, named by the key; the UNIVERSAL control (the pair, the bound removed, a bound mentioning ρ) reads ['UNIVERSAL', 'UNIVERSAL', 'UNIVERSAL'] PASS
+### ALL PASS
+
+=== test_chain_page_b629.py
+  (1) the control: FOUNDATIONS :453 at f610d1f ('- `SIDE-kernel v1.4 (`f374174`) / Kernel'...) names NB under the old rule PASS
+  (2) and not under the new                                                                                      PASS
+  (3) the control: CONVERGENCE :35057 at f610d1f ('### Indicator 2: Barrier Discovery (BD)') names BD under the old rule PASS
+  (4) and not under the new                                                                                      PASS
+  (5) a backticked `NB` names the node under the new rule                                                        PASS
+  (6) a qualified NymanBeurling.NB names the node under the new rule                                             PASS
+  (7) b628`s ζ list has no upper-case short name, and its keystone match is the same under both rules (52 files) PASS
+  (8) b629`s ζ list: neither FOUNDATIONS nor CONVERGENCE named under the new rule (52 files)                     PASS
+  ### 8 of 8 cases as wanted -- PASS
+
+=== test_chain_page_b630.py
+  (1) a planted reading of 1000 MB: the build exits 4 (read 4)                                             PASS
+  (2) and the probe is never called                                                                        PASS
+  (3) and the reading is printed with REFUSED                                                              PASS
+  (4) a planted reading of 99999 MB: the build passes the hold and calls the probe (exit 5, calls 1)       PASS
+  (5) and the reading is printed with started                                                              PASS
+  (6) and the log carries the reading line as before                                                       PASS
+  (7) the hold is 2560 MB                                                                                  PASS
+  ### 7 of 7 cases as wanted -- PASS
+
+=== test_chain_page_b632.py
+  ### the planted row: SIDEExplicitFormula.B321.base_nonzero_at ; the unplanted page carries the mark 0 times
+  (1) every rule-graded Correspondence row carries the mark (1 rows; exits 0 0)                                    PASS
+  (2) no cell-graded Correspondence row carries it (84 rows)                                                       PASS
+  (3) the page with the mark struck is the page from the same rows without provenance, byte for byte               PASS
+  (4) the marks counted (1) equal the rule rows in the Correspondence (1)                                          PASS
+  ### 4 of 4 cases as wanted -- PASS
+
+=== test_chain_page_b635.py
+  ### planted: {'SIDEExplicitFormula.B321.base_nonzero_at': 'rule-elab', 'SIDEExplicitFormula.B321.ch_iff_h2_sign': 'planted-future'}
+  (1) the rule-elab row: T0; provenance: rule-elab                                                                 PASS
+  (2) a made-up value as itself: T0; provenance: planted-future                                                    PASS
+  (3) no cell-graded row carries a mark (83 rows)                                                                  PASS
+  (4) the page with the two marks struck is the unplanted page, byte for byte                                      PASS
+  ### 4 of 4 cases as wanted -- PASS
+
+=== test_chain_page_b638.py
+  (1) the glossary`s entries 69, its lines that are no comment 69, each a name, a definition and a source -- PASS
+  (2) a line with two fields raises ValueError -- PASS
+  (3) b632`s lists carry no mark (False, False); the marked lists carry it (True, True) -- PASS
+  (4) b632`s ζ list without the mark: the generator as it stands (exit 6, 0 bytes) and as it stood at relay 2aa41700 (exit 6, 0 bytes) emit the same page -- FAIL
+  (5) the marked ζ page (exit 6): the unmarked page with the block (0 lines) and one blank inserted beneath the head line, the head line naming its own list -- FAIL
+  (6) the block on the marked ζ page and the marked χ page (exit 6): 0 and 0 lines, byte for byte alike -- FAIL
+  (7) the block is its heading, its introduction and one line per entry (0 lines, 69 entries) -- FAIL
+### ### **3 of 7 cases as wanted -- FAIL**
+
+=== test_closing_headline_b634.py
+  (1) the full set: the line exact                                                           PASS
+  (2) a kernel tag pushed: its repository, tag and commit after PLACE-papers                 PASS
+  (3) no prompt and no defect                                                                PASS
+  (4) one prompt and one defect: the singular                                                PASS
+  (5) the post-push suite bank absent: NOT READ printed, the line still written              PASS
+### ### **5 of 5 cases as wanted -- PASS**
+
+=== test_e0_databinder_b643.py
+  (1) n : WithTop ℕ∞ types as data                                                                         PASS
+  (2) n : ℕ types as data                                                                                  PASS
+  (3) x : ℝ types as data                                                                                  PASS
+  (4) the order type`s symbol ℕ∞ alone types as data, not a predicate                                      PASS
+  (5) WithBot ℤ types as data                                                                              PASS
+  (6) contDiff_riemannZeta₀`s elaborated header grades DERIVES                                             PASS
+  (7) the planted header with all three data binders grades DERIVES                                        PASS
+  (8) CONTROL: an unlisted premise name applied still reads as a named predicate                           PASS
+  (9) CONTROL: a header carrying that premise grades INTERFACES, not DERIVES                               PASS
+  (10) the rule`s own self-test still passes                                                                PASS
+### ### **10 of 10 cases as wanted -- PASS**
+
+=== test_e0_existential.py
+  (1) the rule`s own self-test (b568`s seven headers)                                                          PASS
+  (2) b570`s test of the class clause, run unchanged (exit 0)                                                  PASS
+  (3) membership_load_bearing at v0.16 reads DERIVES (read DERIVES; no hypothesis binder)                      PASS
+  (4) epstein_not_h2_sign_cfg at v0.16, an outer binder, reads INTERFACES (read INTERFACES; hP : EpsteinPremises Z rhs) PASS
+  (5) an outer premise binder beside an inner existential binder: INTERFACES on the outer (read INTERFACES; hX : LiLimitExchange n) PASS
+  (6) the existential binder alone: DERIVES (read DERIVES)                                                     PASS
+  (7) the span ends at the existential`s top-level comma (spans [(2, 13)]; the binder after it at 17 uncovered); the binder inside the existential`s body part of the conclusion, DERIVES (read DERIVES) PASS
+### ### **7 of 7 cases as wanted -- PASS**
+
+=== test_e0_rule.py
+  (1) the rule`s own self-test (b568`s seven headers, b624`s four, b625`s four and b626`s three)           PASS
+  (2) LFunction_zeros_finite_of_isCompact at v0.11 reads DERIVES (read DERIVES; domain conditions only: h1 : χ ≠ 1, hK : IsCompact K) PASS
+  (2) EF_zero_sum_summable_chi at v0.11 reads DERIVES (read DERIVES; domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk :) PASS
+  (3) a class binder on a variable the conclusion mentions: DERIVES (read DERIVES)                         PASS
+  (4) a class binder on a variable the conclusion does NOT mention: INTERFACES (read INTERFACES)           PASS
+  (5) a named premise beside a class binder: INTERFACES (read INTERFACES)                                  PASS
+  (6) conclusion reads past the binder groups (read ' (K ∩ s).Finite')                                     PASS
+  (7) finsetSum_productLemma at v0.21 reads DERIVES on binders [] (read DERIVES; binders [])               PASS
+  (8) finsetSum_insert at v0.21 reads DERIVES on binders ['h'] (read DERIVES; binders ['h'])               PASS
+  (9) power_contDiff at v0.21 reads DERIVES on binders ['hg', 'hs'] (read DERIVES; binders ['hg', 'hs'])   PASS
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\e594f88a-2fab-4757-943d-7ab1bc3de815\scratchpad\b637_planted\PlantedInterface.lean (349 bytes)
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\e594f88a-2fab-4757-943d-7ab1bc3de815\scratchpad\b637_planted\PlantedShell.lean (386 bytes)
+  (10) the planted interface, an induction in its proof, reads INTERFACES on its one premise (read INTERFACES; hP : NamedPremise 0) PASS
+  (11) the planted shell, the conclusion an alpha-variant binder, reads ENCODES-CONCLUSION (read ENCODES-CONCLUSION; the conclusion is the binder h : ∀ k : Nat, k + n = n + k) PASS
+  (12) a merely similar Prop as a binder does not read ENCODES-CONCLUSION (read DERIVES)                   PASS
+  (13) clause (i): instances not of Fact read DERIVES; a Fact instance reads INTERFACES on hp : Fact p.Prime PASS
+  (14) clause (ii): non-emptiness and finiteness read DERIVES; beside a named premise INTERFACES on hP : EpsteinPremises s PASS
+  (15) clause (iii): restrictions on the quantified function read DERIVES; paperFT_polyOp at v0.21 DERIVES; behind a range INTERFACES PASS
+  (16) h2_sign_imp_rh_of_seam at v0.21 reads INTERFACES on its seam (read INTERFACES; → : rh_strip_imp_rh) PASS
+  (17) paperFT_growth and paperFT_growth_at at v0.21 read DERIVES without h (read [('paperFT_growth', 'DERIVES', ['hi', 'hs']), ('paperFT_growth_at', 'DERIVES', ['hi', 'hs'])]) PASS
+  (18) a domain antecedent reads DERIVES; a plain implication between open statements DERIVES; a seam antecedent INTERFACES PASS
+  (19) a data binder named h does not enter (read DERIVES, binders ['hc']); beside a named premise PREDICATE-UNLISTED on hP : NamedPremise h PASS
+  (20) Alt2 restricting the quantified c reads DERIVES (read DERIVES; domain conditions only: h : Alt2 c)  PASS
+  (21) Alternates restricting the quantified s reads DERIVES (read DERIVES; domain conditions only: h : Alternates s) PASS
+  (22) a planted unlisted predicate reads PREDICATE-UNLISTED on hU : PlantedUnmet f; on a fixed object INTERFACES; a met name INTERFACES PASS
+  (23) a type_of% conclusion reads DEFERRED; a plain conclusion DERIVES                                    PASS
+  (24) a binder nested two deep read INTERFACES on hfAnalytic : AnalyticOnNhd ℂ f (Metric.closedBall (0 : ℂ) 1); one deep INTERFACES PASS
+  (25) the qualified class name with its default measure reads DERIVES; the bare name DERIVES              PASS
+  (26) the rule`s class table equals the bank`s classification (26 classes)                                PASS
+  planted: C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\e594f88a-2fab-4757-943d-7ab1bc3de815\scratchpad\b637_planted\B637Planted.lean (4514 bytes)
+  (27) the planted module rebuilt from the bank has the bank`s sha256 (735629f5128f90be)                   PASS
+  (28) b01: binder n reaches B01, the declaration reads DERIVES (read B01, DERIVES)                        PASS
+  (29) b02: binder n reaches B02, the declaration reads DERIVES (read B02, DERIVES)                        PASS
+  (30) b03: binder n reaches B03, the declaration reads DERIVES (read B03, DERIVES)                        PASS
+  (31) b04: binder c reaches B04, the declaration reads INTERFACES (read B04, INTERFACES)                  PASS
+  (32) b05: binder [inst] reaches B05, the declaration reads DERIVES (read B05, DERIVES)                   PASS
+  (33) b06: binder c reaches B06, the declaration reads ENCODES-CONCLUSION (read B06, ENCODES-CONCLUSION)  PASS
+  (34) b07: binder c reaches B07, the declaration reads DERIVES (read B07, DERIVES)                        PASS
+  (35) b08: binder c reaches B08, the declaration reads DERIVES (read B08, DERIVES)                        PASS
+  (36) b09: binder c reaches B09, the declaration reads PREDICATE-UNLISTED (read B09, PREDICATE-UNLISTED)  PASS
+  (37) b10: binder c reaches B10, the declaration reads INTERFACES (read B10, INTERFACES)                  PASS
+  (38) b11: binder c reaches B11, the declaration reads INTERFACES (read B11, INTERFACES)                  PASS
+  (39) b12: binder c reaches B12, the declaration reads ENCODES-CONCLUSION (read B12, ENCODES-CONCLUSION)  PASS
+  (40) b13: binder c reaches B13, the declaration reads DERIVES (read B13, DERIVES)                        PASS
+  (41) b14: binder c reaches B14, the declaration reads DERIVES (read B14, DERIVES)                        PASS
+  (42) b15: binder c reaches B15, the declaration reads PREDICATE-UNLISTED (read B15, PREDICATE-UNLISTED)  PASS
+  (43) b16: binder c reaches B16, the declaration reads INTERFACES (read B16, INTERFACES)                  PASS
+  (44) b17: binder c reaches B17, the declaration reads INTERFACES (read B17, INTERFACES)                  PASS
+  (45) b18: binder c reaches B18, the declaration reads ENCODES-CONCLUSION (read B18, ENCODES-CONCLUSION)  PASS
+  (46) b19: binder c reaches B19, the declaration reads DERIVES (read B19, DERIVES)                        PASS
+  (47) b20: binder c reaches B20, the declaration reads DERIVES (read B20, DERIVES)                        PASS
+  (48) b21: binder c reaches B21, the declaration reads PREDICATE-UNLISTED (read B21, PREDICATE-UNLISTED)  PASS
+  (49) b22: binder c reaches B22, the declaration reads INTERFACES (read B22, INTERFACES)                  PASS
+  (50) b23: binder c reaches B23, the declaration reads INTERFACES (read B23, INTERFACES)                  PASS
+  (51) b24: binder → reaches B24, the declaration reads INTERFACES (read B24, INTERFACES)                  PASS
+  (52) b25: binder → reaches B25, the declaration reads DERIVES (read B25, DERIVES)                        PASS
+  (53) b26: binder c reaches B26, the declaration reads DERIVES (read B26, DERIVES)                        PASS
+  (54) the five-name test: ['h', 'H', 'hyp', 'x', 'ξ'] read [('B11', 'INTERFACES')]                        PASS
+  (55) the no-class control: binder c reaches None, the declaration reads NO CLASS (a bug, no grade)       PASS
+### ### **56 of 56 cases as wanted -- PASS**
+
+=== test_elab_reader_b634.py
+  SIDEExplicitFormula/PlattRung: free memory before the call 3665 MB (hold 2560); 5 names
+  the call: started True ; exit 0 ; 653 s ; free before 3665 MB ; lowest 1880 MB
+  (1) rh_upto: a def, one explicit binder T : ℝ, the conclusion Prop (read def [{'kind': 'explicit', 'name': 'T', 'type': 'ℝ'}] Prop) PASS
+  (2) rh_upto_platt: a theorem, explicit hP on PlattTrudgianHeight, the conclusion rh_upto (read [('hP', 'PlattTrudgianHeight plattTrudgianT')] rh_upto plattTrudgianT) PASS
+  (3) Nat.add_comm: explicit n and m of ℕ, the conclusion n + m = m + n (read [('n', 'ℕ'), ('m', 'ℕ')] n + m = m + n) PASS
+  (4) a planted arrow: HEADER 1 of TOTAL 2, the arrow kept in the conclusion (read 1 of 2, n = n → n = n)  PASS
+  (5) an absent name prints MISSING                                                                        PASS
+  (6) the namespaces opened: (2)`s binder printed without its prefix                                       PASS
+  SIDEStructuralErrorCorrection/Basic: free memory before the call 4791 MB (hold 2560); 1 names
+  the kernel`s call: started True ; exit 0 ; 304 s ; free before 4791 MB ; in D:/SIDE-structural-error-correction
+  (7) SIDE-structural-error-correction`s d_eff_eq_five: a theorem, no binder, the conclusion d_eff = 5 (read theorem 0 of 0, d_eff = 5) PASS
+### ### **7 of 7 cases as wanted -- PASS**
+
+=== test_faces_form.py
+  (1) the FACES_LEDGER :497 cell is removed for ch_iff_rh (qualified name)                             PASS
+  (2) the FINDINGS :10 cell of the same terminal is kept                                               PASS
+  (3) the directive line`s own cell for the terminal is removed                                        PASS
+  (4) another terminal`s cell on FACES_LEDGER :497 is kept                                             PASS
+  (5) the pattern reads the ruled line, unbackticked and backticked (('497', 'ch_iff_rh'), ('497', 'ch_iff_rh')) PASS
+  (6a) the directive that removed a cell is not refused                                                PASS
+  (6b) a directive citing :498 (no cell for ch_iff_rh there) is named by faces_refusals                PASS
 ========================================================================================================
 (R107) K0 -- THE TERMINAL TABLE. ### **GENERATED; NO GRADE CONFERRED, NONE MOVED.**
 ========================================================================================================
   ### THE SYNONYM MAP (b554, (R164)(2)(a)), applied before the conflict test : {'ENCODES-CONCLUSION': 'ENCODES', 'ENCODES-CONCLUSION \\ SHELL': 'ENCODES', 'INTERFACES-on-named-premise': 'INTERFACES', 'INTERFACES-on-false-premise': 'INTERFACES'}
   ### THE TRAIL-LINE SUPERSESSIONS READ (b554, (R164)(2)(b)) : [(11042, 'register5_output_holds', 'PLACE-papers/OPEN_TRAILS.md'), (11577, 'li_identity_of_exchange', 'PLACE-papers/OPEN_TRAILS.md'), (12424, 'finsetSum_insert', 'PLACE-papers/OPEN_TRAILS.md'), (12434, 'finsetSum_insert', 'PLACE-papers/OPEN_TRAILS.md'), (12438, 'finsetSum_insert', 'PLACE-papers/OPEN_TRAILS.md'), (10884, 'ch_iff_h2_sign_of_seam', 'PLACE-papers/OPEN_TRAILS.md')]
   ### THE FINDINGS-LINE SUPERSESSIONS READ (b563, (R173)(3)) : [(6048, 'li_identity_of_exchange', 'PLACE-papers/FINDINGS.md', 6116), (7058, 'finsetSum_insert', 'PLACE-papers/FINDINGS.md', 7535)]
-  ### THE FACES_LEDGER-LINE SUPERSESSIONS READ (b571, (R181)(2)) : [(497, 'ch_iff_rh', 'PLACE-papers/FINDINGS.md', 6306)]
+  ### THE FACES_LEDGER-LINE SUPERSESSIONS READ (b571, (R181)(2)) : [(497, 'ch_iff_rh', 'PLACE-papers/FINDINGS.md', 6306), (498, 'ch_iff_rh', 'PLACE-papers/FINDINGS.md', 9001)]
   `SIDE-*` directories on D:\      : ### **44**
   of those, carrying a `.git`      : ### **44**  (b378`s own predicate)
   ### **BOTH FIGURES ARE PRINTED** -- a roster counted one way is a roster with a
@@ -60,25 +414,205 @@
   ### rows graded by cells whose rule reading differs : ### **40** ['SIDE-effects/EDifficultyTop INTERFACES|rule DEF', 'SIDE-effects/TwinFinite DERIVES \\ INTERFACES|rule DEF', 'SIDE-effects/YangMills.mass_gap SHELL|rule DERIVES', 'SIDE-effects/to_modular DERIVES|rule DEF', 'SIDE-explicit-formula/Register5_output_HilbertPolya INTERFACES|rule DEF', 'SIDE-explicit-formula/SIDEExplicitFormula.B321.dominant_summable DERIVES|rule INTERFACES', 'SIDE-explicit-formula/SIDEExplicitFormula.B321.h2_sign_upto DERIVES|rule DEF', 'SIDE-explicit-formula/SIDEExplicitFormula.B321.rest_tendsto_zero DERIVES|rule INTERFACES', 'SIDE-explicit-formula/SIDEExplicitFormula.B321.rest_term_small DERIVES|rule INTERFACES', 'SIDE-explicit-formula/SIDEExplicitFormula.B321.tie_term_neg DERIVES|rule INTERFACES', 'SIDE-explicit-formula/SIDEExplicitFormula.B321.zeroSide_eventually_neg DERIVES|rule INTERFACES', 'SIDE-explicit-formula/SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi INTERFACES|rule DERIVES', 'SIDE-explicit-formula/SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi INTERFACES|rule DERIVES', 'SIDE-global-section/AggregationCircularityShadow.boolGrp SHELL|rule DEF', 'SIDE-grh-transfer/SIDEGRHTransfer.balance_theorem ENCODES-CONCLUSION|rule INTERFACES', 'SIDE-grh-transfer/SIDEGRHTransfer.grh_structural_exhaustiveness_proved INTERFACES|rule DERIVES', 'SIDE-grh-transfer/topological_constant ENCODES-CONCLUSION|rule DERIVES', 'SIDE-interfaces/Interfaces.kappa_zero_of_no_mechanism DERIVES|rule INTERFACES', 'SIDE-kernel/ConservationHypothesis INTERFACES|rule DEF', 'SIDE-kernel/balance_theorem ENCODES-CONCLUSION|rule INTERFACES', 'SIDE-kernel/blind_sieve_ceiling DERIVES|rule INTERFACES', 'SIDE-kernel/bright_access_required ENCODES-CONCLUSION \\ SHELL|rule DERIVES', 'SIDE-kernel/conservation_s_dark SHELL|rule DERIVES', 'SIDE-kernel/dh_witness SHELL|rule DERIVES', 'SIDE-kernel/elliptic_regularity_collapse DERIVES|rule INTERFACES', 'SIDE-kernel/formation_n_3_eq_two ENCODES-CONCLUSION|rule DERIVES', 'SIDE-kernel/identity_theorem_unique_bridge DERIVES|rule INTERFACES', 'SIDE-kernel/output_stage_card ENCODES-CONCLUSION|rule DERIVES', 'SIDE-kernel/s_darkness_from_product SHELL|rule INTERFACES', 'SIDE-kernel/sieve_ceiling ENCODES-CONCLUSION \\ SHELL|rule INTERFACES', 'SIDE-kernel/sieve_ceiling_semantic SHELL \\ ENCODES|rule INTERFACES', 'SIDE-kernel/silence_universal INTERFACES|rule DERIVES', 'SIDE-kernel/techne_kernel_voice7.topological_constant ENCODES-CONCLUSION|rule DERIVES', 'SIDE-lv-conservation/R5_output_HilbertPolya_to_RH ENCODES|rule INTERFACES', 'SIDE-lv-conservation/Register5_output_HilbertPolya INTERFACES|rule DEF', 'SIDE-lv-conservation/RegisterPentagon.goalState_of_h1_h2 DERIVES|rule INTERFACES', 'SIDE-lv-conservation/ZeroActingPairing INTERFACES|rule DEF', 'SIDE-silence-principle/silence_universal INTERFACES|rule DERIVES', 'SIDE-simplicity/SIDESimplicity.transversal_generic_empty INTERFACES|rule DERIVES', 'SIDE-trivium/triviumBijection DERIVES|rule DEF']
   ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **158** ['SIDE-explicit-formula/EF_lit_chi_holds', 'SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/GRH_chi_iff_trivial', 'SIDE-explicit-formula/LFunction0_eq_LFunction', 'SIDE-explicit-formula/LFunction_eq_mul_integral', 'SIDE-explicit-formula/LFunction_inv_conj', 'SIDE-explicit-formula/LFunction_zero_re_nonpos', 'SIDE-explicit-formula/LiCoeff_eq', 'SIDE-explicit-formula/analyticOrderAt_LFunction_inv_conj', 'SIDE-explicit-formula/analyticOrderAt_completed_one_sub', 'SIDE-explicit-formula/analyticOrderAt_xi_eq_zeta', 'SIDE-explicit-formula/arith_limit_nonneg_iff_rh']
   ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **274** ['SIDEExplicitFormula.B321.Aw_nonneg <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Efac_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Ep_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_kill <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Kp_tie_ne <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Nf_pos <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.c4 <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.kfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.PWSetup.tfin <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_eval <- data/b534_profile.json', 'SIDEExplicitFormula.B321.Pof_prod <- data/b534_profile.json', 'SIDEExplicitFormula.B321.VF_conj <- data/b534_profile.json']
+  ### ### **REFUSED: FACES_LEDGER-FORM LINE(S) CITING A LINE THAT HOLDS NO CELL FOR THE TERMINAL : [(498, 'ch_iff_rh', 'PLACE-papers/FINDINGS.md', 9001)]**
+### ### **TERMINAL TABLE REFUSED, NOTHING WRITTEN: FACES_LEDGER-form directive(s) citing a line with no cell for the terminal: [(498, 'ch_iff_rh', 'PLACE-papers/FINDINGS.md', 9001)]**
+  (7a) LIVE: main() with the bad directive injected returns 8 (REFUSED) -- read 8                      PASS
+  (7b) LIVE: no table file written (sha256 of 5 files equal before and after)                          PASS
+  (7c) LIVE: the ledgers` own directives read ([(497, 'ch_iff_rh', 'PLACE-papers/FINDINGS.md', 6306)]) PASS
+### ### **10 of 10 cases as wanted -- PASS**
 
-  ### THE COUNTS.
-  ----------------------------------------------------------------------------------------------------
-    rows (repo, name)                                  : ### **2110**
-    NOT PROFILED                                       : ### **1199**
-    UNGRADED                                           : ### **0**
-    CONFLICT                                           : ### **11**
-    ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **9**
-    names a ledger cites resolving in NO repo, any ref : ### **32**
-    (and, not asked for but owed by (S1)) STATEMENT UNRESOLVED : ### **36**
+=== test_g_chain_page.py
+  (1) the generated page: the arm PASSES (regeneration exit 6)                               ### FAIL
+  (2) one sentence appended: the arm FAILS (first differing line None)                       PASS
+  (3) mutation applied: one statement altered                                                PASS
+  (3) the arm FAILS and names a line (read None)                                             ### FAIL
+  (4) the regeneration made to fail: the arm FAILS (regeneration exit 6)                     PASS
+  (5) no committed page: FAIL                                                                PASS
+### ### **4 of 6 cases as wanted -- FAIL**
 
-  ### THE DIFF AGAINST THE PRIOR RUN.
-  ----------------------------------------------------------------------------------------------------
-    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 5
-      SIDE-explicit-formula / SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀ : INTERFACES|NOT PROFILED -> DERIVES|NOT PROFILED
-      SIDE-explicit-formula / SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' : —|NOT PROFILED -> DERIVES|NOT PROFILED
-      SIDE-explicit-formula / SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' : —|NOT PROFILED -> DEF|NOT PROFILED
-      SIDE-explicit-formula / SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' : —|NOT PROFILED -> PREDICATE-UNLISTED|NOT PROFILED
-      SIDE-kernel / Voice7Witness.hadamard_does_not_enforce_online' : UNGRADED|NOT PROFILED -> DERIVES|NOT PROFILED
+=== test_name_patterns_b636.py
+  (1) the thirteen print lines read whole by PRINT_SRC: 13 of 13                                                 PASS
+  (2) control, the ASCII PRINT_SRC: 13 of 13 give the banked head (the twelve cut, LSeries whole)                PASS
+  (3) NAME_RE reads the thirteen full names whole: 13 of 13                                                      PASS
+  (4) control, the ASCII NAME_RE: reads 0 of the twelve full forms                                               PASS
+  (5) prints_at at the pin: 13 of 13 full names present, 0 of 12 heads present                                   PASS
+  (6) Lean identifier characters read: ['zeta_ζ_bound', 'Λ_Ω.αβ', 'x₀', 'L₁_nonneg', 'aᵢ', "f''", 'mem_iff!', 'isOk?', 'Gammaℝ_one', 'exp_𝔼'] PASS
+  (7) Lean exclusions end a name, the span no name: []                                                           PASS
+### ### **7 of 7 cases as wanted -- PASS**
 
-  written: data/terminal_table.json, data/terminal_table.md
-========================================================================================================
+=== test_premise_status.py
+  (1) a planted Mathlib predicate on a quantified variable in every row reads DOMAIN             wanted DOMAIN ; got DOMAIN ; PASS
+  (2) a planted structure built inline in a proof reads DISCHARGED                               wanted DISCHARGED ; got DISCHARGED ; PASS
+  (3) a planted head whose standalone construction a proof consumes reads DISCHARGED             wanted DISCHARGED ; got DISCHARGED ; PASS
+  (4) a planted premise cited T1-lit in every field reads CITED                                  wanted CITED ; got CITED ; PASS
+  (5) a planted head with a standalone construction nothing consumes reads WITNESSED             wanted WITNESSED ; got WITNESSED ; PASS
+  (6) a planted premise constructed in salt checks alone reads OPEN                              wanted OPEN ; got OPEN ; PASS
+  (7) a kernel predicate on a quantified variable is not DOMAIN (the answer: Mathlib`s alone)    wanted OPEN ; got OPEN ; PASS
+  (8) a Mathlib predicate with one row on a fixed object is not DOMAIN                           wanted DISCHARGED ; got DISCHARGED ; PASS
+  (9) the domain reader on 'p.Prime'                                                             wanted ['p'] ; got ['p'] ; PASS
+  (10) the domain reader on 'Nat.Prime p'                                                         wanted ['p'] ; got ['p'] ; PASS
+  (11) the domain reader on 'Nat.Prime 3'                                                         wanted [] ; got [] ; PASS
+### ### **11 of 11 cases as wanted -- PASS**
+
+=== test_primed_names_b643.py
+  (1) dedekind_rhs' found at `theorem dedekind_rhs' (q : ℕ)`                                                         PASS
+  (2) TrivialSummandPremise' found at `def TrivialSummandPremise' (k : ℝ → ℂ)`                                       PASS
+  (3) trivialSummandPremise'_witness' found at its theorem line, the name ending in a prime before a colon           PASS
+  (4) the unprimed dedekind_rhs found at its own line                                                                PASS
+  (5) CONTROL: the unprimed dedekind_rhs NOT found at dedekind_rhs'`s line                                           PASS
+  (6) CONTROL: foo NOT found at a subscripted foo₁                                                                   PASS
+  (7) CONTROL: foo NOT found at foo_bar                                                                              PASS
+  (8) the three primed rows resolve at SIDE-explicit-formula main through terminal_table.statement                   PASS
+### ### **8 of 8 cases as wanted -- PASS**
+
+=== test_push_gated.sh
+test_push_gated: script /d/relay/tools/push_gated.sh ; sha256 aa176fc5ed49903b ; scratch /tmp/tmp.54geI2j6Ro
+### CASE A -- equal read-back
+  A exit : wanted 0 ; got 0 ; PASS
+  A tag made locally : wanted yes ; got yes ; PASS
+  A tag peeled = pushed tip : wanted f07833955faf96067349cfc1ef33f8ea4b02080d ; got f07833955faf96067349cfc1ef33f8ea4b02080d ; PASS
+  A tag made after the read-back line : wanted yes ; got yes ; PASS
+### CASE B -- the read-back made to MISMATCH (the remote's post-receive hook moves main back to base)
+  B exit : wanted 4 ; got 4 ; PASS
+  B the script printed the unequal read-back : wanted yes ; got yes ; PASS
+  B NO tag made locally : wanted no ; got no ; PASS
+  B NO tag at the remote : wanted no ; got no ; PASS
+### CASE C -- the main push refused (the remote's pre-receive hook exits 1)
+  C exit : wanted 3 ; got 3 ; PASS
+  C NO tag made locally : wanted no ; got no ; PASS
+  C NO tag at the remote : wanted no ; got no ; PASS
+### CASE D -- a tag made by hand before the run
+  D exit : wanted 7 ; got 7 ; PASS
+  D remote main unmoved : wanted 937645ec7eb951e4a555395e466be930c5145d75 ; got 937645ec7eb951e4a555395e466be930c5145d75 ; PASS
+  D NO tag at the remote : wanted no ; got no ; PASS
+### CASE E -- a branch not push-* or repair-*
+  E exit : wanted 2 ; got 2 ; PASS
+  E NO tag made locally : wanted no ; got no ; PASS
+### CASE F -- NAME::MESSAGE
+  F exit : wanted 0 ; got 0 ; PASS
+  F the tag's message : wanted v0 -- the test's message ; got v0 -- the test's message ; PASS
+### CASE G -- the table check (--prior /tmp/tmp.54geI2j6Ro/G/prior.json --now /tmp/tmp.54geI2j6Ro/G/same.json --face /tmp/tmp.54geI2j6Ro/G/face_none.txt)
+  G exit : wanted 0 ; got 0 ; PASS
+  G the table check ran before the push : wanted yes ; got yes ; PASS
+  G remote main = pushed tip : wanted 924ddd5a4550dce18bafc7d7d38db1578dc7faa2 ; got 924ddd5a4550dce18bafc7d7d38db1578dc7faa2 ; PASS
+### CASE H -- the table check (--prior /tmp/tmp.54geI2j6Ro/H/prior.json --now /tmp/tmp.54geI2j6Ro/H/mut.json --face /tmp/tmp.54geI2j6Ro/H/face_none.txt)
+  H exit : wanted 9 ; got 9 ; PASS
+  H the table check ran before the push : wanted yes ; got yes ; PASS
+  H remote main unmoved : wanted 5d5a1ff6b7220c3c04d4f834358cf3438520b8b2 ; got 5d5a1ff6b7220c3c04d4f834358cf3438520b8b2 ; PASS
+  H the moved cell printed : wanted yes ; got yes ; PASS
+  H checkout restored : wanted main ; got main ; PASS
+### CASE I -- the table check (--prior /tmp/tmp.54geI2j6Ro/I/prior.json --now /tmp/tmp.54geI2j6Ro/I/mut.json --face /tmp/tmp.54geI2j6Ro/I/face_named.txt)
+  I exit : wanted 0 ; got 0 ; PASS
+  I the table check ran before the push : wanted yes ; got yes ; PASS
+  I remote main = pushed tip : wanted ab9c5ff23757a4b3aeede3fd07a3d6b9166897a0 ; got ab9c5ff23757a4b3aeede3fd07a3d6b9166897a0 ; PASS
+### CASE J -- the existing-tag mode, a lightweight tag
+  J exit : wanted 0 ; got 0 ; PASS
+  J the remote's tag = the local tag's commit : wanted 5672c51e2d2aa2197ef1e18dd118574bc9116229 ; got 5672c51e2d2aa2197ef1e18dd118574bc9116229 ; PASS
+  J remote main unmoved : wanted 5672c51e2d2aa2197ef1e18dd118574bc9116229 ; got 5672c51e2d2aa2197ef1e18dd118574bc9116229 ; PASS
+  J the local tag unmoved : wanted 5672c51e2d2aa2197ef1e18dd118574bc9116229 ; got 5672c51e2d2aa2197ef1e18dd118574bc9116229 ; PASS
+### CASE K -- the existing-tag mode, an annotated tag
+  K exit : wanted 0 ; got 0 ; PASS
+  K the remote's peel = the local peel : wanted 9766266a3c35dfcfc978761beb397e7ff2af6b67 ; got 9766266a3c35dfcfc978761beb397e7ff2af6b67 ; PASS
+  K the tag object the same on both sides : wanted 8eb6b9e27bad3c3ffddcbbf24c0798a859e14cbf ; got 8eb6b9e27bad3c3ffddcbbf24c0798a859e14cbf ; PASS
+### CASE L -- the existing-tag mode, the name already at the remote
+  L exit : wanted 7 ; got 7 ; PASS
+  L the remote's tag unchanged : wanted c2ee93e0d8643535e6e65116fa01e1a030fb3c01 ; got c2ee93e0d8643535e6e65116fa01e1a030fb3c01 ; PASS
+### CASE M -- the existing-tag mode, a tag the clone does not carry
+  M exit : wanted 10 ; got 10 ; PASS
+  M NO tag at the remote : wanted no ; got no ; PASS
+### ### **40 of 40 checks as wanted -- PASS**
+
+=== test_reader_needle_b641.py
+  (1) the planted denial ("cannot be claimed: that RH is proved") reads no match (assertions read: NONE)                 PASS
+  (2) the planted assertion ("the programme shows that RH is proved") reads a match (assertions read: 1)                 PASS
+  (3) the reader`s three answers by the repaired comparison: [(1, True), (2, True), (3, True)] -- 3 of 3 (the old second alternative fired on answer 1: True) PASS
+### ### **3 of 3 cases as wanted -- PASS**
+
+=== test_record_findings_b632.py
+  table cells the entry would make: NONE ; no-disclosure hits: {'method': 0, 'tree': 0, 'modules': 0} ; scanner CLEAN
+  written: b632_findings.json (256 bytes)
+  FINDINGS entry :7993
+  table cells the entry would make: NONE ; no-disclosure hits: {'method': 0, 'tree': 0, 'modules': 0} ; scanner CLEAN
+  table cells the entry would make: NONE ; no-disclosure hits: {'method': 0, 'tree': 0, 'modules': 0} ; scanner CLEAN
+  (1) the writer returned (exit None) and the copy after the write starts with the copy before it                          PASS
+  (2) the bytes added (297) are the entry`s own as the guarded appender writes it                                          PASS
+  (3) the bank names line 7993; it holds the title; the copy`s line count before + 2 = 7993                                PASS
+  (4) a second write of the same entry is refused (exit '### ALREADY PRESENT IN FINDINGS.md: ## A test entry of the r') and the copy does not move PASS
+  (5) the negative control: an entry carrying a stem is refused (exit '### A BANNED STEM IN THE APPEND TO D:\\b632_findings_test_dvu') and the copy does not move PASS
+  (6) the live FINDINGS.md and relay data/b632_findings.json untouched by the test                                         PASS
+### ALL PASS
+
+=== test_registry_tags_b636.py
+  (1) :705 carries the sentence (True) ; its pairs ['v0.1.0', 'v0.2.0', 'v0.3.0', 'v0.4.0']                      PASS
+  (2) the REGISTRY at 07f4c43: 18 pairs ; equal to the bank`s 18 resolving pairs: True                           PASS
+  (3) control, b635`s matcher: 19 pairs, the extra [('SIDE-window', 'v0.5')]                                     PASS
+  (4) the tag forms read: 8 of 8                                                                                 PASS
+  (5) prose read as a tag: []                                                                                    PASS
+### ### **5 of 5 cases as wanted -- PASS**
+
+=== test_row_sort.py
+  (1) out of number order (419 written before 417) -> 417 first (read ['417', 'F', '419'])         PASS
+  (2) the FINDINGS cell between them keeps its place                                               PASS
+  (3) already in number order -> unchanged                                                         PASS
+  (4) a single cell -> as given                                                                    PASS
+  (5) the live row map: rows 414-419 each present, numbers unchanged ({414: 487, 415: 488, 416: 489, 417: 492, 418: 490, 419: 491}) PASS
+### ### **5 of 5 cases as wanted -- PASS**
+
+=== test_rowgen_ident.py
+  (1) row 421 read: rowgen.diff yields [('SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide', ['ok'])] PASS
+  (2) the old ASCII pattern reads no cited Gammaℝ name on row 421 (read [])                                PASS
+  (3) an ASCII name still read: row 422 yields [('SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le', ['ok'])] PASS
+  (4) a statement span with a colon is not read as a name (read [])                                        PASS
+  (5a) λ, Π, Σ are not letter-like: fλ, fΠ, fΣ not names                                                   PASS
+  (5b) a subscript and a prime continue a name: x₁, h₂                                                     PASS
+  (5c) a subscript may not begin a name: ₁x                                                                PASS
+  (5d) α, ℝ, 𝔽 begin and continue a name: αβ, ℝx, 𝔽_q, Gammaℝ                                              PASS
+  (5e) a hierarchical name with a Unicode component: A.Gammaℝ.b                                            PASS
+### ### **9 of 9 cases as wanted -- PASS**
+
+=== test_terminal_table_b630.py
+  (1) a theorem with a premise binder reads INTERFACES                                                           PASS
+  (2) a theorem without a hypothesis binder reads DERIVES                                                        PASS
+  (3) a definition reads DEF                                                                                     PASS
+  (4) no statement reads nothing                                                                                 PASS
+  (5) a cell row keeps its grade and reads cell                                                                  PASS
+  (6) a new row with no cell takes the rule`s grade and reads rule                                               PASS
+  (7) a baseline row with no cell takes the rule`s grade and reads rule (b632: the baseline condition retired)   PASS
+  (8) a cell row whose rule reading differs is returned, its grade kept                                          PASS
+  (9) rhoFun_bound, new since 75227e9c and carrying no cell, grades DERIVES from the rule and reads rule (read DERIVES rule) PASS
+  (10) a cell-graded row of the table (LiCriterion.li_criterion_rh_iff) keeps its grade ['DERIVES'] and reads cell PASS
+  (11) the baseline reads at relay 75227e9c, 1994 rows                                                           PASS
+  (12) the planted pair: absent from the baseline INTERFACES/rule, present in it DERIVES/rule, both by the rule; no statement reads none (read [('INTERFACES', 'rule'), ('DERIVES', 'rule'), ('UNGRADED', 'none')]) PASS
+  ### 12 of 12 cases as wanted -- PASS
+
+=== test_terminal_table_b635.py
+  (1) the elaborated header graded by the rule: INTERFACES, module SIDEExplicitFormula.Planted             PASS
+  (2) textual DERIVES, elaborated INTERFACES: read INTERFACES at rule-elab                                 PASS
+  (3) the two readings agreeing: read DERIVES at rule                                                      PASS
+  (4) the textual reading deferring: read DERIVES at rule-elab                                             PASS
+  (5) upstream marked upstream ; a kernel row marked None                                                  PASS
+  (6) another kernel`s row: read DERIVES at rule                                                           PASS
+  (7) a statement-less row the upstream mark reaches: read — at none, kind upstream                        PASS
+  (8) a cell-graded row: read DERIVES at cell                                                              PASS
+  (9) re-pointed [('old.name', 'old.nameℝ_full')] ; retired ['gone.ns'] ; the population ['keep', 'old.nameℝ_full'] PASS
+  (10) deferring with no elaborated type: read UNGRADED at none                                            PASS
+### ### **10 of 10 cases as wanted -- PASS**
+
+=== test_terminal_table_b636.py
+  (1) textual DERIVES, elaborated INTERFACES: read INTERFACES at rule-elab                                 PASS
+  (2) the two readings agreeing: read DERIVES at rule                                                      PASS
+  (3) a statement-less row the reader typed: read DEF at rule-elab                                         PASS
+  (4) upstream marked upstream ; a row in the kernel`s roots marked None                                   PASS
+  (5) the explicit-formula row reads its own bank: DERIVES at rule                                         PASS
+  (6) a cell-graded row: read DERIVES at cell                                                              PASS
+  (7) the reader`s bank b636_elab_sec.txt: d_eff_eq_five ('DERIVES', None) ; Line.Proper ('DEF', None)     PASS
+### ### **7 of 7 cases as wanted -- PASS**
+
+=== test_terminal_table_b637.py
+  planted bank: C:\Users\ECHOCH~1\AppData\Local\Temp\tmpc288w11_\elab_b637.txt
+  (1) the upstream mark`s row: — at none, kind upstream, before the exclusion ('DERIVES', 'rule-elab')           PASS
+  (2) a kernel row no file declares and the reader typed nowhere: — at none, kind upstream                       PASS
+  (3) a kernel row typed in its own roots: DERIVES at rule, kind None                                            PASS
+  (4) another kernel`s unresolved row: UNGRADED at none, kind None                                               PASS
+  (5) the table at f3a2f6b2: 32 rows take the kind, the 27 the mark reached and the five Mathlib names (32); others [] PASS
+### ### **5 of 5 cases as wanted -- PASS**
