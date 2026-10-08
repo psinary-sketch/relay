@@ -773,14 +773,46 @@ def packet(*a):
 
 
 ANS_RE = re.compile(r'^ANSWER ([123]):\s*(.*?)(?=^ANSWER [123]:|^UNCLEAR:|\Z)', re.M | re.S)
+# ### (R251)(2), b641: the sentence "RH is proved" is NOT SUPPORTED by the corpus, and a text may name it to say so. Question 1's needle for it
+# ### matches an ASSERTION and not a DENIAL: each alternative of Q1_ASSERT is read inside its own sentence, and a hit is a denial when that
+# ### sentence carries a negation (Q1_DENIAL) within Q1_WINDOW characters before it -- the guard on every alternative, not the first alone
+# ### (b640's defect (b): the second alternative fired on the reader's "cannot be claimed: that RH is proved"). tools/test_reader_needle_b641.py.
+Q1_ASSERT = r'\bproved?\b.{0,40}\bRiemann Hypothesis\b|\bRH (is|was|has been) proved\b'
+Q1_DENIAL = r"\b(not|no|never|cannot|nor|neither|without|unsupported|unsupportable)\b|n't\b"
+Q1_WINDOW = 60
+
+
+def q1_asserts(a_):
+    """### the assertions of the unsupported sentence in an answer: every hit of Q1_ASSERT whose own sentence carries no negation within
+    ### Q1_WINDOW characters before it. RETURN [the sentence of each assertion]."""
+    out = []
+    for s in re.split(r'(?<=[.!?])\s+', a_ or ''):
+        for m in re.finditer(Q1_ASSERT, s, re.I):
+            if not re.search(Q1_DENIAL, s[max(0, m.start() - Q1_WINDOW):m.start()], re.I):
+                out.append(s.strip())
+    return out
+
+
 NEEDLES = {
     1: ((r'reduc|equivalen|located clause|single clause|one clause', 'the claim: a reduction of RH to one located clause, machine-verified'),
-        (r'(?<!not )(?<!n.t )\bproved?\b.{0,40}\bRiemann Hypothesis\b|\bRH (is|was|has been) proved\b', 'NOT the claim: RH proved')),
+        (Q1_ASSERT, 'NOT the claim: RH proved, asserted (a denial of it is no match)')),
     2: ((r'premise|assum|hypothes', 'the assumptions: premises the kernels take'),
         (r'\b25\b|twenty-five|open premises|work-order', 'the open premises counted, with their work-orders')),
     3: ((r'h2_sign|located clause|positivity|sign statement', 'the open clause itself: h2_sign'),
         (r'premise|work-order|open', 'the open premises beside it')),
 }
+
+
+def agree_of(q, a_):
+    """### one answer against its question's needles: (agree, reasons). Question 1 agrees when the claim is named and the unsupported sentence
+    ### is not asserted (q1_asserts, (R251)(2)); questions 2 and 3 when both needles are met."""
+    must, then = NEEDLES[q]
+    if q == 1:
+        hits = q1_asserts(a_)
+        return bool(re.search(must[0], a_, re.I)) and not hits, ['%s %s' % (must[1], bool(re.search(must[0], a_, re.I))),
+                                                                  '%s absent %s' % (then[1], not hits)]
+    return bool(re.search(must[0], a_, re.I)) and bool(re.search(then[0], a_, re.I)), [
+        '%s %s' % (must[1], bool(re.search(must[0], a_, re.I))), '%s %s' % (then[1], bool(re.search(then[0], a_, re.I)))]
 
 
 def reader(*a):
@@ -804,13 +836,7 @@ def reader(*a):
     res = {}
     for q in (1, 2, 3):
         a_ = ans.get(q, '')
-        must, then = NEEDLES[q]
-        if q == 1:
-            ok = bool(re.search(must[0], a_, re.I)) and not re.search(then[0], a_, re.I)
-            reasons = ['%s %s' % (must[1], bool(re.search(must[0], a_, re.I))), '%s absent %s' % (then[1], not re.search(then[0], a_, re.I))]
-        else:
-            ok = bool(re.search(must[0], a_, re.I)) and bool(re.search(then[0], a_, re.I))
-            reasons = ['%s %s' % (must[1], bool(re.search(must[0], a_, re.I))), '%s %s' % (then[1], bool(re.search(then[0], a_, re.I)))]
+        ok, reasons = agree_of(q, a_)
         res[q] = dict(question=K.QUESTIONS[q - 1], answer=a_, agree=ok, reasons=reasons)
         L += ['### QUESTION %d: %s' % (q, K.QUESTIONS[q - 1]), '    the reader: %s' % (a_ or '### NO ANSWER'),
               '    against the description: %s ; ### %s' % ('; '.join(reasons), 'AGREE' if ok else 'DIFFER'), '']
