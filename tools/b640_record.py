@@ -1200,7 +1200,7 @@ def n5(trail_line=None, *a):
     Z = _zres()
     word = _word()
     word_ok = not Z.get('publish') or word == 'publish'
-    logged = [f for f in os.listdir(D) if f.startswith('b640_') and _tok() and _tok().encode() in open(os.path.join(D, f), 'rb').read()] if _tok() else []
+    logged = [f for f in os.listdir(D) if f.startswith('b640_') and os.path.isfile(os.path.join(D, f)) and _tok() and _tok().encode() in open(os.path.join(D, f), 'rb').read()] if _tok() else []
     untracked_local = g(RELAY, 'status', '--porcelain', '--', K.LOCAL_BANK).strip().startswith('??')
     ok = kern_ok and not pp_beyond and not beyond and rec_ok and not differ and word_ok and not logged and untracked_local
     return ('HELD' if ok else 'REFUTED',
