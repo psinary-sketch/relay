@@ -92,9 +92,10 @@ def procs(suffix=''):
     print(NL.join(L[3:]))
 
 
-def hold_launch(target):
+def hold_launch(target, suffix=''):
     """writes the PowerShell launcher for ONE call under tools/build_watch.py (scratchpad) and prints its path: an Interfaces module's build
-    (b644's command, its mathlib4 checkout and output directory) or the reader's test (through b645_tests.py); the bank data/b645_build_watch.json."""
+    (b644's command, its mathlib4 checkout and output directory) or the reader's test (through b645_tests.py); the bank data/b645_build_watch.json.
+    `suffix` names a later retry's logs apart (the author's answer at step zero: once more before the seal), step zero's left as written."""
     import b644_record as R44
     q = lambda s: "'" + s.replace("'", "''") + "'"   # noqa: E731
     if target == 'test':
@@ -107,6 +108,7 @@ def hold_launch(target):
         os.makedirs(out, exist_ok=True)
         tag, cwd, module = 'b645_build_%s' % target, pin.replace('/', '\\'), 'SIDE-global-section/Interfaces/%s.build' % target
         cmd = [lean.replace('/', '\\')] + [x.replace('/', '\\') if not x.startswith('--root') else x for x in args]
+    tag += suffix
     log = '%s/w_%s.log' % (SP, tag)
     wargs = ['D:\\relay\\tools\\build_watch.py', '--module', module, '--bank', 'D:\\relay\\data\\b645_build_watch.json', cwd,
              log.replace('/', '\\')] + cmd
@@ -1559,6 +1561,131 @@ def answers(*a):
         L.append('### NONE: no prompt has been put to the author in this act.')
     put_txt('b645_author_answers.txt', L)
     print('  prompts banked: %d' % n)
+
+
+def hold_preseal(*a):
+    """data/b645_hold_preseal.txt and .json: the author's answer at step zero -- RestrictedTensorLayer1 and test_elab_reader_b634 retried once
+    more just before the seal, the hold at 2,560 MB; a second fall is final and named in the closing."""
+    L = ['b645 -- THE HOLD, RETRIED ONCE MORE BEFORE THE SEAL (the author`s answer at step zero; data/b645_author_answers.txt) (%s)' % utc(), '']
+    J = []
+    for t, tag in (('RestrictedTensorLayer1', 'b645_build_RestrictedTensorLayer1_preseal'), (K.HOLD_TEST, 'b645_test_elab_preseal')):
+        o = _log_outcome('%s/w_%s.log' % (SP, tag))
+        fb = re.search(r'free before: (\d+) MB', rd_sp('launch_out_%s.txt' % tag))
+        if t == K.HOLD_TEST and o['verdict'] == 'BUILT':
+            o['verdict'] = 'RAN'
+        J.append(dict(target=t, tag=tag, free_before=int(fb.group(1)) if fb else None, **o))
+        L.append('  %-24s free before %s MB ; %-16s starts %d ; stopped %d ; lows %s ; lowest sample %s%s' % (
+            t, J[-1]['free_before'], o['verdict'], o['starts'], o['stops'], o['lows'] or '-', o['samples_min'],
+            (' ; errors: ' + ' | '.join(o['errors'])) if o['errors'] else ''))
+    final = [r['target'] for r in J if r['verdict'] == 'RUN-BENEATH-HOLD']
+    L += ['', '### ### **RETRIED 2 ; RUN-BENEATH-HOLD, FINAL AND NAMED IN THE CLOSING: %s.**' % (', '.join(final) or 'NONE')]
+    put_txt('b645_hold_preseal.txt', L)
+    put_json('b645_hold_preseal.json', dict(at=utc(), rows=J, final=final))
+    print(NL.join(L[2:]))
+
+
+def outsiders(*a):
+    """data/b645_outsider_roster.txt and .json: (R255)(7) and the author's answer before b645's seal -- each of the 25 local repositories
+    outside the chain (b644's closing) takes one word by a printed reading, none by the seat's judgment: JOINS if it builds at its pin (a
+    banked print of its declarations, read from the terminal table's profiled rows) and a keystone or a kernel cites it by name (the citing
+    line printed); RETIRES if a ruling or an ERRATA entry retired it (the line printed); STANDS ASIDE otherwise. A clone whose remote is a
+    chain repository's is printed as such and stands aside (the repository is in the chain already). The private repository stands aside,
+    unnamed. The chain is not widened; the author's word at the closing replaces any reading it strikes."""
+    sec = _need(r'^### FOR THE AUTHOR TO NAME.*?(?=^### CARRIED FORWARD)', rd('b644_closing.txt'), 'the outsiders` section').group(0)
+    outs = re.findall(r'^      (D:/\S+)\s+(\S+(?: REMOTE)?) ;', sec, re.M)
+    if len(outs) != 25:
+        sys.exit('### %d OUTSIDERS READ, NOT 25 -- NOTHING WRITTEN' % len(outs))
+    chain = sorted(set(x.split()[0] for x in jl('b644_act_root.json').get('items') or [] if not x.startswith('data/')))
+    remotes = dict(('https://github.com/psinary-sketch/%s.git' % c, c) for c in chain)
+    kpaths = [k['path'] for k in _roster() if k['path']]
+    rows_all, _md = _tt()
+    texts = {'FINDINGS.md': lines_of(_show(PP, PRE_PP, 'FINDINGS.md')), 'OPEN_TRAILS.md': lines_of(_show(PP, PRE_PP, 'OPEN_TRAILS.md')),
+             'ERRATA.md': lines_of(_show(PP, PRE_PP, 'ERRATA.md')), 'REGISTRY.md': lines_of(_show(PP, PRE_PP, 'REGISTRY.md'))}
+    L = ['b645 -- (R255)(7): THE OUTSIDER REPOSITORIES, EACH WORD BY A PRINTED READING (the author`s answer before the seal) (%s)' % utc(), '',
+         '### the 25 from relay data/b644_closing.txt; the chain`s %d repositories from b644`s root (relay data/b644_act_root.json); the keystones '
+         'are the census roster`s 48 paths at PLACE-papers HEAD, the kernels the chain`s SIDE repositories at HEAD, searched by git grep for the '
+         'repository`s name as a whole word' % len(chain),
+         '### the retirement matcher`s lineage, each form`s yield: a line naming the repository and "retir" anywhere -- 3 (FINDINGS :7304, '
+         'OPEN_TRAILS :7345, FINDINGS :1225, each read whole: each retires something else); the two within 60 characters -- 1 (FINDINGS :1225, '
+         'a title retired, the repository only in its path); the repository itself the object ("<name> is/was retired", "retired the '
+         'repository <name>") -- 0, the form banked', '']
+    J = []
+    for path, remote in outs:
+        name = path.rstrip('/').split('/')[-1]
+        if path.endswith('/repo'):
+            name = remote.rstrip('/').split('/')[-1].replace('.git', '')
+        clone = remotes.get(remote)
+        cite = ''
+        if not clone and remote != 'NO':
+            for kp in kpaths:
+                h = g(PP, 'grep', '-n', '-w', '-F', name, 'HEAD', '--', kp).strip().split(NL)[0]
+                if h:
+                    cite = 'PLACE-papers ' + h[len('HEAD:'):][:200]
+                    break
+            if not cite:
+                for c in chain:
+                    if c.startswith('SIDE-'):
+                        h = g('D:/' + c, 'grep', '-n', '-w', '-F', name, 'HEAD', '--', '*.lean', '*.md').strip().split(NL)[0]
+                        if h:
+                            cite = '%s %s' % (c, h[len('HEAD:'):][:200])
+                            break
+        prof = [x for x in rows_all if x['repo'] == name and x.get('profile_state') == 'PROFILED']
+        ret = ''
+        for f, ls in texts.items():
+            nm = r'(?<![\w-])%s(?![\w-])' % re.escape(name)
+            prox = re.compile(r'(?i)%s`?\s+(?:is|was|stands|has been)\s+retired|\bretir\w*\s+(?:the\s+)?(?:repository|repo|clone|kernel)\s+`?%s' % (nm, nm))
+            for i, l in enumerate(ls, 1):
+                m = prox.search(l)
+                if m:
+                    ret = '%s :%d ...%s...' % (f, i, l[max(0, m.start() - 40):m.end() + 40])
+                    break
+            if ret:
+                break
+        if clone:
+            word, why = 'STANDS ASIDE', 'a clone whose remote is the chain repository %s`s -- the repository is in the chain already' % clone
+        elif ret:
+            word, why = 'RETIRES', 'retired: %s' % ret
+        elif cite and prof:
+            word, why = 'JOINS', 'cited: %s ; builds at its pin: %d profiled rows in the terminal table (%s)' % (cite, len(prof), prof[0].get('profile_source'))
+        else:
+            word, why = 'STANDS ASIDE', 'cited: %s ; a build at a pin read: %s' % (cite or 'NO keystone or kernel names it',
+                                                                                 ('%d profiled rows' % len(prof)) if prof else 'NONE')
+        J.append(dict(path=path, remote=remote, name=name, word=word, why=why, cite=cite, profiled=len(prof), clone=clone, retired=ret))
+        L.append('  %-38s %-13s %s' % (path, word, why))
+    L += ['  %-38s %-13s %s' % ('(one private repository, unnamed)', 'STANDS ASIDE', 'the b590 rule: its name withheld')]
+    c = collections.Counter(x['word'] for x in J)
+    L += ['', '### ### **OUTSIDERS 25 AND ONE PRIVATE ; JOINS %d ; RETIRES %d ; STANDS ASIDE %d AND THE PRIVATE ONE ; THE CHAIN NOT WIDENED THIS ACT.**' % (
+        c['JOINS'], c['RETIRES'], c['STANDS ASIDE'])]
+    put_txt('b645_outsider_roster.txt', L)
+    put_json('b645_outsider_roster.json', dict(at=utc(), rows=J))
+    print(NL.join(L[4:]))
+
+
+def agenda(*a):
+    """data/b645_v6_agenda.txt: the author's answer before b645's seal -- the monograph's OVERREACHES and UNLICENSED rows, grouped by chapter,
+    the re-cut sentence or the work-order beside each: v6.0's agenda, a file sent to the author at the closing, read before any re-cut is ruled."""
+    M = jl('b645_table_monograph.json')
+    rows = [r for r in M.get('rows') or [] if r['verdict'] in ('OVERREACHES', 'UNLICENSED')]
+    if not rows:
+        sys.exit('### THE MONOGRAPH TABLE IS NOT BANKED -- NOTHING WRITTEN')
+    by = collections.OrderedDict()
+    for r in sorted(rows, key=lambda x: x['line']):
+        by.setdefault(r['chapter'], []).append(r)
+    L = ['b645 -- v6.0`S AGENDA: THE MONOGRAPH`S OVERREACHES AND UNLICENSED ROWS, BY CHAPTER, EACH WITH ITS RE-CUT OR WORK-ORDER (%s)' % utc(), '',
+         '### from relay data/b645_table_monograph.json (A_Place_to_Stand_v5_18.md at PLACE-papers %s); the author`s answer before b645`s seal: '
+         'these go to the author as a file at b645`s closing, read before any re-cut is ruled; under (R255)(2) the next edition is v6.0, a re-cut. '
+         'An ACTION`s re-cut names what the sentence must say; its wording is the edition`s.' % PRE_PP, '',
+         '### OVERREACHES %d ; UNLICENSED %d ; CHAPTERS %d' % (sum(1 for r in rows if r['verdict'] == 'OVERREACHES'),
+                                                             sum(1 for r in rows if r['verdict'] == 'UNLICENSED'), len(by)), '']
+    for ch, rs in by.items():
+        L.append('## %s (%d)' % (ch, len(rs)))
+        for r in rs:
+            L += ['  :%d  %s  [%s, stated as %s%s]' % (r['line'], r['verdict'], r['grade'], r['stated_as'], (', terminal ' + r['terminal']) if r['terminal'] else ''),
+                  '      "%s"' % r['stated'], '      ACTION: %s' % r['action']]
+        L.append('')
+    L += ['### ### **ROWS %d ; CHAPTERS %d.**' % (len(rows), len(by))]
+    put_txt('b645_v6_agenda.txt', L)
+    print(L[-1])
 
 
 def rd_sp(name):

@@ -1,0 +1,49 @@
+{
+ "at": "2026-10-09T19:32:16Z",
+ "rows": [
+  {
+   "target": "RestrictedTensorLayer1",
+   "tag": "b645_build_RestrictedTensorLayer1_preseal",
+   "free_before": 3543,
+   "verdict": "RUN-BENEATH-HOLD",
+   "exits": [
+    "### EXIT 1 2026-10-09T19:21:34Z 242 s peak 1138 MB low 2506 MB free 3699 MB (stopped beneath the hold)",
+    "### EXIT 1 2026-10-09T19:21:56Z 21 s peak 1159 MB low 2508 MB free 3710 MB (stopped beneath the hold)",
+    "### EXIT 75 2026-10-09T19:21:56Z RUN-BENEATH-HOLD"
+   ],
+   "lows": [
+    2506,
+    2508
+   ],
+   "samples_min": 2506,
+   "starts": 2,
+   "refused": 0,
+   "stops": 2,
+   "errors": []
+  },
+  {
+   "target": "test_elab_reader_b634.py",
+   "tag": "b645_test_elab_preseal",
+   "free_before": 3698,
+   "verdict": "RUN-BENEATH-HOLD",
+   "exits": [
+    "### EXIT 1 2026-10-09T19:31:36Z 563 s peak 13 MB low 2498 MB free 2503 MB (stopped beneath the hold)",
+    "### EXIT 1 2026-10-09T19:31:57Z 20 s peak 13 MB low 2423 MB free 2439 MB (stopped beneath the hold)",
+    "### EXIT 75 2026-10-09T19:31:57Z RUN-BENEATH-HOLD"
+   ],
+   "lows": [
+    2498,
+    2423
+   ],
+   "samples_min": 2423,
+   "starts": 2,
+   "refused": 0,
+   "stops": 2,
+   "errors": []
+  }
+ ],
+ "final": [
+  "RestrictedTensorLayer1",
+  "test_elab_reader_b634.py"
+ ]
+}
