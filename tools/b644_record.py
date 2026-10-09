@@ -1714,9 +1714,11 @@ def lattice(*a):
     L.append('### THE LATTICE TABLE (%d rows): row | axes (the token) | grade | the premises it rests on, with status' % len(out))
     L += ['  %-58s | %-46s | %-18s | %s' % (x['name'][-58:], ', '.join('%s (%s)' % t for t in x['axes']) or 'UNPLACED', x['grade'], x['status'])
           for x in sorted(out, key=lambda x: ([a_ for a_, _t in x['axes']] or ['~'], x['name']))]
-    L += ['', '### THE ROWS THE RULE CANNOT PLACE (%d), raised as one prompt:' % len(unplaced)]
+    L += ['', '### TOP (%d) -- the author`s answer at b644 to the prompt that raised these rows, the rule placing none of them: "the lattice`s top '
+          '-- the base statement (RH in strip form, the seam, and the cell form) that every cell is a restriction of"; no axis is added, and the '
+          'table above reads five axes beneath it.' % len(unplaced)]
     L += ['  %s : %s' % (r['name'], ' '.join((r.get('statement') or '').split())[:200]) for r in unplaced]
-    L += ['', '### ### **ROWS %d ; PLACED %d ; UNPLACED %d ; ON EACH AXIS: %s ; THE RULE`S TEST %d OF %d.**' % (
+    L += ['', '### ### **ROWS %d ; PLACED ON THE FIVE AXES %d ; TOP %d ; ON EACH AXIS: %s ; THE RULE`S TEST %d OF %d.**' % (
         len(out), len(out) - len(unplaced), len(unplaced), ', '.join('%s %d' % (a_, cnt[a_]) for a_, _r in AXES), n, len(PLANTED))]
     put_txt('b644_lattice.txt', L)
     put_json('b644_lattice.json', dict(at=utc(), test=[n, len(PLANTED)], rows=out, unplaced=[r['name'] for r in unplaced]))

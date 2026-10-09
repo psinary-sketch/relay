@@ -1,4 +1,4 @@
-b644 -- COMPONENT 7, (R254)(10): W-ORD-H2-LATTICE -- THE ASSIGNMENT RULE, ITS TEST, THE LATTICE TABLE (2026-10-09T14:15:40Z) -- A BANK, NOT AN EDITION
+b644 -- COMPONENT 7, (R254)(10): W-ORD-H2-LATTICE -- THE ASSIGNMENT RULE, ITS TEST, THE LATTICE TABLE (2026-10-09T14:53:21Z) -- A BANK, NOT AN EDITION
 
 ### the axes and the token each reads (name and statement): HEIGHT `upto|height|Platt|L₀|\(T\s*:|\bT₀\b|\|\s*\w+\.im\s*\||\.im\b` ; INSTANCE `_chi\b|χ|Dirichlet|LFunction|Dedekind|dedekind|Epstein|epstein|_cfg\b|Config\b|instance` ; REGISTER `h2_sign|Weil|weil|\bli_|LiCriterion|LiCoeff|Register\d|taylorCoeff|\bnb\b|_nb\b|NymanBeurling|conservation|\bch_|arith_limit` ; FAMILY `GRH|Family\.|family|cascade` ; TEST-CLASS `classK|window|Window|plateau|\bbox\b|test`
 ### the rows: SIDE-explicit-formula`s graded rows in the terminal table at relay HEAD whose statement matches `RiemannHypothesis|\bh2_sign\w*|\brh_\w+|GRH\w*|li_nonneg\w*|arith_limit\w*|NymanBeurling\w*|conservationHypothesis` (the seat`s scope)
@@ -108,11 +108,11 @@ b644 -- COMPONENT 7, (R254)(10): W-ORD-H2-LATTICE -- THE ASSIGNMENT RULE, ITS TE
   SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff       | UNPLACED                                       | DERIVES            | none
   rh_strip_imp_rh                                            | UNPLACED                                       | CONFLICT           | none
 
-### THE ROWS THE RULE CANNOT PLACE (5), raised as one prompt:
+### TOP (5) -- the author`s answer at b644 to the prompt that raised these rows, the rule placing none of them: "the lattice`s top -- the base statement (RH in strip form, the seam, and the cell form) that every cell is a restriction of"; no axis is added, and the table above reads five axes beneath it.
   SIDEExplicitFormula.B321.rh_imp_cell_form : theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) : RiemannHypothesis → cell_form F W
   SIDEExplicitFormula.B321.rh_imp_rh_strip : theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip
   SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : theorem rh_strip_imp_rh_holds : rh_strip_imp_rh
   SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : theorem lvh2_corrected_iff : (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip
   rh_strip_imp_rh : def rh_strip_imp_rh : Prop
 
-### ### **ROWS 94 ; PLACED 89 ; UNPLACED 5 ; ON EACH AXIS: HEIGHT 9, INSTANCE 51, REGISTER 84, FAMILY 26, TEST-CLASS 0 ; THE RULE`S TEST 6 OF 6.**
+### ### **ROWS 94 ; PLACED ON THE FIVE AXES 89 ; TOP 5 ; ON EACH AXIS: HEIGHT 9, INSTANCE 51, REGISTER 84, FAMILY 26, TEST-CLASS 0 ; THE RULE`S TEST 6 OF 6.**
