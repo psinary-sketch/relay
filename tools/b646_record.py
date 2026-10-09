@@ -687,6 +687,219 @@ def table_diff(*a):
     print(NL.join(L[2:]))
 
 
+# ================================================================================ COMPONENT 4: THE DESCRIPTION AT v3, (R256)(4)
+# ### The composer, carried from b644's (relay tools/b644_record.py :1205-:1332, sealed at b644), its sources read through b644's own sealed
+# ### helpers (imported, never copied): the glossary, README's ceiling, the banked #print axioms lines, the premise table, the hinges, the
+# ### W-ORD-PREMISE-* discharge clauses, the surround, ERRATA's form, the draft's creator. The terminal table is a parameter (`TR`), so the
+# ### carried composer is shown to reproduce v2 byte for byte from the table as it stood at v2 before any rule of (R256)(4) is added.
+V2 = 'b644_deposit_description.txt'
+V2_TABLE_REV = 'e1d39ccf^'    # ### the table as it stood when v2 was composed (unchanged from b644 to the MET entry)
+ZEN_URL = 'https://developers.zenodo.org/'
+ZEN_PAGE = 'zenodo_dev.html'   # ### the page as read at source, in the scratchpad
+ZEN_SHA = 'bbd72463dcf7e07f597ed2b145e8019fb0e861c4811a8d22e0e5d202bde69e61'
+RULES = ()   # ### the composition rules of (R256)(4), each added through the Edit tool with its test
+
+
+def _R4():
+    import b644_record as R4
+    return R4
+
+
+def _tr(rev=None):
+    if rev is None:
+        T = jl('terminal_table.json')
+    else:
+        T = json.loads(_show(RELAY, rev, 'data/terminal_table.json'))
+    return dict(((r['repo'], r['name'].split('.')[-1]), r) for r in T.get('rows') or [])
+
+
+def compose_v3(rules=None, TR=None):
+    """the description's HTML: b644's composer carried, with the rules of (R256)(4) named in `rules` applied (default: RULES)."""
+    R4 = _R4()
+    rules = RULES if rules is None else rules
+    gl, (sup, nsup), PR = R4._gl(), R4._readme_ceiling(), R4._prints()
+    TR = _tr() if TR is None else TR
+    PT = dict((r['head'], r) for r in jl('b643_premise_table.json').get('rows') or [])
+    HJ = dict((r['head'], r) for r in jl('b644_hinges.json').get('rows') or [])
+    DC = R4._discharge_clauses()
+    creator = jl('b644_draft_meta.json').get('creators') or []
+    surround = R4.K.show('phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md', 'HEAD') or ''
+    sq = re.search(r'the geometric face names a single concrete analytic target: (the jaws overlap at every height \*\*iff\*\* .+?reaches the zero-free region)',
+                   surround)
+    errata = R4.K.show('ERRATA.md', 'HEAD') or ''
+    ef = re.search(r'Each entry lists: the\s+paper, the affected section or line, the correction, and the date\.', errata)
+    P = []
+    # ---- (i) THE CLAIM
+    sup, nsup = (sup or '').rstrip('.'), (nsup or '').rstrip('.')
+    cp = rd('b644_clause_path.txt')
+    one = ('h2_sign is the one open clause of the reduction: the dependency path from h2_sign to RiemannHypothesis passes through the seam '
+           'rh_strip_imp_rh, a classical fact the kernel compiles (rh_strip_imp_rh_holds), and consumes no OPEN premise; the OPEN premises in '
+           'the table belong to the faces, instances and bounds, none on that path [in plain words: every OPEN premise in the table is assumed '
+           'only by theorems the reduction from h2_sign to RH does not use], and the table is the keystone census at v0.7.1, in this '
+           'record\'s files.' if re.search(r'; OPEN 0 ', cp) else 'NOT READ')
+    mx = re.search(r'the mechanism exclusions are (the route terminals of SIDE-kernel) set out under WHAT IS MACHINE-VERIFIED below, (which compile '
+                   r'that none of seven named mechanism classes produces the off-line signature the kernel defines, the exhaustiveness of the seven '
+                   r'classes over all mechanisms not being compiled)', rd('b640_deposit_description.txt'))
+    mex = ('Its mechanism exclusions are %s, %s; they rule out named sources of a zero off the critical line and do not prove h2_sign.' % (
+        mx.group(1), mx.group(2)) if mx else 'NOT READ')
+    located = gl['the located clause'].rstrip('.')
+    P.append('THE CLAIM. %s is the name of the research programme whose papers, kernels and ledgers this record deposits; it makes its '
+             'claim in one sentence, as its README states it: "%s." Here RH is %s. The located clause: '
+             '%s. %s h2_sign is %s. %s classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
+             'not support that sentence, since h2_sign is open, and nothing in this record states that the Riemann Hypothesis holds.' % (
+                 'A PLACE TO STAND', sup, gl['RH'].rstrip('.'), located, mex, gl['h2_sign'].rstrip('.'), one,
+                 gl['classK'].rstrip('.'), sup, nsup))
+    # ---- (ii) WHAT IS MACHINE-VERIFIED
+    tags = dict((k, g('D:/' + k, 'rev-parse', '--short=7', '%s^{commit}' % t).strip()) for k, t in R4.KERNEL_TAG.items())
+    items = []
+    for k, n in R4.DESC_THEOREMS:
+        r = TR.get((k, n))
+        full = [x for x in PR if x.split('.')[-1] == n]
+        pr = PR[full[0]] if full else None
+        grade = r['grade'] if r else 'not in the table'
+        s = '%s (%s at its tag %s = %s; %s; #print axioms %s)' % (n, k, R4.KERNEL_TAG[k], tags[k], grade, pr or 'NOT BANKED')
+        stmt = (r or {}).get('statement') or ''
+        if n == 'h1_complete_at_Phi':
+            conj = [c.strip().split()[0] for c in R4._split_conclusion(' '.join(stmt.split()))[1].split('∧')]
+            s += (' -- it states that the fixed function Phi meets the %d couplings it names at once (%s); its docstring calls it the h1 leg of a '
+                  'bracket whose other leg is h2, %s, which stays open' % (len(conj), ', '.join(conj), gl['h2'].split(';')[0]))
+        if n.endswith('_holds') and (k, n[:-len('_holds')]) in TR:
+            s += ' -- it proves %s, a proposition the kernel defines' % n[:-len('_holds')]
+        if grade in ('INTERFACES', 'PREDICATE-UNLISTED'):
+            on = R4._rests_on(n)
+            hyp = [x for x in re.findall(r'(\w+)\s*→', R4._split_conclusion(stmt)[1] or stmt) if (k, x + '_holds') in TR]
+            if on:
+                s += ' -- it holds on %s' % ', '.join('the premise %s, whose status is %s' % (h, PT[h]['status']) if h in PT else h for h in on)
+            elif hyp:
+                s += ' -- it holds on %s, which %s proves' % (hyp[0], hyp[0] + '_holds')
+            else:
+                s += ' -- the premise it holds on is named in its statement'
+        items.append(s)
+    P.append('WHAT IS MACHINE-VERIFIED. A kernel is %s. A theorem holds at the standard three when its #print axioms reads exactly %s. The grades, read from each statement: DERIVES, %s; '
+             'INTERFACES, %s; PREDICATE-UNLISTED, %s [In plain words: the grading rule met a named predicate on one of the statement\'s variables '
+             'that its list of restrictions does not yet hold; it marks the theorem for a ruling by the programme\'s author, who rules on the grading '
+             'rule, rather than reading the predicate as a premise.] '
+             'The named theorems: %s.' % (
+                 gl['kernel'].split(':')[0].rstrip('. '), gl['the standard three'].rstrip('.').replace(', written std3', ''),
+                 gl['DERIVES'].rstrip('.'), gl['INTERFACES'].rstrip('.'), gl['PREDICATE-UNLISTED'].rstrip('.') + '.', '; '.join(items)))
+    # ---- (iii) WHAT THE LOAD-BEARING THEOREMS ASSUME
+    order = ('OPEN', 'CITED', 'DISCHARGED', 'WITNESSED', 'REFUTED-BY-COMPUTATION')
+    parts = []
+    for st in order:
+        hs = [h for h in PT if PT[h]['status'] == st]
+        ents = []
+        for h in hs:
+            mark = ' (a HINGE)' if (HJ.get(h) or {}).get('hinge') else ''
+            if st == 'OPEN':
+                d = ('what would discharge it: ' + DC[h][1].rstrip('.')) if h in DC else ('carried by %s' % R4.CARRIED_WO.get(h, 'its work-order'))
+            elif st == 'CITED':
+                d = 'cited at its literature source and not compiled; a compiled proof would discharge it in the kernel'
+            elif st == 'DISCHARGED':
+                d = 'discharged where it is used'
+            elif st == 'WITNESSED':
+                d = ('witnessed by a construction nothing uses; a compiled proof would discharge it [a witness shows the premise can be met by '
+                     'some object; a discharge proves it for the objects the theorems resting on it use]')
+            else:
+                d = ('refuted: its pole term is positive where it requires zero; TrivialSummandPremise\' carries the pole term in its place, '
+                     'and dedekind_rhs\' is proved on it')
+            ents.append('%s%s, %s' % (h, mark, d))
+        if st == 'OPEN':
+            salted = [h for h in hs if h in DC and 'salt checks show it is not vacuous' in DC[h][1]]
+            if salted:
+                ents.append('[the clause of %s differs because its salt checks already show it can be satisfied: what remains is a construction '
+                            'that a proof actually uses]' % ', '.join(salted))
+        parts.append('%s -- %s' % (st, '; '.join(ents)))
+    dom = sorted(h for h in PT if PT[h]['status'] == 'DOMAIN')
+    hinge_def = gl['HINGE'].replace(' (the entry above)', '').rstrip('.') + '. A premise\'s own evidence is, in the glossary\'s words, %s. ' % (
+        gl['own evidence'].replace('of a premise: ', '').rstrip('.')) + ('[In plain words: own evidence is any declaration that is about the '
+                                                                         'premise itself -- showing it can hold, cannot hold, or holds under a '
+                                                                         'condition -- rather than a use of it.] '
+                                                                         '[In plain words: a hinge is a premise that separate lines of the '
+                                                                         'kernels\' reasoning lean on, counted once the declarations that only test, '
+                                                                         'refute or instance the premise itself are set aside.]')
+    wo = 'A name beginning W-ORD- is %s; OPEN_TRAILS is, in its own words, %s.' % (gl['W-ORD'].rstrip('.'), gl['OPEN_TRAILS'].split(';')[0].rstrip('.'))
+    sc_ = re.search(r'a salt check -- (a test file that only shows a premise is not vacuous, that is, that it can be satisfied, so that a theorem '
+                    r'resting on it is not true merely because nothing satisfies it) --', rd('b640_deposit_description.txt'))
+    wo += ' A salt check is %s.' % (sc_.group(1) if sc_ else 'NOT READ')
+    tpl = ('WHAT THE LOAD-BEARING THEOREMS ASSUME. A premise is %s; a HINGE is %s ' + wo.replace('%', '%%') + ' The premises, by status: %s. The status DOMAIN marks a '
+           'Mathlib predicate that restricts a variable its statement quantifies (%s): not an assumption, and not a hinge. The refuted premise '
+           'is TrivialSummandPremise: %s; TrivialSummandPremise\' replaces it, carrying the pole term, and dedekind_rhs\' is proved on the restated '
+           'premise. The full table, every premise with its status, its non-vacuity, its consumers by kernel and its hinge, is the keystone '
+           'census at v0.7.1 (THE_KEYSTONE_CENSUS_v0_7_1.md, in this record\'s files).')
+    P.append(tpl % (gl['premise'].rstrip('.'), hinge_def, ' | '.join(parts), ', '.join(dom),
+                    re.sub(r'^the sixth status of a premise: ', '', gl['REFUTED-BY-COMPUTATION']).rstrip('.')))
+    # ---- (iv) WHAT IS OPEN
+    eq = re.search(r'(Both are equivalent to RH given the surround)\.', surround)
+    fc = re.search(r'The attribution face (asks whether every zero is single-class-produced) \(`covers_all`\); the geometric face (asks whether the '
+                   r'two jaws meet at every height)\.', surround)
+    faces = ('The two faces, in the same text\'s words: the attribution face %s; the geometric face %s.' % (fc.group(1), fc.group(2))
+             if fc else 'NOT READ')
+    P.append('WHAT IS OPEN. h2_sign: %s. The squeeze between the zero-free region pressing in from the line of real part one and the transversality '
+             'at the critical line has one concrete target, in the words of THE_UNCONDITIONAL_SURROUND: %s. Its faces, the same text says, are '
+             'two statements of one open node: "%s", as h2_sign is by h2_sign_iff_rh; the squeeze\'s target is that node seen geometrically, not a '
+             'second open premise. %s' % (gl['h2_sign'], (re.sub(r'\*\*', '', sq.group(1)).strip().rstrip(',')) if sq else 'NOT READ',
+                                          eq.group(1) if eq else 'NOT READ', faces))
+    # ---- (v) HOW A DEFECT IS REPORTED
+    P.append('HOW A DEFECT IS REPORTED. A defect in this record is filed as an entry of ERRATA.md, in this record\'s files: %s Write to the '
+             'record\'s creator, %s.' % (
+                 ('ERRATA "records corrections to the deposited line after its Zenodo publication", and each entry lists the paper, the affected '
+                  'section or line, the correction, and the date; entries are retained across deposits.') if ef else 'NOT READ',
+                 '; '.join('%s (ORCID %s)' % (c.get('name'), c.get('orcid')) for c in creator) or 'NOT READ'))
+    return ''.join('<p>%s</p>' % R4._esc(p.replace('`', '')) for p in P)
+
+
+def zenodo_tags(*a):
+    """data/b646_zenodo_tags.txt and .json: (R256)(4)(b) -- Zenodo's documentation of the HTML its description accepts, read at source (the
+    page as fetched, in the scratchpad, its sha256 checked), the sentence quoted verbatim and the tag list parsed from it -- banked before the
+    composer uses a tag."""
+    import hashlib
+    import html as H
+    b = open(os.path.join(SP, ZEN_PAGE), 'rb').read()
+    s = hashlib.sha256(b).hexdigest()
+    if s != ZEN_SHA:
+        sys.exit('### THE PAGE IS NOT THE PAGE READ (%s) -- NOTHING WRITTEN' % s)
+    t = H.unescape(' '.join(re.sub(r'<[^>]+>', '', b.decode('utf-8')).split()))   # ### each tag name sits in <code>; removed, not spaced
+    m = _need(r'(For string fields that allow HTML \(e\.g\. description, notes\), for security reasons, only the following tags are accepted: '
+              r'([a-z, ]+)\.)', t, 'Zenodo`s accepted-tags sentence')
+    tags = [x.strip() for x in m.group(2).split(',')]
+    uniq = sorted(set(tags))
+    L = ['b646 -- COMPONENT 4, (R256)(4)(b): ZENODO`S ACCEPTED HTML, READ AT SOURCE (%s)' % utc(), '',
+         '### the page: %s (Zenodo`s REST API developer documentation), fetched by the seat with no identifier of the author in the request; '
+         '%d bytes, sha256 %s' % (ZEN_URL, len(b), s),
+         '### the sentence, verbatim: "%s"' % m.group(1),
+         '### the tags it lists, in its order (%d, %d distinct; `caption` listed twice): %s' % (len(tags), len(uniq), ', '.join(tags)),
+         '### no heading tag (h1-h6) is accepted: a part is headed as <p><strong>...</strong></p>; a list is <ul><li>...</li></ul>', '',
+         '### ### **ACCEPTED TAGS %d: %s.**' % (len(uniq), ' '.join(uniq))]
+    put_txt('b646_zenodo_tags.txt', L)
+    put_json('b646_zenodo_tags.json', dict(at=utc(), url=ZEN_URL, sha256=s, sentence=m.group(1), tags=uniq))
+    print(NL.join(L[2:]))
+
+
+def _allowed_tags():
+    tg = jl('b646_zenodo_tags.json').get('tags')
+    if not tg:
+        sys.exit('### ZENODO`S TAGS ARE NOT BANKED -- RUN `zenodo_tags` FIRST')
+    return set(tg)
+
+
+def carried(*a):
+    """data/b646_composer_carried.txt: the carried composer, no rule of (R256)(4) applied, run on the table as it stood at v2 (relay
+    V2_TABLE_REV), compared byte for byte with v2 (relay data/b644_deposit_description.txt)."""
+    import hashlib
+    h = compose_v3(rules=(), TR=_tr(V2_TABLE_REV))
+    v2 = rd(V2)
+    same = h == v2
+    L = ['b646 -- COMPONENT 4: THE CARRIED COMPOSER AGAINST v2, BYTE FOR BYTE (%s)' % utc(), '',
+         '### the composer: relay tools/b646_record.py compose_v3, no rule applied; the table: relay %s:data/terminal_table.json' % V2_TABLE_REV,
+         '### v2: relay data/%s, %d bytes, sha256 %s' % (V2, len(v2.encode('utf-8')), hashlib.sha256(v2.encode('utf-8')).hexdigest()),
+         '### composed: %d bytes, sha256 %s' % (len(h.encode('utf-8')), hashlib.sha256(h.encode('utf-8')).hexdigest()),
+         '', '### ### **THE CARRIED COMPOSER REPRODUCES v2 BYTE FOR BYTE: %s.**' % ('YES' if same else 'NO')]
+    put_txt('b646_composer_carried.txt', L)
+    print(NL.join(L[2:]))
+    if not same:
+        sys.exit(1)
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
