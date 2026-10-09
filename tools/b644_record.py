@@ -1164,11 +1164,16 @@ def compose():
            'rh_strip_imp_rh, a classical fact the kernel compiles (rh_strip_imp_rh_holds), and consumes no OPEN premise; the OPEN premises in '
            'the table belong to the faces, instances and bounds, none on that path, and the table is the keystone census at v0.7.1, in this '
            'record\'s files.' if re.search(r'; OPEN 0 ', cp) else 'NOT READ')
+    mx = re.search(r'the mechanism exclusions are (the route terminals of SIDE-kernel) set out under WHAT IS MACHINE-VERIFIED below, (which compile '
+                   r'that none of seven named mechanism classes produces the off-line signature the kernel defines, the exhaustiveness of the seven '
+                   r'classes over all mechanisms not being compiled)', rd('b640_deposit_description.txt'))
+    mex = ('Its mechanism exclusions are %s, %s; they rule out named sources of a zero off the critical line and do not prove h2_sign.' % (
+        mx.group(1), mx.group(2)) if mx else 'NOT READ')
     P.append('THE CLAIM. %s is the name of the research programme whose papers, kernels and ledgers this record deposits; it makes its '
              'claim in one sentence, as its README states it: "%s." Here RH is %s. The located clause: '
-             '%s. h2_sign is %s. %s classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
+             '%s. %s h2_sign is %s. %s classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
              'not support that sentence, since h2_sign is open, and nothing in this record states that the Riemann Hypothesis holds.' % (
-                 'A PLACE TO STAND', sup, gl['RH'].rstrip('.'), gl['the located clause'].rstrip('.'), gl['h2_sign'].rstrip('.'), one,
+                 'A PLACE TO STAND', sup, gl['RH'].rstrip('.'), gl['the located clause'].rstrip('.'), mex, gl['h2_sign'].rstrip('.'), one,
                  gl['classK'].rstrip('.'), sup, nsup))
     # ---- (ii) WHAT IS MACHINE-VERIFIED
     tags = dict((k, g('D:/' + k, 'rev-parse', '--short=7', '%s^{commit}' % t).strip()) for k, t in KERNEL_TAG.items())
