@@ -1185,6 +1185,10 @@ def compose():
         grade = r['grade'] if r else 'not in the table'
         s = '%s (%s at its tag %s = %s; %s; #print axioms %s)' % (n, k, KERNEL_TAG[k], tags[k], grade, pr or 'NOT BANKED')
         stmt = (r or {}).get('statement') or ''
+        if n == 'h1_complete_at_Phi':
+            conj = [c.strip().split()[0] for c in _split_conclusion(' '.join(stmt.split()))[1].split('∧')]
+            s += (' -- it states that the fixed function Phi meets the %d couplings it names at once (%s); its docstring calls it the h1 leg of a '
+                  'bracket whose other leg is h2, %s, which stays open' % (len(conj), ', '.join(conj), gl['h2'].split(';')[0]))
         if n.endswith('_holds') and (k, n[:-len('_holds')]) in TR:
             s += ' -- it proves %s, a proposition the kernel defines' % n[:-len('_holds')]
         if grade in ('INTERFACES', 'PREDICATE-UNLISTED'):
