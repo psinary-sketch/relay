@@ -1,4 +1,4 @@
-b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLANTED TESTS RUN AND COUNTED BEFORE ANY REAL ROW (2026-10-09T18:42:38Z)
+b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLANTED TESTS RUN AND COUNTED BEFORE ANY REAL ROW (2026-10-09T18:58:25Z)
 
 ### tools/test_licensed_table_b645.py, exit 0:
   (1) a plain docstring on a DERIVES theorem reads MATCHES and the table takes it -- got ('MATCHES', []) -- PASS
@@ -10,7 +10,14 @@ b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLA
   (7) a claim naming a terminal at a grade above its row reads OVERREACHES -- got 'OVERREACHES' -- PASS
   (8) an intake pair outside the printed mapping raises -- got 'raised' -- PASS
   (9) a clean table of four rows counts one of each verdict -- got ({'MATCHES': 1, 'UNDERSTATES': 1, 'OVERREACHES': 1, 'UNLICENSED': 1}, {}) -- PASS
-### ### **9 of 9 cases as wanted -- PASS**
+  (10) "NOT PROVED" beside theorem names reads MATCHES (negation guarded, no open claim against a grade) -- got 'MATCHES' -- PASS
+  (11) (D3) a DISCHARGED premise called open reads UNDERSTATES, an OPEN premise called proved OVERREACHES -- got ('UNDERSTATES', 'OVERREACHES') -- PASS
+  (12) a bare dotted name read through the lookup: P.bar called proved reads OVERREACHES -- got 'OVERREACHES' -- PASS
+  (13) (D4) an equivalence claimed of a one-direction statement reads OVERREACHES, of an ↔ statement MATCHES -- got ('OVERREACHES', 'MATCHES') -- PASS
+  (14) (D5) a Mathlib-scope claim is flagged and refused as generated, taken as a cited HAND row -- got (True, True, []) -- PASS
+  (15) (D6) a Prop called NOT PROVED that a theorem concludes reads UNDERSTATES; one no theorem concludes MATCHES -- got ('UNDERSTATES', 'MATCHES') -- PASS
+  (16) (D5) "holds if and only if" is no Mathlib-scope claim -- got False -- PASS
+### ### **16 of 16 cases as wanted -- PASS**
 
 ### THE LICENSED-STATEMENT TABLE`S RULES (tools/licensed_table.py), printed before the run:
 
@@ -24,7 +31,8 @@ b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLA
 ### (D1) unconditional markers: \b(?:unconditionally|no hypothesis|without (?:any )?hypothes[ie]s|outright|for every [^.;]{0,40} with no premise)\b
 ### (D1) open-about-itself markers: \b(?:this (?:is|stays|remains) (?:open|conditional)|is assumed here|not (?:yet )?(?:compiled|proved) here)\b
 ### (D2) the claim words, strongest first:
-    DERIVES <- \b(?:PROVED|proved|proves|DERIVES|derives (?:it|them)? ?(?:outright|unconditionally)|holds unconditionally|unconditionally|no hypothesis|without hypothesis|outright|compiled|inhabited|closed)\b
+    OPEN <- (?:\b(?:NOT|not|never|NEVER) (?:yet )?(?:PROVED|proved|compiled|COMPILED)\b|\bunproved\b|\bUNPROVED\b)
+    DERIVES <- (?<!NOT )(?<!not )(?<!yet )\b(?:PROVED|proved|proves|DERIVES|derives (?:it|them)? ?(?:outright|unconditionally)|holds unconditionally|unconditionally|no hypothesis|without hypothesis|outright|compiled
     INTERFACES <- \b(?:INTERFACES|at INTERFACES|on (?:its|the|two|one|three) (?:named )?(?:premise|premises|obligation|obligations|hypothesis)|under (?:its|the|two|one) (?:named )?(?:premise|premises|obligations?|hypot
     OPEN <- \b(?:OPEN|is open|stays open|remains open|not (?:yet )?(?:compiled|proved)|unproved|conjectur\w*)\b
 

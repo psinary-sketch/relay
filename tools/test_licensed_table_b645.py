@@ -67,6 +67,50 @@ c9, f9 = LT.table([r1, r2c, LT.recut(r3, 'The bound, on the premise h.'), r4])
 case('a clean table of four rows counts one of each verdict', (dict(c9) if c9 else None, f9),
      ({'MATCHES': 1, 'UNDERSTATES': 1, 'OVERREACHES': 1, 'UNLICENSED': 1}, {}))
 
+# (10) the second shape: "NOT PROVED" attached to a theorem is no proof claim and no open claim against its grade (b645's PairTerm read)
+r10 = LT.docstring_row('d10', 'P/F.lean:3', 'THE FAR FACTOR AS A NAMED HYPOTHESIS, NOT PROVED (`bar`, `foo`).', None, 'module', 's', None, None, [],
+                       lookup, module=True)
+case('"NOT PROVED" beside theorem names reads MATCHES (negation guarded, no open claim against a grade)', r10['verdict'], 'MATCHES')
+# (11) (D3): a DISCHARGED premise head called open UNDERSTATES; an OPEN head called proved OVERREACHES
+ST = {'Prem': 'DISCHARGED', 'Open': 'OPEN'}
+r11 = LT.docstring_row('d11', 'P/F.lean:4', 'The seam premise `Prem` stays open here.', None, 'module', 's', None, None, [], lookup, module=True,
+                       status=ST.get)
+r11b = LT.docstring_row('d11b', 'P/F.lean:5', 'Its hypothesis Open_x aside, `Open` is proved.', None, 'module', 's', None, None, [], lookup,
+                        module=True, status=ST.get)
+case('(D3) a DISCHARGED premise called open reads UNDERSTATES, an OPEN premise called proved OVERREACHES',
+     (r11['verdict'], r11b['verdict']), ('UNDERSTATES', 'OVERREACHES'))
+# (12) a bare dotted name resolves through the lookup: "P.bar is proved outright" OVERREACHES its INTERFACES row
+r12 = LT.docstring_row('d12', 'P/F.lean:6', 'Hence P.bar is proved outright.', None, 'module', 's', None, None, [], lookup, module=True)
+case('a bare dotted name read through the lookup: P.bar called proved reads OVERREACHES', r12['verdict'], 'OVERREACHES')
+
+# (13) (D4): a first sentence claiming an equivalence over a one-direction statement OVERREACHES; over an ↔ statement MATCHES
+r13 = LT.docstring_row('d13', 'kernel@82550e4:P.foo', 'The two are equivalent. Proof by cases.', 'P.foo', 'theorem', '(h : A) ⊢ B', 'DERIVES',
+                       'rule', [], lookup)
+r13b = LT.docstring_row('d13b', 'kernel@82550e4:P.foo', 'The two are equivalent.', 'P.foo', 'theorem', '⊢ A ↔ B', 'DERIVES', 'rule', [], lookup)
+case('(D4) an equivalence claimed of a one-direction statement reads OVERREACHES, of an ↔ statement MATCHES',
+     (r13['verdict'], r13b['verdict']), ('OVERREACHES', 'MATCHES'))
+
+# (14) (D5), the PlateauRamp shape: a claim about Mathlib's scope at the pin is flagged and refused until read by hand; the hand row is taken
+doc14 = 'O1 `ConvStep`, the convolution theorem (Mathlib at the pin holds it for Schwartz functions only, `fourier_convolution`).'
+r14 = LT.docstring_row('d14', 'P/F.lean:19', doc14, None, 'module', 's', None, None, [], lookup, module=True)
+r14h = dict(r14, by='HAND', cited=['mathlib4@de5ce8a9:Mathlib/Analysis/Fourier/Convolution.lean:119'], verdict='UNDERSTATES',
+            action='RE-CUT: Mathlib at the pin holds it for integrable functions at real frequency.')
+case('(D5) a Mathlib-scope claim is flagged and refused as generated, taken as a cited HAND row',
+     (bool(r14.get('hand_needed')), bool(LT.check(r14)), LT.check(r14h)), (True, True, []))
+
+# (15) (D6): a Prop's definition called NOT PROVED while a binder-free theorem concludes it UNDERSTATES; with no such theorem MATCHES
+pb = {'P.seam': 'theorem P.seam_holds : P.seam (F.lean :84)'}.get
+r15 = LT.docstring_row('d15', 'kernel@82550e4:P.seam', 'The seam, a Prop, NOT PROVED: from the strip to RH.', 'P.seam', 'def', 'Prop', 'DEF',
+                       'rule', [], lookup, proved_by=pb)
+r15b = LT.docstring_row('d15b', 'kernel@82550e4:P.other', 'Another Prop, NOT PROVED.', 'P.other', 'def', 'Prop', 'DEF', 'rule', [], lookup,
+                        proved_by=pb)
+case('(D6) a Prop called NOT PROVED that a theorem concludes reads UNDERSTATES; one no theorem concludes MATCHES',
+     (r15['verdict'], r15b['verdict']), ('UNDERSTATES', 'MATCHES'))
+# (16) (D5) does not read "holds if and only if" as a scope claim
+r16 = LT.docstring_row('d16', 'P/F.lean:77', 'Mathlib`s `RiemannHypothesis` holds if and only if the coefficients are nonnegative.', None, 'module', 's',
+                       None, None, [], lookup, module=True)
+case('(D5) "holds if and only if" is no Mathlib-scope claim', bool(r16.get('hand_needed')), False)
+
 ok = 0
 for i, (desc, good, got, want) in enumerate(CASES, 1):
     ok += good
