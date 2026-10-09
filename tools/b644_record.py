@@ -1094,8 +1094,8 @@ def _readme_ceiling():
 def _prints():
     out = {}
     for b in PRINT_BANKS:
-        for m in re.finditer(r"^'([^']+(?:'')?)' depends on axioms: (\[[^\]]*\])", rd(b), re.M):
-            out.setdefault(m.group(1).replace("''", "'"), m.group(2))
+        for m in re.finditer(r"^'(.+?)' depends on axioms: (\[[^\]]*\])", rd(b), re.M):   # ### a primed name prints as 'x.n'' depends
+            out.setdefault(m.group(1), m.group(2))
     return out
 
 
@@ -1125,15 +1125,18 @@ def compose():
     DC = _discharge_clauses()
     creator = jl('b644_draft_meta.json').get('creators') or []
     surround = K.show('phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md', 'HEAD') or ''
-    sq = re.search(r'the geometric face names a single concrete analytic target: (the jaws overlap at every height \*\*iff\*\* [^(]+)', surround)
+    sq = re.search(r'the geometric face names a single concrete analytic target: (the jaws overlap at every height \*\*iff\*\* .+?reaches the zero-free region)',
+                   surround)
     errata = K.show('ERRATA.md', 'HEAD') or ''
     ef = re.search(r'Each entry lists: the\s+paper, the affected section or line, the correction, and the date\.', errata)
     P = []
     # ---- (i) THE CLAIM
-    P.append('THE CLAIM. %s, the claim the programme makes in one sentence, as its README states it: "%s." Here RH is %s; the located clause '
-             'is %s; h2_sign is %s; classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
+    sup, nsup = (sup or '').rstrip('.'), (nsup or '').rstrip('.')
+    P.append('THE CLAIM. %s, the claim the programme makes in one sentence, as its README states it: "%s." Here RH is %s. The located clause: '
+             '%s. h2_sign is %s. classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
              'not support that sentence, since h2_sign is open, and nothing in this record states that the Riemann Hypothesis holds.' % (
-                 'A PLACE TO STAND', sup, gl['RH'], gl['the located clause'], gl['h2_sign'], gl['classK'], sup, nsup))
+                 'A PLACE TO STAND', sup, gl['RH'].rstrip('.'), gl['the located clause'].rstrip('.'), gl['h2_sign'].rstrip('.'),
+                 gl['classK'].rstrip('.'), sup, nsup))
     # ---- (ii) WHAT IS MACHINE-VERIFIED
     tags = dict((k, g('D:/' + k, 'rev-parse', '--short=7', '%s^{commit}' % t).strip()) for k, t in KERNEL_TAG.items())
     items = []
@@ -1143,14 +1146,22 @@ def compose():
         pr = PR[full[0]] if full else None
         grade = r['grade'] if r else 'not in the table'
         s = '%s (%s at its tag %s = %s; %s; #print axioms %s)' % (n, k, KERNEL_TAG[k], tags[k], grade, pr or 'NOT BANKED')
-        if grade == 'INTERFACES':
+        stmt = (r or {}).get('statement') or ''
+        if n.endswith('_holds') and (k, n[:-len('_holds')]) in TR:
+            s += ' -- it proves %s, a proposition the kernel defines' % n[:-len('_holds')]
+        if grade in ('INTERFACES', 'PREDICATE-UNLISTED'):
             on = _rests_on(n)
-            s += ' -- it holds on the premise %s, whose status is %s' % (
-                ', '.join(on) or 'its statement names', ', '.join('%s %s' % (h, PT[h]['status']) for h in on if h in PT) or 'read below')
+            hyp = [x for x in re.findall(r'(\w+)\s*→', _split_conclusion(stmt)[1] or stmt) if (k, x + '_holds') in TR]
+            if on:
+                s += ' -- it holds on %s' % ', '.join('the premise %s, whose status is %s' % (h, PT[h]['status']) if h in PT else h for h in on)
+            elif hyp:
+                s += ' -- it holds on %s, which %s proves' % (hyp[0], hyp[0] + '_holds')
+            else:
+                s += ' -- the premise it holds on is named in its statement'
         items.append(s)
-    P.append('WHAT IS MACHINE-VERIFIED. %s A theorem holds at the standard three when %s The grades, read from each statement: DERIVES, %s; '
+    P.append('WHAT IS MACHINE-VERIFIED. A kernel is %s. A theorem holds at the standard three when its #print axioms reads exactly %s. The grades, read from each statement: DERIVES, %s; '
              'INTERFACES, %s; PREDICATE-UNLISTED, %s The named theorems: %s.' % (
-                 'The programme\'s kernels are %s.' % gl['kernel'].rstrip('.'), gl['the standard three'].rstrip('.') + '.',
+                 gl['kernel'].split(':')[0].rstrip('. '), gl['the standard three'].rstrip('.').replace(', written std3', ''),
                  gl['DERIVES'].rstrip('.'), gl['INTERFACES'].rstrip('.'), gl['PREDICATE-UNLISTED'].rstrip('.') + '.', '; '.join(items)))
     # ---- (iii) WHAT THE LOAD-BEARING THEOREMS ASSUME
     order = ('OPEN', 'CITED', 'DISCHARGED', 'WITNESSED', 'REFUTED-BY-COMPUTATION')
@@ -1180,7 +1191,7 @@ def compose():
              'premise. The full table, every premise with its status, its non-vacuity, its consumers by kernel and its hinge, is the keystone '
              'census at v0.7.1 (THE_KEYSTONE_CENSUS_v0_7_1.md, in this record\'s files).' % (
                  gl['premise'].rstrip('.'), gl['HINGE'].rstrip('.') + '.', ' | '.join(parts), ', '.join(dom),
-                 gl['REFUTED-BY-COMPUTATION'].rstrip('.')))
+                 re.sub(r'^the sixth status of a premise: ', '', gl['REFUTED-BY-COMPUTATION']).rstrip('.')))
     # ---- (iv) WHAT IS OPEN
     P.append('WHAT IS OPEN. h2_sign: %s. The squeeze between the zero-free region pressing in from the line of real part one and the transversality '
              'at the critical line has one concrete target, in the words of THE_UNCONDITIONAL_SURROUND: %s.' % (
@@ -1191,7 +1202,7 @@ def compose():
                  ('ERRATA "records corrections to the deposited line after its Zenodo publication", and each entry lists the paper, the affected '
                   'section or line, the correction, and the date; entries are retained across deposits.') if ef else 'NOT READ',
                  '; '.join('%s (ORCID %s)' % (c.get('name'), c.get('orcid')) for c in creator) or 'NOT READ'))
-    return ''.join('<p>%s</p>' % _esc(p) for p in P)
+    return ''.join('<p>%s</p>' % _esc(p.replace('`', '')) for p in P)
 
 
 ACT_RE = re.compile(r'\bb\d{3}\b')
@@ -1281,6 +1292,33 @@ def desc_test(*a):
         L.append('  (%d) %-40s hits %s ; %s' % (i, label, [k for k, _m in hits][:4], 'PASS' if ok else '### FAIL'))
     L += ['', '### ### **%d of %d cases as wanted -- %s**' % (n, len(cases), 'PASS' if n == len(cases) else 'FAIL')]
     put_txt('b644_desc_test.txt', L)
+    print(NL.join(L[2:]))
+
+
+B640_MAP = [('THE RECORD.', None, 'the record`s own paragraph: its version, its file changes and its order of parts -- dropped (not one of the five)'),
+            ('WHAT IS CLAIMED.', '(i)', 'the claim'), ('The programme\'s README', '(i)', 'the register sentence and its further sentences'),
+            ('Not supportable', '(i)', 'the ceiling'), ('WHAT IS MACHINE-VERIFIED.', '(ii)', 'the named theorems'),
+            ('WHAT THE KERNELS ASSUME.', '(iii)', 'the premises; its provenance counts dropped'), ('WHAT REMAINS OPEN.', '(iv)', 'what is open'),
+            ('THE CENSUS, THE ROOT CHAIN', None, 'bank paths and root arithmetic -- dropped'), ('THE FILES', None, 'the file list -- dropped'),
+            ('DEFINITIONS', None, 'the glossary block -- dropped; its definitions read inline where a part uses them'),
+            ('THIS DESCRIPTION', None, 'the composition line with act numbers and bank paths -- dropped')]
+
+
+def desc_diff(*a):
+    """data/b644_desc_diff.txt: b640's held text against b644's, by part -- each of b640's paragraphs mapped to the part that carries it or
+    marked dropped, with sizes; each of b644's five parts with its size."""
+    old = re.findall(r'<p>(.*?)</p>', rd('b640_deposit_description.txt'), re.S)
+    new = re.findall(r'<p>(.*?)</p>', rd('b644_deposit_description.txt'), re.S)
+    L = ['b644 -- COMPONENT 5: THE DESCRIPTION RE-CUT AS SYNTHESIS -- b640`S HELD TEXT AGAINST b644`S, BY PART (%s)' % utc(), '',
+         '### b640 (relay data/b640_deposit_description.txt, %d bytes, %d paragraphs):' % (len(rd('b640_deposit_description.txt').encode('utf-8')), len(old))]
+    for p in old:
+        m = next((x for x in B640_MAP if p.startswith(x[0])), None)
+        L.append('  %-28s %6d bytes -> %s' % (p[:28], len(p.encode('utf-8')), ('part %s, %s' % (m[1], m[2])) if m and m[1] else (m[2] if m else '### UNMAPPED')))
+    L += ['', '### b644 (relay data/b644_deposit_description.txt, %d bytes, %d parts):' % (len(rd('b644_deposit_description.txt').encode('utf-8')), len(new))]
+    L += ['  %-44s %6d bytes' % (p[:44], len(p.encode('utf-8'))) for p in new]
+    L += ['', '### ### **b640 PARAGRAPHS %d -> b644 PARTS %d ; DROPPED %d.**' % (
+        len(old), len(new), sum(1 for p in old if not (next((x for x in B640_MAP if p.startswith(x[0])), (0, 0))[1])))]
+    put_txt('b644_desc_diff.txt', L)
     print(NL.join(L[2:]))
 
 
