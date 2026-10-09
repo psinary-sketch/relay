@@ -1230,6 +1230,9 @@ def compose():
                                                                          'kernels\' reasoning lean on, counted once the declarations that only test, '
                                                                          'refute or instance the premise itself are set aside.]')
     wo = 'A name beginning W-ORD- is %s; OPEN_TRAILS is, in its own words, %s.' % (gl['W-ORD'].rstrip('.'), gl['OPEN_TRAILS'].split(';')[0].rstrip('.'))
+    sc_ = re.search(r'a salt check -- (a test file that only shows a premise is not vacuous, that is, that it can be satisfied, so that a theorem '
+                    r'resting on it is not true merely because nothing satisfies it) --', rd('b640_deposit_description.txt'))
+    wo += ' A salt check is %s.' % (sc_.group(1) if sc_ else 'NOT READ')
     tpl = ('WHAT THE LOAD-BEARING THEOREMS ASSUME. A premise is %s; a HINGE is %s ' + wo.replace('%', '%%') + ' The premises, by status: %s. The status DOMAIN marks a '
            'Mathlib predicate that restricts a variable its statement quantifies (%s): not an assumption, and not a hinge. The refuted premise '
            'is TrivialSummandPremise: %s; TrivialSummandPremise\' replaces it, carrying the pole term, and dedekind_rhs\' is proved on the restated '
