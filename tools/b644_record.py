@@ -1308,11 +1308,15 @@ def compose():
                     re.sub(r'^the sixth status of a premise: ', '', gl['REFUTED-BY-COMPUTATION']).rstrip('.')))
     # ---- (iv) WHAT IS OPEN
     eq = re.search(r'(Both are equivalent to RH given the surround)\.', surround)
+    fc = re.search(r'The attribution face (asks whether every zero is single-class-produced) \(`covers_all`\); the geometric face (asks whether the '
+                   r'two jaws meet at every height)\.', surround)
+    faces = ('The two faces, in the same text\'s words: the attribution face %s; the geometric face %s.' % (fc.group(1), fc.group(2))
+             if fc else 'NOT READ')
     P.append('WHAT IS OPEN. h2_sign: %s. The squeeze between the zero-free region pressing in from the line of real part one and the transversality '
              'at the critical line has one concrete target, in the words of THE_UNCONDITIONAL_SURROUND: %s. Its faces, the same text says, are '
              'two statements of one open node: "%s", as h2_sign is by h2_sign_iff_rh; the squeeze\'s target is that node seen geometrically, not a '
-             'second open premise.' % (gl['h2_sign'], (re.sub(r'\*\*', '', sq.group(1)).strip().rstrip(',')) if sq else 'NOT READ',
-                                       eq.group(1) if eq else 'NOT READ'))
+             'second open premise. %s' % (gl['h2_sign'], (re.sub(r'\*\*', '', sq.group(1)).strip().rstrip(',')) if sq else 'NOT READ',
+                                          eq.group(1) if eq else 'NOT READ', faces))
     # ---- (v) HOW A DEFECT IS REPORTED
     P.append('HOW A DEFECT IS REPORTED. A defect in this record is filed as an entry of ERRATA.md, in this record\'s files: %s Write to the '
              'record\'s creator, %s.' % (
