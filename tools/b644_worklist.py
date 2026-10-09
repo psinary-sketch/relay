@@ -53,6 +53,15 @@ CEN71 = 'phase2/method/THE_KEYSTONE_CENSUS_v0_7_1.md'
 GLOSSARY = 'data/glossary.txt'
 GLOSSARY_HINGE_LINE = 80    # ### data/glossary.txt :80, the HINGE entry (R253)(5)(b) and b643's answer; :79 CHAIN
 DRAFT = '23228113'
+API = 'https://zenodo.org/api'
+DESC = 'b644_deposit_description.txt'
+# ### THE MIRROR -- built after the act's mid-act pushes and before the draft's update (b640's order), by the unedited builder, -DateTag only
+MIRROR_TAG = '2026-10-09-b644'
+MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-%s.zip' % MIRROR_TAG
+MIRROR_PREV_NAME = 'mirror-refresh-2026-10-08-b640.zip'
+COMPANION_FILES = ['Exhaustive_Enumeration.md', 'Which_Structure_Confines.md', 'Spectral_Inertness.md', 'Seven_Mechanism_Classes.md',
+                   'Third_Identity_Element.md', 'Silence_of_Foundations.md', 'ONE_PAGE_PROOF.md']
+CENSUS_PREV_NAME = 'THE_KEYSTONE_CENSUS_v0_6.md'
 
 # ### the ledger lines the act reads and addresses
 B643_ENTRY = 7995

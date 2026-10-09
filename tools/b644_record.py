@@ -1534,6 +1534,284 @@ def describe_repair(name, *a):
     put_json('b644_desc_repairs.json', R)
 
 
+# ================================================================================ COMPONENT 6: THE MIRROR AND THE DRAFT, (R254)(9)
+# ### b640's order: after the act's mid-act pushes and before the seal, the mirror built by the unedited builder (-DateTag only) on the roster at
+# ### the patch labels and census v0.7.1; the roots file's last line (b643's root) added to MANIFEST in the stage (OPEN_TRAILS :12929); verified
+# ### from PLACE-papers by mirror_verify.py; banked. The draft's file set then replaced through b639's route (its `http`: the token in the
+# ### Authorization header alone, the act's User-Agent): the seven companions at their patch labels, the census at v0.7.1 for v0.6, the new
+# ### mirror for b640's, the description of (R254)(8); read back byte for byte and digest for digest; HELD -- no publish call exists here.
+import hashlib as _hl   # noqa: E402
+import time as _time   # noqa: E402
+
+ZIP = K.MIRROR_ZIP
+STAGE = os.path.join(os.environ.get('TEMP', SP), 'mirror-build-%s' % K.MIRROR_TAG)
+ZRES = 'b644_zenodo.json'
+
+
+def mbuild(*a):
+    import subprocess
+    if os.path.exists(ZIP) or os.path.exists(STAGE):
+        sys.exit('### THE ZIP OR ITS STAGE EXISTS -- NOT STARTED')
+    loc, rem = g(PP, 'rev-parse', 'HEAD').strip(), (g(PP, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+    if loc != rem:
+        sys.exit('### PLACE-papers HEAD %s IS NOT THE REMOTE MAIN %s -- NOT STARTED' % (loc[:12], rem[:12]))
+    t0 = _time.time()
+    r = subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', os.path.join(ROOT, 'tools', 'mirror_build.ps1'), '-DateTag',
+                        K.MIRROR_TAG], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    put_json('b644_mirror_build.json', dict(at=utc(), rc=r.returncode, out=r.stdout, err=r.stderr, seconds=int(_time.time() - t0), pp_head=loc))
+    print(r.stdout[-800:], r.stderr[-400:], 'exit', r.returncode)
+
+
+def mroot(*a):
+    import subprocess
+    last = [l for l in io.open(os.path.join(D, 'act_roots.txt'), encoding='utf-8').read().split(NL) if l.strip()][-1].split()
+    if last[0] != 'b643':
+        sys.exit('### THE ROOTS FILE`S LAST LINE IS %s, NOT b643`s -- NOTHING WRITTEN' % last[0])
+    line = 'Act root: %s %s' % (last[0], last[1])
+    man_p = os.path.join(STAGE, 'MANIFEST.md')
+    raw = open(man_p, 'rb').read()
+    if b'Act root: ' in raw:
+        sys.exit('### THE ROOT LINE IS IN THE STAGED MANIFEST ALREADY -- REFUSING TO WRITE IT TWICE')
+    bom = raw.startswith(b'\xef\xbb\xbf')
+    text = raw.decode('utf-8-sig')
+    sep = '\r\n' if '\r\n' in text else '\n'
+    out = text.rstrip('\r\n') + sep + sep + line + sep
+    before = _hl.sha256(open(ZIP, 'rb').read()).hexdigest()
+    open(man_p, 'wb').write((b'\xef\xbb\xbf' if bom else b'') + out.encode('utf-8'))
+    ps = subprocess.run(['powershell', '-NoProfile', '-Command', "Compress-Archive -Path '%s' -DestinationPath '%s' -Update" % (man_p, ZIP)],
+                        capture_output=True, text=True)
+    after = _hl.sha256(open(ZIP, 'rb').read()).hexdigest()
+    put_json('b644_mirror_root.json', dict(at=utc(), line=line, bom=bom, zip_sha_before=before, zip_sha_after=after, update_rc=ps.returncode))
+    print('  %s ; update rc %d ; zip sha256 %s -> %s' % (line, ps.returncode, before[:16], after[:16]))
+
+
+def mverify(*a):
+    import subprocess
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'mirror_verify.py'), ZIP, 'origin', 'main'], cwd=PP,
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    put_txt('b644_mirror_verify.txt', (r.stdout + r.stderr + '### exit %d' % r.returncode).replace(chr(13), '').split(NL))
+    print(r.stdout[-600:])
+
+
+def mbank(*a):
+    import zipfile
+    import b616_record as R6
+    z = zipfile.ZipFile(ZIP)
+    names = sorted(z.namelist())
+    man = z.read('MANIFEST.md')
+    ls = man.decode('utf-8-sig').replace(chr(13), '').split(NL)
+    rootl = [l for l in ls if l.startswith('Act root: ')]
+    rosterl = [l for l in ls if l.startswith('ROSTER')]
+    zb = open(ZIP, 'rb').read()
+    clean = 'VERDICT: CLEAN ON ALL THREE CLAUSES' in rd('b644_mirror_verify.txt')
+    nd = R6.nd_hits(NL.join(names), R6.nd_sets())[0]
+    files_ = [n for n in names if n != 'MANIFEST.md']
+    want = ['THE_KEYSTONE_CENSUS_v0_7_1.md', 'THE_KEYSTONE_CENSUS_v0_7.md'] + K.COMPANION_FILES
+    L = ['b644 -- THE MIRROR, BUILT AFTER THE MID-ACT PUSHES AND BEFORE THE DRAFT`S UPDATE BY THE UNEDITED BUILDER, banked %s' % utc(),
+         '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
+         '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names), len(files_)),
+         '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
+         '### THE VERIFICATION : %s' % ('CLEAN ON ALL THREE CLAUSES' if clean else '### NOT CLEAN'),
+         '### THE APPENDED ROWS IN THE ZIP : %s' % ', '.join('%s %s' % (w, any(n.endswith(w) for n in names)) for w in want),
+         '### THE NO-DISCLOSURE ARM OVER THE FILE LIST: %s' % dict(nd), '### THE FILE LIST:'] + ['    %s' % n for n in names]
+    put_txt('b644_mirror.txt', L)
+    put_json('b644_mirror.json', dict(at=utc(), zip=ZIP, zip_md5=_hl.md5(zb).hexdigest(), zip_sha256=_hl.sha256(zb).hexdigest(), bytes=len(zb),
+                                      manifest_md5=_hl.md5(man).hexdigest(), entries=len(names), files=len(files_), roster_line=rosterl,
+                                      root_line=rootl[0] if rootl else '', clean=clean, nd=dict(nd),
+                                      appended=dict((w, any(n.endswith(w) for n in names)) for w in want)))
+    for l in L[:8]:
+        print(l[:240])
+
+
+def _zres():
+    return jl(ZRES)
+
+
+def _zmerge(cells):
+    Rz = _zres()
+    Rz.update(cells)
+    put_json(ZRES, Rz)
+
+
+def _jx(b):
+    try:
+        return json.loads(b.decode('utf-8'))
+    except Exception:
+        return None
+
+
+def files(*a):
+    """data/b644_deposit_files.json and .txt: the draft's file list -- b640's, with the seven companions at their patch labels (PLACE-papers HEAD),
+    the census at v0.7.1 in place of v0.6, this act's mirror in place of b640's; each with its source, sha256, md5 and size."""
+    F = jl('b640_deposit_files.json')
+    M = jl('b644_mirror.json')
+    if not M.get('zip_sha256'):
+        sys.exit('### NO MIRROR BANKED -- NOTHING WRITTEN')
+    out = []
+    pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
+    for x in F.get('files') or []:
+        if x['name'] == K.MIRROR_PREV_NAME:
+            zb = open(ZIP, 'rb').read()
+            x = dict(x, name=os.path.basename(ZIP), source=ZIP, sha256=_hl.sha256(zb).hexdigest(), md5=_hl.md5(zb).hexdigest(), size=len(zb),
+                     replaces=K.MIRROR_PREV_NAME, kind='REPLACED THIS ACT')
+        elif x['name'] == K.CENSUS_PREV_NAME:
+            b = K.show(K.CEN71, 'HEAD').encode('utf-8')
+            x = dict(x, name=os.path.basename(K.CEN71), source=K.CEN71, sha256=_hl.sha256(b).hexdigest(), md5=_hl.md5(b).hexdigest(), size=len(b),
+                     replaces=K.CENSUS_PREV_NAME, kind='REPLACED THIS ACT', commit=pp_head)
+        elif x['name'] in K.COMPANION_FILES:
+            b = subprocess_out(['git', '-C', PP, 'show', 'HEAD:day1/%s' % x['name']])
+            x = dict(x, source='day1/%s' % x['name'], sha256=_hl.sha256(b).hexdigest(), md5=_hl.md5(b).hexdigest(), size=len(b),
+                     replaces=x['name'], kind='REPLACED THIS ACT (THE PATCH LABEL)', commit=pp_head)
+        else:
+            x = dict(x, kind='CARRIED')
+        out.append(x)
+    L = ['b644 -- THE DRAFT`S FILE LIST: b640`s, the companions at their patch labels, the census at v0.7.1 for v0.6, this act`s mirror (%s)' % utc(), '']
+    L += ['  %-46s sha256 %s ; md5 %s ; %s bytes ; %s%s' % (x['name'], x['sha256'], x['md5'], x['size'], x['kind'],
+                                                          (' ; replaces %s' % x['replaces']) if x.get('replaces') else '') for x in out]
+    L += ['', '### ### **FILES %d ; REPLACED THIS ACT %d.**' % (len(out), sum(1 for x in out if x.get('replaces')))]
+    put_txt('b644_deposit_files.txt', L)
+    put_json('b644_deposit_files.json', dict(at=utc(), files=out, pp_head=pp_head))
+    print(L[-1])
+
+
+def z_update(*a):
+    """the route's update of draft 23228113, one step: each replaced file deleted by its id and the new bytes uploaded to the bucket; the metadata
+    read once and PUT once with the description the bank's bytes, every other key carried; nothing published."""
+    import urllib.parse
+    import b639_record as R39
+    if not R39._tok():
+        sys.exit('### THE TOKEN IS NOT SET -- NO CALL MADE')
+    if _zres().get('update'):
+        sys.exit('### THE UPDATE HAS RUN -- IT DOES NOT RUN TWICE')
+    base = '%s/deposit/depositions/%s' % (K.API, K.DRAFT)
+    st, b = R39.http('GET', base)
+    d = _jx(b) or {}
+    if st != 200 or d.get('submitted') or str(d.get('id')) != K.DRAFT:
+        sys.exit('### THE DRAFT IS NOT AN UNSUBMITTED %s (HTTP %d) -- NOTHING DONE' % (K.DRAFT, st))
+    bucket = (d.get('links') or {}).get('bucket')
+    have = dict((f.get('filename'), f) for f in d.get('files') or [])
+    FL = jl('b644_deposit_files.json').get('files') or []
+    L = ['b644 -- THE ROUTE, THE DRAFT`S UPDATE (%s)' % utc(), '', '### GET the draft : HTTP %d ; state %s ; submitted %s ; %d files' % (
+        st, d.get('state'), d.get('submitted'), len(have))]
+    calls = []
+    for x in FL:
+        if not x.get('replaces'):
+            continue
+        src = x['source']
+        nb = open(src, 'rb').read() if src == ZIP else subprocess_out(['git', '-C', PP, 'show', 'HEAD:%s' % src])
+        if _hl.sha256(nb).hexdigest() != x['sha256']:
+            sys.exit('### %s`S BYTES DIFFER FROM THE BANK`S -- STOPPED (calls so far banked)' % x['name'])
+        if x['replaces'] in have:
+            sd, _b = R39.http('DELETE', '%s/files/%s' % (base, have[x['replaces']]['id']))
+            calls.append(dict(op='DELETE', name=x['replaces'], status=sd))
+            L.append('    DELETE %-44s : HTTP %d' % (x['replaces'], sd))
+        su, bu = R39.http('PUT', '%s/%s' % (bucket, urllib.parse.quote(x['name'])), raw=nb)
+        ju = _jx(bu) or {}
+        calls.append(dict(op='PUT', name=x['name'], status=su, checksum=ju.get('checksum')))
+        L.append('    PUT    %-44s : HTTP %d ; the service`s checksum %s ; the bank`s md5 %s' % (x['name'], su, ju.get('checksum'), x['md5']))
+    md = dict(d.get('metadata') or {})
+    md['description'] = open(os.path.join(D, K.DESC), 'rb').read().decode('utf-8')
+    sp, bp = R39.http('PUT', base, body={'metadata': md})
+    calls.append(dict(op='PUT metadata', status=sp))
+    L.append('    PUT metadata (the description the bank`s; %d keys carried) : HTTP %d' % (len(md), sp))
+    bad = [c for c in calls if c['status'] not in (200, 201, 204)]
+    L += ['', '### ### **CALLS %d ; FAILED %d ; NOTHING PUBLISHED.**' % (len(calls), len(bad))]
+    put_txt('b644_zenodo_update.txt', L)
+    _zmerge(dict(update=dict(calls=calls, failed=len(bad), at=utc())))
+    print(NL.join(L[2:]))
+
+
+def z_retry(*a):
+    """the update's failed uploads retried once: every file of the bank's list absent from the draft is PUT to the bucket, nothing deleted, a name
+    already in the draft never touched; data/b644_zenodo_retry.txt. (b644: four PUTs returned HTTP 504/502 after their old files were deleted.)"""
+    import urllib.parse
+    import b639_record as R39
+    base = '%s/deposit/depositions/%s' % (K.API, K.DRAFT)
+    st, b = R39.http('GET', base)
+    d = _jx(b) or {}
+    if st != 200 or d.get('submitted'):
+        sys.exit('### THE DRAFT IS NOT AN UNSUBMITTED %s (HTTP %d) -- NOTHING DONE' % (K.DRAFT, st))
+    bucket = (d.get('links') or {}).get('bucket')
+    have = set(f.get('filename') for f in d.get('files') or [])
+    L = ['b644 -- THE ROUTE, THE FAILED UPLOADS RETRIED (%s)' % utc(), '', '### GET the draft : HTTP %d ; %d files ; absent from it: %s' % (
+        st, len(have), sorted(x['name'] for x in jl('b644_deposit_files.json').get('files') or [] if x['name'] not in have))]
+    calls = []
+    for x in jl('b644_deposit_files.json').get('files') or []:
+        if x['name'] in have:
+            continue
+        src = x['source']
+        nb = open(src, 'rb').read() if src == ZIP else subprocess_out(['git', '-C', PP, 'show', 'HEAD:%s' % src])
+        if _hl.sha256(nb).hexdigest() != x['sha256']:
+            sys.exit('### %s`S BYTES DIFFER FROM THE BANK`S -- STOPPED' % x['name'])
+        su, bu = R39.http('PUT', '%s/%s' % (bucket, urllib.parse.quote(x['name'])), raw=nb)
+        ju = _jx(bu) or {}
+        calls.append(dict(op='PUT', name=x['name'], status=su, checksum=ju.get('checksum')))
+        L.append('    PUT    %-44s : HTTP %d ; the service`s checksum %s ; the bank`s md5 %s' % (x['name'], su, ju.get('checksum'), x['md5']))
+    bad = [c for c in calls if c['status'] not in (200, 201, 204)]
+    L += ['', '### ### **CALLS %d ; FAILED %d ; NOTHING DELETED ; NOTHING PUBLISHED.**' % (len(calls), len(bad))]
+    p = 'b644_zenodo_retry%s.txt' % (('_' + a[0]) if a else '')
+    put_txt(p, L)
+    R = _zres()
+    R.setdefault('retries', []).append(dict(calls=calls, failed=len(bad), at=utc()))
+    put_json(ZRES, R)
+    print(NL.join(L[2:]))
+
+
+def _straight(s):
+    return s.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"')
+
+
+def z_read(*a):
+    """the draft read back once: identifier, title, version, description and files, every file downloaded and its sha256 computed against the bank;
+    the description against the bank byte for byte and digest for digest."""
+    import b639_record as R39
+    base = '%s/deposit/depositions/%s' % (K.API, K.DRAFT)
+    st, b = R39.http('GET', base)
+    d = _jx(b) or {}
+    md = d.get('metadata') or {}
+    bank = open(os.path.join(D, K.DESC), 'rb').read().decode('utf-8')
+    back = md.get('description') or ''
+    FL = dict((x['name'], x) for x in jl('b644_deposit_files.json').get('files') or [])
+    rows = []
+    for f in d.get('files') or []:
+        n = f.get('filename')
+        sd, bd = R39.http('GET', (f.get('links') or {}).get('download') or '')
+        s256 = _hl.sha256(bd).hexdigest() if sd == 200 else None
+        w = FL.get(n)
+        rows.append(dict(name=n, md5=f.get('checksum'), get=sd, sha256=s256, ok=bool(w) and s256 == w['sha256'] and (f.get('checksum') or '').endswith(w['md5'])))
+    missing = sorted(set(FL) - set(r['name'] for r in rows))
+    extra = sorted(set(r['name'] for r in rows) - set(FL))
+    exact = back == bank
+    dig = _hl.sha256(back.encode('utf-8')).hexdigest() == _hl.sha256(bank.encode('utf-8')).hexdigest()
+    files_ok = bool(rows) and all(r['ok'] for r in rows) and not missing and not extra
+    L = ['b644 -- THE ROUTE, THE DRAFT READ BACK AFTER ITS UPDATE (%s)' % utc(), '',
+         '### GET the draft : HTTP %d ; identifier %s ; state %s ; submitted %s ; title %s ; version %s' % (
+             st, d.get('id'), d.get('state'), d.get('submitted'), md.get('title'), md.get('version')),
+         '### the description : %d characters back against the bank`s %d ; byte for byte %s ; digest for digest %s ; equal up to quote straightening %s' % (
+             len(back), len(bank), exact, dig, _straight(back) == _straight(bank)),
+         '### the files (%d read back, %d in the bank):' % (len(rows), len(FL))] + [
+        '    %-46s md5 %s ; download HTTP %s ; sha256 %s ; %s' % (r['name'], r['md5'], r['get'], r['sha256'], 'AGREE' if r['ok'] else '### DIFFER')
+        for r in rows] + ['### in the bank, not in the draft: %s ; in the draft, not in the bank: %s' % (missing or 'NONE', extra or 'NONE'), '',
+                          '### ### **THE DESCRIPTION BYTE FOR BYTE %s AND DIGEST FOR DIGEST %s ; EVERY FILE AT ITS DIGEST %s ; THE DRAFT %s, %d FILES, '
+                          'SUBMITTED %s -- NOTHING PUBLISHED.**' % (exact, dig, files_ok, d.get('id'), len(rows), d.get('submitted'))]
+    put_txt('b644_zenodo_read.txt', L)
+    _zmerge(dict(read=dict(get=st, id=d.get('id'), state=d.get('state'), submitted=d.get('submitted'), files=rows, missing=missing, extra=extra,
+                           exact=exact, digest=dig, files_ok=files_ok, n_files=len(rows), at=utc())))
+    print(NL.join(L[-1:]))
+
+
+def z_hold(*a):
+    """the draft HELD, (R254)(9): its state read once and banked; publish is the author's word in a later act."""
+    import b639_record as R39
+    st, b = R39.http('GET', '%s/deposit/depositions/%s' % (K.API, K.DRAFT))
+    d = _jx(b) or {}
+    L = ['b644 -- THE DRAFT HELD, (R254)(9) (%s)' % utc(), '', '### the draft %s : HTTP %d ; state %s ; submitted %s ; nothing published; the '
+         'description sent to the author as a file (relay data/b644_deposit_description.txt)' % (K.DRAFT, st, d.get('state'), d.get('submitted'))]
+    put_txt('b644_zenodo_hold.txt', L)
+    _zmerge(dict(hold=dict(id=K.DRAFT, state=d.get('state'), submitted=d.get('submitted'), at=utc())))
+    print(L[-1])
+
+
 # ================================================================================ THE SECOND READER, TWICE: (R254)(4) AND (8)
 # ### b643's form: a packet staged off D:\ in a directory with no project memory, a lead and the full prompt, the command the reader is run by
 # ### (the author runs it: a headless reader launched from this session is refused by the classifier, b620); the answers scored by needles and
