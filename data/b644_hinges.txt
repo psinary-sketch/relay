@@ -1,0 +1,208 @@
+b644 -- COMPONENT 2, (R254)(4): THE HINGES RECOUNTED UNDER THE REFINED DEFINITION, BESIDE b643`S (2026-10-09T14:17:51Z)
+
+### the definition: data/glossary.txt, the HINGE entry appended at b644 ((R254)(4)); the evidence rule E1 SALT / E2 NEGATION / E3 SATISFIABLE (tools/b644_record.py, its comment block); the print: b643`s 135 calls (data/b643_deps_runs.json) and the Interfaces` prints read: none.
+### b643`s hinges 28 ; the refined count 14.
+
+### THE HEADS THAT LEAVE (16):
+  AnalyticOnNhd                      DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  Continuous                         DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  DealignedAt                        OPEN                     its own evidence removed (1 declarations): consumers in SIDE-structural-error-correction ; chains SIDE-structural-error-correction 1
+  EqOn                               DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  HasCompactSupport                  DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  HasDerivAt                         DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  Integrable                         DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  IsExpansion                        OPEN                     its own evidence removed (3 declarations): consumers in SIDE-lv-conservation ; chains SIDE-lv-conservation 1
+  IsRoot                             DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  IsTrivialPoint                     OPEN                     its own evidence removed (3 declarations): consumers in SIDE-explicit-formula ; chains SIDE-explicit-formula 1
+  PWSetup                            DISCHARGED               its own evidence removed (1 declarations): consumers in SIDE-explicit-formula ; chains SIDE-explicit-formula 1
+  PlattTrudgianHeight                CITED                    its own evidence removed (1 declarations): consumers in SIDE-explicit-formula ; chains SIDE-explicit-formula 1
+  Prime                              DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  StrictMono                         DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  Tendsto                            DOMAIN                   DOMAIN (a Mathlib predicate restricting a quantified variable): printed with its chains, not a hinge of the programme
+  farSmall                           OPEN                     its own evidence removed (1 declarations): consumers in SIDE-explicit-formula ; chains SIDE-explicit-formula 1
+
+### THE HEADS THAT JOIN (2):
+  StepsMI                            DISCHARGED               its own evidence removed (2 declarations): consumers in SIDE-global-section ; chains SIDE-global-section 2
+  ZetaSeam                           DISCHARGED               its own evidence removed (2 declarations): consumers in SIDE-explicit-formula ; chains SIDE-explicit-formula 2
+
+### THE HINGES UNDER THE REFINED DEFINITION (14):
+  EpsteinPremises                    OPEN                     across kernels: no ; across chains within: ['SIDE-explicit-formula']
+  EulerFactorPremise                 WITNESSED                across kernels: no ; across chains within: ['SIDE-explicit-formula']
+  HCount                             WITNESSED                across kernels: no ; across chains within: ['SIDE-explicit-formula']
+  IdempotentAdd                      OPEN                     across kernels: no ; across chains within: ['SIDE-carrier-spec']
+  NotDiv                             OPEN                     across kernels: no ; across chains within: ['SIDE-global-section']
+  Register4_channelInequality        OPEN                     across kernels: no ; across chains within: ['SIDE-lv-conservation']
+  Register4_positivity               OPEN                     across kernels: no ; across chains within: ['SIDE-lv-conservation']
+  SatisfiesCWeil                     WITNESSED                across kernels: no ; across chains within: ['SIDE-global-section']
+  SelfDualFE                         OPEN                     across kernels: no ; across chains within: ['SIDE-lv-conservation']
+  StepsI                             DISCHARGED               across kernels: no ; across chains within: ['SIDE-global-section']
+  StepsMI                            DISCHARGED               across kernels: no ; across chains within: ['SIDE-global-section']
+  TrivialSummandPremise              REFUTED-BY-COMPUTATION   across kernels: no ; across chains within: ['SIDE-explicit-formula']
+  ZeroActingPairing                  OPEN                     across kernels: no ; across chains within: ['SIDE-lv-conservation']
+  ZetaSeam                           DISCHARGED               across kernels: no ; across chains within: ['SIDE-explicit-formula']
+
+### THE DOMAIN HEADS, PRINTED WITH THEIR CHAINS AND SET ASIDE (12):
+  AnalyticOnNhd                      SIDE-explicit-formula: consumers 52, chains 8
+  Continuous                         SIDE-explicit-formula: consumers 90, chains 5
+  EqOn                               SIDE-lv-conservation: consumers 2, chains 2
+  HasCompactSupport                  SIDE-explicit-formula: consumers 138, chains 3
+  HasDerivAt                         SIDE-explicit-formula: consumers 68, chains 11
+  Integrable                         SIDE-explicit-formula: consumers 98, chains 9
+  IsOpen                             SIDE-global-section: UNREAD (the declarations its rows sit in (LocalLimit.real_no_compact_open_addSubgroup) are in modu)
+  IsRoot                             SIDE-lv-conservation: consumers 6, chains 3
+  Monotone                           SIDE-global-section: UNREAD (the declarations its rows sit in (LocalLimit.compression_tendsto) are in modules with no b)
+  Prime                              SIDE-carrier-spec: consumers 6, chains 1 ; SIDE-explicit-formula: consumers 5, chains 3 ; SIDE-global-section: UNREAD (the declarations its rows sit in (LocalLimit.general_p_no_fixed_cell) are in modules with ) ; SIDE-grh-transfer: consumers 7, chains 2
+  StrictMono                         SIDE-rcurve: consumers 2, chains 2
+  Tendsto                            SIDE-explicit-formula: consumers 92, chains 11
+
+### EVERY HEAD, PER KERNEL, THE EVIDENCE REMOVED BY RULE:
+Alternates  [DISCHARGED]
+    SIDE-global-section : consumers 4 ; reach 4 ; chains 1 : AlternationShadow.alternates_both, AlternationShadow.alternates_both', AlternationShadow.alternates_neg
+AnalyticOnNhd  [DOMAIN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 52 ; reach 460 ; chains 8 : Hadamard.OrderOne.mem_divisor_support_of_zero, Hadamard.ZeroCounting.card_zeros_le_of_max_one_maxModulus, Hadamard.ZeroCounting.sum_zeros_multiplicity_le_of_max_one_maxModulus | Hadamard.ZeroCounting.card_zeros_le_of_maxModulus | LiCriterion.logDeriv_holomorphic | _private.Zeta23.FromPNTPlus.ResidueCalcOnRectangles.0.intervalIntegral_congr_ae_of_codiscreteWithin_along_path | SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable | SIDEExplicitFormula.SaltCheckNonvacuity.analyticOnNhd_witness
+BoundPremises  [OPEN]
+    SIDE-explicit-formula : consumers 1 ; reach 1 ; chains 1 : SIDEExplicitFormula.KeiperBounds.keiperBounds_of
+ConservationHypothesis  [OPEN]
+    SIDE-kernel : consumers 3 ; reach 3 ; chains 1 : ConservationBridge.conservation_activates_balance
+Continuous  [DOMAIN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 90 ; reach 531 ; chains 5 : CS.continuous, W1.continuous | EntireLog.entire_has_entire_log_of_no_zeros, Hadamard.cauchy_estimate_iteratedDeriv_at_zero, Hadamard.maxModulus_le_of_forall_norm_le | F_add | SIDEExplicitFormula.B321.realizedGrowth_le_exp | SIDEExplicitFormula.SaltCheckNonvacuity.continuous_witness
+Dealigned  [OPEN]
+    SIDE-structural-error-correction : consumers 1 ; reach 1 ; chains 1 : DeAlignment.single_domain_fault_not_logical
+DealignedAt  [OPEN]  (b643 HINGE)
+    SIDE-structural-error-correction : consumers 1 ; reach 3 ; chains 1 : DeAlignment.Dealigned, DeAlignment.no_domain_covers_line
+      evidence DeAlignment.dealigned_of_lines_injective -- E3b SATISFIABLE UNDER HYPOTHESES (DealignedAt d L)
+EpsteinPremises  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-explicit-formula : consumers 3 ; reach 10 ; chains 2 : SIDEExplicitFormula.Schema.epsteinConfig | SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.epstein_hypotheses_satisfiable -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+EqOn  [DOMAIN]  (b643 HINGE)
+    SIDE-lv-conservation : consumers 2 ; reach 18 ; chains 2 : SIDELvConservation.integrableOn_rpow_mul_exp_Ioi | SIDELvConservation.T2a_mellin_congr_on_Ioi
+EulerFactorPremise  [WITNESSED]  ### HINGE  (b643 HINGE)
+    SIDE-explicit-formula : consumers 3 ; reach 7 ; chains 3 : SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs | SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' | SIDEExplicitFormula.Schema.Family.DedekindPremises.euler_factors
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.eulerFactorPremise_witness -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+      evidence SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive -- E3b SATISFIABLE UNDER HYPOTHESES (EulerFactorPremise q)
+      evidence SIDEExplicitFormula.Schema.Family.eulerFactorPremise_three -- E3a SATISFIABLE (EulerFactorPremise 3)
+      evidence SIDEExplicitFormula.Schema.Family.not_eulerFactorPremise_six -- E2 NEGATION (¬ EulerFactorPremise 6)
+HCount  [WITNESSED]  ### HINGE  (b643 HINGE)
+    SIDE-explicit-formula : consumers 17 ; reach 172 ; chains 2 : SIDEExplicitFormula.B321.weighted_finite_bound, SIDEExplicitFormula.Schema.EpsteinPremises.count | SIDEExplicitFormula.B321.finite_rest_bound
+      evidence SIDEExplicitFormula.Schema.Family.emptyZ_count -- E3a SATISFIABLE (HCount emptyZ 1)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_count -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_count -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises -- E1 SALT (module SIDEExplicitFormula.Schema.SaltCheckEpstein)
+      evidence SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg -- E1 SALT (module SIDEExplicitFormula.SaltCheckSimplicity)
+      evidence SIDEExplicitFormula.Simplicity.SaltCheck.toy_count -- E1 SALT (module SIDEExplicitFormula.SaltCheckSimplicity)
+HasCompactSupport  [DOMAIN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 138 ; reach 496 ; chains 3 : (a cycle) CS | SIDEExplicitFormula.B321.classK, SIDEExplicitFormula.B321.cosWin_hasCompactSupport, SIDEExplicitFormula.B321.hasCompactSupport_of_Icc | SIDEExplicitFormula.SaltCheckNonvacuity.hasCompactSupport_witness
+HasDerivAt  [DOMAIN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 68 ; reach 518 ; chains 11 : CS.hasDerivAt, W1.hasDerivAt, contDiff_ofReal | Complex.hasDerivAt_ofReal, DerivUpperBnd_aux7_3, Hadamard.deriv_weierstrass_E_at_one_ne_zero | HasDerivAt.of_hasDerivAt_ofReal_comp | Hadamard.OrderOne.logDeriv_weierstrass_E_one_div | LiCriterion.xi_hadamard_genus_one_shifted_linear_coeff_zero | ResidueMult
+IdempotentAdd  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-carrier-spec : consumers 4 ; reach 4 ; chains 2 : SIDECarrierSpec.map_eq_zero_of_idempotent | SIDECarrierSpec.trivial_of_idempotent_of_spec
+Integrable  [DOMAIN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 98 ; reach 453 ; chains 9 : SIDEExplicitFormula.B321.nearInt_ge, SIDEExplicitFormula.B321.paperFT_growth, SIDEExplicitFormula.B321.paperFT_second_order | verticalIntegral_split_three | F_add, W1.integrable_iteratedDeriv_Schwarz | SIDEExplicitFormula.B321.realizedGrowth_le_exp | SIDEExplicitFormula.LiWeil.symMember_transform_re | SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one
+IsEvenFn  [OPEN]
+    SIDE-global-section : consumers 1 ; reach 1 ; chains 1 : FoldedMirrorShadow.two_ended_eq_two_times_one_sided
+IsExpansion  [OPEN]  (b643 HINGE)
+    SIDE-lv-conservation : consumers 2 ; reach 2 ; chains 1 : SIDELvConservation.FieldLayer.top_coeff_of_expansion
+      evidence SIDELvConservation.SaltCheckLeadLaw.expansion_at_zero -- E1 SALT (module SIDELvConservation.SaltCheck_LeadLaw)
+      evidence SIDELvConservation.SaltCheckLeadLaw.expansion_exists_of_palindromic -- E1 SALT (module SIDELvConservation.SaltCheck_LeadLaw)
+      evidence SIDELvConservation.SaltCheckLeadLaw.hg_is_load_bearing -- E1 SALT (module SIDELvConservation.SaltCheck_LeadLaw)
+IsOpen  [DOMAIN]
+    SIDE-global-section : UNREAD -- the declarations its rows sit in (LocalLimit.real_no_compact_open_addSubgroup) are in modules with no build product read
+IsRoot  [DOMAIN]  (b643 HINGE)
+    SIDE-lv-conservation : consumers 6 ; reach 6 ; chains 3 : SIDELvConservation.Genus5Confinement.e8_confined | SIDELvConservation.Genus5Confinement.root_of_sign_change, SIDELvConservation.Genus5Confinement.root_of_sign_change' | SIDELvConservation.Genus5Confinement.w16_confined
+IsSign  [DISCHARGED]
+    SIDE-global-section : consumers 6 ; reach 8 ; chains 1 : SignTransferShadow.eq_of_mul_pos, SignTransferShadow.neg_is_sign, SignTransferShadow.sq_pos
+IsSignedCompletion  [OPEN]
+    SIDE-carrier-spec : consumers 1 ; reach 1 ; chains 1 : SIDECarrierSpec.signedCompletion_trivial_of_idempotent
+IsTrivialPoint  [OPEN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 2 ; reach 3 ; chains 1 : SIDEExplicitFormula.GRHWeil.GRH_chi_trivial, SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint
+      evidence SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos -- E3b SATISFIABLE UNDER HYPOTHESES (IsTrivialPoint χ s)
+      evidence SIDEExplicitFormula.GRHWeil.trivialPoint_of_gammaFactor_eq_zero -- E3b SATISFIABLE UNDER HYPOTHESES (IsTrivialPoint χ s)
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.isTrivialPoint_parity -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+KeiperObligations  [OPEN]
+    SIDE-explicit-formula : consumers 1 ; reach 1 ; chains 1 : SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of
+Monotone  [DOMAIN]
+    SIDE-global-section : UNREAD -- the declarations its rows sit in (LocalLimit.compression_tendsto) are in modules with no build product read
+NontrivialZeroExistsInStrip  [OPEN]
+    SIDE-lv-conservation : consumers 6 ; reach 6 ; chains 1 : SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing
+NotDiv  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-global-section : consumers 8 ; reach 9 ; chains 2 : B329.valuation_exists, SmearGeneral.mod_of_notDiv | B329.valuation_unique
+      evidence SmearGeneral.notDiv_of_mod -- E3b SATISFIABLE UNDER HYPOTHESES (B329.NotDiv r u)
+NymanBeurlingPremise  [CITED]
+    SIDE-explicit-formula : consumers 1 ; reach 1 ; chains 1 : SIDEExplicitFormula.NymanBeurling.rh_iff_nb
+PWSetup  [DISCHARGED]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 73 ; reach 134 ; chains 1 : SIDEExplicitFormula.B321.Aw, SIDEExplicitFormula.B321.KF, SIDEExplicitFormula.B321.TF
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.pwSetup_zero -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+PerClassExcludes  [OPEN]
+    SIDE-lv-conservation : consumers 1 ; reach 2 ; chains 1 : SIDELvConservation.T3.T3_perClass_to_combinations
+PlattTrudgianHeight  [CITED]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 1 ; reach 1 ; chains 1 : SIDEExplicitFormula.PlattRung.rh_upto_platt
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.plattTrudgianHeight_neg_one -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+Prime  [DOMAIN]  (b643 HINGE)
+    SIDE-carrier-spec : consumers 6 ; reach 22 ; chains 1 : SIDECarrierSpec.int_frobenius
+    SIDE-explicit-formula : consumers 5 ; reach 15 ; chains 3 : SIDEExplicitFormula.B321.balance_lemma, SIDEExplicitFormula.B321.conservationHypothesis, SIDEExplicitFormula.B321.conservationHypothesisConfig | SIDEExplicitFormula.SaltCheckNonvacuity.nat_prime_witness | SIDEExplicitFormula.SaltCheckNonvacuity.prime_witness
+    SIDE-global-section : UNREAD -- the declarations its rows sit in (LocalLimit.general_p_no_fixed_cell) are in modules with no build product read
+    SIDE-grh-transfer : consumers 7 ; reach 9 ; chains 2 : SIDEGRHTransfer.GRHStructuralExhaustiveness, SIDEGRHTransfer.ostrowski_exhaustive_chi | SIDEGRHTransfer.prime_as_real
+Proper  [OPEN]
+    SIDE-structural-error-correction : consumers 1 ; reach 1 ; chains 1 : DeAlignment.dealigned_of_lines_injective
+Register4_channelInequality  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-lv-conservation : consumers 6 ; reach 15 ; chains 3 : SIDELvConservation.RegisterPentagon.XRealization.selfProductPositivity, SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk, SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH | SIDELvConservation.RegisterPentagon.ZeroActingPairing.yieldsInequality | SIDELvConservation.RegisterPentagon.partial_of_full
+      evidence SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality -- E3b SATISFIABLE UNDER HYPOTHESES (Register4_channelInequality lam_A lam_Z)
+Register4_positivity  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-lv-conservation : consumers 4 ; reach 4 ; chains 2 : SIDELvConservation.RegisterPentagon.R4_positivity_to_RH | SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH
+SatisfiesCWeil  [WITNESSED]  ### HINGE  (b643 HINGE)
+    SIDE-global-section : consumers 2 ; reach 2 ; chains 2 : AggregationCircularityShadow.cweil_determines | AggregationCircularityShadow.cweil_is_the_assumption
+      evidence AggregationCircularityShadow.cweil_inhabited -- E3b SATISFIABLE UNDER HYPOTHESES (SatisfiesCWeil G (fun c => forced G (t c) (x c)) t x)
+SelfDualFE  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-lv-conservation : consumers 4 ; reach 4 ; chains 2 : SIDELvConservation.FieldLayer.norml_top | SIDELvConservation.LeadLaw.ptTop_eq_p_zero
+StepsI  [DISCHARGED]  ### HINGE  (b643 HINGE)
+    SIDE-global-section : consumers 3 ; reach 5 ; chains 3 : LadderOrientationShadow.alt2_does_not_imply_stepsI | LadderOrientationShadow.alt2_of_stepsI | LadderOrientationShadow.ladder_form
+      evidence LadderOrientationShadow.bad_not_stepsI -- E2 NEGATION (¬ StepsI bad)
+      evidence LadderOrientationShadow.ipow_stepsI -- E3a SATISFIABLE (StepsI ipow)
+      evidence LadderOrientationShadow.measured_not_stepsI -- E2 NEGATION (¬ StepsI measured)
+      evidence LadderOrientationShadow.stepsI_of_alt2 -- E3b SATISFIABLE UNDER HYPOTHESES (StepsI c | 0 => h1 | (k + 1) => by have ih)
+StepsMI  [DISCHARGED]  ### HINGE
+    SIDE-global-section : consumers 2 ; reach 5 ; chains 2 : LadderOrientationShadow.alt2_of_stepsMI | LadderOrientationShadow.ladder_form_mi
+      evidence LadderOrientationShadow.measured_stepsMI -- E3a SATISFIABLE (StepsMI measured)
+      evidence LadderOrientationShadow.stepsMI_of_alt2 -- E3b SATISFIABLE UNDER HYPOTHESES (StepsMI c | 0 => h1 | (k + 1) => by have ih)
+StrictMono  [DOMAIN]  (b643 HINGE)
+    SIDE-rcurve : consumers 2 ; reach 2 ; chains 2 : SIDERCurve.monotone_unique_zero | SIDERCurve.second_zero_breaks_monotone
+StructuralExhaustiveness  [DISCHARGED]
+    SIDE-kernel : consumers 0 ; reach 0 ; chains 0
+      evidence structural_exhaustiveness_proved -- E3b SATISFIABLE UNDER HYPOTHESES (StructuralExhaustiveness)
+SymPairBound  [DISCHARGED]
+    SIDE-explicit-formula : consumers 1 ; reach 4 ; chains 1 : SIDEExplicitFormula.LiWeil.exchange_of_bound
+      evidence SIDEExplicitFormula.LiWeil.symPair_bound -- E3a SATISFIABLE (SymPairBound n)
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.symPairBound_witness -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+Tendsto  [DOMAIN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 92 ; reach 540 ; chains 11 : Complex.cpow_inv_tendsto, Complex.cpow_tendsto, Hadamard.OrderOne.finite_norm_le_of_summable_inv_norm_pow | tendsto_funscale | Hadamard.weierstrass_product_hasProdLocallyUniformlyOn_of_tendsto_norm_atTop | residue_eq_of_tendsto | SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_bddAbove_near_one | SIDEExplicitFormula.Keiper.stieltjes_zero_limit
+TrivialSummandPremise  [REFUTED-BY-COMPUTATION]  ### HINGE  (b643 HINGE)
+    SIDE-explicit-formula : consumers 2 ; reach 6 ; chains 2 : SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs | SIDEExplicitFormula.Schema.Family.DedekindPremises.trivial_summand
+      evidence SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise -- E2 NEGATION (¬ TrivialSummandPremise)
+WindowObligations  [DISCHARGED]
+    SIDE-explicit-formula : consumers 2 ; reach 3 ; chains 1 : SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.windowObligations_witness -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+      evidence SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds -- E3a SATISFIABLE (WindowObligations W h)
+ZeroActingPairing  [OPEN]  ### HINGE  (b643 HINGE)
+    SIDE-lv-conservation : consumers 5 ; reach 6 ; chains 2 : SIDELvConservation.RegisterPentagon.zeroActingPairing_ledger_not_signNeutral | SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality
+      evidence SIDELvConservation.RegisterPentagon.xRealization_to_zeroActingPairing -- E3b SATISFIABLE UNDER HYPOTHESES (ZeroActingPairing lam_A lam_Z ledger)
+ZetaSeam  [DISCHARGED]  ### HINGE
+    SIDE-explicit-formula : consumers 19 ; reach 162 ; chains 2 : Zeta23.WeilEF.rectangle_identity, Zeta23.zetaZeros | Zeta23.RvM.rectangleIntegral'_logDeriv_completedZeta_eq_Ncount
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.zetaSeam_witness -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+      evidence Zeta23.zetaSeam -- E3a SATISFIABLE (ZetaSeam)
+farSmall  [OPEN]  (b643 HINGE)
+    SIDE-explicit-formula : consumers 2 ; reach 2 ; chains 1 : SIDEExplicitFormula.B321.windowSlope_bound
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.farSmall_zero -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+identity  [OPEN]
+    SIDE-global-section : consumers 5 ; reach 6 ; chains 1 : AggregationCircularityShadow.SatisfiesCWeil, AggregationCircularityShadow.identity_iff_forced
+is_xi_zero  [OPEN]
+    SIDE-kernel : consumers 5 ; reach 10 ; chains 1 : ConservationBridge.ConservationHypothesis, techne_kernel_integration.StructuralExhaustiveness, techne_kernel_xidef.OffLineZero
+zeroSideNeg  [DISCHARGED]
+    SIDE-explicit-formula : consumers 1 ; reach 10 ; chains 1 : SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of
+      evidence SIDEExplicitFormula.B321.zeroSideNeg_holds -- E3a SATISFIABLE (zeroSideNeg)
+      evidence SIDEExplicitFormula.SaltCheckNonvacuity.zeroSideNeg_witness -- E1 SALT (module SIDEExplicitFormula.SaltCheckNonvacuity)
+
+### ### **HEADS 50 ; b643`S HINGES 28 ; LEAVE 16 ; JOIN 2 ; HINGES UNDER THE REFINED DEFINITION 14 ; A DOMAIN HEAD IN THE LIST 0 ; EVIDENCE DECLARATIONS REMOVED 45 ; HEADS WITH A KERNEL UNREAD 3.**
