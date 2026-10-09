@@ -1,0 +1,131 @@
+{
+ "at": "2026-10-09T18:34:11Z",
+ "hold": 2560,
+ "rows": [
+  {
+   "target": "FiniteInstanceIdentity",
+   "tag": "b645_build_FiniteInstanceIdentity",
+   "free_before": 4791,
+   "verdict": "BUILT",
+   "exits": [
+    "### EXIT 0 2026-10-09T18:16:21Z 472 s peak 1018 MB low 3877 MB free 4910 MB"
+   ],
+   "lows": [
+    3877
+   ],
+   "samples_min": 3877,
+   "starts": 1,
+   "refused": 0,
+   "stops": 0,
+   "errors": []
+  },
+  {
+   "target": "GlobalSection",
+   "tag": "b645_build_GlobalSection",
+   "free_before": 4912,
+   "verdict": "BUILT",
+   "exits": [
+    "### EXIT 0 2026-10-09T18:21:49Z 304 s peak 1615 MB low 2730 MB free 4383 MB"
+   ],
+   "lows": [
+    2730
+   ],
+   "samples_min": 2730,
+   "starts": 1,
+   "refused": 0,
+   "stops": 0,
+   "errors": []
+  },
+  {
+   "target": "LocalLimit",
+   "tag": "b645_build_LocalLimit",
+   "free_before": 4274,
+   "verdict": "BUILT",
+   "exits": [
+    "### EXIT 0 2026-10-09T18:22:48Z 38 s peak 1297 MB low 2951 MB free 4285 MB"
+   ],
+   "lows": [
+    2951
+   ],
+   "samples_min": 2951,
+   "starts": 1,
+   "refused": 0,
+   "stops": 0,
+   "errors": []
+  },
+  {
+   "target": "PadicFourier",
+   "tag": "b645_build_PadicFourier",
+   "free_before": 4197,
+   "verdict": "BUILT",
+   "exits": [
+    "### EXIT 0 2026-10-09T18:23:44Z 43 s peak 1676 MB low 2618 MB free 4327 MB"
+   ],
+   "lows": [
+    2618
+   ],
+   "samples_min": 2618,
+   "starts": 1,
+   "refused": 0,
+   "stops": 0,
+   "errors": []
+  },
+  {
+   "target": "PadicStandardAddChar",
+   "tag": "b645_build_PadicStandardAddChar",
+   "free_before": 4309,
+   "verdict": "BUILT",
+   "exits": [
+    "### EXIT 0 2026-10-09T18:24:13Z 17 s peak 0 MB low 4337 MB free 4316 MB"
+   ],
+   "lows": [
+    4337
+   ],
+   "samples_min": null,
+   "starts": 1,
+   "refused": 0,
+   "stops": 0,
+   "errors": []
+  },
+  {
+   "target": "RestrictedTensorLayer1",
+   "tag": "b645_build_RestrictedTensorLayer1",
+   "free_before": 4233,
+   "verdict": "RUN-BENEATH-HOLD",
+   "exits": [
+    "### EXIT 1 2026-10-09T18:29:35Z 302 s peak 137 MB low 2067 MB free 2267 MB (stopped beneath the hold)",
+    "### EXIT 1 2026-10-09T18:31:57Z 121 s peak 175 MB low 2206 MB free 2446 MB (stopped beneath the hold)",
+    "### EXIT 75 2026-10-09T18:31:57Z RUN-BENEATH-HOLD"
+   ],
+   "lows": [
+    2067,
+    2206
+   ],
+   "samples_min": 2067,
+   "starts": 2,
+   "refused": 0,
+   "stops": 2,
+   "errors": []
+  },
+  {
+   "target": "test_elab_reader_b634.py",
+   "tag": "b645_test_elab",
+   "free_before": 2606,
+   "verdict": "RUN-BENEATH-HOLD",
+   "exits": [
+    "### EXIT 1 2026-10-09T18:33:15Z 61 s peak 13 MB low 1790 MB free 1875 MB (stopped beneath the hold)",
+    "### EXIT 1 2026-10-09T18:33:46Z 20 s peak 13 MB low 2324 MB free 2335 MB (stopped beneath the hold)",
+    "### EXIT 75 2026-10-09T18:33:46Z RUN-BENEATH-HOLD"
+   ],
+   "lows": [
+    1790,
+    2324
+   ],
+   "samples_min": 1790,
+   "starts": 2,
+   "refused": 0,
+   "stops": 2,
+   "errors": []
+  }
+ ]
+}
