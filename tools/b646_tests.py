@@ -25,7 +25,9 @@ D, T = os.path.join(ROOT, 'data'), os.path.join(ROOT, 'tools')
 NL = chr(10)
 PP = 'D:/MY-DOwnloads/PLACE-papers'
 SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e594f88a-2fab-4757-943d-7ab1bc3de815/scratchpad'   # ### b643: b637's planted directory copied here whole (B637Planted.lean sha256 735629f5...)
-BANK = os.path.join(D, 'b646_tests_stepzero.json')
+# ### b646: the run after the MET entry (Component 3) banks apart from step zero's: B646_TESTS_STAGE=postmet names data/b646_tests_postmet.*
+STAGE = os.environ.get('B646_TESTS_STAGE', 'stepzero')
+BANK = os.path.join(D, 'b646_tests_%s.json' % STAGE)
 COUNT_CASE = r'^  \(\d+\) '
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
@@ -75,7 +77,8 @@ def run(name):
 
 def report():
     j = load()
-    L = ['b646 -- STEP ZERO: EVERY TEST FILE UNDER tools/, RUN AND COUNTED ((R238)(2), standing) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '']
+    L = ['b646 -- %s: EVERY TEST FILE UNDER tools/, RUN AND COUNTED ((R238)(2), standing) (%s)' % (
+        'STEP ZERO' if STAGE == 'stepzero' else 'AFTER THE MET ENTRY (Component 3)', time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '']
     try:
         rbh = dict((r['cmd'][-1], r) for r in json.load(io.open(os.path.join(D, 'b646_build_watch.json'), encoding='utf-8'))['rows'])
     except Exception:
@@ -103,7 +106,7 @@ def report():
         if n in j:
             L += ['', '=== %s' % n] + j[n]['output'].rstrip(NL).split(NL)
     b = (NL.join(L) + NL).encode('utf-8')
-    p = os.path.join(D, 'b646_tests_stepzero.txt')
+    p = os.path.join(D, 'b646_tests_%s.txt' % STAGE)
     open(p + '.tmp', 'wb').write(b)
     os.replace(p + '.tmp', p)
     print(NL.join(L[2:2 + len(tests()) + 4]))

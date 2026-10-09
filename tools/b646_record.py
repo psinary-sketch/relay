@@ -574,6 +574,119 @@ def companions(*a):
         sum(tot.values()), tot['MATCHES'], tot['UNDERSTATES'], tot['OVERREACHES'], tot['UNLICENSED']))
 
 
+# ================================================================================ COMPONENT 3: THE MET LIST AND THE RE-GRADE, (R256)(4)(d)
+MET_ENTRY = "TrivialSummandPremise'"
+DEDEKIND = "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs'"
+
+
+def _graded(fn):
+    """grade each subject by fn() twice -- MET without the entry (before the ruling) and MET at HEAD -- and return [(subject, before, after)]."""
+    import e0_rule as E
+    met = E.MET
+    if MET_ENTRY not in met:
+        sys.exit('### THE ENTRY IS NOT IN MET AT HEAD -- NOTHING WRITTEN')
+    E.MET = tuple(x for x in met if x != MET_ENTRY)
+    try:
+        before = fn()
+    finally:
+        E.MET = met
+    after = fn()
+    return [(k, before[k], after.get(k)) for k in before]
+
+
+def regrade(*a):
+    """data/b646_regrade.txt: (R256)(4)(d) -- the gate rerun over SIDE-explicit-formula after the MET entry: every statement the gate and the
+    table grade by the rule, graded without the entry and at HEAD, every move printed -- (i) the gate's bank of b642 (relay data/b642_grades.txt,
+    each graded statement); (ii) the terminal table's SIDE-explicit-formula rows by their printed statements (terminal_table.rule_reading);
+    (iii) the elaborated reader's bank (relay data/elab_types.txt, terminal_table.elab_reading)."""
+    import e0_rule as E
+    import terminal_table as T
+    g42 = lines_of(rd('b642_grades.txt'))
+    subj = []
+    for i, l in enumerate(g42):
+        m = re.match(r'^(\S+)  (theorem|def)  (\S+)', l)
+        if m and m.group(2) == 'theorem' and i + 1 < len(g42) and g42[i + 1].startswith('    statement: '):
+            subj.append((m.group(3), g42[i + 1].split('statement: ', 1)[1]))
+
+    def gate():
+        out = {}
+        for n, st in subj:
+            try:
+                out[n] = E.grade(st, 'theorem')[:2]
+            except Exception as x:
+                out[n] = ('UNCLASSED', str(x)[:80])
+        return out
+    rows = [x for x in json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'] if x['repo'] == 'SIDE-explicit-formula']
+
+    def table():
+        out = {}
+        for x in rows:
+            try:
+                out[x['name']] = T.rule_reading(x.get('statement'), x['name'])
+            except Exception as e:
+                out[x['name']] = ('?', 'UNCLASSED %s' % str(e)[:60])
+        return out
+    names = sorted(T.elab_bank().keys())
+
+    def elab():
+        out = {}
+        for n in names:
+            try:
+                out[n] = T.elab_reading(n)
+            except Exception as e:
+                out[n] = ('UNCLASSED %s' % str(e)[:60], None)
+        return out
+    parts = [('the gate`s bank of b642 (data/b642_grades.txt, the graded theorems)', _graded(gate)),
+             ('the terminal table`s SIDE-explicit-formula rows by their printed statements', _graded(table)),
+             ('the elaborated reader`s bank (data/elab_types.txt)', _graded(elab))]
+    L = ['b646 -- COMPONENT 3, (R256)(4)(d): THE GATE RERUN OVER SIDE-explicit-formula AFTER THE MET ENTRY (%s)' % utc(), '',
+         '### the entry: %s, in tools/e0_rule.py`s MET at relay %s (MET %d names at HEAD); each subject graded without the entry and at HEAD' % (
+             MET_ENTRY, g(RELAY, 'log', '--format=%h', '-1', '--', 'tools/e0_rule.py').strip()[:8], len(E.MET)), '']
+    allmoves = []
+    for what, res in parts:
+        mv = [(k, b, a) for k, b, a in res if b != a]
+        allmoves += [(what, k, b, a) for k, b, a in mv]
+        L += ['### %s: subjects %d ; moved %d' % (what, len(res), len(mv))]
+        for k, b, a in mv:
+            L.append('    MOVE %s : %s -> %s' % (k, b, a))
+    names_moved = sorted(set(k for _w, k, _b, _a in allmoves))
+    L += ['', '### ### **DECLARATIONS MOVED %d (%s) ; dedekind_rhs` %s.**' % (
+        len(names_moved), ', '.join(names_moved) or 'none',
+        'READS INTERFACES' if any(k == DEDEKIND and (a[0] if isinstance(a, tuple) else a) == 'INTERFACES' for _w, k, _b, a in allmoves) else 'DID NOT MOVE TO INTERFACES')]
+    put_txt('b646_regrade.txt', L)
+    put_json('b646_regrade.json', dict(at=utc(), moves=[dict(part=w, name=k, before=list(b) if b else b, after=list(a) if a else a)
+                                                       for w, k, b, a in allmoves]))
+    print(NL.join(L[2:]))
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_diff(*a):
+    """data/b646_table_diff.txt: the terminal table regenerated (tools/terminal_table.py) after the MET entry and diffed against relay HEAD`s
+    committed table, by row -- every moved row printed with its grade, profile and provenance before and after."""
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b646 -- COMPONENT 3: THE TERMINAL TABLE REGENERATED AFTER THE MET ENTRY (%s); exit %d ; against relay HEAD %s' % (
+        utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    for k in moved:
+        L.append('    MOVED %s %s : %s -> %s' % (k[0], k[1], before[k], after[k]))
+    for k in added:
+        L.append('    ADDED %s %s : %s' % (k[0], k[1], after[k]))
+    for k in gone:
+        L.append('    GONE %s %s : %s' % (k[0], k[1], before[k]))
+    L += ['', '### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (
+        len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b646_table_diff.txt', L)
+    print(NL.join(L[2:]))
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
