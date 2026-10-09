@@ -764,6 +764,293 @@ def seam_map(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 4: THE DOCSTRINGS, (R255)(4)(c)
+DECL_RX = re.compile(r'^\s*(?:@\[[^\]]*\]\s*)?(?:(?:private|protected|noncomputable|nonrec|partial|unsafe)\s+)*'
+                     r'(theorem|lemma|def|abbrev|structure|class|inductive|instance|opaque|axiom)\s+([^\s:({\[]+)')
+
+
+def _ef_files():
+    """the kernel's own files at the pin: every .lean under SIDEExplicitFormula/ and the root module, and every other file that holds a row
+    of the terminal table for the kernel (Zeta23/, Vendored/); the AxiomCheck files are print scripts and declare nothing."""
+    rows, _md = _tt()
+    tracked = [x for x in g(K.EF, 'ls-tree', '-r', '--name-only', K.EF_PIN).split(NL) if x.endswith('.lean')]
+    own = set(x for x in tracked if x.startswith('SIDEExplicitFormula/') or x == 'SIDEExplicitFormula.lean')
+    own |= set(x['statement_file'] for x in rows if x['repo'] == 'SIDE-explicit-formula' and x.get('statement_file') in tracked)
+    return sorted(own)
+
+
+def _docstrings(path, text):
+    """[(kind, line, doc, decl keyword, decl name, decl line)] -- kind 'decl' for `/-- -/` before a declaration, 'module' for the file's
+    `/-! -/` blocks and its head `/- -/` block before the first import."""
+    out = []
+    ls = text.split(NL)
+    i = 0
+    seen_import = False
+    while i < len(ls):
+        l = ls[i]
+        s = l.lstrip()
+        if s.startswith('import '):
+            seen_import = True
+        opener = '/--' if s.startswith('/--') else ('/-!' if s.startswith('/-!') else ('/-' if s.startswith('/-') and not seen_import and i < 5 else None))
+        if opener:
+            j = i
+            while '-/' not in ls[j][(ls[j].find(opener) + len(opener)) if j == i else 0:]:
+                j += 1
+                if j >= len(ls):
+                    break
+            doc = NL.join(ls[i:j + 1])
+            doc = re.sub(r'^\s*/-[-!]?', '', doc, count=1)
+            doc = re.sub(r'-/\s*$', '', doc).strip()
+            if opener == '/--':
+                k = j + 1
+                while k < len(ls) and (not ls[k].strip() or ls[k].lstrip().startswith(('@[', '--'))) and not DECL_RX.match(ls[k]):
+                    k += 1
+                m = DECL_RX.match(ls[k]) if k < len(ls) else None
+                fm = re.match(r'^\s+([A-Za-z_][\w\']*)\s*:\s*(.*)$', ls[k]) if k < len(ls) else None
+                if m:
+                    out.append(('decl', i + 1, doc, m.group(1), m.group(2), k + 1))
+                elif fm:
+                    out.append(('field', i + 1, doc, 'field', fm.group(1), k + 1))
+                else:
+                    out.append(('decl', i + 1, doc, None, None, None))
+            else:
+                out.append(('module', i + 1, doc, None, None, None))
+            i = j + 1
+            continue
+        i += 1
+    return out
+
+
+def _elab_index():
+    """name -> (statement rendered, [explicit hypothesis binders]) from the elaborated bank at v0.26."""
+    idx = {}
+    cur, binders, concl = None, [], None
+    for l in rd(K.ELAB_BANK).split(NL):
+        if l.startswith('DECL '):
+            cur, binders, concl = l.split()[1], [], None
+        elif l.startswith('BINDER ') and cur:
+            binders.append(l[len('BINDER '):])
+        elif l.startswith('CONCL ') and cur:
+            concl = l[len('CONCL '):]
+        elif l == 'END' and cur:
+            hyps = [b.split(' ', 1)[1] for b in binders if b.startswith('explicit ') and re.match(r'^explicit h\w*\s*:', b)]
+            idx[cur] = ((' '.join('(%s)' % b.split(' ', 1)[1] for b in binders) + ' ⊢ ' + (concl or '')).strip(), hyps)
+            cur = None
+    return idx
+
+
+def _ef_lookup():
+    """lookup(name) -> (qualified name, grade) over the kernel's table rows: the qualified name, or a last component that names one row."""
+    rows, _md = _tt()
+    ef = [x for x in rows if x['repo'] == 'SIDE-explicit-formula']
+    full = dict((x['name'], x) for x in ef)
+    last = collections.defaultdict(list)
+    for x in ef:
+        last[x['name'].split('.')[-1]].append(x)
+
+    def lookup(n):
+        x = full.get(n) or (last[n.split('.')[-1]][0] if len(last.get(n.split('.')[-1], [])) == 1 else None)
+        return (x['name'], x['grade']) if x else None
+    return lookup, ef
+
+
+def _doc_rows():
+    import licensed_table as LT
+    lookup, ef = _ef_lookup()
+    ST = dict((r['head'], r['status']) for r in jl('b643_premise_table.json').get('rows') or [])
+    PB = {}
+    for x in ef:
+        m = re.match(r'^theorem (\S+)\s*:\s*([\w.\'’]+)\s*$', re.sub(r'\s+', ' ', x['statement'] or '').strip())
+        if m:
+            PB.setdefault(m.group(2).split('.')[-1], '%s : %s (%s, grade %s)' % (x['name'], m.group(2), x['statement_file'], x['grade']))
+    proved_by = lambda d: PB.get(d.split('.')[-1])   # noqa: E731
+    by_file = collections.defaultdict(dict)
+    for x in ef:
+        if x.get('statement_file'):
+            by_file[x['statement_file']].setdefault(x['name'].split('.')[-1], []).append(x)
+    E = _elab_index()
+    out = []
+    for f in _ef_files():
+        text = _show(K.EF, K.EF_PIN, f) or ''
+        for kind, ln, doc, kw, name, dl in _docstrings(f, text):
+            src = 'SIDE-explicit-formula@82550e4:%s:%d' % (f, ln)
+            src_id = '%s:%d' % (f, ln)
+            if kind == 'module':
+                names = sorted(set(n for n, _s, _e in LT.names_in(doc)))
+                hits = [(n, lookup(n)) for n in names]
+                summ = '; '.join('%s %s' % (h[0].split('.')[-1], h[1]) for n, h in hits if h) or 'it names no row of the table'
+                r = LT.docstring_row(src_id, src.replace('SIDE-explicit-formula@82550e4:', ''), doc, None, 'module', summ, None, None, [], lookup,
+                                     module=True, status=ST.get)
+                r.update(file=f, line=ln, kind='module', decl=None, grade=None)
+                out.append(r)
+                continue
+            if kind == 'field':
+                ft = re.sub(r'\s+', ' ', NL.join(text.split(NL)[dl - 1:dl + 3]).split('/--')[0]).strip()
+                r = LT.docstring_row(src_id, src_id, doc, name, 'field', '%s (a structure field, read at the source, %s :%d)' % (ft, f, dl), 'DEF',
+                                     'the field`s type', [], lookup, status=ST.get, proved_by=proved_by)
+                r.update(file=f, line=ln, kind='field', decl=name, grade='DEF', decl_line=dl)
+                out.append(r)
+                continue
+            if not name:
+                sys.exit('### A DOCSTRING AT %s :%d BEFORE NO DECLARATION OR FIELD THE READER PARSES -- NOTHING WRITTEN' % (f, ln))
+            cands = by_file.get(f, {}).get(name.split('.')[-1], [])
+            x = cands[0] if len(cands) == 1 else None
+            if x is None:
+                # ### a declaration the table does not carry (an instance, a private helper, an upstream name): its keyword is its grade
+                g_ = 'DEF' if kw in ('def', 'abbrev', 'structure', 'class', 'inductive', 'instance', 'opaque') else 'UNGRADED'
+                hdr = NL.join(text.split(NL)[dl - 1:dl + 14])
+                hdr = re.sub(r'\s+', ' ', hdr.split(':=')[0]).strip()
+                st = (E.get(name) or ('%s (read at the source, %s :%d)' % (hdr, f, dl), []))[0]
+                r = LT.docstring_row(src_id, src_id, doc, name, kw, st, g_, 'keyword, not in the table', [], lookup, status=ST.get, proved_by=proved_by)
+                r.update(file=f, line=ln, kind='decl', decl=name, grade=g_, decl_line=dl)
+                out.append(r)
+                continue
+            st, hyps = E.get(x['name'], (re.sub(r'\s+', ' ', x['statement'] or ''), []))
+            r = LT.docstring_row(src_id, src_id, doc, x['name'], kw, st, x['grade'], x['provenance'], hyps, lookup, status=ST.get, proved_by=proved_by)
+            r.update(file=f, line=ln, kind='decl', decl=x['name'], grade=x['grade'], decl_line=dl)
+            out.append(r)
+    return out
+
+
+PT = 'relay@%s:data/b643_premise_table.txt:' % PRE_RELAY
+MLB = 'mathlib4@de5ce8a9:Mathlib/'
+# ### THE SEAT'S HAND READINGS OF THE DOCSTRING ROWS THE RULES FLAG (D1-D6), by row id: (verdict, licensed, cited, action)
+DOC_HAND = {
+    'SIDEExplicitFormula/KeiperIdentities.lean:1': (
+        'MATCHES', 'three of the four obligations proved at every index (binomialTransform_holds, logDerivSplit_holds, stieltjesLog_holds); the '
+        'header says the fourth is not proved and that KeiperObligations stays carried -- the premise table`s OPEN; "PROVED" is said of the three',
+        [EFP + 'KeiperIdentities.lean:6', EFP + 'KeiperIdentities.lean:25', PT + '27'], MATCH),
+    'SIDEExplicitFormula/PowerLimit.lean:1': (
+        'MATCHES', 'h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh (PowerLimit.lean :1236), compiled FROM the seam as the header '
+        'says -- an INTERFACES claim; the header speaks of this module, which neither proves nor assumes the seam (Seam.lean :84 proves it)',
+        [EFP + 'PowerLimit.lean:19', EFP + 'PowerLimit.lean:1236', EFP + 'Seam.lean:84'], MATCH),
+    'SIDEExplicitFormula/Schema/WindowProofs.lean:1': (
+        'MATCHES', 'windowObligations_holds W h : WindowObligations W h at every W and h (WindowProofs.lean :200, DERIVES); with it '
+        'plateauRampWindow_of (PlateauRamp.lean :186) yields PlateauRampWindow W h under its domain binders 0 ≤ W and 0 < h alone -- '
+        '"unconditionally" in the corpus`s sense, its one premise discharged (the premise table`s WindowObligations DISCHARGED)',
+        [EFP + 'Schema/WindowProofs.lean:17', EFP + 'Schema/WindowProofs.lean:200', EFP + 'Schema/PlateauRamp.lean:186', PT + '48'], MATCH),
+    'Zeta23/WeilEF/Main.lean:56': (
+        'MATCHES', 'EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs) (Main.lean :67); "outright" is said of ExplicitFormulaPaper '
+        '(zetaZeros hs), the object named under hs, and ZetaSeam is DISCHARGED in the premise table', [
+            'SIDE-explicit-formula@82550e4:Zeta23/WeilEF/Main.lean:56', 'SIDE-explicit-formula@82550e4:Zeta23/WeilEF/Main.lean:67', PT + '50'], MATCH),
+    'SIDEExplicitFormula/PowerWindow.lean:492': (
+        'UNDERSTATES', 'rh_strip_imp_rh (PowerWindow.lean :495) is a theorem since v0.2 = 5c72cad: rh_strip_imp_rh_holds (Seam.lean :84, DERIVES '
+        'at the standard three), its left half-plane through the kernel`s own zeta_zero_re_nonpos (Seam.lean :25); the Mathlib half stands -- '
+        'Mathlib at the pin has the trivial zeros as zeros (riemannZeta_neg_two_mul_nat_add_one, RiemannZeta.lean :173) and no classification '
+        'of the zeros with re ≤ 0 by name',
+        [EFP + 'PowerWindow.lean:492', EFP + 'PowerWindow.lean:495', EFP + 'Seam.lean:84', EFP + 'Seam.lean:25',
+         MLB + 'NumberTheory/LSeries/RiemannZeta.lean:173'],
+        'RE-CUT: **The seam, a Prop:** from the strip form to Mathlib`s RH. It needs every Mathlib-nontrivial zero in the open strip: the right half-plane is Mathlib`s `riemannZeta_ne_zero_of_one_le_re`; the left half-plane (zeros with `re <= 0` are the trivial zeros), absent from Mathlib at this pin by name, is the kernel`s `zeta_zero_re_nonpos`. Proved: `rh_strip_imp_rh_holds` (Seam.lean).'),
+    'SIDEExplicitFormula/H2Bridge.lean:86': (
+        'UNDERSTATES', 'h2_sign_imp_ch (H2Bridge.lean :88) is a theorem since v0.2: h2_sign_imp_ch_holds (Seam.lean :104, DERIVES), through '
+        'h2_sign_imp_ch_iff (H2Bridge.lean :91) and h2_sign_imp_rh_holds; Weil`s converse is no longer open at f4',
+        [EFP + 'H2Bridge.lean:86', EFP + 'H2Bridge.lean:88', EFP + 'H2Bridge.lean:91', EFP + 'Seam.lean:104'],
+        'RE-CUT: **The converse, a Prop:** `h2_sign` implies the Route 3 premise. By `h2_sign_imp_ch_iff` it is b513`s `h2_sign_imp_rh` -- Weil`s converse, W-ORD-WEIL-CONVERSE; proved: `h2_sign_imp_ch_holds` (Seam.lean).'),
+    'SIDEExplicitFormula/RHChain.lean:75': (
+        'UNDERSTATES', 'h2_sign_imp_rh (RHChain.lean :83) is a theorem since v0.2: h2_sign_imp_rh_holds (Seam.lean :98, DERIVES), from the seam '
+        '(rh_strip_imp_rh_holds) through h2_sign_imp_rh_of_seam (PowerLimit.lean :1236); the witness construction the docstring describes is '
+        'the route the kernel took (the power window, PowerLimit)',
+        [EFP + 'RHChain.lean:75', EFP + 'RHChain.lean:83', EFP + 'Seam.lean:98', EFP + 'PowerLimit.lean:1236'],
+        'RE-CUT: **The converse, stated at (R122)(2), proved at b536:** `h2_sign -> RH` needed a witness construction -- a test function in `classK` making zeroSide negative at an arbitrary off-line zero; the power window supplies it (PowerLimit.lean, `h2_sign_imp_rh_of_seam`) and the seam closes it (`h2_sign_imp_rh_holds`, Seam.lean).'),
+    'SIDEExplicitFormula/Schema/PlateauRamp.lean:1': (
+        'MATCHES', 'the D5 claims read against Mathlib at de5ce8a9: (O1) Real.fourier_mul_convolution_eq, Mathlib/Analysis/Fourier/Convolution.lean '
+        ':119, integrable functions at real frequency, as the header says since b642; (O2) Mathlib`s smoothness of a convolution needs a ContDiff '
+        'factor (HasCompactSupport.contDiff_convolution_left/_right, Calculus/ContDiff/Convolution.lean :423, :430) -- no lemma raises the '
+        'order by one for a box, as the header says',
+        [EFP + 'Schema/PlateauRamp.lean:19', MLB + 'Analysis/Fourier/Convolution.lean:119', MLB + 'Analysis/Calculus/ContDiff/Convolution.lean:423',
+         MLB + 'Analysis/Calculus/ContDiff/Convolution.lean:430'], MATCH),
+    'Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean:25': (
+        'MATCHES', 'the D5 claim read against Mathlib at de5ce8a9: its zeta bounds are local at s = 1 (ZetaAsymp.lean :375 onward, isBigO near '
+        'one) -- no polynomial bound for ζ in the critical strip, as the header says',
+        ['SIDE-explicit-formula@82550e4:Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean:25', MLB + 'NumberTheory/Harmonic/ZetaAsymp.lean:375'], MATCH),
+}
+
+
+def docstrings(*a):
+    """data/b645_table_docstrings.txt and .json: (R255)(4)(c) -- every docstring of SIDE-explicit-formula at v0.26 = 82550e4 (declaration
+    docstrings and module header blocks of the kernel's own files) to one verdict, the LICENSED cell generated by `docstring`/`module`
+    (tools/licensed_table.py), each row the rules flag read by the seat and written by hand (DOC_HAND); counts by verdict and by module;
+    the positive control (PlateauRamp's header at v0.25) and the yield of each rule printed."""
+    import licensed_table as LT
+    R = _doc_rows()
+    flagged = [r['id'] for r in R if r['verdict'] != 'MATCHES' or r.get('hand_needed')]
+    miss = sorted(set(flagged) - set(DOC_HAND))
+    extra = sorted(set(DOC_HAND) - set(flagged))
+    if miss or extra:
+        sys.exit('### FLAGGED ROWS WITHOUT A HAND READING %s ; HAND READINGS OF NO FLAGGED ROW %s -- NOTHING WRITTEN' % (miss, extra))
+    out = []
+    for r in R:
+        if r['id'] in DOC_HAND:
+            v, lic, cites, act = DOC_HAND[r['id']]
+            h = dict(r, by='HAND', verdict=v, licensed=lic, cited=cites, action=act, generated_verdict=r['verdict'], generated_findings=r['findings'])
+            h.pop('hand_needed', None)
+            out.append(h)
+        else:
+            out.append(r)
+    cnt, faults = LT.table(out)
+    if faults:
+        sys.exit('### THE TABLE REFUSED: %s' % list(faults.items())[:5])
+    # ### the positive control: the founding case, PlateauRamp's header at v0.25 (8c51431), must be flagged
+    lookup, _ef = _ef_lookup()
+    pc_doc = _docstrings('x', _show(K.EF, '8c51431', 'SIDEExplicitFormula/Schema/PlateauRamp.lean'))[0][2]
+    pc = LT.docstring_row('PC', 'x:1', pc_doc, None, 'module', 's', None, None, [], lookup, module=True)
+    rule_yield = collections.Counter(f.split(':')[0] for r in R for f in r['findings'])
+    bym = collections.defaultdict(collections.Counter)
+    for r in out:
+        bym[r['file'].rsplit('/', 1)[0] if '/' in r['file'] else r['file']][r['verdict']] += 1
+    L = ['b645 -- COMPONENT 4, (R255)(4)(c): THE DOCSTRINGS OF SIDE-explicit-formula AT v0.26 = 82550e4, EACH TO ONE VERDICT (tools/licensed_table.py) (%s)' % utc(), '',
+         '### the rows: every declaration docstring (`/-- -/`) and every module header block (`/-! -/`, and the head `/- -/` before the imports) '
+         'in the kernel`s own files (%d files: SIDEExplicitFormula/ and the files of Zeta23/ and Vendored/ holding a table row); the LICENSED cell '
+         'generated from the elaborated statement (relay data/%s) and the grade (relay data/terminal_table.json at %s), the premise statuses from '
+         'relay data/b643_premise_table.json' % (len(_ef_files()), K.ELAB_BANK, PRE_RELAY),
+         '### the rules (tools/licensed_table.py): D1 its own scope (unconditional on an INTERFACES row; open about itself on a DERIVES row); D2 a '
+         'proof, interface or open word attached to a named declaration against its row; D3 the same against a premise head`s status; D4 an '
+         'equivalence claimed of a one-direction statement; D5 a claim about Mathlib at the pin, flagged for a hand reading; D6 a Prop`s '
+         'definition called unproved while a binder-free theorem concludes it',
+         '### THE READER`S LINEAGE, EACH SHAPE`S YIELD PRINTED: the first shape (D1, D2 on backticked names) flagged 4 rows, all MATCHES by hand -- '
+         'every docstring MATCHES, (N4) refuted in letter and the reader suspected; its planted cases re-run (relay data/b645_instrument.txt) and '
+         'its POSITIVE CONTROL, the founding case, read MATCHES -- the reader could not see the shape it generalises (a claim about Mathlib`s '
+         'scope). The second shape (D3, bare names, the negation guard) moved one flag (PairTerm`s "NOT PROVED" out, KeiperIdentities in); D4 '
+         'flagged one row, a statement the reader had not read (repaired: the source`s statement read); D5 restored the founding shape (the '
+         'control flagged, below); D6 found three docstrings of Props the kernel proves.',
+         '### THE POSITIVE CONTROL: SIDEExplicitFormula/Schema/PlateauRamp.lean`s header at v0.25 = 8c51431 (its :19-:20, OPEN_TRAILS :13491) -> '
+         'generated %s ; flagged for a hand reading: %s' % (pc['verdict'], pc.get('hand_needed') or '### NOT FLAGGED'),
+         '### THE YIELD BY RULE (findings over all rows): ' + ' ; '.join('%s %d' % kv for kv in sorted(rule_yield.items())), '']
+    L += ['### THE ROWS THE RULES FLAG, READ BY HAND (%d):' % len(DOC_HAND)]
+    for r in out:
+        if r['by'] == 'HAND':
+            L += ['  %s | %s | generated %s -> HAND %s' % (r['id'], r['kind'], r['generated_verdict'], r['verdict'])]
+            L += ['    FINDINGS %s' % ' || '.join(r['generated_findings'])]
+            L += ['    STATED   %s' % re.sub(r'\s+', ' ', r['stated'])[:900], '    LICENSED %s' % r['licensed'],
+                  '    CITED    %s' % ', '.join(r['cited']), '    ACTION   %s' % r['action'], '']
+    L += ['### EVERY ROW (SOURCE | KIND | BY | VERDICT ; the LICENSED cell, generated):']
+    for r in out:
+        L.append('  %s | %s | %s | %s ; %s' % (r['id'], r['kind'], r['by'], r['verdict'], re.sub(r'\s+', ' ', r['licensed'])[:260]))
+    L += ['', '### BY MODULE DIRECTORY AND VERDICT:'] + ['  %-44s %s' % (k, ' ; '.join('%s %d' % kv for kv in sorted(v.items())))
+                                                          for k, v in sorted(bym.items())]
+    L += ['', '### BY KIND: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(r['kind'] for r in out).items())),
+          '### ### **ROWS %d ; MATCHES %d ; UNDERSTATES %d ; OVERREACHES %d ; UNLICENSED %d ; A ROW WITHOUT A VERDICT 0 ; HAND %d ; GENERATED %d.**' % (
+              len(out), cnt['MATCHES'], cnt['UNDERSTATES'], cnt['OVERREACHES'], cnt['UNLICENSED'], sum(1 for r in out if r['by'] == 'HAND'),
+              sum(1 for r in out if r['by'] != 'HAND'))]
+    put_txt('b645_table_docstrings.txt', L)
+    put_json('b645_table_docstrings.json', dict(at=utc(), counts=cnt, control=dict(verdict=pc['verdict'], hand=pc.get('hand_needed')),
+                                                 rule_yield=rule_yield, rows=out))
+    print(L[-1])
+
+
+def doc_scan(*a):
+    """prints the docstring rows the rule flags (UNDERSTATES, OVERREACHES), each with its findings, for the seat's whole read; writes nothing."""
+    R = _doc_rows()
+    c = collections.Counter(r['verdict'] for r in R)
+    print('  rows %d ; by kind %s ; by verdict %s' % (len(R), dict(collections.Counter(r['kind'] for r in R)), dict(c)))
+    for r in R:
+        if r['verdict'] != 'MATCHES':
+            print('=== %s | %s | %s | grade %s' % (r['id'], r['kind'], r['verdict'], r.get('grade')))
+            for fnd in r['findings']:
+                print('    ' + fnd)
+            print('    DOC: ' + re.sub(r'\s+', ' ', r['stated'])[:900])
+
+
 def act_from():
     if os.path.exists(SESSION):
         for i, raw in enumerate(io.open(SESSION, encoding='utf-8'), 1):
