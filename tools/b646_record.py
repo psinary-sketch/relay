@@ -256,6 +256,222 @@ def record_lines(*a):
     R3._land(Q, items, 'b646_record_lines.json', K.B645_ENTRY)
 
 
+# ================================================================================ COMPONENT 2: THE COMPANIONS, (R256)(3)
+INTAKE_GRADES = ('kernel-verified', 'theorem-supported', 'argument-supported', 'computationally-verified', 'synthesis-suggested', 'statement-grade')
+# ### the re-cut each fact names (b645's RECUT_BY_FACT, F5 re-written for the two theorems of that name, b645's defect (e))
+RECUT_BY_FACT = {
+    'F1': 'state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :101), not as conditional on it',
+    'F2': 'say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction',
+    'F3': 'say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content',
+    'F4': 'say h1_complete_at_Phi certifies eight coupling facts at Φ and closes no clause on the strip (mellin_Phi_eq_zero_of_re_le_one)',
+    'F5': 'name the terminals for what they state: ConservationBridge’s structural_exhaustiveness_proved takes ConservationHypothesis; '
+          'TheBridgeComplete’s states the seven-class count, the per-class exclusion and Ostrowski’s covering, not that every zero is '
+          'produced by a named class; spectral_cannon is a fact on the line; none reaches σ = 1/2',
+    'F6': 'state partialPositivity_finiteRange with its premises (Bombieri–Lagarias, Voros, VerifiedZerosTo T)',
+    'F7': 'state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem',
+    'F8': 'name h2_sign and h2_sign_iff_rh as h2’s terminal',
+    'F9': 'say the seam is compiled (rh_strip_imp_rh_holds, Seam.lean :84)',
+    'F10': 'say the kernel checks the arithmetic 2 + 3 + 2 + 0 = 7; the classification is the paper’s argument',
+    'F11': 'say the kernel counts a defined type (Fintype.card MechanismClass = 7); that every zero is produced by a named class '
+           '(covers_all) is the open clause, not compiled',
+    'F12': 'state silence_universal with its premise I.is_universal',
+    'F13': 'say the Lean form is the logical schema (modus tollens over an abstract domain); the Mechanism Theorem’s content is the paper’s argument',
+    'F15': 'state GRH for a primitive χ ≠ 1 as equivalent to h2_sign_chi (h2_sign_chi_iff_grh_chi), not as conditional on it',
+}
+# ### THE STATED-AS RULE, b645's, printed: an argument-, synthesis- or theorem-grade row the reader marked `established` keeps it only where its
+# ### quote claims a status beyond argument (STATUS_WORDS) or its reason names a corpus fact it conflicts with (F1-F13, F15); else `graded`.
+STATUS_WORDS = re.compile(r'(?i)\b(?:prov(?:ed|es|en|able)|proof|theorem|verif\w*|certif\w*|compil\w*|machine|Lean|kernel|ZFC|established|rigorous\w*|'
+                          r'demonstrat\w*|confirm\w*|settled|unconditional\w*|closes?|closed|follows as)\b')
+COMP_FIX = {}       # ### row id -> (grade, stated_as, reason[, route]): the seat's corrections, each after its whole read of the row
+COMP_SAMPLE = {}    # ### row id -> 'AGREE' | 'CORRECTED': MATCHES rows drawn with seed 646 and read whole by the seat
+COMP_READ_ALL = set()   # ### the companions whose every non-MATCHES row the seat has read whole
+
+
+def _comp_lines(name):
+    return lines_of(_show(PP, PRE_PP, 'day1/%s.md' % name))
+
+
+def _comp_records(name):
+    recs, faults = [], []
+    p = os.path.join(SP, 'intake_%s.tsv' % name)
+    if not os.path.exists(p):
+        return [], ['%s: no reader file' % name]
+    for k, raw in enumerate(io.open(p, encoding='utf-8').read().replace(chr(13), '').split(NL), 1):
+        if not raw.strip():
+            continue
+        f = raw.split('\t')
+        if f[0] == 'CLAIM' and len(f) >= 8:
+            recs.append(('CLAIM', dict(line=f[1].strip(), grade=f[2].strip(), stated_as=f[3].strip(), terminal=f[4].strip(),
+                                       route=f[5].strip(), quote=f[6], reason='\t'.join(f[7:]).strip(), rec=k)))
+        elif f[0] == 'SKIP' and len(f) >= 3:
+            recs.append(('SKIP', dict(line=f[1].strip(), reason='\t'.join(f[2:]).strip(), rec=k)))
+        else:
+            faults.append('%s record %d malformed: %r' % (name, k, raw[:120]))
+    return recs, faults
+
+
+def _comp_rows(name):
+    import licensed_table as LT
+    ls = _comp_lines(name)
+    recs, faults = _comp_records(name)
+    rows_all, _md = _tt()
+    tnames = collections.defaultdict(list)
+    for x in rows_all:
+        tnames[x['name'].split('.')[-1]].append(x)
+    covered = collections.defaultdict(list)
+    rows, skips = [], []
+    for kind, r in recs:
+        if not r['line'].isdigit() or not (1 <= int(r['line']) <= len(ls)):
+            faults.append('%s record %d: line %r outside :1-:%d' % (name, r['rec'], r['line'], len(ls)))
+            continue
+        ln = int(r['line'])
+        covered[ln].append(kind)
+        if kind == 'SKIP':
+            skips.append(dict(line=ln, reason=r['reason']))
+            continue
+        q = r['quote']
+        if not (len(q) >= 8 and q in ls[ln - 1]):
+            faults.append('%s record %d (:%d): the quote is not a substring of its line: %r' % (name, r['rec'], ln, q[:80]))
+            continue
+        rid = 'COMP-%s-%d-%d' % (name, ln, r['rec'])
+        fix = COMP_FIX.get(rid)
+        grade, sa, reason = (fix[:3] if fix else (r['grade'], r['stated_as'], r['reason']))
+        route = (fix[3] if fix and len(fix) > 3 else r['route'])
+        refined = False
+        if not fix and grade in ('argument-supported', 'synthesis-suggested', 'theorem-supported') and sa == 'established' \
+                and not STATUS_WORDS.search(q) and not re.search(r'\bF(?:[1-9]|1[0-3]|15)\b', reason):
+            sa, refined = 'graded', True
+        if grade not in INTAKE_GRADES:
+            faults.append('%s record %d (:%d): grade %r' % (name, r['rec'], ln, grade))
+            continue
+        route = route if route in ('no', 'DARK', 'BRIGHT') else 'no'
+        try:
+            v = LT.map_intake(grade, sa, 'DARK' if route == 'DARK' else 'NOT A ROUTE')
+        except KeyError:
+            faults.append('%s record %d (:%d): the pair (%s, %s) is not in the mapping' % (name, r['rec'], ln, grade, sa))
+            continue
+        term = r['terminal'].strip('`') if r['terminal'] not in ('-', '') else ''
+        tline = ''
+        if term:
+            hits = tnames.get(term.split('.')[-1]) or []
+            tline = ('; its row: %s' % ' | '.join('%s %s %s' % (x['repo'], x['name'], x['grade']) for x in hits[:2])) if hits else \
+                '; the terminal is no row of the terminal table'
+        facts = sorted(set(re.findall(r'\bF(\d{1,2})\b', reason)), key=int)
+        if v == 'MATCHES':
+            act = 'none'
+        elif v == 'UNLICENSED':
+            act = 'RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (%s); the companion`s next edition carries no such sentence' % grade
+        else:
+            rc = [RECUT_BY_FACT['F' + f] for f in facts if 'F' + f in RECUT_BY_FACT]
+            act = 'RE-CUT: %s -- %s' % (q[:120], '; '.join(rc) if rc else 'state the claim at its grade (%s), %s' % (
+                grade, 'saying what the corpus now licenses' if v == 'UNDERSTATES' else 'no more than its support carries'))
+        rows.append(dict(id=rid, source='day1/%s.md:%d' % (name, ln), stated=q, line=ln, companion=name,
+                         licensed='intake: %s, stated as %s%s%s; the mapping (%s, %s) -> %s; %s' % (
+                             grade, sa, (', terminal ' + term) if term else '', tline, grade, sa, v, reason),
+                         by='intake', verdict=v, action=act, grade=grade, stated_as=sa, terminal=term, route=route, fixed=bool(fix),
+                         refined=refined))
+    unc = [i for i, l in enumerate(ls, 1) if l.strip() and i not in covered]
+    return rows, skips, faults, unc
+
+
+_TT = None
+
+
+def _tt():
+    global _TT
+    if _TT is None:
+        _TT = (json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'],
+               lines_of(_show(RELAY, PRE_RELAY, 'data/terminal_table.md')))
+    return _TT
+
+
+def mapping(*a):
+    """data/b646_mapping.txt: the outcome-to-verdict mapping as b645 printed it (tools/licensed_table.py MAPPING, by line), the stated-as
+    rule and the re-cut by fact -- written and committed before any companion's run."""
+    import licensed_table as LT
+    src = io.open(os.path.join(ROOT, 'tools', 'licensed_table.py'), encoding='utf-8').read().split(NL)
+    at = [i for i, l in enumerate(src, 1) if l.startswith('MAPPING = [')][0]
+    L = ['b646 -- COMPONENT 2, (R256)(3): THE MAPPING, PRINTED BEFORE THE RUN (%s)' % utc(), '',
+         '### from relay tools/licensed_table.py :%d (MAPPING) and :%d (map_intake), sha256 %s -- as b645 printed it (relay '
+         'data/b645_table_monograph.txt)' % (at, [i for i, l in enumerate(src, 1) if l.startswith('def map_intake')][0],
+                                             sha(io.open(os.path.join(ROOT, 'tools', 'licensed_table.py'), 'rb').read())[:16]), '',
+         '### (grade, stated as) -> verdict:'] + ['    %-26s %-12s -> %-12s %s' % m for m in LT.MAPPING]
+    L += ['', '### the stated-as rule (b645`s, relay tools/b645_record.py STATUS_WORDS): an argument-, synthesis- or theorem-grade row the reader '
+          'marked `established` keeps it only where its quote matches %s or its reason names F1-F13 or F15; else `graded`.' % STATUS_WORDS.pattern,
+          '', '### the re-cut by fact (F5 re-written for the two theorems of that name, b645`s defect (e)):'] + \
+         ['    %s %s' % kv for kv in sorted(RECUT_BY_FACT.items(), key=lambda kv: int(kv[0][1:]))]
+    L += ['', '### the readers` brief: the scratchpad`s companion_brief.md, sha256 %s' % sha(io.open(os.path.join(SP, 'companion_brief.md'), 'rb').read())]
+    put_txt('b646_mapping.txt', L)
+    print('  written: b646_mapping.txt (%d lines)' % len(L))
+
+
+def comp_check(*a):
+    """prints each reader's records' validation -- faults, uncovered lines, counts -- and its non-MATCHES rows for the seat's read; writes nothing."""
+    for name, _lab in K.COMPANIONS:
+        if a and name not in a:
+            continue
+        rows, skips, faults, unc = _comp_rows(name)
+        print('=== %s: rows %d ; skips %d ; faults %d ; uncovered %s ; %s' % (name, len(rows), len(skips), len(faults), unc[:20] or 'NONE',
+                                                                          dict(collections.Counter(r['verdict'] for r in rows))))
+        for f in faults[:30]:
+            print('  FAULT ' + f)
+        if 'rows' in a:
+            for r in rows:
+                if r['verdict'] != 'MATCHES':
+                    print('  %s %s [%s, %s, %s] %r | %s' % (r['id'], r['verdict'], r['grade'], r['stated_as'], r['route'], r['stated'][:160],
+                                                         r['licensed'].split('; ')[-1][:160]))
+
+
+def companions(*a):
+    """data/b646_table_<name>.txt and .json for each of the seven: (R256)(3) -- the companion at its patch label through the intake form,
+    every claim a row of the licensed-statement table, each to one verdict with its ACTION by the mapping printed first (data/b646_mapping.txt);
+    the readers' records checked (every quote a substring of its line, every non-blank line a CLAIM or a SKIP, every pair in the mapping);
+    every non-MATCHES row read whole by the seat; counts by verdict; the OVERREACHES and UNLICENSED rows printed in full."""
+    import licensed_table as LT
+    if not os.path.exists(os.path.join(D, 'b646_mapping.txt')):
+        sys.exit('### THE MAPPING IS NOT BANKED -- RUN `mapping` FIRST -- NOTHING WRITTEN')
+    out = {}
+    for name, lab in K.COMPANIONS:
+        rows, skips, faults, unc = _comp_rows(name)
+        if faults or unc:
+            sys.exit('### %s: %d FAULTS AND %d UNCOVERED LINES -- NOTHING WRITTEN: %s %s' % (name, len(faults), len(unc), faults[:3], unc[:10]))
+        cnt, f2 = LT.table(rows)
+        if f2:
+            sys.exit('### %s: THE TABLE REFUSED: %s' % (name, list(f2.items())[:4]))
+        unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and name not in COMP_READ_ALL and r['id'] not in COMP_FIX]
+        if unread:
+            sys.exit('### %s: %d NON-MATCHES ROWS NOT READ BY THE SEAT -- NOTHING WRITTEN: %s' % (name, len(unread), unread[:8]))
+        src = _show(PP, PRE_PP, 'day1/%s.md' % name)
+        L = ['b646 -- COMPONENT 2, (R256)(3): %s AT ITS PATCH LABEL %s THROUGH THE INTAKE FORM, EVERY CLAIM A ROW (tools/licensed_table.py) (%s)' % (
+            name, lab, utc()), '',
+            '### the document: PLACE-papers day1/%s.md at %s, %d lines, sha256 %s' % (name, PRE_PP, len(lines_of(src)), sha(src.encode('utf-8'))),
+            '### the form: b628`s intake (relay tools/b628_record.py `intake`, tools/b628_worklist.py); the rows read by one helper reader of this '
+            'session from the brief (the scratchpad`s companion_brief.md, `established` narrowed per b645`s defect (d), F5 naming both theorems '
+            'per its (e)); the verdict by the mapping alone (relay data/b646_mapping.txt), never by a reader; every non-MATCHES row read whole by '
+            'the seat (%d corrected); the stated-as rule moved %d rows' % (sum(1 for r in rows if r['fixed']), sum(1 for r in rows if r['refined'])), '']
+        L += ['### EVERY ROW (line | grade | stated as | terminal | route | VERDICT ; the quote ; the ACTION):']
+        for r in sorted(rows, key=lambda x: (x['line'], x['id'])):
+            L.append('  :%d | %s | %s | %s | %s | %s ; "%s" ; %s' % (r['line'], r['grade'], r['stated_as'], r['terminal'] or '-', r['route'],
+                                                                  r['verdict'], r['stated'][:200], r['action'][:240]))
+        L += ['', '### THE SKIPS (line | reason), %d:' % len(skips)] + ['  :%d | %s' % (s['line'], s['reason'][:120]) for s in sorted(skips, key=lambda x: x['line'])]
+        L += ['', '### THE ROWS READING OVERREACHES OR UNLICENSED, IN FULL:']
+        for r in sorted(rows, key=lambda x: x['line']):
+            if r['verdict'] in ('OVERREACHES', 'UNLICENSED'):
+                L += ['  :%d %s -- STATED "%s"' % (r['line'], r['verdict'], r['stated']), '      LICENSED %s' % r['licensed'], '      ACTION %s' % r['action']]
+        L += ['', '### ### **%s: CLAIMS %d ; SKIPPED LINES %d ; MATCHES %d ; UNDERSTATES %d ; OVERREACHES %d ; UNLICENSED %d ; A ROW WITHOUT A '
+                  'VERDICT 0 ; UNCOVERED LINES 0.**' % (name, len(rows), len(set(s['line'] for s in skips)), cnt['MATCHES'], cnt['UNDERSTATES'],
+                                                       cnt['OVERREACHES'], cnt['UNLICENSED'])]
+        put_txt('b646_table_%s.txt' % name, L)
+        put_json('b646_table_%s.json' % name, dict(at=utc(), label=lab, counts=cnt, rows=rows, skips=skips))
+        out[name] = cnt
+        print(L[-1])
+    tot = collections.Counter()
+    for c in out.values():
+        tot.update(c)
+    print('  ### ### **THE SEVEN: CLAIMS %d ; MATCHES %d ; UNDERSTATES %d ; OVERREACHES %d ; UNLICENSED %d**' % (
+        sum(tot.values()), tot['MATCHES'], tot['UNDERSTATES'], tot['OVERREACHES'], tot['UNLICENSED']))
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):

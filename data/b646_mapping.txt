@@ -1,0 +1,40 @@
+b646 -- COMPONENT 2, (R256)(3): THE MAPPING, PRINTED BEFORE THE RUN (2026-10-09T23:24:58Z)
+
+### from relay tools/licensed_table.py :252 (MAPPING) and :271 (map_intake), sha256 c2efecf6f5a5b482 -- as b645 printed it (relay data/b645_table_monograph.txt)
+
+### (grade, stated as) -> verdict:
+    kernel-verified            established  -> MATCHES      the terminal at its pin carries the claim as stated
+    kernel-verified            graded       -> MATCHES      the claim names its terminal and grade
+    kernel-verified            over         -> OVERREACHES  the claim states more than its terminal carries (a stipulation read as content, a premise left unnamed)
+    theorem-supported          established  -> OVERREACHES  a classical theorem cited as the programme`s compiled or proved result
+    theorem-supported          graded       -> MATCHES      cited at its source as a classical theorem
+    argument-supported         established  -> OVERREACHES  an argument of the document stated as proved or machine-checked
+    argument-supported         graded       -> MATCHES      stated as the document`s argument, not as a compiled result
+    computationally-verified   established  -> MATCHES      a computation stated as a computation
+    computationally-verified   over         -> OVERREACHES  a finite computation stated as a general theorem
+    synthesis-suggested        established  -> OVERREACHES  a synthesis reading stated as a result
+    synthesis-suggested        graded       -> MATCHES      stated as a reading, interpretation or programme
+    statement-grade            established  -> UNLICENSED   asserted as established; no kernel and no citation reaches it
+    statement-grade            open         -> MATCHES      stated as open, conjectural or a definition of the document`s own terms
+    any                        less         -> UNDERSTATES  the corpus now licenses more than the sentence says (a compiled theorem called open, a terminal said not to exist)
+    route DARK                 established  -> OVERREACHES  a route offered as reaching its conclusion, which the sieve reads DARK
+
+### the stated-as rule (b645`s, relay tools/b645_record.py STATUS_WORDS): an argument-, synthesis- or theorem-grade row the reader marked `established` keeps it only where its quote matches (?i)\b(?:prov(?:ed|es|en|able)|proof|theorem|verif\w*|certif\w*|compil\w*|machine|Lean|kernel|ZFC|established|rigorous\w*|demonstrat\w*|confirm\w*|settled|unconditional\w*|closes?|closed|follows as)\b or its reason names F1-F13 or F15; else `graded`.
+
+### the re-cut by fact (F5 re-written for the two theorems of that name, b645`s defect (e)):
+    F1 state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :101), not as conditional on it
+    F2 say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction
+    F3 say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+    F4 say h1_complete_at_Phi certifies eight coupling facts at Φ and closes no clause on the strip (mellin_Phi_eq_zero_of_re_le_one)
+    F5 name the terminals for what they state: ConservationBridge’s structural_exhaustiveness_proved takes ConservationHypothesis; TheBridgeComplete’s states the seven-class count, the per-class exclusion and Ostrowski’s covering, not that every zero is produced by a named class; spectral_cannon is a fact on the line; none reaches σ = 1/2
+    F6 state partialPositivity_finiteRange with its premises (Bombieri–Lagarias, Voros, VerifiedZerosTo T)
+    F7 state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem
+    F8 name h2_sign and h2_sign_iff_rh as h2’s terminal
+    F9 say the seam is compiled (rh_strip_imp_rh_holds, Seam.lean :84)
+    F10 say the kernel checks the arithmetic 2 + 3 + 2 + 0 = 7; the classification is the paper’s argument
+    F11 say the kernel counts a defined type (Fintype.card MechanismClass = 7); that every zero is produced by a named class (covers_all) is the open clause, not compiled
+    F12 state silence_universal with its premise I.is_universal
+    F13 say the Lean form is the logical schema (modus tollens over an abstract domain); the Mechanism Theorem’s content is the paper’s argument
+    F15 state GRH for a primitive χ ≠ 1 as equivalent to h2_sign_chi (h2_sign_chi_iff_grh_chi), not as conditional on it
+
+### the readers` brief: the scratchpad`s companion_brief.md, sha256 2e820c0982b8606773142a64c041e81049e095a256a7914a4ed3678763960c54
