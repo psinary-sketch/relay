@@ -401,6 +401,8 @@ FACTS = collections.OrderedDict([
     ('route3', ('SIDE-kernel', 'ConservationBridge.riemann_hypothesis', KP + 'Bridge/ConservationBridge.lean:53', 'CONFLICT', 'h_cons : ConservationHypothesis')),
     ('route1', ('SIDE-kernel', 'ConservationBridge.structural_exhaustiveness_proved', KP + 'Bridge/ConservationBridge.lean:46', 'INTERFACES',
                 'h_cons : ConservationHypothesis')),
+    ('route1u', ('SIDE-kernel', 'TheBridgeComplete.structural_exhaustiveness_proved', KP + 'Bridge/TheBridgeComplete.lean:249', None,
+                 'theorem structural_exhaustiveness_proved :\n    StructuralExhaustiveness :=')),
     ('cannon', ('SIDE-kernel', 'SpectralCannonFull.spectral_cannon', KP + 'Kernel/SpectralCannonFull.lean:65', 'DERIVES', 'deriv completedRiemannZeta₀')),
     ('silu', ('SIDE-kernel', 'silence_universal', KP + 'Kernel/SilenceTheorem.lean:74', 'INTERFACES', 'theorem silence_universal')),
     ('sieve', ('SIDE-kernel', 'sieve_ceiling', KP + 'Kernel/Cascade/SieveCeiling.lean:209', 'ENCODES-CONCLUSION \\ SHELL', 'factorsDark')),
@@ -441,7 +443,7 @@ def _fact(k):
     src = _show('D:/' + repo, decl.split('@')[1].split(':')[0], decl.split(':', 1)[1].rsplit(':', 1)[0]) or ''
     if needle not in src:
         sys.exit('### THE FACT %s MOVED: %s -- NOTHING WRITTEN' % (k, decl))
-    return ('`%s` (%s, read at the pin: %s)' % (name, decl.split(':')[0], needle), [decl])
+    return ('`%s` (%s, read at the pin: %s)' % (name, decl.split(':')[0], re.sub(r'\s+', ' ', needle)), [decl])
 
 
 # ### which facts a CP-1b reading leans on, by the words it uses
@@ -535,9 +537,11 @@ MAP_HAND = {
     49: ('MATCHES', 'the surround is independent of h2: its rows are compiled facts that name no zero location', ['h1'], MATCH),
     50: ('MATCHES', 'the license ladder`s terminals DERIVE, RH_typeI_of_top INTERFACES on EDifficultyTop', [], MATCH),
     51: ('MATCHES', 'the conservation and substrate keystones lie outside the RH chain', [], MATCH),
-    52: ('OVERREACHES', 'Route 1`s structural_exhaustiveness_proved takes ConservationHypothesis (h_cons) at v1.5 -- not unconditional; Route 2`s '
-         'spectral_cannon is no sub-RH statement; Route 3`s premise is RH restated', ['route1', 'cannon', 'route3', 'chrh'],
-         'RE-CUT: | MONO | DOWNSTREAM — no route independent of RH | R1 `structural_exhaustiveness_proved` takes ConservationHypothesis, RH restated (`ch_iff_rh`); R2 `spectral_cannon` is a fact on the line, no route to σ = 1/2; R3 `riemann_hypothesis(h_cons)` encodes its conclusion |'),
+    52: ('OVERREACHES', 'R1: TheBridgeComplete`s structural_exhaustiveness_proved is unconditional, as the row says, and states a conjunction about '
+         'defined types and σ-level voice identities (the catalogue`s count by decide, C₇ definition-encoded, Ostrowski`s exhaustiveness) -- no '
+         'statement about ξ`s zeros (its namesake in ConservationBridge takes h_cons); R2`s spectral_cannon is a fact on the line, no sub-RH '
+         'statement; R3`s premise is RH restated', ['route1u', 'route1', 'cannon', 'route3', 'chrh'],
+         'RE-CUT: | MONO | MIXED — Routes 1 and 2 independent and neither a route to σ = 1/2; Route 3 RH from RH | R1 `structural_exhaustiveness_proved` (TheBridgeComplete) unconditional, a conjunction about defined types and σ-level identities; R2 `spectral_cannon` a fact on the line; R3 `riemann_hypothesis(h_cons)` encodes its conclusion (`ch_iff_rh`) |'),
     53: ('OVERREACHES', 'monotone_unique_zero is graded INTERFACES in the table (its StrictMono hypothesis), not DERIVES; one direction only',
          ['rcurve', 'h2rh'],
          'RE-CUT: | RCURVE | MIXED | `monotone_unique_zero` INTERFACES on its monotonicity hypothesis (one direction compiled); the closing row`s premise in its Weil form is equivalent to RH (`h2_sign_iff_rh`) |'),
@@ -557,9 +561,9 @@ MAP_HAND = {
          'RE-CUT: | PATHS | ~11 core rows still "Compiled" | the conservation-frame, formation-count, n₃, seven-voice and Archimedean rows → DERIVES (compiled structural facts); the multiplicative/balance row → ENCODES-CONCLUSION (its premise is RH restated, `ch_iff_rh`); ARM/pentagon rows already graded |'),
     73: ('MATCHES', 'the SURR rows still "Compiled" assigned DERIVES/STRUCTURE', [], MATCH),
     74: ('MATCHES', 'the SIMP content rows assigned DERIVES', [], MATCH),
-    75: ('OVERREACHES', 'Route 1`s terminal takes ConservationHypothesis at v1.5 (INTERFACES, not DERIVES); Route 3 encodes its conclusion',
-         ['route1', 'route3', 'chrh'],
-         'RE-CUT: | MONO §25.8 | axiom profiles only, grades in prose | Route 1 INTERFACES on ConservationHypothesis · Route 2 DERIVES (a fact on the line, no route to σ = 1/2) · Route 3 ENCODES-CONCLUSION (ConservationHypothesis is RH restated, `ch_iff_rh`) |'),
+    75: ('OVERREACHES', 'Route 1 DERIVES what it literally states (TheBridgeComplete :249, unconditional) and Route 2 DERIVES, as the row says; '
+         'Route 3 is not INTERFACES-on-h2: its premise is RH restated (ch_iff_rh), ENCODES-CONCLUSION', ['route1u', 'route3', 'chrh'],
+         'RE-CUT: | MONO §25.8 | axiom profiles only, grades in prose | Route 1 DERIVES (TheBridgeComplete, a conjunction about defined types and σ-level identities) · Route 2 DERIVES (a fact on the line) · neither a route to σ = 1/2 · Route 3 ENCODES-CONCLUSION (ConservationHypothesis is RH restated, `ch_iff_rh`) |'),
     77: ('OVERREACHES', 'the Route-3 rows are not INTERFACES-on-h2: their premise is RH restated (ch_iff_rh), ENCODES-CONCLUSION (T2)', ['route3', 'chrh'],
          'RE-CUT: **Verdict:** every pre-rubric row`s grade is assigned from the correspondence union at its pin: the content rows DERIVES, the balance/positivity rows INTERFACES on their named premises, and the Route-3 rows ENCODES-CONCLUSION, their premise RH restated (`ch_iff_rh`). No pre-rubric row hides a shell.'),
     126: ('MATCHES', 'h1_complete_at_Phi certifies the eight coupling facts at Phi and nothing about zeros in the strip', ['h1', 'mellin'], MATCH),
@@ -573,7 +577,7 @@ MAP_HAND = {
 # ### rows (:160-:173) -- each read whole by the seat against the facts named beside it.
 ANCHOR_FACTS = {89: ['h2rh'], 90: ['chrh'], 91: ['r1'], 92: ['mellin'], 93: [], 94: ['r5'], 95: [], 96: [], 97: ['goal'],
                 103: ['h1', 'mellin'], 104: ['goal', 'r1'], 105: ['cons'], 106: [], 107: ['c7'], 109: [], 110: ['ostr'], 111: ['silu', 'r1'],
-                112: ['cannon'], 113: ['c7'], 114: ['route3', 'chrh'], 122: ['h2rh'], 123: ['goal', 'mellin'], 124: ['route1'],
+                112: ['cannon'], 113: ['c7'], 114: ['route3', 'chrh'], 122: ['h2rh'], 123: ['goal', 'mellin'], 124: ['route1u'],
                 138: ['h1'], 139: ['c7'], 140: [], 141: ['cannon'], 142: ['c7'], 152: ['chrh', 'r5'],
                 160: ['chrh'], 161: ['crt'], 162: ['ediff'], 163: ['h2rh'], 164: ['h2rh'], 165: ['lvh2'], 166: ['mellin'], 167: ['typed'],
                 168: ['r1'], 169: [], 170: ['r5'], 171: ['sieve'], 172: [], 173: ['t3']}
@@ -1035,6 +1039,482 @@ def docstrings(*a):
     put_txt('b645_table_docstrings.txt', L)
     put_json('b645_table_docstrings.json', dict(at=utc(), counts=cnt, control=dict(verdict=pc['verdict'], hand=pc.get('hand_needed')),
                                                  rule_yield=rule_yield, rows=out))
+    print(L[-1])
+
+
+# ================================================================================ COMPONENT 5: THE MONOGRAPH THROUGH THE INTAKE FORM, (R255)(4)(d)
+CHUNKS = [(1, 460), (461, 841), (842, 1147), (1148, 1467), (1468, 1701), (1702, 1902), (1903, 2292), (2293, 2442), (2443, 2598),
+          (2599, 2693), (2694, 2895), (2896, 3192)]
+INTAKE_GRADES = ('kernel-verified', 'theorem-supported', 'argument-supported', 'computationally-verified', 'synthesis-suggested', 'statement-grade')
+RECUT_BY_FACT = {
+    'F1': 'state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :101), not as conditional on it',
+    'F2': 'say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction',
+    'F3': 'say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper`s argument, not the terminal`s content',
+    'F4': 'say h1_complete_at_Phi certifies eight coupling facts at Φ and closes no clause on the strip (mellin_Phi_eq_zero_of_re_le_one)',
+    'F5': 'name the terminals for what they state: Route 1 takes ConservationHypothesis; spectral_cannon is a fact on the line; neither reaches σ = 1/2',
+    'F6': 'state partialPositivity_finiteRange with its premises (Bombieri–Lagarias, Voros, VerifiedZerosTo T)',
+    'F7': 'state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5`s output a theorem',
+    'F8': 'name h2_sign and h2_sign_iff_rh as h2`s terminal',
+    'F9': 'say the seam is compiled (rh_strip_imp_rh_holds, Seam.lean :84)',
+    'F10': 'say the kernel checks the arithmetic 2 + 3 + 2 + 0 = 7; the classification is the paper`s argument',
+    'F11': 'say the kernel counts a defined type (Fintype.card MechanismClass = 7); exhaustiveness at ξ is the paper`s argument, not compiled',
+    'F12': 'state silence_universal with its premise I.is_universal',
+    'F13': 'say the Lean form is the logical schema (modus tollens over an abstract domain); the Mechanism Theorem`s content is the paper`s argument',
+    'F15': 'state GRH for a primitive χ ≠ 1 as equivalent to h2_sign_chi (h2_sign_chi_iff_grh_chi), not as conditional on it',
+}
+
+
+def _mono_lines():
+    return lines_of(_show(PP, PRE_PP, K.MONO))
+
+
+def _mono_chapter(ls):
+    """line -> its chapter or section: the nearest `# ` heading above it, or the nearest `## ` heading in the appendices and back matter."""
+    out, cur = {}, '(front matter)'
+    for i, l in enumerate(ls, 1):
+        if l.startswith('# ') and i < 1941:
+            cur = l[2:].strip()[:70]
+        elif l.startswith('## ') and i >= 1941:
+            cur = l[3:].strip()[:70]
+        out[i] = cur
+    return out
+
+
+def _intake_records():
+    """the readers` records, parsed and checked: [(chunk, kind, fields)] and the faults."""
+    recs, faults = [], []
+    for n, (a, b) in enumerate(CHUNKS, 1):
+        p = os.path.join(SP, 'intake_c%02d.tsv' % n)
+        if not os.path.exists(p):
+            faults.append('chunk %02d (:%d-:%d): no file' % (n, a, b))
+            continue
+        for k, raw in enumerate(io.open(p, encoding='utf-8').read().replace(chr(13), '').split(NL), 1):
+            if not raw.strip():
+                continue
+            f = raw.split('\t')
+            if f[0] == 'CLAIM' and len(f) >= 8:
+                recs.append((n, 'CLAIM', dict(line=f[1].strip(), grade=f[2].strip(), stated_as=f[3].strip(), terminal=f[4].strip(),
+                                              route=f[5].strip(), quote=f[6], reason='\t'.join(f[7:]).strip(), rec=k)))
+            elif f[0] == 'SKIP' and len(f) >= 3:
+                recs.append((n, 'SKIP', dict(line=f[1].strip(), reason='\t'.join(f[2:]).strip(), rec=k)))
+            else:
+                faults.append('chunk %02d record %d malformed: %r' % (n, k, raw[:120]))
+    return recs, faults
+
+
+# ### THE SEAT'S CORRECTIONS OF READERS' RECORDS, by row id: (grade, stated_as, reason) -- each after the seat's whole read of the row.
+_R1U = ('the seat`s read (b645 defect (e), the brief`s F5): Route 1`s unconditional terminal is TheBridgeComplete`s structural_exhaustiveness_proved '
+        '(SIDE-kernel v1.5 Bridge/TheBridgeComplete.lean :249, no hypothesis), a conjunction about defined types and σ-level identities; '
+        'the sentence states that much')
+_CLS = 'the seat`s read: a classical consequence of ξ real on the line, stated as the paper`s argument (F16)'
+_RT = 'the seat`s read: "route terminals" is the corpus`s own repaired wording (E-2026-09-25-1), naming terminals without a route claim'
+MONO_FIX = {
+    'MONO-122-1-101': ('kernel-verified', 'graded', _RT),
+    'MONO-122-1-103': ('kernel-verified', 'established', 'the seat`s read: SIDE-kernel v1.5 = 0e5233f, the tag`s commit (git rev-parse at the pin)'),
+    'MONO-311-1-244': ('argument-supported', 'graded', _CLS), 'MONO-932-3-89': ('theorem-supported', 'graded', _CLS),
+    'MONO-1350-4-188': ('argument-supported', 'graded', _CLS), 'MONO-1953-7-46': ('theorem-supported', 'graded', _CLS),
+    'MONO-1598-5-128': ('kernel-verified', 'established', _R1U), 'MONO-1650-5-172': ('kernel-verified', 'established', _R1U),
+    'MONO-1676-5-200': ('kernel-verified', 'established', _R1U), 'MONO-1692-5-225': ('kernel-verified', 'established', _R1U),
+    'MONO-1694-5-228': ('kernel-verified', 'established', _R1U), 'MONO-2260-7-305': ('kernel-verified', 'established', _R1U),
+    'MONO-2376-8-88': ('kernel-verified', 'established', _R1U), 'MONO-2771-11-81': ('kernel-verified', 'established', _R1U),
+    'MONO-2772-11-82': ('kernel-verified', 'established', _R1U), 'MONO-2775-11-85': ('kernel-verified', 'established', _R1U),
+    'MONO-2776-11-86': ('kernel-verified', 'established', _R1U),
+    'MONO-1698-5-236': ('argument-supported', 'graded', 'the seat`s read: the corpus`s own retirement of an overstated gloss, stated as such'),
+    'MONO-2356-8-64': ('kernel-verified', 'graded', _RT), 'MONO-2360-8-68': ('kernel-verified', 'graded', _RT),
+    # ### chunk 01, read whole by the seat
+    'MONO-107-1-85': ('statement-grade', 'open', 'the seat`s read: the table row marks its own count Definitional -- a definition of the paper`s terms'),
+    'MONO-144-1-119': ('statement-grade', 'open', 'the seat`s read: a framing remark ("may"), no claim'),
+    'MONO-150-1-123': ('statement-grade', 'open', 'the seat`s read: the paper`s naming of its third operation, a definition of its terms'),
+    'MONO-168-1-140': ('theorem-supported', 'graded', 'the seat`s read: a historical fact of record (Riemann 1859)'),
+    'MONO-242-1-199': ('synthesis-suggested', 'graded', 'the seat`s read: "closes" is a figure of the reading, not a proof claim; the wall at 9 is Størmer`s last pair (8, 9)'),
+    'MONO-313-1-246': ('argument-supported', 'graded', 'the seat`s read: "closed-form" is no status claim; the paper`s own derivation'),
+    'MONO-343-1-269': ('argument-supported', 'graded', 'the seat`s read: arithmetic over the paper`s own formation numbers (F10)'),
+    'MONO-345-1-270': ('argument-supported', 'graded', 'the seat`s read: the paper`s own formation count, stated as its count (F10)'),
+    'MONO-345-1-271': ('synthesis-suggested', 'graded', 'the seat`s read: an interpretive gloss of the paper`s silence reading, not a compile claim'),
+    'MONO-437-1-341': ('kernel-verified', 'established', 'the seat`s read: C₁-C₅ DERIVE from the voice theorems (SIDE-kernel v1.5 Bridge/TheBridgeComplete.lean :225-:249, its docstring)'),
+}
+_PA = 'the seat`s read: the paper`s own argument, stated plainly as its argument -- no compile or proof-status claim'
+_FR = 'the seat`s read: a framing of the method or its history; the status word is no status claim'
+MONO_FIX.update({
+    # ### chunk 02, read whole by the seat
+    'MONO-492-2-23': ('synthesis-suggested', 'graded', _FR), 'MONO-536-2-53': ('argument-supported', 'graded', _PA),
+    'MONO-552-2-61': ('argument-supported', 'graded', _FR), 'MONO-552-2-62': ('synthesis-suggested', 'graded', _FR),
+    'MONO-556-2-65': ('synthesis-suggested', 'graded', _FR), 'MONO-565-2-72': ('synthesis-suggested', 'graded', _FR),
+    'MONO-573-2-76': ('argument-supported', 'graded', _FR),
+    'MONO-626-2-113': ('argument-supported', 'graded', 'the seat`s read: the syllogism`s premise schema in general form, not a claim about ξ'),
+    'MONO-630-2-116': ('argument-supported', 'graded', 'the seat`s read: a claim about the syllogism`s logical form, which holds of the form'),
+    'MONO-672-2-144': ('synthesis-suggested', 'graded', 'the seat`s read: the method`s report of its own test case, stated as its report'),
+    'MONO-744-2-194': ('theorem-supported', 'graded', 'the seat`s read: the analytic continuation of ζ is a classical theorem (Riemann 1859)'),
+    'MONO-770-2-211': ('argument-supported', 'graded', _PA), 'MONO-780-2-218': ('argument-supported', 'graded', _PA),
+    'MONO-782-2-219': ('argument-supported', 'graded', _PA), 'MONO-784-2-220': ('argument-supported', 'graded', _PA),
+    'MONO-794-2-228': ('argument-supported', 'graded', _PA), 'MONO-798-2-232': ('argument-supported', 'graded', _PA),
+    'MONO-818-2-249': ('argument-supported', 'graded', _PA), 'MONO-832-2-263': ('argument-supported', 'graded', _PA),
+    'MONO-834-2-267': ('statement-grade', 'open', 'the seat`s read: the Silence Principle`s scope as the paper defines it'),
+    'MONO-836-2-268': ('argument-supported', 'graded', _PA),
+})
+_ST = ('the seat`s read: a stage-level or per-class verdict, the paper`s own argument stated as its argument; the global exhaustiveness '
+       'of the catalogue at ξ (held open, F11) and any conclusion about ξ`s zeros are the rows that stand OVERREACHES')
+_CL = 'the seat`s read: a classical theorem stated as such (F16)'
+for _k in ('847-3-3', '849-3-4', '849-3-5', '849-3-7', '849-3-8', '851-3-9', '856-3-13', '858-3-14', '862-3-17', '862-3-18', '864-3-19',
+           '864-3-20', '890-3-42', '894-3-46', '900-3-50', '900-3-52', '904-3-56', '906-3-59', '908-3-62', '916-3-69', '916-3-71', '924-3-78',
+           '924-3-80', '926-3-81', '926-3-82', '928-3-86', '930-3-87', '932-3-90', '938-3-97', '939-3-98', '940-3-99', '943-3-102', '944-3-103',
+           '946-3-104', '950-3-111', '954-3-113', '954-3-114', '954-3-115', '958-3-117', '964-3-121', '964-3-124', '968-3-127', '970-3-128',
+           '976-3-132', '980-3-134', '980-3-135', '996-3-151', '996-3-153', '1011-3-170', '1020-3-175', '1031-3-183', '1059-3-199',
+           '1069-3-208', '1114-3-241', '1138-3-274', '1138-3-275'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _ST)
+for _k in ('916-3-70', '922-3-75', '932-3-91', '998-3-154', '1134-3-264', '1134-3-266', '1134-3-267'):
+    MONO_FIX['MONO-' + _k] = ('theorem-supported', 'graded', _CL)
+for _k in ('1167-4-13', '1173-4-24', '1197-4-53', '1210-4-71', '1211-4-72', '1219-4-81', '1225-4-86', '1229-4-88', '1233-4-91', '1256-4-107',
+           '1271-4-120', '1404-4-223'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _ST)
+for _k in ('1157-4-6', '1159-4-7', '1161-4-8', '1173-4-23', '1246-4-101', '1252-4-105'):
+    MONO_FIX['MONO-' + _k] = ('theorem-supported', 'graded', 'the seat`s read: a classical construction or theorem (θ, the Mellin transform, the functional '
+                                                             'equations, Tate`s thesis, the twisted Epstein off-line zeros of Davenport-Heilbronn type), stated as such')
+MONO_FIX.update({
+    'MONO-1227-4-87': ('statement-grade', 'open', 'the seat`s read: a statement about the document`s own list, which holds of it'),
+    'MONO-1260-4-110': ('computationally-verified', 'established', 'the seat`s read: the quartic character mod 5 takes these values (2 is a generator)'),
+    'MONO-1308-4-150': ('argument-supported', 'less', 'the seat`s read: "closes to a single open clause" -- Part III`s clause is RH itself (F1)'),
+    'MONO-1314-4-157': ('kernel-verified', 'established', 'the seat`s read: C₁-C₅ DERIVE from the voice theorems (SIDE-kernel v1.5 Bridge/TheBridgeComplete.lean :225-:249)'),
+})
+_REC = 'the seat`s read: an edition record of a corpus check or ruling, stated as such and true of the corpus'
+for _k in ('1537-5-65', '1539-5-69', '1539-5-70', '1541-5-72', '1553-5-84', '1586-5-120', '1658-5-178', '1670-5-194'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _REC)
+for _k in ('1541-5-75', '1672-5-195', '1684-5-207', '1690-5-214'):
+    MONO_FIX['MONO-' + _k] = ('statement-grade', 'open', 'the seat`s read: a scope statement of the document`s own table or section')
+MONO_FIX.update({
+    'MONO-1543-5-76': ('theorem-supported', 'graded', 'the seat`s read: Mathlib API facts at the pin (AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq is a '
+                                                      'declaration the explicit-formula kernel elaborates, relay data/b643_elab_ef.txt)'),
+    'MONO-1567-5-98': ('kernel-verified', 'established', 'the seat`s read: `inductive Place` (SIDE-kernel v1.5 Kernel/Core.lean :24, Bridge/OstrowskiBridge.lean :34)'),
+    'MONO-1668-5-189': ('theorem-supported', 'graded', 'the seat`s read: Lean facts -- `sorry` elaborates to sorryAx, `native_decide` to Lean.ofReduceBool'),
+    'MONO-1672-5-197': ('argument-supported', 'graded', 'the seat`s read: ERRATA.md carries E-2026-09-22-1 (git grep, six lines)'),
+    'MONO-1698-5-231': ('kernel-verified', 'established', 'the seat`s read: `theorem spectral_cannon` has one definition at v1.5 and main (Kernel/SpectralCannonFull.lean :65)'),
+    'MONO-1698-5-234': ('kernel-verified', 'graded', 'the seat`s read: the sentence states the terminal`s content exactly ((deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0) before naming it'),
+})
+for _k in ('1709-6-5', '1713-6-10', '1723-6-22', '1725-6-24', '1727-6-26', '1727-6-27', '1764-6-50', '1784-6-80', '1784-6-81', '1788-6-87',
+           '1825-6-182', '1827-6-195', '1827-6-196', '1850-6-218'):
+    MONO_FIX['MONO-' + _k] = ('synthesis-suggested', 'graded', _FR)
+for _k in ('1717-6-14', '1717-6-15', '1772-6-59', '1802-6-109', '1804-6-127', '1810-6-144', '1838-6-203'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _REC)
+for _k in ('1794-6-96', '1868-6-242', '1870-6-243', '1878-6-251', '1889-6-263'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _ST)
+MONO_FIX.update({
+    'MONO-1717-6-17': ('statement-grade', 'open', 'the seat`s read: an absence stated as an absence, true (no ξ′ form is compiled)'),
+    'MONO-1772-6-62': ('argument-supported', 'graded', 'the seat`s read: the GRH scope at primitive χ matches the compiled χ form`s premise (F15)'),
+    'MONO-1794-6-99': ('kernel-verified', 'established', 'the seat`s read: the deposited kernel compiles (SIDE-kernel v1.5, its profiles in the terminal table)'),
+    'MONO-1812-6-146': ('statement-grade', 'open', 'the seat`s read: the definition of Φ, the classical theta tail'),
+    'MONO-1825-6-187': ('argument-supported', 'graded', 'the seat`s read: the line carries the corpus`s own correction, convergent and not independent'),
+})
+# ### the Route 1 rows the readers also marked route DARK: Route 1 is offered as compiled, not as a route reaching σ = 1/2 for ξ
+for _k in ('MONO-1598-5-128', 'MONO-1650-5-172', 'MONO-1676-5-200', 'MONO-1692-5-225', 'MONO-1694-5-228', 'MONO-2260-7-305', 'MONO-2376-8-88'):
+    MONO_FIX[_k] = MONO_FIX[_k][:3] + ('no',)
+for _k in ('1915-7-12', '1925-7-0', '1927-7-25', '1954-7-47', '1967-7-58', '2042-7-120', '2050-7-126', '2233-7-255', '2233-7-257'):
+    if _k != '1925-7-0':
+        MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _ST)
+for _k in ('1921-7-18', '2188-7-201', '2190-7-202', '2194-7-209', '2198-7-220', '2200-7-221', '2206-7-233'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _REC)
+for _k in ('1927-7-23', '1929-7-27', '1951-7-44', '1952-7-45', '1958-7-51'):
+    MONO_FIX['MONO-' + _k] = ('theorem-supported', 'graded', 'the seat`s read: a classical fact or a historical date of record, stated as such and true')
+MONO_FIX.update({
+    'MONO-1921-7-19': ('kernel-verified', 'established', 'the seat`s read: the deposited kernel compiles (SIDE-kernel v1.5)'),
+    'MONO-1927-7-26': ('argument-supported', 'less', 'the seat`s read: "reduce the question to one located clause" -- the clause in its Weil form is RH itself (F1)'),
+    'MONO-2198-7-216': ('kernel-verified', 'established', 'the seat`s read: SIDE-kernel v1.5 = 0e5233f, the tag`s commit'),
+    'MONO-2250-7-292': ('argument-supported', 'graded', 'the seat`s read: true -- no kernel proves RH (F1, F2)'),
+    'MONO-2254-7-299': ('argument-supported', 'graded', 'the seat`s read: true -- RH is not proved (F1)'),
+})
+for _k in ('2309-8-12', '2310-8-14', '2314-8-18', '2319-8-25', '2323-8-27', '2324-8-28', '2350-8-57', '2353-8-60', '2355-8-63', '2373-8-85'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _REC)
+MONO_FIX['MONO-2390-8-104'] = ('kernel-verified', 'established', 'the seat`s read: the heat trace of {n²} at Φ is one of h1_complete_at_Phi`s eight coupling '
+                                                                  'facts (SIDE-lv-conservation CouplingsAtPhi.lean :418; the map :126)')
+for _k in ('2456-9-12', '2457-9-14', '2463-9-19', '2467-9-28', '2468-9-29', '2469-9-30', '2470-9-32', '2473-9-35', '2474-9-38', '2476-9-40',
+           '2480-9-44', '2491-9-56', '2493-9-60', '2501-9-67', '2502-9-68', '2503-9-70', '2503-9-71', '2504-9-72', '2505-9-75', '2514-9-82',
+           '2516-9-84', '2517-9-85', '2520-9-88', '2521-9-89', '2526-9-94', '2531-9-99', '2532-9-100', '2537-9-103', '2615-10-15', '2680-10-89'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _REC)
+MONO_FIX['MONO-2493-9-59'] = ('kernel-verified', 'established', 'the seat`s read: C₁-C₅ DERIVE from the voice theorems (SIDE-kernel v1.5 '
+                                                                'Bridge/TheBridgeComplete.lean :225-:249); the joint step stated open')
+for _k in ('2630-10-31', '2633-10-35', '2635-10-38', '2637-10-40', '2645-10-50', '2651-10-58', '2656-10-63', '2675-10-82'):
+    MONO_FIX['MONO-' + _k] = ('kernel-verified', 'established', 'the seat`s read: the record states Route 3`s premise as RH restated -- ch_iff_rh '
+                                                                '(H2Bridge.lean :71), as the corpus reads it (F2)', 'no')
+for _k in ('2763-11-73', '2765-11-75', '2778-11-88', '2780-11-90', '2790-11-100'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _REC)
+for _k in ('2747-11-57', '2800-11-110'):
+    MONO_FIX['MONO-' + _k] = ('argument-supported', 'graded', _ST)
+_RH60 = ('the seat`s read: the corrected text scopes each compiled per-class exclusion as a condition on a real σ, the joint step RH restated '
+         '(the sieve`s RH-60) -- what TheBridgeComplete`s conjunction states (SIDE-kernel v1.5 :225-:249)')
+for _k in ('3009-12-88', '3063-12-122', '3065-12-124', '3072-12-131', '3086-12-145', '3103-12-163', '3104-12-165', '3106-12-168', '3110-12-173',
+           '3116-12-178', '3117-12-179', '3124-12-187', '3129-12-193', '3135-12-199', '3137-12-202', '3142-12-207', '3143-12-208', '3149-12-212',
+           '3181-12-234', '3182-12-235'):
+    MONO_FIX['MONO-' + _k] = ('kernel-verified', 'graded', _RH60, 'no')
+MONO_FIX.update({
+    'MONO-2898-12-2': ('kernel-verified', 'established', 'the seat`s read: SIDE-kernel v1.5 = 0e5233f, the tag`s commit'),
+    'MONO-2915-12-20': ('kernel-verified', 'established', 'the seat`s read: SIDE-global-section v0.1.0 resolves to 706a81b (git rev-parse)'),
+    'MONO-2972-12-62': ('argument-supported', 'graded', _REC),
+    'MONO-3007-12-86': ('computationally-verified', 'established', 'the seat`s read: a finite bench computation stated as such, offered toward no target', 'no'),
+})
+MONO_READ_CHUNKS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+# ### THE MATCHES SAMPLE: 40 rows drawn with seed 645 from the MATCHES rows no correction had touched (25 the stated-as rule moved, 15 not),
+# ### each read whole by the seat -- AGREE, or CORRECTED with its correction in MONO_FIX
+MONO_SAMPLE = dict((k, 'AGREE') for k in (
+    'MONO-118-1-93', 'MONO-166-1-138', 'MONO-250-1-204', 'MONO-317-1-252', 'MONO-437-1-340', 'MONO-536-2-51', 'MONO-595-2-89', 'MONO-607-2-99',
+    'MONO-702-2-164', 'MONO-774-2-215', 'MONO-796-2-231', 'MONO-813-2-245', 'MONO-914-3-68', 'MONO-928-3-83', 'MONO-974-3-131', 'MONO-980-3-136',
+    'MONO-1171-4-19', 'MONO-1376-4-202', 'MONO-1502-5-31', 'MONO-1580-5-114', 'MONO-1692-5-215', 'MONO-1876-6-249', 'MONO-2007-7-88',
+    'MONO-2011-7-91', 'MONO-2066-7-134', 'MONO-2204-7-229', 'MONO-2248-7-291', 'MONO-2365-8-73', 'MONO-2366-8-74', 'MONO-2367-8-76',
+    'MONO-2386-8-99', 'MONO-2634-10-37', 'MONO-2673-10-78', 'MONO-2689-10-99', 'MONO-2691-10-101', 'MONO-2701-11-8'))
+MONO_SAMPLE.update(dict((k, 'CORRECTED') for k in ('MONO-118-1-96', 'MONO-725-2-181', 'MONO-1484-5-14', 'MONO-1634-5-159')))
+MONO_FIX.update({
+    'MONO-118-1-96': ('synthesis-suggested', 'established', 'the seat`s sample read: "no eighth class" is the catalogue`s global exhaustiveness at ξ, held open (F11)'),
+    'MONO-725-2-181': ('synthesis-suggested', 'established', 'the seat`s sample read: "five independent closures" of the step to actual independence -- '
+                                                             'a closure claim the corpus does not license (F11; the reading at :2696)'),
+    'MONO-1484-5-14': ('synthesis-suggested', 'established', 'the seat`s sample read: a programme claim stated as fact, no argument or terminal on the line'),
+    'MONO-1634-5-159': ('statement-grade', 'established', 'the seat`s sample read: a compile profile of a bridge file in the separate, unpinned '
+                                                          'project (the reading at :1630)'),
+})   # ### the chunks whose every non-MATCHES row the seat has read whole; a row there not in MONO_FIX stands as the reader graded it
+# ### THE STATED-AS RULE (b645's defect (d), the brief's): the brief defined `established` as "stated as true, proved, verified or compiled",
+# ### and a monograph states its own arguments and readings plainly; the mapping's (argument-supported | synthesis-suggested, established)
+# ### means an argument or reading stated as proved, verified or a result, and (theorem-supported, established) a classical theorem presented
+# ### as the programme's own compiled or proved result. So an argument-, synthesis- or theorem-grade row the reader marked
+# ### `established` keeps it only where its quote claims a status beyond argument (STATUS_WORDS) or its reason names a corpus fact the claim
+# ### conflicts with (F1-F13, F15); every other such row is read `graded` -- the paper`s own argument or reading, stated as such.
+STATUS_WORDS = re.compile(r'(?i)\b(?:prov(?:ed|es|en|able)|proof|theorem|verif\w*|certif\w*|compil\w*|machine|Lean|kernel|ZFC|established|rigorous\w*|'
+                          r'demonstrat\w*|confirm\w*|settled|unconditional\w*|closes?|closed|follows as)\b')
+
+
+def _mono_rows():
+    import licensed_table as LT
+    ls = _mono_lines()
+    chap = _mono_chapter(ls)
+    recs, faults = _intake_records()
+    lookup, _ef = _ef_lookup()
+    rows_all, _md = _tt()
+    tnames = collections.defaultdict(list)
+    for x in rows_all:
+        tnames[x['name'].split('.')[-1]].append(x)
+    covered = collections.defaultdict(list)
+    rows, skips = [], []
+    for n, kind, r in recs:
+        a, b = CHUNKS[n - 1]
+        if not r['line'].isdigit() or not (a <= int(r['line']) <= b):
+            faults.append('chunk %02d record %d: line %r outside :%d-:%d' % (n, r['rec'], r['line'], a, b))
+            continue
+        ln = int(r['line'])
+        covered[ln].append(kind)
+        if kind == 'SKIP':
+            skips.append(dict(line=ln, reason=r['reason'], chunk=n))
+            continue
+        q = r['quote']
+        if not (len(q) >= 8 and q in ls[ln - 1]):
+            faults.append('chunk %02d record %d (:%d): the quote is not a substring of its line: %r' % (n, r['rec'], ln, q[:80]))
+            continue
+        rid = 'MONO-%d-%d-%d' % (ln, n, r['rec'])
+        fix = MONO_FIX.get(rid)
+        grade, sa, reason = (fix[:3] if fix else (r['grade'], r['stated_as'], r['reason']))
+        if fix and len(fix) > 3:
+            r = dict(r, route=fix[3])
+        refined = False
+        if not fix and grade in ('argument-supported', 'synthesis-suggested', 'theorem-supported') and sa == 'established' and not STATUS_WORDS.search(q) \
+                and not re.search(r'\bF(?:[1-9]|1[0-3]|15)\b', reason):
+            sa, refined = 'graded', True
+        if grade not in INTAKE_GRADES:
+            faults.append('chunk %02d record %d (:%d): grade %r' % (n, r['rec'], ln, grade))
+            continue
+        route = r['route'] if r['route'] in ('no', 'DARK', 'BRIGHT') else 'no'
+        try:
+            v = LT.map_intake(grade, sa, 'DARK' if route == 'DARK' else 'NOT A ROUTE')
+        except KeyError:
+            faults.append('chunk %02d record %d (:%d): the pair (%s, %s) is not in the mapping' % (n, r['rec'], ln, grade, sa))
+            continue
+        term = r['terminal'].strip('`') if r['terminal'] not in ('-', '') else ''
+        tline = ''
+        if term:
+            hits = tnames.get(term.split('.')[-1]) or []
+            tline = ('; its row: %s' % ' | '.join('%s %s %s' % (x['repo'], x['name'], x['grade']) for x in hits[:2])) if hits else \
+                '; the terminal is no row of the terminal table'
+        facts = sorted(set(re.findall(r'\bF(\d{1,2})\b', reason)), key=int)
+        if v == 'MATCHES':
+            act = 'none'
+        elif v == 'UNLICENSED':
+            act = 'RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (%s); the v6.0 re-cut under (R255)(2) carries no such sentence' % grade
+        else:
+            rc = [RECUT_BY_FACT['F' + f] for f in facts if 'F' + f in RECUT_BY_FACT]
+            act = 'RE-CUT: %s -- %s' % (q[:120], '; '.join(rc) if rc else 'state the claim at its grade (%s), %s' % (
+                grade, 'saying what the corpus now licenses' if v == 'UNDERSTATES' else 'no more than its support carries'))
+        rows.append(dict(id='MONO-%d-%d-%d' % (ln, n, r['rec']), source='%s:%d' % (K.MONO, ln), stated=q, line=ln, chunk=n, chapter=chap[ln],
+                         licensed='intake: %s, stated as %s%s%s; the mapping (%s, %s) -> %s; %s' % (
+                             grade, sa, (', terminal ' + term) if term else '', tline, grade, sa, v, reason),
+                         by='intake', verdict=v, action=act, grade=grade, stated_as=sa, terminal=term, route=route, fixed=bool(fix), refined=refined))
+    unc = [i for i, l in enumerate(ls, 1) if l.strip() and i not in covered]
+    return rows, skips, faults, unc
+
+
+MONO_READ = {}   # ### the seat's whole read of every non-MATCHES row and of the MATCHES sample: id -> 'AGREE' or the fix made (MONO_FIX)
+
+
+def monograph(*a):
+    """data/b645_table_monograph.txt and .json: (R255)(4)(d) -- A_Place_to_Stand_v5_18.md through the intake form of b628, every claim a row,
+    the outcome-to-verdict mapping printed before the rows (and committed before the run, relay data/b645_instrument.txt); the readers'
+    records (twelve helper readers of this session, one chunk each, the brief in the closing's record) checked -- every quote a substring
+    of its line, every non-blank line a CLAIM or a SKIP with its reason, every pair in the mapping -- and every non-MATCHES row read whole by
+    the seat; counts by verdict and by chapter; the OVERREACHES rows printed in full."""
+    import licensed_table as LT
+    rows, skips, faults, unc = _mono_rows()
+    if faults or unc:
+        sys.exit('### THE READERS` RECORDS CARRY %d FAULTS AND %d UNCOVERED LINES -- NOTHING WRITTEN: %s %s' % (len(faults), len(unc), faults[:3], unc[:10]))
+    cnt, f2 = LT.table(rows)
+    if f2:
+        sys.exit('### THE TABLE REFUSED: %s' % list(f2.items())[:4])
+    MONO_READ.clear()
+    for r in rows:
+        if r['id'] in MONO_SAMPLE:
+            MONO_READ[r['id']] = 'SAMPLE ' + MONO_SAMPLE[r['id']]
+        elif r['fixed']:
+            MONO_READ[r['id']] = 'READ, CORRECTED'
+        elif r['verdict'] != 'MATCHES' and r['chunk'] in MONO_READ_CHUNKS:
+            MONO_READ[r['id']] = 'READ, STANDS'
+    unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in MONO_READ]
+    if unread:
+        sys.exit('### %d NON-MATCHES ROWS NOT READ BY THE SEAT -- NOTHING WRITTEN: %s' % (len(unread), unread[:8]))
+    miss = [k for k in MONO_SAMPLE if k not in set(r['id'] for r in rows)]
+    if miss:
+        sys.exit('### SAMPLE IDS WITH NO ROW %s -- NOTHING WRITTEN' % miss)
+    bych = collections.OrderedDict()
+    for r in sorted(rows, key=lambda x: x['line']):
+        bych.setdefault(r['chapter'], collections.Counter())[r['verdict']] += 1
+    sample = sorted(MONO_SAMPLE)
+    agree = sum(1 for v in MONO_SAMPLE.values() if v == 'AGREE')
+    L = ['b645 -- COMPONENT 5, (R255)(4)(d): THE MONOGRAPH THROUGH THE INTAKE FORM, EVERY CLAIM A ROW (tools/licensed_table.py) (%s)' % utc(), '',
+         '### the document: PLACE-papers %s at %s, %d lines, sha256 %s' % (K.MONO, PRE_PP, len(_mono_lines()),
+                                                                       hashlib_sha(_show(PP, PRE_PP, K.MONO))),
+         '### the form: b628`s intake (relay tools/b628_record.py, `intake`: the six grades, the route through the sieve`s tests, a terminal and a '
+         'pin for kernel-verified); the rows read by twelve helper readers of this session, one chunk each, from one brief (the seat`s, its facts '
+         'F1-F17 the corpus`s licensed readings: the map`s CP-1b readings and the facts of relay data/b645_table_seam_map.txt); the verdict by the '
+         'mapping alone, never by a reader; every non-MATCHES row read whole by the seat (%d corrected), and a sample of %d MATCHES rows '
+         '(seed 645): %d agree, %d corrected -- the MATCHES count carries that rate of error over the rows no one has read' % (
+             sum(1 for r in rows if r['fixed']), len(sample), agree, len(sample) - agree),
+         '### the stated-as rule (the seat`s, b645 defect (d)): an argument-, synthesis- or theorem-grade row the reader marked `established` keeps it '
+         'only where its quote claims a status beyond argument (%s) or its reason names a corpus fact it conflicts with (F1-F13, F15); else it reads '
+         '`graded`. Rows it moved: %d. The brief`s F5 named one of two theorems called structural_exhaustiveness_proved; TheBridgeComplete`s is '
+         'unconditional (defect (e)); the rows read on it corrected by hand.' % (STATUS_WORDS.pattern[:80], sum(1 for r in rows if r.get('refined'))), '']
+    L += ['### THE MAPPING, PRINTED BEFORE THE RUN ((grade, stated as) -> verdict):'] + ['    %-26s %-12s -> %-12s %s' % m for m in LT.MAPPING] + ['']
+    L += ['### EVERY ROW (line | chapter | grade | stated as | terminal | route | VERDICT ; the quote ; the ACTION):']
+    for r in sorted(rows, key=lambda x: (x['line'], x['id'])):
+        L.append('  :%d | %s | %s | %s | %s | %s | %s ; "%s" ; %s' % (r['line'], r['chapter'][:40], r['grade'], r['stated_as'], r['terminal'] or '-',
+                                                                  r['route'], r['verdict'], r['stated'][:200], r['action'][:220]))
+    L += ['', '### THE SKIPS (line | reason), %d:' % len(skips)] + ['  :%d | %s' % (s['line'], s['reason'][:120]) for s in sorted(skips, key=lambda x: x['line'])]
+    L += ['', '### BY CHAPTER AND VERDICT:'] + ['  %-72s %s' % (c, ' ; '.join('%s %d' % kv for kv in sorted(v.items()))) for c, v in bych.items()]
+    L += ['', '### THE ROWS READING OVERREACHES, IN FULL (for the author, at the closing):']
+    for r in sorted(rows, key=lambda x: x['line']):
+        if r['verdict'] == 'OVERREACHES':
+            L += ['  :%d (%s) -- STATED "%s"' % (r['line'], r['chapter'][:50], r['stated']), '      LICENSED %s' % r['licensed'], '      ACTION %s' % r['action']]
+    brief = rd_sp('intake_brief.md')
+    if not brief:
+        sys.exit('### THE READERS` BRIEF IS NOT IN THE SCRATCHPAD -- NOTHING WRITTEN')
+    L += ['', '### THE READERS` BRIEF, AS THEY READ IT (the scratchpad`s intake_brief.md, sha256 %s):' % hashlib_sha(brief)] + \
+        ['    ' + l for l in brief.rstrip(NL).split(NL)]
+    L += ['', '### ### **CLAIMS %d ; SKIPPED LINES %d ; MATCHES %d ; UNDERSTATES %d ; OVERREACHES %d ; UNLICENSED %d ; A ROW WITHOUT A VERDICT 0 ; '
+              'UNCOVERED LINES 0.**' % (len(rows), len(set(s['line'] for s in skips)), cnt['MATCHES'], cnt['UNDERSTATES'], cnt['OVERREACHES'], cnt['UNLICENSED'])]
+    put_txt('b645_table_monograph.txt', L)
+    put_json('b645_table_monograph.json', dict(at=utc(), counts=cnt, rows=rows, skips=skips, by_chapter=dict((k, dict(v)) for k, v in bych.items()),
+                                                read=MONO_READ))
+    print(L[-1])
+
+
+def hashlib_sha(t):
+    import hashlib
+    return hashlib.sha256((t or '').encode('utf-8')).hexdigest()
+
+
+def mono_check(*a):
+    """prints the validation of the readers' records -- faults, uncovered lines, counts -- and writes nothing."""
+    rows, skips, faults, unc = _mono_rows()
+    print('  rows %d ; skips %d ; faults %d ; uncovered non-blank lines %d' % (len(rows), len(skips), len(faults), len(unc)))
+    for f in faults[:40]:
+        print('  FAULT ' + f)
+    print('  UNCOVERED: %s' % unc[:60])
+    print('  BY VERDICT: %s' % dict(collections.Counter(r['verdict'] for r in rows)))
+    print('  BY CHUNK: %s' % dict(collections.Counter(r['chunk'] for r in rows)))
+
+
+# ================================================================================ COMPONENT 6: THE THREE COLUMNS, (R255)(5)
+CLUSTER_HAND = {}   # ### registry id -> (cluster, the lines read cited), for a keystone neither rule places
+
+
+def _roster():
+    """the census roster's keystones (relay data/b644_census_roster.txt): (row, tier, id, REGISTRY line, heading phase), each with its
+    file read from its REGISTRY line at PLACE-papers before the act."""
+    reg = lines_of(_show(PP, PRE_PP, 'REGISTRY.md'))
+    out = []
+    for l in rd('b644_census_roster.txt').split(NL):
+        m = re.match(r'^  (R\d\d) (\w+)\s+(\S+)\s+REGISTRY :(\d+)\s+heading `.*?` \(phase ([^,]+), cluster ([^)]+)\)', l)
+        if not m:
+            continue
+        row = reg[int(m.group(4)) - 1]
+        fs = [a or b for a, b in re.findall(r'`([^`]+\.md)`|([\w./-]+\.md)', row)]
+        path = fs[0] if fs else ''
+        pm = re.match(r'^(day1|phase1\.5|phase2)/', path)
+        out.append(dict(row=m.group(1), tier=m.group(2), id=m.group(3), reg_line=int(m.group(4)), heading_phase=m.group(5).strip(),
+                        phase={'day1': '1', 'phase1.5': '1.5', 'phase2': '2'}[pm.group(1)] if pm else '-',
+                        reg_cluster=m.group(6).strip(), path=path, superseded=bool(re.search(r'SUPERSEDED', row))))
+    return out
+
+
+def columns(*a):
+    """data/b645_census_columns.txt and .json: (R255)(5) -- CLUSTER by the rule over each keystone's path and terminals (HAND where neither
+    places it), PHASE the phase directory of its path as a field (day1 1, phase1.5 1.5, phase2 2, any other directory -), the roster's
+    REGISTRY-heading phase printed beside it, MATURITY by the rule printed before it runs, applied to the monograph (d1-1) and to
+    SIDE-explicit-formula alone, every other keystone blank and marked; no census edition."""
+    import licensed_table as LT
+    K_ = _roster()
+    if len(K_) != 48:
+        sys.exit('### THE ROSTER READ %d KEYSTONES, NOT 48 -- NOTHING WRITTEN' % len(K_))
+    M = jl('b645_table_monograph.json')
+    Dc = jl('b645_table_docstrings.json')
+    if not M.get('counts') or not Dc.get('counts'):
+        sys.exit('### THE MONOGRAPH OR DOCSTRING TABLE IS NOT BANKED -- NOTHING WRITTEN')
+    mono_open = sum(1 for r in M.get('rows') or [] if r.get('stated_as') == 'open')
+    ST = dict((r['head'], r['status']) for r in jl('b643_premise_table.json').get('rows') or [])
+    lookup, ef = _ef_lookup()
+    ef_open = sum(1 for x in ef if x['grade'] == 'INTERFACES' and any(ST.get(h) == 'OPEN' for h in
+                                                                       re.findall(r'\b([A-Z]\w+)\b', x['statement'] or '')))
+    L = ['b645 -- COMPONENT 6, (R255)(5): THE CENSUS`S CLUSTER, PHASE AND MATURITY COLUMNS, DEFINED AND BANKED FOR v0.8 -- NO EDITION (%s)' % utc(),
+         ''] + LT.rules()[-(len(LT.PATH_RULES) + len(LT.TERMINAL_SETS) + 5):] + [
+        '', '### the rules above were printed in relay data/b645_instrument.txt and committed before this run; the cluster rule`s planted paths '
+            'are its cases (17)-(18).', '',
+        '### THE KEYSTONES (row | tier | id | path | PHASE | CLUSTER (how) | MATURITY (why)):']
+    J = []
+    for k in K_:
+        t = _show(PP, 'HEAD', k['path']) or ''
+        names = set(re.findall(r'`(?:[\w.]+\.)?([A-Za-z_][\w\'₀-₉]*)`', t))
+        c, how = LT.cluster(k['path'], names)
+        if not c and k['id'] in CLUSTER_HAND:
+            c, cites = CLUSTER_HAND[k['id']]
+            how = 'HAND: ' + ', '.join(cites)
+        if k['id'] == 'd1-1':
+            mat, why = LT.maturity(M['counts'], open_rows=mono_open, superseded=False)
+            why += ' (relay data/b645_table_monograph.txt: %s ; stated open %d)' % (
+                ', '.join('%s %d' % kv for kv in M['counts'].items()), mono_open)
+        else:
+            mat, why = LT.maturity(None)
+        J.append(dict(k, cluster=c, how=how, maturity=mat, why=why))
+        L.append('  %s | %-2s | %-46s | %-58s | %-4s (heading %-3s) | %-15s (%s) | %s (%s)' % (
+            k['row'], k['tier'], k['id'][:46], k['path'][:58], k['phase'], k['heading_phase'], c or '### BLANK', how[:60], mat or '### BLANK', why))
+    mat, why = LT.maturity(Dc['counts'], open_rows=ef_open)
+    ef_row = dict(row='§1A', tier='kernel', id='SIDE-explicit-formula v0.26 = 82550e4', path='D:/SIDE-explicit-formula', phase='1',
+                  cluster=LT.cluster('', set(x['name'].split('.')[-1] for x in ef))[0] or 'reduction-chain', how='terminals', maturity=mat,
+                  why=why + ' (relay data/b645_table_docstrings.txt: %s ; theorems at INTERFACES on an OPEN premise %d)' % (
+                      ', '.join('%s %d' % kv for kv in Dc['counts'].items()), ef_open))
+    ef_row['how'] = 'terminals: ' + LT.cluster('', set(x['name'].split('.')[-1] for x in ef))[1]
+    J.append(ef_row)
+    L.append('  %s | %s | %s | %s | %s | %s (%s) | %s (%s)' % (ef_row['row'], ef_row['tier'], ef_row['id'], ef_row['path'], ef_row['phase'],
+                                                           ef_row['cluster'], ef_row['how'][:80], ef_row['maturity'], ef_row['why']))
+    blank_c = [x['id'] for x in J if not x['cluster']]
+    L += ['', '### BY CLUSTER: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['cluster'] or 'BLANK' for x in J).items())),
+          '### BY PHASE: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['phase'] for x in J).items())),
+          '### BY MATURITY: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['maturity'] or 'BLANK (NOT YET IN THE TABLE)' for x in J).items())),
+          '### HOW THE CLUSTER WAS PLACED: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['how'].split(':')[0] for x in J).items())),
+          '', '### ### **KEYSTONES %d AND THE KERNEL ; CLUSTER PLACED %d, BLANK %d %s ; MATURITY ASSIGNED %d, BLANK AND MARKED %d ; NO BLANK COUNTED AS A VALUE.**' % (
+              len(K_), sum(1 for x in J if x['cluster']), len(blank_c), blank_c or '', sum(1 for x in J if x['maturity']),
+              sum(1 for x in J if not x['maturity']))]
+    put_txt('b645_census_columns.txt', L)
+    put_json('b645_census_columns.json', dict(at=utc(), rows=J, rule=LT.MATURITY_RULE))
     print(L[-1])
 
 

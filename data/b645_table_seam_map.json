@@ -1,5 +1,5 @@
 {
- "at": "2026-10-09T18:49:34Z",
+ "at": "2026-10-09T19:16:10Z",
  "counts": {
   "MATCHES": 371,
   "UNDERSTATES": 6,
@@ -423,10 +423,11 @@
    "stated": "| **MONO** | **MIXED** — Routes 1&2 independent, Route 3 downstream | R1 `structural_exhaustiveness_proved` unconditional; R2 `spectral_cannon` sub-RH ∀t; R3 `riemann_hypothesis(h_cons)` a compiled implication FROM h2 |",
    "line": 52,
    "kind": "table",
-   "licensed": "Route 1`s structural_exhaustiveness_proved takes ConservationHypothesis (h_cons) at v1.5 -- not unconditional; Route 2`s spectral_cannon is no sub-RH statement; Route 3`s premise is RH restated -- `structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, grade INTERFACES: theorem structural_exhaustiveness_proved (h_cons : ConservationHypothesis) : StructuralExhaustiveness); `spectral_cannon` (SIDE-kernel@0e5233f, grade DERIVES: theorem spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0); `riemann_hypothesis` (SIDE-kernel@0e5233f, grade CONFLICT: theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis); `ch_iff_rh` (SIDE-explicit-formula@82550e4, grade DERIVES: theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis)",
+   "licensed": "R1: TheBridgeComplete`s structural_exhaustiveness_proved is unconditional, as the row says, and states a conjunction about defined types and σ-level voice identities (the catalogue`s count by decide, C₇ definition-encoded, Ostrowski`s exhaustiveness) -- no statement about ξ`s zeros (its namesake in ConservationBridge takes h_cons); R2`s spectral_cannon is a fact on the line, no sub-RH statement; R3`s premise is RH restated -- `TheBridgeComplete.structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, read at the pin: theorem structural_exhaustiveness_proved : StructuralExhaustiveness :=); `structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, grade INTERFACES: theorem structural_exhaustiveness_proved (h_cons : ConservationHypothesis) : StructuralExhaustiveness); `spectral_cannon` (SIDE-kernel@0e5233f, grade DERIVES: theorem spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0); `riemann_hypothesis` (SIDE-kernel@0e5233f, grade CONFLICT: theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis); `ch_iff_rh` (SIDE-explicit-formula@82550e4, grade DERIVES: theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis)",
    "by": "HAND",
    "cited": [
     "PLACE-papers@6871ba2:phase1.5/method/THE_LOAD_BEARING_MAP.md:52",
+    "SIDE-kernel@0e5233f:Bridge/TheBridgeComplete.lean:249",
     "SIDE-kernel@0e5233f:Bridge/ConservationBridge.lean:46",
     "relay@bd1387be:data/terminal_table.md:1830",
     "SIDE-kernel@0e5233f:Kernel/SpectralCannonFull.lean:65",
@@ -437,7 +438,7 @@
     "relay@bd1387be:data/terminal_table.md:113"
    ],
    "verdict": "OVERREACHES",
-   "action": "RE-CUT: | MONO | DOWNSTREAM — no route independent of RH | R1 `structural_exhaustiveness_proved` takes ConservationHypothesis, RH restated (`ch_iff_rh`); R2 `spectral_cannon` is a fact on the line, no route to σ = 1/2; R3 `riemann_hypothesis(h_cons)` encodes its conclusion |"
+   "action": "RE-CUT: | MONO | MIXED — Routes 1 and 2 independent and neither a route to σ = 1/2; Route 3 RH from RH | R1 `structural_exhaustiveness_proved` (TheBridgeComplete) unconditional, a conjunction about defined types and σ-level identities; R2 `spectral_cannon` a fact on the line; R3 `riemann_hypothesis(h_cons)` encodes its conclusion (`ch_iff_rh`) |"
   },
   {
    "id": "MAP-53",
@@ -625,19 +626,18 @@
    "stated": "| **MONO §25.8** | axiom profiles only, grades in prose | Route 1 **DERIVES** · Route 2 **DERIVES** · Route 3 **INTERFACES-on-h2** — already stated in the adjoining Route-notes; the table wants a grade column |",
    "line": 75,
    "kind": "table",
-   "licensed": "Route 1`s terminal takes ConservationHypothesis at v1.5 (INTERFACES, not DERIVES); Route 3 encodes its conclusion -- `structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, grade INTERFACES: theorem structural_exhaustiveness_proved (h_cons : ConservationHypothesis) : StructuralExhaustiveness); `riemann_hypothesis` (SIDE-kernel@0e5233f, grade CONFLICT: theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis); `ch_iff_rh` (SIDE-explicit-formula@82550e4, grade DERIVES: theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis)",
+   "licensed": "Route 1 DERIVES what it literally states (TheBridgeComplete :249, unconditional) and Route 2 DERIVES, as the row says; Route 3 is not INTERFACES-on-h2: its premise is RH restated (ch_iff_rh), ENCODES-CONCLUSION -- `TheBridgeComplete.structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, read at the pin: theorem structural_exhaustiveness_proved : StructuralExhaustiveness :=); `riemann_hypothesis` (SIDE-kernel@0e5233f, grade CONFLICT: theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis); `ch_iff_rh` (SIDE-explicit-formula@82550e4, grade DERIVES: theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis)",
    "by": "HAND",
    "cited": [
     "PLACE-papers@6871ba2:phase1.5/method/THE_LOAD_BEARING_MAP.md:75",
-    "SIDE-kernel@0e5233f:Bridge/ConservationBridge.lean:46",
-    "relay@bd1387be:data/terminal_table.md:1830",
+    "SIDE-kernel@0e5233f:Bridge/TheBridgeComplete.lean:249",
     "SIDE-kernel@0e5233f:Bridge/ConservationBridge.lean:53",
     "relay@bd1387be:data/terminal_table.md:1829",
     "SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Bridge.lean:71",
     "relay@bd1387be:data/terminal_table.md:113"
    ],
    "verdict": "OVERREACHES",
-   "action": "RE-CUT: | MONO §25.8 | axiom profiles only, grades in prose | Route 1 INTERFACES on ConservationHypothesis · Route 2 DERIVES (a fact on the line, no route to σ = 1/2) · Route 3 ENCODES-CONCLUSION (ConservationHypothesis is RH restated, `ch_iff_rh`) |"
+   "action": "RE-CUT: | MONO §25.8 | axiom profiles only, grades in prose | Route 1 DERIVES (TheBridgeComplete, a conjunction about defined types and σ-level identities) · Route 2 DERIVES (a fact on the line) · neither a route to σ = 1/2 · Route 3 ENCODES-CONCLUSION (ConservationHypothesis is RH restated, `ch_iff_rh`) |"
   },
   {
    "id": "MAP-77",
@@ -1031,12 +1031,11 @@
    "stated": "| `structural_exhaustiveness_proved` | SIDE-kernel v1.5 `0e5233f` | **T2** | its catalogue conjunct is `Fintype.card MechanismClass = 7` by `decide` (E-2026-09-14-1) and C₇ is a disclosed stand-in (PATHS §ANNEX A `:320`); THE_KEYSTONE_CENSUS carries no C7 line (grep, 0 hits) |",
    "line": 124,
    "kind": "table",
-   "licensed": "the row`s cells read whole against its facts at their pins: `structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, grade INTERFACES: theorem structural_exhaustiveness_proved (h_cons : ConservationHypothesis) : StructuralExhaustiveness)",
+   "licensed": "the row`s cells read whole against its facts at their pins: `TheBridgeComplete.structural_exhaustiveness_proved` (SIDE-kernel@0e5233f, read at the pin: theorem structural_exhaustiveness_proved : StructuralExhaustiveness :=)",
    "by": "HAND",
    "cited": [
     "PLACE-papers@6871ba2:phase1.5/method/THE_LOAD_BEARING_MAP.md:124",
-    "SIDE-kernel@0e5233f:Bridge/ConservationBridge.lean:46",
-    "relay@bd1387be:data/terminal_table.md:1830"
+    "SIDE-kernel@0e5233f:Bridge/TheBridgeComplete.lean:249"
    ],
    "verdict": "MATCHES",
    "action": "none"
