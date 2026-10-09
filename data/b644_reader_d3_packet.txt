@@ -1,0 +1,8 @@
+b644 -- THE SECOND READER`S PACKET D3, STAGED OFF D:\ (2026-10-09T14:55:21Z)
+
+### staged: C:/reader_b644_3 (packet/description.txt 15473 bytes, sha256 8a057197c48fb8ce29354e72458d2100c633717d257daaa2b885927244de9e1b ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b644_reader_d3_packet/
+### the questions: What is claimed? / What is not claimed? / Which premise is refuted, and what replaced it?
+### the no-disclosure arm: {'method': 0, 'tree': 0, 'modules': 0} ; outside names: NONE
+
+### the command, run by the author from C:/reader_b644_3, a directory with no project memory:
+    Get-Content C:\reader_b644_3\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b644_3\reader_run.log 2> C:\reader_b644_3\reader_run.err

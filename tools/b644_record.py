@@ -1547,6 +1547,7 @@ READERS = {
 # ### the re-runs the author ordered before the seal, on the repaired texts, each in a fresh directory (nothing deleted under C:\)
 READERS['a2'] = dict(READERS['a'], dir='C:/reader_b644a2')
 READERS['d2'] = dict(READERS['d'], dir='C:/reader_b644_2')
+READERS['d3'] = dict(READERS['d'], dir='C:/reader_b644_3')   # ### the third run, the author's word: what it still marks is the residue
 
 
 def _reader_lead(k):
