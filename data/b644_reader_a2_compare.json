@@ -1,0 +1,19 @@
+{
+ "at": "2026-10-09T14:45:22Z",
+ "answers": {
+  "1": {
+   "question": "What is a hinge, and which premises are hinges?",
+   "answer": "A hinge is a premise whose consumers sit in more than one kernel, or in more than one \"chain\" inside a single kernel. A consumer is a theorem whose statement or proof uses the premise. A chain is a connected group of the declarations that use the premise, directly or indirectly, in a kernel's use-graph. The document gives this definition in two versions. In v0.7 (2026-10-08), every premise with consumers spread like this counted, and there were 28 hinges. The refined definition in force from 2026-10-09 (ruling R254(4), used for v0.7.1) adds two conditions. First, the premise's \"own evidence\" is removed from the use-graph before the chains are counted. Own evidence means its Salt witnesses, any refutation concluding its negation, any declaration concluding the premise itself (bare or under other hypotheses), and its projections and constructors. Second, only premises with one of the five programme statuses (OPEN, CITED, DISCHARGED, WITNESSED, REFUTED-BY-COMPUTATION) can be hinges. A DOMAIN premise, meaning a Mathlib predicate that restricts a quantified variable, is printed with its chains but is not a hinge. Under the refined definition the v0.7.1 table lists 14 hinges: - EpsteinPremises - EulerFactorPremise - HCount - IdempotentAdd - NotDiv - Register4_channelInequality - Register4_positivity - SatisfiesCWeil - SelfDualFE - StepsI - StepsMI - TrivialSummandPremise - ZeroActingPairing - ZetaSeam All 14 are hinges because they have more than one chain inside a single kernel. None qualifies by spanning several kernels. Compared with v0.7, 16 premises left the list: - Ten DOMAIN heads: AnalyticOnNhd, Continuous, EqOn, HasCompactSupport, HasDerivAt, Integrable, IsRoot, Prime, StrictMono, Tendsto. Prime was v0.7's only hinge that spanned several kernels. - Six heads left with a single chain once their own evidence was removed: DealignedAt, IsExpansion, IsTrivialPoint, PWSetup, PlattTrudgianHeight, farSmall. Two premises joined the list: StepsMI and ZetaSeam. Removing their evidence split their single chain into two. The count checks: 28 − 16 + 2 = 14. Because SIDE-global-section's Interfaces modules were not built, some consumers there were not read. The text says the only heads affected are DOMAIN heads (IsOpen, Monotone, Prime), so this cannot change the hinge list. I read the glossary, the §0–§1 opening material, and the v0.7 and v0.7.1 back matter (lines 1–163 and 1140–1314). I did not read the middle of census.txt (lines 164–1139), but the hinge material is in the parts I read.",
+   "needle": true,
+   "why": [
+    "what a hinge is True",
+    "names a hinge of the refined list True"
+   ],
+   "hand": "AGREE"
+  }
+ },
+ "needles": 1,
+ "hand": 1,
+ "of": 1,
+ "unclear": "- Glossary line 90: the second HINGE entry says it supersedes \"the entry above from 2026-10-09\". The entry above it is dated 2026-10-08 elsewhere (line 92 and the v0.7.1 back matter), so the date looks wrong. The back matter seems to admit this (\"which named its own date as the entry it replaced\"), but it is still confusing that three HINGE entries appear one after another.\n- \"the five programme statuses\" (line 92) sits next to REFUTED-BY-COMPUTATION being called \"the sixth status of a premise\" (line 84). I take it that the six statuses are these five plus DOMAIN, but the text never says so in one place.\n- \"in SIDE-explicit-formula 3 chains, a cycle at `CS`, `classK`, `hasCompactSupport_witness`\" (line 1244): I could not tell what \"a cycle at CS\" means for how a chain is named.\n- \"its own evidence removed, the chains it joined part\" (lines 1307–1308): I take this to mean that removing the evidence split one chain into two, but the wording is hard to parse."
+}

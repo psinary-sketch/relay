@@ -1,0 +1,16 @@
+ANSWER 1:
+The claim, in the README's words, is "RH reduced to a single located clause, reduction machine-verified." Lean 4 kernels prove, with no premise (theorem h2_sign_iff_rh, graded DERIVES, using only the standard three axioms), that the Riemann Hypothesis as Mathlib states it is equivalent to one sign statement, h2_sign. h2_sign is Weil positivity: for every admissible test window k in classK, the explicit-formula quadratic form P(k) − PR(k) + A(k) (pole term minus prime sum plus archimedean term) is non-negative. The document says the path from h2_sign to RH goes through a seam, rh_strip_imp_rh, which the kernel proves (rh_strip_imp_rh_holds), and that no OPEN premise lies on that path. It also lists other machine-checked theorems, gives each premise a status, and reports that the SIDE-kernel route terminals exclude seven named mechanism classes as sources of an off-line zero.
+
+ANSWER 2:
+It does not claim that RH is proved. The document says plainly that "RH proved" is a sentence the corpus does not support, that h2_sign is still open and carried as the one open premise, and that nothing in the record says RH holds. The mechanism exclusions do not prove h2_sign. The exhaustiveness of the seven mechanism classes over all mechanisms is not compiled. Several premises remain OPEN or only CITED (for example NymanBeurlingPremise and PlattTrudgianHeight are cited from the literature, not compiled). The "squeeze" target, a uniform lower bound on |ξ′(ρ)| at the zeros, is described as the same open node seen geometrically, not as something proved or as a second open premise.
+
+ANSWER 3:
+The refuted premise is TrivialSummandPremise, which has the status REFUTED-BY-COMPUTATION. As stated it requires a pole term to be zero, but that pole term is positive at an object the programme exhibits, so the premise is false and nothing can witness it. It was replaced by TrivialSummandPremise', which carries the pole term. The theorem dedekind_rhs' is proved on this restated premise. A theorem not_trivialSummandPremise (DERIVES) is also listed, and presumably records the refutation, though the text does not say that outright.
+
+UNCLEAR:
+- "the OPEN premises in the table belong to the faces, instances and bounds, none on that path": it is not clear what "faces, instances and bounds" refers to.
+- The hinge definition, "the chains taken after the premise's own evidence is removed from the use-graph", and the definition of "own evidence" (Salt witness / refutation / witness / sufficient condition or discharge) were hard to follow in full, even with the plain-words gloss.
+- The PREDICATE-UNLISTED grade, "the list of named restrictions grows by a ruling and not by a wrong grade": the gloss helps, but who makes the "ruling" is not stated.
+- In section 4: "The squeeze between the zero-free region pressing in from the line of real part one and the transversality at the critical line" and "Its faces ... are two statements of one open node": it is unclear what the two "faces" are.
+- "IsExpansion, what would discharge it: a construction where a proof uses it (its salt checks show it is not vacuous)": unclear how this differs from the other discharge conditions.
+- "WITNESSED -- ... witnessed by a construction nothing uses; a compiled proof would discharge it": unclear why a witness alone does not count as a discharge.
