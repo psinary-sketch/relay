@@ -1159,10 +1159,15 @@ def compose():
     P = []
     # ---- (i) THE CLAIM
     sup, nsup = (sup or '').rstrip('.'), (nsup or '').rstrip('.')
+    cp = rd('b644_clause_path.txt')
+    one = ('h2_sign is the one open clause of the reduction: the dependency path from h2_sign to RiemannHypothesis passes through the seam '
+           'rh_strip_imp_rh, a classical fact the kernel compiles (rh_strip_imp_rh_holds), and consumes no OPEN premise; the OPEN premises in '
+           'the table belong to the faces, instances and bounds, none on that path, and the table is the keystone census at v0.7.1, in this '
+           'record\'s files.' if re.search(r'; OPEN 0 ', cp) else 'NOT READ')
     P.append('THE CLAIM. %s, the claim the programme makes in one sentence, as its README states it: "%s." Here RH is %s. The located clause: '
-             '%s. h2_sign is %s. classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
+             '%s. h2_sign is %s. %s classK is %s. The ceiling, in the README\'s words: supportable, "%s"; not supported, "%s" -- the corpus does '
              'not support that sentence, since h2_sign is open, and nothing in this record states that the Riemann Hypothesis holds.' % (
-                 'A PLACE TO STAND', sup, gl['RH'].rstrip('.'), gl['the located clause'].rstrip('.'), gl['h2_sign'].rstrip('.'),
+                 'A PLACE TO STAND', sup, gl['RH'].rstrip('.'), gl['the located clause'].rstrip('.'), gl['h2_sign'].rstrip('.'), one,
                  gl['classK'].rstrip('.'), sup, nsup))
     # ---- (ii) WHAT IS MACHINE-VERIFIED
     tags = dict((k, g('D:/' + k, 'rev-parse', '--short=7', '%s^{commit}' % t).strip()) for k, t in KERNEL_TAG.items())
