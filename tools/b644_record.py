@@ -1643,6 +1643,7 @@ def reader_score(k, *a):
               '    the needles: %s ; ### %s' % ('; '.join(why), 'AGREE' if ok else 'DIFFER'), '    by hand: %s' % (hand.get(q) or '### NOT READ'), '']
     kh = sum(1 for v in hand.values() if v == 'AGREE')
     unclear = re.search(r'^UNCLEAR:\s*(.*)\Z', t, re.M | re.S)
+    L += ['### NOTE, beside the score: %s' % n_ for n_ in re.findall(r'^NOTE: (.*)$', rd('b644_reader_%s_handread.txt' % k), re.M)]
     L += ['### UNCLEAR, the reader`s: %s' % (' '.join(unclear.group(1).split())[:1500] if unclear else '### NONE GIVEN'), '',
           '### ### **BY THE NEEDLES %d OF %d ; BY HAND %s OF %d.**' % (n_ok, len(N), kh if hand else '### NOT READ', len(N))]
     put_txt('b644_reader_%s_compare.txt' % k, L)
