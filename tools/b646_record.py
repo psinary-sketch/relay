@@ -282,9 +282,94 @@ RECUT_BY_FACT = {
 # ### quote claims a status beyond argument (STATUS_WORDS) or its reason names a corpus fact it conflicts with (F1-F13, F15); else `graded`.
 STATUS_WORDS = re.compile(r'(?i)\b(?:prov(?:ed|es|en|able)|proof|theorem|verif\w*|certif\w*|compil\w*|machine|Lean|kernel|ZFC|established|rigorous\w*|'
                           r'demonstrat\w*|confirm\w*|settled|unconditional\w*|closes?|closed|follows as)\b')
-COMP_FIX = {}       # ### row id -> (grade, stated_as, reason[, route]): the seat's corrections, each after its whole read of the row
-COMP_SAMPLE = {}    # ### row id -> 'AGREE' | 'CORRECTED': MATCHES rows drawn with seed 646 and read whole by the seat
-COMP_READ_ALL = set()   # ### the companions whose every non-MATCHES row the seat has read whole
+COMP_FIX = {       # ### row id -> (grade, stated_as, reason[, route]): the seat's corrections, each after its whole read of the row
+    # ### ONE_PAGE_PROOF, read whole by the seat (:1-:100 at 96779e5)
+    'COMP-ONE_PAGE_PROOF-17-13': ('argument-supported', 'graded', 'the seat`s read: the paper`s own argument about its specification '
+                                  '(n² → θ → ξ determines ξ), stated as its argument'),
+    'COMP-ONE_PAGE_PROOF-33-28': ('statement-grade', 'open', 'the seat`s read: the row marks its own count Definitional -- a definition of '
+                                  'the paper`s terms'),
+    'COMP-ONE_PAGE_PROOF-38-33': ('argument-supported', 'established', 'the seat`s read: the syllogism`s premise is covers_all, the open clause '
+                                  '(F11), stated as a step of the proof'),
+    # ### Exhaustive_Enumeration, every non-MATCHES row read whole by the seat
+    'COMP-Exhaustive_Enumeration-161-142': ('argument-supported', 'graded', 'the seat`s read: the document cites no kernel, true; that '
+                                            'completeness is not settled by a Lean terminal is the corpus`s own reading of the compiled schema (F13)'),
+    'COMP-Exhaustive_Enumeration-161-144': ('argument-supported', 'graded', 'the seat`s read: the corpus`s own reading -- the compiled form is '
+                                            'logic alone, its Fintype unused (F13); completeness is not what it settles'),
+    'COMP-Exhaustive_Enumeration-166-148': ('kernel-verified', 'established', 'the seat`s read: the completeness it describes is Ostrowski`s, '
+                                            'the conjunct ostrowski_exhaustive_prime of TheBridgeComplete`s unconditional structural_exhaustiveness_proved '
+                                            '(SIDE-kernel v1.5 Bridge/TheBridgeComplete.lean :249), cited at its pin (F5 (ii))'),
+    # ### Which_Structure_Confines, every non-MATCHES row read whole by the seat
+    'COMP-Which_Structure_Confines-121-126': ('kernel-verified', 'established', 'the seat`s read: the two compiled negatives are the corpus`s '
+                                              '(C7_finite_type_false, F14; the per-class-to-combined commutation, machine-checked false, named in '
+                                              'the Paths census), cited as negatives'),
+    'COMP-Which_Structure_Confines-226-207': ('argument-supported', 'graded', 'the seat`s read: a corpus record, true -- OrbitDictionary.lean '
+                                              '7 of 7 at no axioms (FINDINGS F.2026-08-18p, archived at 2026-08-24)'),
+    # ### Spectral_Inertness, every non-MATCHES row read whole by the seat; the counts at :59-:63 checked at the pin (SIDE-kernel 0e5233f:
+    # ### Kernel/ProductFormula_v2.lean 6, _Clean 11, _Rat 9 theorems -- not 6 + 8 + 8 = 22) and left UNLICENSED; v1.7 resolves to 2957e7d
+    'COMP-Spectral_Inertness-63-53': ('argument-supported', 'graded', 'the seat`s read: a record with its citation -- the line gives the '
+                                      'repository`s URL, the federation`s public chain repository'),
+    'COMP-Spectral_Inertness-179-146': ('kernel-verified', 'graded', 'the seat`s read: 1^s = 1 is what conservation_of_spectra compiles '
+                                        '(SIDE-kernel v1.5 Kernel/ProductFormula_Rat.lean :72), stated as the computation (F3)'),
+    'COMP-Spectral_Inertness-206-172': ('kernel-verified', 'established', 'the seat`s read: the archimedean complement is '
+                                        'real_no_compact_open_addSubgroup (SIDE-global-section Interfaces/LocalLimit.lean :218), compiled'),
+    # ### Seven_Mechanism_Classes, every non-MATCHES row read whole by the seat; the file rows checked at SIDE-kernel 0e5233f by git grep
+    # ### (no sorry outside comments, no axiom declaration in Kernel/PoissonExhaustion.lean, Kernel/Layer1.lean)
+    'COMP-Seven_Mechanism_Classes-129-108': ('argument-supported', 'established', 'the seat`s read: the distributive interface`s inertness is '
+                                             'the inter-class conservation step, a register of the one open clause (F7), stated as fact'),
+    'COMP-Seven_Mechanism_Classes-142-119': ('synthesis-suggested', 'established', 'the seat`s read: universality is R1, false as stated '
+                                             '(not_register1, F7), asserted by construction'),
+    'COMP-Seven_Mechanism_Classes-155-136': ('argument-supported', 'established', 'the seat`s read: "proved spectrally inert" -- the '
+                                             'inter-class conservation step stated as proved (F7)'),
+    'COMP-Seven_Mechanism_Classes-155-137': ('synthesis-suggested', 'established', 'the seat`s read: every summand certified is the '
+                                             'catalogue`s exhaustiveness at ξ, open (F11)'),
+    'COMP-Seven_Mechanism_Classes-209-178': ('kernel-verified', 'established', 'the seat`s read: Kernel/PoissonExhaustion.lean at SIDE-kernel '
+                                             'v1.5 = 0e5233f carries no sorry and no axiom declaration (git grep at the pin)'),
+    'COMP-Seven_Mechanism_Classes-211-180': ('kernel-verified', 'established', 'the seat`s read: Kernel/Layer1.lean at SIDE-kernel v1.5 = '
+                                             '0e5233f carries no sorry and no axiom declaration (git grep at the pin)'),
+    # ### Silence_of_Foundations, every non-MATCHES row read whole by the seat
+    'COMP-Silence_of_Foundations-45-51': ('theorem-supported', 'graded', 'the seat`s read: a textbook fact of molecular biology (the standard '
+                                          'code, NCBI Translation Table 1, which the paper cites at :47), stated as such'),
+    'COMP-Silence_of_Foundations-108-121': ('argument-supported', 'graded', 'the seat`s read: the ZFC proof from Tate`s thesis stated as the '
+                                            'paper`s result (F3), as its :9 states it'),
+    'COMP-Silence_of_Foundations-134-143': ('synthesis-suggested', 'graded', 'the seat`s read: a reading of the cited literature (Kim 1999, '
+                                            'Chalmers 2006), stated as a reading'),
+    # ### Third_Identity_Element, every non-MATCHES row read whole by the seat
+    'COMP-Third_Identity_Element-11-8': ('argument-supported', 'graded', 'the seat`s read: the paper`s own argument (the voice theorems derive '
+                                         'σ = 1/2 for C₁-C₅, F5 (ii); the rest is the paper`s), stated as its framing'),
+    'COMP-Third_Identity_Element-17-12': ('theorem-supported', 'graded', 'the seat`s read: an elementary identity of arithmetic, true'),
+    'COMP-Third_Identity_Element-21-22': ('theorem-supported', 'graded', 'the seat`s read: an elementary identity of arithmetic, true'),
+    'COMP-Third_Identity_Element-32-31': ('theorem-supported', 'graded', 'the seat`s read: an elementary identity of arithmetic, true'),
+    'COMP-Third_Identity_Element-33-32': ('theorem-supported', 'graded', 'the seat`s read: an elementary identity of arithmetic, true'),
+    'COMP-Third_Identity_Element-55-49': ('argument-supported', 'graded', 'the seat`s read: true for coprime pairs above 1 -- g(a, b) = 1 '
+                                          'forces (a - 1)(b - 1) = 2, so {a, b} = {2, 3}'),
+    'COMP-Third_Identity_Element-101-85': ('argument-supported', 'established', 'the seat`s read: the bijection`s content, stated as proved '
+                                           '(its Lean form identity_formation_bijection SHELL in the terminal table; F11), as its sibling row'),
+}
+# ### row id -> 'AGREE' | 'CORRECTED': MATCHES rows drawn with seed 646 (five per companion, _sample) and read whole by the seat
+COMP_SAMPLE = dict((k, 'AGREE') for k in (
+    'COMP-Exhaustive_Enumeration-120-122', 'COMP-Exhaustive_Enumeration-57-56', 'COMP-Exhaustive_Enumeration-58-57',
+    'COMP-Exhaustive_Enumeration-92-87', 'COMP-Exhaustive_Enumeration-92-89',
+    'COMP-Which_Structure_Confines-117-110', 'COMP-Which_Structure_Confines-181-164', 'COMP-Which_Structure_Confines-224-204',
+    'COMP-Which_Structure_Confines-261-246', 'COMP-Which_Structure_Confines-61-45',
+    'COMP-Spectral_Inertness-13-18', 'COMP-Spectral_Inertness-13-19', 'COMP-Spectral_Inertness-17-21', 'COMP-Spectral_Inertness-31-31',
+    'COMP-Spectral_Inertness-52-45',
+    'COMP-Seven_Mechanism_Classes-103-89', 'COMP-Seven_Mechanism_Classes-137-114', 'COMP-Seven_Mechanism_Classes-282-228',
+    'COMP-Seven_Mechanism_Classes-46-43', 'COMP-Seven_Mechanism_Classes-55-51',
+    'COMP-Third_Identity_Element-148-126', 'COMP-Third_Identity_Element-167-145', 'COMP-Third_Identity_Element-184-163',
+    'COMP-Third_Identity_Element-280-233', 'COMP-Third_Identity_Element-88-73',
+    'COMP-Silence_of_Foundations-102-111', 'COMP-Silence_of_Foundations-218-199', 'COMP-Silence_of_Foundations-224-203',
+    'COMP-Silence_of_Foundations-74-85', 'COMP-Silence_of_Foundations-9-7',
+    'COMP-ONE_PAGE_PROOF-19-15', 'COMP-ONE_PAGE_PROOF-21-17', 'COMP-ONE_PAGE_PROOF-25-21', 'COMP-ONE_PAGE_PROOF-32-27',
+    'COMP-ONE_PAGE_PROOF-90-89'))
+COMP_READ_ALL = {'ONE_PAGE_PROOF', 'Exhaustive_Enumeration', 'Which_Structure_Confines', 'Spectral_Inertness', 'Seven_Mechanism_Classes',
+                 'Silence_of_Foundations', 'Third_Identity_Element'}   # ### the companions whose every non-MATCHES row the seat has read whole
+SAMPLE_N = 5
+
+
+def _sample(name, rows):
+    import random
+    pool = sorted(r['id'] for r in rows if r['verdict'] == 'MATCHES' and not r['fixed'])
+    return sorted(random.Random('646-' + name).sample(pool, min(SAMPLE_N, len(pool))))
 
 
 def _comp_lines(name):
@@ -310,10 +395,15 @@ def _comp_records(name):
     return recs, faults
 
 
+# ### the seat's own SKIP records for a non-blank line a reader left uncovered, each read by the seat and marked as the seat's
+SEAT_SKIPS = {('Third_Identity_Element', 73): 'the seat`s (the reader left the line uncovered): a heading label, "**Corollary.**", no assertion'}
+
+
 def _comp_rows(name):
     import licensed_table as LT
     ls = _comp_lines(name)
     recs, faults = _comp_records(name)
+    recs += [('SKIP', dict(line=str(ln), reason=why, rec=0)) for (nm, ln), why in sorted(SEAT_SKIPS.items()) if nm == name]
     rows_all, _md = _tt()
     tnames = collections.defaultdict(list)
     for x in rows_all:
@@ -415,6 +505,11 @@ def comp_check(*a):
                                                                           dict(collections.Counter(r['verdict'] for r in rows))))
         for f in faults[:30]:
             print('  FAULT ' + f)
+        if 'sample' in a:
+            byid = dict((r['id'], r) for r in rows)
+            for i in _sample(name, rows):
+                r = byid[i]
+                print('  SAMPLE %s [%s, %s] %r | %s' % (i, r['grade'], r['stated_as'], r['stated'][:200], r['licensed'].split('; ')[-1][:160]))
         if 'rows' in a:
             for r in rows:
                 if r['verdict'] != 'MATCHES':
@@ -441,6 +536,9 @@ def companions(*a):
         unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and name not in COMP_READ_ALL and r['id'] not in COMP_FIX]
         if unread:
             sys.exit('### %s: %d NON-MATCHES ROWS NOT READ BY THE SEAT -- NOTHING WRITTEN: %s' % (name, len(unread), unread[:8]))
+        smp = _sample(name, rows)
+        if any(i not in COMP_SAMPLE for i in smp):
+            sys.exit('### %s: THE SAMPLE DRAWN %s IS NOT THE SAMPLE READ -- NOTHING WRITTEN' % (name, smp))
         src = _show(PP, PRE_PP, 'day1/%s.md' % name)
         L = ['b646 -- COMPONENT 2, (R256)(3): %s AT ITS PATCH LABEL %s THROUGH THE INTAKE FORM, EVERY CLAIM A ROW (tools/licensed_table.py) (%s)' % (
             name, lab, utc()), '',
@@ -448,7 +546,11 @@ def companions(*a):
             '### the form: b628`s intake (relay tools/b628_record.py `intake`, tools/b628_worklist.py); the rows read by one helper reader of this '
             'session from the brief (the scratchpad`s companion_brief.md, `established` narrowed per b645`s defect (d), F5 naming both theorems '
             'per its (e)); the verdict by the mapping alone (relay data/b646_mapping.txt), never by a reader; every non-MATCHES row read whole by '
-            'the seat (%d corrected); the stated-as rule moved %d rows' % (sum(1 for r in rows if r['fixed']), sum(1 for r in rows if r['refined'])), '']
+            'the seat (%d corrected); the stated-as rule moved %d rows' % (sum(1 for r in rows if r['fixed']), sum(1 for r in rows if r['refined'])),
+            '### the MATCHES sample: %d rows drawn with seed 646 from the MATCHES rows no correction touched, each read whole by the seat -- %d agree, '
+            '%d corrected (%s)' % (len(smp), sum(1 for i in smp if COMP_SAMPLE[i] == 'AGREE'), sum(1 for i in smp if COMP_SAMPLE[i] != 'AGREE'),
+                                   ', '.join(i.split('-', 2)[2] for i in smp)),
+            '### a seat SKIP for an uncovered line: %s' % ('; '.join(':%d %s' % (ln, w) for (nm, ln), w in SEAT_SKIPS.items() if nm == name) or 'none'), '']
         L += ['### EVERY ROW (line | grade | stated as | terminal | route | VERDICT ; the quote ; the ACTION):']
         for r in sorted(rows, key=lambda x: (x['line'], x['id'])):
             L.append('  :%d | %s | %s | %s | %s | %s ; "%s" ; %s' % (r['line'], r['grade'], r['stated_as'], r['terminal'] or '-', r['route'],

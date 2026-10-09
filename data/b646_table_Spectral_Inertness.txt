@@ -1,0 +1,254 @@
+b646 -- COMPONENT 2, (R256)(3): Spectral_Inertness AT ITS PATCH LABEL v2.3.1 THROUGH THE INTAKE FORM, EVERY CLAIM A ROW (tools/licensed_table.py) (2026-10-09T23:32:21Z)
+
+### the document: PLACE-papers day1/Spectral_Inertness.md at 96779e5, 209 lines, sha256 3bf77f85e2a5af68794300b6ac98b2ea786fe1906c51bec4ebafdf674d6776d9
+### the form: b628`s intake (relay tools/b628_record.py `intake`, tools/b628_worklist.py); the rows read by one helper reader of this session from the brief (the scratchpad`s companion_brief.md, `established` narrowed per b645`s defect (d), F5 naming both theorems per its (e)); the verdict by the mapping alone (relay data/b646_mapping.txt), never by a reader; every non-MATCHES row read whole by the seat (3 corrected); the stated-as rule moved 1 rows
+### the MATCHES sample: 5 rows drawn with seed 646 from the MATCHES rows no correction touched, each read whole by the seat -- 5 agree, 0 corrected (13-18, 13-19, 17-21, 31-31, 52-45)
+### a seat SKIP for an uncovered line: none
+
+### EVERY ROW (line | grade | stated as | terminal | route | VERDICT ; the quote ; the ACTION):
+  :5 | argument-supported | graded | - | no | MATCHES ; "What moved since that edition, 46 lines against its deposited bytes" ; none
+  :5 | argument-supported | graded | - | no | MATCHES ; "the Correspondence section appended after the References (added 2026-08-12, additive)" ; none
+  :5 | argument-supported | graded | - | no | MATCHES ; "The text otherwise stands as it stood." ; none
+  :9 | argument-supported | graded | - | no | MATCHES ; "Since |x|_𝔸 = 1 on C¹_ℚ, the identity |x|_𝔸^s = 1 holds for every s ∈ ℂ" ; none
+  :9 | argument-supported | graded | - | no | MATCHES ; "All zero-location constraints trace to ℚ's field structure" ; none
+  :9 | theorem-supported | graded | - | no | MATCHES ; "functions satisfying the functional equation but lacking the Euler product have zeros off the critical line" ; none
+  :9 | theorem-supported | graded | - | no | MATCHES ; "The product formula is a property of ℚ itself (Artin–Whaples 1945)" ; none
+  :9 | kernel-verified | over | ProductFormula.conservation_of_spectra | no | OVERREACHES ; "The theorem and its consequences are machine-checked in Lean 4 against Mathlib" ; RE-CUT: The theorem and its consequences are machine-checked in Lean 4 against Mathlib -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :9 | kernel-verified | graded | ProductFormula.conservation_of_spectra | no | MATCHES ; "`#print axioms` = `{propext, Classical.choice, Quot.sound}`" ; none
+  :9 | argument-supported | graded | - | no | MATCHES ; "We prove that no structural force outside ℚ's field structure acts on the zeros of ξ(s) (Closure Theorem)" ; none
+  :9 | argument-supported | graded | - | no | MATCHES ; "is spectrally inert — it introduces no constraint depending on the spectral parameter s" ; none
+  :9 | theorem-supported | graded | - | no | MATCHES ; "In Tate's construction, the product formula defines the norm-one idele class group C¹_ℚ" ; none
+  :11 | statement-grade | open | - | no | MATCHES ; "A component is *spectrally inert* if its contribution to the integral is independent of s." ; none
+  :13 | argument-supported | graded | - | no | MATCHES ; "The kernel t^s carries all s-dependence." ; none
+  :13 | argument-supported | graded | - | no | MATCHES ; "Conservation proves the product formula's contribution is s-independent" ; none
+  :13 | synthesis-suggested | graded | - | no | MATCHES ; "The geometry (s-independent, built by the product formula) and the spectrum (s-dependent, built by ℚ's field structure) are separated." ; none
+  :17 | synthesis-suggested | graded | - | no | MATCHES ; "is the most essential single constraint in the construction of the completed Riemann zeta function" ; none
+  :17 | argument-supported | graded | - | no | MATCHES ; "We prove the answer is: nothing." ; none
+  :17 | argument-supported | graded | - | no | MATCHES ; "The product formula carries zero information about the spectral parameter s." ; none
+  :20 | theorem-supported | graded | - | no | MATCHES ; "admits a realization through Tate's thesis (Tate 1950) as a Mellin transform on the idele class group" ; none
+  :22 | theorem-supported | graded | - | no | MATCHES ; "ξ(s) = ∫₀^∞ Φ(t) · t^s d×t" ; none
+  :24 | theorem-supported | graded | - | no | MATCHES ; "where Φ encodes the geometry of the compact subgroup C¹_ℚ as a function on ℝ₊" ; none
+  :26 | theorem-supported | graded | - | no | MATCHES ; "ℚ → 𝔸_ℚ → C_ℚ = 𝔸_ℚ× / ℚ× → C¹_ℚ = ker(|·|_𝔸) → Φ → ξ(s)." ; none
+  :28 | theorem-supported | graded | - | no | MATCHES ; "enters at the third stage, defining C¹_ℚ as the kernel of the adelic norm" ; none
+  :28 | argument-supported | graded | - | no | MATCHES ; "Every subsequent stage inherits this constraint." ; none
+  :31 | argument-supported | graded | - | no | MATCHES ; "The product is 2 · (1/2) · 1 · 1 · ... = 1." ; none
+  :31 | theorem-supported | graded | - | no | MATCHES ; "The identity holds for every nonzero rational (Artin–Whaples 1945)." ; none
+  :36 | argument-supported | graded | - | no | MATCHES ; "takes exactly two inputs: the test function Φ, determined by the compact group C¹_ℚ, and the kernel t^s" ; none
+  :36 | argument-supported | graded | - | no | MATCHES ; "These contributions are independent" ; none
+  :38 | argument-supported | graded | - | no | MATCHES ; "so |x|_𝔸^s = 1 for every s ∈ ℂ" ; none
+  :40 | argument-supported | graded | - | no | MATCHES ; "The function Φ is determined by C¹_ℚ and is therefore s-independent." ; none
+  :42 | argument-supported | graded | - | no | MATCHES ; "The factor t^s is the sole source of s-dependence in the integral." ; none
+  :44 | argument-supported | graded | - | no | MATCHES ; "The product formula constrains the geometry of the integration domain without introducing any constraint on s." ; none
+  :48 | argument-supported | graded | - | no | MATCHES ; "Step (i): C¹_ℚ = ker(|·|_𝔸) by definition; |x|_𝔸 = 1 on this kernel; 1^s = 1 for all s ∈ ℂ." ; none
+  :48 | argument-supported | graded | - | no | MATCHES ; "Φ is the restriction of a Schwartz–Bruhat function to C¹_ℚ, defined without reference to s" ; none
+  :48 | argument-supported | graded | - | no | MATCHES ; "by (i)–(iii), no s-dependent content enters through the product formula" ; none
+  :52 | statement-grade | open | - | no | MATCHES ; "A structural constraint is *spectrally inert* if it determines the domain geometry of a spectral object" ; none
+  :57 | kernel-verified | over | ProductFormula.conservation_of_spectra | no | OVERREACHES ; "The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib" ; RE-CUT: The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :57 | statement-grade | established | - | no | UNLICENSED ; "Three files build a chain from prime powers to rationals" ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :59 | statement-grade | established | - | no | UNLICENSED ; "(prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems." ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :60 | statement-grade | established | - | no | UNLICENSED ; "(integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems." ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :61 | kernel-verified | over | ProductFormula.conservation_of_spectra | no | OVERREACHES ; "(rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems." ; RE-CUT: (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems. -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :63 | statement-grade | established | - | no | UNLICENSED ; "Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms." ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :63 | argument-supported | graded | - | no | MATCHES ; "The kernel repository is publicly available." ; none
+  :63 | statement-grade | established | - | no | UNLICENSED ; "Two theorems from this programme have been merged into the Mathlib standard library (PRs \#36881 and \#36865)" ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :68 | argument-supported | graded | - | no | MATCHES ; "All zero-location constraints in the Tate construction of ξ(s) trace to ℚ's field structure" ; none
+  :69 | theorem-supported | graded | - | no | MATCHES ; "Poisson summation produces the functional equation ξ(s) = ξ(1−s)" ; none
+  :70 | theorem-supported | graded | - | no | MATCHES ; "unique factorization produces the Euler product ζ(s) = ∏_p (1 − p⁻ˢ)⁻¹" ; none
+  :71 | synthesis-suggested | graded | - | no | MATCHES ; "the coupling produces the Ramanujan bound and the Dirichlet–Euler identity" ; none
+  :75 | argument-supported | graded | - | no | MATCHES ; "A field is determined by its additive group, its multiplicative group, and the distributive law." ; none
+  :75 | argument-supported | graded | - | no | MATCHES ; "No step introduces information beyond the field structure." ; none
+  :75 | argument-supported | graded | - | no | MATCHES ; "the product formula — the only structural element beyond the individual places — contributes no s-dependent content" ; none
+  :79 | argument-supported | graded | - | no | MATCHES ; "No structural force outside ℚ's field structure acts on the zeros of ξ(s) through the Tate construction." ; none
+  :83 | argument-supported | graded | - | no | MATCHES ; "The Tate construction is an explicit finite chain" ; none
+  :83 | argument-supported | graded | - | no | MATCHES ; "Each link's output is uniquely determined by its input." ; none
+  :83 | argument-supported | graded | - | no | MATCHES ; "introduces no s-dependent constraint" ; none
+  :83 | argument-supported | graded | - | no | MATCHES ; "There is no branching, no choice, no dynamics." ; none
+  :83 | synthesis-suggested | graded | - | no | MATCHES ; "Emergence requires alternatives; this chain has none." ; none
+  :83 | theorem-supported | graded | - | no | MATCHES ; "which are classified by Ostrowski — no topological data beyond the field structure enters" ; none
+  :87 | synthesis-suggested | graded | - | no | MATCHES ; "any proof by exhaustion requires that no external mechanism exists outside the enumerated classes" ; none
+  :87 | synthesis-suggested | graded | - | no | MATCHES ; "Spectral inertness of the product formula provides this seal for ξ(s)." ; none
+  :87 | synthesis-suggested | established | - | DARK | OVERREACHES ; "This seal is the proof of RH's one certified premise" ; RE-CUT: This seal is the proof of RH's one certified premise -- say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction; state the registers at their depths: R1 false as stated, R2 RH resta
+  :87 | synthesis-suggested | established | - | no | OVERREACHES ; "named in five equivalent registers" ; RE-CUT: named in five equivalent registers -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem
+  :87 | synthesis-suggested | established | - | no | OVERREACHES ; "the catalogue surrounding it is machine-checked" ; RE-CUT: the catalogue surrounding it is machine-checked -- say the kernel counts a defined type (Fintype.card MechanismClass = 7); that every zero is produced by a named class (covers_all) is the open clause, not compiled
+  :91 | synthesis-suggested | graded | - | no | MATCHES ; "it is the canonical construction from ℚ's field data" ; none
+  :91 | argument-supported | graded | - | no | MATCHES ; "Properties proved about the canonical construction are properties of every function built from this specification" ; none
+  :91 | synthesis-suggested | graded | - | no | MATCHES ; "spectral inertness is a property of ℚ itself, not only of Tate's framework" ; none
+  :96 | theorem-supported | graded | - | no | MATCHES ; "satisfy functional equations but generally lack Euler products" ; none
+  :99 | theorem-supported | graded | - | no | MATCHES ; "Epstein zeta functions Z_Q(s) generically have infinitely many zeros off the critical line" ; none
+  :104 | theorem-supported | graded | - | no | MATCHES ; "| Functional equation | ✓ | ✓ |" ; none
+  :105 | theorem-supported | graded | - | no | MATCHES ; "| Euler product | ✓ | ✗ |" ; none
+  :106 | argument-supported | graded | - | no | MATCHES ; "| Product formula spectrally inert | ✓ | — |" ; none
+  :107 | statement-grade | established | - | no | UNLICENSED ; "Zeros confined to critical line | Yes" ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :112 | synthesis-suggested | graded | - | no | MATCHES ; "The structural difference is the Euler product." ; none
+  :112 | statement-grade | established | - | no | UNLICENSED ; "The outcome difference is the confinement of zeros." ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :112 | argument-supported | graded | - | no | MATCHES ; "The product formula, being spectrally inert, does not account for this difference." ; none
+  :112 | synthesis-suggested | graded | - | no | MATCHES ; "is the discriminating variable" ; none
+  :112 | synthesis-suggested | graded | - | no | MATCHES ; "The product formula builds the stage. The Euler product directs the play." ; none
+  :116 | kernel-verified | over | ProductFormula.conservation_of_spectra | no | OVERREACHES ; "we make it explicit and formally verify it" ; RE-CUT: we make it explicit and formally verify it -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :116 | theorem-supported | graded | - | no | MATCHES ; "Ostrowski (1916) classified all absolute values on ℚ" ; none
+  :116 | theorem-supported | graded | - | no | MATCHES ; "Weil (1967) developed the adelic framework in full generality" ; none
+  :116 | synthesis-suggested | graded | - | no | MATCHES ; "spectral inertness translates to a statement about the trace of a specific operator being s-independent" ; none
+  :116 | synthesis-suggested | graded | - | no | MATCHES ; "develops a parallel framework through the semilocal adele class space" ; none
+  :116 | synthesis-suggested | graded | - | no | MATCHES ; "tested across 34 predictions in 9 coupled systems" ; none
+  :116 | synthesis-suggested | established | - | no | OVERREACHES ; "with all 34 confirmed" ; RE-CUT: with all 34 confirmed -- state the claim at its grade (synthesis-suggested), no more than its support carries
+  :161 | synthesis-suggested | established | - | DARK | OVERREACHES ; "This paper develops one component of a proof of Theorem (RH)" ; RE-CUT: This paper develops one component of a proof of Theorem (RH) -- state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :101), not as conditional on it; say Route 3 compiles RH from its own restatement (ch_i
+  :172 | argument-supported | graded | - | no | MATCHES ; "carries no information at all about the spectral parameter" ; none
+  :172 | synthesis-suggested | established | - | no | OVERREACHES ; "it is what lets a finite catalogue of mechanisms be sufficient" ; RE-CUT: it is what lets a finite catalogue of mechanisms be sufficient -- say the kernel counts a defined type (Fintype.card MechanismClass = 7); that every zero is produced by a named class (covers_all) is the open clause, not compiled
+  :174 | kernel-verified | over | ProductFormula.conservation_of_spectra | no | OVERREACHES ; "it verifies that the interface predicates are independent of the spectral parameter" ; RE-CUT: it verifies that the interface predicates are independent of the spectral parameter -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :174 | argument-supported | graded | - | no | MATCHES ; "is mathematics on the page with a classical citation" ; none
+  :178 | kernel-verified | over | ConservationBridge.riemann_hypothesis | no | OVERREACHES ; "`ConservationBridge.riemann_hypothesis` and the interface predicates it consumes" ; RE-CUT: `ConservationBridge.riemann_hypothesis` and the interface predicates it consumes -- say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction
+  :178 | kernel-verified | established | ConservationBridge.riemann_hypothesis | no | MATCHES ; "DEPOSIT-PIN `v1.5` = `0e5233f`" ; none
+  :178 | statement-grade | established | - | no | UNLICENSED ; "WORKING-HEAD `v1.7` = `5e668b4`, `main`" ; RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :179 | kernel-verified | graded | ConservationBridge.riemann_hypothesis | no | MATCHES ; "`1^s = 1`, the computation behind the inertness" ; none
+  :180 | theorem-supported | graded | - | no | MATCHES ; "**MANUSCRIPT-RESIDENT** — Tate 1950, classical and cited" ; none
+  :181 | statement-grade | less | - | no | UNDERSTATES ; "there is no terminal and there is not meant to be one" ; RE-CUT: there is no terminal and there is not meant to be one -- say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction; name h2_sign and h2_sign_iff_rh as h2’s terminal
+  :181 | synthesis-suggested | established | - | no | OVERREACHES ; "one of `h2`'s five registers, §27.3" ; RE-CUT: one of `h2`'s five registers, §27.3 -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem
+  :188 | synthesis-suggested | graded | - | no | MATCHES ; "together say the additive–multiplicative interface transmits density information and not placement information" ; none
+  :188 | argument-supported | graded | - | no | MATCHES ; "any decider must supply placement at the multiplicative place from a source that is *not* that interface" ; none
+  :188 | synthesis-suggested | graded | - | no | MATCHES ; "is therefore a consistency check, not a new result" ; none
+  :194 | argument-supported | graded | - | no | MATCHES ; "The corpus's instrument register now says *silent* where it said *blind*" ; none
+  :194 | synthesis-suggested | graded | - | no | MATCHES ; "A component that contributes no `s`-dependence is not failing to act — it is acting without separating." ; none
+  :194 | argument-supported | graded | - | no | MATCHES ; "contributes nothing to zero location" ; none
+  :194 | synthesis-suggested | graded | - | no | MATCHES ; "non-separating-over-`S5` is the exact analogue of this paper's `κ = 0`" ; none
+  :194 | argument-supported | graded | - | no | MATCHES ; "The theorem's content is unchanged on both sides" ; none
+  :200 | kernel-verified | over | ProductFormula.conservation_of_spectra | no | OVERREACHES ; "A second inertness-shaped machine fact now stands beside Conservation of Spectra" ; RE-CUT: A second inertness-shaped machine fact now stands beside Conservation of Spectra -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :201 | kernel-verified | graded | general_p_no_fixed_cell | no | MATCHES ; "the compressed scaling's trace at EVERY finite place is silent" ; none
+  :202 | kernel-verified | established | general_p_no_fixed_cell | no | MATCHES ; "no Sonin cell satisfies the fixed-point" ; none
+  :203 | kernel-verified | established | general_p_no_fixed_cell | no | MATCHES ; "any prime, any level, any step" ; none
+  :204 | kernel-verified | established | general_p_no_fixed_cell | no | MATCHES ; "`p = 2,3,5,7` at no axioms" ; none
+  :204 | synthesis-suggested | graded | - | no | MATCHES ; "the finite places contribute no dilation-parameter-dependent" ; none
+  :205 | synthesis-suggested | graded | - | no | MATCHES ; "KIN to the product formula's s-darkness at a DIFFERENT object" ; none
+  :206 | argument-supported | graded | - | no | MATCHES ; "no merge is compiled or claimed" ; none
+  :206 | kernel-verified | established | - | no | MATCHES ; "The archimedean complement is also now a theorem" ; none
+  :207 | theorem-supported | graded | - | no | MATCHES ; "ℝ has no compact open subgroup — the place without finite exact levels" ; none
+  :209 | synthesis-suggested | less | - | no | UNDERSTATES ; "the register sentence (`h2` the single open premise) unchanged" ; RE-CUT: the register sentence (`h2` the single open premise) unchanged -- state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :101), not as conditional on it
+
+### THE SKIPS (line | reason), 58:
+  :1 | document title heading
+  :3 | author/ORCID and version line
+  :7 | horizontal rule
+  :15 | section heading
+  :33 | section heading
+  :35 | theorem label only
+  :47 | proof label only
+  :51 | definition label only
+  :55 | section heading
+  :65 | section heading
+  :67 | corollary label only
+  :74 | proof label only
+  :78 | corollary label only
+  :82 | proof label only
+  :86 | remark label only
+  :90 | remark label only
+  :94 | section heading
+  :98 | theorem attribution label; content on line 99
+  :102 | table header row
+  :103 | table rule
+  :114 | section heading
+  :118 | horizontal rule
+  :120 | section heading
+  :122 | table header row
+  :123 | table rule
+  :124 | symbol glossary row, notation only
+  :125 | symbol glossary row, notation only
+  :126 | symbol glossary row, notation only
+  :127 | symbol glossary row, notation only
+  :128 | symbol glossary row, notation only
+  :129 | symbol glossary row, notation only
+  :130 | symbol glossary row, notation only
+  :131 | symbol glossary row, notation only
+  :132 | symbol glossary row, notation only
+  :133 | symbol glossary row, notation only
+  :135 | section heading
+  :138 | bibliography entry
+  :140 | bibliography entry
+  :142 | bibliography entry
+  :144 | bibliography entry
+  :146 | bibliography entry
+  :148 | bibliography entry
+  :150 | bibliography entry
+  :152 | bibliography entry
+  :154 | bibliography entry
+  :156 | workflow and authorship disclosure, no mathematical assertion
+  :164 | decorative glyph line
+  :166 | horizontal rule
+  :168 | section heading and edit record
+  :170 | subsection heading
+  :176 | table header row
+  :177 | table rule
+  :183 | navigation note pointing to the concordance, no mathematical assertion
+  :186 | subsection heading
+  :190 | provenance and edit record
+  :192 | subsection heading
+  :196 | provenance and edit record
+  :198 | subsection heading
+
+### THE ROWS READING OVERREACHES OR UNLICENSED, IN FULL:
+  :9 OVERREACHES -- STATED "The theorem and its consequences are machine-checked in Lean 4 against Mathlib"
+      LICENSED intake: kernel-verified, stated as over, terminal ProductFormula.conservation_of_spectra; its row: SIDE-kernel conservation_of_spectra CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; terminal states only (1:ℚ)^s=1 for s:ℤ; inertness and Closure consequences carried by name (F3)
+      ACTION RE-CUT: The theorem and its consequences are machine-checked in Lean 4 against Mathlib -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :57 OVERREACHES -- STATED "The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib"
+      LICENSED intake: kernel-verified, stated as over, terminal ProductFormula.conservation_of_spectra; its row: SIDE-kernel conservation_of_spectra CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; terminal states only (1:ℚ)^s=1 for s:ℤ; inertness carried by name (F3)
+      ACTION RE-CUT: The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :57 UNLICENSED -- STATED "Three files build a chain from prime powers to rationals"
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; file chain asserted with no terminal named
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :59 UNLICENSED -- STATED "(prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems."
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; compiled-file count asserted with no terminal named
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :60 UNLICENSED -- STATED "(integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems."
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; compiled-file count asserted with no terminal named
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :61 OVERREACHES -- STATED "(rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems."
+      LICENSED intake: kernel-verified, stated as over, terminal ProductFormula.conservation_of_spectra; its row: SIDE-kernel conservation_of_spectra CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; terminal is ∀ s : ℤ, (1:ℚ)^s = 1, not s : ℂ; inertness by name (F3)
+      ACTION RE-CUT: (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems. -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :63 UNLICENSED -- STATED "Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms."
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; count and axiom status asserted with no terminal named
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :63 UNLICENSED -- STATED "Two theorems from this programme have been merged into the Mathlib standard library (PRs \#36881 and \#36865)"
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; Mathlib merge asserted with PR numbers only, no check given
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :87 OVERREACHES -- STATED "This seal is the proof of RH's one certified premise"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; offers a proof of RH's premise; premise is RH restated, no kernel proves RH (F2, F7)
+      ACTION RE-CUT: This seal is the proof of RH's one certified premise -- say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction; state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem
+  :87 OVERREACHES -- STATED "named in five equivalent registers"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; registers at different depths gathered as one premise (F7)
+      ACTION RE-CUT: named in five equivalent registers -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem
+  :87 OVERREACHES -- STATED "the catalogue surrounding it is machine-checked"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; only the count is compiled; covers_all is open (F11)
+      ACTION RE-CUT: the catalogue surrounding it is machine-checked -- say the kernel counts a defined type (Fintype.card MechanismClass = 7); that every zero is produced by a named class (covers_all) is the open clause, not compiled
+  :107 UNLICENSED -- STATED "Zeros confined to critical line | Yes"
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; asserts RH for ζ as fact; no kernel proves RH (F1, F2)
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :112 UNLICENSED -- STATED "The outcome difference is the confinement of zeros."
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; presumes ζ's zeros confined to the line, i.e. RH as fact (F1, F2)
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :116 OVERREACHES -- STATED "we make it explicit and formally verify it"
+      LICENSED intake: kernel-verified, stated as over, terminal ProductFormula.conservation_of_spectra; its row: SIDE-kernel conservation_of_spectra CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; terminal states only 1^s=1 over ℤ; inertness by name (F3)
+      ACTION RE-CUT: we make it explicit and formally verify it -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :116 OVERREACHES -- STATED "with all 34 confirmed"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; cross-domain confirmation stated as settled, no support shown
+      ACTION RE-CUT: with all 34 confirmed -- state the claim at its grade (synthesis-suggested), no more than its support carries
+  :161 OVERREACHES -- STATED "This paper develops one component of a proof of Theorem (RH)"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; presents a proof of RH; no kernel proves RH (F1, F2)
+      ACTION RE-CUT: This paper develops one component of a proof of Theorem (RH) -- state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :101), not as conditional on it; say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction
+  :172 OVERREACHES -- STATED "it is what lets a finite catalogue of mechanisms be sufficient"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; catalogue sufficiency (covers_all) is open, stated as delivered (F11)
+      ACTION RE-CUT: it is what lets a finite catalogue of mechanisms be sufficient -- say the kernel counts a defined type (Fintype.card MechanismClass = 7); that every zero is produced by a named class (covers_all) is the open clause, not compiled
+  :174 OVERREACHES -- STATED "it verifies that the interface predicates are independent of the spectral parameter"
+      LICENSED intake: kernel-verified, stated as over, terminal ProductFormula.conservation_of_spectra; its row: SIDE-kernel conservation_of_spectra CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; kernel states only (1:ℚ)^s=1 over ℤ; interface reading by name (F3)
+      ACTION RE-CUT: it verifies that the interface predicates are independent of the spectral parameter -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+  :178 OVERREACHES -- STATED "`ConservationBridge.riemann_hypothesis` and the interface predicates it consumes"
+      LICENSED intake: kernel-verified, stated as over, terminal ConservationBridge.riemann_hypothesis; its row: SIDE-kernel ConservationBridge.riemann_hypothesis CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; cited terminal compiles RH=>RH (F2), carries no inertness; marked COMPILED for that claim
+      ACTION RE-CUT: `ConservationBridge.riemann_hypothesis` and the interface predicates it consumes -- say Route 3 compiles RH from its own restatement (ch_iff_rh, H2Bridge.lean :71): no route and no reduction
+  :178 UNLICENSED -- STATED "WORKING-HEAD `v1.7` = `5e668b4`, `main`"
+      LICENSED intake: statement-grade, stated as established; the mapping (statement-grade, established) -> UNLICENSED; working-head pin asserted with no check given
+      ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence
+  :181 OVERREACHES -- STATED "one of `h2`'s five registers, §27.3"
+      LICENSED intake: synthesis-suggested, stated as established; the mapping (synthesis-suggested, established) -> OVERREACHES; registers at different depths gathered as one premise (F7)
+      ACTION RE-CUT: one of `h2`'s five registers, §27.3 -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem
+  :200 OVERREACHES -- STATED "A second inertness-shaped machine fact now stands beside Conservation of Spectra"
+      LICENSED intake: kernel-verified, stated as over, terminal ProductFormula.conservation_of_spectra; its row: SIDE-kernel conservation_of_spectra CONFLICT; the mapping (kernel-verified, over) -> OVERREACHES; Conservation of Spectra reading is carried by the name, not the statement (F3)
+      ACTION RE-CUT: A second inertness-shaped machine fact now stands beside Conservation of Spectra -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, not the terminal’s content
+
+### ### **Spectral_Inertness: CLAIMS 116 ; SKIPPED LINES 58 ; MATCHES 92 ; UNDERSTATES 2 ; OVERREACHES 14 ; UNLICENSED 8 ; A ROW WITHOUT A VERDICT 0 ; UNCOVERED LINES 0.**
