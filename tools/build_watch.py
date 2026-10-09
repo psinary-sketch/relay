@@ -126,11 +126,13 @@ def attempt(n, cwd, cmd, f, hold, start_hold, interval):
                 stop(p.pid, f, 'free %d MB beneath the hold %d' % (fr, hold))
                 return
 
-    threading.Thread(target=sampler, daemon=True).start()
+    th = threading.Thread(target=sampler, daemon=True)
+    th.start()
     for raw in p.stdout:
         f.write(raw.decode('utf-8', 'replace').rstrip('\r\n') + '\n')
     rc = p.wait()
     done.set()
+    th.join(120)   # ### a stop in progress writes its lines before EXIT (b644: the second stop's line was lost to the exit)
     f.write('### EXIT %d %s %d s peak %d MB low %d MB free %d MB%s\n' % (rc, utc(), int(time.time() - t0), peak[0], low[0], free_mb(),
                                                                        ' (stopped beneath the hold)' if stopped[0] else ''))
     return rc, low[0], stopped[0]
