@@ -1,0 +1,46 @@
+b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLANTED TESTS RUN AND COUNTED BEFORE ANY REAL ROW (2026-10-09T18:42:38Z)
+
+### tools/test_licensed_table_b645.py, exit 0:
+  (1) a plain docstring on a DERIVES theorem reads MATCHES and the table takes it -- got ('MATCHES', []) -- PASS
+  (2) a module line calling a DERIVES name open reads UNDERSTATES, refused without its re-cut, taken with it -- got ('UNDERSTATES', True, []) -- PASS
+  (3) an unconditional docstring on an INTERFACES theorem reads OVERREACHES -- got 'OVERREACHES' -- PASS
+  (4) a statement-grade claim stated as established reads UNLICENSED and the table takes its retirement -- got ('UNLICENSED', []) -- PASS
+  (5) a HAND row without its citation is refused, and the table with it -- got (True, None, True) -- PASS
+  (6) MATCHES with an action, or a fifth verdict, is refused -- got (True, True) -- PASS
+  (7) a claim naming a terminal at a grade above its row reads OVERREACHES -- got 'OVERREACHES' -- PASS
+  (8) an intake pair outside the printed mapping raises -- got 'raised' -- PASS
+  (9) a clean table of four rows counts one of each verdict -- got ({'MATCHES': 1, 'UNDERSTATES': 1, 'OVERREACHES': 1, 'UNLICENSED': 1}, {}) -- PASS
+### ### **9 of 9 cases as wanted -- PASS**
+
+### THE LICENSED-STATEMENT TABLE`S RULES (tools/licensed_table.py), printed before the run:
+
+  docstring  the docstring against its declaration`s elaborated statement (relay data/b643_elab_ef.txt) and its grade in the terminal table, and every grade word it attaches to a named declaration against that declaration`s row
+  module     a module`s header block: every grade word it attaches to a named declaration against that declaration`s row
+  terminal   a claim naming a terminal against that terminal`s row in the terminal table (grade, statement, profile) and, for a premise, its status in the premise table
+  intake     a claim of a document through the intake form of b628 (its grade, its route, its terminal), its outcome mapped to a verdict by the mapping printed before the run
+
+### THE VERDICTS: MATCHES / UNDERSTATES / OVERREACHES / UNLICENSED
+### THE GRADE SCALE FOR A CLAIM ATTACHED TO A NAME: DERIVES 3 ; DISCHARGED 3 ; WITNESSED 3 ; INTERFACES 2 ; CITED 2 ; OPEN 1 ; DEF 0 ; DOMAIN 0
+### (D1) unconditional markers: \b(?:unconditionally|no hypothesis|without (?:any )?hypothes[ie]s|outright|for every [^.;]{0,40} with no premise)\b
+### (D1) open-about-itself markers: \b(?:this (?:is|stays|remains) (?:open|conditional)|is assumed here|not (?:yet )?(?:compiled|proved) here)\b
+### (D2) the claim words, strongest first:
+    DERIVES <- \b(?:PROVED|proved|proves|DERIVES|derives (?:it|them)? ?(?:outright|unconditionally)|holds unconditionally|unconditionally|no hypothesis|without hypothesis|outright|compiled|inhabited|closed)\b
+    INTERFACES <- \b(?:INTERFACES|at INTERFACES|on (?:its|the|two|one|three) (?:named )?(?:premise|premises|obligation|obligations|hypothesis)|under (?:its|the|two|one) (?:named )?(?:premise|premises|obligations?|hypot
+    OPEN <- \b(?:OPEN|is open|stays open|remains open|not (?:yet )?(?:compiled|proved)|unproved|conjectur\w*)\b
+
+### THE INTAKE MAPPING ((R255)(4)(d)), (grade, stated as) -> verdict:
+    kernel-verified            established  -> MATCHES      the terminal at its pin carries the claim as stated
+    kernel-verified            graded       -> MATCHES      the claim names its terminal and grade
+    kernel-verified            over         -> OVERREACHES  the claim states more than its terminal carries (a stipulation read as content, a premise left unnamed)
+    theorem-supported          established  -> OVERREACHES  a classical theorem cited as the programme`s compiled or proved result
+    theorem-supported          graded       -> MATCHES      cited at its source as a classical theorem
+    argument-supported         established  -> OVERREACHES  an argument of the document stated as proved or machine-checked
+    argument-supported         graded       -> MATCHES      stated as the document`s argument, not as a compiled result
+    computationally-verified   established  -> MATCHES      a computation stated as a computation
+    computationally-verified   over         -> OVERREACHES  a finite computation stated as a general theorem
+    synthesis-suggested        established  -> OVERREACHES  a synthesis reading stated as a result
+    synthesis-suggested        graded       -> MATCHES      stated as a reading, interpretation or programme
+    statement-grade            established  -> UNLICENSED   asserted as established; no kernel and no citation reaches it
+    statement-grade            open         -> MATCHES      stated as open, conjectural or a definition of the document`s own terms
+    any                        less         -> UNDERSTATES  the corpus now licenses more than the sentence says (a compiled theorem called open, a terminal said not to exist)
+    route DARK                 established  -> OVERREACHES  a route offered as reaching its conclusion, which the sieve reads DARK
