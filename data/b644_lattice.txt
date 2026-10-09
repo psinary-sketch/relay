@@ -1,0 +1,118 @@
+b644 -- COMPONENT 7, (R254)(10): W-ORD-H2-LATTICE -- THE ASSIGNMENT RULE, ITS TEST, THE LATTICE TABLE (2026-10-09T14:15:40Z) -- A BANK, NOT AN EDITION
+
+### the axes and the token each reads (name and statement): HEIGHT `upto|height|Platt|L₀|\(T\s*:|\bT₀\b|\|\s*\w+\.im\s*\||\.im\b` ; INSTANCE `_chi\b|χ|Dirichlet|LFunction|Dedekind|dedekind|Epstein|epstein|_cfg\b|Config\b|instance` ; REGISTER `h2_sign|Weil|weil|\bli_|LiCriterion|LiCoeff|Register\d|taylorCoeff|\bnb\b|_nb\b|NymanBeurling|conservation|\bch_|arith_limit` ; FAMILY `GRH|Family\.|family|cascade` ; TEST-CLASS `classK|window|Window|plateau|\bbox\b|test`
+### the rows: SIDE-explicit-formula`s graded rows in the terminal table at relay HEAD whose statement matches `RiemannHypothesis|\bh2_sign\w*|\brh_\w+|GRH\w*|li_nonneg\w*|arith_limit\w*|NymanBeurling\w*|conservationHypothesis` (the seat`s scope)
+
+### THE RULE`S TEST, PLANTED ROWS:
+  (1) HEIGHT       X.forall_rh_upto_iff_rh    axes read ['HEIGHT'] ; PASS
+  (2) INSTANCE     X.GRH_chi                  axes read ['INSTANCE', 'FAMILY'] ; PASS
+  (3) REGISTER     X.li_nonneg_iff_rh         axes read ['REGISTER'] ; PASS
+  (4) FAMILY       X.Family.grh_family        axes read ['FAMILY'] ; PASS
+  (5) TEST-CLASS   X.h_classK                 axes read ['TEST-CLASS'] ; PASS
+  (6) NO AXIS      X.rh_base                  axes read none ; PASS
+  ### ### **6 of 6 cases as wanted -- PASS**
+
+### THE LATTICE TABLE (94 rows): row | axes (the token) | grade | the premises it rests on, with status
+  SIDEExplicitFormula.PlattRung.PlattTrudgianHeight          | HEIGHT (Platt)                                 | DEF                | none
+  SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh        | HEIGHT (Platt)                                 | DERIVES            | none
+  SIDEExplicitFormula.PlattRung.rh_upto                      | HEIGHT (Platt)                                 | DEF                | none
+  SIDEExplicitFormula.PlattRung.rh_upto_platt                | HEIGHT (Platt)                                 | INTERFACES         | PlattTrudgianHeight CITED
+  SIDEExplicitFormula.B321.forall_upto_iff_rh                | HEIGHT (upto), REGISTER (h2_sign)              | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_iff_forall_upto           | HEIGHT (upto), REGISTER (h2_sign)              | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_upto                  | HEIGHT (upto), REGISTER (h2_sign)              | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_upto                      | HEIGHT (upto), REGISTER (h2_sign)              | DERIVES            | none
+  SIDEExplicitFormula.B321.upto_all_imp_h2_sign              | HEIGHT (upto), REGISTER (h2_sign)              | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.charCfg_target           | INSTANCE (χ), FAMILY (Family.)                 | DERIVES            | none
+  SIDEExplicitFormula.B321.ch_imp_config                     | INSTANCE (Config), REGISTER (ch_)              | DERIVES            | none
+  SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  IDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  licitFormula.Doubling.SaltCheck.positivity_with_simplicity | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg        | INSTANCE (_cfg), REGISTER (h2_sign)            | DERIVES            | none
+  SIDEExplicitFormula.Doubling.doubling_iff                  | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  SIDEExplicitFormula.Product.SaltCheck.offCfg_not_h2        | INSTANCE (_cfg), REGISTER (h2_sign)            | DERIVES            | none
+  SIDEExplicitFormula.Product.SaltCheck.onCfg_h2             | INSTANCE (_cfg), REGISTER (h2_sign)            | DERIVES            | none
+  xplicitFormula.Product.SaltCheck.product_part_load_bearing | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  SIDEExplicitFormula.Product.SaltCheck.product_satisfiable  | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  DEExplicitFormula.Product.SaltCheck.product_sum_not_forced | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets    | INSTANCE (Config), REGISTER (h2_sign)          | DERIVES            | none
+  citFormula.Schema.SaltCheckEpstein.membership_load_bearing | INSTANCE (Epstein), REGISTER (h2_sign)         | DERIVES            | none
+  SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg         | INSTANCE (epstein), REGISTER (h2_sign)         | INTERFACES         | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg                     | INSTANCE (_cfg), REGISTER (h2_sign)            | DEF                | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_chi                 | INSTANCE (_chi), REGISTER (h2_sign)            | DERIVES            | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_iff_online          | INSTANCE (Config), REGISTER (h2_sign)          | DERIVES            | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target          | INSTANCE (Config), REGISTER (h2_sign)          | DERIVES            | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_imp_online          | INSTANCE (Config), REGISTER (h2_sign)          | DERIVES            | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_zeta                | INSTANCE (_cfg), REGISTER (h2_sign)            | DERIVES            | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement      | INSTANCE (_cfg), REGISTER (h2_sign)            | DERIVES            | none
+  SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline      | INSTANCE (Config), REGISTER (h2_sign)          | DERIVES            | none
+  SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg          | INSTANCE (_cfg), REGISTER (h2_sign)            | DERIVES            | none
+  EExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  ExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable | INSTANCE (Config), REGISTER (Weil)             | DERIVES            | none
+  SIDEExplicitFormula.GRHWeil.GRH_chi                        | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DEF                | none
+  SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial            | INSTANCE (χ), REGISTER (Weil), FAMILY (GRH)    | DERIVES            | none
+  SIDEExplicitFormula.GRHWeil.GRH_chi_trivial                | INSTANCE (χ), REGISTER (Weil), FAMILY (GRH)    | DEF                | none
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi        | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DERIVES            | none
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi                    | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DEF                | none
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi        | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | INTERFACES         | none
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi        | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | INTERFACES         | none
+  SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_rh_strip_chi   | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DERIVES            | none
+  SIDEExplicitFormula.GRHWeil.rh_strip_chi                   | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DEF                | none
+  SIDEExplicitFormula.GRHWeil.rh_strip_chi_iff_grh_chi       | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DERIVES            | none
+  SIDEExplicitFormula.GRHWeil.rh_strip_chi_imp_h2_sign_chi   | INSTANCE (_chi), REGISTER (Weil), FAMILY (GRH) | DERIVES            | none
+  EExplicitFormula.SaltCheckNonvacuity.isTrivialPoint_parity | INSTANCE (χ), REGISTER (Weil), FAMILY (GRH)    | DERIVES            | none
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_instance      | INSTANCE (Dedekind), REGISTER (h2_sign), FAMILY (family) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_three         | INSTANCE (Dedekind), REGISTER (h2_sign), FAMILY (family) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Dedekind.dedekind_three_v026    | INSTANCE (Dedekind), REGISTER (h2_sign), FAMILY (family) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_h2  | INSTANCE (_cfg), REGISTER (h2_sign), FAMILY (Family.) | DERIVES            | none
+  licitFormula.Schema.Family.SaltCheck.finsetSum_satisfiable | INSTANCE (Config), REGISTER (Weil), FAMILY (Family.) | DERIVES            | none
+  ula.Schema.Family.SaltCheck.finsetSum_summand_load_bearing | INSTANCE (Config), REGISTER (Weil), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.emptyCfg_h2              | INSTANCE (_cfg), REGISTER (h2_sign), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.family_theorem           | INSTANCE (_cfg), REGISTER (h2_sign), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.family_three             | INSTANCE (_cfg), REGISTER (h2_sign), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.family_three_statement   | INSTANCE (_cfg), REGISTER (h2_sign), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.finsetSum_productLemma   | INSTANCE (Config), REGISTER (Weil), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.Family.finsetSum_target_iff     | INSTANCE (Config), REGISTER (Weil), FAMILY (Family.) | DERIVES            | none
+  SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement       | INSTANCE (χ), REGISTER (h2_sign), FAMILY (GRH) | DERIVES            | none
+  LiCriterion.li_criterion_rh_iff                            | REGISTER (LiCriterion)                         | DERIVES            | none
+  LiCriterion.rh_equiv_mathlib                               | REGISTER (LiCriterion)                         | DERIVES            | none
+  SIDEExplicitFormula.B321.ch_iff_h2_sign                    | REGISTER (ch_)                                 | DERIVES            | none
+  SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam            | REGISTER (ch_)                                 | INTERFACES         | none
+  SIDEExplicitFormula.B321.ch_iff_rh                         | REGISTER (ch_)                                 | DERIVES            | none
+  SIDEExplicitFormula.B321.ch_imp_h2_sign                    | REGISTER (ch_)                                 | DERIVES            | none
+  SIDEExplicitFormula.B321.ch_imp_rh                         | REGISTER (ch_)                                 | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_iff_rh                    | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_iff_rh_strip              | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_cell                  | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_ch_holds              | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_ch_iff                | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_rh_holds              | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam            | REGISTER (h2_sign)                             | INTERFACES         | none
+  SIDEExplicitFormula.B321.h2_sign_imp_rh_strip              | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of           | REGISTER (h2_sign)                             | INTERFACES         | zeroSideNeg DISCHARGED
+  SIDEExplicitFormula.B321.rh_imp_ch                         | REGISTER (conservation)                        | DERIVES            | none
+  SIDEExplicitFormula.B321.rh_imp_h2_sign                    | REGISTER (h2_sign)                             | DERIVES            | none
+  SIDEExplicitFormula.B321.rh_strip_imp_h2_sign              | REGISTER (h2_sign)                             | DERIVES            | none
+  xplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh | REGISTER (LiCriterion)                         | DERIVES            | none
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh     | REGISTER (LiCriterion)                         | DERIVES            | none
+  SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg                | REGISTER (Weil)                                | DERIVES            | none
+  SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise     | REGISTER (NymanBeurling)                       | DEF                | none
+  SIDEExplicitFormula.NymanBeurling.rh_iff_nb                | REGISTER (NymanBeurling)                       | INTERFACES         | NymanBeurlingPremise CITED
+  tFormula.PageConverses.register4_positivity_liCoeff_iff_rh | REGISTER (Register4)                           | DERIVES            | none
+  tFormula.PageConverses.rh_imp_register4_positivity_liCoeff | REGISTER (Register4)                           | DERIVES            | none
+  IDEExplicitFormula.PageConverses.rh_imp_taylorCoeff_nonneg | REGISTER (taylorCoeff)                         | DERIVES            | none
+  IDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh | REGISTER (taylorCoeff)                         | DERIVES            | none
+  rmula.ResidueDischarge.register4_positivity_liCoeff_imp_rh | REGISTER (Register4)                           | DERIVES            | none
+  SIDEExplicitFormula.B321.rh_imp_cell_form                  | UNPLACED                                       | DERIVES            | none
+  SIDEExplicitFormula.B321.rh_imp_rh_strip                   | UNPLACED                                       | DERIVES            | none
+  SIDEExplicitFormula.B321.rh_strip_imp_rh_holds             | UNPLACED                                       | DERIVES            | none
+  SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff       | UNPLACED                                       | DERIVES            | none
+  rh_strip_imp_rh                                            | UNPLACED                                       | CONFLICT           | none
+
+### THE ROWS THE RULE CANNOT PLACE (5), raised as one prompt:
+  SIDEExplicitFormula.B321.rh_imp_cell_form : theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) : RiemannHypothesis → cell_form F W
+  SIDEExplicitFormula.B321.rh_imp_rh_strip : theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip
+  SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : theorem rh_strip_imp_rh_holds : rh_strip_imp_rh
+  SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : theorem lvh2_corrected_iff : (∀ s : ℂ, 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ B321.rh_strip
+  rh_strip_imp_rh : def rh_strip_imp_rh : Prop
+
+### ### **ROWS 94 ; PLACED 89 ; UNPLACED 5 ; ON EACH AXIS: HEIGHT 9, INSTANCE 51, REGISTER 84, FAMILY 26, TEST-CLASS 0 ; THE RULE`S TEST 6 OF 6.**
