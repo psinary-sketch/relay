@@ -339,6 +339,431 @@ def record_lines(*a):
     R3._land(Q, items, 'b645_record_lines.json', K.B644_ENTRY)
 
 
+# ================================================================================ COMPONENT 2: THE INSTRUMENT, (R255)(3)
+def instrument(*a):
+    """data/b645_instrument.txt: the planted tests of tools/licensed_table.py run and counted (one per verdict, a HAND row lacking its citation
+    refused), and the rules and the intake mapping printed -- before any real row is read."""
+    import licensed_table as LT
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'test_licensed_table_b645.py')], capture_output=True, text=True,
+                       encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    out = (r.stdout + r.stderr).rstrip(NL).split(NL)
+    L = ['b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLANTED TESTS RUN AND COUNTED BEFORE ANY REAL ROW (%s)' % utc(),
+         '', '### tools/test_licensed_table_b645.py, exit %d:' % r.returncode] + out + [''] + LT.rules()
+    put_txt('b645_instrument.txt', L)
+    print(out[-1])
+
+
+# ================================================================================ COMPONENT 3: THE SEAM ROWS AND THE MAP, (R255)(4)(a)-(b)
+EFP = 'SIDE-explicit-formula@82550e4:SIDEExplicitFormula/'
+KP = 'SIDE-kernel@0e5233f:'
+LVP = 'SIDE-lv-conservation@6efa9e5:SIDELvConservation/'
+MAPC = lambda n: 'PLACE-papers@6871ba2:%s:%d' % (K.MAP, n)   # noqa: E731
+_TT = None
+
+
+def _tt():
+    global _TT
+    if _TT is None:
+        _TT = (json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'],
+               lines_of(_show(RELAY, PRE_RELAY, 'data/terminal_table.md')))
+    return _TT
+
+
+def tt_cite(repo, name):
+    """relay@bd1387be:data/terminal_table.md:N -- the table's row for repo and qualified name (or last component)."""
+    rows, md = _tt()
+    for i, l in enumerate(md, 1):
+        m = re.match(r'^\| `([^`]+)` \| `([^`]+)` \|', l)
+        if m and m.group(1) == repo and (m.group(2) == name or m.group(2).split('.')[-1] == name):
+            return 'relay@%s:data/terminal_table.md:%d' % (PRE_RELAY, i)
+    sys.exit('### NO TABLE ROW FOR %s %s -- NOTHING WRITTEN' % (repo, name))
+
+
+def tt_row(repo, name):
+    rows, _md = _tt()
+    for x in rows:
+        if x['repo'] == repo and (x['name'] == name or x['name'].split('.')[-1] == name):
+            return x
+    return None
+
+
+# ### THE FACTS THE MAP'S READINGS STAND ON, each a declaration at its current pin, its table row and its expected grade: verified at the
+# ### run (the grade and the statement's needle read from the table), cited in every row that leans on it.
+FACTS = collections.OrderedDict([
+    ('mellin', ('SIDE-explicit-formula', 'mellin_Phi_eq_zero_of_re_le_one', EFP + 'RegisterDepth.lean:101', 'DERIVES', 'mellin Phi (s / 2) = 0')),
+    ('lvh2', ('SIDE-explicit-formula', 'lv_h2_false_on_strip', EFP + 'RegisterDepth.lean:143', 'DERIVES', '¬ (mellin Phi (s / 2) ≠ 0)')),
+    ('chrh', ('SIDE-explicit-formula', 'ch_iff_rh', EFP + 'H2Bridge.lean:71', 'DERIVES', 'conservationHypothesis ↔ RiemannHypothesis')),
+    ('h2rh', ('SIDE-explicit-formula', 'h2_sign_iff_rh', EFP + 'Seam.lean:101', 'DERIVES', 'h2_sign ↔ RiemannHypothesis')),
+    ('r1', ('SIDE-explicit-formula', 'not_register1', EFP + 'RegisterDepth.lean:60', 'DERIVES', '¬ Register1_universalityHypothesis')),
+    ('r5', ('SIDE-explicit-formula', 'register5_output_holds', EFP + 'RegisterDepth.lean:297', 'DERIVES', 'Register5_output_HilbertPolya')),
+    ('seam', ('SIDE-explicit-formula', 'rh_strip_imp_rh_holds', EFP + 'Seam.lean:84', 'DERIVES', 'rh_strip_imp_rh')),
+    ('cons', ('SIDE-kernel', 'conservation_of_spectra', KP + 'Kernel/ProductFormula_Rat.lean:72', 'CONFLICT', '(1 : Rat) ^ s = 1')),
+    ('route3', ('SIDE-kernel', 'ConservationBridge.riemann_hypothesis', KP + 'Bridge/ConservationBridge.lean:53', 'CONFLICT', 'h_cons : ConservationHypothesis')),
+    ('route1', ('SIDE-kernel', 'ConservationBridge.structural_exhaustiveness_proved', KP + 'Bridge/ConservationBridge.lean:46', 'INTERFACES',
+                'h_cons : ConservationHypothesis')),
+    ('cannon', ('SIDE-kernel', 'SpectralCannonFull.spectral_cannon', KP + 'Kernel/SpectralCannonFull.lean:65', 'DERIVES', 'deriv completedRiemannZeta₀')),
+    ('silu', ('SIDE-kernel', 'silence_universal', KP + 'Kernel/SilenceTheorem.lean:74', 'INTERFACES', 'theorem silence_universal')),
+    ('sieve', ('SIDE-kernel', 'sieve_ceiling', KP + 'Kernel/Cascade/SieveCeiling.lean:209', 'ENCODES-CONCLUSION \\ SHELL', 'factorsDark')),
+    ('ediff', ('SIDE-kernel', 'e_difficulty', KP + 'Kernel/Cascade/SieveCeiling.lean:309', 'CONFLICT', 'DeterminedSystem')),
+    ('ostr', ('SIDE-kernel', 'type_I_has_ostrowski', KP + 'MetaKernel.lean:145', 'CONFLICT', '[Fintype Domain]')),
+    ('pp', ('SIDE-lv-conservation', 'PartialPositivity.partialPositivity_finiteRange', LVP + 'PartialPositivity.lean:105', 'INTERFACES',
+            'theorem partialPositivity_finiteRange')),
+    ('h1', ('SIDE-lv-conservation', 'h1_complete_at_Phi', LVP + 'CouplingsAtPhi.lean:418', 'DERIVES', 'C1_realness Phi')),
+    ('goal', ('SIDE-lv-conservation', 'RegisterPentagon.goalState_sevenClasses_of_h2', LVP + 'RegisterPentagon.lean:210', 'DERIVES',
+              'mellin Phi (s / 2) ≠ 0')),
+    ('t3', ('SIDE-lv-conservation', 'T3.T3doubleprime_general_commutation_fails', LVP + 'T3_StepNineBridge.lean:137', 'DERIVES', '¬ ∀')),
+    ('c7', ('SIDE-lv-conservation', 'C7_finite_type_false', LVP + 'C7FiniteTypeFalse.lean:68', 'DERIVES', 'completedRiemannZeta₀')),
+    ('typed', ('SIDE-effects', 'no_type_d_conspiracies', 'SIDE-effects@a27415d:SIDEEffects/Phase15/Module1.lean:154', None, 'IsEmpty TypeD')),
+    ('crt', ('SIDE-effects', 'crt_exhaustiveness', 'SIDE-effects@a27415d:SIDEEffects/Phase15/Module1.lean:146', None, 'StructuralCoupling')),
+    ('silv2', ('SIDE-silence-principle', 'silence_universal', 'SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:181', 'INTERFACES',
+               'theorem silence_universal')),
+    ('rcurve', ('SIDE-rcurve', 'SIDERCurve.monotone_unique_zero', 'SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:31', 'INTERFACES', 'StrictMono V')),
+])
+
+
+def _fact(k):
+    """(the fact's text, its citations) -- the table row read and its grade and statement checked; the run stops on a fact that moved.
+    `cite:<citation>` is a line the seat read, cited as it stands; `tt:<repo>:<name>` is a table row, cited by its line."""
+    if k.startswith('cite:'):
+        return ('', [k[5:]])
+    if k.startswith('tt:'):
+        _t, repo, name = k.split(':', 2)
+        x = tt_row(repo, name)
+        return ('`%s` reads %s in the table' % (name, x and x['grade']), [tt_cite(repo, name)])
+    repo, name, decl, want, needle = FACTS[k]
+    x = tt_row(repo, name)
+    if want is not None:
+        if not x or x['grade'] != want or needle not in (x['statement'] or ''):
+            sys.exit('### THE FACT %s MOVED: %s %s grade %s statement %r -- NOTHING WRITTEN' % (
+                k, repo, name, x and x['grade'], x and (x['statement'] or '')[:80]))
+        return ('`%s` (%s, grade %s: %s)' % (name.split('.')[-1], decl.split(':')[0], x['grade'], re.sub(r'\s+', ' ', x['statement'])[:160]),
+                [decl, tt_cite(repo, name)])
+    src = _show('D:/' + repo, decl.split('@')[1].split(':')[0], decl.split(':', 1)[1].rsplit(':', 1)[0]) or ''
+    if needle not in src:
+        sys.exit('### THE FACT %s MOVED: %s -- NOTHING WRITTEN' % (k, decl))
+    return ('`%s` (%s, read at the pin: %s)' % (name, decl.split(':')[0], needle), [decl])
+
+
+# ### which facts a CP-1b reading leans on, by the words it uses
+READING_FACTS = [
+    (r'mellin_Phi_eq_zero_of_re_le_one|false at every s with re s <= 1|false on the strip|vacuous on the strip|h2 at Phi', ['mellin', 'lvh2']),
+    (r'ch_iff_rh|RH restated', ['chrh']), (r'h2_sign_iff_rh|Weil form', ['h2rh']), (r'not_register1|R1 false', ['r1']),
+    (r'\(1 : Q\) \^ s = 1|STIPULATION', ['cons']), (r'Bombieri|T1-lit|literature premises', ['pp']),
+    (r'c66f3c5|a27415d|IsEmpty TypeD|programme-type|programme`s own couplings|programme\'s own couplings', ['typed', 'crt']),
+    (r'I\.is_universal', ['silu']), (r'sieve_ceiling', ['sieve']), (r'v1\.1 form|IsDecidable', ['ediff']), (r'667c254|v0\.2\.0', ['silv2']),
+    (r'CouplingsAtPhi', ['h1']), (r'Routes 1 and 2 are not routes', ['route1', 'cannon']), (r'countermodel|s = 3', ['t3']),
+    (r'ConservationBridge\.riemann_hypothesis|Route 3|conservation interface', ['route3']), (r'h1 complete at Phi|h1\'s completeness|completed h1', ['h1']),
+    (r'FINDINGS :396|FINDINGS :5461', ['chrh']), (r'RH <-> H', ['chrh']),
+]
+
+
+def _reading_facts(reading):
+    ks = []
+    for rx, fk in READING_FACTS:
+        if re.search(rx, reading):
+            ks += [k for k in fk if k not in ks]
+    return ks
+
+
+def _map_lines():
+    return lines_of(_show(PP, PRE_PP, K.MAP))
+
+
+def _map_rows():
+    """every row of the map: (line, kind, section, text) -- table rows (header and rule rows left out), list items, and the body paragraphs
+    of 120 characters and more (an italic note, a quotation and a comment left out), counted apart by kind."""
+    out, sec = [], ''
+    for i, l in enumerate(_map_lines(), 1):
+        if l.startswith('#'):
+            sec = l
+            continue
+        if l.startswith('|') and not re.match(r'^\|\s*:?-', l) and not re.match(r'^\| *(rank|keystone|anchor|terminal|node \(qualified name\)|document) *\|', l):
+            out.append((i, 'table', sec, l))
+        elif l.startswith('- '):
+            out.append((i, 'item', sec, l))
+        elif len(l) >= 120 and (l.startswith('**') or not re.match(r'^(\*|>|<!--|\s)', l)):
+            out.append((i, 'para', sec, l))
+    return out
+
+
+def _cells(l):
+    return [c.strip() for c in l.strip().strip('|').split('|')]
+
+
+# ### THE SEAT'S HAND READINGS OF THE MAP'S ROWS OUTSIDE THE CP-1b LIST AND THE PAGE-POINTER TABLE, BY LINE: (verdict, licensed, facts,
+# ### action). Every one cites the map line and the facts' declarations and table rows; a row not here and in no generated family stops the run.
+MATCH = 'none'
+MAP_HAND = {
+    3: ('MATCHES', 'the document`s class: TIER K, declared b190 by the standing taxonomy (THE_DOCUMENT_CLASS_TAXONOMY.md :34, Tier K presumptive '
+        'for the keystones with Correspondence tables)', [], MATCH),
+    7: ('UNLICENSED', 'TIER C is the class b189 declared and b190 retired at :3-:5 the next day; no standing declaration carries it', [],
+        'RETIRE TO ERRATA: the b189 TIER C declaration, retired by the b190 declaration at :3 (the retired-scheme note :5); an edition carries the one class'),
+    8: ('MATCHES', 'the purpose stated from the document`s own content: the union of the Correspondence tables', [], MATCH),
+    12: ('MATCHES', 'the (R18) head note: two maps, two keys, neither merged -- the ruling`s own words', [], MATCH),
+    18: ('MATCHES', 'the keystone set of fourteen graded tables, named by file', [], MATCH),
+    24: ('OVERREACHES', 'h1_complete_at_Phi DERIVES at lv v0.6.0 (c80bdc2; v0.8.0 6efa9e5 carries it): the eight coupling facts at Phi; it closes no '
+         'clause on the strip, lv`s h2 at Phi being false at every s with re s <= 1', ['h1', 'mellin', 'lvh2'],
+         'RE-CUT: | 1 | `h1_complete_at_Phi` (the eight coupling facts of Ch. 15 at the theta kernel Phi; lv`s h2 at Phi is false on the strip, so no clause is left open there) | lv v0.6.0 `c80bdc2` | DERIVES | SURR · SIMP · RCURVE · PATHS · DOM · BALPOS — 6 |'),
+    25: ('MATCHES', 'RegisterPentagon at lv v0.7.0 is a structure of five register faces with the R3 edge not compiled; the row claims the '
+         'structure and the open edge, no more', ['goal'], MATCH),
+    26: ('OVERREACHES', 'conservation_of_spectra states (1 : Rat) ^ s = 1 for every integer s; n4 = 0 and kappa = 1 are carried by the name, not by '
+         'the statement (T2)', ['cons'],
+         'RE-CUT: | 1 | `conservation_of_spectra` (states (1 : ℚ)^s = 1; the n₄ = 0 reading is carried by the name) | kernel v1.2 `b1407b2` | DERIVES (a stipulation, T2) | FOUND · SURR · PATHS · IFACE · SIMP · MONO — 6 |'),
+    27: ('MATCHES', 'SIDEKernel.formation states 2 + 3 + 2 + 0 = 7, the row`s own parenthesis', [], MATCH),
+    28: ('MATCHES', 'C7_finite_type_false DERIVES: no finite-type growth bound for completedRiemannZeta₀', ['c7'], MATCH),
+    29: ('MATCHES', 'partialPositivity_finiteRange INTERFACES on its three named premises', ['pp'], MATCH),
+    30: ('MATCHES', 'blTerm_nonneg_of_onLine DERIVES at lv v0.8.0 (PartialPositivity.lean :50): the Li term of a zero on the line is nonnegative',
+         [], MATCH),
+    31: ('MATCHES', 'type_I_has_ostrowski: modus tollens over an abstract Domain whose Fintype is unused; the row`s own cell says the '
+         'exhaustiveness is decorative', ['ostr'], MATCH),
+    32: ('MATCHES', 'silence_universal INTERFACES on I.is_universal', ['silu'], MATCH),
+    33: ('OVERREACHES', 'spectral_cannon states that the real part of the derivative of completedRiemannZeta₀ on the line is zero; it is no route to '
+         'sigma = 1/2 and no sub-RH statement (b540)', ['cannon'],
+         'RE-CUT: | 9 | `spectral_cannon` (the real part of the derivative of completedRiemannZeta₀ on the critical line is zero; not a route to σ = 1/2) | v1.2/v1.5 | DERIVES | MONO · SIMP · PATHS — 3 |'),
+    34: ('MATCHES', 'the order-<=1 growth bounds on completedRiemannZeta₀ and completedLFunction DERIVE', ['c7'], MATCH),
+    35: ('OVERREACHES', 'ConservationBridge.riemann_hypothesis takes ConservationHypothesis, which ch_iff_rh shows is RH restated: the terminal '
+         'encodes its conclusion (T2); the compiled reduction of RH is h2_sign_iff_rh', ['route3', 'chrh', 'h2rh'],
+         'RE-CUT: | — | `ConservationBridge.riemann_hypothesis` (its premise ConservationHypothesis is RH restated, ch_iff_rh: the terminal encodes its conclusion) | kernel v1.3 `0bc21c0` (carried v1.5) | ENCODES-CONCLUSION (T2) | MONO · PATHS |'),
+    37: ('MATCHES', 'the SHELL census: the named shells are work-orders, never citations; sieve_ceiling reads SHELL in the table', ['sieve'], MATCH),
+    41: ('OVERREACHES', 'the premises are named, but the five registers are not one premise: R1 is false as stated (not_register1), R2 is RH '
+         'restated (ch_iff_rh), R4 is equivalent to RH through h2_sign_iff_rh, R5`s output is a theorem (register5_output_holds)',
+         ['r1', 'chrh', 'h2rh', 'r5'],
+         'RE-CUT: **The named premises are named at every citation site.** The registers once gathered as one master premise h2 stand at different depths: R1 is false as stated (`not_register1`), R2 is RH restated (`ch_iff_rh`), R4 — Weil positivity, `h2_sign` — is equivalent to RH (`h2_sign_iff_rh`), and R5`s output is a theorem (`register5_output_holds`).'),
+    45: ('UNDERSTATES', 'goal <= h1 and h2 with h2 the single carried-open premise: h2 in its Weil form is equivalent to RH (h2_sign_iff_rh), and '
+         'lv`s h2 at Phi is false on the strip', ['h2rh', 'mellin'],
+         'RE-CUT: The RH programme reduces to one open clause, h2_sign (Weil positivity on classK), which the kernel proves equivalent to RH (`h2_sign_iff_rh`); lv`s goal-state form at Phi closes nothing on the strip (`mellin_Phi_eq_zero_of_re_le_one`).'),
+    49: ('MATCHES', 'the surround is independent of h2: its rows are compiled facts that name no zero location', ['h1'], MATCH),
+    50: ('MATCHES', 'the license ladder`s terminals DERIVE, RH_typeI_of_top INTERFACES on EDifficultyTop', [], MATCH),
+    51: ('MATCHES', 'the conservation and substrate keystones lie outside the RH chain', [], MATCH),
+    52: ('OVERREACHES', 'Route 1`s structural_exhaustiveness_proved takes ConservationHypothesis (h_cons) at v1.5 -- not unconditional; Route 2`s '
+         'spectral_cannon is no sub-RH statement; Route 3`s premise is RH restated', ['route1', 'cannon', 'route3', 'chrh'],
+         'RE-CUT: | MONO | DOWNSTREAM — no route independent of RH | R1 `structural_exhaustiveness_proved` takes ConservationHypothesis, RH restated (`ch_iff_rh`); R2 `spectral_cannon` is a fact on the line, no route to σ = 1/2; R3 `riemann_hypothesis(h_cons)` encodes its conclusion |'),
+    53: ('OVERREACHES', 'monotone_unique_zero is graded INTERFACES in the table (its StrictMono hypothesis), not DERIVES; one direction only',
+         ['rcurve', 'h2rh'],
+         'RE-CUT: | RCURVE | MIXED | `monotone_unique_zero` INTERFACES on its monotonicity hypothesis (one direction compiled); the closing row`s premise in its Weil form is equivalent to RH (`h2_sign_iff_rh`) |'),
+    54: ('MATCHES', 'SIMP`s order inputs DERIVE; its simplicity rows rest on the derivative premise, named', [], MATCH),
+    55: ('MATCHES', 'PATHS maps the reduction; its bracket closes the surround, not RH', [], MATCH),
+    56: ('UNDERSTATES', 'RH/GRH composing under h2: h2 in its Weil form is equivalent to RH (h2_sign_iff_rh)', ['h2rh'],
+         'RE-CUT: | FOUND · DOM · GRH · BALPOS | DOWNSTREAM-OF-H2 | their RH/GRH rows compose under h2, and h2 in its Weil form is RH (`h2_sign_iff_rh`): the condition is the conclusion |'),
+    58: ('UNDERSTATES', 'RH reached across the single h2 edge: that edge is RH itself in the Weil form (h2_sign_iff_rh); the terminals called '
+         'h2-independent are none of them RH, as the sentence says', ['h2rh', 'h1'],
+         'RE-CUT: **The figure in one sentence:** the surround is compiled and h2-independent; RH is equivalent to the one open clause h2_sign (`h2_sign_iff_rh`), so no terminal reaches RH except through RH itself, and the h2-independent terminals are, individually, none of them RH.'),
+    64: ('MATCHES', 'the Gate-1 wave`s report: which clusters it graded', [], MATCH),
+    66: ('MATCHES', 'the completion gap: the phase1.5/proofs cluster carried older table forms', [], MATCH),
+    70: ('MATCHES', 'THE_RESIDUE_OF_RH: its terminals residue markers, the HP row INTERFACES-DISCLAIMED, filed not written', [], MATCH),
+    71: ('MATCHES', 'HELD_RESIDUE_v1_1 is a held change-spec, grades on landing', [], MATCH),
+    72: ('OVERREACHES', 'the multiplicative/balance row INTERFACES-on-h2: the balance premise is ConservationHypothesis, RH restated (ch_iff_rh), '
+         'so the row encodes its conclusion', ['chrh'],
+         'RE-CUT: | PATHS | ~11 core rows still "Compiled" | the conservation-frame, formation-count, n₃, seven-voice and Archimedean rows → DERIVES (compiled structural facts); the multiplicative/balance row → ENCODES-CONCLUSION (its premise is RH restated, `ch_iff_rh`); ARM/pentagon rows already graded |'),
+    73: ('MATCHES', 'the SURR rows still "Compiled" assigned DERIVES/STRUCTURE', [], MATCH),
+    74: ('MATCHES', 'the SIMP content rows assigned DERIVES', [], MATCH),
+    75: ('OVERREACHES', 'Route 1`s terminal takes ConservationHypothesis at v1.5 (INTERFACES, not DERIVES); Route 3 encodes its conclusion',
+         ['route1', 'route3', 'chrh'],
+         'RE-CUT: | MONO §25.8 | axiom profiles only, grades in prose | Route 1 INTERFACES on ConservationHypothesis · Route 2 DERIVES (a fact on the line, no route to σ = 1/2) · Route 3 ENCODES-CONCLUSION (ConservationHypothesis is RH restated, `ch_iff_rh`) |'),
+    77: ('OVERREACHES', 'the Route-3 rows are not INTERFACES-on-h2: their premise is RH restated (ch_iff_rh), ENCODES-CONCLUSION (T2)', ['route3', 'chrh'],
+         'RE-CUT: **Verdict:** every pre-rubric row`s grade is assigned from the correspondence union at its pin: the content rows DERIVES, the balance/positivity rows INTERFACES on their named premises, and the Route-3 rows ENCODES-CONCLUSION, their premise RH restated (`ch_iff_rh`). No pre-rubric row hides a shell.'),
+    126: ('MATCHES', 'h1_complete_at_Phi certifies the eight coupling facts at Phi and nothing about zeros in the strip', ['h1', 'mellin'], MATCH),
+    134: ('MATCHES', 'the RH-anchor: h2_sign_iff_rh at its head, then ch_iff_rh and the register census theorems', ['h2rh', 'chrh', 'r1', 'r5'], MATCH),
+    144: ('MATCHES', 'partialPositivity_finiteRange T1-lit; Route 3 T2 (ENCODES-CONCLUSION)', ['pp', 'route3', 'chrh'], MATCH),
+    181: ('MATCHES', 'relay data/b558_cp1b.txt :4 counts all rows STANDS 637, MOVED-IN-MEANING 177, CREDIT 7, and the documents` own STANDS '
+          '367, MOVED-IN-MEANING 177, CREDIT 7', ['cite:relay@%s:data/b558_cp1b.txt:4' % PRE_RELAY], MATCH),
+}
+# ### the rows the generated families do not read and that read MATCHES on their own cells, by kind of section: the anchor table (:89-:97),
+# ### the tiered table (:103-:114) save :108, the unranked rows (:122-:124), the five T0 items (:138-:142), the (R151) item (:152), the b558
+# ### rows (:160-:173) -- each read whole by the seat against the facts named beside it.
+ANCHOR_FACTS = {89: ['h2rh'], 90: ['chrh'], 91: ['r1'], 92: ['mellin'], 93: [], 94: ['r5'], 95: [], 96: [], 97: ['goal'],
+                103: ['h1', 'mellin'], 104: ['goal', 'r1'], 105: ['cons'], 106: [], 107: ['c7'], 109: [], 110: ['ostr'], 111: ['silu', 'r1'],
+                112: ['cannon'], 113: ['c7'], 114: ['route3', 'chrh'], 122: ['h2rh'], 123: ['goal', 'mellin'], 124: ['route1'],
+                138: ['h1'], 139: ['c7'], 140: [], 141: ['cannon'], 142: ['c7'], 152: ['chrh', 'r5'],
+                160: ['chrh'], 161: ['crt'], 162: ['ediff'], 163: ['h2rh'], 164: ['h2rh'], 165: ['lvh2'], 166: ['mellin'], 167: ['typed'],
+                168: ['r1'], 169: [], 170: ['r5'], 171: ['sieve'], 172: [], 173: ['t3']}
+MAP_HAND[108] = ('UNDERSTATES', 'partialPositivity_finiteRange is T1-lit under (R150)(3) (the map`s own correction at :144): its premises are '
+                 'literature theorems not yet compiled and a numerical premise; T4 is for a claim with no terminal', ['pp'],
+                 'RE-CUT: | 4 | `partialPositivity_finiteRange` | v0.8.0 `6efa9e5` | INTERFACES (3 named: VerifiedZerosTo · ExplicitFormulaDecomp · TailBound) | **T1-lit** | INTERFACES on the numerical `VerifiedZerosTo T` and two literature theorems not yet compiled (Bombieri–Lagarias, Voros); T0 when they compile | SURR Correspondence `:187` |')
+
+
+MAP_HAND[466] = ('OVERREACHES', 'h2_sign_chi_iff_grh_chi (Chi/CriterionConverse.lean :270) reads INTERFACES in the table since b626 (SIDE-global-section '
+                 'CORRESPONDENCE rows 522-523, superseding row 432): it takes hχ : χ.IsPrimitive and h1 : χ ≠ 1',
+                 ['cite:' + EFP + 'Chi/CriterionConverse.lean:270', 'tt:SIDE-explicit-formula:h2_sign_chi_iff_grh_chi'],
+                 'RE-CUT: | `SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi` | INTERFACES | T2-INTERFACES | v0.14 = 4dce7b9 | χ |')
+MAP_HAND[467] = ('OVERREACHES', 'h2_sign_chi_imp_grh_chi (Chi/CriterionConverse.lean :264) reads INTERFACES in the table since b626 (CORRESPONDENCE '
+                 'rows 520-521, superseding row 432): it takes hχ : χ.IsPrimitive and h1 : χ ≠ 1',
+                 ['cite:' + EFP + 'Chi/CriterionConverse.lean:264', 'tt:SIDE-explicit-formula:h2_sign_chi_imp_grh_chi'],
+                 'RE-CUT: | `SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi` | INTERFACES | T2-INTERFACES | v0.14 = 4dce7b9 | χ |')
+MAP_HAND[469] = ('MATCHES', 'h2_sign_upto is declared by `def` (DetectionRegion.lean :29), a definition; the terminal table grades it DERIVES '
+                 'from a FINDINGS cell (:6036) that itself says it is a definition the three-grade vocabulary does not grade -- the table`s '
+                 'grade is a matcher`s misread, the map`s DEF stands (a note for the author, not a verdict on the map)',
+                 ['cite:' + EFP + 'DetectionRegion.lean:29', 'cite:PLACE-papers@6871ba2:FINDINGS.md:6036', 'tt:SIDE-explicit-formula:h2_sign_upto'],
+                 MATCH)
+
+
+def _b618_rows(rows):
+    """the page-pointer table (:432-:508): each node`s E0 read against its row in the table now, by the `terminal` rule."""
+    import licensed_table as LT
+    out = []
+    for i, _k, _s, l in rows:
+        c = _cells(l)
+        if len(c) != 5 or not c[0].startswith('`SIDEExplicitFormula.'):
+            continue
+        name = c[0].strip('`')
+        x = tt_row('SIDE-explicit-formula', name)
+        claimed = c[1]
+        if not x:
+            last = name.split('.')[-1]
+            hit = g(K.EF, 'grep', '-n', '-E', r'^(noncomputable )?(def|abbrev|structure|class|inductive|theorem|lemma) %s\b' % re.escape(last),
+                    K.EF_PIN, '--', 'SIDEExplicitFormula/*.lean', 'SIDEExplicitFormula/**/*.lean').strip().split(NL)[0]
+            kw = re.search(r':\d+:(?:noncomputable )?(\w+) ', hit)
+            if not kw or kw.group(1) not in ('def', 'abbrev', 'structure', 'class', 'inductive'):
+                sys.exit('### NO TABLE ROW FOR THE PAGE NODE %s, ITS SOURCE %r -- NOTHING WRITTEN' % (name, hit[:120]))
+            f, n = hit.split(':')[1], hit.split(':')[2]
+            v = 'MATCHES' if claimed == 'DEF' else 'OVERREACHES'
+            out.append(dict(id='MAP-%d' % i, source='PLACE-papers/%s:%d' % (K.MAP, i), stated=l, line=i, kind='table', by='HAND',
+                            licensed='%s is declared by `%s` at %s:%s (v0.26 = 82550e4), a definition (DEF); not a row of the terminal table' % (
+                                name, kw.group(1), f, n), cited=[MAPC(i), 'SIDE-explicit-formula@82550e4:%s:%s' % (f, n)], verdict=v,
+                            action='none' if v == 'MATCHES' else 'RE-CUT: DEF'))
+            continue
+        lk = lambda n, x=x: (x['name'], x['grade'], re.sub(r'\s+', ' ', x['statement'] or '')[:140], 'v0.26 = 82550e4')   # noqa: E731
+        r = LT.terminal_row('MAP-%d' % i, 'PLACE-papers/%s:%d' % (K.MAP, i), l, name, claimed, lk)
+        if r is None:
+            sys.exit('### THE PAGE NODE %s READS %s AGAINST %s, OFF THE SCALE -- NOTHING WRITTEN' % (name, claimed, x['grade']))
+        r['line'], r['kind'] = i, 'table'
+        out.append(r)
+    return out
+
+
+def _count_rows(rows):
+    """the CP-1b count tables (:185-:203 by terminal, :207-:228 by document) against relay data/b558_cp1b.json."""
+    B = jl('b558_cp1b.json')
+    per_t = {}
+    per_d = {}
+    for r in B.get('rows') or []:
+        if r.get('own') is False and not r.get('document'):
+            pass
+    t = rd('b558_cp1b.txt')
+    for m in re.finditer(r'^    (\S+)\s+\{([^}]*)\} ; own \{([^}]*)\}', t, re.M):
+        per_t[m.group(1)] = dict((k.strip(" '"), int(v)) for k, v in (x.split(':') for x in m.group(2).split(',')))
+    for m in re.finditer(r'^    (\S+)\s+(\S+)\s+\{([^}]*)\} ; own \{([^}]*)\}', t, re.M):
+        per_d[m.group(2)] = dict((k.strip(" '"), int(v)) for k, v in (x.split(':') for x in m.group(3).split(',')))
+    out = []
+    for i, _k, _s, l in rows:
+        c = _cells(l)
+        if len(c) != 4 or not re.match(r'^\d+$', c[1]):
+            continue
+        key = c[0].strip('`')
+        want = (int(c[1]), int(c[2]), int(c[3]))
+        src = per_t.get(key) if c[0].startswith('`') else per_d.get(key)
+        got = src and (src.get('STANDS', 0), src.get('MOVED-IN-MEANING', 0), src.get('CREDIT', 0))
+        bl = [n for n, x in enumerate(lines_of(t), 1) if re.match(r'^    (\S+\s+)?%s\s+\{' % re.escape(key), x)]
+        out.append(dict(line=i, key=key, want=want, got=got, bank_line=bl[0] if bl else None))
+    return out
+
+
+def _seam_rows():
+    import licensed_table as LT
+    f_seam, c_seam = _fact('seam')
+    f_ch, c_ch = _fact('chrh')
+    pr = [l for l in jl(K.SEAM_PRINT).get('lines') or [] if 'rh_strip_imp_rh_holds' in l or 'ch_iff_h2_sign\'' in l]
+    of = tt_row('SIDE-explicit-formula', 'ch_iff_h2_sign_of_seam')
+    full = tt_row('SIDE-explicit-formula', 'ch_iff_h2_sign')
+    lic = ('rh_strip_imp_rh is a theorem: %s, its print %s (relay data/%s, b536 at v0.2 = 5c72cad); so ch_iff_h2_sign_of_seam (%s, grade %s by its '
+           'statement form) has its premise discharged, and the equivalence holds with no premise as ch_iff_h2_sign (%s, grade %s)' % (
+               f_seam, '; '.join(pr) or '?', K.SEAM_PRINT, EFP + 'PowerLimit.lean:1240', of['grade'], EFP + 'Seam.lean:107', full['grade']))
+    cites = c_seam + [EFP + 'PowerLimit.lean:1240', EFP + 'Seam.lean:107', tt_cite('SIDE-explicit-formula', 'ch_iff_h2_sign'),
+                      tt_cite('SIDE-explicit-formula', 'ch_iff_h2_sign_of_seam'), 'relay@%s:data/%s:1' % (PRE_RELAY, K.SEAM_PRINT)]
+    S = []
+    for (f, n), recut in zip(K.SEAM_ROWS, (
+            'RE-CUT: **The seam equivalence** (`(R237)`(2)): ch_iff_h2_sign_of_seam is graded on its seam premise rh_strip_imp_rh by the seam principle and the table reads it INTERFACES by its statement form; that premise is a theorem -- rh_strip_imp_rh_holds compiles at the standard three (SIDE-explicit-formula Seam.lean :84, since v0.2 = 5c72cad) -- so the equivalence itself holds with no premise as ch_iff_h2_sign (Seam.lean :107, DERIVES).',
+            'RE-CUT: SUPERSEDES OPEN_TRAILS :10884 for `ch_iff_h2_sign_of_seam`: INTERFACES by its statement form -- the node (SIDE-explicit-formula v0.22 = e939c92, PowerLimit.lean :1240, the statement rh_strip_imp_rh → (conservationHypothesis ↔ h2_sign)) takes its seam premise as a hypothesis; the premise is a theorem, rh_strip_imp_rh_holds (Seam.lean :84, standard three, since v0.2), and the unconditional equivalence is ch_iff_h2_sign (Seam.lean :107, DERIVES).')):
+        st = lines_of(_show(PP, PRE_PP, f))[n - 1]
+        S.append(dict(id='SEAM-%s-%d' % (f.split('.')[0], n), source='%s:%d' % (f, n), stated=st, licensed=lic, by='HAND',
+                      cited=['PLACE-papers@6871ba2:%s:%d' % (f, n)] + cites, verdict='UNDERSTATES', action=recut, line=n, kind='seam'))
+    for r in S:
+        if LT.check(r):
+            sys.exit('### THE SEAM ROW %s REFUSED: %s' % (r['id'], LT.check(r)))
+    return S
+
+
+def seam_map(*a):
+    """data/b645_table_seam_map.txt and .json: (R255)(4)(a)-(b) -- the two seam rows read against rh_strip_imp_rh_holds and its print, each
+    to one verdict with its ACTION; every row of THE_LOAD_BEARING_MAP read against the kernels at their pins, each to one verdict; the counts
+    by verdict. The rows: the seam rows HAND; the map's rows HAND by line (MAP_HAND, ANCHOR_FACTS), the CP-1b items HAND through the facts
+    their readings lean on, the count tables HAND against b558's bank, the page-pointer table by the `terminal` rule."""
+    import licensed_table as LT
+    rows = _map_rows()
+    S = _seam_rows()
+    M = []
+    gen = dict((r['line'], r) for r in _b618_rows(rows))
+    counts = dict((c['line'], c) for c in _count_rows(rows))
+    for i, kind, sec, l in rows:
+        base = dict(id='MAP-%d' % i, source='%s:%d' % (K.MAP, i), stated=l, line=i, kind=kind)
+        if i in gen and i not in MAP_HAND:
+            M.append(gen[i])
+            continue
+        if i in counts:
+            c = counts[i]
+            ok = c['got'] == c['want']
+            M.append(dict(base, licensed='relay data/b558_cp1b.txt counts %s as STANDS %s, MOVED-IN-MEANING %s, CREDIT %s' % (
+                c['key'], *(c['got'] or ('?', '?', '?'))), by='HAND', cited=[MAPC(i), 'relay@%s:data/b558_cp1b.txt:%s' % (PRE_RELAY, c['bank_line'])],
+                verdict='MATCHES' if ok else 'OVERREACHES', action='none' if ok else 'RE-CUT: the counts %s' % (c['got'],)))
+            continue
+        if i in MAP_HAND:
+            v, lic, fk, act = MAP_HAND[i]
+            fx = [_fact(k) for k in fk]
+            M.append(dict(base, licensed=lic + ((' -- ' + '; '.join(t for t, _c in fx)) if fx else ''), by='HAND',
+                          cited=[MAPC(i)] + sum((c for _t, c in fx), []), verdict=v, action=act))
+            continue
+        if i in ANCHOR_FACTS:
+            fx = [_fact(k) for k in ANCHOR_FACTS[i]]
+            M.append(dict(base, licensed='the row`s cells read whole against its facts at their pins' + (
+                (': ' + '; '.join(t for t, _c in fx)) if fx else ' (no fact beyond the row`s own printed statement and pin)'), by='HAND',
+                cited=[MAPC(i)] + sum((c for _t, c in fx), []), verdict='MATCHES', action='none'))
+            continue
+        m = re.match(r"^- `([^`]+)` -- (\S+?):(\d+) -- (\*\".*?\"\*|\(not quoted.*?\)) -- (.*)$", l)
+        if m and 232 <= i <= 418:
+            fk = _reading_facts(m.group(5))
+            if not fk:
+                sys.exit('### THE CP-1b READING AT :%d NAMES NO FACT THE RUN READS -- NOTHING WRITTEN: %s' % (i, m.group(5)[:120]))
+            fx = [_fact(k) for k in fk]
+            M.append(dict(base, licensed='the reading stands on ' + '; '.join(t for t, _c in fx), by='HAND',
+                          cited=[MAPC(i)] + sum((c for _t, c in fx), []), verdict='MATCHES', action='none'))
+            continue
+        sys.exit('### THE MAP ROW AT :%d (%s, %s) HAS NO READING -- NOTHING WRITTEN: %s' % (i, kind, sec[:40], l[:120]))
+    allr = S + M
+    cnt, faults = LT.table(allr)
+    if faults:
+        sys.exit('### THE TABLE REFUSED: %s' % list(faults.items())[:6])
+    by_kind = collections.Counter((r['kind'], r['verdict']) for r in M)
+    L = ['b645 -- COMPONENT 3, (R255)(4)(a)-(b): THE SEAM ROWS AND THE LOAD-BEARING MAP, EACH ROW TO ONE VERDICT (tools/licensed_table.py) (%s)' % utc(), '',
+         '### the map: PLACE-papers %s at %s, %d rows (table %d, list items %d, claim paragraphs %d); the kernels at their pins: SIDE-explicit-formula '
+         'v0.26 = 82550e4, SIDE-kernel v1.5 = 0e5233f, SIDE-lv-conservation v0.8.0 = 6efa9e5, SIDE-effects a27415d, SIDE-silence-principle '
+         '667c254, SIDE-rcurve d5f33b4; the terminal table at relay %s' % (K.MAP, PRE_PP, len(M), sum(1 for r in M if r['kind'] == 'table'),
+                                                                        sum(1 for r in M if r['kind'] == 'item'), sum(1 for r in M if r['kind'] == 'para'), PRE_RELAY),
+         '### the facts the readings stand on, each read at the run from its table row (grade and statement) or its source at the pin:']
+    for k in FACTS:
+        t, c = _fact(k)
+        L.append('    %-7s %s ; %s' % (k, t, ', '.join(c)))
+    L += ['', '### (a) THE SEAM ROWS:']
+    for r in S:
+        L += ['  %s | %s' % (r['source'], r['verdict']), '    STATED   %s' % r['stated'], '    LICENSED %s' % r['licensed'],
+              '    CITED    %s' % ', '.join(r['cited']), '    ACTION   %s' % r['action'], '']
+    L += ['### (b) THE MAP, ROW BY ROW (SOURCE | KIND | BY | VERDICT ; STATED ; LICENSED ; CITED ; ACTION):']
+    for r in M:
+        L += ['  :%d | %s | %s | %s' % (r['line'], r['kind'], r['by'], r['verdict']), '    STATED   %s' % r['stated'][:700],
+              '    LICENSED %s' % r['licensed'], '    CITED    %s' % ', '.join(r.get('cited') or ['(generated: %s)' % r['by']]),
+              '    ACTION   %s' % r['action']]
+    cs = LT.table(S)[0]
+    cm = LT.table(M)[0]
+    L += ['', '### BY KIND AND VERDICT: ' + ' ; '.join('%s %s %d' % (k, v, n) for (k, v), n in sorted(by_kind.items())),
+          '### BY RULE: HAND %d ; terminal %d' % (sum(1 for r in allr if r['by'] == 'HAND'), sum(1 for r in allr if r['by'] == 'terminal')),
+          '### THE SEAM ROWS: ' + ' ; '.join('%s %d' % kv for kv in cs.items()),
+          '### THE MAP: ' + ' ; '.join('%s %d' % kv for kv in cm.items()),
+          '', '### ### **ROWS %d (SEAM %d, MAP %d) ; MATCHES %d ; UNDERSTATES %d ; OVERREACHES %d ; UNLICENSED %d ; A ROW WITHOUT A VERDICT 0.**' % (
+              len(allr), len(S), len(M), cnt['MATCHES'], cnt['UNDERSTATES'], cnt['OVERREACHES'], cnt['UNLICENSED'])]
+    put_txt('b645_table_seam_map.txt', L)
+    put_json('b645_table_seam_map.json', dict(at=utc(), counts=cnt, seam=S, map=M))
+    print(L[-1])
+
+
 def act_from():
     if os.path.exists(SESSION):
         for i, raw in enumerate(io.open(SESSION, encoding='utf-8'), 1):
