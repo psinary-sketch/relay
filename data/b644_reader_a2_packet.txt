@@ -1,0 +1,8 @@
+b644 -- THE SECOND READER`S PACKET A2, STAGED OFF D:\ (2026-10-09T14:37:12Z)
+
+### staged: C:/reader_b644a2 (packet/census.txt 167919 bytes, sha256 2572d84b7194e725558c5697538e7021e54dfb69bbbadf100c87a9de272d88e3 ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b644_reader_a2_packet/
+### the questions: What is a hinge, and which premises are hinges?
+### the no-disclosure arm: {'method': 0, 'tree': 0, 'modules': 0} ; outside names: NONE
+
+### the command, run by the author from C:/reader_b644a2, a directory with no project memory:
+    Get-Content C:\reader_b644a2\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b644a2\reader_run.log 2> C:\reader_b644a2\reader_run.err

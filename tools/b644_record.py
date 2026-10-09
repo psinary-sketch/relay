@@ -602,8 +602,27 @@ def _rbh_modules():
     return dict((r['module'], r['build']['lows']) for r in jl('b644_iface_builds.json').get('rows') or [] if r['build']['verdict'] == 'RUN-BENEATH-HOLD')
 
 
+def _reconcile():
+    """{head: (status, non-vacuity, why)} for the heads whose STATUS and NON-VACUITY disagree as the author's word at b644 reads them: a WITNESSED
+    status requires a witness theorem -- one of the head's own-evidence declarations concluding it (E1, E3a or E3b, data/b644_hinges.json)
+    -- and absent one the status is OPEN."""
+    PT = dict((r['head'], r) for r in jl('b643_premise_table.json').get('rows') or [])
+    HJ = dict((r['head'], r) for r in jl('b644_hinges.json').get('rows') or [])
+    out = {}
+    for h, r in PT.items():
+        if r['status'] == 'WITNESSED' and not r['nonvacuity'].startswith(('WITNESSED', 'DEGENERATE')):
+            wit = [n for p in (HJ.get(h) or {}).get('per') or [] if p.get('read') for n, why in p.get('evidence') or [] if not why.startswith('E2')]
+            if wit:
+                out[h] = ('WITNESSED', 'WITNESSED (%s, its kernel’s own witness; the non-vacuity reader read one kernel’s salt file)' % wit[0].split('.')[-1],
+                          'a witness theorem found among its own evidence: %s' % wit[0])
+            else:
+                out[h] = ('OPEN', r['nonvacuity'], 'no witness theorem: the status WITNESSED read as OPEN')
+    return out
+
+
 def _v71_rows():
     HJ, PT = jl('b644_hinges.json'), dict((r['head'], r) for r in jl('b643_premise_table.json').get('rows') or [])
+    RC = _reconcile()
     rbh = _rbh_modules()
     rows = []
     for r in HJ.get('rows') or []:
@@ -617,7 +636,7 @@ def _v71_rows():
                 mods = re.findall(r'\(([^)]*)\)', p.get('why') or '')
                 decls = mods[0].split(', ') if mods else []
                 unread_mods = sorted(set(d.split('.')[0] for d in decls))
-                tag = ', '.join('%s%s' % (m, ' RUN-BENEATH-HOLD' if m in rbh else '') for m in unread_mods) or p['kernel']
+                tag = ', '.join('Interfaces/%s.lean, RUN-BENEATH-HOLD' % m if m in rbh else m for m in unread_mods) or p['kernel']
                 cells.append('%s UNREAD (%s)' % (p['kernel'], tag))
         n = sum(p['consumers'] for p in r['per'] if p.get('read'))
 
@@ -633,7 +652,8 @@ def _v71_rows():
                                                        ['in %s %s' % (p['kernel'], _ch(p)) for p in r['per'] if p.get('read') and p['n_chains'] > 1])
         else:
             hc = '—'
-        rows.append(dict(head=h, status=r['status'], nonvacuity=PT[h]['nonvacuity'], cons='%d (%s)' % (n, '; '.join(cells)) if any(
+        st_, nv_ = RC[h][:2] if h in RC else (r['status'], PT[h]['nonvacuity'])
+        rows.append(dict(head=h, status=st_, nonvacuity=nv_, cons='%d (%s)' % (n, '; '.join(cells)) if any(
             p.get('read') for p in r['per']) else '; '.join(cells), hinge=hc, is_hinge=r['hinge'], old=r['old_hinge']))
     return rows
 
@@ -656,16 +676,23 @@ def _v71_backmatter():
          '### The readings v0.7.1 adds, each the seat’s and strikeable', '',
          '- **HINGE, refined.** The glossary’s HINGE entry appended at v0.7.1: a premise of one of the five programme statuses whose consumers lie '
          'in more than one kernel, or in more than one chain within a kernel, the chains taken after the premise’s own evidence is removed from '
-         'the use-graph; a premise of status DOMAIN is printed with its chains and is not a hinge. The entry v0.7 counted under stands above it '
-         'in the glossary, marked superseded.',
-         '- **The premise’s own evidence.** A declaration that uses the premise directly and sits in a SaltCheck module (a Salt witness); or a '
-         'theorem whose conclusion is the premise negated (a refutation); or a theorem whose conclusion is the premise itself, alone or under '
-         'existential binders, with no hypothesis naming it -- bare (a witness) or under other hypotheses (a sufficient condition or a '
-         'discharge). The projections and constructors of the premise are its own names and leave with it, as at v0.7. Read by statement '
-         'through the table’s textual reader, at each kernel’s HEAD (relay `data/b644_hinges.txt`).',
+         'the use-graph; a premise of status DOMAIN is printed with its chains and is not a hinge. The entry v0.7 counted under, and the first '
+         'form of this one (which named its own date as the entry it replaced), stand above it in the glossary, each marked superseded.',
+         '- **The premise’s own evidence**, in the glossary’s words (its entry `own evidence`, the one definition the count follows): '
+         '“%s”. Read by statement through the table’s textual reader, at each kernel’s HEAD (relay `data/b644_hinges.txt`).' % (
+             _gl()['own evidence'].replace('`', '')),
          '- **The Interfaces of SIDE-global-section.** Each module built, one per call, at the mathlib4 checkout its banked profile was built '
-         'with; a module whose build sampled free memory beneath the hold twice is RUN-BENEATH-HOLD, its consumers UNREAD and named with the '
-         'module in the consumers column (relay `data/b644_iface_builds.txt`).',
+         'with. The hold is the free memory, 2,560 MB, beneath which no build of the programme runs: a build whose sampled free memory falls '
+         'beneath it is stopped and tried once more, and a second fall records the module RUN-BENEATH-HOLD, unbuilt. Its consumers are UNREAD '
+         'and the consumers column names the module (relay `data/b644_iface_builds.txt`). %s' % (
+             'Every head with a kernel unread is of status DOMAIN (%s), and a DOMAIN head is not a hinge, so the unread consumers cannot change '
+             'the hinge list.' % ', '.join(sorted(r['head'] for r in HJ.get('rows') or [] if r['unread'])) if all(
+                 r['status'] == 'DOMAIN' for r in HJ.get('rows') or [] if r['unread']) else
+             'The heads with a kernel unread are not all of status DOMAIN (%s); their hinge reading is incomplete.' % ', '.join(
+                 '%s %s' % (r['head'], r['status']) for r in HJ.get('rows') or [] if r['unread'])),
+         '- **STATUS beside NON-VACUITY.** A WITNESSED status requires a witness theorem; absent one the status is OPEN (the author’s word at b644). '
+         'The heads the two columns disagreed on, reconciled by the banks: %s.' % ('; '.join(
+             '%s -- %s, now %s / %s' % (h, why, st_, nv_) for h, (st_, nv_, why) in sorted(_reconcile().items())) or 'none'),
          '- **The numerals.** In this back matter every numeral is a count of the table’s own rows or cells, or of the evidence removed.', '',
          '### The premise table at v0.7.1: status, non-vacuity, consumers, hinge', '',
          '| head | status | non-vacuity | consumers (by kernel) | hinge |', '|:--|:--|:--|:--|:--|']
@@ -708,8 +735,8 @@ def edition71(*a):
     out = v7[:i] + nb + v7[i + len(ob):j] + [ver, ''] + v7[j:] + _v71_backmatter()
     b = (NL.join(out) + NL).encode('utf-8')
     dest = os.path.join(SP, 'b644_census_dry.md') if DRY else os.path.join(PP, *K.CEN71.split('/'))
-    if not DRY and os.path.exists(dest):
-        sys.exit('### v0.7.1 EXISTS -- NOTHING WRITTEN')
+    if not DRY and os.path.exists(dest) and 'regen' not in a:
+        sys.exit('### v0.7.1 EXISTS -- NOTHING WRITTEN (`regen` regenerates this act`s own edition, on the author`s word before the seal)')
     _write(dest, b)
     put_json('b644_edition.json', dict(at=utc(), path=K.CEN71, sha256=sha(b), bytes=len(b), lines=len(out), glossary_at=i + 1,
                                        glossary_lines=len(nb), version_line=j + len(nb) - len(ob) + 1, backmatter=out.index(V71_TAG) + 1,
@@ -1322,6 +1349,91 @@ def desc_diff(*a):
     print(NL.join(L[2:]))
 
 
+PATH_FROM, PATH_KERNEL = 'SIDEExplicitFormula.B321.h2_sign_iff_rh', 'SIDE-explicit-formula'
+
+
+def _clause_path():
+    """(closure, [(head, status, n users, sample)]): every declaration h2_sign_iff_rh uses, transitively, in the dependency print (b643's,
+    the consumers' source), and every premise head any of them consumes, with its status."""
+    import b643_record as R43
+    K_ = R43._deps_load()[PATH_KERNEL]
+    seen, st = set(), [PATH_FROM]
+    while st:
+        x = st.pop()
+        if x in seen or x not in K_:
+            continue
+        seen.add(x)
+        st += [y for y in (K_[x]['T'] | K_[x]['V']) if y in K_]
+    PT = dict((r['head'], r) for r in jl('b643_premise_table.json').get('rows') or [])
+    RC = _reconcile()
+    out = []
+    for v in jl('b642_premise_status.json').get('heads') or []:
+        if PATH_KERNEL not in v['kernels']:
+            continue
+        H = R43._head_names(PATH_KERNEL, v['head'], v.get('decl'), K_)
+        users = sorted(n for n in seen if n in H or (K_[n]['T'] | K_[n]['V']) & H)
+        if users:
+            out.append((v['head'], RC.get(v['head'], (PT[v['head']]['status'],))[0], len(users), users[:3]))
+    return seen, out, K_
+
+
+def clause_path(*a):
+    """data/b644_clause_path.txt: the author's word before the seal -- every premise consumed by any declaration on the dependency path from
+    h2_sign to RiemannHypothesis (the closure of h2_sign_iff_rh, through the seam), with its status; the seam's own declarations printed."""
+    seen, out, K_ = _clause_path()
+    seam = sorted(n for n in seen if re.search(r'rh_strip|ZetaSeam|zetaSeam|h2_sign', n))
+    L = ['b644 -- THE CLAUSE`S PATH: EVERY PREMISE ON THE DEPENDENCY PATH FROM h2_sign TO RiemannHypothesis, WITH ITS STATUS (%s)' % utc(), '',
+         '### the path: the closure of %s in %s`s dependency print (relay data/b643_deps_runs.json, the consumers` source), %d declarations' % (
+             PATH_FROM, PATH_KERNEL, len(seen)),
+         '### the seam and the clause on it: %s' % ', '.join('%s (%s)' % (n.split('.')[-1], K_[n]['kind']) for n in seam), '',
+         '### THE PREMISES CONSUMED ON THE PATH (%d):' % len(out)]
+    L += ['  %-22s %-24s used by %3d declarations of the path, e.g. %s' % (h, s, n, ', '.join(x.split('.')[-1] for x in smp)) for h, s, n, smp in out]
+    opn = [h for h, s, _n, _s in out if s == 'OPEN']
+    L += ['', '### ### **PREMISES ON THE PATH %d ; OPEN %d %s ; DOMAIN %d ; DISCHARGED %d ; WITNESSED %d ; CITED %d.** %s' % (
+        len(out), len(opn), opn or '', sum(s == 'DOMAIN' for _h, s, _n, _s in out), sum(s == 'DISCHARGED' for _h, s, _n, _s in out),
+        sum(s == 'WITNESSED' for _h, s, _n, _s in out), sum(s == 'CITED' for _h, s, _n, _s in out),
+        'No OPEN premise on the path: h2_sign is the one open clause of the reduction.' if not opn else
+        'AN OPEN PREMISE ON THE PATH: the register sentence names it, and the finding is the act`s.')]
+    put_txt('b644_clause_path.txt', L)
+    print(NL.join(L[3:4] + L[-1:]))
+
+
+INV_TOKEN = re.compile(r"v\d+(?:\.\d+)+|\b[0-9a-f]{7}\b|\d+(?:[.,]\d+)*|\b(?:OPEN|CITED|DISCHARGED|WITNESSED|DOMAIN|REFUTED-BY-COMPUTATION|DERIVES|"
+                       r"INTERFACES|PREDICATE-UNLISTED|HINGE)\b|\b[\w']*_[\w']+\b|\b[A-Z][a-z]+[A-Z][\w']*\b")
+
+
+def invariance(old, new):
+    """(lost, added): the change-invariance check -- every figure, name, status and grade token of the old text must survive in the new one
+    (counted as a multiset); the new tokens are printed for the reader."""
+    a = collections.Counter(INV_TOKEN.findall(re.sub(r'<[^>]+>', ' ', old)))
+    b = collections.Counter(INV_TOKEN.findall(re.sub(r'<[^>]+>', ' ', new)))
+    return dict((k, a[k] - b[k]) for k in a if a[k] > b[k]), dict((k, b[k] - a[k]) for k in b if b[k] > a[k])
+
+
+def describe_repair(name, *a):
+    """one passage's rewrite, the author's word before the seal: the description recomposed; the change-invariance check against the description
+    as it stood (data/b644_deposit_description.txt at HEAD) and its planted failure (one figure changed in a copy: must be caught); the forbidden
+    test; written with data/b644_desc_repairs.json (one entry per passage) only when both checks hold."""
+    import hashlib
+    import subprocess
+    old = subprocess.run(['git', '-C', RELAY, 'show', 'HEAD:data/b644_deposit_description.txt'], capture_output=True).stdout.decode('utf-8')
+    new = compose()
+    lost, added = invariance(old, new)
+    planted = new.replace('v0.26', 'v0.25', 1)
+    p_lost, _p = invariance(old, planted)
+    hits = forbidden(new)
+    ok = not lost and bool(p_lost) and not hits
+    print('  %s : lost %s ; added %s ; the planted failure caught %s (%s) ; forbidden %d ; %s' % (
+        name, lost or 'none', added or 'none', bool(p_lost), p_lost, len(hits), 'WRITTEN' if ok and not DRY else 'NOT WRITTEN'))
+    if not ok or DRY:
+        return
+    _write(os.path.join(D, 'b644_deposit_description.txt'), new.encode('utf-8'))
+    R = jl('b644_desc_repairs.json') or dict(repairs=[])
+    R['repairs'].append(dict(passage=name, at=utc(), lost=lost, added=added, planted_caught=p_lost, bytes=len(new.encode('utf-8')),
+                             sha256=hashlib.sha256(new.encode('utf-8')).hexdigest()))
+    put_json('b644_desc_repairs.json', R)
+
+
 # ================================================================================ THE SECOND READER, TWICE: (R254)(4) AND (8)
 # ### b643's form: a packet staged off D:\ in a directory with no project memory, a lead and the full prompt, the command the reader is run by
 # ### (the author runs it: a headless reader launched from this session is refused by the classifier, b620); the answers scored by needles and
@@ -1332,6 +1444,9 @@ READERS = {
     'd': dict(dir='C:/reader_b644', doc='description.txt', what='the description of a research deposit',
               questions=('What is claimed?', 'What is not claimed?', 'Which premise is refuted, and what replaced it?')),
 }
+# ### the re-runs the author ordered before the seal, on the repaired texts, each in a fresh directory (nothing deleted under C:\)
+READERS['a2'] = dict(READERS['a'], dir='C:/reader_b644a2')
+READERS['d2'] = dict(READERS['d'], dir='C:/reader_b644_2')
 
 
 def _reader_lead(k):
@@ -1367,7 +1482,7 @@ def reader_packet(k, *a):
     (data/b644_reader_<k>_packet/, data/b644_reader_<k>_packet.txt with the command)."""
     import b616_record as R6
     r = READERS[k]
-    if k == 'a':
+    if k.startswith('a'):
         doc = io.open(os.path.join(PP, *K.CEN71.split('/')), encoding='utf-8').read().replace(chr(13), '')
     else:
         html = rd('b644_deposit_description.txt')
@@ -1401,7 +1516,7 @@ def reader_packet(k, *a):
 
 def _needles(k):
     import b640_record as R40
-    if k == 'a':
+    if k.startswith('a'):
         hn = [r['head'] for r in jl('b644_hinges.json').get('rows') or [] if r.get('hinge')]
         return {1: (r'more than one (kernel|chain)|across (kernels|chains|more than one)|several (kernels|chains)', 'what a hinge is',
                     r'\b(%s)\b' % '|'.join(re.escape(h) for h in hn), 'names a hinge of the refined list', None)}
