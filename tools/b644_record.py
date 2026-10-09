@@ -1286,6 +1286,11 @@ def compose():
                 d = ('refuted: its pole term is positive where it requires zero; TrivialSummandPremise\' carries the pole term in its place, '
                      'and dedekind_rhs\' is proved on it')
             ents.append('%s%s, %s' % (h, mark, d))
+        if st == 'OPEN':
+            salted = [h for h in hs if h in DC and 'salt checks show it is not vacuous' in DC[h][1]]
+            if salted:
+                ents.append('[the clause of %s differs because its salt checks already show it can be satisfied: what remains is a construction '
+                            'that a proof actually uses]' % ', '.join(salted))
         parts.append('%s -- %s' % (st, '; '.join(ents)))
     dom = sorted(h for h in PT if PT[h]['status'] == 'DOMAIN')
     hinge_def = gl['HINGE'].replace(' (the entry above)', '').rstrip('.') + '. A premise\'s own evidence is, in the glossary\'s words, %s. ' % (
@@ -1515,7 +1520,7 @@ def describe_repair(name, *a):
     lost, added = invariance(old, new)
     planted = new.replace('v0.26', 'v0.25', 1)
     p_lost, _p = invariance(old, planted)
-    hits = forbidden(new)
+    hits = forbidden(new) + [('unread', m.group(0)) for m in re.finditer(r'NOT READ|NOT BANKED', new)]
     ok = not lost and bool(p_lost) and not hits
     print('  %s : lost %s ; added %s ; the planted failure caught %s (%s) ; forbidden %d ; %s' % (
         name, lost or 'none', added or 'none', bool(p_lost), p_lost, len(hits), 'WRITTEN' if ok and not DRY else 'NOT WRITTEN'))
