@@ -1241,9 +1241,12 @@ def compose():
     P.append(tpl % (gl['premise'].rstrip('.'), hinge_def, ' | '.join(parts), ', '.join(dom),
                     re.sub(r'^the sixth status of a premise: ', '', gl['REFUTED-BY-COMPUTATION']).rstrip('.')))
     # ---- (iv) WHAT IS OPEN
+    eq = re.search(r'(Both are equivalent to RH given the surround)\.', surround)
     P.append('WHAT IS OPEN. h2_sign: %s. The squeeze between the zero-free region pressing in from the line of real part one and the transversality '
-             'at the critical line has one concrete target, in the words of THE_UNCONDITIONAL_SURROUND: %s.' % (
-                 gl['h2_sign'], (re.sub(r'\*\*', '', sq.group(1)).strip().rstrip(',')) if sq else 'NOT READ'))
+             'at the critical line has one concrete target, in the words of THE_UNCONDITIONAL_SURROUND: %s. Its faces, the same text says, are '
+             'two statements of one open node: "%s", as h2_sign is by h2_sign_iff_rh; the squeeze\'s target is that node seen geometrically, not a '
+             'second open premise.' % (gl['h2_sign'], (re.sub(r'\*\*', '', sq.group(1)).strip().rstrip(',')) if sq else 'NOT READ',
+                                       eq.group(1) if eq else 'NOT READ'))
     # ---- (v) HOW A DEFECT IS REPORTED
     P.append('HOW A DEFECT IS REPORTED. A defect in this record is filed as an entry of ERRATA.md, in this record\'s files: %s Write to the '
              'record\'s creator, %s.' % (
