@@ -1281,7 +1281,8 @@ def compose():
             elif st == 'DISCHARGED':
                 d = 'discharged where it is used'
             elif st == 'WITNESSED':
-                d = 'witnessed by a construction nothing uses; a compiled proof would discharge it'
+                d = ('witnessed by a construction nothing uses; a compiled proof would discharge it [a witness shows the premise can be met by '
+                     'some object; a discharge proves it for the objects the theorems resting on it use]')
             else:
                 d = ('refuted: its pole term is positive where it requires zero; TrivialSummandPremise\' carries the pole term in its place, '
                      'and dedekind_rhs\' is proved on it')
