@@ -1219,7 +1219,8 @@ def compose():
     cp = rd('b644_clause_path.txt')
     one = ('h2_sign is the one open clause of the reduction: the dependency path from h2_sign to RiemannHypothesis passes through the seam '
            'rh_strip_imp_rh, a classical fact the kernel compiles (rh_strip_imp_rh_holds), and consumes no OPEN premise; the OPEN premises in '
-           'the table belong to the faces, instances and bounds, none on that path, and the table is the keystone census at v0.7.1, in this '
+           'the table belong to the faces, instances and bounds, none on that path [in plain words: every OPEN premise in the table is assumed '
+           'only by theorems the reduction from h2_sign to RH does not use], and the table is the keystone census at v0.7.1, in this '
            'record\'s files.' if re.search(r'; OPEN 0 ', cp) else 'NOT READ')
     mx = re.search(r'the mechanism exclusions are (the route terminals of SIDE-kernel) set out under WHAT IS MACHINE-VERIFIED below, (which compile '
                    r'that none of seven named mechanism classes produces the off-line signature the kernel defines, the exhaustiveness of the seven '
