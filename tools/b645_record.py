@@ -1533,6 +1533,406 @@ def doc_scan(*a):
             print('    DOC: ' + re.sub(r'\s+', ' ', r['stated'])[:900])
 
 
+# ================================================================================ COMPONENT 8: THE SEAL CHECK, THE ROOT, THE SCORES, THE RECORD
+DEFECTS, DEFECT_SHORT, CORRECTION = [], [], ''
+_DJ = os.path.join(D, 'b645_defects.json')
+if os.path.exists(_DJ):
+    _dj = json.load(io.open(_DJ, encoding='utf-8'))
+    DEFECTS, DEFECT_SHORT, CORRECTION = list(_dj.get('defects') or []), list(_dj.get('short') or []), _dj.get('correction') or ''
+
+
+def defects(*a):
+    L = ['b645 -- THE DEFECT LIST (the act`s own).', '']
+    L += ['    ' + d for d in DEFECTS] or ['    ### NO DEFECT RECORDED.']
+    put_txt('b645_defects.txt', L)
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b645_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+def seal_check(*a):
+    rec_, now, out = seal_hashes()
+    L = ['b645 -- THE SEALED TOOLS` HASHES, RECORDED AT THE SEAL AND RECOMPUTED (%s)' % utc(), '']
+    L += ['  %-24s recorded %s ; now %s ; %s' % (t, (rec_.get(t) or '-')[:16], (now.get(t) or '-')[:16], v.upper()) for t, v in out]
+    L += ['', '### ### **SEALED TOOLS %d ; AGREE %d ; DIFFER %d ; ABSENT %d.**' % (len(out), sum(v == 'agree' for _t, v in out),
+                                                                                 sum(v == 'differ' for _t, v in out), sum(v == 'absent' for _t, v in out))]
+    tag = a[0] if a else 'record'
+    put_txt('b645_seal_check_%s.txt' % tag, L)
+    print(NL.join(L[2:]))
+
+
+ROOT_EXCLUDE = re.compile(r'^b645_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|correction|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b645_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f))
+
+
+def root(*a):
+    """(R251)(3): the act root, the last step of the act; every bank it names written LF (compute refuses CR LF)."""
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b645_seal_hashes.json' in banks, crlf or 'none'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b645'] + banks + ([] if DRY else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    """the root recomputed from its banked items offline and a one-byte change on a copy of one bank moving it; the root order read locally."""
+    import shutil
+    import tempfile
+    import act_root as AR
+    J = jl('b645_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    tmp = tempfile.mkdtemp()
+    cp = os.path.join(tmp, os.path.basename(bank_))
+    shutil.copy(os.path.join(ROOT, *bank_.split('/')), cp)
+    b = bytearray(open(cp, 'rb').read())
+    b[0] ^= 0x01
+    open(cp, 'wb').write(bytes(b))
+    items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b645 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b645_root_arm.txt', L)
+    put_json('b645_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    """the terminal table regenerated at the end and diffed against relay HEAD`s table, by row."""
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b645 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved)),
+         '### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b645_table_final.txt', L)
+    put_json('b645_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3', 'S4', 'S5')
+SCORE_KEYS = NK + SK
+N5_RELAY = {'data/b644_closing_push_out.txt', 'data/act_roots.txt', 'tools/licensed_table.py', 'tools/test_licensed_table_b645.py'}
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+FIVE_BANKS = ('b645_instrument.txt', 'b645_table_seam_map', 'b645_table_docstrings', 'b645_table_monograph', 'b645_census_columns')
+
+
+def TRAIL_HEAD():
+    return ('### b645 — lane three, act seventy-two under (R255): the review pass opened — the licensed-statement table built and tested; the '
+            'seam rows, the load-bearing map, SIDE-explicit-formula’s docstrings at v0.26 and the monograph’s claims, each to one verdict; the '
+            'census’s cluster, phase and maturity columns defined')
+
+
+def _counts(name):
+    return jl(name).get('counts') or {}
+
+
+def _n5():
+    face = jl('b645_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', PRE_PP) + NL + g(PP, 'diff', '--name-only', PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b645_|audit_b645_)', x) or re.match(r'^data/terminal_table', x) or x in N5_RELAY)]
+    banks_beyond = sorted(set(re.sub(r'\.(txt|json|md)$', '', x[len('data/'):]) for x in relay_ch if x.startswith('data/b645_')
+                              and not ROOT_EXCLUDE.match(x[len('data/'):]) and not any(x[len('data/'):].startswith(f) for f in FIVE_BANKS)))
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    untracked_local = g(RELAY, 'status', '--porcelain', '--', K.LOCAL_BANK).strip().startswith('??')
+    ok = kern_ok and not pp_beyond and not kinds_beyond and not differ and untracked_local
+    state = ('HELD' if not banks_beyond else 'REFUTED IN ONE CLAUSE') if ok else 'REFUTED'
+    return (state, 'no edition, page or kernel source edited (PLACE-papers beyond FINDINGS and OPEN_TRAILS: %s; every kernel unmoved %s); the draft '
+                   '%s unpublished, no route call made in this act; sealed tools not agreeing %s; files of a kind beyond the ruled ones: %s; b628`s bank '
+                   'untracked %s; no identifier of the author in any outbound request. The clause "no file written beyond the instrument and its '
+                   'tests, the five banks, the record lines and the trails" in letter: the act also wrote %d banks the ferry`s Component 0 and the '
+                   'author`s answers order (%s)' % (pp_beyond or 'NONE', kern_ok, K.DRAFT, differ or 'NONE', kinds_beyond or 'NONE', untracked_local,
+                                                   len(banks_beyond), ', '.join(banks_beyond[:30])))
+
+
+def scores(*a):
+    TF, RA = jl('b645_table_final.json'), jl('b645_root_arm.json')
+    ST = jl('b645_tests_stepzero.json')
+    _r, _n, sh = seal_hashes()
+    it = rd('b645_instrument.txt')
+    m = re.search(r'\*\*(\d+) of (\d+) cases as wanted -- PASS\*\*', it)
+    c5 = re.search(r'^  \(5\) a HAND row without its citation is refused.*-- PASS$', it, re.M)
+    n1 = bool(m and m.group(1) == m.group(2) and c5)
+    S_ = jl('b645_table_seam_map.json').get('seam') or []
+    n2 = len(S_) == 2 and all(r['verdict'] in ('OVERREACHES', 'UNDERSTATES') and r['action'].startswith('RE-CUT: ') for r in S_)
+    tabs = [('the map', jl('b645_table_seam_map.json').get('map') or []), ('the docstrings', jl('b645_table_docstrings.json').get('rows') or []),
+            ('the monograph', jl('b645_table_monograph.json').get('rows') or [])]
+    n3 = all(rows and all(r.get('verdict') in ('MATCHES', 'UNDERSTATES', 'OVERREACHES', 'UNLICENSED') for r in rows) for _t, rows in tabs)
+    DJ = jl('b645_table_docstrings.json')
+    beyond = [r for r in DJ.get('rows') or [] if r['verdict'] in ('UNDERSTATES', 'OVERREACHES') and 'PlateauRamp' not in r['id']]
+    ctrl = (DJ.get('control') or {}).get('hand')
+    n4 = bool(beyond) and bool(ctrl)
+    clean = [n for n, x in ST.items() if x.get('rc') == 0 and not x.get('failing')]
+    S = {
+        'N1': ('HELD' if n1 else 'REFUTED', 'the instrument`s planted tests %s of %s, one per verdict, the HAND row without its citation refused (case (5) '
+               'PASS) -- relay data/b645_instrument.txt' % (m.group(1) if m else '?', m.group(2) if m else '?')),
+        'N2': ('HELD' if n2 else 'REFUTED', 'both seam rows read %s, each with its re-cut sentence (rh_strip_imp_rh_holds compiles at the standard three; '
+               'the rows called it an open seam premise)' % ' and '.join(r['verdict'] for r in S_)),
+        'N3': ('HELD' if n3 else 'REFUTED', 'every row one verdict: %s' % '; '.join('%s %d rows (%s)' % (t, len(rs), ', '.join(
+            '%s %d' % kv for kv in sorted(collections.Counter(r['verdict'] for r in rs).items()))) for t, rs in tabs)),
+        'N4': ('HELD' if n4 else 'REFUTED', 'beyond PlateauRamp`s, %d docstrings read UNDERSTATES or OVERREACHES (%s); the reader that found them is the '
+               'widened one -- its first shape read every docstring MATCHES, the refuting case, its planted cases re-run and its positive control '
+               '(PlateauRamp`s header at v0.25) unread, so D5 and D6 were added and the control flagged' % (
+                   len(beyond), ', '.join(r['id'] for r in beyond))),
+        'N5': _n5(),
+        'S1': ('HELD' if n1 else 'REFUTED', 'the instrument`s planted tests pass every case'),
+        'S2': ('HELD' if ST and len(clean) == len(ST) else 'REFUTED', 'every test file clean at step zero: %d of %d run clean; not clean %s; the reader`s '
+               'test RUN-BENEATH-HOLD' % (len(clean), len(ST), sorted(n for n in ST if n not in clean) or 'none')),
+        'S3': (('HELD' if not TF.get('moved') and not TF.get('gone') and not TF.get('added') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s' % (len(TF.get('moved') or []), len(TF.get('gone') or []),
+                                                                                       len(TF.get('added') or []))),
+        'S4': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S5': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    put_json('b645_scores.json', S)
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:300]))
+
+
+def _totals():
+    C = [_counts(n) for n in ('b645_table_seam_map.json', 'b645_table_docstrings.json', 'b645_table_monograph.json')]
+    return dict((v, sum(c.get(v, 0) for c in C)) for v in ('MATCHES', 'UNDERSTATES', 'OVERREACHES', 'UNLICENSED'))
+
+
+def _title():
+    SM, DJ, MJ = jl('b645_table_seam_map.json'), jl('b645_table_docstrings.json'), jl('b645_table_monograph.json')
+    t = _totals()
+    return ('## The review pass opened: the licensed-statement table; the seam rows and the load-bearing map at %d rows, SIDE-explicit-formula’s '
+            'docstrings at %d rows, the monograph at %d claims, each to one verdict — MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; '
+            'the census’s cluster, phase and maturity columns defined' % (
+                len(SM.get('seam') or []) + len(SM.get('map') or []), len(DJ.get('rows') or []), len(MJ.get('rows') or []),
+                t['MATCHES'], t['UNDERSTATES'], t['OVERREACHES'], t['UNLICENSED']))
+
+
+def _finding_text():
+    S, rl, J = jl('b645_scores.json'), jl('b645_record_lines.json'), jl('b645_act_root.json')
+    SM, DJ, MJ, CJ = jl('b645_table_seam_map.json'), jl('b645_table_docstrings.json'), jl('b645_table_monograph.json'), jl('b645_census_columns.json')
+    OR = jl('b645_outsider_roster.json').get('rows') or []
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b645_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    sc = lambda k: (S.get(k) or ['?'])[0]   # noqa: E731
+    cm, cd, cmo = SM.get('counts') or {}, DJ.get('counts') or {}, MJ.get('counts') or {}
+    mapc = collections.Counter(r['verdict'] for r in SM.get('map') or [])
+    und = [r['id'] for r in DJ.get('rows') or [] if r['verdict'] == 'UNDERSTATES']
+    mat = dict((r['id'], r['maturity']) for r in CJ.get('rows') or [] if r.get('maturity'))
+    e = ['', _title(), '',
+         '*Filed at b645 on the author’s ruling `(R255)` and the author’s answers (%d). Banks: relay `data/b645_instrument.txt`, '
+         '`data/b645_table_seam_map.txt`, `data/b645_table_docstrings.txt`, `data/b645_table_monograph.txt`, `data/b645_census_columns.txt`, '
+         '`data/b645_outsider_roster.txt`, `data/b645_v6_agenda.txt`, `data/b645_act_root.txt`.*' % n_ans, '',
+         '**The instrument** (`(R255)`(3)): `tools/licensed_table.py`, one row per claim in five cells -- SOURCE, STATED, LICENSED, VERDICT, '
+         'ACTION -- the verdict one of MATCHES, UNDERSTATES, OVERREACHES, UNLICENSED; the LICENSED cell generated by a named rule or written by '
+         'hand with the lines read cited, a hand row without its citation refused; its planted cases one per verdict, committed alone before '
+         'any real row and widened twice in the act, each widening with its cases. N1 %s.' % sc('N1'), '',
+         '**The seam rows** (`(R255)`(4)(a)): FINDINGS :7595 and OPEN_TRAILS :13033 both read UNDERSTATES -- each calls rh_strip_imp_rh an open '
+         'seam premise, and the kernel compiles it (`rh_strip_imp_rh_holds`, SIDE-explicit-formula Seam.lean :84, the standard three, since v0.2), '
+         'so the equivalence holds with no premise as `ch_iff_h2_sign`; each row’s re-cut sentence banked. N2 %s.' % sc('N2'), '',
+         '**The load-bearing map** (`(R255)`(4)(b)): %d rows read against the kernels at their pins through the compiled facts each leans on -- '
+         'MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; the older sections carry the readings later appendices corrected (h1 '
+         'closing the strip, Route 3 as a route, the conservation terminal read as content, the five registers as one premise), and the page '
+         'table prints two χ nodes DERIVES that the table has read INTERFACES since b626.' % (
+             len(SM.get('map') or []), mapc['MATCHES'], mapc['UNDERSTATES'], mapc['OVERREACHES'], mapc['UNLICENSED']), '',
+         '**The docstrings** (`(R255)`(4)(c)): %d docstrings of SIDE-explicit-formula at v0.26 = 82550e4 -- MATCHES %d, UNDERSTATES %d; the three '
+         'UNDERSTATES (%s) call Props NOT PROVED that Seam.lean proves. The generalised reader’s first shape read every docstring MATCHES and its '
+         'positive control, PlateauRamp’s header at v0.25, unflagged; widened by the Mathlib-scope rule and the proved-Prop rule, the control is '
+         'flagged and the three are found. N4 %s.' % (len(DJ.get('rows') or []), cd.get('MATCHES', 0), cd.get('UNDERSTATES', 0), ', '.join(und), sc('N4')), '',
+         '**The monograph** (`(R255)`(4)(d)): A_Place_to_Stand_v5_18.md through b628’s intake form, %d claims, every line accounted for -- MATCHES '
+         '%d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; the mapping printed before the run; the rows read by twelve helper readers from one '
+         'brief, every non-MATCHES row read whole by the seat and a sample of the MATCHES (36 of 40 agree). The OVERREACHES and UNLICENSED rows '
+         'are v6.0’s agenda, sent to the author by chapter. N3 %s.' % (len(MJ.get('rows') or []), cmo.get('MATCHES', 0), cmo.get('UNDERSTATES', 0),
+                                                                    cmo.get('OVERREACHES', 0), cmo.get('UNLICENSED', 0), sc('N3')), '',
+         '**The three columns** (`(R255)`(5)): CLUSTER by a rule over each keystone’s path and terminals, PHASE its path’s phase directory, '
+         'MATURITY by a rule printed before it ran -- the monograph %s, SIDE-explicit-formula %s, every other keystone blank and marked; no '
+         'census edition.' % (mat.get('d1-1', '?'), mat.get('SIDE-explicit-formula v0.26 = 82550e4', '?')), '',
+         '**The record lines** (`(R255)`(1)-(2)): b644 at its weight (FINDINGS :%s); the writing law’s clause, papers state and ledgers narrate '
+         '(OPEN_TRAILS :%s); W-ORD-HOLD-FOOTPRINT entered and priced (:%s).' % (ls[0].get('line'), ls[1].get('line'), ls[2].get('line')), '',
+         '**The outsiders** (`(R255)`(7)): each of the 25 by a printed reading -- %s; the chain not widened.' % (
+             ', '.join('%s %d' % kv for kv in sorted(collections.Counter(r['word'] for r in OR).items()))), '',
+         '**The root.** b645 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, sc(k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): it reads the corpus’s own sentences against what the kernels license, the map’s '
+         'CP-1b readings (b558) and b644’s clause-path print the licence’s source; the seam rows meet the seam b644 corrected in the description. It '
+         'strengthens the programme’s offering of statements a reader can check: each claim beside the statement the corpus licenses, its verdict '
+         'and its repair.', '',
+         '**Next.** Per `(R255)`(8) and the author’s answer: b646, the seven companions through the intake form; b647, the other kernels’ '
+         'docstrings by the generated rule; the two pages last.', '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; a verdict compares a sentence with a licence and confers none.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) a map row is a table row, a list item or a body paragraph of 120 characters and more, an italic note left out; (2) a docstring '
+              'row is every declaration docstring, module header block and structure-field docstring of the kernel`s own files; (3) the monograph`s '
+              'stated-as rule (defect (d)) and its sample rate, 36 of 40; (4) the cluster rule`s path first, its terminal sets the seat`s; (5) the '
+              'outsiders` readings, a clone of a chain repository standing aside')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b645_scores.json', 'b645_findings.json', 'b645_record_lines.json', 'b645_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b645_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    HP = jl('b645_hold_preseal.json').get('final') or []
+    t = _totals()
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R255) ratified.** (1) b644 at its weight. (2) The writing law takes the clause papers state; ledgers narrate. (3) The instrument, the '
+             'licensed-statement table. (4) The opening slice: the seam rows, the load-bearing map, SIDE-explicit-formula’s docstrings, the monograph. '
+             '(5) The census’s three columns defined. (6) The hold. (7) The deposit held; the outsiders named. (8) The act after: b646.', '',
+             '**Entered:** FINDINGS.md:%s (b644’s weight), :%s (the entry); OPEN_TRAILS.md:%s (the writing law’s clause), :%s (W-ORD-HOLD-FOOTPRINT); '
+             'this record.' % (ls[0].get('line'), fj.get('entry_line'), ls[1].get('line'), ls[2].get('line')), '',
+             '**The pass’s findings, over the four tables:** MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d (relay data/b645_table_*.txt); '
+             'v6.0’s agenda sent to the author (relay data/b645_v6_agenda.txt).' % (t['MATCHES'], t['UNDERSTATES'], t['OVERREACHES'], t['UNLICENSED']), '',
+             '**Act root:** b645 `%s` (previous `%s`, b644’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Run beneath the hold, final, unbuilt, named:** %s (relay data/b645_hold_preseal.txt); SIDE-global-section’s other five Interfaces '
+             'modules built at step zero (relay data/b645_hold_retry.txt).' % (', '.join(HP) or 'none'), '',
+             '**Prompts to the author:** %d (relay data/b645_author_answers.txt), none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**The next act’s terminals** (`(R237)`(4)): b646 names no kernel terminal; it reads the seven companions through the intake form.', '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b645_defects.txt): %s.' % ('; '.join(DEFECT_SHORT) if DEFECT_SHORT else 'none recorded'), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** per `(R255)`(8) and the author’s answer, b646 the seven companions through the intake form, b647 the other kernels’ '
+             'docstrings, the pages last; the author rules on the closing.', '',
+             '**No `sorry` on any `main`.** Row U1 unedited; `h2` where the deposit left it; the four lists stay OPEN.', '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b645_scores.json')
+    L = ['=' * 104, 'b645 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rd('b645_defects.txt').rstrip(NL).split(NL)
+    put_txt('b645_desk_notes.txt', L)
+
+
+def components(*a):
+    """data/b645_components.txt -- run after `findings` and `trail` (b644's defect (r)); refuses when either bank is absent."""
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b645_scores.json', 'b645_findings.json', 'b645_trail.json', 'b645_record_lines.json', 'b645_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST (b644 defect (r)) -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    t = _totals()
+    L = ['b645 -- THE COMPONENTS, BANKED UNDER (R255).', '',
+         '### COMPONENT 0 : step zero (data/b645_procs.txt, data/b645_tests_stepzero.txt, data/b645_hold_retry.txt, data/b645_reads.txt) ; relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : b644`s weight FINDINGS :%s ; the writing law OPEN_TRAILS :%s ; W-ORD-HOLD-FOOTPRINT :%s' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line')),
+         '### COMPONENT 2 : the instrument (tools/licensed_table.py, data/b645_instrument.txt) ; N1 %s' % S['N1'][0],
+         '### COMPONENT 3 : the seam rows and the map (data/b645_table_seam_map.txt) ; N2 %s' % S['N2'][0],
+         '### COMPONENT 4 : the docstrings (data/b645_table_docstrings.txt) ; N4 %s' % S['N4'][0],
+         '### COMPONENT 5 : the monograph (data/b645_table_monograph.txt, data/b645_v6_agenda.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 6 : the three columns (data/b645_census_columns.txt)',
+         '### COMPONENT 7 : the seal (data/b645_seal_hashes.json)',
+         '### COMPONENT 8 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N5 %s ; the pass: MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d' % (
+             (J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N5'][0], t['MATCHES'], t['UNDERSTATES'], t['OVERREACHES'], t['UNLICENSED'])]
+    put_txt('b645_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    t, e = _finding_text()
+    e = R41._poss(e)
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE ENTRY -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'FINDINGS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b645_scanfile_entry.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '?;', ' ? ', '`?`') if x in e]
+    outside = [n for n in R41.OAI_NEEDLES if n in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s ; outside names %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN',
+                                                                                         unread or 'NONE', outside or 'NONE'))
+    if DRY:
+        print(e)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread or outside:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.FIND, t[:90])
+    r = Q.append_to(Q.FIND, e)
+    put_json('b645_findings.json', dict(entry_line=Q.line_of(Q.FIND, t[:90]), title=t, append=r))
+    print('  FINDINGS entry :%s' % Q.line_of(Q.FIND, t[:90]))
+
+
+def trail(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    e = R41._poss(_trail_text())
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE RECORD -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'OPEN_TRAILS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b645_scanfile_trail.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '`?`') if x in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', unread or 'NONE'))
+    if DRY:
+        print(e[:9000])
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.OT, TRAIL_HEAD())
+    r = Q.append_to(Q.OT, e)
+    put_json('b645_trail.json', dict(line=Q.line_of(Q.OT, TRAIL_HEAD()), head=TRAIL_HEAD(), append=r))
+    print('  OPEN_TRAILS record :%s' % jl('b645_trail.json')['line'])
+
+
+def kernels(*a):
+    """data/b645_kernels_face.json: every kernel's main, tags, branches and tracked status, read before the seal for N5."""
+    import b641_record as R41
+    put_json('b645_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
 def act_from():
     if os.path.exists(SESSION):
         for i, raw in enumerate(io.open(SESSION, encoding='utf-8'), 1):
