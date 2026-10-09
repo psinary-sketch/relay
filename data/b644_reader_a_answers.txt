@@ -1,0 +1,26 @@
+ANSWER 1:
+A hinge is a premise (a named, assumed Prop that some theorems rest on) whose consumers, meaning the theorems whose statement or proof uses it as read from the compiled dependency data, fall in more than one kernel (Lean repository), or in more than one "chain" inside one kernel. A chain is a connected piece of the kernel's use-graph made up of the declarations that depend on the premise. The document gives two definitions. The older one (v0.7, glossary line 89, back matter line 1148) is the bare rule above, and under it 28 of the 50 premise heads were hinges. The current, refined one (v0.7.1, ruling R254, glossary line 90 and back matter line 1221) changes it in two ways. First, before chains are counted, the premise's "own evidence" is removed from the graph: Salt witnesses, refutations of the premise, and theorems whose conclusion is the premise itself, plus its projections and constructors. Second, only a premise with one of the five programme statuses (OPEN, CITED, DISCHARGED, WITNESSED, REFUTED-BY-COMPUTATION) can be a hinge. A DOMAIN premise, which is a Mathlib predicate restricting a quantified variable, is printed with its chains but is not a hinge.
+
+Under the refined definition the census counts 14 hinges (table at lines 1226-1281):
+- EpsteinPremises (OPEN): SIDE-explicit-formula, 2 chains
+- EulerFactorPremise (WITNESSED): SIDE-explicit-formula, 3 chains
+- HCount (WITNESSED): SIDE-explicit-formula, 2 chains
+- IdempotentAdd (OPEN): SIDE-carrier-spec, 2 chains
+- NotDiv (OPEN): SIDE-global-section, 2 chains
+- Register4_channelInequality (OPEN): SIDE-lv-conservation, 3 chains
+- Register4_positivity (OPEN): SIDE-lv-conservation, 2 chains
+- SatisfiesCWeil (WITNESSED): SIDE-global-section, 2 chains
+- SelfDualFE (OPEN): SIDE-lv-conservation, 2 chains
+- StepsI (DISCHARGED): SIDE-global-section, 3 chains
+- StepsMI (DISCHARGED): SIDE-global-section, 2 chains
+- TrivialSummandPremise (REFUTED-BY-COMPUTATION): SIDE-explicit-formula, 2 chains
+- ZeroActingPairing (OPEN): SIDE-lv-conservation, 2 chains
+- ZetaSeam (DISCHARGED): SIDE-explicit-formula, 2 chains
+
+Every one of the 14 qualifies because it has several chains inside a single kernel. None qualifies by spanning kernels. The only premise whose consumers span several kernels is Prime, and it is DOMAIN, so it is excluded. Compared with v0.7's list of 28, 16 heads drop out. Ten are DOMAIN: AnalyticOnNhd, Continuous, EqOn, HasCompactSupport, HasDerivAt, Integrable, IsRoot, Prime, StrictMono and Tendsto. Six fall to one chain once their own evidence is removed: DealignedAt, IsExpansion, IsTrivialPoint, PWSetup, PlattTrudgianHeight and farSmall. Two join the list: StepsMI and ZetaSeam (28 - 16 + 2 = 14). The text also says the consumers inside the six "Interfaces" modules of SIDE-global-section could not be read (marked RUN-BENEATH-HOLD), so the count for that kernel rests on incomplete reading.
+
+UNCLEAR:
+- Glossary line 90: the refined HINGE entry ends "superseding the entry above from 2026-10-09". The entry it replaces belongs to v0.7, dated 2026-10-08, and 2026-10-09 is the date of the refinement itself. It is unclear which date is meant.
+- The two definitions of a premise's "own evidence" differ. Glossary line 90 lists the premise's satisfiability (a Salt witness), its negation, or a projection. Back matter line 1222 also counts any direct use in a SaltCheck module and theorems that conclude the premise under other hypotheses ("a sufficient condition or a discharge"). I could not tell which reading the count of 14 follows, though the evidence classes at line 1281 (E3b SATISFIABLE UNDER HYPOTHESES) suggest the wider one.
+- Line 1264: SatisfiesCWeil has status WITNESSED but non-vacuity UNWITNESSED (OTHER-KERNEL). I could not follow how a premise can be WITNESSED as a status and UNWITNESSED as to non-vacuity at the same time.
+- Line 1281: "Interfaces modules: 6, built 0, RUN-BENEATH-HOLD 6" together with line 1223 ("a module whose build sampled free memory beneath the hold twice"). I could not follow what "the hold" is, or whether the unread consumers could change which premises are hinges.
