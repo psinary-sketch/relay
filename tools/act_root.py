@@ -27,6 +27,20 @@
 ### act's own seal bank (data/<act>_seal_hashes.json) when that bank exists, and banks the root's time (`at`, `at_epoch`); `verify` reads
 ### a bank the root names whose file was written after that time as DISAGREE -- "written after the root" -- even when its bytes are
 ### unchanged. A root banked before b641 carries no time and is read as before: b640's root is not recomputed.
+### ### **(R254)(2), b644: W-ORD-CHAIN-AT-COMMIT.** `verify` reads every bank a root names at the commit that root recorded, by git, not
+### from the working tree. From b644 `compute` banks `commit` -- the relay commit and the PLACE-papers commit it hashed at (each clone's
+### HEAD at the computation); a root banked before b644 carries no `commit` and its recorded relay commit is the relay head it read
+### (`reads.heads.relay`). A named path is read at that commit when the commit carries it; a bank the act wrote after that commit (the act's
+### own banks, hashed in the working tree and committed in the act's commit) is read at the first commit on relay main's first-parent line
+### after the recorded commit that carries the path. Each read is compared twice and the agreeing form counted apart: the blob's bytes, and
+### the blob's CRLF form (`crlf_form`) -- relay's `* text=auto eol=lf` normalises every commit to LF, so a bank written with CRLF (the
+### step-zero banks a shell redirect writes) was hashed in a form no commit holds byte for byte. A later edit to a named shared file
+### (data/glossary.txt) is not read; a bank re-written before its first commit still is. The author's answer at b644: the CRLF reads of
+### b624-b643 (82 banks) agree, counted apart per act, none recomputed -- "a property of how the banks were written, not of what they say";
+### and from b644 every bank is written LF before it is hashed: `compute --write` refuses a named bank holding a CR LF, and `verify` reads a
+### CRLF read on any act after b643 (CRLF_LAST) as DISAGREE.
+### `verify --worktree` (and a stand-in relay that is not a git clone, as the tests' temporary directories are) reads the working tree as
+### before, with the (R251)(3) time rule; READS_AT holds each act's commit and the count of reads per form.
 """
 import hashlib
 import io
@@ -196,6 +210,14 @@ def gather(banks, remote=ls_remote, rev='HEAD'):
 ORDER_SLACK = 2.0   # ### seconds: a bank's mtime this far past the root's time still reads as written before it (filesystem rounding)
 
 
+CRLF_LAST = 643   # ### (R254)(2), the author's answer at b644: a CRLF read is lawful on b624-b643 alone
+
+
+def _rel(b):
+    b = b.replace('\\', '/')
+    return b[b.index('data/'):] if 'data/' in b else 'data/' + os.path.basename(b)
+
+
 def seal_bank_unnamed(act, banks):
     """### (R251)(3): the act's own seal bank, when it exists, must be among the banks the root names -- the root follows the last seal re-run."""
     sb = 'data/%s_seal_hashes.json' % act
@@ -208,6 +230,11 @@ def compute(act, banks, write=False):
     import time
     if write and seal_bank_unnamed(act, banks):
         raise SystemExit('### data/%s_seal_hashes.json EXISTS AND THE ROOT DOES NOT NAME IT -- W-ORD-ROOT-ORDER: NO ROOT' % act)
+    crlf = [b for b in banks if os.path.exists(os.path.join(ROOT, *_rel(b).split('/'))) and
+            b'\r\n' in open(os.path.join(ROOT, *_rel(b).split('/')), 'rb').read()]
+    if write and crlf:
+        raise SystemExit('### %s HOLD CR LF -- (R254)(2), the author`s answer at b644: every bank is written LF before it is hashed: NO ROOT'
+                         % ', '.join(_rel(b) for b in crlf))
     prev, prev_act = last_root()
     at_epoch = time.time()
     items, reads = gather(banks)
@@ -223,7 +250,8 @@ def compute(act, banks, write=False):
         if os.path.exists(ROOTS) and re.search(r'^%s ' % re.escape(act), io.open(ROOTS, encoding='utf-8').read(), re.M):
             raise SystemExit('### %s ALREADY IN data/act_roots.txt -- NOTHING WRITTEN' % act)
         j = dict(act=act, root=root, previous=prev, previous_act=prev_act, items=lines, reads=reads, lsr=LSR,
-                 at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(at_epoch)), at_epoch=at_epoch)
+                 at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(at_epoch)), at_epoch=at_epoch,
+                 commit={'relay': g(ROOT, 'rev-parse', 'HEAD').strip(), 'PLACE-papers': g(PP, 'rev-parse', 'HEAD').strip()})
         for name, body in (('%s_act_root.json' % act, json.dumps(j, indent=1, ensure_ascii=False) + NL),
                            ('%s_act_root.txt' % act, NL.join(['%s -- THE ACT ROOT (tools/act_root.py)' % act, ''] + ['  ' + l for l in lines] +
                                                            ['', 'previous %s' % prev, 'root %s' % root]) + NL)):
@@ -236,9 +264,66 @@ def compute(act, banks, write=False):
     return root, items, prev
 
 
-def verify(remote=ls_remote):
-    """### every act of data/act_roots.txt recomputed: [(act, verdict, reasons)]"""
+READS_AT = {}
+
+
+def is_clone():
+    """### (R254)(2): True when ROOT is a git clone's top (relay); a stand-in directory is read from its working tree."""
+    return os.path.exists(os.path.join(ROOT, '.git'))
+
+
+def crlf_form(b):
+    """### the blob's bytes with every line feed written CR LF, for a blob holding no CR: the form a bank written with CRLF was hashed in,
+    ### which relay's `* text=auto eol=lf` (.gitattributes, b372) normalises to LF in every commit; None when the blob holds a CR."""
+    return None if b is None or b'\r' in b else b.replace(b'\n', b'\r\n')
+
+
+def _batch(specs):
+    """### one `git cat-file --batch` over '<commit>:<path>' specs: {spec: bytes or None}."""
+    if not specs:
+        return {}
+    a = ['git', '-C', ROOT, 'cat-file', '--batch']
+    raw = subprocess.run(a, input=''.join(s + NL for s in specs).encode('utf-8'), capture_output=True).stdout
+    out, i = {}, 0
+    for s in specs:
+        j = raw.index(b'\n', i)
+        head = raw[i:j].split()
+        if len(head) == 3 and head[1] == b'blob':
+            n = int(head[2])
+            out[s] = raw[j + 1:j + 1 + n]
+            i = j + 1 + n + 1
+        else:
+            out[s] = None
+            i = j + 1
+    return out
+
+
+def at_commit(commit, paths):
+    """### (R254)(2): {path: (the commit read, blob bytes, the blob's CRLF form)} -- each path at `commit` when it carries it, else at the
+    ### first commit on relay main's first-parent line after it that carries the path; (None, None, None) when none does."""
+    have = set(x for x in g(ROOT, 'ls-tree', '-r', '--name-only', '--full-tree', commit, '--', 'data').split(NL) if x)
+    where = dict((p, commit) for p in paths if p in have)
+    rest = [p for p in paths if p not in have]
+    if rest:
+        cur = None
+        for l in g(ROOT, 'log', '--first-parent', '--reverse', '--format=#%H', '--name-only', '%s..main' % commit, '--', *rest).split(NL):
+            if l.startswith('#'):
+                cur = l[1:].strip()
+            elif l.strip() in rest and l.strip() not in where and cur:
+                where[l.strip()] = cur
+    specs = ['%s:%s' % (where[p], p) for p in paths if p in where]
+    blob = _batch(specs)
+    return dict((p, (where[p], blob.get('%s:%s' % (where[p], p)), crlf_form(blob.get('%s:%s' % (where[p], p))))
+                 if p in where else (None, None, None)) for p in paths)
+
+
+def verify(remote=ls_remote, worktree=None):
+    """### every act of data/act_roots.txt recomputed: [(act, verdict, reasons)]; (R254)(2): the banks read at each root's recorded commit
+    ### (worktree=None reads at commit in a clone and the working tree in a stand-in; worktree=True reads the working tree)."""
     out = []
+    if worktree is None:
+        worktree = not is_clone()
+    READS_AT.clear()
     if not os.path.exists(ROOTS):
         return out
     rows = [l.split(None, 3) for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
@@ -265,9 +350,29 @@ def verify(remote=ls_remote):
                 why.append('the line`s note %r, the heads gained %r' % (note, want))
         prev_heads = heads
         at_epoch = j.get('at_epoch')
+        named = [it.split()[0] for it in j['items'] if it.split()[0].startswith('data/')]
+        if not worktree:
+            commit = (j.get('commit') or {}).get('relay') or ((j.get('reads') or {}).get('heads') or {}).get('relay', '')
+            reads_at = at_commit(commit, named) if commit else dict((p, (None, None, None)) for p in named)
+            READS_AT[act] = dict(commit=commit, blob=0, crlf=0, later=0, unread=0)
         for it in j['items']:
             parts = it.split()
-            if parts[0].startswith('data/'):
+            if parts[0].startswith('data/') and not worktree:
+                c, b, co = reads_at[parts[0]]
+                hb = hashlib.sha256(b).hexdigest() if b is not None else None
+                hc = hashlib.sha256(co).hexdigest() if co is not None else None
+                if c is None:
+                    READS_AT[act]['unread'] += 1
+                    why.append('bank %s carried by no commit from %s on' % (parts[0], commit[:12]))
+                elif parts[1] not in (hb, hc):
+                    why.append('bank %s changed (read at %s)' % (parts[0], c[:12]))
+                else:
+                    READS_AT[act]['blob' if parts[1] == hb else 'crlf'] += 1
+                    READS_AT[act]['later'] += c != commit
+                    if parts[1] != hb and int(re.sub(r'\D', '', act) or 0) > CRLF_LAST:
+                        why.append('bank %s agrees in its CRLF form alone, on an act after b%d (every bank written LF from b644)' % (
+                            parts[0], CRLF_LAST))
+            elif parts[0].startswith('data/'):
                 p = os.path.join(ROOT, *parts[0].split('/'))
                 if not os.path.exists(p) or sha256_file(p) != parts[1]:
                     why.append('bank %s changed' % parts[0])
@@ -294,12 +399,15 @@ def main(argv):
         compute(argv[1], [a for a in argv[2:] if a != '--write'], write='--write' in argv)
         return 0
     if argv[:1] == ['verify']:
-        res = verify()
+        res = verify(worktree=True if '--worktree' in argv else None)
         for act, v, why in res:
-            print('  %s %s %s' % (act, v, '; '.join(why)))
+            ra = READS_AT.get(act)
+            at = (' [at %s: blob %d, crlf %d, of them at a later commit %d]' % (ra['commit'][:12], ra['blob'], ra['crlf'], ra['later'])
+                  if ra else ' [the working tree]')
+            print('  %s %s%s %s' % (act, v, at, '; '.join(why)))
         print('### ### **ACTS %d ; AGREE %d ; DISAGREE %d.**' % (len(res), sum(v == 'AGREE' for _a, v, _w in res), sum(v != 'AGREE' for _a, v, _w in res)))
         return 0 if res and all(v == 'AGREE' for _a, v, _w in res) else 1
-    print('usage: act_root.py compute <act> <bank> ... [--write] | verify')
+    print('usage: act_root.py compute <act> <bank> ... [--write] | verify [--worktree]')
     return 2
 
 
