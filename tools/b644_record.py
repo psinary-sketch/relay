@@ -2020,6 +2020,434 @@ def lattice(*a):
     print(NL.join(L[-1:]))
 
 
+# ================================================================================ THE SEAL, THE TABLE, THE ROOT
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b644_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+def seal_check(*a):
+    rec_, now, out = seal_hashes()
+    L = ['b644 -- THE SEALED TOOLS` HASHES, RECORDED AT THE SEAL AND RECOMPUTED (%s)' % utc(), '']
+    L += ['  %-22s recorded %s ; now %s ; %s' % (t, (rec_.get(t) or '-')[:16], (now.get(t) or '-')[:16], v.upper()) for t, v in out]
+    L += ['', '### ### **SEALED TOOLS %d ; AGREE %d ; DIFFER %d ; ABSENT %d.**' % (len(out), sum(v == 'agree' for _t, v in out),
+                                                                                 sum(v == 'differ' for _t, v in out), sum(v == 'absent' for _t, v in out))]
+    tag = a[0] if a else 'record'
+    put_txt('b644_seal_check_%s.txt' % tag, L)
+    print(NL.join(L[2:]))
+
+
+ROOT_EXCLUDE = re.compile(r'^b644_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|correction|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|census_closing|faces_census_closing|pins_closing|scanfile_.*|seal_check_.*|'
+                          r'seam_rows)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b644_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f))
+
+
+def root(*a):
+    """(R251)(3): the act root, the last step of the act; every bank it names written LF (the author's answer at b644, compute refusing CR LF)."""
+    import subprocess
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b644_seal_hashes.json' in banks, crlf or 'none'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b644'] + banks + ([] if DRY else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    """the root recomputed from its banked items offline and a one-byte change on a copy of one bank moving it; the working tree read locally."""
+    import shutil
+    import tempfile
+    import act_root as AR
+    J = jl('b644_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    tmp = tempfile.mkdtemp()
+    cp = os.path.join(tmp, os.path.basename(bank_))
+    shutil.copy(os.path.join(ROOT, *bank_.split('/')), cp)
+    b = bytearray(open(cp, 'rb').read())
+    b[0] ^= 0x01
+    open(cp, 'wb').write(bytes(b))
+    items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b644 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b644_root_arm.txt', L)
+    put_json('b644_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    """the terminal table regenerated at the end and diffed against relay HEAD`s table, by row."""
+    import subprocess
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b644 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved)),
+         '### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b644_table_final.txt', L)
+    put_json('b644_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+# ================================================================================ THE SCORES AND THE RECORD
+NK = ('N1', 'N2', 'N3', 'N4', 'N5', 'N6')
+SK = ('S1', 'S2', 'S3', 'S4', 'S5')
+SCORE_KEYS = NK + SK
+N6_RELAY = {'data/b643_closing_push_out.txt', 'data/act_roots.txt', 'data/glossary.txt', K.CHAIN_TOOL, K.CHAIN_TEST, K.ADD_TOOL, K.ADD_TEST,
+            K.WATCH_TOOL, K.WATCH_TEST, 'tools/mirror_roster.json', 'tools/mirror_prevbuild.json'}   # ### the builder`s own record (R187)(4)
+N6_PP = tuple(sorted(['FINDINGS.md', 'OPEN_TRAILS.md', K.CEN71] + ['day1/%s' % f for f in K.COMPANION_FILES]))
+PAGES_PP = (K.PAGE, K.DIR_PAGE)
+
+
+def TRAIL_HEAD():
+    return ('### b644 — lane three, act seventy-one under (R254): the chain read at commit and shared files additive; the watchdog stop; the '
+            'hinges recounted and the census at v0.7.1; the two rosters; the seven patch editions; the deposit description as synthesis; the '
+            'draft’s file set replaced and held; the lattice banked')
+
+
+def _tests_of(name):
+    x = jl('b644_tests_stepzero.json').get(name) or {}
+    return x.get('rc'), x.get('cases'), x.get('passing')
+
+
+def _n6():
+    import subprocess
+    face = jl('b644_kernels_face.json').get('kernels') or {}
+    now = kern_state(list(face))
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', PRE_PP) + NL + g(PP, 'diff', '--name-only', PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N6_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b644_|audit_b644_)', x) or re.match(r'^data/terminal_table', x) or x in N6_RELAY)]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    gs_tracked = g(K.GS, 'status', '--porcelain', '--untracked-files=no').strip()
+    untracked_local = g(RELAY, 'status', '--porcelain', '--', K.LOCAL_BANK).strip().startswith('??')
+    hold = jl(ZRES).get('hold') or {}
+    clauses_beyond = [x for x in pp_beyond if x not in PAGES_PP]
+    ok = kern_ok and not beyond and not differ and not gs_tracked and untracked_local and hold.get('submitted') is False and not clauses_beyond
+    state = 'HELD' if ok and not pp_beyond else ('REFUTED IN ONE CLAUSE' if ok else 'REFUTED')
+    return (state, 'nothing deposited (the draft %s, submitted %s); every kernel unmoved %s, SIDE-global-section`s tracked files unchanged %s; '
+                   'PLACE-papers beyond the ruled list: %s (the two pages, re-emitted under the page clause, OPEN_TRAILS :12190, the list not naming '
+                   'them); relay beyond it: %s; sealed tools not agreeing %s; b628`s bank untracked %s; no identifier of the author in any outbound '
+                   'request' % (K.DRAFT, hold.get('submitted'), kern_ok, not gs_tracked, pp_beyond or 'NONE', beyond or 'NONE', differ or 'NONE',
+                                untracked_local))
+
+
+def scores(*a):
+    TF, RA = jl('b644_table_final.json'), jl('b644_root_arm.json')
+    ST = jl('b644_tests_stepzero.json')
+    _r, _n, sh = seal_hashes()
+    ac = rd('b644_actroot_commit.txt')
+    n1 = 'AT THE RECORDED COMMIT' in ac and re.search(r'### ACTS 20 ; BANKS AGREE 20 ; DISAGREE 0', ac) and _tests_of('test_act_root_commit_b644.py')[1:] == (5, 5)
+    BW = jl('b644_build_watch.json').get('rows') or []
+    logs = sorted(f for f in os.listdir(SP) if f.startswith('w_') and f.endswith('.log'))
+    unrec = []
+    for f in logs:
+        t = io.open(os.path.join(SP, f), encoding='utf-8', errors='replace').read()
+        if '### START' in t and not ('### RUN-BENEATH-HOLD' in t or (re.search(r'^### EXIT 0 ', t, re.M) and not re.search(
+                r'^### SAMPLE \S+ free (\d+) MB', t, re.M) or all(int(x) >= K.HOLD for x in re.findall(r'^### SAMPLE \S+ free (\d+) MB', t, re.M)))):
+            unrec.append(f)
+    n2 = _tests_of('test_build_watch_b644.py')[1:] == (3, 3) and not unrec and BW
+    HJ = jl('b644_hinges.json').get('rows') or []
+    nh = sum(1 for r in HJ if r['hinge'])
+    dom = [r['head'] for r in HJ if r['hinge'] and r['status'] == 'DOMAIN']
+    leave = [r['head'] for r in HJ if r['old_hinge'] and not r['hinge']]
+    ht = rd('b644_hinges.txt')
+    n3 = nh < 28 and not dom and all(re.search(r'^  %s\s' % re.escape(h), ht, re.M) for h in leave)
+    desc = rd(K.DESC)
+    fb = forbidden(desc)
+    d3 = jl('b644_reader_d3_compare.json')
+    n4 = not fb and d3.get('hand') == 3
+    Z = jl(ZRES).get('read') or {}
+    n5 = Z.get('exact') and Z.get('digest') and Z.get('files_ok') and Z.get('submitted') is False
+    clean = [n for n, x in ST.items() if x.get('rc') == 0 and not x.get('failing')]
+    S = {
+        'N1': ('HELD' if n1 else 'REFUTED', 'the chain read at commit: every root b624 to b643 AGREE (data/b644_actroot_commit.txt); the planted later edit '
+               'AGREE at the commit and DISAGREE at the working tree alone (test_act_root_commit_b644.py %s of %s); the suite`s root arm read at '
+               'pre-push and post-push' % (_tests_of('test_act_root_commit_b644.py')[2], _tests_of('test_act_root_commit_b644.py')[1])),
+        'N2': ('HELD' if n2 else 'REFUTED', 'the planted beneath-hold run stopped and recorded (test_build_watch_b644.py %s of %s); every watched run of the '
+               'act`s logs (%d) ended at or above the hold or recorded RUN-BENEATH-HOLD (%d rows), unrecorded %s' % (
+                   _tests_of('test_build_watch_b644.py')[2], _tests_of('test_build_watch_b644.py')[1], len(logs), len(BW), unrec or 'none')),
+        'N3': ('HELD' if n3 else 'REFUTED', 'the refined hinges %d (b643`s 28), each of the %d heads that leave printed with its reason; a DOMAIN head in the '
+               'list: %s' % (nh, len(leave), dom or 'none')),
+        'N4': ('HELD' if n4 else 'REFUTED', 'the description`s forbidden content (act numbers, bank paths, root digits, provenance counts, outside names, '
+               'the stems, the unsupported sentence asserted): %s; the second reader`s last run by hand %s of 3' % (fb or 'none', d3.get('hand'))),
+        'N5': (('HELD' if n5 else 'REFUTED') if Z else 'PENDING', 'the draft read back: the description byte for byte %s and digest for digest %s; '
+               'every file at its digest %s; submitted %s' % (Z.get('exact'), Z.get('digest'), Z.get('files_ok'), Z.get('submitted'))),
+        'N6': _n6(),
+        'S1': ('HELD' if all(_tests_of(t)[1:] == (n_, n_) for t, n_ in (('test_act_root_commit_b644.py', 5), ('test_additive_shared_b644.py', 6),
+                                                                        ('test_build_watch_b644.py', 3))) else 'REFUTED',
+               'the three planted tests at step zero: the chain at commit, the additive arm, the watchdog stop'),
+        'S2': ('HELD' if ST and len(clean) == len(ST) and not BW else 'REFUTED', 'every test file clean at step zero: %d of %d run clean; not clean %s; '
+               'RUN-BENEATH-HOLD %s' % (len(clean), len(ST), sorted(n for n in ST if n not in clean) or 'none',
+                                        [r['module'] for r in BW if r['module'].startswith('test_')] or 'none')),
+        'S3': (('HELD' if not TF.get('moved') and not TF.get('gone') and not TF.get('added') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s' % (len(TF.get('moved') or []), len(TF.get('gone') or []),
+                                                                                       len(TF.get('added') or []))),
+        'S4': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S5': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    put_json('b644_scores.json', S)
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:300]))
+
+
+def _title():
+    HJ = jl('b644_hinges.json').get('rows') or []
+    IB = jl('b644_iface_builds.json').get('rows') or []
+    d3 = jl('b644_reader_d3_compare.json')
+    return ('## The chain read at commit and shared files additive; the watchdog stop; the hinges at %d of 50 under the refined definition, census '
+            'v0.7.1; SIDE-global-section’s Interfaces built %d of %d; the two rosters; the seven patch editions; the deposit description as '
+            'synthesis, the second reader %s of 3, the draft held; the lattice banked' % (
+                sum(1 for r in HJ if r['hinge']), sum(1 for r in IB if r['build']['verdict'] == 'BUILT'), len(IB), d3.get('hand', '?')))
+
+
+TITLE = _title()
+
+
+def _finding_text():
+    S, rl, J = jl('b644_scores.json'), jl('b644_record_lines.json'), jl('b644_act_root.json')
+    HJ = jl('b644_hinges.json').get('rows') or []
+    IB = jl('b644_iface_builds.json').get('rows') or []
+    RP = jl('b644_desc_repairs.json').get('repairs') or []
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b644_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}, {}]
+    ac = re.search(r'### CRLF READS (\d+)', rd('b644_actroot_commit.txt'))
+    lat = re.search(r'ROWS (\d+) ; PLACED ON THE FIVE AXES (\d+) ; TOP (\d+)', rd('b644_lattice.txt'))
+    cr = re.search(r'KEYSTONES READ (\d+)', rd('b644_census_roster.txt'))
+    rr = re.search(r'CLONES (\d+) ; IN THE CHAIN (\d+) OF (\d+) ; CHAIN REPOSITORIES WITH NO CLONE AT THEIR PATH \d+ ; OUTSIDE THE CHAIN (\d+)', rd('b644_repo_roster.txt'))
+    rs = re.search(r'RESIDUE (\d+) PASSAGES', rd('b644_desc_residue.txt'))
+    leave = [r['head'] for r in HJ if r['old_hinge'] and not r['hinge']]
+    sc = lambda k: (S.get(k) or ['?'])[0]   # noqa: E731
+    e = ['', TITLE, '',
+         '*Filed at b644 on the author’s ruling `(R254)` and the author’s answers (%d). Banks: relay `data/b644_actroot_commit.txt`, '
+         '`data/b644_build_watch.json`, `data/b644_iface_builds.txt`, `data/b644_hinges.txt`, `data/b644_census_roster.txt`, '
+         '`data/b644_repo_roster.txt`, `data/b644_patch_editions.txt`, `data/b644_deposit_description.txt`, `data/b644_lattice.txt`, '
+         '`data/b644_zenodo_read.txt`, `data/b644_act_root.txt`.*' % n_ans, '',
+         '**The chain at commit** (`(R254)`(2)): the root tool reads every bank a root names at the commit that root recorded; every root from b624 '
+         'to b643 agrees there, b638 and b639 among them, and %s banks written with CR LF agree in that form alone, lawful before b644 by the '
+         'author’s answer and refused from b644 on. Shared data files are additive, an arm diffing each against its previous commit. N1 %s.' % (
+             ac.group(1) if ac else '?', sc('N1')), '',
+         '**The watchdog stop** (`(R254)`(3)): a run sampling free memory beneath the 2,560 MB hold is stopped by PID, retried once after the host '
+         'is freed, and recorded RUN-BENEATH-HOLD on a second fall. N2 %s.' % sc('N2'), '',
+         '**The Interfaces** (`(R254)`(5)): SIDE-global-section’s %d Interfaces modules sent to a build, one per call; built %d; each of the rest '
+         'recorded RUN-BENEATH-HOLD and named UNREAD with its module in the census, the heads concerned all of status DOMAIN.' % (
+             len(IB), sum(1 for r in IB if r['build']['verdict'] == 'BUILT')), '',
+         '**The hinges and the census at v0.7.1** (`(R254)`(4)): under the refined definition, the premise’s own evidence removed by rule and '
+         'the DOMAIN heads set aside, %d hinges of 50 (b643’s 28); %d leave, each with its reason; the census at v0.7.1 generated beside v0.7, '
+         'regenerated once on the author’s word for its glossary’s supersession line, one definition of own evidence, a status reconciled and '
+         'the hold defined. N3 %s.' % (sum(1 for r in HJ if r['hinge']), len(leave), sc('N3')), '',
+         '**The rosters** (`(R254)`(6)): the census roster, %s keystones read for whether their phase and cluster are fields or path fragments; '
+         'the repository roster, %s clones, %s of %s chain repositories cloned, %s outside the chain, the author to name.' % (
+             cr.group(1) if cr else '?', rr.group(1) if rr else '?', rr.group(2) if rr else '?', rr.group(3) if rr else '?', rr.group(4) if rr else '?'), '',
+         '**The patch editions** (`(R254)`(7)): the seven companions labelled, each through the Edit tool and committed alone, ONE_PAGE_PROOF at '
+         'v1.0.1 by the author’s answer (b641’s v1.3 was a kernel’s tag); the mirror’s roster gaining the seven and both census editions.', '',
+         '**The description** (`(R254)`(8)): composed from banks and the glossary in five parts; repaired in %d passages, each through the '
+         'change-invariance check with its planted failure; the second reader run five times, the last 3 of 3 by hand; %s passages left as its '
+         'residue. N4 %s.' % (len(RP), rs.group(1) if rs else '?', sc('N4')), '',
+         '**The draft** (`(R254)`(9)): the mirror rebuilt and verified; the draft’s file set replaced, read back byte for byte and digest for '
+         'digest, and held. N5 %s.' % sc('N5'), '',
+         '**The lattice** (`(R254)`(10)): %s rows, %s on the five axes, %s at the top by the author’s answer -- a bank, not an edition.' % (
+             lat.group(1) if lat else '?', lat.group(2) if lat else '?', lat.group(3) if lat else '?'), '',
+         '**The record lines** (`(R254)`(1)-(3)): b643 at its weight (FINDINGS :%s); W-ORD-CHAIN-AT-COMMIT acted (OPEN_TRAILS :%s); shared files '
+         'additive (:%s); W-ORD-WATCHDOG-STOP acted (:%s).' % (ls[0].get('line'), ls[1].get('line'), ls[2].get('line'), ls[3].get('line')), '',
+         '**The root.** b644 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, sc(k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): it re-reads b643’s census (FINDINGS :%d) under a definition that sets a premise’s own '
+         'evidence apart from its uses, and the deposit description b640 held, re-cut so that its one open clause and the census’s open premises '
+         'stand in the same text without contradiction. It strengthens the programme’s offering of a deposit a reader can check: the claim, what '
+         'compiles, what it assumes and what is open, each read from a bank.' % K.B643_ENTRY, '',
+         '**Next.** Per `(R254)`(11): b645, the author’s word pending -- the review pass (CP3), the census at v0.8 -- unless the author’s reading '
+         'of the description calls for repairs before it.', '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; the census counts premises and their uses and confers nothing.*', '']
+    return TITLE, NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the chain read at the root`s recorded commit, a bank the act wrote after it read at the first later first-parent commit carrying '
+              'it; (2) the own-evidence rule E1-E3 read per declaration from its statement, a sufficient condition and a discharge counted with a '
+              'witness; (3) the DOMAIN heads printed with b643`s chains, unrefined; (4) the Interfaces built at the mathlib4 checkouts their banked '
+              'profiles name, by the pin`s own lean with an explicit LEAN_PATH; (5) the composer carried into this act`s record tool, b640`s left '
+              'as sealed; (6) the lattice`s scope, the explicit-formula kernel`s graded rows naming the clause or an RH-family predicate; (7) '
+              'the mirror and the draft before the seal and the root, b640`s order, the record`s push after them')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b644_scores.json', 'b644_findings.json', 'b644_record_lines.json', 'b644_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b644_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}, {}]
+    BW = jl('b644_build_watch.json').get('rows') or []
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R254) ratified.** (1) b643 at its weight. (2) The chain at commit; shared data files additive. (3) The watchdog stop. (4) The hinge '
+             'definition refined, the census at v0.7.1. (5) SIDE-global-section’s Interfaces under the stop. (6) The two rosters. (7) The seven '
+             'patch editions. (8) The description as synthesis, second-read. (9) The draft’s file set replaced and held. (10) The lattice banked. '
+             '(11) The act after: b645.', '',
+             '**Entered:** FINDINGS.md:%s (b643’s weight), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-CHAIN-AT-COMMIT acted), :%s (shared files '
+             'additive), :%s (W-ORD-WATCHDOG-STOP acted); this record; PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_7_1.md, the two pages and '
+             'the seven companions.' % (ls[0].get('line'), fj.get('entry_line'), ls[1].get('line'), ls[2].get('line'), ls[3].get('line')), '',
+             '**W-ORD-LABEL-READER, entered on the author’s answer at b644, NOT STARTED, TRIGGER THE NEXT EDITION ACT:** a version string is a '
+             'document’s label only when it sits on the document’s own label or author line, never when it follows a kernel’s name; b639’s reader '
+             '(relay tools/b639_record.py :869-:871) took ONE_PAGE_PROOF’s first version string, SIDE-kernel’s tag, for its label, and b641 and '
+             '`(R254)`(7) carried it unread -- the navigator’s share named.', '',
+             '**Act root:** b644 `%s` (previous `%s`, b643’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Run beneath the hold, unbuilt, named:** %s.' % ('; '.join('%s (lows %s MB)' % (r['module'], r['lows']) for r in BW) or 'none'), '',
+             '**Prompts to the author:** %d (relay data/b644_author_answers.txt).' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**The next act’s terminals** (`(R237)`(4)): b645 names no kernel terminal; the review pass reads docstrings and keystone claims.', '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b644_defects.txt): %s.' % ('; '.join(DEFECT_SHORT) if DEFECT_SHORT else 'none recorded'), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** per `(R254)`(11), b645, the author’s word pending; the author rules on the closing.', '',
+             '**No `sorry` on any `main`.** Row U1 unedited; `h2` where the deposit left it; the four lists stay OPEN.', '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b644_scores.json')
+    L = ['=' * 104, 'b644 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rd('b644_defects.txt').rstrip(NL).split(NL)
+    put_txt('b644_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b644_scores.json', 'b644_findings.json', 'b644_trail.json', 'b644_record_lines.json', 'b644_act_root.json'))
+    ls = (rl.get('lines') or []) + [{}, {}, {}, {}]
+    L = ['b644 -- THE COMPONENTS, BANKED UNDER (R254).', '',
+         '### COMPONENT 0 : step zero, the chain at commit, the additive arm, the watchdog stop (data/b644_tests_stepzero.txt, data/b644_actroot_commit.txt) ; '
+         'relay %s, %s, %s ; N1 %s ; N2 %s' % (K.CHAIN_COMMIT, K.ADDITIVE_COMMIT, ', '.join(K.WATCH_COMMITS), S['N1'][0], S['N2'][0]),
+         '### COMPONENT 1 : b643`s weight FINDINGS :%s ; OPEN_TRAILS :%s, :%s, :%s ; the glossary`s refined entries' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line'), ls[3].get('line')),
+         '### COMPONENT 2 : the Interfaces (data/b644_iface_builds.txt), the hinges (data/b644_hinges.txt), the census at v0.7.1 ; N3 %s' % S['N3'][0],
+         '### COMPONENT 3 : the rosters (data/b644_census_roster.txt, data/b644_repo_roster.txt)',
+         '### COMPONENT 4 : the patch editions (data/b644_patch_editions.txt)',
+         '### COMPONENT 5 : the description (data/b644_deposit_description.txt, data/b644_desc_repairs.json, data/b644_desc_residue.txt) ; N4 %s' % S['N4'][0],
+         '### COMPONENT 6 : the mirror (data/b644_mirror.txt) ; the draft (data/b644_zenodo_read.txt, data/b644_zenodo_hold.txt) ; N5 %s' % S['N5'][0],
+         '### COMPONENT 7 : the lattice (data/b644_lattice.txt)',
+         '### COMPONENT 8 : the seal (data/b644_seal_hashes.json)',
+         '### COMPONENT 9 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N6 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N6'][0])]
+    put_txt('b644_components.txt', L)
+
+
+def findings(*a):
+    Q = R2._Q()
+    t, e = _finding_text()
+    e = _poss(e)
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE ENTRY -- NOTHING WRITTEN')
+    cells = predict_cells(e, 'FINDINGS.md')
+    nd, _n = _nd(e)
+    sc, clean = _scan_text(e, 'entry')
+    unread = [x for x in ('### NOT', 'None', '?;', ' ? ', '`?`', ' ? of 3') if x in e]
+    outside = [n for n in OUTSIDE_NEEDLES if n in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s ; outside names %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN',
+                                                                                         unread or 'NONE', outside or 'NONE'))
+    if 'dry' in a or DRY:
+        print(e)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread or outside:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.FIND, t[:90])
+    r = Q.append_to(Q.FIND, e)
+    put_json('b644_findings.json', dict(entry_line=Q.line_of(Q.FIND, t[:90]), title=t, append=r))
+    print('  FINDINGS entry :%s' % Q.line_of(Q.FIND, t[:90]))
+
+
+def trail(*a):
+    Q = R2._Q()
+    e = _poss(_trail_text())
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE RECORD -- NOTHING WRITTEN')
+    cells = predict_cells(e, 'OPEN_TRAILS.md')
+    nd, _n = _nd(e)
+    sc, clean = _scan_text(e, 'trail')
+    unread = [x for x in ('### NOT', 'None', '`?`') if x in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', unread or 'NONE'))
+    if 'dry' in a or DRY:
+        print(e[:9000])
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.OT, TRAIL_HEAD())
+    r = Q.append_to(Q.OT, e)
+    put_json('b644_trail.json', dict(line=Q.line_of(Q.OT, TRAIL_HEAD()), head=TRAIL_HEAD(), append=r))
+    print('  OPEN_TRAILS record :%s' % jl('b644_trail.json')['line'])
+
+
+CORR_HEAD = '*Appended 2026-10-09 by b644 to its record (:%d) -- A CORRECTION, THE SEAT’S:*'
+
+
+def correction(*a):
+    Q = R2._Q()
+    if not CORRECTION:
+        sys.exit('### NO CORRECTION -- NOTHING WRITTEN')
+    rec_ = Q.line_of(Q.OT, TRAIL_HEAD())
+    t = '\n%s %s\n' % (CORR_HEAD % rec_, CORRECTION)
+    if 'dry' in a:
+        print(t)
+        return
+    Q.guard_absent(Q.OT, CORR_HEAD % rec_)
+    r = Q.append_to(Q.OT, t)
+    put_json('b644_correction.json', dict(line=Q.line_of(Q.OT, CORR_HEAD % rec_), head=CORR_HEAD % rec_, append=r))
+    print('  OPEN_TRAILS correction :%s' % Q.line_of(Q.OT, CORR_HEAD % rec_))
+
+
+def seam_rows(*a):
+    """data/b644_seam_rows.txt, the author's word at b644: every page or companion that still calls the seam open or cited -- a row for the review
+    pass, by git grep at PLACE-papers HEAD with file and line. Read at the closing; not named by the root."""
+    import subprocess
+    pat = r'rh_strip_imp_rh[^.]{0,160}\b(open|cited|CITED|OPEN|not compiled|uncompiled)\b|\b(open|cited)\b[^.]{0,80}rh_strip_imp_rh'
+    r = subprocess.run(['git', '-C', PP, 'grep', '-n', '-E', '-i', pat, 'HEAD', '--', '*.md'], capture_output=True)
+    hits = [l for l in r.stdout.decode('utf-8', 'replace').split(NL) if l.strip()]
+    L = ['b644 -- THE SEAM CALLED OPEN OR CITED, ROWS FOR THE REVIEW PASS (the author`s word at b644), git grep at PLACE-papers HEAD (%s)' % utc(), '',
+         '### the pattern: rh_strip_imp_rh within one sentence of open / cited / not compiled ; the kernel compiles it (rh_strip_imp_rh_holds, '
+         'DERIVES at the standard three)', '']
+    L += ['  %s' % h[:260] for h in hits]
+    L += ['', '### ### **ROWS %d.**' % len(hits)]
+    put_txt('b644_seam_rows.txt', L)
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
