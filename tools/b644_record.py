@@ -1225,13 +1225,17 @@ def compose():
             ents.append('%s%s, %s' % (h, mark, d))
         parts.append('%s -- %s' % (st, '; '.join(ents)))
     dom = sorted(h for h in PT if PT[h]['status'] == 'DOMAIN')
-    P.append('WHAT THE LOAD-BEARING THEOREMS ASSUME. A premise is %s; a HINGE is %s The premises, by status: %s. The status DOMAIN marks a '
-             'Mathlib predicate that restricts a variable its statement quantifies (%s): not an assumption, and not a hinge. The refuted premise '
-             'is TrivialSummandPremise: %s; TrivialSummandPremise\' replaces it, carrying the pole term, and dedekind_rhs\' is proved on the restated '
-             'premise. The full table, every premise with its status, its non-vacuity, its consumers by kernel and its hinge, is the keystone '
-             'census at v0.7.1 (THE_KEYSTONE_CENSUS_v0_7_1.md, in this record\'s files).' % (
-                 gl['premise'].rstrip('.'), gl['HINGE'].rstrip('.') + '.', ' | '.join(parts), ', '.join(dom),
-                 re.sub(r'^the sixth status of a premise: ', '', gl['REFUTED-BY-COMPUTATION']).rstrip('.')))
+    hinge_def = gl['HINGE'].replace(' (the entry above)', '').rstrip('.') + '. A premise\'s own evidence is, in the glossary\'s words, %s. ' % (
+        gl['own evidence'].replace('of a premise: ', '').rstrip('.')) + ('[In plain words: a hinge is a premise that separate lines of the '
+                                                                         'kernels\' reasoning lean on, counted once the declarations that only test, '
+                                                                         'refute or instance the premise itself are set aside.]')
+    tpl = ('WHAT THE LOAD-BEARING THEOREMS ASSUME. A premise is %s; a HINGE is %s The premises, by status: %s. The status DOMAIN marks a '
+           'Mathlib predicate that restricts a variable its statement quantifies (%s): not an assumption, and not a hinge. The refuted premise '
+           'is TrivialSummandPremise: %s; TrivialSummandPremise\' replaces it, carrying the pole term, and dedekind_rhs\' is proved on the restated '
+           'premise. The full table, every premise with its status, its non-vacuity, its consumers by kernel and its hinge, is the keystone '
+           'census at v0.7.1 (THE_KEYSTONE_CENSUS_v0_7_1.md, in this record\'s files).')
+    P.append(tpl % (gl['premise'].rstrip('.'), hinge_def, ' | '.join(parts), ', '.join(dom),
+                    re.sub(r'^the sixth status of a premise: ', '', gl['REFUTED-BY-COMPUTATION']).rstrip('.')))
     # ---- (iv) WHAT IS OPEN
     P.append('WHAT IS OPEN. h2_sign: %s. The squeeze between the zero-free region pressing in from the line of real part one and the transversality '
              'at the critical line has one concrete target, in the words of THE_UNCONDITIONAL_SURROUND: %s.' % (
