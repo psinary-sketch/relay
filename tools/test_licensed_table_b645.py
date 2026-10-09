@@ -111,6 +111,20 @@ r16 = LT.docstring_row('d16', 'P/F.lean:77', 'Mathlib`s `RiemannHypothesis` hold
                        None, None, [], lookup, module=True)
 case('(D5) "holds if and only if" is no Mathlib-scope claim', bool(r16.get('hand_needed')), False)
 
+# (17) the cluster rule on planted paths: each path rule, the terminal rule, and HAND where neither decides
+planted = [('phase1.5/simplicity/X.md', ()), ('phase1.5/spectral/GRH_CASCADE.md', ()), ('phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md', ()),
+           ('phase1.5/spectral/BALANCE_AND_POSITIVITY.md', ()), ('THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', ()), ('day1/A_Place_to_Stand.md', ()),
+           ('phase2/method/E_DIFFICULTY_THEOREM.md', ()), ('clusters/X_CONSULT.md', ()),
+           ('ROOT_DOC.md', ('li_nonneg_iff_rh', 'partialPositivity_finiteRange', 'h2_sign_iff_rh')), ('ROOT_DOC.md', ('h2_sign_iff_rh',))]
+got17 = [LT.cluster(p, n)[0] for p, n in planted]
+case('the cluster rule on ten planted paths: eight path rules, the terminal rule, HAND', got17,
+     ['simplicity', 'GRH-cascade', 'surround', 'h2-positivity', 'instances', 'reduction-chain', 'method', 'side', 'h2-positivity', ''])
+# (18) the maturity rule: OVERREACHES -> ONGOING; open rows -> CARRIED-OPENLY; UNDERSTATES only -> SETTLED; no table -> blank, marked
+got18 = [LT.maturity({'MATCHES': 5, 'OVERREACHES': 1})[0], LT.maturity({'MATCHES': 5}, open_rows=2)[0], LT.maturity({'MATCHES': 5, 'UNDERSTATES': 3})[0],
+         LT.maturity(None)]
+case('the maturity rule: ONGOING, CARRIED-OPENLY, SETTLED, and a blank marked', got18,
+     ['ONGOING', 'CARRIED-OPENLY', 'SETTLED', ('', 'NOT YET IN THE TABLE')])
+
 ok = 0
 for i, (desc, good, got, want) in enumerate(CASES, 1):
     ok += good

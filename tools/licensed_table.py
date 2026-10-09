@@ -280,6 +280,66 @@ def map_intake(grade, stated_as, route_verdict='NOT A ROUTE'):
     raise KeyError('no mapping for (%s, %s, %s)' % (grade, stated_as, route_verdict))
 
 
+# ================================================================================ THE CENSUS'S THREE COLUMNS ((R255)(5)), DEFINED FOR v0.8
+CLUSTERS = ('reduction-chain', 'h2-positivity', 'simplicity', 'surround', 'GRH-cascade', 'instances', 'method', 'side')
+# ### the path rule, first match wins: (regex over the keystone's path, cluster)
+PATH_RULES = [
+    (r'(^|/)phase1\.5/simplicity/|SIMPLICITY', 'simplicity'),
+    (r'GRH', 'GRH-cascade'),
+    (r'SURROUND', 'surround'),
+    (r'BALANCE_AND_POSITIVITY|POSITIVITY|FACES_OF_H2', 'h2-positivity'),
+    (r'INSTANCE|DIRICHLET|EPSTEIN|DEDEKIND', 'instances'),
+    (r'(^|/)day1/|(^|/)phase1\.5/proofs/|(^|/)phase1\.5/rcurve/', 'reduction-chain'),
+    (r'(^|/)phase1\.5/method/|(^|/)phase2/method/|(^|/)phase2/formation/', 'method'),
+    (r'(^|/)phase2/|(^|/)clusters/|(^|/)internal/|(^|/)heritage/|(^|/)phase1\.5/deep-structure/|(^|/)phase1\.5/structural/', 'side'),
+]
+# ### the terminal rule, where no path rule matches: the cluster whose terminals the keystone names most, by at least two names and alone
+TERMINAL_SETS = {
+    'reduction-chain': {'h2_sign_iff_rh', 'rh_strip_imp_rh_holds', 'ch_iff_rh', 'b321_identity', 'h2_sign_imp_rh_holds', 'ch_iff_h2_sign'},
+    'h2-positivity': {'li_nonneg_iff_rh', 'partialPositivity_finiteRange', 'register4_positivity_liCoeff_iff_rh', 'liCoeff_one_pos',
+                      'blTerm_nonneg_of_onLine', 'taylorCoeff_nonneg_iff_rh'},
+    'simplicity': {'simplicity_iff', 'exceptional_mass_le_third', 'allSimple', 'positivity_not_imp_simplicity'},
+    'surround': {'h1_complete_at_Phi', 'C7_finite_type_false', 'exists_norm_completedRiemannZeta₀_le_exp'},
+    'GRH-cascade': {'h2_sign_chi_iff_grh_chi', 'GRH_chi', 'grh_chi_imp_h2_sign_chi', 'EF_lit_chi_holds'},
+    'instances': {'family_theorem', 'dedekind_instance', 'epstein_detector', 'epstein_ef_at_window', 'detector'},
+}
+
+
+def cluster(path, names=()):
+    """(cluster, how): the path rule first; else the terminal rule over the names the keystone carries; else ('', 'HAND')."""
+    for rx, c in PATH_RULES:
+        if re.search(rx, path):
+            return c, 'path: %s' % rx
+    cnt = collections.Counter()
+    for c, s in TERMINAL_SETS.items():
+        cnt[c] = len(s & set(names))
+    best = cnt.most_common(2)
+    if best and best[0][1] >= 2 and (len(best) == 1 or best[0][1] > best[1][1]):
+        return best[0][0], 'terminals: %s' % dict((k, v) for k, v in cnt.items() if v)
+    return '', 'HAND'
+
+
+MATURITY = ('SETTLED', 'CARRIED-OPENLY', 'ONGOING', 'SUPERSEDED')
+MATURITY_RULE = ('SUPERSEDED where the REGISTRY marks the keystone superseded by a later edition; else ONGOING where its table rows carry '
+                 'any OVERREACHES or UNLICENSED (claims the kernels do not yet license); else CARRIED-OPENLY where any row states a frontier '
+                 'as open (a claim stated as open, or a theorem at INTERFACES on a premise whose status is OPEN); else SETTLED (definitions '
+                 'and compiled statements). UNDERSTATES does not move a keystone: it says less than the corpus licenses. A keystone no table '
+                 'reaches is left blank and marked NOT YET IN THE TABLE, and no blank is counted as a value.')
+
+
+def maturity(counts, open_rows=0, superseded=False):
+    """the maturity of one keystone from its rows' verdict counts and its open-stated rows, by MATURITY_RULE; None counts -> blank."""
+    if counts is None:
+        return '', 'NOT YET IN THE TABLE'
+    if superseded:
+        return 'SUPERSEDED', 'the REGISTRY marks it superseded'
+    if counts.get('OVERREACHES', 0) + counts.get('UNLICENSED', 0):
+        return 'ONGOING', 'OVERREACHES %d, UNLICENSED %d' % (counts.get('OVERREACHES', 0), counts.get('UNLICENSED', 0))
+    if open_rows:
+        return 'CARRIED-OPENLY', '%d rows state a frontier as open' % open_rows
+    return 'SETTLED', 'every row MATCHES or UNDERSTATES and none states a frontier open'
+
+
 def rules():
     """the rules and the mapping, printed before any real row is read."""
     L = ['### THE LICENSED-STATEMENT TABLE`S RULES (tools/licensed_table.py), printed before the run:', '']
@@ -290,4 +350,10 @@ def rules():
           '### (D2) the claim words, strongest first:'] + ['    %s <- %s' % (g, rx.pattern[:200]) for rx, g in CLAIM_WORDS]
     L += ['', '### THE INTAKE MAPPING ((R255)(4)(d)), (grade, stated as) -> verdict:'] + [
         '    %-26s %-12s -> %-12s %s' % m for m in MAPPING]
+    L += ['', '### THE CENSUS`S COLUMNS ((R255)(5)): CLUSTER one of %s -- the path rule first (first match wins):' % ', '.join(CLUSTERS)] + [
+        '    %-12s <- %s' % (c, rx) for rx, c in PATH_RULES] + [
+        '  then the terminal rule (the cluster whose terminals the keystone names most, by at least two and alone):'] + [
+        '    %-15s %s' % (c, ', '.join(sorted(s))) for c, s in TERMINAL_SETS.items()] + [
+        '  else HAND, with the lines read cited. PHASE: the phase of the REGISTRY heading the keystone`s row sits under, a field.',
+        '### MATURITY, one of %s: %s' % (', '.join(MATURITY), MATURITY_RULE)]
     return L

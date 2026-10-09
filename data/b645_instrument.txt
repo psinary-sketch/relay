@@ -1,4 +1,4 @@
-b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLANTED TESTS RUN AND COUNTED BEFORE ANY REAL ROW (2026-10-09T18:58:25Z)
+b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLANTED TESTS RUN AND COUNTED BEFORE ANY REAL ROW (2026-10-09T19:16:58Z)
 
 ### tools/test_licensed_table_b645.py, exit 0:
   (1) a plain docstring on a DERIVES theorem reads MATCHES and the table takes it -- got ('MATCHES', []) -- PASS
@@ -17,7 +17,9 @@ b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLA
   (14) (D5) a Mathlib-scope claim is flagged and refused as generated, taken as a cited HAND row -- got (True, True, []) -- PASS
   (15) (D6) a Prop called NOT PROVED that a theorem concludes reads UNDERSTATES; one no theorem concludes MATCHES -- got ('UNDERSTATES', 'MATCHES') -- PASS
   (16) (D5) "holds if and only if" is no Mathlib-scope claim -- got False -- PASS
-### ### **16 of 16 cases as wanted -- PASS**
+  (17) the cluster rule on ten planted paths: eight path rules, the terminal rule, HAND -- got ['simplicity', 'GRH-cascade', 'surround', 'h2-positivity', 'instances', 'reduction-chain', 'method', 'side', 'h2-positivity', ''] -- PASS
+  (18) the maturity rule: ONGOING, CARRIED-OPENLY, SETTLED, and a blank marked -- got ['ONGOING', 'CARRIED-OPENLY', 'SETTLED', ('', 'NOT YET IN THE TABLE')] -- PASS
+### ### **18 of 18 cases as wanted -- PASS**
 
 ### THE LICENSED-STATEMENT TABLE`S RULES (tools/licensed_table.py), printed before the run:
 
@@ -52,3 +54,22 @@ b645 -- COMPONENT 2, (R255)(3): THE INSTRUMENT, tools/licensed_table.py, ITS PLA
     statement-grade            open         -> MATCHES      stated as open, conjectural or a definition of the document`s own terms
     any                        less         -> UNDERSTATES  the corpus now licenses more than the sentence says (a compiled theorem called open, a terminal said not to exist)
     route DARK                 established  -> OVERREACHES  a route offered as reaching its conclusion, which the sieve reads DARK
+
+### THE CENSUS`S COLUMNS ((R255)(5)): CLUSTER one of reduction-chain, h2-positivity, simplicity, surround, GRH-cascade, instances, method, side -- the path rule first (first match wins):
+    simplicity   <- (^|/)phase1\.5/simplicity/|SIMPLICITY
+    GRH-cascade  <- GRH
+    surround     <- SURROUND
+    h2-positivity <- BALANCE_AND_POSITIVITY|POSITIVITY|FACES_OF_H2
+    instances    <- INSTANCE|DIRICHLET|EPSTEIN|DEDEKIND
+    reduction-chain <- (^|/)day1/|(^|/)phase1\.5/proofs/|(^|/)phase1\.5/rcurve/
+    method       <- (^|/)phase1\.5/method/|(^|/)phase2/method/|(^|/)phase2/formation/
+    side         <- (^|/)phase2/|(^|/)clusters/|(^|/)internal/|(^|/)heritage/|(^|/)phase1\.5/deep-structure/|(^|/)phase1\.5/structural/
+  then the terminal rule (the cluster whose terminals the keystone names most, by at least two and alone):
+    reduction-chain b321_identity, ch_iff_h2_sign, ch_iff_rh, h2_sign_iff_rh, h2_sign_imp_rh_holds, rh_strip_imp_rh_holds
+    h2-positivity   blTerm_nonneg_of_onLine, liCoeff_one_pos, li_nonneg_iff_rh, partialPositivity_finiteRange, register4_positivity_liCoeff_iff_rh, taylorCoeff_nonneg_iff_rh
+    simplicity      allSimple, exceptional_mass_le_third, positivity_not_imp_simplicity, simplicity_iff
+    surround        C7_finite_type_false, exists_norm_completedRiemannZeta₀_le_exp, h1_complete_at_Phi
+    GRH-cascade     EF_lit_chi_holds, GRH_chi, grh_chi_imp_h2_sign_chi, h2_sign_chi_iff_grh_chi
+    instances       dedekind_instance, detector, epstein_detector, epstein_ef_at_window, family_theorem
+  else HAND, with the lines read cited. PHASE: the phase of the REGISTRY heading the keystone`s row sits under, a field.
+### MATURITY, one of SETTLED, CARRIED-OPENLY, ONGOING, SUPERSEDED: SUPERSEDED where the REGISTRY marks the keystone superseded by a later edition; else ONGOING where its table rows carry any OVERREACHES or UNLICENSED (claims the kernels do not yet license); else CARRIED-OPENLY where any row states a frontier as open (a claim stated as open, or a theorem at INTERFACES on a premise whose status is OPEN); else SETTLED (definitions and compiled statements). UNDERSTATES does not move a keystone: it says less than the corpus licenses. A keystone no table reaches is left blank and marked NOT YET IN THE TABLE, and no blank is counted as a value.
