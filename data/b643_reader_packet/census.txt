@@ -1,0 +1,1212 @@
+# THE KEYSTONE CENSUS — ACT 3a
+
+## What this document is about
+
+This is the census of the papers of A PLACE TO STAND, a research programme whose central result, checked by the Lean 4 system, is a reduction of the Riemann Hypothesis (RH) to one open statement, the located clause: RH holds exactly when a quadratic form built from the explicit formula of prime number theory is non-negative on every admissible test window. That statement, h2_sign, is stated in the programme’s kernel, compiled as equivalent to RH by the theorem h2_sign_iff_rh, and carried as the one open premise; nothing in this document says that RH or h2_sign holds.
+
+The census lists the programme’s papers as its registry, REGISTRY, files them, one row for each phase and cluster of papers. For each row it names the papers, the ones read as keystones (the papers that carry the programme’s results to a reader outside it, read at Tier K, KC or C), whether each was written again by the form of an edition, the rows of the sieve the cluster holds, the kernels the papers cite (each kernel a Lean 4 repository whose name begins SIDE-) with each kernel’s current tag, the deposit state, and how many of those kernels’ compiled theorems carry a grade and where the grade comes from.
+
+A grade reads what a theorem’s statement assumes, not how Lean checks it: DERIVES when the statement establishes the claim from the objects it names, INTERFACES when it takes the claim as a named hypothesis discharged elsewhere, ENCODES-CONCLUSION when it stipulates what is claimed. The shared rule E0 reads the grades by classing every binder of a statement by its kind, its typing and its form; the back matter names the classes and the named premises the INTERFACES rows rest on. The glossary below defines every internal name this document uses; the sections after it keep the wording of the census’s earlier editions, each change recorded in the back matter.
+
+## Glossary
+
+*The internal names this document uses, each defined in the programme’s own words with where the programme states it. The block is printed by relay `tools/chain_page.py` from relay `data/glossary.txt`, one source shared by the two generated pages and the keystone census, so it reads the same in all three.*
+
+- **A PLACE TO STAND** — the research programme whose papers, kernels and ledgers this corpus holds: its principal result "a machine-verified reduction of the Riemann Hypothesis to a single located clause, with that clause carried openly as open" *(OPEN_TRAILS :12354, "the programme is the A PLACE TO STAND research programme"; README :1, :22-:23)*
+- **RH** — the Riemann Hypothesis, as Mathlib states it (`RiemannHypothesis`): every zero s of the Riemann zeta function that is not a trivial zero −2(n+1) and is not s = 1 has real part 1/2 *(Mathlib de5ce8a9, NumberTheory/LSeries/RiemannZeta.lean :185)*
+- **GRH_chi** — the same statement for the zeros of the L-function of one primitive Dirichlet character χ ≠ 1; GRH, the generalised Riemann Hypothesis for these characters, is GRH_chi for every such χ *(README :125, the author's ruling (R183)(3))*
+- **the located clause** — the Riemann Hypothesis holds exactly when the explicit-formula quadratic form Q(k) = pole term − prime sum + archimedean term is non-negative for every admissible test window k, the theorem h2_sign_iff_rh deriving the equivalence with no premise, and the open clause being the sign statement h2_sign itself, which the kernel states, proves equivalent to RH, bounds by its mechanism exclusions, and carries as its one open premise *(the author's ruling (R248)(4); README :22-:23, "a machine-verified reduction of the Riemann Hypothesis to a single located clause, with that clause carried openly as open")*
+- **h2** — the programme's name for the open clause; in the kernel it is the one Prop h2_sign *(SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :28, "h2, as one Prop")*
+- **h2_sign** — Weil positivity on classK: for every test window k in classK, 0 ≤ P(k) − PR(k) + A(k), the pole term, the prime sum and the archimedean term of the explicit formula; open, and carried as the one open premise *(SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :28-:29)*
+- **classK** — the admissible test windows: functions k on the reals that are even, twice continuously differentiable and compactly supported, and of the form h ⋆ h~ with h twice continuously differentiable and compactly supported *(SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :22-:26)*
+- **h2_sign_iff_rh** — the compiled theorem h2_sign ↔ RiemannHypothesis: "Weil positivity on classK is Mathlib's RiemannHypothesis, both directions, no hypothesis" *(SIDE-explicit-formula SIDEExplicitFormula/Seam.lean :100-:101; README :115)*
+- **Weil positivity** — the statement h2_sign, the non-negativity of the explicit formula's quadratic form on classK, one of three faces of the one open clause compiled as equivalent *(README :121)*
+- **Li positivity** — the non-negativity of Li's coefficients λ_n, compiled over Mathlib's zeros as equivalent to RH (li_nonneg_iff_rh), a second face of the one open clause *(README :121)*
+- **arithmetic-limit positivity** — the non-negativity of the Bombieri–Lagarias arithmetic limits, compiled as equivalent to RH (arith_limit_nonneg_iff_rh), the third face of the one open clause *(README :121)*
+- **seam** — a named implication between open statements, read as a premise when it is the antecedent of a statement's conclusion: rh_strip_imp_rh, that every zero of zeta with real part at most 0 is a trivial zero *(relay tools/e0_rule.py, (R236)(2)(i); README :113)*
+- **kernel** — a Lean 4 repository of the programme's federation, checked by Lean on its own and cited by named theorem at a pinned commit or tag: "Lean kernels under psinary-sketch carry the arms" *(README :18)*
+- **SIDE-** — the prefix of every kernel's name, one public repository each under github.com/psinary-sketch: SIDE-kernel carries the deposited route terminals (v1.5), SIDE-explicit-formula the explicit formula, h2_sign and h2_sign_iff_rh, SIDE-structural-error-correction the error-correction kernel, SIDE-global-section the global-section kernel, and each other SIDE- name the kernel of its own subject *(README :15, :18; SPIRAL_MAP.md, the federation map)*
+- **terminal** — a compiled theorem a paper cites by name: "cited by named terminal, not by count" *(README :15)*
+- **pin** — the commit, or the tag peeling to one, at which a citation is read: "pins move, so the columns are read live, never recalled" *(README :18)*
+- **the standard three** — the axioms [propext, Classical.choice, Quot.sound], written std3 *(README :79-:80)*
+- **Zeta23** — the vendored explicit-formula modules of anthropics/formal-math at 3635e748, on which the explicit-formula kernel builds *(the generated pages' head line)*
+- **Bulka** — the vendored repository nicholasbulka/li-criterion-rh-equivalence-lean at 35df682f under Apache 2.0, the converse half of Li's criterion *(README :121)*
+- **E0** — the shared grading rule, relay tools/e0_rule.py from b568: it grades a theorem by reading its statement's binders, INTERFACES when a hypothesis binder is a named Prop passed through as a premise and DERIVES when its only binders are domain conditions; from b637 every binder is classed by its kind, its typing and its form, its name no part of the reading *(relay tools/e0_rule.py, RULE_TEXT; OPEN_TRAILS :13337)*
+- **binder** — a variable or hypothesis a statement introduces: the header's groups ( ), { }, ⦃ ⦄ and [ ] (Lean's four binder kinds), the conclusion's leading universal telescope, the antecedents of its implication and the binders of an existential in it *(relay data/b637_binder_classes.txt; Lean/Expr.lean :71-:79)*
+- **binder class** — one of the 26 classes B01-B26 the rule reads every binder into, by kind, typing (a Prop or data) and form, each class with its outcome: data, a domain condition, a premise, a seam, an unlisted predicate or part of the conclusion *(relay data/b637_binder_classes.txt; relay tools/e0_rule.py, CLASSES)*
+- **domain condition** — a binder that does not enter the grade: an instance binder whose class is not Fact; a membership, non-membership, non-emptiness or finiteness condition on an object the statement names; a restriction on a variable the same statement quantifies universally *(relay tools/e0_rule.py, (R235)(2))*
+- **premise** — a binder asserting a Prop about a fixed object the kernel names and does not derive: a structure of premises, an EF_lit_* hypothesis, a Fact instance, a Summable or HasSum of the kernel's own series *(relay tools/e0_rule.py, (R235)(2))*
+- **DERIVES** — "the theorem's statement, unfolded to its base objects, establishes the claim" *(README :64-:65)*
+- **INTERFACES** — "the theorem takes the claim as a named hypothesis, discharged elsewhere and identified in the row. This is a legitimate architecture, not a defect; it is how a kernel cites a manuscript result. The row names the premise." *(README :66-:68)*
+- **ENCODES-CONCLUSION** — "the theorem stipulates what the paper claims, or concludes a placeholder. These are work-orders, not citations"; the rule reads it when a hypothesis binder's type is the conclusion itself *(README :69-:71; relay tools/e0_rule.py, (R234)(2))*
+- **SHELL** — read with ENCODES-CONCLUSION: a theorem that concludes a placeholder; a work-order, not a citation *(README :69-:71)*
+- **ENCODES** — the table's synonym for ENCODES-CONCLUSION and ENCODES-CONCLUSION-or-SHELL, applied before ledger cells are compared *(relay tools/terminal_table.py, the synonym map, (R164)(2)(a))*
+- **NOT THE CLAIM** — "the theorem is sound and its statement is strictly weaker than the claim the row makes for it" *(README :72-:73)*
+- **DEF** — the table's grade of a definition: an object or a Prop defined, not a theorem, carrying no claim *(relay data/b637_binder_classes.txt, the grade)*
+- **PREDICATE-UNLISTED** — the rule's reading of a named predicate on a variable the statement quantifies, met for the first time: printed as such and not read as a premise, so the list of named restrictions grows by a ruling and not by a wrong grade *(OPEN_TRAILS :13221)*
+- **MET** — the rule's forward guard: the named predicates any row of the terminal table carried in the rule's reading at relay 8e6b63cc (51 names) and those met since; a name it holds reads as a premise until the author rules it a restriction *(OPEN_TRAILS :13221; relay tools/e0_rule.py, MET)*
+- **CONFLICT** — a row whose ledger cells grade one name differently: "the row records CONFLICT and quotes BOTH WITHOUT CHOOSING -- a table that resolves a disagreement has conferred a grade" *(relay tools/terminal_table.py :10-:12)*
+- **UNGRADED** — a row neither a ledger cell nor the rule grades *(THE_KEYSTONE_CENSUS v0.5 :43, "none (ungraded)")*
+- **the terminal table** — relay data/terminal_table.md and its json: one row per compiled declaration the ledgers or the axiom prints name, each with its grade and the provenance of that grade; "it confers no grade and moves none" *(relay tools/terminal_table.py :1-:12)*
+- **provenance** — where a row's grade comes from: cell (a ledger cell grades it), rule (the shared E0 rule reads its statement), rule-elab (the rule reads the declaration's elaborated type where the textual reading differs or defers) or none (ungraded) *(THE_KEYSTONE_CENSUS v0.5 :43; relay tools/terminal_table.py, (R245)(2)-(3))*
+- **upstream** — the kind of a table row whose declaration lives outside every kernel (Mathlib's, or a vendored module's beyond the kernel's roots): its grade cell reads —, its provenance none, and it is excluded from every grade count; "Mathlib's theorems are cited, not graded" *(OPEN_TRAILS :13335, (R247)(2))*
+- **T0** — the anchor tier: compiled against a Mathlib statement, at the standard three, its statement read *(the author's ruling (R149)(2), relay data/b539_ferry.txt :21-:22)*
+- **T1-open** — compiled in a programme kernel, INTERFACES on a premise equivalent to RH that is named and open; h2_sign is the one open premise of this kind *((R149)(2); FINDINGS :4823, :5812)*
+- **T1-lit** — compiled in a programme kernel, INTERFACES on an uncompiled literature theorem *(FINDINGS :4823, :5812)*
+- **T2** — compiled, but the terminal is ENCODES-CONCLUSION, SHELL, false as stated or vacuous *((R149)(2), relay data/b539_ferry.txt :25-:28)*
+- **T2-INTERFACES** — a terminal that interfaces on a named premise which is neither compiled nor a literature theorem but the programme's own manuscript claim *(FINDINGS :5812, (R165)(3))*
+- **T3** — numerical: VERIFIED-STRICT, -EST or -EST-TAIL, with its bank *((R149)(2), relay data/b539_ferry.txt :28-:29)*
+- **T4** — a reading, manuscript-resident, with no terminal *((R149)(2), relay data/b539_ferry.txt :29-:30)*
+- **keystone** — a document read at Tier K, KC or C under the author-ruled taxonomy: the documents that carry the programme's results to a reader outside it *(THE_KEYSTONE_CENSUS v0.5 :20)*
+- **Tier K, KC, C, N, E** — the author-ruled tiers of a document: Tier K, certification at a pin; Tier KC, certification and cluster synthesis together; Tier C, synthesis; Tier N, notes and exploratory; Tier E, filing-facing *(phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md :14-:20; THE_KEYSTONE_CENSUS v0.5 :20)*
+- **phase** — REGISTRY's divisions of the corpus -- Phase 1 (Day 1), Phase 1.2, Phase 1.5 and Phase 2 -- and within them the lettered clusters (1.5A-1.5H, 2A-2G), each a group of papers on one subject *(REGISTRY.md; THE_KEYSTONE_CENSUS v0.5 :41)*
+- **REGISTRY** — "the single source of truth. One row per paper: ID, title, file, version, confidence mark, status, word count, notes ... If this file disagrees with anything else, it wins" *(README :35)*
+- **FINDINGS** — "the middle reference layer between the kernels ... and the papers, which cite"; append-only *(README :37)*
+- **OPEN_TRAILS** — "the cross-session continuity ledger -- items needing explicit follow-through: open trails, work-orders (W-ORD-*), and research-arc entries with dated addenda"; append-only *(README :36)*
+- **W-ORD** — a work-order on OPEN_TRAILS: a named piece of work, priced and entered, which an act takes up on the author's word *(README :36)*
+- **ERRATA** — "corrections to deposited artifacts, each retained at the version it was filed against" *(README :40)*
+- **SPIRAL_MAP** — "the federation map -- kernels, their relationship to the papers, and the translation table from programme vocabulary to standard mathematics" *(README :39)*
+- **relay** — the programme's working repository (github.com/psinary-sketch/relay): "session reports, computational instruments, and their data banks" *(README :41)*
+- **PLACE-papers** — the corpus's own repository (github.com/psinary-sketch/PLACE-papers): the papers, the registry, the generated pages and the ledgers *(OPEN_TRAILS :12354)*
+- **the sieve** — THE_FINDINGS_AS_THEY_STAND: the sieve table of the programme's findings by cluster, each row with its verdict *(phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md :1)*
+- **the ceiling sentence** — the README's ruled line of what the corpus may claim and what it may not, with each later ruled sentence placed beside it; no document claims beyond it *(README :106, and the ruled sentences beside it, :113-:125)*
+- **Correspondence** — the table that pairs a document's rows with the compiled declarations they cite and grades each pair; with Placement it sits in the back matter *(OPEN_TRAILS :11864, the form of an edition)*
+- **Placement** — the table of where each object a document names lives: its path and its status *(OPEN_TRAILS :11864, the form of an edition)*
+- **the form of an edition** — the standing form by which a document's next version is written beside the current one, the current unedited, its changes recorded in back matter *(OPEN_TRAILS :11864)*
+- **the load-bearing clause** — a kernel-verified terminal counts toward a document's tier only where it carries the thesis of the document's head *(OPEN_TRAILS :12699)*
+- **ANNEX** — REGISTRY's download layer, outside the repository tree and filed non-keystone *(REGISTRY.md :360)*
+- **CP-1** — the first stage of the critical path: the tier blocks appended to each keystone, its terminals tiered T0-T4 *(OPEN_TRAILS :11413)*
+- **bNNN** — an act: one numbered session of the programme's work under the author's ruling (b638 is this one), its banks at relay data/bNNN_*, its record lines in FINDINGS and OPEN_TRAILS *(OPEN_TRAILS :13339, the record of b637)*
+- **(Rnnn)** — the author's rulings, numbered, each ratified by the delivery that carries it and strikeable clause by clause *(the ruling (R248)'s own head)*
+- **the act root** — the sha256 over the repositories' heads, the cited tags and the act's banks, chained to the previous act's root, so that an act's state can be re-read and checked *(relay tools/act_root.py :4-:10; relay data/act_roots.txt)*
+- **the deposit** — a Zenodo record of the programme's work, the author's own act; the Zenodo deposits and the GitHub repositories carry its assertions *(OPEN_TRAILS :12354)*
+- **the mirror** — the project workspace's mirror, a zip of the roster's files: research history at every stage of edit, not definitive where a more refined result supersedes it *(OPEN_TRAILS :12354; relay tools/mirror_roster.json)*
+- **REFUTED-BY-COMPUTATION** — the sixth status of a premise: the premise as stated is false at an object the programme exhibits, so no witness of it exists and it is not OPEN *(OPEN_TRAILS :13489; the author's ruling (R253)(5)(b))*
+- **WITNESS** — a theorem or example in a Salt module exhibiting an object that satisfies a premise structure, so that the theorems resting on the premise are not empty *(the author's ruling (R252)(3)(e); relay data/b642_nonvacuity.txt)*
+- **DEGENERATE** — a witness that satisfies the premise structure only at a parameter where the structure says nothing, such as a zero base or an empty range, and is therefore not counted as a witness *(the author's ruling (R253)(5)(b); relay data/b642_nonvacuity.txt)*
+- **CONSUMER** — a theorem whose statement or proof uses the premise, read from the dependency print of the kernel's elaborated environment and not from its text *(the author's ruling (R253)(5)(b); relay data/b643_consumers.txt)*
+- **CHAIN** — a weakly connected component of a kernel's use-graph restricted to the declarations consuming the premise directly or transitively, the premise and its projections removed, named by its terminal declaration *(the author's answer at b643 (relay data/b643_author_answers.txt))*
+- **HINGE** — a premise whose consumers lie in more than one kernel, or in more than one chain within a kernel *(the author's ruling (R253)(5)(b) and the author's answer at b643)*
+
+**DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### TIER C** — *declared 2026-08-26 (b190); basis: it organizes documents into keystone classes.*
+
+> ### **b186's SYNTHESIS/NOTES/LEDGER SCHEME IS RETIRED, 2026-08-26 (b190).** *Reason: it was invented beside an author-ruled standing standard and its “SYNTHESIS” class spanned Tier K and Tier C at once —* ### **collapsing the very distinction the standing taxonomy exists to enforce.** *The retired line is left below, not deleted.*
+
+**DOCUMENT CLASS (K/C/N/E — the AUTHOR-RULED standard, 2026-07-28): TIER C** — *declared 2026-08-26 (b189); basis: it organizes documents into keystone classes with an operationalised test; its own head says “READ-ONLY, ZERO EDITS”.*
+**PURPOSE:** *the census of the corpus’s keystones, with the class test defined before counting so the count is reproducible; for a reader asking which documents carry terminals.* — *### added 2026-08-26 (b189) from this document’s own content.*
+
+*v0.7, 2026-10-08 -- the premise table under six statuses, with a non-vacuity column (DEGENERATE apart), a consumers column read from the dependency print and the hinges marked with their chains; the glossary extended; v0.6 stands beside it, unedited.*
+
+*v0.6, 2026-10-07 -- the census under the reader’s clause: a plain opening for a reader outside the programme and the shared glossary block at its head; the kernel column with the tags re-read; the provenance column under the upstream exclusion, cell / rule / rule-elab / none with the upstream rows counted apart; the faces through v0.25 and the Phase 2 rows as b636 read them again; in back matter the premise table at 50 heads over 123 rows with its unnamed residue, MET beside it, and the binder grammar the grades rest on; v0.5 stands beside it, unedited.*
+
+*v0.5, 2026-10-06 -- the census read again at its rows and widened: the kernel column at the act root’s repository list, the explicit-formula kernel’s four faces at v0.22-v0.25, the provenance of each row’s kernels’ table rows, the Phase 2 rows read against SIDE-structural-error-correction at v0.2.2, the ANNEX row’s intake figures and the 42 named premises in back matter; v0.4 stands beside it, unedited.*
+
+*v0.4, 2026-10-04 -- the census read again at its rows: the six syntheses of b611-b616 named in their rows with path, version and tier; the edition-state, kernel-tag and sieve columns refreshed; the no-keystone section at the ANNEX alone; v0.3 stands beside it, unedited.*
+
+*v0.3, 2026-10-03 -- the phase-state reading: one row per phase and cluster as REGISTRY lists them, read from the ledgers, the pages, the registry and the remotes; the keystone test ruled to the taxonomy; the current version (v0.1 with its v0.2 section) stands beside it, unedited.*
+
+**Method register · v0.1 · 2026-08-12 · READ-ONLY, ZERO EDITS · federation read LIVE**
+
+## §0 — THE KEYSTONE TEST, RULED *(v0.3, 2026-10-03, b610, under the author’s ruling `(R220)`(3))*
+
+The author-ruled taxonomy governs (`phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md`): **Tier K** by certification at a pin (:14), **Tier KC** by certification and cluster synthesis together (`(R19)`, :57), **Tier C** by synthesis (:16), **Tier N** notes and exploratory (:18), **Tier E** filing-facing (:20). A keystone in this census is a document read at K, KC or C. The order’s rubric of b375 (synthesis against other content) is read as the KC obligation, not as a separate test.
+
+**How a tier is read here, in order:** (1) the document’s own class line under the standing taxonomy; (2) a sentence of the document stating its tier; (3) a tier the author ruled by name (REGISTRY :669; the taxonomy :39-:43) or the registry’s own row; (4) the taxonomy’s presumptive class by name (:35, the cluster syntheses at C; :36, the consults at N); (5) certification at a pin read from the cascade, a CP-1 tier block with a terminal row at T0-T2 reading K. A document none of these reaches reads “no tier read” and is not a keystone; no document is reclassified by this census.
+
+### The census’s own test of v0.1, carried beneath under the history clause
+
+## §0 — THE CATEGORY, DEFINED BEFORE COUNTING *(so the count is reproducible)*
+
+| class | test |
+|:--|:--|
+| ### **KEYSTONE** | (i) states results for external readers **and** (ii) closes with a Correspondence table naming its terminals **and** (iii) is cited by its cluster's spine or the trunk |
+| ### **KEYSTONE-CANDIDATE** | (i) + (iii), **fails (ii)** |
+| ### **CONCORDANCE-CARRIED** | ### **Day-1's prose-terminal architecture — its own class, NOT a failure of (ii).** *The nine deposited companions name their terminals in prose and in `§25.8 Kernel Concordance`; that is a different architecture, not a missing table.* |
+| **SUPPORT** | working papers, notes, consults, **logs** |
+
+**OPERATIONALISED:** (i) = an `Abstract` heading or an ORCID block · (ii) = a heading matching `correspondence` · size floor `6 KB`.
+
+*History line, v0.3, 2026-10-03 (b610, under `(R220)`(3)): the three-part test above retires to the author-ruled taxonomy, read by the order of §0 above; the census reads tiers, not this test. b375’s “three tests, one word” (OPEN_TRAILS :4049) closes under that clause.*
+
+## §1 — THE PHASES AND CLUSTERS, ONE ROW EACH *(read 2026-10-07, b638; relay `data/b638_census.txt`)*
+
+One row per phase and cluster as REGISTRY lists them, in its order: the documents the registry lists (ID and REGISTRY line), the keystones by tier under §0, the edition state (edited by the form at its version; work-list alone; neither), the sieve rows the cluster holds at v0.6 through SPIRAL_MAP §4A’s members, the kernels anchoring it with their current tags read by ls-remote and the tags their clones carry unpushed named beside them, and the deposit state. Each cell is read at PLACE-papers 5c4247b or at the remote, and none from recall; the rules are in the back matter’s readings.
+
+The last column, ruled at v0.5 (`(R243)`(6)(iii)) and read at v0.6 under the upstream exclusion (`(R247)`(2), `(R248)`(5)), counts the terminal table’s rows of the kernels the row names by provenance -- cell (a ledger cell grades it), rule (the shared E0 rule reads its statement), rule-elab (the rule reads the declaration’s elaborated type where the textual reading differs or defers) and none (ungraded) -- in the table at relay 7848d8be, the upstream rows (a declaration outside every kernel, its grade cell —) counted apart in parentheses; a kernel named in several rows is counted in each, so the column reads how much of each cluster’s compiled surface is ledger-graded, rule-graded or ungraded.
+
+| row | phase and cluster | documents | keystones by tier | edition state | sieve rows at v0.6 | kernels, current tag | deposit state | kernels’ table rows: cell / rule / rule-elab / none (upstream apart) |
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+| R01 | Phase 1 / Day 1 (REGISTRY :75) | `d1-1` A_Place_to_Stand.md (:83); `d1-2` Exhaustive_Enumeration.md (:84); `d1-3` Which_Structure_Confines.md (:85); `d1-4` Spectral_Inertness.md (:86); `d1-5` Seven_Mechanism_Classes.md (:87); `d1-6` Third_Identity_Element.md (:88); `d1-7` Silence_of_Foundations.md (:89); `d1-8` ONE_PAGE_PROOF.md (:90) | K: d1-1 ; no tier read: d1-2, d1-3, d1-4, d1-5, d1-6, d1-7, d1-8 | edited by the form: d1-1 v5.18 ; neither: 7 | Methodology MT: 22 rows (via A_Place_to_Stand.md) | SIDE-effects v0.1 = afb196e ; SIDE-interfaces v0.2 = 1728796 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-meta v0.3 = 6bb7b23 (unpushed by name: v0.1 = e262713) | deposited at record 21539167: d1-1, d1-2, d1-3, d1-4, d1-5, d1-6, d1-7, d1-8 ; neither: 0 | 31 / 31 / 0 / 1 |
+| R02 | Phase 1.2 (filed under 1.5A by the phase attribute) (REGISTRY :780) | `1.5a-1` THE_EXCLUSION_ARCHITECTURE.md (:142); `1.5a-2` MECHANISM_EXCLUSION.md (:143); `1.5a-3` IDS_TO_RH.md (:144); `1.5a-4` INTEGRATED_PROOF.md (:145); `1.5a-9` THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md (:1004); `1.5a-10` THE_RIEMANN_PATHS_CLUSTER_SPINE.md (:1005) | KC: 1.5a-9 (`phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION_v0_2.md` v0.2) ; no tier read: 1.5a-1, 1.5a-2, 1.5a-3, 1.5a-4, 1.5a-10 | edited by the form: 1.5a-9 v0.2 ; neither: 5 | none (no SPIRAL_MAP §4A cluster holds a member here) | SIDE-archimedean v0.1.0 = 8019d9d ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-rcurve v0.1.0 = d5f33b4 ; SIDE-spinor v0.1.0 = b235bc6 | in the mirror alone: 1.5a-9 ; neither: 5 | 0 / 29 / 0 / 0 |
+| R03 | 1.5A: Alternative Proof Presentations (REGISTRY :138) | `1.5a-7` INDEX_ARITY_AT_THE_CRITICAL_LINE.md (:146); `1.5a-5` PATHS_TO_THE_CRITICAL_LINE.md (:499); `1.5a-6` THE_UNCONDITIONAL_SURROUND.md (:505); `1.5a-8` THE_RESIDUE_OF_RH.md (:901) | K: 1.5a-7, 1.5a-5, 1.5a-6, 1.5a-8 | edited by the form: 1.5a-7 v0.19, 1.5a-5 v0.7, 1.5a-6 v0.5, 1.5a-8 v1.2 ; neither: 0 | Simplicity / RH cascade RH: 70 rows (via THE_RESIDUE_OF_RH, PATHS_TO_THE_CRITICAL_LINE.md) | SIDE-archimedean v0.1.0 = 8019d9d ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-grh-transfer v0.5.0 = bfd2af7 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-lv-conservation v0.11.0 = 2f71068 ; deposit record 21539068 at v0.10.0 = 93c27ec (REGISTRY :102) ; SIDE-rcurve v0.1.0 = d5f33b4 ; SIDE-simplicity v0.1.0 = 54ba4f3 ; SIDE-spinor v0.1.0 = b235bc6 | in the mirror alone: 1.5a-7, 1.5a-5, 1.5a-6, 1.5a-8 ; neither: 0 | 46 / 134 / 0 / 1 |
+| R04 | 1.5B: Simplicity & Zero Structure (REGISTRY :148) | `1.5b-1` ALL_ZEROS_SIMPLE.md (:152); `1.5b-2` CASE_FOR_SIMPLICITY.md (:153); `1.5b-3` CONVERGENT_ARGUMENTS_SIMPLICITY.md (:154); `1.5b-4` TRACE_FORMULA.md (:155); `1.5b-5` DERIVATIVE_IMAGINARY_THEOREM.md (:156); `1.5b-6` SIMPLICITY_OF_RIEMANN_ZEROS.md (:157) | K: 1.5b-6 ; no tier read: 1.5b-1, 1.5b-2, 1.5b-3, 1.5b-4, 1.5b-5 | edited by the form: 1.5b-6 v1.1.3 ; neither: 5 | Simplicity / RH cascade RH: 70 rows (via 1.5b-1, 1.5b-2, 1.5b-3, 1.5b-4, 1.5b-5, 1.5b-6) | SIDE-archimedean v0.1.0 = 8019d9d ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-grh-transfer v0.5.0 = bfd2af7 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-rcurve v0.1.0 = d5f33b4 ; SIDE-simplicity v0.1.0 = 54ba4f3 ; SIDE-spinor v0.1.0 = b235bc6 | in the mirror alone: 1.5b-6 ; neither: 5 | 30 / 72 / 0 / 1 |
+| R05 | 1.5C: Spectral & Structural Core (REGISTRY :159) | `1.5c-1` CONSERVATION.md (:163); `1.5c-2` CONSERVATION_REFINED.md (:164); `1.5c-3` STRUCTURAL_COUNT.md (:165); `1.5c-4` STRUCTURAL_FRACTION.md (:166); `1.5c-5` POISSON_EXHAUSTION.md (:167); `1.5c-6` BIJECTION.md (:168); `1.5c-7` CONTROLLED_EXPERIMENT.md (:169); `1.5c-8` VOCABULARY.md (:170); `1.5c-9` CASE_FOR_TWO.md (:171); `1.5c-11` CARTAN_B.md (:172); `1.5c-12` INTERFACE_CONSERVATION.md (:173); `1.5c-13` DOMAIN_OSTROWSKI_UNIVERSALITY_v0_1.md (:174); `1.5c-14` FORMATION_DISTANCE_DARK_VARIABLE_v0_1.md (:175); `1.5c-15` SEVEN_DISCRIMINANTS_AND_TRIVIUM_v0_1.md (:176); `1.5c-16` BALANCE_AND_POSITIVITY.md (:479); `1.5c-17` LAGARIAS_TERNARY_SIDE_CONSULT.md (:519) | K: 1.5c-16 ; no tier read: 1.5c-1, 1.5c-2, 1.5c-3, 1.5c-4, 1.5c-5, 1.5c-6, 1.5c-7, 1.5c-8, 1.5c-9, 1.5c-11, 1.5c-12, 1.5c-13, 1.5c-14, 1.5c-15, 1.5c-17 | edited by the form: 1.5c-16 v0.9.5 ; neither: 15 | Simplicity / RH cascade RH: 70 rows (via 1.5c-1, 1.5c-2, 1.5c-5, 1.5c-11, 1.5c-16) ; theory-space: 0 rows (the sieve carries none; via STRUCTURAL_FRACTION.md) ; cross-domain: 0 rows (the sieve carries none; via FORMATION_DISTANCE_DARK_VARIABLE_v0_1.md, INTERFACE_CONSERVATION.md) | SIDE-archimedean v0.1.0 = 8019d9d ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-grh-transfer v0.5.0 = bfd2af7 ; SIDE-interfaces v0.2 = 1728796 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-rcurve v0.1.0 = d5f33b4 ; SIDE-silence-principle v0.2.0 = 667c254 ; SIDE-simplicity v0.1.0 = 54ba4f3 ; SIDE-spinor v0.1.0 = b235bc6 | in the mirror alone: 1.5c-16 ; neither: 15 | 33 / 72 / 0 / 1 |
+| R06 | 1.5D: GRH & Cascade (REGISTRY :178) | `1.5d-1` no file (:182); `1.5d-2` SILENCE_FORMAL.md (:183); `1.5d-3` SILENCE_OF_FOUNDATIONS.md (:184); `1.5d-4` GRH_CASCADE.md (:185) | K: 1.5d-4 ; no tier read: 1.5d-1, 1.5d-2, 1.5d-3 | edited by the form: 1.5d-4 v0.3.6 ; neither: 3 | Foundations FD: 3 rows (via 1.5d-2, 1.5d-3) ; Simplicity / RH cascade RH: 70 rows (via 1.5d-4) | SIDE-archimedean v0.1.0 = 8019d9d ; SIDE-compression v0.2.0 = e9a5a36 ; SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-grh-transfer v0.5.0 = bfd2af7 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-rcurve v0.1.0 = d5f33b4 ; SIDE-silence-principle v0.2.0 = 667c254 ; SIDE-simplicity v0.1.0 = 54ba4f3 ; SIDE-spinor v0.1.0 = b235bc6 ; SIDE-structural-error-correction v0.2.2 = 6bf19ab | in the mirror alone: 1.5d-4 ; neither: 3 | 31 / 133 / 1 / 1 |
+| R07 | 1.5E: Deep Structure (REGISTRY :187) | `1.5e-1` CONSTANCE.md (:191); `1.5e-2` FROBENIUS.md (:192); `1.5e-3` TRIVIUM.md (:193); `1.5e-4` TRIVIUM_FINDINGS.md (:194); `1.5e-5` TRIVIUM_IDENTITY_SUBSPACE.md (:195); `1.5e-6` CLASS_NUMBER_ANOMALY.md (:196); `1.5e-7` THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md (:1013) | KC: 1.5e-7 (`phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM_v0_2.md` v0.2) ; no tier read: 1.5e-1, 1.5e-2, 1.5e-3, 1.5e-4, 1.5e-5, 1.5e-6 | edited by the form: 1.5e-7 v0.2 ; neither: 6 | Cubit / Trivium CT: 1 row (via 1.5e-1, 1.5e-2, 1.5e-3, 1.5e-4, 1.5e-5, 1.5e-6) ; theory-space: 0 rows (the sieve carries none; via CONSTANCE.md) | SIDE-bijection v0.2.0 = a26f6f1 ; SIDE-cubit-axis v0.1.0 = e0a2aec ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-substrate-cluster v0.4 = 06b61c3 (unpushed by name: v0.1 = 5b102b4, v0.2 = 9068d3c) ; SIDE-trivium v0.1 = ec92d62 | in the mirror alone: 1.5e-7 ; neither: 6 | 3 / 8 / 0 / 0 |
+| R08 | 1.5F: Syntheses (REGISTRY :198) | `1.5f-1` AT_REST.md (:202); `1.5f-2` SEARCH_TERMINATES.md (:203); `1.5f-3` AFTER_PARTY.md (:204); `1.5f-4` FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md (:205) | K: 1.5f-4 ; no tier read: 1.5f-1, 1.5f-2, 1.5f-3 | edited by the form: 1.5f-4 v0.2.5 ; neither: 3 | Foundations FD: 3 rows (via 1.5f-4) | SIDE-compression v0.2.0 = e9a5a36 ; SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-silence-principle v0.2.0 = 667c254 ; SIDE-structural-error-correction v0.2.2 = 6bf19ab | in the mirror alone: 1.5f-4 ; neither: 3 | 1 / 61 / 1 / 0 |
+| R09 | 1.5G: R-Curve & Monotonicity (REGISTRY :207) | `1.5g-1` MONOTONICITY.md (:211); `1.5g-2` P22_REPORT.md (:212); `1.5g-3` P22_CLOSURE.md (:213); `1.5g-4` R_CURVE_CRITERION.md (:214) | K: 1.5g-4 ; no tier read: 1.5g-1, 1.5g-2, 1.5g-3 | edited by the form: 1.5g-4 v0.2.2 ; neither: 3 | Simplicity / RH cascade RH: 70 rows (via 1.5g-1, 1.5g-2, 1.5g-3, R_CURVE_CRITERION.md) | SIDE-archimedean v0.1.0 = 8019d9d ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-grh-transfer v0.5.0 = bfd2af7 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-lv-conservation v0.11.0 = 2f71068 ; deposit record 21539068 at v0.10.0 = 93c27ec (REGISTRY :102) ; SIDE-rcurve v0.1.0 = d5f33b4 ; SIDE-simplicity v0.1.0 = 54ba4f3 ; SIDE-spinor v0.1.0 = b235bc6 | neither: 4 | 46 / 134 / 0 / 1 |
+| R10 | 1.5H: SIDE Method Papers (REGISTRY :216) | `1.5h-1` SIDE_EXCLUSION.md (:220); `1.5h-2` SIDE_DOOR.md (:221); `1.5h-3` ENUMERA.md (:222); `1.5h-4` A_METHODOLOGY.md (:223); `1.5h-5` SIEVE_TO_SIDE.md (:224); `1.5h-6` EXCLUSION_ENGINE.md (:225); `1.5h-8` INVARIANCE_BARRIERS.md (:226); `1.5h-7` TECHNE_TOOLKIT.md (:227); `1.5h-9` EXHAUSTIVENESS_LICENSE.md (:909) | K: 1.5h-8, 1.5h-7, 1.5h-9 ; C: 1.5h-6 ; no tier read: 1.5h-1, 1.5h-2, 1.5h-3, 1.5h-4, 1.5h-5 | edited by the form: 1.5h-3 v1.6, 1.5h-8 v1.4, 1.5h-7 v8.3, 1.5h-9 v0.2 ; neither: 5 | Methodology MT: 22 rows (via 1.5h-1, 1.5h-4, 1.5h-6) ; Foundations FD: 3 rows (via 1.5h-8) | SIDE-compression v0.2.0 = e9a5a36 ; SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-effects v0.1 = afb196e ; SIDE-interfaces v0.2 = 1728796 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-meta v0.3 = 6bb7b23 (unpushed by name: v0.1 = e262713) ; SIDE-silence-principle v0.2.0 = 667c254 ; SIDE-structural-error-correction v0.2.2 = 6bf19ab | in the mirror alone: 1.5h-6, 1.5h-8 ; neither: 7 | 32 / 92 / 1 / 1 |
+| R11 | 2A: Formation Calculus & κ Theory (REGISTRY :235) | `p2-1` UNIVERSALITY.md (:239); `p2-5` CAPACITY.md (:240); `p2-7` COMPLEX_ANALYSIS.md (:241); `p2-12` COMPRESSION.md (:242) | K: p2-1 ; no tier read: p2-5, p2-7, p2-12 | edited by the form: none ; neither: 4 | none (no SPIRAL_MAP §4A cluster holds a member here) | none named | neither: 4 | 0 / 0 / 0 / 0 |
+| R12 | 2B: Consciousness, Cognition, Philosophy (REGISTRY :244) | `p2-2` SILENCE_EMERGENCE.md (:248); `p2-24` DARK_INTERFACE.md (:249); `p2-14` COGNITION.md (:250); `p2-21` UNIFIED_COGNITIVE.md (:251); `p2-22` IDENTITY_SUBSPACE.md (:252); `p2-28` INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE.md (:253); `p2-36` THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md (:1021) | C: p2-36 (`phase2/philosophy/THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md` v0.1) ; no tier read: p2-2, p2-24, p2-14, p2-21, p2-22, p2-28 | edited by the form: none ; neither: 7 | Philosophy / cognition / interfaces: 0 rows (the sieve carries none; via p2-2, p2-14, p2-21, p2-24, p2-28) | SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-interfaces v0.2 = 1728796 | in the mirror alone: p2-36 ; neither: 6 | 2 / 0 / 0 / 0 |
+| R13 | 2C: Impossibility, Difficulty, Method (REGISTRY :255) | `p2-3` INVARIANCE_BARRIERS.md (:259); `p2-4` E_DIFFICULTY_THEOREM.md (:260); `p2-20` IMO_FORMATION.md (:262); `p2-27` ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md (:263); `p2-39` FACES_OF_H2_AT_FINITE_INSTANCE.md (:1029); `p2-40` REPARAMETERIZATION_BARRIERS_v0_1.md (:1030); `p2-41` THE_FINDINGS_AS_THEY_STAND.md (:1031); `p2-42` THE_KEYSTONE_CENSUS.md (:1032) | K: p2-4, p2-27 ; C: p2-41, p2-42 ; N: p2-39, p2-40 ; no tier read: p2-3, p2-20 | edited by the form: p2-4 v1.0.4, p2-27 v0.2.4, p2-39 v0.2, p2-40 v0.2, p2-41 v0.6, p2-42 v0.5 (v0.6 this edition, beside it) ; neither: 1 ; a moved row: p2-3 | Methodology MT: 22 rows (via ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md) ; Foundations FD: 3 rows (via p2-4) | SIDE-compression v0.2.0 = e9a5a36 ; SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-effects v0.1 = afb196e ; SIDE-interfaces v0.2 = 1728796 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-meta v0.3 = 6bb7b23 (unpushed by name: v0.1 = e262713) ; SIDE-silence-principle v0.2.0 = 667c254 ; SIDE-structural-error-correction v0.2.2 = 6bf19ab | in the mirror alone: p2-27, p2-39, p2-41, p2-42 ; neither: 3 ; a moved row: p2-3 | 32 / 92 / 1 / 1 |
+| R14 | 2D: Physics & Cosmology (REGISTRY :265) | `p2-8` COSMOLOGICAL_SIEVE_CEILING.md (:269); `p2-9` MATTER_AS_ARITHMETIC.md (:270); `p2-10` STORMER.md (:271); `p2-15` HODGE_CONSERVATION.md (:272); `p2-25` PRIME_ORDER.md (:273); `p2-30` FANO_DERIVATION_OF_LAMBDA.md (:274); `p2-31` YANG_MILLS_MONOGRAPH.md (:275); `p2-26` UNIFICATION_OF_FORCES.md (:276); `p2-37` THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS.md (:1040) | C: p2-37 (`phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3.md` v0.3) ; no tier read: p2-8, p2-9, p2-10, p2-15, p2-25, p2-30, p2-31, p2-26 | edited by the form: p2-37 v0.3 ; neither: 8 | Matter / cosmology MC: 1 row (via p2-8, p2-9, p2-10, p2-15, p2-25, FANO_DERIVATION_OF_LAMBDA.md) | SIDE-class-coupling v0.1.0 = b6a6e86 ; SIDE-constants: no tag ; SIDE-cosmo v0.3 = 95d2540 ; SIDE-coupling v0.1.0 = 42b5e4e ; SIDE-effects v0.1 = afb196e ; SIDE-formation-arithmetic v0.1.0 = ef0fcf1 ; SIDE-local-cosmic-interface v0.1.0 = 7a62ced ; SIDE-omega-b v0.1.0 = 9c80279 ; SIDE-orchestrator v0.1.0 = 5d0a341 ; SIDE-quaternionic-dark-sector v0.1.0 = e860142 ; SIDE-residual-bridge v0.1.0 = cf8a619 ; SIDE-substrate-cluster v0.4 = 06b61c3 (unpushed by name: v0.1 = 5b102b4, v0.2 = 9068d3c) ; SIDE-yang-mills-formation v0.1.1 = 73e9e2c | in the mirror alone: p2-37 ; neither: 8 | 6 / 5 / 0 / 0 |
+| R15 | 2E: Error Correction & Quantum (REGISTRY :278) | `p2-23` STEANE_CODE.md (:282); `p2-16` SILENCE_STAGES_DEALIGNMENT.md (:283); `p2-13` FANO_PLANE.md (:284); `p2-17` TRIVIUM_CODE_VERIFICATION.md (:285); `p2-18` ARITHMETIC_ORIGIN_QECC.md (:286); `p2-19` IDENTITY_PROTOCOL.md (:287) | K: p2-16 ; no tier read: p2-23, p2-13, p2-17, p2-18, p2-19 | edited by the form: p2-16 v1.3 ; neither: 5 | Foundations FD: 3 rows (via SILENCE_STAGES_DEALIGNMENT.md) ; Cubit / Trivium CT: 1 row (via p2-13, p2-17, p2-18, p2-23) | SIDE-bijection v0.2.0 = a26f6f1 ; SIDE-compression v0.2.0 = e9a5a36 ; SIDE-cosmo v0.3 = 95d2540 ; SIDE-cubit-axis v0.1.0 = e0a2aec ; SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-silence-principle v0.2.0 = 667c254 ; SIDE-structural-error-correction v0.2.2 = 6bf19ab ; SIDE-substrate-cluster v0.4 = 06b61c3 (unpushed by name: v0.1 = 5b102b4, v0.2 = 9068d3c) ; SIDE-trivium v0.1 = ec92d62 | in the mirror alone: p2-16 ; neither: 5 | 4 / 66 / 1 / 0 |
+| R16 | 2F: Empirical & Competition (REGISTRY :289) | `p2-6` ZERO_SIMPLICITY.md (:293); `p2-11` BSD_TRANSFER.md (:294); `p2-29` BSD_VIA_FORMATION_TRANSFER.md (:295); `p2-38` ZERO_SIMPLICITY_AND_THE_FORMATION_TRANSFER_TO_ELLIPTIC_CURVES.md (:1048) | C: p2-38 (`phase2/empirical/ZERO_SIMPLICITY_AND_THE_FORMATION_TRANSFER_TO_ELLIPTIC_CURVES.md` v0.1) ; no tier read: p2-6, p2-11, p2-29 | edited by the form: none ; neither: 4 | none (no SPIRAL_MAP §4A cluster holds a member here) | SIDE-bsd-formation-transfer v0.1.1 = 3491766 | neither: 4 | 0 / 0 / 0 / 0 |
+| R17 | 2G: Physics (Speculative — UNREVIEWED) (REGISTRY :297) | `p2-d1` SYMMETRY_FILTER.md (:301); `p2-d2` LOCAL_COSMIC.md (:302); `p2-d3` T7_CMB.md (:303); `p2-d4` QUATERNIONIC.md (:304); `p2-d5` DARK_DELTA_MU.md (:305); `p2-d6` FORMATION_DISTANCE.md (:306); `p2-d7` THEORY_SPACE.md (:307); `p2-d8` qec_kappa_infrastructure.py (:308); `p2-d9` qec_kappa_v2.py (:309); `p2-d10` THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR.md (:1056) | C: p2-d10 (`phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR_v0_2.md` v0.2) ; no tier read: p2-d1, p2-d2, p2-d3, p2-d4, p2-d5, p2-d6, p2-d7, p2-d8, p2-d9 | edited by the form: p2-d10 v0.2 ; neither: 9 | Matter / cosmology MC: 1 row (via p2-d1, p2-d2, p2-d3, p2-d4, p2-d5, p2-d6, p2-d7) | SIDE-class-coupling v0.1.0 = b6a6e86 ; SIDE-constants: no tag ; SIDE-coupling v0.1.0 = 42b5e4e ; SIDE-formation-arithmetic v0.1.0 = ef0fcf1 ; SIDE-omega-b v0.1.0 = 9c80279 ; SIDE-orchestrator v0.1.0 = 5d0a341 ; SIDE-residual-bridge v0.1.0 = cf8a619 ; SIDE-substrate-cluster v0.4 = 06b61c3 (unpushed by name: v0.1 = 5b102b4, v0.2 = 9068d3c) | neither: 10 | 1 / 0 / 0 / 0 |
+| R18 | Phase 2, rows filed to no lettered cluster (REGISTRY :515) | `p2-32` TIME_DIRECTION_AND_FORMATION_CUBE.md (:520); `p2-33` QEC_KAPPA_MAGIC_FINDINGS_v0_1.md (:521); `p2-34` FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION.md (:581); `p2-35` PRIME_CORE_READER.md (:582) | C: p2-34 ; N: p2-35 ; no tier read: p2-32, p2-33 | edited by the form: none ; neither: 4 | none (no SPIRAL_MAP §4A cluster holds a member here) | none named | in the mirror alone: p2-34 ; neither: 3 | 0 / 0 / 0 / 0 |
+| R19 | SUPPORT: cluster syntheses and consults (REGISTRY :313) | CUBIT_TRIVIUM_CLUSTER_SYNTHESIS_2026-05-19.md (:319); FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md (:320); IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_2026-05-19.md (:321); MATTER_COSMOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md (:322); METHODOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md (:323); RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md (:324); THE_CALIBRATION_IS_A_FROBENIUS_NUMBER_v0_1.md (:325); CARMICHAEL_SIDE_CONSULT.md (:326); COLLATZ_SIDE_CONSULT.md (:327); MAHLER_SIDE_CONSULT.md (:328); SINGMASTER_SIDE_CONSULT.md (:329) | C: CUBIT_TRIVIUM_CLUSTER_SYNTHESIS_2026-05-19.md, FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md, IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_2026-05-19.md, MATTER_COSMOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md, METHODOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md, RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md ; N: CARMICHAEL_SIDE_CONSULT.md, COLLATZ_SIDE_CONSULT.md, MAHLER_SIDE_CONSULT.md, SINGMASTER_SIDE_CONSULT.md ; no tier read: THE_CALIBRATION_IS_A_FROBENIUS_NUMBER_v0_1.md | edited by the form: none ; neither: 11 | none (no SPIRAL_MAP §4A cluster holds a member here) | none named | neither: 11 | 0 / 0 / 0 / 0 |
+| R20 | INTERNAL: reference works (REGISTRY :333) | CONVERGENCE.md (:337); SIDE_EFFECTS.md (:338); CRITICAL_RESOLVE.md (:339); CASCADES.md (:340); TECHNE_ELEMENTS.md (:341); CATALOGOS.md (:342) | C: CATALOGOS.md ; no tier read: CONVERGENCE.md, SIDE_EFFECTS.md, CRITICAL_RESOLVE.md, CASCADES.md, TECHNE_ELEMENTS.md | edited by the form: none ; neither: 6 | none (no SPIRAL_MAP §4A cluster holds a member here) | none named | neither: 6 | 0 / 0 / 0 / 0 |
+| R21 | The junction / global-section era (the phase row) (REGISTRY :346) | THE_GLOBAL_SECTION.md (:352) | K: THE_GLOBAL_SECTION.md | edited by the form: none ; neither: 1 | Methodology MT: 22 rows (via THE_GLOBAL_SECTION.md) | SIDE-effects v0.1 = afb196e ; SIDE-global-section v0.2.0 = 2e43315 ; SIDE-interfaces v0.2 = 1728796 ; SIDE-kernel v1.7 = 2957e7d ; deposit record 21520474 at v1.5 = 0e5233f (REGISTRY :97) ; SIDE-meta v0.3 = 6bb7b23 (unpushed by name: v0.1 = e262713) | in the mirror alone: THE_GLOBAL_SECTION.md ; neither: 0 | 37 / 742 / 0 / 1 |
+| R22 | ANNEX: the download layer (REGISTRY :360) | A_WOUND_UP_ENOUGH_CRANK_v0_5.md (:366) | no tier read: A_WOUND_UP_ENOUGH_CRANK_v0_5.md ; the intake pilot of b628 (`(R238)`(5)): 28 claims read -- 3 kernel-verified, 1 theorem-supported, 7 argument-supported, 2 synthesis-suggested, 15 statement-grade -- its summary relay `data/b628_intake_summary.txt` (sha256 a43f240c7c1306f4), the paper’s text absent from this census… | edited by the form: none ; neither: 1 | none (no SPIRAL_MAP §4A cluster holds a member here) | none named | neither: 1 | 0 / 0 / 0 / 0 |
+| R23 | Rows filed under no phase heading (REGISTRY :671) | THE_CARRIER_SPECIFICATION.md (:117); `m5-5` THE_DOCUMENT_CLASS_TAXONOMY.md (:671); `m5-1` THE_METHOD_CANON.md (:672); `m5-3` THE_SUBSTRATE.md (:673); `m5-4` CONCLUSIONS_OF_RECORD.md (:674); `m5-2` THE_SECOND_EXEMPLAR.md (:675); REPARAMETERIZATION_BARRIERS_v0_1.md (:687) | K: m5-1, m5-3, m5-2 ; C: m5-5, m5-4 ; N: REPARAMETERIZATION_BARRIERS_v0_1.md ; no tier read: THE_CARRIER_SPECIFICATION.md | edited by the form: REPARAMETERIZATION_BARRIERS_v0_1.md v0.2 ; neither: 6 | none (no SPIRAL_MAP §4A cluster holds a member here) | SIDE-cosmo v0.3 = 95d2540 ; SIDE-spinor v0.1.0 = b235bc6 | in the mirror alone: m5-5, m5-1 ; neither: 5 | 0 / 14 / 0 / 0 |
+
+## §1A — THE KERNEL COLUMN AT THE ROOT’S LIST *(read 2026-10-07, b638, the tags re-read under `(R248)`(5); relay `data/b638_census.txt`, Part C)*
+
+Every repository the act root names (relay `tools/act_root.py`, its repository list at PLACE-papers 5c4247b, the list b637’s root was taken over), each read by one `git ls-remote`: its main at the clone and at the remote, its current tag at the remote with the commit it peels to, the tags its clone carries and the remote does not, the rows of §1 naming it, and its rows in the terminal table by provenance, the upstream rows apart. relay and PLACE-papers are the corpus’s own repositories and carry no tag.
+
+| repository | main, clone / remote | current tag at the remote | unpushed by name | §1 rows naming it | table rows: cell / rule / rule-elab / none (upstream apart) |
+|:--|:--|:--|:--|:--|:--|
+| relay | 7848d8b / 2aa4170 | the corpus’s own | — | — | 0 / 0 / 0 / 0 |
+| PLACE-papers | b2a2eaa / 5c4247b | the corpus’s own | — | — | 0 / 0 / 0 / 0 |
+| SIDE-archimedean | 8019d9d / 8019d9d | v0.1.0 = 8019d9d | — | R02, R03, R04, R05, R06, R09 | 0 / 5 / 0 / 0 |
+| SIDE-bijection | a26f6f1 / a26f6f1 | v0.2.0 = a26f6f1 | — | R07, R15 | 1 / 0 / 0 / 0 |
+| SIDE-bsd-formation-transfer | 3491766 / 3491766 | v0.1.1 = 3491766 | — | R16 | 0 / 0 / 0 / 0 |
+| SIDE-carrier-spec | b3916cc / b3916cc | v0.4.1 = 33fb981 | — | — | 0 / 27 / 0 / 0 |
+| SIDE-class-coupling | b6a6e86 / b6a6e86 | v0.1.0 = b6a6e86 | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-compression | e9a5a36 / e9a5a36 | v0.2.0 = e9a5a36 | — | R06, R08, R10, R13, R15 | 0 / 0 / 0 / 0 |
+| SIDE-constants | 545dde2 / 545dde2 | no tag | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-cosmo | c5cba30 / c5cba30 | v0.3 = 95d2540 | — | R14, R15, R23 | 0 / 5 / 0 / 0 |
+| SIDE-coupling | 42b5e4e / 42b5e4e | v0.1.0 = 42b5e4e | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-cubit-axis | e0a2aec / e0a2aec | v0.1.0 = e0a2aec | — | R07, R15 | 0 / 0 / 0 / 0 |
+| SIDE-dark-interface | f4a1ea6 / f4a1ea6 | v0.1.0 = f4a1ea6 | — | R06, R08, R10, R12, R13, R15 | 0 / 0 / 0 / 0 |
+| SIDE-effects | ef4cff7 / ef4cff7 | v0.1 = afb196e | — | R01, R10, R13, R14, R21 | 5 / 0 / 0 / 0 |
+| SIDE-explicit-formula | 8c51431 / 8c51431 | v0.25 = 8c51431 | — | — | 144 / 700 / 66 / 0 (+32 upstream) |
+| SIDE-fano-darkness | 0f6ce5b / 0f6ce5b | no tag | — | — | 0 / 0 / 0 / 0 |
+| SIDE-formation-arithmetic | ef0fcf1 / ef0fcf1 | v0.1.0 = ef0fcf1 | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-frobenius | 2efe9f2 / 2efe9f2 | v0.1.0 = 2efe9f2 | — | R02, R03, R04, R05, R06, R07, R09 | 0 / 8 / 0 / 0 |
+| SIDE-global-section | 17ce9ff / 17ce9ff | v0.2.0 = 2e43315 | — | R21 | 6 / 711 / 0 / 0 |
+| SIDE-grh-transfer | 858cbf6 / 858cbf6 | v0.5.0 = bfd2af7 | — | R03, R04, R05, R06, R09 | 5 / 8 / 0 / 0 |
+| SIDE-interfaces | cbdcd5f / cbdcd5f | v0.2 = 1728796 | — | R01, R05, R10, R12, R13, R21 | 2 / 0 / 0 / 0 |
+| SIDE-kernel | 0256e9e / 0256e9e | v1.7 = 2957e7d | — | R01, R03, R04, R05, R06, R09, R10, R13, R21 | 24 / 31 / 0 / 1 |
+| SIDE-li-map | b515e6b / b515e6b | no tag | — | — | 1 / 0 / 0 / 0 |
+| SIDE-local-cosmic-interface | 7a62ced / 7a62ced | v0.1.0 = 7a62ced | — | R14 | 0 / 0 / 0 / 0 |
+| SIDE-lv-conservation | 2f71068 / 2f71068 | v0.11.0 = 2f71068 | — | R03, R09 | 16 / 62 / 0 / 0 |
+| SIDE-meta | 6bb7b23 / 6bb7b23 | v0.3 = 6bb7b23 | v0.1 = e262713 | R01, R10, R13, R21 | 0 / 0 / 0 / 0 |
+| SIDE-omega-b | 9c80279 / 9c80279 | v0.1.0 = 9c80279 | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-orchestrator | 5d0a341 / 5d0a341 | v0.1.0 = 5d0a341 | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-quaternionic-dark-sector | e860142 / e860142 | v0.1.0 = e860142 | — | R14 | 0 / 0 / 0 / 0 |
+| SIDE-rcurve | d5f33b4 / d5f33b4 | v0.1.0 = d5f33b4 | — | R02, R03, R04, R05, R06, R09 | 0 / 7 / 0 / 0 |
+| SIDE-residual-bridge | 5aa5ab7 / 5aa5ab7 | v0.1.0 = cf8a619 | — | R14, R17 | 0 / 0 / 0 / 0 |
+| SIDE-silence-principle | 667c254 / 667c254 | v0.2.0 = 667c254 | — | R05, R06, R08, R10, R13, R15 | 1 / 0 / 0 / 0 |
+| SIDE-simplicity | 54ba4f3 / 54ba4f3 | v0.1.0 = 54ba4f3 | — | R03, R04, R05, R06, R09 | 1 / 4 / 0 / 0 |
+| SIDE-spinor | 520abe7 / 520abe7 | v0.1.0 = b235bc6 | — | R02, R03, R04, R05, R06, R09, R23 | 0 / 9 / 0 / 0 |
+| SIDE-structural-error-correction | 6bf19ab / 6bf19ab | v0.2.2 = 6bf19ab | — | R06, R08, R10, R13, R15 | 0 / 61 / 1 / 0 |
+| SIDE-substrate-cluster | 2e76426 / 2e76426 | v0.4 = 06b61c3 | v0.1 = 5b102b4, v0.2 = 9068d3c | R07, R14, R15, R17 | 1 / 0 / 0 / 0 |
+| SIDE-trivium | 1aac3a9 / 1aac3a9 | v0.1 = ec92d62 | — | R07, R15 | 1 / 0 / 0 / 0 |
+| SIDE-yang-mills-formation | 73e9e2c / 73e9e2c | v0.1.1 = 73e9e2c | — | R14 | 0 / 0 / 0 / 0 |
+
+## §1B — THE EXPLICIT-FORMULA KERNEL’S FACES AT v0.22-v0.25 *(under `(R243)`(6)(ii), read again at v0.6 under `(R248)`(5); relay `data/b638_census.txt`, Part D)*
+
+Each face at its tag, its declarations at the grade the terminal table gives them with their provenance, and the named premises of every declaration the rule reads as resting on one; the table read at relay 7848d8be.
+
+| face | tag = commit | file | declarations at their grades | named premises |
+|:--|:--|:--|:--|:--|
+| F1 the Platt rung | v0.22 = e939c92 | `SIDEExplicitFormula/PlattRung.lean` | `PlattRung.PlattTrudgianHeight` DEF (rule); `PlattRung.forall_rh_upto_iff_rh` DERIVES (rule); `PlattRung.plattTrudgianT` DEF (rule); `PlattRung.rh_upto` DEF (rule); `PlattRung.rh_upto_platt` INTERFACES (rule) | `rh_upto_platt` on hP : PlattTrudgianHeight plattTrudgianT |
+| F2 the two_thirds citation | v0.23 = 98b7668 | `SIDEExplicitFormula/Simplicity.lean` | `Simplicity.SimpleProportion` DEF (rule); its field `two_thirds` cites `Zeta23.thmB₀_mult` at anthropics/formal-math 3635e748, its axioms read from that repository’s AUDIT.md :80, discharged at its source kernel and not in this one | `exceptional_mass_le_third` on hP : SimpleProportion (INTERFACES, cell) |
+| F3 the Nyman–Beurling face | v0.24 = aa17442 | `SIDEExplicitFormula/NymanBeurling.lean` | `NymanBeurling.BD` DEF (rule); `NymanBeurling.NB` DEF (rule); `NymanBeurling.NymanBeurlingPremise` DEF (rule); `NymanBeurling.constOne` DEF (rule); `NymanBeurling.distN` DEF (rule); `NymanBeurling.distN_antitone` DERIVES (rule); `NymanBeurling.rh_iff_nb` INTERFACES (rule); `NymanBeurling.rho` DEF (rule); `NymanBeurling.rhoFun` DEF (rule); `NymanBeurling.rhoFun_bound` DERIVES (rule); `NymanBeurling.rhoFun_measurable` DERIVES (rule); `NymanBeurling.rhoFun_memLp` DERIVES (rule); `NymanBeurling.unitMeasure` DEF (rule) | `rh_iff_nb` on hP : NymanBeurlingPremise |
+| F4 the Dedekind instance | v0.25 = 8c51431 | `SIDEExplicitFormula/Schema/Dedekind.lean` | `Schema.Dedekind.DedekindConfig` DEF (rule); `Schema.Dedekind.DedekindTheorem` DEF (rule); `Schema.Dedekind.dedekind_instance` DERIVES (rule); `Schema.Dedekind.dedekind_rhs` INTERFACES (rule); `Schema.Dedekind.dedekind_three` DERIVES (rule) | `dedekind_rhs` on hT : TrivialSummandPremise, hE : EulerFactorPremise q |
+
+## §1C — THE PHASE 2 ROWS READ AGAINST SIDE-structural-error-correction AT v0.2.2 *(under `(R243)`(6)(iv); read again by b636 under `(R246)`(4), its four rows unchanged and no trigger; relay `data/b636_phase2_read.txt`)*
+
+SEC’s 34 theorems at v0.2.2 = 6bf19ab, as the terminal table holds their statements, read against the syntheses that carry the claims of 2B, 2D, 2F and 2G by two matchers -- each theorem’s name as an identifier, and its name read as words -- every hit read; the load-bearing clause applied (OPEN_TRAILS :12699): a row that gained a kernel-verified terminal load-bearing for its head’s thesis would be printed as the trigger of the bookend, and nothing more.
+
+| row | synthesis | an SEC terminal named by statement | why |
+|:--|:--|:--|:--|
+| R12 | 2B `phase2/philosophy/THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md` | none | no SEC terminal is named: the text carries no SEC repository or module name, and interface_dark -- the words name the cognitive variable "Interface Darkness" (its title and its rows UC and ID, :1, :18, :20, :50), a different object from SEC`s interface_dark, the statement interface_size = 0 over the code`s own defined size |
+| R14 | 2D `phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_2.md` | none | no SEC terminal is named: the text carries no SEC repository or module name, and neither matcher returns a hit |
+| R16 | 2F `phase2/empirical/ZERO_SIMPLICITY_AND_THE_FORMATION_TRANSFER_TO_ELLIPTIC_CURVES.md` | none | no SEC terminal is named: the text carries no SEC repository or module name, and formation_total_seven -- the name is SIDE-bsd-formation-transfer`s own declaration (its Basic.lean :67, cited at 2F :216), not SEC`s formation_total_seven; two kernels carry the short name |
+| R17 | 2G `phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR.md` | none | no SEC terminal is named: the text carries no SEC repository or module name, and neither matcher returns a hit |
+
+No row names an SEC terminal; SEC’s theorems state its own defined sizes and counts (`interface_size = 0`, `num_compartments = S`, `d_eff = 2 * num_compartments - 1`), arithmetic over the kernel’s own constants, which the load-bearing clause does not count. No row gains a load-bearing kernel-verified terminal, no bookend is triggered, and the census’s tier stands at C.
+
+## §2 — THE CLUSTERS WITH DOCUMENTS AND NO KEYSTONE *(under §0)*
+
+Each is a row of §1 whose documents read no tier at K, KC or C; its documents are named here, in the census’s order, which is the order of the synthesis sequence `(R220)`(5) enters on the trails.
+
+- **R22 ANNEX: the download layer** (REGISTRY :360): `A_WOUND_UP_ENOUGH_CRANK_v0_5.md` -- REGISTRY files the download layer non-keystone and outside the repository tree (:360), and `(R221)`(2)(i) struck its synthesis act (OPEN_TRAILS :12595): no keystone is written from a file the tree does not hold, and this row stands as the ANNEX’s record.
+
+*Six rows v0.3 listed here -- R02, R07, R12, R14, R16 and R17 -- now name in §1 the synthesis the form wrote for each (OPEN_TRAILS :12566), b611 to b616, with its path, version and tier; they leave this list, the removals recorded in the back matter.*
+
+1 of the census’s 23 rows holds documents and no keystone; the other 22 hold at least one document read at K, KC or C.
+
+## §3 — WHAT THE READING FOUND, STATED AND NOT REPAIRED
+
+- **Local tags the remotes do not carry.** 2 kernels carry 3 tags their remotes do not (relay `data/b638_census.txt`, Part C) -- of W-ORD-TAG-REMOTES’ nine (OPEN_TRAILS :12597), the tags b623 pushed now read at their remotes, and each tag still local is named unpushed in its kernel’s cell in §1; every current tag read by ls-remote reads back at the clone.
+- **`internal/`.** REGISTRY :787 says `internal/` has no REGISTRY section of any kind, while REGISTRY :333 heads a table listing six `internal/` files; both lines stand, and the census places those six rows by :333.
+- **Phase 1.2.** 1.5a-1 to 1.5a-4 sit in the 1.5A table and land in Phase 1.2 by the phase attribute (REGISTRY :780); 1.5a-9 and 1.5a-10, entered in the 1.5A row addition of 2026-10-04 (REGISTRY :1004-:1005), land there by their own provenance cells.
+- **The title layer.** The ratified-titles table (REGISTRY :644-:668) names rows that stand elsewhere; its entries are references and are not counted; the row update of 2026-10-04 (REGISTRY :978-:994), a layer of Version cells over seventeen rows, is read the same way.
+- **The living documents.** b618 fed eight living documents one dated append each in its own form (`(R228)`(2)): VERIFICATION_LOOM `5f74760`, INSTRUMENTS `7bc3f33`, THE_METHOD_CANON `a5d1944` (m5-1, its edition-state cell in R23), THE_METHOD_AS_IT_STANDS `1364177`, FACES_LEDGER `bff682d`, THE_LOAD_BEARING_MAP `f54aa9e`, GAUGE_AND_INVARIANT `81a3a74` and REGISTRY `a939198`; the other seven are no REGISTRY row and stand outside this census’s population.
+
+*Nothing deposits; no document is reclassified, no registry row edited, no grade moved; the census reads and records.*
+
+<!-- b610 (R220) THE v0.3 EDITION`S BACK MATTER, 2026-10-03 -->
+
+## Back matter of the v0.3 edition — written 2026-10-03 by b610 under the author’s ruling `(R220)`(4), by the form of `(R187)`(5), its clauses and the precedence order, with the reorganisation `(R215)`(3) allows
+
+### The readings, each the seat’s and strikeable
+
+- **R-1, the population.** A REGISTRY row is a table row outside a code fence whose first cell is a registry ID (d1-n, 1.5x-n, p2-n, p2-dn, m5-n) or whose first or second cell opens with a backticked document path, with the one block entry naming a document outside any table (the carrier specification, REGISTRY :117); the ratified-titles table (:644-:668) is a title layer over rows that stand elsewhere and is not counted.
+- **R-2, the placement.** A row lands in the row of the REGISTRY heading it sits under; 1.5a-1 to 1.5a-4 land in Phase 1.2 by the phase attribute (:780); a dated row addition lands in the cluster its heading names, else the cluster its own ID letter names, else, for a p2 ID, in Phase 2’s row of rows filed to no lettered cluster; the rows filed under no phase heading take a row of their own.
+- **R-3, the tier.** By §0’s order; the class line is read at the document’s newest version.
+- **R-4, the edition state.** Edited by the form: an edition stands beside the registry’s file and the trails name it; work-list alone: relay `data/b558_editions/<name>.txt` and no edition; neither otherwise.
+- **R-5, the sieve rows.** A row holds the sieve v0.4 rows of every SPIRAL_MAP §4A cluster whose members, read by REGISTRY ID or file name from that cluster’s own cells (the b388 table), sit in it.
+- **R-6, the kernels.** The kernels a row’s REGISTRY rows name, the frozen Phase 1.2 table’s for Phase 1.2 (:713-:718), and the federation column of every SPIRAL_MAP cluster whose members it holds; the current tag is the remote’s highest, read by ls-remote and read back against the clone.
+- **R-7, the deposit state.** Deposited: the file’s copy is among the Day-1 record’s files (`outputs/DEPOSITED-v1.1.2/`, record 21539167); in the mirror alone: on the mirror roster; neither otherwise; a kernel’s deposit is named in its kernel cell.
+- **R-8, the reorganisation.** The current version’s lines from its :22 to its end -- v0.1’s §1-§9, act 3c, the v0.2 section and the lines appended beneath it -- are moved whole into this back matter, unchanged, under the reorganising clause (OPEN_TRAILS :12456); their own `:n` cite the current version, which stands beside this one unedited, and are not re-pinned.
+
+### Removals -- the body moved whole below (the reorganising clause)
+
+| current version’s lines | destination | non-blank lines | sentences |
+|:--|:--|:--|:--|
+| :22-:287 | this back matter, “The census at v0.1 and v0.2, moved whole” | 193 | 258 |
+
+No sentence is removed outright; no sentence is reworded.
+
+### History lines
+
+| line | beneath | clause | Status |
+|:--|:--|:--|:--|
+| :33 | the current version’s §0 (:12-:21), carried at :22-:31 | the history clause, `(R220)`(3) | inserted |
+
+### The census at v0.1 and v0.2, moved whole
+
+
+---
+
+## §1 — THE FEDERATION, READ LIVE — **TWO ANOMALIES THE CORPUS DOES NOT RECORD**
+
+**43 repositories enumerated and read on disk. Nothing recalled.**
+
+> ### **ANOMALY 1 — THE KERNEL HAS ADVANCED TWO TAGS PAST WHAT THE CORPUS CALLS CURRENT.**
+>
+> | | |
+> |:--|:--|
+> | **live** | `SIDE-kernel` **HEAD `5e668b4`**, branch `main`, ### **latest tag `v1.7`**, last commit **2026-08-05**, 8 tags |
+> | **what the corpus says** | *"the current deposit is **v1.5 = `0e5233f`**"* — carried in `A_Place_to_Stand`, `REGISTRY`, and this era's own filings |
+>
+> ### **`v1.5` IS NOT THE HEAD AND IS NOT THE LATEST TAG. Whether `v1.5` remains the correct DEPOSIT pin while `v1.7` is merely the working head is exactly what the manifest law decides — and it has not been decided. Stated, not assessed.**
+
+> ### **ANOMALY 2 — `SIDE-effects` IS NOT ON `main`.** *Branch **`w-ladder-skeleton`**, HEAD `a0dc376`, latest tag `phase-1.5-module-1-v2`.* ### **Three corpus pins cite it. All three are ancestors of that branch's HEAD — so the citations are sound, but they are sound against a branch the corpus never names.**
+
+### **PIN ANCESTRY — 62 CITED PINS CHECKED LIVE AGAINST THEIR REPOS**
+
+| repo | pins | ANCESTOR | ### **NOT-ANCESTOR** | ### **ABSENT** |
+|:--|--:|--:|--:|--:|
+| ### **`SIDE-kernel`** | 20 | 16 | ### **2** | ### **2** |
+| ### **`SIDE-lv-conservation`** | 18 | 17 | 0 | ### **1** |
+| 20 further repos | 24 | ### **24** | 0 | 0 |
+
+> ### **FIVE PINS FAIL, AND THEY ARE NAMED:** `SIDE-kernel` **`2152047` ABSENT** · **`c66f3c5` ABSENT** · **`27a3ae7` NOT-ANCESTOR** · **`3b2e8d6` NOT-ANCESTOR** · `SIDE-lv-conservation` **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited held branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 local repositories, and against every branch and all 13 tags of `SIDE-lv-conservation`. NO SUBSTITUTE PIN IS OFFERED, because none can be verified to be the intended one.]** ABSENT**.
+>
+> ### **"ABSENT" MEANS THE OBJECT IS NOT IN THE REPOSITORY ON DISK — the pin cannot be resolved at all. "NOT-ANCESTOR" means the commit exists but is not reachable from `HEAD`: a rewritten, abandoned, or force-replaced line.**
+>
+> ### **THESE ARE STATED, NOT ASSESSED, PER THE CHARTER. Act 3's second half is where each is adjudicated — and this census has just supplied its first five work items, by name.**
+>
+> **The other 57 pins resolve and are ancestors of their repo's `HEAD`.** ### **The pin naming of act 3's mechanical half is what made this check possible at all: an unnamed hash cannot be ancestry-tested.**
+
+---
+
+## §2 — THE CLASSIFICATION
+
+| class | count |
+|:--|--:|
+| ### **KEYSTONE** | ### **16** |
+| ### **CONCORDANCE-CARRIED** (Day-1) | ### **9** |
+| **KEYSTONE-CANDIDATE** | ### **62** |
+| SUPPORT (≥ 6 KB) | 101 |
+
+> **The detector returned 20 for KEYSTONE. FOUR ARE REMOVED BY THE CATEGORY'S OWN DEFINITION** — `OPEN_TRAILS`, `FINDINGS`, `VERIFICATION_LOOM` and `internal/CONVERGENCE` are **logs**, which §0 assigns to SUPPORT. ### **The corrected figure is 16, and the correction is recorded rather than the raw number being carried.**
+
+### **THE SIXTEEN KEYSTONES** *(last content update = git log, **excluding the 2026-08-12 pin-naming pass** — see §4)*
+
+| document | phase | last content update | pins |
+|:--|:--|:--|--:|
+| `PATHS_TO_THE_CRITICAL_LINE` | 1.5/proofs | 2026-08-10 | ### **19** |
+| `THE_UNCONDITIONAL_SURROUND` | 1.5/proofs | 2026-08-09 | 15 |
+| `SIMPLICITY_OF_RIEMANN_ZEROS` | 1.5/simplicity | 2026-08-09 | 13 |
+| `GRH_CASCADE` | 1.5/spectral | ### **2026-07-25** | 11 |
+| `R_CURVE_CRITERION` | 1.5/rcurve | ### **2026-07-26** | 9 |
+| `INDEX_ARITY_AT_THE_CRITICAL_LINE` | 1.5/proofs | 2026-08-08 | 5 |
+| `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` | 1.5/structural | 2026-07-31 | 5 |
+| `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` | 2/method | ### **2026-07-23** | 4 |
+| `INVARIANCE_BARRIERS` | 1.5/method | 2026-08-02 | 2 |
+| `SILENCE_STAGES_DEALIGNMENT` | 2/quantum | 2026-07-29 | 2 |
+| `TECHNE_TOOLKIT` | 1.5/method | 2026-07-31 | 1 |
+| `E_DIFFICULTY_THEOREM` | 2/method | 2026-07-31 | 1 |
+| `REPARAMETERIZATION_BARRIERS_v0_1` | 2/method | 2026-08-06 | 1 |
+| `ENUMERA` | 1.5/method | 2026-08-10 | 0 |
+| `EXHAUSTIVENESS_LICENSE` | 1.5/method | 2026-07-27 | 0 |
+| `THE_RESIDUE_OF_RH` | 1.5/proofs | 2026-08-05 | 0 |
+
+---
+
+## §3 — THE THREE QUESTIONS
+
+### **(a) CLUSTERS HOLDING MULTIPLE KEYSTONES**
+
+| cluster | keystones | its spine |
+|:--|--:|:--|
+| ### **`phase1.5/proofs`** | ### **4** — `PATHS`, `THE_UNCONDITIONAL_SURROUND`, `INDEX_ARITY`, `THE_RESIDUE_OF_RH` | ### **NONE** — no synthesis names this cluster |
+| ### **`phase1.5/method`** | ### **4** — `INVARIANCE_BARRIERS`, `TECHNE_TOOLKIT`, `ENUMERA`, `EXHAUSTIVENESS_LICENSE` | `METHODOLOGY_CLUSTER_SYNTHESIS` (2026-05-19) |
+| ### **`phase2/method`** | ### **3** — `ADDITIVE_MULTIPLICATIVE_CONSPIRACY`, `E_DIFFICULTY_THEOREM`, `REPARAMETERIZATION_BARRIERS` | `FOUNDATIONS_CLUSTER_SYNTHESIS` (2026-05-19), partially |
+| `1.5/spectral` · `1.5/simplicity` · `1.5/structural` · `1.5/rcurve` · `2/quantum` | 1 each | `RH_CASCADE`, — , `FOUNDATIONS`, — , `CUBIT_TRIVIUM` |
+
+### **(b) SPINE / KEYSTONE MISMATCHES — STATED AS STRUCTURE**
+
+> ### **`phase1.5/proofs` HOLDS FOUR KEYSTONES AND HAS NO SPINE. It is the densest keystone cluster in the corpus and the only one with no synthesis naming it.** *That is a structural fact about how the work was made — the proofs cluster grew continuously and never had a moment where a synthesis would have been written.*
+>
+> ### **CONVERSELY, FOUR "CLUSTER SYNTHESES" HAVE NO KEYSTONE CLUSTER AT ALL:** `MATTER_COSMOLOGY`, `THEORY_SPACE_PHYSICS`, `PHILOSOPHY_COGNITION`, `IDENTITY_FORMATION_BIJECTION` — *their subject matter lives in `phase2/` directories that produced no document meeting (i)+(ii).*
+>
+> ### **AND A COUNT CORRECTION: THE CENSUS SAID "15 CLUSTER SYNTHESES". SEVEN OF THE FIFTEEN ARE NOT SYNTHESES** — four `*_SIDE_CONSULT` files (Carmichael, Collatz, Mahler, Singmaster), plus `PLANCHEREL_RESTRICTION_PROOF_OBLIGATION`, `ELEVEN_TWELFTHS_FINDINGS_NOTE`, and `THE_CALIBRATION_IS_A_FROBENIUS_NUMBER`. ### **THE TRUE SYNTHESIS COUNT IS EIGHT.**
+
+### **(c) THE CURRENCY PICTURE — ACT 3b's WORK-LIST, READY**
+
+**Which keystones predate the construction/sign era, and what touches each:**
+
+| keystone | last update | ### **era finding that bears on it** *(named, NOT assessed)* |
+|:--|:--|:--|
+| ### **`ADDITIVE_MULTIPLICATIVE_CONSPIRACY`** | ### **2026-07-23** | ### **`Q2`'s no-class-point verdict + the `n₄ = 0` reconciliation** — the conspiracy's site is the interface, and this keystone is the corpus's own treatment of it |
+| ### **`GRH_CASCADE`** | ### **2026-07-25** | the anchor-standing law; **`LE-K-6` open**; road item (7) |
+| ### **`R_CURVE_CRITERION`** | ### **2026-07-26** | ### **five cited pins, one of which (`bd2ae1a`) is ABSENT from `SIDE-lv-conservation`** |
+| `EXHAUSTIVENESS_LICENSE` | 2026-07-27 | the `S2` Ostrowski seal as re-stated in the sealed inventory |
+| `SILENCE_STAGES_DEALIGNMENT` | 2026-07-29 | the `Silence`↔`STANDARD-AT-TEXT` kinship; the four-failed-sweeps empirical law |
+| `TECHNE_TOOLKIT` · `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` · `E_DIFFICULTY_THEOREM` | 2026-07-31 | ### **the E-Difficulty cross-link verdict (`DISTINCT`; `κ` NOT claimed)** — filed 2026-08-12, after all three |
+| ### **`INVARIANCE_BARRIERS`** | 2026-08-02 | ### **Face E / keyhole (i)+(iv) as used by the `S`-table; the `T3` Tier-1 scope** |
+| `THE_RESIDUE_OF_RH` | 2026-08-05 | ### **the sign-face registers, the sealed `S1`–`S6` table, the crossing filing** — the whole Euler-specification arc postdates it |
+| `REPARAMETERIZATION_BARRIERS_v0_1` | 2026-08-06 | the two-kinds windows verdict |
+| `INDEX_ARITY` · `SIMPLICITY` · `THE_UNCONDITIONAL_SURROUND` · `PATHS` · `ENUMERA` | 2026-08-08 → 08-10 | ### **the sign reconciliation (2026-08-12): `W_∞` is NOT sign-definite, and the Day-1 §I attribution is repaired to pole-plus-archimedean** |
+
+> ### **EVERY ONE OF THE SIXTEEN PREDATES AT LEAST ONE ERA FINDING THAT NAMES ITS SUBJECT. Three predate the entire Euler-specification arc.**
+
+---
+
+## §4 — THE SPINE CHECK *(item 4)*
+
+**All eight true syntheses read.**
+
+| verdict | count | evidence |
+|:--|--:|:--|
+| ### **SPINE-COMPLETE** | ### **0** | — |
+| **SPINE-PARTIAL** | 0 | — |
+| ### **SPINE-STALE** | ### **8 of 8** | ### **NOT ONE SYNTHESIS CITES A SINGLE PIN. Zero pins across all fifteen files in `clusters/`.** And every synthesis is dated **2026-05-19** or **2026-06-05** — *before the July deposits, before the kernel reached `v1.7`, before the whole construction and sign era.* |
+
+> ### **THE SYNTHESES NAME KERNELS BY REPO NAME AND NEVER AT A PIN.** *`FOUNDATIONS_CLUSTER_SYNTHESIS` names 19 distinct `SIDE-*` repos and pins none of them; `MATTER_COSMOLOGY` names 11; `CUBIT_TRIVIUM` names 10.*
+>
+> ### **STATED AS STRUCTURE AND NOT AS LACK: the syntheses were written in May, when naming a repo WAS naming the object — the tag lineages that make a pin meaningful did not exist yet.** *`SIDE-kernel` had a fraction of its eight tags; `SIDE-lv-conservation` had a fraction of its thirteen.* ### **The syntheses are stale because the federation grew a version dimension after they were written, not because they were written carelessly.**
+>
+> ### **CONSTELLATION-MAP CONSEQUENCE: no existing synthesis can serve as a constellation spine as written. Each needs its kernels pinned before it can carry that role — and that is a bounded, mechanical task of exactly the same kind act 3's mechanical half just completed.**
+
+---
+
+## §5 — A CONTAMINATION THIS CENSUS CAUSED AND CORRECTED
+
+> ### **ACT 3's MECHANICAL HALF TOUCHED 25 FILES ON 2026-08-12. `git log -1` THEREFORE REPORTED 2026-08-12 AS THE "LAST CONTENT UPDATE" FOR EVERY ONE OF THEM — INCLUDING NINE OF THE SIXTEEN KEYSTONES.**
+>
+> ### **THE COLUMN THIS ACT NEEDED WAS DESTROYED BY THE ACT IMMEDIATELY BEFORE IT.** *Corrected by walking back through each file's log and skipping the pin-naming commit; §2's table carries the true dates.*
+>
+> ### **THE RULE THIS EARNS: a mechanical pass over many files destroys every subsequent "when was this last touched" query. Either record the dates BEFORE the pass, or carry the pass's commit signature so it can be skipped afterwards.** *Act 3's second half will touch many more files than its first half did — and it should stamp its commits so this correction never has to be made by hand again.*
+
+---
+
+**ZERO EDITS MADE TO ANY CENSUSED DOCUMENT. `h2` UNCHANGED. Nothing deposits.**
+
+### **THE NATURAL NEXT RULING, AS THE CHARTER ANTICIPATES:** *which keystones get the correspondence institution first.* ### **The census's own answer, offered and not taken: `THE_RESIDUE_OF_RH` and `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` are the two whose subject matter the era moved most, and `phase1.5/proofs` is the cluster that would gain a spine it has never had.**
+
+---
+
+# **ACT 3c — THE COVERAGE RECONCILIATION** *(2026-08-12; phase read per document from `REGISTRY`'s own rows, not per directory)*
+
+## §6 — **THE README NAMES FIVE PHASES. `REGISTRY` IMPLEMENTS THREE.**
+
+**The README rubric, verbatim:** *"**Phase 1** (the `day1/` tree) is the deposited line. **Phase 1.1** refines deposited content without adding results. **Phase 1.2** is the Riemann-paths work and its checkpoint kernels. **Phase 1.5** is the cascade of implications from the deposited theorem. **Phase 2** applies the method to problems other than RH."*
+
+**`REGISTRY`'s own top-level sections, enumerated:** `DAY 1: The RH Proof Package` · `PHASE 1.5: RH-Adjacent` (**1.5A–1.5H**) · `PHASE 2: Other Domains` (**2A–2G**) · `SUPPORT TIER: Cluster Syntheses + Consults`.
+
+> ### **THERE IS NO `PHASE 1.1` SECTION AND NO `PHASE 1.2` SECTION IN `REGISTRY`.** *Named, not judged — this is a structure finding, and both phases turn out to be real things that are not document sets.*
+
+| phase | how it actually exists |
+|:--|:--|
+| **Phase 1** | ### **`DAY 1`, 9 documents, `CONCORDANCE-CARRIED`** |
+| ### **Phase 1.1** | ### **AN EVENT, NOT A DOCUMENT SET.** *`REGISTRY`'s Day-1 deposit history is its only home: "`v1.0.1` \| 2026-04-28 \| **Phase 1.1 deposit-defense pass close**".* **A pass over deposited content that by definition added no results has no documents of its own — which is exactly what the rubric says it is.** |
+| ### **Phase 1.2** | ### **REAL DOCUMENTS, FILED UNDER A 1.5 HEADING.** *`REGISTRY`'s version log: "**Phase 1.2 census presentations** … the four proof-presentations `1.5a-1..4` (**`THE_PROOF`, `MECHANISM_EXCLUSION`, `IDS_TO_RH`, `INTEGRATED_PROOF`**) each gained a pin-currency note".* ### **Those four sit under `1.5A: Alternative Proof Presentations`.** |
+| **Phase 1.5** | `1.5A`–`1.5H`, the bulk — 128 documents by directory |
+| **Phase 2** | `2A`–`2G`, 49 documents |
+| ### **`REGISTRY`-SILENT** | ### **`internal/` (6 files, 2.5 MB) and `meta/` (5 files) have NO `REGISTRY` section of any kind.** *Working logs and process records. Named, not judged — and the release-architecture ruling already scoped them census-only.* |
+
+> ### **THE RECONCILIATION IN ONE LINE: the rubric's five phases and the registry's three are not in conflict. `1.1` is a pass, `1.2` is four documents filed under `1.5A`, and the registry is organised by where things live rather than by when they were done.**
+
+## §7 — **PHASE 1.2's CHECKPOINT KERNELS, MATCHED TO THEIR CITERS** *(read live 2026-08-12)*
+
+| checkpoint kernel | DEPOSIT-PIN / WORKING-HEAD *(live)* | keystones citing it |
+|:--|:--|:--|
+| `SIDE-archimedean` | `v0.1.0`, HEAD `8019d9d`, `main` | `PATHS_TO_THE_CRITICAL_LINE` · `THE_UNCONDITIONAL_SURROUND` |
+| `SIDE-frobenius` | `v0.1.0`, HEAD `2efe9f2`, `main` | `PATHS` · `THE_UNCONDITIONAL_SURROUND` |
+| `SIDE-spinor` | `v0.1.0`, HEAD `520abe7`, `main` | `PATHS` · `THE_UNCONDITIONAL_SURROUND` |
+| `SIDE-rcurve` | `v0.1.0`, HEAD `d5f33b4`, `main` | `PATHS` · `THE_UNCONDITIONAL_SURROUND` · ### **`R_CURVE_CRITERION`** |
+| `SIDE-simplicity` | `v0.1.0`, HEAD `54ba4f3`, `main` | `SIMPLICITY_OF_RIEMANN_ZEROS` |
+| ### **`SIDE-interfaces`** | `v0.2`, HEAD `cbdcd5f`, `main`, 5 tags | ### **NO KEYSTONE CITES IT** — it is cited by `EXCLUSION_ENGINE`, a `KEYSTONE-CANDIDATE`. *Structure, not lack: the interface work's home document has no correspondence table yet.* |
+
+> ### **EVERY CHECKPOINT KERNEL IS AT ITS `v0.1.0`/`v0.2` TAG WITH `HEAD` EQUAL TO THAT TAG'S COMMIT — the 1.2 line is FROZEN, and `DEPOSIT-PIN` and `WORKING-HEAD` COINCIDE for all six.** *That is the opposite of `SIDE-kernel`'s situation and is worth recording: where work stopped, the two columns agree; where work continued, they diverged.*
+>
+> ### **AND TWO KEYSTONES CARRY THE WHOLE 1.2 CHECKPOINT SET: `PATHS_TO_THE_CRITICAL_LINE` and `THE_UNCONDITIONAL_SURROUND` cite four of the six each.**
+
+**DATED ANNOTATION, NOT A REWRITE:** ### **the five-voice re-grade's finding — *three of the five identifications are one map* — bears on `PATHS`'s five-path presentation.** *Recorded here beside the checkpoint table; `PATHS` §-text is not altered by this act.*
+
+## §8 — **THE REPO RECONCILIATION: 48 ACCOUNT, 45 LOCAL, 3 EXPLAINED, ZERO ORPHANS**
+
+**Read live via `gh repo list psinary-sketch` and the local `.git` enumeration.**
+
+| name on account, not at `D:\` root | classification |
+|:--|:--|
+| `PLACE-papers` | ### **PRESENT, DIFFERENT PATH** — cloned at `D:\MY-DOwnloads\PLACE-papers`. Not missing. |
+| `TECHNE-Core` | ### **PRIVATE-NOT-CLONED, BY STANDING RULE** — TECHNE-Core stays private; the partition discipline is why it is not here. |
+| `glassbead-game` | ### **NOT CLONED, BY DESIGN** — the publication-partition boundary. |
+
+> ### **ON `D:`, NOT ON THE ACCOUNT: ZERO. Every local repository has a remote.**
+>
+> ### **AND THE FIRST-CLASS QUESTION, ANSWERED CLEAN: NO KERNEL CITED BY ANY KEYSTONE IS ABSENT FROM `D:`.** *All six checkpoint kernels, `SIDE-kernel`, `SIDE-lv-conservation`, `SIDE-effects` and every other cited repo were read live this era.* ### **The class this era spent an act eliminating — a citation the executor cannot check — does not exist at repository level. It existed at HASH level, and act 3b found exactly one instance (`bd2ae1a`).**
+
+## §9 — **THE KEYSTONE TABLE, WITH PHASE MEMBERSHIP**
+
+| phase | keystones | release-readiness, per phase |
+|:--|--:|:--|
+| **Phase 1** *(Day-1)* | ### **0 keystones, 9 `CONCORDANCE-CARRIED`** | ### **DEPOSITED ALREADY.** The line is out; the correspondence question is architectural, not blocking |
+| **Phase 1.2** *(under `1.5A`)* | 0 of the 16 — the four presentations are `KEYSTONE-CANDIDATE` | ### **FROZEN AND CONSISTENT** — all six checkpoint kernels at tag, both columns agreeing |
+| ### **Phase 1.5** | ### **12 of 16** | ### **BLOCKED ON ONE THING, AND IT IS NAMED BELOW** |
+| **Phase 2** | 4 of 16 | ### **GATED BY THE CONSTELLATION RULING**, not by integrity |
+
+### **THE BRANCH-RESIDENT FINDING, PROPAGATED AS A REQUIRED LINE**
+
+> ### **REQUIRED IN ANY SPINE OR RELEASE NOTE FOR `phase1.5/proofs`, AND NOT OPTIONAL:**
+>
+> ### **"`THE_RESIDUE_OF_RH`'s compiled terminals live on the HELD, UNMERGED branch `word-pairing-interface` of `SIDE-lv-conservation`. They are not on `main` and nothing is deposited. A reader who checks out the default branch will not find them."**
+>
+> **This is the paper's own preamble — *"not merged, nothing deposited"* — raised to a release-blocking line.** ### **It is the single thing standing between `phase1.5/proofs` and release-readiness, and it is a DISCLOSURE requirement, not a repair: the branch is sound, the terminals compile, and the only defect would be letting a reader assume otherwise.**
+
+---
+
+**READ-ONLY EXCEPT THIS ARTIFACT. `h2` UNCHANGED. Nothing deposits.**
+
+### §9 ANNOTATED -- THE REQUIRED LINE SUPERSEDED (appended 2026-09-28, b553, under the author's ruling `(R163)`(6))
+
+§9's required line ("`THE_RESIDUE_OF_RH`'s compiled terminals live on the HELD, UNMERGED branch `word-pairing-interface`") is superseded: SIDE-lv-conservation's `main` was fast-forwarded to `2f71068` over that branch's line (b454), and `main` is tagged `v0.11.0` at `2f71068` (b550, read back from the remote). The terminals are on `main`; the line above is kept as written.
+
+# THE KEYSTONE CENSUS v0.2 -- RE-RUN LIVE, 2026-09-28 (b553, under the author's ruling `(R163)`(6); the v0.1 body above is unchanged)
+
+*Tier C, as v0.1. Produced by relay `tools/b553_record.py` (`census`, `ancestry`, `anomaly`); banks relay `data/b553_census.txt`, `data/b553_ancestry.txt`, `data/b553_anomaly.txt`. §0's test rebuilt as operationalised, with (iii) read as the document's stem appearing in REGISTRY, SPIRAL_MAP, README or a clusters/ file, and retired trees (archive/, heritage/, outputs/) counted SUPPORT.*
+
+**The control.** At the tree v0.1 counted, the rebuilt detector returns v0.1's raw 20 and its 9 CONCORDANCE-CARRIED exactly; after §0's removals and (iii) as read here it keeps 15 of v0.1's sixteen (EXHAUSTIVENESS_LICENSE fails (iii) at that tree and passes at HEAD); it returns 57 KEYSTONE-CANDIDATE and 100 SUPPORT against v0.1's 62 and 101 -- differences this re-run prints and does not close. Entrants are counted against v0.1's published sixteen.
+
+**The classes at HEAD** (v0.1 beside): KEYSTONE 16 (16) · CONCORDANCE-CARRIED 10 (9) · KEYSTONE-CANDIDATE 55 (62) · SUPPORT 224 (101).
+
+**Entrants since 2026-08-12:** none. The navigator's four read: BALANCE_AND_POSITIVITY KEYSTONE-CANDIDATE; THE_TWO_RADIUS_FAMILY_AND_THE_ANNIHILATION_BOUNDARY SUPPORT; THE_GLOBAL_SECTION SUPPORT; THE_METHOD_CANON SUPPORT.
+
+| keystone | cited pins | Correspondence heading | cascade |
+|:--|--:|:--|:--|
+| `PATHS_TO_THE_CRITICAL_LINE` | 29 | present | TIERED (b540) |
+| `SIMPLICITY_OF_RIEMANN_ZEROS` | 18 | present | untiered |
+| `THE_UNCONDITIONAL_SURROUND` | 16 | present | TIERED (b539) |
+| `GRH_CASCADE` | 11 | present | untiered |
+| `R_CURVE_CRITERION` | 11 | present | untiered |
+| `INDEX_ARITY_AT_THE_CRITICAL_LINE` | 8 | present | untiered |
+| `FOUNDATIONS_OF_THE_SIDE_PROGRAMME` | 7 | present | untiered |
+| `TECHNE_TOOLKIT` | 6 | present | untiered |
+| `THE_RESIDUE_OF_RH` | 6 | present | TIERED (b549) |
+| `ADDITIVE_MULTIPLICATIVE_CONSPIRACY` | 5 | present | untiered |
+| `SILENCE_STAGES_DEALIGNMENT` | 3 | present | untiered |
+| `EXHAUSTIVENESS_LICENSE` | 3 | present | untiered |
+| `INVARIANCE_BARRIERS` | 2 | present | untiered |
+| `REPARAMETERIZATION_BARRIERS_v0_1` | 2 | present | untiered |
+| `E_DIFFICULTY_THEOREM` | 1 | present | untiered |
+| `ENUMERA` | 0 | present | untiered |
+
+*The cascade has also tiered, outside the KEYSTONE class: day1/A_Place_to_Stand (CONCORDANCE-CARRIED), BALANCE_AND_POSITIVITY, FACES_OF_H2_AT_FINITE_INSTANCE, FACES_LEDGER, THE_IDENTITY_CHAIN.*
+
+**Pin ancestry.** Mechanical failures: `21433177` ABSENT; `27a3ae7` NOT-ANCESTOR; `5e932f97` ABSENT; `6e8638a` ABSENT. Hand-read (relay `data/b553_ancestry_read.txt`): `21433177` is a Zenodo record's digits, not a pin; `5e932f97` is a Mathlib pin that resolves in every Mathlib clone at that rev; `6e8638a` resolves nowhere tested; `27a3ae7` is reachable from SIDE-kernel's `derivative-engine` only. **`bd2ae1a` resolves: a PLACE-papers commit of 2026-07-25 (the E-CHARACTERIZATION sitting), which THE_H2_PROGRAMME_CHARTER.md:116 names; v0.1 did not test PLACE-papers.**
+The five v0.1 named, re-tested: `2152047` ABSENT; `c66f3c5` ANCESTOR; `27a3ae7` NOT-ANCESTOR; `3b2e8d6` NOT-ANCESTOR; `bd2ae1a` ANCESTOR.
+
+**Anomaly 1.** SIDE-kernel HEAD `0256e9e`, latest tag `v1.7` (`2957e7d`); HEAD is not the latest tag; the corpus's deposit pin stays `v1.5` = `0e5233f`.
+
+**The cascade's remaining roster, in the census's order:** `SIMPLICITY_OF_RIEMANN_ZEROS`, `GRH_CASCADE`, `R_CURVE_CRITERION`, `INDEX_ARITY_AT_THE_CRITICAL_LINE`, `FOUNDATIONS_OF_THE_SIDE_PROGRAMME`, `TECHNE_TOOLKIT`, `ADDITIVE_MULTIPLICATIVE_CONSPIRACY`, `SILENCE_STAGES_DEALIGNMENT`, `EXHAUSTIVENESS_LICENSE`, `INVARIANCE_BARRIERS`, `REPARAMETERIZATION_BARRIERS_v0_1`, `E_DIFFICULTY_THEOREM`, `ENUMERA`. **Next:** `SIMPLICITY_OF_RIEMANN_ZEROS`.
+
+*No byte above this section changes. Nothing deposits.*
+
+*Appended 2026-09-28 by b554, under the author's ruling `(R164)`(1), to the pin ancestry of §1, at :48:* `bd2ae1a` is a PLACE-papers commit -- the E-CHARACTERIZATION sitting of 2026-07-25, which `THE_H2_PROGRAMME_CHARTER.md`:116 names -- and not a SIDE-lv-conservation pin; the terminals that sitting reported are at SIDE-lv-conservation `v0.11.0` = `2f71068`. The flag of 2026-08-12 above stays as written. Erratum `E-2026-09-27-1` (`ERRATA.md`:754).
+
+*Appended 2026-09-28 by b557, under the author's ruling `(R167)`(4), to the v0.2 section (:243) and §2's table (:119):* the sentence at :119 says R_CURVE_CRITERION has "five cited pins, one of which (`bd2ae1a`)" is absent from SIDE-lv-conservation. Read at the census v0.1 commit `0d4a6fe`, R_CURVE_CRITERION.md cites 11 commit-shaped pins in backticks (`0d2d74c`, `0e5233f`, `1767bd6`, `27a3ae7`, `2d86182`, `691295b`, `6efa9e5`, `93c27ec`, `bc4751e`, `c80bdc2`, `d5f33b4`) and `bd2ae1a` on none of its lines; at b556's commit it cites `bd2ae1a` on 1. The pin the sentence attributes to that document is not in it; `bd2ae1a` is the PLACE-papers sitting commit of E-2026-09-27-1, cited by PATHS_TO_THE_CRITICAL_LINE. The navigator carried the sentence into b556's ferry. No other action.
+
+*Appended 2026-09-28 by b557, correcting its own line at :285 in the same act:* the one line of R_CURVE_CRITERION.md at b556's commit that carries `bd2ae1a` is b556's tier-block sentence at R_CURVE_CRITERION.md:500, which records that the document cites `bd2ae1a` nowhere; the document's own text cites it on no line at either commit. The line at :285 is kept as written.
+
+### Placement
+
+| object | path | Status |
+|:--|:--|:--|
+| this edition, v0.3 | `phase2/method/THE_KEYSTONE_CENSUS_v0_3.md` | written at b610 |
+| the current version (v0.1 with its v0.2 section) | `phase2/method/THE_KEYSTONE_CENSUS.md` | unedited |
+| the census bank | relay `data/b610_census.txt` | banked before this edition |
+| the registry read | `REGISTRY.md` @ 7055f04 | read, unedited |
+| the cluster map pointing to the rows | `SPIRAL_MAP_v0_7.md` | written at b610 beside `SPIRAL_MAP.md`, unedited |
+
+### Correspondence
+
+| row | this edition’s line | phase and cluster | REGISTRY rows (lines) | keystone | Status |
+|:--|:--|:--|:--|:--|:--|
+| R01 | :41 | Phase 1 / Day 1 | :83, :84, :85, :86, :87, :88, :89, :90 | yes | read |
+| R02 | :42 | Phase 1.2 (filed under 1.5A by the phase attribute) | :142, :143, :144, :145 | none | read |
+| R03 | :43 | 1.5A: Alternative Proof Presentations | :146, :499, :505, :901 | yes | read |
+| R04 | :44 | 1.5B: Simplicity & Zero Structure | :152, :153, :154, :155, :156, :157 | yes | read |
+| R05 | :45 | 1.5C: Spectral & Structural Core | :163, :164, :165, :166, :167, :168, :169, :170, :171, :172, :173, :174, :175, :176, :479, :519 | yes | read |
+| R06 | :46 | 1.5D: GRH & Cascade | :182, :183, :184, :185 | yes | read |
+| R07 | :47 | 1.5E: Deep Structure | :191, :192, :193, :194, :195, :196 | none | read |
+| R08 | :48 | 1.5F: Syntheses | :202, :203, :204, :205 | yes | read |
+| R09 | :49 | 1.5G: R-Curve & Monotonicity | :211, :212, :213, :214 | yes | read |
+| R10 | :50 | 1.5H: SIDE Method Papers | :220, :221, :222, :223, :224, :225, :226, :227, :909 | yes | read |
+| R11 | :51 | 2A: Formation Calculus & κ Theory | :239, :240, :241, :242 | yes | read |
+| R12 | :52 | 2B: Consciousness, Cognition, Philosophy | :248, :249, :250, :251, :252, :253 | none | read |
+| R13 | :53 | 2C: Impossibility, Difficulty, Method | :259, :260, :262, :263 | yes | read |
+| R14 | :54 | 2D: Physics & Cosmology | :269, :270, :271, :272, :273, :274, :275, :276 | none | read |
+| R15 | :55 | 2E: Error Correction & Quantum | :282, :283, :284, :285, :286, :287 | yes | read |
+| R16 | :56 | 2F: Empirical & Competition | :293, :294, :295 | none | read |
+| R17 | :57 | 2G: Physics (Speculative — UNREVIEWED) | :301, :302, :303, :304, :305, :306, :307, :308, :309 | none | read |
+| R18 | :58 | Phase 2, rows filed to no lettered cluster | :520, :521, :581, :582 | yes | read |
+| R19 | :59 | SUPPORT: cluster syntheses and consults | :319, :320, :321, :322, :323, :324, :325, :326, :327, :328, :329 | yes | read |
+| R20 | :60 | INTERNAL: reference works | :337, :338, :339, :340, :341, :342 | yes | read |
+| R21 | :61 | The junction / global-section era (the phase row) | :352 | yes | read |
+| R22 | :62 | ANNEX: the download layer | :366 | none | read |
+| R23 | :63 | Rows filed under no phase heading | :117, :671, :672, :673, :674, :675, :687 | yes | read |
+
+### Version history
+
+- **v0.3, 2026-10-03 (b610, `(R220)`(3)-(4))**: the phase-state reading -- 23 rows, one per phase and cluster, 135 registry rows placed; 7 clusters with documents and no keystone named with their documents; the keystone test ruled to the taxonomy, the census’s own test carried beneath with its history line. The current version stands beside it, unedited.
+- **v0.2, 2026-09-28 (b553, `(R163)`(6))** and **v0.1, 2026-08-12**: carried above, moved whole.
+
+
+<!-- b619 (R229) THE v0.4 EDITION’S BACK MATTER, 2026-10-04 -->
+
+## Back matter of the v0.4 edition — written 2026-10-04 by b619 under the author’s ruling `(R229)`(3), by the form of `(R187)`(5), its clauses and the precedence order
+
+### The readings v0.4 adds, each the seat’s and strikeable
+
+- **R-1, widened.** A dated row update’s table of Version cells -- its second cell a `REGISTRY.md:n` pointer, b618’s of 2026-10-04 at REGISTRY :978-:994 -- is a layer of cells over the rows it points to, as the ratified-titles table is a layer of titles: printed in the bank, not counted.
+- **R-2, by its letter.** A dated row addition lands in the cluster its heading names: a heading naming Phase 2B to 2G places its rows there, as one naming Phase 1.5A to 1.5H always did; a row whose own provenance names Phase 1.2 as its cluster (1.5a-9, 1.5a-10) lands in Phase 1.2 beside 1.5a-1 to 1.5a-4, as `(R229)`(3) names Phase 1.2’s synthesis in its row.
+- **R-6, the unpushed mark.** A kernel’s cell names, beside the remote’s current tag, every tag its clone carries and its remote does not, by name and peeled commit, marked unpushed (W-ORD-TAG-REMOTES, OPEN_TRAILS :12597).
+- **R-9, a dated append.** A registry row’s file, held at v0.3’s commit, that gained a dated append in its own form since is named in its edition-state cell by the commit that appended it; an append is not an edition by the form.
+- **R-10, the syntheses.** The six syntheses’ rows name, in their keystones cell, the file read and its version as the document’s own version line gives it, at the tier its own class line gives; 2D is read at its v0.2.
+- **R-11, v0.3’s back matter.** v0.3’s back matter is carried whole beneath v0.3’s body as the dated record of that edition, and its own `:n` cite v0.3, which stands beside this edition unedited; they are not re-pinned. This back matter’s `:n` cite this edition.
+- **R-12, the navigator’s list.** The monograph’s v5.17 and SPIRAL_MAP’s v0.7 were written at b609 and b610, before v0.3’s read: R01’s cell carries v5.17 at v0.3 already, and SPIRAL_MAP has no REGISTRY row (v0.3’s Placement names its v0.7), so no cell changes for them.
+
+### The cells changed, by row and column (both wordings in relay `data/b619_census.txt`, Part B)
+
+| row | this edition’s line | v0.3 line | columns changed | source |
+|:--|:--|:--|:--|:--|
+| R01 | :399 | :41 | kernels | ls-remote, once per repository; R-6 |
+| R02 | :400 | :42 | documents, keystones, editions, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; the mirror roster at relay db0aaa5b |
+| R03 | :401 | :43 | sieve | the sieve v0.5’s headings |
+| R04 | :402 | :44 | sieve | the sieve v0.5’s headings |
+| R05 | :403 | :45 | sieve | the sieve v0.5’s headings |
+| R06 | :404 | :46 | sieve | the sieve v0.5’s headings |
+| R07 | :405 | :47 | documents, keystones, editions, kernels, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; ls-remote, once per repository; R-6; the mirror roster at relay db0aaa5b |
+| R09 | :407 | :49 | sieve | the sieve v0.5’s headings |
+| R10 | :408 | :50 | kernels | ls-remote, once per repository; R-6 |
+| R12 | :410 | :52 | documents, keystones, editions, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; the mirror roster at relay db0aaa5b |
+| R13 | :411 | :53 | documents, keystones, editions, kernels, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; ls-remote, once per repository; R-6; the mirror roster at relay db0aaa5b |
+| R14 | :412 | :54 | documents, keystones, editions, kernels, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; ls-remote, once per repository; R-6; the mirror roster at relay db0aaa5b |
+| R15 | :413 | :55 | kernels | ls-remote, once per repository; R-6 |
+| R16 | :414 | :56 | documents, keystones, editions, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; the mirror roster at relay db0aaa5b |
+| R17 | :415 | :57 | documents, keystones, editions, kernels, deposit | REGISTRY @ a939198, R-1 and R-2; the class lines; R-10; the editions and the trails; R-9; ls-remote, once per repository; R-6; the mirror roster at relay db0aaa5b |
+| R21 | :419 | :61 | kernels | ls-remote, once per repository; R-6 |
+| R23 | :421 | :63 | editions | the editions and the trails; R-9 |
+
+*42 cells changed in 17 rows.*
+
+### Rewrites under the clauses
+
+| line | v0.3 line | was | now | clause | the object named |
+|:--|:--|:--|:--|:--|:--|
+| :37 | :35 | “*(read 2026-10-03, b610; relay `data/b610_census.txt`)*” | “*(read 2026-10-04, b619; relay `data/b619_census.txt`)*” | fact | the read and its bank |
+| :39 | :37 | “the sieve rows the cluster holds at v0.4 through” | “the sieve rows the cluster holds at v0.5 through” | fact | the sieve’s version read |
+| :39 | :37 | “the kernels anchoring it with their current tags read by ls-remote, and the deposit state” | “the kernels anchoring it with their current tags read by ls-remote and the tags their clones carry unpushed named beside them, and the deposit state” | ruled | the kernel-tag column, ’(R229)’(3) |
+| :39 | :37 | “Each cell is read at PLACE-papers 7055f04 or at the remote” | “Each cell is read at PLACE-papers 9dbac4b or at the remote” | fact | the pin read |
+| :41 | :39 | “¦ sieve rows at v0.4 ¦” | “¦ sieve rows at v0.5 ¦” | fact | the sieve’s version read |
+| :75 | :77 | “7 of the census’s 23 rows hold documents and no keystone; the other 16 hold” | “1 of the census’s 23 rows holds documents and no keystone; the other 22 hold” | fact | the count read at v0.4 |
+| :79 | :81 | “9 kernels carry tags their remotes do not (relay `data/b610_census.txt`, Part C and (F1));” | “9 kernels carry 12 tags their remotes do not (relay `data/b619_census.txt`, Part C and (F1)) -- W-ORD-TAG-REMOTES’ nine (OPEN_TRAILS :12597), each such tag named unpushed in its kernel’s cell in §1;” | fact | the tags read by ls-remote |
+| :81 | :83 | “1.5a-1 to 1.5a-4 sit in the 1.5A table and land in Phase 1.2 by the phase attribute (REGISTRY :780).” | “1.5a-1 to 1.5a-4 sit in the 1.5A table and land in Phase 1.2 by the phase attribute (REGISTRY :780); 1.5a-9 and 1.5a-10, entered in the 1.5A row addition of 2026-10-04 (REGISTRY :1004-:1005), land there by their own provenance cells.” | fact | the rows placed in Phase 1.2 |
+| :82 | :84 | “its entries are references and are not counted.” | “its entries are references and are not counted; the row update of 2026-10-04 (REGISTRY :978-:994), a layer of Version cells over seventeen rows, is read the same way.” | fact | the population at a939198 |
+| :71 | :75 | the ANNEX’s row, its documents | the same, with its reason | ruled, `(R229)`(3) | the ANNEX row standing with its reason |
+
+### Removals
+
+| v0.3 line | text | destination | sentences |
+|:--|:--|:--|:--|
+| :69 | §2’s entry for R02 | its §1 row, which names its synthesis (`(R229)`(3)) | 4 |
+| :70 | §2’s entry for R07 | its §1 row, which names its synthesis (`(R229)`(3)) | 6 |
+| :71 | §2’s entry for R12 | its §1 row, which names its synthesis (`(R229)`(3)) | 6 |
+| :72 | §2’s entry for R14 | its §1 row, which names its synthesis (`(R229)`(3)) | 8 |
+| :73 | §2’s entry for R16 | its §1 row, which names its synthesis (`(R229)`(3)) | 3 |
+| :74 | §2’s entry for R17 | its §1 row, which names its synthesis (`(R229)`(3)) | 9 |
+
+### Insertions ordered by the ruling
+
+| line | what | Status |
+|:--|:--|:--|
+| :10 | the version line, above v0.3’s | inserted |
+| :73 | §2’s line on the six rows that leave it | inserted |
+| :83 | §3’s line on the living documents’ appends, by commit | inserted |
+
+### Placement
+
+| object | path | Status |
+|:--|:--|:--|
+| this edition, v0.4 | `phase2/method/THE_KEYSTONE_CENSUS_v0_4.md` | written at b619 |
+| v0.3 | `phase2/method/THE_KEYSTONE_CENSUS_v0_3.md` | unedited |
+| the current version (v0.1 with its v0.2 section) | `phase2/method/THE_KEYSTONE_CENSUS.md` | unedited |
+| the mapping | relay `data/b619_census.txt` | banked before this edition |
+| the registry read | `REGISTRY.md` @ a939198 (read at PLACE-papers 9dbac4b) | read, unedited |
+| the sieve read | `phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_5.md` | read, unedited |
+| a synthesis named in its row | `phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md` | read, unedited |
+| a synthesis named in its row | `phase1.5/deep-structure/THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md` | read, unedited |
+| a synthesis named in its row | `phase2/philosophy/THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md` | read, unedited |
+| a synthesis named in its row | `phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_2.md` | read, unedited |
+| a synthesis named in its row | `phase2/empirical/ZERO_SIMPLICITY_AND_THE_FORMATION_TRANSFER_TO_ELLIPTIC_CURVES.md` | read, unedited |
+| a synthesis named in its row | `phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR.md` | read, unedited |
+
+### Correspondence
+
+| row | this edition’s line | phase and cluster | REGISTRY rows (lines) | keystone | Status |
+|:--|:--|:--|:--|:--|:--|
+| R01 | :399 | Phase 1 / Day 1 | :83, :84, :85, :86, :87, :88, :89, :90 | yes | read again |
+| R02 | :400 | Phase 1.2 (filed under 1.5A by the phase attribute) | :142, :143, :144, :145, :1004, :1005 | yes | read again |
+| R03 | :401 | 1.5A: Alternative Proof Presentations | :146, :499, :505, :901 | yes | read again |
+| R04 | :402 | 1.5B: Simplicity & Zero Structure | :152, :153, :154, :155, :156, :157 | yes | read again |
+| R05 | :403 | 1.5C: Spectral & Structural Core | :163, :164, :165, :166, :167, :168, :169, :170, :171, :172, :173, :174, :175, :176, :479, :519 | yes | read again |
+| R06 | :404 | 1.5D: GRH & Cascade | :182, :183, :184, :185 | yes | read again |
+| R07 | :405 | 1.5E: Deep Structure | :191, :192, :193, :194, :195, :196, :1013 | yes | read again |
+| R08 | :406 | 1.5F: Syntheses | :202, :203, :204, :205 | yes | read, unchanged |
+| R09 | :407 | 1.5G: R-Curve & Monotonicity | :211, :212, :213, :214 | yes | read again |
+| R10 | :408 | 1.5H: SIDE Method Papers | :220, :221, :222, :223, :224, :225, :226, :227, :909 | yes | read again |
+| R11 | :409 | 2A: Formation Calculus & κ Theory | :239, :240, :241, :242 | yes | read, unchanged |
+| R12 | :410 | 2B: Consciousness, Cognition, Philosophy | :248, :249, :250, :251, :252, :253, :1021 | yes | read again |
+| R13 | :411 | 2C: Impossibility, Difficulty, Method | :259, :260, :262, :263, :1029, :1030, :1031, :1032 | yes | read again |
+| R14 | :412 | 2D: Physics & Cosmology | :269, :270, :271, :272, :273, :274, :275, :276, :1040 | yes | read again |
+| R15 | :413 | 2E: Error Correction & Quantum | :282, :283, :284, :285, :286, :287 | yes | read again |
+| R16 | :414 | 2F: Empirical & Competition | :293, :294, :295, :1048 | yes | read again |
+| R17 | :415 | 2G: Physics (Speculative — UNREVIEWED) | :301, :302, :303, :304, :305, :306, :307, :308, :309, :1056 | yes | read again |
+| R18 | :416 | Phase 2, rows filed to no lettered cluster | :520, :521, :581, :582 | yes | read, unchanged |
+| R19 | :417 | SUPPORT: cluster syntheses and consults | :319, :320, :321, :322, :323, :324, :325, :326, :327, :328, :329 | yes | read, unchanged |
+| R20 | :418 | INTERNAL: reference works | :337, :338, :339, :340, :341, :342 | yes | read, unchanged |
+| R21 | :419 | The junction / global-section era (the phase row) | :352 | yes | read again |
+| R22 | :420 | ANNEX: the download layer | :366 | none | read, unchanged |
+| R23 | :421 | Rows filed under no phase heading | :117, :671, :672, :673, :674, :675, :687 | yes | read again |
+
+### Version history
+
+- **v0.4, 2026-10-04 (b619, `(R229)`(3))**: the census read again at its rows -- 42 cells changed in 17 rows; the six syntheses named in their rows with path, version and tier; the edition-state, kernel-tag and sieve columns refreshed; the no-keystone section at the ANNEX alone. v0.3 stands beside it, unedited.
+- **v0.3, 2026-10-03 (b610)**, **v0.2, 2026-09-28 (b553)** and **v0.1, 2026-08-12**: carried above.
+
+
+<!-- b633 (R243) THE v0.5 EDITION’S BACK MATTER, 2026-10-06 -->
+
+## Back matter of the v0.5 edition — written 2026-10-06 by b633 under the author’s ruling `(R243)`(6), by the form of `(R187)`(5), its clauses and the precedence order
+
+### The readings v0.5 adds, each the seat’s and strikeable
+
+- **R-9, since v0.4.** A dated append is read since v0.4’s commit (PLACE-papers 6a3069e); the append v0.4 named in R23 (m5-1 a5d1944) is older and leaves the cell.
+- **R-13, the kernel column.** The act root’s repository list at PLACE-papers e67c43b -- relay, PLACE-papers and every kernel the census, REGISTRY or a page pins -- each read by one `git ls-remote`, its current tag the remote’s highest by the peel, in §1A; §1’s kernel cells stay by R-6, so a kernel the root adds that no row’s documents name stands in §1A alone.
+- **R-14, the faces.** SIDE-explicit-formula’s faces at v0.22-v0.25 are read from the terminal table at their grade and provenance, with the named premises the rule reads; the two_thirds citation is a structure’s field and is read with the theorem resting on it.
+- **R-15, the provenance cell.** A row’s kernels’ table rows are counted by provenance, a kernel named in several rows counted in each.
+- **R-16, Phase 2 against SEC.** SEC’s theorems are matched against each synthesis by their names as identifiers and as words; a hit is read by the seat and printed with its reading; the load-bearing clause decides whether a match could move a tier.
+- **R-17, the ANNEX.** The intake pilot’s figures enter R22’s keystones cell from its summary bank, by digest; no sentence of the paper is in this census.
+- **R-18, the named premises.** The 42 heads are b632’s census heads, read now at the table after the rule’s two entries; MET is the rule’s own list (`tools/e0_rule.py`).
+
+### The cells changed, by row and column (both wordings in relay `data/b633_census.txt`, Part B)
+
+| row | this edition’s line | v0.4 line | columns changed | source |
+|:--|:--|:--|:--|:--|
+| R01 | :47 | :43 | editions, kernels, provenance (new) | the editions and the trails; R-9 since v0.4; ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R02 | :48 | :44 | keystones, editions, provenance (new) | the class lines; R-10; the editions and the trails; R-9 since v0.4; the terminal table at relay 98667fac |
+| R03 | :49 | :45 | provenance (new) | the terminal table at relay 98667fac |
+| R04 | :50 | :46 | provenance (new) | the terminal table at relay 98667fac |
+| R05 | :51 | :47 | provenance (new) | the terminal table at relay 98667fac |
+| R06 | :52 | :48 | kernels, provenance (new) | ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R07 | :53 | :49 | keystones, editions, kernels, provenance (new) | the class lines; R-10; the editions and the trails; R-9 since v0.4; ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R08 | :54 | :50 | kernels, provenance (new) | ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R09 | :55 | :51 | provenance (new) | the terminal table at relay 98667fac |
+| R10 | :56 | :52 | kernels, provenance (new) | ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R11 | :57 | :53 | provenance (new) | the terminal table at relay 98667fac |
+| R12 | :58 | :54 | provenance (new) | the terminal table at relay 98667fac |
+| R13 | :59 | :55 | editions, kernels, provenance (new) | the editions and the trails; R-9 since v0.4; ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R14 | :60 | :56 | keystones, editions, kernels, provenance (new) | the class lines; R-10; the editions and the trails; R-9 since v0.4; ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R15 | :61 | :57 | kernels, provenance (new) | ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R16 | :62 | :58 | provenance (new) | the terminal table at relay 98667fac |
+| R17 | :63 | :59 | keystones, editions, kernels, provenance (new) | the class lines; R-10; the editions and the trails; R-9 since v0.4; ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R18 | :64 | :60 | provenance (new) | the terminal table at relay 98667fac |
+| R19 | :65 | :61 | provenance (new) | the terminal table at relay 98667fac |
+| R20 | :66 | :62 | provenance (new) | the terminal table at relay 98667fac |
+| R21 | :67 | :63 | kernels, provenance (new) | ls-remote, once per repository; R-6; the terminal table at relay 98667fac |
+| R22 | :68 | :64 | provenance (new) | the terminal table at relay 98667fac |
+| R23 | :69 | :65 | editions, provenance (new) | the editions and the trails; R-9 since v0.4; the terminal table at relay 98667fac |
+
+*21 cells changed in 12 rows; every row gains the provenance cell.*
+
+### Rewrites under the clauses
+
+| line | v0.4 line | was | now | clause | the object named |
+|:--|:--|:--|:--|:--|:--|
+| :39 | :37 | “*(read 2026-10-04, b619; relay `data/b619_census.txt`)*” | “*(read 2026-10-06, b633; relay `data/b633_census.txt`)*” | fact | the read and its bank |
+| :41 | :39 | “the sieve rows the cluster holds at v0.5 through” | “the sieve rows the cluster holds at v0.6 through” | fact | the sieve’s version and the pin read |
+| :41 | :39 | “Each cell is read at PLACE-papers 9dbac4b or at the remote” | “Each cell is read at PLACE-papers e67c43b or at the remote” | fact | the sieve’s version and the pin read |
+| :45 | :41 | “sieve rows at v0.5” | “sieve rows at v0.6 … kernels’ table rows: cell / rule / none” | fact; ruled | the sieve’s version; the provenance column, `(R243)`(6)(iii) |
+| :152 | :79 | “9 kernels carry 12 tags their remotes do not (relay `data/b619_census.txt`, Part C and (F1)) -- W-ORD-TAG-REMOTES’ nine (OPEN_TRAILS :12597), each such tag named unpushed in its kernel’s cell in §1;” | “2 kernels carry 3 tags their remotes do not (relay `data/b633_census.txt`, Part C) -- of W-ORD-TAG-REMOTES’ nine (OPEN_TRAILS :12597), the tags b623 pushed now read at their remotes, and each tag still local is named unpushed in its kernel’s cell in §1;” | fact | the tags read by ls-remote |
+
+### Insertions ordered by the ruling
+
+| lines | what | Status |
+|:--|:--|:--|
+| :10 | the version line, above v0.4’s | inserted |
+| :43 | §1’s line on the provenance column | inserted |
+| :71 | §1A, the kernel column at the root’s list | inserted |
+| :116 | §1B, the faces at v0.22-v0.25 | inserted |
+| :127 | §1C, the Phase 2 rows read against SEC | inserted |
+
+### The named premises the INTERFACES rows rest on (`(R243)`(6)(vi)), and MET
+
+b632’s census read 42 named heads under the rule-graded INTERFACES rows (relay `data/b632_rule_moves.txt`). Each is printed with the kernels its rows sit in, the commits the table read those rows at, the rows resting on it at b632 and now, and whether a ledger names its discharge, each matched line read by the seat (relay `data/b633_census.txt`, Part H). Alt2 and Alternates enter the rule as domain conditions at this act (`(R243)`(2)), and the rows resting on them alone read DERIVES.
+
+| named premise | kernels | commits read at | INTERFACES rows resting on it, b632 → now | a ledger naming its discharge |
+|:--|:--|:--|:--|:--|
+| Alt2 | — | — | 3 → 0 (entered as a domain condition, `(R243)`(2)) | none named |
+| Alternates | SIDE-global-section | 17ce9ff | 5 → 2 (entered as a domain condition, `(R243)`(2)) | none named |
+| AnalyticOnNhd | SIDE-explicit-formula | 8c51431 | 2 → 2 | none named |
+| BoundPremises | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| ConservationHypothesis | SIDE-kernel | 0256e9e | 3 → 3 | an open item to discharge (OPEN_TRAILS :61) |
+| Continuous | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| Dealigned | SIDE-structural-error-correction | 6bf19ab | 1 → 1 | none named |
+| DealignedAt | SIDE-structural-error-correction | 6bf19ab | 1 → 1 | none named |
+| EpsteinPremises | SIDE-explicit-formula | 8c51431 | 2 → 2 | none named |
+| EqOn | SIDE-lv-conservation | 2f71068 | 1 → 1 | none named |
+| HCount | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| HasCompactSupport | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| HasDerivAt | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| IdempotentAdd | SIDE-carrier-spec | b3916cc | 4 → 4 | none named |
+| Integrable | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| IsEvenFn | SIDE-global-section | 17ce9ff | 1 → 1 | none named |
+| IsExpansion | SIDE-lv-conservation | 2f71068 | 2 → 2 | none named |
+| IsOpen | SIDE-global-section | 17ce9ff | 1 → 1 | none named |
+| IsRoot | SIDE-lv-conservation | 2f71068 | 2 → 2 | none named |
+| IsSign | SIDE-global-section | 17ce9ff | 5 → 5 | none named |
+| IsSignedCompletion | SIDE-carrier-spec | b3916cc | 1 → 1 | none named |
+| IsTrivialPoint | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| KeiperObligations | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| Monotone | SIDE-global-section | 17ce9ff | 1 → 1 | none named |
+| NotDiv | SIDE-global-section | 17ce9ff | 1 → 1 | none named |
+| PerClassExcludes | SIDE-lv-conservation | 2f71068 | 1 → 1 | none named |
+| PlattTrudgianHeight | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| Prime | SIDE-carrier-spec, SIDE-explicit-formula, SIDE-global-section, SIDE-grh-transfer | 17ce9ff, 858cbf6, 8c51431, b3916cc | 5 → 5 | none named |
+| Proper | SIDE-structural-error-correction | 6bf19ab | 1 → 1 | none named |
+| SatisfiesCWeil | SIDE-global-section | 17ce9ff | 1 → 1 | none named |
+| StepsI | SIDE-global-section | 17ce9ff | 2 → 2 | none named |
+| StepsMI | SIDE-global-section | 17ce9ff | 2 → 2 | none named |
+| StrictMono | SIDE-rcurve | d5f33b4 | 2 → 2 | none named |
+| StructuralExhaustiveness | SIDE-kernel | 0256e9e | 1 → 1 | none named |
+| SymPairBound | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| Tendsto | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| WindowObligations | SIDE-explicit-formula | 8c51431 | 2 → 2 | none named |
+| ZetaSeam | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| farSmall | SIDE-explicit-formula | 8c51431 | 1 → 1 | none named |
+| identity | SIDE-global-section | 17ce9ff | 1 → 1 | none named |
+| is_xi_zero | SIDE-kernel | 0256e9e | 1 → 1 | none named |
+| zeroSideNeg | SIDE-explicit-formula | 8c51431 | 1 → 1 | discharged (OPEN_TRAILS :10882) |
+
+*The 42 heads’ rows sum to 63 now, a row counted once for each named premise it rests on; the table’s rule-graded INTERFACES rows number 62 and all its INTERFACES rows 85.*
+
+MET, the rule’s forward guard (`(R243)`(2) and the author’s two answers before b633’s seal), holds these 42 and nine more: NymanBeurlingPremise, TrivialSummandPremise and EulerFactorPremise, rule-met, carried by rows the rule graded before b632’s census; and six cell-met, carried in the rule’s reading by rows a ledger cell grades, each named with its rows in relay `data/b633_census.txt`, Part H.
+
+### A fact read in v0.4’s back matter
+
+v0.4’s Correspondence names each row’s line as :399-:421 (“this edition’s line”), which are v0.3’s carried Correspondence rows; the rows stand at v0.4 :43-:65. b619’s position map took each row’s last match of its id, which falls in v0.3’s back matter. v0.4 stands unedited; this edition’s Correspondence names the rows’ own lines.
+
+### Placement
+
+| object | path | Status |
+|:--|:--|:--|
+| this edition, v0.5 | `phase2/method/THE_KEYSTONE_CENSUS_v0_5.md` | written at b633 |
+| v0.4 | `phase2/method/THE_KEYSTONE_CENSUS_v0_4.md` | unedited |
+| v0.3 | `phase2/method/THE_KEYSTONE_CENSUS_v0_3.md` | unedited |
+| the current version (v0.1 with its v0.2 section) | `phase2/method/THE_KEYSTONE_CENSUS.md` | unedited |
+| the census bank | relay `data/b633_census.txt` | banked before this edition |
+| the registry read | `REGISTRY.md` @ 76dc1210 (read at PLACE-papers e67c43b) | read, unedited |
+| the sieve read | `phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md` | read, unedited |
+| the terminal table | relay `data/terminal_table.json` @ 98667fac | read |
+| SEC’s statements | SIDE-structural-error-correction v0.2.2 = 6bf19ab, through the table | read |
+| the intake summary | relay `data/b628_intake_summary.txt`, `data/b628_intake_summary.json` | read by digest |
+| a synthesis read against SEC | `phase2/philosophy/THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md` | read, unedited |
+| a synthesis read against SEC | `phase2/physics/THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_2.md` | read, unedited |
+| a synthesis read against SEC | `phase2/empirical/ZERO_SIMPLICITY_AND_THE_FORMATION_TRANSFER_TO_ELLIPTIC_CURVES.md` | read, unedited |
+| a synthesis read against SEC | `phase2/physics-speculative/THE_LOCAL_COSMIC_INTERFACE_AND_THE_DARK_SECTOR.md` | read, unedited |
+
+### Correspondence
+
+| row | this edition’s line | phase and cluster | REGISTRY rows (lines) | keystone | Status |
+|:--|:--|:--|:--|:--|:--|
+| R01 | :47 | Phase 1 / Day 1 | :83, :84, :85, :86, :87, :88, :89, :90 | yes | read again |
+| R02 | :48 | Phase 1.2 (filed under 1.5A by the phase attribute) | :142, :143, :144, :145, :1004, :1005 | yes | read again |
+| R03 | :49 | 1.5A: Alternative Proof Presentations | :146, :499, :505, :901 | yes | read again, its six columns unchanged |
+| R04 | :50 | 1.5B: Simplicity & Zero Structure | :152, :153, :154, :155, :156, :157 | yes | read again, its six columns unchanged |
+| R05 | :51 | 1.5C: Spectral & Structural Core | :163, :164, :165, :166, :167, :168, :169, :170, :171, :172, :173, :174, :175, :176, :479, :519 | yes | read again, its six columns unchanged |
+| R06 | :52 | 1.5D: GRH & Cascade | :182, :183, :184, :185 | yes | read again |
+| R07 | :53 | 1.5E: Deep Structure | :191, :192, :193, :194, :195, :196, :1013 | yes | read again |
+| R08 | :54 | 1.5F: Syntheses | :202, :203, :204, :205 | yes | read again |
+| R09 | :55 | 1.5G: R-Curve & Monotonicity | :211, :212, :213, :214 | yes | read again, its six columns unchanged |
+| R10 | :56 | 1.5H: SIDE Method Papers | :220, :221, :222, :223, :224, :225, :226, :227, :909 | yes | read again |
+| R11 | :57 | 2A: Formation Calculus & κ Theory | :239, :240, :241, :242 | yes | read again, its six columns unchanged |
+| R12 | :58 | 2B: Consciousness, Cognition, Philosophy | :248, :249, :250, :251, :252, :253, :1021 | yes | read again, its six columns unchanged |
+| R13 | :59 | 2C: Impossibility, Difficulty, Method | :259, :260, :262, :263, :1029, :1030, :1031, :1032 | yes | read again |
+| R14 | :60 | 2D: Physics & Cosmology | :269, :270, :271, :272, :273, :274, :275, :276, :1040 | yes | read again |
+| R15 | :61 | 2E: Error Correction & Quantum | :282, :283, :284, :285, :286, :287 | yes | read again |
+| R16 | :62 | 2F: Empirical & Competition | :293, :294, :295, :1048 | yes | read again, its six columns unchanged |
+| R17 | :63 | 2G: Physics (Speculative — UNREVIEWED) | :301, :302, :303, :304, :305, :306, :307, :308, :309, :1056 | yes | read again |
+| R18 | :64 | Phase 2, rows filed to no lettered cluster | :520, :521, :581, :582 | yes | read again, its six columns unchanged |
+| R19 | :65 | SUPPORT: cluster syntheses and consults | :319, :320, :321, :322, :323, :324, :325, :326, :327, :328, :329 | yes | read again, its six columns unchanged |
+| R20 | :66 | INTERNAL: reference works | :337, :338, :339, :340, :341, :342 | yes | read again, its six columns unchanged |
+| R21 | :67 | The junction / global-section era (the phase row) | :352 | yes | read again |
+| R22 | :68 | ANNEX: the download layer | :366 | none | read again, its six columns unchanged |
+| R23 | :69 | Rows filed under no phase heading | :117, :671, :672, :673, :674, :675, :687 | yes | read again |
+| F1 | :116 | the Platt rung, SIDE-explicit-formula v0.22 = e939c92 | — | — | read |
+| F2 | :116 | the two_thirds citation, SIDE-explicit-formula v0.23 = 98b7668 | — | — | read |
+| F3 | :116 | the Nyman–Beurling face, SIDE-explicit-formula v0.24 = aa17442 | — | — | read |
+| F4 | :116 | the Dedekind instance, SIDE-explicit-formula v0.25 = 8c51431 | — | — | read |
+
+### Version history
+
+- **v0.5, 2026-10-06 (b633, `(R243)`(6))**: the census read again at its rows and widened -- 21 cells changed in 12 rows; the kernel column at the root’s 38 repositories; the four faces at v0.22-v0.25; the provenance cell on every row; the Phase 2 rows read against SEC; the ANNEX’s intake figures; the 42 named premises. v0.4 stands beside it, unedited.
+- **v0.4, 2026-10-04 (b619)**, **v0.3, 2026-10-03 (b610)**, **v0.2, 2026-09-28 (b553)** and **v0.1, 2026-08-12**: carried above.
+
+<!-- b638 (R248) THE v0.6 EDITION’S BACK MATTER, 2026-10-07 -->
+
+## Back matter of the v0.6 edition — written 2026-10-07 by b638 under the author’s ruling `(R248)`(4)-(5), by the form of `(R187)`(5), its clauses and the precedence order, under the reader’s clause
+
+### The readings v0.6 adds, each the seat’s and strikeable
+
+- **R-19, the provenance column.** The terminal table at relay 7848d8be is read by provenance -- cell, rule, rule-elab, none -- and a row of the kind upstream (its declaration outside every kernel; `(R247)`(2), OPEN_TRAILS :13335) is counted apart, in parentheses, in §1 and §1A alike.
+- **R-20, the reader’s clause.** The opening and the glossary block stand at the head, beneath the title; the class lines, the version lines and the sections after them keep the earlier editions’ wording, their internal names defined by the glossary block where it names them, and the back matter of v0.3-v0.5 carried under the history clause, unedited.
+- **R-21, the tags.** Every repository of the act root’s list at PLACE-papers 5c4247b is read by one `git ls-remote`, its current tag the remote’s highest by the peel, as R-13 reads it.
+- **R-22, the premise table.** The census’s method at b637 (relay `data/b637_premises.txt`): the rule-graded INTERFACES rows, each premise binder’s named head by the census’s reader, the rule-elab rows printed beside, the upstream rows excluded; a premise binder whose head the reader cannot name is printed in the residue in its own words.
+- **R-23, the faces and the Phase 2 rows.** The faces at v0.22-v0.25 are read from the table at relay 7848d8be with each premise binder the live rule reads; the Phase 2 rows stand as b636 read them again (relay `data/b636_phase2_read.txt`).
+
+### The cells changed, by row and column (both wordings in relay `data/b638_census.txt`, Part B)
+
+| row | this edition’s line | v0.5 line | columns changed | source |
+|:--|:--|:--|:--|:--|
+| R01 | :131 | :47 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R02 | :132 | :48 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R03 | :133 | :49 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R04 | :134 | :50 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R05 | :135 | :51 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R06 | :136 | :52 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R07 | :137 | :53 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R08 | :138 | :54 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R09 | :139 | :55 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R10 | :140 | :56 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R11 | :141 | :57 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R12 | :142 | :58 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R13 | :143 | :59 | editions, provenance | the editions and the trails; R-9; the terminal table at relay 7848d8be, R-19 |
+| R14 | :144 | :60 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R15 | :145 | :61 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R16 | :146 | :62 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R17 | :147 | :63 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R18 | :148 | :64 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R19 | :149 | :65 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R20 | :150 | :66 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R21 | :151 | :67 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R22 | :152 | :68 | provenance | the terminal table at relay 7848d8be, R-19 |
+| R23 | :153 | :69 | provenance | the terminal table at relay 7848d8be, R-19 |
+
+*24 cells changed in 23 rows.*
+
+### Rewrites under the clauses
+
+| line | v0.5 line | was | now | clause | the object named |
+|:--|:--|:--|:--|:--|:--|
+| :123 | :39 | “*(read 2026-10-06, b633; relay `data/b633_census.txt`)*” | “*(read 2026-10-07, b638; relay `data/b638_census.txt`)*” | fact | the read and its bank |
+| :125 | :41 | “Each cell is read at PLACE-papers e67c43b or at the remote” | “Each cell is read at PLACE-papers 5c4247b or at the remote” | fact | the pin read |
+| :127 | :43 | “The last column, ruled at v0.5 … cell / rule / none …” | “The last column … cell / rule / rule-elab / none … the upstream rows … counted apart” | ruled | the provenance column under the exclusion, `(R248)`(5) |
+| :129 | :45 | “kernels’ table rows: cell / rule / none ¦” | “kernels’ table rows: cell / rule / rule-elab / none (upstream apart) ¦” | ruled | the provenance column |
+| :155 | :71 | “*(read 2026-10-06, b633, under `(R243)`(6)(i); relay `data/b633_census.txt`, Part C)*” | “*(read 2026-10-07, b638, the tags re-read under `(R248)`(5); relay `data/b638_census.txt`, Part C)*” | fact | the tags re-read |
+| :157 | :73 | “its repository list at PLACE-papers e67c43b, the list b632’s root was taken over” | “its repository list at PLACE-papers 5c4247b, the list b637’s root was taken over” | fact | the root list read |
+| :157 | :73 | “and its rows in the terminal table by provenance.” | “and its rows in the terminal table by provenance, the upstream rows apart.” | ruled | the exclusion |
+| :159 | :75 | “¦ table rows: cell / rule / none ¦” | “¦ table rows: cell / rule / rule-elab / none (upstream apart) ¦” | ruled | the provenance column |
+| :200 | :116 | “*(under `(R243)`(6)(ii); relay `data/b633_census.txt`, Part D)*” | “*(under `(R243)`(6)(ii), read again at v0.6 under `(R248)`(5); relay `data/b638_census.txt`, Part D)*” | fact | the faces read again |
+| :211 | :127 | “*(under `(R243)`(6)(iv); relay `data/b633_census.txt`, Part F)*” | “*(under `(R243)`(6)(iv); read again by b636 under `(R246)`(4), its four rows unchanged and no trigger; relay `data/b636_phase2_read.txt`)*” | ruled | the Phase 2 rows as b636 read them again, `(R248)`(5) |
+| :236 | :152 | “2 kernels carry 3 tags their remotes do not (relay `data/b633_census.txt`, Part C) -- of W-ORD-TAG-REMOTES’ nine (OPEN_TRAILS :12597), the tags b623 pushed now read at their remotes, and each tag still local is named unpushed in its kernel’s cell in §1;” | “2 kernels carry 3 tags their remotes do not (relay `data/b638_census.txt`, Part C) -- of W-ORD-TAG-REMOTES’ nine (OPEN_TRAILS :12597), the tags b623 pushed now read at their remotes, and each tag still local is named unpushed in its kernel’s cell in §1;” | fact | the tags read by ls-remote |
+
+*The §1A rows, the §1B rows and the §1 rows are read again as rows; each is listed in the Correspondence below.*
+
+### Insertions ordered by the ruling
+
+| lines | what | Status |
+|:--|:--|:--|
+| :3 | the plain opening, `(R248)`(4) | inserted |
+| :11 | the glossary block, `(R248)`(4), from relay `data/glossary.txt` | inserted |
+| :92 | the version line, above v0.5’s | inserted |
+
+### The named premises the INTERFACES rows rest on, at v0.6 (`(R248)`(5)), and MET
+
+The census’s method, read again at the table at relay 7848d8be with the upstream rows excluded (relay `data/b638_census.txt`, Part H): each head printed with the kernels its rows sit in, the commits the table read them at, the rule-graded rows resting on it, the rule-elab rows beside, its count at v0.5 and whether a ledger names its discharge.
+
+| named premise | kernels | commits read at | rule rows | rule-elab rows | v0.5 (b632 → v0.5) | a ledger naming its discharge |
+|:--|:--|:--|:--|:--|:--|:--|
+| Alternates | SIDE-global-section | 17ce9ff | 2 | 0 | 5 → 2 | none named |
+| AnalyticOnNhd | SIDE-explicit-formula | 8c51431 | 3 | 0 | 2 → 2 | none named |
+| BlockInputs | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | none named |
+| BoundPremises | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| ConservationHypothesis | SIDE-kernel | 0256e9e | 3 | 0 | 3 → 3 | OPEN_TRAILS :61, OPEN_TRAILS :5523 |
+| Continuous | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| Dealigned | SIDE-structural-error-correction | 6bf19ab | 1 | 0 | 1 → 1 | none named |
+| DealignedAt | SIDE-structural-error-correction | 6bf19ab | 1 | 0 | 1 → 1 | none named |
+| EF_lit | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | FINDINGS :6142, OPEN_TRAILS :11590 |
+| EpsteinPremises | SIDE-explicit-formula | 8c51431 | 2 | 0 | 2 → 2 | none named |
+| EqOn | SIDE-lv-conservation | 2f71068 | 1 | 0 | 1 → 1 | none named |
+| EulerFactorPremise | SIDE-explicit-formula | 8c51431 | 1 | 0 | — | FINDINGS :7026, FINDINGS :7056, OPEN_TRAILS :12420 |
+| GammaFacts | SIDE-explicit-formula | 8c51431 | 0 | 1 | — | none named |
+| HCount | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| HasCompactSupport | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| HasDerivAt | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | FINDINGS :6244 |
+| IdempotentAdd | SIDE-carrier-spec | b3916cc | 4 | 0 | 4 → 4 | none named |
+| InTail | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | none named |
+| Integrable | SIDE-explicit-formula | 8c51431 | 1 | 1 | 1 → 1 | none named |
+| IsEvenFn | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+| IsExpansion | SIDE-lv-conservation | 2f71068 | 2 | 0 | 2 → 2 | none named |
+| IsOpen | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+| IsRoot | SIDE-lv-conservation | 2f71068 | 2 | 0 | 2 → 2 | none named |
+| IsSign | SIDE-global-section | 17ce9ff | 5 | 0 | 5 → 5 | none named |
+| IsSignedCompletion | SIDE-carrier-spec | b3916cc | 1 | 0 | 1 → 1 | none named |
+| IsTrivialPoint | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| KeiperObligations | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| Monotone | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+| NontrivialZeroExistsInStrip | SIDE-lv-conservation | 2f71068 | 1 | 0 | — | none named |
+| NotDiv | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+| NymanBeurlingPremise | SIDE-explicit-formula | 8c51431 | 1 | 0 | — | FINDINGS :7639 |
+| PWSetup | SIDE-explicit-formula | 8c51431 | 48 | 3 | — | none named |
+| PaperInputs | SIDE-explicit-formula | 8c51431 | 0 | 5 | — | OPEN_TRAILS :7763 |
+| PerClassExcludes | SIDE-lv-conservation | 2f71068 | 1 | 0 | 1 → 1 | none named |
+| PlattTrudgianHeight | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| Prime | SIDE-carrier-spec, SIDE-explicit-formula, SIDE-global-section, SIDE-grh-transfer | 17ce9ff, 858cbf6, 8c51431, b3916cc | 5 | 0 | 5 → 5 | none named |
+| Proper | SIDE-structural-error-correction | 6bf19ab | 1 | 0 | 1 → 1 | none named |
+| Register4_channelInequality | SIDE-lv-conservation | 2f71068 | 1 | 0 | — | OPEN_TRAILS :11542, OPEN_TRAILS :11647 |
+| Register4_positivity | SIDE-lv-conservation | 2f71068 | 1 | 0 | — | FINDINGS :6230, FINDINGS :6244, OPEN_TRAILS :11542, OPEN_TRAILS :11647 |
+| RiemannVonMangoldt | SIDE-explicit-formula | 8c51431 | 0 | 2 | — | none named |
+| SatisfiesCWeil | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | none named |
+| SelfDualFE | SIDE-lv-conservation | 2f71068 | 3 | 0 | — | none named |
+| StepsI | SIDE-global-section | 17ce9ff | 2 | 0 | 2 → 2 | none named |
+| StepsMI | SIDE-global-section | 17ce9ff | 2 | 0 | 2 → 2 | none named |
+| StrictMono | SIDE-rcurve | d5f33b4 | 2 | 0 | 2 → 2 | none named |
+| StructuralExhaustiveness | SIDE-kernel | 0256e9e | 1 | 0 | 1 → 1 | none named |
+| SymPairBound | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| TailHyp | SIDE-explicit-formula | 8c51431 | 0 | 24 | — | none named |
+| TailInputs | SIDE-explicit-formula | 8c51431 | 0 | 3 | — | none named |
+| Tendsto | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| TrivialSummandPremise | SIDE-explicit-formula | 8c51431 | 1 | 0 | — | FINDINGS :7026, FINDINGS :7056, OPEN_TRAILS :12420 |
+| WindowObligations | SIDE-explicit-formula | 8c51431 | 2 | 0 | 2 → 2 | none named |
+| ZeroActingPairing | SIDE-lv-conservation | 2f71068 | 2 | 0 | — | OPEN_TRAILS :11647 |
+| ZetaSeam | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| farSmall | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | none named |
+| hat | SIDE-explicit-formula | 8c51431 | 0 | 1 | — | none named |
+| identity | SIDE-global-section | 17ce9ff | 1 | 0 | 1 → 1 | FINDINGS :3183, FINDINGS :6244, OPEN_TRAILS :4961, OPEN_TRAILS :4969 |
+| is_xi_zero | SIDE-kernel | 0256e9e | 1 | 0 | 1 → 1 | none named |
+| tilde | SIDE-explicit-formula | 8c51431 | 0 | 1 | — | none named |
+| zeroSideNeg | SIDE-explicit-formula | 8c51431 | 1 | 0 | 1 → 1 | OPEN_TRAILS :10882 |
+
+*50 heads carry rule-graded rows, their rows summing to 123, a row counted once for each named premise it rests on; the rule-elab rows beside sum to 47; 12 rows rest on a premise no head names. The table’s INTERFACES rows, the upstream rows excluded, number 186: rule 117, rule-elab 46, cell 23.*
+
+#### The residue: the premises with no nameable head
+
+b637 read the twenty unnamed rows by class (relay `data/b637_rerun.txt`); 8 rest INTERFACES on a premise whose head the census’s reader cannot name. Each is printed with its premise binder as the rule reads it, and no name is given to it.
+
+| id | kernel | declaration | grade (provenance) | the premise binder, as read | its class |
+|:--|:--|:--|:--|:--|:--|
+| U05 | SIDE-explicit-formula | `SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re` | INTERFACES (cell) | `h1 : ∀ C ∈ sevenClasses, C Phi` | B11 |
+| U06 | SIDE-explicit-formula | `Zeta23.Analytic.rectangleIntegral'_mul_logDeriv` | INTERFACES (rule) | `hZsub : (Z : Set ℂ) ⊆ Rectangle z w` | B11 |
+| U08 | SIDE-grh-transfer | `SIDEGRHTransfer.twisted_balance_at_half` | INTERFACES (rule) | `hpn : ¬ p ∣ n` | B11 |
+| U09 | SIDE-grh-transfer | `SIDEGRHTransfer.twisted_balance_at_unramified_prime` | INTERFACES (rule) | `hpn : ¬ p ∣ n` | B11 |
+| U11 | SIDE-kernel | `InvarianceBarrier.derivability_barrier` | INTERFACES (rule) | `h_agree : agree x y`; `h_fail : ¬ P y` | B11 |
+| U12 | SIDE-kernel | `InvarianceBarrier.invariance_barrier` | INTERFACES (rule) | `h_agree : agree x y`; `h_diverge : ¬ (P x ↔ P y)` | B11 |
+| U16 | SIDE-lv-conservation | `T3.T3b_joint_witness_gives_combinations_exclude` | INTERFACES (rule) | `hJoint : ∀ C ∈ 𝒞, C Φ` | B11 |
+| U17 | SIDE-lv-conservation | `T3.T3prime_shared_witness` | INTERFACES (rule) | `h1 : ∀ C ∈ 𝒞, C Phi` | B11 |
+
+MET, the rule’s forward guard (OPEN_TRAILS :13221; relay `tools/e0_rule.py`), holds 51 names, each read as a premise until the author rules it a restriction: Alt2, Alternates, AnalyticOnNhd, BoundPremises, ConservationHypothesis, Continuous, Dealigned, DealignedAt, EpsteinPremises, EqOn, EulerFactorPremise, HCount, HasCompactSupport, HasDerivAt, IdempotentAdd, Integrable, IsEvenFn, IsExpansion, IsOpen, IsPreconnected, IsRoot, IsSign, IsSignedCompletion, IsTrivialPoint, KeiperObligations, LiLimitExchange, Monotone, NotDiv, NymanBeurlingPremise, PerClassExcludes, PlattTrudgianHeight, Prime, Proper, SatisfiesCWeil, StepsI, StepsMI, StrictMono, StructuralExhaustiveness, SymPairBound, Tendsto, TrivialSummandPremise, VerifiedZerosTo, WindowObligations, ZetaSeam, factorsDark, farSmall, identity, isConserved, is_xi_zero, zeroSideNeg; and 1 name whose own spelling carries a stem the scanner bans, printed in relay `data/b638_census.txt`, Part I.
+
+### The binder grammar the grades rest on
+
+Every grade in this census’s provenance column that reads rule or rule-elab rests on the binder grammar of b637 (`(R247)`(4); relay `data/b637_binder_classes.txt` and the docstring of relay `tools/e0_rule.py`): every binder of a statement -- the header’s groups, the conclusion’s leading telescope, the antecedents of its implication and the binders of an existential in it -- is classed by its kind, its typing (a Prop or data) and its form, the grade following the classes’ outcomes, a binder’s name no part of its reading and a binder reaching no class raised as a bug. The classes number 26:
+
+| class | kind | typing | form | outcome |
+|:--|:--|:--|:--|:--|
+| B01 | explicit | data | — | data |
+| B02 | implicit | data | — | data |
+| B03 | strict-implicit | data | — | data |
+| B04 | instance | a class | Fact | premise |
+| B05 | instance | a class | any class but Fact (criterion (i)) | domain condition |
+| B06 | explicit | Prop | the conclusion itself | conclusion |
+| B07 | explicit | Prop | a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split’s case (criterion (ii); DOMAIN, SPLITS) | domain condition |
+| B08 | explicit | Prop | a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS) | domain condition |
+| B09 | explicit | Prop | a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET) | unlisted |
+| B10 | explicit | Prop | a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction | premise |
+| B11 | explicit | Prop | any other Prop: a structure of premises or a named Prop about a fixed object | premise |
+| B12 | implicit | Prop | the conclusion itself | conclusion |
+| B13 | implicit | Prop | a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split’s case (criterion (ii); DOMAIN, SPLITS) | domain condition |
+| B14 | implicit | Prop | a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS) | domain condition |
+| B15 | implicit | Prop | a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET) | unlisted |
+| B16 | implicit | Prop | a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction | premise |
+| B17 | implicit | Prop | any other Prop: a structure of premises or a named Prop about a fixed object | premise |
+| B18 | strict-implicit | Prop | the conclusion itself | conclusion |
+| B19 | strict-implicit | Prop | a membership, non-membership, non-emptiness, finiteness, order or (in)equality condition, a listed property or a compiled split’s case (criterion (ii); DOMAIN, SPLITS) | domain condition |
+| B20 | strict-implicit | Prop | a restriction on a variable the statement quantifies -- a class predicate, a support inclusion or a named restriction (criterion (iii); RESTRICTIONS) | domain condition |
+| B21 | strict-implicit | Prop | a named predicate on quantified variables, neither listed nor met (PREDICATE-UNLISTED; MET) | unlisted |
+| B22 | strict-implicit | Prop | a named predicate on quantified variables that MET holds -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction | premise |
+| B23 | strict-implicit | Prop | any other Prop: a structure of premises or a named Prop about a fixed object | premise |
+| B24 | antecedent | Prop | a seam (SEAMS) | seam |
+| B25 | antecedent | Prop | any other antecedent: a plain implication between open statements, a domain antecedent | conclusion |
+| B26 | existential | any | a binder of an existential in the conclusion | conclusion |
+
+### Placement
+
+| object | path | Status |
+|:--|:--|:--|
+| this edition, v0.6 | `phase2/method/THE_KEYSTONE_CENSUS_v0_6.md` | written at b638 |
+| v0.5 | `phase2/method/THE_KEYSTONE_CENSUS_v0_5.md` | unedited |
+| v0.4 | `phase2/method/THE_KEYSTONE_CENSUS_v0_4.md` | unedited |
+| v0.3 | `phase2/method/THE_KEYSTONE_CENSUS_v0_3.md` | unedited |
+| the current version (v0.1 with its v0.2 section) | `phase2/method/THE_KEYSTONE_CENSUS.md` | unedited |
+| the census bank | relay `data/b638_census.txt` | banked before this edition |
+| the glossary | relay `data/glossary.txt` | read, printed by relay `tools/chain_page.py` |
+| the registry read | `REGISTRY.md` (read at PLACE-papers 5c4247b) | read, unedited |
+| the sieve read | `phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md` | read, unedited |
+| the terminal table | relay `data/terminal_table.json` @ 7848d8be | read |
+| the binder classes | relay `data/b637_binder_classes.txt` | read |
+| the structure fields | relay `data/b638_structure_fields.txt` | read |
+| the Phase 2 rows read again | relay `data/b636_phase2_read.txt` | read |
+| the intake summary | relay `data/b628_intake_summary.txt`, `data/b628_intake_summary.json` | read by digest |
+
+### Correspondence
+
+| row | this edition’s line | phase and cluster | REGISTRY rows (lines) | keystone | Status |
+|:--|:--|:--|:--|:--|:--|
+| R01 | :131 | Phase 1 / Day 1 | :83, :84, :85, :86, :87, :88, :89, :90 | yes | read again |
+| R02 | :132 | Phase 1.2 (filed under 1.5A by the phase attribute) | :142, :143, :144, :145, :1004, :1005 | yes | read again |
+| R03 | :133 | 1.5A: Alternative Proof Presentations | :146, :499, :505, :901 | yes | read again |
+| R04 | :134 | 1.5B: Simplicity & Zero Structure | :152, :153, :154, :155, :156, :157 | yes | read again |
+| R05 | :135 | 1.5C: Spectral & Structural Core | :163, :164, :165, :166, :167, :168, :169, :170, :171, :172, :173, :174, :175, :176, :479, :519 | yes | read again |
+| R06 | :136 | 1.5D: GRH & Cascade | :182, :183, :184, :185 | yes | read again |
+| R07 | :137 | 1.5E: Deep Structure | :191, :192, :193, :194, :195, :196, :1013 | yes | read again |
+| R08 | :138 | 1.5F: Syntheses | :202, :203, :204, :205 | yes | read again |
+| R09 | :139 | 1.5G: R-Curve & Monotonicity | :211, :212, :213, :214 | yes | read again |
+| R10 | :140 | 1.5H: SIDE Method Papers | :220, :221, :222, :223, :224, :225, :226, :227, :909 | yes | read again |
+| R11 | :141 | 2A: Formation Calculus & κ Theory | :239, :240, :241, :242 | yes | read again |
+| R12 | :142 | 2B: Consciousness, Cognition, Philosophy | :248, :249, :250, :251, :252, :253, :1021 | yes | read again |
+| R13 | :143 | 2C: Impossibility, Difficulty, Method | :259, :260, :262, :263, :1029, :1030, :1031, :1032 | yes | read again |
+| R14 | :144 | 2D: Physics & Cosmology | :269, :270, :271, :272, :273, :274, :275, :276, :1040 | yes | read again |
+| R15 | :145 | 2E: Error Correction & Quantum | :282, :283, :284, :285, :286, :287 | yes | read again |
+| R16 | :146 | 2F: Empirical & Competition | :293, :294, :295, :1048 | yes | read again |
+| R17 | :147 | 2G: Physics (Speculative — UNREVIEWED) | :301, :302, :303, :304, :305, :306, :307, :308, :309, :1056 | yes | read again |
+| R18 | :148 | Phase 2, rows filed to no lettered cluster | :520, :521, :581, :582 | yes | read again |
+| R19 | :149 | SUPPORT: cluster syntheses and consults | :319, :320, :321, :322, :323, :324, :325, :326, :327, :328, :329 | yes | read again |
+| R20 | :150 | INTERNAL: reference works | :337, :338, :339, :340, :341, :342 | yes | read again |
+| R21 | :151 | The junction / global-section era (the phase row) | :352 | yes | read again |
+| R22 | :152 | ANNEX: the download layer | :366 | none | read again |
+| R23 | :153 | Rows filed under no phase heading | :117, :671, :672, :673, :674, :675, :687 | yes | read again |
+| F1 | :206 | the Platt rung, SIDE-explicit-formula v0.22 = e939c92 | — | — | read again |
+| F2 | :207 | the two_thirds citation, SIDE-explicit-formula v0.23 = 98b7668 | — | — | read again |
+| F3 | :208 | the Nyman–Beurling face, SIDE-explicit-formula v0.24 = aa17442 | — | — | read again |
+| F4 | :209 | the Dedekind instance, SIDE-explicit-formula v0.25 = 8c51431 | — | — | read again |
+
+### Version history
+
+- **v0.6, 2026-10-07 (b638, `(R248)`(4)-(5))**: the census under the reader’s clause -- the plain opening and the glossary block; 24 cells changed in 23 rows; the kernel column with the tags re-read at the root’s 38 repositories; the provenance column under the upstream exclusion; the faces through v0.25; the Phase 2 rows as b636 read them again; the premise table at 50 heads over 123 rows with its residue of 8, MET beside it; the binder grammar’s 26 classes. v0.5 stands beside it, unedited.
+- **v0.5, 2026-10-06 (b633)**, **v0.4, 2026-10-04 (b619)**, **v0.3, 2026-10-03 (b610)**, **v0.2, 2026-09-28 (b553)** and **v0.1, 2026-08-12**: carried above.
+
+## Back matter of the v0.7 edition — written 2026-10-08 by b643 under the author’s ruling `(R253)`(5), by the form of `(R187)`(5)
+
+### The readings v0.7 adds, each the seat’s and strikeable
+
+- **The heads.** The census’s heads are those of relay `data/b641_premise_status.json`, the census v0.6 premise table’s heads.
+- **STATUS.** The status of relay `data/b642_premise_status.json` (the reader of b640, run again at b642), the head b641 computed false taking REFUTED-BY-COMPUTATION, its refutation compiled at b642.
+- **NON-VACUITY.** The outcome of relay `data/b642_nonvacuity.txt`: WITNESSED, DEGENERATE, or UNWITNESSED with its reason class; a DEGENERATE witness is its own value and is not counted with the WITNESSED.
+- **CONSUMERS.** The theorems of each kernel whose statement or proof uses the head, read from the dependency print of each kernel’s elaborated environment (relay `data/b643_consumers.txt`), an auxiliary declaration folded into its owner.
+- **HINGE.** A head whose consumers lie in more than one kernel, or in more than one chain within a kernel; the chain as the glossary defines it, named by its terminal declarations.
+- **The numerals.** In this back matter every numeral is a count of the table’s own rows or cells.
+
+### The premise table at v0.7: status, non-vacuity, consumers, hinge
+
+| head | status | non-vacuity | consumers (by kernel) | hinge |
+|:--|:--|:--|:--|:--|
+| Alternates | DISCHARGED | UNWITNESSED (OTHER-KERNEL) | 4 (SIDE-global-section 4) | — |
+| AnalyticOnNhd | DOMAIN | WITNESSED | 52 (SIDE-explicit-formula 52) | HINGE: in SIDE-explicit-formula 8 chains, `mem_divisor_support_of_zero`, `card_zeros_le_of_maxModulus`, `logDeriv_holomorphic`, `intervalIntegral_congr_ae_of_codiscreteWithin_along_path`, `zeta_zeros_countable`, `analyticOnNhd_witness` and 2 more |
+| BoundPremises | OPEN | UNWITNESSED (CONTENT) | 1 (SIDE-explicit-formula 1) | — |
+| ConservationHypothesis | OPEN | UNWITNESSED (OTHER-KERNEL) | 3 (SIDE-kernel 3) | — |
+| Continuous | DOMAIN | WITNESSED | 90 (SIDE-explicit-formula 90) | HINGE: in SIDE-explicit-formula 5 chains, `continuous`, `entire_has_entire_log_of_no_zeros`, `F_add`, `realizedGrowth_le_exp`, `continuous_witness` |
+| Dealigned | OPEN | UNWITNESSED (OTHER-KERNEL) | 1 (SIDE-structural-error-correction 1) | — |
+| DealignedAt | OPEN | UNWITNESSED (OTHER-KERNEL) | 2 (SIDE-structural-error-correction 2) | HINGE: in SIDE-structural-error-correction 2 chains, `Dealigned`, `dealigned_of_lines_injective` |
+| EpsteinPremises | OPEN | WITNESSED | 7 (SIDE-explicit-formula 7) | HINGE: in SIDE-explicit-formula 2 chains, `empty_premises`, `epstein_ef_at_window` |
+| EqOn | DOMAIN | WITNESSED | 2 (SIDE-lv-conservation 2) | HINGE: in SIDE-lv-conservation 2 chains, `integrableOn_rpow_mul_exp_Ioi`, `T2a_mellin_congr_on_Ioi` |
+| EulerFactorPremise | WITNESSED | WITNESSED | 7 (SIDE-explicit-formula 7) | HINGE: in SIDE-explicit-formula 5 chains, `eulerFactorPremise_of_primitive`, `dedekind_rhs`, `dedekind_rhs'`, `euler_factors`, `not_eulerFactorPremise_six` |
+| HCount | WITNESSED | WITNESSED | 23 (SIDE-explicit-formula 23) | HINGE: in SIDE-explicit-formula 2 chains, `weighted_finite_bound`, `finite_rest_bound` |
+| HasCompactSupport | DOMAIN | WITNESSED | 138 (SIDE-explicit-formula 138) | HINGE: in SIDE-explicit-formula 3 chains, (a cycle) CS, `classK`, `hasCompactSupport_witness` |
+| HasDerivAt | DOMAIN | WITNESSED | 68 (SIDE-explicit-formula 68) | HINGE: in SIDE-explicit-formula 11 chains, `hasDerivAt`, `hasDerivAt_ofReal`, `of_hasDerivAt_ofReal_comp`, `logDeriv_weierstrass_E_one_div`, `xi_hadamard_genus_one_shifted_linear_coeff_zero`, `ResidueMult` and 5 more |
+| IdempotentAdd | OPEN | UNWITNESSED (OTHER-KERNEL) | 4 (SIDE-carrier-spec 4) | HINGE: in SIDE-carrier-spec 2 chains, `map_eq_zero_of_idempotent`, `trivial_of_idempotent_of_spec` |
+| Integrable | DOMAIN | WITNESSED | 98 (SIDE-explicit-formula 98) | HINGE: in SIDE-explicit-formula 9 chains, `nearInt_ge`, `verticalIntegral_split_three`, `F_add`, `realizedGrowth_le_exp`, `symMember_transform_re`, `mellin_Phi_eq_zero_of_re_le_one` and 3 more |
+| IsEvenFn | OPEN | UNWITNESSED (OTHER-KERNEL) | 1 (SIDE-global-section 1) | — |
+| IsExpansion | OPEN | WITNESSED | 5 (SIDE-lv-conservation 5) | HINGE: in SIDE-lv-conservation 3 chains, `top_coeff_of_expansion`, `expansion_at_zero`, `expansion_exists_of_palindromic` |
+| IsOpen | DOMAIN | WITNESSED | not read (SIDE-global-section: its rows` modules have no olean at HEAD) | — |
+| IsRoot | DOMAIN | WITNESSED | 6 (SIDE-lv-conservation 6) | HINGE: in SIDE-lv-conservation 3 chains, `e8_confined`, `root_of_sign_change`, `w16_confined` |
+| IsSign | DISCHARGED | UNWITNESSED (OTHER-KERNEL) | 6 (SIDE-global-section 6) | — |
+| IsSignedCompletion | OPEN | UNWITNESSED (OTHER-KERNEL) | 1 (SIDE-carrier-spec 1) | — |
+| IsTrivialPoint | OPEN | WITNESSED | 5 (SIDE-explicit-formula 5) | HINGE: in SIDE-explicit-formula 2 chains, `GRH_chi_trivial`, `isTrivialPoint_parity` |
+| KeiperObligations | OPEN | UNWITNESSED (CONTENT) | 1 (SIDE-explicit-formula 1) | — |
+| Monotone | DOMAIN | WITNESSED | not read (SIDE-global-section: its rows` modules have no olean at HEAD) | — |
+| NontrivialZeroExistsInStrip | OPEN | UNWITNESSED (OTHER-KERNEL) | 6 (SIDE-lv-conservation 6) | — |
+| NotDiv | OPEN | UNWITNESSED (OTHER-KERNEL) | 9 (SIDE-global-section 9) | HINGE: in SIDE-global-section 3 chains, `valuation_exists`, `valuation_unique`, `notDiv_of_mod` |
+| NymanBeurlingPremise | CITED | UNWITNESSED (CONTENT) | 1 (SIDE-explicit-formula 1) | — |
+| PWSetup | DISCHARGED | DEGENERATE | 74 (SIDE-explicit-formula 74) | HINGE: in SIDE-explicit-formula 2 chains, `Aw`, `pwSetup_zero` |
+| PerClassExcludes | OPEN | UNWITNESSED (OTHER-KERNEL) | 1 (SIDE-lv-conservation 1) | — |
+| PlattTrudgianHeight | CITED | DEGENERATE | 2 (SIDE-explicit-formula 2) | HINGE: in SIDE-explicit-formula 2 chains, `rh_upto_platt`, `plattTrudgianHeight_neg_one` |
+| Prime | DOMAIN | WITNESSED | 18 (SIDE-carrier-spec 6, SIDE-explicit-formula 5, SIDE-grh-transfer 7; not read: SIDE-global-section) | HINGE: kernels SIDE-carrier-spec, SIDE-explicit-formula, SIDE-grh-transfer; in SIDE-explicit-formula 3 chains, `balance_lemma`, `nat_prime_witness`, `prime_witness`; in SIDE-grh-transfer 2 chains, `GRHStructuralExhaustiveness`, `prime_as_real` |
+| Proper | OPEN | UNWITNESSED (OTHER-KERNEL) | 1 (SIDE-structural-error-correction 1) | — |
+| Register4_channelInequality | OPEN | UNWITNESSED (OTHER-KERNEL) | 7 (SIDE-lv-conservation 7) | HINGE: in SIDE-lv-conservation 2 chains, `selfProductPositivity`, `partial_of_full` |
+| Register4_positivity | OPEN | UNWITNESSED (OTHER-KERNEL) | 4 (SIDE-lv-conservation 4) | HINGE: in SIDE-lv-conservation 2 chains, `R4_positivity_to_RH`, `zeroActingPairing_to_RH` |
+| SatisfiesCWeil | WITNESSED | UNWITNESSED (OTHER-KERNEL) | 3 (SIDE-global-section 3) | HINGE: in SIDE-global-section 3 chains, `cweil_determines`, `cweil_inhabited`, `cweil_is_the_assumption` |
+| SelfDualFE | OPEN | UNWITNESSED (OTHER-KERNEL) | 4 (SIDE-lv-conservation 4) | HINGE: in SIDE-lv-conservation 2 chains, `norml_top`, `ptTop_eq_p_zero` |
+| StepsI | DISCHARGED | UNWITNESSED (OTHER-KERNEL) | 7 (SIDE-global-section 7) | HINGE: in SIDE-global-section 4 chains, `bad_not_stepsI`, `alt2_of_stepsI`, `ladder_form`, `measured_not_stepsI` |
+| StepsMI | DISCHARGED | UNWITNESSED (OTHER-KERNEL) | 4 (SIDE-global-section 4) | — |
+| StrictMono | DOMAIN | WITNESSED | 2 (SIDE-rcurve 2) | HINGE: in SIDE-rcurve 2 chains, `monotone_unique_zero`, `second_zero_breaks_monotone` |
+| StructuralExhaustiveness | DISCHARGED | UNWITNESSED (OTHER-KERNEL) | 1 (SIDE-kernel 1) | — |
+| SymPairBound | DISCHARGED | WITNESSED | 3 (SIDE-explicit-formula 3) | — |
+| Tendsto | DOMAIN | WITNESSED | 92 (SIDE-explicit-formula 92) | HINGE: in SIDE-explicit-formula 11 chains, `cpow_inv_tendsto`, `tendsto_funscale`, `weierstrass_product_hasProdLocallyUniformlyOn_of_tendsto_norm_atTop`, `residue_eq_of_tendsto`, `LFunction_logDeriv_bddAbove_near_one`, `stieltjes_zero_limit` and 5 more |
+| TrivialSummandPremise | REFUTED-BY-COMPUTATION | UNWITNESSED (REFUTED) | 3 (SIDE-explicit-formula 3) | HINGE: in SIDE-explicit-formula 3 chains, `dedekind_rhs`, `trivial_summand`, `not_trivialSummandPremise` |
+| WindowObligations | DISCHARGED | WITNESSED | 4 (SIDE-explicit-formula 4) | — |
+| ZeroActingPairing | OPEN | UNWITNESSED (OTHER-KERNEL) | 6 (SIDE-lv-conservation 6) | HINGE: in SIDE-lv-conservation 2 chains, `zeroActingPairing_ledger_not_signNeutral`, `xRealization_to_zeroActingPairing` |
+| ZetaSeam | DISCHARGED | WITNESSED | 21 (SIDE-explicit-formula 21) | — |
+| farSmall | OPEN | DEGENERATE | 3 (SIDE-explicit-formula 3) | HINGE: in SIDE-explicit-formula 2 chains, `windowSlope_bound`, `farSmall_zero` |
+| identity | OPEN | UNWITNESSED (OTHER-KERNEL) | 5 (SIDE-global-section 5) | — |
+| is_xi_zero | OPEN | UNWITNESSED (OTHER-KERNEL) | 5 (SIDE-kernel 5) | — |
+| zeroSideNeg | DISCHARGED | WITNESSED | 3 (SIDE-explicit-formula 3) | — |
+
+*50 heads. Status: OPEN 22, CITED 2, DISCHARGED 10, WITNESSED 3, DOMAIN 12, REFUTED-BY-COMPUTATION 1. Non-vacuity: DEGENERATE 3, UNWITNESSED 26, WITNESSED 21. Heads with a consumer: 48; with none: 0; consumers not read: 2. Hinges: 28. The rule-graded rows resting on the heads: 123; the rule-elab rows beside: 4.*
+
+### The Π⁰₁ form of the open clause
+
+The paragraph is written where Kreisel’s statement and Davis, Matijasevič and Robinson’s are read at source; neither was reached, so it is not written and the work-order stays open (relay `data/b643_pi01_attempts.txt`).
+
+### Version history
+
+- **v0.7, 2026-10-08 (b643, `(R253)`(5))**: the premise table under the status of six values, the non-vacuity column with DEGENERATE apart, the consumers read from the dependency print and the hinges marked with their chains; the glossary block extended by the status, the witness, the degenerate witness, the consumer, the chain and the hinge.
+- **v0.6, 2026-10-07 (b638)** and the editions before it: carried above.

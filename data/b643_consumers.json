@@ -1,0 +1,2103 @@
+{
+ "at": "2026-10-09T02:18:13Z",
+ "rows": [
+  {
+   "head": "Alternates",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "AlternationShadow.Alternates"
+     ],
+     "n_head": 1,
+     "consumers": 4,
+     "statement": 4,
+     "proof_only": 0,
+     "reach": 4,
+     "chains": [
+      [
+       "AlternationShadow.alternates_both",
+       "AlternationShadow.alternates_both'",
+       "AlternationShadow.alternates_neg"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "AlternationShadow.alternates_both",
+      "AlternationShadow.alternates_both'",
+      "AlternationShadow.alternates_neg",
+      "AlternationShadow.both_values_survive_global_sign"
+     ]
+    }
+   ],
+   "consumers": 4,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "AnalyticOnNhd",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "AnalyticOnNhd"
+     ],
+     "n_head": 1,
+     "consumers": 52,
+     "statement": 27,
+     "proof_only": 25,
+     "reach": 460,
+     "chains": [
+      [
+       "Hadamard.OrderOne.mem_divisor_support_of_zero",
+       "Hadamard.ZeroCounting.card_zeros_le_of_max_one_maxModulus",
+       "Hadamard.ZeroCounting.sum_zeros_multiplicity_le_of_max_one_maxModulus"
+      ],
+      [
+       "Hadamard.ZeroCounting.card_zeros_le_of_maxModulus"
+      ],
+      [
+       "LiCriterion.logDeriv_holomorphic"
+      ],
+      [
+       "_private.Zeta23.FromPNTPlus.ResidueCalcOnRectangles.0.intervalIntegral_congr_ae_of_codiscreteWithin_along_path"
+      ],
+      [
+       "SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.analyticOnNhd_witness"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.PlateauRamp.contDiff_primitive"
+      ],
+      [
+       "_private.Zeta23.GammaFacts.0.Zeta23.analyticAt_digamma"
+      ]
+     ],
+     "n_chains": 8,
+     "sample": [
+      "BlaschkeAnalytic",
+      "BlaschkeNonzero",
+      "CfAnalytic",
+      "DiskBound",
+      "Hadamard.OrderOne.mem_divisor_support_of_zero"
+     ]
+    }
+   ],
+   "consumers": 52,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "BoundPremises",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.KeiperBounds.BoundPremises",
+      "SIDEExplicitFormula.KeiperBounds.BoundPremises.casesOn",
+      "SIDEExplicitFormula.KeiperBounds.BoundPremises.gamma_tight",
+      "SIDEExplicitFormula.KeiperBounds.BoundPremises.higher_stieltjes",
+      "SIDEExplicitFormula.KeiperBounds.BoundPremises.mk",
+      "SIDEExplicitFormula.KeiperBounds.BoundPremises.rec"
+     ],
+     "n_head": 8,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "SIDEExplicitFormula.KeiperBounds.keiperBounds_of"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.KeiperBounds.keiperBounds_of"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "ConservationHypothesis",
+   "per": [
+    {
+     "kernel": "SIDE-kernel",
+     "read": true,
+     "head_names": [
+      "ConservationBridge.ConservationHypothesis"
+     ],
+     "n_head": 1,
+     "consumers": 3,
+     "statement": 3,
+     "proof_only": 0,
+     "reach": 3,
+     "chains": [
+      [
+       "ConservationBridge.conservation_activates_balance"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "ConservationBridge.conservation_activates_balance",
+      "ConservationBridge.riemann_hypothesis",
+      "ConservationBridge.structural_exhaustiveness_proved"
+     ]
+    }
+   ],
+   "consumers": 3,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "Continuous",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "Continuous"
+     ],
+     "n_head": 1,
+     "consumers": 90,
+     "statement": 47,
+     "proof_only": 43,
+     "reach": 531,
+     "chains": [
+      [
+       "CS.continuous",
+       "W1.continuous"
+      ],
+      [
+       "EntireLog.entire_has_entire_log_of_no_zeros",
+       "Hadamard.cauchy_estimate_iteratedDeriv_at_zero",
+       "Hadamard.maxModulus_le_of_forall_norm_le"
+      ],
+      [
+       "F_add"
+      ],
+      [
+       "SIDEExplicitFormula.B321.realizedGrowth_le_exp"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.continuous_witness"
+      ]
+     ],
+     "n_chains": 5,
+     "sample": [
+      "CS.continuous",
+      "EntireLog.entire_has_entire_log_of_no_zeros",
+      "F_add",
+      "Hadamard.OrderOne.hasProdLocallyUniformlyOn_weierstrass_E_of_summable_inv_norm_pow",
+      "Hadamard.OrderOne.hasProdLocallyUniformlyOn_weierstrass_E_one_of_summable_inv_norm_sq"
+     ]
+    }
+   ],
+   "consumers": 90,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "Dealigned",
+   "per": [
+    {
+     "kernel": "SIDE-structural-error-correction",
+     "read": true,
+     "head_names": [
+      "DeAlignment.Dealigned"
+     ],
+     "n_head": 1,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "DeAlignment.single_domain_fault_not_logical"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "DeAlignment.single_domain_fault_not_logical"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "DealignedAt",
+   "per": [
+    {
+     "kernel": "SIDE-structural-error-correction",
+     "read": true,
+     "head_names": [
+      "DeAlignment.DealignedAt"
+     ],
+     "n_head": 1,
+     "consumers": 2,
+     "statement": 2,
+     "proof_only": 0,
+     "reach": 4,
+     "chains": [
+      [
+       "DeAlignment.Dealigned",
+       "DeAlignment.no_domain_covers_line"
+      ],
+      [
+       "DeAlignment.dealigned_of_lines_injective"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "DeAlignment.dealigned_of_lines_injective",
+      "DeAlignment.no_domain_covers_line"
+     ]
+    }
+   ],
+   "consumers": 2,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-structural-error-correction"
+   ],
+   "unread": []
+  },
+  {
+   "head": "EpsteinPremises",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.Schema.EpsteinPremises",
+      "SIDEExplicitFormula.Schema.EpsteinPremises.casesOn",
+      "SIDEExplicitFormula.Schema.EpsteinPremises.count",
+      "SIDEExplicitFormula.Schema.EpsteinPremises.ef",
+      "SIDEExplicitFormula.Schema.EpsteinPremises.mk",
+      "SIDEExplicitFormula.Schema.EpsteinPremises.rec"
+     ],
+     "n_head": 7,
+     "consumers": 7,
+     "statement": 7,
+     "proof_only": 0,
+     "reach": 14,
+     "chains": [
+      [
+       "SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises",
+       "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises",
+       "SIDEExplicitFormula.Schema.epsteinConfig"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window",
+      "SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises",
+      "SIDEExplicitFormula.Schema.SaltCheckEpstein.epstein_hypotheses_satisfiable",
+      "SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing",
+      "SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises"
+     ]
+    }
+   ],
+   "consumers": 7,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "EqOn",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "Set.EqOn"
+     ],
+     "n_head": 1,
+     "consumers": 2,
+     "statement": 1,
+     "proof_only": 1,
+     "reach": 18,
+     "chains": [
+      [
+       "SIDELvConservation.integrableOn_rpow_mul_exp_Ioi"
+      ],
+      [
+       "SIDELvConservation.T2a_mellin_congr_on_Ioi"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDELvConservation.T2a_mellin_congr_on_Ioi",
+      "SIDELvConservation.integrableOn_rpow_mul_exp_Ioi"
+     ]
+    }
+   ],
+   "consumers": 2,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "EulerFactorPremise",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.Schema.Family.EulerFactorPremise"
+     ],
+     "n_head": 1,
+     "consumers": 7,
+     "statement": 7,
+     "proof_only": 0,
+     "reach": 11,
+     "chains": [
+      [
+       "SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs'"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.Family.DedekindPremises.euler_factors"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.Family.not_eulerFactorPremise_six"
+      ]
+     ],
+     "n_chains": 5,
+     "sample": [
+      "SIDEExplicitFormula.SaltCheckNonvacuity.eulerFactorPremise_witness",
+      "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs",
+      "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs'",
+      "SIDEExplicitFormula.Schema.Family.DedekindPremises.euler_factors",
+      "SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive"
+     ]
+    }
+   ],
+   "consumers": 7,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "HCount",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.B321.HCount"
+     ],
+     "n_head": 1,
+     "consumers": 23,
+     "statement": 15,
+     "proof_only": 8,
+     "reach": 180,
+     "chains": [
+      [
+       "SIDEExplicitFormula.B321.weighted_finite_bound",
+       "SIDEExplicitFormula.Schema.EpsteinPremises.count",
+       "SIDEExplicitFormula.Schema.EpsteinPremises.mk"
+      ],
+      [
+       "SIDEExplicitFormula.B321.finite_rest_bound"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEExplicitFormula.B321.dominant_summable",
+      "SIDEExplicitFormula.B321.finite_rest_bound",
+      "SIDEExplicitFormula.B321.rest_bound",
+      "SIDEExplicitFormula.B321.rest_bound_closed",
+      "SIDEExplicitFormula.B321.rest_bound_zeta"
+     ]
+    }
+   ],
+   "consumers": 23,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "HasCompactSupport",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "HasCompactSupport"
+     ],
+     "n_head": 1,
+     "consumers": 138,
+     "statement": 101,
+     "proof_only": 37,
+     "reach": 496,
+     "chains": [
+      [
+       "(a cycle) CS"
+      ],
+      [
+       "SIDEExplicitFormula.B321.classK",
+       "SIDEExplicitFormula.B321.cosWin_hasCompactSupport",
+       "SIDEExplicitFormula.B321.hasCompactSupport_of_Icc"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.hasCompactSupport_witness"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "CS.deriv_scale",
+      "CS.deriv_scale'",
+      "CS.ext",
+      "CS.h2",
+      "CS.mk.congr_simp"
+     ]
+    }
+   ],
+   "consumers": 138,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "HasDerivAt",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "HasDerivAt"
+     ],
+     "n_head": 1,
+     "consumers": 68,
+     "statement": 28,
+     "proof_only": 40,
+     "reach": 518,
+     "chains": [
+      [
+       "CS.hasDerivAt",
+       "W1.hasDerivAt",
+       "contDiff_ofReal"
+      ],
+      [
+       "Complex.hasDerivAt_ofReal",
+       "DerivUpperBnd_aux7_3",
+       "Hadamard.deriv_weierstrass_E_at_one_ne_zero"
+      ],
+      [
+       "HasDerivAt.of_hasDerivAt_ofReal_comp"
+      ],
+      [
+       "Hadamard.OrderOne.logDeriv_weierstrass_E_one_div"
+      ],
+      [
+       "LiCriterion.xi_hadamard_genus_one_shifted_linear_coeff_zero"
+      ],
+      [
+       "ResidueMult"
+      ],
+      [
+       "SIDEExplicitFormula.GRHWeil.hasDerivAt_mellin_tail",
+       "SIDEExplicitFormula.GRHWeil.sum_eq_abel"
+      ],
+      [
+       "SIDEExplicitFormula.Keiper.hasDerivAt_wInv"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.hasDerivAt_witness"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.PlateauRamp.contDiff_primitive"
+      ],
+      [
+       "hasDerivAt_e"
+      ]
+     ],
+     "n_chains": 11,
+     "sample": [
+      "CS.deriv_scale",
+      "CS.hasDerivAt",
+      "CS.hasDerivAt_scale",
+      "Complex.hasDerivAt_ofReal",
+      "DerivUpperBnd_aux7_3"
+     ]
+    }
+   ],
+   "consumers": 68,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "IdempotentAdd",
+   "per": [
+    {
+     "kernel": "SIDE-carrier-spec",
+     "read": true,
+     "head_names": [
+      "SIDECarrierSpec.IdempotentAdd"
+     ],
+     "n_head": 1,
+     "consumers": 4,
+     "statement": 4,
+     "proof_only": 0,
+     "reach": 4,
+     "chains": [
+      [
+       "SIDECarrierSpec.map_eq_zero_of_idempotent"
+      ],
+      [
+       "SIDECarrierSpec.trivial_of_idempotent_of_spec"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDECarrierSpec.map_eq_zero_of_idempotent",
+      "SIDECarrierSpec.no_idempotent_candidate",
+      "SIDECarrierSpec.signedCompletion_trivial_of_idempotent",
+      "SIDECarrierSpec.trivial_of_idempotent_of_spec"
+     ]
+    }
+   ],
+   "consumers": 4,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-carrier-spec"
+   ],
+   "unread": []
+  },
+  {
+   "head": "Integrable",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "MeasureTheory.Integrable"
+     ],
+     "n_head": 1,
+     "consumers": 98,
+     "statement": 62,
+     "proof_only": 36,
+     "reach": 453,
+     "chains": [
+      [
+       "SIDEExplicitFormula.B321.nearInt_ge",
+       "SIDEExplicitFormula.B321.paperFT_growth",
+       "SIDEExplicitFormula.B321.paperFT_second_order"
+      ],
+      [
+       "verticalIntegral_split_three"
+      ],
+      [
+       "F_add",
+       "W1.integrable_iteratedDeriv_Schwarz"
+      ],
+      [
+       "SIDEExplicitFormula.B321.realizedGrowth_le_exp"
+      ],
+      [
+       "SIDEExplicitFormula.LiWeil.symMember_transform_re"
+      ],
+      [
+       "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.PlateauRamp.box_integrable",
+       "SIDEExplicitFormula.Schema.PlateauRamp.continuous_intAvg",
+       "SIDEExplicitFormula.Schema.PlateauRamp.integrable_weighted"
+      ],
+      [
+       "fourierIntegral_deriv_aux2"
+      ],
+      [
+       "norm_fourier_le_integral_deriv_div"
+      ]
+     ],
+     "n_chains": 9,
+     "sample": [
+      "DiffVertRect_eq_UpperLowerUs",
+      "F_add",
+      "F_sub",
+      "SIDEExplicitFormula.B321.base_nonzero_at",
+      "SIDEExplicitFormula.B321.cosWinC_FT"
+     ]
+    }
+   ],
+   "consumers": 98,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "IsEvenFn",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "FoldedMirrorShadow.IsEvenFn"
+     ],
+     "n_head": 1,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "FoldedMirrorShadow.two_ended_eq_two_times_one_sided"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "FoldedMirrorShadow.two_ended_eq_two_times_one_sided"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "IsExpansion",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.FieldLayer.IsExpansion"
+     ],
+     "n_head": 1,
+     "consumers": 5,
+     "statement": 5,
+     "proof_only": 0,
+     "reach": 5,
+     "chains": [
+      [
+       "SIDELvConservation.FieldLayer.top_coeff_of_expansion"
+      ],
+      [
+       "SIDELvConservation.SaltCheckLeadLaw.expansion_at_zero"
+      ],
+      [
+       "SIDELvConservation.SaltCheckLeadLaw.expansion_exists_of_palindromic"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "SIDELvConservation.FieldLayer.top_coeff_of_expansion",
+      "SIDELvConservation.LeadLaw.lead_law",
+      "SIDELvConservation.SaltCheckLeadLaw.expansion_at_zero",
+      "SIDELvConservation.SaltCheckLeadLaw.expansion_exists_of_palindromic",
+      "SIDELvConservation.SaltCheckLeadLaw.hg_is_load_bearing"
+     ]
+    }
+   ],
+   "consumers": 5,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "IsOpen",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": false,
+     "why": "the declarations its rows sit in (LocalLimit.real_no_compact_open_addSubgroup) are in modules with no olean at HEAD; the print reads built environments only"
+    }
+   ],
+   "consumers": null,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": [
+    "SIDE-global-section"
+   ]
+  },
+  {
+   "head": "IsRoot",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "Polynomial.IsRoot"
+     ],
+     "n_head": 1,
+     "consumers": 6,
+     "statement": 5,
+     "proof_only": 1,
+     "reach": 6,
+     "chains": [
+      [
+       "SIDELvConservation.Genus5Confinement.e8_confined"
+      ],
+      [
+       "SIDELvConservation.Genus5Confinement.root_of_sign_change",
+       "SIDELvConservation.Genus5Confinement.root_of_sign_change'"
+      ],
+      [
+       "SIDELvConservation.Genus5Confinement.w16_confined"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "SIDELvConservation.Genus5Confinement.e8_confined",
+      "SIDELvConservation.Genus5Confinement.golay_confined",
+      "SIDELvConservation.Genus5Confinement.golay_five_roots_in_interval",
+      "SIDELvConservation.Genus5Confinement.root_of_sign_change",
+      "SIDELvConservation.Genus5Confinement.root_of_sign_change'"
+     ]
+    }
+   ],
+   "consumers": 6,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "IsSign",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "SignTransferShadow.IsSign"
+     ],
+     "n_head": 1,
+     "consumers": 6,
+     "statement": 6,
+     "proof_only": 0,
+     "reach": 8,
+     "chains": [
+      [
+       "SignTransferShadow.eq_of_mul_pos",
+       "SignTransferShadow.neg_is_sign",
+       "SignTransferShadow.sq_pos"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SignTransferShadow.eq_of_mul_pos",
+      "SignTransferShadow.flip_is_sign",
+      "SignTransferShadow.neg_is_sign",
+      "SignTransferShadow.sq_pos",
+      "SignTransferShadow.transfer"
+     ]
+    }
+   ],
+   "consumers": 6,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "IsSignedCompletion",
+   "per": [
+    {
+     "kernel": "SIDE-carrier-spec",
+     "read": true,
+     "head_names": [
+      "SIDECarrierSpec.IsSignedCompletion",
+      "SIDECarrierSpec.IsSignedCompletion.casesOn",
+      "SIDECarrierSpec.IsSignedCompletion.mk",
+      "SIDECarrierSpec.IsSignedCompletion.rec",
+      "SIDECarrierSpec.IsSignedCompletion.recOn",
+      "SIDECarrierSpec.IsSignedCompletion.spans"
+     ],
+     "n_head": 6,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "SIDECarrierSpec.signedCompletion_trivial_of_idempotent"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDECarrierSpec.signedCompletion_trivial_of_idempotent"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "IsTrivialPoint",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.GRHWeil.IsTrivialPoint"
+     ],
+     "n_head": 1,
+     "consumers": 5,
+     "statement": 4,
+     "proof_only": 1,
+     "reach": 6,
+     "chains": [
+      [
+       "SIDEExplicitFormula.GRHWeil.GRH_chi_trivial",
+       "SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint",
+       "SIDEExplicitFormula.GRHWeil.trivialPoint_of_gammaFactor_eq_zero"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.isTrivialPoint_parity"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial",
+      "SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos",
+      "SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint",
+      "SIDEExplicitFormula.GRHWeil.trivialPoint_of_gammaFactor_eq_zero",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.isTrivialPoint_parity"
+     ]
+    }
+   ],
+   "consumers": 5,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "KeiperObligations",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.Keiper.KeiperObligations",
+      "SIDEExplicitFormula.Keiper.KeiperObligations.binomial",
+      "SIDEExplicitFormula.Keiper.KeiperObligations.casesOn",
+      "SIDEExplicitFormula.Keiper.KeiperObligations.gammaZeta",
+      "SIDEExplicitFormula.Keiper.KeiperObligations.mk",
+      "SIDEExplicitFormula.Keiper.KeiperObligations.rec"
+     ],
+     "n_head": 9,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "Monotone",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": false,
+     "why": "the declarations its rows sit in (LocalLimit.compression_tendsto) are in modules with no olean at HEAD; the print reads built environments only"
+    }
+   ],
+   "consumers": null,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": [
+    "SIDE-global-section"
+   ]
+  },
+  {
+   "head": "NontrivialZeroExistsInStrip",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip"
+     ],
+     "n_head": 1,
+     "consumers": 6,
+     "statement": 6,
+     "proof_only": 0,
+     "reach": 6,
+     "chains": [
+      [
+       "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing",
+      "SIDELvConservation.RegisterPentagon.distinctFromInput_discharged",
+      "SIDELvConservation.RegisterPentagon.positivity_free_obstruction_is_zeroRealization",
+      "SIDELvConservation.RegisterPentagon.residue_irreducible",
+      "SIDELvConservation.RegisterPentagon.xRealization_to_RH"
+     ]
+    }
+   ],
+   "consumers": 6,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "NotDiv",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "B329.NotDiv"
+     ],
+     "n_head": 1,
+     "consumers": 9,
+     "statement": 7,
+     "proof_only": 2,
+     "reach": 10,
+     "chains": [
+      [
+       "B329.valuation_exists",
+       "SmearGeneral.mod_of_notDiv"
+      ],
+      [
+       "B329.valuation_unique"
+      ],
+      [
+       "SmearGeneral.notDiv_of_mod"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "B329.finite_side_silence",
+      "B329.index_decomposes",
+      "B329.valuation_exists",
+      "B329.valuation_unique",
+      "SmearGeneral.mod_of_notDiv"
+     ]
+    }
+   ],
+   "consumers": 9,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-global-section"
+   ],
+   "unread": []
+  },
+  {
+   "head": "NymanBeurlingPremise",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise",
+      "SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise.casesOn",
+      "SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise.equiv",
+      "SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise.mk",
+      "SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise.rec",
+      "SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise.recOn"
+     ],
+     "n_head": 6,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "SIDEExplicitFormula.NymanBeurling.rh_iff_nb"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.NymanBeurling.rh_iff_nb"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "PWSetup",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.B321.PWSetup",
+      "SIDEExplicitFormula.B321.PWSetup.c4",
+      "SIDEExplicitFormula.B321.PWSetup.casesOn",
+      "SIDEExplicitFormula.B321.PWSetup.hL",
+      "SIDEExplicitFormula.B321.PWSetup.hM",
+      "SIDEExplicitFormula.B321.PWSetup.hdom"
+     ],
+     "n_head": 14,
+     "consumers": 74,
+     "statement": 69,
+     "proof_only": 5,
+     "reach": 135,
+     "chains": [
+      [
+       "SIDEExplicitFormula.B321.Aw",
+       "SIDEExplicitFormula.B321.KF",
+       "SIDEExplicitFormula.B321.TF"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.pwSetup_zero"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEExplicitFormula.B321.Aw_nonneg",
+      "SIDEExplicitFormula.B321.Efac_ne",
+      "SIDEExplicitFormula.B321.Ep_prod",
+      "SIDEExplicitFormula.B321.Kp.congr_simp",
+      "SIDEExplicitFormula.B321.Kp_kill"
+     ]
+    }
+   ],
+   "consumers": 74,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "PerClassExcludes",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.T3.PerClassExcludes"
+     ],
+     "n_head": 1,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 2,
+     "chains": [
+      [
+       "SIDELvConservation.T3.T3_perClass_to_combinations"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDELvConservation.T3.T3_perClass_to_combinations"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "PlattTrudgianHeight",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight",
+      "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.casesOn",
+      "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.mk",
+      "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.rec",
+      "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.recOn",
+      "SIDEExplicitFormula.PlattRung.PlattTrudgianHeight.verified"
+     ],
+     "n_head": 6,
+     "consumers": 2,
+     "statement": 2,
+     "proof_only": 0,
+     "reach": 2,
+     "chains": [
+      [
+       "SIDEExplicitFormula.PlattRung.rh_upto_platt"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.plattTrudgianHeight_neg_one"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEExplicitFormula.PlattRung.rh_upto_platt",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.plattTrudgianHeight_neg_one"
+     ]
+    }
+   ],
+   "consumers": 2,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "Prime",
+   "per": [
+    {
+     "kernel": "SIDE-carrier-spec",
+     "read": true,
+     "head_names": [
+      "Nat.Prime"
+     ],
+     "n_head": 1,
+     "consumers": 6,
+     "statement": 6,
+     "proof_only": 0,
+     "reach": 22,
+     "chains": [
+      [
+       "SIDECarrierSpec.int_frobenius"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDECarrierSpec.ArithContent.frobenius",
+      "SIDECarrierSpec.ArithContent.mk.inj",
+      "SIDECarrierSpec.ArithContent.mk.injEq",
+      "SIDECarrierSpec.ArithContent.mk.sizeOf_spec",
+      "SIDECarrierSpec.SaltCheck.witness_arith_and_still_degenerate"
+     ]
+    },
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "Nat.Prime",
+      "Prime"
+     ],
+     "n_head": 2,
+     "consumers": 5,
+     "statement": 3,
+     "proof_only": 2,
+     "reach": 15,
+     "chains": [
+      [
+       "SIDEExplicitFormula.B321.balance_lemma",
+       "SIDEExplicitFormula.B321.conservationHypothesis",
+       "SIDEExplicitFormula.B321.conservationHypothesisConfig"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.nat_prime_witness"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.prime_witness"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "SIDEExplicitFormula.B321.balance_lemma",
+      "SIDEExplicitFormula.B321.ch_imp_rh",
+      "SIDEExplicitFormula.B321.rh_imp_ch",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.nat_prime_witness",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.prime_witness"
+     ]
+    },
+    {
+     "kernel": "SIDE-global-section",
+     "read": false,
+     "why": "the declarations its rows sit in (LocalLimit.general_p_no_fixed_cell) are in modules with no olean at HEAD; the print reads built environments only"
+    },
+    {
+     "kernel": "SIDE-grh-transfer",
+     "read": true,
+     "head_names": [
+      "Nat.Prime"
+     ],
+     "n_head": 1,
+     "consumers": 7,
+     "statement": 6,
+     "proof_only": 1,
+     "reach": 9,
+     "chains": [
+      [
+       "SIDEGRHTransfer.GRHStructuralExhaustiveness",
+       "SIDEGRHTransfer.ostrowski_exhaustive_chi"
+      ],
+      [
+       "SIDEGRHTransfer.prime_as_real"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEGRHTransfer.balance_theorem",
+      "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+      "SIDEGRHTransfer.ostrowski_exhaustive_chi",
+      "SIDEGRHTransfer.prime_as_real.congr_simp",
+      "SIDEGRHTransfer.prime_gt_one"
+     ]
+    }
+   ],
+   "consumers": 18,
+   "hinge": true,
+   "hinge_kernels": [
+    "SIDE-carrier-spec",
+    "SIDE-explicit-formula",
+    "SIDE-grh-transfer"
+   ],
+   "hinge_chains": [
+    "SIDE-explicit-formula",
+    "SIDE-grh-transfer"
+   ],
+   "unread": [
+    "SIDE-global-section"
+   ]
+  },
+  {
+   "head": "Proper",
+   "per": [
+    {
+     "kernel": "SIDE-structural-error-correction",
+     "read": true,
+     "head_names": [
+      "DeAlignment.Line.Proper"
+     ],
+     "n_head": 1,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "DeAlignment.dealigned_of_lines_injective"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "DeAlignment.dealigned_of_lines_injective"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "Register4_channelInequality",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.RegisterPentagon.Register4_channelInequality"
+     ],
+     "n_head": 1,
+     "consumers": 7,
+     "statement": 7,
+     "proof_only": 0,
+     "reach": 16,
+     "chains": [
+      [
+       "SIDELvConservation.RegisterPentagon.XRealization.selfProductPositivity",
+       "SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk",
+       "SIDELvConservation.RegisterPentagon.ZeroActingPairing.yieldsInequality"
+      ],
+      [
+       "SIDELvConservation.RegisterPentagon.partial_of_full"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDELvConservation.RegisterPentagon.XRealization.selfProductPositivity",
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing.yieldsInequality",
+      "SIDELvConservation.RegisterPentagon.partial_of_full",
+      "SIDELvConservation.RegisterPentagon.residue_irreducible",
+      "SIDELvConservation.RegisterPentagon.xRealization_to_RH"
+     ]
+    }
+   ],
+   "consumers": 7,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "Register4_positivity",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.RegisterPentagon.Register4_positivity"
+     ],
+     "n_head": 1,
+     "consumers": 4,
+     "statement": 4,
+     "proof_only": 0,
+     "reach": 4,
+     "chains": [
+      [
+       "SIDELvConservation.RegisterPentagon.R4_positivity_to_RH"
+      ],
+      [
+       "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDELvConservation.RegisterPentagon.R4_positivity_to_RH",
+      "SIDELvConservation.RegisterPentagon.residue_irreducible",
+      "SIDELvConservation.RegisterPentagon.xRealization_to_RH",
+      "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH"
+     ]
+    }
+   ],
+   "consumers": 4,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "SatisfiesCWeil",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "AggregationCircularityShadow.SatisfiesCWeil"
+     ],
+     "n_head": 1,
+     "consumers": 3,
+     "statement": 3,
+     "proof_only": 0,
+     "reach": 3,
+     "chains": [
+      [
+       "AggregationCircularityShadow.cweil_determines"
+      ],
+      [
+       "AggregationCircularityShadow.cweil_inhabited"
+      ],
+      [
+       "AggregationCircularityShadow.cweil_is_the_assumption"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "AggregationCircularityShadow.cweil_determines",
+      "AggregationCircularityShadow.cweil_inhabited",
+      "AggregationCircularityShadow.cweil_is_the_assumption"
+     ]
+    }
+   ],
+   "consumers": 3,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-global-section"
+   ],
+   "unread": []
+  },
+  {
+   "head": "SelfDualFE",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.FieldLayer.SelfDualFE",
+      "SIDELvConservation.FieldLayer.SelfDualFE.casesOn",
+      "SIDELvConservation.FieldLayer.SelfDualFE.fe",
+      "SIDELvConservation.FieldLayer.SelfDualFE.mk",
+      "SIDELvConservation.FieldLayer.SelfDualFE.rec",
+      "SIDELvConservation.FieldLayer.SelfDualFE.recOn"
+     ],
+     "n_head": 6,
+     "consumers": 4,
+     "statement": 4,
+     "proof_only": 0,
+     "reach": 4,
+     "chains": [
+      [
+       "SIDELvConservation.FieldLayer.norml_top"
+      ],
+      [
+       "SIDELvConservation.LeadLaw.ptTop_eq_p_zero"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDELvConservation.FieldLayer.norml_top",
+      "SIDELvConservation.LeadLaw.lead_law",
+      "SIDELvConservation.LeadLaw.lead_law_of_top_coeff",
+      "SIDELvConservation.LeadLaw.ptTop_eq_p_zero"
+     ]
+    }
+   ],
+   "consumers": 4,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "StepsI",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "LadderOrientationShadow.StepsI"
+     ],
+     "n_head": 1,
+     "consumers": 7,
+     "statement": 7,
+     "proof_only": 0,
+     "reach": 9,
+     "chains": [
+      [
+       "LadderOrientationShadow.bad_not_stepsI"
+      ],
+      [
+       "LadderOrientationShadow.alt2_of_stepsI",
+       "LadderOrientationShadow.ipow_stepsI"
+      ],
+      [
+       "LadderOrientationShadow.ladder_form",
+       "LadderOrientationShadow.stepsI_of_alt2"
+      ],
+      [
+       "LadderOrientationShadow.measured_not_stepsI"
+      ]
+     ],
+     "n_chains": 4,
+     "sample": [
+      "LadderOrientationShadow.alt2_does_not_imply_stepsI",
+      "LadderOrientationShadow.alt2_of_stepsI",
+      "LadderOrientationShadow.bad_not_stepsI",
+      "LadderOrientationShadow.ipow_stepsI",
+      "LadderOrientationShadow.ladder_form"
+     ]
+    }
+   ],
+   "consumers": 7,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-global-section"
+   ],
+   "unread": []
+  },
+  {
+   "head": "StepsMI",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "LadderOrientationShadow.StepsMI"
+     ],
+     "n_head": 1,
+     "consumers": 4,
+     "statement": 4,
+     "proof_only": 0,
+     "reach": 7,
+     "chains": [
+      [
+       "LadderOrientationShadow.alt2_of_stepsMI",
+       "LadderOrientationShadow.ladder_form_mi",
+       "LadderOrientationShadow.measured_stepsMI"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "LadderOrientationShadow.alt2_of_stepsMI",
+      "LadderOrientationShadow.ladder_form_mi",
+      "LadderOrientationShadow.measured_stepsMI",
+      "LadderOrientationShadow.stepsMI_of_alt2"
+     ]
+    }
+   ],
+   "consumers": 4,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "StrictMono",
+   "per": [
+    {
+     "kernel": "SIDE-rcurve",
+     "read": true,
+     "head_names": [
+      "StrictMono"
+     ],
+     "n_head": 1,
+     "consumers": 2,
+     "statement": 2,
+     "proof_only": 0,
+     "reach": 2,
+     "chains": [
+      [
+       "SIDERCurve.monotone_unique_zero"
+      ],
+      [
+       "SIDERCurve.second_zero_breaks_monotone"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDERCurve.monotone_unique_zero",
+      "SIDERCurve.second_zero_breaks_monotone"
+     ]
+    }
+   ],
+   "consumers": 2,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-rcurve"
+   ],
+   "unread": []
+  },
+  {
+   "head": "StructuralExhaustiveness",
+   "per": [
+    {
+     "kernel": "SIDE-kernel",
+     "read": true,
+     "head_names": [
+      "StructuralExhaustiveness"
+     ],
+     "n_head": 1,
+     "consumers": 1,
+     "statement": 1,
+     "proof_only": 0,
+     "reach": 1,
+     "chains": [
+      [
+       "structural_exhaustiveness_proved"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "structural_exhaustiveness_proved"
+     ]
+    }
+   ],
+   "consumers": 1,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "SymPairBound",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.LiWeil.SymPairBound"
+     ],
+     "n_head": 1,
+     "consumers": 3,
+     "statement": 3,
+     "proof_only": 0,
+     "reach": 6,
+     "chains": [
+      [
+       "SIDEExplicitFormula.LiWeil.exchange_of_bound",
+       "SIDEExplicitFormula.LiWeil.symPair_bound"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.LiWeil.exchange_of_bound",
+      "SIDEExplicitFormula.LiWeil.symPair_bound",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.symPairBound_witness"
+     ]
+    }
+   ],
+   "consumers": 3,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "Tendsto",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "Filter.Tendsto"
+     ],
+     "n_head": 1,
+     "consumers": 92,
+     "statement": 52,
+     "proof_only": 40,
+     "reach": 540,
+     "chains": [
+      [
+       "Complex.cpow_inv_tendsto",
+       "Complex.cpow_tendsto",
+       "Hadamard.OrderOne.finite_norm_le_of_summable_inv_norm_pow"
+      ],
+      [
+       "tendsto_funscale"
+      ],
+      [
+       "Hadamard.weierstrass_product_hasProdLocallyUniformlyOn_of_tendsto_norm_atTop"
+      ],
+      [
+       "residue_eq_of_tendsto"
+      ],
+      [
+       "SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_bddAbove_near_one"
+      ],
+      [
+       "SIDEExplicitFormula.Keiper.stieltjes_zero_limit"
+      ],
+      [
+       "SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue"
+      ],
+      [
+       "SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.tendsto_witness"
+      ],
+      [
+       "tendsto_const_mul_log_add_two_div_add_two_atTop"
+      ],
+      [
+       "tendsto_intervalIntegral_zero_of_uniform_norm_bound"
+      ]
+     ],
+     "n_chains": 11,
+     "sample": [
+      "CS.tendsto_scale",
+      "Complex.cpow_inv_tendsto",
+      "Complex.cpow_tendsto",
+      "DerivUpperBnd_aux7_tendsto",
+      "Hadamard.General.exists_quotient_entire"
+     ]
+    }
+   ],
+   "consumers": 92,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "TrivialSummandPremise",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.Schema.Family.TrivialSummandPremise"
+     ],
+     "n_head": 1,
+     "consumers": 3,
+     "statement": 3,
+     "proof_only": 0,
+     "reach": 7,
+     "chains": [
+      [
+       "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.Family.DedekindPremises.trivial_summand"
+      ],
+      [
+       "SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise"
+      ]
+     ],
+     "n_chains": 3,
+     "sample": [
+      "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs",
+      "SIDEExplicitFormula.Schema.Family.DedekindPremises.trivial_summand",
+      "SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise"
+     ]
+    }
+   ],
+   "consumers": 3,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "WindowObligations",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations",
+      "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.casesOn",
+      "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.conv_step",
+      "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.mk",
+      "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.rec",
+      "SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations.recOn"
+     ],
+     "n_head": 7,
+     "consumers": 4,
+     "statement": 4,
+     "proof_only": 0,
+     "reach": 5,
+     "chains": [
+      [
+       "SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of",
+       "SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.SaltCheckNonvacuity.windowObligations_witness",
+      "SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window",
+      "SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of",
+      "SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds"
+     ]
+    }
+   ],
+   "consumers": 4,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "ZeroActingPairing",
+   "per": [
+    {
+     "kernel": "SIDE-lv-conservation",
+     "read": true,
+     "head_names": [
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing",
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing.casesOn",
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing.distinctFromInput",
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing.eulerConsuming",
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk",
+      "SIDELvConservation.RegisterPentagon.ZeroActingPairing.rec"
+     ],
+     "n_head": 9,
+     "consumers": 6,
+     "statement": 6,
+     "proof_only": 0,
+     "reach": 7,
+     "chains": [
+      [
+       "SIDELvConservation.RegisterPentagon.zeroActingPairing_ledger_not_signNeutral"
+      ],
+      [
+       "SIDELvConservation.RegisterPentagon.xRealization_to_zeroActingPairing",
+       "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDELvConservation.RegisterPentagon.dhModelLedger_no_pairing",
+      "SIDELvConservation.RegisterPentagon.residue_irreducible",
+      "SIDELvConservation.RegisterPentagon.xRealization_to_zeroActingPairing",
+      "SIDELvConservation.RegisterPentagon.zeroActingPairing_ledger_not_signNeutral",
+      "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH"
+     ]
+    }
+   ],
+   "consumers": 6,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-lv-conservation"
+   ],
+   "unread": []
+  },
+  {
+   "head": "ZetaSeam",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "Zeta23.ZetaSeam",
+      "Zeta23.ZetaSeam.casesOn",
+      "Zeta23.ZetaSeam.finite_window",
+      "Zeta23.ZetaSeam.finite_window_holds",
+      "Zeta23.ZetaSeam.mk",
+      "Zeta23.ZetaSeam.mult_reflect"
+     ],
+     "n_head": 12,
+     "consumers": 21,
+     "statement": 19,
+     "proof_only": 2,
+     "reach": 164,
+     "chains": [
+      [
+       "Zeta23.zetaSeam",
+       "Zeta23.zetaZeros"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.SaltCheckNonvacuity.zetaSeam_witness",
+      "Zeta23.RvM.rectangleIntegral'_logDeriv_completedZeta_eq_Ncount",
+      "Zeta23.WeilEF.EF_lit_zeta",
+      "Zeta23.WeilEF.EF_zero_sum_summable",
+      "Zeta23.WeilEF.full_line_identity"
+     ]
+    }
+   ],
+   "consumers": 21,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "farSmall",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.B321.farSmall"
+     ],
+     "n_head": 1,
+     "consumers": 3,
+     "statement": 3,
+     "proof_only": 0,
+     "reach": 3,
+     "chains": [
+      [
+       "SIDEExplicitFormula.B321.windowSlope_bound"
+      ],
+      [
+       "SIDEExplicitFormula.SaltCheckNonvacuity.farSmall_zero"
+      ]
+     ],
+     "n_chains": 2,
+     "sample": [
+      "SIDEExplicitFormula.B321.pair_bound",
+      "SIDEExplicitFormula.B321.windowSlope_bound",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.farSmall_zero"
+     ]
+    }
+   ],
+   "consumers": 3,
+   "hinge": true,
+   "hinge_kernels": [],
+   "hinge_chains": [
+    "SIDE-explicit-formula"
+   ],
+   "unread": []
+  },
+  {
+   "head": "identity",
+   "per": [
+    {
+     "kernel": "SIDE-global-section",
+     "read": true,
+     "head_names": [
+      "AggregationCircularityShadow.identity"
+     ],
+     "n_head": 1,
+     "consumers": 5,
+     "statement": 3,
+     "proof_only": 2,
+     "reach": 6,
+     "chains": [
+      [
+       "AggregationCircularityShadow.SatisfiesCWeil",
+       "AggregationCircularityShadow.identity_iff_forced"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "AggregationCircularityShadow.cweil_determines",
+      "AggregationCircularityShadow.cweil_inhabited",
+      "AggregationCircularityShadow.cweil_is_the_assumption",
+      "AggregationCircularityShadow.identity_iff_forced",
+      "AggregationCircularityShadow.unique"
+     ]
+    }
+   ],
+   "consumers": 5,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "is_xi_zero",
+   "per": [
+    {
+     "kernel": "SIDE-kernel",
+     "read": true,
+     "head_names": [
+      "techne_kernel_xidef.is_xi_zero"
+     ],
+     "n_head": 1,
+     "consumers": 5,
+     "statement": 1,
+     "proof_only": 4,
+     "reach": 10,
+     "chains": [
+      [
+       "ConservationBridge.ConservationHypothesis",
+       "techne_kernel_integration.StructuralExhaustiveness",
+       "techne_kernel_xidef.OffLineZero"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "ConservationBridge.conservation_activates_balance",
+      "ConservationBridge.structural_exhaustiveness_proved",
+      "techne_kernel_integration.rh_from_structural_exhaustiveness",
+      "techne_kernel_integration.structural_exhaustiveness_from_rh",
+      "techne_kernel_xidef.rh_implies_mathlib_rh"
+     ]
+    }
+   ],
+   "consumers": 5,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  },
+  {
+   "head": "zeroSideNeg",
+   "per": [
+    {
+     "kernel": "SIDE-explicit-formula",
+     "read": true,
+     "head_names": [
+      "SIDEExplicitFormula.B321.zeroSideNeg"
+     ],
+     "n_head": 1,
+     "consumers": 3,
+     "statement": 3,
+     "proof_only": 0,
+     "reach": 12,
+     "chains": [
+      [
+       "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of",
+       "SIDEExplicitFormula.B321.zeroSideNeg_holds"
+      ]
+     ],
+     "n_chains": 1,
+     "sample": [
+      "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of",
+      "SIDEExplicitFormula.B321.zeroSideNeg_holds",
+      "SIDEExplicitFormula.SaltCheckNonvacuity.zeroSideNeg_witness"
+     ]
+    }
+   ],
+   "consumers": 3,
+   "hinge": false,
+   "hinge_kernels": [],
+   "hinge_chains": [],
+   "unread": []
+  }
+ ]
+}

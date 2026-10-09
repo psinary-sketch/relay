@@ -282,41 +282,34 @@
   "output": "test_asof.py -- (R178)(2)(ii). records under C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\tmpz_64lw4j\n  (1) the push-out parser, both polarities on synthetic banks                                          PASS\n  (2) b566`s bank names ce360e88... (read ce360e8854c1)                                                PASS\n  (2) b567`s bank names d77bb7aa... (read d77bb7aa4458)                                                PASS\n    b566 at its own as-of: relay ce360e88 (b566_closing_push_out.txt) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD\n  (3) b566 at ce360e88: G-NUMBER-UNCLAIMED PASS (read PASS)                                            PASS\n  (3) b566 at ce360e88: G-PEEK-DECLARED PASS (read PASS)                                               PASS\n  (3) b566 at ce360e88: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS\n    b566 pointed at b567`s close: relay d77bb7aa (--as-of) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD\n  (4) b566 pointed at d77bb7aa (claim false there): G-NUMBER-UNCLAIMED FAIL (read FAIL)                PASS\n  (4) b566 pointed at d77bb7aa (claim false there): G-PRIORBANK-UNCHANGED FAIL (read FAIL)             PASS\n    b567 at its own as-of: relay d77bb7aa (b567_closing_push_out.txt) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD\n  (5) b567 at d77bb7aa: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS\n    b567 pointed at its own commit before the ordered append: relay 0e50bd19 (--as-of) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD\n  (6) b567 pointed at 0e50bd19 (the ordered append absent there): G-PRIORBANK-UNCHANGED FAIL (read FAIL) PASS\n  (R179)(3) the as-of lines: the parser on synthetic lines, both polarities -- True\n  (7) b566`s lines read from b569_asof_b566.txt: PLACE-papers 5ce2895, the kernel e5a5a83, bulka 35df682f PASS\n  (7) b566 at its own lines: G-CEILING-APPENDED PASS (read PASS)                                       PASS\n  (7) b566 at its own lines: G-CORPUS-SCOPE PASS (read PASS)                                           PASS\n  (7) b566 at its own lines: G-TAG-READ-BACK PASS (read PASS)                                          PASS\n  (7) b566 at its own lines: G-BULKA-KEPT PASS (read PASS)                                             PASS\n  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-CEILING-APPENDED FAIL (read FAIL) PASS\n  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-CORPUS-SCOPE FAIL (read FAIL) PASS\n  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-TAG-READ-BACK FAIL (read FAIL) PASS\n  (9) b567 at its own lines (b569_asof_b567.txt): G-TAG-READ-BACK PASS (read PASS)                     PASS\n  (9) b567 at its own lines (b569_asof_b567.txt): G-CORPUS-SCOPE PASS (read PASS)                      PASS\n  (9) b567 at its own lines (b569_asof_b567.txt): G-CACHE-MAIN PASS (read PASS)                        PASS\n  (9) b567 at its own lines (b569_asof_b567.txt): G-BULKA-DELETED PASS (read PASS)                     PASS\n  (10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): G-TAG-READ-BACK FAIL (read FAIL) PASS\n  (10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): G-CORPUS-SCOPE FAIL (read FAIL) PASS\n### ### **24 of 24 cases as wanted -- PASS**\n"
  },
  "test_chain_page.py": {
-  "rc": 1,
-  "seconds": 0,
-  "cases": 6,
-  "passing": 3,
-  "failing": [
-   "(1)",
-   "(1)",
-   "(3)"
-  ],
-  "last": "KeyError: 'tier'",
+  "rc": 0,
+  "seconds": 407,
+  "cases": 31,
+  "passing": 31,
+  "failing": [],
+  "last": "### ### **31 of 31 cases as wanted -- PASS**",
   "args": [
-   "b638_nodes_zeta.txt",
-   "b635_probe_out_zeta.txt",
+   "b643_nodes_zeta.txt",
+   "b643_probe_out_zeta.txt",
    "THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
-   "b638_nodes_chi.txt",
-   "b635_probe_out_chi.txt"
+   "b643_nodes_chi.txt",
+   "b643_probe_out_chi.txt"
   ],
-  "output": "  (1) the banked output re-emitted: exit 0                                                         ### FAIL\n  (1) and the page byte-identical to the generated page                                            ### FAIL\n  (2) mutation applied: SIDEExplicitFormula.B321.h2_sign_iff_rh`s block removed                    PASS\n  (2) a missing print: exit 6, no page (read 6)                                                    PASS\n  (3) mutation applied: sorryAx injected into SIDEExplicitFormula.B321.h2_sign_iff_rh`s print      PASS\n  (3) a print beyond the three: the axioms cell shows sorryAx                                      ### FAIL\nTraceback (most recent call last):\n  File \"D:\\relay\\tools\\test_chain_page.py\", line 187, in <module>\n    sys.exit(main(sys.argv[1:]))\n             ^^^^^^^^^^^^^^^^^^\n  File \"D:\\relay\\tools\\test_chain_page.py\", line 64, in main\n    want('(3) and the tier is NOT T0 (read %s)' % (m3['cells'][victim]['tier'] if m3 else None),\n                                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^\nKeyError: 'tier'\n"
+  "output": "  (1) the banked output re-emitted: exit 0                                                         PASS\n  (1) and the page byte-identical to the generated page                                            PASS\n  (2) mutation applied: SIDEExplicitFormula.B321.h2_sign_iff_rh`s block removed                    PASS\n  (2) a missing print: exit 6, no page (read 6)                                                    PASS\n  (3) mutation applied: sorryAx injected into SIDEExplicitFormula.B321.h2_sign_iff_rh`s print      PASS\n  (3) a print beyond the three: the axioms cell shows sorryAx                                      PASS\n  (3) and the tier is NOT T0 (read NOT T0)                                                         PASS\n  (4) mutation applied: the statement`s ↔ made →                                                   PASS\n  (4) a changed statement: the page differs (first differing line 94)                              PASS\n  (5) mutation applied: one CELL line cut short                                                    PASS\n  (5) a cut CELL: exit 6 (read 6)                                                                  PASS\n  (6) the keyed list re-emitted: exit 0 (read 0)                                                   PASS\n  (6) the head carries the tier key sentence                                                       PASS\n  (6) every node line prints the table`s tier beside the computed one (70 lines)                   PASS\n  (7) a table tier T2 against Zeta23.WeilEF.EF_lit_zetaZeroConfig`s computed T0: exit 7, no page (read 7) PASS\n  (7) and the CONFLICT names the node                                                              PASS\n  (8) an equal table tier: exit 0 and the cell reads `T0 (table: T0)` (read 0)                     PASS\n  (9) the ζ list names the ζ page, the χ list the Dirichlet page                                   PASS\n  (9) the χ list re-emitted from its banked probe output: exit 0 (read 0)                          PASS\n  (9) the title is the variant`s                                                                   PASS\n  (9) the head carries the same tier key                                                           PASS\n  (10) the open line, verbatim, directly after the node lines (41 nodes)                           PASS\n  (10) the last derived line is the (R183)(3) sentence, byte for byte                              PASS\n  (11) the Placement table names the ζ page and the successor sentence`s places                    PASS\n  (11) no Correspondence row is a node                                                             PASS\n  (12) an unknown variant is refused: exit 2, no page (read 2)                                     PASS\n  (13) a graded Schema name: absent from the ζ selection (['SIDEExplicitFormula.B321.synthetic_zeta_name']) PASS\n  (13) and present in the Dirichlet selection (['SIDEExplicitFormula.GRHWeil.synthetic_chi_name', 'SIDEExplicitFormula.Schema.synthetic_graded_name']) PASS\n  (14) the live table grades Schema names (159) -- the case b573 met                               PASS\n  (14) the ζ list re-emitted against the live table: exit 0, byte-identical to the page given (read 0) PASS\n  (15) the χ list re-emitted against the live table: exit 0 (read 0)                               PASS\n### ### **31 of 31 cases as wanted -- PASS**\n"
  },
  "test_g_chain_page.py": {
-  "rc": 1,
-  "seconds": 0,
+  "rc": 0,
+  "seconds": 140,
   "cases": 6,
-  "passing": 4,
-  "failing": [
-   "(1)",
-   "(3)"
-  ],
-  "last": "### ### **4 of 6 cases as wanted -- FAIL**",
+  "passing": 6,
+  "failing": [],
+  "last": "### ### **6 of 6 cases as wanted -- PASS**",
   "args": [
-   "b638_nodes_zeta.txt",
-   "b635_probe_out_zeta.txt",
+   "b643_nodes_zeta.txt",
+   "b643_probe_out_zeta.txt",
    "THE_CLAUSE_AND_ITS_COMPILED_FACES.md"
   ],
-  "output": "  (1) the generated page: the arm PASSES (regeneration exit 6)                               ### FAIL\n  (2) one sentence appended: the arm FAILS (first differing line None)                       PASS\n  (3) mutation applied: one statement altered                                                PASS\n  (3) the arm FAILS and names a line (read None)                                             ### FAIL\n  (4) the regeneration made to fail: the arm FAILS (regeneration exit 6)                     PASS\n  (5) no committed page: FAIL                                                                PASS\n### ### **4 of 6 cases as wanted -- FAIL**\n"
+  "output": "  (1) the generated page: the arm PASSES (regeneration exit 0)                               PASS\n  (2) one sentence appended: the arm FAILS (first differing line 716)                        PASS\n  (3) mutation applied: one statement altered                                                PASS\n  (3) the arm FAILS and names a line (read 16)                                               PASS\n  (4) the regeneration made to fail: the arm FAILS (regeneration exit 6)                     PASS\n  (5) no committed page: FAIL                                                                PASS\n### ### **6 of 6 cases as wanted -- PASS**\n"
  },
  "test_chain_page_b638.py": {
   "rc": 1,
@@ -331,7 +324,7 @@
   ],
   "last": "### ### **3 of 7 cases as wanted -- FAIL**",
   "args": [],
-  "output": "  (1) the glossary`s entries 69, its lines that are no comment 69, each a name, a definition and a source -- PASS\n  (2) a line with two fields raises ValueError -- PASS\n  (3) b632`s lists carry no mark (False, False); the marked lists carry it (True, True) -- PASS\n  (4) b632`s ζ list without the mark: the generator as it stands (exit 6, 0 bytes) and as it stood at relay 2aa41700 (exit 6, 0 bytes) emit the same page -- FAIL\n  (5) the marked ζ page (exit 6): the unmarked page with the block (0 lines) and one blank inserted beneath the head line, the head line naming its own list -- FAIL\n  (6) the block on the marked ζ page and the marked χ page (exit 6): 0 and 0 lines, byte for byte alike -- FAIL\n  (7) the block is its heading, its introduction and one line per entry (0 lines, 69 entries) -- FAIL\n### ### **3 of 7 cases as wanted -- FAIL**\n"
+  "output": "  (1) the glossary`s entries 75, its lines that are no comment 75, each a name, a definition and a source -- PASS\n  (2) a line with two fields raises ValueError -- PASS\n  (3) b632`s lists carry no mark (False, False); the marked lists carry it (True, True) -- PASS\n  (4) b632`s ζ list without the mark: the generator as it stands (exit 6, 0 bytes) and as it stood at relay 2aa41700 (exit 6, 0 bytes) emit the same page -- FAIL\n  (5) the marked ζ page (exit 6): the unmarked page with the block (0 lines) and one blank inserted beneath the head line, the head line naming its own list -- FAIL\n  (6) the block on the marked ζ page and the marked χ page (exit 6): 0 and 0 lines, byte for byte alike -- FAIL\n  (7) the block is its heading, its introduction and one line per entry (0 lines, 75 entries) -- FAIL\n### ### **3 of 7 cases as wanted -- FAIL**\n"
  },
  "test_elab_reader_b634.py": {
   "rc": 0,

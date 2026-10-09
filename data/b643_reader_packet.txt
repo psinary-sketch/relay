@@ -1,0 +1,8 @@
+b643 -- COMPONENT 6, (R253)(6): THE SECOND READER`S PACKET, STAGED OFF D:\ (2026-10-09T02:18:54Z)
+
+### staged: C:/reader_b643 (packet/census.txt 151955 bytes, sha256 638111a10d71400a44b4a27073a36bd036234f7508c474a0b9a72b92ae8f3cb5 ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b643_reader_packet/, data/b643_reader_prompt.txt
+### the questions: What is the clause? / What is a hinge, and which premises are hinges? / Which premise is refuted, and what does that do to the theorem that rests on it?
+### the no-disclosure arm over the packet and the prompt: {'method': 0, 'tree': 0, 'modules': 0} ; outside names: NONE
+
+### the command, run from C:/reader_b643, a directory with no project memory:
+    Get-Content C:\reader_b643\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b643\reader_run.log 2> C:\reader_b643\reader_run.err
