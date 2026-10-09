@@ -217,6 +217,128 @@ def reads(*a):
     print('  %d read groups ; %d lines' % (len(READS()), len(L)))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R255)(1)-(2)
+W_HEAD = '*Appended 2026-10-09 by b645 to b644’s entry (:%d), under `(R255)`(1) -- b644 AT ITS WEIGHT, ITS FIGURES READ FROM ITS BANKS:*'
+WL_HEAD = ('*Appended 2026-10-09 by b645 to the form of an edition (:11864), the writing law (so named at :13383), beneath its standing '
+           'clauses, under `(R255)`(2) -- PAPERS STATE; LEDGERS NARRATE, STANDING FROM b646:*')
+HF_HEAD = ('*Appended 2026-10-09 by b645, under the author’s answer at b645’s step zero ((R255)(6)) -- W-ORD-HOLD-FOOTPRINT, ENTERED AND '
+           'PRICED, TRIGGER A RULING ON THE HOLD:*')
+
+
+def _need(pat, text, what):
+    m = re.search(pat, text, re.M | re.S)
+    if not m:
+        sys.exit('### %s UNREAD (%s) -- NOTHING WRITTEN' % (what, pat[:60]))
+    return m
+
+
+def _b644_figures():
+    head = _need(r'^b644 closed: relay (\w+), PLACE-papers (\w+); suite (\d+) of (\d+); root (\w+)…; (\d+) prompts answered; (\d+) defects',
+                 rd('b644_closing.txt'), 'b644`s closing head line')
+    act = g(RELAY, 'log', '--format=%h', '-1', '--grep=^b644 --', PRE_RELAY).strip()[:8]
+    closing = g(RELAY, 'log', '--format=%h', '-1', '--grep=^b644 closing', PRE_RELAY).strip()[:8]
+    chain = _need(r'THE ACT-ROOT CHAIN, recomputed:.*\bb644 AGREE', rd('b644_checks_postpush.txt'), 'b644`s post-push chain line')
+    agree = sorted(set(re.findall(r'\b(b6\d\d) AGREE', rd('b644_checks_postpush.txt'))))
+    crlf = _need(r'### CRLF READS (\d+) over b624-b643', rd('b644_actroot_commit.txt'), 'the CRLF count')
+    hin = _need(r'HINGES UNDER THE REFINED DEFINITION (\d+)', rd('b644_hinges.txt'), 'the hinge count')
+    heads = _need(r'### ### \*\*HEADS (\d+)', rd('b644_hinges.txt'), 'the head count')
+    lat = _need(r'ROWS (\d+) ; PLACED ON THE FIVE AXES (\d+) ; TOP (\d+)', rd('b644_lattice.txt'), 'the lattice counts')
+    path = _need(r'PREMISES ON THE PATH (\d+) ; OPEN (\d+)', rd('b644_clause_path.txt'), 'the clause-path counts')
+    desc = os.path.getsize(os.path.join(D, 'b644_deposit_description.txt'))
+    resid = len(re.findall(r'^### PASSAGE|^  \(\d+\)|^\(\d+\)', rd('b644_desc_residue.txt'), re.M))
+    seam = _need(r'ROWS (\d+)\.', rd('b644_seam_rows.txt'), 'the seam rows')
+    rbh = [r for r in jl('b644_build_watch.json').get('rows') or []]
+    osec = _need(r'^### FOR THE AUTHOR TO NAME.*?(?=^### CARRIED FORWARD)', rd('b644_closing.txt'), 'the outsiders` section').group(0)
+    outs = re.findall(r'^      D:/', osec, re.M)
+    zen = _need(r'draft (\d+) ; (\d+) files read back', rd('b644_closing.txt'), 'the draft line')
+    return dict(head=head, act=act, closing=closing, agree=agree, crlf=crlf.group(1), hin=hin.group(1), heads=heads.group(1), lat=lat,
+                path=path, desc=desc, resid=resid, seam=seam.group(1), rbh=rbh, outs=len(outs), zen=zen, chain=bool(chain))
+
+
+def _weight():
+    f = _b644_figures()
+    h = f['head']
+    return ('\n%s relay %s (closing), %s (act), PLACE-papers %s; the suite %s of %s pre-push and post-push, the two earlier pre-push runs kept '
+            'as attempts, name resolution failing mid-run (relay data/b644_dns_burst_test.txt, defect (q)); the root %s…; %s prompts answered; '
+            '%s defects, (a) to (r). The chain read at commit: every root %s to %s AGREE, the %s CRLF reads counted apart, every bank from b644 '
+            'written LF. Shared data files additive. The watchdog stop in force: SIDE-global-section`s %d Interfaces modules and %s '
+            'RUN-BENEATH-HOLD twice, their consumers UNREAD in the census at v0.7.1. Hinges %s of %s under the refined definition, Prime the one '
+            'hinge across kernels, the DOMAIN heads set aside. The census at v0.7.1, its four faults regenerated. The seven companions at their '
+            'patch labels, ONE_PAGE_PROOF at v1.0.1 (W-ORD-LABEL-READER entered). The description at %d bytes composed from banks, three '
+            'readers, its residue banked; the clause-path print: %s premises on the path from h2_sign to RiemannHypothesis, %s OPEN; the seam '
+            'compiled (rh_strip_imp_rh_holds, DERIVES), the navigator’s word corrected. The draft %s at %s files read back at their digests, '
+            'HELD. The lattice banked, %s of %s rows on five axes, %s at the TOP. %s seam rows for the review pass. %d local repositories '
+            'outside the chain and one private, for the author’s naming. Nothing deposited; no kernel source touched.\n' % (
+                W_HEAD % K.B644_ENTRY, f['closing'], f['act'], h.group(2), h.group(3), h.group(4), h.group(5)[:8], h.group(6),
+                h.group(7), f['agree'][0] if f['agree'] else '?', f['agree'][-1] if f['agree'] else '?', f['crlf'],
+                sum(1 for r in f['rbh'] if '/Interfaces/' in r['module']),
+                ' and '.join(r['module'] for r in f['rbh'] if '/Interfaces/' not in r['module']) or '?', f['hin'],
+                f['heads'], f['desc'], f['path'].group(1), f['path'].group(2), f['zen'].group(1), f['zen'].group(2), f['lat'].group(2),
+                f['lat'].group(1), f['lat'].group(3), f['seam'], f['outs']))
+
+
+def _writing_law():
+    return ('\n%s a keystone edition carries no more and no less than what the kernels and the mutual conclusions license, in the glossary’s '
+            'vocabulary (relay data/glossary.txt); a superseded framing leaves the body for ERRATA as a dated entry naming the ledger line that '
+            'retired it; the body carries no “formerly”, no hedge about a claim it no longer makes, and no numeral that is not its finding; the '
+            'back matter carries one paragraph, “What this edition changed”, pointing to ERRATA. Ledgers keep the append-and-date law. The '
+            'monograph’s next edition under this clause is a re-cut, v6.0, not v5.19. No edition is re-cut at b645: the clause governs every '
+            'edition from b646, and the review pass’s licensed-statement table (relay tools/licensed_table.py) is the instrument an edition reads '
+            'its licence from.\n' % WL_HEAD)
+
+
+def _footprint():
+    H = jl('b645_hold_retry.json')
+    rows = [r for r in H.get('rows') or [] if r.get('verdict') == 'RUN-BENEATH-HOLD']
+    if len(rows) != 2:
+        sys.exit('### THE HOLD RETRY BANK DOES NOT CARRY THE TWO RUNS -- NOTHING WRITTEN')
+    peaks = []
+    for r in rows:
+        t = io.open('%s/w_%s.log' % (SP, r['tag']), encoding='utf-8', errors='replace').read()
+        peaks += [int(x) for x in re.findall(r'^### EXIT \d+ \S+ \d+ s peak (\d+) MB', t, re.M)]
+    return ('\n%s the hold retry at b645`s step zero (relay data/b645_hold_retry.txt) built five of SIDE-global-section`s six Interfaces '
+            'modules and stopped two runs twice each -- %s -- while each run`s peak as the watchdog reads it, the working set of its direct child '
+            'alone, stayed at or under %d MB: the hold measures the host`s other tenants, not the build. The work-order: tools/build_watch.py records the '
+            'run`s own peak (the summed working set of its process tree) beside the host`s low at every sample and in the bank row, so a future '
+            'ruling can set the hold on the footprint a run adds rather than on what the host happens to have free. Priced: one act, a tool edit '
+            'and its planted test, no kernel; the hold stays at 2,560 MB until the author rules on the record it produces.\n' % (
+                HF_HEAD, '; '.join('%s, free before %s MB, lows %s MB' % (r['target'], r['free_before'], ' and '.join(str(x) for x in r['lows']))
+                                   for r in rows), max(peaks) if peaks else -1))
+
+
+def record_lines(*a):
+    """Component 1, (R255)(1)-(2) and the author's answer at step zero: FINDINGS, b644 at its weight (to :8025); OPEN_TRAILS, the writing
+    law's clause (to :11864) and W-ORD-HOLD-FOOTPRINT entered and priced."""
+    import b641_record as R41
+    Q = R2._Q()
+    entry = Q.line_of(Q.FIND, '## The chain read at commit and shared files additive')
+    if entry != K.B644_ENTRY:
+        sys.exit('### b644`S ENTRY MOVED (%s) -- NOTHING WRITTEN' % entry)
+    items = [('FINDINGS.md', W_HEAD % K.B644_ENTRY, R41._poss(_weight())), ('OPEN_TRAILS.md', WL_HEAD, R41._poss(_writing_law())),
+             ('OPEN_TRAILS.md', HF_HEAD, R41._poss(_footprint()))]
+    allt = ''.join(t for _f, _h, t in items)
+    cells = sum((R3.predict_cells(t, f) for f, _h, t in items), [])
+    nd, _n = R3._nd(allt)
+    p = os.path.join(SP if DRY else D, 'b645_scanfile_lines.md')
+    _write(p, allt.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    ticks = [h[:40] for _f, h, t in items if t.count('`') % 2]
+    unread = [x for x in ('?', '### NOT', 'None', '-1 MB') if x in allt]
+    outside = [n for n in R41.OAI_NEEDLES if n in allt]
+    print('  table cells: %s ; no-disclosure hits: %s ; scanner %s ; odd backticks: %s ; unread figures: %s ; outside names: %s' % (
+        cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', ticks or 'NONE', unread or 'NONE', outside or 'NONE'))
+    if DRY:
+        for _f, _h, t in items:
+            print(t)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or ticks or unread or outside:
+        sys.exit('### A LINE WOULD MAKE A TABLE CELL, CARRY TECHNE TEXT, A STEM, ODD BACKTICKS, AN UNREAD FIGURE OR AN OUTSIDE NAME -- NOTHING WRITTEN')
+    R3._land(Q, items, 'b645_record_lines.json', K.B644_ENTRY)
+
+
 def act_from():
     if os.path.exists(SESSION):
         for i, raw in enumerate(io.open(SESSION, encoding='utf-8'), 1):
