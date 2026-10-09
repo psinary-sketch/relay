@@ -1,0 +1,130 @@
+b643 closed: relay d845516f, PLACE-papers 93cfd59; suite 84 of 85; root e583d138ea28f975…; 2 prompts answered; 13 defects
+========================================================================================================
+b643 -- THE CLOSING RECORD. ### **LANE THREE, ACT SEVENTY: THE TWO READERS REPAIRED -- DATA BINDERS AND PRIMED NAMES -- AND RERUN; THE PAGES RE-EMITTED AT v0.26; THE KEYSTONE CENSUS AT v0.7 WITH SIX STATUSES, A NON-VACUITY COLUMN, A CONSUMERS COLUMN AND HINGES MARKED, EVERY CELL FROM BANKS; THE PI-0-1 FORM SOUGHT AT SOURCE; THE SECOND READER, UNDER (R253).**
+========================================================================================================
+### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b643_seal_hashes.json):
+      b643_worklist.py       seal b78b1bade0b71dc2 ; close b78b1bade0b71dc2 ; AGREE
+      b643_tests.py          seal cbb50c8d6ec90826 ; close cbb50c8d6ec90826 ; AGREE
+      b643_record.py         seal 39abbf08b420d0b5 ; close 39abbf08b420d0b5 ; AGREE
+      b643_checks.py         seal 4338f0e3832f5265 ; close 4338f0e3832f5265 ; AGREE
+      b643_closing.py        seal 2bb9f2960e1d4637 ; close 2bb9f2960e1d4637 ; AGREE
+      b643_reg_gate.py       seal 6cb72b7e075170f9 ; close 6cb72b7e075170f9 ; AGREE
+      b643_regspec.py        seal 5e28457061172780 ; close 5e28457061172780 ; AGREE
+      ### AGREE 7 of 7
+
+### THE KERNEL THE PAGES AND THE CENSUS READ (no kernel written by this act):
+      SIDE-explicit-formula v0.26 peeled 82550e4ea4e0, at the remote 82550e4ea4e0 ; main 82550e4ea4e0 ; AGREE
+
+    ### COMPONENT 0 : step zero and the two repairs (data/b643_tests_stepzero.txt, data/b643_repairs.txt) ; relay 07c43e89, 213902e2 ; N1 HELD
+    ### COMPONENT 1 : b642`s weight FINDINGS :7993 ; W-ORD-WATCHDOG-STOP OPEN_TRAILS :13563 ; defect (j) :13565
+    ### COMPONENT 2 : the rerun (data/b643_rerun.txt, data/b643_elab_ef.txt, data/b643_elab_sec.txt)
+    ### COMPONENT 3 : the pages at v0.26 (data/b643_page_zeta.json, data/b643_page_chi.json, data/b643_page_arms.txt) ; N2 HELD
+    ### COMPONENT 4 : the census banks (data/b643_consumers.txt, data/b643_premise_table.txt, data/glossary.txt) ; N3 REFUTED IN ONE CLAUSE ; N4 HELD
+    ### COMPONENT 5 : the Pi-0-1 read (data/b643_pi01_attempts.txt)
+    ### COMPONENT 6 : the edition (data/b643_edition.json, data/b643_edition_diff.txt) and the second reader (data/b643_reader_compare.txt)
+    ### COMPONENT 7 : the seal (data/b643_seal_hashes.json)
+    ### COMPONENT 8 : the root e583d138ea28f975 ; FINDINGS :7995 ; OPEN_TRAILS :13567
+    (N1) HELD (N2) HELD (N3) REFUTED IN ONE CLAUSE (N4) HELD (N5) HELD ; (S1) HELD (S2) REFUTED (S3) HELD (S4) HELD (S5) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+b643 -- THE DEFECT LIST (the act`s own).
+
+    (a) THE SEAT`S: FREE MEMORY FELL BENEATH THE 2,560 MB HOLD DURING DETACHED RUNS, EACH STARTED ABOVE IT AND NONE STOPPED. The elaborated reader: 13 of 98 calls beneath it, lowest 1522 MB (m001 B321Identity), every call`s low printed in data/b643_rerun.txt. The dependency print: 18 of 136 calls beneath it, lowest 941 MB (the SIDE-rcurve test call) and 1132 MB (SIDE-lv-conservation AxiomCheck_D2), every call`s low in data/b643_deps_runs.json and data/b643_consumers.txt. The page probes: 2227 and 2307 MB at Component 3, 2278 and 2335 MB at the re-emission, their logs in the scratchpad. W-ORD-WATCHDOG-STOP`s trigger, a second act with lows beneath the hold (OPEN_TRAILS :13563), is met by this act; the work-order is not acted here.
+    (b) THE SEAT`S: THE DEPENDENCY PRINT`S FIRST LAUNCH FAILED. Its generated print line was rejected by Lean (escaped quotes inside an s! interpolation, data/b643_deps_runs.json`s first call); the driver was stopped by PID, the listing that found it matching itself (exit 255); the generator was repaired (b643Join) and the failed call kept in the bank with its note.
+    (c) THE SEAT`S: THE TEST CALL OF THE REPAIRED GENERATOR TOOK 1711 S on SIDE-rcurve, with the act`s lowest low (941 MB). It was entered in the runs bank so the driver would not repeat it.
+    (d) THE INSTRUMENT`S: CONSUMERS NOT READ IN SIDE-global-section. Its Interfaces modules have no build product, so the print cannot import them: IsOpen and Monotone are NOT READ, and Prime is read in three kernels and not read in SIDE-global-section; the premise table prints each with its reason and counts them apart (consumers read 48, not read 2).
+    (e) THE SEAT`S: S2 IS REFUTED, NOT EVERY TEST FILE CLEAN AT STEP ZERO. test_chain_page_b638.py fails its cases (4)-(7), reading b632`s hard-coded lists against the v0.26 table; test_chain_page.py and test_g_chain_page.py failed at step zero on the v0.25 probes and passed after Component 3 under the runner`s --v026 switch (data/b643_tests_stepzero.txt).
+    (f) THE SEAT`S: THE PAGES WERE EMITTED BEFORE THE CENSUS THEY NAME. Component 3 emitted both pages (b8f8c73, 0656e6b) before Component 6 created phase2/method/THE_KEYSTONE_CENSUS_v0_7.md; the generator lists that file as a keystone naming a node, so the prerun found G-CHAIN-PAGE and G-CHAIN-PAGE-CHI failing against HEAD. Both probes were run again under the watchdog and both pages re-emitted after Component 6 and before the seal (7430b60, 04c09e1, one keystone row each), an order deviation declared on the face. In the same repair, the record tool`s page bank was changed to count the Correspondence against 69b74d0 (before the act), and the suite`s pages_ok to read corr_at in place of `written`, both through the Edit tool before the seal; the Component 3 banks are kept as data/b643_page_*_c3.json.
+    (g) THE SEAT`S: A PROMPT MISCOUNTED. The Correspondence prompt said the zeta page goes from 443 to 496 rows (+54); 443 + 54 = 497, and the page carries 497. The author`s answer repeats 496; the bank and this record carry 497. The answers bank also numbers its second prompt `PROMPT 1`.
+    (h) THE SEAT`S: A STREAM EDIT OF AN UNSEALED TOOL. One clause of tools/b643_closing.py was changed by `sed -i`, against the ferry`s line that edits to unsealed tools go through the Edit tool and not a heredoc. The face`s own text (a data file) was also adjusted by sed before the lock.
+    (i) THE SEAT`S: THE GATES REFUSED BEFORE THE LOCK AND THE FACE WAS REWORDED. The regspec counter fired on `one module` and then on `3 banks`; the registration gate refused once, on an index-query mark (`left open`) and on a paragraph naming arms and a repository state with no side word; each was reworded and every gate re-run over the final bytes before the stamps. reg_seal.py was first called with a bare file name and wrote nothing (FileNotFoundError).
+    (j) THE SEAT`S: TOOLING MISSES BEFORE THE SEAL. The b378 --selftest run executed its full sweep and stopped on an AnchorError, with nothing written; an Edit to the record tool missed its anchor and the launched elab_resolve printed only its usage; the elaborated reader left 2 names untyped (dedekind_rhs' planned into Dedekind.lean; LSeries_eq_mul_integral); the record lines first carried odd backticks, and the reads filter first kept 98 lines; each was repaired before its bank landed.
+    (k) THE CENSUS`S, AS THE SECOND READER NAMED THEM: v0.7 defines REFUTED-BY-COMPUTATION but none of the other five statuses; h2_sign is not a premise-table row; `(a cycle)` is not defined; the glossary`s `bNNN (b638 is this one)` does not name this edition; and the census does not say in words what the refutation of TrivialSummandPremise does to dedekind_rhs. Carried to b644`s re-cut; nothing edited here.
+    (l) THE SEAT`S: S1 SCORED AGAINST A DIFFERENT STATEMENT THAN THE FACE REGISTERS. The face`s (S1) reads `the rerun moves contDiff_riemannZeta₀ and no other elaborated grade`; the sealed record tool scores S1 as the two planted tests (HELD). By the face`s own words S1 also holds: data/b643_rerun.txt :35, ELABORATED GRADE MOVES 1, contDiff_riemannZeta₀ INTERFACES to DERIVES. Both tools are sealed and the face is locked; nothing is edited.
+    (m) THE SEAT`S: AN ORDERED EDIT OF A BANK THAT EARLIER ROOTS NAME. data/glossary.txt is an item of b638`s and b639`s act roots; the six entries (R253)(5)(a) orders (relay a7dea375) change its bytes, so the chain recomputed by the pre-push suite reads b638 DISAGREE and b639 DISAGREE on that bank alone, beside b640`s two re-banked files. The suite`s G-ACTROOT-VERIFY was written to expect b638 and b639 AGREE; it fails, and the pre-push suite reads 84 of 85. The prerun printed the two DISAGREEs, but there the arm also failed for this act`s missing root, so they were not read apart. The rule that banks a root names are frozen was in the seat`s memory (b640) and was not checked against the ordered glossary edit before Component 3.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 85. ### LIVE PASSING : 84. ### LIVE FAILING : 1 ['G-ACTROOT-VERIFY'].
+    pre-push : VERDICT : NOT CLEAN
+    post-push : ARMS RUN : 85. ### LIVE PASSING : 84. ### LIVE FAILING : 1 ['G-ACTROOT-VERIFY'].
+    post-push : VERDICT : NOT CLEAN
+      relay                            main d845516f3ba6 ; remote d845516f3ba6 ; AGREE
+      PLACE-papers                     main 93cfd59ee75c ; remote 93cfd59ee75c ; AGREE
+      SIDE-global-section              main 17ce9ff5831d ; remote 17ce9ff5831d ; AGREE
+      SIDE-explicit-formula            main 82550e4ea4e0 ; remote 82550e4ea4e0 ; AGREE
+      SIDE-kernel                      main 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+      SIDE-lv-conservation             main 2f71068ac356 ; remote 2f71068ac356 ; AGREE
+      SIDE-effects                     main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      SIDE-trivium                     main 1aac3a9e1939 ; remote 1aac3a9e1939 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 2e76426dc4b0 ; remote 2e76426dc4b0 ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 54ba4f38b729 ; remote 54ba4f38b729 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 520abe7a6b7d ; remote 520abe7a6b7d ; AGREE
+      SIDE-bijection                   main a26f6f1c5dea ; remote a26f6f1c5dea ; AGREE
+      SIDE-class-coupling              main b6a6e869304d ; remote b6a6e869304d ; AGREE
+      SIDE-coupling                    main 42b5e4e5a1f9 ; remote 42b5e4e5a1f9 ; AGREE
+      SIDE-formation-arithmetic        main ef0fcf1e9967 ; remote ef0fcf1e9967 ; AGREE
+      SIDE-meta                        main 6bb7b23b4e6c ; remote 6bb7b23b4e6c ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 6bf19ab0ef6a ; remote 6bf19ab0ef6a ; AGREE
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      dedekind-b631                    local 8c51431ada77 ; remote 8c51431ada77 ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; main 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    no kernel source touched ; every lean run detached under the watchdog, one module imported per call, the free-memory reading before each and the lows printed per run ; no worktree made or removed ; no current version or keystone edited beside the census at v0.7 and the two pages ; b628`s local intake bank untracked ; the second reader run from C:\reader_b643 with no project memory ; no identifier of the author in any outbound request, the seat`s plain requests to github.com (its ls-remote reads and its pushes) within that rule ; nothing deposited and no platform called ; one line appended to data/act_roots.txt as the act`s last bank step ; ERRATA, SPIRAL_MAP, README, REGISTRY and the census at v0.6 untouched
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R253)(7)**: b644, the author`s word pending -- the description re-cut as synthesis under the b640 plan, the
+        census at v0.7 joining the file set, and W-ORD-H2-LATTICE; the deposit draft 23228113 held.
+    ### THE NEXT ACT`S TERMINALS, EACH STATEMENT AT ITS PIN ((R237)(4)):
+    b644, the author`s word pending ((R253)(7)): the description re-cut as synthesis under the b640 plan, the census at v0.7 joining the file set, and W-ORD-H2-LATTICE; the deposit draft 23228113 held:
+        names no kernel terminal yet; its statements are the act`s to write, priced at the work-order
+    (b) ### **FOR THE AUTHOR`S RULING**: test_chain_page_b638.py`s cases (4)-(7) carry b632`s lists and b635`s v0.25 probes and fail against
+        the v0.26 table at relay HEAD (data/b643_tests_stepzero.txt), the shared test unedited; W-ORD-WATCHDOG-STOP`s trigger, a second act
+        with lows beneath the hold, met at b643 (data/b643_rerun.txt, data/b643_deps_runs.json); W-ORD-H2-PI1 open, its sources not reached
+        (data/b643_pi01_attempts.txt).
+    (c) ### **FOR THE AUTHOR`S STRIKE**: the seat`s readings in the trail record`s list (the textual repair in b378_terminals.py`s pattern;
+        the lists carried as this act`s editions; the glossary extended before the pages; the census generated by the record tool; the
+        consumers counted as theorems with auxiliaries folded; the dependency print by top module).
+    (c2) b628`s full intake bank stays local and untracked in relay data/; its digest is in b628`s summary bank.
+    (d0) The act root of b643 is relay data/act_roots.txt`s last line; the next mirror carries it in MANIFEST.
+    (d) Branches left for the next act`s step zero, each merged: the push-b643* branches of relay and PLACE-papers; the kept kernel
+        branches untouched.
+    (e) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+    (f) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).
+========================================================================================================
