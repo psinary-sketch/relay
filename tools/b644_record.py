@@ -123,6 +123,63 @@ def kernels(*a):
     put_json('b644_kernels_face.json', dict(at=utc(), kernels=kern_state(list(KERNS_READ))))
 
 
+# ================================================================================ READING (1): THE READS THE FERRY NAMES, BY PATH AND LINE
+def READS():
+    return [
+        ('relay data/b643_closing.txt: its head line and its defects', RELAY, PRE_RELAY, 'data/b643_closing.txt', ('GREP', r'^b643 closed|^    \([a-m]\) '), 260),
+        ('relay data/b643_defects.txt: defect (m)', RELAY, PRE_RELAY, 'data/b643_defects.txt', ('GREP', r'^    \(m\) '), 400),
+        ('relay data/b643_consumers.txt: the hinge lines and the count', RELAY, PRE_RELAY, 'data/b643_consumers.txt', ('GREP', r'### HINGE|^### ### \*\*HEADS'), 200),
+        ('relay data/b643_reader_compare.txt :22', RELAY, PRE_RELAY, 'data/b643_reader_compare.txt', [22], 200),
+        ('relay data/b643_pi01_attempts.txt :21', RELAY, PRE_RELAY, 'data/b643_pi01_attempts.txt', [21], 260),
+        ('relay tools/act_root.py: verify and the root bank`s fields', RELAY, PRE_RELAY, 'tools/act_root.py',
+         ('GREP', r'^def verify|^def compute|j = dict\(act=act|^def gather|sha256_file\(p\) != parts\[1\]|getmtime'), 220),
+        ('relay data/act_roots.txt', RELAY, PRE_RELAY, 'data/act_roots.txt', ('GREP', r'.'), 120),
+        ('relay data/glossary.txt: CHAIN and HINGE', RELAY, PRE_RELAY, 'data/glossary.txt', ('GREP', r'^(CHAIN|HINGE)\t'), 260),
+        ('the watchdog`s sampling code (b643`s scratchpad build1.py)', RELAY, None, K.SP_B643 + '/build1.py', ('GREP', r'^HOLD|def sampler|SAMPLE|REFUSED|EXIT'), 200),
+        ('SIDE-global-section`s Interfaces modules at HEAD', K.GS, 'HEAD', 'README.md', ('GREP', r'Interfaces'), 260),
+        ('relay tools/b239_reprint.py: the Interfaces` last build route and pins', RELAY, PRE_RELAY, 'tools/b239_reprint.py', ('GREP', r'PIN_|lake.*env.*lean|-> D:'), 200),
+        ('relay tools/mirror_roster.json: its day1 rows and its census rows', RELAY, PRE_RELAY, 'tools/mirror_roster.json', ('GREP', r'day1|KEYSTONE_CENSUS|lastChanged'), 200),
+        ('the seven companions` label lines', PP, PRE_PP, 'day1/Exhaustive_Enumeration.md', [3], 200),
+        ('', PP, PRE_PP, 'day1/Which_Structure_Confines.md', [3], 200), ('', PP, PRE_PP, 'day1/Spectral_Inertness.md', [3], 200),
+        ('', PP, PRE_PP, 'day1/Seven_Mechanism_Classes.md', [5], 200), ('', PP, PRE_PP, 'day1/Third_Identity_Element.md', [5], 200),
+        ('', PP, PRE_PP, 'day1/Silence_of_Foundations.md', [3], 200), ('', PP, PRE_PP, 'day1/ONE_PAGE_PROOF.md', [3, 42, 64], 200),
+        ('relay data/b640_deposit_description.txt: its paragraphs` heads', RELAY, PRE_RELAY, 'data/b640_deposit_description.txt', ('GREP', r'.'), 200),
+        ('relay tools/b640_record.py: the description composer', RELAY, PRE_RELAY, 'tools/b640_record.py', ('GREP', r'^def compose|^def describe|^def _desc_scan|^Q1_'), 200),
+        ('ERRATA.md: its reporting form', PP, PRE_PP, 'ERRATA.md', list(range(12, 21)), 200),
+        ('OPEN_TRAILS: :13397, :13489-:13497, :13529, :13531, :13563, :13591', PP, PRE_PP, 'OPEN_TRAILS.md',
+         [K.OT_PATCH, 13489, 13491, 13493, 13495, 13497, K.OT_LATTICE, K.OT_PI1, K.OT_WATCHDOG, K.B643_CORRECTION], 500),
+        ('FINDINGS: b643`s entry', PP, PRE_PP, 'FINDINGS.md', [K.B643_ENTRY], 300),
+        ('relay data/b643_closing_push_out.txt (committed at step zero)', RELAY, STEPZERO, 'data/b643_closing_push_out.txt', ('GREP', r'push_gated: (as-of|DONE|main read back)'), 200),
+    ]
+
+
+def reads(*a):
+    L = ['b644 -- READING (1): THE READS THE FERRY NAMES, CITED BY PATH AND LINE, EACH PRINTED FROM ITS BLOB AT ITS PIN', '']
+    for label, repo, rev, path, sel, width in READS():
+        if rev is None:
+            t = io.open(path, encoding='utf-8', errors='replace').read() if os.path.exists(path) else None
+            at = 'the file'
+        else:
+            at = g(repo, 'rev-parse', '--short=8', rev + '^{}').strip()
+            t = _show(repo, rev, path)
+        if t is None:
+            L.append('### %s -- %s @ %s ### NO SUCH BLOB' % (label, path, at))
+            continue
+        sl = lines_of(t)
+        nums = [i + 1 for i, l in enumerate(sl) if re.search(sel[1], l)] if isinstance(sel, tuple) else \
+            [n for n in sel if not (0 < n <= len(sl)) or sl[n - 1].strip()]
+        L.append('### %s -- %s @ %s (%d lines cited, of %d)' % (label or 'the label line', path, at, len(nums), len(sl)))
+        for n in nums:
+            L.append('    :%-6d %s' % (n, (sl[n - 1] if 0 < n <= len(sl) else '### NO SUCH LINE')[:width]))
+    L += ['', '### SIDE-global-section`s Interfaces modules at HEAD: %s' % ', '.join(
+        x for x in g(K.GS, 'ls-tree', '--name-only', 'HEAD', 'Interfaces/').split(NL) if x.endswith('.lean')),
+          '### the local intake bank`s state: %s' % (g(RELAY, 'status', '--porcelain', '--', K.LOCAL_BANK).strip() or 'NOT PRESENT'),
+          '### PLACE-papers HEAD at the reads: %s ; relay HEAD: %s' % (g(PP, 'rev-parse', '--short=8', 'HEAD').strip(), g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()),
+          '### the reads banked late: read at step zero (this session`s transcript) and printed here after Component 7 -- the act`s defect']
+    put_txt('b644_reads.txt', L)
+    print('  %d read groups ; %d lines' % (len(READS()), len(L)))
+
+
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R254)(1)-(4)
 W_HEAD = '*Appended 2026-10-09 by b644 to b643’s entry (:%d), under `(R254)`(1) -- b643 AT ITS WEIGHT, ITS FIGURES READ FROM ITS BANKS:*'
 CA_HEAD = ('*Appended 2026-10-09 by b644 to W-ORD-ACT-ROOT (:%d), under `(R254)`(2) and the author’s answer at b644 -- W-ORD-CHAIN-AT-COMMIT, '
