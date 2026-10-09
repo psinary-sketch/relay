@@ -1229,7 +1229,8 @@ def compose():
         gl['own evidence'].replace('of a premise: ', '').rstrip('.')) + ('[In plain words: a hinge is a premise that separate lines of the '
                                                                          'kernels\' reasoning lean on, counted once the declarations that only test, '
                                                                          'refute or instance the premise itself are set aside.]')
-    tpl = ('WHAT THE LOAD-BEARING THEOREMS ASSUME. A premise is %s; a HINGE is %s The premises, by status: %s. The status DOMAIN marks a '
+    wo = 'A name beginning W-ORD- is %s; OPEN_TRAILS is, in its own words, %s.' % (gl['W-ORD'].rstrip('.'), gl['OPEN_TRAILS'].split(';')[0].rstrip('.'))
+    tpl = ('WHAT THE LOAD-BEARING THEOREMS ASSUME. A premise is %s; a HINGE is %s ' + wo.replace('%', '%%') + ' The premises, by status: %s. The status DOMAIN marks a '
            'Mathlib predicate that restricts a variable its statement quantifies (%s): not an assumption, and not a hinge. The refuted premise '
            'is TrivialSummandPremise: %s; TrivialSummandPremise\' replaces it, carrying the pole term, and dedekind_rhs\' is proved on the restated '
            'premise. The full table, every premise with its status, its non-vacuity, its consumers by kernel and its hinge, is the keystone '
