@@ -1288,7 +1288,10 @@ def compose():
         parts.append('%s -- %s' % (st, '; '.join(ents)))
     dom = sorted(h for h in PT if PT[h]['status'] == 'DOMAIN')
     hinge_def = gl['HINGE'].replace(' (the entry above)', '').rstrip('.') + '. A premise\'s own evidence is, in the glossary\'s words, %s. ' % (
-        gl['own evidence'].replace('of a premise: ', '').rstrip('.')) + ('[In plain words: a hinge is a premise that separate lines of the '
+        gl['own evidence'].replace('of a premise: ', '').rstrip('.')) + ('[In plain words: own evidence is any declaration that is about the '
+                                                                         'premise itself -- showing it can hold, cannot hold, or holds under a '
+                                                                         'condition -- rather than a use of it.] '
+                                                                         '[In plain words: a hinge is a premise that separate lines of the '
                                                                          'kernels\' reasoning lean on, counted once the declarations that only test, '
                                                                          'refute or instance the premise itself are set aside.]')
     wo = 'A name beginning W-ORD- is %s; OPEN_TRAILS is, in its own words, %s.' % (gl['W-ORD'].rstrip('.'), gl['OPEN_TRAILS'].split(';')[0].rstrip('.'))
