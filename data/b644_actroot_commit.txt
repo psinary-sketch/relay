@@ -1,0 +1,65 @@
+b644 -- COMPONENT 0, (R254)(2): W-ORD-CHAIN-AT-COMMIT -- EVERY ROOT OF data/act_roots.txt READ AT ITS RECORDED COMMIT, BANKS ONLY (2026-10-09T13:07:41Z)
+
+### the remote stubbed empty: the heads and tags are read by the suite`s G-ACTROOT-VERIFY alone (one ls-remote per repository); this bank judges the
+### banks each root names, at the commit it recorded (tools/act_root.py at_commit) and at the working tree (verify --worktree, the read before b644).
+
+### AT THE RECORDED COMMIT (the read from b644)
+  b624 AGREE    [at 8c9d9a52d23d: blob 28 / crlf 4 ; read at a later commit 32 ; unread 0]
+  b625 AGREE    [at ec1bbe52e54e: blob 38 / crlf 4 ; read at a later commit 42 ; unread 0]
+  b626 AGREE    [at b5e620b106da: blob 46 / crlf 4 ; read at a later commit 50 ; unread 0]
+  b627 AGREE    [at 43cc30bc273f: blob 36 / crlf 4 ; read at a later commit 38 ; unread 0]
+  b628 AGREE    [at b1862ebb4f78: blob 43 / crlf 4 ; read at a later commit 45 ; unread 0]
+  b629 AGREE    [at 94a171ff59fc: blob 39 / crlf 4 ; read at a later commit 43 ; unread 0]
+  b630 AGREE    [at 9b01204d63b0: blob 41 / crlf 4 ; read at a later commit 45 ; unread 0]
+  b631 AGREE    [at 03feaa75c238: blob 34 / crlf 4 ; read at a later commit 38 ; unread 0]
+  b632 AGREE    [at 2299971fce4a: blob 56 / crlf 4 ; read at a later commit 57 ; unread 0]
+  b633 AGREE    [at 98667fac3086: blob 42 / crlf 4 ; read at a later commit 46 ; unread 0]
+  b634 AGREE    [at 20c0f429c1dc: blob 55 / crlf 4 ; read at a later commit 59 ; unread 0]
+  b635 AGREE    [at 1cd6aaa94dba: blob 60 / crlf 6 ; read at a later commit 63 ; unread 0]
+  b636 AGREE    [at e265f31fd6ce: blob 50 / crlf 6 ; read at a later commit 51 ; unread 0]
+  b637 AGREE    [at e3e3b331e897: blob 49 / crlf 5 ; read at a later commit 54 ; unread 0]
+  b638 AGREE    [at eeacbc66799b: blob 56 / crlf 4 ; read at a later commit 59 ; unread 0]
+  b639 AGREE    [at b79624e8d30e: blob 51 / crlf 4 ; read at a later commit 0 ; unread 0]
+  b640 AGREE    [at 16679032232c: blob 58 / crlf 4 ; read at a later commit 0 ; unread 0]
+  b641 AGREE    [at 112daefa8775: blob 38 / crlf 4 ; read at a later commit 0 ; unread 0]
+  b642 AGREE    [at 534999e3351b: blob 35 / crlf 4 ; read at a later commit 0 ; unread 0]
+  b643 AGREE    [at 347e20c7b11e: blob 53 / crlf 4 ; read at a later commit 2 ; unread 0]
+  ### ACTS 20 ; BANKS AGREE 20 ; DISAGREE 0
+  ### CRLF READS 85 over b624-b643 (the author`s answer at b644: lawful there, counted apart; a failure on any act after b643)
+
+### THE WORKING TREE (the read before b644)
+  b624 AGREE    [the working tree]
+  b625 AGREE    [the working tree]
+  b626 AGREE    [the working tree]
+  b627 AGREE    [the working tree]
+  b628 AGREE    [the working tree]
+  b629 AGREE    [the working tree]
+  b630 AGREE    [the working tree]
+  b631 AGREE    [the working tree]
+  b632 AGREE    [the working tree]
+  b633 AGREE    [the working tree]
+  b634 AGREE    [the working tree]
+  b635 AGREE    [the working tree]
+  b636 AGREE    [the working tree]
+  b637 AGREE    [the working tree]
+  b638 DISAGREE [the working tree] ; bank data/glossary.txt changed
+  b639 DISAGREE [the working tree] ; bank data/glossary.txt changed
+  b640 DISAGREE [the working tree] ; bank data/b640_author_answers.txt changed; bank data/b640_seal_hashes.json changed
+  b641 AGREE    [the working tree]
+  b642 AGREE    [the working tree]
+  b643 AGREE    [the working tree]
+  ### ACTS 20 ; BANKS AGREE 17 ; DISAGREE 3
+
+### b638 and b639, printed as (R254)(2) orders:
+  b638 AGREE    [at eeacbc66799b: blob 56 / crlf 4 ; read at a later commit 59 ; unread 0]
+  b639 AGREE    [at b79624e8d30e: blob 51 / crlf 4 ; read at a later commit 0 ; unread 0]
+  b638 DISAGREE [the working tree] ; bank data/glossary.txt changed
+  b639 DISAGREE [the working tree] ; bank data/glossary.txt changed
+
+### THE PLANTED TEST, tools/test_act_root_commit_b644.py, its output whole:
+  (1) THE PLANTED LATER EDIT: AGREE at the recorded commit cdcdac6f (read [('t901', 'AGREE')]), DISAGREE at the working tree (read [('t901', 'DISAGREE', ['bank data/t901_x.txt changed'])]); the root banks commit cdcdac6f PASS
+  (2) a bank hashed before its first commit reads AGREE at the first later commit carrying it (read [('t902', 'AGREE')], {'commit': '573ec239e38cffbcc3a7dc55372fb6f537a37911', 'blob': 1, 'crlf': 0, 'later': 1, 'unread': 0}), and after a later edit ([('t902', 'AGREE')]) PASS
+  (3) a bank re-written between the root and its first commit reads DISAGREE at commit (read [('t903', 'DISAGREE', ['bank data/t903_x.txt changed (read at 0cf586dabadd)'])]) PASS
+  (4) a CRLF bank committed as LF: AGREE in its CRLF form on an act up to b643, DISAGREE after it (read [('t600', True, [('t600', 'AGREE')], 1, 'AGREE'), ('t904', True, [('t904', 'DISAGREE')], 1, 'DISAGREE')]) PASS
+  (5) compute --write refuses a bank holding CR LF (refused True), nothing written (True)                                      PASS
+### ### **5 of 5 cases as wanted -- PASS**
