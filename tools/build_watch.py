@@ -12,7 +12,10 @@
 ###   proceeds with that module unbuilt and names the omission in its closing. No run continues beneath the hold unrecorded.
 ### The author's answer at b644: the hold stays at 2,560 MB, the seat does not lower it.
 ###   python tools/build_watch.py [--hold MB] [--start-hold MB] [--interval S] [--free-wait S] [--module NAME] [--bank JSON]
-###                               <cwd> <log> <cmd> [args ...]
+###                               [--peaks JSON] <cwd> <log> <cmd> [args ...]
+### (R257)(5), b647, W-ORD-HOLD-FOOTPRINT acted: every sample reads the process tree beneath the driver (tree_mb: the driver and every
+### descendant, lean and lake among them, their working sets summed) beside the driver's own working set and the host's free memory; EXIT
+### prints the tree's peak beside the host's low; --peaks appends every attempt's row. The hold rule is unchanged.
 ### --start-hold (default: the hold) is the start check alone; the planted test sets it to 0 and the hold above the host's free memory so
 ### the run starts and is stopped at its first sample. Exit: the child's code; 75 RUN-BENEATH-HOLD.
 """
@@ -67,6 +70,32 @@ def processes():
     return res
 
 
+def tree_mb(pid):
+    """### (R257)(5), W-ORD-HOLD-FOOTPRINT acted at b647: the working set of the driver and every descendant (lean and lake among them),
+    ### summed in MB, read through one Win32_Process query; -1 when the driver is gone or the query fails."""
+    ps = 'Get-CimInstance Win32_Process | ForEach-Object { "{0}`t{1}`t{2}" -f $_.ProcessId,$_.ParentProcessId,$_.WorkingSetSize }'
+    try:
+        out = subprocess.run(['powershell', '-NoProfile', '-NonInteractive', '-Command', ps], capture_output=True, text=True,
+                             encoding='utf-8', errors='replace', timeout=60).stdout
+    except Exception:
+        return -1
+    pp, ws = {}, {}
+    for l in out.split('\n'):
+        x = l.rstrip('\r').split('\t')
+        if len(x) == 3 and x[0].isdigit() and x[1].isdigit() and x[2].isdigit():
+            pp[int(x[0])], ws[int(x[0])] = int(x[1]), int(x[2])
+    if pid not in pp:
+        return -1
+    seen, todo = set(), [pid]
+    while todo:
+        p = todo.pop()
+        if p in seen:
+            continue
+        seen.add(p)
+        todo += [c for c, par in pp.items() if par == p and c not in seen]
+    return sum(ws.get(p, 0) for p in seen) // (1024 * 1024)
+
+
 def tree(pid, procs):
     """### pid and every descendant, parents first."""
     out, todo = [], [pid]
@@ -104,8 +133,12 @@ def free_host(f, hold, wait):
     f.write('### HOST READ %s : free %d MB after %d s (hold %d)\n' % (utc(), free_mb(), int(time.time() - t0), hold))
 
 
+PEAKS = []   # ### (R257)(5): one row per attempt -- the driver's peak, the tree's peak and the host's low, banked by --peaks
+
+
 def attempt(n, cwd, cmd, f, hold, start_hold, interval):
-    """### one run: (rc, low, stopped)."""
+    """### one run: (rc, low, stopped). (R257)(5): each sample reads the tree beneath the driver as well; EXIT prints the tree's peak beside
+    ### the host's low, and the attempt's row joins PEAKS."""
     fm = free_mb()
     if fm < start_hold:
         f.write('### REFUSED attempt %d %s free %d MB below the hold %d -- NOT STARTED\n' % (n, utc(), fm, start_hold))
@@ -113,14 +146,14 @@ def attempt(n, cwd, cmd, f, hold, start_hold, interval):
     t0 = time.time()
     p = subprocess.Popen(cmd, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     f.write('### START attempt %d %s free %d MB pid %d cmd %s cwd %s\n' % (n, utc(), fm, p.pid, ' '.join(cmd), cwd))
-    peak, low, stopped = [0], [fm], [False]
+    peak, low, stopped, tpeak = [0], [fm], [False], [0]
     done = threading.Event()
 
     def sampler():
         while not done.wait(interval):
-            w, fr = ws_mb(p.pid), free_mb()
-            peak[0], low[0] = max(peak[0], w), min(low[0], fr)
-            f.write('### SAMPLE %s free %d MB child working set %d MB\n' % (utc(), fr, w))
+            w, fr, tw = ws_mb(p.pid), free_mb(), tree_mb(p.pid)
+            peak[0], low[0], tpeak[0] = max(peak[0], w), min(low[0], fr), max(tpeak[0], tw)
+            f.write('### SAMPLE %s free %d MB child working set %d MB tree working set %d MB\n' % (utc(), fr, w, tw))
             if fr < hold and p.poll() is None:
                 stopped[0] = True
                 stop(p.pid, f, 'free %d MB beneath the hold %d' % (fr, hold))
@@ -133,9 +166,25 @@ def attempt(n, cwd, cmd, f, hold, start_hold, interval):
     rc = p.wait()
     done.set()
     th.join(120)   # ### a stop in progress writes its lines before EXIT (b644: the second stop's line was lost to the exit)
-    f.write('### EXIT %d %s %d s peak %d MB low %d MB free %d MB%s\n' % (rc, utc(), int(time.time() - t0), peak[0], low[0], free_mb(),
-                                                                       ' (stopped beneath the hold)' if stopped[0] else ''))
+    f.write('### EXIT %d %s %d s peak %d MB low %d MB free %d MB tree peak %d MB%s\n' % (
+        rc, utc(), int(time.time() - t0), peak[0], low[0], free_mb(), tpeak[0], ' (stopped beneath the hold)' if stopped[0] else ''))
+    PEAKS.append(dict(attempt=n, at=utc(), rc=rc, seconds=int(time.time() - t0), driver_peak=peak[0], tree_peak=tpeak[0], host_low=low[0],
+                      stopped=stopped[0], cmd=cmd, cwd=cwd))
     return rc, low[0], stopped[0]
+
+
+def bank_peaks(path, module, log):
+    """### (R257)(5): every attempt's driver peak, tree peak and host low appended to the --peaks json, the hold rule unchanged."""
+    if not path:
+        return
+    try:
+        j = json.load(open(path, encoding='utf-8'))
+    except Exception:
+        j = dict(rows=[])
+    for r in PEAKS:
+        j['rows'].append(dict(r, module=module, log=log.replace('\\', '/')))
+    open(path + '.tmp', 'w', encoding='utf-8', newline='\n').write(json.dumps(j, indent=1, ensure_ascii=False) + '\n')
+    os.replace(path + '.tmp', path)
 
 
 def opt(a, name, default, kind=int):
@@ -155,13 +204,16 @@ def main(argv):
     wait = opt(a, '--free-wait', 300.0, float)
     module = opt(a, '--module', '', str)
     bank = opt(a, '--bank', '', str)
+    peaks = opt(a, '--peaks', '', str)
     cwd, log, cmd = a[0], a[1], a[2:]
     f = open(log, 'a', encoding='utf-8', buffering=1)
     rc, low, stopped = attempt(1, cwd, cmd, f, hold, start_hold, interval)
     if not stopped:
+        bank_peaks(peaks, module, log)
         return rc
     free_host(f, hold, wait)
     rc2, low2, stopped2 = attempt(2, cwd, cmd, f, hold, start_hold, interval)
+    bank_peaks(peaks, module, log)
     if not stopped2:
         f.write('### RETRY HELD the hold: exit %s, low %d MB (the first attempt stopped at a low of %d MB)\n' % (rc2, low2, low))
         return rc2
