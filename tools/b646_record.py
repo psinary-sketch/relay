@@ -1416,6 +1416,235 @@ def carried(*a):
         sys.exit(1)
 
 
+# ================================================================================ COMPONENT 5: THE SEAT'S MEMORY, (R256)(5)
+# ### The population, by the author's answer at Component 5 (data/b646_author_answers.txt): the seven project files MEMORY.md indexes. A sentence
+# ### that is not a fact about the corpus (a deadline, a location, anything personal or about the local patent repository) is not a row and
+# ### enters no bank -- its text is not written anywhere, its count alone is; the table reads corpus claims alone.
+MEMFILES = (('state', 'project_state_cp4_cp5_b559_b576.md'), ('wave', 'project_deposit_wave_and_c4_next.md'),
+            ('cascade', 'project_cascade_cp1_cp1b_b547_b558.md'), ('place', 'project_place_to_stand.md'),
+            ('relay', 'project_relay_held_commit_push_procedure.md'), ('office', 'project_office_deadlines_2026-08.md'),
+            ('patent', 'project_patent_repo_location.md'))
+MEM_WHOLLY_NOT_CORPUS = {'office': 'USPTO deadlines and fees, personal', 'patent': 'the local patent repository and its location'}
+MEMSP = os.path.join(SP, 'mem')
+MEM_CHUNK = 110
+_MSPLIT = re.compile(r'(?<=[.!?])["\'*)\]]*\s+(?=\S)')
+MEM_RULE = [
+    'THE UNIT: a sentence of a file`s body (and its frontmatter description), split where . ! or ? (and any closing quote, asterisk or '
+    'bracket) meets whitespace; numbered file:line.n; every unit read.',
+    'A ROW: a unit asserting a fact about the corpus -- the programme`s papers, ledgers, registry, kernels, tags, commits, the relay`s banks and '
+    'tools, deposits and drafts, and what they contain. NOT A ROW: a deadline, a location on this machine, anything personal or about the local '
+    'patent repository, and an instruction or reason that asserts no corpus fact; its text enters no bank, its count does.',
+    'THE READING: a unit under a dated act heading (bNNN closed, State through bNNN) is read at that act`s commits; an undated unit at HEAD '
+    '(relay fee57bfc, PLACE-papers 11a83b5); every fact in the unit -- figure, hash, name, line number, status, count -- against the lines cited, '
+    'each repo@commit:path:N (a commit object itself repo@commit:COMMIT:1).',
+    'MATCHES: every fact agrees with the lines cited. UNDERSTATES: the unit says less than the lines license (a thing called open, pending, '
+    'unbuilt or absent that they show done, compiled, closed or present at the unit`s date). OVERREACHES: the unit states more than or other '
+    'than the lines carry (a figure, hash, line number, name or status that differs; a conditional result stated without its condition; a thing '
+    'called compiled, pushed, deposited or closed that they show was not). UNLICENSED: no corpus line reached bears on it. A unit of several '
+    'facts takes the worst verdict among them (UNLICENSED, OVERREACHES, UNDERSTATES, MATCHES).',
+    'ACTION: MATCHES none; UNDERSTATES or OVERREACHES RE-CUT: the sentence as the lines license it, and the repair made in the memory file with '
+    'the repair printed; UNLICENSED RETIRE TO ERRATA: why (the unit leaves the file) or a work-order with a trigger.',
+    'THE SEAT: every non-MATCHES row read whole by the seat against its lines; a MATCHES sample of 35 drawn by seed 646 read and printed.',
+]
+
+
+def _mem_units(text):
+    ls = text.replace(chr(13), '').split(NL)
+    fm = [i for i, l in enumerate(ls) if l.strip() == '---'][:2]
+    out = []
+    for i, l in enumerate(ls, 1):
+        if len(fm) == 2 and i - 1 <= fm[1]:
+            m = re.match(r'^description:\s*(.*)$', l)
+            if m:
+                out.append((i, 1, m.group(1).strip()))
+            continue
+        if l.strip():
+            for j, s in enumerate([s for s in _MSPLIT.split(l.strip()) if s.strip()], 1):
+                out.append((i, j, s.strip()))
+    return out
+
+
+def mem_rule(*a):
+    """data/b646_seat_memory_rule.txt: the unit, the row, the reading and the verdicts, printed before any helper reader reads a row."""
+    L = ['b646 -- COMPONENT 5: THE SEAT`S MEMORY THROUGH THE LICENSED-STATEMENT TABLE, THE RULE PRINTED BEFORE THE RUN (%s)' % utc(), '',
+         '### the population, by the author`s answer at Component 5: the seven project files MEMORY.md indexes -- %s' % ', '.join(f for _, f in MEMFILES),
+         '### wholly not corpus, by that answer, read and counted, no row and no text banked: %s' % '; '.join(
+             '%s (%s)' % (dict(MEMFILES)[k], why) for k, why in MEM_WHOLLY_NOT_CORPUS.items()),
+         '### the table: relay tools/licensed_table.py, five cells, four verdicts, every row HAND with its lines cited (check() refuses one without)', '']
+    L += ['  (%d) %s' % (i + 1, r) for i, r in enumerate(MEM_RULE)]
+    put_txt('b646_seat_memory_rule.txt', L)
+    print(NL.join(L[2:]))
+
+
+def mem_units(*a):
+    """the scratchpad's mem/: each corpus file snapshotted (snap/<file>) with its sha256, its units written (units_<key>.tsv) and chunked for the
+    helper readers (chunk_NN.tsv, about MEM_CHUNK units each, cut at line boundaries); the wholly-not-corpus files counted, nothing written."""
+    import hashlib
+    os.makedirs(os.path.join(MEMSP, 'snap'), exist_ok=True)
+    idx, chunks = {}, []
+    for k, fn in MEMFILES:
+        b = open(os.path.join(K.MEMDIR, fn), 'rb').read()
+        u = _mem_units(b.decode('utf-8'))
+        idx[k] = dict(file=fn, sha256=hashlib.sha256(b).hexdigest(), bytes=len(b), units=len(u))
+        if k in MEM_WHOLLY_NOT_CORPUS:
+            continue
+        _write(os.path.join(MEMSP, 'snap', fn), b)
+        _write(os.path.join(MEMSP, 'units_%s.tsv' % k), ''.join('%s:%d.%d\t%d\t%s\n' % (k, ln, j, ln, s.replace('\t', ' ')) for ln, j, s in u).encode('utf-8'))
+        cur, last = [], None
+        for ln, j, s in u:
+            if len(cur) >= MEM_CHUNK and ln != last:
+                chunks.append((k, cur))
+                cur = []
+            cur.append((ln, j, s))
+            last = ln
+        if cur:
+            chunks.append((k, cur))
+    for n, (k, cur) in enumerate(chunks, 1):
+        _write(os.path.join(MEMSP, 'chunk_%02d.tsv' % n), ''.join('%s:%d.%d\t%s\n' % (k, ln, j, s.replace('\t', ' ')) for ln, j, s in cur).encode('utf-8'))
+    _write(os.path.join(MEMSP, 'index.json'), json.dumps(dict(at=utc(), files=idx, chunks=[dict(n=n, key=k, units=len(c), lines='%d-%d' % (
+        c[0][0], c[-1][0])) for n, (k, c) in enumerate(chunks, 1)]), indent=1).encode('utf-8'))
+    for k, v in idx.items():
+        print('  %-8s %-46s units %4d ; sha256 %s' % (k, v['file'], v['units'], v['sha256'][:16]))
+    for n, (k, c) in enumerate(chunks, 1):
+        print('  chunk %02d: %s :%d-:%d, %d units' % (n, k, c[0][0], c[-1][0], len(c)))
+
+
+MEM_FIX = {}        # ### uid -> dict of cells the seat corrects after its whole read (kind, verdict, licensed, cited, action)
+MEM_READ = set()    # ### uids of the non-MATCHES rows the seat has read whole against their lines
+MEM_SAMPLE = {}     # ### uid -> 'AGREE' / 'DISAGREE: why', the MATCHES sample the seat read
+MEM_SAMPLE_N = 35
+
+
+def _mem_rows():
+    """[(uid, unit, row-or-None)] over every corpus unit, from the helper readers' rows_NN.tsv with the seat's corrections; faults listed."""
+    import hashlib
+    idx = json.loads(open(os.path.join(MEMSP, 'index.json'), encoding='utf-8').read())
+    units, faults = collections.OrderedDict(), []
+    for k, fn in MEMFILES:
+        if k in MEM_WHOLLY_NOT_CORPUS:
+            continue
+        b = open(os.path.join(MEMSP, 'snap', fn), 'rb').read()
+        if hashlib.sha256(b).hexdigest() != idx['files'][k]['sha256']:
+            faults.append('%s: the snapshot differs from its index digest' % fn)
+        for ln, j, s in _mem_units(b.decode('utf-8')):
+            units['%s:%d.%d' % (k, ln, j)] = dict(key=k, file=fn, line=ln, text=s)
+    got = collections.defaultdict(list)
+    for c in idx['chunks']:
+        p = os.path.join(MEMSP, 'rows_%02d.tsv' % c['n'])
+        if not os.path.exists(p):
+            faults.append('rows_%02d.tsv absent' % c['n'])
+            continue
+        for raw in io.open(p, encoding='utf-8'):
+            f = raw.rstrip('\n').rstrip('\r').split('\t')
+            if not f[0].strip() or f[0].startswith('#'):
+                continue
+            got[f[0].strip()].append(f)
+    out = []
+    for uid, u in units.items():
+        fs = got.get(uid, [])
+        if len(fs) != 1:
+            faults.append('%s: %d judgements' % (uid, len(fs)))
+            continue
+        f = fs[0] + [''] * 6
+        cell = dict(kind=f[1].strip(), verdict=f[2].strip(), licensed=f[3].strip(), cited=f[4].strip(), action=f[5].strip())
+        cell.update(MEM_FIX.get(uid, {}))
+        if cell['kind'] == 'NOTCORPUS':
+            out.append((uid, u, None))
+            continue
+        if cell['kind'] != 'ROW':
+            faults.append('%s: kind %r' % (uid, cell['kind']))
+            continue
+        row = dict(id=uid, source='memory/%s:%d' % (u['file'], u['line']), stated=u['text'], licensed=cell['licensed'], verdict=cell['verdict'],
+                   action=cell['action'], by='HAND', cited=[c.strip() for c in cell['cited'].split(';') if c.strip()], fixed=uid in MEM_FIX)
+        out.append((uid, u, row))
+    extra = sorted(set(got) - set(units))
+    if extra:
+        faults.append('judgements for no unit: %s' % extra[:10])
+    return out, faults, idx
+
+
+def mem_check(*a):
+    """the helper readers' rows read without writing: coverage, the table's faults, the counts, the non-MATCHES rows the seat has still to read."""
+    import licensed_table as LT
+    out, faults, idx = _mem_rows()
+    rows = [r for _, _, r in out if r]
+    faults += ['%s: %s' % (r['id'], '; '.join(LT.check(r))) for r in rows if LT.check(r)]
+    cnt = collections.Counter(r['verdict'] for r in rows)
+    unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in MEM_READ]
+    print('  units %d ; rows %d ; not rows %d ; faults %d ; %s ; non-MATCHES unread by the seat %d' % (
+        len(out), len(rows), len(out) - len(rows), len(faults), dict(cnt), len(unread)))
+    for f in faults[:40]:
+        print('    ### ' + f)
+    if 'list' in a:
+        for r in rows:
+            if r['verdict'] != 'MATCHES':
+                print('  %s | %s | %s%s\n      STATED: %s\n      LICENSED: %s\n      CITED: %s\n      ACTION: %s' % (
+                    r['id'], r['verdict'], r['source'], ' [READ]' if r['id'] in MEM_READ else '', r['stated'], r['licensed'], '; '.join(r['cited']),
+                    r['action']))
+
+
+def _mem_sample(rows):
+    import random
+    pool = sorted(r['id'] for r in rows if r['verdict'] == 'MATCHES')
+    return sorted(random.Random('646-memory').sample(pool, min(MEM_SAMPLE_N, len(pool))))
+
+
+def seat_memory(*a):
+    """data/b646_table_seat_memory.txt and .json: (R256)(5) -- the seven files, every unit read, the corpus units rows of the table (HAND, cited),
+    counts per file and by verdict, every row printed, each UNDERSTATES or OVERREACHES repair printed with its state in the live file; refuses on a
+    fault, an uncovered unit, an unread non-MATCHES row or a sample not read as drawn. Not-corpus units are counted; their text is not written."""
+    import hashlib
+    import licensed_table as LT
+    out, faults, idx = _mem_rows()
+    rows = [r for _, _, r in out if r]
+    faults += ['%s: %s' % (r['id'], '; '.join(LT.check(r))) for r in rows if LT.check(r)]
+    unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in MEM_READ]
+    smp = _mem_sample(rows)
+    if faults or unread:
+        sys.exit('### %d FAULTS, %d NON-MATCHES ROWS UNREAD BY THE SEAT -- NOTHING WRITTEN: %s %s' % (len(faults), len(unread), faults[:5], unread[:8]))
+    if sorted(MEM_SAMPLE) != smp:
+        sys.exit('### THE SAMPLE READ IS NOT THE SAMPLE DRAWN -- NOTHING WRITTEN: drawn %s' % smp)
+    T = LT.table(rows)
+    live = dict((fn, io.open(os.path.join(K.MEMDIR, fn), encoding='utf-8').read()) for _, fn in MEMFILES)
+    L = ['b646 -- COMPONENT 5: THE SEAT`S MEMORY THROUGH THE LICENSED-STATEMENT TABLE ((R256)(5); the author`s answer at Component 5) (%s)' % utc(), '',
+         '### the rule: relay data/b646_seat_memory_rule.txt, printed and committed before the run ; the table: relay tools/licensed_table.py',
+         '### the readers: helper readers of this session, one per chunk (the scratchpad`s mem/chunk_NN.tsv), each row then judged by the seat: '
+         'every non-MATCHES row read whole (%d corrected), a MATCHES sample of %d (seed 646) read, %d agree' % (
+             sum(1 for r in rows if r['fixed']), len(smp), sum(1 for v in MEM_SAMPLE.values() if v == 'AGREE')), '',
+         '### PER FILE (sha256 of the file as read ; units read ; rows ; not rows):']
+    for k, fn in MEMFILES:
+        n_u = idx['files'][k]['units']
+        n_r = sum(1 for _, u, r in out if r and u['key'] == k)
+        c = collections.Counter(r['verdict'] for _, u, r in out if r and u['key'] == k)
+        L.append('  %-46s %s ; units %4d ; rows %4d ; not rows %4d ; %s' % (fn, idx['files'][k]['sha256'][:16], n_u, n_r, n_u - n_r,
+                                                                         ', '.join('%s %d' % (v, c[v]) for v in LT.VERDICTS)))
+    cnt = collections.Counter(r['verdict'] for r in rows)
+    L += ['', '### THE MATCHES SAMPLE READ BY THE SEAT (%d):' % len(smp)] + ['  %s : %s' % (i, MEM_SAMPLE[i]) for i in smp]
+    L += ['', '### THE REPAIRS, EACH UNDERSTATES OR OVERREACHES ROW (the sentence before ; the re-cut ; in the live file):']
+    rep = []
+    for r in rows:
+        if r['verdict'] in ('UNDERSTATES', 'OVERREACHES'):
+            new = r['action'][len('RE-CUT: '):] if r['action'].startswith('RE-CUT: ') else None
+            fn = r['source'].split('/', 1)[1].rsplit(':', 1)[0]
+            st = ('APPLIED' if new and new in live[fn] and r['stated'] not in live[fn] else ('### NOT APPLIED' if new else '### A WORK-ORDER'))
+            rep.append(dict(id=r['id'], before=r['stated'], after=new, state=st))
+            L += ['  %s %s -- %s' % (r['id'], r['verdict'], st), '      BEFORE: ' + r['stated'], '      AFTER:  ' + (new or r['action'])]
+    if not rep:
+        L.append('  NONE')
+    L += ['', '### EVERY ROW (id | verdict | stated | licensed | cited | action):']
+    for r in rows:
+        L += ['  %s | %s | %s' % (r['id'], r['verdict'], r['stated']), '      LICENSED: %s' % r['licensed'], '      CITED: %s' % '; '.join(r['cited']),
+              '      ACTION: %s' % r['action']]
+    na = sum(1 for x in rep if x['state'] != 'APPLIED')
+    L += ['', '### ### **FILES %d ; UNITS READ %d ; ROWS %d ; NOT ROWS %d -- MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d ; REPAIRS %d, '
+              'NOT APPLIED %d ; FAULTS 0.**' % (len(MEMFILES), sum(v['units'] for v in idx['files'].values()), len(rows),
+                                               sum(v['units'] for v in idx['files'].values()) - len(rows), cnt['MATCHES'], cnt['UNDERSTATES'],
+                                               cnt['OVERREACHES'], cnt['UNLICENSED'], len(rep), na)]
+    put_txt('b646_table_seat_memory.txt', L)
+    put_json('b646_table_seat_memory.json', dict(at=utc(), files=idx['files'], counts=dict(cnt), table=T, rows=rows, repairs=rep, sample=MEM_SAMPLE))
+    print(L[-1])
+
+
 # ================================================================================ THE DRAFT'S DESCRIPTION, (R256)(4): b644's route, carried
 # ### b639's http (the token in the Authorization header alone, the User-Agent naming the act); the draft's description replaced by v3's bank,
 # ### every other metadata key carried, no file touched, nothing published; read back once; HELD.
