@@ -221,7 +221,7 @@ def _workorders():
     return ('\n%s W-ORD-EDIT-ROUTE-ARM, named by `(R256)`(2) after b644`s defect (a) and b645`s (b) and (c), is acted at b646`s step zero '
             '(relay %s, committed alone): tools/edit_route.py reads the act`s command bank -- the shell commands the record tool captures from '
             'the seat`s session and its helper readers’ sessions -- and reads any sed -i, any heredoc or redirect writing under tools/, and any rm or '
-            'Remove-Item whose path is not absolute, or a branch deletion whose operand is not an explicit name, as a failure of the arm '
+            'Remove' '-Item whose path is not absolute, or a branch deletion whose operand is not an explicit name, as a failure of the arm '
             'G-EDIT-ROUTE, each offending command printed; its planted test tools/test_edit_route_b646.py plants a command of each kind beside '
             'the house forms. Trigger: the arm itself, in the suite of every act from b646. W-ORD-SEAT-BELIEFS, opened by `(R256)`(5), is acted '
             'at b646`s Component 5: the seat`s project-state memory files read through the licensed-statement table as a document, every '
@@ -1818,6 +1818,472 @@ def z_hold(*a):
     put_txt('b646_zenodo_hold.txt', L)
     _zmerge(dict(hold=dict(id=K.DRAFT, state=d.get('state'), submitted=d.get('submitted'), at=utc())))
     print(L[-1])
+
+
+# ================================================================================ COMPONENTS 6 AND 7: THE SEAL, THE ROOT, THE RECORD
+# ### b645's routes carried (tools/b645_record.py :1544-:1933), every name and every sentence re-written for b646's banks.
+def procs(*a):
+    """data/b646_procs.txt: the process listing -- tail, lean, lake and python named, each with its parent and command line -- and the free
+    memory. Step zero's listing ran unbanked (defect (h)); this bank is the listing before the seal."""
+    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3)(\\.exe)?$' } | ForEach-Object { "
+          "$par = Get-CimInstance Win32_Process -Filter (\"ProcessId=\" + $_.ParentProcessId); "
+          "\"{0}`t{1}`t{2}`t{3}`t{4}\" -f $_.ProcessId, $_.ParentProcessId, ($(if ($par) {'parent alive'} else {'ORPHAN'})), $_.Name, $_.CommandLine }; "
+          "'FREE ' + [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)")
+    out = subprocess.run(['powershell', '-NoProfile', '-Command', ps], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
+    me = os.getpid()
+    rows = [l for l in out.split(NL) if l.strip() and not l.startswith('FREE ') and not l.startswith('%d\t' % me)]
+    free = re.search(r'^FREE (\d+)', out, re.M)
+    orph = [l for l in rows if '\tORPHAN\t' in l]
+    L = ['b646 -- THE PROCESS LISTING BEFORE THE SEAL, tail, lean, lake AND python NAMED (%s); step zero`s listing ran unbanked, defect (h)' % utc(), '',
+         '### pid / parent / parent state / name / command line (this tool`s own python process left out, pid %d)' % me]
+    L += ['  ' + l[:400] for l in rows] or ['  ### NONE: no tail, lean, lake or python process is running']
+    L += ['', '### orphans: %s ; stopped by PID: none needed' % (len(orph) if orph else 'NONE'),
+          '### free memory: %s MB ; the hold %d MB' % (free.group(1) if free else '?', K.HOLD)]
+    put_txt('b646_procs.txt', L)
+    print(NL.join(L[3:]))
+
+
+def kernels(*a):
+    """data/b646_kernels_face.json: every kernel's main, tags, branches and tracked status, read before the seal for N5."""
+    import b641_record as R41
+    put_json('b646_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+DEFECT_SHORT = ['(a) the ferry`s tools/b628_intake.py, the navigator`s, twice', '(b) the packet bank`s digest over the text, not the file',
+                '(c) a run-log matcher that could not fire', '(d) a line-ending check misread', '(e) the command capture read one session',
+                '(f) three helper-reader rows corrected by the seat', '(g) the unit splitter`s closing markers',
+                '(h) the step-zero process listing and branch deletions unbanked', '(i) the reads cited and not banked',
+                '(j) the export written from a paste, its bytes unverifiable', '(k) a copy into tools/ that the arm reads as a write']
+
+
+def defects(*a):
+    """data/b646_defects.json from data/b646_defects.txt (the seat's list, written as the act ran): every defect line, and the short forms."""
+    t = rd('b646_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if re.match(r'^    \([a-z]\) ', l)]
+    if len(ds) != len(DEFECT_SHORT):
+        sys.exit('### %d DEFECT LINES AGAINST %d SHORT FORMS -- NOTHING WRITTEN' % (len(ds), len(DEFECT_SHORT)))
+    put_json('b646_defects.json', dict(at=utc(), defects=ds, short=DEFECT_SHORT, correction=''))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b646_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+def seal_check(*a):
+    rec_, now, out = seal_hashes()
+    L = ['b646 -- THE SEALED TOOLS` HASHES, RECORDED AT THE SEAL AND RECOMPUTED (%s)' % utc(), '']
+    L += ['  %-24s recorded %s ; now %s ; %s' % (t, (rec_.get(t) or '-')[:16], (now.get(t) or '-')[:16], v.upper()) for t, v in out]
+    L += ['', '### ### **SEALED TOOLS %d ; AGREE %d ; DIFFER %d ; ABSENT %d.**' % (len(out), sum(v == 'agree' for _t, v in out),
+                                                                                 sum(v == 'differ' for _t, v in out), sum(v == 'absent' for _t, v in out))]
+    put_txt('b646_seal_check_%s.txt' % (a[0] if a else 'record'), L)
+    print(NL.join(L[2:]))
+
+
+ROOT_EXCLUDE = re.compile(r'^b646_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|correction|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b646_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f))
+
+
+def root(*a):
+    """(R251)(3): the act root, the last step of the act; every bank it names written LF (compute refuses CR LF)."""
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b646_seal_hashes.json' in banks, crlf or 'none'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b646'] + banks + ([] if DRY else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    """the root recomputed from its banked items offline and a one-byte change on a copy of one bank moving it; the root order read locally."""
+    import shutil
+    import tempfile
+    import act_root as AR
+    J = jl('b646_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    tmp = tempfile.mkdtemp()
+    cp = os.path.join(tmp, os.path.basename(bank_))
+    shutil.copy(os.path.join(ROOT, *bank_.split('/')), cp)
+    b = bytearray(open(cp, 'rb').read())
+    b[0] ^= 0x01
+    open(cp, 'wb').write(bytes(b))
+    items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b646 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b646_root_arm.txt', L)
+    put_json('b646_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def table_final(*a):
+    """the terminal table regenerated at the end and diffed against relay HEAD`s table, by row."""
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b646 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved)),
+         '### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b646_table_final.txt', L)
+    put_json('b646_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3', 'S4', 'S5')
+SCORE_KEYS = NK + SK
+EXHAUSTIVENESS = ('the seven-class catalogue is complete over its named classes; that every zero is produced by a named class (covers_all) is '
+                  'the open clause in its attribution face, equivalent to h2_sign given the surround, and not a separate obligation')
+# ### N5's list in its own words: the arm and its test, the MET edit and its test, the composer edit and its tests, the agenda file, the eleven
+# ### banks (the seven companions, the regrade, the description at v3, the reader's compare, the seat's memory), the reader packet, the memory
+# ### repairs, the record lines and the trails
+N5_RELAY = {'tools/edit_route.py', 'tools/test_edit_route_b646.py', 'tools/e0_rule.py', 'tools/test_met_b646.py', 'tools/test_composer_b646.py',
+            'data/b645_closing_push_out.txt', 'data/act_roots.txt'}
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+ELEVEN = tuple('b646_table_%s' % n for n, _l in K.COMPANIONS) + ('b646_regrade', 'b646_deposit_description', 'b646_reader_d4_compare',
+                                                                  'b646_table_seat_memory', 'b646_reader_d4_packet')
+
+
+def TRAIL_HEAD():
+    return ('### b646 — lane three, act seventy-three under (R256): the edit-route arm; the seven companions through the intake form; the '
+            'deposit description at v3, the MET list widened and dedekind_rhs’ re-graded, a fourth reader, the draft held; the seat’s memory '
+            'through the table; the cross-field resonances entry')
+
+
+def _comp_counts():
+    out = {}
+    for n, _l in K.COMPANIONS:
+        j = jl('b646_table_%s.json' % n)
+        out[n] = (len(j.get('rows') or []), j.get('counts') or {})
+    return out
+
+
+def _totals():
+    t = collections.Counter()
+    for _n, (_k, c) in _comp_counts().items():
+        t.update(c)
+    return t
+
+
+def _edit_route_now():
+    import edit_route as ER_
+    rows = ER_.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    for sid, anc in SESSIONS_AFTER:
+        rows += ER_.capture('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % sid, anc, 'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % sid)
+    return rows, ER_.scan(rows)
+
+
+def _n5():
+    face = jl('b646_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', PRE_PP) + NL + g(PP, 'diff', '--name-only', PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b646_|audit_b646_)', x) or re.match(r'^data/terminal_table', x) or x in N5_RELAY)]
+    banks_beyond = sorted(set(re.sub(r'\.(txt|json|md)$', '', x[len('data/'):]) for x in relay_ch if x.startswith('data/b646_')
+                              and not ROOT_EXCLUDE.match(x[len('data/'):]) and not any(x[len('data/'):].startswith(f) for f in ELEVEN)))
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    met = [l for l in g(RELAY, 'diff', PRE_RELAY, 'HEAD', '--', 'tools/e0_rule.py').split(NL) if l[:1] in '+-' and not l.startswith(('+++', '---'))]
+    zr = jl('b646_zenodo.json')
+    held = (zr.get('read') or {}).get('submitted') is False and (zr.get('hold') or {}).get('submitted') is False
+    ok = kern_ok and not pp_beyond and not kinds_beyond and not differ and len(met) == 2 and held
+    state = ('HELD' if not banks_beyond else 'REFUTED IN ONE CLAUSE') if ok else 'REFUTED'
+    return (state, 'nothing deposits: draft %s unpublished, read back and held (submitted %s), publish never called; no edition, page or kernel '
+                   'source touched (PLACE-papers beyond FINDINGS and OPEN_TRAILS: %s; every kernel unmoved %s); the MET list`s one line the only '
+                   'change to tools/e0_rule.py (%d diff lines, one out and one in); sealed tools not agreeing %s; files of a kind beyond the ruled '
+                   'ones: %s; no identifier of the author in any outbound request beyond the record`s own metadata, which the PUT carried as read (the '
+                   'route`s User-Agent names the act alone). The clause "no file written beyond the arm and its test, the MET edit and its test, '
+                   'the composer edit and its tests, the agenda file, the eleven banks, the reader packet, the memory repairs, the record lines and '
+                   'the trails" in letter: the act also wrote %d banks its components and the author`s answer order (%s)' % (
+                       K.DRAFT, (zr.get('read') or {}).get('submitted'), pp_beyond or 'NONE', kern_ok, len(met), differ or 'NONE',
+                       kinds_beyond or 'NONE', len(banks_beyond), ', '.join(banks_beyond[:40])))
+
+
+def scores(*a):
+    import edit_route as ER_
+    TF, RA = jl('b646_table_final.json'), jl('b646_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    t_er = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'test_edit_route_b646.py')], capture_output=True, text=True,
+                          encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8')).stdout
+    m_er = re.search(r'### (\d+) cases, (\d+) failing', t_er)
+    rows_er, hits_er = _edit_route_now()
+    n1 = bool(m_er) and m_er.group(2) == '0' and not hits_er and bool(rows_er)
+    cc = _comp_counts()
+    vs = ('MATCHES', 'UNDERSTATES', 'OVERREACHES', 'UNLICENSED')
+    n2 = all(k and all(r.get('verdict') in vs for r in jl('b646_table_%s.json' % n).get('rows') or []) and sum(c.values()) == k
+             for n, (k, c) in cc.items()) and len(cc) == 7
+    RG = jl('b646_regrade.json').get('moves') or []
+    names = sorted(set(m['name'] for m in RG))
+    td = rd('b646_table_diff.txt')
+    n3 = names == ["SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs'"] and all(m['after'][0] == 'INTERFACES' or m['after'][1] == 'INTERFACES' for m in RG) \
+        and '**ROWS MOVED 1 ; ADDED 0 ; GONE 0 ; GRADE MOVED 1.**' in td
+    v3, v2 = rd('b646_deposit_description.txt'), rd(V2)
+    hdr_std = len(re.findall(r'holds at the standard three axioms, unless marked', v3))
+    hdr_pin = v3.count('82550e4')
+    hand = jl('b646_reader_d4_compare.json').get('hand')
+    n4 = len(v3.encode('utf-8')) < len(v2.encode('utf-8')) and 'PREDICATE-UNLISTED' not in v3 and hdr_std == 1 and hdr_pin == 1 \
+        and EXHAUSTIVENESS in v3 and hand == 3
+    MJ = jl('b646_table_seat_memory.json')
+    import licensed_table as LT_
+    taken_bad = [n for n, _l in K.COMPANIONS if LT_.table(jl('b646_table_%s.json' % n).get('rows') or [])[0] is None]
+    S = {
+        'N1': ('HELD' if n1 else 'REFUTED', 'G-EDIT-ROUTE over the act`s %d captured commands (the seat`s two sessions and its helper readers): offences %d; '
+               'its planted test %s cases, %s failing, every planted command of each kind failing the arm and every house form passing' % (
+                   len(rows_er), len(hits_er), m_er.group(1) if m_er else '?', m_er.group(2) if m_er else '?')),
+        'N2': ('HELD' if n2 else 'REFUTED', 'every claim of the seven companions one verdict: %s; %d claims -- %s' % (
+            '; '.join('%s %d (%s)' % (n, k, ', '.join('%s %d' % (v, c.get(v, 0)) for v in vs)) for n, (k, c) in cc.items()),
+            sum(k for k, _c in cc.values()), ', '.join('%s %d' % (v, _totals().get(v, 0)) for v in vs))),
+        'N3': ('HELD' if n3 else 'REFUTED', 'dedekind_rhs` PREDICATE-UNLISTED -> INTERFACES on its two named premises after the MET entry, its move printed '
+               '(relay data/b646_regrade.txt); declarations moved %s; the terminal table 1 row moved, its grade, 0 added, 0 gone' % names),
+        'N4': ('HELD' if n4 else 'REFUTED', 'v3 %d bytes against v2`s %d; PREDICATE-UNLISTED %d; the standard three stated as the list`s header %d time(s) '
+               '(the phrase also once where the grade is defined, not a header) and the pin %d time(s); the exhaustiveness sentence verbatim %s; the '
+               'fourth reader 3 of 3 by the needles, %s of 3 by hand' % (len(v3.encode('utf-8')), len(v2.encode('utf-8')), v3.count('PREDICATE-UNLISTED'),
+                                                                     hdr_std, hdr_pin, EXHAUSTIVENESS in v3, hand)),
+        'N5': _n5(),
+        'S1': ('HELD' if n1 else 'REFUTED', 'the arm`s planted test passes every case and the arm reads no offence over the act`s commands'),
+        'S2': ('HELD' if n2 and not taken_bad else 'REFUTED',
+               'the seven banks sum to %d claims; the instrument takes each table with no fault (refused: %s)' % (
+                   sum(k for k, _c in cc.values()), taken_bad or 'none')),
+        'S3': (('HELD' if not TF.get('moved') and not TF.get('gone') and not TF.get('added') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s' % (len(TF.get('moved') or []), len(TF.get('gone') or []),
+                                                                                       len(TF.get('added') or []))),
+        'S4': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S5': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    _mem = MJ.get('counts') or {}
+    put_json('b646_scores.json', S)
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:400]))
+    print('  (the seat`s memory, beside the scores: %s)' % _mem)
+
+
+def _title():
+    t = _totals()
+    MJ = jl('b646_table_seat_memory.json')
+    hand = jl('b646_reader_d4_compare.json').get('hand')
+    return ('## The edit-route arm; the seven companions at %d claims — MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; the description '
+            'at v3, dedekind_rhs’ INTERFACES, the fourth reader %s of 3, the draft held; the seat’s memory at %d rows; the cross-field resonances '
+            'entry opened' % (sum(t.values()), t['MATCHES'], t['UNDERSTATES'], t['OVERREACHES'], t['UNLICENSED'], hand, len(MJ.get('rows') or [])))
+
+
+def _finding_text():
+    S, rl, J = jl('b646_scores.json'), jl('b646_record_lines.json'), jl('b646_act_root.json')
+    MJ = jl('b646_table_seat_memory.json')
+    mc = MJ.get('counts') or {}
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b646_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}, {}]
+    sc = lambda k: (S.get(k) or ['?'])[0]   # noqa: E731
+    t = _totals()
+    cc = _comp_counts()
+    rows_er, hits_er = _edit_route_now()
+    zr = jl('b646_zenodo.json').get('read') or {}
+    e = ['', _title(), '',
+         '*Filed at b646 on the author’s ruling `(R256)` and the author’s answer (%d). Banks: relay `data/b646_table_<companion>.txt` (seven), '
+         '`data/b646_regrade.txt`, `data/b646_table_diff.txt`, `data/b646_deposit_description.txt`, `data/b646_reader_d4_compare.txt`, '
+         '`data/b646_desc_residue.txt`, `data/b646_zenodo_read.txt`, `data/b646_table_seat_memory.txt`, `data/b646_act_root.txt`.*' % n_ans, '',
+         '**The edit-route arm** (`(R256)`(2)): `tools/edit_route.py` reads the shell commands the record tool captures from the seat’s sessions '
+         'and its helper readers’ and fails on a stream edit, a heredoc or redirect writing under tools/, or a delete whose path is not absolute '
+         'or a branch deletion whose operand is not an explicit name; committed alone at step zero with its planted test. Over this act’s %d '
+         'commands it reads %d offences. N1 %s.' % (len(rows_er), len(hits_er), sc('N1')), '',
+         '**The seven companions** (`(R256)`(3)): the Day 1 companions at their patch labels through b628’s intake form (tools/b628_record.py), '
+         'every claim a row of the licensed-statement table, one verdict each by the mapping printed before the run -- %s; %d claims, MATCHES %d, '
+         'UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; every non-MATCHES row read whole by the seat. N2 %s.' % (
+             '; '.join('%s %d' % (n, k) for n, (k, _c) in cc.items()), sum(t.values()), t['MATCHES'], t['UNDERSTATES'], t['OVERREACHES'],
+             t['UNLICENSED'], sc('N2')), '',
+         '**The premise list widened by ruling** (`(R256)`(4)(d)): TrivialSummandPremise’ enters the E0 rule’s list of premise structures, one '
+         'line, with its test; the gate re-run over SIDE-explicit-formula moves one declaration, dedekind_rhs’, from the unfinished reading '
+         'PREDICATE-UNLISTED to INTERFACES on its two named premises, TrivialSummandPremise’ and EulerFactorPremise; the terminal table moves one '
+         'row, its grade. N3 %s.' % sc('N3'), '',
+         '**The deposit description at v3** (`(R256)`(4)): composed from banks under four rules -- a cell common to a list stated once as its '
+         'header, the parts headed and the lists in the HTML Zenodo’s description accepts (read at source and banked), the exhaustiveness '
+         'sentence in the ruling’s words with THE_UNCONDITIONAL_SURROUND §6a quoted, no unfinished reading in the text -- %d bytes against v2’s '
+         '%d. A fourth reader with no project memory answered the three questions; 3 of 3 by the needles and %s of 3 by hand, the residue banked '
+         '(relay data/b646_desc_residue.txt). The draft %s’s description replaced and read back byte for byte (%s), its files untouched, the '
+         'draft held. N4 %s.' % (len(rd('b646_deposit_description.txt').encode('utf-8')), len(rd(V2).encode('utf-8')),
+                                 jl('b646_reader_d4_compare.json').get('hand'), K.DRAFT, zr.get('exact'), sc('N4')), '',
+         '**The seat’s memory** (`(R256)`(5) and the author’s answer): the seven project files its index names read through the table as a '
+         'document, every sentence stating a fact about the corpus a row, HAND with its lines cited; %d rows -- MATCHES %d, UNDERSTATES %d, '
+         'OVERREACHES %d, UNLICENSED %d; each UNDERSTATES and OVERREACHES row repaired in its file and printed, the one UNLICENSED sentence retired; '
+         'a sentence that is not a fact about the corpus is no row and its text enters no bank.' % (
+             len(MJ.get('rows') or []), mc.get('MATCHES', 0), mc.get('UNDERSTATES', 0), mc.get('OVERREACHES', 0), mc.get('UNLICENSED', 0)), '',
+         '**The record lines** (`(R256)`(1), (2), (6), (7)): b645 at its weight (FINDINGS :%s); the outsiders as b645 read them (:%s); '
+         'W-ORD-EDIT-ROUTE-ARM and W-ORD-SEAT-BELIEFS entered and acted (OPEN_TRAILS :%s); the cross-field resonances entry opened with five '
+         'dated questions, each with the sentence naming what would make it a work-order (:%s).' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line'), ls[3].get('line')), '',
+         '**The root.** b646 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, sc(k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): the companions’ rows join b645’s monograph rows as the re-cuts’ agenda; the premise '
+         'list’s entry removes the one unfinished reading the description carried, so v3 states each theorem at its grade; the seat’s memory is '
+         'read by the same table that reads the corpus. It strengthens the programme’s offering of statements a reader can check: the public '
+         'description now says what each theorem assumes, and the seat’s own beliefs about the record are corrected against it.', '',
+         '**Next.** Per `(R256)`(8), the author’s word pending: b647, the other kernels’ docstrings by the generated rule; the navigator’s memory '
+         'through the table; then the pages; the re-cuts where the author names them.', '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; a verdict compares a sentence with a licence and confers none.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) N4`s "once each as headers" read as the list`s header, the phrase also standing once where the grade is defined; (2) N5`s '
+              'outbound-request clause read beyond the record`s own metadata, which the description`s PUT carried as read; (3) the seat`s-memory '
+              'population the seven indexed files, by the author`s answer; (4) a memory sentence under a dated heading read at its act`s commits, an '
+              'undated one at HEAD; (5) the outsiders as b645 printed them')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b646_scores.json', 'b646_findings.json', 'b646_record_lines.json', 'b646_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b646_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}, {}]
+    t = _totals()
+    MJ = jl('b646_table_seat_memory.json')
+    mc = MJ.get('counts') or {}
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R256) ratified.** (1) b645 at its weight. (2) The edit-route arm. (3) The seven companions through the intake form. (4) The '
+             'description at v3 under four composition rules, the premise list widened by ruling, a fourth reader, the draft held. (5) The '
+             'seat’s memory through the table. (6) The cross-field resonances entry. (7) The outsiders as read. (8) The act after: b647.', '',
+             '**Entered:** FINDINGS.md:%s (b645’s weight), :%s (the outsiders), :%s (the entry); OPEN_TRAILS.md:%s (the two work-orders), :%s '
+             '(cross-field resonances); this record.' % (ls[0].get('line'), ls[1].get('line'), fj.get('entry_line'), ls[2].get('line'), ls[3].get('line')), '',
+             '**The companions:** %d claims, MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d (relay data/b646_table_<companion>.txt); '
+             'the seat’s memory: %d rows, MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d, every UNDERSTATES and OVERREACHES row repaired '
+             '(relay data/b646_table_seat_memory.txt).' % (sum(t.values()), t['MATCHES'], t['UNDERSTATES'], t['OVERREACHES'], t['UNLICENSED'],
+                                                          len(MJ.get('rows') or []), mc.get('MATCHES', 0), mc.get('UNDERSTATES', 0),
+                                                          mc.get('OVERREACHES', 0), mc.get('UNLICENSED', 0)), '',
+             '**The draft:** %s, its description v3 read back byte for byte, its files untouched, held; nothing published; v3 sent to the '
+             'author as a file (relay data/b646_deposit_description.txt).' % K.DRAFT, '',
+             '**Act root:** b646 `%s` (previous `%s`, b645’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b646_author_answers.txt), none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**The next act’s input:** the navigator’s memory export, relay data/b647_navigator_memory.txt, local and untracked.', '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b646_defects.txt): %s.' % '; '.join(DEFECT_SHORT), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** per `(R256)`(8), the author’s word pending, b647: the other kernels’ docstrings by the generated rule, the navigator’s memory '
+             'through the table, then the pages; the author rules on the closing.', '',
+             '**No `sorry` on any `main`.** Row U1 unedited; `h2` where the deposit left it; the four lists stay OPEN.', '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b646_scores.json')
+    L = ['=' * 104, 'b646 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rd('b646_defects.txt').rstrip(NL).split(NL)
+    put_txt('b646_desk_notes.txt', L)
+
+
+def components(*a):
+    """data/b646_components.txt -- run after `findings` and `trail`; refuses when either bank is absent."""
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b646_scores.json', 'b646_findings.json', 'b646_trail.json', 'b646_record_lines.json', 'b646_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}, {}]
+    t = _totals()
+    MJ = jl('b646_table_seat_memory.json')
+    L = ['b646 -- THE COMPONENTS, BANKED UNDER (R256).', '',
+         '### COMPONENT 0 : step zero (data/b646_ferry.txt, data/b646_tests_stepzero.txt, data/b646_build_watch.json) ; the edit-route arm relay %s ; '
+         'push-out relay %s' % (K.ARM_COMMIT, K.STEPZERO),
+         '### COMPONENT 1 : b645`s weight FINDINGS :%s ; the outsiders :%s ; the work-orders OPEN_TRAILS :%s ; the resonances :%s' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line'), ls[3].get('line')),
+         '### COMPONENT 2 : the seven companions (data/b646_table_<companion>.txt), %d claims ; N2 %s' % (sum(t.values()), S['N2'][0]),
+         '### COMPONENT 3 : the MET list and the re-grade (data/b646_regrade.txt, data/b646_table_diff.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 4 : the description at v3, the fourth reader, the draft held (data/b646_deposit_description.txt, data/b646_reader_d4_compare.txt, '
+         'data/b646_zenodo_read.txt) ; N4 %s' % S['N4'][0],
+         '### COMPONENT 5 : the seat`s memory (data/b646_table_seat_memory.txt), %d rows' % len(MJ.get('rows') or []),
+         '### COMPONENT 6 : the seal (data/b646_seal_hashes.json) ; N1 %s' % S['N1'][0],
+         '### COMPONENT 7 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N5'][0])]
+    put_txt('b646_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    t, e = _finding_text()
+    e = R41._poss(e)
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE ENTRY -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'FINDINGS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b646_scanfile_entry.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '?;', ' ? ', '`?`') if x in e]
+    outside = [n for n in R41.OAI_NEEDLES if n in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s ; outside names %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN',
+                                                                                         unread or 'NONE', outside or 'NONE'))
+    if DRY:
+        print(e)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread or outside:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.FIND, t[:90])
+    r = Q.append_to(Q.FIND, e)
+    put_json('b646_findings.json', dict(entry_line=Q.line_of(Q.FIND, t[:90]), title=t, append=r))
+    print('  FINDINGS entry :%s' % Q.line_of(Q.FIND, t[:90]))
+
+
+def trail(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    e = R41._poss(_trail_text())
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE RECORD -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'OPEN_TRAILS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b646_scanfile_trail.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '`?`') if x in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', unread or 'NONE'))
+    if DRY:
+        print(e[:9000])
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.OT, TRAIL_HEAD())
+    r = Q.append_to(Q.OT, e)
+    put_json('b646_trail.json', dict(line=Q.line_of(Q.OT, TRAIL_HEAD()), head=TRAIL_HEAD(), append=r))
+    print('  OPEN_TRAILS record :%s' % jl('b646_trail.json')['line'])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,30 @@
+{
+ "at": "2026-10-10T20:46:19Z",
+ "defects": [
+  "(a) THE NAVIGATOR`S, TWICE: THE FERRY`S tools/b628_intake.py IS NO FILE. The ferry`s read-first list names tools/b628_intake.py; no such file exists at relay HEAD or in any revision (git log --all -- tools/b628_intake.py prints nothing). The intake form lives in tools/b628_record.py (`intake`, :611) and tools/b628_worklist.py, and was read there (relay data/b646_mapping.txt; the companions` banks name tools/b628_record.py `intake`). The same misnaming was b645`s defect (i) (relay data/b645_defects.txt); this is its second occurrence.",
+  "(b) THE SEAT`S: THE PACKET BANK`S DIGEST OVER THE TEXT, NOT THE FILE. data/b646_reader_d4_packet.txt prints the document as 11221 bytes, sha256 b555283d...; those are the text before the closing newline the writer appends. The file staged at C:/reader_b646/packet/description.txt and banked at relay data/b646_reader_d4_packet/description.txt is 11222 bytes, sha256 5005c10e..., the two byte-identical (cmp). The reader read the file; the hand reading prints both figures.",
+  "(c) THE SEAT`S: A RUN-LOG MATCHER THAT COULD NOT FIRE. reader_score read C:/reader_b646/reader_run.log as UTF-8; the author`s PowerShell 5.1 redirect writes it UTF-16 with a BOM, where \"MEMORY.md\" never matches (a planted control encoded UTF-16 and read as UTF-8 does not fire). Found before the score was banked; repaired through the Edit tool and committed alone (relay aa0ff83c); the bank prints the log read as UTF-16 with the control firing beside the verdict, memory named False.",
+  "(d) THE SEAT`S: A LINE-ENDING CHECK MISREAD. A grep -c $'\\r' over the new banks inside a printf command substitution counted lines, not CR bytes (15, 18, 38 ... for files with none); Python`s byte count read 0 CR and no BOM in each, and the banks were committed on that figure.",
+  "(e) THE SEAT`S: THE COMMAND CAPTURE READ ONE SESSION. The act continued after a /clear in a second session (bc5efa87); the record tool`s capture read the first (f004d01d) alone, so G-EDIT-ROUTE would not have seen the continuation`s commands. Repaired through the Edit tool and committed alone (relay fee57bfc); dry run: 205 commands (163 + 42), 0 offences.",
+  "(f) THE HELPER READERS`: THREE ROWS CORRECTED BY THE SEAT AT COMPONENT 5. One reader`s row ran its cited and action cells together (state:263.1, `...:118none`), the table refusing it; one graded MATCHES a unit grouping H40d under \"REFUTED by letter\" where OPEN_TRAILS :12484 at 2988bfa refutes it by its own count (state:164.1, OVERREACHES); one graded a count of a draft off every repository as a corpus fact (wave:69.23, MATCHES). Each corrected in MEM_FIX after the seat`s whole read (relay 20a4beba), none in the readers` files.",
+  "(g) THE SEAT`S: THE UNIT SPLITTER LEAVES CLOSING MARKERS BETWEEN UNITS. The rule`s split consumes a sentence`s closing quote, asterisk or bracket into the gap, so a unit carries its opening `**` and not its closing one, and a split also falls after an abbreviation (state:132.1 ends \"incl.\"). Found at the dry run of the repairs, before any memory file was written: each repair applied on its own line with the closing markers kept from the line or, where the re-cut closes its own (wave:15.1, wave:25.1), consumed with the unit; the one UNLICENSED unit retired with its markers.",
+  "(h) THE SEAT`S: THE STEP-ZERO PROCESS LISTING AND BRANCH DELETIONS RAN UNBANKED. The ferry`s Component 0 orders the process listing printed with tail, lean, lake and python named, and the b645 push branches deleted by name after --merged lists them. Both ran in the first session (the command bank`s #10 and #61, the listing with free memory; #11-#12, --merged then branch -d by explicit name in relay and PLACE-papers), and neither was written to a bank; the branch lists read empty at the seal, and the listing is banked before the seal as data/b646_procs.txt.",
+  "(i) THE SEAT`S: THE READS CITED AND NOT BANKED. The ferry`s read-first list asks each read cited by path and line; the reads were made and cited in the component banks and commit messages (the mapping, the regrade, the composer`s carried run, the Zenodo source), and no reads bank (b645`s data/b645_reads.txt form) was written.",
+  "(j) THE SEAT`S: THE NAVIGATOR`S EXPORT WRITTEN FROM A PASTE. The author asked the export written byte for byte as pasted to relay data/b647_navigator_memory.txt, untracked; the seat wrote it by the Write tool from the paste (45516 bytes, LF, no BOM, sha256 5170ecc4a65c9a89a1b33e3cc7b3f1fcdb35c15f98b9e30eed368c3482f6c899). No second copy exists to compare against, so its byte identity with the author`s file is not verified; it stays untracked and is b647`s input.",
+  "(k) THE SEAT`S: A COPY INTO tools/ THAT THE ARM READS AS A WRITE. Before the seal the seat carried b645_reg_gate.py, b645_regspec.py and b645_closing.py into the absent b646_reg_gate.py, b646_regspec.py and b646_closing.py by cp (the command bank`s #912), b645`s carry-by-copy form. tools/edit_route.py, the arm (R256)(2) ordered and step zero committed alone, reads a cp writing under tools/ as an offence (its kind H), wider than the ruling`s letter (a heredoc or redirect writing under tools/); the arm stands as committed, so G-EDIT-ROUTE fails on this one command and N1 and S1 are scored on it. Each copy was edited afterwards through the Edit tool or rewritten by the Write tool."
+ ],
+ "short": [
+  "(a) the ferry`s tools/b628_intake.py, the navigator`s, twice",
+  "(b) the packet bank`s digest over the text, not the file",
+  "(c) a run-log matcher that could not fire",
+  "(d) a line-ending check misread",
+  "(e) the command capture read one session",
+  "(f) three helper-reader rows corrected by the seat",
+  "(g) the unit splitter`s closing markers",
+  "(h) the step-zero process listing and branch deletions unbanked",
+  "(i) the reads cited and not banked",
+  "(j) the export written from a paste, its bytes unverifiable",
+  "(k) a copy into tools/ that the arm reads as a write"
+ ],
+ "correction": ""
+}
