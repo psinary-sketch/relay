@@ -1253,6 +1253,99 @@ def reader_packet5(*a):
     print(NL.join(L[2:]))
 
 
+# ================================================================================ COMPONENT 5, (R257)(6): THE CENSUS'S COLUMNS EXTENDED
+# ### b645's rules (tools/licensed_table.py `cluster`, `maturity`; printed in relay data/b645_census_columns.txt) applied unchanged to every
+# ### keystone the table now reaches: the 48 of b645's roster (the monograph's maturity from b645's table, as b645 set it), the seven Day 1
+# ### companions (relay data/b646_table_<name>.json, b646), and every kernel of (2) (relay data/b647_table_<kernel>.json, SIDE-explicit-
+# ### formula from b645's table). A kernel's CLUSTER by the terminal rule over its rows in the terminal table (the path rule has no path);
+# ### its open-stated rows its theorems at INTERFACES on a premise whose status is OPEN (b645's reading for SIDE-explicit-formula); a
+# ### kernel's PHASE `-` (no REGISTRY heading; b645 printed 1 for SIDE-explicit-formula, carried as printed).
+def columns5(*a):
+    """data/b647_census_columns.txt and .json beside b645's: CLUSTER, PHASE, MATURITY for the roster, the companions and the kernels; the
+    keystones still blank listed; no census edition (v0.8 at b648)."""
+    import licensed_table as LT
+    import b645_record as B5
+    K_ = B5._roster()
+    if len(K_) != 48:
+        sys.exit('### THE ROSTER READ %d KEYSTONES, NOT 48 -- NOTHING WRITTEN' % len(K_))
+    M = jl('b645_table_monograph.json')
+    mono_open = sum(1 for r in M.get('rows') or [] if r.get('stated_as') == 'open')
+    ST = dict((r['head'], r['status']) for r in jl('b643_premise_table.json').get('rows') or [])
+    tt, _md = B5._tt()
+    reg = K.show('REGISTRY.md', K.PRE_PP) or ''
+
+    def open_itf(rows):
+        return sum(1 for x in rows if x['grade'] == 'INTERFACES' and any(ST.get(h) == 'OPEN' for h in re.findall(r'\b([A-Z]\w+)\b', x['statement'] or '')))
+    L = ['b647 -- COMPONENT 5, (R257)(6): THE CENSUS`S CLUSTER, PHASE AND MATURITY COLUMNS EXTENDED TO EVERY KEYSTONE THE TABLE REACHES -- NO '
+         'EDITION (%s)' % utc(), '',
+         '### the rules: b645`s, unchanged (relay data/b645_census_columns.txt, its head; tools/licensed_table.py cluster and maturity) ; the '
+         'roster: b645`s 48 (tools/b645_record.py _roster) ; the tables: the monograph b645, the seven companions b646, the kernels b647 and '
+         'SIDE-explicit-formula b645', '',
+         '### (i) THE ROSTER`S 48 (row | tier | id | path | PHASE | CLUSTER (how) | MATURITY (why)):']
+    J = []
+    for k in K_:
+        t = B5._show(PP, 'HEAD', k['path']) or ''
+        names = set(re.findall(r'`(?:[\w.]+\.)?([A-Za-z_][\w\'₀-₉]*)`', t))
+        c, how = LT.cluster(k['path'], names)
+        if not c and k['id'] in B5.CLUSTER_HAND:
+            c, cites = B5.CLUSTER_HAND[k['id']]
+            how = 'HAND: ' + ', '.join(cites)
+        if k['id'] == 'd1-1':
+            mat, why = LT.maturity(M['counts'], open_rows=mono_open)
+            why += ' (relay data/b645_table_monograph.txt: %s ; stated open %d)' % (', '.join('%s %d' % kv for kv in M['counts'].items()), mono_open)
+        else:
+            mat, why = LT.maturity(None)
+        J.append(dict(k, kind='roster', cluster=c, how=how, maturity=mat, why=why))
+        L.append('  %s | %-2s | %-40s | %-52s | %-4s | %-15s (%s) | %s (%s)' % (k['row'], k['tier'], k['id'][:40], k['path'][:52], k['phase'],
+                                                                             c or '### BLANK', how[:40], mat or '### BLANK', why))
+    L += ['', '### (ii) THE SEVEN DAY 1 COMPANIONS (id | path | REGISTRY row | PHASE | CLUSTER (how) | MATURITY (why)):']
+    import b646_worklist as K6
+    for name, lab in K6.COMPANIONS:
+        path = 'day1/%s.md' % name
+        T = jl('b646_table_%s.json' % name)
+        cn = T.get('counts')
+        rid = [l for l in reg.split(NL) if ('%s.md' % name) in l][:1]
+        t = B5._show(PP, K.PRE_PP, path) or ''
+        names = set(re.findall(r'`(?:[\w.]+\.)?([A-Za-z_][\w\'₀-₉]*)`', t))
+        c, how = LT.cluster(path, names)
+        so = sum(1 for r in T.get('rows') or [] if r.get('stated_as') == 'open')
+        mat, why = LT.maturity(cn, open_rows=so)
+        why += ' (relay data/b646_table_%s.txt: %s ; stated open %d)' % (name, ', '.join('%s %d' % kv for kv in (cn or {}).items()), so)
+        J.append(dict(kind='companion', id='%s %s' % (name, lab), path=path, phase='1', registry=(rid[0].strip()[:120] if rid else 'NOT IN REGISTRY'),
+                      cluster=c, how=how, maturity=mat, why=why))
+        L.append('  %-28s %s | %-48s | 1 | %-15s (%s) | %s (%s)' % (name + ' ' + lab, path, (rid[0].strip()[:48] if rid else '### NOT IN REGISTRY'),
+                                                                    c or '### BLANK', how[:40], mat or '### BLANK', why))
+    L += ['', '### (iii) THE KERNELS (kernel | main | PHASE | CLUSTER (how) | MATURITY (why)):']
+    KJ = jl('b647_table_kernels.json')
+    ef = jl('b645_table_docstrings.json')
+    kin = [(x['kernel'], x['rev'], x['counts'], 'relay data/b647_table_%s.txt' % x['kernel']) for x in KJ.get('kernels') or []]
+    kin.append(('SIDE-explicit-formula', '82550e4', ef.get('counts'), 'relay data/b645_table_docstrings.txt'))
+    for kname, rev, cn, src in sorted(kin):
+        rows = [x for x in tt if x['repo'] == kname]
+        c, how = LT.cluster('', set(x['name'].split('.')[-1] for x in rows))
+        so = open_itf(rows)
+        mat, why = LT.maturity(cn, open_rows=so)
+        why += ' (%s: %s ; theorems at INTERFACES on an OPEN premise %d)' % (src, ', '.join('%s %d' % kv for kv in (cn or {}).items()), so)
+        ph = '1' if kname == 'SIDE-explicit-formula' else '-'
+        J.append(dict(kind='kernel', id='%s %s' % (kname, rev), path='D:/' + kname, phase=ph, cluster=c, how='terminals: ' + how if c else how,
+                      maturity=mat, why=why, terminals=len(rows)))
+        L.append('  %-34s %s | %s | %-15s (%s) | %s (%s)' % (kname, rev, ph, c or '### BLANK', ('terminals: ' + how)[:60] if c else how[:60],
+                                                           mat or '### BLANK', why))
+    blank_m = [x['id'] for x in J if not x['maturity']]
+    blank_c = [x['id'] for x in J if not x['cluster']]
+    L += ['', '### BY KIND: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['kind'] for x in J).items())),
+          '### BY CLUSTER: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['cluster'] or 'BLANK' for x in J).items())),
+          '### BY MATURITY: ' + ' ; '.join('%s %d' % kv for kv in sorted(collections.Counter(x['maturity'] or 'BLANK (NOT YET IN THE TABLE)' for x in J).items())),
+          '', '### THE KEYSTONES STILL BLANK IN MATURITY (%d), not yet in the table:' % len(blank_m)] + ['  ' + x for x in blank_m]
+    L += ['### CLUSTER BLANK (%d): %s' % (len(blank_c), blank_c or 'none')]
+    L += ['', '### ### **ROWS %d (ROSTER 48, COMPANIONS 7, KERNELS %d) ; CLUSTER PLACED %d, BLANK %d ; MATURITY ASSIGNED %d, BLANK AND MARKED %d ; NO '
+              'BLANK COUNTED AS A VALUE.**' % (len(J), sum(1 for x in J if x['kind'] == 'kernel'), len(J) - len(blank_c), len(blank_c),
+                                               len(J) - len(blank_m), len(blank_m))]
+    put_txt('b647_census_columns.txt', L)
+    put_json('b647_census_columns.json', dict(at=utc(), rows=J, rule=LT.MATURITY_RULE))
+    print(L[-1])
+
+
 def glossary_cmp(*a):
     """data/b647_glossary_block.txt: the glossary block regenerated by the pages' own builder (tools/chain_page.py glossary_block) from
     relay data/glossary.txt as appended here, against the block each of the two pages and the census at v0.7.1 prints at PLACE-papers main
