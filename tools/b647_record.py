@@ -440,6 +440,310 @@ def kdocs_yield(*a):
     print('  TOTAL %s' % dict(tot))
 
 
+WHOLE_SP = os.path.join(SP, 'whole')
+_GRH_N1 = 'relay@a66c50a1:data/b555_ferry.txt:123'
+KFIX = {        # ### row id -> dict of cells the seat corrects after its whole read (verdict, cls, licensed, cited, action, why)
+    'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:1': dict(
+        licensed="The file's composite GRHStructuralExhaustiveness has no character, L-function or zero in it: it is card MechanismClass = 7, "
+                 "seven exclusions of sigma-conditions on defined real functions, and Ostrowski, with chi, chibar unused; "
+                 "grh_structural_exhaustiveness_proved is graded INTERFACES and b555's (N1) reads no character value in its conclusion, so "
+                 "\"the composite GRH theorem for L(s, chi)\" and \"the chi-paired form\" claim more than the file compiles.",
+        cited='SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:5 ; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:12 ; '
+              'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:65 ; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:133 ; '
+              'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:145 ; relay:data/terminal_table.md:1814 ; ' + _GRH_N1,
+        why='the reader cited PLACE-papers FINDINGS.md:5830 with no commit; at 2d6daf3 that line is the GRH_CASCADE tier entry and does not say '
+            'character-free; the reading it meant is b555 (N1), relay data/b555_ferry.txt:123'),
+    'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:142': dict(
+        cited='SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:133 ; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:145 ; '
+              'relay:data/terminal_table.md:1814 ; ' + _GRH_N1,
+        why='the same uncommitted FINDINGS.md:5830 cite, replaced by b555 (N1)'),
+    'SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:132': dict(
+        licensed='proof_dichotomy is proved by induction and cases, and its banked print reads no axioms (b557 probe c1, the file at v1.4 the '
+                 'SAME as at 0256e9e), so "axiom-free" matches its print.',
+        cited='SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:134 ; relay@a66c50a1:data/b557_probe_c1.txt:3 ; '
+              'relay@a66c50a1:data/b557_probe_c1.txt:13',
+        why='the reader wrote "no banked print exists"; the seat\'s class-A control (every axiom claim against the 1420 banked prints) found '
+            "proof_dichotomy's print, which agrees: the verdict stands, the ground is corrected"),
+}
+KREAD_AT = {   # ### file -> lines of its non-MATCHES rows the seat read whole against their cited lines (285 rows)
+    'SIDE-archimedean@8019d9d:SIDEArchimedean/Reflection.lean': (1, 58),
+    'SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean': (1, 130, 178, 245),
+    'SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean': (5, 41, 63),
+    'SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean': (55,),
+    'SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean': (68, 122, 150),
+    'SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean': (4, 55),
+    'SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean': (102, 105, 147),
+    'SIDE-cosmo@c5cba30:SIDECosmo/FanoFormation.lean': (9,),
+    'SIDE-cosmo@c5cba30:SIDECosmo/SteaneExemplar.lean': (6, 60, 65, 72, 80),
+    'SIDE-effects@ef4cff7:SIDEEffects/ExhaustivenessLicense.lean': (1, 99),
+    'SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean': (3, 21, 33, 50, 65),
+    'SIDE-global-section@17ce9ff:Core/AlternationShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/BallPairShadow.lean': (1, 33),
+    'SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean': (164,),
+    'SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean': (1, 104),
+    'SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/DependenceShadow.lean': (1, 63),
+    'SIDE-global-section@17ce9ff:Core/DiagonalSection.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean': (1, 37),
+    'SIDE-global-section@17ce9ff:Core/H1Mechanism.lean': (30,),
+    'SIDE-global-section@17ce9ff:Core/InequalityShadow.lean': (1, 18),
+    'SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/KLSilence.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean': (1, 32, 49, 57, 68),
+    'SIDE-global-section@17ce9ff:Core/LinkShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean': (66, 85, 91),
+    'SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean': (54,),
+    'SIDE-global-section@17ce9ff:Core/PairingShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/RadializationShadow.lean': (1, 30),
+    'SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean': (131,),
+    'SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean': (205, 219),
+    'SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean': (71,),
+    'SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean': (1, 41),
+    'SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/TraceSilence.lean': (46,),
+    'SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean': (1,),
+    'SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean': (1,),
+    'SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean': (1, 40, 152, 251, 363),
+    'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean': (1, 51),
+    'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean': (1, 142),
+    'SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean': (1, 58),
+    'SIDE-interfaces@cbdcd5f:Interfaces.lean': (1,),
+    'SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean': (1, 82, 95, 112, 159, 202, 226),
+    'SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean': (9, 31),
+    'SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean': (4, 31),
+    'SIDE-kernel@0256e9e:Bridge/FanoSteane.lean': (4, 46, 66, 123, 137),
+    'SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean': (3, 29, 52, 92, 101),
+    'SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean': (63, 88),
+    'SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean': (7, 223),
+    'SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean': (1,),
+    'SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean': (1,),
+    'SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean': (1, 70),
+    'SIDE-kernel@0256e9e:Kernel/Core.lean': (42,),
+    'SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean': (4, 44),
+    'SIDE-kernel@0256e9e:Kernel/Formation.lean': (41,),
+    'SIDE-kernel@0256e9e:Kernel/Integration.lean': (104, 120, 143, 181, 191, 200, 215, 248, 263),
+    'SIDE-kernel@0256e9e:Kernel/Kappa.lean': (49, 59),
+    'SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean': (9, 102),
+    'SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean': (7, 30, 53),
+    'SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean': (68,),
+    'SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean': (1,),
+    'SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean': (108, 116, 121, 127),
+    'SIDE-kernel@0256e9e:Kernel/SimplicityRouteD.lean': (69,),
+    'SIDE-kernel@0256e9e:Kernel/SimplicityRouteE.lean': (77,),
+    'SIDE-kernel@0256e9e:Kernel/StructuralCount.lean': (1, 136, 147, 163, 174),
+    'SIDE-kernel@0256e9e:Kernel/Trivium.lean': (11, 76, 406, 414, 451, 462),
+    'SIDE-kernel@0256e9e:Kernel/TriviumCode.lean': (9, 20),
+    'SIDE-kernel@0256e9e:Kernel/TypeLevel.lean': (14,),
+    'SIDE-kernel@0256e9e:Kernel/Voice2.lean': (80, 103),
+    'SIDE-kernel@0256e9e:Kernel/Voice5.lean': (57,),
+    'SIDE-kernel@0256e9e:Kernel/Voice6.lean': (66, 77, 88),
+    'SIDE-kernel@0256e9e:Kernel/Voice7.lean': (52, 144),
+    'SIDE-kernel@0256e9e:MetaKernel.lean': (3, 36, 52, 56, 59, 76, 118, 124, 173, 183, 203, 207, 239, 285, 294, 309, 342, 345, 357, 377, 411,
+                                            415, 427, 464, 474, 487),
+    'SIDE-kernel@0256e9e:legacy/Foundation3v2.lean': (35, 42, 54, 61),
+    'SIDE-kernel@0256e9e:legacy/Foundation4v2.lean': (27, 33, 37, 42),
+    'SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean': (71, 115, 136, 151),
+    'SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean': (116,),
+    'SIDE-li-map@b515e6b:LiLinearMap.lean': (1, 54),
+    'SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean': (3,),
+    'SIDE-lv-conservation@2f71068:AxiomCheck.lean': (8,),
+    'SIDE-lv-conservation@2f71068:PinnedGoal.lean': (4,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/C7OrderBounds.lean': (222,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/CouplingsAtPhi.lean': (1, 82, 124, 158, 256, 309, 330, 340, 397),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/DirichletC7Order.lean': (4,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/GammaBounds.lean': (4, 69),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/Genus5Confinement.lean': (103,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/LeadLaw.lean': (3,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/QWantedPoster.lean': (3, 53, 64, 171),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/RegisterPentagon.lean': (6, 103, 168, 280, 289),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/T2_SDarkness.lean': (4,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/T3_StepNineBridge.lean': (77,),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/ZeroActingPairing.lean': (3, 77, 141, 179, 258, 348, 444),
+    'SIDE-lv-conservation@2f71068:SIDELvConservation/ZeroActingPartial.lean': (38, 82, 97, 111, 118),
+    'SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean': (1, 26),
+    'SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean': (1, 110, 341, 417),
+    'SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean': (1,),
+    'SIDE-spinor@520abe7:SIDESpinor/Spinor.lean': (1, 55),
+    'SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean': (1,),
+    'SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean': (1, 83, 87, 116, 136, 140, 150, 185, 205, 218),
+    'SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean': (1, 72, 82),
+    'SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean': (1,),
+    'SIDE-trivium@1aac3a9:Trivium/Bijection.lean': (1, 55, 240, 245, 252),
+    'SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean': (1,),
+    'SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean': (1, 115, 124, 131, 153),
+}
+KREAD = set('%s:%d' % (f, n) for f, ns in KREAD_AT.items() for n in ns)   # ### row ids the seat read whole against their cited lines
+KCONTROLS = [
+    '  ### CLASS A: every row whose STATED makes an axiom claim (no/zero/0 axioms, axiom-free, standard three, a named profile) -- 69 rows -- '
+    'against every `depends on axioms` print banked in relay data at a66c50a1 (1420 distinct prints in 411 files), matched by declaration name '
+    'and then by the print`s own kernel, pin and file-identity line. Rows it moved: SIDE-kernel Kernel/Cascade/SieveCeiling.lean:132 (MATCHES '
+    'stands; its ground corrected to the print relay data/b557_probe_c1.txt:13). Candidates read and dismissed: CartanBBridge.lean:1 (its `0 '
+    'axioms beyond Mathlib core` at :49 is what the print relay data/b554_probe_k5.txt:7 shows), GS FoldedMirrorShadow (the `conv` print is '
+    'SIDE-explicit-formula`s), SIDE-silence-principle Basic.lean:142 (its axiom-free names SIDE-kernel`s silence_universal, not the propext '
+    'Bool lemma), MetaKernel.lean:140 (its recorded profile [propext, Quot.sound] is what type_I_has_ostrowski prints at v1.2, '
+    'relay data/b557_probe_k6.txt; the file DIFFERS from 0256e9e there, so the print neither confirms nor contradicts it at the pin), SIDE-effects Milestones.lean:65 (the sorryAx print is at '
+    'c66f3c5, a different file content; its sorries are at ef4cff7 too, and the row is OVERREACHES on that ground already).',
+    '  ### CLASS S: every `sorry` in code in relay data/b647_sorry_census.txt (37), the declaration it closes, and every row on that declaration '
+    'or naming it: T3_perClass_to_combinations (lv :108) is row :77, S; product_formula_prime_pow and product_formula_nat (SIDE-kernel legacy) '
+    'are rows :71 and :115, S; the three SIDE-effects milestones are rows that call them sorry-closed (not S); lv PinnedGoal :23 closes an '
+    '`example` whose module header is row :4 (OVERREACHES, H: the header`s convertibility guarantee, which nothing compiles); the remaining 30 '
+    '(SIDE-kernel legacy Schwarz builds and probes, CodimProbe, IdentityBuild1, FmodifProbe) close declarations that carry no docstring row '
+    '(SchwarzBuild2`s head block, row :4, states a goal and a strategy). No sorry-closed declaration is described as holding by a row read MATCHES.',
+]
+CLASSES = {'S': 'a sorry-closed theorem described as holding', 'A': 'an axiom-profile claim against a banked print',
+           'H': 'a module header claiming more than its file compiles'}
+
+
+def _whole():
+    """{row id: reader's fields} from the whole reading's read_NN.tsv; faults listed."""
+    got, faults = collections.defaultdict(list), []
+    n_chunks = len([p for p in os.listdir(WHOLE_SP) if re.match(r'^chunk_\d\d\.tsv$', p)]) if os.path.isdir(WHOLE_SP) else 0
+    for n in range(1, n_chunks + 1):
+        p = os.path.join(WHOLE_SP, 'read_%02d.tsv' % n)
+        if not os.path.exists(p):
+            faults.append('read_%02d.tsv absent' % n)
+            continue
+        for raw in io.open(p, encoding='utf-8'):
+            f = raw.rstrip('\n').rstrip('\r').split('\t')
+            if f[0].strip() and not f[0].startswith('#'):
+                got[f[0].strip()].append(f)
+    return got, faults, n_chunks
+
+
+READ_AT = 'a66c50a1'   # ### relay: the commit the whole reading ran at (the brief's addendum); a reader's cite of a relay bank pins to it
+
+
+def _kcite(c):
+    """a reader's cite in the table's form: `relay:data/x:N`, `relay data/x:N`, `D:/relay/data/x:N`, `relay@data:x:N`
+    -> relay@READ_AT:data/x:N."""
+    c = c.strip()
+    m = re.match(r'^(?:D:/relay/|relay[: /]\s*|relay@data:)(?:data/)?([\w./\-]+:\d+(?:-\d+)?)$', c)
+    return ('relay@%s:data/%s' % (READ_AT, m.group(1))) if m else c
+
+
+def _krows():
+    """every kernel's rows: the generated row with the whole reading's verdict beside it, the seat's corrections applied."""
+    got, faults, _n = _whole()
+    out = []
+    for k in kernels_of_chain():
+        if k in CARRIED:
+            continue
+        for r in json.load(io.open(os.path.join(SP, 'kdocs_%s.json' % k), encoding='utf-8')):
+            fs = got.get(r['id'], [])
+            if len(fs) != 1:
+                faults.append('%s: %d readings' % (r['id'], len(fs)))
+                continue
+            f = (fs[0] + [''] * 6)[:6]
+            cell = dict(verdict=f[1].strip(), cls=f[2].strip() or '-', licensed=f[3].strip(), cited=f[4].strip(), action=f[5].strip())
+            cell.update(KFIX.get(r['id'], {}))
+            row = dict(id=r['id'], source='%s:%d' % (r['file'], r['line']), stated=r['stated'], licensed=cell['licensed'],
+                       verdict=cell['verdict'], action=cell['action'], by='HAND', cited=[_kcite(c) for c in cell['cited'].split(';') if c.strip()],
+                       kernel=k, rev=r['rev'], file=r['file'], line=r['line'], kind=r['kind'], decl=r['decl'], textual=r['textual'],
+                       generated_verdict=r['verdict'] + ('/HAND-NEEDED' if r.get('hand_needed') else ''), generated_findings=r['findings'],
+                       cls=cell['cls'] if cell['verdict'] != 'MATCHES' else '-', fixed=r['id'] in KFIX, why=KFIX.get(r['id'], {}).get('why', ''))
+            out.append(row)
+    extra = sorted(set(got) - set(r['id'] for r in out))
+    if extra:
+        faults.append('readings of no row: %s' % extra[:8])
+    return out, faults
+
+
+def kcheck(*a):
+    """the whole reading read without writing: coverage, faults, counts, the non-MATCHES rows the seat has still to read."""
+    import licensed_table as LT
+    rows, faults = _krows()
+    faults += ['%s: %s' % (r['id'], '; '.join(LT.check(r))) for r in rows if LT.check(r)]
+    c = collections.Counter(r['verdict'] for r in rows)
+    print('  rows %d ; faults %d ; %s ; non-MATCHES unread by the seat %d' % (len(rows), len(faults), dict(c),
+                                                                            sum(1 for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in KREAD)))
+    for x in faults[:30]:
+        print('    ### ' + x)
+
+
+def kernel_banks(*a):
+    """data/b647_table_<kernel>.txt/.json for each kernel read here and data/b647_table_kernels.txt/.json joined (SIDE-explicit-formula
+    carried from b645): every row one verdict (HAND, cited), the generated verdict beside it, the rule's miss rate, the three classes counted,
+    the seat's corrections with their reasons; refuses on a fault or a non-MATCHES row the seat has not read."""
+    import licensed_table as LT
+    rows, faults = _krows()
+    faults += ['%s: %s' % (r['id'], '; '.join(LT.check(r))) for r in rows if LT.check(r)]
+    unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in KREAD]
+    if faults or unread:
+        sys.exit('### %d FAULTS, %d NON-MATCHES ROWS UNREAD BY THE SEAT -- NOTHING WRITTEN: %s %s' % (len(faults), len(unread), faults[:5], unread[:8]))
+    plan = json.load(io.open(os.path.join(SP, 'kdocs_plan.json'), encoding='utf-8'))
+    J = []
+    for k in sorted(set(r['kernel'] for r in rows)):
+        rs = [r for r in rows if r['kernel'] == k]
+        cnt, _f = LT.table(rs)
+        gm = [r for r in rs if r['generated_verdict'] == 'MATCHES']
+        missed = [r for r in gm if r['verdict'] != 'MATCHES']
+        cls = collections.Counter(r['cls'] for r in rs if r['verdict'] != 'MATCHES')
+        smp = plan.get('samples', {}).get(k, [])
+        L = ['b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: %s`S DOCSTRINGS AT ITS MAIN %s, EACH TO ONE VERDICT (tools/licensed_table.py) (%s)' % (
+            k, rs[0]['rev'], utc()), '',
+            '### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files '
+            'at its main%s; the statement %s; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the '
+            'banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat' % (
+                (' (%s, RUN-BENEATH-HOLD at b645, takes no row)' % ', '.join(RBH_FILES[k])) if k in RBH_FILES else '',
+                'from the elaborated bank relay data/%s where the declaration is in it, TEXTUAL elsewhere' % ELAB[k] if k in ELAB else 'TEXTUAL throughout'),
+            '### THE GENERATED RULE`S MISS RATE: of %d rows it read MATCHES, %d read otherwise whole (%s) ; its non-MATCHES rows read MATCHES whole: %d' % (
+                len(gm), len(missed), ('%.1f%%' % (100.0 * len(missed) / len(gm))) if gm else '-',
+                sum(1 for r in rs if r['generated_verdict'].split('/')[0] != 'MATCHES' and r['verdict'] == 'MATCHES')),
+            '### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): ' + ' ; '.join('%s %s %d' % (c, CLASSES[c], cls[c]) for c in 'SAH') +
+            ' ; other grounds %d' % cls['-'],
+            '### the seeded MATCHES sample of the generated rule (seed 647-%s): %s' % (k, ('%d rows, read by a helper reader before the whole '
+                                                                                          'reading' % len(smp)) if smp else 'none (under 200 rows)'),
+            '### the seat`s corrections after its whole read: %d' % sum(1 for r in rs if r['fixed']), '']
+        L += ['### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):']
+        for r in rs:
+            if r['verdict'] != 'MATCHES':
+                L += ['  %s | %s | %s | generated %s' % (r['id'], r['verdict'], r['cls'], r['generated_verdict']),
+                      '      STATED   ' + re.sub(r'\s+', ' ', r['stated'])[:1200], '      LICENSED ' + r['licensed'], '      CITED    ' + '; '.join(r['cited']),
+                      '      ACTION   ' + r['action']] + (['      SEAT     ' + r['why']] if r['why'] else [])
+        L += ['', '### EVERY ROW (id | VERDICT | generated | TEXTUAL):']
+        L += ['  %s | %s | %s | %s' % (r['id'], r['verdict'], r['generated_verdict'], 'TEXTUAL' if r['textual'] else 'ELABORATED') for r in rs]
+        L += ['', '### ### **%s: ROWS %d ; MATCHES %d ; UNDERSTATES %d ; OVERREACHES %d ; UNLICENSED %d ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES '
+                  '%d OF %d ; CLASSES S %d A %d H %d.**' % (k, len(rs), cnt['MATCHES'], cnt['UNDERSTATES'], cnt['OVERREACHES'], cnt['UNLICENSED'],
+                                                          len(missed), len(gm), cls['S'], cls['A'], cls['H'])]
+        put_txt('b647_table_%s.txt' % k, L)
+        put_json('b647_table_%s.json' % k, dict(at=utc(), kernel=k, rev=rs[0]['rev'], counts=cnt, missed=len(missed), generated_matches=len(gm),
+                                                classes=dict(cls), rows=rs))
+        J.append(dict(kernel=k, rev=rs[0]['rev'], rows=len(rs), counts=dict(cnt), missed=len(missed), generated_matches=len(gm), classes=dict(cls),
+                      fixed=sum(1 for r in rs if r['fixed'])))
+    ef = jl(CARRIED['SIDE-explicit-formula'])
+    tot = collections.Counter()
+    for x in J:
+        tot.update(x['counts'])
+    tot.update(ef.get('counts') or {})
+    T = ['b647 -- COMPONENT 2: EVERY KERNEL`S DOCSTRINGS, THE KERNELS` COUNTS JOINED ((R257)(2) and the author`s answer) (%s)' % utc(), '',
+         '### SIDE-explicit-formula carried from b645 (relay data/b645_table_docstrings.txt at v0.26 = 82550e4, its main unmoved): %d rows ; %s' % (
+             len(ef.get('rows') or []), ' ; '.join('%s %d' % (v, (ef.get('counts') or {}).get(v, 0)) for v in LT.VERDICTS)),
+         '### every other kernel of the chain read here at its main, whole (kernel | main | rows | MATCHES | UNDERSTATES | OVERREACHES | UNLICENSED | the rule`s '
+         'misses of its MATCHES | classes S A H | seat corrections):']
+    for x in J:
+        T.append('  %-34s %s | %4d | %4d | %3d | %3d | %3d | %3d of %4d | %d %d %d | %d' % (
+            x['kernel'], x['rev'], x['rows'], x['counts'].get('MATCHES', 0), x['counts'].get('UNDERSTATES', 0), x['counts'].get('OVERREACHES', 0),
+            x['counts'].get('UNLICENSED', 0), x['missed'], x['generated_matches'], x['classes'].get('S', 0), x['classes'].get('A', 0),
+            x['classes'].get('H', 0), x['fixed']))
+    nrow = sum(x['rows'] for x in J) + len(ef.get('rows') or [])
+    T += ['', '### THE SEAT`S CONTROLS ON THE TWO CLASSES A READER COULD MISS (run over the whole reading before this bank was written):'] + KCONTROLS
+    T += ['', '### ### **KERNELS %d (%d read here, 1 carried) ; ROWS %d -- MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d ; THE RULE`S MISSES %d OF '
+              '%d ; CLASSES S %d A %d H %d.**' % (len(J) + 1, len(J), nrow, tot['MATCHES'], tot['UNDERSTATES'], tot['OVERREACHES'], tot['UNLICENSED'],
+                                                 sum(x['missed'] for x in J), sum(x['generated_matches'] for x in J),
+                                                 sum(x['classes'].get('S', 0) for x in J), sum(x['classes'].get('A', 0) for x in J),
+                                                 sum(x['classes'].get('H', 0) for x in J))]
+    put_txt('b647_table_kernels.txt', T)
+    put_json('b647_table_kernels.json', dict(at=utc(), kernels=J, carried=dict(kernel='SIDE-explicit-formula', rows=len(ef.get('rows') or []),
+                                                                              counts=ef.get('counts')), totals=dict(tot), rows=nrow))
+    print(T[-1])
+
+
 def sorries(*a):
     """data/b647_sorry_census.txt and .json: the author's answer at Component 2 -- before any further row is read, every `sorry` on every
     kernel's main at its current head, by file and line (git grep -n -w at the main commit, every .lean the main tracks outside .lake/),

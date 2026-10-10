@@ -1,0 +1,81 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-silence-principle`S DOCSTRINGS AT ITS MAIN 667c254, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 47 rows it read MATCHES, 3 read otherwise whole (6.4%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 2
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-silence-principle): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:1 | OVERREACHES | H | generated MATCHES/HAND-NEEDED
+      STATED   SIDESilencePrinciple/Basic.lean =============================== THE SILENCE PRINCIPLE — Formal Kernel In coupled systems with independent structures, essential interfaces carry zero information about behavioral parameters: κ(P, I) = 0 for every behavioral parameter P and every essential interface I. Restated in load-bearing form: essential ⇒ universal ⇒ constant action ⇒ silent (κ = 0) This kernel verifies: - The GENUINE universal silence theorem (§3b): universal interfaces have κ = 0, proved by factorization over all measurements — a real action function, not Bool fields (type-generic; mirrors Kernel/SilenceTheorem.lean, vendored vanilla with attribution) - The decidable Bool chain (§3) as a finite shadow of that theorem - The load-bearing instances (product formula, distributive law) at κ = 0 - A tested panel of essential interfaces with low behavioral κ - The falsification scope (single-structure systems correctly excluded) - Consequences A, D, F from SILENCE_AND_EMERGENCE_PAPER.md (B, C, E are manuscript-resident — not in-kernel derivations; see §7) - Connection to SIDE-structural-error-correction: Silence ⇒ Protection Vanilla Lean 4 — no Mathlib dependency. Toolchain: leanprov
+      LICENSED Besides silence_universal and the Bool modus ponens, the "verified" items are decide checks on stipulated records and definitions: product_formula and distributive_law are records with kappa_x100 := 0; the panel kappas are a hand-entered table; the scope records are Bool flags; Consequences A, D, F are defs (firewall := isSilent, N * p_min, essential && isSilent); "Silence => Protection" restates trivium_d_eff := 2 * 3 - 1.
+      CITED    SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:14; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:181; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:218; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:269; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:350; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:413; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:421
+      ACTION   RE-CUT: This kernel proves the universal silence theorem (Sec. 3b: universal => kappa = 0 by factorization) and the Bool chain (Sec. 3) as modus ponens over its step hypotheses; the rest are decide checks on stipulated records (product formula and distributive law at kappa = 0, a panel of entered kappa values below 20, two out-of-scope records), Consequences A, D, F as definitions with decide-checked instances, and the arithmetic 2*3 - 1 = 5 shared with SIDE-structural-error-correction.
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:110 | OVERREACHES | - | generated MATCHES
+      STATED   **Lemma 3.1 (Decidable silence chain — Bool shadow of `Universal.silence_universal`).** If the four-step chain holds for I, then I essential implies I silent. This is the structural statement: in any well-formed coupled system, essential interfaces carry zero behavioral information.
+      LICENSED silence_principle is Bool modus ponens: chain_holds I = true -> I.essential = true -> isSilent I = true on a record; "This is the structural statement: in any well-formed coupled system, essential interfaces carry zero behavioral information" states a claim about coupled systems and information that the record lemma does not carry, and the file's own Sec. 3 says to cite Sec. 3b instead.
+      CITED    SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:101; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:118
+      ACTION   RE-CUT: If the Bool chain holds for the record I, then I.essential = true implies isSilent I = true (modus ponens over the chain's step hypotheses; the content-bearing form is Universal.silence_universal).
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:341 | OVERREACHES | H | generated MATCHES
+      STATED   ## §7. The Six Consequences SILENCE_AND_EMERGENCE_PAPER §1 lists six consequences of the Silence Principle. We kernelize the structural content of each.
+      LICENSED Of the six consequences only A, D and F have declarations, and those are definitions (firewall := isSilent, resolution_floor_denom := N * p_min, supports_emergence := essential && isSilent) with decide instances; the next block says B, C and E are manuscript-resident and not kernelized, so "We kernelize the structural content of each" claims more.
+      CITED    SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:344; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:350; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:356; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:371; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:392
+      ACTION   RE-CUT: We encode A, D and F as definitions with decide-checked instances; B, C and E are manuscript-resident and not kernelized here.
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:417 | OVERREACHES | - | generated MATCHES
+      STATED   **Theorem 8.1 (Silence yields Protection).** The formation distance d_eff under formation-block errors equals 2·(silent compartments) − 1. This is the bridge between the Silence Principle (Consequence A) and the Formation Distance Theorem in SIDE-structural-error-correction.
+      LICENSED silence_yields_protection proves trivium_d_eff = 2 * num_silent_compartments_trivium - 1 and num = 3 by decide, where trivium_d_eff is defined as exactly that expression and num as the literal 3; the statement restates its own definitions, so "Silence yields Protection" and "the bridge between the Silence Principle and the Formation Distance Theorem" claim more than it carries.
+      CITED    SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:409; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:413; SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:421
+      ACTION   RE-CUT: By definition trivium_d_eff = 2 * num_silent_compartments_trivium - 1 with num_silent_compartments_trivium = 3 (so 5, the value SIDE-structural-error-correction carries); this decide check restates the definitions and derives nothing from silence.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:1 | OVERREACHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:110 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:142 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:178 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:189 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:200 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:215 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:217 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:225 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:239 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:243 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:247 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:251 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:266 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:281 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:289 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:298 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:308 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:311 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:313 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:317 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:341 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:347 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:354 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:366 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:373 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:376 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:380 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:384 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:398 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:407 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:411 | MATCHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:417 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-silence-principle@667c254:SIDESilencePrinciple/Basic.lean:425 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-silence-principle: ROWS 48 ; MATCHES 44 ; UNDERSTATES 0 ; OVERREACHES 4 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 3 OF 47 ; CLASSES S 0 A 0 H 2.**

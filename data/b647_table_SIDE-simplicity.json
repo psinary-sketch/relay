@@ -1,0 +1,153 @@
+{
+ "at": "2026-10-10T22:23:14Z",
+ "kernel": "SIDE-simplicity",
+ "rev": "54ba4f3",
+ "counts": {
+  "MATCHES": 4,
+  "UNDERSTATES": 0,
+  "OVERREACHES": 1,
+  "UNLICENSED": 0
+ },
+ "missed": 1,
+ "generated_matches": 5,
+ "classes": {
+  "-": 1
+ },
+ "rows": [
+  {
+   "id": "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:1",
+   "source": "SIDESimplicity/Codimension.lean:1",
+   "stated": "SIDE-simplicity · Codimension.lean\n  ==================================\n\n  The Section II transversality / codimension-margin engine of the\n  Simplicity keystone (SIMPLICITY_OF_RIEMANN_ZEROS_v1_0).\n\n  Section I.2 (perpendicular crossing) and Section III (trace-formula\n  closing logic) are already proved in the deposited SIDE-kernel\n  (PerpendicularCrossing.lean). This kernel carries the Section II\n  dimensional / logical skeleton only. It does NOT claim the analytic\n  Thom transversality theorem (Thom 1956, delegated), nor the\n  real-analytic non-degeneracy of the five contributions (manuscript).\n\n  Source: SIMPLICITY_OF_RIEMANN_ZEROS_v1_0, Section II.2 to II.4.",
+   "licensed": "The head says Section I.2 (perpendicular crossing) is already proved in SIDE-kernel's PerpendicularCrossing.lean, but the theorem there, perpendicular_gradients, states only the real ring identity 0*c1 + (-c1)*0 = 0 for an arbitrary real c1 and says nothing about xi or its level curves (Part IV of that file rests the geometry on the simplicity axiom). Only Section III's closing logic is compiled there, as premise-taking schemas (multiplicity_from_identity, simplicity_from_trace_structure); this file's own skeleton-only scope and its disclaimers are accurate.",
+   "verdict": "OVERREACHES",
+   "action": "RE-CUT: Section III (trace-formula closing logic) is compiled as a premise-taking logical schema in the deposited SIDE-kernel (PerpendicularCrossing.lean, multiplicity_from_identity / simplicity_from_trace_structure); Section I.2 (perpendicular crossing) is there only as the ring identity perpendicular_gradients (0*c1 + (-c1)*0 = 0), its geometric content resting on the simplicity axiom.",
+   "by": "HAND",
+   "cited": [
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:1",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:8",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:30",
+    "SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:40",
+    "SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:50",
+    "SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:104",
+    "SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:173"
+   ],
+   "kernel": "SIDE-simplicity",
+   "rev": "54ba4f3",
+   "file": "SIDESimplicity/Codimension.lean",
+   "line": 1,
+   "kind": "module",
+   "decl": null,
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:22",
+   "source": "SIDESimplicity/Codimension.lean:22",
+   "stated": "## Transversality count (Section II.2)\n\nThe condition xi'(rho) = 0 places the parameter curve Phi : R -> C^5\non the hyperplane {z1 + ... + z5 = 0}. Phi(R) is a real-dimension-1\ncurve; the hyperplane is real-codimension 2 in C^5. A dimension-1\ncurve has negative expected intersection dimension against a\ncodimension->=2 obstruction, so the generic intersection is empty.",
+   "licensed": "Section narrative of the manuscript's transversality argument (rule 1); the file compiles only the integer count transversal_generic_empty (curveDim = 1, 2 <= codim gives curveDim - codim < 0), graded INTERFACES, and the head at :11 disclaims Thom transversality; real codimension 2 of a complex hyperplane in C^5 is elementary and correct.",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:22",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:30",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:11"
+   ],
+   "kernel": "SIDE-simplicity",
+   "rev": "54ba4f3",
+   "file": "SIDESimplicity/Codimension.lean",
+   "line": 22,
+   "kind": "module",
+   "decl": null,
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:34",
+   "source": "SIDESimplicity/Codimension.lean:34",
+   "stated": "## Five independent sources and the margin (Section II.4)\n\nxi' receives contributions from five independent mechanism-class\nsources; the curve dimension is 1. The codimension is 5, not 1 —\na wide margin. The argument tolerates loss of independence among\nsources to correlation; it fails only if the effective count drops\nto the curve dimension.",
+   "licensed": "Narrative of the margin argument (rule 1); the compiled lines are numSources := 5, curveDim := 1, codim_exceeds_curve, codim_margin (lost <= 3) and margin_fails_at_threshold, which are exactly the margin arithmetic; independence of the five sources is the manuscript's content, disclaimed at the head (:13).",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:34",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:42",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:45",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:48",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:54"
+   ],
+   "kernel": "SIDE-simplicity",
+   "rev": "54ba4f3",
+   "file": "SIDESimplicity/Codimension.lean",
+   "line": 34,
+   "kind": "module",
+   "decl": null,
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:52",
+   "source": "SIDESimplicity/Codimension.lean:52",
+   "stated": "The edge is real, not assumed away: at the threshold (effective\n    count equal to the curve dimension) the margin closes.",
+   "licensed": "The statement is the elementary irreflexivity not (curveDim < curveDim), which is exactly the margin closing at the threshold, as stated (rule 3).",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:52",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:54"
+   ],
+   "kernel": "SIDE-simplicity",
+   "rev": "54ba4f3",
+   "file": "SIDESimplicity/Codimension.lean",
+   "line": 52,
+   "kind": "decl",
+   "decl": "SIDESimplicity.margin_fails_at_threshold",
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:57",
+   "source": "SIDESimplicity/Codimension.lean:57",
+   "stated": "## The parameter-free promotion premise (Section II.3)\n\nxi is fully determined by its specification n^2 -> theta -> xi; there\nare no free parameters to tune Phi(R) onto the hyperplane. This is\nthe premise that promotes \"generically empty\" to \"actually empty\" —\nthe Independence step. The promotion implication itself is the\nmanuscript's content; the kernel records the load-bearing premise.",
+   "licensed": "States the premise and says the promotion is the manuscript's content and that the kernel records the premise (rule 1); the kernel records freeParameters := 0 and no_tuning by rfl, and claims nothing more.",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:57",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:65",
+    "SIDE-simplicity@54ba4f3:SIDESimplicity/Codimension.lean:67"
+   ],
+   "kernel": "SIDE-simplicity",
+   "rev": "54ba4f3",
+   "file": "SIDESimplicity/Codimension.lean",
+   "line": 57,
+   "kind": "module",
+   "decl": null,
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  }
+ ]
+}

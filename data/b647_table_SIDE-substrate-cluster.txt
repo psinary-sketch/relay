@@ -1,0 +1,96 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-substrate-cluster`S DOCSTRINGS AT ITS MAIN 2e76426, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 75 rows it read MATCHES, 1 read otherwise whole (1.3%) ; its non-MATCHES rows read MATCHES whole: 1
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 0 ; other grounds 1
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-substrate-cluster): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:1 | UNLICENSED | - | generated MATCHES
+      STATED   Copyright (c) 2026 J. York Seale. All rights reserved. SPDX-License-Identifier: MIT Authors: J. York Seale (ORCID: 0009-0008-7993-0310) The PLACE TO STAND Research Programme — SIDE-substrate-cluster kernel SIDESubstrateCluster/T7Labeling.lean # 𝕋₇ Labeling of the Substrate This file establishes the canonical bijection between the substrate ((ℤ/2)³ \ {0}) and the Möbius strips of the Klein-bottle topology 𝕋₇, per klein_trivium.pdf (Seven Möbius Strips on a Fano Frame). ## The labeling Each Trivium quadratic field K = ℚ(√d) for d ∈ {−1, 2, 3, −2, −3, 6, −6} carries the glide reflection φ : s ↦ 1 − s̄ on its critical strip. The quotient is a Möbius strip. The seven strips share the critical line σ = 1/2 as common boundary. The strips are labeled by their discriminant d, and the bijection to substrate uses the same {2, 3, −1} bit-pattern encoding as the Trivium labeling (TriviumLabeling.lean). The structural distinction: Trivium discriminants are algebraic objects (quadratic fields); 𝕋₇ strips are topological objects (Möbius surfaces). The labels coincide; the underlying mathematical content differs. ## What this file proves • Canonical bijection `Substrate.toT7 : Substrate → T7Strip` 
+      LICENSED The "What this file proves" list matches (:68, :78, :89, :93, :105, :109, :114), but the header also states that phi : s -> 1 - conj(s) is a glide reflection whose quotient of the critical strip is a Mobius strip; no kernel line states it, and the elementary check refutes the wording: 1 - conj(sigma + it) = (1 - sigma) + it is a reflection fixing the critical line pointwise (no translation), whose quotient of the strip is a half-strip, not a Mobius strip.
+      CITED    SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:18; SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:68; SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:114
+      ACTION   RETIRE TO ERRATA: the sentences "carries the glide reflection phi : s -> 1 - s-bar on its critical strip. The quotient is a Mobius strip." state as fact a construction no kernel compiles and that, as written, is a reflection with a half-strip quotient; retire them to klein_trivium.pdf's own statement (with its translation, if any) and keep the compiled list.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/MuClassifier.lean:1 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/MuClassifier.lean:18 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/MuClassifier.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/PairingObstruction.lean:1 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/PairingObstruction.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/PairingObstruction.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:130 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:91 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:100 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:121 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:1 | UNLICENSED | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:103 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:137 | MATCHES | OVERREACHES | TEXTUAL
+
+### ### **SIDE-substrate-cluster: ROWS 78 ; MATCHES 77 ; UNDERSTATES 0 ; OVERREACHES 0 ; UNLICENSED 1 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 1 OF 75 ; CLASSES S 0 A 0 H 0.**

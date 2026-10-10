@@ -1,0 +1,1038 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-kernel`S DOCSTRINGS AT ITS MAIN 0256e9e, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 427 rows it read MATCHES, 116 read otherwise whole (27.2%) ; its non-MATCHES rows read MATCHES whole: 5
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 2 ; A an axiom-profile claim against a banked print 1 ; H a module header claiming more than its file compiles 22 ; other grounds 93
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-kernel): 35 rows, read by a helper reader before the whole reading
+### the seat`s corrections after its whole read: 1
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   CartanBBridge.lean The Output-Stage Classification Theorem This module supplies the n₃ = 2 entry in the formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0) with a Lean-verified classification theorem on par with OstrowskiBridge.lean (which supplies n₂ = 3). Three classical theorems combine to classify the output-stage mechanism classes for entire functions of finite order: 1. Elliptic regularity for ∂̄ on ℂ (Weyl 1940, Hörmander 1958) collapses the local-regularity hierarchy to one class. 2. The Identity Theorem (Cauchy, Weierstrass, 19th century) forces the local-to-global bridge to be unique (analytic continuation is the only such bridge). 3. Cartan's Theorem B (Mittag-Leffler 1876, Weierstrass 1876, Cartan 1951–53) H¹(ℂ, 𝒪) = 0 eliminates intermediate cohomological scales. Together: exactly two output-stage classes, namely C₆ — local/differential (Cauchy-Riemann + jet-space) C₇ — global/topological (Hadamard factorization + argument principle + zero-counting) The Lean module declares these classes as a finite type `OutputStageClass`, proves `Fintype.card OutputStageClass = 2` by `decide`, and provides the `OutputStageExhaustiveness` certificate that ties this count to the entire-fun
+      LICENSED The file compiles Fintype.card of a declared two-constructor type = 2 and two Mathlib facts (AnalyticOn ⇒ ContDiffOn; eventual-equality identity theorem); Cartan B is SET ASIDE in the same file (Section 2b), no declaration takes an entire-function hypothesis, so nothing ties the count to entire functions or makes the tuple a Lean-verified composition of classification theorems.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:32; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:45; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:79; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:133; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:179; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:196
+      ACTION   RE-CUT: The module declares OutputStageClass, proves Fintype.card OutputStageClass = 2 by decide, and bundles that count with two Mathlib facts (analytic ⇒ smooth on an open set; the identity theorem for eventually-equal analytic functions); the Cartan B pillar is open and set aside, and no declaration here ties the count to entire functions of finite order.
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:82 | OVERREACHES | H | generated MATCHES
+      STATED   ## Section 2. The Three Classical Theorems We state the three classical results that together force the bipartition. Each is a Mathlib statement (or composition of Mathlib statements) re-exposed here under the kernel's structural names. The role of each theorem: T1. Elliptic regularity collapses the local hierarchy. T2. Identity Theorem forces a unique local-to-global bridge. T3. Cartan B (H¹ = 0) eliminates intermediate scales.
+      LICENSED The section states two results, not three (T3 is set aside at Section 2b), and no declaration in the file states that they force a bipartition.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:82; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:107; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:124; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:133
+      ACTION   RE-CUT: We state two Mathlib results (T1 analytic ⇒ smooth, T2 the identity theorem) re-exposed under the kernel's names; T3 (Cartan B) is set aside below, and no declaration here states that these force the bipartition.
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:95 | OVERREACHES | - | generated MATCHES
+      STATED   T1. Elliptic regularity for the Cauchy-Riemann operator. A holomorphic function on an open set is automatically smooth (in fact, real-analytic). The regularity hierarchy collapses: all local constraints are consequences of holomorphicity. In Mathlib this is `AnalyticOn` ⇒ `ContDiffOn` ⇒ smoothness; a holomorphic function on an open set has every desired regularity. This is the precise sense in which the local class is *unique*: no finer local distinction (Cᵏ vs C^∞ vs C^ω) survives the ∂̄ = 0 condition.
+      LICENSED The theorem hypothesizes AnalyticOn ℂ f U (the conclusion of elliptic regularity) and concludes ContDiffOn; it proves neither holomorphic ⇒ smooth nor that the local class is unique.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:107; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:110
+      ACTION   RE-CUT: An analytic function on an open set is C^∞ there (AnalyticOn.contDiffOn); the holomorphic-to-analytic step of elliptic regularity and the uniqueness of the local class are not stated here.
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:112 | OVERREACHES | - | generated MATCHES
+      STATED   T2. The Identity Theorem. If two analytic functions on a connected open set agree on a set with an accumulation point, they agree everywhere. This is `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq` in Mathlib. On open sets, `AnalyticOn` and `AnalyticOnNhd` coincide via `IsOpen.analyticOn_iff_analyticOnNhd`. The structural meaning for the kernel: the germ of an entire function at any single point determines the function globally. Therefore the local-to-global bridge is unique — analytic continuation is the only such bridge — and no alternative could constitute a third class.
+      LICENSED The theorem's hypothesis is f =ᶠ[𝓝 z₀] g (agreement on a neighbourhood of a point), not agreement on a set with an accumulation point, and no line states that analytic continuation is the only local-to-global bridge or excludes a third class.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:124; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:128; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:130
+      ACTION   RE-CUT: If two analytic functions on a preconnected open set agree on a neighbourhood of one point of it, they agree on the whole set (AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq).
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:159 | OVERREACHES | H | generated MATCHES
+      STATED   ## Section 3. The Output-Stage Exhaustiveness Certificate We now assemble the three theorems into a single certificate that the output-stage mechanism classes number exactly two. The certificate is a conjunction: (a) the type `OutputStageClass` has finite cardinality 2; (b) the local-class collapse is justified by elliptic regularity; (c) the local-to-global bridge is unique by the Identity Theorem; (d) [SET ASIDE] the no-intermediate-scale step (Cartan B / Cousin-I) is OPEN; see Section 2b above; it is NOT a field of the certificate below. Component (a) is `output_stage_card`. Components (b), (c), (d) are the three theorems above. Together: the catalogue at the output stage is exactly {C₆, C₇}.
+      LICENSED The certificate is three fields (card of a declared type, analytic ⇒ smooth, identity theorem); it says (b),(c),(d) are three theorems when (d) is open, and no field states that the output-stage catalogue is exactly {C₆, C₇}.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:173; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:175; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:179
+      ACTION   RE-CUT: The certificate bundles (a) Fintype.card OutputStageClass = 2, (b) analytic ⇒ smooth on open sets and (c) the identity theorem; (d) Cartan B is open and not a field, and the certificate does not state that the output-stage catalogue is exhaustive.
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:202 | OVERREACHES | H | generated MATCHES
+      STATED   ## Section 4. The n₃ = 2 Certificate The kernel's `Formation.lean` expects each formation summand to carry a classification-theorem certificate. This section provides the n₃ = 2 entry, parallel to how `OstrowskiBridge.lean` provides the n₂ = 3 entry. The bridge is type-level. The kernel's `MechanismClass.output_stage` finite type, when restricted to entire-function-of-finite-order specifications, has cardinality 2 by `output_stage_card`, and the classification is certified by the three classical theorems through `output_stage_exhaustiveness_proved`.
+      LICENSED No MechanismClass.output_stage exists at the commit (git grep), Kernel/Formation.lean carries no classification certificate, and the classification is certified by two theorems, not three.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:209; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:196; SIDE-kernel@0256e9e:Kernel/Formation.lean:69
+      ACTION   RE-CUT: This section supplies n_3 := Fintype.card OutputStageClass and proves n_3 = 2; the bundle output_stage_exhaustiveness_proved carries two formalized classical facts, and no kernel type MechanismClass.output_stage is restricted here.
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:226 | OVERREACHES | H | generated MATCHES
+      STATED   ## Section 5. Connection to the Kernel's Architecture The four formation summands now have parallel structure: n₁ = 2 | Algebraic group classification on ℤ | Classical n₂ = 3 | OstrowskiBridge (re-exports Mathlib) | 1916 n₃ = 2 | CartanBBridge (this file) | 1876–1951 n₄ = 0 | Conservation of Spectra (Tate) | 1950 Each summand is supported by a classical classification theorem. The total (2 + 3 + 2 + 0 = 7) is verified by `decide` in `StructuralCount.lean`. The composition into `StructuralExhaustiveness` is performed in `TheBridgeComplete.lean`. The remaining manuscript-level claim — that ξ(s) is an entire function of finite order — is supplied by the existing `Voice7.lean` (Hadamard) and its dependencies. The CartanBBridge module makes the n₃ = 2 step available as a Lean-verified theorem rather than an asserted fact. This closes the visibility gap identified in the April 29 2026 review: a reader approaching the proof through Lean now sees the same defended structure as a reader approaching through the manuscripts. The four classification theorems all sit at the kernel level.
+      LICENSED n₃'s classical pillar (Cartan B) is set aside, n₄ = 0 compiles 1^s = 1 (rule 9), Kernel/Voice7.lean is a real-algebra σ-constant model and supplies no finite-order entire-function claim for ξ, and n_3 = 2 is the card of a declared type, so no four classification theorems sit at the kernel level.
+      CITED    SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:236; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:241; SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:249; SIDE-kernel@0256e9e:Kernel/Voice7.lean:1; SIDE-kernel@0256e9e:Kernel/Core.lean:53
+      ACTION   RE-CUT: The total 2+3+2+0 = 7 is decided in Kernel.Core; this file contributes n_3 = 2 as the card of a declared type with two formalized pillars; Cartan B is open, and no Lean declaration supplies that ξ is entire of finite order.
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:9 | OVERREACHES | - | generated MATCHES
+      STATED   The Conservation hypothesis (existential form): every ξ-zero forces the Euler balance equation at SOME prime. This is the programme's one counted premise (monograph §27.3), stated at the multiplicative place — NOT the discharged Chapter 13 theorem (the s-darkness of the product formula is the unconditional *certificate* that motivates it, a distinct proposition). Named hypothesis (ξ pattern), not sorry. W-7 enactment (2026-07-16): the definition was weakened from the universal form (`∀ p`, balance at EVERY prime) to this existential form (`∃ p`, at SOME prime), aligning the compiled def with the prose the monograph has always named (§25.5: "at some prime") and with `PoissonExhaustion.BalanceContradiction`. Truth-plausibility screen: the existential is strictly WEAKER than the universal, so `riemann_hypothesis` below becomes a strictly STRONGER theorem (weaker hypothesis, same conclusion); every consumer that could supply the universal can supply the existential. The conclusion is unchanged; only the hypothesis moved, in the direction that strengthens the result.
+      LICENSED The existential and universal forms are provably equivalent (balance_theorem is prime-generic: balance at any one prime ⇔ σ = 1/2, as the file itself says at :43), so the existential is not strictly weaker and riemann_hypothesis is not strictly stronger; the premise is OPEN in the premise table and called a hypothesis, which matches.
+      CITED    SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:21; SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:26; SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:43; SIDE-kernel@0256e9e:Kernel/Voice1.lean:22; relay@a66c50a1:data/b643_premise_table.txt:8
+      ACTION   RE-CUT: The existential form is implied by the universal and, since balance_theorem is prime-generic, equivalent to it; the weakening changes the hypothesis's form, not the strength of riemann_hypothesis.
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:31 | OVERREACHES | - | generated MATCHES
+      STATED   Conservation of Spectra: at any nontrivial zero of ζ, the Euler product structure is active at some prime. Conditional on ConservationHypothesis (ξ pattern, existential form). Zero sorry.
+      LICENSED The theorem is h_cons σ h, its own premise returned; it is not the kernel's Conservation of Spectra (which compiles 1^s = 1, rule 9) and states a real balance equation at a σ with is_xi_zero σ, not an active Euler product.
+      CITED    SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:34; SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:38; SIDE-kernel@0256e9e:Kernel/XiDef.lean:34
+      ACTION   RE-CUT: ConservationHypothesis restated: under it, at any real part σ of a nontrivial zero of ζ, the balance p^(-σ) = p^(-(1-σ)) holds at some prime (the theorem returns its hypothesis).
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:4 | OVERREACHES | H | generated MATCHES
+      STATED   # Cross-Class Exclusion The seven mechanism classes (C1–C7 in `Bridge/TheBridgeComplete.lean`) are individually proved not to produce off-line zeros (`none_produce`). This file rules out the remaining possibility: that a *pair* of classes, through cross-class coupling, jointly produces an off-line zero that neither does alone. Argument: 1. The only inter-class coupling channels are the product formula and the distributive law (`CouplingChannel`). 2. Both have `κ = 0` (`Kernel/Kappa.lean`: `kappa_product_formula`, `kappa_distributive`), so the coupling strength of any pair of classes equals `0 + 0 = 0` (`coupling_strength_zero`). 3. An s-independent (`κ = 0`) channel cannot produce s-dependent coincidences. Hence `cross_class_produces_offline` reduces to the disjunction "C1 produces ∨ C2 produces", both refuted by `none_produce`. `0 sorry`. `0 axioms` beyond Lean foundationals.
+      LICENSED The pair-production Prop is defined as a disjunction whose coupling disjunct is a constant (κ_pf.val + κ_dl.val, ignoring both classes) > 0; the two channels are a declared inductive, not proved the only ones, and no declaration states that κ = 0 channels cannot produce s-dependent coincidences, so the file rules out a defined Prop, not the joint production of off-line zeros.
+      CITED    SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:32; SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:52; SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:64; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:157
+      ACTION   RE-CUT: This file defines cross_class_produces_offline as produces_offline c1 ∨ produces_offline c2 ∨ coupling_strength > 0, with coupling_strength the constant sum of the two declared channels' κ (= 0), and proves it false for every pair from none_produce.
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:31 | OVERREACHES | - | generated MATCHES
+      STATED   The two — and only — inter-class coupling channels.
+      LICENSED The inductive declares two constructors and two_channels counts them; nothing states that these are the only inter-class coupling channels.
+      CITED    SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:32; SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:37
+      ACTION   RE-CUT: The two declared inter-class coupling channels.
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:4 | OVERREACHES | H | generated MATCHES
+      STATED   # FanoSteane: The Arithmetic-to-Quantum Chain Complete pipeline from {2,3}-smooth pairs through Fano plane incidence through Hamming H·Hᵀ = 0 through CSS construction through Steane [[7,1,3]]. Pipeline uniqueness verified: {2,3,5}-smooth gives 10 ≠ 15 = 2⁴-1. All verified by decide. 0 sorry. 0 axioms. Toolchain-rot repair (2026-07-16): the three `stormer_*.length` counts are proved by `decide +kernel` rather than plain `decide`. The lists are built by `filterMap` over the well-founded-recursive `is_23_smooth` / `is_235_smooth`, which the elaborator's `decide` reducer stopped unfolding at a Mathlib/toolchain boundary (it stalls at `.length.beq`); the kernel reducer still unfolds it. The definitions and asserted values (4, 10) are unchanged — the values were true at the original toolchain and are re-derived here, not adjusted — and `decide +kernel` adds no axiom beyond `{propext, Quot.sound}` (no `native_decide`, no `Lean.ofReduceBool`). See OPEN_TRAILS: first observed toolchain-rot in a pinned kernel (source unchanged, truth unchanged, checkability decayed).
+      LICENSED The file states a conjunction of independent finite facts, not a pipeline: no CSS construction and no [[7,1,3]] code is built (k and d are the numerals 7-2*3 = 1 and 2+1 = 3), the Størmer counts are bounded searches, and "0 axioms" is contradicted by the block's own paragraph (decide +kernel adds {propext, Quot.sound}); no banked print exists (NOT PROFILED), so CLASS H, not A.
+      CITED    SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:12; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:21; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:42; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:114; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:141
+      ACTION   RE-CUT: Finite facts decided in the kernel: 4 consecutive {2,3}-smooth pairs below 101 and 10 consecutive {2,3,5}-smooth pairs below 10001, the 7 Fano lines with 3 through each point, a Hamming parity matrix with H·Hᵀ = 0 over ZMod 2, and the numerals 7 = 2³-1, 7-2·3 = 1, 2+1 = 3, 10 ≠ 15; no CSS code is constructed; by decide (+kernel), 0 sorry, axioms not printed.
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:46 | OVERREACHES | - | generated MATCHES
+      STATED   Exactly 4 Størmer pairs: (1,2), (2,3), (3,4), (8,9).
+      LICENSED The theorem counts pairs with n+2 ≤ 101 only (List.range 100); that there are exactly 4 Størmer pairs in all is Størmer's theorem, not compiled here.
+      CITED    SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:42; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:47
+      ACTION   RE-CUT: Exactly 4 consecutive {2,3}-smooth pairs below 101: (1,2), (2,3), (3,4), (8,9).
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:66 | OVERREACHES | - | generated MATCHES
+      STATED   Exactly 10 consecutive {2,3,5}-smooth pairs.
+      LICENSED The count is over n < 10000 (List.range 10000) only; the unbounded count is Størmer's theorem, not compiled here.
+      CITED    SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:62; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:67
+      ACTION   RE-CUT: Exactly 10 consecutive {2,3,5}-smooth pairs below 10001.
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:123 | OVERREACHES | - | generated MATCHES
+      STATED   The complete Steane code: [[7, 1, 3]] with H·Hᵀ = 0.
+      LICENSED The statement is three numeral identities and H·Hᵀ = 0; no code is constructed and k = 1, d = 3 are not computed of any code (rule 6).
+      CITED    SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:124
+      ACTION   RE-CUT: The Steane parameters as numerals (7 = 2³-1, 7-2·3 = 1, 2+1 = 3) together with H·Hᵀ = 0; the code itself is not constructed here.
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:137 | OVERREACHES | - | generated MATCHES
+      STATED   The complete arithmetic-to-quantum chain: {2,3}-smooth → 4 Størmer pairs → 7 = 2³-1 → PG(2,𝔽₂) → Hamming [7,4,3] → H·Hᵀ = 0 → C⊥ ⊂ C → Steane [[7,1,3]] Pipeline unique: {2,3,5} gives 10 ≠ 15.
+      LICENSED The statement is a conjunction of six independent facts; no implication links them (the arrows and "forces" are not compiled), the Størmer count is bounded at 101, and C⊥ ⊂ C and [[7,1,3]] are not stated.
+      CITED    SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:141; SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:143
+      ACTION   RE-CUT: Six facts held together: 4 consecutive {2,3}-smooth pairs below 101, 7 = 2³-1, 3 Fano lines through each point, H·Hᵀ = 0, 7-2·3 = 1, and 10 ≠ 2⁴-1; no step of the chain is derived from the previous one.
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:3 | OVERREACHES | H | generated MATCHES
+      STATED   # OstrowskiBridge: Connecting Mathlib's Ostrowski to the SIDE Kernel CP-B-2 of THE BRIDGE programme. Proves that the kernel's `Place` type is exactly the classification given by Ostrowski's theorem (`Mathlib.NumberTheory.Ostrowski`). ## Main results * `place_classification_exhaustive` — wraps `Rat.AbsoluteValue.equiv_real_or_padic` for the kernel * `formation_n2` — n₂ = 3 transformation stages * `formation_count` — (2,3,2,0) = 7 ## References * Ostrowski (1916) * `Mathlib.NumberTheory.Ostrowski` AI disclosure: Written with Claude (Anthropic) assistance. Mathematical content is original.
+      LICENSED No declaration relates the Place inductive to absolute values; the file re-exports Ostrowski and declares Place separately, so it does not prove that Place is exactly Ostrowski's classification.
+      CITED    SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:8; SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:34; SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:41
+      ACTION   RE-CUT: Re-exports Mathlib's Ostrowski theorem for ℚ (place_classification_exhaustive) beside a declared Place type with archimedean and p-adic constructors; no theorem identifies the two.
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:29 | OVERREACHES | H | generated MATCHES
+      STATED   ### Part 1: The Place type grounded in Ostrowski
+      LICENSED The Place type is a bare inductive; no line grounds it in Ostrowski.
+      CITED    SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:34
+      ACTION   RE-CUT: Part 1: the Place type, and Ostrowski's theorem re-exported.
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:52 | OVERREACHES | H | generated MATCHES
+      STATED   ### Part 2: Formation count The ξ-function pipeline n² → θ → ξ has three transformation stages, each arising from Ostrowski's classification: 1. Archimedean (√ mechanism) — from Place.archimedean 2. Multiplicative (Euler product) — from Place.padic (all primes) 3. Functional equation — from interaction of both families n₂ = 3. Completeness (no 4th stage) follows from Ostrowski: no 3rd family of places exists.
+      LICENSED TransformationStage is a declared three-constructor inductive counted by decide; no declaration derives the stages from Ostrowski or proves there is no 4th stage.
+      CITED    SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:62; SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:67; SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:74
+      ACTION   RE-CUT: Part 2: the three transformation stages are declared as an inductive and counted (n₂ = 3 by decide); their derivation from Ostrowski and the absence of a 4th stage are the document's argument, not compiled.
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:92 | OVERREACHES | H | generated MATCHES
+      STATED   ### Part 4: Exhaustiveness The SIDE exclusion principle requires that the mechanism catalogue be exhaustive. Ostrowski guarantees no absolute value on ℚ escapes the real/p-adic dichotomy. Therefore the 7 mechanism classes derived from formation (2,3,2,0) are complete.
+      LICENSED A register of the open clause stated as fact (rule 5): the file proves Ostrowski for absolute values; no declaration states that the 7 mechanism classes are complete.
+      CITED    SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:97; SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:102
+      ACTION   RE-CUT: Part 4: Ostrowski guarantees that no nontrivial absolute value on ℚ escapes the real/p-adic dichotomy; that the 7 mechanism classes are therefore complete is the document's argument, not compiled.
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:101 | OVERREACHES | - | generated MATCHES
+      STATED   No absolute value escapes the classification.
+      LICENSED The statement covers nontrivial absolute values only (f.IsNontrivial →); the trivial absolute value is equivalent to neither.
+      CITED    SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:103
+      ACTION   RE-CUT: No nontrivial absolute value on ℚ escapes the classification.
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:63 | OVERREACHES | - | generated MATCHES
+      STATED   NoneProduces for ξ, conditional on RH + Simplicity. Zero sorry. The three case splits close from the hypotheses.
+      LICENSED The statement is about zeros of completedRiemannZeta₀ (Mathlib's Λ₀ = Λ + 1/s + 1/(1-s)), not ξ: Λ₀ does not vanish at the zeros of ζ (there Λ₀ = 1/(ρ(1-ρ)) ≠ 0); the case analysis and the conditionality are as stated.
+      CITED    SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:15; SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:65; SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:70
+      ACTION   RE-CUT: NoneProduces for completedRiemannZeta₀ (the entire Λ₀, not ξ), conditional on RHHypothesis + SimplicityHypothesis stated for Λ₀. Zero sorry. The three case splits close from the hypotheses.
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:88 | OVERREACHES | - | generated MATCHES
+      STATED   SIDE exclusion bridge, conditional on RH + Simplicity. Zero sorry.
+      LICENSED The "RH" it is conditional on is RHHypothesis, a statement about zeros of completedRiemannZeta₀, which are not the zeros of ζ; the conclusion is likewise about Λ₀.
+      CITED    SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:54; SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:89; SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:94
+      ACTION   RE-CUT: SIDE exclusion bridge for completedRiemannZeta₀, conditional on RHHypothesis + SimplicityHypothesis (both stated for Λ₀, not ζ). Zero sorry.
+  SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:7 | OVERREACHES | H | generated MATCHES
+      STATED   THE BRIDGE (Complete): Connecting abstract SIDE logic to Mathlib's riemannZeta. Seven mechanism classes. Each grounded in Mathlib API. Ostrowski proves exhaustiveness. None produces off-line zeros. StructuralExhaustiveness is a theorem.
+      LICENSED A register of the open clause as fact (rule 5): produces_offline is real algebra in σ with no zeta in it, C₄ is rfl and C₇ is the stand-in := 0, and the Ostrowski conjunct is about places of ℚ; no declaration states that Ostrowski proves the catalogue exhaustive or that no class produces off-line zeros of ζ.
+      CITED    SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:53; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:138; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:157; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:215; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:249
+      ACTION   RE-CUT: Seven declared mechanism classes; the conjunction StructuralExhaustiveness (card = 7, the per-class σ-predicates false, Ostrowski for ℚ) is proved, with C₇ definition-encoded; it does not state that the catalogue is exhaustive or that no class produces an off-line zero of ζ.
+  SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:223 | OVERREACHES | - | generated MATCHES
+      STATED   **What each conjunct is (per-conjunct honesty; W-ORD-ROUTE1 Fork B, 2026-07-21).** The terminal is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it DERIVES exactly what it literally states. Read conjunct by conjunct: * **Catalogue completeness** `Fintype.card MechanismClass = 7` — `decide` over the seven-constructor inductive. The finite catalogue is genuinely complete. * **Ostrowski exhaustiveness** — genuine Mathlib (`Rat.AbsoluteValue.equiv_real_or_padic`): every nontrivial place of ℚ is the real place or a `p`-adic place. This is the covering ingredient (all places at once). * **Seven-class exclusion** `none_produce` — a per-class conjunction. **C₁–C₅ DERIVE** from the voice-theorems (`voice1..5`): thin but genuine real algebra — the σ = 1/2 fixed points of conjugation, balance, reflection, the S-action, and the spectral offset. **C₆ DERIVES AT MODEL LEVEL** (W-ORD-ROUTE1-A, C₆, 2026-07-22): the codimension is now the de-encoded COUNT `zero_codimension σ = (activeConstraints σ).card` at `Kernel/Voice3b.lean` (consumed here by import; the former Bridge-local `if σ = 1/2 then 1 else 2` literal is deleted), and `c6_exclusion` closes through `cr_f
+      LICENSED TheBridgeComplete's unconditional namesake (rule 8); read whole (:223-248), the per-conjunct account matches except "The finite catalogue is genuinely complete": the kernel compiles Fintype.card of a declared type = 7, not the catalogue's completeness (rule 5).
+      CITED    SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:228; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:215; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:249
+      ACTION   RE-CUT: Catalogue count Fintype.card MechanismClass = 7 — decide over the seven-constructor inductive; the catalogue's completeness is not stated by this conjunct.
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SieveCeiling.lean (v3) The Sieve Ceiling Lemma: If every inference step of a proof factors through a κ = 0 interface for parameter P, then the proof establishes density statements about P but cannot establish universal statements. Closes the E-Difficulty Theorem: For determined I+D+S systems, decidability within ZFC of a universal property is equivalent to the existence of a domain-Ostrowski. J. York Seale, April 2026 — v3 W-6-EXT R2, 2026-07-19 PLACE TO STAND Research Programme STATUS (honest): - 0 sorry. Vanilla Lean 4 core only, toolchain v4.29.0-rc8. - W-6-EXT R2 (2026-07-19) de-vacuifies the E-Difficulty terminals. The v2 shells are retired: · v2 `IsDecidable (_s : DeterminedSystem)` DISCARDED its system argument (a constant `True`). Now `IsDecidable s` ranges over proofs ABOUT s — lists of interface-crossing `Step s` whose access is READ OFF `s.interfaces` (repair (c)). It reads s. · v2 `e_difficulty` proved `True ↔ True`: `_h_conserved` was unused and the domain-Ostrowski was fabricated by `List.replicate`. Now Conservation is LOAD-BEARING — it forces the decidability-carrying bright access into the INESSENTIAL sector (the n₄=0 content) — and the Ostrowski is EXTRACTED from 
+      LICENSED The opening lemma and "Closes the E-Difficulty Theorem ... decidability within ZFC" are not what the file states: maxStatement defines the cap (sieve_ceiling ENCODES-CONCLUSION \ SHELL), and IsDecidable is the existence of a SysProof whose computed strength is universal, not decidability within ZFC; the STATUS paragraphs below are accurate.
+      CITED    SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:4; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:10; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:182; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:281; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:309; relay@a66c50a1:data/terminal_table.md:1862
+      ACTION   RE-CUT: The Sieve Ceiling scaffolding: a strength cap defined on interface profiles, under which a dark-factored proof is capped below universal; and e_difficulty: for a conserved DeterminedSystem, the existence of a system-proof with a bright step is equivalent to a bright inessential interface (a domain-Ostrowski) — a model, not decidability within ZFC.
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SieveCeilingBridge.lean Slot 4 (optional rigor) of the E-Difficulty lift: mechanizes cross-link 1, the correspondence documented across slots 1 and 2 -- that a dark (kappa = 0) interface induces an I-indistinguishability relation under which the sieve ceiling applies. Model: an interface reads configurations into an observation space; the induced indistinguishability is the kernel of the reading (same reading => indistinguishable). A blind (constant) reading is the kappa = 0 case: it separates nothing, so the relation is total and only constant properties respect it -- hence a non-constant universal property (an Epstein-type target) cannot be captured. Both the slot-1 kappa = 0 character and the slot-2 ceiling fall out of blindness as the shared substrate. This makes the slot-1 <-> slot-2 correspondence a theorem rather than a comment. Depth note: once the reading model is fixed the bridge theorems are short consequences -- the content is the modeling choice, not a deep result. Standalone module: done, not chased into the certified skeleton. Cross-link 2 (semantic model <-> abstract skeleton's factored_through_dark) is left documented, not mechanized. Mathlib-dependent via SieveCei
+      LICENSED The slot-2 ceiling does follow from blindness (blind_sieve_ceiling uses hb), but the slot-1 kappa = 0 character does not: toRInterface discards both obs and the Blind proof (binder `_`) and assigns kappa := 0, so toRInterface_isDark is rfl on a constant; the slot-1 side of the correspondence is stipulated, not derived.
+      CITED    SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:65; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:70; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:74; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:79
+      ACTION   RE-CUT: A blind (constant) reading induces the total relation, so only constant properties respect it and a non-constant target cannot be captured (blind_sieve_ceiling, derived from blindness); the slot-1 link toRInterface assigns kappa = 0 to a blind reading by definition, so its darkness is stipulated, not derived.
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:1 | OVERREACHES | - | generated MATCHES
+      STATED   SieveCeilingSemantic.lean Slot 2 of the E-Difficulty lift: the semantic model behind the skeleton's abstract `factored_through_dark`. Mathlib's model theory is semantic (ModelTheory has Syntax, Semantics, Satisfiability, Definability, ... but no syntactic derivation calculus), so the faithful hook for "a proof factoring through a dark interface" is the I-indistinguishability relation, not a proof-tree object. A dark (k = 0) interface transmits nothing that separates I-indistinguishable configurations, so a proof factoring through it can only certify properties that respect that relation. The universal property "all zeros on the critical line" is NOT respected once an Epstein-type witness exists -- a configuration I-indistinguishable from the ideal yet with off-line zeros -- so no dark-factored certificate captures it. That is the sieve ceiling. The non-invariance witness is abstract here. Slot 3 discharges it concretely with the Davenport-Heilbronn function (discriminant -23). Core Lean only. Pairs with Kernel/Cascade/SieveCeiling.lean, whose abstract `factored_through_dark` this models and whose `density_one_per_class < universal` ordering this explains. J. York Seale, PLACE TO ST
+      LICENSED The file's own content (RespectsI, sieve_ceiling_semantic, NonInvarianceWitness, sieve_ceiling_of_witness, core Lean only) is as stated, but "Slot 3 discharges it concretely with the Davenport-Heilbronn function (discriminant -23)" names an object slot 3 does not carry: SieveCeilingWitness discharges the slot with a two-point Config whose dh label has allOnLine .dh := False by definition (a cited datum), and no discriminant -23 or Epstein object appears there.
+      CITED    SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:48; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:60; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:49; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:87; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:94
+      ACTION   RE-CUT: The non-invariance witness is abstract here. Slot 3 discharges it in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum (allOnLine .dh := False), not by a formalized zero.
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:70 | OVERREACHES | - | generated MATCHES
+      STATED   Sieve ceiling from a concrete witness: given an I-indistinguishable pair disagreeing on the universal property, no dark-factored certificate captures it. Slot 3 instantiates this with the discriminant -23 Epstein zero.
+      LICENSED The theorem is as stated, but "Slot 3 instantiates this with the discriminant -23 Epstein zero" names an object no line carries: slot 3 instantiates it with dh_witness on a two-point Config where allOnLine .dh := False is a definition; no Epstein function, zero or discriminant appears.
+      CITED    SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:74; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:87; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:94; SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:100
+      ACTION   RE-CUT: Sieve ceiling from a witness: given an I-indistinguishable pair disagreeing on the universal property, no dark-factored certificate captures it. Slot 3 instantiates this in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum.
+  SIDE-kernel@0256e9e:Kernel/Core.lean:42 | OVERREACHES | - | generated MATCHES
+      STATED   n₄ = 0: interface stage (all interfaces are s-dark).
+      LICENSED n4 := 0 is assigned; the parenthetical "all interfaces are s-dark" states the conservation clause as fact, and no line derives it (the compiled s-darkness is 1^s = 1 and the distributive identity only).
+      CITED    SIDE-kernel@0256e9e:Kernel/Core.lean:43; SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:72; SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:34
+      ACTION   RE-CUT: n4 = 0: interface stage, assigned (the claim that all interfaces are s-dark is the conservation clause, not derived here).
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:4 | OVERREACHES | H | generated MATCHES
+      STATED   # DistributiveDark: The distributive law is spectrally inert The distributive law a(b+c) = ab+ac is an identity of ℤ. The spectral parameter s ∈ ℂ does not appear in it. Therefore the distributive law carries no s-dependent information. In the SIDE proof's Step (9), this ensures that per-class exclusion is equivalent to all-combinations exclusion: the internal coupling between additive and multiplicative structures (the distributive law) carries no spectral parameter, so it cannot conspire to produce off-line zeros from combinations of classes that individually produce none. Mathematical content is original.
+      LICENSED The file compiles only the integer distributive law and its trivially s-quantified restatements; the header's claim that it "ensures that per-class exclusion is equivalent to all-combinations exclusion" and that the coupling "cannot conspire to produce off-line zeros" is stated by no declaration in the file (a ring identity offered as preventing off-line zeros).
+      CITED    SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:24; SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:28; SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:34; SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:40
+      ACTION   RE-CUT: The distributive law a(b+c) = ab+ac is an identity of Z in which no s appears; this file compiles it and its s-quantified restatements. Its use in Step (9) (per-class to all-combinations exclusion) is the manuscript's argument, not compiled here.
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:44 | OVERREACHES | H | generated MATCHES
+      STATED   ### Summary The product formula: 1^s = 1 (s-dark, Lean-verified in ProductFormula chain) The distributive law: a(b+c) = ab+ac (s-dark, this file) Both couplings are s-dark. Per-class exclusion + s-dark couplings = global exclusion. This is the Conservation argument of Step (9).
+      LICENSED "Per-class exclusion + s-dark couplings = global exclusion" is stated by no declaration of the file (nor of ProductFormula_Rat, whose terminal is 1^s = 1); the file compiles only the distributive identity.
+      CITED    SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:34; SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:40; SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:72
+      ACTION   RE-CUT: The product formula's compiled form 1^s = 1 and the distributive law contain no s. That per-class exclusion with these couplings gives global exclusion is the Conservation argument of Step (9), not compiled.
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:41 | OVERREACHES | - | generated MATCHES
+      STATED   ForwardCatalogue produces a SIDEClass. CATALOGOS Chapters 18-19: the composition of forward classes into SIDE exclusion.
+      LICENSED forward_to_side returns a TypeLevel.TypeLevelConstraint X P (holds_for_spec := forward_exclusion fc), not a SIDEClass; SIDEClass is a distinct structure (ExhaustiveCatalogue of not P + NoneProduces) that the theorem does not construct.
+      CITED    SIDE-kernel@0256e9e:Kernel/Formation.lean:44; SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:11; SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:23
+      ACTION   RE-CUT: A ForwardCatalogue produces a TypeLevelConstraint (P holds for every x).
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:104 | OVERREACHES | - | generated MATCHES
+      STATED   Certificate: Voice 5 (modular symmetry) proves σ = 1/2 is the unique fixed point of the S-generator of PSL₂(ℤ), and the R-generator (order 3) adds no σ constraint.
+      LICENSED The S part holds (S_action sigma := 1 - sigma; fixed point -> 1/2), but "the R-generator (order 3) adds no sigma constraint" is assigned, not derived: R_action is defined as the identity, so R_order_3 and R_no_constraint hold by rfl and the identity has order 1; the certificate itself states only the S implication.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:107; SIDE-kernel@0256e9e:Kernel/Voice5.lean:50; SIDE-kernel@0256e9e:Kernel/Voice5.lean:68; SIDE-kernel@0256e9e:Kernel/Voice5.lean:72; SIDE-kernel@0256e9e:Kernel/Voice5.lean:91; SIDE-kernel@0256e9e:Kernel/Voice5.lean:101
+      ACTION   RE-CUT: Certificate: in Voice 5's model (S_action sigma = 1 - sigma), any S-fixed sigma equals 1/2; the R-generator is modeled as the identity on sigma, so its adding no constraint is assigned, not derived.
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:120 | OVERREACHES | - | generated MATCHES/HAND-NEEDED
+      STATED   Certificate: Voice 7 (topological) proves the topological mechanism (Hadamard, argument principle) is σ-neutral: it contributes the same information at every σ. **Stand-in caveat (W-ORD-ROUTE1-A, C₇; honest relabel 2026-07-22).** This certifies the σ-constancy of the `:= 0` STAND-IN (`topological_contribution`), which ASSIGNS neutrality rather than deriving it — the `∀σ₁σ₂, g σ₁ = g σ₂` shape holds only for a σ-constant `g`. It asserts nothing σ-selective about ξ's actual Hadamard product; the manuscript's C₇ content (FE-symmetric product, genus-1 factorization named Mathlib-absent at pin `e960b84`; presence-in-Epstein model-theoretic argument, §917) is refiled as W-ORD-C7-WITNESS.
+      LICENSED The opening sentence "Voice 7 proves the topological mechanism (Hadamard, argument principle) is sigma-neutral" says more than the statement: topological_contribution _sigma := 0, so the certificate is the constancy of a constant; the docstring's own caveat says it assigns neutrality and asserts nothing about xi's Hadamard product, contradicting the opening sentence.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:131; SIDE-kernel@0256e9e:Kernel/Voice7.lean:74; SIDE-kernel@0256e9e:Kernel/Voice7.lean:96
+      ACTION   RE-CUT: Certificate: the Voice 7 stand-in topological_contribution (:= 0) takes the same value at every sigma; this assigns neutrality and asserts nothing about xi's Hadamard product (W-ORD-C7-WITNESS).
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:143 | OVERREACHES | - | generated MATCHES
+      STATED   The algebraic content: seven independent paths in the real-arithmetic model, each identifying σ = 1/2 as the unique distinguished point. C1 (functional equation): 1-σ = σ ↔ σ = 1/2 C2 (conjugation): σ = 1-σ ↔ σ = 1/2 C3 (Cauchy-Riemann): codim = 1 → σ = 1/2 C4 (Euler balance): p^σ = p^(1-σ) ↔ σ = 1/2 C5 (modular S-action): S(σ) = σ → σ = 1/2 C6 (spectral offset): offset = 0 → σ = 1/2 C7 (topological): contrib = 0 (σ-neutral, no force) Six paths force σ = 1/2 from their condition. The seventh is σ-neutral (provides no competing force). No path produces σ ≠ 1/2. This is a proved fact about algebraic conditions on reals. It does NOT prove RH by itself — it proves that the algebraic CONDITIONS each force 1/2. Whether these conditions EXHAUST ξ's structure is the Poisson Exhaustion hypothesis.
+      LICENSED OVERTURNS the generated MATCHES: the theorem states only C1, (sigma = 1 - sigma) -> sigma = 1/2; the docstring calls it seven independent paths and "a proved fact" that the conditions each force 1/2. C2 is the same condition as C1, C3-C6 are separate certificates (voice3b, voice1, voice5, voice6), and C7 is a := 0 stand-in.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:163; SIDE-kernel@0256e9e:Kernel/Integration.lean:165; SIDE-kernel@0256e9e:Kernel/Voice7.lean:74
+      ACTION   RE-CUT: C1 alone: sigma = 1 - sigma implies sigma = 1/2. The other paths are the separate voice certificates; C2 restates C1 and C7 is an assigned stand-in.
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:181 | OVERREACHES | - | generated MATCHES
+      STATED   Structural Exhaustiveness as an explicit 4-field structure. Each field maps to a manuscript and kernel source file. | Field | Manuscript | Kernel Source | |:---------------------|:------------------------|:-----------------------| | ostrowski_complete | Paper 2 (Enumeration) | PoissonExhaustion.lean | | formation_exhaustive | Paper 4 (Seven Classes) | Kernel.Core | | per_class_exclusion | Monograph Ch. 8-14 | PoissonExhaustion.lean |
+      LICENSED OVERTURNS the generated MATCHES: the structure has 3 fields, not 4 (the table lists 3); and it is inhabited by structural_exhaustiveness_instance from compiled facts, but nothing connects it to StructuralExhaustiveness (forall sigma, is_xi_zero sigma -> sigma = 1/2), the open hypothesis equivalent to RH, so "Structural Exhaustiveness as an explicit structure" presents the open clause as an inhabited record.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:190; SIDE-kernel@0256e9e:Kernel/Integration.lean:193; SIDE-kernel@0256e9e:Kernel/Integration.lean:198; SIDE-kernel@0256e9e:Kernel/Integration.lean:202; SIDE-kernel@0256e9e:Kernel/Integration.lean:206; SIDE-kernel@0256e9e:Kernel/Integration.lean:212
+      ACTION   RE-CUT: A 3-field record of compiled facts (constructor exhaustiveness of Place, the count 2+3+2+0 = 7, and not BalanceContradiction sigma for all sigma); it does not imply StructuralExhaustiveness, which stays the hypothesis of rh_from_structural_exhaustiveness.
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:191 | OVERREACHES | - | generated MATCHES
+      STATED   Ostrowski completeness: every place of ℚ is archimedean or p-adic. Proved in PoissonExhaustion.lean. Manuscript: Paper 2.
+      LICENSED The field's type, and PoissonExhaustion.ostrowski_complete which fills it, is the constructor case split of the two-constructor inductive Place, not Ostrowski's classification of absolute values on Q.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:193; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:19; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:22; SIDE-kernel@0256e9e:Kernel/Core.lean:24
+      ACTION   RE-CUT: Every term of the inductive Place is archimedean or padic p hp (constructor case split, PoissonExhaustion.lean); Ostrowski's theorem itself is the manuscript's (Paper 2).
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:200 | OVERREACHES | - | generated MATCHES
+      STATED   Per-class exclusion: no mechanism class produces off-line zeros. Proved in PoissonExhaustion.lean via Voice 1. Monograph.
+      LICENSED The field is forall sigma : Real, not BalanceContradiction sigma, i.e. no prime p has p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2 (Voice 1 algebra); no mechanism class, zero or xi enters, so "no mechanism class produces off-line zeros" is the per-class clause stated as proved.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:202; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:43; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:66
+      ACTION   RE-CUT: For every real sigma, no prime p satisfies p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2 (gate_e_exhaustive_derived, via Voice 1).
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:215 | OVERREACHES | A | generated MATCHES
+      STATED   MAIN THEOREM (conditional, zero axioms): Structural exhaustiveness implies the Riemann Hypothesis. This is a machine-verified proof that the CONVERGENCE argument's logical chain is valid. The hypothesis is where the novel mathematics lives. Everything else is verified.
+      LICENSED "zero axioms" against the banked print: DEPOSIT_v1_2_NOTES.md records rh_from_structural_exhaustiveness depends on [propext, Classical.choice, Quot.sound]. Also the proof is rh_implies_mathlib_rh on a hypothesis that is RH restated; no voice or convergence step enters it, so "the CONVERGENCE argument's logical chain is valid" names a chain the proof does not use.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:221; SIDE-kernel@0256e9e:Kernel/Integration.lean:225; SIDE-kernel@0256e9e:Kernel/XiDef.lean:46; SIDE-kernel@0256e9e:DEPOSIT_v1_2_NOTES.md:41; SIDE-kernel@0256e9e:AxiomCheck_v1_3.lean:13
+      ACTION   RE-CUT: MAIN THEOREM (conditional; axioms propext, Classical.choice, Quot.sound): StructuralExhaustiveness, every nontrivial zeta zero has real part 1/2, implies Mathlib's RiemannHypothesis. The hypothesis is where the open mathematics lives.
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:248 | OVERREACHES | - | generated MATCHES
+      STATED   Equivalence: our structural claim is logically equivalent to Mathlib's RiemannHypothesis. The CONVERGENCE argument provides the structural EXPLANATION for why this equivalence resolves in favor of truth.
+      LICENSED The equivalence StructuralExhaustiveness <-> RiemannHypothesis is compiled, but "the CONVERGENCE argument provides the structural EXPLANATION for why this equivalence resolves in favor of truth" presents RH as resolved true, a status no line carries.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:252; SIDE-kernel@0256e9e:Kernel/Integration.lean:254
+      ACTION   RE-CUT: Equivalence: our structural claim is logically equivalent to Mathlib's RiemannHypothesis; neither side is proved here.
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:263 | OVERREACHES | - | generated MATCHES
+      STATED   The SIDE pattern instantiated for ξ zeros. This shows the logical structure: if every mechanism class fails to produce off-line zeros, and the classes exhaust all possible mechanisms, then no off-line zeros exist. Verified via Layer1's SIDE_exclusion theorem.
+      LICENSED side_pattern_verified is quantified over every X, P, x, catalogue and NoneProduces (it is SIDE_exclusion restated); nothing is instantiated for xi zeros.
+      CITED    SIDE-kernel@0256e9e:Kernel/Integration.lean:269; SIDE-kernel@0256e9e:Kernel/Integration.lean:275; SIDE-kernel@0256e9e:Kernel/Layer1.lean:30
+      ACTION   RE-CUT: The SIDE pattern in general form: for any X, P, an exhaustive catalogue none of whose classes produces x gives not P x (Layer1's SIDE_exclusion); it is not instantiated for xi zeros.
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:49 | OVERREACHES | - | generated MATCHES
+      STATED   Formation Gate 1b: κ is **not** an invariant of the system — it depends on the parsing (decomposition). Different parsings of the same system yield different `κ` values. The invariant is TYPE × certification status, not the formation tuple.
+      LICENSED OVERTURNS the generated MATCHES: the statement is only exists a b : ConservationStrength, a.val = 0 and b.val != 0 (witnessed by two definitions); no system, parsing or decomposition appears, so "kappa depends on the parsing; different parsings of the same system yield different kappa values" is not stated.
+      CITED    SIDE-kernel@0256e9e:Kernel/Kappa.lean:53; SIDE-kernel@0256e9e:Kernel/Kappa.lean:55
+      ACTION   RE-CUT: Two ConservationStrength values exist, one 0 and one nonzero (kappa_product_formula and kappa_one); that kappa depends on the parsing of a system is the manuscript's reading, not stated here.
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:59 | OVERREACHES | - | generated MATCHES
+      STATED   Silence Principle for `n₄`: if both interfaces (product formula and distributive law) are silent, the interface stage contributes zero mechanism classes.
+      LICENSED OVERTURNS the generated MATCHES: the conclusion is (0 : N) = 0 by rfl with both hypotheses unused (rule 6 shell); it states nothing about the interface stage or mechanism classes.
+      CITED    SIDE-kernel@0256e9e:Kernel/Kappa.lean:62; SIDE-kernel@0256e9e:Kernel/Kappa.lean:65
+      ACTION   RE-CUT: A placeholder: with both kappas silent as hypotheses (unused), it concludes 0 = 0; that the interface stage contributes zero classes is not derived.
+  SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:9 | OVERREACHES | H | generated MATCHES
+      STATED   Proves the perpendicular crossing theorem: at a simple critical-line zero, the Re and Im level curves of ξ cross at right angles, preventing off-line zeros.
+      LICENSED No declaration of the file states the perpendicular crossing of xi's level curves or prevents off-line zeros: perpendicular_gradients is 0*c1 + (-c1)*0 = 0, proved_infrastructure bundles FOCUS, the FE derivative, Re >= 1 nonvanishing and antisymmetry, and the two multiplicity lemmas are transitivity of equality.
+      CITED    SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:40; SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:50; SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:104; SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:147
+      ACTION   RE-CUT: Records the algebraic dot-product identity behind the perpendicular-crossing argument and bundles four proved ingredients (FOCUS, FE derivative, no zeros for Re >= 1, antisymmetry); the crossing at xi's zeros and the exclusion of off-line zeros are the manuscript's argument, not compiled.
+  SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:102 | OVERREACHES | - | generated MATCHES
+      STATED   At a critical-line zero, if the derivative is purely imaginary and nonzero, the gradients of Re and Im are perpendicular.
+      LICENSED OVERTURNS the generated MATCHES: the statement is the real identity (0 : R) * c1 + (-c1) * 0 = 0 with no hypothesis; no zero, derivative or xi enters (rule 6 shell).
+      CITED    SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:104; SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:108
+      ACTION   RE-CUT: The vectors (0, -c1) and (c1, 0) have dot product zero; the identification of these with the gradients of Re and Im xi at a critical-line zero is not stated.
+  SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:7 | OVERREACHES | H | generated MATCHES
+      STATED   Proves `gate_e_exhaustive_derived`: no off-line zero exists, via Voice 1's Euler balance theorem forcing σ = 1/2 at every ξ-zero.
+      LICENSED gate_e_exhaustive_derived states forall sigma : Real, not BalanceContradiction sigma, an algebraic fact about p^(-sigma) = p^(-(1-sigma)); no declaration of the file mentions a xi-zero or states that no off-line zero exists.
+      CITED    SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:43; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:66
+      ACTION   RE-CUT: Proves gate_e_exhaustive_derived: for every real sigma, no prime p has p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2, via Voice 1's balance theorem.
+  SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:30 | OVERREACHES | - | generated MATCHES
+      STATED   BalanceContradiction sigma means: There exists a prime p such that the Euler product balance equation holds at sigma (this is a structural consequence of ξ having an Euler product — the multiplicative structure of ℤ ensures this at every nontrivial zero), AND sigma ≠ 1/2. The balance equation p^(-σ) = p^(-(1-σ)) is the content of mechanism class C₄. It holds at every ξ-zero because ξ is built from the Euler product ζ(s) = ∏(1-p^(-s))⁻¹. Voice 1 proves: balance ↔ σ = 1/2. Therefore BalanceContradiction is self-contradictory — the structural condition forces σ = 1/2, which contradicts σ ≠ 1/2.
+      LICENSED OVERTURNS the generated MATCHES: the definition is the algebraic conjunction; its docstring asserts the balance equation "holds at every xi-zero", which (since balance forces sigma = 1/2) is the Riemann Hypothesis stated as a structural consequence. No line carries it.
+      CITED    SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:43; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:44
+      ACTION   RE-CUT: BalanceContradiction sigma: some prime p has p^(-sigma) = p^(-(1-sigma)) and sigma != 1/2. Voice 1 proves balance <-> sigma = 1/2, so it is never satisfied. That the balance equation holds at every xi-zero is the open clause, not stated here.
+  SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:53 | OVERREACHES | - | generated MATCHES
+      STATED   The Poisson Exhaustion Theorem, formalized. At any ξ-zero, the Euler product is active (by specification). Voice 1 proves the balance equation forces σ = 1/2. Therefore no off-line zero exists. This is one voice of the seven-voice SIDE argument. One voice suffices for the logical closure because each voice independently forces σ = 1/2. The full SIDE argument uses all seven voices from all seven mechanism classes, providing formation-saturating coverage. But the proof only needs one.
+      LICENSED OVERTURNS the generated MATCHES: the statement is forall sigma, not BalanceContradiction sigma (Voice 1 algebra); "at any xi-zero ... therefore no off-line zero exists" and "the Poisson Exhaustion Theorem, formalized" are not stated, no xi-zero enters.
+      CITED    SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:66; SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:70
+      ACTION   RE-CUT: For every real sigma, BalanceContradiction sigma fails: Voice 1's balance theorem forces sigma = 1/2. That the balance holds at every xi-zero (and so no off-line zero exists) is the open clause, not proved here.
+  SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:68 | OVERREACHES | - | generated MATCHES
+      STATED   The product formula ∏_v |x|_v = 1 is s-independent. Raising both sides to any power s: (∏_v |x|_v)^s = 1^s = 1. Therefore interfaces transmit no spectral information. Formation count: n₄ = 0.
+      LICENSED conservation_of_spectra compiles (1 : Q)^s = 1 for integer s (rule 9); the product formula does not enter its statement, and "therefore interfaces transmit no spectral information" and "n4 = 0" are the conservation clause stated as consequence.
+      CITED    SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:72; SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:59
+      ACTION   RE-CUT: 1^s = 1 for every integer s in Q; read on the product formula's value 1, it is s-independent (s_darkness_from_product). That interfaces transmit no spectral information (n4 = 0) is the conservation clause, not stated here.
+  SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   The Silence Principle — essential interfaces are silent.
+      LICENSED The file's one theorem takes the principle as its premise (determined : forall I, Essential I -> Universal I) and returns it (Silent I P := Universal I), with Essential := True; no declaration states that essential interfaces are silent.
+      CITED    SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:11; SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:16; SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:19; SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:25
+      ACTION   RE-CUT: The Silence Principle as a premise: if every essential interface is universal, an essential interface is silent (Silent is defined as Universal).
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:108 | OVERREACHES | - | generated MATCHES
+      STATED   The product formula as a universal interface. On any configuration, the action is the identity constraint (|x|_𝔸 = 1). The action is constant because the constraint does not depend on which configuration we evaluate.
+      LICENSED product_formula_interface is the constant action fun _ => true on the one-point space Unit with essential := True; no adelic norm or |x|_A = 1 constraint appears, so "the product formula as a universal interface" with action "the identity constraint |x|_A = 1" is a label, not a model of the product formula.
+      CITED    SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:112; SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:105
+      ACTION   RE-CUT: A stand-in labeled for the product formula: the constant-true interface on the one-point configuration space.
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:116 | OVERREACHES | - | generated MATCHES
+      STATED   The product formula is universal: its action is constant.
+      LICENSED The statement is is_universal of the constant-true interface on Unit, true of every interface on a one-point space (rfl); nothing about the product formula is stated.
+      CITED    SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:117; SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:119
+      ACTION   RE-CUT: The stand-in product_formula_interface is universal (as every interface on the one-point space is).
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:121 | OVERREACHES | - | generated MATCHES
+      STATED   The product formula has κ = 0 by the universal silence theorem.
+      LICENSED product_formula_kappa_zero is silence_universal applied to the Unit stand-in; kappa_zero holds for every interface on a one-point space, so the product formula's kappa = 0 is not derived.
+      CITED    SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:122; SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:124
+      ACTION   RE-CUT: The stand-in product_formula_interface has kappa = 0 by the universal silence theorem (vacuously, on the one-point space).
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:127 | OVERREACHES | - | generated MATCHES
+      STATED   The distributive law as a universal interface.
+      LICENSED distributive_interface is the constant-true interface on the one-point TrivialConfig (body identical to product_formula_interface); no line encodes the distributive law, so the docstring names content the definition does not carry.
+      CITED    SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:105; SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:112; SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:128; SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:132
+      ACTION   RE-CUT: A constant (true-valued) universal interface on the one-point configuration space, labelled the distributive law; it encodes no distributive-law content.
+  SIDE-kernel@0256e9e:Kernel/SimplicityRouteD.lean:69 | OVERREACHES | - | generated MATCHES
+      STATED   **PLACEHOLDER — not the real statement (tautology-sweep hygiene, 2026-07-29).** Body is `True`; the name now carries the placeholder status. The real Route-D statement would have to say: for every t₀ with F(t₀)=0 there is ε>0 with F(t₀−ε)·F(t₀+ε) < 0 — the IVT sign-change (non-crossing) characterization of simple zeros — which is unformalized here (it needs `HasDerivAt` for ξ∘(t ↦ ½+it)). Uncited; nothing imports it. Faithful formalization is work-order **W-ORD-ROUTE-DE-EQUIV**.
+      LICENSED The placeholder status and True body match, but the record 'nothing imports it' is false at the pin: Kernel/Root.lean imports Kernel.SimplicityRouteD (lines 53 and 83); no declaration cites the theorem.
+      CITED    SIDE-kernel@0256e9e:Kernel/SimplicityRouteD.lean:74; SIDE-kernel@0256e9e:Kernel/Root.lean:53; SIDE-kernel@0256e9e:Kernel/Root.lean:83
+      ACTION   RE-CUT: PLACEHOLDER — not the real statement; body is `True`. ... Uncited by any declaration; imported only by the aggregator Kernel/Root.lean. Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.
+  SIDE-kernel@0256e9e:Kernel/SimplicityRouteE.lean:77 | OVERREACHES | - | generated MATCHES
+      STATED   **PLACEHOLDER — not the real statement (tautology-sweep hygiene, 2026-07-29).** Body is `True`; the name now carries the placeholder status. The real Route-E statement would have to say: the energy E(t) = F(t)² + F′(t)² > 0 for all t iff every ξ-zero on the line is simple — where the positivity itself is the open premise (F′(t₀)=0 ⇔ ξ′(½+it₀)=0). Unformalized. Uncited; nothing imports it. Faithful formalization is work-order **W-ORD-ROUTE-DE-EQUIV**.
+      LICENSED The placeholder status and True body match, but 'nothing imports it' is false at the pin: Kernel/Root.lean imports Kernel.SimplicityRouteE (lines 54 and 84); no declaration cites the theorem.
+      CITED    SIDE-kernel@0256e9e:Kernel/SimplicityRouteE.lean:82; SIDE-kernel@0256e9e:Kernel/Root.lean:54; SIDE-kernel@0256e9e:Kernel/Root.lean:84
+      ACTION   RE-CUT: PLACEHOLDER — not the real statement; body is `True`. ... Unformalized. Uncited by any declaration; imported only by the aggregator Kernel/Root.lean. Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   TECHNE KERNEL - THE STRUCTURAL COUNT ===================================== Encodes the seven mechanism classes of xi(s), their sources, the formation count 2+3+2+0 = 7, rest states at sigma = 1/2, and connection to SIDE exclusion. PROOF STRATEGY (from the research): - RH is NOT assumed as an axiom anywhere - RH is NOT equivalent to any single axiom here - RH FOLLOWS from: formation count (7) + all rest states (sigma=1/2) + SIDE exclusion (Layer 1) - The formation count is FORCED by the specification's architecture - Each stage count is grounded in established mathematics: n1=2 (algebraic classification of Z's group structures) n2=3 (Ostrowski's theorem, 1916, proved in ZFC) n3=2 (complex analysis bipartite, standard) n4=0 (Conservation of Spectra, from Tate's thesis 1950) AXIOM PHILOSOPHY: Axioms in this file are INFRASTRUCTURE DEBT — theorems that exist in mathematics but are not yet formalized in Mathlib. None is RH-equivalent. Each is independently verifiable. When Mathlib formalizes Ostrowski/Tate/etc, these axioms become imports. March 2026
+      LICENSED The file compiles a defined Stage.count, a 7-constructor MechClass list and decide/rfl count lemmas; it holds no axioms (the four 'infrastructure axioms' are rfl theorems on the defined count), no rest states and no SIDE-exclusion connection (its own lines 186-205 say these are NOT here), and nothing grounds the counts in Ostrowski, Tate or a group classification.
+      CITED    SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:46; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:103; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:144; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:160; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:171; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:183; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:189
+      ACTION   RE-CUT: Encodes the seven mechanism classes of xi(s) as a defined type, their stage assignment, and the formation count 2+3+2+0 = 7 of a defined Stage.count (by decide); the four 'infrastructure' theorems are rfl restatements of that count, not formalizations of Ostrowski, Tate or any classification, and rest states and SIDE exclusion are not in this file.
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:136 | OVERREACHES | - | generated MATCHES
+      STATED   INFRASTRUCTURE AXIOM 1: Z has exactly two group structures. Mathematical content: The integers carry additive (Z,+) and multiplicative (Z*,.) group structures. No third exists. This is standard algebra — a classification theorem. Grounds: n1 = 2 (primitive stage count). Status: Proved in abstract algebra. Not yet in Mathlib.
+      LICENSED Z_has_two_group_structures states only Stage.count Stage.primitive = 2, closed by rfl on the defined count (a shell, rule 6/9); it formalizes no classification of group structures on Z, and it is a theorem, not an axiom.
+      CITED    SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:144; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:47
+      ACTION   RE-CUT: The primitive stage's defined count is 2 (rfl); the docstring's reading of this as 'Z has exactly two group structures' is manuscript-resident and not formalized here.
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:147 | OVERREACHES | - | generated MATCHES
+      STATED   INFRASTRUCTURE AXIOM 2: Ostrowski's theorem (1916). Mathematical content: Every nontrivial absolute value on Q is equivalent to either the standard |.| or a p-adic |.|_p. The places of Q are exactly {infinity} union {primes}. Grounds: n2 = 3 (transformation stage count). The three classes correspond to: - Archimedean place -> C1 (functional equation) - Non-Archimedean places -> C6 (spectral structure) - Global constraint (product formula) -> C5 (modular symmetry) Status: Proved in ZFC (Ostrowski 1916). Not yet in Mathlib.
+      LICENSED ostrowski_places_complete states only Stage.count Stage.transformation = 3 by rfl; nothing about absolute values on Q or Ostrowski's theorem is stated (a shell named for a theorem).
+      CITED    SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:160; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:48
+      ACTION   RE-CUT: The transformation stage's defined count is 3 (rfl); its grounding in Ostrowski's theorem (1916) is cited, not formalized.
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:163 | OVERREACHES | - | generated MATCHES
+      STATED   INFRASTRUCTURE AXIOM 3: Complex analysis is bipartite. Mathematical content: The structural scales of entire function theory are local (differential/Cauchy-Riemann) and global (topological/Hadamard). No third scale exists. Grounds: n3 = 2 (output stage count). Status: Standard complex analysis. Not yet in Mathlib.
+      LICENSED complex_analysis_bipartite states only Stage.count Stage.output = 2 by rfl; 'no third scale exists' is stated by no line of any kernel.
+      CITED    SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:171; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:49
+      ACTION   RE-CUT: The output stage's defined count is 2 (rfl); the 'bipartite' reading of complex analysis is manuscript-resident and not formalized.
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:174 | OVERREACHES | - | generated MATCHES
+      STATED   INFRASTRUCTURE AXIOM 4: Conservation of Spectra (Tate 1950). Mathematical content: The product formula prod_v |x|_v = 1 is s-dark — it determines domain geometry but contributes no s-dependent content. All interfaces between stages are spectrally silent for zero locations. Grounds: n4 = 0 (interface stage count). Status: Proved from Tate's thesis (1950) in ZFC.
+      LICENSED This conservation_of_spectra states only Stage.count Stage.interface = 0 by rfl; it carries no product formula and no s-darkness (the ProductFormula namesake compiles only 1^s = 1, rule 9), so 'proved from Tate's thesis' is not what it holds.
+      CITED    SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:183; SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:50; SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:72
+      ACTION   RE-CUT: The interface stage's defined count is 0 (rfl); the s-darkness of the product formula (Tate 1950) is cited, not formalized here.
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:11 | OVERREACHES | H | generated MATCHES
+      STATED   TRIVIUM — The Third Identity Element of Arithmetic ==================================================== The Trivium is the seven-element identity subspace generated by the first two primes {2, 3} acting on quadratic extensions of ℚ. The seven discriminants {-1, 2, -2, 3, -3, 6, -6} are exactly the squarefree integers whose prime factorization uses only primes from {2, 3} and the sign unit {-1}. This file proves: T.1 TriviumDiscriminants has cardinality 7 T.2 Every discriminant is {2,3}-smooth (up to sign) T.3 The Frobenius number g(2,3) = 1 T.4 Størmer's theorem: the {2,3}-smooth pairs are finite T.5 The seven discriminants carry Fano plane (PG(2,𝔽₂)) incidence T.6 The formation (2,3,2,0) is forced by two generators T.7 The quarter-twist satisfies T² = -1 on a 7-dimensional space Dependencies: None (self-contained, vanilla Lean 4) Sorry: 0 Axioms: 0 J. York Seale, April 2026
+      LICENSED T.1-T.4 are compiled (card_seven, value_from_exponents, frobenius_two_three with one_not_representable, stormer_bound), but T.5 has no incidence (FanoLine is 7 bare constructors, valence a constant 3), T.6 is only 2+3+2+0 = 7 = card (nothing 'forced'), T.7 is (0:Int) - 1 = -1 (no T, no 7-dimensional space), and 'Dependencies: None (vanilla Lean 4)' is false: the file imports Mathlib (lines 1-9).
+      CITED    SIDE-kernel@0256e9e:Kernel/Trivium.lean:1; SIDE-kernel@0256e9e:Kernel/Trivium.lean:59; SIDE-kernel@0256e9e:Kernel/Trivium.lean:108; SIDE-kernel@0256e9e:Kernel/Trivium.lean:121; SIDE-kernel@0256e9e:Kernel/Trivium.lean:269; SIDE-kernel@0256e9e:Kernel/Trivium.lean:407; SIDE-kernel@0256e9e:Kernel/Trivium.lean:415; SIDE-kernel@0256e9e:Kernel/Trivium.lean:440; SIDE-kernel@0256e9e:Kernel/Trivium.lean:453
+      ACTION   RE-CUT: This file proves: T.1 the defined Discriminant type has 7 elements; T.2 each value is (-1)^a 2^b 3^c; T.3 every n ≥ 2 is 2a+3b and 1 is not; T.4 consecutive {2,3}-smooth n, n+1 force n ≤ 8; it also records a 7-element FanoLine type and constant valence 3 (no incidence), 2+3+2+0 = 7 = 2^3-1, and the arithmetic 0-1 = -1, (-1)(-1) = 1. Dependencies: Mathlib.
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:76 | OVERREACHES | - | generated MATCHES
+      STATED   All seven values are squarefree (no perfect square > 1 divides them). We verify this by checking |d| has no repeated prime factors.
+      LICENSED all_squarefree proves only d.value.natAbs ≠ 0 for each d; no squarefreeness and no check of repeated prime factors is stated.
+      CITED    SIDE-kernel@0256e9e:Kernel/Trivium.lean:78
+      ACTION   RE-CUT: All seven values are nonzero (|d| ≠ 0); their squarefreeness is elementary but not stated here.
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:406 | OVERREACHES | - | generated MATCHES
+      STATED   The 7 Fano lines (triples whose F2-vectors sum to zero).
+      LICENSED FanoLine is seven bare constructors L1..L7; no triple of discriminants and no zero-sum condition is defined, so the type carries no lines.
+      CITED    SIDE-kernel@0256e9e:Kernel/Trivium.lean:407
+      ACTION   RE-CUT: A seven-element index type for the Fano lines; the lines themselves (triples whose F2-vectors sum to zero) are not defined here.
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:414 | OVERREACHES | - | generated MATCHES
+      STATED   Each discriminant lies on exactly 3 lines.
+      LICENSED Discriminant.valence is the constant 3 assigned per constructor; no incidence relation exists to count lines through a point, so 'lies on exactly 3 lines' is assigned, not computed.
+      CITED    SIDE-kernel@0256e9e:Kernel/Trivium.lean:415; SIDE-kernel@0256e9e:Kernel/Trivium.lean:407
+      ACTION   RE-CUT: The valence assigned to each discriminant is 3 (the Fano-plane value, stipulated; no incidence relation is defined).
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:451 | OVERREACHES | - | generated MATCHES
+      STATED   T.7: Quarter-twist i^2 = -1, encoded as pure arithmetic. In the full formalization this is Complex.I_mul_I.
+      LICENSED quarter_twist_arith states (0 : Int) - 1 = -1, which encodes no i and no squaring (a shell, rule 6); i^2 = -1 is not stated in this file.
+      CITED    SIDE-kernel@0256e9e:Kernel/Trivium.lean:453
+      ACTION   RE-CUT: The integer identity 0 - 1 = -1; the quarter-twist i^2 = -1 itself (Complex.I_mul_I) is not stated here.
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:462 | OVERREACHES | - | generated MATCHES
+      STATED   The complete Trivium theorem.
+      LICENSED trivium_complete conjoins only card Discriminant = 7, 2^3-1 = 7, card FanoLine = 7, 2+3+2+0 = 7 and 0-1 = -1; it omits T.2-T.4 (exponents, Frobenius, Størmer) and carries no incidence, so 'complete' claims more than it bundles.
+      CITED    SIDE-kernel@0256e9e:Kernel/Trivium.lean:463
+      ACTION   RE-CUT: The Trivium count bundle: 7 discriminants, 2^3-1 = 7, 7 Fano-line labels, 2+3+2+0 = 7, and 0-1 = -1.
+  SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:9 | OVERREACHES | - | generated MATCHES
+      STATED   **DEPRECATED — labeling stub (tautology-sweep hygiene, 2026-07-29).** `code_n/code_k/code_d` state `7 = 7 / 1 = 1 / 3 = 3` (bare `N = N`, `rfl`) — the name labels a value the tautology does not establish. The genuine [[7,1,3]] parameters are compiled at `SteaneExemplar.steane_parameters` (SIDE-cosmo, `{propext, Quot.sound}`); cite that, not these. Kept in place (uncited; nothing imports them).
+      LICENSED The tautology description and the steane_parameters pointer hold (SIDE-cosmo SteaneExemplar.lean:81; its profile is the source's own claim, NOT PROFILED in the terminal table, no banked print), but 'nothing imports them' is false at the pin: Kernel/Root.lean:44 imports Kernel.TriviumCode.
+      CITED    SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:13; SIDE-kernel@0256e9e:Kernel/Root.lean:44; SIDE-cosmo@c5cba30:SIDECosmo/SteaneExemplar.lean:81; SIDE-cosmo@c5cba30:SIDECosmo/SteaneExemplar.lean:11
+      ACTION   RE-CUT: DEPRECATED — labeling stub. code_n/code_k/code_d state 7 = 7 / 1 = 1 / 3 = 3 (rfl) ... The [[7,1,3]] parameters are compiled at SteaneExemplar.steane_parameters (SIDE-cosmo; profile {propext, Quot.sound} as its source states, not banked). Kept in place; uncited, imported only by the aggregator Kernel/Root.lean.
+  SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:20 | OVERREACHES | - | generated MATCHES
+      STATED   **DEPRECATED — labeling stub (2026-07-29).** `0 = 0` (`rfl`); the genuine dark-interface content (n₄ = 0 / the six-dimensional dark subspace) is compiled at `ProductFormula.conservation_of_spectra` and `partition_cardinalities` (SIDE-substrate-cluster). Kept in place (uncited).
+      LICENSED interface_dark is 0 = 0 as stated, but the named 'genuine dark-interface content' is not there: ProductFormula.conservation_of_spectra is in SIDE-kernel (not SIDE-substrate-cluster) and compiles only ∀ s, (1:Rat)^s = 1 (rule 9), and partition_cardinalities states the (3,3,1) Hamming-weight partition, not n₄ = 0 or a six-dimensional dark subspace.
+      CITED    SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:23; SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:72; SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:126
+      ACTION   RE-CUT: DEPRECATED — labeling stub. `0 = 0` (rfl). Nearby compiled items: ProductFormula.conservation_of_spectra (SIDE-kernel, ∀ s, 1^s = 1) and partition_cardinalities (SIDE-substrate-cluster, the (3,3,1) weight partition); neither states n₄ = 0 or a six-dimensional dark subspace. Kept in place (uncited).
+  SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:14 | UNDERSTATES | - | generated MATCHES
+      STATED   Determination collapse: if a type-level constraint holds for all instances of a class, and there is only one instance, it holds for the specific instance.
+      LICENSED determination_collapse takes no uniqueness hypothesis: it instantiates the constraint at any x, so the docstring's 'and there is only one instance' is a condition the theorem does not need.
+      CITED    SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:17
+      ACTION   RE-CUT: Determination collapse: if a type-level constraint holds for all instances of a class, it holds for any specific instance.
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:80 | OVERREACHES | - | generated MATCHES
+      STATED   Codimension at a point: how many independent conditions must be satisfied for xi to vanish there. At sigma = 1/2: xi is real-valued (conjugation = reflection), so xi(s) = 0 requires only one real condition (codim 1). At sigma != 1/2: xi is genuinely complex-valued, so xi(s) = 0 requires Re(xi) = 0 AND Im(xi) = 0 (codim 2). Higher codimension means more exceptional = harder to achieve. Zeros "want" to be at codim 1 (the critical line).
+      LICENSED codimension σ := if σ = 1/2 then 1 else 2 is an assigned literal with no ξ in it; it does not count conditions for ξ to vanish (the kernel's own Voice3b de-encoding note retires exactly this model as 'the answer written into a literal').
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice2.lean:91; SIDE-kernel@0256e9e:Kernel/Voice3b.lean:30
+      ACTION   RE-CUT: An assigned codimension: 1 at σ = 1/2 and 2 elsewhere, stipulated (not counted from ξ); the ξ-reading (one real condition on the line, two off it) is manuscript-resident.
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:103 | OVERREACHES | - | generated MATCHES
+      STATED   Codimension 1 < codimension 2: on-line zeros are generic, off-line zeros are exceptional.
+      LICENSED on_line_less_exceptional states (1 : Nat) < 2 only (a shell, rule 6); nothing about on-line or off-line zeros being generic or exceptional is stated.
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice2.lean:105
+      ACTION   RE-CUT: 1 < 2 (the numerals of the two assigned codimensions); the genericity reading is manuscript-resident.
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:57 | OVERREACHES | - | generated MATCHES
+      STATED   The R-generator (order 3) action on sigma. R = ST: tau -> -1/(tau+1). This acts on the UPPER HALF-PLANE, rotating by 2pi/3 around the point tau = e^(i*pi/3). On the real parameter sigma, R's effect is trivial: it permutes Fourier coefficients of theta but does not change which sigma-value the symmetry constrains. We model this as: R's net effect on sigma is the identity. This is the content of "R produces no new sigma constraint."
+      LICENSED The model R_action := id is disclosed, but the stated geometry is wrong: τ ↦ -1/(τ+1) fixes the root of τ^2 + τ + 1 = 0, i.e. e^(2πi/3), not e^(iπ/3) (checked by hand; e^(iπ/3) is fixed by TS, τ ↦ (τ-1)/τ); no line carries the claim.
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice5.lean:68
+      ACTION   RE-CUT: The R-generator (order 3), R = ST: τ ↦ -1/(τ+1), an elliptic element of order 3 fixing τ = e^(2πi/3). On σ we model R's net effect as the identity; that R produces no new σ-constraint is this modelling choice, not a derived fact.
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:66 | OVERREACHES | - | generated MATCHES
+      STATED   Self-adjointness forces sigma = 1/2.
+      LICENSED self_adjoint_constraint is defined as σ - 1/2 = 0, so the theorem's premise is its conclusion restated (rule 6); no operator and no self-adjointness enters, so it does not show self-adjointness forces anything.
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice6.lean:67; SIDE-kernel@0256e9e:Kernel/Voice6.lean:63
+      ACTION   RE-CUT: The modelled self-adjointness condition (defined as spectral_offset σ = 0) gives σ = 1/2; the Hilbert–Pólya step from a self-adjoint operator to this condition is not formalized.
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:77 | OVERREACHES | - | generated MATCHES
+      STATED   Off the critical line, self-adjointness is violated.
+      LICENSED The theorem concludes only Not (spectral_offset sigma = 0), i.e. sigma - 1/2 /= 0 from sigma /= 1/2; self_adjoint_constraint is defined as that offset equation ("we model the conclusion directly", :61), no operator or self-adjointness is formalized, so "self-adjointness is violated" is read off the predicate's name, not its statement.
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice6.lean:57; SIDE-kernel@0256e9e:Kernel/Voice6.lean:63; SIDE-kernel@0256e9e:Kernel/Voice6.lean:78
+      ACTION   RE-CUT: Off the critical line the modelled constraint fails: sigma /= 1/2 gives spectral_offset sigma /= 0 (the constraint is defined as that offset equation; no operator is formalized).
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:88 | OVERREACHES | - | generated MATCHES
+      STATED   C6 rests at sigma = 1/2. The spectral constraint (self-adjointness -> real eigenvalues) is trivially satisfied at sigma = 1/2 (zero offset). Elsewhere, it's violated.
+      LICENSED c6_rests_at_half is self_adjoint_at_half, spectral_offset (1/2) = 0 by ring; the gloss "(self-adjointness -> real eigenvalues)" identifies the constraint with an operator implication the kernel does not state (the predicate is the offset equation by definition, :61-64).
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice6.lean:61; SIDE-kernel@0256e9e:Kernel/Voice6.lean:63; SIDE-kernel@0256e9e:Kernel/Voice6.lean:92; SIDE-kernel@0256e9e:Kernel/Voice6.lean:78
+      ACTION   RE-CUT: C6 rests at sigma = 1/2: the modelled constraint spectral_offset sigma = 0 holds at 1/2 and fails elsewhere (self_adjoint_violated_off_line); the constraint encodes the self-adjointness conclusion by definition, no operator is formalized.
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:52 | UNDERSTATES | - | generated MATCHES/HAND-NEEDED
+      STATED   The topological winding contribution to zero-placement. This is sigma-independent: the argument principle counts zeros regardless of which sigma they're at. We model this as a constant function: the topological mechanism contributes the same constraint at every sigma. **σ-neutral stand-in (DEFINITION-ENCODED; W-ORD-ROUTE1-A, C₇; honest relabel 2026-07-22).** This is the `Kernel/` twin of `Bridge/TheBridgeComplete.hadamard_contrib` (unified C₇ site). `:= 0` ASSIGNS σ-neutrality; it does not derive it. The neutrality shape `∀σ, g σ = g(1/2)` (see `topological_no_sigma_preference`) is satisfied only by a σ-constant `g`, so no non-vacuous model-level de-encode of THIS shape exists; the constant is a faithful stand-in for a σ-non-selective contribution whose real content is manuscript-resident: • the Hadamard product ENCODES (not produces) the zero set — FE-symmetric under s ↦ 1−s; Mathlib at pin `e960b84` has the FE but **not** the genus-1 factorization (three-lines Hadamard only) — premise named Mathlib-absent; • the product is PRESENT in RH-violators (Epstein, §917/§933/§1845), so its presence cannot enforce on-line — a model-theoretic argument, unmodeled here. Faithful de-encode ref
+      LICENSED The stand-in disclosure matches (:= 0 at :74), but "Faithful de-encode refiled as research work-order W-ORD-C7-WITNESS" reads as pending while the same file (:135-138) and Voice7Witness.lean:136 hold it compiled: hadamard_does_not_enforce_online, W-ORD-C7-WITNESS closed-by-compile.
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice7.lean:71; SIDE-kernel@0256e9e:Kernel/Voice7.lean:74; SIDE-kernel@0256e9e:Kernel/Voice7.lean:135; SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:136
+      ACTION   RE-CUT: The faithful de-encode (W-ORD-C7-WITNESS) is compiled as Voice7Witness.hadamard_does_not_enforce_online, the Epstein countermodel: the Hadamard/FE observable cannot enforce on-line placement.
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:144 | OVERREACHES | - | generated MATCHES
+      STATED   For SIDE integration: the topological class cannot produce off-line zeros because it cannot produce zeros at ANY specific sigma. If sigma != 1/2 and ONLY C7 is active, there is no mechanism to place a zero there.
+      LICENSED c7_no_placement_force states only topological_contribution sigma = topological_contribution (1/2), i.e. 0 = 0 by the := 0 stand-in; the docstring states, with no stand-in caveat, that the topological class cannot produce off-line zeros, which no line carries (the faithful content is the Epstein negative in Voice7Witness).
+      CITED    SIDE-kernel@0256e9e:Kernel/Voice7.lean:148; SIDE-kernel@0256e9e:Kernel/Voice7.lean:74; SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:136
+      ACTION   RE-CUT: The definition-encoded stand-in topological_contribution := 0 takes the same value at every sigma as at 1/2; this asserts nothing sigma-selective about xi (the faithful C7 content is Voice7Witness.hadamard_does_not_enforce_online).
+  SIDE-kernel@0256e9e:MetaKernel.lean:3 | OVERREACHES | H | generated MATCHES
+      STATED   META-KERNEL: FORMALIZING THE OBSERVATIONS ========================================== Lean 4 structures for the eight unannounced observations. Imports Mathlib.Data.Fintype.Basic. Compiles under the kernel's existing Mathlib toolchain. To build: lake build MetaKernel (requires lean_lib MetaKernel declaration in lakefile.lean) TARGETS IMPLEMENTED: LT-3.1: DomainOstrowski structure LT-3.2: RH and Yang-Mills as DomainOstrowski instances LT-7.1: ECondition predicate + TypeClassification LT-7.2: RH satisfies ECondition LT-5.1: SpectralSilence predicate LT-5.2: Conservation of Spectra as SpectralSilence instance LT-2.1: EliminativeProof structure + RH is eliminative RESULTS: 0 axioms 0 sorry All theorems compile
+      LICENSED The header lists as implemented "RH and Yang-Mills as DomainOstrowski instances" and "RH satisfies ECondition", but both instances were retired (M1, :73-74, :90-95, :106-108) and the file has only a Fintype instance of a 7-constructor type, no ESatisfied value; "0 axioms" also conflicts with the recorded profile {propext, Quot.sound} of type_I_has_ostrowski in the same file (:155; relay data/b555_reads.txt:136).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:15; SIDE-kernel@0256e9e:MetaKernel.lean:73; SIDE-kernel@0256e9e:MetaKernel.lean:90; SIDE-kernel@0256e9e:MetaKernel.lean:106; SIDE-kernel@0256e9e:MetaKernel.lean:155; SIDE-kernel@0256e9e:MetaKernel.lean:174
+      ACTION   RE-CUT: TARGETS: the Ostrowski structure (LT-3.1); RH_MechanismClass and YM_Sector as enumerations only (the RH and YM Ostrowski instances are retired, M1); a Fintype instance on the 7-class type (no ESatisfied instance); Bool-record silence instances; polarity labels. RESULTS: 0 sorry; type_I_has_ostrowski records [propext, Quot.sound].
+  SIDE-kernel@0256e9e:MetaKernel.lean:36 | OVERREACHES | - | generated MATCHES
+      STATED   A DomainOstrowski is a domain-specific completeness theorem. It consists of: - A domain of structural elements (the mechanism classes) - A target property (what we want to exclude) - A per-element check (does this element produce the property?) - A proof of exhaustiveness (every element is in the domain) - A proof that no element produces the property This is the abstract structure that Ostrowski (1916), Thurston (geometrization), Wiles (modularity), and SIDE all instantiate.
+      LICENSED The structure's "proof of exhaustiveness" field is forall d, d = d (tautological, :53), exclusion is an independent field not derived from none_produces, and no line instantiates it for SIDE (the RH instance is retired, :90-95).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:47; SIDE-kernel@0256e9e:MetaKernel.lean:53; SIDE-kernel@0256e9e:MetaKernel.lean:57; SIDE-kernel@0256e9e:MetaKernel.lean:90
+      ACTION   RE-CUT: A record of a target, a per-element predicate, a tautological exhaustiveness field (d = d), a no-element-produces field and a supplied exclusion field; the paper reads Ostrowski, Thurston, Wiles and SIDE as instances, and no instance is compiled here.
+  SIDE-kernel@0256e9e:MetaKernel.lean:52 | OVERREACHES | - | generated MATCHES
+      STATED   Every element is accounted for (the domain is finite/enumerable)
+      LICENSED The field's type is forall d, d = d, a tautology (its own comment says so); it carries no finiteness or enumeration (a shell, rule 6).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:53
+      ACTION   RE-CUT: A tautological placeholder (d = d); finiteness of the domain is not carried by this field.
+  SIDE-kernel@0256e9e:MetaKernel.lean:56 | OVERREACHES | - | generated MATCHES
+      STATED   Therefore: target does not hold
+      LICENSED exclusion : Not target is a supplied field; the structure has no target -> exists d, produces d link, so "Therefore" (a consequence of the other fields) is not carried.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:55; SIDE-kernel@0256e9e:MetaKernel.lean:57
+      ACTION   RE-CUT: The target does not hold (supplied as a field; not derived from the other fields).
+  SIDE-kernel@0256e9e:MetaKernel.lean:59 | OVERREACHES | - | generated MATCHES
+      STATED   The SIDE proof of RH instantiates this structure.
+      LICENSED RH_MechanismClass is a bare 7-constructor inductive; the Ostrowski instance for RH was retired (M1, :90-95: its target said nothing about zeta) and the kernel's RH terminal is conditional on ConservationHypothesis.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:60; SIDE-kernel@0256e9e:MetaKernel.lean:90; SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:53
+      ACTION   RE-CUT: The seven mechanism-class labels of the SIDE catalogue (an enumeration; no Ostrowski instance is compiled).
+  SIDE-kernel@0256e9e:MetaKernel.lean:76 | OVERREACHES | - | generated MATCHES
+      STATED   Seven classes exhaust all possibilities (completeness).
+      LICENSED rh_classes_complete proves every element of the defined type is one of its seven constructors; this is the defined type's exhaustiveness, not that seven classes exhaust all possibilities (rule 5: the catalogue's exhaustiveness at xi is the open clause).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:77
+      ACTION   RE-CUT: Every element of the defined type RH_MechanismClass is one of its seven constructors (the type's own completeness, not the catalogue's exhaustiveness at xi).
+  SIDE-kernel@0256e9e:MetaKernel.lean:118 | OVERREACHES | - | generated MATCHES
+      STATED   The E condition asks: is the mechanism catalogue exhaustive? Formally: the domain type is finite (all elements enumerable) AND every element has been checked.
+      LICENSED ESatisfied carries a Fintype field and all_checked : forall d, d = d, a placeholder (its comment says so); "every element has been checked" is not carried.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:121; SIDE-kernel@0256e9e:MetaKernel.lean:125
+      ACTION   RE-CUT: The E condition records that the domain type is finite (Fintype); the checked clause is a tautological placeholder (d = d).
+  SIDE-kernel@0256e9e:MetaKernel.lean:124 | OVERREACHES | - | generated MATCHES
+      STATED   Every element has been checked against the target
+      LICENSED all_checked has type forall d, d = d, a placeholder that mentions no target; nothing is checked (a shell, rule 6).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:125
+      ACTION   RE-CUT: Placeholder for "checked": a tautology (d = d) carrying no check against any target.
+  SIDE-kernel@0256e9e:MetaKernel.lean:173 | OVERREACHES | - | generated MATCHES
+      STATED   RH satisfies E (the formation count terminates the search).
+      LICENSED The declaration is a Fintype instance on the defined 7-constructor type; it is not an ESatisfied value and does not show the search terminates for RH (rule 5: a defined type's count is not the clause).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:174; SIDE-kernel@0256e9e:MetaKernel.lean:121
+      ACTION   RE-CUT: The defined type RH_MechanismClass is a Fintype with seven elements.
+  SIDE-kernel@0256e9e:MetaKernel.lean:183 | OVERREACHES | - | generated MATCHES
+      STATED   The formation count 7 terminates the search; proved by `decide`.
+      LICENSED formation_terminates is (2 + 3 + 2 + 0 : Nat) = 7 by decide; arithmetic, not a termination of any search (rule 5).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:184
+      ACTION   RE-CUT: 2 + 3 + 2 + 0 = 7, by decide.
+  SIDE-kernel@0256e9e:MetaKernel.lean:203 | OVERREACHES | - | generated MATCHES
+      STATED   For mathematics: Level 0 is trivially passed.
+      LICENSED math_passes_level_0 is level_0_determination = level_0_determination by rfl, a statement about nothing (rule 6 shell).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:204
+      ACTION   RE-CUT: A reflexivity placeholder (level_0 = level_0); nothing about mathematics passing Level 0 is stated.
+  SIDE-kernel@0256e9e:MetaKernel.lean:207 | OVERREACHES | - | generated MATCHES
+      STATED   All mathematical difficulty lives at Level 1.
+      LICENSED e_difficulty_conjecture is the type (forall d, Decidable (produces d)) -> forall d, Decidable (produces d) over Fintype domains, trivially inhabited; it does not state that difficulty lives at Level 1, and its comment calls it a conjecture.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:208; SIDE-kernel@0256e9e:MetaKernel.lean:209
+      ACTION   RE-CUT: The E-difficulty conjecture (all mathematical difficulty lives at Level 1), recorded as a placeholder type that does not state it.
+  SIDE-kernel@0256e9e:MetaKernel.lean:239 | UNDERSTATES | - | generated MATCHES
+      STATED   The Silence Principle: essential interfaces are silent. If essential = true AND the system has independent structures, then silent = true AND κ = 0.
+      LICENSED silence_principle i is essential = true -> silent = true and kappa_x100 = 0, with no "independent structures" premise; the docstring adds a condition the definition does not have, describing a weaker principle than the one defined.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:242
+      ACTION   RE-CUT: The Silence Principle: if an interface is essential, it is silent and its kappa is 0 (no further premise).
+  SIDE-kernel@0256e9e:MetaKernel.lean:285 | OVERREACHES | - | generated MATCHES
+      STATED   Conservation of Spectra as SpectralSilence instance. The product formula is essential (without it, no ξ) and s-dark (carries zero information about zero locations).
+      LICENSED The theorem reads back three stipulated fields of a hand-built record (true, true, 0) by rfl; nothing about xi or zero locations is stated (rule 9: read against the statement, not the name).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:246; SIDE-kernel@0256e9e:MetaKernel.lean:288
+      ACTION   RE-CUT: The product_formula record is tagged essential, silent and kappa 0 (stipulated fields, read back by rfl).
+  SIDE-kernel@0256e9e:MetaKernel.lean:294 | OVERREACHES | - | generated MATCHES
+      STATED   The INTERFACETS discriminatory result: genetic code is conservative for identity (κ = 94/100) but not for frequency (κ = 8/100). The split validates the Conservation Analysis tool.
+      LICENSED interfacets_split is 94 > 8 on two stipulated record fields, by decide; it validates no tool.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:262; SIDE-kernel@0256e9e:MetaKernel.lean:270; SIDE-kernel@0256e9e:MetaKernel.lean:298
+      ACTION   RE-CUT: The recorded identity kappa (94/100) exceeds the recorded frequency kappa (8/100).
+  SIDE-kernel@0256e9e:MetaKernel.lean:309 | OVERREACHES | - | generated MATCHES
+      STATED   Every tested system's most essential component has low κ for behavioral parameters.
+      LICENSED behavioral_kappa is a stipulated table, five of its nine values marked "estimated" in its own comments; the docstring states the low-kappa finding as fact.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:311; SIDE-kernel@0256e9e:MetaKernel.lean:315
+      ACTION   RE-CUT: Tabulated behavioral kappa (x100) of each tested system's most essential component (five values estimated).
+  SIDE-kernel@0256e9e:MetaKernel.lean:342 | OVERREACHES | - | generated MATCHES
+      STATED   The RH proof is eliminative: it concludes ¬OffLineZero.
+      LICENSED rh_polarity := eliminative is a stipulated label; the kernel holds no unconditional RH proof (riemann_hypothesis takes ConservationHypothesis), so "The RH proof ... concludes Not OffLineZero" is not carried.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:343; SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:53
+      ACTION   RE-CUT: The SIDE RH argument is labelled eliminative (its target form is Not OffLineZero); the kernel's RH terminal is conditional on ConservationHypothesis.
+  SIDE-kernel@0256e9e:MetaKernel.lean:345 | OVERREACHES | - | generated MATCHES
+      STATED   An eliminative proof has the structure: (1) Finite domain (the catalogue) (2) Per-element exclusion (none produces the target) (3) Negation (therefore target doesn't hold) This is exactly the DomainOstrowski structure.
+      LICENSED eliminative_is_ostrowski is rh_polarity = eliminative by rfl (a shell, rule 6); no finite domain, exclusion or DomainOstrowski is in the statement.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:350
+      ACTION   RE-CUT: The label rh_polarity is eliminative (by rfl); the Ostrowski structure of an eliminative proof is the document's reading.
+  SIDE-kernel@0256e9e:MetaKernel.lean:357 | OVERREACHES | - | generated MATCHES
+      STATED   The polarity distinction: - Constructive succeeds when a witness can be found - Eliminative succeeds when E is satisfiable The E-difficulty conjecture (Thread 7) predicts: eliminative proofs succeed ⇔ E condition is satisfiable. Tested retroactively on 7 problems: 7/7 match.
+      LICENSED polarity_connection is two label equalities by rfl; it carries no test, and the retroactive table it alludes to counts rh (the open clause) as solved and has 6 exact and 1 approximate (:438-445).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:364; SIDE-kernel@0256e9e:MetaKernel.lean:438
+      ACTION   RE-CUT: rh_polarity is eliminative and euclid_primes_polarity is constructive (labels, by rfl); the E-difficulty prediction is the document's conjecture.
+  SIDE-kernel@0256e9e:MetaKernel.lean:377 | OVERREACHES | - | generated MATCHES
+      STATED   Every component of the RH proof traces to a pre-1950 source.
+      LICENSED ProofComponent is a twelve-label enumeration with dates stipulated in component_date; it is not a compiled RH proof, and tate_thesis is dated 1950, which is not pre-1950 (rule 3 arithmetic).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:378; SIDE-kernel@0256e9e:MetaKernel.lean:399
+      ACTION   RE-CUT: Components the SIDE RH argument cites, each with a recorded date of 1950 or earlier.
+  SIDE-kernel@0256e9e:MetaKernel.lean:411 | OVERREACHES | - | generated MATCHES
+      STATED   The latest component is Tate (1950).
+      LICENSED latest_is_tate is the same bound (all dates <= 1950, := all_pre_1951); it does not state that Tate attains the maximum.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:412; SIDE-kernel@0256e9e:MetaKernel.lean:399
+      ACTION   RE-CUT: No component's recorded date exceeds 1950 (Tate's date).
+  SIDE-kernel@0256e9e:MetaKernel.lean:415 | OVERREACHES | - | generated MATCHES
+      STATED   SEVENTY-FIVE YEARS: the proof was available since 1950. The barrier was methodology (SIDE), not mathematics.
+      LICENSED proof_available_since is 1950 + 75 = 2025 by decide; arithmetic proves nothing about a proof's availability or the barrier (rule 6).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:417
+      ACTION   RE-CUT: 1950 + 75 = 2025; the seventy-five-year reading is the document's argument.
+  SIDE-kernel@0256e9e:MetaKernel.lean:427 | OVERREACHES | - | generated MATCHES
+      STATED   Solved problems tested retroactively.
+      LICENSED SolvedProblem lists rh among solved problems; the kernel's RH terminal is conditional on ConservationHypothesis (the open clause, rule 5).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:429; SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:53
+      ACTION   RE-CUT: Problems tested retroactively (six solved; rh is included as the programme's target, conditional in this kernel).
+  SIDE-kernel@0256e9e:MetaKernel.lean:464 | OVERREACHES | - | generated MATCHES
+      STATED   The meta-theorem (CP-O-5): TYPE I ↔ Ostrowski exists. TYPE III ↔ no Ostrowski exists. Stated as a definition (conjecture).
+      LICENSED meta_ostrowski_conjecture := True (a placeholder, :472); the biconditionals are not stated, so "stated as a definition" and "meta-theorem" are not carried (rule 6).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:468; SIDE-kernel@0256e9e:MetaKernel.lean:472
+      ACTION   RE-CUT: The meta-Ostrowski conjecture (CP-O-5), recorded as a placeholder True; its content is not stated here.
+  SIDE-kernel@0256e9e:MetaKernel.lean:474 | OVERREACHES | - | generated MATCHES
+      STATED   The catalogue of completeness theorems is itself a completeness problem.
+      LICENSED meta_meta := True; the definition states nothing about a catalogue (rule 6).
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:476
+      ACTION   RE-CUT: The meta-Ostrowski question (whether the catalogue of completeness theorems is itself a completeness problem), recorded as a placeholder True.
+  SIDE-kernel@0256e9e:MetaKernel.lean:487 | OVERREACHES | - | generated MATCHES
+      STATED   All targets compile. Summary of what's formalized: DomainOstrowski: abstract structure for exhaustive proofs RH_MechanismClass: 7 classes, none produces off-line zeros YM_Sector: 4 sectors (enumeration only; no mass-gap claim — see M1-retired note above) ECondition: E as search termination, TYPE classification SpectralSilence: essential → silent (10/10 tested) EliminativeProof: RH is eliminative, not constructive SourceAnnotations: all components ≤ 1950 EDifficulty: 7/7 retroactive match OstrowskiCatalogue: 18 proved, 37 total SORRY COUNT: 0 All theorems discharge without sorry. This is the meta-kernel: it formalizes the observations about the proof method, not the proof itself. The proof kernel is in Kernel.Root (63 files, 0 sorry, 0 axioms). This meta-kernel formalizes what the proof TEACHES us about mathematics.
+      LICENSED The theorem is True (a shell); the summary's records fail at the pin: "7 classes, none produces off-line zeros" was retired (:73-74), SpectralSilence has 4 records not 10/10, the retroactive table has 6 exact and 1 approximate, there is no 18/37 Ostrowski catalogue, and Kernel/Root.lean has 94 import lines, not 63 files.
+      CITED    SIDE-kernel@0256e9e:MetaKernel.lean:507; SIDE-kernel@0256e9e:MetaKernel.lean:73; SIDE-kernel@0256e9e:MetaKernel.lean:246; SIDE-kernel@0256e9e:MetaKernel.lean:438; SIDE-kernel@0256e9e:MetaKernel.lean:457; SIDE-kernel@0256e9e:Kernel/Root.lean:6
+      ACTION   RE-CUT: All targets compile, 0 sorry. Formalized: the Ostrowski record; RH_MechanismClass (7 labels, no exclusion); YM_Sector (enumeration only); E as a Fintype record and TYPE labels; four silence records; polarity labels; component dates <= 1950; a retroactive label table (6 exact, 1 approximate); Ostrowski status labels. This summary theorem states True.
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:35 | OVERREACHES | - | generated MATCHES
+      STATED   Elliptic regularity collapse: holomorphic = analytic. Only ONE local structure class (C₃), not two.
+      LICENSED The statement is DifferentiableAt -> AnalyticAt for Lambda0 at s; "Only ONE local structure class (C3), not two" is not stated (file outside every lean_lib).
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:37
+      ACTION   RE-CUT: For Lambda0, differentiability at s gives analyticity at s; the one-local-class reading is the document's argument.
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:42 | OVERREACHES | - | generated MATCHES
+      STATED   Λ₀(1-s) = Λ₀(s). GLOBAL structure witness. Hadamard, argument principle, winding all derive from this.
+      LICENSED The statement is the functional equation Lambda0(1-s) = Lambda0(s); that Hadamard, argument principle and winding derive from it is not carried (the genus-1 Hadamard factorization is Mathlib-absent at the pin, Voice7Witness :29-33).
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:44; SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:29
+      ACTION   RE-CUT: Lambda0(1-s) = Lambda0(s), the functional equation (GLOBAL structure witness).
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:54 | OVERREACHES | - | generated MATCHES
+      STATED   Two scales of structure for entire functions on ℂ. No intermediate: Cartan B proves H¹(ℂ,O) = 0.
+      LICENSED OutputScale is a two-constructor inductive; that entire functions have exactly two scales and Cartan B excludes an intermediate one is cited, not compiled (no H1 vanishing in the file).
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:56
+      ACTION   RE-CUT: Two labelled scales of structure (local differential, global topological); the no-intermediate argument cites Cartan B and is not compiled.
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:61 | OVERREACHES | - | generated MATCHES
+      STATED   n₃ = 2: Two output mechanism classes. C₃ (Voice 3b): CR → codim → σ = 1/2 C₇ (Voice 7): Hadamard → σ-neutral No third: H¹ = 0 (Mittag-Leffler 1876, Cartan 1951)
+      LICENSED n3 := 2 is a stipulated numeral; CR -> codim -> sigma = 1/2 and "no third class" are not stated by any declaration in the file.
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:65
+      ACTION   RE-CUT: n3 = 2, the stipulated count of output mechanism classes (C3, C7); the no-third argument cites Mittag-Leffler and Cartan.
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:27 | OVERREACHES | - | generated MATCHES
+      STATED   s-darkness: interface contributes no σ-dependent constraint.
+      LICENSED s_dark i := True; the definition states nothing about sigma-dependent constraints (rule 6 shell).
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:28
+      ACTION   RE-CUT: Placeholder for s-darkness (defined as True).
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:33 | OVERREACHES | - | generated MATCHES
+      STATED   Both interfaces are s-dark.
+      LICENSED both_s_dark proves forall i, s_dark i where s_dark := True, by trivial; nothing about darkness is proved (rule 6).
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:28; SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:34
+      ACTION   RE-CUT: Both interfaces satisfy the placeholder s_dark (True).
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:37 | OVERREACHES | - | generated MATCHES
+      STATED   n₄ = 0: Interfaces contribute ZERO mechanism classes. Eliminates scenarios B (global assembly) and C (external structure). Only scenario A remains (field constraints).
+      LICENSED n4 := 0 is a stipulated numeral; no declaration eliminates scenarios B and C (the conservation placeholder is theorem conservation_s_dark : True, :31).
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:40; SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:31
+      ACTION   RE-CUT: n4 = 0, the stipulated interface count; the elimination of scenarios B and C is the document's argument.
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:42 | OVERREACHES | - | generated MATCHES
+      STATED   What Conservation eliminates: B + C. A remains for Spectral Cannon.
+      LICENSED scenarios_eliminated is a String literal; Conservation is the placeholder True (:31), so nothing is eliminated by any declaration.
+      CITED    SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:43; SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:31
+      ACTION   RE-CUT: A string recording the claimed elimination (B + C; A remains); not compiled.
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:71 | OVERREACHES | S | generated MATCHES
+      STATED   Reproved here for self-containment: |p^k|_∞ · |p^k|_p = 1
+      LICENSED product_formula_prime_pow is closed by sorry at :96 (TRACKED ONLY, outside every lean_lib); "Reproved here" describes a theorem that is not proved.
+      CITED    SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:72; SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:96
+      ACTION   RE-CUT: Stated here, not proved (closed by sorry at :96): |p^k|_inf * |p^k|_p = 1.
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:115 | UNLICENSED | S | generated MATCHES
+      STATED   The product formula holds for every positive integer at every prime. This is the general case, reducing to prime powers via factorization.
+      LICENSED product_formula_nat is closed by sorry at :130 and is false as stated (n = 6, p = 2 gives 6 * 1/2 = 3), as the file's own comment at :124-127 records; no line of any kernel reaches the claim.
+      CITED    SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:117; SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:124; SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:130
+      ACTION   RETIRE TO ERRATA: single-prime |n| * |n|_p = 1 is false for general n (6 at p = 2 gives 3) and the declaration is closed by sorry at :130.
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:136 | OVERREACHES | - | generated MATCHES
+      STATED   The product formula: for any positive integer n, |n|_∞ · ∏_{p | n} |n|_p = 1 where the product is over primes dividing n.
+      LICENSED product_formula_full states n = prod over the factorization of p^k (unique factorization), not |n|_inf * prod |n|_p = 1.
+      CITED    SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:139
+      ACTION   RE-CUT: Every positive integer n equals the product of p^(v_p(n)) over its factorization.
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:151 | OVERREACHES | - | generated MATCHES
+      STATED   The product formula stated as: n = ∏_p p^(v_p(n)), and for each p: |n|_p = p^(-v_p(n)) = 1/p^(v_p(n)), so |n|_∞ · ∏_p |n|_p = ∏_p p^(v_p(n)) · ∏_p p^(-v_p(n)) = ∏_p (p^(v_p(n)) · p^(-v_p(n))) = ∏_p 1 = 1 This is the structural content of the product formula: the archimedean norm exactly cancels the product of p-adic norms.
+      LICENSED The statement is per prime: p^(v_p(n)) * |n|_p = 1; neither the archimedean norm nor the product over primes appears, so "the archimedean norm exactly cancels the product of p-adic norms" is the prose derivation, not the theorem.
+      CITED    SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:159
+      ACTION   RE-CUT: For each prime p, p^(v_p(n)) * |n|_p = 1 (the per-prime cancellation the product formula is assembled from).
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:116 | OVERREACHES | - | generated MATCHES
+      STATED   **The completed Riemann zeta function is real-valued on the critical line.** At every point `1/2 + it` on the critical line, `Im(Λ₀(1/2 + it)) = 0`. Proof: At `s = 1/2 + it`, conjugation gives `conj(s) = 1/2 - it = 1 - s`. By Schwarz reflection: `conj(Λ₀(s)) = Λ₀(conj s) = Λ₀(1 - s)`. By the functional equation: `Λ₀(1 - s) = Λ₀(s)`. Therefore `conj(Λ₀(s)) = Λ₀(s)`, which holds iff `Im(Λ₀(s)) = 0`. This establishes that zeros of `Λ₀` on the critical line are sign changes of a real-valued function (codimension 1), while off-line zeros would require the simultaneous vanishing of both real and imaginary parts (codimension 2).
+      LICENSED The theorem proves Im Lambda0(1/2 + it) = 0; that zeros on the line are sign changes (false at even-order zeros) and the codimension-1 versus codimension-2 reading are not stated by it.
+      CITED    SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:129
+      ACTION   RE-CUT: Lambda0 is real-valued on the critical line: Im Lambda0(1/2 + it) = 0 for every real t (by Schwarz reflection and the functional equation).
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-kernel@0256e9e:Bridge/CSSThreshold.lean:4 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CardDerived.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CardDerived.lean:26 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CardDerived.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CardDerived.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CardDerived.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:82 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:95 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:112 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:159 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:178 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:191 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:202 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:216 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:219 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:226 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:9 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:31 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:4 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:31 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/EulerBalance.lean:5 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/EulerBalance.lean:28 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/EulerBalance.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/EulerBalance.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:4 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:46 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:66 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:118 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:123 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:137 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:3 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:29 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:38 | MATCHES | OVERREACHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:47 | MATCHES | OVERREACHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:52 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:92 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:101 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:63 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:88 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:7 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:113 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:140 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:223 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/Voice3_FE.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Bridge/Voice6_CR.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/InvarianceBarrier.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/InvarianceBarrier.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/InvarianceBarrier.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/InvarianceBarrier.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/InvarianceBarrier.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:110 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:121 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:132 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:160 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:167 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:177 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:186 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:193 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:202 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:215 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:233 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:240 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:245 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:248 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:252 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:261 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:278 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:284 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:296 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:337 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:346 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:28 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingReal.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:70 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:91 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingWitness.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:22 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:42 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Core.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:4 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:23 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:44 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Enumera.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Enumera.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:8 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:11 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:16 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:18 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:21 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:29 | MATCHES | OVERREACHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:41 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:104 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:120 | OVERREACHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:143 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:181 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:191 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:196 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:200 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:204 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:211 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:215 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:238 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:248 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:263 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:15 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:21 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:49 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Kappa.lean:59 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:9 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:20 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:102 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:7 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:30 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:53 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:68 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:108 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:116 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:121 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:127 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:140 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:147 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:152 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Simplicity.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SimplicityRouteD.lean:69 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SimplicityRouteE.lean:77 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/SpectralCannonFull.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StormerTest.lean:5 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StormerTest.lean:17 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StormerTest.lean:22 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:116 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:122 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:136 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:147 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:163 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:174 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/ThomBridge.lean:10 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:11 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:76 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:103 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:129 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:134 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:144 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:171 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:178 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:265 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:391 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:401 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:406 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:411 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:414 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:424 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:428 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:439 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:443 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:451 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:455 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Trivium.lean:462 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:9 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:20 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:9 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:14 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:48 | MATCHES | OVERREACHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:80 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:103 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:123 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:128 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:138 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:169 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:57 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:127 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:49 | MATCHES | OVERREACHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:66 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:77 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:88 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:52 | UNDERSTATES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:124 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:144 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:124 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:140 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/XiDef.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/XiDef.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:Kernel/XiDef.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:3 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:36 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:52 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:56 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:59 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:76 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:118 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:122 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:124 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:127 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:140 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:173 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:183 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:186 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:191 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:194 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:203 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:207 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:223 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:230 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:232 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:234 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:236 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:239 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:245 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:253 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:261 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:269 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:277 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:281 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:285 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:294 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:302 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:309 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:322 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:334 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:342 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:345 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:353 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:357 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:377 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:392 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:407 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:411 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:415 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:427 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:432 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:437 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:456 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:464 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:474 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:MetaKernel.lean:487 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:35 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:42 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:54 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:61 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:21 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:27 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:33 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:37 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:42 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:71 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:115 | UNLICENSED | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:136 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:143 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:151 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild2.lean:4 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:8 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:116 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:138 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-kernel: ROWS 435 ; MATCHES 317 ; UNDERSTATES 3 ; OVERREACHES 114 ; UNLICENSED 1 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 116 OF 427 ; CLASSES S 2 A 1 H 22.**

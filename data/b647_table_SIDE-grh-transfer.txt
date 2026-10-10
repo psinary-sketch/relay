@@ -1,0 +1,103 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-grh-transfer`S DOCSTRINGS AT ITS MAIN 858cbf6, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 58 rows it read MATCHES, 6 read otherwise whole (10.3%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 3 ; other grounds 3
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-grh-transfer): none (under 200 rows)
+### the seat`s corrections after its whole read: 2
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-grh-transfer · CharacterTopological.lean =========================================== **Voice7 paired-form: σ-inertness of the topological class for L(s, χ).** Lifts Voice7's `topological_no_sigma_preference` (the topological contribution is constant in σ, hence cannot distinguish σ = 1/2 from σ ≠ 1/2) to the (χ, χbar)-paired form for complex Dirichlet characters. **STRUCTURAL INVERSION from voices 1/2/3/3b/5/6.** Where the other six chorus voices each prove `iff σ = 1/2` (their mechanism forces zeros to the critical line), Voice7 proves the topological class is σ-INERT. The contribution function is constant in σ, so the mechanism cannot place zeros at any specific σ — neither at 1/2 nor anywhere else. This is essential for chorus exhaustiveness. SIDE closure requires accounting for ALL mechanism classes. The six iff-σ=1/2 voices force zeros to the line; the σ-inert Voice7 proves the residual topological class cannot move them off the line. Together: every mechanism is either forcing σ = 1/2 or incapable of placing a zero anywhere. For ξ(s), the Hadamard product / argument principle COUNTS zeros and RELATES locations to growth, but does not PREFER any σ. For L(s, χ) with comple
+      LICENSED The file's only declaration proves topological_contribution sigma = topological_contribution (1/2), with topological_contribution defined as the constant 0 and chi, chibar unused; no declaration mentions a zero, so "the sigma-inert Voice7 proves the residual topological class cannot move them off the line" and "every mechanism is either forcing sigma = 1/2 or incapable of placing a zero anywhere" are stated of no compiled line.
+      CITED    SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:18; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:72; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:51
+      ACTION   RE-CUT: Lifts Voice7's topological_no_sigma_preference to a (chi, chibar)-typed signature: the modelled topological contribution, defined as the constant 0, has the same value at every sigma as at sigma = 1/2; that this class cannot place or move zeros is the manuscript's argument, not a compiled statement, and chi, chibar are unused.
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:51 | OVERREACHES | - | generated MATCHES
+      STATED   **Paired-form topological σ-inertness** (chorus extension, Voice7 reformulation — structurally inverted vs the other voices). For any pair of Dirichlet characters (χ, χbar) — intended use: χbar = the conjugate character of χ — the topological contribution is constant in σ. Equivalently, the topological class cannot distinguish σ = 1/2 from any other σ, and so cannot place zeros at any specific σ. The (χ, χbar) parameters are typed in the signature but unused in the proof: the σ-axis algebra is character-independent and collapses to Voice7's `topological_no_sigma_preference` applied to σ. The character signature expresses the (χ, χbar)-paired form; the actual joint argument-principle / Hadamard-product argument on (L(·, χ), L(·, χbar)) requires Mathlib's L-function-specific topological infrastructure not yet at the depth needed. **Structural inversion note.** This is NOT an iff-σ=1/2 theorem. The conclusion is an equality of contributions at any σ versus at σ = 1/2 — both equal because the contribution is constant. This is the dual of the other six voices: instead of forcing σ = 1/2, this proves the topological class is σ-inert.
+      LICENSED The theorem proves only that a function defined as the constant 0 (Voice7Vendored :51) has the same value at sigma as at 1/2; it does not state, and is not equivalent to, a claim that the class "cannot place zeros at any specific sigma".
+      CITED    SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:56; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:72; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:51
+      ACTION   RE-CUT: For any (chi, chibar), unused in the proof, the modelled topological contribution (the constant 0) has the same value at sigma as at sigma = 1/2.
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-grh-transfer · GRHBridge.lean =================================== **The composite GRH theorem for L(s, χ): structural exhaustiveness assembly.** This file mirrors `SIDE-kernel/Bridge/TheBridgeComplete.lean` on the ξ side — the SIDE syllogism (7 mechanism classes + per-class exclusion via paired Voice theorems + Ostrowski exhaustiveness) lifted to the character-paired form for L(s, χ). **What this proves.** The χ-paired form of the SIDE structural exhaustiveness statement: every mechanism class is either forcing σ = 1/2 (voices 1-6 paired) or σ-inert (voice 7 paired), and Ostrowski exhausts the absolute values of ℚ. This is the SIDE method's voice in Lean for L(s, χ). **What it does NOT prove (yet).** The Wiles+Hales-pattern final assembly via paired Conservation — i.e., the analog of `Bridge/ ConservationBridge.lean` `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis` — would close the Lean theorem to `(h_cons : ConservationHypothesisChi) : RiemannHypothesisChi`. That is a separate downstream deposit (Conservation-based Route 3 analog for L(s, χ)). **Federation provenance.** This file is the structural-exhaustiveness assembly for SIDE-grh-transfer; analo
+      LICENSED The file's composite GRHStructuralExhaustiveness has no character, L-function or zero in it: it is card MechanismClass = 7, seven exclusions of sigma-conditions on defined real functions, and Ostrowski, with chi, chibar unused; grh_structural_exhaustiveness_proved is graded INTERFACES and b555's (N1) reads no character value in its conclusion, so "the composite GRH theorem for L(s, chi)" and "the chi-paired form" claim more than the file compiles.
+      CITED    SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:5; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:12; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:65; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:133; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:145; relay@a66c50a1:data/terminal_table.md:1814; relay@a66c50a1:data/b555_ferry.txt:123
+      ACTION   RE-CUT: Assembles, with typed but unused (chi, chibar) parameters, the character-free sigma-algebra schema of TheBridgeComplete: a seven-element class type, the exclusion of each class's sigma-condition off sigma = 1/2 on the defined functions, and Ostrowski's theorem; it states nothing about L(s, chi) or its zeros, and the Conservation step is not proved.
+      SEAT     the reader cited PLACE-papers FINDINGS.md:5830 with no commit; at 2d6daf3 that line is the GRH_CASCADE tier entry and does not say character-free; the reading it meant is b555 (N1), relay data/b555_ferry.txt:123
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:142 | OVERREACHES | - | generated MATCHES
+      STATED   **The composite GRH theorem (SIDE structural exhaustiveness form).** Mirrors `structural_exhaustiveness_proved` in `TheBridgeComplete.lean`.
+      LICENSED The theorem concludes the character-free schema GRHStructuralExhaustiveness (card 7, sigma-condition exclusions, Ostrowski) with chi, chibar unused, and is graded INTERFACES; it is not a GRH theorem in any form, so "The composite GRH theorem" names more than the statement.
+      CITED    SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:133; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:145; relay@a66c50a1:data/terminal_table.md:1814; relay@a66c50a1:data/b555_ferry.txt:123
+      ACTION   RE-CUT: The SIDE structural-exhaustiveness schema (seven defined classes, the seven sigma-condition exclusions, Ostrowski) with typed but unused (chi, chibar); mirrors structural_exhaustiveness_proved in TheBridgeComplete.lean; not a statement of GRH.
+      SEAT     the same uncommitted FINDINGS.md:5830 cite, replaced by b555 (N1)
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-grh-transfer · Voice7Vendored.lean =========================================== Attribution-vendored from SIDE-kernel/Kernel/Voice7.lean (SIDE-kernel main HEAD 2c49ae6, file unchanged since pre-audit-arc baseline 2026-04-30, Phase S.5b chorus extension context). Vendored content is the trimmed subset needed for the (χ, χbar)-paired reformulation of the topological-inertness voice: • `topological_contribution` — σ ↦ 0 (constant) • `topological_constant` — σ1 = σ2 invariance • `topological_no_sigma_preference` — σ-independence (substance) • `topological_rests` — predicate: contribution = 0 • `c7_rests_everywhere` — universal restful Skipped (not used by `paired_topological_no_sigma_preference`): • `c7_rests_at_half` (corollary of c7_rests_everywhere) • `c7_forces_half` (trivial tautology σ → σ = σ) • `c7_no_placement_force` (alias of topological_no_sigma_preference) Voice7 is STRUCTURALLY INVERTED relative to Voice1/2/3/3b/5/6. Where the other six voices prove `iff σ = 1/2` (their mechanism forces zeros to the critical line), Voice7 proves σ-INERTNESS — the topological class CANNOT place zeros at any specific σ. The Hadamard product / argument principle COUNTS zeros and RELATES l
+      LICENSED The file compiles topological_contribution := 0 and three rfl consequences (constancy, equality with the value at 1/2, rest everywhere); no declaration mentions zeros, so "Six classes force sigma = 1/2; the seventh proves no other class can place zeros elsewhere" is stated of no compiled line.
+      CITED    SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:32; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:51; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:62; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:72; SIDE-kernel@2c49ae6:Kernel/Voice7.lean:109
+      ACTION   RE-CUT: Voice7's vendored content is a constant-0 contribution function and its rfl consequences (constant in sigma, equal to its value at 1/2, the rest predicate at every sigma); the reading that this class cannot place zeros is the manuscript's, not compiled here.
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:58 | OVERREACHES | - | generated MATCHES
+      STATED   **σ-inertness: the topological class has no σ-preference.** Voice7's main claim — it cannot distinguish σ = 1/2 from σ ≠ 1/2; it provides no force toward or away from the critical line. Cannot place zeros at ANY specific σ.
+      LICENSED The theorem is the rfl equality of a constant-0 function at sigma and at 1/2; "cannot place zeros at ANY specific sigma" and "no force toward or away from the critical line" are not in the statement, and no zero occurs in the kernel.
+      CITED    SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:51; SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:62
+      ACTION   RE-CUT: The modelled topological contribution (defined as 0) has the same value at any sigma as at sigma = 1/2.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterCodim.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterCodim.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterModular.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterModular.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterSpectral.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterSpectral.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterSymmetry.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterSymmetry.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterSymmetry.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTopological.lean:51 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTransfer.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTransfer.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/CharacterTransfer.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:130 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/GRHBridge.lean:142 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice1Vendored.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice1Vendored.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice1Vendored.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice1Vendored.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice1Vendored.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice2Vendored.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice2Vendored.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice2Vendored.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice2Vendored.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice2Vendored.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3Vendored.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3Vendored.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3Vendored.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3Vendored.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3bVendored.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3bVendored.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3bVendored.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3bVendored.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice3bVendored.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice5Vendored.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice6Vendored.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice6Vendored.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice6Vendored.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice6Vendored.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice6Vendored.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:58 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-grh-transfer@858cbf6:SIDEGRHTransfer/Voice7Vendored.lean:70 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-grh-transfer: ROWS 58 ; MATCHES 52 ; UNDERSTATES 0 ; OVERREACHES 6 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 6 OF 58 ; CLASSES S 0 A 0 H 3.**

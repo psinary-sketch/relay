@@ -1,0 +1,43 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-spinor`S DOCSTRINGS AT ITS MAIN 520abe7, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 14 rows it read MATCHES, 2 read otherwise whole (14.3%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 1
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-spinor): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-spinor · Spinor.lean ========================= The Spinor / Information IDENTIFICATION of σ = 1/2. Checkpoint 1.2-C in the alternative-proof-paths census (PATHS_TO_THE_CRITICAL_LINE). An IDENTIFICATION kernel — it verifies that the phase-invariant Hermitian observable M = vv† collapses its quarter-twist orbit {v, iv, −v, −iv} to a single fixed point only at the centered origin w = 0, i.e. σ = 1/2. It does NOT claim the Hilbert–Pólya spectral realization, nor prove RH on its own. Source: Paper 020 (Information Structure); IDENTITY_SUBSPACE_PAPER; THE_SPINOR_CALIBRATION; THE_FINDINGS (the dark 6/7, the 2 phase bits). v has |vₙ|² = |n| over n ∈ {−3,…,3}; ‖v‖² = 12; M = vv† spectrum {0⁶, 12}; aperture 1/7; T² = −I (720° return).
+      LICENSED The head says the file verifies that the Hermitian observable M = vv† collapses its quarter-twist orbit {v, iv, -v, -iv} to a fixed point only at w = 0, i.e. sigma = 1/2, and lists the spectrum {0^6, 12}. No declaration defines v as a vector, M, its spectrum or an orbit of v. The file compiles a list sum (12), 1 + 6 = 7 and 1/7, normSq I = 1, I^2 = -1, I^4 = 1, (I*w = w iff w = 0) for complex w, and (sigma = 1/2 iff sigma - 1/2 = 0) for real sigma, and nothing links w to s or sigma.
+      CITED    SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:1; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:9; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:17; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:29; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:46; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:60; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:75
+      ACTION   RE-CUT: An IDENTIFICATION kernel: it verifies the arithmetic of the identification (the |n| list sums to 12, 1 + 6 = 7 and aperture 1/7, |i|^2 = 1, i^2 = -1 and i^4 = 1, and multiplication by i on C fixes only 0) and the real identity sigma = 1/2 iff sigma - 1/2 = 0; the observable M = vv†, its spectrum {0^6, 12} and the reading of w as s - 1/2 are the source papers' content, not compiled here.
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:55 | OVERREACHES | - | generated MATCHES
+      STATED   ## T5 — orbit collapse: the identification The quarter-twist w ↦ iw fixes only w = 0 (since i ≠ 1). In the centered coordinate w = s − 1/2, w = 0 is σ = 1/2.
+      LICENSED The first sentence matches orbit_collapse_iff (I*w = w iff w = 0 for complex w). The second sentence states an equivalence that holds in one direction only: with complex w = s - 1/2, w = 0 is the single point s = 1/2 (sigma = 1/2 and t = 0). It implies sigma = 1/2 but is not the line sigma = 1/2. The kernel's only sigma link (half_iff_centered_zero, :75) is about a real sigma and never connects to w.
+      CITED    SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:55; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:60; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:70; SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:75
+      ACTION   RE-CUT: The quarter-twist w ↦ iw fixes only w = 0 (since i ≠ 1). In the centered coordinate w = s − 1/2, w = 0 is the point s = 1/2, which lies on σ = 1/2; the kernel does not connect w to σ.
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:1 | OVERREACHES | H | generated MATCHES/HAND-NEEDED
+      STATED   SIDE-spinor · SpinorLeg.lean ============================ The Spinor Leg — the metaplectic quarter-twist route to −1. W-REVIEWER-LENS: the completion of THE_SUBSTRATE.md §(ii).4's one open item. The calibration constant −1 has TWO disjoint derivations: • Route A (arithmetic / Frobenius; `SIDE-spinor-calibration/FrobeniusCalibration.lean`, vanilla Lean 4 / Int, no Mathlib): −1 = ‖v‖²·ζ(−1) = 12·(−1/12) = −g(2,3), through the {2,3}-smooth fiber norm ‖v‖² = 12 and ζ(−1) = −1/12. • Route B (this file, metaplectic / quarter-twist; Mathlib / ℂ): −1 = W⁴ = T², where W is the order-8 metaplectic lift of S (W⁴ = −Id, the cocycle) and T = W² is the quarter-twist, acting on the weight-½ spinor line as multiplication by i. The two routes share no nontrivial lemma: Route A never touches ℂ or the twist; Route B never touches g, ‖v‖², or ζ. In each, −1 is DERIVED, not typed (salt-checked).
+      LICENSED The head says Route B is the metaplectic route, with W the order-8 metaplectic lift of S (W^4 = -Id, the cocycle), and that -1 is "salt-checked". The file defines T := Complex.I and compiles i^2 = -1, i^4 = 1, (W^2 = i implies W^4 = -1) for complex W, and the witness (1+i)/sqrt 2. No declaration mentions S, a matrix, -Id or the metaplectic group. No salt-check file exists at the commit: git grep salt hits only :20, and the tree holds AxiomCheck.lean and SpinorLegAxioms.lean only. Route A's file does carry -g(2,3) = -1 and normSq = 12; zeta(-1) = -1/12 is classical.
+      CITED    SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:1; SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:15; SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:20; SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:29; SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:42; SIDE-spinor@520abe7:SpinorLegAxioms.lean:1; SIDE-spinor-calibration@1d219d8:SIDESpinorCalibration/FrobeniusCalibration.lean:86; SIDE-spinor-calibration@1d219d8:SIDESpinorCalibration/FrobeniusCalibration.lean:93
+      ACTION   RE-CUT: Route B (this file; Mathlib / ℂ): with the quarter-twist read as T = i on the weight-½ spinor line, the file derives T² = −1 from i² = −1, and W⁴ = −1 for any complex W with W² = T, witnessed by ζ₈ = (1+i)/√2; the metaplectic lift of S and W⁴ = −Id are the reading, not compiled, and no salt-check is carried in the repository.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:55 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/Spinor.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:1 | OVERREACHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-spinor@520abe7:SIDESpinor/SpinorLeg.lean:60 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-spinor: ROWS 15 ; MATCHES 12 ; UNDERSTATES 0 ; OVERREACHES 3 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 2 OF 14 ; CLASSES S 0 A 0 H 2.**

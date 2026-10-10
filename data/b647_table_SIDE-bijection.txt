@@ -1,0 +1,63 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-bijection`S DOCSTRINGS AT ITS MAIN a26f6f1, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 30 rows it read MATCHES, 4 read otherwise whole (13.3%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 2
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-bijection): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   Copyright (c) 2026 J. York Seale. All rights reserved. SPDX-License-Identifier: MIT Authors: J. York Seale (ORCID: 0009-0008-7993-0310) The PLACE TO STAND Research Programme — SIDE-bijection kernel SIDEBijection/Theorem.lean # The Identity-Formation Bijection at Corpus Level This file formalizes the corpus-level Identity-Formation Bijection theorem as stated in IDENTITY_FORMATION_BIJECTION.md (canonical source paper). ## Theorem statement (from the canonical source paper) For any IDS-amenable system X with formation (n₁, n₂, n₃, n₄): (a) Each mechanism class C_{k,j} has exactly one generalized identity element e_{k,j} (Lemma 2.1) (b) Mechanism classes at the same stage have distinct identity elements (Lemma 3.1) (c) Every generalized identity element belongs to some mechanism class (Lemma 4.1) (d) The map C_{k,j} ↦ e_{k,j} is a bijection from mechanism classes to generalized identity elements (e) The generalized identity count equals the formation count: |{e_{k,j}}| = Σ_k n_k = n ## What this file establishes Statements (a)-(d) are formalized and proved at vanilla Lean 4 level. Statement (e) — the cardinality equality — requires Fintype machinery that lives in Mathlib; it is named 
+      LICENSED "Statements (a)-(d) are formalized and proved" — (b) and (c) are the IDSSystem fields distinctness and noOrphans, assumed, and (d) is their conjunction (terminal table CONFLICT, INTERFACES / SHELL, hypothesis-assumed); statement (e) is "named here as a corollary" but no declaration of the file names it (git grep finds only prose). "No sorry. No axioms.": no sorry and no axiom declaration at the pin (git grep), no banked print.
+      CITED    SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:37; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:39; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:58; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:123; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:126; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:137; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:248; relay@a66c50a1:data/terminal_table.md:13; relay@a66c50a1:data/terminal_table.md:2121
+      ACTION   RE-CUT: Statement (a) is encoded by identityOf being a function; statements (b) and (c) are assumed as the IDSSystem fields distinctness and noOrphans, and (d) is proved as their conjunction; statement (e) is not stated in this file (only the instance total 2 + 3 + 2 + 0 = 7 at sideIDS).
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:130 | OVERREACHES | - | generated MATCHES
+      STATED   **The Identity-Formation Bijection (statement (d)).** For any IDS-amenable system, the identity-assignment is a bijection at each formation stage.
+      LICENSED identity_formation_bijection is the pair ⟨S.distinctness stage, S.noOrphans stage⟩ of the structure's own assumed fields — terminal table CONFLICT, INTERFACES / SHELL, hypothesis-assumed (rule 6); the bold "The Identity-Formation Bijection" presents as the corpus theorem what is the conjunction of its premises.
+      CITED    SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:123; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:126; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:134; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:137; relay@a66c50a1:data/terminal_table.md:13; relay@a66c50a1:data/terminal_table.md:2121
+      ACTION   RE-CUT: **The Identity-Formation Bijection (statement (d)), hypothesis-assumed.** For any IDSSystem, whose fields assume the per-stage identity-assignment injective (distinctness) and surjective (noOrphans), the assignment is a bijection at each stage — the conjunction of those two fields.
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:178 | OVERREACHES | H | generated MATCHES
+      STATED   ## Statement (e): the count equality The corpus-paper statement (e) asserts |{e_{k,j}}| = Σ_k n_k = n: the cardinality of the set of identity elements equals the formation total. In vanilla Lean 4 without Mathlib, cardinality of a type is not directly definable for an arbitrary `Type`; this requires `Fintype` instances and counting machinery from Mathlib. Statement (e) is therefore parked here as a named proposition that becomes a theorem when Fintype-compatibility is added. The structural content of (e) — that the bijection induces a count equality — is captured by the fact that `Bijective` is the categorical condition for cardinality equality. When `Fintype` is in scope, `Fintype.card_eq_of_bijective` (or its Mathlib name) closes the remaining gap automatically. No content is lost at the structural-skeleton level: statement (d) already establishes the bijection; statement (e) is its Fintype-instantiated count form.
+      LICENSED "Statement (e) is therefore parked here as a named proposition" — no declaration of the file names (e) (git grep at a26f6f1 finds only prose at :38, :181-192); and "statement (d) already establishes the bijection" rests on the assumed fields distinctness and noOrphans.
+      CITED    SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:38; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:123; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:126; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:186; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:196
+      ACTION   RE-CUT: Statement (e) is not stated in this file (no named proposition carries it); with Fintype in scope it would follow from a per-stage bijection, which here is the conjunction of the assumed fields distinctness and noOrphans.
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:245 | OVERREACHES | - | generated MATCHES
+      STATED   The concrete instance carries the seven: its formation total is 2 + 3 + 2 + 0 = 7 — statement (e) at this instance, decidable in vanilla Lean, no Fintype needed.
+      LICENSED sideIDS_total_seven proves only sideIDS.formation.total = 7 by rfl, the sum of the literal tuple ⟨2,3,2,0⟩; statement (e) is the count of identity elements equalling that total, and no count of IdentElem is stated.
+      CITED    SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:32; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:231; SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:248
+      ACTION   RE-CUT: The concrete instance's formation total is 2 + 3 + 2 + 0 = 7 (rfl); the count of its identity elements, statement (e), is not stated.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-bijection@a26f6f1:SIDEBijection.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:110 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:116 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:118 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:121 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:124 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:128 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:130 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:139 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:141 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:154 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:162 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:170 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:178 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:199 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:218 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:227 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:238 | MATCHES | MATCHES | TEXTUAL
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:245 | OVERREACHES | MATCHES | TEXTUAL
+
+### ### **SIDE-bijection: ROWS 30 ; MATCHES 26 ; UNDERSTATES 0 ; OVERREACHES 4 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 4 OF 30 ; CLASSES S 0 A 0 H 2.**

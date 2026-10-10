@@ -1,0 +1,41 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-li-map`S DOCSTRINGS AT ITS MAIN b515e6b, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 10 rows it read MATCHES, 1 read otherwise whole (10.0%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 1
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-li-map): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-li-map@b515e6b:LiLinearMap.lean:1 | OVERREACHES | H | generated MATCHES/HAND-NEEDED
+      STATED   # The Li Linear Map and Channel Additivity PLACE TO STAND programme. Vanilla Lean 4 (no Mathlib), federation pin v4.29.0-rc8. Li's coefficients arise from Taylor coefficients η_j of log ξ at s = 1 via λ_n = n · Σ_{j=1..n} C(n−1, n−j) · η_j. This file certifies the map's LINEARITY over the coefficient stream — the formal content of channel additivity: for any decomposition of log ξ into channels with coefficient streams η^A, η^Z, λ_n = λ_A(n) + λ_Z(n) for every n (THE_SINGLE_INDEFINITE_TERM §III; FINDINGS F.2026-07-09-g). The analytic identification of η with actual Taylor coefficients of log ξ is the manuscript/Mathlib leg; this kernel carries the algebra.
+      LICENSED lam and lam_add are stated for integer-valued streams (Nat -> Int), so the file certifies additivity only for integer streams; the Taylor coefficients of log xi are real and not integers (eta_1 = lambda_1 is about 0.0231), so no actual decomposition of log xi is an instance of the compiled lemma, and "for any decomposition of log xi into channels ... lambda_n = lambda_A(n) + lambda_Z(n)" claims more (the Li formula itself is correct).
+      CITED    SIDE-li-map@b515e6b:LiLinearMap.lean:8; SIDE-li-map@b515e6b:LiLinearMap.lean:51; SIDE-li-map@b515e6b:LiLinearMap.lean:56
+      ACTION   RE-CUT: This file certifies the Li map's linearity over integer-valued coefficient streams (Nat -> Int): lambda(eta + eta')_n = lambda(eta)_n + lambda(eta')_n for every n; the real Taylor coefficients of log xi, and the identification of eta with them, are outside this kernel.
+  SIDE-li-map@b515e6b:LiLinearMap.lean:54 | OVERREACHES | - | generated MATCHES
+      STATED   CHANNEL ADDITIVITY: the Li map is additive in the coefficient stream. Instance: λ_n = λ_A(n) + λ_Z(n) for the archimedean / pole+Euler split.
+      LICENSED lam_add proves additivity of lam in an integer-valued stream; the archimedean / pole+Euler split has real, non-integer coefficients, so "Instance: lambda_n = lambda_A(n) + lambda_Z(n)" names an instance the Int-typed lemma does not reach.
+      CITED    SIDE-li-map@b515e6b:LiLinearMap.lean:51; SIDE-li-map@b515e6b:LiLinearMap.lean:56; relay@a66c50a1:data/terminal_table.md:1884
+      ACTION   RE-CUT: CHANNEL ADDITIVITY over integer streams: the Li map is additive in an integer-valued coefficient stream; the archimedean / pole+Euler split, whose coefficients are real, is the intended reading and is not an instance compiled here.
+  SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:3 | OVERREACHES | H | generated MATCHES/HAND-NEEDED
+      STATED   # Prime-Ledger Positivity — the Euler-product ingredient anchor PLACE TO STAND programme. Vanilla Lean 4 (no Mathlib), federation pin v4.29.0-rc8. Work-order W-ORD-LAMBDA-NONNEG. Sibling anchor to `LiLinearMap.lam_add`. ## CEILING (author ruling — carried verbatim) "compile the ingredient — Λ ≥ 0 wired to the lam_add channel anchor — an ingredient compilation; it reaches the σ=1 edge classically and must not be presented as reaching the center." That is: this file compiles the PRIME-LEDGER POSITIVITY ingredient — von Mangoldt Λ(n) ≥ 0, the arithmetic shadow of the Euler product. Classically this ingredient yields ONLY the σ = 1 zero-free region (de la Vallée Poussin, via the 3-4-1 positivity), NOT the critical line. The gap from "zero-free near σ = 1" to "zeros on σ = 1/2" is the open sign layer (the clause h2). Nothing here is phrased as reaching σ = 1/2 or as closing anything. This is the INGREDIENT, not the inequality λ_Z ≥ −λ_A, and not RH. ## Survey note (honest scope; see W-ORD report) This kernel is VANILLA Lean 4 with NO Mathlib dependency (two files, no lakefile). Consequently Mathlib's `ArithmeticFunction.vonMangoldt_nonneg` cannot be re-exported here. Faithful to the ker
+      LICENSED The file declares only NonnegStream, S_nonneg and lam_nonneg_of_nonneg over abstract integer streams, and no declaration mentions von Mangoldt; the CEILING paragraph's "this file compiles the PRIME-LEDGER POSITIVITY ingredient -- von Mangoldt Lambda(n) >= 0" claims more, and the same header's survey note says Lambda(n) >= 0 is not compiled here.
+      CITED    SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:15; SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:30; SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:53; SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:68
+      ACTION   RE-CUT: That is: this file compiles the kernel-altitude shadow of the prime-ledger positivity ingredient -- a pointwise-nonnegative integer stream yields a nonnegative Li value (lam_nonneg_of_nonneg) -- not von Mangoldt Lambda(n) >= 0 itself, which no declaration here states.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-li-map@b515e6b:LiLinearMap.lean:1 | OVERREACHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:19 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:54 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:LiLinearMap.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:3 | OVERREACHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-li-map@b515e6b:PrimeLedgerPositivity.lean:61 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-li-map: ROWS 13 ; MATCHES 10 ; UNDERSTATES 0 ; OVERREACHES 3 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 1 OF 10 ; CLASSES S 0 A 0 H 2.**

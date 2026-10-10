@@ -1,0 +1,1326 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-global-section`S DOCSTRINGS AT ITS MAIN 17ce9ff, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main (Interfaces/RestrictedTensorLayer1.lean, RUN-BENEATH-HOLD at b645, takes no row); the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 1053 rows it read MATCHES, 50 read otherwise whole (4.7%) ; its non-MATCHES rows read MATCHES whole: 2
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 1 ; H a module header claiming more than its file compiles 18 ; other grounds 32
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-global-section): 35 rows, read by a helper reader before the whole reading
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE ALTERNATION ARGUMENT'S CORE · AlternationShadow.lean ========================================================= Ferry 2026-08-26 (b207, the alternation at our parameter). Vanilla Lean 4 (v4.29.1 pinned), no imports; the axiom profile is PRINTED, never assumed. ### WHAT THIS FILE IS THE SHADOW OF. b207's verdict rests on two statements, and the ferry requires them SHOWN rather than asserted: (1) if every sign carries an unknown GLOBAL factor `e = ±1`, the sequence alternates exactly when the original does — because `e` is CONSTANT across the sequence; (2) an alternating sign sequence takes BOTH values. Together: ### "BOTH VALUES OF c OCCUR" IS INVARIANT UNDER EXACTLY THE FREEDOM ### b205's UNEXPLAINED SIGN DISAGREEMENT LEAVES OPEN. ### WHAT IT IS NOT. · It is NOT the computation. The computation is at bench grade in `relay/data/b207_alternation.txt`, and nothing here touches an eigenvalue, a transform, or a Sonin space. · It does NOT establish that the corpus's sequence alternates. That is a measured fact about a finite sweep, and it lives at its own grade. · ### A SHADOW OF THE ARGUMENT IS NOT THE ARGUMENT'S SUBJECT, and this header ### says so rather than leaving a reader to in
+      LICENSED No declaration in the file states the header's item (1), that the globally signed sequence "alternates exactly when the original does". alternates_neg compiles one direction only (Alternates s -> Alternates (fun i => -s i)), for the negation e = -1. Item (2) is compiled with the hypothesis s 0 = 1 or s 0 = -1 (alternates_both, alternates_both', both_values_survive_global_sign).
+      CITED    SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:11; SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:64; SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:72; SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:76; SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:85; relay@a66c50a1:data/terminal_table.md:1121
+      ACTION   RE-CUT: (1) if every sign is flipped by one global sign, an alternating sequence's negation still alternates (alternates_neg; the converse direction is not stated in this file); (2) an alternating sign sequence with s 0 = 1 or s 0 = -1 takes both values.
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   b270 · BallAbsorptionShadow.lean — THE VANILLA LEG (zero axioms) ================================================================ The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4, `decide` only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — and, far more importantly, WHAT IT DOES NOT. IT COMPILES NO PAIRING. `⟨U^k S_quot u_v, u_v⟩` IS ABSENT HERE. So are `U`, `S_quot`, `V_inv`, `u_v`, `Son(p,n)`, `E₁` and `ℤ[ζ_N]`. The refutation of (SPEC-1) is DERIVED at content in relay `data/b270_ambient_pairing_properties.txt` and controlled by exact reduction modulo `Φ_N` in `data/b270_run.txt`. NOTHING BELOW IS THAT DERIVATION, AND NOTHING BELOW IS EVIDENCE FOR IT. IT COMPILES NO AGGREGATION AND ADOPTS NO CANDIDATE. M-2 is owed and stays owed. THE CONDITION FOR BUILDING THIS FILE AT ALL WAS CHECKED, NOT ASSUMED. b269 built nothing, and its reason is quoted in relay's bank: a toy model that compiles cleanly and settles nothing, in a file whose header names the real spaces, is the double-name species in Lean. THAT TEST IS APPLIED AGAIN HERE AND ANSWERED DIFFERENTLY, for one reason: the residue below is not a stand-in for the derivat
+      LICENSED Absorption is decided at the six cells of b226's choice and the live step at (2,2), k = 1. Part (3)'s empty-orbit law is decided only at (3,1),(5,1),(7,1),(11,1). b226's choice also uses the odd place 13 at (13,1), and no theorem decides emptyOrbit 13 1, so the header's "decided at the odd places b226's choice uses" says more than the file compiles.
+      CITED    SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:38; SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:81; SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:86; SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:90; SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:93; SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:100; relay@a66c50a1:data/b226_stated_choice.txt:106; relay@a66c50a1:data/b270_run.txt:16; relay@a66c50a1:data/terminal_table.md:1142
+      ACTION   RE-CUT: (3) THE EMPTY-ORBIT LAW AT LEVEL 1, decided at p = 3, 5, 7, 11 (four of the five odd places b226's choice uses; (13,1) is not decided here): no off-ball m has p*m off-ball, so the orbit relation of V_inv is empty there and the projection is multiplication by the off-ball indicator.
+  SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   W-CONSTRUCTION-1 act 15 · BallPairShadow.lean — THE VANILLA LEG (zero axioms) ============================================================================= The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4 (v4.29.1 pinned), decide only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — the ball-scale relation's finite instances (act 15's R4): at every finite place the Sonin dimension IS the inclusion–exclusion of the E+B pair structure — E (ball-supported) and B (transform-ball-supported) each of dimension p^n, meeting in the rank-ONE span of the ball indicator (b10's L-A, banked): dim Son_p = p^{2n} − dim(E + B) = p^{2n} − (p^n + p^n − 1) = (p^n − 1)². The finite places carry EXACTLY the pair-subtraction geometry that act 15 derived at ∞ (the Gram-λ_n block structure) — there it is exact and dimensional; at ∞ it is the resonance geometry (the ε-series' 1/(1−λ²) denominators, derived R2).
+      LICENSED The file compiles two numeral conjunctions only: p^(2n) - 2p^n + 1 = (p^n - 1)^2 at seven cells, and the values 2p^n - 1 at six. No declaration defines Son_p, E, B or any dimension, and nothing is stated "at every finite place" or at infinity. The header's "what this module compiles: ... the Sonin dimension IS the inclusion-exclusion of the E+B pair" says more than the file states.
+      CITED    SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:8; SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:13; SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:24; SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:35; relay@a66c50a1:data/terminal_table.md:1233; relay@a66c50a1:data/terminal_table.md:1234
+      ACTION   RE-CUT: WHAT THIS MODULE COMPILES -- the arithmetic of the ball-scale relation at the banked cells (2,1), (2,2), (2,3), (3,1), (3,2), (5,1), (5,2): p^{2n} - 2*p^n + 1 = (p^n - 1)^2, and the values 2*p^n - 1. The dimension reading (dim Son_p = p^{2n} - dim(E + B), with E and B of dimension p^n meeting in rank one) is b10's L-A in relay's bank and is not compiled here.
+  SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:33 | OVERREACHES | - | generated MATCHES
+      STATED   the pair pieces at the cells: dim E = dim B = p^n and the intersection is rank 1 (the values behind the subtraction: 2·p^n − 1 constraint dimensions).
+      LICENSED constraint_span_dims states only 2*p^n - 1 = 3, 7, 15, 5, 17, 9 at six cells. No declaration states "dim E = dim B = p^n" or "the intersection is rank 1"; there is no E, B or rank in the file.
+      CITED    SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:35; SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:36
+      ACTION   RE-CUT: the values 2*p^n - 1 at the cells (2,1), (2,2), (2,3), (3,1), (3,2), (5,1) -- the constraint count that the reading dim E = dim B = p^n with a rank-one intersection gives; those dimensions are not compiled here.
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:164 | OVERREACHES | - | generated MATCHES
+      STATED   ### (1) THE POLARITY CONTROLS, FIRST — before any value is read. A positive terminal with no refusal beside it is a terminal nobody has shown can fail. Each of these is decided FALSE.
+      LICENSED Of the four controls that follow, three are decided = false (witness_not_in_object, witness_leaves_member_at_b_eq_1, refuse_value_five). witness_has_mass_on_ball_2_2 is decided = true: it is the reason for the rejection, not a refusal, so "each of these is decided FALSE" is wrong for one of the four.
+      CITED    SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:172; SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:176; SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:180; SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:183
+      ACTION   RE-CUT: Three of these are decided FALSE (the object rejects the witness, the witness leaves the member at b = 1, the value is not 5); the fourth decides TRUE the reason for the rejection, that the witness has mass on the ball.
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   b265 · CeilingSweepShadow.lean — THE VANILLA LEG (zero axioms) ============================================================== The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4, `decide` only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — and, far more importantly, WHAT IT DOES NOT. IT DOES NOT COMPILE THE CROSSOVER LAW. `x_cliff = EPS_NQ / k` is a MEASURED relation between a quadrature node count and a Gauss–Legendre aliasing wall, over two counted points, and it is an OBSERVATION under b242. Nothing here proves it, nothing here measures it, and no numeral below is evidence for it. The measurement lives at content in relay `data/b265_nq_ceiling_sweep.txt`, its controls in `data/b265_run.txt`. What is here is the FINITE-DECIDABLE RESIDUE ONLY, in four parts: (1) THE `a² → ρ` CORRESPONDENCE, AS EXACT INTEGER ARITHMETIC. `e2_of_grid` evaluates the eps grid at `exp(u)` for `u ∈ [0, 2 log a]`, so the top argument is `a²`. The finite residue is that the cell label AND the top argument are THE SAME NUMBER — checked here on the actual sixteen cell labels of b255's ladder as `a * a = a²`. NO logarithm and NO exponential appears b
+      LICENSED The header says part (1) is checked on the actual sixteen cell labels of b255's ladder. the_cell_label_is_the_top_argument checks a*a = a^2 on eight labels only (4, 9, 16, 25, 36, 64, 81, 100), the integer perfect squares, and its own docstring says exactly that. Parts (2) to (4) and the zero-axiom profile match.
+      CITED    SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:21; SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:53; SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:55; SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:66; relay@a66c50a1:data/terminal_table.md:1246
+      ACTION   RE-CUT: checked here, as a * a = a², on the eight of b255's sixteen cell labels that are squares of integers (4, 9, 16, 25, 36, 64, 81, 100).
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:104 | OVERREACHES | - | generated MATCHES
+      STATED   POLARITY CONTROL on (4). The bracket excludes: the density is not two per period and not five, at either point. Without this the brackets above would be consistent with a ratio that moved between the two measurements.
+      LICENSED The theorem has ¬(5*215 ≤ 700) and ¬(5*433 ≤ 1400), which exclude a density of five or more, and (2*215 ≤ 700) and (2*433 ≤ 1400), which assert a density of at least two. Nothing in it excludes a density of exactly two, so "not two" is not carried. Nor does it constrain movement of the ratio beyond what the brackets at :95 and :101 already fix.
+      CITED    SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:107; SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:108; SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:95; SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:101
+      ACTION   RE-CUT: POLARITY CONTROL on (4): at both points the density is at least two nodes per period and below five.
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:1 | UNDERSTATES | - | generated MATCHES
+      STATED   THE CROSS-PLACE ACT · CrossPlaceShadow.lean — THE SECTOR-DIMENSION PRODUCT FORMULA =================================================================================== Ferry 2026-08-20 (b51). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — the b51 branch-(a) survivor at theorem shape: (1) THE FLAT-PLACE COLLAPSE, general dims: over the four-element eigenvalue group {1, −1, i, −i}, the two-place sector-sum dimension Σ_{λμ=1} d(λ)·e(μ) pairs each μ with the forced λ = μ⁻¹; if one place is FLAT (all four dims equal c), the sum is c·(e₁ + e₋₁ + eᵢ + e₋ᵢ) = c · dim — the mechanism behind the b51 collapse D_global = (1/4)·∏ dims on any roster containing an odd (flat) place. Stated with the four compatible pairs enumerated explicitly ((1,1), (−1,−1), (i,−i), (−i,i)); general natural-number dims. (2) THE COLLAPSE INSTANCES at the five registered rosters (banked dims): the direct pattern enumeration over all sign patterns with unit product equals ∏ dims / 4 — decided exactly (R1: 16·4 = 64; R2: 144·4 = 576; R3: 2304·4 = 9216; R4: 12544·4 = 50176; R5: 1·4 = 4). WHAT IT DOES NOT COMPILE, DECLARED: the gene
+      LICENSED Parts (1) and (2) match: flat_place_collapse, collapse_instances (products checked by hand: 64, 576, 9216, 50176, 4) and the profile none. The header also calls the general μ4 character-sum identity's general statement a NAMED OPEN STATEMENT. At this commit the kernel proves it at the abstract level as CharacterSumShadow.character_sum_general (DERIVES). It remains true that this file does not compile it.
+      CITED    SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:23; SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:26; SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:34; SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:59; SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:449; relay@a66c50a1:data/terminal_table.md:1253; relay@a66c50a1:data/terminal_table.md:1289
+      ACTION   RE-CUT: WHAT IT DOES NOT COMPILE, DECLARED: the general character-sum identity over μ₄ (the ℤ[i]-valued four-term average) — not in this file; its general statement is compiled at the abstract level, under named ring-law hypotheses, as CharacterSumShadow.character_sum_general.
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE DEPENDENCE AUDIT'S DECIDED CORE · DependenceShadow.lean =========================================================== Ferry 2026-08-25 (b166). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". b154 showed the admissible apportionments form a ONE-PARAMETER FAMILY. This module decides the finite shadow of what that parameter does to the density lane's recorded numbers — and NOTHING ELSE. ### THE STRUCTURAL FACT BEHIND EVERY TERMINAL HERE: b38's definition is linear in its three inputs, so a member shift moves each cell's recorded deviation by `dμ · resid_N/|A|` — b155's own law, reached again from b154's family. Every operation the lane applies afterwards is linear in the density, so the whole member-dependence is ONE AFFINE DIRECTION. · `shift_law_is_additive` — ### THE INVARIANT SIDE: composing two member shifts equals the single shift by their sum, exactly, at every cell. The family acts on the deviations as a one-parameter group; the affine structure is decided, not asserted. · `signs_are_mixed_at_b38_member` — at `dμ = 0` some deviations are positive and some negative: ### a sign change exists in the recorded grid. · `
+      LICENSED The header says composing two member shifts equals the single shift by their sum at every cell, the family acting as a one-parameter group, "the affine structure is decided, not asserted"; shift_law_is_additive decides ONE pair of shifts (dμ = 0.001234567 then −0.007654321) at the six cells, so the general composition law is decided nowhere in the file (the other three bullets match their terminals).
+      CITED    SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:18; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:60; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:66; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:68; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:71; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:80; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:90; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:103
+      ACTION   RE-CUT: `shift_law_is_additive` — one instance of the composition law, decided: the shift by dμ = 0.001234567 followed by the shift by −0.007654321 equals the single shift by their sum, exactly, at all six cells; the general law is the elementary linearity of the definition, not a decided terminal.
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:63 | OVERREACHES | - | generated MATCHES
+      STATED   ### THE INVARIANT SIDE, DECIDED: the member shifts COMPOSE EXACTLY. Shifting by `d₁` and then by `d₂` lands where shifting once by `d₁ + d₂` lands, at every cell — the one-parameter structure, decided rather than asserted.
+      LICENSED The docstring sits on def shiftOnce and states, for free d₁ and d₂, that member shifts compose exactly, "decided rather than asserted"; the only decided statement (shift_law_is_additive) checks one pair, d₁ = 1234567 and d₂ = −7654321 (×10^-9), at the six cells.
+      CITED    SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:66; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:68; SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:71
+      ACTION   RE-CUT: One instance, decided in `shift_law_is_additive`: shifting by d₁ = 0.001234567 and then by d₂ = −0.007654321 lands where shifting once by d₁ + d₂ lands, at every cell — an instance of the one-parameter structure, not the structure itself decided.
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   W-ATTEMPT-2 · DiagonalSection.lean — THE SECTION'S DECIDE-REACHABLE CONTENT, COMPILED ==================================================================================== ATTEMPT-track, RELAY-RESIDENT. Closure-protocol step one run against the CONSTRUCTION (never against any sign): the exact content of the diagonal section D(a) that vanilla Lean's `decide` reaches — the a = √2 cell (the {2:1} factor over ℤ[i]) and the class factor (the circulant, its character spectrum, the label-norm trace) over ℤ[ω]. Vanilla Lean 4 (v4.29.1, pinned), no imports beyond the sibling GroupRingGlue's namespace conventions (this file is self-contained); every theorem closed by `decide` or `rfl`; expected axiom profile for every terminal: "does not depend on any axioms". ── WHAT THIS MODULE COMPILES ─────────────────────────────────────────────────── (1) THE a = √2 CELL, over ℤ[i] (integer pairs, i² = −1). On G = ℤ/4 the Sonin space Son(2,1) is spanned by f = e₁ − e₃. With TF4 := 2·F₄ (the DFT scaled to Gaussian integers, TF4[j][k] = i^(jk)): · f vanishes on the integers' ball {0, 2}, and so does TF4·f (membership); · TF4·f = 2i·f — the transform carries the cell to itself EXACTLY, F f = i·f; · parity (
+      LICENSED Under "WHAT THIS MODULE COMPILES" the header says C IS the multiplication-by-coupling matrix so its spectrum IS the character spectrum, and the gluing datum IS the class-resolved Euler data; C is a literal matrix that no declaration relates to coup, and the file decides only C symmetric, det C = 4, tr C = 6 = χ₀+χ₁+χ₂ and the label counts (2,1,1) — the spectrum identity is elementary and true but compiled nowhere (part (1) and every other bullet match).
+      CITED    SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:27; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:160; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:191; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:202; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:205; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:210; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:220; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:232; SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:234
+      ACTION   RE-CUT: the Gram's class factor is the circulant C = [[2,1,1],[1,2,1],[1,1,2]]: symmetric and det C = 4 ≠ 0, decided; that C is the multiplication-by-coupling matrix with spectrum the character spectrum is elementary and NOT compiled here — what is decided is tr C = 6 = χ₀ + χ₁ + χ₂ and the label-norm class counts (2, 1, 1), the coupling's coefficients.
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:1 | UNDERSTATES | - | generated MATCHES/HAND-NEEDED
+      STATED   THE PURITY CHECK AT THE BANKED CELLS · E1UnitPurityDraft.lean — WORKING-LAYER DRAFT ==================================================================================== DRAFT ONLY — NOT KERNEL-PLACED. Kernel placement touches the currency question at the author's desk (ferry 2026-08-19, foot); this file exists so the ruling has a compiled object to rule on. Vanilla Lean 4 (v4.29.1 pinned), no imports, no Mathlib, decide only; expected axiom profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — the b44 verdicts' finite exact content (registration data/b44_registration_2026-08-19.txt, banked before the run; report reports/2026-08-19-e1-unit-purity.md): The model at cell (p,n): N = p^(2n), q = p^n, chart m = a + q·b (b13, banked). The E₁-space at each cell is the image of the sector projector 4q·P₁ = (q + S)(1 + Π) on Son(p,n) (S the unnormalized DFT, S² = q²Π — b23/b26 banked, re-verified exactly in b44 G1; P₁ the +1-sector projector since M = S/q has M⁴ = 1). The spanning vector u_{i,j} is 4q·P₁ applied to the Sonin basis vector f_{i,j} = e_i ⊗ (e_j − e_0); writing h = f + Πf (an integer function with ≤ 4 support points), its m-th coefficient is u(m) = q
+      LICENSED The header says "DRAFT ONLY — NOT KERNEL-PLACED", but at the commit the file sits in the kernel's Core (placed at federation residence by v0.1.0, 706a81b), is imported and printed in AllPrints.lean, its eleven terminals are profiled "does not depend on any axioms" and graded DERIVES in the terminal table, and CORRESPONDENCE row 19 grades it COMPILED; the mathematical claims match, with d₁ values, basis independence and the pencil expansion declared banked/longhand.
+      CITED    SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:5; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:91; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:102; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:114; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:123; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:131; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:186; SIDE-global-section@17ce9ff:AllPrints.lean:30; SIDE-global-section@17ce9ff:CORRESPONDENCE.md:47
+      ACTION   RE-CUT: THE PURITY CHECK AT THE BANKED CELLS — placed in the kernel at federation residence (SIDE-global-section v0.1.0, the author's architecture ruling 2026-08-20; CORRESPONDENCE row 19, COMPILED); vanilla Lean 4, no imports, decide only, every terminal "does not depend on any axioms".
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:1 | UNDERSTATES | - | generated MATCHES
+      STATED   b261 · E2EvenMonotoneShadow.lean — THE VANILLA LEG (zero axioms) ================================================================ The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4, `decide` only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — and, far more importantly, WHAT IT DOES NOT. IT DOES NOT COMPILE J2, IN EITHER DIRECTION. `E2even(a) = 2 ∫₀² ψ(s) εₑᵥₑₙ(aˢ) ds` is a real-valued integral of a prolate-mode overlap against a mollifier's autocorrelation. NONE of that is here and none of it was forced into `Nat`. The derivation and the refutation both live at content in relay `data/b261_e2even_monotone.txt`. What is here is the FINITE-DECIDABLE RESIDUE ONLY, and it is exactly three things: (1) THE KERNEL'S SHAPE — `εₑᵥₑₙ` scaled ×1e6, at the four points that decide the act: it is ZERO at ρ = 1, RISES to a peak near ρ ≈ 1.2, and FALLS afterwards. THE TURN IS THE WHOLE FINDING, and it is arithmetic here rather than prose. (2) THE REFUTATION — `E2even` ×1e9 at six probe cells BELOW the ladder, each STRICTLY SMALLER than at `a² = 2`, and RISING through them. This is the counterexample to "E2even decreases monotonically", st
+      LICENSED The header says the file holds "exactly three things" and the kernel's shape "at the four points"; the file compiles a fourth part, (4) THE COUNTS (cell_and_step_counts, rising_and_falling_counts_differ), and decides εₑᵥₑₙ at six ρ (1, 1.0198, 1.2046, 2, 10, 100); its "EVERY NUMERAL IS AN EVALUATION" also contradicts the section's own εₑᵥₑₙ(1) = 0 "NOT an evaluation" and the count numerals.
+      CITED    SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:15; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:17; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:30; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:39; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:44; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:48; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:102; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:106; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:112
+      ACTION   RE-CUT: What is here is the FINITE-DECIDABLE RESIDUE ONLY, in four parts: (1) the kernel's shape, εₑᵥₑₙ ×1e6 at six points ρ = 1, 1.0198, 1.2046, 2, 10, 100 — zero at ρ = 1, rising to the peak near 1.2, falling afterwards; (2) the refutation; (3) the ladder; (4) the counts, 22 cells and 21 steps. Every numeral except εₑᵥₑₙ(1) = 0 and the counts is an evaluation, truncated toward zero.
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:37 | UNDERSTATES | - | generated MATCHES
+      STATED   ### (1) THE KERNEL'S SHAPE — `εₑᵥₑₙ(ρ)` scaled ×1e6. `εₑᵥₑₙ(1) = 0` is NOT an evaluation: it is the owner's own support line, *"integrand supported ONLY on u in [ρ⁻¹, 1] → eps(1) = 0"*, and `per_mode_eps_grids` writes the zero through its own `if hi - lo <= 0: continue`. The other three are evaluations.
+      LICENSED The section says "The other three are evaluations"; the section's theorems use five evaluated values besides εₑᵥₑₙ(1) = 0 (272056, 1470398, 395736, 45464, 1559 at ρ = 1.0198, 1.2046, 2, 10, 100).
+      CITED    SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:37; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:44; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:48; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:55; SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:60
+      ACTION   RE-CUT: `εₑᵥₑₙ(1) = 0` is NOT an evaluation: it is the owner's own support line ... The other five, at ρ = 1.0198, 1.2046, 2, 10 and 100, are evaluations.
+  SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:30 | OVERREACHES | - | generated MATCHES
+      STATED   the collapsed form is a sum of squares: at the banked sample vectors (integer coordinates on the {2:1,3:1}-cell shapes) B(v,v) = Σ vᵢ² > 0 for v ≠ 0 — the sign at h = 1 is the positivity of a sum of squares, at no axioms.
+      LICENSED h1_form_sum_of_squares decides only that six named integer vectors have a positive sum of squares; no declaration defines B, links it to sum v_i^2, or states the h = 1 sign, so the clause the sign at h = 1 is the positivity of a sum of squares, at no axioms gives the identification compiled, axiom-free status that the file does not carry.
+      CITED    SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:30; SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:33; SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:35; SIDE-global-section@17ce9ff:AXIOM_PRINTS.txt:171
+      ACTION   RE-CUT: at the banked sample vectors [1,0], [0,1], [1,1], [2,-1], [3,2], [-1,4] the sum of squares sum v_i^2 is positive, decided at no axioms; that the collapsed h = 1 form B(v,v) is this sum, and so the h = 1 sign is its positivity, is the b31 mechanism's reading and is not compiled here.
+  SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   W-CONSTRUCTION-1 act 12 · InequalityShadow.lean — THE VANILLA LEG (zero axioms) =============================================================================== The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4 (v4.29.1 pinned), decide only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — the finite shadow of the inequality's L3 link: the quotient coefficient sits STRICTLY BELOW the Weil coefficient at every banked cell — (p^n − p^k) < (p^n − 1) for 1 ≤ k < n (the act-9 THEOREM's ratio < 1) — so, term-by-term against nonnegative test data (the bump is nonnegative exactly, hence its autocorrelation is), Θ_q(g) ≤ Σ_p W_p(g) at finite level: the finite side's inequality direction, at no axioms where finite.
+      LICENSED The file decides only ten numeral inequalities p^n - p^k < p^n - 1 (and six gaps p^k - 1 >= 1); no declaration defines Theta_q, W_p, a test function or a bump, so the header's so ... Theta_q(g) <= Sum_p W_p(g) at finite level: the finite side's inequality direction, at no axioms where finite states as compiled a consequence the file does not contain.
+      CITED    SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:1; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:8; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:11; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:20; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:31
+      ACTION   RE-CUT: WHAT THIS MODULE COMPILES -- the coefficient comparison only: (p^n - p^k) < (p^n - 1) for 1 <= k < n at the listed cells (p = 2, n = 2..4; p = 3, n = 2, 3; p = 5, n = 2), decided at no axioms; the term-by-term step to Theta_q(g) <= Sum_p W_p(g) against nonnegative test data is the act-12 argument and is not compiled here.
+  SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:18 | OVERREACHES | - | generated MATCHES
+      STATED   (p^n − p^k) < (p^n − 1) at the banked and capped cells: p = 2, n = 2,3,4; p = 3, n = 2,3; p = 5, n = 2 — every k < n.
+      LICENSED quotient_below_weil decides the inequality only for 1 <= k < n at the listed cells; the docstring's every k < n includes k = 0, where p^n - p^0 < p^n - 1 is false.
+      CITED    SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:18; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:20; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:27; SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:10
+      ACTION   RE-CUT: (p^n - p^k) < (p^n - 1) at the banked and capped cells p = 2, n = 2, 3, 4; p = 3, n = 2, 3; p = 5, n = 2 -- every k with 1 <= k < n.
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:1 | UNDERSTATES | - | generated MATCHES
+      STATED   b260 · JunctionSignShadow.lean — THE VANILLA LEG (zero axioms) ============================================================== The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4, `decide` only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES — and, far more importantly, WHAT IT DOES NOT. IT DOES NOT COMPILE J1. The claim `Θ_q(a) ≤ PR(a)` is an inequality between two REAL-VALUED finite sums whose summands carry `2 log p`, `p^{-k/2}` and the bump's autocorrelation `corr`. NONE of that is here, and none of it is forced into `Nat`. The derivation lives at content in `D:\relay\data\b260_junction_sign.txt`. A shadow that appeared to carry the real-valued inequality would be a lie in Lean. What is here is the FINITE-DECIDABLE RESIDUE ONLY, and it is exactly three things: (1) THE STAIRCASE, DECIDED — `n_p(a) = #{k ≥ 1 : p^k ≤ a²}` at the ladder's deepest cell, each place proved by BOTH halves (`p^n ≤ a²` AND `¬(p^{n+1} ≤ a²)`). The negative half is not decoration: it is what makes `n_p` a maximum. (2) THE RANGE CAP IS SLACK — the instrument's loop bound `k ≤ 2n−1` never binds, because the guard `p^k ≤ a²` selects `k ≤ n` and `n ≤ 2n−1
+      LICENSED The header says the file compiles "exactly three things" ((1) staircase, (2) cap, (3) ratio), but the file also compiles a fourth section, (4) THE COUNTS (term_count_is_one_hundred_nineteen, top_level_count_is_forty_three, the_two_counts_are_distinct); everything else (decide only, no axioms per terminal, J1 not compiled) matches.
+      CITED    SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:16; SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:120; SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:127; SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:131; SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:137; relay@a66c50a1:data/terminal_table.md:1436
+      ACTION   RE-CUT: What is here is the FINITE-DECIDABLE RESIDUE ONLY, and it is four things: (1) the staircase, (2) the slack range cap, (3) the per-term ratio inequality, each with its polarity control, and (4) the quoted counts 119 and 43, decided.
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:1 | OVERREACHES | - | generated MATCHES
+      STATED   THE SILENCE THEOREM · KLSilence.lean — THE PROOF ABOUT THE NUMBER ================================================================== The assembly act, component 1 (ferry 2026-08-20). Vanilla Lean 4 (v4.29.1 pinned), no imports, term mode and decide only; expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE PROVES — the b48 depth-alignment law, stated at GENERAL q: (1) THE SILENCE DIRECTION (general q, general coefficient structure): a weight-one position-factor operator E_{ij} whose support touches the ball coordinate (i = 0 or j = 0) acts as IDENTICALLY ZERO on any pair of Sonin-supported vectors — hence is Knill–Laflamme-silent on E₁ with scalar c = 0. The hypotheses the b48 longhand used implicitly are NAMED as explicit arguments, per the ferry's instruction: the coefficient structure needs only a zero element with `mul zero a = zero`, `mul a zero = zero`, `conj zero = zero`, `add zero zero = zero`; the Sonin condition enters as `u 0 t = zero` (the ball slice vanishes). No ring axioms beyond these are used, and none are assumed silently. (2) THE COUNT LAW (general q): the non-ball-touching position pairs number exactly (q − 1)², and with the frequency
+      LICENSED The header says the module is "term mode and decide only", but foldSum_zero, silence_of_ball_touching, countNonzero_eq and offball_enumeration are tactic proofs (by intro/induction/rw/show/cases/apply); the content claims (silence direction at general q with named hypotheses, count law by induction, only-if not proved here, no axioms per terminal table) match.
+      CITED    SIDE-global-section@17ce9ff:Core/KLSilence.lean:6; SIDE-global-section@17ce9ff:Core/KLSilence.lean:49; SIDE-global-section@17ce9ff:Core/KLSilence.lean:68; SIDE-global-section@17ce9ff:Core/KLSilence.lean:98; SIDE-global-section@17ce9ff:Core/KLSilence.lean:107; SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:186; SIDE-global-section@17ce9ff:CORRESPONDENCE.md:59; relay@a66c50a1:data/terminal_table.md:1439
+      ACTION   RE-CUT: Vanilla Lean 4 (v4.29.1 pinned), no imports, elementary tactics (intro, induction, rw, cases) and decide; expected profile per terminal: "does not depend on any axioms".
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE LEFSCHETZ FAMILY · LefschetzShadow.lean ============================================ Ferry 2026-08-21 (b67, the congruence act, component 1). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". THE FAMILY (the b67 registration, decided at every banked cell by the instrument and here at the decidable endpoints): each power of the quarter-turn has its trace equal to its fixed-locus phase sum — M over {origin; center at p = 2} with phases 1 and i; Π = M² over the 2-TORSION SQUARE at p = 2 (four points; phases 1, 1, 1, and −1 at the center — computed from Π's own action, the axis-reduction subtlety pre-empted in the registration) and the origin alone at odd q; M³ over M's locus with the conjugate phase; M⁰ over the whole grid. THE SWAPPED PAIR (q/2, 0) ↔ (0, q/2) is a σ-2-cycle inside the σ²-fixed square — it feeds Π's sum and not M's: the involution's geometry separated from the rotation's. THE ENDPOINT: the character-average law is a FIXED-POINT THEOREM IN FULL — all eight banked sector tuples from the center's phase data alone (4·d_i = (q−1)² + 3 and 4·d = (q−1)² − 1 at p = 2; 4·d = (q−1)² at odd q). Bank: relay data/b67_c
+      LICENSED No declaration in the file computes a trace or derives a dimension from phase data: it decides the Π-locus lists at q=2,3,4,5,8,9, the 2-cycle at q=4,8, one ζ16 monomial and the sums 2 and −1, numeral identities 4·d = (q−1)²±… on banked d values, and fix(σ³)=fix(σ) at q=4 only; "the character-average law is a FIXED-POINT THEOREM IN FULL — all eight banked sector tuples from the center's phase data alone" is not stated by any declaration.
+      CITED    SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:8; SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:16; SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:35; SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:53; SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:60; SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:70; relay@a66c50a1:data/terminal_table.md:1473
+      ACTION   RE-CUT: THE ENDPOINT, here: the banked sector dimensions at all eight cells satisfy 4·d_i = (q−1)² + 3 and 4·d = (q−1)² − 1 at p = 2 and 4·d = (q−1)² at odd q, decided as numeral identities; the derivation of these from the center's phase data (the character-average law as a fixed-point theorem) is in the bank, relay data/b67_congruence.txt, not here.
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:32 | OVERREACHES | - | generated MATCHES
+      STATED   THE Π-LOCUS AND THE SWAPPED PAIR, decided: the origin alone at odd q; the 2-torsion square at q = 2ⁿ; and (q/2, 0) ↔ (0, q/2) is a σ-2-cycle — σ²-fixed, not σ-fixed — feeding Π's sum and not M's
+      LICENSED Stated generally ("the origin alone at odd q; the 2-torsion square at q = 2ⁿ") but decided only at q = 3, 5, 9 and q = 2, 4, 8, with the 2-cycle at q = 4, 8.
+      CITED    SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:35
+      ACTION   RE-CUT: THE Π-LOCUS AND THE SWAPPED PAIR, decided at instances: the origin alone at q = 3, 5, 9; the 2-torsion square at q = 2, 4, 8; and (q/2, 0) ↔ (0, q/2) is a σ-2-cycle at q = 4, 8 — σ²-fixed, not σ-fixed.
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:49 | OVERREACHES | - | generated MATCHES
+      STATED   THE Π-PHASES, decided at (2,2): the center's Π-phase is ω^{−q/2} = ζ^{N/2} = −1 (the exponent q·(q/2) = N/2, and the monomial reduces to −1), the three other 2-torsion points carry phase 1, and the sums are the banked traces — whole chart 1 + 1 + 1 − 1 = 2, Sonin-restricted −1 (the center alone)
+      LICENSED Decided: 4·2 = 16/2, mono 1 8 = −1, and the integer sums 1+1+1−1 = 2 and 0−1 = −1; the phases of the three other 2-torsion points (1 each) are inputs to the sum, not decided.
+      CITED    SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:53
+      ACTION   RE-CUT: THE Π-PHASES at (2,2): the center's Π-phase exponent q·(q/2) = N/2 and ζ^{N/2} reduces to −1 (decided); with the three other 2-torsion points at phase 1 (banked), the sums are the banked traces 1 + 1 + 1 − 1 = 2 and, Sonin-restricted, −1.
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:57 | OVERREACHES | - | generated MATCHES
+      STATED   THE DIMS FROM THE CENTER, decided subtraction-free at all eight banked cells: 4·d_i = (q−1)² + 3 and 4·d = (q−1)² − 1 at p = 2 (as (q−1)² = 4d + 1); flatness 4·d = (q−1)² at odd q — the character-average law as a fixed-point theorem
+      LICENSED The statement is numeral arithmetic on banked dimension values (d_i = 1, 3, 13, 57; d = 0, 2, 12, 56; 1, 4, 16, 169) at the eight cells (hand-checked true); no center phase datum enters, so "from the center" and "the character-average law as a fixed-point theorem" are not what it carries.
+      CITED    SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:60; relay@a66c50a1:data/terminal_table.md:1473
+      ACTION   RE-CUT: THE BANKED DIMS AGAINST THE LAW, decided subtraction-free at all eight banked cells: 4·d_i = (q−1)² + 3 and (q−1)² = 4d + 1 at p = 2; 4·d = (q−1)² at odd q.
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:68 | OVERREACHES | - | generated MATCHES
+      STATED   M³'S LOCUS AND PHASE, decided: fix(σ³) = fix(σ) at the banked sizes, and the center's M³-phase is the conjugate (i³ = −i in pairs)
+      LICENSED fix(σ³) = fix(σ) is decided at q = 4 only, not "at the banked sizes"; the phase product (0,−1) = −i is decided.
+      CITED    SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:70
+      ACTION   RE-CUT: M³'S LOCUS AND PHASE, decided: fix(σ³) = fix(σ) at q = 4, and the center's M³-phase is the conjugate (i³ = −i in pairs).
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE LINK ACT'S DECIDED CORE · LinkShadow.lean ============================================== Ferry 2026-08-22 (b103). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". L2 asked whether the extension's wing datum can be tied to the boundary line's ζ₈ phase THROUGH R, the only recorded dictionary. This module carries the two decided facts that answer it, and they answer it in opposite directions: · `twisted_row_silence` — R annihilates the twisted rows. The block sum of the g-family's root-of-unity column over a full block is the full count exactly when the row is untwisted, and zero for every twisted row, at the banked place-2 cells. Since the C₈ frame lives on the twisted sectors ONLY (rows 39/48, decided), the frame's datum is exactly what R sends to zero: THE TRANSPORT IS BLOCKED, and blocked by a decided fact rather than by an absence. · `witness_no_fixed_point` and `witness_exchange_involution` — conjugation acts on the frame's witnesses with NO fixed witness, pairing them in 2-cycles. On the archimedean side the recorded Schwarz covariance likewise fixes the ray and EXCHANGES the two wings. Both actions are exchanges, 
+      LICENSED twisted_row_silence is decided at the single cell (2,2) (blockSum over b<4 of ζ16^{4tb}, t=0..3), not "at the banked place-2 cells"; the C8-frame/transport and archimedean Schwarz readings are records and argument; the conjugation facts match.
+      CITED    SIDE-global-section@17ce9ff:Core/LinkShadow.lean:12; SIDE-global-section@17ce9ff:Core/LinkShadow.lean:46; SIDE-global-section@17ce9ff:Core/LinkShadow.lean:53; SIDE-global-section@17ce9ff:Core/LinkShadow.lean:64; SIDE-global-section@17ce9ff:Core/LinkShadow.lean:71; relay@a66c50a1:data/terminal_table.md:1477
+      ACTION   RE-CUT: `twisted_row_silence` — R annihilates the twisted rows at the cell (2,2): the block sum of the g-family's root-of-unity column over a full block is the full count exactly when the row is untwisted, and zero for every twisted row.
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:66 | UNDERSTATES | - | generated MATCHES
+      STATED   N = 6 (K1's cut): tail `1.11558894e−14` ≤ envelope `1.15757629e−14`, ×1e22. N = 8: `9.91242848e−23` ≤ `9.91250843e−23`, ×1e31. N = 10: `1.4601387e−31` ≤ `1.46013869e−31` + the evaluation's own error, ×1e40. N = 11: `3.18448512e−36` ≤ `3.1837636e−36` + the evaluation's own error, ×1e45.
+      LICENSED N = 6, 8, 10 scalings match; at N = 11 the conjunct adds 72152 at ×1e45, i.e. 7.2152e−41, one tenth of the evaluation's own error 7.2152e−40 (bank), so the kernel decides a tighter inequality than "+ the evaluation's own error" (the margin is exactly 72152, equality).
+      CITED    SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:70; SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:74; relay@a66c50a1:data/b250_m4_derivation.txt:275
+      ACTION   RE-CUT: N = 11: `3.18448512e−36` ≤ `3.1837636e−36` + `7.2152e−41` (one tenth of the evaluation's own error `7.2152e−40`, and exactly the gap), ×1e45.
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:85 | OVERREACHES | - | generated MATCHES
+      STATED   ### (3) THE MINIMAX INEQUALITY'S FINITE INSTANCE — `μ_N ≤ bound(N)`. S2 gives `μ_N ≤ T(N)²` on ZERO specific imports. The instances are enormously slack, and the slack is shown rather than trimmed. Scaled ×1e9 after taking a common exponent per row; each conjunct compares `μ_N` against `T(N)` at the row's own scale.
+      LICENSED The section says the comparisons are "Scaled ×1e9 after taking a common exponent per row"; the theorem's rows are scaled ×1e18 (N = 14) and ×1e30 (N = 20), as the docstring at :91 states.
+      CITED    SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:91; SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:95
+      ACTION   RE-CUT: S2 gives `μ_N ≤ T(N)²` on ZERO specific imports. The instances are enormously slack, and the slack is shown rather than trimmed; each conjunct compares `μ_N` against `T(N)` at the row's own scale (×1e18 at N = 14, ×1e30 at N = 20).
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:91 | OVERREACHES | - | generated MATCHES
+      STATED   N = 14: `μ = 3.85119078e−16` ≤ `T = 3.6271779e−2`, so ×1e18 the bound is ~1e16 times larger; compared here at ×1e18 with the bound truncated DOWNWARD to 36271779000000. N = 20: `μ = 1.134386458e−28` ≤ `T = 6.5705942e−8`, at ×1e30 with the bound truncated DOWNWARD. Truncating the BOUND downward makes each claim strictly harder.
+      LICENSED At ×1e18, μ = 385 (truncated downward from 385.119, which makes the claim easier, not harder) and T ≈ 3.63e16, so the bound is ~9.4e13 times larger, not ~1e16; the decided conjuncts 385 ≤ 3.6271779e13 and 113 ≤ 6.5705942e22 hold.
+      CITED    SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:95
+      ACTION   RE-CUT: N = 14: `μ = 3.85119078e−16` ≤ `T = 3.6271779e−2`, the bound ~1e14 times larger; compared at ×1e18 with μ truncated to 385 and the bound truncated DOWNWARD to 36271779000000. N = 20: `μ = 1.134386458e−28` ≤ `T = 6.5705942e−8`, at ×1e30, likewise truncated.
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE METAPLECTIC SQUARE-ROOT CHECK · MetaplecticRootShadow.lean =============================================================== Ferry 2026-08-21 (b59, component 3). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". THE QUESTION (the metaplectic companion wonder's first hard datum): at the banked cell (2,2), does an operator W on the chart exist with W² = M and W⁴ = −1? THE CONSTRAINT (derived in the b59 registration): W² = M forces W⁴ = M² = Π (the parity; S² = q²Π banked), so W⁴ = −1 forces Π = −1 on the whole chart — and the chart's parity-even sector obstructs. ONE witness decides it: the u-line (u = 1_{qℤ}, the b57 longhand) has S u = 4u (decided below in ℤ[ζ₁₆] coordinates, all 16 rows), so M u = u; parity fixes u and u ≠ −u (decided). The abstract obstruction lemma then closes BRANCH (b): NO such W exists on the chart — the spectral constraint that fails is the parity constraint, witnessed on the parity-even sector. The −1-fourth-power condition HOLDS exactly on the twisted ±i sectors (M² = −1 there; row 33's compiled tower witness M(ιu) = i·ιu): the C₈ frame lives on the twisted sectors only — the frame boundary is th
+      LICENSED The file decides S u = 4u at (2,2) over 16 rows, parity fixes u and u ≠ −u, and proves an abstract lemma (w(w u) = u, w⁴ u = neg u, neg u ≠ u ⊢ False); no declaration defines W, M or the chart, or states that no W with W² = M, W⁴ = −1 exists there — that closing step is prose instantiation.
+      CITED    SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:13; SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:16; SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:42; SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:60; SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:67; relay@a66c50a1:data/terminal_table.md:1509
+      ACTION   RE-CUT: ONE witness decides it: the u-line has S u = 4u (decided below in ℤ[ζ₁₆] coordinates, all 16 rows), so M u = u; parity fixes u and u ≠ −u (decided); and the abstract obstruction lemma (no w with w²u = u and w⁴u = −u ≠ u) is compiled — instantiated at W, M on the chart in the b59 registration, it closes BRANCH (b): no such W exists on the chart.
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:54 | OVERREACHES | - | generated MATCHES
+      STATED   the two channels are distinct where it matters: the fiber weight (p, nonzero) at k = 1 sits exactly where the twisted trace is zero — the literal adjointness's refutation instance, both primes.
+      LICENSED The statement is only (2 != 0) && (3 != 0) = true. Neither channel, no fiber weight, no k and no twisted trace occurs in it, so it does not state that the two channels are distinct, where they sit, or any refutation instance. Read against the statement and not the name (b646 rules 6 and 9), the docstring claims more than the theorem holds.
+      CITED    SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:54; SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:57; SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:37; SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:43
+      ACTION   RE-CUT: the primes 2 and 3 are nonzero, decided; that these are the fiber weights at k = 1 (fiber_two, fiber_three) and that the twisted trace is zero there (twisted_silence) is carried by those theorems, so this terminal is the nonzero half of the channels' comparison and not the comparison itself.
+  SIDE-global-section@17ce9ff:Core/PairingShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE PAIRING ACT · PairingShadow.lean — THE CHARACTER-SUM THEOREM (HONEST SPLIT) AND THE FORM-LEVEL LIFT ==================================================================================== Ferry 2026-08-20 (b52). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". THE HONEST SPLIT (row 31/32, per the ferry's own clause): · PROVED GENERAL (this module): the k = 2 character-sum identity WHENEVER ONE FACTOR IS FLAT — the case every banked roster instantiates (every multi-place roster contains an odd place, and odd places are flat, banked b26/SectorArithmetic). At a flat factor the two twisted traces vanish (`flat_kills_twists`, general) and the four-power average collapses to the single product (`flat_collapse_int`, general Int dims; the Nat form is CrossPlaceShadow.flat_place_collapse). · NAMED OPEN STATEMENT (correspondence; never a sorry): the NOWHERE-FLAT general-dims identity (the full ℤ[i] four-power average with both twisted products nonzero) and the general-k statement. The five banked roster instances are decided (CrossPlaceShadow.collapse_instances / banked_globals, cited); the nowhere-flat case has no banked instance 
+      LICENSED The header claims a general k = 2 character-sum identity at a flat factor is PROVED in this module, the collapse carried by flat_collapse_int (general Int dims). No declaration named flat_collapse_int exists anywhere at 17ce9ff. The file states only flat_kills_twists: c = c, c + c = c + c, and the Nat equation 4(c e1 + c em1 + c emi + c ei) = 4 c(e1+em1+ei+emi) via CrossPlaceShadow.flat_place_collapse. The Int collapse and the identity named as proved are not in the file.
+      CITED    SIDE-global-section@17ce9ff:Core/PairingShadow.lean:1; SIDE-global-section@17ce9ff:Core/PairingShadow.lean:10; SIDE-global-section@17ce9ff:Core/PairingShadow.lean:14; SIDE-global-section@17ce9ff:Core/PairingShadow.lean:44; SIDE-global-section@17ce9ff:Core/PairingShadow.lean:57; SIDE-global-section@17ce9ff:Core/PairingShadow.lean:67; SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:34; SIDE-global-section@17ce9ff:AXIOM_PRINTS.txt:222; SIDE-global-section@17ce9ff:AXIOM_PRINTS.txt:224
+      ACTION   RE-CUT: COMPILED (this module, Nat, subtraction-free): at a flat factor c the four-term sum collapses, 4(c e1 + c em1 + c emi + c ei) = 4 c(e1 + em1 + ei + emi) (flat_kills_twists, by CrossPlaceShadow.flat_place_collapse); the twisted traces' vanishing is definitional and appears only as c = c and c + c = c + c; no Int-dims form (flat_collapse_int) exists at this commit, and the k = 2 character-sum identity at a flat factor is not stated as a theorem here.
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE RADIALIZATION ACT'S DECIDED CORE · RadializationShadow.lean ================================================================ Ferry 2026-08-21 (b76). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". The shell-summing map R (the radialization — the merged construction of the theta bridge's step A and N5's radial-compression dictionary) at its decidable spine: the valuation is the gcd law (Nat.gcd m N = p^{v(m)}), so every shell statement is a gcd statement. P1: the shell partitions at the banked sizes (3, 5, 7, 9 cells at n = 1..4, both parities), the seed addresses gcd(2ⁿ⁻¹, 2ⁿ) = 2ⁿ⁻¹, and the boundary index re-derived from R's side (the doubling image misses the primitive shell; the zero cell is terminal). P2: the transfer/shift intertwining as the gcd law over FULL ranges, and the ball-boundary transition filter identity — the one shell that doubles into the ball is exactly the seed's shell (the deficient weight's address, b61, derived from the map's side). P3: the chart theta-object (Σ ζ^{m²} — the quarter-turn's diagonal, the banked traces) assembled BY SHELLS at (2,1), (3,1), (2,2) with the primitive shell silent 
+      LICENSED The header places P1's shell partitions at the banked sizes (3, 5, 7, 9 cells at n = 1..4) in the decidable spine this module compiles. shell_partition_instances decides partitions only at Z/16 (the 5-cell (2,2) case) and Z/9 (the 3-cell (3,1) case). No partition of Z/4, Z/64 or Z/256 (the 3-, 7- and 9-cell place-2 cases) is stated in the file; per the b76 bank those sizes were bench-decided, not kernel-compiled. P2 to P4 match their theorems.
+      CITED    SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:1; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:11; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:12; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:32; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:36; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:38; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:48; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:61; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:111; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:126; SIDE-global-section@17ce9ff:AXIOM_PRINTS.txt:254; SIDE-global-section@17ce9ff:AXIOM_PRINTS.txt:258
+      ACTION   RE-CUT: P1: the shell partitions decided at (2,2) (Z/16: shells of sizes 8, 4, 2, 1 plus the zero cell) and (3,1) (Z/9: 6, 2 plus the zero cell); the sizes 3, 7, 9 at n = 1, 3, 4 are the b76 bench's, not compiled here; the seed addresses gcd(2^(n-1), 2^n) = 2^(n-1) at n = 1..4, and the boundary index from R's side (the doubling image misses the odd shell at N = 4, 16, 64; the zero cell is terminal).
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:30 | OVERREACHES | - | generated MATCHES
+      STATED   P1: the shell partitions (sizes 3, 5, 7, 9 at n = 1..4; both parities at the smallest cells), the seed addresses, and the boundary index from R's side
+      LICENSED The docstring claims shell partitions of sizes 3, 5, 7, 9 at n = 1..4. The statement counts shells only in Z/16 (8, 4, 2, 1) and Z/9 (6, 2), so of the place-2 sizes only the n = 2 partition is decided. The seed addresses (n = 1..4) and the boundary index at N = 4, 16, 64 are as the docstring says.
+      CITED    SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:30; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:32; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:36; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:38; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:39; SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:43
+      ACTION   RE-CUT: P1: the shell partition at (2,2) (Z/16: 8, 4, 2, 1) and at (3,1) (Z/9: 6, 2), the seed addresses gcd(2^(n-1), 2^n) = 2^(n-1) at n = 1..4, and the boundary index from R's side (no doubling lands on an odd residue at N = 4, 16, 64; 0 doubles to 0).
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:131 | OVERREACHES | - | generated MATCHES
+      STATED   THE COMPLEMENT ALSO SATISFIES THE CRITERION IN THE MIRRORED DIRECTION, decided rather than inferred: `den - hiNum` is the lower end and `den - loNum` the upper, and they are ordered and one unit apart, exactly as the originals are.
+      LICENSED The docstring says the complement also satisfies the criterion in the mirrored direction, decided rather than inferred. The statement is only devHiNum = devLoNum + 1 and devLoNum < devHiNum. No below or above, and no criterion of any kind, is applied to the complement numerators anywhere in the file, so the criterion claim is not in the theorem; the ordering and one-unit width are.
+      CITED    SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:131; SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:134; SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:135; SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:61; SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:65; SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:116
+      ACTION   RE-CUT: THE COMPLEMENT'S ENDS ARE ORDERED AND ONE UNIT APART, decided: `den - hiNum` is the lower end and `den - loNum` the upper, and `den - loNum` = `den - hiNum` + 1 with `den - hiNum` < `den - loNum`, exactly as the originals are; that the complement encloses 1 - 1/sqrt 2 follows from THE ENCLOSURE by the reader's arithmetic and is not decided here.
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   W-ATTEMPT-2 · SectorArithmetic.lean — THE FLATNESS SOLVER AND THE TWIST SIGNATURE ================================================================================= ATTEMPT-track, RELAY-RESIDENT. Sitting 17. Vanilla Lean 4 (v4.29.1, pinned), no imports, decide/rfl only; expected axiom profile: "does not depend on any axioms". WHAT THIS MODULE COMPILES — two finite identity families over ℤ: (c) THE FLATNESS THEOREM-SHAPE FOR ODD p (the p = 3 instances, n = 1..4): from M² = Π (certified) the eigenvalues lie in {1, −1, i, −i} and the four trace equations determine the dims. With the MEASURED inputs tr M = 0 (rational — the field-intersection argument ℚ(ζ_{3^{2n}}) ∩ ℚ(i) = ℚ forces Im tr M = 0; stated here, compiled at the instance level) and tr Π = 0 (Π fixed-point-free at odd q), the unique solution is FLAT: d_λ = (3ⁿ − 1)²/4 each. The solver and its uniqueness (the four equations hold and pin the solution) are compiled per level. (d) THE TWIST SIGNATURE: with the BANKED exact eigen-dims of the six certified factors ((2,1) = (0,0,1,0) · (3,1) = (1,1,1,1) · (2,2) = (2,2,3,2) · (2,3) = (12,12,13,12) · (3,2) = (16,16,16,16) · (5,1) = (4,4,4,4) — sittings 7/9/10, exact arithmetic, relay 
+      LICENSED The file compiles solve's output and `solves` (the four equations hold at that output) per level, which its own `solves` docstring calls the verification half of uniqueness; no declaration states that the equations pin the solution, yet the header says the solver and its uniqueness are compiled per level.
+      CITED    SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:15; SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:16; SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:40; SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:44; SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:45; SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:51; SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:56
+      ACTION   RE-CUT: The solver's output and the verification half of uniqueness (the four equations hold at that output) are compiled per level; that the equations pin the solution is linear algebra not compiled here.
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:205 | UNDERSTATES | - | generated MATCHES
+      STATED   The decided range at level one, both polarities in one statement: the identity holds at a base exactly when the predicate admits it. THIS IS THE EVIDENCE FOR THE OPEN STATEMENT AND IT IS NOT A PROOF OF IT — a finite check over a list decides nothing about the bases not in the list. SPLIT INTO THREE BECAUSE OF A MEASURED CLIFF, NOT FOR TIDINESS. Kernel reduction here costs about `(p^2 - p) * p^2` at a base, and the frontier on this machine sits between `10` (decides in seconds) and `12` (ran 292s and did not land). A single `decide` over all nine bases exceeds that frontier even though every base in it is individually under.
+      LICENSED The theorem decides the agreement at 2 to 7 (and is correctly not a proof of the general clause), but the docstring calls the general clause THE OPEN STATEMENT while SmearGeneral.smear_general at the same commit proves it for every single-prime-factor base and level (profile: does not depend on any axioms), as this file's own b420 header annotation records.
+      CITED    SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:215; SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:56; SIDE-global-section@17ce9ff:Core/SmearGeneral.lean:924; relay@a66c50a1:data/terminal_table.md:1660
+      ACTION   RE-CUT: The decided range at level one, both polarities in one statement: the identity holds at a base exactly when the predicate admits it. THIS IS FINITE EVIDENCE FOR THE GENERAL CLAUSE AND IS NOT ITSELF A PROOF OF IT (a finite check over a list decides nothing about the bases not in the list); THE GENERAL CLAUSE IS PROVED SEPARATELY, SmearGeneral.smear_general (b419).
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:219 | OVERREACHES | - | generated MATCHES
+      STATED   The same agreement at the two next bases, one a prime power and one prime.
+      LICENSED predicate_agrees_at_eight_and_nine decides the agreement at 8 and 9, but 8 = 2^3 and 9 = 3^2 are both prime powers and neither is prime; the docstring's "one prime" is false, and those_bases_are_composite in this file proves isPrime 9 = false.
+      CITED    SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:220; SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:195
+      ACTION   RE-CUT: The same agreement at the two next bases, both prime powers (8 = 2^3, 9 = 3^2) and neither of them prime.
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:71 | OVERREACHES | - | generated MATCHES
+      STATED   the C₀ deviation contributed by one place, `| ‖u‖ − 1 |`, on a scale where a norm-one unit contributes 0.
+      LICENSED dev norm = if norm = 1 then 0 else 1: an indicator of norm ≠ 1, not | ‖u‖ − 1 | (the two differ at every norm ≥ 3, e.g. 1 against 2 at norm 3).
+      CITED    SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:73
+      ACTION   RE-CUT: the C₀ deviation contributed by one place, as an indicator: 0 for a norm-one unit and 1 for any other norm (not the magnitude | ‖u‖ − 1 |).
+  SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE LEAVES QUESTION · TensorSquareShadow.lean — THE VANILLA LEG (zero axioms) ============================================================================= The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4 (v4.29.1 pinned), decide only, expected profile per terminal: "does not depend on any axioms". THE KERNEL-PURITY RULING governs: no sorry; only proved decide instances. WHAT THIS MODULE COMPILES — the finite content the leaves-question answer names: (1) THE INTERLEAVING INDEX LAW — the arithmetic core of the local tensor square (B13: Son(p,n) = V₁ ⊗ W₁ with the transform interleaving the factors): under the index splitting m = a + pⁿ·b of ℤ/p^{2n}, the DFT exponent factors as m·m′ ≡ a·a′ + pⁿ·(a·b′ + a′·b) (mod p^{2n}) — the transform couples the two factors ONLY through the middle bilinear term (the p^{2n}·b·b′ term dies mod p^{2n}). Compiled at (2,1), (3,1), (2,2), (5,1): every index tuple, exact. (2) THE SECTOR-PATTERN COUNT — the combinatorial core of the PROVED obstruction: over k places each carrying both ±1 sectors, the global E₁ (the ∏λ_v = +1 sector sum, act 1's banked finding) admits 2^{k−1} sign patterns, of which the tensor-square diagonal (⊗′E₁,v) see
+      LICENSED Under WHAT THIS MODULE COMPILES the header gives the gap 2^{k−1} > 1 for every k ≥ 2 and says the tensor-square diagonal sees exactly one pattern, but sector_pattern_gap states only the counts 2, 4, 8 and 2 > 1, 4 > 1, 8 > 1 at k = 2, 3, 4, and no declaration mentions the diagonal; the interleaving law at (2,1), (3,1), (2,2), (5,1) and the clean profiles match.
+      CITED    SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:32; SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:50; relay@a66c50a1:data/terminal_table.md:1674; relay@a66c50a1:data/terminal_table.md:1675
+      ACTION   RE-CUT: (2) THE SECTOR-PATTERN COUNT, compiled at k = 2, 3, 4 only: the ∏λ_v = +1 patterns number 2, 4, 8 (= 2^{k−1}) and each count exceeds 1; that the tensor-square diagonal sees exactly the all-plus pattern, and the gap for every k ≥ 2, are the leaves-question answer's argument and are not compiled here.
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE THETA CONTINUATION'S DECIDED CORE · ThetaContinuationShadow.lean ===================================================================== Ferry 2026-08-21 (b70). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". Decided here (the b70 registration): THE CENTER EXITS AT EVERY BANKED PLACE-2 LEVEL (every V-image position of the center's line is a ball position — the two-line index computation, per level), with the (2,2) exit-set EXACTLY the center and the deeper exit families counted as data (the radial-compression dictionary the named residue of N5's operator half); THE NON-STABILIZATION WITNESS (the level-1 scaling kills g₍₁,₁₎ while the level-2 scaling does not kill its embedded image — the SOT clause's sharpened form: the convergence question for a non-stabilizing level family); THE FINITE ORIENTATION BREAK (tr S = q(1+i) and tr S* = q(1−i) are distinct — the finite kernel convention breaks the F ↦ F³ symmetry that the recorded archimedean ground cannot break: the class bit is S1 content, the b70 derivation). Bank: relay data/b70_theta_continuation.txt.
+      LICENSED The header lists the non-stabilization witness among what is decided here, but non_stabilization_witness states only padd (1, 0) (−1, 0) = (0, 0) and that the literal [2, 0, …, 0] is nonzero; no scaling, level or colimit class appears in any statement of the file (the center exits and the orientation break match).
+      CITED    SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:27; SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:46; SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:64; relay@a66c50a1:data/terminal_table.md:1680
+      ACTION   RE-CUT: Decided here: THE CENTER EXITS AT EVERY BANKED PLACE-2 LEVEL (q = 4, 8, 16), with the (2,2) exit-set exactly the center; the ARITHMETIC of the non-stabilization witness only (1 + (−1) = 0 in ℤ[i] pairs, and the cited row-4 value 2 is nonzero; the level scalings and the non-stabilization itself are b70's derivation and row 46's instance, not computed here); THE FINITE ORIENTATION BREAK (tr S = 4(1+i) and tr S* = 4(1−i) at (2,2) are distinct).
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:41 | OVERREACHES | - | generated MATCHES
+      STATED   THE NON-STABILIZATION WITNESS, decided: at (2,1) the scaling kills the seed's line (the two preimages' coefficients 1 and ζ₄² = −1 cancel on the single image row), while at (2,2) the scaling of its embedded image is NONZERO (the row-4 value 2 — the full computation is row 46's decided instance, cited): the level family {V_n} does not stabilize on colimit classes
+      LICENSED The statement is (1, 0) + (−1, 0) = (0, 0) and [2, 0, 0, 0, 0, 0, 0, 0] ≠ 0, two literal facts; neither scaling is computed (ζ₄² = −1 and the value 2 are entered as literals), and that {V_n} does not stabilize on colimit classes is not stated, so "decided" claims more than the statement carries.
+      CITED    SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:46
+      ACTION   RE-CUT: THE NON-STABILIZATION WITNESS's arithmetic, decided: the coefficients 1 and ζ₄² = −1 (entered as literals) cancel, 1 + (−1) = 0 in ℤ[i] pairs, and the cited row-4 value 2 is nonzero; the scalings at (2,1) and (2,2) are not computed here (row 46, cited), and that the level family {V_n} does not stabilize on colimit classes is the b70 derivation.
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE MONOTONICITY ACT'S DECIDED CORE · TowerMonotoneShadow.lean =============================================================== Ferry 2026-08-22 (b101). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". THE CONCRETE HALF OF THE SENSE DEBT: is the programme's level family MONOTONE as a family of subspaces? The two sides of the Sonin condition, transported along the recorded embedding ι (the chart refinement m″ = p·m + p^{2n+1}·j, values copied), reduce to index arithmetic, decided here at the banked truncation pairs (2,1)→(2,2), (2,2)→(2,3) and (3,1)→(3,2): · `ball_pullback` (the support side): an image index lies in the level-(n+1) ball exactly when its source lies in the level-n ball — so ι of a ball-vanishing vector is ball-vanishing. · `inner_sum_rule`: on a level-(n+1) ball row every j-term of the embedding's inner sum is 1 (the exponent folds to 0), so that sum is p, not 0. · `transform_index_shift`: the transform exponent transports under the scale map, (r·p·m) mod N_{n+1} = p²·(((r/p)·m) mod N_n) — N_{n+1} = p²·N_n, which is why the factor is p² (the run-registration's prose said p; the instrument caught it before any
+      LICENSED The file decides four index-arithmetic facts at the three pairs (2,1), (2,2), (3,1); no declaration states ι(Son(p,n)) ⊆ Son(p,n+1), and THE FAMILY IS MONOTONE is a claim about the whole family that nothing in the file states, even at the pairs.
+      CITED    SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:40; SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:55; SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:65; SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:73; SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:83; relay@a66c50a1:data/terminal_table.md:1703
+      ACTION   RE-CUT: Together these four index facts, decided at the banked pairs (2,1)→(2,2), (2,2)→(2,3), (3,1)→(3,2), are the ingredients of the argument that ι(Son(p,n)) ⊆ Son(p,n+1) at those pairs; the inclusion is not a declaration of this file, and monotonicity of the whole family is not compiled here.
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:46 | OVERREACHES | - | generated MATCHES
+      STATED   the δ₀ coefficient: Tr(S) = dim Son = (p^n − 1)² at the banked cells
+      LICENSED trace_identity_dim only evaluates (p^n−1)² = 1, 9, 4, 64 at the four banked cells; no trace Tr(S) and no dim Son appears in the statement, so the identity Tr(S) = dim Son is not what the theorem states.
+      CITED    SIDE-global-section@17ce9ff:Core/TraceSilence.lean:47; relay@a66c50a1:data/terminal_table.md:1715
+      ACTION   RE-CUT: the δ₀ coefficient's values: (p^n − 1)² = 1, 9, 4, 64 at the banked cells (2,1), (2,2), (3,1), (3,2); that Tr(S) = dim Son is the bank's reading, not stated here.
+  SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   THE TWISTED-SECTOR ROOT CHECK · TwistedRootShadow.lean ======================================================= Ferry 2026-08-21 (b60, component 3). Vanilla Lean 4 (v4.29.1 pinned), no imports; expected profile per terminal: "does not depend on any axioms". BRANCH (a) — the registered expectation, landed: at (2,2) on the twisted half E_i ⊕ E_{−i} (where M² = −1 already, so the row-39 parity obstruction is absent by construction), square roots of M EXIST: any W with W² = M preserves M's eigenspaces, and the eigenvalue square-root pairing is available in the banked ring — the square roots of i are ±ζ₁₆², of −i are ±ζ₁₆⁶, and every odd-index eighth root has fourth power −1 (decided below). The scalar witness W = ζ²·Id on E_i ⊕ ζ⁶·Id on E_{−i} satisfies W² = M and W⁴ = −1 (the abstract scalar-root lemma below, its instance's eigenvector the compiled row-33 tower witness M(ιu) = i·ιu). THE TWISTED HALF OF THE CHART SITS INSIDE THE C₈ FRAME at the cell — 5 of the 9 Sonin dimensions; extension questions staged, not run. Bank: relay data/b59_twisted_root.txt.
+      LICENSED The file compiles only the eighth-root pairing table and the abstract per-vector scalar-root lemma; no declaration states that square roots W of M exist on E_i ⊕ E_{−i}, that any such W preserves M's eigenspaces, that the scalar witness satisfies W² = M and W⁴ = −1 as an operator, or the 5-of-9 C₈-frame count, which the header reports as landed.
+      CITED    SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:31; SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:45; SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:8; relay@a66c50a1:data/terminal_table.md:1721; relay@a66c50a1:data/terminal_table.md:1722
+      ACTION   RE-CUT: Decided below: the eighth-root pairing table (ζ₁₆^{2j}, j = 1,3,5,7, square to i, −i, i, −i with fourth power −1) and the abstract scalar-root lemma (c² = λ acting on a λ-eigenvector v of M gives c·(c·v) = M v); the existence of W with W² = M on E_i ⊕ E_{−i}, its eigenspace preservation and the 5-of-9 C₈-frame count are the bank's (relay data/b59_twisted_root.txt), not compiled here.
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   b303 · ValuationDivisibilityShadow.lean — THE VANILLA LEG (zero axioms) ====================================================================== The two-leg ruling (Rule 5) governs: VANILLA leg — vanilla Lean 4, `decide` only, expected profile per terminal: "does not depend on any axioms". WHAT THIS MODULE COMPILES, AND — far more importantly — WHAT IT DOES NOT. IT COMPILES ONE ARITHMETIC FACT ABOUT NATURAL NUMBERS, AT FIVE EXPLICIT PAIRS (p, n): OVER THE RANGE m < p^(2n), THE PREDICATE "THE p-ADIC VALUATION OF m IS AT LEAST n" AND THE PREDICATE "p^n DIVIDES m" AGREE ON EVERY m. THAT IS THE WHOLE CONTENT. Both sides are decidable predicates on natural numbers, and the terminals NAME THE PAIR (p, n) IN THEIR OWN STATEMENTS so a reader never has to consult a comment to learn the scope. WHY THE TWO PREDICATES ARE DEFINED SEPARATELY, WHICH IS THE POINT OF THE FILE. The valuation is computed BY REPEATED DIVISION (`vpAux`, fuel-bounded and structurally recursive). The divisibility test is a SINGLE MODULO (`dvdPow`). NEITHER IS DEFINED IN TERMS OF THE OTHER. Had the valuation been defined as "the largest k with p^k ∣ m", the agreement below would be a tautology wearing the costume of a chec
+      LICENSED The header cites `fuel_is_not_binding_on_the_tested_range_*` and `the_two_predicates_disagree_one_index_out_*`, which no declaration is named, and says the control shifts the valuation threshold by one; the compiled control (agreeOnShifted) keeps the valuation threshold at n and moves the divisibility exponent to n+1.
+      CITED    SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:48; SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:52; SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:92; SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:125; SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:133; relay@a66c50a1:data/terminal_table.md:1191
+      ACTION   RE-CUT: `fuel_is_not_binding_on_the_tested_ranges` decides that doubling the fuel changes no agreement verdict on the ranges actually tested; `the_two_predicates_disagree_when_one_side_is_shifted_at_every_tested_pair` decides that keeping the valuation threshold at n while moving the divisibility exponent to n+1 BREAKS the agreement at every tested pair.
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:1 | OVERREACHES | - | generated MATCHES
+      STATED   FILE E of the Mathlib companion (opened at W-CONSTRUCTION-1 act 16): THE FINITE-INSTANCE IDENTITY — THE CLOSURE PROTOCOL'S STEP-ONE OBJECT. ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "h2 IS THE SINGLE OPEN PREMISE." THIS FILE STATES; IT DOES NOT PROVE. This states the identity whose truth at complete roster is h2; at finite instance it is checkable; nothing here proves it. THE CONSTITUENTS AND THEIR OWNERS (the ledger's addresses, labeled): · the ε-regularized archimedean E₁-trace — owner: the ε-lemma's bookkeeping (its geometry now DERIVED, act 15: the pair structure whose block inverses are the ε-denominators) and files B–C's L²(ℚ_p) for the finite factors; · the volume-normalized quotient trace — owner: FILE D (the fixed-orbit count, proved longhand act 9, its formalization file D's labeled sorry) with the volume normalization forced (act 7, modulo the class-richness lemma at cite); · the restricted-tensor assembly — owner: INFRASTRUCTURE (the Hilbert ⊗′; the sharp missing lemma stated in GlobalSection.lean); · Weil's ledger — the atlas's certified columns at the cell, in the SUPPORT-AND- PROGRAM-VOICE convention (`W_∞ = +A`; the prime term enters with a MINUS), which is the c
+      LICENSED The header cites "its formalization file D's labeled sorry" and "the sharp missing lemma stated in GlobalSection.lean"; at the commit the kernel has no file D and no sorry (census: 0), and GlobalSection.lean states no such lemma (:16 says the core and assembly are not claimed there and moved to the working layer).
+      CITED    SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:15; SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:18; SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:16; SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:35; relay@a66c50a1:data/b647_sorry_census.txt:26
+      ACTION   RE-CUT: · the volume-normalized quotient trace — owner: FILE D (the fixed-orbit count, proved longhand act 9; no file D and no sorry are in this kernel) with the volume normalization forced (act 7, modulo the class-richness lemma at cite); · the restricted-tensor assembly — owner: INFRASTRUCTURE (the Hilbert ⊗′; its missing lemma is recorded in the working layer, relay/reports/2026-08-19-sorry-ledger-cleared.md, not stated in GlobalSection.lean).
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:1 | OVERREACHES | - | generated MATCHES
+      STATED   W-CONSTRUCTION-1 act 3 — LocalLimit.lean: sitting 20's limit theorems and the CNU theorem, STATED IN LEAN against real Mathlib (toolchain v4.30.0-rc1, checkout cecd0c4d56). DESIGN: the abstract Hilbert-space content is PROVED here (no sorry); the concrete realization over L²(ℚ_p) with the standard character is a SINGLE labeled debt (`padicFourierData_exists`, OWED TO FILES B–C of the companion). Nothing at complete roster. Sorries are counted, labeled, never hidden.
+      LICENSED The header names `padicFourierData_exists` as the file's labelled debt; no such declaration exists at the commit. The file carries only the structure PadicFourierData, and the existence statement moved to the working layer (:376).
+      CITED    SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:6; SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:367; SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:376
+      ACTION   RE-CUT: the concrete realization over L²(ℚ_p) with the standard character is a SINGLE debt, OWED TO FILES B–C of the companion: the data structure `PadicFourierData` is declared here, and its existence statement is in the working layer (relay/reports/2026-08-19-sorry-ledger-cleared.md, item 1), not in this file.
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:40 | OVERREACHES | - | generated MATCHES
+      STATED   THEOREM (R2-1, the CNU theorem's abstract engine): a compressed isometry with the ESCAPE property (no nonzero vector of `S` has its whole forward orbit in `S`) has no unimodular eigenvalue: if the compression of `U` to `S` has `P(Ux) = λ x` with `|λ| = 1`, then `x = 0`. The escape hypothesis is exactly what the p-adic Fourier computation discharges (banked exact witnesses); here it is a hypothesis. PROVED from it, no sorry.
+      LICENSED The docstring says "a compressed isometry"; the theorem is stated for U : H ≃ₗᵢ[ℂ] H (a surjective linear isometry equivalence, i.e. unitary) on a complete H with S carrying an orthogonal projection, which is narrower than an isometry.
+      CITED    SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:46; relay@a66c50a1:data/terminal_table.md:1491
+      ACTION   RE-CUT: THEOREM (R2-1, the CNU theorem's abstract engine): a compressed unitary (a linear isometry equivalence U of a complete H, compressed to S) with the ESCAPE property (no nonzero vector of S has its whole forward orbit in S) has no unimodular eigenvalue: if P(Ux) = λ x with |λ| = 1, then x = 0.
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:152 | OVERREACHES | - | generated MATCHES
+      STATED   THE HULL (b101, the monotonicity act): the running span of an arbitrary family — constructed unconditionally, so that a limit object exists for ANY level family whatever, monotone or not.
+      LICENSED hull is constructed unconditionally and is monotone (hullMono), but the limit object exists only through hull_compression_tendsto, which requires HasOrthogonalProjection on every hull level and on the closure of their supremum, so it does not hold for ANY level family whatever.
+      CITED    SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:155; SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:158; SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:178; relay@a66c50a1:data/terminal_table.md:1485
+      ACTION   RE-CUT: THE HULL (b101, the monotonicity act): the running span of an arbitrary family — constructed unconditionally and monotone by construction (`hullMono`), so that a limit object exists for any level family, monotone or not, whose hull levels and supremum closure carry orthogonal projections.
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:251 | UNDERSTATES | A | generated MATCHES
+      STATED   ### THE TOWER'S ALL-LEVELS ARITHMETIC (b102, the eighth seam close's strikeable) The four index facts that row 65 decided at the banked truncation pairs, here PROVED FOR ALL `p` and `n` (`0 < p`; the banked cells are prime powers, so the hypothesis is free there). The chain is the one the b101 registration wrote longhand; what changes is the grade. ### WHY THIS LIVES AT THE CLASSICAL PROFILE AND NOT AT THE CORE ZERO-AXIOM BAR (the strikeable's honest landing, verified by print this act): the statements are PROVED, but they cannot reach the zero-axiom bar, and the reason is a property of Lean's own library rather than of the mathematics. Every route to them runs through core `Nat` lemmas that are themselves propext-carrying — `Nat.mul_assoc`, `Nat.pow_add`, `Nat.dvd_of_mod_eq_zero`, `Nat.mul_mod_mul_left`, `Nat.add_mul_mod_self_left`, `Nat.mul_div_cancel_left`, `Nat.mul_mod_right`, `Nat.mul_left_comm` (each printed this act). `rw` itself is clean; the taint is inherited transitively, not introduced by the proofs. Reaching the bar would mean reproving a chunk of core `Nat` arithmetic, which is not this act's business. So: the banked-pairs terminals stay in Core at the zero-axiom bar 
+      LICENSED The block says the universal statements live at {propext, Classical.choice, Quot.sound} (verified by print); the banked prints and the terminal table read inner_sum_general, quotient_general, ball_pullback_general and transform_shift_general as depending on [propext] alone.
+      CITED    SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:270; SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:407; relay@a66c50a1:data/b221_interfaces_print.txt:24; relay@a66c50a1:data/b221_interfaces_print.txt:27; relay@a66c50a1:data/terminal_table.md:1480; relay@a66c50a1:data/terminal_table.md:1489; relay@a66c50a1:data/terminal_table.md:1494; relay@a66c50a1:data/terminal_table.md:1497
+      ACTION   RE-CUT: So: the banked-pairs terminals stay in Core at the zero-axiom bar (row 65, unchanged), and the universal statements live here at the printed profile [propext] (inner_sum_general, quotient_general, ball_pullback_general, transform_shift_general), short of the zero-axiom bar by propext alone.
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:363 | OVERREACHES | - | generated MATCHES
+      STATED   THE CONCRETE DEBT, in one place: the p-adic Fourier data over `L²(ℚ_p)` — the transform as a linear isometry equivalence with `F² = parity`, the Sonin closure as a closed subspace, the escape property. OWED TO FILES B–C (the standard character; Haar; Plancherel-by-the-tower; Schwartz–Bruhat).
+      LICENSED PadicFourierData has only a Hilbert space, isometric equivalences F and parity, F² = parity and parity² = 1, indexed by a prime p; it has no Sonin-closure field, no escape property, and nothing ties H to L²(ℚ_p), so the docstring's three listed components are not carried.
+      CITED    SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:367; SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:376
+      ACTION   RE-CUT: THE CONCRETE DEBT, in one place: a Hilbert space with a linear isometry equivalence F and a parity, F² = parity, parity² = 1, indexed by a prime p; its realization as the p-adic Fourier data over L²(ℚ_p), the Sonin closure as a closed subspace and the escape property are not fields here and are OWED TO FILES B–C (the standard character; Haar; Plancherel-by-the-tower; Schwartz–Bruhat).
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:103 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AbsorptionFunctionalShadow.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AdelicPlaneShadow.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:103 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:109 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:114 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:120 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:138 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:147 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:154 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationCircularityShadow.lean:176 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:100 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AggregationSourceShadow.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/AlternationShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:91 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:132 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ApportionmentShadow.lean:149 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:91 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:109 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:115 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ArchimedeanTwinShadow.lean:122 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:116 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallAbsorptionShadow.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:22 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BallPairShadow.lean:33 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:100 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:114 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:118 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:126 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:138 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:142 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:144 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:155 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:164 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:169 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:174 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:178 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:182 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:185 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:190 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:196 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:202 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:215 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BoundaryValueShadow.lean:223 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BridgeShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BridgeShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BridgeShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BridgeShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/BridgeShadow.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:91 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CeilingSweepShadow.lean:104 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:114 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:121 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:130 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:138 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:146 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:156 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:173 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:182 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:193 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:207 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:236 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:265 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:286 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:309 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:323 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:353 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:387 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:425 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:445 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:493 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CharacterSumShadow.lean:498 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CoherenceShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CoherenceShadow.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CoherenceShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CoherenceShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CoherenceShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ConstructorShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ConstructorShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ConstructorShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ConstructorShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ConstructorShadow.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CouplingArrival.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CouplingArrival.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CouplingArrival.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CouplingArrival.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CouplingArrival.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CouplingArrival.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CriticalPassShadow.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:1 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/CrossPlaceShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DFTChart.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DFTChart.lean:20 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DFTChart.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DFTChart.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DFTChart.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeficitShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeficitShadow.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeficitShadow.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeficitShadow.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:63 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DependenceShadow.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeterminationShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeterminationShadow.lean:23 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeterminationShadow.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeterminationShadow.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DeterminationShadow.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:116 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:120 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:123 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:126 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:129 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:135 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:141 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:152 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:159 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:165 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:171 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:177 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:201 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:204 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:207 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:213 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DiagonalSection.lean:223 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/DoubleEntryShadow.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:1 | UNDERSTATES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:170 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:176 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E1UnitPurityDraft.lean:180 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:1 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:37 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/E2EvenMonotoneShadow.lean:109 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ExtensionShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ExtensionShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ExtensionShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ExtensionShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ExtensionShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FamilySignShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:122 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:126 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:130 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:136 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:144 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:147 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:150 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:153 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:157 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:161 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:166 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:172 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:174 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:180 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:186 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:192 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:197 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:213 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:242 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:244 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:289 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:320 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:332 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:348 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:357 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:359 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:372 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:385 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:404 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:411 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:432 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:438 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:447 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:453 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:460 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:463 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:472 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:484 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:493 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FiniteSideSeal.lean:496 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FlatnessShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FlatnessShadow.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FlatnessShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FlatnessShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:100 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:110 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:117 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:120 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:128 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:134 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:137 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:140 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:145 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:151 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:165 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:168 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:175 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:180 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FoldedMirrorShadow.lean:184 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FourthVisitShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FourthVisitShadow.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FourthVisitShadow.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FourthVisitShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FourthVisitShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FrameBoundaryShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FrameBoundaryShadow.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FrameBoundaryShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FrameBoundaryShadow.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FrameBoundaryShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/FrameBoundaryShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GeneratorSupportShadow.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:3 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GridTrace.lean:167 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/GroupRingGlue.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:21 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/H1Mechanism.lean:30 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:109 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/IndexRangeShadow.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:18 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InequalityShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/InvolutionScalarShadow.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionLimitShadow.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:1 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:120 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:126 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:130 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/JunctionSignShadow.lean:134 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:110 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:103 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:151 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:157 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:178 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:188 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:195 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:198 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:216 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:222 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:228 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:231 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LadderOrientationShadow.lean:235 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:32 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:49 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:57 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LefschetzShadow.lean:68 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/LinkShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:31 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:66 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:85 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:91 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/M4EnvelopeShadow.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:115 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MechanismShadow.lean:136 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/MetaplecticRootShadow.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NeitherPolesNorZeros.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NeitherPolesNorZeros.lean:28 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NeitherPolesNorZeros.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NeitherPolesNorZeros.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NeitherPolesNorZeros.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NeitherPolesNorZeros.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NormalizationForced.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NormalizationForced.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NormalizationForced.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NormalizationForced.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NormalizationForced.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/NormalizationForced.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPInstances.lean:1 | MATCHES | OVERREACHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPInstances.lean:18 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPInstances.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPInstances.lean:28 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPairingShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPairingShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPairingShadow.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPairingShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPairingShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OddPairingShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:54 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrbitDictionary.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrientationShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrientationShadow.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrientationShadow.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrientationShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/OrientationShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PairingShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PairingShadow.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PairingShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PairingShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PhasePlaneShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:123 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductLawShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductLawShadow.lean:26 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductLawShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductLawShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ProductMinusSumShadow.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientLemmaShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientLemmaShadow.lean:23 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientLemmaShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientLemmaShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientLemmaShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientWeilShape.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientWeilShape.lean:28 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientWeilShape.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientWeilShape.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/QuotientWeilShape.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:30 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RadializationShadow.lean:123 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:95 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:121 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:126 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:131 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RationalEnclosureShadow.lean:137 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ReDerivationShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RefinementArityShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RefinementArityShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RefinementArityShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RefinementArityShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RefinementArityShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RefinementArityShadow.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/RigidityShadow.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:109 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:127 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:132 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScalingTraceShadow.lean:137 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScopeConditionShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScopeConditionShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScopeConditionShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScopeConditionShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScopeConditionShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ScopeConditionShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:44 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:127 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorArithmetic.lean:134 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:87 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorNonvanishingShadow.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorOccupancyShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorOccupancyShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorOccupancyShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorOccupancyShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SectorOccupancyShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:93 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:103 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SeparationShadow.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ShareDependenceShadow.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:110 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:115 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:143 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SignTransferShadow.lean:148 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SilenceOnlyIfShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SilenceOnlyIfShadow.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SilenceOnlyIfShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SilenceOnlyIfShadow.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SilenceOnlyIfShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SilenceOnlyIfShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:1 | MATCHES | UNDERSTATES/HAND-NEEDED | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:123 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:128 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:133 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:135 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:142 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:149 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:151 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:159 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:165 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:167 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:173 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:177 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:182 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:186 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:188 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:194 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:198 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:203 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:205 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:219 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:223 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:227 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearCollapseShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearGeneral.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearGeneral.lean:922 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/SmearGeneral.lean:973 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StaircaseAddresses.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:71 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/StatedChoiceShadow.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaBridgeShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaBridgeShadow.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaBridgeShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaBridgeShadow.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:24 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:41 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaContinuationShadow.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:84 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TopLevelSilenceShadow.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerInstance.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:29 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:49 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerLimitShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TowerMonotoneShadow.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:46 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:51 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:85 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceFactorizationShadow.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:23 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:32 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TraceSilence.lean:46 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:22 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:28 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedRootShadow.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedShadow.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedShadow.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedShadow.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/TwistedShadow.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:82 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:99 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:109 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:114 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:141 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:152 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:156 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:160 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:164 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValuationDivisibilityShadow.lean:168 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValueShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValueShadow.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValueShadow.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/ValueShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WarrantSumShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WarrantSumShadow.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WarrantSumShadow.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WarrantSumShadow.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WarrantSumShadow.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WindowShadow.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WindowShadow.lean:25 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WindowShadow.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Core/WindowShadow.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:45 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:156 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:199 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:210 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:21 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:41 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:22 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:40 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:152 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:174 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:187 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:198 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:212 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:226 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:251 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:274 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:283 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:290 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:304 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:320 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:346 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:363 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:382 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicFourier.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicFourier.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicFourier.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicFourier.lean:42 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicFourier.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:23 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:26 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:48 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:127 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:138 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:164 | MATCHES | MATCHES | TEXTUAL
+  SIDE-global-section@17ce9ff:Interfaces/PadicStandardAddChar.lean:217 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-global-section: ROWS 1058 ; MATCHES 1007 ; UNDERSTATES 8 ; OVERREACHES 43 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 50 OF 1053 ; CLASSES S 0 A 1 H 18.**

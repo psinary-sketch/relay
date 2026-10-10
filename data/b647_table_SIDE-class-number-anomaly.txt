@@ -1,0 +1,57 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-class-number-anomaly`S DOCSTRINGS AT ITS MAIN 2203b88, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 28 rows it read MATCHES, 3 read otherwise whole (10.7%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 0 ; other grounds 3
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-class-number-anomaly): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:102 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 3.3. Exactly one Trivium field is Hamming weight 3: ℚ(√-6).
+      LICENSED unique_diagonal states only hammingWeight (-6) = 3; "exactly one" needs three_weight_1 and three_weight_2 (or triple_identification_diagonal), which this theorem does not state.
+      CITED    SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:95; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:99; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:103; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:204
+      ACTION   RE-CUT: Theorem 3.3. ℚ(√-6) has Hamming weight 3 (with Theorems 3.1–3.2, the only Trivium field of weight 3).
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:105 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 3.4. Hamming decomposition (3, 3, 1) covers all seven discriminants.
+      LICENSED The docstring "Theorem 3.4" sits on def w1Count := 3; hamming_decomposition proves only that the hand-set literals w1Count + w2Count + w3Count = 3 + 3 + 1 = 7, not counts taken from hammingWeight over triviumDiscs.
+      CITED    SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:106; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:108; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:110
+      ACTION   RE-CUT: Theorem 3.4. The hand-set counts w1Count = 3, w2Count = 3, w3Count = 1 sum to 7 (hamming_decomposition); that they are the weight counts of the seven discriminants is Theorems 3.1–3.3.
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:147 | OVERREACHES | - | generated MATCHES
+      STATED   **Theorem 5.1 (Three-Way Distinction).** The Trivium field ℚ(√-6) is distinguished from the other six fields by three a priori independent properties simultaneously: (a) Hamming weight 3 in (ℤ/2)³ — the diagonal vertex (b) Class number 2 — the unique non-principal field (c) Discriminant magnitude 24 — the level-3 floor of the {2,3}-tower These are three projections of the same underlying fact: 6 = 2·3 carries full {2, 3}-ramification, producing nonzero coordinates in both prime directions and the −1 sign together.
+      LICENSED three_way_distinction states only the three markers at d = −6, with classNumber (-6) > 1 (not = 2); the distinction from the other six is other_six_lack_all_three and triple_identification_diagonal, and marker (c) alone does not separate ℚ(√-6) from ℚ(√6) (disc_24_pair).
+      CITED    SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:136; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:161; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:167; SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:204
+      ACTION   RE-CUT: Theorem 5.1 (Three-Way Distinction). ℚ(√-6) carries all three markers at once — class number > 1, Hamming weight 3, discriminant magnitude 24 (encoded data); that no other Trivium field carries them all is other_six_lack_all_three and triple_identification_diagonal.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:1 | MATCHES | MATCHES/HAND-NEEDED | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:38 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:70 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:98 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:102 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:105 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:114 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:135 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:139 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:145 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:147 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:166 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:175 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:209 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:211 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:223 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:225 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:228 | MATCHES | MATCHES | TEXTUAL
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:232 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-class-number-anomaly: ROWS 29 ; MATCHES 26 ; UNDERSTATES 0 ; OVERREACHES 3 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 3 OF 28 ; CLASSES S 0 A 0 H 0.**

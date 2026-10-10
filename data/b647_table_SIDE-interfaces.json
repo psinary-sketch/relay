@@ -1,0 +1,173 @@
+{
+ "at": "2026-10-10T22:23:14Z",
+ "kernel": "SIDE-interfaces",
+ "rev": "cbdcd5f",
+ "counts": {
+  "MATCHES": 5,
+  "UNDERSTATES": 0,
+  "OVERREACHES": 1,
+  "UNLICENSED": 0
+ },
+ "missed": 1,
+ "generated_matches": 6,
+ "classes": {
+  "H": 1
+ },
+ "rows": [
+  {
+   "id": "SIDE-interfaces@cbdcd5f:Interfaces.lean:1",
+   "source": "Interfaces.lean:1",
+   "stated": "Interfaces.lean\n\n  SIDE-interfaces v0.1 root entry.\n\n  Lifts INTERFACETS Part II to the kernel level:\n\n  * Real-valued κ (transmission coefficient).\n  * ConservationProfile P(I): per-parameter κ vector over a Formation.\n  * Connection Requires Structure: every non-trivial interface\n    in a determined system has a structural witness.\n  * Parametric Mechanism Theorem: no mechanism for θ → κ(θ) = 0.\n\n  Re-exports `Formation` from `Kernel.InFormation` so downstream\n  kernels (SIDE-trivium, SIDE-effects, SIDE-cosmo) can import\n  Formation through SIDE-interfaces and obtain the κ machinery\n  on the same Formation in one import.",
+   "licensed": "connection_requires_structure takes an explicit bimodality hypothesis and is about a ConservationProfile over any finite parameter type, with no Formation and no determinedness; ConservationProfile is not over a Formation; so \"every non-trivial interface in a determined system has a structural witness\" and \"kappa vector over a Formation\" claim more than the file's declarations.",
+   "verdict": "OVERREACHES",
+   "action": "RE-CUT: * ConservationProfile P: a per-parameter kappa vector over a finite parameter type. * Connection Requires Structure: under the INTERFACETS bimodality hypothesis (every kappa < 0.45 or >= 0.75), a profile that is not all dark has a structural witness (kappa >= 0.75). * Parametric Mechanism Theorem: if no A-side change moves the observable, kappa = 0.",
+   "by": "HAND",
+   "cited": [
+    "SIDE-interfaces@cbdcd5f:Interfaces.lean:9",
+    "SIDE-interfaces@cbdcd5f:Interfaces/ConservationProfile.lean:10",
+    "SIDE-interfaces@cbdcd5f:Interfaces/ConnectionRequiresStructure.lean:22",
+    "SIDE-interfaces@cbdcd5f:Interfaces/ConnectionRequiresStructure.lean:26",
+    "SIDE-interfaces@cbdcd5f:Interfaces/ConnectionRequiresStructure.lean:41"
+   ],
+   "kernel": "SIDE-interfaces",
+   "rev": "cbdcd5f",
+   "file": "Interfaces.lean",
+   "line": 1,
+   "kind": "module",
+   "decl": null,
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "H",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-interfaces@cbdcd5f:Interfaces/ConservationProfile.lean:85",
+   "source": "Interfaces/ConservationProfile.lean:85",
+   "stated": "**Interface Split** (structural form).\n\nKernel-vocabulary statement of Proposition 1 from\n`INTERFACE_CONSERVATION_HODGE_AND_INTERFACETS` §III.5 and `INTERFACETS_REFINED` §4:\nfor any conservation profile `P` that is not fully structural (some parameter\nhas `kvec < 0.75`), the structural rank is strictly less than the total\nparameter count.\n\n**Translation note.** The source statement reads: *\"For any non-trivial\ninterface f: A → B with d observable parameters, at least one parameter is\nnon-conservative. Equivalently, rank(I) < d.\"* The translation:\n\n- Source hypothesis \"f non-injective\" → kernel hypothesis `¬ IsAllStructural P`,\n  via the bimodality observation (real-world non-injective interfaces produce\n  profiles where some parameter has κ ≈ 0; see INTERFACETS_REFINED §3).\n- Source conclusion \"rank(I) < d\" → kernel conclusion `structuralRank P < dim P`,\n  preserved verbatim.\n\nThe full source-fidelity form with explicit `f : A → B` and parameter family\n`θ : params → A → ℝ` is reserved for a future `SIDE-interface-split` kernel\n(LV-L-1b in the verifications TODO).",
+   "licensed": "interface_split is not IsAllStructural P -> structuralRank P < dim P, and the docstring states the translation of the source hypothesis as a modelling step.",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-interfaces@cbdcd5f:Interfaces/ConservationProfile.lean:108",
+    "SIDE-interfaces@cbdcd5f:Interfaces/ConservationProfile.lean:111"
+   ],
+   "kernel": "SIDE-interfaces",
+   "rev": "cbdcd5f",
+   "file": "Interfaces/ConservationProfile.lean",
+   "line": 85,
+   "kind": "decl",
+   "decl": "interface_split",
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:1",
+   "source": "Interfaces/InterfaceSplit.lean:1",
+   "stated": "InterfaceSplit.lean  ·  LV-L-1b  ·  source-fidelity Interface Split\n  ====================================================================\n\n  Closes the open item flagged in\n    SIDE-interfaces/Interfaces/ConservationProfile.lean (interface_split docstring):\n    \"The full source-fidelity form with explicit `f : A → B` and parameter family\n     ... is reserved for a future `SIDE-interface-split` kernel (LV-L-1b).\"\n\n  Source statement (INTERFACE_CONSERVATION_HODGE_AND_INTERFACETS §III.5,\n  INTERFACETS_REFINED §4, Proposition 1):\n\n      \"For any non-trivial interface f : A → B with d observable parameters,\n       at least one parameter is non-conservative.  Equivalently, rank(I) < d.\"\n\n  This file gives the explicit-map form.  It does NOT re-derive the rank\n  arithmetic — that is `Interfaces.ConservationProfile.interface_split`, already\n  proved (0 sorry) in the SIDE-interfaces kernel.  It carries the explicit\n  interface map `f : A → B` and discharges the source statement from it.\n\n  HONESTY NOTE — the one modeling step, made explicit (not smuggled).\n  The link \"f non-injective ⟹ some observable parameter collapses to a\n  non-structural conservation value (κ < 0.75)\" is the bimodality bridge of\n  INTERFACETS_REFINED §3 — an empirical/structural modeling claim, NOT a pure\n  theorem.  It is therefore carried as an EXPLICIT field `collapse` of the\n  `Interface` structure, visible as data, exactly as the source treats it.\n  Nothing here proves the bridge; it formalizes the logical shape faithfully\n  with the bridge in plain sight.\n\n  STATUS: draft for compile-verification on the D: toolchain (vanilla Lean 4 +\n  Mathlib, matching SIDE-interfaces).  Not compiled in the authoring environment.\n  Mathematical content per the PLACE TO STAND programme; to be reviewed by the author.\n\n  Vendoring/federation: imports the SIDE-interfaces `Interfaces` library directly\n  (this file is intended to live in, or beside, that kernel).",
+   "licensed": "The file gives the explicit-map form with the bimodality bridge as the field collapse, which the header names, and discharges rank < d through interface_split; there is no sorry in the kernel (census), and the file is in the Interfaces lib through the root import.",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:21",
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:54",
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:70",
+    "SIDE-interfaces@cbdcd5f:Interfaces.lean:27"
+   ],
+   "kernel": "SIDE-interfaces",
+   "rev": "cbdcd5f",
+   "file": "Interfaces/InterfaceSplit.lean",
+   "line": 1,
+   "kind": "module",
+   "decl": null,
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:44",
+   "source": "Interfaces/InterfaceSplit.lean:44",
+   "stated": "An **interface** in source-fidelity form: an explicit map `f : A → B`,\n    the conservation profile of its `d = #params` observable parameters, and the\n    bimodality bridge as explicit data.\n\n    `collapse` is the INTERFACETS_REFINED §3 modeling link, stated — not hidden:\n    a non-injective interface drives at least one observable parameter below the\n    structural threshold κ = 0.75.",
+   "licensed": "A structure with map, profile and collapse : not injective map -> exists x, kvec x < 75/100, which the docstring names as stated data.",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:51",
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:54"
+   ],
+   "kernel": "SIDE-interfaces",
+   "rev": "cbdcd5f",
+   "file": "Interfaces/InterfaceSplit.lean",
+   "line": 44,
+   "kind": "decl",
+   "decl": "Interface",
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:58",
+   "source": "Interfaces/InterfaceSplit.lean:58",
+   "stated": "**Source statement, first half.**  A non-trivial (non-injective) interface\n    has at least one non-conservative observable parameter.  This is the\n    `collapse` bridge, surfaced as a named theorem.",
+   "licensed": "The theorem is I.collapse h_noninj, which the docstring says (\"the collapse bridge, surfaced as a named theorem\").",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:61",
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:64"
+   ],
+   "kernel": "SIDE-interfaces",
+   "rev": "cbdcd5f",
+   "file": "Interfaces/InterfaceSplit.lean",
+   "line": 58,
+   "kind": "decl",
+   "decl": "interface_has_nonconservative_parameter",
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  },
+  {
+   "id": "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:66",
+   "source": "Interfaces/InterfaceSplit.lean:66",
+   "stated": "**Source statement, second half — `rank(I) < d`.**\n    For any non-injective interface, the structural rank is strictly below the\n    observable-parameter count `dim = #params`.  Discharged by composing the\n    bimodality bridge with the kernel's `interface_split`.",
+   "licensed": "structuralRank I.profile < dim I.profile for non-injective I.map, by composing collapse with interface_split.",
+   "verdict": "MATCHES",
+   "action": "none",
+   "by": "HAND",
+   "cited": [
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:70",
+    "SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:73"
+   ],
+   "kernel": "SIDE-interfaces",
+   "rev": "cbdcd5f",
+   "file": "Interfaces/InterfaceSplit.lean",
+   "line": 66,
+   "kind": "decl",
+   "decl": "interface_split_faithful",
+   "textual": true,
+   "generated_verdict": "MATCHES",
+   "generated_findings": [],
+   "cls": "-",
+   "fixed": false,
+   "why": ""
+  }
+ ]
+}

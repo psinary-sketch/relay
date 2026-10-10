@@ -1,0 +1,138 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-carrier-spec`S DOCSTRINGS AT ITS MAIN b3916cc, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 80 rows it read MATCHES, 9 read otherwise whole (11.2%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 7
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-carrier-spec): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:5 | OVERREACHES | H | generated MATCHES
+      STATED   # `Δ4` — the arithmetic-content field (`v0.3.0`) **THE ADDITION IS FORCED BY A CANDIDATE, which is the only condition under which the stopping rule permits a refinement.** `(R4)` asks that the action be by *endomorphisms*; the second grading showed both canonical objects satisfy it **vacuously** — their power maps are additive endomorphisms carrying no arithmetic whatever. **`Δ4` is the field that tells the two apart.** **THE CRITERION IS THE FROBENIUS LIFT.** A prime-indexed family `ψ_p` with `ψ_p ψ_q = ψ_{pq}`, each a ring endomorphism, satisfying > `ψ_p(x) ≡ x^p (mod p)` **at the structure's mod-`p` reduction.** This is the Λ-ring / Witt condition, and it is what "arithmetic content" means here: the operators are not merely maps, they *reduce to Frobenius*. **ANTI-ENCODING DISCIPLINE, CHECKED AT THE POINT OF WRITING.** The field demands the congruence's **expressibility and satisfaction** — a divisibility statement in the structure's own ring — and **nothing about magnitude, sign, order, or positivity.** There is no ordered target anywhere in this file. `SaltCheck.witness_arith_and_still_degenerate` compiles the consequence: the witness satisfies `Δ4` and remains completely dege
+      LICENSED The header says the equivariant field "ties the arithmetic operators to the spec's own action and closes the bolt-on hole". No declaration states that, and the structure does not force it: link : R →+ C need not be injective. With link = 0, equivariant holds by map_zero, so any C takes ℤ with identity psi (int_frobenius) as Δ4 data. The rest of the header (Frobenius criterion, no order, witness_arith_and_still_degenerate, 0 sorry by git grep) matches.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:29; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:31; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:64; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:67; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:72
+      ACTION   RE-CUT: Adding a ring parameter to `CarrierSpec` would re-sign every `v0.2.0` terminal; instead the `equivariant` field below ties the arithmetic operators to the spec's own action along `link` — a tie that binds only as far as `link` is non-trivial, since `link` is not required to be injective and `link = 0` satisfies it.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:41 | OVERREACHES | - | generated MATCHES
+      STATED   **`Δ4` — ARITHMETIC CONTENT.** `R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` tie those operators to the specification's own action, so a candidate **cannot satisfy this field by bolting an unrelated ring onto itself** — the hole the `finPart` defect left open at `components_faithful` is closed here at the point of writing rather than found by a later grading.
+      LICENSED The docstring says a candidate "cannot satisfy this field by bolting an unrelated ring onto itself" and that the hole is "closed here". The structure forces no injectivity or non-triviality of link: link = 0 satisfies equivariant for any act, and ℤ with identity psi satisfies psi_one, psi_mul and frobenius. So an unrelated ring satisfies ArithContent for any candidate.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:50; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:64; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:67; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:72
+      ACTION   RE-CUT: `R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` require the specification's action to intertwine with `ψ` along `link` — which excludes a bolted-on ring only when `link` is required to be non-trivial, and this structure does not require it (`link = 0` satisfies `equivariant`).
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:63 | OVERREACHES | - | generated MATCHES
+      STATED   the arithmetic structure sits inside the class object
+      LICENSED link : R →+ C is any additive map and is not required to be injective, so "sits inside the class object" (an embedding) is more than the field states. The zero map qualifies.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:64
+      ACTION   RE-CUT: an additive map from the arithmetic structure into the class object (not required to be injective)
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:55 | OVERREACHES | - | generated MATCHES
+      STATED   **A candidate satisfying `arch_present` can still be archimedean-free in substance.** The witness is any candidate whose archimedean map factors as above: `arch_present` holds, and yet by `archPart_separates_nothing_new` the archimedean place contributes no information the finite places did not already carry. DERIVES.
+      LICENSED The theorem takes spec : CarrierSpec and a factoring hfactor. At this pin CarrierSpec has the field arch_independent, which hfactor contradicts (factored_fails_arch_independent), so the hypotheses cannot be satisfied together and the theorem is VACUOUS. No CarrierSpec candidate is the "witness" the docstring describes.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:60; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:83; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:99
+      ACTION   RE-CUT: **At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate whose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing. Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous for every current candidate.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:68 | OVERREACHES | - | generated MATCHES
+      STATED   **NON-VACUITY.** The specification's fields are jointly satisfiable, so no theorem stated against `CarrierSpec` is vacuously true.
+      LICENSED The theorem is Nonempty (CarrierSpec (ℤ × ℝ) ℤ ℕ ℤ). The sentence "no theorem stated against CarrierSpec is vacuously true" does not follow, and the kernel's own Grading.arch_present_is_not_independence is vacuous at this pin: it takes a CarrierSpec plus a factoring hypothesis that contradicts arch_independent.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:70; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:60; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:99
+      ACTION   RE-CUT: **NON-VACUITY.**  The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec` there is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts `arch_independent`) still can be.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:122 | OVERREACHES | - | generated MATCHES
+      STATED   **THE ANTI-ENCODING CHECK, RE-RUN AGAINST THE `v0.3.0` SHARPENING.** `Δ4` had to be checked for the `W-2` trap at the moment it was written: it demands a *congruence*, which is an equality-shaped statement in a ring, and mentions **no order, no sign and no positivity anywhere.** So it cannot imply definiteness — **and the witness proves it, by satisfying the sharpened specification while separating nothing at all.** > **Three sharpenings now — `arch_independent` at `v0.2.0`, `arith_action` at `v0.3.0` — and the > same completely degenerate witness passes every one of them. The specification has become > strictly harder to satisfy and has not moved one step toward the conclusion.**
+      LICENSED The theorem is compiled as described. But the quoted record says "Three sharpenings now" and names only two (arch_independent at v0.2.0 and Δ4 at v0.3.0). Its name for the second, `arith_action`, is not a declaration at this pin; the field is ArithContent.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:130; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:134; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:50; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:99
+      ACTION   RE-CUT: > **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely degenerate witness passes both.  The specification has become strictly harder to satisfy and has not moved one step toward the conclusion.**
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:150 | OVERREACHES | - | generated MATCHES
+      STATED   **THE ANTI-ENCODING CHECK, RE-RUN AGAINST THE `v0.4.0` LEVEL DISCIPLINE.** The level discipline demands that a descent be **declared**. It says nothing about the descent being **good** — no order, no sign, no non-degeneracy, no positivity. **The witness declares one and remains completely degenerate**, so the fourth sharpening, like the three before it, made the specification harder to satisfy without moving it toward the conclusion. > **Four sharpenings now. The same degenerate witness passes every one.**
+      LICENSED The theorem is compiled as described. But "the fourth sharpening, like the three before it" and "Four sharpenings now" count one more than the kernel's history: arch_independent (v0.2.0), Δ4 (v0.3.0) and the level discipline (v0.4.0) make three.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:155; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:158; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:160; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:130
+      ACTION   RE-CUT: The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the specification harder to satisfy without moving it toward the conclusion.  > **Three sharpenings now.  The same degenerate witness passes every one.**
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:4 | OVERREACHES | H | generated MATCHES
+      STATED   # `CarrierSpec` — the certified specification of a candidate carrier **GRADE OF THIS FILE: MODEL, NOT DERIVES.** Every declaration below *encodes* a requirement that was accumulated by the `W-ORD-SURFACE-SURVEY` from external sources at cite. Nothing here derives those requirements, and nothing here constructs an object satisfying them. **WHAT THIS FILE IS FOR.** It **grades candidates**. A proposed carrier either supplies these fields or it does not, and when it does not, the failure is located at a *named field* instead of in prose. The survey's roster failed at six different places; this structure is the attempt to make "where it failed" a machine-checkable question. **WHAT THIS FILE IS NOT.** It is not a construction, not a route, and not a step toward one. It attempts nothing whatever on the clause. A candidate satisfying `CarrierSpec` in full is *not* thereby a solution to anything — see `SaltCheck.witness`, which satisfies every field and is completely degenerate. That witness is compiled precisely so this sentence cannot be mistaken for modesty. ## The five requirement fields, and their sources | field | requirement | source (external, at cite) | |:--|:--|:--| | `cancel` | 
+      LICENSED The header says "`Definite`, `Nondegenerate`, `SeesTheZeros` are defined as predicates on candidates". Spec.lean defines Definite and Nondegenerate, but SeesTheZeros is defined nowhere: it enters only as an opaque Prop parameter of ResolvesGenusTension, which the file's own docstring at :149 says. The rest (MODEL grade, no construction, the field table, 0 sorry by git grep) matches.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:34; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:137; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:147; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:157
+      ACTION   RE-CUT: `Definite` and `Nondegenerate` are defined as *predicates on candidates*, and `SeesTheZeros` enters only as an opaque `Prop` supplied to `ResolvesGenusTension` — none of the three is a requirement of the structure.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:55 | OVERREACHES | - | generated MATCHES
+      STATED   **(R1) THE DOOR PREDICATE — cancellativity.** MODEL of the external criterion: the symmetrization construction works exactly on *simplifiable* semigroups. This single field is what excludes the entire characteristic-one / tropical class (see `no_idempotent_candidate`).
+      LICENSED "This single field is what excludes the entire characteristic-one / tropical class (see no_idempotent_candidate)" overstates it. cancel alone only reduces an idempotent candidate to the zero object (trivial_of_idempotent_of_spec). The cited no_idempotent_candidate also needs arch_present ("Two fields collide"), and the zero monoid is idempotent and cancellative.
+      CITED    SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:58; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:57; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:66; SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:69
+      ACTION   RE-CUT: **(R1) THE DOOR PREDICATE — cancellativity.**  MODEL of the external criterion: the symmetrization construction works exactly on *simplifiable* semigroups.  This field collapses every characteristic-one / tropical candidate to the zero object (`trivial_of_idempotent_of_spec`), and with `(R3d)` excludes the class (`no_idempotent_candidate`).
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:5 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:41 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:52 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:54 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:63 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:69 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:81 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/AdelicFrame.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/AdelicFrame.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/AdelicFrame.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/AdelicFrame.lean:53 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/AdelicFrame.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:4 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:55 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:118 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:125 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:137 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:143 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:3 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:27 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:31 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:36 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:4 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:34 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:39 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:57 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:5 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:30 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:68 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:122 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:139 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:150 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:165 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:4 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:47 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:55 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:59 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:66 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:71 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:73 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:100 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:108 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:111 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:113 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:116 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:129 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:139 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:149 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:158 | MATCHES | MATCHES | TEXTUAL
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:160 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-carrier-spec: ROWS 80 ; MATCHES 71 ; UNDERSTATES 0 ; OVERREACHES 9 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 9 OF 80 ; CLASSES S 0 A 0 H 2.**

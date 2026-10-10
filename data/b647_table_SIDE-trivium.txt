@@ -1,0 +1,67 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-trivium`S DOCSTRINGS AT ITS MAIN 1aac3a9, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 29 rows it read MATCHES, 5 read otherwise whole (17.2%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 3
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-trivium): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   Trivium/Bijection.lean The Trivium Bijection: Seven Mechanism Classes ↔ Seven Quadratic Discriminants This module formalizes one of the deepest structural findings of the PLACE TO STAND research programme: the seven mechanism classes that govern off-line zero exclusion for ξ(s) correspond exactly to the seven nontrivial quadratic field discriminants in the (ℤ/2)³ structure over the discriminant set {−1, 2, 3}. The bijection: Class Discriminant Quadratic field C₁ Schwarz d = −1 ℚ(i) C₂ Euler d = 2 ℚ(√2) C₃ Funct. eqn d = −2 ℚ(√−2) C₄ Modular d = 3 ℚ(√3) C₅ Spectral d = −3 ℚ(√−3) C₆ Cauchy-Riem d = 6 ℚ(√6) C₇ Hadamard d = −6 ℚ(√−6) The seven discriminants are exactly the seven nontrivial elements of (ℤ/2)³ when the three coordinates are interpreted as exponents of {−1, 2, 3} in the squarefree part of d. This module proves: 1. MechanismClass and QuadraticDiscriminant are finite types of cardinality 7 each. 2. The pairing function `mechanismToDiscriminant` is a bijection (decidable check on a 7-element set). 3. The discriminants generate exactly the seven nontrivial elements of (ℤ/2)³ via the squarefree-part exponent encoding. 4. Each discriminant defines a quadratic field ℚ(√d), and t
+      LICENSED The head says the module proves the seven fields Q(sqrt d) pairwise non-isomorphic (item 4), but no declaration mentions a field; Section 5 (:212) and the Appendix (:274) reserve this for v0.2. It says the discriminants "generate exactly" the seven nontrivial elements of (Z/2)^3, which no declaration states: only injectivity and nonzeroness of a hand-written table are compiled. It also presents the element-level correspondence as exact, while the README at the commit calls that assignment a canonical-order convention and says only the count identity is compiled. Items 1 and 2 match.
+      CITED    SIDE-trivium@1aac3a9:Trivium/Bijection.lean:1; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:27; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:74; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:152; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:200; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:205; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:212; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:274; SIDE-trivium@1aac3a9:README.md:5
+      ACTION   RE-CUT: This module proves: 1. MechanismClass and QuadraticDiscriminant are finite types of cardinality 7 each; 2. the chosen pairing mechanismToDiscriminant (a canonical-order convention) is a bijection; 3. the exponent-triple table is injective and avoids (0,0,0); 4. the seven integer values are pairwise distinct. The fields ℚ(√d) and their pairwise non-isomorphism are not formalized (v0.2).
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:55 | OVERREACHES | - | generated MATCHES
+      STATED   ## Section 1. The Seven Mechanism Classes The kernel's canonical numbering, as established in SIDE-kernel's `Formation.lean`. We re-state the type here for the bijection module's local use; in a future version this will be imported from SIDE-kernel directly.
+      LICENSED The section cites the canonical numbering as established in SIDE-kernel's Formation.lean. That file has never defined MechanismClass (git log -S finds it only in Bridge/TheBridgeComplete.lean). The same seven-class order is carried at SIDE-kernel Bridge/TheBridgeComplete.lean:20, so the claim is licensed but the file is mis-cited.
+      CITED    SIDE-trivium@1aac3a9:Trivium/Bijection.lean:55; SIDE-kernel@0256e9e:Kernel/Formation.lean:1; SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:20
+      ACTION   RE-CUT: The kernel's canonical numbering, as established in SIDE-kernel's `Bridge/TheBridgeComplete.lean` (MechanismClass, C1–C7). We re-state the type here for the bijection module's local use; in a future version this will be imported from SIDE-kernel directly.
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:240 | OVERREACHES | - | generated MATCHES
+      STATED   Every Trivium discriminant is squarefree.
+      LICENSED all_discriminants_squarefree proves d.isSquarefree. That predicate (:229) is a match table that is True exactly on the seven listed values, so the theorem proves only that each value lies in its own list. It is not squarefreeness (Mathlib's Squarefree is never invoked): a shell's content stated as proved (rule 6), though the arithmetic fact itself is true.
+      CITED    SIDE-trivium@1aac3a9:Trivium/Bijection.lean:240; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:241; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:229
+      ACTION   RE-CUT: Every Trivium discriminant satisfies the lookup predicate isSquarefree (its value is one of the seven listed squarefree integers); squarefreeness in Mathlib's sense is not stated.
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:245 | OVERREACHES | H | generated MATCHES
+      STATED   ## Section 6. The Trivium Theorem The main result: the bijection `triviumBijection` connects the seven mechanism classes of ξ(s) to the seven nontrivial quadratic discriminants, and the discriminants are exactly the (ℤ/2)³ orbit over {−1, 2, 3}.
+      LICENSED The section gives as the main result that the discriminants are exactly the (Z/2)^3 orbit over {-1,2,3}. trivium_theorem (:256) states only Nonempty (MechanismClass ≃ QuadraticDiscriminant) and the two cardinalities 7, and no declaration states the "exactly" claim; Section 4 compiles only injectivity and nonzeroness of a hand-written table. The bijection connects the classes only as a chosen convention (README :5).
+      CITED    SIDE-trivium@1aac3a9:Trivium/Bijection.lean:245; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:256; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:200; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:205; SIDE-trivium@1aac3a9:README.md:5
+      ACTION   RE-CUT: The main result: the seven mechanism classes and the seven nontrivial quadratic discriminants have equal count 7 and are equivalent as finite types (via the chosen pairing `triviumBijection`); separately, the discriminants' exponent-triple table is injective into the nonzero elements of (ℤ/2)³.
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:252 | OVERREACHES | - | generated MATCHES
+      STATED   The Trivium structural theorem (v0.1 version). The mechanism classes of ξ(s) and the nontrivial quadratic discriminants over (ℤ/2)³ are in canonical bijection, and both have cardinality 7.
+      LICENSED The statement is Nonempty (MechanismClass ≃ QuadraticDiscriminant) together with both cardinalities equal to 7. Any two 7-element types satisfy it, so it carries no "canonical" bijection. The README at the commit retires element-level bijection language: the assignment is a convention and only the count identity is compiled.
+      CITED    SIDE-trivium@1aac3a9:Trivium/Bijection.lean:252; SIDE-trivium@1aac3a9:Trivium/Bijection.lean:256; SIDE-trivium@1aac3a9:README.md:3; SIDE-trivium@1aac3a9:README.md:5
+      ACTION   RE-CUT: The Trivium structural theorem (v0.1 version): the mechanism classes and the nontrivial quadratic discriminants are equinumerous, both of cardinality 7, so an equivalence between them exists; the element-level pairing is a convention.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:55 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:63 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:77 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:102 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:129 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:139 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:145 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:151 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:158 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:175 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:186 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:199 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:204 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:210 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:221 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:227 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:240 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:245 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:252 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:266 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/CardDerived.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/CardDerived.lean:26 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/CardDerived.lean:33 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/CardDerived.lean:43 | MATCHES | MATCHES | TEXTUAL
+  SIDE-trivium@1aac3a9:Trivium/CardDerived.lean:47 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-trivium: ROWS 29 ; MATCHES 24 ; UNDERSTATES 0 ; OVERREACHES 5 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 5 OF 29 ; CLASSES S 0 A 0 H 2.**

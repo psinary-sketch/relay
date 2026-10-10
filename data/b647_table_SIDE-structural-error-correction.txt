@@ -1,0 +1,146 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-structural-error-correction`S DOCSTRINGS AT ITS MAIN 6bf19ab, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement from the elaborated bank relay data/b643_elab_sec.txt where the declaration is in it, TEXTUAL elsewhere; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 66 rows it read MATCHES, 11 read otherwise whole (16.7%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 1 ; H a module header claiming more than its file compiles 2 ; other grounds 10
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-structural-error-correction): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:1 | OVERREACHES | H | generated MATCHES/HAND-NEEDED
+      STATED   SIDEStructuralErrorCorrection/Basic.lean ========================================= STRUCTURAL ERROR CORRECTION Kernel verification of the Formation Distance Theorem for the Trivium under the formation-block error model: d_eff = 2S - 1 where S is the number of non-dark formation stages. For Class A's Trivium with formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0): S = 3 non-dark stages (Primitive, Transformation, Output; the Interface stage is dark with n₄ = 0). Hence d_eff = 2·3 − 1 = 5. Contrast with the standard per-component error model from SIDE-steane-arithmetic where d = 3 (Steane [[7, 1, 3]]). The formation-block model gives stronger protection (d_eff = 5 > d = 3) on the same cubit substrate because the structured error model is more constrained. Vanilla Lean 4 — no Mathlib dependency. Toolchain: leanprover/lean4:v4.29.0-rc8. Source: STRUCTURAL_ERROR_CORRECTION_DRAFT.md (Phase 2 paper draft). Author: J. York Seale (NaturalScience, ORCID 0009-0008-7993-0310) Programme: A PLACE TO STAND, Phase 2. May 2026. Companion: SIDE-steane-arithmetic (standard d = 3 case, same cubit) SIDE-spinor-calibration (edge-stratum calibration, same cubit) SIDE-cubit-axis (federation cubit coherence)
+      LICENSED The header calls the file a kernel verification of the Formation Distance Theorem under the formation-block error model and says the formation-block model gives stronger protection because the error model is more constrained, but the file has no error model, code or distance: d_eff is defined as 2*S - 1 (:97) and d_standard as 3 (:108), and every theorem is a decide over Nat numerals.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:1; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:97; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:103; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:108; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:111
+      ACTION   RE-CUT: This file defines the Class A formation tuple (2, 3, 2, 0), the non-dark stage count S = 3, and the number d_eff := 2S - 1 (= 5), and checks by evaluation that it exceeds the defined Steane value d_standard := 3; the Formation Distance Theorem and the formation-block error model are the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT), not compiled here.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:83 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 2.3. The three non-dark stages cover all 7 mechanism classes.
+      LICENSED The theorem states only the Nat identity primitive_size + transformation_size + output_size = formation_total (2+3+2 = 2+3+2+0); no mechanism class is defined in the file and formation_total is labelled elsewhere as the Trivium count / Fano points, so "cover all 7 mechanism classes" is not what the statement carries.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:84; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:53; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:56
+      ACTION   RE-CUT: Theorem 2.3. The three non-dark stage sizes sum to the formation total (2 + 3 + 2 = 7, the interface size being 0).
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:87 | OVERREACHES | H | generated MATCHES
+      STATED   ## §3. The Formation Distance Theorem **Formation Distance Theorem (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5).** Under the formation-block error model, the effective distance satisfies d_eff ≥ 2S − 1, with equality for rank-1 codespace (k = 1). This kernel verifies the equality at the structural-formula level.
+      LICENSED The header attributes the Formation Distance Theorem (d_eff >= 2S - 1 under the error model) to the draft but says the kernel verifies the equality; the kernel holds the equality only because d_eff is defined as 2*S - 1 (:97), so d_eff_formula (:103) restates a definition and verifies nothing about an effective distance.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:87; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:97; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:103
+      ACTION   RE-CUT: The Formation Distance Theorem (d_eff >= 2S - 1 under the formation-block error model, with equality for rank-1 codespace) is the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5); this kernel defines d_eff := 2S - 1 and evaluates it (= 5) and does not verify the theorem.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:116 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 4.3. Maximum correctable error weight under formation-block model.
+      LICENSED The docstring calls a definition "Theorem 4.3": max_correctable_weight := (d_eff - 1) / 2 is a def, and its value 2 is the undocumented theorem max_correctable_two at :119.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:117; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:119
+      ACTION   RE-CUT: Maximum correctable error weight under the formation-block model, defined as (d_eff - 1) / 2; its value 2 is max_correctable_two.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:136 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 5.1. Stage complementarity for S = 3: weight 2 errors are K-L equivalent to weight 1 errors.
+      LICENSED The theorem states only complement_weight 2 = 1 (3 - 2 = 1); Knill-Laflamme equivalence of weight-2 and weight-1 errors is the draft's claim (scoped away at :130) and no error, code or K-L condition is in the kernel.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:138; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:130
+      ACTION   RE-CUT: Theorem 5.1. For S = 3 the complementary index of weight 2 is weight 1 (the K-L equivalence this index stands for is the draft's, not compiled).
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:140 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 5.2. Weight 1 errors are K-L equivalent to weight 2 errors (symmetric).
+      LICENSED The theorem states only complement_weight 1 = 2; the Knill-Laflamme equivalence it names is not in the kernel.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:141; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:130
+      ACTION   RE-CUT: Theorem 5.2. For S = 3 the complementary index of weight 1 is weight 2 (symmetric); the K-L equivalence is the draft's, not compiled.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:150 | OVERREACHES | - | generated MATCHES
+      STATED   ## §6. Tightness for Rank-1 Codespace **Tightness Theorem.** d_eff = 2S − 1 exactly for formation codes with rank-1 codespace (k = 1) and S ≤ 3 non-dark stages. The rank-1 condition holds for the Trivium because the codespace is span{v̂} with v̂ = v/√12, a single vector. The Spectral Volume λ = 12 is the unique non-zero eigenvalue of M = v†v.
+      LICENSED The header states a Tightness Theorem for formation codes and that the Trivium codespace is span{v/sqrt12} with lambda = 12 the unique non-zero eigenvalue of v†v, unattributed; the file compiles only k_logical := 1 (:161), S <= 3 and the definitional d_eff = 2S - 1 (:171), with no code, codespace or matrix.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:150; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:161; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:171
+      ACTION   RE-CUT: The draft's Tightness Theorem (d_eff = 2S - 1 for rank-1 codespace and S <= 3) and its rank-1 reading of the Trivium codespace are manuscript-resident; this section defines k_logical := 1 and checks S <= 3 and the defining equation of d_eff.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:185 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 7.1. The universal upper bound on d_eff.
+      LICENSED The docstring calls a definition "Theorem 7.1. The universal upper bound on d_eff": d_eff_universal_max := 2 * S_universal_max - 1 is a def whose 3 is set by fiat (:181); no bound over any family of codes is stated (the theorems :188, :190 evaluate it to 5 and equate it with d_eff).
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:186; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:181; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:188; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:190
+      ACTION   RE-CUT: The programme's proposed upper bound on d_eff, defined as 2 * S_universal_max - 1 (= 5) from the observed n4 = 0.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:205 | OVERREACHES | - | generated MATCHES
+      STATED   Theorem 8.2. d_eff bounds the dimensionality of the dark subspace via d_eff + (formation_total − 1 − d_eff) = formation_total − 1 = 6. The dark subspace dimension is 6 = ‖v‖² − 2·max_correctable − 2.
+      LICENSED The docstring calls a definition "Theorem 8.2" and says d_eff bounds the dark subspace dimension; dark_subspace_dim := formation_total - 1 does not mention d_eff, no bound is stated, and the identity quoted (d_eff + (7 - 1 - d_eff) = 6) is a tautology.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:208; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:210; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:212
+      ACTION   RE-CUT: The dark subspace dimension, defined as formation_total - 1 (= 6, dark_subspace_eq_six).
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:218 | OVERREACHES | - | generated MATCHES
+      STATED   The Silence Principle: independent stages with κ = 0 interfaces cannot propagate errors between stages. Each non-dark stage is an independent error compartment. In structural terms: number of independent compartments = S = number of non-dark stages.
+      LICENSED The docstring states the Silence Principle (kappa = 0 interfaces cannot propagate errors; each non-dark stage an independent error compartment) as fact; the kernel holds only num_compartments := S, with no kappa, interface or error propagation.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:222; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:224
+      ACTION   RE-CUT: The number of independent error compartments, defined as S (the Silence Principle reading each non-dark stage as an independent compartment is the corpus's, not compiled).
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:1 | OVERREACHES | A | generated MATCHES/HAND-NEEDED
+      STATED   SIDEStructuralErrorCorrection/DeAlignment.lean The de-alignment condition for Fano-structured modules. The seven lines of the Fano plane are the minimum-weight logical operators of the [[7,1,3]] code: three faults on a line complete an operator the syndrome does not see. A physical realization assigns each of the seven positions to a failure domain (rail, clock, coupler, thermal zone, band, region). If a whole domain fails at once, every position assigned to it faults together. This module states the design condition — each line's three positions occupy three distinct domains — and derives from it that no single-domain failure can complete a line. The condition is decidable over the finite incidence structure, so a realization can be certified by evaluation. What this does NOT claim: that the structure protects against arbitrary faults. It is the compiled statement of the condition under which single-domain correlation is defeated. Correlated faults spanning several domains, states outside the modelled space, and faults in the verification apparatus itself are outside this theorem and belong to the threat model. Vanilla Lean 4; no Mathlib; expected axiom-free.
+      LICENSED The header says the file is "expected axiom-free", but the terminal table's banked profiles read allSeven, pairCount and fano_two_design as depending on [propext]; its other claims (the condition stated, single-domain protection derived, decidable by evaluation, scope disclaimers) match.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:26; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:129; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:132; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:140; relay@a66c50a1:data/terminal_table.md:1990; relay@a66c50a1:data/terminal_table.md:1997; relay@a66c50a1:data/terminal_table.md:2000
+      ACTION   RE-CUT: Vanilla Lean 4; no Mathlib; the incidence-structure declarations (allSeven, pairCount, fano_two_design) depend on propext, the rest on no axioms.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:72 | OVERREACHES | - | generated MATCHES
+      STATED   **The protection theorem.** Under the de-alignment condition, no single-domain failure completes any line — hence no single-domain failure induces a minimum-weight logical operator.
+      LICENSED The theorem (conditional on Dealigned) states no single-domain failure completes any line of an arbitrary line family; the "hence no single-domain failure induces a minimum-weight logical operator" rests on the uncompiled identification of Fano lines with the [[7,1,3]] minimum-weight logical operators (header :6), which no declaration states.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:75; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:6
+      ACTION   RE-CUT: The protection theorem. Under the de-alignment condition, no single-domain failure completes any line; read with the [[7,1,3]] code's minimum-weight logical operators as the Fano lines (not compiled here), no single-domain failure induces one.
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:82 | OVERREACHES | - | generated MATCHES
+      STATED   The converse direction, as the design diagnostic: if two positions of a line share a domain, that domain's failure needs only one further fault to complete the line. Stated as: the line is not de-aligned.
+      LICENSED The docstring describes a converse (two positions sharing a domain means one further fault completes the line; the line is not de-aligned), but the theorem states a sufficient condition in the same direction: an injective assignment d and a proper line give DealignedAt d L; neither the shared-domain claim nor the one-further-fault claim is stated.
+      CITED    SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:85; SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:87
+      ACTION   RE-CUT: A sufficient condition, as a design rule: an injective assignment of positions to domains de-aligns every proper line.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-structural-error-correction@6bf19ab:AxiomCheck.lean:3 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:1 | OVERREACHES | MATCHES/HAND-NEEDED | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:38 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:40 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:43 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:46 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:49 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:52 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:56 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:59 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:62 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:65 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:67 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:70 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:77 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:80 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:83 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:87 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:96 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:99 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:102 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:105 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:107 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:110 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:113 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:116 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:121 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:124 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:133 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:136 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:140 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:143 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:146 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:150 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:160 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:163 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:166 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:169 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:173 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:180 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:185 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:193 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:195 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:200 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:205 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:216 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:218 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:226 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:1 | OVERREACHES | MATCHES/HAND-NEEDED | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:31 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:37 | MATCHES | MATCHES | TEXTUAL
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:42 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:47 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:51 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:55 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:59 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:72 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:82 | OVERREACHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:93 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:98 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:105 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:112 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:116 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:122 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:124 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:128 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:131 | MATCHES | MATCHES | ELABORATED
+  SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:135 | MATCHES | MATCHES | ELABORATED
+
+### ### **SIDE-structural-error-correction: ROWS 68 ; MATCHES 55 ; UNDERSTATES 0 ; OVERREACHES 13 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 11 OF 66 ; CLASSES S 0 A 1 H 2.**

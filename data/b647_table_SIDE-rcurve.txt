@@ -1,0 +1,30 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-rcurve`S DOCSTRINGS AT ITS MAIN d5f33b4, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 7 rows it read MATCHES, 2 read otherwise whole (28.6%) ; its non-MATCHES rows read MATCHES whole: 0
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 0
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-rcurve): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-rcurve · Criterion.lean ============================ The R-Curve EQUIVALENCE engine — checkpoint 1.2-D. Verifies the structural/logical core of the PROVEN Equivalence Chain (R_CURVE_CRITERION_v0_1, consolidating P22 Phases 1–66): RH ⟺ V strictly monotone on every R-curve in {σ > 1/2}. CLOSURE: the positivity Re(ξ′/ξ) > 0 driving the monotonicity is CLOSED via the Phase-66 SIDE closure (off-line zeros excluded from the seven-class catalogue, sealed by Conservation), not an open margin. The route shares its bottom step with the deposited proof (Zenodo 10.5281/zenodo.19938917); this kernel verifies the equivalence machinery. Conclusive checkpoint, not a flagged reach. Source: R_CURVE_CRITERION_v0_1; P22_PHASE66_SIDE_CLOSURE; P22_RCURVE_MONOTONICITY_REVISED.
+      LICENSED The file compiles only elementary real lemmas (a strictly monotone V vanishes at most once, a field identity, Re((a+bi)/(Vi)) = b/V, n/b > 0, a defined codim count); no declaration mentions xi, RH or an R-curve, and "CLOSED via the Phase-66 SIDE closure (off-line zeros excluded from the seven-class catalogue, sealed by Conservation)" states the open clause (catalogue exhaustiveness and Conservation) as closed.
+      CITED    SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:7; SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:11; SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:31; SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:42; SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:71
+      ACTION   RE-CUT: Compiles elementary lemmas used by the R-curve criterion -- a strictly monotone real function vanishes at most once, alpha^2/beta + beta = (alpha^2 + beta^2)/beta, Re((alpha + beta i)/(V i)) = beta/V, n/beta > 0 for positive n and beta, and a defined codimension count; neither RH <-> monotonicity nor Re(xi'/xi) > 0 is stated here, and the SIDE closure it rests on (catalogue exhaustiveness, Conservation) is the open clause.
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:26 | OVERREACHES | H | generated MATCHES
+      STATED   ## T1 — the engine: strict monotonicity ⟹ at most one zero This is the decisive (ii)⟹(i) step. A strictly monotone V is injective, so it vanishes at most once.
+      LICENSED monotone_unique_zero is only "a strictly monotone V is injective, so it vanishes at most once"; the (ii) => (i) step from monotonicity to RH also needs an off-line zero to force a second vanishing of V, which no declaration states, so "This is the decisive (ii) => (i) step" claims more.
+      CITED    SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:28; SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:31; relay@a66c50a1:data/terminal_table.md:1964
+      ACTION   RE-CUT: The elementary half of the (ii) => (i) step: a strictly monotone V is injective, so it vanishes at most once.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:26 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:35 | MATCHES | MATCHES | TEXTUAL
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:40 | MATCHES | MATCHES | TEXTUAL
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:55 | MATCHES | MATCHES | TEXTUAL
+  SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:66 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-rcurve: ROWS 7 ; MATCHES 5 ; UNDERSTATES 0 ; OVERREACHES 2 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 2 OF 7 ; CLASSES S 0 A 0 H 2.**

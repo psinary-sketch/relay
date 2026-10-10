@@ -1,0 +1,115 @@
+b647 -- COMPONENT 2, (R257)(2) AND THE AUTHOR`S ANSWER: SIDE-window`S DOCSTRINGS AT ITS MAIN 3dab5f4, EACH TO ONE VERDICT (tools/licensed_table.py) (2026-10-10T22:23:14Z)
+
+### the rows: every declaration docstring, structure-field docstring, module header and head block of the kernel`s tracked .lean files at its main; the statement TEXTUAL throughout; the generated verdict (D1-D6) beside each row; every row read whole by a helper reader from the banked brief (relay data/b647_kernel_brief.txt) and every non-MATCHES row read whole by the seat
+### THE GENERATED RULE`S MISS RATE: of 69 rows it read MATCHES, 6 read otherwise whole (8.7%) ; its non-MATCHES rows read MATCHES whole: 3
+### THE THREE CLASSES THE RULE CANNOT SEE (the author`s answer): S a sorry-closed theorem described as holding 0 ; A an axiom-profile claim against a banked print 0 ; H a module header claiming more than its file compiles 2 ; other grounds 4
+### the seeded MATCHES sample of the generated rule (seed 647-SIDE-window): none (under 200 rows)
+### the seat`s corrections after its whole read: 0
+
+### THE NON-MATCHES ROWS, EACH IN FULL (id | VERDICT | CLASS | generated):
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-window · LocalModel.lean ============================= THE LOCAL MODEL'S CENSUS — the counting laws of the finite p-adic model, compiled. Vanilla Lean 4. No Mathlib, no Batteries, no dependencies. Every theorem is closed by `decide`, so the whole file is checkable by the Lean kernel alone. ── THE MODEL ─────────────────────────────────────────────────────────────────── `G = p^{−n}ℤ_p / p^{n}ℤ_p ≅ ℤ/p^{2n}` via `x = p^{−n}·m`. The INTEGERS' BALL is `B = {m : p^n ∣ m}` (the elements with `|x|_p ≤ 1`). Scaling by `p` is `m ↦ p·m mod p^{2n}`. The decomposition the census makes explicit: every `m` is `p^v·u` with `u` a unit — UNIT GROUP × valuation; the BALL is `v ≥ n`; the ORBITS of `m ∼ p·m` on the off-ball part are the classes the quotient trace lives on. ── WHAT IS COMPILED HERE, AND WHAT IS NOT ────────────────────────────────────── COMPILED (decide, at the fixed cells (p,n) listed below — "the stated range"): (F) the FIXED-POINT COUNT: #{m : p^k·m ≡ m mod p^{2n}} = 1 (only m = 0) — the arithmetic heart of the absorption proof's lemma (iii) and of the trace localization: gcd(p^k − 1, p^{2n}) = 1 isolates zero. (A) the ABSORPTION COUNT: #{m : m·(p^k − 1) ≡ 0 mod p^n} = p^n — le
+      LICENSED The (F), (A), (C), (O), (E) cells and the Sonin, orbit and d_k identities are compiled by decide as stated. But at :33-:34 the header says the integer identity (p-1)p^{n+1}(p^{n-1}-p^{k-1}) = R(k)(p^n-1)/(p-1) is compiled "at each cell (see fifthLaw_* below)". No fifthLaw_* declaration exists. The one fifthLaw theorem compiles R_num(p^n-1) = R_den(p-1)p^{n+1}(p^{n-1}-p^{k-1}), with no /(p-1), and the header's form is false at (3,3,1): 1296 against 648.
+      CITED    SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:33; SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:34; SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:137; SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:140; SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:144
+      ACTION   RE-CUT: fifth law: R(k)·(p^n − 1) = (p−1)·p^{n+1}·(p^{n−1} − p^{k−1}), compiled as the cross-multiplied integer identity R_num·(p^n−1) = R_den·(p−1)·p^{n+1}·(p^{n−1}−p^{k−1}) at the banked cells (see `fifthLaw` below).
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:1 | OVERREACHES | H | generated MATCHES
+      STATED   SIDE-window · Sawtooth.lean =========================== THE INERTIA COUNT OF THE DISCRETE LAG FORM — its COMBINATORIAL half, compiled. Vanilla Lean 4. No Mathlib, no Batteries, no dependencies. Every theorem is closed by `decide`, so the whole file is checkable by the Lean kernel alone. ── THE STATEMENT THIS FILE IS THE ARITHMETIC HALF OF ─────────────────────────── Let `S_k` be the `M × M` symmetric matrix with `(S_k)_{ij} = 1` exactly when `|i − j| = k` (the shifted-correlation form at shift `k` on `M` grid points). Then: (a) `i` and `j` are related only when `i = j ± k`, so `{0,…,M−1}` splits into the `k` residue classes modulo `k`, and `S_k` acts on each class as the adjacency matrix of a PATH GRAPH on its members. ← COMBINATORIAL, COMPILED HERE (b) the adjacency matrix of the path `P_m` has spectrum `2cos(πj/(m+1))`, `j = 1..m`, which is SYMMETRIC about `0` and has nullity `1` iff `m` is ODD. ← SPECTRAL, **NOT COMPILED** (c) hence #negatives = #positives = (M − nullity)/2, nullity = #odd-length chains. ← follows from (a) and (b) ### WHAT IS COMPILED BELOW IS (a), THE NULLITY COUNT, AND THE ARITHMETIC OF (c). ### WHAT IS NOT COMPILED IS (b), AND WITHOUT (b) NOTHING HERE IS A SP
+      LICENSED The header marks (a) "COMPILED HERE" and says "WHAT IS COMPILED BELOW IS (a)". That includes S_k relating i and j only when i = j ± k and acting on each residue class as a path-graph adjacency matrix. The file defines no S_k, no relation and no path graph. It compiles only residue-class sizes (chainLens), their sum to M, the odd-chain count and halving arithmetic, each by decide at listed (M,k).
+      CITED    SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:15; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:17; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:26; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:73; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:84; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:101
+      ACTION   RE-CUT: WHAT IS COMPILED BELOW IS THE RESIDUE-CHAIN ARITHMETIC OF (a) — the residue-class sizes and their sum to M — THE NULLITY COUNT, AND THE ARITHMETIC OF (c), EACH BY decide AT LISTED (M, k); THAT S_k ACTS ON EACH CLASS AS A PATH ADJACENCY IS NOT STATED IN LEAN HERE, AND (b) IS NOT COMPILED.
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:115 | UNDERSTATES | - | generated MATCHES
+      STATED   ### THE CLOSED FORM AGREES WITH THE DIRECT DEFINITION on a family covering `q = 1 … 7` and three different `k`. **This is a check on small cases, not a proof for general `M, k`.**
+      LICENSED The family covers q = 1 to 7 at four different k (5, 7, 4, 6: cases (30,7), (31,4), (41,6)), not three as the docstring says.
+      CITED    SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:117; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:121; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:122
+      ACTION   RE-CUT: ### THE CLOSED FORM AGREES WITH THE DIRECT DEFINITION on a family covering `q = 1 … 7` and four different `k` (4, 5, 6, 7). **This is a check on small cases, not a proof for general `M, k`.**
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:124 | OVERREACHES | - | generated MATCHES
+      STATED   And so do the counts.
+      LICENSED "And so do the counts" reads as agreement on the family just named, but negCount_cf_agrees checks 8 of its 10 cases. It omits (31,4) and (41,6), the only k = 4 and k = 6 cases.
+      CITED    SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:117; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:125; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:129
+      ACTION   RE-CUT: And so do the counts, on eight of those cases (`q = 1 … 7` at `k = 5`, and `q = 4` at `k = 7`).
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:131 | OVERREACHES | - | generated MATCHES
+      STATED   ### `M` AND THE NULLITY HAVE THE SAME PARITY, so `(M − nullity)/2` is an exact halving and not a truncation. *(The chain lengths sum to `M`, and a sum is odd exactly as often as its odd summands are — checked here on the same family.)*
+      LICENSED The parity fact is elementary and true. But "checked here on the same family" overstates: the theorem checks the 8 cases with k in {5, 7}, plus two halving identities, not the 10-case family of nullity_cf_agrees.
+      CITED    SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:117; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:134; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:139
+      ACTION   RE-CUT: ### `M` AND THE NULLITY HAVE THE SAME PARITY, so `(M − nullity)/2` is an exact halving and not a truncation. *(The chain lengths sum to `M`, and a sum is odd exactly as often as its odd summands are — checked here on the eight `k = 5` and `k = 7` cases of that family.)*
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:153 | OVERREACHES | - | generated MATCHES
+      STATED   ### AT EVERY EVEN `q` THE COUNT IS EXACTLY HALF THE GRID — the apex, `2·count = M`. `q = 2, 4, 6, 8` at `k = 5`, and `q = 2, 4` at `k = 7` and `k = 11`.
+      LICENSED "AT EVERY EVEN q THE COUNT IS EXACTLY HALF THE GRID" holds only when s = M % k = 0. At even q the count is mk while M/2 = mk + s/2, and the kernel's own bench_predictions_omega_1e3 has negCountCF 1526 693 = 693 ≠ 763 at q = 2. The theorem checks only s = 0 grids.
+      CITED    SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:155; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:111; SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:176
+      ACTION   RE-CUT: ### ON A CLEAN GRID (`s = 0`), AT EVERY EVEN `q` THE COUNT IS EXACTLY HALF THE GRID — the apex, `2·count = M`. Checked at `q = 2, 4, 6, 8` at `k = 5`, and `q = 2, 4` at `k = 7` and `k = 11`.
+
+### EVERY ROW (id | VERDICT | generated | TEXTUAL):
+  SIDE-window@3dab5f4:AxiomCheckApex.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:AxiomCheckLocalModel.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:AxiomCheckSawtooth.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:74 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:79 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:86 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:89 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:106 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:119 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:129 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:137 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Apex.lean:147 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:50 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:56 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:62 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:65 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:68 | MATCHES | UNDERSTATES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:92 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:97 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Ladder.lean:101 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:58 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:61 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:64 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:76 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:80 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:122 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:127 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/LocalModel.lean:137 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:1 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:68 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:75 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:78 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:83 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:90 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:96 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:105 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:115 | UNDERSTATES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:124 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:131 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:141 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:146 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:153 | OVERREACHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:160 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:165 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Sawtooth.lean:187 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:1 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:60 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:67 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:72 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:88 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:91 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:94 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:104 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:107 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:112 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:115 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:118 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:121 | MATCHES | UNDERSTATES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:126 | MATCHES | UNDERSTATES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:131 | MATCHES | MATCHES | TEXTUAL
+  SIDE-window@3dab5f4:SIDEWindow/Window.lean:137 | MATCHES | MATCHES | TEXTUAL
+
+### ### **SIDE-window: ROWS 72 ; MATCHES 66 ; UNDERSTATES 1 ; OVERREACHES 5 ; UNLICENSED 0 ; A ROW WITHOUT A VERDICT 0 ; THE RULE`S MISSES 6 OF 69 ; CLASSES S 0 A 0 H 2.**
