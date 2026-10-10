@@ -588,7 +588,12 @@ KCONTROLS = [
     'SIDE-explicit-formula`s), SIDE-silence-principle Basic.lean:142 (its axiom-free names SIDE-kernel`s silence_universal, not the propext '
     'Bool lemma), MetaKernel.lean:140 (its recorded profile [propext, Quot.sound] is what type_I_has_ostrowski prints at v1.2, '
     'relay data/b557_probe_k6.txt; the file DIFFERS from 0256e9e there, so the print neither confirms nor contradicts it at the pin), SIDE-effects Milestones.lean:65 (the sorryAx print is at '
-    'c66f3c5, a different file content; its sorries are at ef4cff7 too, and the row is OVERREACHES on that ground already).',
+    'c66f3c5, a different file content; its sorries are at ef4cff7 too, and the row is OVERREACHES on that ground already). The control`s '
+    'miss: it matched prints to the declarations of the row`s own file, so a docstring naming another kernel`s profile escaped it -- '
+    'SIDE-kernel Kernel/TriviumCode.lean:9 names SIDE-cosmo`s steane_parameters at {propext, Quot.sound}, which relay data/b557_probe_co.txt:10 '
+    'prints and agrees with; its helper reader found the print after hand-back and corrected the row`s ground (read_12, 18:39, after the '
+    'banks` first commit 7ece93aa; read_10 corrected SieveCeiling.lean:132 the same way the seat had); the row stays OVERREACHES on its '
+    'other ground, and these banks were rewritten from the corrected readings.',
     '  ### CLASS S: every `sorry` in code in relay data/b647_sorry_census.txt (37), the declaration it closes, and every row on that declaration '
     'or naming it: T3_perClass_to_combinations (lv :108) is row :77, S; product_formula_prime_pow and product_formula_nat (SIDE-kernel legacy) '
     'are rows :71 and :115, S; the three SIDE-effects milestones are rows that call them sorry-closed (not S); lv PinnedGoal :23 closes an '
@@ -916,9 +921,40 @@ def nav_units(*a):
     print('  units %d' % len(U))
 
 
+# ### THE SEAT'S REDACTIONS: a row unit (a corpus fact in it) carrying words the header's rule keeps out of every bank -- a location on
+# ### this machine, a patent -- has those words replaced in its STATED before any bank is written; each listed with what replaced it and
+# ### printed in the table (the words themselves nowhere). Found by the screen over every row's three cells (drive paths, Users, patent,
+# ### USPTO, deadline, ORCID, the author's names), 6 hits, 1 a false hit ("sealed"). The patterns are written so that this file does not
+# ### spell the words they remove.
+NAV_REDACT = {
+    'f1:40.1': [(r', \w+ sessions P-\d–P-\d\)', ', [a label outside the corpus, omitted by the seat])')],
+    'f1:60.1': [(r'[A-Z]:\\\S+ \(7 md\) and [A-Z]:\\\S+ \(8 md\)', '[two sibling directories on this machine, named by the seat abstractly] (7 md and 8 md)')],
+    'f1:61.1': [(r'clones at [A-Z]: \(', 'clones [on this machine] (')],
+    'f1:116.2': [(r'; \[\w+-shaped clause omitted\]\.', '; [a clause outside the corpus, omitted].')],
+}
 NAV_FIX = {}
-NAV_READ = set()
-NAV_SAMPLE = {}
+# ### the 39 non-MATCHES rows, each read whole by the seat against its cited lines (spot-read at the source: f1:54.1 SIDE-effects
+# ### Structural.lean :76-:84 at a0dc376; f1:113.2 README :121 at 5340891; f2:143.1 REGISTRY :191 at e1478b6; f1:86.1 FINDINGS :4751-:4753
+# ### at 7c1c2da; f1:68.1 OPEN_TRAILS :8269 at eba14af) -- no correction
+NAV_READ = set(('f1:18.1 f1:23.1 f1:31.1 f1:42.1 f1:44.1 f1:45.1 f1:54.1 f1:58.1 f1:59.1 f1:60.1 f1:61.1 f1:62.1 f1:68.1 f1:69.1 f1:70.1 '
+                'f1:71.1 f1:79.1 f1:83.2 f1:85.1 f1:86.1 f1:88.1 f1:90.1 f1:104.2 f1:104.4 f1:109.2 f1:111.2 f1:112.2 f1:113.2 f1:114.2 f1:115.5 '
+                'f1:116.1 f2:127.2 f2:143.1 f2:148.1 f2:149.1 f3:179.1 f3:190.1 f3:191.1 f3:235.1').split())
+# ### the seeded MATCHES sample (seed 647-navigator, 35), each read by the seat against its cited lines at their commits
+_AG = 'AGREE'
+NAV_SAMPLE = dict((i, _AG) for i in (
+    'f1:103.2 f1:104.1 f1:105.1 f1:106.1 f1:106.2 f1:106.3 f1:106.4 f1:108.2 f1:108.4 f1:109.4 f1:110.1 f1:112.3 f1:112.6 f1:113.3 f1:114.3 '
+    'f1:115.3 f1:115.6 f1:28.1 f1:46.1 f1:53.1 f1:81.1 f1:82.1 f1:84.2 f1:93.3 f1:95.1 f2:127.1 f2:141.1 f2:142.1 f4:245.1 f4:250.1 '
+    'f4:254.2 f1:96.1 f1:99.2').split())
+NAV_SAMPLE['f1:95.2'] = 'AGREE (the lines give 4-7 % of the rest, the unit against the pair: the same range to the rounding, FINDINGS :5617)'
+NAV_SAMPLE['f1:110.3'] = ('AGREE (H13b is "order of limits", OPEN_TRAILS :11586 at 0a0f958; H8 is read at "fine resolution", :11394; H4`s '
+                          'gloss is not separately carried)')
+
+
+def _redact(uid, s):
+    for o, n in NAV_REDACT.get(uid, []):
+        s2, k = re.subn(o, lambda _m: n, s)
+        s = s2 if k == 1 else s + ' ### REDACTION NOT APPLIED'
+    return s
 
 
 def _nav_rows():
@@ -946,7 +982,7 @@ def _nav_rows():
         if cell['kind'] != 'ROW':
             faults.append('%s: kind %r' % (uid, cell['kind']))
             continue
-        out.append((uid, fno, dict(id=uid, source='%s:%d' % (K.EXPORT, ln), stated=s, licensed=cell['licensed'], verdict=cell['verdict'],
+        out.append((uid, fno, dict(id=uid, source='%s:%d' % (K.EXPORT, ln), stated=_redact(uid, s), licensed=cell['licensed'], verdict=cell['verdict'],
                                    action=cell['action'], by='HAND', cited=[c.strip() for c in cell['cited'].split(';') if c.strip()],
                                    file='FILE %d' % fno, fixed=uid in NAV_FIX)))
     extra = sorted(set(got) - set(U))
@@ -996,7 +1032,8 @@ def nav_table(*a):
     L = ['b647 -- COMPONENT 3: THE NAVIGATOR`S MEMORY THROUGH THE LICENSED-STATEMENT TABLE ((R257)(3)) (%s)' % utc(), '',
          '### the rule: relay data/b647_nav_rule.txt, printed and committed before the run ; the export: relay %s, untracked' % K.EXPORT,
          '### the readers: helper readers of this session, one per chunk; every non-MATCHES row read whole by the seat (%d corrected); a MATCHES '
-         'sample of %d (seed 647) read, %d agree' % (sum(1 for r in rows if r['fixed']), len(smp), sum(1 for v in NAV_SAMPLE.values() if v == 'AGREE')),
+         'sample of %d (seed 647-navigator) read, %d agree' % (sum(1 for r in rows if r['fixed']), len(smp),
+                                                                sum(1 for v in NAV_SAMPLE.values() if v.startswith('AGREE'))),
          '', '### PER FILE (units read ; rows ; not rows ; by verdict):']
     for f in (1, 2, 3, 4):
         us = [x for x in out if x[1] == f]
@@ -1005,6 +1042,9 @@ def nav_table(*a):
         L.append('  FILE %d : units %3d ; rows %3d ; not rows %3d ; %s' % (f, len(us), len(rs), len(us) - len(rs),
                                                                           ', '.join('%s %d' % (v, c[v]) for v in LT.VERDICTS)))
     L += ['', '### THE MATCHES SAMPLE READ BY THE SEAT (%d):' % len(smp)] + ['  %s : %s' % (i, NAV_SAMPLE[i]) for i in smp]
+    L += ['', '### THE SEAT`S REDACTIONS (%d rows): words the header`s rule keeps out of every bank, found in row units by the screen over every '
+              'row`s three cells and replaced in STATED before this bank was written (the words nowhere here):' % len(NAV_REDACT)]
+    L += ['  %s : replaced by "%s"' % (u, '"; "'.join(n for _o, n in NAV_REDACT[u])) for u in sorted(NAV_REDACT)]
     L += ['', '### THE NON-MATCHES ROWS, IN FULL, FOR THE NAVIGATOR (who repairs its own files on the author`s word):']
     for r in rows:
         if r['verdict'] != 'MATCHES':
