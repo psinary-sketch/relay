@@ -1386,6 +1386,150 @@ def columns5(*a):
     print(L[-1])
 
 
+def reader_score5(*a):
+    """data/b647_reader_d5_compare.txt and .json: the fifth reader's answers copied from off D:\\, each scored by b644's needles (imported) and
+    beside it the seat's hand reading (data/b647_reader_d5_handread.txt, written first), both figures; refuses without the hand reading."""
+    B6 = _b6r()
+    R4 = B6._R4()
+    r = B6.READER
+    src = os.path.join(r['dir'], 'answers.txt')
+    if not os.path.exists(src):
+        sys.exit('### %s IS ABSENT -- NOTHING READ' % src)
+    hr = rd('b647_reader_d5_handread.txt')
+    if not re.search(r'^HAND \d: (AGREE|DIFFER)', hr, re.M):
+        sys.exit('### THE HAND READING IS NOT BANKED -- THE NEEDLES ARE NOT READ BEFORE IT')
+    t = io.open(src, encoding='utf-8', errors='replace').read().replace(chr(13), '')
+    _write(os.path.join(SP if DRY else D, 'b647_reader_d5_answers.txt'), t.encode('utf-8'))
+    ans = dict((int(m.group(1)), ' '.join(m.group(2).split())) for m in re.finditer(r'^ANSWER (\d):\s*(.*?)(?=^ANSWER \d:|^UNCLEAR:|\Z)', t, re.M | re.S))
+    N = R4._needles('d')
+    lg = os.path.join(r['dir'], 'reader_run.log')
+    lb = open(lg, 'rb').read() if os.path.exists(lg) else None
+    lt = lb.decode('utf-16') if lb and lb[:2] in (b'\xff\xfe', b'\xfe\xff') else (lb.decode('utf-8', 'replace') if lb else '')
+    ctl = bool(re.search(r'MEMORY\.md', 'x MEMORY.md y'.encode('utf-16').decode('utf-16')))
+    mem = ('memory named in the run log: %s (read as %s, %d chars; the planted control fires: %s)' % (
+        bool(re.search(r'MEMORY\.md|[\\/]memory[\\/]', lt)), 'UTF-16' if lb[:2] in (b'\xff\xfe', b'\xfe\xff') else 'UTF-8', len(lt), ctl)
+           if lb else 'the run log absent')
+    hand = dict((int(m.group(1)), m.group(2).strip()) for m in re.finditer(r'^HAND (\d): (AGREE|DIFFER)', hr, re.M))
+    L = ['b647 -- THE FIFTH READER D5: ANSWERS SCORED BY THE NEEDLES AND BY HAND (%s)' % utc(), '',
+         '### the answers: relay data/b647_reader_d5_answers.txt, copied from %s ; the reader`s session: %s' % (src, mem),
+         '### the hand reading: relay data/b647_reader_d5_handread.txt, banked before the needles were read', '']
+    res, n_ok = {}, 0
+    for q in sorted(N):
+        a_ = ans.get(q, '')
+        p1, l1, p2, l2, deny = N[q]
+        m1 = bool(re.search(p1, a_, re.I))
+        m2 = bool(re.search(p2, a_)) if p2 else True
+        asserted = deny(a_) if deny else []
+        ok = m1 and m2 and not asserted
+        n_ok += ok
+        why = ['%s %s' % (l1, m1)] + (['%s %s' % (l2, m2)] if p2 else []) + (['the unsupported sentence asserted %s' % (asserted or 'no')] if deny else [])
+        res[q] = dict(question=r['questions'][q - 1], answer=a_, needle=ok, why=why, hand=hand.get(q))
+        L += ['### QUESTION %d: %s' % (q, r['questions'][q - 1]), '    the reader: %s' % (a_ or '### NO ANSWER'),
+              '    the needles: %s ; ### %s' % ('; '.join(why), 'AGREE' if ok else 'DIFFER'), '    by hand: %s' % (hand.get(q) or '### NOT READ'), '']
+    kh = sum(1 for v in hand.values() if v == 'AGREE')
+    unclear = re.search(r'^UNCLEAR:\s*(.*)\Z', t, re.M | re.S)
+    L += ['### NOTE, beside the score: %s' % n_ for n_ in re.findall(r'^NOTE: (.*)$', hr, re.M)]
+    L += ['### UNCLEAR, the reader`s: %s' % (' '.join(unclear.group(1).split())[:1500] if unclear else '### NONE GIVEN'), '',
+          '### ### **BY THE NEEDLES %d OF %d ; BY HAND %d OF %d.**' % (n_ok, len(N), kh, len(N))]
+    put_txt('b647_reader_d5_compare.txt', L)
+    put_json('b647_reader_d5_compare.json', dict(at=utc(), answers=res, needles=n_ok, hand=kh, of=len(N),
+                                                 unclear=(unclear.group(1).strip() if unclear else None)))
+    print(L[-1])
+
+
+# ### THE DRAFT'S DESCRIPTION, (R257)(4): b646's route (z_desc / z_read / z_hold) carried with v4's bank: b639's http (the token in the
+# ### Authorization header alone, the User-Agent naming no person); the draft's description replaced by v4, every other metadata key carried,
+# ### no file touched, publish never called; read back once; HELD. Runs after the fifth reader's scoring and the residue.
+ZRES4 = 'b647_zenodo.json'
+
+
+def _zmerge4(cells):
+    R = jl(ZRES4) if os.path.exists(os.path.join(D, ZRES4)) else {}
+    R.update(cells)
+    put_json(ZRES4, R)
+
+
+def z_desc4(*a):
+    """data/b647_zenodo_desc.txt: draft K.DRAFT read once (unsubmitted, or nothing done) and its metadata PUT once with v4's bank, every other
+    key carried; the prior description's bytes and digest banked, not its text; the file list banked for the read-back. Runs once."""
+    import hashlib
+    import b639_record as R39
+    import b646_record as B6
+    if not R39._tok():
+        sys.exit('### THE TOKEN IS NOT SET -- NO CALL MADE')
+    if os.path.exists(os.path.join(D, ZRES4)) and jl(ZRES4).get('desc'):
+        sys.exit('### THE DESCRIPTION HAS BEEN REPLACED -- IT DOES NOT RUN TWICE')
+    if not os.path.exists(os.path.join(D, 'b647_reader_d5_compare.txt')):
+        sys.exit('### THE FIFTH READER IS NOT SCORED -- THE DESCRIPTION IS NOT REPLACED BEFORE IT')
+    v4 = open(os.path.join(D, V4), 'rb').read().decode('utf-8')
+    base = 'https://zenodo.org/api/deposit/depositions/%s' % K.DRAFT
+    st, b = R39.http('GET', base)
+    d = B6._jx(b) or {}
+    if st != 200 or d.get('submitted') or str(d.get('id')) != K.DRAFT:
+        sys.exit('### THE DRAFT IS NOT AN UNSUBMITTED %s (HTTP %d) -- NOTHING DONE' % (K.DRAFT, st))
+    md = dict(d.get('metadata') or {})
+    old = md.get('description') or ''
+    files = [dict(name=f.get('filename'), checksum=f.get('checksum'), size=f.get('filesize')) for f in d.get('files') or []]
+    md['description'] = v4
+    sp, bp = R39.http('PUT', base, body={'metadata': md})
+    hx = lambda s: hashlib.sha256(s.encode('utf-8')).hexdigest()
+    v3 = rd(V3)
+    L = ['b647 -- THE ROUTE, THE DRAFT`S DESCRIPTION REPLACED BY v4 (%s)' % utc(), '',
+         '### GET the draft %s : HTTP %d ; state %s ; submitted %s ; %d files' % (K.DRAFT, st, d.get('state'), d.get('submitted'), len(files)),
+         '### the description before : %d bytes, sha256 %s ; v3`s bank %d bytes, sha256 %s ; the draft held v3: %s' % (
+             len(old.encode('utf-8')), hx(old), len(v3.encode('utf-8')), hx(v3), old == v3 or B6._straight(old) == B6._straight(v3)),
+         '### PUT metadata (the description v4`s bank, %d bytes, sha256 %s ; %d keys carried) : HTTP %d' % (len(v4.encode('utf-8')), hx(v4), len(md), sp),
+         '', '### ### **CALLS 2 ; THE PUT %s ; NO FILE TOUCHED ; NOTHING PUBLISHED.**' % ('ACCEPTED' if sp in (200, 201) else '### REFUSED HTTP %d' % sp)]
+    put_txt('b647_zenodo_desc.txt', L)
+    _zmerge4(dict(desc=dict(get=st, put=sp, before_bytes=len(old.encode('utf-8')), before_sha256=hx(old), v4_sha256=hx(v4), files_before=files,
+                            at=utc())))
+    print(NL.join(L[2:]))
+
+
+def z_read4(*a):
+    """data/b647_zenodo_read.txt: the draft read back once -- the description against v4's bank byte for byte, digest for digest and up to quote
+    straightening; the file list against the one z_desc4 banked."""
+    import hashlib
+    import b639_record as R39
+    import b646_record as B6
+    st, b = R39.http('GET', 'https://zenodo.org/api/deposit/depositions/%s' % K.DRAFT)
+    d = B6._jx(b) or {}
+    md = d.get('metadata') or {}
+    bank = open(os.path.join(D, V4), 'rb').read().decode('utf-8')
+    back = md.get('description') or ''
+    exact = back == bank
+    dig = hashlib.sha256(back.encode('utf-8')).hexdigest() == hashlib.sha256(bank.encode('utf-8')).hexdigest()
+    fb = (jl(ZRES4).get('desc') or {}).get('files_before') or []
+    fa = [dict(name=f.get('filename'), checksum=f.get('checksum'), size=f.get('filesize')) for f in d.get('files') or []]
+    key = lambda x: sorted((f['name'], f['checksum'], f['size']) for f in x)
+    files_same = bool(fb) and key(fa) == key(fb)
+    L = ['b647 -- THE ROUTE, THE DRAFT READ BACK AFTER THE DESCRIPTION`S REPLACEMENT (%s)' % utc(), '',
+         '### GET the draft : HTTP %d ; identifier %s ; state %s ; submitted %s ; title %s ; version %s' % (
+             st, d.get('id'), d.get('state'), d.get('submitted'), md.get('title'), md.get('version')),
+         '### the description : %d characters back against the bank`s %d ; byte for byte %s ; digest for digest %s ; equal up to quote straightening %s' % (
+             len(back), len(bank), exact, dig, B6._straight(back) == B6._straight(bank)),
+         '### the files : %d back against %d before the PUT ; name, checksum and size the same %s' % (len(fa), len(fb), files_same), '',
+         '### ### **THE DESCRIPTION BYTE FOR BYTE %s AND DIGEST FOR DIGEST %s ; THE FILES UNTOUCHED %s ; THE DRAFT %s SUBMITTED %s -- NOTHING '
+         'PUBLISHED.**' % (exact, dig, files_same, d.get('id'), d.get('submitted'))]
+    put_txt('b647_zenodo_read.txt', L)
+    _zmerge4(dict(read=dict(get=st, id=d.get('id'), state=d.get('state'), submitted=d.get('submitted'), exact=exact, digest=dig,
+                            straight=B6._straight(back) == B6._straight(bank), files_same=files_same, n_files=len(fa), at=utc())))
+    print(NL.join(L[2:]))
+
+
+def z_hold4(*a):
+    """data/b647_zenodo_hold.txt: the draft HELD, (R257)(4): its state read once and banked; publish is the author's word, no part of this act."""
+    import b639_record as R39
+    import b646_record as B6
+    st, b = R39.http('GET', 'https://zenodo.org/api/deposit/depositions/%s' % K.DRAFT)
+    d = B6._jx(b) or {}
+    L = ['b647 -- THE DRAFT HELD, (R257)(4) (%s)' % utc(), '', '### the draft %s : HTTP %d ; state %s ; submitted %s ; nothing published; v4 sent to '
+         'the author as a file (relay data/%s)' % (K.DRAFT, st, d.get('state'), d.get('submitted'), V4)]
+    put_txt('b647_zenodo_hold.txt', L)
+    _zmerge4(dict(hold=dict(id=K.DRAFT, state=d.get('state'), submitted=d.get('submitted'), at=utc())))
+    print(L[-1])
+
+
 def glossary_cmp(*a):
     """data/b647_glossary_block.txt: the glossary block regenerated by the pages' own builder (tools/chain_page.py glossary_block) from
     relay data/glossary.txt as appended here, against the block each of the two pages and the census at v0.7.1 prints at PLACE-papers main
