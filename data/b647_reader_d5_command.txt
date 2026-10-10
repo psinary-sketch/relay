@@ -1,0 +1,1 @@
+Get-Content C:\reader_b647\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b647\reader_run.log 2> C:\reader_b647\reader_run.err
