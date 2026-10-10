@@ -1563,6 +1563,459 @@ def glossary_cmp(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENTS 6 AND 7: THE SEAL, THE ROOT, THE RECORD
+# ### b646's routes carried (tools/b646_record.py :1823-:2287), every name and every sentence re-written for b647's banks.
+def kernels(*a):
+    """data/b647_kernels_face.json: every kernel's main, tags, branches and tracked status, read before the seal for N5."""
+    import b641_record as R41
+    put_json('b647_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+DEFECT_SHORT = ['(a) a record line first read against the wrong closing', '(b) odd backticks in a record line', '(c) the sorry census`s built mark '
+                'for TOML lakefiles', '(d) redirected banks written CR LF', '(e) a helper reader refused at the concurrency limit',
+                '(f) helper readers` cite forms the table could not parse', '(g) two helper readings edited after hand-back',
+                '(h) the class-A control blind to a profile named across kernels', '(i) a line-ending check misread again',
+                '(j) the navigator screen`s first pattern missing a location', '(k) a heredoc collapsing a backslash in a scratch screen',
+                '(l) the sample literal two ids short', '(m) the sample`s agreement counted by exact match']
+
+
+def defects(*a):
+    """data/b647_defects.json from data/b647_defects.txt (the seat's list): every defect line, and the short forms."""
+    t = rd('b647_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if re.match(r'^    \([a-z]\) ', l)]
+    if len(ds) != len(DEFECT_SHORT):
+        sys.exit('### %d DEFECT LINES AGAINST %d SHORT FORMS -- NOTHING WRITTEN' % (len(ds), len(DEFECT_SHORT)))
+    put_json('b647_defects.json', dict(at=utc(), defects=ds, short=DEFECT_SHORT, correction=''))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b647_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+def seal_check(*a):
+    rec_, now, out = seal_hashes()
+    L = ['b647 -- THE SEALED TOOLS` HASHES, RECORDED AT THE SEAL AND RECOMPUTED (%s)' % utc(), '']
+    L += ['  %-24s recorded %s ; now %s ; %s' % (t, (rec_.get(t) or '-')[:16], (now.get(t) or '-')[:16], v.upper()) for t, v in out]
+    L += ['', '### ### **SEALED TOOLS %d ; AGREE %d ; DIFFER %d ; ABSENT %d.**' % (len(out), sum(v == 'agree' for _t, v in out),
+                                                                                 sum(v == 'differ' for _t, v in out), sum(v == 'absent' for _t, v in out))]
+    put_txt('b647_seal_check_%s.txt' % (a[0] if a else 'record'), L)
+    print(NL.join(L[2:]))
+
+
+ROOT_EXCLUDE = re.compile(r'^b647_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|correction|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b647_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f)
+                  and ('data/' + f) != K.EXPORT)
+
+
+def root(*a):
+    """(R251)(3): the act root, the last step of the act; every bank it names written LF (compute refuses CR LF); the export never named."""
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; the export among them %s ; written with CR LF: %s' % (
+        len(banks), 'data/b647_seal_hashes.json' in banks, K.EXPORT in banks, crlf or 'none'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b647'] + banks + ([] if DRY else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    """the root recomputed from its banked items offline and a one-byte change on a copy of one bank moving it; the root order read locally."""
+    import shutil
+    import tempfile
+    import act_root as AR
+    J = jl('b647_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    tmp = tempfile.mkdtemp()
+    cp = os.path.join(tmp, os.path.basename(bank_))
+    shutil.copy(os.path.join(ROOT, *bank_.split('/')), cp)
+    b = bytearray(open(cp, 'rb').read())
+    b[0] ^= 0x01
+    open(cp, 'wb').write(bytes(b))
+    items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b647 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b647_root_arm.txt', L)
+    put_json('b647_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    """the terminal table regenerated at the end and diffed against relay HEAD`s table, by row."""
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b647 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved)),
+         '### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b647_table_final.txt', L)
+    put_json('b647_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3', 'S4', 'S5')
+SCORE_KEYS = NK + SK
+EXH_ONCE = 'complete over its named classes'
+OPEN_PHRASE = re.compile(r'carr\w+ as (?:the|its) one open premise')
+# ### N5's list in its own words: the watchdog edit and its test, the glossary's appended entries, the composer edits and their tests, the
+# ### per-kernel banks, the navigator-memory table, the description, the reader packet, the columns bank, the record lines and the trails
+N5_RELAY = {'tools/build_watch.py', 'tools/test_build_watch_b647.py', 'tools/test_composer_b647.py', 'data/glossary.txt',
+            'data/b646_closing_push_out.txt', 'data/act_roots.txt'}
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+LISTED = ('b647_table_', 'b647_deposit_description', 'b647_reader_d5_packet', 'b647_census_columns', 'b647_record_lines', 'b647_scanfile_lines')
+
+
+def TRAIL_HEAD():
+    return ('### b647 — lane three, act seventy-four under (R257): every kernel’s docstrings through the licensed-statement table; the '
+            'navigator’s memory through the table; the description at v4 with its glossary entries, a fifth reader, the draft held; the '
+            'watchdog on the process tree; the census columns extended')
+
+
+def _ktot():
+    j = jl('b647_table_kernels.json')
+    return j.get('totals') or {}, j.get('rows') or 0, j.get('kernels') or []
+
+
+def _n5():
+    face = jl('b647_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b647_|audit_b647_)', x) or re.match(r'^data/terminal_table', x) or x in N5_RELAY)]
+    banks_beyond = sorted(set(re.sub(r'\.(txt|json|md)$', '', x[len('data/'):]).split('/')[0] for x in relay_ch if x.startswith('data/b647_')
+                              and not ROOT_EXCLUDE.match(x[len('data/'):]) and not x[len('data/'):].startswith(LISTED)))
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    zr = jl(ZRES4)
+    held = (zr.get('read') or {}).get('submitted') is False and (zr.get('hold') or {}).get('submitted') is False
+    ok = kern_ok and not pp_beyond and not kinds_beyond and not differ and held
+    state = ('HELD' if not banks_beyond else 'REFUTED IN ONE CLAUSE') if ok else 'REFUTED'
+    return (state, 'nothing deposits: draft %s unpublished, read back and held (submitted %s), publish never called; no edition, page or kernel '
+                   'source touched (PLACE-papers beyond FINDINGS and OPEN_TRAILS: %s; every kernel unmoved %s); sealed tools not agreeing %s; files '
+                   'of a kind beyond the ruled ones: %s; no identifier of the author in any outbound request beyond the record`s own metadata, '
+                   'which the PUT carried as read (the route`s User-Agent names no person). The clause "no file written beyond the watchdog edit and '
+                   'its test, the glossary`s appended entries, the composer edits and their tests, the per-kernel banks, the navigator-memory table, '
+                   'the description, the reader packet, the columns bank, the record lines and the trails" in letter: the act also wrote %d banks '
+                   'its components and the author`s answer order (%s)' % (
+                       K.DRAFT, (zr.get('read') or {}).get('submitted'), pp_beyond or 'NONE', kern_ok, differ or 'NONE', kinds_beyond or 'NONE',
+                       len(banks_beyond), ', '.join(banks_beyond[:40])))
+
+
+def _nonrow_texts():
+    """the export's not-row units' texts (read from the untracked export, printed nowhere)."""
+    nav = jl('b647_table_navigator_memory.json')
+    ids = set(r['id'] for r in nav.get('rows') or [])
+    return [s for f, ln, j, s in _nav_units() if ('f%d:%d.%d' % (f, ln, j)) not in ids]
+
+
+def scores(*a):
+    import licensed_table as LT_
+    TF, RA = jl('b647_table_final.json'), jl('b647_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    t_bw = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'test_build_watch_b647.py')], capture_output=True, text=True,
+                          encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    out_bw = (t_bw.stdout or '') + (t_bw.stderr or '')
+    md = re.search(r'\(1\) THE PLANTED TREE: .*?driver peak (\d+) MB ; tree peak (\d+) MB', out_bw)
+    mt = (md.group(2), md.group(1)) if md else None
+    n1 = t_bw.returncode == 0 and bool(md) and int(md.group(2)) > int(md.group(1)) and '3 of 3 cases as wanted -- PASS' in out_bw
+    tot, nrows, KJ = _ktot()
+    bad_k = []
+    for x in KJ:
+        rs = jl('b647_table_%s.json' % x['kernel']).get('rows') or []
+        cnt, faults = LT_.table(rs)
+        if cnt is None or faults or any(r.get('verdict') not in LT_.VERDICTS for r in rs) or any('textual' not in r for r in rs):
+            bad_k.append(x['kernel'])
+    gs_txt = rd('b647_table_SIDE-global-section.txt')
+    rbh = 'RestrictedTensorLayer1.lean' in gs_txt and not any('RestrictedTensorLayer1' in (r.get('file') or '') for r in
+                                                              jl('b647_table_SIDE-global-section.json').get('rows') or [])
+    beyond = [x['kernel'] for x in KJ if (x['counts'].get('UNDERSTATES', 0) + x['counts'].get('OVERREACHES', 0)) > 0]
+    n2 = not bad_k and rbh and bool(beyond)
+    nav = jl('b647_table_navigator_memory.json')
+    pf = nav.get('per_file') or {}
+    rows_f = [(pf.get('FILE %d' % f) or {}).get('rows', 0) for f in (1, 2, 3, 4)]
+    units_f = [(pf.get('FILE %d' % f) or {}).get('units', 0) for f in (1, 2, 3, 4)]
+    leaked = []
+    banks_txt = NL.join(rd(f) for f in sorted(os.listdir(D)) if f.startswith('b647_') and os.path.isfile(os.path.join(D, f)) and ('data/' + f) != K.EXPORT)
+    for s in _nonrow_texts():
+        if len(s) >= 30 and s in banks_txt:
+            leaked.append(s[:40])
+    n3 = all(rows_f[:3]) and rows_f[3] < units_f[3] - rows_f[3] and not leaked
+    gl = _gl4()
+    v4 = rd(V4)
+    from collections import Counter as _C
+    open_n = len(OPEN_PHRASE.findall(v4))
+    hand = jl('b647_reader_d5_compare.json').get('hand')
+    n4 = 'the surround' in gl and 'priced' in gl and v4.count(EXH_ONCE) == 1 and open_n == 2 and hand == 3
+    nav_bad = LT_.table(nav.get('rows') or [])[0] is None
+    S = {
+        'N1': ('HELD' if n1 else 'REFUTED', 'tools/test_build_watch_b647.py run live, exit %d: the tree`s peak %s MB against the driver`s %s MB' % (
+            t_bw.returncode, mt[0] if mt else '?', mt[1] if mt else '?')),
+        'N2': ('HELD' if n2 else 'REFUTED', '%d rows over %d kernels read here (and SIDE-explicit-formula carried), each one verdict, every row TEXTUAL '
+               'or ELABORATED marked; tables refused %s; RestrictedTensorLayer1 named with no row %s; kernels beyond SIDE-explicit-formula with an '
+               'UNDERSTATES or OVERREACHES row: %d (%s)' % (nrows, len(KJ), bad_k or 'none', rbh, len(beyond), ', '.join(beyond))),
+        'N3': ('HELD' if n3 else 'REFUTED', 'rows by file %s of units %s -- FILES 1 to 3 each with rows, FILE 4 %d rows against %d not rows (few, read '
+               'as fewer rows than not rows); every not-row unit`s text sought in every b647 bank: found %d' % (rows_f, units_f, rows_f[3],
+                                                                                                            units_f[3] - rows_f[3], len(leaked))),
+        'N4': ('HELD' if n4 else 'REFUTED', 'the glossary carries "the surround" %s and "priced" %s; v4 states "%s" %d time(s); the open-premise phrase '
+               '%d time(s), once in THE CLAIM and once in WHAT IS OPEN; the fifth reader %s of 3 by the needles, %s of 3 by hand' % (
+                   'the surround' in gl, 'priced' in gl, EXH_ONCE, v4.count(EXH_ONCE), open_n, jl('b647_reader_d5_compare.json').get('needles'), hand)),
+        'N5': _n5(),
+        'S1': ('HELD' if all(r['id'] in KREAD for x in KJ for r in (jl('b647_table_%s.json' % x['kernel']).get('rows') or [])
+                             if r['verdict'] != 'MATCHES') and NAV_READ >= set(r['id'] for r in nav.get('rows') or [] if r['verdict'] != 'MATCHES')
+               else 'REFUTED', 'every non-MATCHES row of the kernels (%d) and of the navigator`s memory (%d) read whole by the seat' % (
+                   len(KREAD), len(NAV_READ))),
+        'S2': ('HELD' if not bad_k and not nav_bad else 'REFUTED', 'the instrument takes each kernel`s table and the navigator`s with no fault '
+               '(refused: %s)' % (bad_k + (['navigator'] if nav_bad else []) or 'none')),
+        'S3': (('HELD' if not TF.get('moved') and not TF.get('gone') and not TF.get('added') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s' % (len(TF.get('moved') or []), len(TF.get('gone') or []),
+                                                                                       len(TF.get('added') or []))),
+        'S4': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S5': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(_C(v for _t, v in sh))),
+    }
+    put_json('b647_scores.json', S)
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:400]))
+
+
+def _title():
+    tot, nrows, _KJ = _ktot()
+    nav = jl('b647_table_navigator_memory.json')
+    hand = jl('b647_reader_d5_compare.json').get('hand')
+    cols = jl('b647_census_columns.json')
+    return ('## Every kernel’s docstrings at %d rows — MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; the navigator’s memory at %d '
+            'rows; the description at v4, the fifth reader %s of 3, the draft held; the watchdog on the process tree; the census columns over %d '
+            'keystones' % (nrows, tot.get('MATCHES', 0), tot.get('UNDERSTATES', 0), tot.get('OVERREACHES', 0), tot.get('UNLICENSED', 0),
+                           len(nav.get('rows') or []), hand, len(cols.get('rows') or [])))
+
+
+def _finding_text():
+    S, rl, J = jl('b647_scores.json'), jl('b647_record_lines.json'), jl('b647_act_root.json')
+    nav = jl('b647_table_navigator_memory.json')
+    nc = nav.get('counts') or {}
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b647_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}, {}]
+    sc = lambda k: (S.get(k) or ['?'])[0]   # noqa: E731
+    tot, nrows, KJ = _ktot()
+    miss = sum(x.get('missed', 0) for x in KJ)
+    gm = sum(x.get('generated_matches', 0) for x in KJ)
+    cl = dict((c, sum((x.get('classes') or {}).get(c, 0) for x in KJ)) for c in 'SAH')
+    zr = jl(ZRES4).get('read') or {}
+    cmp_ = jl('b647_reader_d5_compare.json')
+    cols = jl('b647_census_columns.json').get('rows') or []
+    peaks = jl('b647_build_peaks.json')
+    e = ['', _title(), '',
+         '*Filed at b647 on the author’s ruling `(R257)` and the author’s answer (%d). Banks: relay `data/b647_table_kernels.txt` and '
+         '`data/b647_table_<kernel>.txt` (21), `data/b647_sorry_census.txt`, `data/b647_table_navigator_memory.txt`, '
+         '`data/b647_deposit_description.txt`, `data/b647_reader_d5_compare.txt`, `data/b647_zenodo_read.txt`, `data/b647_census_columns.txt`, '
+         '`data/b647_build_peaks.json`, `data/b647_act_root.txt`.*' % n_ans, '',
+         '**Every kernel’s docstrings** (`(R257)`(2) and the author’s answer): every declaration docstring, field docstring, module header and '
+         'head block of each kernel of the chain at its main, read whole by helper readers from one banked brief and every non-MATCHES row read '
+         'whole by the seat; %d kernels, %d rows -- MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d. The generated rule’s verdict kept '
+         'beside each row: of the %d rows it read MATCHES, %d read otherwise whole. The three classes it cannot see, counted: a sorry-closed '
+         'theorem described as holding %d; an axiom-profile claim against a banked print %d; a module header claiming more than its file compiles '
+         '%d. Before any further row was read, every `sorry` on every kernel’s main was printed by file and line (37 in code, in three kernels). '
+         'N2 %s.' % (len(KJ) + 1, nrows, tot.get('MATCHES', 0), tot.get('UNDERSTATES', 0), tot.get('OVERREACHES', 0), tot.get('UNLICENSED', 0),
+                     gm, miss, cl['S'], cl['A'], cl['H'], sc('N2')), '',
+         '**The navigator’s memory** (`(R257)`(3)): the export read under its header’s rule, every sentence stating a fact about the corpus a row, '
+         'HAND with its lines cited; %d rows -- MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d; the rest counted and not banked. N3 %s.' % (
+             len(nav.get('rows') or []), nc.get('MATCHES', 0), nc.get('UNDERSTATES', 0), nc.get('OVERREACHES', 0), nc.get('UNLICENSED', 0), sc('N3')), '',
+         '**The description at v4** (`(R257)`(4)): the glossary gains “the surround” and “priced”; the composer’s four edits -- the glossed '
+         'passages, exhaustiveness said once, the open-premise phrase once in THE CLAIM and once in WHAT IS OPEN, the definitions at the '
+         'glossary’s one-sentence forms -- each with a test; %d bytes against v3’s %d. A fifth reader with no project memory answered the three '
+         'questions: %s of 3 by the needles, %s of 3 by hand. The draft %s’s description replaced and read back byte for byte (%s), its files '
+         'untouched, the draft held. N4 %s.' % (len(rd(V4).encode('utf-8')), len(rd(V3).encode('utf-8')), cmp_.get('needles'), cmp_.get('hand'),
+                                               K.DRAFT, zr.get('exact'), sc('N4')), '',
+         '**The watchdog on the process tree** (`(R257)`(5)): tools/build_watch.py samples the tree beneath the driver and prints its peak beside '
+         'the host’s low; its planted test passes; the tree’s peaks banked (%d rows). N1 %s.' % (len(peaks.get('rows') or []) if isinstance(peaks, dict)
+                                                                                             else len(peaks), sc('N1')), '',
+         '**The census columns** (`(R257)`(6)): b645’s cluster, phase and maturity rules applied to %d rows -- the roster’s keystones, the seven '
+         'companions and the kernels of (2); maturity assigned %d, blank and marked %d.' % (
+             len(cols), sum(1 for x in cols if x.get('maturity')), sum(1 for x in cols if not x.get('maturity'))), '',
+         '**The record lines** (`(R257)`(1)): b646 at its weight (FINDINGS :%s); W-ORD-HOLD-FOOTPRINT acted (OPEN_TRAILS :%s).' % (
+             ls[0].get('line'), ls[1].get('line')), '',
+         '**The root.** b647 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, sc(k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): the kernels’ rows join the monograph’s and the companions’ as the re-cuts’ agenda; the '
+         'sorry census and the three classes show where a docstring and its kernel part, which the generated rule could not; the navigator’s '
+         'memory is read by the same table as the seat’s. It strengthens the programme’s offering of statements a reader can check: every '
+         'kernel’s own description of itself now stands beside what the kernel compiles.', '',
+         '**Next.** Per `(R257)`(7), the author’s word pending: b648, the two pages through the table, the census at v0.8, and the order of the '
+         're-cuts raised to the author with the agenda’s counts per document; b650 the reading act per `(R256)`(6).', '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; a verdict compares a sentence with a licence and confers none.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the textual kernels read whole by helper readers, the seat reading every non-MATCHES row, by the author`s answer; (2) the '
+              'twenty kernels no cluster rule places left blank and listed, not placed by hand; (3) the salt-check sentence kept at v3`s words, the '
+              'glossary having no entry for it; (4) four navigator units carrying a location or a label outside the corpus redacted in the bank, '
+              'their facts read; (5) N3`s "few" read as fewer rows than not rows; (6) a unit under a FILE line read at that file`s updated date; (7) '
+              'h1_complete_at_Phi`s docstring names h2 the Mellin transform`s nonvanishing where the description glosses h2 as the open clause, '
+              'recorded for the review pass, not repaired')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b647_scores.json', 'b647_findings.json', 'b647_record_lines.json', 'b647_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b647_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}]
+    tot, nrows, KJ = _ktot()
+    nav = jl('b647_table_navigator_memory.json')
+    nc = nav.get('counts') or {}
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R257) ratified.** (1) b646 at its weight. (2) Every kernel’s docstrings through the table. (3) The navigator’s memory through the '
+             'table. (4) The description at v4 with its glossary entries, a fifth reader, the draft held. (5) The watchdog on the process tree. (6) '
+             'The census columns extended. (7) The act after: b648.', '',
+             '**Entered:** FINDINGS.md:%s (b646’s weight), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-HOLD-FOOTPRINT acted); this record.' % (
+                 ls[0].get('line'), fj.get('entry_line'), ls[1].get('line')), '',
+             '**The kernels:** %d rows, MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d (relay data/b647_table_kernels.txt); the '
+             'navigator’s memory: %d rows, MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d, the non-MATCHES rows printed in full for '
+             'the navigator, who repairs its own files on the author’s word (relay data/b647_table_navigator_memory.txt).' % (
+                 nrows, tot.get('MATCHES', 0), tot.get('UNDERSTATES', 0), tot.get('OVERREACHES', 0), tot.get('UNLICENSED', 0), len(nav.get('rows') or []),
+                 nc.get('MATCHES', 0), nc.get('UNDERSTATES', 0), nc.get('OVERREACHES', 0), nc.get('UNLICENSED', 0)), '',
+             '**The draft:** %s, its description v4 read back byte for byte, its files untouched, held; nothing published; v4 sent to the author '
+             'as a file (relay data/b647_deposit_description.txt).' % K.DRAFT, '',
+             '**Act root:** b647 `%s` (previous `%s`, b646’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b647_author_answers.txt), none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b647_defects.txt): %s.' % '; '.join(DEFECT_SHORT), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** per `(R257)`(7), the author’s word pending, b648: the two pages through the table, the census at v0.8, the order of the '
+             're-cuts raised to the author with the agenda’s counts per document; b650 the reading act per `(R256)`(6).', '',
+             '**The sorries on the mains** (relay data/b647_sorry_census.txt): 37 in code in three kernels, 4 inside a built library; the standing rule, '
+             'no `sorry` reaches any `main`, stands refuted at those lines and is carried to the author.', '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b647_scores.json')
+    L = ['=' * 104, 'b647 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rd('b647_defects.txt').rstrip(NL).split(NL)
+    put_txt('b647_desk_notes.txt', L)
+
+
+def components(*a):
+    """data/b647_components.txt -- run after `findings` and `trail`; refuses when either bank is absent."""
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b647_scores.json', 'b647_findings.json', 'b647_trail.json', 'b647_record_lines.json', 'b647_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}]
+    tot, nrows, KJ = _ktot()
+    nav = jl('b647_table_navigator_memory.json')
+    L = ['b647 -- THE COMPONENTS, BANKED UNDER (R257).', '',
+         '### COMPONENT 0 : step zero (data/b647_ferry.txt, data/b647_stepzero.txt, data/b647_tests_stepzero.txt, data/b647_build_peaks.json) ; the '
+         'watchdog relay %s ; push-out relay %s ; N1 %s' % (K.WATCH_COMMIT, K.STEPZERO, S['N1'][0]),
+         '### COMPONENT 1 : b646`s weight FINDINGS :%s ; W-ORD-HOLD-FOOTPRINT OPEN_TRAILS :%s' % (ls[0].get('line'), ls[1].get('line')),
+         '### COMPONENT 2 : every kernel`s docstrings (data/b647_table_kernels.txt), %d rows ; the sorry census ; N2 %s' % (nrows, S['N2'][0]),
+         '### COMPONENT 3 : the navigator`s memory (data/b647_table_navigator_memory.txt), %d rows ; N3 %s' % (len(nav.get('rows') or []), S['N3'][0]),
+         '### COMPONENT 4 : the description at v4, the fifth reader, the draft held (data/b647_deposit_description.txt, data/b647_reader_d5_compare.txt, '
+         'data/b647_zenodo_read.txt) ; N4 %s' % S['N4'][0],
+         '### COMPONENT 5 : the census columns (data/b647_census_columns.txt)',
+         '### COMPONENT 6 : the seal (data/b647_seal_hashes.json) ; S5 %s' % S['S5'][0],
+         '### COMPONENT 7 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N5'][0])]
+    put_txt('b647_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    t, e = _finding_text()
+    e = R41._poss(e)
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE ENTRY -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'FINDINGS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b647_scanfile_entry.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '?;', ' ? ', '`?`') if x in e]
+    outside = [n for n in R41.OAI_NEEDLES if n in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s ; outside names %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN',
+                                                                                         unread or 'NONE', outside or 'NONE'))
+    if DRY:
+        print(e)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread or outside:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.FIND, t[:90])
+    r = Q.append_to(Q.FIND, e)
+    put_json('b647_findings.json', dict(entry_line=Q.line_of(Q.FIND, t[:90]), title=t, append=r))
+    print('  FINDINGS entry :%s' % Q.line_of(Q.FIND, t[:90]))
+
+
+def trail(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    e = R41._poss(_trail_text())
+    if e.count('`') % 2:
+        sys.exit('### ODD BACKTICKS IN THE RECORD -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'OPEN_TRAILS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b647_scanfile_trail.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '`?`') if x in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', unread or 'NONE'))
+    if DRY:
+        print(e[:9000])
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.OT, TRAIL_HEAD())
+    r = Q.append_to(Q.OT, e)
+    put_json('b647_trail.json', dict(line=Q.line_of(Q.OT, TRAIL_HEAD()), head=TRAIL_HEAD(), append=r))
+    print('  OPEN_TRAILS record :%s' % jl('b647_trail.json')['line'])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
