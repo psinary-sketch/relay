@@ -1123,6 +1123,98 @@ def compose_v3(rules=None, TR=None):
     return html
 
 
+def _parts_of(h):
+    """the five parts of a description, v2's (one <p> each, its head its first words) or v3's (a <p><strong> head, then its blocks), as text."""
+    if '<strong>' in h:
+        segs = re.split(r'<p><strong>(.*?)</strong></p>', h)
+        return [(segs[i] + '.', re.sub(r'<[^>]+>', ' ', segs[i + 1])) for i in range(1, len(segs) - 1, 2)]
+    out = []
+    for p in re.findall(r'<p>(.*?)</p>', h, re.S):
+        hd = [x for x in PART_HEADS if p.startswith(x)]
+        out.append((hd[0] if hd else '?', p[len(hd[0]):] if hd else p))
+    return out
+
+
+def describe(*a):
+    """data/b646_deposit_description.txt (v3, the HTML the draft takes) and .json, beside v2 (relay data/b644_deposit_description.txt):
+    composed by the record tool from banks under the four rules, the forbidden-content test run over it (b644's sealed `forbidden`), the
+    five parts in the ruled order, every tag in Zenodo's bank; refuses to write on any hit or unread figure."""
+    import hashlib
+    R4 = _R4()
+    html = compose_v3()
+    heads = re.findall(r'<p><strong>(.*?)</strong></p>', html)
+    order_ok = heads == [h.rstrip('.') for h in PART_HEADS]
+    hits = R4.forbidden(html)
+    unread = [m.group(0) for m in re.finditer(r'NOT READ|NOT BANKED|not in the table|None', html)]
+    print('  parts %d, in the ruled order %s ; forbidden hits %d ; unread %d ; bytes %d' % (len(heads), order_ok, len(hits), len(unread),
+                                                                                         len(html.encode('utf-8'))))
+    for h in hits + [('unread', u) for u in unread]:
+        print('    ### %s : %s' % h)
+    if DRY:
+        _write(os.path.join(SP, 'b646_deposit_description_dry.txt'), html.encode('utf-8'))
+        return
+    if hits or unread or not order_ok:
+        sys.exit('### A FORBIDDEN CONTENT, AN UNREAD FIGURE OR THE PARTS OUT OF ORDER -- NOTHING WRITTEN')
+    b = html.encode('utf-8')
+    _write(os.path.join(D, 'b646_deposit_description.txt'), b)
+    put_json('b646_deposit_description.json', dict(at=utc(), bytes=len(b), sha256=hashlib.sha256(b).hexdigest(), heads=heads, rules=list(RULES),
+                                                   order_ok=order_ok, forbidden=hits, v2_bytes=len(rd(V2).encode('utf-8'))))
+    print('  written: data/b646_deposit_description.txt %d bytes, sha256 %s' % (len(b), hashlib.sha256(b).hexdigest()[:16]))
+
+
+def desc_diff(*a):
+    """data/b646_desc_diff.txt: v2 against v3, by part -- each part's bytes in each, the change in bytes, and what moved: the tokens the
+    change-invariance check (b644's sealed `invariance`) reads as lost and added, printed for the reader; the whole's bytes."""
+    R4 = _R4()
+    v2, v3 = rd(V2), rd('b646_deposit_description.txt')
+    if not v3:
+        sys.exit('### v3 IS NOT BANKED -- RUN `describe` FIRST')
+    p2, p3 = dict(_parts_of(v2)), dict(_parts_of(v3))
+    L = ['b646 -- COMPONENT 4, (R256)(4): THE DESCRIPTION, v2 AGAINST v3, BY PART (%s)' % utc(), '',
+         '### v2: relay data/%s, %d bytes ; v3: relay data/b646_deposit_description.txt, %d bytes ; the change %+d bytes' % (
+             V2, len(v2.encode('utf-8')), len(v3.encode('utf-8')), len(v3.encode('utf-8')) - len(v2.encode('utf-8'))), '']
+    for h in PART_HEADS:
+        a, b = p2.get(h, ''), p3.get(h, '')
+        lost, added = R4.invariance('<p>%s</p>' % a, '<p>%s</p>' % b)
+        L += ['### %s v2 %d bytes (text) ; v3 %d bytes (text, tags removed) ; %+d' % (h, len(a.encode('utf-8')), len(b.encode('utf-8')),
+                                                                                   len(b.encode('utf-8')) - len(a.encode('utf-8'))),
+              '    tokens lost: %s' % (sorted(lost.items()) or 'none'), '    tokens added: %s' % (sorted(added.items()) or 'none')]
+    L += ['', '### ### **v2 %d BYTES ; v3 %d BYTES ; v3 SHORTER %s.**' % (len(v2.encode('utf-8')), len(v3.encode('utf-8')),
+                                                                       'YES' if len(v3.encode('utf-8')) < len(v2.encode('utf-8')) else 'NO')]
+    put_txt('b646_desc_diff.txt', L)
+    print(NL.join(L[2:]))
+
+
+def desc_test(*a):
+    """data/b646_desc_test.txt: the forbidden-content test rerun (b644's sealed `forbidden`), by planted text -- one plant per forbidden kind
+    (a hit of that kind expected), the ceiling's denial (no hit), and v3 as banked (no hit) -- each case counted; and the composer's rule
+    tests (tools/test_composer_b646.py) run and counted beside it."""
+    R4 = _R4()
+    cases = [('an act number', '<p>composed at b643.</p>', 'an act number'),
+             ('a bank path', '<p>read from data/b643_premise_table.json.</p>', 'a bank path'),
+             ('root arithmetic', '<p>root e583d138ea28f97569fe859a5826996bda1cebe83fac102cf9821b6a1b2c3d4.</p>', 'root arithmetic'),
+             ('a provenance count', '<p>the rows are 209 cell and 1707 rule.</p>', 'a provenance count'),
+             ('an outside collection', '<p>read beside %s.</p>' % (R4.OUTSIDE_NEEDLES[0] if R4.OUTSIDE_NEEDLES else 'X'), 'an outside collection'),
+             ('a banned stem', '<p>a ' + 'ga' + 'p remains.</p>', 'a banned stem'),
+             ('the unsupported sentence asserted', '<p>The programme shows that RH is proved.</p>', 'the unsupported sentence asserted'),
+             ('the ceiling denied (no hit)', '<p>Not supported: that RH is proved; the corpus does not claim it.</p>', None),
+             ('v3 as banked (no hit)', rd('b646_deposit_description.txt'), None)]
+    L = ['b646 -- COMPONENT 4: THE DESCRIPTION`S FORBIDDEN-CONTENT TEST, RERUN BY PLANTED TEXT, AND THE COMPOSER`S RULE TESTS (%s)' % utc(), '']
+    n = 0
+    for i, (label, text, want) in enumerate(cases, 1):
+        hits = R4.forbidden(text)
+        ok = (any(k == want for k, _m in hits) if want else (not hits and bool(text)))
+        n += ok
+        L.append('  (%d) %-40s hits %s ; %s' % (i, label, [k for k, _m in hits][:4], 'PASS' if ok else '### FAIL'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'test_composer_b646.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    L += ['', '### THE FORBIDDEN-CONTENT TEST: %d of %d cases as wanted -- %s' % (n, len(cases), 'PASS' if n == len(cases) else 'FAIL'), '',
+          '### THE COMPOSER`S RULE TESTS (tools/test_composer_b646.py), exit %d:' % r.returncode] + ['  ' + x for x in (r.stdout or '').rstrip(NL).split(NL)]
+    L += ['', '### ### **FORBIDDEN-CONTENT %d of %d ; RULE TESTS EXIT %d.**' % (n, len(cases), r.returncode)]
+    put_txt('b646_desc_test.txt', L)
+    print(NL.join(L[-3:]))
+
+
 def zenodo_tags(*a):
     """data/b646_zenodo_tags.txt and .json: (R256)(4)(b) -- Zenodo's documentation of the HTML its description accepts, read at source (the
     page as fetched, in the scratchpad, its sha256 checked), the sentence quoted verbatim and the tag list parsed from it -- banked before the
