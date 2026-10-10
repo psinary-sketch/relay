@@ -1406,6 +1406,106 @@ def carried(*a):
         sys.exit(1)
 
 
+# ================================================================================ THE DRAFT'S DESCRIPTION, (R256)(4): b644's route, carried
+# ### b639's http (the token in the Authorization header alone, the User-Agent naming the act); the draft's description replaced by v3's bank,
+# ### every other metadata key carried, no file touched, nothing published; read back once; HELD.
+ZRES = 'b646_zenodo.json'
+
+
+def _jx(b):
+    try:
+        return json.loads(b.decode('utf-8'))
+    except Exception:
+        return None
+
+
+def _straight(s):
+    return s.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"')
+
+
+def _zmerge(cells):
+    R = jl(ZRES) if os.path.exists(os.path.join(D, ZRES)) else {}
+    R.update(cells)
+    put_json(ZRES, R)
+
+
+def z_desc(*a):
+    """data/b646_zenodo_desc.txt: draft K.DRAFT read once (unsubmitted, or nothing done) and its metadata PUT once with the description v3's bank
+    (relay data/b646_deposit_description.txt), every other key carried; the prior description's bytes and digest banked, not its text; the file
+    list before banked for the read-back; nothing published. Refuses to run twice."""
+    import hashlib
+    import b639_record as R39
+    if not R39._tok():
+        sys.exit('### THE TOKEN IS NOT SET -- NO CALL MADE')
+    if os.path.exists(os.path.join(D, ZRES)) and jl(ZRES).get('desc'):
+        sys.exit('### THE DESCRIPTION HAS BEEN REPLACED -- IT DOES NOT RUN TWICE')
+    v3 = open(os.path.join(D, 'b646_deposit_description.txt'), 'rb').read().decode('utf-8')
+    base = '%s/deposit/depositions/%s' % (K.API if hasattr(K, 'API') else 'https://zenodo.org/api', K.DRAFT)
+    st, b = R39.http('GET', base)
+    d = _jx(b) or {}
+    if st != 200 or d.get('submitted') or str(d.get('id')) != K.DRAFT:
+        sys.exit('### THE DRAFT IS NOT AN UNSUBMITTED %s (HTTP %d) -- NOTHING DONE' % (K.DRAFT, st))
+    md = dict(d.get('metadata') or {})
+    old = md.get('description') or ''
+    files = [dict(name=f.get('filename'), checksum=f.get('checksum'), size=f.get('filesize')) for f in d.get('files') or []]
+    md['description'] = v3
+    sp, bp = R39.http('PUT', base, body={'metadata': md})
+    hx = lambda s: hashlib.sha256(s.encode('utf-8')).hexdigest()
+    L = ['b646 -- THE ROUTE, THE DRAFT`S DESCRIPTION REPLACED BY v3 (%s)' % utc(), '',
+         '### GET the draft %s : HTTP %d ; state %s ; submitted %s ; %d files' % (K.DRAFT, st, d.get('state'), d.get('submitted'), len(files)),
+         '### the description before : %d bytes, sha256 %s ; v2`s bank %d bytes, sha256 %s ; the draft held v2: %s' % (
+             len(old.encode('utf-8')), hx(old), len(rd(V2).encode('utf-8')), hx(rd(V2)), old == rd(V2) or _straight(old) == _straight(rd(V2))),
+         '### PUT metadata (the description v3`s bank, %d bytes, sha256 %s ; %d keys carried) : HTTP %d' % (len(v3.encode('utf-8')), hx(v3), len(md), sp),
+         '', '### ### **CALLS 2 ; THE PUT %s ; NO FILE TOUCHED ; NOTHING PUBLISHED.**' % ('ACCEPTED' if sp in (200, 201) else '### REFUSED HTTP %d' % sp)]
+    put_txt('b646_zenodo_desc.txt', L)
+    _zmerge(dict(desc=dict(get=st, put=sp, before_bytes=len(old.encode('utf-8')), before_sha256=hx(old), v3_sha256=hx(v3), files_before=files,
+                           at=utc())))
+    print(NL.join(L[2:]))
+
+
+def z_read(*a):
+    """data/b646_zenodo_read.txt: the draft read back once -- identifier, title, version, state; the description against v3's bank byte for byte and
+    digest for digest (and up to quote straightening); the file list against the one z_desc banked, name, checksum and size."""
+    import hashlib
+    import b639_record as R39
+    base = 'https://zenodo.org/api/deposit/depositions/%s' % K.DRAFT
+    st, b = R39.http('GET', base)
+    d = _jx(b) or {}
+    md = d.get('metadata') or {}
+    bank = open(os.path.join(D, 'b646_deposit_description.txt'), 'rb').read().decode('utf-8')
+    back = md.get('description') or ''
+    exact = back == bank
+    dig = hashlib.sha256(back.encode('utf-8')).hexdigest() == hashlib.sha256(bank.encode('utf-8')).hexdigest()
+    fb = (jl(ZRES).get('desc') or {}).get('files_before') or []
+    fa = [dict(name=f.get('filename'), checksum=f.get('checksum'), size=f.get('filesize')) for f in d.get('files') or []]
+    key = lambda x: sorted((f['name'], f['checksum'], f['size']) for f in x)
+    files_same = bool(fb) and key(fa) == key(fb)
+    L = ['b646 -- THE ROUTE, THE DRAFT READ BACK AFTER THE DESCRIPTION`S REPLACEMENT (%s)' % utc(), '',
+         '### GET the draft : HTTP %d ; identifier %s ; state %s ; submitted %s ; title %s ; version %s' % (
+             st, d.get('id'), d.get('state'), d.get('submitted'), md.get('title'), md.get('version')),
+         '### the description : %d characters back against the bank`s %d ; byte for byte %s ; digest for digest %s ; equal up to quote straightening %s' % (
+             len(back), len(bank), exact, dig, _straight(back) == _straight(bank)),
+         '### the files : %d back against %d before the PUT ; name, checksum and size the same %s' % (len(fa), len(fb), files_same), '',
+         '### ### **THE DESCRIPTION BYTE FOR BYTE %s AND DIGEST FOR DIGEST %s ; THE FILES UNTOUCHED %s ; THE DRAFT %s SUBMITTED %s -- NOTHING '
+         'PUBLISHED.**' % (exact, dig, files_same, d.get('id'), d.get('submitted'))]
+    put_txt('b646_zenodo_read.txt', L)
+    _zmerge(dict(read=dict(get=st, id=d.get('id'), state=d.get('state'), submitted=d.get('submitted'), exact=exact, digest=dig,
+                           straight=_straight(back) == _straight(bank), files_same=files_same, n_files=len(fa), at=utc())))
+    print(NL.join(L[2:]))
+
+
+def z_hold(*a):
+    """data/b646_zenodo_hold.txt: the draft HELD, (R256)(4): its state read once and banked; publish is the author's word in a later act."""
+    import b639_record as R39
+    st, b = R39.http('GET', 'https://zenodo.org/api/deposit/depositions/%s' % K.DRAFT)
+    d = _jx(b) or {}
+    L = ['b646 -- THE DRAFT HELD, (R256)(4) (%s)' % utc(), '', '### the draft %s : HTTP %d ; state %s ; submitted %s ; nothing published; v3 sent to '
+         'the author as a file (relay data/b646_deposit_description.txt)' % (K.DRAFT, st, d.get('state'), d.get('submitted'))]
+    put_txt('b646_zenodo_hold.txt', L)
+    _zmerge(dict(hold=dict(id=K.DRAFT, state=d.get('state'), submitted=d.get('submitted'), at=utc())))
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
