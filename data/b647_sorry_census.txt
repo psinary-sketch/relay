@@ -1,0 +1,239 @@
+b647 -- EVERY sorry ON EVERY KERNEL`S MAIN AT ITS CURRENT HEAD, BY FILE AND LINE (the author`s answer at Component 2; the standing rule: no sorry reaches any main) (2026-10-10T22:02:50Z)
+
+### read: git grep -n -w sorry at each SIDE-* repository`s main commit, every tracked .lean outside .lake/; a hit is CODE when the word stands in the line`s code part outside any block comment or doc string, a MENTION otherwise
+
+### BY KERNEL:
+  SIDE-archimedean                       main 8019d9d ; sorry in code 0 ; mentions 0
+  SIDE-bijection                         main a26f6f1 ; sorry in code 0 ; mentions 1
+  SIDE-bsd-formation-transfer            main 3491766 ; sorry in code 0 ; mentions 0
+  SIDE-bsd-multiplicity                  main d77ce30 ; sorry in code 0 ; mentions 0
+  SIDE-carrier-spec                      main b3916cc ; sorry in code 0 ; mentions 7
+  SIDE-class-coupling                    main b6a6e86 ; sorry in code 0 ; mentions 2
+  SIDE-class-number-anomaly              main 2203b88 ; sorry in code 0 ; mentions 1
+  SIDE-compression                       main e9a5a36 ; sorry in code 0 ; mentions 0
+  SIDE-constants                         main 545dde2 ; sorry in code 0 ; mentions 3
+  SIDE-cosmo                             main c5cba30 ; sorry in code 0 ; mentions 0
+  SIDE-coupling                          main 42b5e4e ; sorry in code 0 ; mentions 4
+  SIDE-cubit-axis                        main e0a2aec ; sorry in code 0 ; mentions 1
+  SIDE-dark-interface                    main f4a1ea6 ; sorry in code 0 ; mentions 0
+  SIDE-dirichlet-mod-24                  main 597b086 ; sorry in code 0 ; mentions 1
+  SIDE-effects                           main ef4cff7 ; sorry in code 3 ; mentions 7
+  SIDE-explicit-formula                  main 82550e4 ; sorry in code 0 ; mentions 12
+  SIDE-fano-darkness                     main 0f6ce5b ; sorry in code 0 ; mentions 0
+  SIDE-formation-arithmetic              main ef0fcf1 ; sorry in code 0 ; mentions 3
+  SIDE-formation-procedure               main 65ace65 ; sorry in code 0 ; mentions 0
+  SIDE-frobenius                         main 2efe9f2 ; sorry in code 0 ; mentions 0
+  SIDE-global-section                    main 17ce9ff ; sorry in code 0 ; mentions 29
+  SIDE-grh-transfer                      main 858cbf6 ; sorry in code 0 ; mentions 0
+  SIDE-interfaces                        main cbdcd5f ; sorry in code 0 ; mentions 1
+  SIDE-kernel                            main 0256e9e ; sorry in code 32 ; mentions 30
+  SIDE-li-map                            main b515e6b ; sorry in code 0 ; mentions 0
+  SIDE-local-cosmic-interface            main 7a62ced ; sorry in code 0 ; mentions 0
+  SIDE-lv-conservation                   main 2f71068 ; sorry in code 2 ; mentions 23
+  SIDE-meta                              main 6bb7b23 ; sorry in code 0 ; mentions 3
+  SIDE-omega-b                           main 9c80279 ; sorry in code 0 ; mentions 1
+  SIDE-orchestrator                      main 5d0a341 ; sorry in code 0 ; mentions 3
+  SIDE-quaternionic-dark-sector          main e860142 ; sorry in code 0 ; mentions 0
+  SIDE-rcurve                            main d5f33b4 ; sorry in code 0 ; mentions 0
+  SIDE-residual-bridge                   main 5aa5ab7 ; sorry in code 0 ; mentions 1
+  SIDE-silence-principle                 main 667c254 ; sorry in code 0 ; mentions 0
+  SIDE-simplicity                        main 54ba4f3 ; sorry in code 0 ; mentions 0
+  SIDE-spinor                            main 520abe7 ; sorry in code 0 ; mentions 0
+  SIDE-spinor-calibration                main 1d219d8 ; sorry in code 0 ; mentions 2
+  SIDE-spinor-calibration-mathlib        main 21b36aa ; sorry in code 0 ; mentions 1
+  SIDE-structural-error-correction       main 6bf19ab ; sorry in code 0 ; mentions 0
+  SIDE-substrate-cluster                 main 2e76426 ; sorry in code 0 ; mentions 9
+  SIDE-t7-topology-cmb                   main 936cd65 ; sorry in code 0 ; mentions 0
+  SIDE-trivium                           main 1aac3a9 ; sorry in code 0 ; mentions 1
+  SIDE-window                            main 3dab5f4 ; sorry in code 0 ; mentions 0
+  SIDE-yang-mills-formation              main 73e9e2c ; sorry in code 0 ; mentions 0
+
+### EVERY sorry IN CODE, BY FILE AND LINE (BUILT: the file inside a lean_lib of the kernel`s lakefile at the commit; TRACKED ONLY: on main, outside every lean_lib):
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:32 | BUILT | sorry  -- MILESTONE: Hardy-Littlewood asymptotic
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:49 | BUILT | sorry  -- MILESTONE: circle method or Helfgott-style approach
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:63 | BUILT | sorry  -- MILESTONE: sieve density bounds
+  SIDE-kernel@0256e9e:legacy/CodimProbe.lean:60 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/CodimProbe.lean:78 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:14 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:32 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:41 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:49 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/FmodifProbe2.lean:26 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/FmodifProbe2.lean:75 | TRACKED ONLY | sorry  -- see what remains
+  SIDE-kernel@0256e9e:legacy/IdentityBuild1.lean:156 | TRACKED ONLY | sorry -- need HasDerivAt → HasStrictDerivAt for analytic functions
+  SIDE-kernel@0256e9e:legacy/IdentityBuild1.lean:171 | TRACKED ONLY | sorry -- induction using simple_zero_isolated
+  SIDE-kernel@0256e9e:legacy/IdentityBuild1.lean:213 | TRACKED ONLY | sorry -- need to construct from deriv f z₀ ≠ 0
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:96 | TRACKED ONLY | sorry -- bookkeeping: rearrange factors to use h_prod and hp_ne
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:130 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild10.lean:59 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild11.lean:61 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild12.lean:56 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild13.lean:53 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild14.lean:54 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild2.lean:111 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild2.lean:113 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild3.lean:42 | TRACKED ONLY | sorry  -- will fill once we find the lemma name
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild3.lean:77 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild4.lean:56 | TRACKED ONLY | sorry  -- PROBE: what does the goal look like after unfold?
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild4.lean:87 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild4.lean:108 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild5.lean:62 | TRACKED ONLY | sorry -- PROBE: see what remains
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild5.lean:114 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild6.lean:71 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild7.lean:68 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild8.lean:68 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild9.lean:58 | TRACKED ONLY | sorry
+  SIDE-kernel@0256e9e:legacy/SchwarzProbe2.lean:79 | TRACKED ONLY | sorry
+  SIDE-lv-conservation@2f71068:PinnedGoal.lean:23 | TRACKED ONLY | sorry
+  SIDE-lv-conservation@2f71068:SIDELvConservation/T3_StepNineBridge.lean:108 | BUILT | sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
+### sorry in code inside a built lean_lib: 4 ; on main outside every lean_lib: 33
+
+### EVERY MENTION, BY FILE AND LINE:
+  SIDE-bijection@a26f6f1:SIDEBijection/Theorem.lean:58 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:34 | 0 sorry, 0 native_decide.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/AdelicFrame.lean:22 | 0 sorry, 0 native_decide.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:23 | 0 sorry, 0 native_decide.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/IdempotentNoGo.lean:20 | 0 sorry, 0 native_decide.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Level.lean:27 | 0 sorry, 0 native_decide.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:24 | 0 sorry, 0 native_decide.
+  SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:40 | 0 sorry, 0 native_decide.
+  SIDE-class-coupling@b6a6e86:SIDEClassCoupling/Concrete.lean:17 | No Mathlib, no sorry, no axioms.
+  SIDE-class-coupling@b6a6e86:SIDEClassCoupling/Framework.lean:13 | No Mathlib, no sorry, no axioms.
+  SIDE-class-number-anomaly@2203b88:SIDEClassNumberAnomaly/Basic.lean:24 | Theorems: 17 (v0.2 adds triple_identification_diagonal; LV-H-2).  sorry: 0.  axioms: 0.
+  SIDE-constants@545dde2:PrimeMosaic.lean:6 | which introduces a compiler-trust axiom). Target: 0 sorry, 0 axioms.
+  SIDE-constants@545dde2:TerminusLambda.lean:6 | Target: 0 sorry, 0 axioms.
+  SIDE-constants@545dde2:TerminusParameters.lean:6 | Target: 0 sorry, 0 axioms. Same pattern as TerminusLambda.lean, extended from the single
+  SIDE-coupling@42b5e4e:SIDECoupling.lean:17 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-coupling@42b5e4e:SIDECoupling/AbstractSubstrate.lean:9 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-coupling@42b5e4e:SIDECoupling/Coupling.lean:9 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-coupling@42b5e4e:SIDECoupling/Projection.lean:18 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-cubit-axis@e0a2aec:SIDECubitAxis/Basic.lean:23 | Theorems: 28.  sorry: 0.  axioms: 0.
+  SIDE-dirichlet-mod-24@597b086:SIDEDirichletMod24/Basic.lean:27 | Theorems: 30.  sorry: 0.  axioms: 0.
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:13 | - is proved by sorry at the marked boundary
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:15 | When a milestone closes, its sorry is discharged in place and the
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:68 | Each sorry is at a clearly-marked analytic boundary with
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:74 | 2. Replace `sorry` with the proof using those lemmas
+  SIDE-effects@ef4cff7:SIDEEffects/Structural.lean:16 | 0 sorry and 0 axioms but said nothing about their named problems,
+  SIDE-effects@ef4cff7:SIDEEffects/Structural.lean:28 | existence statements, openly `sorry` at the analytic boundary.
+  SIDE-effects@ef4cff7:SIDEEffects/Structural.lean:89 | --     the analytic existence statements are openly `sorry` in
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/DetectionRegion.lean:7 | beside `j₀` and `detection_region`, whose bodies are `sorry`; the no-sorry rule keeps that branch off `main` whole, and
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/DetectionRegion.lean:8 | it stays HELD as it is. This file carries only what compiled there with no `sorry`: the finite positivity `h2_sign_upto`
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckDoubling.lean:19 | 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckKeiper.lean:18 | statement about the zeros of ζ. 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckKeiperSign.lean:14 | 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckNonvacuity.lean:15 | These are statements about premise structures; nothing here proves RH or GRH or locates any zero. 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckProduct.lean:17 | `riemannZeta`, of an Epstein zeta function, or of any product of L-functions. 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckSimplicity.lean:16 | 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/Schema/SaltCheckEpstein.lean:16 | 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/Schema/SaltCheckFamily.lean:19 | `riemannZeta`, of any `LFunction χ`, or of any Dedekind zeta function. 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:SIDEExplicitFormula/Schema/SaltCheckPlateauRamp.lean:16 | These are statements about test functions; nothing here is a statement about any zero. 0 sorry, 0 native_decide.
+  SIDE-explicit-formula@82550e4:Zeta23/FromPNTPlus/StrongPNTPrefix.lean:32 | PrimeNumberTheoremAnd/StrongPNT.lean (sorry-free prefix, truncated before JBlaschke/ZeroInequality).
+  SIDE-formation-arithmetic@ef0fcf1:SIDEFormationArithmetic.lean:13 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-formation-arithmetic@ef0fcf1:SIDEFormationArithmetic/Classes.lean:16 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-formation-arithmetic@ef0fcf1:SIDEFormationArithmetic/Core.lean:18 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-global-section@17ce9ff:Core/KLSilence.lean:30 | only-if is a NAMED OPEN STATEMENT (correspondence row; never a sorry — the
+  SIDE-global-section@17ce9ff:Core/PairingShadow.lean:16 | · NAMED OPEN STATEMENT (correspondence; never a sorry): the NOWHERE-FLAT general-dims
+  SIDE-global-section@17ce9ff:Core/PlancherelShadow.lean:37 | structure) — a NAMED OPEN STATEMENT in the correspondence, never a sorry; nothing
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:44 | ## THE NAMED OPEN STATEMENT (correspondence row; never a sorry).
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:52 | docstring and in the CORRESPONDENCE row, carried by NO `sorry` and by NO
+  SIDE-global-section@17ce9ff:Core/SinglePrimeFactor.lean:54 | occurrences of `sorry` and this module adds none.
+  SIDE-global-section@17ce9ff:Core/TensorSquareShadow.lean:7 | THE KERNEL-PURITY RULING governs: no sorry; only proved decide instances.
+  SIDE-global-section@17ce9ff:Core/ThetaShadow.lean:30 | stated, not proved, in the owner file; never a sorry), as does the operator-level
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:15 | proved longhand act 9, its formalization file D's labeled sorry) with the volume
+  SIDE-global-section@17ce9ff:Interfaces/FiniteInstanceIdentity.lean:38 | (relay/reports/2026-08-19-sorry-ledger-cleared.md) until they can enter proved.
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:17 | 2026-08-19 ruling (no sorry in a kernel) both former statements moved to the
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:18 | working layer (relay/reports/2026-08-19-sorry-ledger-cleared.md, items 2-3)
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:36 | /-- `F⁴ = 1` on the global section — PROVED from the fields, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/GlobalSection.lean:42 | LocalLimit abstract theorem's argument), no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:4 | cecd0c4d56). DESIGN: the abstract Hilbert-space content is PROVED here (no sorry);
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:24 | positivity is a norm, by construction. PROVED, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:31 | itself, the pairing `⟪·, F ·⟫` has zero radical on it. PROVED, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:45 | from it, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:75 | projections; no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:90 | docstring stated. With `proj4_eigen`: the decomposition, discharged. No sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:108 | domination. No sorry.
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:193 | by the ε-lemma (build document §14). PROVED, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:202 | PROVED, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:217 | is an approximation scheme, never a restriction. PROVED, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:232 | file A proved for arbitrary p). PROVED, no sorry. -/
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:376 | /- THE REALIZATION over L²(ℚ_p): NOT claimed here. Per the 2026-08-19 ruling (no sorry
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:378 | (relay/reports/2026-08-19-sorry-ledger-cleared.md, item 1) until it can enter
+  SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:386 | the debt is recorded as a named stub, not a sorry: OWED TO DILATION THEORY. The
+  SIDE-global-section@17ce9ff:Interfaces/PadicFourier.lean:73 | /-- UNIT 1b (the non-member branch — PROVED, the era's ruling: no sorry in a kernel):
+  SIDE-interfaces@cbdcd5f:Interfaces/InterfaceSplit.lean:18 | proved (0 sorry) in the SIDE-interfaces kernel.  It carries the explicit
+  SIDE-kernel@0256e9e:AxiomCheck_C7Witness.lean:4 | -- Expected {propext, Classical.choice, Quot.sound}; 0 sorry, 0 native_decide.
+  SIDE-kernel@0256e9e:AxiomCheck_InvarianceBarrier.lean:5 | -- Expected: 0 sorry, 0 native_decide, and axiom-free (DERIVES).
+  SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:49 | Target: 0 sorry, 0 axioms beyond Mathlib core
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:14 | Named hypothesis (ξ pattern), not sorry.
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:33 | ConservationHypothesis (ξ pattern, existential form). Zero sorry. -/
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:41 | Conditional on ConservationHypothesis. Zero sorry.
+  SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:52 | /-- The Riemann Hypothesis, conditional on Conservation. Zero sorry. -/
+  SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:24 | `0 sorry`. `0 axioms` beyond Lean foundationals.
+  SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:12 | All verified by decide. 0 sorry. 0 axioms.
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:64 | Zero sorry. The three case splits close from the hypotheses. -/
+  SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:88 | /-- SIDE exclusion bridge, conditional on RH + Simplicity. Zero sorry. -/
+  SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:19 | - 0 sorry. Vanilla Lean 4 core only, toolchain v4.29.0-rc8.
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:69 | - each with forces := Voice theorem (compiled, 0 sorry)
+  SIDE-kernel@0256e9e:Kernel/Formation.lean:76 | The ForwardCatalogue framework does NOT introduce sorry.
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:18 | ZERO axioms. ZERO sorry. Every statement is either:
+  SIDE-kernel@0256e9e:Kernel/Integration.lean:205 | Each field references an existing compiled theorem. 0 sorry. -/
+  SIDE-kernel@0256e9e:Kernel/RH.lean:23 | -- Every imported module compiles with 0 sorry.
+  SIDE-kernel@0256e9e:Kernel/ThomBridge.lean:50 | -- is proved with 0 axioms, 0 sorry.
+  SIDE-kernel@0256e9e:Kernel/Voice2.lean:27 | PROVED: zero axioms, zero sorry.
+  SIDE-kernel@0256e9e:Kernel/Voice3b.lean:62 | PROVED: zero axioms, zero sorry.
+  SIDE-kernel@0256e9e:Kernel/Voice5.lean:36 | PROVED: zero axioms, zero sorry.
+  SIDE-kernel@0256e9e:Kernel/Voice6.lean:33 | PROVED: zero axioms, zero sorry.
+  SIDE-kernel@0256e9e:Kernel/Voice7.lean:41 | PROVED: zero axioms, zero sorry.
+  SIDE-kernel@0256e9e:Kernel/Voice7Witness.lean:51 | existing files. 0 sorry, 0 native_decide.
+  SIDE-kernel@0256e9e:MetaKernel.lean:25 | 0 sorry
+  SIDE-kernel@0256e9e:MetaKernel.lean:500 | All theorems discharge without sorry.
+  SIDE-kernel@0256e9e:MetaKernel.lean:504 | The proof kernel is in Kernel.Root (63 files, 0 sorry, 0 axioms).
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:6 | -- What does the sorry goal look like?
+  SIDE-kernel@0256e9e:legacy/FmodifProbe2.lean:6 | -- The goal (from Build14 sorry) is:
+  SIDE-kernel@0256e9e:legacy/WeilThomProbe.lean:69 | -- We proved: hasDerivAt_zeta_line (sorry for IsScalarTower)
+  SIDE-lv-conservation@2f71068:AxiomCheck.lean:17 | (FINDINGS F.2026-07-09-b) — this is the intended `sorry` and its
+  SIDE-lv-conservation@2f71068:PinnedGoal.lean:8 | guarantees the reproduced goal is *literally* the goal at the `sorry`
+  SIDE-lv-conservation@2f71068:PinnedGoal.lean:16 | -- exact term Lean is asked to construct when the `sorry` fires.
+  SIDE-lv-conservation@2f71068:PinnedGoal.lean:22 | -- actual pinned goal.  Left as `sorry` deliberately, mirroring T3.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/AxiomCheck_v0_10_0.lean:15 | --  the one intended sorry; excluded here by design.)
+  SIDE-lv-conservation@2f71068:SIDELvConservation/CompositionBarrier.lean:35 | 0 sorry, 0 native_decide. HELD where kernel lands; nothing deposits.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/CouplingsAtPhi.lean:44 | available the obligation carries a `sorry` and says why — it is not discharged by weakening the
+  SIDE-lv-conservation@2f71068:SIDELvConservation/FieldLayer.lean:42 | 0 sorry, 0 native_decide.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/Genus5.lean:36 | 0 sorry, 0 native_decide.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/Genus5Confinement.lean:35 | 0 sorry, 0 native_decide.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/LeadLaw.lean:44 | 0 sorry, 0 native_decide.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/PartialPositivity.lean:11 | (one external-computation + two classical, neither in Mathlib), no `sorry`.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/QWantedPoster.lean:47 | 0 sorry, 0 native_decide. HELD on the held branch; nothing deposits.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/RegisterPentagon.lean:59 | reflects to mechanism level"; its native shadow is the T3 pinned `∀∃⟹∃∀` (the open `sorry`
+  SIDE-lv-conservation@2f71068:SIDELvConservation/RegisterPentagon.lean:67 | This module adds **no** `sorry`.  All faces are Prop definitions; all edges are documented
+  SIDE-lv-conservation@2f71068:SIDELvConservation/RegisterPentagon.lean:138 | `sorry` at :108) — manuscript-resident; stated here as the register's face, NOT compiled. -/
+  SIDE-lv-conservation@2f71068:SIDELvConservation/RegisterPentagon.lean:201 | NOT-COMPILED list (documented in the header, never a `sorry`). -/
+  SIDE-lv-conservation@2f71068:SIDELvConservation/RegisterPentagon.lean:261 | /-! ### INTERFACES edges (named premise explicit, ξ-pattern — never a sorry) -/
+  SIDE-lv-conservation@2f71068:SIDELvConservation/SaltCheck_LeadLaw.lean:22 | 0 sorry, 0 native_decide.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/T3_StepNineBridge.lean:31 | Per work-order T3 rules, we STOP at this step with one pinned `sorry`
+  SIDE-lv-conservation@2f71068:SIDELvConservation/T3_StepNineBridge.lean:106 | -- STOP per work-order T3 rules — one `sorry`, no weakened statement,
+  SIDE-lv-conservation@2f71068:SIDELvConservation/TwoSidesIdentity.lean:36 | 0 sorry, 0 native_decide.
+  SIDE-lv-conservation@2f71068:SIDELvConservation/ZeroCarrier.lean:20 | 5e932f97); no `sorry`.
+  SIDE-meta@6bb7b23:SIDEMeta/Meta/Kappa.lean:44 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-meta@6bb7b23:SIDEMeta/Meta/MechanismClasses.lean:83 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-meta@6bb7b23:SIDEMeta/Meta/SIDESystem.lean:41 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-omega-b@9c80279:SIDEOmegaB/Theorem.lean:65 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-orchestrator@5d0a341:SIDEOrchestrator.lean:23 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-orchestrator@5d0a341:SIDEOrchestrator/Spiraling.lean:17 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-orchestrator@5d0a341:SIDEOrchestrator/Vendored.lean:18 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-residual-bridge@5aa5ab7:SIDEResidualBridge/Bridge.lean:17 | Every theorem closes by decide. No Mathlib, no sorry, no axioms.
+  SIDE-spinor-calibration@1d219d8:SIDESpinorCalibration/Basic.lean:19 | Theorems: 20.  sorry: 0.  axioms: 0.
+  SIDE-spinor-calibration@1d219d8:SIDESpinorCalibration/FrobeniusCalibration.lean:17 | 0 sorry / 0 axioms (literal: every theorem depends on no axioms). Build-verified on v4.29.0-rc8.
+  SIDE-spinor-calibration-mathlib@21b36aa:SIDESpinorCalibrationMathlib/CalibrationZeta.lean:21 | Verified (Mathlib v4.29.1): 0 sorry, no native_decide, axioms = Mathlib core (propext, Classical.choice, Quot.sound).
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Cluster.lean:34 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/FanoLabeling.lean:36 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/MuClassifier.lean:11 | no sorry, no axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/PairingObstruction.lean:10 | Vanilla Lean 4, no Mathlib, no sorry, no axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/StabRefutation.lean:4 | -- Vanilla Lean 4, no Mathlib, decide-only (0 sorry, 0 axioms).
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/SteaneLabeling.lean:43 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/Substrate.lean:69 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/T7Labeling.lean:37 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-substrate-cluster@2e76426:SIDESubstrateCluster/TriviumLabeling.lean:50 | Vanilla Lean 4. No Mathlib. No sorry. No axioms.
+  SIDE-trivium@1aac3a9:Trivium/Bijection.lean:44 | Target: 0 sorry, 0 axioms beyond Mathlib core
+
+### ### **KERNELS READ 44 ; sorry IN CODE 37 IN 3 KERNELS ; MENTIONS 146.**

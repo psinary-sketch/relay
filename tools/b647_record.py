@@ -440,6 +440,279 @@ def kdocs_yield(*a):
     print('  TOTAL %s' % dict(tot))
 
 
+def sorries(*a):
+    """data/b647_sorry_census.txt and .json: the author's answer at Component 2 -- before any further row is read, every `sorry` on every
+    kernel's main at its current head, by file and line (git grep -n -w at the main commit, every .lean the main tracks outside .lake/),
+    each occurrence classed as a sorry in code (a tactic or term on a line whose code part names it) or a mention (in a comment or a doc
+    string). The standing rule: no sorry reaches any main. Every line goes to the closing in full."""
+    ks = sorted(d for d in os.listdir('D:/') if d.startswith('SIDE-') and os.path.isdir(os.path.join('D:/', d, '.git')))
+    J, L = {}, []
+    tot = collections.Counter()
+    for k in ks:
+        rev = g('D:/' + k, 'rev-parse', '--short=7', 'main').strip()
+        if not rev:
+            continue
+        hits = []
+        out = g('D:/' + k, 'grep', '-n', '-w', 'sorry', rev, '--', '*.lean')
+        for l in out.split(NL):
+            m = re.match(r'^[0-9a-f]+:(.+?):(\d+):(.*)$', l)
+            if not m or m.group(1).startswith('.lake/'):
+                continue
+            f, ln, txt = m.group(1), int(m.group(2)), m.group(3)
+            code = txt.split('--', 1)[0]
+            # ### a line inside a block comment or doc string reads as a mention; the block state is read from the file at the commit
+            hits.append(dict(file=f, line=ln, text=txt.strip()[:200], code_word=bool(re.search(r'\bsorry\b', code))))
+        if hits:
+            texts = {}
+            for h in hits:
+                if h['file'] not in texts:
+                    texts[h['file']] = (_show('D:/' + k, rev, h['file']) or '').replace(chr(13), '').split(NL)
+                ls = texts[h['file']]
+                depth = 0
+                for i, x in enumerate(ls[:h['line']], 1):
+                    pre = x if i < h['line'] else x[:x.find('sorry') if 'sorry' in x else len(x)]
+                    depth += pre.count('/-') - pre.count('-/')
+                h['kind'] = 'code' if (h['code_word'] and depth <= 0) else 'mention'
+            # ### built or not: the file under a lean_lib's `.submodules` glob or named as a lean_lib root in the lakefile at the commit
+            # ### a lean_lib builds its roots (explicit `roots`, else its own name -- Lake's default) and every module they import, and
+            # ### every module under a `.submodules` glob; the closure is read from the files' imports at the commit (lakefile.lean or .toml)
+            lk = (_show('D:/' + k, rev, 'lakefile.lean') or '') + NL + (_show('D:/' + k, rev, 'lakefile.toml') or '')
+            subs = re.findall(r'\.submodules\s+`([\w.]+)', lk)
+            roots = [x.strip().lstrip('`').strip('"') for r in re.findall(r'roots\s*:?=\s*#?\[([^\]]*)\]', lk) for x in r.split(',') if x.strip()]
+            for blk in re.split(r'(?=lean_lib\s+\w+|\[\[lean_lib\]\])', lk)[1:]:
+                nm = re.match(r'lean_lib\s+(\w+)', blk) or re.search(r'name\s*=\s*"([\w.]+)"', blk)
+                if nm and not re.search(r'roots\s*:?=|globs\s*:?=', blk):
+                    roots.append(nm.group(1))
+            tracked = set(x[:-5].replace('/', '.') for x in g('D:/' + k, 'ls-tree', '-r', '--name-only', rev).split(NL) if x.endswith('.lean'))
+            built, todo = set(), [r for r in roots if r in tracked]
+            built |= set(m for m in tracked for s in subs if m == s or m.startswith(s + '.'))
+            todo += list(built)
+            while todo:
+                m = todo.pop()
+                built.add(m)
+                src = _show('D:/' + k, rev, m.replace('.', '/') + '.lean') or ''
+                for imp in re.findall(r'^\s*import\s+([\w.]+)', src, re.M):
+                    if imp in tracked and imp not in built:
+                        todo.append(imp)
+            for h in hits:
+                h['built'] = h['file'][:-5].replace('/', '.') in built
+        J[k] = dict(main=rev, hits=hits)
+        nc = sum(1 for h in hits if h['kind'] == 'code')
+        tot['code'] += nc
+        tot['mention'] += len(hits) - nc
+        L.append('  %-38s main %s ; sorry in code %d ; mentions %d' % (k, rev, nc, len(hits) - nc))
+    D_ = ['b647 -- EVERY sorry ON EVERY KERNEL`S MAIN AT ITS CURRENT HEAD, BY FILE AND LINE (the author`s answer at Component 2; the standing '
+          'rule: no sorry reaches any main) (%s)' % utc(), '',
+          '### read: git grep -n -w sorry at each SIDE-* repository`s main commit, every tracked .lean outside .lake/; a hit is CODE when the word '
+          'stands in the line`s code part outside any block comment or doc string, a MENTION otherwise', '', '### BY KERNEL:'] + L + ['']
+    D_ += ['### EVERY sorry IN CODE, BY FILE AND LINE (BUILT: the file inside a lean_lib of the kernel`s lakefile at the commit; TRACKED ONLY: on '
+           'main, outside every lean_lib):']
+    for k, v in J.items():
+        for h in v['hits']:
+            if h['kind'] == 'code':
+                D_.append('  %s@%s:%s:%d | %s | %s' % (k, v['main'], h['file'], h['line'], 'BUILT' if h['built'] else 'TRACKED ONLY', h['text']))
+    built = sum(1 for v in J.values() for h in v['hits'] if h['kind'] == 'code' and h['built'])
+    D_ += ['### sorry in code inside a built lean_lib: %d ; on main outside every lean_lib: %d' % (
+        built, sum(1 for v in J.values() for h in v['hits'] if h['kind'] == 'code') - built)]
+    D_ += ['', '### EVERY MENTION, BY FILE AND LINE:']
+    for k, v in J.items():
+        for h in v['hits']:
+            if h['kind'] == 'mention':
+                D_.append('  %s@%s:%s:%d | %s' % (k, v['main'], h['file'], h['line'], h['text']))
+    D_ += ['', '### ### **KERNELS READ %d ; sorry IN CODE %d IN %d KERNELS ; MENTIONS %d.**' % (
+        len(J), tot['code'], sum(1 for v in J.values() if any(h['kind'] == 'code' for h in v['hits'])), tot['mention'])]
+    put_txt('b647_sorry_census.txt', D_)
+    put_json('b647_sorry_census.json', dict(at=utc(), kernels=J, counts=dict(tot)))
+    print(NL.join(L))
+    print(D_[-1])
+
+
+# ================================================================================ COMPONENT 3: THE NAVIGATOR'S MEMORY, (R257)(3)
+# ### The export (relay data/b647_navigator_memory.txt, local and untracked) read through the licensed-statement table under the rule its
+# ### header states: a sentence stating a fact about the corpus is a row; a sentence about how a seat behaves, a deadline, a patent, a
+# ### location or anything personal is not a row and enters no relay bank -- its text is written nowhere, its count is. b646's seat-memory
+# ### route (tools/b646_record.py `mem_rule` .. `seat_memory`) carried: the unit a sentence, the reading at the dated heading's date, the
+# ### verdicts the same; no repair here -- the navigator repairs its own files on the author's word.
+NAV_SP = os.path.join(SP, 'nav')
+_MSPLIT = re.compile(r'(?<=[.!?])["\'*)\]]*\s+(?=\S)')
+NAV_RULE = [
+    'THE EXPORT: relay data/b647_navigator_memory.txt, four files between ==== lines; its header (before FILE 1) is the rule and no unit.',
+    'THE UNIT: a sentence of a file`s lines, a heading line included, split where . ! or ? (and any closing quote, asterisk or bracket) meets '
+    'whitespace; numbered fN:line.n by the export`s own line; every unit read.',
+    'A ROW: a unit asserting a fact about the corpus -- the programme`s papers, ledgers, registry, kernels, tags, commits, the relay`s banks '
+    'and tools, deposits and drafts, and what they contain. NOT A ROW, by the header`s rule: how a seat behaves (an instruction, a habit, a '
+    'preference, a rule of conduct), a deadline, a patent, a location, anything personal; its text enters no bank, its count does. A unit '
+    'mixing a conduct rule with a corpus fact is a row, judged on its facts.',
+    'THE READING: a unit under a dated heading (`Current state -- ... (verified 2026-07-29 ...)`, `... b526-b536 ...`, a FILE line`s '
+    '`updated` date) is read at the commits of its date or acts; an undated one at HEAD (relay and PLACE-papers main at the act); every fact '
+    'against the lines cited, each repo@commit:path:N.',
+    'MATCHES, UNDERSTATES, OVERREACHES, UNLICENSED as b646`s rule (relay data/b646_seat_memory_rule.txt (4)); the worst fact decides.',
+    'ACTION: MATCHES none; UNDERSTATES or OVERREACHES RE-CUT: the sentence as the lines license it, for the navigator; UNLICENSED RETIRE TO '
+    'ERRATA: why, or a work-order with a trigger. No repair is made by the seat.',
+    'THE SEAT: every non-MATCHES row read whole against its lines; a MATCHES sample of 35 drawn by seed 647 read and printed.',
+]
+
+
+def _nav_units():
+    """[(fileno, line, n, text)] over the export's four files; the header and the closing marker are no unit."""
+    ls = io.open(os.path.join(ROOT, *K.EXPORT.split('/')), encoding='utf-8').read().replace(chr(13), '').split(NL)
+    out, fno = [], 0
+    for i, l in enumerate(ls, 1):
+        m = re.match(r'^==== FILE (\d): ', l)
+        if m:
+            fno = int(m.group(1))
+            out.append((fno, i, 1, l.strip('= ').strip()))
+            continue
+        if l.startswith('==== END OF EXPORT') or not fno or not l.strip():
+            continue
+        for j, s in enumerate([s for s in _MSPLIT.split(l.strip()) if s.strip()], 1):
+            out.append((fno, i, j, s.strip()))
+    return out
+
+
+def nav_rule(*a):
+    """data/b647_nav_rule.txt: the unit, the row, the reading and the verdicts, printed before any helper reader reads a unit."""
+    import hashlib
+    b = open(os.path.join(ROOT, *K.EXPORT.split('/')), 'rb').read()
+    L = ['b647 -- COMPONENT 3: THE NAVIGATOR`S MEMORY THROUGH THE LICENSED-STATEMENT TABLE, THE RULE PRINTED BEFORE THE RUN (%s)' % utc(), '',
+         '### the export: relay %s, %d bytes, sha256 %s, untracked (written by the seat from the author`s paste, b646`s defect (j))' % (
+             K.EXPORT, len(b), hashlib.sha256(b).hexdigest()),
+         '### the table: relay tools/licensed_table.py, five cells, four verdicts, every row HAND with its lines cited', '']
+    L += ['  (%d) %s' % (i + 1, r) for i, r in enumerate(NAV_RULE)]
+    put_txt('b647_nav_rule.txt', L)
+    print(NL.join(L[2:]))
+
+
+def nav_units(*a):
+    """the scratchpad's nav/: the units chunked for the helper readers by file (FILE 1 in four chunks cut at line boundaries); no bank."""
+    os.makedirs(NAV_SP, exist_ok=True)
+    U = _nav_units()
+    chunks = []
+    for f in (1, 2, 3, 4):
+        us = [u for u in U if u[0] == f]
+        if f == 1:
+            size, cur, last = (len(us) + 3) // 4, [], None
+            for u in us:
+                if len(cur) >= size and u[1] != last:
+                    chunks.append(cur)
+                    cur = []
+                cur.append(u)
+                last = u[1]
+            if cur:
+                chunks.append(cur)
+        else:
+            chunks.append(us)
+    for n, c in enumerate(chunks, 1):
+        _write(os.path.join(NAV_SP, 'chunk_%02d.tsv' % n), ''.join('f%d:%d.%d\t%s\n' % (f, ln, j, s.replace('\t', ' ')) for f, ln, j, s in c).encode('utf-8'))
+        print('  chunk %02d: FILE %d :%d-:%d, %d units' % (n, c[0][0], c[0][1], c[-1][1], len(c)))
+    print('  units %d' % len(U))
+
+
+NAV_FIX = {}
+NAV_READ = set()
+NAV_SAMPLE = {}
+
+
+def _nav_rows():
+    U = dict(('f%d:%d.%d' % (f, ln, j), (f, ln, s)) for f, ln, j, s in _nav_units())
+    got, faults = collections.defaultdict(list), []
+    for p in sorted(os.listdir(NAV_SP)) if os.path.isdir(NAV_SP) else []:
+        if not re.match(r'^rows_\d\d\.tsv$', p):
+            continue
+        for raw in io.open(os.path.join(NAV_SP, p), encoding='utf-8'):
+            f = raw.rstrip('\n').rstrip('\r').split('\t')
+            if f[0].strip() and not f[0].startswith('#'):
+                got[f[0].strip()].append(f)
+    out = []
+    for uid, (fno, ln, s) in U.items():
+        fs = got.get(uid, [])
+        if len(fs) != 1:
+            faults.append('%s: %d judgements' % (uid, len(fs)))
+            continue
+        f = fs[0] + [''] * 6
+        cell = dict(kind=f[1].strip(), verdict=f[2].strip(), licensed=f[3].strip(), cited=f[4].strip(), action=f[5].strip())
+        cell.update(NAV_FIX.get(uid, {}))
+        if cell['kind'] == 'NOTCORPUS':
+            out.append((uid, fno, None))
+            continue
+        if cell['kind'] != 'ROW':
+            faults.append('%s: kind %r' % (uid, cell['kind']))
+            continue
+        out.append((uid, fno, dict(id=uid, source='%s:%d' % (K.EXPORT, ln), stated=s, licensed=cell['licensed'], verdict=cell['verdict'],
+                                   action=cell['action'], by='HAND', cited=[c.strip() for c in cell['cited'].split(';') if c.strip()],
+                                   file='FILE %d' % fno, fixed=uid in NAV_FIX)))
+    extra = sorted(set(got) - set(U))
+    if extra:
+        faults.append('judgements for no unit: %s' % extra[:10])
+    return out, faults
+
+
+def nav_check(*a):
+    import licensed_table as LT
+    out, faults = _nav_rows()
+    rows = [r for _u, _f, r in out if r]
+    faults += ['%s: %s' % (r['id'], '; '.join(LT.check(r))) for r in rows if LT.check(r)]
+    print('  units %d ; rows %d ; faults %d ; %s ; non-MATCHES unread %d' % (len(out), len(rows), len(faults),
+                                                                           dict(collections.Counter(r['verdict'] for r in rows)),
+                                                                           sum(1 for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in NAV_READ)))
+    for x in faults[:30]:
+        print('    ### ' + x)
+    if 'list' in a:
+        for r in rows:
+            if r['verdict'] != 'MATCHES':
+                print('  %s | %s | %s\n      STATED: %s\n      LICENSED: %s\n      CITED: %s\n      ACTION: %s' % (
+                    r['id'], r['verdict'], r['file'], r['stated'], r['licensed'], '; '.join(r['cited']), r['action']))
+
+
+def _nav_sample(rows):
+    import random
+    pool = sorted(r['id'] for r in rows if r['verdict'] == 'MATCHES')
+    return sorted(random.Random('647-navigator').sample(pool, min(35, len(pool))))
+
+
+def nav_table(*a):
+    """data/b647_table_navigator_memory.txt and .json: every unit of the export read, the corpus units rows (HAND, cited), rows and non-rows
+    counted per file, counts by verdict, every row printed (its sentence, a row`s text alone), the non-MATCHES rows in full for the navigator;
+    refuses on a fault, an uncovered unit, an unread non-MATCHES row or a sample not read as drawn. No non-row`s text is written."""
+    import licensed_table as LT
+    out, faults = _nav_rows()
+    rows = [r for _u, _f, r in out if r]
+    faults += ['%s: %s' % (r['id'], '; '.join(LT.check(r))) for r in rows if LT.check(r)]
+    unread = [r['id'] for r in rows if r['verdict'] != 'MATCHES' and r['id'] not in NAV_READ]
+    smp = _nav_sample(rows)
+    if faults or unread:
+        sys.exit('### %d FAULTS, %d NON-MATCHES ROWS UNREAD -- NOTHING WRITTEN: %s %s' % (len(faults), len(unread), faults[:5], unread[:8]))
+    if sorted(NAV_SAMPLE) != smp:
+        sys.exit('### THE SAMPLE READ IS NOT THE SAMPLE DRAWN -- NOTHING WRITTEN: drawn %s' % smp)
+    cnt = collections.Counter(r['verdict'] for r in rows)
+    L = ['b647 -- COMPONENT 3: THE NAVIGATOR`S MEMORY THROUGH THE LICENSED-STATEMENT TABLE ((R257)(3)) (%s)' % utc(), '',
+         '### the rule: relay data/b647_nav_rule.txt, printed and committed before the run ; the export: relay %s, untracked' % K.EXPORT,
+         '### the readers: helper readers of this session, one per chunk; every non-MATCHES row read whole by the seat (%d corrected); a MATCHES '
+         'sample of %d (seed 647) read, %d agree' % (sum(1 for r in rows if r['fixed']), len(smp), sum(1 for v in NAV_SAMPLE.values() if v == 'AGREE')),
+         '', '### PER FILE (units read ; rows ; not rows ; by verdict):']
+    for f in (1, 2, 3, 4):
+        us = [x for x in out if x[1] == f]
+        rs = [r for _u, _f, r in us if r]
+        c = collections.Counter(r['verdict'] for r in rs)
+        L.append('  FILE %d : units %3d ; rows %3d ; not rows %3d ; %s' % (f, len(us), len(rs), len(us) - len(rs),
+                                                                          ', '.join('%s %d' % (v, c[v]) for v in LT.VERDICTS)))
+    L += ['', '### THE MATCHES SAMPLE READ BY THE SEAT (%d):' % len(smp)] + ['  %s : %s' % (i, NAV_SAMPLE[i]) for i in smp]
+    L += ['', '### THE NON-MATCHES ROWS, IN FULL, FOR THE NAVIGATOR (who repairs its own files on the author`s word):']
+    for r in rows:
+        if r['verdict'] != 'MATCHES':
+            L += ['  %s %s (%s)' % (r['id'], r['verdict'], r['file']), '      STATED:   ' + r['stated'], '      LICENSED: ' + r['licensed'],
+                  '      CITED:    ' + '; '.join(r['cited']), '      ACTION:   ' + r['action']]
+    L += ['', '### EVERY ROW (id | verdict | stated | licensed | cited):']
+    for r in rows:
+        L += ['  %s | %s | %s' % (r['id'], r['verdict'], r['stated']), '      LICENSED: %s' % r['licensed'], '      CITED: %s' % '; '.join(r['cited'])]
+    L += ['', '### ### **UNITS READ %d ; ROWS %d ; NOT ROWS %d -- MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d ; FAULTS 0.**' % (
+        len(out), len(rows), len(out) - len(rows), cnt['MATCHES'], cnt['UNDERSTATES'], cnt['OVERREACHES'], cnt['UNLICENSED'])]
+    put_txt('b647_table_navigator_memory.txt', L)
+    put_json('b647_table_navigator_memory.json', dict(at=utc(), counts=cnt, per_file={('FILE %d' % f): dict(
+        units=sum(1 for x in out if x[1] == f), rows=sum(1 for x in out if x[1] == f and x[2])) for f in (1, 2, 3, 4)}, rows=rows, sample=NAV_SAMPLE))
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
