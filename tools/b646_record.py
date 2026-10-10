@@ -1551,9 +1551,36 @@ def mem_units(*a):
         print('  chunk %02d: %s :%d-:%d, %d units' % (n, k, c[0][0], c[-1][0], len(c)))
 
 
-MEM_FIX = {}        # ### uid -> dict of cells the seat corrects after its whole read (kind, verdict, licensed, cited, action)
-MEM_READ = set()    # ### uids of the non-MATCHES rows the seat has read whole against their lines
-MEM_SAMPLE = {}     # ### uid -> 'AGREE' / 'DISAGREE: why', the MATCHES sample the seat read
+MEM_FIX = {        # ### uid -> dict of cells the seat corrects after its whole read (kind, verdict, licensed, cited, action)
+    # ### the reader's cited and action cells ran together (`...:118none`): the cells split, the verdict unmoved
+    'state:263.1': dict(cited='relay@63424e13:COMMIT:1;relay@63424e13:tools/e0_rule.py:95;relay@63424e13:tools/e0_rule.py:118', action='none'),
+    # ### the seat's read of OPEN_TRAILS :12484 at 2988bfa: H40d is refuted by its own count (+5 against the history lines' 2), not by the letter
+    'state:164.1': dict(verdict='OVERREACHES', licensed='H28a/H28b (+5 vs at most 5, strict 3)/H40a HOLD; H28c, H40b, H40c refuted by the letter '
+                        '(H28c: 1 live stem :721, 171 hits outside act one); H40d refuted, not by the letter -- the body moves +5 against the '
+                        'history lines` 2; N3 REFUTED (10 corrections), N4 REFUTED; S1-S5 HELD.',
+                        cited='PLACE-papers@2988bfa:OPEN_TRAILS.md:12484;relay@e4808364:data/b606_scores.json:1-8',
+                        action='RE-CUT: - H28a/H28b/H40a HOLD (body +5 vs 5, strict 3); H28c/H40b/H40c REFUTED by letter (H28c: 1 live stem :721 + '
+                               '171 ceiling hits outside act one = order\'s 3-act split), H40d REFUTED (body +5 against the history lines\' 2); '
+                               'N3 REFUTED (10), N4 REFUTED; S1-S5 HELD.'),
+    # ### the seat's read: the "8 new-layer techniques" counts a draft off every repository (D:\MY-DOwnloads, private), not a corpus fact; the
+    # ### corpus facts the unit carries (alpha_T the constant across 375 theories / 15 domains, corrected 2026-07-20) agree
+    'wave:69.23': dict(verdict='MATCHES', licensed='alpha_T = 0.918 is the constant across 375 theories / 15 domains, corrected 2026-07-20 '
+                       '(PLACE-papers 32e107d); the draft and its technique count are off every repository and not a corpus fact, so not judged.',
+                       cited='PLACE-papers@32e107d:COMMIT:1', action='none'),
+}
+MEM_READ = set((   # ### uids of the non-MATCHES rows the seat has read whole against their lines (each cite resolved and printed at its commit)
+    'state:3.1,state:17.3,state:47.3,state:71.3,state:76.3,state:132.1,state:164.1,state:244.4,state:250.5,state:369.1,state:371.1,state:388.1,'
+    'wave:3.1,wave:13.1,wave:13.3,wave:13.5,wave:15.1,wave:15.2,wave:20.2,wave:22.2,wave:23.3,wave:25.1,wave:25.3,wave:25.5,wave:27.1,wave:27.2,'
+    'wave:29.3,wave:31.9,wave:31.14,wave:31.15,wave:31.16,wave:31.18,wave:31.19,wave:31.20,wave:31.21,wave:33.9,wave:33.10,wave:35.1,wave:37.2,'
+    'wave:38.2,wave:41.1,wave:46.1,wave:48.1,wave:48.2,wave:50.1,wave:50.4,wave:67.2,wave:73.10,wave:89.3,wave:89.6,wave:91.12,wave:93.2,wave:93.4,'
+    'wave:93.5,wave:93.12,cascade:8.2,cascade:46.1,place:12.1,place:27.1,place:28.1,place:29.1,relay:17.1,relay:30.1,relay:31.1,relay:33.1,'
+    'relay:34.1,relay:39.1').split(','))
+MEM_SAMPLE = dict((i, 'AGREE') for i in (   # ### the MATCHES sample the seat read against its lines (state:45.2's 986 s at b628_zeta23_build.txt
+    # ### :6 and wave:87.13 at 5191a3f's body :44 read beyond the cited line, both agreeing)
+    'cascade:20.1,cascade:37.1,cascade:45.2,cascade:61.1,place:18.1,relay:16.1,relay:36.1,state:102.2,state:153.1,state:158.1,state:159.2,'
+    'state:198.3,state:198.4,state:21.4,state:211.1,state:234.1,state:238.2,state:252.1,state:261.1,state:263.3,state:264.1,state:27.5,'
+    'state:296.3,state:305.1,state:312.1,state:33.4,state:37.1,state:37.6,state:45.2,state:73.1,wave:38.1,wave:67.6,wave:69.4,wave:75.15,'
+    'wave:87.13').split(','))
 MEM_SAMPLE_N = 35
 
 
@@ -1662,14 +1689,20 @@ def seat_memory(*a):
                                                                          ', '.join('%s %d' % (v, c[v]) for v in LT.VERDICTS)))
     cnt = collections.Counter(r['verdict'] for r in rows)
     L += ['', '### THE MATCHES SAMPLE READ BY THE SEAT (%d):' % len(smp)] + ['  %s : %s' % (i, MEM_SAMPLE[i]) for i in smp]
-    L += ['', '### THE REPAIRS, EACH UNDERSTATES OR OVERREACHES ROW (the sentence before ; the re-cut ; in the live file):']
+    L += ['', '### THE REPAIRS, EACH UNDERSTATES OR OVERREACHES ROW AND EACH UNLICENSED ROW RETIRED (the sentence before ; the re-cut ; its state '
+              'on its own line of the live file):']
     rep = []
     for r in rows:
-        if r['verdict'] in ('UNDERSTATES', 'OVERREACHES'):
+        if r['verdict'] in ('UNDERSTATES', 'OVERREACHES', 'UNLICENSED'):
             new = r['action'][len('RE-CUT: '):] if r['action'].startswith('RE-CUT: ') else None
-            fn = r['source'].split('/', 1)[1].rsplit(':', 1)[0]
-            st = ('APPLIED' if new and new in live[fn] and r['stated'] not in live[fn] else ('### NOT APPLIED' if new else '### A WORK-ORDER'))
-            rep.append(dict(id=r['id'], before=r['stated'], after=new, state=st))
+            fn, ln = r['source'].split('/', 1)[1].rsplit(':', 1)
+            line = live[fn].replace(chr(13), '').split(NL)[int(ln) - 1]
+            gone = r['stated'] not in line or (new is not None and r['stated'] in new)
+            if r['verdict'] == 'UNLICENSED':
+                st = 'RETIRED' if r['stated'] not in line else '### NOT RETIRED'
+            else:
+                st = ('APPLIED' if new and new in line and gone else ('### NOT APPLIED' if new else '### A WORK-ORDER'))
+            rep.append(dict(id=r['id'], verdict=r['verdict'], before=r['stated'], after=new, state=st))
             L += ['  %s %s -- %s' % (r['id'], r['verdict'], st), '      BEFORE: ' + r['stated'], '      AFTER:  ' + (new or r['action'])]
     if not rep:
         L.append('  NONE')
@@ -1677,7 +1710,7 @@ def seat_memory(*a):
     for r in rows:
         L += ['  %s | %s | %s' % (r['id'], r['verdict'], r['stated']), '      LICENSED: %s' % r['licensed'], '      CITED: %s' % '; '.join(r['cited']),
               '      ACTION: %s' % r['action']]
-    na = sum(1 for x in rep if x['state'] != 'APPLIED')
+    na = sum(1 for x in rep if x['state'] not in ('APPLIED', 'RETIRED'))
     L += ['', '### ### **FILES %d ; UNITS READ %d ; ROWS %d ; NOT ROWS %d -- MATCHES %d, UNDERSTATES %d, OVERREACHES %d, UNLICENSED %d ; REPAIRS %d, '
               'NOT APPLIED %d ; FAULTS 0.**' % (len(MEMFILES), sum(v['units'] for v in idx['files'].values()), len(rows),
                                                sum(v['units'] for v in idx['files'].values()) - len(rows), cnt['MATCHES'], cnt['UNDERSTATES'],
