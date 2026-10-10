@@ -1319,8 +1319,13 @@ def reader_score(*a):
     ans = dict((int(m.group(1)), ' '.join(m.group(2).split())) for m in re.finditer(r'^ANSWER (\d):\s*(.*?)(?=^ANSWER \d:|^UNCLEAR:|\Z)', t, re.M | re.S))
     N = R4._needles('d')
     lg = os.path.join(r['dir'], 'reader_run.log')
-    mem = ('memory named in the run log: %s' % bool(re.search(r'MEMORY\.md|[\\/]memory[\\/]', io.open(lg, encoding='utf-8', errors='replace').read()))
-           if os.path.exists(lg) else 'the run log absent')
+    # ### the author's PowerShell 5.1 `>` writes the log as UTF-16 with a BOM; read as UTF-8 the matcher cannot fire (b646, the seat's catch)
+    lb = open(lg, 'rb').read() if os.path.exists(lg) else None
+    lt = lb.decode('utf-16') if lb and lb[:2] in (b'\xff\xfe', b'\xfe\xff') else (lb.decode('utf-8', 'replace') if lb else '')
+    ctl = bool(re.search(r'MEMORY\.md', 'x MEMORY.md y'.encode('utf-16').decode('utf-16')))
+    mem = ('memory named in the run log: %s (read as %s, %d chars; the planted control fires: %s)' % (
+        bool(re.search(r'MEMORY\.md|[\\/]memory[\\/]', lt)), 'UTF-16' if lb[:2] in (b'\xff\xfe', b'\xfe\xff') else 'UTF-8', len(lt), ctl)
+           if lb else 'the run log absent')
     hr = rd('b646_reader_d4_handread.txt')
     hand = dict((int(m.group(1)), m.group(2).strip()) for m in re.finditer(r'^HAND (\d): (AGREE|DIFFER)', hr, re.M))
     L = ['b646 -- THE FOURTH READER D4: ANSWERS SCORED BY THE NEEDLES AND BY HAND (%s)' % utc(), '',
