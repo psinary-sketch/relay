@@ -853,7 +853,11 @@ NAV_RULE = [
     'MATCHES, UNDERSTATES, OVERREACHES, UNLICENSED as b646`s rule (relay data/b646_seat_memory_rule.txt (4)); the worst fact decides.',
     'ACTION: MATCHES none; UNDERSTATES or OVERREACHES RE-CUT: the sentence as the lines license it, for the navigator; UNLICENSED RETIRE TO '
     'ERRATA: why, or a work-order with a trigger. No repair is made by the seat.',
-    'THE SEAT: every non-MATCHES row read whole against its lines; a MATCHES sample of 35 drawn by seed 647 read and printed.',
+    'THE SEAT: every non-MATCHES row read whole against its lines; a MATCHES sample of 35 drawn by seed `647-navigator` (Python '
+    'random.Random over the sorted MATCHES ids) read and printed.',
+    'THE READERS: helper readers of this session, one per chunk of the units (FILE 1 in four chunks cut at line boundaries, FILES 2-4 one '
+    'each); each writes uid <TAB> ROW or NOTCORPUS <TAB> VERDICT <TAB> LICENSED <TAB> CITED <TAB> ACTION, and for a NOTCORPUS unit the uid '
+    'and the kind alone -- no text of a non-row is written anywhere.',
 ]
 
 
