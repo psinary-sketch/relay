@@ -303,6 +303,143 @@ def record_lines(*a):
     R3._land(Q, items, 'b647_record_lines.json', B646_ENTRY)
 
 
+# ================================================================================ COMPONENT 2: EVERY KERNEL'S DOCSTRINGS, (R257)(2)
+# ### The kernels of the chain: every repository holding a row of the terminal table at relay HEAD. SIDE-explicit-formula was read whole at
+# ### b645 (relay data/b645_table_docstrings.txt, 1369 rows at v0.26 = 82550e4, its main unmoved since) and is carried into the joined table,
+# ### not read again; the other kernels are read here at their main. A kernel with an elaborated bank takes it (SIDE-structural-error-
+# ### correction, relay data/b643_elab_sec.txt at v0.2.2 = 6bf19ab, its main); every other kernel takes the textual reader -- the statement
+# ### from the table's row or the source's header -- each row marked TEXTUAL. A module RUN-BENEATH-HOLD at b645 (SIDE-global-section
+# ### Interfaces/RestrictedTensorLayer1.lean, relay data/b645_hold_preseal.txt) takes no row and is named.
+ELAB = {'SIDE-structural-error-correction': 'b643_elab_sec.txt'}
+RBH_FILES = {'SIDE-global-section': ['Interfaces/RestrictedTensorLayer1.lean']}
+CARRIED = {'SIDE-explicit-formula': 'b645_table_docstrings.json'}
+
+
+def _tt_rows():
+    return json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows']
+
+
+def kernels_of_chain():
+    return sorted(set(r['repo'] for r in _tt_rows()))
+
+
+def _kmain(k):
+    return g('D:/' + k, 'rev-parse', '--short=7', 'main').strip()
+
+
+def _kfiles(k):
+    fs = [x for x in g('D:/' + k, 'ls-tree', '-r', '--name-only', 'main').split(NL) if x.endswith('.lean') and not x.startswith('.lake/')]
+    return sorted(x for x in fs if x not in RBH_FILES.get(k, []))
+
+
+def _elab_index(bank):
+    idx = {}
+    cur, binders, concl = None, [], None
+    for l in rd(bank).split(NL):
+        if l.startswith('DECL '):
+            cur, binders, concl = l.split()[1], [], None
+        elif l.startswith('BINDER ') and cur:
+            binders.append(l[len('BINDER '):])
+        elif l.startswith('CONCL ') and cur:
+            concl = l[len('CONCL '):]
+        elif l == 'END' and cur:
+            hyps = [b.split(' ', 1)[1] for b in binders if b.startswith('explicit ') and re.match(r'^explicit h\w*\s*:', b)]
+            idx[cur] = ((' '.join('(%s)' % b.split(' ', 1)[1] for b in binders) + ' ⊢ ' + (concl or '')).strip(), hyps)
+            cur = None
+    return idx
+
+
+def _kdoc_rows(k):
+    """the generated rows of one kernel at its main: b645's _doc_rows (tools/b645_record.py :863) carried kernel by kernel, the statement
+    elaborated where the kernel has a bank and TEXTUAL where it has none."""
+    import licensed_table as LT
+    import b645_record as R45
+    rev = _kmain(k)
+    rows = [x for x in _tt_rows() if x['repo'] == k]
+    full = dict((x['name'], x) for x in rows)
+    last = collections.defaultdict(list)
+    for x in rows:
+        last[x['name'].split('.')[-1]].append(x)
+
+    def lookup(n):
+        x = full.get(n) or (last[n.split('.')[-1]][0] if len(last.get(n.split('.')[-1], [])) == 1 else None)
+        return (x['name'], x['grade']) if x else None
+    ST = dict((r['head'], r['status']) for r in jl('b643_premise_table.json').get('rows') or [])
+    PB = {}
+    for x in rows:
+        m = re.match(r'^theorem (\S+)\s*:\s*([\w.\'’]+)\s*$', re.sub(r'\s+', ' ', x['statement'] or '').strip())
+        if m:
+            PB.setdefault(m.group(2).split('.')[-1], '%s : %s (%s, grade %s)' % (x['name'], m.group(2), x['statement_file'], x['grade']))
+    proved_by = lambda d: PB.get(d.split('.')[-1])   # noqa: E731
+    by_file = collections.defaultdict(dict)
+    for x in rows:
+        if x.get('statement_file'):
+            by_file[x['statement_file']].setdefault(x['name'].split('.')[-1], []).append(x)
+    E = _elab_index(ELAB[k]) if k in ELAB else {}
+    textual = k not in ELAB
+    out = []
+    for f in _kfiles(k):
+        text = (_show('D:/' + k, rev, f) or '').replace(chr(13), '')
+        for kind, ln, doc, kw, name, dl in R45._docstrings(f, text):
+            sid = '%s@%s:%s:%d' % (k, rev, f, ln)
+            src = '%s:%d' % (f, ln)
+            if kind == 'module':
+                names = sorted(set(n for n, _s, _e in LT.names_in(doc)))
+                hits = [(n, lookup(n)) for n in names]
+                summ = '; '.join('%s %s' % (h[0].split('.')[-1], h[1]) for n, h in hits if h) or 'it names no row of the table'
+                r = LT.docstring_row(sid, src, doc, None, 'module', summ, None, None, [], lookup, module=True, status=ST.get)
+                r.update(kernel=k, rev=rev, file=f, line=ln, kind='module', decl=None, grade=None, textual=textual)
+                out.append(r)
+                continue
+            if kind == 'field':
+                ft = re.sub(r'\s+', ' ', NL.join(text.split(NL)[dl - 1:dl + 3]).split('/--')[0]).strip()
+                r = LT.docstring_row(sid, src, doc, name, 'field', '%s (a structure field, read at the source, %s :%d)' % (ft, f, dl), 'DEF',
+                                     'the field`s type', [], lookup, status=ST.get, proved_by=proved_by)
+                r.update(kernel=k, rev=rev, file=f, line=ln, kind='field', decl=name, grade='DEF', decl_line=dl, textual=textual)
+                out.append(r)
+                continue
+            if not name:
+                r = LT.docstring_row(sid, src, doc, None, 'module', 'a docstring before no declaration the reader parses', None, None, [],
+                                     lookup, module=True, status=ST.get)
+                r.update(kernel=k, rev=rev, file=f, line=ln, kind='orphan', decl=None, grade=None, textual=textual)
+                out.append(r)
+                continue
+            cands = by_file.get(f, {}).get(name.split('.')[-1], [])
+            x = cands[0] if len(cands) == 1 else None
+            hdr = re.sub(r'\s+', ' ', NL.join(text.split(NL)[dl - 1:dl + 14]).split(':=')[0]).strip()
+            if x is None:
+                g_ = 'DEF' if kw in ('def', 'abbrev', 'structure', 'class', 'inductive', 'instance', 'opaque') else 'UNGRADED'
+                st = (E.get(name) or ('%s (read at the source, %s :%d)' % (hdr, f, dl), []))[0]
+                r = LT.docstring_row(sid, src, doc, name, kw, st, g_, 'keyword, not in the table', [], lookup, status=ST.get, proved_by=proved_by)
+                r.update(kernel=k, rev=rev, file=f, line=ln, kind='decl', decl=name, grade=g_, decl_line=dl, textual=textual or name not in E)
+                out.append(r)
+                continue
+            st, hyps = E.get(x['name'], (re.sub(r'\s+', ' ', x['statement'] or hdr), []))
+            r = LT.docstring_row(sid, src, doc, x['name'], kw, st, x['grade'], x['provenance'], hyps, lookup, status=ST.get, proved_by=proved_by)
+            r.update(kernel=k, rev=rev, file=f, line=ln, kind='decl', decl=x['name'], grade=x['grade'], decl_line=dl,
+                     textual=textual or x['name'] not in E)
+            out.append(r)
+    return out
+
+
+def kdocs_yield(*a):
+    """the generated rows of every kernel but the carried one, their yields printed and written to the scratchpad (mem: kdocs_<kernel>.json);
+    no bank. The flagged rows (non-MATCHES or hand-needed) are the helper readers` and the seat`s."""
+    tot = collections.Counter()
+    for k in kernels_of_chain():
+        if k in CARRIED:
+            continue
+        rows = _kdoc_rows(k)
+        c = collections.Counter(r['verdict'] for r in rows)
+        fl = [r for r in rows if r['verdict'] != 'MATCHES' or r.get('hand_needed')]
+        tot.update(c)
+        tot['FLAGGED'] += len(fl)
+        _write(os.path.join(SP, 'kdocs_%s.json' % k), json.dumps(rows, ensure_ascii=False, indent=1).encode('utf-8'))
+        print('  %-34s main %s ; files %3d ; rows %4d ; textual %4d ; %s ; flagged %d' % (
+            k, _kmain(k), len(_kfiles(k)), len(rows), sum(1 for r in rows if r['textual']), dict(c), len(fl)))
+    print('  TOTAL %s' % dict(tot))
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
