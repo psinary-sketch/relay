@@ -1577,7 +1577,8 @@ DEFECT_SHORT = ['(a) a record line first read against the wrong closing', '(b) o
                 '(f) helper readers` cite forms the table could not parse', '(g) two helper readings edited after hand-back',
                 '(h) the class-A control blind to a profile named across kernels', '(i) a line-ending check misread again',
                 '(j) the navigator screen`s first pattern missing a location', '(k) a heredoc collapsing a backslash in a scratch screen',
-                '(l) the sample literal two ids short', '(m) the sample`s agreement counted by exact match']
+                '(l) the sample literal two ids short', '(m) the sample`s agreement counted by exact match',
+                '(n) three scratch-file commands the edit-route arm reads as offences']
 
 
 def defects(*a):
