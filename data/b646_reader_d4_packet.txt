@@ -1,0 +1,9 @@
+b646 -- THE FOURTH READER`S PACKET D4, STAGED OFF D:\ (2026-10-10T00:03:31Z)
+
+### staged: C:/reader_b646 (packet/description.txt 11221 bytes, sha256 b555283d428f88405c874e937fb7ff21bb54336a1a398a5b174e27cac8d6cedd ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b646_reader_d4_packet/
+### the document: v3 (relay data/b646_deposit_description.txt) as text -- a part`s head as == HEAD ==, a list item as a line marked -
+### the questions, (R254)(8)`s three: What is claimed? / What is not claimed? / Which premise is refuted, and what replaced it?
+### the no-disclosure arm: {'method': 0, 'tree': 0, 'modules': 0} ; outside names: NONE
+
+### the command, run by the author on the author`s PowerShell from C:/reader_b646, a directory with no project memory:
+    Get-Content C:\reader_b646\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b646\reader_run.log 2> C:\reader_b646\reader_run.err

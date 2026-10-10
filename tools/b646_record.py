@@ -1215,6 +1215,140 @@ def desc_test(*a):
     print(NL.join(L[-3:]))
 
 
+# ================================================================================ THE FOURTH READER, (R256)(4): b644's form, carried
+# ### A packet staged off D:\ at C:\reader_b646, a directory with no project memory: v3 as text, the three questions of (R254)(8), a lead and the
+# ### full prompt; the command run by the author on the author's PowerShell; the answers scored by needles (b644's, imported) and by hand
+# ### (data/b646_reader_d4_handread.txt, the seat's, written before the needles are read); the residue banked.
+READER = dict(dir='C:/reader_b646', doc='description.txt', what='the description of a research deposit',
+              questions=('What is claimed?', 'What is not claimed?', 'Which premise is refuted, and what replaced it?'))
+
+
+def _v3_text(html):
+    """v3 as plain text for a reader: a part's head on its own line, a paragraph a line, a list item a line marked '- ' (nested '  - ')."""
+    out, depth = [], 0
+    for tok in re.split(r'(<ul>|</ul>|<li>|</li>|<p>|</p>)', html):
+        if tok == '<ul>':
+            depth += 1
+        elif tok == '</ul>':
+            depth -= 1
+        elif tok == '<li>':
+            out.append(NL + '  ' * (depth - 1) + '- ')
+        elif tok == '<p>':
+            out.append(NL)
+        elif tok in ('</li>', '</p>'):
+            pass
+        else:
+            out.append(re.sub(r'<strong>(.*?)</strong>', r'== \1 ==', tok))
+    t = ''.join(out)
+    t = t.replace('&lt;', '<').replace('&gt;', '>').replace('&amp;', '&')
+    return NL.join(l.rstrip() for l in t.split(NL) if l.strip()).strip()
+
+
+def _reader_lead():
+    d = READER['dir'].replace('/', '\\')
+    return ('Reader task follows. The packet is at %s\\packet\\ and your answers go to %s\\answers.txt. Read only the two packet files. Do not open '
+            'any other file on this machine, do not run any command, and do not search the web. Write the answers file, report that it is '
+            'written, and stop.' % (d, d))
+
+
+def _reader_task():
+    r = READER
+    return (_reader_lead() + NL + NL +
+            'You are an independent reader. You know nothing of the research programme the packet describes, and that is the point. The packet has '
+            'two files: %s, %s, and questions.txt, 3 questions. Read the document and answer each question in your own words, from the document '
+            'alone, in a few sentences each: say what the text says, not what you know of the mathematics, and say plainly where the text is '
+            'unclear to you. Write the file %s\\answers.txt with exactly 3 sections, headed ANSWER 1:, ANSWER 2:, ANSWER 3:, each followed by '
+            'your answer to that question; then a section headed UNCLEAR: listing any sentence of the document you could not follow, or the word '
+            'none. Then stop.' % (r['doc'], r['what'], r['dir'].replace('/', '\\')))
+
+
+def _reader_cmd():
+    d = READER['dir'].replace('/', '\\')
+    return ('Get-Content %s\\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell '
+            'WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > %s\\reader_run.log 2> '
+            '%s\\reader_run.err' % (d, d, d))
+
+
+def reader_packet(*a):
+    """data/b646_reader_d4_packet.txt and data/b646_reader_d4_packet/: v3 (relay data/b646_deposit_description.txt) as text with the three
+    questions, staged at C:\\reader_b646 (refused if it exists and is not empty), the no-disclosure arm and the outside names checked, the
+    command the author runs printed."""
+    import b616_record as R6
+    R4 = _R4()
+    r = READER
+    doc = _v3_text(rd('b646_deposit_description.txt'))
+    if not doc.strip():
+        sys.exit('### v3 IS EMPTY -- NOTHING WRITTEN')
+    qs = NL.join('%d. %s' % (i + 1, q) for i, q in enumerate(r['questions']))
+    task = _reader_task()
+    nd = R6.nd_hits(doc + NL + qs + NL + task, R6.nd_sets())[0]
+    outside = [n for n in R4.OUTSIDE_NEEDLES if n in doc]
+    if any(nd.values()) or outside:
+        sys.exit('### THE PACKET WOULD CARRY TECHNE TEXT OR AN OUTSIDE NAME -- NOTHING WRITTEN')
+    pdir = os.path.join(SP if DRY else D, 'b646_reader_d4_packet')
+    os.makedirs(pdir, exist_ok=True)
+    for n_, t_ in ((r['doc'], doc), ('questions.txt', qs)):
+        _write(os.path.join(pdir, n_), (t_.rstrip(NL) + NL).encode('utf-8'))
+    if not DRY:
+        if os.path.exists(r['dir']) and os.listdir(r['dir']):
+            sys.exit('### %s EXISTS AND IS NOT EMPTY -- NOT WRITTEN' % r['dir'])
+        os.makedirs(r['dir'] + '/packet', exist_ok=True)
+        for n_, t_ in (('packet/' + r['doc'], doc), ('packet/questions.txt', qs), ('lead.txt', _reader_lead()), ('full_prompt.txt', task)):
+            _write(os.path.join(r['dir'], n_), (t_.rstrip(NL) + NL).encode('utf-8'))
+    L = ['b646 -- THE FOURTH READER`S PACKET D4, STAGED OFF D:\\ (%s)' % utc(), '',
+         '### staged: %s (packet/%s %d bytes, sha256 %s ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b646_reader_d4_packet/' % (
+             r['dir'], r['doc'], len(doc.encode('utf-8')), sha(doc.encode('utf-8'))),
+         '### the document: v3 (relay data/b646_deposit_description.txt) as text -- a part`s head as == HEAD ==, a list item as a line marked -',
+         '### the questions, (R254)(8)`s three: %s' % ' / '.join(r['questions']),
+         '### the no-disclosure arm: %s ; outside names: %s' % (dict(nd), outside or 'NONE'),
+         '', '### the command, run by the author on the author`s PowerShell from %s, a directory with no project memory:' % r['dir'], '    ' + _reader_cmd()]
+    put_txt('b646_reader_d4_packet.txt', L)
+    print(NL.join(L[2:]))
+
+
+def reader_score(*a):
+    """data/b646_reader_d4_compare.txt and .json: the reader's answers copied from off D:\\, each scored by b644's needles (imported) and beside
+    it the seat's hand reading (data/b646_reader_d4_handread.txt), both figures; question 2 refuses an assertion of the unsupported sentence."""
+    R4 = _R4()
+    r = READER
+    src = os.path.join(r['dir'], 'answers.txt')
+    if not os.path.exists(src):
+        sys.exit('### %s IS ABSENT -- NOTHING READ' % src)
+    t = io.open(src, encoding='utf-8', errors='replace').read().replace(chr(13), '')
+    _write(os.path.join(SP if DRY else D, 'b646_reader_d4_answers.txt'), t.encode('utf-8'))
+    ans = dict((int(m.group(1)), ' '.join(m.group(2).split())) for m in re.finditer(r'^ANSWER (\d):\s*(.*?)(?=^ANSWER \d:|^UNCLEAR:|\Z)', t, re.M | re.S))
+    N = R4._needles('d')
+    lg = os.path.join(r['dir'], 'reader_run.log')
+    mem = ('memory named in the run log: %s' % bool(re.search(r'MEMORY\.md|[\\/]memory[\\/]', io.open(lg, encoding='utf-8', errors='replace').read()))
+           if os.path.exists(lg) else 'the run log absent')
+    hr = rd('b646_reader_d4_handread.txt')
+    hand = dict((int(m.group(1)), m.group(2).strip()) for m in re.finditer(r'^HAND (\d): (AGREE|DIFFER)', hr, re.M))
+    L = ['b646 -- THE FOURTH READER D4: ANSWERS SCORED BY THE NEEDLES AND BY HAND (%s)' % utc(), '',
+         '### the answers: relay data/b646_reader_d4_answers.txt, copied from %s ; the reader`s session: %s' % (src, mem), '']
+    res, n_ok = {}, 0
+    for q in sorted(N):
+        a_ = ans.get(q, '')
+        p1, l1, p2, l2, deny = N[q]
+        m1 = bool(re.search(p1, a_, re.I))
+        m2 = bool(re.search(p2, a_)) if p2 else True
+        asserted = deny(a_) if deny else []
+        ok = m1 and m2 and not asserted
+        n_ok += ok
+        why = ['%s %s' % (l1, m1)] + (['%s %s' % (l2, m2)] if p2 else []) + (['the unsupported sentence asserted %s' % (asserted or 'no')] if deny else [])
+        res[q] = dict(question=r['questions'][q - 1], answer=a_, needle=ok, why=why, hand=hand.get(q))
+        L += ['### QUESTION %d: %s' % (q, r['questions'][q - 1]), '    the reader: %s' % (a_ or '### NO ANSWER'),
+              '    the needles: %s ; ### %s' % ('; '.join(why), 'AGREE' if ok else 'DIFFER'), '    by hand: %s' % (hand.get(q) or '### NOT READ'), '']
+    kh = sum(1 for v in hand.values() if v == 'AGREE')
+    unclear = re.search(r'^UNCLEAR:\s*(.*)\Z', t, re.M | re.S)
+    L += ['### NOTE, beside the score: %s' % n_ for n_ in re.findall(r'^NOTE: (.*)$', hr, re.M)]
+    L += ['### UNCLEAR, the reader`s: %s' % (' '.join(unclear.group(1).split())[:1500] if unclear else '### NONE GIVEN'), '',
+          '### ### **BY THE NEEDLES %d OF %d ; BY HAND %s OF %d.**' % (n_ok, len(N), kh if hand else '### NOT READ', len(N))]
+    put_txt('b646_reader_d4_compare.txt', L)
+    put_json('b646_reader_d4_compare.json', dict(at=utc(), answers=res, needles=n_ok, hand=kh if hand else None, of=len(N),
+                                                 unclear=(unclear.group(1).strip() if unclear else None)))
+    print(L[-1])
+
+
 def zenodo_tags(*a):
     """data/b646_zenodo_tags.txt and .json: (R256)(4)(b) -- Zenodo's documentation of the HTML its description accepts, read at source (the
     page as fetched, in the scratchpad, its sha256 checked), the sentence quoted verbatim and the tag list parsed from it -- banked before the
