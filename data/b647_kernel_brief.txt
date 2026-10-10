@@ -48,3 +48,23 @@ BEFORE ANY ROW IS READ (2026-10-10)
 ### THE OUTPUT, one line per row, TAB-separated: id <TAB> VERDICT <TAB> LICENSED (one sentence, the precise difference for a non-MATCHES)
 ### <TAB> CITED (kernel@commit:path:N; ...) <TAB> ACTION. For a sampled MATCHES row: id <TAB> AGREE or DISAGREE <TAB> why <TAB> CITED.
 ### Read-only everywhere: git show and git grep at the commit; no checkout, no build, no write but the one output file by the Write tool.
+
+ADDENDUM, APPENDED 2026-10-10 ON THE AUTHOR'S ANSWER AT COMPONENT 2 (relay data/b647_author_answers.txt) -- THE WHOLE READING AND THE THREE
+CLASSES THE GENERATED RULE CANNOT SEE (nothing above is edited)
+
+### THE WHOLE READING. The seeded samples disagreed with the generated rule on 22 of 105 MATCHES rows (SIDE-kernel 15/35, SIDE-global-section
+### 4/35, SIDE-lv-conservation 3/35), all OVERREACHES. Every row of every textual-reader kernel is now read by a helper reader. The generated
+### verdict stays beside each row; a reader's verdict that overturns it is kept with both, so the rule's miss rate prints per kernel.
+### THE THREE NAMED CLASSES, each a field of the output (CLASS) when a row overturns the rule on that ground, and counted in the bank:
+###   S -- A SORRY-CLOSED THEOREM DESCRIBED AS HOLDING: the declaration (or a lemma it rests on) is closed by `sorry` at the commit and the
+###        docstring says it holds, is proved, or is a theorem. The kernels' sorries at their mains are listed in relay
+###        data/b647_sorry_census.txt by file and line: read it first.
+###   A -- AN AXIOM-PROFILE CLAIM AGAINST A BANKED PRINT: the docstring says "zero axioms", "no axioms", "axiom-free", "standard three" or names
+###        a profile, and a banked #print axioms (relay data/*axiom*, data/*print*, data/*profile*, or the terminal table's profile cell)
+###        reads otherwise.
+###   H -- A MODULE HEADER CLAIMING MORE THAN ITS FILE COMPILES: a `/-! -/` or head block says the file proves, prevents, establishes or
+###        verifies something no declaration in that file states (a ring identity offered as preventing off-line zeros; a list of
+###        "verified" consequences that are definitions).
+###   An overturn on any other ground carries CLASS - (and its own reason in LICENSED).
+### THE OUTPUT FOR THE WHOLE READING, one line per row, TAB-separated: id <TAB> VERDICT <TAB> CLASS (S, A, H or -) <TAB> LICENSED (one
+### sentence; the precise difference for a non-MATCHES) <TAB> CITED (kernel@commit:path:N; ...) <TAB> ACTION.
