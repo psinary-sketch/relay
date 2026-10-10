@@ -116,6 +116,48 @@ def commands(*a):
     print(L[-1])
 
 
+def answers(*a):
+    """data/b646_author_answers.txt: every prompt put by the seat in this act -- in the first session from the ruling's first delivery, in the
+    continuation sessions (SESSIONS_AFTER) from their first user line -- banked verbatim with the options, the recommended mark and the answer."""
+    def scan(path, anchor):
+        calls, results, start = [], {}, None
+        for i, raw in enumerate(io.open(path, encoding='utf-8', errors='replace'), 1):
+            try:
+                o = json.loads(raw)
+            except ValueError:
+                continue
+            if start is None and anchor in raw and o.get('type') == 'user' and not o.get('isCompactSummary'):
+                start = i
+            m = o.get('message') or {}
+            for c in (m.get('content') or []) if isinstance(m.get('content'), list) else []:
+                if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'AskUserQuestion' and start is not None:
+                    calls.append((i, c['id'], c['input']))
+                if isinstance(c, dict) and c.get('type') == 'tool_result':
+                    t = c.get('content')
+                    results[c.get('tool_use_id')] = (i, ''.join(x.get('text', '') for x in t) if isinstance(t, list) else t)
+        return start, calls, results
+    srcs = [(SESSION_ID, SESSION, K.ANCHOR)] + [(sid, 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % sid, anc) for sid, anc in SESSIONS_AFTER]
+    L, n = [], 0
+    for sid, path, anc in srcs:
+        start, calls, results = scan(path, anc)
+        if start is None:
+            sys.exit('### THE ANCHOR %r IS NOT A USER LINE OF SESSION %s -- NOTHING WRITTEN' % (anc, sid))
+        for i, cid, inp in calls:
+            L.append('### CALL tool-use id %s (session %s, transcript line %d)' % (cid, sid, i))
+            for k, q in enumerate(inp.get('questions', []), 1):
+                n += 1
+                L.append('### PROMPT %d (%s): %s' % (k, q.get('header'), q.get('question')))
+                for j, op in enumerate(q.get('options', []), 1):
+                    L.append('  OPTION %d%s: %s :: %s' % (j, ' [RECOMMENDED]' if '(Recommended)' in op.get('label', '') else '', op.get('label'),
+                                                         op.get('description')))
+            r = results.get(cid, (None, '### NO RESULT'))
+            L += ['RESULT (transcript line %s): %s' % (r[0], r[1]), '']
+    head = ['### b646 -- THE AUTHOR`S ANSWERS, %d prompt(s) put by the seat in this act (%s), banked verbatim with the options and the recommended '
+            'mark; the sessions read: %s.' % (n, DATE, ', '.join('%s from %r' % (s[:8], an) for s, _, an in srcs)), '']
+    put_txt('b646_author_answers.txt', head + (L or ['### NONE: no prompt has been put to the author in this act.']))
+    print('  prompts banked: %d' % n)
+
+
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R256)(1), (2), (6), (7)
 W_HEAD = '*Appended 2026-10-09 by b646 to b645’s entry (:%d), under `(R256)`(1) -- b645 AT ITS WEIGHT, ITS FIGURES READ FROM ITS BANKS:*'
 WO_HEAD = ('*Appended 2026-10-09 by b646, under `(R256)`(2) and (5) -- W-ORD-EDIT-ROUTE-ARM ENTERED AND ACTED; W-ORD-SEAT-BELIEFS '
