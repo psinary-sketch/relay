@@ -1,0 +1,37 @@
+b647 -- COMPONENT 4: THE DESCRIPTION`S FORBIDDEN-CONTENT TEST, RERUN BY PLANTED TEXT, AND THE COMPOSER`S EDIT TESTS (2026-10-10T22:31:33Z)
+
+  (1) an act number                            hits ['an act number'] ; PASS
+  (2) a bank path                              hits ['a bank path', 'a bank path'] ; PASS
+  (3) root arithmetic                          hits ['root arithmetic'] ; PASS
+  (4) a provenance count                       hits ['a provenance count', 'a provenance count'] ; PASS
+  (5) an outside collection                    hits ['an outside collection', 'an outside collection'] ; PASS
+  (6) a banned stem                            hits ['a banned stem'] ; PASS
+  (7) the unsupported sentence asserted        hits ['the unsupported sentence asserted'] ; PASS
+  (8) the ceiling denied (no hit)              hits [] ; PASS
+  (9) v4 as banked (no hit)                    hits [] ; PASS
+
+### THE FORBIDDEN-CONTENT TEST: 9 of 9 cases as wanted -- PASS
+
+### THE COMPOSER`S EDIT TESTS (tools/test_composer_b647.py), exit 0:
+    compose_v3 at this act 11678 bytes ; v3 as banked 11678 bytes ; the same: True
+    (1) (a) not_trivialSummandPremise glossed in six words ... PASS
+    (2) (a) dedekind_rhs': its two premises separated (a colon, then a semicolon before the second) ... PASS
+    (3) (a) Phi and the bracket: one plain-words bracket ... PASS
+    (4) (a) the squeeze and its jaws: one plain-words bracket ... PASS
+    (5) (a) the surround given its glossary entry, once, in THE CLAIM ... PASS
+    (6) (a) control: without (a) none of the five present ... PASS
+    (7) (b) "complete over its named classes" once, in the "On exhaustiveness" sentence ... PASS
+    (8) (b) the parenthesis absent ... PASS
+    (9) (b) control: without (b) the parenthesis present and the statement twice ... PASS
+    (10) (c) the open-premise phrase by part {'THE CLAIM': 1, 'WHAT IS MACHINE-VERIFIED': 0, 'WHAT THE LOAD-BEARING THEOREMS ASSUME': 0, 'WHAT IS OPEN': 1, 'HOW A DEFECT IS REPORTED': 0} ... PASS
+    (11) (c) control: without (c) THE CLAIM carries it twice {'THE CLAIM': 2, 'WHAT IS MACHINE-VERIFIED': 0, 'WHAT THE LOAD-BEARING THEOREMS ASSUME': 0, 'WHAT IS OPEN': 1, 'HOW A DEFECT IS REPORTED': 0} ... PASS
+    (12) (d) every definition the glossary`s form, verbatim (6) ... PASS
+    (13) (d) the glossary named ... PASS
+    (14) (d) the plain-words brackets that were not glossary forms absent ... PASS
+    (15) (d) the lists untouched: the status lists byte for byte as without (d) ... PASS
+    (16) (d) control: without (d) the brackets present and the glossary not named ... PASS
+    (17) the carried composer reproduces v3 byte for byte ... PASS
+    (18) no edit leaves NOT READ ... PASS
+    18 of 18 PASS
+
+### ### **FORBIDDEN-CONTENT 9 of 9 ; EDIT TESTS EXIT 0.**

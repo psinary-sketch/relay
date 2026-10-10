@@ -1021,6 +1021,222 @@ def nav_table(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 4, (R257)(4): THE DESCRIPTION AT v4
+# ### b646's composer (tools/b646_record.py `compose_v3`, sealed at b646, reproducing v3 byte for byte at this act -- `v3_same`) carried
+# ### unedited; v4 is its output with (R257)(4)'s four edits applied in order, each an exact replacement whose anchor must occur once (a
+# ### missed anchor writes NOT READ, which `describe` refuses):
+# ###   (a) the glossed passages: not_trivialSummandPremise's row glossed in six words; dedekind_rhs' row's two premises separated; one
+# ###       plain-words bracket each for Phi and the bracket (h1_complete_at_Phi's row) and for the squeeze and its jaws (WHAT IS OPEN), each
+# ###       from its source's own lines; "the surround" given its glossary entry where THE CLAIM first quotes it;
+# ###   (b) exhaustiveness said once: the parenthesis in the located clause removed, the "On exhaustiveness" sentence kept;
+# ###   (c) the open-premise phrase twice: the located clause's "and carries as its one open premise" removed, so "carried as the one open
+# ###       premise" stands once in THE CLAIM (h2_sign's gloss) and once in WHAT IS OPEN;
+# ###   (d) the definitions paragraph of WHAT THE LOAD-BEARING THEOREMS ASSUME cut to the glossary's one-sentence forms, the glossary named,
+# ###       the plain-words brackets that were not glossary forms removed, "priced" glossed beside W-ORD, the lists untouched; the salt-check
+# ###       sentence (no glossary entry) kept as v3 has it.
+V4_EDITS = ('a', 'b', 'c', 'd')
+V3 = 'b646_deposit_description.txt'
+V4 = 'b647_deposit_description.txt'
+EXH_PAREN = ' (in its attribution face covers_all, over the seven-class catalogue complete over its named classes)'
+LOC_TAIL = ('which the kernel states, proves equivalent to RH, and carries as its one open premise.',
+            'which the kernel states and proves equivalent to RH.')
+NOT_TSP = ('<li>not_trivialSummandPremise -- DERIVES</li>', '<li>not_trivialSummandPremise -- DERIVES -- it proves TrivialSummandPremise false as stated</li>')
+DED = ("it holds on the premises TrivialSummandPremise', the restated premise, witnessed in the kernel at the constant 1 "
+       "(trivialSummandPremise'_witness) and EulerFactorPremise, whose status is WITNESSED",
+       "it holds on two premises: TrivialSummandPremise', the restated premise, witnessed in the kernel at the constant 1 "
+       "(trivialSummandPremise'_witness); and EulerFactorPremise, whose status is WITNESSED")
+# ### Phi: SIDE-lv-conservation SIDELvConservation/T1_MellinFactorization.lean :24-:26 at v0.8.0 = 6efa9e5 ("The (fixed) Mellin integrand
+# ### whose Mellin transform at s / 2 reproduces completedRiemannZeta s on the convergence half-plane"); the bracket: CouplingsAtPhi.lean
+# ### :415-:416 ("the h1 leg of the T3' bracket; h2 ... remains the outstanding obligation")
+PHI = ('which stays open</li>',
+       'which stays open [in plain words: Phi is the fixed function whose Mellin transform at s/2 gives the completed zeta function where '
+       'the transform converges; the bracket pairs what is proved at Phi, the couplings, with what is not, h2]</li>')
+# ### the squeeze and its jaws: THE_UNCONDITIONAL_SURROUND_v0_5.md :153 ("One jaw is the Euler zero-free region ... pressing in from σ = 1
+# ### ... The other jaw is the functional-equation transversality at the line ... If the two jaws provably overlap, the interior between
+# ### them admits no off-line zero.")
+SQZ = ('large enough that the transversality obstruction reaches the zero-free region.',
+       'large enough that the transversality obstruction reaches the zero-free region. [In plain words: one jaw is the region near real part '
+       'one where the Euler product allows no zero; the other is the region around real part one half that a simple zero on the line opens '
+       'by crossing it; a height is a zero\'s imaginary part; if the jaws overlap at every height, no zero lies off the line.]')
+SURR_AT = 'Both are equivalent to RH given the surround." '
+
+
+def _gl4():
+    """the glossary's entries, the latest of a repeated name winning, read from relay data/glossary.txt as committed in this act."""
+    g = {}
+    for l in io.open(os.path.join(D, 'glossary.txt'), encoding='utf-8').read().replace(chr(13), '').split(NL):
+        if l.strip() and not l.startswith('#'):
+            p = l.split('\t')
+            g[p[0]] = p[1]
+    return g
+
+
+def _once(h, old, new, tag):
+    n = h.count(old)
+    return h.replace(old, new) if n == 1 else h + ' NOT READ (%s: the anchor found %d times)' % (tag, n)
+
+
+def _defs4(gl):
+    """(d): the definitions paragraph in the glossary's one-sentence forms, the glossary named."""
+    return ('The definitions here are the programme\'s glossary\'s, one sentence each, as the keystone census prints them. A premise is %s. '
+            'A premise\'s own evidence is %s. A HINGE is %s. A name beginning W-ORD- is %s; priced, of a work-order, means %s. OPEN_TRAILS is '
+            '%s. ' % (
+                gl['premise'].rstrip('.'), gl['own evidence'].replace('of a premise: ', '').rstrip('.'),
+                gl['HINGE'].replace(' (the entry above)', '').rstrip('.'), gl['W-ORD'].rstrip('.'),
+                gl['priced'].replace('of a work-order: ', '').rstrip('.'), gl['OPEN_TRAILS'].rstrip('.')))
+
+
+def compose_v4(edits=V4_EDITS):
+    """v4's HTML: b646's compose_v3 (its rules as sealed) with (R257)(4)'s edits named in `edits` applied in the order a, b, c, d."""
+    import b646_record as B6
+    h = B6.compose_v3()
+    gl = _gl4()
+    if 'a' in edits:
+        h = _once(h, NOT_TSP[0], NOT_TSP[1], 'a, not_trivialSummandPremise')
+        h = _once(h, DED[0], DED[1], "a, dedekind_rhs'")
+        h = _once(h, PHI[0], PHI[1], 'a, Phi and the bracket')
+        h = _once(h, SQZ[0], SQZ[1], 'a, the squeeze')
+        h = _once(h, SURR_AT, SURR_AT + 'The surround, in the glossary\'s words: %s. ' % gl['the surround'].rstrip('.'), 'a, the surround')
+    if 'b' in edits:
+        h = _once(h, EXH_PAREN, '', 'b, the parenthesis')
+    if 'c' in edits:
+        h = _once(h, LOC_TAIL[0], LOC_TAIL[1], 'c, the located clause')
+    if 'd' in edits:
+        i, j = h.find('A premise is a binder'), h.find('The premises, by status')
+        sc_ = re.search(r'A salt check is [^.]+\. ', h[i:j]) if 0 <= i < j else None
+        h = (h[:i] + _defs4(gl) + sc_.group(0) + h[j:]) if sc_ and h.count('A premise is a binder') == 1 else h + ' NOT READ (d)'
+    return h
+
+
+def v3_same(*a):
+    """b646's composer at this act against v3 as banked: byte for byte."""
+    import b646_record as B6
+    h, v3 = B6.compose_v3(), rd(V3)
+    print('  compose_v3 at this act %d bytes ; v3 as banked %d bytes ; the same: %s' % (len(h.encode('utf-8')), len(v3.encode('utf-8')), h == v3))
+    return h == v3
+
+
+def describe4(*a):
+    """data/b647_deposit_description.txt (v4) and .json beside v3: composed from banks, the forbidden-content test (b644's sealed
+    `forbidden`) run over it, the five parts in order, every tag Zenodo accepts; refuses on any hit, unread figure or part out of order."""
+    import hashlib
+    import b646_record as B6
+    R4 = B6._R4()
+    if not v3_same():
+        sys.exit('### b646`S COMPOSER DOES NOT REPRODUCE v3 -- NOTHING COMPOSED')
+    html = compose_v4()
+    heads = re.findall(r'<p><strong>(.*?)</strong></p>', html)
+    order_ok = heads == [x.rstrip('.') for x in B6.PART_HEADS]
+    hits = R4.forbidden(html)
+    unread = [m.group(0) for m in re.finditer(r'NOT READ|NOT BANKED|not in the table|None', html)]
+    bad = sorted(set(re.findall(r'</?([a-zA-Z0-9]+)', html)) - B6._allowed_tags())
+    print('  parts %d, in order %s ; forbidden hits %d ; unread %d ; tags outside Zenodo`s %s ; bytes %d' % (
+        len(heads), order_ok, len(hits), len(unread), bad or 'none', len(html.encode('utf-8'))))
+    for x in hits + [('unread', u) for u in unread]:
+        print('    ### %s : %s' % x)
+    if DRY:
+        _write(os.path.join(SP, 'b647_deposit_description_dry.txt'), html.encode('utf-8'))
+        return
+    if hits or unread or not order_ok or bad:
+        sys.exit('### A FORBIDDEN CONTENT, AN UNREAD FIGURE, A TAG OR THE PARTS OUT OF ORDER -- NOTHING WRITTEN')
+    b = html.encode('utf-8')
+    _write(os.path.join(D, V4), b)
+    put_json('b647_deposit_description.json', dict(at=utc(), bytes=len(b), sha256=hashlib.sha256(b).hexdigest(), heads=heads, edits=list(V4_EDITS),
+                                                   order_ok=order_ok, forbidden=hits, v3_bytes=len(rd(V3).encode('utf-8'))))
+    print('  written: data/%s %d bytes, sha256 %s' % (V4, len(b), hashlib.sha256(b).hexdigest()[:16]))
+
+
+def desc_diff4(*a):
+    """data/b647_desc_diff.txt: v3 against v4 by part -- each part's bytes in each, the change, the tokens lost and added (b644's sealed
+    `invariance`), and each edit's text before and after as the composer applies it."""
+    import b646_record as B6
+    R4 = B6._R4()
+    v3, v4 = rd(V3), rd(V4)
+    if not v4:
+        sys.exit('### v4 IS NOT BANKED -- RUN `describe4` FIRST')
+    p3, p4 = dict(B6._parts_of(v3)), dict(B6._parts_of(v4))
+    b3, b4 = len(v3.encode('utf-8')), len(v4.encode('utf-8'))
+    L = ['b647 -- COMPONENT 4, (R257)(4): THE DESCRIPTION, v3 AGAINST v4, BY PART (%s)' % utc(), '',
+         '### v3: relay data/%s, %d bytes ; v4: relay data/%s, %d bytes ; the change %+d bytes' % (V3, b3, V4, b4, b4 - b3), '']
+    for h in B6.PART_HEADS:
+        a_, b_ = p3.get(h, ''), p4.get(h, '')
+        lost, added = R4.invariance('<p>%s</p>' % a_, '<p>%s</p>' % b_)
+        L += ['### %s v3 %d bytes (text) ; v4 %d bytes (text, tags removed) ; %+d' % (h, len(a_.encode('utf-8')), len(b_.encode('utf-8')),
+                                                                                   len(b_.encode('utf-8')) - len(a_.encode('utf-8'))),
+              '    tokens lost: %s' % (sorted(lost.items()) or 'none'), '    tokens added: %s' % (sorted(added.items()) or 'none')]
+    L += ['', '### THE EDITS, EACH AS APPLIED (before -> after):']
+    for tag, (o, n) in (('(a) not_trivialSummandPremise', NOT_TSP), ("(a) dedekind_rhs'", DED), ('(a) Phi and the bracket', PHI),
+                        ('(a) the squeeze', SQZ), ('(b) the parenthesis', (EXH_PAREN.strip(), '(removed)')), ('(c) the located clause', LOC_TAIL)):
+        L += ['  %s' % tag, '      v3: ' + o, '      v4: ' + n]
+    L += ['  (a) the surround: after "%s" v4 adds the glossary entry' % SURR_AT.strip(), '  (d) the definitions paragraph, v4: ' + _defs4(_gl4()).strip()]
+    L += ['', '### ### **v3 %d BYTES ; v4 %d BYTES ; %+d.**' % (b3, b4, b4 - b3)]
+    put_txt('b647_desc_diff.txt', L)
+    print(L[-1])
+
+
+def desc_test4(*a):
+    """data/b647_desc_test.txt: the forbidden-content test rerun (b644's sealed `forbidden`) by b646's planted cases with v4 as banked in
+    v3's place, each case counted; the composer's edit tests (tools/test_composer_b647.py) run and counted beside it."""
+    import b646_record as B6
+    R4 = B6._R4()
+    cases = [('an act number', '<p>composed at b643.</p>', 'an act number'),
+             ('a bank path', '<p>read from data/b643_premise_table.json.</p>', 'a bank path'),
+             ('root arithmetic', '<p>root e583d138ea28f97569fe859a5826996bda1cebe83fac102cf9821b6a1b2c3d4.</p>', 'root arithmetic'),
+             ('a provenance count', '<p>the rows are 209 cell and 1707 rule.</p>', 'a provenance count'),
+             ('an outside collection', '<p>read beside %s.</p>' % (R4.OUTSIDE_NEEDLES[0] if R4.OUTSIDE_NEEDLES else 'X'), 'an outside collection'),
+             ('a banned stem', '<p>a ' + 'ga' + 'p remains.</p>', 'a banned stem'),
+             ('the unsupported sentence asserted', '<p>The programme shows that RH is proved.</p>', 'the unsupported sentence asserted'),
+             ('the ceiling denied (no hit)', '<p>Not supported: that RH is proved; the corpus does not claim it.</p>', None),
+             ('v4 as banked (no hit)', rd(V4), None)]
+    L = ['b647 -- COMPONENT 4: THE DESCRIPTION`S FORBIDDEN-CONTENT TEST, RERUN BY PLANTED TEXT, AND THE COMPOSER`S EDIT TESTS (%s)' % utc(), '']
+    n = 0
+    for i, (label, text, want) in enumerate(cases, 1):
+        hits = R4.forbidden(text)
+        ok = (any(k == want for k, _m in hits) if want else (not hits and bool(text)))
+        n += ok
+        L.append('  (%d) %-40s hits %s ; %s' % (i, label, [k for k, _m in hits][:4], 'PASS' if ok else '### FAIL'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'test_composer_b647.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    L += ['', '### THE FORBIDDEN-CONTENT TEST: %d of %d cases as wanted -- %s' % (n, len(cases), 'PASS' if n == len(cases) else 'FAIL'), '',
+          '### THE COMPOSER`S EDIT TESTS (tools/test_composer_b647.py), exit %d:' % r.returncode] + ['  ' + x for x in (r.stdout or '').rstrip(NL).split(NL)]
+    L += ['', '### ### **FORBIDDEN-CONTENT %d of %d ; EDIT TESTS EXIT %d.**' % (n, len(cases), r.returncode)]
+    put_txt('b647_desc_test.txt', L)
+    print(NL.join(L[-3:]))
+
+
+def glossary_cmp(*a):
+    """data/b647_glossary_block.txt: the glossary block regenerated by the pages' own builder (tools/chain_page.py glossary_block) from
+    relay data/glossary.txt as appended here, against the block each of the two pages and the census at v0.7.1 prints at PLACE-papers main
+    before the act, byte for byte: each printed block equal to the block before the append, the new block that block plus the two entries."""
+    import tempfile
+    import chain_page as CP
+    import b638_record as R8
+    old = subprocess.run(['git', '-C', RELAY, 'show', '%s:data/glossary.txt' % K.PRE_RELAY], capture_output=True).stdout
+    p = os.path.join(tempfile.mkdtemp(), 'glossary_at.txt')
+    open(p, 'wb').write(old)
+    ob, nb = CP.glossary_block(p), CP.glossary_block()
+    docs = [('the zeta page', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'), ('the chi page', 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md'),
+            ('the census at v0.7.1', 'phase2/method/THE_KEYSTONE_CENSUS_v0_7_1.md')]
+    added = nb[len(ob):]
+    L = ['b647 -- COMPONENT 4, (R257)(4)(a): THE GLOSSARY BLOCK REGENERATED AND COMPARED (%s)' % utc(), '',
+         '### the builder: relay tools/chain_page.py glossary_block ; the glossary before: relay %s:data/glossary.txt (%d block lines) ; after: as '
+         'appended in this act (%d block lines)' % (K.PRE_RELAY, len(ob), len(nb)),
+         '### the new block is the old block plus the appended lines, byte for byte: %s' % (nb[:len(ob)] == ob and len(added) == 2), '']
+    ok = nb[:len(ob)] == ob and len(added) == 2
+    for name, path in docs:
+        t = K.show(path, K.PRE_PP) or ''
+        pb = R8.glossary_lines(t)
+        same_old = pb == ob
+        ok = ok and same_old
+        L.append('  %-22s PLACE-papers %s:%s -- %d block lines ; equal to the block before the append, byte for byte: %s ; to the new block: %s '
+                 '(the pages and the census reprint at b648, v0.8)' % (name, K.PRE_PP, path, len(pb), same_old, pb == nb))
+    L += ['', '### the appended block lines:'] + ['  ' + x for x in added]
+    L += ['', '### ### **THE BLOCK %d LINES, WAS %d ; THE THREE PRINTED BLOCKS EQUAL TO THE BLOCK BEFORE, BYTE FOR BYTE: %s ; THE NEW BLOCK THE OLD PLUS '
+              'THE TWO ENTRIES: %s.**' % (len(nb), len(ob), 'YES' if ok else '### NO', 'YES' if nb[:len(ob)] == ob and len(added) == 2 else '### NO')]
+    put_txt('b647_glossary_block.txt', L)
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
