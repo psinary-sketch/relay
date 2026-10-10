@@ -33,6 +33,7 @@ SESSION_ID = 'f004d01d-ad93-416c-a916-fe6e52403753'
 SESSION = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % SESSION_ID
 SUBAGENTS = 'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % SESSION_ID
 R3.SP, R3.SESSION, R3.SESSION_ID = SP, SESSION, SESSION_ID
+SESSIONS_AFTER = (('bc5efa87-33bc-483a-b723-ace1d978aa31', 'The fourth reader has run'),)   # ### the act's continuation after a /clear
 FACE = 'b646_registration_2026-10-09.txt'
 DRY = 'dry' in sys.argv[2:]
 R3.DRY = DRY
@@ -84,12 +85,21 @@ def commands(*a):
     rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
     if not rows:
         sys.exit('### THE COMMAND CAPTURE READ NO COMMAND (the anchor %r not found as a user line) -- NOTHING WRITTEN' % K.ANCHOR)
+    # ### the act continued after a /clear in a second session (b646, the seat's catch): its commands are read from its first user line too
+    for sid, anc in SESSIONS_AFTER:
+        more = ER.capture('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % sid, anc,
+                          'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % sid)
+        if not more:
+            sys.exit('### THE CONTINUATION SESSION %s READ NO COMMAND (the anchor %r not found as a user line) -- NOTHING WRITTEN' % (sid, anc))
+        rows += [dict(r, src=r['src'] + ' ' + sid[:8]) for r in more]
+    for i, r in enumerate(rows):
+        r['n'] = i + 1
     hits = ER.scan(rows)
     L = ['b646 -- THE ACT`S COMMAND BANK AND THE ARM G-EDIT-ROUTE`S READING ((R256)(2); tools/edit_route.py) (%s)' % utc(), '',
          '### the source: the seat`s session transcript %s from its first user line carrying %r, and its subagents` transcripts (%s) at or '
          'after that line`s timestamp %s' % (os.path.basename(SESSION), K.ANCHOR, SUBAGENTS.rsplit('/', 2)[-2] + '/subagents', rows[0]['ts']),
          '### commands read: %d (seat %d ; helper readers %d) ; by tool %s' % (
-             len(rows), sum(1 for r in rows if r['src'] == 'seat'), sum(1 for r in rows if r['src'] != 'seat'),
+             len(rows), sum(1 for r in rows if r['src'].startswith('seat')), sum(1 for r in rows if not r['src'].startswith('seat')),
              dict(collections.Counter(r['tool'] for r in rows))), '']
     L += ['### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
     for r, o in hits:
