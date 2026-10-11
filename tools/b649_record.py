@@ -531,6 +531,53 @@ def _residue(h):
     return h
 
 
+LIST_HEAD = ['# b649 -- (R259)(5), THE NAME: b648`s list (relay data/%s), every line unchanged, with the one line `# positivity clause`',
+             '# appended, by which the generator titles the page by the positivity clause and carries the opening mention in the glossary`s',
+             '# words in its head line (relay tools/chain_page.py, `node_positivity`). A list without that line emits exactly as before.', '#']
+NODES = {'zeta': 'b649_nodes_zeta.txt', 'chi': 'b649_nodes_chi.txt'}
+PROBE = {'zeta': 'b643_probe_out_zeta.txt', 'chi': 'b643_probe_out_chi.txt'}
+
+
+def lists(*a):
+    """data/b649_nodes_zeta.txt and data/b649_nodes_chi.txt: b648's lists, byte for byte, beneath a four-line head and above the one line."""
+    for k, old in (('zeta', 'b648_nodes_zeta.txt'), ('chi', 'b648_nodes_chi.txt')):
+        body = rd(old).rstrip(NL).split(NL)
+        L = [x % old if '%s' in x else x for x in LIST_HEAD] + body + ['#', '# positivity clause']
+        put_txt(NODES[k], L)
+        print('%s: %d lines, b648`s %d unchanged beneath the head' % (NODES[k], len(L), len(body)))
+
+
+def page_arms(tag='', *a):
+    """data/b649_page_arms[_<tag>].txt: the page arms on b649's marked lists against PLACE-papers HEAD and the frozen control with the E0
+    rule at its relay pin (b648's page_arms, carried)."""
+    import g_chain_page as GCP
+    import test_chain_page_b596 as T
+    import chain_page as CP
+    import b626_record as R26
+    L = ['b649 -- THE PAGE ARMS AND THE FROZEN CONTROL AT PLACE-papers %s, relay %s (%s)%s' % (
+        g(PP, 'rev-parse', '--short=7', 'HEAD').strip(), g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip(), utc(), (' -- ' + tag) if tag else '')]
+    n = 0
+    for arm, k in (('G-CHAIN-PAGE', 'zeta'), ('G-CHAIN-PAGE-CHI', 'chi')):
+        r = GCP.arm(os.path.join(D, NODES[k]), os.path.join(SP, '_b649_gcp'), os.path.join(D, PROBE[k]))
+        n += r['ok'] is True
+        L.append('    %s : %s -- %s ; regeneration exit %d ; committed %d bytes ; regenerated %d bytes ; first differing line %s' % (
+            arm, 'PASS' if r['ok'] else 'FAIL', NODES[k], r['rc'], r['committed_bytes'], r['regenerated_bytes'], r['first_diff']))
+    L.append('### ### **PAGE ARMS PASSING : %d of 2.**' % n)
+    rule = CP.E0
+    CP.E0 = R26.e0_module(T.RELAY_PIN)
+    try:
+        c = T.control()
+    finally:
+        CP.E0 = rule
+    L.append('### the control`s E0 rule: loaded at relay %s' % T.RELAY_PIN)
+    for x in c:
+        L.append('    %s %s : %s -- exit %d ; committed %d bytes ; regenerated %d bytes ; first differing line %s' % (
+            T.ARM, x['list'], 'PASS' if x['ok'] else 'FAIL', x['rc'], x['committed_bytes'], x['regenerated_bytes'], x['first_diff']))
+    L.append('### ### **%s PASSING : %d of 2.**' % (T.ARM, sum(x['ok'] is True for x in c)))
+    put_txt('b649_page_arms%s.txt' % (('_' + tag) if tag else ''), L)
+    print(NL.join(l[:220] for l in L))
+
+
 BH_LINE = 13798          # ### OPEN_TRAILS: W-ORD-LV-BUILD-HOST opened by Component 1
 PR_HEAD = ('*Appended 2026-10-11 by b649 to W-ORD-LV-BUILD-HOST (:%d), under `(R259)`(4) -- ITS PRICE, WRITTEN FROM THE MEASUREMENT:*')
 
