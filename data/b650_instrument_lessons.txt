@@ -1,0 +1,90 @@
+b650 -- COMPONENT 4, (R260)(6): THE INSTRUMENT LESSONS OF b640-b649, READ AS ONE AND PRICED AS WORK-ORDERS (2026-10-11)
+
+### the sources: the ten closings, relay data/b640_closing.txt through data/b649_closing.txt, their head lines, their defect lists ("THIS ACT'S
+### OWN DEFECTS") and their suite lines; b649's defect (h) entered at FINDINGS :8207 by this act. Every defect list read whole and counted against
+### its closing's head line: b640 9, b641 8, b642 12, b643 13, b644 18, b645 11, b646 12, b647 16, b648 9, b649 7 -- 115, each equal to its
+### head; with b649's (h), 116. None acted this act; each work-order entered on OPEN_TRAILS with its trigger and price.
+
+== THE SUITES AT THE CLOSE (pre-push and post-push alike in every act) ==
+  b640 84 of 85  G-ACTROOT-VERIFY            b645 69 of 69  none
+  b641 81 of 82  G-ACTROOT-VERIFY            b646 70 of 71  G-EDIT-ROUTE
+  b642 83 of 85  G-CHAIN-PAGE, -CHI          b647 70 of 71  G-EDIT-ROUTE
+  b643 84 of 85  G-ACTROOT-VERIFY            b648 72 of 74  G-EDIT-ROUTE, G-NO-SORRY-MAIN
+  b644 97 of 97  none                        b649 77 of 80  G-NO-SORRY-MAIN, G-AXIOM-CLAIM, G-SEALED-AFTER-COMPONENTS
+### a failing arm at the close in 8 of 10 acts; G-ACTROOT-VERIFY in three running acts (cured at b644), G-EDIT-ROUTE in three running acts
+### (the arm's first three acts), G-NO-SORRY-MAIN in two (a finding, held beneath the build hold).
+
+== THE RECURRING KINDS, EACH WITH THE ACTS IT RECURRED IN (by the closings' letters) ==
+  K1 THE EDIT ROUTE -- stream edits, heredoc backslashes, copies into tools/, relative deletes, shell quoting of commit text:
+     b640 (e); b643 (h); b644 (a); b645 (b), (c); b646 (k); b647 (k), (n); b648 (f), (g); b649 (a). The arm G-EDIT-ROUTE (b646) reads
+     the command bank; the kind recurred in the three acts after it, each time named by the arm. The arm works; the habit is the seat's.
+  K2 ORDER AND LATENESS -- a bank or step outside its component, after the seal or after the root:
+     b640 (a), (h); b643 (f); b644 (c), (g), (r); b645 (j); b646 (h), (i); b649 (f), (h). b649 (h) is the first that reached a suite arm
+     undeclared: a finding made after the seal had no declared route into its own act's record. -> W-ORD-LATE-BANKS, W-ORD-SEAL-ORDER-BY-CONTENT.
+  K3 AN INSTRUMENT THAT READ NOTHING, THE WRONG THING OR THE WRONG DECLARATION:
+     b640 (b), (f), (g); b645 (g); b646 (c), (l); b647 (h), (m); b648 (i); b649 (c), (d), and its two ARM-MATCHING rows (FINDINGS :8209).
+     The instrument's own error has had no row of its own: it is entered as the seat's defect, or (b649) as a verdict the table refuses.
+     -> W-ORD-VERDICT-INSTRUMENT.
+  K4 A LINE-ENDING OR ENCODING CHECK MISREAD: b645 (a); b646 (c), (d); b647 (d), (i). Cured in practice by reading bytes in Python; no
+     recurrence at b648-b649. Not priced: the standing line holds.
+  K5 A DRY RUN THAT WROTE: b641 (e); b642 (g); b644 (o). No recurrence after b644. Not priced.
+  K6 THE NAVIGATOR'S CITATIONS AND RECALLED FIGURES: b641 (a), (b); b642 (j); b644 (j), (m); b645 (i); b646 (a); and at this act the
+     navigator's resonance reading, Q3's "navigator 22 of 128" where its bank reads 33 OVERREACHES of 163 rows, and Q4's quoted word of
+     b645 with no banked source (relay data/b650_resonances_seat.txt). The same reading cited ZetaZeroFree :2457 at 3635e748 rightly, and
+     the seat's check called it wrong (the seat's defect, below). A citation is checked at the seat by hand, act by act. -> (e3).
+  K7 A MISCOUNT IN A PROMPT, A MESSAGE OR A SCORE: b641 (f), (g); b642 (c); b643 (g); b644 (b); b648 (a). No arm reads a count in prose.
+     Not priced: each was caught by a hand reading before a write, or after it as a defect.
+  K8 THE REMOTE'S BURSTS: b641 (d); b642 (l); b644 (p), (q). The host's and the service's, banked as attempts. Not priced.
+  K9 A GENERATED PAGE OR A TEST OUT OF STEP WITH WHAT IT READS: b643 (f); b648 (c), (h); b649 (f); and at this act's step zero
+     test_chain_page.py (9), which asks the old Dirichlet title of a chi list that b649 marked "# positivity clause" -- it passed at b649
+     only because b649's runner fed b648's unmarked lists (relay data/b650_stepzero.txt). -> (e2).
+  K10 THE READER'S DEPARTURES THE NEEDLES DO NOT SEE: b649's sixth reader, 3 of 3 by needle and by hand with three departures read by hand
+     alone (relay data/b649_desc_residue.txt (9)-(11)); b647's fifth reader, an attribution read past (data/b647_desc_residue.txt (2)).
+     -> W-ORD-READER-COMPREHENSION.
+  K11 A CLASS OF TEXT NO INSTRUMENT READS: the generated rule's unseen classes S, A, H, read by the three arms of b649; and at this act,
+     plain block comments -- SIDE-kernel main Kernel/PerpendicularCrossing.lean :64-:98 and :114-:144, opened "/-", where :98 reads "NO
+     OFF-LINE ZERO EXISTS." and :144 "Therefore: all nontrivial zeros on σ = 1/2." -- read by no table and no arm (relay
+     data/b650_resonances_seat.txt, Q2, found in passing; the navigator's reading names it a fourth unseen class). -> (e1).
+
+== THE WORK-ORDERS, EACH WITH ITS TRIGGER AND PRICE ==
+  (a) W-ORD-VERDICT-INSTRUMENT ((R260)(6)(a)) -- a fifth verdict, INSTRUMENT, with the arm named, in tools/licensed_table.py's VERDICTS and
+      its check, so an instrument's own error is a row; b649's two ARM-MATCHING rows re-entered under it. Trigger: the next ARM-MATCHING
+      finding. Price: part of one act -- the verdict, its check, its planted test, the two rows re-read.
+  (b) W-ORD-LATE-BANKS ((R260)(6)(b)) -- a declared class of late banks, named on the face by pattern and read by the record tool by
+      pattern, so a finding made after the seal reaches the record of its own act. Trigger: the next post-seal finding. Price: one act --
+      the face's section, the record tool's reader, the suite's arm and a planted late bank.
+  (c) W-ORD-SEAL-ORDER-BY-CONTENT ((R260)(6)(c)) -- G-SEALED-AFTER-COMPONENTS judges a commit by the files it touches, not its subject.
+      Trigger: the arm's own next failure. Price: part of one act -- the predicate and its planted commits (a component file after the
+      lock under a post-seal subject; a late bank under a component subject).
+  (d) W-ORD-READER-COMPREHENSION ((R260)(6)(d)) -- the reader scored on its departures from the text as well as its agreement with the hand
+      reading, the departures a count beside the score. Trigger: the next reader run. Price: part of one act -- a departures line in the
+      hand-reading form and its count in the compare bank.
+  (e1) W-ORD-PLAIN-COMMENT-ARM (the author's word after the seat's and the navigator's readings) -- every plain comment in every kernel at
+      its main scanned by the needle for the asserted unsupported sentence and by the licensed-statement rule as text, its hits rows of the
+      table. Trigger: this finding (SIDE-kernel PerpendicularCrossing.lean :98, :144). Price: one act -- a standalone tool and its planted
+      test, an opening run over every kernel, an arm of every suite from its act. The two comments themselves are rows of b651's
+      SIDE-kernel re-cut, OVERREACHES, not edits this act.
+  (e2) W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE -- the step-zero runner reads the node lists in force (the latest marked lists), and a template
+      edit carries its older tests' expectations in the same commit. Trigger: this act's test_chain_page.py (9). Price: part of one act --
+      the runner's list arguments and the one case's expectation, read against the marked list.
+  (e3) W-ORD-CITATION-CHECK -- every path-and-line or figure a ferry or ruling cites read against its bank by the ferry scan at receipt,
+      each printed AGREE, DIFFER or NOT FOUND before the act runs. Trigger: this act's resonance reading (a figure not as its bank reads; a
+      word with no banked source). Price: one act -- the scan's new section, its planted ferry, a row form for a citation that differs.
+
+== THIS ACT'S OWN DEFECTS, THE SEAT'S (written as the act ran) ==
+  (a) A CHECK THAT READ THE WRONG COPY. The seat's reading of the navigator's file called ":2457 at 3635e748" wrong, reading ZetaZeroFree at
+      :2485 in the vendored copy on SIDE-explicit-formula's main and taking that copy's README pin line for its bytes; b642's defect (j) had
+      recorded :2457 at 3635e748 and :2485 at 8c51431. Corrected beneath the reading (relay 96f12ef2).
+  (b) BACKTICK POSSESSIVES IN TWO SCRATCH-WRITTEN BANKS. The rows-style writer of the same-season grep and the step-zero runner's report
+      text used backticks as possessives; the parity guard refused before any write, and the bank prints backticks as apostrophes.
+  (c) A PERMISSIVE SECOND SHAPE LABELLED AS READ. R5's wide shape (any percentage) yielded 96 keystone hits, which the first write labelled
+      "not the retired item" unread; tightened to a percentage beside a word of confidence or probability (0 hits) before the commit, every
+      remaining labelled hit read by hand.
+  (d) A FIRST TEST BATCH OVER THE LINE. The first batch of step-zero tests reached 590 s (test_asof.py 403 s, test_chain_page.py killed at
+      rc 143); the process list read NONE after it, and the killed test re-run alone.
+  (e) A READING THAT MISSED A PRIOR BENCH. The seat's question-4 reading did not find relay reports/2026-08-02-lehmer-tie-e7b-face2-ordering.md
+      (a pair table over the first 1500 zeros); found while checking the navigator's file and appended beside it.
+
+### ### **DEFECTS READ 116 (115 in the ten closings and b649's (h)) ; RECURRING KINDS 11, OF WHICH 6 PRICED ; WORK-ORDERS 7 -- THE FOUR OF
+### (R260)(6) AND THREE FURTHER (W-ORD-PLAIN-COMMENT-ARM, W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE, W-ORD-CITATION-CHECK) ; NONE ACTED ; THIS
+### ACT'S OWN DEFECTS 5.**
