@@ -1,0 +1,68 @@
+b649 -- THE SIX CLAIMS G-AXIOM-CLAIM CONTRADICTS, AS ROWS FOR THE RE-CUTS, IN THE LICENSED-STATEMENT TABLE'S FIVE CELLS (2026-10-11T16:54:00Z)
+
+### the author's order after the seal (session 7ab48879): rows 1, 3, 4 and 6 OVERREACHES (the claim names a profile the print contradicts);
+### rows 2 and 5 ARM-MATCHING (the claim is true of the declaration it is about and the arm bound it to the wrong one) -- a finding about
+### the resolver of G-AXIOM-CLAIM, to its planted tests at b651, not to a docstring re-cut. Read by hand at each kernel's main; the
+### source relay data/b649_axiom_claim.json (the opening run). No kernel byte is written by this bank.
+
+### ROW 1
+  source   : SIDE-cosmo/SIDECosmo/SteaneExemplar.lean:6
+  stated   : Every proof is `by decide` or definitional — axioms **{propext, Quot.sound}**, *cleaner* than the standard three axioms {propext, Classical.choice, Quot.sound} (no Classical.choice).
+  licensed : knill_laflamme_t1 (header, EXACT) prints Classical.choice, Quot.sound, propext -- relay data/b557_probe_co.txt:11
+  verdict  : OVERREACHES
+  action   : RE-CUT: the header of SteaneExemplar.lean names the standard three for knill_laflamme_t1, and keeps {propext, Quot.sound} for the declarations whose prints read it
+  by HAND, cited SIDE-cosmo@c5cba30:SIDECosmo/SteaneExemplar.lean:6
+
+### ROW 2
+  source   : SIDE-global-section/Interfaces/LocalLimit.lean:226
+  stated   : This is the general-`p` core of trace silence and of the escape hypothesis' arithmetic: the banked `p = 2, 3` instances (TraceSilence, no axioms) are its shadows; every other step of sitting 20's chain is p-free by construction (the abstract theorems above; file A proved for arbitrary p).
+  licensed : LocalLimit.general_p_no_fixed_cell (docstring, EXACT) prints Classical.choice, Quot.sound, propext -- SIDE-global-section@17ce9ff:AXIOM_PRINTS_INTERFACES.txt:13
+  verdict  : ARM-MATCHING
+  action   : TO THE PLANTED TESTS OF G-AXIOM-CLAIM AT b651: a docstring sentence whose axiom words are said of another object (here the banked TraceSilence instances, p = 2, 3) is bound by the resolver to the declaration the docstring heads; no docstring re-cut
+  by HAND, cited SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:226
+  note     : the sentence says "no axioms" of the banked p = 2, 3 instances (TraceSilence), not of general_p_no_fixed_cell, whose print reads the standard three; the claim is true of the object it is about, and the arm bound it to the wrong one
+
+### ROW 3
+  source   : SIDE-kernel/Kernel/Integration.lean:215
+  stated   : MAIN THEOREM (conditional, zero axioms):
+  licensed : techne_kernel_integration.rh_from_structural_exhaustiveness (docstring, EXACT) prints Classical.choice, Quot.sound, propext -- relay data/b531_read.json (the entry rh_from_structural_exhaustiveness)
+  verdict  : OVERREACHES
+  action   : RE-CUT: the docstring at Integration.lean:215 says the standard three, which the print reads, for "zero axioms"
+  by HAND, cited SIDE-kernel@b0f2a3a:Kernel/Integration.lean:215
+
+### ROW 4
+  source   : SIDE-kernel/MetaKernel.lean:3
+  stated   : RESULTS: 0 axioms 0 sorry All theorems compile
+  licensed : ECondition.type_I_has_ostrowski (header, EXACT) prints Quot.sound, propext -- relay data/b557_probe_k6.txt:9
+  verdict  : OVERREACHES
+  action   : RE-CUT: the header of MetaKernel.lean says propext and Quot.sound, which the print of ECondition.type_I_has_ostrowski reads, for "0 axioms"
+  by HAND, cited SIDE-kernel@b0f2a3a:MetaKernel.lean:3
+
+### ROW 5
+  source   : SIDE-kernel/MetaKernel.lean:140
+  stated   : The same conclusion, from the same two hypotheses with the finiteness assumption deleted and no imports at all, compiles and depends on no axioms.
+  licensed : ECondition.type_I_has_ostrowski (docstring, EXACT) prints Quot.sound, propext -- relay data/b557_probe_k6.txt:9
+  verdict  : ARM-MATCHING
+  action   : TO THE PLANTED TESTS OF G-AXIOM-CLAIM AT b651: a docstring sentence whose axiom words are said of a variant (the Fintype hypothesis deleted, no imports) is bound by the resolver to the declaration the docstring heads; no docstring re-cut
+  by HAND, cited SIDE-kernel@b0f2a3a:MetaKernel.lean:140
+  note     : the sentence says "depends on no axioms" of a variant with the Fintype hypothesis deleted and no imports, not of ECondition.type_I_has_ostrowski, whose print reads propext and Quot.sound; the claim is true of the object it is about, and the arm bound it to the wrong one
+
+### ROW 6
+  source   : SIDE-lv-conservation/AxiomCheck.lean:8
+  stated   : T1 and T2 are expected to reduce to Mathlib's standard axiomatic base (`Classical.choice`, `Quot.sound`, `propext`).
+  licensed : T3.T3_perClass_to_combinations (header, SUFFIX) prints Classical.choice, Quot.sound, propext, sorryAx -- relay data/b557_prints_root.txt:15
+  verdict  : OVERREACHES
+  action   : RE-CUT: the header of AxiomCheck.lean names sorryAx in the print of T3.T3_perClass_to_combinations while the restated line stands unmerged (local branch b648-restate-SIDE-lv-conservation), and the standard three once it merges
+  by HAND, cited SIDE-lv-conservation@b2238d4:AxiomCheck.lean:8
+
+### THE TABLE'S OWN CHECK (tools/licensed_table.py, check), read on each row as it stands:
+  b649-ax-1 : taken
+  b649-ax-2 : verdict 'ARM-MATCHING' not one of the four
+  b649-ax-3 : taken
+  b649-ax-4 : taken
+  b649-ax-5 : verdict 'ARM-MATCHING' not one of the four
+  b649-ax-6 : taken
+### ARM-MATCHING is not one of the table's four verdicts (MATCHES, UNDERSTATES, OVERREACHES, UNLICENSED); the check refuses rows 2 and 5 on that alone. They are entered
+### here as the author ordered and stay out of any table the checker counts: findings about the arm, not rows of a document's licence.
+
+### ### **ROWS 6 ; OVERREACHES 4 (rows 1, 3, 4, 6, each with a RE-CUT sentence) ; ARM-MATCHING 2 (rows 2, 5, to the planted tests at b651) ; THE TABLE'S CHECK TAKES 4, REFUSES 2.**
