@@ -1,0 +1,39 @@
+b651 -- COMPONENT 0: STEP ZERO UNDER (R261) (2026-10-11)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R261) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b651_ferry.txt; the ferry scan 0 hits, 4 informational (R81) flags on the ruling's own words (data/b651_ferry_scan.txt).
+### The read-first list names data/b650_closing.txt: no such file -- b650's ferry ordered no closing record. The author accepted the
+### citation substitution: b650's weight cites OPEN_TRAILS :13850 (its trail record) and FINDINGS :8211 (its entry); the ferry's citation
+### is the navigator's error, entered in this act's defect list at the close.
+
+### the process listing (Win32_Process, names tail, lean, lake, python, python3), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 4329 MB
+### orphans: NONE ; stopped by PID: none needed. Read again after the watchdog's stopped run (19:33:40Z): NONE ; free 3474 MB.
+
+### b650's two push-out banks committed at the start: relay 78e850cd (data/b650_relay_push_out.txt, data/b650_pp_push_out.txt, LF).
+
+### the b650 push branches, listed by `git branch --merged main --list 'push-b650*'` and deleted by name with the lower-case flag in the same
+### command, read back:
+  relay        listed push-b650, push-b650-root ; deleted push-b650 (was 936766a8), push-b650-root (was 092b437b) ; push-b650* now 0
+  PLACE-papers listed push-b650, push-b650-root ; deleted push-b650 (was 90f2b9c), push-b650-root (was 7a5d597) ; push-b650* now 0
+
+### every test file under tools/ (data/b651_tests_stepzero.txt, .json), tools/b651_tests.py with the lists in force after b649
+### (data/b649_nodes_zeta.txt, data/b649_nodes_chi.txt), one test per call:
+  TEST FILES 48 ; RUN 47 ; RUN-BENEATH-HOLD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (4)-(7) -- as carried since b643.
+    test_elab_reader_b634.py -- RUN-BENEATH-HOLD under tools/build_watch.py, launched detached (Start-Process, watchdog PID 17452), free
+      4384 MB before: attempt 1 ran 616 s and was stopped at 2551 MB free, tree peak 1157 MB; attempt 2, the watchdog's one retry, was
+      stopped at 21 s, 2467 MB free, tree peak 1247 MB; the hold 2560 MB (data/b651_build_watch.json, data/b651_build_peaks.json). A
+      declared failure of this act, by the author's word. The seat's background log poll was stopped by the host for memory pressure while
+      the run stood above the hold; the watch resumed as a foreground check on the author's word, and the run was not pre-empted.
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the step-zero censuses and pins: data/b651_census_stepzero.txt TOTAL MISSING 0 ; data/b651_faces_census_stepzero.txt TOTAL MISSING 0 ;
+### data/b651_pins_stepzero.txt REPOS HARD-FAILING 0.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### free memory before any build: 4329 MB at step zero; 3474 MB after the stopped run; the hold 2560 MB.
