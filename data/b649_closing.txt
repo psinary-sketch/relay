@@ -1,0 +1,170 @@
+b649 closed: relay 37824e55, PLACE-papers 58d1b1d; suite 77 of 80; root b6e4531fdd5dec8c…; 0 prompts answered; 7 defects
+========================================================================================================
+b649 -- THE CLOSING RECORD. ### **LANE THREE, ACT SEVENTY-SIX: THREE ARMS -- NO SORRY ON MAIN, AXIOM CLAIMS AGAINST PRINTS, MODULE HEADERS AGAINST FILES; THE LEGACY MAP; THE LV-CONSERVATION BUILD MEASURED; THE POSITIVITY CLAUSE NAMED; THE DESCRIPTION AT v5; THE DRAFT HELD, UNDER (R259).**
+========================================================================================================
+### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b649_seal_hashes.json):
+      b649_worklist.py         seal ab41d4ab2b9be815 ; close ab41d4ab2b9be815 ; AGREE
+      b649_tests.py            seal 9251b2a63cdd1455 ; close 9251b2a63cdd1455 ; AGREE
+      b649_record.py           seal 4276900edb7b180e ; close 4276900edb7b180e ; AGREE
+      b649_checks.py           seal 45f7f96d76bda9b8 ; close 45f7f96d76bda9b8 ; AGREE
+      b649_closing.py          seal 941d244ccf3d4d1d ; close 941d244ccf3d4d1d ; AGREE
+      b649_reg_gate.py         seal 304166739c5bbf39 ; close 304166739c5bbf39 ; AGREE
+      b649_regspec.py          seal af76d8121a3bf7d5 ; close af76d8121a3bf7d5 ; AGREE
+      no_sorry_main.py         seal f4b1162f98ae611e ; close f4b1162f98ae611e ; AGREE
+      axiom_claim.py           seal d2370847f5f7beba ; close d2370847f5f7beba ; AGREE
+      module_header.py         seal 5a9a0a40999b1d1a ; close 5a9a0a40999b1d1a ; AGREE
+      ### AGREE 10 of 10
+
+### THE THREE ARMS ((R259)(2)), their opening runs:
+    G-NO-SORRY-MAIN (relay data/b649_no_sorry_main.txt): KERNELS 44 ; FILES SCANNED 528 ; HITS 4 ; PAIRS UNEQUAL OR UNREAD 0  ; VERDICT : FAIL
+      SIDE-effects SIDEEffects/Milestones.lean:32  sorry  -- MILESTONE: Hardy-Littlewood asymptotic
+      SIDE-effects SIDEEffects/Milestones.lean:49  sorry  -- MILESTONE: circle method or Helfgott-style approach
+      SIDE-effects SIDEEffects/Milestones.lean:63  sorry  -- MILESTONE: sieve density bounds
+      SIDE-lv-conservation SIDELvConservation/T3_StepNineBridge.lean:108  sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
+    G-AXIOM-CLAIM (relay data/b649_axiom_claim.txt): CLAIMS 203 ; CONTRADICTED 6 ; UNVERIFIABLE 11 ; VERIFIED 53 ; MENTIONS 133 ; VERDICT : FAIL
+    ### ITS CONTRADICTED CLAIMS, IN FULL:
+      SIDE-cosmo SIDECosmo/SteaneExemplar.lean:6 (header, LIST+EXCLUDES): Every proof is `by decide` or definitional — axioms **{propext, Quot.sound}**, *cleaner* than the standard three axioms {propext, Classical.choice, Quot.sound} (no Classical.choice).
+          knill_laflamme_t1 (EXACT) prints ['Classical.choice', 'Quot.sound', 'propext'] -- relay:data/b557_probe_co.txt
+      SIDE-global-section Interfaces/LocalLimit.lean:226 (docstring, EMPTY): This is the general-`p` core of trace silence and of the escape hypothesis' arithmetic: the banked `p = 2, 3` instances (TraceSilence, no axioms) are its shadows; every other step of sitting 20's chain is p-free by construction (the abstract theorems above; file A proved for arbitrary p).
+          LocalLimit.general_p_no_fixed_cell (EXACT) prints ['Classical.choice', 'Quot.sound', 'propext'] -- SIDE-global-section@main:AXIOM_PRINTS_INTERFACES.txt
+      SIDE-kernel Kernel/Integration.lean:215 (docstring, EMPTY): MAIN THEOREM (conditional, zero axioms):
+          techne_kernel_integration.rh_from_structural_exhaustiveness (EXACT) prints ['Classical.choice', 'Quot.sound', 'propext'] -- relay:data/b531_read.json
+      SIDE-kernel MetaKernel.lean:3 (header, EMPTY): RESULTS: 0 axioms 0 sorry All theorems compile
+          ECondition.type_I_has_ostrowski (EXACT) prints ['Quot.sound', 'propext'] -- relay:data/b557_probe_k6.txt
+      SIDE-kernel MetaKernel.lean:140 (docstring, EMPTY): The same conclusion, from the same two hypotheses with the finiteness assumption deleted and no imports at all, compiles and depends on no axioms.
+          ECondition.type_I_has_ostrowski (EXACT) prints ['Quot.sound', 'propext'] -- relay:data/b557_probe_k6.txt
+      SIDE-lv-conservation AxiomCheck.lean:8 (header, STD3): T1 and T2 are expected to reduce to Mathlib's standard axiomatic base (`Classical.choice`, `Quot.sound`, `propext`).
+          T3.T3_perClass_to_combinations (SUFFIX) prints ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx'] -- relay:data/b557_prints_root.txt
+    ### ITS UNVERIFIABLE CLAIMS, IN FULL:
+      SIDE-explicit-formula SIDEExplicitFormula/Simplicity.lean:41 (docstring, LIST, covers 0): Its axiom profile, `[propext, Classical.choice, Quot.sound]`, is read from that repository's `AUDIT.md` :80 at the pin -- the upstream's recorded run, not a build made here -- and banked with `ThmB_statement`'s print from a build of `Zeta23.Statement` in a clone at the pin (relay `data/b628_zeta23_a
+      SIDE-global-section Core/KLSilence.lean:86 (docstring, EMPTY, covers 1): the count law's enumerative core: the number of nonzero residues below q, as its own recursion (kept axiom-free; the List-semantics identification is the decide instance below)
+      SIDE-global-section Core/NeitherPolesNorZeros.lean:53 (docstring, EMPTY, covers 1): the level-2 image of U·f (values f(m″ mod 4) on odd m″, scaled): its transform's ball row r = 4 equals 8ζ⁴ ≠ 0 — the escape, exact, zero axioms.
+      SIDE-global-section Core/SinglePrimeFactor.lean:112 (docstring, EMPTY, covers 1): Written without `Nat.Prime`, whose lemmas carry `propext`, and without any import from outside the axiom-free set.
+      SIDE-kernel Bridge/FanoSteane.lean:4 (header, EMPTY, covers 20): All verified by decide. 0 sorry. 0 axioms.
+      SIDE-kernel Bridge/FanoSteane.lean:4 (header, LIST+EXCLUDES, covers 20): The definitions and asserted values (4, 10) are unchanged — the values were true at the original toolchain and are re-derived here, not adjusted — and `decide +kernel` adds no axiom beyond `{propext, Quot.sound}` (no `native_decide`, no `Lean.ofReduceBool`).
+      SIDE-kernel Kernel/Trivium.lean:11 (header, EMPTY, covers 36): None (self-contained, vanilla Lean 4) Sorry: 0 Axioms: 0
+      SIDE-kernel Kernel/TriviumCode.lean:9 (docstring, LIST, covers 1): The genuine [[7,1,3]] parameters are compiled at `SteaneExemplar.steane_parameters` (SIDE-cosmo, `{propext, Quot.sound}`); cite that, not these.
+      SIDE-kernel Kernel/Voice7.lean:124 (docstring, EMPTY, covers 1): The faithful de-encode — that ξ's actual Hadamard product is σ-non-selective — is **NO LONGER an open work-order: it was compiled 2026-07-24 as `Voice7Witness.hadamard_does_not_enforce_online`** (axiom-free, DERIVES; the Epstein countermodel — the Hadamard observable cannot enforce on-line placement
+      SIDE-kernel MetaKernel.lean:487 (docstring, EMPTY, covers 1): The proof kernel is in Kernel.Root (63 files, 0 sorry, 0 axioms).
+      SIDE-spinor-calibration SIDESpinorCalibration/FrobeniusCalibration.lean:41 (docstring, EMPTY, covers 1): The general identity g(p,q) = -wallNum(p,q) = -pq*chi holds for all coprime p,q and is carried in the keystone (sec 4); the kernel records the {2,3} instance to stay literally axiom-free.
+    G-MODULE-HEADER (relay data/b649_module_header.txt): HEADERS 239 ; MATCHES 239 ; OVERREACHES 0 HEADERS, 0 ROWS ; VERDICT : PASS
+    ### ITS OVERREACHES ROWS, IN FULL:
+      NONE
+
+### THE LEGACY MAP ((R259)(3)): README ROWS 31 ; QUARANTINED DECLARATIONS 31 (b648`s sorry lines 32) ; EQUAL True. ; README ROWS 1 ; QUARANTINED DECLARATIONS 1 (b648`s sorry lines 1) ; EQUAL True.
+
+### THE LV-CONSERVATION BUILD MEASURED ((R259)(4); relay data/b649_lv_build.txt): MODULES 25 ; COMPLETED 1 ; BENEATH THE HOLD 24 ; LARGEST TREE PEAK 2242 MB ; NEED ABOUT 4802 MB FREE AT START.
+    ### THE PRICE: the host would need about 4802 MB free at a module`s start (the hold plus the largest tree peak measured, 2242 MB), against the 3163-4295 MB this host offered; the peak is the Mathlib import`s and not GammaBounds` own, so a split of GammaBounds.lean at :177 does not answer it. No hold changed, no kernel edited.
+
+### THE NAME ((R259)(5)): the glossary`s entry the positivity clause; the pages at PLACE-papers carrying it -- PAGE ARMS PASSING : 2 of 2 ; G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA PASSING : 2 of 2
+
+### THE DESCRIPTION AT v5 ((R259)(6)): 12528 bytes against v4`s 12129, sha256 952e94c575f0352d ; FORBIDDEN-CONTENT 9 of 9 ; the sixth reader 3 of 3 by the needles, 3 of 3 by hand ; the residue RESIDUE 11 PASSAGES (8 UNCLEAR, 3 INFERENCES)  ; the draft 23228113: description read back byte for byte True, files the same True, submitted False -- HELD, nothing published
+
+    ### COMPONENT 0 : step zero (data/b649_ferry.txt, data/b649_stepzero.txt, data/b649_tests_stepzero.txt) ; push-out relay 1dd8f1bb
+    ### COMPONENT 1 : b648`s weight FINDINGS :8177 ; W-ORD-LEGACY-MAP OPEN_TRAILS :13796 ; W-ORD-LV-BUILD-HOST :13798
+    ### COMPONENT 2 : the three arms (data/b649_no_sorry_main.txt, data/b649_axiom_claim.txt, data/b649_module_header.txt) ; N1 REFUTED IN ONE CLAUSE ; N2 HELD
+    ### COMPONENT 3 : the legacy map (data/b649_legacy_map_SIDE-kernel.txt, data/b649_legacy_map_SIDE-lv-conservation.txt) ; N3 HELD
+    ### COMPONENT 4 : the lv build measured (data/b649_lv_build.txt)
+    ### COMPONENT 5 : the name (data/glossary.txt, tools/chain_page.py, data/b649_page_arms_c1.txt, data/b649_page_arms_c2.txt)
+    ### COMPONENT 6 : the description at v5, the sixth reader, the draft held (data/b649_deposit_description.txt, data/b649_reader_compare.txt, data/b649_zenodo_read.txt) ; N4 HELD
+    ### COMPONENT 7 : the seal (data/b649_seal_hashes.json) ; S5 HELD
+    ### COMPONENT 8 : the root b6e4531fdd5dec8c ; FINDINGS :8179 ; OPEN_TRAILS :13802 ; N5 HELD
+    (N1) REFUTED IN ONE CLAUSE (N2) HELD (N3) HELD (N4) HELD (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD (S4) HELD (S5) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk).
+b649 -- THE SEAT`S OWN DEFECTS, WRITTEN AS THE ACT RAN (2026-10-11)
+
+    (a) BACKTICKS IN A DOUBLE-QUOTED COMMIT MESSAGE. The commit of G-MODULE-HEADER (relay 04aa0df4) wrote two quoted forms with backticks inside a double-quoted bash string; bash ran each as a command (not found) and the message lost them. Nothing else ran; every later message is single-quoted.
+    (b) A MEASUREMENT BANK WHOSE FIRST READING OVERSTATED ITS DATA. The lv build bank's first write said every run reached the hold within its first sample, where Genus5's attempts ran 657 s and 247 s, and gave ZeroActingPartial the low of its stopped attempt for its completed one; both readings recomputed from the rows before the bank was committed (786fd70f).
+    (c) AN ARM THAT FIRST READ NOTHING. G-MODULE-HEADER's first narrowing of the proof-word attachment read 0 claims over 239 headers -- a vacuous pass; caught by printing the matcher's yield, widened to the forms the headers use (a list before "are proved", "Proves", a colon list, a code span kept whole) before the opening run was banked (8 claims read).
+    (d) AN ARM THAT FIRST MATCHED A DIFFERENT DECLARATION. G-AXIOM-CLAIM's first lookup matched a covered declaration to a banked print by its last component alone, and so read SpectralSilence.silence_principle against SIDESilencePrinciple.silence_principle, another kernel's; caught on the trial before the opening run, narrowed to the exact name or the one banked name ending with it.
+    (e) TWO PLANTED EXPECTATIONS WRITTEN WRONG. test_axiom_claim.py (4) expected one contradicting declaration where the planted file has two (sorryAx; Lean.ofReduceBool), and test_name_b649.py (4) expected no mention of the name on the unmarked pages, whose glossary block carries the new entry; each expectation corrected, the tools unchanged.
+    (f) PAGES RE-EMITTED BEFORE THE GLOSSARY THEY CARRY WAS COMPLETE. Component 5 re-emitted both pages (PLACE-papers 47e09ce, ac0603f) when the glossary held the positivity clause alone; Component 6 then appended "act" and "the constant 1" (relay 957b64ca), and every page marked `# glossary` carries the whole glossary, so both pages regenerated two lines longer than committed and the page arms would have failed at HEAD. Caught while writing the suite, by regenerating the pages in scratch (119188 against 118771 bytes; 100634 against 100217); both pages re-emitted again one per call, the diff by kind the glossary block alone (PLACE-papers 50afbea, d208568), the page arms and the frozen control 2 of 2 (relay data/b649_page_arms_c2.txt).
+    (g) A COMPOSER EDIT THAT SAYS ITS PHRASE TWICE. compose_v5's edit (f2) kept v4's phrase (its anchor F_ONE, "witnessed in the kernel at the constant 1 (trivialSummandPremise'_witness)") and set the glossary's entry for "the constant 1" after it; the entry opens "the value at which the restated premise is witnessed", so v5's dedekind_rhs' row reads "witnessed in the kernel at the constant 1, the value at which the restated premise is witnessed"; test_composer_b649.py (f2) checked the row against the same construction and did not read it for a repeated phrase. Caught by the sixth reader, its first UNCLEAR item (relay data/b649_desc_residue.txt (1)); not repaired in this act -- v5 is the act's description as composed, and the residue carries the row to the author's order.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 80. ### LIVE PASSING : 77. ### LIVE FAILING : 3 ['G-NO-SORRY-MAIN', 'G-AXIOM-CLAIM', 'G-SEALED-AFTER-COMPONENTS'].
+    pre-push : VERDICT : NOT CLEAN
+    post-push : ARMS RUN : 80. ### LIVE PASSING : 77. ### LIVE FAILING : 3 ['G-NO-SORRY-MAIN', 'G-AXIOM-CLAIM', 'G-SEALED-AFTER-COMPONENTS'].
+    post-push : VERDICT : NOT CLEAN
+      relay                            main 37824e55aea7 ; remote 37824e55aea7 ; AGREE
+      PLACE-papers                     main 58d1b1de65f9 ; remote 58d1b1de65f9 ; AGREE
+      SIDE-global-section              main 17ce9ff5831d ; remote 17ce9ff5831d ; AGREE
+      SIDE-explicit-formula            main 82550e4ea4e0 ; remote 82550e4ea4e0 ; AGREE
+      SIDE-kernel                      main b0f2a3a40bec ; remote b0f2a3a40bec ; AGREE
+      SIDE-lv-conservation             main b2238d49fb5c ; remote b2238d49fb5c ; AGREE
+      SIDE-effects                     main ef4cff776f89 ; remote ef4cff776f89 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main c5cba30ce201 ; remote c5cba30ce201 ; AGREE
+      SIDE-trivium                     main 1aac3a9e1939 ; remote 1aac3a9e1939 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 2e76426dc4b0 ; remote 2e76426dc4b0 ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 54ba4f38b729 ; remote 54ba4f38b729 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 520abe7a6b7d ; remote 520abe7a6b7d ; AGREE
+      SIDE-bijection                   main a26f6f1c5dea ; remote a26f6f1c5dea ; AGREE
+      SIDE-class-coupling              main b6a6e869304d ; remote b6a6e869304d ; AGREE
+      SIDE-coupling                    main 42b5e4e5a1f9 ; remote 42b5e4e5a1f9 ; AGREE
+      SIDE-formation-arithmetic        main ef0fcf1e9967 ; remote ef0fcf1e9967 ; AGREE
+      SIDE-meta                        main 6bb7b23b4e6c ; remote 6bb7b23b4e6c ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 6bf19ab0ef6a ; remote 6bf19ab0ef6a ; AGREE
+      sorry-quarantine-SIDE-kernel     local a28f62f1f5f8 ; remote a28f62f1f5f8 ; AGREE (the quarantine and its legacy map)
+      sorry-quarantine-SIDE-lv-conserv local 011121e5d446 ; remote 011121e5d446 ; AGREE (the quarantine and its legacy map)
+      b648-restate-SIDE-lv-conservatio local c35a3a314ae9 ; at the remote no (the restatement, unmerged)
+      b648-restate-SIDE-effects        local 9a279ac120ea ; at the remote no (the restatement, unmerged)
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      dedekind-b631                    local 8c51431ada77 ; remote 8c51431ada77 ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; main 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    no kernel main moved ; the legacy maps committed on the quarantine branches alone ; no lean call after the seal ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ; no identifier of the author in any outbound request, the seat`s plain requests to github.com (its ls-remote reads and its pushes) and the deposit route`s two calls within that rule ; the draft`s description replaced by v5, read back and held, publish never called ; the two pages re-emitted, tools/chain_page.py`s templates edited for the name, three glossary entries appended, two node lists written, one line appended to data/act_roots.txt as the act`s last bank step ; ERRATA, SPIRAL_MAP, README, REGISTRY, the census, the map, the monograph and the companions untouched
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R259)(8)**: b650, the reading act per (R256)(6): no build, no deposit, no seal; the cross-field resonances entry
+        read against the corpus; a same-season-last-year bank from what the navigator and the author supply; the author`s word on which
+        questions have grown triggers. The re-cuts begin at b651 in the order the author gave at b648`s closing.
+    (b) ### **SENT TO THE AUTHOR AS A FILE**: relay data/b649_deposit_description.txt -- the description at v5, read back from the draft
+        byte for byte; its residue relay data/b649_desc_residue.txt. Publish is a separate word.
+    (c) ### **FOR THE AUTHOR`S RULING**: the findings of G-AXIOM-CLAIM and G-MODULE-HEADER printed above, rows of the licensed-statement
+        table to come; G-NO-SORRY-MAIN failing on the four RESTATED lines while their builds stand beneath the hold, the host`s price
+        written on OPEN_TRAILS (W-ORD-LV-BUILD-HOST); test_chain_page_b638.py`s cases (4)-(7) still fail (carried from b643).
+    (d) b628`s full intake bank and the navigator`s export stay local and untracked in relay data/; the navigator`s repairs are its own
+        ((R259)(7)).
+    (e) The act root of b649 is relay data/act_roots.txt`s last line; the next mirror carries it in MANIFEST.
+    (f) Branches left for the next act`s step zero: the push-b649* branches of relay and PLACE-papers, each merged; the quarantine
+        branches carry their legacy maps (pushed); the local b648-restate-* branches unmerged; the kept kernel branches untouched.
+    (g) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+    (h) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).
+========================================================================================================
