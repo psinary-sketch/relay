@@ -480,6 +480,91 @@ def table_after(*a):
     print(NL.join(L[8:11] + L[-1:]))
 
 
+# ================================================================================ COMPONENT 4: THE INSTRUMENT VERDICT'S OPENING ROWS, (R262)(5)
+def _irows():
+    import licensed_table as LT
+    A = 'G-FINDINGS-ENTRY, G-TRAIL-RECORD, G-TRAIL-CARRIES-ROOT, G-TRAIL-CARRIES-SEAL, G-NEXT-ACT-NAMED'
+    rows = [
+        dict(id='b652-in-1', source='tools/b651_checks.py:848', arm='G-RESOLVER-COUNTS', said='PASS (its positive control)',
+             stated='the positive control of G-RESOLVER-COUNTS: the after bank with its last row popped, read by the arm',
+             licensed='the popped row was a MENTION, which the arm does not count, so the mutated bank still passed; the arm`s pass on its control '
+                      'came from what it reads, not from the bank (relay data/b651_checks_mid1.txt; b651`s defect (l))',
+             action='TO THE ARM: the control mutates a row the predicate counts -- a CONTRADICTED row`s verdict (repaired before b651`s seal, '
+                    'relay f133eaf5)',
+             cited=['relay@f133eaf5:tools/b651_checks.py:848', 'relay@be271f14:data/b651_defects.txt:14'], source_of='b651 defect (l)'),
+        dict(id='b652-in-2', source='tools/b651_checks.py:382', arm=A, said='FAIL (five arms, pre-push and post-push)',
+             stated='the five arms looked the entry`s title and the trail`s head up through b566_record`s poss (a backtick possessive written straight)',
+             licensed='the record was landed through b641_record`s _poss (typographic); FINDINGS :8229 and OPEN_TRAILS :13874 stand as the record '
+                      'tool wrote them, and read through the landing`s conversion all five pass (relay data/b652_conversion.txt; b651`s defect (n))',
+             action='TO THE ARM: look a landed line up through conv, the one conversion held in the record tool (relay tools/b652_record.py; '
+                    'OPEN_TRAILS :13896)',
+             cited=['relay@be271f14:tools/b651_checks.py:382', 'relay@be271f14:tools/b651_checks.py:917', 'relay@be271f14:data/b651_defects.txt:16'],
+             source_of='b651 defect (n)'),
+        dict(id='b652-in-3', source='SIDE-global-section/Interfaces/LocalLimit.lean:226', arm='G-AXIOM-CLAIM', said='CONTRADICTED',
+             stated='This is the general-p core of trace silence and of the escape hypothesis` arithmetic: the banked p = 2, 3 instances '
+                    '(TraceSilence, no axioms) are its shadows; ...',
+             licensed='"no axioms" is said of the TraceSilence instances, whose six declarations print no axioms; b649`s resolver bound it to '
+                      'general_p_no_fixed_cell, whose print reads the standard three (b649`s ARM-MATCHING row 2)',
+             action='TO THE ARM: re-bind a claim said of another named object to that object (relay 6bb2ed06; at b651 VERIFIED, BOUND-TO '
+                    'TraceSilence)',
+             cited=['SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:226', 'relay@86d61573:data/b649_axiom_claim_rows.txt:16'],
+             source_of='b649 ARM-MATCHING row 2'),
+        dict(id='b652-in-4', source='SIDE-kernel/MetaKernel.lean:140', arm='G-AXIOM-CLAIM', said='CONTRADICTED',
+             stated='The same conclusion, from the same two hypotheses with the finiteness assumption deleted and no imports at all, compiles and '
+                    'depends on no axioms.',
+             licensed='"no axioms" is said of a variant with no imports, an object not in the tree; b649`s resolver bound it to the headed '
+                      'declaration (b649`s ARM-MATCHING row 5)',
+             action='TO THE ARM: a claim said of an object that resolves nowhere reads UNBOUND, counted apart (relay 6bb2ed06)',
+             cited=['SIDE-kernel@b0f2a3a:MetaKernel.lean:140', 'relay@86d61573:data/b649_axiom_claim_rows.txt:41'], source_of='b649 ARM-MATCHING row 5'),
+        dict(id='b652-in-5', source='SIDE-kernel/legacy/SchwarzReflection_PR.lean:116', arm='licensed_table.docstring_row D4 (the generated rule)',
+             said='OVERREACHES on s6, MATCHES on s7',
+             stated='s6: Therefore conj(Λ₀(s)) = Λ₀(s), which holds iff Im(Λ₀(s)) = 0. s7: This establishes that zeros of Λ₀ on the critical line '
+                    'are sign changes of a real-valued function (codimension 1), ...',
+             licensed='s6 is a true remark (a complex number equals its conjugate exactly when its imaginary part is 0), not a claim that the '
+                      'theorem is an equivalence; the block`s HAND licence faults s7 (sign changes, false at even-order zeros), which the rule '
+                      'read MATCHES',
+             action='TO THE ARM: D4 reads an equivalence claimed of the declaration`s statement, not any "iff" in the block; the faulted '
+                    'sentence was cut by the HAND grades (relay data/b652_sentence_grades.txt, #116 s7)',
+             cited=['relay@d7ab2fdb:data/b651_table_SIDE-kernel_sentences.txt:632', 'relay@0256e9e:data/b647_table_SIDE-kernel.txt:595'],
+             source_of='the author`s answer before b652`s cut'),
+    ]
+    for r in rows:
+        r['verdict'] = LT.arm_verdict(r['arm'], r['said'], True)
+        r['by'] = 'HAND'
+    return rows
+
+
+def instrument_rows(*a):
+    import licensed_table as LT
+    rows = _irows()
+    counts, faults = LT.table(rows)
+    real = [('SIDE-cosmo/SIDECosmo/SteaneExemplar.lean:6', 'row 1'), ('SIDE-kernel/Kernel/Integration.lean:215', 'row 3'),
+            ('SIDE-kernel/MetaKernel.lean:3', 'row 4'), ('SIDE-lv-conservation/AxiomCheck.lean:8', 'row 6')]
+    L = ['b652 -- COMPONENT 4, (R262)(5): THE INSTRUMENT VERDICT`S OPENING ROWS, IN THE TABLE`S CELLS WITH THE ARM (%s)' % utc(), '',
+         '### the verdict added at relay eb3141f7 (tools/licensed_table.py: VERDICTS, ARM_RE, arm_verdict, label, check, table); its planted test',
+         '### tools/test_licensed_table_instrument_b652.py 10 of 10. The rows: b651`s defects (l) and (n), b649`s ARM-MATCHING rows 2 and 5, and the',
+         '### generated rule`s reading of SchwarzReflection_PR.lean :116 (the author`s answer before the cut). Each verdict through arm_verdict.', '']
+    for r in rows:
+        L += ['### %s (%s)' % (r['id'], r['source_of']),
+              '  source   : ' + r['source'], '  stated   : ' + r['stated'], '  licensed : ' + r['licensed'],
+              '  verdict  : %s (the arm said: %s)' % (LT.label(r), r['said']), '  arm      : ' + r['arm'], '  action   : ' + r['action'],
+              '  by HAND, cited ' + ', '.join(r['cited']), '  check    : %s' % (LT.check(r) or 'taken'), '']
+    L += ['### the real contradictions of b651`s resolver (relay data/b651_axiom_claim_rows.txt rows 1, 3, 4, 6), through arm_verdict with no mis-binding:']
+    for s, n in real:
+        L.append('  %s (%s) : %s' % (s, n, LT.arm_verdict('G-AXIOM-CLAIM', 'CONTRADICTED', False)))
+    ta = jl('b652_table_after.json')
+    L += ['', '### NOT ENTERED (no order reaches them): the generated rule`s five D4 OVERREACHES on SIDE-kernel after the cut (relay',
+          '### data/b652_table_after.txt), present before it too -- Voice2.lean :48 and Voice6.lean :49 read "holds no ↔" of statements that carry',
+          '### `<->`; candidates of the same kind as row 5, for the author:']
+    for x in ta.get('not_matches', []):
+        L.append('  %s | %s' % (x['source'], (x['findings'] or [''])[0][:160]))
+    L += ['', '### ### **OPENING ROWS %d ; THE TABLE`S COUNTS %s ; FAULTS %s ; REAL CONTRADICTIONS MOVED TO INSTRUMENT 0 OF 4.**' % (
+        len(rows), dict(counts or {}), faults or 'NONE')]
+    put_txt('b652_instrument_rows.txt', L)
+    put_json('b652_instrument_rows.json', dict(at=utc(), rows=rows, counts=dict(counts or {}), faults=faults))
+    print(L[-1])
+
+
 def margin_bank(*a):
     """data/b652_build_margin.txt: the two readings, the corrected term, the cut branch per file, the branches' diffs whole."""
     j = jl('b652_build_margin.json')

@@ -1,0 +1,72 @@
+b652 -- COMPONENT 4, (R262)(5): THE INSTRUMENT VERDICT`S OPENING ROWS, IN THE TABLE`S CELLS WITH THE ARM (2026-10-11T23:47:44Z)
+
+### the verdict added at relay eb3141f7 (tools/licensed_table.py: VERDICTS, ARM_RE, arm_verdict, label, check, table); its planted test
+### tools/test_licensed_table_instrument_b652.py 10 of 10. The rows: b651`s defects (l) and (n), b649`s ARM-MATCHING rows 2 and 5, and the
+### generated rule`s reading of SchwarzReflection_PR.lean :116 (the author`s answer before the cut). Each verdict through arm_verdict.
+
+### b652-in-1 (b651 defect (l))
+  source   : tools/b651_checks.py:848
+  stated   : the positive control of G-RESOLVER-COUNTS: the after bank with its last row popped, read by the arm
+  licensed : the popped row was a MENTION, which the arm does not count, so the mutated bank still passed; the arm`s pass on its control came from what it reads, not from the bank (relay data/b651_checks_mid1.txt; b651`s defect (l))
+  verdict  : INSTRUMENT(G-RESOLVER-COUNTS) (the arm said: PASS (its positive control))
+  arm      : G-RESOLVER-COUNTS
+  action   : TO THE ARM: the control mutates a row the predicate counts -- a CONTRADICTED row`s verdict (repaired before b651`s seal, relay f133eaf5)
+  by HAND, cited relay@f133eaf5:tools/b651_checks.py:848, relay@be271f14:data/b651_defects.txt:14
+  check    : taken
+
+### b652-in-2 (b651 defect (n))
+  source   : tools/b651_checks.py:382
+  stated   : the five arms looked the entry`s title and the trail`s head up through b566_record`s poss (a backtick possessive written straight)
+  licensed : the record was landed through b641_record`s _poss (typographic); FINDINGS :8229 and OPEN_TRAILS :13874 stand as the record tool wrote them, and read through the landing`s conversion all five pass (relay data/b652_conversion.txt; b651`s defect (n))
+  verdict  : INSTRUMENT(G-FINDINGS-ENTRY, G-TRAIL-RECORD, G-TRAIL-CARRIES-ROOT, G-TRAIL-CARRIES-SEAL, G-NEXT-ACT-NAMED) (the arm said: FAIL (five arms, pre-push and post-push))
+  arm      : G-FINDINGS-ENTRY, G-TRAIL-RECORD, G-TRAIL-CARRIES-ROOT, G-TRAIL-CARRIES-SEAL, G-NEXT-ACT-NAMED
+  action   : TO THE ARM: look a landed line up through conv, the one conversion held in the record tool (relay tools/b652_record.py; OPEN_TRAILS :13896)
+  by HAND, cited relay@be271f14:tools/b651_checks.py:382, relay@be271f14:tools/b651_checks.py:917, relay@be271f14:data/b651_defects.txt:16
+  check    : taken
+
+### b652-in-3 (b649 ARM-MATCHING row 2)
+  source   : SIDE-global-section/Interfaces/LocalLimit.lean:226
+  stated   : This is the general-p core of trace silence and of the escape hypothesis` arithmetic: the banked p = 2, 3 instances (TraceSilence, no axioms) are its shadows; ...
+  licensed : "no axioms" is said of the TraceSilence instances, whose six declarations print no axioms; b649`s resolver bound it to general_p_no_fixed_cell, whose print reads the standard three (b649`s ARM-MATCHING row 2)
+  verdict  : INSTRUMENT(G-AXIOM-CLAIM) (the arm said: CONTRADICTED)
+  arm      : G-AXIOM-CLAIM
+  action   : TO THE ARM: re-bind a claim said of another named object to that object (relay 6bb2ed06; at b651 VERIFIED, BOUND-TO TraceSilence)
+  by HAND, cited SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:226, relay@86d61573:data/b649_axiom_claim_rows.txt:16
+  check    : taken
+
+### b652-in-4 (b649 ARM-MATCHING row 5)
+  source   : SIDE-kernel/MetaKernel.lean:140
+  stated   : The same conclusion, from the same two hypotheses with the finiteness assumption deleted and no imports at all, compiles and depends on no axioms.
+  licensed : "no axioms" is said of a variant with no imports, an object not in the tree; b649`s resolver bound it to the headed declaration (b649`s ARM-MATCHING row 5)
+  verdict  : INSTRUMENT(G-AXIOM-CLAIM) (the arm said: CONTRADICTED)
+  arm      : G-AXIOM-CLAIM
+  action   : TO THE ARM: a claim said of an object that resolves nowhere reads UNBOUND, counted apart (relay 6bb2ed06)
+  by HAND, cited SIDE-kernel@b0f2a3a:MetaKernel.lean:140, relay@86d61573:data/b649_axiom_claim_rows.txt:41
+  check    : taken
+
+### b652-in-5 (the author`s answer before b652`s cut)
+  source   : SIDE-kernel/legacy/SchwarzReflection_PR.lean:116
+  stated   : s6: Therefore conj(Λ₀(s)) = Λ₀(s), which holds iff Im(Λ₀(s)) = 0. s7: This establishes that zeros of Λ₀ on the critical line are sign changes of a real-valued function (codimension 1), ...
+  licensed : s6 is a true remark (a complex number equals its conjugate exactly when its imaginary part is 0), not a claim that the theorem is an equivalence; the block`s HAND licence faults s7 (sign changes, false at even-order zeros), which the rule read MATCHES
+  verdict  : INSTRUMENT(licensed_table.docstring_row D4 (the generated rule)) (the arm said: OVERREACHES on s6, MATCHES on s7)
+  arm      : licensed_table.docstring_row D4 (the generated rule)
+  action   : TO THE ARM: D4 reads an equivalence claimed of the declaration`s statement, not any "iff" in the block; the faulted sentence was cut by the HAND grades (relay data/b652_sentence_grades.txt, #116 s7)
+  by HAND, cited relay@d7ab2fdb:data/b651_table_SIDE-kernel_sentences.txt:632, relay@0256e9e:data/b647_table_SIDE-kernel.txt:595
+  check    : taken
+
+### the real contradictions of b651`s resolver (relay data/b651_axiom_claim_rows.txt rows 1, 3, 4, 6), through arm_verdict with no mis-binding:
+  SIDE-cosmo/SIDECosmo/SteaneExemplar.lean:6 (row 1) : CONTRADICTED
+  SIDE-kernel/Kernel/Integration.lean:215 (row 3) : CONTRADICTED
+  SIDE-kernel/MetaKernel.lean:3 (row 4) : CONTRADICTED
+  SIDE-lv-conservation/AxiomCheck.lean:8 (row 6) : CONTRADICTED
+
+### NOT ENTERED (no order reaches them): the generated rule`s five D4 OVERREACHES on SIDE-kernel after the cut (relay
+### data/b652_table_after.txt), present before it too -- Voice2.lean :48 and Voice6.lean :49 read "holds no ↔" of statements that carry
+### `<->`; candidates of the same kind as row 5, for the author:
+  Bridge/OstrowskiBridge.lean:37 | D4: its first sentence claims an equivalence ('equivalent') while the elaborated statement holds no ↔: Equiv Rat.AbsoluteValue.real ∨ ∃! p : ℕ, ∃ (_ : Fact (Nat
+  Bridge/OstrowskiBridge.lean:46 | D4: its first sentence claims an equivalence ('equivalent') while the elaborated statement holds no ↔: ot_equiv_padic (p : ℕ) [Fact (Nat.Prime p)] : ¬ Rat.Absol
+  Kernel/Formation.lean:29 | D2: `SIDE_exclusion` called DERIVES ('proves') while its row reads INTERFACES
+  Kernel/Voice2.lean:48 | D4: its first sentence claims an equivalence ('iff') while the elaborated statement holds no ↔: theorem symmetries_agree_iff (sigma : Real) : conjugate_re sigma
+  Kernel/Voice6.lean:49 | D4: its first sentence claims an equivalence ('iff') while the elaborated statement holds no ↔: theorem offset_zero_iff (sigma : Real) : spectral_offset sigma =
+
+### ### **OPENING ROWS 5 ; THE TABLE`S COUNTS {'MATCHES': 0, 'UNDERSTATES': 0, 'OVERREACHES': 0, 'UNLICENSED': 0, 'INSTRUMENT': 5} ; FAULTS NONE ; REAL CONTRADICTIONS MOVED TO INSTRUMENT 0 OF 4.**
