@@ -526,8 +526,26 @@ def compose_v5(edits=V5_EDITS):
     return h
 
 
+F_ACT = "which an act takes up on the author's word"
+
+
+def act_gloss(gl):
+    return gl['act'].replace("the relay's work", "the programme's work").rstrip('.')
+F_ONE = "witnessed in the kernel at the constant 1 (trivialSummandPremise'_witness)"
+
+
 def _residue(h):
-    """(f): filled at Component 6."""
+    """(f): the glossary's entries for the two terms b647's residue marked (relay data/b647_desc_residue.txt (4), (5)) placed beside them,
+    in the glossary's words read at composition."""
+    import b647_record as B7
+    gl = B7._gl4()
+    if 'act' not in gl or 'the constant 1' not in gl:
+        return h + ' NOT READ (f: the glossary lacks an entry)'
+    # ### the description names no repository of the programme (b644's forbidden-content rule reads "relay" as a bank path): the entry's
+    # ### "the relay's work" is rendered "the programme's work" here, the glossary keeping the ruling's words
+    h = B7._once(h, F_ACT, "which an act -- %s -- takes up on the author's word" % act_gloss(gl), 'f1, act')
+    one = gl['the constant 1'].replace("of TrivialSummandPremise': ", '')
+    h = B7._once(h, F_ONE, "witnessed in the kernel at the constant 1, %s (trivialSummandPremise'_witness)" % one.rstrip('.'), 'f2, the constant 1')
     return h
 
 
@@ -576,6 +594,119 @@ def page_arms(tag='', *a):
     L.append('### ### **%s PASSING : %d of 2.**' % (T.ARM, sum(x['ok'] is True for x in c)))
     put_txt('b649_page_arms%s.txt' % (('_' + tag) if tag else ''), L)
     print(NL.join(l[:220] for l in L))
+
+
+V4 = 'b647_deposit_description.txt'
+V5 = 'b649_deposit_description.txt'
+
+
+def v4_same(*a):
+    """b647's composer at this act against v4 as banked: byte for byte."""
+    import b647_record as B7
+    h, v4 = B7.compose_v4(), rd(V4)
+    print('  compose_v4 at this act %d bytes ; v4 as banked %d bytes ; the same: %s' % (len(h.encode('utf-8')), len(v4.encode('utf-8')), h == v4))
+    return h == v4
+
+
+def describe5(*a):
+    """data/b649_deposit_description.txt (v5) and .json beside v4: composed from banks, b644's sealed `forbidden` run over it, the five parts in
+    order, every tag Zenodo accepts, no bare "the clause"; refuses on any hit, unread figure or part out of order."""
+    import hashlib
+    import b646_record as B6
+    R4 = B6._R4()
+    if not v4_same():
+        sys.exit('### b647`S COMPOSER DOES NOT REPRODUCE v4 -- NOTHING COMPOSED')
+    html = compose_v5()
+    heads = re.findall(r'<p><strong>(.*?)</strong></p>', html)
+    order_ok = heads == [x.rstrip('.') for x in B6.PART_HEADS]
+    hits = R4.forbidden(html)
+    unread = [m.group(0) for m in re.finditer(r'NOT READ|NOT BANKED|not in the table|None', html)]
+    bad = sorted(set(re.findall(r'</?([a-zA-Z0-9]+)', html)) - B6._allowed_tags())
+    bare = BARE.findall(html)
+    print('  parts %d, in order %s ; forbidden hits %d ; unread %d ; tags outside Zenodo`s %s ; bare "the clause" %d ; bytes %d' % (
+        len(heads), order_ok, len(hits), len(unread), bad or 'none', len(bare), len(html.encode('utf-8'))))
+    for x in hits + [('unread', u) for u in unread]:
+        print('    ### %s : %s' % x)
+    if DRY:
+        _write(os.path.join(SP, 'b649_deposit_description_dry.txt'), html.encode('utf-8'))
+        return
+    if hits or unread or not order_ok or bad or bare:
+        sys.exit('### A FORBIDDEN CONTENT, AN UNREAD FIGURE, A TAG, THE BARE PHRASE OR THE PARTS OUT OF ORDER -- NOTHING WRITTEN')
+    b = html.encode('utf-8')
+    _write(os.path.join(D, V5), b)
+    put_json('b649_deposit_description.json', dict(at=utc(), bytes=len(b), sha256=hashlib.sha256(b).hexdigest(), heads=heads, edits=list(V5_EDITS),
+                                                   order_ok=order_ok, forbidden=hits, v4_bytes=len(rd(V4).encode('utf-8'))))
+    print('  written: data/%s %d bytes, sha256 %s' % (V5, len(b), hashlib.sha256(b).hexdigest()[:16]))
+
+
+def desc_diff5(*a):
+    """data/b649_desc_diff.txt: v4 against v5 by part -- each part's bytes, the tokens lost and added (b644's sealed `invariance`), and each
+    edit's text before and after as the composer applies it."""
+    import b646_record as B6
+    import chain_page as CP
+    import b647_record as B7
+    R4 = B6._R4()
+    v4, v5 = rd(V4), rd(V5)
+    if not v5:
+        sys.exit('### v5 IS NOT BANKED -- RUN `describe5` FIRST')
+    p4, p5 = dict(B6._parts_of(v4)), dict(B6._parts_of(v5))
+    b4, b5 = len(v4.encode('utf-8')), len(v5.encode('utf-8'))
+    L = ['b649 -- COMPONENT 6, (R259)(6): THE DESCRIPTION, v4 AGAINST v5, BY PART (%s)' % utc(), '',
+         '### v4: relay data/%s, %d bytes ; v5: relay data/%s, %d bytes ; the change %+d bytes' % (V4, b4, V5, b5, b5 - b4), '']
+    for h in B6.PART_HEADS:
+        a_, b_ = p4.get(h, ''), p5.get(h, '')
+        lost, added = R4.invariance('<p>%s</p>' % a_, '<p>%s</p>' % b_)
+        L += ['### %s v4 %d bytes ; v5 %d bytes ; %+d' % (h, len(a_.encode('utf-8')), len(b_.encode('utf-8')), len(b_.encode('utf-8')) - len(a_.encode('utf-8'))),
+              '    tokens lost: %s' % (sorted(lost.items()) or 'none'), '    tokens added: %s' % (sorted(added.items()) or 'none')]
+    m = CP.positivity_mention()
+    gl = B7._gl4()
+    L += ['', '### THE EDITS, EACH AS APPLIED (before -> after):']
+    for i, (o, n) in enumerate(E_ANCHORS, 1):
+        L += ['  (e%d) the name' % i, '      v4: ' + o, '      v5: ' + (n % m if '%s' in n else n)]
+    L += ['  (f1) act', '      v4: ' + F_ACT, "      v5: which an act -- %s -- takes up on the author's word" % act_gloss(gl),
+          "      (the glossary's entry reads \"%s\"; \"the relay's work\" rendered \"the programme's work\", the description naming no "
+          "repository)" % gl['act'],
+          '  (f2) the constant 1', '      v4: ' + F_ONE,
+          "      v5: witnessed in the kernel at the constant 1, %s (trivialSummandPremise'_witness)" % gl['the constant 1'].replace("of TrivialSummandPremise': ", '').rstrip('.')]
+    L += ['', '### ### **v4 %d BYTES ; v5 %d BYTES ; %+d ; THE BARE PHRASE "the clause" IN v4 %d, IN v5 %d.**' % (
+        b4, b5, b5 - b4, len(BARE.findall(v4)), len(BARE.findall(v5)))]
+    put_txt('b649_desc_diff.txt', L)
+    print(L[-1])
+
+
+def desc_test5(*a):
+    """data/b649_desc_test.txt: the forbidden-content test rerun (b644's sealed `forbidden`) by b646's planted cases with v5 as banked in v4's
+    place, each case counted; the composer's edit tests (tools/test_composer_b649.py) and the name's test (tools/test_name_b649.py) run beside."""
+    import b646_record as B6
+    R4 = B6._R4()
+    cases = [('an act number', '<p>composed at b643.</p>', 'an act number'),
+             ('a bank path', '<p>read from data/b643_premise_table.json.</p>', 'a bank path'),
+             ('root arithmetic', '<p>root e583d138ea28f97569fe859a5826996bda1cebe83fac102cf9821b6a1b2c3d4.</p>', 'root arithmetic'),
+             ('a provenance count', '<p>the rows are 209 cell and 1707 rule.</p>', 'a provenance count'),
+             ('an outside collection', '<p>read beside %s.</p>' % (R4.OUTSIDE_NEEDLES[0] if R4.OUTSIDE_NEEDLES else 'X'), 'an outside collection'),
+             ('a banned stem', '<p>a ' + 'ga' + 'p remains.</p>', 'a banned stem'),
+             ('the unsupported sentence asserted', '<p>The programme shows that RH is proved.</p>', 'the unsupported sentence asserted'),
+             ('the ceiling denied (no hit)', '<p>Not supported: that RH is proved; the corpus does not claim it.</p>', None),
+             ('v5 as banked (no hit)', rd(V5), None)]
+    L = ['b649 -- COMPONENT 6: THE DESCRIPTION`S FORBIDDEN-CONTENT TEST, RERUN BY PLANTED TEXT, AND THE COMPOSER`S TESTS (%s)' % utc(), '']
+    n = 0
+    for label, text, want in cases:
+        hits = R4.forbidden(text)
+        kinds = sorted(set(k for k, _x in hits))
+        ok = (want in kinds) if want else not hits
+        n += ok
+        L.append('  %-42s hits %s ; %s' % (label, kinds or 'none', 'PASS' if ok else '### FAIL'))
+    outs = []
+    for t in ('test_composer_b649.py', 'test_name_b649.py'):
+        r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', t)], capture_output=True, text=True, encoding='utf-8', errors='replace',
+                           env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+        outs.append((t, r.returncode, [x for x in (r.stdout or '').split(NL) if x.strip() and not x.startswith('chain_page')]))
+    L += ['', '### THE FORBIDDEN-CONTENT TEST: %d of %d cases as wanted -- %s' % (n, len(cases), 'PASS' if n == len(cases) else 'FAIL')]
+    for t, rc, lines in outs:
+        L += ['', '### %s, exit %d:' % (t, rc)] + ['  ' + x for x in lines]
+    L += ['', '### ### **FORBIDDEN-CONTENT %d of %d ; %s.**' % (n, len(cases), ' ; '.join('%s EXIT %d' % (t, rc) for t, rc, _l in outs))]
+    put_txt('b649_desc_test.txt', L)
+    print(NL.join(L[-3:]))
 
 
 BH_LINE = 13798          # ### OPEN_TRAILS: W-ORD-LV-BUILD-HOST opened by Component 1
