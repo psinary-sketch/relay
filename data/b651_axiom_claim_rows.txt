@@ -1,0 +1,68 @@
+b651 -- THE SIX ROWS OF b649 RE-READ UNDER THE REPAIRED RESOLVER, THE SUCCESSOR OF data/b649_axiom_claim_rows.txt, IN THE TABLE'S FIVE CELLS (2026-10-11T19:59:58Z)
+
+### the resolver at relay 6bb2ed06 (tools/axiom_claim.py), its run banked at relay data/b651_axiom_claim_after.txt; (R261)(4) and the
+### author's answer before the seal. b649's bank stands as written; this one succeeds it.
+
+### ROW 1
+  source   : SIDE-cosmo/SIDECosmo/SteaneExemplar.lean:6
+  stated   : Every proof is 'by decide' or definitional — axioms **{propext, Quot.sound}**, *cleaner* than the standard three axioms {propext, Classical.choice, Quot.sound} (no Classical.choice).
+  licensed : knill_laflamme_t1 (header, EXACT) prints Classical.choice, Quot.sound, propext -- relay:data/b557_probe_co.txt
+  verdict  : OVERREACHES
+  action   : RE-CUT: the header of SteaneExemplar.lean names the standard three for knill_laflamme_t1, and keeps {propext, Quot.sound} for the declarations whose prints read it
+  by HAND, cited SIDE-cosmo@c5cba30:SIDECosmo/SteaneExemplar.lean:6
+  note     : unchanged from b649 (relay data/b649_axiom_claim_rows.txt, row 1)
+
+### ROW 2
+  source   : SIDE-global-section/Interfaces/LocalLimit.lean:226
+  stated   : This is the general-'p' core of trace silence and of the escape hypothesis' arithmetic: the banked 'p = 2, 3' instances (TraceSilence, no axioms) are its shadows; every other step of sitting 20's chain is p-free by construction (the abstract theorems above; file A proved for arbitrary p).
+  licensed : re-bound to TraceSilence (Core/TraceSilence.lean:1): TraceSilence.trace_silence_2_1, TraceSilence.trace_silence_2_2, TraceSilence.trace_silence_2_3, TraceSilence.trace_silence_3_1, TraceSilence.trace_silence_3_2, TraceSilence.trace_identity_dim print no axioms each -- SIDE-global-section@main:AXIOM_PRINTS.txt
+  verdict  : MATCHES
+  action   : none
+  by HAND, cited SIDE-global-section@17ce9ff:Interfaces/LocalLimit.lean:226
+  note     : b649: ARM-MATCHING; the repaired resolver binds the claim to the object it is said of, the TraceSilence instances, whose six declarations print no axioms; the sentence is licensed
+
+### ROW 3
+  source   : SIDE-kernel/Kernel/Integration.lean:215
+  stated   : MAIN THEOREM (conditional, zero axioms):
+  licensed : techne_kernel_integration.rh_from_structural_exhaustiveness (docstring, EXACT) prints Classical.choice, Quot.sound, propext -- relay:data/b531_read.json
+  verdict  : OVERREACHES
+  action   : RE-CUT: the docstring at Integration.lean:215 says the standard three, which the print reads, for "zero axioms"
+  by HAND, cited SIDE-kernel@b0f2a3a:Kernel/Integration.lean:215
+  note     : unchanged from b649 (relay data/b649_axiom_claim_rows.txt, row 3)
+
+### ROW 4
+  source   : SIDE-kernel/MetaKernel.lean:3
+  stated   : RESULTS: 0 axioms 0 sorry All theorems compile
+  licensed : ECondition.type_I_has_ostrowski (header, EXACT) prints Quot.sound, propext -- relay:data/b557_probe_k6.txt
+  verdict  : OVERREACHES
+  action   : RE-CUT: the header of MetaKernel.lean says propext and Quot.sound, which the print of ECondition.type_I_has_ostrowski reads, for "0 axioms"
+  by HAND, cited SIDE-kernel@b0f2a3a:MetaKernel.lean:3
+  note     : unchanged from b649 (relay data/b649_axiom_claim_rows.txt, row 4)
+
+### ROW 5
+  source   : SIDE-kernel/MetaKernel.lean:140
+  stated   : The same conclusion, from the same two hypotheses with the finiteness assumption deleted and no imports at all, compiles and depends on no axioms.
+  licensed : UNBOUND on "The same conclusion, from the same two hypotheses with the finiteness assumption": a hypothetical variant, no object of the tree to grade it by
+  verdict  : UNBOUND
+  action   : none at the docstring; counted apart by the arm
+  by HAND, cited SIDE-kernel@b0f2a3a:MetaKernel.lean:140
+  note     : b649: ARM-MATCHING; the repaired resolver reads it UNBOUND -- neither PASS nor CONTRADICTED; not a verdict of the table, whose fifth verdict (W-ORD-VERDICT-INSTRUMENT) is not added this act
+
+### ROW 6
+  source   : SIDE-lv-conservation/AxiomCheck.lean:8
+  stated   : T1 and T2 are expected to reduce to Mathlib's standard axiomatic base ('Classical.choice', 'Quot.sound', 'propext').
+  licensed : T3.T3_perClass_to_combinations (header, SUFFIX) prints Classical.choice, Quot.sound, propext, sorryAx -- relay:data/b557_prints_root.txt
+  verdict  : OVERREACHES
+  action   : RE-CUT: the header of AxiomCheck.lean names sorryAx in the print of T3.T3_perClass_to_combinations while the restated line stands unmerged (local branch b648-restate-SIDE-lv-conservation), and the standard three once it merges
+  by HAND, cited SIDE-lv-conservation@b2238d4:AxiomCheck.lean:8
+  note     : unchanged from b649 (relay data/b649_axiom_claim_rows.txt, row 6)
+
+### THE TABLE'S OWN CHECK (tools/licensed_table.py, check), read on each row as it stands:
+  b651-ax-1 : taken
+  b651-ax-2 : taken
+  b651-ax-3 : taken
+  b651-ax-4 : taken
+  b651-ax-5 : verdict 'UNBOUND' not one of the four
+  b651-ax-6 : taken
+
+### ### **ROWS 6 ; MATCHES 1 ; OVERREACHES 4 ; UNBOUND 1 ; THE TABLE'S CHECK TAKES 5, REFUSES 1 (UNBOUND IS NOT ONE OF ITS VERDICTS).**

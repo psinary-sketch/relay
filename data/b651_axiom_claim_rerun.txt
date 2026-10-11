@@ -1,0 +1,50 @@
+b651 -- COMPONENT 3, (R261)(4): THE AXIOM-CLAIM RESOLVER REPAIRED, THE ARM RERUN OVER EVERY KERNEL BEFORE AND AFTER (2026-10-11)
+
+### the ruling's words: a claim in a docstring binds to the declaration the docstring heads, a claim in a header to the module's declarations and
+### nothing beyond; b649's rows 2 and 5 its planted cases, expected PASS; the four real contradictions unchanged. Read before the edit: the
+### resolver already bound so (tools/axiom_claim.py :255-:263 at relay b3fb24d1) -- rows 2 and 5 are docstrings heading the declarations they
+### were bound to, their axiom words said of another object. Raised to the author by the one prompt of this act before any edit (relay
+### data/b651_author_answers.txt); the author's answer: re-bind a claim said of another named object -- (a) to that object where it resolves
+### in the tree, graded by its prints, the binding printed (BOUND-TO); (b) UNBOUND where it does not, counted apart, neither PASS nor
+### CONTRADICTED; a sentence naming no other object stays bound; four planted cases; W-ORD-VERDICT-INSTRUMENT's trigger recorded as fired,
+### the INSTRUMENT verdict not added this act.
+
+### the edit: relay 6bb2ed06, through the Edit tool, committed alone with its planted test -- other_object() reads a backticked name just
+### before a parenthesis holding axiom words, a name in the parenthesis's axiom clause (an all-capital word never a name), or a backticked name
+### as the sentence's subject; resolve() reads it against the kernel's modules (a .lean file's stem) and declarations (exact, or the one ending
+### with it); kernel_map() builds the map per kernel in run(). The report gains BOUND-TO on contradicted claims, the RE-BOUND and UNBOUND lists,
+### and both counts on its last line.
+### the planted tests: tools/test_axiom_claim_b651.py 7 of 7 -- (1) row 2's shape re-bound to its module and VERIFIED; (2) row 5's shape
+### UNBOUND; (3) "no axioms" of its own declaration, which uses an axiom, CONTRADICTED; (4) another declaration as subject, which uses an axiom,
+### re-bound and CONTRADICTED; (5) row 1's shape, a parenthesis of axiom names, re-binds nothing; (6) KLSilence's shape stays bound; (7)
+### Voice7's shape, the backticked name before the parenthesis takes the claim. tools/test_axiom_claim.py 12 of 12, unchanged.
+
+== THE COUNTS (relay data/b651_axiom_claim_before.txt, at relay b3fb24d1; data/b651_axiom_claim_after.txt, at relay 6bb2ed06) ==
+  before: CLAIMS 203 ; CONTRADICTED 6 ; UNVERIFIABLE 11 ; VERIFIED 53 ; MENTIONS 133
+  after:  CLAIMS 203 ; CONTRADICTED 4 ; UNVERIFIABLE 10 ; VERIFIED 52 ; MENTIONS 133 ; RE-BOUND 2 ; UNBOUND 4
+
+== EVERY ROW THAT MOVED, READ BY HAND ==
+  SIDE-global-section Interfaces/LocalLimit.lean :226 -- b649's row 2 -- CONTRADICTED -> VERIFIED: "(TraceSilence, no axioms)" re-bound to
+    the module Core/TraceSilence.lean, its declarations' prints empty. As ruled.
+  SIDE-kernel MetaKernel.lean :140 -- b649's row 5 -- CONTRADICTED -> UNBOUND: "The same conclusion, from the same two hypotheses with the
+    finiteness assumption deleted and no imports at all, compiles and depends on no axioms" -- a hypothetical variant. As ruled.
+  SIDE-global-section Core/AggregationCircularityShadow.lean :154 -- VERIFIED -> UNBOUND: its axiom words are said of `Int`, core Lean's
+    `Int.add_assoc` and Core's print, not of the headed AggregationCircularityShadow.boolGrp, which it had been VERIFIED against; Int resolves
+    nowhere in the kernel. Read right.
+  SIDE-global-section Core/FiniteSideSeal.lean :213 -- VERIFIED -> UNBOUND: "with `Nat.decEq` (axiom-free) at each step" -- said of core
+    Lean's Nat.decEq, not of the headed B329.search. Read right.
+  SIDE-kernel Kernel/TriviumCode.lean :9 -- UNVERIFIABLE -> UNBOUND: "`SteaneExemplar.steane_parameters` (SIDE-cosmo, `{propext,
+    Quot.sound}`)" -- said of another kernel's declaration, which does not resolve in SIDE-kernel's tree. Read right.
+  SIDE-kernel Kernel/Voice7.lean :124 -- UNVERIFIABLE, unchanged, now RE-BOUND to Voice7Witness.hadamard_does_not_enforce_online
+    (Kernel/Voice7Witness.lean :136), which has no banked print. Read right.
+  The four real contradictions stand, each bound as before: SIDE-cosmo SIDECosmo/SteaneExemplar.lean :6; SIDE-kernel Kernel/Integration.lean
+    :215; SIDE-kernel MetaKernel.lean :3; SIDE-lv-conservation AxiomCheck.lean :8.
+
+== THE GRAMMAR'S FIRST FORM, BEFORE THE COMMIT (the seat's, caught by reading its yield) ==
+  The first form read every name in a parenthesis holding axiom words: KLSilence :86, "(kept axiom-free; the List-semantics identification is
+  the decide instance below)", read UNBOUND on "List", where "kept axiom-free" is said of the headed recursion; Voice7 :124 and TriviumCode :9
+  read UNBOUND on "DERIVES" and "SIDE". Narrowed before the commit to the parenthesis's axiom clause, the backticked name before it, and no
+  all-capital word; planted cases (6) and (7) added for the two shapes.
+
+### ### **N2: ROWS 2 AND 5 -- VERIFIED (RE-BOUND) AND UNBOUND, NEITHER CONTRADICTED ; THE FOUR REAL CONTRADICTIONS STAND ; CONTRADICTED 6 -> 4 ;
+### UNBOUND 4 COUNTED APART ; RE-BOUND 2 ; THE PLANTED TESTS 7 OF 7 AND 12 OF 12.**
