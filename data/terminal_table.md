@@ -1077,7 +1077,7 @@
 | `SIDE-explicit-formula` | `integral_exp_mul_complex` | *none cited* | `82550e4ea4e0` | `UNRESOLVED` | NOT PROFILED | **—** *upstream* | none |   |  | — |
 | `SIDE-explicit-formula` | `mellin_differentiableAt_of_isBigO_rpow` | *none cited* | `82550e4ea4e0` | `UNRESOLVED` | NOT PROFILED | **—** *upstream* | none |   |  | — |
 | `SIDE-explicit-formula` | `mellin_hasDerivAt_of_isBigO_rpow` | *none cited* | `82550e4ea4e0` | `UNRESOLVED` | NOT PROFILED | **—** *upstream* | none |   |  | — |
-| `SIDE-explicit-formula` | `rh_strip_imp_rh` | *none cited* | `82550e4ea4e0` | `def rh_strip_imp_rh : Prop` | NOT PROFILED | **CONFLICT** | cell |  PLACE-papers/OPEN_TRAILS.md:10909 | DERIVES / INTERFACES | — |
+| `SIDE-explicit-formula` | `rh_strip_imp_rh` | *none cited* | `82550e4ea4e0` | `def rh_strip_imp_rh : Prop` | NOT PROFILED | **DERIVES** | cell | b651 PLACE-papers/OPEN_TRAILS.md:13870 |  | — |
 | `SIDE-explicit-formula` | `riemannZeta_residue_one` | *none cited* | `82550e4ea4e0` | `UNRESOLVED` | NOT PROFILED | **—** *upstream* | none |   |  | — |
 | `SIDE-explicit-formula` | `riemannZeta₀` | *none cited* | `82550e4ea4e0` | `UNRESOLVED` | NOT PROFILED | **—** *upstream* | none |   |  | — |
 | `SIDE-explicit-formula` | `riemannZeta₀_one` | *none cited* | `82550e4ea4e0` | `UNRESOLVED` | NOT PROFILED | **—** *upstream* | none |   |  | — |
@@ -2133,10 +2133,6 @@
 - **DERIVES** — `PLACE-papers/OPEN_TRAILS.md:10625` — DERIVES, the far factor an INTERFACE on `farSmall` with its number at the witness (ε_δ = 3.9e-5, bound −201.81
 - **DERIVES** — `PLACE-papers/OPEN_TRAILS.md:10686` (b529) — b529: Components 1 and 2 DERIVES; Component 3 INTERFACES on `farSmall`
 - **INTERFACES** — `PLACE-papers/OPEN_TRAILS.md:10686` (b529) — b529: Components 1 and 2 DERIVES; Component 3 INTERFACES on `farSmall`
-
-**`SIDE-explicit-formula` / `rh_strip_imp_rh`** — DERIVES vs INTERFACES
-- **DERIVES** — `PLACE-papers/OPEN_TRAILS.md:10909` — jects, not a statement about where the zeros are. Rows 384 (DERIVES) and 385 (INTERFACES on `rh_strip_imp_rh`).
-- **INTERFACES** — `PLACE-papers/OPEN_TRAILS.md:10909` — ment about where the zeros are. Rows 384 (DERIVES) and 385 (INTERFACES on `rh_strip_imp_rh`).
 
 **`SIDE-interfaces` / `parametric_mechanism_theorem`** — DERIVES vs INTERFACES
 - **INTERFACES** — `PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:1019` — *Grades ferried to O.18's standing rule (INTERFACES = handoff owed back):* `parametric_mechanism_theorem` (SIDE-interfaces `v0.2 = 1728796`) is **DERIVES** on the pr
