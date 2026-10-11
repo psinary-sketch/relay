@@ -516,18 +516,31 @@ def node_glossary(path):
     return any(raw.rstrip('\r\n') == GLOSSARY_MARK for raw in io.open(path, encoding='utf-8'))
 
 
+SUPERSEDES = re.compile(r'^# SUPERSEDES ENTRY (\d+): (\S.*)$')   # ### b651, (R261)(3)(a): the one marked supersession the block honours
+
+
 def glossary_entries(path=None):
-    """### b638: the glossary's entries in its file's order, (name, definition, source); a line beginning # is a comment."""
-    out = []
+    """### b638: the glossary's entries in its file's order, (name, definition, source); a line beginning # is a comment.
+    ### b651, (R261)(3)(a): a comment line `# SUPERSEDES ENTRY <n>: <name>` drops entry n (1-based, every entry of the file counted) from
+    ### the block, refused unless entry n bears that name; the file stays additive and the entry stands in it as written. A glossary with no
+    ### such line prints exactly as before (the three HINGE entries of b644 among them)."""
+    out, drop = [], {}
     for raw in io.open(path or GLOSSARY_FILE, encoding='utf-8'):
         line = raw.rstrip('\n').rstrip('\r')
+        m = SUPERSEDES.match(line)
+        if m:
+            drop[int(m.group(1))] = m.group(2).strip()
+            continue
         if not line.strip() or line.startswith('#'):
             continue
         f = line.split('\t')
         if len(f) != 3 or not all(x.strip() for x in f):
             raise ValueError('a glossary line is not name, definition and source: %r' % line[:80])
         out.append(tuple(x.strip() for x in f))
-    return out
+    for n, name in sorted(drop.items()):
+        if not 1 <= n <= len(out) or out[n - 1][0] != name:
+            raise ValueError('a SUPERSEDES line names entry %d as %r, which the glossary does not hold' % (n, name))
+    return [e for i, e in enumerate(out, 1) if i not in drop]
 
 
 def glossary_block(path=None):
