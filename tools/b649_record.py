@@ -306,6 +306,128 @@ def record_lines(*a):
     R3._land(Q, items, 'b649_record_lines.json', B648_ENTRY)
 
 
+# ================================================================================ COMPONENT 3: THE LEGACY MAP, (R259)(3)
+# ### W-ORD-LEGACY-MAP: on each branch sorry-quarantine-<kernel>, a README.md listing every quarantined declaration -- its file and line at
+# ### the quarantine commit (the branch's tip, the main b648 quarantined from), its statement, the date it entered main, and its successor in
+# ### the built kernel by file and line, or "no successor; superseded by" with the reason -- from b648's classification bank; committed alone
+# ### on the branch; its rows counted against the quarantined declarations. A successor is named only where the line it cites is in a
+# ### lean_lib of the kernel's main and carries the declaration named (checked here).
+SUCCESSOR = {
+    'schwarz_discharge': ('Kernel/SchwarzDischarge.lean', 42, 'schwarz_reflection_completedZeta₀'),
+    'schwarz_v2': ('Kernel/SchwarzDischarge.lean', 42, 'schwarz_reflection_completedZeta₀'),
+    'schwarz_v3': ('Kernel/SchwarzDischarge.lean', 42, 'schwarz_reflection_completedZeta₀'),
+    'schwarz_v4': ('Kernel/SchwarzDischarge.lean', 42, 'schwarz_reflection_completedZeta₀'),
+    'schwarz_v5': ('Kernel/SchwarzDischarge.lean', 42, 'schwarz_reflection_completedZeta₀'),
+    'product_formula_prime_pow': ('Kernel/ProductFormula_Clean.lean', 86, 'product_formula_prime_pow')}
+SUPERSEDED = {
+    'focus_on_critical_line': 'legacy/SchwarzReflection_PR.lean :129 (completedRiemannZeta₀_im_eq_zero_on_half), itself outside every lean_lib',
+    ('SIDE-lv-conservation', '(example)'): 'SIDELvConservation/T3_StepNineBridge.lean :108, the goal it reproduced, the theorem b648 RESTATED as a '
+                                           'Prop on branch b648-restate-SIDE-lv-conservation'}
+
+
+def _legacy_rows(k):
+    import no_sorry_main as NSM
+    lines = [r for r in (jl('b648_sorry_classification.json').get('rows') or []) if r['kernel'] == k and r.get('proposed') == 'QUARANTINED']
+    # ### b648's bank holds one row per `sorry` LINE; a declaration closing two (SchwarzBuild2's schwarz_discharge :87, at :111 and :113) is
+    # ### one declaration of the map, its sorry lines named
+    rows, seen = [], {}
+    for r in lines:
+        key = (r['file'], r['decl_line'])
+        if key in seen:
+            seen[key]['sorry_lines'].append(r['line'])
+            continue
+        seen[key] = dict(r, sorry_lines=[r['line']])
+        rows.append(seen[key])
+    p = 'D:/' + k
+    main = g(p, 'rev-parse', 'main').strip()
+    files = [x for x in g(p, 'ls-tree', '-r', '--name-only', main).split(NL) if x.strip()]
+    read = lambda f: _show(p, main, f)   # noqa: E731
+    built = set(NSM.lib_files(files, read, (read('lakefile.lean') or '') + NL + (read('lakefile.toml') or '')))
+    out = []
+    for r in rows:
+        nm = r['decl'] if r['decl'] != '(example)' else None
+        s = SUCCESSOR.get(nm)
+        if s:
+            line = (read(s[0]) or '').split(NL)[s[1] - 1] if read(s[0]) else ''
+            if s[0] not in built or s[2] not in line:
+                sys.exit('### THE SUCCESSOR %s :%d (%s) IS NOT A BUILT LINE CARRYING ITS NAME -- NOTHING WRITTEN' % s)
+            succ = '`%s` :%d `%s`' % s
+        else:
+            sup = SUPERSEDED.get(nm) or SUPERSEDED.get((k, r['decl']))
+            succ = 'no successor; superseded by %s' % (sup if sup else 'nothing -- %s' % r['reason'].replace('`', '’'))
+        out.append(dict(file=r['file'], line=r['decl_line'], kind=r['decl_kind'], decl=r['decl'], sorry_lines=r['sorry_lines'],
+                        statement=' '.join((r.get('statement') or '').split(':=')[0].split()).replace('|', '¦').replace('`', "'"),
+                        entered=r['entered'], successor=succ))
+    return out, main
+
+
+def legacy_map(kernel, *a):
+    """the README.md on sorry-quarantine-<kernel>, committed alone on the branch; data/b649_legacy_map_<kernel>.txt. Refuses unless the kernel
+    is on main with a clean tracked tree and the branch's README is absent; returns to main."""
+    p = 'D:/' + kernel
+    qb = 'sorry-quarantine-' + kernel
+    if g(p, 'branch', '--show-current').strip() != 'main' or g(p, 'status', '--porcelain', '--untracked-files=no').strip():
+        sys.exit('### %s IS NOT ON A CLEAN main -- NOTHING WRITTEN' % kernel)
+    tip = g(p, 'rev-parse', qb).strip()
+    if not tip or g(p, 'rev-parse', '%s~1' % qb).strip() and g(p, 'log', '-1', '--format=%s', qb).startswith('b649'):
+        sys.exit('### THE BRANCH %s IS ABSENT OR ITS LEGACY MAP IS WRITTEN ALREADY -- NOTHING WRITTEN' % qb)
+    # ### the branch is a whole snapshot of the main it was made at, the kernel's own README.md among its files: the legacy map takes the
+    # ### name the ruling gives, and the kernel's README stays whole at the tip's commit and on main, the map's first lines naming both
+    old_readme = _show(p, tip, 'README.md')
+    old_blob = g(p, 'rev-parse', '%s:README.md' % tip).strip() if old_readme is not None else None
+    rows, main = _legacy_rows(kernel)
+    for r in rows:
+        src = (_show(p, tip, r['file']) or '').split(NL)
+        if r['line'] > len(src) or (r['decl'] != '(example)' and r['decl'].split('.')[-1] not in src[r['line'] - 1]):
+            sys.exit('### %s :%d DOES NOT CARRY %s AT THE BRANCH`S TIP -- NOTHING WRITTEN' % (r['file'], r['line'], r['decl']))
+    R = ['# The legacy map of %s' % qb, '',
+         'This branch holds, as they stood, the declarations that b648 quarantined from `main` under the author’s ruling (R258)(2): each was '
+         'closed by `sorry` and entered `main` before the standing rule that no `sorry` reaches any `main` (relay OPEN_TRAILS :11508). The branch’s '
+         'tip, `%s`, is the commit of `main` they were quarantined from; `main` (`%s` when this map was written) no longer carries them, and the '
+         'kernel’s `ERRATA.md` on `main` names each. Each row gives the declaration’s file and line at the tip, its statement, the date it entered '
+         '`main`, and its successor in the built kernel -- the declaration in a lean_lib of `main` proving the same content, by file and line -- '
+         'or “no successor; superseded by” with the reason. Written by relay b649 under (R259)(3) from relay `data/b648_sorry_classification.json`.'
+         % (tip[:7], main[:7]), '',
+         ('The kernel’s own `README.md`, which this map replaces on this branch alone, stands whole at the tip `%s` (blob `%s`) and on `main`.'
+          % (tip[:7], (old_blob or '')[:12])) if old_blob else 'The tip `%s` carries no `README.md` of its own.' % tip[:7], '',
+         '| # | file :line (at `%s`) | kind | declaration | its `sorry` | statement | entered main | successor |' % tip[:7],
+         '|:--|:--|:--|:--|:--|:--|:--|:--|']
+    R += ['| %d | `%s` :%d | %s | `%s` | %s | `%s` | %s | %s |' % (i, r['file'], r['line'], r['kind'], r['decl'], ', '.join(':%d' % x for x in r['sorry_lines']),
+                                                             r['statement'][:240], r['entered'], r['successor'])
+          for i, r in enumerate(rows, 1)]
+    R += ['', '%d quarantined declarations (%d `sorry` lines); %d with a successor in the built kernel.' % (
+        len(rows), sum(len(r['sorry_lines']) for r in rows), sum(1 for r in rows if not r['successor'].startswith('no '))), '']
+    body = (NL.join(R)).encode('utf-8')
+    L = ['b649 -- COMPONENT 3, (R259)(3): THE LEGACY MAP ON %s (%s)' % (qb, utc()), '',
+         '### the branch`s tip %s (the main b648 quarantined from) ; main now %s ; the rows from relay data/b648_sorry_classification.json' % (
+             tip[:12], main[:12])]
+    if DRY:
+        put_txt('b649_legacy_map_%s.txt' % kernel, L + ['', '### THE README (dry):'] + R)
+        print(NL.join(R[:12]))
+        return
+    g(p, 'checkout', '-q', qb)
+    try:
+        open(os.path.join(p, 'README.md'), 'wb').write(body + NL.encode())
+        g(p, 'add', 'README.md')
+        g(p, 'commit', '-q', '-m', 'b649 under (R259)(3), W-ORD-LEGACY-MAP: README.md -- the %d declarations quarantined from main at b648, each with its file '
+                                   'and line at %s, its statement, the date it entered main and its successor in the built kernel or none; committed '
+                                   'alone on this branch.' % (len(rows), tip[:7]))
+        new = g(p, 'rev-parse', 'HEAD').strip()
+        files = [x for x in g(p, 'show', '--name-only', '--pretty=format:', new).split(NL) if x.strip()]
+    finally:
+        g(p, 'checkout', '-q', 'main')
+    n_rows = len(re.findall(r'^\| \d+ \|', (_show(p, new, 'README.md') or ''), re.M))
+    qrows = [r for r in (jl('b648_sorry_classification.json').get('rows') or []) if r['kernel'] == kernel and r.get('proposed') == 'QUARANTINED']
+    want = len(set((r['file'], r['decl_line']) for r in qrows))
+    L += ['### the README committed alone on the branch: %s, files %s ; back on %s' % (new[:12], files, g(p, 'branch', '--show-current').strip()),
+          '### ### **README ROWS %d ; QUARANTINED DECLARATIONS %d (b648`s sorry lines %d) ; EQUAL %s.**' % (n_rows, want, len(qrows), n_rows == want),
+          '', '### THE README, WHOLE:'] + R
+    put_txt('b649_legacy_map_%s.txt' % kernel, L)
+    put_json('b649_legacy_map_%s.json' % kernel, dict(at=utc(), kernel=kernel, branch=qb, tip=tip, commit=new, files=files, rows=n_rows,
+                                                      quarantined=want, sorry_lines=len(qrows), equal=n_rows == want, main=main))
+    print(L[-len(R) - 3])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
