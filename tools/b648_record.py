@@ -1169,6 +1169,73 @@ def edition_diff8(*a):
     print(NL.join(L[2:]))
 
 
+# ### THE SECOND READER, (R258)(4): b646's form carried (its lead and command builders, its no-disclosure arm and outside names), the
+# ### directory C:\reader_b648; the census at v0.8 as committed, whole; the ruling's two questions; run by the author on the author's
+# ### PowerShell from a directory with no project memory; scored by hand first (data/b648_reader_handread.txt), then by the needles below.
+READER8 = dict(dir='C:/reader_b648', doc='census.md', what='the census of a research programme`s papers and kernels, at its edition v0.8',
+               questions=('What does maturity mean in this census?', 'Which documents and kernels does the census mark ONGOING?'))
+
+
+def _b6r8():
+    import b646_record as B6
+    B6.READER = dict(B6.READER, dir=READER8['dir'])
+    return B6
+
+
+def _reader_task8():
+    B6 = _b6r8()
+    r = READER8
+    n = len(r['questions'])
+    return (B6._reader_lead() + NL + NL +
+            'You are an independent reader. You know nothing of the research programme the packet describes, and that is the point. The packet has '
+            'two files: %s, %s, and questions.txt, %d questions. Read the document and answer each question in your own words, from the document '
+            'alone, in a few sentences each: say what the text says, not what you know of the mathematics, and say plainly where the text is '
+            'unclear to you. Write the file %s\\answers.txt with exactly %d sections, headed %s, each followed by your answer to that question; '
+            'then a section headed UNCLEAR: listing any sentence of the document you could not follow, or the word none. Then stop.' % (
+                r['doc'], r['what'].replace('`', "'"), n, r['dir'].replace('/', '\\'), n, ', '.join('ANSWER %d:' % (i + 1) for i in range(n))))
+
+
+def reader_packet8(*a):
+    """data/b648_reader_packet.txt, data/b648_reader_command.txt (the one line) and data/b648_reader_packet/: v0.8 as committed with the two
+    questions, staged at C:\\reader_b648 (refused if it exists and is not empty), the no-disclosure arm and the outside names checked."""
+    import b616_record as R6
+    B6 = _b6r8()
+    R4 = B6._R4()
+    r = READER8
+    doc = _show(PP, 'HEAD', K.CEN8)
+    if not doc or not doc.strip():
+        sys.exit('### v0.8 IS NOT AT PLACE-papers HEAD -- NOTHING WRITTEN')
+    qs = NL.join('%d. %s' % (i + 1, q) for i, q in enumerate(r['questions']))
+    task = _reader_task8()
+    nd = R6.nd_hits(doc + NL + qs + NL + task, R6.nd_sets())[0]
+    outside = [n for n in R4.OUTSIDE_NEEDLES if n in doc]
+    if any(nd.values()) or outside:
+        sys.exit('### THE PACKET WOULD CARRY TECHNE TEXT (%s) OR AN OUTSIDE NAME (%s) -- NOTHING WRITTEN' % (
+            dict((k, v) for k, v in nd.items() if v), outside))
+    pdir = os.path.join(SP if DRY else D, 'b648_reader_packet')
+    os.makedirs(pdir, exist_ok=True)
+    for n_, t_ in ((r['doc'], doc), ('questions.txt', qs)):
+        _write(os.path.join(pdir, n_), (t_.rstrip(NL) + NL).encode('utf-8'))
+    if not DRY:
+        if os.path.exists(r['dir']) and os.listdir(r['dir']):
+            sys.exit('### %s EXISTS AND IS NOT EMPTY -- NOT WRITTEN' % r['dir'])
+        os.makedirs(r['dir'] + '/packet', exist_ok=True)
+        for n_, t_ in (('packet/' + r['doc'], doc), ('packet/questions.txt', qs), ('lead.txt', B6._reader_lead()), ('full_prompt.txt', task)):
+            _write(os.path.join(r['dir'], n_), (t_.rstrip(NL) + NL).encode('utf-8'))
+    cmd = B6._reader_cmd()
+    L = ['b648 -- THE SECOND READER`S PACKET, STAGED OFF D:\\ (%s)' % utc(), '',
+         '### staged: %s (packet/%s %d bytes, sha256 %s, the census at v0.8 as committed at PLACE-papers %s ; packet/questions.txt ; lead.txt ; '
+         'full_prompt.txt) ; banked: relay data/b648_reader_packet/' % (r['dir'], r['doc'], len(doc.encode('utf-8')), sha(doc.encode('utf-8')),
+                                                                        g(PP, 'rev-parse', '--short=7', 'HEAD').strip()),
+         '### the questions, (R258)(4)`s two: %s' % ' / '.join(r['questions']),
+         '### the no-disclosure arm: %s ; outside names: %s' % (dict(nd), outside or 'NONE'),
+         '', '### the command, run by the author on the author`s PowerShell from %s, a directory with no project memory (one line, banked alone '
+         'at relay data/b648_reader_command.txt):' % r['dir'], '    ' + cmd]
+    put_txt('b648_reader_packet.txt', L)
+    put_txt('b648_reader_command.txt', [cmd])
+    print(NL.join(L[2:]))
+
+
 LIST_HEAD = ['# b648 -- (R258)(3), THE TABLE`S GRADE ON THE PAGE: b643`s list (relay data/%s), every line unchanged, with the one line',
              '# `# table grade` appended, by which the generator prints the terminal table`s grade beside a node`s E0 grade where the two',
              '# differ and, on the ζ page, names the χ page in the χ-leg`s Placement row (relay tools/chain_page.py, `node_table_grade`). A list',

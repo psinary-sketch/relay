@@ -1,0 +1,8 @@
+b648 -- THE SECOND READER`S PACKET, STAGED OFF D:\ (2026-10-11T01:22:43Z)
+
+### staged: C:/reader_b648 (packet/census.md 194757 bytes, sha256 a4a76c09bf64b403adf1c1635af78611f3171c7b31260de5146dc96c679daefc, the census at v0.8 as committed at PLACE-papers f66d23d ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b648_reader_packet/
+### the questions, (R258)(4)`s two: What does maturity mean in this census? / Which documents and kernels does the census mark ONGOING?
+### the no-disclosure arm: {'method': 0, 'tree': 0, 'modules': 0} ; outside names: NONE
+
+### the command, run by the author on the author`s PowerShell from C:/reader_b648, a directory with no project memory (one line, banked alone at relay data/b648_reader_command.txt):
+    Get-Content C:\reader_b648\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b648\reader_run.log 2> C:\reader_b648\reader_run.err
