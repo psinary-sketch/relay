@@ -58,6 +58,61 @@ DECL = re.compile(r"^[ \t]*(?:@\[[^\]]*\][ \t]*)*(?:(?:private|protected|noncomp
                   r"(theorem|lemma|def|abbrev|instance|structure|class|inductive|axiom|opaque|example)\b[ \t]*([^\s:(\[{]*)", re.M)
 NS = re.compile(r'^[ \t]*(namespace|section|end)\b[ \t]*([\w.]*)', re.M)
 
+# ### b651, (R261)(4) and the author's answer before the seal: a claim whose axiom words are said of ANOTHER named object is re-bound. The
+# ### grammar, read on the sentence: (i) a parenthesis holding the axiom words and a name, "(TraceSilence, no axioms)"; (ii) a backticked name
+# ### as the sentence's subject, "`B` depends on no axioms". A name that resolves in the kernel's tree -- a module (a .lean file's stem) or
+# ### a declaration (exact, or the one declaration ending with it) -- re-binds the claim to that object, graded by its prints (BOUND-TO);
+# ### a name that resolves nowhere, or a sentence reading as a hypothetical variant ("the same conclusion ... with X deleted"), reads
+# ### UNBOUND: listed, counted apart, neither PASS nor CONTRADICTED. A sentence that names no other object stays bound as before.
+PAREN = re.compile(r'\(([^()]*)\)')
+NAME_TOK = re.compile(r"`?([A-Za-z_][\w.'’₀-₉]*)`?")
+SUBJ = re.compile(r"^`([A-Za-z_][\w.'’₀-₉]*)`\s+(?:is|are|was|depends|uses|holds|compiles|carries|rests|has)\b")
+VARIANT = re.compile(r'\b(?:the same|this|a)\s+(?:conclusion|statement|theorem|result|proof)\b[^.;]*?\b(?:deleted|removed|dropped|without)\b|'
+                     r'\bwith\b[^.;]{0,80}\b(?:deleted|removed|dropped)\b', re.I)
+AX_NAMES = frozenset(['propext', 'Classical.choice', 'Quot.sound', 'sorryAx', 'Lean.ofReduceBool', 'Lean.trustCompiler', 'native_decide'])
+
+
+def resolve(tok, kmap):
+    """(qualified names, 'file:line') for a module stem or a declaration of the kernel; None when it resolves nowhere or to more than one."""
+    mods, dls = kmap.get('modules', {}), kmap.get('decls', {})
+    if tok in mods and len(mods[tok]) == 1:
+        f, names = mods[tok][0]
+        return list(names), '%s:1' % f
+    hit = [q for q in dls if q == tok] or [q for q in dls if q.endswith('.' + tok)]
+    if len(hit) == 1:
+        return [hit[0]], '%s:%d' % dls[hit[0]]
+    return None
+
+
+def other_object(c, kmap, own):
+    """('BOUND', names, where, token) | ('UNBOUND', [], None, token) | (None, None, None, None) for one claim sentence; own: the declarations
+    the block covers (a name among them is not another object)."""
+    kmap = kmap or {}
+    ownshort = set(q.split('.')[-1] for q in own if q)
+    cands = []
+    for m in PAREN.finditer(c):
+        # ### the clause of the parenthesis that holds the axiom words alone ("(kept axiom-free; the List-semantics ...)" names no object);
+        # ### a backticked name standing just before the parenthesis is the object the parenthesis glosses; an all-capital word is no name
+        cl = [x for x in m.group(1).split(';') if AXIOM_WORD.search(x)]
+        if not cl:
+            continue
+        pre = re.search(r"`([A-Za-z_][\w.'’₀-₉]*)`\**\s*$", c[:m.start()])
+        if pre:
+            cands.append(pre.group(1))
+        cands += [t for t in NAME_TOK.findall(cl[0]) if not t.isupper() and (t[:1].isupper() or '.' in t or '_' in t)]
+    s = SUBJ.match(c)
+    if s:
+        cands.append(s.group(1))
+    cands = [t for t in cands if t not in AX_NAMES and t.split('.')[-1] not in ownshort]
+    for t in cands:
+        r = resolve(t, kmap)
+        if r:
+            return 'BOUND', r[0], r[1], t
+    v = VARIANT.search(c)
+    if cands or v:
+        return 'UNBOUND', [], None, (cands[0] if cands else v.group(0))
+    return None, None, None, None
+
 
 def _set(s):
     return frozenset(x.strip() for x in s.split(',') if x.strip())
@@ -241,8 +296,9 @@ def breaks(p, allowed, forb, req):
     return bool((allowed is not None and (p - allowed)) or (forb & p) or (req - p))
 
 
-def classify_text(kernel, path, text, idx, smap=None):
-    """the claim rows of one file: [dict(kernel, file, line, block, sentence, kind, covered, printed, verdict, contradicted)]."""
+def classify_text(kernel, path, text, idx, smap=None, kmap=None):
+    """the claim rows of one file: [dict(kernel, file, line, block, sentence, kind, covered, printed, verdict, contradicted)];
+    b651: kmap (the kernel's modules and declarations, run's) lets a claim said of another object re-bind (bound_to) or read UNBOUND."""
     smap = smap if smap is not None else _short_map(idx)
     ds = decls(text)
     blocks = doc_blocks(text)
@@ -276,7 +332,16 @@ def classify_text(kernel, path, text, idx, smap=None):
             if kind == 'MENTION':
                 rows.append(row)
                 continue
-            for q in cov:
+            how_b, names_b, where_b, tok_b = other_object(c, kmap, cov)
+            use = cov
+            if how_b == 'BOUND':
+                use = names_b
+                row.update(covered=len(use), bound_to=tok_b, bound_names=names_b[:20], bound_at=where_b, bound_from=list(cov))
+            elif how_b == 'UNBOUND':
+                row.update(verdict='UNBOUND', unbound_on=tok_b, bound_from=list(cov))
+                rows.append(row)
+                continue
+            for q in use:
                 hit, how = lookup(idx, smap, q)
                 if not hit:
                     continue
@@ -296,6 +361,17 @@ def lean_files(path):
     return main, [f for f in out.split(NL) if f.endswith('.lean') and not f.startswith('.lake/')]
 
 
+def kernel_map(texts):
+    """b651: {'modules': {stem: [(file, [qualified names])]}, 'decls': {qualified name: (file, line)}} over one kernel's files."""
+    mods, dls = {}, {}
+    for f, t in texts:
+        ds = [(o, q) for o, _k, q in decls(t) if q]
+        mods.setdefault(os.path.splitext(os.path.basename(f))[0], []).append((f, [q for _o, q in ds]))
+        for o, q in ds:
+            dls.setdefault(q, (f, t.count(NL, 0, o) + 1))
+    return dict(modules=mods, decls=dls)
+
+
 def run(names, idx):
     smap = _short_map(idx)
     rows, per = [], {}
@@ -303,10 +379,14 @@ def run(names, idx):
         p = 'D:/' + k
         main, fs = lean_files(p)
         n0 = len(rows)
+        texts = []
         for f in fs:
             rc, t = _git(p, 'show', '%s:%s' % (main, f))
             if not rc:
-                rows += classify_text(k, f, t, idx, smap)
+                texts.append((f, t))
+        kmap = kernel_map(texts)
+        for f, t in texts:
+            rows += classify_text(k, f, t, idx, smap, kmap)
         per[k] = dict(main=main[:12], files=len(fs), claims=len(rows) - n0)
     return rows, per
 
@@ -323,6 +403,8 @@ def report(rows, per, counts):
     for r in rows:
         if r['verdict'] == 'CONTRADICTED':
             L += ['  %s %s:%d (%s, %s): %s' % (r['kernel'], r['file'], r['line'], r['block'], r['kind'], r['sentence'])]
+            if r.get('bound_to'):
+                L.append('      BOUND-TO: %s, %s (from %s)' % (r['bound_to'], r['bound_at'], ', '.join(r['bound_from']) or 'none'))
             L += ['      %s (%s %s) prints %s -- %s' % (x['decl'], x['how'], x['matched'], x['print'], x['source']) for x in r['contradicted'][:12]]
             if len(r['contradicted']) > 12:
                 L.append('      ... and %d more declarations' % (len(r['contradicted']) - 12))
@@ -332,6 +414,15 @@ def report(rows, per, counts):
     L += ['', '### EVERY VERIFIED CLAIM (printed of covered):']
     L += ['  %s %s:%d (%s, %s, %d of %d): %s' % (r['kernel'], r['file'], r['line'], r['block'], r['kind'], r['printed'], r['covered'], r['sentence'][:160])
           for r in rows if r['verdict'] == 'VERIFIED']
+    rb = [r for r in rows if r.get('bound_to')]
+    L += ['', '### b651: EVERY RE-BOUND CLAIM (its axiom words said of another object that resolves in the kernel), graded by that object`s '
+              'prints: %d' % len(rb)]
+    L += ['  %s %s:%d (%s, %s) %s -- BOUND-TO: %s, %s (from %s): %s' % (r['kernel'], r['file'], r['line'], r['block'], r['kind'], r['verdict'],
+                                                                       r['bound_to'], r['bound_at'], ', '.join(r['bound_from']) or 'none',
+                                                                       r['sentence'][:160]) for r in rb]
+    L += ['', '### b651: EVERY UNBOUND CLAIM (said of an object that resolves nowhere, or of a hypothetical variant), counted apart: %d' % c['UNBOUND']]
+    L += ['  %s %s:%d (%s, %s) on %r (from %s): %s' % (r['kernel'], r['file'], r['line'], r['block'], r['kind'], r['unbound_on'],
+                                                       ', '.join(r['bound_from']) or 'none', r['sentence'][:200]) for r in rows if r['verdict'] == 'UNBOUND']
     L += ['', '### EVERY MENTION (an axiom word, no profile stated), not scored: %d' % c['MENTION']]
     L += ['  %s %s:%d (%s): %s' % (r['kernel'], r['file'], r['line'], r['block'], r['sentence'][:160]) for r in rows if r['verdict'] == 'MENTION']
     ok = c['CONTRADICTED'] == 0
@@ -340,8 +431,8 @@ def report(rows, per, counts):
               'axiom word' % (len(oos), sum(r['claims'] for r in oos))]
     L += ['  %s %s:%d (%d sentences)' % (r['kernel'], r['file'], r['line'], r['claims']) for r in oos]
     n = len(rows) - len(oos)
-    L += ['', '### ### **CLAIMS %d ; CONTRADICTED %d ; UNVERIFIABLE %d ; VERIFIED %d ; MENTIONS %d ; VERDICT : %s**' % (
-        n, c['CONTRADICTED'], c['UNVERIFIABLE'], c['VERIFIED'], c['MENTION'], 'PASS' if ok else 'FAIL')]
+    L += ['', '### ### **CLAIMS %d ; CONTRADICTED %d ; UNVERIFIABLE %d ; VERIFIED %d ; MENTIONS %d ; RE-BOUND %d ; UNBOUND %d ; VERDICT : %s**' % (
+        n, c['CONTRADICTED'], c['UNVERIFIABLE'], c['VERIFIED'], c['MENTION'], len(rb), c['UNBOUND'], 'PASS' if ok else 'FAIL')]
     return ok, L
 
 
