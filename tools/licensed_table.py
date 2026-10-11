@@ -319,6 +319,46 @@ def cluster(path, names=()):
     return '', 'HAND'
 
 
+# ================================================================================ CLUSTERS-SERVED, A KERNEL'S COLUMN AT v0.8.1 ((R261)(5))
+# ### A kernel's one-word CLUSTER is replaced by CLUSTERS-SERVED: the clusters of the documents whose Correspondence tables cite it by its
+# ### repository name (no letter, digit, _ or - on either side), the census itself not counted; a kernel no Correspondence table cites reads
+# ### "served: none". A Correspondence table is the text under a heading naming Correspondence, to the next heading of the same or a higher
+# ### level. Keystones keep their single CLUSTER (cluster() above).
+CORR_HEADING = re.compile(r'^(#{2,4})\s+[^\n]*\bCorrespondence\b', re.I)
+HEADING = re.compile(r'^(#{1,6})\s')
+
+
+def correspondence_text(text):
+    """the lines of a document's Correspondence sections, joined: under each heading naming Correspondence, to the next heading of the same or a
+    higher level (fewer or equal #)."""
+    out, depth = [], None
+    for ln in (text or '').split('\n'):
+        h = HEADING.match(ln)
+        if h:
+            if depth is not None and len(h.group(1)) <= depth:
+                depth = None
+            c = CORR_HEADING.match(ln)
+            if c and depth is None:
+                depth = len(c.group(1))
+                continue
+        if depth is not None:
+            out.append(ln)
+    return '\n'.join(out)
+
+
+def clusters_served(kernel, docs, exclude=()):
+    """(sorted clusters, [(doc id, cluster, hits)]): the clusters of the documents whose Correspondence tables cite the kernel; docs is
+    [(id, cluster, text)]; ids in exclude (the census itself) are read and not counted; a document with no cluster is listed and not counted."""
+    pat = re.compile(r'(?<![\w-])' + re.escape(kernel) + r'(?![\w-])')
+    cites = []
+    for i, c, t in docs:
+        n = len(pat.findall(correspondence_text(t)))
+        if n:
+            cites.append((i, c, n))
+    served = sorted(set(c for i, c, _n in cites if c and i not in exclude))
+    return served, cites
+
+
 MATURITY = ('SETTLED', 'CARRIED-OPENLY', 'ONGOING', 'SUPERSEDED')
 MATURITY_RULE = ('SUPERSEDED where the REGISTRY marks the keystone superseded by a later edition; else ONGOING where its table rows carry '
                  'any OVERREACHES or UNLICENSED (claims the kernels do not yet license); else CARRIED-OPENLY where any row states a frontier '
