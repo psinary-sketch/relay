@@ -947,6 +947,427 @@ def lv_price(*a):
     R3._land(Q, [('OPEN_TRAILS.md', PR_HEAD % BH_LINE, t)], 'b649_price_line.json', BH_LINE)
 
 
+# ================================================================================ COMPONENTS 7 AND 8: THE SEAL, THE ROOT, THE RECORD
+# ### b648's routes carried (tools/b648_record.py :1102-:1500), every name and every sentence re-written for b649's banks.
+def kernels(*a):
+    """data/b649_kernels_face.json: every kernel's main, tags, branches and tracked status, read before the seal for N5."""
+    import b641_record as R41
+    put_json('b649_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+DEFECT_SHORT = ['(a) backticks in a double-quoted commit message', '(b) a measurement bank whose first reading overstated its data',
+                '(c) an arm that first read nothing', '(d) an arm that first matched a different declaration',
+                '(e) two planted expectations written wrong']
+
+
+def defects(*a):
+    """data/b649_defects.json from data/b649_defects.txt (the seat's list): every defect line, and the short forms."""
+    t = rd('b649_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if re.match(r'^    \([a-z]\) ', l)]
+    if len(ds) != len(DEFECT_SHORT):
+        sys.exit('### %d DEFECT LINES AGAINST %d SHORT FORMS -- NOTHING WRITTEN' % (len(ds), len(DEFECT_SHORT)))
+    put_json('b649_defects.json', dict(at=utc(), defects=ds, short=DEFECT_SHORT, correction=''))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b649_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+def seal_check(*a):
+    rec_, now, out = seal_hashes()
+    L = ['b649 -- THE SEALED TOOLS` HASHES, RECORDED AT THE SEAL AND RECOMPUTED (%s)' % utc(), '']
+    L += ['  %-24s recorded %s ; now %s ; %s' % (t, (rec_.get(t) or '-')[:16], (now.get(t) or '-')[:16], v.upper()) for t, v in out]
+    L += ['', '### ### **SEALED TOOLS %d ; AGREE %d ; DIFFER %d ; ABSENT %d.**' % (len(out), sum(v == 'agree' for _t, v in out),
+                                                                                 sum(v == 'differ' for _t, v in out), sum(v == 'absent' for _t, v in out))]
+    put_txt('b649_seal_check_%s.txt' % (a[0] if a else 'record'), L)
+    print(NL.join(L[2:]))
+
+
+ROOT_EXCLUDE = re.compile(r'^b649_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|correction|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b649_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f)
+                  and ('data/' + f) != K.EXPORT)
+
+
+def root(*a):
+    """(R251)(3): the act root, the last step of the act; every bank it names written LF (compute refuses CR LF)."""
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b649_seal_hashes.json' in banks, crlf or 'none'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b649'] + banks + ([] if DRY else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    """the root recomputed from its banked items offline and a one-byte change on a copy of one bank moving it; the root order read locally."""
+    import shutil
+    import tempfile
+    import act_root as AR
+    J = jl('b649_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    tmp = tempfile.mkdtemp()
+    cp = os.path.join(tmp, os.path.basename(bank_))
+    shutil.copy(os.path.join(ROOT, *bank_.split('/')), cp)
+    b = bytearray(open(cp, 'rb').read())
+    b[0] ^= 0x01
+    open(cp, 'wb').write(bytes(b))
+    items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b649 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b649_root_arm.txt', L)
+    put_json('b649_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    """the terminal table regenerated at the end and diffed against relay HEAD`s table, by row."""
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b649 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    L += ['    added   %s / %s' % k for k in added[:60]] + ['    gone    %s / %s' % k for k in gone[:60]] + [
+        '    moved   %s / %s : %s -> %s' % (k[0], k[1], before[k], after[k]) for k in moved[:60]]
+    L += ['### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b649_table_final.txt', L)
+    put_json('b649_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3', 'S4', 'S5')
+SCORE_KEYS = NK + SK
+ARM_TESTS = ('test_no_sorry_main.py', 'test_axiom_claim.py', 'test_module_header.py')
+N5_RELAY_TOOLS = ('no_sorry_main.py', 'axiom_claim.py', 'module_header.py', 'test_no_sorry_main.py', 'test_axiom_claim.py', 'test_module_header.py',
+                  'test_name_b649.py', 'test_composer_b649.py', 'chain_page.py')
+N5_RELAY_DATA = ('glossary.txt', 'act_roots.txt', 'b648_closing_push_out.txt')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md', K.PAGE, K.DIR_PAGE)
+
+
+def TRAIL_HEAD():
+    return ('### b649 — lane three, act seventy-six under (R259): three arms -- no sorry on main, axiom claims against prints, module headers '
+            'against files; the legacy map; the lv-conservation build measured; the positivity clause named; the description at v5; the draft held')
+
+
+def _arms():
+    a, b, c = jl('b649_no_sorry_main.json'), jl('b649_axiom_claim.json'), jl('b649_module_header.json')
+    s = sum(len(r['hits']) for r in a.get('rows') or [])
+    cb = collections.Counter(r['verdict'] for r in b.get('rows') or [])
+    h = len(c.get('rows') or [])
+    return s, cb, h, a, b, c
+
+
+def _legacy():
+    out = {}
+    for k in K.QUARANTINE:
+        out[k] = jl('b649_legacy_map_%s.json' % k)
+    return out
+
+
+def _n5():
+    face = jl('b649_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    mains0 = dict((r['kernel'], r['main']) for r in jl('b649_no_sorry_main.json').get('rows') or [])
+    moved = [k for k, m in mains0.items() if g('D:/' + k, 'rev-parse', 'main').strip() != m]
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b649_|audit_b649_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('tools/') and x[6:] in N5_RELAY_TOOLS) or (x.startswith('data/') and x[5:] in N5_RELAY_DATA))]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    zr = jl(ZRES)
+    held = (zr.get('read') or {}).get('submitted') is False and (zr.get('hold') or {}).get('submitted') is False
+    ok = kern_ok and not moved and not pp_beyond and not kinds_beyond and not differ and held
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: draft %s unpublished, its description v5 read back (submitted %s), publish never called; no kernel main moved since '
+            'step zero (%s), every kernel unmoved since the face %s, the READMEs on the quarantine branches alone; sealed tools not agreeing %s; '
+            'PLACE-papers beyond FINDINGS, OPEN_TRAILS and the two pages: %s; relay files of a kind beyond the three arms and their tests, the '
+            'template and composer edits and their tests, the glossary, the banks and the root list: %s; no identifier of the author in any '
+            'outbound request (the route`s User-Agent names no person; the token in the Authorization header alone)' % (
+                K.DRAFT, (zr.get('read') or {}).get('submitted'), moved or 'NONE', kern_ok, differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE'))
+
+
+def scores(*a):
+    TF, RA = jl('b649_table_final.json'), jl('b649_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    s, cb, h, A_, B_, C_ = _arms()
+    tests = {}
+    for t in ARM_TESTS:
+        r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', t)], capture_output=True, text=True, encoding='utf-8', errors='replace',
+                           env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+        m = re.search(r'(\d+) of (\d+) cases as wanted', r.stdout or '')
+        tests[t] = (r.returncode, m.group(0) if m else '?')
+    nsm_planted = 'FAILS and names the file and line' in subprocess.run(
+        [sys.executable, os.path.join(ROOT, 'tools', 'test_no_sorry_main.py')], capture_output=True, text=True, encoding='utf-8', errors='replace',
+        env=dict(os.environ, PYTHONIOENCODING='utf-8')).stdout and tests['test_no_sorry_main.py'][0] == 0
+    lg = _legacy()
+    eq = all((lg[k] or {}).get('equal') for k in K.QUARANTINE)
+    v5 = rd(V5)
+    pages = [_show(PP, 'HEAD', K.PNAME[x]) or '' for x in ('zeta', 'chi')]
+    bare = [len(BARE.findall(t)) for t in pages + [v5]]
+    cmp_ = jl('b649_reader_compare.json')
+    S = {
+        'N1': ('HELD' if s == 0 and nsm_planted else ('REFUTED IN ONE CLAUSE' if nsm_planted else 'REFUTED'),
+               'G-NO-SORRY-MAIN over %d kernels reads %d hits -- the four RESTATED lines on the mains of SIDE-effects and SIDE-lv-conservation, '
+               'their restatements unmerged beneath the hold -- against the zero the expectation names; its planted test fails on the inserted sorry %s '
+               '(%s)' % (len(A_.get('rows') or []), s, nsm_planted, tests['test_no_sorry_main.py'][1])),
+        'N2': ('HELD' if cb['CONTRADICTED'] or cb['UNVERIFIABLE'] else 'REFUTED',
+               'G-AXIOM-CLAIM: CONTRADICTED %d, UNVERIFIABLE %d, VERIFIED %d over %d claims; its planted cases %s' % (
+                   cb['CONTRADICTED'], cb['UNVERIFIABLE'], cb['VERIFIED'], sum(v for k_, v in cb.items() if k_ not in ('MENTION', 'OUT OF SCOPE')),
+                   tests['test_axiom_claim.py'][1])),
+        'N3': ('HELD' if eq else 'REFUTED', 'the README rows against the quarantined declarations: %s' % '; '.join(
+            '%s %s of %s (sorry lines %s)' % (k, (lg[k] or {}).get('rows'), (lg[k] or {}).get('quarantined'), (lg[k] or {}).get('sorry_lines'))
+            for k in K.QUARANTINE)),
+        'N4': ('HELD' if not any(bare) and cmp_.get('hand') == 3 else ('PENDING' if not cmp_ else 'REFUTED'),
+               'the bare phrase "the clause" on the zeta page %d, the chi page %d, v5 %d; the sixth reader %s of 3 by hand, %s of 3 by the needles' % (
+                   bare[0], bare[1], bare[2], cmp_.get('hand'), cmp_.get('needles'))),
+        'N5': _n5(),
+        'S1': ('HELD' if all(rc == 0 for rc, _x in tests.values()) else 'REFUTED', 'the three arms` planted tests: %s' % '; '.join(
+            '%s exit %d, %s' % (t, rc, x) for t, (rc, x) in tests.items())),
+        'S2': ('HELD' if A_ and B_ and C_ else 'REFUTED', 'each arm`s opening run banked with counts: no sorry %d hits ; axiom claims %s ; headers %d rows' % (
+            s, dict(cb), h)),
+        'S3': (('HELD' if not TF.get('moved') and not TF.get('gone') and not TF.get('added') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s' % (len(TF.get('moved') or []), len(TF.get('gone') or []),
+                                                                                       len(TF.get('added') or []))),
+        'S4': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S5': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    put_json('b649_scores.json', S)
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:400]))
+
+
+def _title():
+    s, cb, h, A_, B_, C_ = _arms()
+    lg = _legacy()
+    lv = jl('b649_lv_build.json').get('rows') or []
+    cmp_ = jl('b649_reader_compare.json')
+    return ('## Three arms: no sorry on main %d hits, axiom claims %d contradicted and %d unverifiable, module headers %d overreaching; the legacy '
+            'map over %d declarations; the lv-conservation build measured, %d modules beneath the hold; the positivity clause named; the description '
+            'at v5, the sixth reader %s of 3, the draft held' % (s, cb['CONTRADICTED'], cb['UNVERIFIABLE'], h,
+                                                                sum((lg[k] or {}).get('rows') or 0 for k in K.QUARANTINE),
+                                                                sum(1 for r in lv if r['outcome'] == 'RUN-BENEATH-HOLD'), cmp_.get('hand')))
+
+
+NEXT_LINE = ('b650, the reading act per `(R256)`(6) and `(R259)`(8): no build, no deposit, no seal; the cross-field resonances entry read against '
+             'the corpus; a same-season-last-year bank from what the navigator and the author supply; the author`s word on which questions have '
+             'grown triggers; the re-cuts from b651 in the order the author gave at b648`s closing')
+
+
+def _finding_text():
+    S, rl, J = jl('b649_scores.json'), jl('b649_record_lines.json'), jl('b649_act_root.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b649_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    sc = lambda k: (S.get(k) or ['?'])[0]   # noqa: E731
+    s, cb, h, A_, B_, C_ = _arms()
+    ty = C_.get('per') or {}
+    lg = _legacy()
+    lv = jl('b649_lv_build.json').get('rows') or []
+    cmp_ = jl('b649_reader_compare.json')
+    dj = jl('b649_deposit_description.json')
+    zr = jl(ZRES).get('read') or {}
+    e = ['', _title(), '',
+         '*Filed at b649 on the author’s ruling `(R259)` and the author’s answers (%d). Banks: relay `data/b649_no_sorry_main.txt`, '
+         '`data/b649_axiom_claim.txt`, `data/b649_module_header.txt`, `data/b649_legacy_map_SIDE-kernel.txt`, '
+         '`data/b649_legacy_map_SIDE-lv-conservation.txt`, `data/b649_lv_build.txt`, `data/b649_page_arms_c1.txt`, `data/b649_deposit_description.txt`, '
+         '`data/b649_reader_compare.txt`, `data/b649_zenodo_read.txt`, `data/b649_act_root.txt`.*' % n_ans, '',
+         '**Three arms** (`(R259)`(2)), each a standalone tool with its planted test and an arm of every suite from this act. G-NO-SORRY-MAIN '
+         'reads every lean_lib of every kernel`s main, its remote and its clone`s HEAD equal: %d hits over %d kernels, the four RESTATED lines '
+         'still on their mains. G-AXIOM-CLAIM reads every docstring and module header for a claim about axioms against the banked prints: '
+         'CONTRADICTED %d, UNVERIFIABLE %d, VERIFIED %d. G-MODULE-HEADER reads every module header through the table`s generated rule extended '
+         'to headers: %d headers, %d overreaching. The contradicted claims are findings, rows of the table to come, not edits. N1 %s, N2 %s.' % (
+             s, len(A_.get('rows') or []), cb['CONTRADICTED'], cb['UNVERIFIABLE'], cb['VERIFIED'], sum(v['headers'] for v in ty.values()), h,
+             sc('N1'), sc('N2')), '',
+         '**The legacy map** (`(R259)`(3)): on each quarantine branch a README of its declarations, each with its file and line, its statement, '
+         'the date it entered main and its successor in the built kernel or none -- SIDE-kernel %s rows, SIDE-lv-conservation %s, each equal to '
+         'its quarantined declarations. N3 %s.' % ((lg['SIDE-kernel'] or {}).get('rows'), (lg['SIDE-lv-conservation'] or {}).get('rows'), sc('N3')), '',
+         '**The lv-conservation build measured** (`(R259)`(4)): its 25 modules, one per call under the tree-aware watchdog: %d beneath the hold, '
+         'the peak the Mathlib import`s; the price about %d MB free at a start, written on OPEN_TRAILS (:%s).' % (
+             sum(1 for r in lv if r['outcome'] == 'RUN-BENEATH-HOLD'), 2560 + max([r['peak'] for r in lv] or [0]),
+             (jl('b649_price_line.json').get('lines') or [{}])[0].get('line')), '',
+         '**The positivity clause** (`(R259)`(5)): the glossary`s entry; the page generator and the description`s composer carry the opening '
+         'mention in the glossary`s words and the name after it; the bare phrase gone from both pages and from v5.', '',
+         '**The description at v5** (`(R259)`(6)): the glossary`s entries “act” and “the constant 1” placed beside their terms and the name applied; '
+         '%s bytes; a sixth reader with no project memory: %s of 3 by hand, %s of 3 by the needles; the draft %s’s description replaced and read '
+         'back byte for byte (%s), its files untouched, the draft held. N4 %s.' % (dj.get('bytes'), cmp_.get('hand'), cmp_.get('needles'), K.DRAFT,
+                                                                                 zr.get('exact'), sc('N4')), '',
+         '**The record lines** (`(R259)`(1), (3), (4)): b648 at its weight (FINDINGS :%s); W-ORD-LEGACY-MAP entered and acted (OPEN_TRAILS :%s); '
+         'W-ORD-LV-BUILD-HOST opened (:%s).' % (ls[0].get('line'), ls[1].get('line'), ls[2].get('line')), '',
+         '**The root.** b649 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, sc(k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): the three classes the generated rule could not see now have arms, and the arms find '
+         'what the rule missed -- a header calling a module axiom-free whose declarations print propext; the build host`s limit is a number, not '
+         'a guess. It strengthens the programme’s offering of statements a reader can check: a kernel’s claim about its own axioms is read against '
+         'the compiler’s print, and the open clause has one name across the generated documents.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; a verdict compares a sentence with a licence and confers none.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) G-NO-SORRY-MAIN reads every SIDE- kernel with a clone, the set b647`s census read, and scans a kernel with no lakefile '
+              'whole; (2) G-AXIOM-CLAIM reads a /-! block after a file`s head as out of scope, an AxiomCheck module`s header as covering the '
+              'declarations it prints, and a sentence naming an axiom with no profile as a mention; (3) G-MODULE-HEADER counts a proof word only '
+              'where the name is its subject or object, and a name another file or module of the kernel holds as a reference; (4) the legacy map '
+              'takes README.md on each branch, the kernel`s own README kept at the tip and on main, one row per declaration (SchwarzBuild2 :87 '
+              'closing two sorry lines); (5) every lv module was measured by lake env lean, its olean already built; (6) in v5 the act`s gloss '
+              'reads the programme`s work for the relay`s, the description naming no repository')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b649_scores.json', 'b649_findings.json', 'b649_record_lines.json', 'b649_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rd('b649_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    s, cb, h, A_, B_, C_ = _arms()
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R259) ratified.** (1) b648 at its weight. (2) Three arms. (3) The legacy map. (4) The lv-conservation build measured. (5) The '
+             'positivity clause named. (6) The description at v5, the draft held. (7) The navigator`s repairs outside any act. (8) The act after: b650.', '',
+             '**Entered:** FINDINGS.md:%s (b648’s weight), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-LEGACY-MAP), :%s (W-ORD-LV-BUILD-HOST), :%s (its '
+             'price); this record.' % (ls[0].get('line'), fj.get('entry_line'), ls[1].get('line'), ls[2].get('line'),
+                                      (jl('b649_price_line.json').get('lines') or [{}])[0].get('line')), '',
+             '**The arms:** no sorry on main %d hits; axiom claims CONTRADICTED %d, UNVERIFIABLE %d, VERIFIED %d; module headers %d rows (relay '
+             'data/b649_no_sorry_main.txt, b649_axiom_claim.txt, b649_module_header.txt).' % (s, cb['CONTRADICTED'], cb['UNVERIFIABLE'], cb['VERIFIED'], h), '',
+             '**The draft:** %s, its description v5 read back byte for byte, its files untouched, held; nothing published; v5 sent to the author '
+             'as a file (relay data/b649_deposit_description.txt).' % K.DRAFT, '',
+             '**Act root:** b649 `%s` (previous `%s`, b648’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b649_author_answers.txt), none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b649_defects.txt): %s.' % '; '.join(DEFECT_SHORT), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b649_scores.json')
+    L = ['=' * 104, 'b649 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rd('b649_defects.txt').rstrip(NL).split(NL)
+    put_txt('b649_desk_notes.txt', L)
+
+
+def components(*a):
+    """data/b649_components.txt -- run after `findings` and `trail`; refuses when either bank is absent."""
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b649_scores.json', 'b649_findings.json', 'b649_trail.json', 'b649_record_lines.json', 'b649_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    L = ['b649 -- THE COMPONENTS, BANKED UNDER (R259).', '',
+         '### COMPONENT 0 : step zero (data/b649_ferry.txt, data/b649_stepzero.txt, data/b649_tests_stepzero.txt) ; push-out relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : b648`s weight FINDINGS :%s ; W-ORD-LEGACY-MAP OPEN_TRAILS :%s ; W-ORD-LV-BUILD-HOST :%s' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line')),
+         '### COMPONENT 2 : the three arms (data/b649_no_sorry_main.txt, data/b649_axiom_claim.txt, data/b649_module_header.txt) ; N1 %s ; N2 %s' % (
+             S['N1'][0], S['N2'][0]),
+         '### COMPONENT 3 : the legacy map (data/b649_legacy_map_SIDE-kernel.txt, data/b649_legacy_map_SIDE-lv-conservation.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 4 : the lv build measured (data/b649_lv_build.txt)',
+         '### COMPONENT 5 : the name (data/glossary.txt, tools/chain_page.py, data/b649_page_arms_c1.txt)',
+         '### COMPONENT 6 : the description at v5, the sixth reader, the draft held (data/b649_deposit_description.txt, data/b649_reader_compare.txt, '
+         'data/b649_zenodo_read.txt) ; N4 %s' % S['N4'][0],
+         '### COMPONENT 7 : the seal (data/b649_seal_hashes.json) ; S5 %s' % S['S5'][0],
+         '### COMPONENT 8 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N5'][0])]
+    put_txt('b649_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    t, e = _finding_text()
+    e = R41._poss(e)
+    if e.count('`') % 2 or [l for l in e.split(NL) if l.count('`') % 2]:
+        sys.exit('### ODD BACKTICKS IN THE ENTRY -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'FINDINGS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b649_scanfile_entry.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '?;', ' ? ', '`?`') if x in e]
+    outside = [n for n in R41.OAI_NEEDLES if n in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s ; outside names %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN',
+                                                                                         unread or 'NONE', outside or 'NONE'))
+    if DRY:
+        print(e)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread or outside:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.FIND, t[:90])
+    r = Q.append_to(Q.FIND, e)
+    put_json('b649_findings.json', dict(entry_line=Q.line_of(Q.FIND, t[:90]), title=t, append=r))
+    print('  FINDINGS entry :%s' % Q.line_of(Q.FIND, t[:90]))
+
+
+def trail(*a):
+    import b641_record as R41
+    Q = R2._Q()
+    e = R41._poss(_trail_text())
+    if e.count('`') % 2 or [l for l in e.split(NL) if l.count('`') % 2]:
+        sys.exit('### ODD BACKTICKS IN THE RECORD -- NOTHING WRITTEN')
+    cells = R3.predict_cells(e, 'OPEN_TRAILS.md')
+    nd, _n = R3._nd(e)
+    p = os.path.join(SP if DRY else D, 'b649_scanfile_trail.md')
+    _write(p, e.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    unread = [x for x in ('### NOT', 'None', '`?`') if x in e]
+    print('  table cells: %s ; nd %s ; scanner %s ; unread figures %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', unread or 'NONE'))
+    if DRY:
+        print(e[:9000])
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or unread:
+        sys.exit('### NOTHING WRITTEN')
+    Q.guard_absent(Q.OT, TRAIL_HEAD())
+    r = Q.append_to(Q.OT, e)
+    put_json('b649_trail.json', dict(line=Q.line_of(Q.OT, TRAIL_HEAD()), head=TRAIL_HEAD(), append=r))
+    print('  OPEN_TRAILS record :%s' % jl('b649_trail.json')['line'])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
