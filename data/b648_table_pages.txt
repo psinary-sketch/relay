@@ -1,0 +1,1319 @@
+b648 -- COMPONENT 3, (R258)(3): THE TWO PAGES THROUGH THE LICENSED-STATEMENT TABLE (2026-10-11T00:39:05Z)
+read at PLACE-papers 6783833 (the pages), relay 8a8e9cc8 (the generator, the table, the probes, the lists), SIDE-explicit-formula 82550e4, SIDE-global-section 17ce9ff, Mathlib de5ce8a9
+the rules: HAND -- the prose sentences and the glossary entries, each citing the lines read, and the Placement rows at the line the path carries; terminal -- a claim naming a terminal against that terminal`s row in the terminal table (grade, statement, profile) and, for a premise, its status in the premise table
+
+### THE_CLAUSE_AND_ITS_COMPILED_FACES.md (zeta): 709 rows; 8 lines not sentences (a title, a heading, a table`s head) -- 1 # THE CLAUSE AND ITS COMPILED FACES; 5 ## Glossary; 165 ## Placement; 167 | object | path |; 168 |:--|:--|; 218 ## Correspondence; 220 | declaration | repository | grade | tier |; 221 |:--|:--|:--|:--|
+  prose           MATCHES 16  UNDERSTATES 0  OVERREACHES 0  UNLICENSED 0
+  glossary        MATCHES 77  UNDERSTATES 0  OVERREACHES 0  UNLICENSED 1
+  node            MATCHES 69  UNDERSTATES 1  OVERREACHES 0  UNLICENSED 0
+  placement       MATCHES 47  UNDERSTATES 1  OVERREACHES 0  UNLICENSED 0
+  correspondence  MATCHES 497  UNDERSTATES 0  OVERREACHES 0  UNLICENSED 0
+
+### THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md (chi): 552 rows; 8 lines not sentences (a title, a heading, a table`s head) -- 1 # THE CLAUSE AT THE DIRICHLET INSTANCE; 5 ## Glossary; 136 ## Placement; 138 | object | path |; 139 |:--|:--|; 171 ## Correspondence; 173 | declaration | repository | grade | tier |; 174 |:--|:--|:--|:--|
+  prose           MATCHES 11  UNDERSTATES 0  OVERREACHES 1  UNLICENSED 0
+  glossary        MATCHES 77  UNDERSTATES 0  OVERREACHES 0  UNLICENSED 1
+  node            MATCHES 39  UNDERSTATES 0  OVERREACHES 2  UNLICENSED 0
+  placement       MATCHES 30  UNDERSTATES 0  OVERREACHES 0  UNLICENSED 0
+  correspondence  MATCHES 391  UNDERSTATES 0  OVERREACHES 0  UNLICENSED 0
+
+### NOT MATCHES, IN FULL
+  [UNLICENSED] zeta:gloss:65 THE_CLAUSE_AND_ITS_COMPILED_FACES.md:73 by HAND
+      stated: glossary entry 65: bNNN
+      licensed: the entry`s "(b638 is this one)": on a page or a census generated after b638 it names an act that is not the one the reader holds, and nothing in the corpus makes a later document b638`s
+      cited: PLACE-papers@6783833:OPEN_TRAILS.md:13339
+      action: W-ORD-GLOSSARY-ACT-NAME, TRIGGER the author`s word on the re-cut order ((R258)(6)); relay data/glossary.txt is additive and its line stays; the re-cut is an appended entry for bNNN without the parenthesis, by the author`s word
+  [UNDERSTATES] zeta:node:SIDEExplicitFormula.B321.h2_sign_upto THE_CLAUSE_AND_ITS_COMPILED_FACES.md:98 by terminal
+      stated: node line 9: E0 DEF
+      licensed: SIDEExplicitFormula.B321.h2_sign_upto at 82550e4 : def h2_sign_upto (L₀ : ℝ) : Prop -- grade DERIVES
+      cited: 
+      action: RE-CUT: the node line printed with the table`s grade beside the E0 grade -- "E0: DEF (table: DERIVES)" -- by the template repair of relay tools/chain_page.py (Component 3)
+  [UNDERSTATES] zeta:place:216 THE_CLAUSE_AND_ITS_COMPILED_FACES.md:216 by HAND
+      stated: Placement: the χ-leg -> its own page when `EF_lit_chi`'s proof lands (SIDE-explicit-formula `SIDEExplicitFormula/C
+      licensed: the χ-leg`s page exists, THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md, generated under (R183)(5); the row says it will have one when EF_lit_chi`s proof lands -- a fixed string in the generator`s template
+      cited: PLACE-papers@6783833:THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:1, relay@8a8e9cc8:tools/chain_page.py:766
+      action: RE-CUT: | the χ-leg | `THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md` | -- the χ page`s own form for the ζ-leg, by the template repair of relay tools/chain_page.py (Component 3)
+  [UNLICENSED] chi:gloss:65 THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:73 by HAND
+      stated: glossary entry 65: bNNN
+      licensed: the entry`s "(b638 is this one)": on a page or a census generated after b638 it names an act that is not the one the reader holds, and nothing in the corpus makes a later document b638`s
+      cited: PLACE-papers@6783833:OPEN_TRAILS.md:13339
+      action: W-ORD-GLOSSARY-ACT-NAME, TRIGGER the author`s word on the re-cut order ((R258)(6)); relay data/glossary.txt is additive and its line stays; the re-cut is an appended entry for bNNN without the parenthesis, by the author`s word
+  [OVERREACHES] chi:node:SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:100 by terminal
+      stated: node line 11: E0 DERIVES
+      licensed: SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi at 82550e4 : theorem h2_sign_chi_imp_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ → GRH_chi χ -- grade INTERFACES
+      cited: 
+      action: RE-CUT: the node line printed with the table`s grade beside the E0 grade -- "E0: DERIVES (table: INTERFACES)" -- by the template repair of relay tools/chain_page.py (Component 3)
+  [OVERREACHES] chi:node:SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:101 by terminal
+      stated: node line 12: E0 DERIVES
+      licensed: SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi at 82550e4 : theorem h2_sign_chi_iff_grh_chi (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (h1 : χ ≠ 1) : h2_sign_chi χ ↔ GRH_chi χ -- grade INTERFACES
+      cited: 
+      action: RE-CUT: the node line printed with the table`s grade beside the E0 grade -- "E0: DERIVES (table: INTERFACES)" -- by the template repair of relay tools/chain_page.py (Component 3)
+  [OVERREACHES] chi:prose:567.1 THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:567 by HAND
+      stated: the instance's positivity equivalence is the family theorem with the trivial summand added and needs no premise; the two premises are what it costs to read the summed side as the Dedekind zeta's, and 
+      licensed: dedekind_instance DERIVES; but of dedekind_rhs`s two premises TrivialSummandPremise is REFUTED-BY-COMPUTATION (b643`s premise table :47) -- the sentence offers a refuted premise as the cost of the reading; at v0.26 the reading is dedekind_rhs' on TrivialSummandPremise' k, witnessed
+      cited: relay@8a8e9cc8:data/b643_premise_table.txt:47, relay@8a8e9cc8:data/b643_premise_table.txt:14
+      action: RE-CUT: the instance`s positivity equivalence is the family theorem with the trivial summand added and needs no premise; reading the summed side as the Dedekind zeta's costs two premises, which at v0.26 sit on dedekind_rhs' -- TrivialSummandPremise' k and EulerFactorPremise q, both witnessed -- the earlier TrivialSummandPremise of dedekind_rhs being REFUTED-BY-COMPUTATION. (The node list`s backmatter record, data, not the generator`s template: HELD for the author`s word on the re-cut order.)
+
+### EVERY ROW
+  zeta:prose:3.1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:3 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:742-744, relay@8a8e9cc8:data/b643_nodes_zeta.txt:144
+  zeta:prose:3.2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:3 | MATCHES | HAND | relay@8a8e9cc8:data/b643_nodes_zeta.txt:59, relay@8a8e9cc8:data/b643_nodes_chi.txt:39, relay@8a8e9cc8:tools/chain_page.py:87-96
+  zeta:prose:3.3 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:3 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:761-762, relay@8a8e9cc8:tools/chain_page.py:795-796
+  zeta:prose:3.4 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:3 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:384-408, relay@8a8e9cc8:tools/chain_page.py:913
+  zeta:prose:7.1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:7 | MATCHES | HAND | relay@8a8e9cc8:data/glossary.txt:1-5
+  zeta:prose:7.2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:7 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:494-496, relay@8a8e9cc8:data/b647_glossary_block.txt:1
+  zeta:gloss:1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:9 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354, PLACE-papers@6783833:README.md:22-23
+  zeta:gloss:2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:10 | MATCHES | HAND | mathlib@de5ce8a9:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185
+  zeta:gloss:3 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:11 | MATCHES | HAND | PLACE-papers@6783833:README.md:125
+  zeta:gloss:4 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:12 | MATCHES | HAND | relay@8a8e9cc8:data/b638_ferry.txt:70, PLACE-papers@6783833:README.md:22-23, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:459
+  zeta:gloss:5 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:13 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:28
+  zeta:gloss:6 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:14 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:28-29
+  zeta:gloss:7 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:15 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:22-26
+  zeta:gloss:8 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:16 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/Seam.lean:100-101, PLACE-papers@6783833:README.md:115, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:459
+  zeta:gloss:9 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:17 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  zeta:gloss:10 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:18 | MATCHES | HAND | PLACE-papers@6783833:README.md:121, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476
+  zeta:gloss:11 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:19 | MATCHES | HAND | PLACE-papers@6783833:README.md:121, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476
+  zeta:gloss:12 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:20 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/PowerWindow.lean:492-495, PLACE-papers@6783833:README.md:113, relay@8a8e9cc8:tools/e0_rule.py:420
+  zeta:gloss:13 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:21 | MATCHES | HAND | PLACE-papers@6783833:README.md:18
+  zeta:gloss:14 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:22 | MATCHES | HAND | PLACE-papers@6783833:README.md:15, PLACE-papers@6783833:README.md:18
+  zeta:gloss:15 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:23 | MATCHES | HAND | PLACE-papers@6783833:README.md:15
+  zeta:gloss:16 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:24 | MATCHES | HAND | PLACE-papers@6783833:README.md:18
+  zeta:gloss:17 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:25 | MATCHES | HAND | PLACE-papers@6783833:README.md:79-80
+  zeta:gloss:18 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:26 | MATCHES | HAND | PLACE-papers@6783833:THE_CLAUSE_AND_ITS_COMPILED_FACES.md:3, PLACE-papers@6783833:REGISTRY.md:924
+  zeta:gloss:19 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:27 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  zeta:gloss:20 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:28 | MATCHES | HAND | relay@8a8e9cc8:tools/e0_rule.py:27, PLACE-papers@6783833:OPEN_TRAILS.md:13337
+  zeta:gloss:21 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:29 | MATCHES | HAND | relay@8a8e9cc8:data/b637_binder_classes.txt:1
+  zeta:gloss:22 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:30 | MATCHES | HAND | relay@8a8e9cc8:data/b637_binder_classes.txt:1, relay@8a8e9cc8:tools/e0_rule.py:514
+  zeta:gloss:23 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:31 | MATCHES | HAND | relay@8a8e9cc8:tools/e0_rule.py:43
+  zeta:gloss:24 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:32 | MATCHES | HAND | relay@8a8e9cc8:tools/e0_rule.py:43
+  zeta:gloss:25 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:33 | MATCHES | HAND | PLACE-papers@6783833:README.md:64-65
+  zeta:gloss:26 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:34 | MATCHES | HAND | PLACE-papers@6783833:README.md:66-68
+  zeta:gloss:27 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:35 | MATCHES | HAND | PLACE-papers@6783833:README.md:69-71, relay@8a8e9cc8:tools/e0_rule.py:39
+  zeta:gloss:28 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:36 | MATCHES | HAND | PLACE-papers@6783833:README.md:69-71
+  zeta:gloss:29 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:37 | MATCHES | HAND | relay@8a8e9cc8:tools/terminal_table.py:18
+  zeta:gloss:30 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:38 | MATCHES | HAND | PLACE-papers@6783833:README.md:72-73
+  zeta:gloss:31 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:39 | MATCHES | HAND | relay@8a8e9cc8:data/b637_binder_classes.txt:48
+  zeta:gloss:32 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:40 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13221
+  zeta:gloss:33 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:41 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13221, relay@8a8e9cc8:tools/e0_rule.py:308
+  zeta:gloss:34 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:42 | MATCHES | HAND | relay@8a8e9cc8:tools/terminal_table.py:10-12
+  zeta:gloss:35 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:43 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:43
+  zeta:gloss:36 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:44 | MATCHES | HAND | relay@8a8e9cc8:tools/terminal_table.py:1-12
+  zeta:gloss:37 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:45 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:43, relay@8a8e9cc8:tools/terminal_table.py:338
+  zeta:gloss:38 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:46 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13335
+  zeta:gloss:39 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:47 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:21-22
+  zeta:gloss:40 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:48 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:22-24, PLACE-papers@6783833:FINDINGS.md:4823, PLACE-papers@6783833:FINDINGS.md:5812
+  zeta:gloss:41 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:49 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:4823, PLACE-papers@6783833:FINDINGS.md:5812
+  zeta:gloss:42 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:50 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:25-28
+  zeta:gloss:43 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:51 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:5812
+  zeta:gloss:44 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:52 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:28-29
+  zeta:gloss:45 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:53 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:29-30
+  zeta:gloss:46 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:54 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:20
+  zeta:gloss:47 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:55 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md:14-20, PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:20
+  zeta:gloss:48 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:56 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:41
+  zeta:gloss:49 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:57 | MATCHES | HAND | PLACE-papers@6783833:README.md:35
+  zeta:gloss:50 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:58 | MATCHES | HAND | PLACE-papers@6783833:README.md:37, PLACE-papers@6783833:FINDINGS.md:6450
+  zeta:gloss:51 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:59 | MATCHES | HAND | PLACE-papers@6783833:README.md:36, PLACE-papers@6783833:FINDINGS.md:6450
+  zeta:gloss:52 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:60 | MATCHES | HAND | PLACE-papers@6783833:README.md:36
+  zeta:gloss:53 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:61 | MATCHES | HAND | PLACE-papers@6783833:README.md:40
+  zeta:gloss:54 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:62 | MATCHES | HAND | PLACE-papers@6783833:README.md:39
+  zeta:gloss:55 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:63 | MATCHES | HAND | PLACE-papers@6783833:README.md:41
+  zeta:gloss:56 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:64 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354
+  zeta:gloss:57 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:65 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md:1
+  zeta:gloss:58 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:66 | MATCHES | HAND | PLACE-papers@6783833:README.md:106, PLACE-papers@6783833:README.md:113-125
+  zeta:gloss:59 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:67 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11864
+  zeta:gloss:60 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:68 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11864
+  zeta:gloss:61 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:69 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11864
+  zeta:gloss:62 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:70 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12699
+  zeta:gloss:63 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:71 | MATCHES | HAND | PLACE-papers@6783833:REGISTRY.md:360
+  zeta:gloss:64 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:72 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11413
+  zeta:gloss:65 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:73 | UNLICENSED | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13339
+  zeta:gloss:66 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:74 | MATCHES | HAND | relay@8a8e9cc8:data/b638_ferry.txt:1-3
+  zeta:gloss:67 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:75 | MATCHES | HAND | relay@8a8e9cc8:tools/act_root.py:4-10
+  zeta:gloss:68 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:76 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354
+  zeta:gloss:69 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:77 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354
+  zeta:gloss:70 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:78 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13489
+  zeta:gloss:71 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:79 | MATCHES | HAND | relay@8a8e9cc8:data/b642_ferry.txt:92
+  zeta:gloss:72 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:80 | MATCHES | HAND | relay@8a8e9cc8:data/b643_ferry.txt:97
+  zeta:gloss:73 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:81 | MATCHES | HAND | relay@8a8e9cc8:data/b643_ferry.txt:97
+  zeta:gloss:74 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:82 | MATCHES | HAND | relay@8a8e9cc8:data/b643_author_answers.txt:4-5
+  zeta:gloss:75 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:83 | MATCHES | HAND | relay@8a8e9cc8:data/b643_ferry.txt:97
+  zeta:gloss:76 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:84 | MATCHES | HAND | relay@8a8e9cc8:data/b644_ferry.txt:72
+  zeta:gloss:77 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:85 | MATCHES | HAND | relay@8a8e9cc8:data/b644_ferry.txt:72
+  zeta:gloss:78 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:86 | MATCHES | HAND | relay@8a8e9cc8:data/b644_ferry.txt:72
+  zeta:prose:88.1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:88 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:442-449, relay@8a8e9cc8:tools/chain_page.py:687-697
+  zeta:node:riemannZeta | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:90 | MATCHES | HAND | relay@8a8e9cc8:data/b643_probe_out_zeta.txt:10
+  zeta:node:RiemannHypothesis | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:91 | MATCHES | HAND | relay@8a8e9cc8:data/b643_probe_out_zeta.txt:2
+  zeta:node:Zeta23.zetaZeroConfig | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:92 | MATCHES | terminal | 
+  zeta:node:Zeta23.WeilEF.EF_lit_zetaZeroConfig | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:93 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.B321.classK | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:94 | MATCHES | HAND | relay@8a8e9cc8:data/b643_probe_out_zeta.txt:34
+  zeta:node:SIDEExplicitFormula.B321.h2_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:95 | MATCHES | HAND | relay@8a8e9cc8:data/b643_probe_out_zeta.txt:44
+  zeta:node:SIDEExplicitFormula.B321.ch_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:96 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.B321.h2_sign_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:97 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.B321.h2_sign_upto | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:98 | UNDERSTATES | terminal | 
+  zeta:node:SIDEExplicitFormula.B321.h2_sign_iff_forall_upto | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:99 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.B321.forall_upto_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:100 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiWeil.liTerm | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:101 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiWeil.LiCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:102 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiWeil.rh_imp_li_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:103 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiWeil.symMember | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:104 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiWeil.li_identity_sym | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:105 | MATCHES | terminal | 
+  zeta:node:LiCriterion.taylorCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:106 | MATCHES | HAND | relay@8a8e9cc8:data/b643_probe_out_zeta.txt:164
+  zeta:node:SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:107 | MATCHES | terminal | 
+  zeta:node:LiCriterion.positivity_implies_RH | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:108 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:109 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.stieltjes | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:110 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.KeiperTaylor | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:111 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.KeiperTaylorIdentity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:112 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.KeiperObligations | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:113 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.keiperTaylorIdentity_of | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:114 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.keiperTaylor_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:115 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Keiper.liCoeff_one_keiper | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:116 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.KeiperSign.liCoeff_one_pos_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:117 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.KeiperSign.threshold_lt_gamma | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:118 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.KeiperSign.liCoeff_one_pos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:119 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.KeiperBounds.KeiperBounds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:120 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.KeiperBounds.BoundPremises | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:121 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.KeiperBounds.keiperBounds_of | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:122 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.LiCriterionBridge.arith_limit_nonneg_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:123 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.ResidueDischarge.Register4_positivity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:124 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:125 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:126 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PageConverses.taylorCoeff_nonneg_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:127 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Simplicity.allSimple | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:128 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Simplicity.simplicity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:129 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Simplicity.simplicity_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:130 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Simplicity.SimpleProportion | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:131 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Simplicity.exceptional_mass_le_third | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:132 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Product.sum_ef | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:133 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Product.sum | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:134 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Product.ProductLemma | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:135 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Product.h2_sign_cfg_sum_iff_targets | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:136 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Product.productLemma_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:137 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Doubling.DoublingCorollary | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:138 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Doubling.doubling_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:139 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Doubling.PositivityImpliesSimplicity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:140 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.Doubling.positivity_not_imp_simplicity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:141 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PlattRung.rh_upto | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:142 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PlattRung.forall_rh_upto_iff_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:143 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PlattRung.plattTrudgianT | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:144 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PlattRung.PlattTrudgianHeight | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:145 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.PlattRung.rh_upto_platt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:146 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.rhoFun | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:147 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.rhoFun_measurable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:148 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.unitMeasure | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:149 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.rhoFun_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:150 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.rhoFun_memLp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:151 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.rho | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:152 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.constOne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:153 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.NB | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:154 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.BD | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:155 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.NymanBeurlingPremise | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:156 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.rh_iff_nb | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:157 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.distN | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:158 | MATCHES | terminal | 
+  zeta:node:SIDEExplicitFormula.NymanBeurling.distN_antitone | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:159 | MATCHES | terminal | 
+  zeta:prose:161.1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:161 | MATCHES | HAND | SIDE-global-section@17ce9ff:CORRESPONDENCE.md:459, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476
+  zeta:prose:163.1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:163 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  zeta:prose:163.2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:163 | MATCHES | HAND | PLACE-papers@6783833:README.md:121, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476
+  zeta:prose:163.3 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:163 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  zeta:prose:163.4 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:163 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  zeta:place:169 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:169 | MATCHES | HAND | PLACE-papers@6783833:THE_CLAUSE_AND_ITS_COMPILED_FACES.md:1
+  zeta:place:170 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:170 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:1
+  zeta:place:171 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:171 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:1
+  zeta:place:172 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:172 | MATCHES | HAND | PLACE-papers@6783833:ERRATA.md:1
+  zeta:place:173 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:173 | MATCHES | HAND | PLACE-papers@6783833:FACES_LEDGER.md:1
+  zeta:place:174 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:174 | MATCHES | HAND | PLACE-papers@6783833:README.md:121, PLACE-papers@6783833:REGISTRY.md:956
+  zeta:place:175 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:175 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_14.md:32
+  zeta:place:176 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:176 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_15.md:33
+  zeta:place:177 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:177 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_16.md:34
+  zeta:place:178 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:178 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_17.md:35
+  zeta:place:179 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:179 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_18.md:36
+  zeta:place:180 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:180 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/ENUMERA_v1_6.md:15
+  zeta:place:181 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:181 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/EXHAUSTIVENESS_LICENSE_v0_2.md:15
+  zeta:place:182 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:182 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/INVARIANCE_BARRIERS.md:741
+  zeta:place:183 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:183 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/INVARIANCE_BARRIERS_v1_4.md:23
+  zeta:place:184 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:184 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/TECHNE_TOOLKIT_v8_3.md:417
+  zeta:place:185 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:185 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/THE_LOAD_BEARING_MAP.md:89
+  zeta:place:186 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:186 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md:687
+  zeta:place:187 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:187 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md:23
+  zeta:place:188 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:188 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md:550
+  zeta:place:189 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:189 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md:47
+  zeta:place:190 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:190 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md:28
+  zeta:place:191 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:191 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION_v0_2.md:28
+  zeta:place:192 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:192 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_RESIDUE_OF_RH.md:240
+  zeta:place:193 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:193 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_RESIDUE_OF_RH_v1_2.md:79
+  zeta:place:194 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:194 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md:229
+  zeta:place:195 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:195 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md:39
+  zeta:place:196 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:196 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md:15
+  zeta:place:197 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:197 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md:26
+  zeta:place:198 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:198 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/spectral/BALANCE_AND_POSITIVITY.md:686
+  zeta:place:199 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:199 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md:22
+  zeta:place:200 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:200 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/spectral/GRH_CASCADE_v0_3_6.md:45
+  zeta:place:201 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:201 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md:32
+  zeta:place:202 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:202 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md:35
+  zeta:place:203 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:203 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md:218
+  zeta:place:204 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:204 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md:41
+  zeta:place:205 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:205 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND.md:485
+  zeta:place:206 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:206 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_2.md:9
+  zeta:place:207 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:207 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_3.md:11
+  zeta:place:208 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:208 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_4.md:13
+  zeta:place:209 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:209 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_5.md:15
+  zeta:place:210 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:210 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md:17
+  zeta:place:211 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:211 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_IDENTITY_CHAIN.md:3208
+  zeta:place:212 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:212 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:122
+  zeta:place:213 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:213 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_6.md:5
+  zeta:place:214 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:214 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_7.md:5
+  zeta:place:215 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:215 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_7_1.md:5
+  zeta:place:216 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:216 | UNDERSTATES | HAND | PLACE-papers@6783833:THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:1, relay@8a8e9cc8:tools/chain_page.py:766
+  zeta:corr:SIDEExplicitFormula.B321.Aw_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:222 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Efac_ne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:223 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Ep_prod | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:224 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Kp_kill | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:225 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Kp_tie_ne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:226 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Nf_pos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:227 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.PWSetup.c4 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:228 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.PWSetup.kfin | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:229 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.PWSetup.tfin | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:230 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Pof_eval | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:231 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Pof_prod | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:232 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.VF_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:233 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.XV_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:234 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.XV_ne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:235 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.XV_node | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:236 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Xval_ne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:237 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Xval_norm | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:238 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Xval_real_neg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:239 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Yv_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:240 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Yv_mul | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:241 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.Yv_ne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:242 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.aeval_Ep | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:243 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.aeval_X_sq_comp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:244 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.aeval_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:245 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.aeval_real | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:246 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.b321_identity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:247 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.balance_lemma | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:248 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.base_nonzero_at | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:249 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cE_big | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:250 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cE_pos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:251 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ceil_weight | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:252 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ch_iff_h2_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:253 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:254 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ch_imp_config | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:255 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ch_imp_h2_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:256 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ch_imp_rh | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:257 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.classK_of_real_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:258 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.coeffs_exist | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:259 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cosWinC_FT | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:260 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cosWinC_FT_near_far | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:261 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cosWin_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:262 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cosWin_support_Icc | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:263 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.cosh_le_exp_abs | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:264 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.dominant_exists | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:265 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.dominant_summable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:266 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.f4_needs_of_half_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:267 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.fR_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:268 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.fR_norm_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:269 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.farFT_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:270 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.fiber_count | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:271 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.finite_rest_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:272 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.fixed_poly_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:273 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gHat_ne | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:274 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gammaOf_im' | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:275 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gammaOf_re' | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:276 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gammaOf_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:277 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gammaOf_reflect_rhoZero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:278 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gammaOf_rhoZero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:279 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.gammaOf_sq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:280 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_iff_rh_strip | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:281 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_cell | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:282 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_ch_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:283 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_ch_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:284 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_rh_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:285 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:286 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_rh_strip | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:287 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:288 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.h2_sign_imp_upto | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:289 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.hasCompactSupport_of_Icc | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:290 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.ibp_step | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:291 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.iteratedDeriv_even_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:292 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.kWin_FT | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:293 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.kWin_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:294 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.kWin_classK | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:295 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.kWindow_classK | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:296 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.kWindow_term | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:297 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.killSet_finite | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:298 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.kill_term_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:299 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.mem_KF | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:300 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.mem_TF | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:301 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.mem_sT | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:302 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.nearInt_ge | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:303 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.nearPair_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:304 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.neg_one_pow_mul_iz_pow | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:305 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.nodes_distinct | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:306 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.norm_Yv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:307 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.norm_sqrtC | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:308 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.norm_wOf | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:309 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.not_f4_needs | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:310 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.offScore_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:311 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.off_finite_above | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:312 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pairTwo_factored | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:313 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pairTwo_near_far | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:314 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pair_algebra | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:315 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pair_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:316 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pair_near_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:317 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_conj_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:318 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_conj_of_real | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:319 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_conj_of_real_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:320 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_decay | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:321 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_decay_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:322 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_decay_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:323 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_growth | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:324 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_growth_at | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:325 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_iteratedDeriv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:326 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_neg_of_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:327 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_ofReal_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:328 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_of_sq_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:329 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_polyOp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:330 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_polyOpFull | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:331 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_power | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:332 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_second_order | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:333 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_sum | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:334 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_window | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:335 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.paperFT_window_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:336 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.phiC_FT_imag | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:337 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.phiC_FT_neg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:338 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.phiC_selfConv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:339 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_apply_abs | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:340 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:341 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_dominant | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:342 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_eq_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:343 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:344 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_hasCompactSupport | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:345 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_integral_pos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:346 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:347 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.plateau_support_Icc | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:348 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.polyEvalFull_coeffList | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:349 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.polyOpFull_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:350 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.polyOpFull_support | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:351 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.polyOp_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:352 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.polyOp_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:353 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.polyOp_support | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:354 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.poly_norm_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:355 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.power_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:356 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.power_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:357 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.power_support | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:358 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pwWindow_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:359 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.pwWindow_support | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:360 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rT_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:361 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rT_norm | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:362 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rT_sq_mul | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:363 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.real_even_interpolant | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:364 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.realizedGrowth_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:365 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.realizedGrowth_ge_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:366 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.realizedGrowth_le_exp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:367 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.reflect_im | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:368 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.reflect_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:369 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rep_spec | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:370 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.restR_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:371 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rest_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:372 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rest_bound_closed | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:373 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rest_bound_zeta | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:374 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rest_le_of_finite | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:375 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rest_tendsto_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:376 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rest_term_small | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:377 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rh_imp_cell_form | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:378 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rh_imp_ch | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:379 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rh_imp_h2_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:380 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rh_imp_rh_strip | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:381 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rh_strip_imp_h2_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:382 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.rh_strip_imp_rh_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:383 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.selfConv_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:384 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.selfConv_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:385 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.selfConv_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:386 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.selfConv_im_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:387 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.selfConv_support | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:388 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.sqrtC_sq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:389 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.summable_zeta3 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:390 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.support_deriv_Icc | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:391 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.support_iteratedDeriv_Icc | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:392 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.term_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:393 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.tieSet_finite | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:394 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.tieSet_nonempty | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:395 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.tie_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:396 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.tie_term_neg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:397 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.two_delta_lt_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:398 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.upto_all_imp_h2_sign | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:399 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.vOf_im | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:400 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.vOf_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:401 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.vOf_real_of_on | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:402 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.vOf_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:403 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.v_eq_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:404 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.wOf_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:405 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.wOf_sq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:406 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.weight_ineq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:407 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.weighted_finite_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:408 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.weighted_summable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:409 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.weilTest_even_of_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:410 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.weilTest_ofReal_even | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:411 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.weilTest_phiC | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:412 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.windowSlope_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:413 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.window_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:414 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.window_decay_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:415 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zeroSideNeg_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:416 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zeroSide_eventually_neg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:417 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zero_term_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:418 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zero_term_real | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:419 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zero_term_sq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:420 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zero_weight | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:421 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zeta3Sum_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:422 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.B321.zeta_zero_re_nonpos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:423 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.SaltCheck.doubling_not_forced | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:424 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.SaltCheck.doubling_satisfiable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:425 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.SaltCheck.positivity_with_simplicity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:426 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.doubledToy | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:427 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.doubledToy_h2_sign_cfg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:428 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.doubledToy_mult_pt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:429 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.doubledToy_not_allSimple | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:430 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.doubledToy_pt_mem | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:431 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.doubling_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:432 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.sum_self_carrier | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:433 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Doubling.sum_self_mult | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:434 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.BinomialTransform | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:435 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.GammaRZetaValues | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:436 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.Lj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:437 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.LogDerivSplit | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:438 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_refutable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:439 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_satisfiable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:440 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.gamma_pos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:441 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.keiperTaylor_zero_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:442 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.log_four_pi_pos | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:443 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.split_needs_gammaR | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:444 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.split_needs_inv_s | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:445 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.SaltCheck.split_needs_zeta | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:446 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.StieltjesLog | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:447 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.analyticAt_logDeriv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:448 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.analyticAt_logDeriv_Gammaℝ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:449 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.analyticAt_logDeriv_riemannZeta₁ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:450 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.analyticAt_riemannZeta₀ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:451 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomBeta | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:452 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomBeta_succ_succ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:453 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomBeta_succ_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:454 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomBeta_top | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:455 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomBeta_zero_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:456 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomSum | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:457 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomSum_step_algebra | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:458 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomialTransform_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:459 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.binomialTransform_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:460 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.choose_key | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:461 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.contDiff_riemannZeta₀ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:462 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.differentiableAt_Gammaℝ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:463 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.differentiableOn_Lj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:464 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.differentiable_riemannXi | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:465 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.gammaRLogCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:466 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.gammaRLogCoeff_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:467 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.hasDerivAt_wInv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:468 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.hasDerivAt_xi_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:469 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.isOpen_xiNe | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:470 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.iterate_deriv_eventually | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:471 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.iteratedDeriv_sub_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:472 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.iteratedDeriv_succ_mul_sub_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:473 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.keiperA | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:474 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.keiperA_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:475 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.keiperSum | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:476 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.logDerivSplit_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:477 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.logDerivSplit_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:478 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.logDeriv_phi_xi | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:479 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.logDeriv_riemannXi_eventually | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:480 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.log_four_pi_ofReal | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:481 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.one_mem_xiNe | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:482 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.poleCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:483 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.poleCoeff_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:484 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.riemannXi_eq_split | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:485 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.stieltjesLog_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:486 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.stieltjesLog_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:487 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.stieltjes_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:488 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.stieltjes_zero_limit | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:489 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.taylorAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:490 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.taylorCoeff_xi_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:491 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.tendsto_riemannZeta₁_residue | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:492 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.wInv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:493 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.xiLogCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:494 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.xiLogCoeff_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:495 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.xiNe | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:496 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.xi_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:497 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.zetaLogCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:498 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Keiper.zetaLogCoeff_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:499 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.InInterval | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:500 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.StieltjesBoundsAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:501 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.ZetaValueBoundsAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:502 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.stHi | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:503 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.stLo | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:504 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.stieltjes_zero_coarse | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:505 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.table_refines_coarse | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:506 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.zHi | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:507 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperBounds.zLo | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:508 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.SaltCheck.coarse_lower_insufficient | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:509 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.SaltCheck.e_div_pi_lt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:510 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_lt_tenth | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:511 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_pos_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:512 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.SaltCheck.log_four_pi_gt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:513 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.SaltCheck.log_pi_ge | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:514 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.eulerMascheroniSeq_fifteen | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:515 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.gamma_gt_seq_fifteen | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:516 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.log_four_pi_lt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:517 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.log_pi_le_pi_div_e | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:518 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.log_sixteen | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:519 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.KeiperSign.pi_div_e_lt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:520 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.LiCoeff_eq_liReal | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:521 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.analyticOrderAt_xi_eq_zeta | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:522 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.carrierEquiv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:523 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.carrierEquiv_val | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:524 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.liReal | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:525 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.liReal_summable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:526 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.neg_term_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:527 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.pos_term_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:528 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.xiMult | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:529 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.xiMult_pairedZero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:530 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.xi_eq_half_Lambda | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:531 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiCriterionBridge.zeroMult_eq_xiMult | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:532 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.I_gammaOf_mul | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:533 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.LiCoeff_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:534 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.LiLimitExchange | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:535 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.LiLimitExchangeSym | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:536 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.SymPairBound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:537 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.binomial_li | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:538 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blPoly | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:539 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blPoly_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:540 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blPoly_contDiff_infty | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:541 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blPoly_neg_cast | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:542 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blSmooth | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:543 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blSmooth_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:544 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blTest | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:545 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blTest_integrand | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:546 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blTest_integrand_neg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:547 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blTransform | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:548 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.blTransform_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:549 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.conjEquiv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:550 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.conj_mem | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:551 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.deriv_smoothTransition_eq_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:552 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeCut_abs | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:553 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeProfile | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:554 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeProfile_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:555 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeProfile_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:556 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeProfile_eq_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:557 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeProfile_hasCompactSupport | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:558 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeTail | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:559 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeTail_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:560 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeTail_hasDerivAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:561 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeTail_ibp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:562 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.edgeTail_integrable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:563 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.exchange_of_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:564 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.exp_mul_hasDerivAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:565 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integrableOn_pow_mul_cexp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:566 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integrable_blTest_integrand | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:567 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integrable_cut_pow_cexp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:568 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integral_mul_cexp_ibp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:569 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integral_mul_cexp_ibp_iter | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:570 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integral_mul_cos_ibp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:571 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.integral_pow_mul_cexp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:572 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.jumpInd | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:573 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.jump_cos_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:574 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.leftEdge_integrable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:575 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.left_edge_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:576 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liConst | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:577 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liConst_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:578 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liLimitExchangeSym_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:579 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liTerm_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:580 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liTerm_re_abs_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:581 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:582 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.liTerm_re_summable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:583 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.li_identity_of_exchange | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:584 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.mult_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:585 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.ne_one_of_mem | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:586 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:587 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.norm_pow_mul_cexp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:588 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:589 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pairTerm | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:590 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pairTerm_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:591 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pairTerm_im | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:592 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pairTerm_norm_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:593 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pairTerm_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:594 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:595 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.pair_summable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:596 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.qf | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:597 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.qf1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:598 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.qf1_hasDerivAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:599 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.qf2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:600 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.qf_bounds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:601 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.qf_hasDerivAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:602 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.re_ofReal_mul_cexp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:603 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.rem_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:604 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.smoothTransition_one_sub | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:605 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:606 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_contDiff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:607 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_eq_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:608 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_eq_zero_left | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:609 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_eq_zero_right | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:610 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_le_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:611 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:612 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symCut_split | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:613 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_EF | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:614 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_classEF | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:615 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_integrand | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:616 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_integrand_exp | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:617 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_transform_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:618 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_transform_norm_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:619 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_transform_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:620 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symMember_transform_tendsto | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:621 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symPair_bound | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:622 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symZeroSum_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:623 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.symZeroSum_im | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:624 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.truncMember | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:625 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.truncMember_EF | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:626 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.truncMember_classEF | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:627 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.truncMember_eq | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:628 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.truncMember_transform_tendsto | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:629 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:630 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:631 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf1_hasDerivAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:632 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:633 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf_eq_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:634 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf_hasDerivAt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:635 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.LiWeil.wf_neg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:636 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.PageConverses.rh_imp_register4_positivity_liCoeff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:637 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.PageConverses.rh_imp_taylorCoeff_nonneg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:638 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.offCfg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:639 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.offCfg_not_h2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:640 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.onCfg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:641 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.onCfg_h2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:642 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.product_part_load_bearing | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:643 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.product_satisfiable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:644 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.SaltCheck.product_sum_not_forced | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:645 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.onMult | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:646 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.onMult_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:647 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.reflect_mem_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:648 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.reflect_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:649 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sumMult | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:650 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sumZ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:651 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sumZ_N | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:652 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sumZ_count | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:653 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sum_carrier | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:654 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sum_mult | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:655 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sum_rhs | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:656 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sum_target | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:657 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.sum_target_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:658 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Product.zeroSide_summable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:659 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.lv_h2_false_on_strip | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:660 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:661 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:662 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.not_register1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:663 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.one_le_evenKernel_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:664 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.register3_of_one_lt_re | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:665 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.register5_output_holds | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:666 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.rpow_le_evenKernel_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:667 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.silence_universal_restated | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:668 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.xi_zero_re_countable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:669 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.RegisterDepth.zeta_zeros_countable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:670 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.ResidueDischarge.liCoeff_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:671 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.analyticOnNhd_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:672 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.continuous_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:673 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.eqOn_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:674 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.eulerFactorPremise_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:675 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.farSmall_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:676 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.hasCompactSupport_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:677 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.hasDerivAt_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:678 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.integrable_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:679 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.isOpen_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:680 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.isRoot_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:681 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.isTrivialPoint_parity | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:682 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.monotone_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:683 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.nat_prime_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:684 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.plattTrudgianHeight_neg_one | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:685 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.prime_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:686 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.pwSetup_zero | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:687 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.strictMono_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:688 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.symPairBound_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:689 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.tendsto_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:690 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:691 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.windowObligations_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:692 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.zeroSideNeg_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:693 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.SaltCheckNonvacuity.zetaSeam_witness | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:694 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_not_forced | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:695 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.allSimple_satisfiable | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:696 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.pt | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:697 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.pt_reflect | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:698 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.toyCfg | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:699 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.toyZ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:700 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.toy_N_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:701 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.toy_count | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:702 | MATCHES | terminal | 
+  zeta:corr:SIDEExplicitFormula.Simplicity.SaltCheck.toy_online | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:703 | MATCHES | terminal | 
+  zeta:corr:Zeta23.Analytic.rectangleIntegral'_mul_logDeriv | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:704 | MATCHES | terminal | 
+  zeta:corr:Zeta23.EF.EF_lit | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:705 | MATCHES | terminal | 
+  zeta:corr:Zeta23.RvM.zetaZeroConfig_local_count | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:706 | MATCHES | terminal | 
+  zeta:corr:Zeta23.StirlingVert.digamma_stirling | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:707 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.EF_lit_zeta | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:708 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.EF_zero_sum_summable_gen | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:709 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.Hfn_mirror | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:710 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.digamma_conj | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:711 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.logDeriv_Gammaℝ | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:712 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.logDeriv_partial_fraction_disk | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:713 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.norm_Hfn_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:714 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:715 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.tilted_inversion | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:716 | MATCHES | terminal | 
+  zeta:corr:Zeta23.WeilEF.vertical_line_shift | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:717 | MATCHES | terminal | 
+  zeta:corr:residue_irreducible | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:718 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_RESIDUE_OF_RH.md:108, PLACE-papers@6783833:phase1.5/proofs/THE_RESIDUE_OF_RH.md:228
+  zeta:prose:720.1 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:720 | MATCHES | HAND | relay@8a8e9cc8:data/b643_nodes_zeta.txt:123
+  zeta:prose:720.2 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:720 | MATCHES | HAND | SIDE-global-section@17ce9ff:CORRESPONDENCE.md:459, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476, mathlib@de5ce8a9:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185
+  zeta:prose:720.3 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:720 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/SaltCheckSimplicity.lean:107-112
+  zeta:prose:720.4 | THE_CLAUSE_AND_ITS_COMPILED_FACES.md:720 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:6862, relay@8a8e9cc8:data/b643_nodes_zeta.txt:143
+  chi:prose:3.1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:3 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:777-779, relay@8a8e9cc8:data/b643_nodes_chi.txt:83
+  chi:prose:3.2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:3 | MATCHES | HAND | relay@8a8e9cc8:data/b643_nodes_zeta.txt:59, relay@8a8e9cc8:data/b643_nodes_chi.txt:39, relay@8a8e9cc8:tools/chain_page.py:87-96
+  chi:prose:3.3 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:3 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:761-762, relay@8a8e9cc8:tools/chain_page.py:795-796
+  chi:prose:3.4 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:3 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:384-408, relay@8a8e9cc8:tools/chain_page.py:913
+  chi:prose:7.1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:7 | MATCHES | HAND | relay@8a8e9cc8:data/glossary.txt:1-5
+  chi:prose:7.2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:7 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:494-496, relay@8a8e9cc8:data/b647_glossary_block.txt:1
+  chi:gloss:1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:9 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354, PLACE-papers@6783833:README.md:22-23
+  chi:gloss:2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:10 | MATCHES | HAND | mathlib@de5ce8a9:Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185
+  chi:gloss:3 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:11 | MATCHES | HAND | PLACE-papers@6783833:README.md:125
+  chi:gloss:4 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:12 | MATCHES | HAND | relay@8a8e9cc8:data/b638_ferry.txt:70, PLACE-papers@6783833:README.md:22-23, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:459
+  chi:gloss:5 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:13 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:28
+  chi:gloss:6 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:14 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:28-29
+  chi:gloss:7 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:15 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:22-26
+  chi:gloss:8 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:16 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/Seam.lean:100-101, PLACE-papers@6783833:README.md:115, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:459
+  chi:gloss:9 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:17 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  chi:gloss:10 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:18 | MATCHES | HAND | PLACE-papers@6783833:README.md:121, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476
+  chi:gloss:11 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:19 | MATCHES | HAND | PLACE-papers@6783833:README.md:121, SIDE-global-section@17ce9ff:CORRESPONDENCE.md:476
+  chi:gloss:12 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:20 | MATCHES | HAND | SIDE-explicit-formula@82550e4:SIDEExplicitFormula/PowerWindow.lean:492-495, PLACE-papers@6783833:README.md:113, relay@8a8e9cc8:tools/e0_rule.py:420
+  chi:gloss:13 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:21 | MATCHES | HAND | PLACE-papers@6783833:README.md:18
+  chi:gloss:14 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:22 | MATCHES | HAND | PLACE-papers@6783833:README.md:15, PLACE-papers@6783833:README.md:18
+  chi:gloss:15 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:23 | MATCHES | HAND | PLACE-papers@6783833:README.md:15
+  chi:gloss:16 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:24 | MATCHES | HAND | PLACE-papers@6783833:README.md:18
+  chi:gloss:17 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:25 | MATCHES | HAND | PLACE-papers@6783833:README.md:79-80
+  chi:gloss:18 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:26 | MATCHES | HAND | PLACE-papers@6783833:THE_CLAUSE_AND_ITS_COMPILED_FACES.md:3, PLACE-papers@6783833:REGISTRY.md:924
+  chi:gloss:19 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:27 | MATCHES | HAND | PLACE-papers@6783833:README.md:121
+  chi:gloss:20 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:28 | MATCHES | HAND | relay@8a8e9cc8:tools/e0_rule.py:27, PLACE-papers@6783833:OPEN_TRAILS.md:13337
+  chi:gloss:21 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:29 | MATCHES | HAND | relay@8a8e9cc8:data/b637_binder_classes.txt:1
+  chi:gloss:22 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:30 | MATCHES | HAND | relay@8a8e9cc8:data/b637_binder_classes.txt:1, relay@8a8e9cc8:tools/e0_rule.py:514
+  chi:gloss:23 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:31 | MATCHES | HAND | relay@8a8e9cc8:tools/e0_rule.py:43
+  chi:gloss:24 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:32 | MATCHES | HAND | relay@8a8e9cc8:tools/e0_rule.py:43
+  chi:gloss:25 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:33 | MATCHES | HAND | PLACE-papers@6783833:README.md:64-65
+  chi:gloss:26 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:34 | MATCHES | HAND | PLACE-papers@6783833:README.md:66-68
+  chi:gloss:27 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:35 | MATCHES | HAND | PLACE-papers@6783833:README.md:69-71, relay@8a8e9cc8:tools/e0_rule.py:39
+  chi:gloss:28 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:36 | MATCHES | HAND | PLACE-papers@6783833:README.md:69-71
+  chi:gloss:29 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:37 | MATCHES | HAND | relay@8a8e9cc8:tools/terminal_table.py:18
+  chi:gloss:30 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:38 | MATCHES | HAND | PLACE-papers@6783833:README.md:72-73
+  chi:gloss:31 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:39 | MATCHES | HAND | relay@8a8e9cc8:data/b637_binder_classes.txt:48
+  chi:gloss:32 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:40 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13221
+  chi:gloss:33 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:41 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13221, relay@8a8e9cc8:tools/e0_rule.py:308
+  chi:gloss:34 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:42 | MATCHES | HAND | relay@8a8e9cc8:tools/terminal_table.py:10-12
+  chi:gloss:35 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:43 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:43
+  chi:gloss:36 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:44 | MATCHES | HAND | relay@8a8e9cc8:tools/terminal_table.py:1-12
+  chi:gloss:37 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:45 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:43, relay@8a8e9cc8:tools/terminal_table.py:338
+  chi:gloss:38 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:46 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13335
+  chi:gloss:39 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:47 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:21-22
+  chi:gloss:40 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:48 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:22-24, PLACE-papers@6783833:FINDINGS.md:4823, PLACE-papers@6783833:FINDINGS.md:5812
+  chi:gloss:41 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:49 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:4823, PLACE-papers@6783833:FINDINGS.md:5812
+  chi:gloss:42 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:50 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:25-28
+  chi:gloss:43 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:51 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:5812
+  chi:gloss:44 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:52 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:28-29
+  chi:gloss:45 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:53 | MATCHES | HAND | relay@8a8e9cc8:data/b539_ferry.txt:29-30
+  chi:gloss:46 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:54 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:20
+  chi:gloss:47 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:55 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md:14-20, PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:20
+  chi:gloss:48 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:56 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:41
+  chi:gloss:49 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:57 | MATCHES | HAND | PLACE-papers@6783833:README.md:35
+  chi:gloss:50 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:58 | MATCHES | HAND | PLACE-papers@6783833:README.md:37, PLACE-papers@6783833:FINDINGS.md:6450
+  chi:gloss:51 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:59 | MATCHES | HAND | PLACE-papers@6783833:README.md:36, PLACE-papers@6783833:FINDINGS.md:6450
+  chi:gloss:52 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:60 | MATCHES | HAND | PLACE-papers@6783833:README.md:36
+  chi:gloss:53 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:61 | MATCHES | HAND | PLACE-papers@6783833:README.md:40
+  chi:gloss:54 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:62 | MATCHES | HAND | PLACE-papers@6783833:README.md:39
+  chi:gloss:55 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:63 | MATCHES | HAND | PLACE-papers@6783833:README.md:41
+  chi:gloss:56 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:64 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354
+  chi:gloss:57 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:65 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md:1
+  chi:gloss:58 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:66 | MATCHES | HAND | PLACE-papers@6783833:README.md:106, PLACE-papers@6783833:README.md:113-125
+  chi:gloss:59 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:67 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11864
+  chi:gloss:60 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:68 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11864
+  chi:gloss:61 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:69 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11864
+  chi:gloss:62 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:70 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12699
+  chi:gloss:63 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:71 | MATCHES | HAND | PLACE-papers@6783833:REGISTRY.md:360
+  chi:gloss:64 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:72 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:11413
+  chi:gloss:65 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:73 | UNLICENSED | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13339
+  chi:gloss:66 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:74 | MATCHES | HAND | relay@8a8e9cc8:data/b638_ferry.txt:1-3
+  chi:gloss:67 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:75 | MATCHES | HAND | relay@8a8e9cc8:tools/act_root.py:4-10
+  chi:gloss:68 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:76 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354
+  chi:gloss:69 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:77 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:12354
+  chi:gloss:70 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:78 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:13489
+  chi:gloss:71 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:79 | MATCHES | HAND | relay@8a8e9cc8:data/b642_ferry.txt:92
+  chi:gloss:72 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:80 | MATCHES | HAND | relay@8a8e9cc8:data/b643_ferry.txt:97
+  chi:gloss:73 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:81 | MATCHES | HAND | relay@8a8e9cc8:data/b643_ferry.txt:97
+  chi:gloss:74 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:82 | MATCHES | HAND | relay@8a8e9cc8:data/b643_author_answers.txt:4-5
+  chi:gloss:75 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:83 | MATCHES | HAND | relay@8a8e9cc8:data/b643_ferry.txt:97
+  chi:gloss:76 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:84 | MATCHES | HAND | relay@8a8e9cc8:data/b644_ferry.txt:72
+  chi:gloss:77 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:85 | MATCHES | HAND | relay@8a8e9cc8:data/b644_ferry.txt:72
+  chi:gloss:78 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:86 | MATCHES | HAND | relay@8a8e9cc8:data/b644_ferry.txt:72
+  chi:prose:88.1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:88 | MATCHES | HAND | relay@8a8e9cc8:tools/chain_page.py:442-449, relay@8a8e9cc8:tools/chain_page.py:687-697
+  chi:node:SIDEExplicitFormula.GRHWeil.GRH_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:90 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.chiZeroConfig | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:91 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.EF_lit_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:92 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.rectangle_identity_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:93 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.full_line_identity_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:94 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.EF_lit_chi_holds | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:95 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.B321.classK | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:96 | MATCHES | HAND | relay@8a8e9cc8:data/b643_probe_out_chi.txt:91
+  chi:node:SIDEExplicitFormula.GRHWeil.h2_sign_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:97 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.zeroSide_chi_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:98 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.grh_chi_imp_h2_sign_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:99 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_grh_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:100 | OVERREACHES | terminal | 
+  chi:node:SIDEExplicitFormula.GRHWeil.h2_sign_chi_iff_grh_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:101 | OVERREACHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.h2_sign_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:102 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.online_imp_h2_sign_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:103 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.h2_sign_cfg_iff_target | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:104 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.h2_sign_cfg_zeta_statement | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:105 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.chiWeilConfig | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:106 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.h2_sign_cfg_chi_statement | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:107 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.finsetSum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:108 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.finsetSum_productLemma | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:109 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.family | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:110 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.familyConfig | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:111 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.family_theorem | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:112 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.familyConfig_arith | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:113 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.family_three | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:114 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.TrivialSummandPremise | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:115 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.EulerFactorPremise | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:116 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Family.DedekindPremises | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:117 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Dedekind.DedekindConfig | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:118 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Dedekind.DedekindTheorem | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:119 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Dedekind.dedekind_instance | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:120 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:121 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.Dedekind.dedekind_three | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:122 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.detector | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:123 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.window | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:124 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.ClosedFormFT | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:125 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.WindowInClassK | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:126 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.PlateauRampWindow | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:127 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.WindowObligations | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:128 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_of | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:129 | MATCHES | terminal | 
+  chi:node:SIDEExplicitFormula.Schema.PlateauRamp.epstein_ef_at_window | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:130 | MATCHES | terminal | 
+  chi:prose:132.1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:132 | MATCHES | HAND | SIDE-global-section@17ce9ff:CORRESPONDENCE.md:522
+  chi:prose:134.1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:134 | MATCHES | HAND | SIDE-global-section@17ce9ff:CORRESPONDENCE.md:522, PLACE-papers@6783833:README.md:125
+  chi:prose:134.2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:134 | MATCHES | HAND | PLACE-papers@6783833:README.md:125
+  chi:place:140 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:140 | MATCHES | HAND | PLACE-papers@6783833:THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:1
+  chi:place:141 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:141 | MATCHES | HAND | PLACE-papers@6783833:FINDINGS.md:1
+  chi:place:142 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:142 | MATCHES | HAND | PLACE-papers@6783833:OPEN_TRAILS.md:1
+  chi:place:143 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:143 | MATCHES | HAND | PLACE-papers@6783833:ERRATA.md:1
+  chi:place:144 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:144 | MATCHES | HAND | PLACE-papers@6783833:FACES_LEDGER.md:1
+  chi:place:145 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:145 | MATCHES | HAND | PLACE-papers@6783833:README.md:125, PLACE-papers@6783833:REGISTRY.md:960
+  chi:place:146 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:146 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_14.md:1273
+  chi:place:147 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:147 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_15.md:1274
+  chi:place:148 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:148 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_16.md:1275
+  chi:place:149 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:149 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_17.md:1276
+  chi:place:150 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:150 | MATCHES | HAND | PLACE-papers@6783833:day1/A_Place_to_Stand_v5_18.md:1277
+  chi:place:151 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:151 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/method/THE_LOAD_BEARING_MAP.md:435
+  chi:place:152 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:152 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md:65
+  chi:place:153 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:153 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_RESIDUE_OF_RH.md:241
+  chi:place:154 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:154 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/proofs/THE_RESIDUE_OF_RH_v1_2.md:79
+  chi:place:155 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:155 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md:337
+  chi:place:156 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:156 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/spectral/BALANCE_AND_POSITIVITY.md:768
+  chi:place:157 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:157 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md:777
+  chi:place:158 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:158 | MATCHES | HAND | PLACE-papers@6783833:phase1.5/spectral/GRH_CASCADE_v0_3_6.md:45
+  chi:place:159 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:159 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md:101
+  chi:place:160 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:160 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_2.md:9
+  chi:place:161 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:161 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_3.md:11
+  chi:place:162 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:162 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_4.md:13
+  chi:place:163 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:163 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_5.md:15
+  chi:place:164 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:164 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md:17
+  chi:place:165 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:165 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_5.md:125
+  chi:place:166 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:166 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_6.md:17
+  chi:place:167 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:167 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_7.md:17
+  chi:place:168 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:168 | MATCHES | HAND | PLACE-papers@6783833:phase2/method/THE_KEYSTONE_CENSUS_v0_7_1.md:17
+  chi:place:169 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:169 | MATCHES | HAND | PLACE-papers@6783833:THE_CLAUSE_AND_ITS_COMPILED_FACES.md:1
+  chi:corr:SIDEExplicitFormula.GRHWeil.EF_zero_sum_summable_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:175 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.FlineCond_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:176 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Fline_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:177 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.GRH_chi_iff_trivial | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:178 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.GRH_chi_trivial | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:179 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:180 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_hat | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:181 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_BlockInputs_tilde | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:182 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_NII | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:183 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:184 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_hat | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:185 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_theta_nonneg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:186 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Assembly_TailInputs_tilde | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:187 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_EF_EF_lit | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:188 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_EF_EF_paper | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:189 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_EF_explicitFormulaPaper_of_lit | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:190 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_EF_prop_EF_of_lit | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:191 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ExplicitFormulaPaper | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:192 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:193 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_EF | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:194 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_Gamma | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:195 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_MV | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:196 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_RvM | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:197 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_PaperInputs_cheb | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:198 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:199 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_local_count | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:200 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_RiemannVonMangoldt_main | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:201 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_Gsummand_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:202 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_LocalCount_ofWindowCount | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:203 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_NII_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:204 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:205 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Az_eq_sum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:206 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_A₀_nonneg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:207 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_Ez_isHermitian | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:208 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:209 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_congr_simp | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:210 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_K_nonneg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:211 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_L_pos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:212 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_T_pos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:213 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hA₀ | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:214 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hC₁ | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:215 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hL | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:216 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hT | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:217 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hasSum_Ez | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:218 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hat_Ez_isHermitian | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:219 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hdecay | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:220 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_hloc | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:221 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_not_mem_sA_iff | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:222 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_partial_sum_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:223 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_sA | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:224 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_Gsummand | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:225 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_summable_tail | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:226 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tailInputs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:227 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tilde_Ez_isHermitian | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:228 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_traceNorm_smul_Ez_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:229 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_TailHyp_tsum_tail_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:230 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_NII_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:231 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_eventually_tailInputs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:232 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_finite_notTail | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:233 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_sq_uvec_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:234 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_norm_uvec_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:235 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_Tail_prop_tail | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:236 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Az | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:237 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Ez | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:238 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Gsummand | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:239 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Gz | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:240 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:241 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:242 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0s | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:243 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0star | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:244 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N0star_le_Nd | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:245 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_NIprime | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:246 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_N_le_two_mul_half | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:247 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Nd | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:248 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Nd_le_N | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:249 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_NonIprime | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:250 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Ns | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:251 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_S1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:252 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_S2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:253 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_W | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:254 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_Wsummand | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:255 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ZIprime | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:256 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ctorIdx | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:257 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_finsum_mult_mono | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:258 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_le_finsum_mult | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:259 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_ncard_mono | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:260 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_offLine | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:261 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_p | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:262 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_reflect_mem_window | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:263 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_s1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:264 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_s2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:265 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_simple | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:266 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_trivial_chain | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:267 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:268 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window_finite | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:269 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.Generic.chi_ZeroConfig_window_subset_carrier | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:270 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.IsNontrivialZeroChi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:271 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.IsTrivialPoint | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:272 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction0 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:273 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction0' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:274 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction0_eq_LFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:275 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_analyticOnNhd | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:276 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_bddAbove_near_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:277 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_conj_of_one_lt_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:278 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:279 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_eq_mul_integral_of_one_lt_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:280 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_growth | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:281 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_growth_quarter | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:282 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_growth_right | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:283 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_growth_right_at | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:284 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_inv_conj | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:285 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_linear_growth | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:286 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_bddAbove_near_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:287 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_isBigO_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:288 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_logDeriv_partial_fraction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:289 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_lower_bound_two | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:290 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_ne_zero_of_two_le_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:291 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_two_ne_zero | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:292 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_zero_iff_conj | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:293 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_zero_re_nonpos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:294 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_zeros_finite_of_isCompact | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:295 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.LFunction_zeros_locallyFinite | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:296 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.NhalfChi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:297 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.abelRep | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:298 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticAt_LFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:299 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticAt_completedLFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:300 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticAt_gammaFactor | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:301 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOnNhd_LFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:302 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_eq_completed | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:303 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_inv_conj | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:304 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderAt_LFunction_ne_top | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:305 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_le_one_sub | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:306 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderAt_completed_one_sub | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:307 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderNatAt_completedLFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:308 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.analyticOrderNatAt_gfunChi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:309 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.archTerm_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:310 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.card_le_sum_mult_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:311 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.charPartialSum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:312 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.charPartialSum_eq_zero_of_lt_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:313 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.charPartialSum_isBigO | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:314 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chiZeroConfig_carrier | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:315 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chiZeroConfig_conj_mem | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:316 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chiZeroConfig_local_count | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:317 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chiZeroConfig_mult | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:318 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chiZeroConfig_mult_conj | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:319 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chi_mult_reflect | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:320 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chi_reflect_zero | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:321 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.chi_zero_sum_inv_sq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:322 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.comp_affine_analyticAt_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:323 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_eq_zero_iff | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:324 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_eq_zero_iff_of_re_pos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:325 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_eventuallyEq_mul | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:326 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_ne_zero_of_one_le_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:327 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_ne_zero_of_re_nonpos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:328 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_ne_zero_on_horizontals_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:329 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.completedLFunction_zeros_strip | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:330 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.conductor_line_shift | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:331 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.continuousAt_neg_logDeriv_LFunction_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:332 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.continuous_logDeriv_LFunction_line | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:333 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.continuous_logDeriv_completedLFunction_line | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:334 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.continuous_logDeriv_gammaFactor_comp | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:335 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.count_small_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:336 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.deriv_LFunction0_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:337 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.deriv_LFunction_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:338 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.differentiableAt_deriv_LFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:339 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.differentiableAt_gammaFactor | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:340 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.differentiableAt_mellin_charPartialSum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:341 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.differentiableOn_abelRep | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:342 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.digamma_growth_strip_wide | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:343 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.dominant_summable_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:344 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.even_inv_iff | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:345 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.fR_bound_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:346 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.fR_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:347 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.fR_norm_le_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:348 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.finite_window_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:349 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaBracket_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:350 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:351 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaBracket_chi_of_not_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:352 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaFactor_bracket | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:353 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaFactor_inv | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:354 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaFactor_inv_differentiable | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:355 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gammaFactor_ne_zero_of_re_pos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:356 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gamma_line_shift_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:357 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gfunChi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:358 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.gfunChi_analyticAt | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:359 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.good_heights_at_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:360 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.good_heights_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:361 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.h2_sign_chi_imp_rh_strip_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:362 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.half_count_large_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:363 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.hasDerivAt_LFunction0 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:364 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.hasDerivAt_mellin_tail | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:365 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.horizontal_vanish_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:366 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integrableOn_Ioi_charPartialSum_cpow | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:367 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integrable_Fline_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:368 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integrable_mul_of_decay_log | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:369 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integral_Ioi_eq_mellin_tail | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:370 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integral_Ioi_indicator_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:371 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integral_Ioi_log_eq_mellin_tail | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:372 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integral_Ioi_one_eq_mellin | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:373 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.integrand_eq_tsum_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:374 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.inv_apply_natCast | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:375 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.isNontrivialZeroChi_of_mem_closedBall | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:376 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.isPrimitive_inv | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:377 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.line_integral_swap_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:378 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.literatureRHS_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:379 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.locallyIntegrableOn_charPartialSum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:380 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.logDeriv_Gammaℝ_bracket | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:381 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.logDeriv_LFunction_inv_conj | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:382 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.logDeriv_comp_add_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:383 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:384 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_line | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:385 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.logDeriv_completedLFunction_one_sub | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:386 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.measurable_charPartialSum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:387 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.mem_integerComplement_quarter | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:388 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.mem_sT_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:389 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.ne_one_of_ne_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:390 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.neg_logDeriv_LFunction_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:391 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_LFunction_ge_of_two_le_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:392 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_LFunction_le_of_re_pos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:393 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_LFunction_le_of_two_le_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:394 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_LFunction_sub_one_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:395 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_charPartialSum_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:396 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_div_re_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:397 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_integral_tail_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:398 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_logDeriv_Gammaℝ_le_wide | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:399 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_logDeriv_LFunction_le_of_one_lt_re | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:400 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_logDeriv_completedLFunction_line_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:401 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_logDeriv_completed_le_of_good | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:402 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:403 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.norm_sum_range_char_le | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:404 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.one_le_zeroMultChi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:405 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.one_third_lt_two_sub_pi_sq_div_six' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:406 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.paperFT_eq_Hfn_half | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:407 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.parity | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:408 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.per_n_line_integral_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:409 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.pi_sq_div_six_sub_one_lt_one' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:410 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.primeSum_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:411 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.prime_line_eval | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:412 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.prime_side_line_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:413 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.re_nonpos_of_trivialPoint | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:414 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.reflect_eq_conj_one_sub | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:415 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.rest_tendsto_zero_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:416 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.rh_strip_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:417 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.rh_strip_chi_iff_grh_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:418 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.rh_strip_chi_imp_h2_sign_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:419 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.rootNumber_ne_zero | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:420 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.sT_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:421 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.sum_Icc_zero_char | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:422 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.sum_eq_abel | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:423 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.sum_mult_six_windows_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:424 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.sum_range_block_char_eq_zero | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:425 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.summable_mul_log_of_bounded_support | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:426 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.tailKernel | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:427 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.tailKernel_memLp | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:428 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.tendsto_interval_Fline_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:429 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.trivialPoint_of_gammaFactor_eq_zero | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:430 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.verticals_eq_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:431 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.zeroMultChi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:432 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.zeroSide_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:433 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.zeroSide_eventually_neg_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:434 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.GRHWeil.zero_sum_limit_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:435 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Dedekind.TrivialSummandPremise' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:436 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:437 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Dedekind.dedekind_three_v026 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:438 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_of_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:439 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_witness | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:440 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.EpsteinPremises | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:441 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.FamilyTheorem | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:442 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_empty | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:443 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.SaltCheck.family_one_h2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:444 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_satisfiable | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:445 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.SaltCheck.finsetSum_summand_load_bearing | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:446 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.archTerm_chi_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:447 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.archTerm_chi_pointLog2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:448 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.cfg_ext | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:449 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.charCfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:450 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.charCfg_of_ne | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:451 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.charCfg_rhs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:452 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.charCfg_target | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:453 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.emptyCfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:454 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.emptyCfg_h2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:455 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.emptyZ | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:456 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.emptyZ_N | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:457 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.emptyZ_count | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:458 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.eulerFactorPremise_of_primitive | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:459 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.eulerFactorPremise_three | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:460 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.familyTheorem_holds | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:461 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.family_three_statement | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:462 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.finsetSum_empty | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:463 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.finsetSum_insert | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:464 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.finsetSum_rhs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:465 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.finsetSum_target_iff | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:466 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.gammaBracket_conductor | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:467 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.log_nat_eq_log_two | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:468 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.log_nat_gt_half | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:469 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.mem_family | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:470 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.neg_log_nat_ne_log_two | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:471 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.not_eulerFactorPremise_six | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:472 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.not_trivialSummandPremise | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:473 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.onMult_sum | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:474 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.one_apply_nat | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:475 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.paperFT_pointLog2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:476 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.parity_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:477 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.pointLog2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:478 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.poleTerm_box_half | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:479 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.primitiveCharacter_apply_nat | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:480 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.primitiveCharacter_ne_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:481 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.primitive_of_ne_one_three | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:482 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.sum_assoc | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:483 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.sum_comm | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:484 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.Family.zeta_rhs_pole | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:485 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.ConvStep | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:486 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_ne_zero_at_half_pi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:487 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.box_transform_zero_at_pi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:488 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.SaltCheck.window_even_compact_at_seven | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:489 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.Smooth4 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:490 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.box | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:491 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.box_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:492 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.box_hasCompactSupport | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:493 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.box_integrable | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:494 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.box_paperFT | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:495 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.contDiff_intAvg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:496 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.contDiff_primitive | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:497 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.continuous_expWt | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:498 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.continuous_intAvg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:499 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.conv | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:500 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.convStep_holds | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:501 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.conv_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:502 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.conv_nbox_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:503 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.conv_weighted | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:504 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.expWt | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:505 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.expWt_add | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:506 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.integrable_weighted | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:507 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.nbox | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:508 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.nbox_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:509 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.nbox_hasCompactSupport | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:510 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.nbox_integrable | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:511 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.nbox_of_nonpos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:512 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.nbox_paperFT | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:513 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.paperFT_eq_fourier | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:514 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.plateauRampWindow_holds | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:515 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.smooth4_holds | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:516 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:517 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.window_contDiff | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:518 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.window_even | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:519 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.window_hasCompactSupport | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:520 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.window_integrable | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:521 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.PlateauRamp.window_paperFT_zero | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:522 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.emptyRhs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:523 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.emptyZ | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:524 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_count | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:525 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.empty_premises | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:526 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.epstein_hypotheses_satisfiable | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:527 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.log_three_gt_one | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:528 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.membership_load_bearing | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:529 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toyCarrier | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:530 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toyRhs | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:531 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toyZ | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:532 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_count | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:533 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_finite | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:534 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_premises | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:535 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_reflect_mem | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:536 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.SaltCheckEpstein.toy_strip | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:537 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.baseWidth | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:538 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.baseWidth_pos | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:539 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.base_nonzero_at_width | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:540 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.detectorBase | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:541 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.dominant_summable_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:542 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.epsteinConfig | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:543 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.epstein_detector | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:544 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.epstein_not_h2_sign_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:545 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.fR_bound_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:546 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.fR_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:547 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.fR_norm_le_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:548 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.h2_sign_cfg_chi | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:549 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.h2_sign_cfg_iff_online | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:550 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.h2_sign_cfg_imp_online | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:551 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.h2_sign_cfg_zeta | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:552 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.half_lt_one' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:553 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.half_pos' | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:554 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.mem_sT_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:555 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.not_h2_sign_cfg_of_offline | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:556 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.online | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:557 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.rest_tendsto_zero_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:558 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.rhoE | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:559 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.rhoE_re_ne_half | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:560 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.sT_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:561 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.zeroSide_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:562 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.zeroSide_cfg_eq | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:563 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.zeroSide_eventually_neg_cfg | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:564 | MATCHES | terminal | 
+  chi:corr:SIDEExplicitFormula.Schema.zetaWeilConfig | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:565 | MATCHES | terminal | 
+  chi:prose:567.1 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:567 | OVERREACHES | HAND | relay@8a8e9cc8:data/b643_premise_table.txt:47, relay@8a8e9cc8:data/b643_premise_table.txt:14
+  chi:prose:567.2 | THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md:567 | MATCHES | HAND | relay@8a8e9cc8:data/b643_nodes_chi.txt:82
+
+### ### **1261 ROWS: MATCHES 1254, UNDERSTATES 2, OVERREACHES 3, UNLICENSED 2.**

@@ -629,6 +629,340 @@ def repairs(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 3: THE TWO PAGES THROUGH THE TABLE
+# ### (R258)(3): every sentence of both pages one row of the licensed-statement table (tools/licensed_table.py). The prose and the glossary
+# ### entries by HAND, each citing the lines read; the node lines and the Correspondence rows by the table's `terminal` rule against relay's
+# ### terminal table at the revision read, a name with no row read by HAND at the probe's cell; the Placement rows by HAND at the line the
+# ### path's file carries. A title or a heading is not a sentence and takes no row; a prose sentence no entry below reads refuses the bank.
+READ_AT = {'relay': '8a8e9cc8', 'PLACE-papers': '6783833', 'SIDE-explicit-formula': '82550e4', 'SIDE-global-section': '17ce9ff',
+           'mathlib': 'de5ce8a9'}
+REPO_DIR = {'relay': RELAY, 'PLACE-papers': PP, 'SIDE-explicit-formula': 'D:/SIDE-explicit-formula', 'SIDE-global-section': 'D:/SIDE-global-section',
+            'mathlib': 'D:/SIDE-explicit-formula/.lake/packages/mathlib'}
+NODES = {'zeta': 'b643_nodes_zeta.txt', 'chi': 'b643_nodes_chi.txt'}
+PROBE = {'zeta': 'b643_probe_out_zeta.txt', 'chi': 'b643_probe_out_chi.txt'}
+
+
+def _cite(repo, path, at):
+    """'repo@rev:path:N' for the lines read: `at` a line or range, checked inside the file, or '~needle', the first line carrying it."""
+    rev = READ_AT[repo]
+    t = _show(REPO_DIR[repo], rev, path)
+    if t is None:
+        raise SystemExit('### REFUSED: the cited file is unread, %s@%s:%s' % (repo, rev, path))
+    L = t.split(NL)
+    if at.startswith('~'):
+        hits = [i for i, l in enumerate(L, 1) if at[1:] in l]
+        if not hits:
+            raise SystemExit('### REFUSED: the needle %r is not in %s@%s:%s' % (at[1:], repo, rev, path))
+        at = str(hits[0])
+    elif int(at.split('-')[-1]) > len(L):
+        raise SystemExit('### REFUSED: %s@%s:%s has %d lines, the cite reads %s' % (repo, rev, path, len(L), at))
+    return '%s@%s:%s:%s' % (repo, rev, path, at)
+
+
+_P, _R, _E, _S = 'PLACE-papers', 'relay', 'SIDE-explicit-formula', 'SIDE-global-section'
+_RM, _OT, _FI, _CR = 'README.md', 'OPEN_TRAILS.md', 'FINDINGS.md', 'CORRESPONDENCE.md'
+_C5 = 'phase2/method/THE_KEYSTONE_CENSUS_v0_5.md'
+GLOSS_CITES = {
+    1: [(_P, _OT, '12354'), (_P, _RM, '22-23')], 2: [('mathlib', 'Mathlib/NumberTheory/LSeries/RiemannZeta.lean', '185')],
+    3: [(_P, _RM, '125')], 4: [(_R, 'data/b638_ferry.txt', '70'), (_P, _RM, '22-23'), (_S, _CR, '459')],
+    5: [(_E, 'SIDEExplicitFormula/H2Sign.lean', '28')], 6: [(_E, 'SIDEExplicitFormula/H2Sign.lean', '28-29')],
+    7: [(_E, 'SIDEExplicitFormula/H2Sign.lean', '22-26')],
+    8: [(_E, 'SIDEExplicitFormula/Seam.lean', '100-101'), (_P, _RM, '115'), (_S, _CR, '459')],
+    9: [(_P, _RM, '121')], 10: [(_P, _RM, '121'), (_S, _CR, '476')], 11: [(_P, _RM, '121'), (_S, _CR, '476')],
+    12: [(_E, 'SIDEExplicitFormula/PowerWindow.lean', '492-495'), (_P, _RM, '113'), (_R, 'tools/e0_rule.py', '~rh_strip_imp_rh')],
+    13: [(_P, _RM, '18')], 14: [(_P, _RM, '15'), (_P, _RM, '18')], 15: [(_P, _RM, '15')], 16: [(_P, _RM, '~pins move')],
+    17: [(_P, _RM, '79-80')], 18: [(_P, 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md', '3'), (_P, 'REGISTRY.md', '~copied from `anthropics/formal-math`')],
+    19: [(_P, _RM, '121')], 20: [(_R, 'tools/e0_rule.py', '~RULE_TEXT = ['), (_P, _OT, '13337')],
+    21: [(_R, 'data/b637_binder_classes.txt', '1')], 22: [(_R, 'data/b637_binder_classes.txt', '1'), (_R, 'tools/e0_rule.py', '~CLASSES = (')],
+    23: [(_R, 'tools/e0_rule.py', '~(R235)(2), b625')], 24: [(_R, 'tools/e0_rule.py', '~(R235)(2), b625')],
+    25: [(_P, _RM, '64-65')], 26: [(_P, _RM, '66-68')], 27: [(_P, _RM, '69-71'), (_R, 'tools/e0_rule.py', '~(R234)(2), b624')],
+    28: [(_P, _RM, '69-71')], 29: [(_R, 'tools/terminal_table.py', '~(R164)(2)(a)')], 30: [(_P, _RM, '72-73')],
+    31: [(_R, 'data/b637_binder_classes.txt', '~THE GRADE:')], 32: [(_P, _OT, '13221')], 33: [(_P, _OT, '13221'), (_R, 'tools/e0_rule.py', '~MET = (')],
+    34: [(_R, 'tools/terminal_table.py', '10-12')], 35: [(_P, _C5, '43')], 36: [(_R, 'tools/terminal_table.py', '1-12')],
+    37: [(_P, _C5, '43'), (_R, 'tools/terminal_table.py', '~(R245)(2)-(3)')], 38: [(_P, _OT, '13335')],
+    39: [(_R, 'data/b539_ferry.txt', '21-22')], 40: [(_R, 'data/b539_ferry.txt', '22-24'), (_P, _FI, '4823'), (_P, _FI, '5812')],
+    41: [(_P, _FI, '4823'), (_P, _FI, '5812')], 42: [(_R, 'data/b539_ferry.txt', '25-28')], 43: [(_P, _FI, '5812')],
+    44: [(_R, 'data/b539_ferry.txt', '28-29')], 45: [(_R, 'data/b539_ferry.txt', '29-30')], 46: [(_P, _C5, '20')],
+    47: [(_P, 'phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md', '14-20'), (_P, _C5, '20')], 48: [(_P, _C5, '41')],
+    49: [(_P, _RM, '35')], 50: [(_P, _RM, '37'), (_P, _FI, '6450')], 51: [(_P, _RM, '36'), (_P, _FI, '6450')], 52: [(_P, _RM, '36')],
+    53: [(_P, _RM, '40')], 54: [(_P, _RM, '39')], 55: [(_P, _RM, '41')], 56: [(_P, _OT, '12354')],
+    57: [(_P, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_6.md', '1')], 58: [(_P, _RM, '106'), (_P, _RM, '113-125')],
+    59: [(_P, _OT, '11864')], 60: [(_P, _OT, '11864')], 61: [(_P, _OT, '11864')], 62: [(_P, _OT, '12699')], 63: [(_P, 'REGISTRY.md', '360')],
+    64: [(_P, _OT, '11413')], 65: [(_P, _OT, '13339')], 66: [(_R, 'data/b638_ferry.txt', '1-3')], 67: [(_R, 'tools/act_root.py', '4-10')],
+    68: [(_P, _OT, '12354')], 69: [(_P, _OT, '12354')], 70: [(_P, _OT, '13489')], 71: [(_R, 'data/b642_ferry.txt', '92')],
+    72: [(_R, 'data/b643_ferry.txt', '97')], 73: [(_R, 'data/b643_ferry.txt', '97')], 74: [(_R, 'data/b643_author_answers.txt', '4-5')],
+    75: [(_R, 'data/b643_ferry.txt', '97')], 76: [(_R, 'data/b644_ferry.txt', '72')], 77: [(_R, 'data/b644_ferry.txt', '72')],
+    78: [(_R, 'data/b644_ferry.txt', '72')], 79: [(_P, 'phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md', '27')],
+    80: [(_R, 'data/b647_ferry.txt', '57-60')]}
+GLOSS_NOTE = {
+    13: 'the quotation is at README :18 inside a link, "~45 further Lean kernels under [psinary-sketch](...) carry the arms" -- the words '
+        'the same, the markup between them',
+    34: 'the quotation is at terminal_table.py :10-:11 across a comment marker ("### **WITHOUT CHOOSING**"), the words the same',
+    50: 'its "append-only" is not at README :37; FINDINGS :6450 names the four ledgers append-only',
+    51: 'its quotation drops README :36`s "(`O.n`)" with no mark of the omission; its "append-only" is at FINDINGS :6450, not README :36',
+    12: 'PowerWindow.lean :492-:495 is the seam`s own docstring: from the strip form to Mathlib`s RH, the left half-plane`s zeros the trivial ones'}
+GLOSS_FIND = {
+    65: ('UNLICENSED', 'the entry`s "(b638 is this one)": on a page or a census generated after b638 it names an act that is not the one the '
+                       'reader holds, and nothing in the corpus makes a later document b638`s',
+         'W-ORD-GLOSSARY-ACT-NAME, TRIGGER the author`s word on the re-cut order ((R258)(6)); relay data/glossary.txt is additive and its '
+         'line stays; the re-cut is an appended entry for bNNN without the parenthesis, by the author`s word')}
+
+_TT = 'relay data/terminal_table.json'
+_CHI_PREM = 'the table grades it INTERFACES by b626`s supersession cells, its premises hχ : χ.IsPrimitive and h1 : χ ≠ 1 -- and the sentence names them'
+PROSE = [
+    ('This page is generated by relay `tools/chain_page.py` from the node list relay `data/b643_nodes_zeta.txt`', 'MATCHES',
+     [(_R, 'tools/chain_page.py', '742-744'), (_R, 'data/b643_nodes_zeta.txt', '144')], 'the generator`s head template, the ζ list named'),
+    ('This page is generated by relay `tools/chain_page.py` from the node list relay `data/b643_nodes_chi.txt`', 'MATCHES',
+     [(_R, 'tools/chain_page.py', '777-779'), (_R, 'data/b643_nodes_chi.txt', '83')], 'the generator`s Dirichlet head template, the χ list named'),
+    ('It is generated at SIDE-explicit-formula v0.26 = `82550e4`', 'MATCHES',
+     [(_R, 'data/b643_nodes_zeta.txt', '59'), (_R, 'data/b643_nodes_chi.txt', '39'), (_R, 'tools/chain_page.py', '87-96')],
+     'both lists carry `# pin: v0.26`; v0.26 peels to 82550e4 (git rev-parse v0.26^{commit})'),
+    ('Each line reads: name', 'MATCHES', [(_R, 'tools/chain_page.py', '761-762'), (_R, 'tools/chain_page.py', '795-796')],
+     'the node line`s template, cell for cell'),
+    ("A node's tier cell is computed from three printed facts", 'MATCHES', [(_R, 'tools/chain_page.py', '384-408'), (_R, 'tools/chain_page.py', '~CONFLICT -- the table')],
+     'tier_of_node computes the cell as stated; a disagreement with the table`s tier refuses the page'),
+    ('*The internal names this document uses', 'MATCHES', [(_R, 'data/glossary.txt', '1-5')], 'the glossary`s header: each entry the name, its definition, its source'),
+    ('The block is printed by relay `tools/chain_page.py` from relay `data/glossary.txt`', 'MATCHES',
+     [(_R, 'tools/chain_page.py', '494-496'), (_R, 'data/b647_glossary_block.txt', '1')],
+     'one source, one printer; at b647 the two pages and v0.7.1 printed the same block byte for byte'),
+    ("The shape cell after each statement is read by the generator", 'MATCHES', [(_R, 'tools/chain_page.py', '442-449'), (_R, 'tools/chain_page.py', '687-697')],
+     'the shape key and shape_of'),
+    ('h2_sign — open; by the compiled equivalences above', 'MATCHES', [(_S, _CR, '459'), (_S, _CR, '476')],
+     'h2_sign_iff_rh, li_nonneg_iff_rh, arith_limit_nonneg_iff_rh each DERIVES; h2_sign stated as open'),
+    ("*(Appended under the author's ruling `(R177)`(2)", 'MATCHES', [(_P, _RM, '121')], 'README :121, the same words'),
+    ("Supportable, the author's sentence: *Li's criterion", 'MATCHES', [(_P, _RM, '121'), (_S, _CR, '476')], 'README :121; li_nonneg_iff_rh DERIVES'),
+    ('Weil positivity on classK, Li positivity and arithmetic-limit positivity are compiled', 'MATCHES', [(_P, _RM, '121')], 'README :121'),
+    ('Not supportable, unchanged:', 'MATCHES', [(_P, _RM, '121')], 'README :121'),
+    ("*(Appended under the author's ruling `(R206)`(4)(c)", 'MATCHES', [(_R, 'data/b643_nodes_zeta.txt', '123')], 'the list`s backmatter record'),
+    ('The faces and multiplicity:', 'MATCHES', [(_S, _CR, '459'), (_S, _CR, '476'), ('mathlib', 'Mathlib/NumberTheory/LSeries/RiemannZeta.lean', '185')],
+     'each face an equivalence with RiemannHypothesis, whose statement names no multiplicity'),
+    ("At the schema's form, a configuration whose fields", 'MATCHES', [(_E, 'SIDEExplicitFormula/SaltCheckSimplicity.lean', '107-112')],
+     'allSimple_not_forced (rule DERIVES): ∃ C, C.target ∧ h2_sign_cfg C ∧ ¬ allSimple C, its witness toyCfg 2 a point of multiplicity two; simplicity a DEF'),
+    ('exceptional_mass_le_third (SIDE-explicit-formula v0.23', 'MATCHES', [(_P, _FI, '6862'), (_R, 'data/b643_nodes_zeta.txt', '143')],
+     'exceptional_mass_le_third INTERFACES (cell FINDINGS :6862), its premise cited as discharged at its source kernel'),
+    ('GRH_chi — open, for each primitive χ ≠ 1', 'MATCHES', [(_S, _CR, '522')], _CHI_PREM),
+    ('The criterion for primitive χ is composed', 'MATCHES', [(_S, _CR, '522'), (_P, _RM, '125')], _CHI_PREM + '; README :125, the author`s sentence'),
+    ('The one clause now has two compiled instances', 'MATCHES', [(_P, _RM, '125')], 'README :125; neither instance stated as proved'),
+    ("the instance's positivity equivalence is the family theorem", 'OVERREACHES', [(_R, 'data/b643_premise_table.txt', '47'), (_R, 'data/b643_premise_table.txt', '14')],
+     'dedekind_instance DERIVES; but of dedekind_rhs`s two premises TrivialSummandPremise is REFUTED-BY-COMPUTATION (b643`s premise table :47) -- the '
+     "sentence offers a refuted premise as the cost of the reading; at v0.26 the reading is dedekind_rhs' on TrivialSummandPremise' k, witnessed"),
+    ('The instance is a statement about the schema', 'MATCHES', [(_R, 'data/b643_nodes_chi.txt', '82')], 'dedekind_instance`s statement: h2_sign_cfg (DedekindConfig q) ↔ ...'),
+]
+PROSE_RECUT = {"the instance's positivity equivalence is the family theorem": (
+    'RE-CUT: the instance`s positivity equivalence is the family theorem with the trivial summand added and needs no premise; reading the '
+    "summed side as the Dedekind zeta's costs two premises, which at v0.26 sit on dedekind_rhs' -- TrivialSummandPremise' k and "
+    'EulerFactorPremise q, both witnessed -- the earlier TrivialSummandPremise of dedekind_rhs being REFUTED-BY-COMPUTATION. (The node list`s '
+    'backmatter record, data, not the generator`s template: HELD for the author`s word on the re-cut order.)')}
+_SPLIT = re.compile(r'(?<=\.)\*?\)?\*?\s+(?=[A-Z*`(])|(?<=\.)\s+(?=exceptional_mass_le_third )')
+
+
+def _sentences(l):
+    out, last = [], 0
+    for m in _SPLIT.finditer(l):
+        out.append(l[last:m.end()].strip())
+        last = m.end()
+    out.append(l[last:].strip())
+    return [s for s in out if s]
+
+
+def _tt_index(rev):
+    T = json.loads(_show(RELAY, rev, 'data/terminal_table.json'))['rows']
+    idx = collections.defaultdict(list)
+    for x in T:
+        idx[(x['repo'], x['name'])].append(x)
+    return idx
+
+
+def _page_rows(key, text, idx, page_rev):
+    import licensed_table as LT
+    pname = K.PNAME[key]
+    probe = rd(PROBE[key]).split(NL)
+    rows, skipped = [], []
+    sec = 'head'
+    node_short = []
+    for l in text.split(NL):
+        m = re.match(r'^\d+\. `([^`]+)` — (\S+):\d+ — ', l)
+        if m and not m.group(2).startswith('Mathlib'):
+            node_short.append(m.group(1).split('.')[-1])
+    gi = 0
+    for n, l in enumerate(text.split(NL), 1):
+        src = '%s:%d' % (pname, n)
+        if not l.strip():
+            continue
+        if l.startswith('#'):
+            sec = l[3:].strip() if l.startswith('## ') else sec
+            skipped.append('%d %s' % (n, l))
+            continue
+        m = re.match(r'^(\d+)\. `([^`]+)` — .* — E0: (\S+) — tier: ', l)
+        if m:
+            nm, e0 = m.group(2), m.group(3)
+            hit = idx.get(('SIDE-explicit-formula', nm)) or []
+            row = None
+            if len(hit) == 1:
+                x = hit[0]
+                lk = lambda _n, x=x: (x['name'], x['grade'], re.sub(r'\s+', ' ', x['statement'] or '')[:150], (x.get('head') or '')[:7])  # noqa: E731
+                row = LT.terminal_row('%s:node:%s' % (key, nm), src, 'node line %s: E0 %s' % (m.group(1), e0), nm, e0, lk)
+                if row and row['verdict'] != 'MATCHES':
+                    row = LT.recut(row, 'the node line printed with the table`s grade beside the E0 grade -- "E0: %s (table: %s)" -- by '
+                                        'the template repair of relay tools/chain_page.py (Component 3)' % (e0, x['grade']))
+            if row is None:
+                pl = [i for i, p in enumerate(probe, 1) if p == '@@BEGIN ' + nm]
+                if not pl:
+                    raise SystemExit('### REFUSED: %s has no table row and no probe cell' % nm)
+                kind = (re.search(r'@@KIND (\S+)', probe[pl[0]]) or [None, '?'])[1]
+                v = 'MATCHES' if (kind != 'theorem' and e0 == 'DEF') else 'UNLICENSED'
+                row = dict(id='%s:node:%s' % (key, nm), source=src, stated='node line %s: E0 %s' % (m.group(1), e0), by='HAND',
+                           cited=['%s@%s:data/%s:%d' % (_R, READ_AT[_R], PROBE[key], pl[0] + 1)],
+                           licensed='the probe`s cell: @@KIND %s; no row of the terminal table (%s); the line states a definition as DEF and claims '
+                                    'nothing beyond it' % (kind, 'upstream' if nm.split('.')[0] in ('riemannZeta', 'RiemannHypothesis') else 'a definition the table does not list'),
+                           verdict=v, action='none')
+            row.update(page=key, kind='node', line=n)
+            rows.append(row)
+            continue
+        m = re.match(r'^\| `([^`]+)` \| ([^|]+?) \| ([^|]+?) \| ([^|]*?) \|$', l)
+        if sec == 'Correspondence' and m:
+            nm, repo, gr = m.group(1), m.group(2).strip(), m.group(3).strip()
+            claimed = gr.split()[0]
+            claimed = {'PREDICATE-UNLISTED': 'INTERFACES', 'ENCODES-CONCLUSION': 'INTERFACES'}.get(claimed, claimed)
+            hit = idx.get((repo, nm)) or []
+            row = None
+            if len(hit) == 1:
+                x = hit[0]
+                lk = lambda _n, x=x: (x['name'], x['grade'], re.sub(r'\s+', ' ', x['statement'] or '')[:150], (x.get('head') or '')[:7])  # noqa: E731
+                row = LT.terminal_row('%s:corr:%s' % (key, nm), src, 'Correspondence: %s %s' % (nm.split('.')[-1], gr.split()[0]), nm, claimed, lk)
+                if row and row['verdict'] != 'MATCHES':
+                    row = LT.recut(row, 'the Correspondence row re-emitted from the table at the close')
+            if row is None and nm == 'residue_irreducible':
+                row = dict(id='%s:corr:%s' % (key, nm), source=src, stated='Correspondence: residue_irreducible %s' % gr[:60], by='HAND',
+                           cited=[_cite(_P, 'phase1.5/proofs/THE_RESIDUE_OF_RH.md', '108'), _cite(_P, 'phase1.5/proofs/THE_RESIDUE_OF_RH.md', '228')],
+                           licensed='THE_RESIDUE_OF_RH :228 tiers it T1-lit, CARRIED -- INTERFACES on a literature theorem; :108 its axiom print; no '
+                                    'row of the terminal table (SIDE-lv-conservation is outside it)', verdict='MATCHES', action='none')
+            if row is None:
+                raise SystemExit('### REFUSED: the Correspondence row %s (%s) has no reading' % (nm, repo))
+            row.update(page=key, kind='correspondence', line=n)
+            rows.append(row)
+            continue
+        m = re.match(r'^\| ([^|`]+?) \| (.+) \|$', l)
+        if sec == 'Placement' and m and not l.startswith('| object') and not l.startswith('|:--'):
+            obj, cell = m.group(1).strip(), m.group(2).strip()
+            paths = re.findall(r'`([^`]+)`', cell)
+            cites, v, lic, act = [], 'MATCHES', '', 'none'
+            if obj in ('this page', 'the ζ-leg'):
+                cites, lic = [_cite(_P, paths[0], '1')], 'the page at PLACE-papers'
+            elif obj == 'ledger':
+                cites, lic = [_cite(_P, paths[0], '1')], 'the ledger at PLACE-papers'
+            elif obj in ('the ceiling sentence', 'the successor sentence'):
+                for p in paths:
+                    f, ln = p.split(':')
+                    cites.append(_cite(_P, f, ln))
+                    t = _show(PP, READ_AT[_P], f).split(NL)[int(ln) - 1]
+                    if not t.startswith("*(Appended under the author's ruling `(R177)`(2)" if obj == 'the ceiling sentence' else "*(Appended under the author's ruling `(R183)`(3)"):
+                        v = 'OVERREACHES'
+                lic = 'the line cited carries the ruled sentence' if v == 'MATCHES' else 'the line cited does not carry the ruled sentence'
+                if v != 'MATCHES':
+                    act = 'RE-CUT: the row re-emitted with the line read at PLACE-papers HEAD'
+            elif obj == 'keystone naming a node':
+                t = _show(PP, READ_AT[_P], paths[0])
+                if t is None:
+                    v, lic, act = 'OVERREACHES', 'the file is not at PLACE-papers %s' % READ_AT[_P], 'RE-CUT: the row dropped at re-emission'
+                    cites = [_cite(_P, pname, str(n))]
+                else:
+                    pat = re.compile(r'\b(' + '|'.join(re.escape(s) for s in sorted(set(node_short)) if not re.fullmatch(r'[a-z]+|[A-Z]+', s)) + r')\b')
+                    hits = [i for i, x in enumerate(t.split(NL), 1) if pat.search(x)]
+                    if hits:
+                        cites, lic = [_cite(_P, paths[0], str(hits[0]))], 'the file names %s at :%d' % (pat.search(t.split(NL)[hits[0] - 1]).group(1), hits[0])
+                    else:
+                        v, lic, act = 'OVERREACHES', 'no line of the file names a node of the page', 'RE-CUT: the row dropped at re-emission'
+                        cites = [_cite(_P, paths[0], '1')]
+            elif obj == 'the χ-leg':
+                cites = [_cite(_P, K.DIR_PAGE, '1'), _cite(_R, 'tools/chain_page.py', '~| the χ-leg | its own page')]
+                v, lic = 'UNDERSTATES', ('the χ-leg`s page exists, THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md, generated under (R183)(5); the row says it '
+                                         'will have one when EF_lit_chi`s proof lands -- a fixed string in the generator`s template')
+                act = ('RE-CUT: | the χ-leg | `THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md` | -- the χ page`s own form for the ζ-leg, by the template '
+                       'repair of relay tools/chain_page.py (Component 3)')
+            else:
+                raise SystemExit('### REFUSED: a Placement row with no reading: %r' % l[:80])
+            rows.append(dict(id='%s:place:%d' % (key, n), source=src, stated='Placement: %s -> %s' % (obj, cell[:90]), by='HAND', cited=cites,
+                             licensed=lic, verdict=v, action=act, page=key, kind='placement', line=n))
+            continue
+        if l.startswith('|'):
+            skipped.append('%d %s' % (n, l[:60]))
+            continue
+        if sec == 'Glossary' and l.startswith('- **'):
+            gi += 1
+            ent = K_GLOSS[gi - 1]
+            if not l.startswith('- **%s** — ' % ent[0]):
+                raise SystemExit('### REFUSED: glossary line %d is not entry %d (%s)' % (n, gi, ent[0]))
+            v, lic, act = 'MATCHES', ('the definition read against the lines cited; its quotations found there; a name of the programme`s own, '
+                                      'defined in its own words'), 'none'
+            if gi in GLOSS_NOTE:
+                lic += '; ' + GLOSS_NOTE[gi]
+            if gi in GLOSS_FIND:
+                v, lic, act = GLOSS_FIND[gi]
+            rows.append(dict(id='%s:gloss:%d' % (key, gi), source=src, stated='glossary entry %d: %s' % (gi, ent[0]), by='HAND',
+                             cited=[_cite(*c) for c in GLOSS_CITES[gi]], licensed=lic, verdict=v, action=act, page=key, kind='glossary', line=n))
+            continue
+        for j, s in enumerate(_sentences(l), 1):
+            hit = [p for p in PROSE if s.startswith(p[0])]
+            if len(hit) != 1:
+                raise SystemExit('### REFUSED: %s :%d sentence %d is read by %d entries: %r' % (pname, n, j, len(hit), s[:80]))
+            nd, v, cs, lic = hit[0]
+            rows.append(dict(id='%s:prose:%d.%d' % (key, n, j), source=src, stated=s[:200], by='HAND', cited=[_cite(*c) for c in cs],
+                             licensed=lic, verdict=v, action=PROSE_RECUT.get(nd, 'none'), page=key, kind='prose', line=n))
+    return rows, skipped
+
+
+K_GLOSS = []
+
+
+def pages_table(pp_rev=None, bank='b648_table_pages', *a):
+    """data/<bank>.txt and .json: both pages at PLACE-papers `pp_rev` (default the revision read, READ_AT) through the licensed-statement
+    table; counts by page, kind and verdict; every row one line, every row not MATCHES in full."""
+    import licensed_table as LT
+    import chain_page as CP
+    pp_rev = pp_rev or READ_AT[_P]
+    if g(RELAY, 'diff', '--stat', READ_AT[_R], '--', 'data/glossary.txt').strip():
+        raise SystemExit('### REFUSED: data/glossary.txt differs from relay %s' % READ_AT[_R])
+    K_GLOSS[:] = CP.glossary_entries()
+    idx = _tt_index(READ_AT[_R])
+    allrows, out = [], []
+    for key in ('zeta', 'chi'):
+        text = _show(PP, pp_rev, K.PNAME[key])
+        rows, skipped = _page_rows(key, text, idx, pp_rev)
+        allrows += rows
+        out.append((key, rows, skipped))
+    counts, faults = LT.table(allrows)
+    L = ['b648 -- COMPONENT 3, (R258)(3): THE TWO PAGES THROUGH THE LICENSED-STATEMENT TABLE (%s)' % utc(),
+         'read at PLACE-papers %s (the pages), relay %s (the generator, the table, the probes, the lists), SIDE-explicit-formula %s, '
+         'SIDE-global-section %s, Mathlib %s' % (pp_rev, READ_AT[_R], READ_AT[_E], READ_AT[_S], READ_AT['mathlib']),
+         'the rules: HAND -- the prose sentences and the glossary entries, each citing the lines read, and the Placement rows at the line the '
+         'path carries; terminal -- %s' % LT.RULES['terminal'], '']
+    if counts is None:
+        L += ['### ### **REFUSED: %d rows with faults**' % len(faults)] + ['  %s: %s' % (k, v) for k, v in sorted(faults.items())]
+        put_txt(bank + '.txt', L)
+        print(L[-len(faults) - 1])
+        return
+    for key, rows, skipped in out:
+        c = collections.Counter((r['kind'], r['verdict']) for r in rows)
+        L.append('### %s (%s): %d rows; %d lines not sentences (a title, a heading, a table`s head) -- %s' % (
+            K.PNAME[key], key, len(rows), len(skipped), '; '.join(skipped)))
+        for kind in ('prose', 'glossary', 'node', 'placement', 'correspondence'):
+            L.append('  %-15s %s' % (kind, '  '.join('%s %d' % (v, c[(kind, v)]) for v in LT.VERDICTS)))
+        L.append('')
+    L.append('### NOT MATCHES, IN FULL')
+    for r in allrows:
+        if r['verdict'] != 'MATCHES':
+            L += ['  [%s] %s %s by %s' % (r['verdict'], r['id'], r['source'], r['by']), '      stated: ' + r['stated'], '      licensed: ' + r['licensed'],
+                  '      cited: ' + ', '.join(r.get('cited') or []), '      action: ' + r['action']]
+    L += ['', '### EVERY ROW']
+    L += ['  %s | %s | %s | %s | %s' % (r['id'], r['source'], r['verdict'], r['by'], ', '.join(r.get('cited') or [])) for r in allrows]
+    tot = collections.Counter(r['verdict'] for r in allrows)
+    L += ['', '### ### **%d ROWS: %s.**' % (len(allrows), ', '.join('%s %d' % (v, tot[v]) for v in LT.VERDICTS))]
+    put_txt(bank + '.txt', L)
+    put_json(bank + '.json', dict(read_at=dict(READ_AT, pages=pp_rev), rows=allrows))
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
