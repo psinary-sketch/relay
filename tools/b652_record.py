@@ -359,6 +359,92 @@ def grades(*a):
     print(L[-1])
 
 
+CUT_BRANCH, PC_BRANCH = 'docstrings-cut-SIDE-kernel', 'docstrings-SIDE-kernel'
+
+
+def _table_at(ref):
+    """b647's generator (_kdoc_rows) over SIDE-kernel's docstrings at a ref -- its _kmain read as the ref's commit, nothing else changed."""
+    import b647_record as B7
+    rev = subprocess.run(['git', '-C', 'D:/SIDE-kernel', 'rev-parse', '--short=7', ref], capture_output=True, text=True).stdout.strip()
+    orig = B7._kmain
+    B7._kmain = lambda k: rev
+    try:
+        return rev, B7._kdoc_rows('SIDE-kernel')
+    finally:
+        B7._kmain = orig
+
+
+def table_after(*a):
+    """(R262)(4): SIDE-kernel's docstrings re-run through the table after the cut -- the generated reading at main (before) and at the
+    branch carrying both the cut and the plain comments (after); counts by verdict; every row not MATCHES printed; the cut blocks' rows apart."""
+    import collections
+    plan = jl('b652_sentence_cut_plan.json')['blocks']
+    cut_files = set(b['file'] for b in plan if b.get('kept') is not None)
+    r0, before = _table_at('main')
+    r1, after = _table_at(PC_BRANCH)
+    c0 = collections.Counter(r['verdict'] for r in before)
+    c1 = collections.Counter(r['verdict'] for r in after)
+    cf = collections.Counter(r['verdict'] for r in after if r['file'] in cut_files)
+    L = ['b652 -- COMPONENT 3, (R262)(4): SIDE-kernel`S DOCSTRINGS RE-RUN THROUGH THE TABLE AFTER THE CUT (%s)' % utc(), '',
+         '### the reader: b647_record._kdoc_rows (the generated rule, licensed_table.docstring_row), unedited, its kernel commit read as the ref`s;',
+         '### before at main %s, after at %s %s (the cut, 33 commits, and the two plain comments rebased onto it).' % (r0, PC_BRANCH, r1),
+         '### ### **THE GENERATED RULE IS THE ONLY READER HERE.** b651 found it reads 395 of 396 sentence rows MATCHES where the HAND reading',
+         '### faulted 152 (relay data/b651_table_SIDE-kernel_sentences.txt; this act`s grades): a MATCHES count from it does not show what the HAND',
+         '### reading would read after the cut. Its counts are printed as what they are.', '',
+         '  before (main %s) : rows %d ; %s' % (r0, len(before), ', '.join('%s %d' % kv for kv in sorted(c0.items()))),
+         '  after  (%s %s) : rows %d ; %s' % (PC_BRANCH, r1, len(after), ', '.join('%s %d' % kv for kv in sorted(c1.items()))),
+         '  after, the 33 cut files alone : rows %d ; %s' % (sum(cf.values()), ', '.join('%s %d' % kv for kv in sorted(cf.items()))), '',
+         '### ROWS NOT MATCHES AFTER THE CUT, printed and left (the author`s answer: not re-cut by hand this act):']
+    n = 0
+    for r in after:
+        if r['verdict'] != 'MATCHES':
+            n += 1
+            L.append('  %s | %s | %s' % (r['source'], r['verdict'], '; '.join(r.get('findings') or [])[:400]))
+            L.append('      STATED %s' % ' '.join(r['stated'].split())[:500])
+    if not n:
+        L.append('  none')
+    L += ['', '### ### **BEFORE: ROWS %d, NOT MATCHES %d ; AFTER: ROWS %d, NOT MATCHES %d (%s) -- THE GENERATED RULE`S READING.**' % (
+        len(before), len(before) - c0.get('MATCHES', 0), len(after), n, ', '.join('%s %d' % kv for kv in sorted(c1.items()) if kv[0] != 'MATCHES') or 'none')]
+    put_txt('b652_table_after.txt', [l.replace('\r', '') for l in L])
+    put_json('b652_table_after.json', dict(at=utc(), before=dict(rev=r0, counts=dict(c0)), after=dict(rev=r1, counts=dict(c1)),
+                                           not_matches=[dict(source=r['source'], verdict=r['verdict'], findings=r.get('findings') or [])
+                                                        for r in after if r['verdict'] != 'MATCHES']))
+    print(NL.join(L[8:11] + L[-1:]))
+
+
+def cut_bank(*a):
+    """data/b652_sidekernel_cut.txt: the branch, the commits one per file with their blocks, the code-only check, the rebase, the table."""
+    KD = 'D:/SIDE-kernel'
+    gk = lambda *x: subprocess.run(['git', '-C', KD] + list(x), capture_output=True, text=True, encoding='utf-8').stdout   # noqa: E731
+    plan = jl('b652_sentence_cut_plan.json')['blocks']
+    log = [l.split(' ', 1) for l in gk('log', '--reverse', '--format=%h %s', 'main..' + CUT_BRANCH).split(NL) if l.strip()]
+    pc = [l.split(' ', 1) for l in gk('log', '--reverse', '--format=%h %s', CUT_BRANCH + '..' + PC_BRANCH).split(NL) if l.strip()]
+    ta = jl('b652_table_after.json')
+    L = ['b652 -- COMPONENT 3, (R262)(4) AND THE AUTHOR`S WORD AFTER THE STRIKE: SIDE-kernel`S DOCSTRINGS CUT FROM THE SENTENCE ROWS (%s)' % utc(), '',
+         '### the grades: relay data/b652_sentence_grades.txt (152 rows graded by hand, bound to the parent`s LICENSED cell); the rule: each graded',
+         '### sentence replaced in place by its parent`s ACTION, repeats dropped, nothing composed; UNRESOLVED-CELL #56, #57, #69 not cut (an ACTION',
+         '### with "..." is an incomplete cell), for b653. The branch %s from main %s; one commit per file by the Edit tool,' % (CUT_BRANCH, gk('rev-parse', '--short=7', 'main').strip()),
+         '### each verified before its commit as main`s blob with the planned replacements applied (CR aside), byte for byte.', '']
+    for h, s in log:
+        f = s.split('Component 3: ', 1)[1].split(' -- ', 1)[0]
+        ks = [b['k'] for b in plan if b.get('file') == f and b.get('kept') is not None]
+        L.append('  %s  %-42s blocks %s' % (h, f, ', '.join('#%d' % k for k in ks)))
+    L += ['', '### COMMITS %d ; FILES %d ; BLOCKS CUT %d ; UNRESOLVED-CELL 3 (#56 SimplicityRouteD, #57 SimplicityRouteE, #69 TriviumCode :9).' % (
+        len(log), len(set(b['file'] for b in plan if b.get('kept') is not None)), len([b for b in plan if b.get('kept') is not None])),
+          '### the code outside comments, every touched file, main against the branch: %s' % (a[0] if a else 'see the record'),
+          '', '### the plain-comment branch rebased onto the cut (one branch carries both): %s at %s over %s' % (
+              PC_BRANCH, gk('rev-parse', '--short=7', PC_BRANCH).strip(), CUT_BRANCH)]
+    for h, s in pc:
+        L.append('  %s  %s' % (h, s[:150]))
+    L += ['', '### the table after the cut (relay data/b652_table_after.txt), the generated reader alone: before %s ; after %s ; rows not MATCHES after %d,' % (
+        ta['before']['counts'], ta['after']['counts'], len(ta['not_matches'])),
+          '### all in blocks the cut did not touch and all present before it; the generated reading did not move.',
+          '', '### the merge: not made this act (the author`s word): its margins UNMEASURED per file (relay data/b652_build_margin.txt); no build attempted.',
+          '### ### **COMMITS %d ; BLOCKS CUT %d ; BRANCH UNMERGED ; MAIN UNMOVED.**' % (len(log), len([b for b in plan if b.get('kept') is not None]))]
+    put_txt('b652_sidekernel_cut.txt', L)
+    print(NL.join(L[-12:]))
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn) or sys.argv[1].startswith('_'):

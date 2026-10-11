@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T23:43:16Z",
+ "before": {
+  "rev": "b0f2a3a",
+  "counts": {
+   "MATCHES": 428,
+   "OVERREACHES": 5
+  }
+ },
+ "after": {
+  "rev": "5033909",
+  "counts": {
+   "MATCHES": 428,
+   "OVERREACHES": 5
+  }
+ },
+ "not_matches": [
+  {
+   "source": "Bridge/OstrowskiBridge.lean:37",
+   "verdict": "OVERREACHES",
+   "findings": [
+    "D4: its first sentence claims an equivalence ('equivalent') while the elaborated statement holds no ↔: Equiv Rat.AbsoluteValue.real ∨ ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p) (read at the source, Bridge/OstrowskiBridge.lean :40)"
+   ]
+  },
+  {
+   "source": "Bridge/OstrowskiBridge.lean:46",
+   "verdict": "OVERREACHES",
+   "findings": [
+    "D4: its first sentence claims an equivalence ('equivalent') while the elaborated statement holds no ↔: ot_equiv_padic (p : ℕ) [Fact (Nat.Prime p)] : ¬ Rat.AbsoluteValue.real.IsEquiv (Rat.AbsoluteValue.padic p) (read at the source, Bridge/OstrowskiBridge.lean :47)"
+   ]
+  },
+  {
+   "source": "Kernel/Formation.lean:29",
+   "verdict": "OVERREACHES",
+   "findings": [
+    "D2: `SIDE_exclusion` called DERIVES ('proves') while its row reads INTERFACES"
+   ]
+  },
+  {
+   "source": "Kernel/Voice2.lean:48",
+   "verdict": "OVERREACHES",
+   "findings": [
+    "D4: its first sentence claims an equivalence ('iff') while the elaborated statement holds no ↔: theorem symmetries_agree_iff (sigma : Real) : conjugate_re sigma = reflect_re sigma <-> sigma = 1 / 2 (read at the source, Kernel/Voice2.lean :52)"
+   ]
+  },
+  {
+   "source": "Kernel/Voice6.lean:49",
+   "verdict": "OVERREACHES",
+   "findings": [
+    "D4: its first sentence claims an equivalence ('iff') while the elaborated statement holds no ↔: theorem offset_zero_iff (sigma : Real) : spectral_offset sigma = 0 <-> sigma = 1 / 2 (read at the source, Kernel/Voice6.lean :50)"
+   ]
+  }
+ ]
+}

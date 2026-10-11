@@ -1,0 +1,25 @@
+b652 -- COMPONENT 3, (R262)(4): SIDE-kernel`S DOCSTRINGS RE-RUN THROUGH THE TABLE AFTER THE CUT (2026-10-11T23:43:16Z)
+
+### the reader: b647_record._kdoc_rows (the generated rule, licensed_table.docstring_row), unedited, its kernel commit read as the ref`s;
+### before at main b0f2a3a, after at docstrings-SIDE-kernel 5033909 (the cut, 33 commits, and the two plain comments rebased onto it).
+### ### **THE GENERATED RULE IS THE ONLY READER HERE.** b651 found it reads 395 of 396 sentence rows MATCHES where the HAND reading
+### faulted 152 (relay data/b651_table_SIDE-kernel_sentences.txt; this act`s grades): a MATCHES count from it does not show what the HAND
+### reading would read after the cut. Its counts are printed as what they are.
+
+  before (main b0f2a3a) : rows 433 ; MATCHES 428, OVERREACHES 5
+  after  (docstrings-SIDE-kernel 5033909) : rows 433 ; MATCHES 428, OVERREACHES 5
+  after, the 33 cut files alone : rows 357 ; MATCHES 352, OVERREACHES 5
+
+### ROWS NOT MATCHES AFTER THE CUT, printed and left (the author`s answer: not re-cut by hand this act):
+  Bridge/OstrowskiBridge.lean:37 | OVERREACHES | D4: its first sentence claims an equivalence ('equivalent') while the elaborated statement holds no ↔: Equiv Rat.AbsoluteValue.real ∨ ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p) (read at the source, Bridge/OstrowskiBridge.lean :40)
+      STATED Every nontrivial absolute value on ℚ is equivalent to either the real absolute value or a p-adic absolute value. This is Ostrowski's theorem, re-exported for the kernel.
+  Bridge/OstrowskiBridge.lean:46 | OVERREACHES | D4: its first sentence claims an equivalence ('equivalent') while the elaborated statement holds no ↔: ot_equiv_padic (p : ℕ) [Fact (Nat.Prime p)] : ¬ Rat.AbsoluteValue.real.IsEquiv (Rat.AbsoluteValue.padic p) (read at the source, Bridge/OstrowskiBridge.lean :47)
+      STATED The real and p-adic absolute values are not equivalent.
+  Kernel/Formation.lean:29 | OVERREACHES | D2: `SIDE_exclusion` called DERIVES ('proves') while its row reads INTERFACES
+      STATED The forward exclusion theorem: if every class forces P and classes cover X, then P holds everywhere. This is TRIVIALLY VALID LOGIC. The content is in the instantiation. Compare: SIDE_exclusion proves ¬P from ExhaustiveCatalogue + NoneProduces. forward_exclusion proves P from ForwardCatalogue directly.
+  Kernel/Voice2.lean:48 | OVERREACHES | D4: its first sentence claims an equivalence ('iff') while the elaborated statement holds no ↔: theorem symmetries_agree_iff (sigma : Real) : conjugate_re sigma = reflect_re sigma <-> sigma = 1 / 2 (read at the source, Kernel/Voice2.lean :52)
+      STATED The two symmetries agree on real part iff sigma = 1/2. conjugate_re(sigma) = reflect_re(sigma) iff sigma = 1 - sigma iff sigma = 1/2
+  Kernel/Voice6.lean:49 | OVERREACHES | D4: its first sentence claims an equivalence ('iff') while the elaborated statement holds no ↔: theorem offset_zero_iff (sigma : Real) : spectral_offset sigma = 0 <-> sigma = 1 / 2 (read at the source, Kernel/Voice6.lean :50)
+      STATED Zero offset iff on the critical line.
+
+### ### **BEFORE: ROWS 433, NOT MATCHES 5 ; AFTER: ROWS 433, NOT MATCHES 5 (OVERREACHES 5) -- THE GENERATED RULE`S READING.**
