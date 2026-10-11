@@ -8,7 +8,8 @@
 ###               and the census. GENERATED where a rule can generate it (a docstring against its declaration's elaborated statement and
 ###               grade: `docstring`; a claim naming a terminal against that terminal's row: `terminal`), its rule named in `by`; HAND
 ###               where the seat read it, with the lines read cited in `cited` (each `path:N`, `path:N-M` or `repo@pin:path:N`);
-###   VERDICT  -- exactly one of MATCHES / UNDERSTATES / OVERREACHES / UNLICENSED (a claim no kernel and no citation reaches);
+###   VERDICT  -- exactly one of MATCHES / UNDERSTATES / OVERREACHES / UNLICENSED (a claim no kernel and no citation reaches) /
+###               INSTRUMENT (b652: the verdict came from an arm's mis-binding; an ARM cell names the arm; printed INSTRUMENT(<arm>));
 ###   ACTION   -- for MATCHES `none`; for UNDERSTATES or OVERREACHES `RE-CUT: <the sentence proposed>` or a named work-order with a
 ###               trigger (`W-ORD-<NAME>, TRIGGER <when>`) where the repair needs a build; for UNLICENSED a work-order or
 ###               `RETIRE TO ERRATA: <why>`.
@@ -19,7 +20,22 @@
 import collections
 import re
 
-VERDICTS = ('MATCHES', 'UNDERSTATES', 'OVERREACHES', 'UNLICENSED')
+VERDICTS = ('MATCHES', 'UNDERSTATES', 'OVERREACHES', 'UNLICENSED', 'INSTRUMENT')
+# ### b652 under (R262)(5), W-ORD-VERDICT-INSTRUMENT acted: the fifth verdict INSTRUMENT -- a row whose verdict came from an arm's (or a
+# ### generated rule's) mis-binding, not from the claim; its ARM cell names the arm and the row reads INSTRUMENT(<arm>). A real contradiction
+# ### keeps the arm's own verdict (arm_verdict below). The ARM cell is carried by an INSTRUMENT row and by no other.
+ARM_RE = re.compile(r'^(?:[GF]-[A-Z0-9-]+|[\w.]+ (?:D\d|rule)[\w ()./-]*)(?:, (?:[GF]-[A-Z0-9-]+))*$')
+
+
+def arm_verdict(arm, said, misbound):
+    """the verdict a table row takes from an arm's finding: INSTRUMENT where the hand reading found the arm bound the claim to the wrong object
+    (or read a sentence its rule does not reach); the arm's own verdict (CONTRADICTED among them) where the finding is real."""
+    return 'INSTRUMENT' if misbound else said
+
+
+def label(row):
+    """the verdict as printed: INSTRUMENT(<arm>) for an INSTRUMENT row, the verdict word otherwise."""
+    return 'INSTRUMENT(%s)' % row.get('arm') if row.get('verdict') == 'INSTRUMENT' else row.get('verdict')
 CELLS = ('source', 'stated', 'licensed', 'verdict', 'action')
 CITE_RE = re.compile(r'^(?:[\w.\-]+@[0-9a-f]{6,40}:)?[\w./\-]+(?:\.\w+)?:\d+(?:-\d+)?$')
 SOURCE_RE = re.compile(r'^(?:[\w.\-]+@[0-9a-f]{6,40}:[\w.\'’!?₀-₉]+|[\w./\-]+\.\w+:\d+(?:-\d+)?)$')
@@ -42,7 +58,11 @@ def check(row):
             f.append('cell %s empty' % c)
     v = row.get('verdict')
     if v not in VERDICTS:
-        f.append('verdict %r not one of the four' % (v,))
+        f.append('verdict %r not one of the five' % (v,))
+    if v == 'INSTRUMENT' and not ARM_RE.match(str(row.get('arm') or '')):
+        f.append('INSTRUMENT without an ARM cell naming the arm (%r)' % (row.get('arm'),))
+    if v != 'INSTRUMENT' and row.get('arm'):
+        f.append('an ARM cell on a %s row (the cell is the INSTRUMENT verdict`s)' % v)
     if not SOURCE_RE.match(str(row.get('source', ''))):
         f.append('source %r is neither path:line nor kernel@pin:declaration' % (row.get('source'),))
     by = row.get('by')
@@ -64,6 +84,8 @@ def check(row):
         f.append('%s without a re-cut sentence or a work-order with a trigger' % v)
     if v == 'UNLICENSED' and not (re.match(r'^W-ORD-[A-Z0-9-]+, TRIGGER \S', a) or a.startswith('RETIRE TO ERRATA: ')):
         f.append('UNLICENSED without a work-order or a retirement to ERRATA')
+    if v == 'INSTRUMENT' and not (a.startswith('TO THE ARM: ') and len(a) > 16 or re.match(r'^W-ORD-[A-Z0-9-]+, TRIGGER \S', a)):
+        f.append('INSTRUMENT without a repair to the arm (TO THE ARM: ...) or a work-order with a trigger')
     return f
 
 
@@ -77,7 +99,8 @@ def table(rows):
         faults['duplicate ids'] = dup
     if faults:
         return None, faults
-    c = collections.OrderedDict((v, 0) for v in VERDICTS)
+    # ### INSTRUMENT is counted where a row carries it, so a table of the four verdicts counts exactly as before b652
+    c = collections.OrderedDict((v, 0) for v in VERDICTS if v != 'INSTRUMENT' or any(r.get('verdict') == v for r in rows))
     for r in rows:
         c[r['verdict']] += 1
     return c, {}

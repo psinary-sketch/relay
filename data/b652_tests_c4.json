@@ -1,0 +1,82 @@
+{
+ "test_licensed_table_b645.py": {
+  "rc": 0,
+  "seconds": 0,
+  "cases": 18,
+  "passing": 18,
+  "failing": [],
+  "last": "### ### **18 of 18 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (1) a plain docstring on a DERIVES theorem reads MATCHES and the table takes it -- got ('MATCHES', []) -- PASS\n  (2) a module line calling a DERIVES name open reads UNDERSTATES, refused without its re-cut, taken with it -- got ('UNDERSTATES', True, []) -- PASS\n  (3) an unconditional docstring on an INTERFACES theorem reads OVERREACHES -- got 'OVERREACHES' -- PASS\n  (4) a statement-grade claim stated as established reads UNLICENSED and the table takes its retirement -- got ('UNLICENSED', []) -- PASS\n  (5) a HAND row without its citation is refused, and the table with it -- got (True, None, True) -- PASS\n  (6) MATCHES with an action, or a fifth verdict, is refused -- got (True, True) -- PASS\n  (7) a claim naming a terminal at a grade above its row reads OVERREACHES -- got 'OVERREACHES' -- PASS\n  (8) an intake pair outside the printed mapping raises -- got 'raised' -- PASS\n  (9) a clean table of four rows counts one of each verdict -- got ({'MATCHES': 1, 'UNDERSTATES': 1, 'OVERREACHES': 1, 'UNLICENSED': 1}, {}) -- PASS\n  (10) \"NOT PROVED\" beside theorem names reads MATCHES (negation guarded, no open claim against a grade) -- got 'MATCHES' -- PASS\n  (11) (D3) a DISCHARGED premise called open reads UNDERSTATES, an OPEN premise called proved OVERREACHES -- got ('UNDERSTATES', 'OVERREACHES') -- PASS\n  (12) a bare dotted name read through the lookup: P.bar called proved reads OVERREACHES -- got 'OVERREACHES' -- PASS\n  (13) (D4) an equivalence claimed of a one-direction statement reads OVERREACHES, of an ↔ statement MATCHES -- got ('OVERREACHES', 'MATCHES') -- PASS\n  (14) (D5) a Mathlib-scope claim is flagged and refused as generated, taken as a cited HAND row -- got (True, True, []) -- PASS\n  (15) (D6) a Prop called NOT PROVED that a theorem concludes reads UNDERSTATES; one no theorem concludes MATCHES -- got ('UNDERSTATES', 'MATCHES') -- PASS\n  (16) (D5) \"holds if and only if\" is no Mathlib-scope claim -- got False -- PASS\n  (17) the cluster rule on ten planted paths: eight path rules, the terminal rule, HAND -- got ['simplicity', 'GRH-cascade', 'surround', 'h2-positivity', 'instances', 'reduction-chain', 'method', 'side', 'h2-positivity', ''] -- PASS\n  (18) the maturity rule: ONGOING, CARRIED-OPENLY, SETTLED, and a blank marked -- got ['ONGOING', 'CARRIED-OPENLY', 'SETTLED', ('', 'NOT YET IN THE TABLE')] -- PASS\n### ### **18 of 18 cases as wanted -- PASS**\n"
+ },
+ "test_licensed_table_instrument_b652.py": {
+  "rc": 0,
+  "seconds": 0,
+  "cases": 10,
+  "passing": 10,
+  "failing": [],
+  "last": "### ### **10 of 10 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (1) an INSTRUMENT row with its ARM cell and a repair to the arm is taken (faults []) -- PASS\n  (2) it prints INSTRUMENT(<arm>): INSTRUMENT(G-AXIOM-CLAIM) -- PASS\n  (3) an INSTRUMENT row without an ARM cell is refused (['INSTRUMENT without an ARM cell naming the arm (None)']) -- PASS\n  (4) an ARM cell on an OVERREACHES row is refused (['an ARM cell on a OVERREACHES row (the cell is the INSTRUMENT verdict`s)']) -- PASS\n  (5) arm_verdict: a mis-binding reads INSTRUMENT -- PASS\n  (6) arm_verdict: a real contradiction stays CONTRADICTED -- PASS\n  (7) the four real contradictions of b651 (rows 1, 3, 4, 6) stay CONTRADICTED: ['CONTRADICTED', 'CONTRADICTED', 'CONTRADICTED', 'CONTRADICTED'] -- PASS\n  (8) the table takes a row of the four verdicts as before and counts INSTRUMENT apart: {'MATCHES': 0, 'UNDERSTATES': 0, 'OVERREACHES': 1, 'UNLICENSED': 0, 'INSTRUMENT': 1} -- PASS\n  (9) a generated rule names its arm the same way (INSTRUMENT(licensed_table.docstring_row D4 (the generated rule))) -- PASS\n  (10) an INSTRUMENT row with no repair to the arm is refused -- PASS\n### ### **10 of 10 cases as wanted -- PASS**\n"
+ },
+ "test_clusters_served_b651.py": {
+  "rc": 0,
+  "seconds": 0,
+  "cases": 5,
+  "passing": 5,
+  "failing": [],
+  "last": "### ### **5 of 5 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (1) a kernel cited from two clusters reads both                                                      PASS\n  (2) named only in prose: served none (the census`s citation read, not counted)                       PASS\n  (3) the census is read and not counted                                                               PASS\n  (4) a section after the Correspondence section is not read; (6) SIDE-gamma-x is not SIDE-gamma       PASS\n  (5) a deeper heading stays inside the Correspondence section                                         PASS\n### ### **5 of 5 cases as wanted -- PASS**\n"
+ },
+ "test_composer_b646.py": {
+  "rc": 0,
+  "seconds": 1,
+  "cases": 19,
+  "passing": 19,
+  "failing": [],
+  "last": "### ### **19 of 19 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (1) (a) the theorems` header verbatim, once -- PASS\n  (2) (a) the premises` header verbatim, once -- PASS\n  (3) (a) no theorem row carries its kernel, tag or axiom print (rows 53) -- PASS\n  (4) (a) no premise row carries the default discharge clause -- PASS\n  (5) (a) control: without (a) the rows carry the tag 15 times and the default clause -- PASS\n  (6) (b) the five parts headed in order (['THE CLAIM', 'WHAT IS MACHINE-VERIFIED', 'WHAT THE LOAD-BEARING THEOREMS ASSUME', 'WHAT IS OPEN', 'HOW A DEFECT IS REPORTED']) -- PASS\n  (7) (b) the theorems and the premises by status are lists (<ul> 7, <li> 58) -- PASS\n  (8) (b) every tag used is one Zenodo accepts (['li', 'p', 'strong', 'ul']) -- PASS\n  (9) (b) control: without (b) no list and no head tag -- PASS\n  (10) (c) the exhaustiveness sentence verbatim, once -- PASS\n  (11) (c) THE_UNCONDITIONAL_SURROUND section 6a cited by its words -- PASS\n  (12) (c) the old clause absent (\"bounds by its mechanism exclusions\", \"Its mechanism exclusions are\") -- PASS\n  (13) (c) control: without (c) the old clause present and the sentence absent -- PASS\n  (14) (d) no PREDICATE-UNLISTED in the text -- PASS\n  (15) (d) dedekind_rhs` reads INTERFACES on its two premises, named -- PASS\n  (16) (d) control: without (d) the PREDICATE-UNLISTED definition present -- PASS\n  (17) the composer with no rule reproduces v2 byte for byte from the table at v2 -- PASS\n  (18) v3 is shorter than v2 (11678 < 15504 bytes) -- PASS\n  (19) no unread figure in v3 -- PASS\n### ### **19 of 19 cases as wanted -- PASS**\n"
+ },
+ "test_composer_b647.py": {
+  "rc": 0,
+  "seconds": 1,
+  "cases": 18,
+  "passing": 18,
+  "failing": [],
+  "last": "  18 of 18 PASS",
+  "args": [],
+  "output": "  compose_v3 at this act 11678 bytes ; v3 as banked 11678 bytes ; the same: True\n  (1) (a) not_trivialSummandPremise glossed in six words ... PASS\n  (2) (a) dedekind_rhs': its two premises separated (a colon, then a semicolon before the second) ... PASS\n  (3) (a) Phi and the bracket: one plain-words bracket ... PASS\n  (4) (a) the squeeze and its jaws: one plain-words bracket ... PASS\n  (5) (a) the surround given its glossary entry, once, in THE CLAIM ... PASS\n  (6) (a) control: without (a) none of the five present ... PASS\n  (7) (b) \"complete over its named classes\" once, in the \"On exhaustiveness\" sentence ... PASS\n  (8) (b) the parenthesis absent ... PASS\n  (9) (b) control: without (b) the parenthesis present and the statement twice ... PASS\n  (10) (c) the open-premise phrase by part {'THE CLAIM': 1, 'WHAT IS MACHINE-VERIFIED': 0, 'WHAT THE LOAD-BEARING THEOREMS ASSUME': 0, 'WHAT IS OPEN': 1, 'HOW A DEFECT IS REPORTED': 0} ... PASS\n  (11) (c) control: without (c) THE CLAIM carries it twice {'THE CLAIM': 2, 'WHAT IS MACHINE-VERIFIED': 0, 'WHAT THE LOAD-BEARING THEOREMS ASSUME': 0, 'WHAT IS OPEN': 1, 'HOW A DEFECT IS REPORTED': 0} ... PASS\n  (12) (d) every definition the glossary`s form, verbatim (6) ... PASS\n  (13) (d) the glossary named ... PASS\n  (14) (d) the plain-words brackets that were not glossary forms absent ... PASS\n  (15) (d) the lists untouched: the status lists byte for byte as without (d) ... PASS\n  (16) (d) control: without (d) the brackets present and the glossary not named ... PASS\n  (17) the carried composer reproduces v3 byte for byte ... PASS\n  (18) no edit leaves NOT READ ... PASS\n  18 of 18 PASS\n"
+ },
+ "test_composer_b649.py": {
+  "rc": 0,
+  "seconds": 1,
+  "cases": 0,
+  "passing": 0,
+  "failing": [],
+  "last": "### ### **9 of 9 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (e1) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS\n  (e2) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS\n  (e3) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS\n  (e4) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS\n  (f1) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS\n  (f2) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS\n  v5 with both edits holds no unread figure                                                            PASS\n  the edits commute: (e) then (f) equals (f) applied to the composer with (e)                          PASS\n  b647`s composer reproduces v4 as banked (relay data/b647_deposit_description.txt)                    PASS\n### ### **9 of 9 cases as wanted -- PASS**\n"
+ },
+ "test_axiom_claim.py": {
+  "rc": 0,
+  "seconds": 0,
+  "cases": 12,
+  "passing": 12,
+  "failing": [],
+  "last": "### ### **12 of 12 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (1) the standard three claimed over a print naming sorryAx: CONTRADICTED ['CONTRADICTED']        PASS\n  (2) the true claim over a declaration printed at the standard three: VERIFIED ['VERIFIED']       PASS\n  (3) a claim over a declaration with no banked print: UNVERIFIABLE ['UNVERIFIABLE']               PASS\n  (4) the module header over the file: CONTRADICTED by the two declarations outside the three [('CONTRADICTED', ['P.bad', 'P.native'])] PASS\n  (5) an axiom word with no profile stated: MENTION ['MENTION']                                    PASS\n  (6) \"no axioms beyond the standard three\" reads STD3 and VERIFIES [('STD3', 'VERIFIED')]         PASS\n  (7) \"without native_decide\" over a print carrying Lean.ofReduceBool: CONTRADICTED ['CONTRADICTED'] PASS\n  (8) a wrapped print read whole, an empty one read empty: {'X.y': frozenset({'propext', 'Classical.choice', 'Quot.sound'}), 'X.z': frozenset()} PASS\n  (9) b642`s `Name: [...]` line read: {'SIDEExplicitFormula.Keiper.binomBeta': frozenset({'propext', 'Quot.sound'})} PASS\n  (10) P.other.leaf not matched to Q.leaf, a different declaration: UNVERIFIABLE ['UNVERIFIABLE']  PASS\n  (11) a `/-!` block after the head: OUT OF SCOPE ['OUT OF SCOPE']                                 PASS\n  (12) a module declaring nothing covers what it prints: CONTRADICTED by P.bad [('CONTRADICTED', 2, ['P.bad'])] PASS\n### ### **12 of 12 cases as wanted -- PASS**\n"
+ },
+ "test_axiom_claim_b651.py": {
+  "rc": 0,
+  "seconds": 0,
+  "cases": 7,
+  "passing": 7,
+  "failing": [],
+  "last": "### ### **7 of 7 cases as wanted -- PASS**",
+  "args": [],
+  "output": "  (1) row 2`s shape: re-bound to the module TraceSilence and graded by its prints, VERIFIED                PASS\n  (2) row 5`s shape: the hypothetical variant reads UNBOUND                                                PASS\n  (3) \"no axioms\" said of its own declaration, which uses an axiom: CONTRADICTED, not re-bound             PASS\n  (4) another declaration as subject, which uses an axiom: re-bound and CONTRADICTED                       PASS\n  (5) row 1`s shape: a parenthesis of axiom names re-binds nothing, the claim CONTRADICTED on its own declaration PASS\n  (6) KLSilence`s shape: the name in another clause of the parenthesis; the claim stays bound, VERIFIED on its own declaration PASS\n  (7) Voice7`s shape: the backticked name before the parenthesis takes the claim; re-bound and CONTRADICTED by its print PASS\n### ### **7 of 7 cases as wanted -- PASS**\n"
+ }
+}
