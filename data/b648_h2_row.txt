@@ -1,0 +1,32 @@
+b648 -- COMPONENT 5, (R258)(5): h2`S TWO DEFINITIONS AS A NAMED ROW (2026-10-11T01:24:21Z)
+
+### (1) THE lv-conservation REGISTER -- h1_complete_at_Phi`s docstring, SIDE-lv-conservation@b2238d4:SIDELvConservation/CouplingsAtPhi.lean:415-416:
+    | proven here.  This theorem is the `h1` leg of the T3′ bracket; `h2` (nonvanishing of
+    | the Mellin transform at the operative point) remains the outstanding obligation.
+
+### (2) THE WEIL REGISTER -- the glossary`s h2, relay@8a8e9cc8:data/glossary.txt:10 (name, definition, source; tab-separated):
+    | h2  ||  the programme's name for the open clause; in the kernel it is the one Prop h2_sign  ||  SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :28, "h2, as one Prop"
+    its source, SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:28-29:
+    | /-- **h2, as one Prop:** for every `k` in K, `0 ≤ P(k) - PR(k) + A(k)`. -/
+    | def h2_sign : Prop :=
+
+### (3) THE SURROUND, that the reduction has one node and its faces are one wall -- PLACE-papers@6783833:phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md:116 and PLACE-papers@6783833:phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md:167:
+    | There is a structural reason this reduction has exactly one node, and the programme's own census — *Paths to the Critical Line* v0.6 (`phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md`) — proves it rather than asserting it. The information that fixes a zero's location lives in the *fiber*, not in the *landscape* — not in inequalities on |ξ(σ + it)|, not in density estimates, not in aggregate statisti [...]
+    | To discharge the node is to close either face — they are the same wall. The attribution face (§6) asks for the transport of per-prime independence across the continuation into the strip. The geometric face (§6a) asks for the uniform |ζ′(ρ)| bound that makes the two jaws meet at every height, which reduces to uniform control of close zero pairs. Both are specific, locatable analytic tasks, not vagu [...]
+
+### THE ROW (tools/licensed_table.py, its cells):
+    id        h2:CouplingsAtPhi:415
+    source    SIDELvConservation/CouplingsAtPhi.lean:415-416
+    stated    `h2` (nonvanishing of the Mellin transform at the operative point) remains the outstanding obligation
+    licensed  the glossary defines h2 as the programme`s name for the open clause, in the kernel the one Prop h2_sign (data/glossary.txt :10), h2_sign being Weil positivity on classK (H2Sign.lean :28-:29); no source the table reads states h2 as the nonvanishing of a Mellin transform, and none equates the two statements
+    by        HAND
+    cited     SIDE-lv-conservation@b2238d4:SIDELvConservation/CouplingsAtPhi.lean:415-416, relay@8a8e9cc8:data/glossary.txt:10, SIDE-explicit-formula@82550e4:SIDEExplicitFormula/H2Sign.lean:28-29, PLACE-papers@6783833:phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md:116, PLACE-papers@6783833:phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md:167
+    verdict   UNLICENSED
+    action    W-ORD-LV-H2-DOCSTRING, TRIGGER a later ruling that edits the docstring on SIDE-lv-conservation`s main with its build under the hold (RUN-BENEATH-HOLD territory); the re-cut proposed below, NOT applied
+
+### THE RE-CUT PROPOSED, NOT APPLIED -- in place of the docstring`s sentence at :415-:416:
+    This theorem is the `h1` leg of the T3′ bracket; its `h2` leg -- nonvanishing of the Mellin transform at the operative point, this kernel’s register and not the Prop the programme’s glossary names h2, which is `h2_sign`, Weil positivity on classK (SIDE-explicit-formula `SIDEExplicitFormula/H2Sign.lean` :28-:29) -- remains outstanding.
+
+### check(): the table takes the row
+
+### ### **ONE ROW, UNLICENSED, ITS RE-CUT PROPOSED AND NOT APPLIED ; NO KERNEL FILE WRITTEN (SIDE-lv-conservation main b2238d4).**

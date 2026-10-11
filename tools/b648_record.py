@@ -1242,6 +1242,63 @@ def reader_packet8(*a):
     print(NL.join(L[2:]))
 
 
+# ================================================================================ COMPONENT 5: THE h2 ROW
+# ### (R258)(5): h1_complete_at_Phi's docstring against the glossary's h2, both quoted by line; the surround's sentence that the faces are one
+# ### node cited; the docstring's re-cut sentence proposed and NOT applied (a kernel docstring on main is edited under a later ruling, with the
+# ### lv-conservation build under the hold); no kernel edit.
+H2_AT = {'lv': ('D:/SIDE-lv-conservation', 'b2238d4', 'SIDELvConservation/CouplingsAtPhi.lean', (415, 416)),
+         'gloss': (RELAY, '8a8e9cc8', 'data/glossary.txt', (10, 10)),
+         'h2sign': ('D:/SIDE-explicit-formula', '82550e4', 'SIDEExplicitFormula/H2Sign.lean', (28, 29)),
+         'surround': (PP, '6783833', 'phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md', (116, 116)),
+         'faces': (PP, '6783833', 'phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md', (167, 167))}
+H2_RECUT = ('This theorem is the `h1` leg of the T3′ bracket; its `h2` leg -- nonvanishing of the Mellin transform at the operative point, '
+            'this kernel’s register and not the Prop the programme’s glossary names h2, which is `h2_sign`, Weil positivity on classK '
+            '(SIDE-explicit-formula `SIDEExplicitFormula/H2Sign.lean` :28-:29) -- remains outstanding.')
+
+
+def h2_row(*a):
+    """data/b648_h2_row.txt and .json: the named row, its sources quoted by line at their revisions, the re-cut proposed, the row checked by
+    the table's own check(); no kernel file is written."""
+    import licensed_table as LT
+    q = {}
+    for k, (repo, rev, path, (x, y)) in H2_AT.items():
+        t = _show(repo, rev, path)
+        if t is None:
+            sys.exit('### %s@%s:%s UNREAD -- NOTHING WRITTEN' % (repo, rev, path))
+        q[k] = t.split(NL)[x - 1:y]
+    if 'nonvanishing of' not in q['lv'][0] or 'the Mellin transform at the operative point' not in q['lv'][1]:
+        sys.exit('### THE DOCSTRING`S SENTENCE IS NOT AT :415-:416 -- NOTHING WRITTEN')
+    if not q['gloss'][0].startswith('h2\t'):
+        sys.exit('### THE GLOSSARY`S h2 IS NOT AT :10 -- NOTHING WRITTEN')
+    cite = lambda k: '%s@%s:%s:%s' % (os.path.basename(H2_AT[k][0]), H2_AT[k][1], H2_AT[k][2], '%d-%d' % H2_AT[k][3] if H2_AT[k][3][0] != H2_AT[k][3][1] else H2_AT[k][3][0])  # noqa: E731
+    row = dict(id='h2:CouplingsAtPhi:415', source='SIDELvConservation/CouplingsAtPhi.lean:415-416',
+               stated='`h2` (nonvanishing of the Mellin transform at the operative point) remains the outstanding obligation',
+               licensed=('the glossary defines h2 as the programme`s name for the open clause, in the kernel the one Prop h2_sign (data/glossary.txt '
+                         ':10), h2_sign being Weil positivity on classK (H2Sign.lean :28-:29); no source the table reads states h2 as the '
+                         'nonvanishing of a Mellin transform, and none equates the two statements'),
+               by='HAND', cited=[cite(k) for k in ('lv', 'gloss', 'h2sign', 'surround', 'faces')], verdict='UNLICENSED',
+               action=('W-ORD-LV-H2-DOCSTRING, TRIGGER a later ruling that edits the docstring on SIDE-lv-conservation`s main with its build '
+                       'under the hold (RUN-BENEATH-HOLD territory); the re-cut proposed below, NOT applied'),
+               proposed=H2_RECUT)
+    faults = LT.check(row)
+    L = ['b648 -- COMPONENT 5, (R258)(5): h2`S TWO DEFINITIONS AS A NAMED ROW (%s)' % utc(), '',
+         '### (1) THE lv-conservation REGISTER -- h1_complete_at_Phi`s docstring, %s:' % cite('lv')] + ['    | ' + x for x in q['lv']] + [
+         '', '### (2) THE WEIL REGISTER -- the glossary`s h2, %s (name, definition, source; tab-separated):' % cite('gloss')] + [
+         '    | ' + x.replace('\t', '  ||  ') for x in q['gloss']] + [
+         '    its source, %s:' % cite('h2sign')] + ['    | ' + x for x in q['h2sign']] + [
+         '', '### (3) THE SURROUND, that the reduction has one node and its faces are one wall -- %s and %s:' % (cite('surround'), cite('faces'))] + [
+         '    | ' + x[:400] + (' [...]' if len(x) > 400 else '') for x in q['surround'] + q['faces']] + [
+         '', '### THE ROW (tools/licensed_table.py, its cells):'] + ['    %-9s %s' % (k, row[k] if not isinstance(row[k], list) else ', '.join(row[k]))
+                                                               for k in ('id', 'source', 'stated', 'licensed', 'by', 'cited', 'verdict', 'action')] + [
+         '', '### THE RE-CUT PROPOSED, NOT APPLIED -- in place of the docstring`s sentence at :415-:416:', '    ' + H2_RECUT,
+         '', '### check(): %s' % (faults or 'the table takes the row'),
+         '', '### ### **ONE ROW, UNLICENSED, ITS RE-CUT PROPOSED AND NOT APPLIED ; NO KERNEL FILE WRITTEN (SIDE-lv-conservation main %s).**' %
+         g('D:/SIDE-lv-conservation', 'rev-parse', '--short=7', 'main').strip()]
+    put_txt('b648_h2_row.txt', L)
+    put_json('b648_h2_row.json', dict(at=utc(), row=row, quotes=q, faults=faults))
+    print(L[-1])
+
+
 LIST_HEAD = ['# b648 -- (R258)(3), THE TABLE`S GRADE ON THE PAGE: b643`s list (relay data/%s), every line unchanged, with the one line',
              '# `# table grade` appended, by which the generator prints the terminal table`s grade beside a node`s E0 grade where the two',
              '# differ and, on the ζ page, names the χ page in the χ-leg`s Placement row (relay tools/chain_page.py, `node_table_grade`). A list',
