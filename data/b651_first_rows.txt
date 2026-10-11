@@ -1,0 +1,48 @@
+b651 -- COMPONENT 2, (R261)(3): THE FIRST RE-CUT ROWS, EACH COMMITTED ALONE, EACH DIFF READ BY KIND (2026-10-11)
+
+### the reads: glossary entry 65 at relay data/glossary.txt :70 (entry 65 of 83, "bNNN", carrying "(b638 is this one)"), b648's page-table rows
+### for it (relay data/b648_table_pages.txt :21, :36); the chi page's back-matter sentence (PLACE-papers THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md
+### :573 before) and its source, the node list's backmatter line (relay data/b649_nodes_chi.txt :91), its row and ACTION cell (relay
+### data/b648_table_pages.txt :51, :54); the seam's rows (relay data/b644_lattice.txt :109, data/terminal_table.md :1080) and the ledger sentence
+### (PLACE-papers OPEN_TRAILS.md :10909); SIMPLICITY_OF_RIEMANN_ZEROS.md :355 and its v1.1.3 edition's ceiling clause (_v1_1_3.md :357, back
+### matter :585, :673).
+
+(a) GLOSSARY ENTRY 65 -- "(b638 is this one)" out of the block by an additive superseding entry.
+    The pages, the census and the description print the block through tools/chain_page.py glossary_entries, which printed every entry (the
+    three HINGE entries of b644 among them), so an appended entry alone would print beside entry 65. Two commits:
+      relay 1e073ac3 -- the generator: glossary_entries honours one marked supersession, a comment line `# SUPERSEDES ENTRY <n>: <name>`,
+        refused unless entry n bears that name; a glossary with no mark prints exactly as before. Through the Edit tool; its planted test
+        tools/test_glossary_supersede_b651.py 6 of 6 (the shared glossary read as b638's reader less its marked entries; a planted glossary
+        unmarked; a mark dropping entry 2 alone; a wrong name refused; a mark past the end refused; the three HINGE entries kept).
+      relay 5c644b0d -- the data: three lines appended to data/glossary.txt (a dated comment, `# SUPERSEDES ENTRY 65: bNNN`, the superseding
+        bNNN entry without the phrase); entry 65 stands in the file as written. The block 87 lines, the phrase absent.
+    The diff by kind on both pages (PLACE-papers e9466ef, 18ffee6): the glossary block alone -- entry 65 out at :73, the superseding entry in
+    at the block's end, :91.
+
+(b) THE CHI PAGE'S BACK-MATTER SENTENCE -- repaired in the generator's data, not the emitted page.
+      relay f789e31c -- data/b651_nodes_chi.txt: b649's list line for line (b649's list is named by b649's root and stands), its backmatter line
+        (b649's :91) re-cut to the ACTION cell (b648's page table :54): "reading the summed side as the Dedekind zeta's costs two premises,
+        which at v0.26 sit on dedekind_rhs' -- TrivialSummandPremise' k and EulerFactorPremise q, both witnessed -- the earlier
+        TrivialSummandPremise of dedekind_rhs being REFUTED-BY-COMPUTATION"; a four-line head.
+    The diff by kind on the chi page (PLACE-papers 18ffee6): the head line naming the new list (:3), the glossary block as in (a), the
+    back-matter sentence (:573).
+
+(c) THE SEAM'S ROWS -- re-graded from rh_strip_imp_rh_holds; W-ORD-SEAM-ROW acted.
+      PLACE-papers 1a7989d -- OPEN_TRAILS :13870, a dated correction beneath :10909 in the trail-line supersession form of b554 ((R164)(2)(b)):
+        "SUPERSEDES OPEN_TRAILS :10909 for `rh_strip_imp_rh`:", and the one cell "`rh_strip_imp_rh` DERIVES, by `rh_strip_imp_rh_holds` at the
+        standard three". Before landing, the table built twice in memory, without and with the line: 2110 rows each, one row moved.
+      relay 2394b9b2 -- the terminal table regenerated: one row moved, SIDE-explicit-formula rh_strip_imp_rh CONFLICT (DERIVES / INTERFACES,
+        both from :10909) to DERIVES (b651, :13870); none added or gone; the CONFLICTS section loses the seam.
+      relay 5a19e513 -- data/b651_lattice.txt, .json: b644's lattice route unedited at relay HEAD -- one row moved, rh_strip_imp_rh CONFLICT to
+        DERIVES; 94 rows, none added or gone; b644's bank stands.
+    No page carries the seam's def as a row; neither page's diff moved a cell for it.
+
+(d) SIMPLICITY_OF_RIEMANN_ZEROS.md :355 -- under the ceiling clause by a dated line, the v1.1.2 file not rewritten.
+      PLACE-papers ecbaa2a -- one back-matter line appended in b558's form: the sentence at :355 read under the ceiling clause its v1.1.3
+        edition carries at :357; :355 unchanged, no byte above the line changed. Diff: 2 lines added, 0 removed; the banned-term scan CLEAN.
+
+### the page arms and the frozen control after the re-emission (relay data/b651_page_arms_c2.txt): G-CHAIN-PAGE PASS (b649_nodes_zeta.txt),
+### G-CHAIN-PAGE-CHI PASS (b651_nodes_chi.txt) ; the frozen control G-B592-LISTS-CONTROL 2 of 2.
+
+### ### **REPAIRS 4, EACH COMMITTED ALONE (THE GLOSSARY'S AS ITS GENERATOR EDIT AND ITS DATA) ; THE TABLE: 1 ROW MOVED (THE SEAM, CONFLICT TO
+### DERIVES) ; THE LATTICE: 1 ROW MOVED ; BOTH PAGES RE-EMITTED, ONE PER CALL ; PAGE ARMS 2 OF 2 ; FROZEN CONTROL 2 OF 2.**
