@@ -242,6 +242,112 @@ def margin(*a):
     put_json('b652_build_margin.json', j)
 
 
+# ================================================================================ COMPONENT 3: THE SENTENCE GRADES AND THE CUT, (R262)(4)
+SENT = 'b651_table_SIDE-kernel_sentences.json'       # ### b651's sentence rows, relay d7ab2fdb
+PARENTS = 'b647_table_SIDE-kernel.json'              # ### the parent blocks' HAND cells
+GRADES = 'b652_sentence_grades.json'                 # ### the hand grades per sentence, bound to the parent's LICENSED cell
+
+
+def _ws(s):
+    return ' '.join(s.split())
+
+
+def blocks():
+    """[(k, parent id, parent row, [sentence rows])] in the sentence bank's order, k from 1."""
+    import collections
+    s = jl(SENT)['rows']
+    t = dict((r['id'], r) for r in jl(PARENTS)['rows'])
+    by = collections.OrderedDict()
+    for r in s:
+        by.setdefault(r['parent'], []).append(r)
+    return [(k, p, t[p], rs) for k, (p, rs) in enumerate(by.items(), 1)]
+
+
+def cut(rs, graded, action):
+    """the mechanical rule of the author's answer: a graded OVERREACHES or UNDERSTATES sentence replaced in place by the ACTION sentence(s), an
+    UNLICENSED one removed, MATCHES untouched; then a sentence that repeats one already earlier in the block dropped and returned."""
+    import b647_record as R47
+    act = action[len('RE-CUT: '):] if action.startswith('RE-CUT: ') else action
+    out = []
+    for r in rs:
+        g = graded.get(r['n'])
+        if g is None:
+            out.append(r['sentence'])
+        elif g == 'UNLICENSED':
+            continue
+        else:
+            out += [x for x in R47._MSPLIT.split(act.strip()) if x.strip()]
+    kept, dropped, seen = [], [], set()
+    for x in out:
+        if _ws(x) in seen:
+            dropped.append(x)
+            continue
+        seen.add(_ws(x))
+        kept.append(x)
+    return kept, dropped
+
+
+def grades(*a):
+    g = jl(GRADES)['grades']
+    L = ['b652 -- COMPONENT 3, (R262)(4) AND THE AUTHOR`S ANSWER BEFORE THE SEAL: SIDE-kernel`S SENTENCE ROWS GRADED BY HAND, BOUND TO THE PARENT '
+         'BLOCK`S HAND CELLS; BANKED FOR THE AUTHOR`S STRIKE BEFORE ANY EDIT (%s)' % utc(), '',
+         '### the rule (the author`s answer): a sentence row is graded OVERREACHES, UNDERSTATES or UNLICENSED where the parent block`s HAND LICENSED or',
+         '### CITED cell names, quotes or paraphrases that sentence`s claim, the grade citing the cell`s words beside it; a sentence those cells do not',
+         '### reach stays MATCHES; a block graded OVERREACHES with no sentence its cells reach is UNRESOLVED, not cut, printed for b653. The grade is the',
+         '### parent`s verdict. Each graded row carries the parent`s ACTION verbatim. The sources: relay data/%s (b651, d7ab2fdb), data/%s' % (SENT, PARENTS),
+         '### (b647); the grades: data/%s. Every quoted cell word read as a substring of the parent`s LICENSED cell before the bank was written.' % GRADES,
+         '### Below each block: the block as the mechanical rule leaves it -- graded rows replaced in place by the ACTION, repeats dropped and printed.', '']
+    n_rows = n_graded = n_unres = n_drop = 0
+    by_v = {}
+    elided = []
+    J = []
+    for k, p, q, rs in blocks():
+        n_rows += len(rs)
+        mine = dict((int(n), w) for n, w in g.get(str(k), []))
+        bad = [w for w in mine.values() if w not in q['licensed']]
+        if bad:
+            sys.exit('### BLOCK %d: A QUOTED WORD NOT IN THE LICENSED CELL -- NOTHING WRITTEN: %s' % (k, bad))
+        v = q['verdict']
+        L.append('== #%d %s (b647`s bank line :%s ; %s ; HAND %s ; %d sentences)' % (k, p.split(':', 1)[1], rs[0]['parent_line'], q['kind'], v, len(rs)))
+        L.append('   LICENSED : ' + q['licensed'])
+        L.append('   ACTION   : ' + q['action'])
+        if '...' in q['action']:
+            elided.append(k)
+            L.append('   ### the ACTION cell carries an elision (...) as written in b647`s table; the rule places it verbatim -- flagged for the strike.')
+        graded = {}
+        for r in rs:
+            if r['n'] in mine:
+                graded[r['n']] = v
+                n_graded += 1
+                by_v[v] = by_v.get(v, 0) + 1
+                L.append('  s%-3d %-11s %s' % (r['n'], v, r['sentence']))
+                L.append('       %-11s cell: "%s"' % ('', mine[r['n']]))
+            else:
+                L.append('  s%-3d %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
+        if not graded and v in ('OVERREACHES', 'UNDERSTATES'):
+            n_unres += 1
+            L.append('   ### UNRESOLVED: no sentence the cells reach; not cut; for b653.')
+            J.append(dict(k=k, parent=p, unresolved=True))
+            L.append('')
+            continue
+        kept, dropped = cut(rs, graded, q['action'])
+        n_drop += len(dropped)
+        L.append('   -> THE BLOCK AFTER THE CUT (%d sentences; repeats dropped %d):' % (len(kept), len(dropped)))
+        for x in kept:
+            L.append('        ' + x)
+        for x in dropped:
+            L.append('        ### DROPPED AS A REPEAT: ' + x)
+        J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], bank_line=rs[0]['parent_line'], verdict=v,
+                      graded=sorted(graded), action=q['action'], kept=kept, dropped=dropped))
+        L.append('')
+    L.append('### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GRADED %d (%s) ; MATCHES %d ; UNRESOLVED BLOCKS %d ; REPEATS DROPPED BY THE RULE %d ; '
+             'ACTION CELLS WITH AN ELISION %d (%s).**' % (len(J), n_rows, n_graded, ', '.join('%s %d' % kv for kv in sorted(by_v.items())),
+                                                           n_rows - n_graded, n_unres, n_drop, len(elided), ', '.join('#%d' % e for e in elided)))
+    put_txt('b652_sentence_grades.txt', L)
+    put_json('b652_sentence_cut_plan.json', dict(at=utc(), blocks=J))
+    print(L[-1])
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn) or sys.argv[1].startswith('_'):

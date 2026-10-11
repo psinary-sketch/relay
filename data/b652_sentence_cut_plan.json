@@ -1,0 +1,2251 @@
+{
+ "at": "2026-10-11T23:28:21Z",
+ "blocks": [
+  {
+   "k": 1,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:1",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 1,
+   "bank_line": 10,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    8,
+    9
+   ],
+   "action": "RE-CUT: The module declares OutputStageClass, proves Fintype.card OutputStageClass = 2 by decide, and bundles that count with two Mathlib facts (analytic ⇒ smooth on an open set; the identity theorem for eventually-equal analytic functions); the Cartan B pillar is open and set aside, and no declaration here ties the count to entire functions of finite order.",
+   "kept": [
+    "The module declares OutputStageClass, proves Fintype.card OutputStageClass = 2 by decide, and bundles that count with two Mathlib facts (analytic ⇒ smooth on an open set; the identity theorem for eventually-equal analytic functions); the Cartan B pillar is open and set aside, and no declaration here ties the count to entire functions of finite order.",
+    "Three classical theorems combine to classify the output-stage mechanism classes for entire functions of finite order: 1.",
+    "Elliptic regularity for ∂̄ on ℂ (Weyl 1940, Hörmander 1958) collapses the local-regularity hierarchy to one class.",
+    "2.",
+    "The Identity Theorem (Cauchy, Weierstrass, 19th century) forces the local-to-global bridge to be unique (analytic continuation is the only such bridge).",
+    "3.",
+    "Cartan's Theorem B (Mittag-Leffler 1876, Weierstrass 1876, Cartan 1951–53) H¹(ℂ, 𝒪) = 0 eliminates intermediate cohomological scales.",
+    "J.",
+    "York Seale, April 2026 Target: 0 sorry, 0 axioms beyond Mathlib core"
+   ],
+   "dropped": [
+    "The module declares OutputStageClass, proves Fintype.card OutputStageClass = 2 by decide, and bundles that count with two Mathlib facts (analytic ⇒ smooth on an open set; the identity theorem for eventually-equal analytic functions); the Cartan B pillar is open and set aside, and no declaration here ties the count to entire functions of finite order.",
+    "The module declares OutputStageClass, proves Fintype.card OutputStageClass = 2 by decide, and bundles that count with two Mathlib facts (analytic ⇒ smooth on an open set; the identity theorem for eventually-equal analytic functions); the Cartan B pillar is open and set aside, and no declaration here ties the count to entire functions of finite order."
+   ]
+  },
+  {
+   "k": 2,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:82",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 82,
+   "bank_line": 15,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: We state two Mathlib results (T1 analytic ⇒ smooth, T2 the identity theorem) re-exposed under the kernel's names; T3 (Cartan B) is set aside below, and no declaration here states that these force the bipartition.",
+   "kept": [
+    "## Section 2.",
+    "We state two Mathlib results (T1 analytic ⇒ smooth, T2 the identity theorem) re-exposed under the kernel's names; T3 (Cartan B) is set aside below, and no declaration here states that these force the bipartition.",
+    "Each is a Mathlib statement (or composition of Mathlib statements) re-exposed here under the kernel's structural names.",
+    "The role of each theorem: T1.",
+    "Elliptic regularity collapses the local hierarchy.",
+    "T2.",
+    "Identity Theorem forces a unique local-to-global bridge.",
+    "T3.",
+    "Cartan B (H¹ = 0) eliminates intermediate scales."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 3,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:95",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 95,
+   "bank_line": 20,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3,
+    5,
+    6
+   ],
+   "action": "RE-CUT: An analytic function on an open set is C^∞ there (AnalyticOn.contDiffOn); the holomorphic-to-analytic step of elliptic regularity and the uniqueness of the local class are not stated here.",
+   "kept": [
+    "T1.",
+    "Elliptic regularity for the Cauchy-Riemann operator.",
+    "An analytic function on an open set is C^∞ there (AnalyticOn.contDiffOn); the holomorphic-to-analytic step of elliptic regularity and the uniqueness of the local class are not stated here.",
+    "The regularity hierarchy collapses: all local constraints are consequences of holomorphicity."
+   ],
+   "dropped": [
+    "An analytic function on an open set is C^∞ there (AnalyticOn.contDiffOn); the holomorphic-to-analytic step of elliptic regularity and the uniqueness of the local class are not stated here.",
+    "An analytic function on an open set is C^∞ there (AnalyticOn.contDiffOn); the holomorphic-to-analytic step of elliptic regularity and the uniqueness of the local class are not stated here."
+   ]
+  },
+  {
+   "k": 4,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:112",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 112,
+   "bank_line": 25,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3,
+    7
+   ],
+   "action": "RE-CUT: If two analytic functions on a preconnected open set agree on a neighbourhood of one point of it, they agree on the whole set (AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq).",
+   "kept": [
+    "T2.",
+    "The Identity Theorem.",
+    "If two analytic functions on a preconnected open set agree on a neighbourhood of one point of it, they agree on the whole set (AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq).",
+    "This is `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq` in Mathlib.",
+    "On open sets, `AnalyticOn` and `AnalyticOnNhd` coincide via `IsOpen.analyticOn_iff_analyticOnNhd`.",
+    "The structural meaning for the kernel: the germ of an entire function at any single point determines the function globally."
+   ],
+   "dropped": [
+    "If two analytic functions on a preconnected open set agree on a neighbourhood of one point of it, they agree on the whole set (AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq)."
+   ]
+  },
+  {
+   "k": 5,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:159",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 159,
+   "bank_line": 30,
+   "verdict": "OVERREACHES",
+   "graded": [
+    5,
+    6
+   ],
+   "action": "RE-CUT: The certificate bundles (a) Fintype.card OutputStageClass = 2, (b) analytic ⇒ smooth on open sets and (c) the identity theorem; (d) Cartan B is open and not a field, and the certificate does not state that the output-stage catalogue is exhaustive.",
+   "kept": [
+    "## Section 3.",
+    "The Output-Stage Exhaustiveness Certificate We now assemble the three theorems into a single certificate that the output-stage mechanism classes number exactly two.",
+    "The certificate is a conjunction: (a) the type `OutputStageClass` has finite cardinality 2; (b) the local-class collapse is justified by elliptic regularity; (c) the local-to-global bridge is unique by the Identity Theorem; (d) [SET ASIDE] the no-intermediate-scale step (Cartan B / Cousin-I) is OPEN; see Section 2b above; it is NOT a field of the certificate below.",
+    "Component (a) is `output_stage_card`.",
+    "The certificate bundles (a) Fintype.card OutputStageClass = 2, (b) analytic ⇒ smooth on open sets and (c) the identity theorem; (d) Cartan B is open and not a field, and the certificate does not state that the output-stage catalogue is exhaustive."
+   ],
+   "dropped": [
+    "The certificate bundles (a) Fintype.card OutputStageClass = 2, (b) analytic ⇒ smooth on open sets and (c) the identity theorem; (d) Cartan B is open and not a field, and the certificate does not state that the output-stage catalogue is exhaustive."
+   ]
+  },
+  {
+   "k": 6,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:202",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 202,
+   "bank_line": 35,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2,
+    5
+   ],
+   "action": "RE-CUT: This section supplies n_3 := Fintype.card OutputStageClass and proves n_3 = 2; the bundle output_stage_exhaustiveness_proved carries two formalized classical facts, and no kernel type MechanismClass.output_stage is restricted here.",
+   "kept": [
+    "## Section 4.",
+    "This section supplies n_3 := Fintype.card OutputStageClass and proves n_3 = 2; the bundle output_stage_exhaustiveness_proved carries two formalized classical facts, and no kernel type MechanismClass.output_stage is restricted here.",
+    "This section provides the n₃ = 2 entry, parallel to how `OstrowskiBridge.lean` provides the n₂ = 3 entry.",
+    "The bridge is type-level."
+   ],
+   "dropped": [
+    "This section supplies n_3 := Fintype.card OutputStageClass and proves n_3 = 2; the bundle output_stage_exhaustiveness_proved carries two formalized classical facts, and no kernel type MechanismClass.output_stage is restricted here."
+   ]
+  },
+  {
+   "k": 7,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CartanBBridge.lean:226",
+   "file": "Bridge/CartanBBridge.lean",
+   "line": 226,
+   "bank_line": 40,
+   "verdict": "OVERREACHES",
+   "graded": [
+    5,
+    8
+   ],
+   "action": "RE-CUT: The total 2+3+2+0 = 7 is decided in Kernel.Core; this file contributes n_3 = 2 as the card of a declared type with two formalized pillars; Cartan B is open, and no Lean declaration supplies that ξ is entire of finite order.",
+   "kept": [
+    "## Section 5.",
+    "Connection to the Kernel's Architecture The four formation summands now have parallel structure: n₁ = 2 | Algebraic group classification on ℤ | Classical n₂ = 3 | OstrowskiBridge (re-exports Mathlib) | 1916 n₃ = 2 | CartanBBridge (this file) | 1876–1951 n₄ = 0 | Conservation of Spectra (Tate) | 1950 Each summand is supported by a classical classification theorem.",
+    "The total (2 + 3 + 2 + 0 = 7) is verified by `decide` in `StructuralCount.lean`.",
+    "The composition into `StructuralExhaustiveness` is performed in `TheBridgeComplete.lean`.",
+    "The total 2+3+2+0 = 7 is decided in Kernel.Core; this file contributes n_3 = 2 as the card of a declared type with two formalized pillars; Cartan B is open, and no Lean declaration supplies that ξ is entire of finite order.",
+    "The CartanBBridge module makes the n₃ = 2 step available as a Lean-verified theorem rather than an asserted fact.",
+    "This closes the visibility gap identified in the April 29 2026 review: a reader approaching the proof through Lean now sees the same defended structure as a reader approaching through the manuscripts."
+   ],
+   "dropped": [
+    "The total 2+3+2+0 = 7 is decided in Kernel.Core; this file contributes n_3 = 2 as the card of a declared type with two formalized pillars; Cartan B is open, and no Lean declaration supplies that ξ is entire of finite order."
+   ]
+  },
+  {
+   "k": 8,
+   "parent": "SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:9",
+   "file": "Bridge/ConservationBridge.lean",
+   "line": 9,
+   "bank_line": 45,
+   "verdict": "OVERREACHES",
+   "graded": [
+    5,
+    6
+   ],
+   "action": "RE-CUT: The existential form is implied by the universal and, since balance_theorem is prime-generic, equivalent to it; the weakening changes the hypothesis's form, not the strength of riemann_hypothesis.",
+   "kept": [
+    "The Conservation hypothesis (existential form): every ξ-zero forces the Euler balance equation at SOME prime.",
+    "This is the programme's one counted premise (monograph §27.3), stated at the multiplicative place — NOT the discharged Chapter 13 theorem (the s-darkness of the product formula is the unconditional *certificate* that motivates it, a distinct proposition).",
+    "Named hypothesis (ξ pattern), not sorry.",
+    "W-7 enactment (2026-07-16): the definition was weakened from the universal form (`∀ p`, balance at EVERY prime) to this existential form (`∃ p`, at SOME prime), aligning the compiled def with the prose the monograph has always named (§25.5: \"at some prime\") and with `PoissonExhaustion.BalanceContradiction`.",
+    "The existential form is implied by the universal and, since balance_theorem is prime-generic, equivalent to it; the weakening changes the hypothesis's form, not the strength of riemann_hypothesis."
+   ],
+   "dropped": [
+    "The existential form is implied by the universal and, since balance_theorem is prime-generic, equivalent to it; the weakening changes the hypothesis's form, not the strength of riemann_hypothesis."
+   ]
+  },
+  {
+   "k": 9,
+   "parent": "SIDE-kernel@0256e9e:Bridge/ConservationBridge.lean:31",
+   "file": "Bridge/ConservationBridge.lean",
+   "line": 31,
+   "bank_line": 50,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: ConservationHypothesis restated: under it, at any real part σ of a nontrivial zero of ζ, the balance p^(-σ) = p^(-(1-σ)) holds at some prime (the theorem returns its hypothesis).",
+   "kept": [
+    "ConservationHypothesis restated: under it, at any real part σ of a nontrivial zero of ζ, the balance p^(-σ) = p^(-(1-σ)) holds at some prime (the theorem returns its hypothesis).",
+    "Conditional on ConservationHypothesis (ξ pattern, existential form).",
+    "Zero sorry."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 10,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:4",
+   "file": "Bridge/CrossClassExclusion.lean",
+   "line": 4,
+   "bank_line": 55,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2,
+    4,
+    8
+   ],
+   "action": "RE-CUT: This file defines cross_class_produces_offline as produces_offline c1 ∨ produces_offline c2 ∨ coupling_strength > 0, with coupling_strength the constant sum of the two declared channels' κ (= 0), and proves it false for every pair from none_produce.",
+   "kept": [
+    "# Cross-Class Exclusion The seven mechanism classes (C1–C7 in `Bridge/TheBridgeComplete.lean`) are individually proved not to produce off-line zeros (`none_produce`).",
+    "This file defines cross_class_produces_offline as produces_offline c1 ∨ produces_offline c2 ∨ coupling_strength > 0, with coupling_strength the constant sum of the two declared channels' κ (= 0), and proves it false for every pair from none_produce.",
+    "Argument: 1.",
+    "2.",
+    "Both have `κ = 0` (`Kernel/Kappa.lean`: `kappa_product_formula`, `kappa_distributive`), so the coupling strength of any pair of classes equals `0 + 0 = 0` (`coupling_strength_zero`).",
+    "3.",
+    "Hence `cross_class_produces_offline` reduces to the disjunction \"C1 produces ∨ C2 produces\", both refuted by `none_produce`.",
+    "`0 sorry`.",
+    "`0 axioms` beyond Lean foundationals."
+   ],
+   "dropped": [
+    "This file defines cross_class_produces_offline as produces_offline c1 ∨ produces_offline c2 ∨ coupling_strength > 0, with coupling_strength the constant sum of the two declared channels' κ (= 0), and proves it false for every pair from none_produce.",
+    "This file defines cross_class_produces_offline as produces_offline c1 ∨ produces_offline c2 ∨ coupling_strength > 0, with coupling_strength the constant sum of the two declared channels' κ (= 0), and proves it false for every pair from none_produce."
+   ]
+  },
+  {
+   "k": 11,
+   "parent": "SIDE-kernel@0256e9e:Bridge/CrossClassExclusion.lean:31",
+   "file": "Bridge/CrossClassExclusion.lean",
+   "line": 31,
+   "bank_line": 60,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The two declared inter-class coupling channels.",
+   "kept": [
+    "The two declared inter-class coupling channels."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 12,
+   "parent": "SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:4",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 4,
+   "bank_line": 65,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2,
+    5
+   ],
+   "action": "RE-CUT: Finite facts decided in the kernel: 4 consecutive {2,3}-smooth pairs below 101 and 10 consecutive {2,3,5}-smooth pairs below 10001, the 7 Fano lines with 3 through each point, a Hamming parity matrix with H·Hᵀ = 0 over ZMod 2, and the numerals 7 = 2³-1, 7-2·3 = 1, 2+1 = 3, 10 ≠ 15; no CSS code is constructed; by decide (+kernel), 0 sorry, axioms not printed.",
+   "kept": [
+    "Finite facts decided in the kernel: 4 consecutive {2,3}-smooth pairs below 101 and 10 consecutive {2,3,5}-smooth pairs below 10001, the 7 Fano lines with 3 through each point, a Hamming parity matrix with H·Hᵀ = 0 over ZMod 2, and the numerals 7 = 2³-1, 7-2·3 = 1, 2+1 = 3, 10 ≠ 15; no CSS code is constructed; by decide (+kernel), 0 sorry, axioms not printed.",
+    "All verified by decide.",
+    "0 sorry.",
+    "Toolchain-rot repair (2026-07-16): the three `stormer_*.length` counts are proved by `decide +kernel` rather than plain `decide`.",
+    "The lists are built by `filterMap` over the well-founded-recursive `is_23_smooth` / `is_235_smooth`, which the elaborator's `decide` reducer stopped unfolding at a Mathlib/toolchain boundary (it stalls at `.length.beq`); the kernel reducer still unfolds it.",
+    "The definitions and asserted values (4, 10) are unchanged — the values were true at the original toolchain and are re-derived here, not adjusted — and `decide +kernel` adds no axiom beyond `{propext, Quot.sound}` (no `native_decide`, no `Lean.ofReduceBool`).",
+    "See OPEN_TRAILS: first observed toolchain-rot in a pinned kernel (source unchanged, truth unchanged, checkability decayed)."
+   ],
+   "dropped": [
+    "Finite facts decided in the kernel: 4 consecutive {2,3}-smooth pairs below 101 and 10 consecutive {2,3,5}-smooth pairs below 10001, the 7 Fano lines with 3 through each point, a Hamming parity matrix with H·Hᵀ = 0 over ZMod 2, and the numerals 7 = 2³-1, 7-2·3 = 1, 2+1 = 3, 10 ≠ 15; no CSS code is constructed; by decide (+kernel), 0 sorry, axioms not printed.",
+    "Finite facts decided in the kernel: 4 consecutive {2,3}-smooth pairs below 101 and 10 consecutive {2,3,5}-smooth pairs below 10001, the 7 Fano lines with 3 through each point, a Hamming parity matrix with H·Hᵀ = 0 over ZMod 2, and the numerals 7 = 2³-1, 7-2·3 = 1, 2+1 = 3, 10 ≠ 15; no CSS code is constructed; by decide (+kernel), 0 sorry, axioms not printed."
+   ]
+  },
+  {
+   "k": 13,
+   "parent": "SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:46",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 46,
+   "bank_line": 70,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Exactly 4 consecutive {2,3}-smooth pairs below 101: (1,2), (2,3), (3,4), (8,9).",
+   "kept": [
+    "Exactly 4 consecutive {2,3}-smooth pairs below 101: (1,2), (2,3), (3,4), (8,9)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 14,
+   "parent": "SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:66",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 66,
+   "bank_line": 75,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Exactly 10 consecutive {2,3,5}-smooth pairs below 10001.",
+   "kept": [
+    "Exactly 10 consecutive {2,3,5}-smooth pairs below 10001."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 15,
+   "parent": "SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:123",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 123,
+   "bank_line": 80,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The Steane parameters as numerals (7 = 2³-1, 7-2·3 = 1, 2+1 = 3) together with H·Hᵀ = 0; the code itself is not constructed here.",
+   "kept": [
+    "The Steane parameters as numerals (7 = 2³-1, 7-2·3 = 1, 2+1 = 3) together with H·Hᵀ = 0; the code itself is not constructed here."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 16,
+   "parent": "SIDE-kernel@0256e9e:Bridge/FanoSteane.lean:137",
+   "file": "Bridge/FanoSteane.lean",
+   "line": 137,
+   "bank_line": 85,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Six facts held together: 4 consecutive {2,3}-smooth pairs below 101, 7 = 2³-1, 3 Fano lines through each point, H·Hᵀ = 0, 7-2·3 = 1, and 10 ≠ 2⁴-1; no step of the chain is derived from the previous one.",
+   "kept": [
+    "Six facts held together: 4 consecutive {2,3}-smooth pairs below 101, 7 = 2³-1, 3 Fano lines through each point, H·Hᵀ = 0, 7-2·3 = 1, and 10 ≠ 2⁴-1; no step of the chain is derived from the previous one."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 17,
+   "parent": "SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:3",
+   "file": "Bridge/OstrowskiBridge.lean",
+   "line": 3,
+   "bank_line": 90,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: Re-exports Mathlib's Ostrowski theorem for ℚ (place_classification_exhaustive) beside a declared Place type with archimedean and p-adic constructors; no theorem identifies the two.",
+   "kept": [
+    "# OstrowskiBridge: Connecting Mathlib's Ostrowski to the SIDE Kernel CP-B-2 of THE BRIDGE programme.",
+    "Re-exports Mathlib's Ostrowski theorem for ℚ (place_classification_exhaustive) beside a declared Place type with archimedean and p-adic constructors; no theorem identifies the two.",
+    "## Main results * `place_classification_exhaustive` — wraps `Rat.AbsoluteValue.equiv_real_or_padic` for the kernel * `formation_n2` — n₂ = 3 transformation stages * `formation_count` — (2,3,2,0) = 7 ## References * Ostrowski (1916) * `Mathlib.NumberTheory.Ostrowski` AI disclosure: Written with Claude (Anthropic) assistance.",
+    "Mathematical content is original."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 18,
+   "parent": "SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:29",
+   "file": "Bridge/OstrowskiBridge.lean",
+   "line": 29,
+   "bank_line": 95,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Part 1: the Place type, and Ostrowski's theorem re-exported.",
+   "kept": [
+    "Part 1: the Place type, and Ostrowski's theorem re-exported."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 19,
+   "parent": "SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:52",
+   "file": "Bridge/OstrowskiBridge.lean",
+   "line": 52,
+   "bank_line": 100,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    5
+   ],
+   "action": "RE-CUT: Part 2: the three transformation stages are declared as an inductive and counted (n₂ = 3 by decide); their derivation from Ostrowski and the absence of a 4th stage are the document's argument, not compiled.",
+   "kept": [
+    "Part 2: the three transformation stages are declared as an inductive and counted (n₂ = 3 by decide); their derivation from Ostrowski and the absence of a 4th stage are the document's argument, not compiled.",
+    "Archimedean (√ mechanism) — from Place.archimedean 2.",
+    "Multiplicative (Euler product) — from Place.padic (all primes) 3.",
+    "Functional equation — from interaction of both families n₂ = 3."
+   ],
+   "dropped": [
+    "Part 2: the three transformation stages are declared as an inductive and counted (n₂ = 3 by decide); their derivation from Ostrowski and the absence of a 4th stage are the document's argument, not compiled."
+   ]
+  },
+  {
+   "k": 20,
+   "parent": "SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:92",
+   "file": "Bridge/OstrowskiBridge.lean",
+   "line": 92,
+   "bank_line": 105,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3
+   ],
+   "action": "RE-CUT: Part 4: Ostrowski guarantees that no nontrivial absolute value on ℚ escapes the real/p-adic dichotomy; that the 7 mechanism classes are therefore complete is the document's argument, not compiled.",
+   "kept": [
+    "### Part 4: Exhaustiveness The SIDE exclusion principle requires that the mechanism catalogue be exhaustive.",
+    "Ostrowski guarantees no absolute value on ℚ escapes the real/p-adic dichotomy.",
+    "Part 4: Ostrowski guarantees that no nontrivial absolute value on ℚ escapes the real/p-adic dichotomy; that the 7 mechanism classes are therefore complete is the document's argument, not compiled."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 21,
+   "parent": "SIDE-kernel@0256e9e:Bridge/OstrowskiBridge.lean:101",
+   "file": "Bridge/OstrowskiBridge.lean",
+   "line": 101,
+   "bank_line": 110,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: No nontrivial absolute value on ℚ escapes the classification.",
+   "kept": [
+    "No nontrivial absolute value on ℚ escapes the classification."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 22,
+   "parent": "SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:63",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 63,
+   "bank_line": 115,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: NoneProduces for completedRiemannZeta₀ (the entire Λ₀, not ξ), conditional on RHHypothesis + SimplicityHypothesis stated for Λ₀. Zero sorry. The three case splits close from the hypotheses.",
+   "kept": [
+    "NoneProduces for completedRiemannZeta₀ (the entire Λ₀, not ξ), conditional on RHHypothesis + SimplicityHypothesis stated for Λ₀.",
+    "Zero sorry.",
+    "The three case splits close from the hypotheses."
+   ],
+   "dropped": [
+    "Zero sorry.",
+    "The three case splits close from the hypotheses."
+   ]
+  },
+  {
+   "k": 23,
+   "parent": "SIDE-kernel@0256e9e:Bridge/SIDEBridge.lean:88",
+   "file": "Bridge/SIDEBridge.lean",
+   "line": 88,
+   "bank_line": 120,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: SIDE exclusion bridge for completedRiemannZeta₀, conditional on RHHypothesis + SimplicityHypothesis (both stated for Λ₀, not ζ). Zero sorry.",
+   "kept": [
+    "SIDE exclusion bridge for completedRiemannZeta₀, conditional on RHHypothesis + SimplicityHypothesis (both stated for Λ₀, not ζ).",
+    "Zero sorry."
+   ],
+   "dropped": [
+    "Zero sorry."
+   ]
+  },
+  {
+   "k": 24,
+   "parent": "SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:7",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 7,
+   "bank_line": 125,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4,
+    5
+   ],
+   "action": "RE-CUT: Seven declared mechanism classes; the conjunction StructuralExhaustiveness (card = 7, the per-class σ-predicates false, Ostrowski for ℚ) is proved, with C₇ definition-encoded; it does not state that the catalogue is exhaustive or that no class produces an off-line zero of ζ.",
+   "kept": [
+    "THE BRIDGE (Complete): Connecting abstract SIDE logic to Mathlib's riemannZeta.",
+    "Seven mechanism classes.",
+    "Each grounded in Mathlib API.",
+    "Seven declared mechanism classes; the conjunction StructuralExhaustiveness (card = 7, the per-class σ-predicates false, Ostrowski for ℚ) is proved, with C₇ definition-encoded; it does not state that the catalogue is exhaustive or that no class produces an off-line zero of ζ.",
+    "StructuralExhaustiveness is a theorem."
+   ],
+   "dropped": [
+    "Seven declared mechanism classes; the conjunction StructuralExhaustiveness (card = 7, the per-class σ-predicates false, Ostrowski for ℚ) is proved, with C₇ definition-encoded; it does not state that the catalogue is exhaustive or that no class produces an off-line zero of ζ."
+   ]
+  },
+  {
+   "k": 25,
+   "parent": "SIDE-kernel@0256e9e:Bridge/TheBridgeComplete.lean:223",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 223,
+   "bank_line": 130,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4
+   ],
+   "action": "RE-CUT: Catalogue count Fintype.card MechanismClass = 7 — decide over the seven-constructor inductive; the catalogue's completeness is not stated by this conjunct.",
+   "kept": [
+    "**What each conjunct is (per-conjunct honesty; W-ORD-ROUTE1 Fork B, 2026-07-21).",
+    "The terminal is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it DERIVES exactly what it literally states.",
+    "Read conjunct by conjunct: * **Catalogue completeness** `Fintype.card MechanismClass = 7` — `decide` over the seven-constructor inductive.",
+    "Catalogue count Fintype.card MechanismClass = 7 — decide over the seven-constructor inductive; the catalogue's completeness is not stated by this conjunct.",
+    "* **Ostrowski exhaustiveness** — genuine Mathlib (`Rat.AbsoluteValue.equiv_real_or_padic`): every nontrivial place of ℚ is the real place or a `p`-adic place.",
+    "This is the covering ingredient (all places at once).",
+    "* **Seven-class exclusion** `none_produce` — a per-class conjunction.",
+    "**C₁–C₅ DERIVE** from the voice-theorems (`voice1..5`): thin but genuine real algebra — the σ = 1/2 fixed points of conjugation, balance, reflection, the S-action, and the spectral offset.",
+    "**C₆ DERIVES AT MODEL LEVEL** (W-ORD-ROUTE1-A, C₆, 2026-07-22): the codimension is now the de-encoded COUNT `zero_codimension σ = (activeConstraints σ).card` at `Kernel/Voice3b.lean` (consumed here by import; the former Bridge-local `if σ = 1/2 then 1 else 2` literal is deleted), and `c6_exclusion` closes through `cr_forces_half`, which DERIVES σ = 1/2 from the reflection identity `1 - σ = σ ↔ σ = 1/2` — not from a literal.",
+    "**The residue is NAMED**: ξ-faithfulness (that ξ(σ+it) = 0 imposes exactly {Re ξ = 0, Im ξ = 0}, Im dropping on the real line) is the Cauchy-Riemann identification of A_Place_to_Stand §18.2 (corrected reading), MANUSCRIPT-RESIDENT, and lands INTERFACES-with-named-premise when tied to ξ in Lean.",
+    "**C₇ is STILL DEFINITION-ENCODED**: `hadamard_contrib _ := 0` makes σ-neutrality hold by `rfl` (so `voice7_sigma_neutral` is `rfl`); its de-encoding (genus-1 Hadamard factorization) is the queued C₇ sitting of W-ORD-ROUTE1-A.",
+    "Loom Correspondence row-note: DERIVES for what it literally states; C₆ now derived-at-model-level with the INTERFACES residue named, C₇ still definition-encoded (`VERIFICATION_LOOM.md:1199`).",
+    "Tracked as research work-order **W-ORD-ROUTE1-A** (C₆ done at model level; C₇ sitting queued)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 26,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeiling.lean:1",
+   "file": "Kernel/Cascade/SieveCeiling.lean",
+   "line": 1,
+   "bank_line": 135,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: The Sieve Ceiling scaffolding: a strength cap defined on interface profiles, under which a dark-factored proof is capped below universal; and e_difficulty: for a conserved DeterminedSystem, the existence of a system-proof with a bright step is equivalent to a bright inessential interface (a domain-Ostrowski) — a model, not decidability within ZFC.",
+   "kept": [
+    "The Sieve Ceiling scaffolding: a strength cap defined on interface profiles, under which a dark-factored proof is capped below universal; and e_difficulty: for a conserved DeterminedSystem, the existence of a system-proof with a bright step is equivalent to a bright inessential interface (a domain-Ostrowski) — a model, not decidability within ZFC.",
+    "J.",
+    "York Seale, April 2026 — v3 W-6-EXT R2, 2026-07-19 PLACE TO STAND Research Programme STATUS (honest): - 0 sorry.",
+    "Vanilla Lean 4 core only, toolchain v4.29.0-rc8.",
+    "- W-6-EXT R2 (2026-07-19) de-vacuifies the E-Difficulty terminals.",
+    "The v2 shells are retired: · v2 `IsDecidable (_s : DeterminedSystem)` DISCARDED its system argument (a constant `True`).",
+    "Now `IsDecidable s` ranges over proofs ABOUT s — lists of interface-crossing `Step s` whose access is READ OFF `s.interfaces` (repair (c)).",
+    "It reads s.",
+    "· v2 `e_difficulty` proved `True ↔ True`: `_h_conserved` was unused and the domain-Ostrowski was fabricated by `List.replicate`.",
+    "Now Conservation is LOAD-BEARING — it forces the decidability-carrying bright access into the INESSENTIAL sector (the n₄=0 content) — and the Ostrowski is EXTRACTED from the decidability witness, not fabricated.",
+    "The manuscript's `s.classes ≥ 1` edge hypothesis is dropped: the equivalence holds even for zero-class systems (both sides false), so carrying it would be a dead binder.",
+    "`SieveCeilingReal` is co-edited in the same commit to match the 2-arg form.",
+    "- The SEMANTIC content of the ceiling (Movement 1: dark-factored inference respects the I-indistinguishability relation) lives in the sibling `SieveCeilingSemantic.lean` (RespectsI, sieve_ceiling_semantic) and its concrete Davenport–Heilbronn witness in `SieveCeilingWitness.lean`.",
+    "The base `sieve_ceiling` / `bright_access_required` below are the abstract-Proof SCAFFOLDING for that content — see their docstrings.",
+    "- EXTERNAL-STRENGTH note (W-6-EXT-A): the constructive formalization of an actual off-line zero (upgrading `SieveCeilingWitness`'s cited `allOnLine .dh = False` datum to a proof) remains open / Mathlib- absent.",
+    "The witness architecture itself exists in-kernel; the stipulation is honest math-leg input.",
+    "- Build: lake build Kernel.Cascade.SieveCeiling"
+   ],
+   "dropped": [
+    "The Sieve Ceiling scaffolding: a strength cap defined on interface profiles, under which a dark-factored proof is capped below universal; and e_difficulty: for a conserved DeterminedSystem, the existence of a system-proof with a bright step is equivalent to a bright inessential interface (a domain-Ostrowski) — a model, not decidability within ZFC."
+   ]
+  },
+  {
+   "k": 27,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingBridge.lean:1",
+   "file": "Kernel/Cascade/SieveCeilingBridge.lean",
+   "line": 1,
+   "bank_line": 140,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4,
+    5
+   ],
+   "action": "RE-CUT: A blind (constant) reading induces the total relation, so only constant properties respect it and a non-constant target cannot be captured (blind_sieve_ceiling, derived from blindness); the slot-1 link toRInterface assigns kappa = 0 to a blind reading by definition, so its darkness is stipulated, not derived.",
+   "kept": [
+    "SieveCeilingBridge.lean Slot 4 (optional rigor) of the E-Difficulty lift: mechanizes cross-link 1, the correspondence documented across slots 1 and 2 -- that a dark (kappa = 0) interface induces an I-indistinguishability relation under which the sieve ceiling applies.",
+    "Model: an interface reads configurations into an observation space; the induced indistinguishability is the kernel of the reading (same reading => indistinguishable).",
+    "A blind (constant) reading is the kappa = 0 case: it separates nothing, so the relation is total and only constant properties respect it -- hence a non-constant universal property (an Epstein-type target) cannot be captured.",
+    "A blind (constant) reading induces the total relation, so only constant properties respect it and a non-constant target cannot be captured (blind_sieve_ceiling, derived from blindness); the slot-1 link toRInterface assigns kappa = 0 to a blind reading by definition, so its darkness is stipulated, not derived.",
+    "Depth note: once the reading model is fixed the bridge theorems are short consequences -- the content is the modeling choice, not a deep result.",
+    "Standalone module: done, not chased into the certified skeleton.",
+    "Cross-link 2 (semantic model <-> abstract skeleton's factored_through_dark) is left documented, not mechanized.",
+    "Mathlib-dependent via SieveCeilingReal for the slot-1 kappa link.",
+    "J.",
+    "York Seale, PLACE TO STAND Research Programme"
+   ],
+   "dropped": [
+    "A blind (constant) reading induces the total relation, so only constant properties respect it and a non-constant target cannot be captured (blind_sieve_ceiling, derived from blindness); the slot-1 link toRInterface assigns kappa = 0 to a blind reading by definition, so its darkness is stipulated, not derived."
+   ]
+  },
+  {
+   "k": 28,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:1",
+   "file": "Kernel/Cascade/SieveCeilingSemantic.lean",
+   "line": 1,
+   "bank_line": 145,
+   "verdict": "OVERREACHES",
+   "graded": [
+    8
+   ],
+   "action": "RE-CUT: The non-invariance witness is abstract here. Slot 3 discharges it in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum (allOnLine .dh := False), not by a formalized zero.",
+   "kept": [
+    "SieveCeilingSemantic.lean Slot 2 of the E-Difficulty lift: the semantic model behind the skeleton's abstract `factored_through_dark`.",
+    "Mathlib's model theory is semantic (ModelTheory has Syntax, Semantics, Satisfiability, Definability, ...",
+    "but no syntactic derivation calculus), so the faithful hook for \"a proof factoring through a dark interface\" is the I-indistinguishability relation, not a proof-tree object.",
+    "A dark (k = 0) interface transmits nothing that separates I-indistinguishable configurations, so a proof factoring through it can only certify properties that respect that relation.",
+    "The universal property \"all zeros on the critical line\" is NOT respected once an Epstein-type witness exists -- a configuration I-indistinguishable from the ideal yet with off-line zeros -- so no dark-factored certificate captures it.",
+    "That is the sieve ceiling.",
+    "The non-invariance witness is abstract here.",
+    "Slot 3 discharges it in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum (allOnLine .dh := False), not by a formalized zero.",
+    "Core Lean only.",
+    "Pairs with Kernel/Cascade/SieveCeiling.lean, whose abstract `factored_through_dark` this models and whose `density_one_per_class < universal` ordering this explains.",
+    "J.",
+    "York Seale, PLACE TO STAND Research Programme"
+   ],
+   "dropped": [
+    "The non-invariance witness is abstract here."
+   ]
+  },
+  {
+   "k": 29,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Cascade/SieveCeilingSemantic.lean:70",
+   "file": "Kernel/Cascade/SieveCeilingSemantic.lean",
+   "line": 70,
+   "bank_line": 150,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: Sieve ceiling from a witness: given an I-indistinguishable pair disagreeing on the universal property, no dark-factored certificate captures it. Slot 3 instantiates this in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum.",
+   "kept": [
+    "Sieve ceiling from a concrete witness: given an I-indistinguishable pair disagreeing on the universal property, no dark-factored certificate captures it.",
+    "Sieve ceiling from a witness: given an I-indistinguishable pair disagreeing on the universal property, no dark-factored certificate captures it.",
+    "Slot 3 instantiates this in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 30,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Core.lean:42",
+   "file": "Kernel/Core.lean",
+   "line": 42,
+   "bank_line": 155,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: n4 = 0: interface stage, assigned (the claim that all interfaces are s-dark is the conservation clause, not derived here).",
+   "kept": [
+    "n4 = 0: interface stage, assigned (the claim that all interfaces are s-dark is the conservation clause, not derived here)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 31,
+   "parent": "SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:4",
+   "file": "Kernel/DistributiveDark.lean",
+   "line": 4,
+   "bank_line": 160,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4
+   ],
+   "action": "RE-CUT: The distributive law a(b+c) = ab+ac is an identity of Z in which no s appears; this file compiles it and its s-quantified restatements. Its use in Step (9) (per-class to all-combinations exclusion) is the manuscript's argument, not compiled here.",
+   "kept": [
+    "# DistributiveDark: The distributive law is spectrally inert The distributive law a(b+c) = ab+ac is an identity of ℤ.",
+    "The spectral parameter s ∈ ℂ does not appear in it.",
+    "Therefore the distributive law carries no s-dependent information.",
+    "The distributive law a(b+c) = ab+ac is an identity of Z in which no s appears; this file compiles it and its s-quantified restatements.",
+    "Its use in Step (9) (per-class to all-combinations exclusion) is the manuscript's argument, not compiled here.",
+    "Mathematical content is original."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 32,
+   "parent": "SIDE-kernel@0256e9e:Kernel/DistributiveDark.lean:44",
+   "file": "Kernel/DistributiveDark.lean",
+   "line": 44,
+   "bank_line": 165,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: The product formula's compiled form 1^s = 1 and the distributive law contain no s. That per-class exclusion with these couplings gives global exclusion is the Conservation argument of Step (9), not compiled.",
+   "kept": [
+    "### Summary The product formula: 1^s = 1 (s-dark, Lean-verified in ProductFormula chain) The distributive law: a(b+c) = ab+ac (s-dark, this file) Both couplings are s-dark.",
+    "The product formula's compiled form 1^s = 1 and the distributive law contain no s.",
+    "That per-class exclusion with these couplings gives global exclusion is the Conservation argument of Step (9), not compiled.",
+    "This is the Conservation argument of Step (9)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 33,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Formation.lean:41",
+   "file": "Kernel/Formation.lean",
+   "line": 41,
+   "bank_line": 170,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A ForwardCatalogue produces a TypeLevelConstraint (P holds for every x).",
+   "kept": [
+    "A ForwardCatalogue produces a TypeLevelConstraint (P holds for every x).",
+    "CATALOGOS Chapters 18-19: the composition of forward classes into SIDE exclusion."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 34,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:104",
+   "file": "Kernel/Integration.lean",
+   "line": 104,
+   "bank_line": 175,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Certificate: in Voice 5's model (S_action sigma = 1 - sigma), any S-fixed sigma equals 1/2; the R-generator is modeled as the identity on sigma, so its adding no constraint is assigned, not derived.",
+   "kept": [
+    "Certificate: in Voice 5's model (S_action sigma = 1 - sigma), any S-fixed sigma equals 1/2; the R-generator is modeled as the identity on sigma, so its adding no constraint is assigned, not derived."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 35,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:120",
+   "file": "Kernel/Integration.lean",
+   "line": 120,
+   "bank_line": 180,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Certificate: the Voice 7 stand-in topological_contribution (:= 0) takes the same value at every sigma; this assigns neutrality and asserts nothing about xi's Hadamard product (W-ORD-C7-WITNESS).",
+   "kept": [
+    "Certificate: the Voice 7 stand-in topological_contribution (:= 0) takes the same value at every sigma; this assigns neutrality and asserts nothing about xi's Hadamard product (W-ORD-C7-WITNESS).",
+    "**Stand-in caveat (W-ORD-ROUTE1-A, C₇; honest relabel 2026-07-22).",
+    "This certifies the σ-constancy of the `:= 0` STAND-IN (`topological_contribution`), which ASSIGNS neutrality rather than deriving it — the `∀σ₁σ₂, g σ₁ = g σ₂` shape holds only for a σ-constant `g`.",
+    "It asserts nothing σ-selective about ξ's actual Hadamard product; the manuscript's C₇ content (FE-symmetric product, genus-1 factorization named Mathlib-absent at pin `e960b84`; presence-in-Epstein model-theoretic argument, §917) is refiled as W-ORD-C7-WITNESS."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 36,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:143",
+   "file": "Kernel/Integration.lean",
+   "line": 143,
+   "bank_line": 185,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    5,
+    6
+   ],
+   "action": "RE-CUT: C1 alone: sigma = 1 - sigma implies sigma = 1/2. The other paths are the separate voice certificates; C2 restates C1 and C7 is an assigned stand-in.",
+   "kept": [
+    "C1 alone: sigma = 1 - sigma implies sigma = 1/2.",
+    "The other paths are the separate voice certificates; C2 restates C1 and C7 is an assigned stand-in.",
+    "C1 (functional equation): 1-σ = σ ↔ σ = 1/2 C2 (conjugation): σ = 1-σ ↔ σ = 1/2 C3 (Cauchy-Riemann): codim = 1 → σ = 1/2 C4 (Euler balance): p^σ = p^(1-σ) ↔ σ = 1/2 C5 (modular S-action): S(σ) = σ → σ = 1/2 C6 (spectral offset): offset = 0 → σ = 1/2 C7 (topological): contrib = 0 (σ-neutral, no force) Six paths force σ = 1/2 from their condition.",
+    "The seventh is σ-neutral (provides no competing force).",
+    "No path produces σ ≠ 1/2.",
+    "Whether these conditions EXHAUST ξ's structure is the Poisson Exhaustion hypothesis."
+   ],
+   "dropped": [
+    "C1 alone: sigma = 1 - sigma implies sigma = 1/2.",
+    "The other paths are the separate voice certificates; C2 restates C1 and C7 is an assigned stand-in.",
+    "C1 alone: sigma = 1 - sigma implies sigma = 1/2.",
+    "The other paths are the separate voice certificates; C2 restates C1 and C7 is an assigned stand-in."
+   ]
+  },
+  {
+   "k": 37,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:181",
+   "file": "Kernel/Integration.lean",
+   "line": 181,
+   "bank_line": 190,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A 3-field record of compiled facts (constructor exhaustiveness of Place, the count 2+3+2+0 = 7, and not BalanceContradiction sigma for all sigma); it does not imply StructuralExhaustiveness, which stays the hypothesis of rh_from_structural_exhaustiveness.",
+   "kept": [
+    "A 3-field record of compiled facts (constructor exhaustiveness of Place, the count 2+3+2+0 = 7, and not BalanceContradiction sigma for all sigma); it does not imply StructuralExhaustiveness, which stays the hypothesis of rh_from_structural_exhaustiveness.",
+    "Each field maps to a manuscript and kernel source file.",
+    "| Field | Manuscript | Kernel Source | |:---------------------|:------------------------|:-----------------------| | ostrowski_complete | Paper 2 (Enumeration) | PoissonExhaustion.lean | | formation_exhaustive | Paper 4 (Seven Classes) | Kernel.Core | | per_class_exclusion | Monograph Ch.",
+    "8-14 | PoissonExhaustion.lean |"
+   ],
+   "dropped": []
+  },
+  {
+   "k": 38,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:191",
+   "file": "Kernel/Integration.lean",
+   "line": 191,
+   "bank_line": 195,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Every term of the inductive Place is archimedean or padic p hp (constructor case split, PoissonExhaustion.lean); Ostrowski's theorem itself is the manuscript's (Paper 2).",
+   "kept": [
+    "Every term of the inductive Place is archimedean or padic p hp (constructor case split, PoissonExhaustion.lean); Ostrowski's theorem itself is the manuscript's (Paper 2).",
+    "Proved in PoissonExhaustion.lean.",
+    "Manuscript: Paper 2."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 39,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:200",
+   "file": "Kernel/Integration.lean",
+   "line": 200,
+   "bank_line": 200,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: For every real sigma, no prime p satisfies p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2 (gate_e_exhaustive_derived, via Voice 1).",
+   "kept": [
+    "For every real sigma, no prime p satisfies p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2 (gate_e_exhaustive_derived, via Voice 1).",
+    "Proved in PoissonExhaustion.lean via Voice 1.",
+    "Monograph."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 40,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:215",
+   "file": "Kernel/Integration.lean",
+   "line": 215,
+   "bank_line": 205,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: MAIN THEOREM (conditional; axioms propext, Classical.choice, Quot.sound): StructuralExhaustiveness, every nontrivial zeta zero has real part 1/2, implies Mathlib's RiemannHypothesis. The hypothesis is where the open mathematics lives.",
+   "kept": [
+    "MAIN THEOREM (conditional; axioms propext, Classical.choice, Quot.sound): StructuralExhaustiveness, every nontrivial zeta zero has real part 1/2, implies Mathlib's RiemannHypothesis.",
+    "The hypothesis is where the open mathematics lives.",
+    "The hypothesis is where the novel mathematics lives.",
+    "Everything else is verified."
+   ],
+   "dropped": [
+    "MAIN THEOREM (conditional; axioms propext, Classical.choice, Quot.sound): StructuralExhaustiveness, every nontrivial zeta zero has real part 1/2, implies Mathlib's RiemannHypothesis.",
+    "The hypothesis is where the open mathematics lives."
+   ]
+  },
+  {
+   "k": 41,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:248",
+   "file": "Kernel/Integration.lean",
+   "line": 248,
+   "bank_line": 210,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: Equivalence: our structural claim is logically equivalent to Mathlib's RiemannHypothesis; neither side is proved here.",
+   "kept": [
+    "Equivalence: our structural claim is logically equivalent to Mathlib's RiemannHypothesis.",
+    "Equivalence: our structural claim is logically equivalent to Mathlib's RiemannHypothesis; neither side is proved here."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 42,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Integration.lean:263",
+   "file": "Kernel/Integration.lean",
+   "line": 263,
+   "bank_line": 215,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The SIDE pattern in general form: for any X, P, an exhaustive catalogue none of whose classes produces x gives not P x (Layer1's SIDE_exclusion); it is not instantiated for xi zeros.",
+   "kept": [
+    "The SIDE pattern in general form: for any X, P, an exhaustive catalogue none of whose classes produces x gives not P x (Layer1's SIDE_exclusion); it is not instantiated for xi zeros.",
+    "This shows the logical structure: if every mechanism class fails to produce off-line zeros, and the classes exhaust all possible mechanisms, then no off-line zeros exist.",
+    "Verified via Layer1's SIDE_exclusion theorem."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 43,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Kappa.lean:49",
+   "file": "Kernel/Kappa.lean",
+   "line": 49,
+   "bank_line": 220,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: Two ConservationStrength values exist, one 0 and one nonzero (kappa_product_formula and kappa_one); that kappa depends on the parsing of a system is the manuscript's reading, not stated here.",
+   "kept": [
+    "Two ConservationStrength values exist, one 0 and one nonzero (kappa_product_formula and kappa_one); that kappa depends on the parsing of a system is the manuscript's reading, not stated here.",
+    "The invariant is TYPE × certification status, not the formation tuple."
+   ],
+   "dropped": [
+    "Two ConservationStrength values exist, one 0 and one nonzero (kappa_product_formula and kappa_one); that kappa depends on the parsing of a system is the manuscript's reading, not stated here."
+   ]
+  },
+  {
+   "k": 44,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Kappa.lean:59",
+   "file": "Kernel/Kappa.lean",
+   "line": 59,
+   "bank_line": 225,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A placeholder: with both kappas silent as hypotheses (unused), it concludes 0 = 0; that the interface stage contributes zero classes is not derived.",
+   "kept": [
+    "A placeholder: with both kappas silent as hypotheses (unused), it concludes 0 = 0; that the interface stage contributes zero classes is not derived."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 45,
+   "parent": "SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:9",
+   "file": "Kernel/PerpendicularCrossing.lean",
+   "line": 9,
+   "bank_line": 230,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Records the algebraic dot-product identity behind the perpendicular-crossing argument and bundles four proved ingredients (FOCUS, FE derivative, no zeros for Re >= 1, antisymmetry); the crossing at xi's zeros and the exclusion of off-line zeros are the manuscript's argument, not compiled.",
+   "kept": [
+    "Records the algebraic dot-product identity behind the perpendicular-crossing argument and bundles four proved ingredients (FOCUS, FE derivative, no zeros for Re >= 1, antisymmetry); the crossing at xi's zeros and the exclusion of off-line zeros are the manuscript's argument, not compiled."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 46,
+   "parent": "SIDE-kernel@0256e9e:Kernel/PerpendicularCrossing.lean:102",
+   "file": "Kernel/PerpendicularCrossing.lean",
+   "line": 102,
+   "bank_line": 235,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The vectors (0, -c1) and (c1, 0) have dot product zero; the identification of these with the gradients of Re and Im xi at a critical-line zero is not stated.",
+   "kept": [
+    "The vectors (0, -c1) and (c1, 0) have dot product zero; the identification of these with the gradients of Re and Im xi at a critical-line zero is not stated."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 47,
+   "parent": "SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:7",
+   "file": "Kernel/PoissonExhaustion.lean",
+   "line": 7,
+   "bank_line": 240,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Proves gate_e_exhaustive_derived: for every real sigma, no prime p has p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2, via Voice 1's balance theorem.",
+   "kept": [
+    "Proves gate_e_exhaustive_derived: for every real sigma, no prime p has p^(-sigma) = p^(-(1-sigma)) with sigma != 1/2, via Voice 1's balance theorem."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 48,
+   "parent": "SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:30",
+   "file": "Kernel/PoissonExhaustion.lean",
+   "line": 30,
+   "bank_line": 245,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    3
+   ],
+   "action": "RE-CUT: BalanceContradiction sigma: some prime p has p^(-sigma) = p^(-(1-sigma)) and sigma != 1/2. Voice 1 proves balance <-> sigma = 1/2, so it is never satisfied. That the balance equation holds at every xi-zero is the open clause, not stated here.",
+   "kept": [
+    "BalanceContradiction sigma: some prime p has p^(-sigma) = p^(-(1-sigma)) and sigma != 1/2.",
+    "Voice 1 proves balance <-> sigma = 1/2, so it is never satisfied.",
+    "That the balance equation holds at every xi-zero is the open clause, not stated here.",
+    "The balance equation p^(-σ) = p^(-(1-σ)) is the content of mechanism class C₄.",
+    "Voice 1 proves: balance ↔ σ = 1/2.",
+    "Therefore BalanceContradiction is self-contradictory — the structural condition forces σ = 1/2, which contradicts σ ≠ 1/2."
+   ],
+   "dropped": [
+    "BalanceContradiction sigma: some prime p has p^(-sigma) = p^(-(1-sigma)) and sigma != 1/2.",
+    "Voice 1 proves balance <-> sigma = 1/2, so it is never satisfied.",
+    "That the balance equation holds at every xi-zero is the open clause, not stated here."
+   ]
+  },
+  {
+   "k": 49,
+   "parent": "SIDE-kernel@0256e9e:Kernel/PoissonExhaustion.lean:53",
+   "file": "Kernel/PoissonExhaustion.lean",
+   "line": 53,
+   "bank_line": 250,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2,
+    4
+   ],
+   "action": "RE-CUT: For every real sigma, BalanceContradiction sigma fails: Voice 1's balance theorem forces sigma = 1/2. That the balance holds at every xi-zero (and so no off-line zero exists) is the open clause, not proved here.",
+   "kept": [
+    "For every real sigma, BalanceContradiction sigma fails: Voice 1's balance theorem forces sigma = 1/2.",
+    "That the balance holds at every xi-zero (and so no off-line zero exists) is the open clause, not proved here.",
+    "Voice 1 proves the balance equation forces σ = 1/2.",
+    "This is one voice of the seven-voice SIDE argument.",
+    "One voice suffices for the logical closure because each voice independently forces σ = 1/2.",
+    "The full SIDE argument uses all seven voices from all seven mechanism classes, providing formation-saturating coverage.",
+    "But the proof only needs one."
+   ],
+   "dropped": [
+    "For every real sigma, BalanceContradiction sigma fails: Voice 1's balance theorem forces sigma = 1/2.",
+    "That the balance holds at every xi-zero (and so no off-line zero exists) is the open clause, not proved here.",
+    "For every real sigma, BalanceContradiction sigma fails: Voice 1's balance theorem forces sigma = 1/2.",
+    "That the balance holds at every xi-zero (and so no off-line zero exists) is the open clause, not proved here."
+   ]
+  },
+  {
+   "k": 50,
+   "parent": "SIDE-kernel@0256e9e:Kernel/ProductFormula_Rat.lean:68",
+   "file": "Kernel/ProductFormula_Rat.lean",
+   "line": 68,
+   "bank_line": 255,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3,
+    4
+   ],
+   "action": "RE-CUT: 1^s = 1 for every integer s in Q; read on the product formula's value 1, it is s-independent (s_darkness_from_product). That interfaces transmit no spectral information (n4 = 0) is the conservation clause, not stated here.",
+   "kept": [
+    "The product formula ∏_v |x|_v = 1 is s-independent.",
+    "Raising both sides to any power s: (∏_v |x|_v)^s = 1^s = 1.",
+    "1^s = 1 for every integer s in Q; read on the product formula's value 1, it is s-independent (s_darkness_from_product).",
+    "That interfaces transmit no spectral information (n4 = 0) is the conservation clause, not stated here."
+   ],
+   "dropped": [
+    "1^s = 1 for every integer s in Q; read on the product formula's value 1, it is s-independent (s_darkness_from_product).",
+    "That interfaces transmit no spectral information (n4 = 0) is the conservation clause, not stated here."
+   ]
+  },
+  {
+   "k": 51,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SilencePrinciple.lean:1",
+   "file": "Kernel/SilencePrinciple.lean",
+   "line": 1,
+   "bank_line": 260,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The Silence Principle as a premise: if every essential interface is universal, an essential interface is silent (Silent is defined as Universal).",
+   "kept": [
+    "The Silence Principle as a premise: if every essential interface is universal, an essential interface is silent (Silent is defined as Universal)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 52,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:108",
+   "file": "Kernel/SilenceTheorem.lean",
+   "line": 108,
+   "bank_line": 265,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: A stand-in labeled for the product formula: the constant-true interface on the one-point configuration space.",
+   "kept": [
+    "A stand-in labeled for the product formula: the constant-true interface on the one-point configuration space.",
+    "The action is constant because the constraint does not depend on which configuration we evaluate."
+   ],
+   "dropped": [
+    "A stand-in labeled for the product formula: the constant-true interface on the one-point configuration space."
+   ]
+  },
+  {
+   "k": 53,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:116",
+   "file": "Kernel/SilenceTheorem.lean",
+   "line": 116,
+   "bank_line": 270,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The stand-in product_formula_interface is universal (as every interface on the one-point space is).",
+   "kept": [
+    "The stand-in product_formula_interface is universal (as every interface on the one-point space is)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 54,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:121",
+   "file": "Kernel/SilenceTheorem.lean",
+   "line": 121,
+   "bank_line": 275,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The stand-in product_formula_interface has kappa = 0 by the universal silence theorem (vacuously, on the one-point space).",
+   "kept": [
+    "The stand-in product_formula_interface has kappa = 0 by the universal silence theorem (vacuously, on the one-point space)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 55,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SilenceTheorem.lean:127",
+   "file": "Kernel/SilenceTheorem.lean",
+   "line": 127,
+   "bank_line": 280,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A constant (true-valued) universal interface on the one-point configuration space, labelled the distributive law; it encodes no distributive-law content.",
+   "kept": [
+    "A constant (true-valued) universal interface on the one-point configuration space, labelled the distributive law; it encodes no distributive-law content."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 56,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SimplicityRouteD.lean:69",
+   "file": "Kernel/SimplicityRouteD.lean",
+   "line": 69,
+   "bank_line": 285,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4
+   ],
+   "action": "RE-CUT: PLACEHOLDER — not the real statement; body is `True`. ... Uncited by any declaration; imported only by the aggregator Kernel/Root.lean. Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.",
+   "kept": [
+    "**PLACEHOLDER — not the real statement (tautology-sweep hygiene, 2026-07-29).",
+    "Body is `True`; the name now carries the placeholder status.",
+    "The real Route-D statement would have to say: for every t₀ with F(t₀)=0 there is ε>0 with F(t₀−ε)·F(t₀+ε) < 0 — the IVT sign-change (non-crossing) characterization of simple zeros — which is unformalized here (it needs `HasDerivAt` for ξ∘(t ↦ ½+it)).",
+    "PLACEHOLDER — not the real statement; body is `True`.",
+    "...",
+    "Uncited by any declaration; imported only by the aggregator Kernel/Root.lean.",
+    "Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.",
+    "Faithful formalization is work-order **W-ORD-ROUTE-DE-EQUIV**."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 57,
+   "parent": "SIDE-kernel@0256e9e:Kernel/SimplicityRouteE.lean:77",
+   "file": "Kernel/SimplicityRouteE.lean",
+   "line": 77,
+   "bank_line": 290,
+   "verdict": "OVERREACHES",
+   "graded": [
+    5
+   ],
+   "action": "RE-CUT: PLACEHOLDER — not the real statement; body is `True`. ... Unformalized. Uncited by any declaration; imported only by the aggregator Kernel/Root.lean. Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.",
+   "kept": [
+    "**PLACEHOLDER — not the real statement (tautology-sweep hygiene, 2026-07-29).",
+    "Body is `True`; the name now carries the placeholder status.",
+    "The real Route-E statement would have to say: the energy E(t) = F(t)² + F′(t)² > 0 for all t iff every ξ-zero on the line is simple — where the positivity itself is the open premise (F′(t₀)=0 ⇔ ξ′(½+it₀)=0).",
+    "Unformalized.",
+    "PLACEHOLDER — not the real statement; body is `True`.",
+    "...",
+    "Uncited by any declaration; imported only by the aggregator Kernel/Root.lean.",
+    "Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.",
+    "Faithful formalization is work-order **W-ORD-ROUTE-DE-EQUIV**."
+   ],
+   "dropped": [
+    "Unformalized."
+   ]
+  },
+  {
+   "k": 58,
+   "parent": "SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:1",
+   "file": "Kernel/StructuralCount.lean",
+   "line": 1,
+   "bank_line": 295,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2,
+    5
+   ],
+   "action": "RE-CUT: Encodes the seven mechanism classes of xi(s) as a defined type, their stage assignment, and the formation count 2+3+2+0 = 7 of a defined Stage.count (by decide); the four 'infrastructure' theorems are rfl restatements of that count, not formalizations of Ostrowski, Tate or any classification, and rest states and SIDE exclusion are not in this file.",
+   "kept": [
+    "Encodes the seven mechanism classes of xi(s) as a defined type, their stage assignment, and the formation count 2+3+2+0 = 7 of a defined Stage.count (by decide); the four 'infrastructure' theorems are rfl restatements of that count, not formalizations of Ostrowski, Tate or any classification, and rest states and SIDE exclusion are not in this file.",
+    "None is RH-equivalent.",
+    "Each is independently verifiable.",
+    "March 2026"
+   ],
+   "dropped": [
+    "Encodes the seven mechanism classes of xi(s) as a defined type, their stage assignment, and the formation count 2+3+2+0 = 7 of a defined Stage.count (by decide); the four 'infrastructure' theorems are rfl restatements of that count, not formalizations of Ostrowski, Tate or any classification, and rest states and SIDE exclusion are not in this file.",
+    "Encodes the seven mechanism classes of xi(s) as a defined type, their stage assignment, and the formation count 2+3+2+0 = 7 of a defined Stage.count (by decide); the four 'infrastructure' theorems are rfl restatements of that count, not formalizations of Ostrowski, Tate or any classification, and rest states and SIDE exclusion are not in this file."
+   ]
+  },
+  {
+   "k": 59,
+   "parent": "SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:136",
+   "file": "Kernel/StructuralCount.lean",
+   "line": 136,
+   "bank_line": 300,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The primitive stage's defined count is 2 (rfl); the docstring's reading of this as 'Z has exactly two group structures' is manuscript-resident and not formalized here.",
+   "kept": [
+    "The primitive stage's defined count is 2 (rfl); the docstring's reading of this as 'Z has exactly two group structures' is manuscript-resident and not formalized here.",
+    "Mathematical content: The integers carry additive (Z,+) and multiplicative (Z*,.",
+    "group structures.",
+    "No third exists.",
+    "This is standard algebra — a classification theorem.",
+    "Grounds: n1 = 2 (primitive stage count).",
+    "Status: Proved in abstract algebra.",
+    "Not yet in Mathlib."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 60,
+   "parent": "SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:147",
+   "file": "Kernel/StructuralCount.lean",
+   "line": 147,
+   "bank_line": 305,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The transformation stage's defined count is 3 (rfl); its grounding in Ostrowski's theorem (1916) is cited, not formalized.",
+   "kept": [
+    "The transformation stage's defined count is 3 (rfl); its grounding in Ostrowski's theorem (1916) is cited, not formalized.",
+    "Mathematical content: Every nontrivial absolute value on Q is equivalent to either the standard |.| or a p-adic |.|_p.",
+    "The places of Q are exactly {infinity} union {primes}.",
+    "Grounds: n2 = 3 (transformation stage count).",
+    "The three classes correspond to: - Archimedean place -> C1 (functional equation) - Non-Archimedean places -> C6 (spectral structure) - Global constraint (product formula) -> C5 (modular symmetry) Status: Proved in ZFC (Ostrowski 1916).",
+    "Not yet in Mathlib."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 61,
+   "parent": "SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:163",
+   "file": "Kernel/StructuralCount.lean",
+   "line": 163,
+   "bank_line": 310,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3
+   ],
+   "action": "RE-CUT: The output stage's defined count is 2 (rfl); the 'bipartite' reading of complex analysis is manuscript-resident and not formalized.",
+   "kept": [
+    "INFRASTRUCTURE AXIOM 3: Complex analysis is bipartite.",
+    "Mathematical content: The structural scales of entire function theory are local (differential/Cauchy-Riemann) and global (topological/Hadamard).",
+    "The output stage's defined count is 2 (rfl); the 'bipartite' reading of complex analysis is manuscript-resident and not formalized.",
+    "Grounds: n3 = 2 (output stage count).",
+    "Status: Standard complex analysis.",
+    "Not yet in Mathlib."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 62,
+   "parent": "SIDE-kernel@0256e9e:Kernel/StructuralCount.lean:174",
+   "file": "Kernel/StructuralCount.lean",
+   "line": 174,
+   "bank_line": 315,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2,
+    5
+   ],
+   "action": "RE-CUT: The interface stage's defined count is 0 (rfl); the s-darkness of the product formula (Tate 1950) is cited, not formalized here.",
+   "kept": [
+    "INFRASTRUCTURE AXIOM 4: Conservation of Spectra (Tate 1950).",
+    "The interface stage's defined count is 0 (rfl); the s-darkness of the product formula (Tate 1950) is cited, not formalized here.",
+    "All interfaces between stages are spectrally silent for zero locations.",
+    "Grounds: n4 = 0 (interface stage count)."
+   ],
+   "dropped": [
+    "The interface stage's defined count is 0 (rfl); the s-darkness of the product formula (Tate 1950) is cited, not formalized here."
+   ]
+  },
+  {
+   "k": 63,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Trivium.lean:11",
+   "file": "Kernel/Trivium.lean",
+   "line": 11,
+   "bank_line": 320,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3
+   ],
+   "action": "RE-CUT: This file proves: T.1 the defined Discriminant type has 7 elements; T.2 each value is (-1)^a 2^b 3^c; T.3 every n ≥ 2 is 2a+3b and 1 is not; T.4 consecutive {2,3}-smooth n, n+1 force n ≤ 8; it also records a 7-element FanoLine type and constant valence 3 (no incidence), 2+3+2+0 = 7 = 2^3-1, and the arithmetic 0-1 = -1, (-1)(-1) = 1. Dependencies: Mathlib.",
+   "kept": [
+    "TRIVIUM — The Third Identity Element of Arithmetic ==================================================== The Trivium is the seven-element identity subspace generated by the first two primes {2, 3} acting on quadratic extensions of ℚ.",
+    "The seven discriminants {-1, 2, -2, 3, -3, 6, -6} are exactly the squarefree integers whose prime factorization uses only primes from {2, 3} and the sign unit {-1}.",
+    "This file proves: T.1 the defined Discriminant type has 7 elements; T.2 each value is (-1)^a 2^b 3^c; T.3 every n ≥ 2 is 2a+3b and 1 is not; T.4 consecutive {2,3}-smooth n, n+1 force n ≤ 8; it also records a 7-element FanoLine type and constant valence 3 (no incidence), 2+3+2+0 = 7 = 2^3-1, and the arithmetic 0-1 = -1, (-1)(-1) = 1.",
+    "Dependencies: Mathlib.",
+    "York Seale, April 2026"
+   ],
+   "dropped": []
+  },
+  {
+   "k": 64,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Trivium.lean:76",
+   "file": "Kernel/Trivium.lean",
+   "line": 76,
+   "bank_line": 325,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: All seven values are nonzero (|d| ≠ 0); their squarefreeness is elementary but not stated here.",
+   "kept": [
+    "All seven values are nonzero (|d| ≠ 0); their squarefreeness is elementary but not stated here."
+   ],
+   "dropped": [
+    "All seven values are nonzero (|d| ≠ 0); their squarefreeness is elementary but not stated here."
+   ]
+  },
+  {
+   "k": 65,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Trivium.lean:406",
+   "file": "Kernel/Trivium.lean",
+   "line": 406,
+   "bank_line": 330,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A seven-element index type for the Fano lines; the lines themselves (triples whose F2-vectors sum to zero) are not defined here.",
+   "kept": [
+    "A seven-element index type for the Fano lines; the lines themselves (triples whose F2-vectors sum to zero) are not defined here."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 66,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Trivium.lean:414",
+   "file": "Kernel/Trivium.lean",
+   "line": 414,
+   "bank_line": 335,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The valence assigned to each discriminant is 3 (the Fano-plane value, stipulated; no incidence relation is defined).",
+   "kept": [
+    "The valence assigned to each discriminant is 3 (the Fano-plane value, stipulated; no incidence relation is defined)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 67,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Trivium.lean:451",
+   "file": "Kernel/Trivium.lean",
+   "line": 451,
+   "bank_line": 340,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The integer identity 0 - 1 = -1; the quarter-twist i^2 = -1 itself (Complex.I_mul_I) is not stated here.",
+   "kept": [
+    "The integer identity 0 - 1 = -1; the quarter-twist i^2 = -1 itself (Complex.I_mul_I) is not stated here.",
+    "In the full formalization this is Complex.I_mul_I."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 68,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Trivium.lean:462",
+   "file": "Kernel/Trivium.lean",
+   "line": 462,
+   "bank_line": 345,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The Trivium count bundle: 7 discriminants, 2^3-1 = 7, 7 Fano-line labels, 2+3+2+0 = 7, and 0-1 = -1.",
+   "kept": [
+    "The Trivium count bundle: 7 discriminants, 2^3-1 = 7, 7 Fano-line labels, 2+3+2+0 = 7, and 0-1 = -1."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 69,
+   "parent": "SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:9",
+   "file": "Kernel/TriviumCode.lean",
+   "line": 9,
+   "bank_line": 350,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4
+   ],
+   "action": "RE-CUT: DEPRECATED — labeling stub. code_n/code_k/code_d state 7 = 7 / 1 = 1 / 3 = 3 (rfl) ... The [[7,1,3]] parameters are compiled at SteaneExemplar.steane_parameters (SIDE-cosmo, {propext, Quot.sound}). Kept in place; uncited, imported only by the aggregator Kernel/Root.lean.",
+   "kept": [
+    "**DEPRECATED — labeling stub (tautology-sweep hygiene, 2026-07-29).",
+    "`code_n/code_k/code_d` state `7 = 7 / 1 = 1 / 3 = 3` (bare `N = N`, `rfl`) — the name labels a value the tautology does not establish.",
+    "The genuine [[7,1,3]] parameters are compiled at `SteaneExemplar.steane_parameters` (SIDE-cosmo, `{propext, Quot.sound}`); cite that, not these.",
+    "DEPRECATED — labeling stub.",
+    "code_n/code_k/code_d state 7 = 7 / 1 = 1 / 3 = 3 (rfl) ...",
+    "The [[7,1,3]] parameters are compiled at SteaneExemplar.steane_parameters (SIDE-cosmo, {propext, Quot.sound}).",
+    "Kept in place; uncited, imported only by the aggregator Kernel/Root.lean."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 70,
+   "parent": "SIDE-kernel@0256e9e:Kernel/TriviumCode.lean:20",
+   "file": "Kernel/TriviumCode.lean",
+   "line": 20,
+   "bank_line": 355,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: DEPRECATED — labeling stub. `0 = 0` (rfl). Nearby compiled items: ProductFormula.conservation_of_spectra (SIDE-kernel, ∀ s, 1^s = 1) and partition_cardinalities (SIDE-substrate-cluster, the (3,3,1) weight partition); neither states n₄ = 0 or a six-dimensional dark subspace. Kept in place (uncited).",
+   "kept": [
+    "**DEPRECATED — labeling stub (2026-07-29).",
+    "DEPRECATED — labeling stub.",
+    "`0 = 0` (rfl).",
+    "Nearby compiled items: ProductFormula.conservation_of_spectra (SIDE-kernel, ∀ s, 1^s = 1) and partition_cardinalities (SIDE-substrate-cluster, the (3,3,1) weight partition); neither states n₄ = 0 or a six-dimensional dark subspace.",
+    "Kept in place (uncited)."
+   ],
+   "dropped": [
+    "Kept in place (uncited)."
+   ]
+  },
+  {
+   "k": 71,
+   "parent": "SIDE-kernel@0256e9e:Kernel/TypeLevel.lean:14",
+   "file": "Kernel/TypeLevel.lean",
+   "line": 14,
+   "bank_line": 360,
+   "verdict": "UNDERSTATES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Determination collapse: if a type-level constraint holds for all instances of a class, it holds for any specific instance.",
+   "kept": [
+    "Determination collapse: if a type-level constraint holds for all instances of a class, it holds for any specific instance."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 72,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice2.lean:80",
+   "file": "Kernel/Voice2.lean",
+   "line": 80,
+   "bank_line": 365,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: An assigned codimension: 1 at σ = 1/2 and 2 elsewhere, stipulated (not counted from ξ); the ξ-reading (one real condition on the line, two off it) is manuscript-resident.",
+   "kept": [
+    "An assigned codimension: 1 at σ = 1/2 and 2 elsewhere, stipulated (not counted from ξ); the ξ-reading (one real condition on the line, two off it) is manuscript-resident.",
+    "At sigma = 1/2: xi is real-valued (conjugation = reflection), so xi(s) = 0 requires only one real condition (codim 1).",
+    "At sigma != 1/2: xi is genuinely complex-valued, so xi(s) = 0 requires Re(xi) = 0 AND Im(xi) = 0 (codim 2).",
+    "Higher codimension means more exceptional = harder to achieve.",
+    "Zeros \"want\" to be at codim 1 (the critical line)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 73,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice2.lean:103",
+   "file": "Kernel/Voice2.lean",
+   "line": 103,
+   "bank_line": 370,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: 1 < 2 (the numerals of the two assigned codimensions); the genericity reading is manuscript-resident.",
+   "kept": [
+    "1 < 2 (the numerals of the two assigned codimensions); the genericity reading is manuscript-resident."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 74,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice5.lean:57",
+   "file": "Kernel/Voice5.lean",
+   "line": 57,
+   "bank_line": 375,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3
+   ],
+   "action": "RE-CUT: The R-generator (order 3), R = ST: τ ↦ -1/(τ+1), an elliptic element of order 3 fixing τ = e^(2πi/3). On σ we model R's net effect as the identity; that R produces no new σ-constraint is this modelling choice, not a derived fact.",
+   "kept": [
+    "The R-generator (order 3) action on sigma.",
+    "R = ST: tau -> -1/(tau+1).",
+    "The R-generator (order 3), R = ST: τ ↦ -1/(τ+1), an elliptic element of order 3 fixing τ = e^(2πi/3).",
+    "On σ we model R's net effect as the identity; that R produces no new σ-constraint is this modelling choice, not a derived fact.",
+    "On the real parameter sigma, R's effect is trivial: it permutes Fourier coefficients of theta but does not change which sigma-value the symmetry constrains.",
+    "We model this as: R's net effect on sigma is the identity.",
+    "This is the content of \"R produces no new sigma constraint.\""
+   ],
+   "dropped": []
+  },
+  {
+   "k": 75,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice6.lean:66",
+   "file": "Kernel/Voice6.lean",
+   "line": 66,
+   "bank_line": 380,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The modelled self-adjointness condition (defined as spectral_offset σ = 0) gives σ = 1/2; the Hilbert–Pólya step from a self-adjoint operator to this condition is not formalized.",
+   "kept": [
+    "The modelled self-adjointness condition (defined as spectral_offset σ = 0) gives σ = 1/2; the Hilbert–Pólya step from a self-adjoint operator to this condition is not formalized."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 76,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice6.lean:77",
+   "file": "Kernel/Voice6.lean",
+   "line": 77,
+   "bank_line": 385,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Off the critical line the modelled constraint fails: sigma /= 1/2 gives spectral_offset sigma /= 0 (the constraint is defined as that offset equation; no operator is formalized).",
+   "kept": [
+    "Off the critical line the modelled constraint fails: sigma /= 1/2 gives spectral_offset sigma /= 0 (the constraint is defined as that offset equation; no operator is formalized)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 77,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice6.lean:88",
+   "file": "Kernel/Voice6.lean",
+   "line": 88,
+   "bank_line": 390,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: C6 rests at sigma = 1/2: the modelled constraint spectral_offset sigma = 0 holds at 1/2 and fails elsewhere (self_adjoint_violated_off_line); the constraint encodes the self-adjointness conclusion by definition, no operator is formalized.",
+   "kept": [
+    "C6 rests at sigma = 1/2.",
+    "C6 rests at sigma = 1/2: the modelled constraint spectral_offset sigma = 0 holds at 1/2 and fails elsewhere (self_adjoint_violated_off_line); the constraint encodes the self-adjointness conclusion by definition, no operator is formalized.",
+    "Elsewhere, it's violated."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 78,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice7.lean:52",
+   "file": "Kernel/Voice7.lean",
+   "line": 52,
+   "bank_line": 395,
+   "verdict": "UNDERSTATES",
+   "graded": [
+    8
+   ],
+   "action": "RE-CUT: The faithful de-encode (W-ORD-C7-WITNESS) is compiled as Voice7Witness.hadamard_does_not_enforce_online, the Epstein countermodel: the Hadamard/FE observable cannot enforce on-line placement.",
+   "kept": [
+    "The topological winding contribution to zero-placement.",
+    "This is sigma-independent: the argument principle counts zeros regardless of which sigma they're at.",
+    "We model this as a constant function: the topological mechanism contributes the same constraint at every sigma.",
+    "**σ-neutral stand-in (DEFINITION-ENCODED; W-ORD-ROUTE1-A, C₇; honest relabel 2026-07-22).",
+    "This is the `Kernel/` twin of `Bridge/TheBridgeComplete.hadamard_contrib` (unified C₇ site).",
+    "`:= 0` ASSIGNS σ-neutrality; it does not derive it.",
+    "The neutrality shape `∀σ, g σ = g(1/2)` (see `topological_no_sigma_preference`) is satisfied only by a σ-constant `g`, so no non-vacuous model-level de-encode of THIS shape exists; the constant is a faithful stand-in for a σ-non-selective contribution whose real content is manuscript-resident: • the Hadamard product ENCODES (not produces) the zero set — FE-symmetric under s ↦ 1−s; Mathlib at pin `e960b84` has the FE but **not** the genus-1 factorization (three-lines Hadamard only) — premise named Mathlib-absent; • the product is PRESENT in RH-violators (Epstein, §917/§933/§1845), so its presence cannot enforce on-line — a model-theoretic argument, unmodeled here.",
+    "The faithful de-encode (W-ORD-C7-WITNESS) is compiled as Voice7Witness.hadamard_does_not_enforce_online, the Epstein countermodel: the Hadamard/FE observable cannot enforce on-line placement."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 79,
+   "parent": "SIDE-kernel@0256e9e:Kernel/Voice7.lean:144",
+   "file": "Kernel/Voice7.lean",
+   "line": 144,
+   "bank_line": 400,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: The definition-encoded stand-in topological_contribution := 0 takes the same value at every sigma as at 1/2; this asserts nothing sigma-selective about xi (the faithful C7 content is Voice7Witness.hadamard_does_not_enforce_online).",
+   "kept": [
+    "The definition-encoded stand-in topological_contribution := 0 takes the same value at every sigma as at 1/2; this asserts nothing sigma-selective about xi (the faithful C7 content is Voice7Witness.hadamard_does_not_enforce_online)."
+   ],
+   "dropped": [
+    "The definition-encoded stand-in topological_contribution := 0 takes the same value at every sigma as at 1/2; this asserts nothing sigma-selective about xi (the faithful C7 content is Voice7Witness.hadamard_does_not_enforce_online)."
+   ]
+  },
+  {
+   "k": 80,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:3",
+   "file": "MetaKernel.lean",
+   "line": 3,
+   "bank_line": 405,
+   "verdict": "OVERREACHES",
+   "graded": [
+    4
+   ],
+   "action": "RE-CUT: TARGETS: the Ostrowski structure (LT-3.1); RH_MechanismClass and YM_Sector as enumerations only (the RH and YM Ostrowski instances are retired, M1); a Fintype instance on the 7-class type (no ESatisfied instance); Bool-record silence instances; polarity labels. RESULTS: 0 sorry; type_I_has_ostrowski records [propext, Quot.sound].",
+   "kept": [
+    "META-KERNEL: FORMALIZING THE OBSERVATIONS ========================================== Lean 4 structures for the eight unannounced observations.",
+    "Imports Mathlib.Data.Fintype.Basic.",
+    "Compiles under the kernel's existing Mathlib toolchain.",
+    "TARGETS: the Ostrowski structure (LT-3.1); RH_MechanismClass and YM_Sector as enumerations only (the RH and YM Ostrowski instances are retired, M1); a Fintype instance on the 7-class type (no ESatisfied instance); Bool-record silence instances; polarity labels.",
+    "RESULTS: 0 sorry; type_I_has_ostrowski records [propext, Quot.sound]."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 81,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:36",
+   "file": "MetaKernel.lean",
+   "line": 36,
+   "bank_line": 410,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3
+   ],
+   "action": "RE-CUT: A record of a target, a per-element predicate, a tautological exhaustiveness field (d = d), a no-element-produces field and a supplied exclusion field; the paper reads Ostrowski, Thurston, Wiles and SIDE as instances, and no instance is compiled here.",
+   "kept": [
+    "A DomainOstrowski is a domain-specific completeness theorem.",
+    "It consists of: - A domain of structural elements (the mechanism classes) - A target property (what we want to exclude) - A per-element check (does this element produce the property?",
+    "A record of a target, a per-element predicate, a tautological exhaustiveness field (d = d), a no-element-produces field and a supplied exclusion field; the paper reads Ostrowski, Thurston, Wiles and SIDE as instances, and no instance is compiled here."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 82,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:52",
+   "file": "MetaKernel.lean",
+   "line": 52,
+   "bank_line": 415,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A tautological placeholder (d = d); finiteness of the domain is not carried by this field.",
+   "kept": [
+    "A tautological placeholder (d = d); finiteness of the domain is not carried by this field."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 83,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:56",
+   "file": "MetaKernel.lean",
+   "line": 56,
+   "bank_line": 420,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The target does not hold (supplied as a field; not derived from the other fields).",
+   "kept": [
+    "The target does not hold (supplied as a field; not derived from the other fields)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 84,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:59",
+   "file": "MetaKernel.lean",
+   "line": 59,
+   "bank_line": 425,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The seven mechanism-class labels of the SIDE catalogue (an enumeration; no Ostrowski instance is compiled).",
+   "kept": [
+    "The seven mechanism-class labels of the SIDE catalogue (an enumeration; no Ostrowski instance is compiled)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 85,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:76",
+   "file": "MetaKernel.lean",
+   "line": 76,
+   "bank_line": 430,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Every element of the defined type RH_MechanismClass is one of its seven constructors (the type's own completeness, not the catalogue's exhaustiveness at xi).",
+   "kept": [
+    "Every element of the defined type RH_MechanismClass is one of its seven constructors (the type's own completeness, not the catalogue's exhaustiveness at xi)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 86,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:118",
+   "file": "MetaKernel.lean",
+   "line": 118,
+   "bank_line": 435,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: The E condition records that the domain type is finite (Fintype); the checked clause is a tautological placeholder (d = d).",
+   "kept": [
+    "The E condition asks: is the mechanism catalogue exhaustive?",
+    "The E condition records that the domain type is finite (Fintype); the checked clause is a tautological placeholder (d = d)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 87,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:124",
+   "file": "MetaKernel.lean",
+   "line": 124,
+   "bank_line": 440,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Placeholder for \"checked\": a tautology (d = d) carrying no check against any target.",
+   "kept": [
+    "Placeholder for \"checked\": a tautology (d = d) carrying no check against any target."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 88,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:173",
+   "file": "MetaKernel.lean",
+   "line": 173,
+   "bank_line": 445,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The defined type RH_MechanismClass is a Fintype with seven elements.",
+   "kept": [
+    "The defined type RH_MechanismClass is a Fintype with seven elements."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 89,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:183",
+   "file": "MetaKernel.lean",
+   "line": 183,
+   "bank_line": 450,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: 2 + 3 + 2 + 0 = 7, by decide.",
+   "kept": [
+    "2 + 3 + 2 + 0 = 7, by decide."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 90,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:203",
+   "file": "MetaKernel.lean",
+   "line": 203,
+   "bank_line": 455,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A reflexivity placeholder (level_0 = level_0); nothing about mathematics passing Level 0 is stated.",
+   "kept": [
+    "A reflexivity placeholder (level_0 = level_0); nothing about mathematics passing Level 0 is stated."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 91,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:207",
+   "file": "MetaKernel.lean",
+   "line": 207,
+   "bank_line": 460,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The E-difficulty conjecture (all mathematical difficulty lives at Level 1), recorded as a placeholder type that does not state it.",
+   "kept": [
+    "The E-difficulty conjecture (all mathematical difficulty lives at Level 1), recorded as a placeholder type that does not state it."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 92,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:239",
+   "file": "MetaKernel.lean",
+   "line": 239,
+   "bank_line": 465,
+   "verdict": "UNDERSTATES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: The Silence Principle: if an interface is essential, it is silent and its kappa is 0 (no further premise).",
+   "kept": [
+    "The Silence Principle: essential interfaces are silent.",
+    "The Silence Principle: if an interface is essential, it is silent and its kappa is 0 (no further premise)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 93,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:285",
+   "file": "MetaKernel.lean",
+   "line": 285,
+   "bank_line": 470,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: The product_formula record is tagged essential, silent and kappa 0 (stipulated fields, read back by rfl).",
+   "kept": [
+    "Conservation of Spectra as SpectralSilence instance.",
+    "The product_formula record is tagged essential, silent and kappa 0 (stipulated fields, read back by rfl)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 94,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:294",
+   "file": "MetaKernel.lean",
+   "line": 294,
+   "bank_line": 475,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: The recorded identity kappa (94/100) exceeds the recorded frequency kappa (8/100).",
+   "kept": [
+    "The INTERFACETS discriminatory result: genetic code is conservative for identity (κ = 94/100) but not for frequency (κ = 8/100).",
+    "The recorded identity kappa (94/100) exceeds the recorded frequency kappa (8/100)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 95,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:309",
+   "file": "MetaKernel.lean",
+   "line": 309,
+   "bank_line": 480,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Tabulated behavioral kappa (x100) of each tested system's most essential component (five values estimated).",
+   "kept": [
+    "Tabulated behavioral kappa (x100) of each tested system's most essential component (five values estimated)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 96,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:342",
+   "file": "MetaKernel.lean",
+   "line": 342,
+   "bank_line": 485,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The SIDE RH argument is labelled eliminative (its target form is Not OffLineZero); the kernel's RH terminal is conditional on ConservationHypothesis.",
+   "kept": [
+    "The SIDE RH argument is labelled eliminative (its target form is Not OffLineZero); the kernel's RH terminal is conditional on ConservationHypothesis."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 97,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:345",
+   "file": "MetaKernel.lean",
+   "line": 345,
+   "bank_line": 490,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The label rh_polarity is eliminative (by rfl); the Ostrowski structure of an eliminative proof is the document's reading.",
+   "kept": [
+    "The label rh_polarity is eliminative (by rfl); the Ostrowski structure of an eliminative proof is the document's reading."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 98,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:357",
+   "file": "MetaKernel.lean",
+   "line": 357,
+   "bank_line": 495,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: rh_polarity is eliminative and euclid_primes_polarity is constructive (labels, by rfl); the E-difficulty prediction is the document's conjecture.",
+   "kept": [
+    "The polarity distinction: - Constructive succeeds when a witness can be found - Eliminative succeeds when E is satisfiable The E-difficulty conjecture (Thread 7) predicts: eliminative proofs succeed ⇔ E condition is satisfiable.",
+    "rh_polarity is eliminative and euclid_primes_polarity is constructive (labels, by rfl); the E-difficulty prediction is the document's conjecture."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 99,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:377",
+   "file": "MetaKernel.lean",
+   "line": 377,
+   "bank_line": 500,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Components the SIDE RH argument cites, each with a recorded date of 1950 or earlier.",
+   "kept": [
+    "Components the SIDE RH argument cites, each with a recorded date of 1950 or earlier."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 100,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:411",
+   "file": "MetaKernel.lean",
+   "line": 411,
+   "bank_line": 505,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: No component's recorded date exceeds 1950 (Tate's date).",
+   "kept": [
+    "No component's recorded date exceeds 1950 (Tate's date)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 101,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:415",
+   "file": "MetaKernel.lean",
+   "line": 415,
+   "bank_line": 510,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: 1950 + 75 = 2025; the seventy-five-year reading is the document's argument.",
+   "kept": [
+    "1950 + 75 = 2025; the seventy-five-year reading is the document's argument."
+   ],
+   "dropped": [
+    "1950 + 75 = 2025; the seventy-five-year reading is the document's argument."
+   ]
+  },
+  {
+   "k": 102,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:427",
+   "file": "MetaKernel.lean",
+   "line": 427,
+   "bank_line": 515,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Problems tested retroactively (six solved; rh is included as the programme's target, conditional in this kernel).",
+   "kept": [
+    "Problems tested retroactively (six solved; rh is included as the programme's target, conditional in this kernel)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 103,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:464",
+   "file": "MetaKernel.lean",
+   "line": 464,
+   "bank_line": 520,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2,
+    3
+   ],
+   "action": "RE-CUT: The meta-Ostrowski conjecture (CP-O-5), recorded as a placeholder True; its content is not stated here.",
+   "kept": [
+    "The meta-Ostrowski conjecture (CP-O-5), recorded as a placeholder True; its content is not stated here."
+   ],
+   "dropped": [
+    "The meta-Ostrowski conjecture (CP-O-5), recorded as a placeholder True; its content is not stated here.",
+    "The meta-Ostrowski conjecture (CP-O-5), recorded as a placeholder True; its content is not stated here."
+   ]
+  },
+  {
+   "k": 104,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:474",
+   "file": "MetaKernel.lean",
+   "line": 474,
+   "bank_line": 525,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: The meta-Ostrowski question (whether the catalogue of completeness theorems is itself a completeness problem), recorded as a placeholder True.",
+   "kept": [
+    "The meta-Ostrowski question (whether the catalogue of completeness theorems is itself a completeness problem), recorded as a placeholder True."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 105,
+   "parent": "SIDE-kernel@0256e9e:MetaKernel.lean:487",
+   "file": "MetaKernel.lean",
+   "line": 487,
+   "bank_line": 530,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2,
+    4
+   ],
+   "action": "RE-CUT: All targets compile, 0 sorry. Formalized: the Ostrowski record; RH_MechanismClass (7 labels, no exclusion); YM_Sector (enumeration only); E as a Fintype record and TYPE labels; four silence records; polarity labels; component dates <= 1950; a retroactive label table (6 exact, 1 approximate); Ostrowski status labels. This summary theorem states True.",
+   "kept": [
+    "All targets compile.",
+    "All targets compile, 0 sorry.",
+    "Formalized: the Ostrowski record; RH_MechanismClass (7 labels, no exclusion); YM_Sector (enumeration only); E as a Fintype record and TYPE labels; four silence records; polarity labels; component dates <= 1950; a retroactive label table (6 exact, 1 approximate); Ostrowski status labels.",
+    "This summary theorem states True.",
+    "This is the meta-kernel: it formalizes the observations about the proof method, not the proof itself.",
+    "This meta-kernel formalizes what the proof TEACHES us about mathematics."
+   ],
+   "dropped": [
+    "All targets compile, 0 sorry.",
+    "Formalized: the Ostrowski record; RH_MechanismClass (7 labels, no exclusion); YM_Sector (enumeration only); E as a Fintype record and TYPE labels; four silence records; polarity labels; component dates <= 1950; a retroactive label table (6 exact, 1 approximate); Ostrowski status labels.",
+    "This summary theorem states True."
+   ]
+  },
+  {
+   "k": 106,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:35",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 35,
+   "bank_line": 535,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: For Lambda0, differentiability at s gives analyticity at s; the one-local-class reading is the document's argument.",
+   "kept": [
+    "Elliptic regularity collapse: holomorphic = analytic.",
+    "For Lambda0, differentiability at s gives analyticity at s; the one-local-class reading is the document's argument."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 107,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:42",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 42,
+   "bank_line": 540,
+   "verdict": "OVERREACHES",
+   "graded": [
+    3
+   ],
+   "action": "RE-CUT: Lambda0(1-s) = Lambda0(s), the functional equation (GLOBAL structure witness).",
+   "kept": [
+    "Λ₀(1-s) = Λ₀(s).",
+    "GLOBAL structure witness.",
+    "Lambda0(1-s) = Lambda0(s), the functional equation (GLOBAL structure witness)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 108,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:54",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 54,
+   "bank_line": 545,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1,
+    2
+   ],
+   "action": "RE-CUT: Two labelled scales of structure (local differential, global topological); the no-intermediate argument cites Cartan B and is not compiled.",
+   "kept": [
+    "Two labelled scales of structure (local differential, global topological); the no-intermediate argument cites Cartan B and is not compiled."
+   ],
+   "dropped": [
+    "Two labelled scales of structure (local differential, global topological); the no-intermediate argument cites Cartan B and is not compiled."
+   ]
+  },
+  {
+   "k": 109,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation3v2.lean:61",
+   "file": "legacy/Foundation3v2.lean",
+   "line": 61,
+   "bank_line": 550,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: n3 = 2, the stipulated count of output mechanism classes (C3, C7); the no-third argument cites Mittag-Leffler and Cartan.",
+   "kept": [
+    "n₃ = 2: Two output mechanism classes.",
+    "n3 = 2, the stipulated count of output mechanism classes (C3, C7); the no-third argument cites Mittag-Leffler and Cartan."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 110,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:27",
+   "file": "legacy/Foundation4v2.lean",
+   "line": 27,
+   "bank_line": 555,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Placeholder for s-darkness (defined as True).",
+   "kept": [
+    "Placeholder for s-darkness (defined as True)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 111,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:33",
+   "file": "legacy/Foundation4v2.lean",
+   "line": 33,
+   "bank_line": 560,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Both interfaces satisfy the placeholder s_dark (True).",
+   "kept": [
+    "Both interfaces satisfy the placeholder s_dark (True)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 112,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:37",
+   "file": "legacy/Foundation4v2.lean",
+   "line": 37,
+   "bank_line": 565,
+   "verdict": "OVERREACHES",
+   "graded": [
+    2
+   ],
+   "action": "RE-CUT: n4 = 0, the stipulated interface count; the elimination of scenarios B and C is the document's argument.",
+   "kept": [
+    "n₄ = 0: Interfaces contribute ZERO mechanism classes.",
+    "n4 = 0, the stipulated interface count; the elimination of scenarios B and C is the document's argument.",
+    "Only scenario A remains (field constraints)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 113,
+   "parent": "SIDE-kernel@0256e9e:legacy/Foundation4v2.lean:42",
+   "file": "legacy/Foundation4v2.lean",
+   "line": 42,
+   "bank_line": 570,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: A string recording the claimed elimination (B + C; A remains); not compiled.",
+   "kept": [
+    "A string recording the claimed elimination (B + C; A remains); not compiled.",
+    "A remains for Spectral Cannon."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 114,
+   "parent": "SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:136",
+   "file": "legacy/ProductFormula_Int.lean",
+   "line": 136,
+   "bank_line": 585,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: Every positive integer n equals the product of p^(v_p(n)) over its factorization.",
+   "kept": [
+    "Every positive integer n equals the product of p^(v_p(n)) over its factorization."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 115,
+   "parent": "SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:151",
+   "file": "legacy/ProductFormula_Int.lean",
+   "line": 151,
+   "bank_line": 590,
+   "verdict": "OVERREACHES",
+   "graded": [
+    1
+   ],
+   "action": "RE-CUT: For each prime p, p^(v_p(n)) * |n|_p = 1 (the per-prime cancellation the product formula is assembled from).",
+   "kept": [
+    "For each prime p, p^(v_p(n)) * |n|_p = 1 (the per-prime cancellation the product formula is assembled from)."
+   ],
+   "dropped": []
+  },
+  {
+   "k": 116,
+   "parent": "SIDE-kernel@0256e9e:legacy/SchwarzReflection_PR.lean:116",
+   "file": "legacy/SchwarzReflection_PR.lean",
+   "line": 116,
+   "bank_line": 595,
+   "verdict": "OVERREACHES",
+   "graded": [
+    7
+   ],
+   "action": "RE-CUT: Lambda0 is real-valued on the critical line: Im Lambda0(1/2 + it) = 0 for every real t (by Schwarz reflection and the functional equation).",
+   "kept": [
+    "**The completed Riemann zeta function is real-valued on the critical line.",
+    "At every point `1/2 + it` on the critical line, `Im(Λ₀(1/2 + it)) = 0`.",
+    "Proof: At `s = 1/2 + it`, conjugation gives `conj(s) = 1/2 - it = 1 - s`.",
+    "By Schwarz reflection: `conj(Λ₀(s)) = Λ₀(conj s) = Λ₀(1 - s)`.",
+    "By the functional equation: `Λ₀(1 - s) = Λ₀(s)`.",
+    "Therefore `conj(Λ₀(s)) = Λ₀(s)`, which holds iff `Im(Λ₀(s)) = 0`.",
+    "Lambda0 is real-valued on the critical line: Im Lambda0(1/2 + it) = 0 for every real t (by Schwarz reflection and the functional equation)."
+   ],
+   "dropped": []
+  }
+ ]
+}
