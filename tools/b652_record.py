@@ -221,9 +221,56 @@ MODULES = [
 ]
 
 
+# ### THE TERM CORRECTED BY THE AUTHOR`S WORD AFTER THE STRIKE: the margin needed is the host`s measured loss (free at start minus host low, as
+# ### the watchdog prints it) where a run has recorded one -- the largest recorded; the tree peak is not a substitute; none recorded: UNMEASURED.
+# ### Every loss below is from a run the watchdog stopped at the hold, so it is a lower bound of the run`s whole loss.
+LOSS = {
+    'SIDELvConservation.T3_StepNineBridge': (1428, 'relay data/b649_lv_build.txt :16: 3545-2135 = 1410 ; 3532-2104 = 1428'),
+    'SIDEEffects.Milestones': (1255, 'b648`s log w_b648_milestones.log :1, :31, :34 (data/b648_build_peaks.json rows 3-4): 3788-2533 = 1255 ; 3616-2529 = 1087'),
+    'Kernel.PerpendicularCrossing': (906, 'relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710'),
+}
+
+
 def free_mb():
     import build_watch as BW
     return BW.free_mb()
+
+
+def _lake_libs():
+    """SIDE-kernel's lean_libs (lakefile.lean): Kernel and Bridge by submodules, MetaKernel by root."""
+    return ('Kernel/', 'Bridge/'), ('MetaKernel.lean',)
+
+
+def margin2(*a):
+    """the second reading under the corrected term: per module of the three branches, per file of the cut branch; banked, the text too."""
+    j = jl('b652_build_margin.json') or {'hold': HOLD, 'readings': []}
+    fm = free_mb()
+    seen = fm - HOLD
+    at = utc()
+    for k, br, f, tgt, peak, src in MODULES:
+        need, lsrc = LOSS[tgt]
+        j['readings'].append(dict(reading=2, at=at, kernel=k, branch=br, module=f, target=tgt, term='host loss', needed=need, free=fm, seen=seen,
+                                  allows=seen >= need, source=lsrc))
+    plan = jl('b652_sentence_cut_plan.json')['blocks']
+    files = sorted(set(b['file'] for b in plan if b.get('kept') is not None) | {'Kernel/PerpendicularCrossing.lean'})
+    subs, roots = _lake_libs()
+    cut = []
+    for f in files:
+        in_lib = f.startswith(subs) or f in roots
+        tgt = f[:-5].replace('/', '.')
+        if tgt in LOSS:
+            need, lsrc = LOSS[tgt]
+            cut.append(dict(file=f, lib=in_lib, needed=need, seen=seen, allows=seen >= need, source=lsrc))
+        else:
+            cut.append(dict(file=f, lib=in_lib, needed=None, seen=seen, allows=False,
+                            source='UNMEASURED: no recorded host loss' if in_lib else 'UNMEASURED: in no lean_lib (legacy/), nothing builds it'))
+    j['cut_branch'] = dict(at=at, branch=PC_BRANCH, free=fm, seen=seen, files=cut)
+    put_json('b652_build_margin.json', j)
+    print('  reading 2 %s free %d MB, seen %d above the hold' % (at, fm, seen))
+    for r in [r for r in j['readings'] if r['reading'] == 2]:
+        print('    %-38s needed %4d ; seen %4d ; %s' % (r['target'], r['needed'], r['seen'], 'ALLOWS' if r['allows'] else 'DOES NOT ALLOW'))
+    print('    cut branch: files %d ; measured %d ; UNMEASURED in a lean_lib %d ; in no lean_lib %d' % (
+        len(cut), sum(1 for c in cut if c['needed']), sum(1 for c in cut if not c['needed'] and c['lib']), sum(1 for c in cut if not c['lib'])))
 
 
 def margin(*a):
@@ -410,6 +457,48 @@ def table_after(*a):
                                            not_matches=[dict(source=r['source'], verdict=r['verdict'], findings=r.get('findings') or [])
                                                         for r in after if r['verdict'] != 'MATCHES']))
     print(NL.join(L[8:11] + L[-1:]))
+
+
+def margin_bank(*a):
+    """data/b652_build_margin.txt: the two readings, the corrected term, the cut branch per file, the branches' diffs whole."""
+    j = jl('b652_build_margin.json')
+    L = ['b652 -- COMPONENT 2, (R262)(3) AND THE AUTHOR`S WORD AFTER THE STRIKE: THE BUILD MARGIN, PER MODULE (%s)' % utc(), '',
+         '### the hold %d MB, not lowered. The rule as (R262)(3) wrote it: a module builds under the hold when the free memory at its start less its' % HOLD,
+         '### measured tree peak stays at or above the hold. Refuted by b651`s PerpendicularCrossing run (relay data/b651_docstrings_SIDE-kernel.txt',
+         '### :18-:19): free 3365 MB at start, above the 3252 the rule needed, and the host fell 906 MB to 2459 against a tree peak of 683.',
+         '### The term corrected by the author`s word: the margin needed is the host`s measured loss (free at start minus host low, as the watchdog',
+         '### prints it) where a run recorded one, the largest of its attempts; the tree peak is not a substitute; none recorded: UNMEASURED.',
+         '### Every loss is from a run the watchdog stopped at the hold: a lower bound of the whole run`s loss.', '',
+         '### READING 1 (the slot`s start, the term as (R262)(3) wrote it, before the correction):']
+    for r in [r for r in j['readings'] if r['reading'] == 1]:
+        L.append('  %s %-38s needed %4d (tree peak) ; seen %4d (free %d) ; %s ; %s' % (r['at'], r['target'], r['needed'], r['seen'], r['free'],
+                                                                                   'ALLOWS' if r['allows'] else 'DOES NOT ALLOW', r['source']))
+    L += ['  read again under the corrected term, the same free memory: needed %s ; seen %d ; none allows.' % (
+        ', '.join('%s %d' % (t.split('.')[-1], LOSS[t][0]) for t in LOSS), [r for r in j['readings'] if r['reading'] == 1][0]['seen']), '',
+          '### READING 2 (later in the act, the corrected term):']
+    for r in [r for r in j['readings'] if r['reading'] == 2]:
+        L.append('  %s %-38s needed %4d (host loss) ; seen %4d (free %d) ; %s ; %s' % (r['at'], r['target'], r['needed'], r['seen'], r['free'],
+                                                                                    'ALLOWS' if r['allows'] else 'DOES NOT ALLOW', r['source']))
+    c = j['cut_branch']
+    L += ['', '### THE CUT BRANCH (%s, the cut and the plain comments), per file, at reading 2 (seen %d MB above the hold):' % (c['branch'], c['seen'])]
+    for x in c['files']:
+        L.append('  %-44s %s' % (x['file'], ('needed %d ; seen %d ; %s ; %s' % (x['needed'], x['seen'], 'ALLOWS' if x['allows'] else 'DOES NOT ALLOW', x['source']))
+                                 if x['needed'] else x['source']))
+    nm = sum(1 for x in c['files'] if x['needed'])
+    nu = sum(1 for x in c['files'] if not x['needed'] and x['lib'])
+    nl = sum(1 for x in c['files'] if not x['lib'])
+    L += ['', '### no build started: no module`s margin seen reached its margin needed at either reading, and no build is attempted on a file with no',
+          '### measured need (the author`s word); no RUN-BENEATH-HOLD this act. The branches stay unmerged, their margins banked here.', '']
+    KD = {'SIDE-lv-conservation': 'D:/SIDE-lv-conservation', 'SIDE-effects': 'D:/SIDE-effects', 'SIDE-kernel': 'D:/SIDE-kernel'}
+    for k, br, base in (('SIDE-lv-conservation', 'b648-restate-SIDE-lv-conservation', 'main'), ('SIDE-effects', 'b648-restate-SIDE-effects', 'main'),
+                        ('SIDE-kernel', PC_BRANCH, CUT_BRANCH)):
+        d = subprocess.run(['git', '-C', KD[k], 'diff', '%s...%s' % (base, br)], capture_output=True).stdout.decode('utf-8').replace('\r', '')
+        L += ['=== THE DIFF, %s %s over %s, whole:' % (k, br, base)] + d.rstrip(NL).split(NL) + ['']
+    L += ['### the cut itself (33 commits) is printed block by block in relay data/b652_sentence_grades.txt and listed in data/b652_sidekernel_cut.txt.',
+          '### ### **MODULES OF THE THREE BRANCHES 3, MEASURED 3, ALLOWING 0 AT EITHER READING ; CUT-BRANCH FILES %d: MEASURED %d, UNMEASURED IN A LEAN_LIB %d, '
+          'IN NO LEAN_LIB %d ; BUILDS STARTED 0 ; MERGED 0.**' % (len(c['files']), nm, nu, nl)]
+    put_txt('b652_build_margin.txt', L)
+    print(L[-1])
 
 
 def cut_bank(*a):

@@ -1,0 +1,334 @@
+b652 -- COMPONENT 2, (R262)(3) AND THE AUTHOR`S WORD AFTER THE STRIKE: THE BUILD MARGIN, PER MODULE (2026-10-11T23:44:46Z)
+
+### the hold 2560 MB, not lowered. The rule as (R262)(3) wrote it: a module builds under the hold when the free memory at its start less its
+### measured tree peak stays at or above the hold. Refuted by b651`s PerpendicularCrossing run (relay data/b651_docstrings_SIDE-kernel.txt
+### :18-:19): free 3365 MB at start, above the 3252 the rule needed, and the host fell 906 MB to 2459 against a tree peak of 683.
+### The term corrected by the author`s word: the margin needed is the host`s measured loss (free at start minus host low, as the watchdog
+### prints it) where a run recorded one, the largest of its attempts; the tree peak is not a substitute; none recorded: UNMEASURED.
+### Every loss is from a run the watchdog stopped at the hold: a lower bound of the whole run`s loss.
+
+### READING 1 (the slot`s start, the term as (R262)(3) wrote it, before the correction):
+  2026-10-11T23:24:27Z SIDELvConservation.T3_StepNineBridge   needed 1644 (tree peak) ; seen  184 (free 2744) ; DOES NOT ALLOW ; relay data/b649_lv_build.txt :16, :43 (attempt 2, tree peak 1644 MB)
+  2026-10-11T23:24:27Z SIDEEffects.Milestones                 needed 1410 (tree peak) ; seen  184 (free 2744) ; DOES NOT ALLOW ; relay data/b648_build_peaks.json rows 3-4 (attempt 2, tree peak 1410 MB); data/b648_build_watch.json row 2
+  2026-10-11T23:24:27Z Kernel.PerpendicularCrossing           needed  692 (tree peak) ; seen  184 (free 2744) ; DOES NOT ALLOW ; relay data/b651_build_peaks.json rows 3-4 (attempt 2, tree peak 692 MB); data/b651_docstrings_SIDE-kernel.txt :17-:22
+  read again under the corrected term, the same free memory: needed T3_StepNineBridge 1428, Milestones 1255, PerpendicularCrossing 906 ; seen 184 ; none allows.
+
+### READING 2 (later in the act, the corrected term):
+  2026-10-11T23:44:22Z SIDELvConservation.T3_StepNineBridge   needed 1428 (host loss) ; seen  651 (free 3211) ; DOES NOT ALLOW ; relay data/b649_lv_build.txt :16: 3545-2135 = 1410 ; 3532-2104 = 1428
+  2026-10-11T23:44:22Z SIDEEffects.Milestones                 needed 1255 (host loss) ; seen  651 (free 3211) ; DOES NOT ALLOW ; b648`s log w_b648_milestones.log :1, :31, :34 (data/b648_build_peaks.json rows 3-4): 3788-2533 = 1255 ; 3616-2529 = 1087
+  2026-10-11T23:44:22Z Kernel.PerpendicularCrossing           needed  906 (host loss) ; seen  651 (free 3211) ; DOES NOT ALLOW ; relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710
+
+### THE CUT BRANCH (docstrings-SIDE-kernel, the cut and the plain comments), per file, at reading 2 (seen 651 MB above the hold):
+  Bridge/CartanBBridge.lean                    UNMEASURED: no recorded host loss
+  Bridge/ConservationBridge.lean               UNMEASURED: no recorded host loss
+  Bridge/CrossClassExclusion.lean              UNMEASURED: no recorded host loss
+  Bridge/FanoSteane.lean                       UNMEASURED: no recorded host loss
+  Bridge/OstrowskiBridge.lean                  UNMEASURED: no recorded host loss
+  Bridge/SIDEBridge.lean                       UNMEASURED: no recorded host loss
+  Bridge/TheBridgeComplete.lean                UNMEASURED: no recorded host loss
+  Kernel/Cascade/SieveCeiling.lean             UNMEASURED: no recorded host loss
+  Kernel/Cascade/SieveCeilingBridge.lean       UNMEASURED: no recorded host loss
+  Kernel/Cascade/SieveCeilingSemantic.lean     UNMEASURED: no recorded host loss
+  Kernel/Core.lean                             UNMEASURED: no recorded host loss
+  Kernel/DistributiveDark.lean                 UNMEASURED: no recorded host loss
+  Kernel/Formation.lean                        UNMEASURED: no recorded host loss
+  Kernel/Integration.lean                      UNMEASURED: no recorded host loss
+  Kernel/Kappa.lean                            UNMEASURED: no recorded host loss
+  Kernel/PerpendicularCrossing.lean            needed 906 ; seen 651 ; DOES NOT ALLOW ; relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710
+  Kernel/PoissonExhaustion.lean                UNMEASURED: no recorded host loss
+  Kernel/ProductFormula_Rat.lean               UNMEASURED: no recorded host loss
+  Kernel/SilencePrinciple.lean                 UNMEASURED: no recorded host loss
+  Kernel/SilenceTheorem.lean                   UNMEASURED: no recorded host loss
+  Kernel/StructuralCount.lean                  UNMEASURED: no recorded host loss
+  Kernel/Trivium.lean                          UNMEASURED: no recorded host loss
+  Kernel/TriviumCode.lean                      UNMEASURED: no recorded host loss
+  Kernel/TypeLevel.lean                        UNMEASURED: no recorded host loss
+  Kernel/Voice2.lean                           UNMEASURED: no recorded host loss
+  Kernel/Voice5.lean                           UNMEASURED: no recorded host loss
+  Kernel/Voice6.lean                           UNMEASURED: no recorded host loss
+  Kernel/Voice7.lean                           UNMEASURED: no recorded host loss
+  MetaKernel.lean                              UNMEASURED: no recorded host loss
+  legacy/Foundation3v2.lean                    UNMEASURED: in no lean_lib (legacy/), nothing builds it
+  legacy/Foundation4v2.lean                    UNMEASURED: in no lean_lib (legacy/), nothing builds it
+  legacy/ProductFormula_Int.lean               UNMEASURED: in no lean_lib (legacy/), nothing builds it
+  legacy/SchwarzReflection_PR.lean             UNMEASURED: in no lean_lib (legacy/), nothing builds it
+
+### no build started: no module`s margin seen reached its margin needed at either reading, and no build is attempted on a file with no
+### measured need (the author`s word); no RUN-BENEATH-HOLD this act. The branches stay unmerged, their margins banked here.
+
+=== THE DIFF, SIDE-lv-conservation b648-restate-SIDE-lv-conservation over main, whole:
+diff --git a/SIDELvConservation/T3_StepNineBridge.lean b/SIDELvConservation/T3_StepNineBridge.lean
+index 948498c..1f0e056 100644
+--- a/SIDELvConservation/T3_StepNineBridge.lean
++++ b/SIDELvConservation/T3_StepNineBridge.lean
+@@ -74,38 +74,21 @@ theorem T3b_joint_witness_gives_combinations_exclude
+     CombinationsExclude 𝒞 s :=
+   ⟨Φ, hJoint, hNonzero⟩
+ 
+-/-- **T3 main — step-(9) bridge.**  Per-class exclusion at `s`
+-⟹ combined exclusion at `s`.
+-
+-Manuscript reading: because the couplings contribute only to `Φ` and
+-`s` enters only through the kernel `t ^ (s / 2 - 1)` in `mellin Φ`,
+-combinations of couplings cannot manufacture an s-side effect (a forced
+-zero at `s`) that no single coupling can.
++/-- **T3 main — step-(9) bridge, stated, not proved; open.**  For a family
++`𝒞` and a point `s`: per-class exclusion at `s` ⟹ combined exclusion at `s`,
++as a `Prop`.
+ 
+ Formal reading: the hypothesis is
+ `∀ C ∈ 𝒞, ∃ Φ_C, C Φ_C ∧ mellin Φ_C (s / 2) ≠ 0`,
+ and the conclusion asks for a *single* `Φ` witnessing every `C ∈ 𝒞`
+-simultaneously with `mellin Φ (s / 2) ≠ 0`.  This is a `∀∃ ⟹ ∃∀`
+-commutation that has no free witness — the emergent-totality gap of
+-FINDINGS F.2026-07-09-b.
+--/
+-theorem T3_perClass_to_combinations
+-    (𝒞 : Set Coupling) (s : ℂ)
+-    (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :
+-    CombinationsExclude 𝒞 s := by
+-  -- Unfold `CombinationsExclude` so the pinned goal is exact.
+-  show ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+-  -- The hypothesis `h` gives, for each `C ∈ 𝒞`, a witness `Φ_C` with
+-  -- `C Φ_C ∧ mellin Φ_C (s/2) ≠ 0`.  A choice function
+-  --   `f : {C // C ∈ 𝒞} → ℝ → ℂ`
+-  -- extracting these witnesses exists (classically), but there is in
+-  -- general no `Φ` satisfying every `C ∈ 𝒞` simultaneously; the
+-  -- family `{Φ_C}` need not have a common intersection point in
+-  -- `Φ`-space.  This is the ∀∃ ⟹ ∃∀ swap, and it is precisely the
+-  -- content of FINDINGS F.2026-07-09-b (emergent-totality question).
+-  -- STOP per work-order T3 rules — one `sorry`, no weakened statement,
+-  -- no `native_decide`, no new axiom.
+-  sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
++simultaneously with `mellin Φ (s / 2) ≠ 0` — a `∀∃ ⟹ ∃∀` commutation with
++no free witness (FINDINGS F.2026-07-09-b).  Its universal form is refuted in
++this file by `T3doubleprime_general_commutation_fails`; it holds under
++Determination's shared witness by `T3prime_shared_witness`.  Restated at b648
++under the author's ruling (R258)(2) from a `theorem` closed by `sorry`; that
++history is in this file's git log. -/
++def T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) : Prop :=
++  (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s
+ 
+ /-- **T3′ — the bridge closes under Determination's shared witness.**
+ If the programme's Determination condition is in force, every coupling
+
+=== THE DIFF, SIDE-effects b648-restate-SIDE-effects over main, whole:
+diff --git a/SIDEEffects/Milestones.lean b/SIDEEffects/Milestones.lean
+index caf7517..3689d1b 100644
+--- a/SIDEEffects/Milestones.lean
++++ b/SIDEEffects/Milestones.lean
+@@ -4,73 +4,56 @@ import SIDEEffects.Structural
+   SIDE-EFFECTS — MILESTONES
+   ==========================
+   Three analytic existence statements for the additive-multiplicative
+-  problems. The STRUCTURAL Type-D exclusion they rest on is the genuine
+-  `Phase15/Module1.lean : no_type_d_conspiracies` (CRT exhaustiveness);
+-  `Structural.lean` carries the generic `no_type_d` lemma. The EXISTENCE
+-  statements close via Mathlib infrastructure not yet bridged.
+-  Each theorem here:
+-    - states the real type (not a True placeholder)
+-    - is proved by sorry at the marked boundary
+-    - documents which Mathlib infrastructure closes it
+-  When a milestone closes, its sorry is discharged in place and the
+-  README/version tag updated. The migration history shows programme
+-  progress over time.
++  problems, each an open conjecture stated as a `Prop`. The programme's
++  structural Type-D exclusion is `Phase15/Module1.lean :
++  no_type_d_conspiracies` (CRT exhaustiveness); `Structural.lean` carries
++  the generic `no_type_d` lemma; no milestone uses either. The EXISTENCE
++  statements would be proved through Mathlib infrastructure not yet bridged.
++  Each milestone here (RESTATED at b648 under the author's ruling (R258)(2)):
++    - states the real conjecture as a `Prop` (not a True placeholder)
++    - is stated, not proved; open -- a `def`, with no proof and no `sorry`
++    - documents which Mathlib infrastructure would prove it
++  When a milestone is proved, a theorem concluding its `Prop` is added
++  and the README/version tag updated. Until 2026-10-10 each stood as a
++  `theorem` closed by `sorry`; that history is in this file's git log.
+   J. York Seale | ORCID: 0009-0008-7993-0310
+ -/
+ namespace AddMult
+-/-- MILESTONE M3: Infinitely many twin primes.
+-    The structural argument is the genuine `Module1.no_type_d_conspiracies`
+-    (CRT exhaustiveness): there is no TYPE D conspiracy that would
+-    forbid infinitely many twins.
+-    Closing this existence statement requires the Hardy-Littlewood
+-    asymptotic π₂(N) ~ 2C₂ N / (log N)², which forces
+-    π₂(N) → ∞, hence twin primes infinite.
+-    Mathlib status: PrimeCounting infrastructure exists; the
++/-- MILESTONE M3: infinitely many twin primes -- stated, not proved; open.
++    The twin-prime conjecture as a `Prop`. Proving it would need the
++    Hardy-Littlewood asymptotic π₂(N) ~ 2C₂ N / (log N)², which forces
++    π₂(N) → ∞. Mathlib status: PrimeCounting infrastructure exists; the
+     Hardy-Littlewood density theorem is not yet packaged. -/
+-theorem twin_primes_infinite :
+-    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2))) := by
+-  sorry  -- MILESTONE: Hardy-Littlewood asymptotic
+-/-- MILESTONE M4: Goldbach binary conjecture.
+-    Every even n ≥ 4 is the sum of two primes.
++def twin_primes_infinite : Prop :=
++    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2)))
++/-- MILESTONE M4: the binary Goldbach conjecture -- stated, not proved; open.
++    Every even n ≥ 4 is the sum of two primes, as a `Prop`.
+     Evenness expressed inline as `∃ k, n = 2 * k` to avoid
+     dependency on the Mathlib Even/Odd parity infrastructure
+     (whose location varies across Mathlib versions).
+-    The structural argument is the genuine `Module1.no_type_d_conspiracies`
+-    (CRT exhaustiveness): there is no TYPE D conspiracy that would
+-    forbid the Goldbach representation.
+-    Closing this existence statement requires the circle method
+-    formalization, giving r(n) ≫ 1 for even n ≥ 4 (where r(n) counts
+-    representations as p + q with p, q prime).
+-    Mathlib status: circle method not yet formalized.
+-    Helfgott's ternary Goldbach approach is one alternative path. -/
+-theorem goldbach :
++    Proving it would need the circle method, giving r(n) ≫ 1 for even
++    n ≥ 4 (where r(n) counts representations as p + q with p, q prime).
++    Mathlib status: circle method not yet formalized. -/
++def goldbach : Prop :=
+     ∀ n : ℕ, n ≥ 4 → (∃ k : ℕ, n = 2 * k) →
+-      ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n := by
+-  sorry  -- MILESTONE: circle method or Helfgott-style approach
+-/-- MILESTONE M5: Sophie Germain primes infinite.
+-    Infinitely many primes p such that 2p+1 is also prime.
+-    The structural argument is the genuine `Module1.no_type_d_conspiracies`
+-    (CRT exhaustiveness): there is no TYPE D conspiracy that would
+-    forbid infinitely many Sophie Germain primes.
+-    Closing this existence statement requires sieve bounds
+-    establishing positive density of Sophie Germain primes
+-    in the integers.
+-    Mathlib status: basic sieve infrastructure exists;
+-    the specific bounds for Sophie Germain density are not
+-    yet packaged. -/
+-theorem sophie_germain_infinite :
+-    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))) := by
+-  sorry  -- MILESTONE: sieve density bounds
++      ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n
++/-- MILESTONE M5: infinitely many Sophie Germain primes -- stated, not proved; open.
++    Infinitely many primes p such that 2p+1 is also prime, as a `Prop`.
++    Proving it would need sieve bounds establishing positive density of
++    Sophie Germain primes. Mathlib status: basic sieve infrastructure
++    exists; the specific bounds are not yet packaged. -/
++def sophie_germain_infinite : Prop :=
++    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1)))
+ end AddMult
+ /-!
+   ## Status
+-  3 theorems, 3 sorrys, 0 axioms.
+-  Each sorry is at a clearly-marked analytic boundary with
+-  identified Mathlib infrastructure required for closure.
+-  The structural Type-D exclusion these milestones rest on is the
+-  genuine `Module1.no_type_d_conspiracies` (CRT exhaustiveness).
+-  ## How to close a milestone
+-  1. Identify the Mathlib lemma(s) that close the analytic boundary
+-  2. Replace `sorry` with the proof using those lemmas
++  3 definitions, each a `Prop` stating an open conjecture; 0 sorry.
++  Restated from `theorem ... := by sorry` at b648 under the author's
++  ruling (R258)(2). `Module1.no_type_d_conspiracies` (CRT exhaustiveness)
++  states `IsEmpty TypeD` over the programme's own couplings; no milestone
++  uses it, and none of the three conjectures follows from it in Lean.
++  ## How to prove a milestone
++  1. Identify the Mathlib lemma(s) the conjecture needs
++  2. Add a theorem concluding the milestone's `Prop`
+   3. Update README and version tag
+ -/
+
+=== THE DIFF, SIDE-kernel docstrings-SIDE-kernel over docstrings-cut-SIDE-kernel, whole:
+diff --git a/Kernel/PerpendicularCrossing.lean b/Kernel/PerpendicularCrossing.lean
+index 0618ebf..f2f22d4 100644
+--- a/Kernel/PerpendicularCrossing.lean
++++ b/Kernel/PerpendicularCrossing.lean
+@@ -60,41 +60,12 @@ theorem simplicity_from_trace_structure
+ -- PART II: PERPENDICULAR CROSSING THEOREM
+ -- ================================================================
+ 
+-/- The perpendicular crossing theorem.
+-
+-    At a simple zero ρ = 1/2 + iγ on the critical line:
+-
+-    PROVED INGREDIENTS:
+-    (a) FOCUS: ξ(1/2+it) ∈ ℝ, so Im(ξ) = 0 on critical line
+-    (b) Spectral Cannon: Λ₀'(s) = -Λ₀'(1-s), and at ρ:
+-        1-ρ = conj(ρ), so Λ₀'(ρ) = -conj(Λ₀'(ρ))
+-        → Re(Λ₀'(ρ)) = 0
+-    (c) Simplicity: Λ₀'(ρ) ≠ 0
+-
+-    CONSEQUENCE (Cauchy-Riemann):
+-    Write Λ₀ = u + iv at ρ. The complex derivative f' = ∂u/∂σ + i·∂v/∂σ.
+-    Since Re(f'(ρ)) = 0 and Im(f'(ρ)) = c₁ ≠ 0:
+-      ∂u/∂σ = 0       (Re gradient has no σ-component)
+-      ∂u/∂t = -c₁ ≠ 0 (Re gradient points in t-direction)
+-      ∂v/∂σ = c₁ ≠ 0  (Im gradient points in σ-direction)
+-      ∂v/∂t = 0        (Im gradient has no t-component)
+-
+-    The level curve {u = 0} (Re(ξ) = 0) is perpendicular to ∇u = (0, -c₁).
+-    → {Re(ξ) = 0} departs in the σ-direction (HORIZONTAL)
+-
+-    The level curve {v = 0} (Im(ξ) = 0) is perpendicular to ∇v = (c₁, 0).
+-    → {Im(ξ) = 0} departs in the t-direction (VERTICAL = critical line)
+-
+-    They cross at RIGHT ANGLES.
+-
+-    CONSEQUENCE FOR RH:
+-    Along the horizontal {Re(ξ) = 0} curve:
+-      d|Im(ξ)|/dσ = |∂v/∂σ| = |c₁| > 0  (at ρ)
+-    So |Im(ξ)| is INCREASING as σ moves away from 1/2.
+-    Since Im(ξ) = 0 at ρ (FOCUS) and grows monotonically:
+-      Im(ξ) NEVER RETURNS TO ZERO along this curve.
+-    Therefore {Re(ξ) = 0} never meets {Im(ξ) = 0} off the critical line.
+-    NO OFF-LINE ZERO EXISTS. -/
++/- The perpendicular crossing, outlined and not formalized here. At a zero ρ = 1/2 + iγ on the critical line, with ξ real
++    on the line and Λ₀'(ρ) purely imaginary and nonzero, the Cauchy-Riemann equations make the gradients of Re ξ and Im ξ
++    perpendicular at ρ, so the level curves {Re ξ = 0} and {Im ξ = 0} cross at right angles there. Formalized below is only
++    the algebraic identity perpendicular_gradients, (0 : Real) * c₁ + (-c₁) * 0 = 0. That Λ₀'(ρ) ≠ 0 is not proved in this
++    file, the step from the crossing to the absence of off-line zeros is not formalized, and no declaration of this file
++    states where the zeros of ξ lie. -/
+ 
+ -- We formalize the key algebraic content:
+ 
+@@ -109,37 +80,12 @@ theorem perpendicular_gradients
+ -- PART III: THE FULL CHAIN
+ -- ================================================================
+ 
+-/- The complete logical chain from Focus + SpectralCannon + Simplicity → RH.
+-
+-    We assemble the proved pieces into one theorem statement.
+-
+-    Hypotheses (all proved except simplicity):
+-    H1: FOCUS — Im(Λ₀(1/2+it)) = 0
+-    H2: FE derivative — Λ₀'(s) = -Λ₀'(1-s)
+-    H3: Euler closing — ζ(s) ≠ 0 for Re(s) ≥ 1
+-    H4: Antisymmetry — Im(Λ₀(σ+it)) = -Im(Λ₀((1-σ)+it))
+-    H5 (axiom): Simplicity — Λ₀'(ρ) ≠ 0 at strip zeros
+-
+-    The chain:
+-    H2 at ρ = 1/2+iγ: Λ₀'(ρ) = -Λ₀'(1/2-iγ)
+-    Schwarz at conj(ρ) = 1/2-iγ: Λ₀'(conj ρ) = conj(Λ₀'(ρ))
+-    Combined: Λ₀'(ρ) = -conj(Λ₀'(ρ)) → Re(Λ₀'(ρ)) = 0
+-    H5: Λ₀'(ρ) ≠ 0, so Im(Λ₀'(ρ)) = c₁ ≠ 0
+-
+-    Cauchy-Riemann at ρ:
+-      ∂(Re Λ₀)/∂σ = Re(Λ₀') = 0
+-      ∂(Im Λ₀)/∂σ = Im(Λ₀') = c₁ ≠ 0
+-
+-    Along {Re(Λ₀) = 0} departing from ρ:
+-      |Im(Λ₀)| starts at 0 (H1) with derivative |c₁| > 0
+-      → |Im(Λ₀)| is strictly increasing
+-      → Im(Λ₀) never returns to 0
+-      → no off-line zero on this curve
+-
+-    H3: no zeros for Re(s) ≥ 1
+-    H4: symmetry about σ = 1/2
+-
+-    Therefore: all nontrivial zeros on σ = 1/2. -/
++/- An outline, not formalized here, of an argument from four compiled facts and the simplicity of the zeros toward RH. The
++    theorem below, proved_infrastructure, compiles the four facts as one conjunction: completedRiemannZeta₀ is real on the
++    critical line; its derivative satisfies deriv Λ₀ s = -(deriv Λ₀ (1 - s)); riemannZeta s ≠ 0 for 1 ≤ Re s; and
++    Λ₀(1 - σ + it) is the conjugate of Λ₀(σ + it). The simplicity of the zeros is not among them and is not proved here, the
++    step from the crossing at a simple zero to the absence of off-line zeros is not formalized, and no declaration of this
++    file concludes RH. -/
+ 
+ -- The assembly of all proved components:
+ theorem proved_infrastructure :
+
+### the cut itself (33 commits) is printed block by block in relay data/b652_sentence_grades.txt and listed in data/b652_sidekernel_cut.txt.
+### ### **MODULES OF THE THREE BRANCHES 3, MEASURED 3, ALLOWING 0 AT EITHER READING ; CUT-BRANCH FILES 33: MEASURED 1, UNMEASURED IN A LEAN_LIB 28, IN NO LEAN_LIB 4 ; BUILDS STARTED 0 ; MERGED 0.**

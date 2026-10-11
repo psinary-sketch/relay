@@ -39,6 +39,320 @@
    "seen": 184,
    "allows": false,
    "source": "relay data/b651_build_peaks.json rows 3-4 (attempt 2, tree peak 692 MB); data/b651_docstrings_SIDE-kernel.txt :17-:22"
+  },
+  {
+   "reading": 2,
+   "at": "2026-10-11T23:44:22Z",
+   "kernel": "SIDE-lv-conservation",
+   "branch": "b648-restate-SIDE-lv-conservation",
+   "module": "SIDELvConservation/T3_StepNineBridge.lean",
+   "target": "SIDELvConservation.T3_StepNineBridge",
+   "term": "host loss",
+   "needed": 1428,
+   "free": 3211,
+   "seen": 651,
+   "allows": false,
+   "source": "relay data/b649_lv_build.txt :16: 3545-2135 = 1410 ; 3532-2104 = 1428"
+  },
+  {
+   "reading": 2,
+   "at": "2026-10-11T23:44:22Z",
+   "kernel": "SIDE-effects",
+   "branch": "b648-restate-SIDE-effects",
+   "module": "SIDEEffects/Milestones.lean",
+   "target": "SIDEEffects.Milestones",
+   "term": "host loss",
+   "needed": 1255,
+   "free": 3211,
+   "seen": 651,
+   "allows": false,
+   "source": "b648`s log w_b648_milestones.log :1, :31, :34 (data/b648_build_peaks.json rows 3-4): 3788-2533 = 1255 ; 3616-2529 = 1087"
+  },
+  {
+   "reading": 2,
+   "at": "2026-10-11T23:44:22Z",
+   "kernel": "SIDE-kernel",
+   "branch": "docstrings-SIDE-kernel",
+   "module": "Kernel/PerpendicularCrossing.lean",
+   "target": "Kernel.PerpendicularCrossing",
+   "term": "host loss",
+   "needed": 906,
+   "free": 3211,
+   "seen": 651,
+   "allows": false,
+   "source": "relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710"
   }
- ]
+ ],
+ "cut_branch": {
+  "at": "2026-10-11T23:44:22Z",
+  "branch": "docstrings-SIDE-kernel",
+  "free": 3211,
+  "seen": 651,
+  "files": [
+   {
+    "file": "Bridge/CartanBBridge.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Bridge/ConservationBridge.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Bridge/CrossClassExclusion.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Bridge/FanoSteane.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Bridge/OstrowskiBridge.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Bridge/SIDEBridge.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Bridge/TheBridgeComplete.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Cascade/SieveCeiling.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Cascade/SieveCeilingBridge.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Cascade/SieveCeilingSemantic.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Core.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/DistributiveDark.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Formation.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Integration.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Kappa.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/PerpendicularCrossing.lean",
+    "lib": true,
+    "needed": 906,
+    "seen": 651,
+    "allows": false,
+    "source": "relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710"
+   },
+   {
+    "file": "Kernel/PoissonExhaustion.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/ProductFormula_Rat.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/SilencePrinciple.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/SilenceTheorem.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/StructuralCount.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Trivium.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/TriviumCode.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/TypeLevel.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Voice2.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Voice5.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Voice6.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "Kernel/Voice7.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "MetaKernel.lean",
+    "lib": true,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: no recorded host loss"
+   },
+   {
+    "file": "legacy/Foundation3v2.lean",
+    "lib": false,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: in no lean_lib (legacy/), nothing builds it"
+   },
+   {
+    "file": "legacy/Foundation4v2.lean",
+    "lib": false,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: in no lean_lib (legacy/), nothing builds it"
+   },
+   {
+    "file": "legacy/ProductFormula_Int.lean",
+    "lib": false,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: in no lean_lib (legacy/), nothing builds it"
+   },
+   {
+    "file": "legacy/SchwarzReflection_PR.lean",
+    "lib": false,
+    "needed": null,
+    "seen": 651,
+    "allows": false,
+    "source": "UNMEASURED: in no lean_lib (legacy/), nothing builds it"
+   }
+  ]
+ }
 }
