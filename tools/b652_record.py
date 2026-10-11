@@ -297,7 +297,7 @@ def grades(*a):
          '### parent`s verdict. Each graded row carries the parent`s ACTION verbatim. The sources: relay data/%s (b651, d7ab2fdb), data/%s' % (SENT, PARENTS),
          '### (b647); the grades: data/%s. Every quoted cell word read as a substring of the parent`s LICENSED cell before the bank was written.' % GRADES,
          '### Below each block: the block as the mechanical rule leaves it -- graded rows replaced in place by the ACTION, repeats dropped and printed.', '']
-    n_rows = n_graded = n_unres = n_drop = 0
+    n_rows = n_graded = n_unres = n_drop = n_cell = 0
     by_v = {}
     elided = []
     J = []
@@ -324,6 +324,14 @@ def grades(*a):
                 L.append('       %-11s cell: "%s"' % ('', mine[r['n']]))
             else:
                 L.append('  s%-3d %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
+        if '...' in q['action']:
+            n_cell += 1
+            L.append('   ### UNRESOLVED-CELL (the author`s word after the strike): an ACTION carrying "..." is an incomplete cell, not a sentence; nothing '
+                     'with "..." enters a docstring; not cut; b653 completes the cell from the block`s own LICENSED words, banked for the strike.')
+            J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], bank_line=rs[0]['parent_line'], verdict=v, graded=sorted(graded),
+                          action=q['action'], unresolved_cell=True))
+            L.append('')
+            continue
         if not graded and v in ('OVERREACHES', 'UNDERSTATES'):
             n_unres += 1
             L.append('   ### UNRESOLVED: no sentence the cells reach; not cut; for b653.')
@@ -340,9 +348,12 @@ def grades(*a):
         J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], bank_line=rs[0]['parent_line'], verdict=v,
                       graded=sorted(graded), action=q['action'], kept=kept, dropped=dropped))
         L.append('')
-    L.append('### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GRADED %d (%s) ; MATCHES %d ; UNRESOLVED BLOCKS %d ; REPEATS DROPPED BY THE RULE %d ; '
-             'ACTION CELLS WITH AN ELISION %d (%s).**' % (len(J), n_rows, n_graded, ', '.join('%s %d' % kv for kv in sorted(by_v.items())),
-                                                           n_rows - n_graded, n_unres, n_drop, len(elided), ', '.join('#%d' % e for e in elided)))
+    n_cut = len([b for b in J if b.get('kept') is not None])
+    files = sorted(set(b['file'] for b in J if b.get('kept') is not None))
+    L.append('### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GRADED %d (%s) ; MATCHES %d ; UNRESOLVED BLOCKS %d ; UNRESOLVED-CELL %d (%s) ; '
+             'BLOCKS TO CUT %d IN %d FILES ; REPEATS DROPPED BY THE RULE %d.**' % (
+                 len(J), n_rows, n_graded, ', '.join('%s %d' % kv for kv in sorted(by_v.items())), n_rows - n_graded, n_unres, n_cell,
+                 ', '.join('#%d' % e for e in elided), n_cut, len(files), n_drop))
     put_txt('b652_sentence_grades.txt', L)
     put_json('b652_sentence_cut_plan.json', dict(at=utc(), blocks=J))
     print(L[-1])
