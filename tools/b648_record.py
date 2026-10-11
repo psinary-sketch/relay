@@ -1216,13 +1216,19 @@ def reader_packet8(*a):
     os.makedirs(pdir, exist_ok=True)
     for n_, t_ in ((r['doc'], doc), ('questions.txt', qs)):
         _write(os.path.join(pdir, n_), (t_.rstrip(NL) + NL).encode('utf-8'))
-    if not DRY:
+    staged = (('packet/' + r['doc'], doc), ('packet/questions.txt', qs), ('lead.txt', B6._reader_lead()), ('full_prompt.txt', task))
+    if not DRY and 'banks' in a:   # ### the banks rewritten over a packet already staged: every staged file must equal what would be staged
+        differ = [n_ for n_, t_ in staged if open(os.path.join(r['dir'], n_), 'rb').read() != (t_.rstrip(NL) + NL).encode('utf-8')]
+        if differ:
+            sys.exit('### THE STAGED PACKET DIFFERS AT %s -- NOTHING WRITTEN' % differ)
+    elif not DRY:
         if os.path.exists(r['dir']) and os.listdir(r['dir']):
             sys.exit('### %s EXISTS AND IS NOT EMPTY -- NOT WRITTEN' % r['dir'])
         os.makedirs(r['dir'] + '/packet', exist_ok=True)
-        for n_, t_ in (('packet/' + r['doc'], doc), ('packet/questions.txt', qs), ('lead.txt', B6._reader_lead()), ('full_prompt.txt', task)):
+        for n_, t_ in staged:
             _write(os.path.join(r['dir'], n_), (t_.rstrip(NL) + NL).encode('utf-8'))
-    cmd = B6._reader_cmd()
+    # ### the one line the author pastes whole: it moves to the reader's directory itself (b648)
+    cmd = 'Set-Location %s; %s' % (r['dir'].replace('/', '\\'), B6._reader_cmd())
     L = ['b648 -- THE SECOND READER`S PACKET, STAGED OFF D:\\ (%s)' % utc(), '',
          '### staged: %s (packet/%s %d bytes, sha256 %s, the census at v0.8 as committed at PLACE-papers %s ; packet/questions.txt ; lead.txt ; '
          'full_prompt.txt) ; banked: relay data/b648_reader_packet/' % (r['dir'], r['doc'], len(doc.encode('utf-8')), sha(doc.encode('utf-8')),
