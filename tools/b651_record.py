@@ -94,6 +94,145 @@ def page_arms(tag='', *a):
     print(NL.join(l[:220] for l in L))
 
 
+# ================================================================================ COMPONENT 4: THE CENSUS AT v0.8.1, (R261)(5)
+CEN8 = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8.md'
+CEN81 = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md'
+CEN_SELF = ('p2-42',)          # ### the census itself (b648_record.CEN_SELF)
+GLOSS_AT_V8 = '936766a8'       # ### relay at b650's close: the glossary v0.8 was generated beside (b649's three entries in, b651's not)
+
+
+def _docs():
+    """[(id, cluster, text)] for the census rows that are documents (b647's 48 roster keystones and 7 Day 1 companions), read at PLACE-papers
+    HEAD; and the kernel rows."""
+    j = jl('b647_census_columns.json')['rows']
+    docs = [(r['id'], r.get('cluster') or '', g(PP, 'show', 'HEAD:' + r['path'])) for r in j if r['kind'] in ('roster', 'companion') and r.get('path')]
+    return docs, [r for r in j if r['kind'] == 'kernel']
+
+
+def clusters(*a):
+    """data/b651_clusters_served.txt and .json: every kernel's CLUSTERS-SERVED by tools/licensed_table.py clusters_served, the documents citing
+    it in their Correspondence tables, beside b648's placement (data/b648_kernel_cites.json); N3 read."""
+    import licensed_table as LT
+    docs, ks = _docs()
+    kc = dict((x['kernel'], x) for x in jl('b648_kernel_cites.json').get('rows') or [])
+    rows = []
+    for k in ks:
+        kn = k['id'].split()[0]
+        s, cites = LT.clusters_served(kn, docs, exclude=CEN_SELF)
+        rows.append(dict(kernel=kn, main=k['id'].split()[1] if len(k['id'].split()) > 1 else '', served=s, cites=cites,
+                         b648=(kc[kn]['how'] if kn in kc else 'placed by the rules at b647: %s' % (k.get('cluster') or '-'))))
+    split = [r for r in rows if r['b648'].startswith('split')]
+    none8 = [r for r in rows if r['b648'] == 'named by no keystone']
+    L = ['b651 -- COMPONENT 4, (R261)(5): CLUSTERS-SERVED FOR EVERY KERNEL OF THE CENSUS (%s)' % utc(), '',
+         '### the rule: tools/licensed_table.py clusters_served at relay %s -- the clusters of the documents whose Correspondence tables cite the '
+         'kernel by repository name; the documents: b647`s 48 roster keystones and 7 Day 1 companions (relay data/b647_census_columns.json) read '
+         'at PLACE-papers %s, %d of them carrying a Correspondence section; the census itself (%s) read and not counted.' % (
+             g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip(), g(PP, 'rev-parse', '--short=7', 'HEAD').strip(),
+             sum(1 for d in docs if LT.correspondence_text(d[2]).strip()), ', '.join(CEN_SELF)), '',
+         '### kernel | CLUSTERS-SERVED | the documents citing it (id, cluster, citations) | b648`s reading']
+    for r in rows:
+        L += ['  %-34s %s' % (r['kernel'], ', '.join(r['served']) or 'served: none'),
+              '      cited by: %s' % ('; '.join('%s (%s) x%d%s' % (i, c or 'no cluster', n, ' NOT COUNTED' if i in CEN_SELF else '')
+                                            for i, c, n in r['cites']) or 'none'),
+              '      b648: %s' % r['b648']]
+    two = [r for r in split if len(r['served']) >= 2]
+    L += ['', '### N3, read: of b648`s %d split kernels, %d read two or more clusters served (%s); %d read fewer (%s). Of b648`s %d kernels named by '
+              'no keystone: %s.' % (len(split), len(two), ', '.join(r['kernel'] for r in two), len(split) - len(two),
+                                    '; '.join('%s: %s' % (r['kernel'], ', '.join(r['served']) or 'served: none') for r in split if len(r['served']) < 2),
+                                    len(none8), '; '.join('%s: %s' % (r['kernel'], ', '.join(r['served']) or 'served: none') for r in none8)),
+          '', '### ### **KERNELS %d ; SERVED BY ONE CLUSTER %d ; BY TWO OR MORE %d ; SERVED: NONE %d.**' % (
+              len(rows), sum(len(r['served']) == 1 for r in rows), sum(len(r['served']) >= 2 for r in rows), sum(not r['served'] for r in rows))]
+    put_txt('b651_clusters_served.txt', L)
+    put_json('b651_clusters_served.json', dict(at=utc(), rows=rows))
+    print(NL.join(L[-3:]))
+
+
+V81_TAG = '## Back matter of the v0.8.1 edition — written 2026-10-11 by b651 under the author’s ruling `(R261)`(5), by the form of `(R187)`(5)'
+
+
+def _v81_backmatter():
+    import licensed_table as LT
+    rows = jl('b651_clusters_served.json')['rows']
+    none_ = [r for r in rows if not r['served']]
+    L = ['', V81_TAG, '',
+         '### The readings v0.8.1 adds, each the seat’s and strikeable', '',
+         '- **CLUSTERS-SERVED.** A kernel’s one-word cluster is replaced by the clusters it serves: the clusters of the documents whose '
+         'Correspondence tables cite it by its repository name, the census itself not counted (relay `tools/licensed_table.py`, '
+         'clusters_served). A kernel no Correspondence table cites reads “served: none” and is listed. Keystones and companions keep their '
+         'single cluster, v0.8’s, unchanged. A Correspondence table is the text under a heading naming Correspondence, to the next heading of '
+         'its level.',
+         '- **The documents read** are v0.8’s rows that are documents, %d of them, at PLACE-papers as this edition was generated; a kernel '
+         'named in a document’s prose and not in its Correspondence tables is not counted as served by it.' % len(_docs()[0]),
+         '- **The glossary block** is regenerated: one entry leaves it by a marked supersession (entry 65, “bNNN”, its words less “(b638 is '
+         'this one)”, `(R261)`(3)(a)) and six enter it, the five items the second reader marked unclear at b648 (`(R261)`(5)).',
+         '- **The numerals.** In this back matter every numeral is a count of the rows below or of a table’s rows.', '',
+         '### The clusters each kernel serves', '',
+         '| # | kernel | clusters served | the documents citing it in their Correspondence tables |', '|:--|:--|:--|:--|']
+    for i, r in enumerate(rows, 1):
+        L.append('| %d | `%s` | %s | %s |' % (i, r['kernel'], ', '.join(r['served']) or 'served: none',
+                                              '; '.join('%s (%s)' % (d, c or '—') for d, c, _n in r['cites'] if d not in CEN_SELF) or '—'))
+    L += ['', '*%d kernels: served by one cluster %d, by two or more %d, served by none %d.*' % (
+        len(rows), sum(len(r['served']) == 1 for r in rows), sum(len(r['served']) >= 2 for r in rows), len(none_)),
+          '', '### The kernels served by none', '',
+          '- %s.' % (', '.join('`%s`' % r['kernel'] for r in none_) or 'none'),
+          '', '### Version history', '',
+          '- **v0.8.1, 2026-10-11 (b651, `(R261)`(5))**: the kernels’ cluster read as the clusters they serve, from the Correspondence tables '
+          'that cite them; the glossary block regenerated; every other row and cell v0.8’s.',
+          '- **v0.8, 2026-10-10 (b648)** and the editions before it: carried above.']
+    return L
+
+
+def _old_block():
+    """v0.8's glossary block: the shared glossary at relay GLOSS_AT_V8, printed by the builder of now."""
+    import chain_page as CP
+    p = os.path.join(SP, 'b651_glossary_at_v8.txt')
+    _write(p, g(RELAY, 'show', '%s:data/glossary.txt' % GLOSS_AT_V8).encode('utf-8'))
+    return CP.glossary_block(p)
+
+
+def edition81(*a):
+    """PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md beside v0.8 (unedited), and data/b651_edition.json: v0.8 line for line but
+    its glossary block regenerated, a v0.8.1 version line above v0.8's, and the v0.8.1 back matter. `dry`: the scratchpad."""
+    import chain_page as CP
+    import hashlib
+    dry = 'dry' in a
+    if not jl('b651_clusters_served.json'):
+        sys.exit('### NO CLUSTERS-SERVED BANK -- NOTHING WRITTEN')
+    v8 = g(PP, 'show', 'HEAD:' + CEN8).split(NL)
+    if v8 and v8[-1] == '':
+        v8 = v8[:-1]
+    nb = CP.glossary_block()
+    # ### v0.8's block found in v0.8 itself: the builder's four head lines (heading, blank, introduction, blank), then its run of entry lines
+    hd = [i for i in range(len(v8)) if v8[i:i + 4] == nb[:4]]
+    ob = []
+    if len(hd) == 1:
+        k = hd[0] + 4
+        while k < len(v8) and v8[k].startswith('- **'):
+            k += 1
+        ob = v8[hd[0]:k]
+    at = hd if ob else []
+    vl = [i for i, l in enumerate(v8) if l.startswith('*v0.8, 2026-10-10')]
+    if len(at) != 1 or len(vl) != 1:
+        sys.exit('### v0.8`S GLOSSARY BLOCK (%s) OR ITS VERSION LINE (%s) NOT FOUND ONCE -- NOTHING WRITTEN' % (at, vl))
+    i, j = at[0], vl[0]
+    rows = jl('b651_clusters_served.json')['rows']
+    ver = ('*v0.8.1, 2026-10-11 -- the kernels’ cluster read as the clusters each serves, from the Correspondence tables that cite it (%d kernels, '
+           '%d served by none, listed); the glossary block regenerated; every other row and cell v0.8’s, which stands beside it, unedited.*' % (
+               len(rows), sum(1 for r in rows if not r['served'])))
+    out = v8[:i] + nb + v8[i + len(ob):j] + [ver, ''] + v8[j:] + _v81_backmatter()
+    b = (NL.join(out) + NL).encode('utf-8')
+    dest = os.path.join(SP, 'b651_census_dry.md') if dry else os.path.join(PP, *CEN81.split('/'))
+    if not dry and os.path.exists(dest) and 'regen' not in a:
+        sys.exit('### v0.8.1 EXISTS -- NOTHING WRITTEN')
+    _write(dest, b)
+    if not dry:
+        put_json('b651_edition.json', dict(at=utc(), path=CEN81, sha256=hashlib.sha256(b).hexdigest(), bytes=len(b), lines=len(out),
+                                           glossary_at=i + 1, glossary_lines=len(nb), old_glossary_lines=len(ob), backmatter=out.index(V81_TAG) + 1,
+                                           v8_lines=len(v8), v8_at=g(PP, 'rev-parse', '--short=7', 'HEAD').strip()))
+    print('  %s : %d lines, %d bytes ; the glossary block %d lines at :%d (was %d) ; the version line at :%d ; the back matter at :%d' % (
+        ('DRY ' + dest) if dry else CEN81, len(out), len(b), len(nb), i + 1, len(ob), j + 1 + len(nb) - len(ob), out.index(V81_TAG) + 1))
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn):
